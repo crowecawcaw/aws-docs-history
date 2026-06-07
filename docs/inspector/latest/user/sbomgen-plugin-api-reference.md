@@ -296,9 +296,41 @@ Closes the file handle. Always close handles when done.
 
 ## Binary Utilities
 
+### `sbomgen.hash(data, algorithm)`
+
+Returns the hex-encoded digest of an in-memory byte string under the given algorithm. Pair with `sbomgen.read_file(path)` to hash a file you've already read for parsing — preferred over `sbomgen.hash_file(path)` when you need both the bytes and the digest, since `hash` doesn't re-read the file.
+
+- **Returns:** `string, err`
+- **Algorithms:** see [Component Hashes](#sbomgen-plugin-api-reference-component-hashes "#sbomgen-plugin-api-reference-component-hashes") for the list of accepted algorithm constants.
+
+```
+local data, err = sbomgen.read_file("/path/to/manifest.json")
+if data then
+    local sha256 = sbomgen.hash(data, sbomgen.hash_algorithms.SHA256)
+    sbomgen.log_info("SHA-256: " .. sha256)
+end
+```
+
+### `sbomgen.hash_file(path, algorithm)`
+
+Returns the hex-encoded digest of a file's contents under the given algorithm. Routes the read through the artifact I/O layer, so it works uniformly across directory, container, archive, volume, and localhost artifacts. Use this when the digest is the only thing you need from the file.
+
+- **Returns:** `string, err`
+
+```
+local sha256, err = sbomgen.hash_file("/app/bin/server", sbomgen.hash_algorithms.SHA256)
+if sha256 then
+    sbomgen.log_info("SHA-256: " .. sha256)
+end
+```
+
 ### `sbomgen.sha256(path)`
 
-Returns the hex-encoded SHA-256 hash of a file's contents.
+###### Important
+
+**Deprecated.** Use `sbomgen.hash_file(path, sbomgen.hash_algorithms.SHA256)` instead. This alias is retained for backwards compatibility and will continue to work, but it will be removed in a future release. New plugins should call `hash_file` so the algorithm choice is explicit.
+
+Equivalent to `sbomgen.hash_file(path, "SHA-256")`.
 
 - **Returns:** `string, err`
 
@@ -398,6 +430,7 @@ The `pkg` table supports the following fields:
 | `component_type` | string   | Yes          | CycloneDX component type; use `sbomgen.component_types.*` constants (e.g., `sbomgen.component_types.LIBRARY`)                                                                           |
 | `qualifiers`     | table    | No           | PURL qualifiers as key-value pairs (appear in the package URL)                                                                                                                          |
 | `properties`     | table    | No           | CycloneDX component properties as key-value pairs (see [CycloneDX Properties](#sbomgen-plugin-api-reference-cyclonedx-properties "#sbomgen-plugin-api-reference-cyclonedx-properties")) |
+| `hashes`         | table    | No           | Component hashes keyed by algorithm name; see [Component Hashes](#sbomgen-plugin-api-reference-component-hashes "#sbomgen-plugin-api-reference-component-hashes")                       |
 | `children`       | table    | No           | Nested child packages, each with the same shape as `pkg` (required fields are validated recursively)                                                                                    |
 
 ```
@@ -411,8 +444,56 @@ sbomgen.push_package({
         -- Use your own namespace; amazon:inspector:* is reserved for Amazon Inspector.
         ["acme:example:extra_field"] = "example_value",
     },
+    hashes = {
+        [sbomgen.hash_algorithms.SHA256] = "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+    },
 })
 ```
+
+## Component Hashes
+
+The optional `hashes` field on `sbomgen.push_package()` records integrity digests for a component. Entries are keyed by algorithm name and serialized into the CycloneDX `components[].hashes` array, matching the schema Amazon Inspector expects.
+
+### Supported algorithms
+
+Use the constants under `sbomgen.hash_algorithms` so the algorithm name passed to `sbomgen.hash()` / `sbomgen.hash_file()` is the same string accepted by `push_package({ hashes = ... })`:
+
+| **Constant**                     | **Value**   | **Hex digest length** |
+| -------------------------------- | ----------- | --------------------- |
+| `sbomgen.hash_algorithms.SHA1`   | `"SHA-1"`   | 40                    |
+| `sbomgen.hash_algorithms.SHA256` | `"SHA-256"` | 64                    |
+
+### Validation rules
+
+`push_package()` validates `hashes` before emitting a finding. A package whose hashes fail validation is dropped and a warning is logged. Validation:
+
+- Algorithm names must match an entry in `sbomgen.hash_algorithms` (case sensitive, exactly `"SHA-1"` or `"SHA-256"`).
+- Values must be non-empty, lower-case hexadecimal digits.
+- Values must be the correct length for the algorithm (40 chars for SHA-1, 64 chars for SHA-256).
+- Validation is recursive: a malformed hash inside `children[].hashes` rejects the whole package.
+
+### Example: hashing a manifest and attaching the digest
+
+```
+function collect(file_path)
+    local data, err = sbomgen.read_file(file_path)
+    if err then return end
+
+    local sha256 = sbomgen.hash(data, sbomgen.hash_algorithms.SHA256)
+
+    sbomgen.push_package({
+        name = "skill-manifest",
+        version = "1.0.0",
+        purl_type = "generic",
+        component_type = sbomgen.component_types.DATA,
+        hashes = {
+            [sbomgen.hash_algorithms.SHA256] = sha256,
+        },
+    })
+end
+```
+
+When the digest is the only thing you need from the file, prefer `sbomgen.hash_file(path, algo)` over reading the file twice — it routes the read through the artifact I/O layer in a single pass.
 
 ## CycloneDX Properties
 
@@ -549,6 +630,27 @@ sbomgen.push_package({
 })
 ```
 
+## Hash Algorithm Constants
+
+Constants for the algorithm parameter of `sbomgen.hash()`, `sbomgen.hash_file()`, and the `hashes` field of `sbomgen.push_package()`. The string values match the CycloneDX hash algorithm names so the same constant flows through the entire hashing path without translation.
+
+| **Constant**                     | **Value**   |
+| -------------------------------- | ----------- |
+| `sbomgen.hash_algorithms.SHA1`   | `"SHA-1"`   |
+| `sbomgen.hash_algorithms.SHA256` | `"SHA-256"` |
+
+Example:
+
+```
+local digest = sbomgen.hash_file(path, sbomgen.hash_algorithms.SHA256)
+sbomgen.push_package({
+    name = "example",
+    purl_type = "generic",
+    component_type = sbomgen.component_types.LIBRARY,
+    hashes = { [sbomgen.hash_algorithms.SHA256] = digest },
+})
+```
+
 ## Platform Constants
 
 Constants for comparing against `sbomgen.get_platform()`. Available via `sbomgen.platform`:
@@ -602,6 +704,33 @@ Returns the system drive letter (e.g., `"C:"`) from the artifact's environment. 
 local drive = sbomgen.get_system_drive()
 local program_files = drive .. "/Program Files/"
 ```
+
+### `sbomgen.resolve_glob_paths(patterns)`
+
+Expands filesystem glob patterns against the host filesystem. Localhost-only: returns `nil` plus an error on other artifact types.
+
+```
+function get_localhost_scan_paths()
+    return sbomgen.resolve_glob_paths({
+        "/home/*/.cache/huggingface/hub",
+        "/Users/*/.cache/huggingface/hub",
+        "C:/Users/*/.cache/huggingface/hub",
+    })
+end
+```
+
+**Behavior:**
+
+- Pattern syntax follows Go's [`filepath.Match`](https://pkg.go.dev/path/filepath#Match "https://pkg.go.dev/path/filepath#Match"): `*`, `?`, `[abc]`, `[a-z]`.
+- Input patterns and output paths are normalized: redundant separators (`a//b`), dot segments (`a/./b`), and trailing separators (`a/b/`) are collapsed.
+- Output is deduplicated; the first occurrence of a path wins. Input pattern order is preserved across the result.
+- Patterns that match nothing return no entries. Empty-string patterns are silently skipped. Malformed patterns (e.g. mismatched brackets) emit a warning and are skipped.
+
+**Cross-platform path separators:**
+
+- **Use forward slashes (`/`) for all paths.** Forward slashes work on Linux, macOS, and Windows; Go's filepath logic translates them to the native separator on Windows.
+- **Backslash separators only work on Windows.** On Linux and macOS, `\` is a literal filename character, not a path separator — a pattern like `"C:\\Users\\*"` matches nothing on POSIX systems.
+- **Avoid literal Windows-style paths in Lua strings.** A Lua string like `"C:\Users"` is interpreted as `C:<form-feed>sers` because `\U` is not a valid Lua escape (and `\f`, `\n`, `\t` etc. are), so the pattern silently fails. Either use forward slashes, escaped backslashes (`"C:\\Users"`), or a long-bracket raw string (`[[C:\Users]]`).
 
 ## System Info
 

@@ -468,6 +468,10 @@ The SOURCE column shows where each scanner comes from:
 
 Running `list-scanners` without `--plugin-dir` still includes both `native` and `official` scanners — those are always available. The `--plugin-dir` flag adds your `custom` scanners to the listing.
 
+###### Components from custom plugins are marked with CycloneDX scope: "optional"
+
+Components emitted by user-supplied Lua plugins loaded via `--plugin-dir` are tagged with the CycloneDX `scope: "optional"` field in the resulting SBOM. This distinguishes them from components produced by built-in native scanners and official Lua plugins bundled with sbomgen, which leave `scope` unset (consumers default a missing scope to `"required"` per the CycloneDX specification). The `scope` value applies to every component the plugin emits, including nested children, and you do not need to set it yourself in `sbomgen.push_package()`.
+
 To list only Lua scanners without native scanners:
 
 ```

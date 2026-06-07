@@ -15,8 +15,10 @@ The Amazon Inspector SBOM Generator supports scanning for the following ecosyste
 | 7-Zip                  | 7-Zip archiver (version 21.07 and higher)                                                                                                                                                                                                                                                    |
 | Amazon Q Developer     | Amazon Q Developer CLI<br>Amazon Q VS Code extension<br>Amazon Q JetBrains plugin                                                                                                                                                                                                            |
 | Anthropic              | Claude Code CLI                                                                                                                                                                                                                                                                              |
+| Anysphere              | Cursor                                                                                                                                                                                                                                                                                       |
 | Apache                 | Apache Cassandra<br>Apache httpd<br>Apache Struts<br>Apache tomcat                                                                                                                                                                                                                           |
 | Atlassian              | Jira Core<br>Confluence<br>Jira Software<br>Jira Service Management                                                                                                                                                                                                                          |
+| Codeium                | Windsurf                                                                                                                                                                                                                                                                                     |
 | Conda                  | Miniconda environments<br>Anaconda environments<br>Miniforge environments<br>Mambaforge environments                                                                                                                                                                                         |
 | Curl                   | Curl<br>Libcurl                                                                                                                                                                                                                                                                              |
 | Docker binaries        | docker<br>dockerd<br>containerd<br>runc                                                                                                                                                                                                                                                      |
@@ -42,6 +44,7 @@ The Amazon Inspector SBOM Generator supports scanning for the following ecosyste
 | PHP                    | PHP (version 8.1 and higher)                                                                                                                                                                                                                                                                 |
 | Redis                  | Redis (version 7.2 and higher)                                                                                                                                                                                                                                                               |
 | WordPress              | core<br>plugin<br>theme                                                                                                                                                                                                                                                                      |
+| Zed Industries         | Zed                                                                                                                                                                                                                                                                                          |
 
 ## 7-Zip ecosystem collection
 
@@ -592,6 +595,39 @@ The following is an example package URL for a `Libcurl` version file.
 
 ```
 Sample PURL: pkg:generic/curl/libcurl@8.14.1
+```
+
+## Cursor ecosystem collection
+
+###### Supported applications
+
+- Cursor (by Anysphere)
+
+###### Key features
+
+- Examines installations of Cursor, an Electron-based AI code editor by Anysphere. Extracts the version from the application's `resources/app/package.json` Electron manifest.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/share/cursor/`
+- `/usr/bin/cursor`
+- `~/.local/bin/cursor`
+
+###### Windows
+
+- `%LOCALAPPDATA%\Programs\cursor\`
+- `<SystemDrive>\Program Files\cursor\`
+
+###### Example PURL
+
+The following is an example package URL for Cursor.
+
+```
+Sample PURL: pkg:generic/cursor/cursor@0.42.3?distro=linux
 ```
 
 ## Docker binaries ecosystem collection
@@ -1755,6 +1791,38 @@ The following is an example package URL for Redis.
 pkg:generic/redis/redis@7.2.6
 ```
 
+## Windsurf ecosystem collection
+
+###### Supported applications
+
+- Windsurf (by Codeium)
+
+###### Key features
+
+- Examines installations of Windsurf, an Electron-based AI code editor by Codeium. Extracts the version from the application's `resources/app/package.json` Electron manifest.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/share/windsurf/`
+- `/usr/bin/windsurf`
+
+###### Windows
+
+- `%LOCALAPPDATA%\Programs\windsurf\`
+- `<SystemDrive>\Program Files\Windsurf\`
+
+###### Example PURL
+
+The following is an example package URL for Windsurf.
+
+```
+Sample PURL: pkg:generic/codeium/windsurf@1.10.5?distro=linux
+```
+
 ## WordPress ecosystem collection
 
 ###### Supported components
@@ -1862,4 +1930,38 @@ The following is an example package URL for a WordPress theme.
 
 Sample PURL: pkg:generic/wordpress/theme/avada@1.0.0
 
+```
+
+## Zed ecosystem collection
+
+###### Supported applications
+
+- Zed (by Zed Industries)
+
+###### Key features
+
+- Examines the standalone Zed binary distributed by Zed Industries.
+- Zed is a Rust binary with no manifest. The version is extracted from a constant string embedded in the binary.
+
+###### Supported platforms
+
+The Amazon Inspector SBOM Generator scans for installations in common installation paths across platforms:
+
+###### Linux
+
+- `/usr/bin/zed`
+- `/usr/local/bin/zed`
+- `~/.local/bin/zed`
+
+###### Windows
+
+- `%LOCALAPPDATA%\Zed\`
+- `<SystemDrive>\Program Files\Zed\`
+
+###### Example PURL
+
+The following is an example package URL for Zed.
+
+```
+Sample PURL: pkg:generic/zed-industries/zed@1.2.6?distro=linux
 ```

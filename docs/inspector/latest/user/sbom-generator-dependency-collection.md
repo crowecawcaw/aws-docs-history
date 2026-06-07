@@ -968,7 +968,7 @@ These files provide detailed metadata about installed packages.
 
 ###### Expanded default scan paths (Sbomgen 1.13.0 and later)
 
-In Amazon Inspector SBOM Generator release 1.13.0 and later, the scanner's default localhost scan paths were expanded to include user-level `pip` installs (`pip install --user`) and installs produced by the `uv tool install` command. This enables detection of Python packages that are installed outside system-wide `site-packages`, including frameworks such as CrewAI whose recommended install method is `uv tool install crewai`.
+In Amazon Inspector SBOM Generator release 1.13.0 and later, the scanner's default localhost scan paths were expanded to include user-level `pip` installs (`pip install --user`) and installs produced by the `uv tool install` command. This enables detection of Python packages that are installed outside system-wide `site-packages`, including frameworks and tools such as CrewAI, Aider, GPT Engineer, and Open Interpreter, whose recommended install methods produce installs in these locations (for example, `uv tool install crewai`).
 
 Added default scan paths:
 

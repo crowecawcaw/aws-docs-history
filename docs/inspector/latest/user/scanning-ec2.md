@@ -320,7 +320,7 @@ To prevent the plugin from being invoked, you must [allow access to tags in inst
 
 You're not charged for excluded instances.
 
-Additionally, you can exclude an encrypted EBS volume from agentless scans by tagging the AWS KMS key used to encrypt that volume with the `InspectorEc2Exclusion` tag.
+Additionally, you can exclude an instance from agentless scans by tagging the AWS KMS key used to encrypt that volume with the `InspectorEc2Exclusion` tag.
 For more information, see [Tagging keys](../../../kms/latest/developerguide/tagging-keys.md "../../../kms/latest/developerguide/tagging-keys.md").
 
 ## Supported operating systems
