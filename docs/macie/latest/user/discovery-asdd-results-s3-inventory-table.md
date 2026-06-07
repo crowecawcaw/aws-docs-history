@@ -34,7 +34,7 @@ buckets in your inventory and a table of the buckets. 4. To retrieve the latest 
 top of the page.
 
 If the information icon (
-![The information icon, which is a blue circle that has a lowercase letter i in it.](/images/macie/latest/user/images/icon-info-blue.png)
+![The information icon, which is a blue circle that has a lowercase letter i in it.](images/icon-info-blue.png)
 ) appears next to any bucket names, we recommend
 that you do this. This icon indicates that a bucket was created during the past 24 hours,
 possibly after Macie last retrieved bucket and object metadata from Amazon S3 as part of the [daily refresh cycle](monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh "monitoring-s3-how-it-works.md#monitoring-s3-how-it-works-data-refresh"). 5. In the **S3 buckets** table, review summary information about each bucket
