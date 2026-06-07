@@ -505,7 +505,13 @@ Whether the transfer is successful. Values: `FAILED |
 `failure-code`
 
 For failed transfers, the reason code for why the transfer
-failed.
+failed. Values:
+`ASSUME_ROLE_ERROR | UNSUPPORTED_OPERATION_ERROR |
+ CONNECTION_ERROR | READ_FILE_ERROR | WRITE_FILE_ERROR |
+ TIMEOUT_ERROR | LIST_DIRECTORY_ERROR | SEND_FILE_NOT_FOUND |
+ RETRIEVE_FILE_NOT_FOUND | DIRECTORY_NOT_FOUND | FILE_NOT_FOUND |
+ PATH_NOT_FOUND | RENAME_ERROR | DELETE_ERROR | INTERNAL_ERROR |
+ UNKNOWN_ERROR`.
 
 `failure-message`
 
