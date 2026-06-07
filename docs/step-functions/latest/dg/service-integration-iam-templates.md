@@ -47,6 +47,11 @@ permissions for polling.
 In the previous scenario, you might not notice the
 polling permissions are missing or incorrect. In the rare case that an event
 fails to be delivered to or processed by Step Functions, your execution could become stuck.
+Additionally, in some cases the event might not contain all the data that is
+required to complete the task. When this happens, Step Functions polls the service to
+retrieve the remaining data. If the execution role lacks the required permissions
+for polling, the task gets stuck, even though other tasks that don't require
+additional polling succeed.
 
 To verify that your polling permissions are configured correctly, you can run an
 execution in an environment without EventBridge events in the following ways

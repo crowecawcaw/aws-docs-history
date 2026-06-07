@@ -744,6 +744,14 @@ connection, including the secret for this connection that is stored in Secrets M
 
 ```
 
+###### Important
+
+You can scope `states:InvokeHTTPEndpoint` permissions to a specific
+state machine by specifying a state machine ARN in the policy statement's
+`Resource` field, but further scoping the permissions using an
+[`aws:ResourceTag/${TagKey}`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourcetag")
+condition key is not supported at this time.
+
 ## HTTP Task example
 
 The following state machine definition shows an HTTP Task that includes the

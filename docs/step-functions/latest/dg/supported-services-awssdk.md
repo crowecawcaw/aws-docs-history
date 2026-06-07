@@ -280,7 +280,7 @@ Task state resource: `arn:aws:states:::aws-sdk:bedrockagentcore:`[apiAction]``
 
 Exception prefix: `BedrockAgentCore`
 
-**Unsupported operations:** `InvokeCodeInterpreter`
+**Unsupported operations:** `InvokeCodeInterpreter`, `InvokeAgentRuntimeCommand`, `InvokeHarness`
 
 **Amazon Bedrock AgentCore Control Plane**
 
@@ -818,6 +818,14 @@ Task state resource: `arn:aws:states:::aws-sdk:detective:`[apiAction]``
 
 Exception prefix: `Detective`
 
+**AWS DevOps Agent Service**
+
+Task state resource: `arn:aws:states:::aws-sdk:devopsagent:`[apiAction]``
+
+Exception prefix: `DevOpsAgent`
+
+**Unsupported operations:** `SendMessage`
+
 **DevOps Guru**
 
 Task state resource: `arn:aws:states:::aws-sdk:devopsguru:`[apiAction]``
@@ -1232,6 +1240,12 @@ Task state resource: `arn:aws:states:::aws-sdk:inspector2:`[apiAction]``
 
 Exception prefix: `Inspector2`
 
+**Interconnect**
+
+Task state resource: `arn:aws:states:::aws-sdk:interconnect:`[apiAction]``
+
+Exception prefix: `Interconnect`
+
 **AWS Invoicing**
 
 Task state resource: `arn:aws:states:::aws-sdk:invoicing:`[apiAction]``
@@ -1446,23 +1460,11 @@ Task state resource: `arn:aws:states:::aws-sdk:launchwizard:`[apiAction]``
 
 Exception prefix: `LaunchWizard`
 
-**Amazon Lex Model Building V1**
-
-Task state resource: `arn:aws:states:::aws-sdk:lexmodelbuilding:`[apiAction]``
-
-Exception prefix: `LexModelBuilding`
-
 **Amazon Lex Model Building V2**
 
 Task state resource: `arn:aws:states:::aws-sdk:lexmodelsv2:`[apiAction]``
 
 Exception prefix: `LexModelsV2`
-
-**Amazon Lex Runtime V1**
-
-Task state resource: `arn:aws:states:::aws-sdk:lexruntime:`[apiAction]``
-
-Exception prefix: `LexRuntime`
 
 **Amazon Lex Runtime V2**
 
@@ -1609,6 +1611,12 @@ Exception prefix: `MarketplaceCatalog`
 Task state resource: `arn:aws:states:::aws-sdk:marketplacecommerceanalytics:`[apiAction]``
 
 Exception prefix: `MarketplaceCommerceAnalytics`
+
+**AWS Marketplace Discovery**
+
+Task state resource: `arn:aws:states:::aws-sdk:marketplacediscovery:`[apiAction]``
+
+Exception prefix: `MarketplaceDiscovery`
 
 **AWS Marketplace Entitlement Service**
 
@@ -1912,6 +1920,8 @@ Task state resource: `arn:aws:states:::aws-sdk:polly:`[apiAction]``
 
 Exception prefix: `Polly`
 
+**Unsupported operations:** `StartSpeechSynthesisStream`
+
 **AWS Price List**
 
 Task state resource: `arn:aws:states:::aws-sdk:pricing:`[apiAction]``
@@ -2142,6 +2152,12 @@ Exception prefix: `S3Control`
 
 **Unsupported operations:** `SelectObjectContent`
 
+**Amazon S3 Files**
+
+Task state resource: `arn:aws:states:::aws-sdk:s3files:`[apiAction]``
+
+Exception prefix: `S3Files`
+
 **Amazon S3 Glacier**
 
 Task state resource: `arn:aws:states:::aws-sdk:glacier:`[apiAction]``
@@ -2192,15 +2208,15 @@ Exception prefix: `Sqs`
 
 **AWS SSO**
 
-Task state resource: `arn:aws:states:::aws-sdk:identitystore:`[apiAction]``
-
-Exception prefix: `Identitystore`
-
-**AWS SSO**
-
 Task state resource: `arn:aws:states:::aws-sdk:sso:`[apiAction]``
 
 Exception prefix: `Sso`
+
+**AWS SSO**
+
+Task state resource: `arn:aws:states:::aws-sdk:identitystore:`[apiAction]``
+
+Exception prefix: `Identitystore`
 
 **AWS SSO Admin**
 
@@ -2271,6 +2287,12 @@ Exception prefix: `Savingsplans`
 Task state resource: `arn:aws:states:::aws-sdk:secretsmanager:`[apiAction]``
 
 Exception prefix: `SecretsManager`
+
+**AWS Security Agent**
+
+Task state resource: `arn:aws:states:::aws-sdk:securityagent:`[apiAction]``
+
+Exception prefix: `SecurityAgent`
 
 **AWS Security Hub**
 
@@ -2364,6 +2386,12 @@ Task state resource: `arn:aws:states:::aws-sdk:simspaceweaver:`[apiAction]``
 
 Exception prefix: `SimSpaceWeaver`
 
+**Amazon SimpleDB v2**
+
+Task state resource: `arn:aws:states:::aws-sdk:simpledbv2:`[apiAction]``
+
+Exception prefix: `SimpleDbV2`
+
 **AWS Snow Device Management**
 
 Task state resource: `arn:aws:states:::aws-sdk:snowdevicemanagement:`[apiAction]``
@@ -2405,6 +2433,12 @@ Exception prefix: `Support`
 Task state resource: `arn:aws:states:::aws-sdk:supportapp:`[apiAction]``
 
 Exception prefix: `SupportApp`
+
+**AWS Sustainability**
+
+Task state resource: `arn:aws:states:::aws-sdk:sustainability:`[apiAction]``
+
+Exception prefix: `Sustainability`
 
 **Systems Manager**
 
@@ -2489,6 +2523,12 @@ Exception prefix: `Translate`
 Task state resource: `arn:aws:states:::aws-sdk:trustedadvisor:`[apiAction]``
 
 Exception prefix: `TrustedAdvisor`
+
+**AWS User Experience Customization**
+
+Task state resource: `arn:aws:states:::aws-sdk:uxc:`[apiAction]``
+
+Exception prefix: `Uxc`
 
 **AWS User Notifications Contacts**
 

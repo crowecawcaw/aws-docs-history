@@ -14,6 +14,7 @@ For more troubleshooting advice and answers to common support questions, visit t
 - [Service integrations](#troubleshooting-service-integrations "#troubleshooting-service-integrations")
 - [Activities](#troubleshooting-activities "#troubleshooting-activities")
 - [Express workflows](#troubleshooting-express-workflows "#troubleshooting-express-workflows")
+- [Distributed Maps](#troubleshooting-distributed-maps "#troubleshooting-distributed-maps")
 
 ## General troubleshooting
 
@@ -238,3 +239,47 @@ To list failed and cancelled executions:
 ```
 fields ispresent(execution_arn) as isRes | filter type in ["ExecutionFailed", "ExecutionAborted", "ExecutionTimedOut"]
 ```
+
+## Troubleshooting Distributed Maps
+
+### My map run is stuck.
+
+There is a service quota for the [maximum number of open map runs](service-quotas.md#service-limits-accounts "service-quotas.md#service-limits-accounts"). Once this quota is exhausted,
+additional map runs wait for more quota to become available as other map runs
+complete. Backlogged map runs wait at the `MapRunStarted` event,
+before reading their input, so you will see the map run's pending items
+count remain at 0. Once a backlogged map run is able to acquire quota then
+it will begin reading its input. You will then see the pending items count
+increase and the map run will continue normally for the rest of its lifecycle.
+As quota becomes available, there is no particular order for how it is allocated
+among the backlogged map runs.
+
+There is a risk of deadlock when using nested map runs. In this situation
+you have a parent workflow execution containing a "parent" map run, which in
+turn starts a child workflow execution containing a "child" map run, which
+in turn starts a grandchild workflow execution. If no _maximum
+number of open map runs_ quota remains when the child workflow
+execution starts its child map run then that child map run will be
+backlogged. If the entire quota is being consumed by parent map runs, and
+all the child map runs are backlogged, then neither group will be able to
+make progress and they will remain deadlocked until quota becomes available
+again. A map run will abort and make its quota available again when its
+parent execution terminates, such as by timing out, failing due to an
+uncaught error, or due to a `StopExecution` API call.
+
+When considering using nested map runs in your workflow design, estimate
+if your expected number of open map runs could exceed the
+_maximum number of open map runs_ quota and put you at
+risk of delays or deadlock. If so, you can consider alternative designs.
+For example, instead of using a parent map run to iterate over a list of
+Amazon S3 objects and a child map run to read their contents, you could instead
+use the [`LOAD_AND_FLATTEN` transformation](input-output-itemreader.md#itemreader-flatten "input-output-itemreader.md#itemreader-flatten") in your map run's
+`ReaderConfig` to perform both of those operations in a single
+map run. Another common pattern is to include a preprocessing step, such as
+a Lambda function, which iterates over your nested data and produces a file
+that can be used as the map run's input.
+
+You can [monitor your usage](procedure-cw-metrics.md#resource-count-metrics-map-run "procedure-cw-metrics.md#resource-count-metrics-map-run") of the _maximum number of open map
+runs_ quota using the `ApproximateOpenMapRunCount`,
+`OpenMapRunLimit`, and `ApproximateMapRunBacklogSize`
+metrics in CloudWatch.

@@ -73,10 +73,15 @@ following:
 
 The execution pauses at the activity task state and waits for your activity worker to poll
 for a task. Once a `taskToken` is provided to your activity worker, your workflow
-will wait for `SendTaskSuccess` or `SendTaskFailure` to provide a status. If the execution doesn't receive
-either of these or a `SendTaskHeartbeat` call before the time configured in
-`TimeoutSeconds`, the execution will fail and the execution history will contain
-an `ExecutionTimedOut` event.
+will wait for `SendTaskSuccess` or `SendTaskFailure` to provide a status.
+
+If the execution doesn't receive either of these or a `SendTaskHeartbeat` call
+before the time configured in `TimeoutSeconds`, the execution will fail and the
+execution history will contain an `ExecutionTimedOut` event. After the task times
+out, Step Functions invalidates the task token. API calls that use the expired
+task token fail with a `TaskTimedOut` exception. Your worker should handle this
+error and then resume normal operation, such as polling `GetActivityTask` for more work
+or shutting down.
 
 ## Example: Activity Worker in Ruby
 

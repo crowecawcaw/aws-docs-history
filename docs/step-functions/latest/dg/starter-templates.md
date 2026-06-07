@@ -25,6 +25,7 @@ the related resources referenced by the state machine.
 - [Train a machine learning model using Amazon SageMaker AI](sample-train-model.md "sample-train-model.md")
 - [Tune the hyperparameters of a machine learning model in SageMaker AI](sample-hyper-tuning.md "sample-hyper-tuning.md")
 - [Perform AI prompt-chaining with Amazon Bedrock](sample-bedrock-prompt-chaining.md "sample-bedrock-prompt-chaining.md")
+- [Triage support tickets with Amazon Bedrock AgentCore invokeHarness](sample-bedrock-agentcore-invoke-harness.md "sample-bedrock-agentcore-invoke-harness.md")
 - [Process high-volume messages from Amazon SQS with Step Functions Express workflows](sample-project-express-high-volume-sqs.md "sample-project-express-high-volume-sqs.md")
 - [Perform selective checkpointing using Standard and Express workflows](sample-project-express-selective-checkpointing.md "sample-project-express-selective-checkpointing.md")
 - [Build an AWS CodeBuild project using Step Functions](sample-project-codebuild.md "sample-project-codebuild.md")
