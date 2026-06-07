@@ -361,7 +361,7 @@ console.
 
 The **Create database by restoring from S3** page appears.
 
-![The page where you specify the details for restoring a DB cluster from S3](images/AuroraMigrateS3_01.png) 5. Under **S3 destination**:
+![The page where you specify the details for restoring a DB cluster from S3.](images/AuroraMigrateS3_01.png) 5. Under **S3 destination**:
 
     1. Choose the **S3 bucket** that contains the backup files.
     2. (Optional) For **S3 folder path prefix**, enter a file path prefix for the files
@@ -416,7 +416,7 @@ instance class and store allocated, it can take several minutes for the new inst
 To view the newly created cluster, choose the **Databases** view in the Amazon RDS console and choose the
 DB cluster. For more information, see [Viewing an Amazon Aurora DB cluster](accessing-monitoring.md#Aurora.Viewing "accessing-monitoring.md#Aurora.Viewing").
 
-![Amazon Aurora DB Instances List](images/AuroraLaunch04.png)
+![Amazon Aurora DB Instances List.](images/AuroraLaunch04.png)
 
 Note the port and the writer endpoint of the DB cluster. Use the writer endpoint and port of the DB cluster in your
 JDBC and ODBC connection strings for any application that performs write or read operations.
@@ -580,7 +580,7 @@ Your output should be similar the following.
 
 
 
-    ![View MySQL primary](images/aurora-mysql-rep-binary-log-position.png)**Using the AWS CLI**
+    ![View MySQL primary.](images/aurora-mysql-rep-binary-log-position.png)**Using the AWS CLI**
 
 You can also get the binlog file name and position by using the [describe-events](../../../cli/latest/reference/rds/describe-events.md "../../../cli/latest/reference/rds/describe-events.md") AWS CLI command. The following shows
 an example `describe-events` command.

@@ -12,7 +12,7 @@ or while viewing a report.
 
 The Performance Insights dashboard appears for the DB instance. 4. Scroll down and choose **Performance analysis reports - new** tab. 5. Select the report you want to delete and choose **Delete** in the upper right.
 
-![Performance Insights dashboard to delete with a report selected for deletion](images/PI_DeleteAnalysisRep.png)
+![Performance Insights dashboard to delete with a report selected for deletion.](images/PI_DeleteAnalysisRep.png)
 
 A confirmation window is displayed. The report is deleted after you choose confirm. 6. (Optional) Choose **ID** of the report you want to delete.
 

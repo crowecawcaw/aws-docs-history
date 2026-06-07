@@ -16,7 +16,7 @@ You can use the AWS Management Console, AWS CLI, or API to download a database l
    As**. Enter the location where you want the log file to be saved, and then choose
    **Save**.
 
-![viewing log file](images/log_download2.png)
+![viewing log file.](images/log_download2.png)
 To download a database log file, use the AWS CLI command [`download-db-log-file-portion`](../../../cli/latest/reference/rds/download-db-log-file-portion.md "../../../cli/latest/reference/rds/download-db-log-file-portion.md"). By default, this command downloads only the
 latest portion of a log file. However, you can download an entire file by specifying the parameter
 `--starting-token 0`.

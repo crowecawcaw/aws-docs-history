@@ -110,7 +110,7 @@ that you can run is subject to the Data API limitations. For more information, s
    haven't connected to the database before, the **Connect to
    database** page opens.
 
-![Query editor Connect to database page](images/query-editor-connect.png) 6. Enter the following information:
+![Query editor Connect to database page.](images/query-editor-connect.png) 6. Enter the following information:
 
     1. For **Database instance or cluster**, choose the Aurora DB cluster
      that you want to run SQL queries on.
@@ -136,16 +136,16 @@ that you can run is subject to the Data API limitations. For more information, s
 7. In the query editor, enter the SQL query that you want to run on the
    database.
 
-![Query editor with a SQL statement in the text area](images/query-editor.png)
+![Query editor with a SQL statement in the text area.](images/query-editor.png)
 
 Each SQL statement can commit automatically, or you can run SQL statements in a script as part of a transaction.
 To control this behavior, choose the gear icon above the query window.
 
-![Gear icon in Query editor](images/query-editor-gear.png)
+![Gear icon in Query editor.](images/query-editor-gear.png)
 
 The **Query Editor Settings** window appears.
 
-![Query Editor Settings](images/query-editor-settings.png)
+![Query Editor Settings.](images/query-editor-settings.png)
 
 If you choose **Auto-commit**, every SQL statement commits automatically. If you choose **Transaction**,
 you can run a group of statements in a script. Statements are automatically committed at the end of the script unless explicitly committed

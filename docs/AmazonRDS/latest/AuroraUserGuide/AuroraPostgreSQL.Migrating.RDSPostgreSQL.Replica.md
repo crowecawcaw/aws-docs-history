@@ -114,7 +114,7 @@ family.
    read replica**. If this choice doesn't display, it means that
    a compatible Aurora PostgreSQL version isn't available in the Region.
 
-![Create Aurora read replica](images/Aurorapgres-migrate.png) 4. On the Create Aurora read replica settings page, you configure
+![Create Aurora read replica.](images/Aurorapgres-migrate.png) 4. On the Create Aurora read replica settings page, you configure
 the properties for the Aurora PostgreSQL DB cluster as shown in the
 following table. The Replica DB cluster
 is created from a snapshot of the source DB instance using the
@@ -324,7 +324,7 @@ see [Monitoring Aurora PostgreSQL replication](AuroraPostgreSQL.Replication.md#A
 2. In the navigation pane, choose **Databases**.
 3. Choose the Replica cluster.
 
-![Promote a Replica cluster to full Aurora PostgreSQL DB cluster status](images/Aurorapgres-migrate-2.png) 4. For **Actions**, choose **Promote**. This may take a few minutes and can cause downtime.
+![Promote a Replica cluster to full Aurora PostgreSQL DB cluster status.](images/Aurorapgres-migrate-2.png) 4. For **Actions**, choose **Promote**. This may take a few minutes and can cause downtime.
 When the process completes, the Aurora Replica cluster is a Regional Aurora PostgreSQL DB cluster, with a Writer instance containing
 the data from the RDS for PostgreSQL DB instance.
 

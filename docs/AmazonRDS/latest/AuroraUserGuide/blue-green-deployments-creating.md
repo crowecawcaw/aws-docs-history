@@ -150,7 +150,7 @@ API.
 
 The **Create blue/green deployment** page appears.
 
-![Create blue/green deployment](images/blue-green-deployment-create-aurora.png) 4. Review the blue database identifiers. Make sure that they match the DB instances that
+![Create blue/green deployment.](images/blue-green-deployment-create-aurora.png) 4. Review the blue database identifiers. Make sure that they match the DB instances that
 you expect in the blue environment. If they don't, choose
 **Cancel**. 5. For **Blue/green deployment name**, enter a name for your
 blue/green deployment. 6. In the remaining sections, specify the settings for the green environment. For

@@ -310,7 +310,7 @@ text string for **Filter databases**. Only DB instances
 that contain the string appear. 3. Choose the name of the DB instance that you want to tag to show its details. 4. In the details section, scroll down to the **Tags** section. 5. Choose **Add**.
 The **Add tags** window appears.
 
-![Add tags window](images/RDSConsoleTagging5.png) 6. Enter a value for **Tag key** and **Value**. 7. To add another tag, you can choose **Add another Tag** and enter a value
+![Add tags window.](images/RDSConsoleTagging5.png) 6. Enter a value for **Tag key** and **Value**. 7. To add another tag, you can choose **Add another Tag** and enter a value
 for its **Tag key** and **Value**.
 
 Repeat this step as many times as necessary. 8. Choose **Add**.
@@ -327,7 +327,7 @@ To filter the list of DB instances in the **Databases** pane, enter a
 text string in the **Filter databases** box. Only DB
 instances that contain the string appear. 3. Choose the name of the DB instance to show its details. 4. In the details section, scroll down to the **Tags** section. 5. Choose the tag you want to delete.
 
-![Tags section](images/RDSConsoleTagging6.png) 6. Choose **Delete**, and then choose **Delete** in the **Delete tags** window.
+![Tags section.](images/RDSConsoleTagging6.png) 6. Choose **Delete**, and then choose **Delete** in the **Delete tags** window.
 You can add, list, or remove tags for a DB instance using the AWS CLI.
 
 - To add one or more tags to an Amazon RDS resource, use the AWS CLI command [`add-tags-to-resource`](../../../cli/latest/reference/rds/add-tags-to-resource.md "../../../cli/latest/reference/rds/add-tags-to-resource.md").

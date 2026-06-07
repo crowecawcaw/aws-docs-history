@@ -20,7 +20,7 @@ console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amaz
 
 The following example lists logs filtered by the text `error`.
 
-![List DB logs](images/ListEventsAMS.png) 7. Choose the log that you want to view, and then choose **View**.
+![List DB logs.](images/ListEventsAMS.png) 7. Choose the log that you want to view, and then choose **View**.
 To list the available database log files for a DB instance, use the AWS CLI [`describe-db-log-files`](../../../cli/latest/reference/rds/describe-db-log-files.md "../../../cli/latest/reference/rds/describe-db-log-files.md")
 command.
 

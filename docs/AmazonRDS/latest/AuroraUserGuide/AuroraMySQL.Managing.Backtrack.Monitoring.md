@@ -12,7 +12,7 @@ cluster.
 
 The backtrack information is in the **Backtrack** section.
 
-![Backtrack details for a DB cluster](images/aurora-backtrack-details.png)
+![Backtrack details for a DB cluster.](images/aurora-backtrack-details.png)
 
 When backtracking is enabled, the following information is available:
 
@@ -39,7 +39,7 @@ When backtracking is enabled, the following information is available:
 
 
 
-        ![Backtrack metrics](images/aurora-backtrack-metrics.png)
+        ![Backtrack metrics.](images/aurora-backtrack-metrics.png)
 
         The following metrics are displayed:
 

@@ -275,7 +275,7 @@ or the AWS CLI.
 3. Choose the DB cluster for the Aurora read replica to display its details. The primary MySQL DB instance
    information is in the **Replication source** field.
 
-![View MySQL primary](images/aurora-repl6.png)
+![View MySQL primary.](images/aurora-repl6.png)
 To view the MySQL to Aurora MySQL replication relationships for your Aurora MySQL DB clusters by using the AWS CLI,
 use the [`describe-db-clusters`](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") and
 [`describe-db-instances`](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md")

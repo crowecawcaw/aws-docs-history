@@ -17,7 +17,7 @@ CloudWatch**.
 
 The **Export to CloudWatch** window appears. 6. Choose **Add to existing dashboard**.
 
-![Export to CloudWatch window with add to existing dashboard option selected](images/Pi-ExprtToCW-AddToExistingBoard.png) 7. Specify the dashboard destination and label, and then choose
+![Export to CloudWatch window with add to existing dashboard option selected.](images/Pi-ExprtToCW-AddToExistingBoard.png) 7. Specify the dashboard destination and label, and then choose
 **Confirm**.
 
     * **CloudWatch dashboard destination** - Choose an existing CloudWatch dashboard.

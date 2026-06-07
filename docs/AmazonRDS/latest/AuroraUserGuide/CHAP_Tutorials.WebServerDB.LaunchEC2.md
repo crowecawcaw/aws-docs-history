@@ -11,7 +11,7 @@ Create an Amazon EC2 instance in the public subnet of your VPC.
 3. Choose **EC2 Dashboard**, and then choose **Launch instance**, as
    shown following.
 
-![EC2 Dashboard](images/Tutorial_WebServer_11.png) 4. Choose the following settings in the **Launch an instance** page.
+![EC2 Dashboard.](images/Tutorial_WebServer_11.png) 4. Choose the following settings in the **Launch an instance** page.
 
     1. Under **Name and tags**, for **Name**, enter
      `tutorial-ec2-instance-web-server`.
@@ -21,7 +21,7 @@ Create an Amazon EC2 instance in the public subnet of your VPC.
 
 
 
-    ![Choose an Amazon Machine Image](images/Tutorial_WebServer_12.png)
+    ![Choose an Amazon Machine Image.](images/Tutorial_WebServer_12.png)
     3. Under **Instance type**, choose **t2.micro**.
     4. Under **Key pair (login)**, choose a **Key pair name** to use an existing key
      pair. To create a new key pair for the Amazon EC2 instance, choose **Create new key pair**
@@ -67,7 +67,7 @@ Create an Amazon EC2 instance in the public subnet of your VPC.
     	* Turn on **Allow HTTPs traffic from the internet**.
     	* Turn on **Allow HTTP traffic from the internet**.
 
-    ![Configure Instance Details](images/Tutorial_WebServer_14.png)
+    ![Configure Instance Details.](images/Tutorial_WebServer_14.png)
     6. Leave the default values for the remaining sections.
     7. Review a summary of your instance configuration in the **Summary** panel, and when you're ready,
      choose **Launch instance**.

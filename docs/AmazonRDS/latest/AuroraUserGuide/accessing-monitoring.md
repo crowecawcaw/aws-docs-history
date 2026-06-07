@@ -30,7 +30,7 @@ DB cluster.
 
 For example, the following image shows the details page for the DB cluster named `aurora-test`. The DB cluster has four DB instances shown in the DB identifier list. The writer DB instance, `dbinstance4`, is the primary DB instance for the DB cluster.
 
-![Amazon Aurora DB cluster View](images/AuroraView01.png) 4. To modify a DB cluster, select the DB cluster from the list and choose **Modify**.
+![Amazon Aurora DB cluster View.](images/AuroraView01.png) 4. To modify a DB cluster, select the DB cluster from the list and choose **Modify**.
 
 ###### To view or modify DB instances of a DB cluster in the Amazon RDS console
 
@@ -50,7 +50,7 @@ For example, the following image shows the details page for the DB cluster named
 
 
 
-        ![Amazon Aurora DB instance View](images/AuroraView02.png)
+        ![Amazon Aurora DB instance View.](images/AuroraView02.png)
         * To modify a DB instance, choose the DB instance from the list and
          choose **Modify**. For more information about modifying a DB cluster, see [Modifying an Amazon Aurora DB cluster](Aurora.Modifying.md "Aurora.Modifying.md").
 
@@ -208,7 +208,7 @@ Find the possible status values for DB clusters in the following table.
 
 The **Databases page** appears with the list of DB clusters. For each DB cluster, the status value is displayed.
 
-![Viewing the status of a DB cluster](images/Aurora_cluster_status.png)
+![Viewing the status of a DB cluster.](images/Aurora_cluster_status.png)
 To view just the status of the DB clusters, use the following query in AWS CLI.
 
 ```
@@ -279,7 +279,7 @@ or not billed. For all DB instance statuses, you are always billed for backup us
 The **Databases page** appears with the list of DB instances. For each DB instance
 in a cluster, the status value is displayed.
 
-![View the status of a DB instance](images/Aurora_instance_status.png)
+![View the status of a DB instance.](images/Aurora_instance_status.png)
 To view DB instance and its status information by using the AWS CLI, use the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command. For example, the
 following AWS CLI command lists all the DB instances information .
 

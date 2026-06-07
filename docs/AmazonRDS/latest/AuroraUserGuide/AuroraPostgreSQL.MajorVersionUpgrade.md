@@ -164,11 +164,11 @@ SELECT pg_create_logical_replication_slot(`'replication_slot_name'`, `'pgoutput'
    the instance name in the Amazon RDS Console, and then choose **Create
    clone** in the **Actions** menu.
 
-![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3](images/apg-logicalreplication-mvu-create-clone.png) 2. Provide a unique name for the instance. Most of the settings are defaults
+![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](images/apg-logicalreplication-mvu-create-clone.png) 2. Provide a unique name for the instance. Most of the settings are defaults
 from the source instance. When you’ve made changes required for the new
 instance, choose **Create clone**.
 
-![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3](images/apg-logicalreplication-mvu-create-clone-note.png) 3. While the target instance is initiating, the **Status**
+![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](images/apg-logicalreplication-mvu-create-clone-note.png) 3. While the target instance is initiating, the **Status**
 column of the writer node displays Creating in the **Status**
 column. When the instance is ready, the status changes to Available.
 
@@ -208,7 +208,7 @@ SELECT pg_drop_replication_slot(`'replication_slot_name'`);
   updated version and your updated parameter groups, and apply the settings
   immediately to upgrade the target instance.
 
-![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3](images/apg-logicalreplication-mvu-modify-DB-cluster.png)
+![In-place upgrade of an Aurora MySQL DB cluster from version 2 to version 3.](images/apg-logicalreplication-mvu-modify-DB-cluster.png)
 
 - You can also use the CLI to perform an upgrade:
 

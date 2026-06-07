@@ -3,7 +3,7 @@
 The dashboard is the easiest way to interact with Performance Insights. The following example shows the dashboard for a PostgreSQL DB
 instance.
 
-![Enable Performance Insights during DB instance creation with console](images/aurora_perf_insights_enabling.png)
+![Enable Performance Insights during DB instance creation with console.](images/aurora_perf_insights_enabling.png)
 
 ###### Topics
 
@@ -34,13 +34,13 @@ metrics depend on the DB engine:
 - Aurora MySQL– `db.SQL.Innodb_rows_read.avg`
 - Aurora PostgreSQL – `db.Transactions.xact_commit.avg`
 
-![Counter metrics](images/oracle_perf_insights_counters.png)
+![Counter metrics.](images/oracle_perf_insights_counters.png)
 
 To change the performance counters, choose **Manage Metrics**. You can select multiple
 **OS metrics** or **Database metrics**, as
 shown in the following screenshot. To see details for any metric, hover over the metric name.
 
-![Filter metrics](images/perf_insights_select_metrics.png)
+![Filter metrics.](images/perf_insights_select_metrics.png)
 
 For descriptions of the counter metrics that you can add for each DB engine, see [Performance Insights counter metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
 
@@ -51,7 +51,7 @@ capacity as represented by the **Max vCPU** line. By default, the stacked line
 chart represents DB load as average active sessions per unit of time. The DB load is sliced (grouped) by wait
 states.
 
-![Database load](images/perf_insights_2.png)
+![Database load.](images/perf_insights_2.png)
 
 ### DB load sliced by dimensions
 
@@ -70,18 +70,18 @@ which dimensions are supported for the different engines.
 
 The following image shows the dimensions for a PostgreSQL DB instance.
 
-![Filter metrics](images/perf_insights_2b.png)
+![Filter metrics.](images/perf_insights_2b.png)
 
 ### DB load details for a dimension item
 
 To see details about a DB load item within a dimension, hover over the item name. The following image shows
 details for a SQL statement.
 
-![Database load item details](images/perf_insights_2c.png)
+![Database load item details.](images/perf_insights_2c.png)
 
 To see details for any item for the selected time period in the legend, hover over that item.
 
-![Time period details for DB load](images/perf_insights_3.png)
+![Time period details for DB load.](images/perf_insights_3.png)
 
 ## Top dimensions table
 
@@ -89,7 +89,7 @@ The Top dimensions table slices DB load by different dimensions. A dimension is 
 different characteristics of DB load. If the dimension is SQL, **Top SQL** shows the SQL
 statements that contribute the most to DB load.
 
-![Top N dimensions](images/perf_insights_4c.png)
+![Top N dimensions.](images/perf_insights_4c.png)
 
 Choose any of the following dimension tabs.
 

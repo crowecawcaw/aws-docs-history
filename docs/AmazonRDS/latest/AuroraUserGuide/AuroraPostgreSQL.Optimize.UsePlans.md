@@ -55,7 +55,7 @@ Planning](https://www.postgresql.org/docs/current/runtime-config-query.html "htt
 The following image shows how a plan is chosen for a given SQL statement when
 query plan management is active, and when it's not.
 
-![Aurora PostgreSQL query plan management workflow](images/aurora-query-plan-mgmt_processing-flow.png)
+![Aurora PostgreSQL query plan management workflow.](images/aurora-query-plan-mgmt_processing-flow.png)
 
 The flow is as follows:
 

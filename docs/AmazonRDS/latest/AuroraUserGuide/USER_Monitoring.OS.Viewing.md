@@ -7,14 +7,14 @@ choosing **Enhanced monitoring** for
 The following example shows the Enhanced Monitoring
 page. For descriptions of the Enhanced Monitoring metrics, see [OS metrics in Enhanced Monitoring](USER_Monitoring-Available-OS-Metrics.md "USER_Monitoring-Available-OS-Metrics.md").
 
-![Dashboard view](images/metrics1.png)
+![Dashboard view.](images/metrics1.png)
 If you want to see details for the processes running on your DB instance, choose
 **OS process list** for **Monitoring**.
 
 The
 **Process List** view is shown following.
 
-![Process list view](images/metrics2.png)
+![Process list view.](images/metrics2.png)
 The Enhanced Monitoring metrics shown in the **Process list**
 view are organized as follows:
 

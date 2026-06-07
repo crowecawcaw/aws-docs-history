@@ -26,18 +26,18 @@ The **Logs & events** tab for your Aurora DB cluster shows the following informa
 The database page appears. The following example shows an Amazon Aurora PostgreSQL DB cluster named
 `apga`.
 
-![Database page with monitoring tab shown](images/cluster-with-monitoring-tab.png) 4. Scroll down and choose **Configuration**.
+![Database page with monitoring tab shown.](images/cluster-with-monitoring-tab.png) 4. Scroll down and choose **Configuration**.
 
 The following example shows the status of the database activity streams for your cluster.
 
-![Enhanced Monitoring](images/cluster-das.png) 5. Choose **Logs & events**.
+![Enhanced Monitoring.](images/cluster-das.png) 5. Choose **Logs & events**.
 
 The Logs & events section appears.
 
-![Database page with Logs & events tab shown](images/cluster-logs-and-events-subpage.png) 6. Choose a DB instance in your Aurora cluster, and then choose
+![Database page with Logs & events tab shown.](images/cluster-logs-and-events-subpage.png) 6. Choose a DB instance in your Aurora cluster, and then choose
 **Logs & events** for the instance.
 
 The following example shows that the contents are different between the DB instance page and the DB cluster
 page. The DB instance page shows logs and alarms.
 
-![Logs & events page](images/cluster-instance-logs-and-events-subpage.png)
+![Logs & events page.](images/cluster-instance-logs-and-events-subpage.png)

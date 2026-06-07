@@ -104,7 +104,7 @@ private subnets to restrict access to resources within the VPC.
 To connect an EC2 instance to the DB cluster, choose **Connect to an EC2 compute resource**
 in the **Connectivity** section on the **Create database** page.
 
-![Connect an EC2 instance](images/ec2-set-up-connection-create.png)
+![Connect an EC2 instance.](images/ec2-set-up-connection-create.png)
 
 When you choose **Connect to an EC2 compute resource**, RDS sets the following options automatically.
 You can't change these settings unless you choose not to set up connectivity with an EC2 instance by choosing **Don't connect
@@ -213,7 +213,7 @@ Aurora is not available in all AWS Regions. For a list of AWS Regions where Auro
     * **Aurora (MySQL Compatible)**
     * **Aurora (PostgreSQL Compatible)**
 
-![Aurora MySQL engine selection interface showing version options and compatibility settings for database creation.](/images/AmazonRDS/latest/AuroraUserGuide/images/aurora-engine-options-mysql.png) 7. Choose the **Engine version**.
+![Aurora MySQL engine selection interface showing version options and compatibility settings for database creation.](images/aurora-engine-options-mysql.png) 7. Choose the **Engine version**.
 
 For more information, see [Amazon Aurora versions](Aurora.VersionPolicy.md "Aurora.VersionPolicy.md"). You can
 use the filters to choose versions that are compatible with features that you want, such as Aurora serverless.
@@ -258,7 +258,7 @@ On the RDS console, the details for new DB cluster appear.
 The DB cluster and its DB instance have a status of **creating**
 until the DB cluster is ready to use.
 
-![Summary during DB cluster creation](images/creating-status-aurora-mysql.png)
+![Summary during DB cluster creation.](images/creating-status-aurora-mysql.png)
 
 When the state changes to **available** for both, you can connect to the DB cluster.
 Depending on the DB instance class and the amount of storage, it can take up to 20 minutes before
@@ -268,7 +268,7 @@ To view the newly created cluster, choose **Databases** from
 the navigation pane in the Amazon RDS console. Then choose the DB cluster to
 show the DB cluster details. For more information, see [Viewing an Amazon Aurora DB cluster](accessing-monitoring.md#Aurora.Viewing "accessing-monitoring.md#Aurora.Viewing").
 
-![Amazon Aurora DB Instances List](images/AuroraLaunch04.png)
+![Amazon Aurora DB Instances List.](images/AuroraLaunch04.png)
 
 On the **Connectivity & security** tab, note the port and the endpoint of the writer DB instance.
 Use the endpoint and port of the cluster in your JDBC and ODBC connection strings for any application

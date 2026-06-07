@@ -73,12 +73,12 @@ _Amazon Simple Notification Service Developer Guide_
 
 
 
-        ![Enter source type](images/event-source.png)
+        ![Enter source type.](images/event-source.png)
         5. Choose **Create**.
 
     The Amazon RDS console indicates that the subscription is being created.
 
-![List DB event notification subscriptions](images/EventNotification-Create2.png)
+![List DB event notification subscriptions.](images/EventNotification-Create2.png)
 To subscribe to RDS event notification, use the AWS CLI [`create-event-subscription`](../../../cli/latest/reference/rds/create-event-subscription.md "../../../cli/latest/reference/rds/create-event-subscription.md")
 command. Include the following required parameters:
 

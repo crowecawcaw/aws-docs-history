@@ -202,6 +202,66 @@ RDS Proxy uses wildcard certificates, which apply to both a domain and its subdo
 `mysql` client to connect with SSL mode `VERIFY_IDENTITY`, currently you must use
 the MySQL 8.0-compatible `mysql` command.
 
+### Custom Cipher Suite Support in RDS Proxy
+
+TLS cipher suites are standardized combinations of cryptographic algorithms used to secure
+client-server connections. They determine how encryption and data integrity are applied. In
+TLS 1.2 and earlier, they also specify key exchange and authentication methods. The final
+cipher suite is negotiated during the TLS handshake.
+
+**RDS/Aurora MySQL and MariaDB**
+
+Custom cipher suites can be configured through parameter groups using:
+
+- `ssl_cipher` – for TLS 1.2 connections
+- `tls_ciphersuites` – for TLS 1.3 connections
+
+For cipher suites supported by the engines, see
+[Configuring cipher suites for Aurora MySQL](AuroraMySQL.Security.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites "AuroraMySQL.Security.md#AuroraMySQL.Security.SSL.ConfiguringCipherSuites").
+
+**RDS/Aurora PostgreSQL**
+
+Custom cipher suites can be configured through parameter groups using:
+
+- `ssl_ciphers` – for TLS 1.2 connections. In Aurora PostgreSQL 17, this
+  can also include TLS 1.3 cipher suites.
+- `ssl_tls13_ciphers` – for TLS 1.3 connections
+
+For cipher suites supported by the engines, see
+[Configuring cipher suites for RDS PostgreSQL](../UserGuide/PostgreSQL.Concepts.General.SSL.md#PostgreSQL.Concepts.General.SSL.Ciphers "../UserGuide/PostgreSQL.Concepts.General.SSL.md#PostgreSQL.Concepts.General.SSL.Ciphers")
+and [Configuring cipher suites for Aurora PostgreSQL](AuroraPostgreSQL.Security.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites "AuroraPostgreSQL.Security.md#AuroraPostgreSQL.Security.SSL.ConfiguringCipherSuites").
+
+**Behavior with RDS Proxy**
+
+When using RDS Proxy, cipher suite settings configured on the database apply to connections
+between RDS Proxy and the database.
+
+RDS Proxy also enforces the same allowlisted cipher suites for connections between your
+application and RDS Proxy. This ensures end-to-end enforcement of custom ciphers—from
+application to proxy to database—helping maintain consistent security standards across
+your environment.
+
+RDS Proxy supports only a specific subset of cipher suites for TLS connections. Even if the
+database supports additional cipher suites, only the following cipher suites are supported
+by RDS Proxy. Enforcing other cipher suites on client connections to the proxy will cause
+failure in connection setup.
+
+| Cipher suites supported by RDS Proxy | #                         | TLS Version                 | Cipher in OpenSSL Format                  | Cipher in IANA Format |
+| ------------------------------------ | ------------------------- | --------------------------- | ----------------------------------------- | --------------------- |
+| 1                                    | TLS 1.0, TLS 1.1, TLS 1.2 | ECDHE-RSA-AES256-SHA        | TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA        |
+| 2                                    | TLS 1.0, TLS 1.1, TLS 1.2 | DHE-RSA-AES256-SHA          | TLS_DHE_RSA_WITH_AES_256_CBC_SHA          |
+| 3                                    | TLS 1.0, TLS 1.1, TLS 1.2 | ECDHE-RSA-AES128-SHA        | TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA        |
+| 4                                    | TLS 1.0, TLS 1.1, TLS 1.2 | DHE-RSA-AES128-SHA          | TLS_DHE_RSA_WITH_AES_128_CBC_SHA          |
+| 5                                    | TLS 1.2                   | ECDHE-RSA-AES256-GCM-SHA384 | TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384     |
+| 6                                    | TLS 1.2                   | DHE-RSA-AES256-GCM-SHA384   | TLS_DHE_RSA_WITH_AES_256_GCM_SHA384       |
+| 7                                    | TLS 1.2                   | DHE-RSA-AES256-SHA256       | TLS_DHE_RSA_WITH_AES_256_CBC_SHA256       |
+| 8                                    | TLS 1.2                   | ECDHE-RSA-AES128-GCM-SHA256 | TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256     |
+| 9                                    | TLS 1.2                   | DHE-RSA-AES128-GCM-SHA256   | TLS_DHE_RSA_WITH_AES_128_GCM_SHA256       |
+| 10                                   | TLS 1.2                   | DHE-RSA-AES128-SHA256       | TLS_DHE_RSA_WITH_AES_128_CBC_SHA256       |
+| 11                                   | TLS 1.2                   | DHE-RSA-CHACHA20-POLY1305   | TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256 |
+| 12                                   | TLS 1.3                   | TLS_AES_256_GCM_SHA384      | TLS_AES_256_GCM_SHA384                    |
+| 13                                   | TLS 1.3                   | TLS_AES_128_GCM_SHA256      | TLS_AES_128_GCM_SHA256                    |
+
 ## Failover
 
 _Failover_ is a high-availability feature that replaces a

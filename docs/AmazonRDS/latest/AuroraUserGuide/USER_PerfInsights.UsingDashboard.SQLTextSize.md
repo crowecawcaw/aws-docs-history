@@ -2,7 +2,7 @@
 
 By default, each row in the **Top SQL** table shows 500 bytes of SQL text for each SQL statement.
 
-![500 bytes of SQL](images/perf-insights-top-sql-bytes.png)
+![500 bytes of SQL.](images/perf-insights-top-sql-bytes.png)
 When a SQL statement exceeds 500 bytes, you can view more text in the **SQL text** section below the **Top
 SQL** table. In this case, the maximum length for the text displayed in **SQL text** is 4 KB. This limit is
 introduced by the console and is subject to the limits set by the database engine. To save the text shown in **SQL text**,

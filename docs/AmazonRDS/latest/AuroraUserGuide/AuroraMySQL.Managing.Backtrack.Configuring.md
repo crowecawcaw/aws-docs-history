@@ -27,7 +27,7 @@ To create a DB cluster, follow the instructions in
 [Creating an Amazon Aurora DB cluster](Aurora.CreateInstance.md "Aurora.CreateInstance.md"). The following image
 shows the **Backtrack** section.
 
-![Enable Backtrack during DB cluster creation with console](images/aurora-backtrack-create.png)
+![Enable Backtrack during DB cluster creation with console.](images/aurora-backtrack-create.png)
 
 When you create a new DB cluster, Aurora has no data for the DB cluster's
 workload. So it can't estimate a cost specifically for the new DB
@@ -63,7 +63,7 @@ disabled or if the Backtrack feature has been disabled for the DB cluster.
    time that you want to be able to backtrack. The limit is 72
    hours.
 
-![Modify Backtrack with console](images/aurora-backtrack-modify.png)
+![Modify Backtrack with console.](images/aurora-backtrack-modify.png)
 
 The console shows the estimated cost for the amount of time you
 specified based on the DB cluster's past workload:

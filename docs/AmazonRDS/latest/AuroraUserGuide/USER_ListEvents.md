@@ -32,7 +32,7 @@ The available events appear in a list. 3. (Optional) Enter a search term to filt
 
 The following example shows a list of events filtered by the characters `apg`.
 
-![List DB events](images/ListEventsAPG.png)
+![List DB events.](images/ListEventsAPG.png)
 To view all events generated in the last hour, call [describe-events](../../../cli/latest/reference/rds/describe-events.md "../../../cli/latest/reference/rds/describe-events.md") with
 no parameters.
 

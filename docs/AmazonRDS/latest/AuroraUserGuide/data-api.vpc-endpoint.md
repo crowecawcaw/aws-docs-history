@@ -28,12 +28,12 @@ After you create the Amazon VPC endpoint, you can start using it without making 
    **Service Name**, choose
    **rds-data**.
 
-![Create an Amazon VPC endpoint for Data API](images/data-api-create-endpoint.png) 4. For **VPC**, choose the VPC to create the endpoint in.
+![Create an Amazon VPC endpoint for Data API.](images/data-api-create-endpoint.png) 4. For **VPC**, choose the VPC to create the endpoint in.
 
 Choose the VPC that contains the application that makes Data API
 calls. 5. For **Subnets**, choose the subnet for each Availability Zone (AZ) used by the AWS service that is running your application.
 
-![Choose subnets for the Amazon VPC endpoint](images/data-api-vpc-endpoint-subnets.png)
+![Choose subnets for the Amazon VPC endpoint.](images/data-api-vpc-endpoint-subnets.png)
 
 To create an Amazon VPC endpoint, specify the private IP address range in which
 the endpoint will be accessible. To do this, choose the subnet for each
@@ -41,7 +41,7 @@ Availability Zone. Doing so restricts the VPC endpoint to the private IP
 address range specific to each Availability Zone and also creates an Amazon VPC
 endpoint in each Availability Zone. 6. For **Enable DNS name**, select **Enable for this endpoint**.
 
-![Enable DNS name for the Amazon VPC endpoint](images/data-api-vpc-endpoint-enable-endpoint.png)
+![Enable DNS name for the Amazon VPC endpoint.](images/data-api-vpc-endpoint-enable-endpoint.png)
 
 Private DNS resolves the standard Data API DNS hostname
 (`https://rds-data.`region`.amazonaws.com`)
@@ -60,10 +60,10 @@ limits access.
 If you choose **Custom**, enter the policy in the policy creation tool. 9. Choose **Create endpoint**.
 After the endpoint is created, choose the link in the AWS Management Console to view the endpoint details.
 
-![Link to the Amazon VPC endpoint details](images/data-api-vpc-endpoint-link-to-details.png)
+![Link to the Amazon VPC endpoint details.](images/data-api-vpc-endpoint-link-to-details.png)
 The endpoint **Details** tab shows the DNS hostnames that were generated while creating the Amazon VPC endpoint.
 
-![Link to the Amazon VPC endpoint details](images/data-api-vpc-endpoint-dns-names.png)
+![Link to the Amazon VPC endpoint details.](images/data-api-vpc-endpoint-dns-names.png)
 You can use the standard endpoint
 (`rds-data.`region`.amazonaws.com`) or
 one of the VPC-specific endpoints to call the Data API within the Amazon VPC. The

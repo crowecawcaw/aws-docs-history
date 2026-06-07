@@ -191,11 +191,11 @@ for the entire DB cluster.
 The following image is an example of the **Manage master credentials in AWS Secrets Manager**
 setting when you are creating or restoring a DB cluster.
 
-![Manage master credentials in AWS Secrets Manager](images/secrets-manager-credential-settings.png)
+![Manage master credentials in AWS Secrets Manager.](images/secrets-manager-credential-settings.png)
 When you select this option, Aurora generates the master user password and
 manages it throughout its lifecycle in Secrets Manager.
 
-![Manage master credentials in AWS Secrets Manager selected](images/secrets-manager-integration-create.png)
+![Manage master credentials in AWS Secrets Manager selected.](images/secrets-manager-integration-create.png)
 You can choose to encrypt the secret with a KMS key that Secrets Manager provides or
 with a customer managed key that you create. After Aurora is managing the
 database credentials for a DB cluster, you can't change the KMS key that is
@@ -303,7 +303,7 @@ To rotate a master user password secret using the RDS console, modify the DB clu
 **Rotate secret immediately** in
 **Settings**.
 
-![Rotate a master user password secret immediately](images/secrets-manager-integration-rotate-aurora.png)
+![Rotate a master user password secret immediately.](images/secrets-manager-integration-rotate-aurora.png)
 Follow the instructions for modifying a DB
 cluster with the RDS console in
 [Modifying the DB cluster by using the console, CLI, and API](Aurora.Modifying.md#Aurora.Modifying.Cluster "Aurora.Modifying.md#Aurora.Modifying.Cluster"). You must choose

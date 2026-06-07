@@ -30,18 +30,18 @@ You can dismiss one or more Amazon Aurora recommendations using the Amazon RDS c
 The following example shows the **Recommendations**
 page with multiple active recommendations selected to dismiss.
 
-![A few active recommendations selected and dismiss button highlighted in the console](images/Recommendations_Dismiss.png)
+![A few active recommendations selected and dismiss button highlighted in the console.](images/Recommendations_Dismiss.png)
 
 A banner displays a message when the selected one or more recommendations are
 dismissed.
 
 The following example shows the banner with the successful message.
 
-![A banner in the console showing the message with the number of resources that were successful to dismiss the recommendation](images/Recommendation-Dismiss-Banner.png)
+![A banner in the console showing the message with the number of resources that were successful to dismiss the recommendation.](images/Recommendation-Dismiss-Banner.png)
 
 The following example shows the banner with the failure message.
 
-![A banner in the console showing the message with the resource that failed to dismiss the recommendation](images/Recommendation-Dismiss-Banner-failure.png)
+![A banner in the console showing the message with the resource that failed to dismiss the recommendation.](images/Recommendation-Dismiss-Banner-failure.png)
 
 ###### To dismiss an Aurora recommendation using the AWS CLI
 

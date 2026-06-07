@@ -11,11 +11,11 @@ refreshes the tail of the log every 5 seconds.
 3. Choose the name of the DB instance that has the log file that you want to view.
 4. Choose the **Logs & events** tab.
 
-![Choose the Logs & events tab](images/Monitoring_logsEvents.png) 5. In the **Logs** section, choose a log file, and then choose
+![Choose the Logs & events tab.](images/Monitoring_logsEvents.png) 5. In the **Logs** section, choose a log file, and then choose
 **Watch**.
 
-![Choose a log](images/Monitoring_LogsEvents_watch.png)
+![Choose a log.](images/Monitoring_LogsEvents_watch.png)
 
 RDS shows the tail of the log, as in the following MySQL example.
 
-![Tail of a log file](images/Monitoring_LogsEvents_watch_content.png)
+![Tail of a log file.](images/Monitoring_LogsEvents_watch_content.png)

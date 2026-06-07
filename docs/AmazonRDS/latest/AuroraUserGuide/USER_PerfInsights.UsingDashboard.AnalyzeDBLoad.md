@@ -24,4 +24,4 @@ Your typical workflow for diagnosing performance issues is as follows:
    what is causing the **log file sync** waits: frequent `COMMIT` statements. In this
    case, committing less frequently will reduce DB load.
 
-![log file sync errors](images/perf_insights_7.png)
+![log file sync errors.](images/perf_insights_7.png)

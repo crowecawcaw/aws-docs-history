@@ -86,7 +86,7 @@ data pages, 1, 2, 3, and 4. Imagine that a clone, B, is created from the Aurora 
 When the clone is created, no data is copied. Rather, the clone points to the same set of
 pages as the source Aurora DB cluster.
 
-![Amazon Aurora cluster volume with 4 pages for source cluster, A, and clone, B](images/aurora-cloning-copy-on-write-protocol-1.png)
+![Amazon Aurora cluster volume with 4 pages for source cluster, A, and clone, B.](images/aurora-cloning-copy-on-write-protocol-1.png)
 
 When the clone is created, no additional storage is usually needed. The copy-on-write protocol uses the same segment on the physical
 storage media as the source segment. Additional storage is required only if the capacity of the source segment isn't sufficient for

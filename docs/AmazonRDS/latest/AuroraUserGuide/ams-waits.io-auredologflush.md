@@ -38,11 +38,11 @@ class:
   that for each row insertion there is a commit. Performance Insights shows that the connections spend most of their time waiting on the
   `io/aurora_redo_log_flush` wait event.
 
-![Performance Insights example of the wait event](images/auredologflush_PI_example1.png)
+![Performance Insights example of the wait event.](images/auredologflush_PI_example1.png)
 
 This is caused by the simple insert statements used.
 
-![Insert statements in Top SQL](images/auredologflush_top_SQL1.png)
+![Insert statements in Top SQL.](images/auredologflush_top_SQL1.png)
 
 The 50,000 records take 3.5 minutes to be inserted.
 
@@ -50,7 +50,7 @@ The 50,000 records take 3.5 minutes to be inserted.
   10,000. Performance Insights shows that the connections don't spend most of their time on the `io/aurora_redo_log_flush`
   wait event.
 
-![Performance Insights example of the wait event having less impact](images/auredologflush_PI_example2.png)
+![Performance Insights example of the wait event having less impact.](images/auredologflush_PI_example2.png)
 
 The 50,000 records take 4 seconds to be inserted.
 

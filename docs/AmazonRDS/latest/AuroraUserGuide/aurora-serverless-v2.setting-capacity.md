@@ -371,7 +371,7 @@ cluster.
 
 The following figure shows the capacity changes in Amazon CloudWatch.
 
-![CloudWatch graph of Aurora serverless capacity changes](images/sv2-apg-scaling-example.png)
+![CloudWatch graph of Aurora serverless capacity changes.](images/sv2-apg-scaling-example.png)
 
 The DB instance is idle and scaled down to 0.5 ACUs. The following capacity-related settings apply to the DB instance at this
 point.

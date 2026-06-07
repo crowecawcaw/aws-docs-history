@@ -69,7 +69,7 @@ Complete the following major steps when you use a blue/green deployment for Auro
 
 The following image shows an example of a production DB cluster.
 
-![Production (blue) Aurora DB cluster in a blue/green deployment](images/blue-green-deployment-blue-environment-aurora.png) 2. Create the blue/green deployment. For instructions, see [Creating a blue/green deployment in Amazon Aurora](blue-green-deployments-creating.md "blue-green-deployments-creating.md").
+![Production (blue) Aurora DB cluster in a blue/green deployment.](images/blue-green-deployment-blue-environment-aurora.png) 2. Create the blue/green deployment. For instructions, see [Creating a blue/green deployment in Amazon Aurora](blue-green-deployments-creating.md "blue-green-deployments-creating.md").
 
 The following image shows an example of a blue/green deployment of the production environment from step 1.
 While creating the blue/green deployment, RDS copies the complete topology and configuration of the
@@ -81,7 +81,7 @@ with `-green-`random-characters``. The staging environment in
  auroradb-instance2-green-`_abc123_`, and 
  auroradb-instance3-green-`_abc123_`).
 
-![Blue/green deployment for Amazon Aurora](images/blue-green-deployment-aurora.png)
+![Blue/green deployment for Amazon Aurora.](images/blue-green-deployment-aurora.png)
 
 When you create the blue/green deployment, you can specify a higher DB engine version and a different DB cluster parameter
 group for the DB cluster in the green environment. You can also specify a different DB parameter group for the DB instances
@@ -120,7 +120,7 @@ on your workload.
 
 The following image shows the DB clusters after the switchover.
 
-![DB cluster and DB instances after switching over an Amazon Aurora blue/green deployment](images/blue-green-deployment-switchover-aurora.png)
+![DB cluster and DB instances after switching over an Amazon Aurora blue/green deployment.](images/blue-green-deployment-switchover-aurora.png)
 
 After the switchover, the Aurora DB cluster in the green environment becomes the new
 production DB cluster. The names and endpoints in the current production environment are

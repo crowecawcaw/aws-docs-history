@@ -60,7 +60,7 @@ cluster.
 
 The following graphic shows an Aurora DB cluster configured with Amazon Data Firehose.
 
-![Architecture diagram showing database activity streams from an Aurora DB cluster consumed by Firehose](images/aurora-das.png)
+![Architecture diagram showing database activity streams from an Aurora DB cluster consumed by Firehose.](images/aurora-das.png)
 
 ### Asynchronous and synchronousmode for database activity streams
 

@@ -62,7 +62,7 @@ DB instance that you plan to use, including Aurora Replicas. 8. For **Term**, ch
 
 After you choose the offering type, you can see the pricing information.
 
-![Purchase reserved DB instance console](images/reservedinstance-aur.png) 10. (Optional) You can assign your own identifier to the reserved DB instances that you purchase to help you track them.
+![Purchase reserved DB instance console.](images/reservedinstance-aur.png) 10. (Optional) You can assign your own identifier to the reserved DB instances that you purchase to help you track them.
 For **Reserved Id**, type an identifier for your reserved DB instance. 11. Choose **Submit**.
 
 Your reserved DB instance is purchased, then displayed in the **Reserved instances**

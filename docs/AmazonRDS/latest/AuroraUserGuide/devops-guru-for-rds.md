@@ -231,7 +231,7 @@ If your resources aren't covered by DevOps Guru, Amazon RDS notifies you with a
 - The **Monitoring** tab of a DB cluster instance
 - The Performance Insights dashboard
 
-![DevOps Guru banner](images/devops-guru-enable-banner.png)
+![DevOps Guru banner.](images/devops-guru-enable-banner.png)
 
 ###### To turn on DevOps Guru for your Aurora database
 
@@ -239,14 +239,14 @@ If your resources aren't covered by DevOps Guru, Amazon RDS notifies you with a
 2. Enter a tag key name and value. For more information about tags, see "[Use tags to identify resources in your DevOps Guru
    applications](../../../devops-guru/latest/userguide/working-with-resource-tags.md "../../../devops-guru/latest/userguide/working-with-resource-tags.md")" in the _Amazon DevOps Guru User Guide_.
 
-![Turn on DevOps Guru in the RDS console](images/devops-guru-turn-on.png) 3. Choose **Turn on DevOps Guru**.
+![Turn on DevOps Guru in the RDS console.](images/devops-guru-turn-on.png) 3. Choose **Turn on DevOps Guru**.
 
 ##### Responding to a permissions error when you turn on DevOps Guru
 
 If you turn on DevOps Guru from the RDS console when you create a database, RDS
 might display the following banner about missing permissions.
 
-![Banner with a missing permissions error](images/devops-guru-permissions-error.png)
+![Banner with a missing permissions error.](images/devops-guru-permissions-error.png)
 
 ###### To respond to a permissions error
 
@@ -257,10 +257,10 @@ might display the following banner about missing permissions.
 4. Choose a DB instance in the cluster that you just created.
 5. Choose the switch to turn on **DevOps Guru for RDS**.
 
-![Choose the switch to turn on DevOps Guru for RDS](images/devops-guru-pi-toggle-off.png) 6. Choose a tag value. For more information, see "[Use tags to identify resources in your DevOps Guru
+![Choose the switch to turn on DevOps Guru for RDS.](images/devops-guru-pi-toggle-off.png) 6. Choose a tag value. For more information, see "[Use tags to identify resources in your DevOps Guru
 applications](../../../devops-guru/latest/userguide/working-with-resource-tags.md "../../../devops-guru/latest/userguide/working-with-resource-tags.md")" in the _Amazon DevOps Guru User Guide_.
 
-![Turn on DevOps Guru in the Amazon RDS console](images/devops-guru-turn-on.png) 7. Choose **Turn on DevOps Guru**.
+![Turn on DevOps Guru in the Amazon RDS console.](images/devops-guru-turn-on.png) 7. Choose **Turn on DevOps Guru**.
 
 #### Adding Aurora resources in the DevOps Guru console
 

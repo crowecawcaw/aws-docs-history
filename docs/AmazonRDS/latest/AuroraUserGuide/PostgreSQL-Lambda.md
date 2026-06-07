@@ -243,7 +243,7 @@ As a simple test of your setup, you can connect to your DB instance using `psql`
 Suppose that
 you have one of the basic functions set up on your Lambda service, such as the simple Python function shown in the following screenshot.
 
-![Example Lambda function shown in the AWS CLI for AWS Lambda](images/lambda_simple_function.png)
+![Example Lambda function shown in the AWS CLI for AWS Lambda.](images/lambda_simple_function.png)
 
 ###### To invoke an example function
 

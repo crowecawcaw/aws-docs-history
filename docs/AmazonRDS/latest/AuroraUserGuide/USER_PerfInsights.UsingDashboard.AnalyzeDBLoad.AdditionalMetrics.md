@@ -27,7 +27,7 @@ you can analyze information such as the query text and SQL statistics. You can a
 
 By default, each row in the **Top SQL** table shows 500 bytes of text for each statement.
 
-![SQL text](images/sql-text-apg.png)
+![SQL text.](images/sql-text-apg.png)
 
 To learn how to see more than the default 500 bytes of SQL text, see [Accessing more SQL text in the Performance Insights dashboard](USER_PerfInsights.UsingDashboard.SQLTextSize.md "USER_PerfInsights.UsingDashboard.SQLTextSize.md").
 
@@ -44,7 +44,7 @@ SELECT * FROM emp WHERE lname = 'Wu'
 To see the literal SQL statements in a digest, select the query, and then choose the plus symbol (+). In the following example, the
 selected query is a digest.
 
-![Selected SQL digest](images/perf_insights_4b.png)
+![Selected SQL digest.](images/perf_insights_4b.png)
 
 ###### Note
 
@@ -60,7 +60,7 @@ shown in the Performance Insights dashboard.
 Every line in the **Top SQL** table shows relevant statistics for the SQL statement or
 digest, as shown in the following example.
 
-![Top SQL](images/perf_insights_4.png)
+![Top SQL.](images/perf_insights_4.png)
 
 Performance Insights can report `0.00` and `-` (unknown) for SQL statistics. This situation occurs under the
 following conditions:
@@ -94,14 +94,14 @@ queries in the top load items table. In this case, the **DB Load by Waits** bar 
 sized, segmented, and color-coded to show how much of a given wait state that query is contributing to.
 It also shows which wait states are affecting the selected query.
 
-![DB load by waits](images/perf_insights_6.png)
+![DB load by waits.](images/perf_insights_6.png)
 
 ### View SQL information
 
 In the **Top SQL** table, you can open a statement to view its information. The
 information appears in the bottom pane.
 
-![Top SQL table with literal query selected](images/perf-insights-sql-ids-open.png)
+![Top SQL table with literal query selected.](images/perf-insights-sql-ids-open.png)
 
 The following types of identifiers (IDs) that are associated with SQL statements:
 
@@ -117,12 +117,12 @@ The following types of identifiers (IDs) that are associated with SQL statements
 You can control the statistics displayed in the **Top SQL** tab by choosing the
 **Preferences** icon.
 
-![Statistics preferences](images/perf-insights-sql-ids-preferences-icon.png)
+![Statistics preferences.](images/perf-insights-sql-ids-preferences-icon.png)
 
 When you choose the **Preferences** icon, the **Preferences** window
 opens. The following screenshot is an example of the **Preferences** window.
 
-![Preferences window](images/perf-insights-sql-ids-preferences.png)
+![Preferences window.](images/perf-insights-sql-ids-preferences.png)
 
 To enable the statistics that you want to appear in the **Top SQL** tab, use your
 mouse to scroll to the bottom of the window, and then choose **Continue**.

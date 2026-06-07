@@ -133,7 +133,7 @@ must be in different Availability Zones. 7. Choose **Next**. 8. Review the direc
 **Previous** and make the changes. When the information
 is correct, choose **Create directory**.
 
-![Directory details page](images/WinAuth2.png)
+![Directory details page.](images/WinAuth2.png)
 
 It takes several minutes for the directory to be created. When it has been
 successfully created, the **Status** value changes to
@@ -143,7 +143,7 @@ To see information about your directory, choose the directory ID in the director
 listing. Make a note of the **Directory ID** value. You need this
 value when you create or modify your PostgreSQL DB instance.
 
-![Image of details page](images/WinAuth3.png)
+![Image of details page.](images/WinAuth3.png)
 
 ## Step 2: (Optional) Create a trust relationship between your on-premises Active Directory and Directory Service
 
@@ -180,7 +180,7 @@ Make sure that your on-premises Microsoft Active Directory domain name includes 
 DNS suffix routing that corresponds to the newly created trust relationship. The
 following screenshot shows an example.
 
-![DNS routing corresponds to the created trust](images/kerberos-auth-trust.png)
+![DNS routing corresponds to the created trust.](images/kerberos-auth-trust.png)
 
 ## Step 3: Create an IAM role for Amazon Aurora to access the Directory Service
 

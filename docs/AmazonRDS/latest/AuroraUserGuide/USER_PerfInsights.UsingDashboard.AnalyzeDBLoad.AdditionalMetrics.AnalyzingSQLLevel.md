@@ -12,12 +12,12 @@ load** chart.
 4. Scroll to the bottom of the page and choose the **Top SQL** tab.
 5. Choose an individual statement (Aurora MySQL only) or digest query.
 
-![Viewing metrics for running queries](images/perf_insights_per_sql_digest.png) 6. Choose which statistics to display by choosing the gear icon in the upper-right corner of the chart. For descriptions of the SQL
+![Viewing metrics for running queries.](images/perf_insights_per_sql_digest.png) 6. Choose which statistics to display by choosing the gear icon in the upper-right corner of the chart. For descriptions of the SQL
 statistics for the Amazon RDSAurora engines, see [SQL statistics for Performance Insights](sql-statistics.md "sql-statistics.md").
 
 The following example shows the preferences for Aurora PostgreSQL.
 
-![Preferences for metrics for running queries for Aurora PostgreSQL DB instances](images/perf_insights_per_sql_pref_apg.png)
+![Preferences for metrics for running queries for Aurora. PostgreSQL DB instances](images/perf_insights_per_sql_pref_apg.png)
 
 The following example shows the preferences for Aurora MySQL DB instances.
 

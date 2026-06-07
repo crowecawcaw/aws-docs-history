@@ -7,7 +7,7 @@ application connections. By using RDS Proxy, you can enforce AWS Identity and Ac
 for clients connecting to the proxy, and the proxy can connect to databases using either IAM
 database authentication or credentials stored in AWS Secrets Manager.
 
-![An overview of how applications connect to RDS Proxy](images/Proxy-Overview.png)
+![An overview of how applications connect to RDS Proxy.](images/Proxy-Overview.png)
 Using RDS Proxy, you can handle unpredictable surges in database traffic. Otherwise, these
 surges might cause issues due to oversubscribing connections or new connections being created at a
 fast rate. RDS Proxy establishes a database connection pool and reuses connections in this pool.

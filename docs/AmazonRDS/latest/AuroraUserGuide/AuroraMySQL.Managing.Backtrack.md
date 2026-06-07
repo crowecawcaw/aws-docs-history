@@ -203,7 +203,7 @@ backtrack window is smaller than your target backtrack window.
 
 Your page should look similar to the following page.
 
-![Backtrack event subscription](images/aurora-backtrack-event.png) 10. Choose **Create**.
+![Backtrack event subscription.](images/aurora-backtrack-event.png) 10. Choose **Create**.
 
 ## Retrieving existing backtracks
 

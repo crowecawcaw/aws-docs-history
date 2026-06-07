@@ -107,7 +107,7 @@ Whatever capacity range that you set at the cluster level applies to all Aurora 
 your cluster. The following image shows a cluster with multiple Aurora serverless reader DB instances. Each
 has an identical capacity range of 2–64 ACUs.
 
-![Cluster with multiple Aurora serverless reader DB instances](images/serverless_v2_screencaps/serverless_v2_capacity_settings_identical_all_instances_in_tree_view.png)
+![Cluster with multiple Aurora serverless reader DB instances.](images/serverless_v2_screencaps/serverless_v2_capacity_settings_identical_all_instances_in_tree_view.png)
 
 ###### To modify the capacity range of an Aurora serverless cluster
 
@@ -253,7 +253,7 @@ identical capacity range.
 You can also view the details page for any Aurora serverless DB instance in the cluster. DB instances' capacity
 range appears on the **Configuration** tab.
 
-![Instance type section, part of DB instance configuration user interface](images/serverless_v2_screencaps/serverless_v2_capacity_settings_shown_for_serverless_instance.png)
+![Instance type section, part of DB instance configuration user interface.](images/serverless_v2_screencaps/serverless_v2_capacity_settings_shown_for_serverless_instance.png)
 
 You can also see the current capacity range for the cluster on the **Modify** page for the
 cluster. At that point, you can change the capacity range. For all the ways that you can set or change the capacity range, see
@@ -419,7 +419,7 @@ capacity range for the cluster as part of the **Modify** operation. This capacit
 to each Aurora serverless DB instance that you add to the cluster. The following image shows the page where you
 specify the minimum and maximum Aurora capacity units (ACUs).
 
-![Instance configuration user interface](images/serverless_v2_screencaps/serverless_v2_capacity_settings_settable_for_add_reader_modify_instance.png)
+![Instance configuration user interface.](images/serverless_v2_screencaps/serverless_v2_capacity_settings_settable_for_add_reader_modify_instance.png)
 
 For details about the significance of the capacity range, see
 [Aurora serverless capacity](aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity "aurora-serverless-v2.how-it-works.md#aurora-serverless-v2.how-it-works.capacity").
@@ -428,7 +428,7 @@ If the cluster already contains one or more Aurora serverless DB instances, you 
 during the **Modify** operation. The following image shows an example of that information
 panel.
 
-![Capacity range information panel](images/serverless_v2_screencaps/serverless_v2_capacity_settings_fixed_for_add_reader_modify_instance.png)
+![Capacity range information panel.](images/serverless_v2_screencaps/serverless_v2_capacity_settings_fixed_for_add_reader_modify_instance.png)
 
 If you want to change the capacity range for the cluster after you add more Aurora serverless DB instances,
 follow the procedure in
@@ -612,7 +612,7 @@ Here, the **Instance type** value is **Serverless v2**, the **Minimum
 capacity** value is **2 ACUs (4 GiB)**, and the **Maximum capacity**
 value is **64 ACUs (128 GiB)**.
 
-![Instance type section, part of DB instance configuration user interface](images/serverless_v2_screencaps/serverless_v2_capacity_settings_shown_for_serverless_instance.png)
+![Instance type section, part of DB instance configuration user interface.](images/serverless_v2_screencaps/serverless_v2_capacity_settings_shown_for_serverless_instance.png)
 
 You can monitor the capacity of each Aurora serverless DB instance over time. That way, you can check the
 minimum, maximum, and average ACUs consumed by each DB instance. You can also check how close the DB instance

@@ -41,7 +41,7 @@ The CA signs the **DB server certificate,**
 which is installed on each DB instance. The DB server certificate identifies
 the DB instance as a trusted server.
 
-![Certificate authority overview](images/certificate-authority-overview.png)
+![Certificate authority overview.](images/certificate-authority-overview.png)
 
 Amazon RDS provides the following CAs to sign the DB server certificate for a
 database.
@@ -92,7 +92,7 @@ you use the AWS Management Console, you can choose the CA using the
 **Certificate authority** setting, as shown in the
 following image.
 
-![Certificate authority option](images/certificate-authority.png)
+![Certificate authority option.](images/certificate-authority.png)
 
 The console only shows the CAs that are available for the DB engine
 and DB engine version. If you're using the AWS CLI, you can set the CA for
@@ -164,7 +164,7 @@ You can view the details about the CA for a database by viewing the
 **Connectivity & security** tab in the console,
 as in the following image.
 
-![Certificate authority details](images/certificate-authority-details.png)
+![Certificate authority details.](images/certificate-authority-details.png)
 
 If you're using the AWS CLI, you can view the details about the CA for a
 DB instance by using the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command.

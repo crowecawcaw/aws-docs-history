@@ -34,7 +34,7 @@ using the console.
 5. On the **Backtrack DB cluster** page, enter the
    backtrack time stamp to backtrack the DB cluster to.
 
-![Backtrack DB cluster](images/aurora-backtrack-db-cluster.png) 6. Choose **Backtrack DB cluster**.
+![Backtrack DB cluster.](images/aurora-backtrack-db-cluster.png) 6. Choose **Backtrack DB cluster**.
 The following procedure describes how to backtrack a DB cluster using the AWS CLI.
 
 ###### To backtrack a DB cluster using the AWS CLI

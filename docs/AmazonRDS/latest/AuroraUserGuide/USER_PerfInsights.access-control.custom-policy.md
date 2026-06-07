@@ -41,4 +41,4 @@ permissions**. 5. Choose **Attach existing policies directly**. For
 **Search**, type the first few characters of your policy
 name, as shown in the following image.
 
-![Choose a Policy](images/perf_insights_attach_iam_policy.png) 6. Choose your policy, and then choose **Next: Review**. 7. Choose **Add permissions**.
+![Choose a Policy.](images/perf_insights_attach_iam_policy.png) 6. Choose your policy, and then choose **Next: Review**. 7. Choose **Add permissions**.

@@ -8,7 +8,7 @@ For example, the AWS Management Console uses `GetResourceMetrics` to populate th
 Metrics** chart and the **Database Load** chart, as seen in the following
 image.
 
-![Counter Metrics and Database Load charts](images/perf-insights-api-charts.png)
+![Counter Metrics and Database Load charts.](images/perf-insights-api-charts.png)
 All metrics returned by `GetResourceMetrics` are standard time-series metrics, with the exception of
 `db.load`. This metric is displayed in the **Database Load** chart. The
 `db.load` metric is different from the other time-series metrics because you can break it into

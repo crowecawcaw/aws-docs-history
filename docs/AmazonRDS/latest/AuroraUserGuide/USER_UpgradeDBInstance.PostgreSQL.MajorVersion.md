@@ -498,12 +498,12 @@ the top-level item from the **Databases** list in the RDS
 console, **Global database**, as shown in the following
 image.
 
-![Console image showing an Aurora global database, an Aurora Serverless DB cluster, and another Aurora PostgreSQL DB cluster](images/aurora-global-database-plus-other.png)
+![Console image showing an Aurora global database, an Aurora Serverless DB cluster, and another Aurora PostgreSQL DB cluster.](images/aurora-global-database-plus-other.png)
 
 As with any modification, you can confirm that you want the process to proceed
 when prompted.
 
-![Console image showing prompt to confirm the upgrade process for an Aurora PostgreSQL DB cluster](images/aurora-global-db-apg-upgrade-2.png)
+![Console image showing prompt to confirm the upgrade process for an Aurora PostgreSQL DB cluster.](images/aurora-global-db-apg-upgrade-2.png)
 
 Rather than using the console, you can start the upgrade process by using the
 AWS CLI or the RDS API. As with the console, you operate on the Aurora global

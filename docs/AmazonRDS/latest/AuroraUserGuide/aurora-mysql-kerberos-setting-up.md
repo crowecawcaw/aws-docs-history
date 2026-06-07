@@ -101,7 +101,7 @@ The VPC for the directory. Create the Aurora MySQL DB cluster in this same VPC.
 Subnets for the directory servers. The two subnets must be in different Availability Zones. 7. Review the directory information and make any necessary changes. When the information is correct, choose **Create
 directory**.
 
-![Directory details page during creation](images/WinAuth2.png)
+![Directory details page during creation.](images/WinAuth2.png)
 
 It takes several minutes to create the directory. When it has been successfully created,
 the **Status** value changes to **Active**.
@@ -109,7 +109,7 @@ the **Status** value changes to **Active**.
 To see information about your directory, choose the directory name in the directory listing. Note the **Directory
 ID** value because you need this value when you create or modify your Aurora MySQL DB cluster.
 
-![Directory ID in the Directory details page](images/WinAuth3.png)
+![Directory ID in the Directory details page.](images/WinAuth3.png)
 
 ## Step 2: (Optional) Create a trust for an on-premises Active Directory
 
@@ -134,7 +134,7 @@ If you use an on-premises Microsoft Active Directory:
 Make sure that your on-premises Microsoft Active Directory domain name includes a DNS suffix routing that corresponds to
 the newly created trust relationship. The following screenshot shows an example.
 
-![DNS routing corresponds to the created trust](images/kerberos-auth-trust.png)
+![DNS routing corresponds to the created trust.](images/kerberos-auth-trust.png)
 
 ## Step 3: Create an IAM role for use by Amazon Aurora
 
@@ -250,7 +250,7 @@ authentication** in the **Database authentication** section. Choose **Browse
 Directory** and then select the directory, or choose **Create a new
 directory**.
 
-![Kerberos authentication setting when creating a DB cluster](images/kerberos-auth-create-cluster.png)
+![Kerberos authentication setting when creating a DB cluster.](images/kerberos-auth-create-cluster.png)
 When you use the AWS CLI or RDS API, associate a DB cluster with a
 directory. The following parameters are required for the DB cluster to use
 the domain directory you created:

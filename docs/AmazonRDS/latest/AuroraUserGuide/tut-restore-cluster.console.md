@@ -15,7 +15,7 @@ instance.
 3. Choose the DB cluster snapshot that you want to restore from.
 4. For **Actions**, choose **Restore snapshot**.
 
-![Restore snapshot option in the Actions menu in the RDS console](images/tut-restore-cluster1.png)
+![Restore snapshot option in the Actions menu in the RDS console.](images/tut-restore-cluster1.png)
 
 The **Restore snapshot** page appears. 5. Under **DB instance settings**, do the following:
 
@@ -23,7 +23,7 @@ The **Restore snapshot** page appears. 5. Under **DB instance settings**, do the
     2. For **Available versions**, choose a MySQL–8.0 compatible version, such as
      **Aurora MySQL 3.04.0 (compatible with MySQL 8.0.28)**.
 
-![Restore snapshot page](images/tut-restore-cluster2.png) 6. Under **Settings**, for **DB instance identifier** enter the unique name that you
+![Restore snapshot page.](images/tut-restore-cluster2.png) 6. Under **Settings**, for **DB instance identifier** enter the unique name that you
 want to use for the restored DB instance, for example `my-80`.
 
 ###### Note
@@ -63,6 +63,6 @@ make it unencrypted. 11. Expand **Additional configuration** at the bottom of th
 13. Choose **Restore DB instance**.
     The **Databases** page displays the restored DB cluster, with a status of `Creating`.
 
-![Restored DB cluster on the Databases page](images/tut-restore-cluster5.png)
+![Restored DB cluster on the Databases page.](images/tut-restore-cluster5.png)
 While the primary DB instance is being created, it appears as a reader instance, but after creation it's a writer
 instance.

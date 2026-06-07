@@ -194,7 +194,7 @@ encryption at rest is turned on for a DB cluster.
 4. Choose the **Configuration** tab and
    check the **Encryption** value.
 
-![Checking encryption at rest for a DB cluster](images/encryption-aurora-instance.png)
+![Checking encryption at rest for a DB cluster.](images/encryption-aurora-instance.png)
 To determine whether encryption at rest is turned on for a DB
 cluster by using the AWS CLI, call the [describe-db-clusters](../../../cli/latest/reference/rds/describe-db-clusters.md "../../../cli/latest/reference/rds/describe-db-clusters.md") command with the following option:
 

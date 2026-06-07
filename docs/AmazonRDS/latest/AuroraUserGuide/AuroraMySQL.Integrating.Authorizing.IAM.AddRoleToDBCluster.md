@@ -36,7 +36,7 @@ the following steps.
    - **Select IAM roles to add to this cluster** (default)
    - **Select a service to connect to this cluster**
 
-![Associate an IAM role with a DB cluster](images/AuroraAssociateIAMRole-02.png) 5. To use an existing IAM role, choose it from the menu, then choose **Add
+![Associate an IAM role with a DB cluster.](images/AuroraAssociateIAMRole-02.png) 5. To use an existing IAM role, choose it from the menu, then choose **Add
 role**.
 
 If adding the role is successful, its status shows as `Pending`, then
@@ -67,7 +67,7 @@ the role and then choose **Delete**.
    5. For **Description**, type a description for your new DB cluster parameter
       group.
 
-   ![Create a DB cluster parameter group](images/AuroraAssociateIAMRole-03.png) 6. Choose **Create**.
+   ![Create a DB cluster parameter group.](images/AuroraAssociateIAMRole-03.png) 6. Choose **Create**.
 
 3. On the **Parameter groups** page, select your DB cluster parameter group and choose
    **Edit** for **Parameter group actions**.
