@@ -32,9 +32,9 @@ insight status (for example, "Dismissed") and severity level (for example,
 **Last updated timestamp**: Shows when the insight was
 last modified (for example, "Last updated April 16, 2025 03:07 UTC")
 
-![](images/insights-details-header.png)
+![Last updated timestamp showing April 16, 2025 at 3:07 PM with GitHub activity link.](images/insights-details-header.png)
 
-![](images/insights-details-root-cause.png)
+![Amazon Connect Decisions interface showing a filtered insights view with purchase order details.](images/insights-details-root-cause.png)
 
 ## Insight Overview
 
