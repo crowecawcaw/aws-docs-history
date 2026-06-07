@@ -83,7 +83,7 @@ where to look for the confirmation email when we send you another one.
 
 ###### Note
 
-The emails might contain links to www.amazon.registrar or www.verify-whois.com. These links are safe to use.
+The emails might contain links to www.registrar.amazon. These links are safe to use.
 
 For some TLDs, the verification email might not include the domain name in the subject or body of the email. 3. Use the Amazon Route 53 console to resend the confirmation email:
 
@@ -137,7 +137,7 @@ where to look for the authorization email when we send you another one.
 
 ###### Note
 
-The emails might contain links to www.amazon.registrar or www.verify-whois.com. These links are safe to use.
+The emails might contain links to www.registrar.amazon. These links are safe to use.
 
 For some TLDs, the verification email might not include the domain name in the subject or body of the email. 4. If the transfer is no longer in process (if we already canceled it because too
 much time has passed), request the transfer again, and we'll send you another
@@ -182,7 +182,7 @@ where to look for the authorization email when we send you another one.
 
 ###### Note
 
-The emails might contain links to www.amazon.registrar or www.verify-whois.com. These links are safe to use.
+The emails might contain links to www.registrar.amazon. These links are safe to use.
 
 For some TLDs, the verification email might not include the domain name in the subject or body of the email. 3. Cancel the change or deletion. You have two options:
 

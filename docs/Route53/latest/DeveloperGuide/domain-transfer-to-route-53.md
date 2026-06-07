@@ -167,8 +167,8 @@ each domain that you want to transfer.
 date**
 
 We'll send email to that email address to request authorization for
-the transfer. You need to click a link in the email to authorize the
-transfer. If you don't click the link, we must cancel the
+the transfer. You need to choose a link in the email to authorize the
+transfer. If you don't choose the link, we must cancel the
 transfer.
 
 ###### Important
@@ -663,7 +663,7 @@ Authorization isn't required for domains that have a
 For domains that have a [geographic TLD](registrar-tld-list.md#registrar-tld-list-geographic "registrar-tld-list.md#registrar-tld-list-geographic"), we're required to get your
 authorization to transfer the domain. If you transfer 10
 domains, we have to send you 10 emails, and you have to
-click the authorization link in each one.
+choose the authorization link in each one.
 
 The emails all go to the registrant contact for the domain:
 

@@ -196,7 +196,6 @@ the domain:
 
 
     	+ registrar.amazon
-    	+ approvemove.com
     	+ domainnameverification.net
     	+ emailverification.info
     	+ key-systems.net

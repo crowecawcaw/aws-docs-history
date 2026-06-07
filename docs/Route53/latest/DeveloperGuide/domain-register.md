@@ -190,7 +190,7 @@ we must suspend the domain as required by ICANN. When a domain is suspended, it'
 
 ###### Note
 
-The verification emails might contain links to www.amazon.registrar or www.verify-whois.com. These links are safe to use.
+The verification emails might contain links to www.registrar.amazon. These links are safe to use.
 
 For some TLDs, the verification email might not include the domain name in the subject or body of the email.
 
