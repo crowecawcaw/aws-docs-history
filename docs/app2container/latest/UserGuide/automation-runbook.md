@@ -49,9 +49,9 @@ Before you run the automation, you must have:
 - (Optional) A customer managed key in AWS KMS to use as your own server-side
   encryption key for Amazon S3. For more information, see [Customer managed
   keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _Amazon Simple Storage Service User Guide_.
-- If you are using AWS Application Migration Service and running this automation as a post-launch action, you must
+- If you are using AWS Transform MGN and running this automation as a post-launch action, you must
   configure the EC2 launch template setting **Auto-assign public
-  IP** to `Enabled`. For more information, see [Full launch template setting review](../../../mgn/latest/ug/ec2-considerations-1.md#detailed-considerations "../../../mgn/latest/ug/ec2-considerations-1.md#detailed-considerations") in the _AWS Application Migration Service User
+  IP** to `Enabled`. For more information, see [Full launch template setting review](../../../mgn/latest/ug/ec2-considerations-1.md#detailed-considerations "../../../mgn/latest/ug/ec2-considerations-1.md#detailed-considerations") in the _AWS Transform MGN User
   Guide_.
 
 ###### Topics
