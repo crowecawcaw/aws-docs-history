@@ -2,7 +2,7 @@
 
 ## Plan your network architecture
 
-- Decide whether to use a Virtual private gateway, Transit Gateway, or Cloud WAN. Virtual private gateways and Transit Gateways are Regional networking services that can be used only with a multicloud Interconnect provisioned in the local interconnection point to the other CSPs serving that Region. Cloud WAN is a global networking service which can reach any Interconnect globally.
+- Decide whether to use a Virtual private gateway, Transit Gateway, or Cloud WAN. Virtual private gateways and Transit Gateways are Regional networking services that can be used only with a multicloud Interconnect provisioned in the local interconnection point to the other cloud services providers (CSPs) serving that Region. Cloud WAN is a global networking service which can reach any Interconnect globally.
 - Review your existing IP address allocations to ensure no conflicts.
 - Create a new Direct Connect gateway or repurpose an existing one for use with your new multicloud Interconnect.
 
@@ -10,7 +10,7 @@
 
 1. Go to the AWS Direct Connect Console and navigate to AWS Interconnect on the left side navigation menu.
 2. Select **Create new multicloud Interconnect**.
-3. Select your other cloud services provider (CSP). CSPs in Public Preview will include a "Preview" tag in their card.
+3. Select your other CSP from the available cards. CSPs in Public Preview will include a "Preview" tag in their card.
 
 ###### Note
 
@@ -23,3 +23,15 @@ Previews are limited to one Interconnect per customer per supported Region. The 
 3. Enter into the text field the Activation key generated on the other CSP as part of create action and select **Next**.
 4. Provide a name or description for your new interconnect. Specify an existing Direct Connect gateway to serve as the attach point for the new multicloud Interconnect. You can optionally apply a tag to your new interconnect. Choose **Next** to continue the accept action.
 5. On the following screen, you can review the details of the new multicloud Interconnect that was requested from the other CSP. Choose **Finish** to accept the new multicloud Interconnect.
+
+## Create a Free Tier multicloud Interconnect
+
+AWS Interconnect - multicloud customers can use one free, local (Tier 1) 500 Mbps interconnect per AWS Region per cloud services provider that is Generally Available with AWS. The Free Tier Interconnect is offered at no charge on the AWS side but the other CSP determines their pricing and charges independently of AWS for their side of the infrastructure. Please review the other CSP’s pricing before creating your Interconnect.
+
+For more information on Interconnect’s pricing structure, see the [Pricing page](interconnect-pricing.md "interconnect-pricing.md") of this User Guide. Subject to the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/").
+
+To create a free multicloud Interconnect, go to the top-level [AWS Direct Connect Console](https://console.aws.amazon.com/directconnect/v2/home "https://console.aws.amazon.com/directconnect/v2/home"), select "AWS Interconnect - multicloud - Free Tier" option, and press the **Get started** button.
+
+Once you are in the creation flow, follow the same steps described above for creating a multicloud Interconnect. Note that the Free Tier creation flow will have preselected 500 Mbps as the Interconnect speed.
+
+The 500 Mbps speed could be subject to quotas on the other CSP. Before creating a new Free Tier Interconnect, confirm with the other CSP whether that speed is subject to a quota and, if that is the case, that you have remaining quota for the 500 Mbps speed.

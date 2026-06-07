@@ -39,9 +39,7 @@ Interconnect is priced using a Tier structure. Each specific AWS Region to Inter
 | Tier 4 | Long-haul          | Endpoint in a Region across a large geographical area or different continents                                      |
 | Tier 5 | Maximum scope      | Endpoint in a Region farther across a large geographical area or different continents                              |
 
-###### Note
-
-Customers can also use one free, local 500 Mbps interconnect per Region starting in May.
+AWS Interconnect - multicloud customers can also use one free, local (Tier 1) 500 Mbps interconnect per AWS Region per cloud services provider that is Generally Available with AWS. Subject to AWS Service Terms.
 
 A higher Tier automatically includes all paths belonging to a lower Tier. Your Interconnect will be automatically subscribed to the lowest Tier that includes all the specific paths between the Regions where your workloads reside and your Interconnect. The same mechanism applies in the case of Cloud WAN when you add a new CNE to your Core Network. Examples are provided below to show how Tiers operate.
 
