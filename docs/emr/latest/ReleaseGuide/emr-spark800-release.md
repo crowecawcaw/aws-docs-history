@@ -77,6 +77,14 @@ When migrating from EMR 7.x (which uses Spark 3.5.x) to emr-spark-8.0.0 (Spark 4
 - **S3 access** — EMRFS is no longer available. Use the S3A connector to write persistent data to Amazon S3 for better performance and compatibility. See [Optimize Amazon EMR runtime for Apache Spark with EMR S3A](https://aws.amazon.com/blogs/big-data/optimize-amazon-emr-runtime-for-apache-spark-with-emr-s3a/ "https://aws.amazon.com/blogs/big-data/optimize-amazon-emr-runtime-for-apache-spark-with-emr-s3a/"). emr-s3-select has been removed.
 - **Interactive Development** — JupyterHub, Zeppelin, and Hue are no longer included. For interactive Spark development, use EMR Studio, Livy, and JupyterEnterpriseGateway.
 - **Separate release train** — The release label is emr-spark-8.0.0, not emr-8.0.0. This release focuses on Spark. For Flink, HBase, Phoenix, Tez, Trino, Presto, use EMR 7.x and wait for the future emr-8.0.0 multi-engine release. Pig and Oozie are not included.
+- **VPC endpoint for EMR cluster communication** — Starting with Amazon EMR Spark 8.0.0, Amazon EMR on EC2 provisions a VPC endpoint in your VPC for communication between the Amazon EMR service and your cluster when launching a cluster in private subnets. Your Amazon EMR service role must include `ec2:CreateVpcEndpoint` and `ec2:ModifyVpcEndpoint` permissions, or you must create the VPC endpoint manually before launching a cluster. The VPC endpoint service name is `aws.api.`region`.emr-service-cell01`.
+  - This change updates networking requirements for private subnet clusters:
+    - The service access security group (`ElasticMapReduce-ServiceAccess`), attached to the VPC endpoint, requires inbound HTTPS (port 443) from the VPC CIDR block. The port 8443/9443 rules used in Amazon EMR releases 7.x and earlier are no longer required.
+    - The primary instance security group requires outbound HTTPS (port 443) to the service access security group.
+    - Inbound port 8443 and outbound port 9443 rules used in Amazon EMR releases 7.x and earlier are no longer required on primary, core, and task instance security groups.
+    - If you use a custom VPC endpoint policy for Amazon S3, you must allow access to the Amazon EMR instance data buckets (`aws157-instance-data-0-prod-`region`` and `aws157-instance-data-1-prod-`region``).
+
+  - For more information, see [EMR clusters in private subnets](../ManagementGuide/emr-clusters-in-a-vpc.md#emr-vpc-private-subnet "../ManagementGuide/emr-clusters-in-a-vpc.md#emr-vpc-private-subnet"), [Amazon EMR-managed security groups](../ManagementGuide/emr-man-sec-groups.md "../ManagementGuide/emr-man-sec-groups.md"), and [Minimum Amazon S3 policy for private subnet](../ManagementGuide/private-subnet-iampolicy.md "../ManagementGuide/private-subnet-iampolicy.md") in the _Amazon EMR Management Guide_.
 
 ## emr-spark-8.0.0 default Java versions
 

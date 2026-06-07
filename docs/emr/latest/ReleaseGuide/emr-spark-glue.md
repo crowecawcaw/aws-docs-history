@@ -174,3 +174,4 @@ Spark:
   IAM Identity Center](../../../lake-formation/latest/dg/connect-lf-identity-center.md "../../../lake-formation/latest/dg/connect-lf-identity-center.md").
 - The AWS Glue Iceberg REST catalog does not support all operations in open
   source.
+- Here are the [Considerations](../ManagementGuide/emr-lf-limitations-cont.md "../ManagementGuide/emr-lf-limitations-cont.md") for Amazon EMR with Lake Formation.
