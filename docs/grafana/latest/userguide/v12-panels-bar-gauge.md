@@ -20,7 +20,7 @@ This panel can show one or more bar gauges depending on how many series, rows, o
 columns your query returns. Bar gauge visualizations also support legends, improving
 readability when displaying multiple series.
 
-![An image showing an example of a bar gauge visualization in Grafana.](images/viz/bar_gauge_example.png)
+![An image showing an example of a bar gauge visualization in Grafana.](/images/grafana/latest/userguide/images/viz/bar_gauge_example.png)
 
 ## Value options
 
