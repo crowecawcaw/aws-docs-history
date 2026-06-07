@@ -159,6 +159,93 @@ value with the output AMI IDs that Image Builder creates from a new build.
 To view the permissions for this policy, see [AWSServiceRoleForImageBuilder](../../../aws-managed-policy/latest/reference/AWSServiceRoleForImageBuilder.md "../../../aws-managed-policy/latest/reference/AWSServiceRoleForImageBuilder.md") in the _AWS
 Managed Policy Reference_.
 
+## EC2ImageBuilderExecutionPolicy policy
+
+The **EC2ImageBuilderExecutionPolicy** policy grants
+permissions that allow Image Builder to call AWS services on your behalf. You can attach this policy
+to IAM roles that you pass to Image Builder as an execution role instead of using the
+service-linked role.
+
+### Permissions details
+
+The policy includes the following permissions:
+
+- **CloudWatch Logs** – Access is granted to
+  create and upload CloudWatch Logs to any log group whose name starts with
+  `/aws/imagebuilder/`.
+- **Amazon EC2** – Access is granted for Image Builder to
+  create, take snapshots of, and register images (AMIs) that it creates, and launch
+  EC2 instances in your account. Image Builder uses related snapshots,
+  volumes, network interfaces, subnets, security groups, license configurations, and
+  key pairs as required, as long as the image, instance, and volumes that are being
+  created or used are tagged with `CreatedBy: EC2 Image Builder` or
+  `CreatedBy: EC2 Fast Launch`.
+
+Image Builder can get information about Amazon EC2 images, instance attributes, instance
+status, the instance types that are available to your account, launch templates,
+subnets, hosts, and tags on your Amazon EC2 resources.
+
+Image Builder can update image settings to enable or disable faster launching of Windows
+instances in your account, where the image is tagged with
+`CreatedBy: EC2 Image Builder`.
+
+Additionally, Image Builder can start, stop, and terminate instances that are running
+in your account, share Amazon EBS snapshots, create and update images, update launch templates,
+de-register existing images, add tags, and replicate images across accounts
+that you have granted permissions to via the **Ec2ImageBuilderCrossAccountDistributionAccess** policy. Image Builder
+tagging is required for all of these actions, as described
+previously.
+
+- **Amazon ECR** – Access is granted for Image Builder to
+  create a repository if needed for container image vulnerability scans, and tag the
+  resources it creates to limit the scope of its operations. Access is also granted
+  for Image Builder to delete the container images that it created for the scans after it
+  takes snapshots of the vulnerabilities.
+- **EventBridge** – Access is granted for Image Builder to
+  create and manage EventBridge rules.
+- **IAM** – Access is granted for Image Builder to
+  pass any role in your account to Amazon EC2, and to VM Import/Export.
+- **Image Builder** – Access is granted for Image Builder to automatically
+  trigger pipelines on the user's behalf on a user-provided schedule and apply tags to the
+  resulting images. Only used when the `imageTags` property is set on a pipeline and
+  that pipeline is configured to run on a schedule.
+- **Amazon Inspector** – Access is granted for Image Builder to
+  determine when Amazon Inspector completes build instance scans, and to collect findings for
+  images that are configured to allow it.
+- **AWS KMS** – Access is granted for Amazon EBS to
+  encrypt, decrypt, or re-encrypt Amazon EBS volumes. This is crucial to ensure that
+  encrypted volumes work when Image Builder builds an image.
+- **License Manager** – Access is granted for Image Builder to
+  update License Manager specifications via `license-manager:UpdateLicenseSpecificationsForResource`.
+- **Amazon SNS** – Write permissions are
+  granted for any Amazon SNS topic in your account.
+- **Systems Manager** – Access is granted for Image Builder to
+  list Systems Manager command invocations, inventory entries, describe instance
+  information and association execution statuses, describe hosts for instance
+  placement support, and get command invocation details.
+
+Image Builder can issue run command invocations to any instance that is tagged
+`"CreatedBy": "EC2 Image Builder"` for the following script files:
+`AWS-RunPowerShellScript`, `AWS-RunShellScript`,
+or `AWSEC2-RunSysprep`.
+
+Image Builder can also create or delete State Manager associations for any instance
+in your account that is tagged `"CreatedBy": "EC2 Image Builder"`, as long
+as the association document is `AWS-GatherSoftwareInventory`, and to
+create the Systems Manager service-linked role in your account.
+
+Image Builder can read public Parameter Store Parameters, and read and update private
+Parameters prefixed with `/imagebuilder/` so that it can update the Parameter
+value with the output AMI IDs that Image Builder creates from a new build.
+
+- **AWS STS** – Access is granted for Image Builder to
+  assume roles named **EC2ImageBuilderDistributionCrossAccountRole**
+  from your account to any account where the Trust policy on the role permits it. This
+  is used for cross-account image distribution.
+
+To view the permissions for this policy, see [EC2ImageBuilderExecutionPolicy](../../../aws-managed-policy/latest/reference/EC2ImageBuilderExecutionPolicy.md "../../../aws-managed-policy/latest/reference/EC2ImageBuilderExecutionPolicy.md") in the _AWS
+Managed Policy Reference_.
+
 ## Ec2ImageBuilderCrossAccountDistributionAccess policy
 
 The **Ec2ImageBuilderCrossAccountDistributionAccess**
@@ -284,6 +371,7 @@ history](doc-history.md "doc-history.md") page.
 
 | Change                                                                                                                                                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Date               |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [EC2ImageBuilderExecutionPolicy](#sec-iam-manpol-EC2ImageBuilderExecutionPolicy "#sec-iam-manpol-EC2ImageBuilderExecutionPolicy") –<br>New policy                            | Image Builder added the new `EC2ImageBuilderExecutionPolicy` policy<br>that contains permissions for Image Builder to call AWS services on your behalf. You can<br>attach this policy to IAM roles that you pass to Image Builder as an execution role<br>instead of using the service-linked role.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | June 3, 2026       |
 | [AWSServiceRoleForImageBuilder](#sec-iam-manpol-AWSServiceRoleForImageBuilder "#sec-iam-manpol-AWSServiceRoleForImageBuilder") –<br>Update to an existing policy             | Image Builder made the following changes to the service role to support the automated<br>tagging of output images when the `imageTags` property is set on a pipeline.<br>• Added `imagebuilder:StartImagePipelineExecution` to allow Image Builder to trigger pipelines on<br>the user's behalf on a user-provided schedule with the tags to be applied.<br>• Added `imagebuilder:TagResource` to allow Image Builder to tag output images from pipelines<br>on the user's behalf.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | March 18, 2026     |
 | [AWSServiceRoleForImageBuilder](#sec-iam-manpol-AWSServiceRoleForImageBuilder "#sec-iam-manpol-AWSServiceRoleForImageBuilder") –<br>Update to an existing policy             | Image Builder made the following changes to the service role:<br>• Removed `ssm:StartAutomationExecution`, as the service<br>completed its migration away from SSM Automation in 2023 and no longer<br>requires this permission.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | February 26, 2026  |
 | [AWSServiceRoleForImageBuilder](#sec-iam-manpol-AWSServiceRoleForImageBuilder "#sec-iam-manpol-AWSServiceRoleForImageBuilder") –<br>Update to an existing policy             | Image Builder made the following changes to the service role to support the use of<br>AWS Systems Manager (SSM) Parameter Store Parameters in recipes and during image<br>distribution.<br>• Added ssm:GetParameter to allow Image Builder to read public SSM Parameters<br>and private SSM Parameters prefixed with `/imagebuilder/` so that<br>they can be used in recipes.<br>• Added ssm:PutParameter to allow Image Builder to update private SSM Parameters<br>prefixed with `/imagebuilder/` with the output AMI IDs that<br>Image Builder creates from a new build.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | July 23, 2025      |

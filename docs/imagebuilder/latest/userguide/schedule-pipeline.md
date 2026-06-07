@@ -31,8 +31,10 @@ change to the base image or to a component that's used in the recipe.
 ## Automatically disable a failing pipeline
 
 For image pipelines that run on a schedule, you can configure the maximum
-number of consecutive failures to allow (up to`10`) before Image Builder
-automatically disables the pipeline.
+number of consecutive failures to allow (up to `10`) before Image Builder
+automatically disables the pipeline. If you don't set an
+`AutoDisablePolicy`, Image Builder uses a default value of `5`
+consecutive failures.
 
 ###### Auto-disable settings
 
