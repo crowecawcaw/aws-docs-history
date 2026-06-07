@@ -258,6 +258,21 @@ You don't need to call the ACM API operations to create or update your certifica
 You can manage your certificates by using the [CreateDistributionTenant](../../../cloudfront/latest/APIReference/API_CreateDistributionTenant.md "../../../cloudfront/latest/APIReference/API_CreateDistributionTenant.md") and [UpdateDistributionTenant](../../../cloudfront/latest/APIReference/API_UpdateDistributionTenant.md "../../../cloudfront/latest/APIReference/API_UpdateDistributionTenant.md") API operations to specify the details for your
 managed certificate request.
 
+###### Note
+
+**Geographic restrictions compatibility** —
+CloudFront managed certificate validation is compatible with geographic restrictions. When
+you enable geographic restrictions on a distribution that uses a CloudFront managed
+certificate, validation requests are excluded from geographic restriction rules.
+Certificate Authorities verify domain ownership from multiple geographically distributed
+network perspectives (Multi Perspective Issuance Corroboration) to protect against BGP
+hijacking. CloudFront ensures these validation requests succeed regardless of which countries
+you block or allow.
+
+No action is required to use this functionality. If you previously removed geographic
+restrictions as a workaround for certificate validation failures, you can safely
+re-apply them.
+
 ## Wildcard domains (distribution tenant)
 
 Wildcard domains are supported for distribution tenants in the following situations:
