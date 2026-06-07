@@ -49,9 +49,9 @@ Understand the network latency variance between the source and target environmen
 
 If application transaction performance is important, procure up-to-date performance tests results for the applications before migration, and repeat the same performance tests using the same test suite in the AWS Cloud. Attempting to compare test results from different test tools won't give you the assurance you want. Restrict performance testing to only what is needed to validate acceptable performance, with tests that focus on the points of change in the migrated application instance. If performance testing is not within an acceptable range, a rollback decision should be taken immediately to avoid impacting your business. Consider using automated test tools to minimize the time and effort required.
 
-**Suggestion 8.1.4**: Perform a test cutover in AWS Application Migration Service.
+**Suggestion 8.1.4**: Perform a test cutover in AWS Transform MGN.
 
-The server test cutover is essential for confirming Application Migration Service is able to successfully create a clone of the source server which can boot up on the Amazon EC2 platform. The test cutover should be performed within an isolated subnet in AWS, especially for Active Directory connected Windows workloads, to protect live systems and data hosted on-premises. Application Migration Service provides the ability to specify which AWS subnet to use for test cutovers.
+The server test cutover is essential for confirming MGN is able to successfully create a clone of the source server which can boot up on the Amazon EC2 platform. The test cutover should be performed within an isolated subnet in AWS, especially for Active Directory connected Windows workloads, to protect live systems and data hosted on-premises. MGN provides the ability to specify which AWS subnet to use for test cutovers.
 
 | MIG-OPS-09: Have you reviewed your application lifecycle management (like your CI/CD pipeline) and verified if it needs any adjustment once your workloads are in the AWS Cloud? |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

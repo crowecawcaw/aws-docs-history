@@ -36,7 +36,7 @@ situation. 
 
 AWS and our partners offer a
 [range
-of tools](https://aws.amazon.com/prescriptive-guidance/migration-tools/ "https://aws.amazon.com/prescriptive-guidance/migration-tools/") to help migration. For instance, AWS Application Migration Service can help with ongoing
+of tools](https://aws.amazon.com/prescriptive-guidance/migration-tools/ "https://aws.amazon.com/prescriptive-guidance/migration-tools/") to help migration. For instance, AWS Transform MGN can help with ongoing
 replication, planning, testing, and cutover for lift and
 shift server migrations.
 
@@ -44,7 +44,7 @@ shift server migrations.
 
 [Cloud
 Migration Factory](https://aws.amazon.com/solutions/implementations/cloud-migration-factory-on-aws/ "https://aws.amazon.com/solutions/implementations/cloud-migration-factory-on-aws/") can provide additional planning and
-reporting functionality on top of Application Migration Service. Some tools are
+reporting functionality on top of MGN. Some tools are
 purpose-built for specific workloads, such as
 
 [Database
@@ -74,7 +74,7 @@ for applications that are not in active development may also
 be retired. 
 
 Additionally, ongoing replication, such as change data
-capture (CDC) that Application Migration Service or AWS DMS uses, can consume a lot of
+capture (CDC) that MGN or AWS DMS uses, can consume a lot of
 bandwidth when the rate of change in the source server is
 high. Too much simultaneous replication may require
 additional bandwidth to avoid network issues. If migrating
@@ -99,7 +99,7 @@ Cost-effective resources
 performance and adjust their size as needed. 
 
 You can monitor
-[Application Migration Service](../../../mgn/latest/ug/instance-type.md "../../../mgn/latest/ug/instance-type.md")
+[MGN](../../../mgn/latest/ug/instance-type.md "../../../mgn/latest/ug/instance-type.md")
 and
 
 [DMS](../../../dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.md "../../../dms/latest/userguide/CHAP_BestPractices.SizingReplicationInstance.md")
