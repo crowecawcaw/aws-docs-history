@@ -61,11 +61,11 @@ Set the maximum concurrency per execution environment.
 
 Set the minimum and maximum number of execution environments for your function.
 
-**Default behavior:** Lambda maintains a default minimum of 3 execution environments to ensure high availability across Availability Zones.
+**Default behavior:** The default minimum is 3 execution environments across Availability Zones, with no default maximum. You can override both values after the function is created.
 
 **Adjustment guidelines:**
 
-- **Set the minimum:** Provision capacity for baseline traffic and reduce throttles during sudden bursts.
+- **Set the minimum:** Provision capacity for baseline traffic and reduce throttles during sudden bursts. Values below 3 reduce Availability Zone redundancy.
 - **Set the maximum:** Cap the number of execution environments to control scale-out and prevent noisy neighbor issues when multiple functions share a Capacity Provider.
 - **Deactivate the function:** Set both minimum and maximum to 0 to deactivate a function without deleting it.
 
@@ -82,7 +82,8 @@ aws lambda put-function-scaling-config \
 **Important notes:**
 
 - **Qualifier scope:** These configurations apply at the function level for each qualified ARN. When set on `$LATEST.PUBLISHED`, the configuration propagates to future `$LATEST.PUBLISHED` versions. When set on a specific version, newly published versions revert to the default values.
-- **Paired configuration:** You must set both the minimum and maximum values together. Any unspecified setting reverts to its default value. Valid values for both `MinExecutionEnvironments` and `MaxExecutionEnvironments` range from 0 to 15000.
+- **Paired configuration:** You must set both the minimum and maximum values together. Any unspecified setting reverts to its default value. Valid values for both `MinExecutionEnvironments` and `MaxExecutionEnvironments` range from 0 to 15000. A minimum of 0 is only valid when the maximum is also 0.
+- **Cost implication:** Function deactivation takes effect at the function-version level. Lambda terminates an underlying EC2 instance once it has no active execution environments, and instance charges continue until termination completes (typically within a few minutes).
 
 ### Capacity provider level controls
 

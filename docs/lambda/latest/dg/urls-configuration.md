@@ -46,7 +46,7 @@ The following section show how to create and manage a function URL using the Lam
 - [Cross-origin resource sharing (CORS)](#urls-cors "#urls-cors")
 - [Throttling function URLs](#urls-throttling "#urls-throttling")
 - [Deactivating function URLs](#urls-deactivating "#urls-deactivating")
-- [Deleting function URLs](#w2aac11c31c75c53 "#w2aac11c31c75c53")
+- [Deleting function URLs](#w2aac15c31c75c53 "#w2aac15c31c75c53")
 - [Control access to Lambda function URLs](urls-auth.md "urls-auth.md")
 - [Invoking Lambda function URLs](urls-invocation.md "urls-invocation.md")
 - [Monitoring Lambda function URLs](urls-monitoring.md "urls-monitoring.md")
