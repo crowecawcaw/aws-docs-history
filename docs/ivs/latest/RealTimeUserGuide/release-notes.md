@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Real-Time Streaming release notes, latest first,
 organized by date of release.
 
+## June 4, 2026
+
+### Amazon IVS Broadcast SDK: Android 1.43.0, iOS 1.43.0 (Real-Time Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Android Broadcast SDK<br>1.43.0](broadcast-android.md "broadcast-android.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/android/")<br>• The callback provided to the Stage.setAudioCallback API added in 1.42.0 will now be persisted across leave/join cycles, where previously it was cleared on leave.<br>• Fixed a rare crash when tearing down the last Stage that was publishing with the device's microphone.                                                                                                                                                                                                                                                                                                             |
+| [iOS Broadcast SDK<br>1.43.0](broadcast-ios.md "broadcast-ios.md")             | **Download for real-time streaming:**<br>[https://broadcast.live-video.net/1.43.0/AmazonIVSBroadcast-Stages.xcframework.zip](https://broadcast.live-video.net/1.43.0/AmazonIVSBroadcast-Stages.xcframework.zip "https://broadcast.live-video.net/1.43.0/AmazonIVSBroadcast-Stages.xcframework.zip")<br>**Reference documentation:**<br>[https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/ios/")<br>• The callback provided to the IVSStage.setAudioCallback API added in 1.42.0 will now be persisted across leave/join cycles, where previously it was cleared on leave.<br>• Fixed a bug where the camera torch may turn back on unintentionally after changing cameras and rotating the device. |
+
+#### Broadcast SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 6.040 MB        | 14.665 MB         |
+| armeabi-v7a  | 5.232 MB        | 10.161 MB         |
+| x86_64       | 6.149 MB        | 15.246 MB         |
+| x86          | 6.425 MB        | 15.870 MB         |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 4.078 MB        | 8.281 MB          |
+
+## June 4, 2026
+
+### IVS Broadcast SDK: Web 1.36.0 (Real-Time Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.36.0](broadcast-web.md "broadcast-web.md") | **Reference documentation:**<br>[https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Bug fixes and performance improvements. |
+
 ## May 7, 2026
 
 ### Amazon IVS Broadcast SDK: Android 1.42.0, iOS 1.42.0 (Real-Time Streaming)
