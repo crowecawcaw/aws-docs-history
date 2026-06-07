@@ -5,15 +5,13 @@ tasks.
 
 ###### Topics
 
-- [Initial AWS account setup](#initial-account-setup "#initial-account-setup")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [(Optional) Install the AWS CLI](#cli-install-setup "#cli-install-setup")
 - [(Optional) Set up the AWS SDKs](#service-sdk-setup "#service-sdk-setup")
 - [Consider AWS Regions and endpoints](#service-endpoints "#service-endpoints")
 - [Set up required permissions](#permissions "#permissions")
 
-## Initial AWS account setup
-
-### Sign up for an AWS account
+## Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
 [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
