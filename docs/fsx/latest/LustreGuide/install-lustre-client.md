@@ -117,6 +117,105 @@ uname -r
 You can install and update Lustre client packages that are compatible with Red Hat
 Enterprise Linux (RHEL) and Rocky Linux from the Amazon FSx Lustre client yum package repository.
 These packages are signed to help ensure that they have not been tampered with before or
+during download. The repository configuration includes the GPG public key URL, so the key
+is imported automatically when you install packages.
+
+###### To add the Amazon FSx Lustre client yum package repository
+
+1. Open a terminal on your client.
+2. Add the repository and update the package manager using the following
+   command.
+
+```
+sudo curl https://fsx-lustre-client-repo.s3.amazonaws.com/el/10/fsx-lustre-client.repo -o /etc/yum.repos.d/aws-fsx.repo
+```
+
+###### To configure the Amazon FSx Lustre client yum repository
+
+The Amazon FSx Lustre client yum package repository is configured by default to install the
+Lustre client that is compatible with the kernel version that initially shipped with the
+latest supported Rocky Linux and RHEL 10 release. To install a Lustre client that is compatible
+with the kernel version you are using, you can edit the repository configuration file.
+
+This section describes how to determine which kernel you are running, whether you need
+to edit the repository configuration, and how to edit the configuration file.
+
+1. Determine which kernel is currently running on your compute instance by using
+   the following command.
+
+```
+`uname -r`
+```
+
+2. Do one of the following:
+   - If the command returns `6.12.0-211*`, you don't need to modify the
+     repository configuration. Continue to the **To install the Lustre client** procedure.
+   - If the command returns `6.12.0-124*`, you must edit the repository configuration
+     so that it points to the Lustre client for the Rocky Linux and RHEL 10.1 release.
+
+3. Edit the repository configuration file to point to a specific version of RHEL using the following command. Replace
+   `specific_RHEL_version` with the RHEL version you need to use.
+
+```
+sudo sed -i 's#10#`specific_RHEL_version`#' /etc/yum.repos.d/aws-fsx.repo
+```
+
+For example, to point to release 10.1, substitute
+`specific_RHEL_version` with `10.1` in the
+command, as in the following example.
+
+```
+sudo sed -i 's#10#10.1#' /etc/yum.repos.d/aws-fsx.repo
+```
+
+4. Use the following command to clear the yum cache.
+
+```
+sudo yum clean all
+```
+
+###### To install the Lustre client
+
+- Install the packages from the repository using the following command.
+
+```
+sudo yum install -y kmod-lustre-client lustre-client
+```
+
+The commands preceding install the two packages that are necessary for mounting
+and interacting with your Amazon FSx file system. The repository includes additional Lustre
+packages, such as a package containing the source code and packages containing tests,
+and you can optionally install them. To list all available packages in the repository,
+use the following command.
+
+```
+yum --disablerepo="*" --enablerepo="aws-fsx" list available
+```
+
+To download the source rpm, containing a tarball of the upstream source code and
+the set of patches that we've applied, use the following command.
+
+```
+ sudo yumdownloader --source kmod-lustre-client
+```
+
+When you run yum update, a more recent version of the module is installed if
+available and the existing version is replaced. To prevent the currently installed
+version from being removed on update, add a line like the following to your
+`/etc/yum.conf` file.
+
+```
+installonlypkgs=kernel, kernel-PAE, installonlypkg(kernel), installonlypkg(kernel-module),
+              installonlypkg(vm), multiversion(kernel), kmod-lustre-client
+```
+
+This list includes the default install only packages, specified in the
+`yum.conf` man page, and the `kmod-lustre-client`
+package.
+
+You can install and update Lustre client packages that are compatible with Red Hat
+Enterprise Linux (RHEL) and Rocky Linux from the Amazon FSx Lustre client yum package repository.
+These packages are signed to help ensure that they have not been tampered with before or
 during download. The repository installation fails if you don't install the
 corresponding public key on your system.
 
@@ -160,8 +259,10 @@ to edit the repository configuration, and how to edit the configuration file.
 ```
 
 2. Do one of the following:
-   - If the command returns `5.14.0-611*`, you don't need to modify the
+   - If the command returns `5.14.0-687*`, you don't need to modify the
      repository configuration. Continue to the **To install the Lustre client** procedure.
+   - If the command returns `5.14.0-611*`, you must edit the repository configuration
+     so that it points to the Lustre client for the Rocky Linux and RHEL 9.7 release.
    - If the command returns `5.14.0-570*`, you must edit the repository configuration
      so that it points to the Lustre client for the Rocky Linux and RHEL 9.6 release.
    - If the command returns `5.14.0-503*`, you must edit the repository configuration

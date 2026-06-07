@@ -64,4 +64,4 @@ FSx for Lustre doesn't import or retain `setuid` information.
 
 ###### Note
 
-FSx for Lustre doesn't retain any user-defined custom metadata on S3 objects.
+When exporting to or importing from a linked data repository on Amazon S3, FSx for Lustre retains only the metadata explicitly listed above. Other attributes, such as POSIX ACLs and user-defined custom metadata, are not retained.

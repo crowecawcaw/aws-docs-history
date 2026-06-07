@@ -149,6 +149,7 @@ The `configure-efa-fsx-lustre-client.sh` script automatically configures EFA int
 
 | Instance Type                               | Default Number of EFA Interfaces |
 | ------------------------------------------- | -------------------------------- |
+| p6-b300.48xlarge                            | 16                               |
 | p6e-gb200.36xlarge                          | 8                                |
 | p6-b200.48xlarge                            | 8                                |
 | p5en.48xlarge                               | 8                                |
