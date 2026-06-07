@@ -117,14 +117,14 @@ them using SSMS.
 ## Server rehost
 
 You can choose to _rehost_ (lift and shift) your entire SQL Server to
-Amazon EC2 instead of individual databases using AWS Application Migration Service or AWS Migration Hub Orchestrator.
+Amazon EC2 instead of individual databases using AWS Transform MGN or AWS Migration Hub Orchestrator.
 
-**Application Migration Service (MGN)**
+**MGN (MGN)**
 
-Application Migration Service (MGN) automates the migration of your servers and applications to
+MGN (MGN) automates the migration of your servers and applications to
 the cloud during a cutover window. For more information on how you can
-rehost SQL Server using Application Migration Service, see [Quick start guide](../../../mgn/latest/ug/quick-start-guide-gs.md "../../../mgn/latest/ug/quick-start-guide-gs.md")
-in the _Application Migration Service User Guide_.
+rehost SQL Server using MGN, see [Quick start guide](../../../mgn/latest/ug/quick-start-guide-gs.md "../../../mgn/latest/ug/quick-start-guide-gs.md")
+in the _MGN User Guide_.
 
 **Migration Hub Orchestrator**
 

@@ -48,7 +48,7 @@ instances.
 When you launch a SQL Server instance from an imported AMI, you can bring your existing
 licenses with the Bring Your Own License model (BYOL), and let AWS manage them to ensure
 compliance with licensing rules that you set. To import your own licensed image, you can
-use a service such as [VM Import/Export](../../../vm-import/latest/userguide/what-is-vmimport.md "../../../vm-import/latest/userguide/what-is-vmimport.md") or [AWS Application Migration Service](../../../mgn/index.md "../../../mgn/index.md"). After you import your
+use a service such as [VM Import/Export](../../../vm-import/latest/userguide/what-is-vmimport.md "../../../vm-import/latest/userguide/what-is-vmimport.md") or [AWS Transform MGN](../../../mgn/index.md "../../../mgn/index.md"). After you import your
 licensed image, and it is available as a private AMI in your AWS account on the Amazon EC2
 console, you can use the AWS License Manager service to create a license configuration.
 
