@@ -46,7 +46,7 @@ The following Regions and service consoles are supported.
 
 - Amazon API Gateway
 - AWS App Mesh
-- AWS Application Migration Service
+- AWS Transform MGN
 - AWS Artifact
 - Amazon Athena
 - AWS Audit Manager
