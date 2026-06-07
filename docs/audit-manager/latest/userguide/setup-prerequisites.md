@@ -7,21 +7,11 @@ can continue to use the service as normal. For more information, see
 Before you can use AWS Audit Manager, you must make sure that you have properly set up your
 AWS account and user permissions.
 
-This page outlines the necessary steps to create an AWS account (if needed),
-configure an administrative user, and grant the permissions required to access and
-enable Audit Manager.
+###### Topics
 
-###### Tasks
-
-1. [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
-2. [Create a user with administrative access](../userguide.md#create-an-admin "../userguide.md#create-an-admin")
-3. [Add the required permissions to access and enable Audit Manager](#attach-IAM "#attach-IAM")
-
-###### Important
-
-If you’re already set up with AWS and IAM, you can skip tasks 1 and 2.
-However, you must complete task 3 to ensure that you have the required permissions
-to set up Audit Manager.
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
+- [Add the required permissions to access and enable Audit Manager](#attach-IAM "#attach-IAM")
+- [Next steps](#setup-prerequisites-next-steps "#setup-prerequisites-next-steps")
 
 ## Sign up for an AWS account
 
