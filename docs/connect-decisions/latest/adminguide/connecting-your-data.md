@@ -57,7 +57,6 @@ From here, you can:
 
 - Update source and destination mapping manually if needed
 - Ask questions using the Data Agent on the right-hand side of the screen to confirm the mappings
-- Reference [user guides](../../../aws-supply-chain/latest/userguide/data-model-asc.md "../../../aws-supply-chain/latest/userguide/data-model-asc.md") to learn more about specific datasets
 
 ## Column/Data mapping
 

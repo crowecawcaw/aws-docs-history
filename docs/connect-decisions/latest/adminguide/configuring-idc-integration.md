@@ -12,7 +12,7 @@ an existing IAM Identity Center user profile or create a new one.
 3. Select **Create Amazon Connect Decisions instance**. A
    notification will appear.
 
-![](images/configuring-idc-integration-create-instance.png) 4. Enter your email address and select **Continue**. IdC
+![Sign up with email dialog showing Email address input field and Continue button.](images/configuring-idc-integration-create-instance.png) 4. Enter your email address and select **Continue**. IdC
 will verify if the email matches an existing user. 5. Do one of the following:
 
     * **If IdC matches the email address to a user**
@@ -42,11 +42,11 @@ will verify if the email matches an existing user. 5. Do one of the following:
         * **To create an instance using standard
          configuration** – Select **Create**.
          See [Use
-         standard configuration](../../../aws-supply-chain/latest/adminguide/create-instance-standard.md "../../../aws-supply-chain/latest/adminguide/create-instance-standard.md").
+         standard configuration](creating-your-instance.md "creating-your-instance.md").
         * **To create an instance using a custom
          configuration** – Select **Edit in advanced
          setup**. See [Use
-         advanced configuration](../../../aws-supply-chain/latest/adminguide/create-instance-advanced.md "../../../aws-supply-chain/latest/adminguide/create-instance-advanced.md").
+         advanced configuration](creating-your-instance.md#creating-your-instance-advanced-configuration "creating-your-instance.md#creating-your-instance-advanced-configuration").
 
     When used in conjunction with IAM Identity Center, Amazon Connect Decisions retrieves the
     'username' and 'email' fields from IAM Identity Center directory. None of these attributes
