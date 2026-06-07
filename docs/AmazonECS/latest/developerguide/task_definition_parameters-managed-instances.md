@@ -1263,6 +1263,17 @@ containers in a task must not exceed the number of available GPUs on the
 container instance the task is launched on. For more information, see
 [Amazon ECS task definitions for GPU workloads](ecs-gpu.md "ecs-gpu.md").
 
+`Neuron device`
+
+Type: [ResourceRequirement](../APIReference/API_ResourceRequirement.md "../APIReference/API_ResourceRequirement.md") object
+
+Required: No
+
+The Neuron devices that the Amazon ECS container agent reserves
+for the container. The only supported value is `ALL`,
+which gives the container exclusive access to all Neuron devices on
+the instance. For more information, see [Amazon ECS task definitions for AWS Neuron machine learning workloads](ecs-inference.md "ecs-inference.md").
+
 `Elastic Inference
  accelerator`
 
@@ -2237,8 +2248,8 @@ Type: Array of [ResourceRequirement](../APIReference/API_ResourceRequirement.md 
 
 Required: No
 
-The type and amount of a resource to assign to a container. The only
-supported resource is a GPU.
+The type and amount of each resource to assign to a container. The
+supported resources are GPUs and Neuron devices.
 
 `type`
 
@@ -2247,7 +2258,8 @@ Type: String
 Required: Yes
 
 The type of resource to assign to a container. The supported
-value is `GPU`.
+values are `GPU` and
+`NeuronDevice`.
 
 `value`
 
@@ -2264,6 +2276,14 @@ containers in a task can't exceed the number of available GPUs on
 the container instance the task is launched on.
 
 GPUs aren't available for tasks that are running on Fargate.
+
+If the `NeuronDevice` type is used, the only
+supported value is `ALL`. When `ALL`
+is specified, the container gets exclusive access to all
+Neuron devices on the instance.
+
+Neuron devices aren't available for tasks that are running on
+Fargate.
 
 #### Container timeouts
 

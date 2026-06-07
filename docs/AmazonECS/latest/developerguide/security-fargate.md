@@ -1,7 +1,7 @@
 # Fargate security best practices in Amazon ECS
 
 We recommend that you take into account the following best practices when you use
-AWS Fargate. For additional guidance, see [Security overview of AWS Fargate](https://d1.awsstatic.com/whitepapers/AWS_Fargate_Security_Overview_Whitepaper.pdf "https://d1.awsstatic.com/whitepapers/AWS_Fargate_Security_Overview_Whitepaper.pdf").
+AWS Fargate.
 
 ## Use AWS KMS to encrypt ephemeral storage for Fargate
 

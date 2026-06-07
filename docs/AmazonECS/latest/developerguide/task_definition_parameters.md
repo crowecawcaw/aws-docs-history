@@ -171,15 +171,16 @@ determines your range of supported values for the `memory`
 parameter. The table below shows the valid combinations of task-level CPU
 and memory.
 
-| CPU value                                                                      | Memory value                                | Operating systems supported for<br>AWS Fargate |
-| ------------------------------------------------------------------------------ | ------------------------------------------- | ---------------------------------------------- |
-| 256 (.25 vCPU)                                                                 | 512 MiB, 1 GB, 2 GB                         | Linux                                          |
-| 512 (.5 vCPU)                                                                  | 1 GB, 2 GB, 3 GB, 4 GB                      | Linux                                          |
-| 1024 (1 vCPU)                                                                  | 2 GB, 3 GB, 4 GB, 5 GB, 6 GB, 7 GB, 8 GB    | Linux, Windows                                 |
-| 2048 (2 vCPU)                                                                  | Between 4 GB and 16 GB in 1 GB increments   | Linux, Windows                                 |
-| 4096 (4 vCPU)                                                                  | Between 8 GB and 30 GB in 1 GB increments   | Linux, Windows                                 |
-| 8192 (8 vCPU)<br>NoteThis option requires Linux platform `1.4.0` or<br>later.  | Between 16 GB and 60 GB in 4 GB increments  | Linux                                          |
-| 16384 (16vCPU)<br>NoteThis option requires Linux platform `1.4.0` or<br>later. | Between 32 GB and 120 GB in 8 GB increments | Linux                                          |
+| CPU value                                                                       | Memory value                                | Operating systems supported for<br>AWS Fargate |
+| ------------------------------------------------------------------------------- | ------------------------------------------- | ---------------------------------------------- |
+| 256 (.25 vCPU)                                                                  | 512 MiB, 1 GB, 2 GB                         | Linux                                          |
+| 512 (.5 vCPU)                                                                   | 1 GB, 2 GB, 3 GB, 4 GB                      | Linux                                          |
+| 1024 (1 vCPU)                                                                   | 2 GB, 3 GB, 4 GB, 5 GB, 6 GB, 7 GB, 8 GB    | Linux, Windows                                 |
+| 2048 (2 vCPU)                                                                   | Between 4 GB and 16 GB in 1 GB increments   | Linux, Windows                                 |
+| 4096 (4 vCPU)                                                                   | Between 8 GB and 30 GB in 1 GB increments   | Linux, Windows                                 |
+| 8192 (8 vCPU)<br>NoteThis option requires Linux platform `1.4.0` or<br>later.   | Between 16 GB and 60 GB in 4 GB increments  | Linux                                          |
+| 16384 (16 vCPU)<br>NoteThis option requires Linux platform `1.4.0` or<br>later. | Between 32 GB and 120 GB in 8 GB increments | Linux                                          |
+| 32768 (32 vCPU)<br>NoteThis option requires Linux platform `1.4.0` or<br>later. | 60 GB, 120 GB, 244 GB                       | Linux                                          |
 
 `memory`
 
