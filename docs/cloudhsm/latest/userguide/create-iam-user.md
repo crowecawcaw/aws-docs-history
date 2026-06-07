@@ -24,9 +24,6 @@ delete it. For more information, see [Service-linked roles for AWS CloudHSM](ser
 
 ## Create an IAM user and administrator group
 
-Start by creating an IAM user along with an administrator group for that
-user.
-
 ### Sign up for an AWS account
 
 To get started with AWS, you need an AWS account. For information about creating an AWS account, see
