@@ -176,7 +176,7 @@ before sign-in completes – launch the client with the
 "/Applications/WickrPro.app/Contents/MacOS/WickrPro" -logging
 ```
 
-- **Windows:** Right-click the
+- **Windows:** Open the context menu for the
   AWS Wickr shortcut, choose **Properties**,
   then the **Shortcut** tab. Append
   `-logging` to the **Target** path
