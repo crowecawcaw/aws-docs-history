@@ -98,3 +98,203 @@ Implementation Guide_.
 | ----------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------ | ------ |
 | `patient/Observation.rs`                        | `user/Observation.read` | Permission to read and search `Observation` resource<br>for the current patient.                             |
 | `system/*.cruds`                                | `system/*.*`            | The system client application has full<br>create/read/update/delete/search access to all FHIR resource data. |
+
+### SMART on FHIR V2.2 scopes supported by HealthLake
+
+V2.2 extends V2 scopes with search-parameter–based filtering.
+Authorization servers can now issue scopes that restrict access by specific data
+characteristics and not just by resource type and CRUDS operation.
+
+Everything from V2 remains unchanged. V2.2 is purely additive:
+
+- Existing V2 scopes (without filters) continue to work as before.
+- The V2 grammar is extended with an optional
+  `?param=value` query string.
+- No changes to scope levels (`patient`/`user`/`system`),
+  resource types, or CRUDS letters.
+
+#### Prerequisites
+
+Before enabling SMART on FHIR V2.2, ensure the following:
+
+- Your data store was created with `AuthorizationStrategy`
+  set to `SMART_ON_FHIR` (supports both V1 and V2). Data
+  stores using `SMART_ON_FHIR_V1` or `AWS_AUTH` are
+  not eligible.
+- Your data store already includes `permission-v2` in the
+  `capabilities` array. V2.2 is additive as it extends V2
+  and cannot be used standalone.
+- Your IDP Lambda is configured to validate and pass through the V2.2
+  scope format (scopes containing `?` query
+  syntax).
+
+#### Enabling V2.2
+
+The enablement path depends on whether you are creating a new data store or
+updating an existing one.
+
+##### New data stores
+
+When creating a new data store, add
+`permission-v2.2` to the `capabilities` array
+in the `Metadata` field of your [`IdentityProviderConfiguration`](../APIReference/API_IdentityProviderConfiguration.md "../APIReference/API_IdentityProviderConfiguration.md"):
+
+```
+"capabilities": [
+  "launch-ehr",
+  "sso-openid-connect",
+  "client-public",
+  "permission-v2",
+  "permission-v2.2"
+]
+```
+
+##### Existing data stores
+
+For existing data stores, submit a support ticket requesting the addition
+of `permission-v2.2` to your data store configuration. This
+follows the same process used when upgrading from SMART on FHIR V1 to
+SMART on FHIR V2.
+
+Self-service updates for V2.2 on existing data stores are not yet
+available. The HealthLake team will apply the change on your behalf upon ticket
+submission.
+
+Requirements:
+
+- `permission-v2` must remain in the array. V2.2 cannot
+  be used without V2.
+- `AuthorizationStrategy` must be
+  `SMART_ON_FHIR` (not
+  `SMART_ON_FHIR_V1` or
+  `AWS_AUTH`).
+- No downtime required. The change takes effect
+  immediately.
+
+To verify, confirm via the [Discovery
+Document](reference-smart-on-fhir-discovery-document.md "reference-smart-on-fhir-discovery-document.md") (requires
+SigV4):
+
+```
+GET {healthlake-endpoint}/r4/.well-known/smart-configuration
+```
+
+If the `capabilities` array in the response includes
+`permission-v2.2`, SMART on FHIR V2.2 is
+active.
+
+#### Extended scope syntax
+
+The V2 grammar is extended with an optional query string:
+
+```
+V2:   (patient|user|system) / resource . cruds
+V2.2: (patient|user|system) / resource . cruds [? param=value [& param=value ...]]
+```
+
+| V2.2 scope query string components | Component                                                                          | Description |
+| ---------------------------------- | ---------------------------------------------------------------------------------- | ----------- |
+| `?param=value`                     | Search-parameter filter. Only resources matching this<br>criterion are accessible. |
+| `&param=value`                     | Additional filter. Multiple filters are ANDed –<br>all must match.                 |
+
+Rules:
+
+- Filters only apply to the resource type specified in the scope.
+  Wildcard (`*`) with filters is not supported.
+- Parameters must be valid for the resource type per your data store's
+  search configuration (check via
+  `GET /r4/metadata`).
+- The full scope string (for example,
+  `patient/Observation.rs?category=laboratory`) is the
+  literal value that appears in the OAuth 2.0 scope parameter and
+  access token `scp` claim.
+- URL-encode special characters per [RFC
+  6749](https://datatracker.ietf.org/doc/html/rfc6749 "https://datatracker.ietf.org/doc/html/rfc6749") in authorization requests (for example,
+  `|` → `%7C`).
+- For date, number, and quantity parameters, V2.2 supports prefix
+  [comparators](reference-fhir-search-parameters.md#search-comparators "reference-fhir-search-parameters.md#search-comparators") (for example,
+  `?date=eq2023-01-01`). V2.2 also supports [search parameter modifiers](reference-fhir-search-parameters.md#search-parameter-modifiers "reference-fhir-search-parameters.md#search-parameter-modifiers").
+
+#### Scope examples
+
+| V2.2 scope examples                                                                         | Scope                                                              | Access granted                                                    |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ----------------------------------------------------------------- |
+| `patient/DiagnosticReport.rs?category=LAB`                                                  | Only `DiagnosticReport` resources where<br>`category` is<br>`LAB`. |
+| `patient/Observation.rs?\_security=http://terminology.hl7.org/CodeSystem/v3-Confidentiality | R`                                                                 | Only `Observation` resources with security<br>label `Restricted`. |
+| `patient/Observation.rs?date=ge2023-01-01`                                                  | Only `Observation` resources dated on or<br>after January 1, 2023. |
+| `patient/Observation.rs?category=laboratory&status=final`                                   | Only `Observation` resources that are lab<br>AND final.            |
+| `user/Condition.rs?clinical-status=active`                                                  | Only active `Condition`<br>resources.                              |
+
+#### Enforcement behavior
+
+When a token includes V2.2 scopes, HealthLake applies filters per
+operation:
+
+| V2.2 enforcement per operation | Operation                                                                              | Behavior |
+| ------------------------------ | -------------------------------------------------------------------------------------- | -------- |
+| Read (`r`)                     | Succeeds only if the resource matches all scope<br>filters. Otherwise returns 403.     |
+| Search (`s`)                   | Scope filters are intersected with the query. Only<br>matching resources are returned. |
+| Create/Update (`c`/`u`)        | Resource must satisfy scope filters to be written.<br>Otherwise returns 403.           |
+| Delete (`d`)                   | Target resource must match scope filters. Otherwise<br>returns 403.                    |
+
+##### Scope precedence
+
+- Multiple V2.2 scopes for the same resource type are unioned (OR
+  across scopes).
+- A broader V2 scope without filters (for example,
+  `patient/Observation.rs`) grants full access
+  regardless of any narrower V2.2 scopes in the same
+  token.
+- V2.2 scopes on a data store without
+  `permission-v2.2` enabled are silently
+  ignored.
+
+#### Limitations
+
+The following are not supported in V2.2 scope filters:
+
+- Composite search parameters (for example,
+  `code-value-quantity`).
+- Chained search parameters (for example,
+  `subject:Patient.name=Smith`).
+- `_include` / `_revinclude`
+  search parameters.
+- `$export` / `$davinci-data-export` (Bulk Data)
+  – V2.2 filters do not apply; bulk export uses V2
+  scopes.
+- Wildcard resource type combined with filters (for example,
+  `patient/*.rs?category=LAB` is invalid). You must
+  specify an explicit resource type when using search-parameter filters
+  (for example,
+  `patient/Observation.rs?category=LAB`).
+
+| Troubleshooting               | Symptom                              | Cause                                                                                       | Fix |
+| ----------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------- | --- |
+| Token scope not recognized    | V2.2 not enabled on data store       | Check `/.well-known/smart-configuration`<br>and request enablement via a support<br>ticket. |
+| 403 on a resource that exists | Resource does not match scope filter | Verify resource values against scope<br>parameters.                                         |
+| Empty search results          | Scope filter narrower than query     | Results are the intersection of query and scope<br>filters.                                 |
+| `InvalidScope` error          | Invalid search parameter in scope    | Confirm parameter via<br>`/metadata`<br>CapabilityStatement.                                |
+
+#### End-to-end example
+
+Scenario: A patient app should only show finalized lab results from 2023
+onward.
+
+1. Authorization server issues token with scope:
+
+```
+patient/Observation.rs?category=laboratory&status=final&date=ge2023-01-01
+```
+
+2. Client calls HealthLake:
+
+```
+GET {endpoint}/r4/Observation?patient=Patient/123
+```
+
+3. HealthLake enforces scope filters. The response contains only
+   `Observation` resources where
+   `category=laboratory` AND
+   `status=final` AND `date ≥
+2023-01-01` – even though the client requested all
+   Observations.
