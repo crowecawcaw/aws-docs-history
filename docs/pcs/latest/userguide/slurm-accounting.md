@@ -1,5 +1,9 @@
 # Slurm accounting in AWS PCS
 
+###### Note
+
+Accounting is supported for Slurm 24.11 or later.
+
 You can enable accounting on your new AWS PCS clusters to monitor cluster usage, enforce
 resource limits, and manage fine-grained access control to specific queues or compute node
 groups. AWS PCS creates and manages the accounting database for your cluster, eliminating the
@@ -13,13 +17,8 @@ parameters. After your cluster status is `Active` and has compute node groups,
 you can connect to the Linux shell of a login node to perform accounting functions, such as
 viewing job data with the Slurm `sacct` command.
 
-###### Note
-
-Accounting is supported for Slurm 24.11 or later.
-
 AWS PCS console
-On the **Create cluster** page, You must select a valid
-version of Slurm (version 24.11 or later). Under **Scheduler
+On the **Create cluster** page, under **Scheduler
 settings**, enable **Accounting**.
 
 AWS PCS API
@@ -36,7 +35,7 @@ the `CreateCluster` API action. The parameter value substring
 
 ```
 aws pcs create-cluster --cluster-name `cluster-name` \
-                       --scheduler type=SLURM,version=24.11 \
+                       --scheduler type=SLURM,version=25.11 \
                        --size SMALL \
                        --networking subnetIds=`cluster-subnet-id`,securityGroupIds=`cluster-security-group-id` \
                        --slurm-configuration scaleDownIdleTimeInSeconds=180,**accounting='{mode=STANDARD}'**,slurmCustomSettings='[{parameterName=SelectTypeParameters,parameterValue=CR_CPU_Memory}]'
@@ -73,8 +72,7 @@ value, AWS PCS retains accounting records in the database indefinitely.
 
 AWS PCS console
 You specify default purge time as part of the steps to create a
-cluster. On the **Create cluster** page, You must
-select a valid version of Slurm (version 24.11 or later) and enable
+cluster. On the **Create cluster** page, enable
 accounting. Under **Scheduler settings**, provide an
 integer value for **Default purge time (days)**.
 
@@ -116,8 +114,7 @@ For more information about these options, see the [Slurm documentation at SchedM
 
 AWS PCS console
 You set the options as part of the steps to create a cluster. On the
-**Create cluster** page, You must select a valid
-version of Slurm (version 24.11 or later) and enable accounting. Select
+**Create cluster** page, enable accounting. Select
 the options you want from the **Accounting policy
 enforcement** dropdown list under **Scheduler
 settings**.

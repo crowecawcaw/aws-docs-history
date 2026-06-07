@@ -104,7 +104,6 @@ Parameters:
     Default: 25.11
     Description: Version of Slurm to use
     AllowedValues:
-         - 24.11
          - 25.05
          - 25.11
 
@@ -114,7 +113,7 @@ Parameters:
     AllowedValues:
       - 'enabled'
       - 'disabled'
-    Description: Monitor cluster usage, manage access control, and enforce resource limits with Slurm accounting. Requires Slurm 24.11 or newer.
+    Description: Monitor cluster usage, manage access control, and enforce resource limits with Slurm accounting.
 
   AccountingPolicyEnforcement:
     Description: Specify which Slurm accounting policies to enforce

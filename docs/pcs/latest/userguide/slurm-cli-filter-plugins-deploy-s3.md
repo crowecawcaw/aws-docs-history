@@ -8,6 +8,7 @@ instance launch using user data.
 
 Before you deploy your script using S3, complete these tasks:
 
+- Verify you are using Slurm version 24.11 or later. For 24.11 and 25.05, see [Requirements](slurm-cli-filter-plugins.md#slurm-cli-filter-plugins-requirements "slurm-cli-filter-plugins.md#slurm-cli-filter-plugins-requirements").
 - Create an S3 bucket with your CLI Filter Plugin Lua script
 - Configure IAM instance profile with read access to the S3 bucket
 - Set up S3 VPC Gateway endpoint for direct access without internet
@@ -20,8 +21,8 @@ Before you deploy your script using S3, complete these tasks:
 3. Add shell code to your launch template user-data to download the script:
 
 ```
-aws s3 cp s3://my-bucket/cli_filter.lua /etc/aws/pcs/scheduler/slurm-24.11/cli_filter.lua
-chmod 644 /etc/aws/pcs/scheduler/slurm-24.11/cli_filter.lua
+aws s3 cp s3://my-bucket/cli_filter.lua /etc/aws/pcs/scheduler/slurm-25.11/cli_filter.lua
+chmod 644 /etc/aws/pcs/scheduler/slurm-25.11/cli_filter.lua
 ```
 
 4. Deploy compute node groups with your updated launch templates.

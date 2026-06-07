@@ -6,11 +6,11 @@ Configure CLI Filter Plugins when you create a new AWS PCS cluster. You can enab
 
 Before you configure CLI Filter Plugins, complete these tasks:
 
+- Verify you are using Slurm version 24.11 or later. For 24.11 and 25.05, see [Requirements](slurm-cli-filter-plugins.md#slurm-cli-filter-plugins-requirements "slurm-cli-filter-plugins.md#slurm-cli-filter-plugins-requirements").
 - Write and test a Lua script that implements CLI Filter Plugin API
 - Name your Lua script exactly `cli_filter.lua`
 - Choose a method to deploy your script to all cluster instances (AMI, S3, or file
   system)
-- Verify you are using Slurm version 24.11 or later
 
 ## Enable CLI Filter Plugins on a new cluster
 
@@ -19,10 +19,9 @@ AWS PCS console
 1. Open the AWS PCS console at [https://console.aws.amazon.com/pcs/](https://console.aws.amazon.com/pcs/ "https://console.aws.amazon.com/pcs/").
 2. In the navigation pane, choose **Clusters**.
 3. Choose **Create cluster**.
-4. Select a valid version of Slurm (version 24.11 or later).
-5. Under **Scheduler settings**, expand **Additional scheduler settings**.
-6. Add a new Slurm custom setting with **Parameter name** set to `CliFilterPlugins` and **Parameter value** set to `cli_filter/lua`.
-7. Complete the remaining cluster configuration and choose **Create cluster**.
+4. Under **Scheduler settings**, expand **Additional scheduler settings**.
+5. Add a new Slurm custom setting with **Parameter name** set to `CliFilterPlugins` and **Parameter value** set to `cli_filter/lua`.
+6. Complete the remaining cluster configuration and choose **Create cluster**.
 
 AWS PCS API
 Provide the `slurmCustomSettings` configuration in your call to the
@@ -37,7 +36,7 @@ the `CreateCluster` API action. The custom setting
 
 ```
 aws pcs create-cluster --cluster-name `cluster-name` \
---scheduler type=SLURM,version=24.11 \
+--scheduler type=SLURM,version=25.11 \
 --size SMALL \
 --networking subnetIds=`cluster-subnet-id`,securityGroupIds=`cluster-security-group-id` \
 --slurm-configuration \
@@ -58,10 +57,10 @@ already installed. 2. Deploy your `cli_filter.lua` script to
 `/etc/aws/pcs/scheduler/slurm-<version>/cli_filter.lua` on all
 instances in the cluster.
 
-For example, for Slurm version 24.11:
+For example, for Slurm version 25.11:
 
 ```
-/etc/aws/pcs/scheduler/slurm-24.11/cli_filter.lua
+/etc/aws/pcs/scheduler/slurm-25.11/cli_filter.lua
 ```
 
 3. Launch all login and compute nodes using your prepared AMIs.

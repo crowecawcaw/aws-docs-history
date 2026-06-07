@@ -61,7 +61,7 @@ If there are multiple AMIs, use the AMI with the most recent time stamp.
 
 ###### Note
 
-Sample AMIs for Slurm 25.05 and 24.11 use Amazon Linux 2 (`amzn2`) instead of Amazon Linux 2023 (`al2023`). 5. Use the AMI ID when you create or update a compute node group.
+Sample AMIs for Slurm 25.05 use Amazon Linux 2 (`amzn2`) instead of Amazon Linux 2023 (`al2023`). 5. Use the AMI ID when you create or update a compute node group.
 
 AWS CLI
 You can find the latest AWS PCS sample AMI with the commands that follow. Replace
