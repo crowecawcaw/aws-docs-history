@@ -158,6 +158,22 @@ For current TISAX-certified regions, see the [AWS Compliance Programs page](http
 
 ### Cost Optimization
 
+**Estimated monthly costs** (eu-west-1 producer region + us-east-1 consumer region):
+
+| Service                      | Usage                          | Monthly Cost | Notes                                    |
+| ---------------------------- | ------------------------------ | ------------ | ---------------------------------------- |
+| Amazon S3 (PII + Anonymized) | 50 GB across 2 buckets         | $1.15        | Intelligent-Tiering recommended          |
+| AWS Glue ETL (Anonymization) | 2 DPU, daily runs              | $27          | ~30 runs/month                           |
+| AWS Glue Crawler             | Daily schema discovery         | $5           | 1 crawler, 30 runs/month                 |
+| Amazon Macie                 | 10 GB scanned/month            | $10          | Custom PII identifiers (VIN, plate)      |
+| AWS Lake Formation           | Permissions and resource links | $0           | No additional cost                       |
+| AWS CloudTrail (Org Trail)   | Management + data events       | $2           | First trail free, data events $0.10/100K |
+| CloudWatch Logs              | 5 GB/month                     | $2.50        | Audit and compliance logging             |
+| S3 Cross-Region Replication  | 10 GB replicated/month         | $0.20        | Anonymized data to consumer region       |
+| **Total**                    |                                | **~$48-55**  | Scales with data volume                  |
+
+**Cost optimization tips**:
+
 **Data Storage**:
 
 - S3 Intelligent-Tiering for automatic cost optimization
@@ -169,7 +185,6 @@ For current TISAX-certified regions, see the [AWS Compliance Programs page](http
 
 - Glue ETL auto-scaling adjusts capacity based on workload
 - Athena query result reuse reduces redundant processing
-- Kinesis Data Streams on-demand pricing for variable workloads
 - Reserved capacity for predictable workloads (Glue DPUs)
 
 ### Operational Excellence

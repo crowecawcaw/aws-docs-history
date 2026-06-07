@@ -312,6 +312,22 @@ revenue impact and clear remediation path.
 
 ### Cost optimization
 
+**Estimated monthly costs** (us-east-1 region):
+
+| Service                           | Usage                            | Monthly Cost  | Notes                                 |
+| --------------------------------- | -------------------------------- | ------------- | ------------------------------------- |
+| Amazon Aurora Serverless v2       | 0.5-2 ACU, pgvector              | $45-90        | Auto-pause after 5 min idle           |
+| Amazon Bedrock (Claude Sonnet)    | 1,000 queries/mo, ~2K tokens avg | $30-60        | Input ~$0.003/1K, Output ~$0.015/1K   |
+| Amazon Bedrock (Titan Embeddings) | 500K embeddings                  | $5            | KB sync and retrieval                 |
+| Amazon QuickSight Enterprise      | 1 author + 5 readers             | $67           | $24/author + $5/reader + SPICE        |
+| Amazon Athena                     | 100 GB scanned/mo                | $0.50         | $5/TB, partitioned tables reduce cost |
+| AWS Glue ETL                      | 2 DPU, 10 runs/mo                | $9            | Crawler + ETL jobs                    |
+| Amazon S3                         | 10 GB data lake                  | $0.25         | 11 datasets + synthetic data          |
+| AWS Lambda                        | 5,000 invocations                | $1            | Agent tool executor                   |
+| **Total**                         |                                  | **~$160-235** | Scales with query volume              |
+
+**Cost optimization tips**:
+
 **Aurora Serverless**: \* Auto-pause after 5 minutes idle \* Min ACU: 0.5, Max: 2 \* Use read replicas only if needed
 
 **Bedrock costs**: \* Input tokens: ~$0.003 per 1K \* Output tokens: ~$0.015 per 1K \* Embeddings: ~$0.0001 per 1K \* Optimize prompt length

@@ -337,3 +337,89 @@ aws sns subscribe \
 
 # Confirm subscription via email
 ```
+
+## CMS Integration: Quick Start
+
+For customers using the [Connected Mobility Guidance](../connected-mobility-on-aws/developer-guide.md "../connected-mobility-on-aws/developer-guide.md"), follow these steps to connect the tire prediction model to your CMS telemetry pipeline.
+
+### Step 1: Generate training data
+
+The solution includes a synthetic data generator that creates realistic tire telemetry with injected anomalies:
+
+```
+cd guidance-for-predictive-maintenance
+python3 scripts/generate_training_data.py
+```
+
+This creates 721,024 records across 50 vehicles over 6 months, including:
+
+- Normal driving patterns with seasonal temperature effects
+- Slow leaks (8% of vehicle-tires, 0.3–1.2 PSI/day loss)
+- Punctures (4%, sudden pressure drop)
+- Valve failures (3%, intermittent pressure loss)
+- Overinflation events (2%)
+
+Output: `data/training/tire_telemetry_full.parquet` (17.5 MB)
+
+### Step 2: Train the model
+
+**Option A: Command line**
+
+```
+python3 scripts/train_model.py \
+  --region us-east-2 \
+  --role-arn arn:aws:iam::ACCOUNT:role/cms-sagemaker-execution-role \
+  --bucket cms-tire-prediction-ACCOUNT-REGION \
+  --deploy
+```
+
+**Option B: SageMaker notebook**
+
+Open `notebooks/train_tire_model.ipynb` in SageMaker Studio or a local Jupyter environment. The notebook provides:
+
+- Data exploration and visualization (pressure distributions, slow leak examples)
+- Feature preparation and normalization
+- Model training with progress monitoring
+- Evaluation with precision/recall/F1 metrics
+- Anomaly score distribution visualization
+- Endpoint deployment and SSM configuration
+
+Both options train a SageMaker Random Cut Forest model (~3 minutes), deploy a real-time endpoint (~5 minutes), and save configuration to SSM Parameter Store.
+
+### Step 3: Deploy CMS integration
+
+Deploy the CDK stack to create the prediction Lambdas and EventBridge schedule:
+
+```
+cd source/infrastructure
+DEPLOYMENT_STAGE=prod cdk deploy tire-predictive-maintenance-stack
+```
+
+This creates:
+
+- `cms-{stage}-daily-tire-check` Lambda — runs daily, detects slow leak trends
+- `cms-{stage}-blowout-risk` Lambda — real-time highway blowout risk assessment
+- EventBridge schedule (daily at 10 AM UTC)
+- IAM roles with least-privilege permissions
+- S3 bucket for training artifacts
+
+### Step 4: Verify end-to-end
+
+Start a simulation in the CMS Fleet Manager UI with the "Tire pressure below safe threshold" maintenance event selected. Within 2 minutes:
+
+1. The simulator gradually drops tire pressure from 32 PSI toward 20 PSI
+2. The Flink MaintenanceProcessor detects `maintenance.tire_pressure` when pressure crosses 28 PSI
+3. A maintenance alert appears on the vehicle detail page with a $35 estimated repair cost
+4. The daily tire check Lambda (when run) detects the pressure trend and writes a `prediction.tire_slow_leak` warning
+
+For highway blowout risk testing, select "Highway blowout risk" which creates a composite condition: tire pressure drops below 30 PSI while vehicle speed exceeds 60 mph. The SageMaker endpoint evaluates the multi-signal risk pattern and writes a `prediction.blowout_risk` alert.
+
+### SSM Parameters
+
+After training, the following parameters are available:
+
+| Parameter                                      | Description                                        |
+| ---------------------------------------------- | -------------------------------------------------- |
+| `/tire-prediction/{stage}/normalization-stats` | Feature normalization (mean/std per feature)       |
+| `/tire-prediction/{stage}/anomaly-threshold`   | Anomaly score threshold for blowout risk detection |
+| `/tire-prediction/{stage}/endpoint-name`       | SageMaker endpoint name for real-time inference    |

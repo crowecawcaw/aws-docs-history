@@ -194,6 +194,26 @@ Fulfill EU Data Act and GDPR requirements through automated data classification,
 
 ## Target Audience
 
+### Cost Estimates
+
+The following table provides estimated monthly costs for deploying each solution component. Costs are based on us-east-1 region pricing and assume moderate usage (demo/development workloads). Production workloads with higher data volumes and query rates will scale accordingly.
+
+| Solution Component         | Key Services                                                                 | Monthly Estimate | Notes                                                         |
+| -------------------------- | ---------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------- |
+| **Foundational Layer**     | S3, Glue Catalog, Athena, Lake Formation, CloudWatch                         | **~$15**         | Shared across all components                                  |
+| **Customer 360 Analytics** | Aurora pgvector, Bedrock Agent + KB, QuickSight, Athena, Glue                | **~$160-235**    | QuickSight per-user pricing; Bedrock scales with query volume |
+| **Predictive Maintenance** | SageMaker (training + inference), Glue ETL, Lambda, Step Functions, DynamoDB | **~$355-650**    | $355 for 10K vehicles, $650 for 50K vehicles                  |
+| **Data Governance**        | S3 (multi-region), Glue ETL, Macie, Lake Formation, CloudTrail               | **~$48-55**      | Scales with data volume scanned by Macie                      |
+| **All 3 Components**       | Combined                                                                     | **~$580-955**    | Shared foundational layer reduces per-component overhead      |
+
+###### Note
+
+These estimates are approximate and based on publicly available AWS pricing as of March 2026. Actual costs depend on usage patterns, data volumes, query frequency, and region. Use the [AWS Pricing Calculator](https://calculator.aws/ "https://calculator.aws/") for detailed estimates tailored to your workload. Contact your AWS account team for enterprise pricing and reserved capacity discounts.
+
+For detailed per-service cost breakdowns, see the cost sections within each solution component’s documentation.
+
+## Target Audience
+
 This guidance is designed for:
 
 - **Automotive OEMs** seeking to improve customer retention and vehicle uptime through data-driven insights
