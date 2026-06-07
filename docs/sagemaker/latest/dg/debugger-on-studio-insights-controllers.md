@@ -26,7 +26,7 @@ dashboard, you can refresh the dashboard, configure or update Debugger settings 
 monitoring system metrics, stop a training job, and download a Debugger profiling
 report.
 
-![SageMaker Debugger Insights Dashboard Controllers](images/debugger/debugger-studio-insights-refresh.png)
+![SageMaker Debugger Insights Dashboard Controllers.](images/debugger/debugger-studio-insights-refresh.png)
 
 - If you want to manually refresh the dashboard, choose the refresh button
   (the round arrow at the upper-left corner) as shown in the preceding
@@ -42,7 +42,7 @@ report.
   that you can use to set or update the data collection frequency and the S3
   path to save the data.
 
-![The pop-up window for configuring Debugger monitoring settings](images/debugger/debugger-studio-enable-profiling-2.png)
+![The pop-up window for configuring Debugger monitoring settings.](images/debugger/debugger-studio-enable-profiling-2.png)
 
 You can specify values for the following fields.
 

@@ -1,0 +1,283 @@
+# Model evaluation
+
+Evaluation runs your agent against a prompt set and reports reward, pass@k, and trajectory
+metrics. Use it to compare a fine-tuned model against its base or benchmark a candidate
+before deployment.
+
+**Note:** Evaluation jobs use
+`JobCategory: AgentRFTEvaluation` (not `AgentRFT` as used in
+training). Use this category on `CreateJob` and `DescribeJob` calls
+for eval jobs.
+
+## Preparing evaluation data
+
+Evaluation datasets use the same format and schema as training datasets. See
+[Prompt dataset format](model-customize-mtrl-assets.md#model-customize-mtrl-assets-prompt-dataset-format "model-customize-mtrl-assets.md#model-customize-mtrl-assets-prompt-dataset-format"). The guidance below is
+eval-specific.
+
+1. **Hold out evaluation data from training datasets.**
+   Never evaluate on training prompts as scores will overstate performance. Reserve
+   a portion of the data for a held-out set, or maintain a separate eval dataset.
+   Keep the same eval set across iterations so results are comparable.
+2. **Match the training prompt format.** The agent
+   must parse eval prompts the same way it parsed training prompts. If you used
+   encoding or encryption during training, use the identical structure here.
+   Generating both from the same code path avoids drift.
+3. **Cover the behaviors you care about.** Exercise
+   each tool and tool combination your agent uses. Include prompts that previously
+   caused failures so regressions surface.
+4. **Protect sensitive content the same way as in
+   training** as the service passes prompts through without
+   inspection.
+
+## Launching an evaluation job
+
+### Create an evaluation job (Bedrock AgentCore)
+
+To create an evaluation job, call the `CreateJob` API with
+`JobCategory` set to `AgentRFTEvaluation`. Agent setup and
+configuration follows the same process as training jobs.
+
+**Using AWS CLI**
+
+```
+
+aws sagemaker create-job \
+  --job-category AgentRFTEvaluation \
+  --job-name "my-agent-rft-eval-job" \
+  --role-arn "arn:aws:iam::123456789012:role/SageMakerFineTuningJobRole" \
+  --job-config-schema-version "1.0.0" \
+  --job-config-document '{
+    "AgentConfig": {
+      "BedrockAgentCoreConfig": {
+        "AgentRuntimeArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my-agent"
+      }
+    },
+    "InputDataConfig": [{
+      "ChannelName": "evaluation",
+      "DataSource": {
+        "S3DataSource": {
+          "S3DataType": "S3Prefix",
+          "S3Uri": "s3://your-bucket-name/eval-prompts/"
+        }
+      }
+    }],
+    "OutputDataConfig": {
+      "S3OutputPath": "s3://your-bucket-name/eval-output/",
+      "MlflowConfig": {
+        "MlflowResourceArn": "arn:aws:sagemaker:us-west-2:123456789012:mlflow-app/my-rft-mlflow-app"
+      }
+    },
+    "EvaluationConfig": {
+      "BaseModelArn": "arn:aws:sagemaker:us-west-2:aws:hub-content/SageMakerPublicHub/Model/openai-reasoning-gpt-oss-20b",
+      "AcceptEula": true,
+      "HyperParameters": {"batch": { "eval_group_size": 1 }, "eval_metrics_config": { "pass_k_values": [1, 2, 4, 8, 16, 32], "success_threshold": 1 }}
+    }
+  }' \
+  --region us-west-2
+
+```
+
+**Using SageMaker AI Python SDK (boto3)**
+
+```
+
+import json
+import boto3
+
+sm = boto3.client("sagemaker")
+
+response = sm.create_job(
+    JobName="my-agent-rft-eval-job",
+    RoleArn="arn:aws:iam::123456789012:role/SageMakerFineTuningJobRole",
+    JobCategory="AgentRFTEvaluation",
+    JobConfigSchemaVersion="1.0.0",
+    JobConfigDocument=json.dumps({
+        "AgentConfig": {
+            "BedrockAgentCoreConfig": {
+                "AgentRuntimeArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my-agent"
+            }
+        },
+        "InputDataConfig": [{
+            "ChannelName": "evaluation",
+            "DataSource": {
+                "S3DataSource": {
+                    "S3DataType": "S3Prefix",
+                    "S3Uri": "s3://your-bucket-name/eval-prompts/"
+                }
+            }
+        }],
+        "OutputDataConfig": {
+            "S3OutputPath": "s3://your-bucket-name/eval-output/",
+            "MlflowConfig": {
+                "MlflowResourceArn": "arn:aws:sagemaker:us-west-2:123456789012:mlflow-app/my-rft-mlflow-app"
+            }
+        },
+        "EvaluationConfig": {
+            "BaseModelArn": "arn:aws:sagemaker:us-west-2:aws:hub-content/SageMakerPublicHub/Model/openai-reasoning-gpt-oss-20b",
+            "AcceptEula": True,
+            "HyperParameters": {"batch": { "eval_group_size": 1 }, "eval_metrics_config": { "pass_k_values": [1, 2, 4, 8, 16, 32], "success_threshold": 1 }}
+        }
+    })
+)
+
+print(f"Eval Job ARN: {response['JobArn']}")
+
+```
+
+### Evaluating a fine-tuned model
+
+To evaluate a model produced by a training job, include
+`ModelPackageConfig` with the `InputModelPackageArn`:
+
+```
+
+import json
+import boto3
+
+sm = boto3.client("sagemaker")
+
+response = sm.create_job(
+    JobName="my-agent-rft-eval-finetuned",
+    RoleArn="arn:aws:iam::123456789012:role/SageMakerFineTuningJobRole",
+    JobCategory="AgentRFTEvaluation",
+    JobConfigSchemaVersion="1.0.0",
+    JobConfigDocument=json.dumps({
+        "AgentConfig": {...},
+        "InputDataConfig": [...],
+        "OutputDataConfig": {...},
+        "ModelPackageConfig": {
+            "InputModelPackageArn": "arn:aws:sagemaker:us-west-2:123456789012:model-package/my-final-models/1"
+        },
+        "EvaluationConfig": {...}
+    })
+)
+
+print(f"Eval Job ARN: {response['JobArn']}")
+
+```
+
+### Create an evaluation job (Custom Agent with Lambda Forwarder)
+
+Use the same approach as Bedrock AgentCore evaluation but specify
+`CustomAgentLambdaConfig` in the `AgentConfig`:
+
+```
+
+"AgentConfig": {
+    "CustomAgentLambdaConfig": {
+        "LambdaArn": "arn:aws:lambda:us-west-2:account-id:function:rft-agent-forwarder"
+    }
+}
+
+```
+
+## Evaluation hyperparameters
+
+| Category             | Parameter           | Type    | Default              | Description                                                                                                                                                                            |
+| -------------------- | ------------------- | ------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| batch                | eval_group_size     | integer | 1                    | Rollouts per prompt. Note: To compute pass@k, set<br>eval_group_size >= k.                                                                                                             |
+| eval_metrics_config  | pass_k_values       | array   | [1, 2, 4, 8, 16, 32] | List of k values for computing pass@k and pass^k metrics.<br>pass@k = probability that at least 1 of k sampled rollouts succeeds.<br>pass^k = probability that all k rollouts succeed. |
+| eval_metrics_config  | success_threshold   | float   | 1                    | A rollout is "successful" when reward >= success_threshold.<br>Note this applies for pass@k, pass^k, succeeded/failed count<br>metrics.                                                |
+| eval_sampling_params | temperature         | float   | 0                    | Sampling temperature for evaluation rollouts. Note: it is<br>recommended to increase this value beyond 0 for pass@k and pass^k<br>metrics to avoid deterministic behavior.             |
+| eval_sampling_params | sampling_top_p      | float   | 1                    | Nucleus sampling cutoff for evaluation rollouts.                                                                                                                                       |
+| eval_sampling_params | sampling_max_tokens | integer | 4096                 | Maximum tokens the model can generate per turn during evaluation<br>rollouts.                                                                                                          |
+| rollout              | timeout             | float   | 600                  | Time (seconds) after which an evaluation rollout is treated as<br>failed and may be retried.                                                                                           |
+| rollout              | max_concurrency     | int     | 96                   | Maximum number of evaluation rollouts that can execute in<br>parallel.                                                                                                                 |
+| rollout              | max_retries         | int     | 3                    | Number of retry attempts for failed evaluation rollouts before<br>marking them as permanently failed.                                                                                  |
+
+## Monitoring evaluation
+
+```
+
+aws sagemaker describe-job \
+  --job-name "my-agent-rft-eval-job" \
+  --job-category AgentRFTEvaluation \
+  --region us-west-2
+
+```
+
+## Interpreting evaluation results
+
+Open your MLflow App to view logged metrics, reward distributions, and trajectory
+visualizations for the evaluation run. See below for explanation on what each of the
+metrics means.
+
+### Reward metrics (`eval/reward/`)
+
+| Metric                            | Description                                                                                             |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `eval/reward/mean`                | Average reward score across all rollouts.                                                               |
+| `eval/reward/min`                 | Minimum reward score across all rollouts.                                                               |
+| `eval/reward/max`                 | Maximum reward score across all rollouts.                                                               |
+| `eval/reward/std`                 | Standard deviation of reward scores across all rollouts.                                                |
+| `eval/reward/zero_frac`           | Fraction of rollouts that scored exactly 0 (complete<br>failures).                                      |
+| `eval/reward/pass_at_1`           | Probability that at least 1 out of 1 sample per prompt succeeds.<br>This is the primary success metric. |
+| `eval/reward/pass_power_1`        | Pass rate with power weighting.                                                                         |
+| `eval/reward/succeeded_rollouts`  | Total number of rollouts that achieved a positive reward.                                               |
+| `eval/reward/failed_rollouts`     | Total number of rollouts that scored 0.                                                                 |
+| `eval/reward/num_prompts`         | Number of distinct prompts evaluated.                                                                   |
+| `eval/reward/rollouts_per_prompt` | Number of attempts (samples) generated per prompt.                                                      |
+| `eval/reward/success_threshold`   | The reward value required to count a rollout as<br>"successful".                                        |
+| `eval/reward/mean_within_groups`  | Average reward per prompt group (requires setting<br>rollouts_per_prompt > 1).                          |
+| `eval/reward/std_within_groups`   | Standard deviation of reward within each prompt group.                                                  |
+| `eval/reward/min_within_groups`   | Minimum reward within each prompt group.                                                                |
+| `eval/reward/max_within_groups`   | Maximum reward within each prompt group.                                                                |
+
+### Token metrics (`eval/tokens/`)
+
+| Metric                      | Description                                                                                             |
+| --------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `eval/tokens/prompt_mean`   | Average prompt length in tokens (includes system prompt, tool<br>descriptions, and multi-turn context). |
+| `eval/tokens/response_mean` | Average model response length in tokens per turn.                                                       |
+| `eval/tokens/response_min`  | Shortest model response in tokens.                                                                      |
+| `eval/tokens/response_max`  | Longest model response in tokens.                                                                       |
+| `eval/tokens/response_std`  | Standard deviation of response lengths. High variance may<br>indicate inconsistent agent behavior.      |
+
+### Turn metrics (`eval/turns/`)
+
+| Metric            | Description                                                                                                    |
+| ----------------- | -------------------------------------------------------------------------------------------------------------- |
+| `eval/turns/mean` | Average number of turns per rollout. High values may indicate<br>the agent is looping or retrying excessively. |
+| `eval/turns/min`  | Fewest turns in any rollout.                                                                                   |
+| `eval/turns/max`  | Most turns in any rollout. Very high values suggest the agent<br>got stuck without solving the task.           |
+
+### Log probability metrics (`eval/logprob/`)
+
+| Metric                        | Description                                                                                                    |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `eval/logprob/nz_mean`        | Mean log-probability of non-zero (non-padding) tokens. Values<br>close to 0 indicate high model confidence.    |
+| `eval/logprob/nz_min`         | Lowest log-probability token (least confident<br>prediction).                                                  |
+| `eval/logprob/nz_max`         | Highest log-probability token (most confident<br>prediction).                                                  |
+| `eval/logprob/nz_std`         | Standard deviation of non-zero log-probabilities. Low values<br>mean consistently high confidence.             |
+| `eval/logprob/zero_frac`      | Fraction of tokens with exactly zero log-probability<br>(probability 1.0), typically padding or forced tokens. |
+| `eval/logprob/zero_count`     | Total count of zero-logprob tokens.                                                                            |
+| `eval/logprob/zero_per_group` | Average zero-logprob tokens per prompt group.                                                                  |
+
+### Timing metrics (`timing_s/`)
+
+| Metric          | Description                                                                                                                 |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `timing_s/eval` | Total wall-clock time for the evaluation in seconds. Divide by<br>`eval/reward/num_prompts` for average time per<br>prompt. |
+
+### How to diagnose common patterns
+
+| Pattern                                                          | Likely cause                                                                                                                                          |
+| ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pass_at_1 = 0`, high<br>`turns/mean`                            | Agent is looping without solving tasks. Check tool usage and<br>action patterns in trajectories.                                                      |
+| `pass_at_1 = 0`, low<br>`tokens/response_mean`                   | Agent producing very short (possibly empty or malformed)<br>responses. Check prompt format and model compatibility.                                   |
+| High `turns/max` with low<br>`turns/min`                         | Agent is showing inconsistent behavior across prompts. Some<br>tasks may be much harder or the agent may be failing on specific<br>tool interactions. |
+| High confidence (`logprob/nz_mean` close to 0) but<br>low reward | Model is confidently producing wrong outputs. It may need more<br>training data diversity or reward signal refinement.                                |
+| `zero_frac = 1.0` in reward                                      | Complete failure. Verify agent deployment, tool connectivity,<br>and that the evaluation dataset format is correct.                                   |
+
+For raw results, review the artifacts written to the `S3OutputPath`
+specified in `OutputDataConfig`.
+
+## Limits & quotas for evaluation
+
+Use AWS service quotas to request a limit increase on the maximum number of
+concurrent evaluation jobs.
+
+| Quota                                      | Default |
+| ------------------------------------------ | ------- |
+| rft-evaluation-job maximum concurrent jobs | 1       |

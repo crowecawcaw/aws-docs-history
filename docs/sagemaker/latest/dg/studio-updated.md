@@ -44,7 +44,7 @@ Studio offers the following benefits:
 
 - [Launch Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md")
 - [Amazon SageMaker Studio UI overview](studio-updated-ui.md "studio-updated-ui.md")
-- [Amazon EFS auto-mounting in Studio](studio-updated-automount.md "studio-updated-automount.md")
+- [Amazon EFS creation and auto-mounting in Studio](studio-updated-automount.md "studio-updated-automount.md")
 - [Idle shutdown](studio-updated-idle-shutdown.md "studio-updated-idle-shutdown.md")
 - [Applications supported in Amazon SageMaker Studio](studio-updated-apps.md "studio-updated-apps.md")
 - [Connect your Remote IDE to SageMaker spaces with remote access](remote-access.md "remote-access.md")

@@ -107,14 +107,14 @@ subnet shows an example of an outbound route from the Studio account to
 the Amazon EMR VPC IP range (here `2.0.1.0/24`) through the
 peering connection.
 
-![Route table of a Studio VPC subnet showing the outbound routes from the Studio account to the Amazon EMR VPC IP range (here 2.0.1.0/24) through the peering connection](images/studio/emr/studio-notebooks-emr-return-route.png)
+![Route table of a Studio VPC subnet showing the outbound routes from the Studio account to the Amazon EMR VPC IP range (here 2.0.1.0/24) through the peering connection.](images/studio/emr/studio-notebooks-emr-return-route.png)
 
 The following illustration of a route table of an Amazon EMR VPC subnet
 shows an example of return routes from the Amazon EMR VPC to Studio
 VPC IP range (here `10.0.20.0/24`) through the peering
 connection.
 
-![Route table of an Amazon EMR VPC subnet showing the return routes from the Amazon EMR account to the Studio VPC IP range (here 10.0.20.0/24) through the peering connection](images/studio/emr/studio-notebooks-emr-outbound-route.png) 3. ###### Security groups
+![Route table of an Amazon EMR VPC subnet showing the return routes from the Amazon EMR account to the Studio VPC IP range (here 10.0.20.0/24) through the peering connection.](images/studio/emr/studio-notebooks-emr-outbound-route.png) 3. ###### Security groups
 
 Lastly, the security group of your Studio or Studio Classic domain
 must allow outbound traffic, and the security group of the Amazon EMR primary

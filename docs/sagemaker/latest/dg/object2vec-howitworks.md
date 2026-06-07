@@ -57,7 +57,7 @@ provided.
 This comparison evaluates the strength of the relationship between the objects in
 the pair as predicted by the model. The following figure shows this workflow.
 
-![Architecture of the Object2Vec Algorithm from Data Inputs to Scores](images/object2vec-training-image.png)
+![Architecture of the Object2Vec Algorithm from Data Inputs to Scores.](images/object2vec-training-image.png)
 
 Architecture of the Object2Vec Algorithm from Data Inputs to Scores
 

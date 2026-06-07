@@ -63,21 +63,22 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Resource type (console) | resources.type value       | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ----------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SageMaker endpoint**  | `AWS::SageMaker::Endpoint` | • [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md")<br>• [InvokeEndpointAsync](../APIReference/API_runtime_InvokeEndpointAsync.md "../APIReference/API_runtime_InvokeEndpointAsync.md")<br>• [InvokeEndpointWithResponseStream](../APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../APIReference/API_runtime_InvokeEndpointWithResponseStream.md") |
+| Resource type (console) | resources.type value       | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ----------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SageMaker endpoint**  | `AWS::SageMaker::Endpoint` | • [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md")<br>• [InvokeEndpointAsync](../APIReference/API_runtime_InvokeEndpointAsync.md "../APIReference/API_runtime_InvokeEndpointAsync.md")<br>• [InvokeEndpointWithResponseStream](../APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../APIReference/API_runtime_InvokeEndpointWithResponseStream.md")                                                             |
+| **SageMaker jobs**      | `AWS::SageMaker::Job`      | • [ChatCompletions](../APIReference/API_runtime_ChatCompletions.md "../APIReference/API_runtime_ChatCompletions.md")<br>• [CompleteRollout](../APIReference/API_runtime_CompleteRollout.md "../APIReference/API_runtime_CompleteRollout.md")<br>• [Sample](../APIReference/API_runtime_Sample.md "../APIReference/API_runtime_Sample.md")<br>• [SampleWithResponseStream](../APIReference/API_runtime_SampleWithResponseStream.md "../APIReference/API_runtime_SampleWithResponseStream.md") |
 
 ###### Note
 
-The `InvokeEndpoint` and `InvokeEndpointAsync` API calls don't log
-the request parameters.
+The `InvokeEndpoint`, `InvokeEndpointAsync`, `Sample`, and `SampleWithResponseStream`
+API calls don't log the request parameters.
 
 You can configure advanced event selectors to filter on the `eventName`,
 `readOnly`, and `resources.ARN` fields to log only those events that
 are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
 _AWS CloudTrail API Reference_.
 
-The following example shows you how to log data events for an Amazon SageMaker endpoint. In this
+The following example shows you how to log data events for an Amazon SageMaker endpoint and an Amazon SageMaker job. In this
 example, you use the [put-event-selectors](../../../cli/latest/reference/cloudtrail/put-event-selectors.md "../../../cli/latest/reference/cloudtrail/put-event-selectors.md")
 AWS CLI command to add advanced event selectors that capture data events from your endpoint. You
 should have an existing CloudTrail trail. Before running the command, you can also save the advanced
@@ -98,6 +99,22 @@ event selectors JSON object in a file like the following:
       {
         "Field": "resources.type",
         "Equals": ["AWS::SageMaker::Endpoint"]
+      }
+    ]
+  },
+  {
+    "FieldSelectors": [
+      {
+        "Field": "eventCategory",
+        "Equals": ["Data"]
+      },
+      {
+        "Field": "resources.ARN",
+        "Equals": ["arn:aws:sagemaker:us-east-1:111122223333:job/`your-job-arn`"]
+      },
+      {
+        "Field": "resources.type",
+        "Equals": ["AWS::SageMaker::Job"]
       }
     ]
   }
@@ -207,6 +224,145 @@ The following example shows a CloudTrail event that demonstrates the
     "eventID":"0f2b3e81-EXAMPLE",
     "eventType":"AwsApiCall",
     "recipientAccountId":"444455556666"
+}
+```
+
+The following examples show CloudTrail data events for SageMaker AI jobs. Note that
+`ChatCompletions` calls are transformed into `Sample` and
+`SampleWithResponseStream` calls in the CloudTrail logs.
+
+The following example shows a CloudTrail event that demonstrates the
+`CompleteRollout` operation.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type":"IAMUser",
+        "principalId":"AIXDAYQEXAMPLEUMLYNGL",
+        "arn":"arn:aws:iam::123456789012:user/intern",
+        "accountId":"123456789012",
+        "accessKeyId":"ASXIAGXEXAMPLEQULKNXV",
+        "userName":"intern"
+    },
+    "eventTime": "2024-01-15T02:07:50Z",
+    "eventSource": "sagemaker.amazonaws.com",
+    "eventName": "CompleteRollout",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress":"127.0.0.1",
+    "userAgent":"USER_AGENT",
+    "requestParameters": {
+        "jobArn": "arn:aws:sagemaker:us-west-2:123456789012:job/`my-job-name`",
+        "trajectoryId": "`my-trajectory-id`",
+        "status": "ready"
+    },
+    "responseElements": null,
+    "requestID": "d9278f6e-EXAMPLE",
+    "eventID": "6cbd2cde-EXAMPLE",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "123456789012",
+            "type": "AWS::SageMaker::Job",
+            "ARN": "arn:aws:sagemaker:us-west-2:123456789012:job/AgentRFT/`my-job-name`"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "444455556666",
+    "eventCategory": "Data"
+}
+```
+
+The following example shows a CloudTrail event that demonstrates the
+`Sample` operation. This event is also logged when
+`ChatCompletions` is called with a non-streaming response.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type":"IAMUser",
+        "principalId":"AIXDAYQEXAMPLEUMLYNGL",
+        "arn":"arn:aws:iam::123456789012:user/intern",
+        "accountId":"123456789012",
+        "accessKeyId":"ASXIAGXEXAMPLEQULKNXV",
+        "userName":"intern"
+    },
+    "eventTime": "2024-01-15T02:07:35Z",
+    "eventSource": "sagemaker.amazonaws.com",
+    "eventName": "Sample",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress":"127.0.0.1",
+    "userAgent": "USER_AGENT",
+    "requestParameters": {
+        "body": "HIDDEN_DUE_TO_SECURITY_REASONS",
+        "jobArn": "arn:aws:sagemaker:us-west-2:123456789012:job/AgentRFT/`my-job-name`",
+        "trajectoryId": "`my-trajectory-id`"
+    },
+    "responseElements": {
+        "body": "HIDDEN_DUE_TO_SECURITY_REASONS"
+    },
+    "requestID": "ab32a279-EXAMPLE",
+    "eventID": "56cd262e-EXAMPLE",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "123456789012",
+            "type": "AWS::SageMaker::Job",
+            "ARN": "arn:aws:sagemaker:us-west-2:123456789012:job/AgentRFT/`my-job-name`"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "444455556666",
+    "eventCategory": "Data"
+}
+```
+
+The following example shows a CloudTrail event that demonstrates the
+`SampleWithResponseStream` operation. This event is also logged when
+`ChatCompletions` is called with a streaming response.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type":"IAMUser",
+        "principalId":"AIXDAYQEXAMPLEUMLYNGL",
+        "arn":"arn:aws:iam::123456789012:user/intern",
+        "accountId":"123456789012",
+        "accessKeyId":"ASXIAGXEXAMPLEQULKNXV",
+        "userName":"intern"
+    },
+    "eventTime": "2024-01-15T02:07:47Z",
+    "eventSource": "sagemaker.amazonaws.com",
+    "eventName": "SampleWithResponseStream",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress":"127.0.0.1",
+    "userAgent": "USER_AGENT",
+    "requestParameters": {
+        "trajectoryId": "`my-trajectory-id`",
+        "jobArn": "arn:aws:sagemaker:us-west-2:123456789012:job/AgentRFT/`my-job-name`",
+        "body": "HIDDEN_DUE_TO_SECURITY_REASONS"
+    },
+    "responseElements": {
+        "body": "HIDDEN_DUE_TO_SECURITY_REASONS"
+    },
+    "requestID": "02c72dac-EXAMPLE",
+    "eventID": "8dcc5ebb-EXAMPLE",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "123456789012",
+            "type": "AWS::SageMaker::Job",
+            "ARN": "arn:aws:sagemaker:us-west-2:123456789012:job/AgentRFT/`my-job-name`"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": false,
+    "recipientAccountId": "444455556666",
+    "eventCategory": "Data"
 }
 ```
 

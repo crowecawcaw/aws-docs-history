@@ -20,7 +20,7 @@ Neo:
    name**, **IAM role**, and
    **VPC** fields (optional), if needed.
 
-![Create Neo model for inference](images/create-pipeline-model.png) 2. To add information about the container used to deploy your model, choose
+![Create Neo model for inference.](images/create-pipeline-model.png) 2. To add information about the container used to deploy your model, choose
 **Add container** container, then choose
 **Next**. Complete the **Container input
 options**, **Location of inference code
@@ -28,7 +28,7 @@ image**, and **Location of model artifacts**,
 and optionally, **Container host name**, and
 **Environmental variables** fields.
 
-![Create Neo model for inference](images/neo-deploy-console-container-definition.png) 3. To deploy Neo-compiled models, choose the following:
+![Create Neo model for inference.](images/neo-deploy-console-container-definition.png) 3. To deploy Neo-compiled models, choose the following:
 
     * **Container input options**: Choose **Provide
      model artifacts and inference image**.
@@ -67,7 +67,7 @@ and optionally, **Container host name**, and
    landing page**, choose **Create
    endpoint**.
 
-![Create Model landing page](images/neo-deploy-console-create-model-land-page.png) 5. In **Create and configure endpoint** diagram, specify
+![Create Model landing page.](images/neo-deploy-console-create-model-land-page.png) 5. In **Create and configure endpoint** diagram, specify
 the **Endpoint name**. For **Attach endpoint
 configuration**, choose **Create a new endpoint
 configuration**.

@@ -18,7 +18,7 @@ In the reports, plots and and recommendations are provided for informational pur
 and are not definitive. You are responsible for making your own independent assessment
 of the information.
 
-![An example of a Debugger training job summary report](images/debugger/debugger-profile-report.jpg)
+![An example of a Debugger training job summary report.](images/debugger/debugger-profile-report.jpg)
 For any SageMaker training jobs, the SageMaker Debugger [ProfilerReport](debugger-built-in-profiler-rules.md#profiler-report "debugger-built-in-profiler-rules.md#profiler-report") rule invokes all of the [monitoring and profiling rules](debugger-built-in-profiler-rules.md#built-in-rules-monitoring "debugger-built-in-profiler-rules.md#built-in-rules-monitoring") and aggregates
 the rule analysis into a comprehensive report. Following this guide, download the report
 using the [Amazon SageMaker Python SDK](https://sagemaker.readthedocs.io/en/stable "https://sagemaker.readthedocs.io/en/stable") or the S3 console, and learn what you can interpret from the

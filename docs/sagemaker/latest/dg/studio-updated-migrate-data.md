@@ -1,11 +1,15 @@
 # (Optional) Migrate data from Studio Classic to Studio
 
+###### Important
+
+For domains created after June 1, 2026 through quick setup, Amazon EFS is not created by default. The automatic mounting described below only applies to domains where `HomeEfsCreation` is enabled. If your domain does not have EFS enabled, you must first enable it via Domain Settings → Storage configurations → Edit before proceeding with data migration. For instructions, see [Amazon EFS creation and auto-mounting in Studio](studio-updated-automount.md "studio-updated-automount.md").
+
 Studio Classic and Studio use two different types of storage volumes. Studio Classic uses a
 single Amazon Elastic File System (Amazon EFS) volume to store data across all users and shared spaces in the
 domain. In Studio, each space gets its own Amazon Elastic Block Store (Amazon EBS) volume. When you update
-the default experience of an existing domain, SageMaker AI automatically mounts a folder in an Amazon EFS
+the default experience of an existing domain that has EFS enabled, SageMaker AI automatically mounts a folder in an Amazon EFS
 volume for each user in a domain. As a result, users are able to access files from
-Studio Classic in their Studio applications. For more information, see [Amazon EFS auto-mounting in Studio](studio-updated-automount.md "studio-updated-automount.md").
+Studio Classic in their Studio applications. For more information, see [Amazon EFS creation and auto-mounting in Studio](studio-updated-automount.md "studio-updated-automount.md").
 
 You can also opt out of Amazon EFS auto-mounting and manually migrate the data to give users
 access to files from Studio Classic in Studio applications. To accomplish this, you must

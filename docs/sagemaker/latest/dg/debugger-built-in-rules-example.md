@@ -27,7 +27,7 @@ For a full instruction of how to find your training job trial components in the 
 UI, see [SageMaker Studio -
 View Experiments, Trials, and Trial Components](studio-tasks.md#studio-tasks-experiments "studio-tasks.md#studio-tasks-experiments").
 
-![An image of running a training job with Debugger built-in rules activated in SageMaker Studio](images/debugger/debugger-built-in-rule-studio.png)
+![An image of running a training job with Debugger built-in rules activated in SageMaker Studio.](images/debugger/debugger-built-in-rule-studio.png)
 
 There are two ways of using the Debugger built-in rules in the SageMaker AI environment:
 deploy the built-in rules as it is prepared or adjust their parameters as you want. The

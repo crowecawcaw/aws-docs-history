@@ -103,7 +103,7 @@ A simple version of this tool would look like the following. The variable `{{ ta
 
 You can copy and paste the code into the editor in the Ground Truth labeling job creation workflow to preview the tool, or try out a [demo of this code on CodePen.](https://codepen.io/MTGT/full/OqBvJw "https://codepen.io/MTGT/full/OqBvJw")
 
-[![View a demo of this sample template on CodePen](images/pen.gif)](https://codepen.io/MTGT/full/OqBvJw "https://codepen.io/MTGT/full/OqBvJw")
+[![View a demo of this sample template on CodePen.](images/pen.gif)](https://codepen.io/MTGT/full/OqBvJw "https://codepen.io/MTGT/full/OqBvJw")
 
 ## Input data, external assets and your task template
 

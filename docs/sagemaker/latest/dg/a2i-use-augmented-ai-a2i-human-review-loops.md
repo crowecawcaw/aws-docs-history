@@ -52,7 +52,7 @@ that demonstrates that workflow in [Use Cases and Examples Using Amazon A2I](a2i
   Amazon A2I to integrate a human review loop into an ML application that uses tabular
   data.
 
-![Amazon Augmented AI - How It Works](images/amazon-augmented-ai-how-it-works.png)
+![Amazon Augmented AI - How It Works.](images/amazon-augmented-ai-how-it-works.png)
 
 ###### Topics
 

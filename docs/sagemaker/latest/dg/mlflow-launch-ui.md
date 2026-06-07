@@ -64,4 +64,4 @@ seconds. The presigned URL can be used only once.
 
 The window should look similar to the following.
 
-![The MLflow UI that launches after creating and using a presigned URL](images/mlflow/mlflow-ui.png)
+![The MLflow UI that launches after creating and using a presigned URL.](images/mlflow/mlflow-ui.png)

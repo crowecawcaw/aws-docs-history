@@ -23,7 +23,7 @@ creation of a human loop. On the right of the image, the human loop is depicted 
 steps: 1) the worker UI and tools are generated and the task is made available to workers,2)
 workers review input data, and finally, 3) results are saved in Amazon S3.
 
-![Use Amazon Augmented AI with Amazon Textract](images/a2i/diagrams/product-page-diagram_A21-Components_Textract@2x.png)
+![Use Amazon Augmented AI with Amazon Textract.](images/a2i/diagrams/product-page-diagram_A21-Components_Textract@2x.png)
 You can specify when Amazon Textract sends a task to a human worker for review when creating a
 human review workflow or flow definition by specifying _activation
 conditions_.

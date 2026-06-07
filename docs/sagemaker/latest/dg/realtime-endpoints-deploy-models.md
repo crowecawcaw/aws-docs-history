@@ -345,7 +345,7 @@ help you decide which instance type to use for deploying your LLM. Choose
 contains the pre-benchmarked data. The panel looks like the following
 screenshot:
 
-![Screenshot of the Alternate configurations box](images/inference/studio-jumpstart-alternate-configurations.png)
+![Screenshot of the Alternate configurations box.](images/inference/studio-jumpstart-alternate-configurations.png)
 
 In the **Alternate configurations** box, do the
 following:

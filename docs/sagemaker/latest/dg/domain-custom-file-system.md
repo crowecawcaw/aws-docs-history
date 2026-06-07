@@ -1,6 +1,6 @@
 # Adding a custom file system to a domain
 
-When you create a domain, Amazon SageMaker AI adds a default Amazon Elastic File System
+When you create a domain through custom setup, Amazon SageMaker AI adds a default Amazon Elastic File System
 (Amazon EFS) volume to the domain. SageMaker AI creates this volume for you. You also have the option to
 add a custom Amazon EFS or a custom Amazon FSx for Lustre file system that you've created. After you add
 it, your file system is available to users who belong to your domain. Your users can access

@@ -49,7 +49,7 @@ utilization, the total GPU memory utilization, the total I/O wait time, and the
 total network in bytes. The table shows the minimum and the maximum values, and p99,
 p90, and p50 percentiles.
 
-![A summary table of resource utilization](images/debugger/debugger-studio-insights-resource-util-summary.png)
+![A summary table of resource utilization.](images/debugger/debugger-studio-insights-resource-util-summary.png)
 
 ### Resource utilization time series plots
 
@@ -87,7 +87,7 @@ CPU cores. You can select one or more CPU cores by selecting the labels to graph
 them on single chart and compare utilization across cores. You can drag and zoom in
 and out to have a closer look at specific time intervals.
 
-![debugger-studio-insight-mockup](images/debugger/debugger-insights-node-cpu.png)
+![debugger-studio-insight-mockup.](images/debugger/debugger-insights-node-cpu.png)
 
 **GPU utilization and GPU memory utilization**
 
@@ -101,7 +101,7 @@ example training job on an `ml.p3.16xlarge` instance with 8 GPU cores.
 You can monitor if the training job is well distributed, fully utilizing all
 GPUs.
 
-![debugger-studio-insight-mockup](images/debugger/debugger-studio-insights-node-gpu.gif)
+![debugger-studio-insight-mockup.](images/debugger/debugger-studio-insights-node-gpu.gif)
 
 **Overall system utilization over time**
 
@@ -113,7 +113,7 @@ represent low utilization and the darker colors represent high utilization. See 
 labeled color bar on the right side of the plot to find out which color level
 corresponds to which utilization rate.
 
-![debugger-studio-insight-mockup](images/debugger/debugger-studio-insights-node-heatmap.png)
+![debugger-studio-insight-mockup.](images/debugger/debugger-studio-insights-node-heatmap.png)
 
 ## Rules
 
@@ -122,4 +122,4 @@ analysis on your training job. If the profiling rule is activated with the train
 job, the text appears highlighted with the solid white text. Inactive rules are
 dimmed in gray text. To activate these rules, follow instructions at [Use built-in profiler rules managed by Amazon SageMaker Debugger](use-debugger-built-in-profiler-rules.md "use-debugger-built-in-profiler-rules.md").
 
-![The Rules tab in the SageMaker Debugger Insights dashboard](images/debugger/debugger-insights-rules.png)
+![The Rules tab in the SageMaker Debugger Insights dashboard.](images/debugger/debugger-insights-rules.png)

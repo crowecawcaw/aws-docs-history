@@ -1,8 +1,49 @@
-# Amazon EFS auto-mounting in Studio
+# Amazon EFS creation and auto-mounting in Studio
 
-Amazon SageMaker AI supports automatically mounting a folder in an Amazon EFS volume for each user in a
-domain. Using this folder, users can share data between their own private spaces. However, users
-cannot share data with other users in the domain. Users only have access to their own folder.
+Amazon SageMaker AI supports creating an Amazon EFS volume for a domain and automatically mounting a home directory folder for each user. Using this folder, users can share data between their own private spaces. However, users cannot share data with other users in the domain. Users only have access to their own folder.
+
+###### Important
+
+For domains created after June 1, 2026, EFS is not created by default during domain creation (for quick setup). You must enable EFS creation before auto-mounting can be enabled.
+
+**EFS creation and auto-mount settings**
+
+EFS in Amazon SageMaker Studio involves two settings that work together:
+
+- `HomeEFSCreation` – Controls whether an EFS file system is created and managed by SageMaker AI for the domain.
+
+Default for new domains created through quick setup: **Disabled**
+
+When enabled: Creates a new EFS file system managed by SageMaker AI for this domain.
+
+- `AutoMountHomeEFS` – Controls whether EFS storage is automatically mounted for users.
+
+Default: **Enabled** (when `HomeEFSCreation` is enabled)
+
+Description: Auto-mounts a home directory for each user to share notebooks, data, and code across their private spaces.
+
+This setting is only editable when `HomeEFSCreation` is enabled.
+
+At the user profile level, this value defaults to **DefaultAsDomain** (inherits the domain-level setting).
+Key behaviors:
+
+- If no value is set for `AutoMountHomeEFS`, auto-mount EFS is enabled by default.
+- If you have an existing space, restart the space to mount EFS.
+- Auto-mount EFS is available for private spaces only.
+
+**Enable EFS creation and auto-mount**
+
+After domain creation (quick setup):
+
+1. Open the SageMaker AI console.
+2. On the left navigation pane, under **Admin configurations**, choose **Domains**.
+3. Select your domain, then choose the **Domain settings** tab.
+4. In the **Storage configurations** section, choose **Edit**.
+5. Under **EFS storage and encryption**, toggle `HomeEFSCreation` to ON. This creates a new EFS file system managed by SageMaker AI for this domain.
+6. Ensure `AutoMountHomeEFS` is toggled ON (enabled by default when `HomeEFSCreation` is on). This auto-mounts a home directory for each user to share notebooks, data, and code across their private spaces.
+7. Choose **Submit**.
+8. If you have existing spaces, restart them to access EFS data.
+   For custom setup, EFS creation and auto-mounting are enabled by default.
 
 The user’s folder can be accessed through a folder named `user-default-efs` .
 This folder is present in the `$HOME` directory of the Studio

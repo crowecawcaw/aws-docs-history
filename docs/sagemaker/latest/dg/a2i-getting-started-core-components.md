@@ -38,7 +38,7 @@ depicted in three steps: 1) the worker UI and tools are generated and
 the task is made available to workers, 2) workers review input data, and
 finally, 3) results are saved in Amazon S3.
 
-![Amazon A2I built-in workflow with Amazon Textract](images/a2i/diagrams/product-page-diagram_A21-Components_Textract@2x.png)
+![Amazon A2I built-in workflow with Amazon Textract.](images/a2i/diagrams/product-page-diagram_A21-Components_Textract@2x.png)
 
 Amazon Rekognition – Image moderation
 This image depicts the Amazon A2I built-in workflow with Amazon Rekognition. On the
@@ -55,7 +55,7 @@ worker UI and tools are generated and the task is made available to
 workers, 2) workers review input data, and finally, 3) results are saved
 in Amazon S3.
 
-![Amazon A2I built-in workflow with Amazon Rekognition](images/a2i/diagrams/product-page-diagram_A2I-Components_Rekognition@2x.png)
+![Amazon A2I built-in workflow with Amazon Rekognition.](images/a2i/diagrams/product-page-diagram_A2I-Components_Rekognition@2x.png)
 
 Custom Task Type
 The following image depicts the Amazon A2I custom workflow. A custom
@@ -67,7 +67,7 @@ which can access by the client application. If the filter determines
 that no human review is needed, predictions can be fed directly to the
 client application.
 
-![Amazon A2I custom workflow](images/a2i/diagrams/product-page-diagram_A2I-Components_Custom@2x.png)
+![Amazon A2I custom workflow.](images/a2i/diagrams/product-page-diagram_A2I-Components_Custom@2x.png)
 
 ## Human Review Workflow (Flow Definition)
 

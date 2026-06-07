@@ -15,7 +15,7 @@ _Zi,t_, and two associated feature
 time series, _Xi,1,t_ and
 _Xi,2,t_:
 
-![Figure 1: Target time series and associated feature time series](images/ts-full-159.base.png)
+![Figure 1: Target time series and associated feature time series.](images/ts-full-159.base.png)
 The target time series might contain missing values, which are represented by line
 breaks in the time series.
 DeepAR
@@ -40,7 +40,7 @@ _ui,1,t_ represents the hour of
 the day and _ui,2,t_ the day of the
 week.
 
-![Figure 2: Derived time series](images/ts-full-159.derived.png)
+![Figure 2: Derived time series.](images/ts-full-159.derived.png)
 
 The DeepAR algorithm automatically generates these feature time series. The
 following table lists the derived features for the supported basic time
@@ -67,7 +67,7 @@ _i_. For brevity, we've omitted the feature time series
 _xi,1,t_ and
 _ui,2,t_.
 
-![Figure 3: Sampled time series](images/ts-full-159.sampled.png)
+![Figure 3: Sampled time series.](images/ts-full-159.sampled.png)
 
 To capture seasonality patterns, DeepAR also automatically feeds lagged values
 from the target time series. In the example with hourly frequency, for each time
@@ -75,7 +75,7 @@ index, _t = T_, the model exposes the
 _zi,t_ values, which occurred
 approximately one, two, and three days in the past.
 
-![Figure 4: Lagged time series](images/ts-full-159.lags.png)
+![Figure 4: Lagged time series.](images/ts-full-159.lags.png)
 
 For inference, the trained model takes as input target time series, which might or
 might not have been used during training, and forecasts a probability distribution

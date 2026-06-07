@@ -19,7 +19,7 @@ It might take a moment for the list to refresh and display a new experiment or
 experiment run. You can click **Refresh** to update the page. Your
 experiment list should look similar to the following:
 
-![A list of experiments in the SageMaker Experiments UI](images/experiments-classic/experiments-overview.png) 2. In the experiments list, double-click an experiment to display a list of the runs in
+![A list of experiments in the SageMaker Experiments UI.](images/experiments-classic/experiments-overview.png) 2. In the experiments list, double-click an experiment to display a list of the runs in
 the experiment.
 
 ###### Note
@@ -30,7 +30,7 @@ for a given experiment, choose the settings icon (
 ![Black square icon representing a placeholder or empty image.](images/icons/Settings_squid.png)
 ) and toggle **Show jobs**.
 
-![A list of experiment runs in the SageMaker Experiments UI](images/experiments-classic/experiments-runs-overview.png) 3. Double-click a run to display information about a specific run.
+![A list of experiment runs in the SageMaker Experiments UI.](images/experiments-classic/experiments-runs-overview.png) 3. Double-click a run to display information about a specific run.
 
 In the **Overview** pane, choose any of the following headings to see
 available information about each run:

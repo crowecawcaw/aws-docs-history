@@ -12,6 +12,13 @@ domain. When the RStudio application is added to a domain, SageMaker AI creates 
 changed manually, then the RStudio application may no longer function. For more information
 about the Amazon EFS volume, see [Manage Your Amazon EFS Storage Volume in Amazon SageMaker Studio Classic](studio-tasks-manage-storage.md "studio-tasks-manage-storage.md").
 
+**Enable Amazon EFS**
+
+RStudio requires Amazon EFS to be enabled on your domain. For domains created through quick
+setup after June 1, 2026, EFS is not created by default during domain creation. To enable EFS
+after domain creation, see [Amazon EFS creation and auto-mounting in
+Amazon SageMaker Studio](studio-updated-automount.md "studio-updated-automount.md").
+
 **Installed packages and scripts**
 
 Packages that you install from within RStudio are scoped to the user profile level. This

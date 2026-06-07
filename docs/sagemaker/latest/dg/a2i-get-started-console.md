@@ -20,11 +20,11 @@ To get started using Amazon A2I, complete the following prerequisites.
   - If you want to complete the tutorial using Amazon Textract, download
     the following image and place it in your Amazon S3 bucket.
 
-  ![Brief employment application](images/a2i/getting-started/sample-document-final.png)
+  ![Brief employment application.](images/a2i/getting-started/sample-document-final.png)
   - If you want to complete the tutorial using Amazon Rekognition, download the
     following image and place it in your Amazon S3 bucket.
 
-  ![Woman in bikini doing yoga on beach](images/a2i/getting-started/yoga_swimwear_resized.jpg)
+  ![Woman in bikini doing yoga on beach.](images/a2i/getting-started/yoga_swimwear_resized.jpg)
 
 ###### Note
 
@@ -175,7 +175,7 @@ language-specific SDKs that you can use to interact with these API operations. T
 see documentation for each of these SDKs, refer to the **See Also**
 section in the API documentation, as shown in the following image.
 
-![Screenshot of the See Also section of the Amazon Textract API documentation](images/a2i/getting-started/see-also.png)
+![Screenshot of the See Also section of the Amazon Textract API documentation.](images/a2i/getting-started/see-also.png)
 
 For this tutorial, you use one of the following APIs:
 

@@ -16,7 +16,7 @@ Amazon A2I for human review. Amazon A2I collects the results of human review in 
 can access by the client application. If the filter determines that no human review is
 needed, predictions can be fed directly to the client application.
 
-![Use Amazon Augmented AI with Custom Task Types](images/a2i/diagrams/product-page-diagram_A2I-Components_Custom@2x.png)
+![Use Amazon Augmented AI with Custom Task Types.](images/a2i/diagrams/product-page-diagram_A2I-Components_Custom@2x.png)
 Use the procedures on this page to learn how to integrate Amazon A2I into any machine
 learning workflow using the custom task type.
 

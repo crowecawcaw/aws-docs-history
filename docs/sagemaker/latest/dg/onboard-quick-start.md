@@ -65,6 +65,11 @@ sagemaker-studio-XXXXXXXXXXXXXXX
       uses any existing VPC with associated subnets. If there are multiple existing VPCs, SageMaker AI
       can select any of them.
 
+- Storage configurations: SageMaker AI configures the domain with the following default storage settings.
+  - `HomeEfsCreation`: Disabled. An Amazon EFS volume is not created by default during quick setup. You can enable EFS creation later through Domain Settings. To enable EFS after domain creation, see [Amazon EFS creation and auto-mounting in Studio](studio-updated-automount.md "studio-updated-automount.md").
+  - `AutoMountHomeEFS`: Disabled. This setting becomes active only after EFS creation is enabled at the domain level.
+  - Space EBS storage: Default space size is 5 GB, maximum space size is 100 GB (applies to both private and shared spaces).
+
 - Studio experience: Amazon SageMaker Studio is set as the UI
   default experience and Studio Classic is made hidden. That is, in [`UserSettings`](../APIReference/API_UserSettings.md "../APIReference/API_UserSettings.md"):
   - `DefaultLandingUri` is set to `studio::`.
@@ -90,7 +95,4 @@ choose **Open Studio**.
   - [Automated ML, no-code, or low-code](use-auto-ml.md "use-auto-ml.md")
   - [Machine learning environments offered by Amazon SageMaker AI](machine-learning-environments.md "machine-learning-environments.md")
 
-RStudio support is not currently available when onboarding using the **Set up for
-single users** ([Use quick setup for Amazon SageMaker AI](onboard-quick-start.md "onboard-quick-start.md")) option. To use RStudio, you must onboard using the **Set up for
-organizations** ([Use custom setup for Amazon SageMaker AI](onboard-custom.md "onboard-custom.md"))
-option. For more information, see [Use custom setup for Amazon SageMaker AI](onboard-custom.md "onboard-custom.md").
+RStudio requires Amazon EFS to be enabled on your domain. When using quick setup, EFS is not created by default and RStudio will not appear in the Applications section. To use RStudio with a quick setup domain, enable EFS creation through Domain Settings. Alternatively, you can onboard using the **Set up for organizations** ([Use custom setup for Amazon SageMaker AI](onboard-custom.md "onboard-custom.md")) option and EFS creation is enabled by default during the Configure storage step.

@@ -6,7 +6,7 @@ cat. You can use multi-label image classification to associate the labels "dog" 
 with this image. The following page gives information about creating an image classification
 job.
 
-![Photo by Anusha Barwa on Unsplash](images/dog-cat-photo.jpg)
+![Photo by Anusha Barwa on Unsplash.](images/dog-cat-photo.jpg)
 When working on a multi-label image classification task, workers should choose all
 applicable labels, but must choose at least one. When creating a job using this task type,
 you can provide up to 50 label-categories.

@@ -18,7 +18,7 @@ s3://<your-provide-s3-location>/<training-job-name>/output/output/<evaluation-jo
 
 SageMaker Studio
 
-![Pass into output artifact location (AWS S3 URI)](images/s3-output-path-submission-sagemaker-studio.png)
+![Pass into output artifact location (AWS S3 URI).](images/s3-output-path-submission-sagemaker-studio.png)
 
 SageMaker Python SDK
 
@@ -78,7 +78,7 @@ Read it directly as a `.json` from the AWS S3 location or visualized automatical
 }
 ```
 
-![Sample performance metrics for custom gen-qa benchmark visualized in SageMaker Studio](images/gen-qa-metrics-visualization-sagemaker-studio.png)
+![Sample performance metrics for custom gen-qa benchmark visualized in SageMaker Studio.](images/gen-qa-metrics-visualization-sagemaker-studio.png)
 
 ## MLFlow logging
 
@@ -104,11 +104,11 @@ execution = evaluator.evaluate()
 
 Model level and system level metric visualization:
 
-![Sample model level error and accuracy for MMLU benchmarking task](images/model-metrics-mlflow.png)
+![Sample model level error and accuracy for MMLU benchmarking task.](images/model-metrics-mlflow.png)
 
-![Sample built-in metrics for LLMAJ benchmarking task](images/llmaj-metrics-mlflow.png)
+![Sample built-in metrics for LLMAJ benchmarking task.](images/llmaj-metrics-mlflow.png)
 
-![Sample system level metrics for MMLU benchmarking task](images/system-metrics-mlflow.png)
+![Sample system level metrics for MMLU benchmarking task.](images/system-metrics-mlflow.png)
 
 ## TensorBoard
 
@@ -124,7 +124,7 @@ s3://<your-provide-s3-location>/<training-job-name>/output/output/<evaluation-jo
 
 SageMaker Studio
 
-![Pass into output artifact location (AWS S3 URI)](images/s3-output-path-submission-sagemaker-studio.png)
+![Pass into output artifact location (AWS S3 URI).](images/s3-output-path-submission-sagemaker-studio.png)
 
 SageMaker Python SDK
 
@@ -141,4 +141,4 @@ execution = evaluator.evaluate()
 
 **Sample model level metrics**
 
-![SageMaker TensorBoard displaying results of a benchmarking job](images/metrics-in-tensorboard.png)
+![SageMaker TensorBoard displaying results of a benchmarking job.](images/metrics-in-tensorboard.png)

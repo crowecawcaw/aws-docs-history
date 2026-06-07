@@ -35,7 +35,8 @@ training completion to optimize costs.
 
 Comprehensive set of advanced methods including supervised fine-tuning (SFT),
 direct preference optimization (DPO), reinforcement learning with verifiable rewards
-(RLVR), and reinforcement learning with AI feedback (RLAIF).
+(RLVR), reinforcement learning with AI feedback (RLAIF), and multi-turn
+reinforcement learning (multi-turn RL).
 
 **Custom model**
 

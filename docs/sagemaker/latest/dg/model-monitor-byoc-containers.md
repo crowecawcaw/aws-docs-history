@@ -16,7 +16,7 @@ scheduled monitoring. For additional information on container inputs, see the
 
 In the container, using the above environment variables/context, you can now
 analyze the dataset for the current period in your custom code. After this
-analysis is complete, you can chose to emit your reports to be uploaded to an S3
+analysis is complete, you can choose to emit your reports to be uploaded to an S3
 bucket. The reports that the prebuilt container generates are documented in
 [Container Contract Outputs](model-monitor-byoc-contract-outputs.md "model-monitor-byoc-contract-outputs.md"). If you would like the
 visualization of the reports to work in SageMaker Studio, you should follow the same

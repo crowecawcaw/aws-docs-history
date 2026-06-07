@@ -961,7 +961,7 @@ JSON
 ### Enforce encryption of input data
 
 The following policy restricts a user to specify a AWS KMS key to encrypt input
-data using the `sagemaker:VolumeKmsKey` condition key when
+data using the `sagemaker:VolumeKmsKeyArn` condition key when
 creating:
 
 - training

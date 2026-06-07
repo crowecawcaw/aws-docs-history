@@ -40,7 +40,7 @@ visualization. The following figure shows a three-dimensional visualization of
 the ReLu activation outputs. The color scheme is set to blue to indicate values
 close to 0 and yellow to indicate values close to 1.
 
-![A visualization of the ReLU activation outputs](images/tensorplot.gif)
+![A visualization of the ReLU activation outputs.](images/tensorplot.gif)
 
 In this notebook, the `TensorPlot` class imported from
 `tensor_plot.py` is designed to plot convolutional neural

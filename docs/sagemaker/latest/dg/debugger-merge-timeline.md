@@ -35,7 +35,7 @@ As shown in the following animated screenshot, putting and aligning the trace ev
 captured from the different profiling sources in a single plot can provide an overview
 of the entire events occurring in different phases of the training job.
 
-![An example of merged timeline](images/debugger/debugger-merged-timeline.gif)
+![An example of merged timeline.](images/debugger/debugger-merged-timeline.gif)
 
 ###### Tip
 

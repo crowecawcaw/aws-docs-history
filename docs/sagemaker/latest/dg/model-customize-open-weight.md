@@ -17,31 +17,32 @@ customization.
 
 The following table shows the base models that you can customize.
 
-| Model Provider | Model                         | Model ID                                     | SFT (LORA) | DPO (LORA) | RLAIF (LORA) | RLVR (LORA) |
-| -------------- | ----------------------------- | -------------------------------------------- | ---------- | ---------- | ------------ | ----------- |
-| Alibaba        | Qwen2.5 Instruct 7B           | `huggingface-llm-qwen2-5-7b-instruct`        | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen2.5 Instruct 14B          | `huggingface-llm-qwen2-5-14b-instruct`       | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen2.5 Instruct 32B          | `huggingface-llm-qwen2-5-32b-instruct`       | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen2.5 Instruct 72B          | `huggingface-llm-qwen2-5-72b-instruct`       | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen3 0.6B                    | `huggingface-reasoning-qwen3-06b`            | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen3 1.7B                    | `huggingface-reasoning-qwen3-1-7b`           | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen3 4B                      | `huggingface-reasoning-qwen3-4b`             | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen3 8B                      | `huggingface-reasoning-qwen3-8b`             | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen3 14B                     | `huggingface-reasoning-qwen3-14b`            | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen3 32B                     | `huggingface-reasoning-qwen3-32b`            | ✓          | ✓          | ✓            | ✓           |
-| Alibaba        | Qwen3.5 4B                    | `huggingface-vlm-qwen3-5-4b`                 | ✓          |            | ✓            | ✓           |
-| Alibaba        | Qwen3.5 9B                    | `huggingface-vlm-qwen3-5-9b`                 | ✓          |            | ✓            | ✓           |
-| Alibaba        | Qwen3.5 27B                   | `huggingface-vlm-qwen3-5-27b`                | ✓          |            | ✓            | ✓           |
-| Alibaba        | Qwen3.6 27B                   | `huggingface-vlm-qwen3-6-27b`                | ✓          |            | ✓            | ✓           |
-| DeepSeek       | DeepSeek R1 Distill Llama 8B  | `deepseek-llm-r1-distill-llama-8b`           | ✓          | ✓          | ✓            | ✓           |
-| DeepSeek       | DeepSeek R1 Distill Llama 70B | `deepseek-llm-r1-distill-llama-70b`          | ✓          | ✓          | ✓            | ✓           |
-| DeepSeek       | DeepSeek R1 Distill Qwen 1.5B | `deepseek-llm-r1-distill-qwen-1-5b`          | ✓          | ✓          | ✓            | ✓           |
-| DeepSeek       | DeepSeek R1 Distill Qwen 7B   | `deepseek-llm-r1-distill-qwen-7b`            | ✓          | ✓          | ✓            | ✓           |
-| DeepSeek       | DeepSeek R1 Distill Qwen 14B  | `deepseek-llm-r1-distill-qwen-14b`           | ✓          | ✓          | ✓            | ✓           |
-| DeepSeek       | DeepSeek R1 Distill Qwen 32B  | `deepseek-llm-r1-distill-qwen-32b`           | ✓          | ✓          | ✓            | ✓           |
-| Meta           | Llama 3.1 Instruct 8B         | `meta-textgeneration-llama-3-1-8b-instruct`  | ✓          | ✓          | ✓            | ✓           |
-| Meta           | Llama 3.2 Instruct 1B         | `meta-textgeneration-llama-3-2-1b-instruct`  | ✓          | ✓          | ✓            | ✓           |
-| Meta           | Llama 3.2 Instruct 3B         | `meta-textgeneration-llama-3-2-3b-instruct`  | ✓          | ✓          | ✓            | ✓           |
-| Meta           | Meta Llama 3.3 Instruct 70B   | `meta-textgeneration-llama-3-3-70b-instruct` | ✓          | ✓          | ✓            | ✓           |
-| OpenAI         | GPT OSS 20B                   | `openai-reasoning-gpt-oss-20b`               | ✓          | ✓          | ✓            | ✓           |
-| OpenAI         | GPT OSS 120B                  | `openai-reasoning-gpt-oss-120b`              | ✓          | ✓          | ✓            | ✓           |
+| Model Provider | Model                               | Model ID                                                    | SFT (LORA) | DPO (LORA) | RLAIF (LORA) | RLVR (LORA) |
+| -------------- | ----------------------------------- | ----------------------------------------------------------- | ---------- | ---------- | ------------ | ----------- |
+| Alibaba        | Qwen2.5 Instruct 7B                 | `huggingface-llm-qwen2-5-7b-instruct`                       | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen2.5 Instruct 14B                | `huggingface-llm-qwen2-5-14b-instruct`                      | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen2.5 Instruct 32B                | `huggingface-llm-qwen2-5-32b-instruct`                      | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen2.5 Instruct 72B                | `huggingface-llm-qwen2-5-72b-instruct`                      | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen3 0.6B                          | `huggingface-reasoning-qwen3-06b`                           | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen3 1.7B                          | `huggingface-reasoning-qwen3-1-7b`                          | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen3 4B                            | `huggingface-reasoning-qwen3-4b`                            | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen3 8B                            | `huggingface-reasoning-qwen3-8b`                            | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen3 14B                           | `huggingface-reasoning-qwen3-14b`                           | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen3 32B                           | `huggingface-reasoning-qwen3-32b`                           | ✓          | ✓          | ✓            | ✓           |
+| Alibaba        | Qwen3.5 4B                          | `huggingface-vlm-qwen3-5-4b`                                | ✓          |            | ✓            | ✓           |
+| Alibaba        | Qwen3.5 9B                          | `huggingface-vlm-qwen3-5-9b`                                | ✓          |            | ✓            | ✓           |
+| Alibaba        | Qwen3.5 27B                         | `huggingface-vlm-qwen3-5-27b`                               | ✓          |            | ✓            | ✓           |
+| Alibaba        | Qwen3.6 27B                         | `huggingface-vlm-qwen3-6-27b`                               | ✓          |            | ✓            | ✓           |
+| DeepSeek       | DeepSeek R1 Distill Llama 8B        | `deepseek-llm-r1-distill-llama-8b`                          | ✓          | ✓          | ✓            | ✓           |
+| DeepSeek       | DeepSeek R1 Distill Llama 70B       | `deepseek-llm-r1-distill-llama-70b`                         | ✓          | ✓          | ✓            | ✓           |
+| DeepSeek       | DeepSeek R1 Distill Qwen 1.5B       | `deepseek-llm-r1-distill-qwen-1-5b`                         | ✓          | ✓          | ✓            | ✓           |
+| DeepSeek       | DeepSeek R1 Distill Qwen 7B         | `deepseek-llm-r1-distill-qwen-7b`                           | ✓          | ✓          | ✓            | ✓           |
+| DeepSeek       | DeepSeek R1 Distill Qwen 14B        | `deepseek-llm-r1-distill-qwen-14b`                          | ✓          | ✓          | ✓            | ✓           |
+| DeepSeek       | DeepSeek R1 Distill Qwen 32B        | `deepseek-llm-r1-distill-qwen-32b`                          | ✓          | ✓          | ✓            | ✓           |
+| Meta           | Llama 3.1 Instruct 8B               | `meta-textgeneration-llama-3-1-8b-instruct`                 | ✓          | ✓          | ✓            | ✓           |
+| Meta           | Llama 3.2 Instruct 1B               | `meta-textgeneration-llama-3-2-1b-instruct`                 | ✓          | ✓          | ✓            | ✓           |
+| Meta           | Llama 3.2 Instruct 3B               | `meta-textgeneration-llama-3-2-3b-instruct`                 | ✓          | ✓          | ✓            | ✓           |
+| Meta           | Meta Llama 3.3 Instruct 70B         | `meta-textgeneration-llama-3-3-70b-instruct`                | ✓          | ✓          | ✓            | ✓           |
+| Nvidia         | NVIDIA Nemotron 3 Nano A3B BF16 30B | `huggingface-reasoning-nvidia-nemotron-3-nano-30b-a3b-bf16` | ✓          |            | ✓            | ✓           |
+| OpenAI         | GPT OSS 20B                         | `openai-reasoning-gpt-oss-20b`                              | ✓          | ✓          | ✓            | ✓           |
+| OpenAI         | GPT OSS 120B                        | `openai-reasoning-gpt-oss-120b`                             | ✓          | ✓          | ✓            | ✓           |

@@ -181,7 +181,7 @@ different
 accuracy metrics. The algorithm calculates the root mean square error (RMSE) over the
 test data as follows:
 
-![RMSE Formula: Sqrt(1/nT(Sum[i,t](y-hat(i,t)-y(i,t))^2))](images/deepar-1.png)
+![RMSE Formula: Sqrt(1/nT(Sum[i,t](y-hat(i,t)-y(i,t))^2)).](images/deepar-1.png)
 
 _y\*\*i_,_t_
 is the true value of time series _i_ at the time

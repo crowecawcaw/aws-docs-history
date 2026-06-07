@@ -58,4 +58,4 @@ The following screenshot shows the location of TensorBoard in the left
 navigation pane of the SageMaker AI console and the SageMaker AI with TensorBoard landing page
 in the main pane.
 
-![The TensorBoard landing page](images/debugger/htb-landing-page.png)
+![The TensorBoard landing page.](images/debugger/htb-landing-page.png)

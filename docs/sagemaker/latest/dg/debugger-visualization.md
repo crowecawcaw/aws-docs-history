@@ -55,13 +55,13 @@ evaluated by activation outputs and gradients.
 The pruning process reduced the initial 50 million parameters to 18 million. It also
 reduced the estimated model size from 201 MB to 73 MB.
 
-![An image containing model pruning result output visualizations](images/debugger/debugger-model-pruning-results-alexnet.gif)
+![An image containing model pruning result output visualizations.](images/debugger/debugger-model-pruning-results-alexnet.gif)
 
 You also need to track model accuracy, and the following image shows how you can plot
 the model pruning process to visualize changes in model accuracy based on the number of
 parameters in SageMaker Studio.
 
-![An image of tensor visualization using Debugger in SageMaker Studio](images/debugger/debugger-model-pruning-studio.png)
+![An image of tensor visualization using Debugger in SageMaker Studio.](images/debugger/debugger-model-pruning-studio.png)
 
 In SageMaker Studio, choose the **Experiments** tab, select a
 list of tensors saved by Debugger from the pruning process, and then compose a **Trial Component List** panel. Select all ten iterations and
@@ -119,7 +119,7 @@ two-dimensional space. The scatter plot color scheme on the right side of the im
 reflects the true values to show how well the BERT model and t-SNE algorithm organize
 the latent variables into the clusters.
 
-![A conceptual image of convolutional autoencoder](images/debugger/debugger-cnn-autoencoder-plot.gif)
+![A conceptual image of convolutional autoencoder.](images/debugger/debugger-cnn-autoencoder-plot.gif)
 
 ## [Using SageMaker Debugger to monitor attentions in BERT model training](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/bert_attention_head_view/bert_attention_head_view.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/bert_attention_head_view/bert_attention_head_view.html")
 
@@ -155,7 +155,7 @@ learning.
 The following animation shows the attention scores of the first 20 input tokens for
 ten iterations in the training job provided in the notebook example.
 
-![An animation of the attention scores](images/debugger/debugger-attention_scores.gif)
+![An animation of the attention scores.](images/debugger/debugger-attention_scores.gif)
 
 ## [Using SageMaker Debugger to visualize class activation maps in convolutional neural networks (CNNs)](https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/cnn_class_activation_maps/cnn_class_activation_maps.html "https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-debugger/model_specific_realtime_analysis/cnn_class_activation_maps/cnn_class_activation_maps.html")
 
@@ -171,7 +171,7 @@ In this notebook, the PyTorch ResNet model is trained on [the German Traffic Sig
 contains more than 40 classes of traffic-related objects and more than 50,000 images in
 total.
 
-![An animation of CNN class activation maps](images/debugger/debugger-cnn-class-activation-maps.gif)
+![An animation of CNN class activation maps.](images/debugger/debugger-cnn-class-activation-maps.gif)
 
 During the training process, SageMaker Debugger collects tensors to plot the class activation
 maps in real time. As shown in the animated image, the class activation map (also called

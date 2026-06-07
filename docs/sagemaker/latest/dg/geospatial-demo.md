@@ -584,4 +584,4 @@ graph shows that the surface area of Lake Mead decreased
 from
 January 2021–July 2022.
 
-![A bar graph showing the surface area of Lake Mead decreased from January 2021-July 2022](images/lake-mead-decrease.png)
+![A bar graph showing the surface area of Lake Mead decreased from January 2021-July 2022.](images/lake-mead-decrease.png)
