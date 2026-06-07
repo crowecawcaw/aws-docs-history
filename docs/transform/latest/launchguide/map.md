@@ -67,12 +67,12 @@ recursos en AWS para mejorar operaciones en la nube](https://youtu.be/cVGf81f9-n
   - To identify and tag MAP 2.0 eligible resources that were created after the MAP
     agreement was signed, use the [AWS Config Conformance Pack](https://github.com/aws-samples/map20-tag-conformance-pack "https://github.com/aws-samples/map20-tag-conformance-pack") . For more information, see [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/").
 
-- **Tagging with AWS Application Migration Service (Application Migration Service):**
-  - With Application Migration Service, you can enable MAP tagging to automatically tag your launched
-    instances. To enable MAP tagging, go to the Application Migration Service console and choose **Add
+- **Tagging with AWS Transform MGN (MGN):**
+  - With MGN, you can enable MAP tagging to automatically tag your launched
+    instances. To enable MAP tagging, go to the MGN console and choose **Add
     MAP tag to Launched Instances**, then specify the MAP tag value that you
-    want to use. Application Migration Service will automatically tag your launched instances with the key
-    `map-migrated` and the value required for the MAP program. Application Migration Service only
+    want to use. MGN will automatically tag your launched instances with the key
+    `map-migrated` and the value required for the MAP program. MGN only
     tags Amazon EC2 instances and Amazon EBS volumes.
 
 - **AWS remediation options:**

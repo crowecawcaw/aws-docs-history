@@ -39,8 +39,7 @@ follow. The CCoE team is made up of the Cloud Business Office (CBO) and the Clou
 (CPE), and is governed by the Cloud executive team. The team can be global, local, or
 federated (though some [capabilities](../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/capabilities.md "../../../whitepapers/latest/establishing-your-cloud-foundation-on-aws/capabilities.md") may be local and others global). In a migration
 context, the CCoE is typically started in the [Mobilize Phase](../../../prescriptive-guidance/latest/strategy-migration/people-skills-culture-change-and-leadership.md "../../../prescriptive-guidance/latest/strategy-migration/people-skills-culture-change-and-leadership.md") . For more resources, see [Accelerating cloud adoption through culture, change, and leadership](../../../prescriptive-guidance/latest/migration-ocm/welcome.md "../../../prescriptive-guidance/latest/migration-ocm/welcome.md") . You can also watch the video, [The human side of cloud transformation |
-Amazon Web Services](https://www.youtube.com/watch?v=g0dG18NnodE "https://www.youtube.com/watch?v=g0dG18NnodE"). See here
-for [example CCoE structure](../../../prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.md "../../../prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.md") and [prescriptive guidance on building CCoEs](../../../prescriptive-guidance/latest/cloud-center-of-excellence/ccoe-phases.md "../../../prescriptive-guidance/latest/cloud-center-of-excellence/ccoe-phases.md").
+Amazon Web Services](https://www.youtube.com/watch?v=g0dG18NnodE "https://www.youtube.com/watch?v=g0dG18NnodE"). For more information, see [example CCoE structure](../../../prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.md "../../../prescriptive-guidance/latest/cloud-center-of-excellence/example-ccoe-structure.md") and [prescriptive guidance on building CCoEs](../../../prescriptive-guidance/latest/cloud-center-of-excellence/ccoe-phases.md "../../../prescriptive-guidance/latest/cloud-center-of-excellence/ccoe-phases.md").
 
 ## AWS Cloud Adoption Framework (CAF)
 
@@ -119,7 +118,7 @@ deeper into this topic, watch the following AWS re:Invent video that discusses t
 [FinOps 3.0: Cost Intelligence
 for the AI Era](https://www.youtube.com/watch?v=2SP0eOXqOqc "https://www.youtube.com/watch?v=2SP0eOXqOqc").
 
-See key 2025 re:Invent Launches for CFM [here](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-cloud-financial-management-key-reinvent-2025-launches-to-transform-your-finops-practice/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-cloud-financial-management-key-reinvent-2025-launches-to-transform-your-finops-practice/").
+For key 2025 re:Invent launches for CFM, see [AWS Cloud Financial Management key re:Invent 2025 launches](https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-cloud-financial-management-key-reinvent-2025-launches-to-transform-your-finops-practice/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/aws-cloud-financial-management-key-reinvent-2025-launches-to-transform-your-finops-practice/").
 
 For a customer case study, see [Petabyte-Scale Cost Optimization: How a Video Hosting platform Saved 70% on
 S3](https://aws.amazon.com/blogs/aws-cloud-financial-management/petabyte-scale-cost-optimization-how-a-video-hosting-platform-saved-70-on-s3/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/petabyte-scale-cost-optimization-how-a-video-hosting-platform-saved-70-on-s3/")

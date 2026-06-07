@@ -137,10 +137,10 @@ planning with agentic AI](https://www.youtube.com/watch?v=8PBNaDa0TUw "https://w
 See [Education and Enablement](education.md "education.md") for a recommended free
 course on [Skill Builder](https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4 "https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4") that covers the migration process and tooling.
 
-[AWS Application Migration Service (Application Migration Service)](https://aws.amazon.com/application-migration-service/ "https://aws.amazon.com/application-migration-service/") provides a solution to migrate business applications from
+[AWS Transform MGN (MGN)](https://aws.amazon.com/application-migration-service/ "https://aws.amazon.com/application-migration-service/") provides a solution to migrate business applications from
 on-premise or other cloud providers easily to AWS.
 
-To learn about the architecture of AWS Application Migration Service, watch the following video: [Application Migration Service](https://www.youtube.com/watch?v=75gyWJn0_rI "https://www.youtube.com/watch?v=75gyWJn0_rI")
+To learn about the architecture of AWS Transform MGN, watch the following video: [MGN](https://www.youtube.com/watch?v=75gyWJn0_rI "https://www.youtube.com/watch?v=75gyWJn0_rI")
 
 [AWS Database Migration Service (AWS DMS)](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/") is
 a managed migration and replication service that helps move your database and analytics

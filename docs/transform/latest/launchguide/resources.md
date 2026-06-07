@@ -71,9 +71,9 @@ access.
 - [Third-party migration tooling ecosystem](https://aws.amazon.com/migration/partner-solutions/?blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc&partner-case-studies-cards.sort-by=item.additionalFields.sortDate&partner-case-studies-cards.sort-order=desc "https://aws.amazon.com/migration/partner-solutions/?blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc&partner-case-studies-cards.sort-by=item.additionalFields.sortDate&partner-case-studies-cards.sort-order=desc")
 - [Reimagining large-scale
   migration planning with agentic AI (video)](https://www.youtube.com/watch?v=8PBNaDa0TUw "https://www.youtube.com/watch?v=8PBNaDa0TUw")
-- [AWS Application Migration Service (Application Migration Service)](https://aws.amazon.com/application-migration-service/ "https://aws.amazon.com/application-migration-service/")
+- [AWS Transform MGN (MGN)](https://aws.amazon.com/application-migration-service/ "https://aws.amazon.com/application-migration-service/")
 - [Video about
-  AWS Application Migration Service](https://www.youtube.com/watch?v=75gyWJn0_rI "https://www.youtube.com/watch?v=75gyWJn0_rI")
+  AWS Transform MGN](https://www.youtube.com/watch?v=75gyWJn0_rI "https://www.youtube.com/watch?v=75gyWJn0_rI")
 - [Migration Foundations - Knowledge Badge](https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4 "https://skillbuilder.aws/learning-plan/RR62QXUA2T/migration-foundations-knowledge-badge-readiness-path-includes-labs/TJRN67M4E4")
 - [AWS Database Migration Service (AWS DMS)](https://aws.amazon.com/dms/ "https://aws.amazon.com/dms/")
 - [Mastering AWS
@@ -89,7 +89,7 @@ access.
 - [Well-Architected
   Labs](https://www.wellarchitectedlabs.com/ "https://www.wellarchitectedlabs.com/")
 - [Migration Lens - AWS Well-Architected Framework](../../../wellarchitected/latest/migration-lens/migration-lens.md "../../../wellarchitected/latest/migration-lens/migration-lens.md")
-- [AWS Application Migration Service workshop repository](https://awsstash.com/ "https://awsstash.com/")
+- [AWS Transform MGN workshop repository](https://awsstash.com/ "https://awsstash.com/")
 - [AWS Transform](https://aws.amazon.com/transform/ "https://aws.amazon.com/transform/")
 - [AWS Transform
   assessments](https://aws.amazon.com/transform/assessment/ "https://aws.amazon.com/transform/assessment/")
