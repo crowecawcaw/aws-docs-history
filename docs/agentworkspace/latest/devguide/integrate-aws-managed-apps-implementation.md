@@ -60,10 +60,37 @@ connect.core.initCCP(containerElement, {
 
 **After:**
 
+Use the code example that corresponds to the package you installed in [Step 1: Install required packages](#integrate-aws-managed-apps-step1 "#integrate-aws-managed-apps-step1"). The two examples differ only in
+the side-effect import on the second line.
+
+**Option A — For basic application management (using
+`@amazon-connect/app-manager`):**
+
 ```
 
 import "@amzn/amazon-connect-streams";
-import "@amazon-connect/app-manager"; // Or import "@amazon-connect/app-manager-agent";
+import "@amazon-connect/app-manager";
+import { AppManagerPlugin } from "@amazon-connect/app-manager";
+
+const containerElement = document.getElementById("ccp-container");
+connect.core.initCCP(containerElement, {
+    ccpUrl: "https://<connect-instance-alias>.my.connect.aws/ccp-v2/",
+    // Other initialization parameters
+
+    plugins: [AppManagerPlugin], // Enables AppManager
+});
+
+// Retrieve the provider for accessing AppManager
+const provider = connect.core.getSDKClientConfig().provider;
+```
+
+**Option B — For contact-scoped applications (using
+`@amazon-connect/app-manager-agent`):**
+
+```
+
+import "@amzn/amazon-connect-streams";
+import "@amazon-connect/app-manager-agent";
 import { AppManagerPlugin } from "@amazon-connect/app-manager";
 
 const containerElement = document.getElementById("ccp-container");

@@ -5,6 +5,7 @@ contact events, and contact requests that are supported by the [Amazon Connect S
 
 ###### Contents
 
+- [AI Agents](api-reference-3P-apps-ai-agents-client.md "api-reference-3P-apps-ai-agents-client.md")
 - [Activity](api-reference-3P-apps-activity-client.md "api-reference-3P-apps-activity-client.md")
 - [Agent](api-reference-3P-apps-agent-client.md "api-reference-3P-apps-agent-client.md")
 - [AppController](api-reference-3P-apps-app-controller.md "api-reference-3P-apps-app-controller.md")

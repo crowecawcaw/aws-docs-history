@@ -17,6 +17,8 @@ Connect Customer agent workspace.
   apps](getting-started-prerequisites.md "getting-started-prerequisites.md")
 - [Create your
   application](getting-started-create-application.md "getting-started-create-application.md")
+- [Application
+  scoping](getting-started-application-contact-scope.md "getting-started-application-contact-scope.md")
 - [Test your application locally](getting-started-testing.md "getting-started-testing.md")
 - [Test with a
   deployed version of your application](getting-started-test-with-deployed-app.md "getting-started-test-with-deployed-app.md")

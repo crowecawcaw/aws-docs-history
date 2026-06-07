@@ -26,10 +26,10 @@ await contactClient.transfer(contactId, quickConnect);
 
 **Input**
 
-| **Parameter**           | **Type**     | **Description**                                                 |
-| ----------------------- | ------------ | --------------------------------------------------------------- |
-| contactId _Required_    | string       | The id of the contact to which a participant needs to be added. |
-| quickConnect _Required_ | QuickConnect | Its either AgentQuickConnect or QueueQuickConnect               |
+| **Parameter**           | **Type**     | **Description**                                                       |
+| ----------------------- | ------------ | --------------------------------------------------------------------- |
+| contactId _Required_    | string       | The id of the contact to which a participant needs to be transferred. |
+| quickConnect _Required_ | QuickConnect | Its either AgentQuickConnect or QueueQuickConnect                     |
 
 **Permissions required:**
 

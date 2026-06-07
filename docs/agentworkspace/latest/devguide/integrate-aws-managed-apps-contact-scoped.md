@@ -1,56 +1,25 @@
 # Contact-scoped applications
 
-Contact-scoped applications are tied to specific customer interactions (contacts).
-They are essential for scenarios where agents handle multiple contacts simultaneously
-and need isolated application contexts for each contact. The following behaviors apply
-to contact-scoped applications:
-
-- They can only access data for their specific contact.
-- They are automatically destroyed by AppManager when the associated contact
-  ends. You will receive `onDestroying` and `onDestroyed`
-  lifecycle events, allowing you to clean up the user interface.
+This section describes how to manage AWS-managed applications that are tied to
+specific customer contacts. Contact scoping itself is not specific to AWS-managed
+applications — for an explanation of the registration-time and launch-time scope
+settings that determine how any application behaves with respect to contacts, including
+`contact` and `idle` launch examples, see [Application scoping in Connect Customer agent workspace](getting-started-application-contact-scope.md "getting-started-application-contact-scope.md").
 
 ###### Note
 
-Contact-scoped applications require the
-`@amazon-connect/app-manager-agent` package. See
-[Step 1: Install required packages](integrate-aws-managed-apps-implementation.md#integrate-aws-managed-apps-step1 "integrate-aws-managed-apps-implementation.md#integrate-aws-managed-apps-step1") for installation
-instructions.
-
-## Launch a contact-scoped application
-
-To launch an application scoped to a specific contact, provide a
-`scope` object in the `AppLaunchOptions` parameter of
-`launchApp`. The `scope` object requires the `contact` type
-and the contact ID of the active contact:
-
-```
-
-const launchOptions: AppLaunchOptions = {
-    scope: {
-        type: "contact",
-        contactId: contactId  // The ID of the contact to scope this application to
-    }
-};
-
-// Launch the application scoped to the specified contact
-const appHost = await appManager.launchApp(app.arn, launchOptions);
-
-// Create and configure the iframe for the application
-const appIframe = document.createElement("iframe");
-appHost.setIFrame(appIframe);
-
-// Optionally indicate in the UI which contact this app belongs to
-appIframe.setAttribute("data-contact-id", contactId);
-```
+Scoped application launches require the
+`@amazon-connect/app-manager-agent` package. For installation
+instructions, see [Step 1: Install required packages](integrate-aws-managed-apps-implementation.md#integrate-aws-managed-apps-step1 "integrate-aws-managed-apps-implementation.md#integrate-aws-managed-apps-step1").
 
 ## Manage the active contact
 
-When agents handle multiple contacts simultaneously, you must inform AppManager
-which contact is currently active. This ensures the correct contact context is used
-when launching applications without an explicit `contactId` in the
-`scope` option. Use `setActiveContact` to update the active
-contact in AppManager:
+AppManager binds applications to the active contact when no `scope`
+value is provided at launch. Therefore, when an agent handles multiple contacts
+simultaneously, you must keep the active contact accurate so that the correct
+contact context is used when launching applications without an explicit
+`contactId` in the `scope` option. Use
+`setActiveContact` to update the active contact in AppManager:
 
 ```
 
@@ -69,7 +38,7 @@ connect.core.onViewContact((event) => {
     const contactId = event.contactId;
     if (contactId) {
         // Keep AppManager in sync with the currently viewed contact
-        appManager.setActiveContact(contactId).catch((error) => {
+        void appManager.setActiveContact(contactId).catch((error) => {
             console.error("Failed to set active contact:", error);
         });
     }

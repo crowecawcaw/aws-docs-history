@@ -3,6 +3,9 @@
 Launch the application in the agent workspace for the given application ARN or name. It
 supports optional launch options to fine tune the launch behavior.
 
+For details on how the `options.scope` value controls an application's
+relationship to contacts, see [Application scoping in Connect Customer agent workspace](getting-started-application-contact-scope.md "getting-started-application-contact-scope.md").
+
 **Signature**
 
 ```
