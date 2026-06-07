@@ -86,7 +86,7 @@ The following restrictions apply to tags.
 
 ###### Tag value restrictions
 
-- Tag values must be between 0 and 255 Unicode characters in length.
+- Tag values must be between 0 and 256 Unicode characters in length.
 - Tag values can be blank. Otherwise, they must consist of the following
   characters: Unicode letters, digits, white space, and any of the following
   special characters: `_ . / = + - @`.

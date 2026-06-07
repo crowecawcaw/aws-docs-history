@@ -47,6 +47,13 @@ You must provide the `adminSecretArn` in the rotation metadata. You must also pr
 [RotateSecret](../apireference/API_RotateSecret.md "../apireference/API_RotateSecret.md") call which grants the service the required permissions to
 rotate the secret. For an example of a permissions policy see [Security and Permissions](mes-security.md "mes-security.md").
 
+The admin secret type (`DatadogAdminKey`) differs from the user secret type
+(`DatadogApiKey`). Because of this difference, the default rotation role policy scoped by
+`secretsmanager:resource/Type` will not grant access to the admin secret.
+You must explicitly provide the rotation role access to the admin secret.
+You can do this by adding a statement scoped to the `DatadogAdminKey` type.
+Alternatively, specify the admin secret `ARN` directly in the role policy.
+
 During rotation, the driver creates a new API key via the Datadog Key Management API v2,
 verifies the new key using the validation endpoint, promotes the new key to AWSCURRENT,
 and deletes the displaced key (two rotations old) from Datadog. This maintains a 2-key alternating
