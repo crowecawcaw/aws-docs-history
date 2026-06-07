@@ -169,7 +169,7 @@ ALTER TABLE `table name` MODIFY COLUMN `column name` `data type`;
   databases can't be stored in Amazon Redshift.
 - Applying a DELETE statement to a table with a multi-column primary key is
   not supported when any of the primary key column names use a reserved word.
-  Go [here](../../../redshift/latest/dg/r_pg_keywords.md "../../../redshift/latest/dg/r_pg_keywords.md") to see a list of Amazon Redshift reserved words.
+  For a list of reserved words, see [Reserved words](../../../redshift/latest/dg/r_pg_keywords.md "../../../redshift/latest/dg/r_pg_keywords.md") in the _Amazon Redshift Database Developer Guide_.
 - You may experience performance issues if your source system performs UPDATE operations on the primary key of a
   source table. These performance issues occur when applying changes to the target.
   This is because UPDATE (and DELETE) operations depend on the primary key value

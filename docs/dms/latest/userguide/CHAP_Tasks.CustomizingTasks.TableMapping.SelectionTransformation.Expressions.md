@@ -102,6 +102,13 @@ source table.
 
 ```
 
+###### Note
+
+The operation_indicator column is best suited for streaming targets (such as Amazon Kinesis and
+Apache Kafka) and object-based targets (such as Amazon S3) where primary key uniqueness is not enforced.
+For relational database targets (such as Oracle, SQL Server, PostgreSQL, or MySQL), use `operation_indicator` only when source
+records with the same primary key are never re-inserted after deletion.
+
 ## Replicating source table headers using expressions
 
 By default, headers for source tables aren't replicated to the target. To
