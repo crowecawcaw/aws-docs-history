@@ -14,6 +14,9 @@ an Amazon SNS topic or Connect Customer instance for processing.
   Administrator Guide_.
 - Two-way MMS is not supported but your phone number can still receive incoming SMS messages in
   response to an outbound MMS message.
+- Simulator phone numbers do not support Connect Customer as a two-way SMS destination
+  type. To use two-way SMS with Connect Customer, use a standard phone number such as a
+  toll-free number, long code, short code, or 10DLC number.
 
 Two-way SMS messaging (Console)
 To enable two-way SMS using the AWS End User Messaging SMS console, follow these steps:

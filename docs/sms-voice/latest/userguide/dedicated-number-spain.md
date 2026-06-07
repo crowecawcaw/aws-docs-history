@@ -8,8 +8,6 @@ New Spain short code provisioning is temporarily on hold. If you need a dedicate
 
 To request a long code phone number, see [Requesting dedicated long codes](phone-numbers-request-long-code.md "phone-numbers-request-long-code.md").
 
-To register a short code number, see [Requesting dedicated short codes](phone-numbers-request-short-code.md "phone-numbers-request-short-code.md").
-
 Follow these directions to register your dedicated number in Spain.
 
 ###### Complete Common Dedicated Number registration form

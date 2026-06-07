@@ -1,18 +1,16 @@
 # Spain sender ID registration in AWS End User Messaging SMS
 
-All alphanumeric sender IDs used to send SMS messages to Spanish mobile numbers (+34) must be registered in the CNMC (Comisión Nacional de los Mercados y la Competencia) National Alias Registry. Unregistered sender IDs cannot deliver messages to Spanish recipients.
+All alphanumeric sender IDs used to send SMS messages to Spanish mobile numbers (+34) must be registered in the CNMC (Comisión Nacional de los Mercados y la Competencia) National Alias Registry. Starting September 15, 2026, unregistered sender IDs will be blocked and will not deliver messages to Spanish recipients.
 
-Unregistered alphanumeric sender IDs are blocked by Spanish mobile operators and cannot deliver messages to Spanish recipients. Generic sender IDs that do not clearly identify your business are not permitted by CNMC and cannot be registered.
+Unregistered alphanumeric sender IDs will be blocked by Spanish mobile operators starting September 15, 2026. Generic sender IDs that do not clearly identify your business are not permitted by CNMC and cannot be registered.
 
 Dedicated phone numbers (local long codes or short codes, international toll-free numbers) are not affected by this regulation and do not require registration.
 
 ###### Important
 
-New Spain short code provisioning is temporarily on hold. If you need a dedicated number for Spain, request a long code instead. For more information, see [Dedicated phone numbers for Spain](dedicated-number-spain.md "dedicated-number-spain.md").
-
-###### Important
-
-We are currently processing new information about how customers can register their Sender IDs in the CNMC Portal as part of the Spain Sender ID registration process. We will update our public documentation as soon as we have concrete details.
+- Starting September 15, 2026, Spanish mobile operators will block all SMS messages sent using unregistered alphanumeric sender IDs. Complete your CNMC registration before this date to avoid delivery disruptions.
+- New Spain short code provisioning is temporarily on hold. If you need a dedicated number for Spain, request a long code instead. For more information, see [Dedicated phone numbers for Spain](dedicated-number-spain.md "dedicated-number-spain.md").
+- We are currently processing new information about how customers can register their Sender IDs in the CNMC Portal as part of the Spain Sender ID registration process. We will update our public documentation as soon as we have concrete details.
 
 ###### CNMC portal access and digital certificate requirements
 

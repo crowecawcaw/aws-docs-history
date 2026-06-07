@@ -248,6 +248,32 @@ review on the first attempt.
 
 **Bad:** "You have been removed." (no brand name, doesn't confirm messages stop) **Bad HELP response:** "Text STOP to stop." (no brand name, no contact method)
 
+### Opt-out handling for OTP and 2FA programs
+
+OTP and 2FA programs must adhere to the same opt-out response requirements as other use cases. If a recipient replies STOP to an OTP message, you must send a compliant opt-out acknowledgment response.
+
+However, if your SMS program is compliant with all applicable regulations, you are not required to permanently opt out the recipient's phone number when they text STOP. A subsequent request for an OTP code by the end user (for example, initiating a new login attempt) is considered a new opt-in.
+
+Your STOP response for OTP programs must meet the following requirements:
+
+- Include your brand or program name
+- Confirm the user is unsubscribed from the OTP program
+- Provide instructions for opting back in (for example, "request a new code to login")
+- Include HELP contact information
+- Be under 160 GSM characters with no special characters
+
+**Example STOP response for OTP:** "You are unsubscribed from `BRAND NAME` OTP. Opt back in by replying `OPT-IN KEYWORD` or requesting a new code to login. Reply HELP for help or call `xxx-xxx-xxxx`."
+
+### STOP behavior on US Toll-Free Numbers
+
+US Toll-Free Numbers handle opt-outs differently from Short Codes and 10DLC numbers. On a Toll-Free Number, the opt-out flow is managed at the network level by US carriers and cannot be customized by the sender.
+
+When a recipient replies STOP to a Toll-Free Number, the carrier automatically blocks all future messages from that number and sends a network-level response. The sender cannot override this block. The recipient must text UNSTOP or START to the same number to resume receiving messages.
+
+This means the OTP guidance above (a subsequent user-initiated request constitutes a new opt-in) does not apply to Toll-Free Numbers. On a Toll-Free Number, if a user texts STOP, they will not receive messages from that number again until they explicitly text UNSTOP or START — regardless of any subsequent actions they take in your application.
+
+For OTP and password reset use cases on Toll-Free Numbers, account for this behavior when designing your messaging flow. Provide users with instructions to text UNSTOP if they need to re-enable messages.
+
 ## 8. Content compliance
 
 **What to do:** Ensure your messaging content, website, and business do not involve prohibited or restricted content categories. If your content involves age-restricted products, implement a compliant age gate requiring date-of-birth entry.

@@ -33,12 +33,12 @@ This guide covers A2P SMS registration requirements specific to real estate brok
 
 ### Campaign description issues
 
-| Denial title reference                                  | Denial title                                                                                                                                                                                                                           | What it means for realty brokers |
-| ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
-| **Campaign unclear**                                    | Your description doesn't clearly explain what messages consumers will receive. "Real estate communications" is too vague – specify: "Property showing confirmations and new listing alerts for active buyers working with ABC Realty." |
-| **Campaign not qualified for use case**                 | The selected use case category doesn't match your actual messaging. Realty brokers typically register under "Customer Care" or "Account Notifications" – not "Marketing" unless sending promotional content.                           |
-| **Campaign to brand mismatch**                          | The campaign describes services for a different brokerage or team than what's registered. Each brand/team needs its own registration.                                                                                                  |
-| **Campaign non-compliant content: affiliate marketing** | Your campaign description or samples suggest routing leads to third-party agents or brokerages. Each entity sending messages needs its own registration with direct consumer consent.                                                  |
+| Denial title reference                                  | Denial title                                                                                                                                                                                                                                                                               | What it means for realty brokers |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- |
+| **Campaign unclear**                                    | Your description doesn't clearly explain what messages consumers will receive. "Real estate communications" is too vague. Instead, specify the message types and audience. For example: "Property showing confirmations and new listing alerts for active buyers working with ABC Realty." |
+| **Campaign not qualified for use case**                 | The selected use case category doesn't match your actual messaging. Realty brokers typically register under "Customer Care" or "Account Notifications" – not "Marketing" unless sending promotional content.                                                                               |
+| **Campaign to brand mismatch**                          | The campaign describes services for a different brokerage or team than what's registered. Each brand/team needs its own registration.                                                                                                                                                      |
+| **Campaign non-compliant content: affiliate marketing** | Your campaign description or samples suggest routing leads to third-party agents or brokerages. Each entity sending messages needs its own registration with direct consumer consent.                                                                                                      |
 
 ### Opt-in workflow issues
 
@@ -78,7 +78,7 @@ If you send both marketing (new listing blasts, market reports) and servicing (s
 
 ### Agent teams under a parent brokerage
 
-If you operate a named team (e.g., "The Johnson Group") under a parent brokerage (e.g., "Keller Williams"), register under the name consumers recognize. Your website and opt-in materials must consistently use the same brand name as your registration.
+You might operate a named team (e.g., "The Johnson Group") under a parent brokerage (e.g., "Keller Williams"). In this case, register under the name consumers recognize. Your website and opt-in materials must consistently use the same brand name as your registration.
 
 ### Property inquiry forms
 
@@ -117,7 +117,7 @@ If you manage rental properties and send tenant communications (rent reminders, 
 1. **Be explicit about your role** – State "licensed real estate brokerage," "property management company," or "real estate team" in your campaign description. Vague language triggers lead-gen reviews.
 2. **Show your license** – Include your real estate license number or brokerage affiliation on your website. This helps reviewers confirm you are a legitimate brokerage, not a lead aggregator.
 3. **Separate transactional from marketing** – Register separate campaigns if you send both transaction updates and listing alerts. This simplifies compliance.
-4. **Avoid lead-gen language** – Phrases like "get matched with agents," "find homes from multiple brokerages," or "compare agents in your area" signal third-party lead generation and will be rejected.
+4. **Avoid lead-gen language** – Phrases like "get matched with agents," "find homes from multiple brokerages," or "compare agents in your area" signal third-party lead generation. These phrases will cause your registration to be rejected.
 5. **Don't use URL shorteners** – Use your branded domain in sample messages. Public shorteners (bit.ly, tinyurl) are prohibited in 10DLC message content.
 6. **Keep your website current** – A single IDX search page or MLS feed without brokerage information is insufficient. Your site must show company details, agent profiles, contact information, and privacy policy.
 
