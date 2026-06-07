@@ -18,3 +18,4 @@ administrative tasks. Ways you can maintain your directory include:
   to find and authenticate your existing Active Directory users in your on-premises
   directory.
 - [Delete your AWS Managed Microsoft AD](ms_ad_delete.md "ms_ad_delete.md") when you no longer need it.
+- [Tag your directory](tag_directory.md "tag_directory.md") to organize and manage your directories using key-value pairs.

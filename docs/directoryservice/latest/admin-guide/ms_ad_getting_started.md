@@ -129,9 +129,14 @@ The fully qualified name for the directory, such as
 
 ###### Note
 
-If you plan on using Amazon Route 53 for DNS, the domain name of your AWS Managed Microsoft AD
+If you plan on using Amazon Route 53 Private Hosted Zone for DNS, the domain name of your AWS Managed Microsoft AD
 must be different than your Route 53 domain name. DNS resolution issues can occur if
-Route 53 and AWS Managed Microsoft AD share the same domain name.
+Route 53 and AWS Managed Microsoft AD share the same domain name. Also, consider changing the
+**Use root hints if no forwarders are available** setting from
+true to false. When set to true and forwarders are unreachable, AWS Managed Microsoft AD falls
+back to internet root hints, which return NXDOMAIN for Private Hosted Zone names.
+This negative response is cached, prolonging resolution failures even after
+connectivity is restored.
 
 **Directory NetBIOS name**
 

@@ -9,3 +9,4 @@ administrative tasks. Ways you can maintain your directory include:
   your AD Connector](ad_connector_update_dns.md "ad_connector_update_dns.md") points to.
 - [Delete your
   AD Connector](ad_connector_delete.md "ad_connector_delete.md") when it is no longer needed.
+- [Tag your directory](ad_connector_tag_directory.md "ad_connector_tag_directory.md") to organize and manage your directories using key-value pairs.

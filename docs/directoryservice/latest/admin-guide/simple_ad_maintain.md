@@ -12,3 +12,4 @@ tasks. Ways you can maintain your Simple AD include:
   snapshots.
 - [Delete your
   Simple AD](simple_ad_delete.md "simple_ad_delete.md") when it is no longer needed.
+- [Tag your directory](simple_ad_tag_directory.md "simple_ad_tag_directory.md") to organize and manage your directories using key-value pairs.
