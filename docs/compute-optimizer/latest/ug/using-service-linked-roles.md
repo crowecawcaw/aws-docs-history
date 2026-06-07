@@ -76,6 +76,18 @@ specified resources:
   resources.
 - Action: `ec2:createTags` on all AWS
   resources.
+- Action: `ec2:DescribeNatGateways` on all AWS resources.
+- Action: `ec2:DescribeRouteTables` on all AWS resources.
+- Action: `elasticache:DescribeCacheClusters` on all AWS resources.
+- Action: `elasticache:DescribeServerlessCaches` on all AWS resources.
+- Action: `memorydb:DescribeClusters` on all AWS resources.
+- Action: `rds:DescribeDBClusters` on all AWS resources.
+- Action: `dynamodb:ListTables` on all AWS resources.
+- Action: `dynamodb:DescribeTable` on all AWS resources.
+- Action: `workspaces:DescribeWorkspaces` on all AWS resources.
+- Action: `workspaces:DescribeWorkspacesConnectionStatus` on all AWS resources.
+- Action: `sagemaker:ListEndpoints` on all AWS resources.
+- Action: `sagemaker:DescribeEndpoint` on all AWS resources.
 
 ## Service-linked role permissions
 
