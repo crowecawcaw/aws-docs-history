@@ -165,7 +165,7 @@ but some resource types may not be available in your AWS Region.
 | --------------------------------------------- | ---------------------- | -------------------- | ------------------------------------- |
 | `AWS::ApplicationAutoScaling::ScalableTarget` | No                     | Yes                  | No                                    |
 
-## AWS Application Migration Service
+## AWS Transform MGN
 
 | **Resources**                                | **Tag Editor Tagging** | **Tag-based Groups** | **CloudFormation Stack-based Groups** |
 | -------------------------------------------- | ---------------------- | -------------------- | ------------------------------------- |
