@@ -54,5 +54,5 @@ Elastic Beanstalk:
   configurations
 - [Troubleshooting and diagnostics](dotnet-migrating-applications-troubleshooting.md "dotnet-migrating-applications-troubleshooting.md") - Troubleshoot common
   migration issues
-- [Comparing migration options: EB CLI vs. AWS Application Migration Service](dotnet-migrating-applications-comparison.md "dotnet-migrating-applications-comparison.md") - Compare two primary
+- [Comparing migration options: EB CLI vs. AWS Transform MGN](dotnet-migrating-applications-comparison.md "dotnet-migrating-applications-comparison.md") - Compare two primary
   migration options.
