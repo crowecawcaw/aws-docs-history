@@ -543,6 +543,105 @@ to be `IN_PROGRESS` at any time. If you need to start a new build and
 already have 2 workflows, delete an old one first using
 `DeleteAutomatedReasoningPolicyBuildWorkflow`.
 
+### Import a policy definition using the API
+
+If you already have a policy definition in JSON format, use
+`StartAutomatedReasoningPolicyBuildWorkflow` with
+`IMPORT_POLICY` to import it directly. This skips the document extraction
+step and loads the definition as-is.
+
+```
+aws bedrock start-automated-reasoning-policy-build-workflow \
+  --policy-arn arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk` \
+  --build-workflow-type IMPORT_POLICY \
+  --source-content "{
+    \"policyDefinition\": {
+      \"version\": \"1.0\",
+      \"variables\": [
+        {
+          \"name\": \"isFullTime\",
+          \"type\": \"BOOL\",
+          \"description\": \"Whether the employee works full-time.\"
+        }
+      ],
+      \"rules\": [
+        {
+          \"id\": \"`A1B2C3D4E5F6`\",
+          \"expression\": \"(=> isFullTime eligibleForBenefits)\"
+        }
+      ],
+      \"types\": []
+    }
+  }"
+```
+
+### Iteratively refine a policy using the API
+
+Use `StartAutomatedReasoningPolicyBuildWorkflow` with
+`ITERATIVELY_REFINE_POLICY` to refine an existing policy using a source
+document and optional natural language feedback. Unlike `INGEST_CONTENT`
+which extracts new rules from a document, this workflow uses the document as context to
+improve the existing policy. Common use cases include:
+
+- **Fixing failed tests.** When a test returns
+  unexpected results, provide the source document and feedback describing the expected
+  behavior to refine the policy rules.
+- **Addressing feedback about missing concepts.**
+  Provide natural language feedback about concepts that are not currently captured in
+  the policy, along with the source document as context.
+- **Updating after source document changes.** When
+  the source document is revised, provide the updated document and describe the
+  specific changes to incorporate.
+
+`policyDefinition` (required)
+
+The complete current policy definition to refine.
+
+`workflowContent.iterativeRefinementContent.documents`
+(required)
+
+The source document to use as context for the refinement.
+
+`workflowContent.iterativeRefinementContent.feedback`
+(optional)
+
+Natural language instructions describing the specific changes or improvements
+you want. For example, "Add rules for bereavement leave eligibility" or "Update
+the tenure threshold from 12 months to 6 months based on the new policy
+revision."
+
+```
+# Encode your updated policy document
+PDF_BASE64=$(base64 -i `updated-policy.pdf` | tr -d '\n')
+
+aws bedrock start-automated-reasoning-policy-build-workflow \
+  --policy-arn arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk` \
+  --build-workflow-type ITERATIVELY_REFINE_POLICY \
+  --source-content "{
+    \"policyDefinition\": `EXISTING_POLICY_DEFINITION_JSON`,
+    \"workflowContent\": {
+      \"iterativeRefinementContent\": {
+        \"documents\": [
+          {
+            \"document\": \"$PDF_BASE64\",
+            \"documentContentType\": \"pdf\",
+            \"documentName\": \"`Updated HR Policy v2`\",
+            \"documentDescription\": \"`Revised HR leave policy with updated eligibility criteria.`\"
+          }
+        ],
+        \"feedback\": \"`Update the tenure requirement for parental leave from 12 months to 6 months, as specified in section 3 of the revised document.`\"
+      }
+    }
+  }"
+```
+
+###### Tip
+
+Use `ITERATIVELY_REFINE_POLICY` when your source document has been
+updated and you want the policy to reflect the changes, or when you want to guide the
+refinement with specific instructions. Use `INGEST_CONTENT` instead when
+you want to add entirely new content from a new document.
+
 ## KMS permissions for Automated Reasoning policies
 
 If you specify a customer managed KMS key to encrypt your Automated Reasoning policy,

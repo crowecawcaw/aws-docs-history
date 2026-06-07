@@ -432,6 +432,39 @@ related (for example, they both deal with employee benefits but use different va
 names for the same concept), merge the overlapping variables to connect them. If the
 rule sets are genuinely independent, no action is needed.
 
+## Resolve policy ambiguities
+
+If your tests return `TRANSLATION_AMBIGUOUS` results or your quality
+report identifies ambiguous variable descriptions, use
+`StartAutomatedReasoningPolicyBuildWorkflow` with
+`RESOLVE_POLICY_AMBIGUITIES` to automatically resolve ambiguities in your
+policy. This workflow analyzes the policy definition and refines variable descriptions
+and type definitions to reduce translation ambiguity.
+
+### Resolve ambiguities in the console
+
+1. Open your Automated Reasoning policy in the console.
+2. On the **Definitions** page, choose
+   **Resolve ambiguities**.
+3. Review the proposed changes to variable descriptions and type definitions, then choose
+   **Accept changes**.
+
+### Resolve ambiguities using the API
+
+```
+aws bedrock start-automated-reasoning-policy-build-workflow \
+  --policy-arn "arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`" \
+  --build-workflow-type RESOLVE_POLICY_AMBIGUITIES \
+  --source-content "{
+    \"policyDefinition\": `EXISTING_POLICY_DEFINITION_JSON`
+  }"
+```
+
+After the workflow completes, retrieve the updated policy definition using
+`GetAutomatedReasoningPolicyBuildWorkflowResultAssets` with
+`--asset-type POLICY_DEFINITION`. Review the changes and update your
+policy's DRAFT using `UpdateAutomatedReasoningPolicy`.
+
 ## Use Kiro CLI for policy refinement
 
 Kiro CLI provides an interactive chat interface for diagnosing and fixing policy issues.

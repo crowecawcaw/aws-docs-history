@@ -249,7 +249,7 @@ import string
 guardrail_id = 'guardrail-id'
 guardrail_version = 'DRAFT'
 
-model_id = 'stability.sd3-large-v1:0'
+model_id = 'stability.sd3-5-large-v1:0'
 output_images_folder = '/path/to/folder/'
 
 body = json.dumps(

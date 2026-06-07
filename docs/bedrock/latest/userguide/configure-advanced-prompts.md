@@ -63,10 +63,7 @@ To configure advanced prompts by using the API operations, you send an [UpdateAg
             "promptState": "ENABLED | DISABLED",
             "promptType": "PRE_PROCESSING | ORCHESTRATION | KNOWLEDGE_BASE_RESPONSE_GENERATION | POST_PROCESSING | MEMORY_SUMMARIZATION"
         }
-    ],
-    promptCachingState: {
-        cachingState: "ENABLED | DISABLED"
-    }
+    ]
 }
 ```
 

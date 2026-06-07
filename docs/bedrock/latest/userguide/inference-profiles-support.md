@@ -15,7 +15,7 @@ Looking for inference profile IDs for a specific model? Each model's inference p
 
 You can carry out [cross-Region inference](cross-region-inference.md "cross-region-inference.md") with cross-Region (system-defined) inference profiles. Cross-Region inference allows you to seamlessly manage unplanned traffic bursts by using compute across different AWS Regions. With cross-Region inference, you can distribute traffic across multiple AWS Regions.
 
-Cross-region (system-defined) inference profiles are named after the model that they support and defined by the Regions that they support. To understand how a cross-region inference profile handles your requests, review the following definitions:
+Cross-Region (system-defined) inference profiles are named after the model that they support and defined by the Regions that they support. To understand how a cross-Region inference profile handles your requests, review the following definitions:
 
 - **Source Region** – The Region from which you make the API request that specifies the inference profile.
 - **Destination Region** – A Region to which the Amazon Bedrock service can route the request from your source Region.
@@ -31,7 +31,7 @@ your inference request can be routed to any of the destination Regions in the pr
 Service Control Policies (SCPs) and AWS Identity and Access Management (IAM) policies work together to control where cross-Region inference is allowed. Using SCPs,
 you can control which Regions Amazon Bedrock can use for inference, and using IAM policies, you can define which users or roles have permission to run inference.
 If any destination Region in a cross-Region inference profile is blocked in your SCPs, the request will fail even if other Regions remain allowed. To
-ensure efficient operation with cross-region inference, you can update your SCPs and IAM policies to allow all required Amazon Bedrock inference actions
+ensure efficient operation with cross-Region inference, you can update your SCPs and IAM policies to allow all required Amazon Bedrock inference actions
 (for example, `bedrock:InvokeModel*` or `bedrock:CreateModelInvocationJob`) in all destination Regions included in your chosen
 inference profile. To learn more, see [Enabling Amazon Bedrock cross-Region inference in multi-account environments.](https://aws.amazon.com/blogs/machine-learning/enable-amazon-bedrock-cross-region-inference-in-multi-account-environments/ "https://aws.amazon.com/blogs/machine-learning/enable-amazon-bedrock-cross-region-inference-in-multi-account-environments/")
 
@@ -41,7 +41,7 @@ Some inference profiles route to different destination Regions depending on the 
 
 To check the source and destination Regions for an inference profile, you can do one of the following:
 
-- Expand the corresponding section in the [list of supported cross-region inference profiles](inference-profiles-support.md "inference-profiles-support.md").
+- Expand the corresponding section in the [list of supported cross-Region inference profiles](inference-profiles-support.md "inference-profiles-support.md").
 - Send a [GetInferenceProfile](../APIReference/API_GetInferenceProfile.md "../APIReference/API_GetInferenceProfile.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp") from a source Region and specify the Amazon Resource Name (ARN) or ID of the inference profile in the `inferenceProfileIdentifier` field. The `models` field in the response maps to a list of model ARNs, in which you can identify each destination Region.
 
 ###### Note
@@ -50,7 +50,7 @@ Global cross-Region inference profile for a specific model can change over time 
 However, if an inference profile is tied to a geography (such as US, EU, or APAC), its destination Region list will never change. AWS might create new inference
 profiles that incorporate new Regions. You can update your systems to use these inference profiles by changing the IDs in your setup to the new ones.
 
-The Global cross-region inference profile is currently only supported on Anthropic Claude Sonnet 4 model for the following source Regions:
+The Global cross-Region inference profile is currently only supported on Anthropic Claude Sonnet 4 model for the following source Regions:
 US West (Oregon), US East (N. Virginia), US East (Ohio), Europe (Ireland), and Asia Pacific (Tokyo). The destination Regions for Global inference profile
 include all commercial AWS Regions.
 

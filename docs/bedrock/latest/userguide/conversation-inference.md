@@ -734,7 +734,30 @@ pass the prompt discussed in [Request](#conversation-inference-call-request "#co
 
 If you call `ConverseStream` to stream the response from a model,
 the stream is returned in the `stream` response field. The stream
-emits the following events in the following order.
+emits the following events. The diagram below shows the order in which the
+events are received; the content block events repeat once per content block,
+grouped by `contentBlockIndex`.
+
+```
+messageStart                          (once per response)
+    |
+    v
++-- for each content block (indexed by contentBlockIndex) --+
+|                                                           |
+|   contentBlockStart    (tool use only)                    |
+|   contentBlockDelta    (one or more; text / reasoning /   |
+|                         tool use partial JSON)            |
+|   contentBlockStop                                        |
+|                                                           |
++-----------------------------------------------------------+
+    |
+    v
+messageStop                           (once per response;
+    |                                  carries stopReason)
+    v
+metadata                              (once per response;
+                                       usage + metrics)
+```
 
 1. `messageStart` ([MessageStartEvent](../APIReference/API_runtime_MessageStartEvent.md "../APIReference/API_runtime_MessageStartEvent.md")). The start event for a message. Includes
    the role for the message.

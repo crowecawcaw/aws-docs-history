@@ -19,16 +19,15 @@ With [bedrock-mantle](endpoints.md "endpoints.md"), a different approach is used
 
 ## `bedrock-mantle` endpoint: throughput and quotas
 
-All models on `bedrock-mantle` share a single hard limit of 10,000 RPM per account per Region. There are some differences in how throughput and quotas behave for Claude vs. other models as shown below.
+The throughput and quota behavior on the `bedrock-mantle` endpoint differs for Anthropic Claude versus other models, as shown in the following table.
 
-|                   | Claude 4.7+                                        | All other models                                                                         |
-| ----------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Input TPM         | 10M \*                                             | No per-customer or per-model TPM limit                                                   |
-| Output TPM        | 2M                                                 | No per-customer or per-model TPM limit                                                   |
-| RPM               | 10,000 (shared across all models on this endpoint) | 10,000 (shared across all models on this endpoint)                                       |
-| On-demand tiers   | Standard                                           | Standard, Priority, Flex (some exceptions) — see the model detail pages for availability |
-| Batch             | No                                                 | Yes for supported models — see the model detail pages for availability                   |
-| Reserved capacity | None                                               | None                                                                                     |
+|                   | Claude 4.7+ | All other models                                                                         |
+| ----------------- | ----------- | ---------------------------------------------------------------------------------------- |
+| Input TPM         | 10M \*      | No per-customer or per-model TPM limit                                                   |
+| Output TPM        | 2M          | No per-customer or per-model TPM limit                                                   |
+| On-demand tiers   | Standard    | Standard, Priority, Flex (some exceptions) — see the model detail pages for availability |
+| Batch             | No          | Yes for supported models — see the model detail pages for availability                   |
+| Reserved capacity | None        | None                                                                                     |
 
 \* Your input TPM limit depends on your usage history with Amazon Bedrock. Check the [Quotas](https://console.aws.amazon.com/bedrock/home#/model-quotas "https://console.aws.amazon.com/bedrock/home#/model-quotas") page in the Amazon Bedrock console for your actual allocation.
 
@@ -36,14 +35,14 @@ All models on `bedrock-mantle` share a single hard limit of 10,000 RPM per accou
 
 The following table summarizes the throughput and quotas for `bedrock-runtime`.
 
-|                   | Claude 4.7+                                | All other models                                                                         |
-| ----------------- | ------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| Input TPM         | 15M \*                                     | Varies \*                                                                                |
-| Output TPM        | Combined with Input TPM. Burndown applies. | None. Burndown applies.                                                                  |
-| RPM               | 10,000 (shared across all models)          | Varies \*                                                                                |
-| On-demand tiers   | Standard                                   | Standard, Priority, Flex (some exceptions) — see the model detail pages for availability |
-| Batch             | No                                         | Yes for supported models — see the model detail pages for availability                   |
-| Reserved capacity | None                                       | Reserved Tier/Provisioned Capacity                                                       |
+|                   | Claude 4.7+                                | All other models                                                                                                                                          |
+| ----------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Input TPM         | 15M \*                                     | Varies \*                                                                                                                                                 |
+| Output TPM        | Combined with Input TPM. Burndown applies. | None. Burndown applies.                                                                                                                                   |
+| RPM               | Not enforced — governed by TPM             | Varies by model — see the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") |
+| On-demand tiers   | Standard                                   | Standard, Priority, Flex (some exceptions) — see the model detail pages for availability                                                                  |
+| Batch             | No                                         | Yes for supported models — see the model detail pages for availability                                                                                    |
+| Reserved capacity | None                                       | Reserved Tier/Provisioned Capacity                                                                                                                        |
 
 \* Quotas for these models vary based on usage. Check the [Quotas](https://console.aws.amazon.com/bedrock/home#/model-quotas "https://console.aws.amazon.com/bedrock/home#/model-quotas") page in the Amazon Bedrock console for your allocations.
 
@@ -51,7 +50,7 @@ The following table summarizes the throughput and quotas for `bedrock-runtime`.
 
 HTTP 429
 
-A 429 response means you have exceeded the RPM limit for your account. Reduce your request submission rate. If you need a higher RPM allocation, request an increase through the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") or contact your AWS account team.
+A 429 response means your request was throttled. Reduce your request submission rate. On `bedrock-runtime`, if the model has an RPM quota and you need a higher allocation, request an increase through the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") or contact your AWS account team.
 
 HTTP 503
 
@@ -128,7 +127,7 @@ When consuming on-demand throughput on the [bedrock-mantle](endpoints.md "endpoi
 
 For example, if your target is 2,000 RPM but you receive 503 errors, reduce to 1,000 RPM. If errors persist, reduce to 500 RPM. Once requests succeed consistently at 500 RPM, hold for 15 minutes, then scale to 750, then 1,125, and so on.
 
-Ramp rates are not adjustable. To request a higher RPM allocation, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home").
+Ramp rates are not adjustable. To request higher TPM quotas, use the [Service Quotas console](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home") or contact your AWS account team.
 
 ## Additional best practices
 
@@ -149,10 +148,10 @@ On-demand throughput is allocated at the Regional level and varies across Region
 
 ## Summary of recommendations
 
-| Scenario                 | Recommendation                                                                                                                                                                        |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| General workloads        | Use the [bedrock-mantle endpoint](endpoints.md "endpoints.md") whenever possible.                                                                                                     |
-| Occasional 503 errors    | Retry with exponential backoff and jitter.                                                                                                                                            |
-| Sustained 503 errors     | Reduce request submission rate. Implement client-side rate limiting.                                                                                                                  |
-| 429 errors               | Reduce request rate. Request a higher RPM allocation through [Service Quotas](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home"). |
-| Large offline processing | Use [Batch API](batch-inference.md "batch-inference.md") or [Flex Tier](service-tiers-inference.md "service-tiers-inference.md").                                                     |
+| Scenario                 | Recommendation                                                                                                                                                                                                                 |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| General workloads        | Use the [bedrock-mantle endpoint](endpoints.md "endpoints.md") whenever possible.                                                                                                                                              |
+| Occasional 503 errors    | Retry with exponential backoff and jitter.                                                                                                                                                                                     |
+| Sustained 503 errors     | Reduce request submission rate. Implement client-side rate limiting.                                                                                                                                                           |
+| 429 errors               | Reduce request rate. On `bedrock-runtime`, if the model has an RPM quota, request an increase through [Service Quotas](https://console.aws.amazon.com/servicequotas/home "https://console.aws.amazon.com/servicequotas/home"). |
+| Large offline processing | Use [Batch API](batch-inference.md "batch-inference.md") or [Flex Tier](service-tiers-inference.md "service-tiers-inference.md").                                                                                              |

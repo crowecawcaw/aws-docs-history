@@ -15,4 +15,5 @@ endpoint, see [Monitor the bedrock-mantle endpoint](monitoring-mantle.md "monito
 
 - [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md "model-invocation-logging.md")
 - [Monitor bedrock-runtime inference using CloudWatch metrics](monitoring-runtime-metrics.md "monitoring-runtime-metrics.md")
+- [Diagnose InvocationLatency increases using output tokens per second (OTPS)](monitoring-runtime-otps.md "monitoring-runtime-otps.md")
 - [Monitor Amazon Bedrock API calls using CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")

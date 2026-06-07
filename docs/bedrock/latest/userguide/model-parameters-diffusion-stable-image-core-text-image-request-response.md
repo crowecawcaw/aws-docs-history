@@ -67,7 +67,7 @@ results.
 
      bedrock = boto3.client('bedrock-runtime', region_name='us-west-2')
      response = bedrock.invoke_model(
-         modelId='stability.stable-image-core-v1:0',
+         modelId='stability.stable-image-core-v1:1',
          body=json.dumps({
              'prompt': 'A car made out of vegetables.'
          })

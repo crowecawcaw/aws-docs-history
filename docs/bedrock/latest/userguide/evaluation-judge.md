@@ -26,12 +26,19 @@ To create an evaluation job that uses an LLM as a judge with Amazon Bedrock's bu
 see [Request access to models](model-access.md "model-access.md").
 
 - Amazon Nova Pro – `amazon.nova-pro-v1:0`
+- Amazon Nova 2 Lite – `amazon.nova-2-lite-v1:0`
+- Amazon Nova Micro – `amazon.nova-micro-v1:0`
+- Amazon Nova Premier – `amazon.nova-premier-v1:0`
 - Anthropic Claude 3.5 Sonnet v1 – `anthropic.claude-3-5-sonnet-20240620-v1:0`
 - Anthropic Claude 3.5 Sonnet v2 – `anthropic.claude-3-5-sonnet-20241022-v2:0`
 - Anthropic Claude 3.7 Sonnet – `anthropic.claude-3-7-sonnet-20250219-v1:0`
 - Anthropic Claude Sonnet 4 – `anthropic.claude-sonnet-4-20250514-v1:0`
 - Anthropic Claude 3 Haiku – `anthropic.claude-3-haiku-20240307-v1:0`
 - Anthropic Claude 3.5 Haiku – `anthropic.claude-3-5-haiku-20241022-v1:0`
+- Anthropic Claude Haiku 4.5 – `anthropic.claude-haiku-4-5-20251001-v1:0`
+- Anthropic Claude Opus 4.5 – `anthropic.claude-opus-4-5-20251101-v1:0`
+- Anthropic Claude Sonnet 4.0 – `anthropic.claude-sonnet-4-20250514-v1:0`
+- Anthropic Claude Sonnet 4.5 – `anthropic.claude-sonnet-4-5-20250929-v1:0`
 - Meta Llama 3.1 70B Instruct – `meta.llama3-1-70b-instruct-v1:0`
 - Mistral Large – `mistral.mistral-large-2402-v1:0`
 
@@ -52,6 +59,13 @@ To create an evaluation job that uses an LLM as a judge with custom metrics, you
 - Meta Llama 3.1 70B Instruct – `meta.llama3-1-70b-instruct-v1:0`
 - Meta Llama 3.3 70B Instruct – `meta.llama3-3-70b-instruct-v1:0`
 - Amazon Nova Pro – `amazon.nova-pro-v1:0`
+- Amazon Nova 2 Lite – `amazon.nova-2-lite-v1:0`
+- Amazon Nova Micro – `amazon.nova-micro-v1:0`
+- Amazon Nova Premier – `amazon.nova-premier-v1:0`
+- Anthropic Claude Haiku 4.5 – `anthropic.claude-haiku-4-5-20251001-v1:0`
+- Anthropic Claude Opus 4.5 – `anthropic.claude-opus-4-5-20251101-v1:0`
+- Anthropic Claude Sonnet 4.0 – `anthropic.claude-sonnet-4-20250514-v1:0`
+- Anthropic Claude Sonnet 4.5 – `anthropic.claude-sonnet-4-5-20250929-v1:0`
 
 [Cross Region inference](cross-region-inference.md "cross-region-inference.md") profiles are supported for the listed models. To learn more, see [Supported cross-Region inference profiles](inference-profiles-support.md#inference-profiles-support-system "inference-profiles-support.md#inference-profiles-support-system").
 

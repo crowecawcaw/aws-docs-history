@@ -121,8 +121,31 @@ changes to your policy's rules, variables, and variable types. Then select
 
 ## Generate test scenarios automatically using the API
 
-Use the `GetAutomatedReasoningPolicyNextScenario` API to fetch generated
-test scenarios based on your policy's rules.
+To generate test scenarios using the API, first start a
+`GENERATE_POLICY_SCENARIOS` build workflow, then use
+`GetAutomatedReasoningPolicyNextScenario` to fetch the generated scenarios
+one at a time.
+
+**Step 1: Start the scenario generation workflow**
+
+Use `StartAutomatedReasoningPolicyBuildWorkflow` with
+`GENERATE_POLICY_SCENARIOS` to generate scenarios from your policy's
+rules.
+
+```
+aws bedrock start-automated-reasoning-policy-build-workflow \
+  --policy-arn "arn:aws:bedrock:`us-east-1`:`111122223333`:automated-reasoning-policy/`lnq5hhz70wgk`" \
+  --build-workflow-type GENERATE_POLICY_SCENARIOS \
+  --source-content "{
+    \"policyDefinition\": `EXISTING_POLICY_DEFINITION_JSON`
+  }"
+```
+
+**Step 2: Fetch generated scenarios**
+
+Once the workflow completes, use
+`GetAutomatedReasoningPolicyNextScenario` to retrieve scenarios one at a
+time.
 
 `policyArn` (required)
 
@@ -130,8 +153,9 @@ The ARN of the Automated Reasoning policy.
 
 `buildWorkflowId` (required)
 
-The identifier of the build workflow for the generated scenarios. Retrieve the
-latest build workflow using the
+The identifier of the `GENERATE_POLICY_SCENARIOS` build workflow.
+Retrieve it from the
+`StartAutomatedReasoningPolicyBuildWorkflow` response or by using the
 `ListAutomatedReasoningPolicyBuildWorkflows` API.
 
 **Example:**

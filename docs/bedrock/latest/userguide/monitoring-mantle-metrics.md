@@ -3,8 +3,8 @@
 The Amazon Bedrock OpenAI-compatible endpoint
 (`bedrock-mantle.`region`.api.aws`) publishes customer-facing
 metrics to Amazon CloudWatch under the `AWS/BedrockMantle` namespace. Use these metrics to
-monitor inference volume, token consumption, error rates, and reserved capacity utilization across
-your AWS account, projects, and models.
+monitor inference volume, token consumption, and error rates across your AWS account, projects,
+and models.
 
 If your application calls inference through
 `bedrock-runtime.`region`.amazonaws.com` using [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"),
@@ -32,18 +32,6 @@ All metrics are scoped to your AWS account.
 | `InputTokens`       | Count       | Per-inference billable input tokens. Each completed inference emits one datum. Published<br>at the Project+Model level only. Use this when you need percentile statistics (p50/p90/p99)<br>of per-request token counts. |
 | `OutputTokens`      | Count       | Per-inference billable output tokens. Each completed inference emits one datum.<br>Published at the Project+Model level only.                                                                                           |
 
-## Reserved capacity metrics
-
-These metrics apply to inference covered by a `bedrock-mantle` reservation (Scale
-Tier). They are published at the Project+Model level.
-
-| Reserved capacity metrics    | Metric name | Unit                                                                                                                                                                         | Description |
-| ---------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `BurnDownConsumed`           | Count       | Tokens drawn from the active reservation within the publish interval.                                                                                                        |
-| `BurnDownRemaining`          | Count       | Tokens still available in the active reservation. Reported as the most recent<br>observation in the publish interval.                                                        |
-| `SpillOverTokenCount`        | Count       | Tokens consumed beyond reserved capacity within the publish interval. Spillover traffic<br>is served as on-demand and metered at standard pricing.                           |
-| `EquivalentReservationUnits` | Count       | Reservation units that would have been required to serve the observed workload within<br>the publish interval. Track p50, p90, or p99 over time to size future reservations. |
-
 ## Dimensions
 
 | Dimensions | Dimension name                                                   | Values                 | Applies to |
@@ -66,8 +54,8 @@ levels when both the project and the model can be resolved.
   suitable for migrating dashboards built against the existing `bedrock-runtime`
   `ModelId` dimension.
 - **Project+Model level** – primary level for cost
-  analysis, percentile latency and token analysis, and reserved-capacity tracking. Use this when
-  you need both project attribution and model attribution on the same datum.
+  analysis, and percentile latency and token analysis. Use this when you need both project
+  attribution and model attribution on the same datum.
 
 ## Differences from `bedrock-runtime` metrics
 
@@ -89,10 +77,6 @@ levels when both the project and the model can be resolved.
 - **Latency metrics.** `InvocationLatency` and
   `TimeToFirstToken` equivalents are not yet published by
   `bedrock-mantle`.
-- **Reserved capacity.** `BurnDownConsumed`,
-  `BurnDownRemaining`, `SpillOverTokenCount`, and
-  `EquivalentReservationUnits` are unique to `bedrock-mantle` and support
-  the Scale Tier reservation model.
 
 ## Viewing `bedrock-mantle` metrics
 

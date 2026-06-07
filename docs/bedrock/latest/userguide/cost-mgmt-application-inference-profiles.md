@@ -26,6 +26,10 @@ response = client.converse(
 
 For more information on creating profiles, see [Create an application inference profile](inference-profiles-create.md "inference-profiles-create.md").
 
+###### Note
+
+Application inference profiles deliver aggregated billed dollars to AWS Cost Explorer and CUR 2.0. The finest grain is per usage type per day; they do not produce per-request cost. For per-prompt token detail, use [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md") with your [model invocation logs](model-invocation-logging.md "model-invocation-logging.md").
+
 ## Viewing profile costs
 
 After creating and tagging your profiles, activate the tags as cost allocation tags in the AWS Billing and Cost Management console:
@@ -51,3 +55,4 @@ To reduce profile proliferation:
 - **Recommended:** Use [Projects](cost-mgmt-projects.md "cost-mgmt-projects.md") for flexibility and ease when cost tracking.
 - Tag at the team or cost center level rather than per-user.
 - For per-user cost attribution without creating additional profiles, use [IAM principal attribution](cost-mgmt-iam-principal-tracking.md "cost-mgmt-iam-principal-tracking.md"). IAM principal tracking works alongside application inference profiles and attributes costs at the identity level automatically.
+- For per-prompt token detail rather than aggregated dollars, use [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md") with your [model invocation logs](model-invocation-logging.md "model-invocation-logging.md"). It needs no per-model resources.

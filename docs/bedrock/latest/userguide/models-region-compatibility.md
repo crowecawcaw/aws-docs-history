@@ -1032,7 +1032,6 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `eu-west-1` (Ireland)                                                                                  |        |           |     |
 | `eu-west-2` (London)                                                                                   |        |           |     |
 | `ap-northeast-1` (Tokyo)                                                                               |        |           |     |
-| `ap-south-1` (Mumbai)                                                                                  |        |           |     |
 | `ap-southeast-2` (Sydney)                                                                              |        |           |     |
 | `ap-southeast-3` (Jakarta)                                                                             |        |           |     |
 | `sa-east-1` (São Paulo)                                                                                |        |           |     |
@@ -1108,7 +1107,6 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `eu-west-1` (Ireland)                                                                                                   |        |           |     |
 | `eu-west-2` (London)                                                                                                    |        |           |     |
 | `ap-northeast-1` (Tokyo)                                                                                                |        |           |     |
-| `ap-south-1` (Mumbai)                                                                                                   |        |           |     |
 | `ap-southeast-2` (Sydney)                                                                                               |        |           |     |
 | `sa-east-1` (São Paulo)                                                                                                 |        |           |     |
 | `eu-central-1` (Frankfurt)                                                                                              |        |           |     |
@@ -1118,6 +1116,16 @@ Now, let us look at Regional availability across all the models supported by Ama
 | `us-gov-east-1` (GovCloud)                                                                                              |        |           |     |
 
 ## OpenAI
+
+| [GPT-5.5](model-card-openai-gpt-55.md "model-card-openai-gpt-55.md") | Region | In-Region | Geo | Global |
+| -------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-2` (Ohio)                                                   |        |           |     |
+
+| [GPT-5.4](model-card-openai-gpt-54.md "model-card-openai-gpt-54.md") | Region | In-Region | Geo | Global |
+| -------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-2` (Ohio)                                                   |        |           |     |
+| `us-west-2` (Oregon)                                                 |        |           |     |
+| `us-gov-west-1` (GovCloud)                                           |        |           |     |
 
 | [GPT OSS Safeguard 120B](model-card-openai-gpt-oss-safeguard-120b.md "model-card-openai-gpt-oss-safeguard-120b.md") | Region | In-Region | Geo | Global |
 | ------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |

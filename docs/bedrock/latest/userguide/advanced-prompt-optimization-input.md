@@ -77,7 +77,7 @@ Use `{{variableName}}` syntax (double curly brackets) for placeholders in your p
 
 ## Evaluation samples
 
-Provide `inputVariables` as a list of single-key objects: `[{"variable1": "value1"}, {"variable2": "value2"}]`. Do NOT put multiple keys in one object. Optionally provide `referenceResponse` as the ground truth answer for better optimization results. For multimodal inputs, use the `inputVariablesMultimodal` array with `Arbitrary_Name` objects. Multimodal files are sent to the model in the payload along with the text prompt. Supported types are IMAGE (png, jpg) and PDF, with a maximum of 2 multimodal files per sample. Multimodal inputs (images and PDFs) are sent in the payload to the model along with the prompt but should not be referenced in a double curly bracket `{{placeholder}}` variable.
+Provide `inputVariables` as a list of single-key objects: `[{"variable1": "value1"}, {"variable2": "value2"}]`. Do NOT put multiple keys in one object. Optionally provide `referenceResponse` as the ground truth answer for better optimization results. For multimodal inputs, use the `inputVariablesMultimodal` array with `Arbitrary_Name` objects. Multimodal files are sent to the model in the payload along with the text prompt. Supported types are IMAGE (png, jpeg) and PDF, with a maximum of 2 multimodal files per sample. Multimodal inputs (images and PDFs) are sent in the payload to the model along with the prompt but should not be referenced in a double curly bracket `{{placeholder}}` variable.
 
 ## Evaluation strategy
 
@@ -105,7 +105,7 @@ For the full list of quotas, see [Supported Regions, models, and quotas](advance
 
 ## Use multimodal inputs
 
-**Supported file types:** IMAGE (png, jpg) and PDF.
+**Supported file types:** IMAGE (png, jpeg) and PDF.
 
 ###### Tip
 

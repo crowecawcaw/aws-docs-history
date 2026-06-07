@@ -63,9 +63,9 @@ The following are optional parameters:
   Specifies how the API handles inputs longer than the maximum token length. Use
   one of the following:
 
-      + `NONE` – (Default) Returns an error when the input exceeds the maximum input token length.
+      + `NONE` – Returns an error when the input exceeds the maximum input token length.
       + `START` – Discards the start of the input.
-      + `END` – Discards the end of the input.
+      + `END` – (Default) Discards the end of the input.
 
   If you specify `START` or `END`, the model discards
   the input until the remaining input is exactly the maximum input token length

@@ -36,7 +36,6 @@ available on that page:
 | Cohere Command                 | a61c46fe-1747-41aa-9af0-2e0ae8a9ce05 |
 | Cohere Command Light           | 216b69fd-07d5-4c7b-866b-936456d68311 |
 | Stable Image Core 1.0          | prod-eacdrmv7zfc5e                   |
-| Stable Diffusion 3 Large 1.0   | prod-cqfmszl26sxu4                   |
 | Stable Image Ultra 1.0         | prod-7boen2z2wnxrg                   |
 | Stability 3.5 Large 1.0        | prodview-ajc3gw4mjy7my               |
 

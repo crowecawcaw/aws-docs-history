@@ -162,6 +162,17 @@ and one in `tools`. For more detailed information and examples of
 structuring and sending Converse API requests, see
 [Inference using Converse API](conversation-inference.md "conversation-inference.md").
 
+###### Important
+
+Cache checkpoints are processed in this order: `tools` →
+`system` → `messages`. The minimum cache size is evaluated
+against the cumulative tokens across all three sections combined, not each section
+individually. Because the sections are chained, changing content in an earlier section
+invalidates the cache for later sections (for example, modifying `tools`
+invalidates the `system` and `messages` caches). For best cache
+hit rates, place stable content (`tools`, `system`) before variable
+content (`messages`), and place cache checkpoints after the stable content.
+
 Specify the desired ttl value as below, when ttl value not specified the default behavior of
 5 minutes caching applies.
 

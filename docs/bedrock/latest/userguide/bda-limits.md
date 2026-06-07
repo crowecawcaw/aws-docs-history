@@ -20,12 +20,19 @@ The following tables show the requirements for files processed using the Invoke 
 | Text Alignment                                                 | Text can be text aligned horizontally within the document.<br>Horizontally arrayed text can be read regardless of the degree of<br>rotation of a document. BDA does not support vertical text<br>(text written vertically, as is common in languages like Japanese<br>and Chinese) alignment within the document. |
 | Character Size                                                 | The minimum height for text to be detected is 15 pixels.<br>At 150 DPI, this would be the same as 8 point font.                                                                                                                                                                                                   |
 | Character Type                                                 | BDA supports both handwritten and printed character recognition.                                                                                                                                                                                                                                                  |
+| Supported Input Languages                                      | English, German, Spanish, French, Italian, Portuguese.                                                                                                                                                                                                                                                            |
 
 ###### Note
 
 To process DOCX files, they are converted into PDFs. This means page number mapping
 will not work for DOCX files. Images of the converted PDFs will be uploaded to your
 output bucket if the JSON+ option and page granularity are selected.
+
+###### Note
+
+For BDA Custom Output for documents, you can author blueprint prompts and instructions
+in any of the supported languages. For BDA Standard Output, document summaries and figure
+captions are returned in the detected language of the document.
 
 Blueprint instruction optimization supports all the limits above for documents with the following differences:
 
@@ -51,6 +58,7 @@ The following tables show the requirements for files processed using the Invoke 
 | Text Alignment                                                        | Text can be text aligned horizontally within the document.<br>Horizontally arrayed text can be read regardless of the degree of<br>rotation of a document. BDA does not support vertical text<br>(text written vertically, as is common in languages like Japanese<br>and Chinese) alignment within the document. |
 | Character Size                                                        | The minimum height for text to be detected is 15 pixels.<br>At 150 DPI, this would be the same as 8 point font.                                                                                                                                                                                                   |
 | Character Type                                                        | BDA supports both handwritten and printed character recognition.                                                                                                                                                                                                                                                  |
+| Supported Input Languages                                             | English, German, Spanish, French, Italian, Portuguese.                                                                                                                                                                                                                                                            |
 
 ###### Note
 
@@ -96,23 +104,24 @@ Tips to speed up sync API processing:
 | Minimum framerate (Frames per second)                | 1                                                                                                                                |
 | Maximum framerate (Frames per second)                | 60                                                                                                                               |
 
-| Audio file requirements                              | Requirement Description                                                                                                                                          | Requirement Details |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| Supported Input Languages                            | English, Germany, Spanish, French, Italian, Portuguese, Japanese, Korean, Chinese, Taiwanese and Cantonese.<br>_\*All locales supported of the above languages._ |
-| Supported Output Languages                           | English, or the dominant language of the audio.                                                                                                                  |
-| Minimum Audio Sample Rate (Hz)                       | 8000                                                                                                                                                             |
-| Maximum Audio Sample Rate (Hz)                       | 48000                                                                                                                                                            |
-| Maximum File Size (MB)                               | 2048                                                                                                                                                             |
-| Maximum Audio Length (Minutes)                       | 240                                                                                                                                                              |
-| Minimum Audio Length (Milliseconds)                  | 500                                                                                                                                                              |
-| Supported File Formats                               | AMR, FLAC, M4A, MP3, Ogg, WAV                                                                                                                                    |
-| Maximum Audio Blueprints per Project                 | 1                                                                                                                                                                |
-| Maximum Audio Blueprints per Start Inference request | 1                                                                                                                                                                |
-| Maximum Audio Channels for Audio files               | 2                                                                                                                                                                |
+| Audio file requirements                              | Requirement Description                                                                                                                                         | Requirement Details |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Supported Input Languages                            | English, German, Spanish, French, Italian, Portuguese, Japanese, Korean, Chinese, Taiwanese and Cantonese.<br>_\*All locales supported of the above languages._ |
+| Supported Output Languages                           | English, or the dominant language of the audio.                                                                                                                 |
+| Minimum Audio Sample Rate (Hz)                       | 8000                                                                                                                                                            |
+| Maximum Audio Sample Rate (Hz)                       | 48000                                                                                                                                                           |
+| Maximum File Size (MB)                               | 2048                                                                                                                                                            |
+| Maximum Audio Length (Minutes)                       | 240                                                                                                                                                             |
+| Minimum Audio Length (Milliseconds)                  | 500                                                                                                                                                             |
+| Supported File Formats                               | AMR, FLAC, M4A, MP3, Ogg, WAV                                                                                                                                   |
+| Maximum Audio Blueprints per Project                 | 1                                                                                                                                                               |
+| Maximum Audio Blueprints per Start Inference request | 1                                                                                                                                                               |
+| Maximum Audio Channels for Audio files               | 2                                                                                                                                                               |
 
-| Data automation library requirements                                                           | Resource | Limit |
-| ---------------------------------------------------------------------------------------------- | -------- | ----- |
-| Maximum number of data automation libraries per account                                        | 10       |
-| Maximum number of custom vocabulary phrases that can be configured per library (all languages) | 500      |
-| Maximum total number of characters across all vocabulary phrases per library                   | 30000    |
-| Maximum number of concurrent vocabulary ingestion jobs that can run per library                | 1        |
+| Data automation library requirements                                                           | Resource                                                                                                                                                                                                                                                                                                  | Limit |
+| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| Maximum number of data automation libraries per account                                        | 10                                                                                                                                                                                                                                                                                                        |
+| Supported Languages for Custom Vocabulary                                                      | English, Spanish, French, German, Italian, Portuguese, Japanese, Korean, Chinese (Simplified), Chinese (Traditional), and Cantonese.<br>Only the characters listed in your language's [Character Sets](bda-library-character-sets.md "bda-library-character-sets.md") can be used in a custom vocabulary. |
+| Maximum number of custom vocabulary phrases that can be configured per library (all languages) | 500                                                                                                                                                                                                                                                                                                       |
+| Maximum total number of characters across all vocabulary phrases per library                   | 30000                                                                                                                                                                                                                                                                                                     |
+| Maximum number of concurrent vocabulary ingestion jobs that can run per library                | 1                                                                                                                                                                                                                                                                                                         |

@@ -13,9 +13,15 @@ Double curly braces `{{}}` are used to indicate where data from your prompt data
 ###### Topics
 
 - [Amazon Nova Pro](model-evaluation-type-kb-prompt-kb-nova.md "model-evaluation-type-kb-prompt-kb-nova.md")
+- [Amazon Nova 2 Lite](model-evaluation-type-kb-prompt-nova-2-lite.md "model-evaluation-type-kb-prompt-nova-2-lite.md")
+- [Amazon Nova Micro](model-evaluation-type-kb-prompt-nova-micro.md "model-evaluation-type-kb-prompt-nova-micro.md")
+- [Amazon Nova Premier](model-evaluation-type-kb-prompt-nova-premier.md "model-evaluation-type-kb-prompt-nova-premier.md")
 - [Anthropic Claude 3.5 Sonnet](model-evaluation-type-kb-prompt-kb-sonnet-35.md "model-evaluation-type-kb-prompt-kb-sonnet-35.md")
 - [Anthropic Claude 3.5 Sonnet v2](model-evaluation-type-kb-prompt-kb-sonnet-35v2.md "model-evaluation-type-kb-prompt-kb-sonnet-35v2.md")
 - [Anthropic Claude 3.7 Sonnet](model-evaluation-type-kb-prompt-kb-sonnet-37.md "model-evaluation-type-kb-prompt-kb-sonnet-37.md")
+- [Anthropic Claude Haiku 4.5](model-evaluation-type-kb-prompt-claude-haiku-4-5.md "model-evaluation-type-kb-prompt-claude-haiku-4-5.md")
+- [Anthropic Claude Opus 4.5](model-evaluation-type-kb-prompt-claude-opus-4-5.md "model-evaluation-type-kb-prompt-claude-opus-4-5.md")
+- [Anthropic Claude Sonnet 4.0](model-evaluation-type-kb-prompt-claude-sonnet-4.md "model-evaluation-type-kb-prompt-claude-sonnet-4.md")
 - [Anthropic Claude 3 Haiku](model-evaluation-type-kb-haiku.md "model-evaluation-type-kb-haiku.md")
 - [Anthropic Claude 3.5 Haiku](model-evaluation-type-kb-haiku35.md "model-evaluation-type-kb-haiku35.md")
 - [Meta Llama 3.1 70B Instruct](model-evaluation-type-kb-llama.md "model-evaluation-type-kb-llama.md")

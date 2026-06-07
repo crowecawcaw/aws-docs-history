@@ -309,7 +309,7 @@ When you create the job via the API, no additional evaluation configuration is n
 - **Write your metric code clearly** — the full source code is read by the system. Comments, variable names, and readable logic help it understand your intent and generate better feedback.
 - **Prefer continuous scores over binary 0/1** — the optimizer maximizes the average score across samples. Continuous gradations (for example, partial credit) give a smoother signal to follow than all-or-nothing scores.
 - **Return structured details, not just a number** — returning a dict with sub-scores or diagnostic fields gives the system more signal about why a prediction scored low, leading to more targeted improvements.
-- **Make error messages descriptive** — if the metric raises an exception, the error text is captured and used in feedback. Clear errors help the system understand what went wrong.
+- **Return descriptive messages with fallback scores** — when returning a 0.0 fallback score, include a diagnostic field in the result dict (for example, `{"score": 0.0, "error": "JSON parse failed on line 3"}`). The system reads these messages to understand why a prediction scored low and generates more targeted feedback.
 - **Verify your scoring** — score a few obviously-bad outputs to confirm your metric penalizes them. If a trivial answer scores well, the optimizer will find that shortcut.
 
 ### Lambda template

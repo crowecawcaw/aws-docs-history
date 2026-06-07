@@ -48,7 +48,8 @@ dashes from a social security number, converting from 111-22-3333 to 111223333. 
 - Field name: This is a name you can provide for each field that you want to extract from
   the document. You can use the name that you use for the field in your downstream system such
   as `Place_Birth` or
-  `Place_of_birth`.
+  `Place_of_birth`. Field names cannot contain forward slashes
+  (`/`); use underscores or alphanumeric characters instead.
 - Description: This is an input that provides natural language context for
   each field in the blueprint to describe data normalization or validation rules to be followed.
   For example, `Date of birth in YYYY-MM-DD format` or

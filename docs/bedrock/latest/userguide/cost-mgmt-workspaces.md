@@ -10,6 +10,10 @@ You reference a workspace in a Messages API request by setting the `anthropic-wo
 
 For details on creating workspaces, managing tags, and using the Messages API with workspaces, see [Workspaces (Anthropic-compatible)](workspaces.md "workspaces.md").
 
+###### Note
+
+Workspaces deliver aggregated billed dollars to AWS Cost Explorer and CUR 2.0. The finest grain is per usage type per day. [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md") is available only on `bedrock-runtime` APIs, so per-prompt cost detail is not currently available for Messages API workloads that use workspaces.
+
 ## Viewing workspace costs
 
 After tagging your workspaces, activate the tags as cost allocation tags in the AWS Billing and Cost Management console:

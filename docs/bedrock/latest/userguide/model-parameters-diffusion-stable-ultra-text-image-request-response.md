@@ -78,7 +78,7 @@ import boto3
 
        bedrock = boto3.client('bedrock-runtime', region_name='us-west-2')
        response = bedrock.invoke_model(
-           modelId='stability.sd3-ultra-v1:1',
+           modelId='stability.stable-image-ultra-v1:1',
            body=json.dumps({
                'prompt': 'A car made out of vegetables.'
            })
@@ -123,7 +123,7 @@ import boto3
 
        bedrock = boto3.client('bedrock-runtime', region_name='us-west-2')
        response = bedrock.invoke_model(
-           modelId='stability.sd3-ultra-v1:1',
+           modelId='stability.stable-image-ultra-v1:1',
            body=json.dumps({
                'prompt': 'A car made out of vegetables.'
            })

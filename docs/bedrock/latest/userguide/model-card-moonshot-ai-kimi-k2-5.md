@@ -4,7 +4,7 @@
 
 ## Model Details
 
-Kimi K2.5 is Moonshot AI's multimodal model with improved reasoning, coding, and multilingual capabilities. For more information about model development and performance, see the [model/service card](https://platform.kimi.ai/docs/guide/kimi-k2-quickstart "https://platform.kimi.ai/docs/guide/kimi-k2-quickstart").
+Kimi K2.5 is Moonshot AI's multimodal model with improved reasoning, coding, and multilingual capabilities. For more information about model development and performance, see the [model/service card](https://platform.moonshot.ai/docs/introduction "https://platform.moonshot.ai/docs/introduction").
 
 - **Model launch date:** Jan 27, 2026
 - **Model EOL date:** N/A

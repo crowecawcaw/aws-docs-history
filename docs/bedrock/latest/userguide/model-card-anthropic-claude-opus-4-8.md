@@ -179,7 +179,7 @@ Geo Inference ID: `au.anthropic.claude-opus-4-8`
 
 Your AWS account has default quotas to maintain the performance of the service and to ensure appropriate usage of Amazon Bedrock. The default quotas assigned to an account might be updated depending on regional factors, payment history, fraudulent usage, and/or approval of a quota [increase request](quotas-increase.md "quotas-increase.md"). For more details, please refer to [Quotas for Amazon Bedrock](quotas.md "quotas.md") documentation and see the [limits](../../../general/latest/gr/bedrock.md#limits_bedrock "../../../general/latest/gr/bedrock.md#limits_bedrock") for the model.
 
-Default quotas for Claude Opus 4.8 are 20M input TPM and 4M output TPM on `bedrock-mantle` and 30M TPM on `bedrock-runtime` for each supported region.
+Default quotas for Claude Opus 4.8 are 20M input TPM and 4M output TPM on `bedrock-mantle` and 30M TPM on `bedrock-runtime` for each supported region. Claude Opus 4.8 does not have a requests-per-minute (RPM) quota; throttling is governed solely by the token-per-minute (TPM) quotas above.
 
 ## Sample Code
 

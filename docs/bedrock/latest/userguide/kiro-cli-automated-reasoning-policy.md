@@ -244,6 +244,9 @@ Copy the following content and save it in a Markdown file in your project folder
 - REFINE_POLICY Workflow
 - IMPORT_POLICY Workflow
 - GENERATE_FIDELITY_REPORT Workflow
+- GENERATE_POLICY_SCENARIOS Workflow
+- RESOLVE_POLICY_AMBIGUITIES Workflow
+- ITERATIVELY_REFINE_POLICY Workflow
 
 ### Annotation Type Reference
 - Type Management Annotations
@@ -296,7 +299,7 @@ Copy the following content and save it in a Markdown file in your project folder
 - `export-automated-reasoning-policy-version` - Export specific policy version definition including rules, variables, and types.
 
 ### Build Workflows
-- `start-automated-reasoning-policy-build-workflow` - Start build process. Valid `--build-workflow-type` values: `INGEST_CONTENT`, `REFINE_POLICY`, `IMPORT_POLICY`, `GENERATE_FIDELITY_REPORT`. Supports optional `--client-request-token` (idempotency token, passed as header).
+- `start-automated-reasoning-policy-build-workflow` - Start build process. Valid `--build-workflow-type` values: `INGEST_CONTENT`, `REFINE_POLICY`, `IMPORT_POLICY`, `GENERATE_FIDELITY_REPORT`, `GENERATE_POLICY_SCENARIOS`, `RESOLVE_POLICY_AMBIGUITIES`, `ITERATIVELY_REFINE_POLICY`. Supports optional `--client-request-token` (idempotency token, passed as header).
 - `get-automated-reasoning-policy-build-workflow` - Get build workflow status. Status values: `SCHEDULED`, `CANCEL_REQUESTED`, `PREPROCESSING`, `BUILDING`, `TESTING`, `COMPLETED`, `FAILED`, `CANCELLED`.
 - `cancel-automated-reasoning-policy-build-workflow` - Cancel running build
 - `delete-automated-reasoning-policy-build-workflow` - Delete build workflow. Requires `--last-updated-at` (concurrency token timestamp).
@@ -327,6 +330,9 @@ Copy the following content and save it in a Markdown file in your project folder
 2. **REFINE_POLICY** - Refine and improve existing policies using annotations
 3. **IMPORT_POLICY** - Import policies from external sources
 4. **GENERATE_FIDELITY_REPORT** - Generate a fidelity report for the policy
+5. **GENERATE_POLICY_SCENARIOS** - Generate test scenarios from policy rules
+6. **RESOLVE_POLICY_AMBIGUITIES** - Resolve translation ambiguities in variable descriptions and type definitions
+7. **ITERATIVELY_REFINE_POLICY** - Refine a policy using source documents and optional natural language feedback
 
 ### INGEST_CONTENT Workflow
 - **Purpose**: Extract policy rules from documents (PDF/TXT)
@@ -379,6 +385,28 @@ ALL build workflows require the COMPLETE existing policy definition in the `poli
 - `addTypeValue`, `updateTypeValue`, `deleteTypeValue` - Used to modify values within an existing custom type
 
 **important**: Only create rules in if/then format.
+
+### GENERATE_POLICY_SCENARIOS Workflow
+
+- **Purpose**: Generate test scenarios from policy rules to validate rule correctness
+- **Input**: Policy definition only
+- **Use Cases**: Generating test scenarios for review, identifying rule issues
+- **Content Structure**: No `workflowContent` required — only `policyDefinition`
+- **Post-Workflow**: Use `GetAutomatedReasoningPolicyNextScenario` to fetch generated scenarios one at a time
+
+### RESOLVE_POLICY_AMBIGUITIES Workflow
+
+- **Purpose**: Automatically resolve translation ambiguities in variable descriptions and type definitions
+- **Input**: Policy definition only
+- **Use Cases**: Fixing TRANSLATION_AMBIGUOUS test results, improving variable descriptions for clearer translation
+- **Content Structure**: No `workflowContent` required — only `policyDefinition`
+
+### ITERATIVELY_REFINE_POLICY Workflow
+
+- **Purpose**: Refine an existing policy using a source document and optional natural language feedback
+- **Input**: Policy definition + source document + optional feedback
+- **Use Cases**: Updating a policy when the source document changes, guiding refinement with specific instructions
+- **Content Structure**: `workflowContent.iterativeRefinementContent.documents[]` + optional `workflowContent.iterativeRefinementContent.feedback`
 
 ## Annotation Type Reference
 

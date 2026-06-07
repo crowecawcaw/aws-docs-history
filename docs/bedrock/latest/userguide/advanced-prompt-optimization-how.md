@@ -16,6 +16,13 @@ evaluation steers the prompt optimization. The optimizer works in an evaluation-
 feedback loop to optimize the prompt and resulting model responses, and outputs the original
 and final prompt templates with evaluation scores, cost estimates, and latency.
 
+If you want to migrate prompts from a non-Bedrock model and still want to have side-by-side
+comparisons, one way you can do that is to run inference on your non-Bedrock model separately,
+then apply a [Custom Lambda evaluator](advanced-prompt-optimization-evaluation.md#advanced-prompt-optimization-evaluation-lambda "advanced-prompt-optimization-evaluation.md#advanced-prompt-optimization-evaluation-lambda") to score those results. Then, create an
+Advanced Prompt Optimization job with the same Lambda function evaluator for your Bedrock target models.
+That way, you can have a direct comparison of your old model to your new model before and after
+prompt optimization.
+
 ## How the optimization loop works
 
 Your evaluation samples are injected into the placeholder variables in your prompt

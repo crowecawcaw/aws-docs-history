@@ -115,13 +115,6 @@ formatting styles. Finally statistics contains information on the actual content
 the document, such as how many semantic elements there are, how many figures, words,
 lines, etc.
 
-This is the information for a table entity. For InvokeDataAutomationAsync (async) request,
-in addition to location information, the different formats of the text, tables, and reading order,
-they specifically return csv information and cropped images of the table in S3 buckets. The CSV
-information shows the different headers, footers, and titles. The images will be routed to the s3
-bucket of the prefix set in the InvokeDataAutomationAsync request. For InvokeDataAutomation (sync)
-request, csv and cropped image of the table in S3 buckets are not supported.
-
 When you process a PDF, the statistics section of the response will also contain
 `hyperlinks_count` which tells you how many hyperlinks exist in your document.
 
@@ -219,7 +212,7 @@ see the API Reference.
 },
 ```
 
-This is the information for a table entity. In addition to location information, the different formats of the text, tables, and reading order, they specifically return csv information and cropped images of the table in S3 buckets. The CSV information shows the different headers, footers, and titles. The images will be routed to the s3 bucket of the prefix set in the InvokeDataAutomation request.
+This is the information for a table entity. For an InvokeDataAutomationAsync (async) request, in addition to location information, the different formats of the text, tables, and reading order, BDA also returns csv information and cropped images of the table in S3 buckets. The CSV information shows the different headers, footers, and titles. The images will be routed to the S3 bucket of the prefix set in the InvokeDataAutomationAsync request. For an InvokeDataAutomation (sync) request, csv and cropped images of the table in S3 buckets are not supported.
 
 ```
 {

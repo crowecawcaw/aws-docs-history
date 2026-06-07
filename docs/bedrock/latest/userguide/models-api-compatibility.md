@@ -145,6 +145,8 @@ We will now look at the list of APIs supported by each model.
 
 | Model name                                                                                                                | Invoke | Converse | Chat Completions | Responses | Messages |
 | ------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | ---------------- | --------- | -------- |
+| **[GPT-5.5](model-card-openai-gpt-55.md "model-card-openai-gpt-55.md")**                                                  |        |          |                  |           |          |
+| **[GPT-5.4](model-card-openai-gpt-54.md "model-card-openai-gpt-54.md")**                                                  |        |          |                  |           |          |
 | **[GPT OSS Safeguard 120B](model-card-openai-gpt-oss-safeguard-120b.md "model-card-openai-gpt-oss-safeguard-120b.md")\*** |        |          |                  |           |          |
 | **[GPT OSS Safeguard 20B](model-card-openai-gpt-oss-safeguard-20b.md "model-card-openai-gpt-oss-safeguard-20b.md")\***    |        |          |                  |           |          |
 | **[gpt-oss-120b](model-card-openai-gpt-oss-120b.md "model-card-openai-gpt-oss-120b.md")\***                               |        |          |                  |           |          |

@@ -250,6 +250,9 @@ Each invocation log entry is a JSON object with the following structure. The for
     "requestId": "abcd1234-5678-efgh-ijkl-mnopqrstuvwx",
     "operation": "Converse",
     "modelId": "anthropic.claude-sonnet-4-20250514-v1:0",
+    "identity": {
+        "arn": "arn:aws:sts::123456789012:assumed-role/MyRole/session-name"
+    },
     "requestMetadata": {
         "team": "orchestrator",
         "environment": "production"
@@ -279,11 +282,29 @@ The following table describes the fields in a log entry:
 | `requestId`               | The unique identifier for the request.                                                                                                                                                                                                    |
 | `operation`               | The API operation called (for example, `Converse`, `InvokeModel`).                                                                                                                                                                        |
 | `modelId`                 | The model ID or inference profile ID used for the invocation.                                                                                                                                                                             |
+| `identity.arn`            | The AWS STS or IAM ARN of the principal that made the request, including the role name and the session or user name. Captured automatically.                                                                                              |
 | `requestMetadata`         | An optional JSON object of key-value tags supplied by the caller. Present only when the caller provides request metadata. For details, see [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md"). |
 | `input.inputBodyJson`     | The request body sent to the model (up to 100 KB). Larger bodies are stored as separate objects in Amazon S3.                                                                                                                             |
 | `input.inputTokenCount`   | The number of input tokens in the request.                                                                                                                                                                                                |
 | `output.outputBodyJson`   | The response body from the model (up to 100 KB). Larger bodies are stored as separate objects in Amazon S3.                                                                                                                               |
 | `output.outputTokenCount` | The number of output tokens in the response.                                                                                                                                                                                              |
+
+###### Note
+
+Every field in the record is populated by Amazon Bedrock automatically, with one exception: `requestMetadata` is the only field supplied by the caller. For details, see [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md").
+
+To break down token usage by IAM principal without using request metadata, group on `identity.arn`. The following CloudWatch Logs Insights query lists callers by their total input tokens:
+
+```
+fields identity.arn as principal,
+       input.inputTokenCount as inTokens,
+       output.outputTokenCount as outTokens
+| stats sum(inTokens) as totalInput,
+        sum(outTokens) as totalOutput,
+        count() as calls
+        by principal
+| sort totalInput desc
+```
 
 ###### Note
 

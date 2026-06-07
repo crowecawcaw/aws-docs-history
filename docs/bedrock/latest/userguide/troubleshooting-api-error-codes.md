@@ -190,14 +190,40 @@ If you experience frequent 503 errors or if they significantly impact your opera
 
 If you continue to experience issues after trying these solutions, contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support")for further assistance and guidance tailored to your specific use case.
 
-## Connection timeout or reset when calling Amazon Bedrock APIs
+## Connection timeout or reset on long-running or idle connections
 
-**Symptom:** API calls fail with connection resets or timeouts, especially for long-running requests such as streaming or extended inference, when traffic goes through NAT Gateways, VPC endpoints, or Network Load Balancers.
+**Symptom:** API calls fail with connection resets or timeouts, especially for long-running requests such as streaming, extended thinking, or large inference responses, when traffic goes through NAT Gateways, interface VPC endpoints, or Network Load Balancers. Symptoms can also appear as long cold-start latency (for example, the first call after an idle period takes 70+ seconds instead of the usual few) when an idle pooled connection is reused after the network has silently dropped it.
 
-**Cause:** NAT Gateways, interface VPC endpoints, and Network Load Balancers have a fixed idle connection timeout of 350 seconds. If a TCP connection remains idle longer than this period, the connection is dropped. The client receives a TCP RST packet or the request times out.
+**Cause:** NAT Gateways, interface VPC endpoints, and Network Load Balancers have a fixed idle connection timeout of 350 seconds. If a TCP connection remains idle longer than this period, the connection is dropped without notifying the client. The client may not detect the dropped connection until the next request, at which point it must wait for the OS-level TCP retry or timeout before reestablishing the connection.
+
+**When this applies:**
+
+- Applications running on Amazon EKS or Amazon ECS where pod traffic to Amazon Bedrock egresses through a NAT Gateway or VPC interface endpoint.
+- Applications running on Amazon EC2 instances behind a NAT Gateway, an interface VPC endpoint for Amazon Bedrock, or a Network Load Balancer.
+- Long-running or bursty workloads where Amazon Bedrock client connections sit idle in a connection pool between calls.
 
 **Solution:**
 
-Enable TCP keep-alive to send periodic probes that prevent the connection from going idle. For more information, see [Implementing long-running TCP Connections within VPC networking](https://aws.amazon.com/blogs/networking-and-content-delivery/implementing-long-running-tcp-connections-within-vpc-networking/ "https://aws.amazon.com/blogs/networking-and-content-delivery/implementing-long-running-tcp-connections-within-vpc-networking/") in the AWS Networking & Content Delivery Blog.
+Enabling TCP keep-alive on the Amazon Bedrock client requires _two_ settings working together. Setting only one is not enough.
 
-If you continue to experience connection issues after enabling TCP keep-alive, contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support") for further assistance.
+1. **Enable TCP keep-alive in your AWS SDK client.** The boto3 `Config` object accepts a `tcp_keepalive` parameter, which defaults to `False`. Set it to `True` when constructing the Amazon Bedrock client:
+
+```
+import boto3
+from botocore.config import Config
+
+config = Config(tcp_keepalive=True)
+client = boto3.client("bedrock-runtime", config=config)
+```
+
+For other AWS SDKs, see the corresponding HTTP client configuration documentation. 2. **Configure the OS-level keep-alive interval to fire before the 350-second idle timeout.** Linux defaults to `net.ipv4.tcp_keepalive_time = 7200` (2 hours), which is much longer than the NAT or VPC endpoint idle timeout, so SDK-level keep-alive alone has no effect. Lower the kernel setting to a value safely below 350 seconds (for example, 45 seconds):
+
+```
+sysctl -w net.ipv4.tcp_keepalive_time=45
+```
+
+On Amazon EKS and Amazon ECS, apply the sysctl in the pod or task `securityContext`, in an init container, or in a custom node AMI. On Amazon EC2, set it in `/etc/sysctl.d/` so the value persists across reboots.
+
+For a deeper discussion of long-running TCP connections in VPC networking, see [Implementing long-running TCP Connections within VPC networking](https://aws.amazon.com/blogs/networking-and-content-delivery/implementing-long-running-tcp-connections-within-vpc-networking/ "https://aws.amazon.com/blogs/networking-and-content-delivery/implementing-long-running-tcp-connections-within-vpc-networking/") on the AWS Networking & Content Delivery Blog.
+
+If you continue to experience connection issues after applying both settings, contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support") for further assistance.

@@ -1,8 +1,16 @@
 # Working with models not yet optimized for Amazon Bedrock Agents
 
 Amazon Bedrock Agents supports all models from Amazon Bedrock. You can create agents with any foundation model. Currently, some of the offered models are
-optimized with prompts/parsers fine-tuned for integrating with the agents architecture. Over time, we plan to offer optimization for all of the
-offered models.
+optimized with prompts/parsers fine-tuned for integrating with the Amazon Bedrock Agents architecture, while others are not.
+
+###### Note
+
+No additional models are planned to be optimized for Amazon Bedrock Agents. You can continue
+to use newer foundation models with Amazon Bedrock Agents without optimization — the rest
+of this page describes the patterns for doing so. For new agent applications, we
+recommend evaluating [Amazon Bedrock
+AgentCore](../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md "../../../bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.md"), which is the platform we recommend going forward for
+building, deploying, and operating agents at scale.
 
 ## Viewing models not yet optimized for Amazon Bedrock Agents
 

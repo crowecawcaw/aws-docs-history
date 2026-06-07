@@ -8,6 +8,8 @@ For cost attribution using Amazon Bedrock runtime APIs ([InvokeModel API](infere
 
 When you associate an inference request with a project, the project's tags are attached to the billing record for that request. Tags appear as AWS cost allocation tags in CUR and Cost Explorer, with the same behavior as tags on other AWS resources. For more information, see [Organizing and tracking costs using AWS cost allocation tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md").
 
+Unlike [application inference profiles](cost-mgmt-application-inference-profiles.md "cost-mgmt-application-inference-profiles.md"), a project is not tied to a specific model. The model is a per-request parameter and the project ID is set on the client, so a single project can span many models. This avoids the per-model resource growth of application inference profiles. Projects apply only to the [bedrock-mantle](endpoints.md "endpoints.md") endpoint.
+
 Pass the project ID when initializing your client. All requests made with that client are attributed to the project.
 
 ###### Note
@@ -41,6 +43,10 @@ curl -X POST $OPENAI_BASE_URL/responses \
     }'
 
 ```
+
+###### Note
+
+Projects deliver aggregated billed dollars to AWS Cost Explorer and CUR 2.0. The finest grain is per usage type per day; they do not produce per-request cost. [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md") is not available on the `bedrock-mantle` endpoint, so per-prompt cost detail is not currently available for Amazon Bedrock mantle workloads.
 
 ## Tagging projects for cost allocation
 

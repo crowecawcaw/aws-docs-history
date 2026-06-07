@@ -10,6 +10,10 @@ When an IAM user or role makes an inference request, Amazon Bedrock records the 
 
 Optionally, you can attach tags to your IAM principals to add organizational dimensions (team, department, cost center) to your billing data. Tags are not required for identity-level attribution. The caller identity is always captured.
 
+###### Note
+
+IAM principal attribution delivers aggregated cost to AWS Cost Explorer and CUR 2.0. The finest grain is per usage type per day, attributed by identity or tag — it does not produce per-request cost. For per-prompt detail, see [Per-request metadata tagging](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md") and [Monitor model invocation using CloudWatch Logs and Amazon S3](model-invocation-logging.md "model-invocation-logging.md").
+
 ## Principal types
 
 Amazon Bedrock captures identity from any IAM principal type. The two most common are IAM users and IAM roles.
@@ -103,6 +107,37 @@ To set this up:
 
 For more information, see [Passing session tags in AWS STS](../../../IAM/latest/UserGuide/id_session-tags.md "../../../IAM/latest/UserGuide/id_session-tags.md").
 
+The following Python example shows a gateway assuming its Amazon Bedrock role for a specific user, passing the user as both a `RoleSessionName` (which appears in `identity.arn` in your invocation logs) and as session tags (which surface as cost allocation data in AWS Cost Explorer and CUR 2.0). The role's trust policy must allow `sts:TagSession`. Cache the returned credentials for the session lifetime instead of calling `AssumeRole` on every request.
+
+```
+import boto3
+
+sts = boto3.client("sts")
+
+creds = sts.assume_role(
+    RoleArn="arn:aws:iam::123456789012:role/BedrockGatewayRole",
+    RoleSessionName="alice",                       # appears in identity.arn
+    Tags=[
+        {"Key": "user", "Value": "alice@example.com"},
+        {"Key": "team", "Value": "growth"},
+    ],                                             # session tags, surface as cost allocation data
+)["Credentials"]
+
+bedrock = boto3.client(
+    "bedrock-runtime",
+    aws_access_key_id=creds["AccessKeyId"],
+    aws_secret_access_key=creds["SecretAccessKey"],
+    aws_session_token=creds["SessionToken"],
+)
+# Every call made with this client is attributed to alice in billing
+# and carries her identity ARN in invocation logs.
+
+```
+
+###### Important
+
+Identity and session tags are bound at AWS STS AssumeRole time and are recorded against the session, not the individual request. Their values are constant across every call made with that session's credentials, and they surface only as aggregated billing data. Session tags are not written to your [model invocation logs](model-invocation-logging.md "model-invocation-logging.md"); logs capture the caller's `identity.arn` instead. To distinguish users on a shared session at the request level, use a per-user `RoleSessionName` so the identity ARN differs per user, or set the user in [request metadata](cost-mgmt-request-metadata.md "cost-mgmt-request-metadata.md") on each call.
+
 ## Invocation patterns
 
 IAM principal attribution works regardless of how your application calls Amazon Bedrock:
@@ -115,6 +150,10 @@ IAM principal attribution works regardless of how your application calls Amazon 
 | Federated identity (Okta, Entra) | Session tags from the IdP are captured during role assumption                                                                |
 
 If you use an LLM gateway or API gateway and do not see user-level identity in AWS Billing, confirm that the gateway is passing session tags with each request.
+
+###### Note
+
+If your gateway re-assumes the role per user to vary identity or session tags, assume the role once per user and cache the credentials for the session lifetime. Calling `sts:AssumeRole` on every request can exceed AWS STS request rate quotas.
 
 ## Viewing costs
 
