@@ -7,7 +7,7 @@
 
 ## Common key types
 
-AWS Payment Cryptography key
+**AWS Payment Cryptography key**
 
 An AWS Payment Cryptography Key exists in a single AWS Region. It consists of key metadata and
 material stored in the AWS Payment Cryptography Service. A Key may be imported from an external source
@@ -92,7 +92,7 @@ _TR31_P0_PIN_ENCRYPTION_KEY_.
 
 **KBPK**
 
-A key block encryption key(KBPK) is a type of symmetric key used to protect key
+A key block protection key (KBPK) is a type of symmetric key used to protect key
 blocks and thus wrap/encrypt other keys. A KBPK is similar to a [KEK](#terms.kek "#terms.kek") but a KEK directly protects the key material whereas in
 TR-31 and similar schemes, the KBPK only indirectly protects the working key. When using
 [TR-31](#terms.tr31 "#terms.tr31"),
@@ -346,6 +346,17 @@ considered to ascertain providence and key attributes are not mutated.
 
 TR-34 also utilizes RSA internally, but is a separate format and is not
 interoperable.
+
+**Service code**
+
+A service code is a three-digit value encoded on the magnetic stripe and chip of a
+payment card that defines card attributes such as where the card can be used and whether
+additional authorization is required. The service code is used as an input when
+calculating verification values. Different service code values produce different types
+of verification values such as [CVV](#terms.cvv "#terms.cvv") (using the service
+code from the card's magnetic stripe), [iCVV](#terms.icvv "#terms.icvv") (service
+code 999 for chip cards), and [CVV2](#terms.cvv2 "#terms.cvv2") (service code
+000).
 
 **TR-31**
 

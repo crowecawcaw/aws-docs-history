@@ -1,8 +1,8 @@
 # Verify auth request (ARQC) cryptogram
 
 The verify auth request cryptogram API is used for verifying [ARQC](terminology.md#terms.arqc "terminology.md#terms.arqc"). The
-generation of the ARQC is outside of the scope of the AWS Payment Cryptography and is typically performed on an EMV Chip Card (or digital equivalent such as mobile wallet)
-during transaction authorization time. An ARQC is unique to each transactions and is intended to cryptographically show both the validity of the card as well as to
+generation of the ARQC is typically performed on an EMV Chip Card (or digital equivalent such as mobile wallet)
+during transaction authorization time although the service can generate for development purposes. An ARQC is unique to each transactions and is intended to cryptographically show both the validity of the card as well as to
 ensure that the transaction data exactly matches the current (expected) transaction.
 
 AWS Payment Cryptography provides a variety of options for validating ARQC and generating optional ARPC values including those defined
@@ -21,9 +21,9 @@ ARQC cryptograms typically require the following inputs (although this may vary 
 
 ###### Topics
 
-- [Building transaction data](#w2aac15c28c13 "#w2aac15c28c13")
-- [Transaction data padding](#w2aac15c28c15 "#w2aac15c28c15")
-- [Examples](#w2aac15c28c17 "#w2aac15c28c17")
+- [Building transaction data](#w2aac15c25c13c13 "#w2aac15c25c13c13")
+- [Transaction data padding](#w2aac15c25c13c15 "#w2aac15c25c13c15")
+- [Examples](#w2aac15c25c13c17 "#w2aac15c25c13c17")
 
 ## Building transaction data
 

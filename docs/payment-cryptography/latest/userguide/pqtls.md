@@ -1,13 +1,13 @@
 # Using hybrid post-quantum TLS
 
-AWS Promotional Credit and many other services supports a hybrid post-quantum key exchange option for the Transport Layer
+AWS Payment Cryptography and many other services supports a hybrid post-quantum key exchange option for the Transport Layer
 Security (TLS) network encryption protocol. You can use this TLS option when you connect to
 API endpoints or when using the AWS SDKs. These optional hybrid post-quantum key exchange features are at least as
 secure as the TLS encryption we use today and are likely to provide additional long-term
 security benefits.
 
 The data that you send to enabled services is protected in transit by the encryption
-provided by a Transport Layer Security (TLS) connection. The classic cipher suites based on RSA and ECC that AWS Promotional Credit
+provided by a Transport Layer Security (TLS) connection. The classic cipher suites based on RSA and ECC that AWS Payment Cryptography
 supports for TLS sessions make brute force attacks on the key exchange mechanisms infeasible
 with current technology. However, if large scale or cryptographically relevant quantum computers (CRQC)
 becomes practical in the
@@ -26,7 +26,8 @@ post-quantum elements to ensure that your TLS connection is at least as strong a
 with classic cipher suites.
 
 These hybrid cipher suites are available for use on your production workloads when using recent versions of the AWS SDKs.
-For more information about how to enable/disable this behavior, please see [Enabling hybrid post-quantum TLS](pqtls-details.md "pqtls-details.md")
+For more information about how to enable/disable this behavior, please see
+[Enabling hybrid post-quantum TLS](../../../sdkref/latest/guide/pqc-tls-sdks.md "../../../sdkref/latest/guide/pqc-tls-sdks.md").
 
 ![A TLS session that is secured both using classical key agreement and post-quantum key agreement. An adversary today cannot break the classical part of the key agreement. If the adversary records the data and tries to decrypt it in the future with a CRQC, the post-quantum key agreement keeps the session key safe. Thus, today’s transmitted data remains safe against discovery even in the future. This is why hybrid post-quantum TLS is important today.](images/pqtls-mitigation.png)
 
@@ -40,6 +41,11 @@ key-establishment algorithm that the National Institute for Standards and Techno
 [has designated as its first
 standard](https://csrc.nist.gov/pubs/fips/203/final "https://csrc.nist.gov/pubs/fips/203/final") post-quantum key-agreement algorithm. This hybrid uses each of the
 algorithms independently to generate a key. Then it combines the two keys cryptographically.
+
+## How to use it
+
+For information about enabling hybrid post-quantum TLS in the AWS SDKs, see
+[Enabling hybrid post-quantum TLS](../../../sdkref/latest/guide/pqtls-details.md "../../../sdkref/latest/guide/pqtls-details.md").
 
 ## Learn more about PQC
 
