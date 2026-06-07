@@ -91,7 +91,7 @@ Amazon EventBridge actions
 
 `events:RemoveTargets`
 
-AWS Application Migration Service actions
+AWS Transform MGN actions
 
 `mgn:GetReplicationConfiguration`
 
