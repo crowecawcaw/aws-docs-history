@@ -14,3 +14,4 @@ This section covers the following dashboards:
 - [Amazon Connect Cost Insight Dashboard](connect-cost-insight.md "connect-cost-insight.md")
 - [AWS Config Resource Compliance Dashboard](config-resource-compliance-dashboard.md "config-resource-compliance-dashboard.md")
 - [Sustainability Proxy Metrics and Carbon Emissions Dashboard](sustainability-proxy-metrics-dashboard.md "sustainability-proxy-metrics-dashboard.md")
+- [Pricing Change Analysis Dashboard](pricing-change-dashboard.md "pricing-change-dashboard.md")

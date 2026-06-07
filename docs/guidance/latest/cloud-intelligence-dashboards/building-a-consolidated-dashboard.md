@@ -22,7 +22,7 @@ For this solution you must have the following:
 ## Step 1 - Creating A New Analysis and Sheet
 
 1. Select the dashboard you would like to add a consolidated view to and save it as an analysis.
-2. Click on the plus icon in the top right to create a new sheet
+2. Choose the plus icon in the top right to create a new sheet
 3. Rename your sheet using the down arrow next to your new sheet
 4. Drag the new sheet to the far left side to make it the first sheet in your analysis
 
@@ -35,14 +35,14 @@ To insert a visual that is present on another dashboard, you’ll need to Import
 
 1. Select File in the top left and choose Import
 2. On the Import screen, you will see a navigation panel on the left where you can view other Analyses and Dashboards
-3. Select the Dashboard that contains the visual and click on "Load"
+3. Select the Dashboard that contains the visual and choose "Load"
 4. On the next screen you will see a preview of the selected dashboard and each visual required can be ticked
 
 ###### Note
 
 At the time of writing, you can select up to 5 visuals to be imported at one time. If you need more than 5, you will need to go through these steps again to import a further 5.
 
-1. Click on "Import" and after a short while, the visuals will be imported and placed onto your sheet in the analysis.
+1. Choose "Import" and after a short while, the visuals will be imported and placed onto your sheet in the analysis.
 2. Repeat these steps across all of the required visuals that you want to bring in to your consolidated sheet
 
 ![Quick Suite Import Visual](images/QuickSuite_import_visual.gif)
@@ -53,7 +53,7 @@ Once you’ve finished making edits and imported all of your visuals, you can go
 
 1. Select "Publish" in the top right.
 2. Give your dashboard a name and add notes as required
-3. Complete any other customizations of the Dashboard options section, and then click "Publish Dashboard"
+3. Complete any other customizations of the Dashboard options section, and then choose "Publish Dashboard"
 
 After a short while, your new Consolidated Dashboard is published and ready, so you can look at all of the key insights from one single place.
 

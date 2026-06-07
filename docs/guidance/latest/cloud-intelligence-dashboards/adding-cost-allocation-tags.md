@@ -110,7 +110,7 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
 6. For each additional tag that you want, create a blank line below the preceding one and repeat the same steps.
 7. When you’ve completed adding all of the fields, click the **RUN** button and confirm that the query view updates successfully.
 
-![Inset show the run again button of the query window and the successful result](images/cust_runagain.png) 8. Repeat the steps above on the **hourly_view** and **resource_view** datasets.
+![Inset show the run again button of the query window and the successful result](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png) 8. Repeat the steps above on the **hourly_view** and **resource_view** datasets.
 
 CUR 2.0
 
@@ -154,7 +154,7 @@ GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
 11. For each additional tag that you want, create a blank line below the preceding one and repeat the same steps.
 12. When you’ve completed adding all of the fields, click the **RUN** button and confirm that the query view updates successfully.
 
-![Inset show the run again button of the query window and the successful result](images/cust_runagain.png) 13. Repeat the steps above on the **hourly_view** and **resource_view** datasets.
+![Inset show the run again button of the query window and the successful result](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_runagain.png) 13. Repeat the steps above on the **hourly_view** and **resource_view** datasets.
 
 ### Step 2. Modify Data Set in Amazon Quick Sight
 
@@ -165,7 +165,7 @@ can see the added fields to use them in your Dashboards and Analyses.
 
 ![AWS Console search with results for Quick Sight](images/cust_navqs.png) 2. Select Datasets on the left side of the page.
 
-![Left navigation in Quick Sight with datasets option highlighted](images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the dataset. 4. Click on the **EDIT DATASET** button in the top right of the page.
+![Left navigation in Quick Sight with datasets option highlighted](/images/guidance/latest/cloud-intelligence-dashboards/images/cust_qs_ds.png) 3. Locate **summary_view** in the list of datasets and click on the dataset. 4. Click on the **EDIT DATASET** button in the top right of the page.
 
 ![Quick Sight edit dataset button](images/cust_editds.png) 5. Allow the fields and dataset preview windows to load. 6. Confirm that you can see the fields you’ve added in the list. This can
 be accomplished by entering the **friendly name** of the field in the
