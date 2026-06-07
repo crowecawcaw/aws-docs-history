@@ -3,6 +3,38 @@
 This document contains all Amazon IVS Low-Latency Streaming release notes, latest first,
 organized by date of release.
 
+## June 4, 2026
+
+### Amazon IVS Broadcast SDK: Android 1.43.0, iOS 1.43.0 (Low-Latency Streaming)
+
+| Platform                                                                       | Downloads and Changes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Android Broadcast SDK<br>1.43.0](broadcast-android.md "broadcast-android.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/android/](https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/android/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/android/")<br>• Fixed a memory leak when a BroadcastSession was created but was not Broadcasting.<br>• Fixed a rare crash when tearing down a BroadcastSession that was streaming with the device's microphone.                                                                                                                                                                                                |
+| [iOS Broadcast SDK<br>1.43.0](broadcast-ios.md "broadcast-ios.md")             | **Download for low-latency<br>streaming:**<br>[https://broadcast.live-video.net/1.43.0/AmazonIVSBroadcast.xcframework.zip](https://broadcast.live-video.net/1.43.0/AmazonIVSBroadcast.xcframework.zip "https://broadcast.live-video.net/1.43.0/AmazonIVSBroadcast.xcframework.zip")<br>\*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/ios/](https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/ios/ "https://aws.github.io/amazon-ivs-broadcast-docs/1.43.0/ios/")<br>• Fixed a bug where the camera torch may turn back on unintentionally after changing cameras and rotating the device. |
+
+#### Broadcast SDK Size: Android
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64-v8a    | 2.015 MB        | 5.455 MB          |
+| armeabi-v7a  | 1.765 MB        | 3.778 MB          |
+| x86_64       | 2.097 MB        | 5.790 MB          |
+| x86          | 2.122 MB        | 5.575 MB          |
+
+#### Broadcast SDK Size: iOS
+
+| Architecture | Compressed Size | Uncompressed Size |
+| ------------ | --------------- | ----------------- |
+| arm64        | 1.031 MB        | 2.265 MB          |
+
+## June 4, 2026
+
+### IVS Broadcast SDK: Web 1.36.0 (Low-Latency Streaming)
+
+| Platform                                                           | Downloads and Changes                                                                                                                                                                                                                                                                    |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Web Broadcast SDK<br>1.36.0](broadcast-web.md "broadcast-web.md") | \*_Reference documentation:_<br>• [https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference/](https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference "https://aws.github.io/amazon-ivs-web-broadcast/docs/sdk-reference")<br>• Bug fixes and stability improvements. |
+
 ## May 28, 2026
 
 ### IVS Player SDK: Web 1.52.1
