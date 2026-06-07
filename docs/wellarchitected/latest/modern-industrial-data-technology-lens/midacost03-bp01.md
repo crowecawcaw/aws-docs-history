@@ -75,7 +75,7 @@ continuity.
 - AWS Migration Hub
 - AWS Application Discovery Service
 - AWS Migration Evaluator
-- AWS Application Migration Service
+- AWS Transform MGN
 
 ## Resources
 
