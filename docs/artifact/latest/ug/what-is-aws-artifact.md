@@ -12,10 +12,6 @@ Additionally, you can use AWS Artifact to review, accept, and track the status o
 AWS account and for multiple AWS accounts in your organization. For more information about agreements in AWS Artifact,
 see [Managing agreements in AWS Artifact](managing-agreements.md "managing-agreements.md").
 
-You can also use Assurance Assistant in AWS Artifact to generate AI-powered responses to your compliance and due
-diligence questions. For more information, see
-[Using Assurance Assistant in AWS Artifact](managing-compliance-inquiries.md "managing-compliance-inquiries.md").
-
 To demonstrate the security and compliance of the AWS infrastructure and services that you use, you can submit
 AWS Artifact documents to your auditors or regulators as _audit artifacts_. You can also use these audit
 artifacts as guidelines to evaluate your own cloud architecture and to assess the effectiveness of your company's
