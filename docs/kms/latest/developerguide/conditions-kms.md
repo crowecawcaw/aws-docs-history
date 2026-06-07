@@ -2305,7 +2305,7 @@ request is an RSASSA_PSS algorithm, such as `RSASSA_PSS_SHA512`.
 The `kms:TrailingDaysWithoutKeyUsage` condition key represents the number of trailing
 days without cryptographic operations on a KMS key, calculated from the last successful cryptographic operation,
 or from the KMS key's creation date or `TrackingStartDate` if the key has never been used. For more
-information about the tracking start date, see [Understanding the usage tracking period](monitoring-keys-determining-usage.md#understanding-tracking-period "monitoring-keys-determining-usage.md#understanding-tracking-period").
+information about the tracking start date and how its behavior can affect this condition key, see [Understanding the usage tracking period](monitoring-keys-determining-usage.md#understanding-tracking-period "monitoring-keys-determining-usage.md#understanding-tracking-period").
 You can use this condition key in key policies and IAM policies to control access to the [ScheduleKeyDeletion](../APIReference/API_ScheduleKeyDeletion.md "../APIReference/API_ScheduleKeyDeletion.md") and [DisableKey](../APIReference/API_DisableKey.md "../APIReference/API_DisableKey.md") operations.
 
 This condition key is a numeric, single-valued condition. The trailing days value is
@@ -2360,6 +2360,14 @@ actively used or recently created keys.
   }
 }
 ```
+
+###### Warning
+
+Do not solely rely on last usage information when deleting unused keys. Instead,
+[disable the key](enabling-keys.md "enabling-keys.md") first and monitor AWS CloudTrail
+for `DisabledException` entries, which indicate attempts to use the key
+while disabled. This helps identify potential dependencies and workload failures.
+AWS CloudTrail remains the authoritative source for all API calls made to your key.
 
 **See also**
 
@@ -2517,7 +2525,7 @@ You might need to scroll horizontally or vertically to see all of the data in th
 | AWS App Runner                                         | `apprunner.`AWS_region`.amazonaws.com`                                                                                                        |
 | AWS AppFabric                                          | `appfabric.`AWS_region`.amazonaws.com`                                                                                                        |
 | Amazon AppFlow                                         | `appflow.`AWS_region`.amazonaws.com`                                                                                                          |
-| AWS Application Migration Service                      | `mgn.`AWS_region`.amazonaws.com`                                                                                                              |
+| AWS Transform MGN                                      | `mgn.`AWS_region`.amazonaws.com`                                                                                                              |
 | Amazon Athena                                          | `athena.`AWS_region`.amazonaws.com`                                                                                                           |
 | AWS Audit Manager                                      | `auditmanager.`AWS_region`.amazonaws.com`                                                                                                     |
 | Amazon Aurora                                          | `rds.`AWS_region`.amazonaws.com`                                                                                                              |

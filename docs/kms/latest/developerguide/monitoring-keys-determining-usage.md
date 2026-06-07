@@ -81,6 +81,7 @@ Do not solely rely on last usage information when deleting unused keys. Instead,
 [disable the key](enabling-keys.md "enabling-keys.md") first and monitor AWS CloudTrail
 for `DisabledException` entries, which indicate attempts to use the key
 while disabled. This helps identify potential dependencies and workload failures.
+AWS CloudTrail remains the authoritative source for all API calls made to your key.
 
 ### Tracked cryptographic operations
 
