@@ -1,4 +1,4 @@
-# Step 3: Getting started using the Amazon Comprehend Medical console
+# Step 2: Getting started using the Amazon Comprehend Medical console
 
 The easiest way to get started using the Comprehend Medical console is to analyze a short
 text file. If you haven't reviewed the concepts and terminology in [How Amazon Comprehend Medical works](comprehendmedical-howitworks.md "comprehendmedical-howitworks.md"), we recommend that you
@@ -10,4 +10,4 @@ do that before proceeding.
 
 ###### Next Step
 
-[Step 4: Getting started using the Amazon Comprehend Medical APIs](gettingstarted-api.md "gettingstarted-api.md")
+[Step 3: Getting started using the Amazon Comprehend Medical APIs](gettingstarted-api.md "gettingstarted-api.md")

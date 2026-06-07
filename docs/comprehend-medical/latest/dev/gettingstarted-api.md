@@ -1,10 +1,10 @@
-# Step 4: Getting started using the Amazon Comprehend Medical APIs
+# Step 3: Getting started using the Amazon Comprehend Medical APIs
 
 The following examples demonstrate how to use Amazon Comprehend Medical operations using the AWS CLI, Java, and
 Python. Use them to learn about Amazon Comprehend Medical operations and as building blocks for your own
 applications.
 
-To run the AWS CLI and Python examples, install the AWS CLI. For more information, see [Step 2: Set up the AWS Command Line Interface (AWS CLI)](gettingstarted-awscli.md "gettingstarted-awscli.md").
+To run the AWS CLI and Python examples, install the AWS CLI. For more information, see [Step 1: Set up the AWS Command Line Interface (AWS CLI)](gettingstarted-awscli.md "gettingstarted-awscli.md").
 
 To run the Java examples, install the AWS SDK for Java. For instructions for installing the
 AWS SDK for Java, see [Set up the AWS
@@ -20,7 +20,7 @@ SDK for Java](../../../sdk-for-java/v1/developer-guide/setup-install.md "../../.
 
 The following example demonstrates using the `DetectEntitiesV2` operation
 using the AWS CLI to return the medical entities detected in text. To run the example, you
-must install the AWS CLI. For more information, see [Step 2: Set up the AWS Command Line Interface (AWS CLI)](gettingstarted-awscli.md "gettingstarted-awscli.md").
+must install the AWS CLI. For more information, see [Step 1: Set up the AWS Command Line Interface (AWS CLI)](gettingstarted-awscli.md "gettingstarted-awscli.md").
 
 The example is formatted for Unix, Linux, and macOS. For Windows, replace the
 backslash (\) Unix continuation character at the end of each line with a caret
@@ -162,7 +162,7 @@ PROTECTED_HEALTH_INFORMATION,Type: NAME,Traits: [],}
 ## Detecting medical entities using the AWS SDK for Python (Boto)
 
 The following example uses the `DetectEntitiesV2` operation with Python. To
-run the sample, install the AWS CLI. For more information, see [Step 2: Set up the AWS Command Line Interface (AWS CLI)](gettingstarted-awscli.md "gettingstarted-awscli.md").
+run the sample, install the AWS CLI. For more information, see [Step 1: Set up the AWS Command Line Interface (AWS CLI)](gettingstarted-awscli.md "gettingstarted-awscli.md").
 
 ```
 import boto3
