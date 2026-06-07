@@ -21,11 +21,9 @@ SUPER data type or use Amazon Redshift Spectrum to query the data stored in Amaz
 
 Consider the following best practices when working with semi-structured data.
 
-- We recommend that you set the `enable_case_sensitive_super_attribute` and
-  `enable_case_sensitive_identifier`configuration options to
+- We recommend that you set the `enable_case_sensitive_super_attribute` configuration option to
   true when working with SUPER data. For more information, see
-  [enable_case_sensitive_super_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md")
-  and [enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
+  [enable_case_sensitive_super_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md").
 - Use the COPY command to load data from Amazon S3 buckets into Amazon Redshift SUPER columns.
 - Use PartiQL dynamic typing and lax semantics to run ad hoc queries on SUPER data values without having to impose a schema before querying.
   For information on dynamic typing, see [Dynamic typing](query-super.md#dynamic-typing-lax-processing "query-super.md#dynamic-typing-lax-processing").

@@ -10,9 +10,8 @@ then query semi-structured data objects in a variety of use cases.
 
 ###### Note
 
-We recommend that you set the `enable_case_sensitive_identifier` and `enable_case_sensitive_super_attribute` configuration
-options before working with the SUPER data type. For more information, see
-[enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md") and
+We recommend that you set the `enable_case_sensitive_super_attribute` configuration
+option to true before working with the SUPER data type. For more information, see
 [enable_case_sensitive_super_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md").
 
 ## Loading semi-structured data
@@ -23,7 +22,6 @@ The following statements create a sample table and load a sample JSON object int
 DROP TABLE IF EXISTS test_json;
 
 SET enable_case_sensitive_super_attribute TO true;
-SET enable_case_sensitive_identifier TO true;
 
 CREATE TABLE test_json (all_data SUPER);
 
@@ -353,18 +351,17 @@ FROM test_json;
 
 The following statements
 
-## Using `enable_case_sensitive_identifier` and `enable_case_sensitive_super_attribute` with semi-structured data
+## Using `enable_case_sensitive_super_attribute` with semi-structured data
 
-The following examples show how the configuration options
-[enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md") and
+The following examples show how the
 [enable_case_sensitive_super_attribute](r_enable_case_sensitive_super_attribute.md "r_enable_case_sensitive_super_attribute.md")
-differ when used for querying semi-structured data. For more information on these configuration options,
+configuration option affects querying semi-structured data. For more information,
 see [Accessing JSON fields with uppercase and mixed-case field names or attributes](super-configurations.md#upper-mixed-case "super-configurations.md#upper-mixed-case").
 
-In the following statement, resetting both configuration options to their default of false makes the query return NULL.
+In the following statement, resetting the configuration option to its default of false makes the query return NULL
+for mixed-case attribute names.
 
 ```
-RESET enable_case_sensitive_identifier;
 RESET enable_case_sensitive_super_attribute;
 
 SELECT
@@ -374,51 +371,13 @@ FROM test_json;
  `eventtype
 -----------
 NULL`
-```
-
-In following example, the sample query returns the desired result after
-you wrap the case sensitive attributes
-in double quotation marks and set `enable_case_sensitive_identifier` to true.
-
-```
-RESET enable_case_sensitive_identifier;
-RESET enable_case_sensitive_super_attribute;
-
-SELECT
-    all_data.data.pnr.events[0]."eventType"
-FROM test_json;
-
- `eventtype
------------
-NULL`
-
-SET enable_case_sensitive_identifier TO true;
-
-SELECT
-    all_data.data.pnr.events[0]."eventType"
-FROM test_json;
-
- `eventtype
------------
- "UPDATED"`
 ```
 
 In the following example, the sample query returns the desired result after you
-set `enable_case_sensitive_super_attribute` to true
-without wrapping the case sensitive attributes in double quotation marks.
+set `enable_case_sensitive_super_attribute` to true. No double quotation marks
+around attribute names are needed.
 
 ```
-RESET enable_case_sensitive_identifier;
-RESET enable_case_sensitive_super_attribute;
-
-SELECT
-    all_data.data.pnr.events[0].eventType
-FROM test_json;
-
- `eventtype
------------
-NULL`
-
 SET enable_case_sensitive_super_attribute TO true;
 
 SELECT
@@ -507,7 +466,7 @@ e::varchar email_purpose,
 f::varchar email_commuter
 FROM test_json a,
   a.all_data.data.pnr.contactDetail c,
-  c."emailContacts" d,
+  c.emailContacts d,
   d.purpose e,
   d.commuter f;
 
@@ -532,7 +491,7 @@ d.id::varchar email_record_id,
 d.contact::varchar email_contact
 FROM test_json a,
 a.all_data.data.pnr.contactDetail c,
-c."emailContacts" d
+c.emailContacts d
 WHERE (SELECT COUNT(*) FROM d.purpose e WHERE e = 'BUSINESS') > 0;
 
  `type_info | pnr_id | booking_id | version_info | email_record_id | email_contact | email_purpose | email_commuter

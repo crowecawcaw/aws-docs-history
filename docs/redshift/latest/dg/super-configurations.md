@@ -33,17 +33,18 @@ SET parse_super_null_on_error=OFF;  --default strict mode for ingestion
 
 When your JSON attribute names are in uppercase or mixed-case, you must be able to navigate
 SUPER type structures in a case sensitive way. To do that, you can configure
-`enable_case_sensitive_identifier` to TRUE and wrap the uppercase and mixed-case
-attribute names with double quotation marks.
+`enable_case_sensitive_super_attribute` to TRUE and use uppercase and mixed-case
+attribute names directly in your queries without wrapping them in double quotation
+marks.
 
-The following example illustrates how to set `enable_case_sensitive_identifier` to query data.
+The following example illustrates how to set `enable_case_sensitive_super_attribute` to query data.
 
 ```
-SET enable_case_sensitive_identifier to TRUE;
+SET enable_case_sensitive_super_attribute to TRUE;
 
 -- Accessing JSON attribute names with uppercase and mixed-case names
-SELECT json_table.data."ITEMS"."Name",
-       json_table.data."price"
+SELECT json_table.data.ITEMS.Name,
+       json_table.data.price
 FROM
   (SELECT json_parse('{"ITEMS":{"Name":"TV"}, "price": 345}') AS data) AS json_table;
 
@@ -52,11 +53,11 @@ FROM
  "TV" | 345
 (1 row)
 
-RESET enable_case_sensitive_identifier;
+RESET enable_case_sensitive_super_attribute;
 
 -- After resetting the above configuration, the following query accessing JSON attribute names with uppercase and mixed-case names should return null (if in lax mode).
-SELECT json_table.data."ITEMS"."Name",
-       json_table.data."price"
+SELECT json_table.data.ITEMS.Name,
+       json_table.data.price
 FROM
   (SELECT json_parse('{"ITEMS":{"Name":"TV"}, "price": 345}') AS data) AS json_table;
 
@@ -65,6 +66,10 @@ FROM
       | 345
 (1 row)
 ```
+
+Alternatively, you can configure `enable_case_sensitive_identifier` to TRUE and wrap the uppercase and mixed-case
+attribute names with double quotation marks. For more information, see
+[enable_case_sensitive_identifier](r_enable_case_sensitive_identifier.md "r_enable_case_sensitive_identifier.md").
 
 ## Parsing options for SUPER
 
