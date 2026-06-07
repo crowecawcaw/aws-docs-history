@@ -229,6 +229,18 @@ To protect sensitive information, the following are hidden in CodeBuild logs:
 - Strings specified using AWS Secrets Manager. For more information, see
   [Key management](security-key-management.md "security-key-management.md").
 
+###### Note
+
+Masking matches the exact value stored in Amazon EC2 Systems Manager Parameter Store or AWS Secrets Manager. If a
+build command transforms a secret before it appears in the logs, the result is a different
+string that is not masked. For example, encoding it with Base64, reversing it, changing
+case, or concatenating it with other text creates a different value that can appear in the
+build logs.
+
+To keep a value masked, store it in the form your build uses. For example, if your build
+requires a Base64-encoded value, store the Base64-encoded string directly in AWS Secrets Manager or
+Amazon EC2 Systems Manager Parameter Store. This way, the logged value matches the stored value.
+
 env/**shell**
 
 Optional sequence. Specifies the supported shell for Linux or Windows
