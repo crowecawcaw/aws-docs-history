@@ -1,4 +1,4 @@
-# AWS Application Migration Service endpoints and quotas
+# AWS Transform MGN endpoints and quotas
 
 To connect programmatically to an AWS service, you use an endpoint. AWS services offer the following endpoint types
 in some or all of the AWS Regions that the service supports: IPv4 endpoints, dual-stack endpoints, and FIPS endpoints.

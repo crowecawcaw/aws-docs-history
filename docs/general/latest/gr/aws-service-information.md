@@ -24,7 +24,7 @@ quotas](aws-general.pdf.md#aws-service-information "aws-general.pdf.md#aws-servi
 - [Amazon AppFlow](appflow.md "appflow.md")
 - [Application Auto Scaling](as-app.md "as-app.md")
 - [Application Discovery Service](appdiscserv.md "appdiscserv.md")
-- [Application Migration Service](mgn.md "mgn.md")
+- [MGN](mgn.md "mgn.md")
 - [WorkSpaces Applications](aas2.md "aas2.md")
 - [AWS App Studio](appstudio.md "appstudio.md")
 - [AWS AppSync](appsync.md "appsync.md")
