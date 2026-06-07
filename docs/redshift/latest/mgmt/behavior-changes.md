@@ -17,7 +17,7 @@ The following describes upcoming behavior changes.
 ###### Topics
 
 - [Amazon Redshift Serverless preserves zero-ETL and S3 event integrations on snapshot restore starting with Patch 202](#serverless-restore-integrations-patch202 "#serverless-restore-integrations-patch202")
-- [End of support for the Amazon Redshift ODBC 1.x driver on June 30, 2026](#odbc1x-deprecation-jun2026 "#odbc1x-deprecation-jun2026")
+- [End of support for the Amazon Redshift ODBC 1.x driver on September 30, 2026](#odbc1x-deprecation-jun2026 "#odbc1x-deprecation-jun2026")
 - [Scalar Python UDFs will reach end of support after June 30, 2026](#python-udf-jun2026 "#python-udf-jun2026")
 - [Materialized View (MV) Auto-REFRESH Behavior Change after February 27, 2026](#autorefresh-feb272026 "#autorefresh-feb272026")
 - [Amazon Redshift won’t support functions that access consumer information through datasharing after February 16, 2026](#datasharing-feb2026 "#datasharing-feb2026")
@@ -52,11 +52,12 @@ and recreate them.
 
 For more information about patch versions, see [Cluster versions for Amazon Redshift](cluster-versions.md "cluster-versions.md").
 
-### End of support for the Amazon Redshift ODBC 1.x driver on June 30, 2026
+### End of support for the Amazon Redshift ODBC 1.x driver on September 30, 2026
 
-Beginning June 30, 2026, Amazon Redshift will discontinue support for the [ODBC 1.x
-driver](configure-odbc-connection.md "configure-odbc-connection.md"). This applies to both Amazon Redshift provisioned clusters and serverless
-workgroups.
+Beginning September 30, 2026, Amazon Redshift will discontinue support for the [ODBC 1.x
+driver](configure-odbc-connection.md "configure-odbc-connection.md"). Based on customer feedback, we have extended the original end-of-support
+date from June 30, 2026 to September 30, 2026, to provide additional time for migration.
+This applies to both Amazon Redshift provisioned clusters and serverless workgroups.
 
 You may be impacted by this if you use any version of the [ODBC 1.x driver](configure-odbc-connection.md "configure-odbc-connection.md") to
 connect to Amazon Redshift. To verify whether you are using an ODBC 1.x driver, run the following
@@ -74,9 +75,9 @@ OR
 (application_name ilike 'Amazon Redshift ODBC Driver 1%');
 ```
 
-To continue receiving technical support for your ODBC driver connections to Amazon Redshift,
+To continue receiving technical support for your Amazon Redshift ODBC driver connections,
 please migrate to the latest [Amazon Redshift ODBC 2.x driver](odbc20-install.md "odbc20-install.md") before
-June 30, 2026.
+September 29, 2026.
 
 Before migrating to the ODBC 2.x driver in a production environment, we recommend
 conducting a thorough proof of concept to verify that the new driver meets all your

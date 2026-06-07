@@ -35,7 +35,7 @@ By default, a SQL query cell appears in the notebook. 3. In the SQL query cell, 
    ).
 
 From the menu icon (
-![Three dots arranged horizontally, representing an ellipsis or "more" menu icon.](/images/redshift/latest/mgmt/images/qev2-more.png)
+![Three dots arranged horizontally, representing an ellipsis or "more" menu icon.](images/qev2-more.png)
 ), you can also perform the following operations on a
 notebook:
 
@@ -70,7 +70,7 @@ To see versions of a notebook, navigate to your saved notebooks and open
 **Duplicate** – To create a copy of the notebook and
 open it in a new notebook tab.
 
-- ![Shortcuts](images/qev2-key-command.png)
+- ![Shortcuts](/images/redshift/latest/mgmt/images/qev2-key-command.png)
 
 **Shortcuts** – To display the shortcuts available when
 authoring a notebook.

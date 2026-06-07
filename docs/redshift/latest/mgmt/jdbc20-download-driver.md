@@ -23,26 +23,26 @@ For each computer where you use the Amazon Redshift JDBC driver version 2.x, mak
 Java Runtime Environment (JRE) 8.0 is installed.
 
 If you use the Amazon Redshift JDBC driver for database authentication, make sure that you have
-AWS SDK for Java 1.11.118 or later in your Java class path. If you don't have AWS SDK for Java
+AWS SDK for Java 2.40.5 or later in your Java class path. If you don't have AWS SDK for Java
 installed, download the ZIP file with JDBC 4.2–compatible driver and driver dependent
 libraries for the AWS SDK:
 
 - [JDBC 4.2–compatible driver version 2.x and AWS SDK driver–dependent libraries](https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.7/redshift-jdbc42-2.2.7.zip "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.7/redshift-jdbc42-2.2.7.zip")
 
 This ZIP file contains the JDBC 4.2–compatible driver version 2.x and
-AWS SDK for Java 1.x driver–dependent library files. Unzip the
+AWS SDK for Java 2.x driver–dependent library files. Unzip the
 dependent jar files to the same location as the JDBC driver. Only the JDBC
 driver needs to be in CLASSPATH.
 
-This ZIP file doesn't include the complete AWS SDK for Java 1.x.
-However, it includes the AWS SDK for Java 1.x driver–dependent
+This ZIP file doesn't include the complete AWS SDK for Java 2.x.
+However, it includes the AWS SDK for Java 2.x driver–dependent
 libraries that are required for AWS Identity and Access Management (IAM) database
 authentication.
 
 Use this Amazon Redshift JDBC driver with the AWS SDK that is required for IAM
 database authentication.
 
-To install the complete AWS SDK for Java 1.x, see [AWS SDK for Java 1.x](../../../sdk-for-java/v1/developer-guide/welcome.md "../../../sdk-for-java/v1/developer-guide/welcome.md") in the _AWS SDK for Java Developer
+To install the complete AWS SDK for Java 2.x, see [AWS SDK for Java 2.x](../../../sdk-for-java/v2/developer-guide/home.md "../../../sdk-for-java/v2/developer-guide/home.md") in the _AWS SDK for Java Developer
 Guide_.
 
 - [JDBC 4.2–compatible driver version 2.x (without the AWS SDK)](https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.7/redshift-jdbc42-2.2.7.jar "https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/2.2.7/redshift-jdbc42-2.2.7.jar")
