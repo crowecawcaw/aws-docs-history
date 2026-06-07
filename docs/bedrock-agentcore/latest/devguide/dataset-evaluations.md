@@ -1,5 +1,9 @@
 # Dataset evaluation
 
+###### Note
+
+Dataset evaluation is in public preview. Features and APIs may change before general availability.
+
 Dataset evaluations let you run your agent against a set of scenarios and automatically evaluate the results. Instead of manually invoking your agent, collecting spans, and calling the Evaluate API, a dataset runner orchestrates the entire lifecycle in a single call: invoke the agent, wait for telemetry ingestion, and evaluate.
 
 This is useful for regression testing, benchmark datasets, CI/CD pipelines, baseline measurement, and pre/post comparison after configuration changes.

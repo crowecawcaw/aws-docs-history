@@ -23,6 +23,10 @@ Before you start, you need:
 - AWS credentials and region configured ( `aws configure` )
 - Basic understanding of Python programming
 
+###### Important
+
+The `BedrockAgentCoreFullAccess` managed policy grants broad permissions including `GetWorkloadAccessTokenForUserId`, which allows callers to issue workload access tokens using any user identifier string without IdP token verification. This is suitable for development and testing. For production deployments, create custom IAM policies that follow the principle of least privilege and restrict permissions to only the specific actions required. If your application uses JWT-based authentication (recommended for production), you can explicitly deny `GetWorkloadAccessTokenForUserId` to ensure all user identification goes through the verified JWT path. For more information, see [Get workload access token](get-workload-access-token.md "get-workload-access-token.md").
+
 ### Install the SDK
 
 To get started, install the `bedrock-agentcore` package:

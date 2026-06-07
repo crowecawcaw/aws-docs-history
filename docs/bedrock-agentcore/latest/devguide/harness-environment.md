@@ -129,7 +129,51 @@ aws bedrock-agentcore-control create-harness \
 
 ## Agent Skills
 
-[Agent Skills](https://strandsagents.com/docs/user-guide/concepts/plugins/skills/ "https://strandsagents.com/docs/user-guide/concepts/plugins/skills/") are bundles of markdown and scripts that give the agent domain knowledge on demand (e.g. how to work with Excel files, how to use a specific API). Skills must be present in the harness environment (the container filesystem) before they can be used. The `skills` parameter on the harness or at invoke time is a **pointer** to a path inside the environment - it does not upload or install the skill.
+[Agent Skills](https://strandsagents.com/docs/user-guide/concepts/plugins/skills/ "https://strandsagents.com/docs/user-guide/concepts/plugins/skills/") are bundles of markdown and scripts that give the agent domain knowledge on demand (e.g. how to work with Excel files, how to use a specific API). Each entry in the `skills` list is either a `path` to a skill already in the harness environment, or an `s3` or `git` source that the harness fetches for you at invocation time. You can set `skills` as a default on the harness, or override it per invocation.
+
+### Fetch a skill from S3 or Git
+
+Instead of placing a skill in the environment yourself, point the harness at a skill stored in Amazon S3 or a Git repository and the harness fetches it for you - no image rebuild and no session setup required.
+
+- **Amazon S3** - set `s3.uri` to the skill directory (for example, `s3://my-skills-bucket/skills/company-style/`). The harness downloads it with the execution role, which needs `s3:GetObject` and `s3:ListBucket` on the bucket (see [Security and access controls](harness-security.md "harness-security.md")).
+- **Git over HTTPS** - set `git.url` to the repository URL, and `git.path` to pull a single skill from a subdirectory. For a private repository, set `git.auth.credentialArn` to an [AgentCore Identity](identity.md "identity.md") credential provider holding a personal access token (`git.auth.username` is optional, default `oauth2`).
+
+###### Example
+
+boto3
+Attach a skill from S3 and a skill from a public Git repository for a single invocation:
+
+```
+response = client.invoke_harness(
+    harnessArn=HARNESS_ARN,
+    runtimeSessionId=SESSION_ID,
+    skills=[
+        {"s3": {"uri": "s3://my-skills-bucket/skills/company-style/"}},
+        {"git": {"url": "https://github.com/anthropics/skills", "path": "skills/docx"}},
+    ],
+    messages=[{"role": "user", "content": [{"text": "Draft a one-paragraph summary of this report."}]}],
+)
+```
+
+To fetch a skill from a private Git repository, add `auth` with the ARN of a credential provider that holds a personal access token:
+
+```
+skills=[
+    {
+        "git": {
+            "url": "https://github.com/my-org/internal-skills",
+            "path": "excel",
+            "auth": {
+                "credentialArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:token-vault/default/apikeycredentialprovider/my-github-pat"
+            },
+        }
+    }
+]
+```
+
+The harness fetches each skill on the first invocation of a session and re-fetches it when a new session starts, so the agent always gets the current version. Each source must contain a `SKILL.md`, an S3 skill must be 1 GB or smaller, and a Git fetch must complete within 60 seconds; otherwise the invocation fails with a descriptive error.
+
+S3 sources need no internet access; Git (HTTPS) sources require internet egress, the same as pulling a custom container image or reaching a remote MCP server.
 
 ### Getting skills into the environment
 

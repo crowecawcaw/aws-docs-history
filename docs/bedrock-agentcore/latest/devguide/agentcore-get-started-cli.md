@@ -8,6 +8,12 @@ Two ways to build an agent on AgentCore, same CLI:
 - **Managed harness** (preview). You declare the agent in a config file (model, prompt, tools, memory) and AgentCore runs the loop for you. No framework, no orchestration code. Good path when you want the fastest route from idea to a running agent. [Learn more](harness.md "harness.md").
   This page walks through the code-based flow. For harness, see [What is the AgentCore harness](harness.md "harness.md").
 
+## Sign up for an AWS account
+
+### Sign up for an AWS account
+
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see [Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md") in the _AWS Account Management Reference Guide_.
+
 ## Prerequisites
 
 - **Node.js 20 or later.** The AgentCore CLI is distributed as an npm package. Check with `node --version`. Install from [nodejs.org](https://nodejs.org "https://nodejs.org") if needed.

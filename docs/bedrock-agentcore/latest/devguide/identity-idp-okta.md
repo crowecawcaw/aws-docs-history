@@ -56,7 +56,15 @@ For more details, refer to [Okta’s documentation](https://developer.okta.com/d
 
 ## Outbound
 
-Follow the same steps for configuring Okta as an inbound provider; however, when configuring the **Sign-in redirect URIs** add the callback URL that is assigned to your provider when creating the provider in AgentCore Identity.
+###### Note
+
+AgentCore Identity issues a unique OAuth2 callback URL for each credential provider you create. The unique callback URL enables session binding, which protects the OAuth2 authorization-code exchange against cross-provider replay and CSRF-style attacks by ensuring an authorization response can only be redeemed against the specific credential provider that initiated it. Because the URL is unique per provider, you won’t know it until **after** you call `CreateOauth2CredentialProvider`. Create your Okta OIDC application first, then return to the Okta developer console to register the callback URL once AgentCore Identity has issued it.
+
+**Step 1: Create the Okta OIDC application**
+
+Follow the procedure in the [Inbound](#identity-idp-okta-inbound "#identity-idp-okta-inbound") section to create your Okta OIDC application and authorization server. When prompted for **Sign-in redirect URIs** in the application settings, leave the field empty for now — you will add the unique callback URL in Step 3.
+
+**Step 2: Create the AgentCore Identity credential provider**
 
 To configure Okta as an outbound resource provider in AgentCore Identity, use the following:
 
@@ -104,3 +112,14 @@ To use [Okta OAuth 2.0 on-behalf-of token exchange](https://developer.okta.com/d
   }
 }
 ```
+
+The [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") response includes a `callbackUrl` field. This URL is unique to this credential provider and looks like: `https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`. Save this value for the next step.
+
+**Step 3: Register the unique callback URL with Okta**
+
+Return to the Okta developer console and add the unique callback URL to your application’s **Sign-in redirect URIs**.
+
+1. Sign in to the Okta developer console and open the OIDC application you created in Step 1.
+2. Open the **General** tab and edit the **LOGIN** settings.
+3. Add the `callbackUrl` value returned by `CreateOauth2CredentialProvider` to **Sign-in redirect URIs**.
+4. Choose **Save**.

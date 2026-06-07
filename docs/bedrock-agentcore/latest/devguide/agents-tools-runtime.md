@@ -71,7 +71,7 @@ AgentCore Runtime is delivered through a single, comprehensive SDK that provides
 - [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md")
 - [AgentCore Runtime versioning and endpoints](agent-runtime-versioning.md "agent-runtime-versioning.md")
 - [Invoke an AgentCore Runtime agent](runtime-invoke-agent.md "runtime-invoke-agent.md")
-- [Execute shell commands in AgentCore Runtime sessions](runtime-execute-command.md "runtime-execute-command.md")
+- [Shell execution](runtime-shell-execution.md "runtime-shell-execution.md")
 - [Observe agents in Amazon Bedrock AgentCore Runtime](runtime-observability.md "runtime-observability.md")
 - [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md")
 - [Troubleshoot AgentCore Runtime](runtime-troubleshooting.md "runtime-troubleshooting.md")

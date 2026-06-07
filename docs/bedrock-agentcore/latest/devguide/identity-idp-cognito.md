@@ -151,6 +151,28 @@ https://cognito-idp.us-west-2.amazonaws.com/<UserPoolId>/.well-known/openid-conf
 
 ## Outbound
 
+###### Note
+
+AgentCore Identity issues a unique OAuth2 callback URL for each credential provider you create. The unique callback URL enables session binding, which protects the OAuth2 authorization-code exchange against cross-provider replay and CSRF-style attacks by ensuring an authorization response can only be redeemed against the specific credential provider that initiated it. Because the URL is unique per provider, you won’t know it until **after** you call `CreateOauth2CredentialProvider`. Create your Cognito user pool app client first, then return to the Amazon Cognito console to register the callback URL once AgentCore Identity has issued it.
+
+**Step 1: Create the Cognito user pool app client**
+
+Use the following procedure to set up a Cognito user pool app client for outbound OAuth2 federation. You will register the redirect URI in Step 3, after AgentCore Identity issues the unique callback URL.
+
+**To configure a Cognito user pool app client**
+
+1. In the Amazon Cognito console, open or create the user pool you want to use as an outbound resource provider.
+2. Configure a user pool domain so the hosted UI can issue authorization codes.
+3. Create an app client for the user pool, generate a client secret, and enable the **Authorization code grant** OAuth2 flow.
+4. Select the OAuth2 scopes your application requires.
+5. Leave the **Allowed callback URLs** field empty for now — you will add the unique callback URL in Step 3.
+6. Record the **Client ID** and **Client Secret**. You’ll need these values to configure the Cognito provider in AgentCore Identity.
+7. Note your user pool’s domain prefix and user pool ID. You’ll use these to construct the authorization, token, and issuer endpoints in Step 2.
+
+For more details, refer to [Configure an app client](../../../cognito/latest/developerguide/cognito-user-pools-app-idp-settings.md "../../../cognito/latest/developerguide/cognito-user-pools-app-idp-settings.md") in the Amazon Cognito Developer Guide.
+
+**Step 2: Create the AgentCore Identity credential provider**
+
 To configure Cognito user pools as an outbound resource provider, use the following configuration:
 
 ```
@@ -168,3 +190,13 @@ To configure Cognito user pools as an outbound resource provider, use the follow
   }
 }
 ```
+
+The [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") response includes a `callbackUrl` field. This URL is unique to this credential provider and looks like: `https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`. Save this value for the next step.
+
+**Step 3: Register the unique callback URL with Cognito**
+
+Return to the Amazon Cognito console and add the unique callback URL to your app client’s allowed callbacks.
+
+1. In the Amazon Cognito console, open the user pool app client you created in Step 1.
+2. In the app client’s hosted UI configuration, add the `callbackUrl` value returned by `CreateOauth2CredentialProvider` to **Allowed callback URLs**.
+3. Save your changes.

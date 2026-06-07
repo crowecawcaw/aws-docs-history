@@ -2,6 +2,16 @@
 
 We recommend subscribing to the RSS feed so updates to these notes are delivered to your Inbox.
 
+## June 2026
+
+### Runtime: Interactive Shells (Terminals)
+
+AgentCore Runtime now supports interactive shell sessions, giving agents persistent terminal access to their sandboxed environment. Unlike one-shot command execution, interactive shells maintain state across commands — environment variables, working directories, and running processes persist for the lifetime of the session. Each runtime session supports up to 10 concurrent shell sessions. See [Interactive Shells (Terminals)](runtime-get-started-command-shell.md "runtime-get-started-command-shell.md").
+
+### Step Functions integration with AgentCore harness
+
+AWS Step Functions now integrates natively with AgentCore harness, enabling teams to embed agent reasoning steps directly into production workflows. Within a workflow, run multiple harnesses in parallel or sequence, and wrap them with human approval, error handling, or conditional routing steps. Create a new harness inline from the Step Functions visual builder, or reference an existing one with per-invocation overrides to model, system prompt, and tools. Available in all AWS Regions where AgentCore harness is supported. See [Invoke Amazon Bedrock AgentCore harness with Step Functions](harness-step-functions.md "harness-step-functions.md").
+
 ## May 2026
 
 ### AWS CDK: AgentCore Constructs Graduate to Stable

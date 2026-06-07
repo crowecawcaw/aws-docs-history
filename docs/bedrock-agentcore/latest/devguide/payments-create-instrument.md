@@ -1,6 +1,6 @@
 # Create a payment instrument
 
-A payment instrument represents an embedded crypto wallet that an agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network. For the complete request and response schema, see [CreatePaymentInstrument](../APIReference/API_CreatePaymentInstrument.md "../APIReference/API_CreatePaymentInstrument.md") in the API Reference.
+A payment instrument represents an embedded crypto wallet that an agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network. The `ETHEREUM` network value covers Ethereum mainnet and all supported EVM-compatible Layer 2 networks (Base, Arbitrum, and others). For the complete request and response schema, see [CreatePaymentInstrument](../APIReference/API_CreatePaymentInstrument.md "../APIReference/API_CreatePaymentInstrument.md") in the API Reference.
 
 ###### Example
 

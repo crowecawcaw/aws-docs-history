@@ -7,6 +7,10 @@ When creating an AgentCore Memory, consider the following factors to maintain it
 
 **Event retention** – Choose how long raw events are retained (up to 365 days) for short-term memory.
 
+###### Note
+
+`eventExpiryDuration` is applied per event at write time. Updating it affects only events created after the change. Previously stored events keep their original expiration and cannot be extended, and expired events cannot be recovered.
+
 **Security requirements** – If your application handles sensitive information, consider using a [customer managed AWS KMS key](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") for encryption. The service still encrypts data using a service managed key, even if you don’t provide a customer-managed AWS KMS key.
 
 **Memory strategies** – Define how events are processed into meaningful long-term memories using built-in or built-in with overrides strategies. If you do not define any strategy, only short-term memory containing raw events are stored. For more information, see [Use long-term memory](long-term-memory-long-term.md "long-term-memory-long-term.md").

@@ -4,16 +4,6 @@ The [InvokeAgentRuntimeCommand](../APIReference/API_InvokeAgentRuntimeCommand.md
 
 To call `InvokeAgentRuntimeCommand` , you need `bedrock-agentcore:InvokeAgentRuntimeCommand` permissions.
 
-## When to use InvokeAgentRuntimeCommand
-
-| Use InvokeAgentRuntimeCommand                                   | Use InvokeAgentRuntime                                                 |
-| --------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| The operation has a known command ( `npm test` , `git push` )   | The operation requires reasoning ("analyze this code and fix the bug") |
-| You want deterministic execution<br>• same command, same result | You want the LLM to decide what to do                                  |
-| You need streaming output from a long-running process           | You need the agent to use tools in a loop                              |
-| The operation is a validation gate in your workflow             | The operation is the creative or analytical work                       |
-| You’re bootstrapping the environment before the agent starts    | You’re asking the agent to work on a task                              |
-
 ## How it works
 
 `InvokeAgentRuntimeCommand` runs a shell command inside the container of an active AgentCore Runtime session and streams the output back.

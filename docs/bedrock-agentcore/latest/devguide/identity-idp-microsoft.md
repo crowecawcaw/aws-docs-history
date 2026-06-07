@@ -45,6 +45,30 @@ On Microsoft Entra:
 
 ## Outbound
 
+###### Note
+
+AgentCore Identity issues a unique OAuth2 callback URL for each credential provider you create. The unique callback URL enables session binding, which protects the OAuth2 authorization-code exchange against cross-provider replay and CSRF-style attacks by ensuring an authorization response can only be redeemed against the specific credential provider that initiated it. Because the URL is unique per provider, you won’t know it until **after** you call `CreateOauth2CredentialProvider`. Create your Microsoft Entra ID application registration first, then return to the Microsoft Entra admin center to register the callback URL once AgentCore Identity has issued it.
+
+**Step 1: Create the Microsoft Entra ID application registration**
+
+Use the following procedure to set up a Microsoft Entra ID application registration and obtain the necessary client credentials for AgentCore Identity. You will register the redirect URI in Step 3, after AgentCore Identity issues the unique callback URL.
+
+**To configure a Microsoft Entra ID application registration**
+
+1. Sign in to the Microsoft Entra admin center.
+2. Open **App registrations** and choose **New registration**.
+3. Enter a name for your application.
+4. Under **Supported account types** , select the option appropriate for your application.
+5. Leave the **Redirect URI** field empty for now — you will add the unique callback URL in Step 3.
+6. Choose **Register**.
+7. On the application’s overview page, record the **Application (client) ID** and **Directory (tenant) ID** . You’ll need these values to configure the Microsoft provider in AgentCore Identity.
+8. Open **Certificates & secrets** and create a new client secret. Record the secret value as you’ll need it for AgentCore Identity. Microsoft only displays the secret value once.
+9. Open **API permissions** and add the Microsoft Graph or other permissions your application requires.
+
+For more details, refer to [Quickstart: Register an application](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app "https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app") in the Microsoft Entra documentation.
+
+**Step 2: Create the AgentCore Identity credential provider**
+
 To configure the outbound Microsoft resource provider, use the following:
 
 ```
@@ -60,3 +84,14 @@ To configure the outbound Microsoft resource provider, use the following:
         }
     }
 ```
+
+The [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") response includes a `callbackUrl` field. This URL is unique to this credential provider and looks like: `https://bedrock-agentcore.us-east-1.amazonaws.com/identities/oauth2/callback/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX`. Save this value for the next step.
+
+**Step 3: Register the unique callback URL with Microsoft Entra**
+
+Return to the Microsoft Entra admin center and add the unique callback URL to your application’s redirect URIs.
+
+1. Sign in to the Microsoft Entra admin center and open the app registration you created in Step 1.
+2. Open **Authentication** and choose **Add a platform** > **Web**.
+3. Paste the `callbackUrl` value returned by `CreateOauth2CredentialProvider` as the **Redirect URI**.
+4. Choose **Configure** (or **Save**).

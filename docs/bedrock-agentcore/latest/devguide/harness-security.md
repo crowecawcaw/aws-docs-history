@@ -382,9 +382,35 @@ Add this policy when your harness uses a gateway configured with SigV4 inbound a
 }
 ```
 
-#### API key credential provider (OpenAI, Gemini, or MCP header ARN references)
+#### Skill sources in Amazon S3 and Git
 
-Add this policy when your harness uses an API key credential provider for model providers such as OpenAI or Gemini.
+Add this policy when your harness fetches a skill from an Amazon S3 source. The execution role lists and downloads the skill objects under the bucket prefix.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AgentCoreSkillS3Access",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::<skillBucket>",
+        "arn:aws:s3:::<skillBucket>/*"
+      ]
+    }
+  ]
+}
+```
+
+To fetch a skill from a private Git repository, the harness reads a personal access token from an API key credential provider. Grant the **API key credential provider** policy shown below for the credential provider that holds the token.
+
+#### API key credential provider (OpenAI, Gemini, LiteLLM, or MCP header ARN references)
+
+Add this policy when your harness uses an API key credential provider for model providers such as OpenAI, Gemini, or LiteLLM.
 
 ```
 {
@@ -454,20 +480,21 @@ Add this policy when your harness uses an OAuth2 credential provider for OAuth-p
 
 Replace the following placeholders in the policies above with values specific to your environment:
 
-| Placeholder                 | Description                                      |
-| --------------------------- | ------------------------------------------------ |
-| `<region>`                  | The AWS Region where your resource is deployed.  |
-| `<accountId>`               | Your AWS account ID.                             |
-| `<agentName>`               | The name of your harness agent.                  |
-| `<memoryId>`                | The ID of your AgentCore memory resource.        |
-| `<browserCustomId>`         | The ID of your custom browser resource.          |
-| `<codeInterpreterCustomId>` | The ID of your custom code interpreter resource. |
-| `<gatewayId>`               | The ID of your AgentCore Gateway resource.       |
-| `<apiKeyName>`              | The name of your API key credential provider.    |
-| `<oauthProviderName>`       | The name of your OAuth2 credential provider.     |
-| `<ecrRegion>`               | The region where your ECR repository is hosted.  |
-| `<ecrAccountId>`            | The AWS account ID that owns the ECR repository. |
-| `<ecrRepoName>`             | The name of your ECR repository.                 |
+| Placeholder                 | Description                                            |
+| --------------------------- | ------------------------------------------------------ |
+| `<region>`                  | The AWS Region where your resource is deployed.        |
+| `<accountId>`               | Your AWS account ID.                                   |
+| `<agentName>`               | The name of your harness agent.                        |
+| `<memoryId>`                | The ID of your AgentCore memory resource.              |
+| `<browserCustomId>`         | The ID of your custom browser resource.                |
+| `<codeInterpreterCustomId>` | The ID of your custom code interpreter resource.       |
+| `<gatewayId>`               | The ID of your AgentCore Gateway resource.             |
+| `<apiKeyName>`              | The name of your API key credential provider.          |
+| `<skillBucket>`             | The name of the S3 bucket that holds your skill files. |
+| `<oauthProviderName>`       | The name of your OAuth2 credential provider.           |
+| `<ecrRegion>`               | The region where your ECR repository is hosted.        |
+| `<ecrAccountId>`            | The AWS account ID that owns the ECR repository.       |
+| `<ecrRepoName>`             | The name of your ECR repository.                       |
 
 ###### Note
 

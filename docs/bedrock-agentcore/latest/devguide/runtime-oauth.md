@@ -14,11 +14,20 @@ The default authentication and authorization mechanism that works automatically 
 
 **X-Amzn-Bedrock-AgentCore-Runtime-User-Id Header**
 
-If your solution requires the hosted agent to retrieve OAuth tokens on behalf of end users (using Authorization Code Grant), you can specify the user identifier by including the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header in your requests.
+If your solution requires the hosted agent to retrieve OAuth tokens on behalf of end users (using Authorization Code Grant), you can specify the user identifier by including the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header in your requests. This header uses the `GetWorkloadAccessTokenForUserId` path internally.
 
 ###### Note
 
 Invoking InvokeAgentRuntime with the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id header` will require a new IAM action: `bedrock-agentcore:InvokeAgentRuntimeForUser` , in addition to the existing `bedrock-agentcore:InvokeAgentRuntime` action.
+
+**When to use this header versus JWT Bearer Token authentication**
+
+This header is designed for the following use cases:
+
+- **Enterprise customers with customer-managed user identifiers** — Organizations that maintain their own user identity strings and need to pass them through to AgentCore Identity for credential binding.
+- **Development and quickstart scenarios** — Builders who don’t yet have an IdP token available and need a fast path to test user-scoped credential flows.
+
+For production deployments where you have an identity provider configured, use [JWT Bearer Token authentication](#oauth-sample-overview "#oauth-sample-overview") instead. The JWT path (`GetWorkloadAccessTokenForJWT`) validates the token’s issuer, signature, and expiry, providing cryptographic proof of the user’s identity. The `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header path does not verify the userId against an authenticated end-user identity — it relies on the calling workload to pass the correct value and on your IAM policies to restrict who can supply it.
 
 **Security Best Practices for X-Amzn-Bedrock-AgentCore-Runtime-User-Id Header**
 
@@ -26,7 +35,7 @@ Invoking InvokeAgentRuntime with the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id h
 
 For a consolidated view of all Runtime security recommendations, see [Security best practices for AgentCore Runtime](runtime-security-best-practices.md "runtime-security-best-practices.md").
 
-While IAM authentication secures the API access, the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header requires additional security considerations:
+Because AgentCore treats the header value as an opaque identifier without verifying it against an authenticated identity, you must apply the following controls to maintain the security boundary:
 
 - **Restrict the IAM permission** — Only trusted principals should have the `bedrock-agentcore:InvokeAgentRuntimeForUser` permission. Scope this permission to specific runtime resources using IAM resource conditions. Do not grant it broadly via managed policies or wildcard resource statements.
 - **Derive user-id from the authenticated principal** — The user-id value should be derived from the authenticated principal’s context (for example, IAM caller identity or user token claims) rather than accepting arbitrary client-supplied values. This prevents an authenticated user from impersonating another user by manually specifying a different `user-id` .
@@ -45,8 +54,6 @@ While IAM authentication secures the API access, the `X-Amzn-Bedrock-AgentCore-R
    ]
 }
 ```
-
-Remember that Amazon Bedrock AgentCore treats this header value as an opaque identifier and relies on your application’s logic to maintain the security boundary between authenticated users and their corresponding `user-id` values.
 
 **JWT Bearer Token Authentication**
 

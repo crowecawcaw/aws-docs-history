@@ -56,7 +56,7 @@ Apply the principle of least privilege to all IAM policies associated with your 
 
 Resource-based policies provide fine-grained access control directly on your runtime resources:
 
-- **Understand hierarchical authorization** — For runtime API operations such as `InvokeAgentRuntime` and `InvokeAgentRuntimeCommand`, AWS evaluates policies on both the agent runtime and the agent endpoint. Both must allow the action.
+- **Understand hierarchical authorization** — For runtime API operations such as `InvokeAgentRuntime`, `InvokeAgentRuntimeCommand`, and `InvokeAgentRuntimeCommandShell`, AWS evaluates policies on both the agent runtime and the agent endpoint. Both must allow the action.
 - **Configure both resources for cross-account access** — To grant cross-account access, create resource-based policies on both the agent runtime and the agent endpoint. If either resource lacks an explicit allow, the request is denied.
 - **Remember that explicit deny always wins** — If any policy (identity-based or resource-based) explicitly denies an action, access is denied regardless of other policies.
 
@@ -99,9 +99,11 @@ For more information, see [Cross-service confused deputy prevention](cross-servi
 AgentCore Runtime supports IAM SigV4 and JWT bearer token authentication. Follow these practices to secure access:
 
 - **Choose the right authentication method** — Use IAM SigV4 for service-to-service calls within AWS. Use JWT bearer token authentication when end users authenticate directly through an identity provider. A runtime can support one method at a time; create separate versions for different authentication types.
+- **Prefer JWT-based user identification for production** — When your agent retrieves OAuth tokens on behalf of end users, prefer the JWT bearer token path (`GetWorkloadAccessTokenForJWT`), which validates the token’s issuer, signature, and expiry. The UserId path (`GetWorkloadAccessTokenForUserId` / `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header) treats the user identifier as an opaque string without IdP verification — use it only for development, quickstart scenarios, or enterprise architectures that resolve user identity upstream. For more information, see [Get workload access token](get-workload-access-token.md "get-workload-access-token.md").
 - **Configure JWT authorizers completely** — When using JWT authentication, configure all available validation fields: discovery URL, allowed audiences, allowed clients, allowed scopes, and required custom claims.
 - **Never hardcode tokens in production code** — Use secure token retrieval mechanisms. Hardcoded tokens are a security risk in source control and deployed artifacts.
-- **Derive user-id from the authenticated principal** — The `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` value should be derived from the authenticated principal’s context (IAM caller identity or user token claims), not from arbitrary client-supplied values. This prevents authenticated users from impersonating other users.
+- **Derive user-id from the authenticated principal** — If you use the `X-Amzn-Bedrock-AgentCore-Runtime-User-Id` header, the value should be derived from the authenticated principal’s context (IAM caller identity or user token claims), not from arbitrary client-supplied values. This prevents authenticated users from impersonating other users.
+- **Deny ForUserId where not needed** — For workloads that always have a JWT available, explicitly deny `bedrock-agentcore:GetWorkloadAccessTokenForUserId` and `bedrock-agentcore:InvokeAgentRuntimeForUser` in IAM policies. This ensures all user identification goes through the cryptographically verified JWT path.
 - **Configure VPC endpoint policies for your auth method** — VPC endpoint policies can only restrict callers based on IAM principals, not OAuth users. For OAuth-based requests, set `Principal` to `*` in the endpoint policy. For SigV4-based authentication, specify the allowed IAM identities.
 
 For implementation details, see [Authenticate and authorize with Inbound Auth and Outbound Auth](runtime-oauth.md "runtime-oauth.md").
@@ -166,7 +168,7 @@ Replace `region` with your AWS Region identifier (for example, `us-east-2`).
 Replace `region` with your AWS Region identifier (for example, `us-west-2`). If you also use [persistent file systems](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md"), add the session storage bucket to this policy. For more information, see [Configure AgentCore Runtime for VPC](agentcore-vpc.md "agentcore-vpc.md").
 
 - **Use private subnets with NAT gateways** — Public subnets do not provide internet access for AgentCore Runtime. Always place runtime ENIs in private subnets with a route to a NAT gateway for outbound internet access.
-- **Transport security** — All connections use TLS 1.2 or higher. WebSocket connections use WSS (WebSocket Secure) over HTTPS.
+- **Transport security** — All connections use TLS 1.2 or higher. WebSocket connections, including `InvokeAgentRuntimeCommandShell`, use WSS (WebSocket Secure) over HTTPS exclusively. Plaintext `ws://` connections are not supported.
 - **Enforce header limits** — Custom headers are limited to 4KB per value and 20 headers per runtime. The `Authorization` header is reserved for agents with OAuth inbound access.
 
 ## Encryption
@@ -183,7 +185,7 @@ For more information, see [Data encryption](data-encryption.md "data-encryption.
 
 Implement comprehensive auditing to detect and investigate security events:
 
-- **Enable CloudTrail logging** — AWS CloudTrail records API calls including `InvokeAgentRuntime`, `InvokeAgentRuntimeCommand`, and control plane operations. Each record includes caller identity, timestamp, source IP address, and response status.
+- **Enable CloudTrail logging** — AWS CloudTrail records API calls including `InvokeAgentRuntime`, `InvokeAgentRuntimeCommand`, `InvokeAgentRuntimeCommandShell`, and control plane operations. Each record includes caller identity, timestamp, source IP address, and response status.
 - **Use CloudWatch Logs for command auditing** — AgentCore Runtime sends the request ID and input command to your agent’s CloudWatch Logs log group. Use these logs to maintain an audit trail of commands executed in your sessions.
 - **Correlate logs using request IDs** — Use the request ID to correlate CloudTrail records (who called the API) with CloudWatch Logs (what command was executed).
 - **Set up metric filters and alarms** — Configure CloudWatch Logs metric filters to detect unexpected command patterns or unauthorized access attempts. Create alarms to notify your team of anomalies.
@@ -210,7 +212,7 @@ Understand the division of security responsibilities between AWS and you:
 - Security of commands executed in runtime sessions
 - Session-to-user mapping enforcement
 - Container image updates (for container deployments) — rebuild with the latest secure base image regularly
-- Input validation and prompt injection prevention
+- Input validation and prompt injection prevention — including validating `InvokeHarness` input when using the managed harness (see [Harness shares the AgentCore Runtime trust boundary](#security-bp-harness-trust-boundary "#security-bp-harness-trust-boundary"))
 - Network configuration (security groups, VPC endpoints, route tables)
 
 ###### Important
@@ -221,13 +223,26 @@ For direct code deployments, AgentCore Runtime applies security patches to the r
 
 Security patches can expose issues with existing code that relies on previous insecure behavior. If this risk is not acceptable, use container images to deploy your agent.
 
+### Harness shares the AgentCore Runtime trust boundary
+
+The managed harness is built on AgentCore Runtime. It does not add a security layer between the caller and the microVM. The security boundary is the same as AgentCore Runtime: IAM or JWT authentication combined with microVM isolation.
+
+- All `InvokeHarness` input considered trusted input — Any principal that passes the IAM or JWT authentication gate has full access to the capabilities configured on the harness. The harness does not perform any custom input sanitization, content-block filtering, or behavioral enforcement on your behalf. Design your architecture with the assumption that every authenticated caller is fully trusted to use the configured capabilities.
+- Validate untrusted input in your own application layer — If you expose the harness to end users you do not fully trust (employees, external consumers, or third-party integrations) between your frontend and `InvokeHarness`, it is your responsibility to sanitize, validate, or otherwise review messages before passing them to the harness. This includes stripping content block types that you do not want dispatched directly. This is the same pattern as any service that accepts payloads from authorized callers, such as Lambda, Amazon API Gateway, and Amazon SQS.
+
 ## Command execution security
 
-When using `InvokeAgentRuntimeCommand`, apply these security practices:
+AgentCore Runtime provides two command execution APIs:
 
-- **Understand the security boundary** — Commands have full access to the container filesystem and any configured credentials or secrets within the microVM. The isolation boundary is the microVM itself.
-- **Use deterministic operations for deterministic tasks** — Use `InvokeAgentRuntimeCommand` for operations like tests, git, and builds. Don’t route deterministic operations through the LLM via `InvokeAgentRuntime`.
-- **Restrict who can execute commands** — Use IAM policies to limit which principals can call `InvokeAgentRuntimeCommand`. Not all users who can invoke an agent should be able to execute arbitrary commands.
+- `InvokeAgentRuntimeCommand` — One-shot, non-interactive command execution over HTTP/2. IAM action: `bedrock-agentcore:InvokeAgentRuntimeCommand`.
+- `InvokeAgentRuntimeCommandShell` — Interactive WebSocket shell session with persistent PTY access. IAM action: `bedrock-agentcore:InvokeAgentRuntimeCommandShell`.
+
+Both APIs operate within the same microVM isolation boundary and share the same security model. Apply these practices to both:
+
+- **Understand the security boundary** — Commands have full access to the container filesystem and any configured credentials or secrets within the microVM. The isolation boundary is the microVM itself. Under the shared responsibility model, you are responsible for the security of any code executed in your runtime container.
+- **Use deterministic operations for deterministic tasks** — Use `InvokeAgentRuntimeCommand` or `InvokeAgentRuntimeCommandShell` for operations like tests, git, and builds. Don’t route deterministic operations through the LLM via `InvokeAgentRuntime`.
+- **Restrict who can execute commands** — Use IAM policies to limit which principals can call `InvokeAgentRuntimeCommand` or `InvokeAgentRuntimeCommandShell`. Not all users who can invoke an agent should be able to execute arbitrary commands. Example resource ARN: `arn:aws:bedrock-agentcore:us-west-2:123456789012:runtime/my-agent`.
+- **WebSocket shell uses wss:// only** — `InvokeAgentRuntimeCommandShell` connections are established exclusively over WSS (WebSocket Secure). Plaintext `ws://` connections are not supported. Callers authenticate via SigV4 at WebSocket upgrade.
 - **Keep traffic within your network** — Configure VPC endpoints to avoid internet traversal for command execution API calls.
 - **Set appropriate timeouts** — Configure command timeouts based on expected execution duration to prevent resource waste from runaway processes.
 

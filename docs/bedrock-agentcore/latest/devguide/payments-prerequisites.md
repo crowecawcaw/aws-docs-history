@@ -27,7 +27,7 @@ AgentCore payments connects to external payment providers for cryptocurrency wal
 
 ### Coinbase CDP credentials
 
-If you plan to use Coinbase CDP as your payment provider for developer-managed wallets, obtain the following credentials from the [Coinbase Developer Platform](https://docs.cdp.coinbase.com/api-reference/v2/authentication "https://docs.cdp.coinbase.com/api-reference/v2/authentication"):
+If you plan to use Coinbase CDP as your payment provider for developer-managed wallets, obtain the following credentials from the [Coinbase Developer Platform](https://docs.cdp.coinbase.com/api-reference/v2/authentication "https://docs.cdp.coinbase.com/api-reference/v2/authentication"). The [Coinbase AgentCore template on GitHub](https://github.com/coinbase/cdp-agentcore-template "https://github.com/coinbase/cdp-agentcore-template") provides a reference frontend for onramping funds and granting agent permissions.
 
 1. Create or log in to a Coinbase Developer Platform account and project.
 2. Generate an API key and Wallet secret (or reuse an existing one) and note the following values:
@@ -44,7 +44,7 @@ If you plan to use Coinbase CDP as your payment provider for developer-managed w
 
 ### Privy credentials
 
-If you plan to use Privy for user-owned embedded wallet flows, obtain the following credentials from the [Privy Dashboard](https://docs.privy.io/authentication/overview#api-authentication "https://docs.privy.io/authentication/overview#api-authentication"):
+If you plan to use Privy for user-owned embedded wallet flows, obtain the following credentials from the [Privy Dashboard](https://docs.privy.io/authentication/overview#api-authentication "https://docs.privy.io/authentication/overview#api-authentication"). The [Privy AgentCore SDK on GitHub](https://github.com/privy-io/aws-agentcore-sdk "https://github.com/privy-io/aws-agentcore-sdk") provides a reference frontend for onramping funds and granting agent permissions.
 
 1. Create a **dedicated** Privy app for AgentCore operations at [dashboard.privy.io](https://dashboard.privy.io/ "https://dashboard.privy.io/"). Do not reuse Privy apps that serve other purposes.
 2. Copy the **App ID** and **App Secret** from your app settings.

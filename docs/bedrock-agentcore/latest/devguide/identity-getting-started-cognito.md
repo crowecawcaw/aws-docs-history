@@ -472,6 +472,11 @@ agentcore invoke "TestPayload" --runtime IdentityQuickstart --user-id "SampleUse
 The agent will then return a URL to your `agentcore invoke` command. Copy and paste that URL into your preferred browser, and you will then be redirected to your authorization server’s login page. The `--user-id` parameter is the user ID you are presenting to AgentCore Identity. The `--session-id` parameter is the session ID, which must be at least 33 characters long.
 
 
+###### Important
+
+The `--user-id` parameter uses the `GetWorkloadAccessTokenForUserId` API path, which treats the userId as an opaque string without verifying it against an authenticated end-user identity. This is appropriate for quickstart and development scenarios where you don’t have an IdP token available. For production deployments where you have a JWT identifying the end user, use the JWT-based authentication path (`GetWorkloadAccessTokenForJWT`) instead, which validates the token’s issuer, signature, and expiry. For more information, see [Get workload access token](get-workload-access-token.md "get-workload-access-token.md").
+
+
 Enter the username and password for your user on your authorization server when prompted on your browser, or use your preferred authentication method you have configured. If you used the script from Step 1 to create a Cognito instance, you can retrieve this from your terminal history.
 
 

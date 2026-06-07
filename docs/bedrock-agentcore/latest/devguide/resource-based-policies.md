@@ -160,6 +160,7 @@ The `Resource` field in the policy document must contain the exact ARN of the re
 - `bedrock-agentcore:InvokeAgentRuntime` - Invoke an agent runtime
 - `bedrock-agentcore:InvokeAgentRuntimeForUser` - Invoke an agent runtime endpoint with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header
 - `bedrock-agentcore:InvokeAgentRuntimeCommand` - Execute a shell command in an active runtime session
+- `bedrock-agentcore:InvokeAgentRuntimeCommandShell` - Open an interactive WebSocket shell session in an active runtime session
 - `bedrock-agentcore:InvokeAgentRuntimeWithWebSocketStream` - Invoke an agent runtime with WebSocket stream
 - `bedrock-agentcore:InvokeAgentRuntimeWithWebSocketStreamForUser` - Invoke an agent runtime with WebSocket stream with X-Amzn-Bedrock-AgentCore-Runtime-User-Id header
 - `bedrock-agentcore:StopRuntimeSession` - Stop an active runtime session

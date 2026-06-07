@@ -1,33 +1,250 @@
-# Get started with AgentCore payments
+# AgentCore payments quick start
 
-This guide walks you through setting up AgentCore payments and processing your first microtransaction. By the end, your agent will be able to access paid x402 endpoints autonomously.
+This tutorial walks you through setting up AgentCore payments and processing your first microtransaction. By the end, your agent will pay for a resource using the x402 protocol on a test network.
 
 ## Prerequisites
 
-Before you start, ensure you have:
+Before starting, make sure you have:
 
-- An AWS account with credentials configured. See [Getting started with the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
-- Python 3.10+ installed.
-- Boto3 installed: `pip install boto3`
-- The AgentCore SDK installed: `pip install bedrock-agentcore[strands-agents]`
-- Credentials from at least one payment provider (Coinbase CDP or Stripe Privy). See [Prerequisites](payments-prerequisites.md "payments-prerequisites.md") for details.
-- An AWS Region where AgentCore payments is available (us-east-1, us-west-2, eu-central-1, or ap-southeast-2). See [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
+- **AWS Account** with credentials configured (`aws configure`)
+- **Python 3.10+** installed
+- **An AWS Region where AgentCore payments is available** — us-east-1, us-west-2, eu-central-1, or ap-southeast-2. See [Supported AWS Regions](agentcore-regions.md "agentcore-regions.md").
 
-## Setting up payments for your first transaction
+Install the required packages:
 
-Follow these steps to set up payments and process your first transaction:
+```
+pip install boto3 bedrock-agentcore[strands-agents] strands-agents strands-agents-tools
+```
 
-1. **Create a payment credential provider** — Store your Coinbase CDP or Stripe Privy credentials securely in AgentCore Identity. See [Creating a payment credential provider](resource-providers.md#payment-credential-provider "resource-providers.md#payment-credential-provider").
-2. **Set up IAM roles** — Configure the required roles for administration, management, execution, and service operations. See [IAM roles for AgentCore payments](payments-iam-roles.md "payments-iam-roles.md").
-3. **Create a Payment Manager and Connector** — Set up the top-level resource that coordinates payment operations and connect it to your payment provider. See [Create a Payment Manager and Connector](payments-create-manager.md "payments-create-manager.md").
-4. **Create a payment instrument** — Provision an embedded crypto wallet for your agent. See [Create a payment instrument](payments-create-instrument.md "payments-create-instrument.md").
-5. **Fund the wallet** — Redirect the end user to the wallet hub to top up and grant agent permissions. See [Funding the wallet](payments-how-it-works.md#payments-how-it-works-funding-wallet "payments-how-it-works.md#payments-how-it-works-funding-wallet").
-6. **Create a payment session** — Establish a time-bounded session with optional spending limits. See [Create a payment session](payments-create-session.md "payments-create-session.md").
-7. **Process a payment** — Call a paid endpoint and let AgentCore payments handle the x402 flow. See [Process a payment](payments-process-payment.md "payments-process-payment.md").
+Verify your credentials are configured:
 
-## Quick example with Strands SDK
+```
+aws sts get-caller-identity
+```
 
-The following example shows the minimal code to enable automatic payments in a Strands agent:
+## Step 1: Obtain payment provider credentials
+
+AgentCore payments connects to an external payment provider for wallet operations. You need credentials from one of the supported providers before proceeding.
+
+###### Example
+
+Coinbase CDP
+
+1. Log in to the [Coinbase Developer Platform](https://docs.cdp.coinbase.com/api-reference/v2/authentication "https://docs.cdp.coinbase.com/api-reference/v2/authentication") and create or select a project.
+2. Generate an API key and note the **API Key ID**, **API Key Secret**, and **Wallet Secret**.
+3. Under **Project** > **Wallet** > **Embedded Wallets** > **Policies**, enable **Delegated signing**.
+
+You will use these three values in the next step:
+
+| Credential       | Description                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| `API Key ID`     | Public identifier for your CDP project                                                |
+| `API Key Secret` | Private secret for signing API requests                                               |
+| `Wallet Secret`  | Secret for cryptographic wallet operations (deriving addresses, signing transactions) |
+
+Privy
+
+1. Create a **dedicated** Privy app at [dashboard.privy.io](https://dashboard.privy.io/ "https://dashboard.privy.io/"). Do not reuse apps that serve other purposes.
+2. Copy the **App ID** and **App Secret** from your app settings.
+3. Navigate to **Wallet Infrastructure** > **Authorization** and choose **New Key** to generate a P-256 key pair.
+4. Strip the `wallet-auth:` prefix from the generated private key. Use only the raw base64 content.
+
+You will use these four values in the next step:
+
+| Credential                  | Description                                                  |
+| --------------------------- | ------------------------------------------------------------ |
+| `App ID`                    | Your Privy application identifier                            |
+| `App Secret`                | Secret for server-to-server Basic Auth                       |
+| `Authorization ID`          | Public key identifier from the P-256 key pair                |
+| `Authorization Private Key` | Private key (base64 only, without the `wallet-auth:` prefix) |
+
+For full details including security best practices and credential rotation, see [Prerequisites](payments-prerequisites.md "payments-prerequisites.md").
+
+## Step 2: Store credentials in AgentCore Identity
+
+Store your payment provider credentials as a PaymentCredentialProvider. This keeps secrets in AWS Secrets Manager rather than in your application code.
+
+###### Example
+
+Coinbase CDP
+
+```
+import boto3
+
+client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
+
+credential_provider = client.create_payment_credential_provider(
+    name="my-coinbase-credentials",
+    credentialProviderVendor="CoinbaseCDP",
+    coinbaseCdpConfig={
+        "apiKeyId": "<YOUR_CDP_API_KEY_ID>",
+        "apiKeySecret": "<YOUR_CDP_API_KEY_SECRET>",
+        "walletSecret": "<YOUR_CDP_WALLET_SECRET>"
+    }
+)
+CREDENTIAL_PROVIDER_ARN = credential_provider["credentialProviderArn"]
+print(f"Credential provider created: {CREDENTIAL_PROVIDER_ARN}")
+```
+
+Privy
+
+```
+import boto3
+
+client = boto3.client("bedrock-agentcore-control", region_name="us-west-2")
+
+credential_provider = client.create_payment_credential_provider(
+    name="my-privy-credentials",
+    credentialProviderVendor="StripePrivy",
+    stripePrivyConfig={
+        "appId": "<YOUR_PRIVY_APP_ID>",
+        "appSecret": "<YOUR_PRIVY_APP_SECRET>",
+        "authorizationId": "<YOUR_PRIVY_AUTHORIZATION_ID>",
+        "authorizationPrivateKey": "<YOUR_PRIVY_PRIVATE_KEY_BASE64>"
+    }
+)
+CREDENTIAL_PROVIDER_ARN = credential_provider["credentialProviderArn"]
+print(f"Credential provider created: {CREDENTIAL_PROVIDER_ARN}")
+```
+
+For the complete request and response schema, see [CreatePaymentCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md") in the API Reference.
+
+## Step 3: Create a Payment Manager and Connector
+
+A Payment Manager is the top-level resource that coordinates payment operations. A Payment Connector links the manager to your payment provider credentials. Before creating these resources, set up the required IAM roles as described in [IAM roles for AgentCore payments](payments-iam-roles.md "payments-iam-roles.md").
+
+First, create the Payment Manager (the same for both providers):
+
+```
+import time
+
+manager = client.create_payment_manager(
+    name="my-first-payment-manager",
+    authorizerType="AWS_IAM",
+    roleArn="<YOUR_SERVICE_ROLE_ARN>"
+)
+PAYMENT_MANAGER_ARN = manager["paymentManagerArn"]
+print(f"Payment Manager created: {PAYMENT_MANAGER_ARN}")
+
+# Wait for the manager to reach READY state
+while True:
+    status = client.get_payment_manager(paymentManagerArn=PAYMENT_MANAGER_ARN)
+    if status["status"] == "READY":
+        break
+    print(f"Status: {status['status']}... waiting")
+    time.sleep(5)
+```
+
+Then create the Payment Connector for your provider:
+
+###### Example
+
+Coinbase CDP
+
+```
+connector = client.create_payment_connector(
+    paymentManagerArn=PAYMENT_MANAGER_ARN,
+    name="my-coinbase-connector",
+    paymentConnectorType="CoinbaseCDP",
+    credentialProviderArn=CREDENTIAL_PROVIDER_ARN
+)
+PAYMENT_CONNECTOR_ID = connector["paymentConnectorId"]
+print(f"Connector created: {PAYMENT_CONNECTOR_ID}")
+```
+
+Privy
+
+```
+connector = client.create_payment_connector(
+    paymentManagerArn=PAYMENT_MANAGER_ARN,
+    name="my-privy-connector",
+    paymentConnectorType="StripePrivy",
+    credentialProviderArn=CREDENTIAL_PROVIDER_ARN
+)
+PAYMENT_CONNECTOR_ID = connector["paymentConnectorId"]
+print(f"Connector created: {PAYMENT_CONNECTOR_ID}")
+```
+
+If you do not have a service role, see [IAM roles for AgentCore payments](payments-iam-roles.md "payments-iam-roles.md") for instructions on creating one. The console can also create a role on your behalf. For the complete request and response schemas, see [CreatePaymentManager](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md") and [CreatePaymentConnector](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentConnector.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentConnector.md") in the API Reference.
+
+## Step 4: Create a payment instrument
+
+A payment instrument is an embedded crypto wallet that your agent uses to pay merchants on behalf of a user. Each instrument is associated with a specific blockchain network.
+
+```
+import uuid
+
+dp_client = boto3.client("bedrock-agentcore", region_name="us-west-2",
+    endpoint_url="https://bedrock-agentcore.us-west-2.amazonaws.com")
+
+instrument = dp_client.create_payment_instrument(
+    userId="test-user-123",
+    paymentManagerArn=PAYMENT_MANAGER_ARN,
+    paymentConnectorId=PAYMENT_CONNECTOR_ID,
+    paymentInstrumentType="EMBEDDED_CRYPTO_WALLET",
+    paymentInstrumentDetails={
+        "embeddedCryptoWallet": {
+            "network": "ETHEREUM",
+            "linkedAccounts": [{"email": {"emailAddress": "your-email@example.com"}}]
+        }
+    },
+    clientToken=str(uuid.uuid4()),
+)
+INSTRUMENT_ID = instrument["paymentInstrumentId"]
+REDIRECT_URL = instrument["paymentInstrumentDetails"]["redirectUrl"]
+print(f"Instrument created: {INSTRUMENT_ID}")
+print(f"Fund the wallet at: {REDIRECT_URL}")
+```
+
+For the complete request and response schema, see [CreatePaymentInstrument](../APIReference/API_CreatePaymentInstrument.md "../APIReference/API_CreatePaymentInstrument.md") in the API Reference.
+
+### Fund the wallet and grant permissions
+
+Before the agent can transact, the end user must fund the wallet and grant signing permissions. Open the `REDIRECT_URL` printed above in a browser. From the wallet hub, the user can:
+
+- Top up the wallet using crypto transfer, credit/debit card, Apple Pay, Google Pay, or ACH
+- Grant the agent permission to sign transactions on their behalf
+
+For a test environment, fund the wallet with testnet USDC.
+
+After funding, poll the instrument status until it becomes `ACTIVE`:
+
+```
+while True:
+    inst_status = dp_client.get_payment_instrument(
+        paymentManagerArn=PAYMENT_MANAGER_ARN,
+        paymentInstrumentId=INSTRUMENT_ID
+    )
+    if inst_status["status"] == "ACTIVE":
+        print("Instrument is active and funded.")
+        break
+    print(f"Instrument status: {inst_status['status']}... waiting for funding")
+    time.sleep(10)
+```
+
+For more details on funding flows by provider, see [Funding the wallet](payments-how-it-works.md#payments-how-it-works-funding-wallet "payments-how-it-works.md#payments-how-it-works-funding-wallet").
+
+## Step 5: Create a payment session
+
+A payment session is a time-bounded context with optional spending limits. When the session expires or the budget is exhausted, the agent cannot make further payments within that session.
+
+```
+session = dp_client.create_payment_session(
+    userId="test-user-123",
+    paymentManagerArn=PAYMENT_MANAGER_ARN,
+    expiryTimeInMinutes=60,
+    limits={"maxSpendAmount": {"value": "5.00", "currency": "USD"}},
+    clientToken=str(uuid.uuid4()),
+)
+SESSION_ID = session["paymentSessionId"]
+print(f"Session created: {SESSION_ID} (expires in 60 minutes, $5.00 limit)")
+```
+
+For the complete request and response schema, see [CreatePaymentSession](../APIReference/API_CreatePaymentSession.md "../APIReference/API_CreatePaymentSession.md") in the API Reference.
+
+## Step 6: Process a payment with a Strands agent
+
+With all resources in place, create a Strands agent that handles x402 payments automatically. When the agent calls a paid endpoint and receives an HTTP 402 response, the payments plugin signs the transaction and retries the request.
 
 ```
 from strands import Agent
@@ -35,16 +252,14 @@ from strands_tools import http_request
 from bedrock_agentcore.payments.integrations.config import AgentCorePaymentsPluginConfig
 from bedrock_agentcore.payments.integrations.strands.plugin import AgentCorePaymentsPlugin
 
-# Configure the payments plugin
 config = AgentCorePaymentsPluginConfig(
-    payment_manager_arn="arn:aws:bedrock-agentcore:us-west-2:123456789012:payment-manager/pm-abc123",
+    payment_manager_arn=PAYMENT_MANAGER_ARN,
     user_id="test-user-123",
-    payment_instrument_id="payment-instrument-xyz789",
-    payment_session_id="payment-session-def456",
+    payment_instrument_id=INSTRUMENT_ID,
+    payment_session_id=SESSION_ID,
     region="us-west-2",
 )
 
-# Create agent with automatic payment handling
 plugin = AgentCorePaymentsPlugin(config=config)
 agent = Agent(
     system_prompt="You are a helpful assistant that can access paid APIs.",
@@ -52,12 +267,85 @@ agent = Agent(
     plugins=[plugin],
 )
 
-# The agent automatically handles 402 responses
-agent("Access the premium endpoint at https://example.com/paid-api")
+# The agent handles 402 responses automatically
+response = agent("Access the premium endpoint at https://example-x402-merchant.com/paid-api")
+print(response)
 ```
+
+For the complete request and response schema of the underlying API call, see [ProcessPayment](../APIReference/API_ProcessPayment.md "../APIReference/API_ProcessPayment.md") in the API Reference.
+
+## Verify the payment
+
+After the agent processes a payment, check the session to confirm the transaction was recorded:
+
+```
+session_status = dp_client.get_payment_session(
+    paymentManagerArn=PAYMENT_MANAGER_ARN,
+    paymentSessionId=SESSION_ID
+)
+print(f"Session status: {session_status['status']}")
+print(f"Amount spent: {session_status.get('spentAmount', '0.00')} USD")
+```
+
+You can also check the instrument balance:
+
+```
+balance = dp_client.get_payment_instrument_balance(
+    paymentManagerArn=PAYMENT_MANAGER_ARN,
+    paymentInstrumentId=INSTRUMENT_ID
+)
+print(f"Remaining balance: {balance['amount']} {balance['currency']}")
+```
+
+## Troubleshooting
+
+| Issue                                | Solution                                                                                                                 |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| Payment Manager stuck in CREATING    | Wait up to 2 minutes. If it moves to CREATE_FAILED, check that your service role ARN and permissions are correct.        |
+| "PaymentInstrument not active"       | The end user must fund the wallet and grant signing permissions through the redirect URL before the agent can transact.  |
+| "Session expired or budget exceeded" | Create a new payment session with a longer expiry or higher spending limit.                                              |
+| "CredentialProvider not found"       | Verify the credential provider ARN matches what you created in Step 2. Ensure the region is consistent across all calls. |
+| ProcessPayment returns FAILED        | Check that the wallet has sufficient USDC balance for the transaction amount plus gas fees.                              |
+
+## Cleanup
+
+Delete the resources you created during this tutorial:
+
+```
+# Delete payment instrument
+dp_client.delete_payment_instrument(
+    paymentManagerArn=PAYMENT_MANAGER_ARN,
+    paymentInstrumentId=INSTRUMENT_ID
+)
+
+# Delete payment connector
+client.delete_payment_connector(
+    paymentManagerArn=PAYMENT_MANAGER_ARN,
+    paymentConnectorId=PAYMENT_CONNECTOR_ID
+)
+
+# Delete payment manager
+client.delete_payment_manager(
+    paymentManagerArn=PAYMENT_MANAGER_ARN
+)
+
+print("All payment resources deleted.")
+```
+
+## What you’ve built
+
+Through this tutorial, you created:
+
+- **PaymentCredentialProvider** — Payment provider credentials stored in AgentCore Identity
+- **PaymentManager** — Top-level resource coordinating payment operations
+- **PaymentConnector** — Integration between your manager and the external payment provider
+- **PaymentInstrument** — An embedded crypto wallet, funded and authorized by the end user
+- **PaymentSession** — A time-bounded, budget-limited payment context
+- **Strands Agent** — An AI agent that handles x402 payments automatically
 
 ## Next steps
 
 - [Connect to Coinbase x402 Bazaar](payments-connect-bazaar.md "payments-connect-bazaar.md") to discover 10,000+ paid MCP tools.
 - [Integrate with Browser Tool](payments-browser.md "payments-browser.md") to access paywalled websites.
 - [Enable observability](payments-observability.md "payments-observability.md") to monitor payment operations in CloudWatch.
+- [Review IAM roles](payments-iam-roles.md "payments-iam-roles.md") to configure least-privilege access for production.

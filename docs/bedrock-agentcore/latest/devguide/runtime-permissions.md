@@ -14,7 +14,7 @@ For information about using resource-based policies to control access to your Ag
 ## Use Amazon Bedrock AgentCore
 
 To use Amazon Bedrock AgentCore, you can attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md")
-AWS managed policy to your IAM user or IAM. role. This AWS managed policy grants broad permissions. We recommend creating a custom policy with only the permissions your application requires by copying the relevant statements and restricting the resources to your specific use case. To use the AgentCore CLI, you need [additional](#runtime-permissions-cli "#runtime-permissions-cli") permissions.
+AWS managed policy to your IAM user or IAM role. This AWS managed policy grants broad permissions including `GetWorkloadAccessTokenForUserId`, which allows issuing workload access tokens using caller-supplied user identifier strings without IdP token verification. We recommend creating a custom policy with only the permissions your application requires by copying the relevant statements and restricting the resources to your specific use case. For production deployments where your application has JWT tokens available, explicitly deny `GetWorkloadAccessTokenForUserId` and grant only `GetWorkloadAccessTokenForJWT`. For more information, see [Get workload access token](get-workload-access-token.md "get-workload-access-token.md"). To use the AgentCore CLI, you need [additional](#runtime-permissions-cli "#runtime-permissions-cli") permissions.
 
 ## Use the AgentCore CLI
 
