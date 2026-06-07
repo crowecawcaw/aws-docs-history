@@ -8,11 +8,11 @@ Contains information about the results of a scan job.
 
 The status of the scan results.
 
-Valid values: `THREATS_FOUND` | `NO_THREATS_FOUND`.
+Valid values: `THREATS_FOUND` | `NO_THREATS_FOUND` | `UNKNOWN`.
 
 Type: String
 
-Valid Values: `NO_THREATS_FOUND | THREATS_FOUND`
+Valid Values: `NO_THREATS_FOUND | THREATS_FOUND | UNKNOWN`
 
 Required: Yes
 

@@ -70,7 +70,7 @@ Valid values: `THREATS_FOUND` | `NO_THREATS_FOUND`.
 
 Type: String
 
-Valid Values: `NO_THREATS_FOUND | THREATS_FOUND`
+Valid Values: `NO_THREATS_FOUND | THREATS_FOUND | UNKNOWN`
 
 Required: No
 

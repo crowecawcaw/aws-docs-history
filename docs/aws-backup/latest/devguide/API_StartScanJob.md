@@ -10,6 +10,7 @@ Content-type: application/json
 
 {
    "BackupVaultName": "`string`",
+   "ContinuousScanEndTime": `number`,
    "IamRoleArn": "`string`",
    "IdempotencyToken": "`string`",
    "MalwareScanner": "`string`",
@@ -38,6 +39,14 @@ Pattern: `^[a-zA-Z0-9\-\_]{2,50}$`
 Type: String
 
 Required: Yes
+
+**[ContinuousScanEndTime](#API_StartScanJob_RequestSyntax "#API_StartScanJob_RequestSyntax")**
+
+The point in time the scan job will scan up to for a continuous backup.
+
+Type: Timestamp
+
+Required: No
 
 **[IamRoleArn](#API_StartScanJob_RequestSyntax "#API_StartScanJob_RequestSyntax")**
 

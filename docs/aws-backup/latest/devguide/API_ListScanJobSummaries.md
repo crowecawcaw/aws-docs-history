@@ -71,7 +71,7 @@ Pattern: `^[a-zA-Z0-9\-\_\.]{1,50}$`
 
 Returns only the scan jobs for the specified scan results.
 
-Valid Values: `NO_THREATS_FOUND | THREATS_FOUND`
+Valid Values: `NO_THREATS_FOUND | THREATS_FOUND | UNKNOWN`
 
 **[State](#API_ListScanJobSummaries_RequestSyntax "#API_ListScanJobSummaries_RequestSyntax")**
 

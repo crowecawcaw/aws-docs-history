@@ -255,3 +255,32 @@ aws backup describe-restore-job --restore-job-id `restore-job-id`
 
 You can subscribe to **Notification Events** for failed and skipped objects for restore.
 For more information, see [Notification options with AWS Backup.](backup-notifications.md "backup-notifications.md")
+
+**Amazon EKS restore status messages**
+
+When a restore job completes, you might see the following status messages.
+The table shows the possible scenarios and their corresponding job status values:
+
+| Scenario                                  | Job Status | Example message                                                                                                        |
+| ----------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| All objects restored successfully         | COMPLETED  | —                                                                                                                      |
+| One or more objects failed to be restored | COMPLETED  | "One or more Kubernetes objects failed to restore. To get notified of these failures, enable SNS event notifications." |
+| Restore could not complete                | FAILED     | (error details)                                                                                                        |
+
+**Skipped objects during restore**
+
+The following Kubernetes objects are restored on a best-effort basis. If they fail to
+restore, they are moved to the skipped list. These objects are system-managed and
+recreated by Kubernetes or Amazon EKS:
+
+- FlowSchemas with the `apf.kubernetes.io/autoupdate-spec: "true"` annotation
+- PriorityLevelConfigurations with the `apf.kubernetes.io/autoupdate-spec: "true"` annotation
+- The `eks-exempt` FlowSchema (EKS-managed, references the protected exempt PriorityLevelConfiguration)
+- The `kubernetes` Service in the `default` namespace (API server endpoint)
+- The `kube-dns` Service in the `kube-system` namespace (CoreDNS)
+  Objects that already exist on the target cluster are also skipped. EKS restores are
+  non-destructive — existing objects are never overwritten or deleted.
+
+To receive notifications about skipped or failed objects during restore, subscribe to
+[SNS event notifications](backup-notifications.md "backup-notifications.md").
+For more information, see [Notification options with AWS Backup](backup-notifications.md "backup-notifications.md").

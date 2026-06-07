@@ -148,6 +148,22 @@ Type: Timestamp
 
 Required: No
 
+**ContinuousScanEndTime**
+
+The point in time the scan job scanned up to for a continuous backup.
+
+Type: Timestamp
+
+Required: No
+
+**ContinuousScanStartTime**
+
+The point in time the scan job started scan from for a continuous backup.
+
+Type: Timestamp
+
+Required: No
+
 **ScanBaseRecoveryPointArn**
 
 An ARN that uniquely identifies the base recovery point for scanning. This field is populated

@@ -34,6 +34,8 @@ Content-type: application/json
    "BackupVaultArn": "***string***",
    "BackupVaultName": "***string***",
    "CompletionDate": ***number***,
+   "ContinuousScanEndTime": ***number***,
+   "ContinuousScanStartTime": ***number***,
    "CreatedBy": {
       "BackupPlanArn": "***string***",
       "BackupPlanId": "***string***",
@@ -96,6 +98,18 @@ The date and time that a backup index finished creation, in Unix format and Coor
 Universal Time (UTC). The value of `CompletionDate` is accurate to milliseconds.
 For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
 AM.
+
+Type: Timestamp
+
+**[ContinuousScanEndTime](#API_DescribeScanJob_ResponseSyntax "#API_DescribeScanJob_ResponseSyntax")**
+
+The point in time the scan job scanned up to for a continuous backup.
+
+Type: Timestamp
+
+**[ContinuousScanStartTime](#API_DescribeScanJob_ResponseSyntax "#API_DescribeScanJob_ResponseSyntax")**
+
+The point in time the scan job started scan from for a continuous backup.
 
 Type: Timestamp
 

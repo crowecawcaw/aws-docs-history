@@ -50,6 +50,7 @@ The following actions are supported by AWS Backup:
 - [GetBackupVaultAccessPolicy](API_GetBackupVaultAccessPolicy.md "API_GetBackupVaultAccessPolicy.md")
 - [GetBackupVaultNotifications](API_GetBackupVaultNotifications.md "API_GetBackupVaultNotifications.md")
 - [GetLegalHold](API_GetLegalHold.md "API_GetLegalHold.md")
+- [GetPITRMalwareScanResults](API_GetPITRMalwareScanResults.md "API_GetPITRMalwareScanResults.md")
 - [GetRecoveryPointIndexDetails](API_GetRecoveryPointIndexDetails.md "API_GetRecoveryPointIndexDetails.md")
 - [GetRecoveryPointRestoreMetadata](API_GetRecoveryPointRestoreMetadata.md "API_GetRecoveryPointRestoreMetadata.md")
 - [GetRestoreJobMetadata](API_GetRestoreJobMetadata.md "API_GetRestoreJobMetadata.md")

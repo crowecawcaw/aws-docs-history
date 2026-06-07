@@ -71,7 +71,7 @@ Returns only the scan jobs for the specified scan results:
 - `THREATS_FOUND`
 - `NO_THREATS_FOUND`
 
-Valid Values: `NO_THREATS_FOUND | THREATS_FOUND`
+Valid Values: `NO_THREATS_FOUND | THREATS_FOUND | UNKNOWN`
 
 **[ByState](#API_ListScanJobs_RequestSyntax "#API_ListScanJobs_RequestSyntax")**
 
@@ -111,6 +111,8 @@ Content-type: application/json
          "BackupVaultArn": "***string***",
          "BackupVaultName": "***string***",
          "CompletionDate": ***number***,
+         "ContinuousScanEndTime": ***number***,
+         "ContinuousScanStartTime": ***number***,
          "CreatedBy": {
             "BackupPlanArn": "***string***",
             "BackupPlanId": "***string***",
