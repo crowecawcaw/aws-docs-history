@@ -2,11 +2,11 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Copy Private IP
 
-Choose whether you want AWS Application Migration Service to ensure that the private IP used by the test or
+Choose whether you want AWS Transform MGN to ensure that the private IP used by the test or
 cutover instance matches the private IP used by the source server.
 
-AWS Application Migration Service monitors the source server on an hourly basis to identify the
-private IP. Application Migration Service uses the private IP of the primary network interface.
+AWS Transform MGN monitors the source server on an hourly basis to identify the
+private IP. MGN uses the private IP of the primary network interface.
 
 The **No** option is chosen by default. Click **No** if you do not want the private IP of the test or cutover instance
 to match that of the source machine.

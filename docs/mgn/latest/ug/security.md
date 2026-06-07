@@ -1,17 +1,17 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Security in AWS Application Migration Service
+# Security in AWS Transform MGN
 
 ###### Topics
 
 - [Overview](#security-overview "#security-overview")
-- [Identity and access management for AWS Application Migration Service](identity-access-management.md "identity-access-management.md")
+- [Identity and access management for AWS Transform MGN](identity-access-management.md "identity-access-management.md")
 - [Managing access using policies](security_iam_access-manage.md "security_iam_access-manage.md")
-- [Using service-linked roles for AWS Application Migration Service](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for AWS Transform MGN](using-service-linked-roles.md "using-service-linked-roles.md")
 - [Policy structure](#iam-policy-structure "#iam-policy-structure")
-- [Resilience in AWS Application Migration Service](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
-- [Infrastructure security in AWS Application Migration Service](infrastructure-security.md "infrastructure-security.md")
-- [Compliance validation for AWS Application Migration Service](compliance-validation.md "compliance-validation.md")
+- [Resilience in AWS Transform MGN](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure security in AWS Transform MGN](infrastructure-security.md "infrastructure-security.md")
+- [Compliance validation for AWS Transform MGN](compliance-validation.md "compliance-validation.md")
 - [Cross-service confused deputy prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
 
 ## Overview
@@ -33,7 +33,7 @@ security of the cloud and security in the cloud:
   as part of the [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/")
 
 . To learn about the
-compliance programs that apply to AWS Application Migration Service (AWS MGN), see [AWS Services in
+compliance programs that apply to AWS Transform MGN, see [AWS Services in
 Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/"). .
 
 - **Security in the cloud** – Your responsibility is
@@ -42,9 +42,9 @@ Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope
   and regulations
 
 This documentation helps you understand how to apply the shared responsibility model when
-using AWS Application Migration Service. It shows you how to configure AWS Application Migration Service
+using AWS Transform MGN. It shows you how to configure AWS Transform MGN
 to meet your security and compliance objectives. You also learn how to use other AWS services that
-help you to monitor and secure your AWS Application Migration Service resources.
+help you to monitor and secure your AWS Transform MGN resources.
 
 The customer is responsible for making sure that no misconfigurations are present
 during and after the migration process, including:
@@ -92,9 +92,9 @@ There are various elements that make up a statement:
   By default, IAM users don't have permission to use resources and API actions, so all
   requests are denied. An explicit allow overrides the default. An explicit deny overrides
   any allows.
-- **Action**: The action is the specific AWS Application Migration Service API action for which you
+- **Action**: The action is the specific AWS Transform MGN API action for which you
   are granting or denying permission.
-- **Resource**: The resource that's affected by the action. For AWS Application Migration Service,
+- **Resource**: The resource that's affected by the action. For AWS Transform MGN,
   you must specify "\*" as the resource.
 - **Condition**: Conditions are optional. They can be
   used to control when your policy is in effect.

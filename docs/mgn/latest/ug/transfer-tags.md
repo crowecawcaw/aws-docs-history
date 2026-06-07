@@ -2,13 +2,13 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Transfer server tags
 
-Choose whether you want AWS Application Migration Service to transfer any user-configured custom tags from your
+Choose whether you want AWS Transform MGN to transfer any user-configured custom tags from your
 source servers onto your test or cutover instance.
 
 If you choose **Yes**, server tags are transferred. These
 tags are attached to all source servers, all launched test and cutover instances, and all of
 the ephemeral resources that are created on your AWS Account during the normal operation of
-AWS Application Migration Service. These resources include:
+AWS Transform MGN. These resources include:
 
 - EC2 instances
 - Conversion groups
@@ -18,12 +18,12 @@ AWS Application Migration Service. These resources include:
 
 ###### Note
 
-AWS Application Migration Service automatically adds system tags to all resources.
+AWS Transform MGN automatically adds system tags to all resources.
 
 ###### Note
 
 Transfer server tags only copies tags associated with the source servers in the
-AWS Application Migration Service console, and does not copy the EC2 source server tags (in case of AWS to AWS migration)
+AWS Transform MGN console, and does not copy the EC2 source server tags (in case of AWS to AWS migration)
 
 If you choose the **No** option, server tags are not
 transferred. You can always add tags from the Amazon EC2 console as described in [this EC2 article.](../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-resources)%5C "../../../AWSEC2/latest/UserGuide/Using_Tags.md#tag-resources)%5C")

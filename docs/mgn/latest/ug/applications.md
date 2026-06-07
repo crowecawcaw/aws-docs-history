@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Associate a Group of Servers with an Application
 
-Many customers have clusters of servers with dependencies between them. AWS Application Migration Service provides
+Many customers have clusters of servers with dependencies between them. AWS Transform MGN provides
 the user with a way to represent a group of servers by associating them with an **Application**.
 
 You can monitor the migration status and progress of an application and its associated

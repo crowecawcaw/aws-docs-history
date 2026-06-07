@@ -9,14 +9,14 @@ default, the boot mode is set according to the source boot mode. If you don't ma
 changes, MGN launches the test or cutover instance using the same boot mode
 as the source server.
 
-**Note**: When the BIOS option is chosen, Application Migration Service converts
+**Note**: When the BIOS option is chosen, MGN converts
 any non-BIOS instance type to BIOS. As such, the server is limited to four partitions
 that cannot equal more than 2TiB due to BIOS limitations.
 
 ###### Note
 
 You must choose the **UEFI** boot mode for any BYOL source
-server that is UEFI, as Application Migration Service is unable to convert BYOL source servers that boot in UEFI to
+server that is UEFI, as MGN is unable to convert BYOL source servers that boot in UEFI to
 BIOS.
 
 ###### Note

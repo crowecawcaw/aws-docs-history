@@ -15,7 +15,7 @@ domain resources.
   [AWS
   Direct Connect](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconnect/latest/UserGuide/Welcome.md"), and security groups/ACLs must allow AD ports (TCP/UDP 389, 636, 88,
   53, 445, 135, 3268, 3269).
-- **DNS resolution** – Application Migration Service resets network settings to
+- **DNS resolution** – MGN resets network settings to
   DHCP during conversion. The VPC's default AmazonProvidedDNS cannot resolve on-premises AD
   domain names, so the instance cannot locate domain controllers.
   **Resolution:**

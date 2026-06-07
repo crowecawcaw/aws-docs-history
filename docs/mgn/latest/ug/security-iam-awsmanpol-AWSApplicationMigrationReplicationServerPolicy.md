@@ -2,17 +2,17 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # AWS managed policy: AWSApplicationMigrationReplicationServerPolicy
 
-This policy is attached to the AWS Application Migration Service replication server’s
+This policy is attached to the AWS Transform MGN replication server’s
 instance role.
 
-This policy allows the AWS Application Migration Service (AWS MGN) Replication
-Servers, which are EC2 instances launched by AWS Application Migration Service - to
+This policy allows the AWS Transform MGN Replication
+Servers, which are EC2 instances launched by AWS Transform MGN - to
 communicate with the AWS MGN service, and to create EBS snapshots in your AWS
 account. An IAM role with this policy is attached (as an EC2 Instance Profile)
-by AWS Application Migration Service to the AWS MGN replication servers which are
-automatically launched and terminated by AWS MGN, as needed. AWS MGN Replication Servers
+by AWS Transform MGN to the MGN replication servers which are
+automatically launched and terminated by MGN, as needed. MGN Replication Servers
 are used to facilitate data replication from your external servers to AWS, as
-part of the migration process managed using AWS MGN. We do not recommend that you
+part of the migration process managed using MGN. We do not recommend that you
 attach this policy to your users or roles.
 
 **Permissions details**

@@ -2,9 +2,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # AWS managed policy: AWSApplicationMigrationAgentInstallationPolicy
 
-This policy allows installing the AWS Replication Agent, which is used with AWS Application Migration Service to migrate source servers to AWS.
+This policy allows installing the AWS Replication Agent, which is used with AWS Transform MGN to migrate source servers to AWS.
 Attach this policy to your users or roles whose credentials you provide during the installation step of the AWS Replication Agent.
-The installed AWS Replication Agent will communicate with Application Migration Service using the recommended strong authentication method.
+The installed AWS Replication Agent will communicate with MGN using the recommended strong authentication method.
 
 **Permissions details**
 

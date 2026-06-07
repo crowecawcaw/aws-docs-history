@@ -40,7 +40,7 @@ various post-launch actions, including:
 ## Activating post-launch settings
 
 To use the post-launch template activate the post-launch actions. This allows
-Application Migration Service to:
+MGN to:
 
 - Install the [SSM Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md") on your servers
 - Run the post-launch actions
@@ -72,7 +72,7 @@ The post-launch actions are shown in the \*\*Settings
 
 ## Editing the post-launch settings template
 
-Application Migration Service supports post-launch modernization actions, giving you the opportunity to
+MGN supports post-launch modernization actions, giving you the opportunity to
 move and improve. The service provides actions that you can execute on your Amazon EC2 launch
 instances and enables you to create your own actions.
 
@@ -117,7 +117,7 @@ between card and list view, according to your preferences.
 
 ## Create a custom post-launch action
 
-AWS Application Migration Service allows you to execute any SSM document that you like – public SSM
+AWS Transform MGN allows you to execute any SSM document that you like – public SSM
 document or ones you created and uploaded to your account.
 
 You can configure a custom action to execute any SSM document that is available
@@ -130,7 +130,7 @@ action**.
 The page includes these parameters:
 
 - **Action name** – The name of the action in
-  Application Migration Service, which should be intuitive and meaningful to your migration
+  MGN, which should be intuitive and meaningful to your migration
   users.
 - **Activate this action** – Use this checkbox
   to activate or deactivate the custom action.
@@ -145,7 +145,7 @@ The page includes these parameters:
 - **Description** – Add a description or keep
   the default.
 - **Document version** – Select which SSM
-  document version to run. Application Migration Service can run a default version, the latest
+  document version to run. MGN can run a default version, the latest
   version, or a specific version, according to your preferences.
 - Category – Select from various available categories including disaster
   recovery, security, validation, and more.
@@ -164,7 +164,7 @@ The **Action parameters** change according to the
 specific SSM document that is selected.
 
 Note that for the instance ID parameter, you can choose to use the launch instance
-ID, in which case, Application Migration Service dynamically populates the value.
+ID, in which case, MGN dynamically populates the value.
 
 ###### Note
 
@@ -182,7 +182,7 @@ action**.
 
 ## Edit custom post-launch actions
 
-AWS Application Migration Service allows you to execute any SSM document that you like – public SSM
+AWS Transform MGN allows you to execute any SSM document that you like – public SSM
 document or ones you created and uploaded to your account.
 
 You can configure a custom action to execute any SSM document that is available

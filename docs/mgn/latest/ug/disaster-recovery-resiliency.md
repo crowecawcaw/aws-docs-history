@@ -1,6 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Resilience in AWS Application Migration Service
+# Resilience in AWS Transform MGN
 
 The AWS global infrastructure is built around AWS Regions and Availability Zones. Regions
 provide multiple physically separated and isolated Availability Zones, which are connected through

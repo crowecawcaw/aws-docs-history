@@ -1,6 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Best practices for AWS Application Migration Service
+# Best practices for AWS Transform MGN
 
 ## Planning
 
@@ -24,7 +24,7 @@ During the phases of your migration project, review these best practices to help
 ## Successful implementation
 
 The following are the required steps to complete a successful migration implementation with
-AWS Application Migration Service:
+AWS Transform MGN:
 
 1. Deploy the AWS Replication Agent on your source servers.
 2. Confirm that the data replication status is **Healthy**.
@@ -35,8 +35,8 @@ AWS Application Migration Service:
 
 ## Ensuring project success
 
-1. Train a field technical team & assign an AWS Application Migration Service SME.
-2. Share project timelines with AWS Application Migration Service.
+1. Train a field technical team & assign an AWS Transform MGN SME.
+2. Share project timelines with AWS Transform MGN.
 3. Monitor data replication progress and report any issues in advance.
-4. Perform a test for every server in advance, and report issues to AWS Application Migration Service.
-5. Coordinate cutover windows with AWS Application Migration Service in advance.
+4. Perform a test for every server in advance, and report issues to AWS Transform MGN.
+5. Coordinate cutover windows with AWS Transform MGN in advance.

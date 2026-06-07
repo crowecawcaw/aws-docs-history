@@ -1,20 +1,20 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Using service-linked roles for AWS Application Migration Service
+# Using service-linked roles for AWS Transform MGN
 
-AWS Application Migration Service uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
-linked directly to AWS Application Migration Service. Service-linked roles are predefined by
-AWS Application Migration Service and include all the permissions that the service requires to
+AWS Transform MGN uses AWS Identity and Access Management (IAM)[service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role"). A service-linked role is a unique type of IAM role that is
+linked directly to AWS Transform MGN. Service-linked roles are predefined by
+AWS Transform MGN and include all the permissions that the service requires to
 call other AWS services on your behalf.
 
-A service-linked role makes setting up AWS Application Migration Service easier because you don’t have to
-manually add the necessary permissions. AWS Application Migration Service defines the permissions of its
-service-linked roles, and unless defined otherwise, only AWS Application Migration Service can assume its
+A service-linked role makes setting up AWS Transform MGN easier because you don’t have to
+manually add the necessary permissions. AWS Transform MGN defines the permissions of its
+service-linked roles, and unless defined otherwise, only AWS Transform MGN can assume its
 roles. The defined permissions include the trust policy and the permissions policy, and
 that permissions policy cannot be attached to any other IAM entity.
 
 You can delete a service-linked role only after first deleting their related resources.
-This protects your AWS Application Migration Service resources because you can't inadvertently remove
+This protects your AWS Transform MGN resources because you can't inadvertently remove
 permission to access the resources.
 
 For information about other services that support service-linked roles, see [AWS Services
@@ -25,9 +25,9 @@ documentation for that service.
 
 ## AWSServiceRoleForApplicationMigrationService service-linked role
 
-AWS Application Migration Service uses the service-linked role named
+AWS Transform MGN uses the service-linked role named
 **AWSServiceRoleForApplicationMigrationService**. This is a managed
-IAM policy with scoped permissions that AWS Application Migration Service needs to run in your account.
+IAM policy with scoped permissions that AWS Transform MGN needs to run in your account.
 
 The AWSServiceRoleForApplicationMigrationService service-linked role trusts the `mgn.amazonaws.com` service principal to assume the role. The role permissions are defined in the [AWSApplicationMigrationServiceRolePolicy](security-iam-awsmanpol-AWSApplicationMigrationServiceRolePolicy.md "security-iam-awsmanpol-AWSApplicationMigrationServiceRolePolicy.md") AWS managed policy.
 
@@ -38,10 +38,10 @@ You must configure permissions to allow an IAM entity (such as a user, group, or
 role) to create, edit, or delete a service-linked role. For more information, see [Service-Linked Role Permissions](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") in the
 _IAM User Guide_.
 
-## Creating a service-linked role for AWS Application Migration Service
+## Creating a service-linked role for AWS Transform MGN
 
 You don't need to manually create a service-linked role. When you configure the
-Replication Configuration Template for AWS Application Migration Service, a service-linked
+Replication Configuration Template for AWS Transform MGN, a service-linked
 role is automatically created. MGN automatically creates the IAM service-linked role,
 which you can see in the IAM console. You don't need to manually create or configure this
 role.
@@ -52,20 +52,20 @@ replication configuration template in MGN, it creates the service-linked role fo
 again.
 
 In the AWS CLI or the AWS API, create a service-linked role with the
-AWS Application Migration Service name. For more information, see [Creating a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in
+AWS Transform MGN name. For more information, see [Creating a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#create-service-linked-role") in
 the*IAM User Guide*. If you delete this service-linked
 role, you can use this same process to create the role again.
 
-## Editing a service-linked role for AWS Application Migration Service
+## Editing a service-linked role for AWS Transform MGN
 
-AWS Application Migration Service does not allow you to edit the
+AWS Transform MGN does not allow you to edit the
 AWSServiceRoleForApplicationMigrationService service-linked role. After you create a
 service-linked role, you cannot change the name of the role because various entities might
 reference the role. However, you can edit the description of the role using IAM. For
 more information, see [Editing a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#edit-service-linked-role") in the
 _IAM User Guide_.
 
-## Deleting a service-linked role for AWS Application Migration Service
+## Deleting a service-linked role for AWS Transform MGN
 
 If you no longer need to use a feature or service that requires a service-linked
 role, we recommend that you delete that role. That way you don’t have an unused entity
@@ -74,11 +74,11 @@ for your service-linked role before you can manually delete it.
 
 ###### Note
 
-If AWS Application Migration Service is using the role when you try to delete the
+If AWS Transform MGN is using the role when you try to delete the
 resources, the deletion might fail. If that happens, wait for a few minutes and try the
 operation again.
 
-**To clean up AWS Application Migration Service resources used
+**To clean up AWS Transform MGN resources used
 by AWSServiceRoleforApplicationMigrationService**
 
 1. Identify and delete any waves and applications in all
@@ -132,35 +132,35 @@ by AWSServiceRoleforApplicationMigrationService**
    aws mgn delete-source-server --source-server-id {SourceServerID}
    ```
 
-3. Identify and delete any AWS MGN jobs in all AWS Regions
-   1. Identify any AWS MGN jobs
+3. Identify and delete any MGN jobs in all AWS Regions
+   1. Identify any MGN jobs
 
    ```
    aws mgn describe-jobs
    ```
 
-   2. Delete any AWS MGN jobs:
+   2. Delete any MGN jobs:
 
    ```
    aws mgn delete-job --job-id {MGNJobId}
    ```
 
-4. Identify and delete any AWS MGN replication templates
-   1. Identify any AWS MGN replication template:
+4. Identify and delete any MGN replication templates
+   1. Identify any MGN replication template:
 
    ```
    aws mgn describe-replication-configuration-templates
    ```
 
-   2. Remove any AWS MGN replication templates:
+   2. Remove any MGN replication templates:
 
    ```
    aws mgn delete-replication-configuration-template --replication-configuration-template-id {rct-TemplateID}
    ```
 
 Resources can be cleaned up without stopping any service provided by
-AWS Application Migration Service. Cleaning up AWS Application Migration Service
-resources will cause AWS Application Migration Service to stop working. For more
+AWS Transform MGN. Cleaning up AWS Transform MGN
+resources will cause AWS Transform MGN to stop working. For more
 information, see [Cleaning up a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
@@ -172,7 +172,7 @@ AWSServiceRoleForApplicationMigrationService service-linked role. For more infor
 see [Deleting a Service-Linked Role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role "../../../IAM/latest/UserGuide/using-service-linked-roles.md#delete-service-linked-role") in the
 _IAM User Guide_.
 
-## Supported Regions for AWS MGN service-linked roles
+## Supported Regions for MGN service-linked roles
 
-AWS Application Migration Service supports using service-linked roles in all of the [AWS Regions where
-the service is available](what-is-application-migration-service.md#supported-regions "what-is-application-migration-service.md#supported-regions").
+AWS Transform MGN supports using service-linked roles in all of the [AWS Regions where
+the service is available](what-is-mgn.md#supported-regions "what-is-mgn.md#supported-regions").

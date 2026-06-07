@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Manage applications
 
 The **Applications** page lists all the applications that
-have been added to AWS Application Migration Service. The **Applications** page
+have been added to AWS Transform MGN. The **Applications** page
 allows you to manage your applications and perform a variety of commands for one or more
 applications (such as controlling replication and launching test and cutover instances).
 

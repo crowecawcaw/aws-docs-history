@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 This section reviews the entire EC2 launch template and identifies which fields should and
 should not be changed in order for the EC2 launch template to work with Application Migration
 Service. Editing or changing any fields that are marked as "do not edit" or "do not change" can
-cause AWS Application Migration Service to not function.
+cause AWS Transform MGN to not function.
 
 - **Launch template name** – This name is automatically
   generated when the template is first created upon Agent installation. The name cannot be
@@ -15,12 +15,12 @@ cause AWS Application Migration Service to not function.
 
 - **AMI** – Customers do not typically choose a specific AMI
   to include in the launch template. If you edit the launch template to use an existing AMI,
-  the contents of the AMI are not used by AWS Application Migration Service. If the AMI is not configured properly
+  the contents of the AMI are not used by AWS Transform MGN. If the AMI is not configured properly
   (licensing, flags, and more), then this may prevent the test or cutover instance launched
   from booting correctly or from being properly licensed.
 
 - **Instance type** – You can select any instance type you
-  want. The launch template shows the instance type suggested by AWS Application Migration Service.
+  want. The launch template shows the instance type suggested by AWS Transform MGN.
 
 - **Key pair (login)** – **Do
   not** alter this field. Do not include a key pair with the launch template.
@@ -51,7 +51,7 @@ Each disk is composed of the following fields:
     + **Size** – **Do not** change
      or edit this field.
     + **Volume type** – You can select any volume type you want
-     to use. AWS Application Migration Service automatically sets **General Purpose SSD
+     to use. AWS Transform MGN automatically sets **General Purpose SSD
      (gp3)** as the default. You may want to change the volume type in order to reduce
      costs. Ensure that you read the caveats in the [EBS
      documentation](../../../AWSEC2/latest/UserGuide/EBSPerformance.md#initialize "../../../AWSEC2/latest/UserGuide/EBSPerformance.md#initialize").
@@ -65,7 +65,7 @@ Each disk is composed of the following fields:
     	- Provisioned IOPS SSD (io1) : 50 IOPS per GiB of storage
     	- Provisioned IOPS SSD (io2) : 500 IOPS per GiB of storage
     	- General Purpose SSD (gp3) : 500 IOPS per GiB of storage
-    AWS Application Migration Service automatically provisions the maximum IOPS possible for the volume, based on
+    AWS Transform MGN automatically provisions the maximum IOPS possible for the volume, based on
      the above ratio. This is to minimize the impact of the [performance penalty](../../../AWSEC2/latest/UserGuide/EBSPerformance.md#initialize "../../../AWSEC2/latest/UserGuide/EBSPerformance.md#initialize")
      when working with EBS volumes created from snapshots.
     + **Throughput** – Set the throughput in MiB/s for the
@@ -76,7 +76,7 @@ Each disk is composed of the following fields:
      template.
     + **Remove (volume)** – **Do
      not** use this functionality. You cannot remove volumes from the source server
-     through the launch template. If you do, AWS MGN automatically creates a volume using
+     through the launch template. If you do, MGN automatically creates a volume using
      the default volume settings.
     + ###### Important
 
@@ -116,7 +116,7 @@ Each disk is composed of the following fields:
 
 - **Resource tags** – You can add up to 50 tags. These are transferred to your test and cutover instances. Note that these tags may interfere with
   other tags that have already been added to the source server. Launch template tags always
-  take precedence over tags set in the AWS MGN console or tags manually assigned to the
+  take precedence over tags set in the MGN console or tags manually assigned to the
   server.
 
 - **Network interfaces** – The network interface is created
@@ -137,12 +137,12 @@ Each disk is composed of the following fields:
     network interface (if chosen).
   - **Subnet** – Choose the subnet. This is the subnet within
     which the network interface is located and the test or cutover instance is launched.
-    AWS Application Migration Service selects the default VPC subnet by default (if one exists).
+    AWS Transform MGN selects the default VPC subnet by default (if one exists).
   - **Auto-assign public IP** - Choose whether you want the
     public IP to be auto-assigned.
   - **Primary IP** – Use this field if you wish to utilize a
     private IP. The private IP you set in the **Copy private IP**
-    field in the AWS MGN launch settings is copied to this field.
+    field in the MGN launch settings is copied to this field.
   - **Secondary IP** - Define a secondary IP, if
     needed.
   - **IPv6 IPs** – Define IPv6 IPs if needed.
@@ -163,7 +163,7 @@ Each disk is composed of the following fields:
 
 - **Advanced details** – In this section, we focus on
   the fields you should **not** change or edit in order to allow
-  AWS Application Migration Service to function properly. **Do not** change or edit any of
+  AWS Transform MGN to function properly. **Do not** change or edit any of
   the following fields:
   - RAM disk ID
   - Kernel

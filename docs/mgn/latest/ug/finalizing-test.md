@@ -21,17 +21,17 @@ To finalize a test:
    no longer need them. Check the **Yes, terminate launched instances
    (recommended)** box and click **Continue**.
 
-The AWS Application Migration Service console confirms that the servers were marked as ready for
+The AWS Transform MGN console confirms that the servers were marked as ready for
 cutover.
 
-The AWS Application Migration Service console indicates that testing has been finalized. The selected source
+The AWS Transform MGN console indicates that testing has been finalized. The selected source
 servers' **Migration lifecycle** column shows the **Ready for cutover** status and the launched Test instances are
 deleted if that option was selected. The **Next step** column
 shows **Terminate launched instance; Launch cutover
 instance**.
 
 You can now terminate the launched Test instance directly from the Amazon EC2 console as that
-instance is no longer needed (if you have not done so already through the AWS MGN console).
+instance is no longer needed (if you have not done so already through the MGN console).
 You can quickly access the Test instance by navigating to the specific servers > **Server details > Migration dashboard > Lifecycle > Launch status** and
 choosing **view in EC2 console**.
 

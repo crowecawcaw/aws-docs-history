@@ -13,7 +13,7 @@ To export your inventory to a local disk, take the following steps:
 ###### Note
 
     * The file will also be automatically downloaded to an S3 bucket created by
-     AWS Application Migration Service.
+     AWS Transform MGN.
     * You must have the required permissions to perform this action.
     * It is highly recommended that you [apply S3 bucket security practices](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md") where your CSV files are
      stored.

@@ -17,7 +17,7 @@ In the **Source servers** page, the **Migration lifecycle** column shows **Cutov
 progress** and the **Next step** column shows
 **Finalize cutover**.
 
-The AWS Application Migration Service console indicates **Launch job started**
+The AWS Transform MGN console indicates **Launch job started**
 when the cutover has started.
 
 Choose **View job details** on the dialog to view the specific

@@ -6,14 +6,14 @@ Use the information in this section to troubleshoot communication errors.
 
 ###### Topics
 
-- [Solving communication problems over TCP Port 443 between the staging area and the AWS Application Migration Service](#Solving-Communication-Problems "#Solving-Communication-Problems")
+- [Solving communication problems over TCP Port 443 between the staging area and the AWS Transform MGN](#Solving-Communication-Problems "#Solving-Communication-Problems")
 - [Authenticate with service errors](#Authenticate-With-Service-Errors "#Authenticate-With-Service-Errors")
 - [Calculating the required bandwidth for TCP Port 1500](#Calculating-Bandwidth "#Calculating-Bandwidth")
 - [Verifying communication over Port 1500](#Verifying-Communication-1500 "#Verifying-Communication-1500")
 - [Solving communication problems over Port 1500](#Solving-Problems-1500 "#Solving-Problems-1500")
 - [Missing Amazon Linux 2023 repository access](#missing-al2023-repo-access "#missing-al2023-repo-access")
 
-## Solving communication problems over TCP Port 443 between the staging area and the AWS Application Migration Service
+## Solving communication problems over TCP Port 443 between the staging area and the AWS Transform MGN
 
 - **DHCP** – [Check the DHCP options set of the VPC of the staging area.](../../../directoryservice/latest/admin-guide/dhcp_options_set.md "../../../directoryservice/latest/admin-guide/dhcp_options_set.md")
 
@@ -37,7 +37,7 @@ To check and set the route rules on the staging area subnet:
     4. This will open the details for your Route Table. Navigate to the **Routes** tab.
     5. Within the **Target** column of the **Routes** tab, find the route you are using for the outbound communication to the
      Internet (either **igw**- Internet Gateway, vgw - **VPN** or **i** - EC2 instance). Verify
-     that the address space in the Destination column is allowing access to Amazon S3, Amazon EC2, and AWS MGN in
+     that the address space in the Destination column is allowing access to Amazon S3, Amazon EC2, and MGN in
      the AWS Region.
     6. If the address is not **0.0.0.0/0**, change
      it to **0.0.0.0/0.**
@@ -56,9 +56,9 @@ To check and set the route rules on the staging area subnet:
 
 ## Authenticate with service errors
 
-The replication server needs to be able to reach the AWS MGN endpoint and have the proper IAM permissions. This can fail for a number of reasons, including:
+The replication server needs to be able to reach the MGN endpoint and have the proper IAM permissions. This can fail for a number of reasons, including:
 
-- The replication server is in a subnet without access to VPC endpoints for AWS MGN or the
+- The replication server is in a subnet without access to VPC endpoints for MGN or the
   [public
   endpoints](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md").
 - In some use cases, when using a custom DNS server, DNS traffic shifts to TCP instead of
@@ -142,7 +142,7 @@ following:
 - Route Rules on the staging area subnet may be inaccurately set.
 - The firewall, both internal and external, in the Source Server/infrastructure may block
   communication.
-- The **Use VPN...** checkbox in AWS Application Migration Service console may not be set correctly.
+- The **Use VPN...** checkbox in AWS Transform MGN console may not be set correctly.
 
 ### Enabling the network ACL
 
@@ -242,6 +242,6 @@ through the Amazon S3 dual-stack endpoint:
 https://al2023-repos-<region>-de612dc2.s3.dualstack.<region>.amazonaws.com/
 ```
 
-For the complete list of Amazon S3 buckets required by AWS Application Migration Service and the example Amazon S3 VPC
+For the complete list of Amazon S3 buckets required by AWS Transform MGN and the example Amazon S3 VPC
 endpoint policy, see [Communication between the
 staging area subnet and S3](preparing-environments.md#Communication-Staging-S3 "preparing-environments.md#Communication-Staging-S3").

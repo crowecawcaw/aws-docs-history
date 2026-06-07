@@ -1,8 +1,8 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# AWS Application Migration Service service quota limits
+# AWS Transform MGN service quota limits
 
-The following are the AWS MGN service quota limits:
+The following are the MGN service quota limits:
 
 | Name                                     | Default                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | ---------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -23,5 +23,5 @@ The following are the AWS MGN service quota limits:
 | Max archived waves                       | Each supported AWS Region: 10,000 | This parameter is the maximum number of waves that are in an archived status.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | Global View<br>• Max Managed Accounts    | 5,000                             | This is the maximum number of member accounts that can be managed by a single<br>management account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 
-You can learn about the AWS MGN service limits in the [AWS General
+You can learn about the MGN service limits in the [AWS General
 Reference](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md")

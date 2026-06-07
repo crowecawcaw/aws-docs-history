@@ -15,7 +15,7 @@ have edited all your settings, click **Save template**.
 
 ## Types of post-launch actions
 
-AWS MGN supports post-launch modernization actions, giving you the opportunity to move
+MGN supports post-launch modernization actions, giving you the opportunity to move
 and improve. All post-launch actions are based on SSM documents (either public or ones you
 created) that can executed on your EC2 launch instances.
 

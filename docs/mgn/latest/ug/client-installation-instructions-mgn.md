@@ -1,10 +1,10 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Application Migration Service vCenter Client installation instructions
+# MGN vCenter Client installation instructions
 
-To install the Application Migration Service vCenter Client, follow these steps:
+To install the MGN vCenter Client, follow these steps:
 
-1. Download the Application Migration Service vCenter Client installer onto a VM within your vCenter environment.
+1. Download the MGN vCenter Client installer onto a VM within your vCenter environment.
    You can download the client from this URL:
    `https://aws-application-migration-service-(region).s3.(region).amazonaws.com/latest/vcenter-client/linux/aws-vcenter-client-installer-init.py`
    Replace `(region)` with the AWS Region into which you are replicating.
@@ -16,7 +16,7 @@ If you need to validate the installer hash, the correct hash can be found here:
 `https://aws-application-migration-service-hashes-(region).s3.(region).amazonaws.com/latest/vcenter-client/linux/aws-vcenter-client-installer-init.py.sha512`
 
 This is an example of the installer hash link for us-east-1:
-`https://aws-application-migration-service-hashes-us-east-1.s3.us-east-1.amazonaws.com/latest/vcenter-client/linux/aws-vcenter-client-installer-init.py.sha512` 2. In command prompt, navigate to the directory where you downloaded the Application Migration Service vCenter
+`https://aws-application-migration-service-hashes-us-east-1.s3.us-east-1.amazonaws.com/latest/vcenter-client/linux/aws-vcenter-client-installer-init.py.sha512` 2. In command prompt, navigate to the directory where you downloaded the MGN vCenter
 Client installer and run the installer with this command: `sudo python3
  aws-vcenter-client-installer-init.py`
 
@@ -30,7 +30,7 @@ field and then press **Enter**:
     * AWS Secret Access Key – Enter the AWS Secret Access Key you generated in the previous
      section.
     * AWS Region name – The AWS Region of your account (for example, eu-west-1).
-    * The Private Link endpoint for AWS Application Migration Service (optional, leave blank if not using Private
+    * The Private Link endpoint for AWS Transform MGN (optional, leave blank if not using Private
      Link).
     * The VPC endpoint for Amazon S3 (optional, leave blank if not using a VPC endpoint).
 
@@ -80,15 +80,15 @@ field and then press **Enter**:
      tag3=val3)
 
 5. The installer downloads and installs the AWS vCenter client and
-   registers it with AWS Application Migration Service.
+   registers it with AWS Transform MGN.
 
-![Terminal output showing successful download and installation of AWS vCenter client.](images/agentless6.png) 6. Once the AWS vCenter client has been installed, all of the VMs in your vCenter are added to AWS Application Migration Service. The VMs are added in the DISCOVERED state.
+![Terminal output showing successful download and installation of AWS vCenter client.](images/agentless6.png) 6. Once the AWS vCenter client has been installed, all of the VMs in your vCenter are added to AWS Transform MGN. The VMs are added in the DISCOVERED state.
 
 ###### Note
 
     * If you have a significant number of VMs in your vCenter environment, it may take some
-     time for all of the VMs to become visible in the Application Migration Service console.
-    * The Application Migration Service vCenter Appliance is excluded from the discovered servers list.
+     time for all of the VMs to become visible in the MGN console.
+    * The MGN vCenter Appliance is excluded from the discovered servers list.
 
 You can configure transparent proxy either by using an environment variable prior to the
 installation (Linux and Windows), or by using the --proxy-address flag in the Linux

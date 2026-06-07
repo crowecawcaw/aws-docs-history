@@ -7,18 +7,18 @@ This section contains answers to questions about the AWS Replication Agent.
 ###### Topics
 
 - [What does the AWS Replication Agent do?](#What-Agent-Do "#What-Agent-Do")
-- [What kind of data is transferred between the agent and the AWS Application Migration Service?](#What-Data-Transferred "#What-Data-Transferred")
-- [Can a proxy server be used between the source server and the AWS Application Migration Service console?](#Can-Proxy-Used "#Can-Proxy-Used")
+- [What kind of data is transferred between the agent and the AWS Transform MGN?](#What-Data-Transferred "#What-Data-Transferred")
+- [Can a proxy server be used between the source server and the AWS Transform MGN console?](#Can-Proxy-Used "#Can-Proxy-Used")
 - [What are the prerequisites needed to install the AWS Replication Agent?](#What-Pre-Requisites-Agent "#What-Pre-Requisites-Agent")
 - [What ports does the AWS Replication Agent utilize?](#What-Ports-Agent "#What-Ports-Agent")
 - [What privileges does the AWS Replication Agent require?](#Agent-privileges "#Agent-privileges")
 - [Is it possible to install the agent on servers running operating systems that are not listed as supported?](#Agent-installation-on-unsupported-operating-system "#Agent-installation-on-unsupported-operating-system")
 - [What kind of resources does the AWS Replication Agent utilize?](#What-Resources-Agent "#What-Resources-Agent")
-- [Can AWS Application Migration Service migrate containers?](#Can-Containers "#Can-Containers")
+- [Can AWS Transform MGN migrate containers?](#Can-Containers "#Can-Containers")
 - [Does the AWS Replication Agent cache any data to disk?](#Does-Agent-Cache-Data "#Does-Agent-Cache-Data")
-- [How is communication between the AWS Replication Agent and the AWS Application Migration Service secured?](#How-Communication-Secured "#How-Communication-Secured")
+- [How is communication between the AWS Replication Agent and the AWS Transform MGN secured?](#How-Communication-Secured "#How-Communication-Secured")
 - [Is it possible to change the port the AWS Replication Agent utilizes from TCP Port 1500 to a different port?](#Can-Change-Port-TCP "#Can-Change-Port-TCP")
-- [How do I manually uninstall the AWS Application Migration Service agent from a server?](#How-Manually-Uninstall-Agent "#How-Manually-Uninstall-Agent")
+- [How do I manually uninstall the AWS Transform MGN agent from a server?](#How-Manually-Uninstall-Agent "#How-Manually-Uninstall-Agent")
 - [When do I need to reinstall the agent?](#When-Reinstall-Agent "#When-Reinstall-Agent")
 - [How much bandwidth does the AWS Replication Agent consume?](#How-Much-Bandwidth "#How-Much-Bandwidth")
 - [How many disks can the AWS Replication Agent replicate?](#How-Many-Disks-Agent-Replicate "#How-Many-Disks-Agent-Replicate")
@@ -32,12 +32,12 @@ This section contains answers to questions about the AWS Replication Agent.
 The AWS Replication Agent performs an initial block-level read of the content of any volume
 attached to the server and replicates it to the replication server. The agent then acts as
 an OS-level read filter to capture writes and synchronizes any block level modifications to
-the AWS Application Migration Service replication server, ensuring near-zero RPO.
+the AWS Transform MGN replication server, ensuring near-zero RPO.
 
-## What kind of data is transferred between the agent and the AWS Application Migration Service?
+## What kind of data is transferred between the agent and the AWS Transform MGN?
 
 The AWS Replication Agent sends the following types of information to the Service Manager
-of AWS Application Migration Service:
+of AWS Transform MGN:
 
 - Monitoring metrics of the agent itself
 - Replication status (started, stalled, resumed)
@@ -55,7 +55,7 @@ machine:
   names
 - Machine's Private IP address
 
-## Can a proxy server be used between the source server and the AWS Application Migration Service console?
+## Can a proxy server be used between the source server and the AWS Transform MGN console?
 
 Yes. The proxy is configured using an environment variable prior to the install.
 
@@ -104,25 +104,25 @@ We advise using the agent only on supported OS versions to ensure the best exper
 The AWS Replication Agent is lightweight and nondisruptive. The agent utilizes
 approximately 5% CPU and 250 MB of RAM.
 
-## Can AWS Application Migration Service migrate containers?
+## Can AWS Transform MGN migrate containers?
 
-AWS Application Migration Service (AWS MGN) only supports the replication of full servers.
-Nevertheless, AWS MGN replicates on a server level and therefore any containers within the
+AWS Transform MGN only supports the replication of full servers.
+Nevertheless, MGN replicates on a server level and therefore any containers within the
 selected servers will be replicated.
 
 ## Does the AWS Replication Agent cache any data to disk?
 
-AWS Application Migration Service does not write any cache or do any sort of journalling to
+AWS Transform MGN does not write any cache or do any sort of journalling to
 disk. The Agent holds a buffer which is large enough to map all volume's blocks ~250 MB in
 memory.
 
 The agent then acts as a sort of write filter and will replicate changed blocks directly
 from memory to the Replication Server. In cases where the data is no longer in memory, the
 agent will read the block from the volume directly. This is the case where you may see
-backlog in the AWS Application Migration Service console. The cause of this is the volume of
+backlog in the AWS Transform MGN console. The cause of this is the volume of
 change is greater than the bandwidth available.
 
-## How is communication between the AWS Replication Agent and the AWS Application Migration Service secured?
+## How is communication between the AWS Replication Agent and the AWS Transform MGN secured?
 
 All communication is encrypted using SSL. In addition, each Agent is assigned a key during
 installation which is used to encrypt all traffic. All keys are unique and are not shared
@@ -130,9 +130,9 @@ across multiple agents.
 
 ## Is it possible to change the port the AWS Replication Agent utilizes from TCP Port 1500 to a different port?
 
-No. The AWS Application Migration Service Agent can only utilize TCP Port 1500 for replication.
+No. The AWS Transform MGN Agent can only utilize TCP Port 1500 for replication.
 
-## How do I manually uninstall the AWS Application Migration Service agent from a server?
+## How do I manually uninstall the AWS Transform MGN agent from a server?
 
 Follow the steps in the [Uninstalling the Agent](uninstalling-agent.md "uninstalling-agent.md") section.
 
@@ -162,7 +162,7 @@ action](predefined-post-launch-actions.md#predefined-windows-upgrade "predefined
 The AWS Replication Agent opens up to five connections and will attempt to maximize
 available bandwidth.
 
-Throttling can be activated via the AWS Application Migration Service console by either
+Throttling can be activated via the AWS Transform MGN console by either
 selecting a specific server and clicking the **Replication
 settings** tab or by changing the **Replication
 template** (in this case the change will only affect newly added servers).
@@ -174,7 +174,7 @@ server instance type supports at least the number of disks being replicated.
 
 ## Is it possible to add a disk to replication without a complete resync of any disks that have already been replicated?
 
-When you are adding a disk to a source server, AWS Application Migration Service will not automatically identify this
+When you are adding a disk to a source server, AWS Transform MGN will not automatically identify this
 disk and add it to the **Disk settings** section in the
 console.
 
@@ -200,7 +200,7 @@ it.
 ## How do temporary credentials work?
 
 The temporary credential mechanism was developed specifically to provide an easy and
-secure way to install AWS MGN Agents. The main flow of the temporary credentials' creation
+secure way to install MGN Agents. The main flow of the temporary credentials' creation
 process relies on generating an x509 certificate per agent and then using this x509
 certificate to receive temporary IAM credentials. This process utilizes a similar mechanism
 to the one used by [IAM
@@ -209,7 +209,7 @@ Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../.
 ## Which Windows and Linux OSs support no-rescan upon reboot?
 
 A shutdown (from the OS menu or CLI) of any supported Linux or Windows source server no
-longer causes a rescan in AWS MGN once the source server is restarted.
+longer causes a rescan in MGN once the source server is restarted.
 
 A rescan means that the agent on the source server rereads all blocks on all replicated disks
 and transmits blocks that are different from the previously replicated data. A rescan is similar to

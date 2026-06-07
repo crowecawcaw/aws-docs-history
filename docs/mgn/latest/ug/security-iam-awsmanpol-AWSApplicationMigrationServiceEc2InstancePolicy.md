@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # AWS managed policy: AWSApplicationMigrationServiceEc2InstancePolicy
 
-This policy allows installing and using the AWS Replication Agent, which is used by AWS Application Migration Service (AWS MGN) to migrate source servers
+This policy allows installing and using the AWS Replication Agent, which is used by AWS Transform MGN to migrate source servers
 that run on EC2 (cross-Region or cross-AZ). An IAM role with this policy should be attached
 (as an EC2 Instance Profile) to the EC2 Instances.
 

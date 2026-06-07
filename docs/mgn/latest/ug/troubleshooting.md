@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Troubleshooting
 
-This section provides help for common communication, credential, installation, and replication issues with AWS Application Migration Service.
+This section provides help for common communication, credential, installation, and replication issues with AWS Transform MGN.
 
 ###### Topics
 

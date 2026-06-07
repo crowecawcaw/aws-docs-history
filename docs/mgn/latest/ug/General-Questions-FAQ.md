@@ -2,33 +2,53 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # General questions
 
-This section contains answers to general questions about AWS Application Migration Service.
+This section contains answers to general questions about AWS Transform MGN.
 
 ###### Topics
 
-- [Can AWS Application Migration Service protect or migrate physical servers?](#Can-CloudEndure-Protect-Migrate-Servers "#Can-CloudEndure-Protect-Migrate-Servers")
-- [What data is stored on and transmitted through Application Migration Service servers?](#What-Data-Stored "#What-Data-Stored")
+- [Why was AWS Application Migration Service renamed to AWS Transform MGN?](#mgn-rebranding "#mgn-rebranding")
+- [Can MGN protect or migrate physical servers?](#Can-CloudEndure-Protect-Migrate-Servers "#Can-CloudEndure-Protect-Migrate-Servers")
+- [What data is stored on and transmitted through MGN service?](#What-Data-Stored "#What-Data-Stored")
 - [What should I consider when replicating Active Directory?](#What-Active-Directory "#What-Active-Directory")
-- [Does AWS Application Migration Service work with LVM and RAID configurations?](#Does-LVM-RAID-Work "#Does-LVM-RAID-Work")
+- [Does AWS Transform MGN work with LVM and RAID configurations?](#Does-LVM-RAID-Work "#Does-LVM-RAID-Work")
 - [What is there to note regarding SAN/NAS support?](#SAN-NAS-Support "#SAN-NAS-Support")
-- [Does AWS Application Migration Service support Windows License migration?](#Does-Windows-License-Migration "#Does-Windows-License-Migration")
-- [Can you perform an OS (Operating System) upgrade with AWS Application Migration Service?](#Can-OS-Upgrade "#Can-OS-Upgrade")
-- [What are the AWS Application Migration Service quota limits?](#MGN-service-limits-faq "#MGN-service-limits-faq")
-- [What are the Private APIs used by AWS MGN to define actions in the IAM Policy?](#mgn-apis "#mgn-apis")
-- [Which post-launch scripts does AWS MGN support?](#mgn-post-launch "#mgn-post-launch")
+- [Does AWS Transform MGN support Windows License migration?](#Does-Windows-License-Migration "#Does-Windows-License-Migration")
+- [Can you perform an OS (Operating System) upgrade with AWS Transform MGN?](#Can-OS-Upgrade "#Can-OS-Upgrade")
+- [What are the AWS Transform MGN quota limits?](#MGN-service-limits-faq "#MGN-service-limits-faq")
+- [What are the Private APIs used by MGN to define actions in the IAM Policy?](#mgn-apis "#mgn-apis")
+- [Which post-launch scripts does MGN support?](#mgn-post-launch "#mgn-post-launch")
 - [What happens if I use a custom DNS?](#custom-DNS "#custom-DNS")
-- [Can I use AWS Application Migration Service to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?](#vmc "#vmc")
+- [Can I use AWS Transform MGN to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?](#vmc "#vmc")
 - [When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration?](#using-drs "#using-drs")
 
-## Can AWS Application Migration Service protect or migrate physical servers?
+## Why was AWS Application Migration Service renamed to AWS Transform MGN?
 
-Because AWS Application Migration Service works at the OS layer it can protect and migrate not
-only virtual servers but physical ones as well.
+AWS Application Migration Service has been renamed to AWS Transform MGN. The new name
+reflects the close link between MGN and AWS Transform. AWS Transform uses MGN replication
+technology to rehost servers.
 
-## What data is stored on and transmitted through Application Migration Service servers?
+You can access AWS Transform MGN in two ways:
 
-AWS Application Migration Service store only configuration and log data on the AWS Application Migration Service console's encrypted database.
-Replicated data is always stored on the customer’s own cloud VPC. The replicated data is encrypted in transit.
+- Use the MGN console directly in the AWS console for a hands-on experience.
+- Use the AWS Transform workflow, which automates discovery, wave planning,
+  network setup, landing zone creation, rehosting and containerization.
+
+At the rehosting stage, you can continue with the agentic workflow or switch to the
+MGN console if you prefer a more hands-on experience.
+
+AWS Transform is also available through Kiro, Claude, Cursor, and Codex via the
+AWS Transform MCP server.
+
+## Can MGN protect or migrate physical servers?
+
+Yes. MGN can migrate both virtual and physical servers. The replication process
+works at the OS level, so it handles both server types the same way.
+
+## What data is stored on and transmitted through MGN service?
+
+MGN stores only configuration and log data. This data is kept in an
+encrypted database. Your replicated data stays in your own VPC. All data in transit
+is encrypted.
 
 ## What should I consider when replicating Active Directory?
 
@@ -47,33 +67,33 @@ In this case, it is important to conduct any tests using an isolated subnet in t
 cloud, so to avoid having the test or cutover instances communicate into the source AD
 server outside of a cutover.
 
-## Does AWS Application Migration Service work with LVM and RAID configurations?
+## Does AWS Transform MGN work with LVM and RAID configurations?
 
-Yes, AWS Application Migration Service works with any such configuration.
+Yes, AWS Transform MGN works with any such configuration.
 
 ## What is there to note regarding SAN/NAS support?
 
-If the disks are represented as block devices on the machine, as most SAN are, AWS Application Migration Service will
+If the disks are represented as block devices on the machine, as most SAN are, AWS Transform MGN will
 replicate them transparently, just like actual local disks.
 
 If the disks are mounted over the network, such as an NFS share, as most NAS
 implementations are, the AWS Replication Agent would need to be installed on the actual NFS
 server in order to replicate the disk.
 
-## Does AWS Application Migration Service support Windows License migration?
+## Does AWS Transform MGN support Windows License migration?
 
-AWS Application Migration Service conforms to the [Microsoft Licensing on
+AWS Transform MGN conforms to the [Microsoft Licensing on
 AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") guidelines.
 
-## Can you perform an OS (Operating System) upgrade with AWS Application Migration Service?
+## Can you perform an OS (Operating System) upgrade with AWS Transform MGN?
 
-Yes. AWS Application Migration Service allows you to [perform an OS upgrade](predefined-post-launch-actions.md#predefined-windows-upgrade "predefined-post-launch-actions.md#predefined-windows-upgrade") using a predefined
+Yes. AWS Transform MGN allows you to [perform an OS upgrade](predefined-post-launch-actions.md#predefined-windows-upgrade "predefined-post-launch-actions.md#predefined-windows-upgrade") using a predefined
 action. The action will clone your machine and upgrade the clone. After the upgrade, verify
 that the cloned machine is working well, and then you can begin using it.
 
-## What are the AWS Application Migration Service quota limits?
+## What are the AWS Transform MGN quota limits?
 
-The following are the AWS Application Migration Service service quota limits:
+The following are the AWS Transform MGN service quota limits:
 
 | Name                                     | Default                           | Description                                                                                                                                                                                                                                                                                                                                                                       |
 | ---------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -85,10 +105,10 @@ The following are the AWS Application Migration Service service quota limits:
 | Max total source servers per AWS account | Each supported AWS Region: 50,000 | This parameter is the maximum total servers, both active and archived, that can<br>be migrated in a single account in each AWS Region. Servers that are deleted, are<br>not counted against this quota.                                                                                                                                                                           |
 | Max concurrent jobs per source server    | Each supported AWS Region: 1      | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". This is the maximum number of active Jobs, that can be configured per server.<br>Jobs that are \*_Completed_<br>• are not counted against this quota.                                                                                                                                         |
 
-You can learn about the AWS Application Migration Service limits in the [AWS General
+You can learn about the AWS Transform MGN limits in the [AWS General
 Reference](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md").
 
-## What are the Private APIs used by AWS MGN to define actions in the IAM Policy?
+## What are the Private APIs used by MGN to define actions in the IAM Policy?
 
 MGN utilizes the following Private API resources as actions in the IAM Policy. [Learn more about Actions, resources, and condition keys for MGN.](../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md "../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md")
 
@@ -147,7 +167,7 @@ MGN utilizes the following Private API resources as actions in the IAM Policy. [
 - IssueAgentCertificateForMgn – Grants permission to send certificate signing
   request.
 
-## Which post-launch scripts does AWS MGN support?
+## Which post-launch scripts does MGN support?
 
 MGN can run scripts on a launched test or cutover instance. This is done by creating the
 following folder on the source server and placing the scripts within that folder.
@@ -202,7 +222,7 @@ Custom DNS settings can cause issues in the replication servers.
 Therefore, if you are using a custom DNS, you will need to add a TCP port 53 to the
 security group outbound rules, for replication and conversion servers.
 
-## Can I use AWS Application Migration Service to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?
+## Can I use AWS Transform MGN to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?
 
 Yes, you can. For migrations of source servers from
 [VMC](https://aws.amazon.com/vmware/ "https://aws.amazon.com/vmware/")

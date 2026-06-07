@@ -4,7 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 You can attach the `AWSApplicationMigrationNetworkMigrationMultiAccount` policy to your IAM identities.
 
-This identity-based policy enables AWS Application Migration Service (MGN) to create, modify, and manage network infrastructure components through CloudFormation. The policy grants permissions necessary for:
+This identity-based policy enables AWS Transform MGN to create, modify, and manage network infrastructure components through CloudFormation. The policy grants permissions necessary for:
 
 1. **Network Resource Management:** Creating and managing VPCs, subnets, route tables, and network ACLs; configuring Transit Gateways and their attachments; managing security groups and their rules; setting up NAT Gateways and Internet Gateways; handling network interfaces and elastic IPs
 2. **CloudFormation Operations:** Creating and managing stacks with prefix [Nmd\*]; describing stack resources and events; updating and deleting stacks
@@ -12,7 +12,7 @@ This identity-based policy enables AWS Application Migration Service (MGN) to cr
 4. **Custom Resources:** Creating and managing Lambda functions with prefix [network-migration\*]; managing IAM roles with prefix [Nmd\*modifyTransitGateway\*]; creating and managing CloudWatch log groups
    The policy enforces security through resource tagging requirements (CreatedBy: AWSApplicationMigrationService), conditional checks ensuring operations are called via CloudFormation, organization-level controls for cross-account resource sharing, and specific resource-level permissions for critical network components.
 
-This policy grants both programmatic and console access required for AWS Application Migration Service to orchestrate network infrastructure deployment and management through CloudFormation.
+This policy grants both programmatic and console access required for AWS Transform MGN to orchestrate network infrastructure deployment and management through CloudFormation.
 
 **Permissions details**
 

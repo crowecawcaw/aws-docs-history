@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Predefined post-launch actions reference
 
-AWS Application Migration Service allows you to execute various predefined post-launch actions on your
+AWS Transform MGN allows you to execute various predefined post-launch actions on your
 Amazon EC2 launch instance. Use these out-of-the-box actions to modernize your servers
 while you're migrating: Change existing license, upgrade your operating system,
 configure disaster recovery, and more.
@@ -33,10 +33,10 @@ configure disaster recovery, and more.
 
 ## Install the SSM agent
 
-The SSM allows AWS Application Migration Service to execute modernization actions on your servers
+The SSM allows AWS Transform MGN to execute modernization actions on your servers
 after they are launched.
 
-When you activate the post-launch actions, AWS Application Migration Service installs the **SSM agent** and creates the required IAM roles.
+When you activate the post-launch actions, AWS Transform MGN installs the **SSM agent** and creates the required IAM roles.
 
 The SSM agent must be installed for any other post-launch action to run.
 Therefore, this is the only post-launch action that is activated by default and
@@ -51,7 +51,7 @@ cannot be deactivated.
 This feature is supported on operating systems that are supported by
 AWS Elastic Disaster Recovery (AWS DRS). [See the AWS DRS documentation.](../../../drs/latest/userguide/Supported-Operating-Systems.md "../../../drs/latest/userguide/Supported-Operating-Systems.md")
 
-This action is not supported in Application Migration Service GovCloud regions (US-East,
+This action is not supported in MGN GovCloud regions (US-East,
 US-West).
 
 Use the **DR after migration** feature to
@@ -140,7 +140,7 @@ times in the list.
 Use the **Windows MS-SQL license conversion**
 feature to easily convert Windows MS-SQL BYOL to an AWS license.
 
-Application Migration Service:
+MGN:
 
 - Checks the SQL edition (Enterprise, Standard, or Web) as part of the
   launch process
@@ -225,14 +225,14 @@ The SSM document:
 
 - This operation may run for several hours.
 - All other post-launch actions run on the instance launched by
-  Application Migration Service and not on the upgraded instance.
+  MGN and not on the upgraded instance.
 
 [Learn more about upgrading Windows.](../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-awsec2-CloneInstanceAndUpgradeWindows.md")
 
 ## Create AMI from instance
 
 Use the **Create AMI from Instance** feature to
-create a new Amazon Machine Image (AMI) from your Application Migration Service launched
+create a new Amazon Machine Image (AMI) from your MGN launched
 instance.
 
 You need the AWSApplicationMigrationSSMAccess policy, or a user-defined policy

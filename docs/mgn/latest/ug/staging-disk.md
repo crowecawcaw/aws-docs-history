@@ -10,22 +10,22 @@ choose **Change staging disk type**.
 On the **Change staging disk type** dialog, select the type
 of EBS volume to use for the disk or group of disks.
 
-Select the **AUTO** option if you want AWS Application Migration Service to
+Select the **AUTO** option if you want AWS Transform MGN to
 automatically select the most cost-effective EBS volume disk type for each disk based on the
 disk size and type based on the option you defined in the **Replication
 settings** (either the default **Lower cost, Throughput Optimized
 HDD (st1)** option or the **Faster, General Purpose SSD
 (gp3)** option).
 
-AWS Application Migration Service uses a single replication server per 15 source disks. Selecting the **AUTO** option ensures that the fewest number of replication servers
+AWS Transform MGN uses a single replication server per 15 source disks. Selecting the **AUTO** option ensures that the fewest number of replication servers
 are used, resulting in increased cost savings.
 
 ###### Note
 
-AWS Application Migration Service always uses EBS magnetic volumes for disks that are under 500 GiB in size
+AWS Transform MGN always uses EBS magnetic volumes for disks that are under 500 GiB in size
 when the **AUTO** option is selected.
 
-If you do not want AWS Application Migration Service to automatically select a disk, you can select a disk
+If you do not want AWS Transform MGN to automatically select a disk, you can select a disk
 manually. Select the disk type from the**EBS volume type** menu.
 
 ###### Note

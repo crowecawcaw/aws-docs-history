@@ -1,10 +1,10 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Migration at scale using AWS Application Migration Service
+# Migration at scale using AWS Transform MGN
 
 ## Choose your agent-based vs agentless migration approach
 
-When planning your migration with AWS Application Migration Service (MGN), review which approach best suits your environment and goals. MGN offers agentless and agent-based replication to migrate your workloads into AWS EC2. Agent-based replication is supported for both VMware and non-VMware environments, while agentless replication is supported only for VMware environments.
+When planning your migration with AWS Transform MGN (MGN), review which approach best suits your environment and goals. MGN offers agentless and agent-based replication to migrate your workloads into AWS EC2. Agent-based replication is supported for both VMware and non-VMware environments, while agentless replication is supported only for VMware environments.
 
 1. Consider agentless replication if your security policies restrict installing agents at the OS level of your Virtual Machines.
 2. Review the network requirements for both, [agentless replication](installing-vcenter-appliance-mgn.md#client-notes-mgn "installing-vcenter-appliance-mgn.md#client-notes-mgn") and [agent-based replication](preparing-environments.md#Network-Requirements "preparing-environments.md#Network-Requirements"), to determine the best approach for your needs.
@@ -22,12 +22,12 @@ Before migrating, review the associated costs of using the service. For full pri
 
 ## Import/Export
 
-When performing large-scale migrations, you can use the [Import/Export](import-export.md "import-export.md") feature in AWS Application Migration Service (MGN) to efficiently stage your servers with the correct configurations. This feature uses a CSV template file with predefined columns that map to attributes of Waves, Applications, and Source Servers in MGN. The template includes columns for Launch Template settings, enabling bulk edits of these configuration options. Additionally, you can specify Tags to assist with cost center association, ensuring your cost planning remains accurate.
+When performing large-scale migrations, you can use the [Import/Export](import-export.md "import-export.md") feature in AWS Transform MGN to efficiently stage your servers with the correct configurations. This feature uses a CSV template file with predefined columns that map to attributes of Waves, Applications, and Source Servers in MGN. The template includes columns for Launch Template settings, enabling bulk edits of these configuration options. Additionally, you can specify Tags to assist with cost center association, ensuring your cost planning remains accurate.
 By utilizing the Import/Export feature, you can streamline your migration process and maintain better control over your server configurations and associated costs.
 
 ## MGN Connector
 
-When using Application Migration Service (MGN), first verify your servers meet the prerequisites for agent installation, then install the agent on all source servers. The [MGN Connector](mgn-connector.md "mgn-connector.md") assists with these tasks. Before using the MGN Connector, verify its prerequisites and ensure the MGN Connector can communicate with source servers via SSH for Linux and WinRM for Windows to execute commands.
+When using AWS Transform MGN (MGN), first verify your servers meet the prerequisites for agent installation, then install the agent on all source servers. The [MGN Connector](mgn-connector.md "mgn-connector.md") assists with these tasks. Before using the MGN Connector, verify its prerequisites and ensure the MGN Connector can communicate with source servers via SSH for Linux and WinRM for Windows to execute commands.
 
 ## Network benchmarking
 
@@ -52,7 +52,7 @@ After performing your storage benchmarking, you will have a clear understanding 
 
 ## Wave planning
 
-Planning your migration in waves is crucial for successful large-scale migrations. With AWS Application Migration Service (MGN) you can group source servers and applications into waves, allowing you to migrate servers in batches rather than all at once.
+Planning your migration in waves is crucial for successful large-scale migrations. With AWS Transform MGN you can group source servers and applications into waves, allowing you to migrate servers in batches rather than all at once.
 
 1. Migrating servers in [waves](waves.md "waves.md") offers several benefits. It allows you to focus on a specific set of servers at a time and ensure the first wave operates as expected before proceeding to the next.
 2. Grouping interdependent servers into [applications](applications.md "applications.md") helps prevent issues during migration. For example, migrating member servers before domain controllers could cause authentication problems and other Active Directory-related issues. This approach enables a more controlled and reliable migration process, reducing the risk of widespread disruptions and allowing for adjustments between waves as needed.
@@ -67,7 +67,7 @@ Planning for your cutover date is crucial for a successful migration. Work backw
 
 ## Clustered servers
 
-Migrating clustered servers to AWS requires careful planning due to its complexity. The AWS Application Migration Service (MGN) operates at the server level and is not cluster-aware, necessitating additional steps after cutover to ensure proper functionality. Consider the following high-level approach for migrating clusters with MGN:
+Migrating clustered servers to AWS requires careful planning due to its complexity. The AWS Transform MGN operates at the server level and is not cluster-aware, necessitating additional steps after cutover to ensure proper functionality. Consider the following high-level approach for migrating clusters with MGN:
 
 1. Begin by migrating the primary node to AWS. This establishes the foundation for your cluster in the new environment.
 2. For secondary nodes, you have several options. You can use MGN to migrate these nodes after the primary node is operational in AWS. Alternatively, consider performing a native backup and restore, using log shipping, or employing other methods that suit your specific requirements.

@@ -13,12 +13,12 @@ these requirements:
 
 - Ensure that your setup meets all networking requirements. [Learn more about network requirements.](preparing-environments.md "preparing-environments.md")
 - Ensure MAC address stability – ensure that the MAC addresses of the source servers do
-  not change upon a reboot or any other common changes in your network environment. AWS Application Migration Service
+  not change upon a reboot or any other common changes in your network environment. AWS Transform MGN
   calculates the unique ID of the source server from the MAC address. When a MAC address
-  changes, Application Migration Service is no longer able to correctly identify the source server. Consequently,
+  changes, MGN is no longer able to correctly identify the source server. Consequently,
   replication stops. If this happens, you need to reinstall the AWS Replication
   Agent and start replication from the beginning.
-- AWS Application Migration Service does not support fully paravirtualized source servers. Source servers with
+- AWS Transform MGN does not support fully paravirtualized source servers. Source servers with
   partial paravirtualization, such as VMWare's paravirtualization of I/O devices, is supported.
 - The AWS Replication Agent installer supports multipath.
 
@@ -30,9 +30,9 @@ These are universal requirements for both Linux and Windows source servers:
   the root directory (/) .
 - Verify that your source server has at least 300 MB of free RAM to run the AWS
   Replication Agent.
-- Application Migration Service only supports operating systems built for the x86 system architecture.
-- Application Migration Service supports replication of volumes up to a maximum size of 16 TB.
-  Application Migration Service does not currently support migration of servers that have larger volume sizes.
+- MGN only supports operating systems built for the x86 system architecture.
+- MGN supports replication of volumes up to a maximum size of 16 TB.
+  MGN does not currently support migration of servers that have larger volume sizes.
   Agent installation will fail with an appropriate error message if the installer detects
   a volume that is larger than this limit.
 
@@ -97,7 +97,7 @@ This example illustrates the troubleshooting procedure:
 
 ![Terminal commands showing mount output filtered for tmp, then remounting and verifying.](images/agent66.png)
 
-- The AWS Application Migration Service user needs to be either a root user or a user in the sudoers list.
+- The AWS Transform MGN user needs to be either a root user or a user in the sudoers list.
 - Ensure that the dhclient package is installed. If not, please install the package
   using:
 
@@ -283,6 +283,6 @@ including:
   directory
 - Install all available Windows updates on the server.
 - A graceful reboot from the OS menu or Windows CLI of a Windows source server does not triggers
-  a rescan in Application Migration Service once the source server is restarted. Hard reboots, disk changes,
+  a rescan in MGN once the source server is restarted. Hard reboots, disk changes,
   and crashes trigger a rescan.
-- Mount points must be assigned a drive letter to be recognized by AWS Application Migration Service. A folder path is not recognized.
+- Mount points must be assigned a drive letter to be recognized by AWS Transform MGN. A folder path is not recognized.

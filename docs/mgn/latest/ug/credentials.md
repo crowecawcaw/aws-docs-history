@@ -15,7 +15,7 @@ option.
 
 ## Temporary credentials
 
-The temporary credentials provided by AWS Application Migration Service utilize a similar mechanism to the one
+The temporary credentials provided by AWS Transform MGN utilize a similar mechanism to the one
 used by [IAM
 Roles Anywhere](../../../rolesanywhere/latest/userguide/introduction.md "../../../rolesanywhere/latest/userguide/introduction.md").
 

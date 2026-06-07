@@ -17,7 +17,7 @@ We recommend using the
 and
 [`aws:SourceAccount`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourceaccount")
 global condition context keys in resource policies
-to limit the permissions that AWS Application Migration Service gives another service to the
+to limit the permissions that AWS Transform MGN gives another service to the
 resource. If you use both global condition context keys, the
 `aws:SourceAccount`
 value and the account in the `aws:SourceArn` value must use the same account ID
@@ -37,7 +37,7 @@ resources, use the `aws:SourceArn` global context condition key with wildcards
 
 The following example shows how you can use the `aws:SourceArn` and
 `aws:SourceAccount`
-global condition context keys in AWS Application Migration Service to prevent the confused deputy problem.
+global condition context keys in AWS Transform MGN to prevent the confused deputy problem.
 
 JSON
 

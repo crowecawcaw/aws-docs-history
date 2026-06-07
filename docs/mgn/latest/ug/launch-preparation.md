@@ -14,6 +14,6 @@ to ensure successful launches. Check the following prior to continuing:
 
 ###### Note
 
-Customers that want to run a proof of concept can skip this step. AWS Application Migration Service
+Customers that want to run a proof of concept can skip this step. AWS Transform MGN
 automatically uses the default subnet and Security groups. Make sure that you have not deleted
 your default subnet.

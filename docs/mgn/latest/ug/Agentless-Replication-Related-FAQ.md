@@ -10,7 +10,7 @@ This section contains answers to questions about agentless replication.
 - [In which situations would you recommend using agent-based replication?](#faq-agentless-situations-agent "#faq-agentless-situations-agent")
 - [How does agentless replication work?](#faq-agentless-work "#faq-agentless-work")
 - [Does agentless replication require installing any component in the customer's source data center?](#faq-agentless-component "#faq-agentless-component")
-- [Is the agentless feature available in all Regions that AWS MGN service supports?](#faq-agentless-regions "#faq-agentless-regions")
+- [Is the agentless feature available in all Regions that MGN service supports?](#faq-agentless-regions "#faq-agentless-regions")
 - [Does agentless replication support the same source operating systems that are supported by agent-based replication?](#faq-agentless-os "#faq-agentless-os")
 - [Is the agentless feature supported in CloudEndure migration?](#faq-agentless-cloudendure "#faq-agentless-cloudendure")
 - [Which virtualization environments are supported by the agentless feature?](#faq-agentless-virtualization "#faq-agentless-virtualization")
@@ -18,7 +18,7 @@ This section contains answers to questions about agentless replication.
 - [Do I need to generate special credentials to install the MGN vCenter Client?](#faq-agentless-credentials "#faq-agentless-credentials")
 - [What are the agentless replication prerequisites?](#faq-agentless-credentials-prereques "#faq-agentless-credentials-prereques")
 - [How do I install the MGN vCenter Client?](#faq-agentless-how-install "#faq-agentless-how-install")
-- [Can a proxy server be used between the source server and the AWS Application Migration Service console?](#faq-agentless-proxy "#faq-agentless-proxy")
+- [Can a proxy server be used between the source server and the AWS Transform MGN console?](#faq-agentless-proxy "#faq-agentless-proxy")
 
 ## In which situations would you recommend using agentless replication (snapshot shipping)?
 
@@ -48,9 +48,9 @@ Yes. In order to use agentless replication, customers must install the MGN vCent
 Client in their source data center. The client discovers the source servers and replicates
 their data to AWS.
 
-## Is the agentless feature available in all Regions that AWS MGN service supports?
+## Is the agentless feature available in all Regions that MGN service supports?
 
-Yes. Both agent-based and agentless replication is supported in AWS Application Migration Service (AWS MGN) in all
+Yes. Both agent-based and agentless replication is supported in AWS Transform MGN in all
 Regions.
 
 ## Does agentless replication support the same source operating systems that are supported by agent-based replication?
@@ -59,7 +59,7 @@ Agentless replication supports all of the [supported Windows operating systems](
 
 ## Is the agentless feature supported in CloudEndure migration?
 
-No. This feature is only available on AWS Application Migration Service.
+No. This feature is only available on AWS Transform MGN.
 
 ## Which virtualization environments are supported by the agentless feature?
 
@@ -76,12 +76,12 @@ The MGN vCenter Client can be installed on the following 64 bit Linux versions:
 
 ## Do I need to generate special credentials to install the MGN vCenter Client?
 
-Yes. In order to use the AWS MGN vCenter Client, you must first generate the correct IAM
+Yes. In order to use the MGN vCenter Client, you must first generate the correct IAM
 credentials. Learn more in the [agentless replication documentation](vcenter-credentials-mgn.md "vcenter-credentials-mgn.md").
 
 ## What are the agentless replication prerequisites?
 
-The only prerequisite for agentless replication is to ensure that you have initialized AWS Application Migration Service.
+The only prerequisite for agentless replication is to ensure that you have initialized AWS Transform MGN.
 
 ## How do I install the MGN vCenter Client?
 
@@ -89,7 +89,7 @@ You can learn more about installing the MGN vCenter Client as well as installati
 requirements in the [agentless replication
 documentation](installing-vcenter-appliance-mgn.md "installing-vcenter-appliance-mgn.md").
 
-## Can a proxy server be used between the source server and the AWS Application Migration Service console?
+## Can a proxy server be used between the source server and the AWS Transform MGN console?
 
 Yes. You can configure transparent proxy either by using an environment variable prior to the installation (Linux and Windows),
 or by using the --proxy-address flag in the Linux installer:

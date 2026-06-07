@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 This setting controls whether post-launch actions are active or inactive. You must leave
 the **Install Systems Manager agent and allow executing actions on launched
 servers** option toggled in order for post-launch actions to work. Untoggling the
-option disallows AWS MGN to install the SSM Agent on your servers and post-launch actions
+option disallows MGN to install the SSM Agent on your servers and post-launch actions
 are no longer executed on them.
 
 The feature is activated and deactivated at the account level from the **Settings > Post-launch template** screen. [Learn more about activating post-launch

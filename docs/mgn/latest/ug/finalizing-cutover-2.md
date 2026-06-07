@@ -22,10 +22,10 @@ To finalize a cutover:
    performed successfully. In addition, this stops data replication and causes all replicated
    data to be discarded. All AWS resources used for data replication are terminated.
 
-The AWS Application Migration Service console indicates **Cutover finalized**
+The AWS Transform MGN console indicates **Cutover finalized**
 when the cutover has completed successfully.
 
-The AWS Application Migration Service console automatically stops data replication for the source servers
+The AWS Transform MGN console automatically stops data replication for the source servers
 that were cutover in order to save resource costs. The selected source servers' **Migration lifecycle** column shows the **Cutover complete** status, the **Data replication**
 status column shows **Disconnected**, and the **Next step** column shows **Mark as
 archived**. The source servers have now been successfully migrated into

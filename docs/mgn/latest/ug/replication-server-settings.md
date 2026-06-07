@@ -6,7 +6,7 @@ Replication servers are lightweight Amazon EC2 instances that are used to replic
 data between your source servers and AWS. Replication servers are automatically
 launched and terminated as needed. You can modify the behavior of the replication
 servers by modifying the settings for a single source server or multiple source
-servers. Alternatively, you can run AWS Application Migration Service with the default replication server
+servers. Alternatively, you can run AWS Transform MGN with the default replication server
 settings.
 
 The replication server options, include:
@@ -63,7 +63,7 @@ This determines the instance type and size that is used for the launch
 of each replication server.
 
 The best practice is to not change the default replication server instance
-type unless there is a business need for doing so. By default, AWS Application Migration Service uses the **t3.small** instance type. This is the most
+type unless there is a business need for doing so. By default, AWS Transform MGN uses the **t3.small** instance type. This is the most
 cost effective instance type and should work well for most common workloads. You
 can change the replication server instance type to speed up the initial sync of
 data from your source servers to AWS. Changing the instance type will likely
@@ -158,7 +158,7 @@ source server in that source server's settings. [Learn more about changing indiv
 
 For information about Amazon EBS volume limits, see
 [What are the Amazon EBS volume limits for
-AWS Application Migration Service?](AWS-Related-FAQ.md#ebs-limits-faq "AWS-Related-FAQ.md#ebs-limits-faq")
+AWS Transform MGN?](AWS-Related-FAQ.md#ebs-limits-faq "AWS-Related-FAQ.md#ebs-limits-faq")
 
 ## Amazon EBS encryption
 
@@ -192,13 +192,13 @@ cause data replication to start from the beginning.
 
 If you decide to use a Customer Managed Key (CMK), or if your default
 Amazon EBS encryption key is a CMK, you will need to add additional permissions
-to the key to allow AWS Application Migration Service to use it.
+to the key to allow AWS Transform MGN to use it.
 
 To modify the existing key policy using the AWS Management Console
 _policy view_.
 
 1. Navigate to the AWS KMS Console and select the AWS KMS key you plan to
-   use with AWS MGN.
+   use with MGN.
 2. Scroll to **Key policy** and click
    **Switch to policy view**.
 3. Click **Edit** and add the following
@@ -229,7 +229,7 @@ _policy view_.
       }
     },
     {
-      "Sid": "Allow AWS MGN permissions to use a customer managed key for EBS encryption",
+      "Sid": "Allow MGN permissions to use a customer managed key for EBS encryption",
       "Effect": "Allow",
       "Principal": {
         "AWS": "arn:aws:iam::$ACCOUNT_ID:root"
@@ -263,7 +263,7 @@ _policy view_.
       }
     },
     {
-      "Sid": "Allow EC2 to use this key on behalf of the current AWS Application Migration Service user, during target launches",
+      "Sid": "Allow EC2 to use this key on behalf of the current MGN user, during target launches",
       "Effect": "Allow",
       "Principal": {
         "AWS": [
@@ -351,26 +351,26 @@ Local Zone.
 
 For more information about local snapshots in Local Zones, see [Local snapshots in Local Zones](../../../ebs/latest/userguide/snapshots-localzones.md "../../../ebs/latest/userguide/snapshots-localzones.md") in the Amazon EBS User Guide.
 
-## Always use Application Migration Service security group
+## Always use AWS Transform MGN security group
 
 Choose whether you would like to **Always use the
-Application Migration Service security group**.
+AWS Transform MGN security group**.
 
 A security group acts as a virtual firewall, which controls the inbound and
 outbound traffic of the staging area subnet.
 
-The best practice is to have AWS Application Migration Service automatically attach and monitor the
-default Application Migration Service Security Group. This group opens inbound
+The best practice is to have AWS Transform MGN automatically attach and monitor the
+default AWS Transform MGN Security Group. This group opens inbound
 TCP Port 1500 for receiving the transferred replicated data. When the default
-Application Migration Service Security Group is activated, Application Migration Service will constantly
+AWS Transform MGN Security Group is activated, MGN will constantly
 monitor whether the rules within this security group are enforced, in order to
-maintain uninterrupted data replication. If these rules are altered, Application Migration Service will
+maintain uninterrupted data replication. If these rules are altered, MGN will
 automatically fix the issue.
 
-Select the **Always use Application Migration Service
+Select the **Always use AWS Transform MGN
 security group** option to allow data to flow from your source
 servers to the replication servers, and that the replication servers can
-communicate their state to the AWS Application Migration Service servers.
+communicate their state to the AWS Transform MGN servers.
 
 Otherwise, select the **Do not use Application Migration
 Service security group option**. Selecting this option is not
@@ -383,18 +383,18 @@ dropdown. The list of available security groups changes according to the
 You can search for a specific security group within the search box.
 
 You can add security groups via the AWS Management Console, and they will appear on the
-security group drop-down list in the AWS Application Migration Service Console. Learn more about AWS
+security group drop-down list in the AWS Transform MGN Console. Learn more about AWS
 security groups in [this VPC article](../../../vpc/latest/userguide/VPC_SecurityGroups.md "../../../vpc/latest/userguide/VPC_SecurityGroups.md").
 
-You can use the default Application Migration Service security group, or you
+You can use the default AWS Transform MGN security group, or you
 can select another security group. However, take into consideration that any
-selected security group that is not the Application Migration Service default,
+selected security group that is not the AWS Transform MGN default,
 will be added to the default group, since the default security group is
-essential for the operation of Application Migration Service.
+essential for the operation of MGN.
 
 ## Data routing and throttling
 
-AWS Application Migration Service allows you to control how data is routed from your source servers to
+AWS Transform MGN allows you to control how data is routed from your source servers to
 the replication servers on AWS through the **Data routing
 and throttling** settings.
 
@@ -455,7 +455,7 @@ The following diagram illustrates the high-level interaction between
 the different replication system components when using private IP or VPC
 endpoint.
 
-![Application Migration Service network architecture diagram featuring a private link/VPC](images/AWS-MGN-Network-Architecture-Private-Link.png)
+![MGN network architecture diagram featuring a private link/VPC](images/AWS-MGN-Network-Architecture-Private-Link.png)
 
 #### Create public IP
 
@@ -468,7 +468,7 @@ to create a public IP.
 ### Throttle bandwidth
 
 You can control the amount of network bandwidth used for data replication
-per server. By default, AWS Application Migration Service will use all available network bandwidth
+per server. By default, AWS Transform MGN will use all available network bandwidth
 utilizing five concurrent connections.
 
 Choose **Throttle bandwidth** if you want to
@@ -482,12 +482,12 @@ Enter your desired bandwidth in Mbps.
 ## Replication resources tags
 
 Add custom **Replication resources tags** to
-resources created by AWS Application Migration Service in your AWS account.
+resources created by AWS Transform MGN in your AWS account.
 
 These are resources required to facilitate data replication, testing and
 cutover. Each tag consists of a key and an optional value. You can add a custom
 tag to all of the AWS resources that are created on your AWS account during
-the normal operation of AWS Application Migration Service.
+the normal operation of AWS Transform MGN.
 
 To add a new tag, take the following steps:
 
@@ -497,7 +497,7 @@ To add a new tag, take the following steps:
 
 ###### Note
 
-Application Migration Service already adds tags to every resource it creates, including service
+MGN already adds tags to every resource it creates, including service
 tags and user tags.
 
 These resources include:

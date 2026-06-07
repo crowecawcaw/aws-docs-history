@@ -1,8 +1,8 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Network requirements for Application Migration Service
+# Network requirements for MGN
 
-Before you use Application Migration Service, make sure to prepare your environments. Preparation includes setting
+Before you use MGN, make sure to prepare your environments. Preparation includes setting
 correct network settings, defining network requirements, and opening the correct ports.
 
 ###### Topics
@@ -14,13 +14,13 @@ correct network settings, defining network requirements, and opening the correct
 
 ## Service and network architecture overview
 
-Watch the [AWS Application Migration Service -
+Watch the [AWS Transform MGN -
 Service architecture and network architecture video](https://youtu.be/ao8geVzmmRo "https://youtu.be/ao8geVzmmRo") for an in-depth overview of the
-Application Migration Service architecture.
+MGN architecture.
 
-This is the Application Migration Service network diagram:
+This is the MGN network diagram:
 
-![Application Migration Service network architecture modernization diagram](images/AWS-MGN-Network-Architecture-Modernization.png)
+![MGN network architecture modernization diagram](images/AWS-MGN-Network-Architecture-Modernization.png)
 
 ## Network setting preparations
 
@@ -34,7 +34,7 @@ As part of network setting preparations, set up a staging area and operational s
 
 ### Staging area subnet
 
-Before setting up Application Migration Service you should create a subnet which will be used by the
+Before setting up MGN you should create a subnet which will be used by the
 service as a staging area for data replicated from your source servers to AWS.
 
 - You must specify this subnet in the replication settings template. While you can use an
@@ -58,7 +58,7 @@ and cut over your workloads without any issues.
 
 Test and cutover instances are launched in a subnet you specify in the Amazon EC2 launch
 template associated with each source server. The Amazon EC2 launch template is created automatically
-when you add a source server to AWS Application Migration Service.
+when you add a source server to AWS Transform MGN.
 
 [Learn more about launching test and cutover
 instances](launching-test-gs.md "launching-test-gs.md").
@@ -70,7 +70,7 @@ used](ec2-launch.md "ec2-launch.md").
 
 If your source servers are domain-joined to an Active Directory, ensure that the target
 VPC has network connectivity and DNS resolution to your AD domain controllers before launching
-test or cutover instances. During conversion, Application Migration Service resets network settings to use DHCP, which
+test or cutover instances. During conversion, MGN resets network settings to use DHCP, which
 means instance-level DNS overrides from the source server are not preserved.
 
 For details on configuring DNS and network connectivity for domain-joined servers, see
@@ -79,28 +79,28 @@ Directory after migration](ad-connectivity-after-migration.md "ad-connectivity-a
 
 ## Required connectivity settings
 
-To prepare your network for running AWS Application Migration Service, configure the following connectivity
+To prepare your network for running AWS Transform MGN, configure the following connectivity
 settings. All communication is encrypted with TLS.
 
 ###### Important
 
 SSL interception should not be applied for communication between replication
-servers and the Application Migration Service API endpoint, or between source servers and the Application Migration Service API
+servers and the MGN API endpoint, or between source servers and the MGN API
 endpoint.
 
 ###### Topics
 
 - [Endpoints and firewall allowlist](#TCP-443 "#TCP-443")
-- [Communication between source servers and AWS Application Migration Service over TCP port 443](#Source-Manager-TCP-443 "#Source-Manager-TCP-443")
+- [Communication between source servers and AWS Transform MGN over TCP port 443](#Source-Manager-TCP-443 "#Source-Manager-TCP-443")
 - [Communication between source servers and the staging area subnet over TCP port 1500](#Communication-TCP-1500 "#Communication-TCP-1500")
-- [Communication between the staging area subnet and AWS Application Migration Service over TCP port 443](#Communication-TCP-443-Staging "#Communication-TCP-443-Staging")
+- [Communication between the staging area subnet and AWS Transform MGN over TCP port 443](#Communication-TCP-443-Staging "#Communication-TCP-443-Staging")
 - [Communication between the staging area subnet and Amazon S3](#Communication-Staging-S3 "#Communication-Staging-S3")
 
 ### Endpoints and firewall allowlist
 
 Add the following endpoints and URLs to your firewall allowlist.
 
-**Application Migration Service API endpoints**
+**MGN API endpoints**
 
 | Protocol               | Endpoint                             |
 | ---------------------- | ------------------------------------ |
@@ -183,20 +183,20 @@ JSON
 
 ```
 
-### Communication between source servers and AWS Application Migration Service over TCP port 443
+### Communication between source servers and AWS Transform MGN over TCP port 443
 
-Each source server that is added to Application Migration Service must continuously communicate with the Application Migration Service
+Each source server that is added to MGN must continuously communicate with the MGN
 API endpoint over TCP port 443.
 
 The main operations performed through this route are:
 
 - Downloading and upgrading the AWS Replication Agent.
-- Connecting the source servers to the Application Migration Service console and displaying their replication
+- Connecting the source servers to the MGN console and displaying their replication
   status.
 - Monitoring the source servers for troubleshooting and resource consumption metrics
   (CPU, RAM).
 - Reporting source server-related events (for example, disk changes).
-- Transmitting source server information to the Application Migration Service console (hardware information,
+- Transmitting source server information to the MGN console (hardware information,
   running services, installed applications and packages).
 - Preparing the source servers for test or cutover.
 
@@ -210,17 +210,17 @@ The replicated data is encrypted and compressed when transferred over TCP port 1
 data is encrypted on the source infrastructure before transfer and decrypted at the staging area
 subnet before being written to the volumes.
 
-AWS Application Migration Service uses TLS 1.2 end to end from the agent installed on the source server to the
+AWS Transform MGN uses TLS 1.2 end to end from the agent installed on the source server to the
 Replication Server. Each replication server gets assigned a specific TLS server certificate,
 which is distributed to the corresponding Agent and validated on the agent side.
 
-### Communication between the staging area subnet and AWS Application Migration Service over TCP port 443
+### Communication between the staging area subnet and AWS Transform MGN over TCP port 443
 
 The replication servers in the staging area subnet must continuously communicate with
-Application Migration Service over TCP port 443. The main operations performed through this route are:
+MGN over TCP port 443. The main operations performed through this route are:
 
 - Downloading the replication software.
-- Connecting the replication servers to Application Migration Service and displaying their replication
+- Connecting the replication servers to MGN and displaying their replication
   status.
 - Monitoring the replication servers for troubleshooting and resource consumption
   metrics.
@@ -279,8 +279,8 @@ process.
 
 ## Troubleshooting connectivity issues
 
-If there is no connection between your source servers and Application Migration Service, make sure that your
-corporate firewall enables connectivity from the source servers to Application Migration Service over TCP port 443.
+If there is no connection between your source servers and MGN, make sure that your
+corporate firewall enables connectivity from the source servers to MGN over TCP port 443.
 If the connectivity is blocked, enable it.
 
 ### Enabling Windows Firewall for TCP port 443 connectivity

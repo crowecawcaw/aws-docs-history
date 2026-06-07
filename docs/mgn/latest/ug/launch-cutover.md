@@ -15,7 +15,7 @@ the actual migration takes place. After launching Test instances, use either SSH
 
 You can cutover one source server at a time, or simultaneously cutover multiple source
 servers. For each source server, you are informed of the success or failure of the cutover.
-For each new cutover, AWS Application Migration Service first deletes any previously launched Test instance and dependent
+For each new cutover, AWS Transform MGN first deletes any previously launched Test instance and dependent
 resources. Then, it launches a new cutover instance which reflects the most up-to-date state of
 the source server. After the cutover, data replication continues as before. The new and modified
 data on the source server is transferred to the staging area subnet, and not to the cutover

@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Selecting the default template
 
-AWS MGN uses the version of the Launch template that is marked as default.
+MGN uses the version of the Launch template that is marked as default.
 
 In order to select the default launch template, on the **Modify
 template (Create new version)** page, under the **Launch template

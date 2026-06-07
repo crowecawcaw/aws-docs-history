@@ -1,6 +1,6 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Identity and access management for AWS Application Migration Service
+# Identity and access management for AWS Transform MGN
 
 AWS Identity and Access Management (IAM) is an AWS service that helps an administrator securely control access
 to AWS resources. IAM administrators control who can be authenticated (signed in) and
@@ -8,9 +8,9 @@ authorized (have permissions) to use AWS resources. IAM enables you to create us
 groups under your AWS account. You control the permissions that users have to perform tasks
 using AWS resources. You can use IAM for no additional charge.
 
-By default, users created via the IAM service don't have permissions for AWS Application Migration Service (AWS MGN) resources and
+By default, users created via the IAM service don't have permissions for AWS Transform MGN resources and
 operations.
-To allow these users to manage AWS Application Migration Service resources, you must create an IAM policy that
+To allow these users to manage AWS Transform MGN resources, you must create an IAM policy that
 explicitly grants them permissions, and attach the policy to the users or groups that
 require those permissions.
 

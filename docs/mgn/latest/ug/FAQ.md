@@ -11,5 +11,5 @@ Use this section to find answers to many frequently asked questions.
 - [Agentless replication related](Agentless-Replication-Related-FAQ.md "Agentless-Replication-Related-FAQ.md")
 - [Replication related](Replication-Related-FAQ.md "Replication-Related-FAQ.md")
 - [AWS related](AWS-Related-FAQ.md "AWS-Related-FAQ.md")
-- [Does AWS MGN work with...?](does-mgn.md "does-mgn.md")
+- [Does MGN work with...?](does-mgn.md "does-mgn.md")
 - [Post-launch actions related](Post-Launch-Actions-FAQ.md "Post-Launch-Actions-FAQ.md")

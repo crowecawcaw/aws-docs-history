@@ -13,5 +13,5 @@ To import your inventory from a local disk, take the following steps:
 
 ###### Note
 
-The file will also be automatically imported to an S3 bucket created by AWS MGN. It is
+The file will also be automatically imported to an S3 bucket created by MGN. It is
 highly recommended that you [apply Amazon S3 bucket security practices](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md") where your CSV files are stored.

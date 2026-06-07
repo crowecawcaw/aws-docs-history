@@ -15,7 +15,7 @@ or RDP (Windows) to connect to your instance and ensure that everything is worki
 
 You can cutover one source server at a time, or simultaneously cutover multiple source
 servers. For each source server, you will be informed of the success or failure of the cutover.
-For each new cutover, AWS Application Migration Service first deletes any previously launched Test instance and
+For each new cutover, AWS Transform MGN first deletes any previously launched Test instance and
 dependent resources. Then, it launches a new cutover instance which reflects the most up-to-date
 state of the source server. After the cutover, data replication continues as before. The new and
 modified data on the source server is transferred to the Staging Area Subnet, and not to the
@@ -124,10 +124,10 @@ To finalize a cutover:
    cause all replicated data to be discarded. All AWS resources used for data replication will
    be terminated.
 
-The AWS Application Migration Service console will indicate **Cutover finalized**
+The AWS Transform MGN console will indicate **Cutover finalized**
 when the cutover has completed successfully.
 
-The AWS Application Migration Service console will automatically stop data replication for the source servers
+The AWS Transform MGN console will automatically stop data replication for the source servers
 that were cutover in order to save resource costs. The selected source servers' **Migration lifecycle** column will show the **Cutover complete** status, the **Data replication**
 status column will show **Disconnected**, and the **Next step** column will show **Mark as
 archived**. The source servers have now been successfully migrated into

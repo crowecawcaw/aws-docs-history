@@ -7,12 +7,12 @@ Use the information in this section to troubleshoot issues with installing the r
 ###### Topics
 
 - [Error: Installation failed](#Error-Installation-Failed "#Error-Installation-Failed")
-- [Where can I find the AWS MGN Agent logs?](#MGN-Agent-Log "#MGN-Agent-Log")
+- [Where can I find the MGN Agent logs?](#MGN-Agent-Log "#MGN-Agent-Log")
 
 ## Error: Installation failed
 
 This type of error means that the agent was not installed on the source server, and
-therefore the server will not appear on the AWS Application Migration Service console. After you fix
+therefore the server will not appear on the AWS Transform MGN console. After you fix
 the issue that caused the installation to fail, you need to rerun the Agent Installer file to
 install the agent.
 
@@ -279,9 +279,9 @@ which make
 out.**
 
 This error occurs when outbound traffic is not allowed over TCP Port 443. Port 443 needs
-to be open outbound to the AWS MGN Service endpoint. 6. **Powerpath support**
+to be open outbound to the MGN Service endpoint. 6. **Powerpath support**
 
-Contact AWS Support for instructions on how to install the AWS Application Migration Service Agent on such machines. 7. **Error: You need to have root privileges to run this
+Contact AWS Support for instructions on how to install the AWS Transform MGN Agent on such machines. 7. **Error: You need to have root privileges to run this
 script.**
 
 Make sure you run the installer either as root or by adding sudo at the
@@ -340,9 +340,9 @@ the following steps:
 2. If the first step does not resolve the issue, [download and install
    the Amazon Root Certificates manually](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/").
 
-## Where can I find the AWS MGN Agent logs?
+## Where can I find the MGN Agent logs?
 
-The AWS MGN Agent logs are stored in agent.log.0:
+The MGN Agent logs are stored in agent.log.0:
 
 - **Linux:** /var/lib/aws-replication-agent/agent.log.0
 - **Windows 64 bit:** Windows 64 bit: C:\Program Files (x86)\AWS Replication Agent\agent.log.0

@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Monitoring Application Migration Service
 
 Monitoring is an important part of maintaining the reliability, availability, and
-performance of Application Migration Service and your other AWS
+performance of AWS Transform MGN and your other AWS
 solutions. AWS provides the following monitoring tools to watch Application
 Migration Service, report when something is wrong, and take automatic actions
 when appropriate:

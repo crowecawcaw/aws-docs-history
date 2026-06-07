@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Group Source Servers and Applications in Waves
 
-AWS Application Migration Service helps users manage their migration by grouping **Source
+AWS Transform MGN helps users manage their migration by grouping **Source
 servers** and **Applications** in **Waves**. These are logical groups, describing the migration plan over time.
 
 You can:

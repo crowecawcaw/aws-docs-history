@@ -12,4 +12,4 @@ console:
 
 1. Go to the AWS Organizations console.
 2. [Create a new AWS organization.](../../../organizations/latest/userguide/orgs_manage_org_create.md "../../../organizations/latest/userguide/orgs_manage_org_create.md")
-3. [Invite member accounts](../../../organizations/latest/userguide/orgs_manage_accounts_invites.md "../../../organizations/latest/userguide/orgs_manage_accounts_invites.md") you want to manage within AWS MGN.
+3. [Invite member accounts](../../../organizations/latest/userguide/orgs_manage_accounts_invites.md "../../../organizations/latest/userguide/orgs_manage_accounts_invites.md") you want to manage within MGN.

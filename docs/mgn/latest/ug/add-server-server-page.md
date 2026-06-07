@@ -32,7 +32,7 @@ a custom installation command by taking these steps:
   choose which specific disks you want to replicate. You are prompted to select which
   disks to replicate during agent installation. 3. Enter the credentials [you previously generated for AWS
   Replication Agent installation](credentials.md "credentials.md"). The form does not send the secret, but does add it
-  to the installation command. 4. If you are adding a Windows source server to AWS MGN, download the installer onto the
+  to the installation command. 4. If you are adding a Windows source server to MGN, download the installer onto the
   source server. The installer is downloaded from the AWS Region of your account. If
   you're adding a Linux source server, skip this step. 5. Copy the generated custom installation command and either input it into the command
   line on your source server. Proceed with [AWS Replication
@@ -53,7 +53,7 @@ actions:
 - **Add server to application** – Choose this option to
   easily add servers to an application.
 - **Disconnect from service** – Choose this option to
-  disconnect the selected server from Application Migration Service and AWS. This option should be used when data
+  disconnect the selected server from MGN and AWS. This option should be used when data
   replication is complete.
 
 On the **Disconnect X server/s from service** dialog,

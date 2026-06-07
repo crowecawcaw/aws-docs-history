@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 You can differentiate an agentless vCenter VM that's replicating through snapshot shipping
 and an agent-based server (from any source infrastructure) through several ways:
 
-1. On the **Source servers** page, under the **Replication type** column, the Application Migration Service console identifies the
+1. On the **Source servers** page, under the **Replication type** column, the MGN console identifies the
    replication type, whether it is through **Snapshot shipping**
    (agentless) or **Agent based**.
 2. In the server details view, under the **Migration

@@ -24,12 +24,12 @@ This section describes common replication errors, possible explanations, and pot
 
 - If you see this message, ensure that:
 
-      + The source Server has access to the AWS Application Migration Service service.
+      + The source Server has access to the AWS Transform MGN service.
       + The replication agent is in running state. For Windows, use Windows services management console (services.msc) or command line (for example, get-services PowerShell). For Linux, use the command `systemctl status aws-replication`.
 
   If the agent is indeed in running state, verify that the connectivity to the Regional
-  AWS MGN endpoint on TCP Port 443. [Learn more about
-  verifying connectivity to AWS MGN regional endpoints.](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md")
+  MGN endpoint on TCP Port 443. [Learn more about
+  verifying connectivity to MGN regional endpoints.](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md")
 
 ## Not converging
 
@@ -41,7 +41,7 @@ Not converging error implies that there is a backlog, but the transfer of data i
 - Follow the instructions on [calculating the required bandwidth](Troubleshooting-Communication-Errors.md#Calculating-Bandwidth "Troubleshooting-Communication-Errors.md#Calculating-Bandwidth").
 - [Verify network bandwidth](Replication-Related-FAQ.md#perform-connectivity-bandwidth-test "Replication-Related-FAQ.md#perform-connectivity-bandwidth-test").
 - Verify replicator Amazon EBS volumes (associated with the source server) performance. If
-  required, modify EBS volume type from the AWS MGN console: Go to the specific source server
+  required, modify EBS volume type from the MGN console: Go to the specific source server
   page and select the **Disk settings** tab.
 - Verify the source server performance. For example CPU and Memory utilization.
 
@@ -68,7 +68,7 @@ Check your connectivity, then [run the network bandwidth test](Replication-Relat
 This error message (FAILED_TO_PAIR_AGENT_WITH_REPLICATION_SOFTWARE) may indicate a pairing
 issue. AWS MGN needs to provide the replication server and agent with information to allow
 them to communicate. Make sure there is network connectivity between the agent, migration
-server, and the AWS MGN endpoint.
+server, and the MGN endpoint.
 
 If the issue persists, contact support.
 
@@ -76,7 +76,7 @@ If the issue persists, contact support.
 
 This error message (FAILED_TO_ESTABLISH_AGENT_REPLICATOR_SOFTWARE_COMMUNICATION) may
 suggest that there are network connectivity issues. Make sure you have network connectivity
-between the agent, replication server and the AWS MGN endpoint.
+between the agent, replication server and the MGN endpoint.
 
 ## Failed to create firewall rules
 
@@ -89,7 +89,7 @@ This error message (Firewall rules creation failed) can be caused by several rea
 
 This error message (Failed to authenticate the replication server with the
 service) may indicate a communication issue between the replication server and the
-AWS MGN endpoint on TCP Port 443. Check the subnet you selected and ensure that TCP Port
+MGN endpoint on TCP Port 443. Check the subnet you selected and ensure that TCP Port
 443 is open from your replication server.
 
 To verify the connection:
@@ -108,7 +108,7 @@ wget <enter_MGN_regional_endpoint>
 
 This error message (Failed to create staging disks) may indicate that your AWS account is configured to use encrypted EBS disks, but the IAM user does not have the required permissions to encrypt using the selected KMS key.
 
-Check your CloudTrail logs for any errors in the CreateVolume API call. Then ensure that you have the required IAM permissions attached to the specified IAM role. If the issue persists, also check your KMS Key Policy for any statements that may prevent AWS MGN from using the selected KMS key.
+Check your CloudTrail logs for any errors in the CreateVolume API call. Then ensure that you have the required IAM permissions attached to the specified IAM role. If the issue persists, also check your KMS Key Policy for any statements that may prevent MGN from using the selected KMS key.
 
 ## Replication stuck at Attach Staging Disks
 
@@ -116,7 +116,7 @@ If replication is stuck at the "Attach Staging Disks" stage during initial sync,
 replication server may have reached the maximum number of Amazon EBS volumes that can be attached
 to the instance type.
 
-**Cause:** By default, Application Migration Service uses a single replication server
+**Cause:** By default, MGN uses a single replication server
 per 15 source disks. If the total number of disks across source servers sharing a replication
 server exceeds the Amazon EBS volume attachment limit of the replication server instance type, the
 attach operation will stall.
@@ -135,7 +135,7 @@ attach operation will stall.
 
 ## Failed to pair the replication agent with replication server
 
-This error message (Failed to pair replication agent with replication server) may be caused by multiple reasons. Make sure that you have connectivity between the replication agent, the replication server, and the AWS MGN endpoint. If the issue persists, contact Support.
+This error message (Failed to pair replication agent with replication server) may be caused by multiple reasons. Make sure that you have connectivity between the replication agent, the replication server, and the MGN endpoint. If the issue persists, contact Support.
 
 ## Stalled replication when replicating a source volume smaller than 1MiB
 

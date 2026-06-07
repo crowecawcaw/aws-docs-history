@@ -1,40 +1,40 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Installing the Application Migration Service vCenter Client
+# Installing the MGN vCenter Client
 
-The first step to deploying the agentless solution is installing the Application Migration Service vCenter Client
+The first step to deploying the agentless solution is installing the MGN vCenter Client
 on your vCenter environment.
 
 ###### Note
 
 If you have multiple vCenter environments, you need to install multiple clients. You
-may not have more than one Application Migration Service vCenter Client installed per AWS account. If you have
+may not have more than one MGN vCenter Client installed per AWS account. If you have
 multiple vCenter environments, you can either use a different AWS account for each environment
 or you can migrate your VMs serially, environment by environment, into the same AWS account.
 
-After the Application Migration Service vCenter Client has been installed, it discovers all of the VMs in
-your vCenter environment and add them to Application Migration Service.
+After the MGN vCenter Client has been installed, it discovers all of the VMs in
+your vCenter environment and add them to MGN.
 
-## Application Migration Service vCenter Client requirements
+## MGN vCenter Client requirements
 
-Ensure that you review the notes below prior to installing the Application Migration Service vCenter Client.
+Ensure that you review the notes below prior to installing the MGN vCenter Client.
 Once you have read the notes, proceed to [install the client](client-installation-instructions-mgn.md "client-installation-instructions-mgn.md").
 
 ### vCenter Client requirements
 
-- You must install the Application Migration Service vCenter Client on a VM that has outbound network
-  connectivity to the AWS Application Migration Service API endpoints and outbound network connectivity to the
+- You must install the MGN vCenter Client on a VM that has outbound network
+  connectivity to the AWS Transform MGN API endpoints and outbound network connectivity to the
   vCenter endpoint. Customers who want to use PrivateLink can use VPN or AWS Direct Connect
   to connect to AWS.
-- The Application Migration Service vCenter Client currently only supports VirtualDiskFlatVer2BackingInfo VMDK on
+- The MGN vCenter Client currently only supports VirtualDiskFlatVer2BackingInfo VMDK on
   CBT.
 - You must log in to your Broadcomm account and download VDDK 7.0.3.3 to the VM on which
-  the Application Migration Service vCenter Client is installed. VDDK 7.0.3.3 must be used, regardless of the
+  the MGN vCenter Client is installed. VDDK 7.0.3.3 must be used, regardless of the
   vCenter version used.
-- The Application Migration Service vCenter Client requires these vCenter user permissions for agentless
+- The MGN vCenter Client requires these vCenter user permissions for agentless
   deployment. It is a best practice to create a dedicated role with these permissions
   and a dedicated user group with which the role is associated. Every new user
-  created for the Application Migration Service vCenter Client needs to be a member of that group in order
+  created for the MGN vCenter Client needs to be a member of that group in order
   to obtain the required permissions. The vCenter predefined role: “ Consolidated
   Backup user (sample) ” provides most of these permissions. If that role is used, the
   **Toggle disk change tracking** permission must be
@@ -51,7 +51,7 @@ Once you have read the notes, proceed to [install the client](client-installatio
     - Create snapshot
     - Remove snapshot
 
-- The VM on which the Application Migration Service vCenter Client is installed should meet these RAM,
+- The VM on which the MGN vCenter Client is installed should meet these RAM,
   CPU, and memory requirements:
   - Minimal requirements (these requirements allow the replication of up to 5
     servers in parallel) – 2 GiB RAM, 1 core, 10 GiB of free disk space
@@ -61,12 +61,12 @@ Once you have read the notes, proceed to [install the client](client-installatio
 
 - VMs that are being replicated into AWS should have at least 2 GiB of free disk
   space.
-- The VM on which the Application Migration Service vCenter Client is installed should not allow any incoming
+- The VM on which the MGN vCenter Client is installed should not allow any incoming
   (ingress) traffic.
-- The VM on which the Application Migration Service vCenter Client is installed should only allow outgoing
+- The VM on which the MGN vCenter Client is installed should only allow outgoing
   traffic as following:
   - Egress TCP on the port on which the vCenter API is ran.
-  - Egress TCP on port 443 for communication with the Application Migration Service API.
+  - Egress TCP on port 443 for communication with the MGN API.
   - Egress TCP on port 1500 – for the replication server.
 
 - Patching of guest OS running AWS vCenter client should be handled by the customer as
@@ -75,11 +75,11 @@ Once you have read the notes, proceed to [install the client](client-installatio
   Learn more about how to rotate access keys for IAM users in [this
   IAM blog post](https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users/ "https://aws.amazon.com/blogs/security/how-to-rotate-access-keys-for-iam-users/"). IAM credentials can be regenerated by reinstalling the AWS
   Replication Agent.
-- The VM that hosts the Application Migration Service vCenter Client should only be used for client hosting and
+- The VM that hosts the MGN vCenter Client should only be used for client hosting and
   should not be used for any other purposes.
-- Only a trusted administrator should have access to the VM on which the Application Migration Service vCenter
+- Only a trusted administrator should have access to the VM on which the MGN vCenter
   Client is installed.
-- The Application Migration Service vCenter Client should be located in an isolated and dedicated network and
+- The MGN vCenter Client should be located in an isolated and dedicated network and
   considered a sensitive segment.
 - You can deactivate the vCenter Client auto-update mechanism by running this
   command: `touch /var/lib/aws-vcenter-client/.disable_auto_updates` Once
@@ -90,8 +90,8 @@ Once you have read the notes, proceed to [install the client](client-installatio
 
 ### vCenter Client installer notes
 
-- The Application Migration Service vCenter Client installer only supports vCenter 6.7, 7.0 and 8.0.
-- The Application Migration Service vCenter Client can be installed on these 64 bit Linux versions:
+- The MGN vCenter Client installer only supports vCenter 6.7, 7.0 and 8.0.
+- The MGN vCenter Client can be installed on these 64 bit Linux versions:
   - Ubuntu 18.x+ (64 bit) - 22.04
   - Amazon Linux 2
   - RHEL 8.x
@@ -132,16 +132,16 @@ python3` command to install python prior to launching the client installer.
 
 ### vCenter environment requirements
 
-- AWS Application Migration Service supports VM hardware version 7 and higher with CBT activated.
+- AWS Transform MGN supports VM hardware version 7 and higher with CBT activated.
   Ensure that you upgrade any VMs you have to hardware version 7 or higher. Ensure that CBT
-  support is activated in your vSphere deployment. Application Migration Service activates CBT on replicating VMs. You
+  support is activated in your vSphere deployment. MGN activates CBT on replicating VMs. You
   can deactivate CBT after cutover.
-- The VM being replicated into Application Migration Service must not contain any existing VMware
+- The VM being replicated into MGN must not contain any existing VMware
   snapshots.
-- Once added to Application Migration Service, snapshot-based replication creates snapshots on the
+- Once added to MGN, snapshot-based replication creates snapshots on the
   replicated VM, which may result in slower disk performance.
 - VMs with independent disks, Raw Device Mappings (RDM), or direct-attach disks (iSCSI,
-  NBD) are not supported for replication into Application Migration Service.
-- The VM being replicated into Application Migration Service can be either stopped or running. Changing the VM
+  NBD) are not supported for replication into MGN.
+- The VM being replicated into MGN can be either stopped or running. Changing the VM
   state during data replication does not affect data replication and causes no data
   corruption.

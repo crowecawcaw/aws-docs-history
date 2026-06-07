@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Using identity-based policies
 
 By default, users and roles don't have permission to create or modify
-AWS Application Migration Service resources. They also can't perform tasks using the
+AWS Transform MGN resources. They also can't perform tasks using the
 AWS Management Console, AWS CLI, or AWS API. An IAM administrator must create
 IAM policies that grant users and roles permission to perform specific API
 operations on the specified resources they need. The administrator must then
@@ -14,6 +14,6 @@ create an IAM identity-based policy using example JSON policy documents, see
 
 ###### Topics
 
-- [Customer-managed policies in AWS MGN](customer_managed_policies_mgn.md "customer_managed_policies_mgn.md")
+- [Customer-managed policies in MGN](customer_managed_policies_mgn.md "customer_managed_policies_mgn.md")
 - [Restrict permission to act on a source server associated with given AWS vCenter client](restrict-to-vcenter-client.md "restrict-to-vcenter-client.md")
 - [Network Migration API permissions](network-migration-api-permissions.md "network-migration-api-permissions.md")

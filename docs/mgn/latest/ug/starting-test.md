@@ -12,7 +12,7 @@ To launch a test instance for a single source server or multiple source servers:
    test instances** option to launch a test instance for this server.
 5. When the **Launch test instances for X servers** dialog
    appears, click **Launch** to begin the test.
-   The AWS Application Migration Service console indicates **Launch job started**
+   The AWS Transform MGN console indicates **Launch job started**
    when the test has started.
 
 Choose **View job details** on the dialog to view the specific

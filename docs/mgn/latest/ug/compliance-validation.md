@@ -1,8 +1,8 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Compliance validation for AWS Application Migration Service
+# Compliance validation for AWS Transform MGN
 
-Third-party auditors assess the security and compliance of AWS Application Migration Service as
+Third-party auditors assess the security and compliance of AWS Transform MGN as
 part of multiple AWS compliance programs.
 
 For a list of AWS services in scope of specific compliance programs, see
@@ -19,7 +19,7 @@ see
 [Downloading Reports in AWS Artifact](../../../artifact/latest/ug/downloading-documents.md "../../../artifact/latest/ug/downloading-documents.md")
 .
 
-Your compliance responsibility when using AWS Application Migration Service is determined by the sensitivity of
+Your compliance responsibility when using AWS Transform MGN is determined by the sensitivity of
 your data, your company's compliance objectives, and applicable laws and regulations.
 AWS provides the following resources to help with compliance:
 

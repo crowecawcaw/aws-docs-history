@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Manage large-scale migrations with global view
 
-The AWS Application Migration Service (AWS MGN) global view feature enables you to manage large-scale migrations
+The AWS Transform MGN global view feature enables you to manage large-scale migrations
 across multiple accounts. Global view provides visibility, and the ability to perform actions on
 source servers, apps, and waves in different AWS accounts.
 
@@ -12,7 +12,7 @@ own source servers.
 
 To use this feature:
 
-- You need to have an AWS account in which AWS Application Migration Service is initialized.
+- You need to have an AWS account in which AWS Transform MGN is initialized.
 - The account must be a management account in AWS Organizations, or a delegated admin for
-  AWS Application Migration Service which has the same feature permissions as a management account in AWS
+  AWS Transform MGN which has the same feature permissions as a management account in AWS
   Organizations.

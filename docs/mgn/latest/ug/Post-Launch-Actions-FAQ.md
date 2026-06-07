@@ -16,7 +16,7 @@ Verify that your operating systems [are supported by AWS Systems Manager](../../
 
 ## What version of AWS Systems Manager Agent will be installed on my instance?
 
-AWS Application Migration Service uses the latest [AWS Systems Manager Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md")
+AWS Transform MGN uses the latest [AWS Systems Manager Agent](../../../systems-manager/latest/userguide/ssm-agent.md "../../../systems-manager/latest/userguide/ssm-agent.md")
 version available in your instance's region.
 
 ## Why is the AWS Systems Manager Agent not executing my post launch actions?

@@ -21,7 +21,7 @@ men.
     and perform actions on it. You must specify the secret that stores
     the source server credentials, using an existing secret.
   - You may designate the same secret for multiple source servers, if they share the same credentials.
-  - Be sure to add the AWSApplicationMigrationServiceManaged tag to the secret. The value is ignored, and may be left empty.
+  - Be sure to add the `AWSApplicationMigrationServiceManaged` tag to the secret with the value set to `True`.
 
 - Create new secret
   - **Secret name** - Enter a name for your new secret. The name you specify will be saved in AWS Secret Manager.
@@ -56,7 +56,7 @@ men.
 
     - **HostKey** (Optional) – include the host key to validate it during SSH connection.
 
-  - **Tags** - Secret key-value pairs will be assigned to the new secret. Note that AWSApplicationMigrationServiceManaged tag will also be added.
+  - **Tags** - Secret key-value pairs will be assigned to the new secret. Note that `AWSApplicationMigrationServiceManaged` tag will also be added with the value set to `True`.
   - Here is the structure of the secrets manager entry:
 
   ```

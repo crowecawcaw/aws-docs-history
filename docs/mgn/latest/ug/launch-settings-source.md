@@ -7,7 +7,7 @@ other settings, which determine how a test or cutover instance is launched for e
 server on AWS.
 
 Launch settings, including the EC2 launch template, are automatically created every time
-you add a server to AWS Application Migration Service.
+you add a server to AWS Transform MGN.
 
 The launch settings can be modified at any time, including before the source servers have
 even completed initial sync.

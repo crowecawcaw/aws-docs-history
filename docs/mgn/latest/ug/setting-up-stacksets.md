@@ -24,7 +24,7 @@ To set up your StackSet:
 3. Click the **Activate trusted access** button.
 4. Create StackSet.
 5. On the **Choose a template** page, under **Prerequisites – prepare template**, choose **Use a sample template**.
-6. Under **Select a sample template**, select **Create roles to access multiple accounts via AWS Application Migration Service**, and
+6. Under **Select a sample template**, select **Create roles to access multiple accounts via AWS Transform MGN**, and
    choose **Next**.
 7. Provide the name and description or use the existing values.
 8. Under **Parameters**, add the account ID of each

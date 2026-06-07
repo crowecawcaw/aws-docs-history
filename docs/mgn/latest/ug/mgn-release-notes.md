@@ -2,6 +2,11 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Release notes
 
+## June 2026
+
+- Added support for Oracle Linux 9.7.
+- Added support for CentOS Stream 10.
+
 ## May 2026
 
 - Updated network requirements to include the Amazon Linux 2023 (AL2023) package
@@ -28,7 +33,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## March 2026
 
-- AWS Application Migration Service now supports storing EBS snapshots locally within AWS Local Zones
+- AWS Transform MGN now supports storing EBS snapshots locally within AWS Local Zones
   that support this feature. For more information, see
   [Store snapshots in AWS Local Zone](replication-server-settings.md#local-zone-snapshots "replication-server-settings.md#local-zone-snapshots").
 - Added support for RHEL versions 9.7 and 10.1.
@@ -38,7 +43,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## December 2025
 
-- You can now use Application Migration Service over Internet Protocol version 6 (IPv6) for both service
+- You can now use MGN over Internet Protocol version 6 (IPv6) for both service
   communication and application migrations.
 - Added support for Rocky OS versions 9-9.6.
 - Added support for RHEL OS version 10.
@@ -65,9 +70,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 ## April 2025
 
-- AWS Application Migration Service is now authorized for Department of
+- AWS Transform MGN is now authorized for Department of
   Defense Cloud Computing Security Requirements Guide Impact Levels 4 and 5 (DoD CC SRG IL4 and IL5) in the
-  AWS GovCloud (US-East and US-West) Regions. Learn more in [AWS Application Migration Service authorized for DoD Impact Level 4 and 5](https://aws.amazon.com/about-aws/whats-new/2025/04/aws-application-migration-service-dod-impact-level-4-5/ "https://aws.amazon.com/about-aws/whats-new/2025/04/aws-application-migration-service-dod-impact-level-4-5/")
+  AWS GovCloud (US-East and US-West) Regions. Learn more in [AWS Transform MGN authorized for DoD Impact Level 4 and 5](https://aws.amazon.com/about-aws/whats-new/2025/04/aws-application-migration-service-dod-impact-level-4-5/ "https://aws.amazon.com/about-aws/whats-new/2025/04/aws-application-migration-service-dod-impact-level-4-5/")
 
 ## February 2025
 
@@ -104,8 +109,8 @@ If you’re managing your own policy, you must include a statement allowing `ec2
 
 - Introduced a new predefined post-launch action: New Relic. [Learn more about the New Relic
   action](predefined-post-launch-actions.md#predefined-new-relic "predefined-post-launch-actions.md#predefined-new-relic").
-- You can use AWS Application Migration Service with workloads that require
-  FedRAMP High categorization level in the AWS GovCloud (US-East and US-West) Regions. Learn more in [AWS Application Migration Service achieves FedRAMP High authorization](https://aws.amazon.com/about-aws/whats-new/2024/07/aws-application-migration-fedramp-high-authorization/ "https://aws.amazon.com/about-aws/whats-new/2024/07/aws-application-migration-fedramp-high-authorization/")
+- You can use AWS Transform MGN with workloads that require
+  FedRAMP High categorization level in the AWS GovCloud (US-East and US-West) Regions. Learn more in [AWS Transform MGN achieves FedRAMP High authorization](https://aws.amazon.com/about-aws/whats-new/2024/07/aws-application-migration-fedramp-high-authorization/ "https://aws.amazon.com/about-aws/whats-new/2024/07/aws-application-migration-fedramp-high-authorization/")
 
 ## June 2024
 
@@ -180,7 +185,7 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 
 ## July 2023
 
-- You can use AWS Application Migration Service with workloads that require FedRAMP Moderate categorization level in the AWS US East/West regions.
+- You can use AWS Transform MGN with workloads that require FedRAMP Moderate categorization level in the AWS US East/West regions.
 
 ## June 2023
 
@@ -277,7 +282,7 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
   more](settings.md "settings.md").
 - Added support for SUSE 11 operating system.
 - [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") – added
-  one new policy and updated two existing policies. For details see [AWS MGN updates for AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates") .
+  one new policy and updated two existing policies. For details see [MGN updates for AWS managed policies](security-iam-awsmanpol.md#security-iam-awsmanpol-updates "security-iam-awsmanpol.md#security-iam-awsmanpol-updates") .
 
 ## August 2022
 
@@ -322,7 +327,7 @@ actions.](predefined-post-launch-actions.md "predefined-post-launch-actions.md")
 
 - Service launch in the following regions: Europe (Paris), Europe (Milan), Middle East (Bahrain),
   and Africa (Cape Town).
-- Application Migration Service now supports an additional replication method that does not
+- AWS Transform MGN now supports an additional replication method that does not
   require agent installation on each source server. This option is available for source servers
   running on VMware vCenter versions 6.7 and 7.0. [Learn more about
   agentless replication](agentless-mgn.md "agentless-mgn.md").

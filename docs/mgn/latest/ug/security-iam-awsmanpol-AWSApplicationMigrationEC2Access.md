@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 You can attach the `AWSApplicationMigrationEC2Access` policy to your IAM
 identities.
 
-This policy allows Amazon EC2 operations required to use AWS Application Migration Service (AWS MGN) to launch the migrated servers as EC2 instances. Attach this
+This policy allows Amazon EC2 operations required to use AWS Transform MGN to launch the migrated servers as EC2 instances. Attach this
 policy to your users or roles. This policy is only intended to be used for the
 MGN console.
 

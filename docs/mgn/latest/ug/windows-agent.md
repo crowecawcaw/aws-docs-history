@@ -5,12 +5,12 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 Complete these steps to install the AWS Replication Agent on Windows source
 servers.
 
-Ensure that the necessary service roles have been created by clicking on the **Reinitialize service permissions** button on the AWS Application Migration Service console
+Ensure that the necessary service roles have been created by clicking on the **Reinitialize service permissions** button on the AWS Transform MGN console
 replication settings page. You must have the permissions necessary to create IAM roles in
 order for this operation to succeed.
 
 Download the agent installer (AWSReplicationWindowsInstaller.exe)**.** Copy or distribute the downloaded agent installer to each Windows source
-server that you want to add to AWS Application Migration Service.
+server that you want to add to AWS Transform MGN.
 
 The agent installer follows this format:
 `https://aws-application-migration-service-<region>.s3.<region>.amazonaws.com/latest/windows/AwsReplicationWindowsInstaller.exe`
@@ -372,8 +372,8 @@ the parameters to the end of the installation script.
 
     ###### Note
 
-    This flag may only be used when adding new source servers to Application Migration Service. You cannot use
-     the --tags flag to modify tags of source servers that have already been added to Application Migration Service.
+    This flag may only be used when adding new source servers to MGN. You cannot use
+     the --tags flag to modify tags of source servers that have already been added to MGN.
     * --s3-endpoint
 
 
@@ -385,14 +385,14 @@ the parameters to the end of the installation script.
 
     This parameter allows you to provide a name to the source server that you are about to
      add, or identify a source server that needs to be updated. This identification
-     is used by Application Migration Service to consistently recognize the server replication, and avoid
+     is used by MGN to consistently recognize the server replication, and avoid
      duplication when [importing inventory](import-main.md "import-main.md") from a CSV
      file. Once provided for a server this parameter cannot be modified.
     * --endpoint
 
 
-    Use this parameter to specify the Private Link endpoint you created for AWS Application Migration Service if
-     you do not wish to open your firewall ports to access the default Application Migration Service endpoint. [Learn more about installing the agent on a blocked
+    Use this parameter to specify the Private Link endpoint you created for AWS Transform MGN if
+     you do not wish to open your firewall ports to access the default MGN endpoint. [Learn more about installing the agent on a blocked
      network.](installing-agent-blocked.md "installing-agent-blocked.md")
     * --no-replication
 
@@ -403,7 +403,7 @@ the parameters to the end of the installation script.
     * --dualstack
 
 
-    This parameter enables the agent to run in a dual-stack Application Migration Service configuration.
+    This parameter enables the agent to run in a dual-stack MGN configuration.
 
 The installer confirms that the installation of the AWS Replication Agent has
 started.
@@ -450,7 +450,7 @@ differ from the data you entered. This difference can due to several reasons:
 
     * The root disk of the source server is always replicated, whether you select it or
      not. Therefore, it always appears on the list of identified disks for replication.
-    * AWS Application Migration Service replicates whole disks. Therefore, if you choose to replicate a partition,
+    * AWS Transform MGN replicates whole disks. Therefore, if you choose to replicate a partition,
      its entire disk appears on the list and is later replicated. If several
      partitions on the same disk are selected, then the disk only
      appears once on the list.
@@ -459,7 +459,7 @@ differ from the data you entered. This difference can due to several reasons:
 
 ###### Important
 
-If disks are disconnected from a server, AWS Application Migration Service can no longer replicate them, so
+If disks are disconnected from a server, AWS Transform MGN can no longer replicate them, so
 they are removed from the list of replicated disks. When they are reconnected, the AWS
 Replication Agent cannot know that these were the same disks that were disconnected and
 therefore does not add them automatically. To add the disks after they are reconnected,
@@ -470,7 +470,7 @@ changes are automatically identified, but also cause a resync. Perform a test af
 installing the Agent to ensure that the correct disks have been added. 5. After all of the disks to be replicated have been successfully identified, the installer
 downloads and installs the AWS Replication Agent on the source server.
 
-![AWS Replication Agent installation progress showing region, disk selection, and completion status.](images/new-soureservers-windows6.png) 6. Once the AWS Replication Agent is installed, the server is added to the AWS Application Migration Service
+![AWS Replication Agent installation progress showing region, disk selection, and completion status.](images/new-soureservers-windows6.png) 6. Once the AWS Replication Agent is installed, the server is added to the AWS Transform MGN
 console and undergoes the initial sync process. The installer provides the
 source server's ID.
 

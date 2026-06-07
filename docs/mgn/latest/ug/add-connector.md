@@ -23,13 +23,13 @@ To add an MGN connector, click **Add MGN connector**, to open the Add MGN connec
 
   To download the MGN connector software, use the following commands:
 
-- **Download the installer command** - Copy and paste the command into the command prompt of the server you’ve designated for the MGN connector. This will download the AWS MGN installer.
-- **Copy and paste this command into the command line on your MGN connector** - Copy and paste the command into the command prompt of the same server. This will install the AWS MGN connector software.
+- **Download the installer command** - Copy and paste the command into the command prompt of the server you’ve designated for the MGN connector. This will download the MGN installer.
+- **Copy and paste this command into the command line on your MGN connector** - Copy and paste the command into the command prompt of the same server. This will install the MGN connector software.
   After the MGN connector is installed it automatically begins communicating with the console and appears in the MGN connectors list.
 
 Next, you must register source servers to the MGN connector.
 
-You may install multiple MGN connectors to handle large amount of source servers or multiple data centers. Each MGN connector is able to handle up to 500 source servers. AWS MGN supports up to 50 MGN connectors per account per region.
+You may install multiple MGN connectors to handle large amount of source servers or multiple data centers. Each MGN connector is able to handle up to 500 source servers. MGN supports up to 50 MGN connectors per account per region.
 
 The MGN connector installation is facilitated through the SSAF client, which is publicly accessible from the S3 bucket `aws-application-migration-service-{{region}}`.
 The most recent installer can be found at `/latest/source-automation-client/linux/ssaf-client/`,

@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Generating vCenter Client IAM credentials
 
-In order to use the Application Migration Service vCenter Client, you must first generate the correct IAM
+In order to use the MGN vCenter Client, you must first generate the correct IAM
 credentials.
 
 You need to create at least one AWS Identity and Access Management (IAM) user, and assign the proper

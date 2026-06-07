@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Adding source servers
 
-Add source servers to AWS Application Migration Service by installing the AWS Replication Agent (also referred to
+Add source servers to AWS Transform MGN by installing the AWS Replication Agent (also referred to
 as "the Agent") on them. The Agent can be installed on both Linux and Windows servers. You can
 add source servers from vCenter without installing an agent through the agentless replication
 feature.
@@ -15,7 +15,7 @@ Quick links:
 
 ###### Note
 
-While the use of AWS Application Migration Service is free for 90 days, you will incur charges for any AWS
+While the use of AWS Transform MGN is free for 90 days, you will incur charges for any AWS
 infrastructure that is provisioned during migration and after cutover, such as compute (Amazon EC2)
 and storage (Amazon EBS) resources. These are billed to your account separately, at your regular
 rates.
@@ -23,5 +23,5 @@ rates.
 ###### Topics
 
 - [Installation requirements](installation-requirements.md "installation-requirements.md")
-- [Operating systems supported by Application Migration Service](Supported-Operating-Systems.md "Supported-Operating-Systems.md")
+- [Operating systems supported by MGN](Supported-Operating-Systems.md "Supported-Operating-Systems.md")
 - [Installing the AWS Replication Agent](agent-installation.md "agent-installation.md")

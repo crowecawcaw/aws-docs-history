@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Installing the AWS Replication Agent
 
 You must install the AWS Replication Agent on each source server that you want to add to
-AWS Application Migration Service. You need to reinstall the AWS Replication Agent after any major upgrade to the source server (see [Agent Related FAQ](Agent-Related-FAQ.md#When-Reinstall-Agent "Agent-Related-FAQ.md#When-Reinstall-Agent") for more info).
+AWS Transform MGN. You need to reinstall the AWS Replication Agent after any major upgrade to the source server (see [Agent Related FAQ](Agent-Related-FAQ.md#When-Reinstall-Agent "Agent-Related-FAQ.md#When-Reinstall-Agent") for more info).
 
 ###### Topics
 

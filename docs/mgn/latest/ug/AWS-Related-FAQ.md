@@ -2,42 +2,42 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # AWS related
 
-This section contains answers to questions about AWS and AWS Application Migration Service.
+This section contains answers to questions about AWS and AWS Transform MGN.
 
 ###### Topics
 
-- [What does the AWS Application Migration Service Machine Conversion Server do?](#What-Conversion-Server-Do "#What-Conversion-Server-Do")
-- [What boot modes are supported by the AWS Application Migration Service?](#Supported-boot-mode "#Supported-boot-mode")
-- [How can we encrypt an unencrypted AWS Application Migration Service base snapshot?](#encrypt-base-snapshot "#encrypt-base-snapshot")
+- [What does the AWS Transform MGN Machine Conversion Server do?](#What-Conversion-Server-Do "#What-Conversion-Server-Do")
+- [What boot modes are supported by the AWS Transform MGN?](#Supported-boot-mode "#Supported-boot-mode")
+- [How can we encrypt an unencrypted AWS Transform MGN base snapshot?](#encrypt-base-snapshot "#encrypt-base-snapshot")
 - [How do I change the server AMI on AWS after Migration?](#How-Change-Server-AMI "#How-Change-Server-AMI")
 - [Which AWS services are automatically installed when launching a test or cutover instance?](#Which-AWS-Services-Automatically-Installed-Target "#Which-AWS-Services-Automatically-Installed-Target")
-- [How long does it take to copy a disk from the AWS Application Migration Service staging area to production?](#How-Long-Copy-Disk-Staging "#How-Long-Copy-Disk-Staging")
+- [How long does it take to copy a disk from the AWS Transform MGN staging area to production?](#How-Long-Copy-Disk-Staging "#How-Long-Copy-Disk-Staging")
 - [What are the differences between conversion servers and replication servers?](#What-differences-Conversion-Servers-Replication-Servers "#What-differences-Conversion-Servers-Replication-Servers")
-- [Can I prevent AWS Application Migration Service from cleaning up test instance resources in AWS?](#Can-Prevent-Clean-Up-Target-Resources "#Can-Prevent-Clean-Up-Target-Resources")
+- [Can I prevent AWS Transform MGN from cleaning up test instance resources in AWS?](#Can-Prevent-Clean-Up-Target-Resources "#Can-Prevent-Clean-Up-Target-Resources")
 - [Why are my Windows server disks read-only after launching the test or cutover instance?](#Why-Windows-Server-Disks-Read-Only "#Why-Windows-Server-Disks-Read-Only")
 - [What impacts the conversion and boot time of test and cutover instances?](#What-Impacts-Conversion-Boot-Time-Target "#What-Impacts-Conversion-Boot-Time-Target")
 - [Why do I observe EBS volume performance issues while using test or cutover instances?](#EBS-performance-hit-after-instance-launch "#EBS-performance-hit-after-instance-launch")
-- [What are the Amazon EBS volume limits for AWS Application Migration Service?](#ebs-limits-faq "#ebs-limits-faq")
-- [How is the AWS Licensing Model Tenancy chosen for AWS Application Migration Service?](#How-Licensing-Model-Tenancy "#How-Licensing-Model-Tenancy")
-- [How does AWS Application Migration Service interact with Interface VPC Endpoints?](#mgn-and-vpc "#mgn-and-vpc")
+- [What are the Amazon EBS volume limits for AWS Transform MGN?](#ebs-limits-faq "#ebs-limits-faq")
+- [How is the AWS Licensing Model Tenancy chosen for AWS Transform MGN?](#How-Licensing-Model-Tenancy "#How-Licensing-Model-Tenancy")
+- [How does AWS Transform MGN interact with Interface VPC Endpoints?](#mgn-and-vpc "#mgn-and-vpc")
 - [How do I use MGN with CloudWatch and EventBridge dashboards?](#mgn-and-monitoring "#mgn-and-monitoring")
 
-## What does the AWS Application Migration Service Machine Conversion Server do?
+## What does the AWS Transform MGN Machine Conversion Server do?
 
 The machine conversion server converts the disks to boot and run on AWS.
 
 Specifically, the machine conversion server makes bootloader changes, injects hypervisor
 drivers and installs cloud tools.
 
-## What boot modes are supported by the AWS Application Migration Service?
+## What boot modes are supported by the AWS Transform MGN?
 
 The agent supports systems using either BIOS (Basic Input/Output System) or UEFI (Unified Extensible Firmware Interface) boot modes.
 BIOS is the traditional boot mode that initializes hardware and bootstraps the operating system. UEFI is a more modern boot firmware that provides additional boot configurations and security features over BIOS.
 Both boot modes are fully supported by the agent, giving users flexibility to choose the mode that best fits their systems and requirements. Users can install the agent on servers using either UEFI or legacy BIOS firmware.
 
-## How can we encrypt an unencrypted AWS Application Migration Service base snapshot?
+## How can we encrypt an unencrypted AWS Transform MGN base snapshot?
 
-The encryption status of AWS Application Migration Service base snapshots is determined by the default EBS (Elastic Block Store) encryption setting for the respective AWS region.
+The encryption status of AWS Transform MGN base snapshots is determined by the default EBS (Elastic Block Store) encryption setting for the respective AWS region.
 Encryption Scenarios:
 
 - Default EBS Encryption Enabled:
@@ -62,32 +62,32 @@ Enabling default EBS encryption at the region level will encrypt all newly creat
 
 ## How do I change the server AMI on AWS after Migration?
 
-After the machine has been launched by AWS Application Migration Service switching the AMI can
+After the machine has been launched by AWS Transform MGN switching the AMI can
 be done by launching a vanilla machine from the required AMI, stopping that machine, detaching
 all the disks (including the root) and then attaching the disks from the test or cutover
-instance created by AWS Application Migration Service.
+instance created by AWS Transform MGN.
 
 ## Which AWS services are automatically installed when launching a test or cutover instance?
 
-AWS Application Migration Service automatically installs EC2Config. After installation,
+AWS Transform MGN automatically installs EC2Config. After installation,
 EC2Config automatically installs the SSM EC2 Configuration Service.
 
 CloudWatch, AWS Powershell or CLI are not automatically installed. This can be done by the
-combining the AWS Application Migration Service APIs and the AWS APIs – you can use the
-AWS Application Migration Service APIs to determine the EC2 instance IDs of the machines and
+combining the AWS Transform MGN APIs and the AWS APIs – you can use the
+AWS Transform MGN APIs to determine the EC2 instance IDs of the machines and
 then use AWS API/CLI to turn on the detailed monitoring. An alternative approach would be to
 do it via AWS API only based on the tags you associate with the machine. A third approach
 would be to do so from the post-launch script.
 
-AWS Application Migration Service installs EC2Launch (Windows 2016 only). You will need to
+AWS Transform MGN installs EC2Launch (Windows 2016 only). You will need to
 configure EC2Launch based on [these specific requirements](../../../AWSEC2/latest/WindowsGuide/ec2launch.md#ec2launch-config "../../../AWSEC2/latest/WindowsGuide/ec2launch.md#ec2launch-config"). This configuration step needs to be performed post
 Migration using the wizard in C:\Program
 Data\Amazon\EC2-Windows\Launch\Settings\Ec2LaunchSettings.exe on the test or cutover
 instance.
 
-## How long does it take to copy a disk from the AWS Application Migration Service staging area to production?
+## How long does it take to copy a disk from the AWS Transform MGN staging area to production?
 
-AWS Application Migration Service uses internal cloud provider snapshots. This process
+AWS Transform MGN uses internal cloud provider snapshots. This process
 typically takes less than a minute and the size of the volume does not impact the time.
 
 ## What are the differences between conversion servers and replication servers?
@@ -95,7 +95,7 @@ typically takes less than a minute and the size of the volume does not impact th
 Replication servers run on Linux and conversion servers (for Windows machines) run on
 Windows.
 
-The conversion is done by AWS Application Migration Service (AWS MGN) automatically bringing up a vanilla
+The conversion is done by AWS Transform MGN automatically bringing up a vanilla
 Windows conversion server machines in the same subnet with the replication servers as part
 of the launch job.
 
@@ -103,15 +103,15 @@ Both conversion and replication servers have public IPs.
 
 The conversion servers will use the same security groups as the Replication Server.
 
-The conversion server must be able to access the AWS MGN's service manager.
+The conversion server must be able to access the MGN's service manager.
 
 The conversion server machines, just like the Replication servers are managed automatically
-by AWS Application Migration Service. Any attempt to disrupt their automated functionality will
+by AWS Transform MGN. Any attempt to disrupt their automated functionality will
 result in failed conversions.
 
-## Can I prevent AWS Application Migration Service from cleaning up test instance resources in AWS?
+## Can I prevent AWS Transform MGN from cleaning up test instance resources in AWS?
 
-AWS Application Migration Service will, by default, removes any resources created during the
+AWS Transform MGN will, by default, removes any resources created during the
 test process either when requested by the user or when a new Test instance is launched.
 
 To prevent this in AWS, you can [activate Termination Protection](../../../AWSEC2/latest/UserGuide/terminating-instances.md#Using_ChangingDisableAPITermination "../../../AWSEC2/latest/UserGuide/terminating-instances.md#Using_ChangingDisableAPITermination") for the test or cutover instance, and the resources
@@ -128,12 +128,12 @@ Microsoft TechNet article](https://blogs.technet.microsoft.com/askcore/2011/06/0
 
 ## What impacts the conversion and boot time of test and cutover instances?
 
-Prior to launching the test or cutover instance, AWS Application Migration Service goes through
+Prior to launching the test or cutover instance, AWS Transform MGN goes through
 a machine conversion server process on the boot volume. The conversion process is fairly
 quick.
 
 While the actual conversion process itself is quick, the time to boot the test or cutover
-instance varies depending on many factors unrelated to any AWS Application Migration Service
+instance varies depending on many factors unrelated to any AWS Transform MGN
 processes. Some of these are controllable and should be taken into account when recovery or
 cutover times are of importance.
 
@@ -163,9 +163,9 @@ adjusting to the AWS virtual hardware.
 
 The EBS volumes attached to the test or cutover instances are created from snapshots of convertered volumes. For any volume type that were created from snapshots, the storage blocks are pulled down from Amazon S3 and written to the volume before accessed by you. This process may take significant time and varies based on the EBS volume type. For additional details and EBS initialization options, refer to [Initialize Amazon EBS volumes](../../../ebs/latest/userguide/ebs-initialize.md "../../../ebs/latest/userguide/ebs-initialize.md")
 
-## What are the Amazon EBS volume limits for AWS Application Migration Service?
+## What are the Amazon EBS volume limits for AWS Transform MGN?
 
-AWS Application Migration Service does not impose its own limits on Amazon EBS volume size or the number of Amazon EBS
+AWS Transform MGN does not impose its own limits on Amazon EBS volume size or the number of Amazon EBS
 volumes per instance. The limits for maximum volume size, number of volumes per instance,
 and other Amazon EBS constraints are governed by Amazon EBS itself. For current limits, see
 [Amazon EBS
@@ -173,16 +173,16 @@ service quotas](../../../ebs/latest/userguide/ebs-resource-quotas.md "../../../e
 [Instance
 volume limits](../../../AWSEC2/latest/UserGuide/volume_limits.md "../../../AWSEC2/latest/UserGuide/volume_limits.md").
 
-## How is the AWS Licensing Model Tenancy chosen for AWS Application Migration Service?
+## How is the AWS Licensing Model Tenancy chosen for AWS Transform MGN?
 
-AWS Application Migration Service conforms to the [Microsoft Licensing on
+AWS Transform MGN conforms to the [Microsoft Licensing on
 AWS](https://aws.amazon.com/windows/resources/licensing/ "https://aws.amazon.com/windows/resources/licensing/") guidelines.
 
-## How does AWS Application Migration Service interact with Interface VPC Endpoints?
+## How does AWS Transform MGN interact with Interface VPC Endpoints?
 
 If you use Amazon Virtual Private Cloud (Amazon VPC) to host your AWS resources, you can
-establish a private connection between your VPC and AWS Application Migration Service. You can
-use this connection to allow AWS Application Migration Service to communicate with your
+establish a private connection between your VPC and AWS Transform MGN. You can
+use this connection to allow AWS Transform MGN to communicate with your
 resources on your VPC without going through the public internet.
 
 Amazon VPC is an AWS service that you can use to launch AWS resources in a virtual
@@ -191,10 +191,10 @@ IP address range, subnets, route tables, and network gateways. With VPC endpoint
 routing between the VPC and AWS services is handled by the AWS network, and you can use IAM
 policies to control access to service resources.
 
-To connect your VPC to AWS Application Migration Service, you define an _interface VPC endpoint_ for AWS Application Migration Service. An
+To connect your VPC to AWS Transform MGN, you define an _interface VPC endpoint_ for AWS Transform MGN. An
 interface endpoint is an elastic network interface with a private IP address that serves as
 an entry point for traffic destined to a supported AWS service. The endpoint provides
-reliable, scalable connectivity to AWS Application Migration Service without requiring an
+reliable, scalable connectivity to AWS Transform MGN without requiring an
 internet gateway, network address translation (NAT) instance, or VPN connection. For more
 information, see [What is
 Amazon VPC](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") in the _Amazon VPC User Guide_.
@@ -209,8 +209,8 @@ Started](../../../vpc/latest/userguide/GetStarted.md "../../../vpc/latest/usergu
 
 ## How do I use MGN with CloudWatch and EventBridge dashboards?
 
-You can monitor AWS Application Migration Service using CloudWatch, which collects raw data and
-processes it into readable, near real-time metrics. AWS Application Migration Service sends
+You can monitor AWS Transform MGN using CloudWatch, which collects raw data and
+processes it into readable, near real-time metrics. AWS Transform MGN sends
 events to Amazon EventBridge whenever a source server launch has completed, a source server reaches
 the READY_FOR_TEST lifecycle state for the first time, and when the data replication state
 becomes stalled or when the data replication state is no longer Stalled. You can use EventBridge
@@ -219,9 +219,9 @@ event occurs.
 
 You can see MGN in CloudWatch automatic dashboards:
 
-![CloudWatch cross service dashboard showing metrics for Application Migration Service and EC2.](images/cw1.png)
+![CloudWatch cross service dashboard showing metrics for MGN and EC2.](images/cw1.png)
 
-![Application Migration Service dashboard showing metric graphs for lag duration, backlog, duration since last test, elapsed replication duration, and server counts.](images/cw2.png)
+![MGN dashboard showing metric graphs for lag duration, backlog, duration since last test, elapsed replication duration, and server counts.](images/cw2.png)
 
 MGN events can be selected when defining a rule from the EventBridge console:
 

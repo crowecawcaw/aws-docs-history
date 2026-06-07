@@ -6,9 +6,9 @@ Agentless snapshot-based replication allows you to replicate source servers on y
 environment into AWS without installing the AWS Replication Agent.
 
 In order to use agentless replication, you must dedicate at least one VM in your vCenter
-environment to host the Application Migration Service vCenter Client. The Application Migration Service vCenter Client is a software bundle
-distributed by Application Migration Service and is available for installation as a binary installer. The
-installation process installs services on the client VM which allow Application Migration Service to remotely
+environment to host the MGN vCenter Client. The MGN vCenter Client is a software bundle
+distributed by MGN and is available for installation as a binary installer. The
+installation process installs services on the client VM which allow MGN to remotely
 discover your VMs that are suitable for agentless replication, and to perform data
 replication between your vCenter environment and AWS through the use of periodic snapshot
 shipping.
@@ -17,8 +17,8 @@ Agentless snapshot based replication is divided into two main operations: discov
 replication:
 
 The discovery process involves periodically scanning your vCenter environment to detect
-source server VMs that are suitable for agentless replication, and adding these VMs to the Application Migration Service console. Once a source server has been added, you may choose to initiate agentless
-replication on the source VM using the Application Migration Service API or console. The discovery process also collects
+source server VMs that are suitable for agentless replication, and adding these VMs to the MGN console. Once a source server has been added, you may choose to initiate agentless
+replication on the source VM using the MGN API or console. The discovery process also collects
 all of the necessary information from vCenter in order to perform an agentless conversion
 process once a migration job is launched.
 
@@ -33,17 +33,17 @@ which sends the entire disk contents of the replicating VM into AWS. Following s
 processes leverage CBT only to sync disk changes to the customer’s target AWS
 account. Each successful snapshot shipping process completes the replication operation by
 creating a group of consistent Amazon EBS snapshots in the customer’s AWS account, which can then be
-used by the customer to launch test and cutover instances through the regular Application Migration Service mechanisms.
+used by the customer to launch test and cutover instances through the regular MGN mechanisms.
 
 These are the main system components of agentless replication:
 
-- Application Migration Service vCenter Client – A software bundle that is installed on a dedicated VM in your
+- MGN vCenter Client – A software bundle that is installed on a dedicated VM in your
   vCenter environment in order to facilitate agentless replication.
 - vCenter Replication Agent – A java agent that is based on the AWS Replication Agent,
-  which replicates a single VM using VDDK and CBT as the data source instead of the Application Migration Service
+  which replicates a single VM using VDDK and CBT as the data source instead of the MGN
   driver (that is used by the AWS Replication Agent)
-- Application Migration Service Service
-- Application Migration Service console
+- MGN Service
+- MGN console
 
 ###### Note
 

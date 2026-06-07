@@ -2,10 +2,10 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Instance type right-sizing
 
-AWS Application Migration Service launches a new instance type after every change of configuration on the
-source server, for example, added/removed disks, and added/removed RAM. When you use the instance type right-sizing feature Application Migration Service launches a test or cutover
+AWS Transform MGN launches a new instance type after every change of configuration on the
+source server, for example, added/removed disks, and added/removed RAM. When you use the instance type right-sizing feature MGN launches a test or cutover
 instance type that best matches the OS, CPU, and RAM of your source
-server. Set this feature to **On** to enable or to **None** to disable, in which case Application Migration Service launches the
+server. Set this feature to **On** to enable or to **None** to disable, in which case MGN launches the
 instance type as configured in your Amazon EC2 launch template.
 
 Enable instance type right-sizing if
@@ -14,17 +14,17 @@ servers.
 
 **Important considerations:**
 
-- The AWS instance type selected by AWS Application Migration Service when this feature is activated overwrites the
+- The AWS instance type selected by AWS Transform MGN when this feature is activated overwrites the
   instance type defined in your EC2 launch template.
 - Hardware changes and the resulting AWS instance type change may take up to 90 minutes to
-  be processed by AWS Application Migration Service.
+  be processed by AWS Transform MGN.
 - The T family instance type is not supported for right-sizing. If you want to use the T
   family, avoid using right-sizing.
 - The available capacity for each Amazon EC2 instance type varies by Availability Zone and Region,
   and may be subject to your specific AWS account limits. For mission-critical workloads
   consider using [Reserved Instances](../../../AWSEC2/latest/UserGuide/ec2-reserved-instances.md "../../../AWSEC2/latest/UserGuide/ec2-reserved-instances.md") to guarantee capacity for specific instance types. Note
   that additional costs apply when reserving capacity.
-- The right-sizing instance type selected by AWS Application Migration Service appears on the **Server details** tab.
+- The right-sizing instance type selected by AWS Transform MGN appears on the **Server details** tab.
 
 ###### Supported instance families:
 

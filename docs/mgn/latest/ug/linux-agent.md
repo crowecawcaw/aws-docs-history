@@ -6,7 +6,7 @@ Complete these steps to install the AWS Replication Agent on Linux source
 servers.
 
 1. Ensure that the necessary service roles have been created by clicking on the
-   Reinitialize service permissions button on the AWS Application Migration Service console's replication settings page.
+   Reinitialize service permissions button on the AWS Transform MGN console's replication settings page.
    You must have the permissions necessary to create IAM roles in order for this operation to
    succeed.
 2. Download the agent installer with the wget command your Linux source server. This wget
@@ -164,8 +164,8 @@ Available parameters include:
 
     ###### Note
 
-    This flag may only be used when adding new source servers to Application Migration Service. You cannot use
-     the --tags flag to modify tags of source servers that have already been added to Application Migration Service.
+    This flag may only be used when adding new source servers to MGN. You cannot use
+     the --tags flag to modify tags of source servers that have already been added to MGN.
     * --s3-endpoint
 
 
@@ -177,7 +177,7 @@ Available parameters include:
 
     This parameter allows you to provide a name to the source server that you are about to
      add, or identify a source server that needs to be updated. This identification is
-     used by Application Migration Service to consistently recognize the server replication, and avoid
+     used by MGN to consistently recognize the server replication, and avoid
      duplication when [importing inventory](import-main.md "import-main.md") from a CSV file. Once provided for a server this parameter cannot be modified.
     * --endpoint
 
@@ -187,10 +187,10 @@ Available parameters include:
 
 
 
-    	+ To specify the private link endpoint you created for AWS Application Migration Service if
-    	 you do not wish to open your firewall ports to access the default Application Migration Service endpoint. [Learn more about installing the Agent on a blocked
+    	+ To specify the private link endpoint you created for AWS Transform MGN if
+    	 you do not wish to open your firewall ports to access the default MGN endpoint. [Learn more about installing the Agent on a blocked
     	 network.](installing-agent-blocked.md "installing-agent-blocked.md")
-    	+ When using dual-stack, to specify a Application Migration Service dual-stack endpoint. You must also specify the `--dualstack` flag.
+    	+ When using dual-stack, to specify a MGN dual-stack endpoint. You must also specify the `--dualstack` flag.
     * --no-replication
 
 
@@ -201,12 +201,12 @@ Available parameters include:
 
     To start the replication post installation of replication agent using
      `--no-replication` attribute you can start replication by using the "Start
-     Replication" option from Replication menu for the source server in the AWS MGN Dashboard or
+     Replication" option from Replication menu for the source server in the MGN Dashboard or
      by using AWS CLI [start-replication](../APIReference/API_StartReplication.md "../APIReference/API_StartReplication.md")
     * --dualstack
 
 
-    This parameter enables the agent to run in a dual-stack Application Migration Service configuration. When using this flag, you must also use the `--endpoint` flag to specify a Application Migration Service dual-stack endpoint.
+    This parameter enables the agent to run in a dual-stack MGN configuration. When using this flag, you must also use the `--endpoint` flag to specify a MGN dual-stack endpoint.
 
 The installer confirms that the installation of the AWS Replication Agent has
 started.
@@ -256,7 +256,7 @@ differ from the data you entered. This difference can due to several reasons:
 
     * The root disk of the source server is always replicated, whether you select it or
      not. Therefore, it always appears on the list of identified disks for replication.
-    * AWS Application Migration Service replicates whole disks. Therefore, if you choose to replicate a partition,
+    * AWS Transform MGN replicates whole disks. Therefore, if you choose to replicate a partition,
      its entire disk appears on the list and is later replicated. If several
      partitions on the same disk are selected then that disk appears only once on the
      list.
@@ -265,7 +265,7 @@ differ from the data you entered. This difference can due to several reasons:
 
 ###### Important
 
-If disks are disconnected from a server, AWS Application Migration Service can no longer replicate them, so
+If disks are disconnected from a server, AWS Transform MGN can no longer replicate them, so
 they are removed from the list of replicated disks. When they are reconnected, the AWS
 Replication Agent cannot know that these were the same disks that were disconnected and
 therefore does not add them automatically. To add the disks after they are reconnected,
@@ -276,7 +276,7 @@ changes are automatically identified, but this also causes a resync. Perform a t
 after installing the Agent to ensure that the correct disks have been added. 7. After all of the disks that are to be replicated have been successfully identified, the
 installer downloads and installs the AWS Replication Agent on the source server.
 
-![Terminal output showing agent download and installation progress.](images/sourceservers-linuxagent6.png) 8. Once the AWS Replication Agent is installed, the server is added to the AWS Application Migration Service
+![Terminal output showing agent download and installation progress.](images/sourceservers-linuxagent6.png) 8. Once the AWS Replication Agent is installed, the server is added to the AWS Transform MGN
 console and undergoes the initial sync process. The installer provides you with the
 source server's ID.
 

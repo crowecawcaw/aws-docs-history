@@ -3,10 +3,10 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Replication settings
 
 Replication settings determine how data is replicated from your source servers to
-AWS. Configure the replication settings in the replication template before adding source servers to AWS Application Migration Service. You can modify the
+AWS. Configure the replication settings in the replication template before adding source servers to AWS Transform MGN. You can modify the
 template at any time. Template settings are transferred to each newly added server.
 
-You can also edit the replication settings for a particular server or group of servers after you add them to AWS Application Migration Service. You can also control other source server settings through the
+You can also edit the replication settings for a particular server or group of servers after you add them to AWS Transform MGN. You can also control other source server settings through the
 **Settings** section in the menu on the left of the console.
 
 ###### Topics
@@ -19,9 +19,9 @@ You can also edit the replication settings for a particular server or group of s
 ## Understanding template settings and server-specific settings
 
 The replication template settings determine how data replication works for each new
-server you add to AWS Application Migration Service. These settings are
+server you add to AWS Transform MGN. These settings are
 applied to each source server you add. You are prompted to configure your
-replication template upon your first use of AWS Application Migration Service.
+replication template upon your first use of AWS Transform MGN.
 
 You can change the replication settings for individual
 source servers or for a group of source servers. These changes do not affect the replication settings
@@ -39,7 +39,7 @@ To edit the replication settings template:
   Choose **Edit** to edit your account-wide
   replication settings. These changes are applied to each server you add to
   your account but do not affect servers that you already added to
-  AWS Application Migration Service.
+  AWS Transform MGN.
 
 ## Edit replication settings for a server
 

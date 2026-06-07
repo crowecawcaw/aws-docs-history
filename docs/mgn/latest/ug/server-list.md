@@ -3,10 +3,10 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Manage source servers
 
 The **Source servers** page lists all of the source servers
-that have been added to AWS Application Migration Service (AWS MGN). The **Source servers**
+that have been added to AWS Transform MGN. The **Source servers**
 page allows you to manage your source servers and perform a variety of commands for one or more
-servers (such as controlling replication and launching test and cutover instances). The **Source servers** page is the main page of AWS MGN console and you will most
-likely interact with AWS Application Migration Service predominantly through this page.
+servers (such as controlling replication and launching test and cutover instances). The **Source servers** page is the main page of MGN console and you will most
+likely interact with AWS Transform MGN predominantly through this page.
 
 ## Interacting with the source servers page
 

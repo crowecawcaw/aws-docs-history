@@ -13,7 +13,7 @@ documentation](launching-test-servers.md "launching-test-servers.md").
 When the **Launch test instances for X** servers dialog
 appears, cick **Launch** to begin the test.
 
-The AWS Application Migration Service console indicates **1 launch job
+The AWS Transform MGN console indicates **1 launch job
 complete** after the test has been completed successfully.
 
 - **Mark as "Ready for cutover"** – Use this option to
@@ -25,7 +25,7 @@ appears, select whether you want to terminate the launched instances used for te
 Check the **Yes, terminate launched instances
 (recommended)** box and choose **Continue**.
 
-The AWS Application Migration Service console indicates that testing has been finalized. The selected source
+The AWS Transform MGN console indicates that testing has been finalized. The selected source
 servers' **Migration lifecycle** column shows the **Ready for cutover** status and the launched Test instances are
 deleted if that option was selected.
 
@@ -38,7 +38,7 @@ Select whether you want to terminate the launched instances used for testing. We
 no longer need them. Check the **Yes, terminate launched instances
 (recommended)** box and choose **Revert**.
 
-The AWS Application Migration Service console indicates that testing has been reverted. The selected source
+The AWS Transform MGN console indicates that testing has been reverted. The selected source
 servers' **Migration lifecycle** column shows the **Ready for testing** status and the launched Test instances are
 deleted if that option was selected.
 
@@ -49,7 +49,7 @@ deleted if that option was selected.
 The **Launch cutover instances for X**
 **servers** dialog appears. Choose **Launch** to begin the cutover.
 
-The AWS Application Migration Service console indicates **1 launch job
+The AWS Transform MGN console indicates **1 launch job
 complete** after the cutover has been completed successfully.
 
 This changes your source servers' **Migration
@@ -68,9 +68,9 @@ AWS resources used for data replication are terminated.
 The **Finalize cutover for X servers** dialog appears.
 Choose **Finalize**.
 
-The AWS Application Migration Service console indicates **X servers cutover. Data
+The AWS Transform MGN console indicates **X servers cutover. Data
 replication has been stopped for servers** once the cutover has been
-completed successfully. The AWS Application Migration Service console automatically stops data replication for
+completed successfully. The AWS Transform MGN console automatically stops data replication for
 the cutover source servers to save resource costs. The selected source servers'
 **Migration lifecycle** column shows the **Cutover** status, the **Data
 replication** column shows **Disconnected** and

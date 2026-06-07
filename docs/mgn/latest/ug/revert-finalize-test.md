@@ -27,7 +27,7 @@ To revert a test:
    no longer need them. Check the **Yes, terminate launched instances
    (recommended)** box and choose **Revert**.
 
-The AWS Application Migration Service console indicates that testing has been reverted. The selected source
+The AWS Transform MGN console indicates that testing has been reverted. The selected source
 servers' **Migration lifecycle** column shows the **Ready for testing** status, the **Next
 step** column shows **Launch test instance** and
 the launched Test instances are deleted if that option was selected.

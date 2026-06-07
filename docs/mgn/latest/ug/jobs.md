@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Review launch history
 
 The **Launch history** tab allows you to track and manage all
-of the operation performed in AWS Application Migration Service.
+of the operation performed in AWS Transform MGN.
 
 You can access the Launch History by choose **Launch history**
 on the left-hand navigation menu.

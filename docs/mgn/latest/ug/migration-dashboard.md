@@ -21,7 +21,7 @@ Lifecycle states include:
   process and is not yet ready for testing. Data replication can only commence once all of the
   Initial Sync steps have been completed.
 - **Ready for testing** – The server has been successfully
-  added to AWS Application Migration Service and data replication has started. Test or cutover instances can now be
+  added to AWS Transform MGN and data replication has started. Test or cutover instances can now be
   launched for this server.
 - **Test in progress** – A test instance is currently being
   launched for this server.
@@ -57,7 +57,7 @@ possible scenarios:
 
 #### Server undergoing initial sync
 
-A source server that has been added to AWS Application Migration Service automatically begins the initial sync
+A source server that has been added to AWS Transform MGN automatically begins the initial sync
 process after AWS Replication Agent installation.
 
 Data replication can only commence after all of the initial sync steps have been
@@ -221,7 +221,7 @@ successfully migrated your source server to AWS.
 - The **Cutover** field shows the date you finalized
   your Cutover instance launch. You can review the cutover launch details by clicking on the
   **Job ID**. This opens the Job.
-- The AWS Application Migration Service console automatically stops data replication for the source servers that
+- The AWS Transform MGN console automatically stops data replication for the source servers that
   were cutover in order to save resource costs.
 - On the **Source servers** page, the selected source
   servers' **Migration lifecycle** column shows the **Cutover complete** status, the **Data replication
@@ -249,7 +249,7 @@ of the overall source server status, including:
 - **Elapsed replication time** – Time elapsed since
   replication first began on the server.
 - **Last seen** – The last time the server successfully
-  connected to AWS Application Migration Service.
+  connected to AWS Transform MGN.
 - **Replication start time** – The date and time replication
   first began on the server.
 
@@ -313,9 +313,9 @@ The status includes:
 
 ## Review events and metrics in AWS CloudTrail
 
-You can review AWS Application Migration Service events and metrics in AWS CloudTrail. Click on **View CloudTrail Event** History to openAWS CloudTrail in a new tab.
+You can review AWS Transform MGN events and metrics in AWS CloudTrail. Click on **View CloudTrail Event** History to openAWS CloudTrail in a new tab.
 
-Learn more about [monitoring AWS MGN.](monitoring-overview.md "monitoring-overview.md")
+Learn more about [monitoring MGN.](monitoring-overview.md "monitoring-overview.md")
 
 Learn more about AWS CloudTrail events in the [AWS
 CloudTrail user guide](../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md "../../../awscloudtrail/latest/userguide/cloudtrail-concepts.md").
@@ -373,7 +373,7 @@ To construct a custom installation command, take these steps:
      AWS Replication Agent installation](credentials.md "credentials.md"). The form does not send the secret, but does
      add it to the installation command.
     4. If you have not yet obtained the necessary credentials, [follow these instructions](credentials.md "credentials.md").
-    5. If you are adding a Windows source server to AWS MGN, download the installer onto the
+    5. If you are adding a Windows source server to MGN, download the installer onto the
      source server. The installer is downloaded from the AWS Region of your account. If
      you're adding a Linux source server, skip this step.
     6. Copy the generated custom installation command and either input it into the command
@@ -384,7 +384,7 @@ To construct a custom installation command, take these steps:
   server details view for the selected server. This option is only available when a single
   server is selected.
 - **Disconnect from service** – Choose this option to
-  disconnect the selected server from Application Migration Service and AWS. This option disconnects the source
+  disconnect the selected server from MGN and AWS. This option disconnects the source
   server and should be used when data replication is complete.
 
 On the **Disconnect X server/s from service** dialog,
@@ -432,7 +432,7 @@ and cutover instances.
 When the **Launch test instances for X** servers dialog
 appears, click **Launch** to begin the test.
 
-The AWS Application Migration Service console indicates **1 launch job
+The AWS Transform MGN console indicates **1 launch job
 complete** after the test has been completed successfully.
 
 - **Finalize testing** – Choose the **Mark as "Ready for cutover"** option to finalize testing for this server after
@@ -443,7 +443,7 @@ appears, select whether you want to terminate the launched instances used for te
 even though you no longer need them. Check the **Yes, terminate launched instances
 (recommended)** box and click **Continue**.
 
-The AWS Application Migration Service console indicates that testing has been finalized. The selected
+The AWS Transform MGN console indicates that testing has been finalized. The selected
 source servers' **Migration lifecycle** column shows the
 **Ready for cutover** status and the launched test instances
 are deleted if that option was selected.
@@ -457,7 +457,7 @@ select whether you want to terminate the launched instances used for testing. We
 even though you no longer need them. Check the **Yes, terminate launched instances
 (recommended)** box and choose **Revert**.
 
-The AWS Application Migration Service console indicates that testing has been reverted. The selected source
+The AWS Transform MGN console indicates that testing has been reverted. The selected source
 servers' **Migration lifecycle** column shows the **Ready for testing** status and the launched test instances are
 deleted if that option was selected.
 
@@ -468,7 +468,7 @@ deleted if that option was selected.
 When the **Launch cutover instances for X**
 **servers** dialog appears, click **Launch** to begin the cutover.
 
-The AWS Application Migration Service console indicates **1 launch job
+The AWS Transform MGN console indicates **1 launch job
 complete** after the cutover has been completed successfully.
 
 This changes your source servers' **Migration
@@ -487,9 +487,9 @@ be discarded. All AWS resources used for data replication are terminated.
 When the **Finalize cutover for X servers** dialog
 appears, click **Finalize**.
 
-The AWS Application Migration Service console indicates **X servers cutover. Data
+The AWS Transform MGN console indicates **X servers cutover. Data
 replication has been stopped for servers** once the cutover has been completed
-successfully. The AWS Application Migration Service console automatically stops data replication for the cutover
+successfully. The AWS Transform MGN console automatically stops data replication for the cutover
 source servers to save resource costs. The selected source servers' **Migration lifecycle** column shows the **Cutover** status, the **Data replication** column
 shows **Disconnected** and the **Next
 step** column states **Mark as archived**. The
@@ -531,7 +531,7 @@ click **Terminate**.
 You can easily distinguish between healthy servers and servers that are experiencing
 issues on the **Migration dashboard**.
 
-The AWS Application Migration Service console is color-coded for ease of use.
+The AWS Transform MGN console is color-coded for ease of use.
 
 - Healthy servers with no errors are characterized by the color blue in both the **Lifecycle** and **Data replication**
   **status** boxes.

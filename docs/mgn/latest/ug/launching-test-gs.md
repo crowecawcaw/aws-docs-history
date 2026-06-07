@@ -60,7 +60,7 @@ following steps:
 - When the **Launch test instances for X**
   **servers** dialog appears, choose **Launch** to begin the test.
 
-The AWS Application Migration Service console will indicate **Launch job started**
+The AWS Transform MGN console will indicate **Launch job started**
 when the test has started.
 
 Choose **View job details** on the dialog to view the
@@ -105,7 +105,7 @@ To revert a test:
    will no longer need them. Check the **Yes, terminate launched instances
    (recommended)** box and choose **Revert**.
 
-The AWS Application Migration Service console will indicate that testing has been reverted. The selected source
+The AWS Transform MGN console will indicate that testing has been reverted. The selected source
 servers' **Migration lifecycle** column will show the **Ready for testing** status, the **Next
 step** column will show **Launch test instance** and
 the launched Test instances will be deleted if that option was selected.
@@ -130,14 +130,14 @@ To finalize a test:
    instances, as you will be charged for them even though you will no longer need them. Check
    the **Yes, terminate launched instances (recommended)** box and
    choose **Continue**.
-5. The AWS Application Migration Service console will confirm that the servers were marked as ready for cutover.
+5. The AWS Transform MGN console will confirm that the servers were marked as ready for cutover.
 
 The console will indicate that testing has been finalized. The selected source servers'
 **Migration lifecycle** column will show the **Ready for cutover** status and the launched test instances will be
 deleted if that option was selected. The **Next step** column
 will show **Terminate launched instance; Launch cutover
 instance**. 6. You can now terminate the launched test instance directly from the Amazon EC2 Console
-as that instance is no longer needed (if you have not done so already through the AWS MGN
+as that instance is no longer needed (if you have not done so already through the MGN
 Console). You can quickly access the Test instance by navigating to the specific servers >
 **Server Details > Migration dashboard > Lifecycle > Launch
 status** and choosing **View in EC2 Console.** 7. The Amazon EC2 Console will automatically search for and display the test instance.

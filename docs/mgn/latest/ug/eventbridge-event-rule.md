@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Registering event rules
 
 You create CloudWatch Events event rules that capture events coming from your
-Application Migration Service resources.
+AWS Transform MGN resources.
 
 ###### Note
 

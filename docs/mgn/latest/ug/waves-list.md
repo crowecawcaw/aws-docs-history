@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Manage migration waves
 
 The **Waves** page lists all the waves that have been added to
-AWS Application Migration Service (AWS MGN). The **Waves** page allows you to manage your
+AWS Transform MGN. The **Waves** page allows you to manage your
 waves and perform a variety of commands for one or more waves (such as controlling replication
 and launching test and cutover instances).
 

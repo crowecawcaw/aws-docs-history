@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Prerequisites for installing the MGN connector
 
-To use the Application Migration Service connector you must meet these prerequisites.
+To use the MGN connector you must meet these prerequisites.
 
 ## General prerequisites
 

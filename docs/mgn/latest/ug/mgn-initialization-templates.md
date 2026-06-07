@@ -2,7 +2,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # Configuring the templates
 
-As part of the initialization of AWS Application Migration Service, you have the opportunity to configure three
+As part of the initialization of AWS Transform MGN, you have the opportunity to configure three
 templates.
 
 - Replication template (mandatory)
@@ -11,10 +11,10 @@ templates.
 
 ## Configuring your replication template
 
-To initialize AWS Application Migration Service, you must first create and configure a replication template.
-If you initialize Application Migration Service with the console, the initialization process creates the template for you.
-If you initialize Application Migration Service with the API, you create the template.
-For more information, see [Initializing AWS Application Migration Service with the API](mgn-initialize-api.md "mgn-initialize-api.md")
+To initialize AWS Transform MGN, you must first create and configure a replication template.
+If you initialize MGN with the console, the initialization process creates the template for you.
+If you initialize MGN with the API, you create the template.
+For more information, see [Initializing AWS Transform MGN with the API](mgn-initialize-api.md "mgn-initialize-api.md")
 
 The replication template determines how data replication will work for each new server you
 add. The settings configured in this template will be applied to each newly added source server.

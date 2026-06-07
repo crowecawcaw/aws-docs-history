@@ -2,9 +2,9 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # AWS managed policy: AWSApplicationMigrationNetworkMigrationCustomResource
 
-Allows modification of Transit Gateway resources created by Application Migration Service. You can attach the `AWSApplicationMigrationNetworkMigrationCustomResource` policy to your IAM identities.
+Allows modification of Transit Gateway resources created by MGN. You can attach the `AWSApplicationMigrationNetworkMigrationCustomResource` policy to your IAM identities.
 
-This identity-based policy allows modification of Transit Gateway resources that were specifically created by Application Migration Service. The policy grants permission to modify Transit Gateways and their route tables,
+This identity-based policy allows modification of Transit Gateway resources that were specifically created by MGN. The policy grants permission to modify Transit Gateways and their route tables,
 but only if they are tagged with `[CreatedBy: AWSApplicationMigrationService]`. This restriction ensures that only resources created by the migration service can be modified, providing targeted control over
 Transit Gateway infrastructure during migration processes. The policy grants the permissions necessary to complete these actions programmatically from the AWS API or AWS CLI.
 

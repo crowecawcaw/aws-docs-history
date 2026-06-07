@@ -1,8 +1,8 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Quick start guide for AWS Application Migration Service
+# Quick start guide for AWS Transform MGN
 
-Follow this guide to set up AWS Application Migration Service for the first time, including:
+Follow this guide to set up AWS Transform MGN for the first time, including:
 
 ###### Topics
 

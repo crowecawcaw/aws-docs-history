@@ -13,7 +13,7 @@ The **MGN Connectors** page provides information for each MGN connector, includi
 
 - **MGN Connector name** - The unique name for each MGN connector. Additional details of the MGN connector are available in the MGN details page. Click the MGN connector name, to view its details.
 - **Registered servers** - The number of registered source servers managed by this MGN connector.
-- **Last seen** - The last time AWS Application Migration Service communicated with the MGN connector.
+- **Last seen** - The last time AWS Transform MGN communicated with the MGN connector.
 
 ###### Topics
 

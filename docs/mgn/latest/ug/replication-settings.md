@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 The **Replication settings** tab allows you to edit the
 replication settings for an individual source server.
 
-After the source server is added to AWS Application Migration Service, the replication settings that are defined in
+After the source server is added to AWS Transform MGN, the replication settings that are defined in
 the replication settings template are automatically applied to the server. You can later edit
 them for a single source server through the **Replication
 settings** tab.

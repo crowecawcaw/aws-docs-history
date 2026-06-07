@@ -21,7 +21,7 @@ in the inventory columns that you want to overwrite.
 
 To delete a value replace the existing
 value with the string `[RESET_VALUE]` and then save and upload the file. This
-clears the value in the Application Migration Service resource or the Amazon EC2 launch template.
+clears the value in the MGN resource or the Amazon EC2 launch template.
 
 Using `[RESET_VALUE]` is available for these parameters:
 

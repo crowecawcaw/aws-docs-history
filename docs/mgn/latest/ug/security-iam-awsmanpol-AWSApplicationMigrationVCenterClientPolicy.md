@@ -5,7 +5,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 You can attach the `AWSApplicationMigrationVCenterClientPolicy` policy to
 your IAM identities.
 
-This policy allows installing and using the AWS VCenter Client, which is used with AWS Application Migration Service (AWS MGN) to migrate external servers to AWS. Attach this policy
+This policy allows installing and using the AWS VCenter Client, which is used with AWS Transform MGN to migrate external servers to AWS. Attach this policy
 to your users or roles whose credentials you provide when installing the AWS VCenter
 Client.
 

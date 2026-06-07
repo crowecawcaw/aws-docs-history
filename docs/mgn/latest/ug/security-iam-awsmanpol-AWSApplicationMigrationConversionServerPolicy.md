@@ -2,17 +2,17 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 # AWS managed policy: AWSApplicationMigrationConversionServerPolicy
 
-This policy is attached to the AWS Application Migration Service conversion server’s
+This policy is attached to the AWS Transform MGN conversion server’s
 instance role.
 
-This policy allows the AWS Application Migration Service (AWS MGN) conversion server,
-which are EC2 instances launched by AWS Application Migration Service, to
-communicate with the AWS MGN service. An IAM role with this policy is attached (as
-an EC2 Instance Profile) by AWS MGN to the AWS MGN Conversion Servers, which are
-automatically launched and terminated by AWS MGN, when needed. We do not recommend
-that you attach this policy to your users or roles. AWS MGN conversion servers are
-used by AWS Application Migration Service when users choose to launch test or
-cutover instances using the AWS MGN console, CLI, or API.
+This policy allows the AWS Transform MGN conversion server,
+which are EC2 instances launched by AWS Transform MGN, to
+communicate with the MGN service. An IAM role with this policy is attached (as
+an EC2 Instance Profile) by MGN to the MGN Conversion Servers, which are
+automatically launched and terminated by MGN, when needed. We do not recommend
+that you attach this policy to your users or roles. MGN conversion servers are
+used by AWS Transform MGN when users choose to launch test or
+cutover instances using the MGN console, CLI, or API.
 
 **Permissions details**
 

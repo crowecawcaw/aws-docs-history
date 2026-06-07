@@ -3,7 +3,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 # Launch template settings
 
 The **Launch template** allows you to control the way
-AWS Application Migration Service launches instances in AWS. The default configuration defined in the template
+AWS Transform MGN launches instances in AWS. The default configuration defined in the template
 is automatically applied to every newly added server.
 
 To edit the launch template for your entire account, you need to edit your launch
@@ -35,25 +35,25 @@ In the **General launch settings** section, you can
 define:
 
 - **Instance type right sizing**: If you select this
-  option, AWS Application Migration Service launches a test or cutover AWS instance type that best
+  option, AWS Transform MGN launches a test or cutover AWS instance type that best
   matches the OS, CPU, and RAM of your source server. Please note that the AWS
-  instance type selected by Application Migration Service when this option is selected overwrites the
+  instance type selected by MGN when this option is selected overwrites the
   instance type defined in your EC2 launch template.
 - **Start instance upon launch**: Choose whether to start your test and cutover instances automatically upon launch
   or launch them in a stopped state.
 - **Copy private IP**: Select if you want
-  AWS Application Migration Service to ensure that the private IP used by the test or cutover instance matches
-  the private IP used by the source server. If selected, AWS Application Migration Service monitors the source server on an
+  AWS Transform MGN to ensure that the private IP used by the test or cutover instance matches
+  the private IP used by the source server. If selected, AWS Transform MGN monitors the source server on an
   hourly basis to identify the Private IP and uses the private IP of the primary
   network interface. Make sure that the IP range of the
   subnet you set in the EC2 Launch Template includes the private IP address for this
   feature to work. Copy private IP is not supported for IPv6.
 - **Transfer server tags**: Select if you want
-  AWS Application Migration Service to transfer user-configured custom tags from your source servers to
+  AWS Transform MGN to transfer user-configured custom tags from your source servers to
   your test or cutover instance. If selected, server tags are transferred. These
   tags are attached to all source servers, all launched test and cutover
   instances, and all of the ephemeral resources that are created on your AWS
-  account during the normal operation of AWS Application Migration Service, such as snapshots, Amazon EBS
+  account during the normal operation of AWS Transform MGN, such as snapshots, Amazon EBS
   volumes, replication and conversion servers, and security groups.
 - **Operating system licensing**: Select if
   you want to Bring Your Own Licenses (BYOL) from the source server into the test or
@@ -72,7 +72,7 @@ you use BYOL licensing for Windows you have to change the **Placement.tenancy** 
   software that it runs is responsible for initializing the platform and providing an
   interface for the operating system to perform platform-specific operations. In
   Amazon EC2, two variants of the boot mode software are supported: Unified Extensible
-  Firmware Interface (UEFI) and Legacy BIOS. The boot mode allows Application Migration Service to launch a
+  Firmware Interface (UEFI) and Legacy BIOS. The boot mode allows MGN to launch a
   test or cutover instance type that best matches the configuration of the source
   server. You can select between **Keep the source boot mode** or change it to **BIOS/UEFI
   modes** .
@@ -107,7 +107,7 @@ type, the default gp3 volume type is used with maximum IOPS.
 
 ###### Note
 
-Note: if you manually delete the default launch template, AWS Application Migration Service generates
+Note: if you manually delete the default launch template, AWS Transform MGN generates
 a new default launch template. Any changes previously made to the default template
 are discarded, including subnet and security groups. You can make the same changes
 on the new launch template, and they are applied to servers you add to the console
@@ -120,9 +120,9 @@ Use this setting to determine whether to apply Migration Acceleration Program
 MAP](https://aws.amazon.com/migration-acceleration-program "https://aws.amazon.com/migration-acceleration-program") in the AWS Migration Hub Launch Guide.
 
 Select**Add MAP tag to Launched Instances** option,
-if you want Application Migration Service to automatically tag your launched instances with the tag key and
+if you want MGN to automatically tag your launched instances with the tag key and
 value combination required for MAP program. Once selected you must specify the MAP tag
-value that is used in your MAP tagging. Application Migration Service automatically tagw your migrated resources
+value that is used in your MAP tagging. MGN automatically tagw your migrated resources
 with the key: “map-migrated” and the value of the tag that you provided. For more
 details about the tag value that should be used here, please refer to the MAP tagging
 guide provided in your MAP term.
