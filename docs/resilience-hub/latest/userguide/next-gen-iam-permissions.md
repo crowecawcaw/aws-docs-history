@@ -155,11 +155,32 @@ EOF
 
 ```
 
-**Step 2: Map the ResilienceHubRole to the Kubernetes group in
-aws-auth**
+**Step 2: Map the IAM role to the Kubernetes group**
 
-Edit the aws-auth ConfigMap to map the IAM role you have created to the
-`resilience-hub-eks-access-group`:
+Map the IAM role you created to the
+`resilience-hub-eks-access-group` Kubernetes group. You can use either
+Amazon EKS access entries (recommended) or the `aws-auth` ConfigMap.
+
+**Option A: Using EKS access entries (recommended)**
+
+EKS access entries are the preferred method for managing cluster authentication.
+Your cluster must use `API` or `API_AND_CONFIG_MAP`
+authentication mode.
+
+```
+
+aws eks create-access-entry \
+  --cluster-name `cluster-name` \
+  --principal-arn arn:aws:iam::`ACCOUNT-ID`:role/ResilienceHubRole \
+  --type STANDARD \
+  --kubernetes-groups '["resilience-hub-eks-access-group"]'
+
+```
+
+**Option B: Using aws-auth ConfigMap**
+
+If your cluster uses `CONFIG_MAP` or `API_AND_CONFIG_MAP`
+authentication mode, you can edit the aws-auth ConfigMap instead:
 
 Using eksctl:
 
@@ -201,6 +222,23 @@ Confirm the RBAC resources exist and the role mapping is in place:
 
 kubectl get clusterrole resilience-hub-eks-access-cluster-role
 kubectl describe clusterrolebinding resilience-hub-eks-access-cluster-role-binding
+
+```
+
+If using access entries (Option A):
+
+```
+
+aws eks describe-access-entry \
+  --cluster-name `cluster-name` \
+  --principal-arn arn:aws:iam::`ACCOUNT-ID`:role/ResilienceHubRole
+
+```
+
+If using aws-auth ConfigMap (Option B):
+
+```
+
 kubectl get configmap aws-auth -n kube-system -o yaml | grep -A 3 "ResilienceHubRole"
 
 ```
