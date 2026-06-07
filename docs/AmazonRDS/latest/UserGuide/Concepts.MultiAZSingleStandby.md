@@ -25,7 +25,7 @@ a Multi-AZ DB cluster or a read replica instead. For more information about Mult
 clusters, see [Multi-AZ DB cluster deployments for Amazon RDS](multi-az-db-clusters-concepts.md "multi-az-db-clusters-concepts.md"). For more information about read
 replicas, see [Working with DB instance read replicas](USER_ReadRepl.md "USER_ReadRepl.md").
 
-![High availability scenario](images/con-multi-AZ.png)
+![High availability scenario.](images/con-multi-AZ.png)
 Using the RDS console, you can create a Multi-AZ DB instance deployment by simply specifying Multi-AZ
 when creating a DB instance. You can use the console to convert existing DB instances to
 Multi-AZ DB instance deployments by modifying the DB instance and specifying the Multi-AZ option. You

@@ -8,7 +8,7 @@ When you promote a read replica, RDS reboots the DB instance before making it av
 promotion process can take several minutes or longer to complete, depending on the size of
 the read replica.
 
-![Promoting a read replica](images/read-replica-promote.png)
+![Promoting a read replica.](images/read-replica-promote.png)
 
 ## Use cases for promoting a read replica
 

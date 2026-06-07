@@ -11,7 +11,7 @@ name and port number for a DB instance, see [Finding the endpoint of your RDS fo
 1. Start Oracle SQL Developer.
 2. On the **Connections** tab, choose the **add (+)** icon.
 
-![Oracle SQL Developer with add icon highlighted](images/oracle-sqldev-plus.png) 3. In the **New/Select Database Connection** dialog box, provide the information for your
+![Oracle SQL Developer with add icon highlighted.](images/oracle-sqldev-plus.png) 3. In the **New/Select Database Connection** dialog box, provide the information for your
 DB instance:
 
     * For **Connection Name**, enter a name that describes the connection, such as
@@ -31,7 +31,7 @@ DB instance:
 
 The completed dialog box should look similar to the following.
 
-![Creating a new connection in Oracle SQL Developer](images/oracle-sqldev-newcon.png) 4. Choose **Connect**. 5. You can now start running queries against your DB instance as usual. To run a test query against your DB instance, do the following:
+![Creating a new connection in Oracle SQL Developer.](images/oracle-sqldev-newcon.png) 4. Choose **Connect**. 5. You can now start running queries against your DB instance as usual. To run a test query against your DB instance, do the following:
 
     1. In the **Worksheet** tab for your connection, enter the following SQL
      query.
@@ -45,10 +45,10 @@ The completed dialog box should look similar to the following.
 
 
 
-    ![Running a query in Oracle SQL Developer using the execute icon](images/oracle-sqldev-run.png)
+    ![Running a query in Oracle SQL Developer using the execute icon.](images/oracle-sqldev-run.png)
 
     SQL Developer returns the database name.
 
 
 
-    ![Query results in Oracle SQL Developer](images/oracle-sqldev-results.png)
+    ![Query results in Oracle SQL Developer.](images/oracle-sqldev-results.png)

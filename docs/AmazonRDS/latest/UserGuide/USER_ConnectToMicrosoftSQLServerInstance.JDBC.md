@@ -15,7 +15,7 @@ To download this driver, see
 1. Open SQL Workbench/J. The **Select Connection Profile**
    dialog box appears, as shown following.
 
-![Select Connection Profile dialog](images/workbench_profile.png) 2. In the first box at the top of the dialog box, enter a name for the profile. 3. For **Driver**, choose `SQL JDBC 4.0`. 4. For **URL**, enter `jdbc:sqlserver://`,
+![Select Connection Profile dialog.](images/workbench_profile.png) 2. In the first box at the top of the dialog box, enter a name for the profile. 3. For **Driver**, choose `SQL JDBC 4.0`. 4. For **URL**, enter `jdbc:sqlserver://`,
 then enter the endpoint of your DB instance. For example, the URL value might be
 the following.
 
@@ -28,7 +28,7 @@ jdbc:sqlserver://sqlsvr-pdz.abcd12340.us-west-2.rds.amazonaws.com:1433
 6. For **Password**, enter the password for the master user.
 7. Choose the save icon in the dialog toolbar, as shown following.
 
-![Save the profile](images/save_example.png) 8. Choose **OK**.
+![Save the profile.](images/save_example.png) 8. Choose **OK**.
 After a few moments, SQL Workbench/J connects to your DB instance.
 If you can't connect to your DB instance,
 see
@@ -43,7 +43,7 @@ select @@VERSION
 10. Choose the `Execute` icon in the toolbar, as shown
     following.
 
-![Run the query](images/execute_example.png)
+![Run the query.](images/execute_example.png)
 
 The query returns the version information for your DB instance, similar to the
 following.

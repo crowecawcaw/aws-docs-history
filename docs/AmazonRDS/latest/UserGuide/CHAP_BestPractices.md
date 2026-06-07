@@ -182,7 +182,7 @@ see [Viewing metrics in the Amazon RDS console](USER_Monitoring.md "USER_Monitor
 3. Choose **Logs & events**.
 4. In the **CloudWatch alarms** section, choose **Create alarm**.
 
-![Create Alarm dialog box](images/CreateAlarm.png) 5. For **Send notifications**, choose **Yes**, and for **Send notifications to**,
+![Create Alarm dialog box.](images/CreateAlarm.png) 5. For **Send notifications**, choose **Yes**, and for **Send notifications to**,
 choose **New email or SMS topic**. 6. For **Topic name**, enter a name for the notification, and for **With these recipients**,
 enter a comma-separated list of email addresses and phone numbers. 7. For **Metric**, choose the alarm statistic and metric to set. 8. For **Threshold**, specify whether the metric must be greater than, less than, or equal to the threshold,
 and specify the threshold value. 9. For **Evaluation period**, choose the evaluation period

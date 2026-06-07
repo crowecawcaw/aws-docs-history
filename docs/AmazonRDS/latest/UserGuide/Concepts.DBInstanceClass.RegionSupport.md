@@ -44,7 +44,7 @@ the valid DB engine values.
 
 | Engine names         | Engine values in CLI commands                                         | More information about versions                                                                                                            |
 | -------------------- | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| Db2                  | `db2-ae`<br>`db2-se`                                                  | [Db2 on Amazon RDS versions](Db2.Concepts.VersionMgmt.md "Db2.Concepts.VersionMgmt.md")                                                    |
+| Db2                  | `db2-ae`<br>`db2-ce`<br>`db2-se`                                      | [Db2 on Amazon RDS versions](Db2.Concepts.VersionMgmt.md "Db2.Concepts.VersionMgmt.md")                                                    |
 | MariaDB              | `mariadb`                                                             | [MariaDB on Amazon RDS versions](MariaDB.Concepts.VersionMgmt.md "MariaDB.Concepts.VersionMgmt.md")                                        |
 | Microsoft SQL Server | `sqlserver-ee`<br>`sqlserver-se`<br>`sqlserver-ex`<br>`sqlserver-web` | [Microsoft SQL Server versions on Amazon RDS](SQLServer.Concepts.General.VersionSupport.md "SQLServer.Concepts.General.VersionSupport.md") |
 | MySQL                | `mysql`                                                               | [MySQL on Amazon RDS versions](MySQL.Concepts.VersionMgmt.md "MySQL.Concepts.VersionMgmt.md")                                              |

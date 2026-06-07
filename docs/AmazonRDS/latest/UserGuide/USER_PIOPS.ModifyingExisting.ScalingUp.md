@@ -36,7 +36,7 @@ AWS CLI command.
 5. Enter a new value for **Allocated storage**. It
    must be at least 10% greater than the current value.
 
-![Modify the amount of storage for a DB instance](images/scale-gs2.png) 6. Choose **Continue**. 7. Choose **Apply immediately** in the
+![Modify the amount of storage for a DB instance.](images/scale-gs2.png) 6. Choose **Continue**. 7. Choose **Apply immediately** in the
 **Scheduling of modifications** section to
 apply the storage changes to the DB instance immediately.
 

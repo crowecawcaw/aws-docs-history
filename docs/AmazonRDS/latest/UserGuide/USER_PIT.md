@@ -19,7 +19,7 @@ choose **Automated backups**.
 You can restore to any point in time within your backup retention
 period. To see the earliest restorable time for each DB instance, choose **Automated backups** in the Amazon RDS console.
 
-![Automated backups](images/automated-backups.png)
+![Automated backups.](images/automated-backups.png)
 
 ###### Note
 

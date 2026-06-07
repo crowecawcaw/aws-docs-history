@@ -69,7 +69,7 @@ or not billed. For all DB instance statuses, you are always billed for backup us
 The **Databases page** appears with the list of DB instances. For each DB instance
 , the status value is displayed.
 
-![View the status of a DB instance](images/RDS_instance_status.png)
+![View the status of a DB instance.](images/RDS_instance_status.png)
 To view DB instance and its status information by using the AWS CLI, use the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command. For example, the
 following AWS CLI command lists all the DB instances information .
 

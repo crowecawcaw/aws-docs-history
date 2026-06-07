@@ -49,22 +49,22 @@ need additional review.
 
 The following example shows the confirmation window to apply the recommendation immediately.
 
-![The confirmation window in the console to apply the recommendation immediately](images/Recommendations_ApplyImmediately.png)
+![The confirmation window in the console to apply the recommendation immediately.](images/Recommendations_ApplyImmediately.png)
 
 The following example shows the confirmation window to schedule applying the recommendation in the next maintenance window.
 
-![The confirmation window in the console to schedule applying the recommendation in the next maintenance window](images/Recommendations_Defer.png)
+![The confirmation window in the console to schedule applying the recommendation in the next maintenance window.](images/Recommendations_Defer.png)
 
 A banner displays a message when the recommendation applied is successful or
 has failed.
 
 The following example shows the banner with the successful message.
 
-![A banner in the console showing the message with the number of resources that will apply the recommendation](images/Recommendation-Apply-Banner.png)
+![A banner in the console showing the message with the number of resources that will apply the recommendation.](images/Recommendation-Apply-Banner.png)
 
 The following example shows the banner with the failure message.
 
-![A banner in the console showing the message with the resource that failed to apply the recommendation and the reason for the failure](images/Recommendation-Apply-Banner-failure.png)
+![A banner in the console showing the message with the resource that failed to apply the recommendation and the reason for the failure.](images/Recommendation-Apply-Banner-failure.png)
 
 ###### To apply a configuration based RDS recommendation using the Amazon RDS API
 

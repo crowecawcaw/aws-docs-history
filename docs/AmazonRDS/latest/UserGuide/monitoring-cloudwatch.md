@@ -32,7 +32,7 @@ CloudWatch, see [Exporting Performance Insights metrics to CloudWatch](PI_metric
 As shown in the following diagram, you can set up alarms for your CloudWatch metrics. For example, you might create an alarm that signals when the
 CPU utilization for an instance is over 70%. You can configure Amazon Simple Notification Service to email you when the threshold is passed.
 
-![RDS metrics in AWS CloudWatch](images/rds-cloudwatch.png)
+![RDS metrics in AWS CloudWatch.](images/rds-cloudwatch.png)
 
 Amazon RDS publishes the following types of metrics to Amazon CloudWatch:
 

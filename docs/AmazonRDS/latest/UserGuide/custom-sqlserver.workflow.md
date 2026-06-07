@@ -2,7 +2,7 @@
 
 The following diagram shows the typical workflow for RDS Custom for SQL Server.
 
-![RDS Custom for SQL Server architecture](images/custom_sqlserver_architecture_v2.png)
+![RDS Custom for SQL Server architecture.](images/custom_sqlserver_architecture_v2.png)
 The steps are as follows:
 
 1. Create an RDS Custom for SQL Server DB instance from an engine version offered by RDS Custom.

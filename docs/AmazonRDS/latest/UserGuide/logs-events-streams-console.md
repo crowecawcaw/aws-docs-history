@@ -23,13 +23,13 @@ The **Logs & events** tab for your RDS DB instance shows the following informati
 The database page appears. The following example shows an Oracle database
 named `orclb`.
 
-![Database page with monitoring tab shown](images/oracle-with-monitoring-tab.png) 4. Choose **Logs & events**.
+![Database page with monitoring tab shown.](images/oracle-with-monitoring-tab.png) 4. Choose **Logs & events**.
 
 The Logs & events section appears.
 
-![Database page with Logs & events tab shown](images/oracle-logs-and-events-subpage.png) 5. Choose **Configuration**.
+![Database page with Logs & events tab shown.](images/oracle-logs-and-events-subpage.png) 5. Choose **Configuration**.
 
 The following example shows the status of the database activity streams for your DB
 instance.
 
-![Enhanced Monitoring](images/oracle-das.png)
+![Enhanced Monitoring.](images/oracle-das.png)

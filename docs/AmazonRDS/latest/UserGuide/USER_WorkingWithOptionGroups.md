@@ -279,7 +279,7 @@ You can use the AWS Management Console to add an option to an option group.
 2. In the navigation pane, choose **Option groups**.
 3. Choose the option group that you want to modify, and then choose **Add option**.
 
-![Console option group](images/optiongroup-addoption1.png) 4. In the **Add option** window, do the following:
+![Console option group.](images/optiongroup-addoption1.png) 4. In the **Add option** window, do the following:
 
     1. Choose the option that you want to add. You might need to provide
      additional values, depending on the option that you select. For
@@ -291,7 +291,7 @@ You can use the AWS Management Console to add an option to an option group.
      (the default), the option is enabled for each associated DB
      instance during its next maintenance window.
 
-![Console option group](images/optiongroup-addoption2.png) 5. When the settings are as you want them, choose **Add option**.
+![Console option group.](images/optiongroup-addoption2.png) 5. When the settings are as you want them, choose **Add option**.
 To add an option to an option group, run the AWS CLI [add-option-to-option-group](../../../cli/latest/reference/rds/add-option-to-option-group.md "../../../cli/latest/reference/rds/add-option-to-option-group.md") command with the option that you
 want to add. To enable the new option immediately on all associated DB
 instances, include the `--apply-immediately` parameter. By
@@ -647,7 +647,7 @@ You can use the AWS Management Console to remove an option from an option group.
      (the default), the option is deleted for each associated DB
      instance during its next maintenance window.
 
-![Delete option group](images/optiongroup-removeoption2.png) 5. When the settings are as you want them, choose **Yes,
+![Delete option group.](images/optiongroup-removeoption2.png) 5. When the settings are as you want them, choose **Yes,
 Delete**.
 To remove an option from an option group, use the AWS CLI
 [`remove-option-from-option-group`](../../../cli/latest/reference/rds/remove-option-from-option-group.md "../../../cli/latest/reference/rds/remove-option-from-option-group.md") command with the option

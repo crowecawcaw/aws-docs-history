@@ -17,7 +17,7 @@ isn't using the latest changes to its associated DB parameter group. If so, the 
 shows the DB parameter group with a status of **pending-reboot**. To apply the
 latest parameter changes to that DB instance, manually reboot the DB instance.
 
-![Parameter change pending reboot scenario](images/param-reboot.png)
+![Parameter change pending reboot scenario.](images/param-reboot.png)
 
 ###### Note
 

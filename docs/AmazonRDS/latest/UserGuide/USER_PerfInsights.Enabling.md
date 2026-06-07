@@ -52,7 +52,7 @@ For more information, see the following topics.
 
 The following screenshot shows the **Performance Insights** section.
 
-![Turn on Performance Insights during DB instance or Multi-AZ DB cluster creation with console](images/perf_insights_enabling.png)
+![Turn on Performance Insights during DB instance or Multi-AZ DB cluster creation with console.](images/perf_insights_enabling.png)
 
 If you choose **Enable Performance Insights**, you have the following options:
 

@@ -22,7 +22,7 @@ SELECT * from msdb.dbo.rds_fn_list_tlog_backup_metadata('mydatabasename') WHERE 
 
 ```
 
-![Output from rds_fn_list_tlog_backup_metadata](images/sql_accesstransactionlogs_func.png)
+![Output from rds_fn_list_tlog_backup_metadata.](images/sql_accesstransactionlogs_func.png)
 The `rds_fn_list_tlog_backup_metadata` function returns the following output:
 
 | Column name            | Data type        | Description                                                                                                                                            |

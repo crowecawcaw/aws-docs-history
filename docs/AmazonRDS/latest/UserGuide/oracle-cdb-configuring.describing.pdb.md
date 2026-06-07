@@ -11,12 +11,12 @@ non-CDB or CDB.
    AWS Region where your DB instance resides.
 3. In the navigation pane, choose **Databases**.
 
-![View details about a CDB](images/cdb-list.png)
+![View details about a CDB.](images/cdb-list.png)
 
 In the preceding image, the sole tenant database (PDB) appears as a child of
 the DB instance. 4. Choose the name of a tenant database.
 
-![View details about a PDB](images/pdb-details.png)
+![View details about a PDB.](images/pdb-details.png)
 To see details about your PDBs, use the AWS CLI command [describe-tenant-databases](../../../cli/latest/reference/rds/describe-tenant-databases.md "../../../cli/latest/reference/rds/describe-tenant-databases.md").
 
 This following example describes all tenant databases in the specified

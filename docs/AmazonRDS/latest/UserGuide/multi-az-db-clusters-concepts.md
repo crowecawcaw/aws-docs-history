@@ -43,10 +43,11 @@ Multi-AZ DB clusters aren't the same as Aurora DB clusters. For information abou
 
 ## Instance class availability for Multi-AZ DB clusters
 
-Multi-AZ DB cluster deployments are supported for the following DB instance classes: `db.m5d`,
-`db.m6gd`, `db.m6id`, `db.m6idn`,
-`db.r5d`, `db.r6gd`, `db.x2iedn`,
-`db.r6id`, and `db.r6idn`, and `db.c6gd`.
+Multi-AZ DB cluster deployments are supported for the following DB instance classes: `db.c6gd`,
+`db.m5d`, `db.m6gd`, `db.m6id`,
+`db.m6idn`, `db.m8gd`, `db.r5d`,
+`db.r6gd`, `db.r6id`, `db.r6idn`,
+`db.r8gd`, and `db.x2iedn`.
 
 ###### Note
 

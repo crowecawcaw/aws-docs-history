@@ -107,7 +107,7 @@ The VPC for the directory. Create the Oracle DB instance in this same VPC.
 Subnets for the directory servers. The two subnets must be in different Availability Zones. 7. Review the directory information and make any necessary changes. When the information is correct, choose **Create
 directory**.
 
-![Directory details page during creation](images/WinAuth2.png)
+![Directory details page during creation.](images/WinAuth2.png)
 
 It takes several minutes for the directory to be created. When it has been successfully created, the **Status** value
 changes to **Active**.
@@ -115,7 +115,7 @@ changes to **Active**.
 To see information about your directory, choose the directory name in the directory listing. Note the **Directory ID**
 value because you need this value when you create or modify your Oracle DB instance.
 
-![Directory details page](images/WinAuth3.png)
+![Directory details page.](images/WinAuth3.png)
 
 ## Step 2: Create a trust
 
@@ -332,12 +332,12 @@ When you use the console to create a DB instance, choose **Password and Kerberos
 **Database authentication** section. Choose **Browse Directory** and then select the directory, or
 choose **Create a new directory**.
 
-![Kerberos authentication setting when creating a DB instance](images/kerberos-authentication.png)
+![Kerberos authentication setting when creating a DB instance.](images/kerberos-authentication.png)
 
 When you use the console to modify or restore a DB instance, choose the directory in the **Kerberos authentication**
 section, or choose **Create a new directory**.
 
-![Kerberos authentication setting when modifying or restoring a DB instance](images/kerberos-auth-modify-restore.png)
+![Kerberos authentication setting when modifying or restoring a DB instance.](images/kerberos-auth-modify-restore.png)
 
 When you use the AWS CLI, the following parameters are required for the DB instance to be able to use the directory that you
 created:

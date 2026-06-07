@@ -162,7 +162,7 @@ encryption at rest is turned on for a DB instance.
 
 It shows either **Enabled** or **Not enabled**.
 
-![Checking encryption at rest for a DB instance](images/encryption-check-db-instance.png)
+![Checking encryption at rest for a DB instance.](images/encryption-check-db-instance.png)
 To determine whether encryption at rest is turned on for a DB
 instance by using the AWS CLI, call the [describe-db-instances](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") command with the following
 option:

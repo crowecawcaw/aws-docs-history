@@ -17,28 +17,28 @@ resources.
 
 
 
-        ![Select Recommendations in the console](images/recommendations-select.png)
+        ![Select Recommendations in the console.](images/recommendations-select.png)
 
         By default, the **Recommendations** page displays a list of
          new recommendations in the last month. Amazon RDS gives recommendations for all the resources in your account and sorts the recommendations by their severity.
 
 
 
-        ![Main Recommendations page in the console which contains all the recommendations](images/Recommendations_List.png)
+        ![Main Recommendations page in the console which contains all the recommendations.](images/Recommendations_List.png)
 
         You can choose a recommendation to view a section at the bottom of the page which contains the affected resources and details of how the recommendation will be applied.
         * In the **Databases** page, choose **Recommendations** for a resource.
 
 
 
-        ![Recommendation option selected on Databases page in the console](images/Recommendations_DBpage.png)
+        ![Recommendation option selected on Databases page in the console.](images/Recommendations_DBpage.png)
 
         The **Recommendations** tab displays
          the recommendations and its details for the selected resource.
 
 
 
-        ![Recommendations tab on Databases page in the console](images/RecommendationsTab_DBpage.png)
+        ![Recommendations tab on Databases page in the console.](images/RecommendationsTab_DBpage.png)
 
     The following details are available for the recommendations:
 
@@ -81,13 +81,13 @@ The recommendations for the selected operation appear. 4. (Optional) Choose any 
      recommended actions are in progress or scheduled for the next
      maintenance window.
 
-![Recommendations filtered by status in the console](images/Recommendations_Status.png) 5. (Optional) Choose **Relative mode** or **Absolute mode** in
+![Recommendations filtered by status in the console.](images/Recommendations_Status.png) 5. (Optional) Choose **Relative mode** or **Absolute mode** in
 **Last modified** to modify the time period. The **Recommendations** page displays
 the recommendations generated in the time period. The default time period is the last month. In the **Absolute mode**, you can
 choose the time period, or enter the time in **Start date**
 and **End date** fields.
 
-![Recommendations filtered by time period in the console](images/Recommendations_TimeMode.png)
+![Recommendations filtered by time period in the console.](images/Recommendations_TimeMode.png)
 
 The recommendations for the set time period display.
 

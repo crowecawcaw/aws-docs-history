@@ -22,8 +22,6 @@ If you need a higher limit, request an increase by contacting Support. Open the 
 **Service limit increase**. Complete and submit the form.
 
 - You can't have an offline database on a SQL Server DB instance that is in a SQL Server Multi-AZ deployment.
-- RDS for SQL Server doesn't replicate MSDB database permissions to the secondary instance.
-  If you need these permissions on the secondary instance, you must recreate them manually.
 - Volume metrics are not available for the secondary host of the instance using block level replication.
   The following are some notes about working with Multi-AZ deployments on RDS for SQL Server DB instances:
 
@@ -42,15 +40,11 @@ If you need a higher limit, request an increase by contacting Support. Open the 
   databases fail over as one atomic unit to your standby host. Amazon RDS provisions a new healthy host, and replaces the
   unhealthy host.
 - Multi-AZ with DBM, AGs, or block level replication supports a single standby replica.
-- Users, logins, and permissions are automatically replicated for you on the secondary. You don't need to recreate them.
-  User-defined server roles are replicated in DB instances that use Always On AGs or block level replication for Multi-AZ deployments.
 - In Multi-AZ deployments, RDS for SQL Server creates SQL Server logins to allow Always On AGs or Database Mirroring.
   RDS creates logins with the following pattern, `db_<dbiResourceId>_node1_login`,
   `db_<dbiResourceId>_node2_login`, and `db_<dbiResourceId>_witness_login`.
 - RDS for SQL Server creates a SQL Server login to allow access to read replicas.
   RDS creates a login with the following pattern, `db_<readreplica_dbiResourceId>_node_login`.
-- In Multi-AZ deployments, SQL Server Agent jobs are replicated from the primary host to the secondary host when the job replication
-  feature is turned on. For more information, see [Turning on SQL Server Agent job replication](Appendix.SQLServer.CommonDBATasks.Agent.md#SQLServerAgent.Replicate "Appendix.SQLServer.CommonDBATasks.Agent.md#SQLServerAgent.Replicate").
 - You might observe elevated latencies compared to a standard DB instance deployment (in a
   single Availability Zone) because of the synchronous data replication.
 - Failover times are affected by the time it takes to complete the recovery process. Large transactions increase the failover
@@ -59,7 +53,24 @@ If you need a higher limit, request an increase by contacting Support. Open the 
   primary DB instance becomes the new secondary DB instance. Parameters might not be updated for Multi-AZ instances. For
   reboot without failover, both the primary and secondary DB instances reboot, and parameters are updated after the
   reboot. If the DB instance is unresponsive, we recommend reboot without failover.
-  The following are some recommendations for working with Multi-AZ deployments on RDS for Microsoft SQL Server DB instances:
+  The following table compares how server-level objects are replicated in RDS for SQL Server Multi-AZ deployments using Database Mirroring (DBM)
+  or Always On Availability Groups (AGs) versus block-level replication.
+
+| Replication behavior by object type | Object                                                                                                                                                                                                                                                                                                                                               | Database Mirroring / Always On AGs                                  | Block-level replication |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ----------------------- |
+| Logins                              | Yes — replicated by Amazon RDS. The `DEFAULT_DATABASE` property is<br>\*not<br>• replicated. Don't use `DEFAULT_DATABASE` when<br>creating or altering logins on DBM or Always On AG instances.                                                                                                                                                      | Yes — including `DEFAULT_DATABASE` (no restriction).                |
+| Database users and permissions      | Yes — replicated through SQL Server native replication (stored in user databases).                                                                                                                                                                                                                                                                   | Yes.                                                                |
+| User-defined server roles           | Always On AGs: Yes — replicated. DBM: No — not replicated.                                                                                                                                                                                                                                                                                           | Yes.                                                                |
+| Linked servers                      | No — stored in the `master` database, which is outside the AG or mirror.<br>Create linked servers before enabling Multi-AZ, or recreate them manually after failover.                                                                                                                                                                                | Yes — the entire volume, including system databases, is replicated. |
+| SQL Server Audit                    | Partial — Database Audit Specifications (in user databases) are replicated. Server<br>Audits and Server Audit Specifications are \*not<br>• replicated. You must<br>create these manually on the secondary using the `AUDIT_GUID` parameter to<br>match the primary.                                                                                 | Yes — all audit objects are replicated at the volume level.         |
+| `tempdb` configuration              | Optional — enable synchronization with the following stored procedure.<br>`<br>EXECUTE msdb.dbo.rds_set_system_database_sync_objects<br>@object_types = 'TempDbFile';<br>`<br>Temporary objects and data are never replicated.                                                                                                                       | Yes — configuration is replicated at the volume level.              |
+| SQL Server Agent jobs               | Optional — enable synchronization with the following stored procedure.<br>`<br>EXECUTE msdb.dbo.rds_set_system_database_sync_objects<br>@object_types = 'SQLAgentJob';<br>`<br>Only T-SQL job steps in supported categories are replicated. SSIS, SSRS, Replication,<br>PowerShell, and Database Mail step types are \*not<br>• replicated.          | Yes — all jobs are replicated at the volume level.                  |
+| CDC (Change Data Capture)           | Partial — CDC metadata and change tables (in user databases) are replicated. Capture<br>and cleanup jobs (in `msdb`) are \*not<br>• directly replicated.<br>Amazon RDS drops and recreates them on the new primary after failover using previously recorded<br>parameters. Use `rds_set_configuration` to preset CDC parameters on the<br>secondary. | Yes — all CDC objects are replicated at the volume level.           |
+| Resource Governor                   | Yes — replicated by Amazon RDS. To verify synchronization, run the following query.<br>`<br>SELECT<br>• FROM msdb.dbo.rds_fn_server_object_last_sync_time();<br>`                                                                                                                                                                                    | Yes.                                                                |
+| Database owner                      | No — on the secondary instance, the database owner is set to<br>`NT AUTHORITY\SYSTEM`. After failover, use<br>`msdb.dbo.rds_changedbowner_to_rdsa` to reset ownership.                                                                                                                                                                               | Yes — owner is preserved.                                           |
+| `msdb` permissions                  | No — RDS for SQL Server doesn't replicate `msdb` database permissions to the<br>secondary instance. You must recreate them manually.                                                                                                                                                                                                                 | Yes — replicated at the volume level.                               |
+
+The following are some recommendations for working with Multi-AZ deployments on RDS for Microsoft SQL Server DB instances:
 
 - For databases used in production or preproduction, we recommend the following
   options:

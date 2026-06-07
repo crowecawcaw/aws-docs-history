@@ -27,11 +27,11 @@ Use the following procedure to restore from a snapshot in the AWS Management Con
 3. Choose the DB snapshot that you want to restore from.
 4. For **Actions**, choose **Restore snapshot**.
 
-![Restore snapshot option in the Actions menu in the RDS console](images/tut-restore-instance1.png)
+![Restore snapshot option in the Actions menu in the RDS console.](images/tut-restore-instance1.png)
 
 The **Restore snapshot** page appears.
 
-![Restore snapshot page](images/tut-restore-instance2.png) 5. Under **DB instance settings**, use the default settings for **DB engine** and
+![Restore snapshot page.](images/tut-restore-instance2.png) 5. Under **DB instance settings**, use the default settings for **DB engine** and
 **License model** (for Oracle or Microsoft SQL Server). 6. Under **Settings**, for **DB instance identifier** enter the unique name that you
 want to use for the restored DB instance, for example `mynewdbinstance`.
 
@@ -54,7 +54,7 @@ For this tutorial, choose **Burstable classes (includes t classes)**, and then c
 If the source DB instance for the snapshot was encrypted, the restored DB instance is also encrypted. You can't
 make it unencrypted. 11. Expand **Additional configuration** at the bottom of the page.
 
-![Additional configuration](images/tut-restore-instance3.png) 12. Do the following under **Database options**:
+![Additional configuration.](images/tut-restore-instance3.png) 12. Do the following under **Database options**:
 
     1. Choose the **DB parameter group**.
 
@@ -78,4 +78,4 @@ make it unencrypted. 11. Expand **Additional configuration** at the bottom of th
 
 The **Databases** page displays the restored DB instance, with a status of `Creating`.
 
-![Restored DB instance on the Databases page](images/tut-restore-instance4.png)
+![Restored DB instance on the Databases page.](images/tut-restore-instance4.png)

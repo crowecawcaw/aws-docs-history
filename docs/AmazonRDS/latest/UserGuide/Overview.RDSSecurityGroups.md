@@ -83,7 +83,7 @@ instances and security groups:
 
 The following diagram shows this scenario.
 
-![DB instance and EC2 instance in a VPC](images/con-VPC-sec-grp.png)
+![DB instance. and EC2 instance in a VPC](images/con-VPC-sec-grp.png)
 
 For detailed instructions about configuring a VPC for this scenario, see [Tutorial: Create a VPC for use with a DB instance (IPv4 only)](CHAP_Tutorials.WebServerDB.CreateVPC.md "CHAP_Tutorials.WebServerDB.CreateVPC.md")
 . For more information about

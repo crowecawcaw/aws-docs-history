@@ -15,7 +15,7 @@ topic ARN.
 5. Choose **Edit**. The Amazon RDS console indicates that the subscription is being
    modified.
 
-![List DB event notification subscriptions](images/EventNotification-Modify2.png)
+![List DB event notification subscriptions.](images/EventNotification-Modify2.png)
 To modify an Amazon RDS event notification subscription, use the AWS CLI [`modify-event-subscription`](../../../cli/latest/reference/rds/modify-event-subscription.md "../../../cli/latest/reference/rds/modify-event-subscription.md")
 command. Include the following required parameter:
 

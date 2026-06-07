@@ -268,7 +268,7 @@ The following scenario shows an RDS DB instance in one Region that replicates as
 standby DB instance in a different Region. If one Region becomes unavailable, the instance in the
 other Region is still available.
 
-![Cross-Region read replica configuration](images/read-replica-cross-region.png)
+![Cross-Region read replica configuration.](images/read-replica-cross-region.png)
 
 ### Availability Zones
 
@@ -297,13 +297,13 @@ The following diagram depicts a Multi-AZ DB instance deployment, where Amazon RD
 provisions and maintains a synchronous standby replica in a different Availability Zone.
 The replica database doesn't serve read traffic.
 
-![High availability scenario for a Multi-AZ instance deployment](images/con-multi-AZ.png)
+![High availability scenario for a Multi-AZ instance deployment.](images/con-multi-AZ.png)
 
 The following diagram depicts a Multi-AZ DB cluster deployment, which has a writer
 DB instance and two reader DB instances in three separate Availability Zones in the same
 AWS Region. All three DB instances can serve read traffic.
 
-![High availability scenario for a Multi-AZ cluster deployment](images/multi-az-db-cluster.png)
+![High availability scenario for a Multi-AZ cluster deployment.](images/multi-az-db-cluster.png)
 
 For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md").
 
@@ -321,7 +321,7 @@ security group named `rds-ec2-*x*` specifies
 to an RDS DB instance. According to the security group rules, client applications can't directly
 access the DB instance, but the EC2 instance can access the DB instance.
 
-![DB instance and EC2 instance in a VPC](images/con-VPC-sec-grp.png)
+![DB instance. and EC2 instance in a VPC](images/con-VPC-sec-grp.png)
 
 For more information about security groups, see [Security in Amazon RDS](UsingWithRDS.md "UsingWithRDS.md") .
 

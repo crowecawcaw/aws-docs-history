@@ -160,7 +160,7 @@ accounts. 8. For **DB instance identifier**, enter
 The **Create database** page should look similar to the
 following image. For free plan accounts, **Free tier** appears. For paid plan accounts, **Sandbox** appears.
 
-![Engine options](images/easy-create-sqlserver.png) 9. For **Master username**, enter a name for the master user, or
+![Engine options.](images/easy-create-sqlserver.png) 9. For **Master username**, enter a name for the master user, or
 keep the default name. 10. To set up a connection with the EC2 instance you created previously, open
 **Set up EC2 connection -
 _optional_**.

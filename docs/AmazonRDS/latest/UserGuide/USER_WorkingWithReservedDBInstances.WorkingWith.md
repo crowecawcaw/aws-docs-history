@@ -54,7 +54,7 @@ information, see [Reserved DB instances for a Multi-AZ DB cluster](USER_WorkingW
 
 After you choose the offering type, you can see the pricing information.
 
-![Purchase reserved DB instance console](images/reservedinstance.png) 10. (Optional) You can assign your own identifier to the reserved DB instances that you purchase to help you track them.
+![Purchase reserved DB instance console.](images/reservedinstance.png) 10. (Optional) You can assign your own identifier to the reserved DB instances that you purchase to help you track them.
 For **Reserved Id**, type an identifier for your reserved DB instance. 11. Choose **Submit**.
 
 Your reserved DB instance is purchased, then displayed in the **Reserved instances**

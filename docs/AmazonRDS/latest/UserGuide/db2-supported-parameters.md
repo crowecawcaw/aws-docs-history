@@ -44,6 +44,9 @@ Specify one of the following values for the
 
 - `db2-ae-11.5`
 - `db2-se-11.5`
+- `db2-ae-12.1`
+- `db2-ce-12.1`
+- `db2-se-12.1`
   For example, to view the parameters for Db2 Standard Edition
   11.5, run the following command:
 
@@ -184,7 +187,7 @@ Include the following required options:
      parameter group that you are creating.
     * `--db-parameter-group-family` – The Db2
      engine edition and major version. Valid values:
-     `db2-se-11.5`, `db2-ae-11.5`.
+     `db2-ae-11.5`, `db2-se-11.5`, `db2-ae-12.1`, `db2-ce-12.1`, `db2-se-12.1`.
     * `--description` – A description for this
      parameter group.
 

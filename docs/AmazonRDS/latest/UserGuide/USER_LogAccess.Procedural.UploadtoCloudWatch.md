@@ -57,7 +57,7 @@ about service-linked roles, see [Using service-linked roles for Amazon RDS](Usin
 
 The following example specifies the audit log, error logs, general log, and slow query log for an RDS for MySQL DB instance.
 
-![Choose the logs to publish to CloudWatch Logs](images/AddCWLogs.png)
+![Choose the logs to publish to CloudWatch Logs.](images/AddCWLogs.png)
 
 ## Searching and filtering your logs in CloudWatch Logs
 

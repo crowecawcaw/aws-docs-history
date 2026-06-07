@@ -20,11 +20,11 @@ RDS for MariaDB
 6. For **Engine options**, choose
    **MariaDB**.
 
-![Select engine type](images/tutorial-create-mariadb.png) 7. For **Templates**, choose
+![Select engine type.](images/tutorial-create-mariadb.png) 7. For **Templates**, choose
 **Free tier** or **Sandbox**. **Free tier**
 appears for free plan accounts. **Sandbox** appears for paid plan accounts.
 
-![Select template](images/tutorial-create-template.png) 8. In the **Availability and durability**
+![Select template.](images/tutorial-create-template.png) 8. In the **Availability and durability**
 section, keep the defaults. 9. In the **Settings** section, set these
 values:
 
@@ -40,14 +40,14 @@ values:
     * **Confirm password** –
      Retype the password.
 
-![Settings sections](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
+![Settings sections.](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
 section, set these values:
 
     * **Burstable classes (includes t
      classes)**
     * **db.t3.micro**
 
-![Instance configuration section](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
+![Instance configuration section.](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
 defaults. 12. In the **Connectivity** section, set
 these values and keep the other values as their
 defaults:
@@ -59,7 +59,7 @@ defaults:
      EC2 instance you created previously, such as
      **tutorial-ec2-instance-web-server**.
 
-![Connectivity section](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
+![Connectivity section.](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
 section, make sure **Password
 authentication** is selected. 14. Open the **Additional configuration**
 section, and enter `sample` for
@@ -75,7 +75,7 @@ choose the DB instance name to show its details. 17. In the **Connectivity & sec
 section, view the **Endpoint** and
 **Port** of the DB instance.
 
-![DB instance details](images/Tutorial_WebServer_Endpoint_Port.png)
+![DB instance details.](images/Tutorial_WebServer_Endpoint_Port.png)
 
 Note the endpoint and port for your DB instance. You use
 this information to connect your web server to your DB
@@ -98,13 +98,13 @@ RDS for MySQL
 6. For **Engine options**, choose
    **MySQL**.
 
-![Select engine type](images/tutorial-create-mysql.png) 7. For **Templates**, choose **Free
+![Select engine type.](images/tutorial-create-mysql.png) 7. For **Templates**, choose **Free
 tier** or **Sandbox**.
 **Free tier** appears for free plan
 accounts. **Sandbox** appears for paid
 plan accounts.
 
-![Select template](images/tutorial-create-template.png) 8. In the **Availability and durability**
+![Select template.](images/tutorial-create-template.png) 8. In the **Availability and durability**
 section, keep the defaults. 9. In the **Settings** section, set these
 values:
 
@@ -120,14 +120,14 @@ values:
     * **Confirm password** –
      Retype the password.
 
-![Settings sections](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
+![Settings sections.](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
 section, set these values:
 
     * **Burstable classes (includes t
      classes)**
     * **db.t3.micro**
 
-![Instance configuration section](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
+![Instance configuration section.](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
 defaults. 12. In the **Connectivity** section, set
 these values and keep the other values as their
 defaults:
@@ -139,7 +139,7 @@ defaults:
      EC2 instance you created previously, such as
      **tutorial-ec2-instance-web-server**.
 
-![Connectivity section](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
+![Connectivity section.](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
 section, make sure **Password
 authentication** is selected. 14. Open the **Additional configuration**
 section, and enter `sample` for
@@ -155,7 +155,7 @@ choose the DB instance name to show its details. 17. In the **Connectivity & sec
 section, view the **Endpoint** and
 **Port** of the DB instance.
 
-![DB instance details](images/Tutorial_WebServer_Endpoint_Port.png)
+![DB instance details.](images/Tutorial_WebServer_Endpoint_Port.png)
 
 Note the endpoint and port for your DB instance. You use
 this information to connect your web server to your DB
@@ -178,13 +178,13 @@ RDS for PostgreSQL
 6. For **Engine options**, choose
    **PostgreSQL**.
 
-![Select engine type](images/tutorial-create-postgres.png) 7. For **Templates**, choose **Free
+![Select engine type.](images/tutorial-create-postgres.png) 7. For **Templates**, choose **Free
 tier** or **Sandbox**.
 **Free tier** appears for free plan
 accounts. **Sandbox** appears for paid
 plan accounts.
 
-![Select template](images/tutorial-create-template.png) 8. In the **Availability and durability**
+![Select template.](images/tutorial-create-template.png) 8. In the **Availability and durability**
 section, keep the defaults. 9. In the **Settings** section, set these
 values:
 
@@ -200,14 +200,14 @@ values:
     * **Confirm password** –
      Retype the password.
 
-![Settings sections](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
+![Settings sections.](images/Tutorial_WebServer_Settings.png) 10. In the **Instance configuration**
 section, set these values:
 
     * **Burstable classes (includes t
      classes)**
     * **db.t3.micro**
 
-![Instance configuration section](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
+![Instance configuration section.](images/Tutorial_WebServer_DB_instance_micro.png) 11. In the **Storage** section, keep the
 defaults. 12. In the **Connectivity** section, set
 these values and keep the other values as their
 defaults:
@@ -219,7 +219,7 @@ defaults:
      EC2 instance you created previously, such as
      **tutorial-ec2-instance-web-server**.
 
-![Connectivity section](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
+![Connectivity section.](images/Tutorial_WebServer_Connectivity.png) 13. In the **Database authentication**
 section, make sure **Password
 authentication** is selected. 14. Open the **Additional configuration**
 section, and enter `sample` for
@@ -235,7 +235,7 @@ choose the DB instance name to show its details. 17. In the **Connectivity & sec
 section, view the **Endpoint** and
 **Port** of the DB instance.
 
-![DB instance details](images/Tutorial_WebServer_Endpoint_Port_postgres.png)
+![DB instance details.](images/Tutorial_WebServer_Endpoint_Port_postgres.png)
 
 Note the endpoint and port for your DB instance. You use
 this information to connect your web server to your DB

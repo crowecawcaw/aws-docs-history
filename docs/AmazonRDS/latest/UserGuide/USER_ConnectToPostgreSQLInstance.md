@@ -78,12 +78,12 @@ command, or the Amazon RDS API [DescribeDBInstances](../APIReference/API_Describ
    endpoint. Also, note the port number. You need both the endpoint and the port
    number to connect to the DB instance.
 
-![Obtain the endpoint from the RDS Console](images/PostgreSQL-endpoint.png) 5. On the **Configuration** tab, note the DB name. If you
+![Obtain the endpoint from the RDS Console.](images/PostgreSQL-endpoint.png) 5. On the **Configuration** tab, note the DB name. If you
 created a database when you created the RDS for PostgreSQL instance, you see the name
 listed under DB name. If you didn't create a database, the DB name displays
 a dash (‐).
 
-![Obtain the DB name from the RDS Console](images/PostgreSQL-db-name.png)
+![Obtain the DB name from the RDS Console.](images/PostgreSQL-db-name.png)
 
 Following are two ways to connect to a PostgreSQL DB instance. The first example uses
 pgAdmin, a popular open-source administration and development tool for PostgreSQL. The

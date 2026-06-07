@@ -57,7 +57,7 @@ the target data warehouse.
 The following image shows the structure of RDS for MySQL data filters in the
 console:
 
-![Data filters for a zero-ETL integration](images/zero-etl-filter.png)
+![Data filters for a zero-ETL integration.](images/zero-etl-filter.png)
 
 ###### Important
 
@@ -478,7 +478,7 @@ filtering criteria and resynchronizes all affected tables.
 
 The following image shows an example of data filters for a MySQL integration:
 
-![Data filters for a zero-ETL integration in the RDS console](images/zero-etl-filter-data.png) 4. When you're satisfied with the changes, choose **Continue** and
+![Data filters for a zero-ETL integration in the RDS console.](images/zero-etl-filter-data.png) 4. When you're satisfied with the changes, choose **Continue** and
 **Save changes**.
 To add data filters to a zero-ETL integration using the AWS CLI, call the [modify-integration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-integration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/modify-integration.html") command. In addition to the integration identifier, specify
 the `--data-filter` parameter with a comma-separated list of

@@ -52,6 +52,7 @@ guide. For more information, see [Setting up your Amazon RDS environment](CHAP_S
 - [Licensing Microsoft SQL Server on Amazon RDS](SQLServer.Concepts.General.Licensing.md "SQLServer.Concepts.General.Licensing.md")
 - [Connecting to your Microsoft SQL Server DB instance](USER_ConnectToMicrosoftSQLServerInstance.md "USER_ConnectToMicrosoftSQLServerInstance.md")
 - [Working with SQL Server Developer Edition on RDS for SQL Server](sqlserver-dev-edition.md "sqlserver-dev-edition.md")
+- [Bring Your Own Media (BYOM) for RDS for SQL Server](sqlserver-byom.md "sqlserver-byom.md")
 - [Working with Active Directory with RDS for SQL Server](User.SQLServer.ActiveDirectoryWindowsAuth.md "User.SQLServer.ActiveDirectoryWindowsAuth.md")
 - [Upgrades of the Microsoft SQL Server DB engine](USER_UpgradeDBInstance.SQLServer.md "USER_UpgradeDBInstance.SQLServer.md")
 - [Working with storage in RDS for SQL Server](Appendix.SQLServer.CommonDBATasks.DatabaseStorage.md "Appendix.SQLServer.CommonDBATasks.DatabaseStorage.md")

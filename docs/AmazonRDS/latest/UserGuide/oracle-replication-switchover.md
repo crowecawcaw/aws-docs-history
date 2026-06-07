@@ -24,7 +24,7 @@ read-only.
 The replicas can reside in separate AWS Regions or in different Availability Zones (AZs)
 of a single Region. All AWS Regions are supported.
 
-![Switch over a standby instance to make it the primary DB instance](images/read-replica-switchover.png)
+![Switch over a standby instance to make it the primary DB instance.](images/read-replica-switchover.png)
 
 A switchover differs from a read replica promotion. In a switchover, the source and
 replica DB instances change roles. In a promotion, a read replica becomes a source DB instance, but the

@@ -35,9 +35,9 @@ backups for the DB instance. For information about automated backups, see
 
 The **Manual snapshots** list appears. 3. Choose the DB snapshot that you want to delete. 4. For **Actions**, choose **Delete snapshot**.
 
-![Delete snapshot](images/delete-snapshot.png) 5. Choose **Delete** on the confirmation page.
+![Delete snapshot.](images/delete-snapshot.png) 5. Choose **Delete** on the confirmation page.
 
-![Confirm snapshot deletion](images/delete-snapshot-confirm.png)
+![Confirm snapshot deletion.](images/delete-snapshot-confirm.png)
 You can delete a DB snapshot by using the AWS CLI command
 [delete-db-snapshot](../../../cli/latest/reference/rds/delete-db-snapshot.md "../../../cli/latest/reference/rds/delete-db-snapshot.md").
 

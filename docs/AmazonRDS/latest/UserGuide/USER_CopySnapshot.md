@@ -33,7 +33,7 @@ The following procedure copies an encrypted or unencrypted DB snapshot, in the s
 
 The **Copy snapshot** page appears.
 
-![Copy a DB snapshot](images/DBSnapshotCopy1.png) 5. For **Target option group (optional)**, choose a new option group if you want.
+![Copy a DB snapshot.](images/DBSnapshotCopy1.png) 5. For **Target option group (optional)**, choose a new option group if you want.
 
 Specify this option if you are copying a snapshot from one AWS Region to another, and your DB instance uses
 a nondefault option group.

@@ -17,7 +17,7 @@ Configure your self-managed or on-premise AD network connectivity in the followi
 - Allow traffic on the ports your RDS Custom for SQL Server security groups and network ACLs to your self-managed
   or on-premise AD. For more information, see [Network configuration port rules](custom-sqlserver-WinAuth.NWConfigPorts.md "custom-sqlserver-WinAuth.NWConfigPorts.md").
 
-![Microsoft SQL Server Windows Authentication directory](images/custom-sqs-SM-NC.png)
+![Microsoft SQL Server Windows Authentication directory.](images/custom-sqs-SM-NC.png)
 
 ## Configure DNS resolution
 

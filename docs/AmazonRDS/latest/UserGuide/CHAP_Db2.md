@@ -1,13 +1,14 @@
 # Amazon RDS for Db2
 
-Amazon RDS supports DB instances that run the following editions of IBM Db2:
+Amazon RDS supports DB instances that run the following editions and versions of IBM Db2:
 
-- Db2 Standard Edition
-- Db2 Advanced Edition
-  Amazon RDS supports DB instances that run the following versions of Db2:
+| Editions              | Db2 Versions     |
+| --------------------- | ---------------- |
+| Db2 Advanced Edition  | v11.5.9, v12.1.4 |
+| Db2 Community Edition | v12.1.4          |
+| Db2 Standard Edition  | v11.5.9, v12.1.4 |
 
-- Db2 11.5
-  For more information about minor version support, see [Db2 on Amazon RDS versions](Db2.Concepts.VersionMgmt.md "Db2.Concepts.VersionMgmt.md").
+For more information about minor version support, see [Db2 on Amazon RDS versions](Db2.Concepts.VersionMgmt.md "Db2.Concepts.VersionMgmt.md").
 
 Before creating a DB instance, complete the steps in the [Setting up your Amazon RDS environment](CHAP_SettingUp.md "CHAP_SettingUp.md") section of this user guide. When you create a DB
 instance using your master user, the user gets `DBADM` authority, with some

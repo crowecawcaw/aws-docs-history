@@ -40,20 +40,20 @@ The following are the components on the recommendation details page:
 
 
 
-    ![Recommendation details page for proactive recommendation showing the Recommendation summary section in the console](images/RecommendationProactive-RecSummary.png)
+    ![Recommendation details page for proactive recommendation showing the Recommendation summary section in the console.](images/RecommendationProactive-RecSummary.png)
     * **Metrics** – The graphs of the detected issue.
      Each graph displays a threshold determined by the resource's baseline behavior and data of
      the metric reported from the issue start time.
 
 
 
-    ![Recommendation details page for proactive recommendation showing the Metrics section in the console](images/RecommedationProactive_Metrics.png)
+    ![Recommendation details page for proactive recommendation showing the Metrics section in the console.](images/RecommedationProactive_Metrics.png)
     * **Analysis and recommendations** – The recommendation and
      the reason for the suggested recommendation.
 
 
 
-    ![Recommendation details page for proactive recommendation showing the Analysis and recommendations section in the console](images/ProactiveRecommendation-AnalysisAndRec.png)
+    ![Recommendation details page for proactive recommendation showing the Analysis and recommendations section in the console.](images/ProactiveRecommendation-AnalysisAndRec.png)
 
 You can review the cause of the issue and then perform the suggested recommended actions to fix the issue, or
 choose **Dismiss** in the upper right to dismiss the recommendation.

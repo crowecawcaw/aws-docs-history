@@ -101,7 +101,7 @@ If you make an error when adding an AWS account identifier to the list of permit
 accounts, you can delete it from the list by choosing **Delete** at
 the right of the incorrect AWS account identifier.
 
-![Permit AWS accounts to restore a manual DB snapshot](images/ShareSnapshot_add.png) 7. After you have added identifiers for all of the AWS accounts that you want to permit to
+![Permit AWS accounts to restore a manual DB snapshot.](images/ShareSnapshot_add.png) 7. After you have added identifiers for all of the AWS accounts that you want to permit to
 restore the manual snapshot, choose **Save** to save your
 changes.
 To share a DB snapshot, use the

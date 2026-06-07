@@ -15,7 +15,7 @@ To see the limitations of dual-stack mode, see [Limitations for dual-stack netwo
 
 The following diagram shows this scenario.
 
-![VPC scenario for dual-stack mode](images/con-VPC-sec-grp-dual-stack.png)
+![VPC scenario for dual-stack mode.](images/con-VPC-sec-grp-dual-stack.png)
 For information about other scenarios, see [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md").
 
 Your DB instance needs to be available only to your Amazon EC2 instance, and not to the
@@ -262,7 +262,7 @@ that runs in dual-stack mode.
    - **Network type** – Choose **Dual-stack
      mode**.
 
-   ![Network type section in the console with Dual-stack mode selected](images/dual-stack-mode.png)
+   ![Network type section in the console with Dual-stack mode selected.](images/dual-stack-mode.png)
    - **Virtual private cloud (VPC)** – Choose an
      existing VPC with both public and private subnets, such as
      **tutorial-dual-stack-vpc**

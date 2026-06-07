@@ -19,7 +19,7 @@ For the region, DB engine, and instance class support information for this featu
 
 The fields to set the time period and add one or more tags to the performance analysis report are displayed.
 
-![Performance Insights dashboard showing fields to create analysis report](images/PI_CreateAnalysisReport.png) 5. Choose the time period. If you set a time period in the **Relative range** or **Absolute range**
+![Performance Insights dashboard showing fields to create analysis report.](images/PI_CreateAnalysisReport.png) 5. Choose the time period. If you set a time period in the **Relative range** or **Absolute range**
 in the upper right, you can only enter or select the analysis report date and time within this time period.
 If you select the analysis period outside of this time period, an error message displays.
 
@@ -32,15 +32,15 @@ To set the time period, you can do any of the following:
     * Choose the **Start date**, **Start time**, **End date**, and **End time** in the
      **Performance analysis period** box.
 
-![Performance Insights dashboard with analysis period selected](images/PI_CreateAnalysisRep_TimePeriod.png) 6. (Optional) Enter **Key** and **Value-_optional_** to add a tag for the report.
+![Performance Insights dashboard with analysis period selected.](images/PI_CreateAnalysisRep_TimePeriod.png) 6. (Optional) Enter **Key** and **Value-_optional_** to add a tag for the report.
 
-![Performance Insights dashboard with fields to add a new tag](images/PI_CreateAnalysisRep_AddTag.png) 7. Choose **Analyze performance**.
+![Performance Insights dashboard with fields to add a new tag.](images/PI_CreateAnalysisRep_AddTag.png) 7. Choose **Analyze performance**.
 
 A banner displays a message whether the report generation is successful or failed. The message also provides the link to view the report.
 
 The following example shows the banner with the report creation successful message.
 
-![Analysis report creation successful message banner](images/PI_CreateAnaysisRep_SuccessMsg.png)
+![Analysis report creation successful message banner.](images/PI_CreateAnaysisRep_SuccessMsg.png)
 
 The report is available to view in **Performance analysis reports - new** tab.
 You can create a performance analysis report using the AWS CLI.

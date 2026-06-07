@@ -112,7 +112,7 @@ gateway to enable communication over the internet.
 
 The following diagram shows this scenario.
 
-![A DB instance in a VPC accessed by a client application through the internet.](images/GS-VPC-network.png)
+![A DB instance. in a VPC accessed by a client application through the internet.](images/GS-VPC-network.png)
 
 We recommend the following configuration:
 
@@ -146,6 +146,6 @@ following options for accessing it from a private network:
 
 The following diagram shows a scenario with an AWS Site-to-Site VPN connection.
 
-![DB instances in a VPC accessed by a private network.](images/site-to-site-vpn-connection.png)
+![DB instances. in a VPC accessed by a private network.](images/site-to-site-vpn-connection.png)
 
 For more information, see [Internetwork traffic privacy](inter-network-traffic-privacy.md "inter-network-traffic-privacy.md").

@@ -6,7 +6,7 @@ End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Cu
 
 The following diagram shows the typical workflow for RDS Custom for Oracle.
 
-![RDS Custom for Oracle architecture components](images/RDS_Custom_architecture_v2.png)
+![RDS Custom for Oracle architecture components.](images/RDS_Custom_architecture_v2.png)
 The steps are as follows:
 
 1. Upload your database software to your Amazon S3 bucket.

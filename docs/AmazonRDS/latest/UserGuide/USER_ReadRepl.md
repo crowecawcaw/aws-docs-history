@@ -21,7 +21,7 @@ following sections:
   different Availability Zone (AZ). Clients have read/write access to the primary DB instance and
   read-only access to the replica.
 
-![Read replica configuration](images/read-replica.png)
+![Read replica configuration.](images/read-replica.png)
 Read replicas are billed as standard DB instances at the same rates as the DB instance class used for
 the replica. You aren't charged for the data transfer incurred in replicating data between
 the source DB instance and a read replica within the same AWS Region. For more information, see
@@ -105,7 +105,7 @@ AZ. The primary instance copies updates asynchronously to a read replica in a se
 and also copies them synchronously to a standby replica in a third AZ. Clients have read
 access only to the read replica.
 
-![Read replica and standby replica configuration](images/read-and-standby-replica.png)
+![Read replica and standby replica configuration.](images/read-and-standby-replica.png)
 
 For more information about high availability and standby replicas, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.MultiAZ.md "Concepts.MultiAZ.md").
 

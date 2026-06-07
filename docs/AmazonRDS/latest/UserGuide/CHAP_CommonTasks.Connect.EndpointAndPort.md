@@ -40,7 +40,7 @@ operation.
    Also, note the port number. You need both the endpoint and the port number
    to connect to the DB instance.
 
-![The endpoint and port of a DB instance](images/endpoint-port.png) 5. If you need to find the master user name, choose the
+![The endpoint and port of a DB instance.](images/endpoint-port.png) 5. If you need to find the master user name, choose the
 **Configuration** tab and view the **Master
 username** value.
 To find the connection information for a DB instance by using the AWS CLI, call the

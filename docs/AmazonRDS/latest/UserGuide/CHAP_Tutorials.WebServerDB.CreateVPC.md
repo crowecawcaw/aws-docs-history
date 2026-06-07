@@ -7,7 +7,7 @@ tutorial, you create the VPC for this scenario.
 The following diagram shows this scenario. For information about other scenarios, see
 [Scenarios for accessing a DB instance in a VPC](USER_VPC.Scenarios.md "USER_VPC.Scenarios.md").
 
-![Single VPC scenario](images/con-VPC-sec-grp.png)
+![Single VPC scenario.](images/con-VPC-sec-grp.png)
 Your DB instance needs to be available only to your web server, and not to the public
 internet. Thus, you create a VPC with both public and private subnets. The web server is
 hosted in the public subnet, so that it can reach the public internet. The DB instance is

@@ -13,6 +13,6 @@ The Performance Insights dashboard appears for the DB instance. 4. Scroll down t
 
 By default, the preconfigured dashboard with Performance Insights metrics appears. 5. Choose a metric widget and then choose **View in CloudWatch** in the menu.
 
-![Selected widget with menu to view in CloudWatch](images/PI-ExprtToCW-SelectedMetric.png)
+![Selected widget with menu to view in CloudWatch.](images/PI-ExprtToCW-SelectedMetric.png)
 
 The metric data appears in the CloudWatch console.

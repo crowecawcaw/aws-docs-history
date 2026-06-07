@@ -65,6 +65,9 @@ parameters early in the process.
 - `wal_sender_timeout ≥ 20000 or = 0`
 - `max_wal_senders ≥ 20`
 - `max_replication_slots ≥ 20`
+- `max_slot_wal_keep_size = -1` (recommended), or sized large
+  enough to cover peak WAL generation while the integration is not actively
+  consuming.
 
 For multiple PostgreSQL integrations, one logical replication
 slot will be used per integration. Review the `max_replication_slots` and
@@ -88,6 +91,18 @@ Setting replica identity to log full rows [increases your WAL volume](https://ww
 and I/O usage, especially for wide tables or frequent updates. To prepare for these
 impacts, plan your storage capacity and I/O requirements, monitor your WAL growth,
 and track replication lag in write-heavy workloads.
+
+###### Important
+
+If `max_slot_wal_keep_size` is set to a finite value and the
+integration's logical replication slot accumulates WAL beyond that size while
+the integration is not actively consuming (for example, during integration
+creation, modification, or transient lag), PostgreSQL invalidates the slot.
+Once invalidated, the integration cannot resume replication from the source
+database. The default PostgreSQL value `-1` (unlimited) prevents
+this. If you need to bound WAL retention, choose a size that accommodates your
+database's write throughput during periods when the integration may not be
+actively consuming.
 
 **RDS for Oracle**:
 

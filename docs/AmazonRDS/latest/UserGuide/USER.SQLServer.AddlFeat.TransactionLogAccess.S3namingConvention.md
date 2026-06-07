@@ -7,4 +7,4 @@ Transaction log backups have the following standard structure and naming convent
 - You can view the details of `family_guid,db_id,rds_backup_seq_id and backup_file_epoch` with the `rds_fn_list_tlog_backup_metadata`function.
   The following example shows the folder and file structure of a set of transaction log backups within an Amazon S3 bucket.
 
-![Amazon S3 bucket structure with access to transaction logs](images/sql_accesstransactionlogs_s3.png)
+![Amazon S3 bucket structure with access to transaction logs.](images/sql_accesstransactionlogs_s3.png)

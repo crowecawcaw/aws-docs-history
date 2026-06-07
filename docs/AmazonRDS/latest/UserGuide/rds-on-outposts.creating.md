@@ -144,7 +144,7 @@ On the RDS console, the details for the new DB instance appear. The DB instance 
 to **Available**, you can connect to the DB instance. Depending on the DB instance class
 and storage allocated, it can take several minutes for the new DB instance to be available.
 
-![My DB instances details](images/create-outpost-launch.png)
+![My DB instances details.](images/create-outpost-launch.png)
 
 After the DB instance is available, you can manage it the same way that you manage RDS DB instances in the
 AWS Cloud.

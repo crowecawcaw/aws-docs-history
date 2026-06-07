@@ -73,7 +73,7 @@ SELECT * from msdb.dbo.rds_fn_get_system_database_sync_objects();
 The T-SQL query returns the following if SQL Server Agent jobs are replicating. If they're not replicating, it
 returns nothing for `object_class`.
 
-![SQL Server Agent jobs are replicating](images/SQLAgentJob.png)
+![SQL Server Agent jobs are replicating.](images/SQLAgentJob.png)
 
 You can use the following function to find the last time objects were synchronized in UTC time.
 
@@ -87,7 +87,7 @@ synchronization has taken place.
 
 After synchronization, the values returned for `date_created` and `date_modified` on the secondary node are expected to match.
 
-![Last time server objects were synchronized was 01:21:23](images/SQLAgentJob_last_sync_time.png)
+![Last time server objects were synchronized was 01:21:23.](images/SQLAgentJob_last_sync_time.png)
 
 If you are also using `tempdb` replication, you can enable replication for both SQL Agent jobs and the `tempdb`
 configuration by providing them in the `@object_type` parameter:

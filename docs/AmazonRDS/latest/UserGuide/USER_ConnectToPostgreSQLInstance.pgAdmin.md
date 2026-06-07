@@ -22,12 +22,12 @@ your client computer.
    - For **Password**, type the password that you entered
      when you created the DB instance.
 
-![Type the password that you entered when creating the DB instance](images/Postgres-Connect01.png) 5. Choose **Save**.
+![Type the password that you entered when creating the DB instance.](images/Postgres-Connect01.png) 5. Choose **Save**.
 
 If you have any problems connecting, see [Troubleshooting connections to your RDS for PostgreSQL instance](USER_ConnectToPostgreSQLInstance.Troubleshooting.md "USER_ConnectToPostgreSQLInstance.Troubleshooting.md"). 6. To access a database in the pgAdmin browser, expand
 **Servers**, the DB instance, and
 **Databases**. Choose the DB instance's database
 name.
 
-![Choose the DB instance's database name in the pgAdmin browser](images/Postgres-Connect02.png) 7. To open a panel where you can enter SQL commands, choose
+![Choose the DB instance's database name in the pgAdmin browser.](images/Postgres-Connect02.png) 7. To open a panel where you can enter SQL commands, choose
 **Tools**, **Query Tool**.

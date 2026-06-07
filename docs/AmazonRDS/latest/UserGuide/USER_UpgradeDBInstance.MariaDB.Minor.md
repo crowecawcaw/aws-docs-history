@@ -8,7 +8,7 @@ DB instance automatically upgraded.
   In the AWS Management Console, these settings are under **Additional configuration**. The
   following image shows the **Auto minor version upgrade** setting.
 
-![Auto minor version upgrade setting](images/amvu.png)
+![Auto minor version upgrade setting.](images/amvu.png)
 For more information about these settings, see [Settings for DB instances](USER_ModifyInstance.Settings.md "USER_ModifyInstance.Settings.md").
 
 For some RDS for MariaDB major versions in some AWS Regions, one minor version is designated by RDS as

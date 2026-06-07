@@ -82,7 +82,7 @@ To connect an EC2 instance to the DB instance, choose **Connect to an EC2
 compute resource** in the **Connectivity** section
 on the **Create database** page.
 
-![Connect an EC2 instance](images/ec2-set-up-connection-create.png)
+![Connect an EC2 instance.](images/ec2-set-up-connection-create.png)
 
 When you choose **Connect to an EC2 compute resource**, RDS
 sets the following options automatically. You can't change these settings unless
@@ -214,7 +214,7 @@ creating and connecting to sample DB instances for each engine, see [Getting sta
 
 **Microsoft SQL Server** is shown here.
 
-![Engine selection](images/create-instance-sqlserver.png) 6. For **Database management type**, if you're using
+![Engine selection.](images/create-instance-sqlserver.png) 6. For **Database management type**, if you're using
 Oracle or SQL Server choose **Amazon RDS** or
 **Amazon RDS Custom**.
 
@@ -306,7 +306,7 @@ is created and ready for use. When the state changes to
 Depending on the DB instance class and storage allocated, it can take several
 minutes for the new instance to be available.
 
-![My DB instances details](images/SQLSvr-Launch05.png)
+![My DB instances details.](images/SQLSvr-Launch05.png)
 
 ###### Note
 

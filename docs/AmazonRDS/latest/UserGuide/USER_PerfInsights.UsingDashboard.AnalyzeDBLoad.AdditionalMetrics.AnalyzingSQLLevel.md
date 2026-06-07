@@ -12,19 +12,19 @@ load** chart.
 4. Scroll to the bottom of the page and choose the **Top SQL** tab.
 5. Choose an individual statement or digest query.
 
-![Viewing metrics for running queries](images/perf_insights_per_sql_sql.png) 6. Choose which statistics to display by choosing the gear icon in the upper-right corner of the chart. For descriptions of the SQL
+![Viewing metrics for running queries.](images/perf_insights_per_sql_sql.png) 6. Choose which statistics to display by choosing the gear icon in the upper-right corner of the chart. For descriptions of the SQL
 statistics for the Amazon RDS engines, see [SQL statistics for Performance Insights](sql-statistics.md "sql-statistics.md").
 
 The following example shows the statistics preferences for Oracle DB instances.
 
-![Preferences for metrics for running queries for Oracle DB instances](images/perf_insights_per_sql_pref_oracle.png)
+![Preferences for metrics for running queries for Oracle DB instances.](images/perf_insights_per_sql_pref_oracle.png)
 
 The following example shows the preferences for MariaDB and MySQL DB instances.
 
-![Preferences for metrics for running queries for MariaDB and MySQL DB instances.](images/perf_insights_per_sql_pref_ams.png) 7. Choose Save to save your preferences.
+![Preferences for metrics for running queries for MariaDB and MySQL. DB instances.](images/perf_insights_per_sql_pref_ams.png) 7. Choose Save to save your preferences.
 
 The **Top SQL** table refreshes.
 
 The following example shows statistics for an Oracle SQL query.
 
-![Statistics for a SQL query](images/perf_insights_per_sql_stats_oracle.png)
+![Statistics for a SQL query.](images/perf_insights_per_sql_stats_oracle.png)

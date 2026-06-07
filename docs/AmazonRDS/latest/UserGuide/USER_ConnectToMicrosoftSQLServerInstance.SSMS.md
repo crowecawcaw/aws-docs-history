@@ -10,7 +10,7 @@ Studio (SSMS)](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-man
 
 The **Connect to Server** dialog box appears.
 
-![Connect to Server dialog](images/RDSMSFTSQLConnect01.png) 2. Provide the information for your DB instance:
+![Connect to Server dialog.](images/RDSMSFTSQLConnect01.png) 2. Provide the information for your DB instance:
 
     1. For **Server type**,
      choose **Database Engine**.
@@ -49,7 +49,7 @@ If you can't connect to your DB instance, see [Security group considerations](US
 
 
 
-    ![Object Explorer displaying the system databases](images/SQL-SSMS-SystemDBs.png)
+    ![Object Explorer displaying the system databases.](images/SQL-SSMS-SystemDBs.png)
 
 5. Your SQL Server DB instance also comes with a database named
    `rdsadmin`. Amazon RDS uses this database to store the objects that it
@@ -71,4 +71,4 @@ If you can't connect to your DB instance, see [Security group considerations](US
    3. Run the query. SSMS returns the SQL Server version of your Amazon RDS DB
       instance.
 
-   ![SQL Query Window](images/SQL-Connect-Query.png)
+   ![SQL Query Window.](images/SQL-Connect-Query.png)

@@ -19,9 +19,9 @@ the cloud computing environment.
 
 ###### Note
 
-Multi-AZ DB instances are cold standbys because the Db2 database is installed but
-not running. Standbys aren't readable, running, or serving requests. For more
-information, see [IBM Db2 licensing information](https://www.ibm.com/support/customer/csol/terms/licenses#license-search " https://www.ibm.com/support/customer/csol/terms/licenses#license-search") on the IBM website.
+Db2 Community Edition (Db2 CE) v12.1 license is available from IBM at no additional cost.
+You pay only for the Amazon RDS infrastructure resources. Before creating a Db2 CE instance, you must acquire
+your IBM Customer ID and IBM Site ID from the [IBM website](https://www.ibm.com/account/reg/us-en/signup?formid=urx-54367 "https://www.ibm.com/account/reg/us-en/signup?formid=urx-54367").
 
 In this model, you continue to use your active IBM support account, and
 you contact IBM directly for Db2 database service requests. If you have
@@ -29,8 +29,14 @@ an Support account with case support, you can contact Support for Amazon RDS iss
 and IBM have a multi-vendor support process for cases that require
 assistance from both organizations.
 
-Amazon RDS supports the BYOL model for Db2 Standard Edition and Db2
-Advanced Edition.
+Amazon RDS supports the BYOL model for Db2 Advanced Edition, Db2
+Community Edition and Db2 Standard Edition.
+
+###### Note
+
+Multi-AZ DB instances are cold standbys because the Db2 database is installed but
+not running. Standbys aren't readable, running, or serving requests. For more
+information, see [IBM Db2 licensing information](https://www.ibm.com/support/customer/csol/terms/licenses#license-search "https://www.ibm.com/support/customer/csol/terms/licenses#license-search") on the IBM website.
 
 ###### Topics
 
@@ -41,7 +47,9 @@ Advanced Edition.
 ### IBM IDs for bring your own license (BYOL) for Db2
 
 In the BYOL model, you need your IBM Customer ID and your IBM Site ID to create, modify, or
-restore RDS for Db2 DB instances. You must create a custom parameter group with your
+restore RDS for Db2 DB instances.
+
+You must create a custom parameter group with your
 IBM Customer ID and your IBM Site ID _before_ you create an
 RDS for Db2 DB instance. For more information, see [Adding IBM IDs to a parameter group for RDS for Db2 DB instances](#db2-licensing-options-byol-adding-ids "#db2-licensing-options-byol-adding-ids"). You can run multiple
 RDS for Db2 DB instances with different IBM Customer IDs and IBM Site IDs in the same
@@ -110,7 +118,8 @@ Include the following required options:
      the parameter group that you are creating.
     * `--db-parameter-group-family` – The Db2
      engine edition and major version. Valid values:
-     `db2-se-11.5`, `db2-ae-11.5`.
+     `db2-se-11.5`, `db2-ae-11.5`,
+     `db2-ae-12.1`, `db2-ce-12.1`, `db2-se-12.1`.
     * `--description` – A description for this
      parameter group.
 
@@ -174,10 +183,11 @@ take up to 24 hours.
 The following table shows available values for the Engine Edition product
 information filter for RDS for Db2.
 
-| Value    | Description          |
-| -------- | -------------------- |
-| `db2-se` | Db2 Standard Edition |
-| `db2-ae` | Db2 Advanced Edition |
+| Value    | Description           |
+| -------- | --------------------- |
+| `db2-ae` | Db2 Advanced Edition  |
+| `db2-ce` | Db2 Community Edition |
+| `db2-se` | Db2 Standard Edition  |
 
 ###### Topics
 
@@ -387,7 +397,7 @@ the CloudFormation template.
 | ResourceType                       | string           | Yes      | The resource type. Valid value: `RDS`.                                                                                       |
 | ProductInformationFilterList       | array of objects | Yes      | A list of product information filters for a license<br>configuration.                                                        |
 | ProductInformationFilterName       | string           | Yes      | The name of the type of filter being declared. Valid<br>value: `Engine Edition`.                                             |
-| ProductInformationFilterValue      | array of strings | Yes      | The value to filter on. You must only specify one value.<br>Valid values: `db2-se` or<br>`db2-ae`.                           |
+| ProductInformationFilterValue      | array of strings | Yes      | The value to filter on. You must only specify one value.<br>Valid values: `db2-ae`, `db2-ce`, or<br>`db2-se`.                |
 | ProductInformationFilterComparator | string           | Yes      | The logical operator for<br>`ProductInformationFilterName`. Valid value:<br>`EQUALS`.                                        |
 
 ## Db2 license through AWS Marketplace
@@ -474,6 +484,10 @@ API.
 
 If you want to create your DB instances by using the AWS CLI or the RDS API, you
 must complete these two tasks first.
+
+###### Note
+
+Marketplace licensing is not available for Db2 Community Edition (db2-ce).
 
 ###### Topics
 

@@ -12,7 +12,7 @@ Microsoft SQL Server supported on Amazon RDS.
 
 The following diagram shows the supported scenarios.
 
-![Native Backup and Restore Architecture](images/SQL-bak-file.png)
+![Native Backup and Restore Architecture.](images/SQL-bak-file.png)
 Using native .bak files to back up and restore databases is usually the fastest way to back up and restore databases. There are many
 additional advantages to using native backup and restore. For example, you can do the following:
 

@@ -15,4 +15,4 @@ resource identifier (`DbiResourceId`) for the DB instance or DB cluster.
 In a Multi-AZ DB instance deployment, log files with `-secondary` appended to the name are
 for the Multi-AZ standby replica.
 
-![Multi-AZ standby replica log file](images/enhanced-monitoring-cloudwatch-secondary.png) 5. Choose the log stream that you want to view from the list of log streams.
+![Multi-AZ standby replica log file.](images/enhanced-monitoring-cloudwatch-secondary.png) 5. Choose the log stream that you want to view from the list of log streams.

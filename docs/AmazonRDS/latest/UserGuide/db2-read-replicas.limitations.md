@@ -10,7 +10,7 @@ considerations.
 Before you create an RDS for Db2 replica, review the following information about versions
 and licensing models:
 
-- **Supported versions** – All Db2 11.5
+- **Supported versions** – All Db2 11.5 and 12.1
   versions support replica DB instances.
 
 Source and replica DB instances must use the same major version. Db2 replicas
@@ -23,9 +23,11 @@ When upgrading a source DB instance, all replicas are automatically
 upgraded to maintain version compatibility.
 
 - **Valid licensing models and replica modes**
-  – Both Db2 Advanced Edition (AE) and Standard Edition (SE) can create
-  replicas in read-only or standby mode for both the Bring Your Own License (BYOL)
-  model and the Db2 license through AWS Marketplace model.
+  – All Db2 editions, Advanced Edition (AE), Community Edition (CE), and
+  Standard Edition (SE), support replicas in read-only or standby mode.
+  Db2 AE and Db2 SE are available under both the Bring Your Own License (BYOL) model
+  and the Db2 license through AWS Marketplace model. CE is available under BYOL only.
+  To obtain your IBM Customer ID and IBM Site ID for CE, see the [IBM website](https://www.ibm.com/account/reg/us-en/signup?formid=urx-54367 "https://www.ibm.com/account/reg/us-en/signup?formid=urx-54367").
 - **Custom parameter group** – You must
   specify a custom parameter group for the replica.
 

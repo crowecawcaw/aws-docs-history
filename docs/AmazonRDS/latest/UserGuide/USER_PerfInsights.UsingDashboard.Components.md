@@ -3,7 +3,7 @@
 The dashboard is the easiest way to interact with Performance Insights. The following example shows the dashboard for a PostgreSQL DB
 instance.
 
-![Filter metrics](images/perf_insights_0b.png)
+![Filter metrics.](images/perf_insights_0b.png)
 
 ###### Topics
 
@@ -17,16 +17,16 @@ instance.
 By default, the Performance Insights dashboard shows DB load for the last hour. You can adjust this range to be as short as 5 minutes or as
 long as 2 years. You can also select a custom relative range.
 
-![Performance Insights relative time](images/perf-insights-relative-time.png)
+![Performance Insights relative time.](images/perf-insights-relative-time.png)
 
 You can select an absolute range with a beginning and ending date and time. The following example shows the time range beginning at midnight on
 9/25/24 and ending at 11:59 PM on 9/28/24.
 
-![Performance Insights absolute time](images/perf-insights-absolute-time.png)
+![Performance Insights absolute time.](images/perf-insights-absolute-time.png)
 
 By default, the time zone for the Performance Insights dashboard is Coordinated Universal Time (UTC). You can also choose the local time zone.
 
-![Select the local time zone for your Performance Insights dashboard](images/perf-insights-local-time-zone.png)
+![Select the local time zone for your Performance Insights dashboard.](images/perf-insights-local-time-zone.png)
 
 ## Counter metrics chart
 
@@ -42,13 +42,13 @@ metrics depend on the DB engine:
 - Microsoft SQL Server – `db.Databases.Active Transactions(_Total).avg`
 - PostgreSQL – `db.Transactions.xact_commit.avg`
 
-![Counter metrics](images/oracle_perf_insights_counters.png)
+![Counter metrics.](images/oracle_perf_insights_counters.png)
 
 To change the performance counters, choose **Manage Metrics**. You can select multiple
 **OS metrics** or **Database metrics**, as
 shown in the following screenshot. To see details for any metric, hover over the metric name.
 
-![Filter metrics](images/perf_insights_select_metrics.png)
+![Filter metrics.](images/perf_insights_select_metrics.png)
 
 For descriptions of the counter metrics that you can add for each DB engine, see [Performance Insights counter metrics](USER_PerfInsights_Counters.md "USER_PerfInsights_Counters.md").
 
@@ -59,7 +59,7 @@ capacity as represented by the **Max vCPU** line. By default, the stacked line
 chart represents DB load as average active sessions per unit of time. The DB load is sliced (grouped) by wait
 states.
 
-![Database load](images/perf_insights_2.png)
+![Database load.](images/perf_insights_2.png)
 
 ### DB load sliced by dimensions
 
@@ -79,18 +79,18 @@ which dimensions are supported for the different engines.
 
 The following image shows the dimensions for a PostgreSQL DB instance.
 
-![Filter metrics](images/perf_insights_2b.png)
+![Filter metrics.](images/perf_insights_2b.png)
 
 ### DB load details for a dimension item
 
 To see details about a DB load item within a dimension, hover over the item name. The following image shows
 details for a SQL statement.
 
-![Database load item details](images/perf_insights_2c.png)
+![Database load item details.](images/perf_insights_2c.png)
 
 To see details for any item for the selected time period in the legend, hover over that item.
 
-![Time period details for DB load](images/perf_insights_3.png)
+![Time period details for DB load.](images/perf_insights_3.png)
 
 ## Top dimensions table
 
@@ -98,7 +98,7 @@ The Top dimensions table slices DB load by different dimensions. A dimension is 
 different characteristics of DB load. If the dimension is SQL, **Top SQL** shows the SQL
 statements that contribute the most to DB load.
 
-![Top N dimensions](images/perf_insights_4c.png)
+![Top N dimensions.](images/perf_insights_4c.png)
 
 Choose any of the following dimension tabs.
 

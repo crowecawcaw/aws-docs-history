@@ -22,7 +22,7 @@ and choose **Add new tag**.
 
 The following example provides the option to add a new tag for the selected report.
 
-![Manage Tags window to add new tags to the report](images/PI_AddTag_ManageTags.png)
+![Manage Tags window to add new tags to the report.](images/PI_AddTag_ManageTags.png)
 
 A new tag is created for the report.
 

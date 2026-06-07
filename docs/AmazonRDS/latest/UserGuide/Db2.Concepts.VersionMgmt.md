@@ -61,3 +61,14 @@ You can view the major versions of your Db2 databases by running the [describe-d
 | Db2 major version | IBM release date | RDS release date | IBM end of support (Standard and Advanced<br>Edition) | IBM end of support (extended) |
 | ----------------- | ---------------- | ---------------- | ----------------------------------------------------- | ----------------------------- |
 | Db2 11.5          | 27 June 2019     | 27 November 2023 | 30 April 2027                                         | 30 April 2031                 |
+| Db2 12.1          | 14 November 2024 | 29 May 2026      | TBD                                                   | TBD                           |
+
+###### Note
+
+Major version upgrade through API or console is not currently supported.
+This capability will be available in a near future release.
+
+To manually perform a major version upgrade from RDS Db2 v11.5.9 to RDS Db2 v12.1.4,
+perform a full OFFLINE backup using the [rdsadmin.backup_database](db2-sp-managing-databases.md#db2-sp-backup-database "db2-sp-managing-databases.md#db2-sp-backup-database") stored procedure,
+then restore it to an existing RDS for Db2 v12.1.4 instance using
+the [rdsadmin.restore_database](db2-sp-managing-databases.md#db2-sp-restore-database "db2-sp-managing-databases.md#db2-sp-restore-database") stored procedure.

@@ -21,7 +21,7 @@ To add an IAM role to a DB instance, the status of the DB instance must be
 4. For **Feature**, choose
    **S3_INTEGRATION**.
 
-![Add the S3_INTEGRATION role](images/ora-s3-integration-role.png) 5. Choose **Add role**.
+![Add the S3_INTEGRATION role.](images/ora-s3-integration-role.png) 5. Choose **Add role**.
 
 ###### To add the IAM role to the RDS for SQL Server DB instance
 

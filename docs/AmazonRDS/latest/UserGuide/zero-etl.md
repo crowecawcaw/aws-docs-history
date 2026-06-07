@@ -23,11 +23,11 @@ the target data warehouse or lakehouse.
 
 The following diagram illustrates this functionality for zero-ETL integration with Amazon Redshift:
 
-![A zero-ETL integration](images/zero-etl-integrations.png)
+![A zero-ETL integration.](images/zero-etl-integrations.png)
 The following diagram illustrates this functionality for zero-ETL integration with an
 Amazon SageMaker AI lakehouse:
 
-![A zero-ETL integration with an Amazon SageMaker AI lakehouse](images/zero-etl-rds-lakehouse.png)
+![A zero-ETL integration with an Amazon SageMaker AI lakehouse.](images/zero-etl-rds-lakehouse.png)
 The integration monitors the health of the data pipeline and recovers from issues when
 possible. You can create integrations from multiple RDS
 databases into a single target data
@@ -187,6 +187,14 @@ DEFAULT` actions. Attempting to create or update a table with such
   integrations.
 - If you perform [declarative partitioning](https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-DECLARATIVE "https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITIONING-DECLARATIVE") transactions on the source DB instance, all
   affected tables enter a failed state and are no longer accessible.
+- If `max_slot_wal_keep_size` is set to a finite value on the
+  source RDS for PostgreSQL instance, the logical replication slot used by the
+  integration can be invalidated when WAL retention exceeds that size. An
+  invalidated slot stops replication and the integration cannot recover
+  without recreation. We recommend leaving `max_slot_wal_keep_size`
+  at its PostgreSQL default of `-1` (unlimited), or setting it
+  large enough to accommodate WAL generated during integration bootstrap and
+  transient lag.
 
 ### RDS for Oracle limitations
 

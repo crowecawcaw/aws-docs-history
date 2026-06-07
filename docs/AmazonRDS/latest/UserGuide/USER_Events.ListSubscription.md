@@ -9,7 +9,7 @@ You can list your current Amazon RDS event notification subscriptions.
 2. In the navigation pane, choose **Event subscriptions**. The **Event
    subscriptions** pane shows all your event notification subscriptions.
 
-![List DB event notification subscriptions](images/EventNotification-ListSubs.png)
+![List DB event notification subscriptions.](images/EventNotification-ListSubs.png)
 To list your current Amazon RDS event notification subscriptions, use the AWS CLI [`describe-event-subscriptions`](../../../cli/latest/reference/rds/describe-event-subscriptions.md "../../../cli/latest/reference/rds/describe-event-subscriptions.md") command.
 
 ###### Example

@@ -160,7 +160,7 @@ To find your CNAME, connect to your domain controller and open **DNS Manager**. 
 
 Navigate through **awsrds**, **aws-region**, and **account and region specific hash**.
 
-![Modify the amount of storage for a DB instance](images/kerb-endpoint-selfManagedAD-RDSMS.png)
+![Modify the amount of storage for a DB instance.](images/kerb-endpoint-selfManagedAD-RDSMS.png)
 
 If after connecting CNAME from remote client, an NTLM connection is returned, check if required ports are allowlisted.
 

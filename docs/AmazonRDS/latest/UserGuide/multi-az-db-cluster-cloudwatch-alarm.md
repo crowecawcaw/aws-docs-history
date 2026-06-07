@@ -16,13 +16,13 @@ The action is a notification sent to an Amazon SNS topic or Amazon EC2 Auto Scal
 The following image shows the **Select metric** page with a
 Multi-AZ DB cluster named `rds-cluster` entered.
 
-![Select metric page](images/multi-az-db-cluster-cw-tutorial-select-metric.png) 6. Choose **RDS**, **Per-Database Metrics**. 7. In the search box, enter `ReplicaLag` and press Enter, then
+![Select metric page.](images/multi-az-db-cluster-cw-tutorial-select-metric.png) 6. Choose **RDS**, **Per-Database Metrics**. 7. In the search box, enter `ReplicaLag` and press Enter, then
 select each DB instance in the DB cluster.
 
 The following image shows the **Select metric** page with the DB instances
 selected for the **ReplicaLag** metric.
 
-![Select metric page with DB instances selected for the ReplicaLag metric](images/multi-az-db-cluster-cw-tutorial-metric-replica-lag.png)
+![Select metric page with DB instances selected for the ReplicaLag metric.](images/multi-az-db-cluster-cw-tutorial-metric-replica-lag.png)
 
 This alarm considers the replica lag for all three of the DB instances in the
 Multi-AZ DB cluster. The alarm responds when any DB instance exceeds the threshold.
@@ -30,24 +30,24 @@ It uses a math expression that returns the maximum value of the three metrics. S
 by sorting by metric name, and then choose all three **ReplicaLag**
 metrics. 8. From **Add math**, choose **All functions**, **MAX**.
 
-![The Add math setting](images/multi-az-db-cluster-cw-tutorial-select-metric-math.png) 9. Choose the **Graphed metrics** tab, and edit the details for **Expression1** to
+![The Add math setting.](images/multi-az-db-cluster-cw-tutorial-select-metric-math.png) 9. Choose the **Graphed metrics** tab, and edit the details for **Expression1** to
 `MAX([m1,m2,m3])`. 10. For all three **ReplicaLag** metrics, change the **Period** to **1 minute**. 11. Clear selection from all metrics except for
 **Expression1**.
 
 The **Select metric** page should look similar to the following image.
 
-![The Select metric page with the metric selected](images/multi-az-db-cluster-cw-tutorial-select-metric-expression1.png) 12. Choose **Select metric**. 13. On the **Specify metric and conditions** page, change the label to a meaningful name, such as
+![The Select metric page with the metric selected.](images/multi-az-db-cluster-cw-tutorial-select-metric-expression1.png) 12. Choose **Select metric**. 13. On the **Specify metric and conditions** page, change the label to a meaningful name, such as
 `ClusterReplicaLag`, and enter a number of seconds in **Define the threshold value**.
 For this tutorial, enter `1200` seconds (20 minutes). You can adjust this value for your workload
 requirements.
 
 The **Specify metric and conditions** page should look similar to the following image.
 
-![The Specify metric and conditions page](images/multi-az-db-cluster-cw-tutorial-specify-metric-conditions.png) 14. Choose **Next**, and the **Configure actions** page appears. 15. Keep **In alarm** selected, choose **Create new
+![The Specify metric and conditions page.](images/multi-az-db-cluster-cw-tutorial-specify-metric-conditions.png) 14. Choose **Next**, and the **Configure actions** page appears. 15. Keep **In alarm** selected, choose **Create new
 topic**, and enter the topic name and a valid email address.
 
-![The Configure actions page](images/multi-az-db-cluster-cw-tutorial-configure-actions.png) 16. Choose **Create topic**, and then choose **Next**. 17. On the **Add name and description** page, enter the **Alarm name**
+![The Configure actions page.](images/multi-az-db-cluster-cw-tutorial-configure-actions.png) 16. Choose **Create topic**, and then choose **Next**. 17. On the **Add name and description** page, enter the **Alarm name**
 and **Alarm description**, and then choose **Next**.
 
-![The Add name and description page](images/multi-az-db-cluster-cw-tutorial-add-name-and-description.png) 18. Preview the alarm that you're about to create on the **Preview and create** page, and then
+![The Add name and description page.](images/multi-az-db-cluster-cw-tutorial-add-name-and-description.png) 18. Preview the alarm that you're about to create on the **Preview and create** page, and then
 choose **Create alarm**.

@@ -76,7 +76,7 @@ Complete the following major steps when you use a blue/green deployment for data
 For example, the production environment in this image has a Multi-AZ DB instance deployment (mydb1) and
 a read replica (mydb2).
 
-![Production (blue) environment in a blue/green deployment](images/blue-green-deployment-blue-environment.png) 2. Create the blue/green deployment. For instructions, see [Creating a blue/green deployment in Amazon RDS](blue-green-deployments-creating.md "blue-green-deployments-creating.md").
+![Production (blue) environment in a blue/green deployment.](images/blue-green-deployment-blue-environment.png) 2. Create the blue/green deployment. For instructions, see [Creating a blue/green deployment in Amazon RDS](blue-green-deployments-creating.md "blue-green-deployments-creating.md").
 
 The following image shows an example of a blue/green deployment of the production environment from step 1.
 While creating the blue/green deployment, RDS copies the complete topology and configuration of the
@@ -85,7 +85,7 @@ with `-green-`random-characters``. The staging environment in
  the image contains a Multi-AZ DB instance deployment (mydb1-green-`_abc123_`) 
  and a read replica (mydb2-green-`_abc123_`).
 
-![Blue/green deployment](images/blue-green-deployment.png)
+![Blue/green deployment.](images/blue-green-deployment.png)
 
 When you create the blue/green deployment, you can upgrade your DB engine version
 and specify a different DB parameter group for the DB instances in the green environment. RDS
@@ -115,7 +115,7 @@ on your workload.
 
 The following image shows the DB instances after the switchover.
 
-![DB instances after switching over a blue/green deployment](images/blue-green-deployment-switchover.png)
+![DB instances after switching over a blue/green deployment.](images/blue-green-deployment-switchover.png)
 
 After the switchover, the DB instances that were in the green environment become the new
 production DB instances. The names and endpoints in the current production environment are

@@ -6,7 +6,7 @@ status of a read replica in the **Replication** section of the
 view the details for a read replica, choose the name of the read replica in the list of
 DB instances in the Amazon RDS console.
 
-![Read replica status](images/ReadReplicaStatus.png)
+![Read replica status.](images/ReadReplicaStatus.png)
 You can also see the status of a read replica using the AWS CLI
 `describe-db-instances` command or the Amazon RDS API
 `DescribeDBInstances` operation.

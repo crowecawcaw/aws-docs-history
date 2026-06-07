@@ -140,10 +140,10 @@ Console
    Multi-AZ DB cluster that you want to modify.
 3. Choose **Modify**.
 
-![Modify DB instance or Multi-AZ DB cluster](images/ssl-rotate-cert-modify.png) 4. In the **Connectivity** section,
+![Modify DB instance or Multi-AZ DB cluster.](images/ssl-rotate-cert-modify.png) 4. In the **Connectivity** section,
 choose **rds-ca-rsa2048-g1**.
 
-![Choose CA certificate](images/ssl-rotate-cert-ca-rsa2048-g1.png) 5. Choose **Continue** and check the
+![Choose CA certificate.](images/ssl-rotate-cert-ca-rsa2048-g1.png) 5. Choose **Continue** and check the
 summary of modifications. 6. To apply the changes immediately, choose
 **Apply immediately**. 7. On the confirmation page, review your changes. If they
 are correct, choose **Modify DB
@@ -250,12 +250,12 @@ Console
 2. In the navigation pane, choose **Certificate
    update**.
 
-![Certificate rotation navigation pane option](images/ssl-rotate-cert-certupdate.png)
+![Certificate rotation navigation pane option.](images/ssl-rotate-cert-certupdate.png)
 
 The **Databases requiring certificate
 update** page appears.
 
-![Update CA certificate for database](images/ssl-rotate-cert-update-multiple.png)
+![Update CA certificate for database.](images/ssl-rotate-cert-update-multiple.png)
 
 ###### Note
 
@@ -280,10 +280,10 @@ now** option. 4. 1. If you choose **Schedule**,
 you are prompted to confirm the CA certificate
 rotation. This prompt also states the scheduled
 window for your update.
-![Confirm certificate rotation](images/ssl-rotate-cert-confirm-schedule.png) 2. If you choose **Apply now**,
+![Confirm certificate rotation.](images/ssl-rotate-cert-confirm-schedule.png) 2. If you choose **Apply now**,
 you are prompted to confirm the CA certificate
 rotation.
-![Confirm certificate rotation](images/ssl-rotate-cert-confirm-now.png)###### Important
+![Confirm certificate rotation.](images/ssl-rotate-cert-confirm-now.png)###### Important
 
 Before scheduling the CA certificate rotation on
 your database, update any client applications that

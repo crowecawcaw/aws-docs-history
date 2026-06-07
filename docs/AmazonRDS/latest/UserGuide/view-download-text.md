@@ -13,9 +13,9 @@ In the Performance Insights dashboard, you can view or download SQL text.
 
 SQL statements with text larger than 500 bytes look similar to the following image.
 
-![SQL statements with large text](images/perf-insights-large-text-1.png) 6. Scroll down to the **SQL text** tab.
+![SQL statements with large text.](images/perf-insights-large-text-1.png) 6. Scroll down to the **SQL text** tab.
 
-![SQL information section shows more of the SQL text](images/perf-insights-large-text-2.png)
+![SQL information section shows more of the SQL text.](images/perf-insights-large-text-2.png)
 
 The Performance Insights dashboard can display up to 4,096 bytes for each SQL statement. 7. (Optional) Choose **Copy** to copy the displayed SQL statement, or choose
 **Download** to download the SQL statement to view the SQL text up to the DB engine

@@ -13,7 +13,7 @@ event notifications specified by the subscription.
 4. Choose **Delete**.
 5. The Amazon RDS console indicates that the subscription is being deleted.
 
-![Delete an event notification subscription](images/EventNotification-Delete.png)
+![Delete an event notification subscription.](images/EventNotification-Delete.png)
 To delete an Amazon RDS event notification subscription, use the AWS CLI [`delete-event-subscription`](../../../cli/latest/reference/rds/delete-event-subscription.md "../../../cli/latest/reference/rds/delete-event-subscription.md")
 command. Include the following required parameter:
 

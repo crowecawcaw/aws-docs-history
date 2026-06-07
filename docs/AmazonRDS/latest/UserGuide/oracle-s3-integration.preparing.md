@@ -453,7 +453,7 @@ requirements:
    that you created in [Step 3: Create an IAM role for your DB instance and attach your policy](#oracle-s3-integration.preparing.role "#oracle-s3-integration.preparing.role").
 6. For **Feature**, choose **S3_INTEGRATION**.
 
-![Add S3_INTEGRATION role](images/ora-s3-integration-role.png) 7. Choose **Add role**.
+![Add S3_INTEGRATION role.](images/ora-s3-integration-role.png) 7. Choose **Add role**.
 The following AWS CLI command adds the role to an Oracle DB instance named
 `mydbinstance`.
 

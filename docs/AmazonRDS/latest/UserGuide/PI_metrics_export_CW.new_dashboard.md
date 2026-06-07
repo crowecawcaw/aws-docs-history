@@ -18,11 +18,11 @@ CloudWatch**.
 
 The **Export to CloudWatch** window appears.
 
-![Performance Insights dashboard with export to CloudWatch button](images/PI-ExprtToCW.png) 6. Choose **Export as new dashboard**.
+![Performance Insights dashboard with export to CloudWatch button.](images/PI-ExprtToCW.png) 6. Choose **Export as new dashboard**.
 
-![Export to CloudWatch window with export as new dashboard option selected](images/PI-ExprtToCW-NewDashboard.png) 7. Enter a name for the new dashboard in the **Dashboard name** field and choose **Confirm**.
+![Export to CloudWatch window with export as new dashboard option selected.](images/PI-ExprtToCW-NewDashboard.png) 7. Enter a name for the new dashboard in the **Dashboard name** field and choose **Confirm**.
 
 A banner displays a message after the dashboard export is successful.
 
-![Banner with successful message](images/PI-ExprtToCW-SuccessBanner.png) 8. Choose the link or **View in CloudWatch** in the banner
+![Banner with successful message.](images/PI-ExprtToCW-SuccessBanner.png) 8. Choose the link or **View in CloudWatch** in the banner
 to view the metrics dashboard in the CloudWatch console.

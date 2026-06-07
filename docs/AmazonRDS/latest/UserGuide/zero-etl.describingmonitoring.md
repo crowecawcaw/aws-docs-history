@@ -24,7 +24,7 @@ API.
 3. Select an integration to view more details about it, such as its source
    database and target data warehouse.
 
-![Details about a zero-ETL integration](images/zero-etl-integration-view.png)
+![Details about a zero-ETL integration.](images/zero-etl-integration-view.png)
 An integration can have the following statuses:
 
 - `Creating` – The integration is being created.

@@ -24,21 +24,21 @@ combinations within each namespace.
 
 The CloudWatch overview home page appears.
 
-![CloudWatch overview page](images/monitoring-overviewpage-console2.png) 2. If necessary, change the AWS Region. From the navigation bar, choose
+![CloudWatch overview page.](images/monitoring-overviewpage-console2.png) 2. If necessary, change the AWS Region. From the navigation bar, choose
 the AWS Region where your AWS resources are. For more information, see
 [Regions
 and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md"). 3. In the navigation pane, choose **Metrics** and then **All
 metrics**.
 
-![Choose metric namespace](images/cw-all-metrics.png) 4. Scroll down and choose the **RDS** metric
+![Choose metric namespace.](images/cw-all-metrics.png) 4. Scroll down and choose the **RDS** metric
 namespace.
 
 The page displays the Amazon RDS dimensions. For descriptions of these dimensions, see [Amazon CloudWatch dimensions for Amazon RDS](dimensions.md "dimensions.md").
 
-![Choose metric namespace](images/rds-monitoring-01.png) 5. Choose a metric dimension, for example **By Database
+![Choose metric namespace.](images/rds-monitoring-01.png) 5. Choose a metric dimension, for example **By Database
 Class**.
 
-![Filter metrics](images/metrics-by-instance-class.png) 6. Do any of the following actions:
+![Filter metrics.](images/metrics-by-instance-class.png) 6. Do any of the following actions:
 
     * To sort the metrics, use the column heading.
     * To graph a metric, select the check box next to the metric.
@@ -50,7 +50,7 @@ Class**.
 The following example filters on the **db.t3.medium** class and graphs the
 **CPUUtilization** metric.
 
-![Filter metrics](images/rds-monitoring-03.png)
+![Filter metrics.](images/rds-monitoring-03.png)
 To obtain metric information by using the AWS CLI, use the CloudWatch command [`list-metrics`](../../../cli/latest/reference/cloudwatch/list-metrics.md "../../../cli/latest/reference/cloudwatch/list-metrics.md"). In the following
 example, you list all metrics in the `AWS/RDS` namespace.
 

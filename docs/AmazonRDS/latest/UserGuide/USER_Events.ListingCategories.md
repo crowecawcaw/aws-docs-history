@@ -6,7 +6,7 @@ following procedures.
 When you create or modify an event notification subscription, the event categories are displayed in the
 Amazon RDS console. For more information, see [Modifying an Amazon RDS event notification subscription](USER_Events.Modifying.md "USER_Events.Modifying.md").
 
-![List DB event notification categories](images/EventNotification-Categories.png)
+![List DB event notification categories.](images/EventNotification-Categories.png)
 To list the Amazon RDS event notification categories, use the AWS CLI [`describe-event-categories`](../../../cli/latest/reference/rds/describe-event-categories.md "../../../cli/latest/reference/rds/describe-event-categories.md")
 command. This command has no required parameters.
 

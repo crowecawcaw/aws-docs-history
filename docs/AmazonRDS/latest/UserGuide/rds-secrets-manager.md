@@ -196,11 +196,11 @@ Follow the instructions for creating or modifying a DB instance with the RDS con
 The following image is an example of the **Manage master credentials in AWS Secrets Manager**
 setting when you are creating or restoring a DB instance.
 
-![Manage master credentials in AWS Secrets Manager](images/secrets-manager-credential-settings-db-instance.png)
+![Manage master credentials in AWS Secrets Manager.](images/secrets-manager-credential-settings-db-instance.png)
 When you select this option, RDS generates the master user password and
 manages it throughout its lifecycle in Secrets Manager.
 
-![Manage master credentials in AWS Secrets Manager selected](images/secrets-manager-integration-create-db-instance.png)
+![Manage master credentials in AWS Secrets Manager selected.](images/secrets-manager-integration-create-db-instance.png)
 You can choose to encrypt the secret with a KMS key that Secrets Manager provides or with a
 customer managed key that you create. After RDS is managing the database credentials for a
 DB instance, you can't change the KMS key used to encrypt the secret.
@@ -312,11 +312,11 @@ console:
 The following image is an example of the **Manage master credentials in
 AWS Secrets Manager** setting when you are creating a tenant database.
 
-![Manage master credentials in AWS Secrets Manager](images/secrets-manager-credential-settings-db-instance.png)
+![Manage master credentials in AWS Secrets Manager.](images/secrets-manager-credential-settings-db-instance.png)
 When you select this option, RDS generates the master user password and
 manages it throughout its lifecycle in Secrets Manager.
 
-![Manage master credentials in AWS Secrets Manager selected](images/secrets-manager-integration-create-db-instance.png)
+![Manage master credentials in AWS Secrets Manager selected.](images/secrets-manager-integration-create-db-instance.png)
 You can choose to encrypt the secret with a KMS key that Secrets Manager provides or with a
 customer managed key that you create. After RDS is managing the database credentials for a
 tenant database, you can't change the KMS key that is used to encrypt the secret.
@@ -419,11 +419,11 @@ Follow the instructions for creating or modifying a Multi-AZ DB cluster with the
 The following image is an example of the **Manage master credentials in AWS Secrets Manager**
 setting when you are creating a DB cluster.
 
-![Manage master credentials in AWS Secrets Manager](images/secrets-manager-credential-settings.png)
+![Manage master credentials in AWS Secrets Manager.](images/secrets-manager-credential-settings.png)
 When you select this option, RDS generates the master user password and
 manages it throughout its lifecycle in Secrets Manager.
 
-![Manage master credentials in AWS Secrets Manager selected](images/secrets-manager-integration-create.png)
+![Manage master credentials in AWS Secrets Manager selected.](images/secrets-manager-integration-create.png)
 You can choose to encrypt the secret with a KMS key that Secrets Manager provides or
 with a customer managed key that you create. After RDS is managing the
 database credentials for a DB cluster, you can't change the KMS key that is
@@ -536,7 +536,7 @@ upper and lowercase character, one number, and one punctuation.
 To rotate a master user password secret using the RDS console, modify the DB instance and
 select **Rotate secret immediately** in **Settings**.
 
-![Rotate a master user password secret immediately](images/secrets-manager-integration-rotate.png)
+![Rotate a master user password secret immediately.](images/secrets-manager-integration-rotate.png)
 Follow the instructions for modifying a DB instance with the RDS console in
 [Modifying an Amazon RDS DB instance](Overview.DBInstance.Modifying.md "Overview.DBInstance.Modifying.md").
 You must choose **Apply immediately** on the confirmation page.
@@ -593,7 +593,7 @@ To rotate a master user password secret using the RDS console, modify the Multi-
 **Rotate secret immediately** in
 **Settings**.
 
-![Rotate a master user password secret immediately](images/secrets-manager-integration-rotate-taz-cluster.png)
+![Rotate a master user password secret immediately.](images/secrets-manager-integration-rotate-taz-cluster.png)
 Follow the instructions for modifying a Multi-AZ DB
 cluster with the RDS console in
 [Modifying a Multi-AZ DB cluster for Amazon RDS](modify-multi-az-db-cluster.md "modify-multi-az-db-cluster.md").
@@ -649,7 +649,7 @@ RDS in Secrets Manager with the RDS console, the AWS CLI, or the RDS API.
 
 In **Master Credentials ARN**, you can view the secret ARN.
 
-![View the details about a secret managed by RDS in Secrets Manager](images/secrets-manager-integration-view-instance.png)
+![View the details about a secret managed by RDS. in Secrets Manager](images/secrets-manager-integration-view-instance.png)
 
 You can follow the **Manage in Secrets Manager** link to view and manage the secret
 in the Secrets Manager console.
@@ -748,7 +748,7 @@ the AWS CLI, or the RDS API.
 
 In **Master Credentials ARN**, you can view the secret ARN.
 
-![View the details about a secret managed by RDS in Secrets Manager](images/secrets-manager-integration-view-taz-cluster.png)
+![View the details about a secret managed by RDS. in Secrets Manager](images/secrets-manager-integration-view-taz-cluster.png)
 
 You can follow the **Manage in Secrets Manager** link to view and manage the secret in
 the Secrets Manager console.

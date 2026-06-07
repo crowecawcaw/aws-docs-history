@@ -396,12 +396,16 @@ website](http://www.microsoft.com/en-us/search/Results.aspx?q=sql%20server%20man
    following:
    1. For **Data source**, choose `SQL Server
 Native Client 11.0`.
-   2. Verify that the **Server name** box shows the endpoint of your RDS for SQL Server DB instance.
-   3. Select **Use SQL Server Authentication**. For **User name** and
-      **Password**, type the master user name and password of your DB instance.
-   4. Verify that the **Database** box shows the
-      database from which you want to export data.
-   5. Choose **Next**.
+
+   ###### Note
+
+   SQL Server Native Client 11.0 (SQLNCLI11) has been fully deprecated by Microsoft
+   and was removed starting with SQL Server Management Studio (SSMS) 19. If you are
+   using SSMS 19 or later, choose
+   `Microsoft OLE DB Driver for SQL Server` instead for both
+   the data source and destination. 2. Verify that the **Server name** box shows the endpoint of your RDS for SQL Server DB instance. 3. Select **Use SQL Server Authentication**. For **User name** and
+   **Password**, type the master user name and password of your DB instance. 4. Verify that the **Database** box shows the
+   database from which you want to export data. 5. Choose **Next**.
 
 4. On the **Choose a Destination** page, do the
    following:

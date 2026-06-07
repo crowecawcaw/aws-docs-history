@@ -27,7 +27,7 @@ For information about restoring Multi-AZ DB cluster with an RDS Extended Support
    **Availability and durability**, choose
    **Multi-AZ DB cluster**.
 
-![Multi-AZ DB cluster choice](images/multi-az-db-cluster-create.png) 6. For **DB cluster identifier**, enter the name for your
+![Multi-AZ DB cluster choice.](images/multi-az-db-cluster-create.png) 6. For **DB cluster identifier**, enter the name for your
 restored Multi-AZ DB cluster. 7. For the remaining sections, specify your DB cluster settings. For
 information about each setting, see [Settings for creating Multi-AZ DB clusters](create-multi-az-db-cluster.md#create-multi-az-db-cluster-settings "create-multi-az-db-cluster.md#create-multi-az-db-cluster-settings"). 8. Choose **Restore DB instance**.
 To restore a snapshot to a Multi-AZ DB cluster, use the AWS CLI command [restore-db-cluster-from-snapshot](../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md "../../../cli/latest/reference/rds/restore-db-cluster-from-snapshot.md").

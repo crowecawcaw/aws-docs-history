@@ -234,7 +234,7 @@ When you are creating, modifying, or restoring a DB instance, you set the DB ins
 The **Instance specifications** section shows options for the processor. The
 following image shows the processor features options.
 
-![Configure processor options](images/vcpu-config.png)
+![Configure processor options.](images/vcpu-config.png)
 Set the following options to the appropriate values for your DB instance class under **Processor features**:
 
 - **Core count –** Set the
@@ -252,7 +252,7 @@ When you view the details for a DB instance in the console, you can view the pro
 information for its DB instance class on the **Configuration** tab. The
 following image shows a DB instance class with one CPU core and multiple threads per core enabled.
 
-![View processor options](images/vcpu-view.png)
+![View processor options.](images/vcpu-view.png)
 For Oracle DB instances, the processor information only appears for Bring Your Own License (BYOL) DB instances.
 
 You can set the processor features for a DB instance when you run one of the following

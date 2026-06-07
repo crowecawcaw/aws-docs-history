@@ -26,13 +26,13 @@ The dashboard also lists the tags for the report in the **Tags** section.
 
 The following example shows the entire analysis period for the report.
 
-![DB load chart showing entire analysis report period](images/PI_EntireAnalysisRep.png) 6. Choose the insight in the **Database load insights** list you want to view if more than one insight is identified in the report.
+![DB load chart showing entire analysis report period.](images/PI_EntireAnalysisRep.png) 6. Choose the insight in the **Database load insights** list you want to view if more than one insight is identified in the report.
 
 The dashboard displays the insight message, DB load chart highlighting the time period of the insight,
 analysis and recommendations, and the list of report tags.
 
 The following example shows the DB load insight in the report.
 
-![DB load chart showing insight in the report](images/PI_AnalysisRepInsight_chart.png)
+![DB load chart showing insight in the report.](images/PI_AnalysisRepInsight_chart.png)
 
-![Report insight analysis and recommendation section](images/PI_AnalysisRepInsight_Recommendations.png)
+![Report insight analysis and recommendation section.](images/PI_AnalysisRepInsight_Recommendations.png)
