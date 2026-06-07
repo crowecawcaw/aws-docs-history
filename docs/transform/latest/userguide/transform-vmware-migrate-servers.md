@@ -1,11 +1,11 @@
 # Migrate servers
 
-AWS Transform uses AWS Application Migration Service (Application Migration Service) to rehost your VMware servers to Amazon EC2. The
+AWS Transform uses AWS Transform MGN (MGN) to rehost your VMware servers to Amazon EC2. The
 migrate servers workflow guides you through setting up each migration wave,
 validating your server inventory, deploying replication agents, monitoring data
 replication, testing migrated instances, and performing final cutover. To read more
 about it, see [What is
-AWS Application Migration Service?](../../../mgn/latest/ug/what-is-application-migration-service.md "../../../mgn/latest/ug/what-is-application-migration-service.md") in the _Application Migration Service User Guide_.
+AWS Transform MGN?](../../../mgn/latest/ug/what-is-application-migration-service.md "../../../mgn/latest/ug/what-is-application-migration-service.md") in the _MGN User Guide_.
 
 Server migration is organized by waves. Each wave represents a group of servers
 that are migrated together. For each wave, you complete the following phases:
@@ -77,9 +77,9 @@ AWS Transform assessment job.
 
 #### Default launch settings
 
-To change default launch settings, go to the Application Migration Service console and apply the
+To change default launch settings, go to the MGN console and apply the
 changes you want. For more information, see [Launch settings](../../../mgn/latest/ug/launch-settings.md "../../../mgn/latest/ug/launch-settings.md") in
-the _Application Migration Service User Guide_.
+the _MGN User Guide_.
 
 ## Step 1: Set up migration wave
 
@@ -102,9 +102,9 @@ AWS Transform supports two migration modes:
   for each server.
 
 AWS Transform confirms the target account configuration and verifies that
-Application Migration Service is initialized in each target account. If Application Migration Service is not yet
+MGN is initialized in each target account. If MGN is not yet
 initialized, AWS Transform provides instructions to complete the
-initialization. During initialization, Application Migration Service creates the following IAM
+initialization. During initialization, MGN creates the following IAM
 service roles for replication and launch operations:
 
 - `AWSApplicationMigrationReplicationServerRole`
@@ -114,9 +114,9 @@ service roles for replication and launch operations:
 - `AWSApplicationMigrationLaunchInstanceWithSsmRole`
 - `AWSApplicationMigrationAgentRole`
 
-To learn more about these roles, see [Initializing Application Migration Service
-with the console](../../../mgn/latest/ug/mgn-initialize-console.md "../../../mgn/latest/ug/mgn-initialize-console.md") or [Initializing Application Migration Service with
-the API](../../../mgn/latest/ug/mgn-initialize-api.md "../../../mgn/latest/ug/mgn-initialize-api.md") in the _Application Migration Service User Guide_.
+To learn more about these roles, see [Initializing MGN
+with the console](../../../mgn/latest/ug/mgn-initialize-console.md "../../../mgn/latest/ug/mgn-initialize-console.md") or [Initializing MGN with
+the API](../../../mgn/latest/ug/mgn-initialize-api.md "../../../mgn/latest/ug/mgn-initialize-api.md") in the _MGN User Guide_.
 
 For multi-account migrations, AWS Transform also creates the following role
 during the initialization step:
@@ -164,10 +164,10 @@ during the migrate network phase.
 
 ### Replication and launch settings
 
-To change replication and launch settings, go to the Application Migration Service console and
+To change replication and launch settings, go to the MGN console and
 apply the changes you want. For more information, see [Replication
 settings](../../../mgn/latest/ug/replication-settings.md "../../../mgn/latest/ug/replication-settings.md") and [Launch settings](../../../mgn/latest/ug/launch-settings.md "../../../mgn/latest/ug/launch-settings.md") in
-the _Application Migration Service User Guide_.
+the _MGN User Guide_.
 
 ### IP assignment strategy
 
@@ -186,7 +186,7 @@ If you selected the MAP security groups mapping strategy during network migratio
 
 ## Step 2: Validate and confirm inventory
 
-Before loading your server data into Application Migration Service, AWS Transform prepares the inventory
+Before loading your server data into MGN, AWS Transform prepares the inventory
 file for your review. You can download the file in CSV or XLSX format, review
 the server configurations, and make changes if needed.
 
@@ -210,7 +210,7 @@ configurations, change operating system licensing options (BYOL or License
 Included), and update tenancy settings.
 
 After you review the inventory, you can either accept it as shown or upload a
-modified version. AWS Transform then loads the data into Application Migration Service, which creates source
+modified version. AWS Transform then loads the data into MGN, which creates source
 server records for each server in the wave.
 
 ###### Note
@@ -231,7 +231,7 @@ You can control the operating system licensing options (BYOL or License
 Included) and tenancy by specifying the configuration in the inventory file
 columns `mgn:launch:placement:operating-system-licensing` and
 `mgn:launch:placement:tenancy`. For more information, see [Import
-parameters](../../../mgn/latest/ug/import-main.md#import-parameters "../../../mgn/latest/ug/import-main.md#import-parameters") in the _Application Migration Service User Guide_.
+parameters](../../../mgn/latest/ug/import-main.md#import-parameters "../../../mgn/latest/ug/import-main.md#import-parameters") in the _MGN User Guide_.
 
 ## Step 3: Deploy replication agents
 
@@ -246,13 +246,13 @@ installation methods:
   including `--no-prompt`, `--aws-access-key-id`,
   `--aws-secret-access-key`, and
   `--aws-session-token`.
-- **MGN connector** – Use an Application Migration Service
+- **MGN connector** – Use an MGN
   connector to automate agent installation. The connector connects to
   source machines over SSH (Linux) or WinRM (Windows) and installs the
   replication agent automatically. Once configured, a connector can be
   reused across multiple waves and different target AWS accounts. For
-  more information about the Application Migration Service connector, see [Set up
-  the MGN Connector](../../../mgn/latest/ug/mgn-connector-setup-instructions.md "../../../mgn/latest/ug/mgn-connector-setup-instructions.md") in the _Application Migration Service User
+  more information about the MGN connector, see [Set up
+  the MGN Connector](../../../mgn/latest/ug/mgn-connector-setup-instructions.md "../../../mgn/latest/ug/mgn-connector-setup-instructions.md") in the _MGN User
   Guide_.
 
 ###### Note
@@ -310,13 +310,13 @@ installation.
 
 #### Connector machine requirements
 
-| Requirement           | Details                                                                                                                                                                                                                                                        |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Operating system      | Supported Linux operating system. For the full list,<br>see [MGN connector prerequisites](../../../mgn/latest/ug/mgn-connector-prerequisites.md "../../../mgn/latest/ug/mgn-connector-prerequisites.md") in the<br>_Application Migration Service User Guide_. |
-| Network access        | Must reach all source servers (Linux over SSH,<br>Windows over WinRM)                                                                                                                                                                                          |
-| Internet connectivity | Outbound HTTPS (443) to AWS endpoints (Systems<br>Manager, Secrets Manager, Application Migration Service)                                                                                                                                                     |
-| Disk space            | Minimum 200 MB free                                                                                                                                                                                                                                            |
-| Permissions           | Root or sudo access                                                                                                                                                                                                                                            |
+| Requirement           | Details                                                                                                                                                                                                                              |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Operating system      | Supported Linux operating system. For the full list,<br>see [MGN connector prerequisites](../../../mgn/latest/ug/mgn-connector-prerequisites.md "../../../mgn/latest/ug/mgn-connector-prerequisites.md") in the<br>_MGN User Guide_. |
+| Network access        | Must reach all source servers (Linux over SSH,<br>Windows over WinRM)                                                                                                                                                                |
+| Internet connectivity | Outbound HTTPS (443) to AWS endpoints (Systems<br>Manager, Secrets Manager, MGN)                                                                                                                                                     |
+| Disk space            | Minimum 200 MB free                                                                                                                                                                                                                  |
+| Permissions           | Root or sudo access                                                                                                                                                                                                                  |
 
 ###### Note
 
@@ -332,7 +332,7 @@ connector:
 
 Provide a name for your connector, or use the auto-generated default
 name. The connector can be installed on the management account or on a
-delegated administrator account in Application Migration Service. For multi-account migrations,
+delegated administrator account in MGN. For multi-account migrations,
 the connector can deploy agents to servers across member accounts.
 
 **Step 2: AWS resource setup**
@@ -383,7 +383,7 @@ Install the connector on a Linux machine in your environment:
 **Step 4: Attach source servers**
 
 After installation, AWS Transform identifies all source servers that
-belong to the current wave and automatically attaches them to the Application Migration Service
+belong to the current wave and automatically attaches them to the MGN
 connector.
 
 **Step 5: Configure credentials**
@@ -412,7 +412,7 @@ secrets option is mutually exclusive with the single-secret
 options.
 
 Credential secret format. To read more about it, see [MGN connector
-credentials](../../../mgn/latest/ug/mgn-connector-credentials.md "../../../mgn/latest/ug/mgn-connector-credentials.md") in the _Application Migration Service User
+credentials](../../../mgn/latest/ug/mgn-connector-credentials.md "../../../mgn/latest/ug/mgn-connector-credentials.md") in the _MGN User
 Guide_:
 
 ```
@@ -490,7 +490,7 @@ or permanent) and then install the agent on each source server.
   `AWSApplicationMigrationAgentInstallationPolicy`
   managed policy, then use `aws sts assume-role` to
   generate temporary credentials. To read more about it, see [Agent
-  installation permissions](../../../mgn/latest/ug/agent-installation-permissions.md "../../../mgn/latest/ug/agent-installation-permissions.md") in the _Application Migration Service User
+  installation permissions](../../../mgn/latest/ug/agent-installation-permissions.md "../../../mgn/latest/ug/agent-installation-permissions.md") in the _MGN User
   Guide_.
 - **Permanent credentials** – Create an
   IAM user with the
@@ -522,12 +522,12 @@ C:\AwsReplicationWindowsInstaller.exe --region `region` --user-provided-id `serv
 The `--user-provided-id` parameter is required. Replace
 `server-identifier` with the exact value from
 the `mgn:server:user-provided-id` column in your inventory
-file. This identifier links the physical server to its Application Migration Service source
+file. This identifier links the physical server to its MGN source
 server record.
 
 For more information about agent installation, see [Linux
 agent](../../../mgn/latest/ug/linux-agent.md "../../../mgn/latest/ug/linux-agent.md") and [Windows agent](../../../mgn/latest/ug/windows-agent.md "../../../mgn/latest/ug/windows-agent.md") in the
-_Application Migration Service User Guide_.
+_MGN User Guide_.
 
 After installation, AWS Transform verifies that all agents are successfully
 connected by checking that servers show a replication state of
@@ -535,9 +535,9 @@ connected by checking that servers show a replication state of
 
 ###### Note
 
-AWS Transform does not support Application Migration Service agentless replication. For information
+AWS Transform does not support MGN agentless replication. For information
 about agentless replication, see [Agentless
-replication overview](../../../mgn/latest/ug/installing-vcenter-overview-mgn.md "../../../mgn/latest/ug/installing-vcenter-overview-mgn.md") in the _Application Migration Service User
+replication overview](../../../mgn/latest/ug/installing-vcenter-overview-mgn.md "../../../mgn/latest/ug/installing-vcenter-overview-mgn.md") in the _MGN User
 Guide_.
 
 ###### Note
@@ -549,8 +549,8 @@ disconnect servers, and the `mark-as-archived` command to
 archive disconnected servers. The archiving command only works for source
 servers whose lifecycle state is `DISCONNECTED`.
 
-For quotas related to replication, see [Application Migration Service service quota
-limits](../../../mgn/latest/ug/MGN-service-limits.md "../../../mgn/latest/ug/MGN-service-limits.md") in the _Application Migration Service User Guide_.
+For quotas related to replication, see [MGN service quota
+limits](../../../mgn/latest/ug/MGN-service-limits.md "../../../mgn/latest/ug/MGN-service-limits.md") in the _MGN User Guide_.
 
 ## Step 4: Data replication
 
@@ -570,8 +570,8 @@ The replication process consists of two phases:
 
 Replication servers are temporary Amazon EC2 instances deployed in the staging area
 subnet. They receive replicated data from source servers and are automatically
-managed by Application Migration Service. To read more about it, see [Replication server
-settings](../../../mgn/latest/ug/replication-server-settings.md "../../../mgn/latest/ug/replication-server-settings.md") in the _Application Migration Service User Guide_.
+managed by MGN. To read more about it, see [Replication server
+settings](../../../mgn/latest/ug/replication-server-settings.md "../../../mgn/latest/ug/replication-server-settings.md") in the _MGN User Guide_.
 
 AWS Transform monitors the replication progress and provides status updates,
 including replication status, replication lag (the time difference between source
@@ -605,7 +605,7 @@ time:
 After data replication is complete, you can launch test instances to validate
 your migrated servers before performing the final cutover. To read more about
 it, see [Launch test
-instances](../../../mgn/latest/ug/launch-test-instances.md "../../../mgn/latest/ug/launch-test-instances.md") in the _Application Migration Service User Guide_. AWS Transform
+instances](../../../mgn/latest/ug/launch-test-instances.md "../../../mgn/latest/ug/launch-test-instances.md") in the _MGN User Guide_. AWS Transform
 supports two testing options:
 
 - **Full wave testing** – Launch test
@@ -634,7 +634,7 @@ cutover.
 
 Cutover is the final migration step where your production workloads are moved
 to AWS. To read more about it, see [Launch cutover
-instances](../../../mgn/latest/ug/launch-cutover-instances.md "../../../mgn/latest/ug/launch-cutover-instances.md") in the _Application Migration Service User Guide_. Similar to
+instances](../../../mgn/latest/ug/launch-cutover-instances.md "../../../mgn/latest/ug/launch-cutover-instances.md") in the _MGN User Guide_. Similar to
 testing, AWS Transform supports full wave cutover or selective cutover for specific
 servers.
 
@@ -656,7 +656,7 @@ The cutover process includes the following steps:
    agents from sending data, removes replication agents from source
    servers, and locks the server lifecycle state. This action cannot be
    easily undone. To read more about it, see [Finalize
-   cutover](../../../mgn/latest/ug/finalize-cutover.md "../../../mgn/latest/ug/finalize-cutover.md") in the _Application Migration Service User
+   cutover](../../../mgn/latest/ug/finalize-cutover.md "../../../mgn/latest/ug/finalize-cutover.md") in the _MGN User
    Guide_.
 4. **Archive source servers (optional)** –
    After finalization, you can mark source servers as archived to free up
@@ -676,7 +676,7 @@ Plan your cutover window accordingly.
 
 During migration, each server progresses through the following lifecycle
 states. To read more about it, see [Source server
-lifecycle](../../../mgn/latest/ug/source-server-lifecycle.md "../../../mgn/latest/ug/source-server-lifecycle.md") in the _Application Migration Service User Guide_.
+lifecycle](../../../mgn/latest/ug/source-server-lifecycle.md "../../../mgn/latest/ug/source-server-lifecycle.md") in the _MGN User Guide_.
 
 - **Not ready** – The server is undergoing
   the initial sync process and is not yet ready for testing.
@@ -692,7 +692,7 @@ lifecycle](../../../mgn/latest/ug/source-server-lifecycle.md "../../../mgn/lates
   been cutover. All data has been migrated to the AWS cutover
   instance.
 - **Disconnected** – The server has been
-  disconnected from Application Migration Service.
+  disconnected from MGN.
 
 You can ask AWS Transform about the status of your servers at any time during the
 migration. AWS Transform provides an interactive wave status table that displays all

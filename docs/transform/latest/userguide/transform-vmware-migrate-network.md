@@ -24,7 +24,7 @@ The network mapping process requires that you upload a configuration file from y
 - **Software Defined Networks (SDN):** Import/Export for VMware NSX network virtualization or Cisco ACI config for Cisco Application Centric Infrastructure.
 - **VMware vSphere networks:** [RVTools](https://www.dell.com/en-us/shop/vmware/sl/rvtools "https://www.dell.com/en-us/shop/vmware/sl/rvtools"). When you use RVTools files, AWS Transform generates Amazon VPC configurations only. Security group configurations require additional input from firewall or software-defined network files. For more information about security group generation from additional files, see [Additional configuration files](#transform-vmware-firewall-and-sdn-config-files "#transform-vmware-firewall-and-sdn-config-files").
 - **Networks based on firewall configuration data:** Export files from Palo Alto Networks Firewall, Fortinet FortiGate Firewall, or Cisco ACI. For more information about supported versions and extraction instructions, see [Configuration file extraction](#transform-vmware-config-file-extraction "#transform-vmware-config-file-extraction").
-- **Hybrid networks that run both VMware and non-VMware workloads:** Application mapping tools - modelizeIT.
+- **Hybrid networks that run both VMware and non-VMware workloads:** [AWS Transform discovery tool](discovery-tool.md "discovery-tool.md") or modelizeIT.
 - **Other file types:** If your configuration file is not one of the supported formats listed above, the file is converted automatically to a supported format. This conversion can take up to two hours based on the file size and complexity.
 
 ###### Warning
@@ -175,7 +175,7 @@ You can combine either range selection with either IP assignment method.
 
 ###### Note
 
-The IP address assignment strategy is set at the wave level. You can assign different strategies to specific servers by customizing the wave file. For example, if you chose a static IP address approach for the wave but want to assign a dynamic approach to a specific server, you would use `[RESET_VALUE]` as described in [Editing your configuration](../../../mgn/latest/ug/configuration-editing.md "../../../mgn/latest/ug/configuration-editing.md") in the _Application Migration Service user guide_.
+The IP address assignment strategy is set at the wave level. You can assign different strategies to specific servers by customizing the wave file. For example, if you chose a static IP address approach for the wave but want to assign a dynamic approach to a specific server, you would use `[RESET_VALUE]` as described in [Editing your configuration](../../../mgn/latest/ug/configuration-editing.md "../../../mgn/latest/ug/configuration-editing.md") in the _MGN user guide_.
 
 ## Step 5: Review and optimize your network
 

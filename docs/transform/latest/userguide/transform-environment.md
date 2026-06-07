@@ -102,7 +102,7 @@ CDP Engineer who can help debug issues, interpret transformation outputs, and dr
 
 - For .NET workloads, CDP can assist with repository connector issues, dependency resolution, and post-transformation deployment.
 - In mainframe scenarios, CDP can help troubleshoot refactored Java code, configure database migration tools, and build CI/CD pipelines.
-- In VMware migrations, CDP can accelerate network configuration, Application Migration Service setup, and agent installation.
+- In VMware migrations, CDP can accelerate network configuration, MGN setup, and agent installation.
 
 #### AWS Skill Builder
 

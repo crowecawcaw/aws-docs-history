@@ -18,8 +18,8 @@ migration:
 - **Multi-account migration** – Workloads
   migrate to different target accounts. The connector must be connected to
   the organization management account or a Delegated Administrator (DA)
-  account registered for both AWS Application Migration Service
-  (Application Migration Service) and CloudFormation StackSets.
+  account registered for both AWS Transform MGN
+  and CloudFormation StackSets.
 
 ## Step 2: MAP agreement
 
@@ -50,7 +50,7 @@ When you approve the connector request, you grant AWS Transform permissions to:
 
 - Manage Amazon S3 bucket operations (read/write) for VMware migration,
   along with access to AWS Migration Hub and AWS Application
-  Migration Service (Application Migration Service). This includes permissions for the following
+  Migration Service (MGN). This includes permissions for the following
   items, all restricted to resources within the target account that are
   tagged with `CreatedBy:AWSTransform` or
   `CreatedFor:AWSTransform`:
@@ -92,11 +92,11 @@ When you create a new connector, it uses the latest version.
 Before you set up the connector, understand the account roles involved in
 your migration:
 
-| Account                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS Transform account    | Any member account in your AWS Organization where you set<br>up AWS Transform. This is where your AWS Transform workspace runs. It<br>does not need to be the management account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Connector target account | The account your AWS Transform connector is configured to.<br>This depends on your migration type:<br>• **Single-account<br>migration\*<br>• – Connect to the account<br>you are migrating workloads to. The connector<br>target account and the target account are the<br>same.<br>• **Multi-account<br>migration\*<br>• – Connect to the<br>organization management account or a Delegated<br>Administrator (DA) account. The DA account must<br>be registered as delegated administrator for both<br>Application Migration Service and CloudFormation StackSets in your AWS<br>Organization. AWS Transform checks whether the<br>connected account is the management account or a<br>DA account and adjusts its behavior<br>accordingly. |
-| Target account           | The AWS account where your workloads are migrated to. In<br>a single-account migration, this is the same as the connector<br>target account. In a multi-account migration, these are the<br>individual member accounts receiving the migrated<br>workloads.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Account                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS Transform account    | Any member account in your AWS Organization where you set<br>up AWS Transform. This is where your AWS Transform workspace runs. It<br>does not need to be the management account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Connector target account | The account your AWS Transform connector is configured to.<br>This depends on your migration type:<br>• **Single-account<br>migration\*<br>• – Connect to the account<br>you are migrating workloads to. The connector<br>target account and the target account are the<br>same.<br>• **Multi-account<br>migration\*<br>• – Connect to the<br>organization management account or a Delegated<br>Administrator (DA) account. The DA account must<br>be registered as delegated administrator for both<br>MGN and CloudFormation StackSets in your AWS<br>Organization. AWS Transform checks whether the<br>connected account is the management account or a<br>DA account and adjusts its behavior<br>accordingly. |
+| Target account           | The AWS account where your workloads are migrated to. In<br>a single-account migration, this is the same as the connector<br>target account. In a multi-account migration, these are the<br>individual member accounts receiving the migrated<br>workloads.                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 ### Using a delegated administrator account
 
@@ -105,23 +105,23 @@ Administrator (DA) account rather than the organization management account
 directly. A DA account follows the principle of least privilege by
 limiting the scope of permissions required for migration operations.
 The DA account must be registered as delegated administrator for
-both Application Migration Service and CloudFormation StackSets in your AWS Organization.
+both MGN and CloudFormation StackSets in your AWS Organization.
 
 The key difference between the two options is:
 
 - **Management account** – Can enable
-  trusted access for Application Migration Service and CloudFormation StackSets across the
+  trusted access for MGN and CloudFormation StackSets across the
   organization. AWS Transform calls CloudFormation StackSets APIs with
   `CallAs: SELF`.
 - **Delegated Administrator account**
   – Cannot enable trusted access directly (that must be done from the
-  management account), but can manage Application Migration Service source servers, launch
+  management account), but can manage MGN source servers, launch
   instances, and deploy CloudFormation StackSets across member accounts.
   AWS Transform calls CloudFormation StackSets APIs with
   `CallAs: DELEGATED_ADMIN`.
 
 For more information, see [Delegated administrator
-for Application Migration Service](../../../mgn/latest/ug/mgn-delegated-admin.md "../../../mgn/latest/ug/mgn-delegated-admin.md") in the _Application Migration Service User Guide_.
+for MGN](../../../mgn/latest/ug/mgn-delegated-admin.md "../../../mgn/latest/ug/mgn-delegated-admin.md") in the _MGN User Guide_.
 
 ### IAM roles created during connector setup
 
@@ -190,7 +190,7 @@ request. 6. After the administrator approves the request, select the newly creat
 connector from the list and choose **Use
 connector**. 7. Choose **Send to AWS Transform**.
 
-If you plan to modify the AWS Application Migration Service template to enable post-launch actions,
+If you plan to modify the AWS Transform MGN template to enable post-launch actions,
 add the following permission to the target connector role. This JSON policy
 statement grants the `iam:PassRole` permission for the post-launch
 actions role. You can find the role name in the

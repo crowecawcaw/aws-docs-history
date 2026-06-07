@@ -24,7 +24,7 @@ environment to AWS.
 
 AWS Transform supports migrating Windows and Linux servers of supported operating systems.
 For the full list of supported operating systems, see [Supported operating
-systems](../../../mgn/latest/ug/Supported-Operating-Systems.md "../../../mgn/latest/ug/Supported-Operating-Systems.md") in the _AWS Application Migration Service User
+systems](../../../mgn/latest/ug/Supported-Operating-Systems.md "../../../mgn/latest/ug/Supported-Operating-Systems.md") in the _AWS Transform MGN User
 Guide_.
 
 ## AWS Transform VMware migration architecture
