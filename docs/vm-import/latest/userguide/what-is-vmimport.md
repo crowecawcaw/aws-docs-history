@@ -78,8 +78,8 @@ Consider the following services as you plan your migration to AWS:
   to gather information about your data center, such as server utilization data
   and dependency mappings, so that you can view information about your workloads.
   For more information, see the [Application Discovery Service User Guide](../../../application-discovery/latest/userguide.md "../../../application-discovery/latest/userguide.md").
-- AWS Application Migration Service – If you use VMware vSphere,
-  Microsoft Hyper-V, or Microsoft Azure, you can use Application Migration Service to automate the
+- AWS Transform MGN – If you use VMware vSphere,
+  Microsoft Hyper-V, or Microsoft Azure, you can use MGN to automate the
   migration of your virtual machines to AWS. For more information, see the
-  [Application Migration Service User
+  [MGN User
   Guide](../../../mgn/latest/ug/what-is-application-migration-service.md "../../../mgn/latest/ug/what-is-application-migration-service.md").
