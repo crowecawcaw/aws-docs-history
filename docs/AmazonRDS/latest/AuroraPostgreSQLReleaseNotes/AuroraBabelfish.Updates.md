@@ -66,7 +66,6 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 - Fixed high CPU utilization during concurrent connection establishment for pyODBC connections.
 - Fixed inconsistent index scans for binary/varbinary comparison operators and added cross-type support.
 - Blocked ALTER AUTHORIZATION on database when the new owner is a database role, fixed server role, or sysadmin.
-- Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
 
 **Additional improvements and enhancements**
 
@@ -94,11 +93,21 @@ information about the improvements in Aurora PostgreSQL 17.7, see [Amazon Aurora
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
+#### Aurora Babelfish release 5.4.2, March 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
+
 #### Aurora Babelfish release 5.4.1, January 16, 2026
 
 **Critical stability enhancements**
 
 - Fixed an issue where an `UPDATE` statement with `OUTPUT` clause may skip rows when there are concurrent updates on the same row.
+
+**High Priority stability enhancements**
+
+- Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
 
 #### Aurora Babelfish release 5.4.0, December, 18, 2025
 
@@ -164,6 +173,12 @@ information about the improvements in Aurora PostgreSQL 17.6, see [Amazon Aurora
 5.3 adds several new features, enhancements, and fixes. For more information about
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
+
+#### Aurora Babelfish release 5.3.2, May 07, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
 
 #### Aurora Babelfish release 5.3.1, November 25, 2025
 
@@ -568,6 +583,16 @@ information about the improvements in Aurora PostgreSQL 16.11, see [Amazon Auror
 Babelfish for Aurora PostgreSQL, see [Working with
 Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserGuide/babelfish.md").
 
+#### Aurora Babelfish release 4.8.2, March 20, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
+
+**High Priority stability enhancements**
+
+- Fixed an issue in nested procedure calls that caused temp table cleanup failures and parser errors.
+
 #### Aurora Babelfish release 4.8.1, January 16, 2026
 
 **Critical stability enhancements**
@@ -638,8 +663,15 @@ Babelfish for Aurora PostgreSQL](../AuroraUserGuide/babelfish.md "../AuroraUserG
 
 ###### Releases
 
+- [Aurora Babelfish release 4.7.2, May 07, 2026](#AuroraBabelfish.Updates.472 "#AuroraBabelfish.Updates.472")
 - [Aurora Babelfish release 4.7.1, November 25, 2025](#AuroraBabelfish.Updates.471 "#AuroraBabelfish.Updates.471")
 - [Aurora Babelfish release 4.7.0, November 25, 2025](#AuroraBabelfish.Updates.470 "#AuroraBabelfish.Updates.470")
+
+#### Aurora Babelfish release 4.7.2, May 07, 2026
+
+**Critical stability enhancements**
+
+- Fixed an issue where executing queries from PostgreSQL endpoint in Active Directory Authentication enabled instances may lead to a reboot.
 
 #### Aurora Babelfish release 4.7.1, November 25, 2025
 
