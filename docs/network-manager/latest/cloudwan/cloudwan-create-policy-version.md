@@ -52,6 +52,7 @@ Change set states can be any of the following:
 - [Delete a policy version](cloudwan-policy-version-delete.md "cloudwan-policy-version-delete.md")
 - [Download a core network policy](ccloudwan-policy-version-download.md "ccloudwan-policy-version-download.md")
 - [Restore an out-of-date core network policy version](cloudwan-policy-version-restore.md "cloudwan-policy-version-restore.md")
+- [Regional Scope for Policy Updates](cloudwan-policy-regional-scope.md "cloudwan-policy-regional-scope.md")
 
 ## Core network policy sections
 

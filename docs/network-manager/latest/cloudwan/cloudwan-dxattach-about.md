@@ -65,8 +65,10 @@ For inbound routes,
 - Routes learned in segment route table can be routed across all
   AWS Regions for that segment.
 - Cloud WAN follows the route evaluation order for the same prefixes learned
-  over multiple attachments. See [Route evaluation](cloudwan-create-attachment.md#cloudwan-route-evaluation "cloudwan-create-attachment.md#cloudwan-route-evaluation") for
+  over multiple attachments. See [Route evaluation](cloudwan-route-evaluation.md "cloudwan-route-evaluation.md") for
   more information.
+- Direct Connect gateway will advertise routes from all on-premises locations towards
+  all segment route-tables of the associated core network edges for the attachment.
 
 For outbound routes,
 

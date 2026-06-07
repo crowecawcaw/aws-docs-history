@@ -53,7 +53,7 @@ attachment has been deleted.
     "arn:aws:networkmanager::111122223333:core-network/core-network-abcdef01234567890"
   ],
   "detail": {
-    "changeType": "VPC-ATTACHMENT-DELETED",
+    "changeType": "VPC_ATTACHMENT_DELETED",
     "changeDescription": "A VPC attachment has been deleted from a Core Network.",
     "edgeLocation": "us-east-2",
     "attachmentArn": "arn:aws:networkmanager::111122223333:attachment/attachment-1234567890abcdef0",
@@ -88,7 +88,7 @@ or more segments.
      "arn:aws:networkmanager::111122223333:core-network/core-network-abcdef01234567890"
    ],
    "detail": {
-     "changeType": "SEGMENT-ROUTES-INSTALLED",
+     "changeType": "SEGMENT_ROUTES_INSTALLED",
      "changeDescription": "Routes in one or more Segments have been installed.",
      "region": "us-east-2",
      "segments": [
@@ -149,7 +149,7 @@ has come up.
      "arn:aws:networkmanager::111122223333:core-network/core-network-abcdef01234567890"
    ],
    "detail": {
-     "changeType": "VPN-CONNECTION-IPSEC-UP",
+     "changeType": "VPN_CONNECTION_IPSEC_UP",
      "changeDescription": "IPsec for a VPN connection has come up.",
      "region": "us-west-2",
      "attachmentArn": "arn:aws:networkmanager::111122223333:attachment/attachment-1234567890abcdef0",
@@ -184,7 +184,7 @@ successfully.
      "arn:aws:networkmanager::111122223333:core-network/core-network-abcdef01234567890"
    ],
    "detail": {
-     "changeType": "CHANGE-SET-EXECUTED",
+     "changeType": "CHANGE_SET_EXECUTED",
      "changeDescription": "A change-set has been sucessfully executed for a Core Network policy.",
      "policyVersionId":"1",
      "coreNetworkArn": "arn:aws:networkmanager::111122223333:core-network/core-network-abcdef01234567890"
@@ -218,7 +218,7 @@ a different segment.
      "arn:aws:networkmanager::111122223333:core-network/core-network-abcdef01234567890"
    ],
    "detail": {
-     "changeType": "ATTACHMENT-ASSOCIATION-MODIFIED",
+     "changeType": "ATTACHMENT_ASSOCIATION_MODIFIED",
      "changeDescription": "An attachment has been mapped to a different Segment.",
      "attachmentArn": "arn:aws:networkmanager::111122223333:attachment/attachment-1234567890abcdef0",
      "previousSegmentName": "development",

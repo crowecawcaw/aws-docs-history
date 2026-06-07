@@ -35,6 +35,22 @@ destination Availability Zones when determining the path through an appliance mo
 This approach enhances efficiency and reduces latency. The following are example
 scenarios.
 
+###### Important
+
+_Prerequisites for AZ-aware routing (Scenario 1 and Scenario 3):_
+
+For Cloud WAN to determine the source and destination Availability Zones and route same-AZ traffic within its AZ (Scenarios 1 and 3), spoke VPC attachments must be associated with a segment so their routes are dynamically propagated. Static routes defined in the core network policy do not carry AZ metadata.
+Without propagated routes, all traffic - including same-AZ flows - is routed using a flow hash algorithm (Scenario 2 behavior), which may select any Availability Zone in the appliance VPC regardless of the source or destination AZ.
+_Impact of missing propagation: During a single-AZ impairment of a Gateway Load Balancer endpoint ENI in the appliance VPC, flows from all Availability Zones may be affected, not just flows originating from the impaired AZ. This breaks Availability Zone independence._
+
+###### Note
+
+This AZ-local routing behavior (in Scenario 1 and Scenario 3) requires that the spoke VPC attachments routes are propagated via segment association (not static routes in the core network policy). With static routes, this scenario falls back to flow-hash-based AZ selection (Scenario 2 behavior).
+
+Ensure that spoke VPC attachments are associated with the appropriate segment so their routes are dynamically propagated. Static routes in the core network policy do not provide the AZ metadata required for Scenario 1 and Scenario 3 behavior.
+
+When using Gateway Load Balancer endpoints in the appliance VPC, appliance mode is required regardless of whether the appliance itself is stateful. Gateway Load Balancer requires both directions of a TCP flow to traverse the same endpoint.
+
 ### Scenario 1: Intra-Availability Zone Traffic Routing via Appliance VPC
 
 When traffic flows from source Availability Zone us-east-1a to destination

@@ -14,7 +14,7 @@ Amazon VPC measures and sends its metrics to CloudWatch in 60-second intervals.
 
 For more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
 
-The `AWS/NetworkManager` namespace includes the following metrics. All
+The `AWS/Network Manager` namespace includes the following metrics. All
 metrics are always reported.
 
 | Metric                     | Description                                                                                                                              |
