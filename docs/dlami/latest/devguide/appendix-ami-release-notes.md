@@ -49,7 +49,7 @@ GPU
 
 **AWS Neuron**
 
-- Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-base-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-base-dlami").
+- Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html#neuron-base-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html#neuron-base-dlami").
 
 ## Release Notes for Single Framework DLAMIs
 
@@ -76,7 +76,7 @@ GPU
 
 AWS Neuron
 
-- Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami")
+- Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html#neuron-multi-framework-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html#neuron-multi-framework-dlami")
 
 #### ARM64 PyTorch DLAMI Release Notes
 
@@ -97,7 +97,7 @@ GPU
 
 **AWS Neuron**
 
-- Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami")
+- Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html#neuron-multi-framework-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html#neuron-multi-framework-dlami")
 
 ## Release Notes for Multi-Framework DLAMIs
 
@@ -117,4 +117,4 @@ GPU
 
 **AWS Neuron**
 
-- Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/dlami/index.html#neuron-multi-framework-dlami")
+- Refer to the [Neuron DLAMI User Guide](https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html#neuron-multi-framework-dlami "https://awsdocs-neuron.readthedocs-hosted.com/en/latest/deploy/environments/dlami.html#neuron-multi-framework-dlami")
