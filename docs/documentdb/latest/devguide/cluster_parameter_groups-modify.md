@@ -21,7 +21,7 @@ Follow these steps to modify a custom Amazon DocumentDB parameter group. You can
 ###### Tip
 
 If you don't see the navigation pane on the left side of your screen, choose the menu icon
-(![Menu button.](images/docdb-menu-icon.png))
+(![Menu button.](/images/documentdb/latest/devguide/images/docdb-menu-icon.png))
 in the upper-left corner of the page. 3. For each parameter in the parameter group that you want to modify, do the following:
 
     1. Locate the parameter that you want to modify, and verify that it is modifiable by checking if it is listed as `true` under the **Modifiable** column.

@@ -46,6 +46,8 @@ The following list describes guidelines for scaling your elastic clusters.
 - When anticipating growth, favor increasing the shard count instead scaling the shard capacity.
   This enables you to scale your cluster by increasing the shard capacity for scenarios where you need to quickly scale.
 - Monitor your client-side retry policies and retry with exponential backoff and jitter to avoid overloading your database when getting errors while scaling.
+- Changing the number of shards can take time because data has to be safely moved from one shard to another.
+  To minimize risk of errors, we recommend not stopping or making any other changes to the cluster state while the change is in progress.
 
 ## Monitoring elastic clusters
 
