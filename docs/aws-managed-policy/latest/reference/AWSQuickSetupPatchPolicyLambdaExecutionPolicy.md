@@ -1,24 +1,24 @@
-# AWSSecretsManagerClientReadOnlyAccess
+# AWSQuickSetupPatchPolicyLambdaExecutionPolicy
 
-**Description**: Provides access to retrieve and describe secrets from Secrets Manager. This policy also allows decrypting KMS keys for Secrets Manager secrets.
+**Description**: Grants permissions to manage State Manager associations for automated cleanup operations when Quick Setup configurations are deleted.
 
-`AWSSecretsManagerClientReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AWSQuickSetupPatchPolicyLambdaExecutionPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AWSSecretsManagerClientReadOnlyAccess` to your users, groups, and roles.
+You can attach `AWSQuickSetupPatchPolicyLambdaExecutionPolicy` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: November 05, 2025, 20:04 UTC
-- **Edited time:** June 02, 2026, 20:42 UTC
+- **Creation time**: June 03, 2026, 14:12 UTC
+- **Edited time:** June 03, 2026, 14:12 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess`
+  `arn:aws:iam::aws:policy/AWSQuickSetupPatchPolicyLambdaExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,34 +30,29 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "SecretsManagerGetAndDescribeSecret",
+      "Sid" : "ManageSSMAssociations",
       "Effect" : "Allow",
       "Action" : [
-        "secretsmanager:GetSecretValue",
-        "secretsmanager:DescribeSecret"
+        "ssm:DescribeAssociationExecutions",
+        "ssm:UpdateAssociation",
+        "ssm:DescribeAssociation"
       ],
-      "Resource" : "arn:aws:secretsmanager:*:*:secret:*"
+      "Resource" : [
+        "arn:aws:ssm:*:*:association/*",
+        "arn:aws:ssm:*:*:document/AWSQuickSetup-*",
+        "arn:aws:ssm:*:*:document/AWSQuickSetupType-*"
+      ]
     },
     {
-      "Sid" : "SecretsManagerBatchGetSecrets",
+      "Sid" : "PassQuickSetupAutomationRole",
       "Effect" : "Allow",
       "Action" : [
-        "secretsmanager:BatchGetSecretValue",
-        "secretsmanager:ListSecrets"
+        "iam:PassRole"
       ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "KMSDecryptKey",
-      "Effect" : "Allow",
-      "Action" : [
-        "kms:Decrypt"
-      ],
-      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Resource" : "arn:aws:iam::*:role/AWS-QuickSetup-AutomationRole-*",
       "Condition" : {
-        "StringLike" : {
-          "kms:EncryptionContext:SecretARN" : "arn:aws:secretsmanager:*:*:secret:*",
-          "kms:ViaService" : "secretsmanager.*.amazonaws.com"
+        "StringEquals" : {
+          "iam:PassedToService" : "ssm.amazonaws.com"
         }
       }
     }

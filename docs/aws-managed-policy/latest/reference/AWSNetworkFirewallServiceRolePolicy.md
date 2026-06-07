@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 17, 2020, 17:17 UTC
-- **Edited time:** March 30, 2023, 17:19 UTC
+- **Edited time:** June 01, 2026, 21:57 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSNetworkFirewallServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -86,6 +86,20 @@ request to access an AWS resource, AWS checks the default version of the policy 
           "aws:ResourceTag/AWSNetworkFirewallManaged" : "true"
         }
       }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ecs:ListContainerInstances",
+        "ecs:ListTasks",
+        "ecs:DescribeTasks",
+        "ecs:DescribeContainerInstances"
+      ],
+      "Resource" : [
+        "arn:aws:ecs:*:*:cluster/*",
+        "arn:aws:ecs:*:*:container-instance/*/*",
+        "arn:aws:ecs:*:*:task/*/*"
+      ]
     }
   ]
 }

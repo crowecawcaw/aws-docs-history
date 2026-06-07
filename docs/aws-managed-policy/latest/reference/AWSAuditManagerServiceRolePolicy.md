@@ -13,13 +13,13 @@ your behalf. You cannot attach this policy to your users, groups, or roles.
 
 - **Type**: Service-linked role policy
 - **Creation time**: December 08, 2020, 15:12 UTC
-- **Edited time:** September 24, 2024, 23:22 UTC
+- **Edited time:** June 02, 2026, 20:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSAuditManagerServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v10 (default)
+**Policy version:** v11 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -175,6 +175,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "es:ListDomainNames",
         "organizations:DescribeOrganization",
         "organizations:DescribePolicy",
+        "organizations:DescribeAccount",
         "rds:DescribeCertificates",
         "rds:DescribeDBClusterEndpoints",
         "rds:DescribeDBClusterParameterGroups",
@@ -289,16 +290,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : "arn:aws:events:*:*:rule/AuditManagerSecurityHubFindingsReceiver",
       "Condition" : {
-        "StringEquals" : {
-          "events:detail-type" : "Security Hub Findings - Imported"
-        },
-        "Null" : {
-          "events:source" : "false"
-        },
         "ForAllValues:StringEquals" : {
+          "events:detail-type" : "Security Hub Findings - Imported",
           "events:source" : [
             "aws.securityhub"
           ]
+        },
+        "Null" : {
+          "events:source" : "false",
+          "events:detail-type" : "false"
         }
       }
     },

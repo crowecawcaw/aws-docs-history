@@ -12,13 +12,13 @@ You can attach `AmazonEKSLoadBalancingPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: October 30, 2024, 20:18 UTC
-- **Edited time:** April 27, 2026, 22:12 UTC
+- **Edited time:** June 03, 2026, 22:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AmazonEKSLoadBalancingPolicy`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -145,6 +145,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "elasticloadbalancing:SetIpAddressType",
         "elasticloadbalancing:SetSecurityGroups",
         "elasticloadbalancing:SetSubnets",
+        "elasticloadbalancing:SetRulePriorities",
         "elasticloadbalancing:ModifyTargetGroup",
         "elasticloadbalancing:ModifyTargetGroupAttributes",
         "elasticloadbalancing:ModifyListener",

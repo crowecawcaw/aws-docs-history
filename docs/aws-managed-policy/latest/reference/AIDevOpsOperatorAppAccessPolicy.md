@@ -12,13 +12,13 @@ You can attach `AIDevOpsOperatorAppAccessPolicy` to your users, groups, and role
 
 - **Type**: AWS managed policy
 - **Creation time**: March 26, 2026, 03:42 UTC
-- **Edited time:** May 22, 2026, 00:12 UTC
+- **Edited time:** June 06, 2026, 02:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIDevOpsOperatorAppAccessPolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -33,35 +33,48 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Sid" : "AllowOperatorAgentSpaceActions",
       "Effect" : "Allow",
       "Action" : [
-        "aidevops:GetAgentSpace",
-        "aidevops:GetAssociation",
-        "aidevops:ListAssociations",
+        "aidevops:CreateAsset",
+        "aidevops:CreateAssetFile",
         "aidevops:CreateBacklogTask",
-        "aidevops:GetBacklogTask",
-        "aidevops:UpdateBacklogTask",
-        "aidevops:ListBacklogTasks",
-        "aidevops:ListJournalRecords",
-        "aidevops:DiscoverTopology",
-        "aidevops:ListGoals",
-        "aidevops:UpdateGoal",
-        "aidevops:ListRecommendations",
-        "aidevops:ListExecutions",
-        "aidevops:GetRecommendation",
-        "aidevops:UpdateRecommendation",
+        "aidevops:CreateChat",
         "aidevops:CreateKnowledgeItem",
+        "aidevops:DeleteAsset",
+        "aidevops:DeleteAssetFile",
+        "aidevops:DeleteKnowledgeItem",
+        "aidevops:DescribeServices",
+        "aidevops:DescribeSupportLevel",
+        "aidevops:DiscoverTopology",
+        "aidevops:EndChatForCase",
+        "aidevops:GetAgentSpace",
+        "aidevops:GetAsset",
+        "aidevops:GetAssetContent",
+        "aidevops:GetAssetFile",
+        "aidevops:GetAssociation",
+        "aidevops:GetBacklogTask",
+        "aidevops:GetKnowledgeItem",
+        "aidevops:GetRecommendation",
+        "aidevops:InitiateChatForCase",
+        "aidevops:ListAssetFiles",
+        "aidevops:ListAssets",
+        "aidevops:ListAssetTypes",
+        "aidevops:ListAssetVersions",
+        "aidevops:ListAssociations",
+        "aidevops:ListBacklogTasks",
+        "aidevops:ListChats",
+        "aidevops:ListExecutions",
+        "aidevops:ListGoals",
+        "aidevops:ListJournalRecords",
         "aidevops:ListKnowledgeItems",
         "aidevops:ListKnowledgeItemVersions",
-        "aidevops:GetKnowledgeItem",
-        "aidevops:UpdateKnowledgeItem",
-        "aidevops:DeleteKnowledgeItem",
         "aidevops:ListPendingMessages",
-        "aidevops:InitiateChatForCase",
-        "aidevops:EndChatForCase",
-        "aidevops:DescribeSupportLevel",
-        "aidevops:ListChats",
-        "aidevops:CreateChat",
+        "aidevops:ListRecommendations",
         "aidevops:SendMessage",
-        "aidevops:DescribeServices"
+        "aidevops:UpdateAsset",
+        "aidevops:UpdateAssetFile",
+        "aidevops:UpdateBacklogTask",
+        "aidevops:UpdateGoal",
+        "aidevops:UpdateKnowledgeItem",
+        "aidevops:UpdateRecommendation"
       ],
       "Resource" : "arn:aws:aidevops:*:*:agentspace/${aws:PrincipalTag/AgentSpaceId}",
       "Condition" : {
@@ -105,6 +118,19 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : [
         "secretsmanager:CreateSecret",
         "secretsmanager:ListSecrets"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowTranscribeOperatorActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "transcribe:StartStreamTranscriptionWebSocket"
       ],
       "Resource" : "*",
       "Condition" : {

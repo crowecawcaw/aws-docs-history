@@ -12,13 +12,13 @@ You can attach `SageMakerStudioEMRInstanceRolePolicy` to your users, groups, and
 
 - **Type**: Service role policy
 - **Creation time**: February 27, 2025, 00:22 UTC
-- **Edited time:** February 12, 2026, 17:57 UTC
+- **Edited time:** June 01, 2026, 23:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRInstanceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -53,11 +53,16 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Action" : "s3:GetObject",
       "Resource" : [
         "arn:aws:s3:::default-env-blueprint-*/*",
-        "arn:aws:s3:*:*:accesspoint/env-blueprint-accesspoint*"
+        "arn:aws:s3:::awssmuscompute-blueprint-bucket-*/*",
+        "arn:aws:s3:*:*:accesspoint/env-blueprint-accesspoint*",
+        "arn:aws:s3:*:*:accesspoint/env-partner-blueprint-accesspoint*"
       ],
       "Condition" : {
         "ArnLike" : {
-          "s3:DataAccessPointArn" : "arn:aws:s3:*:*:accesspoint/env-blueprint-accesspoint"
+          "s3:DataAccessPointArn" : [
+            "arn:aws:s3:*:*:accesspoint/env-blueprint-accesspoint",
+            "arn:aws:s3:*:*:accesspoint/env-partner-blueprint-accesspoint"
+          ]
         },
         "StringNotEquals" : {
           "aws:ResourceAccount" : "${aws:PrincipalAccount}"

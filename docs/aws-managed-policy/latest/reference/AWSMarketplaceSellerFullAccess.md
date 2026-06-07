@@ -12,13 +12,13 @@ You can attach `AWSMarketplaceSellerFullAccess` to your users, groups, and roles
 
 - **Type**: AWS managed policy
 - **Creation time**: July 02, 2019, 20:40 UTC
-- **Edited time:** May 07, 2026, 18:27 UTC
+- **Edited time:** June 05, 2026, 18:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess`
 
 ## Policy version
 
-**Policy version:** v29 (default)
+**Policy version:** v30 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -116,7 +116,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
       ],
       "Resource" : [
         "arn:aws:aws-marketplace:*:*:AWSMarketplace*/*",
-        "arn:aws:aws-marketplace:*:*:catalog/AWSMarketplace*/*"
+        "arn:aws:aws-marketplace:*:*:catalog/AWSMarketplace*/*",
+        "arn:aws:aws-marketplace:*:*:verification-type/*/verification-evidence/*"
       ]
     },
     {
@@ -145,6 +146,27 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "invoicing:ListInvoiceSummaries",
         "invoicing:GetInvoicePDF",
         "aws-marketplace:ListIssuedTaxInvoices"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "MarketplaceSellerVerificationEvidenceManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:CreateVerificationEvidence",
+        "aws-marketplace:UpdateVerificationEvidence",
+        "aws-marketplace:GetVerificationEvidence"
+      ],
+      "Resource" : "arn:aws:aws-marketplace:*:*:verification-type/*/verification-evidence/*"
+    },
+    {
+      "Sid" : "MarketplaceSellerVerificationManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "aws-marketplace:ListVerificationEvidence",
+        "aws-marketplace:StartVerification",
+        "aws-marketplace:GetVerification",
+        "aws-marketplace:ListVerifications"
       ],
       "Resource" : "*"
     },

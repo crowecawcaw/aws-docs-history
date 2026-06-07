@@ -12,13 +12,13 @@ You can attach `SageMakerStudioProjectProvisioningRolePolicy` to your users, gro
 
 - **Type**: Service role policy
 - **Creation time**: November 20, 2024, 21:58 UTC
-- **Edited time:** May 07, 2026, 00:27 UTC
+- **Edited time:** June 04, 2026, 21:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/SageMakerStudioProjectProvisioningRolePolicy`
 
 ## Policy version
 
-**Policy version:** v80 (default)
+**Policy version:** v81 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -333,6 +333,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRServiceRolePolicy",
             "arn:aws:iam::aws:policy/service-role/SageMakerStudioEMRInstanceRolePolicy",
             "arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicy_v2",
+            "arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicyForSessions",
             "arn:aws:iam::aws:policy/service-role/AmazonS3TablesLakeFormationServiceRole",
             "arn:aws:iam::aws:policy/AmazonSageMakerPartnerAppsFullAccess",
             "arn:aws:iam::aws:policy/service-role/SageMakerStudioBedrockKnowledgeBaseServiceRolePolicy"
@@ -428,7 +429,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
             "vpcArn",
             "VpcId",
             "CreatedForUseWithSageMakerStudio",
-            "SageMakerStudioQueryExecutionRole"
+            "SageMakerStudioQueryExecutionRole",
+            "SageMakerSpacesDomainId"
           ]
         },
         "Null" : {

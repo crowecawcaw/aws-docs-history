@@ -12,13 +12,13 @@ You can attach `AIDevOpsAgentAccessPolicy` to your users, groups, and roles.
 
 - **Type**: AWS managed policy
 - **Creation time**: March 26, 2026, 03:42 UTC
-- **Edited time:** May 11, 2026, 21:12 UTC
+- **Edited time:** June 06, 2026, 02:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AIDevOpsAgentAccessPolicy`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v6 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -42,7 +42,14 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "acm-pca:List*",
         "acm:DescribeCertificate",
         "acm:GetAccountConfiguration",
+        "aidevops:GetAsset",
+        "aidevops:GetAssetContent",
+        "aidevops:GetAssetFile",
         "aidevops:GetKnowledgeItem",
+        "aidevops:ListAssetFiles",
+        "aidevops:ListAssets",
+        "aidevops:ListAssetTypes",
+        "aidevops:ListAssetVersions",
         "aidevops:ListKnowledgeItems",
         "airflow:List*",
         "amplify:GetApp",
@@ -383,6 +390,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "guardduty:List*",
         "health:DescribeEvents",
         "health:DescribeEventDetails",
+        "health:DescribeAffectedEntities",
         "healthlake:Describe*",
         "healthlake:List*",
         "iam:GetGroup",
@@ -640,6 +648,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "rekognition:Describe*",
         "rekognition:List*",
         "resiliencehub:Describe*",
+        "resiliencehub:Get*",
         "resiliencehub:List*",
         "resource-explorer-2:GetDefaultView",
         "resource-explorer-2:GetIndex",
@@ -731,6 +740,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "securityhub:GetConfigurationPolicyAssociation",
         "securityhub:GetEnabledStandards",
         "securityhub:GetFindingAggregator",
+        "securityhub:GetFindings",
         "securityhub:GetInsights",
         "securityhub:List*",
         "securitylake:GetSubscriber",

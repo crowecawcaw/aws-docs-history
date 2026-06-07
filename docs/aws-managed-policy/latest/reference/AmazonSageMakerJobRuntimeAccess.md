@@ -1,24 +1,24 @@
-# AWSSecretsManagerClientReadOnlyAccess
+# AmazonSageMakerJobRuntimeAccess
 
-**Description**: Provides access to retrieve and describe secrets from Secrets Manager. This policy also allows decrypting KMS keys for Secrets Manager secrets.
+**Description**: Provides permissions for agent runtimes to invoke the Amazon SageMaker job runtime APIs used during model customization for sample generation, trajectory completion, and reward submission.
 
-`AWSSecretsManagerClientReadOnlyAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+`AmazonSageMakerJobRuntimeAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
 
 ## Using this policy
 
-You can attach `AWSSecretsManagerClientReadOnlyAccess` to your users, groups, and roles.
+You can attach `AmazonSageMakerJobRuntimeAccess` to your users, groups, and roles.
 
 ## Policy details
 
 - **Type**: AWS managed policy
-- **Creation time**: November 05, 2025, 20:04 UTC
-- **Edited time:** June 02, 2026, 20:42 UTC
+- **Creation time**: June 03, 2026, 02:42 UTC
+- **Edited time:** June 03, 2026, 02:42 UTC
 - **ARN**:
-  `arn:aws:iam::aws:policy/AWSSecretsManagerClientReadOnlyAccess`
+  `arn:aws:iam::aws:policy/AmazonSageMakerJobRuntimeAccess`
 
 ## Policy version
 
-**Policy version:** v4 (default)
+**Policy version:** v1 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -30,34 +30,31 @@ request to access an AWS resource, AWS checks the default version of the policy 
   "Version" : "2012-10-17",
   "Statement" : [
     {
-      "Sid" : "SecretsManagerGetAndDescribeSecret",
+      "Sid" : "SageMakerJobRuntimePermissions",
       "Effect" : "Allow",
       "Action" : [
-        "secretsmanager:GetSecretValue",
-        "secretsmanager:DescribeSecret"
+        "sagemaker:Sample",
+        "sagemaker:SampleWithResponseStream",
+        "sagemaker:CompleteRollout",
+        "sagemaker:UpdateReward"
       ],
-      "Resource" : "arn:aws:secretsmanager:*:*:secret:*"
-    },
-    {
-      "Sid" : "SecretsManagerBatchGetSecrets",
-      "Effect" : "Allow",
-      "Action" : [
-        "secretsmanager:BatchGetSecretValue",
-        "secretsmanager:ListSecrets"
-      ],
-      "Resource" : "*"
-    },
-    {
-      "Sid" : "KMSDecryptKey",
-      "Effect" : "Allow",
-      "Action" : [
-        "kms:Decrypt"
-      ],
-      "Resource" : "arn:aws:kms:*:*:key/*",
+      "Resource" : "arn:aws:sagemaker:*:*:job/*",
       "Condition" : {
-        "StringLike" : {
-          "kms:EncryptionContext:SecretARN" : "arn:aws:secretsmanager:*:*:secret:*",
-          "kms:ViaService" : "secretsmanager.*.amazonaws.com"
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "BearerTokenPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "sagemaker:CallWithBearerToken"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
         }
       }
     }

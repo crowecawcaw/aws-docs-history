@@ -12,13 +12,13 @@ You can attach `AWSApplicationMigrationReplicationServerPolicy` to your users, g
 
 - **Type**: Service role policy
 - **Creation time**: April 07, 2021, 07:21 UTC
-- **Edited time:** April 07, 2021, 07:21 UTC
+- **Edited time:** May 31, 2026, 13:27 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/service-role/AWSApplicationMigrationReplicationServerPolicy`
 
 ## Policy version
 
-**Policy version:** v1 (default)
+**Policy version:** v2 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -45,7 +45,8 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "mgn:UpdateAgentReplicationProcessStateForMgn",
         "mgn:NotifyAgentReplicationProgressForMgn",
         "mgn:NotifyAgentConnectedForMgn",
-        "mgn:NotifyAgentDisconnectedForMgn"
+        "mgn:NotifyAgentDisconnectedForMgn",
+        "mgn:StartSnapshotGroupForMgn"
       ],
       "Resource" : "*"
     },

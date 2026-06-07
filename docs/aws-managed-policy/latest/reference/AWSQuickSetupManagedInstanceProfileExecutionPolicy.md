@@ -12,13 +12,13 @@ You can attach `AWSQuickSetupManagedInstanceProfileExecutionPolicy` to your user
 
 - **Type**: AWS managed policy
 - **Creation time**: November 15, 2024, 21:51 UTC
-- **Edited time:** February 12, 2026, 18:01 UTC
+- **Edited time:** June 03, 2026, 14:12 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSQuickSetupManagedInstanceProfileExecutionPolicy`
 
 ## Policy version
 
-**Policy version:** v7 (default)
+**Policy version:** v8 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -82,14 +82,15 @@ request to access an AWS resource, AWS checks the default version of the policy 
       }
     },
     {
-      "Sid" : "DefaultInstanceRolePassToEC2Permissions",
+      "Sid" : "DefaultInstanceRolePassToEC2AndSSMPermissions",
       "Effect" : "Allow",
       "Action" : "iam:PassRole",
       "Resource" : "arn:aws:iam::*:role/AmazonSSMRoleForInstancesQuickSetup",
       "Condition" : {
         "StringEquals" : {
           "iam:PassedToService" : [
-            "ec2.amazonaws.com"
+            "ec2.amazonaws.com",
+            "ssm.amazonaws.com"
           ]
         }
       }
@@ -119,6 +120,35 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:DescribeInstances"
       ],
       "Resource" : "*"
+    },
+    {
+      "Sid" : "SSMInstanceManagement",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:DescribeInstanceInformation",
+        "ssm:UpdateManagedInstanceRole"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "TagRoles",
+      "Effect" : "Allow",
+      "Action" : "iam:TagRole",
+      "Resource" : "arn:aws:iam::*:role/*",
+      "Condition" : {
+        "ForAllValues:StringLike" : {
+          "aws:TagKeys" : "QSConfigId-*"
+        }
+      }
+    },
+    {
+      "Sid" : "DenyModifyQuickSetupAutomationRoles",
+      "Effect" : "Deny",
+      "Action" : [
+        "iam:TagRole",
+        "iam:AttachRolePolicy"
+      ],
+      "Resource" : "arn:aws:iam::*:role/AWS-QuickSetup-AutomationRole-*"
     },
     {
       "Sid" : "AutomationsStartWithTagPermissions",
