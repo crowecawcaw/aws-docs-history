@@ -62,6 +62,22 @@ you can configure a custom IP set match rule that uses forwarded IP addresses to
 detect and allow your verified bots. You can use the rule to customize your bot
 management in a number of ways. For information and examples, see [AWS WAF Bot Control](waf-bot-control.md "waf-bot-control.md").
 
+###### Detecting client IP behind supported CDNs
+
+For requests that arrive at AWS WAF through a third-party CDN, the
+Bot Control managed rule group and the Anti-DDoS managed rule group
+automatically recognize traffic that originates from the IP ranges of
+Amazon CloudFront, Cloudflare, and Fastly. When the rule groups detect a request from
+one of these CDNs, they transparently use the originating client IP
+from the upstream CDN's standard client IP header
+(for example, the `Fastly-Client-IP` header for Fastly).
+You don't need to configure forwarded IP addresses on these rule groups
+for these CDNs to work correctly. For other rule statements that use
+IP addresses, such as your custom IP set match, geo match, ASN match,
+and rate-based rules, you still need to specify a forwarded IP
+configuration if you want them to evaluate the upstream client IP
+instead of the CDN's IP.
+
 ###### General considerations for using forwarded IP addresses
 
 Before you use a forwarded IP address, note the following general caveats:

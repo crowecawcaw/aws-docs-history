@@ -48,3 +48,36 @@ When you create or edit a protection pack (web ACL), you can modify the body ins
 resource association configuration. For the API, see the protection pack (web ACL)'s association configuration at [AssociationConfig](../APIReference/API_AssociationConfig.md "../APIReference/API_AssociationConfig.md"). For the console, see the configuration on the page
 where you specify the protection pack (web ACL)'s associated resources. For guidance on the console
 configuration, see [Viewing web traffic metrics in AWS WAF](web-acl-working-with.md "web-acl-working-with.md").
+
+## AWS WAF inspection controls for HTTP/2 traffic on Application Load Balancer
+
+You can configure how AWS WAF inspects HTTP/2 request bodies on your (Application Load Balancer)
+when routing to HTTP/2 targets. Adjusting the inspection timing allows you to balance
+security coverage with your application's communication patterns.
+
+To modify this setting, edit your target group attributes for the HTTP/2 target.
+You can find this setting in the Application Load Balancer target group console under **WAF HTTP/2
+traffic inspection behavior**. For more information, see [ALB
+documentation](../../../elasticloadbalancing/latest/application/waf-http2-inspection.md "../../../elasticloadbalancing/latest/application/waf-http2-inspection.md").
+
+The attributes for **WAF HTTP/2 traffic inspection behavior** are:
+
+**Inspect immediately** (default)
+
+AWS WAF inspects each HTTP/2 request immediately using the available request
+data.
+
+Choose this option for bidirectional streaming applications where clients
+expect server responses before completing their request transmission. This
+prevents timeouts in applications that require real-time bidirectional
+communication.
+
+**Inspect after sufficient data**
+
+AWS WAF inspection begins only after receiving sufficient HTTP/2 data frames
+from the client, ensuring complete request inspection for enhanced
+security.
+
+Choose this option for standard request-response applications where clients
+send all request data before expecting a server response. This is the
+recommended setting for most use cases.

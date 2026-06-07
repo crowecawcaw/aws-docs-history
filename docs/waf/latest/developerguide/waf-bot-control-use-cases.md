@@ -280,3 +280,24 @@ but does not block any traffic. Review the labels in your AWS WAF logs to unders
 what Bot Control detects in your traffic, verify that legitimate traffic is not being
 mislabeled, and then switch to block mode once you are confident in the detection
 accuracy. For detailed guidance on testing and deployment, see [Testing and deploying AWS WAF Bot Control](waf-bot-control-deploying.md "waf-bot-control-deploying.md").
+
+###### Deploying behind a CDN or reverse proxy
+
+If your application sits behind a third-party CDN, by default AWS WAF sees the
+CDN's IP address as the client. The Bot Control managed rule group recognizes
+traffic from Amazon CloudFront, Cloudflare, and Fastly automatically and uses the
+originating client IP from the CDN's standard client IP header instead.
+Both the common protection level and the targeted protection level use this
+detection, including session-level rate limiting and the targeted bot
+detection rules that depend on accurate client identity. You don't need
+additional forwarded IP configuration on the Bot Control rule group for these
+CDNs. For other rule statements in your protection pack (web ACL) that use
+IP addresses, such as your custom IP set match, geo match, ASN match, and
+rate-based rules, configure them with a forwarded IP configuration if you
+want them to evaluate the upstream client IP. For information about
+forwarded IP addresses, see [Using forwarded IP addresses in AWS WAF](waf-rule-statement-forwarded-ip-address.md "waf-rule-statement-forwarded-ip-address.md"). If your
+application is behind a different reverse proxy or a CDN that Bot Control
+doesn't recognize automatically, configure your reverse proxy to forward
+the client IP in a header such as `X-Forwarded-For` and use a
+forwarded IP configuration on the rule statements that evaluate IP
+addresses.
