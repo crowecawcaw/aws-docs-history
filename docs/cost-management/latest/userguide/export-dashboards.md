@@ -23,7 +23,7 @@ dashboard PDF reports to stakeholders.
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, choose **Dashboards**.
-3. Open the dashboard you want to export by clicking the dashboard name.
+3. Open the dashboard you want to export by choosing the dashboard name.
 4. Locate the widget you want to export.
 5. Open the widget menu (three dots) and select **Export** then **PDF**.
 6. Wait for PDF preview to load, verify the layout and choose **Export PDF**.
@@ -49,7 +49,7 @@ When exporting a dashboard that contains AWS Budgets report widgets, the PDF inc
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, choose **Dashboards**.
-3. Open the dashboard you want to export by clicking the dashboard name.
+3. Open the dashboard you want to export by choosing the dashboard name.
 4. Locate the widget you want to export.
 5. Open the widget menu (three dots) and select **Export** then **CSV**.
 6. The CSV file will be downloaded to your device.
