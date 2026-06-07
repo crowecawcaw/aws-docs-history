@@ -298,7 +298,7 @@ at the login screen), launch the client with the
 Logs are saved to
 `~/Library/Application Support/Wickr, LLC/Wickr Pro/logs/`.
 
-- **Windows:** Right-click the
+- **Windows:** Open the context menu for the
   AWS Wickr shortcut, choose **Properties**,
   then the **Shortcut** tab. Append
   `-logging` to the **Target** path
