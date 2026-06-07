@@ -26,7 +26,7 @@ then choose **Browse attachments** from the
 **Actions** menu. When you browse at the step or task level, the
 browser shows only the output files that the step or task produced.
 
-You can also open the context (right-click) menu on a job, step, or task and
+You can also open the context menu on a job, step, or task and
 choose **Browse attachments**.
 
 ## Navigating and filtering files

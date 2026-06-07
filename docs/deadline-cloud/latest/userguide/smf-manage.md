@@ -18,24 +18,24 @@ instances are priced by the second, have no long-term commitment, and will not b
 interrupted. Wait-and-save provides delayed job scheduling for reduced cost
 and can be interrupted by on-demand and spot requests.
 
-1. From the [Deadline Cloud
-   console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"), navigate to the farm you want to create the fleet in.
-2. Select the **Fleets** tab, and then choose **Create fleet**.
-3. Enter a **Name** for your fleet.
-4. (Optional) Enter a **Description**. A clear description can
-   help you quickly identify your fleet's purpose.
-5. Select **Service-managed** fleet type.
-6. Choose the **Spot**, **On-demand**, or
-   **Wait and Save** instance market option for your fleet.
-   By default, fleets use the Spot option.
-7. For service access for your fleet, select an existing role or create a new
-   role. A service role provides credentials to instances in the fleet, granting
-   them permission to process jobs, and to users in the monitor so that they can
-   read log information.
-8. Choose **Next**.
-9. Choose between CPU only instances or GPU accelerated instances. GPU
-   accelerated instances may be able to process your jobs faster, but can be more
-   expensive.
+1.  From the [Deadline Cloud
+    console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"), navigate to the farm you want to create the fleet in.
+2.  Select the **Fleets** tab, and then choose **Create fleet**.
+3.  Enter a **Name** for your fleet.
+4.  (Optional) Enter a **Description**. A clear description can
+    help you quickly identify your fleet's purpose.
+5.  Select **Service-managed** fleet type.
+6.  Choose the **Spot**, **On-demand**, or
+    **Wait and Save** instance market option for your fleet.
+    By default, fleets use the Spot option.
+7.  For service access for your fleet, select an existing role or create a new
+    role. A service role provides credentials to instances in the fleet, granting
+    them permission to process jobs, and to users in the monitor so that they can
+    read log information.
+8.  Choose **Next**.
+9.  Choose between CPU only instances or GPU accelerated instances. GPU
+    accelerated instances may be able to process your jobs faster, but can be more
+    expensive.
 10. Select the operating system for your workers. You can leave the default,
     **Linux** or choose **Windows**.
 11. (Optional) If you selected GPU accelerated instances, set the maximum and
@@ -52,23 +52,39 @@ and can be interrupted by on-demand and spot requests.
     capacity is available for the jobs in the queue. We recommend that you leave the
     minimum number of instances at `0` to ensure the fleet
     releases all instances when no jobs are queued.
-16. (Optional) You can specify the size of the Amazon Elastic Block Store (Amazon EBS) gp3 volume that
-    will be attached to the workers in this fleet. For more information, see the
-    [EBS user guide](../../../ebs/latest/userguide/general-purpose.md#gp3-ebs-volume-type "../../../ebs/latest/userguide/general-purpose.md#gp3-ebs-volume-type").
-17. Choose **Next**.
-18. (Optional) Define custom worker capabilities that define features of this
+16. Choose **Next**.
+17. Under **Storage capabilities**, choose a
+    **Storage mode** for your fleet:
+
+        * **Persistent storage** (Recommended) –
+         Preserves cached data across worker lifecycle events, eliminating
+         cold-start delays by maintaining application caches, packages, and
+         workspaces. Additional Amazon Elastic Block Store
+         (Amazon EBS) storage charges apply.
+        * **Root storage only** – Does not cache data
+         across worker lifecycle events. Best for jobs with minimal dependencies
+         or fast startup times.
+
+    Configure the **Root storage** settings (Size, IOPS, and
+    Throughput) for the boot volume. If you chose **Persistent
+    storage**, also configure the persistent volume settings (Size,
+    Mount path, Throughput, Max idle time, and IOPS). For more information about
+    persistent storage, see [Persistent storage for service-managed fleets](volumes.md "volumes.md").
+
+18. Choose **Next**.
+19. (Optional) Define custom worker capabilities that define features of this
     fleet that can be combined with custom host capabilities specified on job
     submissions. One example is a particular license type if you plan to connect
     your fleet to your own license server.
-19. Choose **Next**.
-20. (Optional) To associate your fleet with a queue, select a
+20. Choose **Next**.
+21. (Optional) To associate your fleet with a queue, select a
     **queue** from the dropdown. If the queue is set up with
     the default conda queue environment, your fleet is automatically
     provided with packages that support partner DCC applications and renderers. For
     a list of provided packages, see [Default conda queue environment](create-queue-environment.md#conda-queue-environment "create-queue-environment.md#conda-queue-environment").
-21. Choose **Next**.
-22. (Optional) To add a tag to your fleet, choose **Add new
+22. Choose **Next**.
+23. (Optional) To add a tag to your fleet, choose **Add new
     tag**, and then enter the **key** and
     **value** for that tag.
-23. Choose **Next**.
-24. Review your fleet settings, and then choose **Create fleet**.
+24. Choose **Next**.
+25. Review your fleet settings, and then choose **Create fleet**.

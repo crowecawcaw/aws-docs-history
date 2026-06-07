@@ -210,6 +210,8 @@ Settings specific to your Cinema 4D render:
 - **Save Cinema 4D Project with Assets** - Prevents missing file errors during rendering by creating a temporary copy of your project with all assets and fixing file paths before submission. Uses more disk space and submission time.
 - **Use cached text during render** - Prevents incorrect or missing text by re-animating the text on the worker using the cached fonts for each frame. Will increase rendering time.
 - **Tile Rendering** - Split each frame into a grid of tiles that render in parallel across multiple workers, then automatically assemble into the final image. Configure the number of columns and rows (1-99 each, default 2x2). See [Tile rendering](#cinema-4d-tile-rendering "#cinema-4d-tile-rendering") below for details.
+- **Frames per chunk** – Number of frames to group into each chunk (1-150). Use 1 for one frame per task (default). Higher values reduce per-task overhead. When you set Target chunk duration, this value serves only as the initial chunk size. For more information, see [Task chunking for job templates](../developerguide/build-job-bundle-chunking.md "../developerguide/build-job-bundle-chunking.md").
+- **Target chunk duration** – Target render time per chunk in seconds. Deadline Cloud automatically adjusts how many frames to group together to reach this target. To always use the fixed frames-per-chunk value, set this to 0.
 
 ![Job-specific settings in the Cinema 4D submitter.](images/cinema-4d-job-specific-settings.png)
 

@@ -1,9 +1,13 @@
 # File storage for Deadline Cloud
 
 Workers must have access to the storage locations that contain the input files necessary to
-process a job, and to the locations that store the output. AWS Deadline Cloud provides two options for
-storage locations:
+process a job, and to the locations that store the output. AWS Deadline Cloud provides the following
+options for storage:
 
+- With _persistent storage_, service-managed fleet workers use dedicated
+  Amazon Elastic Block Store (Amazon EBS) volumes that preserve data across worker lifecycle events. Application
+  caches, conda package installations, and workspaces persist when workers are recycled,
+  eliminating cold-start delays. For more information, see [Persistent storage for service-managed fleets](volumes.md "volumes.md").
 - With _job attachments_, Deadline Cloud transfers the input and output files for
   your jobs back and forth between a workstation and Deadline Cloud workers. To enable the file transfers,
   Deadline Cloud uses an Amazon Simple Storage Service (Amazon S3) bucket in your AWS account.
