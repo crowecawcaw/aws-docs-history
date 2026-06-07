@@ -32,7 +32,7 @@ for issues with your WorkSpaces clients, contact AWS Support. For more informati
 
 ###### To access log files in Google Chrome, Microsoft Edge, and Firefox
 
-1. Open the context (right-click) menu on the browsers or press **Ctrl**+**Shift**+**I**
+1. Open the context menu on the browsers or press **Ctrl**+**Shift**+**I**
    (or for Mac, **command**+**option**+**I**) on your keyboard to open the developer tools panel.
 2. In the developer tools panel, choose the **Console** tab to find the log files.
 

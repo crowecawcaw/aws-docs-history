@@ -375,7 +375,7 @@ and keys) might be manufacturer-specific. Additional tools that you can use to w
 
 ###### To enable debug logging
 
-- Add `debug_level = `LEVEL``line in`/etc/sssd/sssd.conf`for each individual section, where`LEVEL`is the desired verbosity level, from 1 to 10. The logs for each corresponding section can then be found in`/var/log/sssd/` directory. See SSSD documentation [here](https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs "https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs") and [here](https://sssd.io/troubleshooting/basics.html#sssd-debug-logs "https://sssd.io/troubleshooting/basics.html#sssd-debug-logs") for more details.
+- Add `debug_level = `LEVEL``line in`/etc/sssd/sssd.conf`for each individual section, where`LEVEL`is the desired verbosity level, from 1 to 10. The logs for each corresponding section can then be found in`/var/log/sssd/` directory. For more details, see [SSSD Troubleshooting](https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs "https://docs.pagure.org/sssd.sssd/users/troubleshooting.html#sssd-debug-logs") and [SSSD Debug Logs](https://sssd.io/troubleshooting/basics.html#sssd-debug-logs "https://sssd.io/troubleshooting/basics.html#sssd-debug-logs") in the SSSD documentation.
 
 ## Enable smart cards for Amazon Linux 2 WorkSpaces (deprecated)
 
