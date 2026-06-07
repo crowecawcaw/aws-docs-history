@@ -12,7 +12,6 @@ current ACM customers.
 - [Certificate pinning](#best-practices-pinning "#best-practices-pinning")
 - [Domain validation](#best-practices-validating "#best-practices-validating")
 - [Adding or deleting domain names](#best-practices-add-delete "#best-practices-add-delete")
-- [Opting out of certificate transparency logging](#best-practices-transparency "#best-practices-transparency")
 - [Turn on AWS CloudTrail](#best-practices-ct "#best-practices-ct")
 
 ## Account-level separation
@@ -158,77 +157,6 @@ later queries the database to determine whether the record has been added. Addin
 the record asserts that you own or control the domain. In the preceding example, if
 you request a certificate with five domain names, you must create five DNS records.
 We recommend that you use DNS validation when possible.
-
-## Opting out of certificate transparency logging
-
-###### Important
-
-Regardless of the actions you take to opt out of certificate transparency
-logging, your certificate might still be logged by any client or individual that
-has access to the public or private endpoint to which you bind the certificate.
-However, the certificate won't contain a signed certificate time stamp (SCT).
-Only the issuing CA can embed an SCT in a certificate.
-
-As of April 30 2018, Google Chrome no longer trusts public SSL/TLS certificates
-that are not recorded in a certificate transparency log. Therefore, beginning April
-24 2018, the Amazon CA began publishing all new certificates and renewals to at
-least two public logs. Once a certificate has been logged, it cannot be removed. For
-more information, see [Certificate Transparency Logging](acm-concepts.md#concept-transparency "acm-concepts.md#concept-transparency").
-
-Logging is performed automatically when you request a certificate or when a
-certificate is renewed, but you can choose to opt out. Common reasons for doing so
-include concerns about security and privacy. For example, logging internal host
-domain names gives potential attackers information about internal networks that
-would otherwise not be public. In addition, logging could leak the names of new or
-unreleased products and websites.
-
-To opt out of transparency logging when you are requesting a certificate, use the
-`options` parameter of the [request-certificate](../../../cli/latest/reference/acm/request-certificate.md "../../../cli/latest/reference/acm/request-certificate.md")
-AWS CLI command or the [RequestCertificate](../APIReference/API_RequestCertificate.md "../APIReference/API_RequestCertificate.md") API operation. If your certificate was issued before
-April 24, 2018, and you want to make sure that it is not logged during renewal, you
-can use the [update-certificate-options](../../../cli/latest/reference/acm/update-certificate-options.md "../../../cli/latest/reference/acm/update-certificate-options.md") command or the [UpdateCertificateOptions](../APIReference/API_UpdateCertificateOptions.md "../APIReference/API_UpdateCertificateOptions.md") API operation to opt out.
-
-###### Limitations
-
-- You cannot use the console to enable or disable transparency logging.
-- You cannot change logging status after a certificate enters its renewal
-  period, typically 45 days before certificate expiry for public certificates. No error message is
-  generated if a status change fails.
-
-Once a certificate has been logged, it cannot be removed from the log. Opting out
-at that point will have no effect. If you opt out of logging when you request a
-certificate and then choose later to opt back in, your certificate will not be
-logged until it is renewed. If you want the certificate to be logged immediately, we
-recommend that you issue a new one.
-
-The following example shows you how to use the [request-certificate](../../../cli/latest/reference/acm/request-certificate.md "../../../cli/latest/reference/acm/request-certificate.md")
-command to disable certificate transparency when you request a new certificate.
-
-```
-aws acm request-certificate \
---domain-name `www.example.com` \
---validation-method DNS \
---options CertificateTransparencyLoggingPreference=DISABLED \
-```
-
-The preceding command outputs the ARN of your new certificate.
-
-```
-{
-    "CertificateArn": "arn:aws:acm:`region`:`account`:certificate/`certificate_ID`"
-}
-```
-
-If you already have a certificate, and you don't want it to be logged when it is
-renewed, use the [update-certificate-options](../../../cli/latest/reference/acm/update-certificate-options.md "../../../cli/latest/reference/acm/update-certificate-options.md") command. This command does not return a
-value.
-
-```
-aws acm update-certificate-options \
---certificate-arn arn:aws:acm:`region`:`account`:\
-certificate/`certificate_ID` \
---options CertificateTransparencyLoggingPreference=DISABLED
-```
 
 ## Turn on AWS CloudTrail
 

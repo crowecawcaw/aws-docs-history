@@ -143,8 +143,14 @@ aws acm request-certificate \
 --key-algorithm EC_Prime256v1 \
 --validation-method DNS \
 --idempotency-token 1234 \
---options CertificateTransparencyLoggingPreference=DISABLED,Export=ENABLED
+--options Export=ENABLED
 ```
+
+###### Note
+
+The `CertificateTransparencyLoggingPreference` option is
+deprecated. All public ACM certificates are automatically recorded in
+certificate transparency logs.
 
 This command outputs the Amazon Resource Name (ARN) of your new public
 certificate.

@@ -211,9 +211,9 @@ included with other X.509 extensions.
 
 ```
 
-Certificate transparency logging is automatic when you request or renew a
-certificate unless you choose to opt out. For more information about opt out, see
-[Opting out of certificate transparency logging](acm-bestpractices.md#best-practices-transparency "acm-bestpractices.md#best-practices-transparency").
+All public certificates issued by ACM are automatically recorded in
+certificate transparency logs. Per browser policy requirements, you cannot opt out of certificate transparency
+logging.
 
 ## Domain Name System
 
