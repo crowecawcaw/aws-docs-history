@@ -79,7 +79,7 @@ You can replace the example values with a value greater than zero.
     ```
 
 4. Create one of the following types of node groups with at least one Amazon EC2 Nitro Amazon Linux 2023 instance type. For a list of Nitro instance types, see [Instances built on the Nitro System](../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/UserGuide/instance-types.md#ec2-nitro-instances") in the Amazon EC2 User Guide. This capability is not supported on Windows. For the options that include `110`, replace it with either the value from step 3 (recommended), or your own value.
-   - **Self-managed** – Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md"). Before creating the CloudFormation stack, open the template file and adjust the `UserData` in the `NodeLaunchTemplate` to be like the following
+   - **Self-managed** – Deploy the node group using the instructions in [Create self-managed Amazon Linux nodes](launch-workers.md "launch-workers.md"). Before creating the CloudFormation stack, open the template file and adjust the `UserData` in the `NodeLaunchTemplate` to be like the following.
 
    ```
    ...

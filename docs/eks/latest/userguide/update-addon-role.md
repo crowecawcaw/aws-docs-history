@@ -12,7 +12,7 @@ Certain Amazon EKS add-ons need IAM roles and permissions. Before you update an 
    - `service-account-name` – The name of the Kubernetes Service Account used by the add-on.
    - `iam-role-arn` – The ARN of an IAM role with sufficient permissions for the add-on. The role must have the required trust policy for EKS Pod Identity. For more information see [Create a Pod Identity association (AWS Console)](pod-id-association.md#pod-id-association-create "pod-id-association.md#pod-id-association-create").
 
-2. Update the add-on using the AWS CLI. You can also specify Pod Identity associations when creating an add-on, using the same `--pod-identity-assocations` syntax. Note that when you specify pod identity associations while updating an add-on, all previous pod identity associations are overwritten.
+2. Update the add-on using the AWS CLI. You can also specify Pod Identity associations when creating an add-on, using the same `--pod-identity-associations` syntax. Note that when you specify pod identity associations while updating an add-on, all previous pod identity associations are overwritten.
 
 ```
 aws eks update-addon --cluster-name <cluster-name> \

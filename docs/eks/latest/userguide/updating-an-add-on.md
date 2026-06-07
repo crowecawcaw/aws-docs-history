@@ -138,10 +138,10 @@ An example output is as follows.
 v1.10.4-eksbuild.1
 ```
 
-4. Determine which versions of the add-on are available for your cluster’s version. Replace `1.35` with your cluster’s version and `vpc-cni` with the name of the add-on that you want to update.
+4. Determine which versions of the add-on are available for your cluster’s version. Replace `1.36` with your cluster’s version and `vpc-cni` with the name of the add-on that you want to update.
 
 ```
-aws eks describe-addon-versions --kubernetes-version 1.35 --addon-name vpc-cni \
+aws eks describe-addon-versions --kubernetes-version 1.36 --addon-name vpc-cni \
     --query 'addons[].addonVersions[].{Version: addonVersion, Defaultversion: compatibilities[0].defaultVersion}' --output table
 ```
 

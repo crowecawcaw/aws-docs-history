@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Troubleshooting Kubernetes network policies for Amazon EKS
 
-This is the troubleshooting guide for network policy feature of the Amazon VPC CNI.
+This is the troubleshooting guide for the network policy feature of the Amazon VPC CNI.
 
 This guide covers:
 

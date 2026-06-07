@@ -436,10 +436,10 @@ AWSBackupFullAccessPolicyForRestore
 
 This policy grants the permissions necessary for AWS Backup to manage and restore backups of the EKS Cluster. This policy includes the following permissions:
 
-| Kubernetes API groups       | Kubernetes resources    | Kubernetes verbs (permissions) |
-| --------------------------- | ----------------------- | ------------------------------ |
-| `*`                         | `*`                     | `list`, `get`, `create`        |
-| `rbac.authorization.k8s.io` | `roles`, `clusterroles` | `create`, `update`, `escalate` |
+| Kubernetes API groups       | Kubernetes resources    | Kubernetes verbs (permissions)         |
+| --------------------------- | ----------------------- | -------------------------------------- |
+| `*`                         | `*`                     | `list`, `get`, `create`                |
+| `rbac.authorization.k8s.io` | `roles`, `clusterroles` | `create`, `update`, `escalate`, `bind` |
 
 ## AmazonEKSACKPolicy
 

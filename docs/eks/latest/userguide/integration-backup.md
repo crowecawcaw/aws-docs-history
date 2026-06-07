@@ -2,7 +2,7 @@
 
 To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
 
-# Backup your EKS Clusters with AWS Backup
+# Back up your EKS Clusters with AWS Backup
 
 AWS Backup supports backups of Amazon EKS clusters, including Kubernetes cluster state and persistent storage attached to the EKS cluster via a persistent volume claim (EBS volumes, EFS file systems, and S3 buckets).
 An Amazon EKS backup will create a composite recovery point, where a child recovery point will be for each resource backed up.

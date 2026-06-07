@@ -24,7 +24,7 @@ If your add-ons are encountering errors while attempting AWS API, SDK, or CLI op
   ```
 
 - The IAM role has the necessary permissions for the add-on.
-  - Use AWS CloudTrail to review `AccessDenied` or `UnauthorizedOperation` events .
+  - Use AWS CloudTrail to review `AccessDenied` or `UnauthorizedOperation` events.
 
 - The service account name in the pod identity association matches the service account name used by the add-on.
   - For information about the available add-ons, see [AWS add-ons](workloads-add-ons-available-eks.md "workloads-add-ons-available-eks.md").

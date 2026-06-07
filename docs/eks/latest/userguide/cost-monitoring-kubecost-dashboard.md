@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ## Prerequisites
 
-1. Make sure the kubecost related Pods' state are "Running".
+1. Make sure the kubecost related Pods' states are "Running".
 
 ```
 kubectl get pods --namespace kubecost

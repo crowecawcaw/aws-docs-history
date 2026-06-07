@@ -79,13 +79,13 @@ You can create a cluster by using:
 2. Create an Amazon EKS `IPv4` cluster with the Amazon EKS default Kubernetes version in your default AWS Region. Before running the command, make the following replacements:
 3. Replace `region-code` with the AWS Region that you want to create your cluster in.
 4. Replace `my-cluster` with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
-5. Replace `1.35` with any [Amazon EKS supported version](kubernetes-versions.md "kubernetes-versions.md").
+5. Replace `1.36` with any [Amazon EKS supported version](kubernetes-versions.md "kubernetes-versions.md").
 6. Change the values for `vpc-private-subnets` to meet your requirements. You can also add additional IDs. You must specify at least two subnet IDs. If you’d rather specify public subnets, you can change `--vpc-private-subnets` to `--vpc-public-subnets`. Public subnets have an associated route table with a route to an internet gateway, but private subnets don’t have an associated route table. We recommend using private subnets whenever possible.
 
 The subnets that you choose must meet the [Amazon EKS subnet requirements](network-reqs.md#network-requirements-subnets "network-reqs.md#network-requirements-subnets"). Before selecting subnets, we recommend that you’re familiar with all of the [Amazon EKS VPC and subnet requirements and considerations](network-reqs.md "network-reqs.md"). 7. Run the following command:
 
 ```
-eksctl create cluster --name my-cluster --region region-code --version 1.35 --vpc-private-subnets subnet-ExampleID1,subnet-ExampleID2 --without-nodegroup
+eksctl create cluster --name my-cluster --region region-code --version 1.36 --vpc-private-subnets subnet-ExampleID1,subnet-ExampleID2 --without-nodegroup
 ```
 
 Cluster provisioning takes several minutes. While the cluster is being created, several lines of output appear. The last line of output is similar to the following example line.
@@ -217,7 +217,7 @@ Cluster provisioning takes several minutes. 12. Continue with [Step 3: Update ku
 
         * Replace `region-code` with the AWS Region that you want to create your cluster in.
         * Replace `my-cluster` with a name for your cluster. The name can contain only alphanumeric characters (case-sensitive), hyphens, and underscores. It must start with an alphanumeric character and can’t be longer than 100 characters. The name must be unique within the AWS Region and AWS account that you’re creating the cluster in.
-        * Replace `1.35` with any [Amazon EKS supported version](kubernetes-versions.md "kubernetes-versions.md").
+        * Replace `1.36` with any [Amazon EKS supported version](kubernetes-versions.md "kubernetes-versions.md").
         * Replace `111122223333` with your account ID and `myAmazonEKSClusterRole` with the name of your cluster IAM role.
         * Replace the values for `subnetIds` with your own. You can also add additional IDs. You must specify at least two subnet IDs.
 
@@ -231,7 +231,7 @@ Cluster provisioning takes several minutes. 12. Continue with [Step 3: Update ku
 
 
         ```
-        aws eks create-cluster --region region-code --name my-cluster --kubernetes-version 1.35 \
+        aws eks create-cluster --region region-code --name my-cluster --kubernetes-version 1.36 \
            --role-arn arn:aws:iam::111122223333:role/myAmazonEKSClusterRole \
            --resources-vpc-config subnetIds=subnet-ExampleID1,subnet-ExampleID2,securityGroupIds=sg-ExampleID1
         ```

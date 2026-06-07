@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ###### Tip
 
-[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el&tag=generative%20ai "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el&tag=generative%20ai") for upcoming Amazon EKS AI/ML workshops.
+[Register](https://events.eksworkshop.com/workshops/genai/ "https://events.eksworkshop.com/workshops/genai/") for upcoming Amazon EKS AI/ML workshops.
 
 This section walks you through the steps to create the infrastructure required to run training or inference workloads on Amazon EKS via CLI commands. The steps include creating an EKS cluster, GPU-enabled nodes with EKS Auto Mode or Karpenter, a monitoring stack with Prometheus and Grafana, and Amazon S3 storage for model weights.
 

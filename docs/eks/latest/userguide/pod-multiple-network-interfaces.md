@@ -68,7 +68,7 @@ If the multi-NIC feature is enabled, the VPC CNI doesn’t assign IP addresses i
 
 ## Usage
 
-After the multi-NIC feature is enabled in the VPC CNI and the `aws-node` pods have restarted, you can configure each workload to be multi-homed. The following example of a YAML configuration with the required annotation:
+After the multi-NIC feature is enabled in the VPC CNI and the `aws-node` pods have restarted, you can configure each workload to be multi-homed. The following is an example of a YAML configuration with the required annotation:
 
 ```
 apiVersion: apps/v1

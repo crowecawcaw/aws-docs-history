@@ -36,7 +36,7 @@ To learn more about what goes into a cluster update, see [Best Practices for Clu
 The high-level summary of the Amazon EKS cluster upgrade process is as follows:
 
 1. Ensure your cluster is in a state that will support an upgrade. This includes checking the Kubernetes APIs used by resources deployed into the cluster, ensuring the cluster is free of any health issues. You should use Amazon EKS upgrade insights when evaluating your cluster’s upgrade readiness.
-2. Upgrade the control plane to the next minor version (for example, from 1.34 to 1.35).
+2. Upgrade the control plane to the next minor version (for example, from 1.35 to 1.36).
 3. Upgrade the nodes in the data plane to match that of the control plane.
 4. Upgrade any additional applications that run on the cluster (for example, `cluster-autoscaler`).
 5. Upgrade the add-ons provided by Amazon EKS, such as those included by default:
@@ -83,7 +83,7 @@ Use Amazon EKS upgrade insights to identify issues. For more information, see [V
 
 - As a best practice before starting an update, make sure that the `kubelet` on your nodes is at the same Kubernetes version as your control plane.
 - If your cluster is configured with a version of the Amazon VPC CNI plugin for Kubernetes that is earlier than `1.8.0`, then we recommend that you update the plugin to the latest version before updating your cluster. To update the plugin, see [Assign IPs to Pods with the Amazon VPC CNI](managing-vpc-cni.md "managing-vpc-cni.md").
-- You can take a backup of your Amazon EKS cluster, to allow you to restore your Amazon EKS cluster state and persistent storage in the case of failures during the upgrade process. See [Backup your EKS Clusters with AWS Backup](integration-backup.md "integration-backup.md")
+- You can take a backup of your Amazon EKS cluster, to allow you to restore your Amazon EKS cluster state and persistent storage in the case of failures during the upgrade process. See [Back up your EKS Clusters with AWS Backup](integration-backup.md "integration-backup.md")
 
 ## Step 3: Update cluster control plane
 
@@ -196,4 +196,4 @@ kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/<vX.
 
 ## Downgrade the Kubernetes version for an Amazon EKS cluster
 
-You cannot downgrade the Kubernetes of an Amazon EKS cluster. Instead, create a new cluster on a previous Amazon EKS version and migrate the workloads.
+You cannot downgrade the Kubernetes version of an Amazon EKS cluster. Instead, create a new cluster on a previous Amazon EKS version and migrate the workloads.

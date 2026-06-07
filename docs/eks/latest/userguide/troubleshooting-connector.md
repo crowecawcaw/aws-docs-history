@@ -58,7 +58,7 @@ kubectl exec eks-connector-1 --container connector-agent -n eks-connector \
 
 The following commands are useful to retrieve information that you need to troubleshoot issues.
 
-- Use the following command to gather images that’s used by Pods in Amazon EKS Connector.
+- Use the following command to gather images that are used by Pods in Amazon EKS Connector.
 
 ```
 kubectl get pods -n eks-connector -o jsonpath="{.items[*].spec.containers[*].image}" | tr -s '[[:space:]]' '\n'

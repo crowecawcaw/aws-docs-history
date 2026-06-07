@@ -45,7 +45,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
    undo     -- Undo a previous rollout
    ```
 
-   If the rollout takes too long, Amazon EKS will undo the rollout, and a message with the type of **Addon Update** and a status of **Failed** will be added to the **Update history** of the add-on. To investigate any issues, start from the history of the rollout, and run `kubectl logs` on a EKS Pod Identity Agent pod to see the logs of EKS Pod Identity Agent.
+   If the rollout takes too long, Amazon EKS will undo the rollout, and a message with the type of **Addon Update** and a status of **Failed** will be added to the **Update history** of the add-on. To investigate any issues, start from the history of the rollout, and run `kubectl logs` on an EKS Pod Identity Agent pod to see the logs of EKS Pod Identity Agent.
 
 2. If the new entry in the **Update history** has a status of **Successful**, then the rollout has completed and the add-on is using the new configuration in all of the EKS Pod Identity Agent pods.
 
@@ -77,4 +77,4 @@ status   -- Show the status of the rollout
 undo     -- Undo a previous rollout
 ```
 
-If the rollout takes too long, Amazon EKS will undo the rollout, and a message with the type of **Addon Update** and a status of **Failed** will be added to the **Update history** of the add-on. To investigate any issues, start from the history of the rollout, and run `kubectl logs` on a EKS Pod Identity Agent pod to see the logs of EKS Pod Identity Agent.
+If the rollout takes too long, Amazon EKS will undo the rollout, and a message with the type of **Addon Update** and a status of **Failed** will be added to the **Update history** of the add-on. To investigate any issues, start from the history of the rollout, and run `kubectl logs` on an EKS Pod Identity Agent pod to see the logs of EKS Pod Identity Agent.

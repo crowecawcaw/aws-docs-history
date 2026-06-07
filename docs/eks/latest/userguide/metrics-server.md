@@ -60,7 +60,7 @@ NAME             READY   UP-TO-DATE   AVAILABLE   AGE
 metrics-server   1/1     1            1           6m
 ```
 
-3. Test the metrics server is working by displaying resource (CPU/memory) usage of nodes.
+3. Test that the metrics server is working by displaying resource (CPU/memory) usage of nodes.
 
 ```
 kubectl top nodes

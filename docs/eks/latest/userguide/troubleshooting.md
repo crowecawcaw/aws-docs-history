@@ -57,7 +57,7 @@ This could be due to one of the following reasons:
 - If your cluster meets the minimum platform requirements in the prerequisites section of [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md "access-entries.md"), an access entry doesn’t exist with your IAM principal. If it exists, it doesn’t have the necessary Kubernetes group names defined for it, or doesn’t have the proper access policy associated to it. For more information, see [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md "access-entries.md").
 - If your cluster doesn’t meet the minimum platform requirements in [Grant IAM users access to Kubernetes with EKS access entries](access-entries.md "access-entries.md"), an entry with your IAM principal doesn’t exist in the `aws-auth`
   `ConfigMap`. If it exists, it’s not mapped to Kubernetes group names that are bound to a Kubernetes `Role` or `ClusterRole` with the necessary permissions. For more information about Kubernetes role-based authorization (RBAC) objects, see [Using RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/ "https://kubernetes.io/docs/reference/access-authn-authz/rbac/") in the Kubernetes documentation. You can view your current `aws-auth`
-  `ConfigMap` entries by replacing `my-cluster` in the following command with the name of your cluster and then running the modified command: `eksctl get iamidentitymapping --cluster `my-cluster``. If an entry for with the ARN of your IAM principal isn’t in the `ConfigMap`, enter `eksctl create iamidentitymapping --help` in your terminal to learn how to create one.
+  `ConfigMap` entries by replacing `my-cluster` in the following command with the name of your cluster and then running the modified command: `eksctl get iamidentitymapping --cluster `my-cluster``. If an entry with the ARN of your IAM principal isn’t in the `ConfigMap`, enter `eksctl create iamidentitymapping --help` in your terminal to learn how to create one.
 
 If you install and configure the AWS CLI, you can configure the IAM credentials that you use. For more information, see [Configuring the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") in the _AWS Command Line Interface User Guide_. You can also configure `kubectl` to use an IAM role, if you assume an IAM role to access Kubernetes objects on your cluster. For more information, see [Connect kubectl to an EKS cluster by creating a kubeconfig file](create-kubeconfig.md "create-kubeconfig.md").
 
@@ -293,7 +293,7 @@ sudo bash /etc/eks/log-collector-script/eks-log-collector.sh
 
 ###### Note
 
-If the script is not present at that location. You can manually download and run the script with the following command:
+If the script is not present at that location, you can manually download and run the script with the following command:
 
 ```
 curl -O https://amazon-eks.s3.amazonaws.com/support/log-collector-script/linux/eks-log-collector.sh

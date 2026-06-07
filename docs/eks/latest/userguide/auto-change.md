@@ -12,6 +12,10 @@ To receive notifications of all source file changes to this specific documentati
 https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
 ```
 
+## June 4, 2026
+
+**Documentation**: Added guidance on controlling compute costs in EKS Auto Mode, including how consolidation works, what blocks it, and recommended patterns for bursty workloads. For more information, see [Cost optimization in EKS Auto Mode](auto-cost-control.md "auto-cost-control.md").
+
 ## May 5, 2026
 
 **Feature**: Added support for EC2 Placement Groups in EKS Auto Mode. For more information, see [Node Class Specification](create-node-class.md#auto-node-class-spec "create-node-class.md#auto-node-class-spec").
@@ -82,7 +86,7 @@ DRA is not currently supported by EKS Auto Mode.
 
 ## June 13, 2025
 
-**Feature:** Support for separate pod subnets in the `NodeClass`. This adds the optional keys ``podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` to set the subnets and security groups for the pods. For more information, see [Separate subnets and security groups for Pods](create-node-class.md#pod-subnet-selector "create-node-class.md#pod-subnet-selector").
+**Feature:** Support for separate pod subnets in the `NodeClass`. This adds the optional keys `podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` to set the subnets and security groups for the pods. For more information, see [Separate subnets and security groups for Pods](create-node-class.md#pod-subnet-selector "create-node-class.md#pod-subnet-selector").
 
 ## April 30, 2025
 

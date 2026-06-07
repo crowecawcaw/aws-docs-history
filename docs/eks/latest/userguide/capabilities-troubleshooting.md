@@ -7,8 +7,10 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 ###### Note
 
 EKS Capabilities are fully managed and run outside your cluster.
-You do not have access to controller logs or controller namespaces.
-Troubleshooting focuses on capability health, resource status, and configuration.
+You do not have direct access to controller namespaces.
+Troubleshooting focuses on capability health, resource status, configuration, and controller logs.
+You can configure controller log delivery to gain visibility into controller behavior.
+See [Access EKS Capabilities controller logs](capabilities-controller-logs.md "capabilities-controller-logs.md").
 
 ## General troubleshooting approach
 
@@ -16,8 +18,70 @@ When troubleshooting EKS Capabilities, follow this general approach:
 
 1. **Check capability health**: Use `aws eks describe-capability` to view the capability status and health issues
 2. **Verify resource status**: Check the Kubernetes resources (CRDs) you created for status conditions and events
-3. **Review IAM permissions**: Ensure the Capability Role has the necessary permissions
-4. **Check configuration**: Verify capability-specific configuration is correct
+3. **Review controller logs**: If log delivery is configured, query controller logs for errors and reconciliation details
+4. **Review IAM permissions**: Ensure the Capability Role has the necessary permissions
+5. **Check configuration**: Verify capability-specific configuration is correct
+
+## Use controller logs for troubleshooting
+
+If you have configured controller log delivery (see [Access EKS Capabilities controller logs](capabilities-controller-logs.md "capabilities-controller-logs.md")), you can query logs to identify reconciliation errors, resource conflicts, and configuration issues.
+
+### Query errors across all controllers
+
+```
+fields @timestamp, controller, message, error
+| filter level = "error"
+| sort @timestamp desc
+| limit 50
+```
+
+### Filter logs for a specific ACK service controller
+
+Use the `controllerGroup` field to isolate logs from a specific ACK service controller:
+
+```
+fields @timestamp, message, error
+| filter controllerGroup = "s3.services.k8s.aws"
+| filter level = "error"
+| sort @timestamp desc
+```
+
+To filter further by resource kind (for example, only `SecurityGroup` logs from the EC2 controller):
+
+```
+fields @timestamp, message, error
+| filter controllerGroup = "ec2.services.k8s.aws"
+| filter controllerKind = "SecurityGroup"
+| sort @timestamp desc
+| limit 100
+```
+
+### Filter logs for a specific Argo CD application
+
+Use the `application` field to isolate logs for a particular Argo CD application:
+
+```
+fields @timestamp, message, error
+| filter application = "my-application"
+| sort @timestamp desc
+| limit 100
+```
+
+### Track reconciliation for a specific resource
+
+Use the `reconcileID` field to follow a single reconciliation cycle:
+
+```
+fields @timestamp, level, message, error
+| filter reconcileID = "your-reconcile-id"
+| sort @timestamp asc
+```
+
+### Common log patterns indicating issues
+
+- **Repeated reconciliation errors** — The controller is unable to reach the desired state for a resource. Check the `error` field for details such as IAM permission failures or invalid resource configurations.
+- **"Reconciler error" with AWS API errors** — The Capability Role may be missing permissions for the specific AWS service operation. Review the error message and update IAM policies accordingly.
+- **No log entries for a resource** — If you don’t see logs for a resource you expect the controller to reconcile, verify the capability is `ACTIVE` and that the resource exists in a namespace the capability can access.
 
 ## Check capability health
 

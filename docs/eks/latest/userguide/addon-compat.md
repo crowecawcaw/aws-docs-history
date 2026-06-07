@@ -10,11 +10,11 @@ Use the [describe-addon-versions API](../APIReference/API_DescribeAddonVersions.
 
 1. Verify the AWS CLI is installed and working with `aws sts get-caller-identity`. If this command doesn’t work, learn how to [Get started with the AWS CLI.](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md")
 2. Determine the name of the add-on you want to retrieve version compatibility information for, such as `amazon-cloudwatch-observability`.
-3. Determine the Kubernetes version of your cluster, such as `1.35`.
+3. Determine the Kubernetes version of your cluster, such as `1.36`.
 4. Use the AWS CLI to retrieve the addon versions that are compatible with the Kubernetes version of your cluster.
 
 ```
-aws eks describe-addon-versions --addon-name amazon-cloudwatch-observability --kubernetes-version 1.35
+aws eks describe-addon-versions --addon-name amazon-cloudwatch-observability --kubernetes-version 1.36
 ```
 
 An example output is as follows.
@@ -39,7 +39,7 @@ An example output is as follows.
                     ],
                     "compatibilities": [
                         {
-                            "clusterVersion": "1.35",
+                            "clusterVersion": "1.36",
                             "platformVersions": [
                                 "*"
                             ],
@@ -53,7 +53,7 @@ An example output is as follows.
 }
 ```
 
-This output shows that addon version `vX.X.X-eksbuild.X` is compatible with Kubernetes cluster version `1.35`.
+This output shows that addon version `vX.X.X-eksbuild.X` is compatible with Kubernetes cluster version `1.36`.
 
 ## Add-on compatibility with compute types
 

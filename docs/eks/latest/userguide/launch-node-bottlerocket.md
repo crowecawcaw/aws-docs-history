@@ -49,7 +49,7 @@ kind: ClusterConfig
 metadata:
   name: my-cluster
   region: region-code
-  version: '1.35'
+  version: '1.36'
 
 iam:
   withOIDC: true

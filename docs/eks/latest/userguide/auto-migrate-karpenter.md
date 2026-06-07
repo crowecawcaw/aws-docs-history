@@ -17,6 +17,10 @@ Before beginning the migration, ensure you have:
 
 This topic assumes you are familiar with Karpenter and NodePools. For more information, see the [Karpenter Documentation.](https://karpenter.sh/ "https://karpenter.sh/")
 
+###### Note
+
+Some CRDs (e.g. `nodepools.karpenter.sh` and `nodeclaims.karpenter.sh`) are shared between EKS Auto Mode and Karpenter. Don’t update or modify these CRDs during the migration.
+
 ## Step 1: Enable EKS Auto Mode on the cluster
 
 Enable EKS Auto Mode on your existing cluster using the AWS CLI or Management Console. For more information, see [Enable EKS Auto Mode on an existing cluster](auto-enable-existing.md "auto-enable-existing.md").

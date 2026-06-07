@@ -24,7 +24,7 @@ Client certificate signing is not supported.
 
 ## Example CSR generation with signerName
 
-These steps shows how to generate a serving certificate for DNS name `myserver.default.svc` using `signerName: beta.eks.amazonaws.com/app-serving`. Use this as a guide for your own environment.
+These steps show how to generate a serving certificate for DNS name `myserver.default.svc` using `signerName: beta.eks.amazonaws.com/app-serving`. Use this as a guide for your own environment.
 
 1. Run the `openssl genrsa -out myserver.key 2048` command to generate an RSA private key.
 

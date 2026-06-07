@@ -10,7 +10,7 @@ You must configure the following in order to use this feature:
 
 1. Set up policy enforcement at Pod startup. You do this in the `aws-node` container of the VPC CNI `DaemonSet`.
 2. Enable the network policy parameter for the add-on.
-3. Configure your cluster to use the Kubernetes network policy
+3. Configure your cluster to use the Kubernetes network policy.
    Before you begin, review the considerations. For more information, see [Considerations](cni-network-policy.md#cni-network-policy-considerations "cni-network-policy.md#cni-network-policy-considerations").
 
 ## Prerequisites

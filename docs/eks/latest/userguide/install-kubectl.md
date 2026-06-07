@@ -19,8 +19,8 @@ This topic helps you to download and install, or update, the `kubectl` binary on
 
 ###### Note
 
-You must use a `kubectl` version that is within one minor version difference of your Amazon EKS cluster control plane. For example, a `1.34`
-`kubectl` client works with Kubernetes `1.33`, `1.34`, and `1.35` clusters.
+You must use a `kubectl` version that is within one minor version difference of your Amazon EKS cluster control plane. For example, a `1.35`
+`kubectl` client works with Kubernetes `1.34`, `1.35`, and `1.36` clusters.
 
 ###### Tip
 

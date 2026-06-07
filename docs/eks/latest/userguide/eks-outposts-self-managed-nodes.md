@@ -22,7 +22,7 @@ This topic describes how you can launch Auto Scaling groups of Amazon Linux node
 - (Recommended for clusters on the AWS Cloud) The Amazon VPC CNI plugin for Kubernetes add-on configured with its own IAM role that has the necessary IAM policy attached to it. For more information, see [Configure Amazon VPC CNI plugin to use IRSA](cni-iam-role.md "cni-iam-role.md"). Local clusters do not support IAM roles for service accounts.
   You can create a self-managed Amazon Linux node group with `eksctl` or the AWS Management Console (with an AWS CloudFormation template). You can also use Terraform.
 
-You can create a self-managed node group for local cluster with the following tools described in this page:
+You can create a self-managed node group for a local cluster with the following tools described in this page:
 
 - [eksctl](#eksctl_create_nodes_outpost "#eksctl_create_nodes_outpost")
 - [AWS Management Console](#console_create_nodes_outpost "#console_create_nodes_outpost")

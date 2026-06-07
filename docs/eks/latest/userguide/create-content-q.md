@@ -19,7 +19,7 @@ In the following image, Amazon Q generated the lines marked with green.
 5. Wait for installation to complete
 6. Restart VS Code when prompted
 
-## Login to Amazon Q
+## Log in to Amazon Q
 
 1. After installing, choose the Amazon Q icon in the VS Code activity bar.
 2. Choose **Sign in to Amazon Q**.

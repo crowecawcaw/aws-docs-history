@@ -6,7 +6,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 ###### Tip
 
-[Register](https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el&tag=generative%20ai "https://aws-experience.com/emea/smb/events/series/get-hands-on-with-amazon-eks?trk=4a9b4147-2490-4c63-bc9f-f8a84b122c8c&sc_channel=el&tag=generative%20ai") for upcoming Amazon EKS AI/ML workshops.
+[Register](https://events.eksworkshop.com/workshops/genai/ "https://events.eksworkshop.com/workshops/genai/") for upcoming Amazon EKS AI/ML workshops.
 
 This section guides you through creating an Amazon EKS cluster ready to run inference workloads, including the compute with GPUs, monitoring stack, and Amazon S3 storage for model weights, along with the necessary AWS IAM permissions.
 

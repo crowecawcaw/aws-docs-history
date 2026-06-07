@@ -183,7 +183,7 @@ There might be some authorization issue with calling the `RunInstances` call fro
 
 ###### Note
 
-You are charged for each analysis that is run the VPC Reachability Analyzer. For pricing details, see [Amazon VPC Pricing](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").
+You are charged for each analysis that is run by the VPC Reachability Analyzer. For pricing details, see [Amazon VPC Pricing](https://aws.amazon.com/vpc/pricing/ "https://aws.amazon.com/vpc/pricing/").
 
 One reason that an instance didn’t join the cluster is a network connectivity issue that prevents them from reaching the API server. To diagnose this issue, you can use the [VPC Reachability Analyzer](../../../vpc/latest/reachability/what-is-reachability-analyzer.md "../../../vpc/latest/reachability/what-is-reachability-analyzer.md") to perform an analysis of the connectivity between a node that is failing to join the cluster and the API server. You will need two pieces of information:
 
@@ -229,7 +229,7 @@ subsets:
 
 With these two pieces of information, you can perform the analysis. First navigate to the VPC Reachability Analyzer in the AWS Management Console.
 
-1. Click "Create and Analyze Path"
+1. Choose "Create and Analyze Path"
 2. Provide a name for the analysis (e.g. "Node Join Failure")
 3. For the "Source Type" select "Instances"
 4. Enter the instance ID of the failing Node as the "Source"
@@ -238,7 +238,7 @@ With these two pieces of information, you can perform the analysis. First naviga
 7. Expand the "Additional Packet Header Configuration Section"
 8. Enter a "Destination Port" of 443
 9. Select "Protocol" as TCP if it is not already selected
-10. Click "Create and Analyze Path"
+10. Choose "Create and Analyze Path"
 11. The analysis might take a few minutes to complete. If the analysis results indicate failed reachability, it will indicate where the failure was in the network path so you can resolve the issue.
 
 ## Sharing Volumes Across Pods

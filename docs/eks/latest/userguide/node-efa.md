@@ -4,7 +4,7 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 
 # Run machine learning training on Amazon EKS with Elastic Fabric Adapter
 
-This topic describes how to integrate Elastic Fabric Adapter (EFA) with Pods deployed in your Amazon EKS cluster. Elastic Fabric Adapter (EFA) is a network interface for Amazon EC2 instances that enables you to run applications requiring high levels of inter-node communications at scale on AWS. Its custom-built operating system bypass hardware interface enhances the performance of inter-instance communications, which is critical to scaling these applications. With EFA, High Performance Computing (HPC) applications using the Message Passing Interface (MPI) and Machine Learning (ML) applications using NVIDIA Collective Communications Library (NCCL) can scale to thousands of CPUs or GPUs. As a result, you get the application performance of on-premises HPC clusters with the on-demand elasticity and flexibility of the AWS cloud. Integrating EFA with applications running on Amazon EKS clusters can reduce the time to complete large scale distributed training workloads without having to add additional instances to your cluster. For more information about EFA, [Elastic Fabric Adapter](https://aws.amazon.com/hpc/efa/ "https://aws.amazon.com/hpc/efa/").
+This topic describes how to integrate Elastic Fabric Adapter (EFA) with Pods deployed in your Amazon EKS cluster. Elastic Fabric Adapter (EFA) is a network interface for Amazon EC2 instances that enables you to run applications requiring high levels of inter-node communications at scale on AWS. Its custom-built operating system bypass hardware interface enhances the performance of inter-instance communications, which is critical to scaling these applications. With EFA, High Performance Computing (HPC) applications using the Message Passing Interface (MPI) and Machine Learning (ML) applications using NVIDIA Collective Communications Library (NCCL) can scale to thousands of CPUs or GPUs. As a result, you get the application performance of on-premises HPC clusters with the on-demand elasticity and flexibility of the AWS cloud. Integrating EFA with applications running on Amazon EKS clusters can reduce the time to complete large scale distributed training workloads without having to add additional instances to your cluster. For more information about EFA, see [Elastic Fabric Adapter](https://aws.amazon.com/hpc/efa/ "https://aws.amazon.com/hpc/efa/").
 
 For information on installing and managing EFA devices in your EKS cluster, including the EFA DRA driver, EFA device plugin, topology-aware allocation, and network interface configuration, see [Manage EFA devices on Amazon EKS](device-management-efa.md "device-management-efa.md").
 
@@ -12,7 +12,7 @@ For information on installing and managing EFA devices in your EKS cluster, incl
 
 The _AWS EFA Kubernetes Device Plugin_ supports all Amazon EC2 instance types that have EFA. To see a list of all instance types that have EFA, see [Supported instance types](../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types "../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types") in the _Amazon EC2 User Guide_. However, to run ML applications quickly, we recommend that an instance has hardware acceleration chips such as NVIDIA GPUs, [AWS Inferentia](https://aws.amazon.com/machine-learning/inferentia/ "https://aws.amazon.com/machine-learning/inferentia/") chips, or [AWS Trainium](https://aws.amazon.com/machine-learning/trainium/ "https://aws.amazon.com/machine-learning/trainium/") chips, in addition to the EFA. To see a list of instance types that have hardware acceleration chips and EFA, see [Accelerated computing](../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types "../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types") in the _Amazon EC2 User Guide_.
 
-As you compare instance types to choose between them, consider the number of EFA network cards available for that instance type as well as the number of accelerator cards, amount of CPU, and amount of memory. You can assign up to one EFA per network card. An EFA counts as a network interface. To see how many EFAs are available for each instance type that have EFA, see the [Network cards](../../../AWSEC2/latest/UserGuide/using-eni.md#network-cards "../../../AWSEC2/latest/UserGuide/using-eni.md#network-cards") list in the _Amazon EC2 User Guide_.
+As you compare instance types to choose between them, consider the number of EFA network cards available for that instance type as well as the number of accelerator cards, amount of CPU, and amount of memory. You can assign up to one EFA per network card. An EFA counts as a network interface. To see how many EFAs are available for each instance type that has EFA, see the [Network cards](../../../AWSEC2/latest/UserGuide/using-eni.md#network-cards "../../../AWSEC2/latest/UserGuide/using-eni.md#network-cards") list in the _Amazon EC2 User Guide_.
 
 ## EFA and EFA-only interfaces
 
@@ -210,7 +210,7 @@ This output confirms that the node recognizes the EFA resource, making it availa
 
 ## (Optional) Test the performance of the EFA
 
-We recommend that you test the EFA setup. You can use the [NCCL Tests](https://github.com/aws-samples/awsome-distributed-training/tree/main/micro-benchmarks/nccl-tests "https://github.com/aws-samples/awsome-distributed-training/tree/main/micro-benchmarks/nccl-tests") in the `aws-samples/awsome-distributed-training` repository on GitHub. [NCCL Tests](https://github.com/NVIDIA/nccl-tests "https://github.com/NVIDIA/nccl-tests") evaluate the performance of the network using the Nvidia Collective Communication Library. The following steps submit NCCL tests on Amazon EKS.
+We recommend that you test the EFA setup. You can use the [NCCL Tests](https://github.com/aws-samples/awsome-distributed-training/tree/main/micro-benchmarks/nccl-tests "https://github.com/aws-samples/awsome-distributed-training/tree/main/micro-benchmarks/nccl-tests") in the `aws-samples/awsome-distributed-training` repository on GitHub. [NCCL Tests](https://github.com/NVIDIA/nccl-tests "https://github.com/NVIDIA/nccl-tests") evaluate the performance of the network using the NVIDIA Collective Communications Library. The following steps submit NCCL tests on Amazon EKS.
 
 1. Deploy the Kubeflow MPI Operator:
 
@@ -218,7 +218,7 @@ For the NCCL tests you can apply the Kubeflow MPI Operator. The MPI Operator mak
 
 To verify NCCL performance with GPUDirectRDMA over EFA, run the standard NCCL Performance test. For more information, see the official [NCCL-Tests](https://github.com/NVIDIA/nccl-tests.git "https://github.com/NVIDIA/nccl-tests.git") repo on GitHub.
 
-Complete the following steps to run a two node NCCL Performance Test. In the example NCCL test job, each worker requests eight GPUs, 5210Mi of `hugepages-2Mi`, four EFAs, and 8000Mi of memory, which effectively means each worker consumes all the resources of a `p5.48xlarge` instance.
+Complete the following steps to run a two node NCCL Performance Test. In the example NCCL test job, each worker requests eight GPUs, 5120Mi of `hugepages-2Mi`, four EFAs, and 8000Mi of memory, which effectively means each worker consumes all the resources of a `p5.48xlarge` instance.
 
     1. Create the MPIJob manifest:
 
@@ -375,4 +375,4 @@ Complete the following steps to run a two node NCCL Performance Test. In the exa
     kubectl logs -f nccl-tests-launcher-nbql9
     ```
 
-If the test completed successfully, you can deploy your applications that use the Nvidia Collective Communication Library.
+If the test completed successfully, you can deploy your applications that use the NVIDIA Collective Communications Library.

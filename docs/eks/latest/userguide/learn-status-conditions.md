@@ -36,7 +36,7 @@ kubectl describe node `node-name`
     type: NetworkingReady
 ```
 
-**Example condition of a unhealthy node with a networking problem:**
+**Example condition of an unhealthy node with a networking problem:**
 
 ```
   - lastHeartbeatTime: "2024-11-21T19:12:29Z"

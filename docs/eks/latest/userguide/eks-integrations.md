@@ -8,7 +8,7 @@ In addition to the services covered in other sections, Amazon EKS works with mor
 
 ###### Topics
 
-- [Backup your EKS Clusters with AWS Backup](integration-backup.md "integration-backup.md")
+- [Back up your EKS Clusters with AWS Backup](integration-backup.md "integration-backup.md")
 - [Create Amazon EKS resources with AWS CloudFormation](creating-resources-with-cloudformation.md "creating-resources-with-cloudformation.md")
 - [Connect to Git repositories with AWS CodeConnections](integration-codeconnections.md "integration-codeconnections.md")
 - [Analyze security events on EKS with Amazon Detective](integration-detective.md "integration-detective.md")

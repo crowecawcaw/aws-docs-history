@@ -28,7 +28,7 @@ Custom permissions aren’t used with this add-on.
 
 The add-on name is `akuity_agent` and the namespace is `akuity`. Akuity publishes the add-on.
 
-For information about how the add-on, see [Installing the Akuity Agent on Amazon EKS with the Akuity EKS add-on](https://docs.akuity.io/tutorials/eks-addon-agent-install/ "https://docs.akuity.io/tutorials/eks-addon-agent-install/") in the Akuity Platform documentation.
+For information about the add-on, see [Installing the Akuity Agent on Amazon EKS with the Akuity EKS add-on](https://docs.akuity.io/tutorials/eks-addon-agent-install/ "https://docs.akuity.io/tutorials/eks-addon-agent-install/") in the Akuity Platform documentation.
 
 ### Service account name
 
@@ -167,7 +167,7 @@ The service account name is datree-webhook-server-awsmp.
 
 ### AWS managed IAM policy
 
-The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, see [AWSLicenseManagerConsumptionPolicy](../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md "../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md") in the AWS Managed Policy Reference Guide..
+The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, see [AWSLicenseManagerConsumptionPolicy](../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md "../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md") in the AWS Managed Policy Reference Guide.
 
 ### Command to create required IAM role
 
@@ -278,7 +278,7 @@ The service account name is `customer defined`.
 
 ### AWS managed IAM policy
 
-The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, see [AWSLicenseManagerConsumptionPolicy](../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md "../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md") in the AWS Managed Policy Reference Guide..
+The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, see [AWSLicenseManagerConsumptionPolicy](../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md "../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md") in the AWS Managed Policy Reference Guide.
 
 ### Command to create required IAM role
 
@@ -305,7 +305,7 @@ The service account name is `kpow`.
 
 ### AWS managed IAM policy
 
-The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, see [AWSLicenseManagerConsumptionPolicy](../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md "../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md") in the AWS Managed Policy Reference Guide..
+The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, see [AWSLicenseManagerConsumptionPolicy](../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md "../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md") in the AWS Managed Policy Reference Guide.
 
 ### Command to create required IAM role
 
@@ -354,7 +354,7 @@ The service account name is `k10-k10`.
 
 ### AWS managed IAM policy
 
-The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, see [AWSLicenseManagerConsumptionPolicy](../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md "../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md") in the AWS Managed Policy Reference Guide..
+The managed policy is AWSLicenseManagerConsumptionPolicy. For more information, see [AWSLicenseManagerConsumptionPolicy](../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md "../../../aws-managed-policy/latest/reference/AWSLicenseManagerConsumptionPolicy.md") in the AWS Managed Policy Reference Guide.
 
 ### Command to create required IAM role
 
@@ -487,7 +487,7 @@ Custom permissions aren’t used with this add-on.
 
 The add-on name is `solo-io_istio-distro` and the namespace is `istio-system`. Solo publishes the add-on.
 
-For information about the add-on, see [Installing Istio](https://docs.solo.io/gloo-mesh-enterprise/main/setup/install/eks_addon/ "https://docs.solo.io/gloo-mesh-enterprise/main/setup/install/eks_addon/") in the Solo.io documentation..
+For information about the add-on, see [Installing Istio](https://docs.solo.io/gloo-mesh-enterprise/main/setup/install/eks_addon/ "https://docs.solo.io/gloo-mesh-enterprise/main/setup/install/eks_addon/") in the Solo.io documentation.
 
 ### Service account name
 

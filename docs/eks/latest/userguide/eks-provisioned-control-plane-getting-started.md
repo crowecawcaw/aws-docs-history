@@ -293,4 +293,4 @@ Response:
 3. Under _Configuration options_, select **Custom configuration**.
 4. Scroll down to **Control plane scaling tier**. Select **Use a scaling tier** to enable Provisioned Control Plane.
 5. Select the control plane scaling tier that you would like to provision for the cluster from various scaling tier options such as XL, 2XL, 4XL, and 8XL.
-6. Select other cluster configurations options as needed. On the final step select **Create cluster**. Note it may take several minutes for cluster creation to complete.
+6. Select other cluster configuration options as needed. On the final step select **Create cluster**. Note it may take several minutes for cluster creation to complete.

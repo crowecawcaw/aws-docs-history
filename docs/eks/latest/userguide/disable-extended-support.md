@@ -17,7 +17,7 @@ AWS recommends upgrading your cluster to a version in the standard support perio
 ## Disable EKS extended support (AWS Console)
 
 1. Navigate to your EKS cluster in the AWS Console. Select the **Overview** tab on the **Cluster Info** page.
-2. In the **Kubernetes version setting** section, select **Manage**.
+2. In the **Kubernetes version settings** section, select **Manage**.
 3. Select **Standard support** and then **Save changes**.
 
 ## Disable EKS extended support (AWS CLI)

@@ -77,6 +77,6 @@ When creating the Capacity Block managed node group, do the following:
    - Use the Kubernetes Cluster Autoscaler. For more information, see [Cluster Autoscaler on AWS](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md "https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/cloudprovider/aws/README.md").
 
 5. The node group is now ready for workloads and Pods to be scheduled.
-6. In order for your Pods to be gracefully drained before reservation ends, Amazon EKS uses a scheduled scaling policy to scale down the node group size to `0` . This scheduled scaling will be set with name titled `Amazon EKS Node Group Capacity Scaledown Before Reservation End` . We recommend not editing or deleting this action.
+6. In order for your Pods to be gracefully drained before reservation ends, Amazon EKS uses a scheduled scaling policy to scale down the node group size to `0`. This scheduled scaling will be set with name titled `Amazon EKS Node Group Capacity Scaledown Before Reservation End`. We recommend not editing or deleting this action.
 
-Amazon EC2 starts shutting down the instances 30 minutes before reservation end time. As a result, Amazon EKS will setup a scheduled scale down on the node group 40 minutes prior to their reservation end in order to safely and gracefully evict Pods.
+Amazon EC2 starts shutting down the instances 30 minutes before reservation end time. As a result, Amazon EKS will set up a scheduled scale down on the node group 40 minutes prior to the reservation end in order to safely and gracefully evict Pods.

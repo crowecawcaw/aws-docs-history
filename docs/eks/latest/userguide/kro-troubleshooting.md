@@ -7,7 +7,9 @@ To contribute to this user guide, choose the **Edit this page on GitHub** link t
 ###### Note
 
 EKS Capabilities are fully managed and run outside your cluster.
-You do not have access to controller logs or controller namespaces.
+You do not have direct access to controller namespaces.
+You can configure controller log delivery for visibility into controller behavior.
+See [Access EKS Capabilities controller logs](capabilities-controller-logs.md "capabilities-controller-logs.md").
 Troubleshooting focuses on capability health, RBAC configuration, and resource status.
 
 ## Capability is ACTIVE but ResourceGraphDefinitions aren’t working

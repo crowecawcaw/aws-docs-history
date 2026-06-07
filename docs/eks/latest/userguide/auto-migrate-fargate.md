@@ -106,7 +106,7 @@ The `podAntiAffinity` rule with `requiredDuringSchedulingIgnoredDuringExecution`
 
 ## Prerequisites
 
-Before beginning the migration, ensure you have
+Before beginning the migration, ensure you have:
 
 - Set up a cluster with Fargate. For more information, see [Get started with AWS Fargate for your cluster](fargate-getting-started.md "fargate-getting-started.md").
 - Installed and connected `kubectl` to your cluster. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
@@ -302,7 +302,7 @@ aws eks delete-fargate-profile --cluster-name eks-fargate-demo-cluster --fargate
 
 ## Step 6: Scale down CoreDNS
 
-Because EKS Auto mode handles CoreDNS, you scale the `coredns` deployment down to 0:
+Because EKS Auto Mode handles CoreDNS, you scale the `coredns` deployment down to 0:
 
 ```
 kubectl scale deployment coredns -n kube-system --replicas=0

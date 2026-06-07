@@ -16,7 +16,7 @@ You must install version `0.195.0` or greater of eksctl. For more information, s
 
 You must have the `aws` and `eksctl` tools installed. You must be logged into the AWS CLI with sufficient permissions to manage AWS resources including: EC2 instances, EC2 networking, EKS clusters, and IAM roles. For more information, see [Set up to use Amazon EKS](setting-up.md "setting-up.md").
 
-Run the following command to create a new EKS Auto Mode cluster with
+Run the following command to create a new EKS Auto Mode cluster with eksctl:
 
 ```
 eksctl create cluster --name=<cluster-name> --enable-auto-mode
