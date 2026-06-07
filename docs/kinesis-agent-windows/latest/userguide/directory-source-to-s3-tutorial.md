@@ -14,7 +14,7 @@ The tutorial includes the following steps:
 
 ###### Prerequisites
 
-If you don't already have an AWS account, follow the instructions in [Setting Up an AWS account](getting-started.md#getting-started-setting-up "getting-started.md#getting-started-setting-up") to get
+If you don't already have an AWS account, follow the instructions in [Sign up for an AWS account](getting-started.md#sign-up-for-aws "getting-started.md#sign-up-for-aws") to get
 one.
 
 ###### Topics

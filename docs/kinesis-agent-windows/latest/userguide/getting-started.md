@@ -18,7 +18,7 @@ prerequisites:
 
 - Familiarity with Kinesis Agent for Windows concepts. For more information, see [Amazon Kinesis Agent for Microsoft Windows Concepts](kinesis-agent-windows-concepts.md "kinesis-agent-windows-concepts.md").
 - An AWS account for using the various AWS services related to your data pipeline. For
-  information about creating and configuring an AWS account, see [Setting Up an AWS account](#getting-started-setting-up "#getting-started-setting-up").
+  information about creating and configuring an AWS account, see [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws").
 - Microsoft .NET Framework 4.6 or later on each desktop or server that will run Kinesis Agent for Windows. For
   more information, see [Install
   the .NET Framework for developers](https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers "https://docs.microsoft.com/en-us/dotnet/framework/install/guide-for-developers") in the Microsoft .NET documentation.
@@ -47,47 +47,11 @@ server, use the following PowerShell script:
 
 ## Setting Up an AWS account
 
-If you do not have an AWS account, complete the following steps to create one.
+### Sign up for an AWS account
 
-###### To sign up for an AWS account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
-
-To create an administrator user, choose one of the following options.
-
-| Choose one way to manage your administrator | To                                                                                                                                                                                                                                                                                                                                                  | By                                                                                                                                                                                                                                          | You can also                                                                                                                                                                                                                                          |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| In IAM Identity Center (Recommended)        | Use short-term credentials to access AWS.This aligns with the security best<br>practices. For information about best practices, see [Security best<br>practices in IAM](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp") in the _IAM User Guide_. | Following the instructions in [Getting started](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") in the<br>_AWS IAM Identity Center User Guide_.                      | Configure programmatic access by [Configuring the AWS CLI to use<br>AWS IAM Identity Center](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md") in the _AWS Command Line Interface User Guide_. |
-| In IAM (Not recommended)                    | Use long-term credentials to access AWS.                                                                                                                                                                                                                                                                                                            | Following the instructions in [Create an IAM user for emergency access](../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md "../../../IAM/latest/UserGuide/getting-started-emergency-iam-user.md") in the _IAM User Guide_. | Configure programmatic access by [Manage access keys for IAM<br>users](../../../IAM/latest/UserGuide/id_credentials_access-keys.md "../../../IAM/latest/UserGuide/id_credentials_access-keys.md") in the _IAM User Guide_.                            |
-
-###### To sign up for AWS and create an administrator account
-
-1. If you don't have an AWS account, open [https://aws.amazon.com/](https://aws.amazon.com/ "https://aws.amazon.com/"). Choose **Create an AWS account**, and then follow
-   the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call and entering a PIN using the phone
-keypad. 2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 3. In the navigation pane, choose **Groups**, and then choose **Create New
-Group**. 4. For **Group Name**, enter a name for your group, such as
-`Administrators`, and then choose **Next Step**. 5. In the list of policies, select the check box next to the **AdministratorAccess** policy. You
-can use the **Filter** menu and the **Search** box to filter the list of
-policies. 6. Choose **Next Step**. Choose **Create Group**, and your
-new group appears under **Group Name**. 7. In the navigation pane, choose **Users**, and then choose **Create New
-Users**. 8. In box **1**, enter a user name, clear the check box next to
-**Generate an access key for each user**, and then choose
-**Create**. 9. In the list of users, choose the name (not the check box) of the user that you just
-created. You can use the **Search** box to search for the user name. 10. Choose the **Groups** tab, and then choose **Add User to
-Groups**. 11. Select the check box next to the administrators group, and then choose **Add to
-Groups**. 12. Choose the **Security Credentials** tab. Under **Sign-In
-Credentials**, choose **Manage Password**. 13. Select **Assign a custom password**, enter a password in the
-**Password** and **Confirm Password** boxes, and then choose
-**Apply**.
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Installing Kinesis Agent for Windows
 
