@@ -5,10 +5,8 @@ measurements to give an improved result.
 
 ###### Note
 
-For all IonQ's devices: When using an on-demand model, there is a 1 Million
-[gateshot](braket-terms.md#gateshot-limit-term "braket-terms.md#gateshot-limit-term")
-limit, and a minimum of 2500 shots for [Error mitigation](braket-error-mitigation.md "braket-error-mitigation.md") tasks.
-For a direct reservation, there is no gateshot limit, and a minimum of 500 shots for Error mitigation tasks.
+For all IonQ's devices: When submitting tasks on-demand, the maximum number of gates per circuit is 2,000, and the minimum number of shots per [error mitigation](braket-error-mitigation.md "braket-error-mitigation.md") task is 2,500.
+For a direct reservation, the maximum number of gates per circuit is 5,000, and the minimum number of shots per error mitigation task is 500.
 
 ## Debiasing
 

@@ -30,17 +30,28 @@ You can view some of the properties of this device as follows:
 
 ```
 print(device.name)
-for iter in device.properties.action['braket.ir.jaqcd.program']:
+for iter in device.properties.action['braket.ir.openqasm.program']:
     print(iter)
 ```
 
 ```
 SV1
-('version', ['1.0', '1.1'])
-('actionType', 'braket.ir.jaqcd.program')
-('supportedOperations', ['ccnot', 'cnot', 'cphaseshift', 'cphaseshift00', 'cphaseshift01', 'cphaseshift10', 'cswap', 'cy', 'cz', 'ecr', 'h', 'i', 'iswap', 'pswap', 'phaseshift', 'rx', 'ry', 'rz', 's', 'si', 'swap', 't', 'ti', 'unitary', 'v', 'vi', 'x', 'xx', 'xy', 'y', 'yy', 'z', 'zz'])
-('supportedResultTypes', [ResultType(name='Sample', observables=['x', 'y', 'z', 'h', 'i', 'hermitian'], minShots=1, maxShots=100000), ResultType(name='Expectation', observables=['x', 'y', 'z', 'h', 'i', 'hermitian'], minShots=0, maxShots=100000), ResultType(name='Variance', observables=['x', 'y', 'z', 'h', 'i', 'hermitian'], minShots=0, maxShots=100000), ResultType(name='Probability', observables=None, minShots=1, maxShots=100000), ResultType(name='Amplitude', observables=None, minShots=0, maxShots=0)])
-('disabledQubitRewiringSupported', None)
+('version', ['1.0'])
+('actionType', 'braket.ir.openqasm.program')
+('supportedOperations', ['ccnot', 'cnot', 'cphaseshift', 'cphaseshift00', 'cphaseshift01', 'cphaseshift10', 'cswap', 'cy', 'cz', 'ecr', 'h', 'i', 'iswap', 'pswap', 'phaseshift', 'rx', 'ry', 'rz', 's', 'si', 'swap', 't', 'ti', 'v', 'vi', 'x', 'xx', 'xy', 'y', 'yy', 'z', 'zz', 'gpi', 'gpi2', 'ms'])
+('supportedModifiers', [])
+('supportedPragmas', ['braket_unitary_matrix', 'braket_basis_rotation', 'braket_result_type_sample', 'braket_result_type_expectation', 'braket_result_type_variance', 'braket_result_type_probability', 'braket_result_type_amplitude', 'braket_result_type_adjoint_gradient'])
+('forbiddenPragmas', ['braket_result_type_state_vector', 'braket_result_type_density_matrix', 'braket_noise_amplitude_damping', 'braket_noise_bit_flip', 'braket_noise_depolarizing', 'braket_noise_kraus', 'braket_noise_pauli_channel', 'braket_noise_generalized_amplitude_damping', 'braket_noise_phase_flip', 'braket_noise_phase_damping', 'braket_noise_two_qubit_dephasing', 'braket_noise_two_qubit_depolarizing'])
+('maximumQubitArrays', 1)
+('maximumClassicalArrays', 1)
+('forbiddenArrayOperations', ['concatenation', 'negativeIndex', 'range', 'rangeWithStep', 'slicing', 'selection'])
+('requiresAllQubitsMeasurement', True)
+('supportPhysicalQubits', False)
+('requiresContiguousQubitIndices', True)
+('supportsPartialVerbatimBox', True)
+('supportsUnassignedMeasurements', True)
+('disabledQubitRewiringSupported', False)
+('supportedResultTypes', [ResultType(name='Sample', observables=['x', 'y', 'z', 'h', 'i', 'hermitian'], minShots=1, maxShots=100000), ResultType(name='Expectation', observables=['x', 'y', 'z', 'h', 'i', 'hermitian'], minShots=0, maxShots=100000), ResultType(name='Variance', observables=['x', 'y', 'z', 'h', 'i', 'hermitian'], minShots=0, maxShots=100000), ResultType(name='Probability', observables=None, minShots=1, maxShots=100000), ResultType(name='Amplitude', observables=None, minShots=0, maxShots=0), ResultType(name='AdjointGradient', observables=['x', 'y', 'z', 'h', 'i'], minShots=0, maxShots=0)])
 ```
 
 ## Submit an example quantum task

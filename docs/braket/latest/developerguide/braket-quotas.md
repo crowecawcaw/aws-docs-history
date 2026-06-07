@@ -128,10 +128,8 @@ region. In addition, if you do not see an instance in the table, it is not avail
 1000.
 
 - For AQT's IBEX-Q1 device, the maximum is 2000 shots per task.
-- For all IonQ's devices: The minimum number of shots per task is 100. When using an on-demand model, there is a 1 Million
-  [gateshot](braket-terms.md#gateshot-limit-term "braket-terms.md#gateshot-limit-term")
-  limit, and a minimum of 2500 shots for [Error mitigation](braket-error-mitigation.md "braket-error-mitigation.md") tasks.
-  For a direct reservation, there is no gateshot limit, and a minimum of 500 shots for Error mitigation tasks.
+- For all IonQ's devices: When submitting tasks on-demand, the minimum number of shots per task is 100. The maximum number of gates per circuit is 2,000. The minimum number of shots per [error mitigation](braket-error-mitigation.md "braket-error-mitigation.md") task is 2,500.
+  For a direct reservation, there is no minimum shot limit for tasks that do not use error mitigation. The maximum number of gates per circuit is 5,000. The minimum number of shots per error mitigation task is 500.
 - For QuEra's Aquila device, the maximum is 1,000 shots per task.
 - For IQM's Garnet and Emerald devices, the maximum is 20,000 shots per task.
 - For TN1 and the QPU devices, shots per task must be > 0.

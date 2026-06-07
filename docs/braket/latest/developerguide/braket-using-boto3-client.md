@@ -77,7 +77,7 @@ Create a quantum task.
 # Create parameters to pass into create_quantum_task()
 kwargs = {
     # Create a Bell pair
-    'action': '{"braketSchemaHeader": {"name": "braket.ir.jaqcd.program", "version": "1"}, "results": [], "basis_rotation_instructions": [], "instructions": [{"type": "h", "target": 0}, {"type": "cnot", "control": 0, "target": 1}]}',
+    'action': '{"braketSchemaHeader": {"name": "braket.ir.openqasm.program", "version": "1"}, "source": "OPENQASM 3.0; bit[2] b; qubit[2] q; h q[0]; cnot q[0], q[1]; b[0] = measure q[0]; b[1] = measure q[1];"}',
     # Specify the SV1 Device ARN
     'deviceArn': 'arn:aws:braket:::device/quantum-simulator/amazon/sv1',
     # Specify 2 qubits for the Bell pair

@@ -69,13 +69,6 @@ sequence of those gates. Gates are the building blocks of _quantum
 circuits_ and are analogous to the logic gates of classical digital
 circuits.
 
-**Gateshot limit**
-
-A gateshot limit refers to the total gate count per shot (the sum of all gate types)
-and shot count per task. Mathematically, the gateshot limit can be expressed as:
-
-`Gateshot limit = (Gate count per shot) * (Shot count per task)`
-
 **Hamiltonian**
 
 The quantum dynamics of a physical system are determined by its Hamiltonian,

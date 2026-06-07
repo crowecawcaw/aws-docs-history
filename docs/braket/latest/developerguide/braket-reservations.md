@@ -11,7 +11,7 @@ regardless of how many quantum tasks and hybrid jobs you run on the quantum proc
 
 ###### Note
 
-In a reservation, there are no [gateshot](braket-terms.md#gateshot-limit-term "braket-terms.md#gateshot-limit-term") limits. Additionally, for IonQ devices, the minimum shot count for [Error mitigation](braket-error-mitigation.md "braket-error-mitigation.md") tasks is reduced to 500 (vs. 2500 for on-demand).
+For IonQ devices, reservations allow a higher per-circuit gate limit of 5,000 gates (vs. 2,000 for on-demand). Additionally, for IonQ devices, the minimum shot count for [error mitigation](braket-error-mitigation.md "braket-error-mitigation.md") tasks is reduced to 500 (vs. 2,500 for on-demand).
 
 **When to use a reservation**
 

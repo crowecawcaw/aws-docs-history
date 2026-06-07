@@ -9,15 +9,14 @@ for the Rigetti and IonQ devices.
 {
     "braketSchemaHeader": {
         "name": "braket.device_schema.rigetti.rigetti_device_capabilities",
-        "version": "1"
+        "version": "2"
     },
     "service": {...},
     "action": {
-        "braket.ir.jaqcd.program": {...},
-        **"braket.ir.openqasm.program": {**
-            **"actionType": "braket.ir.openqasm.program",**
+        "braket.ir.openqasm.program": {
+            "actionType": "braket.ir.openqasm.program",
             "version": [
-                "1"
+                "1.0"
             ],
             ….
         }
@@ -32,9 +31,8 @@ for the Rigetti and IonQ devices.
     },
     "service": {...},
     "action": {
-        "braket.ir.jaqcd.program": {...},
-        **"braket.ir.openqasm.program"**: {
-            **"actionType": "braket.ir.openqasm.program",**
+        "braket.ir.openqasm.program": {
+            "actionType": "braket.ir.openqasm.program",
             "version": [
                 "1"
             ],
@@ -337,10 +335,7 @@ SV1.
 ```
 ...
   "action": {
-    "braket.ir.jaqcd.program": {
-      ...
-    },
- **"braket.ir.openqasm.program": {**
+    "braket.ir.openqasm.program": {
       "version": [
         "1.0"
       ],
@@ -355,6 +350,7 @@ SV1.
         "cswap",
         "cy",
         "cz",
+        "ecr",
         "h",
         "i",
         "iswap",
@@ -376,12 +372,35 @@ SV1.
         "y",
         "yy",
         "z",
-        "zz"
+        "zz",
+        "gpi",
+        "gpi2",
+        "ms"
       ],
       "supportedPragmas": [
-        "braket_unitary_matrix"
+        "braket_unitary_matrix",
+        "braket_basis_rotation",
+        "braket_result_type_sample",
+        "braket_result_type_expectation",
+        "braket_result_type_variance",
+        "braket_result_type_probability",
+        "braket_result_type_amplitude",
+        "braket_result_type_adjoint_gradient"
       ],
-      "forbiddenPragmas": [],
+      "forbiddenPragmas": [
+        "braket_result_type_state_vector",
+        "braket_result_type_density_matrix",
+        "braket_noise_amplitude_damping",
+        "braket_noise_bit_flip",
+        "braket_noise_depolarizing",
+        "braket_noise_kraus",
+        "braket_noise_pauli_channel",
+        "braket_noise_generalized_amplitude_damping",
+        "braket_noise_phase_flip",
+        "braket_noise_phase_damping",
+        "braket_noise_two_qubit_dephasing",
+        "braket_noise_two_qubit_depolarizing"
+      ],
       "maximumQubitArrays": 1,
       "maximumClassicalArrays": 1,
       "forbiddenArrayOperations": [
@@ -393,8 +412,10 @@ SV1.
         "selection"
       ],
       "requiresAllQubitsMeasurement": true,
-      "supportsPhysicalQubits": false,
+      "supportPhysicalQubits": false,
       "requiresContiguousQubitIndices": true,
+      "supportsPartialVerbatimBox": true,
+      "supportsUnassignedMeasurements": true,
       "disabledQubitRewiringSupported": false,
       "supportedResultTypes": [
         {
@@ -445,9 +466,16 @@ SV1.
           "name": "Amplitude",
           "minShots": 0,
           "maxShots": 0
-        }
+        },
         {
           "name": "AdjointGradient",
+          "observables": [
+            "x",
+            "y",
+            "z",
+            "h",
+            "i"
+          ],
           "minShots": 0,
           "maxShots": 0
         }
