@@ -183,7 +183,6 @@ Amazon MWAA Serverless currently supports a specific set of [Apache Airflow oper
 - `S3DeleteBucketOperator`: Deletes an Amazon S3 bucket.
 - `S3DeleteBucketTaggingOperator`: Deletes tagging from an Amazon S3 bucket.
 - `S3DeleteObjectsOperator`: Deletes objects from a bucket using a single HTTP request.
-- `S3FileTransformOperator`: Copies data from a source Amazon S3 location to a temporary location on the local filesystem.
 - `S3GetBucketTaggingOperator`: Gets tagging from an Amazon S3 bucket.
 - `S3ListOperator`: Lists all objects from the bucket with the specified string prefix in its name.
 - `S3ListPrefixesOperator`: Lists all subfolders from the bucket with the specified string prefix in its name.
