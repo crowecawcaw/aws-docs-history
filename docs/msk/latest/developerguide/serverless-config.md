@@ -19,7 +19,7 @@ To set or modify these topic-level configuration properties, you can use Apache 
 
 ###### Note
 
-You can't modify the segment.bytes configuration for topics in MSK Serverless. However, a Kafka Streams application might attempt to create an internal topic with a segment.bytes configuration value, which is different from what MSK Serverless will allow. For information about configuring Kafka Streams with MSK Serverless, see [Using Kafka Streams with MSK Express brokers and MSK Serverless](use-kafka-streams-express-brokers-msk-serverless.md "use-kafka-streams-express-brokers-msk-serverless.md").
+You can't modify the segment.bytes configuration for topics in MSK Serverless. However, a Kafka Streams application might attempt to create an internal topic with a segment.bytes configuration value, which is different from what MSK Serverless will allow. For information about configuring Kafka Streams with MSK Serverless, see [Using Kafka Streams with MSK Serverless](use-kafka-streams-express-brokers-msk-serverless.md "use-kafka-streams-express-brokers-msk-serverless.md").
 
 When using the Apache Kafka command line tools with Amazon MSK Serverless, make sure you completed steps 1-4 in the _To set up Apache Kafka client tools on the client machine_ section of the [Amazon MSK Serverless Getting Started documentation](create-serverless-cluster-client.md "create-serverless-cluster-client.md"). Additionally, you must include the `--command-config client.properties` parameter in your commands.
 

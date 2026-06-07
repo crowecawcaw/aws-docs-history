@@ -1,8 +1,12 @@
-# Using Kafka Streams with MSK Express brokers and MSK Serverless
+# Using Kafka Streams with MSK Serverless
 
-Kafka Streams supports stateless and stateful transformations. Stateful transformations, such as count, aggregate, or join, use operators which store their state in internal Kafka topics. Furthermore, some stateless transformations such as groupBy or repartition store their results in internal Kafka topics. By default, Kafka Streams names these internal topics based on the corresponding operator. If these topics don't exist, Kafka Streams creates internal Kafka topics. For creating the internal topics, Kafka Streams hardcodes the segment.bytes configuration and sets it to 50 MB. [MSK Provisioned with Express brokers](msk-configuration-express-read-write.md#msk-configuration-express-topic-configuration "msk-configuration-express-read-write.md#msk-configuration-express-topic-configuration") and MSK Serverless protects some [topic configurations](serverless-config.md "serverless-config.md"), including segment.size during topic creation. Therefore, a Kafka Streams application with stateful transformations fails to create the internal topics using MSK Express brokers or MSK Serverless.
+###### Note
 
-To run such Kafka Streams applications on MSK Express brokers or MSK Serverless, you must create the internal topics yourself. To do this, first identify and name the Kafka Streams operators, which require topics. Then, create the corresponding internal Kafka topics.
+If you use MSK Standard brokers or Express brokers, you can use Kafka Streams without manually creating internal topics. The guidance on this page applies only to MSK Serverless.
+
+Kafka Streams supports stateless and stateful transformations. Stateful transformations, such as count, aggregate, or join, use operators which store their state in internal Kafka topics. Furthermore, some stateless transformations such as groupBy or repartition store their results in internal Kafka topics. By default, Kafka Streams names these internal topics based on the corresponding operator. If these topics don't exist, Kafka Streams creates internal Kafka topics. For creating the internal topics, Kafka Streams hardcodes the segment.bytes configuration and sets it to 50 MB. MSK Serverless protects some [topic configurations](serverless-config.md "serverless-config.md"), including segment.size during topic creation. Therefore, a Kafka Streams application with stateful transformations fails to create the internal topics using MSK Serverless.
+
+To run such Kafka Streams applications on MSK Serverless, you must create the internal topics yourself. To do this, first identify and name the Kafka Streams operators, which require topics. Then, create the corresponding internal Kafka topics.
 
 ###### Note
 
@@ -11,11 +15,11 @@ To run such Kafka Streams applications on MSK Express brokers or MSK Serverless,
 
 ###### Topics
 
-- [Creating a Kafka Streams application using MSK Express brokers or MSK Serverless](#create-kafka-streams-app-express-broker-msk-serverless "#create-kafka-streams-app-express-broker-msk-serverless")
+- [Creating a Kafka Streams application using MSK Serverless](#create-kafka-streams-app-express-broker-msk-serverless "#create-kafka-streams-app-express-broker-msk-serverless")
 
-## Creating a Kafka Streams application using MSK Express brokers or MSK Serverless
+## Creating a Kafka Streams application using MSK Serverless
 
-If your Kafka Streams application has its `application.id` set to `msk-streams-processing`, you can create a Kafka Streams application using MSK Express brokers or MSK Serverless. To do this, use the `count()` operator, which requires an internal topic with the name. For example, `msk-streams-processing-count-store`.
+If your Kafka Streams application has its `application.id` set to `msk-streams-processing`, you can create a Kafka Streams application using MSK Serverless. To do this, use the `count()` operator, which requires an internal topic with the name. For example, `msk-streams-processing-count-store`.
 
 To create a Kafka Streams application, do the following:
 
@@ -78,7 +82,7 @@ After the topics are created on the cluster, your Kafka Streams application can 
 
 ### (Optional) Check the topic name
 
-You can use the _topography describer_ to describe the topology of your stream and view the names of the internal topics. The following example shows how to run the topology describer.
+You can use the _topology describer_ to describe the topology of your stream and view the names of the internal topics. The following example shows how to run the topology describer.
 
 ```
 final StreamsBuilder builder = new StreamsBuilder();

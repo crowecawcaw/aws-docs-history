@@ -4,28 +4,14 @@ Before you use Amazon MSK for the first time, complete the following tasks.
 
 ###### Tasks
 
-- [Sign up for AWS](#setting-up-sign-up-for-aws "#setting-up-sign-up-for-aws")
+- [Sign up for an AWS account](#sign-up-for-aws "#sign-up-for-aws")
 - [Download libraries and tools](#setting-up-downloads "#setting-up-downloads")
 
-## Sign up for AWS
+## Sign up for an AWS account
 
-When you sign up for AWS, your Amazon Web Services account is automatically
-signed up for all services in AWS, including Amazon MSK. You are charged only for the services
-that you use.
-
-If you have an AWS account already, skip to the next task. If you don't have an AWS
-account, use the following procedure to create one.
-
-###### To sign up for an Amazon Web Services account
-
-1. Open [https://portal.aws.amazon.com/billing/signup](https://portal.aws.amazon.com/billing/signup "https://portal.aws.amazon.com/billing/signup").
-2. Follow the online instructions.
-
-Part of the sign-up procedure involves receiving a phone call or text message and entering
-a verification code on the phone keypad.
-
-When you sign up for an AWS account, an _AWS account root user_ is created. The root user has access to all AWS services
-and resources in the account. As a security best practice, assign administrative access to a user, and use only the root user to perform [tasks that require root user access](../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks "../../../IAM/latest/UserGuide/id_root-user.md#root-user-tasks").
+To get started with AWS, you need an AWS account. For information about creating an AWS account, see
+[Getting started with an AWS account](../../../accounts/latest/reference/getting-started.md "../../../accounts/latest/reference/getting-started.md")
+in the _AWS Account Management Reference Guide_.
 
 ## Download libraries and tools
 
