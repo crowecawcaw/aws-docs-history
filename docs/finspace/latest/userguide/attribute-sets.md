@@ -26,7 +26,7 @@ In order to create attribute sets, you must be a superuser or a member of a grou
 2. On the left navigation bar of the home page, choose **Manage Data**.
 3. On the **Manage Data** page, choose **Manage Attribute Sets**.
    All the available attributes are listed in a table. You can also choose the more (
-   ![An image of the More icon.](/images/finspace/latest/userguide/images/04a-configuring-the-catalog/kebab-menu.png)
+   ![An image of the More icon.](images/04a-configuring-the-catalog/kebab-menu.png)
    ) icon for options to duplicate, disable, or remove an attribute set.
 
 ## Create attribute sets
