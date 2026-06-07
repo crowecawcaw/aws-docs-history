@@ -175,6 +175,7 @@ The following AWS Service Catalog APIs are secured for Confused Deputy protectio
 - `ExecuteProvisionedProductServiceAction`
 - `CreateProvisionedProductPlan`
 - `ExecuteProvisionedProductPlan`
+- `UpdateProvisionedProductProperties`
 
 The `sourceArn` protection for AWS Service Catalog only supports templated ARNs, such as
 "`arn:<aws-partition>:servicecatalog:<region>:<accountId>:`" It does not support
