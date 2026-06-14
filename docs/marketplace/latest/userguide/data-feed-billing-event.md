@@ -80,6 +80,7 @@ one month later. Note the following for all tables in this section:
 For the examples in this section, assume the following:
 
 - Arnav is the buyer.
+
   - His account ID is `737399998888`.
   - He's located in France, which is subject to marketplace facilitator laws. For more
     information, see [Amazon Web Service Tax
@@ -89,9 +90,11 @@ For the examples in this section, assume the following:
   - He paid the invoice within the month.
 
 - Jane is the manufacturer.
+
   - Her account ID is `111122223333`.
 
 - Paulo is the seller of record.
+
   - His account ID is `777788889999`.
   - He lives in Kansas, which is not subject to market facilitator laws.
 

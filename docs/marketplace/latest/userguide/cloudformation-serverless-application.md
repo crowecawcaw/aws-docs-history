@@ -153,6 +153,7 @@ JSON
    application**.
 9. Complete the required fields and any optional field, as appropriate. The required
    fields are:
+
    - **Application name**
    - **Author**
    - **Description**

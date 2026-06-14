@@ -44,6 +44,7 @@ Here you can expand two tables:
 
 1. Expand the VAT on deemed supply — eligible line items table, review your eligible transactions
 2. Select one or more line items in the same currency (USD, EUR, or GBP)
+
    - Paid items qualify for immediate disbursement
    - Unpaid items can be selected but will only be disbursed once the buyer invoice is collected
 
@@ -59,6 +60,7 @@ You can submit individual invoices for individual line items, or a single consol
 
 1. On the Apply VAT on deemed supply page, review your selected line items and disbursement summary
 2. Upload your VAT invoice:
+
    - Accepted format: PDF only
    - Maximum file size: 10 MB
    - All selected line items must be included in a single uploaded file

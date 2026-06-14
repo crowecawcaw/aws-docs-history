@@ -5,7 +5,9 @@ have multiple versions throughout its lifecycle, and each version is identified 
 SageMaker AI ARN.
 
 1. Under **Amazon Resource Names (ARNs)**:
+
    1. Enter the model or algorithm Amazon SageMaker AI ARN.
+
       - Example model package ARN:
         `arn:aws:sagemaker:`<region>`:`<account-id>`:model-package/`<model-package-name>``
 

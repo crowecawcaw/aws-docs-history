@@ -1,41 +1,75 @@
 # Step 5: Complete the Know Your Customer (KYC) process
 
-AWS Marketplace has established regional invoicing entities (also referred to as Marketplace Operators or MPOs) to facilitate transactions and support buyers' and sellers' localized business needs, such as tax, reporting, disbursements, and compliance. Invoicing entities are regional entities responsible for managing these localized aspects of AWS Marketplace for their respective regions. Each invoicing entity is subject to local laws and regulations. As AWS Marketplace sellers, you are required to complete verification steps to utilize certain invoicing entities in specific regions.
+AWS Marketplace has established regional invoicing entities (also referred to as Marketplace Operators or MPOs) to facilitate transactions and support buyers' and sellers' localized business needs, such as tax, reporting, disbursements, and compliance. Invoicing entities are regional entities responsible for managing these localized aspects of AWS Marketplace for their respective regions. Each invoicing entity is subject to local laws and regulations. The Know Your Customer (KYC) process is a verification procedure that helps AWS comply with regulatory requirements, including EU anti-money laundering directives and Korean financial transaction reporting requirements.
 
-As part of this framework, the Know Your Customer (KYC) process is a verification procedure that helps AWS comply with regulatory requirements including EU anti-money laundering directives and Korean financial transaction reporting requirements. KYC verification is mandatory for you to transact and/or receive disbursements through the AWS Marketplace invoicing entities in the following regions:
+## When KYC verification applies
+
+Whether you need to complete KYC verification — and which type — depends on two factors: the country where your business is registered (your home country), and the countries where your buyers are located. You might need to complete one type or both.
+
+### If your business is registered in Japan
+
+Sellers registered in Japan must complete **Japan Installment Sales Act verification** to sell on AWS Marketplace, regardless of where their buyers are located. This is required under Japanese law and is a separate, self-service process. See [Japan Installment Sales Act verification](#japan-isa-verification "#japan-isa-verification").
+
+### If your buyers are in Europe, the Middle East, and Africa (EMEA) or South Korea
+
+KYC verification is mandatory for you to transact and/or receive disbursements through the AWS Marketplace invoicing entities in the following regions:
 
 1. Europe, Middle East, and Africa (transaction and disbursements)
 2. South Korea (disbursements)
 
-## Regional KYC requirements
+Completing the KYC process for one of these regions can expedite verification for the other. For the requirements and steps, see [KYC requirements](#kyc-requirements "#kyc-requirements").
 
 EMEA
 
-Sellers must complete the KYC process to use the AWS EMEA invoicing entity. AWS Marketplace transactions through the AWS EMEA invoicing entity are processed through Amazon Payments Europe, S.C.A. (APE), a licensed electronic money institution in Luxembourg. Until the KYC is completed, AWS Inc. will be used as the invoicing entity for the seller's transactions in this region.
-
-In a Channel Partner Private Offer (CPPO), both the Channel Partner and the ISV need to be KYC verified to use AWS EMEA as the invoicing entity. AWS Inc. will be the default invoicing entity if either party is not KYC verified.
-
-KYC verification is also required if either a channel partner or an ISV needs to utilize a UK bank account for disbursements. In that scenario, both parties require KYC verification to ensure the AWS EMEA invoicing entity can facilitate the transaction.
+Sellers must complete the KYC process to use the AWS EMEA invoicing entity. AWS Marketplace transactions through the AWS EMEA invoicing entity are processed through Amazon Payments Europe, S.C.A. (APE), a licensed electronic money institution in Luxembourg. Until the KYC is completed, AWS Inc. will be used as the invoicing entity for the seller's transactions in this region. In a Channel Partner Private Offer (CPPO), both the Channel Partner and the ISV need to be KYC verified to use AWS EMEA as the invoicing entity. AWS Inc. will be the default invoicing entity if either party is not KYC verified. For information about how the invoicing entity (AWS Inc. vs. AWS EMEA) affects tax handling for your transactions, see [Tax handling for AWS Marketplace sellers](https://aws.amazon.com/tax-help/marketplace-sellers/tax-grid/ "https://aws.amazon.com/tax-help/marketplace-sellers/tax-grid/").
 
 South Korea
 
 To receive disbursements from the AWS South Korea invoicing entity, sellers must undergo KYC verification. Completing the KYC process for the EMEA region can expedite the verification for South Korea, and vice versa.
 
-Japan (Japanese sellers only)
-
-Sellers registered in Japan must provide business registration and legal representative details to the AWS Japan invoicing entity. This is a separate process from the KYC described on this page.
-
 ###### Sellers in India
 
-This process doesn't apply to sellers in India as they can only sell to buyers in India. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md").
+This process doesn't apply to sellers in India, as they can only sell to buyers in India. For detailed information, see [Getting started as a seller in India](getting-started-seller-india.md "getting-started-seller-india.md").
+
+###### KYC email notifications
+
+KYC status updates are sent to your AWS account root email address and the custom email address you provide during registration. It is highly recommended to add key KYC stakeholders to the custom email notification so that important messages are not missed. For more information, see [Adding or updating email addresses](email-notifications.md#adding-updating-email-addresses "email-notifications.md#adding-updating-email-addresses").
+
+## Japan Installment Sales Act verification
+
+Under Japan's Installment Sales Act, sellers registered in Japan must complete verification to sell on AWS Marketplace. This is a home-country requirement based on where your business is registered, distinct from the buyer-region KYC described in [KYC requirements](#kyc-requirements "#kyc-requirements"). You complete it as a self-service process in AWS Partner Central.
+
+###### Interactive demo available in Japanese
+
+To preview the verification screens before you begin, view the [interactive Japan Installment Sales Act verification demo](https://awsmarketplace.storylane.io/share/300dmygmsvyg "https://awsmarketplace.storylane.io/share/300dmygmsvyg"). The demo walks through each step with screens shown in Japanese.
+
+**What it verifies:** your business details and legal representative identity.
+
+**Before you start:** your business registration number and business address are filled automatically from your **Tax settings** in the Billing console. If your tax registration is incomplete, the verification form is unavailable — complete your tax information in **Tax settings** first, and then return to this page.
+
+###### To complete Japan verification
+
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Marketplace settings**.
+2. Choose the **Know Your Customer (KYC)** tab, and then locate **Japan Know Your Customer (KYC)**.
+3. Choose **Start verification**. (If you have already verified, choose **Update verification** to make changes.)
+4. **Step 1: Business details** — review your business information (registration number and address are pre-filled from your tax settings), add business information, and add any tags. Choose **Save and continue**.
+5. **Step 2: Legal representative information** — enter the legal representative's personal and contact details. Choose **Save and continue**.
+6. **Step 3: Review and submit** — review the information you've provided, and then choose **Submit**. You can choose **Edit** to return to a previous step.
+
+You can leave the wizard at any time. If you have unsaved changes on a step, you're prompted to save them before navigating away; your saved progress is retained so you can resume where you left off.
+
+**After you submit:** your status changes to **Under review**, and you receive email notifications to your AWS account root email address and custom email address when your status changes. Verification statuses are:
+
+- **Not started** — you haven't begun verification.
+- **Under review** — your submission is being verified.
+- **Successful** — verification is complete.
+- **Action required** — more information is needed. Correct the issues shown and resubmit.
+
+If you update your details after verifying, submitting the changes triggers reverification, which can take up to 7 business days.
 
 ## KYC requirements
 
-The KYC process requires you to provide additional information and documentation to verify your identity and business details. Before starting, ensure you can monitor your AWS account root email address, as the KYC team will send status updates and requests to that address. For more information about managing account communications, see [Managing account communications](managing-account-communications.md "managing-account-communications.md") in [Managing your seller account](seller-account-management.md "seller-account-management.md").
-
-###### Note
-
-You will also receive KYC status updates to the custom email address that you provide during registration. It is highly recommended to add key KYC stakeholders to the custom email notification so that important messages are not missed. For more information, see [Adding or updating email addresses](email-notifications.md#adding-updating-email-addresses "email-notifications.md#adding-updating-email-addresses").
+The KYC process requires you to provide additional information and documentation to verify your identity and business details. Before starting **buyer-region KYC**, ensure you can monitor your AWS account root email address, as the KYC team will send status updates and requests to that address. For more information about managing account communications, see [Managing account communications](managing-account-communications.md "managing-account-communications.md") in [Managing your seller account](seller-account-management.md "seller-account-management.md").
 
 KYC is a 3-step process:
 
@@ -67,12 +101,12 @@ Follow these steps to complete Step 1 of the KYC process in AWS Marketplace:
 
 For accepted document types, templates, and formatting requirements referenced throughout these steps, see the [Templates and best practices for completing the KYC process](#kyc-best-practices "#kyc-best-practices") section at the end of this page.
 
-1. Sign in to the AWS Marketplace Management Portal at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Settings**.
+1. Sign in to AWS Partner Central at [https://us-east-1.console.aws.amazon.com/partnercentral/home](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Marketplace settings**.
 2. In the **Account summary** section, confirm that the **Country** that is shown is correct.
 
 ###### Note
 
-Choose the **Info** link to see how to change your country. 3. In the same section, review your **KYC Verification** status to see where you are in the verification process. 4. To start or review your KYC journey, select the **Know your customer (KYC)** tab.
+Choose the **Info** link to see how to change your country. 3. In the same section, review your **KYC Verification** status to see where you are in the verification process. 4. To start or review your KYC journey, select the **Know Your Customer (KYC)** tab.
 
 ###### Note
 
@@ -126,7 +160,7 @@ You can select **Edit** to return to any previous section if necessary. 13. Choo
 
 The status of your KYC compliance will be reviewed (typically within 24 hours). You will be notified through an email message after the review is complete.
 
-You can return to the **Settings** tab to view the status of your KYC compliance on the **Account summary** card. For more information about your KYC status, choose the **Know your customer (KYC)** tab under the **Account summary** card. It will display **Under review** until the review has been completed.
+You can return to the **Marketplace settings** tab to view the status of your KYC compliance on the **Account summary** card. For more information about your KYC status, choose the **Know Your Customer (KYC)** tab under the **Account summary** card. It will display **Under review** until the review has been completed.
 
 ###### Important
 

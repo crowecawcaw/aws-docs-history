@@ -58,6 +58,7 @@ In addition to [general policies](#general-policies "#general-policies"), AMIs p
 - AMIs must disable password-based remote logins for superuser accounts. For more information, see [Disable password-based remote logins for the root user](../../../AWSEC2/latest/UserGuide/building-shared-amis.md#public-amis-disable-password-logins-for-root "../../../AWSEC2/latest/UserGuide/building-shared-amis.md#public-amis-disable-password-logins-for-root").
 - AMIs must not contain authorized public keys for SSH access.
 - SSH on AMIs must be accessible to AWS Marketplace internal vetting procedures.
+
   - The SSH service must listen on the TCP port specified for AMI scanning. For more information, see [Add a new version](single-ami-versions.md#single-ami-adding-version "single-ami-versions.md#single-ami-adding-version").
   - SSH must be accessible from subnets `10.0.0.0/16` and `10.2.0.0/16` on the IP address assigned by Amazon Elastic Compute Cloud (Amazon EC2) at instance launch.
 
@@ -75,11 +76,13 @@ In addition to [general policies](#general-policies "#general-policies"), Window
 - Only administrator accounts may be granted remote desktop access to an
   instance.
 - Windows AMIs must generate administrator passwords by enabling these options in [EC2Launch](../../../AWSEC2/latest/UserGuide/ec2launch-v2.md "../../../AWSEC2/latest/UserGuide/ec2launch-v2.md") (or [EC2Config](../../../AWSEC2/latest/UserGuide/ec2config-service.md "../../../AWSEC2/latest/UserGuide/ec2config-service.md") for Windows 2016 and older):
+
   - `Ec2SetPassword`
   - `Ec2WindowsActivate`
   - `Ec2HandleUserData`
 
 - AMIs must be available to automated vetting. At least one of the following requirements must be implemented:
+
   - (Recommended option) SSM agent is installed and have administrative permissions and outbound network access.
   - [Windows Remote Management (WinRM) service](https://learn.microsoft.com/en-us/windows/win32/winrm/portal "https://learn.microsoft.com/en-us/windows/win32/winrm/portal") is enabled, listens on TCP port
     `5985`, and is accessible from subnets `10.0.0.0/16` and
@@ -141,6 +144,7 @@ All AMIs must adhere to the following customer information policies:
 - Software must not collect or export customer data without the customer's knowledge and
   express consent except as required by BYOL (Bring Your Own License). Applications that
   collect or export customer data must follow these guidelines:
+
   - The collection of the customer data must be self-service, automated, and secure.
     Buyers must not need to wait for sellers to approve to deploy the software.
   - Collection of customer data must be consistent with your agreements with AWS,
@@ -165,6 +169,7 @@ All AMIs must adhere to the following product usage policies:
 - AMIs and their software must be deployable in a self-service manner and must not
   require additional payment methods or costs. Applications that require external
   dependencies on deployment must follow these guidelines:
+
   - The requirement must be disclosed in the description or the usage instructions of
     the listing. For example, _This product requires an internet connection to
     deploy properly. The following packages are downloaded on deployment: <list of
@@ -179,6 +184,7 @@ All AMIs must adhere to the following product usage policies:
 - AMIs that require an ongoing connection to external resources not under the direct
   control of the buyer—for example, external APIs or AWS services managed by the
   seller or a third party—must follow these guidelines:
+
   - The requirement must be disclosed in the description or the usage instructions of
     the listing. For example, _This product requires an ongoing internet
     connection. The following ongoing external services are required to properly

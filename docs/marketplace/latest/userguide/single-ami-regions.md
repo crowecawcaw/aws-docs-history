@@ -147,6 +147,7 @@ offered, you can use **Update availability**.
 3. From the **Request changes** dropdown, choose
    **Update availability**.
 4. Choose one of the following options:
+
    1. **All countries** – Available in all supported
       countries.
    2. **All countries with exclusions** – Available

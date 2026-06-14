@@ -40,6 +40,7 @@ The following procedure describes how to add any needed repositories in AWS Mark
    modify, and then choose **Add repositories** from the **Request
    changes** dropdown.
 4. Enter the name for the repository that you want to create. If you want to create more than one new repository:
+
    - Choose **Add new repository** for each additional repository.
    - Give it a unique name. The unique name you choose must be across all products in your seller account.
 
@@ -182,6 +183,7 @@ four delivery options per version of the product.
 
 6.  Choose a delivery method for the delivery option. The delivery method determines how
     buyers will launch your software.
+
     - For a **Container image** delivery option, provide paths to
       container images in an Amazon Elastic Container Registry (Amazon ECR) repository that was created in the AWS Marketplace
       console. Buyers use the container image paths to launch the software by pulling the
@@ -196,6 +198,7 @@ four delivery options per version of the product.
       APIs to launch the software. For more information, see [Available Amazon EKS add-ons from Amazon EKS](../../../eks/latest/userguide/eks-add-ons.md#workloads-add-ons-available-eks "../../../eks/latest/userguide/eks-add-ons.md#workloads-add-ons-available-eks").
     1. To add a **Container image** delivery option, perform the
        following steps:
+
        1. In **Container images**, add the Amazon ECR URL to the container
           images that contain the product version software.
        2. In **Delivery option title** and **Deployment
@@ -211,6 +214,7 @@ four delivery options per version of the product.
 
     2. To add a **Helm chart** delivery option, perform
        the following steps:
+
        1. In **Helm chart**, add the Amazon ECR URL to the
           Helm chart that buyers will install in their deployment
           environment to launch your software.
@@ -322,17 +326,20 @@ update the version information from the AWS Marketplace Management Portal.
    update.
 6. Make updates to the selected version. The fields that are available for updating
    depend on the status of the product version or delivery option.
+
    1. For all versions, you can update the **Release notes**.
    2. For versions that are not yet publicly available, you can update the
       **Version title**.
    3. For delivery options that haven't been restricted, you can update the following
       fields:
+
       - **Description**
       - **Usage instructions**
       - **Supported services**
 
    4. For delivery options in versions that are not yet publicly available, you can
       update the following fields:
+
       - **Delivery option titles**
       - **Helm chart** (for
         **Helm chart** delivery options only)

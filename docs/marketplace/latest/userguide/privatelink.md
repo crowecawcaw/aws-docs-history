@@ -97,6 +97,7 @@ During the process of publishing your service to AWS Marketplace, you work with 
 submit your PrivateLink-enabled product:
 
 1. Email the following information to the [AWS Marketplace Seller Operations](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") team:
+
    1. The endpoint and the AWS account used to create the
       endpoint. The endpoint is similar to this:
       com.amazonaws.vpce.us-east-1.vpce-svc-0daa010345a21646

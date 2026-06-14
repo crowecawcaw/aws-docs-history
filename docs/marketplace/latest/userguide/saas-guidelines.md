@@ -26,6 +26,7 @@ All SaaS products must adhere to the following product setup guidelines:
 - Pricing dimensions cannot be limited to private offers only. Buyers should be able to
   subscribe to any of the pricing dimensions on public products.
 - Pricing dimensions must meet the following requirements:
+
   - For products using the Free pricing model, all pricing dimensions must be set to $0.00.
   - For products using other pricing models (contract, usage, or contract with consumption), at least one pricing dimension must have a price greater than $0.00. If all dimensions are set to $0.00, the product will automatically convert to the Free pricing model.
 
@@ -41,6 +42,7 @@ All SaaS products must comply with the following security policies:
 - Product must comply with local laws and regulations in jurisdictions applicable to your company and your customers, such as the General Data Protection Regulation (GDPR), California Consumer Privacy Act (CCPA), and others.
 - Product must be free of known vulnerabilities, end-of-life software, malware, and other malicious code at the time of publishing. If security issues or vulnerabilities are detected post-publication, the seller must patch them.
 - Seller must disclose their data handling practices to customers through customer-facing documentation or by request. This disclosure must include information about:
+
   - Data collection
   - Data storage
   - Data usage
@@ -149,6 +151,7 @@ You must include an architecture diagram for review. You cannot make the diagram
 - Sellers can publish products that do not entirely run on AWS.
 - Applications that require resources in the buyer's infrastructure must follow these
   guidelines:
+
   - To be considered a SaaS product and not a managed service, your control plane—as defined in the [SaaS Architecture Fundamentals](../../../whitepapers/latest/saas-architecture-fundamentals/saas-architecture-fundamentals.md "../../../whitepapers/latest/saas-architecture-fundamentals/saas-architecture-fundamentals.md") AWS whitepaper—must reside in infrastructure that you manage. For more
     information, refer to the [SaaS vs. Managed Service Provider](../../../whitepapers/latest/saas-architecture-fundamentals/saas-vs.-managed-service-provider-msp.md "../../../whitepapers/latest/saas-architecture-fundamentals/saas-vs.-managed-service-provider-msp.md") whitepaper.
   - In the product description, you must notify customers that if they incur AWS
@@ -186,6 +189,7 @@ You must include an architecture diagram for review. You cannot make the diagram
 - Successfully call the AWS Marketplace APIs from the AWS account that registered as a
   provider and submitted the SaaS publishing request. The SaaS pricing model determines
   which APIs should be called:
+
   - SaaS contracts – [GetEntitlements](../../../marketplaceentitlement/latest/APIReference/API_GetEntitlements.md "../../../marketplaceentitlement/latest/APIReference/API_GetEntitlements.md") in the AWS Marketplace Entitlement Service.
   - SaaS contracts with consumption – [GetEntitlements](../../../marketplaceentitlement/latest/APIReference/API_GetEntitlements.md "../../../marketplaceentitlement/latest/APIReference/API_GetEntitlements.md") in the AWS Marketplace Entitlement Service and [BatchMeterUsage](../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md "../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md") in the AWS Marketplace Metering Service.
   - SaaS subscriptions – [BatchMeterUsage](../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md "../../../marketplacemetering/latest/APIReference/API_BatchMeterUsage.md") in the AWS Marketplace Metering Service.

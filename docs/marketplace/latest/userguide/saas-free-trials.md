@@ -35,6 +35,7 @@ Sellers can create SaaS free trial offers in the AWS Marketplace Management Port
 4. For **Offer fundamentals**, select your **Product**
    and then choose **Next**.
 5. In **Free trial settings**:
+
    1. Enter the number of days for your **Free trial length
       (days)**.
 

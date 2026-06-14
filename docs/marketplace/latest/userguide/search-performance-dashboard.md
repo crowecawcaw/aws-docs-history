@@ -129,16 +129,19 @@ specific outcomes or results. For more information on general SEO best practices
 _Key Capabilities_
 
 - **Keyword Performance Insights**
+
   - View top performing keywords currently driving organic traffic from search
     engines to your listing(s)
   - See monthly search volumes and current ranking positions
 
 - **Keyword Recommendations**
+
   - Discover up to 5 new keyword opportunities
   - Access search volume data for strategic planning
 
 - **AI-Powered Content Optimization
   Recommendations**
+
   - Receive optimized product title suggestions
   - Get short description optimization recommendations
 

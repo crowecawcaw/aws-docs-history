@@ -291,79 +291,88 @@ usage pricing models, but not for SaaS contract products without usage. The
 Python example sends a metering record with appropriate usage allocation tags to AWS Marketplace
 to charge your customers for pay-as-you-go fees.
 
+This example uses `LicenseArn` and `CustomerAWSAccountId`, which
+are returned by the `ResolveCustomer` API when a buyer registers to your
+product. Using `LicenseArn` supports products with Concurrent Agreements,
+where a single buyer can have multiple active agreements for the same product.
+
 ```
 # NOTE: Your application will need to aggregate usage for the
 #       customer for the hour and set the quantity as seen below.
 #       AWS Marketplace can only accept records for up to an hour in the past.
 #
-# productCode is supplied after the AWS Marketplace Ops team has
-# published the product to limited
-#
-# You can use either:
-# - customerID from the ResolveCustomer response
-# - AWS account ID of the buyer
+# LicenseArn and CustomerAWSAccountId are returned by the
+# ResolveCustomer API when a buyer registers to your product.
 
 # Import AWS Python SDK
 import boto3
-import time
+from datetime import datetime, timezone
 
-# Option 1: Using CustomerIdentifier (for new or updated integrations, use the customer AWS account ID)
 usageRecords = [
     {
-        "Timestamp": int(time.time()),
-        "CustomerIdentifier": "customerID",
+        "Timestamp": datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0),
+        "CustomerAWSAccountId": "111122223333",
         "Dimension": "Dimension1",
-        "Quantity": 3,
+        "LicenseArn": "arn:aws:license-manager::123456789012:license:l-exampleLicense12345",
+        "Quantity": 10000,
         "UsageAllocations": [
             {
-                "AllocatedUsageQuantity": 2,
+                "AllocatedUsageQuantity": 5000,
                 "Tags": [
-                    { "Key": "BusinessUnit", "Value": "IT" },
-                    { "Key": "AccountId", "Value": "*********" },
+                    {"Key": "user", "Value": "john"},
+                    {"Key": "feature", "Value": "data-processing"},
+                    {"Key": "job-name", "Value": "job11111"},
                 ]
             },
             {
-                "AllocatedUsageQuantity": 1,
+                "AllocatedUsageQuantity": 2500,
                 "Tags": [
-                    { "Key": "BusinessUnit", "Value": "Finance" },
-                    { "Key": "AccountId", "Value": "*********" },
+                    {"Key": "user", "Value": "john"},
+                    {"Key": "feature", "Value": "data-storage"},
+                    {"Key": "cluster-name", "Value": "cluster11111"},
+                ]
+            },
+            {
+                "AllocatedUsageQuantity": 2500,
+                "Tags": [
+                    {"Key": "user", "Value": "jane"},
+                    {"Key": "feature", "Value": "data-storage"},
+                    {"Key": "cluster-name", "Value": "cluster22222"},
+                ]
+            },
+        ]
+    },
+    {
+        "Timestamp": datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0),
+        "CustomerAWSAccountId": "111122223333",
+        "Dimension": "Dimension2",
+        "LicenseArn": "arn:aws:license-manager::123456789012:license:l-exampleLicense12345",
+        "Quantity": 2000,
+        "UsageAllocations": [
+            {
+                "AllocatedUsageQuantity": 1000,
+                "Tags": [
+                    {"Key": "user", "Value": "john"},
+                    {"Key": "feature", "Value": "data-processing"},
+                    {"Key": "job-name", "Value": "job11111"},
+                ]
+            },
+            {
+                "AllocatedUsageQuantity": 1000,
+                "Tags": [
+                    {"Key": "user", "Value": "jane"},
+                    {"Key": "feature", "Value": "data-processing"},
+                    {"Key": "job-name", "Value": "job22222"},
                 ]
             },
         ]
     }
 ]
 
-# Option 2: Using CustomerAWSAccountId (preferred)
-# usageRecords = [
-#     {
-#         "Timestamp": int(time.time()),
-#         "CustomerAWSAccountId": "awsAccountId",
-#         "Dimension": "Dimension1",
-#         "Quantity": 3,
-#         "UsageAllocations": [
-#             {
-#                 "AllocatedUsageQuantity": 2,
-#                 "Tags": [
-#                     { "Key": "BusinessUnit", "Value": "IT" },
-#                     { "Key": "AccountId", "Value": "*********" },
-#                 ]
-#             },
-#             {
-#                 "AllocatedUsageQuantity": 1,
-#                 "Tags": [
-#                     { "Key": "BusinessUnit", "Value": "Finance" },
-#                     { "Key": "AccountId", "Value": "*********" },
-#                 ]
-#             },
-#         ]
-#     }
-# ]
-
-marketplaceClient = boto3.client('meteringmarketplace')
+marketplaceClient = boto3.client('meteringmarketplace', region_name='us-east-1')
 
 response = marketplaceClient.batch_meter_usage(
-    UsageRecords=usageRecords,
-    ProductCode="testProduct"
+    UsageRecords=usageRecords
 )
 
 ```
@@ -377,40 +386,44 @@ Reference_.
 {
     "Results": [
         {
-            "Timestamp": "1634691015",
-            "CustomerIdentifier": "customerId",
-            "CustomerAWSAccountId": "awsAccountId",
-            "Dimension": "Dimension1",
-            "Quantity": 3,
-            "UsageAllocations": [
-                {
-                    "AllocatedUsageQuantity": 2,
-                    "Tags": [
-                        { "Key": "BusinessUnit", "Value": "IT" },
-                        { "Key": "AccountId", "Value": "*********" }
-                    ]
-                },
-                {
-                    "AllocatedUsageQuantity": 1,
-                    "Tags": [
-                        { "Key": "BusinessUnit", "Value": "Finance" },
-                        { "Key": "AccountId", "Value": "*********" }
-                    ]
-                }
-            ],
+            "UsageRecord": {
+                "Timestamp": "2025-06-05T14:00:00Z",
+                "CustomerIdentifier": "customerID",
+                "CustomerAWSAccountId": "111122223333",
+                "Dimension": "Dimension1",
+                "Quantity": 10000,
+                "LicenseArn": "arn:aws:license-manager::123456789012:license:l-exampleLicense12345",
+                "UsageAllocations": [
+                    {
+                        "AllocatedUsageQuantity": 5000,
+                        "Tags": [
+                            { "Key": "user", "Value": "john" },
+                            { "Key": "feature", "Value": "data-processing" },
+                            { "Key": "job-name", "Value": "job11111" }
+                        ]
+                    },
+                    {
+                        "AllocatedUsageQuantity": 2500,
+                        "Tags": [
+                            { "Key": "user", "Value": "john" },
+                            { "Key": "feature", "Value": "data-storage" },
+                            { "Key": "cluster-name", "Value": "cluster11111" }
+                        ]
+                    },
+                    {
+                        "AllocatedUsageQuantity": 2500,
+                        "Tags": [
+                            { "Key": "user", "Value": "jane" },
+                            { "Key": "feature", "Value": "data-storage" },
+                            { "Key": "cluster-name", "Value": "cluster22222" }
+                        ]
+                    }
+                ]
+            },
             "MeteringRecordId": "8fjef98ejf",
             "Status": "Success"
         }
     ],
-    "UnprocessedRecords": [
-        {
-            "Timestamp": "1634691015",
-            "CustomerIdentifier": "customerId",
-            "CustomerAWSAccountId": "awsAccountId",
-            "Dimension": "Dimension1",
-            "Quantity": 3,
-            "UsageAllocations": []
-        }
-    ]
+    "UnprocessedRecords": []
 }
 ```

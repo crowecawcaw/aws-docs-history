@@ -37,6 +37,7 @@ You can enable Amazon Bedrock AgentCore Gateway integration for your SaaS API-ba
 Your MCP server must meet the following requirements:
 
 - Two-legged OAuth authentication with one of following configurations:
+
   - client id, client secret, and discovery URL
   - client id, client secret, issuer, authorization endpoint and token endpoint.
 

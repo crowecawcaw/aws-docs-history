@@ -37,6 +37,7 @@ For each product in your solution, create a separate private offer. You'll use d
 
 - **Marketplace Private Offer (MPPO)**: Use for products you own directly.
 - **Channel Partner Private Offer (CPPO)**: Use for products you are authorized to resell.
+
   - Requires valid selling authorization from the product owner.
   - Allows you to share revenue between you and the ISV.
 

@@ -210,6 +210,7 @@ To enable Buy with AWS, you must:
 Currently, Buy with AWS supports only SaaS products.
 
 - Adhere to the Buy with AWS branding guidelines:
+
   - Log into your [AWS Partner Central](https://partnercentral.awspartner.com/partnercentral2/s/login?ec=302&startURL=%2Fpartnercentral2%2Fs%2Farticle%3Fcategory%3DAWS_Marketplace_Market%26article%3DAvailable-in-AWS-Marketplace-Branding-Treatment-v2024 "https://partnercentral.awspartner.com/partnercentral2/s/login?ec=302&startURL=%2Fpartnercentral2%2Fs%2Farticle%3Fcategory%3DAWS_Marketplace_Market%26article%3DAvailable-in-AWS-Marketplace-Branding-Treatment-v2024") account to download the marketing toolkit which contains
     branding assets and specifications to follow for AWS Marketplace branding elements and
     marketing assets.
@@ -223,14 +224,17 @@ the Buy with AWS experience:
 
 1. Navigate to AWS Partner Central and [submit support ticket](https://aws.amazon.com/marketplace/management/contact-us/? "https://aws.amazon.com/marketplace/management/contact-us/?") for **Commercial
    Marketplace**
+
    1. Select **Buy with AWS** as the category
    2. Select **Branding Review** as the
       sub-category.
 
 2. Provide the following in the ticket:
+
    1. Your primary email address, and seller ID.
    2. In the **Provide more details about your request**
       section:
+
       1. The URL where you'll implement the Buy with AWS integration
       2. A link to your sandbox, live site, or mockups for AWS Marketplace operations team to
          review. If you don't include this, the operations team will request it after you

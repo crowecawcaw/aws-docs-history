@@ -185,6 +185,7 @@ your access is pending the next biweekly update.
 
 - Link your AWS Partner Central and AWS Marketplace accounts. To
   do that, you must:
+
   - Create the `CreatePartnerCentralCloudAdminRole` IAM: policy. For more information, see the
     [prerequisites for account linking](../../../partner-central/latest/getting-started/account-linking.md#linking-prerequisites "../../../partner-central/latest/getting-started/account-linking.md#linking-prerequisites") in the
     _AWS Partner Central Getting Started Guide_.
@@ -216,6 +217,7 @@ product listing or update a current listing.
 ###### To enable buttons for new products
 
 1. Use [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") to create the following types of products and make them public:
+
    - AMI
    - SaaS
    - Container

@@ -31,6 +31,7 @@ Ensure that you are signed out from another AWS account before signing in with y
     * Choose **Continue to authorization details**.
 
 4.  On the **Specify details** page, enter the following details:
+
     - For **Selling authorization description**, enter a description.
 
     ###### Note
@@ -41,7 +42,9 @@ Ensure that you are signed out from another AWS account before signing in with y
     - You can choose **Save and exit** or choose **Next**. Choosing **Save and exit** at any step in the process will save your selling authorization as draft. Choosing **Next** takes you to the **Select duration and pricing** page.
 
 5.  On the **Select duration and pricing** page, enter the following details:
+
     - For **Pricing model**, choose one of the following options:
+
       - **Contract pricing with installment plan** - You specify a fixed quantity for each dimension type, an hourly rate for overages, and an installment plan. Overages are charged at the hourly rate and billed separately.
       - **Contract pricing with upfront payments** - You specify a contract price for each dimension type and an hourly rate for additional usage. Buyers have the option to select the quantity to commit at the contract price for each dimension type and get invoiced for the full amount upon acceptance. Additional usage is charged at the hourly rate and billed separately.
       - **Usage pricing** - You specify hourly rate for each dimension type. Buyers are charged based on the hourly rate for their usage.
@@ -55,7 +58,6 @@ Ensure that you are signed out from another AWS account before signing in with y
         + **Channel Partner Private Offers (CPPOs):** ISVs and channel partners will receive disbursements in the same currency, as agreed upon during CPPO creation.
         + **Currency restrictions:** CPPOs can only be created in the currency set in the resale authorization. If a Channel Partner wants to extend a CPPO in a different currency, they need to reach out to the ISV to ensure a resale authorization is issued in the new currency.
         + **Agreement Based Offers (ABO):** ABO will support changing the currency of the offer, as long as the seller and Channel Partner have configured the currency in their disbursement preferences.
-
     - For **Duration**, select the duration of the selling authorization.
 
     ###### Note
@@ -68,6 +70,7 @@ Ensure that you are signed out from another AWS account before signing in with y
     - For **Buyer installment plan**, enter the Contract total and generate installment plan based on desired frequency. This is required for Contract pricing with installment plan.
     - For **Pricing per instance type**, set usage prices for each instance type. The optional pricing tool allows you to bulk update prices by either applying a discount to public price or applying the same price to all instances.
     - For **Selling authorization availability**, choose one of the following options to limit the availability of how many private offers are created or until what specific time private offers can be created using this selling authorization:
+
       - **Single Use** – Allows for a single offer to be created by reseller until the specified end date
       - **Specific Time Duration** – Allows for multiple offers to be created by reseller until the specified end date
       - **No Set Time Duration** – Allows for multiple offers to be created by reseller until the selling authorization is manually deactivated
@@ -75,6 +78,7 @@ Ensure that you are signed out from another AWS account before signing in with y
     - You can choose **Save and exit**, **Previous**, or **Next**. Choosing **Next** takes you to the **Configure legal terms** page.
 
 6.  On the **Configure legal terms** page, enter the following details:
+
     - For **End user license agreement**, select Public EULA or Standard Contract for AWS Marketplace (SCMP) or upload Custom EULA.
 
     ###### Note

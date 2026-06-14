@@ -14,6 +14,7 @@ to create a role for AWS Marketplace assets ingestion that gives AWS Marketplace
 2. Select **Create role**.
 3. On the **Create role** page, make the following
    selections:
+
    - **Select type of trusted entity** – Choose
      **AWS Service**.
    - **Choose a use case** – Choose **AWS Marketplace**.

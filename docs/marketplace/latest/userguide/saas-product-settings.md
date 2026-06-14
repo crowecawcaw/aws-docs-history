@@ -41,6 +41,7 @@ navigation bar.
    changes**.
 4. When the request's processing is completed, its status changes to one of the
    following values:
+
    - **Succeeded** – This status indicates that
      your requested change was processed and changes are reflected in the
      system.
@@ -74,6 +75,7 @@ with it in AWS Marketplace.
 3. From the **Request changes** dropdown list, choose
    **Update product information**.
 4. Update any of the following fields that you want to change:
+
    - **Product title**
    - **SKU**
    - **Short description**
@@ -109,6 +111,7 @@ For list of hosting patterns that AWS considers deployed on AWS, see [Guidelines
 3. In the **SaaS products** table, choose your product.
 4. For **Request changes**, choose **Update architecture details**.
 5. Choose a hosting pattern. If you select a hosting pattern that AWS Marketplace considers deployed on AWS, complete the following two additional steps. For more information about patterns considered deployed on AWS, see [Guidelines](saas-guidelines.md#march-saas-guidelines "saas-guidelines.md#march-saas-guidelines"), previously in this guide.
+
    1. If prompted, in the **Architecture diagram** section, choose **Choose file** to upload your architecture diagram in PNG or JPG format. For more information about diagrams, see [Creating architecture diagrams](saas-guidelines.md#arch-diagram "saas-guidelines.md#arch-diagram").
    2. If prompted, in the **Application plane**, choose where your application runs. For more information, see [Control plane vs. application plane](../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md "../../../whitepapers/latest/saas-architecture-fundamentals/control-plane-vs.-application-plane.md").
 
@@ -395,6 +398,7 @@ template** button and provide the following information:
    configuration using the **Configure and launch** page after
    subscribing to your product and choosing the **Set up your
    account** button.
+
    - To preview the page from the buyer's perspective, choose
      **Preview**. Your configuration changes
      will reflect on the preview while both pages are open.
@@ -425,6 +429,7 @@ You can define the countries in which your product can be offered.
    **Update public offer** and then choose **Update
    availability by country**.
 4. Choose one of the following options:
+
    - All countries – Available in all supported countries.
    - All countries with exclusions – Available in all supported countries
      except in selected countries.

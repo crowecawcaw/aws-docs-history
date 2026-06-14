@@ -19,19 +19,23 @@ To create a custom dimension, you create a draft private offer and define the di
 1. Go to the private offer page on [AWS Partner Central](https://aws.amazon.com/marketplace/management/offers "https://aws.amazon.com/marketplace/management/offers").
 2. Select **Create private offer** to start a new private offer.
 3. On the **Create offer** page, do the following:
+
    1. Choose **Direct private offer** as the offer type.
    2. Choose the SaaS product that you want to add the dimension to:
+
       - **SaaS contracts**
       - **SaaS contracts with pay-as-you-go**
 
    3. Choose **Next**.
 
 4. On the **Provide offer information** page, do the following:
+
    1. Give your offer a name.
    2. For **Renewal**, choose **No, this isn't a renewal offer**.
    3. For **Offer expiration date**, set any future date for the offer expiration.
 
 5. On the **Configure offer pricing and duration** page, do the following:
+
    1. Choose **Contract pricing with upfront payment** to keep the workflow simple.
    2. For **Contract duration**, specify `12` months for contract duration as placeholder.
    3. Keep the currency as **USD**.

@@ -42,9 +42,11 @@ If no products appear, you may not have listed a product publicly or you have a 
 ### Prerequisites for creating channel partner private offers (CPPOs) to resell software or services
 
 - Meet the geographic prerequisites to become a "seller" in AWS Marketplace:
+
   - Use a legal entity from an [eligible jurisdiction](user-guide-for-sellers.md#eligible-jurisdictions "user-guide-for-sellers.md#eligible-jurisdictions"),
     or a business entity incorporated in one of those areas.
   - Provide the required information about your bank account. You can provide one or more bank accounts, including:
+
     - A US Automated Clearing House (ACH) account
     - A Society for Worldwide Interbank Financial Telecommunication (SWIFT) bank account from an eligible jurisdiction
     - A [Hyperwallet](https://wssellers.hyperwallet.com/ "https://wssellers.hyperwallet.com/") account
@@ -74,6 +76,7 @@ To create an installment plan
 1. On the **Configure offer pricing and duration** page, for **Product pricing**, choose **Contract pricing with installment plan**.
 2. Choose the contract duration and specify the offer details.
 3. Under **Buyer installment plan**, enter the desired parameters:
+
    - For upfront invoicing upon acceptance, enter the dollar amount and set the invoice date to the date you are creating the private offer.
    - For delayed invoicing, enter the dollar amount and set a future invoice date.
    - For installment invoicing, choose **Add Payment** to enter multiple payment line items with dollar amounts and invoice dates.
@@ -97,6 +100,7 @@ Here are common reasons for 404 errors and their resolutions:
 1. Ask the buyer to access the [Private Offers](https://us-east-1.console.aws.amazon.com/marketplace/home?region=us-east-1#/private-offers "https://us-east-1.console.aws.amazon.com/marketplace/home?region=us-east-1#/private-offers") tab in their
    [AWS Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. If the offer isn't visible in **Available private offers** or **Accepted and expired offers** tabs:
+
    - Verify the buyer is signed into the correct account. They can confirm their account ID in the top right corner of the AWS Console.
    - If signed into the correct account, ensure the private offer is for an Amazon Machine Image (AMI) limited listing (see AMI limited listing section below).
 

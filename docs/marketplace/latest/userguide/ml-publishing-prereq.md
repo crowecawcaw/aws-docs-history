@@ -19,6 +19,7 @@ signed in as requires the necessary permissions.
 ###### Setting sign-in permissions
 
 - Add the following permissions to the IAM role:
+
   1.  **sagemaker:DescribeModelPackage** — For
       listing a model package
   2.  **sagemaker:DescribeAlgorithm** — For listing
@@ -103,6 +104,7 @@ required assets:
 - **Amazon Resource Name (ARN)** — Provide the ARN
   of the model package or algorithm resource in the AWS Region that you are publishing
   from (see [Supported AWS Regions for publishing](ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing "ml-service-restrictions-and-limits.md#ml-supported-aws-regions-for-publishing")).
+
   - An ARN for a model package has this form:
     `arn:aws:sagemaker:<region>:<account-id>:model-package/<model-package-name>`
 

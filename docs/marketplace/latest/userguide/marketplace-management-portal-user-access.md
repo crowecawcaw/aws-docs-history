@@ -129,6 +129,7 @@ policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") rather than creat
    **Create Policy**.
 3. Next to **Policy Generator**, choose **Select**.
 4. On the **Edit Permissions** page, do the following:
+
    1. For **Effect**, choose **Allow**.
    2. For **AWS Service**, choose
       **AWS Marketplace Management Portal**.
@@ -138,6 +139,7 @@ policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") rather than creat
    5. Choose **Next Step**.
 
 5. On the **Review Policy** page, do the following:
+
    1. For **Policy Name**, enter a name for this policy. Take note of
       the policy name because you need it for a later step.
    2. (Optional) For **Description**, enter a description for this
@@ -153,6 +155,7 @@ policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") rather than creat
 3. For **Group Name:**, type a name for the group. Then choose
    **Next Step**.
 4. On the **Attach Policy** page, do the following:
+
    1. For **Filter:**, choose **Customer Managed
       Policies**.
    2. Select the check box next to the name of the policy that you want to attach to

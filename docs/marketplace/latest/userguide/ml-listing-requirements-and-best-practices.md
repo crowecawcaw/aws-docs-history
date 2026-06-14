@@ -22,6 +22,7 @@ published products don't meet them.
 Provide the following information for your machine learning product:
 
 - For product descriptions, include the following:
+
   - What your model does
   - Who the target customer is
   - What the most important use case is

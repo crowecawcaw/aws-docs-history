@@ -19,6 +19,7 @@ When creating a private offer, you can set a custom payment schedule with an ins
 1. On the **Configure offer pricing and duration** page, for **Product pricing**, choose **Contract pricing with installment plan**.
 2. Choose the contract duration for this offer and specify the offer details. For more information, see [Preparing a private offer for your AWS Marketplace product](private-offers-overview.md "private-offers-overview.md").
 3. Under **Buyer installment plan**, enter the following parameters:
+
    - **Contract total**
    - (Optional) If you want the first payment to be different from the others, enter an **Initial payment**. The remaining balance will be divided equally among subsequent payments.
    - **Frequency**

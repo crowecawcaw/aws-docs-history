@@ -85,6 +85,7 @@ perform the validation.
    role**. Creating a role here grants permissions described by the [AmazonSageMakerFullAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSageMakerFullAccess") IAM policy to the role that you create.
 3. Edit the **JSON** in the validation profile. For details about
    allowed values, see [TransformJobDefinition](../../../sagemaker/latest/APIReference/API_TransformJobDefinition.md "../../../sagemaker/latest/APIReference/API_TransformJobDefinition.md").
+
    1. `TransformInput.DataSource.S3Uri`:
       Set to where your test data for inference is stored.
    2. `TransformInput.ContentType`: Specify your test data content type (for
@@ -202,6 +203,7 @@ validation specifications tell SageMaker AI how to perform the validation.
 3. Edit the **JSON** file in the validation profile for
    **Training job definition**. For more information about allowed
    values, see [TrainingJobDefinition](../../../sagemaker/latest/APIReference/API_TrainingJobDefinition.md "../../../sagemaker/latest/APIReference/API_TrainingJobDefinition.md").
+
    1. `InputDataConfig`: In this JSON array, add a [Channel object](../../../sagemaker/latest/APIReference/API_Channel.md "../../../sagemaker/latest/APIReference/API_Channel.md") for
       each channel that you specified in the training-specification step. For each
       channel, specify where your test data for training is stored.
@@ -212,6 +214,7 @@ validation specifications tell SageMaker AI how to perform the validation.
 
 4. Edit the JSON file in the validation profile for **Transform job
    definition**. For more information about allowed values, see [TransformJobDefinition](../../../sagemaker/latest/APIReference/API_TransformJobDefinition.md "../../../sagemaker/latest/APIReference/API_TransformJobDefinition.md").
+
    1. `TransformInput.DataSource.S3Uri`: Set to where your test data for
       inference is stored.
    2. `TransformInput.ContentType`: Specify your test data content type. For

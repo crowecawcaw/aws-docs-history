@@ -29,6 +29,7 @@ AWS Marketplace Vendor Insights gathers the evidence-based information from thre
   **Compliant** and an Amazon S3 bucket becomes public. The dashboard would
   display that the control's status changed from **Compliant** to
   **Undetermined**.
+
   - Turning on AWS Config and the AWS Audit Manager service.
   - Creating AWS Config rules and the AWS Audit Manager automated assessment.
   - Provisioning the AWS Identity and Access Management (IAM) role so that AWS Marketplace Vendor Insights can pull assessment

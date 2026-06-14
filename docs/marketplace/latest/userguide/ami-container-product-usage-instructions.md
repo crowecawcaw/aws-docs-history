@@ -27,6 +27,7 @@ information:
   instructions for configuration, backup, and recovery.
 - Step-by-step instructions for how to assess and monitor the health and proper function of
   the application. For example:
+
   - Navigate to your [Amazon EC2 console](https://us-east-1.signin.aws.amazon.com/oauth?response_type=code&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fec2&redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fec2%2Fv2%2Fhome%3Fregion%3Dus-east-1%26state%3DhashArgs%2523Home%253A%26isauthcode%3Dtrue&forceMobileLayout=0&forceMobileApp=0&code_challenge=aRqwDZ0gdWGXfWQgSpY_ge8vSRw2poGnBZ_8qsU5fiA&code_challenge_method=SHA-256 "https://us-east-1.signin.aws.amazon.com/oauth?response_type=code&client_id=arn%3Aaws%3Aiam%3A%3A015428540659%3Auser%2Fec2&redirect_uri=https%3A%2F%2Fus-east-1.console.aws.amazon.com%2Fec2%2Fv2%2Fhome%3Fregion%3Dus-east-1%26state%3DhashArgs%2523Home%253A%26isauthcode%3Dtrue&forceMobileLayout=0&forceMobileApp=0&code_challenge=aRqwDZ0gdWGXfWQgSpY_ge8vSRw2poGnBZ_8qsU5fiA&code_challenge_method=SHA-256") and verify that you're in the correct region.
   - Choose **Instance** and select your launched instance.
   - Select the server to display your metadata page and choose the **Status
@@ -65,6 +66,7 @@ Example usage instructions:
 2. Use a web browser to access the application at
    `https://<EC2_Instance_Public_DNS>/index.html`.
 3. Sign in using the following credentials:
+
    - User name: `user`
    - Password: the instance ID (`instance_id`)
 

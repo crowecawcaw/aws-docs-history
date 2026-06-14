@@ -47,6 +47,7 @@ them.
   products** page in AWS Marketplace Management Portal. If you have a pending request that you
   did not intend, you can cancel it and then submit a new request with the change that
   you want to make.
+
   - You can't update version information when an update (to add or restrict) a
     version is ongoing.
   - If there is a request pending from the AWS Marketplace Seller Operations team, you can't submit any

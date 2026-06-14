@@ -13,6 +13,7 @@ Before you can publish a SaaS product with contract pricing, you must do the fol
 2. Complete the fields in the **General** tab with the necessary
    information. Make a note of the product code.
 3. On the **Pricing** tab:
+
    1. For **Set pricing**, choose the **Contract
       duration** you want to offer customers. You can enter different prices for each
       contract duration. You can select one or more of the following options:
@@ -21,6 +22,7 @@ Before you can publish a SaaS product with contract pricing, you must do the fol
       offer, you can choose a custom duration in months (up to 144 months).
    2. For **Choose the contract type you want to offer**, choose how you
       want customers to be able to purchase your product from the following options:
+
       - **Buyer can choose one or more options offered** – Customers
         can select a quantity for each pricing dimension you offer.
       - **Buyer can choose one tier from multiple tiers offered** –

@@ -122,6 +122,7 @@ security posture. AWS Marketplace Vendor Insights supports the following self-as
    self-assessment**.
 4. Under **Self-assessment details**, complete the following
    information:
+
    1. **Name** – Enter a name for the self-assessment.
    2. **Type** – Choose an assessment type from the list.
 
@@ -218,6 +219,7 @@ avoids increased configuration recording and rule evaluations.
 
 - **Amazon S3** – The stack set creates the following two
   Amazon Simple Storage Service buckets:
+
   - **vendor-insights-stack-set-output-bucket-{account number}**
     – This bucket contains outputs from the stack set run. The AWS Marketplace Seller
     Operations team uses the outputs to complete your automated data source creation
@@ -232,6 +234,7 @@ avoids increased configuration recording and rule evaluations.
 
 - **IAM** – The onboarding stack set provisions
   the following AWS Identity and Access Management (IAM) roles in your account:
+
   - When the `VendorInsightsPrerequisiteCFT.yml` template is
     deployed, it creates the administrator role
     `AWSVendorInsightsOnboardingStackSetsAdmin` and the run role
@@ -349,6 +352,7 @@ _AWS CloudFormation User Guide_.
    **Next**.
 7. Provide the following StackSet parameters, and then choose
    **Next**.
+
    - `CreateVendorInsightsAutomatedAssessment` – This parameter
      sets up the AWS Audit Manager automated assessment in your AWS account. If you have
      separate management and production accounts, this option should only be selected

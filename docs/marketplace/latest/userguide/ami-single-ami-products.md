@@ -60,6 +60,7 @@ Before you start, review the following key aspects of the self-service experienc
   processing. You can't continue the steps or make changes until the request has
   succeeded. For the first **Save and exit**, the request is
   creating the product in parallel with the steps that you have completed.
+
   - After the request has **Succeeded**, you
     have completed the save. To resume changes on the **Product
     overview** page, choose **Resume product
@@ -102,6 +103,7 @@ more information, see [Understand the self-service experience](#understand-ami-s
    server product**, select **Amazon Machine Image
    (AMI)**, and then select one of the licensing types for
    single-AMI products:
+
    - **Bring your own license (BYOL)** – A
      product that the user gets a license from you outside of AWS Marketplace. It
      can be either a paid or free license.

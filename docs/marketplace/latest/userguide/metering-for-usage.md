@@ -97,6 +97,7 @@ records to AWS. Keep the following in mind:
 - We require sellers to use batching by using the `BatchMeterUsage`
   operation.
 - We deduplicate metering requests on the hour.
+
   - For non-Concurrent Agreements products: Requests are deduplicated per product/customer/hour/dimension. For Concurrent Agreements products: Requests are deduplicated per license/customer/hour/dimension.
   - You can always retry any request, but if you meter for a different quantity, the
     original quantity is billed. For Concurrent Agreements products: retrying with the same `LicenseArn` is safe and follows standard deduplication rules. However, switching between `ProductCode` and `LicenseArn` for the same usage window will cause duplicate billing.
@@ -168,12 +169,6 @@ view their costs split into usage by the tag values in their AWS Billing Console
 or the total usage that you report. It allows your customer to view their costs by categories
 appropriate to your product.
 
-###### Note
-
-Concurrent Agreements license-level metering is not currently supported for
-vendor-metered tagging (VMT) products. If your product uses VMT, continue using standard
-`ProductCode`-based metering.
-
 In a common use case, a buyer subscribes to your product with one AWS account. The buyer
 also has numerous users associated with the same product subscription. You can create usage
 allocations with tags that have a key of `Account ID`, and then allocate usage to
@@ -238,12 +233,15 @@ The following table shows an example of the buyer experience after a buyer activ
 
 In this example, the buyer can see allocated usage in their **Cost Usage
 Report**. The vendor-metered tags use the prefix
-`“aws:marketplace:isv”`. Buyers can activate them in the Billing and Cost Management, under
+`aws:marketplace:isv:` followed by the tag key name. For example, a tag with
+the key `BusinessUnit` appears as
+`aws:marketplace:isv:BusinessUnit`. Buyers can activate these tags in the
+Billing and Cost Management, under
 **Cost Allocation Tags**, **AWS-generated cost allocation
 tags**.
 
 The first and last rows of the **Cost Usage Report** are relevant to
-what the Seller sends to the Metering Service (as shown in the [Seller experience](container-metering-meterusage.md#container-vendor-metered-tag-seller "container-metering-meterusage.md#container-vendor-metered-tag-seller") example).
+what the seller sends to the Metering Service (as shown in the [Seller experience](#saas-vendor-metered-tag-seller "#saas-vendor-metered-tag-seller") example).
 
 | Cost Usage Report (Simplified) | ProductCode  | Buyer                       | UsageDimension | UsageQuantity | `aws:marketplace:isv:AccountId` | `aws:marketplace:isv:BusinessUnit` |
 | ------------------------------ | ------------ | --------------------------- | -------------- | ------------- | ------------------------------- | ---------------------------------- |
@@ -252,5 +250,37 @@ what the Seller sends to the Metering Service (as shown in the [Seller experienc
 | xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 4444          | IT                              |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 20             | 5555          | Marketing                       |
 | xyz                            | 111122223333 | Network: per (GB) inspected | 30             | 1111          | Marketing                       |
+
+The following screenshot shows an example of the AWS Cost Explorer Service view
+after a buyer activates vendor-metered tags and groups costs by the
+`user` tag.
+
+![Screenshot of Cost Explorer showing vendor-metered tag data grouped by user. The seller uses a $0.00 dimension to report credit consumption alongside a paid overage dimension. Cost allocation tags on both dimensions allow the buyer to see which users consumed credits and which users incurred overage charges.](images/vendor-metered-tag-cost-explorer.png)
+
+In this example, the seller defines a $0.00 dimension to report credit
+consumption and a $0.01 dimension for overage charges. Each unit represents $0.01.
+Cost allocation tags allow the buyer to interactively slice costs by any tag in
+[AWS Cost Explorer Service](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/"), showing that `john` totals 8,500
+units ($85.00) and `jane` totals 3,500 units ($35.00) across both
+dimensions.
+
+###### To activate vendor-metered tags in the buyer account
+
+1. Sign in to the AWS Management Console and open the [AWS Billing console](https://console.aws.amazon.com/billing/ "https://console.aws.amazon.com/billing/"). Then choose **Cost allocation
+   tags** from the left navigation pane.
+2. Choose the **AWS-generated cost allocation tags** tab.
+3. Search for `aws:marketplace:isv:` to find tags for all products that
+   support vendor-metered tagging.
+4. Select the check boxes for the tags you want to activate, and then choose
+   **Activate**.
+5. (Optional) To backfill tags for metering records that were reported before
+   activation, choose **Backfill tags**. Select the month when the
+   metering records were reported, and then choose **Confirm**.
+
+###### Note
+
+After activation, vendor-metered tags take up to 24 hours to appear in the Billing and Cost Management
+console and AWS Cost Explorer Service. If you choose to backfill tags, the backfill
+process also takes approximately 24 hours to complete.
 
 For a code example, see [BatchMeterUsage with usage allocation tagging code example (Optional)](saas-code-examples.md#saas-batchmeterusage-tagging "saas-code-examples.md#saas-batchmeterusage-tagging").

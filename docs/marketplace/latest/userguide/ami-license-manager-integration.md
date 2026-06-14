@@ -369,6 +369,7 @@ follows:
 
 - `CheckoutType` – The valid values are `Perpetual` or
   `Provisional`:
+
   - `Perpetual` – Used when the quantity of entitlements checked
     out will be exhausted from the pool. Example: Buyer is entitled to process 500 GB of
     data. As they continue to process data, the quantity is drawn down and exhausted
@@ -386,6 +387,7 @@ follows:
   exact result occurs and is the same no matter how many times attempted. We recommend
   that you use a random universally unique identifier (UUID) for each request.
 - `Entitlements` – List of entitlements to be checked out.
+
   - For tiered entitlements, provide `Name` and `Unit`
     properties as follows:
 

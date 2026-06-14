@@ -12,6 +12,7 @@ Before creating a solution, make sure you have:
 2. ACE (APN Customer Engagement) eligibility to enable **Request private offer** and receive leads.
 3. At least two public product listings on AWS Marketplace. At least one public product must be your own.
 4. For solutions that include other sellers' products:
+
    1. Consent from other sellers to include their products in your solution listing
    2. Selling authorization from other sellers if you plan to resell their products in transactions
 
@@ -127,6 +128,7 @@ The page includes:
 
 - **Summary**: status, solution ID, ARN, last modified.
 - **Overview tab**: solution detail, buyer engagement options, additional resources, images and videos, tags.
+
   - For a detailed guide on adding images and videos, see [Enhance your AWS Marketplace product with promotional media](promotional-media.md "promotional-media.md").
   - AWS lets buyers with unique or enterprise use cases request a private offer for your product directly from the product detail page. If you are an AWS Partner Network (APN) partner who is eligible for [APN Customer Engagements (ACE)](https://aws.amazon.com/partners/programs/ace/ "https://aws.amazon.com/partners/programs/ace/") and you would like to offer this option to buyers, see [Adding private offer and demo request buttons](creating-private-offer.md#private-offer-requests-demos "creating-private-offer.md#private-offer-requests-demos") for more information.
 
@@ -146,6 +148,7 @@ Requirements:
 - At least one use case must be chosen.
 - You must enable **Request private offer**.
 - If your solution includes products from other AWS Marketplace sellers, confirm the following:
+
   - You coordinated with the product owner to obtain product IDs.
   - The product owner is ready to provide selling authorization to create channel partner private offers.
   - You obtained consent from the product owner to showcase their product in your public solution listing.

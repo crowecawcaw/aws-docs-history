@@ -397,6 +397,7 @@ ensures that you provide the necessary information.
 ###### To request a bulk refund
 
 1. Gather the following required information:
+
    - The seller's AWS account ID (12 digits)
    - A list of all buyer AWS account IDs (12 digits each). You can enter multiple buyers, or single buyers for multiple billing periods.
    - All product IDs
@@ -406,6 +407,7 @@ ensures that you provide the necessary information.
    - The AWS Marketplace Refund Ticket Reference ID
 
 2. Compile the required information into a CSV spreadsheet with the following columns:
+
    - `Seller Account ID`
    - `Subscriber Account ID`
    - `Payer Account ID`
@@ -414,11 +416,11 @@ ensures that you provide the necessary information.
    - `Targeted Amount`
    - `Product ID`
 
-3. Sign in to the [Support Center Console](https://console.aws.amazon.com/support/home? "https://console.aws.amazon.com/support/home?") as the root user.
+3. Sign in to the [Support Center Console](https://console.aws.amazon.com/support/home? "https://console.aws.amazon.com/support/home?") as the root user or as an IAM user with either AWSMarketplaceSellerFullAccess or AWSMarketplaceSellerProductFullAccess permissions.
 
 ###### Note
 
-You can't complete these steps unless you sign in as the root user. 4. Create a support case to **Account and billing** and select **AWS Marketplace**. 5. In the subject line, enter `Request Bulk Refund`. 6. Under **Additional Comments**, enter the following:
+You can't complete these steps unless you sign in as the root user or as an IAM user with either AWSMarketplaceSellerFullAccess or AWSMarketplaceSellerProductFullAccess permissions. 4. Create a support case to **Account and billing** and select **AWS Marketplace**. 5. In the subject line, enter `Request Bulk Refund`. 6. Under **Additional Comments**, enter the following:
 
     * Total number of accounts affected
     * Total number of invoices
@@ -449,6 +451,7 @@ The legacy process for requesting refunds:
    in the former AWS Marketplace Management Portal).
 3. Choose **Request Refund**.
 4. Enter the following details:
+
    - **Subscriber's AWS account ID** — The buyer's account ID used to subscribe. You can find this in the offer detail or on the Billed Revenue Dashboard. This must be the subscriber account ID.
    - **Seller's AWS account ID** — Your AWS account ID used to create the offer.
    - **Product ID** — You can find this in the offer detail or on the Billed Revenue Dashboard.
@@ -456,6 +459,7 @@ The legacy process for requesting refunds:
    - **Refund amount** — Indicate full or partial refund.
 
 5. In the **Additional comments (optional)** field:
+
    - For contract cancellation, include: "Please cancel agreement `agreement-id`".
    - For refunds (whether the invoice has been paid or not), include: "This refund targets invoice ID `invoice-id` dated `invoice-date`".
    - If you need both cancellation and refund, include both statements. Cancellation of a contract does not automatically cancel any issued invoices — you must explicitly request refund of each invoice that needs to be adjusted.
@@ -468,6 +472,7 @@ If a refund and/or cancellation needs to be expedited, you can create a support 
 
 1. Sign in to the [Support Center Console](https://console.aws.amazon.com/support/home? "https://console.aws.amazon.com/support/home?").
 2. Create a new case with the following details:
+
    - **Type:** Account and Billing
    - **Service:** Marketplace
    - **Category:** Marketplace Seller Request

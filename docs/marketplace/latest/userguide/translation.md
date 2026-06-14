@@ -51,12 +51,14 @@ Allow 3 – 5 days for the opt-out to take effect.
 
 1. Go to the [AWS Partner Central](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home") and choose **Contact Us**.
 2. Select the following categories in the order listed:
+
    - **Commercial Marketplace**
    - **Product Listing**
    - **Local Languages Opt-out**
 
 3. Include the listing ID and the languages that you want to opt out of.
 4. As a best practice, help your buyers understand why they see English text. For example:
+
    1. When opting out of all translations, add `English` to the end of your product name.
    2. When opting out of one or more translations, add some explanatory text to the end of your product description. For example:
       `We have declined automatic translation services for this product`.

@@ -7,6 +7,7 @@ You can view and download tax invoices for your AWS Marketplace seller account f
 ###### To access your invoices
 
 1. Log in to the AWS Marketplace Management Portal or AWS Partner Central.
+
    1. Go to the AWS Management Console and search for AWS Partner Central.
    2. Choose **Launch AWS Partner Central**.
 

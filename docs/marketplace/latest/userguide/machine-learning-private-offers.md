@@ -17,6 +17,7 @@ You can negotiate and offer a private offer directly to customers for your machi
    you want to create a private offer for. You can only create offers for available
    products.
 4. On the **Offer details** page:
+
    1. Enter the offer name and description.
    2. Select the renewal option.
    3. Set the offer expiration date. Offers expire at 23:59:59 UTC on the set
@@ -24,6 +25,7 @@ You can negotiate and offer a private offer directly to customers for your machi
 
 5. Choose **Next** twice.
 6. On the **Configure offer pricing and duration** page, specify:
+
    - Pricing option
 
    (For more information, see [Private offers for ML products](private-offers-supported-product-types.md#ml-private-offers "private-offers-supported-product-types.md#ml-private-offers"))

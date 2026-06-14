@@ -143,6 +143,7 @@ the **Snapshot list**.
    the **Snapshot ID** of the snapshot that you want to change.
 5. Choose the preferences icon. You can customize the following preferences for your
    snapshot:
+
    - **Page size** – Select how many snapshots you want listed
      on each page: **10 resources**, **20 resources**, or
      **50 resources** per page.

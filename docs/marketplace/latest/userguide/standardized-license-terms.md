@@ -80,6 +80,7 @@ this product to SCMP V2`.
    us](https://aws.amazon.com/marketplace/management/contact-us/ "https://aws.amazon.com/marketplace/management/contact-us/") page on the AWS Marketplace Management Portal.
 2. Sign in to your AWS Marketplace seller account.
 3. Complete the form as follows:
+
    - For the subject of your question, choose **Commercial
      Marketplace**.
    - For the category, choose **Product Listing**.

@@ -32,6 +32,7 @@ Example product name: Smart Solution Load Balancer - Premium Edition.
 Supported characters for metadata fields are:
 
 - ASCII character codes 0 to 126
+
   - For more information see [Standard ASCII Table](https://www.ascii-code.com/ASCII "https://www.ascii-code.com/ASCII").
 
 - Copyright ©

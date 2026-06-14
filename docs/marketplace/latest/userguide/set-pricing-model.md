@@ -6,6 +6,7 @@ after you've published the product.
 
 1. Choose a pricing model. Batch transform and algorithm training products can only be free or
    charged for hourly usage.
+
    - If you chose to offer your product for free, choose **Next**
      and continue the wizard.
    - If you chose usage pricing, continue these steps.

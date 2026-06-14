@@ -78,6 +78,7 @@ example implementation:
    for that hour. This might include collecting a value-per-dimension.
 3. Call the `meterUsage` method on the SDK client with the following
    parameters (call additionally for each dimension that has usage):
+
    - `timestamp` – Timestamp of the hour being recorded (in UTC).
    - `productCode` – Product code assigned to the software.
    - `dimension` – Dimension (or dimensions) assigned to the

@@ -40,6 +40,7 @@ Specifications:
 - Recommended video resolution is 1080p (1920x1080 pixels) with a preferred 16:9 aspect ratio.
 - Video format must be .mp4 with max file size of 50MB.
 - (Optional) A cover image can be added in place of the auto-generated cover.
+
   - Cover image should have a resolution of 500x281 pixels (16:9 aspect ratio).
   - Image format must be .png (preferred), .jpg, or .svg without transparency.
 

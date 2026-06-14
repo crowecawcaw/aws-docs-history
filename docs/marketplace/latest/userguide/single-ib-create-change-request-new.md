@@ -48,6 +48,7 @@ find your requests on the AWS Marketplace Management Portal [Request](https://aw
    process your request, reflected **Under Review**. When the
    request completes, it will result in either **Succeeded** or
    **Failed**.
+
    - After the request is submitted, it begins processing through these
      statuses: **Under review**, **Preparing
      changes**, and **Applying

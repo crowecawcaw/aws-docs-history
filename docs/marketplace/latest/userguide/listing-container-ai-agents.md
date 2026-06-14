@@ -18,6 +18,7 @@ Container-based AI agents and tools running on Amazon Bedrock AgentCore Runtime 
 ## Step 1: Provide product Information
 
 1. In **Product information**, enter:
+
    - **Product title**
    - **Product logo S3 URL**
    - **Short description**
@@ -84,6 +85,7 @@ Wait 10-15 minutes until your request status is in the _Succeeded_ state.
 See [Amazon Bedrock AgentCore Runtime for AWS Marketplace](bedrock-agentcore-runtime.md "bedrock-agentcore-runtime.md") on how to integrate AgentCore with your Container Image.
 
 1. Locate the URL for the ECR repository:
+
    - Open the Server products page in AWS Partner Central.
    - Select your container product to view the details.
    - Select the Repositories tab to copy the URL of the repository.
@@ -126,6 +128,7 @@ Only container products with versions that support Amazon Bedrock AgentCore Runt
 
 4. Select **Add delivery option**.
 5. For **Delivery method**, select **Container image** and fill in:
+
    - **Supported services**: select the environment that buyers can launch the software in.
    - For **Bedrock AgentCore** service, select
      **AI Agent, MCP Server, or A2A Server** in the **Type** field.
@@ -154,6 +157,7 @@ Adding a new version automatically scans the container images for vulnerabilitie
 3. Select **View on AWS Marketplace**.
 4. Review your product detail page for accuracy. Ensure the usage instructions sufficiently guide the buyer through the necessary steps to launch your product.
 5. Submit an Update visibility request to public:
+
    - From the **Server products** page, on the **Current server product** tab, select the container-based product that you want to modify. From the **Request changes** dropdown, choose **Update visibility**.
 
 ## Container deployment details

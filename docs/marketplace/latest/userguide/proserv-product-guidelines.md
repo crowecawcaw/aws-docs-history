@@ -86,6 +86,7 @@ guidelines:
   products.
 - If the services offered require additional resources in the customer's
   infrastructure, follow these guidelines:
+
   - Provision resources in a secure way, such as by using the AWS Security Token Service or
     AWS Identity and Access Management (IAM).
   - Provide additional documentation including a description of all

@@ -50,12 +50,14 @@ information.
 1. Log in to [AWS Partner
    Central](https://partnercentral.awspartner.com/ "https://partnercentral.awspartner.com/") or [AMMP](https://aws.amazon.com/marketplace/management/signin "https://aws.amazon.com/marketplace/management/signin").
 2. Access the chat:
+
    1. Choose the purple floating icon at the bottom-right hand corner.
    2. Choose from one of the suggested prompts, or begin typing your question in the
       text field.
    3. The chatbot responds with sources and links.
 
 3. Access the chatbot from Partner Central:
+
    1. Choose the **Support** menu.
    2. Select **Instant chat with AWS Partner Assistant**
       from the dropdown.
@@ -64,6 +66,7 @@ information.
       immediate answer.
 
 4. Access the chatbot from AMMP:
+
    1. From the **Contact Us** page, choose **Ask AWS Partner Assistant**.
    2. (Optional) Access the chatbot from a support ticket. Before submitting a support
       ticket, choose **Submit support request** from the
@@ -71,6 +74,7 @@ information.
       AWS Partner Assistant** to get an immediate answer.
 
 5. (Optional) Provide feedback:
+
    1. After each response, you have the option to provide feedback: Choose **Thumbs Up** if the response meets your needs.
    2. Choose **Thumbs Down** if the response wasn’t
       helpful.

@@ -35,11 +35,13 @@ contacting your AWS Marketplace business development contact.
 
 1. Confirm that the offer was accepted by the customer using one or more of the following
    tools:
+
    - [Notification for AWS Marketplace events](notifications.md "notifications.md")
    - [AWS Marketplace Management Portal agreements tab](private-offers-upgrades-and-renewals.md#private-offers-upgrades-and-renewals-process "private-offers-upgrades-and-renewals.md#private-offers-upgrades-and-renewals-process")
 
 2. (For private offers) After you confirm that the customer accepted the offer, review the
    offer invoice schedule and amounts:
+
    - For private offers, check the AWS Marketplace Management Portal **Offers**
      tab.
    - For channel partner private offers, check the AWS Marketplace Management Portal **Partners** tab to view a custom payment schedule within the partner

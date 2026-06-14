@@ -12,6 +12,7 @@ shows you how to update your container product availability by country.
    public offer**, and then select **Update availability by
    country**.
 4. Select one of the following options:
+
    - **All countries** – Available in all supported
      countries.
    - **All countries with exclusions** – Available in all

@@ -29,6 +29,7 @@ Before submitting your Amazon Machine Image (AMI) product to AWS, use this check
 
 - For Windows Server 2012 and later operating systems, your AMI uses the latest version of [EC2Launch v2](../../../AWSEC2/latest/WindowsGuide/ec2launch-v2-install.md "../../../AWSEC2/latest/WindowsGuide/ec2launch-v2-install.md").
 - If you're using EC2Launch v2, complete the following:
+
   - In [Amazon
     EC2Launch settings](../../../AWSEC2/latest/WindowsGuide/ec2launch-v2-settings.md#ec2launch-v2-ui "../../../AWSEC2/latest/WindowsGuide/ec2launch-v2-settings.md#ec2launch-v2-ui"), choose **Random** under **Set
     administrator account** to have an administrator password generated at runtime.
@@ -39,6 +40,7 @@ Before submitting your Amazon Machine Image (AMI) product to AWS, use this check
 - For Windows Server 2012 and later versions, avoid using [EC2Config](../../../AWSEC2/latest/WindowsGuide/UsingConfig_Install.md "../../../AWSEC2/latest/WindowsGuide/UsingConfig_Install.md"). If EC2Config is required, ensure that you use the latest version.
 - If you use EC2Config, enable the following parameters in the [settings
   files](../../../AWSEC2/latest/WindowsGuide/ec2config-service.md#UsingConfigXML_WinAMI "../../../AWSEC2/latest/WindowsGuide/ec2config-service.md#UsingConfigXML_WinAMI") for your AMI:
+
   - `Ec2SetPassword`
   - `Ec2WindowsActivate`
   - `Ec2HandleUserData`

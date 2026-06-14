@@ -26,6 +26,7 @@ requirements:
 - Containers must not request AWS credentials to access AWS services. When
   your product needs to access AWS services, you must use one of the
   following:
+
   - IAM roles for service accounts, for Amazon Elastic Kubernetes Service (Amazon EKS)
     workloads.
   - IAM roles for tasks, for Amazon Elastic Container Service (Amazon ECS) workloads.
@@ -45,6 +46,7 @@ requirements:
   knowledge and express consent except as required by BYOL (Bring Your Own
   License). Applications that collect or export customer data must follow these
   guidelines:
+
   - The collection of the customer data must be self-service, automated,
     and secure. Buyers must not need to wait for sellers to approve to
     deploy the software.
@@ -75,6 +77,7 @@ All container-based products must adhere to the following product usage requirem
 - Containers and their software must be deployable in a self-service manner and
   must not require additional payment methods or costs. Applications that require
   external dependencies on deployment must follow these guidelines:
+
   - The requirement must be disclosed in the description or the usage
     instructions of the listing. For example, _This product
     requires an internet connection to deploy properly. The following
@@ -91,6 +94,7 @@ All container-based products must adhere to the following product usage requirem
   the direct control of the buyer—for example, external APIs or
   AWS services managed by the seller or a third party—must follow these
   guidelines:
+
   - The requirement must be disclosed in the description or the usage
     instructions of the listing. For example, _This product
     requires an ongoing internet connection. The following ongoing
@@ -286,6 +290,7 @@ BYOL is not supported for Amazon EKS add-on delivery.
   following list describes the requirements that must be met before
   onboarding your software as an Amazon EKS add-on. In this list, all Helm commands use
   Helm version 3.19.0:
+
   - All `Capabilities` objects are supported, with an
     exception for `.APIVersions`. `.APIVersions`
     is not supported for non-built-in custom Kubernetes
@@ -300,6 +305,7 @@ BYOL is not supported for Amazon EKS add-on delivery.
   - The Helm chart must successfully pass
     Helm Lint and Helm Template with
     no errors. The commands are as follows:
+
     - Helm Lint – `helm lint
 `helm-chart``
 
@@ -354,6 +360,7 @@ For more information about limitations for
   Amazon EKS addon framework does not support installation of CRDs
   and custom resource declarations based on CRDs applied
   with the same add-on. If your add-on has custom resources and relies on CRDs, you can either:
+
   - **Publish two add-ons:**Split CRD definition into
     a separate add-on (separate helm chart) and the actual
     [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/ "https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/")

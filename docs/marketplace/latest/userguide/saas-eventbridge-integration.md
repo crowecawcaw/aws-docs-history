@@ -43,6 +43,7 @@ Use EventBridge to integrate your tenant provisioning operations with your SaaS 
 
 - Event rules define how to react to an event. These rules can react immediately or on a set schedule.
 - Event patterns are defined in the event rules and let you filter for specific event types sent to your default event bus. Patterns templates for each event type are available in the EventBridge console. In the Event pattern configuration step, select AWS services as the event source and AWS Marketplace Agreements and Licenses as the AWS service.
+
   - All AWS Marketplace Agreements and Licenses event types use the following structure.
 
 ```

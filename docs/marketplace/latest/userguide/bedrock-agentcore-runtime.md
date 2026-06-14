@@ -120,6 +120,7 @@ Requirements:
 - **Port** - Container must expose port `8000` for MCP server communication
 - **Path** - Must expose `/mcp` as a POST endpoint to receive MCP RPC messages. The `InvokeAgentRuntime` API passes through requests to this path for MCP servers.
 - **Protocol** - MCP server must support the MCP protocol, including the following protocol messages:
+
   - `tools/list`
   - `tools/call` (supported by common frameworks like FastMCP)
 
@@ -231,6 +232,7 @@ Requirements:
 - **Port** - A2A servers run on port 9000 (vs 8080 for HTTP, 8000 for MCP)
 - **Host** - Container must listen on `0.0.0.0`
 - **Path**
+
   - A2A servers are mounted at `/` (vs `/invocations` for HTTP, `/mcp` for MCP)
   - Health checks at `/ping` using GET
 

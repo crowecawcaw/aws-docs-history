@@ -29,6 +29,7 @@ AWS License Manager.
 1. Open a web browser and sign into the [AWS Marketplace Management Portal](https://us-east-1.console.aws.amazon.com/partnercentral/home "https://us-east-1.console.aws.amazon.com/partnercentral/home").
 2. Create a product ID for your container product by performing the following steps. You
    will use this ID in your container image for license checks in a later step.
+
    1. From the menu bar, expand **Assets**, and choose
       **Container**.
    2. Enter a customer-facing name for your product, and choose

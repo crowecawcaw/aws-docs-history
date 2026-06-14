@@ -31,10 +31,12 @@ Use the following guidelines for building AMIs:
 - Use a consistent operating system (OS) user name across all versions and products. The recommended default user names are `ec2-user` for Linux and other Unix-like systems, and `Administrator` for Windows.
 - Before submitting a final AMI to AWS Marketplace publishing, launch and test an instance from your AMI to verify the intended end-user experience. Test all installation methods, features, and performance on this instance.
 - Check port settings as follows:
+
   - As a [best practice security configuration](https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/ "https://aws.amazon.com/blogs/security/defense-in-depth-open-firewalls-reverse-proxies-ssrf-vulnerabilities-ec2-instance-metadata-service/") against open firewalls, reverse
     proxies, and SSRF vulnerabilities, the **IMDS support** option must be
     set to **IMDSv2** only. The following CLI can be used when
     registering a new AMI at the final build phase:
+
     - `aws ec2 register-image
 --name my-image
 --root-device-name /dev/xvda

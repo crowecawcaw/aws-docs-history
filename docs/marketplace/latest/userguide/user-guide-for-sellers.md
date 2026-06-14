@@ -69,6 +69,7 @@ This requirement does not apply to India-based sellers. For more information, se
 - To sell products to customers whose AWS accounts are based in countries and
   territories in Europe, the Middle East, and Africa (EMEA) (excluding Turkey and South
   Africa) through Amazon Web Services EMEA SARL, you must [complete the Know Your Customer process](complete-kyc-process.md "complete-kyc-process.md"). In addition:
+
   - You receive up to two disbursements (for transactions through AWS Inc. and
     Amazon Web Services EMEA SARL).
   - You may be taxed on the listing fee for certain transactions, depending on

@@ -106,6 +106,7 @@ program must read from those specific file paths.
 
 - `/opt/ml/input/config` is the directory that contains information
   which controls how your program runs.
+
   - `hyperparameters.json` is a JSON-formatted dictionary of
     hyperparameter names and values. The values are strings, so you may need to
     convert them.

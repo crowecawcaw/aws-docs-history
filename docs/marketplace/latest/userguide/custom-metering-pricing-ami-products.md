@@ -24,6 +24,7 @@ Before you use the AWS Marketplace Metering Service, note the following importan
 - **Usage Category** – Any software product priced through the use
   of the Metering Service is categorized according to one usage category, which determines
   the appropriate way to charge customers. Usage categories include but aren't limited to:
+
   - **Users** – A defined set of permissions associated with a
     single identifier. This category is appropriate for software in which a customer’s
     users connect to the software directly (for example, for customer-relationship
@@ -43,12 +44,14 @@ Before you use the AWS Marketplace Metering Service, note the following importan
 - **Usage Unit** – A software product's specific usage
   unit corresponds to the selected usage category. This usage unit describes the unit your
   software will charge on. Examples include:
+
   - **NodesHrs** (corresponding to the Hosts category)
   - **UserHrs** (corresponding to the User category)
   - **GBStored** (corresponding to the Data category)
 
 - **Consumption** – Software products priced through the
   use of the Metering Service charge for consumption in one of three ways:
+
   - Provisioned – The software allows customers to configure a specific amount
     of resources for use (for example, number of users or a fixed amount of bandwidth).
     Each hour, customers pay for what they have provisioned.
@@ -61,6 +64,7 @@ Before you use the AWS Marketplace Metering Service, note the following importan
 - **Pricing** – Software products priced through the use
   of the Metering Service must specify either a single price or define up to 24 dimensions,
   each with their own price. Details about the pricing options include:
+
   - Single dimension – This is the simplest pricing option. Customers pay a
     single price per resource unit per hour, regardless of size or volume (for example,
     $0.014 per user per hour, or $0.070 per host per hour).
@@ -73,6 +77,7 @@ Before you use the AWS Marketplace Metering Service, note the following importan
 - **Metering** – All usage is recorded as a metering
   event, once each hour. Your software must be configured to send the appropriate dimension
   and usage amount to the AWS Marketplace Metering Service.
+
   - Allocations – Optionally, you may distribute the usage into allocations by
     properties that you track. These allocations are represented as tags to the buyer. The
     tags allow the buyer to view their costs split into usage by tag. For example, if you

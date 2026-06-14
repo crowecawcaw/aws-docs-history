@@ -17,6 +17,7 @@ following procedure.
 3. From the **Request changes** dropdown, choose **Update
    product information**.
 4. Update any of the following fields that you need to change:
+
    - **Product title**
    - **SKU**
    - **Short description**

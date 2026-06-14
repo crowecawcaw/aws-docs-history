@@ -34,6 +34,7 @@ AWS Marketplace Management Portal.
 4. On the **Update version** page, select the version that you
    want to update.
 5. Update any of the following information that you need to modify:
+
    - **Release notes**
    - **Usage instructions**
    - **64-bit (x86) Amazon Machine Image (AMI)** –
@@ -136,6 +137,7 @@ following information:
 
 7. Provide the following configurations for the **AMI
    delivery option** section, if applicable:
+
    - **Recommended instance type**– Choose the
      instance type that buyers get by default.
    - **Usage instructions** – Enter instructions
@@ -160,6 +162,7 @@ https://example.com/usage.htm.`
 
 8. Provide the following configuration settings for the **AMI with
    CloudFormation delivery option**, if applicable:
+
    - **Delivery option title** – This is a unique
      name to identify this Single AMI CloudFormation template delivery
      option.
