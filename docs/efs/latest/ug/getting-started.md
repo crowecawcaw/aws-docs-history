@@ -119,6 +119,7 @@ $ sudo umount efs
    [https://console.aws.amazon.com/efs/](https://console.aws.amazon.com/efs/ "https://console.aws.amazon.com/efs/").
 4. Delete the EFS file system that you created in the first step of the
    getting started exercise.
+
    1. Choose the EFS file system that you want to delete from the list of
       file systems.
    2. For **Actions**, choose **Delete file

@@ -37,6 +37,7 @@ that you also check the log files for the file systems.
 
 - From the Amazon EFS console, you can find the following items for your file
   systems:
+
   - The current metered size
   - The number of mount targets
   - The lifecycle state

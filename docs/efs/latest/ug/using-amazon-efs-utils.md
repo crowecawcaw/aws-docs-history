@@ -33,6 +33,7 @@ The following dependencies exist for `amazon-efs-utils` and are installed
 when you install the `amazon-efs-utils` package:
 
 - NFS client
+
   - `nfs-utils` for RHEL, CentOS, Amazon Linux, and Fedora distributions
   - `nfs-common` for Debian and Ubuntu distributions
 

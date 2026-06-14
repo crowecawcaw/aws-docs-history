@@ -50,6 +50,7 @@ file system when the instance restarts.
    an editor.
 3. For automatic mounting using either IAM authorization or an EFS access
    point:
+
    - To automatically mount with IAM authorization to an EC2 instance that
      has an instance profile, add the following line to the
      `/etc/fstab` file.
@@ -57,13 +58,11 @@ file system when the instance restarts.
    ```
    `file-system-id`:/ `efs-mount-point` efs _netdev,noresvport,tls,iam 0 0
    ```
-
    - To automatically mount with IAM authorization to a Linux instance using a credentials file, add the following line to the `/etc/fstab` file.
 
    ```
    `file-system-id`:/ `efs-mount-point` efs _netdev,noresvport,tls,iam,awsprofile=`namedprofile` 0 0
    ```
-
    - To automatically mount a file system using an EFS access point, add
      the following line to the `/etc/fstab` file.
 

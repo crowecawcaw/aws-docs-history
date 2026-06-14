@@ -31,6 +31,7 @@ Amazon EFS uses AWS KMS for key management as follows:
 
 - **File data encryption** – The contents of your files
   are encrypted using the KMS key that you specify. This can be either:
+
   - The AWS owned key for Amazon EFS (`aws/elasticfilesystem`) – Default
     option, no additional charges.
   - A customer managed key that you create and manage – Provides additional control and

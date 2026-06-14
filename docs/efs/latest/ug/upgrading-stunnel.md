@@ -17,6 +17,7 @@ with the following instructions.
 2. Locate the latest `stunnel` version that is available in `tar.gz` format. Note the name of the file as you will
    need it in the following steps.
 3. Open a terminal on your Linux client, and run the following commands in the order presented.
+
    1. For RPM:
 
    ```
@@ -28,13 +29,11 @@ with the following instructions.
    ```
    sudo apt-get install build-essential libwrap0-dev libssl-dev
    ```
-
    2. Replace `latest-stunnel-version` with the name of the file you noted previously in Step 2.
 
    ```
    sudo curl -o `latest-stunnel-version`.tar.gz https://www.stunnel.org/downloads/`latest-stunnel-version`.tar.gz
    ```
-
    3. ```
       sudo tar xvfz `latest-stunnel-version`.tar.gz
       ```
@@ -43,7 +42,6 @@ with the following instructions.
    4. ```
    cd `latest-stunnel-version`/
    ````
-
    5. ```
       sudo ./configure
       ```
@@ -52,20 +50,17 @@ with the following instructions.
    6. ```
    sudo make
    ````
-
    7. The current `stunnel` package is installed in `bin/stunnel`. So that the
       new version can be installed, remove that directory with the following command.
 
    ```
    sudo rm /bin/stunnel
    ```
-
    8. Install the latest version:
 
    ```
    sudo make install
    ```
-
    9. Create a symlink:
 
    ```

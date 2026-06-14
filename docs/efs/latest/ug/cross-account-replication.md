@@ -231,6 +231,7 @@ policies in the previous section.
 1. Sign in to the AWS Management Console with the account that owns the file system, and then open the
    Amazon EFS console at [Amazon EFS Console](https://console.aws.amazon.com/efs/ "https://console.aws.amazon.com/efs/").
 2. Open the file system:
+
    1. In the left navigation pane, choose **File systems**.
    2. In the **File systems** list, choose the file system.
 

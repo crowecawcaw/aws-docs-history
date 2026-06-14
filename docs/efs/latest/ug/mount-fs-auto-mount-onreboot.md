@@ -4,6 +4,7 @@ You can use the EFS mount helper or NFS to configure an Amazon EC2 instance to a
 mount an EFS file system when the instance starts.
 
 - Using the EFS mount helper:
+
   - Attach an EFS file system when you create a new EC2 Linux
     instance using the EC2 launch instance wizard.
   - Update the EC2 `/etc/fstab` file with an entry for the

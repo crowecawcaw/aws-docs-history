@@ -12,6 +12,7 @@ Using NFS without the EFS mount helper to update the Amazon EC2
    an editor.
 3. To automatically mount a file system using NFS instead of the EFS mount
    helper, add the following line to the `/etc/fstab` file.
+
    - Replace `file_system_id` with the ID of the file system you are mounting.
    - Replace `aws-region` with the AWS Region that the file system in, such as `us-east-1`.
    - Replace `mount_point` with the file system's mount point.

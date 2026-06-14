@@ -25,6 +25,7 @@ also might see increased latencies for file system operations.
 
 - For mounting One Zone file systems from a
   different Availability Zone:
+
   - **The name of the file system's Availability Zone** – If you are
     mounting an EFS One Zone file system that is located in a
     different Availability Zone than the EC2 instance.
@@ -34,6 +35,7 @@ also might see increased latencies for file system operations.
 - **An EC2 instance running one of the supported Linux or
   macOS distributions** – The supported distributions for mounting your
   file system with the mount helper are the following:
+
   - Amazon Linux 2
   - Amazon Linux 2023
   - Amazon Linux 2017.09 and newer

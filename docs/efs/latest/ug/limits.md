@@ -165,6 +165,7 @@ NFSv4.0, except for the following features:
 - pNFS
 - Exended attributes
 - Client delegation or callbacks of any type
+
   - Operation OPEN always returns `OPEN_DELEGATE_NONE` as the delegation
     type.
   - The operation OPEN returns `NFSERR_NOTSUPP` for the
@@ -187,6 +188,7 @@ other than `OPEN4_SHARE_DENY_NONE`.
 - Access control lists (ACLs)
 - Amazon EFS doesn't update the `time_access` attribute on file reads. Amazon EFS
   updates `time_access` in the following events:
+
   - When a file is created (an inode is created)
   - When an NFS client makes an explicit `setattr` call
   - On a write to the inode caused by, for example, file size changes or file metadata

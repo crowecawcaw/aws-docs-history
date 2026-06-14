@@ -61,13 +61,13 @@ permissions to write to this directory, for example:
 - Create writable per-user subdirectories. For step-by-step instructions, see [Tutorial: Creating writable per-user subdirectories](accessing-fs-nfs-permissions-per-user-subdirs.md "accessing-fs-nfs-permissions-per-user-subdirs.md").
 - Allow users to write to the EFS file system root. A user with root privileges can
   grant other users access to the file system.
+
   - To change the EFS file system ownership to a non-_root_
     user and group, use the following:
 
   ```
   $ sudo chown `user`:`group` /`EFSroot`
   ```
-
   - To change permissions of the file system to something more permissive, use the
     following:
 
@@ -221,6 +221,7 @@ JSON
    workstation, as described following. For more information, see [Attaching an
    IAM Role to an Instance](../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#attach-iam-role "../../../AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.md#attach-iam-role") in the _Amazon EC2 User Guide for Linux
    Instances_.
+
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. In the navigation pane, choose **Instances**.

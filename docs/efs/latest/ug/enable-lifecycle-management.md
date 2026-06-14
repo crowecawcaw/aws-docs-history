@@ -24,6 +24,7 @@ You can use the AWS Management Console to set the lifecycle policies for an exis
    choose **Edit**. The **Edit** page
    displays.
 5. For Lifecycle management, configure the lifecycle policies:
+
    - Set **Transition into IA** to one of the available options. To stop moving files
      into IA storage, choose **None**.
    - Set **Transition into Archive** to one of the available

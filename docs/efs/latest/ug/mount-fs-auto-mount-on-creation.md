@@ -33,6 +33,7 @@ instances](../../../AWSEC2/latest/UserGuide/ec2-key-pairs.md "../../../AWSEC2/la
 4. In **Step 2: Choose an Instance Type**, choose **Next:
    Configure Instance Details**.
 5. In **Step 3: Configure Instance Details**, provide the following information:
+
    - For **Network**, choose the entry for the same VPC that the EFS
      file system you're mounting is in.
    - For **Subnet**, choose a default subnet in any Availability Zone.

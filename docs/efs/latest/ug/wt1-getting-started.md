@@ -12,6 +12,7 @@ the AWS CLI to do the same—primarily to familiarize yourself with the Amazon E
 In this tutorial, you create the following AWS resources in your account:
 
 - Amazon EC2 resources:
+
   - Two security groups (for your EC2 instance and EFS file
     system).
 
@@ -57,6 +58,7 @@ resources—must be in the same AWS Region.
 - You can use a default VPC or a custom VPC that you have created in your account. For
   this walkthrough, the default VPC configuration works. However, if you use a custom VPC,
   verify the following:
+
   - DNS hostnames are enabled. For more information, see [DNS attributes in your
     VPC](../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support "../../../vpc/latest/userguide/vpc-dns.md#vpc-dns-support") in the _Amazon VPC User Guide_.
   - The internet gateway is attached to your VPC. For more information, see [Connect to the internet using an internet
@@ -142,6 +144,7 @@ groups for Linux instances](../../../AWSEC2/latest/UserGuide/ec2-security-groups
 
 1. Create two security groups using the `create-security-group` CLI
    command:
+
    1. Create a security group (`efs-walkthrough1-ec2-sg`) for your
       EC2 instance, and provide your VPC ID.
 
@@ -167,7 +170,6 @@ groups for Linux instances](../../../AWSEC2/latest/UserGuide/ec2-security-groups
    ```
    $ aws  ec2 describe-vpcs
    ```
-
    2. Create a security group (`efs-walkthrough1-mt-sg`) for your
       EFS mount target. You need to provide your VPC ID.
 
@@ -269,6 +271,7 @@ In this step, you launch an EC2 instance.
 
 1.  Gather the following information that you need to provide when launching an
     EC2 instance:
+
     - Key pair name. For instructions to create a key pair, see [Create a key
       pair for your Amazon EC2 instance](../../../AWSEC2/latest/UserGuide/create-key-pairs.md "../../../AWSEC2/latest/UserGuide/create-key-pairs.md") in the _Amazon EC2 User Guide_.
     - The ID of the Amazon Machine Image (AMI) you want to launch.
@@ -293,7 +296,6 @@ In this step, you launch an EC2 instance.
         + Choose the **EBS-backed HVM 64-bit** type (because in the
          CLI command you specify the `t2.micro` instance type, which does not
          support instance store).
-
     - ID of the security group you created for an EC2 instance.
     - AWS Region. This walkthrough uses the us-west-2 region.
     - Your VPC subnet ID where you want to launch the instance. You can get list of
@@ -382,6 +384,7 @@ in the next step.
 ###### To create a file system
 
 - Create a file system with the optional `Name` tag.
+
   1.  At the command prompt, run the following AWS CLI `create-file-system`
       command.
 
@@ -421,7 +424,6 @@ in the next step.
    ]
   }`
   ```
-
   2.  Note the `FileSystemId` value. You need this value when you create a
       mount target for this file system in [Step 2.3: Create a mount target](#wt1-create-mount-target "#wt1-create-mount-target").
 
@@ -463,6 +465,7 @@ In this step, you create a mount target for your file system in the Availability
 you have your EC2 instance launched.
 
 1. Make sure you have the following information:
+
    - ID of the file system (for example, `fs-example`) for which you are
      creating the mount target.
    - VPC subnet ID where you launched the EC2 instance in
@@ -564,6 +567,7 @@ Linux, or macOS X, or any other Unix variant.
    _Amazon EC2 User Guide_.
 2. Execute the following commands on the EC2 instance by using the SSH
    session:
+
    1. (Optional) Get updates and reboot.
 
    ```
@@ -609,12 +613,12 @@ optionally specify the IP address of the mount target directly.
 
 3. Now that you have the EFS file system mounted on your EC2 instance, you
    can create files.
+
    1. Change the directory.
 
    ```
    `$` `cd ~/efs-mount-point`
    ```
-
    2. List the directory contents.
 
    ```
@@ -627,7 +631,6 @@ optionally specify the IP address of the mount target directly.
    drwxr-xr-x 2 root     root     4096 Dec 29 22:33 .
    drwx------ 4 ec2-user ec2-user 4096 Dec 29 22:54 ..
    ```
-
    3. The root directory of a file system, upon creation, is owned by and is writable
       by the root user, so you need to change permissions to add files.
 
@@ -642,13 +645,11 @@ optionally specify the IP address of the mount target directly.
    drwxrwxrwx 2 root     root     4096 Dec 29 22:33 .
    drwx------ 4 ec2-user ec2-user 4096 Dec 29 22:54 ..
    ```
-
    4. Create a text file.
 
    ```
    `$` `touch test-file.txt`
    ```
-
    5. List directory content.
 
    ```

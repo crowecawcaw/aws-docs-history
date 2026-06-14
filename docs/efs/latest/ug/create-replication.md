@@ -68,6 +68,7 @@ system and the number of files in it. For more information about replication per
 1. Sign in to the AWS Management Console and open the Amazon EFS console at
    [https://console.aws.amazon.com/efs/](https://console.aws.amazon.com/efs/ "https://console.aws.amazon.com/efs/").
 2. Open the file system that you want to replicate:
+
    1. In the left navigation pane, choose **File systems**.
    2. In the **File systems** list, choose the file system that you want
       to replicate. The file system that you choose cannot be a source or destination file
@@ -78,6 +79,7 @@ system and the number of files in it. For more information about replication per
    replication**.
 5. In the **Replication settings** section, define the replication
    settings:
+
    1. For **Replication configuration**, choose whether to replicate to a
       new or existing file system.
    2. For **Destination AWS Region**, choose the AWS Region in which
@@ -85,8 +87,10 @@ system and the number of files in it. For more information about replication per
 
 6. In the **Destination file system settings** section, define the
    destination file system settings.
+
    1. For **File system type**, choose a storage option for the file
       system:
+
       - To create a file system that stores data redundantly across multiple geographically
         separated Availability Zones within an AWS Region, choose **Regional**.
       - To create a file system that stores data redundantly within a single Availability Zone in

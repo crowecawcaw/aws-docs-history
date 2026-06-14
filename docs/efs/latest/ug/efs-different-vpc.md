@@ -32,6 +32,7 @@ To complete this tutorial, you must have the following:
   EC2 instance before using this procedure. For instructions on installing
   `amazon-efs-utils`, see [Installing the Amazon EFS client](using-amazon-efs-utils.md "using-amazon-efs-utils.md").
 - One of the following:
+
   - A VPC peering connection between the VPC where the EFS file system
     resides and the VPC where the EC2 instance resides. A _VPC peering connection_ is a networking connection between two VPCs. This
     type of connection enables you to route traffic between them using private Internet

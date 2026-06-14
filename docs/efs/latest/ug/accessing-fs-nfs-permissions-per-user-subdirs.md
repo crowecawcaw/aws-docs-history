@@ -17,6 +17,7 @@ subdirectory, and then mount the Amazon EFS subdirectory on the
 user's home directory.
 
 1. Create user mike:
+
    1. Log in to your EC2 instance. Using root privileges (in this case, using the
       `sudo` command), create the user and assign a password.
 

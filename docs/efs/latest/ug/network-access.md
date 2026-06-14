@@ -56,6 +56,7 @@ following:
 - **Network isolation provided by the mount targets'
   VPC** – File system mount targets can't have public IP addresses
   associated with them. The only targets that can mount file systems are the following:
+
   - Amazon EC2 instances in the local Amazon VPC
   - EC2 instances in connected VPCs
   - On-premises servers connected to an Amazon VPC by using AWS Direct Connect and an AWS Virtual Private Network (VPN)
@@ -67,6 +68,7 @@ following:
 - **Rules of the client's and mount targets' VPC security groups,
   for all access** – For an EC2 instance to mount a file system, the
   following security group rules must be in effect:
+
   - The file system must have a mount target whose network interface has a security
     group with a rule that enables inbound connections on NFS port 2049 from the
     instance. You can enable inbound connections either by IP address (CIDR range) or
@@ -91,6 +93,7 @@ _Amazon VPC User Guide_.
 
 1. For your EC2 instances, create a security group with the following
    rules:
+
    - An inbound rule that allows inbound access using Secure
      Shell (SSH) on **port 22** from your IP address or network. Optionally, restrict the
      **Source** address for security.
@@ -99,6 +102,7 @@ _Amazon VPC User Guide_.
 
 2. For your EFS mount target, create a security group with the following
    rules:
+
    - An inbound rule that allows access on NFS port 2049 from the EC2 security group.
      Identify the EC2 security group as the source.
 

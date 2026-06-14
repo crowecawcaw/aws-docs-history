@@ -49,6 +49,7 @@ managing these resources:
 - Use the Amazon EFS console – For an example, see [Getting started](getting-started.md "getting-started.md").
 - Use the Amazon EFS command line interface (CLI) – For an example, see [Tutorial: Create an EFS file system and mount it on an EC2 instance using the AWS CLI](wt1-getting-started.md "wt1-getting-started.md").
 - You can also manage these resources programmatically as follows:
+
   - Use the AWS SDKs – The AWS SDKs simplify your programming tasks by wrapping
     the underlying Amazon EFS API. The SDK clients also authenticate your requests by using
     access keys that you provide. For more information, see [Sample Code and Libraries](https://aws.amazon.com/code "https://aws.amazon.com/code").

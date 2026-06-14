@@ -10,6 +10,7 @@ to customize the settings.
 
 - You can use Quick create to quickly create a file system with the following recommended
   settings.
+
   - Regional availability
   - Lifecycle policies to transition the file system to EFS Infrequent Access
     (IA) storage after 30 days, to EFS Archive storage after 90
@@ -110,6 +111,7 @@ four-step process:
     of creating a file system by using the recommended settings. The **File system
     settings** page opens.
 4.  For **General** settings, do the following.
+
     1. (Optional) Enter a **Name** for the file system.
     2. For **File system type**, **Regional** is selected by default.
        Choose **One Zone** if you want to create a file system that
@@ -119,6 +121,7 @@ four-step process:
        keep the default value.
     3. For **Lifecycle management**, change the lifecycle
        policies, if necessary.
+
        - **Transition into IA** – Select when to transition files
          into the Infrequent Access (IA) storage class, based on the time
          since they were last accessed in Standard storage.
@@ -146,6 +149,7 @@ four-step process:
     more information, see [Data encryption in Amazon EFS](encryption.md "encryption.md").
 
 5.  For **Performance** settings, do the following:
+
     1.  For **Throughput mode**, the **Elastic** mode is selected by
         default.
 
@@ -184,6 +188,7 @@ and mount targets.
    For more information, see [Managing mount targets](accessing-fs.md "accessing-fs.md").
 2. For **Mount targets**, you create one or more mount targets for
    your file system. For each mount target, set the following properties:
+
    - **Availability Zone** – By default, a mount target is configured in
      each Availability Zone in an AWS Region. If you don't want a mount target in
      a particular Availability Zone, choose **Remove** to delete the

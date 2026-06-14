@@ -101,6 +101,7 @@ policies to the file systems. For more information, see [Replicating EFS file sy
 1. Sign in to the AWS Management Console and open the Amazon EFS console at
    [https://console.aws.amazon.com/efs/](https://console.aws.amazon.com/efs/ "https://console.aws.amazon.com/efs/").
 2. Open the file system that you want to replicate:
+
    1. In the left navigation pane, choose **File systems**.
    2. In the **File systems** list, choose the Amazon EFS file system that you
       want to replicate. The file system that you choose cannot be a source or destination file
@@ -111,8 +112,10 @@ policies to the file systems. For more information, see [Replicating EFS file sy
    replication**.
 5. For **Replication configuration**, choose existing file system.
 6. Choose the destination file system.
+
    - To replicate to a file system that's in the same AWS account as the source file
      system:
+
      1. Select **Choose a file system in this account** and,
         for **Destination AWS Region**, select the AWS Region
         to which to replicate the file system.
@@ -121,6 +124,7 @@ policies to the file systems. For more information, see [Replicating EFS file sy
         box.
 
    - To replicate to a file system that’s in a different AWS account than the source file system:
+
      1. Choose **Specify a file system in another
         account**.
      2. For **Destination file system ARN**, enter the Amazon

@@ -11,6 +11,7 @@ encrypt your file system in the following way:
   customer managed key used to encrypt and decrypt file data (that is, the contents of your files).
   You can enable, disable, or revoke grants on this customer managed key. This customer managed key can be one
   of the two following types:
+
   - **AWS managed key for Amazon EFS** – This is the
     default customer managed key, `aws/elasticfilesystem`. You're not charged to
     create and store a customer managed key, but there are usage charges. To learn more, see
