@@ -515,6 +515,7 @@ The following describes the events that trigger results from the query.
   found.
 - For outer joins for which a match is not found, the ROWTIME of an output row is the later of
   the following two times:
+
   - The ROWTIME of the input row for which a match was not found.
   - The later bound of the window of the other input stream at the point any possible
     match could have been found.

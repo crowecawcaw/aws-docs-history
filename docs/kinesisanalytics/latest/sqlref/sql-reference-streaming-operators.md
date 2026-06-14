@@ -9,17 +9,20 @@ The available operators are described in the topics that follow, grouped into th
 categories:
 
 - [Scalar Operators](#scalaroprs "#scalaroprs")
+
   - [Operator Types](#OPRTYPES "#OPRTYPES")
   - [Precedence](#PRECEDENCE "#PRECEDENCE")
 
 - [Arithmetic Operators](#ARITHMOPRS "#ARITHMOPRS")
 - [String Operators](sql-reference-string-operators.md "sql-reference-string-operators.md")
+
   - (Concatenation)
   - LIKE patterns
   - SIMILAR TO patterns
 
 - [Date, Timestamp, and Interval Operators](sql-reference-date-timestamp-interval.md "sql-reference-date-timestamp-interval.md")
 - [Logical Operators](sql-reference-logical-operators.md "sql-reference-logical-operators.md")
+
   - 3-state boolean logic
   - Examples
 
