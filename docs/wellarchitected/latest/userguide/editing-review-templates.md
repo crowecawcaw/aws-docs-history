@@ -9,6 +9,7 @@
    or **Template notes** for the review template, choose
    **Edit** in the **Template details**
    section of the **Overview** tab.
+
    1. Make your changes to the **Name**,
       **Description**, or **Template
       notes**.
@@ -18,6 +19,7 @@
 4. To update which lenses are applied to the review template, in the
    **Lenses** section of the **Overview**
    tab, choose **Edit applied lenses**.
+
    1. Select or deselect the checkboxes of the lenses you want to add or
       remove.
 
@@ -26,6 +28,7 @@
 5. To update the answers to best practice questions on the lens, in the
    **Lenses** section of the **Overview**
    tab, select the name of the lens.
+
    1. In the **Lens overview** section, choose **Answer
       questions**.
 

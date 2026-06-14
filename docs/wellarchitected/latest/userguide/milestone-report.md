@@ -10,6 +10,7 @@ access to the AWS Well-Architected Tool.
 ###### To generate a milestone report
 
 1. Select the milestone in one of the following ways.
+
    - From the workload details page, choose **Milestones**
      and choose the milestone.
    - From the **Dashboard** page, choose the workload with

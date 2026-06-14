@@ -159,6 +159,7 @@ You can define up to 15 choices for a question in a custom lens.
 - `additionalResources content`: Optional. Specifies the `displayText`
   and `url` values for the additional resource. Up to five additional helpful
   resources and up to five additional improvement plan items can be specified for a choice.
+
   - `displayText`: Optional. Text that describes the helpful resource or
     improvement plan. The text can be up to 2048 characters. Must be
     included if `url` is specified.

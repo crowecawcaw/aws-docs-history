@@ -101,6 +101,7 @@ tab for custom lenses, profiles, and review templates.
 4. Select the workload to modify and choose **Properties**.
 5. In the **Tags** section, choose **Manage tags**.
 6. Add or delete your tags as necessary.
+
    - To add a tag, choose **Add new tag** and fill in the
      **Key** and **Value** fields.
    - To delete a tag, choose **Remove**.
@@ -117,6 +118,7 @@ tab for custom lenses, profiles, and review templates.
 5. In the **Tags** section of the **Overview** tab, choose
    **Manage tags**.
 6. Add or delete your tags as necessary.
+
    - To add a tag, choose **Add new tag** and fill in the
      **Key** and **Value** fields.
    - To delete a tag, choose **Remove**.
@@ -133,6 +135,7 @@ tab for custom lenses, profiles, and review templates.
 5. In the **Tags** section of the **Overview** tab, choose
    **Manage tags**.
 6. Add or delete your tags as necessary.
+
    - To add a tag, choose **Add new tag** and fill in the
      **Key** and **Value** fields.
    - To delete a tag, choose **Remove**.
@@ -149,6 +152,7 @@ tab for custom lenses, profiles, and review templates.
 5. In the **Tags** section of the **Overview** tab, choose
    **Manage tags**.
 6. Add or delete your tags as necessary.
+
    - To add a tag, choose **Add new tag** and fill in the
      **Key** and **Value** fields.
    - To delete a tag, choose **Remove**.

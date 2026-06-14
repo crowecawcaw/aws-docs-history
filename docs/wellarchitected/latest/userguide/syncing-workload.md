@@ -11,6 +11,7 @@ In both Manual and Automatic syncing, any changes made in Jira (like completing 
 2. In the workload overview, choose **Sync with Jira**.
 3. Select the lens you want to sync.
 4. For **Questions to sync to Jira**, select the questions or entire pillars you want to sync to the Jira project.
+
    1. For any questions you want to remove, select the **X** icon next to the question title.
 
 5. Choose **Sync**.

@@ -17,6 +17,7 @@ policy examples.
 1. Sign in to the AWS Management Console and open the AWS Well-Architected Tool console at [https://console.aws.amazon.com/wellarchitected/](https://console.aws.amazon.com/wellarchitected/ "https://console.aws.amazon.com/wellarchitected/").
 2. In the left navigation pane, choose **Workloads**.
 3. Select a workload that you own in one of the following ways:
+
    - Choose the name of the workload.
    - Select the workload and choose **View
      details**.
@@ -54,6 +55,7 @@ access](sharing.md#getting-started-sharing-orgs "sharing.md#getting-started-shar
 1. Sign in to the AWS Management Console and open the AWS Well-Architected Tool console at [https://console.aws.amazon.com/wellarchitected/](https://console.aws.amazon.com/wellarchitected/ "https://console.aws.amazon.com/wellarchitected/").
 2. In the left navigation pane, choose **Workloads**.
 3. Select a workload that you own in one of the following ways:
+
    - Choose the name of the workload.
    - Select the workload and choose **View
      details**.

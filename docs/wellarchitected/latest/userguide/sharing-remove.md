@@ -8,6 +8,7 @@ shared access to the workload.
 1. Sign in to the AWS Management Console and open the AWS Well-Architected Tool console at [https://console.aws.amazon.com/wellarchitected/](https://console.aws.amazon.com/wellarchitected/ "https://console.aws.amazon.com/wellarchitected/").
 2. In the left navigation pane, choose **Workloads**.
 3. Select the workload in one of the following ways:
+
    - Choose the name of the workload.
    - Select the workload and choose **View
      details**.

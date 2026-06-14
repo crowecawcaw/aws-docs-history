@@ -31,6 +31,7 @@ _improvement_ phase of the WAFR.
 **One day after the WAFR:**
 
 1. Create a recap email with the improvement plan, and summarize:
+
    - Who was in the review
    - Key findings
    - Timeline for next steps
@@ -41,6 +42,7 @@ _improvement_ phase of the WAFR.
 **Two to three days after the WAFR:**
 
 1. Create an HRI prioritization meeting, and prioritize HRIs:
+
    - By effort
    - By impact
    - With the teams responsible for the workloads
@@ -51,6 +53,7 @@ _improvement_ phase of the WAFR.
 
 1. Begin the improvement plan
 2. Consider the following recommendations:
+
    - **Duration:** 90 or 180 days
    - Identify priority HRIs
    - Develop mitigations for each
@@ -61,6 +64,7 @@ _improvement_ phase of the WAFR.
 1. Build a cadence for follow-up meetings regarding the improvement plan
 2. Review actions to take to improve the workload
 3. Consider the following recommendations:
+
    - Set attendee expectations
    - Send them WA question links
    - Conduct follow up reviews

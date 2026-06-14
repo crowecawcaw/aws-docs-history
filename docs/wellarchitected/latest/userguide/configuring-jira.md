@@ -18,10 +18,12 @@ If you have sensitive information you do not wish to sync to Jira, do not input 
 1. Select **Settings** in the left navigation pane.
 2. In the **Jira account syncing** pane, choose **Edit**.
 3. For **Sync type**, select one of the following:
+
    1. To automatically sync workloads when changes are made, select **Automatic**.
    2. To manually choose when to sync workloads, select **Manual**.
 
 4. By default, the connector creates a **WA** Jira project. To specify your own Jira project key, do the following:
+
    1. Select **Override default Jira project key**.
    2. Enter your **Jira project key**.
 

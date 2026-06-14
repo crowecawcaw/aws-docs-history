@@ -12,6 +12,7 @@ Events are delivered on a best-effort basis.
 The following actions result in EventBridge events:
 
 - Workload-related
+
   - Creating or deleting a workload
   - Creating a milestone
   - Updating the properties of a workload
@@ -23,6 +24,7 @@ The following actions result in EventBridge events:
   - Adding or removing a lens from a workload
 
 - Lens-related
+
   - Importing or exporting a custom lens
   - Publishing a custom lens
   - Deleting a custom lens

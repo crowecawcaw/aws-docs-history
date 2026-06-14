@@ -36,6 +36,7 @@ workload:
 
 7. In the **Regions** section, choose the Regions for your
    workload:
+
    - **AWS Regions** – Choose the AWS Regions where
      your workload runs, one at a time.
    - **Non-AWS regions** – Enter the names of the
