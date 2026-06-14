@@ -105,6 +105,7 @@ _Supported value literals_:
 - All primitive types: `string`, `integer(64)`, `float(64)`, `bool`, `char`, `regex`
 - All specialized range types for expressing `integer(64)`,
   `float(64)`, or `char` ranges expressed as:
+
   - `r[<lower_limit>, <upper_limit>]`, which translates to any value
     `k` that satisfies the following expression: `lower_limit <= k <=
 upper_limit`

@@ -38,6 +38,7 @@ Queries follow these basic principles:
 - All collections can be filtered by specifying filters inside square brackets
   `[]`. Collections can be encountered in the following
   ways:
+
   - Naturally occurring arrays in datum are collections. Following are
     examples:
 
