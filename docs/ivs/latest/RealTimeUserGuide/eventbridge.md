@@ -526,7 +526,7 @@ capabilities and/or updated token attributes.
     "source": "aws.ivs",
     "account": "123456789012",
     "time": "2020-06-23T20:12:36Z",
-    "region": "us-west-2"
+    "region": "us-west-2",
     "resources": [
         "arn:aws:ivs:us-west-2:123456789012:stage/AbCdef1G2hij"
     ],

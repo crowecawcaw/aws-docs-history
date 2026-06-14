@@ -974,6 +974,7 @@ session. This is the first release of this new functionality. See:
   information.
 - [API Reference
   RT](../RealTimeAPIReference/Welcome.md "../RealTimeAPIReference/Welcome.md") — We made several changes:
+
   - Modified the S3DestinationConfiguration object: added
     `thumbnailConfigurations`. This affects the
     GetComposition response and StartComposition request and

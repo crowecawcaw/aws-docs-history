@@ -27,12 +27,14 @@ and [WHIP](obs-whip-support.md "obs-whip-support.md") documentation.
 ## Supported Media Specifications
 
 - Audio input format
+
   - Codec: AAC-LC for RTMP and Opus for WHIP
   - Channels: 2 (Stereo) or 1 (Mono)
   - Sample rate: 44.1 kHz or 48 kHz
   - Maximum bitrate: 160 Kbps
 
 - Video input format
+
   - Codec: H.264
   - H.264 profile: Baseline
   - IDR interval: 1 or 2 seconds

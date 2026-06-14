@@ -713,6 +713,7 @@ users:
   `StageRenderer`, the
   `RemoteStageStream.Listener` has events which communicate
   layer and simulcast adaption changes:
+
   - `void onAdaptionChanged(boolean adaption)`
   - `void onLayersChanged(@NonNull List<Layer>
 layers)`
@@ -725,6 +726,7 @@ LayerSelectedReason reason)`
   presented. These methods are available on the remote stream provided in
   the `preferredLayerForStream` strategy, as well as remote
   streams exposed via `StageRenderer.onStreamsAdded`.
+
   - `stream.getLayers`
   - `stream.getSelectedLayer`
   - `stream.getLowestQualityLayer`

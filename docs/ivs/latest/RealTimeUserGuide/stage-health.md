@@ -115,6 +115,7 @@ required: Web 1.5.0 or later, Android 1.12.0 or later, or iOS 1.12.0 or later.
 4. At the bottom of the **Browse** tab, select
    the **IVSRealTime** namespace.
 5. Do one of the following:
+
    1. In the search bar, enter your resource ID (part of the ARN,
       `arn:::ivs:stage/<resource id>`).
 

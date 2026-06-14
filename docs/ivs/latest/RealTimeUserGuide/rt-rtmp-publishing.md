@@ -121,6 +121,7 @@ This diagram illustrates how publishing with multitrack video works:
 ### OBS Guide
 
 1. Download and install OBS Studio:
+
    1. Windows: Multitrack video is supported starting in OBS Studio
       30.2.
    2. macOS: Multitrack video is supported starting in OBS Studio 31.1

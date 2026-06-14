@@ -43,6 +43,7 @@ To publish to an IVS stage using OBS via WHIP, follow these steps:
    token that you generated in step 1.
 5. Configure your video settings as you normally would, with a few
    restrictions:
+
    1. IVS real-time streaming supports input up to 720p at 8.5 Mbps. If you
       exceed either of these limits, your stream will be disconnected.
    2. We recommend setting your **Keyframe

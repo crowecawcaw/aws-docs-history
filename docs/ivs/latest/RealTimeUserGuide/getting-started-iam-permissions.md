@@ -133,6 +133,7 @@ Follow these steps:
    then choose **Create user**. A **Specify user details** window opens.
 2. In the **Specify user details**
    window:
+
    1. Under **User details**, type the
       new **User name** to be
       created.

@@ -657,6 +657,7 @@ end users:
   `IVSStageRenderer`, the
   `IVSRemoteStageStreamDelegate` has events which
   communicate layer and simulcast adaption changes:
+
   - `func stream(_ stream: IVSRemoteStageStream,
 didChangeAdaption adaption: Bool)`
   - `func stream(_ stream: IVSRemoteStageStream, didChange
@@ -672,6 +673,7 @@ IVSRemoteStageStream.LayerSelectedReason)`
   the `preferredLayerForStream` strategy, as well as remote
   streams exposed via `func stage(_ stage: IVSStage, participant:
 IVSParticipantInfo, didAdd streams: [IVSStageStream])`.
+
   - `stream.layers`
   - `stream.selectedLayer`
   - `stream.lowestQualityLayer`

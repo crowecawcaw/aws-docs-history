@@ -48,6 +48,7 @@ At a high level, the life cycle of a Composition is as follows:
    (Session Start)” EventBridge event is sent. See [Using EventBridge with IVS Real-Time Streaming](eventbridge.md "eventbridge.md") for details about
    events.
 3. Once a Composition is in an active state, the following can happen:
+
    - User stops the Composition — If the StopComposition operation is
      called, IVS initiates a graceful shutdown of the Composition, sending
      "Destination End" events followed by a "Session End" event.

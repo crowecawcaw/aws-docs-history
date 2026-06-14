@@ -538,6 +538,7 @@ In the code above:
   should be expected to not exceed for this stream.
 - The `simulcast` option is usable only on Chromium-based
   browsers. It enables sending three rendition layers of the stream.
+
   - This allows the server to choose which rendition to send to other
     participants, based on their networking limitations.
   - When `simulcast` is specified along with a
@@ -822,6 +823,7 @@ users:
   `StageEvents`, the `RemoteStageStream` object
   itself has events which communicate layer and simulcast adaption
   changes:
+
   - `stream.on(RemoteStageStreamEvents.ADAPTION_CHANGED,
 (isAdapting) => {})`
   - `stream.on(RemoteStageStreamEvents.LAYERS_CHANGED,
@@ -836,6 +838,7 @@ users:
   the `preferredLayerForStream` strategy, as well as remote
   streams exposed via
   `StageEvents.STAGE_PARTICIPANT_STREAMS_ADDED`.
+
   - `stream.getLayers`
   - `stream.getSelectedLayer`
   - `stream.getLowestQualityLayer`

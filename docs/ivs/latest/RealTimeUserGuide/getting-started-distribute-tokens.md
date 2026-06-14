@@ -158,6 +158,7 @@ The payload contains data specific to IVS. All fields except
 - `RegisteredClaims` in the JWT specification are
   reserved claims that need to be provided for stage token to be
   valid:
+
   - `exp` (expiration time) is a Unix UTC timestamp
     for when the token expires. (A Unix timestamp is a numeric
     value representing the number of seconds from
