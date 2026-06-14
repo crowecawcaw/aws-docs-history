@@ -106,6 +106,7 @@ You can filter by specific columns to find insights based on exact field values.
 
 1. Use the search bar or column-specific filters
 2. The filter input adapts based on field type:
+
    - **Text fields** (Status, Severity): Provides dropdown with predefined options
    - **Numeric fields** (Impact): Provides numeric input with comparison operators
    - **Date fields** (Created on, Impact date): Provides date picker with range selection

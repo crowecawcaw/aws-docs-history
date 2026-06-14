@@ -49,6 +49,7 @@ The following is the common terminology used in Demand Planning:
   plan can contain multiple versions within a planning cycle to support refinement of plan for any
   incremental data received within a planning cycle. The demand plan can display statuses
   including:
+
   - **Pending** – The plan configuration is created
     but not submitted for plan creation.
   - **In progress** – The plan configuration is

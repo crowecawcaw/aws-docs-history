@@ -71,6 +71,7 @@ expandable sections with descriptive titles
 1. Locate the Root Cause Analysis section
 2. Select the arrow icon next to any section to expand it
 3. The expanded section displays:
+
    - Detailed explanation of contributing factors
    - Quantitative evidence and data points
    - Timeline of events or conditions
@@ -133,6 +134,7 @@ recommendation information including rationale and expected outcomes
 
 1. Select the arrow icon next to the recommendation title
 2. The card expands to show:
+
    - Complete action parameters
    - Supporting rationale and analysis
    - Expected outcomes and benefits

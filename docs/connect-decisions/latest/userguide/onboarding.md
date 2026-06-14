@@ -48,6 +48,7 @@ Before configuring insights, ensure:
 - Manager role permissions to access configuration settings
 - Required data entities uploaded to your Supply Chain Data Lake,
   including:
+
   - Historical demand or sales data (minimum 12 months
     recommended)
   - Product master data with classifications and attributes

@@ -7,10 +7,12 @@
    supply plan is created, you have the flexibility to edit it at any time to
    reflect changing business needs or incorporate new information.
 2. **Configure Time Horizon settings:**
+
    - **Time bucket**: Select Daily or
      Weekly based on your planning needs.
    - **Plan horizon**: Specify the forecast
      horizon:
+
      - Daily: 1 to 365 days
      - Weekly: 1 to 52 weeks
 

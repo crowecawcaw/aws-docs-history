@@ -7,10 +7,12 @@
    flexibility to edit it at any time to reflect changing business needs or incorporate
    new information.
 2. **Configure Time Horizon settings:**
+
    - **Time bucket**: Select Daily, Weekly, or
      Monthly based on your planning needs.
    - **Plan horizon**: Specify the forecast
      horizon:
+
      - Daily: 1 to 28 days
      - Weekly: 1 to 26 weeks
      - Monthly: 1 to 12 months

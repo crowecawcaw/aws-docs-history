@@ -57,6 +57,7 @@ can:
 - **Ask questions with natural language:** Work
   with the onboarding teammate to understand and refine your metric. Ask
   questions like:
+
   - "How does this metric work?"
   - "Can we confine this to only A-class products?"
   - The agent helps you iterate on the metric definition
@@ -66,6 +67,7 @@ can:
 - **Review explainability:** Instead of
   reviewing SQL queries directly, view the Explainability section that
   describes how the metric operates in plain language. To do so,
+
   - Un-collapse "SQL Query" section
   - Click on "Explainability" tab
 
@@ -74,6 +76,7 @@ can:
   current configuration. Filter the preview by specific products and sites to
   understand how the metric will impact different parts of your supply chain.
   To do so:
+
   - Expand the "Metric Preview" element at the bottom of the
     screen.
   - Click "Preview metric" to generate runtime metrics.
@@ -140,6 +143,7 @@ When you click on a rule, you arrive at the rule review page where you can:
 - **Ask questions with natural language:** Work
   with the onboarding teammate to understand and refine your rule. Ask
   questions like:
+
   - "How does this rule determine when to trigger insights?"
   - "Can we add filtering for specific product categories?"
   - The agent helps you iterate on the rule logic conversationally,
@@ -151,6 +155,7 @@ When you click on a rule, you arrive at the rule review page where you can:
   current configuration. Filter the preview by specific products and sites to
   understand how the rule will impact different parts of your supply
   chain.
+
   - Expand the "Preview" element at the bottom of the screen.
   - Click "Preview insight" to generate runtime insights.
   - Refine your preview with search criteria across products and

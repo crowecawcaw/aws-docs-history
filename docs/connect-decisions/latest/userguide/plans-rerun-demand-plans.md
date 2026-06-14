@@ -11,6 +11,7 @@ updates.
 3. The system redirects you to the Plan Configuration page with the forecast start
    date field automatically cleared.
 4. Review and modify configuration settings as needed:
+
    - Manually select a new forecast start date.
    - Adjust time horizon settings if required.
    - Update planning grain or prediction lead time if necessary.

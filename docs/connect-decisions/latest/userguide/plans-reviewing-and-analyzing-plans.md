@@ -7,6 +7,7 @@
 3. The system displays a high-level view of forecasts aggregated across products and sites.
 4. Use the filtering options to focus on specific products, locations, or time periods.
 5. Review different forecast types:
+
    - **Baseline forecast**: AI-generated forecast based on historical patterns
    - **Consensus plan**: Combined forecast incorporating multiple inputs (if configured)
    - **Forecast inputs**: Individual inputs from sales, customers, and marketing

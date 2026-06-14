@@ -31,6 +31,7 @@ When the teammate identifies forecast quality issues, it can recommend specific
 actions, such as adding contextual data.
 
 - If forecasts show high error, the teammate may recommend:
+
   - Supplementary time series data: Add promotional calendars,
     pricing changes, or holiday indicators
   - Product lifecycle information: Include product launch dates or
@@ -49,6 +50,7 @@ actions, such as adding contextual data.
   across my winter apparel category?"
 - The teammate will analyze forecast performance across product groups and
   identify:
+
   - Seasonal patterns that the model may be missing
   - Common demand drivers affecting multiple products
   - Systematic biases (over-forecasting or under-forecasting
@@ -60,6 +62,7 @@ actions, such as adding contextual data.
 
 - The teammate can generate graphs and charts to help you visualize
   potential forecast scenarios:
+
   - Baseline vs. adjusted forecasts: Compare the AI-generated
     forecast with your proposed changes
   - Historical actuals vs. forecasts: Visualize past forecast
@@ -71,6 +74,7 @@ actions, such as adding contextual data.
 - Example query: "Create a graph showing how the forecast for Product GHI
   would look with a 20% promotional discount in March 2026"
 - The teammate will generate visualizations that help you:
+
   - Communicate forecast assumptions to stakeholders
   - Evaluate the impact of business decisions on demand
   - Compare multiple planning scenarios side-by-side
@@ -81,6 +85,7 @@ actions, such as adding contextual data.
 - You can provide feedback to help the teammate improve future
   forecasts.
 - Example feedback:
+
   - "The model should give more weight to recent trends for
     fast-fashion products"
   - "Holiday seasonality patterns have changed; please adjust

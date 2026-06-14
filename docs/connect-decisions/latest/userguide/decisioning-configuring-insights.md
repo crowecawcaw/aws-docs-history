@@ -41,6 +41,7 @@ Changes to any area take effect as soon as the relevant items are set to Ready s
    configurations.
 3. **Preview extensively:** Always preview metric and
    rule changes before activating them. Use the preview function to:
+
    - Validate that metrics calculate correctly against your data
    - Confirm that rules trigger insights at appropriate thresholds
    - Filter preview results by products and sites to understand impact across

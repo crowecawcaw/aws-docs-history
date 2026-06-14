@@ -5,6 +5,7 @@ for the user specified prediction lead time in the plan configuration:
 
 - **MAPE (Mean Absolute Percentage Error)**: (1/n) ×
   Σ |Actual - Forecast| / |Actual| × 100%
+
   - Measures the average percentage error across all forecasts.
 
 ###### Note
@@ -19,16 +20,20 @@ prior to each demand period.
 
 - **WAPE (Weighted Absolute Percentage Error)**: Σ
   |Actual - Forecast| / Σ |Actual| × 100%
+
   - Gives more weight to high-volume products.
 
 - **RMSE (Root Mean Square Error)**:
   √[(1/n) × Σ (Actual - Forecast)²]
+
   - Emphasizes larger forecast errors.
 
 - **Bias (Forecast Bias)**: Σ (Forecast - Actual)
   / Σ |Actual| × 100%
+
   - Indicates whether forecasts systematically over-predict or under-predict.
 
 - **MAE (Mean Absolute Error)**: (1/n) × Σ
   |Actual - Forecast|
+
   - Provides the average error in the same units as your demand.
