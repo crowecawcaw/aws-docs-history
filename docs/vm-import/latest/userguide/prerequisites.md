@@ -136,7 +136,9 @@ The following Linux/Unix operating systems are support by VM Import/Export.
 | 20.04                               | 5.4.0                                                                                                             | -                                                          |
 | 22.04                               | 5.15.0                                                                                                            | -                                                          |
 | 23.04                               | 5.15.0                                                                                                            | -                                                          |
-|                                     | 24.04                                                                                                             | 6.8.0, 6.11.0                                              | -            |
+| 24.04                               | 6.8.0, 6.11.0                                                                                                     | -                                                          |
+| 25.10                               | 6.17.0                                                                                                            | -                                                          |
+| 26.04                               | 7.0.0                                                                                                             | -                                                          |
 
 The following Windows operating systems are supported by VM Import/Export.
 

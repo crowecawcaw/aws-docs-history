@@ -4,6 +4,7 @@ Exporting instances and volumes is subject to the following limitations:
 
 - You must export your instances and volumes to one of the following image
   formats that your virtualization environment supports:
+
   - Open Virtual Appliance (OVA), which is compatible with VMware vSphere
     versions 4, 5, and 6.
   - Virtual Hard Disk (VHD), which is compatible with Citrix Xen and

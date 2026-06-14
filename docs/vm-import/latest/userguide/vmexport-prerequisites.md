@@ -14,7 +14,9 @@ To export a VM from Amazon EC2, first meet the following prerequisites:
 - Prepare your S3 bucket by attaching an access control list (ACL) containing
   the following grants. For more information, see [Managing access with ACLs](../../../AmazonS3/latest/userguide/acls.md "../../../AmazonS3/latest/userguide/acls.md")
   in the _Amazon Simple Storage Service User Guide_.
+
   - For each `Grantee`, provide the following permissions:
+
     - `READ_ACP` (In the Amazon S3 console, **Bucket
       ACL** should have the **Read**
       permission)
@@ -24,6 +26,7 @@ To export a VM from Amazon EC2, first meet the following prerequisites:
 
   - For `Grantee`, provide the appropriate Region-specific
     canonical account ID:
+
     - Africa (Cape Town) – 3f7744aeebaf91dd60ab135eb1cf908700c8d2bc9133e61261e6c582be6e33ee
     - Asia Pacific (Hong Kong) – 97ee7ab57cc9b5034f31e107741a968e595c0d7a19ec23330eae8d045a46edfb
     - Asia Pacific (Hyderabad) – 77ab5ec9eac9ade710b7defed37fe0640f93c5eb76ea65a64da49930965f18ca

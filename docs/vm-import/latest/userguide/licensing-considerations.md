@@ -33,6 +33,7 @@ MSDN or [Windows Software Assurance Per User](https://download.microsoft.com/dow
 
 - Your BYOL instances are priced at the prevailing Amazon EC2 Linux instance
   pricing, provided that you meet the following conditions:
+
   - Run on a Dedicated Host ([Dedicated
     Hosts](../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md "../../../AWSEC2/latest/UserGuide/dedicated-hosts-overview.md")).
   - Launch from VMs sourced from software binaries provided by you

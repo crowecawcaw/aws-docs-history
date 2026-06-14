@@ -81,6 +81,7 @@ reviewed [General configurations](#prepare-vm-image-general "#prepare-vm-image-g
   starts. Make sure that there are no pending Microsoft updates, and that the
   computer is not set to install software when it reboots.
 - Apply the following hot fixes as needed:
+
   - [You cannot change system time if RealTimeIsUniversal registry
     entry is enabled in Windows](https://support.microsoft.com/en-us/topic/you-cannot-change-system-time-if-realtimeisuniversal-registry-entry-is-enabled-in-windows-78cf9fbe-eeca-4b06-a67a-2dacdf5189f9 "https://support.microsoft.com/en-us/topic/you-cannot-change-system-time-if-realtimeisuniversal-registry-entry-is-enabled-in-windows-78cf9fbe-eeca-4b06-a67a-2dacdf5189f9")
   - [High CPU usage during DST changeover in Windows Server 2008,
@@ -91,6 +92,7 @@ reviewed [General configurations](#prepare-vm-image-general "#prepare-vm-image-g
   _Amazon EC2 User Guide_.
 - Run System Preparation (Sysprep) on your Windows Server VM images, either
   before or after importing your VM.
+
   - If you run Sysprep before importing your VM, the import process
     adds an answer file (`unattend.xml`) to the VM
     that automatically accepts the End User License Agreement (EULA) and

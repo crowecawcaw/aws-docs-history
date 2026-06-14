@@ -4,6 +4,7 @@ Exporting images and volumes is subject to the following limitations:
 
 - You must export to one of the following image formats that your virtualization
   environment supports:
+
   - Virtual Hard Disk (VHD), which is compatible with Citrix Xen
     and Microsoft Hyper-V virtualization products.
   - Stream-optimized ESX Virtual Machine Disk (VMDK), which is compatible

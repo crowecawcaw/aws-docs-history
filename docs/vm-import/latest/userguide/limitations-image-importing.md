@@ -45,6 +45,7 @@ import.
 - Disk images must be less than 16 TiB. For disk images that are larger than
   8 TiB, you must use a [manifest
   file](../../../AWSEC2/latest/APIReference/manifest.md "../../../AWSEC2/latest/APIReference/manifest.md").
+
   - You can use the `ImportInstance` operation to import
     VMs with disks up to the maximum supported size.
   - You can use the `ImportImage` operation to import VMs
@@ -72,6 +73,7 @@ import.
   instances](../../../AWSEC2/latest/UserGuide/enhanced-networking-ena.md "../../../AWSEC2/latest/UserGuide/enhanced-networking-ena.md") in the _Amazon EC2 User Guide_.
 - If you import a Linux VM compatible with UEFI, you must have a fallback
   EFI binary, BOOTX64.EFI, located on the EFI System Partition.
+
   - Debian VMs that are missing a fallback EFI binary will have one automatically created from your GRUBX64.EFI, if it exists in your EFI System Partition.
 
 - Predictable network interface names are not supported for virtual machine
