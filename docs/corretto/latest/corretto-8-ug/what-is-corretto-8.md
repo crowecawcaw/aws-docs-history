@@ -24,6 +24,7 @@ In addition to this guide, see the following resources for developers:
 
 - [Amazon Corretto overview](https://aws.amazon.com/corretto/ "https://aws.amazon.com/corretto/")
 - GitHub:
+
   - [JDK Source](https://github.com/corretto/corretto-8 "https://github.com/corretto/corretto-8")
 
 ## Contributing to the SDK
@@ -31,6 +32,7 @@ In addition to this guide, see the following resources for developers:
 Developers can contribute feedback in the following ways:
 
 - Submit issues on GitHub:
+
   - [Report a bug or request a feature](https://github.com/corretto/corretto-8/issues/new/choose "https://github.com/corretto/corretto-8/issues/new/choose")
 
 - Submit pull requests in the JDK source GitHub repositories to contribute to the JDK development
