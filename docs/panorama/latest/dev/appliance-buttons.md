@@ -50,6 +50,7 @@ smaller and recessed. Use a small screwdriver or paperclip to press it.
    second and wait for the shutdown sequence to complete. The shutdown sequence takes about 10 seconds.
 2. To reset the appliance, use the following button combinations. A short press is 1 second. A long press is
    5 seconds. For operations that require multiple buttons, press and hold both buttons simultaneously.
+
    - **Full reset** – Long press power and reset.
 
    Restores the minimum software version and deletes all configuration files and applications.

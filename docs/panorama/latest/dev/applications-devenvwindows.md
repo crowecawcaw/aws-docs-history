@@ -26,6 +26,7 @@ To follow this tutorial, you need a version of Windows that supports Windows Sub
 
 - Windows 10 version 1903 and higher (Build 18362 and higher) or Windows 11
 - Windows features
+
   - Windows Subsystem for Linux
   - Hyper-V
   - Virtual machine platform
