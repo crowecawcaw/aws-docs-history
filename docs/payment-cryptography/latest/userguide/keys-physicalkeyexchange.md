@@ -19,6 +19,7 @@ The following diagram shows the end-to-end Physical Key Exchange process.
    with your account manager to submit a request.
 2. **Customer setup** – AWS Payment Cryptography provides a CloudFormation template
    for you to complete the following prerequisite steps:
+
    - Create an ECC P521 key pair within your AWS Payment Cryptography account and retrieve the public
      key certificate.
    - Create an Amazon S3 bucket with a policy granting the AWS Payment Cryptography service principal

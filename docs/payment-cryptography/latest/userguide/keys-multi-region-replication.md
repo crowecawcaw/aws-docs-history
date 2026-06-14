@@ -37,6 +37,7 @@ The following are some Multi-Region key replication limitations and consideratio
 
 - You must enable this feature for either an AWS Region or specific
   Payment Cryptography keys.
+
   - If this feature is enabled for an AWS Region, all AWS Payment Cryptography keys
     created after enablement will be replicate to the specified
     AWS Region. Keys created in this Region will become Primary Region keys. Existing

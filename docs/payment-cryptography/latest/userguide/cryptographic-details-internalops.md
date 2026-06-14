@@ -78,6 +78,7 @@ or plan a change. The following steps are executed:
 - An HSM is removed from customer processing service.
 - Main keys are deleted, under dual control.
 - Operator is permitted non-console access to the HSM to perform approved troubleshooting activities, under dual control.
+
   - After termination of the non-console session, the initial provisioning process is performed on the HSM, returning the standard firmware and configuration, then
     synchronizing the main key, before returning the HSM to serving customers.
   - Records of the session are recorded in change tracking.
@@ -120,6 +121,7 @@ In the event that a single HSM must be re-synchronized with a region:
 
 - It is re-validated and provisioned with firmware and configuration.
 - If it is new to the region:
+
   - The HSM generates a KRD authentication token.
   - The KDH adds the token to its allow list.
   - The KDH generates a main key token for the HSM.

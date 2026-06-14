@@ -9,12 +9,14 @@ that you've upgraded to the [latest version](../../../cli/latest/userguide/getti
 
 - [Introduction to importing keys](keys-import.md#keys-import-introduction "keys-import.md#keys-import-introduction")
 - [Importing symmetric keys](keys-import.md#keys-import-symmetric "keys-import.md#keys-import-symmetric")
+
   - [Import keys using asymmetric techniques (TR-34)](keys-import.md#keys-import-tr34 "keys-import.md#keys-import-tr34")
   - [Import keys using asymmetric techniques (ECDH)](keys-import.md#keys-import-ecdh "keys-import.md#keys-import-ecdh")
   - [Import keys using asymmetric techniques (RSA Unwrap)](keys-import.md#keys-import-rsaunwrap "keys-import.md#keys-import-rsaunwrap")
   - [Import symmetric keys using a pre-established key exchange key (TR-31)](keys-import.md#keys-import-tr31 "keys-import.md#keys-import-tr31")
 
 - [Importing asymmetric (RSA, ECC) public keys](keys-import.md#keys-import-asymmetric "keys-import.md#keys-import-asymmetric")
+
   - [Importing RSA public keys](keys-import.md#keys-import-rsapublickey "keys-import.md#keys-import-rsapublickey")
   - [Importing ECC public keys](keys-import.md#keys-import-eccpublickey "keys-import.md#keys-import-eccpublickey")
 

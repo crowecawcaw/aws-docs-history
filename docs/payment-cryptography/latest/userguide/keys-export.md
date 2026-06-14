@@ -3,6 +3,7 @@
 ###### Contents
 
 - [Export symmetric keys](keys-export.md#keys-export-symmetric "keys-export.md#keys-export-symmetric")
+
   - [Export keys using asymmetric techniques (TR-34)](keys-export.md#keys-export-tr34 "keys-export.md#keys-export-tr34")
   - [Export keys using asymmetric techniques (ECDH)](keys-export.md#keys-export-ecdh "keys-export.md#keys-export-ecdh")
   - [Export keys using asymmetric techniques (RSA Wrap)](keys-export.md#keys-export-rsawrap "keys-export.md#keys-export-rsawrap")
@@ -10,6 +11,7 @@
 
 - [Export DUKPT Initial Keys (IPEK/IK)](keys-export.md#keys-export-ipek "keys-export.md#keys-export-ipek")
 - [Specify key block headers for export](keys-export.md#keys-export-optionalheaders "keys-export.md#keys-export-optionalheaders")
+
   - [Common Headers](keys-export.md#keys-export-commonheaders "keys-export.md#keys-export-commonheaders")
 
 - [Export asymmetric (RSA) keys](keys-export.md#keys-export-publickey "keys-export.md#keys-export-publickey")
@@ -465,11 +467,13 @@ Key (IK). Each IPEK is derived from the BDK using a unique Key Serial Number (KS
 The KSN structure varies by encryption type:
 
 - For TDES: The 10-byte KSN includes:
+
   - 24 bits for the Key Set ID
   - 19 bits for the terminal ID
   - 21 bits for the transaction counter
 
 - For AES: The 12-byte KSN includes:
+
   - 32 bits for the BDK ID
   - 32 bits for the derivation identifier (ID)
   - 32 bits for the transaction counter
