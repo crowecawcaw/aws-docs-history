@@ -75,12 +75,14 @@ recipient has 120 days to respond to the share request before it expires.
    choose the name of a framework to open the detail page. From here, choose
    **Actions** and then choose **Share custom
    framework**.
+
    - Alternatively, select a custom framework from the list in the framework
      library, choose **Actions**, and then choose **Share
      custom framework**. Depending on the size of the custom framework, this
      method can take a few seconds while Audit Manager prepares the share request.
 
 2. Review the notice that displays in the dialog box.
+
    - If you're unsure whether you can share your custom framework, review [Framework eligibility](share-custom-framework-concepts-and-terminology.md#eligibility "share-custom-framework-concepts-and-terminology.md#eligibility") for further guidance.
    - If your framework has controls that use custom AWS Config rules as a data source, we
      recommend that you contact the recipient to let them know. The recipient can then
@@ -90,6 +92,7 @@ recipient has 120 days to respond to the share request before it expires.
 3. Enter `agree` and then choose **Agree** to
    proceed.
 4. On the next screen, follow these steps:
+
    - Under **AWS account**, enter the recipient’s account ID.
      This can be your own account ID.
    - Under **AWS Region**, select the recipient's Region from
@@ -204,6 +207,7 @@ Keep in mind the following when you resend a share request:
    `agree`, and then choose **Agree**
    to proceed.
 4. On the next screen, follow these steps:
+
    - Under **AWS account**, enter the same account ID that you
      specified in the existing share request.
    - Under **AWS Region**, select the same Region that you

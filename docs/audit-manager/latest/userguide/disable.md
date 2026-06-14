@@ -46,10 +46,12 @@ Audit Manager console
 2. Choose **Disable**.
 3. In the pop-up window, review your current data retention
    setting.
+
    1. To proceed with your current selection, choose
       **Disable Audit Manager**.
    2. To change your current selection, perform the
       following steps:
+
       1. Choose **Cancel** to return
          to the settings page.
       2. To use the default data retention setting,

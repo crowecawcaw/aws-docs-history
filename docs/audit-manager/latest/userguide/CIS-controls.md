@@ -39,6 +39,7 @@ Benchmark protect the systems that are being used.
 
 - _CIS Benchmarks_ are prescriptive. They typically
   reference a specific setting that can be reviewed and set in the vendor product.
+
   - **Example**: CIS AWS Benchmark v1.2.0 - Ensure
     MFA is enabled for the "root user" account
   - This recommendation provides prescriptive guidance on how to check for this
@@ -46,6 +47,7 @@ Benchmark protect the systems that are being used.
 
 - _CIS Controls_ are for your organization as a
   whole and aren't specific to only one vendor product.
+
   - **Example**: CIS v7.1 - Use Multi-Factor
     Authentication for All Administrative Access
   - This control describes what's expected to be applied within your organization.

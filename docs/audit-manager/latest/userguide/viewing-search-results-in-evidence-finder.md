@@ -37,6 +37,7 @@ Follow these steps to view your search results in evidence finder.
 
 - [Step 1. Viewing the grouped results](#review-grouped-results "#review-grouped-results")
 - [Step 2. Viewing the search results](#review-search-results "#review-search-results")
+
   - [Managing your viewing preferences](#manage-preferences "#manage-preferences")
   - [Previewing resource summaries](#preview-evidence "#preview-evidence")
 

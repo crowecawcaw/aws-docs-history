@@ -88,6 +88,7 @@ Audit Manager API
    operation to find the assessment that you want to deactivate, and take note of the
    assessment ID.
 2. Use the [UpdateAssessmentStatus](../APIReference/API_UpdateAssessmentStatus.md "../APIReference/API_UpdateAssessmentStatus.md") operation and specify the following parameters:
+
    - [assessmentId](../APIReference/API_UpdateAssessmentStatus.md#auditmanager-UpdateAssessmentStatus-request-assessmentId "../APIReference/API_UpdateAssessmentStatus.md#auditmanager-UpdateAssessmentStatus-request-assessmentId") – Use this parameter to specify the assessment that you
      want to deactivate.
    - [status](../APIReference/API_UpdateAssessmentStatus.md#auditmanager-UpdateAssessmentStatus-request-status "../APIReference/API_UpdateAssessmentStatus.md#auditmanager-UpdateAssessmentStatus-request-status") – Set this value to `INACTIVE`.

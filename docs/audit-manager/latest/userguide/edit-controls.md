@@ -78,6 +78,7 @@ For more information about resource assessments and pricing, see [AWS Audit Mana
 1. Under **AWS managed sources**, review the current selections
    and make changes as needed.
 2. To add a common control, follow these steps:
+
    1. Select **Use a common control that matches your compliance
       goal**.
    2. Choose a common control from the dropdown list.
@@ -87,6 +88,7 @@ For more information about resource assessments and pricing, see [AWS Audit Mana
 3. To remove a common control, choose the **X** next to the
    control name.
 4. To add a core control, follow these steps:
+
    1. Select **Use a core control that matches a prescriptive AWS
       guideline**.
    2. Choose a common control from the dropdown list.
@@ -110,10 +112,12 @@ step.
 2. To remove a data source, select a data source from the table, then choose
    **Remove**.
 3. To add a new data source, follow these steps:
+
    1. Select **Use a data source to collect manual or automated
       evidence**.
    2. Choose **Add**.
    3. Choose one of the following options:
+
       - Choose **AWS API calls**, then choose an API call and
         an evidence collection frequency.
       - Choose **AWS CloudTrail event**, then choose an event
@@ -126,6 +130,7 @@ step.
         control.
       - Choose **Manual data source**, then choose an
         option:
+
         - **File upload** – Use this option if the
           control requires documentation as evidence.
         - **Text response** – Use this option if the

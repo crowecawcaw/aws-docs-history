@@ -18,6 +18,7 @@ folder.
 3. On the **Controls** tab, scroll down to the **Control
    sets** table and choose the name of a control to open it.
 4. Choose how you want to remove evidence from your assessment report.
+
    1. To remove an entire evidence folder, scroll down to **Evidence
       folders**, select the folder that you want to remove, and then choose
       **Remove from assessment report**.
@@ -41,6 +42,7 @@ folder.
 5. After you add the evidence to the assessment report, a green success banner appears.
    Choose **View evidence in assessment report** to see the evidence that will
    be included in your assessment report.
+
    - Alternatively, you can see the evidence that will be included in your assessment
      report by navigating back to your assessment and choosing the **Assessment report
      selection** tab.

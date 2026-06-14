@@ -19,6 +19,7 @@ search results](viewing-search-results-in-evidence-finder.md "viewing-search-res
 
 - [Generating an assessment report from your search results](exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results "exporting-search-results-from-evidence-finder.md#generate-one-time-report-from-search-results")
 - [Exporting your search results into a CSV file](exporting-search-results-from-evidence-finder.md#export-search-results "exporting-search-results-from-evidence-finder.md#export-search-results")
+
   - [Viewing your results after you've exported them](exporting-search-results-from-evidence-finder.md#viewing-results-after-export "exporting-search-results-from-evidence-finder.md#viewing-results-after-export")
 
 ### Generating an assessment report from your search results
@@ -115,6 +116,7 @@ exporting a CSV file, see [csv-exports](evidence-finder-issues.md#csv-exports "e
 1. At the top of the **View results** table, choose **Export
    CSV**.
 2. Specify the S3 bucket that you want to export your file to.
+
    - Choose **Browse S3** to select from your list of buckets.
    - Alternatively, you can enter the bucket URI in this format:
      `s3://bucketname/prefix`
@@ -140,6 +142,7 @@ follow these steps moving forward.
    CSV**.
 2. In the prompt that appears, review the default S3 bucket where your exported file will
    be saved.
+
    1. (Optional) To continue using this bucket and hide this message moving forward, check
       the **Don't remind me again** box.
    2. (Optional) To change this bucket, follow the procedure to [update your export destination settings](settings-export-destination.md "settings-export-destination.md").

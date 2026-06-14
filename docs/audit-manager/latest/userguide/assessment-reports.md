@@ -19,13 +19,16 @@ provides the selected evidence details as an output that you can share with your
 - [Understanding the assessment report folder structure](assessment-reports.md#assessment-report-folder-structure "assessment-reports.md#assessment-report-folder-structure")
 - [Navigating an assessment report](assessment-reports.md#assessment-report-how-to-navigate "assessment-reports.md#assessment-report-how-to-navigate")
 - [Reviewing the sections of an assessment report](assessment-reports.md#assessment-report-sections "assessment-reports.md#assessment-report-sections")
+
   - [Cover page](assessment-reports.md#assessment-report-cover-page "assessment-reports.md#assessment-report-cover-page")
   - [Overview page](assessment-reports.md#assessment-report-overview "assessment-reports.md#assessment-report-overview")
+
     - [Report summary](assessment-reports.md#assessment-report-overview-summary "assessment-reports.md#assessment-report-overview-summary")
     - [Assessment summary](assessment-reports.md#assessment-report-overview-assessment-summary "assessment-reports.md#assessment-report-overview-assessment-summary")
 
   - [Table of contents page](assessment-reports.md#assessment-report-toc "assessment-reports.md#assessment-report-toc")
   - [Control page](assessment-reports.md#assessment-report-control "assessment-reports.md#assessment-report-control")
+
     - [Control summary](assessment-reports.md#assessment-report-control-summary "assessment-reports.md#assessment-report-control-summary")
     - [Collected evidence](assessment-reports.md#assessment-report-selection "assessment-reports.md#assessment-report-selection")
 
@@ -44,18 +47,23 @@ The zip folder is structured as follows:
 
 - **Assessment folder** (example:
   `myAssessmentName-a1b2c3d4`) – The root folder.
+
   - **Assessment report folder** (example:
     `reportName-a1b2c3d4e5f6g7`) – A subfolder where you can find the
     AssessmentReportSummary.pdf, digest.txt, and README.txt files.
+
     - **Evidence by control folder** (example:
       `controlName-a1b2c3d4e5f6g`) – A subfolder that groups
       evidence files by the related control.
+
       - **Evidence by data source folder** (example:
         `CloudTrail`, `Security Hub CSPM`) – A subfolder that groups
         evidence files by the data source type.
+
         - **Evidence by date folder** (example:
           `2022-07-01` ) – A subfolder that groups evidence
           files by the evidence collection date.
+
           - **Evidence files** – The files
             that contain details about individual pieces of evidence.
 

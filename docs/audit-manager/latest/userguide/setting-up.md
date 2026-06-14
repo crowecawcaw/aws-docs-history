@@ -14,16 +14,19 @@ streamlining your audit and compliance efforts.
 ###### Contents
 
 - [Prerequisites for setting up AWS Audit Manager](setup-prerequisites.md "setup-prerequisites.md")
+
   - [Sign up for an AWS account](setup-prerequisites.md#sign-up-for-aws "setup-prerequisites.md#sign-up-for-aws")
   - [Add the required permissions to access and enable Audit Manager](setup-prerequisites.md#attach-IAM "setup-prerequisites.md#attach-IAM")
   - [Next steps](setup-prerequisites.md#setup-prerequisites-next-steps "setup-prerequisites.md#setup-prerequisites-next-steps")
 
 - [Enabling AWS Audit Manager](setup-audit-manager.md "setup-audit-manager.md")
+
   - [Prerequisites](setup-audit-manager.md#setup-audit-manager-prerequisites "setup-audit-manager.md#setup-audit-manager-prerequisites")
   - [Procedure](setup-audit-manager.md#setup-audit-manager-procedure "setup-audit-manager.md#setup-audit-manager-procedure")
   - [Next steps](setup-audit-manager.md#setup-audit-manager-next-steps "setup-audit-manager.md#setup-audit-manager-next-steps")
 
 - [Enabling the recommended features and AWS services for AWS Audit Manager](setup-recommendations.md "setup-recommendations.md")
+
   - [Key points](setup-recommendations.md#setup-recommendations-key-points "setup-recommendations.md#setup-recommendations-key-points")
   - [Set up recommended Audit Manager features](setup-recommendations.md#setup-recommendations-features "setup-recommendations.md#setup-recommendations-features")
   - [Set up recommended integrations with other AWS services](setup-recommendations.md#setup-recommendations-services "setup-recommendations.md#setup-recommendations-services")

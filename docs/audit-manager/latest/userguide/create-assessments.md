@@ -24,6 +24,7 @@ Before you start this tutorial, make sure that you meet the following conditions
 - [Step 1: Specify assessment details](create-assessments.md#specify-details "create-assessments.md#specify-details")
 - [Step 2: Specify AWS accounts in scope](create-assessments.md#specify-accounts "create-assessments.md#specify-accounts")
 - [Step 3: Specify audit owners](create-assessments.md#choose-audit-owners "create-assessments.md#choose-audit-owners")
+
   - [Audit owner permissions](create-assessments.md#choose-audit-owners-permissions "create-assessments.md#choose-audit-owners-permissions")
 
 - [Step 4: Review and create](create-assessments.md#review-and-create "create-assessments.md#review-and-create")
@@ -99,6 +100,7 @@ the assessment creation will fail.
 
 1. Under **AWS accounts**, select the AWS accounts that you want to
    include in the scope of your assessment.
+
    - If you enabled Organizations in Audit Manager, multiple accounts are displayed. You can choose one or
      more accounts from the list. Alternatively, you can also search for an account by the
      account name, ID, or email.

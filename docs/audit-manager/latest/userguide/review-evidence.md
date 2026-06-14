@@ -11,6 +11,7 @@ You'll find the evidence details organized into several sections.
 
 - [Prerequisites](review-evidence.md#review-evidence-prerequisites "review-evidence.md#review-evidence-prerequisites")
 - [Procedure](review-evidence.md#review-evidence-procedure "review-evidence.md#review-evidence-procedure")
+
   - [Summary](review-evidence.md#review-evidence-folders-detail-1 "review-evidence.md#review-evidence-folders-detail-1")
   - [Attributes](review-evidence.md#review-evidence-folders-detail-2 "review-evidence.md#review-evidence-folders-detail-2")
   - [Resources included](review-evidence.md#review-evidence-folders-detail-3 "review-evidence.md#review-evidence-folders-detail-3")

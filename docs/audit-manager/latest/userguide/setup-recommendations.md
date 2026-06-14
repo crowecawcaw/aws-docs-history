@@ -16,6 +16,7 @@ features and enable the following AWS services.
 
 - [Set up recommended Audit Manager features](#setup-recommendations-features "#setup-recommendations-features")
 - [Set up recommended integrations with other AWS services](#setup-recommendations-services "#setup-recommendations-services")
+
   - [Enable and set up AWS Config](#config-recommendations "#config-recommendations")
   - [Enable and set up AWS Security Hub CSPM](#securityhub-recommendations "#securityhub-recommendations")
   - [Enable and set up AWS Organizations](#enabling-orgs "#enabling-orgs")

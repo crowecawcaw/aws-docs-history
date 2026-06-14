@@ -71,19 +71,24 @@ Audit Manager retains customer data as follows.
 You can delete individual Audit Manager resources at any time. For instructions, see the following:
 
 - [Deleting an assessment in AWS Audit Manager](delete-assessment.md "delete-assessment.md")
+
   - See also: [DeleteAssessment](../APIReference/API_DeleteAssessment.md "../APIReference/API_DeleteAssessment.md") in the _AWS Audit Manager
     API Reference_
 
 - [Deleting a custom framework in AWS Audit Manager](delete-custom-framework.md "delete-custom-framework.md")
+
   - See also: [DeleteAssessmentFramework](../APIReference/API_DeleteAssessmentFramework.md "../APIReference/API_DeleteAssessmentFramework.md") in the _AWS Audit Manager API Reference_
 
 - [Deleting share requests in AWS Audit Manager](deleting-shared-framework-requests.md "deleting-shared-framework-requests.md")
+
   - See also: [DeleteAssessmentFrameworkShare](../APIReference/API_DeleteAssessmentFrameworkShare.md "../APIReference/API_DeleteAssessmentFrameworkShare.md") in the _AWS Audit Manager API Reference_
 
 - [Deleting an assessment report](download-center.md#delete-assessment-report-steps "download-center.md#delete-assessment-report-steps")
+
   - See also: [DeleteAssessmentReport](../APIReference/API_DeleteAssessmentReport.md "../APIReference/API_DeleteAssessmentReport.md") in the _AWS Audit Manager API Reference_
 
 - [Deleting a custom control in AWS Audit Manager](delete-controls.md "delete-controls.md")
+
   - See also: [DeleteControl](../APIReference/API_DeleteControl.md "../APIReference/API_DeleteControl.md") in the _AWS Audit Manager API
     Reference_
 
@@ -114,6 +119,7 @@ Audit Manager encrypts data as follows:
 - Your content stored in Amazon S3 in Audit Manager is encrypted using SSE-KMS. The KMS key is based
   on your selection, and could be either a customer managed key or an AWS owned key.
 - The assessment reports published to your S3 bucket are encrypted as follows:
+
   - If you provided a customer managed key, your data is encrypted using
     SSE-KMS.
   - If you used the AWS owned key, your data is encrypted using SSE-S3.

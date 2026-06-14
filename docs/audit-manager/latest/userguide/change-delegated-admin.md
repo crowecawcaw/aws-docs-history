@@ -13,6 +13,7 @@ Follow the steps on this page to change your delegated administrator.
 ###### Contents
 
 - [Prerequisites](change-delegated-admin.md#change-delegated-admin-prerequisites "change-delegated-admin.md#change-delegated-admin-prerequisites")
+
   - [Before you remove the current account](change-delegated-admin.md#before-you-remove "change-delegated-admin.md#before-you-remove")
   - [Before you add the new account](change-delegated-admin.md#before-you-add "change-delegated-admin.md#before-you-add")
 
@@ -92,6 +93,7 @@ Audit Manager console
 
 1. (Optional) If the current delegated administrator (account A)
    enabled evidence finder, perform the following cleanup task:
+
    1. Before assigning account B as the new delegated
       administrator, make sure that account A signs in to Audit Manager
       and disables evidence finder.

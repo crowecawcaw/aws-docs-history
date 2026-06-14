@@ -19,6 +19,7 @@ For details about actions and resource types defined by AWS Audit Manager, inclu
 - [Policy best practices](security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices "security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices")
 - [Allow the minimum permissions required to enable Audit Manager](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console")
 - [Allow users full administrator access to AWS Audit Manager](security_iam_id-based-policy-examples.md#example-2 "security_iam_id-based-policy-examples.md#example-2")
+
   - [Example 1 (Managed policy, AWSAuditManagerAdministratorAccess)](security_iam_id-based-policy-examples.md#full-administrator-access-managed-policy "security_iam_id-based-policy-examples.md#full-administrator-access-managed-policy")
   - [Example 2 (Assessment report destination permissions)](security_iam_id-based-policy-examples.md#full-administrator-access-assessment-report-destination "security_iam_id-based-policy-examples.md#full-administrator-access-assessment-report-destination")
   - [Example 3 (Permissions to enable evidence finder)](security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder "security_iam_id-based-policy-examples.md#full-administrator-access-enable-evidence-finder")
@@ -28,6 +29,7 @@ For details about actions and resource types defined by AWS Audit Manager, inclu
 - [Allow users read-only access to AWS Audit Manager](security_iam_id-based-policy-examples.md#read-only "security_iam_id-based-policy-examples.md#read-only")
 - [Allow users to view their own permissions](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions")
 - [Allow AWS Audit Manager to send notifications to Amazon SNS topics](security_iam_id-based-policy-examples.md#sns-access "security_iam_id-based-policy-examples.md#sns-access")
+
   - [Example 1 (Permissions for the SNS topic)](security_iam_id-based-policy-examples.md#sns-topic-permissions "security_iam_id-based-policy-examples.md#sns-topic-permissions")
   - [Example 2 (Permissions for the KMS key that's attached to the SNS topic)](security_iam_id-based-policy-examples.md#sns-key-permissions "security_iam_id-based-policy-examples.md#sns-key-permissions")
 

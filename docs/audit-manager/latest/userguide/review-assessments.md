@@ -12,6 +12,7 @@ understand the relevant information for your task.
 
 - [Prerequisites](review-assessments.md#review-assessments-prerequisites "review-assessments.md#review-assessments-prerequisites")
 - [Procedure](review-assessments.md#review-assessments-procedure "review-assessments.md#review-assessments-procedure")
+
   - [Assessment details section](review-assessments.md#review-assessment-summary "review-assessments.md#review-assessment-summary")
   - [Controls tab](review-assessments.md#review-assessment-controls "review-assessments.md#review-assessment-controls")
   - [Assessment report selection tab](review-assessments.md#review-assessment-evidence "review-assessments.md#review-assessment-evidence")

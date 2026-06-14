@@ -38,11 +38,13 @@ Use the following sections of this chapter to learn more about how to manage del
 tasks in AWS Audit Manager.
 
 - [Understanding the different delegation tasks for audit owners](delegate-for-audit-owners.md "delegate-for-audit-owners.md")
+
   - [Delegating a control set for review in AWS Audit Manager](delegation-for-audit-owners-delegating-a-control-set.md "delegation-for-audit-owners-delegating-a-control-set.md")
   - [Finding and reviewing the delegations that you've sent in AWS Audit Manager](delegation-for-audit-owners-reviewing-delegations.md "delegation-for-audit-owners-reviewing-delegations.md")
   - [Deleting your completed delegations in AWS Audit Manager](delegation-for-audit-owners-cancel-delegations.md "delegation-for-audit-owners-cancel-delegations.md")
 
 - [Understanding the different delegation tasks for delegates](delegation-for-delegates.md "delegation-for-delegates.md")
+
   - [Viewing your notifications for incoming delegation requests](delegation-for-delegates-viewing-notifications.md "delegation-for-delegates-viewing-notifications.md")
   - [Reviewing the delegated control set and its related evidence](delegation-for-delegates-reviewing-control-set-and-evidence.md "delegation-for-delegates-reviewing-control-set-and-evidence.md")
   - [Adding comments about a control during a control set review](delegation-for-delegates-add-comment.md "delegation-for-delegates-add-comment.md")

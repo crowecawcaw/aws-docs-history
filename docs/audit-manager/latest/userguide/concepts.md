@@ -255,6 +255,7 @@ a control. A data source has the following properties:
 
 - A **data source type** defines which type of data source Audit Manager
   collects evidence from.
+
   - For automated evidence, the type can be _AWS Security Hub CSPM_, _AWS Config,
     AWS CloudTrail_, or _AWS API calls._
   - If you upload your own evidence, the type is _Manual_.
@@ -262,12 +263,14 @@ a control. A data source has the following properties:
 
 - A **data source mapping** is a keyword that pinpoints where
   evidence is collected from for a given data source type.
+
   - For example, this might be the name of a CloudTrail event or the name of an
     AWS Config rule.
   - The Audit Manager API refers to a data source mapping as a [sourceKeyword](../APIReference/API_SourceKeyword.md "../APIReference/API_SourceKeyword.md").
 
 - A **data source name** labels the pairing of a data source
   type and mapping.
+
   - For standard controls, Audit Manager provides a default name.
   - For custom controls, you can provide your own name.
   - The Audit Manager API refers to a data source name as a [sourceName](../APIReference/API_ControlMappingSource.md#auditmanager-Type-ControlMappingSource-sourceName "../APIReference/API_ControlMappingSource.md#auditmanager-Type-ControlMappingSource-sourceName").

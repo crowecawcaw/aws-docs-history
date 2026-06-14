@@ -21,6 +21,7 @@ To include evidence in an assessment report, follow these steps.
    sets** table and choose a control with evidence that you want to include in the
    assessment report.
 4. Choose how you want to add evidence to your assessment report.
+
    1. To add an entire evidence folder, scroll down to **Evidence
       folders**, select the folder that you want to add, and then choose **Add
       to assessment report**.
@@ -43,6 +44,7 @@ To include evidence in an assessment report, follow these steps.
 5. After you add the evidence to the assessment report, a green success banner appears.
    Choose **View evidence in assessment report** to see the evidence that will
    be included in your assessment report.
+
    - Alternatively, you can see the evidence that will be included in your assessment
      report by navigating back to your assessment and choosing the **Assessment report
      selection** tab.

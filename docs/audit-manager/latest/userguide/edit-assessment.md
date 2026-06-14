@@ -28,6 +28,7 @@ AWS Audit Manager. Two suggested policies that grant these permissions are [AWSA
 - [Step 1: Edit assessment details](edit-assessment.md#edit-specify-details "edit-assessment.md#edit-specify-details")
 - [Step 2: Edit AWS accounts in scope](edit-assessment.md#edit-accounts "edit-assessment.md#edit-accounts")
 - [Step 3: Edit audit owners](edit-assessment.md#edit-choose-audit-owners "edit-assessment.md#edit-choose-audit-owners")
+
   - [Audit owner permissions](edit-assessment.md#edit-choose-audit-owners-permissions "edit-assessment.md#edit-choose-audit-owners-permissions")
 
 - [Step 4: Review and save](edit-assessment.md#edit-review-and-create "edit-assessment.md#edit-review-and-create")

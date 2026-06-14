@@ -119,6 +119,7 @@ Audit Manager console
 1. From the **Evidence finder** settings tab, go
    to the **Export destination** section.
 2. Choose one of the following options:
+
    - If you want to remove the current S3 bucket, choose
      **Remove** to clear your
      settings.
@@ -127,6 +128,7 @@ Audit Manager console
 
 3. Specify the S3 bucket that you want to store your exported
    files in.
+
    - Choose **Browse S3** to choose from a
      list of your buckets.
    - Alternatively, you can enter the bucket URI in this

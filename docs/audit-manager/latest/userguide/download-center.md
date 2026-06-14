@@ -25,6 +25,7 @@ Follow these steps to browse your files in the download center.
 2. In the left navigation pane, choose **Download center**.
 3. Choose the **Assessment reports** tab to view the assessment reports that are
    available to download.
+
    - This tab shows the assessment reports that you've generated. Assessment reports
      remain available in the download center until you delete them.
    - To see the latest status of your assessment report, choose the refresh icon (⟳)
@@ -39,6 +40,7 @@ Follow these steps to browse your files in the download center.
 
 4. Choose the **Exports** tab to view the CSV exports that are available to
    download.
+
    - This tab shows the evidence finder search results that you exported in the last
      seven days. CSV files are removed from the download center after seven days, but
      they remain available in your [export

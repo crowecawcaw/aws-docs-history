@@ -36,6 +36,7 @@ Start by reviewing and editing the existing framework details.
    choose the **Custom frameworks** tab.
 3. Select the framework that you want to edit, choose **Actions**, and
    then choose **Edit**.
+
    - Alternatively, open a custom framework and choose **Edit** at
      the top right of the framework details page.
 
@@ -73,6 +74,7 @@ control sets. To add more control sets than the console currently allows, use th
 4. In the pop-up window that appears, choose **Add**.
 5. Review and edit the controls that appear in the **Selected
    controls** list.
+
    - To add more controls, repeat steps 2–4.
    - To remove unwanted controls, select one or more controls and choose
      **Remove from control set**.

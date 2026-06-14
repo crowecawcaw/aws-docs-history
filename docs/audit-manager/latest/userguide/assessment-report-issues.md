@@ -24,6 +24,7 @@ can start to troubleshoot this issue by checking the most frequent causes. Use t
 following checklist to get started.
 
 1. Check if any of your AWS Region information doesn't match up:
+
    1. **Does the AWS Region of your customer managed key
       match the AWS Region of your assessment?**
 
@@ -44,6 +45,7 @@ following checklist to get started.
 
 2. Check the permissions of the S3 bucket that you’re using as the assessment
    report destination:
+
    1. **Does the IAM entity that’s generating the
       assessment report have the necessary permissions for the S3
       bucket?**

@@ -23,6 +23,7 @@ Audit Manager console
 1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home "https://console.aws.amazon.com/auditmanager/home").
 2. In the navigation pane, choose **Control library**.
 3. Choose a tab to browse the available controls.
+
    - Choose **Common** to see the common controls that are
      provided by AWS.
    - Choose **Standard** to see the standard controls that are

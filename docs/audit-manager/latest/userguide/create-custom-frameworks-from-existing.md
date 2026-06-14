@@ -76,6 +76,7 @@ control sets. To add more control sets than the console currently allows, use th
    set**.
 5. Review the controls that appear in the **Selected controls**
    list.
+
    - To add more controls, repeat steps 2–4.
    - To remove unwanted controls, select one or more controls and choose
      **Remove control**.

@@ -114,6 +114,7 @@ an individual.
    and take note of their IDs.
 3. Call the `BatchImportEvidenceToAssessmentControl` operation with the following
    parameters:
+
    - `assessmentId` – Use the assessment ID from step one.
    - `controlSetId` – Use the control set ID from step two.
    - `controlId` – Use the control ID from step two.

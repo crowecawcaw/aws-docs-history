@@ -101,6 +101,7 @@ The role permissions policy, `AWSAuditManagerServiceRolePolicy`, allows
 AWS Audit Manager to collect automated evidence by doing the following on your behalf:
 
 - Collect data from the following data sources:
+
   - Management events from AWS CloudTrail
   - Compliance checks from AWS Config Rules
   - Compliance checks from AWS Security Hub CSPM
@@ -327,6 +328,7 @@ following actions on the specified resources:
 - `s3:GetBucketLogging`
 - `s3:GetBucketOwnershipControls`
 - `s3:GetBucketPolicy`
+
   - This API action operates within the scope of the AWS account
     where the service-linked-role is available. It can't access
     cross-account bucket policies.

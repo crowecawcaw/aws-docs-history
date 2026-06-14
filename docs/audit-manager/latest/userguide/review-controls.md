@@ -12,6 +12,7 @@ easily access and understand the relevant information for your task.
 
 - [Prerequisites](review-controls.md#review-controls-prerequisites "review-controls.md#review-controls-prerequisites")
 - [Procedure](review-controls.md#review-controls-procedure "review-controls.md#review-controls-procedure")
+
   - [Control details section](review-controls.md#review-control-detail "review-controls.md#review-control-detail")
   - [Evidence folders tab](review-controls.md#review-evidence-folders "review-controls.md#review-evidence-folders")
   - [Details tab](review-controls.md#review-details "review-controls.md#review-details")

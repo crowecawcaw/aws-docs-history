@@ -122,6 +122,88 @@ JSON
 
 ```
 
+### Security best practices for your assessment report destination
+
+Audit Manager does not validate S3 bucket ownership. This creates a risk if the
+bucket is deleted and recreated by a different AWS account (known as
+_bucket sniping_). A risk also exists if an unauthorized
+party creates a bucket with an anticipated name before you do (known as
+_bucket squatting_). In either case, Audit Manager continues to
+publish assessment reports to that bucket. The service does not detect the
+ownership change. Under the
+[AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/"), you are responsible for ensuring
+that your assessment report destination is a bucket that is owned by a trusted
+AWS account.
+
+To protect your assessment reports, we recommend that you implement one or
+more of the following controls.
+
+**Restrict S3 actions to trusted accounts by
+using the `s3:ResourceAccount` condition
+key**
+
+Add an `s3:ResourceAccount` condition to the IAM
+policy attached to the identity that Audit Manager uses to publish
+assessment reports. This condition prevents the identity from
+writing to buckets owned by accounts other than those you specify.
+The condition applies regardless of the bucket's own access
+policy.
+
+For more information, see [Limit access to Amazon S3 buckets owned by specific AWS
+accounts](https://aws.amazon.com/blogs/storage/limit-access-to-amazon-s3-buckets-owned-by-specific-aws-accounts/ "https://aws.amazon.com/blogs/storage/limit-access-to-amazon-s3-buckets-owned-by-specific-aws-accounts/").
+
+**Restrict S3 actions to your organization by
+using SCPs**
+
+If you use , create a service control policy (SCP) that
+denies S3 actions on resources outside of your organization. The
+following example policy denies all S3 actions to resources outside
+your organization. The condition checks whether the
+`aws:ResourceOrgID` matches your organization
+ID.
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyS3ActionsOutsideOrganization",
+      "Effect": "Deny",
+      "Action": "s3:*",
+      "Resource": "*",
+      "Condition": {
+        "StringNotEquals": {
+          "aws:ResourceOrgID": "`o-xxxxxxxxxx`"
+        }
+      }
+    }
+  ]
+}
+```
+
+Replace `o-xxxxxxxxxx` with your
+organization ID. For more information, see [aws:ResourceOrgID](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourceorgid "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-resourceorgid") in the _IAM User
+Guide_.
+
+**Use a customer managed KMS key for data
+encryption**
+
+When you configure Audit Manager to use a customer managed key for data encryption,
+Audit Manager encrypts assessment reports before writing them to Amazon S3.
+If a report is published to a bucket owned by an unauthorized
+party, the report contents remain encrypted. The contents are
+unreadable without access to your KMS key. For instructions, see
+[Configuring your data encryption settings](settings-KMS.md "settings-KMS.md").
+
+**Use S3 buckets in your account regional
+namespace**
+
+S3 buckets created in your account regional namespace include
+your AWS account ID and AWS Region in the bucket name. These
+buckets cannot be created by another account, which eliminates the
+risk of bucket sniping. For more information, see [Account-level bucket namespaces](../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets "../../../AmazonS3/latest/userguide/gpbucketnamespaces.md#account-regional-gp-buckets") in the
+_Amazon Simple Storage Service User Guide_.
+
 ## Procedure
 
 You can update this setting using the Audit Manager console, the AWS Command Line Interface (AWS CLI), or the

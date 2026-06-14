@@ -11,6 +11,12 @@ settings, you can specify your own symmetric encryption customer managed key. Us
 KMS key gives you more flexibility, including the ability to create, rotate, and
 disable keys.
 
+Using a customer managed key also provides an additional layer of protection for your
+assessment reports. Audit Manager encrypts reports with your KMS key before writing them to
+Amazon S3. The report contents are unreadable without access to your key. This protects
+your data even if your assessment report destination S3 bucket is
+compromised.
+
 ## Prerequisites
 
 If you provide a customer managed key, it must be in the same AWS Region as your

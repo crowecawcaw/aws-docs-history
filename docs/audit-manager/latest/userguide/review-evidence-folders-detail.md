@@ -12,6 +12,7 @@ sections.
 
 - [Prerequisites](review-evidence-folders-detail.md#review-evidence-folders-detail-prerequisites "review-evidence-folders-detail.md#review-evidence-folders-detail-prerequisites")
 - [Procedure](review-evidence-folders-detail.md#review-evidence-folders-detail-procedure "review-evidence-folders-detail.md#review-evidence-folders-detail-procedure")
+
   - [Evidence folder summary](review-evidence-folders-detail.md#review-evidence-folders-summary-summary "review-evidence-folders-detail.md#review-evidence-folders-summary-summary")
   - [Evidence table](review-evidence-folders-detail.md#review-evidence-folders-summary-evidence "review-evidence-folders-detail.md#review-evidence-folders-summary-evidence")
 

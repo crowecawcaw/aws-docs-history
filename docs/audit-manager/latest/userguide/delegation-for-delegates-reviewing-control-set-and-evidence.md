@@ -37,6 +37,7 @@ AWS Audit Manager. Two suggested policies that grant these permissions are [Allo
 8. Review information about the control in the **Evidence folders**,
    **Details**, **Data sources**,
    **Comments**, and **Changelog** tabs.
+
    - To learn about each of these tabs and how to understand the data that they
      contain, see [Reviewing an assessment control in AWS Audit Manager](review-controls.md "review-controls.md").
 
@@ -48,6 +49,7 @@ AWS Audit Manager. Two suggested policies that grant these permissions are [Allo
    the date when the evidence was collected.
 3. Choose the name of an evidence folder to open it. Then, review a summary of all
    evidence gathered on that date.
+
    - This summary includes the total number of compliance check issues that were
      reported directly from AWS Security Hub CSPM, AWS Config, or both.
    - To learn more about this information, see [Reviewing an evidence folder in AWS Audit Manager](review-evidence-folders-detail.md "review-evidence-folders-detail.md").
@@ -56,6 +58,7 @@ AWS Audit Manager. Two suggested policies that grant these permissions are [Allo
    **Evidence** table. Under the **Time** column,
    choose a piece of evidence to open.
 5. Review the details of the evidence.
+
    - To learn more about this information, see [Reviewing evidence in AWS Audit Manager](review-evidence.md "review-evidence.md").
 
 ## Next steps

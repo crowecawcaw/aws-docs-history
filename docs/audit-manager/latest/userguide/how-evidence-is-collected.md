@@ -54,6 +54,7 @@ below.
 
 - **Compliance checks** — Audit Manager collects this
   evidence type from AWS Security Hub CSPM and AWS Config.
+
   - For Security Hub CSPM, evidence collection follows the schedule of your Security Hub CSPM checks. For
     more information about the schedule of Security Hub CSPM checks, see [Schedule
     for running security checks](../../../securityhub/latest/userguide/securityhub-standards-schedule.md "../../../securityhub/latest/userguide/securityhub-standards-schedule.md") in the _AWS Security Hub CSPM User

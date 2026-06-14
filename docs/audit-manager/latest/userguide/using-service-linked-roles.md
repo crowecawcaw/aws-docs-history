@@ -38,6 +38,7 @@ actions on your behalf.
   check** evidence. In this case, Audit Manager uses the following permission
   to report the results of security checks directly from AWS Security Hub CSPM. It then
   attaches the results to your relevant assessment controls as evidence.
+
   - `securityhub:DescribeStandards`
 
 ###### Note
@@ -49,6 +50,7 @@ describe, see [AWS Security Hub CSPM controls supported by AWS Audit Manager](co
   evidence. In this case, Audit Manager uses the following permissions to report the
   results of AWS Config rule evaluations directly from AWS Config. It then attaches the
   results to your relevant assessment controls as evidence.
+
   - `config:DescribeConfigRules`
   - `config:DescribeDeliveryChannels`
   - `config:ListDiscoveredResources`
@@ -62,6 +64,7 @@ see [AWS Config Rules supported by AWS Audit Manager](control-data-sources-confi
   activity** evidence. In this case, Audit Manager uses the following
   permissions to capture user activity from CloudTrail logs. It then attaches the
   activity to your relevant assessment controls as evidence.
+
   - `cloudtrail:DescribeTrails`
   - `cloudtrail:LookupEvents`
 
@@ -75,6 +78,7 @@ see [AWS CloudTrail event names supported by AWS Audit Manager](control-data-sou
   permissions to call read-only APIs that describe your resource configurations
   for the following AWS services. It then attaches the API responses to your
   relevant assessment controls as evidence.
+
   - `acm:GetAccountConfiguration`
   - `acm:ListCertificates`
   - `apigateway:GET`
@@ -240,6 +244,7 @@ see [AWS CloudTrail event names supported by AWS Audit Manager](control-data-sou
   - `s3:GetBucketLogging`
   - `s3:GetBucketOwnershipControls`
   - `s3:GetBucketPolicy`
+
     - This API action operates within the scope of the AWS account
       where the service-linked-role is available. It can't access
       cross-account bucket policies.

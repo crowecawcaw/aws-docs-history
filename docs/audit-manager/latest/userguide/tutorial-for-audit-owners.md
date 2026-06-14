@@ -86,6 +86,7 @@ assessments, the assessment creation will fail.
 
 1. Under **AWS accounts**, select the AWS accounts that you
    want to include in the scope of your assessment.
+
    - If you enabled Organizations in Audit Manager, multiple accounts are listed.
    - If you didn't enable Organizations in Audit Manager, only your current account is listed.
 
@@ -133,6 +134,7 @@ introduced in this tutorial. You can do so by reviewing the following resources:
   –** Builds upon this tutorial and provides in-depth information about
   the concepts and tasks for managing an assessment. In this chapter, we particularly
   recommend you check out the following topics:
+
   - How to [create an
     assessment](create-assessments.md "create-assessments.md") from a different framework
   - How to [review the evidence in

@@ -58,6 +58,7 @@ can add, edit, and delete tags through the Audit Manager console, the AWS Comman
 API. For more information, see the following links.
 
 - For tagging assessments:
+
   - [Creating an assessment in AWS Audit Manager](create-assessments.md "create-assessments.md") and [Editing an assessment in AWS Audit Manager](edit-assessment.md "edit-assessment.md") in the
     _Assessments_ section of this guide
   - [Tags tab](review-assessments.md#review-assessment-tags "review-assessments.md#review-assessment-tags") in
@@ -68,6 +69,7 @@ API. For more information, see the following links.
     Reference_
 
 - For tagging frameworks:
+
   - [Creating a custom framework in AWS Audit Manager](custom-frameworks.md "custom-frameworks.md") and [Editing a custom framework in AWS Audit Manager](edit-custom-frameworks.md "edit-custom-frameworks.md") in the
     _Framework library_ section of this guide
   - The [Tags tab](review-frameworks.md#framework-tags-tab "review-frameworks.md#framework-tags-tab") on the
@@ -78,6 +80,7 @@ API. For more information, see the following links.
     Reference_
 
 - For tagging controls:
+
   - [Creating a custom control in AWS Audit Manager](create-controls.md "create-controls.md") and [Editing a custom control in AWS Audit Manager](edit-controls.md "edit-controls.md") in the _Control
     library_ section of this guide
   - The [Tags](control-library-review-custom-controls.md#custom-control-tags-tab "control-library-review-custom-controls.md#custom-control-tags-tab") section on the _Reviewing a

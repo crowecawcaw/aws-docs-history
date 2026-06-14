@@ -366,6 +366,7 @@ After you've confirmed that you meet the prerequisites, use the following
 checklist to check for potential issues:
 
 1. Check the status of your search query:
+
    1. **Was the query cancelled?** Evidence
       finder displays partial results that were processed before the query
       was cancelled. However, Audit Manager doesn't export partial results to your
@@ -379,6 +380,7 @@ checklist to check for potential issues:
       range.
 
 2. Check the name and the URI of your export destination S3 bucket:
+
    1. **Does the bucket that you specified
       exist?** If you manually entered a bucket URI, make
       sure that you didn't mistype anything. A typo or an incorrect URI
@@ -386,6 +388,7 @@ checklist to check for potential issues:
       attempts to export the CSV file to Amazon S3.
 
 3. Check the permissions of your export destination S3 bucket:
+
    1. **Do you have write permissions for the S3
       bucket?** You must have write access for the S3 bucket
       that you're using as the export destination. More specifically, the
@@ -394,6 +397,7 @@ checklist to check for potential issues:
       We provide an [example policy](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md") that you can use.
 
 4. Check if any of your AWS Region information doesn't match up:
+
    1. **Does the AWS Region of your customer managed key
       match the AWS Region of your assessment?** If you
       provided a customer managed key for data encryption, it must be in the same
@@ -401,6 +405,7 @@ checklist to check for potential issues:
       the KMS key, see [Configuring your data encryption settings](settings-KMS.md "settings-KMS.md").
 
 5. Check the permissions of your delegated administrator account:
+
    1. **Does the customer managed key in your Audit Manager settings
       grant permissions to your delegated administrator?** If
       you're using a delegated administrator account and you specified a

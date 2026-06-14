@@ -35,6 +35,7 @@ Audit Manager console
    then choose the **Custom frameworks** tab.
 3. Select the framework that you want to delete, choose
    **Actions**, and then choose **Delete**.
+
    - Alternatively, you can open a custom framework and choose
      **Actions**, **Delete** at the top right of
      the framework summary page.

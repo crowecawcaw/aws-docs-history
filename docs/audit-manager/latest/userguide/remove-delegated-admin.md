@@ -69,6 +69,7 @@ Audit Manager console
 
 1. (Optional) If the current delegated administrator enabled
    evidence finder, perform the following cleanup task:
+
    1. Make sure that the current delegated administrator
       account signs in to Audit Manager and disables evidence finder.
 

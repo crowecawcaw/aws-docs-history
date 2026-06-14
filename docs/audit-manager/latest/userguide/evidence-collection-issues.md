@@ -290,21 +290,25 @@ support the requirements of the common control.
 ###### To add evidence to a manual common control
 
 1. **Create a custom control**
+
    - Follow the steps to [create](create-controls.md "create-controls.md") or [edit](edit-controls.md "edit-controls.md") a custom control.
    - When you specify evidence sources in step 2, choose the manual
      common control as an evidence source.
 
 2. **Create a custom framework**
+
    - Follow the steps to [create](custom-frameworks.md "custom-frameworks.md") or [edit](edit-custom-frameworks.md "edit-custom-frameworks.md") a custom framework.
    - When you specify a control set in step 2, include your new custom
      control.
 
 3. **Create an assessment**
+
    - Follow the steps to [create an assessment](create-assessments.md "create-assessments.md") from your custom framework.
    - At this point, the manual common control is now an evidence source
      in an active assessment control.
 
 4. **Upload manual evidence**
+
    - Follow the steps to [add manual evidence](upload-evidence.md#how-to-upload-manual-evidence-files "upload-evidence.md#how-to-upload-manual-evidence-files") to the control in your
      assessment.
 

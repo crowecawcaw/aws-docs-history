@@ -22,6 +22,7 @@ settings using the Audit Manager console, the AWS Command Line Interface (AWS CL
 1. Open the AWS Audit Manager console at [https://console.aws.amazon.com/auditmanager/home](https://console.aws.amazon.com/auditmanager/home "https://console.aws.amazon.com/auditmanager/home").
 2. In the left navigation pane, choose **Settings**.
 3. Choose the tab that meets your goal.
+
    - **General settings** - Choose this tab to review and
      update your general Audit Manager settings.
    - **Assessment settings** - Choose this tab to review
@@ -35,6 +36,7 @@ To customize your Audit Manager settings for your use case, follow the procedure
 outlined here.
 
 - **General settings**
+
   - [Configuring your data encryption settings](settings-KMS.md "settings-KMS.md")
   - [Adding a delegated administrator](add-delegated-admin.md "add-delegated-admin.md")
   - [Changing a delegated administrator](change-delegated-admin.md "change-delegated-admin.md")
@@ -42,11 +44,13 @@ outlined here.
   - [Disabling AWS Audit Manager](disable.md "disable.md")
 
 - **Assessment settings**
+
   - [Configuring your default audit owners](settings-default-audit-owner.md "settings-default-audit-owner.md")
   - [Configuring your default assessment report destination](settings-destination.md "settings-destination.md")
   - [Configuring your Audit Manager notifications](settings-notifications.md "settings-notifications.md")
 
 - **Evidence finder settings**
+
   - [Enabling evidence finder](evidence-finder-settings-enable.md "evidence-finder-settings-enable.md")
   - [Confirming the status of evidence finder](confirm-status-of-evidence-finder.md "confirm-status-of-evidence-finder.md")
   - [Configuring your default export destination for evidence finder](settings-export-destination.md "settings-export-destination.md")

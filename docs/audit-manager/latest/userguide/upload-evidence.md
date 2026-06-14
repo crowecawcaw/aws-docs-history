@@ -50,6 +50,7 @@ to choose from.
 
 - For instructions on how to add manual evidence to an assessment control, see the
   following resources. Keep in mind you can only use one method at a time.
+
   - [Importing manual evidence files from Amazon S3](import-from-s3.md "import-from-s3.md")
   - [Uploading manual evidence files from your browser](upload-from-computer.md "upload-from-computer.md")
   - [Entering free-form text responses as manual evidence](enter-text-response.md "enter-text-response.md")
