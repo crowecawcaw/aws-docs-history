@@ -35,7 +35,9 @@ journey to send email.
 1. Create a new **permission policy** by following the
    directions in [Creating policies using the JSON editor](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") in the
    [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
+
    1. In [step 5](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor"), use the following **permission policy** for the IAM role.
+
       - Replace `partition` with the partition
         that the resource is in. For standard AWS Regions, the partition
         is `aws`. If you have resources in other partitions, the partition
@@ -71,7 +73,9 @@ journey to send email.
 2. Create a new **trust policy** by following the
    directions in [Creating a role using custom trust policies](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") in the
    [IAM User Guide](../../../IAM/latest/UserGuide.md "../../../IAM/latest/UserGuide.md").
+
    1. In [step 4](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md"), use the following **trust policy**.
+
       - Replace `accountId` with the unique ID for your
         AWS account.
 
@@ -98,6 +102,5 @@ journey to send email.
    }`
 
    ```
-
    2. In [step 11](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md"), add the **permission policy** that you created in the previous
       step.

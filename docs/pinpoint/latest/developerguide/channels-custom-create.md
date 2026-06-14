@@ -22,6 +22,7 @@ the `CustomDeliveryConfiguration` object, specify the following:
 - `EndpointTypes` – An array that contains all of the endpoint
   types that the custom channel campaign should be sent to. It can contain any or
   all of the following channel types:
+
   - `ADM`
   - `APNS`
   - `APNS_SANDBOX`
@@ -36,6 +37,7 @@ the `CustomDeliveryConfiguration` object, specify the following:
 
 - `DeliveryUri` – The destination that endpoints are sent to.
   You can specify only one of the following:
+
   - The URL of the webhook that you want to send endpoint data to when the
     campaign runs.
   - The Amazon Resource Name (ARN) of a Lambda function that you want to

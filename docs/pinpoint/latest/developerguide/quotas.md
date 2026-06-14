@@ -348,6 +348,7 @@ quota.
    link.
 5. Under **Service quota increase**, for
    **Service**, choose one of the following options:
+
    - To request a quota increase that's related to the email channel,
      choose **Pinpoint Email**.
    - To request a quota increase for SMS spending limits or SMS sending
@@ -360,12 +361,14 @@ quota.
 
 6. Depending on the **Service** that you choose you may be asked
    to enter the following:
+
    - (Optional) For **Provide a link to the site or app which will
      be sending SMS messages**, provide information about the
      website, application, or service that will send SMS messages.
    - (Optional) For **What type of messages do you plan to
      send**, choose the type of message that you plan to send
      using your long code:
+
      - **One Time Password** – Messages that
        provide passwords that your customers use to authenticate with
        your website or application.
@@ -391,6 +394,7 @@ quota.
      include the template that you will be using.
 
 7. Under **Requests**, do the following:
+
    - For **Region** choose your AWS Region.
    - For **Resource Type**, choose **General
      Limits**. The **Resource Type** field is

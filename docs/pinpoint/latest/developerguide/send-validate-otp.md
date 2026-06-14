@@ -69,6 +69,7 @@ This is your One Time Password: 123456 from ExampleCorp
   attempts is 5.
 - `Language` – The language, in IETF BCP-47 format, to use when
   sending the message. Acceptable values are:
+
   - `de-DE` – German
   - `en-GB` – English (UK)
   - `en-US` – English (US)

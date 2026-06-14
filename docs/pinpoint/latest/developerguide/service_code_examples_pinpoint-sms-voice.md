@@ -19,7 +19,9 @@ This topic also includes information about getting started and details about pre
 ###### Amazon Pinpoint SMS and Voice API
 
 - [Basics](service_code_examples_pinpoint-sms-voice_basics.md "service_code_examples_pinpoint-sms-voice_basics.md")
+
   - [Actions](service_code_examples_pinpoint-sms-voice_actions.md "service_code_examples_pinpoint-sms-voice_actions.md")
+
     - [CreateConfigurationSet](pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSet_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSet_section.md")
     - [CreateConfigurationSetEventDestination](pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSetEventDestination_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSetEventDestination_section.md")
     - [DeleteConfigurationSet](pinpoint-sms-voice_example_pinpoint-sms-voice_DeleteConfigurationSet_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_DeleteConfigurationSet_section.md")

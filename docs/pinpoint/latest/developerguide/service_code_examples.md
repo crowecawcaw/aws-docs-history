@@ -17,8 +17,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Amazon Pinpoint](service_code_examples_pinpoint.md "service_code_examples_pinpoint.md")
+
   - [Basics](service_code_examples_pinpoint_basics.md "service_code_examples_pinpoint_basics.md")
+
     - [Actions](service_code_examples_pinpoint_actions.md "service_code_examples_pinpoint_actions.md")
+
       - [CreateApp](pinpoint_example_pinpoint_CreateApp_section.md "pinpoint_example_pinpoint_CreateApp_section.md")
       - [CreateCampaign](pinpoint_example_pinpoint_CreateCampaign_section.md "pinpoint_example_pinpoint_CreateCampaign_section.md")
       - [CreateExportJob](pinpoint_example_pinpoint_CreateExportJob_section.md "pinpoint_example_pinpoint_CreateExportJob_section.md")
@@ -34,11 +37,15 @@ This topic also includes information about getting started and details about pre
       - [UpdateEndpoint](pinpoint_example_pinpoint_UpdateEndpoint_section.md "pinpoint_example_pinpoint_UpdateEndpoint_section.md")
 
   - [Scenarios](service_code_examples_pinpoint_scenarios.md "service_code_examples_pinpoint_scenarios.md")
+
     - [Getting started with End User Messaging Push](pinpoint_example_pinpoint_GettingStarted_049_section.md "pinpoint_example_pinpoint_GettingStarted_049_section.md")
 
 - [Amazon Pinpoint SMS and Voice API](service_code_examples_pinpoint-sms-voice.md "service_code_examples_pinpoint-sms-voice.md")
+
   - [Basics](service_code_examples_pinpoint-sms-voice_basics.md "service_code_examples_pinpoint-sms-voice_basics.md")
+
     - [Actions](service_code_examples_pinpoint-sms-voice_actions.md "service_code_examples_pinpoint-sms-voice_actions.md")
+
       - [CreateConfigurationSet](pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSet_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSet_section.md")
       - [CreateConfigurationSetEventDestination](pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSetEventDestination_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_CreateConfigurationSetEventDestination_section.md")
       - [DeleteConfigurationSet](pinpoint-sms-voice_example_pinpoint-sms-voice_DeleteConfigurationSet_section.md "pinpoint-sms-voice_example_pinpoint-sms-voice_DeleteConfigurationSet_section.md")

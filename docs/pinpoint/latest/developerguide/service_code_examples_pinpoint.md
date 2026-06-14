@@ -21,7 +21,9 @@ This topic also includes information about getting started and details about pre
 ###### Amazon Pinpoint
 
 - [Basics](service_code_examples_pinpoint_basics.md "service_code_examples_pinpoint_basics.md")
+
   - [Actions](service_code_examples_pinpoint_actions.md "service_code_examples_pinpoint_actions.md")
+
     - [CreateApp](pinpoint_example_pinpoint_CreateApp_section.md "pinpoint_example_pinpoint_CreateApp_section.md")
     - [CreateCampaign](pinpoint_example_pinpoint_CreateCampaign_section.md "pinpoint_example_pinpoint_CreateCampaign_section.md")
     - [CreateExportJob](pinpoint_example_pinpoint_CreateExportJob_section.md "pinpoint_example_pinpoint_CreateExportJob_section.md")
@@ -37,4 +39,5 @@ This topic also includes information about getting started and details about pre
     - [UpdateEndpoint](pinpoint_example_pinpoint_UpdateEndpoint_section.md "pinpoint_example_pinpoint_UpdateEndpoint_section.md")
 
 - [Scenarios](service_code_examples_pinpoint_scenarios.md "service_code_examples_pinpoint_scenarios.md")
+
   - [Getting started with End User Messaging Push](pinpoint_example_pinpoint_GettingStarted_049_section.md "pinpoint_example_pinpoint_GettingStarted_049_section.md")

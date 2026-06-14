@@ -41,6 +41,7 @@ Guide_.
 ###### To create the IAM role by using the AWS CLI
 
 1. Create a new file. Paste the following policy into the document and make the following changes:
+
    - Replace `region` with the AWS Region that
      you use Amazon Pinpoint in.
    - Replace `accountId` with the unique ID for
