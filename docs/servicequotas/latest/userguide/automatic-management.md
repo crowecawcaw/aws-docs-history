@@ -98,6 +98,7 @@ the Service Quotas console, AWS CLI, or API actions.
 ###### Permissions to use Automatic Management
 
 - You should use the following AWS Managed Policies for Automatic Management.
+
   - [`ServiceQuotasFullAccess`](security-iam-awsmanpol.md#security-iam-awsmanpol-POLICYNAME "security-iam-awsmanpol.md#security-iam-awsmanpol-POLICYNAME")
   - [`AWSHealthFullAccess`](../../../health/latest/ug/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthFullAccess "../../../health/latest/ug/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSHealthFullAccess")
 

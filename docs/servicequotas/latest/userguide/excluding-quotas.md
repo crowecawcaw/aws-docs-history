@@ -25,6 +25,7 @@ the Automatic Management exclusion list. You'll need to include the AWS service
 code and Service Quotas code in your commands.
 
 - **Finding supported AWS services code**
+
   - Use [ListServices](../../2019-06-24/apireference/API_ListServices.md "../../2019-06-24/apireference/API_ListServices.md") to list
     AWS services supported by Service Quotas. The response includes the
     `ServiceCode` and `ServiceName`
@@ -32,6 +33,7 @@ code and Service Quotas code in your commands.
     for Amazon DynamoDB is `dynamodb`.
 
 - **Finding Service Quotas codes**
+
   - Use [ListServiceQuotas](../../2019-06-24/apireference/API_ListServiceQuotas.md "../../2019-06-24/apireference/API_ListServiceQuotas.md") to list AWS services Service Quotas
     codes. You can specify the service with the request
     parameter `ServiceCode`. The response includes

@@ -16,6 +16,7 @@ Use the following steps to start Automatic Management using the AWS Management C
 1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
 2. In the navigation pane, select
    **Automatic Management**.
+
    1. Alternatively, in the Service Quotas dashboard, under
       **Automatic Management**, select
       **Start**.

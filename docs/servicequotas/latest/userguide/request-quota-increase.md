@@ -24,6 +24,7 @@ Increase your quotas at the account or resource level in the [Getting Started wi
 4. If the quota is adjustable, you can request a quota increase at either the
    account-level or resource-level based on the value listed in the
    **Adjustability** column.
+
    - **Account-level** – Request a
      quota increase at the account-level for an account-level quota such as
      `Domains per Region` for Amazon OpenSearch Service. To do so, select the

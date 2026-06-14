@@ -8,6 +8,7 @@ AWS Management Console
 1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/](https://console.aws.amazon.com/servicequotas/ "https://console.aws.amazon.com/servicequotas/").
 2. In the navigation pane, choose
    **Automatic Management**.
+
    1. You can edit your notification configurations, [add exceptions for
       AWS services you don't want to monitor with
       Automatic Management](excluding-quotas.md "excluding-quotas.md") or [stop

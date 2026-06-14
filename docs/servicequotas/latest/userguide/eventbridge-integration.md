@@ -76,9 +76,11 @@ Each event pattern is a JSON object that contains:
 - A `detail-type` attribute set to `AWS Health Events`,
   which specifies the type of event.
 - A `detail` attribute containing the following fields:
+
   - A `service` field set to `SERVICEQUOTAS`
   - An `eventTypeCode` field that matches one or more of these
     values:
+
     - `AWS_SERVICEQUOTAS_APPROACHING_THRESHOLD`
     - `AWS_SERVICEQUOTAS_INCREASE_REQUEST_FAILED`
     - `AWS_SERVICEQUOTAS_THRESHOLD_BREACH`
