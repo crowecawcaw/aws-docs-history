@@ -8,6 +8,7 @@ Partner Revenue Measurement is intended to measure production workloads. Dev/tes
 
 1. [Get your product code from AWS Marketplace Management Portal](product-code-retrieval.md "product-code-retrieval.md")
 2. Add the tag to your resources:
+
    - Tag Key: `aws-apn-id`
    - Tag Value: `pc:<product-code>`
    - Example: `pc:5ugbbrmu7ud3u5hsipfzug61p`

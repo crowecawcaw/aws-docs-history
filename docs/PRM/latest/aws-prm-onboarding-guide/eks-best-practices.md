@@ -77,11 +77,13 @@ Fargate on EKS is not supported for Partner Revenue Measurement resource tagging
 If a customer runs both partner solution workloads and other workloads in the same EKS cluster, you cannot tag the cluster itself (the control plane). Instead, tag only the load balancers and the nodes running partner solution workloads. To isolate the workloads, use Kubernetes affinities and taints.
 
 1. **Create a partner-solution-only node group.**
+
    - Tag this node group following the instructions in [Tagging nodes within a node group](#eks-tagging-nodes "#eks-tagging-nodes").
    - Add a taint with effect `NO_SCHEDULE`.
    - Add a label (for example, `partner-solution: "true"`).
 
 2. **Create partner solution pods.**
+
    - Add a toleration to the pods with a key/value matching the taint from step 1 and an effect of `NoSchedule`.
    - Add a `requiredDuringSchedulingIgnoredDuringExecution` affinity with a `matchExpression` that matches the label from step 1.
 
