@@ -41,6 +41,7 @@ The common name used here will be used when generating certificate. Remember the
 2. Choose **CA** then **Local**.
 3. Choose **Go to existing local CA**.
 4. Choose **Issue Certificate**
+
    1. Enter the common name for this certificate. Ensure that the common name is the same as used when you [created the common name](#common-name "#common-name").
    2. Choose **RSA** as the algorithm and **4096** as the size.
    3. In the **Name** field, make the same entry as for the **Certificate Subject Distinguished Name**.

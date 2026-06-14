@@ -21,6 +21,7 @@ You get your credentials after the device has been provisioned.
    **View job details**.
 4. In the details pane that appears, expand **Credentials** and
    then do the following:
+
    - Make a note of the unlock code (including the hyphens), because you
      need to provide all 29 characters to transfer data.
    - In the dialog box, choose **Download manifest**, and

@@ -10,6 +10,7 @@ the front of the Snowball Edge must indicate that the device is ready for use
 ###### To unlock the device with the Snowball Edge client
 
 1. Get your manifest and unlock code.
+
    1. Download a copy of the manifest from the AWS Snow Family Management Console. Your job's
       manifest is encrypted so that only the job's unlock code can decrypt
       it. Make a note of the path to the manifest file on your local
