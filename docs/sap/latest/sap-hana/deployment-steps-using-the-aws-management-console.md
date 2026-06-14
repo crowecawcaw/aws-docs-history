@@ -11,18 +11,22 @@ Console
 2. Choose **Services**, and then choose **EC2** (under **Compute**).
 3. Choose **Launch Instance**.
 4. In Section **Application and OS Images (Amazon Machine Images)**:
+
    - Choose a recently used AMI or **My AMIs** to search for your BYOS or custom AMI ID.
    - Choose **Browse more AMIs** to search for more AMIs from AWS, Marketplace and the Community.
 
 5. In Section **Choose an Instance Type** page, select the instance type that you identified when [planning the deployment](planning-the-deployment.md#compute "planning-the-deployment.md#compute")
 6. In Section **Key Pair (login)** . Select an existing key pair if you have one. Otherwise, create a new key pair.
 7. In Section **Network Settings**
+
    - Select the VPC ID and subnet for the network.
    - Turn off the **Auto-assign Public IP** option.
    - Select **Security Groups**
+
      - Choose **Select an existing security group** and select a security group, if you have one, to attach to your instance. Otherwise, choose **Create a new security group** and configure the **Type**, **Protocol**, **Port Range**, and the **Source IP address** from where you want to allow traffic to your SAP HANA instance. Refer to [Security groups in AWS Launch Wizard for SAP](../../../launchwizard/latest/userguide/launch-wizard-sap-security-groups.md "../../../launchwizard/latest/userguide/launch-wizard-sap-security-groups.md") for a list of ports that we recommend. You can change the port as needed to meet your security requirements.
 
 8. In Section **Configure Storage**
+
    - Choose **Advanced** to see extended details, and **Add new volume** to provision volumes for SAP binaries, and SAP HANA data, log, shared and optionally backup. Ensure that you follow the guidance for size, IOPS and Throughput in [Calculate Requirements](hana-storage-config-ebs.md "hana-storage-config-ebs.md") or [Storage Reference](hana-storage-config-reference-layout.md "hana-storage-config-reference-layout.md").
    - If you are planning to deploy scale-out workloads, you can optionally include EFS or FSX **filesystems** for SAP HANA shared and backup volumes.
 

@@ -4,6 +4,7 @@ Use the following steps to uninstall AWS Backint agent.
 
 1. Disable scheduled data and log backups if you are still using the agent for backups.
 2. Remove the following symbolic links from the SAP HANA opt directory `/usr/sap/<SID>/SYS/global/hdb/opt`.
+
    1. SAP HANA link – `<HANA Opt directory>/hdbbackint`
    2. Config YAML link – `<HANA Opt directory>/hdbconfig/aws-backint-agent-config.yaml`
 

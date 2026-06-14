@@ -32,6 +32,7 @@ Disable any existing backup processes (including scheduled log backups) before c
 3.  On the Documents page, select the **Owned by Amazon** tab. You should see a document named **AWSSAP-InstallBackint**.
 4.  Select the **AWSSAP-InstallBackint** document and choose **Run command**.
 5.  Under the Command parameters, enter the following
+
     1. **Bucket Name**. Enter the name of the Amazon S3 bucket where you want to store your SAP HANA backup files.
     2. **Bucket Folder**. Optionally, enter the name of the folder within your Amazon S3 bucket where you want to store your SAP HANA backup files.
     3. **System ID**. Enter your SAP HANA System ID, for example `HDB`.
@@ -48,8 +49,8 @@ Disable any existing backup processes (including scheduled log backups) before c
         1. "modify" — SSM will update the `global.ini` file directly.
         2. "sql" — SSM will create a file called `modify_global_ini.sql` with SQL statements that you can run in your target SAP HANA system to set the required parameters. You can find the `modify_global_ini.sql` file in the `<installation directory>/aws-backint-agent/` folder.
         3. "none" — No action will be taken by SSM to modify the `global.ini` file. You must manually update it to complete the setup.
-
     10. **Ignore Bucket Checks**. Select **yes** to ignore sanity checks of the S3 bucket. S3 Bucket sanity checks verify the following:
+
         - the bucket exists in your account
         - the bucket Region is correct
         - the bucket is public
@@ -161,6 +162,7 @@ $ sudo python install-aws-backint-agent -l https://<S3 bucket>.s3.amazonaws.com/
 ```
 
 6.  Enter information for the following parameters.
+
     1. **Installation directory** — Enter the path of the directory location where you want to install the AWS Backint agent. The default value for the installation directory is `/hana/shared/`.
     2. **Amazon S3 bucket owner** — Enter the account ID of the Amazon S3 bucket owner of the bucket where you want to store your SAP HANA backup files.
     3. **Amazon S3 bucket Region** — Enter the AWS Region of the Amazon S3 bucket where you want to store your SAP HANA backup files.
@@ -175,9 +177,9 @@ $ sudo python install-aws-backint-agent -l https://<S3 bucket>.s3.amazonaws.com/
         1. "modify" — AWS Backint installer will update the `global.ini` file directly.
         2. "sql" — AWS Backint installer will create a file called `modify_global_ini.sql` with SQL statements that you can run in your target SAP HANA system to set the required parameters. You can find the `modify_global_ini.sql` file in the `<installation directory>/aws-backint-agent/` folder.
         3. "none" — No action will be taken by AWS Backint installer to modify the `global.ini` file. You must manually update them to complete the setup.
-
     10. **HANA SYSTEM db global.ini file** — Confirm the location of `global.ini` file.
     11. **Verify signature of the agent binary `–0—tar` file** — 
+
         - Choose `y` to verify the signature of the AWS Backint agent source file. If you choose `y`, enter the Amazon S3 bucket location of the signature file of the agent binary `–0—tar` file, for example, `https://s3.amazonaws.com/awssap-backint-agent/binary/latest/aws-backint-agent.sig`. Or, provide a local file that is stored on the instance. If you proceed without making a selection, the default location listed within brackets ([]) is used.
         - Choose `n` if you do not want to verify the signature of the AWS Backint agent source file.
 
@@ -420,12 +422,12 @@ Before doing steps a and b, ensure that there is no backup process running.
     ```
 
 3. **Create the `aws-backint-agent-config-logs.yaml` parameter file**
+
    1. Make a copy of the existing AWS Backint agent configuration for logs backup.
 
    ```
    $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml /hana/shared/aws-backint-agent/aws-backint-agent-config-logs.yaml
    ```
-
    2. Modify the `S3BucketName`, `S3BucketFolder`, and `LogFile` parameters in `aws-backint-agent-config-logs.yaml`, using your preferred editor.
 
    ```
@@ -433,7 +435,6 @@ Before doing steps a and b, ensure that there is no backup process running.
    S3BucketFolder: "<Amazon S3 folder for SAP HANA logs>"
    LogFile: "/hana/shared/aws-backint-agent/aws-backint-agent-logs.log"
    ```
-
    3. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
 
    ```
@@ -564,12 +565,12 @@ Before doing steps a and b, ensure that there is no backup process running.
     ```
 
 3. Create the `**aws-backint-agent-config-catalog.yaml**` parameter file
+
    1. Make a copy of the existing AWS Backint agent configuration for catalog backup.
 
    ```
    $ cp /hana/shared/aws-backint-agent/aws-backint-agent-config.yaml  /hana/shared/aws-backint-agent/aws-backint-agent-config-catalog.yaml
    ```
-
    2. Modify the `S3BucketName`, `S3BucketFolder`, and `LogFile` parameters in `aws-backint-agent-config-catalog.yaml`, using your preferred editor.
 
    ```
@@ -577,7 +578,6 @@ Before doing steps a and b, ensure that there is no backup process running.
    S3BucketFolder: "Amazon S3 folder for SAP HANA catalog"
    LogFile: "/hana/shared/aws-backint-agent/aws-backint-agent-catalog.log"
    ```
-
    3. Create a `hdbbackint` soft link from `/usr/sap/<SID>/SYS/global/hdb/opt/hdbconfig/` to `/hana/shared/aws-backint-agent/`.
 
    ```
@@ -658,6 +658,7 @@ S3ShortenBackupDestinationEnabled: "true"
 ```
 
 4. Validate to ensure that all steps have been processed correctly
+
    1. Run a point-in-time recovery to a previous state to ensure that you can access the previous log files in the new Amazon S3 location.
    2. Verify that new logs are uploaded to the new S3 location.
 
@@ -833,6 +834,7 @@ Amazon Simple Notification Service (Amazon SNS) can notify you when new versions
 3. In the navigation pane, choose **Subscriptions**.
 4. Choose **Create subscription**.
 5. For **Create subscription**, do the following:
+
    1. For **Topic ARN**, use the following Amazon Resource Name (ARN):
 
    `arn:aws:sns:<us-east-1>:464188257626:AWS-Backint-Agent-Update`

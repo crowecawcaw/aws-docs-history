@@ -7,6 +7,7 @@ If you plan to use FSx for ONTAP storage for your deployment, refer to SAP HANA 
 Amazon EFS provides easy-to-set-up, scalable, and highly available shared file systems that can be mounted with the NFSv4 client. For scale-out workloads, we recommend using Amazon EFS for SAP HANA shared and backup volumes. You can choose between different performance options for your file systems depending on your requirements. We recommend starting with the General Purpose and Provisioned Throughput options, with approximately 100 MiB/s to 200 MiB/s throughput. To set up your file systems, do the following:
 
 1. Install the `nfs-utils` package in all the nodes in your scale-out cluster.
+
    - For RHEL, use `yum install nfs-utils`.
    - For SLES, use `zypper install nfs-utils`.
 

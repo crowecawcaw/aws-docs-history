@@ -8,6 +8,7 @@ The following rules and limitations are applicable for deploying SAP HANA on AWS
 - For SAP HANA scale-out with standby node, the `basepath_shared` must be set to _Yes_. You can locate it in the _Persistence_ section of the `global.ini` file.
 - SAP HANA on FSx for ONTAP is only supported with the NFSv4.1 protocol. SAP HANA volumes must be created and mounted using the NFSv4.1 protocol.
 - SAP HANA on FSx for ONTAP is only supported on the following operating systems:
+
   - Red Hat Enterprise Linux 8.4 and above
   - SUSE Linux Enterprise Server 15 SP2 and above
 

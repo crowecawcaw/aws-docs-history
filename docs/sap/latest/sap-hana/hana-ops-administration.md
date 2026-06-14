@@ -215,6 +215,7 @@ Prefix:
 Here are the steps you can take for a typical backup task:
 
 1. In the SAP HANA Backup Editor, choose **Open Backup Wizard**. You can also open the Backup Wizard by right-clicking the system that you want to back up and choosing **Back Up**.
+
    1. Select the destination type **File**. This will back up the database to files in the specified file system.
    2. Specify the backup destination (`/backup/data/<SID>`) and the backup prefix.
 
@@ -299,6 +300,7 @@ DIR_INSTANCE=/hana/shared/${SAPSYSTEMNAME}/HDB00 -i /usr/sap/HDB/HDB00/hana_back
 ```
 
 5. Using CloudWatch Events, you can schedule backups remotely at any desired frequency. Navigate to the CloudWatch Events page and create a rule.
+
    1. Choose **Schedule**.
    2. Select **SSM Run Command** as the target.
    3. Select **AWS-RunShellScript (Linux)** as the document type.

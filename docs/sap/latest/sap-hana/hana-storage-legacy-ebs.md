@@ -94,6 +94,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r3.2xlarge** | 61 | 8 | 3 x 225 GiB | 750\*\* | 2,025 | 9,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum throughput that could be achieved when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For details, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md") in the AWS documentation.
 
   \*\*\*gp3 based configurations are only supported in production for Nitro based instances, not for Xen based instances as SAP HANA HCMT storage tests may not meet the minimum required KPI for log writes.
@@ -172,6 +173,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r3.2xlarge** | 61 | 8 | 2 x 175 GiB | 500\*\* | 1,050 | 6,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum throughput that could be achieved when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For details, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md") in the AWS documentation.
 
   \*\*\*gp3 based configurations are only supported in production for Nitro based instances, not for Xen based instances as SAP HANA HCMT storage tests may not meet the minimum required KPI for log writes.
@@ -250,6 +252,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r3.2xlarge** | 61 | 8 | 1 x 80 GiB | 125 | 3,000 | 125 | 3,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum throughput that could be achieved when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For details, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md") in the AWS documentation.
 
   \*\*\*gp3 based configurations are only supported in production for Nitro based instances, not for Xen based instances as SAP HANA HCMT storage tests may not meet the minimum required KPI for log writes.
@@ -328,6 +331,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r3.2xlarge** | 61 | 8 | 1 x 32 GiB | 125 | 3,000 | 125 | 3,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum throughput that could be achieved when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For details, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md") in the AWS documentation.
 
   \*\*\*gp3 based configurations are only supported in production for Nitro based instances, not for Xen based instances as SAP HANA HCMT storage tests may not meet the minimum required KPI for log writes.
@@ -421,6 +425,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r3.2xlarge** | 61 | 8 | 1 x 300 GiB | 500\*\* | 2,000 | 2,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum throughput that could be achieved when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For details, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md") in the AWS documentation.
 
 io1 for HANA logs
@@ -497,6 +502,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r3.2xlarge** | 61 | 8 | 1 x 260 GiB | 250\*\* | 1,000 | 1,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum achievable throughput when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For more information, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md").
 
 io2 for HANA data
@@ -518,6 +524,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r3.2xlarge** | 61 | 8 | 1 x 300 GiB | 500\*\* | 2,000 | 2,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum throughput that could be achieved when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For details, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md") in the AWS documentation.
 
 io2 for HANA logs
@@ -539,6 +546,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r3.2xlarge** | 61 | 8 | 1 x 260 GiB | 250\*\* | 1,000 | 1,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum achievable throughput when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For more information, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md").
 
 io2 Block Express for HANA data
@@ -602,6 +610,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r5b.2xlarge** | 64 | 8 | 1 x 300 GiB | 500 | 2,000 | 2,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum throughput that could be achieved when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For details, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md") in the AWS documentation.
 
 io2 Block Express for HANA logs
@@ -665,6 +674,7 @@ Supported for nonproduction use only| **Instance type** | **Memory (GiB)** | **v
 | **r5b.2xlarge** | 64 | 8 | 1 x 260 GiB | 250 | 1,000 | 1,000 |
 
 - Each logical processor offered by Amazon EC2 High Memory Instances is a hyperthread on a physical CPU core.
+
   - This value represents the maximum throughput that could be achieved when striping multiple EBS volumes. Actual throughput depends on the instance type. Every instance type has its own Amazon EBS throughput maximum. For details, see [Amazon EBS-Optimized Instances](../../../AWSEC2/latest/UserGuide/EBSOptimized.md "../../../AWSEC2/latest/UserGuide/EBSOptimized.md") in the AWS documentation.
 
 ###### Note

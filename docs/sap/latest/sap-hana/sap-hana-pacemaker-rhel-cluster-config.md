@@ -124,6 +124,7 @@ Details:
 - **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
 - **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
 - **skip_os_shutdown** (NEW) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
+
   - [Red Hat Solution 4963741 - fence_aws fence action fails with "Timed out waiting to power OFF"](https://access.redhat.com/solutions/4963741 "https://access.redhat.com/solutions/4963741") (requires Red Hat Customer Portal access)
 
 - _Example using values from [Parameter Reference](sap-hana-pacemaker-rhel-parameters.md "sap-hana-pacemaker-rhel-parameters.md")_ :

@@ -184,6 +184,7 @@ hdbadm> hdbnsutil -sr_register --name=siteB --remoteHost=hanahost01 --remoteInst
 - The replication mode can be either `sync` or `syncmem`.
 - For replication to support a clustered system and a hot standby, the operation mode must be `logreplay` or `logreplay_readenabled`.
 - For more information review the SAP Documentation
+
   - SAP Documentation: [Replication Modes for SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/c039a1a5b8824ecfa754b55e0caffc01.html "https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/c039a1a5b8824ecfa754b55e0caffc01.html")
   - SAP Documentation: [Operaton Modes for SAP HANA System Replication](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/627bd11e86c84ec2b9fcdf585d24011c.html "https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/627bd11e86c84ec2b9fcdf585d24011c.html")
   - SAP Documentation: [SAP HANA System Replication - Active/Active (Read Enabled)](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/fe5fc53706a34048bf4a3a93a5d7c866.html "https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/fe5fc53706a34048bf4a3a93a5d7c866.html")

@@ -57,6 +57,7 @@ ln -s /usr/bin/python2.7 /usr/bin/python
 **Problem: Unable to view the instance listed for installation with the SSM document.**
 
 - **Root Causes**:
+
   1.  The SSM Agent is not installed on the instance.
   2.  If the SSM Agent is installed, either the instance is not running or the SSM Agent on the instance is not running.
   3.  The SSM Agent installed on the instance is a version older than 2.3.274.0.
@@ -79,6 +80,7 @@ sudo systemctl status amazon-ssm-agent
 **Problem: `AccessDenied` appears in agent logs.**
 
 - **Root Causes**:
+
   1.  The IAM role for the EC2 instance does not have the correct permissions to access the S3 bucket.
   2.  The agent configuration file does not have the `S3BucketOwnerAccountID` in double quotes. The `S3BucketOwnerAccountID` is the 12-digit AWS Account ID.
   3.  The S3 bucket is not owned by the provided account for `S3BucketOwnerAccountID`.
@@ -94,6 +96,7 @@ sudo systemctl status amazon-ssm-agent
 **Problem: Agent logs display `Backint cannot execute hdbbackint` or `No such file or directory`.**
 
 - **Root Causes**:
+
   1.  If you are installing the agent manually, the creation of a symlink for the agent executable did not succeed.
   2.  If you are using the SSM agent, step 2 of the agent failed while creating symlinks. You can verify this by viewing the RunCommand implementation details.
 
@@ -154,10 +157,12 @@ For more information about using a proxy address in your SAP HANA environment, s
 
 1. `Backint exited with exit code 1 instead of 0. console output: Crashed during fetch and conversion read/write tcp 10.0.2.83:56192→52.216.88.123:443: use of closed network connection`
 2. `Backint exited with exit code 1 instead of 0. console output: Crashed during fetch and conversion caused by: read tcp 10.0.2.83:54890→52.216.130.243:443: read: connection reset by peer`
+
    - **Root Cause**: The connection between AWS Backint agent and S3 fails due to high throughput.
    - **Resolution**: Use the following steps to troubleshoot this issue.
 
 3. Update AWS Backint agent version to 2.0.4.768 or higher. These versions have improved resiliency to S3 connection timeouts.
+
    - Once the agent is updated, ensure that SAP HANA picks up the latest version of the agent. Run the following command to verify the version of the agent.
 
    ```
@@ -167,11 +172,14 @@ For more information about using a proxy address in your SAP HANA environment, s
    For more information, see {https---docs-aws-amazon-com-sap-latest-sap-hana-aws-backint-agent-s3-installing-configuring-html-aws-backint-agent-latest-version}[Get the currently installed AWS Backint agent version].
 
 4. Use these steps if the issue persists – lower the following backup and restore parameters.
+
    - **Backup**
+
      - `UploadConcurrency`
      - `UploadChannelSize`
 
    - **Restore**
+
      - `MaximumConcurrentFilesForRestore`
      - `DownloadConcurrency`
 
@@ -217,6 +225,7 @@ Error Fetching Bucket: Access Denied
 
 - Red Hat Enterprise Linux 8.5 and later
 - Systems with "which" package 2.21-18 or later
+
   - **Root cause**: The `which-2.21-18.el8.x86_64 RPM` package sets the `BASH_FUNC_which%%` variable with a multi-line function definition in `/etc/profile.d/which2.{csh,sh}` files. Some older SAP scripts are unable to parse this correctly.
   - **Resolution**: Check if `BASH_FUNC_which%%` is running using the following command.
 

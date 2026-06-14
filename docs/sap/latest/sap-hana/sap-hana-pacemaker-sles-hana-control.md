@@ -154,6 +154,7 @@ hdbadm> grep "loading HA/DR Provider" nameserver*
 ```
 
 7. **Replicate Configuration to Secondary**
+
    1. Confirm that global.ini changes have been replicated to the secondary system
    2. Create corresponding sudoers.d file on the secondary system
 

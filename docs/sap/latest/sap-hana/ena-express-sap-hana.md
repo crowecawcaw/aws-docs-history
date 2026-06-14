@@ -7,12 +7,15 @@ SAP HANA scale-out systems require a minimum of 9 Gbps of single flow network ba
 Before setting up ENA Express for SAP HANA scale-out systems or SAP NetWeaver workloads, verify the following prerequisites.
 
 - Verify that your chosen instance type is certified for SAP HANA or supported for SAP NetWeaver.
+
   - For **SAP HANA scale-out workloads**, you can enable ENA Express on a certified and supported Amazon EC2 instance. For information on supported instances, see [Supported instance types for ENA Express](../../../AWSEC2/latest/UserGuide/ena-express.md#ena-express-supported-instance-types "../../../AWSEC2/latest/UserGuide/ena-express.md#ena-express-supported-instance-types"). For information on certified instances, see [Certified and Supported SAP HANA Hardware](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:23;v:b046dad8-7aa0-457a-ade5-286ebaf88a2f;v:963a354b-c138-4c78-b95f-2bca33f1fc0a "https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=iaas;ve:23;v:b046dad8-7aa0-457a-ade5-286ebaf88a2f;v:963a354b-c138-4c78-b95f-2bca33f1fc0a"). If an Amazon EC2 instance is certified for scale-out but doesn’t support ENA Express, you can continue to use cluster placement group to obtain upto 10 Gbps of single flow network bandwidth.
   - For **SAP NetWeaver workloads**, you can use ENA Express with all of the SAP certified Amazon EC2 instances that support ENA Express. For more information, see the following resources.
+
     - [SAP NetWeaver supported instances](../general/sap-netweaver-aws-ec2.md "../general/sap-netweaver-aws-ec2.md")
     - [SAP Note 1656099 – SAP Applications on AWS: Supported DB/OS and Amazon EC2 products](https://me.sap.com/notes/1656099/E "https://me.sap.com/notes/1656099/E")
 
 - Ensure that you are using the minimum required operating system version with the latest kernel version.
+
   - RHEL for SAP 8.4 and above
   - SLES 12 SP5 for SAP or SLES 15 SP2 for SAP and above
 
@@ -30,6 +33,7 @@ You can also use the [check-ena-express-settings.sh](https://github.com/amzn/amz
 2. Select **Node Management** > **Run Command**.
 3. Select **Run a command**, and search for **`AWS-RunRemoteScript`**.
 4. Choose **`AWS-RunRemoteScript`**, and input the following parameters.
+
    - **Source Type** – GitHub
    - **Source Info** – `{ "owner": "amzn", "repository": "amzn-ec2-ena-utilities", "path": "ena-express", "getOptions": "branch: main" }`
    - **Command Line** – `check-ena-express-settings.sh eth0`

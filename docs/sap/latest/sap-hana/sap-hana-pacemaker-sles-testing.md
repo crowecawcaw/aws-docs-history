@@ -33,6 +33,7 @@ hdbadm> HDB kill-9
 1. Monitor cluster status using `crm_mon -r`
 2. Verify HANA system replication status using `hdbnsutil -sr_state`
 3. If AUTOMATED_REGISTER is "false", manually reregister the former primary:
+
    - See more details on how to register the secondary in [HSR Setup](sap-hana-pacemaker-sles-hana-setup-hsr.md "sap-hana-pacemaker-sles-hana-setup-hsr.md") :
 
    ```
@@ -135,19 +136,23 @@ hdbadm> HDB kill-9
 Consider these additional tests based on your environment and project requirements:
 
 - **Secondary Node Testing**
+
   - Execute previous tests on the secondary, to ensure that secondary disruptions do not impact service availability on the primary
   - Execute previous tests with the nodes in reversed roles to validate full operational capability in either configuration
 
 - **Scale-out Testing** (for scale-out deployments)
+
   - Test failures on coordinator and worker nodes
   - Test concurrent failure of multiple worker nodes to verify failover order
   - Test failures with blocked access to storage access including /hana/shared
 
 - **Component-Level Testing**
+
   - Test index server failures and measure recovery times
   - Validate Fast Start Option behavior and hook script execution
 
 - **Cluster Configuration Testing**
+
   - Direct fencing operations using `stonith_admin -F <node_name>`
   - Resource movement and constraint verification
 

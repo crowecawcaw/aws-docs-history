@@ -22,7 +22,9 @@ The replatforming scenario involves two possibilities:
 
 - You are already running SAP HANA but you want to change your operating system—​for example, from Red Hat Enterprise Linux (RHEL) to SUSE Linux Enterprise Server (SLES) or the other way around—​when you migrate to the AWS Cloud, or you are migrating from an IBM POWER system to the x86 platform. In this case, you should size SAP HANA as described for the rehosting scenario.
 - You are migrating from _anyDB_ to SAP HANA. There are multiple ways you can estimate your memory requirements:
+
   - SAP standard reports for estimation: This is the best possible approach and is based on standard sizing reports provided by SAP. For examples, see the following SAP Notes:
+
     - [1736976 – Sizing Report for BW on HANA](https://me.sap.com/notes/1736976 "https://me.sap.com/notes/1736976")
     - [1637145 – SAP BW on HANA: Sizing SAP In-Memory Database](https://me.sap.com/notes/1637145 "https://me.sap.com/notes/1637145")
     - [1872170 - Business Suite on HANA and S/4HANA sizing report](https://me.sap.com/notes/1872170 "https://me.sap.com/notes/1872170")

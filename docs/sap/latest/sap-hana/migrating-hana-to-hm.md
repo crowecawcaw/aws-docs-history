@@ -124,6 +124,7 @@ In this option, you launch a new EC2 High Memory instance, install and configure
 1. Launch a new SAP HANA EC2 High Memory instance with host tenancy for `u7i*` or `u-**tb1.metal**` instances. For `u7i`, `u-6tb1.56xlarge`, and `u-*tb1.112xlarge`, you can launch your instance with default, dedicated or host tenancy. You can use the [AWS Launch Wizard for SAP](../../../launchwizard/latest/userguide/launch-wizard-sap.md "../../../launchwizard/latest/userguide/launch-wizard-sap.md") to set up your instance automatically, or follow the [SAP HANA Environment Setup on AWS](std-sap-hana-environment-setup.md "std-sap-hana-environment-setup.md") guide to set up your instance manually. Make sure that you are using an operating system that supports EC2 High Memory instances.
 2. Complete any AWS-specific post-migration activities, such as setting up Amazon CloudWatch, AWS Config, and AWS CloudTrail, ahead of time.
 3. Migrate the data from your existing SAP HANA instance by using SAP HANA HSR or SAP HANA backup and restore tools.
+
    - If you plan to use SAP HANA HSR for data migration, configure HSR to move data from your source system to your target system. For details, see the [SAP HANA Administration Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html "https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html") from SAP.
 
    ![Diagram of Option 2(c): Migrating Using SAP HANA HSR or SAP HANA backup and restore](images/migrating-hana-hm-tools.png)
@@ -134,6 +135,7 @@ In this option, you launch a new EC2 High Memory instance, install and configure
 4. Stop your source system, complete any additional post-migration steps, like updating DNS and checking the connectivity between your SAP application servers and the new SAP HANA instance.
 5. Configure your SAP HANA system for high availability on the EC2 High Memory instance with SAP HANA HSR and clustering software, and test it.
 6. Complete post-migration tasks to ensure that you are not charged.
+
    - Review and confirm if you need to cancel reservations once migration is complete.
    - Review and confirm if you need to release Amazon EC2 Dedicated Hosts through the console. Once a reservation is cancelled, on-demand charging begins for the dedicated hosts until they are released from the console.
 

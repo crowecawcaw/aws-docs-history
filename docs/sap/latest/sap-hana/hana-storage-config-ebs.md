@@ -384,6 +384,7 @@ Implement storage volume striping in the following scenarios:
 Technical Limits
 
 - Throughput requirements exceed single volume maximum (1,000 MB/s for gp3, 4,000 MB/s for io2 Block Express).
+
   - For io2 Block Express volumes, throughput is calculated as IOPS × I/O size. SAP HANA workloads typically use 256 KiB I/O operations - at this size, a single io2 Block Express volume can achieve 4,000 MB/s throughput with 16,000 IOPS. Given these capabilities, volume striping is not required for most HANA deployments on io2 Block Express. If higher throughput is needed, you can adjust the provisioned IOPS accordingly.
 
 - IOPS requirements exceed single volume maximum (16,000 for gp3, 256,000 for io2 Block Express)

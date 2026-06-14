@@ -30,6 +30,7 @@ Simplified automatic recovery
 Amazon CloudWatch action based recovery
 
 - You can create a `StatusCheckFailed_System` CloudWatch alarm to monitor your Amazon EC2 instance. The system status check may fail due to the following reasons:
+
   - Loss of network connectivity
   - Loss of system power
   - Software issues on the physical host
@@ -71,6 +72,7 @@ AWS Backint Agent for SAP HANA enables you to make your SAP HANA systems on AWS 
 
 1. Run your SAP HANA system on Amazon EC2 in Availability Zone 1.
 2. Set up the `StatusCheckFailed_System` CloudWatch alarm to automatically recover your Amazon EC2 instance if the system check fails.
+
    1. Your instance is recovered within the same Availability Zone.
    2. You may not be able to access the instance when the Availability Zone becomes unavailable.
 
