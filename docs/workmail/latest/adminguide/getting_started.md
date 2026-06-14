@@ -36,6 +36,7 @@ applying any changes to your organization.
    users](enable_user.md "enable_user.md").
 2. In the Amazon WorkMail console, ensure that there are at least two email addresses associated with the
    enabled user.
+
    - `<workmailuser@orgname.awsapps.com>`
      (this is added automatically and can be used for tests
      without

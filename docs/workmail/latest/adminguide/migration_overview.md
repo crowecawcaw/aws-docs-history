@@ -34,6 +34,7 @@ of the mailboxes in your organization.
 ###### To create a migration administrator
 
 1. Do one of the following:
+
    - In the Amazon WorkMail console, create a new user to act as migration administrator. For more information, see
      [Adding a user](add_user.md "add_user.md").
    - In your Active Directory, create a new user to act as migration administrator, and then enable the user for Amazon WorkMail. For more information,

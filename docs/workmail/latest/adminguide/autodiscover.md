@@ -21,6 +21,7 @@ URLs:
 - **Phase 2** – The client sends a request
   to the following URLs and validates the results. These endpoints are only
   available using HTTPS.
+
   - https://`company.tld`/autodiscover/autodiscover.xml
   - https://autodiscover.`company.tld`/autodiscover/autodiscover.xml
 
@@ -61,6 +62,7 @@ applicable pricing, see [Amazon CloudFront pricing](https://aws.amazon.com/cloud
    _IAM User Guide_, or [Getting started](../../../acm/latest/userguide/gs.md "../../../acm/latest/userguide/gs.md") in the
    _AWS Certificate Manager User Guide_.
 2. Create a new CloudFront distribution:
+
    1. Open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
    2. In the navigation pane, choose
       **Distributions**.
@@ -69,8 +71,10 @@ applicable pricing, see [Amazon CloudFront pricing](https://aws.amazon.com/cloud
       Started**.
    5. In **Origin Settings**, enter the following
       values:
+
       - **Origin Domain Name** – The
         appropriate domain name for your Region:
+
         - US East (N. Virginia) —
           `autodiscover-service.mail.us-east-1.awsapps.com`
         - US West (Oregon) —
@@ -89,6 +93,7 @@ applicable pricing, see [Amazon CloudFront pricing](https://aws.amazon.com/cloud
 
    6. In **Default Cache Behavior Settings**,
       select the following values for the listed settings:
+
       - **Viewer Protocol Policy**: HTTPS Only
       - **Allowed HTTP Methods**: GET, HEAD, OPTIONS,
         PUT, POST, PATCH, DELETE
@@ -102,6 +107,7 @@ applicable pricing, see [Amazon CloudFront pricing](https://aws.amazon.com/cloud
 
    7. Select the following values for **Distribution
       Settings**:
+
       - **Price Class**: Use only US, Canada, and
         Europe
       - For **Alternate Domain Names

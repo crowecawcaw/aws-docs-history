@@ -59,6 +59,7 @@ up-to-date information for your domain. This information can take time to propag
 to other DNS servers.
 
 1. Find your domain's name servers:
+
    1. Open a command prompt (Windows) or terminal (Linux).
    2. Run the following command to list all of the name servers that
       serve your domain. Replace
@@ -72,6 +73,7 @@ to other DNS servers.
    You'll query one of these name servers in the next step.
 
 2. Verify that the Amazon WorkMail TXT record is correctly added.
+
    1. Run the following command, replacing `example.com` with your domain, and
       `ns1.name-server.net` with a name server
       from Step 1.
@@ -79,7 +81,6 @@ to other DNS servers.
    ```
    nslookup -type=TXT _amazonses.`example.com` `ns1.name-server.net`
    ```
-
    2. Review the `"text ="` string shown in the output from
       **nslookup**. Confirm that this string
       matches the TXT value for your domain in the
@@ -108,6 +109,7 @@ dig +short `example.com` txt
    console.
 
 1. Find the name servers for your domain:
+
    1. Open a command prompt.
    2. Run the following command to list all of the name servers for your
       domain.
@@ -119,6 +121,7 @@ dig +short `example.com` txt
    You'll query one of these name servers in the next step.
 
 1. Verify that the MX record is correctly added:
+
    1. Run the following command, replacing
       `example.com` with your domain
       and `ns1.name-server.net` with one
@@ -128,7 +131,6 @@ dig +short `example.com` txt
    ```
    nslookup -type=MX `example.com` `ns1.name-server.net`
    ```
-
    2. In the output of the command, verify that the string that
       follows `mail exchange =` matches one of the
       following values:
@@ -194,6 +196,7 @@ with the same name, use either of the following workarounds:
   values to the TXT record. For example, if your DNS is managed by
   Amazon Route 53, you can set up multiple values for the same TXT
   record as follows:
+
   1.  In the Route 53 console, choose the
       `_amazonses` TXT record that you added
       when you verified your domain in the first

@@ -83,6 +83,7 @@ operation again.
 ###### To delete Amazon WorkMail resources used by AmazonWorkMailEvents
 
 1. Turn off Amazon WorkMail event logging.
+
    1. Open the Amazon WorkMail console at
       [https://console.aws.amazon.com/workmail/](https://console.aws.amazon.com/workmail/ "https://console.aws.amazon.com/workmail/").
 
@@ -91,6 +92,7 @@ operation again.
    _Amazon Web Services General Reference_. 2. In the navigation pane, choose **Organizations**, then choose the name of your organization. 3. In the navigation pane, choose **Organization settings**, then choose **Monitoring**. 4. For **Log settings**, choose **Edit**. 5. Move the **Enable mail events** slider to the off position. 6. Choose **Save**.
 
 2. Delete the Amazon CloudWatch log group.
+
    1. Open the CloudWatch console at
       [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
    2. Choose **Logs**.

@@ -128,6 +128,7 @@ email addresses in your organization:
    organization.
 7. Choose **Advanced settings**, and for **User
    directory**, select one of the following options:
+
    - Create new Amazon WorkMail directory –
      Creates a new directory for adding and managing your users.
    - Use existing directory –
@@ -137,6 +138,7 @@ email addresses in your organization:
 
 8. For **Encryption**, select one of the following
    options:
+
    - Use an Amazon WorkMail managed key –
      Creates a new encryption key in your account.
    - Use existing KMS key –

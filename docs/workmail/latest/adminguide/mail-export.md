@@ -181,6 +181,7 @@ The following considerations apply when exporting mailbox jobs for Amazon WorkMa
 - You can run up to 10 concurrent mailbox export jobs for a given Amazon WorkMail organization.
 - You can run a mailbox export job for a given mailbox as often as once every 24 hours.
 - The following resources must all be in the same AWS Region:
+
   - Amazon WorkMail organization
   - AWS KMS CMK
   - Amazon S3 bucket

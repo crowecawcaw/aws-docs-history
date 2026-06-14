@@ -9,6 +9,7 @@ Configure availability settings on Amazon WorkMail to enable querying external s
 
 - **Exchange Web Services (EWS)** — In this configuration, Amazon WorkMail will query an Exchange server or another WorkMail organization for availability information using the EWS protocol. This is the simplest configuration but requires the Exchange server’s EWS endpoint to be accessible through the public internet.
 - **Custom Availability Provider (CAP)** — In this configuration, an administrator can configure an AWS Lambda function to obtain user availability information for a given email domain. Depending on your email server platform, using CAP with Amazon WorkMail offers the following benefits:
+
   - Get user availability from internal EWS without the need to open up their firewall for WorkMail.
   - Get user availability from non-Exchange or non-EWS systems, like Google Workspace (formerly known as G Suite).
 

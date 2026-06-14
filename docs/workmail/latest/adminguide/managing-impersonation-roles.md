@@ -78,6 +78,7 @@ the organization. 3. Choose **Impersonation roles**, and then choose **Create ro
 
 5. Under **Rules**, choose **Add rule**.
 6. The **Add rule** dialog box appears. Enter the following information:
+
    - **Name** – Enter a unique name for the rule.
    - (Optional) **Description** – Enter a description for the rule.
    - Under **Effect**, choose **Allow** or **Deny**. This allows or denies access based on the conditions you select in the following step.
@@ -122,6 +123,7 @@ then choose the name of the organization. 3. Choose **Impersonation roles**. 4. 
    and choose **Edit**.
 7. The **Edit rule** dialog box appears. Enter the following
    information:
+
    - **Name** – Edit the name of the
      rule.
    - (Optional) **Description** – Update or
