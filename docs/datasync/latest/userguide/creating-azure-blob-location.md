@@ -467,6 +467,7 @@ az disk revoke-access -n `your-managed-disk` -g `your-resource-group`
 
 7. Do the following to attach your managed disk to a new
    Linux VM:
+
    1. Copy the following Azure CLI
       command:
 
@@ -478,7 +479,6 @@ az disk revoke-access -n `your-managed-disk` -g `your-resource-group`
    --os-type linux `
    --attach-os-disk `your-managed-disk`
    ```
-
    2. Replace
       `your-resource-group`
       with the name of the Azure resource group
@@ -551,6 +551,7 @@ name`**).
 5. Configure your network to work with the service endpoint type that
    your agent is using. For service endpoint network requirements, see
    the following topics:
+
    - [VPC
      endpoints](datasync-network.md#using-vpc-endpoint "datasync-network.md#using-vpc-endpoint")
    - [Public
@@ -559,6 +560,7 @@ name`**).
      Processing Standard (FIPS) endpoints](datasync-network.md#using-public-endpoints "datasync-network.md#using-public-endpoints")
 
 6. For **Activation key**, do the following:
+
    1. Choose **Manually enter your agent's activation
       key**.
    2. Enter the activation key that you got from the agent's

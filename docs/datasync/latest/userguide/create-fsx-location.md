@@ -34,6 +34,7 @@ Active Directory setup:
   group.
 - If you're using self-managed Active Directory with FSx for Windows File Server, the
   user must be a member of one of two groups:
+
   - The **Domain Admins** group, which is the
     default delegated administrators group.
   - A custom delegated administrators group with user rights that

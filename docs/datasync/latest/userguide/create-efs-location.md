@@ -14,6 +14,7 @@ system as a root user from your virtual private cloud (VPC) using [network inter
 
 - [Determining the subnet and security groups for your mount target](create-efs-location.md#create-efs-location-mount-target "create-efs-location.md#create-efs-location-mount-target")
 - [Accessing restricted file systems](create-efs-location.md#create-efs-location-iam "create-efs-location.md#create-efs-location-iam")
+
   - [Creating a DataSync IAM role for file system access](create-efs-location.md#create-efs-location-iam-role "create-efs-location.md#create-efs-location-iam-role")
   - [Example file system policy allowing DataSync access](create-efs-location.md#create-efs-location-iam-policy "create-efs-location.md#create-efs-location-iam-policy")
 

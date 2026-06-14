@@ -60,6 +60,7 @@ You can specify an NFS export that allows root access to all clients.
 
 - For your FSx for OpenZFS file system volume, configure the following NFS
   export settings:
+
   - Client address: Enter
     `*`.
   - NFS options: Enter
@@ -122,6 +123,7 @@ aws datasync create-location-fsx-open-zfs \
 ```
 
 2. Specify the following required options in the command:
+
    - For `fsx-filesystem-arn`, specify the location
      file system's fully qualified Amazon Resource Name (ARN).
      This includes the AWS Region where your file system

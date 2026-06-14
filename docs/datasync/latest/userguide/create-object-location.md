@@ -123,6 +123,7 @@ aws datasync create-location-object-storage \
 ```
 
 2.  Specify the following required parameters in the command:
+
     - `--server-hostname` – Specify the domain
       name or IP address of your object storage server.
     - `--bucket-name` – Specify the name of
@@ -131,6 +132,7 @@ aws datasync create-location-object-storage \
 
 3.  (Optional) Add any of the following parameters to the
     command:
+
     - `--agent-arns` – Specify the DataSync
       agents that you want to connect to your object storage
       server.
@@ -175,7 +177,6 @@ aws datasync create-location-object-storage \
     ```
     cat `object_server_certificate`.pem `intermediate_certificate`.pem `ca_root_certificate`.pem > `object_storage_certificates`.pem
     ```
-
     - `--subdirectory` – Specifies the object
       prefix for your object storage server.
 

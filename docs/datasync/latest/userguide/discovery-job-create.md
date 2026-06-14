@@ -28,6 +28,7 @@ aws datasync start-discovery-job \
 ```
 
 2. Specify the following parameters in the command:
+
    - `--storage-system-arn` – Specify the
      Amazon Resource Name (ARN) of the [on-premises storage
      system that you added](discovery-configure-storage.md#discovery-add-storage "discovery-configure-storage.md#discovery-add-storage") to DataSync Discovery.

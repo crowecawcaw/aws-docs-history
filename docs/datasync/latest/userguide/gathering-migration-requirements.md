@@ -34,6 +34,7 @@ and your organization:
 2. Verify whether you need a [DataSync agent](do-i-need-datasync-agent.md "do-i-need-datasync-agent.md"). For example, you need an agent if you're
    transferring from on-premises storage.
 3. If you need an agent, make sure that you understand the [agent requirements](agent-requirements.md "agent-requirements.md"):
+
    - An agent can run as a virtual machine (VM) on VMware ESXi,
      Linux Kernel-based Virtual Machine (KVM), and Microsoft Hyper-V
      hypervisors. You also can deploy an agent as an Amazon EC2 instance
@@ -44,6 +45,7 @@ and your organization:
 4. Identify key stakeholders from your leadership, networking, storage,
    and IT departments who need to be involved in the migration. This can
    include:
+
    - Find a [single-threaded leader](../../../prescriptive-guidance/latest/strategy-large-scale-migrations/people.md "../../../prescriptive-guidance/latest/strategy-large-scale-migrations/people.md") who's
      dedicated to the project and its results.
    - Determine who's responsible for the ownership and

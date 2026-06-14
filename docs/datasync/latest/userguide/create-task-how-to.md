@@ -165,6 +165,7 @@ permissions for each prefix. Here's how you might set this up:
 
 1. Create three prefixes in the destination `MyBucket` named
    `task1`, `task2`, and `task3`:
+
    - `s3://MyBucket/task1`
    - `s3://MyBucket/task2`
    - `s3://MyBucket/task3`

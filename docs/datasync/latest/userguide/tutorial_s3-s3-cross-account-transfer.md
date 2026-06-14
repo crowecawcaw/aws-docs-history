@@ -208,6 +208,7 @@ transfer data to the S3 bucket in your destination account.
    permissions** then **Create inline
    policy**.
 3. Choose the **JSON** tab and do the following:
+
    1. Paste the following JSON into the policy editor:
 
    ###### Note
@@ -257,7 +258,6 @@ transfer data to the S3 bucket in your destination account.
     ]
    }
    ```
-
    2. Replace each instance of
       `amzn-s3-demo-destination-bucket`
       with the name of the S3 bucket in your destination
@@ -286,6 +286,7 @@ for your destination account](#s3-s3-cross-account-required-permissions-dest-acc
 6. Under **Bucket policy**, choose
    **Edit** and do the following to modify your S3
    bucket policy:
+
    1. Update what's in the editor to include the following policy
       statements:
 
@@ -319,7 +320,6 @@ for your destination account](#s3-s3-cross-account-required-permissions-dest-acc
      ]
    }
    ```
-
    2. Replace each instance of
       `source-account`
       with the AWS account ID for your source account.
@@ -387,6 +387,7 @@ account.
 
 1. While still in your source account, do one of the following to launch
    CloudShell from the console:
+
    - Choose the CloudShell icon on the console navigation bar.
      It's located to the right of the search box.
    - Use the search box on the console navigation bar to search for
@@ -473,6 +474,7 @@ following:
 
 4. On the **Configure destination location** page, do
    the following:
+
    1. Select **Choose an existing
       location**.
    2. For **Existing locations**, choose the

@@ -75,6 +75,7 @@ DataSync](../../../general/latest/gr/datasync.md "../../../general/latest/gr/dat
   same Region where you [activate your DataSync
   agent](activate-agent.md "activate-agent.md").
 - With AWS GovCloud (US) Regions, you can:
+
   - Transfer between the AWS GovCloud (US-East) and AWS GovCloud (US-West)
     Regions.
   - Transfer between an AWS GovCloud (US) Region and commercial AWS Region,

@@ -13,6 +13,7 @@ aspects of your data migration planning:
 ## Getting started with your proof of concept
 
 1. Create your DataSync agent:
+
    1. [Deploy your agent](deploy-agents.md "deploy-agents.md").
    2. [Choose a service
       endpoint](choose-service-endpoint.md "choose-service-endpoint.md") for your agent.
@@ -51,6 +52,7 @@ subset. 6. [Start your DataSync task](run-task.md "run-task.md"). 7. Collect tra
     * Network usage.
 
 8. Verify the transferred data at your destination location:
+
    - Review your CloudWatch logs for task execution errors.
    - Verify that permissions and metadata are preserved at the
      destination location.

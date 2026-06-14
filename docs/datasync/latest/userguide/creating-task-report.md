@@ -186,6 +186,7 @@ aws datasync create-task \
    the appropriate destination location ID.
 4. For the `--task-report-config` parameter, do the
    following:
+
    - `Subdirectory` – Replace
      `reports/` with
      the prefix in your S3 bucket where you want DataSync to upload your
@@ -362,6 +363,7 @@ aws datasync create-task \
    the appropriate destination location ID.
 4. For the `--task-report-config` parameter, do the
    following:
+
    - `Subdirectory` – Replace
      `reports/` with
      the prefix in your S3 bucket where you want DataSync to upload your

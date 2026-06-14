@@ -128,6 +128,7 @@ You might be interested in some of the following options:
 
 5. For **Log level**, choose one of the following
    options:
+
    - **Log basic information such as transfer
      errors** – Publish logs with only basic
      information (such as transfer errors).

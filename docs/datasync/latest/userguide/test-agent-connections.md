@@ -58,6 +58,7 @@ information, see [1. Network connection between your storage system and agent](n
 2. On the **AWS DataSync Activation - Configuration** main
    menu, enter `3`.
 3. Enter one of the following options:
+
    1. Enter `1` to test an NFS server
       connection.
    2. Enter `2` to test an SMB server

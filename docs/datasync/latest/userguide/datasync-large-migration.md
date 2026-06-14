@@ -29,6 +29,7 @@ You can usually break down a large migration into the following stages:
 - **(Stage 1) Planning your data migration** - At
   this stage, you're trying to understand why you're migrating and what sort of
   data you're working with. Planning activities include:
+
   - Understanding why you want to migrate
   - Assembling a team to help you with all aspects of the
     migration.
@@ -44,6 +45,7 @@ You can usually break down a large migration into the following stages:
 - **(Stage 2) Implementing your large data
   migration** - At this point, you're validating your plan and
   starting the migration. Implementation activities include:
+
   - Validating the migration plan
   - Executing phased cutovers that include monitoring and verifying your
     data transfers as expected

@@ -41,12 +41,14 @@ aws datasync describe-storage-system-resources \
 ```
 
 2. Specify the following parameters in the command:
+
    - `--discovery-job-arn` – Specify the
      Amazon Resource Name (ARN) of the [discovery job](discovery-job-create.md#discovery-job-start "discovery-job-create.md#discovery-job-start") that
      you ran.
    - `--resource-type` – Specify one of the
      following values, depending on what kind of storage system
      resources you want information about:
+
      - `CLUSTER`
      - `SVM`
      - `VOLUME`

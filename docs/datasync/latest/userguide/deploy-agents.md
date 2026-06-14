@@ -26,6 +26,7 @@ environment can support a DataSync agent. For more information, see [Virtual mac
 3. For **Hypervisor**, choose **VMWare
    ESXi**, and then choose **Download the
    image**.
+
    - The Enhanced mode agent downloads as an `.ova` image file.
    - The Basic mode agent downloads in a `.zip` file that contains the
      `.ova` image file
@@ -59,6 +60,7 @@ environment can support a DataSync agent. For more information, see [Virtual mac
 3. For **Hypervisor**, choose **Kernel-based Virtual
    Machine (KVM)**, and then choose **Download the
    image**.
+
    - The Enhanced mode agent downloads as an `.qcow2` image file.
    - The Basic mode agent downloads in a `.zip` file that contains the
      `.qcow2` image file

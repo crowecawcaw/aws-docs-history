@@ -338,17 +338,20 @@ into AWS.
    then choose **Create task**.
 3. On the **Configure source location** page, do the
    following:
+
    1. Choose **Choose an existing location**.
    2. Choose the source location that you created in [Step 4](#transfer-google-cloud-storage-create-source "#transfer-google-cloud-storage-create-source"),
       then choose **Next**.
 
 4. On the **Configure destination location** page, do the
    following:
+
    1. Choose **Choose an existing location**.
    2. Choose the destination location that you created in [Step
       5](#transfer-google-cloud-storage-create-destination "#transfer-google-cloud-storage-create-destination"), then choose **Next**.
 
 5. On the **Configure settings** page, do the following:
+
    1. Under **Data transfer configuration**, expand
       **Additional settings** and clear the
       **Copy object tags** check box.
@@ -364,6 +367,7 @@ into AWS.
    **Create task**.
 7. On the task's details page, choose **Start**, and then choose
    one of the following:
+
    - To run the task without modification, choose **Start with
      defaults**.
    - To modify the task before running it, choose **Start with

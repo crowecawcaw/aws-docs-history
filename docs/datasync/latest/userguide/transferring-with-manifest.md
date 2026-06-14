@@ -257,6 +257,7 @@ AWS account where you use DataSync and your manifest's S3 bucket is located.
 
 9.  In the sample policy that you just pasted, replace the following
     values with your own:
+
     1. Replace
        `amzn-s3-demo-bucket`
        with the name of the S3 bucket that's hosting your
@@ -364,6 +365,7 @@ the role in the S3 bucket policy.
 
 9.  In the sample policy that you just pasted, replace the following
     values with your own:
+
     1. Replace
        `amzn-s3-demo-bucket`
        with the name of the S3 bucket that's hosting your
@@ -376,6 +378,7 @@ the role in the S3 bucket policy.
     **Create policy**.
 11. (Recommended) To prevent the [cross-service
     confused deputy problem](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md"), do the following:
+
     1. On the role's details page, choose the **Trust
        relationships** tab. Choose **Edit trust
        policy**.
@@ -415,7 +418,6 @@ the role in the S3 bucket policy.
          ``region``
          with the AWS Region where you're using
          DataSync.
-
     3. Choose **Update policy**.
 
 You created the IAM role that you can include in your S3 bucket
@@ -436,6 +438,7 @@ located.
 4. Under **Bucket policy**, choose
    **Edit** and do the following to modify your S3
    bucket policy:
+
    1. Update what's in the editor to include the following policy
       statements:
 
@@ -455,7 +458,6 @@ located.
      ]
    }
    ```
-
    2. Replace `account-id`
       with the AWS account ID for the account that you're using
       DataSync with.
@@ -527,6 +529,7 @@ aws datasync create-task \
    ARN of the location that you're transferring data to.
 4. For the `--manifest-config` parameter, do the
    following:
+
    - `ManifestObjectPath` – Specify the S3 object
      key of your manifest.
    - `BucketAccessRoleArn` – Specify the IAM
@@ -534,6 +537,7 @@ aws datasync create-task \
      bucket.
 
    For more information, see [Providing DataSync access to your manifest](#transferring-with-manifest-access "#transferring-with-manifest-access").
+
    - `S3BucketArn` – Specify the ARN of the S3
      bucket that's hosting your manifest.
    - `ManifestObjectVersionId` – Specify the
@@ -597,6 +601,7 @@ aws datasync start-task-execution \
    Name (ARN) of the task that you're starting.
 3. For the `--manifest-config` parameter, do the
    following:
+
    - `ManifestObjectPath` – Specify the S3 object
      key of your manifest.
    - `BucketAccessRoleArn` – Specify the IAM
@@ -604,6 +609,7 @@ aws datasync start-task-execution \
      bucket.
 
    For more information, see [Providing DataSync access to your manifest](#transferring-with-manifest-access "#transferring-with-manifest-access").
+
    - `S3BucketArn` – Specify the ARN of the S3
      bucket that's hosting your manifest.
    - `ManifestObjectVersionId` – Specify the

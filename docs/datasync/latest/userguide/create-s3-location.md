@@ -167,6 +167,7 @@ following:
   managed SSE-KMS key and in a different AWS account
   – DataSync needs permission to access the bucket in the other
   AWS account. You can set up this up by doing the following:
+
   - In the IAM role that DataSync uses, you must specify the
     cross-account bucket's SSE-KMS key by using the key's fully
     qualified Amazon Resource Name (ARN). This is the same key ARN
@@ -295,6 +296,7 @@ for your transfer.
 ```
 
 2. In the policy, replace the following values:
+
    - `amzn-s3-demo-bucket`
      – Specify the name of the restricted S3
      bucket.
@@ -551,6 +553,7 @@ your DataSync task.
   Guide_.
 - When using DataSync with an S3 bucket that uses [versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md"),
   remember the following:
+
   - When transferring to an S3 bucket, DataSync creates a new version of
     an object if that object is modified at the source. This results in
     additional charges.
@@ -713,6 +716,7 @@ DataSync can't transfer objects with a prefix that begins with a slash
 
 8. For **IAM role**, do one of the
    following:
+
    - Choose **Autogenerate** for DataSync to
      automatically create an IAM role with the permissions
      required to access the S3 bucket.
@@ -930,6 +934,7 @@ DataSync can't transfer objects with a prefix that begins with a slash
 
 9. Select **Requires credentials** and do the
    following:
+
    - For **Access key**, enter the access
      key for an [IAM
      user](#create-s3-location-govcloud-iam "#create-s3-location-govcloud-iam") that can access the bucket.

@@ -44,6 +44,7 @@ The following table lists the available operators.
 
 - `LocationType` – Filters on the location
   type:
+
   - `SMB`
   - `NFS`
   - `HDFS`

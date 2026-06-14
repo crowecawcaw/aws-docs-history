@@ -35,6 +35,7 @@ When planning cross-cloud data transfers, consider the following:
   credentials. For more information, see [Securing storage
   location credentials](location-credentials.md "location-credentials.md").
 - **Object tag support:**
+
   - Unlike Amazon S3, not all cloud providers support [object tags](../../../AmazonS3/latest/userguide/object-tagging.md "../../../AmazonS3/latest/userguide/object-tagging.md").
     DataSync tasks can fail while attempting to read tags from the source location
     if the cloud provider does not support object tags through the Amazon S3 API, or

@@ -21,6 +21,7 @@ To avoid network-related issues during business hours, you can limit the
 amount of bandwidth that your tasks use. For more information, see [Setting bandwidth limits for your AWS DataSync task](configure-bandwidth.md "configure-bandwidth.md").
 
 1. Run an initial full transfer:
+
    1. [Start your DataSync task](run-task.md "run-task.md") (or tasks if
       you’re running tasks in parallel).
    2. Monitor the progress and performance of your task
@@ -29,6 +30,7 @@ amount of bandwidth that your tasks use. For more information, see [Setting band
       file metadata is preserved).
 
 2. Run incremental transfers:
+
    1. [Schedule your tasks](task-scheduling.md "task-scheduling.md") to run
       periodically.
    2. Monitor your task executions and fix errors if encountered.
@@ -51,6 +53,7 @@ cutting over operations to your destination location.
    data in your destination location.
 7. Schedule a retrospective meeting to review the transfer with the
    migration teams. Ask the following probing sample questions:
+
    - Was the cutover successful? If not, what was the issue?
    - Did we use all available bandwidth?
    - Was the source and destination storage fully

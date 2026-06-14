@@ -139,6 +139,7 @@ aws datasync update-task \
 2. For the `--task-arn` parameter, specify the ARN of the task
    that you want to pause the schedule for.
 3. For the `--schedule` parameter, do the following:
+
    - For `ScheduleExpression`, specify a cron or rate
      expression for your schedule.
 

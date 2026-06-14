@@ -79,6 +79,7 @@ following:
   Administrators** group.
 - If you're using a self-managed Active Directory, the user
   must be a member of one of two groups:
+
   - The **Domain Admins** group,
     which is the default delegated administrators
     group.
@@ -270,6 +271,7 @@ aws datasync create-location-fsx-ontap \
 ```
 
 2. Specify the following required options in the command:
+
    - For `storage-virtual-machine-arn`, specify the
      fully qualified Amazon Resource Name (ARN) of a storage
      virtual machine (SVM) in your file system where you want to
@@ -291,6 +293,7 @@ aws datasync create-location-fsx-ontap \
    _Amazon FSx for NetApp ONTAP User Guide_.
    - For `protocol`, configure the protocol that
      DataSync uses to access your file system's SVM.
+
      - For NFS, you can use the default
        configuration:
 

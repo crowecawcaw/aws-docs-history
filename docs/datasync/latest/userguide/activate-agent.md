@@ -145,6 +145,7 @@ DataSync console
    **Create agent**.
 3. In the **Service endpoint** section, do the
    following to specify the service endpoint for your agent:
+
    - For a public service endpoint, choose **Public
      service endpoints in `your current
 AWS Region`**.
@@ -152,6 +153,7 @@ AWS Region`**.
      service endpoints in `your current
 AWS Region`**.
    - For a VPC service endpoint, do the following:
+
      - Choose **VPC endpoints using
        AWS PrivateLink**.
      - For **VPC endpoint**, choose
@@ -167,9 +169,11 @@ AWS Region`**.
 
 4. In the **Activation key** section, do one of
    the following to specify your agent's activation key:
+
    - Choose **Automatically get the activation key
      from your agent** for DataSync to get the key
      for you.
+
      - For **Agent address**, enter
        your agent's IP address or domain name.
      - Choose **Get key**.
@@ -181,6 +185,7 @@ AWS Region`**.
    - Choose **Manually enter your agent's
      activation key** if you don't want a
      connection between your browser and agent.
+
      - [Get the
        key](#get-activation-key "#get-activation-key") from the agent local console or by
        using a `curl` command.
@@ -210,6 +215,7 @@ AWS CLI
    activation key](#get-activation-key "#get-activation-key"), copy one of the following
    `create-agent` commands depending on the type of
    service endpoint that you're using:
+
    - **Public or FIPS service
      endpoint**:
 
@@ -218,7 +224,6 @@ AWS CLI
      --activation-key `activation-key` \
      --agent-name `name-for-agent`
    ```
-
    - **VPC or FIPS VPC service endpoint**:
 
    ```
@@ -236,6 +241,7 @@ AWS CLI
    for your agent that you can remember.
 4. If you're using a VPC service endpoint, specify the following
    options:
+
    - For `--vpc-endpoint-id`, specify the ID of
      the VPC service endpoint that you're using.
    - For `--subnet-arns`, specify the ARN of the

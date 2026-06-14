@@ -185,6 +185,7 @@ cloud object storage.
    storage**.
 4. For **Server**, enter the [endpoint](#other-cloud-permissions "#other-cloud-permissions") that DataSync can use to
    access your cloud object storage:
+
    - **Wasabi Cloud Storage**
      –
      `S3.`region`.wasabisys.com`
@@ -228,6 +229,7 @@ cloud object storage.
    the **Requires credentials** check box is selected, and then
    provide DataSync your [storage
    credentials](#other-cloud-credentials "#other-cloud-credentials").
+
    - For **Access key**, enter the ID to access your cloud
      object storage.
    - For **Secret key**, provide the secret key to access

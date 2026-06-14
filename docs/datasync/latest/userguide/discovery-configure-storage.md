@@ -60,6 +60,7 @@ aws datasync add-storage-system \
 2. Specify the following required
    parameters
    in the command:
+
    - `--server-configuration ServerHostname`
      – Specify the domain name or IP address of your
      storage system's management interface.
@@ -70,6 +71,7 @@ aws datasync add-storage-system \
      storage system that you're adding.
    - `--credentials` – Include the following
      options:
+
      - `Username` – Specify the user
        name needed to access your storage system's
        management interface.
@@ -87,6 +89,7 @@ aws datasync add-storage-system \
 
 3. (Optional) Add any of the following parameters to the
    command:
+
    - `--cloud-watch-log-group-arn` – Specify
      the Amazon Resource Name (ARN) of the CloudWatch log group that
      you want to use to log DataSync Discovery activity.

@@ -33,6 +33,7 @@ aws datasync create-task \
 ```
 
 2. Specify the following parameters in the command:
+
    - `--source-location-arn` – Specify the
      Amazon Resource Name (ARN) of the source location in your
      transfer.
@@ -83,6 +84,7 @@ task with overriding options.
 3. Choose the task.
 4. Choose **Start**, then choose one of the
    following options:
+
    - **Start with defaults** – Applies
      any tags associated with your task.
    - **Start with overriding options**
@@ -99,6 +101,7 @@ aws datasync start-task-execution \
 ```
 
 2. Specify the following parameters in the command:
+
    - `--task-arn` – Specify the ARN of the
      task that you want to start.
    - `--tags` – Specify the tags that you

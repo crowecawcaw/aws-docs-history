@@ -35,6 +35,7 @@ The following Direct Connect architecture shows a DataSync transfer from an on-p
    (source location) to the Direct Connect connection.
 2. DataSync traffic routes to a Direct Connect gateway that’s used for your
    transfer. To set this up, you must:
+
    1. Associate the Direct Connect gateway with a [virtual private gateway](../../../directconnect/latest/UserGuide/virtualgateways.md "../../../directconnect/latest/UserGuide/virtualgateways.md") for the VPC. This is the VPC
       where the DataSync VPC endpoint is located and where the DataSync task
       creates [network
@@ -64,6 +65,7 @@ on-premises storage system to an Amazon EFS or Amazon FSx file system.
    (source location) to the Direct Connect connection.
 2. DataSync traffic routes to a Direct Connect gateway that's used for your
    transfer. To set this up, you must:
+
    1. Associate the Direct Connect gateway with a [virtual private gateway](../../../directconnect/latest/UserGuide/virtualgateways.md "../../../directconnect/latest/UserGuide/virtualgateways.md") for the VPC. This is the VPC
       where the DataSync VPC endpoint is located and where the DataSync task
       creates [network
@@ -94,6 +96,7 @@ on-premises storage system to an Amazon EFS or Amazon FSx file system.
    (source location) to the Direct Connect connection.
 2. DataSync traffic routes to a Direct Connect gateway that's used for your
    transfer. To set this up, you must:
+
    1. Associate the Direct Connect gateway with a [virtual private gateway](../../../directconnect/latest/UserGuide/virtualgateways.md "../../../directconnect/latest/UserGuide/virtualgateways.md") for the VPC. This is the VPC
       where the DataSync VPC endpoint is located and where the DataSync task
       creates [network

@@ -31,6 +31,7 @@ You can customize your agent's behavior through the local console in the followi
 
 - Disable IPv6 so the agent cannot use IPv6 to reach local filesystems or the DataSync service.
 - Set the agent's IP version to use for data transfers:
+
   - Set to IPv6 so that the agent will only use IPv6 for data transfers.
   - Set IPv4 so that the agent will only use IPv4 for data transfers.
   - Set to Auto (restores the default) so that the agent will automatically choose the protocol version

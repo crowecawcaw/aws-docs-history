@@ -233,6 +233,7 @@ transfer data to the S3 bucket in your destination account.
    tab. Choose **Add permissions** then **Create
    inline policy**.
 3. Choose the **JSON** tab and do the following:
+
    1. Paste the following JSON into the policy editor:
 
    ###### Note
@@ -282,7 +283,6 @@ transfer data to the S3 bucket in your destination account.
     ]
    }
    ```
-
    2. Replace each instance of
       `amzn-s3-demo-destination-bucket`
       with the name of the S3 bucket in your destination account.
@@ -311,6 +311,7 @@ permissions for your destination account](#onprem-s3-cross-account-required-perm
    tab.
 6. Under **Bucket policy**, choose **Edit** and
    do the following to modify your S3 bucket policy:
+
    1. Update what's in the editor to include the following policy
       statements:
 
@@ -344,7 +345,6 @@ permissions for your destination account](#onprem-s3-cross-account-required-perm
      ]
    }
    ```
-
    2. Replace each instance of
       `source-account` with the
       AWS account ID for your source account.
@@ -410,6 +410,7 @@ permissions](#onprem-s3-cross-account-required-permissions-source "#onprem-s3-cr
 
 1. While still in your source account, do one of the following to launch
    CloudShell from the console:
+
    - Choose the CloudShell icon on the console navigation bar. It's
      located to the right of the search box.
    - Use the search box on the console navigation bar to search for
@@ -485,6 +486,7 @@ far:
    **Create task**.
 6. On the task's details page, choose **Start**, and then choose
    one of the following:
+
    - To run the task without modification, choose **Start with
      defaults**.
    - To modify the task before running it, choose **Start with

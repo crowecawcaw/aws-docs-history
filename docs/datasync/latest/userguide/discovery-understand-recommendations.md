@@ -130,6 +130,7 @@ aws datasync describe-storage-system-resources \
 ```
 
 6. Specify the following parameters in the command:
+
    - `--discovery-job-arn` – Specify the ARN
      of the same discovery job that you specified in
      Step
