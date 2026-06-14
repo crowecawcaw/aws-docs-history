@@ -112,6 +112,7 @@ mind:
 - You can use the following delimiters for the data in the timestamp column: \_ -
   (hyphen) and space
 - The timestamp column can use the following formats:
+
   - yyyy-MM-dd-HH-mm-ss
   - yyyy-MM-dd'T'HH:mm:ss
   - yyyy-MM-dd HH:mm:ss
