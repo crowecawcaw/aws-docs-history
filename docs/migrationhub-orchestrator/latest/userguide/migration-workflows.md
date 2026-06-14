@@ -69,11 +69,14 @@ Console
    step.
 10. (Optional) For **Script location**, choose **Amazon S3
     URI** or **Upload a file**.
+
     1. If you chose **Amazon S3 URI**, provide the following details:
+
        1. For **Script run command**, enter a command to run the
           script.
        2. For **Script run environment**, choose **On
           premises** or **AWS**.
+
           1. If you chose **On premises**, for **Server**,
              choose a server from the dropdown menu. The resources listed are based on what you
              configured in AWS Application Discovery Service. For more information, refer to the documentation on the
@@ -84,6 +87,7 @@ Console
 
     2. If you chose **Upload a file**, provide the following
        details:
+
        1. For **Script file**, choose **Choose file**
           and select a shell or PowerShell script file to use.
        2. For **Script run command**, enter a command to run the
@@ -93,6 +97,7 @@ Console
           configured in AWS Application Discovery Service. For more information, refer to the documentation on the
           template your workflow was created from in the [Templates](templates.md "templates.md")
           section.
+
           1. If you chose **On premises**, for
              **Server**, choose a server from the dropdown menu. The resources
              listed are based on what you configured in AWS Application Discovery Service. For more information,
@@ -132,11 +137,14 @@ Console
    step.
 8. (Optional) For **Script location**, choose **Amazon S3
    URI** or **Upload a file**.
+
    1. If you chose **Amazon S3 URI**, provide the following details:
+
       1. For **Script run command**, enter a command to run the
          script.
       2. For **Script run environment**, choose **On
          premises** or **AWS**.
+
          1. If you chose **On premises**, for **Server**,
             choose a server from the dropdown menu. The resources listed are based on what you
             configured in AWS Application Discovery Service. For more information, refer to the documentation on the
@@ -147,6 +155,7 @@ Console
 
    2. If you chose **Upload a file**, provide the following
       details:
+
       1. For **Script file**, choose **Choose file** and
          select a shell or PowerShell script file to use.
       2. For **Script run command**, enter a command to run the
@@ -156,6 +165,7 @@ Console
          configured in AWS Application Discovery Service. For more information, refer to the documentation on the
          template your workflow was created from in the [Templates](templates.md "templates.md")
          section.
+
          1. If you chose **On premises**, for **Server**,
             choose a server from the dropdown menu. The resources listed are based on what you
             configured in AWS Application Discovery Service. For more information, refer to the documentation on the
@@ -187,11 +197,13 @@ Console
 3. On the **Workflows** page, select the workflow that you want to
    customize and choose **View details**.
 4. If you need to update the order of step groups in the workflow:
+
    1. In the **Steps** pane, select an existing step group.
    2. Choose **Move up** or **Move down** to reorder the
       step groups as needed.
 
 5. If you need to update information about a step group:
+
    1. In the **Steps** pane, select an existing step group, then choose
       **Actions**, **Edit step group**.
    2. Update the **Step group name** and **Step group
@@ -224,12 +236,14 @@ Console
    update.
 5. Choose **Expand all** to view the steps within the step group.
 6. If you need to update the order of step groups in the workflow:
+
    1. In the **Steps** pane, select the step you need to move within the
       step group.
    2. Choose **Move up** or **Move down** to reorder the
       step as needed.
 
 7. If you need to update information about a step group:
+
    1. In the **Steps** pane, select an existing step group, then choose
       **Actions**, **Edit step**.
    2. Update the **Step name** and **Step group

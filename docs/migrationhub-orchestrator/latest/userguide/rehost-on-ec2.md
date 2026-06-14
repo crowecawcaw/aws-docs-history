@@ -18,6 +18,7 @@ template.
 - Users must have the permissions granted by the [AWSApplicationMigrationAgentPolicy](../../../mgn/latest/ug/security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy.md "../../../mgn/latest/ug/security-iam-awsmanpol-AWSApplicationMigrationAgentPolicy.md") policy.
 - Provide credentials in the AWS Secrets Manager to install the AWS Replication Agent on
   your remote server.
+
   1.  Sign in to [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
   2.  On the AWS Secrets Manager page, select **Store a new
       secret**.
@@ -75,6 +76,7 @@ template.
 2. On Choose a workflow template page, select **Rehost on Amazon EC2 using
    AWS Application Migration Service** template.
 3. Configure and submit your workflow to begin migration.
+
    - [Details](#details-rehost-on-ec2 "#details-rehost-on-ec2")
    - [Application](#applications-rehost-on-ec2 "#applications-rehost-on-ec2")
    - [Target environment configuration](#target-env-config-rehost-on-ec2 "#target-env-config-rehost-on-ec2")

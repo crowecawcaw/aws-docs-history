@@ -692,8 +692,10 @@ application.
    **Replatform applications to Amazon ECS** template.
 4. On the **Configure your workflow** page, enter values for the
    following:
+
    1. For **Workflow details**, enter values for the
       following:
+
       1. For **Name**, enter a name for your migration
          workflow.
       2. (Optional) For **Description**, enter a
@@ -701,6 +703,7 @@ application.
 
    2. For **Source environment configuration**, specify the
       following:
+
       1. For **Source Region**, choose the Region from
          the dropdown list in which you have EC2 instances hosting
          applications you want to replatform or the S3 bucket containing
@@ -710,6 +713,7 @@ application.
          replatform are in EC2 instances, or **S3
          location** if your application artifacts are in an
          S3 bucket.
+
          1. If you chose **EC2 instances**, under
             **Select from EC2 instances**,
             select the instances which have the applications you
@@ -738,7 +742,6 @@ application.
    ```
    S3://`bucket-name`/application-transformation
    ```
-
    4. (Optional) For **Tags**, choose **Add new
       tag** and enter any desired key-value pairs for your
       resources that are created by this workflow.
@@ -792,8 +795,10 @@ on the steps.
 5. Choose the step which requires further input, choose
    **Actions**, **Change status**, and then
    choose **Completed**.
+
    1. The **Analyze** step requires the following
       input:
+
       1. For **Applications**, from the dropdown list,
          select the applications that you want to replatform.
       2. For **Containerization options**, choose
@@ -807,6 +812,7 @@ on the steps.
 
    2. The **Deploy** step requires the following
       input:
+
       1. For **VPC ID**, enter the ID of the VPC to
          use for deployment.
       2. For **ECS task execution IAM role ARN**,

@@ -260,6 +260,7 @@ JSON
 
 - Provide credentials in AWS Secrets Manager for the username and password for the admin
   user for your RDS Server.
+
   1.  Sign in to
       [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/")
   2.  On the AWS Secrets Manager page, select **Store a new

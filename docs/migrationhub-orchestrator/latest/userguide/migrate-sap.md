@@ -39,6 +39,7 @@ template.
   ports on both servers.
 - Provide credentials of SAP HANA database instance running on your source server. These
   credentials are used by the Migration Hub Orchestrator plugin to communicate with the source server.
+
   1.  Sign in to [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
   2.  On the AWS Secrets Manager page, select **Store a new secret**.
   3.  For Secret type, select **Other type of secret** and create the
@@ -65,6 +66,7 @@ template.
   must only be followed by an alphanumeric value. 5. Select **Next** and then, select **Store**.
 
 - The following parameters must be the same on the source and target environments.
+
   - SAP SID
   - SAP HANA SID
   - PAS instance number
@@ -124,6 +126,7 @@ Launch Wizard.
 - To establish a connection between your source and target environments, we recommend
   creating a new security group with your source IP address while creating an SAP deployment with
   Launch Wizard.
+
   1.  Under **Infrastructure - SAP landscape**, go to **Security
       groups**.
   2.  Select **Create new security groups**.
@@ -145,6 +148,7 @@ Launch Wizard.
 2. On Choose a workflow template page, select **Migrate SAP NetWeaver on HANA
    applications** template.
 3. Configure and submit your workflow to begin migration.
+
    - [Details](#details-migrate-sap "#details-migrate-sap")
    - [Application](#applications-migrate-sap "#applications-migrate-sap")
    - [Source environment configuration](#source-configurations-migrate-sap "#source-configurations-migrate-sap")
@@ -248,6 +252,7 @@ Migration Hub Orchestrator.
 - If you want to use SSL encryption for database replication or leave the box unchecked, a
   manual step – _Enable SSL on source for replication_ in step group
   4, must be completed to proceed with your migration workflow.
+
   1.  Open the `global.ini` file on your source SAP HANA system.
   2.  Set the replication property as follows.
 
@@ -256,7 +261,6 @@ Migration Hub Orchestrator.
          [system_replication_communication]
          enable_ssl=on
   ```
-
   3.  Restart the database.
 
 - ###### Note
@@ -284,6 +288,7 @@ tasks require additional inputs and user interactions.
 - Before beginning cutover, verify that your source application has been migrated properly.
   Step group 7 of the **Migrate SAP NetWeaver to AWS** template guides you
   through the necessary steps.
+
   - **Stop source SAP production system**: Ensure that there are no end
     users logged in or accessing the application before stopping the source application.
   - **Stop source HANA production system**: Verify that the HANA System

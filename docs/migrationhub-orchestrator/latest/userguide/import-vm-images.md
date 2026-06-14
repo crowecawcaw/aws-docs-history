@@ -37,6 +37,7 @@ The following considerations and limitations apply:
 - You must have separate folders for each image file format you want to upload in your S3
   bucket.
 - Migration Hub Orchestrator supports importing the following image file formats:
+
   - OVA
   - RAW
   - VHD
@@ -99,6 +100,7 @@ The following considerations apply when you import VHDX files:
 2. On Choose a workflow template page, select **Import virtual images to
    AWS** template.
 3. Configure and submit your workflow to begin the VM import.
+
    - [Details](#details-import-vm-images "#details-import-vm-images")
    - [Source environment configuration](#source-env-config-import-vm-images "#source-env-config-import-vm-images")
    - [Target environment configuration](#target-env-config-import-vm-images "#target-env-config-import-vm-images")

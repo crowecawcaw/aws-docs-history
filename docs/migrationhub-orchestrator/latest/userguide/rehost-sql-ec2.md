@@ -94,6 +94,7 @@ Server.
 
 - This template offers 3 distinct migrations depending on your
   use-case.
+
   1.  “
       _Use only Full backup_
       ” - The template will only create a full backup of your
@@ -212,6 +213,7 @@ instance based on your requirements, we recommend one of the following:
 - (
   _Optional_
   ) Use AWS Launch Wizard to deploy your target SQL server.
+
   - Launch Wizard attaches the
 
   `AmazonEC2RoleForLaunchWizard`
@@ -227,6 +229,7 @@ instance based on your requirements, we recommend one of the following:
     .
 
 - Connect to the target EC2 instance and note the following:
+
   - Name of the SQL Server
   - Path to store data for the SQL Server
   - Path to store logs for the SQL Server
@@ -274,6 +277,7 @@ JSON
   permission.
 - Provide credentials in AWS Secrets Manager for the username created in
   your target SQL server.
+
   1.  Sign in to
       [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/")
   2.  On the AWS Secrets Manager page, select
@@ -282,6 +286,7 @@ JSON
   3.  For Secret type, select
       **Other type of secret**
       and enter the following keys.
+
       1. `username`
       - enter your username
       2. `password`
@@ -292,6 +297,7 @@ JSON
       and enter a name for the key pair beginning with
       `migrationhub-orchestrator-`secretname123``
       .
+
       1. The Secret ID must begin with the prefix
          `migrationhub-orchestrator-`
          and must only be followed by an alphanumeric

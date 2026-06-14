@@ -25,6 +25,7 @@ patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../e
 
 - `accountId` – Your AWS account ID.
 - `resourceId` – The unique ID of the resource.
+
   - When the `resourceType` value is `Workflow`, the
     `resourceId` is in the format of a workflow ID
     (_mw-abcd1234_).
@@ -41,6 +42,7 @@ patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../e
     (_template-abcdefghijklmno1234567890_).
 
 - `resourceType` – The type of resource.
+
   - `Workflow`
   - `WorkflowStepGroup`
   - `WorkflowStep`
@@ -48,6 +50,7 @@ patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../e
 
 - `status` – The status of the resource. The available
   statuses are determined by the `resourceType`.
+
   - For the `Workflow` resource type, see the status values of the [GetWorkflow](../APIReference/API_GetWorkflow.md#migrationhuborchestrator-GetWorkflow-response-status "../APIReference/API_GetWorkflow.md#migrationhuborchestrator-GetWorkflow-response-status") API operation.
   - For the `WorkflowStepGroup` resource type, see the status values of the [GetWorkflowStepGroup](../APIReference/API_GetWorkflowStepGroup.md#migrationhuborchestrator-GetWorkflowStepGroup-response-status "../APIReference/API_GetWorkflowStepGroup.md#migrationhuborchestrator-GetWorkflowStepGroup-response-status") API
     operation.

@@ -30,6 +30,7 @@ The following prerequisites must be met to create custom templates:
 - If you are going to create steps in the workflow of the
   **Automated** type, ensure that the scripts are accessible
   using one of the following methods:
+
   - If the scripts for your custom template will be sourced from an
     Amazon Simple Storage Service (Amazon S3) location, the script files must be uploaded to an Amazon S3
     bucket with the prefix `migrationhub-orchestrator-`. For more
@@ -66,6 +67,7 @@ Console
 8. (Optional) For **Description**, enter
    a description for the custom template.
 9. (Optional) Add tags to your custom template:
+
    1. Choose **Add new tag** for each tag that
       you'd like to associate with the custom template.
    2. Enter values in the **Key** and
@@ -140,6 +142,7 @@ Console
 8. (Optional) For **Description**, enter
    a description for the custom template.
 9. (Optional) Add tags to your custom template:
+
    1. Choose **Add new tag** for each tag that
       you'd like to associate with the custom template.
    2. Enter values in the **Key** and
