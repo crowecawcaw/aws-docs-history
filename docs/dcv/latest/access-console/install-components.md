@@ -32,6 +32,7 @@ must install them on the hosts you prepared.
 ```
 
 6. Do one of the following:
+
    - If you chose to use DynamoDB as the database, make sure that
      the instance has permission to access DynamoDB via the [Credential Provider Chain](../../../sdkref/latest/guide/standardized-credentials.md#credentialProviderChain "../../../sdkref/latest/guide/standardized-credentials.md#credentialProviderChain"), and then skip to the
      last step.
@@ -39,12 +40,12 @@ must install them on the hosts you prepared.
      continuing to the next step.
 
 7. Install MariaDB by doing one of the following:
+
    - For Amazon Linux 2023
 
    ```
    `$` sudo yum install -y mariadb105-server
    ```
-
    - For RHEL and CentOS
 
    ```
@@ -125,6 +126,7 @@ DATABASE_NAME=`replace with database name`
 ```
 
 6. Do one of the following:
+
    - If you chose to use DynamoDB as the database, make sure that
      the instance has permission to access DynamoDB via the [Credential Provider Chain](../../../sdkref/latest/guide/standardized-credentials.md#credentialProviderChain "../../../sdkref/latest/guide/standardized-credentials.md#credentialProviderChain"), and then skip to the
      last step.

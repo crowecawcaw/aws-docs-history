@@ -27,6 +27,7 @@ running the authentication server.
 5. Set the `pam-service-name` to the name of the file in
    `/etc/pam.d` that should be used to authenticate
    users.
+
    - To use the host’s authentication for Redhat based operating
      systems, set the `pam-service-name` property to
      `system-auth`.
@@ -91,18 +92,22 @@ The Amazon DCV Access Console can be configured to use external OAuth providers 
 
 1. Go to AWS Cognito on the AWS Management Console > User pools > Create user pool
 2. Set up resources for your application and Create user directory:
+
    - Define your application- Traditional web application
    - Configure options as you like
    - Add a return URL: `<web-client-url>/api/auth/callback/<NEXT_PUBLIC_SM_UI_AUTH_ID>`. For example, using defaults for a locally running server: `http://localhost:3000/api/auth/callback/dcv-access-console-auth-server`
    - Once the user pool is created, you can configure Allowed sign-out URLs: Applications > App clients > Login pages > Managed login pages configuration > Edit
 
 3. Adding users to the user pool:
+
    - Go to User management > Users and add users
    - Alternatively, if you have allowed self-registration in step 2, users may sign up themselves
 
 4. Preparing access-console-handler.properties:
+
    - Copy the User pool ID from the user pool Overview page and set `jwt-issuer-uri` as `https://cognito-idp.<region>.amazonaws.com/<user_pool_id>`
    - Set the following properties:
+
      - `jwt-login-username-claim-key` is the key for the login username claim key
      - `jwt-display-name-claim-key` is the key for the display name claim key
      - `auth-server-well-known-uri` is the well known URI (required only if userInfo endpoint is not provided) in the format `https://cognito-idp.<region>.amazonaws.com/<user_pool_id>/.well-known/openid-configuration`
@@ -113,10 +118,13 @@ The Amazon DCV Access Console can be configured to use external OAuth providers 
    - To get service logs: `sudo journalctl -u dcv-access-console-handler`
 
 5. Preparing the web client:
+
    - `/etc/dcv-access-console-web-client/access-console-web-client.properties`:
+
      - Set `auth-server-well-known-uri` in the format `https://cognito-idp.<region>.amazonaws.com/<user_pool_id>/.well-known/openid-configuration`
 
    - `/etc/dcv-access-console-web-client/access-console-web-client-secrets.properties`:
+
      - Set the `auth-server-client-id` and `auth-server-client-secret` values as the Client ID and Client secret values of the user pool App client you set up in step 2 above (Applications > App clients > Select your App client name > App client information)
 
    - Restart the web client: `sudo systemctl restart dcv-access-console-web-client`

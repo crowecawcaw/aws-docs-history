@@ -41,6 +41,7 @@ JSON file](using-setup-wizard.md#loading-json-file "using-setup-wizard.md#loadin
 1. Go to the file `wizard_input.json`. This is the JSON file
    provided with the Wizard.
 2. Modify the following parameters:
+
    - `handler-address`– The resolvable DNS of the
      host that the Handler will be installed on.
    - `webclient-address`– The resolvable DNS of the

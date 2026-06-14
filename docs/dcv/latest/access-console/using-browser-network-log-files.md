@@ -8,6 +8,7 @@ between the web browser and the Handler, you can troubleshoot using the browser 
 From a Chrome browser, access the console log window.
 
 1. Do one of the following:
+
    - Use the shortcut key. For Windows and Linux, use `Ctrl+Shift+J`. For macOS, use, `Cmd+Opt+J`.
    - Select the Chrome menu button on the upper right hand side, select **More Tools** then choose **Developer Tools**.
 
@@ -20,6 +21,7 @@ In the **Console** tab, errors are highlight in red and warnings are highlight i
 From a Chrome browser, the network tab contains network calls for uploaded and downloaded resources.
 
 1. Do one of the following:
+
    - Use the shortcut key. For Windows and Linux, use `Ctrl+Shift+J`. For macOS, use, `Cmd+Opt+J`.
    - Select the Chrome menu button on the upper right hand side, select **More Tools** then choose **Developer Tools**.
 

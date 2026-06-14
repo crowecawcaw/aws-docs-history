@@ -15,6 +15,7 @@ components to use certificates.
 2. Open
    `/etc/dcv-access-console-auth-server/access-console-auth-server-secrets.properties`
    with your preferred editor and update the following properties:
+
    - `server.ssl.key-store-type` – Set to `PKCS12`.
    - `server.ssl.key-store` – Set to path of the JKS keystore.
    - `server.ssl.enabled` – Set to true.
@@ -32,6 +33,7 @@ sudo systemctl restart dcv-access-console-auth-server
 2. Open
    `/etc/dcv-access-console-handler/access-console-handler-secrets.properties`
    with your preferred editor and update the following properties:
+
    - `server.ssl.key-store-type` – Set to `PKCS12`.
    - `server.ssl.key-store` – Set to path of the JKS key store.
    - `server.ssl.enabled` – Set to true.
@@ -48,6 +50,7 @@ sudo systemctl restart dcv-access-console-handler
 1. Connect to the host that is running NGNIX.
 2. Open `/etc/nginx/conf.d/dcv-access-console.conf` with your
    preferred editor and update the following properties:
+
    - `ssl_certificate` – Set to path to the certificate
      for the host.
    - `ssl_certificate_key` – Set to path to the key for

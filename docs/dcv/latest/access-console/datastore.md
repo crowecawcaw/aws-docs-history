@@ -17,6 +17,7 @@ on DynamoDB pricing, see [Pricing for Provisioned Capacity](https://aws.amazon.c
 1. On the host running the Handler component, open
    `/etc/dcv-access-console-handler/access-console-handler.properties`
    in your preferred editor and make the following edits:
+
    - Set `datastore = dynamodb`.
    - For `dynamodb-region` specify the AWS Region where you
      want to store the tables containing the Handler component data. For the
@@ -50,6 +51,7 @@ Retrieving AWS Credentials.
 1. On the host running the Handler component, open
    `/etc/dcv-access-console-handler/access-console-handler.properties`
    in your preferred editor and make the following edits:
+
    - Set `datastore = mysql`.
    - Set `jdbc-connection-url =
 jdbc:mysql://`db_endpoint`:`db_port`/`db_name``
@@ -66,6 +68,7 @@ jdbc:mysql://`db_endpoint`:`db_port`/`db_name``
 2. On the host running the Handler component, open
    `/etc/dcv-access-console-handler/access-console-handler-secrets.properties`
    in your preferred editor and make the following edits:
+
    - For `jdbc-user` specify the name of the user that has
      access to the database.
    - For `jdbc-password` specify the password of the user that
