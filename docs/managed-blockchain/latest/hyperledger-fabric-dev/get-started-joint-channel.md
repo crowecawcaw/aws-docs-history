@@ -55,6 +55,7 @@ To accept an invitation to create a member and join a network, the steps are sim
 2. From the navigation pane, choose **Invitations**.
 3. Select the invitation that you want to accept from the list, and then choose **Accept invitation**. To view more information about the network you are invited to join, choose the network **Name** from the list
 4. Under **Create member and join network**, configure your network member according to the following guidelines:
+
    1. Enter a **Member name** that will be visible to all members and an optional **Description**.
    2. Under **Hyperledger Fabric certificate authority (CA) configuration** specify a username and password to be used as the administrator on the Hyperledger Fabric CA. Remember the user name and password. You need them later any time that you create users and resources that need to authenticate.
 
@@ -133,16 +134,19 @@ aws managedblockchain list-members \
 The channel creator (org1) should verify that the required artifacts for channel creation are saved on the Hyperledger Fabric client as shown in the following list:
 
 - Org1 MSP artifacts:
+
   - /home/ec2-user/admin-msp/signcerts/`certname`.pem
   - /home/ec2-user/admin-msp/admincerts/`certname`.pem
   - /home/ec2-user/admin-msp/cacerts/`certname`.pem
   - /home/ec2-user/admin-msp/keystore/`keyname`\_sk
 
 - Org2 MSP artifacts
+
   - /home/ec2-user/org2-msp/admincerts/`certname`.pem
   - /home/ec2-user/org2-msp/cacerts/`certname`.pem
 
 - The TLS CA cert used for the Region:
+
   - /home/ec2-user/managedblockchain-tls-chain.pem
 
 - Addresses of all peer nodes to join the channel for both org1 and org2.

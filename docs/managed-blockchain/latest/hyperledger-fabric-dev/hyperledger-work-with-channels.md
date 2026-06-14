@@ -510,6 +510,7 @@ docker exec cli peer channel create -c ourchannel \
 ```
 
 5. To join a peer node to the channel, each member must fetch the channel genesis block from the orderer, write it to a file, and then reference that genesis block when they join their peer or peers.
+
    1. To get the channel genesis block, each member uses the Hyperledger Fabric CLI [peer channel fetch oldest](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchannel.html#peer-channel-fetch "https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchannel.html#peer-channel-fetch") command. In the following example, the genesis block is written to a file in the container file system, `/opt/home/ourchannel.block`. The `$ORDERER` variable is used in the same ways the previous step, and the `ourchannel` channel ID is specified.
 
    ```
@@ -517,7 +518,6 @@ docker exec cli peer channel create -c ourchannel \
    -c ourchannel -o $ORDERER \
    --cafile /opt/home/managedblockchain-tls-chain.pem --tls
    ```
-
    2. Using the channel genesis block file created above, each member uses the Hyperledger Fabric [peer channel join](https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchannel.html#peer-channel-join "https://hyperledger-fabric.readthedocs.io/en/release-2.2/commands/peerchannel.html#peer-channel-join") command to join their member's peer node to the channel.
 
    ```

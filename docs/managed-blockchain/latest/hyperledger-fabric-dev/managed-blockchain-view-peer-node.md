@@ -3,6 +3,7 @@
 You can view information about each Hyperledger Fabric peer node that belong to your member using the AWS Management Console, the AWS CLI or the AMB Access API [GetNode](../APIReference/API_GetNode.md "../APIReference/API_GetNode.md") command. Details include basic information like the AMB Access instance type, Availability Zone, and creation date, along with the following important properties:
 
 - Status
+
   - **Creating**
 
   AMB Access is provisioning and configuring the AMB Access instance for the peer node.

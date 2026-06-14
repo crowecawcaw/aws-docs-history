@@ -100,6 +100,7 @@ For information about adding a tag when you create a network, see [Create a Hype
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/ "https://console.aws.amazon.com/managedblockchain/").
 2. Choose **Networks** and then choose a Hyperledger Fabric network from the list.
 3. Under **Tags**, choose **Edit tags**, and then do one of the following:
+
    - To add a tag, choose **Add new tag**, enter a **Key** and optional **Value**, and then choose **Save**.
    - To remove a tag, choose **Remove** next to the **Tag** you want to remove, and then choose **Save**.
 
@@ -114,6 +115,7 @@ For information about adding a tag when you create a member, see [Create a Membe
 3. Choose **Members**.
 4. Under **Members owned by you**, choose a member from the list.
 5. Under **Tags**, choose **Edit tags**, and then do one of the following:
+
    - To add a tag, choose **Add new tag**, enter a **Key** and optional **Value**, and then choose **Save**.
    - To remove a tag, choose **Remove** next to the **Tag** you want to remove, and then choose **Save**.
 
@@ -129,6 +131,7 @@ For information about adding a tag when you create a node, see [Create a Hyperle
 4. Under **Members owned by you**, choose a member from the list.
 5. Under peer nodes, choose a **Node ID** from the list.
 6. Choose **Tags**, choose **Edit tags**, and then do one of the following:
+
    - To add a tag, choose **Add new tag**, enter a **Key** and optional **Value**, and then choose **Save**.
    - To remove a tag, choose **Remove** next to the **Tag** you want to remove, and then choose **Save**.
 
@@ -145,6 +148,7 @@ You can add and remove tags from active and completed proposals.
 3. Choose **Proposals**.
 4. Under **Active** or **Completed**, choose a **Proposal ID** from the list.
 5. Under **Tags**, choose **Edit tags**, and then do one of the following:
+
    - To add a tag, choose **Add new tag**, enter a **Key** and optional **Value**, and then choose **Save**.
    - To remove a tag, choose **Remove** next to the **Tag** you want to remove, and then choose **Save**.
 
@@ -157,5 +161,6 @@ If the member who created a proposal for an invitation tagged the proposal, the 
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/ "https://console.aws.amazon.com/managedblockchain/").
 2. Choose **Invitations** and then choose a **Network name** from the list.
 3. Under **Tags**, choose **Edit tags**, and then do one of the following:
+
    - To add a tag, choose **Add new tag**, enter a **Key** and optional **Value**, and then choose **Save**.
    - To remove a tag, choose **Remove** next to the **Tag** you want to remove, and then choose **Save**.

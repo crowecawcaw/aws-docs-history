@@ -16,16 +16,19 @@ network online.
 1. Open the AMB Access console at [https://console.aws.amazon.com/managedblockchain/](https://console.aws.amazon.com/managedblockchain/ "https://console.aws.amazon.com/managedblockchain/").
 2. Choose **Create private network**.
 3. Under **Blockchain frameworks**:
+
    1. Select the blockchain framework to use. This tutorial is based on **Hyperledger Fabric version 2.2**.
    2. Select the **Network edition** to use. The network edition determines attributes of the network, such as the maximum number of members, nodes per member, and transaction throughput. Different editions have different rates associated with the membership. For more information, see [Amazon Managed Blockchain (AMB) Pricing](https://aws.amazon.com/managed-blockchain/pricing "https://aws.amazon.com/managed-blockchain/pricing").
 
 4. Enter a **Network name and description**.
 5. Under **Voting Policy**, choose the following:
+
    1. Enter the **Approval threshold percentage** along with the comparator, either **Greater than** or **Greater than or equal to**. For a proposal to pass, the Yes votes cast must meet this threshold before the vote duration expires.
    2. Enter the **Proposal duration in hours**. If enough votes are not cast within this duration to either approve or reject a proposal, the proposal status is `EXPIRED`, no further votes on this proposal are allowed, and the proposal does not pass.
 
 6. Choose **Next**, and then, under **Create member**, do the following to define the first
    member for the network, which you own:
+
    1. Enter a **Member name** that will be visible to all members and an optional **Description**.
    2. Under **Hyperledger Fabric certificate authority (CA) configuration** specify a username and password to be used as the administrator on the Hyperledger Fabric CA. Remember the user name and password. You need them later any time that you create users and resources that need to authenticate.
    3. Choose **Next**.

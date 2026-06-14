@@ -48,6 +48,7 @@ The steps in this section demonstrate how to use Gradle to build and deploy a [s
 The steps below require that you have the following:
 
 - A Hyperledger Fabric client machine with access to the internet and access to a member's peer node, ordering service, and CA on an AMB Access network running Hyperledger Fabric v2.2 or later. For more information, see the following:
+
   - [Create a Hyperledger Fabric Blockchain Network on Amazon Managed Blockchain (AMB)](create-network.md "create-network.md")
   - [Create an Interface VPC Endpoint for Amazon Managed Blockchain (AMB) Hyperledger Fabric](managed-blockchain-endpoints.md "managed-blockchain-endpoints.md")
   - [Work with Hyperledger Fabric Peer Nodes on AMB Access](managed-blockchain-hyperledger-peer-nodes.md "managed-blockchain-hyperledger-peer-nodes.md")

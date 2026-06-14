@@ -8,6 +8,7 @@ After you create the member, for the member to be functional on the network, you
 2. From the navigation pane, choose **Invitations**.
 3. Select the invitation that you want to accept from the list, and then choose **Accept invitation**. To view more information about the network you are invited to join, choose the network **Name** from the list
 4. Under **Create member and join network**, configure your network member according to the following guidelines:
+
    1. Enter a **Member name** that will be visible to all members and an optional **Description**.
    2. Under **Hyperledger Fabric certificate authority (CA) configuration** specify a username and password to be used as the administrator on the Hyperledger Fabric CA. Remember the user name and password. You need them later any time that you create users and resources that need to authenticate.
 

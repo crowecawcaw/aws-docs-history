@@ -95,6 +95,7 @@ cp config.json config_copy.json
    configuration file named `modified_config.json` as shown in the
    following command. Replace the items below as appropriate for your AMB Access
    member, network, and peer configuration.
+
    - `OrgMemberID` is the ID of a AMB Access member that belongs to the channel and owns the peer node that will be an anchor peer. For example, `m-K46ICRRXJRCGRNNS4ES4XUUS5A`.
    - `PeerNodeDNS` is the endpoint, minus the port identifier, of the peer node. For example, `nd-6EAJ5VA43JGGNPXOUZP7Y47E4Y.m-K46ICRRXJRCGRNNS4ES4XUUS5A.n-MWY63ZJZU5HGNCMBQER7IN6OIU.managedblockchain.`us-east-1`.amazonaws.com`.
    - `PortNumber` is the port number included in the **peer node endpoint** in the console or the `PeerEndpoint` in the Amazon Managed Blockchain (AMB) API for the peer. For example `30003`.

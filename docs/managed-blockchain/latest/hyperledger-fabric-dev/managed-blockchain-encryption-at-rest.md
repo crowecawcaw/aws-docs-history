@@ -169,6 +169,7 @@ AMB Access Hyperledger Fabric.
   a persistent storage media. If data security is a concern for data in
   transit or data in use, you might need to take additional measures as
   follows:
+
   - _Data in transit_: All your data in AMB Access
     is encrypted in transit. By default, communications to and from
     AMB Access use the HTTPS protocol, which protects network traffic by
