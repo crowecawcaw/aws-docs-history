@@ -35,6 +35,7 @@ releases.
   process and schedule to evaluate new features or instances for
   your workload. Take advantage of agility in the cloud to
   quickly test how new features can improve your workload to:
+
   - Reduce sustainability impacts.
   - Gain performance efficiencies.
   - Remove barriers for a planned improvement.
@@ -44,6 +45,7 @@ releases.
 - **Conduct an inventory:**
   Inventory your workload software and architecture and identify
   components that need to be updated.
+
   - You can use
     [AWS Systems Manager Inventory](../../../systems-manager/latest/userguide/systems-manager-inventory.md "../../../systems-manager/latest/userguide/systems-manager-inventory.md") to collect operating
     system (OS), application, and instance metadata from your
@@ -64,6 +66,7 @@ releases.
 - **Use automation:** Automate
   updates to reduce the level of effort to deploy new features
   and limit errors caused by manual processes.
+
   - You can use
     [CI/CD](https://aws.amazon.com/blogs/devops/complete-ci-cd-with-aws-codecommit-aws-codebuild-aws-codedeploy-and-aws-codepipeline/ "https://aws.amazon.com/blogs/devops/complete-ci-cd-with-aws-codecommit-aws-codebuild-aws-codedeploy-and-aws-codepipeline/")
     to automatically update AMIs, container images, and other

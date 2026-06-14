@@ -46,6 +46,7 @@ cloud workload performance efficiency.
   key components for cost.
 - Continually monitor and analyze cost to identify cost
   optimization opportunities in your workload.
+
   - Use
     [AWS Budgets](https://aws.amazon.com/aws-cost-management/aws-budgets/ "https://aws.amazon.com/aws-cost-management/aws-budgets/") to get alerts for unacceptable costs.
   - Use

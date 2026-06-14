@@ -26,27 +26,32 @@ Automate testing of deployed environments to confirm desired outcomes more quick
 ### Implementation steps
 
 1. Establish a testing lifecycle for your development lifecycle that defines each stage of the testing process from requirements planning to test case development, tool configuration, automated testing, and test case closure.
+
    1. Create a workload-specific testing approach from your overall test strategy.
    2. Consider a continuous testing strategy where appropriate throughout the development lifecycle.
 
 2. Select automated tools for testing and rollback based on your business requirements and pipeline investments.
 3. Decide which test cases you wish to automate and which should be performed manually. These can be defined based on business value priority of the feature being tested. Align all team members to this plan and verify accountability for performing manual tests.
+
    1. Apply automated testing capabilities to specific test cases that make sense for automation, such as repeatable or frequently run cases, those that require repetitive tasks, or those that are required across multiple configurations.
    2. Define test automation scripts as well as the success criteria in the automation tool so continued workflow automation can be initiated when specific cases fail.
    3. Define specific failure criteria for automated rollback.
 
 4. Prioritize test automation to drive consistent results with thorough test case development where complexity and human interaction have a higher risk of failure.
 5. Integrate your automated testing and rollback tools into your CI/CD pipeline.
+
    1. Develop clear success criteria for your changes.
    2. Monitor and observe to detect these criteria and automatically reverse changes when specific rollback criteria are met.
 
 6. Perform different types of automated production testing, such as:
+
    1. A/B testing to show results in comparison to the current version between two user testing groups.
    2. Canary testing that allows you to roll out your change to a subset of users before releasing it to all.
    3. Feature-flag testing which allows a single feature of the new version at a time to be flagged on and off from outside the application so that each new feature can be validated one at a time.
    4. Regression testing to verify new functionality with existing interrelated components.
 
 7. Monitor the operational aspects of the application, transactions, and interactions with other applications and components. Develop reports to show success of changes by workload so that you can identify what parts of the automation and workflow can be further optimized.
+
    1. Develop test result reports that help you make quick decisions on whether or not rollback procedures should be invoked.
    2. Implement a strategy that allows for automated rollback based upon pre-defined failure conditions that result from one or more of your test methods.
 

@@ -76,6 +76,7 @@ resilience and reliability.
 
 - Acquisition highly-available connectivity between AWS and
   your on-premises environment.
+
   - Use multiple AWS Direct Connect connections or VPN
     tunnels between separately deployed private networks.
   - Use multiple Direct Connect locations for high
@@ -94,6 +95,7 @@ resilience and reliability.
   Zones.
 - Provide a redundant connection to your on-premises
   environment.
+
   - You may need redundant connections to multiple AWS Regions to achieve your availability needs.
   - Use the
     [Direct Connect Resiliency Toolkit](../../../directconnect/latest/UserGuide/resilency_toolkit.md "../../../directconnect/latest/UserGuide/resilency_toolkit.md") to get started.

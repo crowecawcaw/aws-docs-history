@@ -40,17 +40,21 @@ is not established:** Medium
 
 - CloudWatch Logs Insights allows you to interactively search and
   analyze your log data in Amazon CloudWatch Logs.
+
   - [Analyzing Log Data
     with CloudWatch Logs Insights](../../../AmazonECS/latest/developerguide/using_cloudwatch_logs.md "../../../AmazonECS/latest/developerguide/using_cloudwatch_logs.md")
   - [Amazon CloudWatch Logs Insights Sample Queries](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md")
 
 - Use Amazon CloudWatch Logs to send logs to Amazon S3 where you can
   use or Amazon Athena to query the data.
+
   - [How
     do I analyze my Amazon S3 server access logs using Athena?](https://aws.amazon.com/premiumsupport/knowledge-center/analyze-logs-athena/ "https://aws.amazon.com/premiumsupport/knowledge-center/analyze-logs-athena/")
+
     - Create an S3 lifecycle policy for your server access logs bucket. Configure
       the lifecycle policy to periodically remove log files. Doing so reduces the amount
       of data that Athena analyzes for each query.
+
       - [How Do I Create a
         Lifecycle Policy for an S3 Bucket?](../../../AmazonS3/latest/user-guide/create-lifecycle.md "../../../AmazonS3/latest/user-guide/create-lifecycle.md")
 

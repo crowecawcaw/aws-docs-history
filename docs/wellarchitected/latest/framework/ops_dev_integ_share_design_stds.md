@@ -26,6 +26,7 @@ AnyCompany Retail has a cross-functional architecture team that creates software
 ### Implementation steps
 
 1. Identify a cross-functional team that owns developing and updating design standards. This team should work with stakeholders across your organization to develop design standards, operating procedures, checklists, guidance, and governance requirements. Document the design standards and share them within your organization.
+
    1. [AWS Service Catalog](../../../servicecatalog/latest/adminguide/introduction.md "../../../servicecatalog/latest/adminguide/introduction.md") can be used to create portfolios representing design standards using infrastructure as code. You can share portfolios across accounts.
 
 2. Have a mechanism in place to keep design standards up-to-date as new best practices are identified.

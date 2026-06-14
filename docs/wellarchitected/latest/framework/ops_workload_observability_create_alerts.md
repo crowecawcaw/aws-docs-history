@@ -50,12 +50,14 @@ KPIs are at risk or anomalies are detected.
    accurately.
 2. **Implement anomaly
    detection**:
+
    - **Use Amazon CloudWatch anomaly
      detection**: Set up
      [Amazon CloudWatch anomaly detection](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md") to automatically
      detect unusual patterns, which helps you only generate
      alerts for genuine anomalies.
    - **Use AWS X-Ray Insights**:
+
      1. Set up
         [X-Ray
         Insights](../../../xray/latest/devguide/xray-console-insights.md "../../../xray/latest/devguide/xray-console-insights.md") to detect anomalies in trace data.
@@ -65,6 +67,7 @@ KPIs are at risk or anomalies are detected.
         issues.
 
    - **Integrate with Amazon DevOps Guru**:
+
      1. Leverage
         [Amazon DevOps Guru](https://aws.amazon.com/devops-guru/ "https://aws.amazon.com/devops-guru/") for its machine learning
         capabilities in detecting operational anomalies with
@@ -77,6 +80,7 @@ KPIs are at risk or anomalies are detected.
 3. **Implement actionable
    alerts**: Design alerts that provide adequate
    information for immediate action.
+
    1. Monitor
       [AWS Health events with Amazon EventBridge rules](../../../health/latest/ug/cloudwatch-events-health.md "../../../health/latest/ug/cloudwatch-events-health.md"), or
       integrate programatically with the AWS Health API to

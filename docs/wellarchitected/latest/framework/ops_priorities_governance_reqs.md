@@ -50,6 +50,7 @@ become available.
 1. Identify the stakeholders for your workload, including any centralized teams.
 2. Work with stakeholders to identify governance requirements.
 3. Once you’ve generated a list, prioritize the improvement items, and begin implementing them into your workload.
+
    1. Use services like [AWS Config](https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/ "https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/") to create governance-as-code and validate that governance requirements are followed.
    2. If you use [AWS Organizations](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md"), you can leverage Service Control Policies to implement governance requirements.
 

@@ -36,6 +36,7 @@ For monitoring:
 
 - Capture current resource consumption (for example, buckets or instances). Use service API operations, such as the Amazon EC2 `DescribeInstances` API, to collect current resource consumption.
 - Capture your current quotas that are essential and applicable to the services using:
+
   - AWS Service Quotas
   - AWS Trusted Advisor
   - AWS documentation

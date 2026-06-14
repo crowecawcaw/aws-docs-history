@@ -24,6 +24,7 @@ Review which network-related configuration options are available to you and how 
 ### Implementation steps
 
 - Create a list of workload components.
+
   - Consider using [AWS Cloud WAN](https://aws.amazon.com/cloud-wan/ "https://aws.amazon.com/cloud-wan/") to build, manage and monitor your organization's network when building a unified global network.
   - Monitor your global and core networks with [Amazon CloudWatch Logs metrics](../../../network-manager/latest/tgwnm/monitoring-cloudwatch-metrics.md "../../../network-manager/latest/tgwnm/monitoring-cloudwatch-metrics.md"). Leverage [Amazon CloudWatch RUM](https://aws.amazon.com/about-aws/whats-new/2021/11/amazon-cloudwatch-rum-applications-client-side-performance/ "https://aws.amazon.com/about-aws/whats-new/2021/11/amazon-cloudwatch-rum-applications-client-side-performance/"), which provides insights to help to identify, understand, and enhance users’ digital experience.
   - View aggregate network latency between AWS Regions and Availability Zones, as well as within each Availability Zone, using [AWS Network Manager](https://aws.amazon.com/transit-gateway/network-manager/ "https://aws.amazon.com/transit-gateway/network-manager/") to gain insight into how your application performance relates to the performance of the underlying AWS network.

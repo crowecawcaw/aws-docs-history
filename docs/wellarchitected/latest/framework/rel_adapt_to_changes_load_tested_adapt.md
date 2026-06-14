@@ -46,8 +46,10 @@ is not established:** Medium
   production. Increase the load while watching the metrics you have
   instrumented to determine which metric indicates when you must add
   or remove resources.
+
   - [Distributed
     Load Testing on AWS: simulate thousands of connected users](https://aws.amazon.com/solutions/distributed-load-testing-on-aws/ "https://aws.amazon.com/solutions/distributed-load-testing-on-aws/")
+
     - Identify the mix of requests. You may have varied mixes of requests, so you
       should look at various time frames when identifying the mix of traffic.
     - Implement a load driver. You can use custom code, open source, or commercial

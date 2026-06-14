@@ -52,6 +52,7 @@ logs intuitive and efficient.
    Insights**: Use
    [CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") to interactively search and analyze
    your log data.
+
    1. Craft queries to extract patterns, visualize log data,
       and derive actionable insights.
    2. Use

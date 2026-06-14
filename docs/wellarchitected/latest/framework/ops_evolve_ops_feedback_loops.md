@@ -58,18 +58,22 @@ want to improve.
 ## Implementation steps
 
 1. Immediate feedback
+
    - You need a mechanism to receive feedback from customers and team members.
      Your operations activities can also be configured to deliver automated feedback.
    - Your organization needs a process to review this feedback, determine what to
      improve, and schedule the improvement.
    - Feedback must be added into your software development process.
    - As you make improvements, follow up with the feedback submitter.
+
      - You can use [AWS Systems Manager OpsCenter](../../../systems-manager/latest/userguide/OpsCenter.md "../../../systems-manager/latest/userguide/OpsCenter.md") to create and track these improvements as [OpsItems](../../../systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.md "../../../systems-manager/latest/userguide/OpsCenter-working-with-OpsItems.md").
 
 2. Retrospective analysis
+
    - Conduct retrospectives at the end of a development cycle, on a set cadence, or after a major release.
    - Gather stakeholders involved in the workload for a retrospective meeting.
    - Create three columns on a whiteboard or spreadsheet: Stop, Start, and Keep.
+
      - _Stop_ is for anything that you want your team to
        stop doing.
      - _Start_ is for ideas that you want to start

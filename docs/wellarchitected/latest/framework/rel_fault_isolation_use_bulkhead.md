@@ -32,11 +32,13 @@ When designing a cell-based architecture, there are several design consideration
 
 1. **Partition key**: Special consideration should be taken
    while choosing the partition key.
+
    - It should align with the grain of the service, or the natural way that a service's workload can be subdivided with minimal cross-cell interactions. Examples are `customer ID` or `resource ID`.
    - The partition key must be available in all requests, either directly or in a way that could be easily inferred deterministically by other parameters.
 
 2. **Persistent cell mapping**: Upstream services should only
    interact with a single cell for the lifecycle of their resources.
+
    - Depending on the workload, a cell migration strategy may be needed to migrate data from one cell to another. A possible scenario when a cell migration may be needed is if a particular user or resource in your workload becomes too big and requires it to have a dedicated cell.
    - Cells should not share state or components between cells.
    - Consequently, cross-cell interactions should be avoided or kept to a minimum, as those interactions create dependencies between cells and therefore diminish the fault isolation improvements.
@@ -44,20 +46,24 @@ When designing a cell-based architecture, there are several design consideration
 3. **Router layer**: The router layer is a shared component
    between cells, and therefore cannot follow the same compartmentalization strategy as with
    cells.
+
    - It is recommended for the router layer to distribute requests to individual cells using a partition mapping algorithm in a computationally efficient manner, such as combining cryptographic hash functions and modular arithmetic to map partition keys to cells.
    - To avoid multi-cell impacts, the routing layer must remain as simple and horizontally scalable as possible, which necessitates avoiding complex business logic within this layer. This has the added benefit of making it easy to understand its expected behavior at all times, allowing for thorough testability. As explained by Colm MacCárthaigh in [Reliability, constant work, and a good cup of coffee](https://aws.amazon.com/builders-library/reliability-and-constant-work/ "https://aws.amazon.com/builders-library/reliability-and-constant-work/"), simple designs and constant work patterns produce reliable systems and reduce anti-fragility.
 
 4. **Cell size**: Cells should have a maximum size and should
    not be allowed to grow beyond it.
+
    - The maximum size should be identified by performing thorough testing, until breaking points are reached and safe operating margins are established. For more detail on how to implement testing practices, see [REL07-BP04 Load test your workload](rel_adapt_to_changes_load_tested_adapt.md "rel_adapt_to_changes_load_tested_adapt.md")
    - The overall workload should grow by adding additional cells, allowing the workload to scale with increases in demand.
 
 5. **Multi-AZ or Multi-Region strategies**: Multiple layers of
    resilience should be leveraged to protect against different failure domains.
+
    - For resilience, you should use an approach that builds layers of defense. One layer protects against smaller, more common disruptions by building a highly available architecture using multiple AZs. Another layer of defense is meant to protect against rare events like widespread natural disasters and Region-level disruptions. This second layer involves architecting your application to span multiple AWS Regions. Implementing a multi-Region strategy for your workload helps protect it against widespread natural disasters that affect a large geographic region of a country, or technical failures of Region-wide scope. Be aware that implementing a multi-Region architecture can be significantly complex, and is usually not required for most workloads. For more detail, see [REL10-BP01 Deploy the workload to multiple locations](rel_fault_isolation_multiaz_region_system.md "rel_fault_isolation_multiaz_region_system.md").
 
 6. **Code deployment**: A staggered code deployment strategy
    should be preferred over deploying code changes to all cells at the same time.
+
    - This helps minimize potential failure to multiple cells due to a bad deployment or human error. For more detail, see [Automating safe, hands-off deployment](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/ "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/").
 
 ## Resources

@@ -59,6 +59,7 @@ identifies ownership and contact information.
 2. Use
    [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/") to manage accounts. You can manage the
    alternate contacts for your accounts centrally.
+
    1. Using company owned email addresses and phone numbers
       for contact information helps you to access them even if
       the individuals whom they belong to are no longer with
@@ -78,6 +79,7 @@ identifies ownership and contact information.
 3. Use tags to identify owners for AWS resources. You can
    specify both owners and their contact information in
    separate tags.
+
    1. You can use
       [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") rules to enforce that resources have the
       required ownership tags.
@@ -90,6 +92,7 @@ identifies ownership and contact information.
    generative AI to enhance workforce productivity, answer
    questions, and complete tasks based on information in your
    enterprise systems.
+
    1. Connect Amazon Q Business to your company's data source.
       Amazon Q Business offers prebuilt connectors to over 40
       supported data sources, including Amazon Simple Storage Service (Amazon S3), Microsoft SharePoint, Salesforce,

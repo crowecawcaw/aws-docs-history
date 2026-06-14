@@ -26,21 +26,25 @@ It is crucial to examine every functional area, including the code for a cloud a
 - **Use an AI coding companion:** Consider using an AI coding companion such as [Amazon Q Developer](https://aws.amazon.com/q/developer/ "https://aws.amazon.com/q/developer/") to efficiently write code.
 - **Automate code reviews:**
   While developing your workloads, adopt an automated code review process to improve quality and identify bugs and anti-patterns.
+
   - [Automate code reviews with Amazon CodeGuru Reviewer](https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/ "https://aws.amazon.com/blogs/devops/automate-code-reviews-with-amazon-codeguru-reviewer/")
   - [Detecting concurrency bugs with Amazon CodeGuru](https://aws.amazon.com/blogs/devops/detecting-concurrency-bugs-with-amazon-codeguru/ "https://aws.amazon.com/blogs/devops/detecting-concurrency-bugs-with-amazon-codeguru/")
   - [Raising code quality for Python applications using Amazon CodeGuru](https://aws.amazon.com/blogs/devops/raising-code-quality-for-python-applications-using-amazon-codeguru/ "https://aws.amazon.com/blogs/devops/raising-code-quality-for-python-applications-using-amazon-codeguru/")
 
 - **Use a code profiler:**
   Use a code profiler to identify the areas of code that use the most time or resources as targets for optimization.
+
   - [Reducing your organization's carbon footprint with Amazon CodeGuru Profiler](https://aws.amazon.com/blogs/devops/reducing-your-organizations-carbon-footprint-with-codeguru-profiler/ "https://aws.amazon.com/blogs/devops/reducing-your-organizations-carbon-footprint-with-codeguru-profiler/")
   - [Understanding memory usage in your Java application with Amazon CodeGuru Profiler](https://aws.amazon.com/blogs/devops/understanding-memory-usage-in-your-java-application-with-amazon-codeguru-profiler/ "https://aws.amazon.com/blogs/devops/understanding-memory-usage-in-your-java-application-with-amazon-codeguru-profiler/")
   - [Improving customer experience and reducing cost with Amazon CodeGuru Profiler](https://aws.amazon.com/blogs/devops/improving-customer-experience-and-reducing-cost-with-codeguru-profiler/ "https://aws.amazon.com/blogs/devops/improving-customer-experience-and-reducing-cost-with-codeguru-profiler/")
 
 - **Monitor and optimize:** Use continuous monitoring resources to identify components with high resource requirements or suboptimal configuration.
+
   - Replace computationally intensive algorithms with simpler and more efficient version that produce the same result.
   - Remove unnecessary code such as sorting and formatting.
 
 - **Use code refactoring or transformation:** Explore the possibility of [Amazon Q code transformation](https://aws.amazon.com/q/aws/code-transformation/ "https://aws.amazon.com/q/aws/code-transformation/") for application maintenance and upgrades.
+
   - [Upgrade language versions with Amazon Q Code Transformation](../../../amazonq/latest/qdeveloper-ug/code-transformation.md "../../../amazonq/latest/qdeveloper-ug/code-transformation.md")
   - [AWS re:Invent 2023 - Automate app upgrades & maintenance using Amazon Q Code Transformation](https://www.youtube.com/watch?v=LY76tak6Z1E "https://www.youtube.com/watch?v=LY76tak6Z1E")
 

@@ -143,6 +143,7 @@ access keys, consider the following additional security
 measures:
 
 - Grant highly restricted permissions:
+
   - Adhere to the principle of least privilege (be
     specific about actions, resources, and conditions).
   - Consider granting the IAM user only the

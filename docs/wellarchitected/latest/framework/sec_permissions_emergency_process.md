@@ -336,6 +336,7 @@ modified or has expired**
 
 - Pre-create resources depending on the mechanism you choose
   for emergency access:
+
   - **Using IAM users:**
     pre-create the IAM users with strong passwords and
     associated MFA devices.

@@ -114,6 +114,7 @@ their responsibility matrix to match.
 
 1. Start with existing documentation. Some typical source
    documents might include:
+
    1. Responsibility or responsible, accountable, consulted,
       and informed (RACI) matrices
    2. Team definitions or wiki pages
@@ -122,6 +123,7 @@ their responsibility matrix to match.
 
 2. Review and host discussions on the documented
    responsibilities:
+
    1. Review with teams to identify misalignments between
       documented responsibilities and responsibilities the
       team typically performs.
@@ -130,6 +132,7 @@ their responsibility matrix to match.
 
 3. Analysis and address the discrepancies.
 4. Identify opportunities for improvement.
+
    1. Identify frequently-requested, resource-intensive
       requests, which are typically strong candidates for
       improvement.
@@ -143,6 +146,7 @@ their responsibility matrix to match.
    someone on the team to hold this responsibility.
 6. Define a process for teams to request clarification of
    responsibility.
+
    1. Review the process, and verify that it is clear and
       simple to use.
    2. Make sure that someone owns and tracks escalations to
@@ -153,6 +157,7 @@ their responsibility matrix to match.
    5. Implement a mechanism for periodic review.
 
 7. Document in a discoverable and accessible location.
+
    1. Wikis or documentation portal are common choices.
 
 **Level of effort for the implementation

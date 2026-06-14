@@ -33,9 +33,11 @@ AnyCompany Retail encourages experimentation. Team members can use 20% of their 
 
 1. Work with leadership across your organization to support experimentation. Team members should be encouraged to conduct experiments in a safe manner.
 2. Provide your team members with an environment where they can safely experiment. They must have access to an environment that is like production.
+
    1. You can use a separate AWS account to create a sandbox environment for experimentation. [AWS Control Tower](../../../controltower/latest/userguide/what-is-control-tower.md "../../../controltower/latest/userguide/what-is-control-tower.md") can be used to provision these accounts.
 
 3. Use feature flags and A/B testing to experiment safely and gather user feedback.
+
    1. [AWS AppConfig Feature Flags](../../../appconfig/latest/userguide/what-is-appconfig.md "../../../appconfig/latest/userguide/what-is-appconfig.md") provides the ability to create feature flags.
    2. You can use [AWS Lambda versions](../../../lambda/latest/dg/configuration-versions.md "../../../lambda/latest/dg/configuration-versions.md") to deploy a new version of a function for beta testing.
 

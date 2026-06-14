@@ -93,6 +93,7 @@ as development, staging, and production) into distinct AWS accounts, which furth
 
 1. **Set up AWS account
    structure**:
+
    - Follow the guidance in the
      [Organizing
      Your AWS Environment Using Multiple Accounts](../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md "../../../whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.md")
@@ -105,6 +106,7 @@ as development, staging, and production) into distinct AWS accounts, which furth
 
 2. **Implement a CI/CD
    pipeline**:
+
    - Set up a CI/CD pipeline using services like
      [AWS CodeBuild](https://aws.amazon.com/codebuild/ "https://aws.amazon.com/codebuild/") and
      [AWS CodePipeline](https://aws.amazon.com/codepipeline/ "https://aws.amazon.com/codepipeline/").
@@ -116,6 +118,7 @@ as development, staging, and production) into distinct AWS accounts, which furth
 
 3. **Sign and verify application
    packages**:
+
    - Use
      [AWS Signer](../../../signer/latest/developerguide/Welcome.md "../../../signer/latest/developerguide/Welcome.md") or
      [AWS Key Management Service (AWS KMS)](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/") to sign your
@@ -127,6 +130,7 @@ as development, staging, and production) into distinct AWS accounts, which furth
 
 4. **Externalize configuration
    data**:
+
    - Store environment-specific configuration data in
      [AWS Systems Manager Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md").
    - Modify your application code to retrieve configuration
@@ -135,6 +139,7 @@ as development, staging, and production) into distinct AWS accounts, which furth
 
 5. **Implement infrastructure as code
    (IaC)**:
+
    - Use IaC tools like
      [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") or
      [AWS CDK](https://aws.amazon.com/cdk/ "https://aws.amazon.com/cdk/") to define and manage your infrastructure as
@@ -148,6 +153,7 @@ as development, staging, and production) into distinct AWS accounts, which furth
 
 6. **Implement canary
    deployments**:
+
    - Configure your deployment process to support canary
      deployments, where changes are rolled out to a subset of
      instances or users before you deploy them to the entire
@@ -161,6 +167,7 @@ as development, staging, and production) into distinct AWS accounts, which furth
      deployment.
 
 7. **Monitor and audit**:
+
    - Set up monitoring and logging mechanisms to track
      deployments, application performance, and infrastructure
      changes.
@@ -173,6 +180,7 @@ as development, staging, and production) into distinct AWS accounts, which furth
      requirements.
 
 8. **Continuously improve:**
+
    - Regularly review and update your deployment practices,
      and incorporate feedback and lessons learned from
      previous deployments.

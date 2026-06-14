@@ -53,6 +53,7 @@ In the AWS Well-Architected Framework, we use these terms:
   to consider the size and expertise of the team and the complexity of the workload for
   additional context to properly categorize the level of effort for the
   organization.
+
   - **High:** The work might take multiple weeks or
     multiple months. This could be broken out into multiple stories, releases, and
     tasks.

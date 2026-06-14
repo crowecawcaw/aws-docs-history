@@ -39,12 +39,14 @@ to follow. Using the RACI matrix and the process, anyone can submit change reque
 **Implementation steps**
 
 1. Identify the processes, procedures, and resources for your workload and the owners for each. Document them in your knowledge management system.
+
    1. If you have not implemented [OPS02-BP01 Resources have identified owners](ops_ops_model_def_resource_owners.md "ops_ops_model_def_resource_owners.md"),
       [OPS02-BP02 Processes and procedures have identified owners](ops_ops_model_def_proc_owners.md "ops_ops_model_def_proc_owners.md"), or
       [OPS02-BP03 Operations activities have identified owners responsible for their performance](ops_ops_model_def_activity_owners.md "ops_ops_model_def_activity_owners.md"), start with those first.
 
 2. Work with stakeholders in your organization to develop a change management process.
    The process should cover additions, changes, and exceptions for resources, processes, and procedures.
+
    1. You can use [AWS Systems Manager Change Manager](../../../systems-manager/latest/userguide/change-manager.md "../../../systems-manager/latest/userguide/change-manager.md") as a change management platform for workload resources.
 
 3. Document the change management process in your knowledge management system.

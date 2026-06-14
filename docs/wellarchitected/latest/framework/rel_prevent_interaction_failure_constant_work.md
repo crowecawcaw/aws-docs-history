@@ -33,12 +33,14 @@ is not established:** Low
   are loosely coupled. Loose coupling helps isolate behavior of a
   component from other components that depend on it, increasing
   resiliency and agility.
+
   - [The
     Amazon Builders' Library: Reliability, constant work, and a good cup of
     coffee](https://aws.amazon.com/builders-library/reliability-and-constant-work/ "https://aws.amazon.com/builders-library/reliability-and-constant-work/")
   - [AWS re:Invent 2018: Close Loops and
     Opening Minds: How to Take Control of Systems, Big and Small ARC337 (includes
     constant work)](https://youtu.be/O8xLxNje30M?t=2482 "https://youtu.be/O8xLxNje30M?t=2482")
+
     - For the example of a health check system monitoring 100,000 servers, engineer
       workloads so that payload sizes remain constant regardless of number of successes
       or failures.

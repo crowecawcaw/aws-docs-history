@@ -63,6 +63,7 @@ necessary to improve performance efficiency.
 | Tracing characteristics                 | + [AWS X-Ray](https://aws.amazon.com/xray/ "https://aws.amazon.com/xray/")<br>+ [VPC<br>Reachability Analyzer](../../../vpc/latest/reachability/what-is-reachability-analyzer.md "../../../vpc/latest/reachability/what-is-reachability-analyzer.md")<br>+ [Network Access Analyzer](../../../vpc/latest/network-access-analyzer/what-is-network-access-analyzer.md "../../../vpc/latest/network-access-analyzer/what-is-network-access-analyzer.md")<br>+ [Amazon Inspector](../../../inspector/latest/user/what-is-inspector.md "../../../inspector/latest/user/what-is-inspector.md")<br>+ [Amazon CloudWatch RUM](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-RUM.md") |
 
 - Benchmark and test network performance:
+
   - [Benchmark](https://aws.amazon.com/premiumsupport/knowledge-center/network-throughput-benchmark-linux-ec2/ "https://aws.amazon.com/premiumsupport/knowledge-center/network-throughput-benchmark-linux-ec2/") network
     throughput, as some factors can affect Amazon EC2 network
     performance when instances are in the same VPC. Measure

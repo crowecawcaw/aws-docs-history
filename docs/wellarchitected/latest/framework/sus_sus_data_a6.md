@@ -39,6 +39,7 @@ When you remove unneeded and redundant datasets, you can reduce storage cost and
   retention](../../../managedservices/latest/userguide/log-customize-retention.md "../../../managedservices/latest/userguide/log-customize-retention.md") for deletion.
 - **Use data virtualization:** Use data virtualization capabilities on AWS to maintain data at its source and
   avoid data duplication.
+
   - [Cloud Native Data
     Virtualization on AWS](https://www.youtube.com/watch?v=BM6sMreBzoA "https://www.youtube.com/watch?v=BM6sMreBzoA")
   - [Optimize Data Pattern Using Amazon Redshift Data Sharing](https://catalog.workshops.aws/well-architected-sustainability/en-US/3-data/optimize-data-pattern-using-redshift-data-sharing "https://catalog.workshops.aws/well-architected-sustainability/en-US/3-data/optimize-data-pattern-using-redshift-data-sharing")

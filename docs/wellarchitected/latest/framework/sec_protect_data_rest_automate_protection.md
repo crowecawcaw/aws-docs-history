@@ -93,6 +93,7 @@ recovering from security events as it is for operational events.
 1. Capture data storage configuration in IaC templates.  Use
    automated checks in your CI/CD pipelines to detect
    misconfigurations.
+
    1. You can use for [CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") your IaC templates, and
       [CloudFormation
       Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md") for checking templates for misconfiguration.
@@ -101,6 +102,7 @@ recovering from security events as it is for operational events.
       a step in your CI/CD pipeline before creating it.
 
 2. Monitor resources for data storage misconfigurations.
+
    1. Set [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") to monitor data storage resources for
       changes in control configurations and generate alerts to
       invoke remediation actions when it detects a
@@ -112,10 +114,12 @@ recovering from security events as it is for operational events.
 
 3. Monitor and reduce data access permissions continually through
    automation.
+
    1. [IAM Access Analyzer](https://aws.amazon.com/iam/access-analyzer/ "https://aws.amazon.com/iam/access-analyzer/") can run continually to generate
       alerts when permissions can potentially be reduced.
 
 4. Monitor and alert on anomalous data access behaviors.
+
    1. [GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/")
       watches for both known threat signatures and deviations
       from baseline access behaviors for data storage resources
@@ -123,11 +127,13 @@ recovering from security events as it is for operational events.
 
 5. Monitor and alert on sensitive data being stored in unexpected
    locations.
+
    1. Use
       [Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/") to continually scan your S3 buckets for
       sensitive data.
 
 6. Automate secure and encrypted backups of your data.
+
    1. [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md") is a managed service that creates encrypted
       and secure backups of various data sources on AWS.
        [Elastic

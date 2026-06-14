@@ -113,6 +113,7 @@ your AWS Private CA deployment](../../../privateca/latest/userguide/PcaPlanning.
 
 1. Determine the relevant AWS services required for your use
    case:
+
    - Many use cases can leverage the existing AWS public key
      infrastructure using
      [AWS Certificate Manager](../../../acm/latest/userguide/acm-overview.md "../../../acm/latest/userguide/acm-overview.md"). ACM can
@@ -131,11 +132,13 @@ your AWS Private CA deployment](../../../privateca/latest/userguide/PcaPlanning.
      [Application Load Balancer](../../../elasticloadbalancing/latest/application/introduction.md "../../../elasticloadbalancing/latest/application/introduction.md").
 
 2. Implement automated certificate renewal whenever possible:
+
    - Use [ACM managed renewal](../../../acm/latest/userguide/managed-renewal.md "../../../acm/latest/userguide/managed-renewal.md") for
      certificates issued by ACM along with
      integrated AWS managed services.
 
 3. Establish logging and audit trails:
+
    - Enable
      [CloudTrail
      logs](../../../privateca/latest/userguide/PcaCtIntro.md "../../../privateca/latest/userguide/PcaCtIntro.md") to track access to the accounts holding

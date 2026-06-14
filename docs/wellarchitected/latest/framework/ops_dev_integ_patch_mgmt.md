@@ -61,11 +61,13 @@ Patch systems to remediate issues, to gain desired features or capabilities, and
 For Amazon EC2 Image Builder:
 
 1. Using Amazon EC2 Image Builder, specify pipeline details:
+
    1. Create an image pipeline and name it
    2. Define pipeline schedule and time zone
    3. Configure any dependencies
 
 2. Choose a recipe:
+
    1. Select existing recipe or create a new one
    2. Select image type
    3. Name and version your recipe

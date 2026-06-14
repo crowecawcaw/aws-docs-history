@@ -92,6 +92,7 @@ with [AWS Firewall Manager](https://aws.amazon.com/firewall-manager/ "https://a
    through an inspection VPC, or if you require a more granular
    per-VPC approach.
 2. For inline inspection solutions:
+
    1. If using AWS Network Firewall, create rules, firewall
       policies, and the firewall itself. Once these have been
       configured, you can
@@ -105,6 +106,7 @@ with [AWS Firewall Manager](https://aws.amazon.com/firewall-manager/ "https://a
       your traffic.
 
 3. For out-of-band inspection solutions:
+
    1. Turn on VPC Traffic Mirroring on interfaces where inbound
       and outbound traffic should be mirrored. You can use
       Amazon EventBridge rules to invoke an AWS Lambda function
@@ -114,6 +116,7 @@ with [AWS Firewall Manager](https://aws.amazon.com/firewall-manager/ "https://a
       appliance that processes traffic.
 
 4. For inbound web traffic solutions:
+
    1. To configure AWS WAF, start by configuring a web access
       control list (web ACL). The web ACL is a collection of
       rules with a serially processed default action (ALLOW or

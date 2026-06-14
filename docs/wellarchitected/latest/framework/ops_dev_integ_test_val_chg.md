@@ -76,6 +76,7 @@ artifact repository.
    governance requirements that must be included in the test
    coverage? Do you need to conduct code quality tests? When
    tests complete, who needs to know?
+
    1. The
       [AWS Deployment Pipeline Reference Architecture](https://pipelines.devops.aws.dev/ "https://pipelines.devops.aws.dev/")
       contains an authoritative list of types of tests that
@@ -86,6 +87,7 @@ artifact repository.
    on your software testing standard. Each set of tests should
    complete in under ten minutes. Tests should run as part of
    an integration pipeline.
+
    1. Use
       [Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/what-is.md "../../../amazonq/latest/qdeveloper-ug/what-is.md"), a generative AI tool that can help
       create unit test cases (including boundary conditions),

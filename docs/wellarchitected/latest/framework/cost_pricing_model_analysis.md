@@ -98,6 +98,7 @@ discounts that Savings Plans or Reserved Instances provide.
   in Cost Explorer or a custom dashboard, analyze your workload's elasticity. Look for regular changes
   in the number of instances that are running. Short duration instances are candidates for
   Spot Instances or Spot Fleet.
+
   - [Well-Architected Lab: Cost Explorer](https://wellarchitectedlabs.com/Cost/Cost_Fundamentals/100_5_Cost_Visualization/Lab_Guide.html#Elasticity "https://wellarchitectedlabs.com/Cost/Cost_Fundamentals/100_5_Cost_Visualization/Lab_Guide.html#Elasticity")
   - [Well-Architected Lab: Cost Visualization](https://wellarchitectedlabs.com/Cost/Cost_Fundamentals/200_5_Cost_Visualization/README.html "https://wellarchitectedlabs.com/Cost/Cost_Fundamentals/200_5_Cost_Visualization/README.html")
 

@@ -34,6 +34,7 @@ AnyCompany Retail hosts an internal Wiki where all knowledge is stored. Team mem
 **Implementation steps**
 
 1. Start with identifying the content management system where knowledge will be stored. Get agreement from stakeholders across your organization.
+
    1. If you don’t have an existing content management system, consider running a self-hosted wiki or using a version control repository as a starting point.
 
 2. Develop runbooks for adding, updating, and archiving information. Educate your team on these processes.

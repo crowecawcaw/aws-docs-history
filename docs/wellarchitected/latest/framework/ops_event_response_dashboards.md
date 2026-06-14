@@ -33,6 +33,7 @@ Dashboards effectively communicate the status of your system and business metric
 1. **Identify stakeholder needs:** Determine the specific information needs of different audience groups, such as technical teams, leadership, and customers.
 2. **Choose the right tools:** Select appropriate tools like [Amazon CloudWatch dashboards](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Dashboards.md") for system monitoring and [Amazon Quick](https://aws.amazon.com/quicksight/ "https://aws.amazon.com/quicksight/") for interactive business intelligence. [AWS Health](../../../health/latest/ug/what-is-aws-health.md "../../../health/latest/ug/what-is-aws-health.md") provides a ready-to-use experience in the [AWS Health Dashboard](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home"), or you can use Health events in Amazon EventBridge or through the AWS Health API to augment your own dashboards.
 3. **Design effective dashboards:**
+
    - Design dashboards to clearly present relevant metrics and KPIs, ensuring they are understandable and actionable.
    - Incorporate system-level and business-level views as needed.
    - Include both high-level (for broad overviews) and low-level (for detailed analysis) dashboards.
@@ -40,15 +41,18 @@ Dashboards effectively communicate the status of your system and business metric
    - Annotate dashboards with important metrics thresholds and goals for immediate visibility.
 
 4. **Integrate data sources:**
+
    - Use [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") to aggregate and display metrics from various AWS services and [query metrics from other data sources](../../../AmazonCloudWatch/latest/monitoring/MultiDataSourceQuerying.md "../../../AmazonCloudWatch/latest/monitoring/MultiDataSourceQuerying.md"), creating a unified view of your system's health and business metrics.
    - Use features like [CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") to query and visualize log data from different applications and services.
    - Use AWS Health events to stay informed about the operational status and confirmed operational issues from AWS services through the [AWS Health API](../../../health/latest/APIReference/Welcome.md "../../../health/latest/APIReference/Welcome.md") or [AWS Health events on Amazon EventBridge](../../../health/latest/ug/cloudwatch-events-health.md "../../../health/latest/ug/cloudwatch-events-health.md").
 
 5. **Provide self-service access:**
+
    - Share CloudWatch dashboards with relevant stakeholders for self-service information access using [dashboard sharing features](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-dashboard-sharing.md").
    - Ensure that dashboards are easily accessible and provide real-time, up-to-date information.
 
 6. **Regularly update and refine:**
+
    - Continually update and refine dashboards to align with evolving business needs and stakeholder feedback.
    - Regularly review the dashboards to keep them relevant and effective for conveying the necessary information.
 

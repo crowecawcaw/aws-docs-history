@@ -23,18 +23,22 @@ To improve long-term workload sustainability, use architecture patterns that sup
 ### Implementation steps
 
 - **Understand data characteristics:** Analyze your data characteristics and access patterns to identify the correct configuration for your cloud resources. Key characteristics to consider include:
+
   - **Data type:** structured, semi-structured, unstructured
   - **Data growth:** bounded, unbounded
   - **Data durability:** persistent, ephemeral, transient
   - **Access patterns** reads or writes, update frequency, spiky, or consistent
 
 - **Use optimal architecture patterns:** Use architecture patterns that best support data access and storage patterns.
+
   - [Patterns for enabling data persistence](../../../prescriptive-guidance/latest/modernization-data-persistence/enabling-patterns.md "../../../prescriptive-guidance/latest/modernization-data-persistence/enabling-patterns.md")
   - [Let’s Architect! Modern data architectures](https://aws.amazon.com/blogs/architecture/lets-architect-modern-data-architectures/ "https://aws.amazon.com/blogs/architecture/lets-architect-modern-data-architectures/")
   - [Databases on AWS: The Right Tool for the Right Job](https://www.youtube.com/watch?v=-pb-DkD6cWg "https://www.youtube.com/watch?v=-pb-DkD6cWg")
 
 - **Use purpose-built services:** Use technologies that are fit-for-purpose.
+
   - Use technologies that work natively with compressed data.
+
     - [Athena Compression Support file formats](../../../athena/latest/ug/compression-formats.md "../../../athena/latest/ug/compression-formats.md")
     - [Format Options for ETL Inputs and Outputs in AWS Glue](../../../glue/latest/dg/aws-glue-programming-etl-format.md "../../../glue/latest/dg/aws-glue-programming-etl-format.md")
     - [Loading compressed data files from Amazon S3 with Amazon Redshift](../../../redshift/latest/dg/t_loading-gzip-compressed-data-files-from-S3.md "../../../redshift/latest/dg/t_loading-gzip-compressed-data-files-from-S3.md")

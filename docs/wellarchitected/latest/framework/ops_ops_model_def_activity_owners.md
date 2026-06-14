@@ -104,6 +104,7 @@ repository for the process.
 ### Implementation steps
 
 1. Document the existing processes and procedures.
+
    1. Review and verify that they are up-to-date.
    2. Verify that each process or procedure has an owner.
    3. Place the procedures under version control.
@@ -112,6 +113,7 @@ repository for the process.
       designs.
 
 2. Establish mechanisms for feedback and improvement.
+
    1. Define policies for how frequently processes should be
       reviewed.
    2. Define processes for reviewers and approvers.
@@ -123,6 +125,7 @@ repository for the process.
 
 3. Make process and procedures accessible and discoverable by
    users who need to run them.
+
    1. Use tags to indicate where the process and procedures
       can be accessed for the workload.
    2. Use meaningful error and event messaging to indicate the
@@ -132,6 +135,7 @@ repository for the process.
       organization.
 
 4. Automate when it is appropriate to do so.
+
    1. Where services and technologies provide an API, develop
       automations.
    2. Verify that processes are well-understood, and develop

@@ -83,6 +83,7 @@ practice guidelines](https://aws.amazon.com/premiumsupport/knowledge-center/secu
 
 1. Set up accurate [contact
    information](../../../accounts/latest/reference/manage-acct-update-contact-primary.md "../../../accounts/latest/reference/manage-acct-update-contact-primary.md") for the account.
+
    1. This information is used for the lost password recovery flow, lost MFA device
       account recovery flow, and for critical security-related communications with your
       team.
@@ -96,12 +97,14 @@ practice guidelines](https://aws.amazon.com/premiumsupport/knowledge-center/secu
 
 2. Do not create access keys for the root user. If access keys exist, remove them (CIS
    1.4).
+
    1. Eliminate any long-lived programmatic credentials (access and secret keys) for
       the root user.
    2. If root user access keys already exist, you should transition processes using
       those keys to use temporary access keys from an AWS Identity and Access Management (IAM) role, then [delete the root user access keys](../../../accounts/latest/reference/root-user-access-key.md#root-user-delete-access-key "../../../accounts/latest/reference/root-user-access-key.md#root-user-delete-access-key").
 
 3. Determine if you need to store credentials for the root user.
+
    1. If you are using AWS Organizations to create new member accounts, the initial password
       for the root user on new member accounts is set to a random value that is not
       exposed to you. Consider using the password reset flow from your AWS Organization
@@ -112,12 +115,14 @@ practice guidelines](https://aws.amazon.com/premiumsupport/knowledge-center/secu
 
 4. Use preventative controls for member account root users in AWS multi-account
    environments.
+
    1. Consider using the [Disallow Creation of Root Access Keys for the Root User](../../../controltower/latest/userguide/strongly-recommended-controls.md#disallow-root-access-keys "../../../controltower/latest/userguide/strongly-recommended-controls.md#disallow-root-access-keys") preventative
       guard rail for member accounts.
    2. Consider using the [Disallow Actions as a Root User](../../../controltower/latest/userguide/strongly-recommended-controls.md#disallow-root-auser-actions "../../../controltower/latest/userguide/strongly-recommended-controls.md#disallow-root-auser-actions") preventative guard rail for member
       accounts.
 
 5. If you need credentials for the root user:
+
    1. Use a complex password.
    2. Turn on multi-factor authentication (MFA) for the root user, especially for
       AWS Organizations management (payer) accounts (CIS 1.5).
@@ -125,11 +130,13 @@ practice guidelines](https://aws.amazon.com/premiumsupport/knowledge-center/secu
       devices can reduce the chances that the devices containing your MFA codes might be
       reused for other purposes. Verify that hardware MFA devices powered by a battery are
       replaced regularly. (CIS 1.6)
+
       - To configure MFA for the root user, follow the instructions for creating
         either a [virtual MFA](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md#enable-virt-mfa-for-root "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md#enable-virt-mfa-for-root") or [hardware MFA device](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_physical.md#enable-hw-mfa-for-root "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_physical.md#enable-hw-mfa-for-root").
 
    4. Consider enrolling multiple MFA devices for backup. [Up to 8 MFA devices
       are allowed per account](https://aws.amazon.com/blogs/security/you-can-now-assign-multiple-mfa-devices-in-iam/ "https://aws.amazon.com/blogs/security/you-can-now-assign-multiple-mfa-devices-in-iam/").
+
       - Note that enrolling more than one MFA device for the root user
         automatically turns off the [flow for recovering
         your account if the MFA device is lost](https://aws.amazon.com/premiumsupport/knowledge-center/reset-root-user-mfa/ "https://aws.amazon.com/premiumsupport/knowledge-center/reset-root-user-mfa/").
@@ -140,6 +147,7 @@ practice guidelines](https://aws.amazon.com/premiumsupport/knowledge-center/secu
 
 6. Optional: Consider establishing a periodic password rotation schedule for the root
    user.
+
    - Credential management best practices depend on your regulatory and policy
      requirements. Root users protected by MFA are not reliant on the password as a
      single factor of authentication.
@@ -158,6 +166,7 @@ practice guidelines](https://aws.amazon.com/premiumsupport/knowledge-center/secu
 **Operational guidance**
 
 - Determine who in the organization should have access to the root user credentials.
+
   - Use a two-person rule so that no one individual has access to all necessary
     credentials and MFA to obtain root user access.
   - Verify that the organization, and not a single individual, maintains control
@@ -165,6 +174,7 @@ practice guidelines](https://aws.amazon.com/premiumsupport/knowledge-center/secu
     for password reset and MFA reset flow).
 
 - Use root user only by exception (CIS 1.7).
+
   - The AWS root user must not be used for everyday tasks, even administrative
     ones. Only log in as the root user to perform [AWS tasks that require
     root user](../../../general/latest/gr/aws_tasks-that-require-root.md "../../../general/latest/gr/aws_tasks-that-require-root.md"). All other actions should be performed by other users assuming

@@ -50,9 +50,11 @@ Amazon EC2 instances, AWS Lambda, containers, mobile applications, or IoT device
 ### Implementation steps
 
 1. Identify configuration owners.
+
    1. Make configurations owners aware of any compliance, governance, or regulatory needs.
 
 2. Identify configuration items and deliverables.
+
    1. Configuration items are all application and environmental configurations affected by a deployment within your CI/CD pipeline.
    2. Deliverables include success criteria, validation, and what to monitor.
 

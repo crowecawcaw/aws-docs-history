@@ -44,6 +44,7 @@ When faced with multiple operational events, a structured approach to prioritiza
 | Low           | Marginal damage increase over time, or non-time-sensitive work impacted.                                             |
 
 3. **Create a prioritization matrix:**
+
    - Use a matrix to cross-reference impact and urgency, assigning priority levels to different combinations.
    - Make the matrix accessible and understood by all team members responsible for operational event responses.
    - The following example matrix displays incident severity according to urgency and impact:
@@ -56,6 +57,7 @@ When faced with multiple operational events, a structured approach to prioritiza
 
 4. **Train and communicate:** Train response teams on the prioritization matrix and the importance of following it during an event. Communicate the prioritization process to all stakeholders to set clear expectations.
 5. **Integrate with incident response:**
+
    - Incorporate the prioritization matrix into your incident response plans and tools.
    - Automate the classification and prioritization of events where possible to speed up response times.
    - Enterprise Support customers can leverage [AWS Incident Detection and Response](https://aws.amazon.com/premiumsupport/aws-incident-detection-response/ "https://aws.amazon.com/premiumsupport/aws-incident-detection-response/"), which provides 24x7 proactive monitoring and incident management for production workloads.

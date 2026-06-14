@@ -47,6 +47,7 @@ provide a managed analytics service.
 
 3. **Create a migration plan:** Identify dependencies and
    create a migrations plan. Update runbooks and playbooks accordingly.
+
    - The [AWS Application Discovery Service](https://aws.amazon.com/application-discovery/ "https://aws.amazon.com/application-discovery/")
      automatically collects and presents detailed information about application
      dependencies and utilization to help you make more informed decisions as you plan your

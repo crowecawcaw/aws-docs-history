@@ -57,6 +57,7 @@ repositories and continuous integration/continuous deployment
 
 1. **Establish a code review
    process:**
+
    - Define when code reviews should occur, such as before
      merging code into the main branch or before deploying to
      production.
@@ -67,6 +68,7 @@ repositories and continuous integration/continuous deployment
      process and tools to be used.
 
 2. **Set up code review tools:**
+
    - Evaluate and select code review tools that fit your
      team's needs, such as GitHub Pull Requests or CodeGuru
      Security
@@ -78,6 +80,7 @@ repositories and continuous integration/continuous deployment
 
 3. **Define a code review checklist and
    guidelines:**
+
    - Create a code review checklist or guidelines that
      outline what should be reviewed. Consider factors such
      as code quality, security vulnerabilities, adherence to
@@ -87,6 +90,7 @@ repositories and continuous integration/continuous deployment
 
 4. **Train developers on code review best
    practices:**
+
    - Provide training to your team on how to conduct
      effective code reviews.
    - Educate your team on application security principles and
@@ -96,6 +100,7 @@ repositories and continuous integration/continuous deployment
 
 5. **Implement the code review
    process:**
+
    - Integrate the code review step into your development
      workflow, such as creating a pull request and assigning
      reviewers.
@@ -105,6 +110,7 @@ repositories and continuous integration/continuous deployment
      during the review process.
 
 6. **Monitor and improve:**
+
    - Regularly review the effectiveness of your code review
      process and gather feedback from the team.
    - Identify opportunities for automation or tool
@@ -115,6 +121,7 @@ repositories and continuous integration/continuous deployment
 
 7. **Foster a culture of code
    review:**
+
    - Emphasize the importance of code reviews to maintain
      code quality and security.
    - Celebrate successes and learnings from the code review

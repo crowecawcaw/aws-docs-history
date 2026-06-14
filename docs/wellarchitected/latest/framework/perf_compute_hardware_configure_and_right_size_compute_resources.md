@@ -43,6 +43,7 @@ recommendations to right-size your compute resources.
 ### Implementation steps
 
 - Choose an instance type to best fit your needs:
+
   - [How
     do I choose the appropriate Amazon EC2 instance type for
     my workload?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-choose-type-for-workload/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-choose-type-for-workload/")
@@ -63,6 +64,7 @@ recommendations to right-size your compute resources.
 - Monitor your resource usage using AWS monitoring tools such
   as Amazon CloudWatch.
 - Select the right configuration for compute resources.
+
   - For ephemeral workloads,
     evaluate [instance
     Amazon CloudWatch metrics](../../../AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md "../../../AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md") such

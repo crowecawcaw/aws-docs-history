@@ -103,15 +103,18 @@ for resolving common security misconfigurations.
 ### Implementation steps
 
 1. Analyze and prioritize alerts.
+
    1. Consolidate security alerts from various AWS services
       into Security Hub CSPM for centralized visibility,
       prioritization, and remediation.
 
 2. Develop remediations.
+
    1. Use services such as Systems Manager and AWS Lambda to
       run programmatic remediations.
 
 3. Configure how remediations are initiated.
+
    1. Using Systems Manager, define custom actions that
       publish findings to EventBridge. Configure these actions
       to be initiated manually or automatically.
@@ -123,6 +126,7 @@ for resolving common security misconfigurations.
 
 4. Review and analyze remediation logs for effectiveness and
    improvement.
+
    1. Send log output to CloudWatch Logs. Capture outcomes as
       finding notes in Security Hub CSPM.
 

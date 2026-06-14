@@ -54,6 +54,7 @@ solution you could deploy to remove those performance concerns.
 - Perform tests to generate metrics, identify traffic
   patterns, bottlenecks, and critical performance areas. Here
   are some examples of how to perform testing:
+
   - Set
     up [CloudWatch
     Synthetic Canaries](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md") to mimic browser-based user

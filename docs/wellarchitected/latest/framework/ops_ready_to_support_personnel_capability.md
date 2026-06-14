@@ -33,10 +33,12 @@ AnyCompany Retail makes sure that teams supporting the workload are properly sta
 
 1. Assign an adequate number of personnel to operate and support your workload, including on-call duties, security issues, and lifecycle events, such as end of support and certificate rotation tasks.
 2. Train your personnel on the software and platforms that compose your workload.
+
    1. [AWS Training and Certification](https://aws.amazon.com/training/ "https://aws.amazon.com/training/") has a library of courses about AWS. They provide free and paid courses, online and in-person.
    2. [AWS hosts events and webinars](https://aws.amazon.com/events/ "https://aws.amazon.com/events/") where you learn from AWS experts.
 
 3. Perform the following on a regular basis:
+
    - Evaluate team size and skills as operating conditions and the workload change.
    - Adjust team size and skills to match operational requirements.
    - Verify ability and capacity to [address planned lifecycle events](../../../health/latest/ug/aws-health-planned-lifecycle-events.md "../../../health/latest/ug/aws-health-planned-lifecycle-events.md"), unplanned security, and operational notifications through AWS Health.

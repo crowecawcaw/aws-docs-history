@@ -6,6 +6,7 @@ Obtain goals and KPIs that define operations success from your organization and 
 
 - The organization publishes and shares the goals and KPIs for the operations teams.
 - You establish metrics that reflect these KPIs. Examples may include:
+
   - Ticket queue depth or average age of ticket
   - Ticket count grouped by type of issue
   - Time spent working issues with or without a standardized operating procedure (SOP)

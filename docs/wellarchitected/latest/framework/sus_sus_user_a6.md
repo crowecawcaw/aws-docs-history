@@ -26,6 +26,7 @@ Understand the resources your team members use to consume your services, their e
 - **Use energy-efficient software:** Provide team members with energy-efficient software by removing or turning off unnecessary features and processes.
 - **Manage lifecycles:** Evaluate the impact of processes and systems on your device lifecycle, and select solutions that minimize the requirement for device replacement while satisfying business requirements. Regularly maintain and update workstations or software to maintain and improve efficiency.
 - **Remote device management:** Implement remote management for devices to reduce required business travel.
+
   - [AWS Systems Manager Fleet Manager](../../../systems-manager/latest/userguide/fleet.md "../../../systems-manager/latest/userguide/fleet.md") is a unified user interface (UI) experience that helps you remotely manage your nodes running on AWS or on premises.
 
 ## Resources

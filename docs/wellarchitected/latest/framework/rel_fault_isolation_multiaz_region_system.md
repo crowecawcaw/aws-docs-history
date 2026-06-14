@@ -229,6 +229,7 @@ Region.
    are permitted). The use of multiple Regions can achieve
    greater availability but can involve additional complexity
    and cost. Consider the following factors in your evaluation:
+
    1. **Business objectives and customer
       requirements**: How much downtime is permitted
       should a workload-impacting incident occur in an
@@ -251,6 +252,7 @@ Region.
 
 3. Deploy your compute resources into multiple Availability
    Zones.
+
    1. In your VPC, create multiple subnets in different
       Availability Zones. Configure each to be large enough to
       accommodate the resources needed to serve the workload,
@@ -291,6 +293,7 @@ Region.
 
 4. Replicate your workload's data across multiple Availability
    Zones.
+
    1. If you use an AWS-managed data service such as Amazon RDS, Amazon ElastiCache, or Amazon FSx, study its user
       guide to understand its data replication and resilience
       capabilities. Enable cross-AZ replication and failover
@@ -340,6 +343,7 @@ Region.
    cost, with a corresponding increase in time to recovery.
 3. Replicate your data from your primary Region into your
    secondary Regions.
+
    1. Amazon DynamoDB global tables provide global replicas of
       your data that can be written to from any supported
       Region. With other AWS-managed data services, such as

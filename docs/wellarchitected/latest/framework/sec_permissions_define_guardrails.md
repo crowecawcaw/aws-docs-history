@@ -159,6 +159,7 @@ elevated access](../../../singlesignon/latest/userguide/temporary-elevated-acces
 2. Use SCPs to reduce the maximum set of permissions that can
    be granted to principals within the member accounts of your
    organization.
+
    1. When defining SCPs to reduce the maximum set of
       permissions that can be granted to principals within
       your organization's member accounts, you can choose

@@ -121,6 +121,7 @@ to monitor system behavior during game days. Use
   Involve key stakeholders and subject matter experts in
   planning and running these exercises.
 - **Prepare the game day:**
+
   1.  Identify the key business-critical services that are the
       focus of the game day. Catalog and map the people,
       processes, and technologies that support those services.

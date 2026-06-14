@@ -28,12 +28,14 @@ doesn’t provide value in a recovery scenario.
 - **Design a backup strategy:** Use the criticality of your data classification and design backup strategy based on
   your [recovery time objective (RTO) and recovery point objective (RPO](../reliability-pillar/rel_planning_for_recovery_objective_defined_recovery.md "../reliability-pillar/rel_planning_for_recovery_objective_defined_recovery.md")). Avoid backing
   up non-critical data.
+
   - Exclude data that can be easily recreated.
   - Exclude ephemeral data from your backups.
   - Exclude local copies of data, unless the time required to restore that data from
     a common location exceeds your service-level agreements (SLAs).
 
 - **Use automated backup:** Use an automated solution or managed service to back up business-critical data.
+
   - [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md") is a fully-managed service that makes it easy to centralize and
     automate data protection across AWS services, in the cloud, and on premises. For
     hands-on guidance on how to create automated backups using AWS Backup, see [Well-Architected Labs - Testing Backup and Restore of Data](https://catalog.workshops.aws/well-architected-reliability/en-US/4-failure-management/1-backup/30-testing-backup-and-restore-of-data "https://catalog.workshops.aws/well-architected-reliability/en-US/4-failure-management/1-backup/30-testing-backup-and-restore-of-data").

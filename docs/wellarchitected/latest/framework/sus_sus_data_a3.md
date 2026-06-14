@@ -30,6 +30,7 @@ with the storage solution to maximize performance efficiency.
   Evaluate your data characteristics and access pattern to
   collect the key characteristics of your storage needs.
   Key characteristics to consider include:
+
   - **Data type:** structured, semi-structured,
     unstructured
   - **Data growth:** bounded, unbounded
@@ -64,6 +65,7 @@ with the storage solution to maximize performance efficiency.
   [Amazon FSx](../../../fsx/latest/WindowsGuide/monitoring-cloudwatch.md "../../../fsx/latest/WindowsGuide/monitoring-cloudwatch.md").
 - **Choose the right storage class:**
   Choose the appropriate storage class for your data.
+
   - Amazon S3 storage classes can be configured at the object
     level. A single bucket can contain objects stored
     across all of the storage classes.

@@ -29,6 +29,7 @@ Data optimization includes several techniques to ensure efficient data storage a
   performed in your data store.
 - Identify the slow-running queries in your data store and use query
   plans to understand their current state.
+
   - [Analyzing
     the query plan in Amazon Redshift](../../../redshift/latest/dg/c-analyzing-the-query-plan.md "../../../redshift/latest/dg/c-analyzing-the-query-plan.md")
   - [Using
@@ -36,15 +37,18 @@ Data optimization includes several techniques to ensure efficient data storage a
 
 - Implement strategies to improve the query performance. Some
   of the key strategies include:
+
   - Using a [columnar file format](../../../athena/latest/ug/columnar-storage.md "../../../athena/latest/ug/columnar-storage.md") (like Parquet or ORC).
   - Compressing data in the data store to reduce storage space and I/O operation.
   - Data partitioning to split data into smaller parts and
     reduce data scanning time.
+
     - [Partitioning data in Athena](../../../athena/latest/ug/partitions.md "../../../athena/latest/ug/partitions.md")
     - [Partitions and data distribution](../../../amazondynamodb/latest/developerguide/HowItWorks.Partitions.md "../../../amazondynamodb/latest/developerguide/HowItWorks.Partitions.md")
 
   - Data indexing on the common columns in the query.
   - Use materialized views for frequent queries.
+
     - [Understanding materialized views](../../../prescriptive-guidance/latest/materialized-views-redshift/understanding-materialized-views.md "../../../prescriptive-guidance/latest/materialized-views-redshift/understanding-materialized-views.md")
     - [Creating materialized views in Amazon Redshift](../../../redshift/latest/dg/materialized-view-overview.md "../../../redshift/latest/dg/materialized-view-overview.md")
 

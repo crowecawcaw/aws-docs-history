@@ -25,15 +25,18 @@ Continually monitor workload activity and look for opportunities to improve the 
 - **Inventory your AWS resourceds:** Create an inventory of your AWS resources. In AWS, you can turn on [AWS Resource Explorer](../../../resource-explorer/latest/userguide/welcome.md "../../../resource-explorer/latest/userguide/welcome.md") to explore and organize your AWS resources. For more details, see [AWS re:Invent 2022 - How to manage resources and applications at scale on AWS](https://www.youtube.com/watch?v=bbgUnKq6PAU "https://www.youtube.com/watch?v=bbgUnKq6PAU").
 - **Monitor utilization:** Monitor and capture the utilization metrics for critical components of your workload (like CPU utilization, memory utilization, or network throughput in [Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")).
 - **Identify unused components:** Identify unused or under-utilized components in your architecture.
+
   - For stable workloads, check AWS rightsizing tools such as [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/ "https://aws.amazon.com/compute-optimizer/") at regular intervals to identify idle, unused, or underutilized components.
   - For ephemeral workloads, evaluate utilization metrics to identify idle, unused, or underutilized components.
 
 - **Remove unused components:** Retire components and associated assets (like Amazon ECR images) that are no longer needed.
+
   - [Automated Cleanup of Unused Images in Amazon ECR](https://aws.amazon.com/blogs/compute/automated-cleanup-of-unused-images-in-amazon-ecr/ "https://aws.amazon.com/blogs/compute/automated-cleanup-of-unused-images-in-amazon-ecr/")
   - [Delete unused Amazon Elastic Block Store (Amazon EBS) volumes by using AWS Config and AWS Systems Manager](../../../prescriptive-guidance/latest/patterns/delete-unused-amazon-elastic-block-store-amazon-ebs-volumes-by-using-aws-config-and-aws-systems-manager.md "../../../prescriptive-guidance/latest/patterns/delete-unused-amazon-elastic-block-store-amazon-ebs-volumes-by-using-aws-config-and-aws-systems-manager.md")
 
 - **Refactor underutilized components:** Refactor or consolidate underutilized components with other resources to improve utilization efficiency. For example, you can provision multiple small databases on a single [Amazon RDS](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/") database instance instead of running databases on individual underutilized instances.
 - **Evaluate improvements:** Understand the [resources provisioned by your workload to complete a unit of work](../sustainability-pillar/evaluate-specific-improvements.md "../sustainability-pillar/evaluate-specific-improvements.md"). Use this information to evaluate improvements achieved by removing or refactoring components.
+
   - [Measure and track cloud efficiency with sustainability proxy metrics, Part I: What are proxy metrics?](https://aws.amazon.com/blogs/aws-cloud-financial-management/measure-and-track-cloud-efficiency-with-sustainability-proxy-metrics-part-i-what-are-proxy-metrics/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/measure-and-track-cloud-efficiency-with-sustainability-proxy-metrics-part-i-what-are-proxy-metrics/")
   - [Measure and track cloud efficiency with sustainability proxy metrics, Part II: Establish a metrics pipeline](https://aws.amazon.com/blogs/aws-cloud-financial-management/measure-and-track-cloud-efficiency-with-sustainability-proxy-metrics-part-ii-establish-a-metrics-pipeline/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/measure-and-track-cloud-efficiency-with-sustainability-proxy-metrics-part-ii-establish-a-metrics-pipeline/")
 

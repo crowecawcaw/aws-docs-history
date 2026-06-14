@@ -96,6 +96,7 @@ solutions, or new ways to achieve further cost reductions.
   Configure AWS Budgets on all accounts for your workload. Set
   a budget for the overall account spend, and a budget for the
   workload by using tags.
+
   - [Well-Architected
     Labs: Cost and Governance Usage](https://wellarchitectedlabs.com/Cost/Cost_Fundamentals/100_2_Cost_and_Usage_Governance/README.html "https://wellarchitectedlabs.com/Cost/Cost_Fundamentals/100_2_Cost_and_Usage_Governance/README.html")
 

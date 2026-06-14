@@ -74,23 +74,29 @@ _Drift_ is defined as any change that causes an infrastructure resource to have 
 ### Implementation steps
 
 - Disallow the in-place modification of running infrastructure resources.
+
   - You can use [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/") to specify who or what can access services and resources in AWS, centrally manage fine-grained permissions, and analyze access to refine permissions across AWS.
 
 - Automate the deployment of infrastructure resources to increase reproducibility and minimize the potential of human error.
+
   - As described in the [Introduction to DevOps on AWS whitepaper](../../../whitepapers/latest/introduction-devops-aws/automation.md "../../../whitepapers/latest/introduction-devops-aws/automation.md"), automation is a cornerstone with AWS services and is internally supported in all services, features, and offerings.
   - _[Prebaking](../../../whitepapers/latest/overview-deployment-options/prebaking-vs.-bootstrapping-amis.md "../../../whitepapers/latest/overview-deployment-options/prebaking-vs.-bootstrapping-amis.md")_ your Amazon Machine Image (AMI) can speed up the time to launch them. [EC2 Image Builder](https://aws.amazon.com/image-builder/ "https://aws.amazon.com/image-builder/") is a fully managed AWS service that helps you automate the creation, maintenance, validation, sharing, and deployment of customized, secure, and up-to-date Linux or Windows custom AMI.
   - Some of the services that support automation are:
+
     - [AWS Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/ "https://aws.amazon.com/elasticbeanstalk/") is a service to rapidly deploy and scale web applications developed with Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker on familiar servers such as Apache, NGINX, Passenger, and IIS.
     - [AWS Proton](https://aws.amazon.com/proton/ "https://aws.amazon.com/proton/") helps platform teams connect and coordinate all the different tools your development teams need for infrastructure provisioning, code deployments, monitoring, and updates. AWS Proton enables automated infrastructure as code provisioning and deployment of serverless and container-based applications.
 
   - Leveraging infrastructure as code makes it easy to automate infrastructure deployment, and helps achieve infrastructure immutability. AWS provides services that enable the creation, deployment, and maintenance of infrastructure in a programmatic, descriptive, and declarative way.
+
     - [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") helps developers create AWS resources in an orderly and predictable fashion. Resources are written in text files using JSON or YAML format. The templates require a specific syntax and structure that depends on the types of resources being created and managed. You author your resources in JSON or YAML with any code editor, check it into a version control system, and then CloudFormation builds the specified services in safe, repeatable manner.
     - [AWS Serverless Application Model (AWS SAM)](https://aws.amazon.com/serverless/sam/ "https://aws.amazon.com/serverless/sam/") is an open-source framework that you can use to build serverless applications on AWS. AWS SAM integrates with other AWS services, and is an extension of CloudFormation.
     - [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/ "https://aws.amazon.com/cdk/") is an open-source software development framework to model and provision your cloud application resources using familiar programming languages. You can use AWS CDK to model application infrastructure using TypeScript, Python, Java, and .NET. AWS CDK uses CloudFormation in the background to provision resources in a safe, repeatable manner.
     - [AWS Cloud Control API](https://aws.amazon.com/cloudcontrolapi/ "https://aws.amazon.com/cloudcontrolapi/") introduces a common set of Create, Read, Update, Delete, and List (CRUDL) APIs to help developers manage their cloud infrastructure in an easy and consistent way. The Cloud Control API common APIs allow developers to uniformly manage the lifecycle of AWS and third-party services.
 
 - Implement deployment patterns that minimize user impact.
+
   - Canary deployments:
+
     - [Set up an API Gateway canary release deployment](../../../apigateway/latest/developerguide/canary-release.md "../../../apigateway/latest/developerguide/canary-release.md")
     - [Create a pipeline with canary deployments for Amazon ECS using AWS App Mesh](https://aws.amazon.com/blogs/containers/create-a-pipeline-with-canary-deployments-for-amazon-ecs-using-aws-app-mesh/ "https://aws.amazon.com/blogs/containers/create-a-pipeline-with-canary-deployments-for-amazon-ecs-using-aws-app-mesh/")
 

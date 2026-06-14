@@ -70,6 +70,7 @@ assertions, or set within IAM Identity Center.
 ### Implementation steps
 
 1. Establish where you will define groups and attributes:
+
    1. Following the guidance in
       [SEC02-BP04 Rely on a
       centralized identity provider](../security-pillar/sec_identities_identity_provider.md "../security-pillar/sec_identities_identity_provider.md"), you can determine
@@ -78,6 +79,7 @@ assertions, or set within IAM Identity Center.
       using IAM user groups in a specific account.
 
 2. Define groups:
+
    1. Determine your groups based on function and scope of
       access required. Consider using a hierarchical structure
       or naming conventions to organize groups effectively.
@@ -91,6 +93,7 @@ assertions, or set within IAM Identity Center.
       your provider and IAM Identity Center.
 
 3. Define attributes:
+
    1. If you use an external identity provider, both the SCIM
       and SAML 2.0 protocols provide certain attributes by
       default. Additional attributes can be defined and passed
@@ -114,6 +117,7 @@ detail, see
 and configure attributes for access control](../../../singlesignon/latest/userguide/configure-abac.md "../../../singlesignon/latest/userguide/configure-abac.md").
 
 1. Scope permissions based on groups and attributes:
+
    1. Consider including conditions in your permission
       policies that compare the attributes of your principal
       with the attributes of the resources being accessed. For

@@ -72,6 +72,7 @@ benefits of a review:
 
 - “We are too busy!” (Often said when the team is getting ready
   for a significant launch.)
+
   - If you are getting ready for a big launch, you will want it
     to go smoothly. The review will permit you to understand
     any problems you might have missed.
@@ -82,6 +83,7 @@ benefits of a review:
 - “We don’t have time to do anything with the results!” (Often
   said when there is an immovable event, such as the Super Bowl,
   that they are targeting.)
+
   - These events can’t be moved. Do you really want to go into
     it without knowing the risks in your architecture? Even if
     you don’t address all of these issues you can still have
@@ -89,6 +91,7 @@ benefits of a review:
 
 - “We don’t want others to know the secrets of our solution
   implementation!”
+
   - If you point the team at the questions in the
     Well-Architected Framework, they will see that none of the
     questions reveal any commercial or technical proprietary

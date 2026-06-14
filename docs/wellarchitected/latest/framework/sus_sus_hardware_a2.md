@@ -33,6 +33,7 @@ operate your cloud resource and meet your business needs.
 - **Choose the instances type:** Choose the right instances
   type to best fit your needs. To learn about how to choose Amazon Elastic Compute Cloud instances and use
   mechanisms such as attribute-based instance selection, see the following:
+
   - [How do
     I choose the appropriate Amazon EC2 instance type for my workload?](https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-choose-type-for-workload/ "https://aws.amazon.com/premiumsupport/knowledge-center/ec2-instance-choose-type-for-workload/")
   - [Attribute-based instance type selection for Amazon EC2 Fleet.](../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md "../../../AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.md")
@@ -44,6 +45,7 @@ operate your cloud resource and meet your business needs.
 - **Use multiple compute purchase options:** Balance
   instance flexibility, scalability, and cost savings with multiple compute purchase
   options.
+
   - [Amazon EC2 On-Demand Instances](../../../AWSEC2/latest/UserGuide/ec2-on-demand-instances.md "../../../AWSEC2/latest/UserGuide/ec2-on-demand-instances.md") are best suited for new, stateful, and spiky
     workloads which can’t be instance type, location, or time flexible.
   - [Amazon EC2 Spot Instances](../../../AWSEC2/latest/UserGuide/using-spot-instances.md "../../../AWSEC2/latest/UserGuide/using-spot-instances.md") are a great way to supplement the other options for
@@ -59,6 +61,7 @@ operate your cloud resource and meet your business needs.
   recommendations from AWS tools to make adjustments on your workload. For more
   information, see [Optimizing your cost with Rightsizing Recommendations](../../../latest/userguide/ce-rightsizing.md "../../../latest/userguide/ce-rightsizing.md") and [Right
   Sizing: Provisioning Instances to Match Workloads](../../../latest/cost-optimization-right-sizing/cost-optimization-right-sizing.md "../../../latest/cost-optimization-right-sizing/cost-optimization-right-sizing.md")
+
   - Use rightsizing recommendations in AWS Cost Explorer or [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/ "https://aws.amazon.com/compute-optimizer/") to identify rightsizing
     opportunities.
 

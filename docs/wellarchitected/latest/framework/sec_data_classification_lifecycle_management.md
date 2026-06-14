@@ -100,6 +100,7 @@ help you determine how to best track your provenance.
    auditing, and adjustment of data lifecycle management
    strategies, controls, and policies as workload requirements
    and regulations evolve.
+
    1. Detect resources that do not have automated lifecycle
       management turned on with
       [AWS Config](../../../config/latest/developerguide/s3-lifecycle-policy-check.md "../../../config/latest/developerguide/s3-lifecycle-policy-check.md")

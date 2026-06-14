@@ -47,7 +47,9 @@ fostering your lessons learned discussions:
 - Which process or procedures failed or failed to scale to
   respond to the incident?
 - What can be improved within the following areas:
+
   - **People**
+
     - Were the people who were needed to be contacted
       actually available and was the contact list up to
       date?
@@ -56,6 +58,7 @@ fostering your lessons learned discussions:
     - Were the appropriate resources ready and available?
 
   - **Process**
+
     - Were processes and procedures followed?
     - Were processes and procedures documented and
       available for this (type of) incident?
@@ -64,6 +67,7 @@ fostering your lessons learned discussions:
       the required information to respond to the issue?
 
   - **Technology**
+
     - Did existing alerting systems effectively identify
       and alert on the activity?
     - How could we have reduced time-to-detection by 50%?

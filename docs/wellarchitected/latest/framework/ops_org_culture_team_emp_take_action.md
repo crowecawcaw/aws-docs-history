@@ -84,6 +84,7 @@ is not established:** Medium
    levels are defined, perform game days to verify that all
    individual contributors understand and can demonstrate the
    process.
+
    1. Provide alternative safe environments where processes and
       procedures can be tested and trained upon.
    2. Acknowledge and create awareness that team members have

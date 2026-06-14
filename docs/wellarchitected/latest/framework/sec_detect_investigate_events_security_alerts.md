@@ -122,6 +122,7 @@ high, which would expedite further action.
 4. Integrate your alerts with your data correlation and
    enrichment sources to create more detailed security event
    contexts and establish criticality.
+
    1. Amazon Detective, SIEM tooling, or other third-party
       solutions can perform a certain level of ingestion,
       correlation, and enrichment automatically.

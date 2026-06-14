@@ -48,6 +48,7 @@ not moving data across.
 - **Maximize utilization**: Use
   strategies to maximize the utilization of development and test
   environments.
+
   - Use minimum viable representative environments to develop
     and test potential improvements.
   - Use serverless technologies if possible.

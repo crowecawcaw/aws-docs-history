@@ -43,6 +43,7 @@ minimize resources consumed.
   GPU metrics with Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-NVIDIA-GPU.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-NVIDIA-GPU.md").
 - **Rightsize:** Optimize the code, network operation, and settings of hardware accelerators to make
   sure that underlying hardware is fully utilized.
+
   - [Optimize
     GPU settings](../../../AWSEC2/latest/UserGuide/optimize_gpu.md "../../../AWSEC2/latest/UserGuide/optimize_gpu.md")
   - [GPU

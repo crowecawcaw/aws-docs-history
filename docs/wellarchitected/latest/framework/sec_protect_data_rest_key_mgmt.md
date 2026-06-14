@@ -95,6 +95,7 @@ Most AWS services use AWS KMS in a way that is transparent to you
    [key
    management options](../../../kms/latest/developerguide/concepts.md#key-mgmt "../../../kms/latest/developerguide/concepts.md#key-mgmt") (AWS managed or customer managed)
    for the key.
+
    1. For ease of use, AWS offers AWS owned and AWS managed
       keys for most services, which provide encryption-at-rest
       capability without the need to manage key material or
@@ -114,6 +115,7 @@ Most AWS services use AWS KMS in a way that is transparent to you
    those volumes are also encrypted using a customer managed
    key and mitigating accidental disclosure of unencrypted
    snapshot data.
+
    1. [How
       AWS services use AWS KMS](../../../kms/latest/developerguide/service-integration.md "../../../kms/latest/developerguide/service-integration.md")
    2. For detailed information about the encryption options
@@ -124,6 +126,7 @@ Most AWS services use AWS KMS in a way that is transparent to you
 3. Implement AWS KMS: AWS KMS makes it simple for you to create
    and manage keys and control the use of encryption across a
    wide range of AWS services and in your applications.
+
    1. [Getting
       started: AWS Key Management Service (AWS KMS)](../../../kms/latest/developerguide/getting-started.md "../../../kms/latest/developerguide/getting-started.md")
    2. Review the
@@ -134,11 +137,13 @@ Most AWS services use AWS KMS in a way that is transparent to you
 4. Consider AWS Encryption SDK: Use the AWS Encryption SDK with
    AWS KMS integration when your application needs to encrypt
    data client-side.
+
    1. [AWS Encryption SDK](../../../encryption-sdk/latest/developer-guide/introduction.md "../../../encryption-sdk/latest/developer-guide/introduction.md")
 
 5. Enable
    [IAM Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md") to automatically review and notify if
    there are overly broad AWS KMS key policies.
+
    1. Consider using
       [custom
       policy checks](../../../access-analyzer/latest/APIReference/API_CheckNoPublicAccess.md "../../../access-analyzer/latest/APIReference/API_CheckNoPublicAccess.md") to verify that a resource policy
@@ -152,6 +157,7 @@ Most AWS services use AWS KMS in a way that is transparent to you
    keys. Since calls to AWS KMS, including read-only events,
    are logged, the CloudTrail logs associated with AWS KMS can
    become voluminous.
+
    1. Some organizations prefer to segregate the AWS KMS
       logging activity into a separate trail. For more detail,
       see the

@@ -111,6 +111,7 @@ types of services that require static stability evaluations are:
   capacity if one Availability Zone or Region were removed.
   A variety of services can be used for routing to healthy
   resources, such as:
+
   - [Cross
     Region DNS Routing](../../../whitepapers/latest/real-time-communication-on-aws/cross-region-dns-based-load-balancing-and-failover.md "../../../whitepapers/latest/real-time-communication-on-aws/cross-region-dns-based-load-balancing-and-failover.md")
   - [MRAP
