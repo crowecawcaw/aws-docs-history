@@ -34,6 +34,7 @@ Console
    page.
 4. On the **Tags** tab, choose **Manage
    tags** and do one or more of the following:
+
    1. To update a tag, enter new values for
       **Key** and
       **Value**.

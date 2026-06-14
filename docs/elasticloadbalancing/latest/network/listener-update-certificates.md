@@ -91,6 +91,7 @@ Console
 5. Choose the **Certificates** tab.
 6. To add the default certificate to the list, choose **Add default to list**.
 7. To add nondefault certificates to the list, do the following:
+
    1. Choose **Add certificate**.
    2. To add certificates that are already managed by ACM or IAM, select the
       check boxes for the certificates and choose **Include as pending

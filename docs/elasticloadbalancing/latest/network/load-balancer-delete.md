@@ -23,6 +23,7 @@ Console
 1. If you have a DNS record for your domain that points to your Network Load Balancer,
    point it to a new location and wait for the DNS change to take effect before
    deleting your Network Load Balancer. For example:
+
    - If the record is a CNAME record with a Time To Live (TTL) of 300
      seconds, wait at least 300 seconds before continuing to the next step.
    - If the record is a Route 53 Alias(A) record, wait at least 60 seconds.

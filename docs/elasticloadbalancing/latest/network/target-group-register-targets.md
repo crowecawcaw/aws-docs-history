@@ -171,6 +171,7 @@ see [Use Application Load Balancers as targets](application-load-balancer-target
   must have an assigned primary IPv6 address. To learn more, see [IPv6 addresses](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#ipv6-addressing "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#ipv6-addressing") in the _Amazon EC2 User Guide_
 - When registering targets by IP address for an IPv4 target group, the IP
   addresses that you register must be from one of the following CIDR blocks:
+
   - The subnets of the target group VPC
   - 10.0.0.0/8 (RFC 1918)
   - 100.64.0.0/10 (RFC 6598)

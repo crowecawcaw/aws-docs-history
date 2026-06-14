@@ -284,6 +284,7 @@ Verify that your instance is failing health checks and then based on the failure
 reason code check for the following issues:
 
 - **Unhealthy: Request timed out**
+
   - Verify the security groups and network access control lists (ACL) associated
     with your targets and Network Load Balancer are not blocking connectivity.
   - Verify the target has sufficient capacity available to accept connections
@@ -293,6 +294,7 @@ reason code check for the following issues:
     [Health check reason codes](target-group-health-checks.md#target-health-reason-codes "target-group-health-checks.md#target-health-reason-codes").
 
 - **Unhealthy: FailedHealthChecks**
+
   - Verify the target is listening for traffic on the health check port.
 
   ###### When using a TLS listener

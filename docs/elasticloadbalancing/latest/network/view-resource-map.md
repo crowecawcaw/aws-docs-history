@@ -43,6 +43,7 @@ that specific resource.
 - Selecting a resource tile highlights the
   relationships between it and other resources,
   and displays additional details about that resource.
+
   - **target group health summary:** The number of registered targets for each health status.
   - **target health status:** The target's current health status and description.
 
@@ -53,6 +54,7 @@ details within the resource map.
 
 - Each resource tile contains a link that, when selected, navigates to
   that resource's details page.
+
   - **Listeners** ‐ Select the listeners protocol:port. For example, `TCP:80`
   - **Target groups** ‐ Select the target group name. For example, `my-target-group`
   - **Targets** ‐ Select the targets ID. For example, `i-1234567890abcdef0`

@@ -24,6 +24,7 @@ Console
    the same threshold for both DNS failover and routing failover.
 7. For **Healthy state requirements**, do one of
    the following:
+
    - Choose **Minimum healthy target count**, and then
      enter a number from 1 to the maximum number of targets for your
      target group.

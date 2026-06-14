@@ -191,6 +191,7 @@ all the Network Load Balancer's Availability Zones within 60 seconds, or the DNS
 
 - Availability Zone affinity causes changes on all of the Network Load Balancers clients who are using
   Route 53 Resolver.
+
   - Clients aren't able to decide between zonal-local and multi-zone DNS resolutions.
     Availability Zone affinity decides for them.
   - Clients aren't provided with a reliable method to determine when

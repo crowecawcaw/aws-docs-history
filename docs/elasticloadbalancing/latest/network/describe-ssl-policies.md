@@ -11,6 +11,7 @@ more information, see [Update the security policy](listener-update-certificates.
 - A TLS listener requires a security policy. If you do not specify a security
   policy when you create the listener, we use the default security policy. The
   default security policy depends on how you created the TLS listener:
+
   - Console – The default security
     policy is `ELBSecurityPolicy-TLS13-1-2-Res-PQ-2025-09`.
   - Other methods (for example, the
@@ -61,16 +62,19 @@ The security policy for backend connections depends on the listener's security p
 ###### Security policies
 
 - [TLS security policies](describe-ssl-policies.md#tls-security-policies "describe-ssl-policies.md#tls-security-policies")
+
   - [Protocols by policy](describe-ssl-policies.md#tls-protocols "describe-ssl-policies.md#tls-protocols")
   - [Ciphers by policy](describe-ssl-policies.md#tls-policy-ciphers "describe-ssl-policies.md#tls-policy-ciphers")
   - [Policies by cipher](describe-ssl-policies.md#tls-cipher-policies "describe-ssl-policies.md#tls-cipher-policies")
 
 - [FIPS security policies](describe-ssl-policies.md#fips-security-policies "describe-ssl-policies.md#fips-security-policies")
+
   - [Protocols by policy](describe-ssl-policies.md#fips-protocols "describe-ssl-policies.md#fips-protocols")
   - [Ciphers by policy](describe-ssl-policies.md#fips-policy-ciphers "describe-ssl-policies.md#fips-policy-ciphers")
   - [Policies by cipher](describe-ssl-policies.md#fips-cipher-policies "describe-ssl-policies.md#fips-cipher-policies")
 
 - [FS supported security policies](describe-ssl-policies.md#fs-security-policies "describe-ssl-policies.md#fs-security-policies")
+
   - [Protocols by policy](describe-ssl-policies.md#fs-protocols "describe-ssl-policies.md#fs-protocols")
   - [Ciphers by policy](describe-ssl-policies.md#fs-policy-ciphers "describe-ssl-policies.md#fs-policy-ciphers")
   - [Policies by cipher](describe-ssl-policies.md#fs-cipher-policies "describe-ssl-policies.md#fs-cipher-policies")

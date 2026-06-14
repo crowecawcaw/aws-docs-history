@@ -154,6 +154,7 @@ Console
    logs**.
 6. For **S3 URI**, enter the S3 URI for your log files. The URI
    that you specify depends on whether you're using a prefix.
+
    - URI with a prefix: s3://`amzn-s3-demo-logging-bucket`/`logging-prefix`
    - URI without a prefix: s3://`amzn-s3-demo-logging-bucket`
 

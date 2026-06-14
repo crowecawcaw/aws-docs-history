@@ -36,6 +36,7 @@ Console
    Groups**.
 3. Choose **Create target group**.
 4. For the **Basic configuration** pane, do the following:
+
    1. For **Choose a target type**, select
       **Instances** to register targets by instance
       ID, **IP addresses** to register targets by IP
@@ -48,6 +49,7 @@ Console
       hyphen.
    3. For **Protocol**, choose a protocol as
       follows:
+
       - If the listener protocol is TCP, choose
         **TCP** or
         **TCP_UDP**.
@@ -88,6 +90,7 @@ Console
 8. (Optional) Register targets. The target type of the target group determines
    the information that you provide. If you aren't ready to register targets now,
    you can register them later.
+
    - **Instances** – Select the EC2 instances, enter
      the ports, and choose **Include as pending
      below**.

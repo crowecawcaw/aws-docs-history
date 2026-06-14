@@ -33,6 +33,7 @@ Console
    listener.
 5. Choose **Actions**, **Edit listener**.
 6. Update the values as needed.
+
    - (Optional) Change the **Protocol**.
    - (Optional) Change the **Port**.
    - (Optional) Choose different target groups for the **Default action**.

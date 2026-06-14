@@ -149,6 +149,7 @@ Console
 3. Choose **Create load balancer**.
 4. Under **Network Load Balancer**, choose **Create**.
 5. **Basic configuration**
+
    1. For **Load balancer name**, enter a name for your Network Load Balancer.
    2. For **Scheme**, choose **Internet-facing**
       or **Internal**. An internet-facing Network Load Balancer routes requests
@@ -161,6 +162,7 @@ Console
       the Network Load Balancer.
 
 6. **Network mapping**
+
    1. For **VPC**, select the same VPC that you used
       for your Application Load Balancer. With an internet-facing load balancer, only VPCs with
       an internet gateway are available for selection.

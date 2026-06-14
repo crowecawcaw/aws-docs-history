@@ -48,6 +48,7 @@ Console
 3. Choose **Create load balancer**.
 4. Under **Network Load Balancer**, choose **Create**.
 5. **Basic configuration**
+
    1. For **Load balancer name**, enter a name for your
       Network Load Balancer. The name must be unique within your set of load balancers in
       the Region. It can have a maximum of 32 characters, and contain
@@ -66,6 +67,7 @@ Console
       the Network Load Balancer.
 
 6. **Network mapping**
+
    1. For **VPC**, select the VPC that you prepared
       for your load balancer. With an internet-facing load balancer,
       only VPCs with an internet gateway are available for selection.

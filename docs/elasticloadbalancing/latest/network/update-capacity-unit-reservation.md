@@ -12,6 +12,7 @@ Console
 2. On the navigation pane, choose **Load Balancers**.
 3. Select the load balancer name.
 4. On the **Capacity** tab, do one of the following:
+
    1. To update the LCU reservation choose **Edit LCU Reservation**.
    2. To cancel the LCU reservation, choose **Cancel Capacity**.
 
