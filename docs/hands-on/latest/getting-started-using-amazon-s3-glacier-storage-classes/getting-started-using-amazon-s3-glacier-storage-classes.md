@@ -55,6 +55,7 @@ datasets in the Amazon Glacier storage classes.
 ## Implementation
 
 1. Sign into the Amazon S3 console
+
    - If you have not already done so, create an AWS account.
      [Access
      this support page for more information on how to create and
@@ -381,6 +382,7 @@ this tutorial. It is a best practice to delete resources that you
 are no longer using so that you do not incur unintended charges.
 
 1. Delete your test object
+
    1. If you have logged out of your AWS Management Console session, log back in.
    2. Navigate to the [S3
       console](https://s3.console.aws.amazon.com/s3/home "https://s3.console.aws.amazon.com/s3/home") and select the **Buckets** menu
@@ -398,6 +400,7 @@ are no longer using so that you do not incur unintended charges.
       been successful.
 
 2. Delete your test bucket
+
    1. Finally, you need to delete the test bucket you have created. Return to the
       list of buckets in your account.
    2. Select the radio button to the left of the bucket you created for this
