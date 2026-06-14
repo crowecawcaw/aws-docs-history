@@ -412,6 +412,7 @@ appropriate policies to the role that is associated with that instance profile.
   sink type for that sink.
 - If Kinesis Agent for Windows is executing outside of Amazon EC2 (for example, on-premises), several options
   exist:
+
   - If it is acceptable to register the on-premises server or desktop machine as an
     Amazon EC2 Systems Manager managed-instance, use the following process to configure authentication:
 

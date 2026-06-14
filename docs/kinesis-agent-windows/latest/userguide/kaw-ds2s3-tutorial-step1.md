@@ -186,6 +186,7 @@ Create the EC2 instance that uses Kinesis Agent for Windows to stream log record
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. Follow the instructions in [Getting Started with
    Amazon EC2 Windows Instances](../../../AWSEC2/latest/WindowsGuide/EC2_GetStarted.md "../../../AWSEC2/latest/WindowsGuide/EC2_GetStarted.md"), using the following additional steps:
+
    - For the **IAM role** for the instance, choose
      `kinesis-agent-instance-role`.
    - If you don't already have a public internet-connected virtual private cloud (VPC),

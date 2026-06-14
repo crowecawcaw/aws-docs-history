@@ -110,6 +110,7 @@ correctly, the contents look similar to the following:
 ```
 
 10. For information about resolving any of the following issues, see [Troubleshooting Amazon Kinesis Agent for Microsoft Windows](troubleshooting-kinesis-agent-windows.md "troubleshooting-kinesis-agent-windows.md"):
+
     - The Kinesis Agent for Windows log file contains errors.
     - Expected folders or items in Amazon S3 do not exist.
     - The contents of an Amazon S3 item are incorrect.

@@ -259,6 +259,7 @@ This regular expression matches the following sequence:
 1. The start of the string being evaluated.
 2. One or more word characters surrounded by square brackets.
 3. A timestamp surrounded by square brackets. The timestamp matches the following sequence:
+
    1. A four-digit year
    2. A forward slash
    3. A two-digit month

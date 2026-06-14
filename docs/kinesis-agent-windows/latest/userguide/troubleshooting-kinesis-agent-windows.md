@@ -44,7 +44,9 @@ To resolve issues with data not streaming, perform the following steps:
 
 1. Examine the Kinesis Agent for Windows logs in the `%PROGRAMDATA%\Amazon\AWSKinesisTap\logs` directory.
    Search for the string `ERROR`.
+
    1. If a source or sink did not load, do the following:
+
       1. Examine the error message, and find the `Id` of the source or sink.
       2. Check the source or sink declaration that corresponds to that `Id` in the
          `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration file for
@@ -55,6 +57,7 @@ To resolve issues with data not streaming, perform the following steps:
 
    2. If the error message indicates that a `SourceRef` or `SinkRef` was
       not found for a pipe, do the following:
+
       1. Note the pipe `Id`.
       2. Examine the pipe declaration in the
          `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration file that
@@ -68,6 +71,7 @@ To resolve issues with data not streaming, perform the following steps:
 
    3. If the error message indicates that a particular IAM user or role is not authorized to
       perform certain operations, do the following:
+
       1. Ensure that the correct IAM user or role is being used by Kinesis Agent for Windows. If it is not,
          review [Sink Security Configuration](sink-object-declarations.md#configuring-kinesis-agent-windows-sink-security-configuration "sink-object-declarations.md#configuring-kinesis-agent-windows-sink-security-configuration"), and adjust how
          Kinesis Agent for Windows authenticates to ensure that the correct IAM user or role is being used.
@@ -82,6 +86,7 @@ To resolve issues with data not streaming, perform the following steps:
       expression that is contained in the
       `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration file, do
       the following:
+
       1. Examine the regular expression in the configuration file.
       2. Verify the syntax of the regular expression. There are several websites that you can
          use to verify regular expressions, or use the following command lines to check regular
@@ -101,6 +106,7 @@ To resolve issues with data not streaming, perform the following steps:
       expression that is not contained in the
       `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration file, and
       that is related to a particular sink, do the following:
+
       1. Locate the sink declaration in the configuration file.
       2. Verify that the key-value pairs that are specifically related to an AWS service are
          using names that comply with the validation rules for that service. For example, CloudWatch Logs
@@ -113,6 +119,7 @@ To resolve issues with data not streaming, perform the following steps:
 
    6. If the error message indicates that a source or sink cannot load due to a null or
       missing parameter, do the following:
+
       1. Note the `Id` of the source or sink.
       2. Locate the source or sink declaration that matches the noted `Id` in the `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration file.
       3. Review the key-value pairs that are provided in the source or sink declaration
@@ -124,6 +131,7 @@ To resolve issues with data not streaming, perform the following steps:
 
    7. If the error message indicates that a directory name is invalid, do the
       following:
+
       1. Locate the invalid directory name in the `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration file.
       2. Verify that this directory exists and contains the log files that should be streamed.
       3. Correct any typos or mistakes in the directory name specified in the configuration
@@ -132,6 +140,7 @@ To resolve issues with data not streaming, perform the following steps:
          file to verify that the configuration issues have been resolved.
 
    8. If the error message indicates that a resource does not exist:
+
       1. Locate the resource reference for the resource that doesn't exist in a sink
          declaration in the `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json`
          configuration file.
@@ -145,6 +154,7 @@ To resolve issues with data not streaming, perform the following steps:
 
    9. If the error message indicates that a query is invalid for a particular
       `WindowsEventLogSource`, do the following:
+
       1. In the `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration
          file, locate the `WindowsEventLogSource` declaration with the same
          `Id` as in the error message.
@@ -157,6 +167,7 @@ To resolve issues with data not streaming, perform the following steps:
 
    10. If the error message indicates that there is an invalid initial position, do the
        following:
+
        1. In the `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration
           file, locate the source declaration with the same `Id` as the error
           message.
@@ -167,18 +178,19 @@ To resolve issues with data not streaming, perform the following steps:
 
 2. Ensure that the `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json`
    configuration file complies with the JSON schema.
+
    1. In a command prompt window, invoke the following lines:
 
    ```
    cd /D %PROGRAMFILES%\Amazon\AWSKinesisTap
    %PROGRAMFILES%\Amazon\AWSKinesisTap\ktdiag.exe /c
    ```
-
    2. Correct any issues detected with the `%PROGRAMFILES%\Amazon\AWSKinesisTap\appsettings.json` configuration file.
    3. Stop and start the `AWSKinesisTap` service. Then check the most current log
       file to verify that the configuration issues have been resolved.
 
 3. Change the logging level to try to get more detailed logging information.
+
    1. Replace the `%PROGRAMFILES%\Amazon\AWSKinesisTap\nlog.xml` configuration file with the following content:
 
    ```
@@ -218,13 +230,13 @@ To resolve issues with data not streaming, perform the following steps:
      </rules>
    </nlog>
    ```
-
    2. Stop and start the `AWSKinesisTap` service. Then check the most current log
       file to see if there are additional messages in the log that could help diagnose and resolve
       the issue.
 
 4. Verify that you are looking at resources in the correct Region in the AWS Management Console.
 5. Verify that the Kinesis Agent for Windows agent is installed and running.
+
    1. In Windows, choose **Start**, and then navigate to **Control
       Panel**, **Administrative Tools**,
       **Services**.
@@ -262,6 +274,7 @@ To resolve issues with missing data, perform the following steps:
 1. Consider using the bookmarking feature documented in [Bookmark Configuration](source-object-declarations.md#advanced-source-configuration "source-object-declarations.md#advanced-source-configuration"). It
    helps ensure that all data is eventually sent, even when Kinesis Agent for Windows stops and starts.
 2. Use Kinesis Agent for Windows's built-in metrics to discover problems:
+
    1. Enable the streaming of Kinesis Agent for Windows metrics as described in [Configuring Kinesis Agent for Windows Metric Pipes](pipe-object-declarations.md#kinesis-agent-metric-pipe-configuration "pipe-object-declarations.md#kinesis-agent-metric-pipe-configuration").
    2. If there are a significant number of non-recoverable errors for one or more sinks,
       determine how many bytes or records are being sent per second. Then determine whether this
@@ -358,6 +371,7 @@ To resolve performance issues, perform the following steps:
    usage. If you need to stream large quantities of data with Kinesis Agent for Windows, you might need to provision
    a machine with higher capacities in some of these areas, depending on configuration.
 2. You might be able to reduce the amount of logged data using filtering:
+
    - See the `Query` key-value pair in [WindowsEventLogSource Configuration](source-object-declarations.md#window-event-source-configuration "source-object-declarations.md#window-event-source-configuration").
    - See pipeline filtering in [Configuring Pipes](pipe-object-declarations.md#kinesis-agent-pipe-configuration "pipe-object-declarations.md#kinesis-agent-pipe-configuration").
    - See Amazon CloudWatch metrics filtering in [CloudWatch Sink Configuration](sink-object-declarations.md#sink-object-declarations-cloud-watch "sink-object-declarations.md#sink-object-declarations-cloud-watch")).
