@@ -173,20 +173,24 @@ IAM identities.
 This identity-based policy enables administrators to manage AWS Private Marketplace configurations and associated organizational controls. This policy includes IAM and Organizations permissions. It grants permissions to do the following actions:
 
 1. Manage Private Marketplace service-linked roles (SLR).
+
    1. Get role information for `AWSServiceRoleForPrivateMarketplaceAdmin`.
    2. Create service-linked roles for Private Marketplace administration.
 
 2. Handle organizational delegated administration.
+
    1. Register and deregister delegated administrators for Private Marketplace.
    2. Enable AWS service access for Private Marketplace within Organizations.
 
 3. Manage Private Marketplace products and requests.
+
    1. Associate and disassociate products with Private Marketplace.
    2. List and describe Private Marketplace requests.
    3. Perform catalog operations (list entities, describe entities, manage change sets).
    4. Handle resource tagging for AWS Marketplace resources.
 
 4. Access Organizations information.
+
    1. View organization details, organizational units, and accounts.
    2. List organizational hierarchy information.
    3. Monitor AWS service access and delegated administrators.

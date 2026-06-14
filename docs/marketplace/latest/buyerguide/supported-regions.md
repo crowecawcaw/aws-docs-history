@@ -6,6 +6,7 @@ available Regions and on all instance types that make sense. The AWS Marketplace
 worldwide and supports the following Regions:
 
 - North America
+
   - US East (Ohio)
   - US East (N. Virginia)
   - US West (N. California)
@@ -18,12 +19,15 @@ worldwide and supports the following Regions:
   - Mexico (Central)
 
 - Africa
+
   - Africa (Cape Town)
 
 - South America
+
   - South America (São Paulo)
 
 - EMEA
+
   - Europe (Frankfurt)
   - Europe (Ireland)
   - Europe (London)
@@ -34,6 +38,7 @@ worldwide and supports the following Regions:
   - Europe (Zurich)
 
 - APAC
+
   - Asia Pacific (Hong Kong)
   - Asia Pacific (Hyderabad)
   - Asia Pacific (Jakarta)

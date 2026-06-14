@@ -61,6 +61,11 @@ increase also.
 4. Select the check boxes for all tags, and then choose
    **Activate**. Your vendor-metered tags will go into effect
    within 24 hours.
+5. (Optional) To backfill tags for metering records that were reported before
+   activation, choose **Backfill tags**. Select the month when
+   the metering records were reported, and then choose
+   **Confirm**. The backfill process takes approximately 24
+   hours to complete.
 
 ## Related topics
 

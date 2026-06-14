@@ -29,6 +29,7 @@ You can use IAM roles to delegate access to your AWS resources.
 3. Choose your AWS account.
 4. From **Add permissions**, select one of the following
    policies:
+
    - To allow permissions only to view subscriptions, but not change them, choose
      **AWSMarketplaceRead-only**.
    - To allow permissions to subscribe and unsubscribe, choose

@@ -33,6 +33,7 @@ section.
   `aws-marketplace:ViewSubscriptions` IAM permissions if you need to view
   the offer. For more information about AWS Marketplace security, see [Security on AWS Marketplace](buyer-security.md "buyer-security.md").
 - Check if you're using a private marketplace.
+
   - Make sure that the product is on the allowlist of your private marketplace (if
     applicable), so that you can purchase the product. If you're not sure, contact your
     system administrator to check.

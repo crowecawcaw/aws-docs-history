@@ -8,6 +8,7 @@ machine learning product on Amazon SageMaker AI.
 3. Deploy models in Amazon SageMaker AI
 4. Use secure REST APIs
 5. Perform
+
    - Real-time inference
    - Batch transform job
 

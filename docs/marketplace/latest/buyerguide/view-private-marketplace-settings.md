@@ -14,5 +14,6 @@ You must use the management account of your organization with a role or user tha
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace/](https://console.aws.amazon.com/marketplace/ "https://console.aws.amazon.com/marketplace/").
 2. In the navigation pane, choose **Settings**.
 3. Check the values for **Service-linked role** and **Trusted access**:
+
    - If they show **Successfully created**, your organization has created an integration for Private Marketplace.
    - If they show **Not created**, your organization has not created an integration for Private Marketplace.

@@ -11,6 +11,7 @@ All Private Marketplace change sets are listed on the **Change sets** page. This
 3. To view a specific change set, filter using the change set ID. You can also filter using status **Succeeded**, **Failed**, **In progress**, or **Cancelled**.
 4. Select a change type and choose **View details** to view all the changes.
 5. Choose a change to view its details including the JSON response.
+
    1. When a change fails, **ErrorCode** and **ErrorMessage** fields in the JSON response provides details about the cause.
    2. When a change succeeds, refresh the console to view the updates from the change.
 

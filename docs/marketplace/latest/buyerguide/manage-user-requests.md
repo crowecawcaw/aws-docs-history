@@ -20,6 +20,7 @@ Product procurement request is enabled by default for an experience. You can vie
 2. In the navigation pane, choose **Approval requests** under **Private Marketplace**.
 3. You can approve or decline multiple requests from this page by first selecting the check box next to the name of each request, and then choosing **Approve** or **Decline**.
 4. To view more information about the request, choose **View details** for that request.
+
    1. You can view the reason for request, optional purchase order number, and the Private Marketplace experience associated with the user.
    2. You can choose to **Approve** or **Decline** and inform your buyer about your decision using an optional approver note.
    3. All users associated with the Private Marketplace experience will be allowed to subscribe to the products in the request, if approved. If declined, all users associated with the Private Marketplace experience will not be able to subscribe to the products in the request.

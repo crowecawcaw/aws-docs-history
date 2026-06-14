@@ -16,6 +16,7 @@ contract, or cancel auto-renewal using the following procedure:
 3. In the **Agreement** section, choose **Actions**.
 4. From the dropdown menu, choose **View terms**.
 5. On the subscription page, choose **Modify**.
+
    1. In the **Auto-renewal configuration** section, you can select
       **Automatically renew this contract** to enable auto-renewal or choose
       **Cancel auto-renewal**.

@@ -66,6 +66,7 @@ self-service cancellation, contact the seller of record for your subscription.
    understand the seller's refund terms and find their contact information.
 4. Contact the seller of record and request that they initiate a billing adjustment or
    cancellation through AWS Marketplace.
+
    - For public offers and Marketplace Private Offers (MPPO), the seller of record is
      the ISV.
    - For Channel Partner Private Offers (CPPO), the seller of record is the channel
@@ -97,6 +98,7 @@ the following ways:
 4. Under **Agreement cancellation response**, choose to
    **Approve cancellation** or
    **Deny cancellation**.
+
    - To approve, type `approve` in the confirmation field to
      confirm.
    - To deny, provide a reason for denying (required). This reason is sent to the

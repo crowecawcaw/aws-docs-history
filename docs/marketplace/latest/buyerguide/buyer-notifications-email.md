@@ -39,11 +39,13 @@ If you'd like to notify your procurement team when agreements are expiring, you 
 3. Click on **Create notification configuration**
 4. Add a name and description
 5. **Create an Event Rule:**
+
    - Choose **AWS Marketplace Agreement Service** as the service name
    - For event type, choose **Purchase Agreement Ending - Acceptor**
    - For the region, select the AWS Regions where your service data is located
 
 6. **Add delivery channels:**
+
    - Choose email as your delivery channel
    - Enter your procurement team's distribution list email like `procurement@acme.org`
    - Save the notification configuration

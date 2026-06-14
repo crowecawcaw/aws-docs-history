@@ -56,6 +56,7 @@ permissions:
    the **Configure and launch** page.
 6. For **Step 3: Configure your software and AWS integration**, choose
    how you want to configure the product:
+
    - Quick Launch — You can choose this streamlined experience to configure your
      product quickly.
    - Manual — Use the instructions provided by the seller to configure your

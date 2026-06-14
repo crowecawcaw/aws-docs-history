@@ -117,6 +117,7 @@ product and launching an EC2 instance using either 1-Click launch or the Amazon 
 1. On the **Launch this software** page, choose **Launch
    from website** in the **Choose Action** dropdown, and
    review the default settings. If you want to change any of them, do the following:
+
    - In the **EC2 Instance Type** dropdown list, choose an
      instance type.
    - In the **VPC Settings** and **Subnet
@@ -161,6 +162,7 @@ console](https://console.aws.amazon.com/marketplace/home#/subscriptions "https:/
 1. Navigate to the [AWS Marketplace
    console](https://console.aws.amazon.com/marketplace/home#/subscriptions "https://console.aws.amazon.com/marketplace/home#/subscriptions"), and choose **Manage subscriptions**.
 2. On the **Manage subscriptions** page:
+
    - View your instance status by product
    - View your current monthly charges
    - Run a new instance

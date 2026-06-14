@@ -16,8 +16,10 @@ You can use the AWS User Notifications service to get notifications for events t
 2. Choose **Notification configurations**, then choose **Create notification configuration**.
 3. In the **Name** box, enter a name for the configuration.
 4. In the **Event rules** section of the page, enter the following values:
+
    1. For **AWS service name**, choose **AWS Marketplace Private Marketplace**.
    2. For **Event type**, choose one or more of the following:
+
       1. **Product Request Created**
       2. **Product Request Approved**
       3. **Product Request Declined**
@@ -28,6 +30,7 @@ You can use the AWS User Notifications service to get notifications for events t
 
 5. Under **Aggregation settings**, we recommend choosing **Receive within 5 minutes**.
 6. Under **Delivery channels**, select the **email** checkbox, then do the following:
+
    1. In the **Recipient** box, enter the email address of the notification recipient.
    2. As needed, choose **Add another recipient**, the enter another email address in the **Recipient** box. You can enter a maximum of 99 recipients.
    3. (Optional) Under **Manage tags**, choose **Add new tag**, enter values in the **Key** and **Value** boxes.

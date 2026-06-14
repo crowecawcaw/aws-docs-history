@@ -22,6 +22,7 @@ follows:
    **Helm chart** delivery method.
 2. In **Launch target**, choose the environment that you want to
    deploy on:
+
    - Choose **Amazon managed Kubernetes** to deploy the application
      in Amazon EKS.
    - Choose **Self-managed Kubernetes** to deploy the application in
@@ -30,6 +31,7 @@ follows:
      on-premises.
 
 3. If launching in an **Amazon managed Kubernetes** cluster:
+
    1. To launch on an existing cluster in Amazon EKS, under **Launch
       method**, choose **Launch on existing cluster** and
       follow the **Launch instructions**. The instructions include
@@ -37,6 +39,7 @@ follows:
       using Helm CLI version 3.7.1.
 
 4. If launching in a **Self-managed Kubernetes** cluster:
+
    1. Verify that you're using Helm CLI version 3.7.1.
    2. Choose **Create token** to generate a license token and IAM
       role. This token and role is used to communicate with AWS License Manager to validate product

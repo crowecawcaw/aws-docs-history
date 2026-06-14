@@ -18,6 +18,7 @@ The status of an experience determines if the experience is available to govern 
 The mode of an experience determines whether the experience can be updated and used to govern users. An experience can have two modes:
 
 - **Active –** Active experiences can be updated and used to govern users. You can continue to make updates and manage products in active experiences.
+
   - When an active experience is **Live** and associated with an audience, all users in that audience will be governed by the experience.
   - When an active experience is **Not live**, it will not govern any users even when it is associated with an audience.
 

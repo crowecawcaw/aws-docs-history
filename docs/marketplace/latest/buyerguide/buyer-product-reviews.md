@@ -85,7 +85,9 @@ You'll be redirected to PeerSpot's AWS-branded review interface. 3. On the PeerS
     * **Record a voice review** – Leave a review through a conversation with PeerSpot's AI voice agent.
 
 4. Complete the process based on your selected method:
+
    - **To write a review**
+
      1. Select your star rating (1-5 stars) for the product.
      2. In the **What do you like best about [Product Name]?** field, describe the positive aspects of your experience.
      3. In the **What do you dislike about [Product Name]?** field, describe any challenges or limitations you encountered.
@@ -95,6 +97,7 @@ You'll be redirected to PeerSpot's AWS-branded review interface. 3. On the PeerS
      7. You'll see a confirmation message indicating that your review is being verified by PeerSpot and will be published within 3 business days.
 
    - **To schedule a call**
+
      1. Enter your first name, last name, and email address. Phone number is
         optional.
      2. (Optional) Enter your company name and job title.
@@ -104,6 +107,7 @@ You'll be redirected to PeerSpot's AWS-branded review interface. 3. On the PeerS
      6. Check your email for a calendar invitation with the call details and web conferencing information.
 
    - **To record a voice review**
+
      1. Enter your email address.
      2. Choose **Start Recording** to begin the voice review process.
      3. Wait for the interview preparation screen to load.
@@ -156,17 +160,20 @@ feedback, the same quality guidelines apply.
 Reviews are moderated by PeerSpot before being published on AWS Marketplace. Reviews that include any of the following content will not be approved for publication.
 
 - Objectionable material, including:
+
   - Obscene or distasteful content
   - Profanity or spiteful remarks
   - Promotion of illegal or immoral conduct
 
 - Promotional content, including:
+
   - Advertisements, promotional material, or repeated posts that make the same point
   - Sentiments by or on behalf of a person or company with a financial interest in the product or a directly competing product (including reviews by authors, publishers, manufacturers, or third-party merchants selling the product)
   - Reviews written for any form of compensation other than a free copy of the product, including reviews that are part of a paid publicity package
   - Reviews written by a customer without a verifiable subscription to the product
 
 - Inappropriate content, including:
+
   - Content copied from others, including excessive quotations
   - Contact information or URLs external to Amazon.com
   - Details about availability or alternate ordering/shipping
@@ -174,6 +181,7 @@ Reviews are moderated by PeerSpot before being published on AWS Marketplace. Rev
   - Text with formatting issues
 
 - Off-topic information, including:
+
   - Feedback on the seller or your shipment experience
   - Feedback about typos or inaccuracies in our catalog or product description; instead, use the feedback form at the bottom of the product page
 

@@ -15,6 +15,7 @@ behalf:
   AWS Marketplace to complete the following actions on the specified resources:
 
 - Actions:
+
   - `"organizations:DescribeOrganization"`
   - `"license-manager:ListReceivedGrants"`
   - `"license-manager:ListDistributedGrants"`

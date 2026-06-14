@@ -8,6 +8,7 @@ for account setup and conﬁguration. The usage charges will then appear on your
 1. On the AWS Marketplace console, navigate to **View Subscription** and view the
    license for the software product.
 2. On the **Procurement** page:
+
    1. Choose **Manage License** to view, grant access, and track usage
       of your entitlements in AWS License Manager.
    2. Choose **Continue to Configuration**.

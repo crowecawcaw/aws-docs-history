@@ -20,6 +20,7 @@ following prerequisites:
   in the _AWS Organizations User Guide_.
 - Create the service-linked role and enable **Trusted access** in AWS Marketplace settings.
 - The following enablement permissions are required to enable the dashboards:
+
   - `iam:CreateServiceLinkedRole`
   - `organizations:DescribeOrganization`
   - `organizations:EnableAWSServiceAccess`
@@ -29,6 +30,7 @@ following prerequisites:
   - `organizations:RegisterDelegatedAdministrator`(Required to manage delegated admins)
 
 - The following permissions are required to view and interact with the dashboards:
+
   - `aws-marketplace:GetBuyerDashboard`
   - `organizations:DescribeOrganization`
 

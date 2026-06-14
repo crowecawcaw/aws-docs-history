@@ -17,14 +17,17 @@ You can skip the optional steps and update the experience after creation. If you
 ## Configuring an experience
 
 1. Open the AWS Marketplace console at [https://console.aws.amazon.com/marketplace/](https://console.aws.amazon.com/marketplace/ "https://console.aws.amazon.com/marketplace/").
+
    1. In the navigation pane, choose **Dashboard** under **Private Marketplace**.
    2. Choose **Create experience**.
 
 2. Specify experience details such as name and description. This is the internal name and description used by administrators to keep track of this experience. End users will not see these fields.
+
    1. Enter a name for your experience.
    2. (Optional) Enter a description for your experience.
 
 3. (Optional) Update status and requests
+
    1. By default, the experience will be created with **Live** status and will take effect when it is associated with an audience. Choose **Not live** as **Experience status** if you do not want the experience to take effect immediately.
    2. By default, product requests are enabled which allows users to request more products to be added to the experience. If you do not want to allow users to request products, choose disabled for **Product procurement requests**.
 

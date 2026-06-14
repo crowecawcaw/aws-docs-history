@@ -17,6 +17,7 @@ The product details page in AWS Marketplace includes details about the product, 
 
 - **Product Overview** – The overview includes a product
   description and the following information:
+
   - The product version that you're viewing.
   - A link to the seller's profile.
   - The product categories that this product belongs to.
