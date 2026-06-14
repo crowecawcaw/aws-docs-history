@@ -4,6 +4,7 @@ The following prerequisites are also required to complete this walkthrough:
 
 - Familiarity with Amazon RDS, the applicable database technologies, and SQL.
 - The custom scripts that include creating the tables to be migrated and SQL queries for confirming the migration, as listed following:
+
   - `Oracle-HR-Schema-Build.sql` — SQL statements to build the **HR** schema.
   - `Oracle_Aurora_For_DMSDemo.template` — an AWS CloudFormation template.
 

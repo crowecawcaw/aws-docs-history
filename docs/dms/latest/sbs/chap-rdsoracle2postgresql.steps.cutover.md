@@ -72,5 +72,6 @@ ALTER TABLE table_name ENABLE TRIGGER ALL;
 ```
 
 10. If you set up a rollback, then complete the rollback setup.
+
     1.  Start the application services on new target PostgreSQL database (including scripts , client software, and so on).
     2.  Add CloudWatch monitoring on your new PostgreSQL database. For more information, see [Monitoring Amazon RDS](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md").

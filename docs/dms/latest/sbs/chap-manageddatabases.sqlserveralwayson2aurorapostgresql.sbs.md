@@ -72,6 +72,7 @@ In this step, you need to configure and verify that the DMS user account has req
 
 1. Create the AWS DMS user with one of the following permissions on your Aurora PostgreSQL database if it does not exist. Your PostgreSQL target endpoint requires minimum user permissions to run an AWS DMS migration. For more information, see [Security requirements when using PostgreSQL database as target for AWS Database Migration Service](../userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Security "../userguide/CHAP_Target.PostgreSQL.md#CHAP_Target.PostgreSQL.Security").
 2. Verify whether DMS user account has privileges by executing the following tests:
+
    1. Log into the Aurora PostgreSQL database.
    2. Create a new sample test table. Example: `create table sample test (num int, description varchar(100));`
    3. Alter the new sample_test table. Example: `alter table sample_test add primary key (num);`

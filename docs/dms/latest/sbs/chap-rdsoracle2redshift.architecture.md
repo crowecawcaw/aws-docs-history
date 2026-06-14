@@ -7,6 +7,7 @@ We provision the AWS resources that are required for this AWS DMS walkthrough th
 - A VPC with CIDR (10.0.0.0/24) with two public subnets in your region, DBSubnet1 at the address 10.0.0.0/26 in Availability Zone (AZ) 1 and DBSubnet2 at the address 10.0.0.64/26, in AZ 12.
 - A DB subnet group that includes DBSubnet1 and DBSubnet2.
 - Oracle RDS Standard Edition Two with these deployment options:
+
   - License Included
   - Single-AZ setup
   - db.m3.medium or equivalent instance class
@@ -14,6 +15,7 @@ We provision the AWS resources that are required for this AWS DMS walkthrough th
   - Default option and parameter groups
 
 - Amazon Redshift cluster with these deployment options:
+
   - dc1.large
   - Port 5439
   - Default parameter group

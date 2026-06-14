@@ -9,6 +9,7 @@ To provision an AWS DMS replication instance, download the [DMS_CF.yaml template
 5. Choose the `DMS_CF.yaml` file.
 6. Choose **Next**.
 7. On the **Specify Stack Details** page, edit the predefined values as needed, and then choose **Next**:
+
    - **Stack name** — Enter a name for the stack.
    - **AllocatedStorageSize** — Enter the storage size in GB. The default is 200 GB.
    - **DMSReplicationSubnetGroup** — Enter the subnet group for DMS replication.

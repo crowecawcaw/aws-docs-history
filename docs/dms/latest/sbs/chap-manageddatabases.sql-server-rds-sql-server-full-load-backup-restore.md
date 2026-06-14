@@ -81,6 +81,7 @@ We create the `sql-server-backup-restore` role, and then use it when we configur
 To restore your backup, do the following:
 
 1. Create an option group for the target database.
+
    1. In the Amazon RDS console, choose **Option groups**, and then choose **Create option group**.
    2. For **Name**, enter **SQLServerrestore**.
    3. For **Description**, enter **SQLServerrestore**.
@@ -89,12 +90,14 @@ To restore your backup, do the following:
    6. Choose **Create**.
 
 2. Add the `SQLSERVER_BACKUP_RESTORE` option and the `sql-server-backup-restore` role to this option group to access S3 bucket.
+
    1. On the **Option groups** page, choose the option group that you created.
    2. For **Options**, choose **Add option**. The **Add option** page opens.
    3. For **Option name**, choose **SQLSERVER_BACKUP_RESTORE**.
    4. For **IAM role**, choose the `sql-server-backup-restore` role.
 
 3. Modify your Amazon RDS for SQL Server DB instance and attach this option group.
+
    1. In the Amazon RDS console, choose **Databases**, and then choose your target database.
    2. Choose **Modify**. The **Modify DB instance** page opens.
    3. In the **Additional configuration** section, choose **SQLServerrestore** for **Option group**.

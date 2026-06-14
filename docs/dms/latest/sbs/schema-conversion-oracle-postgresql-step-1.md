@@ -10,6 +10,7 @@ First, you create a virtual private cloud (VPC). This VPC is based on the Amazon
 2.  Choose your AWS Region.
 3.  Choose **Create VPC**.
 4.  On the **Create VPC** page, enter the following settings:
+
     - **Resources to create** — **VPC and more**
     - **Name tag auto-generation** — Choose **Auto-generate** and enter a globally unique name. For example, enter `sc-vpc`.
     - **IPv4 CIDR block** — `10.0.1.0/24`
@@ -18,6 +19,7 @@ First, you create a virtual private cloud (VPC). This VPC is based on the Amazon
 
 5.  Keep the rest of the settings as they are, and then choose **Create VPC**.
 6.  Choose **Subnets**.
+
     - For **Filter by VPC**, choose **sc-vpc**.
     - Take a note of your two private subnet IDs. Private subnet IDs don’t include `Public` in the name.
 

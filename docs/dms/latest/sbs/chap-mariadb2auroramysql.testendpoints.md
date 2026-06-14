@@ -2,12 +2,14 @@
 
 1. On the navigation pane, choose **Endpoints**.
 2. Choose the source endpoint name (`maria-on-prem`) and do the following:
+
    1. Choose **Test connections**.
    2. Choose the replication instance to test (`mariadb-mysql`).
    3. Choose **Run Test** and wait for the status to be **successful**.
 
 3. On the navigation pane, choose **Endpoints**.
 4. Choose the target endpoint name (`mysqltrg-rds`) and do the following:
+
    1. Choose **Test Connections**.
    2. Choose the replication instance to test (`mariadb-mysql`).
    3. Choose **Run Test** and wait for the status to be **successful**.

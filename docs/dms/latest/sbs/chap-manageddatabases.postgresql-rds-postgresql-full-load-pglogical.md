@@ -69,13 +69,13 @@ psql -h <hostname> -p 5432 -U <username> -d <database_name> -c "select name, set
 Now, you can configure the logical replication between your self-managed PostgreSQL databases and Amazon RDS for PostgreSQL or Aurora PostgreSQL.
 
 1. Download the `pglogical rpm` and install it on your source database.
+
    - For PostgreSQL 9.6, run the following command.
 
    ```
    curl https://access.2ndquadrant.com/api/repository/dl/default/release/9.6/rpm | bash
    yum install postgresql96-pglogical
    ```
-
    - For PostgreSQL 10, run the following command.
 
    ```

@@ -5,6 +5,7 @@ This walkthrough gets you started with heterogeneous database migration from Mic
 At a high level, this migration includes the following steps:
 
 - Use the AWS Management Console to do the following:
+
   - Create a VPC in the Amazon VPC console.
   - Create IAM roles in the IAM console.
   - Create an Amazon S3 bucket in the Amazon S3 console.
@@ -12,6 +13,7 @@ At a high level, this migration includes the following steps:
   - Store database credentials in AWS Secrets Manager.
 
 - Use the AWS DMS console to do the following:
+
   - Create an instance profile for your migration project.
   - Create data providers for your source and target databases.
   - Create a migration project.

@@ -20,6 +20,7 @@ To migrate your on-premises source database, make sure that you configure a priv
 2. Choose your AWS Region.
 3. Choose **Create VPC**.
 4. On the **Create VPC** page, enter the following settings:
+
    - **Resources to create** — **VPC and more**
    - **Name tag auto-generation** — Choose **Auto-generate** and enter a globally unique name. For example, enter `dm-vpc`.
    - **IPv4 CIDR block** — `10.0.1.0/24`

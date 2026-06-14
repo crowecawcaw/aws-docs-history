@@ -9,6 +9,7 @@ To provision Aurora MySQL as a target database, download the [AuroraMysql_CF.yam
 5. Choose the `AuroraMySQL.yaml` file.
 6. Choose **Next**.
 7. On the **Specify stack details** page, edit the predefined values as needed, and then choose **Next**:
+
    - **Stack name** — Enter a name for the stack.
    - **CIDR** — Enter the CIDR IP range to access the instance.
    - **DBBackupRetentionPeriod** — The number of days for backup retention.

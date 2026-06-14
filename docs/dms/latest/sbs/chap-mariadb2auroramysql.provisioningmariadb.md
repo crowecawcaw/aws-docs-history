@@ -8,6 +8,7 @@ To provision MariaDB as a source database, download [Mariadb_CF.zip with the YAM
 4. Select **Choose file**.
 5. Choose the `Mariadb_CF.yaml` file, and then choose **Next**.
 6. On the **Specify stack details** page, edit the predefined values as needed, and then choose **Next**:
+
    - **Stack name** — Enter a name for the stack.
    - **CIDR** — Enter the CIDR IP range to access the instance.
    - **DBAllocatedStorage** — Enter the database storage size in GB. The default is 20 GB.

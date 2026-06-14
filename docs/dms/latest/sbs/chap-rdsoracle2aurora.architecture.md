@@ -7,6 +7,7 @@ We will provision the AWS resources that are required for this AWS Database Migr
 - A VPC with CIDR (10.0.0.0/24) with two public subnets in your region, DBSubnet1 at the address 10.0.0.0/26 in Availability Zone 1 (AZ 1) and DBSubnet2 at the address 10.0.0.64/26, in AZ 2.
 - A DB subnet group that includes DBSubnet1 and DBSubnet2.
 - Oracle RDS Standard Edition Two with these deployment options:
+
   - License Included
   - Single-AZ setup
   - db.m3.medium or equivalent instance class
@@ -14,6 +15,7 @@ We will provision the AWS resources that are required for this AWS Database Migr
   - Default option and parameter groups
 
 - Amazon Aurora MySQL DB instance with these deployment options:
+
   - No replicas
   - db.r3.large or equivalent instance class
   - Port 3306

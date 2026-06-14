@@ -5,6 +5,7 @@ To install the SQL drivers and the AWS Schema Conversion Tool (AWS SCT) on your 
 1. Download the JDBC driver for your Oracle database release. For more information, go to https://www.oracle.com/jdbc.
 2. Download the PostgreSQL driver ([postgresql-42.2.19.jar](https://jdbc.postgresql.org/download/postgresql-42.2.19.jar "https://jdbc.postgresql.org/download/postgresql-42.2.19.jar")).
 3. Install AWS SCT and the required JDBC drivers.
+
    1. Download AWS SCT from [Installing, verifying, and updating the Schema Conversion Tool](../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md "../../../SchemaConversionTool/latest/userguide/CHAP_Installing.md").
    2. Launch AWS SCT.
    3. In AWS SCT, choose **Global settings** from **Settings**.

@@ -7,6 +7,7 @@ This walkthrough assumes you will use the SQL Workbench/J client to connect to t
 1.  Download SQL Workbench/J from [the SQL Workbench/J website](http://www.sql-workbench.net/downloads.html "http://www.sql-workbench.net/downloads.html"), and then install it on your local computer. This SQL client is free, open-source, and DBMS-independent.
 2.  Download the JDBC driver for your Oracle database release. For more information, go to https://www.oracle.com/jdbc.
 3.  Download the Amazon Redshift driver file, `RedshiftJDBC41-1.1.17.1017.jar`, as described following.
+
     1. Find the Amazon S3 URL to the file in [Previous JDBC Driver Versions](../../../redshift/latest/mgmt/jdbc-previous-versions.md "../../../redshift/latest/mgmt/jdbc-previous-versions.md") of the _Amazon Redshift Cluster Management Guide_.
     2. Download the driver as described in [Download the Amazon Redshift JDBC Driver](../../../redshift/latest/mgmt/configure-jdbc-connection.md#download-jdbc-driver "../../../redshift/latest/mgmt/configure-jdbc-connection.md#download-jdbc-driver") of the same guide.
 

@@ -11,6 +11,7 @@ This introductory exercise shows how you can use homogeneous data migrations in 
 At a high level, this migration includes the following steps:
 
 - Use the AWS Management Console to create the required resources:
+
   - Create a VPC in the Amazon VPC console.
   - Create IAM roles in the IAM console.
   - Create your target Amazon RDS for PostgreSQL database in the Amazon RDS console.

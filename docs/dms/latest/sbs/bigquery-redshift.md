@@ -5,10 +5,12 @@ This walkthrough gets you started with heterogeneous database migration from Big
 At a high level, the steps involved in this migration are the following:
 
 - Use the Google Cloud management console to do the following:
+
   - Create a service account, which AWS SCT can use to connect to your source BigQuery project.
   - Create a Cloud Storage bucket to store your source data during migration.
 
 - Use the AWS Management Console to do the following:
+
   - Create an Amazon Redshift cluster.
   - Create an Amazon Simple Storage Service (Amazon S3) bucket.
 

@@ -9,6 +9,7 @@ This document focuses on migrating custom applications where you control the sou
 - [Can My Oracle Database Migrate?](chap-oracle-postgresql.can-my-db-migrate.md "chap-oracle-postgresql.can-my-db-migrate.md")
 - [Migration Strategies](#chap-oracle-postgresql.migration-strategies "#chap-oracle-postgresql.migration-strategies")
 - [The 12 Step Migration Process](#chap-oracle-postgresql.migration-process "#chap-oracle-postgresql.migration-process")
+
   - [Future State Architecture Design](chap-oracle-postgresql.migration-process.future-state.md "chap-oracle-postgresql.migration-process.future-state.md")
   - [Database Schema Conversion](chap-oracle-postgresql.migration-process.database-schema-conversion.md "chap-oracle-postgresql.migration-process.database-schema-conversion.md")
   - [Application Conversion or Remediation](chap-oracle-postgresql.migration-process.application-conversion.md "chap-oracle-postgresql.migration-process.application-conversion.md")

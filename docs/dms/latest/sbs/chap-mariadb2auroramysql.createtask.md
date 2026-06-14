@@ -4,6 +4,7 @@ We’ve now verified that the replication instance can connect to both the sourc
 
 1. On the navigation pane, choose **Database Migration Tasks**.
 2. Choose **Create Task**. Provide the specified values for the following, and then choose **Next**:
+
    - **Task identifier** — `maria-mysql`
    - **Replication instance** — Choose the replication instance, `mariadb-mysql`.
    - **Source database endpoint** — Choose the source database, `maria-on-prem`.
@@ -11,6 +12,7 @@ We’ve now verified that the replication instance can connect to both the sourc
    - **Migration Type** — Choose **Migrate existing data and replicate ongoing changes** for CDC, or **Migrate existing data** for full load.
 
 3. For **Task settings**, choose the following settings:
+
    - **Target table preparation mode** — Do nothing
    - **Stop task after full load completes** — Don’t stop
    - **Include LOB columns in replication** — Limited LOB mode
@@ -19,6 +21,7 @@ We’ve now verified that the replication instance can connect to both the sourc
    - **Enable CloudWatch logs**
 
 4. For **Table mappings**, choose the following settings:
+
    - Schema — Choose **migration** (assuming the schema and database to be migrated appear correctly).
    - Table name — Enter the table name, or `%` to specify all the tables in the database.
    - Action — Enter **Include** to include specific tables, or **Exclude** to exclude specific tables.
