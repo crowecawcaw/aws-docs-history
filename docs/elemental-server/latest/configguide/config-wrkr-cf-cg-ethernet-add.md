@@ -16,6 +16,7 @@ instructions to do so.
 3. On the **Network Devices** page, choose **Add Network Device**.
 4. In the **Add a New Network Device** dialog, select **eth (ethN)**.
 5. Complete the fields as follows:
+
    - **Device Name**: Select the eth device that you're setting up.
    - **Management**: Typically, leave this unchecked. This device won't be set up
      as a management interface. The node is usually installed with eth0 as the management

@@ -15,6 +15,7 @@ First, create the bond for the network devices. In the next step, you will add t
 4. In the **Add a New Network Device** dialog, select **bond
    (bondN)**.
 5. Complete the fields as follows:
+
    - **Bond ID**: Provide a number that is unique among your bonded
      interfaces.
    - **Management**: Select if the devices that you're bonding are management
@@ -47,7 +48,9 @@ First, create the bond for the network devices. In the next step, you will add t
 
 7. In **Link Mode**, select the linking mode that you're using for
    this bond and complete the relevant fields, as described here:
+
    - For media-independent interface (MII) mode, complete these fields:
+
      - **MII Monitoring Frequency**: Determines how often the link
        state of each bonded interface is inspected for link failure, in milliseconds.
        We recommend 100ms as a starting point.
@@ -71,6 +74,7 @@ First, create the bond for the network devices. In the next step, you will add t
        monitoring frequency. The default is 0.
 
    - For address resolution protocol (ARP) mode, complete these fields:
+
      - **ARP Interval**: Determines how often the link state of
        each bonded interface is inspected, in milliseconds. Periodically checks devices
        for traffic and generates regular interval traffic via ARP probes for ARP IP

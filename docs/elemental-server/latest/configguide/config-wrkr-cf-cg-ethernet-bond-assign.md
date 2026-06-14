@@ -12,6 +12,7 @@ Next, add the Ethernet devices to the bond that you created in [Step A: Create t
    interface, locate the devices that you're adding to the bond.
 2. For each device, choose **Edit Network Device** (pencil icon) and
    make the following changes:
+
    - Make sure that **Management** isn't selected. Whether the
      devices are management interfaces or not is defined in the bond and not in the
      individual devices.

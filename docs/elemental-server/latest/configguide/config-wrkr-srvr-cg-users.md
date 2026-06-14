@@ -21,6 +21,7 @@ the node.
 2. Hover over **Settings** and choose **Users**.
 3. On the **Users** screen, choose **New User**.
 4. Complete all fields and choose **Create**. Some notes:
+
    - **Expires**: If selected, the user name automatically expires after
      the specified period of time.
    - **Force Password Reset**: If checked, the users must reset their
@@ -42,13 +43,16 @@ Node access is defined by the role assigned to the user. This section describes 
 actions that each user role can perform.
 
 - **Viewer**
+
   - Read-only access to AWS Elemental Server
 
 - **Operator**
+
   - Same access as Viewer
   - Control the state of a job (cancel, archive, etc)
 
 - **Manager**
+
   - Same access as Viewer
   - Same access as Operator
   - Create and edit jobs
@@ -57,5 +61,6 @@ actions that each user role can perform.
   - Create and edit watch folders
 
 - **Administrator**
+
   - Access to the entire AWS Elemental Server system, including all of the access
     provided by the other roles
