@@ -10,6 +10,7 @@ financial services workloads.
    common goal and strategic direction. Many organizations have
    adopted the “Three Lines of Defense” model to improve
    effectiveness of risk management:
+
    - At the first line of defense, operational managers are responsible for initiating
      risk and control procedures on a day-to-day basis.
    - The second line establishes various risk management and compliance functions to
@@ -42,6 +43,7 @@ financial services workloads.
    checklists often lead to delays and inaccurate results. Automated governance provides a
    fast, definitive governance check for applications deployment at scale. Governance at scale
    typically addresses the following components:
+
    - **Account management:** Automate account provisioning and
      maintain good security when hundreds of users and business units are requesting
      cloud-based resources.

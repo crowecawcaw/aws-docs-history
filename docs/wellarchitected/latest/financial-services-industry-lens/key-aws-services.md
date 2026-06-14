@@ -1,6 +1,7 @@
 # Key AWS services
 
 - **Security foundations**
+
   - [AWS Control Tower](https://aws.amazon.com/controltower/ "https://aws.amazon.com/controltower/"): Set up and govern a
     secure, multi-account AWS environment
   - [AWS Organizations](https://aws.amazon.com/organizations/ "https://aws.amazon.com/organizations/"): Centrally manage your
@@ -10,6 +11,7 @@
 
 - **Identity and access
   management**
+
   - [AWS Identity and Access Management (IAM)](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/"):
     Control users' access to and usage of AWS. Create and
     manage users and groups and grant or deny access. Enforce
@@ -23,6 +25,7 @@
     secrets through their lifecycle
 
 - **Detection**
+
   - [AWS Security Hub CSPM](https://aws.amazon.com/security-hub/ "https://aws.amazon.com/security-hub/"): Automate AWS security
     checks and centralize security alerts
   - [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/"): Protect your AWS accounts
@@ -37,6 +40,7 @@
     other clouds
 
 - **Infrastructure protection**
+
   - [Amazon VPC](https://aws.amazon.com/vpc/ "https://aws.amazon.com/vpc/"): Define and launch AWS resources in a
     logically isolated virtual network
   - [AWS Network Firewall:](https://aws.amazon.com/network-firewall/ "https://aws.amazon.com/network-firewall/") Deploy network firewall
@@ -47,6 +51,7 @@
     common exploits
 
 - **Data protection**
+
   - [AWS CloudTrail:](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/") Track user activity and API
     usage
   - [AWS Key Management Service (KMS)](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/"): Create and
@@ -60,6 +65,7 @@
     milliseconds access
 
 - **Incident response**
+
   - [AWS Lambda](https://aws.amazon.com/lambda/ "https://aws.amazon.com/lambda/"): Run code without thinking about
     servers or clusters
   - [AWS Audit Manager:](https://aws.amazon.com/audit-manager/ "https://aws.amazon.com/audit-manager/") Continuously audit your

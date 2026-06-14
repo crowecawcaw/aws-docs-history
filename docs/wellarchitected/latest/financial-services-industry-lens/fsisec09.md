@@ -40,6 +40,7 @@ key stores](../../../kms/latest/developerguide/keystore-external.md "../../../km
 - Work backwards from your company's compliance objectives
   and security standards in order to determine the right
   encryption method for your use case.
+
   - Leverage AWS audit reports, available for download
     at
     [AWS Artifact](https://aws.amazon.com/artifact/ "https://aws.amazon.com/artifact/"), to understand the

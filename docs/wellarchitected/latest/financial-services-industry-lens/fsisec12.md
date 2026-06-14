@@ -53,6 +53,7 @@ perform incident or recovery communications as required.
   regulatory responsibilities that can be related to
   incident responses.
 - For AI systems:
+
   - Include AI-specific incidents in response
     procedures.
   - Develop playbooks for model misuse.

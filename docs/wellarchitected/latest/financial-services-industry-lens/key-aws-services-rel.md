@@ -1,6 +1,7 @@
 # Key AWS services
 
 - **Resilient architecture**
+
   - **[Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"):** Leverage Amazon S3 object storage
     and replication to provide durability and resilience of
     your data on AWS. It is available Regionally (resilient
@@ -71,6 +72,7 @@
     maintenance windows or scheduled downtimes for either.
 
 - **Monitoring**
+
   - **[CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/"):**
     Amazon CloudWatch is the principal monitoring service
     for AWS Cloud resources and the workloads that you run on
@@ -82,6 +84,7 @@
     CloudWatch.
 
 - **Backup and retention**
+
   - [**Amazon Glacier**](https://aws.amazon.com/s3/storage-classes/glacier/ "https://aws.amazon.com/s3/storage-classes/glacier/"): Amazon Glacier, is an
     extremely low-cost storage service optimized for
     infrequently used data, or cold data.

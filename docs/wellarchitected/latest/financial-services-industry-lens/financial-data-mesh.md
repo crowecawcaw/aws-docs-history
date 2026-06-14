@@ -33,6 +33,7 @@ _Figure 1. Financial data mesh_
 - **Producer accounts:** Business
   domains manage the lifecycle of their datasets in their own AWS accounts, including ETL, security, retention, and backup.
 - **Catalog account:**
+
   - Business domains provide access to prepared datasets to a
     centralized catalog and access management account where
     Lake Formation is used to access business domain datasets.

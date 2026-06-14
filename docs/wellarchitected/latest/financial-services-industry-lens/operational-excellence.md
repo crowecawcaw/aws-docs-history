@@ -60,6 +60,7 @@ services.
 
 - **Implement a risk management process:** Financial
   institutions have adopted a [Three Lines of Defense model](https://www.iansresearch.com/resources/all-blogs/post/security-blog/2022/01/13/how-to-apply-the-three-lines-of-defense "https://www.iansresearch.com/resources/all-blogs/post/security-blog/2022/01/13/how-to-apply-the-three-lines-of-defense") for risk management:
+
   - **First line of defense:** Operational managers perform
     risk and control procedures on a day-to-day basis.
   - **Second line of defense:** Various risk management and

@@ -42,6 +42,7 @@ performance and make the necessary adjustments to your workloads.
 
 - Establish a process to monitor individual instances to help you to use two
   major optimization approaches:
+
   - Using only what you need
   - Right-sizing what you do need
 
@@ -67,6 +68,7 @@ performance and make the necessary adjustments to your workloads.
   60% CPU to breakage to best assess threshold and limit over provisioning instances.
 - **Service recommendations:** Use the following services
   to achieve these goals:
+
   - [AWS Compute Optimizer](https://aws.amazon.com/compute-optimizer/ "https://aws.amazon.com/compute-optimizer/")
   - [Amazon CloudWatch
     metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md")

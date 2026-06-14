@@ -24,6 +24,7 @@ the sustainability performance of your workloads.
   providing the most sustainable infrastructure possible while you are responsible for
   judiciously developing workloads that take advantage of the most sustainable options
   provided by AWS.
+
   - **Sustainability of the cloud:** AWS' responsibility to
     you
   - **Sustainability in the cloud:** Your responsibility

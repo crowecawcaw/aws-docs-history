@@ -58,8 +58,10 @@ Data types may include the following:
   business outcomes and choose the right energy-efficient storage tier. Determine
   criticality, confidentiality, integrity, and availability of data based on risk to
   the organization.
+
   - Evaluate your data characteristics and access pattern to collect the key
     characteristics of your storage needs. Key characteristics to consider include:
+
     - **Data type:** Structured, semistructured,
       unstructured
     - **Data growth:** Bounded, unbounded

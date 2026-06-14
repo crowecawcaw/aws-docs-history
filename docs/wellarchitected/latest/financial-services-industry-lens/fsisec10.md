@@ -99,6 +99,7 @@ versioning on non-compliant Amazon S3 buckets.
   several solutions](https://aws.amazon.com/blogs/security/use-backups-to-recover-from-security-incidents/ "https://aws.amazon.com/blogs/security/use-backups-to-recover-from-security-incidents/") for backups to
   integrate with your operational and security incident
   recovery procedures.
+
   - Use
     [AWS Backup](https://aws.amazon.com/backup/ "https://aws.amazon.com/backup/") with AWS Organizations to
     centrally deploy data protection policies to
@@ -119,6 +120,7 @@ versioning on non-compliant Amazon S3 buckets.
   longer decrypt the data that was encrypted under that
   AWS KMS key, which means that data becomes
   unrecoverable.
+
   - Delete an AWS KMS key only when you are sure that
     you don't need to use it anymore.
   - If you are not sure, consider

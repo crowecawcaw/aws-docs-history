@@ -38,6 +38,7 @@ manipulation and enforcing response filtering mechanisms.
   several solutions](https://aws.amazon.com/blogs/security/use-backups-to-recover-from-security-incidents/ "https://aws.amazon.com/blogs/security/use-backups-to-recover-from-security-incidents/") for backups to
   integrate with your operational and security incident
   recovery procedures.
+
   - Use
     [AWS Backup](https://aws.amazon.com/backup/ "https://aws.amazon.com/backup/") with AWS Organizations to
     centrally deploy data protection policies to
@@ -113,6 +114,7 @@ see
   several solutions](https://aws.amazon.com/blogs/security/use-backups-to-recover-from-security-incidents/ "https://aws.amazon.com/blogs/security/use-backups-to-recover-from-security-incidents/") for backups to
   integrate with your operational and security incident
   recovery procedures.
+
   - Use
     [AWS Backup](https://aws.amazon.com/backup/ "https://aws.amazon.com/backup/") with AWS Organizations to
     centrally deploy data protection policies to

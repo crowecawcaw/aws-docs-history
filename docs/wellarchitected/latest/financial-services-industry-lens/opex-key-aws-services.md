@@ -1,6 +1,7 @@
 # Key AWS services
 
 - **Management and governance**
+
   - [AWS Config](https://aws.amazon.com/config "https://aws.amazon.com/config") - AWS Config continually assesses,
     audits, and evaluates the configurations and relationships of your resources. Codify
     your compliance requirements as AWS Config rules and author remediation actions,
@@ -43,6 +44,7 @@
     tool uses the AWS Well-Architected Framework.
 
 - **Compliance**
+
   - [AWS Compliance
     Center](https://aws.amazon.com/financial-services/security-compliance/compliance-center/ "https://aws.amazon.com/financial-services/security-compliance/compliance-center/") - The AWS Compliance Center is a central location to research
     cloud-related regulatory requirements and how they impact your industry.
@@ -59,6 +61,7 @@
     with organizational or regulatory requirements.
 
 - **Monitoring**
+
   - [Amazon CloudWatch](https://aws.amazon.com/cloudwatch "https://aws.amazon.com/cloudwatch") - Amazon CloudWatch collects and
     visualizes real-time logs, metrics, and event data in automated dashboards to
     streamline your infrastructure and application maintenance. Perform root cause
@@ -69,6 +72,7 @@
     storage, analysis, and remediation actions.
 
 - **Deployment**
+
   - [AWS CodeDeploy](https://aws.amazon.com/codedeploy "https://aws.amazon.com/codedeploy") - AWS CodeDeploy is a fully
     managed deployment service that automates software deployments to various compute
     services, such as Amazon Elastic Compute Cloud (EC2), Amazon Elastic Container Service (ECS), AWS Lambda, and your on-premises
@@ -92,6 +96,7 @@
     reviews.
 
 - **Operations**
+
   - [AWS Health Dashboard](https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/ "https://aws.amazon.com/premiumsupport/technology/aws-health-dashboard/") - The AWS Health Dashboard is the single
     place to learn about the availability and operations of AWS services. You can view
     the overall status of AWS services, and you can sign in to view personalized

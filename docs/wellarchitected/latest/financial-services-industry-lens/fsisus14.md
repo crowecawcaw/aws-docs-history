@@ -42,6 +42,7 @@ thus increases the opportunity to use hardware that may be more sustainable.
   expanding compiler options on varying processors.
 - **Service recommendations:** Use the following services
   to achieve your goal:
+
   - [Amazon Simple Queue Service and Amazon EC2 Spot Instances](https://aws.amazon.com/blogs/compute/running-cost-effective-queue-workers-with-amazon-sqs-and-amazon-ec2-spot-instances/ "https://aws.amazon.com/blogs/compute/running-cost-effective-queue-workers-with-amazon-sqs-and-amazon-ec2-spot-instances/")
   - [AWS CodeBuild](https://aws.amazon.com/blogs/devops/creating-multi-architecture-docker-images-to-support-graviton2-using-aws-codebuild-and-aws-codepipeline/ "https://aws.amazon.com/blogs/devops/creating-multi-architecture-docker-images-to-support-graviton2-using-aws-codebuild-and-aws-codepipeline/")
   - [AWS Batch](https://aws.amazon.com/batch/ "https://aws.amazon.com/batch/")
