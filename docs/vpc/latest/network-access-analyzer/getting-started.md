@@ -28,6 +28,7 @@ few minutes to complete the analysis.
 2. In the navigation pane, choose **Network Access Analyzer**.
 3. If you are using Network Access Analyzer for the first time, choose **Get Started**.
 4. Select one of the Amazon created Network Access Scopes:
+
    - **All-IGW-Ingress (Amazon created)** – Identifies inbound paths
      from internet gateways to network interfaces.
    - **AWS-IGW-Egress (Amazon created)** – Identifies outbound paths

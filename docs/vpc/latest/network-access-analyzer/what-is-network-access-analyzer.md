@@ -26,6 +26,7 @@ paths that do not meet your specified requirements. You can use Network Access A
 - **Trusted network access** – Verify that your
   resources have network access only from a trusted IP address range, over specific ports and
   protocols. You can specify your network access requirements in terms of:
+
   - Resource IDs (for example, `vpc-1234567890abcdef0`)
   - Resource types (for example, `AWS::EC2::InternetGateway`)
   - Resource tags
