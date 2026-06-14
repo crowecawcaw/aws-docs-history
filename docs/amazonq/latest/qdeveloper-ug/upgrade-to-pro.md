@@ -32,6 +32,7 @@ IDE
 1. Authenticate to Amazon Q in your IDE using your personal account (Builder ID). For
    more information, see [Installing the Amazon Q Developer extension or plugin in your IDE](q-in-IDE-setup.md "q-in-IDE-setup.md").
 2. In your IDE, do one of the following:
+
    - If you see a `Monthly request limit
 reached` message in the Amazon Q chat window,
      choose **Subscribe to Q Developer Pro**.

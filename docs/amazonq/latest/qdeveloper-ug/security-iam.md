@@ -145,6 +145,7 @@ IAM roles with temporary credentials are useful in the following situations:
 - **Cross-service access** – Some AWS services
   use features in other AWS services. A service might do this using the calling
   principal’s permissions, using a service role, or using a service-linked role.
+
   - **Principal permissions** – When you use an IAM user or role to perform actions in AWS, you are
     considered a principal. Policies grant permissions to a principal. When you use some
     services, you might perform an action that then triggers another action in a different

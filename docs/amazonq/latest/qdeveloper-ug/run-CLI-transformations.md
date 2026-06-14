@@ -208,21 +208,29 @@ that you can review before the transformation begins. You have the
 option to request the following changes to the plan:
 
 - Which libraries Amazon Q upgrades, from the list included in the plan
+
   - Example prompts:
+
     - Only upgrade <dependency1>, <dependency2>, and <dependency5>
     - Don't upgrade <dependency1> or <dependency2>
 
 - The target version to upgrade a library to
+
   - Example prompts:
+
     - Upgrade <dependency> to this version instead <version>
 
 - Which steps Amazon Q should perform
+
   - Example prompts:
+
     - Only complete steps 1-7
     - Don't run steps 5-9
 
 - Add additional dependencies to upgrade (only an option when upgrading to a newer JDK version)
+
   - Example prompts:
+
     - Also upgrade <dependency1> to <version2>
 
 ###### Upgrade Java code
@@ -320,6 +328,7 @@ job for up to 12 hours before you can resume again.
 
 1. In your CLI terminal, press **Ctrl+C** on your keyboard.
 2. Select whether you want to pause or cancel your tranformation.
+
    - Enter `1` if you want to puase the code transformation job. You
      can resume the job within 12 hours to continue the code transformation using the
      following QCT command:

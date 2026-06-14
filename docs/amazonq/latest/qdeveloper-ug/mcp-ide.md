@@ -135,6 +135,7 @@ To review and adjusting tool permissions:
 1. Open the MCP Servers panel.
 2. Choose the MCP server for which you want to review and adjust permissions.
 3. For each tool, you can set one of the following permission levels:
+
    - Ask: Prompt for permission each time the tool is used.
    - Always allow: Allow the tool to run without prompting.
    - Deny: Do not use this tool.

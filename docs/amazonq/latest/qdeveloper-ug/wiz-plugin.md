@@ -276,16 +276,19 @@ most of out of the Amazon Q Wiz plugin:
   the Amazon Q Wiz plugin to list your issues with critical or high severity. The
   plugin can return up to 10 issues. You can also ask to list up to the top 10
   most severe issues.
+
   - `@wiz what are my critical severity issues?`
   - `@wiz can you specify the top 5?`
 
 - **List issues based on date or status** –
   Ask to list issues based on create date, due date, or resolved date. You can
   also specify issues based on properties like status, severity, and type.
+
   - `@wiz which issues are due before <date>?`
   - `@wiz what are my issues that have been resolved since
 <date>?`
 
 - **Assess issues with security vulnerabilities** –
   Ask about the vulnerabilities or exposures that are posing security threats in your issues.
+
   - `@wiz which issues are associated with vulnerabilities or external exposures?`

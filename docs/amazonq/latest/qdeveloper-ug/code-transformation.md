@@ -95,11 +95,13 @@ the following steps:
 1. From your JetBrains IDE, choose **File** and then **Project Structure**.
 2. The Project Structure window opens. Under **Project Settings**,
    choose **Project**.
+
    1. To update your project JDK, choose from the dropdown list next to **SDK**.
    2. To update your project language, choose from the dropdown next to **Language level**.
 
 3. Under **Project Settings**, choose
    **Modules**.
+
    1. To update your module JDK, choose from the dropdown list next to **SDK**.
    2. To update your module language, choose from the
       dropdown next to **Language level**.

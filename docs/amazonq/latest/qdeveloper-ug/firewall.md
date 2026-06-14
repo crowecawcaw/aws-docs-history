@@ -71,12 +71,15 @@ manually configure an HTTP or HTTPS proxy using the instructions that follow.
 Eclipse
 
 1. In Eclipse, open **Preferences** as follows:
+
    - On Windows or Ubuntu:
+
      - From the Eclipse menu bar, choose
        **Window**, and then choose
        **Preferences**.
 
    - On macOS:
+
      - From the menu bar, choose **Eclipse**,
        and then choose **Settings** or
        **Preferences** depending on your
@@ -214,6 +217,7 @@ Eclipse
 2. Make sure your certificate file path is correct and accessible.
 3. Review your Amazon Q logs in the Eclipse Error Log. To navigate to the Error
    Log, do one of the following:
+
    - Sign in to Amazon Q in Eclipse, choose the down-arrow next to the Q
      icon at the top-right, and then choose **Help**,
      **View Logs**.
@@ -262,6 +266,7 @@ Visual Studio
    `https://`.
 2. Make sure your certificate file path is correct and accessible.
 3. Review the AWS Toolkit extension's logs as follows:
+
    - From the Visual Studio main menu, expand
      **Extensions**.
    - Choose **AWS Toolkit** to expand the AWS Toolkit

@@ -45,6 +45,7 @@ Amazon Q attempts to make the following changes when upgrading your code:
 - Upgrade popular libraries and frameworks to a version compatible with the target Java version.
   This includes updating the following libraries and frameworks to their latest
   available major versions:
+
   - Apache Commons IO
   - Apache HttpClient
   - bc-fips

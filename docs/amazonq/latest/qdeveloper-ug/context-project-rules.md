@@ -54,5 +54,6 @@ automatically whenever a developer chats with Amazon Q within your project.
 1. In your IDE, open the Amazon Q chat panel.
 2. In the chat input box, click the **Rules** button to see all available rules.
 3. Click on a rule to toggle it on or off for the current chat session:
+
    - Rules with a check mark are active and will be applied to your conversation.
    - Rules without a check mark are inactive for the current session.

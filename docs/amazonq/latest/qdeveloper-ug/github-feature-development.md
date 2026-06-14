@@ -32,6 +32,7 @@ For more information, see [Creating a label](https://docs.github.com/en/issues/u
    implement new features with Amazon Q Developer.
 3. Choose **Issues**, and then create a new issue or choose an existing
    issue. For more information, see [Create an issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue "https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/creating-an-issue") in the _GitHub documentation_.
+
    1. For a new issue, in the **Add a title** text input field, enter a
       title that provides context to Amazon Q Developer for the feature development (example:
       "Create an image recognition app"). The issue description should also be included as
@@ -43,7 +44,9 @@ For more information, see [Creating a label](https://docs.github.com/en/issues/u
 4. When creating an issue or configuring an existing issue, you can apply the feature
    development Amazon Q Developer label or use the `/q dev` slash command. Do one of the
    following:
+
    - To apply the label to the issue, do one of the following:
+
      - Choose the **Assign to Amazon Q** dropdown menu provided as a
        browser extension, and then choose the **Amazon Q development
        agent** label.
@@ -51,6 +54,7 @@ For more information, see [Creating a label](https://docs.github.com/en/issues/u
        the **Amazon Q development agent** label.
 
    - To use the `/q dev` slash command in a comment:
+
      1. Within the issue, navigate to **Add a comment**, and in the
         comment text input field, enter `/q dev`.
      2. Choose **Comment**.

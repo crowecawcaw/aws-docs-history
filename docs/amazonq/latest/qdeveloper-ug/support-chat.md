@@ -51,6 +51,7 @@ for Amazon Q.
 To create an Support case with Amazon Q, use the following steps.
 
 1. You can create an Support case through Amazon Q in one of two ways:
+
    1. Ask for help directly by entering a question such as “I want to speak to
       someone” or “Get support”.
 

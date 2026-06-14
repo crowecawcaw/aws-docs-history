@@ -36,6 +36,7 @@ the requirements for the GitHub organization. For more information, see [Require
 3. Review the Amazon Q Developer app's overview and features, and then choose
    **Install**.
 4. Do one of the following to configure access to your GitHub repositories:
+
    1. To provide access to all current and future repositories, choose **All
       repositories**.
    2. To provide access to specific repositories, choose **Only select

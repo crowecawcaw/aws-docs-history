@@ -269,15 +269,18 @@ most of out of the Amazon Q CloudZero plugin:
   – Ask about how CloudZero features work.
   Amazon Q might ask you for more information about what you’re trying to do to
   provide the best answer.
+
   - `@cloudzero how do I use CloudZero?`
   - `@cloudzero how do I get started with CloudZero?`
 
 - **List cost insights**
   – Get a list of cost insights or find out more about a specific insight.
+
   - `@cloudzero list my top cost insights`
   - `@cloudzero tell me more about insight <insight
 ID>`
 
 - **Get billing information**
   – Ask the Amazon Q CloudZero plugin about your AWS billing information.
+
   - `@cloudzero what were my AWS costs for December 2024?`

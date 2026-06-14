@@ -278,6 +278,7 @@ most of out of the Amazon Q Datadog plugin:
   workload** – Ask about how Datadog features work with
   certain AWS services. Amazon Q might ask you for more information about what
   you’re trying to do to provide the best answer.
+
   - `@datadog how do I use APM on EC2?`
 
 - **Retrieve and summarize cases and monitors**
@@ -286,11 +287,13 @@ most of out of the Amazon Q Datadog plugin:
   more information about properties, see
   [Properties](https://docs.datadoghq.com/monitors/manage/status/#properties "https://docs.datadoghq.com/monitors/manage/status/#properties") in the Datadog
   documentation.
+
   - `@datadog summarize the global outage case`
   - `@datadog summarize my top cases`
 
 - **Check monitors that are in an alarm state**
   – Ask the Amazon Q Datadog plugin to find your AWS application monitors
   that are in alarm. You can follow up with questions about the monitors it lists.
+
   - `@datadog what monitors are in alarm?`
   - `@datadog what is the status for monitor <monitor ID>?`

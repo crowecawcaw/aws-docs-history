@@ -21,6 +21,7 @@ Make sure that the following prerequisites for your application are met before y
   will evaluate the type of the project you selected and its dependencies to
   create a code group. Your code group can only have the following project
   types:
+
   - Console application
   - Class library
   - Web API

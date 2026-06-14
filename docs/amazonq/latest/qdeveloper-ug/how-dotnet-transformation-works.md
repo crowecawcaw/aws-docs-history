@@ -32,6 +32,7 @@ The transformation includes the following updates to your application:
 
 - Replacing outdated C# versions of code with Linux-compatible C# versions
 - Upgrading .NET Framework to cross-platform .NET, including:
+
   - Identifying and iteratively replacing packages, libraries, and APIs
   - Upgrading and replacing NuGet packages and APIs
   - Transitioning to cross-platform runtime

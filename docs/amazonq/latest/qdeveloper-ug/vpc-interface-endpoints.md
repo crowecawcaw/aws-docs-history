@@ -88,10 +88,12 @@ Studio.
 1. [Create an interface VPC endpoint for
    Amazon Q.](#vpc-endpoint-create "#vpc-endpoint-create")
 2. Set up Amazon Q with the in-console coding environment
+
    - [SageMaker AI Studio](sagemaker-setup.md "sagemaker-setup.md")
    - [AWS Glue Studio](glue-setup.md "glue-setup.md")
 
 3. Configure the coding environment to use the Amazon Q endpoint.
+
    - [SageMaker AI Studio](../../../sagemaker/latest/dg/host-vpc.md "../../../sagemaker/latest/dg/host-vpc.md")
    - [AWS Glue Studio](../../../glue/latest/dg/start-connecting.md "../../../glue/latest/dg/start-connecting.md")
 
@@ -111,6 +113,7 @@ and configuring it to connect to Amazon Q using AWS PrivateLink.
 5. [Install the Amazon Q extension or
    plugin.](q-in-IDE-setup.md "q-in-IDE-setup.md")
 6. Configure the IDE to connect via AWS PrivateLink.
+
    - [Network
      connections in Visual Studio Code](https://code.visualstudio.com/docs/setup/network "https://code.visualstudio.com/docs/setup/network")
    - [JetBrains

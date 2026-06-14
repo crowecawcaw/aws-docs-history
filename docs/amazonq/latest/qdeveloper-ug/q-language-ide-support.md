@@ -85,6 +85,7 @@ projects written in the following languages:
 - Scala ‐ Scala 3.2.2 and earlier
 - JSX ‐ React 17 and earlier
 - Infrastructure as Code (IaC) languages
+
   - CloudFormation ‐ 2010-09-09
   - Terraform ‐ 1.6.2 and earlier
   - AWS CDK ‐ TypeScript and Python

@@ -38,6 +38,7 @@ channel guardrail. If you need administrator access, add the [AmazonQFullAccess]
 
 1. Add the `AmazonQDeveloperAccess` managed policy to your IAM
    role:
+
    1. Sign in to the AWS Management Console and open the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
    2. In the navigation pane of the IAM console, choose
       **Roles**.
@@ -51,6 +52,7 @@ channel guardrail. If you need administrator access, add the [AmazonQFullAccess]
 
 2. Add the `AmazonQDeveloperAccess` managed policy to your channel
    guardrails:
+
    1. Open the [Amazon Q Developer in chat applications
       console](https://console.aws.amazon.com/chatbot "https://console.aws.amazon.com/chatbot").
    2. Choose a configured client.

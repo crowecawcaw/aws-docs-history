@@ -40,11 +40,14 @@ All data associated with Amazon Q visualizations is saved in us-east-1.
 1. Sign in to the AWS Management Console.
 2. Access Amazon Q by choosing the Q icon in the Unified Navigation bar.
 3. Describe your task to Amazon Q using natural language. For example:
+
    1. "List my running EC2 instances"
    2. "Create a chart of my costs by region last month"
 
 4. If Amazon Q determines a visual interface would be helpful, it automatically displays an artifact in a new panel next to Q chat with either a table or chart visualization.
+
    1. If you are asking about resources, the panel will include:
+
       1. A table with the resources you asked about, categorized based on any properties you specify.
       2. Deep links to the resources that redirect you to the resource page in the service console.
 

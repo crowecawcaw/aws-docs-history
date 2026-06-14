@@ -131,12 +131,12 @@ The `cacerts` file path for a JetBrains IDE installed on Linux is:
    administrator.
 3. Import the certificate to the `cacerts` keystore. You can do this with the
    Java `keytool` command.
+
    1. Open a command prompt and enter the following command:
 
    ```
    keytool -import -alias <alias> -file <certificate_file> -keystore <path_to_cacerts>
    ```
-
    2. For `<alias>`, you can add a name for the certificate
       you are importing to refer to it later. This option is optional.
    3. For `<certificate_file>`, specify the path to the
@@ -390,6 +390,7 @@ To add Maven to your Windows
 1. Locate your Maven installation directory, or the folder where you
    installed Maven, and save the path to that folder.
 2. Open the Environment Variables window:
+
    1. Choose the Windows button to open the search
       bar.
    2. Enter `Edit environment variables for your account`

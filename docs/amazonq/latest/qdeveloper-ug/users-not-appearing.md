@@ -14,6 +14,7 @@ console's **Subscriptions** page, you can't see them.
   subscriptions across multiple accounts in an organization managed by AWS Organizations.
 - If you switched to the **Amazon Q** console, and still can't see users, do
   the following:
+
   - Make sure you're in the correct AWS Region. You will need to be in the Region
     where your IAM Identity Center instance is deployed. This might be a different Region from your
     Amazon Q Developer console and profile.

@@ -333,6 +333,7 @@ To opt out of suggestions with references at the enterprise level, use the
 following procedure.
 
 1. You can get to the code references setting in one of two ways:
+
    1. Choose the Amazon Q icon at the edge of the window, and then choose **Options...**
    2. Go to **Tools** -> **AWS Toolkit** -> **Amazon Q**
 

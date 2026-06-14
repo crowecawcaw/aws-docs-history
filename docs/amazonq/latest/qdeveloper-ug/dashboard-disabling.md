@@ -9,6 +9,7 @@ For more information about the dashboard, see [Viewing usage metrics (dashboard)
 ###### To disable the dashboard
 
 1. Open the Amazon Q Developer console:
+
    - If you set up Amazon Q Developer with an organization instance of AWS IAM Identity Center, then sign in using a
      management account or member account.
    - If you set up Amazon Q Developer with an account instance of IAM Identity Center, then sign in using the account

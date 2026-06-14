@@ -51,6 +51,7 @@ Before you begin, make sure that:
 
 1. Sign in to the AWS Management Console using your AWS management account.
 2. Do one of the following depending on the console you want to use:
+
    - Switch to the Amazon Q console.
 
    Choose **Subscriptions**.

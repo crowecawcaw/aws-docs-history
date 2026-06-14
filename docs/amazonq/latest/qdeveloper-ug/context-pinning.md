@@ -34,15 +34,18 @@ a context to pin. 3. The pinned context will appear in the pinned context area a
 There are three ways to pin context items:
 
 1. Using the @Pin Context menu:
+
    - Click the "@Pin Context" button in your chat panel.
    - Select the desired context item from the available options.
 
 2. Using the context menu and keyboard shortcut:
+
    - Type "@" in the chat input to bring up the context menu.
    - Navigate to the desired item.
    - Press Option/Alt + Enter to pin the selected item.
 
 3. Pinning from the input prompt:
+
    - If you've already typed a context command (like `@workspace`,
      `@file`, `@folder`, or `@prompt`)
      in your input, hover over the context item in your input.

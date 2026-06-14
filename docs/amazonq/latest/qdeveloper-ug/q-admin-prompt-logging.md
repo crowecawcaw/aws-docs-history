@@ -33,6 +33,7 @@ Use the following instructions to enable prompt logging.
 - Make sure users are subscribed in a standalone account or, if you're using [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md"), a management account. Currently, Q Developer does not support logging
   the prompts of users who are subscribed in member accounts in AWS Organizations.
 - Create an Amazon S3 bucket to hold the prompt logs. The bucket must:
+
   - Be in the AWS Region where the Amazon Q Developer profile was installed. This profile was
     installed when you subscribed users to Amazon Q Developer Pro for the first time. For more
     information about this profile and the Regions where it's supported, see [What is the Amazon Q Developer profile?](subscribe-understanding-profile.md "subscribe-understanding-profile.md"), and [Supported Regions for the Q Developer console and Q Developer profile](q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions "q-admin-setup-subscribe-regions.md#qdev-console-and-profile-regions").

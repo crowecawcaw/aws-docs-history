@@ -101,6 +101,7 @@ MCP servers can provide predefined prompts that help guide Q in specific tasks:
 
 - List available prompts: `/prompts`
 - Use a prompt:
+
   - `@ `prompt-name` arg1 arg2`
 
 Example of using a prompt with arguments:

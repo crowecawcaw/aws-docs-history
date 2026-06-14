@@ -34,6 +34,7 @@ JetBrains
    file. If applicable, Amazon Q will only review your code changes by default
    unless otherwise specified.
 4. With your code project or file open in the IDE, you can enter things like:
+
    1. `Review my code changes` – Amazon Q will review any code changes in your codebase
    2. `Run a code review on this entire file` – Amazon Q will review all code in your file, not only changes
    3. `Review this repository` – Amazon Q will review your entire codebase, not only changesFor more detailed code review scenarios and associated prompts, see [Example prompts](#code-review-prompts "#code-review-prompts").
@@ -45,6 +46,7 @@ JetBrains
    of the issues Amazon Q found.
 7. To learn more about a code issue, navigate to the **Code Issues**
    panel. From there, you can do the following:
+
    1. Select an issue to be redirected to the specific area of the
       file where the vulnerable or low-quality code was
       detected.
@@ -72,6 +74,7 @@ Visual Studio Code
    file. If applicable, Amazon Q will only review your code changes by default
    unless otherwise specified.
 4. With your code project or file open in the IDE, you can enter things like:
+
    1. `Review my code changes` – Amazon Q will review any code changes in your codebase
    2. `Run a code review on this entire file` – Amazon Q will review all code in your file, not only changes
    3. `Review this repository` – Amazon Q will review your entire codebase, not only changesFor more detailed code review scenarios and associated prompts, see [Example prompts](#code-review-prompts "#code-review-prompts").
@@ -83,6 +86,7 @@ Visual Studio Code
    of the issues Amazon Q found.
 7. To learn more about a code issue, navigate to the **Code Issues**
    panel. From there, you can do the following:
+
    1. Select an issue to be redirected to the specific area of the
       file where the vulnerable or low-quality code was
       detected.
@@ -127,20 +131,24 @@ Following is an overview of some of the ways to initiate a code review and how t
 prompt Amazon Q to run the review you want.
 
 - To review just the code changes for a single file:
+
   - Open the file in your IDE and enter `Review my code`
   - Enter `Review the code in
 <filename>`
 
 - To review an entire code file:
+
   - Open a file without changes and enter `Review my code`
   - Open a file with changes and enter `Review my entire code file`
   - Enter `Review all the code in
 <filename>`
 
 - To review all code changes in your repository:
+
   - Open the repository in your IDE and enter `Review my code`
 
 - To review your entire repository, not just the changes:
+
   - Open the repository in your IDE and enter `Review my repository`
 
 ## Review as you code
