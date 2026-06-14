@@ -17,6 +17,7 @@ Now that you have installed the [Prerequisites](getting-started.md#prerequisites
 
 - A VPC
 - The back-end of the farm
+
   - Database and file system — Deadline Repository
   - Central service — Deadline Render Queue
 

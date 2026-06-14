@@ -83,6 +83,7 @@ Besides of creating the VPC it will:
 - Create [Virtual Private Gateway](../../../vpn/latest/s2svpn/SetUpVPNConnections.md#vpn-create-target-gateway "../../../vpn/latest/s2svpn/SetUpVPNConnections.md#vpn-create-target-gateway") (let’s call it `VGW-RFDK`) and attach it to the VPC.
 - Create [Customer Gateway](../../../vpn/latest/s2svpn/how_it_works.md#CustomerGateway "../../../vpn/latest/s2svpn/how_it_works.md#CustomerGateway") (let’s call it `CGW-RFDK`) with static routing and customer end public IP as `customer-gateway-ip`.
 - Create a `Site-to-Site VPN Connection` with:
+
   - `Target Type` as `Virtual Private Gateway`.
   - Selected `VGW-RFDK` and `CGW-RFDK`.
   - `Static` routing and `IP Prefix` range `customer-prefix-cidr-range`.

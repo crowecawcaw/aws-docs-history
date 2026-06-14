@@ -43,5 +43,6 @@ your AWS infrastructure.
 - [Security in Amazon Virtual Private Cloud](../../../vpc/latest/userguide/security.md "../../../vpc/latest/userguide/security.md")
 - [AWS security credentials](../../../general/latest/gr/aws-security-credentials.md "../../../general/latest/gr/aws-security-credentials.md")
 - Security in Amazon EC2
+
   - [Linux](../../../AWSEC2/latest/UserGuide/ec2-security.md "../../../AWSEC2/latest/UserGuide/ec2-security.md")
   - [Windows](../../../AWSEC2/latest/WindowsGuide/ec2-security.md "../../../AWSEC2/latest/WindowsGuide/ec2-security.md")

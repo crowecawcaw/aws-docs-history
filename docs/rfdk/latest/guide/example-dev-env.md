@@ -31,6 +31,7 @@ Before beginning this tutorial, you will need to:
 
 - [Create an AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/")
 - [Create an IAM user](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") with [least-privilege](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") that has the ability to:
+
   - **Use AWS CodeCommit** - The `AWSCodeCommitPowerUser`
     [AWS Managed Policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") can serve as a starting point, but it is recommended to use a minimally permissive IAM policy for production environments.
   - **List and resize EBS volumes** - This is granted with the `ec2:DescribeVolumes` and `ec2:ModifyVolume` actions. These can be granted in an inline policy statement.

@@ -239,6 +239,7 @@ The RFDK is available today on:
 
 - [RFDK API Reference](../../api/latest.md "../../api/latest.md")
 - [RFDK on GitHub](https://github.com/aws/aws-rfdk "https://github.com/aws/aws-rfdk")
+
   - [Issues](https://github.com/aws/aws-rfdk/issues "https://github.com/aws/aws-rfdk/issues")
   - [Example applications](https://github.com/aws/aws-rfdk/tree/mainline/examples "https://github.com/aws/aws-rfdk/tree/mainline/examples")
   - [License](https://github.com/aws/aws-rfdk/blob/mainline/LICENSE "https://github.com/aws/aws-rfdk/blob/mainline/LICENSE")

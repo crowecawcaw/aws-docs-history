@@ -29,10 +29,12 @@ farm:
 1. Navigate to AWS CloudFormation and open the stack that the function is contained in.
 2. On the resources tab, you will see entries for `AWS::Lambda::Function`.
 3. If the render farm is still deployed:
+
    1. The physical ID will link you to the function’s page in the AWS Lambda console.
    2. From there you can select the **Monitoring** tab and click the **View logs in CloudWatch** button to be taken to the logs.
 
 4. If your render farm was rolled back or destroyed already:
+
    1. The logs will still be in Amazon CloudWatch even though the AWS Lambda function is gone. In AWS CloudFormation, note the physical ID that the function had.
    2. Navigate to Amazon CloudWatch to find the log group containing that physical ID.
 
