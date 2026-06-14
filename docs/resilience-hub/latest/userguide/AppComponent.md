@@ -10,6 +10,7 @@ belong to `AWS::ResilienceHub::DatabaseAppComponent` and not to
 The AWS Resilience Hub AppComponents support the following resources:
 
 - `AWS::ResilienceHub::ComputeAppComponent`
+
   - `AWS::ApiGateway::RestApi`
   - `AWS::ApiGatewayV2::Api`
   - `AWS::AutoScaling::AutoScalingGroup`
@@ -22,6 +23,7 @@ The AWS Resilience Hub AppComponents support the following resources:
   - `AWS::StepFunctions::StateMachine`
 
 - `AWS::ResilienceHub::DatabaseAppComponent`
+
   - `AWS::DocDB::DBCluster`
   - `AWS::DynamoDB::Table`
   - `AWS::ElastiCache::CacheCluster`
@@ -32,18 +34,22 @@ The AWS Resilience Hub AppComponents support the following resources:
   - `AWS::RDS::DBInstance`
 
 - `AWS::ResilienceHub::NetworkingAppComponent`
+
   - `AWS::EC2::NatGateway`
   - `AWS::ElasticLoadBalancing::LoadBalancer`
   - `AWS::ElasticLoadBalancingV2::LoadBalancer`
   - `AWS::Route53::RecordSet`
 
 - `AWS:ResilienceHub::NotificationAppComponent`
+
   - `AWS::SNS::Topic`
 
 - `AWS::ResilienceHub::QueueAppComponent`
+
   - `AWS::SQS::Queue`
 
 - `AWS::ResilienceHub::StorageAppComponent`
+
   - `AWS::Backup::BackupPlan`
   - `AWS::EC2::Volume`
   - `AWS::EFS::FileSystem`

@@ -5,7 +5,9 @@ Kubernetes pods running in your Amazon EKS clusters:
 
 - Incorrect configuration of IAM roles for AWS FIS experiments or the
   Kubernetes service account.
+
   - **Failure messages:**
+
     - `Error resolving targets. Kubernetes API returned
 ApiException with error code 401`.
     - `Error resolving targets. Kubernetes API returned
@@ -16,6 +18,7 @@ details`.
 
   - **Remediation:** Verify the
     following.
+
     - Ensure that you have followed the instruction in [Use the AWS FIS`aws:eks:pod`
       actions](../../../fis/latest/userguide/eks-pod-actions.md "../../../fis/latest/userguide/eks-pod-actions.md").
     - Ensure that you have created and configured a Kubernetes
@@ -28,6 +31,7 @@ details`.
 - Unable to start AWS FIS Pod: Max failed sidecar containers reached. This
   usually happens when the memory is not sufficient to run the AWS FIS sidecar
   container.
+
   - **Failure message:**
     `Unable to heartbeat FIS Pod: Max failed sidecar containers
  reached`.
@@ -37,6 +41,7 @@ details`.
 
 - Alarm assertion failed at the beginning of the experiment. This error
   occurs because the related alarm has no datapoint.
+
   - **Failure message:**
     `Assertion failed for the following alarms`. Lists all
     the alarms for which the assertion has failed.

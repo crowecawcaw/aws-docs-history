@@ -8,6 +8,7 @@
 3. Choose the **User journeys** tab.
 4. Choose **Create user journey**.
 5. Provide the following details:
+
    - **Name** – Enter a name that describes the business
      capability (for example, "Path to purchase" or "Order fulfillment"). Name user journeys
      after what an end user does, not after technical components.

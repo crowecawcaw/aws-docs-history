@@ -110,6 +110,7 @@ base.
 
 1. Choose **Templates** tab to view the template you just
    created. You can identify your templates using the following:
+
    - **Name** – Name of the assessment you had
      provided at the time of creation.
    - **Status** – Indicates the execution state of

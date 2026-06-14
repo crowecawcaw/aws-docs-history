@@ -28,6 +28,7 @@ report:
 
 - Alarm template was not deployed before the Test/SOP experiment was
   executed. This causes an error message during the automation step.
+
   - **Failure message:**
     `The following parameters were not found:
  [/ResilienceHub/Alarm/3dee49a1-9877-452a-bb0c-a958479a8ef2/nat-gw-alarm-bytes-out-to-source-2020-09-21_nat-02ad9bc4fbd4e6135].
@@ -40,6 +41,7 @@ report:
 - Missing permissions in the execution role. This error message occurs if
   the provided execution role is missing a permission and appears within the
   step details.
+
   - **Failure message:**
     `An error occurred (Unauthorized Operation) when calling the
  DescribeInstanceStatus operation: You are not authorized to
@@ -51,6 +53,7 @@ report:
 
 - Execution succeeded but did not have the expected result. This is the
   result of incorrect parameters or an internal automation issue.
+
   - **Failure message:** The execution
     succeeded, so no error message is shown.
   - **Remediation:** Check the input

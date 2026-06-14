@@ -10,6 +10,7 @@ supported services in your assessment, see [AWSResilienceHubAsssessmentExecution
 AWS Resilience Hub supports resources from the following AWS services:
 
 - Compute
+
   - Amazon Elastic Compute Cloud (Amazon EC2)
 
   ###### Note
@@ -23,30 +24,33 @@ AWS Resilience Hub supports resources from the following AWS services:
        `arn:aws:ec2:<region>::instance/<instance-id>`
       - **New format** –
        `arn:aws:ec2:<region>:<account-id>:instance/<instance-id>`For more information about the new ARN format, see [Migrating your Amazon ECS deployment to the new ARN and resource ID format](https://aws.amazon.com/blogs/compute/migrating-your-amazon-ecs-deployment-to-the-new-arn-and-resource-id-format-2/ "https://aws.amazon.com/blogs/compute/migrating-your-amazon-ecs-deployment-to-the-new-arn-and-resource-id-format-2/").
-
   - AWS Lambda
   - Amazon Elastic Kubernetes Service (Amazon EKS)
   - Amazon Elastic Container Service (Amazon ECS)
   - AWS Step Functions
 
 - Database
+
   - Amazon Relational Database Service (Amazon RDS)
   - Amazon DynamoDB
   - Amazon DocumentDB
   - Amazon ElastiCache
 
 - Networking and Content Delivery
+
   - Amazon Route 53
   - Elastic Load Balancing
   - Network Address Translation (NAT)
 
 - Storage
+
   - Amazon Elastic Block Store (Amazon EBS)
   - Amazon Elastic File System (Amazon EFS)
   - Amazon Simple Storage Service (Amazon S3)
   - Amazon FSx for Windows File Server
 
 - Others
+
   - Amazon API Gateway
   - Amazon Application Recovery Controller (ARC) (Amazon ARC)
   - Amazon Simple Notification Service
@@ -65,6 +69,7 @@ AWS Resilience Hub supports resources from the following AWS services:
 - AWS Resilience Hub supports Amazon EKS and Amazon ECS on AWS Fargate.
 - AWS Resilience Hub supports assessment of AWS Backup resource as a part of the following
   services:
+
   - Amazon EBS
   - Amazon EFS
   - Amazon S3
@@ -82,6 +87,7 @@ AWS Resilience Hub supports resources from the following AWS services:
   either the Amazon EKS cluster is located or if the application is created in an opt-in enabled
   AWS Region.
 - Currently, AWS Resilience Hub assesses only the following Kubernetes resource types:
+
   - Deployments
   - ReplicaSets
   - Pods

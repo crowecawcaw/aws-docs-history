@@ -7,6 +7,7 @@
 3. Choose **Edit** in the **Service resource
    discovery** section.
 4. Select the input source type and provide the required configuration:
+
    - **AWS CloudFormation stack** – Select one or more AWS CloudFormation stacks. The selector will show stacks relevant to the Regions you have selected for this service.
    - **Terraform state file** – Enter the Amazon S3 URL of
      the state file.

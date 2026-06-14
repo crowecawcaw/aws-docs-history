@@ -66,6 +66,7 @@ Disabling scheduled assessment will disable drift notification. 4. Choose **Turn
    you want to enable drift notification or edit the drift notification
    settings.
 3. You can edit drift notification by choosing one of the following options:
+
    - From **Actions**, choose **Enable drift
      notification**.
    - Choose **Enable notification** in **Application
@@ -90,6 +91,7 @@ notification.
    you want to enable drift notification or edit the drift notification
    settings.
 3. You can edit drift notification by choosing one of the following options:
+
    - From **Actions**, choose **Edit drift
      notification**.
    - Choose **Edit notification** in **Application
@@ -167,6 +169,7 @@ application resources. You can identify the input sources by the following:
    more information about adding input sources, see [Add resource collections](discover-structure.md "discover-structure.md").
 3. To edit input sources, select the input sources and choose one the following
    options from **Actions**:
+
    - **Reimport input sources (up to 5)** – Reimports
      up to five selected input sources.
    - **Delete input sources** – Deletes the selected
@@ -263,6 +266,7 @@ You can identify the resources by the following:
    resources**.
 5. To modify your existing application resources, complete the following
    steps:
+
    1. Select a resource, and then choose **Update stacks** from
       **Actions**.
    2. In the **Update stacks** page, to update your resources,
@@ -272,6 +276,7 @@ You can identify the resources by the following:
 
 6. To add a resource to your application, from **Actions**, choose
    **Add resource** and complete the following steps:
+
    1. Select a resource type from the **Resource type**
       dropdown list.
    2. Select an AppComponent from the **AppComponent** dropdown
@@ -285,6 +290,7 @@ You can identify the resources by the following:
 7. To edit the resource name, select a resource, choose **Edit resource
    name** from **Actions**, and then complete the
    following steps:
+
    1. Enter the resource logical ID in the **Resource name**
       box.
    2. Choose **Save**.
@@ -292,6 +298,7 @@ You can identify the resources by the following:
 8. To edit the resource identifier, select a resource, choose **Edit resource
    identifier** from **Actions**, and then complete the
    following steps:
+
    1. Enter the physical resource ID, or resource name, or the resource ARN in
       the **Resource identifier** box.
    2. Choose **Save**.
@@ -299,6 +306,7 @@ You can identify the resources by the following:
 9. To change the AppComponent, select a resource, choose **Change
    AppComponent** from **Actions**, and complete the
    following steps:
+
    1. Select an AppComponent from the **AppComponent** dropdown
       list.
    2. Choose **Add**.
@@ -339,6 +347,7 @@ following:
 2. To create an AppComponent, from **Actions** menu, choose
    **Create new AppComponent** and complete the following
    steps:
+
    1. Enter a name for the AppComponent in the **AppComponent
       name** box. For reference, we have pre-populated this field
       with a sample name.

@@ -25,6 +25,7 @@ applications in the **Applications** page by the following:
   status as **Assessed**, **Not assessed**,
   **Policy breached**, or is **Changes
   detected**.
+
   - **Assessed** - AWS Resilience Hub has assessed your
     application.
   - **Not assessed** - AWS Resilience Hub has not assessed
@@ -43,6 +44,7 @@ applications in the **Applications** page by the following:
 - **Scheduled assessments** – The resource type identifies
   the component resource for your application. For more information about scheduled
   assessments, see [Application resiliency](view-app-summary.md "view-app-summary.md").
+
   - **Active** - This indicates your application
     is automatically assessed daily by AWS Resilience Hub.
   - **Disabled** - This indicates your
@@ -52,6 +54,7 @@ applications in the **Applications** page by the following:
 - **Drift status** – Indicates if your application has
   drifted or not from the previous successful assessment and sets one of the following
   statuses:
+
   - **Drifted** - Indicates that the application,
     which was compliant with its resiliency policy in the previous successful
     assessment, has now breached the resiliency policy and the application is at

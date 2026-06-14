@@ -50,6 +50,7 @@ steps:
 12. Choose **Publish new version**.
 13. Choose the **Application structure** tab.
 14. To view the published version of your application, complete the following steps:
+
     1. Under **Version** tab, select the application version
        with **Current release** status.
     2. Choose the **Resources** tab.

@@ -47,6 +47,7 @@ sections:
 
 - **Application info** – This section provides the
   following information about the selected application:
+
   - **Application status** – Indicates the status
     of the application.
   - **Description** – The description of the
@@ -63,6 +64,7 @@ sections:
   checks if any of the resources have been added or removed since the last time
   the application version was published. This section displays the following
   information:
+
   - **Policy drifts** – Choose the number below to
     view all the Application Components that complied with the policy in the
     previous assessment but failed to comply in the current

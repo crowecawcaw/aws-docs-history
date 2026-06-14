@@ -19,6 +19,7 @@ managed policy. For more information about AWS managed policy, see [AWSResilienc
    recommendations** to view all the resource grouping
    recommendations. Else complete the following steps to manually generate
    resource grouping recommendations:
+
    1. Choose **Resources**.
    2. Choose **Get grouping recommendations** from
       **Actions** menu.
@@ -31,6 +32,7 @@ managed policy. For more information about AWS managed policy, see [AWSResilienc
    recommendations** to view all the resource grouping
    recommendations.You can identify the AppComponents in the **Review resource
    grouping recommendations** section using the following:
+
    - **AppComponent name** – Name
      of the AppComponent in which the resources will be grouped.
    - **Confidence level** –

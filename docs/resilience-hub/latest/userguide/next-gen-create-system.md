@@ -6,6 +6,7 @@
 2. In the navigation pane, choose **Systems**.
 3. Choose **Create system**.
 4. Provide the following details:
+
    - **System name** – Enter a descriptive name for your
      system. The name must be 1–60 characters and can contain letters, numbers, hyphens,
      and underscores.

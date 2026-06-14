@@ -8,6 +8,7 @@ You can create resilience policies from the the next generation of Resilience Hu
 2. Choose **Create policy**.
 3. Enter a policy name and description.
 4. Select the components you need:
+
    - Toggle **Multi-Region DR** and set RTO/RPO.
    - Toggle **Availability SLO** and set target
      percentage.

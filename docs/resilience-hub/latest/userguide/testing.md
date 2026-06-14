@@ -21,7 +21,9 @@ requirements. For more information about managing AWS FIS experiments from AWS R
 and AWS FIS console, see the following topics:
 
 - AWS Resilience Hub console
+
   - [Viewing AWS FIS experiments](view-fis-experiment.md "view-fis-experiment.md")
+
     - [To view the list of implemented AWS FIS experiments from applications](view-fis-experiment.md#view-active-fis-experiments "view-fis-experiment.md#view-active-fis-experiments")
     - [To view the recommended AWS FIS experiments from assessments](view-fis-experiment.md#view-recommended-fis-experiments "view-fis-experiment.md#view-recommended-fis-experiments")
 
@@ -29,6 +31,7 @@ and AWS FIS console, see the following topics:
   - [AWS Fault Injection Service experiment failures/status check](test-failures.md "test-failures.md")
 
 - AWS FIS console
+
   - [Managing your AWS FIS experiments](../../../fis/latest/userguide/experiments.md "../../../fis/latest/userguide/experiments.md")
   - [Working with the AWS FIS scenario library](../../../fis/latest/userguide/scenario-library.md "../../../fis/latest/userguide/scenario-library.md")
   - [Managing AWS FIS experiment templates](../../../fis/latest/userguide/manage-experiment-template.md "../../../fis/latest/userguide/manage-experiment-template.md")

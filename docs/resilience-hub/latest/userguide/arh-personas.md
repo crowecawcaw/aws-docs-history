@@ -14,6 +14,7 @@ you to create the following personas:
   this persona are responsible for setting up, configuring, and maintaining infrastructure and
   application resources, ensuring the reliability and security of the application. Their
   responsibilities include the following:
+
   - Ensuring that the applications are deployed and updated regularly
   - Monitoring system performance
   - Troubleshooting issues
@@ -22,6 +23,7 @@ you to create the following personas:
 - **Business continuity manager** – Users with this
   persona are responsible for dictating application policies and determining the business
   criticality of applications. Their responsibilities include the following:
+
   - Taking key decisions in setting policies
   - Assessing business criticality
   - Allocating resources for critical applications
@@ -30,10 +32,12 @@ you to create the following personas:
 - **Application owner** – Users with this persona are
   responsible for ensuring highly available and reliable applications. Their responsibilities
   include the following:
+
   - Defining key performance identifiers for measuring and monitoring application
     performance and identifying bottlenecks
   - Organizing trainings for multiple stakeholders
   - Ensuring that the following documentation is up-to-date:
+
     - Application architecture
     - Deployment processes
     - Monitoring configurations

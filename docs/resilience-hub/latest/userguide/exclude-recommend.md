@@ -26,6 +26,7 @@ recommendations per application, see [Limiting permissions to include or exclude
 ###### To include or exclude recommended alarms from your application
 
 1. To exclude alarms, complete the following steps:
+
    1. Under **Alarms** tab, from
       **Alarms** table, select all the alarms (with
       **Not implemented** state) you want to exclude.
@@ -37,6 +38,7 @@ recommendations per application, see [Limiting permissions to include or exclude
       one of the following reasons (optional), and choose
       **Exclude selected** to exclude the selected
       alarms from the application.
+
       - **Already implemented** – Choose
         this option if you have already implemented these alarms in
         an AWS service such as Amazon CloudWatch, or any other third-party
@@ -52,6 +54,7 @@ recommendations per application, see [Limiting permissions to include or exclude
         recommendation.
 
 2. To include alarms, complete the following steps:
+
    1. Under **Alarms** tab, from
       **Alarms** table, select all the alarms (with
       **Excluded** state) you want to include. You
@@ -66,6 +69,7 @@ recommendations per application, see [Limiting permissions to include or exclude
 ###### To include or exclude recommended standard operating procedures (SOPs) from your application
 
 1. To exclude recommended SOPs, complete the following steps:
+
    1. Under **Standard operating procedures** tab, from
       **SOPs** table, select all the SOPs (with
       **Implemented** or **Not
@@ -79,6 +83,7 @@ recommendations per application, see [Limiting permissions to include or exclude
       one of the following reasons (optional), and choose
       **Exclude selected** to exclude the selected
       SOPs from the application.
+
       - **Already implemented** – Choose
         this option if you have already implemented these SOPs in an
         AWS service, or any other third-party service
@@ -93,6 +98,7 @@ recommendations per application, see [Limiting permissions to include or exclude
         you don't want to specify the reason.
 
 2. To include SOPs, complete the following steps:
+
    1. Under **Standard operating procedures** tab, from
       **SOPs** table, select all the alarms (with
       **Excluded** state) you want to include. You
@@ -107,6 +113,7 @@ recommendations per application, see [Limiting permissions to include or exclude
 ###### To include or exclude recommended tests from your application
 
 1. To exclude recommended tests, complete the following steps:
+
    1. Under **Fault injection experiment templates**
       tab, from **Fault injection experiment templates**
       table, select all the tests (with **Implemented**
@@ -119,6 +126,7 @@ recommendations per application, see [Limiting permissions to include or exclude
       one of the following reasons (optional), and choose
       **Exclude selected** to exclude the selected
       AWS FIS experiments from the application.
+
       - **Already implemented** – Choose
         this option if you have already implemented these tests in
         an AWS service, or any other third-party service
@@ -133,6 +141,7 @@ recommendations per application, see [Limiting permissions to include or exclude
         you don't want to specify the reason.
 
 2. To include recommended tests, complete the following steps:
+
    1. Under **Fault injection experiment templates**
       tab, from **Fault injection experiment templates**
       table, select all the tests (with **Excluded**

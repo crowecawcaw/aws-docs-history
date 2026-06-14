@@ -6,6 +6,7 @@
 2. In the navigation pane, choose **Services**.
 3. Choose **Create service**.
 4. Provide the following details:
+
    - **Service name** – Enter a descriptive name for
      your service (for example, `checkout-service` or
      `payment-service`).
@@ -16,6 +17,7 @@
      and RTO/RPO targets.
    - **Permission model** – Specify the IAM role that
      the next generation of Resilience Hub uses for resource discovery:
+
      - **Invoker role name** – The name of the IAM
        role in your account (for example,
        `AWSResilienceHubAssessmentRole`).

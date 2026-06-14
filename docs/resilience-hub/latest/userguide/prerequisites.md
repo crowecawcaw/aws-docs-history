@@ -5,6 +5,7 @@ prerequisites:
 
 - AWS accounts – Create one or more AWS accounts for each account
   type (primary/secondary/resource accounts) you want use within AWS Resilience Hub. For more information about creating and managing AWS accounts, see the following:
+
   - First time AWS user – [Getting started: Are you a first-time AWS user?](../../../accounts/latest/reference/welcome-first-time-user.md "../../../accounts/latest/reference/welcome-first-time-user.md")
   - Managing AWS account – [https://docs.aws.amazon.com/accounts/latest/reference/managing-accounts.html](../../../accounts/latest/reference/managing-accounts.md "../../../accounts/latest/reference/managing-accounts.md")
 
