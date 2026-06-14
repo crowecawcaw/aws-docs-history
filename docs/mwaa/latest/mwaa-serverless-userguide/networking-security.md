@@ -6,13 +6,16 @@ Learn about the Amazon VPC components used to secure your Amazon MWAA Serverless
 
 - [Security overview](networking-security.md#networking-security-about "networking-security.md#networking-security-about")
 - [Network access control lists (ACLs)](networking-security.md#networking-security-acl "networking-security.md#networking-security-acl")
+
   - [(Recommended) Example ACLs](networking-security.md#networking-security-acl-example "networking-security.md#networking-security-acl-example")
 
 - [VPC security groups](networking-security.md#networking-security-sg "networking-security.md#networking-security-sg")
+
   - [(Recommended) Example all access self-referencing security group](networking-security.md#networking-security-sg-example "networking-security.md#networking-security-sg-example")
   - [(Optional) Example security group that restricts inbound access to port 443](networking-security.md#networking-security-sg-port443 "networking-security.md#networking-security-sg-port443")
 
 - [VPC endpoint policies (private routing only)](networking-security.md#networking-security-policies "networking-security.md#networking-security-policies")
+
   - [(Recommended) Example VPC endpoint policy to allow all access](networking-security.md#networking-security-policies-all "networking-security.md#networking-security-policies-all")
   - [(Recommended) Example Amazon S3 gateway endpoint policy to allow bucket access](networking-security.md#networking-security-external-policies-s3 "networking-security.md#networking-security-external-policies-s3")
 
