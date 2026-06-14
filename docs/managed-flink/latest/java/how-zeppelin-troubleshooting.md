@@ -19,10 +19,12 @@ The following steps outline this approach:
 1. Build and export your Studio application to Amazon S3. This should be a zip file.
 2. Create a Managed Service for Apache Flink application manually with code path referencing the zip file location in Amazon S3. In addition, you will need to configure the application with the following `env` variables (2 `groupID`, 3 `var` in total):
 3. kinesis.analytics.flink.run.options
+
    1. python: source/note.py
    2. jarfile: lib/PythonApplicationDependencies.jar
 
 4. managed.deploy_as_app.options
+
    1. DatabaseARN: `<glue database ARN (Amazon Resource Name)>`
 
 5. You may need to give permissions to the Managed Service for Apache Flink Studio and Managed Service for Apache Flink IAM roles for the services your application uses. You can use the same IAM role for both apps.
@@ -82,13 +84,13 @@ numba
 ###### Example: Remove scipy package before deploying your Python application with deploy-as-app feature.
 
 1. Use `pipdeptree` to discover all `scipy` consumers and verify if you can safely remove `scipy`.
+
    - Install the tool through notebook:
 
    ```
    %flink.pyflink
    !pip install pipdeptree
    ```
-
    - Get reversed dependency tree of `scipy` by running:
 
    ```

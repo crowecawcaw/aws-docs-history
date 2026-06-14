@@ -26,6 +26,7 @@ These In-progress part files will eventually rollover to Pending, renamed and co
 Following are the root causes and mitigation for missing In-progress part file:
 
 - Stale snapshot used to start the Managed Service for Apache Flink application – only the latest system snapshot taken when an application is stopped or updated can be used to start a Managed Service for Apache Flink application with Amazon S3 StreamingFileSink. To avoid this class of failure, use the latest system snapshot.
+
   - This happens for example when you pick a snapshot created using `CreateSnapshot` instead of a system-triggered Snapshot
     during stop or update. The older snapshot’s savepoint keeps an out-of-date reference to In-progress part file that has been renamed
     and committed by subsequent checkpoint or savepoint.
@@ -34,6 +35,7 @@ Following are the root causes and mitigation for missing In-progress part file:
     configured.
 
 - In-progress part file removed – As the In-progress part file is located in an S3 bucket, it can be removed by other components or actors which have access to the bucket.
+
   - This can happen when you have stopped your app for too long and the In-progress part file
     referred to by your app’s savepoint has been removed by [S3 bucket MultiPartUpload](../../../AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.md "../../../AmazonS3/latest/userguide/mpu-abort-incomplete-mpu-lifecycle-config.md") lifecycle policy.
     To avoid this class of failure, make sure that your S3 Bucket MPU lifecycle policy covers a sufficiently large period for your use case.
@@ -44,4 +46,5 @@ Following are the root causes and mitigation for missing In-progress part file:
   Managed Service for Apache Flink version 1.15. Migrate your application to the latest version of
   Managed Service for Apache Flink to prevent recurrence. We also suggest migrating from
   StreamingFileSink to [FileSink](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/filesystem/#file-sink "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/filesystem/#file-sink").
+
   - When applications are stopped or updated, Managed Service for Apache Flink triggers a savepoint and stops the application in two steps. If an automated checkpoint triggers between the two steps, the savepoint will be unusable as its In-progress part file would be renamed and potentially committed.

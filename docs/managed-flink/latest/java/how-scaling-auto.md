@@ -51,6 +51,7 @@ Note the following about application scaling:
 - Scaling doesn't apply to Studio notebooks. However, if you deploy a Studio notebook as an application with durable state, then scaling will apply to the deployed application.
 - Your application has a default limit of 64 KPUs. For more information, see [Managed Service for Apache Flink and Studio notebook quota](limits.md "limits.md").
 - When autoscaling updates application parallelism, the application experiences downtime. To avoid this downtime, do the following:
+
   - Disable automatic scaling
   - Configure your application's `parallelism` and `parallelismPerKPU` with
     the [UpdateApplication](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md") action. For more information about

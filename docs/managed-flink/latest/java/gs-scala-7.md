@@ -10,6 +10,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -47,6 +48,7 @@ Use the following procedure to configure the application.
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter

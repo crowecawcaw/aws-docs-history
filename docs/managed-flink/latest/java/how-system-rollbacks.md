@@ -53,6 +53,7 @@ beneficial:
   code that has bugs when initializing the Flink job through the main method,
   the automatic rollback allows the previous working version to be restored.
   Other update scenarios where system rollbacks are helpful include:
+
   - If your application is updated to run with a parallelism higher than
     [maxParallelism](how-scaling.md#how-scaling-auto "how-scaling.md#how-scaling-auto").
   - If your application is updated to run with incorrect subnets for a VPC

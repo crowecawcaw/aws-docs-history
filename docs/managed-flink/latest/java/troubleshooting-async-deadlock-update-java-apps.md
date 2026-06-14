@@ -14,6 +14,7 @@ Maven
 
 1. Add Kinesis connector and required AWS SDK modules as project dependencies.
 2. Configure `maven-shade-plugin`:
+
    1. Add filter to exclude shaded AWS SDK classes when copying content of the Kinesis connector jar.
    2. Add relocation rule to move updated AWS SDK classes to package, expected by Kinesis connector.**pom.xml**
 
@@ -111,6 +112,7 @@ Gradle
 
 1. Add Kinesis connector and required AWS SDK modules as project dependencies.
 2. Adjust shadowJar configuration:
+
    1. Exclude shaded AWS SDK classes when copying content of the Kinesis connector jar.
    2. Relocate updated AWS SDK classes to a package expected by Kinesis connector.**build.gradle**
 

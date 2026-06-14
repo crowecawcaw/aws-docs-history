@@ -109,15 +109,20 @@ Kinesis Analytics
 
 - USD 1,684.03 - US East (N. Virginia)
 - Amazon Kinesis Analytics CreateSnapshot
+
   - $0.023 per GB-month of durable application backups
+
     - 1 GB-month - USD 0.03
 
 - Amazon Kinesis Analytics StartApplication
+
   - $0.10 per GB-month of running application storage
+
     - 1,000 GB-month - USD 100
 
   - $0.11 per Kinesis Processing Unit-hour for Apache Flink
     applications
+
     - 15,120 KPU-hour - USD 1,584
 
 You use an Apache Flink application in Managed Service for Apache Flink to transform log data in Amazon Simple Storage Service
@@ -149,11 +154,14 @@ Kinesis Analytics
 
 - USD 2.59 - US East (N. Virginia)
 - Amazon Kinesis Analytics StartApplication
+
   - $0.10 per GB-month of running application backups
+
     - 1.042 GB-month - USD 0.11
 
   - $0.11 per Kinesis Processing Unit-hour for Apache Flink
     applications
+
     - 22.5 KPU-Hour - USD 2.48
 
 You’re a large ecommerce platform that processes millions of transactions
@@ -207,9 +215,12 @@ Kinesis Analytics
 
 - USD 0.49 - US East (N. Virginia)
 - Amazon Kinesis Analytics StartApplication
+
   - $0.10 per GB-month of running application storage
+
     - 0.232 GB-month - USD 0.03
 
   - $0.11 per Kinesis Processing Unit-hour for Apache Flink
     applications
+
     - 4.167 KPU-Hour - USD 0.46

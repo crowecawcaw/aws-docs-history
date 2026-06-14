@@ -19,6 +19,7 @@ symptoms:
   your application, see [Data Types and Serialization](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/datastream/fault-tolerance/serialization/types_serialization/ "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/datastream/fault-tolerance/serialization/types_serialization/") in the Apache Flink Documentation.
 - Out of Memory errors.
 - Spikes or steady increases in the following metrics:
+
   - `heapMemoryUtilization`
   - `oldGenerationGCTime`
   - `oldGenerationGCCount`

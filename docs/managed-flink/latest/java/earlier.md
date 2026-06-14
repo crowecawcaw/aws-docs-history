@@ -281,6 +281,7 @@ aws-cli/1.16.63
 
 1. Download and configure the AWS CLI. For instructions, see the following topics
    in the _AWS Command Line Interface User Guide_:
+
    - [Installing the
      AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
    - [Configuring the
@@ -553,6 +554,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -667,6 +669,7 @@ JSON
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -1308,6 +1311,7 @@ aws-cli/1.16.63
 
 1. Download and configure the AWS CLI. For instructions, see the following topics
    in the _AWS Command Line Interface User Guide_:
+
    - [Installing the
      AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
    - [Configuring the
@@ -1589,6 +1593,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -1703,6 +1708,7 @@ JSON
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -2344,6 +2350,7 @@ aws-cli/1.16.63
 
 1. Download and configure the AWS CLI. For instructions, see the following topics
    in the _AWS Command Line Interface User Guide_:
+
    - [Installing the
      AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
    - [Configuring the
@@ -2631,6 +2638,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -2746,6 +2754,7 @@ JSON
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -3355,6 +3364,7 @@ aws-cli/1.16.63
 
 1. Download and configure the AWS CLI. For instructions, see the following topics
    in the _AWS Command Line Interface User Guide_:
+
    - [Installing the
      AWS Command Line Interface](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
    - [Configuring the
@@ -3634,6 +3644,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -3751,6 +3762,7 @@ JSON
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -4432,6 +4444,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Runtime**, choose **Apache Flink**.
@@ -4541,6 +4554,7 @@ JSON
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -4818,6 +4832,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Runtime**, choose **Apache Flink**.
@@ -4923,6 +4938,7 @@ JSON
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -5261,6 +5277,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Runtime**, choose **Apache Flink**.
@@ -5380,6 +5397,7 @@ Edit the IAM policy to add permissions to access the Kinesis data stream.
    **Configure**.
 2. On the **Configure application** page, provide the
    **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -5750,6 +5768,7 @@ access it.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Runtime**, choose **Apache Flink version 1.15.2**.
@@ -5778,6 +5797,7 @@ and Region as follows:
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -5981,6 +6001,7 @@ The application code is located in the `EfoApplication.java` file. Note the foll
 about the application code:
 
 - You enable the EFO consumer by setting the following parameters on the Kinesis consumer:
+
   - **RECORD_PUBLISHER_TYPE:** Set this parameter to
     **EFO** for your application to use an EFO consumer to access the
     Kinesis Data Stream data.
@@ -6045,6 +6066,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Runtime**, choose **Apache Flink**.
@@ -6185,6 +6207,7 @@ JSON
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -6504,6 +6527,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -6621,6 +6645,7 @@ JSON
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -7208,6 +7233,7 @@ JSON
 
 2. Create a role in the source account called `MF-Source-Stream-Role`. Do the
    following to create the role using the **Managed Flink** use case:
+
    1. In the IAM Management Console, choose **Create Role**.
    2. On the **Create Role** page, choose **AWS Service**.
       In the service list, choose **Kinesis**.
@@ -7223,6 +7249,7 @@ JSON
 3. Add the `kinesis-analytics-MyApplication-us-west-2` ARN from the sink account to
    the trust relationship of the `KA-Source-Stream-Role` role in the
    source account:
+
    1. Open the `KA-Source-Stream-Role` in the IAM console.
    2. Choose the **Trust Relationships** tab.
    3. Choose **Edit trust relationship**.
@@ -7596,6 +7623,7 @@ access it.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Runtime**, choose **Apache Flink version 1.15.2**.
@@ -7624,6 +7652,7 @@ and Region as follows:
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -7912,6 +7941,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Runtime**, choose **Apache Flink**.
@@ -7945,6 +7975,7 @@ and Region as follows:
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -8338,6 +8369,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Runtime**, choose **Apache Flink**.
@@ -8371,6 +8403,7 @@ and Region as follows:
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -8780,6 +8813,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Runtime**, choose **Apache Flink**.
@@ -8813,6 +8847,7 @@ and Region as follows:
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -9180,6 +9215,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -9216,6 +9252,7 @@ Use the following procedure to configure the application.
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -9859,6 +9896,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -9895,6 +9933,7 @@ Use the following procedure to configure the application.
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter
@@ -10522,6 +10561,7 @@ the console.
    application**.
 3. On the **Managed Service for Apache Flink - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -10558,6 +10598,7 @@ Use the following procedure to configure the application.
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter

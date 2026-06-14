@@ -182,8 +182,10 @@ the run configuration of your IDE.
 - The application sets up the execution environment and reads the
   runtime configuration. To work both on Amazon Managed Service for Apache Flink and locally, the
   application checks the `IS_LOCAL` variable.
+
   - The following is the default behavior when the application
     runs in Amazon Managed Service for Apache Flink:
+
     1. Load dependencies packaged with the application. For
        more information, see (link)
     2. Load the configuration from the Runtime properties you
@@ -192,6 +194,7 @@ the run configuration of your IDE.
 
   - When the application detects `IS_LOCAL = true` when
     you run your application locally:
+
     1. Loads external dependencies from the project.
     2. Loads the configuration from the
        `application_properties.json` file
@@ -400,6 +403,7 @@ machine.
    template. You can find the URL in the **Output** tab
    after the CloudFormation template is completed.
 3. Configure the data generator:
+
    - **Region:** Select the Region
      that you are using for this tutorial:
      us-east-1
@@ -519,6 +523,7 @@ $python main.py
 
 1. Configure your IDE to run the `main.py` script with the
    following configuration:
+
    1. Use the standalone Python environment such as Conda or
       VirtualEnv where you installed the PyFlink library.
    2. Use the AWS credentials to access the input and output Kinesis
@@ -609,6 +614,7 @@ console or the AWS CLI. For this tutorial, we will use the console.
    started** section of the initial page.
 4. On the **Create streaming applications**
    page:
+
    - For **Chose a method to set up the stream
      processing application**, choose **Create
      from scratch**.
@@ -616,6 +622,7 @@ console or the AWS CLI. For this tutorial, we will use the console.
      Flink version**, choose **Apache Flink
      1.19**.
    - For **Application configuration**:
+
      - For **Application name**, enter
        `MyApplication`.
      - For **Description**, enter
@@ -628,6 +635,7 @@ console or the AWS CLI. For this tutorial, we will use the console.
 
    - For **Template for applications
      settings**:
+
      - For **Templates**, choose
        **Development**.
 
@@ -744,6 +752,7 @@ Edit the application configuration to set the application code artifact.
    **Configure**.
 2. In the **Application code location**
    section:
+
    - For **Amazon S3 bucket**, select the bucket
      you previously created for the application code. Choose
      **Browse** and select the correct bucket,

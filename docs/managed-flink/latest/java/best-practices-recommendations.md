@@ -6,6 +6,7 @@
   first.
 - Make sure that your new job graph has a compatible state with the snapshot
   you will be using to start your upgraded application.
+
   - Make sure that the types stored in operator states stay the same. If
     the type has changed, Apache Flink can't restore the operator
     state.

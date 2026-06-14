@@ -66,6 +66,7 @@ To complete the steps in this guide, you must have the following:
   Development Kit (JDK) version 11](https://www.oracle.com/java/technologies/downloads/#java11 "https://www.oracle.com/java/technologies/downloads/#java11") . Install a Java JDK 11 and set the
   `JAVA_HOME` environment variable to point to your JDK install
   location. If you don't have a JDK 11, you can use [Amazon Coretto 11](../../../corretto/latest/corretto-11-ug/what-is-corretto-11.md "../../../corretto/latest/corretto-11-ug/what-is-corretto-11.md") or any other standard JDK of your choice.
+
   - To verify that you have the JDK installed correctly, run the following
     command. The output will be different if you are using a JDK other than
     Amazon Corretto. Make sure that the version is 11.x.
@@ -80,6 +81,7 @@ To complete the steps in this guide, you must have the following:
 
 - [Apache Maven](https://maven.apache.org/ "https://maven.apache.org/"). Install Apache
   Maven if you haven't already. To learn how to install it, see [Installing Apache Maven](https://maven.apache.org/install.html "https://maven.apache.org/install.html").
+
   - To test your Apache Maven installation, enter the following:
 
 ```
@@ -88,6 +90,7 @@ $ mvn -version
 
 - IDE for local development. We recommend that you use a development environment
   such as [Eclipse Java Neon](https://www.eclipse.org/downloads/packages/release/neon/3 "https://www.eclipse.org/downloads/packages/release/neon/3") or [IntelliJ IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/") to develop and compile your application.
+
   - To test your Apache Maven installation, enter the following:
 
 ```

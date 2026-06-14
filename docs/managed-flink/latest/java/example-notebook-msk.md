@@ -180,6 +180,7 @@ for **Amazon MSK Cluster**. Choose **Save changes**. 6. In the **MyNotebook** pa
 To create your Studio notebook by using the AWS CLI, do the following:
 
 1. Verify that you have the following information. You need these values to create your application.
+
    - Your account ID.
    - The subnet IDs and security group ID for the Amazon VPC that contains your Amazon MSK cluster.
 

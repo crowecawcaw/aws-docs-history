@@ -65,6 +65,7 @@ To complete this tutorial, you must have the following:
   `JAVA_HOME` environment variable to point to your install
   location. If you don't have a JDK 11, you can use [Amazon Corretto](../../../corretto.md "../../../corretto.md") or any standard
   JDK of our choice.
+
   - To verify that you have the JDK correctly installed, run the following
     command. The output will be different if you are using a JDK other than
     Amazon Corretto 11. Make sure that the version is 11.x.
@@ -80,6 +81,7 @@ To complete this tutorial, you must have the following:
 - [Apache Maven](https://maven.apache.org/ "https://maven.apache.org/") - install Apache
   Maven if you have not done so already. For more information, see [Installing Apache
   Maven](https://maven.apache.org/install.html "https://maven.apache.org/install.html").
+
   - To test your Apache Maven installation, use the following
     command:
 

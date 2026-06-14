@@ -4,6 +4,7 @@ There is a [known issue](https://issues.apache.org/jira/browse/FLINK-32230 "http
 AsyncSink interface. This affects applications using Flink 1.15 with the following connectors:
 
 - For Java applications:
+
   - KinesisStreamsSink – `org.apache.flink:flink-connector-kinesis`
   - KinesisStreamsSink – `org.apache.flink:flink-connector-aws-kinesis-streams`
   - KinesisFirehoseSink – `org.apache.flink:flink-connector-aws-kinesis-firehose`

@@ -28,6 +28,7 @@ version of Scala you plan to use.
 2. Read the list of knowing issues and limitations. See [Precautions and known issues with application upgrades](precautions.md "precautions.md").
 3. Update your dependencies and test your applications locally. These
    dependencies typically are:
+
    1. The Flink runtime and API.
    2. Connectors recommended for the new Flink runtime. You can find
       these on [Release versions](release-version-list.md "release-version-list.md") for the specific runtime you want to

@@ -6,6 +6,7 @@ You can call the `UpdateApplication` API in multiple ways:
 
 - Use the existing **Configuration** workflow on the
   AWS Management Console.
+
   - Go to your app page on the AWS Management Console.
   - Choose **Configure**.
   - Select the new runtime and the snapshot that you want to start from,
@@ -15,6 +16,7 @@ You can call the `UpdateApplication` API in multiple ways:
 
 - Use the AWS CLI [update-application](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesisanalyticsv2/update-application.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesisanalyticsv2/update-application.html") action.
 - Use CloudFormation (CFN).
+
   - Update the [RuntimeEnvironment](../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.md#cfn-kinesisanalyticsv2-application-runtimeenvironment "../../../AWSCloudFormation/latest/UserGuide/aws-resource-kinesisanalyticsv2-application.md#cfn-kinesisanalyticsv2-application-runtimeenvironment") field. Previously, CloudFormation deleted the
     application and created a new one, causing your snapshots and other app
     history to be lost. Now CloudFormation updates your RuntimeEnvironment in place

@@ -86,6 +86,7 @@ status:
   that describes its current execution phase. A job starts in the `CREATED` status, and then proceeds to
   the `RUNNING` status when it has started. If error conditions occur, your application
   enters the following status:
+
   - For applications using Apache Flink 1.11 and later, your application enters the
     `RESTARTING` status.
   - For applications using Apache Flink 1.8 and prior, your application

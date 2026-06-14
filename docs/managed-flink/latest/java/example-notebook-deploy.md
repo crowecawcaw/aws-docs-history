@@ -23,6 +23,7 @@ Studio notebook `ExampleTestDeploy`.
    steps to deploy and run your application directly from the notebook.
 2. Add required permissions to the application role to enable the role you are using to read and write to an Amazon S3 bucket,
    and to launch a Managed Service for Apache Flink application:
+
    - AmazonS3FullAccess
    - Amazonmanaged-flinkFullAccess
    - Access to your sources, destinations, and VPCs as applicable. For more information, see [Review IAM permissions for Studio notebooks](how-zeppelin-iam.md "how-zeppelin-iam.md").
@@ -48,6 +49,7 @@ WITH (
 
 4. With this feature launch, you will see a new dropdown on the right top corner of each note in
    your notebook with the name of the notebook. You can do the following:
+
    - View the Studio notebook settings in the AWS Management Console.
    - Build your Zeppelin Note and export it to Amazon S3. At this point, provide a name for your application and choose **Build and Export**.
      You will get a notification when the export completes.

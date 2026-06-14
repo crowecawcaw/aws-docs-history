@@ -264,6 +264,7 @@ based on desired behavior:
 
 - EARLIEST: The default setting, which reads from oldest offset in the
   partition. This is a good choice especially if:
+
   - You have newly created Amazon MSK topics and consumer
     applications.
   - You need to replay data, so you can build or reconstruct
@@ -309,6 +310,7 @@ by character.
 ## How do I read records in my vector datastore?
 
 1. When `source.msk.data.type` is `STRING`
+
    - **original_data**: The entire original
      string from the Amazon MSK message.
    - **embedded_data**: Embedding vector
@@ -321,6 +323,7 @@ by character.
      `embedded_data`.
 
 2. When `source.msk.data.type` is `JSON`
+
    - **original_data**: The entire original
      JSON from the Amazon MSK message _after_ JSON key
      filtering is applied.

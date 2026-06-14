@@ -19,12 +19,14 @@ Runtime version you are upgrading from.
 3. In the new notebook, adjust the code to make it compatible with
    any Apache Flink feature that has changed from the previous
    version.
+
    - Run the new notebook. Open the notebook and run it note by
      note, in sequence, and test if it works.
    - Make any required changes to the code.
    - Stop the new notebook.
 
 4. If you had deployed the old notebook as application:
+
    - Deploy the new notebook as a separate, new
      application.
    - Stop the old application.
@@ -44,6 +46,7 @@ We recommend that you upgrade to the latest Runtime. The process is the same, re
 2. Copy and paste the code of every note from the old notebook to the
    new notebook.
 3. Update the external dependencies and custom artifacts.
+
    - Look for new connectors compatible with the Apache Flink
      version of the new Runtime. Refer to [Table & SQL Connectors](https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/connectors/table/overview/ "https://nightlies.apache.org/flink/flink-docs-release-1.15/docs/connectors/table/overview/") in the Apache Flink
      documentation to find the correct connectors for the Flink
@@ -58,12 +61,14 @@ We recommend that you upgrade to the latest Runtime. The process is the same, re
 4. In the new notebook, adjust the code to make it compatible with
    any Apache Flink feature that has changed from the previous
    version.
+
    - Run the new notebook. Open the notebook and run it note by
      note, in sequence, and test if it works.
    - Make any required changes to the code.
    - Stop the new notebook.
 
 5. If you had deployed the old notebook as application:
+
    - Deploy the new notebook as a separate, new
      application.
    - Stop the old application.

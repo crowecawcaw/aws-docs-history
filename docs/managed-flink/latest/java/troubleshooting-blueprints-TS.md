@@ -54,6 +54,7 @@ application.
 - We have added two new metrics for monitoring performance of generating
   embeddings. Find them under the `EmbeddingGeneration` operation
   name in CloudWatch. The two metrics are:
+
   - **BedrockTitanEmbeddingTokenCount**:
     Number of tokens present in a single request to Amazon Bedrock.
   - **BedrockEmbeddingGenerationLatencyMs**: Reports the

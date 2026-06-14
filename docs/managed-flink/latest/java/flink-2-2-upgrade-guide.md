@@ -97,6 +97,7 @@ Update your application code to be compatible with Flink 2.2:
   2.2-compatible versions (see
   [Connector availability](flink-2-2.md#flink-2-2-connectors "flink-2-2.md#flink-2-2-connectors"))
 - **Remove deprecated API usage**:
+
   - Replace DataSet API with DataStream API or Table
     API/SQL
   - Replace legacy `SourceFunction`/`SinkFunction`
@@ -189,6 +190,7 @@ You can upgrade your Flink application by using the [`UpdateApplication`](../api
 You can call the `UpdateApplication` API in multiple ways:
 
 - **Use the AWS Management Console.**
+
   - Go to your app page on the AWS Management Console.
   - Choose **Configure**.
   - Select the new runtime and the snapshot that you want to start
@@ -200,6 +202,7 @@ You can call the `UpdateApplication` API in multiple ways:
   [`update-application`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesisanalyticsv2/update-application.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/kinesisanalyticsv2/update-application.html")
   action.
 - **Use CloudFormation.**
+
   - Update the `RuntimeEnvironment` field. Previously,
     CloudFormation deleted the application and created a new one, causing your
     snapshots and other app history to be lost. Now CloudFormation updates your
@@ -207,6 +210,7 @@ You can call the `UpdateApplication` API in multiple ways:
     application.
 
 - **Use the AWS SDK.**
+
   - Consult the SDK documentation for the programming language of
     your choice. See [`UpdateApplication`](../apiv2/API_UpdateApplication.md "../apiv2/API_UpdateApplication.md").
 

@@ -114,6 +114,7 @@ your IDE.
   Amazon Managed Service for Apache Flink and in your IDE, the application automatically detects if it's
   running standalone locally in the IDE. In that case, the application
   loads the runtime configuration differently:
+
   1.  When the application detects that it's running in standalone
       mode in your IDE, form the
       `application_properties.json` file included in
@@ -139,6 +140,7 @@ your IDE.
 
 - The `main()` method defines the application data flow and
   runs it.
+
   - Initializes the default streaming environments. In this
     example, we show how to create both the
     `StreamExecutionEnvironment` to use with the
@@ -151,7 +153,6 @@ your IDE.
   StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
   StreamTableEnvironment tableEnv = StreamTableEnvironment.create(env, EnvironmentSettings.newInstance().build());
   ```
-
   - Load the application configuration parameters. This will
     automatically load them from the correct place, depending on
     where the application is running:
@@ -159,7 +160,6 @@ your IDE.
   ```
   Map<String, Properties> applicationParameters = loadApplicationProperties(env);
   ```
-
   - The [FileSystem sink connector](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/table/filesystem/#streaming-sink "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/table/filesystem/#streaming-sink") that the application uses
     to write results to Amazon S3 output files when Flink
     completes a [checkpoint](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/concepts/stateful-stream-processing/#checkpointing "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/concepts/stateful-stream-processing/#checkpointing"). You must enable checkpoints to write
@@ -175,7 +175,6 @@ your IDE.
       env.enableCheckpointing(5000);
    }
   ```
-
   - This application does not receive data from an actual external
     source. It generates random data to process through the [DataGen connector](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/datagen/ "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/connectors/datastream/datagen/"). This connector is available for
     DataStream API, SQL, and Table API. To demonstrate the
@@ -192,7 +191,6 @@ your IDE.
           RateLimiterStrategy.perSecond(recordPerSecond),
           TypeInformation.of(StockPrice.class));
   ```
-
   - In the DataStream API, records can have custom classes.
     Classes must follow specific rules so that Flink can use them as
     record. For more information, see [Supported Data Types](https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/datastream/fault-tolerance/serialization/types_serialization/#supported-data-types "https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/datastream/fault-tolerance/serialization/types_serialization/#supported-data-types"). In this example, the
@@ -211,7 +209,6 @@ your IDE.
           "data-generator"
       ).setParallelism(1);
   ```
-
   - What follows in the data processing flow is defined using the
     Table API and SQL. To do so, we convert the DataStream of
     StockPrices into a table. The schema of the table is
@@ -220,7 +217,6 @@ your IDE.
   ```
   Table stockPricesTable = tableEnv.fromDataStream(stockPrices);
   ```
-
   - The following snippet of code shows how to define a view and a
     query using the programmatic Table API:
 
@@ -236,7 +232,6 @@ your IDE.
 
   tableEnv.createTemporaryView("filtered_stock_prices", filteredStockPricesTable);
   ```
-
   - A sink table is defined to write the results to an
     Amazon S3 bucket as JSON files. To illustrate the
     difference with defining a view programmatically, with the Table
@@ -255,7 +250,6 @@ your IDE.
           "'path' = 's3a://"  + s3Path + "'" +
           ")");
   ```
-
   - The last step of the is an `executeInsert()` that
     inserts the filtered stock prices view into the sink table. This
     method initiates the execution of the data flow we have defined

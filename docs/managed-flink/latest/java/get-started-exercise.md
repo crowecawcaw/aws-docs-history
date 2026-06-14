@@ -156,6 +156,7 @@ your IDE.
   Amazon Managed Service for Apache Flink and in your IDE, the application automatically detects if it's
   running standalone locally in the IDE. In that case, the application
   loads the runtime configuration differently:
+
   1.  When the application detects that it's running in standalone
       mode in your IDE, form the
       `application_properties.json` file included in
@@ -181,6 +182,7 @@ your IDE.
 
 - The `main()` method defines the application data flow and
   runs it.
+
   - Initializes the default streaming environments. In this
     example, we show how to create both the
     `StreamExecutionEnvironment` to be used with the
@@ -192,7 +194,6 @@ your IDE.
   ```
   StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
   ```
-
   - Load the application configuration parameters. This will
     automatically load them from the correct place, depending on
     where the application is running:
@@ -200,7 +201,6 @@ your IDE.
   ```
   Map<String, Properties> applicationParameters = loadApplicationProperties(env);
   ```
-
   - The application defines a source using the [Kinesis Consumer](https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/connectors/datastream/kinesis/#kinesis-consumer "https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/connectors/datastream/kinesis/#kinesis-consumer") connector to read data from the
     input stream. The configuration of the input stream is defined
     in the `PropertyGroupId`=`InputStream0`.
@@ -223,7 +223,6 @@ your IDE.
      ...
   }
   ```
-
   - The application then defines a sink using the [Kinesis Streams Sink](https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/connectors/datastream/kinesis/#kinesis-streams-sink "https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/connectors/datastream/kinesis/#kinesis-streams-sink") connector to send data to the
     output stream. Output stream name and Region are defined in the
     `PropertyGroupId`=`OutputStream0`,
@@ -250,7 +249,6 @@ your IDE.
      ...
   }
   ```
-
   - Finally, you run the data flow that you just defined. This
     must be the last instruction of the `main()` method,
     after you defined all the operators the data flow
