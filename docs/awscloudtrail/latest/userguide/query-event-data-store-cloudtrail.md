@@ -171,8 +171,10 @@ created.
 
 17. If your event data store includes management events, you can choose from
     the following options. For more information about management events, see [Logging management events](logging-management-events-with-cloudtrail.md "logging-management-events-with-cloudtrail.md").
+
     1.  Choose between **Simple event collection**
         or **Advanced event collection**:
+
         - Choose **Simple event collection** if you want to log all events, log only read events, or log only write events.
           You can choose also to exclude AWS Key Management Service and Amazon RDS Data API events.
         - Choose **Advanced event collection** if you want to include or exclude management events based on the values of advanced event selector fields, including the `eventName`,
@@ -182,6 +184,7 @@ created.
         choose whether you want to log all events, log only read events, or log only write events.
         You can also choose to exclude AWS KMS and Amazon RDS Data API events.
     3.  If you selected **Advanced event collection**, make the following selections:
+
         1. In **Log selector template**, choose a predefined template, or **Custom** to
            build a custom configuration based on advanced event selector field values.
 
@@ -203,7 +206,6 @@ created.
             * **Exclude AWS service initiated events** – Choose this template to exclude
              AWS service events, which have an `eventType` of `AwsServiceEvent`,
              and events initiated with AWS service-linked roles (SLRs).
-
         2. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
            descriptive name for an advanced event selector, such as "Log management events from AWS Management Console sessions". The selector name is listed as `Name` in the
            advanced event selector and is viewable if you expand the
@@ -261,7 +263,6 @@ created.
             3. Choose **+ Field** to add additional fields
              as required. To avoid errors, do not set conflicting or
              duplicate values for fields.
-
         4. Optionally, expand **JSON view** to see your
            advanced event selectors as a JSON block.
 
@@ -281,6 +282,7 @@ created.
          log Insights events for **API error rate**.
 
 18. To include data events in your event data store, do the following.
+
     1.  Choose a resource type. This is the AWS service and resource
         on which data events are logged.
     2.  In **Log selector template**, choose a predefined template, or choose **Custom** to
@@ -304,7 +306,6 @@ created.
         * **Exclude AWS service initiated events** – Choose this template to exclude
          AWS service events, which have an `eventType` of `AwsServiceEvent`,
          and events initiated with AWS service-linked roles (SLRs).
-
     3.  (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
         descriptive name for an advanced event selector, such as "Log data events for only two S3 buckets". The selector name is listed as `Name` in the
         advanced event selector and is viewable if you expand the
@@ -398,13 +399,13 @@ created.
          duplicate values for fields. For example, do not specify an ARN
          in one selector to be equal to a value, then specify that the
          ARN not equal the same value in another selector.
-
     5.  Optionally, expand **JSON view** to see your
         advanced event selectors as a JSON block.
     6.  To add another resource type on which to log data events, choose **Add data event type**.
         Repeat steps a through this step to configure advanced event selectors for the resource type.
 
 19. To include network activity events in your event data store, do the following.
+
     1.  From **Network activity event source**, choose the source for network activity events.
     2.  In **Log selector template**, choose a template.
         You can choose to log all network activity events, log all network activity access denied events, or choose **Custom** to
@@ -414,8 +415,10 @@ created.
     4.  In **Advanced event
         selectors** build expressions by choosing values for **Field**,
         **Operator**, and **Value**. You can skip this step if you are using a predefined log template.
+
         1. For excluding or including network activity
            events, you can choose from the following fields in the console.
+
            - **`eventName`** – You can use any operator with `eventName`.
              You can use it to include or exclude any event, such as `CreateKey`.
            - **`errorCode`** – You can use it to filter on an error code. Currently, the only supported `errorCode` is `VpceAccessDenied`.
@@ -432,6 +435,7 @@ created.
 
 20. To copy existing trail events to your event data store, do the
     following.
+
     1.  Choose the trail that you want to copy. By default, CloudTrail only
         copies CloudTrail events contained in the S3 bucket's
         `CloudTrail` prefix and the prefixes inside the
@@ -458,12 +462,12 @@ created.
          choose to copy events logged in the last 6 months, 1 year, 2 years, 7 years, or a custom range. CloudTrail copies the events logged within the chosen time period.
         * If you choose **Absolute range**, you can choose a specific start and end date. CloudTrail copies the events that occurred between the chosen
          start and end dates.
-
     3.  For **Permissions**, choose from the following
         IAM role options. If you choose an existing IAM role, verify
         that the IAM role policy provides the necessary permissions. For
         more information about updating the IAM role permissions, see
         [IAM permissions for copying trail events](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam").
+
         - Choose **Create a new role
           (recommended)** to create a new IAM role. For
           **Enter IAM role name**, enter a name

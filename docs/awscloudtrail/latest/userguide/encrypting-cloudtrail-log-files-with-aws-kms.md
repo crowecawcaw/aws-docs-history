@@ -28,6 +28,7 @@ This approach has the following advantages:
   requirements.
 - You have enhanced security. With this feature, to read log files or digest files, the following
   permissions are required:
+
   - A user must have S3 read permissions for the bucket that contains the log files and digest files.
   - A user must also have a policy or role applied that allows decrypt permissions by the KMS key
     policy.
@@ -58,6 +59,7 @@ To enable SSE-KMS encryption for CloudTrail log files, perform the following hig
 steps:
 
 1. Create a KMS key.
+
    - For information about creating a KMS key with the AWS Management Console, see [Creating Keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the
      _AWS Key Management Service Developer Guide_.
    - For information about creating a KMS key with the AWS CLI, see [create-key](../../../cli/latest/reference/kms/create-key.md "../../../cli/latest/reference/kms/create-key.md").
@@ -83,6 +85,7 @@ files and digest files.
     * For information about attaching a policy to a KMS key with the AWS CLI, see [put-key-policy](../../../cli/latest/reference/kms/put-key-policy.md "../../../cli/latest/reference/kms/put-key-policy.md").
 
 3. Update your trail or event data store to use the KMS key whose policy you modified for CloudTrail.
+
    - To update a trail or event data store using the CloudTrail console, see [Updating a resource to use your KMS key with the console](create-kms-key-policy-for-cloudtrail-update-trail.md "create-kms-key-policy-for-cloudtrail-update-trail.md").
    - To update a trail or event data store using the AWS CLI, see [Enabling and disabling encryption for CloudTrail log files, digest files and event data stores with the AWS CLI](cloudtrail-log-file-encryption-cli.md "cloudtrail-log-file-encryption-cli.md").
 

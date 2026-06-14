@@ -18,6 +18,7 @@ use a global or regional endpoint to sign in.
 - If you sign in as the root user, CloudTrail records the event in us-east-1.
 - If you sign in with an IAM user and use the global endpoint, CloudTrail records
   the Region of the `ConsoleLogin` event as follows:
+
   - If an account alias cookie is present in the browser, CloudTrail records the `ConsoleLogin` event
     in one of the following regions: us-east-2, eu-north-1, or ap-southeast-2. This is because the console proxy
     redirects the user based on the latency from the user sign-in location.

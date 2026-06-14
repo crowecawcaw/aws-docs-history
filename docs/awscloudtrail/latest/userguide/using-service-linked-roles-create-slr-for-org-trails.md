@@ -34,18 +34,22 @@ The role permissions policy named CloudTrailServiceRolePolicy allows CloudTrail 
 the following actions on the specified resources:
 
 - Actions on all CloudTrail resources:
+
   - `All`
 
 - Actions on all AWS Organizations resources:
+
   - `organizations:DescribeAccount`
   - `organizations:DescribeOrganization`
   - `organizations:ListAccounts`
   - `organizations:ListAWSServiceAccessForOrganization`
 
 - Actions on all Organizations resources for the CloudTrail service principal to list the delegated administrators for the organization:
+
   - `organizations:ListDelegatedAdministrators`
 
 - Actions for [disabling Lake federation](query-disable-federation.md "query-disable-federation.md") on an organization event data store:
+
   - `glue:DeleteTable`
   - `lakeformation:DeRegisterResource`
 

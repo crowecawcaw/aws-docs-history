@@ -132,6 +132,7 @@ The following steps describe how to filter by a start and end date and time.
 ###### To filter by a start and end date and time
 
 1. From **Filter by date and time**, choose one of the following:
+
    - **Absolute range** - Lets you choose a specific time. Go on
      to the next step.
    - **Relative range** - Selected by default.
@@ -139,6 +140,7 @@ The following steps describe how to filter by a start and end date and time.
      event. Go on to step 3.
 
 2. To set an **Absolute range**, do the following.
+
    1. Choose the day that you want the time range to start. Enter a start
       time on the selected day. To enter a date manually, type the date in the
       format `yyyy/mm/dd`. The start and end times use a 24-hour
@@ -150,6 +152,7 @@ The following steps describe how to filter by a start and end date and time.
       **Apply**.
 
 3. To set a **Relative range**, do the following.
+
    1. Choose a preset time period relative to the start time of Insights events. Preset time ranges include
       30 minutes, 1 hour, 12 hours, or 1 day. To specify a custom time range, choose
       **Custom**.

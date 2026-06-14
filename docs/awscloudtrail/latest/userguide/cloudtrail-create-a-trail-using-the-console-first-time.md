@@ -120,6 +120,7 @@ following.
 8.  Optionally, configure CloudTrail to send log files to CloudWatch Logs by choosing
     **Enabled** in **CloudWatch Logs**. For more
     information, see [Sending events to CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md "send-cloudtrail-events-to-cloudwatch-logs.md").
+
     1. If you enable integration with CloudWatch Logs, choose
        **New** to create a new log group, or
        **Existing** to use an existing one. If you
@@ -152,6 +153,7 @@ following.
 10. On the **Choose log events** page, choose the event types
     that you want to log. For **Management events**, do the
     following.
+
     1. For **API activity**, choose if you want your
        trail to log **Read** events,
        **Write** events, or both. For more
@@ -344,6 +346,7 @@ you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to expli
     data event type**. Repeat steps 12 through this step to configure
     advanced event selectors for the resource type.
 17. To enable aggregation on data events, choose one or more aggregation templates. These templates define how your data events will be summarized. You can choose from the following templates:
+
     1.  **API Activity** to get 5-minute summaries of your data events based on the API calls made. Use this to understand your API usage patterns, including frequency, callers, and source.
     2.  **Resource Access** to get the activity patterns on your AWS resources. Use this to understand how your AWS resources are being accessed, how many times they are being accessed in the 5-minute window, who is accessing the resource, and what actions are being performed.
     3.  **User Actions** to get activity patterns based on IAM principals making API calls in your account.###### Note
@@ -449,6 +452,7 @@ Use the following procedure to configure data event settings using basic event s
 1. In **Events**, choose **Data events** to log data events. Additional
    charges apply for logging data events. For more information, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
 2. For Amazon S3 buckets:
+
    1. For **Data event source**, choose
       **S3**.
    2. You can choose to log **All current and future S3
@@ -498,6 +502,7 @@ Use the following procedure to configure data event settings using basic event s
 3. To add another resource type on which to log data events, choose **Add
    data event type**.
 4. For Lambda functions:
+
    1. For **Data event source**, choose
       **Lambda**.
    2. In **Lambda function**, choose **All
@@ -544,6 +549,7 @@ Use the following procedure to configure data event settings using basic event s
    information, see [Managing trails with the AWS CLI](cloudtrail-additional-cli-commands.md "cloudtrail-additional-cli-commands.md").
 
 5. For DynamoDB tables:
+
    1. For **Data event source**, choose
       **DynamoDB**.
    2. In **DynamoDB table selection**, choose

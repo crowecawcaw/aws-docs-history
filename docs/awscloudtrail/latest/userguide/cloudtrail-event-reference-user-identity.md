@@ -282,6 +282,7 @@ authentication](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../../../IA
   `GetFederationToken`, the element provides information about
   the root account or IAM user. This element has the following
   attributes:
+
   - `type` – The source of the
     temporary security credentials, such as `Root`,
     `IAMUser`, or `Role`.
@@ -329,6 +330,7 @@ an empty value signifies that there is no information about the identity provide
   [Track privileged
   tasks in CloudTrail](../../../IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.md "../../../IAM/latest/UserGuide/cloudtrail-track-privileged-tasks.md") in the _IAM User Guide_. This is an optional field.
 - `attributes` – The attributes for the session.
+
   - `creationDate` – The date and
     time when the temporary security credentials were issued.
     Represented in ISO 8601 basic notation.
@@ -456,6 +458,7 @@ The principal name of the external identity provider. This field appears only fo
 - For `WebIdentityUser`, this is the issuer name of the web identity
   federation provider. This can be a provider that you configured,
   such as the following:
+
   - `cognito-identity.amazon.com` for Amazon Cognito
   - `www.amazon.com` for Login with Amazon
   - `accounts.google.com` for Google

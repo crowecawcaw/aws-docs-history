@@ -58,6 +58,7 @@ To use the CloudTrail Processing Library, add it to your Java project's classpat
 ###### To add the CloudTrail Processing Library to an Apache Ant project
 
 1. Download or clone the CloudTrail Processing Library source code from GitHub:
+
    - [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library "https://github.com/aws/aws-cloudtrail-processing-library")
 
 2. Build the .jar file from source as described in the [README](https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst "https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst"):
@@ -101,6 +102,7 @@ a single dependency in your project's `pom.xml` file.
 ###### To add the CloudTrail Processing Library to an Eclipse project
 
 1. Download or clone the CloudTrail Processing Library source code from GitHub:
+
    - [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library "https://github.com/aws/aws-cloudtrail-processing-library")
 
 2. Build the .jar file from source as described in the [README](https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst "https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst"):
@@ -126,6 +128,7 @@ mvn clean install -Dgpg.skip=true
 ###### To add the CloudTrail Processing Library to an IntelliJ project
 
 1. Download or clone the CloudTrail Processing Library source code from GitHub:
+
    - [https://github.com/aws/aws-cloudtrail-processing-library](https://github.com/aws/aws-cloudtrail-processing-library "https://github.com/aws/aws-cloudtrail-processing-library")
 
 2. Build the .jar file from source as described in the [README](https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst "https://github.com/aws/aws-cloudtrail-processing-library/blob/master/README.rst"):

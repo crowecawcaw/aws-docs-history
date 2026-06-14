@@ -67,7 +67,7 @@ Amazon CloudWatch
   sources, and open access through Apache Iceberg APIs.
 - To get started with Amazon CloudWatch, see
   [CloudWatch
-  pipelines](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Pipelines.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Pipelines.md") in the _Amazon CloudWatch User Guide_.
+  pipelines](../../../AmazonCloudWatch/latest/monitoring/cloudwatch-pipelines.md "../../../AmazonCloudWatch/latest/monitoring/cloudwatch-pipelines.md") in the _Amazon CloudWatch User Guide_.
   For details about pricing, see
   [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/").
 
@@ -158,6 +158,7 @@ This is the most direct way to push data from your existing Lake Event Data Stor
 4. Choose the **Actions** button in the top right and
    select **Export to CloudWatch**.
 5. Configure Export Settings:
+
    - **Time Range:** (recommended for
      Pilot) Instead of selecting your entire history, choose a narrow window
      (for example, the last 24 hours) to verify the integration. Once verified,

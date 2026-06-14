@@ -66,6 +66,7 @@ Consider the following factors when federating an event data store:
   protection](query-eds-termination-protection.md "query-eds-termination-protection.md") if it's enabled.
 - The following considerations apply to organization event data
   stores:
+
   - Only a single delegated administrator account or the
     management account can enable federation on an organization event
     data store. Other delegated administrator accounts can still query

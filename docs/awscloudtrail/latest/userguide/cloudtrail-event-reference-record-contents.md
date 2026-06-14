@@ -465,6 +465,7 @@ it was missing. Contents include the following.
 - **`reason`** - The reason that
   the event or some of its contents were missing. Values can be any of the
   following.
+
   - **`DELIVERY_DELAY`** –
     There was a delay delivering events. This could be caused by
     high network traffic, connectivity issues, or a CloudTrail service
@@ -611,6 +612,7 @@ action:
 3. Each account has a trail and a separate bucket.
 4. Bob uses the KMS key to call the `Encrypt` API.
 5. CloudTrail sends two separate events.
+
    - One event is sent to Bob. The event shows that he used the KMS key.
    - One event is sent to Alice. The event shows that Bob used the
      KMS key.

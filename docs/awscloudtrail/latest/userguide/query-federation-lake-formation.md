@@ -37,6 +37,7 @@ If you want to create data filters and use other Lake Formation
 features, you must use Lake Formation access control.
 
 - **Lake Formation access control** – This methods provides the following advantages.
+
   - You can implement column-level, row-level, and cell-level security by creating [data filters](../../../lake-formation/latest/dg/data-filters-about.md "../../../lake-formation/latest/dg/data-filters-about.md"). For more information, see
     [Securing data lakes with row-level access control](../../../lake-formation/latest/dg/cbac-tutorial.md "../../../lake-formation/latest/dg/cbac-tutorial.md") in the _AWS Lake Formation Developer Guide_.
   - Database and tables are only visible to Lake Formation administrators and creators of the database and resources.

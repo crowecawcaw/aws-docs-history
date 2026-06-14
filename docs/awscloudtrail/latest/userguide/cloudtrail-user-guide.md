@@ -92,6 +92,7 @@ as:
 - Creating and editing CloudTrail Lake event data stores.
 - Running queries on event data stores.
 - Configuring CloudTrail trails, including:
+
   - Selecting an Amazon S3 bucket for trails.
   - Setting a prefix.
   - Configuring delivery to CloudWatch Logs.
@@ -101,6 +102,7 @@ as:
   - Adding and managing tags for your trails.
 
 - Configuring CloudTrail Lake event data stores, including:
+
   - Integrating event data stores with CloudTrail partners or with your own
     applications, to log events from sources outside of AWS.
   - Federating event data stores to run queries from Amazon Athena.

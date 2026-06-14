@@ -142,6 +142,7 @@ ensure all of your added keys are included in the event.
   you want included in the events collected by your event data store. You can include resource tag
   keys and IAM global condition keys. Information about the added resource tags and IAM global condition keys is shown in the `eventContext`
   field in the event. For more information, see [Enrich CloudTrail events by adding resource tag keys and IAM global condition keys](cloudtrail-context-events.md "cloudtrail-context-events.md").
+
   - Set the `Type` to `TagContext` to pass in an array of up to 50 resource tag keys. If you add resource tags,
     CloudTrail events will include the selected tag keys associated with the resources that were involved in the API call.
     API events related to deleted resources will not have resource tags.

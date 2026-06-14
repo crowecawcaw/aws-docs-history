@@ -30,6 +30,7 @@ if a resource validation fails. Examples of validation failures include:
     trail name.
 3.  In **General details**, choose **Edit** to
     change the following settings. You cannot change the name of a trail.
+
     - **Apply trail to my organization** - Change whether this
       trail is an AWS Organizations organization trail.
 
@@ -126,6 +127,7 @@ if a resource validation fails. Examples of validation failures include:
     for sending CloudTrail log files to CloudWatch Logs. Choose **Enabled** in
     **CloudWatch Logs** to enable sending log files. For more information,
     see [Sending events to CloudWatch Logs](send-cloudtrail-events-to-cloudwatch-logs.md "send-cloudtrail-events-to-cloudwatch-logs.md").
+
     1. If you enable integration with CloudWatch Logs, choose **New** to
        create a new log group, or **Existing** to use an existing
        one. If you choose **New**, CloudTrail specifies a name for the
@@ -155,6 +157,7 @@ if a resource validation fails. Examples of validation failures include:
     For more information, see [AWS Resource Groups](../../../ARG/latest/userguide/resource-groups.md "../../../ARG/latest/userguide/resource-groups.md") and [Tags](cloudtrail-concepts.md#cloudtrail-concepts-tags "cloudtrail-concepts.md#cloudtrail-concepts-tags").
 6.  In **Management events**, choose **Edit** to
     change management event logging settings.
+
     1. For **API activity**, choose if you want your trail to
        log **Read** events, **Write** events, or
        both. For more information, see [Management events](logging-management-events-with-cloudtrail.md#logging-management-events "logging-management-events-with-cloudtrail.md#logging-management-events").
@@ -486,6 +489,7 @@ For Amazon S3 buckets:
 2. To add another resource type on which to log data events, choose **Add data
    event type**.
 3. For Lambda functions:
+
    1. For **Data event source**, choose
       **Lambda**.
    2. In **Lambda function**, choose **All
@@ -531,6 +535,7 @@ For Amazon S3 buckets:
 4. To add another resource type on which to log data events, choose **Add data
    event type**.
 5. For DynamoDB tables:
+
    1. For **Data event source**, choose
       **DynamoDB**.
    2. In **DynamoDB table selection**, choose

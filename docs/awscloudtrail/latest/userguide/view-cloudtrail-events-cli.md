@@ -57,6 +57,7 @@ The [`lookup-events`](https://awscli.amazonaws.com/v2/documentation/api/latest/r
 - [Specifying the number of events to return](view-cloudtrail-events-cli.md#specify-the-number-of-events-to-return "view-cloudtrail-events-cli.md#specify-the-number-of-events-to-return")
 - [Looking up events by time range](view-cloudtrail-events-cli.md#look-up-events-by-time-range "view-cloudtrail-events-cli.md#look-up-events-by-time-range")
 - [Looking up events by attribute](view-cloudtrail-events-cli.md#look-up-events-by-attributes "view-cloudtrail-events-cli.md#look-up-events-by-attributes")
+
   - [Attribute lookup examples](view-cloudtrail-events-cli.md#attribute-lookup-example "view-cloudtrail-events-cli.md#attribute-lookup-example")
 
 - [Specifying the next page of results](view-cloudtrail-events-cli.md#specify-next-page-of-lookup-results "view-cloudtrail-events-cli.md#specify-next-page-of-lookup-results")

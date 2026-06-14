@@ -63,6 +63,7 @@ Consider the following factors when copying trail events.
 - When you copy trail events to an event data store, CloudTrail copies all trail events
   regardless of the configuration of the destination event data store's event types, advanced event selectors, or AWS Region.
 - Before copying trail events to an existing event data store, be sure the event data store's pricing option and retention period are configured appropriately for your use case.
+
   - **Pricing option:** The pricing option determines the cost
     for ingesting and storing events. For more information about pricing options, see [AWS CloudTrail
     Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/") and [Event data store pricing options](cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option").

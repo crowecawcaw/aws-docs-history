@@ -10,15 +10,19 @@ charges apply for data or Insights events. For more information, see [AWS CloudT
 - [Management events](logging-management-events-with-cloudtrail.md#logging-management-events "logging-management-events-with-cloudtrail.md#logging-management-events")
 - [Read and write events](logging-management-events-with-cloudtrail.md#read-write-events-mgmt "logging-management-events-with-cloudtrail.md#read-write-events-mgmt")
 - [Logging management events with the AWS Management Console](logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console "logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console")
+
   - [Updating the management event settings for an existing trail](logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console-trail "logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console-trail")
   - [Updating the management event settings for an existing event data store](logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console-eds "logging-management-events-with-cloudtrail.md#logging-management-events-with-the-cloudtrail-console-eds")
 
 - [Logging management events with the AWS CLI](logging-management-events-with-cloudtrail.md#creating-mgmt-event-selectors-with-the-AWS-CLI "logging-management-events-with-cloudtrail.md#creating-mgmt-event-selectors-with-the-AWS-CLI")
+
   - [Examples: Logging management events for trails](logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples "logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples")
+
     - [Examples: Logging management events for trails using advanced event selectors](logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples-adv "logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples-adv")
     - [Examples: Logging management events for trails using basic event selectors](logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples-basic "logging-management-events-with-cloudtrail.md#log-mgmt-events-trails-examples-basic")
 
   - [Examples: Logging management events for event data stores](logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples "logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples")
+
     - [Example: Exclude AWS KMS management events](logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-kms "logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-kms")
     - [Example: Exclude Amazon RDS management events](logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-rds "logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-rds")
     - [Example: Exclude AWS service events and events from AWS Management Console sessions](logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-service "logging-management-events-with-cloudtrail.md#log-mgmt-events-eds-examples-service")
@@ -114,6 +118,7 @@ Use the following procedure to update the management event settings for an exist
    choose the trail name.
 3. For **Management events**, choose
    **Edit**.
+
    - Choose if you want to log **Read**
      events, **Write** events, or both.
    - Choose **Exclude AWS KMS events** to filter
@@ -157,8 +162,10 @@ Use the following procedure to update the management event settings for an exist
     choose the event data store name.
 3.  For **Management events**, choose
     **Edit** and then configure the following settings:
+
     1.  Choose between **Simple event collection**
         or **Advanced event collection**:
+
         - Choose **Simple event collection** if you want to log all events, log only read events, or log only write events.
           You can choose also to exclude AWS Key Management Service and Amazon RDS Data API management events.
         - Choose **Advanced event collection** if you want to include or exclude management events based on the values of advanced event selector fields, including the `eventName`,
@@ -168,6 +175,7 @@ Use the following procedure to update the management event settings for an exist
         choose whether you want to log all events, log only read events, or log only write events.
         You can also choose to exclude AWS KMS and Amazon RDS management events.
     3.  If you selected **Advanced event collection**, make the following selections:
+
         1. In **Log selector template**, choose a predefined template, or **Custom** to
            build a custom configuration based on advanced event selector field values.
 
@@ -189,7 +197,6 @@ Use the following procedure to update the management event settings for an exist
             * **Exclude AWS service initiated events** – Choose this template to exclude
              AWS service events, which have an `eventType` of `AwsServiceEvent`,
              and events initiated with AWS service-linked roles (SLRs).
-
         2. (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
            descriptive name for an advanced event selector, such as "Log management events from AWS Management Console sessions". The selector name is listed as `Name` in the
            advanced event selector and is viewable if you expand the
@@ -247,7 +254,6 @@ Use the following procedure to update the management event settings for an exist
             3. Choose **+ Field** to add additional fields
              as required. To avoid errors, do not set conflicting or
              duplicate values for fields.
-
         4. Optionally, expand **JSON view** to see your
            advanced event selectors as a JSON block.
 

@@ -31,6 +31,7 @@ for these S3 objects are available in Amazon EventBridge. For more information, 
 ###### Contents
 
 - [Data events](logging-data-events-with-cloudtrail.md#logging-data-events "logging-data-events-with-cloudtrail.md#logging-data-events")
+
   - [Data events supported by AWS CloudTrail](logging-data-events-with-cloudtrail.md#w2aac21c31c19c11 "logging-data-events-with-cloudtrail.md#w2aac21c31c19c11")
   - [Examples: Logging data events for Amazon S3 objects](logging-data-events-with-cloudtrail.md#logging-data-events-examples "logging-data-events-with-cloudtrail.md#logging-data-events-examples")
   - [Logging data events for S3 objects in other AWS accounts](logging-data-events-with-cloudtrail.md#logging-data-events-for-s3-resources-in-other-accounts "logging-data-events-with-cloudtrail.md#logging-data-events-for-s3-resources-in-other-accounts")
@@ -38,28 +39,36 @@ for these S3 objects are available in Amazon EventBridge. For more information, 
 - [Read-only and write-only events](logging-data-events-with-cloudtrail.md#read-write-events-data "logging-data-events-with-cloudtrail.md#read-write-events-data")
 - [Logging data events with the AWS Management Console](logging-data-events-with-cloudtrail.md#logging-data-events-console "logging-data-events-with-cloudtrail.md#logging-data-events-console")
 - [Logging data events with the AWS Command Line Interface](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI")
+
   - [Logging data events for trails with the AWS CLI](logging-data-events-with-cloudtrail.md#logging-data-events-CLI-trail-examples "logging-data-events-with-cloudtrail.md#logging-data-events-CLI-trail-examples")
+
     - [Log data events for trails by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-advanced")
     - [Log all Amazon S3 events for an Amazon S3 bucket by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3 "logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3")
     - [Log Amazon S3 on AWS Outposts events by using advanced event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts")
     - [Log events by using basic event selectors](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-basic "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-basic")
 
   - [Logging data events for event data stores with the AWS CLI](logging-data-events-with-cloudtrail.md#logging-data-events-CLI-eds-examples "logging-data-events-with-cloudtrail.md#logging-data-events-CLI-eds-examples")
+
     - [Include all Amazon S3 events for a specific bucket](logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3-eds "logging-data-events-with-cloudtrail.md#creating-data-adv-event-selectors-CLI-s3-eds")
     - [Include Amazon S3 on AWS Outposts events](logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts-eds "logging-data-events-with-cloudtrail.md#creating-data-event-selectors-CLI-outposts-eds")
 
 - [Filtering data events by using advanced event selectors](filtering-data-events.md "filtering-data-events.md")
+
   - [How CloudTrail evaluates multiple conditions for a field](filtering-data-events.md#filtering-data-events-conditions "filtering-data-events.md#filtering-data-events-conditions")
+
     - [Example showing multiple conditions for the resources.ARN field](filtering-data-events.md#filtering-data-events-conditions-ex "filtering-data-events.md#filtering-data-events-conditions-ex")
 
   - [AWS CLI examples for filtering data events](filtering-data-events.md#filtering-data-events-examples "filtering-data-events.md#filtering-data-events-examples")
+
     - [Example 1: Filtering on the eventName field](filtering-data-events.md#filtering-data-events-eventname "filtering-data-events.md#filtering-data-events-eventname")
     - [Example 2: Filtering on the resources.ARN and userIdentity.arn fields](filtering-data-events.md#filtering-data-events-useridentityarn "filtering-data-events.md#filtering-data-events-useridentityarn")
     - [Example 3: Filtering on the resources.type and eventName fields to exclude individual objects deleted by an Amazon S3 DeleteObjects event](filtering-data-events.md#filtering-data-events-deleteobjects "filtering-data-events.md#filtering-data-events-deleteobjects")
 
 - [Aggregating data events](aggregating-data-events.md "aggregating-data-events.md")
+
   - [Enabling aggregations for data events using the console](aggregating-data-events.md#aggregating-data-events-console "aggregating-data-events.md#aggregating-data-events-console")
   - [Enabling aggregations for data events using the AWS CLI](aggregating-data-events.md#aggregating-data-events-cli "aggregating-data-events.md#aggregating-data-events-cli")
+
     - [Example: API_ACTIVITY aggregated event](aggregating-data-events.md#aggregating-data-events-api-activity-example "aggregating-data-events.md#aggregating-data-events-api-activity-example")
     - [Example: RESOURCE_ACCESS aggregated event](aggregating-data-events.md#aggregating-data-events-resource-access-example "aggregating-data-events.md#aggregating-data-events-resource-access-example")
 
@@ -851,6 +860,7 @@ for logging data events. 3. For **Data events**, choose
 5. To add another resource type on which to log data events, choose
    **Add data event type**.
 6. For Lambda functions:
+
    1. For **Data event source**, choose
       **Lambda**.
    2. In **Lambda function**, choose **All
@@ -902,6 +912,7 @@ for logging data events. 3. For **Data events**, choose
 7. To add another resource type on which to log data events, choose
    **Add data event type**.
 8. For DynamoDB tables:
+
    1. For **Data event source**, choose
       **DynamoDB**.
    2. In **DynamoDB table selection**, choose

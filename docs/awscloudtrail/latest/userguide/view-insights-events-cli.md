@@ -44,9 +44,11 @@ The `lookup-events` command has the following options:
 - [Looking up Insights events for management events by time range](view-insights-events-cli.md#look-up-management-insights-by-time-range "view-insights-events-cli.md#look-up-management-insights-by-time-range")
 - [Looking up Insights events for data events by time range](view-insights-events-cli.md#look-up-data-insights-by-time-range "view-insights-events-cli.md#look-up-data-insights-by-time-range")
 - [Looking up Insights events for management events by attribute](view-insights-events-cli.md#look-up-management-insights-by-attributes "view-insights-events-cli.md#look-up-management-insights-by-attributes")
+
   - [Attribute lookup examples](view-insights-events-cli.md#attribute-lookup-example-insights "view-insights-events-cli.md#attribute-lookup-example-insights")
 
 - [Looking up Insights events for data events by dimension](view-insights-events-cli.md#look-up-data-insights-by-attributes "view-insights-events-cli.md#look-up-data-insights-by-attributes")
+
   - [Dimension lookup examples](view-insights-events-cli.md#dimension-lookup-example-insights "view-insights-events-cli.md#dimension-lookup-example-insights")
 
 - [Specifying the next page of results for Insights events for management events](view-insights-events-cli.md#specify-next-page-of-management-results "view-insights-events-cli.md#specify-next-page-of-management-results")

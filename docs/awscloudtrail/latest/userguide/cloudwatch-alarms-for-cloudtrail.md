@@ -83,6 +83,7 @@ log group opens. Follow this procedure to create an alarm.
    filters** bar, choose **Create alarm**.
 2. For **Specify metric and
    conditions**, enter the following.
+
    1. For **Graph**, the line is set at
       `1` based on other settings you make when
       you create your alarm.
@@ -106,6 +107,7 @@ minutes`.
    threshold of 1 change event in 5 minutes is crossed, and
    **SecurityGroupEventCount** is in an alarm
    state.
+
    1. For **Send a notification to the following SNS topic**, choose
       **Create new topic**.
    2. Enter `SecurityGroupChanges_CloudWatch_Alarms_Topic`
@@ -185,6 +187,7 @@ trail log group opens. Follow this procedure to create an alarm.
    filters** bar, choose **Create alarm**.
 2. On the **Create Alarm** page, in **Specify metric
    and conditions**, enter the following.
+
    1. For **Graph**, the line is set at
       `3` based on other settings you make when
       you create your alarm.
@@ -208,6 +211,7 @@ minutes`.
    threshold of 3 change events in 5 minutes is crossed, and
    **ConsoleSigninFailureCount** is in an alarm
    state.
+
    1. For **Send a notification to the following SNS topic**, choose
       **Create new topic**.
    2. Enter
@@ -286,6 +290,7 @@ trail log group opens. Follow this procedure to create an alarm.
    filters** bar, choose **Create alarm**.
 2. On the **Create Alarm** page, in **Specify metric
    and conditions**, enter the following.
+
    1. For **Graph**, the line is set at
       `1` based on other settings you make when
       you create your alarm.
@@ -309,6 +314,7 @@ minutes`.
    alarm**, which indicates that the action is taken when the
    threshold of 1 change event in 5 minutes is crossed, and
    **IAMPolicyEventCount** is in an alarm state.
+
    1. For **Send a notification to the following SNS topic**, choose
       **Create new topic**.
    2. Enter

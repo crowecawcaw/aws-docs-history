@@ -49,6 +49,7 @@ For example, if an event data store’s retention period is 90 days, then CloudT
 7. For **Permissions**, choose from the following IAM role options. If you choose an existing IAM role, verify that the IAM role policy
    provides the necessary permissions. For more information about updating the
    IAM role permissions, see [IAM permissions for copying trail events](cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam "cloudtrail-copy-trail-to-lake-eds.md#copy-trail-events-permissions-iam").
+
    - Choose **Create a new role (recommended)** to create a new IAM role. For **Enter IAM role name**, enter a name for the role.
      CloudTrail automatically creates the necessary permissions for this new role.
    - Choose **Use a custom IAM role ARN** to use a custom IAM role that is not listed. For **Enter IAM role ARN**, enter the IAM ARN.

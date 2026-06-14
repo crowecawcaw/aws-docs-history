@@ -29,11 +29,13 @@ To send events to a CloudWatch Logs log group:
 ###### Contents
 
 - [Configuring CloudWatch Logs monitoring with the console](send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-console "send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-console")
+
   - [Creating a log group or specifying an existing log group](send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-console-create-log-group "send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-console-create-log-group")
   - [Specifying an IAM role](send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-console-create-role "send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-console-create-role")
   - [Viewing events in the CloudWatch console](send-cloudtrail-events-to-cloudwatch-logs.md#viewing-events-in-cloudwatch "send-cloudtrail-events-to-cloudwatch-logs.md#viewing-events-in-cloudwatch")
 
 - [Configuring CloudWatch Logs monitoring with the AWS CLI](send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-cli "send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-cli")
+
   - [Creating a log group](send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-cli-create-log-group "send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-cli-create-log-group")
   - [Creating a role](send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-cli-create-role "send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-cli-create-role")
   - [Creating a policy document](send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-cli-create-policy-document "send-cloudtrail-events-to-cloudwatch-logs.md#send-cloudtrail-events-to-cloudwatch-logs-cli-create-policy-document")

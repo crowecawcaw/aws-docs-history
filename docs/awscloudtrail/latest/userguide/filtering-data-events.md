@@ -103,11 +103,13 @@ you may use `StartsWith`, `EndsWith`, `NotStartsWith`, or `NotEndsWith` to expli
 For advanced event selectors, CloudTrail evaluates multiple conditions for a field as follows:
 
 - DESELECT operators are AND'd together. If any of the DESELECT operator conditions are met, the event is not delivered. These are the valid DESELECT operators for advanced event selectors:
+
   - `NotEndsWith`
   - `NotEquals`
   - `NotStartsWith`
 
 - SELECT operators are OR'd together. These are the valid SELECT operators for advanced event selectors:
+
   - `EndsWith`
   - `Equals`
   - `StartsWith`
@@ -164,11 +166,13 @@ and applies multiple conditions on the `resources.ARN` field.
 In the preceding example, Amazon S3 data events for the `AWS::S3::Object` resource will be delivered if:
 
 1. None of these DESELECT operator conditions are met:
+
    - the `resources.ARN` field `NotStartsWith` the value `arn:aws:s3:::amzn-s3-demo-bucket/deselect`
    - the `resources.ARN` field `NotEndsWith` the value `object5`
    - the `resources.ARN` field `NotEquals` the value `arn:aws:s3:::amzn-s3-demo-bucket/object6`
 
 2. At least one of these SELECT operator conditions is met:
+
    - the `resources.ARN` field `Equals` the value `arn:aws:s3:::amzn-s3-demo-bucket/object1`
    - the `resources.ARN` field `StartsWith` the value `arn:aws:s3:::amzn-s3-demo-bucket/`
    - the `resources.ARN` field `EndsWith` the value `object3`

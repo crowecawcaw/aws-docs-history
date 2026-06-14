@@ -84,6 +84,7 @@ by selecting from the following preferences.
   time in UTC or the local time zone.
 - **Select visible columns** - Select which columns to display.
   By default, the following columns are displayed:
+
   - **Event name**
   - **Event time**
   - **User name**

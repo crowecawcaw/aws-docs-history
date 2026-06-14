@@ -129,6 +129,7 @@ or `UpdateTrail` API operations.
 10. On the **Choose log events** page, choose the event types
     that you want to log. For **Management events**, do the
     following.
+
     1. For **API activity**, choose if you want your trail
        to log **Read** events, **Write**
        events, or both. For more information, see [Management events](logging-management-events-with-cloudtrail.md#logging-management-events "logging-management-events-with-cloudtrail.md#logging-management-events").

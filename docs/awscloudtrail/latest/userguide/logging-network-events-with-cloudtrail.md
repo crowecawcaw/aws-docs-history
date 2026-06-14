@@ -84,11 +84,14 @@ charges apply for network activity events. For more information, see [AWS CloudT
 
 - [Advanced event selector fields for network activity events](logging-network-events-with-cloudtrail.md#logging-network-events "logging-network-events-with-cloudtrail.md#logging-network-events")
 - [Logging network activity events with the AWS Management Console](logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-console "logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-console")
+
   - [Update an existing trail to log network activity events](logging-network-events-with-cloudtrail.md#log-network-events-trail-console "logging-network-events-with-cloudtrail.md#log-network-events-trail-console")
   - [Update an existing event data store to log network activity events](logging-network-events-with-cloudtrail.md#log-network-events-lake-console "logging-network-events-with-cloudtrail.md#log-network-events-lake-console")
 
 - [Logging network activity events with the AWS Command Line Interface](logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-AWS-CLI "logging-network-events-with-cloudtrail.md#creating-network-event-selectors-with-the-AWS-CLI")
+
   - [Examples: Logging network activity events for trails](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-examples "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-examples")
+
     - [Example: Log network activity events for CloudTrail operations](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-all-ct "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-all-ct")
     - [Example: Log VpceAccessDenied events for AWS KMS](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-kms "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-kms")
     - [Example: Log VpceAccessDenied events for Amazon S3](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-s3 "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-s3")
@@ -96,6 +99,7 @@ charges apply for network activity events. For more information, see [AWS CloudT
     - [Example: Log all management events and network activity events for multiple event sources](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-multiple "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-trail-multiple")
 
   - [Examples: Logging network activity events for event data stores](logging-network-events-with-cloudtrail.md#logging-network-events-CLI-eds-examples "logging-network-events-with-cloudtrail.md#logging-network-events-CLI-eds-examples")
+
     - [Example: Log all network activity events for CloudTrail operations](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ct "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ct")
     - [Example: Log VpceAccessDenied events for AWS KMS](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-kms "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-kms")
     - [Example: Log EC2 VpceAccessDenied events over a specific VPC endpoint](logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ec2 "logging-network-events-with-cloudtrail.md#creating-network-events-eds-CLI-ec2")

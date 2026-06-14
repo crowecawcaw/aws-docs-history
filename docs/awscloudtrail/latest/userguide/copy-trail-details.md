@@ -28,6 +28,7 @@ event copy.
 - **Prefixes copied** - Represents the number of S3 prefixes copied. During a trail event copy, CloudTrail copies the
   events in the trail log files that are stored in the prefixes.
 - **Copy status** - The status of the copy.
+
   - **Initializing** - Initial status shown when the trail event copy starts.
   - **In progress** - Indicates the trail event copy is in progress.
 

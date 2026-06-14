@@ -250,6 +250,7 @@ The following shows how validate the log files:
 2. If the `S3 Get` operation is successful, iterate through the
    log files listed in the digest file's logFiles array using the following
    steps:
+
    1. Retrieve the original hash of the file from the
       `logFiles.hashValue` field of the corresponding log in
       the digest file.

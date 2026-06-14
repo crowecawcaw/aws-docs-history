@@ -322,6 +322,7 @@ created.
 
 16. Choose between **Simple event collection**
     or **Advanced event collection**:
+
     - Choose **Simple event collection** if you want to log all events, log only read events, or log only write events.
       You can choose also to exclude AWS Key Management Service and Amazon RDS Data API events.
     - Choose **Advanced event collection** if you want to include or exclude management events based on the values of advanced event selector fields, including the `eventName`,
@@ -332,6 +333,7 @@ created.
     You can also choose to exclude AWS KMS and Amazon RDS Data API events.
 18. If you selected **Advanced event collection**,
     make the following selections:
+
     1.  In **Log selector template**, choose a predefined template, or choose **Custom** to
         write your own event collection conditions based on the values of advanced event selector fields.
 
@@ -353,7 +355,6 @@ created.
         * **Exclude AWS service initiated events** – Choose this template to exclude
          AWS service events, which have an `eventType` of `AwsServiceEvent`,
          and events initiated with AWS service-linked roles (SLRs).
-
     2.  (Optional) In **Selector name**, enter a name to identify your selector. The selector name is a
         descriptive name for an advanced event selector, such as "Log management events from AWS Management Console sessions". The selector name is listed as `Name` in the
         advanced event selector and is viewable if you expand the
@@ -411,7 +412,6 @@ created.
         3. Choose **+ Field** to add additional fields
          as required. To avoid errors, do not set conflicting or
          duplicate values for fields.
-
     4.  Optionally, expand **JSON view** to see your
         advanced event selectors as a JSON block.
 

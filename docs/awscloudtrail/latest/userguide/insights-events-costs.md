@@ -127,6 +127,7 @@ In this final example, you enable Insights on management and data events. The tr
 - CloudTrail analyzes the management and data events logged in the past 28 days to form a baseline. There are no CloudTrail charges for the analysis.
 - After the baseline is created, the trail logs 300,000 management events, of which 270,000 are read management events and 30,000 are write management events.
   The trail also logs 400,000 data events, of which 340,000 are read data events and 60,000 are write data events.
+
   - The `write` management events are analyzed twice, once for the API call rate and once for the API error rate (30,000 \* 2=60,000).
     The `read` management events are analyzed once for the API error rate (270,000 \*1=270,000). The total management events analyzed is 330,000 (60,000 + 270,000).
   - The `read` and `write` data events are analyzed twice, once for the API call rate and once for the API error rate (400,000 \* 2).

@@ -34,14 +34,17 @@ The role permissions policy named CloudTrailEventContext allows CloudTrail to co
 the following actions on the specified resources:
 
 - Actions on resource tags:
+
   - `tag:GetResources`
 
 - Actions on all Amazon EventBridge resources for the CloudTrail service principal to create
   rules:
+
   - `events:PutRule`
 
 - Actions on all Amazon EventBridge resources for the CloudTrail service principal to manage the rules
   it creates:
+
   - `events:PutTargets`
   - `events:DeleteRule`
   - `events:RemoveTargets`
@@ -49,10 +52,12 @@ the following actions on the specified resources:
 
 - Actions on all Amazon EventBridge resources for the CloudTrail service principal to describe the
   rules it creates:
+
   - `events:DescribeRule`
   - `events:DeRegisterResource`
 
 - Actions on all Amazon EventBridge resources:
+
   - `events:ListRules`
 
 You must configure permissions to allow your users, groups, or roles to create, edit, or

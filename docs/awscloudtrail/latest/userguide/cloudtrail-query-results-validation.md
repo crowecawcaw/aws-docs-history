@@ -32,6 +32,7 @@ met:
 - You must use AWS CLI version 2.
 - To validate query result files and sign file locally, the following conditions
   apply:
+
   - You must put the query result files and sign file in the specified file
     path. Specify the file path as the value for the
     **--local-export-path** parameter.
@@ -39,6 +40,7 @@ met:
 
 - To validate the query result files and sign file in the S3 bucket, the following
   conditions apply:
+
   - You must not rename the query result files and sign file.
   - You must have read access to the Amazon S3 bucket that contains the
     query result files and sign file.

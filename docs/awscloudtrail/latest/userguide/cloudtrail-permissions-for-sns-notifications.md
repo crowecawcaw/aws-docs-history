@@ -80,6 +80,7 @@ For more information, see [Enable Compatibility between Event Sources from AWS S
 - [Security best practice for SNS topic policy](cloudtrail-permissions-for-sns-notifications.md#cloudtrail-sns-notifications-policy-security "cloudtrail-permissions-for-sns-notifications.md#cloudtrail-sns-notifications-policy-security")
 - [Specifying an existing topic for sending notifications](cloudtrail-permissions-for-sns-notifications.md#specifying-an-existing-topic-for-sns-notifications "cloudtrail-permissions-for-sns-notifications.md#specifying-an-existing-topic-for-sns-notifications")
 - [Troubleshooting the SNS topic policy](cloudtrail-permissions-for-sns-notifications.md#troubleshooting-sns-topic-policy "cloudtrail-permissions-for-sns-notifications.md#troubleshooting-sns-topic-policy")
+
   - [CloudTrail is not sending notifications for a Region](cloudtrail-permissions-for-sns-notifications.md#sns-topic-policy-for-multiple-regions "cloudtrail-permissions-for-sns-notifications.md#sns-topic-policy-for-multiple-regions")
   - [CloudTrail is not sending notifications for a member account in an organization](cloudtrail-permissions-for-sns-notifications.md#sns-topic-policy-authorization-failure "cloudtrail-permissions-for-sns-notifications.md#sns-topic-policy-authorization-failure")
 

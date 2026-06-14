@@ -86,6 +86,7 @@ For more information about AWS Regions, see [CloudTrail supported Regions](cloud
 - [Receiving log files from other accounts](create-s3-bucket-policy-for-cloudtrail.md#aggregration-option "create-s3-bucket-policy-for-cloudtrail.md#aggregration-option")
 - [Create or update an Amazon S3 bucket to use to store the log files for an organization trail](create-s3-bucket-policy-for-cloudtrail.md#org-trail-bucket-policy "create-s3-bucket-policy-for-cloudtrail.md#org-trail-bucket-policy")
 - [Troubleshooting the Amazon S3 bucket policy](create-s3-bucket-policy-for-cloudtrail.md#troubleshooting-s3-bucket-policy "create-s3-bucket-policy-for-cloudtrail.md#troubleshooting-s3-bucket-policy")
+
   - [Common Amazon S3 policy configuration errors](create-s3-bucket-policy-for-cloudtrail.md#s3-bucket-policy-for-multiple-regions "create-s3-bucket-policy-for-cloudtrail.md#s3-bucket-policy-for-multiple-regions")
   - [Changing a prefix for an existing bucket](create-s3-bucket-policy-for-cloudtrail.md#cloudtrail-add-change-or-remove-a-bucket-prefix "create-s3-bucket-policy-for-cloudtrail.md#cloudtrail-add-change-or-remove-a-bucket-prefix")
 
