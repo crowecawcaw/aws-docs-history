@@ -18,6 +18,7 @@ The following steps describe how to install and use the discovery tool and work 
 1. Install the discovery tool.
 2. Configure discovery sources. You can configure one or more of the following: VMware vCenter, Microsoft Hyper-V hosts, or servers through a CSV file import. Data discovery begins after you configure any source.
 3. Set up OS access and then review the collection status of servers, databases, and network connections.
+
    1. Adjust OS credentials as needed.
 
 4. To generate a migration business case, upload the ZIP file to [Migration assessment](transform-app-assessments.md "transform-app-assessments.md"), or unzip it and upload MPA files from the _mpa_exports_ directory. The export includes data from all configured sources and contains MPA files for VMware, Hyper-V, and imported servers.

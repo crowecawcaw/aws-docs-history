@@ -9,6 +9,7 @@ The following are the prerequisites for using the AWS Transform discovery tool:
 - The tool requires 4 vCPU, 16 GB of RAM, and a 35 GB hard disk.
 - DHCP must be available in the network for the discovery tool VM.
 - The tool collects data by using a centralized approach. Servers in scope must allow inbound connectivity from the discovery tool VM (default ports, custom port configuration is supported):
+
   - Linux – SSH TCP/22
   - Windows – TCP/5985 for HTTP, TCP/5986 for HTTPS
   - SNMP – UDP/161 (used for network collection only, not OS metrics)

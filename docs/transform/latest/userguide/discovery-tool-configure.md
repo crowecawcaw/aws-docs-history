@@ -50,6 +50,7 @@ information and network connectivity.
 
 1. Obtain the following information from your Active Directory
    administrator:
+
    - The Kerberos realm name (typically your domain name in
      uppercase, for example, `EXAMPLE.COM`).
    - The hostname or IP address of the Key Distribution Center (KDC),
@@ -60,6 +61,7 @@ information and network connectivity.
 
 2. Verify that the discovery tool VM has network connectivity to the
    following:
+
    - The KDC on port 88 (TCP and UDP) for Kerberos
      authentication.
    - The target Windows servers on WinRM ports (5985 for HTTP,
@@ -220,6 +222,7 @@ For Hyper-V failover clusters, you can add multiple hosts in the same cluster. T
 
 1. Navigate to the **Import servers** page from the Discovery tool homepage.
 2. Prepare a CSV file with the following columns: `hostname_or_ip` (required) and `credential_name` (optional).
+
    - The `hostname_or_ip` value must be a valid IPv4 address or a fully qualified domain name (FQDN).
    - The `credential_name` value, if provided, must match the friendly name of an OS credential that you already configured (SSH or WinRM).
 

@@ -27,10 +27,12 @@ AWS Transform uses a service-linked role (SLR) to create and manage support case
 To create a support case, use the chat interface:
 
 1. Ask to create a support case. For example:
+
    - "Create a support case for my failed transformation job"
    - "I need help with job errors, create a case"
 
 2. The chat prompts you for required information:
+
    - A brief description of your issue
    - A detailed description
 

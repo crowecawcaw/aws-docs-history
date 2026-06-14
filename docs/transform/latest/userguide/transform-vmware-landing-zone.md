@@ -38,6 +38,7 @@ When you approve the connector request, you grant AWS Transform permissions to:
   items, restricted to resources tagged with
   `CreatedBy:AWSTransform` and by
   `ATWorkspace:{workspace-id}` where applicable:
+
   - S3 bucket operations (create, read, write, delete) for buckets
     starting with `transform-vmware-landing-zone-`
   - CloudFormation stack deployments and change set management for landing

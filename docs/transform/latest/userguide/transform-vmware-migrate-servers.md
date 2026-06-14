@@ -347,6 +347,7 @@ The setup page automatically creates the following resources:
 
 - **IAM roles** (created
   idempotently — skipped if they already exist):
+
   - `AWSApplicationMigrationConnectorManagementRole`
     – Used during agent installation to access
     credentials.

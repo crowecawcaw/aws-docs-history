@@ -18,10 +18,12 @@ On the Tasks tab, in the Prepare for transformation - Confirm the repositories t
 
 - Set the target branch name where the transformed code is written to your repository.
 - Set the target .NET version:
+
   - **.NET 8**: transform all projects to .NET 8
   - **.NET 10**: transform all projects to .NET 10
 
 - You can update the default Job Settings, or leave them as-is. These include:
+
   - **Exclude .NET Standard projects from the transformation plan**
     This setting is selected by default. When selected, AWS Transform excludes any .NET Standard projects from the transformation plan. If you deselect this setting, .NET Standard projects will be transformed, which will make them no longer compatible with the .NET Framework.
   - **Check the NuGet sources and get .NET compatible package versions**

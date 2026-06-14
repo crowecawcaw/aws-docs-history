@@ -29,18 +29,21 @@ To create a new S3 source code repository connector:
 2. Upload your source code as a zip file to the S3 bucket.
 3. In the AWS Transform web app, start a .NET transformation job. In the **Connect a source code repository** step, select **Connect your source code in S3 bucket** and choose **Save**.
 4. On the next page, enter your S3 bucket details and choose **Submit**.
+
    1. Connector name
    2. AWS Account ID
    3. S3 Bucket Arn
    4. S3 Bucket Encryption Key (optional)
 
 5. Approve the connector:
+
    1. On the next page, copy the verification link.
    2. Have an approver browse to the link to reach the AWS Transform connector creation request page.
    3. Choose to create a new role or use an existing role.
    4. After reviewing the request, choose **Save** and **Approve** to approve it.
 
 6. Specify the S3 zip file location:
+
    1. In the AWS Transform web app, wait for status to show **Approved**.
    2. On the **Specify asset location** page, enter an S3 URL for the code zip file in the format `s3://bucket-name/zip-file-name` and choose **Send to AWS Transform**.
    3. The job proceeds to the **Discovery** step to continue the transformation.

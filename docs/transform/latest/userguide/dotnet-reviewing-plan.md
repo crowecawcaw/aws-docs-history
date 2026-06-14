@@ -14,6 +14,7 @@ AWS Transform can transform a maximum of 100 dependencies and repositories per t
 
 1. If you are not the AWS account administrator, review the job plan, and if you accept it, select **Send for approval**.
 2. If you are the AWS account administrator, you must review the plan, and when ready, approve the plan to start the transformation. After you review the job plan, select either:
+
    1. _Reject_
       If the job was created by a user who is not the AWS account administrator, we suggest you notify the job creator to restart the job.
    2. _Approve and start transformation_.
@@ -22,9 +23,11 @@ The job review includes the following details:
 
 1. _Job summary_
    This includes:
+
    1. The target branch where AWS Transform will place the transformed code.
    2. The target .NET version, .NET 8.0 or .NET 10.
    3. The job settings:
+
       1. Exclude .NET standard projects
 
    4. Number of repositories selected for transformation
@@ -34,6 +37,7 @@ The job review includes the following details:
 
 2. _Repositories selected_
    These are the repositories selected for transformation. They must be either MVC, Web, Windows Communication Foundation (WCF), Console, class library, UI framework - Razor pages, or unit test packages. This table includes the following information:
+
    1. Name
    2. Source branch
    3. Supported projects
@@ -44,6 +48,7 @@ The job review includes the following details:
 
 3. _Dependent repositories added_
    These are the dependent repositories added for transformation. They must be either MVC, Web, Windows Communication Foundation (WCF), Console, class library, UI framework - Razor pages, or unit test packages. This table includes the following information:
+
    1. Name
    2. Needed by
    3. Source branch
@@ -54,6 +59,7 @@ The job review includes the following details:
 
 4. _Dependent packages_
    These are the dependent packages added for transformation. They must be either MVC, Web, Windows Communication Foundation (WCF), Console, class library, UI framework - Razor pages, or unit test packages. This table includes the following information:
+
    1. Name
    2. Associated repositories
    3. Framework version status

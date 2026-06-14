@@ -63,8 +63,10 @@ The discovery tool uses two mechanisms to assign credentials to servers during _
 
 - at the start of each collection round, the discovery tool will get a list of credentials available for that server (based on OS types) and also configured to be "auto-connectable".
 - The discovery tool will then test all credentials against the server in a loop.
+
   - If a working credential is found, the collection round for the server is successful, the discovery tool remembers it and will try it first next time.
   - If no working credential is found, the collection round for the server has failed
+
     - Network module: the server will use a backoff schedule, starting next collection round in 3 min, 30 min, 2 hours, and 6 hours following each failure (similar to exponential backoff).
     - Database collection: there is no retry. The discovery tool will make 1 attempt for each server every day.
 

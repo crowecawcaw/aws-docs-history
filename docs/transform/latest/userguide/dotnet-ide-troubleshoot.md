@@ -6,8 +6,8 @@ the IDE with AWS Transform.
 ## How do I know if a job is progressing?
 
 You should see regular activity in the Worklog window. If AWS Transform appears to be spending a long time on a step in the
-**AWS Transformation
-Hub**, you can check whether the job is still active in the output
+**AWS Transform
+Job Plan** window, you can check whether the job is still active in the output
 logs. If diagnostic messages are being generated, the job is still active.
 
 To check the outputs, choose the **Output** tab in Visual Studio. In the
@@ -16,7 +16,7 @@ Client**.
 
 The following screenshot shows an example of the outputs AWS Transform generates during a transformation.
 
-![Screen shot of the AWS Transform Code Transformation Hub, showing the output from the Amazon Q Language Client.](images/code-transform-troubleshoot4.png)
+![Screen shot of the AWS Transform Code Job Plan, showing the output from the Amazon Q Language Client.](images/code-transform-troubleshoot4.png)
 
 ## Why are some projects not selected for transformation?
 

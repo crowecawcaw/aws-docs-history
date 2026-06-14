@@ -10,6 +10,7 @@ Begin your modernization journey by creating a new transformation job in the AWS
 2. Choose **Create modernization job**
 3. Select **Windows modernization** job and then select **SQL Server modernization**
 4. Enter job details:
+
    - **Job name**: Descriptive name for your project
    - **Description**: Optional description
    - **Target region**: AWS region for deployment
@@ -30,6 +31,7 @@ Connect AWS Transform to your SQL Server database to enable schema analysis and 
 2. Choose **Connect to SQL Server database**
 3. Choose **Create new connector**
 4. Enter the connector information:
+
    - C**onnector name**: Descriptive name
    - **AWS account ID**: Account where SQL Server is hosted
 
@@ -280,6 +282,7 @@ AWS CodeConnections uses a managed provider integration that automatically retri
 3. If you don't have an existing connection, choose **Create
    connection**.
 4. Select your repository provider:
+
    - GitHub / GitHub Enterprise
    - GitLab.com
    - Bitbucket Cloud
@@ -351,6 +354,7 @@ After connecting to your database and repository, AWS Transform verifies that al
 
 1. Navigate to **Confirm your resources** in the job plan
 2. Review the checklist items:
+
    - ✅ Database connection verified
    - ✅ Repository access confirmed
    - ✅ .NET version supported
@@ -457,6 +461,7 @@ Each wave contains a group of databases and applications that can be modernized 
 1. Navigate to **Wave planning** in the job plan
 2. Review the proposed waves
 3. For each wave, review:
+
    - Databases included
    - Applications included
    - Dependencies on other waves
@@ -473,6 +478,7 @@ You can customize the wave plan to match your business needs in 2 ways:
 1. Choose **Download all waves** to get a JSON file with all the
    waves
 2. Modify waves in the JSON by:
+
    - Moving databases between waves
    - Splitting waves into smaller groups
    - Merging waves together
@@ -552,6 +558,7 @@ AWS Transform uses AWS DMS Schema Conversion enhanced with generative AI to:
 
 1. Navigate to Schema conversion in the job plan
 2. Review the conversion settings:
+
    - Target PostgreSQL version
    - Extension options (ltree, PostGIS, etc.)
    - Naming conventions
@@ -583,6 +590,7 @@ After conversion completes, navigate to Review schema conversion:
 
 1. Choose **View action items**
 2. For each action item, review:
+
    - **Object name**: The database object
    - **Issue type**: What requires attention
    - **Severity**: Critical, Warning, or Info
@@ -591,6 +599,7 @@ After conversion completes, navigate to Review schema conversion:
    - **Converted code**: PostgreSQL version
 
 3. For each action item, you can:
+
    - **Accept**: Use the converted code
    - **Modify**: Edit the converted code
    - **Flag for later**: Mark for human review after
@@ -693,10 +702,12 @@ Transform schema and code only:
 
 1. Navigate to **Data migration** in the job plan
 2. Choose your migration option:
+
    - **Migrate production data**
    - **Skip data migration**
 
 3. If migrating production data, configure:
+
    - **Migration type**: Full load, or Full load + CDC
    - **Validation**: Enable data validation
    - **Performance**: DMS instance size
@@ -767,6 +778,7 @@ AWS Transform transforms your .NET application code to work with Aurora PostgreS
 
 1. Navigate to Application transformation in the job plan
 2. Review the transformation settings:
+
    - **Target .NET version** (if upgrading)
    - **PostgreSQL provider version**
    - **Code style preferences**
@@ -792,6 +804,7 @@ You can also download the transformation summary to review the natural language 
 
 1. Navigate to **Transformation summary** in the job plan
 2. Review the overall results:
+
    - **Schema conversion**: Objects converted, action items,
      warnings
    - **Data migration**: Tables migrated, rows transferred, validation
@@ -806,6 +819,7 @@ AWS Transform generates a comprehensive transformation report:
 
 1. Choose **Generate report**
 2. Select report type:
+
    - **Executive summary**: High-level overview for
      stakeholders
    - **Technical details**: Complete transformation
@@ -850,6 +864,7 @@ Before deploying to production, validate that the transformed application works 
 1. Navigate to **Validation** in the job plan
 2. Choose **Run validation**
 3. AWS Transform executes validation tests:
+
    - Database connectivity
    - Schema compatibility
    - Data integrity
@@ -857,6 +872,7 @@ Before deploying to production, validate that the transformed application works 
    - Basic functionality
 
 4. Review validation results:
+
    - Passed: Tests that succeeded
    - Failed: Tests that need attention
    - Warnings: Potential issues to review
@@ -926,6 +942,7 @@ Before deploying to production:
 1. Navigate to **Deployment** in the job plan
 2. Choose **Deploy to ECS**
 3. Configure deployment settings:
+
    - **Cluster**: Select or create ECS cluster
    - **Service**: Configure ECS service
    - **Task definition**: Review generated task definition

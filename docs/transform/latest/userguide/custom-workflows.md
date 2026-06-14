@@ -698,6 +698,7 @@ atx
 
 2. Tell the agent you want to create a new transformation.
 3. Provide a clear, detailed description of the transformation objective. Include:
+
    - The source and target state (e.g., "upgrade from version X to version Y")
    - Specific changes required (e.g., "update import statements, replace deprecated methods")
    - Any special considerations or constraints
@@ -763,6 +764,7 @@ atx
 
 2. Tell the agent you want to modify an existing transformation.
 3. Choose whether to:
+
    - Provide a file path to a locally stored transformation (i.e. not a saved draft or published)
    - Request the list of transformations from the registry
 

@@ -52,6 +52,7 @@ If you have an existing source code repository connector, AWS Transform will not
 If you choose to delete an existing source code repository connect, AWS Transform will warn you before actually deleting the connector.
 
 1. You can delete an existing connector a couple of ways:
+
    1. If AWS Transform prompts you to, you can select **Delete and create a new connector**.
    2. You can also select **restart** in the prompt, **To modify this connector, you must restart**.
 

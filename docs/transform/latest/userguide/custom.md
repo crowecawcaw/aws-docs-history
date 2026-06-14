@@ -147,6 +147,7 @@ Client-side skills are discovered from project-level and user-level directories.
 Here are a few of the commands you can use with custom transformations. The complete list of commands is in the [AWS Transform custom transformations command reference](custom-command-reference.md "custom-command-reference.md").
 
 - `atx custom`
+
   - **Executes custom transformation interactive experience, allowing creation, discovery, execution, and refinement of transformations.**
   - This is the default command for `atx`.
   - `--trust-all-tools` (`-t`) is optional and
@@ -156,20 +157,25 @@ Here are a few of the commands you can use with custom transformations. The comp
     file](custom-workflows.md#custom-advanced-configuration "custom-workflows.md#custom-advanced-configuration").
 
 - `atx custom --help` | `atx custom -h`
+
   - **Shows help menu.**
   - Each command also includes a help menu, for example, `atx custom
 def exec --help`.
 
 - `atx --version` | `atx -v`
+
   - **Shows version.**
   - The version number changes with each release.
 
 - `atx custom def list`
+
   - **Prints list of transformations available in the transformation registry.**
 
 - `atx custom def exec`
+
   - **Executes a transformation**
 
 - `atx mcp`
+
   - **Used to manage MCP server
     configurations**

@@ -10,6 +10,7 @@ AWS Transform offers the following capabilities and key features for migrating y
 environment to AWS.
 
 - Three discovery options:
+
   - Assisted discovery of your VMware environment by using collectors from
     AWS Application Discovery Service.
   - Use the open-source [Export for

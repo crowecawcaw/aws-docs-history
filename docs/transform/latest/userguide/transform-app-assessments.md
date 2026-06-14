@@ -6,7 +6,8 @@ recommendations, multi-scenario comparison, and interactive refinement through c
 
 You can use migration assessments to:
 
-- Get cost estimates for Amazon EC2, Amazon EBS, Amazon S3, and Amazon FSx
+- Get cost estimates for Amazon RDS for SQL Server, Amazon EC2, Amazon EBS, Amazon S3,
+  and Amazon FSx
 - Receive automated right-sizing recommendations
 - Assess business value and sustainability impact
 - Compare multiple migration scenarios side by side
@@ -93,13 +94,13 @@ scenarios with different configurations.
 
 The following table lists the available assumption categories.
 
-| Assumption               | Description                                                                                |
-| ------------------------ | ------------------------------------------------------------------------------------------ |
-| Pricing model            | On-Demand or Reserved Instances                                                            |
-| Target AWS Region        | The AWS Region where you plan to host migrated workloads                                   |
-| Instance type exclusions | Amazon EC2 instance families or types to exclude from<br>recommendations                   |
-| Amazon EBS configuration | Volume type and performance settings for storage                                           |
-| SQL Server licensing     | License Included (LI) or Bring Your Own License (BYOL) options for<br>SQL Server workloads |
+| Assumption               | Description                                                                                                                                                            |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pricing model            | Database Savings Plans (for Amazon RDS for SQL Server),<br>On-Demand, or Reserved Instances                                                                            |
+| Target AWS Region        | The AWS Region where you plan to host migrated workloads                                                                                                               |
+| Instance type exclusions | Amazon EC2 instance families or types to exclude from<br>recommendations                                                                                               |
+| Amazon EBS configuration | Volume type and performance settings for storage                                                                                                                       |
+| SQL Server licensing     | Bring Your Own Media (BYOM) or License Included (LI) for<br>Amazon RDS for SQL Server; License Included (LI) or Bring Your Own<br>License (BYOL) for SQL Server on EC2 |
 
 ## Assessment capabilities
 
@@ -122,6 +123,38 @@ storage usage and performance requirements.
 AWS Transform evaluates file storage workloads and provides recommendations for
 Amazon FSx migration, including cost estimates for supported Amazon FSx file system
 types.
+
+### Amazon RDS for SQL Server
+
+AWS Transform assesses the cost of migrating on-premises SQL Server databases to
+Amazon RDS for SQL Server. Using AI-powered agents, AWS Transform analyzes your
+on-premises SQL Server environment and delivers a complete migration business case
+in minutes, with compute and memory recommendations matched to your workload
+requirements so you avoid over-provisioning and only pay for what you need.
+
+The RDS for SQL Server assessment includes the following capabilities:
+
+- Bring Your Own Media (BYOM) licensing, allowing you to use your existing
+  SQL Server licenses
+- License Included (LI) licensing options
+- Cost optimization using Database Savings Plans, which offer up to 20%
+  savings compared to On-Demand pricing
+- Eligibility assessment for the AWS Migration Acceleration Program
+  (MAP), which provides credits and support to offset migration costs
+
+You can start your RDS for SQL Server assessment with any supported data format,
+including RVTools exports, Configuration management database (CMDB) data, exports
+from the AWS Transform discovery tool, and other third-party discovery tools. Create what-if
+scenarios to compare multiple cost models with customized assumptions including
+region, resource utilization, and pricing terms.
+
+Example prompts:
+
+- "Estimate the cost of migrating my SQL Server databases to RDS for SQL
+  Server"
+- "Compare BYOM vs License Included pricing for RDS for SQL
+  Server"
+- "Show me Database Savings Plans options for my RDS workloads"
 
 ### Amazon EC2 SQL Server
 
@@ -242,8 +275,12 @@ them to identify the optimal migration strategy.
 
 Try prompts such as:
 
+- "Create a BYOM scenario for migrating SQL Server databases to RDS for
+  SQL Server"
+- "Create a scenario with Database Savings Plans for RDS for SQL
+  Server"
+- "Create a LI scenario for all SQL Server workloads on EC2"
 - "Create a scenario with all workloads in us-west-2"
-- "Create a LI scenario for all SQL Server workloads"
 
 ### Running comparisons
 
@@ -258,8 +295,12 @@ Model the impact of specific changes without creating a full new scenario.
 
 Example prompts:
 
+- "What if I move my SQL Server workloads to RDS for SQL Server instead
+  of EC2?"
+- "What is the cost difference between BYOM and License Included for RDS
+  for SQL Server?"
 - "What if I exclude the 50 smallest servers from the migration?"
-- "What if I only use storage optimized instances"
+- "What if I only use storage optimized instances?"
 - "What is the impact of moving from gp3 to io2 volumes?"
 
 ## Generating deliverables

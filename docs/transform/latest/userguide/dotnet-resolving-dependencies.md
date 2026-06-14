@@ -36,6 +36,7 @@ To use the Windows PowerShell script:
 5. Select **Upload**.
 6. AWS Transform validates the files you uploaded. During validation, you cannot make any updates. AWS Transform reports the validation status above the _Missing package dependencies_ table.
 7. AWS Transform also updates the status columns in the _Missing package dependencies_ table from _Missing_ to _Resolved_. If a package fails validation, its status becomes _Invalid_. For invalid files do the following:
+
    1. In the _Missing package dependencies_ table, select the invalid package using the check box.
    2. Select **Remove uploaded file**.
    3. This changes its status back to _Missing_.

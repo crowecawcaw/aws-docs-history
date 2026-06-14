@@ -42,6 +42,7 @@ AWS Transform supports transformation of these types of projects (C# only):
 - Class libraries
 - Console applications
 - ASP.NET:
+
   - Model View Controller (MVC), including front-end Razor Views
   - Single Page Application (SPA) back-ends (business logic layers)
   - Web API

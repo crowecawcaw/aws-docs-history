@@ -48,6 +48,7 @@ Store your database credentials securely in AWS Secrets Manager. Skip this step 
 1. Navigate to AWS Secrets Manager in the console
 2. Choose **Store a new secret**
 3. Configure the secret:
+
    - **Secret type:** Credentials for other database
    - **Database**: Microsoft SQL Server
    - **Username**: atx_user (or your chosen username)
@@ -59,6 +60,7 @@ Store your database credentials securely in AWS Secrets Manager. Skip this step 
 4. Choose **Next**
 5. Enter secret name: atx-db-modernization-sqlserver
 6. Add required tags (these tags are mandatory):
+
    - Key: Project, Value: atx-db-modernization
    - Key: Owner, Value: database-connector
 
@@ -249,16 +251,19 @@ When you configure the DMS Schema Conversion Instance Profile in AWS Transform, 
 Step-by-step configuration:
 
 1. Identify the DMS Schema Conversion Security Group:
+
    - This is specified when creating the Instance Profile in AWS Transform
    - Note the Security Group ID (e.g., sg-0123456789abcdef0)
 
 2. Update your SQL Server Security Group inbound rules:
+
    - **Type**: Custom TCP
    - **Port**: 1433 (or your custom SQL Server port)
    - **Source**: The DMS Schema Conversion Security Group ID
    - **Description**: "Allow DMS Schema Conversion access"
 
 3. For Aurora PostgreSQL target (after creation):
+
    - **Type**: PostgreSQL
    - **Port**: 5432 (or your custom PostgreSQL port)
    - **Source**: The DMS Schema Conversion Security Group ID

@@ -5,6 +5,7 @@ AWS Transform accelerates the transformation of your mainframe modernization app
 ###### Topics
 
 - [Prerequisite: Prepare project inputs in S3](#transform-app-mainframe-workflow-prereq "#transform-app-mainframe-workflow-prereq")
+- [Mainframe source artifacts collection](transform-app-mainframe-source-artifacts.md "transform-app-mainframe-source-artifacts.md")
 - [Sign-in and create a job](#transform-app-mainframe-workflow-signin "#transform-app-mainframe-workflow-signin")
 - [Tracking transformation progress](#transform-app-mainframe-workflow-track-progress "#transform-app-mainframe-workflow-track-progress")
 - [Set up a connector](#transform-app-mainframe-workflow-setup-connector "#transform-app-mainframe-workflow-setup-connector")
@@ -53,6 +54,8 @@ In Regions where S3 vector buckets are available, AWS Transform will store searc
 encodings of job output in this S3 vector bucket in your account to provide an AI powered search and chat experience. Data is not used outside of this job, and is not used to train models. T
 o enable this, you must create and provide S3 vector bucket. AWS Transform automatically creates
 and attaches a role with required permissions to write to this bucket.
+
+Details on project inputs can be found [here](transform-app-mainframe-source-artifacts.md "transform-app-mainframe-source-artifacts.md").
 
 ## Sign-in and create a job
 
@@ -610,6 +613,7 @@ business logic extraction.
 1. In the left navigation pane, under **Extract business
    logic**, choose **Configure settings**.
 2. In the **Collaboration tab** select how you want to extract business logic:
+
    - **Application level**: Generates business documents for all business functions, transactions, batch jobs, and files. This selects all of the files in the application.
    - **File level**: Generates business documents only for files you select from the file table.
 
@@ -729,6 +733,7 @@ After that, the graph in the decomposition step will be updated.
    actions**.
 3. In the **Update dependencies file**
    modal,
+
    1. Download the dependency file AWS Transform created from the existing
       analysis results.
    2. In the downloaded file, modify the dependencies based on what
@@ -959,6 +964,7 @@ reforge.zip
 
 - **maven_project** contains the reforged source
   code.
+
   - Files that have been refactored but whose compilation was not
     successfully finalized are located at `/src/main/resources/reforge/originalClassName.java.incomplete` and are named
     `originalClassName.java.incomplete`. Compare these to the original versions of the files to choose reforged functions you want to save.
@@ -985,13 +991,16 @@ You can create and manage test plans for your mainframe modernized applications 
 ###### To create a test plan
 
 1. **Configure test plan settings**
+
    1. In the left navigation pane, under **Plan your testing**, choose **Configure settings**.
    2. (Optional) Provide S3 paths for your Business Logic Extraction (BLE). These artifacts enhance test plan quality. Without BLE artifacts
       some fields in the test plan may remain incomplete.
 
 2. **Define test plan scope**
+
    1. Select entry points, such as batch jobs, to include in your test plan.
    2. Filter and sort jobs based on multiple attributes:
+
       - Business functions (extracted from BRE BLE)
       - Domains (from decomposition phase)
       - File paths and locations
@@ -1079,6 +1088,7 @@ While synthetic test case guidance is provided, the actual test artifacts must b
 #### Default test case creation rules
 
 - If a single JCL is in a test case:
+
   - JCL is not involved with a schedule
   - JCL is executed by a scheduled task that diverges into multiple branches
   - A branch in the schedule contains only this JCL
@@ -1091,20 +1101,25 @@ While synthetic test case guidance is provided, the actual test artifacts must b
 #### User operations rules
 
 - **Create Test Case**: user selects from available JCLs
+
   - Succeeds if JCLs exist in schedule execution branch sequence
   - Follows schedule execution order
 
 - **Add a JCL to Test Case**: user selects from available JCLs
+
   - Succeeds if JCL can exist in the test case's schedule execution branch/path
 
 - **Remove JCL from Test Case**: user can remove any JCL from a test case
+
   - Allowed even if it causes execution path gaps
 
 - **Merge Test Cases**: user selects two test cases to combine
+
   - Succeeds if JCLs can exist together in same schedule execution branch
   - Maintains schedule execution order
 
 - **Split Test Case**: user selects one JCL in a test case for split
+
   - Creates new test case from split point forward
   - Original test case modified to exclude JCLs past split point
 
@@ -1126,14 +1141,17 @@ configuration, and script generation.
 ###### To generate test data collection scripts
 
 1. **Provide test plan input**
+
    1. In the left navigation pane, under **Test data collection**, choose **Provide test plan input**.
    2. Specify the S3 path to your test plan JSON file from [Plan your modernized applications testing](#transform-app-mainframe-workflow-test-planning "#transform-app-mainframe-workflow-test-planning").
    3. The input field is pre-populated if the test plan was generated in a previous job step.
    4. You can also select test plan from other jobs by specifying the appropriate S3 location.
 
 2. **Select test cases for data collection**
+
    1. Review the complete list of test cases from your test plan.
    2. Filter and sort test cases based on multiple attributes:
+
       - Business functions and domains
       - Database table dependencies
       - Data set requirements
@@ -1144,18 +1162,22 @@ configuration, and script generation.
    4. Review test case details including entry points, metrics, and business rules by clicking on one Test Case to see details.
 
 3. **Configure data collection scripts**
+
    1. Download sample templates and configuration files for reference.
+
       - AWS Transform provides sample templates for Db2 database unloads, VSAM file REPRO and sequential dataset processing to be used as guidance on the kinds of template expected by the process.
       - Standards may vary from site to site so the expectation is that customers will modify or replace these templates that conform to their own standards.
       - These modified templates need to be uploaded to a S3 bucket where the test data collection can process them.
 
    2. Provide variable configuration file (JSON format) containing:
+
       - User prefixes and environment-specific constants
       - Database configuration parameters
       - Destination endpoint settings and data transfer parameters
       - Other required parameters defined by user and to be used in JCL templates
 
    3. Upload JCL templates for different data collection methods:
+
       - **Db2 template**: For database table unloading (customize for BMC, IBM DSN, or other unload utilities)
       - **VSAM template**: For VSAM file processing (typically uses REPRO utility)
       - **Sequential datasets template**: For processing sequential datasets, partitioned datasets, GDGs etc.
@@ -1229,6 +1251,7 @@ consists of three main phases: input configuration, test case selection, and scr
 ###### To generate test scripts
 
 1. **Provide test plan input**
+
    1. In the left navigation pane, under **Test automation script generation**, choose **Provide test plan input**.
    2. Specify the S3 path to your test plan JSON file from [Plan your modernized applications testing](#transform-app-mainframe-workflow-test-planning "#transform-app-mainframe-workflow-test-planning").
    3. The input field is pre-populated if the test plan was generated in a previous job step.
@@ -1236,8 +1259,10 @@ consists of three main phases: input configuration, test case selection, and scr
    5. The system uses this test plan as the foundation for generating automation scripts.
 
 2. **Select test cases for script generation**
+
    1. Review the complete list of test cases from your test plan.
    2. Filter and sort test cases based on multiple attributes:
+
       - Business functions and domains
       - Database table dependencies
       - Data set requirements
@@ -1252,6 +1277,7 @@ consists of three main phases: input configuration, test case selection, and scr
    The selected test cases will have automation scripts generated for execution on the modernized application.
 
 3. **Review and manage generated test automation scripts:**
+
    - The system displays a success message confirming script generation completion.
    - Generated test scripts are automatically stored in your specified S3 bucket location.
    - Access the complete list of generated test scripts with their respective S3 locations.

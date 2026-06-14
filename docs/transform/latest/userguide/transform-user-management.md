@@ -13,12 +13,14 @@ To add users in IAM Identity Center:
 2. In the navigation pane, choose **Users**.
 3. Choose **Add user**.
 4. Enter the required information:
+
    - **Username** - A unique identifier for the user (cannot be changed later)
    - **Email address** - The user's email address
    - **First name** and **Last name** - The user's name
    - **Display name** - The name that appears in the user list
 
 5. For **Password**, choose how the user receives their password:
+
    - **Send an email** - Send setup instructions via email
    - **Generate a one-time password** - Create a password to share manually
 

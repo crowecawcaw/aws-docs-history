@@ -233,6 +233,7 @@ To set up their account:
 1. The user clicks the "Accept invitation" link in the email.
 2. On the "New user sign up" page, they enter and confirm a password.
 3. The password must meet security requirements, including:
+
    - At least 8 characters
    - At least one uppercase letter
    - At least one lowercase letter

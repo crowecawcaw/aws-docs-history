@@ -46,6 +46,7 @@ applications.
 2. Based on your objective, AWS Transform proposes a modernization plan––breaking down
    the high-level goal into intermediate steps.
 3. Depending on the goal you provided, AWS Transform can:
+
    - Analyze the codebase
    - Generate technical documentation
    - Extract business logic from your mainframe applications

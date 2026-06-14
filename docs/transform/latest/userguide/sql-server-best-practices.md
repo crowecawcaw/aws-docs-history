@@ -63,22 +63,26 @@ Solutions:
 Solutions:
 
 1. Verify Security Group Configuration:
+
    - Confirm your SQL Server security group has an inbound rule allowing port 1433 from the DMS Schema Conversion security group
    - Check that the source is the security group ID (e.g., sg-0123456789abcdef0), not an IP address
    - Verify the DMS Schema Conversion security group is correctly specified in the Instance Profile
    - Ensure there are no conflicting deny rules
 
 2. Check Network ACLs:
+
    - Verify subnet-level Network ACLs allow inbound traffic on port 1433
    - Ensure Network ACLs allow outbound ephemeral ports for return traffic
    - Check both the database subnet and DMS subnet Network ACLs
 
 3. Verify VPC Configuration:
+
    - Confirm the DMS Schema Conversion instance and SQL Server are in the same VPC or have proper VPC peering
    - Check route tables allow traffic between subnets
    - Verify no firewall appliances are blocking traffic
 
 4. Test Connectivity:
+
    - Launch a test EC2 instance in the same subnet as DMS Schema Conversion
    - Attach the same security group as DMS Schema Conversion
    - Test connection to SQL Server using telnet or SQL Server Management Studio

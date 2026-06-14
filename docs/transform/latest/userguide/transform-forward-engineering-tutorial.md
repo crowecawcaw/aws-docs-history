@@ -19,6 +19,7 @@ Before beginning this tutorial, ensure you have:
 - Mainframe application source code
 - Kiro IDE installed locally
 - Access to outputs from AWS Transform for mainframe, including:
+
   - Dependency and data analysis results
   - Technical documentation
   - Business documentation
@@ -44,6 +45,7 @@ The S3 bucket stores the results of each Transform job in a hierarchical layout 
 - `your-jobid` – A unique identifier that groups together everything generated for a single logical job (e.g., a migration or conversion request).
 - `1/` – The first execution of that job. If you need to run the job again, a new numeric folder (2/, 3/, …) will be created alongside the existing one, preserving the output of each execution attempt.
 - Sub‑folders under `1/` – These folders hold the outputs from the first run; select only the documents that are relevant to your re‑imagined project, as you may not need every file.
+
   - `business‑documentation` – contains the extracted business logic for the entire application, in a zip archive.
   - `data_analysis` – provides data‑lineage visibility for data modernization and generates data dictionaries with business meanings.
   - `decomposition` – holds workloads grouped into business domains as identified by the BLE agent.

@@ -54,6 +54,7 @@ When you approve the connector request, you grant AWS Transform permissions to:
   items, all restricted to resources within the target account that are
   tagged with `CreatedBy:AWSTransform` or
   `CreatedFor:AWSTransform`:
+
   - Manage migration waves.
   - Manage network configurations (Amazon EC2, VPC, Transit Gateway,
     Direct Connect, Load Balancers, Network Firewall).
@@ -67,6 +68,7 @@ When you approve the connector request, you grant AWS Transform permissions to:
   AWS account and Region. This includes permissions for the following
   items, restricted to resources that are tagged with
   `CreatedBy:AWSTransform` where applicable:
+
   - Perform Amazon S3 bucket operations (create, read, write, delete)
     for buckets that start with
     `transform-vmware-landing-zone-`.

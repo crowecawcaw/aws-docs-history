@@ -48,6 +48,7 @@ When you are in a workspace, the views are at the top:
 Users with read-only permissions are unable to send messages in the chat.
 
 - To the right is the **Collaboration** pane. This appears when _human in the loop_ (HITL) activities are performed, such as:
+
   - Uploading data files
   - Reviewing information and plans provided by AWS Transform
 

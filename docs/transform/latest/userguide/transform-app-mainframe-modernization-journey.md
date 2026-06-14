@@ -39,11 +39,13 @@ don't align with your use-case or goals.
   cost during migration, migration labor, post-production costs, project
   duration
 - Rapid portfolio detection:
+
   - Execute pattern & tool guidance assessment
   - Do a source code analysis
   - Identify proof of concept (POC) candidates
 
 - Create technical enablement training:
+
   - Immersion days
   - Workshops with general topics
 
@@ -63,12 +65,14 @@ processes to support mainframe modernization at scale.
 
 - Kick off the modernization plan with a pilot and the identified
   POC:
+
   - Analyze the pilot and set up the code for modernization
   - Build and test the pilot modernized data
   - Deliver results and review the pilot to create a detailed
     solution for larger data modernization
 
 - For platform:
+
   - Create a security, compliance, and monitoring plan
   - Set up landing zone environments with AWS mainframe landing
     zone and account structure
@@ -76,11 +80,13 @@ processes to support mainframe modernization at scale.
     integration, and more
 
 - Think about people and processes:
+
   - Cloud Center of Excellence is a good resource
   - Operation model
 
 - Create a comprehensive portfolio analysis for different application
   scenarios:
+
   - Comprehensive discovery that includes high-level
     documentation
   - Decomposition plan (for all applications)
@@ -111,6 +117,7 @@ data to AWS.
 - Set up modernization environments with appropriate runtime, databases,
   and third-party software
 - Migrate and modernize source code and data:
+
   - You can modernize your application iteratively based on
     business domains in the application codebase
   - Scale modernization environments as needed to support your
@@ -121,12 +128,14 @@ data to AWS.
 - Migrate selected workloads to initiate your modernization.
 - Transfer application programs and adjust environment scaling as
   needed:
+
   - You can scale the environments up or down depending on your
     need
   - Modernize work packages by running code sanity tests
   - Resynchronize with source code as necessary
 
 - Run comprehensive testing and verify your migration:
+
   - Collect initial state data
   - Record test scenarios on mainframe
   - Stage environment, application, and data
@@ -137,6 +146,7 @@ data to AWS.
 
 - Validate your data for production setup
 - Validate your progress by:
+
   - Running integration and system testing
   - Running performance testing
   - Running user acceptance testing
@@ -160,6 +170,7 @@ and costs while leveraging AWS services for innovation.
 ### Activities
 
 - Monitor application for:
+
   - Performance metrics
   - Security practices
   - Compliance guidelines
@@ -167,12 +178,14 @@ and costs while leveraging AWS services for innovation.
 
 - Logging details
 - Manage application operations:
+
   - Infrastructure management
   - Transactions and job management
   - Runtime environment support
 
 - Application optimization and modernization
 - Application development and maintenance:
+
   - Coding IDE
   - Build
   - Integration

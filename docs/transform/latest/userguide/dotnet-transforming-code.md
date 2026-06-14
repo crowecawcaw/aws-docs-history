@@ -28,11 +28,13 @@ The _Dashboard_ includes:
 
 1.  The transformation _Job details_ section, which lists the default
     settings and details of the transformation job, including:
+
     1. _Target branch destination_
        To transform your code, AWS Transform creates a new branch for the transformed code in your code repo.
     2. _Target .NET version_, .NET 8.0 or .NET 10
     3. The AWS Transform _job ID._
     4. The job settings:
+
        1. Exclude .NET standard projects
 
 2.  The _Transformation summary_ section contains:

@@ -40,6 +40,7 @@ There are four migration planning stages:
   shared business function.
 - A _dependency_ is a relationship between systems. There are
   several types of dependencies including:
+
   - Critical or hard dependencies, where systems cannot operate without the dependency. Common
     examples of this are applications that depend on databases, other
     applications, or services.
@@ -59,11 +60,13 @@ Migration planning is an interactive and iterative workflow. You can go back and
 2. Within the scoping and analysis step you can ask questions about your on-premises environment
    to validate the data you have collected. Example questions
    include:
+
    1. List my servers by operating system
    2. Summarize my on-premises network topology
    3. List the most common technologies running in my environment.
 
 3. While analyzing your environment, if you identify servers that should not be in scope for migration you can tell AWS Transform to exclude those resources. Examples of this include:
+
    1. Remove all servers which have _legacy_ in their
       hostname
    2. Remove all servers in the 10.0.2.0/24 subnet
@@ -74,6 +77,7 @@ Migration planning is an interactive and iterative workflow. You can go back and
 5. The next step is application grouping. If you already have your servers mapped to applications, you can tell AWS Transform to use that mapping and skip this step. If you do not have your applications pre-defined you can provide the technical and business logic that defines your applications. AWS Transform will guide you through the application grouping process and suggest the data points that you can provide to effectively group your servers together into applications. The more information you can provide about your on-premises applications, the more effectively AWS Transform can group your servers into apps. Once you have provided sufficient information, you can then instruct AWS Transform to perform application grouping.
 6. Once application grouping has been performed, review the application groups. You can instruct
    AWS Transform to make any necessary changes, for example:
+
    1. Move server example-server to application-5
    2. Rename application-5 "HR App Test Environment"
    3. Remove all Linux servers from IIS Dev Farm
@@ -84,6 +88,7 @@ Migration planning is an interactive and iterative workflow. You can go back and
    non-technical dependencies. AWS Transform will guide you through the process and
    suggest data points that you can provide to group your apps together.
    There are several considerations to make at this stage including:
+
    1. What should be the target size of move group?
    2. Do you want to combine environments, for example dev, test, and prod, for each app, or split
       them?
@@ -101,6 +106,7 @@ Migration planning is an interactive and iterative workflow. You can go back and
     prioritization required to group your move groups into waves and then
     prioritize those waves. Considerations within wave planning
     include:
+
     1. The business criticality of each of your move groups
     2. The migration timelines and the timelines for each move group
     3. The risks associated with each move group

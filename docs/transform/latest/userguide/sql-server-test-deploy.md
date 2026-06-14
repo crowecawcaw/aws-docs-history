@@ -50,6 +50,7 @@ After you complete and close the configuration window, AWS Transform:
 
 - Generates deployment artifacts based on your configuration
 - Commits these artifacts to your repository, including:
+
   - Deployment scripts
   - CloudFormation templates
   - Sample CI/CD pipeline configurations (which you can use as reference for setting up your deployment automation)

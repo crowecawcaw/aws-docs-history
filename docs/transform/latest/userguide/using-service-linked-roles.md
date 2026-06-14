@@ -41,30 +41,36 @@ The role permissions policy named AWSServiceRoleForAWSTransform allows AWS Trans
 following actions on the specified resources:
 
 - cloudwatch:PutMetricData
+
   - Send custom metrics to CloudWatch for AWS Transform operations
   - Track transformation progress, success rates, and performance metrics
   - Enable monitoring and alerting on transformation workflows
 
 - sso:DescribeApplication
+
   - View details about a specific application in Identity Center
   - Get application metadata like name, description, status, and configuration
 
 - sso:GetApplicationAssignmentConfiguration
+
   - Retrieve assignment configuration settings for an application
   - See how users/groups are configured to be assigned to the application
 
 - sso:ListApplicationAssignmentsForPrincipal
+
   - List all applications assigned to a specific user or group (principal)
   - View which applications a particular identity has access to
 
 - Enables decryption of KMS-encrypted data when accessed through IAM Identity Center. Only works when the encryption context contains a valid IAM Identity Center instance ARN and must be accessed via IAM Identity Center service endpoints.
 - Allows decryption of KMS-encrypted data when accessed through Identity Store. Only works when the encryption context contains a valid Identity Store ARN and must be accessed via Identity Store service endpoints.
 - secretsmanager:GetSecretValue
+
   - Access AWS Transform service-linked secrets used to store client secrets for external identity providers
   - Resource: arn:aws:secretsmanager:\*:\*:secret:transform-preprod!\*
   - Condition: Must be owned by transform-preprod service and accessed from same account
 
 - support:CreateCase, support:DescribeCases, support:DescribeCommunications, support:AddCommunicationToCase, support:ResolveCase
+
   - Create and manage premium support cases from the AWS Transform web application
   - View case details and communications
   - Add communications and resolve support cases
@@ -150,6 +156,7 @@ The role permissions policy named AWSServiceRoleForAWSTransformCustom allows AWS
 following actions on the specified resources:
 
 - `cloudwatch:PutMetricData` on all AWS resources
+
   - Publish operational metrics to under the
     `AWS/TransformCustom` namespace
   - Track transformation counts, latencies, and status codes
@@ -158,6 +165,7 @@ following actions on the specified resources:
 
 - `logs:CreateLogGroup` and `logs:PutRetentionPolicy` on the
   `/aws/TransformCustom` log group
+
   - Create the CloudWatch Logs log group for publishing transformation logs
   - Set log retention policies on the log group
   - Scoped to `arn:aws:logs:*:*:log-group:/aws/TransformCustom` with an
@@ -165,6 +173,7 @@ following actions on the specified resources:
 
 - `logs:CreateLogStream` and `logs:PutLogEvents` on log streams
   within the `/aws/TransformCustom` log group
+
   - Create log streams and publish log events for transformation operations
   - Scoped to `arn:aws:logs:*:*:log-group:/aws/TransformCustom:log-stream:*`
     with an `aws:ResourceAccount` condition ensuring access only within your account

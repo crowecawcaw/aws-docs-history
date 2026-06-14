@@ -25,6 +25,7 @@ To enable AWS Transform:
    bucket to store transformation artifacts. You can choose to use your own bucket instead.
    For more information, see [Using your own Amazon S3 bucket](custom-s3-bucket.md "custom-s3-bucket.md").
 8. Choose which AWS Transform capabilities you want to enable:
+
    - **Command line interface** (CLI), needed to create and run
      [custom transformations](transform-app-custom.md "transform-app-custom.md"). To enable the CLI, view
      and follow the download instructions.

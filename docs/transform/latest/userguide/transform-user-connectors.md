@@ -13,6 +13,7 @@ account.
 - **Permission Setup:** AWS Transform requires specific
   IAM roles and permissions in the destination account to perform migration actions,
   including:
+
   - Managing migration data with AWS KMS
   - Making cross-region API calls
   - Installing replication agents on VMware servers

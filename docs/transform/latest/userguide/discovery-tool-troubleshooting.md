@@ -7,6 +7,7 @@ When you experience VMware module configuration errors follow these steps to ver
 ###### Access the discovery tool VM
 
 - Log-in to the discovery tool VM, open Remote Console in vCenter
+
   - Username: discovery
   - Password: password
 
@@ -40,6 +41,7 @@ openssl s_client -showcerts -servername <hostname> -connect <hostname>:443
 ```
 
 2. Expected Success Output:
+
    - Should show vSphere certificate details
    - Verifies SSL/TLS connectivity on port 443
 
@@ -208,6 +210,7 @@ Use the following checklist to verify your Kerberos configuration before you sta
 ###### Access the discovery tool VM
 
 - Log-in to the discovery tool VM, open Remote Console in vCenter
+
   - Username: discovery
   - Password: password
 
@@ -281,6 +284,7 @@ If you see a message in **Server collection status** such as Missing credentials
 
 1. Select the server on the table of discovered servers.
 2. Choose **Manage access credential** You can choose to:
+
    1. Select alternative credentials from the **Select credentials** dropdown.
    2. Select **Use new credentials** and provide new credentials.
 
