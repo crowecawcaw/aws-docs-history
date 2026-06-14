@@ -141,7 +141,7 @@ VPN domain.
    file, for example, `54.84.169.196`. Save your settings
    and close the dialog box.
 
-![Check Point Interoperable Device dialog box](images/check-point-network-device.png) 6. In the left category pane, choose **Topology**. 7. In the **VPN Domain** section, choose
+![Check Point Interoperable Device dialog box](/images/vpn/latest/s2svpn/images/check-point-network-device.png) 6. In the left category pane, choose **Topology**. 7. In the **VPN Domain** section, choose
 **Manually defined**, and then browse to and
 select the empty simple group that you created in step 2. Choose
 **OK**. 8. Repeat these steps to create a second network object, using the
@@ -282,6 +282,7 @@ You then install the policy on your gateway.
    Column**, and choose **OK**.
 3. In the SmartDashboard, choose **Firewall**, and
    create a policy with the following rules:
+
    - Allow the VPC subnet to communicate with the local network
      over the required protocols.
    - Allow the local network to communicate with the VPC subnet
@@ -294,6 +295,7 @@ You then install the policy on your gateway.
    Create the following directional match rules by choosing
    **Add** for each, and then choose
    **OK** when you're done:
+
    - `internal_clear` > VPN community (The VPN
      star community that you created earlier, for example,
      `AWS_VPN_Star`)

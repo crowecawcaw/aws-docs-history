@@ -23,6 +23,7 @@ steps:
    gateway.
 6. (Optional) Add tags to help identify and organize your Site-to-Site VPN
    Concentrator.
+
    1. Choose **Add new tag**.
    2. For **Key**, enter a tag key (for example, `Name`).
    3. For **Value**, enter a tag value (for example, `Production-VPN-Concentrator`).

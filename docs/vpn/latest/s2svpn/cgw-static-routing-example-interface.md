@@ -26,6 +26,7 @@ in the `IPSec Tunnel #2` section of the configuration file.
    tunnel**.
 3. In the dialog box, configure the settings as follows, and choose
    **OK** when you are done:
+
    - For **VPN Tunnel ID**, enter any unique
      value, such as 1.
    - For **Peer**, enter a unique name for
@@ -163,13 +164,16 @@ settings.
    **Custom Encryption**.
 7. In the dialog box, configure the encryption properties as follows,
    and choose **OK** when you're done:
+
    - IKE Security Association (Phase 1) Properties:
+
      - **Perform key exchange encryption
        with**: AES-128
      - **Perform data integrity with**:
        SHA-1
 
    - IPsec Security Association (Phase 2) Properties:
+
      - **Perform IPsec data encryption
        with**: AES-128
      - **Perform data integrity with**:
@@ -237,6 +241,7 @@ local network. You then install the policy on your gateway.
    Column**, and save your changes.
 3. In the SmartDashboard, choose **Firewall**, and
    create a policy with the following rules:
+
    - Allow the VPC subnet to communicate with the local network
      over the required protocols.
    - Allow the local network to communicate with the VPC subnet
@@ -249,6 +254,7 @@ local network. You then install the policy on your gateway.
    Create the following directional match rules by choosing
    **Add** for each, and choose
    **OK** when you're done:
+
    - `internal_clear` > VPN community (The VPN
      star community that you created earlier, for example,
      `AWS_VPN_Star`)
@@ -348,7 +354,7 @@ over the connection are being encrypted. For example, the following log
 indicates that a packet to the VPC was sent over tunnel 1 and was
 encrypted.
 
-![Check Point log file](images/check-point-log.png)
+![Check Point log file](/images/vpn/latest/s2svpn/images/check-point-log.png)
 
 SonicWALL
 The following procedure demonstrates how to configure the VPN tunnels on
@@ -362,6 +368,7 @@ the SonicWALL device using the SonicOS management interface.
    Policies**, choose **Add...**.
 3. In the VPN policy window on the **General** tab,
    complete the following information:
+
    - **Policy Type**: Choose **Tunnel
      Interface**.
    - **Authentication Method**: Choose
@@ -385,6 +392,7 @@ the SonicWALL device using the SonicOS management interface.
 
 4. On the **Network** tab, complete the following
    information:
+
    - Under **Local Networks**, choose
      **Any address**. We recommend this
      option to prevent connectivity issues from your local
@@ -396,8 +404,10 @@ the SonicWALL device using the SonicOS management interface.
 
 5. On the **Proposals** tab, complete the following
    information:
+
    - Under **IKE (Phase 1) Proposal**, do the
      following:
+
      - **Exchange**: Choose
        **Main Mode**.
      - **DH Group**: Enter a value for
@@ -414,6 +424,7 @@ the SonicWALL device using the SonicOS management interface.
 
    - Under **IKE (Phase 2) Proposal**, do the
      following:
+
      - **Protocol**: Choose
        **ESP**.
      - **Encryption**: Choose

@@ -21,6 +21,7 @@ If you are configuring Windows Server on an EC2 instance that you launched from 
 Windows AMI, do the following:
 
 - Disable source/destination checking for the instance:
+
   1.  Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
   2.  Select your Windows instance, and choose **Actions**,
@@ -30,6 +31,7 @@ Windows AMI, do the following:
 
 - Update your adapter settings so that you can route traffic from other
   instances:
+
   1.  Connect to your Windows instance. For more information, see [Connecting to your Windows instance](../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/UserGuide/connecting_to_windows_instance.md").
   2.  Open the Control Panel, and start the Device Manager.
   3.  Expand the **Network adapters** node.
@@ -82,6 +84,7 @@ A private subnet is a subnet that does not have a route to an internet
 gateway. The routing for this subnet is described in the next item.
 
 - Update your route tables for the VPN connection:
+
   - Add a route to your private subnet's route table with the virtual
     private gateway as the target, and the Windows Server's network (CIDR
     range) as the destination. For more information, see [Adding
@@ -92,6 +95,7 @@ gateway. The routing for this subnet is described in the next item.
 
 - Create a security group for your instances that allows communication between
   your VPC and network:
+
   - Add rules that allow inbound RDP or SSH access from your network. This
     enables you to connect to instances in your VPC from your network. For
     example, to allow computers in your network to access Linux instances in
@@ -225,6 +229,7 @@ network.
 2. Go to the **Start** menu, and choose **Server
    Manager**.
 3. Install Routing and Remote Access Services:
+
    1. From the **Manage** menu, choose **Add Roles
       and Features**.
    2. On the **Before You Begin** page, verify that your
@@ -445,6 +450,7 @@ connection.
    **Windows Firewall with Advanced Security**, and
    then select **Connection Security Rules**.
 2. Verify the following for both tunnels:
+
    - **Enabled** is `Yes`
    - **Endpoint 1** is the CIDR block for your
      network
@@ -474,6 +480,7 @@ inbound and clear outbound`
    **Customize**. Verify the following IPsec tunneling
    settings, and then choose **OK** and
    **OK** again to close the dialog box.
+
    - **Use IPsec tunneling** is selected.
    - **Local tunnel endpoint (closest to Endpoint 1)** contains the IP address of your Windows
      Server. If your customer gateway device is an EC2 instance, this

@@ -20,6 +20,7 @@ Change the pre-shared key storage mode for an existing VPN tunnel.
    IP of the VPN tunnel.
 5. Under **Pre-shared key storage**, choose one of the following
    pre-shared key storage types.
+
    - **Standard** — The pre-shared key is stored directly in
      the Site-to-Site VPN service.
    - **Secrets Manager** — The pre-shared key is stored using

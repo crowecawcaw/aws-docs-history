@@ -69,6 +69,7 @@ certificate.
 5. For **BGP ASN**, enter a Border Gateway Protocol
    (BGP) Autonomous System Number (ASN) for your customer gateway.
 6. For **IP address type**, select one of the following options:
+
    - **IPv4** - (Default) Specify an IPv4 address for your customer gateway device.
    - **IPv6** - Specify an IPv6 address for your customer gateway device. This option is required when creating a VPN connection with IPv6 outer tunnel IPs.
 
@@ -267,6 +268,7 @@ private gateway or transit gateway that you created earlier.
    created earlier from **Customer gateway ID**.
 6. Select one of the **Routing options** based on whether your
    customer gateway device supports Border Gateway Protocol (BGP):
+
    - If your customer gateway device supports BGP, choose **Dynamic
      (requires BGP)**.
    - If your customer gateway device does not support BGP, choose
@@ -275,6 +277,7 @@ private gateway or transit gateway that you created earlier.
      of your VPN connection.
 
 7. Choose the Pre-shared key storage type:
+
    - **Standard** — The pre-shared key is stored directly
      in the Site-to-Site VPN service.
    - **Secrets Manager** — The pre-shared key is stored
@@ -299,6 +302,7 @@ tunnels. The default for both ranges is `::/0`. 10. For **Outside IP address typ
 
 11. (Optional) For **Tunnel options**, you can specify the
     following information for each tunnel:
+
     - A size /30 IPv4 CIDR block from the `169.254.0.0/16` range
       for the inside tunnel IPv4 addresses.
     - If you specified **IPv6** for **Tunnel inside

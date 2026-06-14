@@ -76,6 +76,7 @@ dashboards provide an at-a-glance view of the state of your AWS environment.
 In the Amazon VPC console, Site-to-Site VPN tunnel state parameters such as "Status" and "Last status change", may not reflect transient state changes or momentary tunnel flaps. It is recommended to use CloudWatch metrics and logs for granular tunnel state change updates.
 
 - The Amazon VPC dashboard shows:
+
   - Service health by Region
   - Site-to-Site VPN connections
   - VPN tunnel status (In the navigation pane, choose **Site-to-Site VPN

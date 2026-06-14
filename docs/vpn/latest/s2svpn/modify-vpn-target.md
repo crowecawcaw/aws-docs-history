@@ -70,6 +70,7 @@ routes to the transit gateway after the VPN connection migration is complete.
 3. Select the VPN connection and choose **Actions**,
    **Modify VPN connection**.
 4. For **Target type**, choose the gateway type.
+
    1. If the new target gateway is a virtual private gateway, choose
       **VPN gateway**.
    2. If the new target gateway is transit gateway, choose **Transit

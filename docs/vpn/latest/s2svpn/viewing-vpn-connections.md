@@ -9,6 +9,7 @@ You can view your VPN connections and their details using the AWS Management Con
 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. In the navigation pane, choose **Site-to-Site VPN Connections**.
 3. Select your VPN connection to view detailed information including:
+
    - Connection state and status
    - Tunnel details and health status
    - Route information

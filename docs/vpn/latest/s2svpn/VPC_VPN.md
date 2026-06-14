@@ -61,10 +61,12 @@ The following features are supported on AWS Site-to-Site VPN connections:
 - Custom private ASN for the Amazon side of a BGP session
 - Private Certificate from a subordinate CA from AWS Private Certificate Authority
 - Support for IPv6 support for AWS Site-to-Site VPN
+
   - IPv6 for inner tunnel IP addresses (packet IP)
   - IPv6 for outer tunnel IP addresses (tunnel IP) on Transit Gateway and Cloud WAN
 
 - Full IPv6 migration support with the following combinations:
+
   - IPv6 outer tunnel IP with IPv6 inner packet IP (IPv6-in-IPv6)
   - IPv6 outer tunnel IP with IPv4 inner packet IP (IPv4-in-IPv6)
 
@@ -97,6 +99,7 @@ interfaces:
   for a broad set of AWS services, including Amazon VPC, and is supported on Windows,
   macOS, and Linux. the AWS Site-to-Site VPN command lines are included in the
   larger EC2 command line reference
+
   - For general information about the command line interface, see [AWS Command Line Interface](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/").
   - For the list of available EC2 commands, including the Site-to-Site VPN
     commands, see [EC2 Command Line

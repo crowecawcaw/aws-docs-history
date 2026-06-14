@@ -14,6 +14,7 @@ You can create Site-to-Site VPN connections that attach to transit gateways or C
    connection. Doing so creates a tag with a key of `Name` and the value
    that you specify.
 5. For **Target gateway type**, choose one of the following:
+
    - **Virtual private gateway** - Create a new virtual
      private gateway VPN connection by choosing an existing **Virtual
      private gateway**.
@@ -25,6 +26,7 @@ You can create Site-to-Site VPN connections that attach to transit gateways or C
    - **Site-to-Site VPN Concentrator** - Create a new Site-to-Site VPN
      Concentrator connection by using an existing Site-to-Site VPN Concentrator or
      creating a new one. Choose one of the following:
+
      - **Existing** - Create a new Site-to-Site VPN Concentrator
        VPN connection using an existing Concentrator.
      - **New** - Enter an optional name for the
@@ -34,11 +36,13 @@ You can create Site-to-Site VPN connections that attach to transit gateways or C
    - **Not associated** - Create an unattached VPN connection that can later be associated with Cloud WAN through the Network Manager console or API. For more information about VPN attachments and Cloud WAN, see [Site-to-site VPN attachments in AWS Cloud WAN](../../../network-manager/latest/cloudwan/cloudwan-s2s-vpn-attachment.md "../../../network-manager/latest/cloudwan/cloudwan-s2s-vpn-attachment.md") in the _AWS Cloud WAN User Guide_.
 
 6. For **Customer gateway**, do one of the following:
+
    - To use an existing customer gateway, choose
      **Existing**, and then choose the
      **Customer gateway ID**.
    - To create a new customer gateway, choose **New**,
      and then do the following:
+
      - For the **IP address** , enter a static
        **IPv4** or **IPv6**
        address.
@@ -80,6 +84,7 @@ the following:
 
 12. For **Outside IP address type**, choose one of the following
     options:
+
     - **Public IPv4** - (Default) Use IPv4 addresses for the
       outer tunnel IPs.
     - **Private IPv4** - Use a private IPv4 address for use
