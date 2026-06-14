@@ -125,6 +125,7 @@ Console
    `Name` and the value that you specify.
 6. Under **Application and OS Images (Amazon Machine Image)**, do the
    following:
+
    1. Select an operating system for your instance.
    2. Select the **Amazon Machine Image (AMI)**. An _Amazon Machine
       Image (AMI)_ is a basic configuration that serves as a template for your
@@ -135,6 +136,7 @@ Console
    one. This is required if you want to connect to your EC2 instance.
 8. Next to **Network settings**, choose **Edit**, and
    then:
+
    1. Select your VPC.
    2. Select your Local Zone subnet.
    3. Enable or disable **Auto-assign public IP**.

@@ -58,9 +58,11 @@ _AWS Site-to-Site VPN User Guide_.
 - The AWS Site-to-Site VPN is not available in Local Zones. Use a software-based VPN to establish a
   site-to-site VPN connection into a Local Zone.
 - Generally, the Maximum Transmission Unit (MTU) is as follows:
+
   - 9001 bytes between Amazon EC2 instances in the same Local Zone.
   - 1500 bytes between an internet gateway and a Local Zone.
   - 1500 bytes between Direct Connect and all Local Zones except:
+
     - 8500 bytes for `us-east-1-atl-2a`, `us-east-1-chi-2a`,
       `us-east-1-dfw-2a`, `us-east-1-iah-2a`,
       `us-west-2-lax-1a`, `us-west-2-lax-1b`, `us-east-1-mia-2a`,
@@ -68,6 +70,7 @@ _AWS Site-to-Site VPN User Guide_.
 
   - 1300 bytes between an Amazon EC2 instance in a Local Zone and an Amazon EC2 instance in the Region for
     all Local Zones except:
+
     - 9001 bytes for `us-west-2-lax-1a` and `us-west-2-lax-1b`
     - 8801 bytes for `us-east-1-atl-2a`, `us-east-1-chi-2a`,
       `us-east-1-dfw-2a`, `us-east-1-iah-2a`,
