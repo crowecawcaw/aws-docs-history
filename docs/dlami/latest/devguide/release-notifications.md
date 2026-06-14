@@ -22,6 +22,7 @@ These messages can be received using several different methods. We recommend tha
    subscription**.
 4. For the **Create subscription** dialog box, do
    the following:
+
    1. For **Topic ARN**, copy and paste the following Amazon
       Resource Name (ARN): `arn:aws:sns:us-west-2:767397762724:dlami-updates`
    2. For **Protocol**, choose one from

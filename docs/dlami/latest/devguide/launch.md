@@ -22,6 +22,7 @@ To accelerate high-performance computing (HPC) and machine learning applications
    information, see [Amazon EC2 service endpoints](../../../general/latest/gr/ec2-service.md#ec2_region "../../../general/latest/gr/ec2-service.md#ec2_region") in the _Amazon Web Services General Reference_.
 3. Choose **Launch Instance**.
 4. Enter a name for your instance and select the DLAMI that is right for you.
+
    1. Find an existing DLAMI in **My AMIs** or choose **Quick Start.**
    2. Search by DLAMI ID. Browse the options then select your choice.
 

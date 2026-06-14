@@ -24,12 +24,15 @@ DLAMIs can be used as Base Image during Image Recipe creation.
 3. Select **Create image recipe**
 4. In the **Base image** section, select **Quick Start (Amazon-managed)**
 5. From the dropdown menu, choose one of the available DLAMIs based on your **Image Operating System (OS)** selection
+
    - If **Amazon Linux** is selected:
+
      - Deep Learning Base AMI with Single CUDA Amazon Linux 2023
      - Deep Learning ARM64 Base AMI with Single CUDA Amazon Linux 2023
 
    ![Image Builder recipe creation for Amazon Linux](images/image-recipe-creation-al2023.png)
    - If **Ubuntu** is selected:
+
      - Deep Learning Base AMI with Single CUDA Ubuntu 22-04
      - Deep Learning ARM64 Base AMI with Single CUDA Ubuntu 22-04
 

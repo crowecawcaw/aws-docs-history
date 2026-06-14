@@ -24,8 +24,10 @@ options.
   optimization:
 
 - [Monitoring](tutorial-gpu-monitoring.md "tutorial-gpu-monitoring.md")
+
   - [Monitor GPUs with CloudWatch](tutorial-gpu-monitoring-gpumon.md "tutorial-gpu-monitoring-gpumon.md")
 
 - [Optimization](tutorial-gpu-opt.md "tutorial-gpu-opt.md")
+
   - Preprocessing
   - [Training](tutorial-gpu-opt-training.md "tutorial-gpu-opt-training.md")

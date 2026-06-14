@@ -256,8 +256,10 @@ You might be interested in these other topics on GPU monitoring and
 optimization:
 
 - [Monitoring](tutorial-gpu-monitoring.md "tutorial-gpu-monitoring.md")
+
   - Monitor GPUs with CloudWatch
 
 - [Optimization](tutorial-gpu-opt.md "tutorial-gpu-opt.md")
+
   - [Preprocessing](tutorial-gpu-opt-preprocessing.md "tutorial-gpu-opt-preprocessing.md")
   - [Training](tutorial-gpu-opt-training.md "tutorial-gpu-opt-training.md")

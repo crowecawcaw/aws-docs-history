@@ -32,6 +32,7 @@ the security group itself. For more information, see the [EFA Documentation](../
    Group**.
 3. In the **Create Security
    Group** window, do the following:
+
    - For **Security group
      name**, enter a descriptive name for the security group, such as
      `EFA-enabled security group`.
@@ -44,6 +45,7 @@ the security group itself. For more information, see the [EFA Documentation](../
    **Description** tab, copy the **Group ID**.
 5. On the **Inbound** and
    **Outbound** tabs, do the following:
+
    - Choose **Edit**.
    - For **Type**, choose
      **All traffic**.
@@ -79,6 +81,7 @@ information on launching an EFA enabled instance, see [Launch EFA-Enabled Instan
    this link for the list of supported instances: [Get started with EFA and MPI](../../../AWSEC2/latest/UserGuide/efa-start.md "../../../AWSEC2/latest/UserGuide/efa-start.md")
 5. On the **Configure Instance
    Details** page, do the following:
+
    - For **Number of
      instances**, enter the number of EFA-enabled instances that you want to
      launch.
@@ -131,6 +134,7 @@ If EFA is not enabled, you can fix this by either:
 
 - Terminating the EC2 instance and launching a new one with the same steps. Make sure the EFA is attached.
 - Attach EFA to an existing instance.
+
   1.  In the EC2 Console, go to Network Interfaces.
   2.  Choose Create a Network Interface.
   3.  Select the same subnet that your instance is in.

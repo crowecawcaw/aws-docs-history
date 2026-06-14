@@ -59,7 +59,6 @@ You can install the latest PyTorch build into either or both of the PyTorch Cond
    ```
    `(pytorch_p310)$` pip install torch_nightly -f https://download.pytorch.org/whl/nightly/cu100/torch_nightly.html
    ```
-
    - (Option for CPU instances) - Install the latest nightly build of PyTorch for
      instances with no GPUs:
 
