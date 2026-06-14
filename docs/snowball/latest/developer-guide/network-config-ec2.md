@@ -51,6 +51,7 @@ prerequisites.
 3. Configure the Snowball Edge client. For more information, see [Configuring a profile for the Snowball Edge Client](using-client-commands.md#client-configuration "using-client-commands.md#client-configuration").
 4. Configure the AWS CLI. For more information, see [Getting started with the AWS CLI](../../../cli/latest/userguide/cli-chap-getting-started.md "../../../cli/latest/userguide/cli-chap-getting-started.md") in the AWS Command Line Interface User Guide.
 5. Unlock the device.
+
    - Use AWS OpsHub to unlock the device. For more information, see [Unlocking a Snowball Edge with AWS OpsHub](connect-unlock-device.md "connect-unlock-device.md").
    - Use the Snowball Edge Client to unlock the device. For more information, see [Unlocking the Snowball Edge](unlockdevice.md "unlockdevice.md").
 

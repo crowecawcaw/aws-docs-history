@@ -76,6 +76,7 @@ To run a Lambda function on a Snowball Edge device in an AWS IoT Greengrass grou
 6. Choose **Deploy**.
 7. In **Deployment**, choose **Add to existing deployment**, then choose your Greengrass group. Choose **Next**.
 8. In **Public components**, choose these components:
+
    - **aws.greengrass.Cli**
    - **aws.greengrass.LambdaLauncher**
    - **aws.greengrass.LambdaManager**

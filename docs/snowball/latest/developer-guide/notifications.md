@@ -30,6 +30,7 @@ Enable customer-managed KMS encryption for the SNS topic for Snow job status cha
 2. In the navigation pane, choose **Topics**.
 3. In the Topics page, choose the topic used for job status change notifications, then choose **Edit**.
 4. Expand the **Encryption** section and do the following:
+
    1. Choose **Enable encryption**.
    2. Specify the AWS KMS key. See
    3. For each KMS type, the description, account, and KMS ARN are displayed.

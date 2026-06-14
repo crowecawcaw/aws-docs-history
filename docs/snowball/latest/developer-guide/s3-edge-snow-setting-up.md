@@ -86,13 +86,13 @@ service for a standalone device or cluster of devices using AWS OpsHub. See
 
 1. Unlock your Snowball Edge device or cluster of devices by running the
    following command:
+
    - For a single device:
 
    ```
 
      snowballEdge unlock-device --endpoint https://`snow-device-ip`
    ```
-
    - For a cluster:
 
    ```
@@ -102,13 +102,13 @@ service for a standalone device or cluster of devices using AWS OpsHub. See
 
 2. Run the following command and make sure that the Snowball Edge device or
    cluster of devices are unlocked:
+
    - For a single device:
 
    ```
 
      snowballEdge describe-device --endpoint https://`snow-device-ip`
    ```
-
    - For a cluster:
 
    ```
@@ -120,6 +120,7 @@ service for a standalone device or cluster of devices using AWS OpsHub. See
 
 3. For each device (whether you have one or a cluster), to start Amazon S3 compatible storage on Snowball Edge,
    do the following:
+
    1. Fetch the device's `PhysicalNetworkInterfaceId` by
       running the following `describe-device` command:
 
@@ -127,7 +128,6 @@ service for a standalone device or cluster of devices using AWS OpsHub. See
 
      snowballEdge describe-device --endpoint https://`snow-device-ip`
    ```
-
    2. Run the following `create-virtual-network-interface`
       command twice to create the virtual network interfaces (VNIs) for
       the `s3control` (for bucket operations) and

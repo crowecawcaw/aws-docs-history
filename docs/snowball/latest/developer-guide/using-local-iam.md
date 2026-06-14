@@ -86,12 +86,14 @@ description.
 - [create-role](../../../cli/latest/reference/iam/create-role.md "../../../cli/latest/reference/iam/create-role.md") –
   Creates a new local IAM role for your device. The following parameters are
   **not** supported:
+
   - `Tags`
   - `PermissionsBoundary`
 
 - [create-user](../../../cli/latest/reference/iam/create-user.md "../../../cli/latest/reference/iam/create-user.md") –
   Creates a new local IAM user for your device. The following parameters are
   **not** supported:
+
   - `Tags`
   - `PermissionsBoundary`
 
@@ -129,6 +131,7 @@ description.
   are attached to the specified IAM user.
 - [list-entities-for-policy](../../../cli/latest/reference/iam/list-entities-for-policy.md "../../../cli/latest/reference/iam/list-entities-for-policy.md") – Lists all local IAM users,
   groups, and roles that the specified managed policy is attached to.
+
   - `--EntityFilter`: Only the `user` and
     `role` values are supported.
 
@@ -136,6 +139,7 @@ description.
   Lists all the managed policies that are available in your local AWS account.
   The following parameter is **not**
   supported:
+
   - `--PolicyUsageFilter`
 
 - [list-roles](../../../cli/latest/reference/iam/list-roles.md "../../../cli/latest/reference/iam/list-roles.md") – Lists
@@ -212,12 +216,14 @@ supported:
 - [ListEntitiesForPolicy](../../../IAM/latest/APIReference/API_ListEntitiesForPolicy.md "../../../IAM/latest/APIReference/API_ListEntitiesForPolicy.md") – Retrieves information about the
   specified IAM user, including the user's creation date, path, unique ID, and
   ARN.
+
   - `--EntityFilter`: Only the `user` and
     `role` values are supported.
 
 - [ListPolicies](../../../IAM/latest/APIReference/API_ListPolicies.md "../../../IAM/latest/APIReference/API_ListPolicies.md")
   – Lists all the managed policies that are available in your local
   AWS account. The following parameter is **not** supported:
+
   - `--PolicyUsageFilter`
 
 - [ListRoles](../../../IAM/latest/APIReference/API_ListRoles.md "../../../IAM/latest/APIReference/API_ListRoles.md") –

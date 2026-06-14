@@ -164,6 +164,7 @@ When using the S3 interface to transfer data to or from a Snowball Edge device, 
 ###### Action to take
 
 1. Check the policy of the S3 bucket you are using for the following syntax issues.
+
    1. If the policy only allows data to be uploaded if KMS headers are passed, ensure the policy specifies an principal ARN instead of a user ID. The example below shows the correct syntax.
 
    ```
@@ -203,7 +204,6 @@ When using the S3 interface to transfer data to or from a Snowball Edge device, 
    }
 
    ```
-
    2. If the bucket policy only allows upload to the bucket if the correct headers are passed, uploads from Snowball Edge devices don't pass any headers by default. Modify the policy to allow an exception for the IAM user used to upload the data. Below is an example of the correct syntax for this.
 
    ```

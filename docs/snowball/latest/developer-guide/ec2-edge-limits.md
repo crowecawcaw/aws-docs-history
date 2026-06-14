@@ -45,12 +45,14 @@ outlines the available resources on the different device options as well as reso
 requirements for each service.
 
 - If no compute services are `ACTIVE`:
+
   - On a storage optimized option, you have 24 vCPUs and 32 GiB of
     memory for your compute instances.
   - On a compute optimized option, you have 104 vCPUs and 208 GiB of
     memory for your compute instances.
 
 - While AWS IoT Greengrass and AWS Lambda powered by AWS IoT Greengrass are `ACTIVE`:
+
   - On a storage optimized option, these services use 4 vCPU cores and
     8 GiB of memory.
   - On a compute optimized option, these services use 1 vCPU core and

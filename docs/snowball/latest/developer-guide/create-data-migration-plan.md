@@ -107,6 +107,7 @@ to one or more workstations to copy data from the storage source.
 
 1. For **Migration workstation usage**, indicate your workstation usage
    choice.
+
    - Choose **None - Use data source directly** to transfer data directly from a
      data source without using a workstation, and then choose
      **Next**.
@@ -156,12 +157,14 @@ You can use up to 5 concurrent Snow devices.
 
 1. In the **Shipping Address** section, choose an existing
    address or create a new one.
+
    - ###### Note
 
    The country in the address must match the destination country
    for the device, and must be valid for that country.
 
 2. In **Choose service access type**, do one of the following:
+
    - Allow Snowball Edge to create a new service-linked role for you with all of the necessary
      permissions to publish CloudWatch metrics and Amazon SNS notifications for your
      Snowball Edge jobs.
@@ -174,6 +177,7 @@ You can use up to 5 concurrent Snow devices.
    migration plans**, you won't receive notifications from this
    plan, but you will still receive job notifications.
 4. For **Set notifications**,
+
    - choose **Use an existing SNS topic**
    - or **Create a new SNS topic**.
 

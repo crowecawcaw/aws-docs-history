@@ -56,6 +56,7 @@ Snowball Edge devices have the following features:
   and `sbe-g` instance types, which you can use to run compute
   instances on the device using Amazon Machine Images (AMIs).
 - Snowball Edge supports these data transfer protocols for data migration:
+
   - NFSv3
   - NFSv4
   - NFSv4.1

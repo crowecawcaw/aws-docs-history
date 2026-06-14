@@ -31,6 +31,7 @@ and have no impact on how data is imported.
 - [cp](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/reference/s3/cp.md") – Copies a file or
   object to or from the AWS Snowball Edge device. The following are options for this
   command:
+
   - `--dryrun` (Boolean) – The operations that would
     be performed using the specified command are displayed without being
     run.
@@ -67,6 +68,7 @@ and have no impact on how data is imported.
 
 - [ls](../../../cli/latest/reference/s3/ls.md "../../../cli/latest/reference/s3/ls.md") – Lists objects on
   the AWS Snowball Edge device. The following are options for this command:
+
   - `--human-readable` (Boolean) – File sizes are
     displayed in human-readable format.
   - `--summarize` (Boolean) – Summary information is
@@ -82,6 +84,7 @@ and have no impact on how data is imported.
 
 - [rm](../../../cli/latest/reference/s3/rm.md "../../../cli/latest/reference/s3/rm.md") – Deletes an object
   on the AWS Snowball Edge device. The following are options for this command:
+
   - `--dryrun` (Boolean) – The operations that would
     be performed using the specified command are displayed without being
     run.

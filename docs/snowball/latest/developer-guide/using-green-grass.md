@@ -25,6 +25,7 @@ to work with AWS IoT Greengrass.
 ###### To set up an EC2-compatible instance for AWS IoT Greengrass V2
 
 1. Launch the AWS IoT Greengrass validated AMI with a public IP Address and an SSH key:
+
    1. Using the AWS CLI: [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md").
    2. Using AWS OpsHub: [Launching an Amazon EC2-compatible instance](manage-ec2.md#launch-instance "manage-ec2.md#launch-instance").###### Note
 

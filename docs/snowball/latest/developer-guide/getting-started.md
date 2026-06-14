@@ -105,6 +105,7 @@ You get your credentials after the device is in transit to you. You can see the 
    **View job details**.
 4. In the details pane that appears, expand **Credentials**
    and then do the following:
+
    - Make a note of the unlock code (including the hyphens), because
      you need to provide all 29 characters to unlock the device.
    - In the dialog box, choose **Download manifest**,

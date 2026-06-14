@@ -138,11 +138,13 @@ Edge device in Brazil:
   Edge device. Confirm with your tax department which of the following
   documents is required in your state, according to your Imposto sobre
   Circulação de Mercadorias e Serviços (ICMS) registration:
+
   - **Within São Paulo
     –** A non-ICMS declaration and an Electronic
     Tax Invoice (NF-e) are usually required.
   - **Outside São Paulo**
     – The following are usually required:
+
     - A non-ICMS declaration
     - A nota fiscal avulsa
     - An Electronic Tax Invoice (NF-e)

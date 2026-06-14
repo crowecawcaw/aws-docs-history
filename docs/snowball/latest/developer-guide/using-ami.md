@@ -102,6 +102,7 @@ Before you begin the process to add an AMI from AWS Marketplace to your Snowball
 2. From the navigation bar, select the Region in which to launch your instances and from which you will create the job to order the Snowball Edge device. You can select any Region that is available to you, regardless of your location.
 3. In the navigation pane, choose **AMIs**.
 4. Use the filter and search options to scope the list of displayed AMIs to see only the AMIs that match your criteria. For example, AMIs provided by the AWS Marketplace, choose **Public images**. Then use the search options to further scope the list of displayed AMIs:
+
    - (New console) Choose the **Search** bar and, from the menu, choose **Owner alias**, then the = operator, and then the value **amazon**.
    - (Old console) Choose the **Search** bar and, from the menu, choose **Owner** and then the value **Amazon images**.
 
@@ -119,6 +120,7 @@ AMIs from AWS Marketplace include **aws-marketplace** in the **Source** column. 
 | Ubuntu 22.04 LTS                            | 47xbqns9xujfkkjt189a13aqe |
 
 7. Then, also ensure the **Platform details** contains one of entries from the list below.
+
    - Amazon Linux, Ubuntu, or Debian
    - Red Hat Linux bring-your-own-license
    - Amazon RDS for Oracle bring-your-own-license

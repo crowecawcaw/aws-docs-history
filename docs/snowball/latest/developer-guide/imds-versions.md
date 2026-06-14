@@ -23,6 +23,7 @@ When you use IMDSv2 to request instance metadata, the request must follow these 
 
 1. Use a `PUT` request to initiate a session to the instance metadata service. The `PUT` request returns a session token that must be included in subsequent `GET` requests to the instance metadata service. The session token that defines the session duration. Session duration can be a minimum of one second and a maximum of six hours. During this duration, you can use the same session token for subsequent requests. After this duration expires, you must create a new session token for future requests. The token is required to access metadata using IMDSv2.
 2. Include the token in all `GET` requests to the instance metadata service.
+
    1. The token is an instance‐specific key. The token is not valid on other EC2-compatible instances and will be rejected if you attempt to use it outside of the instance on which it was generated.
    2. The `PUT` request must include a header that specifies the time to live (TTL) for the token, in seconds, up to a maximum of six hours (21,600 seconds). The token represents a logical session. The TTL specifies the length of time that the token is valid and, therefore, the duration of the session.
    3. After a token expires, to continue accessing instance metadata, you must create a new session using another `PUT` request.

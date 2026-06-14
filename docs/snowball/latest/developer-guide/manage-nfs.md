@@ -157,6 +157,7 @@ Each S3 bucket on the Snowball Edge is represented as an endpoint and listed in 
 ###### To mount an endpoint
 
 1. In the **Mount paths** section, do one of the following to select an endpoint:
+
    - In the **Filter endpoints** field, enter all or part a bucket name to filter the list of available endpoints
      on your entry, then choose the endpoint.
    - Choose the endpoint to mount in the **Mount paths** list.
@@ -178,6 +179,7 @@ After the NFS interface is started and an endpoint mounted, mount the endpoint a
 
 1. In **Mount paths**, choose the copy icon of the endpoint to mount. Paste it in your operating system when mounting the endpoint.
 2. The following are the default mount commands for Windows, Linux, and macOS operating systems.
+
    - Windows:
 
    ```

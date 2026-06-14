@@ -35,6 +35,7 @@ Amazon S3.
    and the total number of files that you want to batch together.
 3. Batch your files on the command line as shown in the following
    examples.
+
    - For Linux, you can batch the files in the same command line used to transfer your files to the
      device.
 

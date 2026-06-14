@@ -67,6 +67,7 @@ unsupported options along with a command. However, these are ignored.
 - [associate-address](../../../cli/latest/reference/ec2/associate-address.md "../../../cli/latest/reference/ec2/associate-address.md") – Associates a virtual IP address
   with an instance for use on one of the three physical network interfaces
   on the device:
+
   - --instance-id – The ID of a single `sbe`
     instance.
   - --public-ip – The virtual IP address that you want to
@@ -76,6 +77,7 @@ unsupported options along with a command. However, these are ignored.
   – Attaches an Amazon EBS volume to a stopped or running instance on
   your device and exposes it to the instance with the specified device
   name.
+
   - --device `value` – The device name.
   - --instance-id – The ID of a target Amazon EC2-compatible
     instance.
@@ -87,6 +89,7 @@ unsupported options along with a command. However, these are ignored.
   Specifically, this action permits instances to send traffic to one or
   more destination IPv4 CIDR address ranges. For more information, see
   [Controlling network traffic with security groups on Snowball Edge](edge-security-groups.md "edge-security-groups.md").
+
   - --group-id `value` – The ID of the security
     group
   - [--ip-permissions `value`] – One or more
@@ -97,6 +100,7 @@ unsupported options along with a command. However, these are ignored.
   `authorize-security-group-ingress`, you must specify a
   value either for `group-name` or
   `group-id`.
+
   - [--group-name `value`] – The name of the
     security group.
   - [--group-id `value`] – The ID of the
@@ -127,6 +131,7 @@ unsupported options along with a command. However, these are ignored.
   `RunInstances`, you can specify a launch template instead
   of providing the launch parameters in the request. You can create up to
   100 templates per device.
+
   - --launch-template-name `string` – A name for
     the launch template.
   - --launch-template-data `structure` – The
@@ -151,7 +156,6 @@ unsupported options along with a command. However, these are ignored.
       "UserData":"this is my user data"
   }
   ```
-
   - [--version-description `string`] – A
     description for the first version of the launch template.
   - --endpoint `snowballEndpoint` – A value that
@@ -215,6 +219,7 @@ request.
   Each resource can have a maximum of 50 tags. Each tag consists of a key
   and optional value. Tag keys must be unique for a resource. The
   following resources are supported:
+
   - AMI
   - Instance
   - Launch template
@@ -225,6 +230,7 @@ request.
   your Snowball Edge. You can create up to 50 security groups. When you
   create a security group, you specify a friendly name of your
   choice:
+
   - --group-name `value` – The name of the
     security group.
   - --description `value` – A description of the
@@ -234,6 +240,7 @@ request.
 - [create-volume](../../../cli/latest/reference/ec2/create-volume.md "../../../cli/latest/reference/ec2/create-volume.md")
   – Creates an Amazon EBS volume that can be attached to an instance on
   your device.
+
   - [--size `value`] – The size of the volume in
     GiBs, which can be from 1 GiB to 1 TB (1000 GiBs).
   - [--snapshot-id `value`] – The snapshot from
@@ -241,6 +248,7 @@ request.
   - [--volume-type `value`] – The volume type.
     If no value is specified, the default is `sbg1`.
     Possible values include the following:
+
     - `sbg1` for magnetic volumes
     - `sbp1` for SSD volumes
 
@@ -301,23 +309,27 @@ fails with `DependencyViolation`.
 - [delete-volume](../../../cli/latest/reference/ec2/delete-volume.md "../../../cli/latest/reference/ec2/delete-volume.md")
   – Deletes the specified Amazon EBS volume. The volume must be in the
   `available` state (not attached to an instance).
+
   - --volume-id `value` – The ID of the
     volume.
 
 - [describe-addresses](../../../cli/latest/reference/ec2/describe-addresses.md "../../../cli/latest/reference/ec2/describe-addresses.md") – Describes one or more of your
   virtual IP addresses associated with the same number of `sbe`
   instances on your device.
+
   - --public-ips – One or more of the virtual IP addresses
     associated with your instances.
 
 - [describe-images](../../../cli/latest/reference/ec2/describe-images.md "../../../cli/latest/reference/ec2/describe-images.md") – Describes one or more of the images
   (AMIs) available to you. Images available to you are added to the
   Snowball Edge device during job creation.
+
   - --image-id – The Snowball AMI ID of the AMI.
 
 - [describe-instance-attribute](../../../cli/latest/reference/ec2/describe-instance-attribute.md "../../../cli/latest/reference/ec2/describe-instance-attribute.md") – Describes the specified
   attribute of the specified instance. You can specify only one attribute
   at a time. The following attributes are supported:
+
   - `instanceInitiatedShutdownBehavior`
   - `instanceType`
   - `userData`
@@ -325,6 +337,7 @@ fails with `DependencyViolation`.
 - [describe-instances](../../../cli/latest/reference/ec2/describe-instances.md "../../../cli/latest/reference/ec2/describe-instances.md") – Describes one or more of your
   instances. The response returns any security groups that are assigned to
   the instances.
+
   - --instance-ids – The IDs of one or more `sbe`
     instances that were stopped on the device.
   - --page-size – The size of each page to get in the call.
@@ -514,6 +527,7 @@ dataset of results.
   – Describes one or more of the tags for specified resource
   (`image`, `instance`, or security group). With
   this command, the following filters are supported:
+
   - launch-template
   - resource-id
   - resource-type – `image` or
@@ -523,6 +537,7 @@ dataset of results.
 
 - [describe-volumes](../../../cli/latest/reference/ec2/describe-volumes.md "../../../cli/latest/reference/ec2/describe-volumes.md") – Describes the specified Amazon EBS
   volumes.
+
   - [--max-items `value`] – The total number of
     items to return in the command's output. If the total number of
     items available is more than the value specified,
@@ -539,6 +554,7 @@ dataset of results.
 
 - [detach-volume](../../../cli/latest/reference/ec2/detach-volume.md "../../../cli/latest/reference/ec2/detach-volume.md")
   – Detaches an Amazon EBS volume from a stopped or running instance.
+
   - [--device `value`] – The device name.
   - [--instance-id] – The ID of a target Amazon EC2
     instance.
@@ -547,12 +563,14 @@ dataset of results.
 
 - [disassociate-address](../../../cli/latest/reference/ec2/disassociate-address.md "../../../cli/latest/reference/ec2/disassociate-address.md") – Disassociates a virtual IP
   address from the instance it's associated with.
+
   - --public-ip – The virtual IP address that you want to
     disassociate from your instance.
 
 - [get-launch-template-data](../../../cli/latest/reference/ec2/get-launch-template-data.md "../../../cli/latest/reference/ec2/get-launch-template-data.md") – Retrieves the
   configuration data of the specified instance. You can use this data to
   create a launch template.
+
   - --instance-id – The ID of a single `sbe`
     instance.
   - --endpoint `snowballEndpoint` – A value that
@@ -581,11 +599,13 @@ request.
 
 - [modify-instance-attribute](../../../cli/latest/reference/ec2/modify-instance-attribute.md "../../../cli/latest/reference/ec2/modify-instance-attribute.md") – Modifies an attribute of
   the specified instance. The following attributes are supported:
+
   - `instanceInitiatedShutdownBehavior`
   - `userData`
 
 - [revoke-security-group-egress](../../../cli/latest/reference/ec2/revoke-security-group-egress.md "../../../cli/latest/reference/ec2/revoke-security-group-egress.md") – Removes one or more
   egress rules from a security group:
+
   - [--group-id `value`] – The ID of the
     security group
   - [--ip-permissions `value`] – One or more
@@ -595,6 +615,7 @@ request.
   ingress rules to a security group. When calling
   `revoke-security-group-ingress`, you must specify a value
   for either `group-name` or `group-id`.
+
   - [--group-name `value`] – The name of the
     security group.
   - [--group-id `value`] – The ID of the
@@ -714,12 +735,14 @@ instance.
   that you've previously stopped. All resources attached to the instance
   persist through starts and stops, but are erased if the instance is
   terminated.
+
   - --instance-ids – The IDs of one or more `sbe`
     instances that were stopped on the device.
 
 - [stop-instances](../../../cli/latest/reference/ec2/stop-instances.md "../../../cli/latest/reference/ec2/stop-instances.md") – Stops an `sbe` instance
   that is running. All resources attached to the instance persist through
   starts and stops, but are erased if the instance is terminated.
+
   - --instance-ids – The IDs of one or more `sbe`
     instances to be stopped on the device.
 
@@ -749,6 +772,7 @@ Instances_.
   private key for you to save to a file. The private key is returned as an
   unencrypted PEM-encoded PKCS#1 private key. If a key with the specified
   name already exists, Amazon EC2 returns an error.
+
   - --key-name (string) – A unique name for the key
     pair.
 
@@ -771,6 +795,7 @@ Instances_.
 ```
 
 - [import-key-pair](../../../cli/latest/reference/ec2/import-key-pair.md "../../../cli/latest/reference/ec2/import-key-pair.md") –
+
   - --key-name (string) – A unique name for the key
     pair.
 
@@ -826,6 +851,7 @@ Default: Describes all your key pairs.
 
 - [--key-pair-ids] (list) – The IDs of the key pairs.
 - [delete-key-pair](../../../cli/latest/reference/ec2/delete-key-pair.md "../../../cli/latest/reference/ec2/delete-key-pair.md") –
+
   - [--key-name] (string) – The name of the key pair.
   - [--key-pair-id] (string) – The ID of the key
     pair.
@@ -841,6 +867,7 @@ signing solution. For more information, see [Getting and using local Amazon S3 c
   an instance or a network interface.
 - [AttachVolume](../../../AWSEC2/latest/APIReference/API_AttachVolume.md "../../../AWSEC2/latest/APIReference/API_AttachVolume.md") –
   The following request parameters are supported:
+
   - `Device`
   - `InstanceId`
   - `VolumeId`
@@ -855,6 +882,7 @@ signing solution. For more information, see [Getting and using local Amazon S3 c
   `GroupId`.
 - [CreateVolume](../../../AWSEC2/latest/APIReference/API_CreateVolume.md "../../../AWSEC2/latest/APIReference/API_CreateVolume.md") –
   The following request parameters are supported:
+
   - `SnapshotId`
   - `Size`
   - `VolumeType`
@@ -862,6 +890,7 @@ signing solution. For more information, see [Getting and using local Amazon S3 c
 
 - [CreateLaunchTemplate](../../../AWSEC2/latest/APIReference/API_CreateLaunchTemplate.md "../../../AWSEC2/latest/APIReference/API_CreateLaunchTemplate.md") – The following request parameters
   are supported:
+
   - `ImageId`
   - `InstanceType`
   - `SecurityGroupIds`
@@ -871,6 +900,7 @@ signing solution. For more information, see [Getting and using local Amazon S3 c
 - [CreateLaunchTemplateVersion](../../../AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.md "../../../AWSEC2/latest/APIReference/API_CreateLaunchTemplateVersion.md")
 - [CreateTags](../../../AWSEC2/latest/APIReference/API_CreateTags.md "../../../AWSEC2/latest/APIReference/API_CreateTags.md") –
   The following request parameters are supported:
+
   - `AMI`
   - `Instance`
   - `Launch template`
@@ -890,12 +920,14 @@ signing solution. For more information, see [Getting and using local Amazon S3 c
   resources.
 - [DeleteVolume](../../../AWSEC2/latest/APIReference/API_DeleteVolume.md "../../../AWSEC2/latest/APIReference/API_DeleteVolume.md") –
   The following request parameters are supported:
+
   - `VolumeId`
 
 - [DescribeAddresses](../../../AWSEC2/latest/APIReference/API_DescribeAddresses.md "../../../AWSEC2/latest/APIReference/API_DescribeAddresses.md")
 - [DescribeImages](../../../AWSEC2/latest/APIReference/API_DescribeImages.md "../../../AWSEC2/latest/APIReference/API_DescribeImages.md")
 - [DescribeInstanceAttribute](../../../AWSEC2/latest/APIReference/API_DescribeInstanceAttribute.md "../../../AWSEC2/latest/APIReference/API_DescribeInstanceAttribute.md") – The following attributes are
   supported:
+
   - `instanceType`
   - `userData`
 
@@ -909,6 +941,7 @@ signing solution. For more information, see [Getting and using local Amazon S3 c
   of results.
 - [DescribeTags](../../../AWSEC2/latest/APIReference/API_DescribeTags.md "../../../AWSEC2/latest/APIReference/API_DescribeTags.md")
   – With this command, the following filters are supported:
+
   - `resource-id`
   - `resource-type` – AMI or compute instance
     only
@@ -917,12 +950,14 @@ signing solution. For more information, see [Getting and using local Amazon S3 c
 
 - [DescribeVolume](../../../AWSEC2/latest/APIReference/API_DescribeVolumes.md "../../../AWSEC2/latest/APIReference/API_DescribeVolumes.md")
   – The following request parameters are supported:
+
   - `MaxResults`
   - `NextToken`
   - `VolumeId.N`
 
 - [DetachVolume](../../../AWSEC2/latest/APIReference/API_DetachVolumes.md "../../../AWSEC2/latest/APIReference/API_DetachVolumes.md")
   – The following request parameters are supported:
+
   - `Device`
   - `InstanceId`
   - `VolumeId`

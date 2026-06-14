@@ -34,6 +34,7 @@ Standards and Technology (NIST) 800-88 standard after the job completes.
    client** – Get ready to start transferring data by getting your
    credentials, your job manifest, and the manifest's unlock code, and then downloading the
    Snowball Edge client.
+
    - The Snowball Edge client is the tool that you use to manage the flow of data from
      the device to your on-premises data destination.
 

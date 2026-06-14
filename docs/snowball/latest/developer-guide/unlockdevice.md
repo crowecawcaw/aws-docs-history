@@ -100,6 +100,7 @@ snowballEdge unlock-cluster --endpoint https://192.0.2.0 --manifest-file /Downlo
 If the `unlock-device` command returns `connection refused`, you may have mistyped the command syntax or the configuration of your computer or network may be preventing the command from reaching the Snow device. Take these actions to resolve the situation:
 
 1. Ensure the command was entered correctly.
+
    1. Use the LCD screen on the device to verify the IP addressed used in the command is correct.
    2. Ensure that the path to the manifest file used in the command is correct, including the file name.
    3. Use the [AWS Snowball Edge Management Console](https://console.aws.amazon.com/importexport/home?region=us-west-2 "https://console.aws.amazon.com/importexport/home?region=us-west-2") to verify the unlock code used in the command is correct.

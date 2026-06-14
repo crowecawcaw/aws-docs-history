@@ -144,11 +144,13 @@ transceiver modules and direct-attach copper (DAC) cables. You need to provide y
 own transceivers or DAC cables.
 
 - For 10G operation, you can use any SFP+ option. Examples include:
+
   - 10Gbase-LR (single mode fiber) transceiver
   - 10Gbase-SR (multi-mode fiber) transceiver
   - SFP+ DAC cable
 
 - For 25G operation, you can use any SFP28 option. Examples include:
+
   - 25Gbase-LR (single mode fiber) transceiver
   - 25Gbase-SR (multi-mode fiber) transceiver
   - SFP28 DAC cable

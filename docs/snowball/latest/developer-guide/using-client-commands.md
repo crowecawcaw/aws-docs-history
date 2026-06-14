@@ -758,6 +758,7 @@ and `Stratum` fields. Following are the meanings of these fields.
 - `Address` – The DNS name / IP address of the time source.
 - `State` – The current connection status between the device and
   that time source. There are five possible states:.
+
   - `CURRENT` – The time source is currently being used to
     synchronize time.
   - `COMBINED` – The time source is combined with the

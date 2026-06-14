@@ -38,6 +38,7 @@ start planning it using the AWS Snow Family Management Console.
 3. In the **Job name** section, provide a name for your job in
    the **Job name** box.
 4. Depending on your need, choose one of the following job types:
+
    - **Import into Amazon S3** – Choose this option to
      have AWS ship an empty Snowball Edge device to you. You connect the device
      to your local network and run the Snowball Edge client. You copy data
@@ -104,6 +105,7 @@ Storage type options available depend on the job type and Snow device you chose.
     ![Select your S3 buckets panel showing Create a new S3 bucket button, search filed, and S3 bucket names.](images/select-s3-buckets-console.png)
 
 5. If you selected _Amazon S3 compatible storage_ as the storage type, in the **S3 storage capacity** section, do the following:
+
    1. Select to use Amazon S3 compatible storage on Snowball Edge on a single device or a cluster of devices. See [Using a AWS Snowball Edge cluster](UsingCluster.md "UsingCluster.md") in this guide.
    2. Select the amount of device storage to use for Amazon S3 compatible storage on Snowball Edge.###### Note
 
@@ -175,6 +177,7 @@ Snowball Edge job to help protect your data while in transit.
 
 1. In the **Encryption** section, choose the
    **KMS key** that you want to use.
+
    - If you want to use the default AWS Key Management Service (AWS KMS) key, choose
      **AWS/importexport (default)**. This is the
      default key that protects your import and export jobs when no other
@@ -187,6 +190,7 @@ Snowball Edge job to help protect your data while in transit.
 
 2. In the **Choose service access type** section, do one of the
    following:
+
    - Choose **Snow console will create and use a service-linked
      role to access AWS resources on your behalf.** to grant
      AWS Snowball Edge permissions to use Amazon S3 and Amazon Simple Notification Service (Amazon SNS) on
@@ -207,6 +211,7 @@ and forth, so it's important that you provide accurate shipping information.
 
 1. In the **Shipping Address** section, choose an existing
    address or add a new address.
+
    - If you choose **Use recent address**, the
      addresses on file are displayed. Carefully choose the address that
      you want from the list.
@@ -242,6 +247,7 @@ changes.
 
 - In the **Set notifications** section, do one of the
   following:
+
   - If you want to use an existing SNS topic, choose **Use an
     existing SNS topic**, and choose the topic Amazon
     Resource Name (ARN) from the list.
