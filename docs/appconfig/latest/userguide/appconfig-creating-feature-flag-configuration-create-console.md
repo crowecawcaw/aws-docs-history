@@ -18,6 +18,7 @@ create a basic feature flag.
 6. (Optional) Expand **Description** and enter a description.
 7. (Optional) Expand **Additional options** and complete the
    following, as necessary.
+
    1. In the **Encryption** list, choose an AWS Key Management Service (AWS KMS) key
       from the list. This customer managed key enables you to encrypt new configuration data
       versions in the AWS AppConfig hosted configuration store. For more information about this
@@ -42,6 +43,7 @@ create a basic feature flag.
     **Define attribute**. Attributes enable you to provide additional
     values within your flag. For more information about attributes and constraints, see
     [Understanding feature flag attributes](appconfig-creating-configuration-and-profile-feature-flags.md#appconfig-creating-configuration-profile-feature-flag-attributes "appconfig-creating-configuration-and-profile-feature-flags.md#appconfig-creating-configuration-profile-feature-flag-attributes").
+
     1. For **Key**, specify a flag key and choose its type from the
        **Type** list. For information about the supported options for
        the **Value** and **Constraints** fields, see

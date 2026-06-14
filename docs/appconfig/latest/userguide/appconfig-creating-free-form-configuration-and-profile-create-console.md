@@ -17,6 +17,7 @@ Use the following procedure to create an AWS AppConfig freeform configuration pr
 6. (Optional) Expand **Description** and enter a description.
 7. (Optional) Expand **Additional options** and complete the
    following, as necessary.
+
    1. In the **Associate extensions** section, choose an extension
       from the list.
    2. In the **Tags** section, choose **Add new

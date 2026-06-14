@@ -56,6 +56,7 @@ existing feature flags to create variants.
    **Define attribute**. Attributes enable you to provide
    additional values within your flag. For more information about attributes and
    constraints, see [Understanding feature flag attributes](appconfig-creating-configuration-and-profile-feature-flags.md#appconfig-creating-configuration-profile-feature-flag-attributes "appconfig-creating-configuration-and-profile-feature-flags.md#appconfig-creating-configuration-profile-feature-flag-attributes").
+
    1. For **Key**, specify a flag key and choose its type from
       the **Type** list. For information about the supported
       options for the **Value** and
@@ -69,6 +70,7 @@ existing feature flags to create variants.
 
 10. In the **Feature flag variants** section, choose
     **Create variant**.
+
     1. For **Variant name**, enter a name.
     2. Use the **Enabled value** toggle to enable the
        variant.

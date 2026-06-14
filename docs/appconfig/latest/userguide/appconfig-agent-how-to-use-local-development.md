@@ -23,6 +23,7 @@ Use the following procedure to configure AWS AppConfig Agent for local developme
 
 1. Install the agent using the method described for your compute environment. AWS AppConfig
    Agent works with the following AWS services:
+
    - [AWS Lambda](appconfig-integration-lambda-extensions.md "appconfig-integration-lambda-extensions.md")
    - [Amazon EC2](appconfig-integration-ec2.md "appconfig-integration-ec2.md")
    - [Amazon ECS

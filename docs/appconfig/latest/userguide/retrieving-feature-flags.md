@@ -27,6 +27,7 @@ level, the process works as follows:
    for that session.
 7. When calling `GetLatestConfiguration`, your client code sends the most recent
    `ConfigurationToken` value it has and receives in response:
+
    - `NextPollConfigurationToken`: the `ConfigurationToken` value
      to use on the next call to `GetLatestConfiguration`.
    - The configuration: the latest data intended for the session. This may be empty if

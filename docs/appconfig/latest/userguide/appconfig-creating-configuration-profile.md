@@ -14,6 +14,7 @@ profiles:
   is simply `hosted`.
 - **Freeform configurations**: A freeform configuration can
   store data in any of the following AWS services and Systems Manager tools:
+
   - AWS AppConfig hosted configuration store
   - Amazon Simple Storage Service
   - AWS CodePipeline
