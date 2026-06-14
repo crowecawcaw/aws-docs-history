@@ -22,6 +22,7 @@ Firewall Manager administrator accounts.
     AWS ID of a member account that you'd like to add as a Firewall Manager
     administrator.
 6.  For **Administrative scope**, choose one of the following options:
+
     - **Full** – This grants the administrator the ability to apply policies to all accounts and organizational units (OUs) within the organization, take actions in all Regions, and apply all Firewall Manager policy types, except for third-party firewalls. Only the default administrator can create and manage third-party firewalls. Take caution if granting this level of permissions to the administrator. In the spirit of least privilege, we recommend only granting the administrator the permissions they need to perform the duties of their role.
     - **Restricted** – If applying a **Restricted** scope, then in **Configure administrative scope** configure the accounts and organizational units, Regions, and policy types that the account can manage.
 

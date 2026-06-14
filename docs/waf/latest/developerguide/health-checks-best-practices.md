@@ -23,6 +23,7 @@ Shield Advanced.
 
 - Define health checks that accurately reflect the health of your application origin with as
   few notifications as possible.
+
   - Write health checks so that they're only unhealthy when your application is unavailable
     or isn't performing within acceptable parameters. You are responsible
     for defining and maintaining health checks based on your application's
@@ -40,6 +41,7 @@ Shield Advanced.
 
 - Implement and manage your health checks to improve detection and reduce unnecessary
   maintenance activities.
+
   - Before you associate a health check with a Shield Advanced protection, make
     sure that it's in a healthy state. Associating a health check that's
     reporting unhealthy can skew the Shield Advanced detection mechanisms for your

@@ -28,6 +28,14 @@ account managers can add rules and rule groups to the resulting web ACL, in addi
 the rule groups that you define here. For information about Firewall Manager AWS WAF policies, see
 [Using AWS WAF policies with Firewall Manager](waf-policies.md "waf-policies.md").
 
+###### Note
+
+Web ACLs that Firewall Manager creates can't participate in CloudFront flat-rate pricing plans.
+If you attempt to manage a web ACL that's part of a CloudFront flat-rate pricing plan,
+Firewall Manager permanently displays a noncompliant status for both the CloudFront distribution
+and the Firewall Manager policy. This state can't be remediated through Firewall Manager or any other
+action.
+
 ###### To create a Firewall Manager AWS WAF policy (console)
 
 Sign in to the AWS Management Console using your Firewall Manager administrator account, and then open the Firewall Manager console at [https://console.aws.amazon.com/wafv2/fmsv2](https://console.aws.amazon.com/wafv2/fmsv2 "https://console.aws.amazon.com/wafv2/fmsv2"). For information about setting up a Firewall Manager administrator account, see

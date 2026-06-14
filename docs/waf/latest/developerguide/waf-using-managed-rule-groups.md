@@ -35,6 +35,7 @@ When you use a managed rule group in your protection pack (web ACL), you can edi
 ###### To edit the managed rule group settings in your protection pack (web ACL)
 
 - **Console**
+
   - (Option) When you add the managed rules group to your protection pack (web ACL),
     you can choose **Edit** to view and edit the
     settings.
@@ -42,6 +43,7 @@ When you use a managed rule group in your protection pack (web ACL), you can edi
     protection pack (web ACL), from the **protection packs (web ACLs)** page, choose the
     protection pack (web ACL) you just created. This takes you to the protection pack (web ACL) edit
     page.
+
     - Choose **Rules**.
     - Select the rule group, then choose
       **Edit** to view and edit the

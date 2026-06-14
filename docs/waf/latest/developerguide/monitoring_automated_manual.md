@@ -80,6 +80,7 @@ environment. We recommend that you also check the log files for your
 web ACLs and rules.
 
 - For example, to view the AWS WAF dashboard:
+
   - On the **Requests** tab of the AWS WAF **Web
     ACLs** page, view a graph of total requests and
     requests that match each rule that you have created. For more

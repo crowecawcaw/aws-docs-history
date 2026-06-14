@@ -53,6 +53,7 @@ For multi-tenant distributions, HTTP method configurations follow this hierarchy
 
 - Template-level settings define the baseline HTTP methods allowed for all tenant distributions
 - Tenant distributions can override these settings to:
+
   - Allow fewer methods than the multi-tenant distribution (using AWS WAF rules to block additional methods)
   - Allow more methods if the multi-tenant distribution is configured to support them
 
@@ -81,6 +82,7 @@ When implementing security headers in multi-tenant distributions, consider the f
 
 - Template-level security headers provide baseline protection across all tenant distributions
 - Tenant distributions can:
+
   - Add new security headers not defined in the multi-tenant distribution
   - Modify values for tenant-specific headers
   - Cannot remove or override security headers set at the multi-tenant distribution level

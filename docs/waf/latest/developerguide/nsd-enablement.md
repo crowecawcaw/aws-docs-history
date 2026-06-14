@@ -26,6 +26,7 @@ When assigning the delegated administrator account for AWS Shield network securi
 2. From the network security director home page, choose **Get started**.
 3. For **Delegated administrator account**, choose an administrator account based on the provided options. As a best practice, we recommend using the same delegated administrator across security services for consistent governance.
 4. For **Delegated administrator policy**, choose one of the following options to add the policy statement:
+
    1. (Option 1) Choose **Update this for me**. Select the box under the policy statement to confirm AWS Shield network security director will automatically create a delegation policy granting all required permissions to the delegated administrator.
    2. (Option 2) Choose **I want to attach this manually**. Choose **Copy and attach**. In the AWS Organizations console, under **Delegated administrator for AWS Organizations**, choose **Delegate**, and paste the resource policy in the delegation policy editor and then Choose **Create Policy**. Open the tab where you are in the AWS Shield network security director console.
 

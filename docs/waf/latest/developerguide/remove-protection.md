@@ -19,6 +19,7 @@ the protection on the resource from AWS Shield Advanced, as described in this pr
 2. In the AWS Shield navigation pane, choose **Protected resources**.
 3. In the **Protections** tab, select the resources whose protections you want to remove.
 4. Choose **Delete protections**.
+
    1. If you have an Amazon CloudWatch alarm configured for a protection, you are
       given the option to delete the alarm along with the protection. If you
       choose not to delete the alarm at this point, you can instead delete it

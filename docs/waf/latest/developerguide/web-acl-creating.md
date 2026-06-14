@@ -40,9 +40,11 @@ Using more than 1,500 WCUs in a protection pack (web ACL) incurs costs beyond th
    **Essentials**, or **You build
    it**.
 9. (Optional) If you choose **You build it**, build your rules.
+
    1. (Optional) If you want to add your own rule, on the **Add rules** page,
       choose **Custom rule** and then choose
       **Next**.
+
       1. Choose the rule type.
       2. For **Action**, select the action
          you want the rule to take when it matches a web
@@ -97,12 +99,14 @@ Using more than 1,500 WCUs in a protection pack (web ACL) incurs costs beyond th
       rule group** and then choose
       **Next**. Do the following for each
       managed rule group that you want to add:
+
       1. On the **Add rules** page, expand the listing for AWS
          managed rule groups or for the AWS Marketplace seller.
       2. Choose the version of the rule group.
       3. To customize how your protection pack (web ACL) uses the rule group, choose
          **Edit**. The following are
          common customization settings:
+
          - Reduce the scope of the web requests that
            the rule group inspects by adding a scope-down
            statement in the **Inspection**
@@ -126,6 +130,7 @@ Using more than 1,500 WCUs in a protection pack (web ACL) incurs costs beyond th
       group** and then choose
       **Next**. Do the following for each
       rule group that you want to add:
+
       1. For **Name**, enter the name that you want to use for the rule
          group rule in this protection pack (web ACL). Don't use
          names that start with `AWS`,

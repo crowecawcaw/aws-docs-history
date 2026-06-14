@@ -27,5 +27,6 @@ If you close the account that you're using for the AWS Firewall Manager administ
 
 - AWS revokes the account’s administrator access from Firewall Manager and Firewall Manager deactivates any policies that were managed by the administrator account. The protections that were provided by those policies are stopped across the organization.
 - AWS retains the Firewall Manager policy data for the account for 90 days from the effective date of the administrator account closure. During this 90-day period, you can reopen the closed account.
+
   - If you reopen the closed account during the 90-day period, AWS reassigns the account as the Firewall Manager administrator and recovers the Firewall Manager policy data for the account.
   - Otherwise, at the end of the 90-day period, AWS permanently deletes all Firewall Manager policy data for the account.

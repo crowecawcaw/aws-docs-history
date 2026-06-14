@@ -65,9 +65,11 @@ The following list describes the caveats of Shield Advanced automatic applicatio
 
 - [Best practices for using automatic application layer DDoS mitigation](ddos-automatic-app-layer-response-bp.md "ddos-automatic-app-layer-response-bp.md")
 - [Enabling automatic application layer DDoS mitigation](ddos-automatic-app-layer-response-config.md "ddos-automatic-app-layer-response-config.md")
+
   - [What happens when you enable automatic mitigation](ddos-automatic-app-layer-response-config.md#ddos-automatic-app-layer-response-enable "ddos-automatic-app-layer-response-config.md#ddos-automatic-app-layer-response-enable")
 
 - [How Shield Advanced manages automatic mitigation](ddos-automatic-app-layer-response-behavior.md "ddos-automatic-app-layer-response-behavior.md")
+
   - [How Shield Advanced responds to DDoS attacks with automatic mitigation](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-ddos-attack "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-ddos-attack")
   - [How Shield Advanced manages the rule action setting](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-rule-action")
   - [How Shield Advanced manages mitigations when an attack subsides](ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-after-attack "ddos-automatic-app-layer-response-behavior.md#ddos-automatic-app-layer-response-after-attack")

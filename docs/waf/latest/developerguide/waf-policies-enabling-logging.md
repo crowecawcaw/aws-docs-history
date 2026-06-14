@@ -10,6 +10,7 @@ The following procedure describes how to enable logging for an AWS WAF policy in
 ###### To enable logging for an AWS WAF policy
 
 1. Before you can enable logging, you must configure your logging destination resources as the following:
+
    - **Amazon Kinesis Data Streams** - Create an Amazon Data Firehose using your Firewall Manager administrator account. Use a name starting with the prefix `aws-waf-logs-`. For example, `aws-waf-logs-firewall-manager-central`.
      Create the data firehose with a `PUT` source and in the Region that you
      are operating. If you are capturing logs for Amazon CloudFront, create the firehose in

@@ -18,6 +18,7 @@ production. For additional coding guidance, see the sections that follow.
 ###### To use the CAPTCHA integration API
 
 1. **Install the API**
+
    1. Sign in to the AWS Management Console and open the AWS WAF console at
       [https://console.aws.amazon.com/wafv2/homev2](https://console.aws.amazon.com/wafv2/homev2 "https://console.aws.amazon.com/wafv2/homev2").
    2. In the navigation pane, choose **Application integration**. On the

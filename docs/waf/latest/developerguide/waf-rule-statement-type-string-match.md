@@ -58,6 +58,7 @@ Additionally, this statement requires the following settings:
   to 255).
 - **String match condition** – This
   indicates the search type that you want AWS WAF to perform.
+
   - **Exactly matches string**
     – The string and the value of the request component are
     identical.

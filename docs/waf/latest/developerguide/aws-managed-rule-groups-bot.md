@@ -41,6 +41,7 @@ you can choose from:
   common-level protections and adds targeted detection for sophisticated bots that
   do not self identify. Targeted protections mitigate bot activity using a combination
   of rate limiting and CAPTCHA and background browser challenges.
+
   - **`TGT_`** – Rules that provide targeted protection have names that begin with
     `TGT_`. All targeted protections use detection
     techniques such as browser interrogation, fingerprinting, and behavior heuristics
@@ -152,6 +153,7 @@ Each label reflects the Bot Control rule findings:
 
 - `awswaf:managed:aws:bot-control:bot:` – Information about
   the bot associated with the request.
+
   - `awswaf:managed:aws:bot-control:bot:name:`<name>``– The bot name, if one is available, for example, the
 custom namespaces`bot:name:slurp`,
 `bot:name:googlebot`, and
@@ -172,6 +174,7 @@ example,`bot:category:search_engine`and`bot:category:content_fetcher`.
     – Applied when Web Bot Authentication (WBA)
     validation is performed on a request. The status
     suffix indicates the verification outcome:
+
     - `web_bot_auth:verified` –
       Signature successfully validated against public
       key directory

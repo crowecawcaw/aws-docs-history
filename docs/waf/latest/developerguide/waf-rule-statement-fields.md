@@ -25,6 +25,7 @@ rule criteria.
 ###### Contents
 
 - [Request components in AWS WAF](waf-rule-statement-fields-list.md "waf-rule-statement-fields-list.md")
+
   - [HTTP method](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-http-method "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-http-method")
   - [Single header](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-header "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-single-header")
   - [All headers](waf-rule-statement-fields-list.md#waf-rule-statement-request-component-headers "waf-rule-statement-fields-list.md#waf-rule-statement-request-component-headers")

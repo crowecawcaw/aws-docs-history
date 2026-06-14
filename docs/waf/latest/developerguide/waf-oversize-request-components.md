@@ -88,6 +88,7 @@ The general guidelines for managing oversized web request components are as foll
   resource.
 - For all other requests, you can prevent any additional bytes from passing through
   by blocking requests that go over the limit:
+
   - **Your rules and rule groups** – In
     your rules that inspect components with size limits, configure oversize
     handling so that you block requests that go over the limit. For example, if
@@ -117,6 +118,7 @@ You can add a rule in your protection pack (web ACL) that blocks requests with o
    For guidance on creating or editing a protection pack (web ACL), see [Viewing web traffic metrics in AWS WAF](web-acl-working-with.md "web-acl-working-with.md").
 2. Enter a name for your rule, and leave the **Type** setting at **Regular rule**.
 3. Change the following match settings from their defaults:
+
    1. On **Statement**, for **Inspect**, open
       the dropdown and choose the web request component that you need, either
       **Body**, **Headers**, or

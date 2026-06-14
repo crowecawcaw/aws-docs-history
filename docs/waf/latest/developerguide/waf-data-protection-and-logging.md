@@ -32,6 +32,7 @@ AWS WAF doesn't charge you for using this option. For pricing information, see [
 [How Security Lake pricing is determined](../../../security-lake/latest/userguide/estimating-costs.md "../../../security-lake/latest/userguide/estimating-costs.md") in the _Amazon Security Lake user guide_.
 
 - **Data protection** – You can configure data protections for web traffic data at two levels:
+
   - **Data protection for the protection pack (web ACL)** – You can configure data protection for each protection pack (web ACL), which enables you to substitute certain web traffic data with static strings or cryptographic hashing. Data protection at this level can be configured centrally, and applies across all logging and data collection options.
 
   For information about this option, see [Data protection](data-protection-masking.md "data-protection-masking.md").

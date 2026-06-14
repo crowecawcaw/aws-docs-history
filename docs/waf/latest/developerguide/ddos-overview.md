@@ -51,11 +51,13 @@ Classes of attacks that Shield detects include the following:
 - [Deciding whether to subscribe to AWS Shield Advanced and apply additional protections](ddos-advanced-summary-deciding.md "ddos-advanced-summary-deciding.md")
 - [Examples of DDoS attacks](types-of-ddos-attacks.md "types-of-ddos-attacks.md")
 - [How AWS Shield detects events](ddos-event-detection.md "ddos-event-detection.md")
+
   - [AWS Shield detection logic for infrastructure layer threats (layer 3 and layer 4)](ddos-event-detection-infrastructure.md "ddos-event-detection-infrastructure.md")
   - [Shield Advanced detection logic for application layer threats (layer 7)](ddos-event-detection-application.md "ddos-event-detection-application.md")
   - [Shield Advanced detection logic for multiple resources in an application](ddos-event-detection-multiple-resources.md "ddos-event-detection-multiple-resources.md")
 
 - [How AWS Shield mitigates events](ddos-event-mitigation.md "ddos-event-mitigation.md")
+
   - [List of AWS Shield DDoS mitigation features](ddos-event-mitigation-features.md "ddos-event-mitigation-features.md")
   - [AWS Shield mitigation logic for CloudFront and Route 53](ddos-event-mitigation-logic-continuous-inspection.md "ddos-event-mitigation-logic-continuous-inspection.md")
   - [AWS Shield mitigation logic for AWS Regions](ddos-event-mitigation-logic-regions.md "ddos-event-mitigation-logic-regions.md")

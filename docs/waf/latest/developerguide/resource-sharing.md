@@ -29,6 +29,7 @@ Examples of these problems include the following:
 ###### Try again to enable resource sharing
 
 - Try again to enable sharing using one of the following options:
+
   - (Option) Through the AWS RAM console, follow the instructions at [Enable Sharing with AWS Organizations](../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs "../../../ram/latest/userguide/getting-started-sharing.md#getting-started-sharing-orgs") in the _AWS Resource Access Manager
     User Guide_.
   - (Option) Using the AWS RAM API, call `EnableSharingWithAwsOrganization`. See the

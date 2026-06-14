@@ -46,6 +46,7 @@ enabled by default with **Active under DDoS** mode.
 3. Choose **Associated AWS resources**.
 4. Under **Resource level DDoS protection**, choose **Edit**.
 5. Select one of the following protection modes:
+
    - **Active under DDoS** (recommended) - Protection engages only during high load conditions
    - **Always on** - Always-on protection against known malicious sources
 

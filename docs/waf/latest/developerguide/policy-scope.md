@@ -80,12 +80,14 @@ To determine which resources should be removed from protection when a customer r
 leaves the policy scope, Firewall Manager follows these guidelines:
 
 - _Default behavior_:
+
   - The associated AWS Config managed rules are deleted. This behavior is independent of the check box.
   - Any associated AWS WAF web access control lists (web ACLs) that don't contain any resources are deleted. This behavior is independent of the check box.
   - Any protected resource that goes out of scope remains associated and protected. For example,
     an Application Load Balancer or API from API Gateway that's associated with a web ACL remains associated with the web ACL, and the protection remains in place.
 
 - _With the **Automatically remove protections from resources that leave the policy scope** check box selected_:
+
   - The associated AWS Config managed rules are deleted. This behavior is independent of the check box.
   - Any associated AWS WAF web access control lists (web ACLs) that don't contain any resources are deleted. This behavior is independent of the check box.
   - Any protected resource that goes out of scope is automatically disassociated and removed from

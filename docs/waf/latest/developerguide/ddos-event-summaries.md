@@ -20,6 +20,7 @@ The event page summary information includes the following.
   of the event and the actions that Shield Advanced has taken on the event. Status
   values apply to infrastructure layer (layer 3 or 4) and application layer
   (layer 7) events.
+
   - **Identified (ongoing)** and **Identified
     (subsided)** – These indicate that Shield Advanced
     detected an event, but has taken no action on it so far.

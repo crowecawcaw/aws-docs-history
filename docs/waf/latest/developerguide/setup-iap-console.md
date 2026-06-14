@@ -52,6 +52,7 @@ In this step, you'll create a protection pack (web ACL) and configure its basic 
    page, choose **Add protection pack (web ACL)**.
 4. Under **Tell us about your app**, for **App category**, select one or more app categories that best describe your application.
 5. For **Traffic source**, choose the type of traffic your application handles:
+
    - **API** - For API-only applications
    - **Web** - For web-only applications
    - **Both API and Web** - For applications that handle both types of traffic

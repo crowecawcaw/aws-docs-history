@@ -46,6 +46,7 @@ by configuring protection pack (web ACL) data protection or by disabling samplin
   to specify which web requests are kept in the logs and which are dropped. You
   filter on the settings that AWS WAF applies during the web request evaluation. You can filter
   on the following settings:
+
   - **Fully qualified label** – Fully
     qualified labels have a prefix, optional namespaces, and label name. The
     prefix identifies the rule group or protection pack (web ACL) context of the rule that
@@ -56,6 +57,7 @@ by configuring protection pack (web ACL) data protection or by disabling samplin
     see [Using rule actions in AWS WAF](waf-rule-action.md "waf-rule-action.md").
     For information about current and legacy rule action overrides for rule
     group rules, see [Overriding rule group actions in AWS WAF](web-acl-rule-group-override-options.md "web-acl-rule-group-override-options.md").
+
     - The normal rule action filters apply to actions that are
       configured in rules and also to actions that are configured
       using the current option for overriding a rule group rule

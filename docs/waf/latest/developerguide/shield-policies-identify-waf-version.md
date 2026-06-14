@@ -19,6 +19,7 @@ using with in-scope resources.
 ###### To determine which version of AWS WAF your Firewall Manager Shield Advanced policy uses
 
 1. Retrieve the policy ID for the Shield Advanced policy:
+
    1. Sign in to the AWS Management Console using your Firewall Manager administrator account, and then open the Firewall Manager console at [https://console.aws.amazon.com/wafv2/fmsv2](https://console.aws.amazon.com/wafv2/fmsv2 "https://console.aws.amazon.com/wafv2/fmsv2"). For information about setting up a Firewall Manager administrator account, see
       [AWS Firewall Manager prerequisites](fms-prereq.md "fms-prereq.md").
    2. In the navigation pane, choose **Security

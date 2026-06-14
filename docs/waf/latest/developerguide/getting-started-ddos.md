@@ -34,6 +34,7 @@ Perform the following steps in sequence to get started using Shield Advanced.
 
 - [Subscribing to AWS Shield Advanced](enable-ddos-prem.md "enable-ddos-prem.md")
 - [Adding and configuring resource protections with Shield Advanced](ddos-choose-resources.md "ddos-choose-resources.md")
+
   - [Configuring application layer (layer 7) DDoS protections with AWS WAF](ddos-get-started-web-acl-rbr.md "ddos-get-started-web-acl-rbr.md")
   - [Configuring health-based detection for your protections with Shield Advanced and Route 53](ddos-get-started-health-checks.md "ddos-get-started-health-checks.md")
   - [Configuring alarms and notifications with Shield Advanced and Amazon SNS](ddos-get-started-create-alarms.md "ddos-get-started-create-alarms.md")

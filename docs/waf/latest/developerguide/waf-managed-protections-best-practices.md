@@ -110,6 +110,7 @@ Shield Advanced, see [AWS Shield Advanced overview](ddos-advanced-summary.md "dd
 - **Use production traffic loads when you establish baselines for the Anti-DDoS rule group** – It is common practice to test other rule groups using artificial test traffic. However, when you test and establish baselines for the Anti-DDoS rule group, we recommend that you use traffic flows that reflect the loads in your production environment. Establishing Anti-DDoS baselines using typical traffic is the best way to ensure your resources will be protected when the rule group is enabled in a production environment.
 - **Tune and configure token handling** – Adjust
   the protection pack (web ACL)'s token handling for the best user experience.
+
   - To reduce operating costs and improve your end user's experience,
     tune your token management immunity times to the longest that your
     security requirements permit. This keeps the use of CAPTCHA puzzles and

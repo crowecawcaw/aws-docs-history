@@ -82,14 +82,17 @@ type of token retrieval:
 When the token provider tries to retrieve a token, it might result in auto-retries depending on where token retrieval fails in the token acquisition flow. This section lists the possible places where you might see an auto-retry.
 
 - **Obtaining or verifying the AWS WAF Challenge through /inputs or /verify:**
+
   - When a request to obtain and verify a AWS WAF challenge is made and fails, it can result in an auto-retry.
   - You might observe auto-retries happening here along with a `socketTimeoutException` error. This can have multiple causes including:
+
     - Low network bandwidth: Confirm your network connectivity settings
     - Mutated Application Integration URL: Confirm that the integration URL is not modified from what appears on the AWS WAF console
 
   - The auto-retry count is configurable with the `maxRetryCount()` function
 
 - **Refreshing the token:**
+
   - When a request to refresh the token is made through the token handler, it might result in an auto-retry.
   - The auto-retry count here is configurable with the `maxRetryCount()` function.
 

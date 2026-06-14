@@ -54,6 +54,7 @@ that are used in the protection pack (web ACL).
 - The geographic match statement adds labels with or without a match, but
   they're only available after the statement's containing protection pack (web ACL) rule has
   completed the request evaluation.
+
   - You can't use a single rule, for example a logical `AND` statement, to run a
     geo match statement followed by a label match statement against the
     geographic labels. You must put the label match statement in a separate

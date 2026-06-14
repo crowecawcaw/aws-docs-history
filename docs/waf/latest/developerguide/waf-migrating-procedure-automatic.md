@@ -31,6 +31,7 @@ migration API, to store the AWS CloudFormation template that it generates.
    bucket policy required for migration**. Alternatively, if you want
    to manage the bucket on your own, you must manually apply the following bucket
    policy:
+
    - For global Amazon CloudFront applications (`waf`):
 
    JSON
@@ -51,7 +52,6 @@ migration API, to store the AWS CloudFormation template that it generates.
    }`
 
    ```
-
    - For regional Amazon API Gateway or Application Load Balancer applications (`waf-regional`):
 
    JSON

@@ -89,6 +89,7 @@ This section lists the caveats and limitations for using Firewall Manager networ
   subnets that aren't yet protected by a Firewall Manager network ACL policy. If a subnet comes into scope of more than one network ACL policy at the same time,
   then Firewall Manager uses the oldest policy to protect the subnet.
 - **Reasons for a policy to stop protecting a subnet** – A policy that's managing the network ACL for a subnet retains management until one of the following happens:
+
   - The subnet goes out of scope of the policy.
   - The policy is deleted.
   - You manually change the subnet's association to a network ACL

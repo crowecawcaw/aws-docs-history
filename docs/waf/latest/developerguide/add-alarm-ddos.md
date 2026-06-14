@@ -19,6 +19,7 @@ CloudWatch incurs additional costs. For CloudWatch pricing, see
    you don't want notifications for, choose **No topic**. You can
    add an Amazon SNS topic or create a new topic.
 2. To create an Amazon SNS topic, follow these steps:
+
    1. In the dropdown list, choose **Create an SNS topic**.
    2. Enter a topic name.
    3. Optionally enter an email address that the Amazon SNS messages will be sent to, and then

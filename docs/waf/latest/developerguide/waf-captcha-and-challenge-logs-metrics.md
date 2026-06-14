@@ -14,6 +14,7 @@ the request has a valid token with an unexpired timestamp for the action type.
 - **Valid token** – When the
   action finds a valid token and doesn't block the request, AWS WAF captures
   metrics and logs as follows:
+
   - Increments the metrics for either `CaptchaRequests` and `RequestsWithValidCaptchaToken` or `ChallengeRequests` and `RequestsWithValidChallengeToken`.
   - Logs the match as a `nonTerminatingMatchingRules` entry with action of CAPTCHA or Challenge. The following listing shows the section of a log for this type of match with the CAPTCHA action.
 

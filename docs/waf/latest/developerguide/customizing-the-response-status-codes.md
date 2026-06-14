@@ -13,6 +13,7 @@ codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes "https://en.wikip
 The following are the HTTP status codes that AWS WAF supports for custom responses.
 
 - `2xx Successful`
+
   - `200` – `OK`
   - `201` – `Created`
   - `202` – `Accepted`
@@ -20,6 +21,7 @@ The following are the HTTP status codes that AWS WAF supports for custom respons
   - `206` – `Partial Content`
 
 - `3xx Redirection`
+
   - `300` – `Multiple Choices`
   - `301` – `Moved Permanently`
   - `302` – `Found`
@@ -29,6 +31,7 @@ The following are the HTTP status codes that AWS WAF supports for custom respons
   - `308` – `Permanent Redirect`
 
 - `4xx Client Error`
+
   - `400` – `Bad Request`
   - `401` – `Unauthorized`
   - `403` – `Forbidden`
@@ -46,6 +49,7 @@ The following are the HTTP status codes that AWS WAF supports for custom respons
   - `429` – `Too Many Requests`
 
 - `5xx Server Error`
+
   - `500` – `Internal Server Error`
   - `501` – `Not Implemented`
   - `502` – `Bad Gateway`

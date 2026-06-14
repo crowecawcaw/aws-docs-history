@@ -30,6 +30,7 @@ Support plan](https://aws.amazon.com/premiumsupport/enterprise-support/ "https:/
    access**. The **Edit AWS Shield Response Team (SRT) access**
    page opens.
 2. For **SRT access setting** select one of the options:
+
    - **Do not grant the SRT access to my account** – Shield
      removes any permissions you previously gave to the SRT to access your
      account and resources.
@@ -42,6 +43,7 @@ Support plan](https://aws.amazon.com/premiumsupport/enterprise-support/ "https:/
    - **Choose an existing role for the SRT to access my accounts**
      – For this option, you must modify the configuration of the role
      in AWS Identity and Access Management (IAM) as follows:
+
      - Attach the managed policy `AWSShieldDRTAccessPolicy` to
        the role. This managed policy allows the SRT to make AWS Shield Advanced
        and AWS WAF API calls on your behalf and to access your AWS WAF

@@ -12,12 +12,14 @@ or through AWS CloudFormation.
 ###### To retrieve the list of rules in a managed rule group
 
 - **Console**
+
   - (Option) When you add the managed rules group to your protection pack (web ACL),
     you can choose **Edit** to view the rules.
   - (Option) After you've added the managed rule group into your
     protection pack (web ACL), from the **protection packs (web ACLs)** page, choose the
     protection pack (web ACL) you just created. This takes you to the protection pack (web ACL) edit
     page.
+
     - Choose **Rules**.
     - Select the rule group you want to see a rules list
       for, then choose **Edit**. AWS WAF shows

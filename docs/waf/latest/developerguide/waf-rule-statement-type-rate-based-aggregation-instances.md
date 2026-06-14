@@ -35,14 +35,17 @@ For example, assume a rate-based rule evaluates web requests with the following 
   The rule creates different aggregation instances according to your aggregation criteria.
 
 - If the aggregation criteria is just the IP address, then each individual IP address is an aggregation instance, and AWS WAF counts requests separately for each. The aggregation instances and request counts for our example would be the following:
+
   - IP address 10.1.1.1: count 3
   - IP address 127.0.0.0: count 1
 
 - If the aggregation criteria is HTTP method, then each individual HTTP method is an aggregation instance. The aggregation instances and request counts for our example would be the following:
+
   - HTTP method POST: count 2
   - HTTP method GET: count 2
 
 - If the aggregation criteria is IP address and HTTP method, then each IP address and each HTTP method would contribute to the combined aggregation instance. The aggregation instances and request counts for our example would be the following:
+
   - IP address 10.1.1.1, HTTP method POST: count 1
   - IP address 10.1.1.1, HTTP method GET: count 2
   - IP address 127.0.0.0, HTTP method POST: count 1

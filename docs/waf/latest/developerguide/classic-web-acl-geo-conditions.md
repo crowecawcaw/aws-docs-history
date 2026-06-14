@@ -78,6 +78,7 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. I
     3. Choose **Add**.
 
 5. To delete a country:
+
    1. In the right pane, select the values that you want to delete.
    2. Choose **Delete filter**.
 
@@ -102,6 +103,7 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. R
      you want to delete.
 
 3. Remove the filters from the condition you want to delete:
+
    1. In the navigation pane, choose **Geo match**.
    2. Choose the name of the geo match condition that you want to delete.
    3. In the right pane, choose the check box next to **Filter** in order to select all of the filters.

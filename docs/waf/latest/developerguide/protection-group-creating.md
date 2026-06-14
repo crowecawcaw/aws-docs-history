@@ -19,6 +19,7 @@ For more details, see [Working with the console](working-with-console.md "workin
    chosen.
 6. For **Aggregation**, select how you want Shield Advanced to combine resource
    data for the group in order to detect, mitigate, and report events.
+
    - **Sum** – Use the total traffic across the group.
      This is a good choice for most cases. Examples include Elastic IP
      addresses for Amazon EC2 instances that scale manually or automatically.

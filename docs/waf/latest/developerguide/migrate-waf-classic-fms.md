@@ -16,16 +16,19 @@ To migrate web ACLs from a AWS WAF Classic policy, you must first migrate any AW
 
 1. Migrate your AWS WAF Classic rule groups to AWS WAF (v2) rule groups using this migration script: [AWS WAF bulk migration script](https://github.com/aws-samples/sample-for-waf-classic-to-wafv2-migrate-and-cleanup/tree/main/scripts/waf-classic-migration "https://github.com/aws-samples/sample-for-waf-classic-to-wafv2-migrate-and-cleanup/tree/main/scripts/waf-classic-migration        ").
 2. Create a new AWS WAF policy with the following settings:
+
    - Use the newly migrated AWS WAF (v2) rule groups
    - Enable automatic remediation
 
 3. For each account you want to migrate:
+
    1. Remove the account from the old AWS WAF Classic policy
    2. Wait approximately 2-3 minutes
    3. Add the account to the scope of the new AWS WAF policy
    4. (Optional) Use resource tag filtering to narrow the policy scope to specific resources
 
 4. Verify the migration:
+
    1. Confirm that the new AWS WAF policy has created v2 web ACLs
    2. Verify that Firewall Manager has associated the new web ACLs with the appropriate resources
 
@@ -50,15 +53,18 @@ Firewall Manager creates new AWS WAF (v2) web ACLs as needed and manages the mig
 To migrate web ACLs one account at a time, follow these steps:
 
 1. Create a new Shield Advanced policy with the following settings:
+
    - Set automatic application layer DDoS mitigation to _Disabled_
    - Enable automatic remediation
 
 2. For each account you want to migrate:
+
    1. Remove the account from the old Shield Advanced policy
    2. Wait approximately 2-3 minutes
    3. Add the account to the scope of the new Shield Advanced policy
    4. (Optional) Use resource tag filtering to narrow the policy scope to specific resources
 
 3. Verify the migration:
+
    1. Confirm that the new Shield Advanced policy has created AWS WAF (v2) web ACLs
    2. Verify that Firewall Manager has associated the new web ACLs with the appropriate resources

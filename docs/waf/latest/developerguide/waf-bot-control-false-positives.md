@@ -37,6 +37,7 @@ Situations where you might encounter false positives include the following:
   request attributes that emerge with valid traffic, causing it to match the rule
   where it didn't before. These changes might be due to situations like the
   following:
+
   - Traffic details that are altered as traffic flows through network
     appliances, such as load balancers or content distribution networks
     (CDN).

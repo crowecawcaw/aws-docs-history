@@ -28,6 +28,7 @@ types:
   protected Elastic IP addresses.
 - Amazon EC2 instances, through association to Amazon EC2 Elastic IP addresses.
 - The following Elastic Load Balancing (ELB) load balancers:
+
   - Application Load Balancers.
   - Classic Load Balancers.
   - Network Load Balancers, through associations to Amazon EC2 Elastic IP addresses.

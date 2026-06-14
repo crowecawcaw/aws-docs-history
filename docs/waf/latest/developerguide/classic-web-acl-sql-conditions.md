@@ -205,6 +205,7 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. I
     3. Choose **Add**.
 
 5. To delete filters, perform the following steps:
+
    1. Select the filter that you want to delete.
    2. Choose **Delete filter**.
 

@@ -420,24 +420,28 @@ following settings:
 
 4. Choose **Add condition**.
 5. Add the geo match condition that you created earlier. Specify the following values:
+
    - **When a request does**
    - **originate from a geographic location in**
    - Choose your geo match condition.
 
 6. Choose **Add another condition**.
 7. Add the string match condition that you created earlier. Specify the following values:
+
    - **When a request does**
    - **match at least one of the filters in the string match condition**
    - Choose your string match condition.
 
 8. Choose **Add condition**.
 9. Add the SQL injection match condition that you created earlier. Specify the following values:
+
    - **When a request does**
    - **match at least one of the filters in the SQL injection match condition**
    - Choose your SQL injection match condition.
 
 10. Choose **Add condition**.
 11. Add the size constraint condition that you created earlier. Specify the following values:
+
     - **When a request does**
     - **match at least one of the filters in the size constraint condition**
     - Choose your size constraint condition.
@@ -482,6 +486,7 @@ prevent incurring unnecessary charges.
 ###### To delete the objects that AWS WAF Classic charges for
 
 1. Disassociate your web ACL from your CloudFront distribution:
+
    1. Sign in to the AWS Management Console and open the AWS WAF console at
       [https://console.aws.amazon.com/wafv2/](https://console.aws.amazon.com/wafv2/ "https://console.aws.amazon.com/wafv2/").
 
@@ -489,6 +494,7 @@ prevent incurring unnecessary charges.
    For the CloudFront distribution that you associated the web ACL with, choose the **x** in the **Type** column.
 
 2. Remove the conditions from your rule:
+
    1. In the navigation pane, choose **Rules**.
    2. Choose the rule that you created during the tutorial.
    3. Choose **Edit rule**.
@@ -496,6 +502,7 @@ prevent incurring unnecessary charges.
    5. Choose **Update**.
 
 3. Remove the rule from your web ACL, and delete the web ACL:
+
    1. In the navigation pane, choose **Web ACLs**.
    2. Choose the name of the web ACL that you created during the tutorial. This opens a page with the web ACL's details in the right pane.
    3. On the **Rules** tab, choose **Edit web ACL**.
@@ -503,6 +510,7 @@ prevent incurring unnecessary charges.
    5. Choose **Actions**, and then choose **Delete web ACL**.
 
 4. Delete your rule:
+
    1. In the navigation pane, choose **Rules**.
    2. Choose the rule that you created during the tutorial.
    3. Choose **Delete**.
@@ -515,6 +523,7 @@ remove filters from conditions and delete the conditions.
 ###### To delete filters and conditions
 
 1. Delete the IP address range in your IP match condition, and delete the IP match condition:
+
    1. In the navigation pane of the AWS WAF Classic console, choose **IP addresses**.
    2. Choose the IP match condition that you created during the tutorial.
    3. Select the check box for the IP address range that you added.
@@ -524,6 +533,7 @@ remove filters from conditions and delete the conditions.
       confirm.
 
 2. Delete the filter in your SQL injection match condition, and delete the SQL injection match condition:
+
    1. In the navigation pane, choose **SQL injection**.
    2. Choose the SQL injection match condition that you created during the tutorial.
    3. Select the check box for the filter that you added.
@@ -533,6 +543,7 @@ remove filters from conditions and delete the conditions.
       confirm.
 
 3. Delete the filter in your string match condition, and delete the string match condition:
+
    1. In the navigation pane, choose **String and regex matching**.
    2. Choose the string match condition that you created during the tutorial.
    3. Select the check box for the filter that you added.
@@ -542,6 +553,7 @@ remove filters from conditions and delete the conditions.
       confirm.
 
 4. If you created one, delete the filter in your regex match condition, and delete the regex match condition:
+
    1. In the navigation pane, choose **String and regex matching**.
    2. Choose the regex match condition that you created during the tutorial.
    3. Select the check box for the filter that you added.
@@ -551,6 +563,7 @@ remove filters from conditions and delete the conditions.
       confirm.
 
 5. Delete the filter in your size constraint condition, and delete the size constraint condition:
+
    1. In the navigation pane, choose **Size constraints**.
    2. Choose the size constraint condition that you created during the tutorial.
    3. Select the check box for the filter that you added.

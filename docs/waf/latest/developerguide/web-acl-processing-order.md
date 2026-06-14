@@ -26,6 +26,7 @@ as shown:
 
 - Rule1 – priority 0
 - RuleGroupA – priority 100
+
   - RuleA1 – priority 10,000
   - RuleA2 – priority 20,000
 

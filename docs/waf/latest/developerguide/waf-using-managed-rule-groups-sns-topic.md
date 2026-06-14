@@ -32,6 +32,7 @@ rule groups and subscribe to it to get notifications for all of the AWS Managed 
 that provide SNS notifications.
 
 - **Console**
+
   - (Option) When you add the managed rule group to your protection pack (web ACL), choose
     **Edit** to see the rule group's
     information, which includes the rule group's Amazon SNS topic ARN.

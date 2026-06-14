@@ -250,6 +250,7 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. I
     3. Choose **Add**.
 
 5. To delete filters, perform the following steps:
+
    1. Select the filter that you want to delete.
    2. Choose **Delete Filter**.
 
@@ -275,6 +276,7 @@ If you see **Switch to AWS WAF Classic** in the navigation pane, select it. 2. R
      you want to delete.
 
 3. Remove the filters from the condition you want to delete:
+
    1. In the navigation pane, choose **String and regex matching**.
    2. Choose the name of the string match condition that you want to delete.
    3. In the right pane, choose the check box next to **Filter** in order to select all of the filters.

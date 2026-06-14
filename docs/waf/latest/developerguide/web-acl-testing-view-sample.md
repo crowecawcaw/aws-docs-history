@@ -30,6 +30,7 @@ multiple times. For information about rule action behaviors, see [Using rule act
 3. Choose the name of the protection pack (web ACL) for which you want to view requests.
    The console takes you to the protection pack (web ACL)'s description, where you can edit it.
 4. In the **Sampled requests** tab, you can see the following:
+
    - **All rules graph** – This
      graph shows the matching rules and rule actions for all web request
      evaluations that were performed during the indicated time range.

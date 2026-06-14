@@ -61,6 +61,7 @@ choices in the policy rules settings:
   settings, you use an audit security group to override other settings in the
   policy, to explicitly allow or deny rules that otherwise might have another
   compliance outcome.
+
   - If you choose to always _allow_ the rules that are defined in the
     audit security group, any rule that matches one that's defined in
     the audit security group is considered
@@ -76,6 +77,7 @@ choices in the policy rules settings:
   policy rules settings, the audit
   security group provides the example of what is acceptable or not acceptable in
   the in-scope security group rules:
+
   - If you choose to _allow_ the use of the rules, all in-scope security
     groups must only have rules that are _within_ the
     allowed range of the policy's audit security group rules.

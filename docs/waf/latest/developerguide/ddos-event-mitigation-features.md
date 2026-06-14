@@ -36,7 +36,7 @@ The main features of AWS Shield DDoS mitigation are the following:
   known TCP SYN flood attacks without reaching state exhaustion. This is achieved
   by integrating with AWS services to hand off connection state instead of
   maintaining a continuous proxy between the client and the protected service. TCP
-  SYN proxy is currently available on Amazon CloudFront and Amazon Route 53.
+  SYN proxy is currently available on Amazon CloudFront, Amazon Route 53, and AWS Global Accelerator.
 - **Rate distribution** – This continuously adjusts per-location
   shaper values based on the ingress pattern of traffic toward a
   protected resource. This prevents rate limiting of customer traffic that might not

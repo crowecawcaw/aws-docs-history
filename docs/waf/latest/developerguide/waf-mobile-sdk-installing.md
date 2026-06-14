@@ -17,6 +17,7 @@ Implement the mobile SDK first in a test environment, then in production.
    [https://console.aws.amazon.com/wafv2/homev2](https://console.aws.amazon.com/wafv2/homev2 "https://console.aws.amazon.com/wafv2/homev2").
 2. In the navigation pane, choose **Application integration**.
 3. In the **Intelligent threat integrations** tab, do the following:
+
    1. In the pane **protection packs (web ACLs) that are enabled for application integration**, locate
       the protection pack (web ACL) that you're integrating with. Copy and save the protection pack (web ACL)
       integration URL for use in your implementation. You can also obtain

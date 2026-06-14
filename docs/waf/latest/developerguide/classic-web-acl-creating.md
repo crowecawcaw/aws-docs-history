@@ -55,6 +55,7 @@ following topics:
 
 8.  If you've already created the rules or rule groups (or subscribed to an AWS Marketplace rule group) that you want
     to add to this web ACL, add the rules to the web ACL:
+
     1. In the **Rules** list, choose a rule.
     2. Choose **Add rule to web ACL**.
     3. Repeat steps a and b until you've added all the rules that you want to add to this web
@@ -62,6 +63,7 @@ following topics:
     4. Go to step 10.
 
 9.  If you haven't created rules yet, you can add rules now:
+
     1. Choose **Create rule**.
     2. Enter the following values:
 
@@ -115,15 +117,16 @@ following topics:
         * If you add two IP match conditions to the same rule, AWS WAF Classic will only allow or block requests
          that originate from IP addresses that appear in both IP
          match conditions.
-
     5. Repeat step 9 until you've created all the rules that you want to add to this web ACL.
     6. Choose **Create**.
     7. Continue with step 10.
 
 10. For each rule or rule group in the web ACL, choose the kind of management you want AWS WAF Classic to
     provide, as follows:
+
     - For each rule, choose whether you want AWS WAF Classic to allow, block, or
       count web requests based on the conditions in the rule:
+
       - **Allow** – API Gateway, CloudFront or an Application Load Balancer
         responds with the requested object. In the case of CloudFront, if the
         object isn't in the edge cache, CloudFront forwards the request to the

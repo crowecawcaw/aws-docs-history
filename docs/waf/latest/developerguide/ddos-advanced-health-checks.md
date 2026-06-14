@@ -74,6 +74,7 @@ The following are required to use a health check with Shield Advanced:
 
 - [Best practices for using health checks with Shield Advanced](health-checks-best-practices.md "health-checks-best-practices.md")
 - [CloudWatch metrics commonly used for health checks with Shield Advanced](health-checks-metrics.md "health-checks-metrics.md")
+
   - [Metrics used to monitor application health](health-checks-metrics.md#health-checks-metrics-common "health-checks-metrics.md#health-checks-metrics-common")
   - [Amazon CloudWatch metrics for each resource type](health-checks-metrics.md#health-checks-protected-resource-metrics "health-checks-metrics.md#health-checks-protected-resource-metrics")
 
@@ -81,6 +82,7 @@ The following are required to use a health check with Shield Advanced:
 - [Disassociating a health check from your resource protected by Shield Advanced](disassociate-health-check.md "disassociate-health-check.md")
 - [Viewing health check association status in Shield Advanced](health-check-association-status.md "health-check-association-status.md")
 - [Health check examples for Shield Advanced](health-checks-examples.md "health-checks-examples.md")
+
   - [Amazon CloudFront distributions](health-checks-examples.md#health-checks-example-cloudfront "health-checks-examples.md#health-checks-example-cloudfront")
   - [Load balancers](health-checks-examples.md#health-checks-example-load-balancer "health-checks-examples.md#health-checks-example-load-balancer")
   - [Amazon EC2 elastic IP address (EIP)](health-checks-examples.md#health-checks-example-elastic-ip "health-checks-examples.md#health-checks-example-elastic-ip")

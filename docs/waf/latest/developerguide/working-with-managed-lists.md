@@ -17,6 +17,7 @@ policy:
 
 - **Firewall Manager application lists and protocol lists**
   – Firewall Manager manages these lists.
+
   - The application lists include
     `FMS-Default-Public-Access-Apps-Allowed` and
     `FMS-Default-Public-Access-Apps-Denied`, which describe

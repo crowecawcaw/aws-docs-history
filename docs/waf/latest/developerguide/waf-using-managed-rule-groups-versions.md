@@ -11,6 +11,7 @@ been scheduled to expire. The list indicates which version is the current defaul
 ###### To retrieve a list of the available versions of a managed rule group
 
 - **Console**
+
   - (Option) When you add the managed rule group to your protection pack (web ACL),
     choose **Edit** to see the rule group's
     information. Expand the **Version** dropdown to
@@ -22,9 +23,11 @@ been scheduled to expire. The list indicates which version is the current defaul
     available versions.
 
 - **API** –
+
   - `ListAvailableManagedRuleGroupVersions`
 
 - **CLI** –
+
   - `aws wafv2 list-available-managed-rule-group-versions
 --scope=<CLOUDFRONT|REGIONAL> --vendor-name <vendor> --name
 <managedrule_name>`

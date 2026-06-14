@@ -52,6 +52,7 @@ health checks for an Application Load Balancer, Network Load Balancer, or Global
   by clients to the load balancer. You can set the alarm threshold for the
   average number of new connections at some degree higher than your every day
   average. The metrics for each resource type are the following:
+
   - Application Load Balancer: `NewConnectionCount`
   - Network Load Balancer: `ActiveFlowCount`
   - Global Accelerator: `NewFlowCount`
@@ -61,6 +62,7 @@ health checks for an Application Load Balancer, Network Load Balancer, or Global
   either on Availability Zone or on the minimum number of healthy hosts that
   your load balancer requires. The available metrics for the load balancer
   resources are as follows:
+
   - Application Load Balancer: `HealthyHostCount`
   - Network Load Balancer: `HealthyHostCount`
 

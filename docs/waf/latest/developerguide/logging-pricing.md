@@ -23,6 +23,7 @@ type:
 - **Amazon S3 buckets** – The Amazon S3 charges are
   the combined charges for CloudWatch Logs vended log delivery to the Amazon S3 buckets and for
   using Amazon S3.
+
   - For Amazon S3, see [Amazon S3
     Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
   - For CloudWatch Logs vended log delivery to the Amazon S3, see [Amazon CloudWatch Logs Pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/"). Under

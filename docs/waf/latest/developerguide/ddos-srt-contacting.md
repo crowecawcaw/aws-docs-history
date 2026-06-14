@@ -23,8 +23,10 @@ application are currently unavailable, provide that information.
 - **For suspected DDoS attacks** – If the
   availability or performance of your application is currently affected by a
   possible DDoS attack, choose the following severity and contact options:
+
   - For severity, choose the highest severity available for your support
     plan:
+
     - For Business support this is **Production system down:
       < 1 hour**.
     - For Enterprise support this is **Business-critical

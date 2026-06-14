@@ -178,6 +178,7 @@ this web ACL.
    offered for AWS Marketplace sellers. You can subscribe to their offerings and then use
    them in the same way as for AWS Managed Rules rule groups.)
 3. For the rule group that you want to add, do the following:
+
    1. In the **Action** column, turn on the **Add
       to web ACL** toggle.
    2. Select **Edit** and, in the rule group's **Rules**

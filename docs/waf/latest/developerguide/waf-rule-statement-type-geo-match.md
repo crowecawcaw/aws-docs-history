@@ -184,9 +184,11 @@ Block and the following nested statements, shown in
 pseudocode:
 
 - AND statement
+
   - Geo match statement listing the countries that you want to
     block
   - NOT statement
+
     - IP set statement that specifies the IP addresses that
       you want to allow through
 
@@ -202,9 +204,11 @@ The following pseudo code describes an example of this approach:
    match status, and it also gives you count metrics for the countries of
    interest.
 2. `AND` statement with Block action
+
    - Label match statement that specifies the labels for the
      countries that you want to block
    - `NOT` statement
+
      - Label match statement that specifies the labels of the
        regions in those countries that you want to allow
        through

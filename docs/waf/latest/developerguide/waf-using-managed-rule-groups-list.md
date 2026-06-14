@@ -36,7 +36,9 @@ interface that you're using:
   to your protection pack (web ACL), the console lists it based on the naming scheme
   `<Vendor Name>-<Managed Rule Group Name>`.
 - **API** –
+
   - `ListAvailableManagedRuleGroups`
 
 - **CLI** –
+
   - `aws wafv2 list-available-managed-rule-groups --scope=<CLOUDFRONT|REGIONAL>`

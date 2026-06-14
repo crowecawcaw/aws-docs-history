@@ -19,6 +19,7 @@ creates firewalls. Your policy can create _distributed_ firewalls, a _centralize
   allowed CIDRs per Availability Zone. If you decide to let Firewall Manager automatically
   create the endpoints, you must also specify whether the service will create a
   single endpoint or multiple firewall endpoints within your VPCs.
+
   - For multiple firewall endpoints, Firewall Manager deploys a firewall endpoint in
     each Availability Zone where you have a subnet with an internet gateway
     or a Firewall Manager-created firewall endpoint route in the route table. This is

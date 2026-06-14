@@ -42,6 +42,7 @@ Using the new console
 3. In the **Manage rules** section for the rule
    group, choose the managed rule to open its action
    settings.
+
    - **Override rule group**
      – Changes the rule group action to Count mode but
      keeps all individual rule actions unchanged.
@@ -63,6 +64,7 @@ Using the standard console
    group, then choose **Edit**.
 3. In the **Rules** section for the rule group, manage the action settings
    as needed.
+
    - **All rules** – To set an override action for all
      rules in the rule group, open the **Override all rule
      actions** dropdown and select the override action.

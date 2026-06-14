@@ -66,6 +66,7 @@ Using AWS WAF has several benefits:
 - Additional protection against web attacks using criteria that you specify. You
   can define criteria using characteristics of web requests such as the
   following:
+
   - IP addresses that requests originate from.
   - Country that requests originate from.
   - Values in request headers.

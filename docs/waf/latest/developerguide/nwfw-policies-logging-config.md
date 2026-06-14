@@ -30,6 +30,7 @@ To enable logging you must meet the following requirements:
 
 - The Amazon S3 that you specify in your Firewall Manager policy must exist.
 - You must have the following permissions:
+
   - `logs:CreateLogDelivery`
   - `s3:GetBucketPolicy`
   - `s3:PutBucketPolicy`

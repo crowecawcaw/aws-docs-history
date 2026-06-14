@@ -22,6 +22,7 @@ resource.
    **Automatic application layer DDoS mitigation**, choose the
    option that you want to use for automatic mitigations. The options in
    the console are the following:
+
    - **Keep current settings** – Make no changes to the automatic
      mitigation settings of the protected resource.
    - **Enable** – Enable automatic mitigation for the protected

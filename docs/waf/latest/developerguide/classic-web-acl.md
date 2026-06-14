@@ -37,6 +37,7 @@ To choose the requests that you want to allow to have access to your content or 
 1. Choose the default action, allow or block, for web requests that don't match any of the conditions that you specify.
    For more information, see [Deciding on the default action for a Web ACL](classic-web-acl-default-action.md "classic-web-acl-default-action.md").
 2. Specify the conditions under which you want to allow or block requests:
+
    - To allow or block requests based on whether the requests appear to contain malicious scripts, create cross-site scripting
      match conditions. For more information, see [Working with cross-site scripting match conditions](classic-web-acl-xss-conditions.md "classic-web-acl-xss-conditions.md").
    - To allow or block requests based on the IP addresses that they originate from, create IP match conditions.
