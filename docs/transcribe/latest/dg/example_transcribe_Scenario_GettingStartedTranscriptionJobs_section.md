@@ -375,6 +375,7 @@ public class TranscribeStreamingDemoApp {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [GetTranscriptionJob](../../../goto/SdkForJavaV2/transcribe-2017-10-26/GetTranscriptionJob.md "../../../goto/SdkForJavaV2/transcribe-2017-10-26/GetTranscriptionJob.md")
   - [StartTranscriptionJob](../../../goto/SdkForJavaV2/transcribe-2017-10-26/StartTranscriptionJob.md "../../../goto/SdkForJavaV2/transcribe-2017-10-26/StartTranscriptionJob.md")
 
@@ -432,6 +433,7 @@ if __name__ == "__main__":
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [GetTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/GetTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/GetTranscriptionJob.md")
   - [StartTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/StartTranscriptionJob.md")
 

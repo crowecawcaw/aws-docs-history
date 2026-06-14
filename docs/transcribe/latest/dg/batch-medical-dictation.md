@@ -19,6 +19,7 @@ transcription job and choose **Conversation** for
 3. Choose **Create job**.
 4. On the **Specify job details** page, under
    **Job settings** , specify the following.
+
    1. **Name** – the name of the
       transcription job.
    2. **Audio input type** –
@@ -34,6 +35,7 @@ transcription job and choose **Conversation** for
 
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API,
   specify the following.
+
   1.  For `MedicalTranscriptionJobName`, specify a name
       unique in your AWS account.
   2.  For `LanguageCode`, specify the language code that

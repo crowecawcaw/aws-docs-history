@@ -101,6 +101,7 @@ These events all contain the following shared fields:
 - `resources`: The resources used by the API call. For Amazon Transcribe, this
   field is always empty.
 - `detail`: Additional details about the event.
+
   - `FailureReason`: This field is present if the state or status changes to
     `FAILED`, and describes the reason for the `FAILED` state or
     status.

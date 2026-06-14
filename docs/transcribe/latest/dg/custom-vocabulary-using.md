@@ -16,7 +16,7 @@ To use a custom vocabulary with a batch transcription, see the following for exa
    **Create job** (top right). This opens the **Specify job
    details** page.
 
-![Amazon Transcribe console screenshot: the 'specify job details' page.](images/console-batch-job-details-1.png)
+![Amazon Transcribe console screenshot: the 'specify job details' page.](/images/transcribe/latest/dg/images/console-batch-job-details-1.png)
 
 Name your job and specify your input media. Optionally include any other fields, then
 choose **Next**. 3. At the bottom of the **Configure job** page, in the

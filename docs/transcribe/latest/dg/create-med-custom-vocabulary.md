@@ -16,6 +16,7 @@ of the text file containing your words or phrases.
    settings**, choose a name for your custom
    vocabulary.
 4. Specify the location of your audio file or video file in Amazon S3:
+
    - For **Vocabulary input file location on S3**
      under **Vocabulary settings**, specify the Amazon S3
      URI that identifies the text file you will use to create your

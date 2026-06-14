@@ -13,6 +13,7 @@ Use Personal Health Information Identification to identify the following types o
 PHI:
 
 - Personal PHI:
+
   - Names – Full name or last name and initial
   - Gender
   - Age
@@ -21,11 +22,13 @@ PHI:
   - Email addresses
 
 - Geographic PHI:
+
   - Physical address
   - Zip code
   - Name of medical center or practice
 
 - Account PHI:
+
   - Fax numbers
   - Social security numbers (SSNs)
   - Health insurance beneficiary numbers
@@ -33,6 +36,7 @@ PHI:
   - Certificate or license numbers
 
 - Vehicle PHI:
+
   - Vehicle identification number (VIN)
   - License plate number
 

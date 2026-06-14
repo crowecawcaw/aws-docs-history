@@ -6,6 +6,7 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [CreateVocabulary](example_transcribe_CreateVocabulary_section.md "example_transcribe_CreateVocabulary_section.md")
   - [DeleteMedicalTranscriptionJob](example_transcribe_DeleteMedicalTranscriptionJob_section.md "example_transcribe_DeleteMedicalTranscriptionJob_section.md")
   - [DeleteTranscriptionJob](example_transcribe_DeleteTranscriptionJob_section.md "example_transcribe_DeleteTranscriptionJob_section.md")

@@ -17,6 +17,7 @@ word level timestamps, AWS HealthScribe provides you with:
   `CLINICIAN_0`, `CLINICIAN_1` and `PATIENT_0`, `PATIENT_1`.
 - **Section** — Each dialogue turn is assigned to one of four possible sections based on the
   content identified.
+
   - **Subjective** — Information provided by the patient about their health concerns.
   - **Objective** — Information observed by the clinician through physical exam, lab,
     imaging, or diagnostic tests.

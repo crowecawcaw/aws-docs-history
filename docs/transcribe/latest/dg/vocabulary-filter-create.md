@@ -3,6 +3,7 @@
 There are two options for creating a custom vocabulary filter:
 
 1.  Save a list of line-separated words as a plain text file with UTF-8 encoding.
+
     - You can use this approach with the AWS Management Console, AWS CLI,
       or AWS SDKs.
     - If using the AWS Management Console, you can provide a local path or an

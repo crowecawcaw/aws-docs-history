@@ -99,6 +99,7 @@ UklGRjzxPQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YVTwPQAAAAAAAAAAAAAAAAD//wIA
 ```
 
 4.  Create an audio message that contains your audio data.
+
     1. Your audio message data frame contains event-encoding headers that
        include the current date and a signature for the audio chunk and the audio
        event.
@@ -120,7 +121,6 @@ UklGRjzxPQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YVTwPQAAAAAAAAAAAAAAAAD//wIA
     bi94LWFtei1qc29uLTEuMVJJRkY88T0AV0FWRWZtdCAQAAAAAQABAIA+AAAAfQAAAgAQAGRhdGFU8D0AAAAA
     AAAAAAAAAAAA//8CAP3/BAC7QLFf
     ```
-
     2. Construct a string to sign, as outlined in [Create a string to sign for Signature
        Version 4](../../../general/latest/gr/sigv4-create-string-to-sign.md "../../../general/latest/gr/sigv4-create-string-to-sign.md"). Your string follows this format:
 
@@ -157,7 +157,6 @@ UklGRjzxPQBXQVZFZm10IBAAAAABAAEAgD4AAAB9AAACABAAZGF0YVTwPQAAAAAAAAAAAAAAAAD//wIA
          string.
         * **payload**: The byte buffer containing the audio event
          data.
-
     3. Derive a signing key from your AWS secret access key and use it to sign the
        `stringToSign`. For a greater degree of protection, the derived key is specific
        to the date, service, and AWS Region. For more information, see
@@ -620,6 +619,7 @@ Each message contains the following components:
 
 - **Prelude**: Consists of two, 4-byte fields, for a fixed total of 8
   bytes.
+
   - _First 4 bytes_: The big-endian integer byte-length of the
     entire message, inclusive of this 4-byte length field.
   - _Second 4 bytes_: The big-endian integer byte-length of
@@ -651,6 +651,7 @@ Each header contains the following components; there are multiple headers per fr
   type. For valid values, see the following frame descriptions.
 - **Header value type**: A number indicating the header value. The
   following list shows the possible values for the header and what they indicate.
+
   - `0` – TRUE
   - `1` – FALSE
   - `2` – BYTE

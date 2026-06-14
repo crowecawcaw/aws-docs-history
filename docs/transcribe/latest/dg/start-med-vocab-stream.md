@@ -23,6 +23,7 @@ speaking into the microphone.
    **Dictation**.
 5. For **Additional settings**, choose **Custom
    vocabulary**.
+
    1. For **Vocabulary selection**, choose the
       custom vocabulary.
 

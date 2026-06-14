@@ -57,16 +57,19 @@ their associated tag condition key to control access to:
 
 - **Resources:** Control access to your Amazon Transcribe resources based
   on the tags you've assigned to those resources.
+
   - Use the `aws:ResourceTag/`key-name``
     condition key to specify which tag key:value pair must be attached to the resource.
 
 - **Requests:** Control which tags can be passed in a request.
+
   - Use the `aws:RequestTag/`key-name``
     condition key to specify which tags can be added, modified, or removed from an IAM user
     or role.
 
 - **Authorization processes:** Control tag-based access for any part of
   your authorization process.
+
   - Use the `aws:TagKeys/` condition key to control whether
     specific tag keys can be used on a resource, in a request, or by a principal. In this case,
     the key value doesn't matter.

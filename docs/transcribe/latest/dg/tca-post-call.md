@@ -28,11 +28,13 @@ analytics insights](call-analytics-streaming.md#call-analytics-insights-streamin
   here:
 
 - If redaction is **not** enabled, your output files are:
+
   1.  An unredacted transcript
   2.  An unredacted audio file
 
 - If redaction is enabled **without** the unredacted option
   (`redacted`), your output files are:
+
   1.  A redacted transcript
   2.  A redacted audio file
 

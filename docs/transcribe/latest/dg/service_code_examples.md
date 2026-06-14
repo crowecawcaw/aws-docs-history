@@ -13,7 +13,9 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateVocabulary](example_transcribe_CreateVocabulary_section.md "example_transcribe_CreateVocabulary_section.md")
     - [DeleteMedicalTranscriptionJob](example_transcribe_DeleteMedicalTranscriptionJob_section.md "example_transcribe_DeleteMedicalTranscriptionJob_section.md")
     - [DeleteTranscriptionJob](example_transcribe_DeleteTranscriptionJob_section.md "example_transcribe_DeleteTranscriptionJob_section.md")
@@ -28,6 +30,7 @@ This topic also includes information about getting started and details about pre
     - [UpdateVocabulary](example_transcribe_UpdateVocabulary_section.md "example_transcribe_UpdateVocabulary_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Build an Amazon Transcribe streaming app](example_cross_TranscriptionStreamingApp_section.md "example_cross_TranscriptionStreamingApp_section.md")
   - [Convert text to speech and back to text](example_cross_Telephone_section.md "example_cross_Telephone_section.md")
   - [Create and refine a custom vocabulary](example_transcribe_Scenario_CustomVocabulary_section.md "example_transcribe_Scenario_CustomVocabulary_section.md")

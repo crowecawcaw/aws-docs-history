@@ -12,6 +12,7 @@ You can transcribe a clinician-patient visit in the following medical specialiti
 - Neurology – available in streaming transcription only
 - Oncology – available in streaming transcription only
 - Primary Care – includes the following types of medical practice:
+
   - Family medicine
   - Internal medicine
   - Obstetrics and Gynecology (OB-GYN)

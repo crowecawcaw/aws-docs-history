@@ -402,6 +402,7 @@ def usage_demo():
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateVocabulary](../../../goto/boto3/transcribe-2017-10-26/CreateVocabulary.md "../../../goto/boto3/transcribe-2017-10-26/CreateVocabulary.md")
   - [DeleteTranscriptionJob](../../../goto/boto3/transcribe-2017-10-26/DeleteTranscriptionJob.md "../../../goto/boto3/transcribe-2017-10-26/DeleteTranscriptionJob.md")
   - [DeleteVocabulary](../../../goto/boto3/transcribe-2017-10-26/DeleteVocabulary.md "../../../goto/boto3/transcribe-2017-10-26/DeleteVocabulary.md")

@@ -12,6 +12,7 @@ You can transcribe a medical dictation in the following specialties:
 - Neurology – available in streaming transcription only
 - Oncology – available in streaming transcription only
 - Primary Care – includes the following types of medical practice:
+
   - Family medicine
   - Internal medicine
   - Obstetrics and Gynecology (OB-GYN)

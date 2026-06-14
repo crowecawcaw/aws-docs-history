@@ -27,6 +27,7 @@ The `MedicalScribeContext` object contains contextual information used to custom
 The `MedicalScribeContext` object includes the following components:
 
 - **PatientContext** - Contains patient-specific information used to customize clinical note generation. This includes:
+
   - **Pronouns** - The patient's preferred pronouns that you want to provide as context for clinical note generation.
     These pronouns are used when referring to the patient in the generated clinical output.
 

@@ -25,6 +25,7 @@ Things to note when creating your table:
   All other columns support the characters that are listed on your language's
   [character set](charsets.md "charsets.md") page.
 - The `Phrase` column has the following formatting rules:
+
   - Cannot start with a period (`.`), apostrophe (`'`),
     or hyphen (`-`). For example, `-hello` and
     `.test` are invalid.

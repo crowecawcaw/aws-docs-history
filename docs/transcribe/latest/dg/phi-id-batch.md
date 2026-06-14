@@ -22,6 +22,7 @@ transcription job and choose **Conversation** for
 3. Choose **Create job**.
 4. On the **Specify job details** page, under
    **Job settings** , specify the following.
+
    1. **Name** – The name of the
       transcription job that is unique to your AWS account.
    2. **Audio input type** –
@@ -39,6 +40,7 @@ transcription job and choose **Conversation** for
 ###### To transcribe an audio file and identify its PHI using a batch transcription job (API)
 
 - For the [`StartMedicalTranscriptionJob`](../APIReference/API_StartMedicalTranscriptionJob.md "../APIReference/API_StartMedicalTranscriptionJob.md") API, specify the following.
+
   1.  For `MedicalTranscriptionJobName`,
       specify
       a name that is unique to your AWS account.
