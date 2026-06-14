@@ -415,6 +415,7 @@ to take advantage of modern, cloud-native services. 
   pathways**: The four most popular
   [modernization
   pathways](../../../prescriptive-guidance/latest/patterns/modernization-pattern-list.md "../../../prescriptive-guidance/latest/patterns/modernization-pattern-list.md") are as follows:
+
   - **Serverless:** Helps
     organizations to build and run applications without
     provisioning or managing infrastructure. These

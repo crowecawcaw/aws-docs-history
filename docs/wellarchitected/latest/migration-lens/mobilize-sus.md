@@ -74,6 +74,7 @@ AWS Auto Scaling monitors your applications and automatically adjusts capacity t
   and architecture as well.
 - Define and update SLAs of the migrating workload, such
   as:
+
   - Availability
     or data retention periods, to minimize the number of
     resources required to support your
@@ -173,6 +174,7 @@ Amazon EC2 provides a wide selection of [instance types](https://aws.amazon.com/
 Gain insight into workload performance metrics like CPU utilization, memory utilization, network utilization, and disk and usage patterns to perform the right alignment of the cloud resource.
 
 - Key matrices to consider are the following:
+
   - If the workload is idle for a long time, it's a good
     sign to investigate if this workload can retire
     instead of migrating it.
