@@ -46,6 +46,7 @@ see [Creating applications](create-apps.md "create-apps.md").
 5. Under **Application tags**,
    choose **Add tag**,
    and then enter a Key/Value pair.
+
    1. To add another tag,
       choose **Add another**,
       and then enter a new key/value pair.
@@ -109,6 +110,7 @@ see [Using application details](access-app-details.md "access-app-details.md").
 5. Under **Add tags specific to this application**,
    enter a key/value pair,
    and then choose **Add tag**.
+
    1. To add another tag,
       enter a new key/value pair,
       and then choose **Add tag** again.
@@ -150,6 +152,7 @@ see [Creating attribute groups](create-attr-groups.md "create-attr-groups.md").
    enter a key/value pair
    to assign metadata
    to your attribute group.
+
    1. To add another tag,
       choose **Add new item**,
       and then enter new key/value pair.
@@ -211,6 +214,7 @@ see [Using attribute group details](access-attr-group-details.md "access-attr-gr
    choose **Tags**.
 5. Under **Add tags specific to this attribute group**,
    enter a key/value pair, and then choose **Add tag**.
+
    1. To add another tag,
       enter a new key/value pair,
       and then choose **Add tag** again.

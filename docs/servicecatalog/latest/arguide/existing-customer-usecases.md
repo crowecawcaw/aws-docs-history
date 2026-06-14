@@ -20,6 +20,7 @@ tagged with the `awsApplication` tag. The following procedure provides instructi
 
 1. Identify the **application's tag value** (`awsApplication` tag value), which is expressed as an
    Amazon Resource Name (ARN).
+
    - Call the AppRegistry [`GetApplication` API](../dg/API_app-registry_GetApplication.md#API_app-registry_GetApplication_ResponseSyntax "../dg/API_app-registry_GetApplication.md#API_app-registry_GetApplication_ResponseSyntax")
      and find the value in the `applicationTag` response parameter.
    - Alternatively, you can navigate to the myApplications dashboard for the application and copy the `awsApplication` tag value

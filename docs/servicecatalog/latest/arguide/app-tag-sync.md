@@ -116,6 +116,7 @@ AWS Resource Groups API
 1. Create a new tag-sync task by calling the Resource Groups
    [`StartTagSyncTask` API](../../../ARG/latest/APIReference/API_StartTagSyncTask.md "../../../ARG/latest/APIReference/API_StartTagSyncTask.md")
    and specifying the following parameters:
+
    - **Group** — The Amazon resource name (ARN) or name of the
      application group for which you want to create a tag-sync task.
    - **TagKey** — The tag key.

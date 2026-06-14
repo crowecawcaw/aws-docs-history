@@ -35,6 +35,7 @@ in the _AWS Resource Access Manager User Guide_.
    for a management account,
    under **Attribute group share configuration**,
    choose **Enable**.
+
    1. On **Settings**,
       select **Enable sharing
       with AWS Organizations**,
@@ -44,6 +45,7 @@ in the _AWS Resource Access Manager User Guide_.
    for a member account,
    under **Attribute group share configuration**,
    choose **Turn on cross-account sharing**.
+
    1. For **Select Organization entity**,
       select your preferred organization entity
       (**AWS Organization Account**, **AWS Organization Unit**, or **AWS Organization**).
@@ -52,6 +54,7 @@ in the _AWS Resource Access Manager User Guide_.
       for your preferred organization entity.
    3. For **Share permission**,
       select **Allow associations** or **Read only**.
+
       - **Allow associations**
         when the selected account
         can associate resource collections and attribute groups
@@ -122,6 +125,7 @@ choose **Enable**.
    for a member account,
    under **Attribute group share configuration**,
    choose **Turn on cross-account sharing**.
+
    1. For **Select Organization entity**,
       select your preferred organization entity (**AWS Organization Account**, **AWS Organization Unit**, or **AWS Organization**).
    2. For **ID**,
@@ -129,6 +133,7 @@ choose **Enable**.
       for your preferred organization entity.
    3. For **Share permission**,
       select **Allow associations** or **Read only**.
+
       - **Allow associations**
         when the selected account
         can associate resource collections and applications
