@@ -48,6 +48,7 @@ the Data Format for Amazon ML](understanding-the-data-format-for-amazon-ml.md "u
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console.aws.amazon.com/s3](https://console.aws.amazon.com/s3 "https://console.aws.amazon.com/s3").
 2. Create a bucket or choose an existing bucket.
+
    1. To create a bucket, choose **Create Bucket**. Name your
       bucket, choose a region (you can choose any available region), and then choose
       **Create**. For more information, see [Create a

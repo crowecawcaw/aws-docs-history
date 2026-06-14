@@ -25,14 +25,17 @@ you need to provide the following:
 - The AWS Identity and Access Management (IAM) role that is used to create, activate, and execute the data
   pipeline
 - The database user credentials:
+
   - User name
   - Password
 
 - The AWS Data Pipeline security information:
+
   - The IAM resource role
   - The IAM service role
 
 - The Amazon RDS security information:
+
   - The subnet ID
   - The security group IDs
 

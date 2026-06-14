@@ -68,6 +68,7 @@ For information about creating a separate schema file, see [Creating a Data Sche
    Review the data types that Amazon ML inferred for the attributes. It is important that attributes
    are assigned the correct data type to help Amazon ML ingest the data correctly
    and to enable the correct feature processing on the attributes.
+
    - Attributes that have only two possible states, such as yes or no, should be marked as
      **Binary**.
    - Attributes that are numbers or strings that are used to denote a category should

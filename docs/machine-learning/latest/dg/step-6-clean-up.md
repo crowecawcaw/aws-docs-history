@@ -32,6 +32,7 @@ your workspace clean.
 ###### To delete the Amazon ML resources
 
 1. On the Amazon ML dashboard, select the following resources.
+
    - The `Banking Data 1` datasource
    - The `Banking Data 1_[percentBegin=0, percentEnd=70,
 strategy=sequential]` datasource

@@ -15,6 +15,7 @@ Prediction operation:
   your S3 bucket and prefix.
 - **PutObjectAcl** on your S3
   bucket and prefix.
+
   - Amazon ML needs this permission to ensure that it can
     grant the canned
     [ACL](../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl "../../../AmazonS3/latest/userguide/acl-overview.md#canned-acl")
