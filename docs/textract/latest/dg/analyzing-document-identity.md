@@ -10,6 +10,7 @@ object. In this procedure, you upload an image file to your S3 bucket and specif
 ###### To analyze an identity document (API)
 
 1. If you haven't already:
+
    1. Give a user the `AmazonTextractFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
       information, see [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md").

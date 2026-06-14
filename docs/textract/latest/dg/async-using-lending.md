@@ -43,6 +43,7 @@ you begin, install the appropriate AWS SDK. For more information, see [Step 2: S
    PDF formats). For instructions, see [Uploading Objects into Amazon S3](../../../AmazonS3/latest/user-guide/UploadingObjectsintoAmazonS3.md "../../../AmazonS3/latest/user-guide/UploadingObjectsintoAmazonS3.md")in the _Amazon Simple Storage Service User Guide_.
 3. Use the following AWS SDK for Python (Boto3) or AWS CLI code to analyze
    text in a multipage lending document. In the main function:
+
    - Replace the value of `roleArn` with the IAM role ARN
      that you saved in [Giving Amazon Textract Access to Your Amazon SNS
      Topic](../../../en_us/textract/latest/dg/api-async-roles.md#api-async-roles-all-topics "../../../en_us/textract/latest/dg/api-async-roles.md#api-async-roles-all-topics").

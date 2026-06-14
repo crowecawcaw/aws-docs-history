@@ -21,11 +21,13 @@ Endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande
     guide provides examples for the AWS CLI, Java, and Python.
     For information about other AWS SDKs, see
     [Tools for Amazon Web Services](https://aws.amazon.com/tools/ "https://aws.amazon.com/tools/").
+
     - [AWS CLI](../../../cli/latest/userguide/cli-chap-getting-set-up.md "../../../cli/latest/userguide/cli-chap-getting-set-up.md")
     - [AWS SDK for Java](../../../sdk-for-java/latest/developer-guide.md "../../../sdk-for-java/latest/developer-guide.md")
     - [AWS SDK for Python (Boto3)](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html")
 
 2.  Create an access key for the user that you created in [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md").
+
     1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
     2. In the navigation pane, choose **Users**.
     3. Choose the name of the user that you created in [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md").

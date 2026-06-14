@@ -28,6 +28,7 @@ you're processing multiple documents.
 ###### Prerequisites
 
 - If you haven't already:
+
   1.  Give a user the `AmazonTextractFullAccess` and
       `AmazonS3ReadOnlyAccess` permissions. For more
       information, see [Step 1: Set Up an AWS Account and Create a User](setting-up.md "setting-up.md").

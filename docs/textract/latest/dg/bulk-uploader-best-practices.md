@@ -17,6 +17,7 @@ processing. After 14 days, documents are cleared from the Submitted Documents pa
 2. Select the Bulk Document Uploader from the navigation pane.
 3. Select the Upload Documents button.
 4. Specify the source of your documents.
+
    1. If you are using an Amazon S3 bucket for your documents, provide
       the S3 URL for the bucket and folder. If the folder you specified
       contains more than 150 documents, then only the top 150 documents

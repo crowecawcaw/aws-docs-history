@@ -18,6 +18,7 @@ To detect text in or analyze multipage documents, you do the following:
 3. Give the topic permission to send messages to the queue.
 4. Start processing the document. Use the appropriate operation for your chosen
    type of analysis:
+
    - [StartDocumentTextDetection](../APIReference/API_StartDocumentTextDetection.md "../APIReference/API_StartDocumentTextDetection.md") for text detection
      tasks.
    - [StartDocumentAnalysis](../APIReference/API_StartDocumentAnalysis.md "../APIReference/API_StartDocumentAnalysis.md") for text analysis
@@ -34,6 +35,7 @@ To detect text in or analyze multipage documents, you do the following:
    further investigation.
 6. Get and display the processing results by calling the appropriate operation
    for your chosen type of analysis:
+
    - [GetDocumentTextDetection](../APIReference/API_GetDocumentTextDetection.md "../APIReference/API_GetDocumentTextDetection.md") for text detection
      tasks.
    - [GetDocumentAnalysis](../APIReference/API_GetDocumentAnalysis.md "../APIReference/API_GetDocumentAnalysis.md") for text analysis
