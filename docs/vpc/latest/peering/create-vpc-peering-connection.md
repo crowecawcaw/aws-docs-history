@@ -41,6 +41,7 @@ Use the following procedure to create a VPC peering connection.
    specify.
 5. For **VPC ID (Requester)**, select a VPC from the current account.
 6. Under **Select another VPC to peer with**, do the following:
+
    1. For **Account**, to peer with a VPC in another account, choose
       **Another account** and enter the account ID . Otherwise, keep
       **My account**.

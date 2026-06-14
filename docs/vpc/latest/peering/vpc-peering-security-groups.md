@@ -32,6 +32,7 @@ Security groups in a peer VPC are not displayed in the console for you to select
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. In the navigation pane, choose **Security groups**.
 3. Select the security group, and do one of the following:
+
    - To modify the inbound rules, choose **Actions**,
      **Edit inbound rules**.
    - To modify the outbound rules, choose **Actions**,
@@ -40,6 +41,7 @@ Security groups in a peer VPC are not displayed in the console for you to select
 4. To add a rule, choose **Add rule** and specify the type, protocol,
    and port range. For **Source** (inbound rule) or **Destination**
    (outbound rule), do one of the following:
+
    - For a peer VPC in same account and Region, enter the ID of the security group.
    - For a peer VPC in a different account but the same Region, enter the account ID and
      security group ID, separated by a forward slash (for example, `123456789012/sg-1a2b3c4d`).
