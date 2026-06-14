@@ -21,6 +21,7 @@ You can use the CodeGuru Profiler console to edit the tags associated with a pro
 3. Choose the **Tags** tab. To change the tag, enter a new name in the
    **Value**. You cannot change the key of a tag.
 4. Do one of the following:
+
    - To change the value of a tag, enter a new value. If you want to change the value
      to nothing, delete the current value and leave the field blank.
    - If you want to change the key of a tag, you can remove a tag and add a new one
