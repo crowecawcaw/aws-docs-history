@@ -45,6 +45,7 @@ environment._
 - End users interact with the data and insights across all the
   normalized healthcare data through a number of ways. For
   example:
+
   - Business users and regulators perform analysis, view
     dashboards, and receive reports using business
     intelligence tools like Quick.
