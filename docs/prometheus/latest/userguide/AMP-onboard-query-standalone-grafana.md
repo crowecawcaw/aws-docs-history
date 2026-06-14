@@ -189,6 +189,7 @@ For more information about setting up your default provider chain, see
     	![SigV4 auth details showing AWS SDK Default provider and us-west-2 region.](images/sigv4-screen-shot-crop2.png)
 
 9. Test a PromQL query against the new data source:
+
    1. Choose **Explore**.
    2. Run a sample PromQL query such as:
 

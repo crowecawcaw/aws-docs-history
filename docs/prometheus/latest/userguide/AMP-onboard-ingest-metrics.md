@@ -88,6 +88,7 @@ follow these steps.
 1. Use a text editor to create a file named
    `my_prometheus_values_yaml` with the following
    content.
+
    - Replace `IAM_PROXY_PROMETHEUS_ROLE_ARN`
      with the ARN of the **amp-iamproxy-ingest-role**
      that you created in [Set up service roles for the ingestion of metrics from Amazon EKS clusters](set-up-irsa.md#set-up-irsa-ingest "set-up-irsa.md#set-up-irsa-ingest").
@@ -117,6 +118,7 @@ server:
 ```
 
 2. Enter the following command to create the Prometheus server.
+
    - Replace `prometheus-chart-name` with your
      Prometheus release name.
    - Replace `prometheus-agent-namespace` with

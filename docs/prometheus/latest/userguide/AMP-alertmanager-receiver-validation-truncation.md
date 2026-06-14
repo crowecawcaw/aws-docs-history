@@ -6,6 +6,7 @@ messages will be validated, truncated, or modified, if necessary, by the Amazon 
 receiver based on the following rules:
 
 - Message contains non-utf characters.
+
   - Message will be replaced by **Error - not a valid
     UTF-8 encoded string**.
   - One message attribute will be added with the key of
@@ -17,6 +18,7 @@ receiver based on the following rules:
     string**.
 
 - Message is empty.
+
   - Message will be replaced by **Error - Message should
     not be empty**.
   - One message attribute will be added with the key of
@@ -25,6 +27,7 @@ receiver based on the following rules:
     empty**.
 
 - Message has been truncated.
+
   - Message will have the truncated content.
   - One message attribute will be added with the key of
     **truncated** and the value of
@@ -35,6 +38,7 @@ receiver based on the following rules:
     exceeds the 256 KB size limit**.
 
 - Subject contains control or non-ASCII characters.
+
   - If the subject contains control characters or non-ASCII
     characters, SNS replaces the subject with **Error -
     contains control- or non-ASCII characters**.
@@ -42,6 +46,7 @@ receiver based on the following rules:
     newlines: `\n`.
 
 - Subject is not ASCII.
+
   - Subject will be replaced by **Error - contains non
     printable ASCII characters**.
   - One message attribute will be added with the key of
@@ -50,6 +55,7 @@ receiver based on the following rules:
     characters**.
 
 - Subject has been truncated.
+
   - Subject will have the truncated content.
   - One message attribute will be added with the key of
     **modified** and the value of
@@ -58,6 +64,7 @@ receiver based on the following rules:
     exceeds the 100 character size limit**.
 
 - Message attribute has invalid key/value.
+
   - Invalid message attribute will be removed.
   - One message attribute will be added with the key of
     **modified** and the value of
@@ -67,6 +74,7 @@ receiver based on the following rules:
     MessageAttributeValue**.
 
 - Message attribute has been truncated.
+
   - Extra message attributes will be removed.
   - One message attribute will be added with the key of
     **modified** and the value of

@@ -41,6 +41,8 @@ for no charge. For more information about usage metrics, see [CloudWatch usage m
 | ResourceCount                         | UnprocessedAlerts                       | `AWS/Usage`          | Number of alerts in unprocessed state per workspace. An alert is<br>in unprocessed state once it is received by AlertManager, but is<br>waiting for the next aggregation group evaluation.<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum |
 | ResourceCount                         | AllAlerts                               | `AWS/Usage`          | Number of alerts in any state per workspace<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum                                                                                                                                                |
 | ResourceCount                         | AllRules                                | `AWS/Usage`          | Number of rules in any state per workspace<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum                                                                                                                                                 |
+| ResourceCount                         | NativeHistogramActiveSeries             | `AWS/Usage`          | The number of unique native histogram active series per<br>workspace<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum                                                                                                                       |
+| ResourceCount                         | NativeHistogramIngestionRate            | `AWS/Usage`          | Native histogram sample ingestion rate per workspace per<br>second<br>Units: Count per second<br>Valid Statistics: Average, Minimum, Maximum                                                                                                              |
 | ActiveSeriesPerLabelSet               | -                                       | `AWS/Prometheus`     | The current active series usage for each user-defined label<br>set<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                                    |
 | ActiveSeriesLimitPerLabelSet          | -                                       | `AWS/Prometheus`     | The current active series limit value for each user-defined label<br>set<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                              |
 | AlertManagerAlertsReceived            | -                                       | `AWS/Prometheus`     | Total successful alerts received by alert manager<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                                                     |
@@ -56,6 +58,10 @@ for no charge. For more information about usage metrics, see [CloudWatch usage m
 | DiscardedSamplesPerLabelSet           | -                                       | `AWS/Prometheus`     | The count of discarded samples for each user-defined label<br>set<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                                     |
 | DiscardedSeriesPerLabelSet            | -                                       | `AWS/Prometheus`     | The count of series that contain a discarded sample for each user-defined label<br>set<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                |
 | IngestionRatePerLabelSet              | -                                       | `AWS/Prometheus`     | The ingestion rate for each user-defined label set<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                                                    |
+| NativeHistogramIngestedBucketsRate    | -                                       | `AWS/Prometheus`     | Rate of populated buckets received per second across all native<br>histogram samples. Excludes rejected buckets.<br>Units: Count per second<br>Valid Statistics: Average, Minimum, Maximum                                                                |
+| NativeHistogramReducedResolutionCount | -                                       | `AWS/Prometheus`     | Count of native histogram samples with automatically reduced<br>bucket resolution. Resolution is reduced when a sample exceeds the<br>maximum bucket count limit.<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                     |
+| OutOfOrderIngestionRate               | -                                       | `AWS/Prometheus`     | Out-of-order sample ingestion rate<br>Units: Count per second<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                                                         |
+| OutOfOrderSampleAge\*\*\*             | -                                       | `AWS/Prometheus`     | The difference between an out-of-order sample's timestamp and its ingestion time, which indicates how old the sample is when ingested.<br>Units: Seconds<br>Valid Statistics: Average, Minimum, Maximum, Sum                                              |
 | QuerySamplesProcessed                 | -                                       | `AWS/Prometheus`     | Number of query samples processed<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                                                                     |
 | RuleEvaluations                       | -                                       | `AWS/Prometheus`     | Total number of rule evaluations<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                                                                      |
 | RuleEvaluationFailures                | -                                       | `AWS/Prometheus`     | Number of rule evaluation failures in the interval<br>Units: Count<br>Valid Statistics: Average, Minimum, Maximum, Sum                                                                                                                                    |
@@ -69,21 +75,40 @@ metrics.
 \*\*Some of the reasons that cause samples to be discarded
 are as follows. Not all reasons below appear in the DiscardedSeries metric.
 
-| Reason                      | Meaning                                                                                                 |
-| --------------------------- | ------------------------------------------------------------------------------------------------------- |
-| greater_than_max_sample_age | Discarding samples which are older than one hour.                                                       |
-| new-value-for-timestamp     | Duplicate samples are sent with the same timestamp as the previous<br>sample but with different values. |
-| per_labelset_series_limit   | User has hit the total number of active series per label set<br>limit.                                  |
-| per_metric_series_limit     | User has hit the active series per metric limit.                                                        |
-| per_user_series_limit       | User has hit the total number of active series limit.                                                   |
-| rate_limited                | Ingestion rate limited.                                                                                 |
-| sample-out-of-order         | Samples are sent out of order and cannot be processed.                                                  |
-| label_value_too_long        | Label value is longer than allowed character limit.                                                     |
-| max_label_names_per_series  | User has hit the label names per metric.                                                                |
-| missing_metric_name         | Metric name is not provided.                                                                            |
-| metric_name_invalid         | Invalid metric name provided.                                                                           |
-| label_invalid               | Invalid label provided.                                                                                 |
-| duplicate_label_names       | Duplicate label names provided.                                                                         |
+| Reason                                      | Meaning                                                                                                                                                                                            |
+| ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| greater_than_max_sample_age                 | Discarding samples which are older than one hour.                                                                                                                                                  |
+| new-value-for-timestamp                     | Duplicate samples are sent with the same timestamp as the previous<br>sample but with different values.                                                                                            |
+| per_labelset_series_limit                   | User has hit the total number of active series per label set<br>limit.                                                                                                                             |
+| per_metric_series_limit                     | User has hit the active series per metric limit.                                                                                                                                                   |
+| per_user_series_limit                       | User has hit the total number of active series limit.                                                                                                                                              |
+| rate_limited                                | Ingestion rate limited.                                                                                                                                                                            |
+| sample-out-of-order                         | Samples are sent out of order and cannot be processed.                                                                                                                                             |
+| sample-too-old                              | Sample is older than the configured out-of-order time window and cannot be processed.                                                                                                              |
+| out-of-order-rate-limit                     | Out-of-order ingestion rate limit was reached and the sample cannot be processed. For more information, see [Amazon Managed Service for Prometheus service quotas](AMP_quotas.md "AMP_quotas.md"). |
+| label_value_too_long                        | Label value is longer than allowed character limit.                                                                                                                                                |
+| max_label_names_per_series                  | User has hit the label names per metric.                                                                                                                                                           |
+| missing_metric_name                         | Metric name is not provided.                                                                                                                                                                       |
+| metric_name_invalid                         | Invalid metric name provided.                                                                                                                                                                      |
+| label_invalid                               | Invalid label provided.                                                                                                                                                                            |
+| duplicate_label_names                       | Duplicate label names provided.                                                                                                                                                                    |
+| native_histogram_sample_size_bytes_exceeded | Native histogram sample exceeds the maximum allowed sample size in<br>bytes.                                                                                                                       |
+| native_histogram_invalid_schema             | Native histogram has an invalid schema value. Valid schemas range<br>from -4 to 8.                                                                                                                 |
+| native_histogram_invalid                    | Native histogram fails validation (for example, negative bucket<br>counts, mismatched bucket counts, or malformed bucket<br>spans).                                                                |
+| native_histogram_buckets_exceeded           | Native histogram exceeds the maximum bucket count limit and<br>resolution cannot be automatically reduced.                                                                                         |
+| native_histogram_rate_limited               | Native histogram sample was rejected because the native histogram<br>ingestion rate limit was reached.                                                                                             |
+| per_user_native_histogram_series_limit      | User has hit the native histogram active series limit per<br>workspace.                                                                                                                            |
+
+\*\*\*The `OutOfOrderSampleAge` metric includes
+a `Percentile` dimension. You can use this metric to determine the
+appropriate out of order time window for your workspace. The valid values for the
+`Percentile` dimension are as follows.
+
+| Percentile | Description                                      |
+| ---------- | ------------------------------------------------ |
+| p50        | The 50th percentile age of out-of-order samples. |
+| p99        | The 99th percentile age of out-of-order samples. |
+| max        | The maximum age of out-of-order samples.         |
 
 ###### Note
 

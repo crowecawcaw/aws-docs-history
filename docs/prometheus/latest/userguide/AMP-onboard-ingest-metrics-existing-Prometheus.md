@@ -45,6 +45,7 @@ image of version 2.26.0 or later.
 
 1. Create a new remote write section in your Helm configuration
    file:
+
    - Replace `${IAM_PROXY_PROMETHEUS_ROLE_ARN}` with
      the ARN of the **amp-iamproxy-ingest-role**
      that you created in [Step 1: Set up IAM roles for service accounts](#AMP-onboard-existing-Prometheus-IRSA "#AMP-onboard-existing-Prometheus-IRSA").
@@ -78,6 +79,7 @@ image of version 2.26.0 or later.
 
 2. Update your existing Prometheus Server configuration using
    Helm:
+
    - Replace `prometheus-chart-name` with your
      Prometheus release name.
    - Replace `prometheus-namespace` with the

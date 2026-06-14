@@ -68,6 +68,7 @@ workspace, follow these steps.
 1. Use a text editor to create a file named
    `my_prometheus_values_yaml` with the following
    content.
+
    - Replace
      `IAM_PROXY_PROMETHEUS_ROLE_ARN`
      with the ARN of the
@@ -99,6 +100,7 @@ server:
 ```
 
 2. Enter the following command to create the Prometheus server.
+
    - Replace `prometheus-chart-name` with
      your Prometheus release name.
    - Replace `prometheus-namespace` with

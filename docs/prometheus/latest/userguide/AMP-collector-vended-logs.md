@@ -183,12 +183,14 @@ The collector vended logs help you troubleshoot common issues with metrics
 collection:
 
 1. Service discovery issues
+
    - Check **SERVICE_DISCOVERY** logs for
      authentication or permission errors.
    - Verify that the collector has the necessary permissions to access
      Kubernetes resources.
 
 2. Metric scraping issues
+
    - Check **COLLECTOR** logs for scrape
      failures.
    - Verify that target endpoints are accessible and returning
@@ -197,6 +199,7 @@ collection:
      target endpoints.
 
 3. Metric export issues
+
    - Check **EXPORTER** logs for export
      failures.
    - Verify that the workspace exists and is correctly

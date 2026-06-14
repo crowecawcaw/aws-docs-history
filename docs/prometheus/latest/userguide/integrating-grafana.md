@@ -26,6 +26,7 @@ see [Set up AWS](AMP-setting-up.md "AMP-setting-up.md").
   information about rules, see [Using rules to modify or monitor metrics as they are received](AMP-Ruler.md "AMP-Ruler.md").
 - You must either have Amazon Managed Grafana set up, or the open source version of Grafana
   running.
+
   - If you are using Amazon Managed Grafana, you must be using Grafana alerting. For
     more information see [Migrating legacy
     dashboard alerts to Grafana alerting](../../../grafana/latest/userguide/alert-opt-in.md "../../../grafana/latest/userguide/alert-opt-in.md").
@@ -42,6 +43,7 @@ see [Set up AWS](AMP-setting-up.md "AMP-setting-up.md").
 - Amazon Managed Grafana must have the following permissions for your Prometheus resources.
   You must add them to either the service-managed or customer-managed policies
   described in [https://docs.aws.amazon.com/grafana/latest/userguide/AMG-manage-permissions.html](../../../grafana/latest/userguide/AMG-manage-permissions.md "../../../grafana/latest/userguide/AMG-manage-permissions.md").
+
   - `aps:ListRules`
   - `aps:ListAlertManagerSilences`
   - `aps:ListAlertManagerAlerts`
@@ -70,6 +72,7 @@ Amazon Managed Grafana.
 6. Create a new Alertmanager data source.
 7. In the Alertmanager data source configuration page, add the following
    settings:
+
    - Set **Implementation** to
      `Prometheus`.
    - For the **URL** setting, use the URL for your
@@ -81,7 +84,6 @@ Amazon Managed Grafana.
    ```
    https://aps-workspaces.`US East (N. Virginia)`.amazonaws.com/workspaces/ws-example-1234-5678-abcd-xyz00000001/`alertmanager`.
    ```
-
    - Under **Auth**, turn on
      **SigV4Auth**. This tells Grafana to use the [AWS
      authentication](../../../general/latest/gr/signature-version-4.md "../../../general/latest/gr/signature-version-4.md") for the requests.

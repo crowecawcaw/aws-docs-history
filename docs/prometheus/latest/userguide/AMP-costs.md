@@ -139,6 +139,17 @@ intervals.
 
 For more information about monitoring Amazon Managed Service for Prometheus metrics in CloudWatch, see [Use CloudWatch metrics to monitor Amazon Managed Service for Prometheus resources](AMP-CW-usage-metrics.md "AMP-CW-usage-metrics.md").
 
+**Monitoring native histogram costs** – Native
+histograms are metered based on populated buckets: each populated bucket (a bucket with
+non-zero observations) counts as 0.25 of a metric sample, and empty buckets are not
+metered. For example, a native histogram with 10 populated buckets is metered as 2.5
+metric samples. To monitor your native histogram cost drivers, you can use the
+`NativeHistogramIngestedBucketsRate` metric to monitor the rate of populated
+buckets being ingested. You can also use `NativeHistogramIngestionRate` to
+track the overall native histogram sample ingestion rate and
+`NativeHistogramActiveSeries` to monitor the number of active native
+histogram series in your workspace.
+
 ## How do I view my costs in AWS Cost Explorer?
 
 As your source of truth for Amazon Managed Service for Prometheus costs, AWS Cost Explorer provides your actual
@@ -162,6 +173,7 @@ To view your Amazon Managed Service for Prometheus costs:
 1. Set your time range to the desired billing period (for example, March 2025 -
    February 2026).
 2. Under **Filters**, select:
+
    - **Service**: Choose
      "Amazon Managed Service for Prometheus".
    - **Usage Type**: Filter for

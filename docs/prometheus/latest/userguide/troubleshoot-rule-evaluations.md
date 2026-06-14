@@ -23,6 +23,7 @@ time series include the following labels:
   alert.
 - alertstate – Either
   **pending** or **firing**.
+
   - pending – The alert is
     waiting for the duration specified in the `for`
     clause.
@@ -146,9 +147,11 @@ metrics are ingested.
 
 ###### Tip
 
-Using the offset modifier can reduce issues caused by ingestion delays. For
-more information, see [Offset modifier](https://prometheus.io/docs/prometheus/latest/querying/basics/#offset-modifier "https://prometheus.io/docs/prometheus/latest/querying/basics/#offset-modifier") in the _Prometheus
-documentation_.
+You can configure a workspace-level ruler query offset to apply a global delay
+to all rule evaluations without modifying individual rule expressions. For more
+information, see [Configure your workspace](AMP-workspace-configuration.md "AMP-workspace-configuration.md"). Alternatively, you can use
+the PromQL offset modifier on individual expressions. For more information, see
+[Offset modifier](https://prometheus.io/docs/prometheus/latest/querying/basics/#offset-modifier "https://prometheus.io/docs/prometheus/latest/querying/basics/#offset-modifier") in the _Prometheus documentation_.
 
 If your rule evaluates at 12:00, but the latest sample for the metric is
 from 11:45 due to ingestion delay, the rule will find no samples at the

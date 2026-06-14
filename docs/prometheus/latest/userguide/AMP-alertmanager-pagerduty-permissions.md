@@ -36,6 +36,7 @@ key:
 1.  **Secret resource policy**: Open your
     secret in the [Secrets Manager
     console](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
+
     1. Choose **Resource permissions**.
     2. Choose **Edit permissions**.
     3. Add the following policy statement. In the statement, replace
@@ -61,7 +62,6 @@ key:
     }
 
     ```
-
     4. Choose **Save**.
 
 2.  **KMS key policy**: Open your AWS KMS key
