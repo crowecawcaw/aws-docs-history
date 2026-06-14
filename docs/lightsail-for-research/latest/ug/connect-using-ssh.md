@@ -71,6 +71,7 @@ information, see [Get a key pair for a Lightsail for Research virtual computer](
 
 1. From the [Lightsail for Research console](https://lfr.console.aws.amazon.com/ls/research "https://lfr.console.aws.amazon.com/ls/research"), launch CloudShell by choosing one
    of the following options:
+
    1. In the Search box, type "CloudShell", and then choose
       **CloudShell**.
    2. On the navigation bar, choose the **CloudShell** icon.

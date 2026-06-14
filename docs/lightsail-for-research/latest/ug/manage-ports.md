@@ -54,6 +54,7 @@ The following ports are open by default for newly created virtual
 computers.
 
 - TCP
+
   - 22 - Used for Secure Shell (SSH).
   - 80 - Used for Hypertext Transfer Protocol (HTTP).
   - 443 - Used for Hypertext Transfer Protocol Secure (HTTPS).
@@ -105,6 +106,7 @@ Reference_.
 
 1. This step is determined by the operating system of your local
    computer.
+
    - If your local computer uses a Windows operating system, open a
      Command Prompt window.
    - If your local computer uses a Linux or Unix-based operating system
@@ -148,6 +150,7 @@ Reference_.
 
 1. This step is determined by the operating system of your local
    computer.
+
    - If your local computer uses a Windows operating system, open a
      Command Prompt window.
    - If your local computer uses a Linux or Unix-based operating system
@@ -198,6 +201,7 @@ Reference_.
 
 1. This step is determined by the operating system of your local
    computer.
+
    - If your local computer uses a Windows operating system, open a
      Command Prompt window.
    - If your local computer uses a Linux or Unix-based operating system

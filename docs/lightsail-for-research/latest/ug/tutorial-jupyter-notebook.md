@@ -90,6 +90,7 @@ render the virtual computer unusable.
    view the virtual computers that are available in your account.
 3. In the **Virtual computers** page, find your virtual
    computer and choose one of the following options to connect to it:
+
    1. (Recommended) Choose **Launch JupyterLab** to
       launch the JupyterLab application in focused mode. If you haven't
       connected to your virtual computer recently, you might have to wait

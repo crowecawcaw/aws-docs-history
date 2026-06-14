@@ -13,6 +13,7 @@ your Lightsail for Research account.
   your virtual computer.
 - **Status** – Your virtual computer can
   have one of the following status codes:
+
   - Creating
   - Running
   - Stopping

@@ -6,6 +6,7 @@ disk.
 1. Sign in to the [Lightsail for Research console](https://lfr.console.aws.amazon.com/ls/research "https://lfr.console.aws.amazon.com/ls/research").
 2. Choose **Snapshots** in the navigation pane.
 3. Complete on of the following steps:
+
    - Under **Virtual computer snapshots**, find the name
      of the computer you want to snapshot and choose **Create
      snapshot**.

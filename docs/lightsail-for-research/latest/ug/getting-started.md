@@ -100,10 +100,12 @@ For more information about connecting to your virtual computer, see the followin
 documentation:
 
 - Establish a remote display protocol connection:
+
   - [Access a Lightsail for Research virtual computer application](open-computer-application.md "open-computer-application.md")
   - [Access your Lightsail for Research virtual computer's operating system](access-computer-operating-system.md "access-computer-operating-system.md")
 
 - Establish an SSH connection or transfer files using SCP:
+
   - [Get a key pair for a Lightsail for Research virtual computer](get-ssh-keys.md "get-ssh-keys.md")
   - [Connect to a Lightsail for Research virtual computer using Secure Shell](connect-using-ssh.md "connect-using-ssh.md")
   - [Transfer files to Lightsail for Research virtual computers using Secure Copy](connect-using-scp.md "connect-using-scp.md")
