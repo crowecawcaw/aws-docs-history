@@ -24,6 +24,7 @@ strategy, and require key tags.**
   and optional tags, and define and publish the process for
   adding new tags, or modifying existing tags.
 - Implement your tagging strategy:
+
   - For manually managed resources you can use AWS Config
     which can be used to look for required tags, and if
     missing, apply them to resources using Lambda.
@@ -35,6 +36,7 @@ strategy, and require key tags.**
 
 - Enforcing your tagging can be done using tagging policies and service control
   policies (SCP) in combination.
+
   - Tagging policies allow you to define and standardize your tag keys, including
     capitalization, and what values are allowed to be used within the specific tag.
   - Service control policies allow you to block resource creation when required

@@ -20,6 +20,7 @@ Additional aspects to take into account on data:
 - Timeliness of the data by minimizing latency (for example, 200 milliseconds or
   less).
 - Data as current as possible (close to real time).
+
   - Primary goal – To support internal applications (for example, last location
     of vehicle, and fuel information.)
   - Vehicle state service – Last known values per vehicle
@@ -41,7 +42,9 @@ of data plane, control plane, and consuming applications:
 
 - **Data plane:** This is concerned with the movement of data
   throughout the system.
+
   - **In-vehicle data plane:**
+
     - **Data ingestion:** The vehicle collects real-time
       data from its sensors and systems.
     - **Edge processing:** The vehicle's onboard systems
@@ -50,6 +53,7 @@ of data plane, control plane, and consuming applications:
       or even making immediate decisions like automatic braking in emergencies.
 
   - **Cloud data plane:**
+
     - **Data ingestion:** This is where real-time data
       from vehicles is received, ingested, and stored in the cloud for further
       processing or analysis.
@@ -57,19 +61,23 @@ of data plane, control plane, and consuming applications:
 - **Control plane:** This component manages and coordinates
   the operations of the system, including ensuring the system's proper function and
   orchestrating event-driven processes.
+
   - **In-vehicle control plane:**
+
     - Directly interacts with the vehicle's hardware and
       systems. It takes action based on the processed
       data, such as adjusting vehicle settings or
       activating certain features.
 
   - **Cloud control plane:**
+
     - **Compute:** This involves running code in response
       to specific triggers, like changes in data or custom events. With a serverless
       architecture, this can be event-driven, scaling automatically based on demand.
 
 - **Consuming applications:** These are interfaces and
   applications that end users (drivers, passengers, or vehicle owners) interact with.
+
   - **Mobile applications:** Drivers and users can access
     mobile apps to control and monitor their vehicles remotely. This includes functions
     like starting the vehicle remotely, locking/unlocking doors, checking oil levels,
@@ -447,12 +455,14 @@ protocols must address your specific use case.**
 The appropriate communication protocol often depends on the specific requirements of the use case. Here's a brief overview of common communication protocols and the typical use cases they serve:
 
 - HTTP/HTTPS:
+
   - Use cases: Web applications, mobile applications, and many modern
     internet-based applications.
   - Advantages: Well-known, widely used, and supported.
     Secure version (HTTPS) available.
 
 - MQTT (Message Queuing Telemetry Transport):
+
   - Use cases: Internet of Things (IoT) devices, real-time analytics, mobile
     applications, and communication in unreliable networks.
   - Advantages: Lightweight protocol with low bandwidth
@@ -460,6 +470,7 @@ The appropriate communication protocol often depends on the specific requirement
     levels.
 
 - WebSocket:
+
   - Use cases: Real-time web applications, gaming, chat applications, live sports
     updates.
   - Advantages: Provides full-duplex communication
@@ -467,12 +478,14 @@ The appropriate communication protocol often depends on the specific requirement
     than repeatedly opening new HTTP connections.
 
 - AMQP (Advanced Message Queuing Protocol):
+
   - Use cases: Message-oriented middleware, cloud services, and brokered
     messaging.
   - Advantages: Supports message orientation, queuing, and
     routing.
 
 - Payload efficiency
+
   - For optimal payload efficiency in a Connected Vehicle
     Platform, adopt compact data formats like Google
     Protocol Buffers (GPB) or MessagePack, which provide

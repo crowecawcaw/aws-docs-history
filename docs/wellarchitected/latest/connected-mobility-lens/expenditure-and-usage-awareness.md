@@ -59,6 +59,7 @@ Data volume and velocity:
   to improve existing services and prevent the need for
   reinventing the wheel.
 - Data filtering and prioritization:
+
   - Guidance: Implement filters at the edge to capture
     only essential data, prioritizing critical information
     for immediate transmission.
@@ -67,6 +68,7 @@ Data volume and velocity:
     critical data like routine diagnostics.
 
 - Optimize data transmission protocols (for example, MQTT):
+
   - Guidance: Choose lightweight, efficient protocols like
     MQTT for communication. It minimizes overhead and is
     ideal for low-bandwidth environments.
@@ -75,6 +77,7 @@ Data volume and velocity:
     overhead.
 
 - Use of data compression techniques:
+
   - Guidance: Implement data compression algorithms to
     reduce the size of transmitted data.
   - Example: Compress image or video data from vehicle
@@ -82,6 +85,7 @@ Data volume and velocity:
     required.
 
 - Optimize frequency of telemetry updates:
+
   - Guidance: Adjust the frequency of telemetry updates
     based on need. Reduce update rates for less
     time-sensitive data.
@@ -90,6 +94,7 @@ Data volume and velocity:
     bandwidth.
 
 - Implement data retention policies:
+
   - Guidance: Define policies for data retention. Store
     only relevant data and set expiration rules to manage
     storage costs.
@@ -111,12 +116,14 @@ efficiently.**
   relation to your budget and expected data workload. Consider services that provide
   pay-as-you-go pricing and allow you to optimize costs based on actual usage.
 - Use existing APIs and protocols:
+
   - Guidance: Use standard APIs and protocols for integration with existing
     systems. This minimizes the need for custom development.
   - Example: Integrate connected vehicle data using RESTful APIs, MQTT, or OPC
     UA, depending on compatibility with existing infrastructure.
 
 - Implement edge computing for local processing:
+
   - Guidance: Use edge computing to process data locally
     before integration with existing systems. This reduces
     the load on centralized servers.
@@ -125,6 +132,7 @@ efficiently.**
     sending it to the central system.
 
 - Implement data transformation layers:
+
   - Guidance: Introduce data transformation layers to
     convert data formats between connected vehicle systems
     and existing infrastructure.
@@ -133,12 +141,14 @@ efficiently.**
     expected by the existing systems.
 
 - Leverage message brokers for integration:
+
   - Guidance: Implement message brokers such as Apache Kafka or Amazon Managed Streaming for Apache Kafka for
     seamless integration with existing systems.
   - Example: Use Apache Kafka to buffer and process data streams from connected
     vehicles before ingestion into on-premises databases.
 
 - Use standard data formats (for example, JSON or XML):
+
   - Guidance: Ensure that data exchanged between connected vehicles and existing
     infrastructure uses standard formats to ease integration. For example, convert
     vehicle telemetry data to JSON format before passing it to legacy systems that

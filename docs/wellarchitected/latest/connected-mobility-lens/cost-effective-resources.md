@@ -159,6 +159,7 @@ Process data at edge as much as possible:
   strategy optimizes data transfer efficiency and reduces
   cloud processing costs.
 - Priority data (high sensitivity):
+
   - Scenario: A vehicle detects an imminent collision with
     an obstacle or another vehicle.
   - Response: This data is considered critical and
@@ -168,6 +169,7 @@ Process data at edge as much as possible:
     surroundings.
 
 - Routine telemetry (lower sensitivity):
+
   - Scenario: The vehicle's telemetry data, including GPS
     location, fuel levels, and tire pressure, is collected
     for regular maintenance and analysis.

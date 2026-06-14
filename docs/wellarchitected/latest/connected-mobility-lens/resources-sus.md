@@ -1,11 +1,13 @@
 # Resources
 
 - **Documentation and blogs:**
+
   - [AWS Connected Vehicle Reference Architecture](../../../architecture-diagrams/latest/aws-connected-vehicle/aws-connected-vehicle.md "../../../architecture-diagrams/latest/aws-connected-vehicle/aws-connected-vehicle.md")
   - [Building
     and Modernizing Connected Vehicle platforms with AWS IoT](https://aws.amazon.com/blogs/iot/modernizing-connected-vehicle-platforms-with-aws-iot/ "https://aws.amazon.com/blogs/iot/modernizing-connected-vehicle-platforms-with-aws-iot/")
 
 - **References:**
+
   - [AWS Well-Architected](https://aws.amazon.com/architecture/well-architected "https://aws.amazon.com/architecture/well-architected")
   - [AWS Architecture Center](https://aws.amazon.com/architecture "https://aws.amazon.com/architecture")
   - [Sustainability
