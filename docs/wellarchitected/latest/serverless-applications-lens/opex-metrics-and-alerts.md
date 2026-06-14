@@ -15,6 +15,7 @@ The following guidelines can be used whether you are creating a dashboard or loo
 formulate a plan for new and existing applications when it comes to metrics:
 
 - **Business metrics**
+
   - Business KPIs that will measure your application performance against business
     goals and are important to know when something is critically affecting your
     overall business, revenue-wise or not.
@@ -22,6 +23,7 @@ formulate a plan for new and existing applications when it comes to metrics:
     purchased
 
 - **Customer experience metrics**
+
   - Customer experience data dictates not only the overall effectiveness of its UI
     and UX, but also whether changes or anomalies are affecting customer experience in
     a particular section of your application. Often times, these are measured in
@@ -31,6 +33,7 @@ formulate a plan for new and existing applications when it comes to metrics:
     check out, page load times
 
 - **System metrics**
+
   - Vendor and application metrics are important to understand the health of your
     system, uncover root causes from the metrics above, and gain insight into customer
     experience.

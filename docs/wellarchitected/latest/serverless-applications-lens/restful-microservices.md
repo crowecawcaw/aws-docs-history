@@ -49,6 +49,7 @@ _Figure 1: Reference architecture for RESTful microservices_
   behaviors. This information is visible in Amazon CloudWatch Logs and can be quickly viewed through
   Log Pivots, analyzed in CloudWatch Logs Insights or fed into other searchable engines such as OpenSearch Service
   or Amazon S3 (with Amazon Athena). The information delivered gives key visibility, such as:
+
   - Understanding common customer locations, which may change geographically based
     on the proximity of your backend.
   - Understanding how customer input requests may have an impact on how you

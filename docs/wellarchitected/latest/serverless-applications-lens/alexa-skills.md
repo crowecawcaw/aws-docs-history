@@ -16,25 +16,30 @@ With a basic script in mind, you can use the following techniques before start b
 skill:
 
 - **Outline the shortest route to completion.**
+
   - The shortest route to completion is generally when the user gives all information
     and slots at once, an account is already linked if relevant, and other prerequisites
     are satisfied in a single invocation of the skill.
 
 - **Outline alternate paths and decision trees.**
+
   - Often, what the user says doesn’t include all information necessary to complete
     the request. In the flow, identify alternate pathways and user decisions.
 
 - **Outline behind-the-scenes decisions the system logic will have to
   make.**
+
   - Identify behind-the-scenes system decisions, for example with new or returning
     users. A background system check might change the flow a user follows.
 
 - **Outline how the skill will help the user.**
+
   - Include clear directions in the help for what users can do with the skill. Based
     on the complexity of the skill, the help might provide one simple response or many
     responses.
 
 - **Outline the account linking process, if present.**
+
   - Determine the information that is required for account linking. You also need to
     identify how the skill will respond when account linking hasn’t been completed.
 
