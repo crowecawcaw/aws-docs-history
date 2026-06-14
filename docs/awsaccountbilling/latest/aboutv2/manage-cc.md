@@ -71,6 +71,7 @@ To make a payment, you must have a valid, unexpired credit card on file.
    unverified, choose **Verify** and follow the
    prompts.
 4. If you still can't verify this credit card, follow these steps:
+
    1. Choose the payment method and then choose
       **Delete**.
    2. Choose **Add payment method**, and then enter

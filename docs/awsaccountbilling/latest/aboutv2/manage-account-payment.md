@@ -95,6 +95,7 @@ For an example IAM policy, see [Allow IAM users to view US tax exemptions and cr
 4. Choose all of the accounts to add the tax exemption. Choose **Manage
    tax exemption** and select **Add tax
    exemption**.
+
    1. If you're logged in as a linked account, you can add tax exemptions to
       only the linked account.
    2. If you're logged in as a payer account, you can add tax exemptions to

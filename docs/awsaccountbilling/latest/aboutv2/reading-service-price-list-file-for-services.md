@@ -19,6 +19,7 @@ information:
 - [CSV file](reading-service-price-list-file-for-services.md#reading-service-price-list-file-csv "reading-service-price-list-file-for-services.md#reading-service-price-list-file-csv")
 - [JSON file](reading-service-price-list-file-for-services.md#reading-service-price-list-file-json "reading-service-price-list-file-for-services.md#reading-service-price-list-file-json")
 - [Term definitions](reading-service-price-list-file-for-services.md#term-definitions "reading-service-price-list-file-for-services.md#term-definitions")
+
   - [OnDemand and Reserved term definition](reading-service-price-list-file-for-services.md#on-demand-reserved-term-definition "reading-service-price-list-file-for-services.md#on-demand-reserved-term-definition")
   - [FlatRate term](reading-service-price-list-file-for-services.md#flat-rate-term "reading-service-price-list-file-for-services.md#flat-rate-term")
 

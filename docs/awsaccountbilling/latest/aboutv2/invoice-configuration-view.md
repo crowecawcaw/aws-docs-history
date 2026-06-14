@@ -10,6 +10,7 @@ different ways.
 2. In the navigation pane, choose **Invoice
    configuration**.
 3. Do one of the following:
+
    - In the **Invoice units** section, choose an
      **Invoice unit**.
    - In the **Accounts** tab, choose the accounts assigned

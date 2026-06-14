@@ -57,6 +57,7 @@ You can view invitations for 30 days before they are deleted. If you accept an i
 You can use one of the following operations:
 
 - AWS CLI: [list-handshakes-for-organization](../../../cli/latest/reference/organizations/list-handshakes-for-organization.md "../../../cli/latest/reference/organizations/list-handshakes-for-organization.md"), [list-handshakes-for-account](../../../cli/latest/reference/organizations/list-handshakes-for-account.md "../../../cli/latest/reference/organizations/list-handshakes-for-account.md"), and [describe-handshake](../../../cli/latest/reference/organizations/describe-handshake.md "../../../cli/latest/reference/organizations/describe-handshake.md")
+
   1.  **For invitations you have sent:**
 
   Run the following command find the [handshake](../../../organizations/latest/userguide/orgs_getting-started_concepts.md#invitations-handshakes "../../../organizations/latest/userguide/orgs_getting-started_concepts.md#invitations-handshakes") ID.
@@ -72,7 +73,6 @@ You can use one of the following operations:
   ```
   `$` `C:\>` **aws organizations list-handshakes-for-account**
   ```
-
   2.  From the response, note the handshake ID for the invitation you want to view details for.
   3.  Run the following command to view details for the invitation:
 

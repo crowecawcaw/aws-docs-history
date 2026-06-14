@@ -256,19 +256,18 @@ You can use the following input parameters:
 
 - AWS accounts that you want the script to scan. To specify accounts, use the
   following input parameters:
+
   - `--all` – Scans all member accounts in your organization.
 
   ```
   python3 `identify_affected_policies.py` --all
   ```
-
   - `--accounts` – Scans a subset of member accounts in your
     organization.
 
   ```
   python3 `identify_affected_policies.py` --accounts 111122223333, 444455556666, 777788889999
   ```
-
   - `--exclude-accounts`– Excludes specific member accounts in your
     organization.
 
@@ -305,6 +304,7 @@ This file contains the following sections:
 
 - Metadata that provides an overview of the accounts that you specified in the
   script, including:
+
   - Accounts scanned and the input parameter used for the `identify_affected_policies.py`
     script
   - Number of affected accounts
@@ -313,6 +313,7 @@ This file contains the following sections:
 
 - Similar policy groups – Includes the list of accounts and policy details,
   including the following sections:
+
   - `ImpactedPolicies` – Specifies which policies are affected
     and included in the group
   - `ImpactedPolicyStatements` – Provides information about
@@ -336,6 +337,7 @@ criteria:
   all `SID` blocks.
 - Matching details – In addition to affected actions, the policies have
   identical IAM elements,such as:
+
   - `Effect` (`Allow`/`Deny`)
   - `Principal` (who is allowed or denied access)
   - `NotAction` (what actions are not allowed)
@@ -587,6 +589,7 @@ For more information, see [How to use the affected policies tool](migrate-securi
 Permissions](https://aws.amazon.com/blogs/aws-cloud-financial-management/changes-to-aws-billing-cost-management-and-account-consoles-permissions/ "https://aws.amazon.com/blogs/aws-cloud-financial-management/changes-to-aws-billing-cost-management-and-account-consoles-permissions/") blog post.
 
 - To manage your updates, you can:
+
   - Run the scripts for each account individually.
   - Run the script in batches for similar accounts, such as testing, QA, and
     production accounts.
@@ -608,6 +611,7 @@ script appended. These `Sid` blocks have the
    following input parameters:
 
 - `--accounts`
+
   - Specifies a comma-separated list of the AWS account IDs that you want to include
     in the rollback.
   - The following example scans the policies in the specified AWS accounts, and
@@ -620,6 +624,7 @@ script appended. These `Sid` blocks have the
   ```
 
 - `--all`
+
   - Includes all AWS account IDs in your organization.
   - The following example scans all policies in your organization, and removes any
     statements with the `BillingConsolePolicyMigratorRole`#``
@@ -630,6 +635,7 @@ python3 `rollback_affected_policies.py` –-all
 ```
 
 - `--exclude-accounts`
+
   - Specifies a comma-separated list of the AWS account IDs that you want to exclude
     from the rollback.
 
@@ -648,6 +654,7 @@ Policies are considered similar if they have identical:
 
 - Affected actions across all `Sid` blocks.
 - Details in the following IAM elements:
+
   - `Effect` (`Allow`/`Deny`)
   - `Principal` (who is allowed or denied access)
   - `NotAction` (what actions are not allowed)

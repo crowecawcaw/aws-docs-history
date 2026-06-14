@@ -36,6 +36,7 @@ information:
   **Promotion**).
 - **Status** — The current status of the credit. The
   following statuses are possible:
+
   - **Active** — The credit is set to be
     consumed and will be applied to eligible charges.
   - **Paused** — The credit is turned off but

@@ -64,13 +64,13 @@ To respond to an invitation, complete the following steps.
 You can use one of the following operations:
 
 - AWS CLI: [list-handshakes-for-account](../../../cli/latest/reference/organizations/list-handshakes-for-account.md "../../../cli/latest/reference/organizations/list-handshakes-for-account.md"), [accept-handshake](../../../cli/latest/reference/organizations/accept-handshake.md "../../../cli/latest/reference/organizations/accept-handshake.md"), and [decline-handshake](../../../cli/latest/reference/organizations/accept-decline.md "../../../cli/latest/reference/organizations/accept-decline.md")
+
   1.  Run the following command to find the [handshake](../../../organizations/latest/userguide/orgs_getting-started_concepts.md#invitations-handshakes "../../../organizations/latest/userguide/orgs_getting-started_concepts.md#invitations-handshakes") ID:
 
   ```
   `$` `C:\>` **aws organizations list-handshakes-for-account \
    --filter HandshakeType=TRANSFER\_RESPONSIBILITY**
   ```
-
   2.  From the response, note the handshake ID for the
       invitation you want to respond to.
   3.  **To accept the

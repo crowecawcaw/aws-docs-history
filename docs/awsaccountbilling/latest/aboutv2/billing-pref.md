@@ -13,14 +13,17 @@ The Billing preferences page contains the following sections.
 ###### Contents
 
 - [Invoice delivery preferences](billing-pref.md#invoice-delivery-preferences "billing-pref.md#invoice-delivery-preferences")
+
   - [Additional invoice email](billing-pref.md#additional-invoice-emails "billing-pref.md#additional-invoice-emails")
 
 - [Alert preferences](billing-pref.md#alert-preferences "billing-pref.md#alert-preferences")
 - [Procurement portal settings](billing-pref.md#procurement-portal "billing-pref.md#procurement-portal")
+
   - [Next steps](billing-pref.md#procurement-portal-next "billing-pref.md#procurement-portal-next")
 
 - [Credit sharing preferences](billing-pref.md#credit-sharing-preferences "billing-pref.md#credit-sharing-preferences")
 - [Savings Plans and Reserved Instances discount sharing preferences](billing-pref.md#reserved-instances-savings-plans-preferences "billing-pref.md#reserved-instances-savings-plans-preferences")
+
   - [Understanding Sharing Options](billing-pref.md#understanding-sharing-options "billing-pref.md#understanding-sharing-options")
   - [Managing Basic Discount Sharing](billing-pref.md#managing-basic-discount-sharing "billing-pref.md#managing-basic-discount-sharing")
   - [Setting Up Group Sharing](billing-pref.md#setting-up-group-sharing "billing-pref.md#setting-up-group-sharing")
@@ -151,6 +154,7 @@ The following platforms integrates with the AWS e-invoice delivery feature.
 6. Enter the procurement portal connection details and choose **Next**.
 7. Complete the e-invoice delivery preferences and choose **Next**.
 8. Choose a testing option:
+
    - **Production environment**: Live invoice delivery to your procurement system. You can manually test by verifying text invoices and purchase orders in your portal or console.
    - **Testing environment**: Tests all features using a separate testing environment. This validates invoice delivery without affecting live transactions.
 
@@ -253,6 +257,7 @@ Group sharing requires creating Cost Categories to define your sharing groups.
 2. In the navigation pane, choose **Billing preferences**
 3. In the **Reserved Instances and Savings Plans discount sharing preferences** section, choose **Edit**
 4. Select either:
+
    - **Prioritized group sharing** (first within groups, then beyond)
    - **Restricted group sharing** (only within groups)
 
@@ -260,8 +265,10 @@ Group sharing requires creating Cost Categories to define your sharing groups.
 
 1. Under **Cost Category**, select an existing category or choose **Create Cost Categories**
 2. If creating a new Cost Category:
+
    1. Enter a **Cost category name** (for example, "Business Units", "Geographic Regions")
    2. For each sharing group, add a rule:
+
       1. Select the **Linked accounts** for this group
       2. Enter a **SP/RI group sharing name** (for example, "Research and Development", "EMEA Operations") in the **Then group costs together as field**
       3. Choose **Create Rule**.
@@ -273,6 +280,7 @@ Group sharing requires creating Cost Categories to define your sharing groups.
 3. Return to **Billing preferences** and select your Cost Category
 4. Review the impact warning and choose **Proceed**
 5. Select your implementation preference:
+
    - **Create estimate and update later**: Simulate impact before applying
    - **Update and create estimate later**: Apply changes immediately
 

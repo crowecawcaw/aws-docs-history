@@ -33,7 +33,9 @@ You can use the AWS Management Console to sign up for Amazon SNS notifications.
 4. On the navigation pane, choose **Subscriptions**.
 5. Choose **Create subscription**.
 6. For **Topic ARN**, enter the following as needed:
+
    - For service pricing:
+
      - To get notified every time a price changes,
        enter:
        `arn:aws:sns:us-east-1:278350005181:price-list-api`

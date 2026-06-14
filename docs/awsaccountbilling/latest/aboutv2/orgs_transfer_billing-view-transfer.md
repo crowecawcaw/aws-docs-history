@@ -51,6 +51,7 @@ To view a transfer, complete the following steps.
 You can use one of the following operations:
 
 - AWS CLI: [list-inbound-responsibility-transfers](../../../cli/latest/reference/organizations/list-inbound-responsibility-transfers.md "../../../cli/latest/reference/organizations/list-inbound-responsibility-transfers.md"), [list-outbound-responsibility-transfers](../../../cli/latest/reference/organizations/list-outbound-responsibility-transfers.md "../../../cli/latest/reference/organizations/list-outbound-responsibility-transfers.md"), and [describe-responsibility-transfer](../../../cli/latest/reference/organizations/describe-responsibility-transfer.md "../../../cli/latest/reference/organizations/describe-responsibility-transfer.md")
+
   1.  **For inbound billing:**
 
   Run the following command to find the billing transfer ID for inbound billings:
@@ -68,7 +69,6 @@ You can use one of the following operations:
   `$` `C:\>` **aws organizations list-outbound-responsibility-transfers \
    --type BILLING**
   ```
-
   2.  From the response, note the billing transfer ID for the transfer you want to view details for.
   3.  Run the following command to view details for the transfer:
 

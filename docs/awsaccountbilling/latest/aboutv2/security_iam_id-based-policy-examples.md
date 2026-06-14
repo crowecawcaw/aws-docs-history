@@ -16,6 +16,7 @@ For details about actions and resource types defined by Billing, including the f
 - [Using the Billing console](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console")
 - [Allow users to view their own permissions](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions")
 - [Using identity-based policies for Billing](security_iam_id-based-policy-examples.md#billing-permissions-ref "security_iam_id-based-policy-examples.md#billing-permissions-ref")
+
   - [AWS Billing console actions](security_iam_id-based-policy-examples.md#user-permissions "security_iam_id-based-policy-examples.md#user-permissions")
 
 ## Policy best practices

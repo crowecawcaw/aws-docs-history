@@ -33,12 +33,12 @@ To cancel an invitation, complete the following steps.
 You can use one of the following operations:
 
 - AWS CLI: [list-handshakes-for-organization](../../../cli/latest/reference/organizations/list-handshakes-for-organization.md "../../../cli/latest/reference/organizations/list-handshakes-for-organization.md") and [cancel-handshake](../../../cli/latest/reference/organizations/cancel-handshake.md "../../../cli/latest/reference/organizations/cancel-handshake.md")
+
   1.  Run the following command find the [handshake](../../../organizations/latest/userguide/orgs_getting-started_concepts.md#invitations-handshakes "../../../organizations/latest/userguide/orgs_getting-started_concepts.md#invitations-handshakes") ID.
 
   ```
   `$` `C:\>` **aws organizations list-handshakes-for-organization**
   ```
-
   2.  From the response, note the handshake ID for the invitation you want to cancel.
   3.  Run the following command to cancel an invitation:
 

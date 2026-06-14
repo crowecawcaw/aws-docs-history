@@ -23,6 +23,7 @@ find prices for the products you're interested in.
 - [Finding On-Demand prices for services](finding-prices-in-service-price-list-files.md#finding-one-demand-prices-services "finding-prices-in-service-price-list-files.md#finding-one-demand-prices-services")
 - [Finding tiered prices for services](finding-prices-in-service-price-list-files.md#finding-tiered-prices-services "finding-prices-in-service-price-list-files.md#finding-tiered-prices-services")
 - [Finding tiered prices for services with Free Tier](finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier "finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier")
+
   - [Example](finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier-example "finding-prices-in-service-price-list-files.md#finding-tiered-prices-services-free-tier-example")
 
 - [Finding prices for services with Reserved Instances](finding-prices-in-service-price-list-files.md#finding-prices-services-reserved-instances "finding-prices-in-service-price-list-files.md#finding-prices-services-reserved-instances")

@@ -38,13 +38,13 @@ To update a transfer, complete the following steps.
 You can use one of the following operations:
 
 - AWS CLI: [list-inbound-responsibility-transfers](../../../cli/latest/reference/organizations/list-inbound-responsibility-transfers.md "../../../cli/latest/reference/organizations/list-inbound-responsibility-transfers.md"), [list-outbound-responsibility-transfers](../../../cli/latest/reference/organizations/list-outbound-responsibility-transfers.md "../../../cli/latest/reference/organizations/list-outbound-responsibility-transfers.md"), and [update-responsibility-transfer](../../../cli/latest/reference/organizations/describe-responsibility-transfer.md "../../../cli/latest/reference/organizations/describe-responsibility-transfer.md")
+
   1.  Run the following command to find the billing transfer ID for inbound billings:
 
   ```
   `$` `C:\>` **aws organizations list-inbound-responsibility-transfers \
    --type BILLING**
   ```
-
   2.  From the response, note the billing transfer ID for the transfer you want to update.
   3.  Run the following command to update the transfer:
 

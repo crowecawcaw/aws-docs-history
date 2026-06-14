@@ -26,6 +26,7 @@ If you have questions about payment methods, see [Getting help with your bills a
 - [Cancel automatic payments on your credit/ debit card or Unified Payments Interface (UPI)](edit-aispl-payment-method.md#using-aispl-autopay-disable "edit-aispl-payment-method.md#using-aispl-autopay-disable")
 - [Making payments for invoices outside of AWS India](edit-aispl-payment-method.md#aispl-payment-nonIndia "edit-aispl-payment-method.md#aispl-payment-nonIndia")
 - [Viewing eligible credit or debit cards for AWS India invoices](edit-aispl-payment-method.md#aispl-payment-view "edit-aispl-payment-method.md#aispl-payment-view")
+
   - [Troubleshooting ineligible payment method alerts](edit-aispl-payment-method.md#aispl-payment-ineligible "edit-aispl-payment-method.md#aispl-payment-ineligible")
 
 ## Supported payment methods
@@ -313,9 +314,11 @@ You can disable credit/debit card or Unified Payments Interface (UPI) automatic 
 ###### To cancel an e-mandate through the bank portal or SiHub
 
 1. Access your bank's website directly, or through the link sent from your bank in the pre-debit SMS or email notifications.
+
    1. You might be required to enter your payment card details to view active e-mandates.
 
 2. From the list of active e-mandate list, find **Amazon Web Services** and choose **Cancel**.
+
    1. You bank might send a one-time password or require additional authentication to complete your cancel request.
 
 Once AWS validates that your e-mandate has been canceled, your default payment method will
@@ -354,6 +357,7 @@ If you're in an AWS India account where the default payment method is a credit o
 3. Select the outstanding invoices for invoices outside of AWS India.
 4. Choose **Complete payment**.
 5. On the **Complete payment** page, do one of the following:
+
    - (If you have an eligible card saved on file) The card is automatically selected for you to complete your payment for the invoices that aren't AWS India.
 
    To use another eligible payment card on file, choose **Change payment method**.

@@ -47,6 +47,7 @@ console.
    where your reports are delivered.
 4. In the **Configure S3 Bucket** dialog box, choose one of
    the following options:
+
    - To use an existing S3 bucket, choose **Use an existing S3
      bucket**, and then select the S3 bucket.
    - To create a new S3 bucket, choose **Create a new S3

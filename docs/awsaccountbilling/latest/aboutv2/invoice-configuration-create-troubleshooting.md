@@ -20,11 +20,14 @@ applicable console pages:
 3. Select the checkbox next to the account names.
 4. From **Manage tax registration**, choose
    **Edit**.
+
    - For updating the business legal name
+
      1. Enter the updated name in the **Business
         legal name** field.
 
    - For updating the business legal address
+
      1. Enter the updated address in the
         **Business legal address**
         fields.
@@ -42,12 +45,15 @@ applicable console pages:
    preferences**.
 3. In the **Default payment preference** section,
    choose **Edit**.
+
    - For updating the business name
+
      1. Under **Billing address**, update
         the **Full name** or
         **Company** field.
 
    - For updating the business address
+
      1. Under **Billing address**, update
         the **Address** fields.
 

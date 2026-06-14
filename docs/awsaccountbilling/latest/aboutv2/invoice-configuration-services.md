@@ -15,7 +15,9 @@ units.
 2. In the navigation pane, choose **Purchase
    orders**.
 3. Add invoice units using the following steps:
+
    - When creating a new purchase order
+
      1. Choose **Add purchase order** to create a
         purchase order.
      2. In the **Invoice units** field, add one
@@ -24,6 +26,7 @@ units.
         more information, see [Adding a purchase order](adding-po.md "adding-po.md").
 
    - When you're adding invoices to an existing purchase order
+
      1. Choose the **Purchase order ID** to
         edit.
      2. On the purchase order details page, choose **Edit

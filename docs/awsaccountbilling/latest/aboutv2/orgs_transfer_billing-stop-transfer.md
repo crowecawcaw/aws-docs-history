@@ -79,6 +79,7 @@ To withdraw a transfer, complete the following steps.
 You can use one of the following operations:
 
 - AWS CLI: [list-inbound-responsibility-transfers](../../../cli/latest/reference/organizations/list-inbound-responsibility-transfers.md "../../../cli/latest/reference/organizations/list-inbound-responsibility-transfers.md"), [list-outbound-responsibility-transfers](../../../cli/latest/reference/organizations/list-outbound-responsibility-transfers.md "../../../cli/latest/reference/organizations/list-outbound-responsibility-transfers.md"), and [terminate-responsibility-transfer](../../../cli/latest/reference/organizations/terminate-responsibility-transfer.md "../../../cli/latest/reference/organizations/terminate-responsibility-transfer.md")
+
   1.  **For inbound
       billing:**
 
@@ -100,7 +101,6 @@ You can use one of the following operations:
   `$` `C:\>` **aws organizations list-outbound-responsibility-transfers \
    --type BILLING**
   ```
-
   2.  From the response, note the billing transfer ID for the
       transfer you want to withdraw.
   3.  Run the following command to withdraw the transfer:

@@ -33,6 +33,7 @@ console. You can't change your purchase order ID in this process.
 3. Choose the purchase order that you want to edit.
 4. Choose **Change status**.
 5. Choose a status:
+
    - **Suspended** – Your purchase order will no
      longer be used for invoice association.
    - **Active** – Your purchase order will be used

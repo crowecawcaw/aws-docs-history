@@ -62,6 +62,7 @@ To send an invitation, you must have the following permissions:
    **Send invitation**.
 5. On the **Send a billing transfer invitation**
    page, enter the following information:
+
    - **Name:** Name you want to
      assign to the transfer.
 

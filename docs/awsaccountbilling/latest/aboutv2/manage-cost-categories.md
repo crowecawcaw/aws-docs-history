@@ -16,6 +16,7 @@ costs, so that it's allocated between these teams.
 1. You created a cost category named `Team` for your
    business.
 2. For this cost category, you defined a rule so that:
+
    - All costs for accounts 1-3 are categorized as `Team :
 Team1`.
    - All costs for accounts 4-5 are categorized as `Team :

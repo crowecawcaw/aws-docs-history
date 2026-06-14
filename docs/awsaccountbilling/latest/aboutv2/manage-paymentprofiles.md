@@ -51,7 +51,9 @@ console.
 7. (Optional) Enter a name for your payment profiles.
 8. Under the **Payment method** section, choose the payment
    method to pay your specified service provider and currency with.
+
    - To add a new payment method
+
      1. Choose **Add a new payment method** to open a
         new tab.
      2. Add a new payment method to your account. For more

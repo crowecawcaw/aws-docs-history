@@ -274,6 +274,7 @@ Starting November 1, 2025, the **Download all to CSV** button will no longer be 
    where your reports are delivered.
 5. In the **Configure S3 Bucket** dialog box, choose one of the
    following options:
+
    - To use an existing S3 bucket, choose **Use an existing S3
      bucket**, and then select the S3 bucket.
    - To create a new S3 bucket, choose **Create a new S3
@@ -314,10 +315,13 @@ From here, you can view a list of AWS invoices for the chosen billing period. 5.
    ![3 vertical ellipsis on the Billing and Cost Management console.](images/vertical-ellipsis.png)
    ) next to the invoice that you want to edit.
 6. Do one of the following:
+
    - Choose **Update company and address for account**.
+
      1. Update the information for your company name or address.
 
    - Choose **Update purchase order**.
+
      1. Select an existing purchase order to associate with the invoice.
      2. (Optional) You can choose to create a new purchase order at this time to associate with the invoice.
 

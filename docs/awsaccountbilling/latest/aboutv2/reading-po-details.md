@@ -37,6 +37,7 @@ more information on your tax registration number settings, see [Setting up your 
   order. Choose **Manage contacts** to see all listed.
 - **Status** – The current status of your purchase
   order.
+
   - **Active** – Eligible for invoice
     association.
   - **Suspended** – Not eligible for invoice
@@ -54,6 +55,7 @@ more information on your tax registration number settings, see [Setting up your 
   line items configured in your purchase order.
 - **Line items** – The line item details you used when
   adding the purchase order.
+
   - **Number** – The unique identifier for your
     line item.
   - **Type** – Your line item type.
@@ -75,6 +77,7 @@ more information on your tax registration number settings, see [Setting up your 
 
 - **Invoices** – All invoices associated with your
   purchase order.
+
   - **Date issued** – The date when the invoice was
     issued.
   - **Type** – The type of invoice. For example,

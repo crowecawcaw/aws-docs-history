@@ -8,6 +8,7 @@ manages your billing, and your invoice total is listed in rupees instead of doll
 
 - [Signing up for AWS India](manage-account-payment-aispl.md#aisplsignup "manage-account-payment-aispl.md#aisplsignup")
 - [Managing your AWS India account](manage-account-payment-aispl.md#manage-aispl-account "manage-account-payment-aispl.md#manage-aispl-account")
+
   - [Adding or editing a Permanent Account Number](manage-account-payment-aispl.md#aispl-add-pan "manage-account-payment-aispl.md#aispl-add-pan")
   - [Editing multiple Permanent Account Numbers](manage-account-payment-aispl.md#aispl-edit-pan "manage-account-payment-aispl.md#aispl-edit-pan")
   - [Editing multiple Goods and Services Tax numbers](manage-account-payment-aispl.md#aispl-edit-gst "manage-account-payment-aispl.md#aispl-edit-gst")
