@@ -46,6 +46,7 @@ at least one configuration policy, you only see the **Custom policy** option.
 
 4. In the **Accounts** section, choose which target accounts, OUs, or the root that
    you want your configuration policy to apply to.
+
    - Choose **All accounts** if you want to apply the
      configuration policy to the root. This includes all accounts and OUs in the organization
      that don't have another policy applied to them or inherited.

@@ -115,6 +115,7 @@ Security Hub CSPM console
 
 1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. To display a finding list, do one of the following:
+
    - In the navigation pane, choose
      **Findings**. Add search filters as
      necessary to narrow the finding list.
@@ -130,6 +131,7 @@ Security Hub CSPM console
 3. Choose a finding. The finding panel displays the details of the
    finding.
 4. In the finding panel, do any of the following:
+
    - To review specific details for the finding, choose a
      tab.
    - To take action on the finding, choose an option from the

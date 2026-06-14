@@ -10,6 +10,7 @@ Follow the steps to view your current cross-Region aggregation settings
 2. On the navigation pane, choose **Settings** and then the **General**.
 3. If cross-Region aggregation is not enabled, then the General page displays the option to enable cross-Region aggregation. Only administrator accounts and standalone accounts can enable cross-Region aggregation.
 4. If cross-Region aggregation is enabled, then the Regions tab displays the following information:
+
    - The home Region
    - Whether to automatically aggregate findings, resources, and trends from new Regions that Security Hub supports and that you opt into
    - The list of linked Regions (if any are selected)

@@ -66,5 +66,6 @@ as your default view of the **Summary** dashboard, your default view is reset to
 2. In the navigation pane, choose **Summary**.
 3. In the **Choose a filter set** menu above the **Summary** page, choose the filter set.
 4. On the **Clear filters** menu, do one of the following:
+
    - To update the filter set, choose **Update current filter set**. Then, enter your changes in the dialog box that appears.
    - To delete the filter set choose **Delete current filter set**. Then, choose **Delete** in the dialog box that appears.

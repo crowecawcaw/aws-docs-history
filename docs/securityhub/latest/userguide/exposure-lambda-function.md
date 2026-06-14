@@ -22,15 +22,18 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits for Lambda functions](exposure-lambda-function.md#lambda-function-misconfiguration "exposure-lambda-function.md#lambda-function-misconfiguration")
+
   - [Lambda function is deployed outside of an Amazon VPC](exposure-lambda-function.md#deployed-outside-vpc "exposure-lambda-function.md#deployed-outside-vpc")
   - [The IAM Role associated with the Lambda function has an Administrative access policy](exposure-lambda-function.md#administrative-access-policy "exposure-lambda-function.md#administrative-access-policy")
   - [The IAM Role associated with the Lambda function has a policy with administrative access to an AWS Service](exposure-lambda-function.md#service-admin-policy "exposure-lambda-function.md#service-admin-policy")
   - [The Lambda function is accessible through API Gateway without authorization](exposure-lambda-function.md#api-gateway-no-authorization "exposure-lambda-function.md#api-gateway-no-authorization")
 
 - [Reachability traits for Lambda functions](exposure-lambda-function.md#lambda-function-reachability "exposure-lambda-function.md#lambda-function-reachability")
+
   - [The Lambda function can be publicly invoked](exposure-lambda-function.md#publicly-invocable "exposure-lambda-function.md#publicly-invocable")
 
 - [Vulnerability traits for Lambda functions](exposure-lambda-function.md#lambda-function-vulnerability "exposure-lambda-function.md#lambda-function-vulnerability")
+
   - [The Lambda function has network-exploitable software vulnerabilities](exposure-lambda-function.md#high-priority-vulnerability "exposure-lambda-function.md#high-priority-vulnerability")
   - [The Lambda function has software vulnerabilities](exposure-lambda-function.md#low-priority-vulnerability "exposure-lambda-function.md#low-priority-vulnerability")
   - [The Lambda function has malicious software packages](exposure-lambda-function.md#malicious-package "exposure-lambda-function.md#malicious-package")

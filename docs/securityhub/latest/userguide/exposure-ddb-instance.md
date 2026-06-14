@@ -21,6 +21,7 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits in DynamoDB](exposure-ddb-instance.md#misconfiguration "exposure-ddb-instance.md#misconfiguration")
+
   - [The DynamoDB table has point-in-time recovery disabled](exposure-ddb-instance.md#point-in-time-recovery-disabled "exposure-ddb-instance.md#point-in-time-recovery-disabled")
   - [The DynamoDB table is not covered by a backup plan](exposure-ddb-instance.md#backup-plan-disabled "exposure-ddb-instance.md#backup-plan-disabled")
   - [The DynamoDB table has deletion protection disabled](exposure-ddb-instance.md#deletion-protection-disabled "exposure-ddb-instance.md#deletion-protection-disabled")

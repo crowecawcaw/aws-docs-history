@@ -17,7 +17,9 @@ Security Hub CSPM console
 2. In the navigation pane, choose **Insights**.
 3. Choose the custom insight to modify.
 4. Edit the insight configuration as needed.
+
    - To change the attribute used to group findings in the insight:
+
      1. To remove the existing grouping, choose the **X** next to the
         **Group by** setting.
      2. Choose the search box.
@@ -27,12 +29,14 @@ Security Hub CSPM console
    - To remove a filter from the insight, choose the circled **X**
      next to the filter.
    - To add a filter to the insight:
+
      1. Choose the search box.
      2. Select the attribute and value to use as a filter.
      3. Choose **Apply**.
 
 5. When you complete the updates, choose **Save insight**.
 6. When prompted, do one of the following:
+
    - To update the existing insight to reflect your changes, choose **Update
      `<Insight_Name>`** and then choose
      **Save insight**.

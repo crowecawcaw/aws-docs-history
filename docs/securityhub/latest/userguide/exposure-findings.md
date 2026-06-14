@@ -22,6 +22,7 @@ Each exposure finding includes:
 
 - **Title and description of the potential security risk** - Each exposure finding includes a clear, descriptive title that immediately conveys the nature of the security risk. The description provides detailed information about the potential security impact, affected resources, and the broader context of the exposure. This information helps security teams quickly understand and assess the risk.
 - **Severity classification (Critical, High, Medium, Low)**:
+
   - **Critical severity** indicates immediate attention is required due to high likelihood of exploit and significant potential impact. These findings typically represent easily discoverable and exploitable vulnerabilities.
   - **High severity** suggests priority attention is needed, with moderate to high exploit likelihood and substantial potential impact. These findings might be relatively easy to exploit but might require specific conditions.
   - **Medium severity** indicates scheduled attention is required, with lower exploit likelihood and moderate potential impact. These findings typically require more complex exploitation methods.

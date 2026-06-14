@@ -27,6 +27,7 @@ use case, we recommend switching to roles or federation instead of using IAM use
 ###### Contents
 
 - [Misconfiguration traits for IAM users](exposure-iam-user.md#iam-user-misconfiguration "exposure-iam-user.md#iam-user-misconfiguration")
+
   - [The IAM user has a policy with administrative access](exposure-iam-user.md#administrative-access-policy "exposure-iam-user.md#administrative-access-policy")
   - [The IAM user does not have MFA enabled](exposure-iam-user.md#user-mfa-disabled "exposure-iam-user.md#user-mfa-disabled")
   - [The IAM user has a policy with administrative access to an AWS service](exposure-iam-user.md#service-admin-policy "exposure-iam-user.md#service-admin-policy")
@@ -60,6 +61,7 @@ Following standard security principles, AWS recommends that you grant least priv
    For more information, see [Findings for external and unused access](../../../IAM/latest/UserGuide/access-analyzer-findings.md "../../../IAM/latest/UserGuide/access-analyzer-findings.md") in the _AWS Identity and Access Management User Guide_.
 3. **Secure configuration considerations** –
    If service administrative permissions are necessary for the instance, consider implementing these additional security controls to mitigate risk:
+
    - **Multi-factor authentication (MFA)** –
      MFA adds an additional security layer by requiring an additional form of authentication.
      This helps prevent unauthorized access even if credentials are compromised.

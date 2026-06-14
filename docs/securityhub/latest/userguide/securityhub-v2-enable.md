@@ -38,6 +38,7 @@ For information about creating the delegated administrator policy in Security Hu
    If you uncheck this option Security Hub will not be able to enable these features on your behalf and you will need to enable them directly through the service that the feature is associated with.
 5. (Optional) For **Account enablement**, select the box to enable Security Hub for your AWS account.
 6. For **Delegated administrator policy**, choose one of the following options to add the policy statement.
+
    1. (Option 1) Choose **Update this for me**.
       Select the box under the policy statement to confirm Security Hub will automatically create a delegation policy granting all required permission to the delegated administrator.
    2. (Option 2) Choose **I want to attach this manually**.
@@ -85,6 +86,7 @@ A standalone account is an AWS account that has not enabled AWS organizations.
    Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home "https://console.aws.amazon.com/securityhub/v2/home").
 2. From the Security Hub homepage, select **Get started**.
 3. In the **Security capabilities** section do one of the following:
+
    1. (Option 1) Choose **Enable all capabilities**.
       This will turn on all of the Security Hub essential capabilties, threat analytics, and additional capabilties.
    2. (Option 2) Choose **Customize capabilities**.

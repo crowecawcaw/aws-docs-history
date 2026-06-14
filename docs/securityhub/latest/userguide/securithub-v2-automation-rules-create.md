@@ -15,6 +15,7 @@ The following procedure describes how to create a rule that updates finding deta
 2. From the navigation pane, under **Management**, choose **Automations**.
 3. Choose **Create rule**.
 4. Under **Details**, enter a name for your automation rule.
+
    1. (Optional) Enter a description for your automation rule.
 
 5. Under **Actions**, choose **Update findings details**.
@@ -38,6 +39,7 @@ For information about the integrations Security Hub CSPM supports, see [Third-pa
 2. From the navigation pane, under **Management**, choose **Automations**.
 3. Choose **Create rule**.
 4. Under **Details**, enter a name for your automation rule.
+
    1. (Optional) Enter a description for your automation rule.
 
 5. Under **Actions**, choose **Create ticket**.

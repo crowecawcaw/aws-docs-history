@@ -371,14 +371,18 @@ TTPs finding types.
 classifiers:**
 
 - Software and Configuration Checks
+
   - Vulnerabilities
+
     - CVE
 
   - AWS Security Best Practices
+
     - Network Reachability
     - Runtime Behavior Analysis
 
   - Industry and Regulatory Standards
+
     - AWS Foundational Security Best Practices
     - CIS Host Hardening Benchmarks
     - CIS AWS Foundations Benchmark
@@ -409,6 +413,7 @@ classifiers:**
   - Patch Management
 
 - TTPs
+
   - Initial Access
   - Execution
   - Persistence
@@ -421,6 +426,7 @@ classifiers:**
   - Command and Control
 
 - Effects
+
   - Data Exposure
   - Data Exfiltration
   - Data Destruction
@@ -428,6 +434,7 @@ classifiers:**
   - Resource Consumption
 
 - Unusual Behaviors
+
   - Application
   - Network Flow
   - IP address
@@ -440,6 +447,7 @@ classifiers:**
   - Data
 
 - Sensitive Data Identifications
+
   - PII
   - Passwords
   - Legal

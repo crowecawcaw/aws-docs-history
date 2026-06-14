@@ -87,6 +87,7 @@ Security Hub CSPM console
 1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. In the navigation pane, do one of the following to display a
    table of findings:
+
    - Choose **Findings**.
    - Choose **Insights**. Then choose an
      insight. In the insight results, choose a result.

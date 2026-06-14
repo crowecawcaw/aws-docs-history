@@ -926,16 +926,17 @@ Finally, create the metric filter and alarm.
 4. From **Actions**, choose **Create Metric
    Filter**.
 5. Under **Define pattern**, do the following:
+
    1. Copy the following pattern and then paste it into the
       **Filter Pattern** field.
 
    ```
    {$.userIdentity.type="Root" && $.userIdentity.invokedBy NOT EXISTS && $.eventType !="AwsServiceEvent"}
    ```
-
    2. Choose **Next**.
 
 6. Under **Assign Metric**, do the following:
+
    1. In **Filter name**, enter a name for your
       metric filter.
    2. For **Metric Namespace**, enter
@@ -955,6 +956,7 @@ Finally, create the metric filter and alarm.
 9. Select the check box for the filter. Choose **Create alarm**.
 10. Under **Specify metric and conditions**, do the
     following:
+
     1. Under **Conditions**, for
        **Threshold**, choose
        **Static**.
@@ -965,6 +967,7 @@ Finally, create the metric filter and alarm.
     4. Choose **Next**.
 
 11. Under **Configure actions**, do the following:
+
     1. Under **Alarm state trigger**, choose
        **In alarm**.
     2. Under **Select an SNS topic**, choose

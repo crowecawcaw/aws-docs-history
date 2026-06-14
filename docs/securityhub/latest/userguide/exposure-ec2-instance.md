@@ -22,6 +22,7 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits for EC2 instances](exposure-ec2-instance.md#misconfiguration "exposure-ec2-instance.md#misconfiguration")
+
   - [The EC2 instance allows access to IMDS using version 1](exposure-ec2-instance.md#metadata-misconfiguration "exposure-ec2-instance.md#metadata-misconfiguration")
   - [The IAM role associated with the Amazon EC2 instance has an administrative access policy](exposure-ec2-instance.md#administrative-access-policy "exposure-ec2-instance.md#administrative-access-policy")
   - [The IAM role associated with the Amazon EC2 instance has a service admin policy](exposure-ec2-instance.md#service-admin-policy "exposure-ec2-instance.md#service-admin-policy")
@@ -29,9 +30,11 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon EC2 instance has an open security group](exposure-ec2-instance.md#open-security-group "exposure-ec2-instance.md#open-security-group")
 
 - [Reachability traits for EC2 instances](exposure-ec2-instance.md#reachability "exposure-ec2-instance.md#reachability")
+
   - [The EC2 instance is reachable over the internet](exposure-ec2-instance.md#internet-reachable "exposure-ec2-instance.md#internet-reachable")
 
 - [Vulnerability traits for EC2 instances](exposure-ec2-instance.md#vulnerability "exposure-ec2-instance.md#vulnerability")
+
   - [EC2 instance has network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ec2-instance.md#high-priority-vulnerability "exposure-ec2-instance.md#high-priority-vulnerability")
   - [The Amazon EC2 instance has software vulnerabilities](exposure-ec2-instance.md#low-priority-vulnerability "exposure-ec2-instance.md#low-priority-vulnerability")
   - [The EC2 instance has an End-Of-Life operating system](exposure-ec2-instance.md#end-of-life-operating-system-detected "exposure-ec2-instance.md#end-of-life-operating-system-detected")
@@ -95,6 +98,7 @@ For instructions on replacing an IAM role for an instance, see [Attach an IAM ro
 If service-level administrative permissions are necessary for the instance, consider implementing these additional security controls to mitigate risk:
 
 - **Secure configuration considerations**
+
   - **Multi-factor authentication (MFA)** –
     MFA adds an additional security layer by requiring an additional form of authentication.
     This helps prevent unauthorized access even if credentials are compromised.

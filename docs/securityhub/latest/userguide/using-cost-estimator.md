@@ -179,18 +179,22 @@ Enter custom values in edit mode.
 ###### Possible causes and solutions
 
 1. Cross-account role doesn't exist in management account.
+
    1. **Solution:** Contact Management Account administrator to create the role.
    2. The cost estimator provides guided setup instructions for management account users.
 
 2. Role name doesn't match exactly.
+
    1. Required role name: `AwsSecurityHubCostEstimatorCrossAccountRole`.
    2. **Solution:** Verify role name in IAM console matches exactly (case-sensitive).
 
 3. Trust policy doesn't allow your account.
+
    1. **Solution:** Verify trust policy principal includes your account ID and role name.
    2. Format: `arn:aws:iam::{YOUR_ACCOUNT_ID}:role/{YOUR_ROLE_NAME}`.
 
 4. Missing AssumeRole permission.
+
    1. **Solution:** Verify your IAM principal has `sts:AssumeRole` permission.
    2. ontact your AWS administrator to add this permission.
 
@@ -201,6 +205,7 @@ Enter custom values in edit mode to manually estimate costs without Cost Explore
 **Getting detailed instructions**
 
 - Click "View instructions" link in the alert to open a modal with:
+
   - Step-by-step setup guidance
   - Pre-populated policy templates
   - Troubleshooting tips specific to your error

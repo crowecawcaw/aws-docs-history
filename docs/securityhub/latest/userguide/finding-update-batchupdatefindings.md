@@ -53,6 +53,7 @@ following values:
 - `Effect` is `Deny`
 - For `Condition`, you can deny a
   `BatchUpdateFindings` request based on the following:
+
   - The finding includes a specific field.
   - The finding includes a specific field value.
 

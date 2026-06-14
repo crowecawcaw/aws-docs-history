@@ -15,6 +15,7 @@ must be deployed to each member where action is needed.
 
 1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. Display a list of findings:
+
    - From **Findings**, you can view findings from all
      of the enabled product integrations and controls.
    - From **Security standards**, you can navigate to

@@ -319,6 +319,7 @@ findings in the [AWS Security Finding Format (ASFF)](securityhub-findings-format
 
 - Findings that contain any of the following values for
   AWS service:
+
   - `RISK`
   - `ABUSE`
   - `ACM`

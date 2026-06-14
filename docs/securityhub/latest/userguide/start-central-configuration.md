@@ -96,6 +96,7 @@ Security Hub CSPM API
    `ConfigurationType` field in the `OrganizationConfiguration` object to
    `CENTRAL`. This action has the following
    impact:
+
    - Designates the calling account as the Security Hub CSPM delegated administrator in all linked Regions.
    - Enables Security Hub CSPM in the delegated administrator account in all linked Regions.
    - Designates the calling account as the Security Hub CSPM delegated administrator for new and existing
@@ -135,6 +136,7 @@ AWS CLI
 3. Set the
    `ConfigurationType` field in the `organization-configuration` object to
    `CENTRAL`. This action has the following impact:
+
    - Designates the calling account as the Security Hub CSPM delegated administrator in all linked Regions.
    - Enables Security Hub CSPM in the delegated administrator account in all linked Regions.
    - Designates the calling account as the Security Hub CSPM delegated administrator for new and existing

@@ -97,6 +97,7 @@ To successfully configure your ServiceNow integration, you must first give Secur
 ```
 
 7. Edit the policy by replacing the following values in the policy example:
+
    - Replace `your-account-id` with your AWS account ID.
    - Replace `your-region` with your AWS region (for example, `us-east-1`).
 
@@ -175,6 +176,7 @@ Security Hub can create incidents or problems automatically in ServiceNow ITSM.
 3. Under **ServiceNow ITSM**, choose **Add integration**.
 4. For **Details**, enter a name for your integration, and determine whether to enter an optional description for your integration.
 5. For **Encryptions** choose how you want to encrypt your integration credentials within Security Hub.
+
    - **Use AWS owned key** - With this option a Security Hub owned service key will be used to encrypt your integration credential data within Security Hub.
    - **Choose a different KMS key (advanced)** - With this option you choose an AWS KMS key that you have created which you want to be used for encrypting your integration credential data within Security Hub.
      For information about how to create an AWS KMS key, see [Create a AWS KMS key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.

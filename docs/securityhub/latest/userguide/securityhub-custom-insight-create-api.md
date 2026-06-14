@@ -13,6 +13,7 @@ Security Hub CSPM console
 2. In the navigation pane, choose **Insights**.
 3. Choose **Create insight**.
 4. To select the grouping attribute for the insight:
+
    1. Choose the search box to display the filter options.
    2. Choose **Group by**.
    3. Select the attribute to use to group the findings that are associated with this
@@ -85,7 +86,9 @@ the basis for a custom insight. This is an option on the Security Hub CSPM conso
 2. In the navigation pane, choose **Insights**.
 3. Choose the managed insight to work from.
 4. Edit the insight configuration as needed.
+
    - To change the attribute used to group findings in the insight:
+
      1. To remove the existing grouping, choose the **X** next to the
         **Group by** setting.
      2. Choose the search box.
@@ -95,6 +98,7 @@ the basis for a custom insight. This is an option on the Security Hub CSPM conso
    - To remove a filter from the insight, choose the circled **X**
      next to the filter.
    - To add a filter to the insight:
+
      1. Choose the search box.
      2. Select the attribute and value to use as a filter.
      3. Choose **Apply**.

@@ -75,6 +75,7 @@ After creating the role in the management account use the following steps to con
 1. Sign into the delegated administrator or member account.
 2. Navigate to the Security Hub cost estimator at [https://console.aws.amazon.com/securityhub/v2/home#/costEstimator](https://console.aws.amazon.com/securityhub/v2/home#/costEstimator "https://console.aws.amazon.com/securityhub/v2/home#/costEstimator")
 3. The page should automatically:
+
    1. Detect the management account in your organization.
    2. Assume the cross-account role.
    3. Load Cost Explorer data with organization-wide usage.
@@ -91,15 +92,19 @@ This alert indicates the cross-account role is not accessible.
 Possibles caused of this alert are:
 
 1. **Role does not exist:** Management account has not created the role yet.
+
    1. **Solution:** Contact your management account administrator to create the role using the setup guidance.
 
 2. **Role name mismatch:** Role name doesn't match exactly.
+
    1. **Solution:** Verify role name is `AwsSecurityHubCostEstimatorCrossAccountRole`.
 
 3. **Trust policy incorrect:** Trust policy doesn't allow your account to assume the role.
+
    1. **Solution:** Verify trust policy includes your account ID and role name.
 
 4. **Missing AssumeRole permission:** Your IAM principal lacks `sts:AssumeRole`.
+
    1. **Solution:** Contact your administrator to add `sts:AssumeRole` permission.
 
 **To view detailed setup instructions:** Click "View instructions" link in the alert to open a modal with step-by-step guidance and policy templates.

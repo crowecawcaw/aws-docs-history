@@ -68,6 +68,7 @@ required policy, see [CloudWatch Logs permissions](../../../eventbridge/latest/u
 11. For **AWS service**, choose
     **Security Hub**.
 12. For **Event type**, do one of the following:
+
     - To create a rule to apply when you send findings to a custom
       action, choose **Security Hub Findings - Custom
       Action**.

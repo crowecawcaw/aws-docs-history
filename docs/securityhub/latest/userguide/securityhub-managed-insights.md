@@ -225,6 +225,7 @@ Security Best Practices/Network Reachability`
 **Finding filters:**
 
 - Type starts with one of the following:
+
   - `Software and Configuration Checks/Industry and
 Regulatory Standards/`
   - `Software and Configuration Checks/AWS Security Best
@@ -273,6 +274,7 @@ Security Best Practices/Network Reachability`
 **Finding filters:**
 
 - Type starts with one of the following:
+
   - `Effects/Data Exfiltration/Trojan`
   - `TTPs/Initial Access/Trojan`
   - `TTPs/Command and Control/Backdoor`
@@ -293,6 +295,7 @@ Security Best Practices/Network Reachability`
 **Finding filters:**
 
 - Type starts with one of the following:
+
   - `Effects/Resource
 Consumption/Cryptocurrency`
   - `TTPs/Command and Control/CryptoCurrency`
@@ -310,6 +313,7 @@ Consumption/Cryptocurrency`
 **Finding filters:**
 
 - Type starts with one of the following:
+
   - `TTPs/Command and
 Control/UnauthorizedAccess`
   - `TTPs/Initial Access/UnauthorizedAccess`

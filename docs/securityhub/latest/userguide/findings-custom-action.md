@@ -9,6 +9,7 @@ to it. For more information and detailed steps on creating custom actions, see [
 
 1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. To display a finding list, do one of the following:
+
    - In the Security Hub CSPM navigation pane, choose **Findings**.
    - In the Security Hub CSPM navigation pane, choose **Insights**. Choose an insight.
      Then on the results list, choose an insight result.

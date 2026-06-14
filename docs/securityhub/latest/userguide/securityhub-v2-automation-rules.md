@@ -119,6 +119,7 @@ You can modify rule order at any time.
 **Rule A (rule order is `1`)**:
 
 - Rule A criteria
+
   - `ProductName` = `Security Hub CSPM`
   - `Resources.Type` is `S3 Bucket`
   - `Compliance.Status` = `FAILED`
@@ -126,6 +127,7 @@ You can modify rule order at any time.
   - `Workflow.Status` = `ACTIVE`
 
 - Rule A actions
+
   - Update `Confidence` to `95`
   - Update `Severity` to `CRITICAL`
   - Update `Comment` to `This needs attention`
@@ -133,9 +135,11 @@ You can modify rule order at any time.
 **Rule B (rule order is `2`)**:
 
 - Rule B criteria
+
   - `AwsAccountId` = `123456789012`
 
 - Rule B actions
+
   - Update `Severity` to `INFORMATIONAL`
 
 First, Rule A actions apply to Security Hub findings that match Rule A criteria.

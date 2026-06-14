@@ -19,6 +19,7 @@ When you choose an attribute value, Security Hub CSPM displays the list of match
 
 1. Open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. To display a findings list, take one of the following actions from the navigation pane:
+
    - Choose **Findings**.
    - Choose **Insights**. Choose an insight.
      Then, on the results list, choose an insight result.

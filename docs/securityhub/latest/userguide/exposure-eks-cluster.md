@@ -22,11 +22,13 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits for Amazon EKS clusters](exposure-eks-cluster.md#eks-cluster-misconfiguration "exposure-eks-cluster.md#eks-cluster-misconfiguration")
+
   - [The Amazon EKS cluster allows public access](exposure-eks-cluster.md#internet-reachable "exposure-eks-cluster.md#internet-reachable")
   - [The Amazon EKS cluster uses an unsupported Kubernetes version](exposure-eks-cluster.md#unsupported-kubernetes-version "exposure-eks-cluster.md#unsupported-kubernetes-version")
   - [The Amazon EKS cluster uses unencrypted Kubernetes secrets](exposure-eks-cluster.md#unencrypted-kubernetes-secrets "exposure-eks-cluster.md#unencrypted-kubernetes-secrets")
 
 - [Vulnerability traits for Amazon EKS clusters](exposure-eks-cluster.md#vulnerability "exposure-eks-cluster.md#vulnerability")
+
   - [The Amazon EKS cluster has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-eks-cluster.md#high-priority-vulnerability "exposure-eks-cluster.md#high-priority-vulnerability")
   - [The Amazon EKS cluster has a container with software vulnerabilities](exposure-eks-cluster.md#low-priority-vulnerability "exposure-eks-cluster.md#low-priority-vulnerability")
   - [The Amazon EKS cluster has a container with an End-Of-Life operating system](exposure-eks-cluster.md#end-of-life-operating-system-detected "exposure-eks-cluster.md#end-of-life-operating-system-detected")

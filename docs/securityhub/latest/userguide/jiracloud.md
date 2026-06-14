@@ -62,6 +62,7 @@ Associating a Jira project with the app ensures that the necessary custom fields
 3. From the list of apps, choose **AWS Security Hub for Jira Cloud**.
 4. Choose the **Connector settings** tab.
 5. Under **Projects enabled**, choose **Add Jira Project**.
+
    1. From the dropdown, choose **Add all**, or select a project.
       Repeat this part of the step if you want to add more than one project, but not all projects.
    2. Choose **Save**.
@@ -98,6 +99,7 @@ Afterwards, you are returned to the AWS Region where the connector is being crea
 3. Choose **Add Jira Cloud**.
 4. For **Details**, enter a unique and descriptive name for your integration, and determine whether to enter an optional description for your integration.
 5. For **Encryptions** choose how you want to encrypt your integration credentials within Security Hub.
+
    - **Use AWS owned key** - With this option a Security Hub owned service key will be used to encrypt your integration credential data within Security Hub.
    - **Choose a different KMS key (advanced)** - With this option you choose an AWS KMS key that you have created which you want to be used for encrypting your integration credential data within Security Hub.
      For information about how to create an AWS KMS key, see [Create a AWS KMS key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the _AWS Key Management Service Developer Guide_.

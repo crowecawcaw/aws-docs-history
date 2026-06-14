@@ -22,6 +22,7 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits for Amazon ECS services](exposure-ecs-service.md#ecs-service-misconfiguration "exposure-ecs-service.md#ecs-service-misconfiguration")
+
   - [The Amazon ECS service uses a task definition that allows containers to access the root file systems](exposure-ecs-service.md#root-access-to-filesystem "exposure-ecs-service.md#root-access-to-filesystem")
   - [The Amazon ECS service uses a task definition configured to share a host's process namespace](exposure-ecs-service.md#exposed-namespace "exposure-ecs-service.md#exposed-namespace")
   - [The Amazon ECS service uses a task definition configured with cleartext credentials in the environment variables](exposure-ecs-service.md#cleartext-credentials-present "exposure-ecs-service.md#cleartext-credentials-present")
@@ -32,6 +33,7 @@ The remediation guidance provided in this topic might require additional consult
   - [The IAM Role associated with the ECS service has a Service Admin Policy](exposure-ecs-service.md#service-admin-policy "exposure-ecs-service.md#service-admin-policy")
 
 - [Vulnerability traits for Amazon ECS services](exposure-ecs-service.md#vulnerability "exposure-ecs-service.md#vulnerability")
+
   - [The Amazon ECS service has a container with network-exploitable software vulnerabilities with a high likelihood of exploitation](exposure-ecs-service.md#high-priority-vulnerability "exposure-ecs-service.md#high-priority-vulnerability")
   - [The Amazon ECS service has a container with software vulnerabilities](exposure-ecs-service.md#low-priority-vulnerability "exposure-ecs-service.md#low-priority-vulnerability")
   - [The Amazon ECS service has a container with an End-Of-Life operating system](exposure-ecs-service.md#end-of-life-operating-system-detected "exposure-ecs-service.md#end-of-life-operating-system-detected")

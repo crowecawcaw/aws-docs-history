@@ -22,6 +22,7 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits for Amazon S3 buckets](exposure-s3-bucket.md#misconfiguration "exposure-s3-bucket.md#misconfiguration")
+
   - [The Amazon S3 bucket has versioning disabled](exposure-s3-bucket.md#versioning-disabled "exposure-s3-bucket.md#versioning-disabled")
   - [The Amazon S3 bucket has Object Lock disabled](exposure-s3-bucket.md#object-lock-disabled "exposure-s3-bucket.md#object-lock-disabled")
   - [Amazon S3 bucket is not encrypted at rest with AWS KMS keys](exposure-s3-bucket.md#sse-kms-not-used "exposure-s3-bucket.md#sse-kms-not-used")
@@ -29,10 +30,12 @@ The remediation guidance provided in this topic might require additional consult
   - [The Amazon S3 bucket allows principals from other AWS accounts to modify bucket permissions](exposure-s3-bucket.md#external-aws-access-allowed "exposure-s3-bucket.md#external-aws-access-allowed")
 
 - [Reachability traits for Amazon S3 buckets](exposure-s3-bucket.md#reachability "exposure-s3-bucket.md#reachability")
+
   - [The Amazon S3 bucket has public read access](exposure-s3-bucket.md#public-read-allowed "exposure-s3-bucket.md#public-read-allowed")
   - [The Amazon S3 bucket has public write access](exposure-s3-bucket.md#public-write-allowed "exposure-s3-bucket.md#public-write-allowed")
 
 - [Sensitive data traits for Amazon S3 buckets](exposure-s3-bucket.md#sensitive-data "exposure-s3-bucket.md#sensitive-data")
+
   - [Sensitive data traits for Amazon S3 buckets](exposure-s3-bucket.md#sensitive-data-present "exposure-s3-bucket.md#sensitive-data-present")
 
 ## Misconfiguration traits for Amazon S3 buckets

@@ -18,6 +18,7 @@ For more information, see [Creating a policy as the delegated administrator to m
    Open the Security Hub console at [https://console.aws.amazon.com/securityhub/v2/home](https://console.aws.amazon.com/securityhub/v2/home "https://console.aws.amazon.com/securityhub/v2/home").
 2. From the navigation pane, choose **General**.
 3. For **Delegated administrator policy**, do one of the following:
+
    1. (Option 1)
       Choose **Create policy**.
       Select the box under the policy statement to confirm Security Hub will automatically create a delegation policy granting all required permission to the delegated administrator.

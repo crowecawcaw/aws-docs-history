@@ -55,6 +55,7 @@ For information about creating the delegated administrator policy in Security Hu
    To fully configure Security Hub it is recommended to choose **Security Hub (essential and additional capabilities)**.
 4. On the **Configure Security Hub** page in the **Details** section enter a name and a description for the policy.
 5. In the **Security capabilities** section do one of the following:
+
    1. (Option 1) Choose **Enable all capabilities**.
       This will turn on all of the Security Hub essential capabilties, threat analytics, and additional capabilties.
    2. (Option 2) Choose **Customize capabilities**.

@@ -30,6 +30,7 @@ Console
 
 1. Using the credentials of the Security Hub CSPM administrator, open the AWS Security Hub CSPM console at [https://console.aws.amazon.com/securityhub/](https://console.aws.amazon.com/securityhub/ "https://console.aws.amazon.com/securityhub/").
 2. Depending on the type of resource that you want to add a tag to, do one of the following:
+
    - To review the tags for an automation rule, choose **Automations** in the navigation pane.
      Then, choose an automation rule.
    - To review the tags for a configuration policy, choose **Configuration** in the navigation pane.

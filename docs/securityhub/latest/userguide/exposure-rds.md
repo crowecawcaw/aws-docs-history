@@ -21,6 +21,7 @@ The remediation guidance provided in this topic might require additional consult
 ###### Contents
 
 - [Misconfiguration traits for Amazon RDS instances and clusters](exposure-rds.md#rds-instance-cluster-misconfiguration "exposure-rds.md#rds-instance-cluster-misconfiguration")
+
   - [The Amazon RDS DB instance is configured with public access](exposure-rds.md#public-access-configured "exposure-rds.md#public-access-configured")
   - [The Amazon RDS DB cluster has a snapshot that's shared publicly](exposure-rds.md#publicly-available-rds-cluster-snapshot "exposure-rds.md#publicly-available-rds-cluster-snapshot")
   - [The Amazon RDS DB instance has a snapshot that's shared publicly](exposure-rds.md#publicly-available-rds-database-snapshot "exposure-rds.md#publicly-available-rds-database-snapshot")
