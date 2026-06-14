@@ -91,6 +91,7 @@ Choose one of these options to map your CSV columns to Customer Profiles attribu
    mappings to standard profile attributes.
 3. Review the suggested mappings.
 4. Optional: Customize the mappings:
+
    - Modify standard profile attribute mappings.
    - Add custom attributes using the format:
      `Attributes.`attribute-name``.
@@ -99,6 +100,7 @@ Choose one of these options to map your CSV columns to Customer Profiles attribu
 ### Option 2: Manual mapping
 
 1. Map each CSV column header to a profile attribute:
+
    - Use standard profile attributes. For a complete list, see
      [Standard profile definition in the Connect Customer Customer Profiles](standard-profile-definition.md "standard-profile-definition.md").
    - Create custom attributes using the format:
@@ -127,10 +129,12 @@ using AI-powered or manual mapping.
 Specify when imported profiles expire.
 
 1. Choose an expiry option:
+
    - Default: 14 days from import date
    - Custom: Select a date using the date picker
 
 2. For custom expiry dates:
+
    - Minimum: 1 day after import
    - Maximum: 90 days after import
 
@@ -150,6 +154,7 @@ selecting a custom date.
 1. Review your configuration.
 2. Choose **Create segment**.
 3. The system will:
+
    - Upload your CSV file.
    - Create/update profiles based on the data.
    - Group the profiles into a segment.
@@ -161,6 +166,7 @@ Monitor import progress
 - The notification banner shows that the import job is in
   progress.
 - The import job details table shows:
+
   - File name
   - Import job creation date
   - Import job completion date

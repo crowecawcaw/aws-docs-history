@@ -61,7 +61,7 @@ Attribute 1 in the [AttributesBar](https://d3irlmavjxd3d8.cloudfront.net/?path=/
   `$.myAttributeValue`. The [Show view](show-view-block.md "show-view-block.md") block now has a
   `myAttributeValue` field that expects a string input.
 
-![The Properties of the AttributeBar component, a Value that's dynamic.](images/no-code-ui-builder-dynamic-example2.png)
+![The Properties of the AttributeBar component, a Value that is dynamic.](images/no-code-ui-builder-dynamic-example2.png)
 
 ###### Important
 
@@ -70,7 +70,7 @@ For example, you can't use a string-based dynamic reference in a Boolean field.
 The following image shows an example error message when the dynamic reference
 doesn't match.
 
-![The Customize panel, an error message because the dynamic reference doesn't match the expected type in the field.](images/no-code-ui-builder-properties-dynamic-fields-example-4.png)
+![The Customize panel, an error message because the dynamic reference does not match the expected type in the field.](images/no-code-ui-builder-properties-dynamic-fields-example-4.png)
 You also have the option to set all properties of an attribute in a component as
 dynamic. In the following image, everything about this attribute, including the
 label, is determined at runtime based on the values passed into the [Show view](show-view-block.md "show-view-block.md") block. For

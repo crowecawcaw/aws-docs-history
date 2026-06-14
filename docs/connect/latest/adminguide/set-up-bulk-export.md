@@ -259,11 +259,17 @@ begin to see data being copied over to your S3 bucket.
 The exported data is written using the following path structure:
 
 - {BucketNameAndFolderName}
+
   - {AwsAccountId}
+
     - {DomainName}
+
       - {RequestTimestamp}
+
         - {lStartTime}-{EndTime}
+
           - {ObjectTypeName}
+
             - <filename: uuid>
 
 Following is an example path:

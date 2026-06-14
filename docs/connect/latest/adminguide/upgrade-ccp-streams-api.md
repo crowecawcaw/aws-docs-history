@@ -15,6 +15,7 @@ Use the following steps to upgrade to the latest CCP.
    about `initCCP()`, see [connect.core.initCCP()](https://github.com/aws/amazon-connect-streams#initialization "https://github.com/aws/amazon-connect-streams#initialization") in the Connect Customer Streams API documentation on
    GitHub.
 3. Add your domain URL to the Approved origin list:
+
    1. Log in to the [AWS Management
       Console](https://console.aws.amazon.com/console "https://console.aws.amazon.com/console") (https://console.aws.amazon.com/console) using your
       AWS account.

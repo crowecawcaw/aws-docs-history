@@ -192,7 +192,7 @@ external application data mapping for the object to define how your
 data source is mapped to profiles. Choose
 **Next**.
 
-![Select data mapping page, mapping dropdown box.](images/customer-profiles-ea-data-source-integ-step5.png) 6. Review and choose **Add data Source
+![Data mapping page, mapping dropdown box.](images/customer-profiles-ea-data-source-integ-step5.png) 6. Review and choose **Add data Source
 Integration**. The datasource integration of the external
 application will initially show as pending before moving to an
 active state.

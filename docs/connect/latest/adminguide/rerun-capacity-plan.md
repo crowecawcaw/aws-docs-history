@@ -5,7 +5,7 @@ end date, or the scenario. When there are no changes to plan inputs or the scena
 the **Re-run plan** option is not active, as shown in the following
 image.
 
-![The capacity plans page showing the Actions dropdown menu with the re-run plan option disabled because no changes have been made to plan inputs or scenario.](images/wfm-capacity-planning-rerun-plan.png)
+![The capacity plans page showing the Actions dropdown menu with the re-run plan option disabled.](images/wfm-capacity-planning-rerun-plan.png)
 
 ###### To re-run a plan
 

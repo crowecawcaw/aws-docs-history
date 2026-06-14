@@ -64,7 +64,7 @@ Following are some examples:
 3. The following image shows an example of how this information appears
    in the agent's CCP.
 
-![A task in the agent's Contact Control Panel.](images/contact-lens-rules-add-tasks-ccp.png)
+![A task in the agent Contact Control Panel.](images/contact-lens-rules-add-tasks-ccp.png)
 
 In this example, the agent sees the following values for
 **Name**, **Description**, and

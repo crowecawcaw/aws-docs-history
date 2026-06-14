@@ -26,6 +26,7 @@ creating flows.
   there are periods prepended to the attribute names, you are likely using
   JSONPath ($.) format while also selecting a variable type from the pick list.
   For example, using:
+
   - **Save text as attribute** and value
     `$.External.variableName` works as expected.
   - `Set dynamically` and value `variableName` works
@@ -41,6 +42,7 @@ creating flows.
   **Check queue status** blocks. Include a condition for
   **Queue capacity** that is greater than X, where X is a
   number representing your expected queue capacity.
+
   - If queue capacity exceeds the expected capacity, use a **Get
     Customer Input** block to offer a callback. This retains
     the caller's position in the queue and calls them back when an agent is

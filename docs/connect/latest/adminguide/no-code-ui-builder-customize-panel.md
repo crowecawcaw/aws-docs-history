@@ -36,6 +36,7 @@ view:
 - Use the **Alignment** section to specify the relative
   location of components to the left, center, or right of the view.
 - Choose three color fields:
+
   - Primary color
   - Secondary color
   - Neutral color

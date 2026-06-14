@@ -8,11 +8,13 @@ answering machine, and providing the appropriate branches to route the contact.
 - Engages with the output provided by an answering machine, and provides
   branches to route the contact accordingly.
 - It supports the following branches:
+
   - **Call answered**: The call has been answered by
     a person.
   - **Voicemail (beep)**: Connect Customer identifies that the
     call ended in a voicemail and it detects a beep.
   - **Voicemail (no beep)**:
+
     - Connect Customer identifies that the call ended in a voicemail but it
       doesn't detect a beep.
     - Connect Customer identifies that the call ended in a voicemail, but

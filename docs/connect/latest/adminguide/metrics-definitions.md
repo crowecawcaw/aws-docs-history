@@ -66,6 +66,7 @@ Agent is identified by its unique combination of `Name` and `Version`.
 **Calculation logic**:
 
 - For each AI Agent record
+
   - If aiAgentId is NOT present, then skip this record.
   - If aiAgentNameVersion is present, then return noncontroversial.
 
@@ -190,6 +191,7 @@ configured timeout is reached.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AfterContactWorkDuration is present, then set result =
     Agent.AfterContactWorkDuration.
   - Else, if Agent.ConnectedToAgentTimestamp (the contact was connected to
@@ -372,6 +374,7 @@ supports filtering and grouping by channel = CHAT.
 **Calculation logic**:
 
 - For each contact record
+
   - If `QueueInfo.EnqueueTimestamp` and
     `ChatMetrics.ContactMetrics.AgentFirstResponseTimestamp`
     attributes are not present, skip the contact record
@@ -531,6 +534,7 @@ and outbound calls.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AgentInteractionDuration is present, then set
     agent_interaction = Agent.AgentInteractionDuration.
   - If Agent.CustomerHoldDuration is present, then set customer_hold =
@@ -562,6 +566,7 @@ Work Time](#after-contact-work-time "#after-contact-work-time"), or agent pause 
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AgentInteractionDuration is NOT present, then skip this
     record.
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
@@ -817,7 +822,7 @@ agent.
 
 **How to access using the Connect Customer API**:
 
-- [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData .md "../APIReference/API_GetCurrentMetricData .md") API metric identifier:
+- [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `AGENTS_ON_CONTACT`
 
 Legacy API Identifier: AGENTS_ON_CALL (still supported)
@@ -906,6 +911,7 @@ initially handle customer inquiries.
 **Calculation logic**:
 
 - For each AI Agent record
+
   - If aiAgentId is NOT present, then skip this record.
   - If aiAgentNameVersion is present, then return noncontroversial.
 
@@ -958,6 +964,7 @@ AI-Agents per instance.
 **Calculation logic**:
 
 - For each AI Agent record
+
   - If aiAgentId is present, then count this record as 1.
   - Else, skip this record.
 
@@ -1033,6 +1040,7 @@ This metric measures the count of AI suggestions rated as helpful with a thumbs-
 **Calculation logic**:
 
 - For each AI Agent record
+
   - If aiAgentId is NOT present, then skip this record.
   - If helpfulResponseCount is present, then set result = helpfulResponseCount.
   - Else, skip this record.
@@ -1065,6 +1073,7 @@ This metric measures the count of AI suggestions rated as unhelpful with a thumb
 **Calculation logic**:
 
 - For each AI Agent record
+
   - If aiAgentId is NOT present, then skip this record.
   - If unhelpfulResponseCount is present, then set result = unhelpfulResponseCount.
   - Else, skip this record.
@@ -1128,6 +1137,7 @@ customer inquiries.
 **Calculation logic**:
 
 - For each AI session record
+
   - If contactId is NOT present, then skip this record.
   - If sessionId is NOT present, then skip this record.
   - Else, count this record as 1.
@@ -1151,6 +1161,7 @@ Prompts](create-ai-prompts.md "create-ai-prompts.md") invocations that executed 
 **Calculation logic**:
 
 - For each AI Prompt record
+
   - If aiPromptId is NOT present, then skip this record.
   - If invocationSuccess is present and equals true, then count this record as 1.
   - Else, count this record as 0.
@@ -1203,6 +1214,7 @@ This metric measures the total count of [AI Prompts](create-ai-prompts.md "creat
 **Calculation logic**:
 
 - For each AI Prompt record
+
   - If aiPromptId is present, then count this record as 1.
   - Else, skip this record.
 
@@ -1225,6 +1237,7 @@ executed successfuly.
 **Calculation logic**:
 
 - For each AI Tool record
+
   - If aiToolId is NOT present, then skip this record.
   - If invocationSuccess is present and equals true, then count this record as 1.
   - Else, count this record as 0.
@@ -1276,6 +1289,7 @@ This metric measures the percentage of [AI Tools](ai-agent-mcp-tools.md "ai-agen
 **Calculation logic**:
 
 - For each AI Tool record
+
   - If aiToolId is present, then count this record as 1.
   - Else, skip this record.
 
@@ -1303,6 +1317,7 @@ provided the correct parameters. Value is between 0-1, where 1 indicates perfect
 **Calculation logic**:
 
 - For each AI Tool record
+
   - If aiToolId is NOT present, then skip this record.
   - If toolParameterAccuracy is present, then set result = toolParameterAccuracy.
   - Else, skip this record.
@@ -1336,6 +1351,7 @@ Value is between 0-1, where 1 indicates optimal selection.
 **Calculation logic**:
 
 - For each AI Tool record
+
   - If aiToolId is NOT present, then skip this record.
   - If toolSelectionAccuracy is present, then set result = toolSelectionAccuracy.
   - Else, skip this record.
@@ -1369,6 +1385,7 @@ including proper parameters and selection. Value is between 0-1, where 1 indicat
 **Calculation logic**:
 
 - For each AI Tool record
+
   - If aiToolId is NOT present, then skip this record.
   - If toolUtilizationAccuracy is present, then set result = toolUtilizationAccuracy.
   - Else, skip this record.
@@ -1402,6 +1419,7 @@ Agents](create-ai-agents.md "create-ai-agents.md") took to reach an outcome.
 **Calculation logic**:
 
 - For each AI Agent record
+
   - If aiAgentId is NOT present, then skip this record.
   - If conversationTurnsInResponse is present, then set result = conversationTurnsInResponse.
   - Else, skip this record.
@@ -1429,6 +1447,7 @@ This metric measures the average number of conversation turns across all AI invo
 **Calculation logic**:
 
 - For each AI session record
+
   - If contactId is NOT present, then skip this record.
   - If sessionId is NOT present, then skip this record.
   - If avgConversationTurnsInResponse is present, then set result = avgConversationTurnsInResponse.
@@ -1458,6 +1477,7 @@ milliseconds.
 **Calculation logic**:
 
 - For each AI Prompt record
+
   - If aiPromptId is NOT present, then skip this record.
   - If invocationLatency is present, then set result = invocationLatency.
   - Else, skip this record.
@@ -1486,6 +1506,7 @@ milliseconds.
 **Calculation logic**:
 
 - For each AI Tool record
+
   - If aiToolId is NOT present, then skip this record.
   - If invocationLatency is present, then set result = invocationLatency.
   - Else, skip this record.
@@ -1515,6 +1536,7 @@ answers. Value is between 0-1, where 1 indicates complete responses across all s
 **Calculation logic**:
 
 - For each AI session record
+
   - If contactId is NOT present, then skip this record.
   - If sessionId is NOT present, then skip this record.
   - If conversationCompletenessScore is present, then set result = conversationCompletenessScore.
@@ -1550,6 +1572,7 @@ Value is between 0-1, where 1 indicates perfect contextual fidelity.
 **Calculation logic**:
 
 - For each AI session record
+
   - If contactId is NOT present, then skip this record.
   - If sessionId is NOT present, then skip this record.
   - If conversationFaithfulnessScore is present, then set result = conversationFaithfulnessScore.
@@ -1585,6 +1608,7 @@ across all sessions.
 **Calculation logic**:
 
 - For each AI session record
+
   - If contactId is NOT present, then skip this record.
   - If sessionId is NOT present, then skip this record.
   - If goalSuccessRate is present, then set result = goalSuccessRate.
@@ -1619,6 +1643,7 @@ Agents](create-ai-agents.md "create-ai-agents.md").
 **Calculation logic**:
 
 - For each KnowledgeBase record
+
   - If knowledgeBaseId is present, then count this record as 1.
   - Else, skip this record.
 
@@ -1640,6 +1665,7 @@ This metric measures the number of proactive intents (customer queries) that wer
 **Calculation logic**:
 
 - For each AI session record
+
   - If If contactId is NOT present, then skip this record.
   - If sessionId is NOT present, then skip this record.
   - If proactiveIntentsAnswered is present, then set result = proactiveIntentsAnswered.
@@ -1664,6 +1690,7 @@ particularly for Agent Assistance use cases.
 **Calculation logic**:
 
 - For each AI session record
+
   - If If contactId is NOT present, then skip this record.
   - If sessionId is NOT present, then skip this record.
   - If proactiveIntentsDetected is present, then set result = proactiveIntentsDetected.
@@ -1688,6 +1715,7 @@ particularly for Agent Assistance use cases.
 **Calculation logic**:
 
 - For each AI session record
+
   - If If contactId is NOT present, then skip this record.
   - If sessionId is NOT present, then skip this record.
   - If proactiveIntentsEngaged is present, then set result = proactiveIntentsEngaged.
@@ -1772,6 +1800,7 @@ parameter set as follows:
 **Calculation logic**:
 
 - For each contact record
+
   - If CONTACTS_CREATED with INITIATION_METHOD = API, then count this
     record.
 
@@ -1808,6 +1837,7 @@ parameter set as follows:
 **Calculation logic**:
 
 - For each contact record
+
   - If CONTACTS_HANDLED with INITIATION_METHOD = API, then count this
     record.
 
@@ -1955,6 +1985,7 @@ status.)
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AgentInteractionDuration > 0, then set agent_interaction =
     Agent.AgentInteractionDuration.
   - If Agent.CustomerHoldDuration > 0, then set customer_hold =
@@ -1991,6 +2022,7 @@ This metric measures the average time that an agent spent doing After Contact Wo
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AfterContactWorkDuration is present, then set result =
     Agent.AfterContactWorkDuration.
   - Else, if Agent.ConnectedToAgentTimestamp (the contact was connected to
@@ -2087,6 +2119,7 @@ CHAT.
 **Calculation logic**:
 
 - For every contact record:
+
   - If
     `ChatMetrics.ContactMetrics.AgentFirstResponseTimeInMillis`
     is absent, skip the contact record
@@ -2190,6 +2223,7 @@ outbound calls.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AgentInteractionDuration is present, then set
     agent_interaction = Agent.AgentInteractionDuration.
   - If Agent.CustomerHoldDuration is present, then set customer_hold =
@@ -2226,6 +2260,7 @@ Work Time](#after-contact-work-time "#after-contact-work-time"), or agent pause 
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AgentInteractionDuration is NOT present, then skip this
     record.
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
@@ -2321,10 +2356,12 @@ only supports filtering and grouping by channel = CHAT.
 **Calculation logic**:
 
 - For every contact record:
+
   - If either `ChatMetrics.AgentMetrics.MessageLengthInChars`
     or `ChatMetrics.AgentMetrics.MessagesSent` are null or not
     present skip the contact record
   - If present then:
+
     - set messageLengthInCharsResult =
       `ChatMetrics.AgentMetrics.MessageLengthInChars`
     - set messagesSentResult =
@@ -2357,6 +2394,7 @@ only supports filtering and grouping by channel = CHAT.
 **Calculation logic**:
 
 - For every contact record:
+
   - If `ChatMetrics.AgentMetrics.MessagesSent` attribute is not
     present skip the contact record
   - If present, set result =
@@ -2428,6 +2466,7 @@ the report for them.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AgentPauseDuration > 0, then set result =
     Agent.AgentPauseDuration.
   - Else, skip the record.
@@ -2466,10 +2505,12 @@ message. This metric calculation includes the total time from the customer's
 first message to the agent's first message.
 
 - For every contact record:
+
   - If `ChatMetrics.AgentMetrics.TotalResponseTimeInMillis` or
     `ChatMetrics.AgentMetrics.NumResponses` is missing skip
     the contact record
   - If present,
+
     - set totalResponseTimeInMillisResult =
       `ChatMetrics.AgentMetrics.TotalResponseTimeInMillis`
     - set numResponsesResult =
@@ -2594,6 +2635,7 @@ only supports filtering and grouping by channel = CHAT.
 **Calculation logic**:
 
 - For each contact record
+
   - If `ChatMetrics.ContactMetrics.TotalBotMessages` is absent,
     skip the contact record
   - If present, set result =
@@ -2642,7 +2684,9 @@ timestamp to disconnect timestamp. For information about a contact, see [Contact
 **Calculation logic**:
 
 - For each contact record
+
   - If ContactTraceRecord.InitiationTimestamp is present, then
+
     - set result = ContactTraceRecord.DisconnectTimestamp -
       ContactTraceRecord.InitiationTimestamp.
 
@@ -2696,6 +2740,7 @@ CHAT.
 **Calculation logic**:
 
 - For each contact record calculate:
+
   - If
     `ChatMetrics.ContactMetrics.ConversationCloseTimeInMillis`
     attribute is not present, skip the record
@@ -2763,6 +2808,7 @@ notice a value of 0 on the report for them.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
     record.
   - If Agent.CustomerHoldDuration is NOT present, then skip this record.
@@ -2797,6 +2843,7 @@ calculation includes contacts that were never put on hold.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
     record.
   - If Agent.CustomerHoldDuration is NOT present, then skip this record.
@@ -2833,11 +2880,13 @@ It only supports filtering and grouping by channel = CHAT.
 **Calculation logic**:
 
 - For every contact record:
+
   - If either
     `ChatMetrics.CustomerMetrics.MessageLengthInChars` or
     `ChatMetrics.CustomerMetrics.MessagesSent` attributes are
     not present skip the record
   - If present, then:
+
     - set messageLengthInCharsResult =
       `ChatMetrics.CustomerMetrics.MessageLengthInChars`
     - set messagesSentResult =
@@ -2870,6 +2919,7 @@ only supports filtering and grouping by channel = CHAT.
 **Calculation logic**:
 
 - From each contact record:
+
   - If `ChatMetrics.CustomerMetrics.MessagesSent` attribute is
     not present skip the record
   - If present, set result =
@@ -2905,10 +2955,12 @@ CHAT.
 **Calculation logic**:
 
 - For every contact record:
+
   - If `ChatMetrics.CustomerMetrics.TotalResponseTimeInMillis`
     or `ChatMetrics.CustomerMetrics.NumResponses` attributes are
     not present skip the record
   - If present,
+
     - set totalResponseTimeInMillisResult =
       `ChatMetrics.CustomerMetrics.TotalResponseTimeInMillis`
     - set numResponsesResult =
@@ -3076,6 +3128,7 @@ identifying opportunities for process improvements and training.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AgentInteractionDuration is present, then set
     agent_interaction = Agent.AgentInteractionDuration.
   - If Agent.CustomerHoldDuration is present, then set customer_hold =
@@ -3116,6 +3169,7 @@ optimization.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.NumberOfHolds is present, then set result =
     Agent.NumberOfHolds.
   - Else, set result = 0.
@@ -3147,6 +3201,7 @@ supports filtering and grouping by channel = CHAT.
 **Calculation logic**:
 
 - For each contact record
+
   - If `ChatMetrics.ContactMetrics.TotalMessages` is not
     present, then skip the contact record.
   - If present, set result =
@@ -3244,6 +3299,7 @@ parameter set as follows:
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AgentInteractionDuration is NOT present, then skip this
     record.
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
@@ -3286,6 +3342,7 @@ staffing, leading to poor customer satisfaction.
 **Calculation logic**:
 
 - For each contact record
+
   - If QueueInfo.EnqueueTimestamp is NOT present, then skip this
     record.
   - If QueueInfo.Duration is NOT present, then skip this record.
@@ -3319,6 +3376,7 @@ considered abandoned if it was removed from a queue but not answered by an agent
   `AVG_ABANDON_TIME`
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
+
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
@@ -3329,6 +3387,7 @@ considered abandoned if it was removed from a queue but not answered by an agent
 **Calculation logic**:
 
 - For each contact record
+
   - If QueueInfo.EnqueueTimestamp is NOT present, then skip this
     record.
   - If QueueInfo.Duration is NOT present, then skip this record.
@@ -3384,6 +3443,7 @@ better a customer experience.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
     record.
   - If QueueInfo.EnqueueTimestamp is NOT present, then skip this
@@ -3415,6 +3475,7 @@ first callback before being answered by an agent.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
     record.
   - If ContactTraceRecord.CallbackTotalQueueDurationMillis is NOT present,
@@ -3487,10 +3548,12 @@ contacts, leading to better customer satisfaction.
 **Calculation logic**:
 
 - For each contact record
+
   - If ContactTraceRecord.InitiationTimestamp is NOT present, then skip
     this record.
   - If Agent.AfterContactWorkEndTimestamp is present AND
     Agent.AfterContactWorkEndTimestamp > DisconnectTimestamp, then
+
     - set end_time = Agent.AfterContactWorkEndTimestamp.
 
   - Else, set end_time = DisconnectTimestamp.
@@ -3518,6 +3581,7 @@ remains in queue until the whisper is completed.
   `AVG_QUEUE_ANSWER_TIME`
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
+
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
@@ -3528,6 +3592,7 @@ remains in queue until the whisper is completed.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
     record.
   - If QueueInfo.EnqueueTimestamp is NOT present, then skip this
@@ -3614,6 +3679,7 @@ connected to an agent after they answer their first callback.
 **Calculation logic**:
 
 - For each contact record
+
   - If ContactTraceRecord.AnsweringMachineDetectionStatus is NOT present
     or ContactTraceRecord.AnsweringMachineDetectionStatus is NOT answered by
     a human, then skip this record.
@@ -3837,6 +3903,7 @@ customer did not answer the call.
 **Calculation logic**:
 
 - For each contact record
+
   - If ContactTraceRecord.InitiationMethod is NOT present, then skip this
     record.
   - If Agent.ConnectedToAgentTimestamp, then skip this record.
@@ -3866,6 +3933,7 @@ first time, but the customer did not answer the call.
   `CONTACTS_CREATED`
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
+
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
@@ -3876,6 +3944,7 @@ first time, but the customer did not answer the call.
 **Calculation logic**:
 
 - For each contact record
+
   - If ContactTraceRecord.InitiationMethod is NOT present, then skip this
     record.
   - If Agent.ConnectedToAgentTimestamp, then skip this record.
@@ -4278,12 +4347,14 @@ Outbound contacts don't start in a flow, so outbound contacts aren't included.
 **Calculation logic**:
 
 - For each contact record
+
   - If InitiationMethod not in
     ['INBOUND','TRANSFER','QUEUE\_TRANSFER','API'], then skip this
     record.
   - If ConnectedToSystemTimestamp IS NOT present, then set result =0 and
     skip below steps for this record.
   - Else
+
     - contactFlowEndTime = DisconnectTimestamp
     - If TransferCompletedTimestamp is present, then set
       contactFlowEndTime = TransferCompletedTimestamp
@@ -4318,6 +4389,7 @@ example, Training would be a custom status.)
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.AgentInteractionDuration is present, then set
     agent_interaction = Agent.AgentInteractionDuration.
   - If Agent.CustomerHoldDuration is present, then set customer_hold =
@@ -4385,6 +4457,7 @@ for the first callback.
   `CONTACTS_CREATED`
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
+
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK
 
@@ -4423,6 +4496,7 @@ for the first callback.
   `CONTACTS_CREATED`
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
+
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_QUEUED
 
@@ -4484,6 +4558,7 @@ customers abandoned the queue before being connected to an agent.
 **Calculation logic**:
 
 - For each contact record
+
   - If QueueInfo.EnqueueTimestamp is NOT present, then skip this
     record.
   - If Agent.ConnectedToAgentTimestamp is present, then skip this
@@ -4514,6 +4589,7 @@ abandoned the queue before being connected to an agent.
   `CONTACTS_ABANDONED`
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
+
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
@@ -4524,6 +4600,7 @@ abandoned the queue before being connected to an agent.
 **Calculation logic**:
 
 - For each contact record
+
   - If QueueInfo.EnqueueTimestamp is NOT present, then skip this
     record.
   - If Agent.ConnectedToAgentTimestamp is present, then skip this
@@ -4568,6 +4645,7 @@ have a contact that goes longer than 7 days.
 **Calculation logic**:
 
 - For each contact record
+
   - If QueueInfo.EnqueueTimestamp is NOT present, then skip this
     record.
   - If QueueInfo.Duration is NOT present, then skip this record.
@@ -4652,6 +4730,7 @@ have a contact that goes longer than 7 days.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
     record.
   - If QueueInfo.EnqueueTimestamp is NOT present, then skip this
@@ -4736,6 +4815,7 @@ queue.
 **Calculation logic**:
 
 - For each contact record
+
   - If PreDisconnectState is present AND PreDisconnectState == “IN_QUEUE”,
     then count this record as 1.
   - Else, skip this record.
@@ -4776,6 +4856,7 @@ handled by their agents.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is present, then count this record
     as 1.
 
@@ -4842,6 +4923,7 @@ dialed for their first callback.
   `CONTACTS_HANDLED`
 - This metric can be retrieved by using a MetricFilters parameter set as
   follows:
+
   - MetricFilterKey = INITIATION_METHOD
   - MetricFilterValues = CALLBACK_CUSTOMER_FIRST_DIALED
 
@@ -4852,6 +4934,7 @@ dialed for their first callback.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is present, then count this record
     as 1.
 
@@ -4957,6 +5040,7 @@ was on hold.
 **Calculation logic**:
 
 - For each contact record
+
   - If ContactTraceRecord.DisconnectReason == AGENT_DISCONNECT and
     PreDisconnectState == CONNECTED_ONHOLD, then count this record as
   1.
@@ -5010,6 +5094,7 @@ hold times or inefficient call handling procedures.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is NOT present, then skip this
     record.
   - If PreDisconnectState is NOT present, then skip this record.
@@ -5035,7 +5120,7 @@ In the real-time metrics report, when queue size is greater than 95% of capacity
 message is displayed, as shown in the following image. For more information about queue
 capacity, see [Set queue capacity](set-maximum-queue-limit.md "set-maximum-queue-limit.md").
 
-![A message that queue size is greater than 95% of total capacity.](images/inqueue-rtm-capacity.png)
+![A message that queue size is greater than 95 percent of total capacity.](images/inqueue-rtm-capacity.png)
 
 **Metric type**: COUNT
 
@@ -5136,6 +5221,7 @@ center performance.
 **Calculation logic**:
 
 - For each contact record
+
   - If QueueInfo.EnqueueTimestamp is present, then count this record as
   1.
 
@@ -5196,6 +5282,7 @@ For X you can choose from pre-set times in seconds: 15, 20, 25, 30, 45, 60, 90, 
 **Calculation logic**:
 
 - For each contact record
+
   - If QueueInfo.Duration is NOT present, then skip this record.
   - If QueueInfo.Duration less than value of X, then count this record as
     1
@@ -5231,10 +5318,12 @@ inquiries within a specified time threshold.
 **Calculation logic**:
 
 - For each contact record
+
   - If InitiationTimestamp is NOT present, then skip this record.
   - If Agent.AfterContactWorkEndTimestamp is present AND
     Agent.AfterContactWorkEndTimestamp is greater than DisconnectTimestamp,
     then:
+
     - set end_time = Agent.AfterContactWorkEndTimestamp.
 
   - Else, set end_time = DisconnectTimestamp.
@@ -5363,6 +5452,7 @@ Following is the difference between **Contacts transferred out** and
 **Calculation logic**:
 
 - For each contact record
+
   - If ContactTraceRecord.TransferCompletedTimestamp is NOT present, then
     skip this record.
   - Else, then count this record.
@@ -5466,6 +5556,7 @@ out from their original queue to a different queue.
 **Calculation logic**:
 
 - For each contact record
+
   - If TransferCompletedTimestamp is NOT present, then skip this
     record.
   - If PreDisconnectState is NOT present, then skip this record.
@@ -5499,6 +5590,7 @@ CHAT.
 **Calculation logic**:
 
 - For each contact record:
+
   - If Either `ChatMetrics.AgentMetrics.ConversationAbandon` or
     `ChatMetrics.CustomerMetrics.ConversationAbandon` is
     absent skip the record
@@ -5563,6 +5655,7 @@ does not include time spent in a queue.
 **Calculation logic**:
 
 - For each contact record
+
   - If Agent.ConnectedToAgentTimestamp is NOT present , then skip this
     record.
   - If Agent.CustomerHoldDuration is NOT present , then skip this
@@ -5804,6 +5897,7 @@ the specified interval
 - Data for this metric is available starting from April 22, 2024 0:00:00
   GMT.
 - System-defined flow outcomes include:
+
   - **DROPPED**: When a contact drops from the flow
     before reaching terminal block.
   - **DISCONNECTED_PARTICIPANT**: When a contact reaches
@@ -6565,7 +6659,7 @@ This metric helps organizations:
 
 **How to access using the Connect Customer API**:
 
-- [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData .md "../APIReference/API_GetCurrentMetricData .md") API metric identifier:
+- [GetCurrentMetricData](../APIReference/API_GetCurrentMetricData.md "../APIReference/API_GetCurrentMetricData.md") API metric identifier:
   `AGENTS_STAFFED`
 
 **How to access using the Connect Customer admin website**:
@@ -6582,16 +6676,19 @@ This metric helps organizations:
 **Common use cases**:
 
 - Workforce Management
+
   - Compare actual vs scheduled staffing
   - Monitor real-time adherence
   - Track staffing efficiency
 
 - Operations Management
+
   - Monitor operational capacity
   - Track agent availability patterns
   - Support intraday management decisions
 
 - Performance Analysis
+
   - Calculate staffing efficiency metrics
   - Analyze staffing patterns
   - Support capacity planning

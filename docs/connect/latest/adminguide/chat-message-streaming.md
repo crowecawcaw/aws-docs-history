@@ -187,6 +187,7 @@ the following topics:
 
 - Call [StartContactStreaming](../APIReference/API_StartContactStreaming.md "../APIReference/API_StartContactStreaming.md") to enable real-time message streaming to your
   SNS topic.
+
   - **Limits**: You can subscribe to up to
     two SNS topics per contact.
   - When you call [StartContactStreaming](../APIReference/API_StartContactStreaming.md "../APIReference/API_StartContactStreaming.md"), you'll need to provide the Amazon
@@ -204,6 +205,7 @@ the following topics:
 
 - Call [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") with the
   `ConnectParticipant` attribute passed as true.
+
   - You must call [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") within five minutes of creating
     the chat.
   - Calling [CreateParticipantConnection](../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md "../../../connect-participant/latest/APIReference/API_CreateParticipantConnection.md") with

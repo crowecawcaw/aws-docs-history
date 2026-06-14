@@ -28,11 +28,13 @@ their mobile device. For instructions, see [Forward calls in the Connect Custome
 ## Supported browsers and mobile OS for in-app, web, and video calling capabilities
 
 - Amazon Chime SDK for iOS and Android:
+
   - iOS version 13 and later
   - Android OS version 8.1 and later, ARM and ARM64
     architecture
 
 - Web browsers for out-of-the-box communications widget and JS SDK
+
   - Latest three versions of Google Chrome, Firefox, Safari, and
     Microsoft Edge Chromium on MacOS, Windows, iOS, and Android.
 

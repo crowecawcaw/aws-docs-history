@@ -144,6 +144,7 @@ https://`instance-id`.`source-region`.sign-in.connect.aws/saml?&instanceId=`inst
 ```
 
 6. Set following fields in the URL parameters:
+
    - `instanceId`: The identifier of your Connect Customer
      instance. For instructions about how to find your instance
      ID, see [Find your Connect Customer instance ID or ARN](find-instance-arn.md "find-instance-arn.md").

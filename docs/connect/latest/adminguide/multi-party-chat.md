@@ -8,7 +8,9 @@ can use quick connects to add participants.
 
 - This feature is only available in CCPv2, agent workspace, and custom
   CCP using Connect Customer Streams.js.
+
   - **IT administrators**:
+
     - By default, chats can have two participants, such as
       an agent and a customer. To enable agents to connect up
       to six parties on a chat, you need to select

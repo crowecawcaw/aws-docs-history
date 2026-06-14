@@ -177,6 +177,7 @@ higher risk for fraud in that call.
 
 - For the **Fraud watch list**, the format is validated
   when the flow is published.
+
   - If a watch list is dynamically set and the format is not valid,
     the contact is routed down the **Error** branch of
     the **Set Voice ID** block.

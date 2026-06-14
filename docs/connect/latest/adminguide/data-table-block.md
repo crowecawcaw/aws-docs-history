@@ -58,8 +58,10 @@ The following image shows the **Properties** page of the **Data Table** block co
 1. Select **Read from data table** as the Action.
 2. Select **Evaluate Data Table values** from the read action dropdown.
 3. Configure Queries:
+
    - You can set up to 5 queries per Data Table block. At least one query is required for each Evaluate Data Table block.
    - For each query:
+
      - **Query Name (Required)** – Provide a descriptive name for the query. Important: Query names must be unique throughout the entire flow, not just within this specific block.
      - **Primary Attributes** – When you manually select a data table, the UI automatically populates the list of primary attributes from that table's schema. All primary attribute fields are required - you must provide values for each primary attribute displayed. These attributes act as filters to identify the specific row(s) in your data table.
      - **Query Attributes** – When you manually select a data table, the dropdown is automatically populated with all available attributes from that table. Select one or more attributes from the dropdown. These are the data fields that will be returned and made available for use in your flow. Retrieved values can be referenced in subsequent blocks using the query name.
@@ -77,20 +79,24 @@ The following image shows the **Properties** page of the **Data Table** block co
 After executing an Evaluate action, you can access the retrieved attribute values using the following namespace format: `$.DataTables.`QueryName`.`AttributeName``. Use brackets and single quotes to reference attribute names with special characters. For example, `$.DataTables.CustomQuery['my attribute name with spaces']`. If using the **Data tables** namespace dynamic dropdown selection, the root namespace, `$.DataTables.`, can be ommitted.
 
 - **Components:**
+
   - `QueryName` – The unique name you assigned to the query in the configuration
   - `AttributeName` – The name of the attribute you selected to retrieve
 
 - **Usage** – These values can be referenced in subsequent flow blocks such as:
+
   - Check contact attributes blocks (for conditional branching)
   - Set contact attributes blocks (to store in other namespaces)
   - Play prompt blocks (to provide personalized messages)
   - Invoke Lambda function blocks (to pass as input parameters)
 
 - **Example** – If you configured a query named "CustomerLookup" that retrieves attributes "accountStatus" and "loyaltyTier":
+
   - Access account status: `$.DataTables.CustomerLookup.accountStatus`
   - Access loyalty tier: `$.DataTables.CustomerLookup.loyaltyTier`
 
 - **Note:**
+
   - If the query returns no results or the attribute is not found, the reference will be empty or null.
   - Data table values of type list are not supported.
   - Subsequent data table blocks will clear previous queries from the data tables namespace.
@@ -133,23 +139,28 @@ The following image shows the **Properties** page of the **Data Table** block co
 After executing a List action, the retrieved data is stored in a structured format. You can access the data using the following namespace patterns:
 
 - **Metadata Access:**
+
   - Data table ID: `$.DataTableList.ResultData.dataTableId`
   - Lock version: `$.DataTableList.ResultData.lockVersion.dataTable`
 
 - **List Data Access** – To access specific data from the list:
+
   - Access a specific row by index: `$.DataTableList.ResultData.primaryKeyGroups.`GroupName`[`index`]`
   - Access primary key value: `$.DataTableList.ResultData.primaryKeyGroups.`GroupName`[`index`].primaryKeys[`index`].attributeValue`
   - Access attribute value: `$.DataTableList.ResultData.primaryKeyGroups.`GroupName`[`index`].attributes[`index`].attributeValue`
 
 - **Usage** – These values can be referenced in subsequent flow blocks such as:
+
   - Set contact attributes blocks (to extract and store specific values)
   - Invoke Lambda function blocks or module (to pass the entire result set for processing)
 
 - **Example** – If you configured a primary value group named "OrderHistory":
+
   - Access first row: `$.DataTableList.ResultData.primaryKeyGroups.OrderHistory[0]`
   - Access first row's first attribute value: `$.DataTableList.ResultData.primaryKeyGroups.OrderHistory[0].attributes[0].attributeValue`
 
 - **Note:**
+
   - The list returns complete records (all attributes), not just selected ones
   - If no matching records are found, the primaryKeyGroups array will be empty
   - When no primary key group is configured, the entire table is loaded and results are accessible under a "default" group name: `$.DataTableList.ResultData.primaryKeyGroups.default[index]`
@@ -167,21 +178,27 @@ The following image shows the **Properties** page of the **Data Table** block co
 
 1. Select **Write to data table** as the Action.
 2. Configure Primary Value Groups:
+
    - You can add multiple primary value groups to define different records to write or update. At least one primary value group is required for each Write Data Table block.
    - The interface provides two input methods via tabs:
+
      - Input tab – Structured form-based configuration (recommended for most users)
      - Raw JSON tab – Direct JSON input for advanced users
 
    - For each primary value group:
+
      - **Group Name (Required)** – Provide a descriptive name for the primary value group. This name will be used to reference the write operation in subsequent flow blocks. Important: Group names must be unique throughout the entire flow, not just within this specific block.
      - **Primary Attributes** – When you manually select a data table, the UI automatically populates the list of primary attributes from that table's schema. All primary attribute fields are required - you must provide values for each primary attribute displayed. These attributes function as the key fields that determine which record will be created or updated. If a record with matching primary attribute values exists, it will be updated; otherwise, a new record will be created.
      - **Configure Attributes to Write**
+
        - **Attribute Name (Required)** – When you manually select a data table, the dropdown is automatically populated with all available attributes from that table. Select the attribute you want to write or update. You can add multiple attributes by choosing **Add attribute to write**.
        - **Attribute Value Configuration** – For each attribute, choose one of the following options:
+
          - Set attribute value (selected by default) – Specify the value to write to the attribute. This field is required when this option is selected. Values can be static text, contact attributes, or system variables.
          - Use default value – Uses the default value defined in the data table schema. No additional value input is required when this option is selected.
 
      - **Configure Lock Version** – The lock version setting controls how concurrent write operations to datatable are handled:
+
        - Use Latest option – Always writes to the most recent version of the record. Suitable for most use cases where concurrent updates are unlikely or acceptable.
        - Set dynamically option – Allows you to specify the version number dynamically at runtime via Lambda or module.
 

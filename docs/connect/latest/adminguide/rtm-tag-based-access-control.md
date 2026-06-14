@@ -24,6 +24,7 @@ You can configure tag-based access controls by using the Connect Customer admin 
   at a time. In a Queues table it can display up to 500 queues, and so on.
 - Very often fewer than 500 agents will appear on a real-time metrics
   table at any given time when tagging is enabled. Here's why:
+
   - Connect Customer can return a maximum of 500 agents at a time.
   - When tagging is enabled, Connect Customer selects the first 500 agents
     who have the appropriate tags, and then displays only those

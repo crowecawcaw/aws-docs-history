@@ -84,6 +84,7 @@ create two AWS Support cases, one from each account, following the same steps.
 4. Choose the appropriate severity.
 5. Choose **Next step: Additional information**.
 6. On the **Additional information** page:
+
    1. Enter the subject.
    2. Under **Description**, include as much
       information as possible about your request, including the phone
@@ -96,6 +97,7 @@ create two AWS Support cases, one from each account, following the same steps.
    timezone.
 8. Choose **Next step: Solve now or contact us**.
 9. On the **Solve now or contact us** page:
+
    1. Choose the **Contact us** tab and select your
       **Preferred contact language** and your
       preferred contact method.

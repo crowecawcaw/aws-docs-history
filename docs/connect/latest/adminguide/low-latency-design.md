@@ -20,6 +20,7 @@ country's home AWS Region, we recommend the following best practices.
    Connect Customer instance should be created in an AWS Region in the US, too. Or, if your
    phone numbers are in an EU country, your Connect Customer instance should be created in an EU
    AWS Region, too.
+
    1. If both your phone numbers **and** agents are
       located in an AWS Region that is different from the one where your Connect Customer
       instance is created, call latency is extended above 500ms for network latency (WebRTC RTT).
@@ -27,6 +28,7 @@ country's home AWS Region, we recommend the following best practices.
 
 2. Calculate your latency before setting up your Connect Customer contact center in production.
    Perform the following steps on a test environment:
+
    1. Use the [Connect Customer Endpoint Test
       Utility](check-connectivity-tool.md "check-connectivity-tool.md") to check latency.
    2. Calculate the latency for routing telephony from the country to the AWS

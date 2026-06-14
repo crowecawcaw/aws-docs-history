@@ -17,7 +17,8 @@ proxy exception list for this feature, see [Allow upload of time-off balances an
 
 1. Log in to the Connect Customer admin website with an account that has security profile permissions
    for **Scheduling**, **Schedule manager -
-   Edit**.
+   Edit**, or **Scheduling**, **Time off
+   balance - Edit**.
 
 For more information, see [Assign
 permissions](required-optimization-permissions.md "required-optimization-permissions.md"). 2. On the Connect Customer navigation menu, select **Analytics and
@@ -62,6 +63,7 @@ allowance balance:
 
 - If the approved time off period overlaps with one or more staff
   shifts, then:
+
   - The system derives the deductible time off hours by taking the
     total number of overlapped hours for shift activities that have
     the setting **Deduct from time off balance** as
@@ -70,9 +72,11 @@ allowance balance:
 - If the approved time off period does not have staff shifts that
   overlap because the schedule for that time period has not been published
   yet, then:
+
   - The system would check if the staff is scheduled to work on
     that day based on the shift profile **Day**
     (check-box) setting.
+
     - If the staff is not scheduled to work on this day, or
       if the approved time off is outside of the configured
       shift profile time window, then no time off hours will

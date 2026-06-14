@@ -51,6 +51,7 @@ in the traffic distribution group.
    existing Connect Customer instance](create-replica-connect-instance.md "create-replica-connect-instance.md"). Use the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API.
 2. [Create a
    traffic distribution group](setup-traffic-distribution-groups.md "setup-traffic-distribution-groups.md").
+
    1. Use the [CreateTrafficDistributionGroup](../APIReference/API_CreateTrafficDistributionGroup.md "../APIReference/API_CreateTrafficDistributionGroup.md") API.
    2. Use [DescribeTrafficDistributionGroup](../APIReference/API_DescribeTrafficDistributionGroup.md "../APIReference/API_DescribeTrafficDistributionGroup.md") API to determine
       whether the traffic distribution group has been created successfully (`Status`

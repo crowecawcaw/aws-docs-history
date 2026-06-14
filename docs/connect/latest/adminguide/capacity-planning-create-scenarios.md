@@ -69,6 +69,7 @@ information:
 
 7. In the **Optimization inputs** section, enter the
    operational goals for your organization:
+
    1. **Service level**: The percentage of contacts
       answered within a defined target time threshold.
 

@@ -134,12 +134,12 @@ in the contact event stream and agent event stream.
 The following image shows an example of a PAUSED event in the contact event
 stream.
 
-![A PAUSED event in the contact event stream.](images/tasks-pause-ces.png)
+![PAUSED event in the contact event stream.](images/tasks-pause-ces.png)
 
 The following image shows an example of a RESUMED event in the contact event
 stream.
 
-![A RESUMED event in the contact event stream.](images/tasks-resumed-ces.png)
+![RESUMED event in the contact event stream.](images/tasks-resumed-ces.png)
 
 The following image shows an example of PAUSED tasks in the agent event stream.
 

@@ -6,6 +6,7 @@ Assign the following security profile permissions as needed to use forecasting, 
 
 - **Forecasting**: Grants permission to view and edit in
   forecasting pages. For example, you can:
+
   - [Create forecast
     groups](create-forecast-groups.md "create-forecast-groups.md") -
     **Edit** permission is required.
@@ -26,6 +27,7 @@ Assign the following security profile permissions as needed to use forecasting, 
   in capacity planning pages, including scenario and capacity plans. It also
   grants permission to import future estimated shrinkage and available FTEs.
   For example, you can:
+
   - [Create capacity
     planning scenarios](capacity-planning-create-scenarios.md "capacity-planning-create-scenarios.md") -
     **Edit** permission is required.
@@ -50,6 +52,7 @@ Assign the following security profile permissions as needed to use forecasting, 
 
 - **Forecast and schedule interval**: Grants permission
   to:
+
   - [Set the forecast and
     scheduling interval](set-forecast-scheduling-interval.md "set-forecast-scheduling-interval.md"). Grants
     access to the **Forecast and schedule interval**
@@ -74,21 +77,30 @@ You need the **View** permission and the
 metrics](scheduling-metrics.md "scheduling-metrics.md").
 
 - **Published schedule calendar**:
+
   - View - This option also enables the Time off requests - View
     option.
   - Edit - This option also enables the Time off requests - View Edit,
     and Approve options.
 
 - **Time off requests**
+
   - **View**. Grants permissions to agents to view
     time off requests in the Time off Requests drawer. Users with the
     View permission can not create or approve time off requests.
   - **Edit**. Grants permissions to create time off
     requests.
 
-- **Time off balance**. Grants permission to agents to view
-  and upload time off balances. Supervisors do not require this
-  permission.
+- **Time off balance**. To access the Staff Rules page
+  where time off balance is managed, users must have at least
+  **Schedule manager - View**.
+
+  - **View**. Grants permission to view and download
+    time off balances. Users can also view time off balances with
+    **Schedule manager - Edit**.
+  - **Edit**. Grants permission to upload time off
+    balances. Users can also upload time off balances with
+    **Schedule manager - Edit**.
 
 ###### Agent Applications
 

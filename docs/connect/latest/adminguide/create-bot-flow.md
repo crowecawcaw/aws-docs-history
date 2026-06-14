@@ -52,6 +52,7 @@ options to find them.
 
 - Check whether the **AmazonConnectEnabled** tag is set to
   true:
+
   1.  Open the Amazon Lex console, choose **Bots**, select the bot,
       then choose **Tags**.
   2.  If the **AmazonConnectEnabled** tag is not present, add
@@ -60,6 +61,7 @@ options to find them.
       **Get customer input** block.
 
 - Check if the version is associated with the alias:
+
   1.  In Connect Customer admin website, choose **Routing**, **Flows**,
       the bot, **Aliases**. Verify that **Use in flow and
       flow modules** is enabled, as shown in the following

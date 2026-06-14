@@ -5,6 +5,7 @@ to the agent's security profile:
 
 - **View**: Enables agents to see the Customer profiles
   application. They can:
+
   - View profiles that are autopopulated in the agent app.
   - Search for profiles.
   - View details stored in customer profiles (for example, Name,

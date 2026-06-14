@@ -18,6 +18,7 @@ The GetObjectTypeAttributeValues API delivers statistical insights about attribu
 **Note:**
 
 - You'll receive null values in two scenarios:
+
   - During the first period after enabling data vault (unless a calculation cycle occurs, which happens once daily).
   - For attributes that don't contain numeric values.
 

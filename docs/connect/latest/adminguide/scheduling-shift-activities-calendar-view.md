@@ -51,6 +51,7 @@ you selected in the previous step.
      date or time, will apply to an individual agent.
 
 7. Select activity placement method:
+
    1. **Do not optimize**: activity will be placed
       for the date and time that you specify.
    2. **Anytime within shift**: Optimizes
@@ -152,6 +153,7 @@ schedules.
     see [Add a shift activity](#scheduling-add-shift-activities-calendar-view "#scheduling-add-shift-activities-calendar-view").
 3.  If the activity you are editing is part of a recurring series, you can
     choose to edit just this occurrence. Or, you can edit the series.
+
     - To edit just this occurrence, continue editing using steps
       below.
     - To edit the series, choose **Go to series**.
@@ -167,6 +169,7 @@ schedules.
 4.  If the activity was added as a **Shared activity**,
     then all of the agents added to the activity will be listed under
     **Staff**.
+
     1. From here, you can add or remove agents, change the date or
        time of the activity, apply the **Override rules
        check**, and add or update
@@ -194,6 +197,7 @@ schedules.
 2. If the activity you are removing is part of a recurring series, you
    can choose to remove just this occurrence or you can remove the entire
    series.
+
    - To remove just this occurrence, continue removing using steps
      below.
    - To remove the series, choose **Go to series**

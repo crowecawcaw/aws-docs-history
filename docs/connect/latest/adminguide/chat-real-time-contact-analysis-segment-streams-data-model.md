@@ -145,6 +145,7 @@ Valid values: `PII`, `EntityType`
 - Channel
 - AccountId
 - OutputType
+
   - The Contact Lens output type of the current
     segment
   - Type: String
@@ -155,6 +156,7 @@ Valid values: `PII`, `EntityType`
 - StreamingEventType: SEGMENTS
 - StreamingSettings
 - Segments
+
   - A list of segments with analyzed information.
   - Type: Array of [Segment](#chat-segment "#chat-segment")
     objects

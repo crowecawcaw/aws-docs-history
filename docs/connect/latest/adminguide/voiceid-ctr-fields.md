@@ -34,12 +34,14 @@ Voice ID results using the following filters:
 
 - **Fraud detection result**: Use this filter to search for
   contacts where Voice ID fraud analysis returned the following results:
+
   - High risk for fraud
   - Low risk for fraud
   - Inconclusive
 
 - **Fraud detection reason**: Use this filter to search for
   contacts where specific fraud risk mechanisms were detected:
+
   - Known fraudster: the caller’s voice matches a fraudster from the
     fraudster watchlist you have created.
   - Voice spoofing: the caller is modifying their voice or is using speech
@@ -51,4 +53,4 @@ After you search for a contact, you can choose an ID to view their contact recor
 The following image shows an example of the fields in the Voice ID section of the
 contact record:
 
-![Voice ID section of a contact record showing authentication results, fraudster detection status, fraudster ID and watchlist ID fields.](images/voiceid-ctr-nospoofing.png)
+![Voice ID section of a contact record showing authentication results, fraudster detection status.](images/voiceid-ctr-nospoofing.png)

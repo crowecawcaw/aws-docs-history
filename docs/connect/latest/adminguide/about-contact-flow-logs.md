@@ -36,7 +36,8 @@ for your instance on the Connect Customer console:
      interaction points such as flows, prompts, menus, and keypad selections.
      This automated log is available in your S3 storage and in the
      **Contact details** page on the Connect Customer admin website.
-    + **Enable Bot Analytics and Transcripts** in Connect Customer on the
+    + **Enable Bot Analytics and Transcripts in
+     Amazon Connect** on the
      **Flows** page. This option ensures the log includes
      the Amazon Lex bot transcript.
 

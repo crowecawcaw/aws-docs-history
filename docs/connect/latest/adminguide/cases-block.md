@@ -48,6 +48,7 @@ The following screenshots refer to the legacy flow designer.
 When configuring properties to get a case:
 
 - You can specify to **Link contact to case** (Yes/No). If "Yes," then you can choose from the following options:
+
   - **Current contact** is the contact on which the current flow is being executed.
   - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
 
@@ -112,6 +113,7 @@ you set manually, see to the syntax in [How to persist fields throughout the flo
 - The **Get case** properties use greater than or equal to
   for any date field search.
 - Contacts can be routed down the following branches:
+
   - **Success**: The case was found.
   - **Contact not linked**: If you specify to link
     the contact to case, then this error branch will appear. It might be
@@ -157,6 +159,7 @@ shown to the agent: **Status**, **Summary**, and
 When configuring properties to get a case id:
 
 - You can specify to **Link contact to case** (Yes/No). If "Yes," then you can choose from the following options:
+
   - **Current contact** is the contact on which the current flow is being executed.
   - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
 
@@ -165,6 +168,7 @@ When configuring properties to get a case id:
   linked to another contact in the current contact's [contact chain](contacts-contact-chains-attributes.md#contact-chains "contacts-contact-chains-attributes.md#contact-chains"). This enables you to link follow-up contacts such
   as email replies, call transfers, persistent chats, and queued callbacks to
   the same case more easily.
+
   - **Current contact**
   - **Initial contact**
   - **Task contact**
@@ -173,6 +177,7 @@ When configuring properties to get a case id:
 
 - If a case is found, for the **Contact to search**, the case ID for that case will be persisted in the case namespace. It can be used in other blocks by accessing the case namespace case ID attribute value.
 - Contacts can be routed down the following branches:
+
   - **Success**: The case was found. If you specify to link the contact to case, the contact was also successfully linked.
   - **Contact not linked**: If you specify to link the contact to case, then this error branch will appear. It might be that the contact was not linked after the case is retrieved (partial success/partial failure). If this happens, then the flow will follow this branch.
   - **Multiple found**: Multiple cases are found with the search criteria.
@@ -184,6 +189,7 @@ When configuring properties to get a case id:
 When configuring properties to update a case:
 
 - You can specify to **Link contact to case** (Yes/No). If "Yes," then you can choose from the following options:
+
   - **Current contact** is the contact on which the current flow is being executed.
   - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
 
@@ -202,6 +208,7 @@ You can either use an attribute in the Cases namespace, or set the
 the syntax in [How to persist fields throughout the flow](#cases-persist-fields "#cases-persist-fields").
 
 - Contacts can be routed down the following branches:
+
   - **Success**: The case was updated, and the
     contact was linked to the case.
   - **Contact not linked**: If you specify to link
@@ -231,6 +238,7 @@ specify the fields to update the case.
 When configuring properties to create a case:
 
 - You can specify to **Link contact to case** (Yes/No). If "Yes," then you can choose from the following options:
+
   - **Current contact** is the contact on which the current flow is being executed.
   - **Related contact** is the contact that is [related](chat-persistence.md#relatedcontactid "chat-persistence.md#relatedcontactid") to this contact.
 
@@ -238,6 +246,7 @@ When configuring properties to create a case:
 - Fields that are required appear in the **Required**
   fields section. You must assign values to them to create a case.
 - You must specify the customer to create a case.
+
   - We recommend adding a [Customer profiles](customer-profiles-block.md "customer-profiles-block.md") block to the
     flow before the **Cases** block. Use the [Customer profiles](customer-profiles-block.md "customer-profiles-block.md") block to get a
     customer profile with some prefetched data, or create a new customer
@@ -274,6 +283,7 @@ you set manually, see to the syntax in [How to persist fields throughout the flo
   the case namespace. It can be used in other blocks by accessing the case
   namespace case ID attribute value.
 - Contacts can be routed down the following branches:
+
   - **Success**: The case was created, and the
     contact was linked to the case.
   - **Contact not linked**: If you specify to link

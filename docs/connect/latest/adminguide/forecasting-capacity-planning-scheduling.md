@@ -22,6 +22,7 @@ contact center by offering the following:
   schedules for day-to-day workloads that are flexible, and meet business and
   compliance requirements. Offer agents flexible schedules and work-life balance. How
   many agents are needed in each shift? Which agent works in which slot?
+
   - [Schedule Adherence](schedule-adherence.md "schedule-adherence.md"). Enable contact center
     supervisors to monitor schedule adherence and improve agent productivity.
     Schedule adherence metrics are available after the agent schedules are

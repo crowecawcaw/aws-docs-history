@@ -3,6 +3,7 @@
 There are three ways to delete a queue from your Connect Customer instance:
 
 - Connect Customer admin website
+
   1.  Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an **Admin** account, or an
       account that has **Routing** -
       **Queues** - **Delete** permission

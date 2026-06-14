@@ -151,20 +151,20 @@ When you enable markdown for chat messages, you can use rich text formatting for
 
 The following image shows how to enable a prompt manually in a [Play prompt](play.md "play.md") flow block:
 
-![Image of a flow block and a prompt with 2 links, one for an FAQ and another for a phone number.](images/chat-rtf-play-prompt-flow-1.png)
+![Flow block and a prompt with 2 links, one for an FAQ and another for a phone number.](images/chat-rtf-play-prompt-flow-1.png)
 
 The following image shows how to enable a prompt manually in the a [Get customer input](get-customer-input.md "get-customer-input.md") flow block, then associate the flow block with
 an Amazon Lex bot:
 
-![Image of a flow block and a prompt with 2 links, one for an FAQ and another for a phone number.](images/chat-rtf-get-customer-flow.png)
+![Flow block and a prompt with 2 links, one for an FAQ and another for a phone number.](images/chat-rtf-get-customer-flow.png)
 
 The following image shows how the prompt appears in the SYSTEM_MESSAGE and various BOT message types:
 
-![Image showing "Review our FAQ" and "give us a call" links in SYSTEM and BOT messages.](images/chat-rtf-sys-bot-messages.png)
+![Image showing Review our FAQ and give us a call links in SYSTEM and BOT messages.](images/chat-rtf-sys-bot-messages.png)
 
 The following image shows how to set up a prompt in an Amazon Lex bot intent:
 
-![Image of an Amazon Lex intent containing a prompt with 2 links, one for an FAQ and another for a phone number.](images/chat-rtf-lex-flow.png)
+![An Amazon Lex intent containing a prompt with 2 links, one for an FAQ and another for a phone number.](images/chat-rtf-lex-flow.png)
 
 For more information about intents, see [Adding intents](../../../lexv2/latest/dg/add-intents.md "../../../lexv2/latest/dg/add-intents.md") in the
 _Amazon Lex V2 Developer Guide_. For more information about Lambda messages, see

@@ -20,7 +20,7 @@ profile.
 ![Navigate to Data Limits tab to configure limits for data objects.](images/customer-profiles-data-limits-setup-1.png) 3. Hover over the desired data object's limit and choose the edit
 icon.
 
-![Hover over the desired data object's limit and choose the edit icon.](images/customer-profiles-data-limits-setup-2.png) 4. Enter the limit and choose the check-mark icon to save or update the
+![Hover over the desired data object limit and choose the edit icon.](images/customer-profiles-data-limits-setup-2.png) 4. Enter the limit and choose the check-mark icon to save or update the
 limit.
 
 ![Image shows a new limit being entered and highlights the check-mark icon that is used to save or update your limit.](images/customer-profiles-data-limits-setup-3.png)
@@ -31,7 +31,7 @@ limit.
    clear. You will then be able to choose **Clear
    limit**.
 
-![Highlights the radio button to the left of the data object on the data limits page. Selecting a radio button here allows you to enable the clear button for a data limit of the object.](images/customer-profiles-data-limits-clear-1.png) 2. Type _confirm_ to clear the limit value of the data
+![Highlights the radio button to the left of the data object on the data limits page.](images/customer-profiles-data-limits-clear-1.png) 2. Type _confirm_ to clear the limit value of the data
 object that you selected.
 
-![A pop-up box that asks you to confirm that you would like to clear the data object's limit value. You confirm the clearing action by typing "confirm" in all lowercase letters..](images/customer-profiles-data-limits-clear-2.png)
+![A pop-up box that asks you to confirm that you would like to clear the data object limit value.](images/customer-profiles-data-limits-clear-2.png)

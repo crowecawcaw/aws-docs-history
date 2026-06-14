@@ -17,7 +17,7 @@ Notifications support the following use cases:
 
 Notifications display in the Connect header with an icon indicating an unread message(s). Users choose the icon to view messages.
 
-![The notifications widget showing a user's notifications.](images/notifications-widget.png)
+![The notifications widget showing notifications for a user.](images/notifications-widget.png)
 
 The notification panel shows:
 
@@ -49,6 +49,7 @@ Your team can perform the following notification actions:
 - Specify the duration of each message, its "time to live" i.e. TTL (default is 1 week)
 - Update or delete existing messages
 - Send to up to 200 users at one time, or if necessary, everyone in the instance
+
   - ###### Important
 
   Only admins without tag-based access control (TBAC) restrictions or hierarchy-based access control (HBAC) restrictions can create notifications for all users in an instance

@@ -151,6 +151,7 @@ e.g. 2 months of evaluations, as this would result in a loss in historical evalu
 - Quality managers responsible for creating evaluation forms can be granted access to
   evaluation forms without tag-based restrictions. Alternatively, you can assign two
   security profiles to quality managers:
+
   - The first would grant them access to **Evaluation Forms**
     and **Evaluations** with the tag "Live: No"
   - The second would grant them access to **Evaluation Forms**

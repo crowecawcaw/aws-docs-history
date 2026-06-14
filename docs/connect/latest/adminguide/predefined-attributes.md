@@ -90,7 +90,7 @@ the **Details** section, complete the following fields as needed:
 5. Choose **Add value** to add values to the
    attribute. For example, you might enter Sales, Marketing, and Accounts for Business units.
 
-![Choose Save to save the attribute and values.](images/predefined-attribute-add.png) 6. Choose **Save** to save the predefined attribute and values.
+![Save to save the attribute and values.](images/predefined-attribute-add.png) 6. Choose **Save** to save the predefined attribute and values.
 
 ## Update the name of an attribute or value
 

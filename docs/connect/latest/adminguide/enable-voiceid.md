@@ -87,7 +87,7 @@ Information Privacy Act](https://en.wikipedia.org/wiki/Biometric_Information_Pri
 ![The Connect Customer virtual contact center instances page, the instance alias.](images/instance.png) 3. In the navigation pane, choose **Voice ID**. Read the
 BIPA Consent Acknowledgement, and accept if you agree.
 
-![The Enable Voice ID page showing the BIPA (Biometric Information Privacy Act) Consent Acknowledgement button that users must read and accept before enabling Voice ID.](images/voiceid-bipa.png)
+![The Enable Voice ID page showing the BIPA (Biometric Information Privacy Act) Consent Acknowledgement button.](images/voiceid-bipa.png)
 
 ## Step 2: Create a new Voice ID domain and encryption key
 
@@ -109,7 +109,7 @@ Following are the steps to create your KMS key key:
 
 
 
-    ![Encryption section of the Voice ID setup page showing the 'Create AWS KMS key' button for creating a new encryption key.](images/voiceid-create-kms-key.png)
+    ![Encryption section of the Voice ID setup page showing the Create AWS KMS key button for creating a new encryption key.](images/voiceid-create-kms-key.png)
     2. A new tab in your browser opens for the Key Management
      Service (KMS) console. On the **Configure
      key** page, choose
@@ -144,6 +144,7 @@ API instructions
    domain.
 2. Call the [CreateIntegrationAssociation](../APIReference/API_CreateIntegrationAssociation.md "../APIReference/API_CreateIntegrationAssociation.md") API to associate the
    Voice ID domain with the Connect Customer instance.
+
    1. Pass the ARN of the Voice ID domain just created into
       the `IntegrationArn` parameter. For
       `IntegrationType` use

@@ -15,6 +15,7 @@ Asia Pacific (Tokyo) Region.
 
 - **Direct Inward Dialing (DID) numbers**—DID
   numbers are also referred to as local numbers.
+
   - 050 prefix numbers.
   - 03 prefix for numbers in Tokyo.
   - 06 prefix for numbers in Osaka.

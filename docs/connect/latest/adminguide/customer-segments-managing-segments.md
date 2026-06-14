@@ -15,6 +15,7 @@ Developer Guide.
 
 1. On the **Actions** menu, the following
    options are available:
+
    1. **View details** — Choose this option
       to show information about the customer segment, including the date
       and time when the segment was created, and the date and time when

@@ -92,7 +92,7 @@ For administrators who will configure AI Agents:
 3. Enable **AI Prompts - All Access**
 4. Enable **AI Guardrails - All Access**
 
-![Security profile page showing AI agent designer permissions including AI Agents, AI Prompts, and AI Guardrails with All Access enabled.](images/ai_agent_designer_ui_security_profile.png) 5. Expand **Channels and Flows** 6. Enable **Bots - All Access** 7. Enable **Flows - All Access** 8. Enable **Flow Modules - All Access** (if using flow modules as tools)
+![Security profile page showing AI agent designer permissions including AI Agents, AI Prompts.](images/ai_agent_designer_ui_security_profile.png) 5. Expand **Channels and Flows** 6. Enable **Bots - All Access** 7. Enable **Flows - All Access** 8. Enable **Flow Modules - All Access** (if using flow modules as tools)
 
 ![Security profile page showing Channels and Flows permissions including Bots, Flows, and Flow Modules with All Access enabled.](images/edit-security-profile-ai-agent-doc.png)
 

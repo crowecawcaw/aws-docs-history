@@ -115,7 +115,7 @@ The following sets of steps explain how to configure an inbound contact flow and
 3. Choose the WhatsApp number, then choose **Edit**.
 4. Under **Flow/IVR**, choose the flow you updated.
 
-![The Contact flow / IVR section of the Edit page showing a WhatsApp flow.](images/whatsapp-flow-ivr.png) 5. Choose **Save**.
+![The Contact flow or IVR section of the Edit page showing a WhatsApp flow.](images/whatsapp-flow-ivr.png) 5. Choose **Save**.
 
 ###### To add the CheckContactAttribute block
 

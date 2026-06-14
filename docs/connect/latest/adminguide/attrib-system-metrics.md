@@ -7,6 +7,7 @@ here are some common usage scenarios:
 - Check the number of contacts or available agents in a queue, and how long the oldest
   contact has been in a queue, then route accordingly.
 - To route to the queue with the fewest contacts in it:
+
   1.  Get metrics for multiple queues.
   2.  Use a [Set contact
       attributes](set-contact-attributes.md "set-contact-attributes.md") block to store the metric attributes

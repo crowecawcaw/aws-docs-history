@@ -969,7 +969,7 @@ sections explain the features on the **Connections** tab.
 The following GIF shows how to navigate through the flow designer canvas using these
 options.
 
-![A GIF that shows how to navigate through the flow designer canvas.](images/GIF/connection.gif)
+![GIF that shows how to navigate through the flow designer canvas.](images/GIF/connection.gif)
 
 ##### Change connection
 
@@ -982,7 +982,7 @@ specific block.
 To remove a connection, use the **Disconnect** option. The
 following GIF shows how to use **Disconnect**.
 
-![A GIF that shows how to remove a connection using the Disconnect option.](images/GIF/disconnection.gif)
+![GIF that shows how to remove a connection using the Disconnect option.](images/GIF/disconnection.gif)
 
 ##### Create a new block
 
@@ -997,7 +997,7 @@ tab without leaving the current view.
 The following GIF shows how to add a new block (in this case a
 **Disconnect** block) from the **Connections** tab.
 
-![A GIF that shows how to add a new block from the Connections tab.](images/GIF/create-new-block.gif)
+![GIF that shows how to add a new block from the Connections tab.](images/GIF/create-new-block.gif)
 
 #### Notes tab
 
@@ -1007,7 +1007,7 @@ You can create and edit notes directly within this tab.
 The following GIF shows the **Notes** tab for the **Set
 disconnect flow** block.
 
-![A GIF that shows how to add and view notes on the Notes tab.](images/GIF/block-notes-tab.gif)
+![GIF that shows how to add and view notes on the Notes tab.](images/GIF/block-notes-tab.gif)
 
 #### Block error navigation
 
@@ -1023,7 +1023,7 @@ button to navigate directly to the problematic block.
 
 The following GIF shows how to navigate to the problematic blocks.
 
-![A GIF that shows how to use Block Error Navigation.](images/GIF/block-error-navigation.gif)
+![GIF that shows how to use Block Error Navigation.](images/GIF/block-error-navigation.gif)
 
 ### Flow designer keyboard shortcuts and accessibility improvements
 
@@ -1047,7 +1047,7 @@ in. So even at high zoom levels, everything remains visible and can be navigated
 
 The following GIF shows how to use Reflow Mode.
 
-![A GIF that shows how to use Reflow Mode.](images/GIF/reflow-mode.gif)
+![GIF that shows how to use Reflow Mode.](images/GIF/reflow-mode.gif)
 
 #### Button-based movement
 
@@ -1057,7 +1057,7 @@ navigation.
 
 The following GIF shows how to use the directional buttons.
 
-![A GIF that shows how to use the directional buttons on the flow designer canvas.](images/GIF/entity-button.gif)
+![GIF that shows how to use the directional buttons on the flow designer canvas.](images/GIF/entity-button.gif)
 
 #### High contrast lines
 
@@ -1066,7 +1066,7 @@ making it easier for users with visual impairments to differentiate connections.
 
 The following GIF shows how to enable high contrast lines in the flow designer.
 
-![A GIF that shows how to enable high contrast lines in the flow designer.](images/GIF/high-contrast-lines.gif)
+![GIF that shows how to enable high contrast lines in the flow designer.](images/GIF/high-contrast-lines.gif)
 
 The following image shows two flow designer canvases. The first one shows the default
 contrast. The second one shows high contrast lines.
@@ -1931,7 +1931,7 @@ more information, see [Callbacks from a chat, task, or email contact](setup-queu
 
 To gain visibility into the real-time recommendations that Connect AI agents provides to your
 agents, and the customer intents it detects through natural language understanding, you can
-query CloudWatch Logs. For more information, see [Monitor Connect AI agents by using CloudWatch Logs](monitor-ai-agents.md "monitor-ai-agents.md").
+query CloudWatch Logs. For more information, see [Monitor AI agents using CloudWatch](monitor-ai-agents.md "monitor-ai-agents.md").
 
 #### Forecasting data in Connect Customer Analytics data lake
 
@@ -3825,7 +3825,7 @@ Without **User - View** permissions, the **Agent**
 filter is not visible, and searching contacts by Agent login is not supported, as shown in the
 following image:
 
-![The Agent filter when it isn't visible.](images/release-notes-contact-search2.png)
+![The Agent filter when it is not visible.](images/release-notes-contact-search2.png)
 
 #### Released updates for rich text format rendering
 
@@ -4619,6 +4619,7 @@ Note how metric columns now appear on reports:
   if you update an existing report, the metrics are re-ordered to match the order on the
   **Table settings** page.
 - **Service level metrics**:
+
   - Real-time metrics reports: Service level metrics are always added to the end of the
     **Performance** group, in ascending order.
   - Historical metrics reports: When you add custom service level metrics, they are
@@ -4759,6 +4760,7 @@ Added support for using Connect Customer with Apple Messages for Business. For m
 - The ability to **View historical changes** on the resource
   configuration pages is now available for the London Region. The following differences appear
   as the changes are rolled out to other Regions.
+
   - Total results: The number feature in the **View historical changes**
     search page, and page numbers, are replaced with **Previous** and
     **Next** icons.
@@ -4773,6 +4775,7 @@ Added support for using Connect Customer with Apple Messages for Business. For m
 - Added APIs so you can programmatically manage your agent hierarchies and agent groups.
   For more information, see [Connect Customer Service API Reference](../APIReference/Welcome.md "../APIReference/Welcome.md").
 - Added the following APIs (in an ungated preview release):
+
   - CreateInstance
   - DescribeInstance
   - ListInstances
@@ -4822,6 +4825,7 @@ The following updates were released in September 2020:
 #### Service quotas
 
 - Updated the service quotas for the following Connect Customer Participant Service APIs:
+
   - [CreateParticipantConnection](amazon-connect-service-limits.md#connect-participant-api-quotas "amazon-connect-service-limits.md#connect-participant-api-quotas")
   - [DisconnectParticipant](amazon-connect-service-limits.md#connect-participant-api-quotas "amazon-connect-service-limits.md#connect-participant-api-quotas")
   - [GetTranscript](amazon-connect-service-limits.md#connect-participant-api-quotas "amazon-connect-service-limits.md#connect-participant-api-quotas")
@@ -5003,6 +5007,7 @@ Occupancy no longer appears on the **Dashboard** page.
 #### Contact Control Panel (CCP)
 
 - Released the following improvements:
+
   - DTMF input is passed to all lines in a three-way call. Any party can enter DTMF input.
   - Resolved an issue where the DTMF tone degraded when agents interacted with Quick
     connect and/or Number pad during a session.

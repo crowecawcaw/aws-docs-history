@@ -59,6 +59,7 @@ When **Select an action** is set to **Invoke
 Lambda**, note the following properties:
 
 - **Execution mode**:
+
   - **Synchronous**: When Synchronous is
     selected, the contact is routed to the next block only after the
     Lambda invocation completes.
@@ -83,6 +84,7 @@ is routed down the **Error** branch.
 - **Response validation**: The Lambda function response
   may be either a STRING_MAP or JSON. You must set it when you configure
   the **AWS Lambda function** block in the flow.
+
   - When the response validation is set to STRING_MAP, the Lambda
     function returns a flat object of key/value pairs of the string
     type.

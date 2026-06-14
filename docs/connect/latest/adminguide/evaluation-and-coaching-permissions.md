@@ -52,6 +52,7 @@ form audit trail.
 
 - **Coaching - my coaching sessions**: Access coaching
   sessions where you are assigned as a coach or a participant.
+
   - **View**: View coaching sessions where you are the
     coach or the participant. If you are the participant, you can
     acknowledge the coaching session with this permission.
@@ -65,6 +66,7 @@ form audit trail.
 - **Coaching - manage coaching sessions**: Access coaching
   sessions performed by yourself or others. This permission is for admins or quality
   managers.
+
   - **View**: View any coaching session.
   - **Create**: Create new coaching sessions. You can
     choose yourself as the coach or assign other users as the

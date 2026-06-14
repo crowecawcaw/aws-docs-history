@@ -49,6 +49,7 @@ Note the following:
 1. Check that your testers are using a device with a supported iOS: iOS 11.3
    and later, or macOS 10.13.4.
 2. Ask your testers to doing the following:
+
    1. Use their supported devices to find the email sent to them.
    2. Open the email from the supported device, and then choose the
       link. It takes them to a Messages for Business conversation in the Messages
@@ -61,6 +62,7 @@ If you encounter any issues when sending a test message, follow these steps:
 1.  Confirm that you’ve allowlisted your email address/Apple ID as a tester in
     your Messages for Business account.
 2.  Confirm the following settings on your Apple device:
+
     - Go to **Settings** >
       **Messages** and check that
       **iMessage** is enabled.

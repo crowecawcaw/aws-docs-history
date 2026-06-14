@@ -9,7 +9,7 @@ traffic.
 
 The following diagram shows you what each port is used for.
 
-![Diagram showing Connect Customer components and their connections to AWS Cloud services.](images/networking.png)
+![Connect Customer components and their connections to AWS Cloud services.](images/networking.png)
 If your contact center is using the email channel, see the Amazon SES Developer Guide for
 information. If your business sends a large volume of email, you may want to lease dedicated
 IP addresses. For more information, see [Dedicated IP addresses for Amazon SES](../../../ses/latest/dg/dedicated-ip.md "../../../ses/latest/dg/dedicated-ip.md").

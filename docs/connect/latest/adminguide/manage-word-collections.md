@@ -17,11 +17,11 @@ profile permissions as Contact Lens Rules. For more information, see
    the gear icon on top right of the **Exact match**
    condition card, as shown in the following image.
 
-![Enter keywords or phrases option in the UI.](images/word-collections-permissions-how-to-access-1.png) 2. On the **Word collections** management page, you
+![Keywords or phrases option in the UI.](images/word-collections-permissions-how-to-access-1.png) 2. On the **Word collections** management page, you
 can view existing word collections and create new word
 collections.
 
-![Enter keywords or phrases option in the UI.](images/word-collections-permissions-how-to-access-2.png)
+![Keywords or phrases option in the UI.](images/word-collections-permissions-how-to-access-2.png)
 
 ## How to create a user word collection
 
@@ -30,10 +30,10 @@ collections.
 1. On the **Word collections** management page,
    choose **Create a word collection**.
 
-![Enter keywords or phrases option in the UI.](images/create-user-word-collections-1.png) 2. Enter the name of the word collection, add words and phrases, then
+![Keywords or phrases option in the UI.](images/create-user-word-collections-1.png) 2. Enter the name of the word collection, add words and phrases, then
 choose **Save**.
 
-![Enter keywords or phrases option in the UI.](images/create-user-word-collections-2.png)
+![Keywords or phrases option in the UI.](images/create-user-word-collections-2.png)
 
 ## Word collection limits
 

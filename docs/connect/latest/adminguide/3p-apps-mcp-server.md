@@ -9,7 +9,9 @@ Only one instance can be associated with a gateway, and that instance must be co
 ## How to integrate an MCP server
 
 1. On the **Add integration** page, enter the following information:
+
    1. **Basic information**
+
       - **Display name** – A friendly name for the application. This name is displayed on security profiles and to your agents on the tab in the agent workspace. You can change this name later.
       - **Description (optional)** – You may optionally provide a description for this application.
       - **Integration type** – Select **MCP server**.

@@ -7,6 +7,7 @@ with a contact.
 
 - Specifies which flow to run during a contact event.
 - The following events are supported:
+
   - **Default flow for agent UI**:
     specifies the flow to be invoked when a contact comes into the Agent
     Workspace. You can use this event to set up a [step-by-step](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md")

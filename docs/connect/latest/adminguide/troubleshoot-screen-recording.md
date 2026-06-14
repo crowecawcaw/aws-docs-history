@@ -18,6 +18,7 @@ recordings cannot be recovered.
 - The shared worker logs show:
   `IPC connection terminated with status code
 1006`
+
   - Note: this could also mean the Connect Customer Client Application is not
     installed or not running on the agent machine.
 

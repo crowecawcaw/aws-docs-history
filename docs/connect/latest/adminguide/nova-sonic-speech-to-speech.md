@@ -6,6 +6,7 @@ You can configure Amazon Nova Sonic as a Speech-to-Speech (S2S) model for a Conv
 
 ### Prerequisites
 
+- [Amazon Connect Customer](enable-nextgeneration-amazonconnect.md "enable-nextgeneration-amazonconnect.md") is enabled for your instance.
 - A Conversational AI bot exists in Amazon Connect.
 - The locale you want to use with Nova Sonic is already created.
 - You have permissions to edit the bot configuration and build the language.

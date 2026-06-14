@@ -5,6 +5,7 @@ Here's an overview of the steps to set up queue-based routing:
 1. [Create the queues](create-queue.md "create-queue.md"), for example, one for
    each skill you want to use for routing.
 2. [Create the routing profiles](routing-profiles.md "routing-profiles.md"):
+
    - Specify the channels supported by this routing profile.
    - Specify the queues: the channel, priority, and delay.
 

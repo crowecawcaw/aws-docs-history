@@ -304,6 +304,7 @@ to the specified queue.
   **Loop prompts** block before this one.
 - To use this block in most flows, you must add a **Set working
   queue** block first. There are two exceptions:
+
   - When this block is used in a Customer Queue flow.
   - When making an outbound campaign that points to a Contact
     (Inbound) flow. The **Set working queue** block

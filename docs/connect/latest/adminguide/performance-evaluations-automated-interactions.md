@@ -122,7 +122,7 @@ rules:
 - **Human agent interaction:**
   Customer interaction with the human agent
 
-![Rule configuration interface showing conditions for Contact Lens post-chat analysis, queue assignment, and natural language semantic match.](images/self-service-eval-containment-rule.png)
+![Rule configuration interface showing conditions for Contact Lens post-chat analysis, queue assignment.](images/self-service-eval-containment-rule.png)
 
 - If you are using a Connect Customer AI agent, you can also check if the
   AI agent for self-service escalated to a human or not.

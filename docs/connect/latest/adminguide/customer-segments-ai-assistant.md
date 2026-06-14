@@ -56,6 +56,7 @@ attributes.
   inspiration card presents a segment idea tailored to specific customer
   data and trends.
 - Inspiration cards offer ideas across three business-focused themes:
+
   - **Promotion**: Ideas for targeting
     customers with specific promotional strategies.
   - **Retention**: Identify segments
@@ -187,7 +188,7 @@ valid prompt for segment creation.
 
 The following image shows an example of this error message.
 
-![An example of an error message that Connect Customer can't process your request.](images/customer-segments-ai-error-handling-1.png)
+![An example of an error message that Connect Customer cannot process your request.](images/customer-segments-ai-error-handling-1.png)
 
 Use the following steps help you understand and troubleshoot this
 error.

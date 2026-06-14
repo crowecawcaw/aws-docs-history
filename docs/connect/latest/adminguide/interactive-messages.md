@@ -451,7 +451,7 @@ The following GIF shows an example of how the carousel template renders informat
 a chat. Customers scroll through the carousel of images by using the left and right
 arrows.
 
-![A carousel in a customer's chat experience.](images/carousel-interactive.gif)
+![A carousel in a customers chat experience.](images/carousel-interactive.gif)
 
 The following image shows two **Learn More** hyperlinks, which are
 examples of carousel picker hyperlink elements.
@@ -1200,7 +1200,7 @@ for customers.
 
 The following image shows a typical user experience.
 
-![Image of a reply in a chat session.](images/whatsapp-reply-template.png)
+![Reply in a chat session.](images/whatsapp-reply-template.png)
 
 ### WhatsApp reply button limits
 

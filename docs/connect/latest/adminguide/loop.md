@@ -69,6 +69,7 @@ properties :
 - The block will loop for the number of elements in the input
 - Loop name is required to loop over an array
 - You can access the following with the Loop Name
+
   - $.Loop.<yourLoopName>.Index - Current Index, starts from
     0
   - $.Loop.<yourLoopName>.Element - Current looping element

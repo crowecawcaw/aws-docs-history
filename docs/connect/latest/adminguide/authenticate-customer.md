@@ -29,6 +29,7 @@ This flow block is designed to be used in the following scenarios:
 
 - You can prompt your customers to sign in and authenticate during a chat.
   For example, unauthenticated customers can be prompted to sign in:
+
   - When engaged with a chat bot, before to being routed to an
     agent.
   - To perform a transaction, such as making a payment.

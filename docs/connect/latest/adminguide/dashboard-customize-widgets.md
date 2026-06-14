@@ -220,6 +220,7 @@ Complete the following steps to create a custom calculation.
 
 1. Log in to Connect Customer admin website using an Admin account, or an account that has the
    following permissions in its security profile:
+
    - **Analytics and Optimization - Access metrics** -
      Access permission or the **Dashboard - Access**
      permission.

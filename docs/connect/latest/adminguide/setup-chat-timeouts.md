@@ -85,12 +85,14 @@ expire:
 
 1. The chat currently resides in a [Wait](wait.md "wait.md") block that is configured for a custom
    participant.
+
    - The custom participant is disconnected from the chat, and the chat
      resumes the flow by taking the **Bot participant
      disconnected** branch.
 
 2. The chat currently resides in a [Wait](wait.md "wait.md") block that is configured for the customer
    OR the chat is not in a **Wait** block.
+
    - The custom participant is disconnected from the chat and no other
      actions are taken.
 

@@ -1019,6 +1019,7 @@ The ID of the contact created when:
 —or—
 
 - One of the following flow blocks is run:
+
   - [Transfer to flow](transfer-to-flow.md "transfer-to-flow.md")
   - [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
   - [Set disconnect flow](set-disconnect-flow.md "set-disconnect-flow.md")
@@ -1047,6 +1048,7 @@ when:
 —or—
 
 - One of the following flow blocks is run:
+
   - [Transfer to flow](transfer-to-flow.md "transfer-to-flow.md")
   - [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md")
   - [Set disconnect flow](set-disconnect-flow.md "set-disconnect-flow.md")

@@ -15,6 +15,7 @@ tab, and the dropdown menu where you choose the time zone.
 - The default value for the forecast time zone is UTC.
 - When you change the forecast time zone, Connect Customer regenerates both the
   short-term and long-term forecasts.
+
   - Updated forecasts in the selected time zone are available
     within 24 hours.
   - The forecasts are automatically adjusted for daylight savings
@@ -27,6 +28,7 @@ tab, and the dropdown menu where you choose the time zone.
   zone configuration.
 - Downloads are in the time zone that the forecast was computed in. For
   example:
+
   - Let's say today is May 1st, and the forecast time zone is
     currently set to UTC.
   - The latest computed forecast generated on May 1st is in

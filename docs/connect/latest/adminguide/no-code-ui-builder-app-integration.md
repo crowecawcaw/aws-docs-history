@@ -72,4 +72,4 @@ app name and app path.
 The following image shows an example [Flow block in Connect Customer: Set event flow](set-event-flow.md "set-event-flow.md") block that's added to the flow, and configured
 to the **DefaultAgentUI** event hook.
 
-![A Set event flow block that's configured to the DefaultAgentUI event hook.](images/no-code-ui-builder-app-integration-2.png)
+![A Set event flow block that is configured to the DefaultAgentUI event hook.](images/no-code-ui-builder-app-integration-2.png)

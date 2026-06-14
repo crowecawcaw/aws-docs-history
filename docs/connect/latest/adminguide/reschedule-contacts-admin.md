@@ -11,6 +11,7 @@ To reschedule contacts programmatically, use the [UpdateContactSchedule](../APIR
 1. Enable one of the following permissions to view contacts on the
    **Contact search** and **Contact
    details** pages:
+
    1. **Contact search - View**: Allows a user to view
       all contacts
    2. **View my contacts - View**: Allows agents to
@@ -35,6 +36,7 @@ To reschedule contacts programmatically, use the [UpdateContactSchedule](../APIR
 2. In Connect Customer choose **Analytics and optimization**,
    **Contact search**.
 3. Search for an in-progress task contact to reschedule:
+
    1. Select the **Contact status** filter and change
       the selected value to **In progress**.
    2. Select the **Time range** filter. Set the

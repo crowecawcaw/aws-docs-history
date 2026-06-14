@@ -13,8 +13,8 @@ importing the default flow and configuring it to use the AWS managed view.
 **To enable smart default guides on an existing
 instance:**
 
-1. Copy the flow schema (JSON) provided at the bottom of this
-   section.
+1. Copy the flow schema (JSON) provided in the **Flow
+   schema** section.
 2. In the Connect Customer admin workspace, navigate to **Routing** >
    **Flows**.
 3. Choose **Create flow**, then select **Import

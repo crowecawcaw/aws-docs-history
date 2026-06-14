@@ -25,6 +25,7 @@ The ability to search for in-progress contacts varies by channel (see [Contact e
 for reference):
 
 - **Voice**
+
   - You can search for in-progress queued callbacks after
     they are queued, connected to an agent or disconnected.
   - For other voice contacts, you can search them only after

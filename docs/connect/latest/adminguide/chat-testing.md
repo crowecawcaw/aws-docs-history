@@ -93,7 +93,7 @@ queue you want to assign the example tasks to.
    example, it might have your name. The following image shows the quick connect
    for Jane Doe.
 
-![The edit queue page, the Quick connects dropdown menu, Jane Doe's quick connect.](images/test-tasks-janedoe-queue.png) 3. Select the quick connect and then choose **Save**.
+![The edit queue page, the Quick connects dropdown menu, Jane Does quick connect.](images/test-tasks-janedoe-queue.png) 3. Select the quick connect and then choose **Save**.
 
 ###### Step 3: Assign the queue to the agent's routing profile
 

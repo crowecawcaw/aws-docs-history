@@ -136,6 +136,7 @@ real-time generative responses and suggested actions.
 To support languages other than English:
 
 1. Customize the self-service prompts:
+
    - `SELF_SERVICE_PRE_PROCESSING`
    - `SELF_SERVICE_ANSWER_GENERATION`
 

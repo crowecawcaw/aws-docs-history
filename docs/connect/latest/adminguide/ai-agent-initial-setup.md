@@ -50,6 +50,7 @@ You follow these broad steps to enable Connect AI agents:
 2. Create an encryption key to encrypt the excerpts that are provided in the
    recommendations to the agent.
 3. Create a knowledge base using external data:
+
    - Add data integrations from Amazon S3, Microsoft SharePoint Online,
      [Salesforce](https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm "https://developer.salesforce.com/docs/atlas.en-us.knowledge_dev.meta/knowledge_dev/sforce_api_objects_knowledge__kav.htm"), [ServiceNow](https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api "https://developer.servicenow.com/dev.do#!/reference/api/rome/rest/knowledge-management-api"), and ZenDesk using prebuilt connectors in
      the Connect Customer console.
@@ -452,6 +453,7 @@ these steps:
 
 4. Select the fields for the knowledge base. The following fields are
    required:
+
    - short_description
    - number
    - workflow_state

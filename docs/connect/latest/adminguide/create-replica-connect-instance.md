@@ -39,6 +39,7 @@ resources across AWS Regions.
 ## Important things to know
 
 - Before running [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md"):
+
   - Make sure you have the minimum required IAM permissions to
     create an instance. See [Required permissions for using custom IAM policies to manage access to the Connect Customer console](security-iam-amazon-connect-permissions.md "security-iam-amazon-connect-permissions.md").
   - Update your flows to replace any hardcoded Regions with a
@@ -48,6 +49,7 @@ resources across AWS Regions.
   - Ensure your Lambda functions across AWS Regions
     have the same name.
   - For Amazon Lex bots, you can do one of the following:
+
     - Use Amazon Lex Global Resiliency to replicate bots across
       AWS Regions and retain the bot ID.
     - Change your flows to branch based on the AWS Region
@@ -90,6 +92,7 @@ resources across AWS Regions.
   configurations.
 - You may see the following errors in the CloudTrail log which do not impact
   the configurations mirroring.
+
   - Http 409 (conflict) errors: These errors occur due to
     mirroring conflicts when processing multiple configuration
     updates made to the same contact center resource in quick

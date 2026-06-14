@@ -58,7 +58,7 @@ You can reserve a phone number with Connect Customer directly, port your existin
 or forward voice contacts to Connect Customer. Connect Customer can provide local and toll-free numbers in
 all Regions where the service is supported.
 
-![A diagram showing an inbound request initiated by a contact to the center.](images/architecture/inbound.png)
+![An inbound request initiated by a contact to the center.](images/architecture/inbound.png)
 
 When a phone call is placed to a number claimed in or ported to your Connect Customer
 instance, the flow associated with the called number will be invoked. You can define
@@ -77,7 +77,7 @@ routed to an agent when they change their status to Available, according to your
 routing configuration. When the available agent’s contact is accepted manually or
 through auto-accept configuration, Connect Customer connects the contact with the agent.
 
-![A diagram showing an inbound contact in a queue.](images/architecture/inbound2.png)
+![An inbound contact in a queue.](images/architecture/inbound2.png)
 
 When an inbound contact comes from a browser or mobile app request for a chat
 session, the request is routed to a web service or Amazon API Gateway endpoint that calls the
@@ -131,7 +131,7 @@ approach, you can use Connect Customer flows to drive self-service and routing l
 if necessary, transfer the contact to the target agent or agent queue on your
 legacy contact center platform.
 
-![A diagram showing a customer Interactive Voice Response experience.](images/architecture/hybridivr.png)
+![A customer Interactive Voice Response experience.](images/architecture/hybridivr.png)
 
 In this diagram, the contact dials a phone number claimed in your Connect Customer
 instance for service. If they need to be transferred to an agent on your legacy
@@ -149,7 +149,7 @@ With this approach, your legacy contact center IVR drives the contact’s IVR
 self-serve and routing logic, and, if necessary, transfers the contact to Connect Customer
 to route to your agent population.
 
-![A diagram showing an Agent only experience.](images/architecture/hybridagentonly.png)
+![An Agent only experience.](images/architecture/hybridagentonly.png)
 
 In this diagram, the contact dials a phone number claimed with your legacy
 contact center platform. If they need to be transferred to an agent on Connect Customer,
@@ -167,7 +167,7 @@ In this scenario, you may have your IVR and agents operating in parallel on
 Connect Customer and your legacy contact center platform to allow for site, agent group, or
 line-of-business migrations.
 
-![A diagram showing a hybrid Agent only and Interactive Voice Response experience.](images/architecture/hybridmixed.png)
+![A hybrid Agent only and Interactive Voice Response experience.](images/architecture/hybridmixed.png)
 
 ## Legacy contact center migration
 

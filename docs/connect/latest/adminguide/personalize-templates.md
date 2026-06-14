@@ -51,6 +51,7 @@ configured the messages that use the template.
    templates**.
 2. On the **Message templates** page, do one of the
    following:
+
    - To create a new template and add a message variable to it, choose
      **Create template**. Then, on the template
      page, enter a name for the template and, optionally, a description
@@ -114,7 +115,7 @@ You can choose from the following types of attributes:
 
 
 
-    	![Email template editor showing recommendation attributes in the Attribute finder and personalized product recommendations in the message body.](images/RecommendationAttributesInTemplate.png)
+    	![Email template editor showing recommendation attributes in the Attribute finder and personalized product recommendations.](images/RecommendationAttributesInTemplate.png)
 
     	For more information about configuring recommendations in
     	 campaigns, see [Create an outbound campaign using event triggers](how-to-create-campaigns-using-event-triggers.md "how-to-create-campaigns-using-event-triggers.md").

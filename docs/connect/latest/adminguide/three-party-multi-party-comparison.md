@@ -23,15 +23,15 @@ call even after a caller drops.
 The following example illustrates how previous and next contact IDs are mapped
 when an agent performs series of consults followed by a transfer.
 
-![Diagram showing how contact IDs are mapped during a multi-party call.](images/connect-consult-diagram.png)
+![Contact IDs are mapped during a multi-party call.](images/connect-consult-diagram.png)
 The following example illustrates how previous and next contact IDs are mapped in
 a scenario where agents perform a series of transfers.
 
-![Diagram showing how previous and next contact IDs are mapped when agents transfer callers.](images/connect-transfer-diagram.png)
+![Previous and next contact IDs are mapped when agents transfer callers.](images/connect-transfer-diagram.png)
 The following example illustrates how previous and next contact IDs are mapped in
 a scenario where additional web, in-app, and video calling users are added
 
-![Diagram showing how contact IDs are mapped when additional web, in-app, and video calling users are added.](images/webrtc-diagram2.png)
+![Contact IDs are mapped when additional web, in-app, and video calling users are added.](images/webrtc-diagram2.png)
 The following table summarizes the differences between the agent's experience using
 the Contact Control Panel (CCP) for three-party calls and multi-party calls. For more
 information about the agent's experience with multi-party conversations, see [Host multi-party calls](multi-party-calls.md "multi-party-calls.md") and [Host multi-party chats](multi-party-chat.md "multi-party-chat.md").

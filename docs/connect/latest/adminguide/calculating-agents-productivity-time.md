@@ -18,6 +18,7 @@ at 7:30 and then takes a break from 10:30 to 11:00.
   there is no schedule.
 - From 8:00 to 10:30 Agent A is adherent and from 10:30 to 11:00 they
   are non-adherent because:
+
   - Their status was "Break" when it should have been "Available"
     because they were scheduled for "Work" and the "Work" activity
     is mapped to only the "Available" status.
@@ -43,10 +44,12 @@ status as "Break" from 10:45 to 12:00.
 
 - From 9:00 to 10:30 Agent B was adherent but from 10:30 to 10:45 they
   were non-adherent because:
+
   - They were scheduled for "Break," which was mapped to the
     "Break" status, but their actual status was "Available."
 
 - They were also non-adherent from 11:00 to 12:00 because:
+
   - They were scheduled for the team meeting activity which maps
     to the "Team Meeting" status, but their actual status was
     "Break."

@@ -26,12 +26,14 @@ Following are guidelines for creating Voice ID domains:
   each other.
 - We recommend creating a new Voice ID domain to associate with a Connect Customer
   instance when:
+
   - You are enabling Voice ID for the first time on your account in an
     AWS Region.
   - You want to ensure that you isolate the Voice ID domains used for
     your test and production environments.
 
 - We recommend using an existing Voice ID domain when:
+
   - You want to use the same set of enrolled callers and fraudsters across
     different Connect Customer instances (that may belong to different customer service
     teams)

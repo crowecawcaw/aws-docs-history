@@ -7,6 +7,7 @@ during conversations.
 The following are integration options, along with features of each option:
 
 - Connect Customer agents
+
   - Eliminates Amazon Lex timeout limitations
   - Provides fulfillment messages during processing (such as "One moment
     while I review your account")

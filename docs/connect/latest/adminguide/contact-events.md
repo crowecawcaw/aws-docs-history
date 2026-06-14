@@ -64,6 +64,7 @@ tasks, and chats.
   agent.
 - COMPLETED - The COMPLETED event indicates when a contact has fully ended,
   including After Contact Work (ACW) if applicable.
+
   - For contacts with ACW:
 
   When an agent completes ACW for a voice call, chat, task, or email, the
@@ -72,7 +73,6 @@ tasks, and chats.
       - AgentInfo.afterContactWorkStartTimestamp
       - agentInfo.afterContactWorkEndTimestamp
       - agentInfo.afterContactWorkDuration
-
   - For contacts without ACW:
 
   These fields are not populated when:

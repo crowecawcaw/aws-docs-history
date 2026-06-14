@@ -112,6 +112,7 @@ callback queue, see this blog: [Preventing duplicate callback requests in Connec
 - Queued callbacks count towards the queue size limit, but they are routed to
   the error branch. For example, if you have a queue that handles callbacks and
   incoming calls, and that queue reaches the size limit:
+
   - The next callback is routed to the error branch.
   - The next incoming call gets a reorder tone (also known as a fast busy
     tone), which indicates no transmission path to the called number is
@@ -253,7 +254,7 @@ block, as shown in the following image.
 
 
 
-    ![Choose the dial mode, either agent first callback (the default) or customer first callback mode.](images/first-callbacks-choose-dial-mode-agent-and-customer.png)
+    ![The dial mode, either agent first callback (the default) or customer first callback mode.](images/first-callbacks-choose-dial-mode-agent-and-customer.png)
     * (Optional) Create a callback creation flow. Use the **Set
      creation flow** dropdown menu to select the flow to be run
      when a callback contact is created.

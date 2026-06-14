@@ -52,6 +52,7 @@ Guide_.
     messages will be sent to. Choose **Next**.
 4.  On the **Messaging use case** section, enter the
     following:
+
     - Under **Number capabilities** choose either
       **SMS** or **Voice**, depending on
       your requirements.
@@ -65,12 +66,12 @@ Guide_.
          capabilities.
         + **Voice (text to audio)** – Choose if
          you need voice capabilities.
-
     - Under **Estimated monthly SMS message volume per month –
       optional** choose the estimated number of SMS messages you
       will send each month.
     - For **Company headquarters - optional** choose either
       of the following:
+
       - **Local** – Choose this if your company
         headquarters is in the same country as your customers who will
         receive SMS messages. For example, you would choose this option
@@ -88,6 +89,7 @@ Guide_.
     recommended phone number type or one of the available number types. The
     available options are based on the use case information you filled out in the
     previous steps.
+
     - If you choose 10DLC and already have a registered campaign, you can
       choose the campaign from the **Associate to registered
       campaign**.
@@ -108,6 +110,7 @@ Guide_.
     the type of phone number you requested. Your phone number is associated with
     this registration and can't send messages until your registration has been
     approved. For more information about registrations requirements, see [Registrations](../../../sms-voice/latest/userguide/registrations.md "../../../sms-voice/latest/userguide/registrations.md").
+
     1. For **Registration form name** enter a friendly
        name.
     2. Choose **Begin registration** to finish registering
@@ -226,7 +229,7 @@ If your AWS End User Messaging SMS phone number is still in the SMS sandbox, you
 test sending and receiving SMS messages with verified destination numbers
 that you have configured. For move instructions, see [Moving from the SMS sandbox to production](../../../sms-voice/latest/userguide/registrations.md "../../../sms-voice/latest/userguide/registrations.md").
 
-![The agent's CCP and the customer's phone sending SMS messages.](images/sms-testing2.png)
+![The agent CCP and the customer phone sending SMS messages.](images/sms-testing2.png)
 
 ## Step 5: Prerequisites for going into production
 
@@ -276,6 +279,7 @@ resources configured:
 
 1. **Create an opt-out message processing Lambda
    function for the initial chat message.**
+
    1. Go to the AWS console for Lambda, and choose
       **Create function** with all the default
       settings.
@@ -286,6 +290,7 @@ resources configured:
       access to invoke the APIs in the code. Create a policy with the
       required permissions and attach it to your Lambda execution
       role:
+
       - The policy should contain permissions to invoke all
         APIs required to process customer opt-out
         requests.
@@ -298,6 +303,7 @@ resources configured:
 
 2. **Create an opt-out message processing Lambda
    function for all other messages in the contact.**
+
    1. Go to the AWS console for Lambda, and choose
       **Create function** with all the default
       settings.
@@ -309,6 +315,7 @@ resources configured:
 
 3. **Import both Lambda functions into your Connect Customer
    instance.**
+
    1. Import the Lambda function created in step 1 by following the
       instructions in [Grant Connect Customer access to your AWS Lambda functions](connect-lambda-functions.md "connect-lambda-functions.md").
    2. Run the following CLI command with your AWS account
@@ -345,10 +352,12 @@ a message to that phone number, they will NOT be routed to live agents).
 
 1. **Set up an Amazon Lex bot to process customer opt-out
    requests.**
+
    1. Create an Amazon Lex bot and use it in a Connect Customer flow by following
       the instructions in [Add an Amazon Lex bot to Connect Customer](amazon-lex.md "amazon-lex.md").
    2. When you get to the step for creating bot intents, create a
       bot with the following two intents:
+
       - **Intent 1:
         CustomerOptOutIntent** – This intent is
         triggered when a customer sends an opt-out keyword like

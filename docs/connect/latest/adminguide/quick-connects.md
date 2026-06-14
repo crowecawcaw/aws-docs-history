@@ -57,6 +57,7 @@ API.
 2. On the navigation menu, choose **Routing**,
    **Quick connects**.
 3. For each quick connect, do the following:
+
    1. Choose **Add new**.
    2. Enter a unique name. If desired, also enter a description.
    3. Choose a type.
@@ -121,7 +122,7 @@ needed.
    **Outbound caller ID number**, and **John Doe's
    cell phone** has been selected as the quick connect.
 
-![The Edit queue page, the quick connect for John Doe's cell phone number.](images/quick-connect-johndoe-queue.png) 5. Choose **Save**.
+![The Edit queue page, the quick connect for the John Doe cell phone number.](images/quick-connect-johndoe-queue.png) 5. Choose **Save**.
 
 ###### Test the quick connect
 
@@ -130,7 +131,7 @@ needed.
 3. Select the quick connect you created, and then choose
    **Call**.
 
-![The quick connects page in the CCP, an entry for John Doe's cell phone.](images/quick-connect-johndoe-call.png)
+![The quick connects page in the CCP, an entry for John Does cell phone.](images/quick-connect-johndoe-call.png)
 
 ## More examples
 

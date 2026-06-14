@@ -16,7 +16,9 @@ company couldn't resolve their issue.
    flow.
 2. In the **Transfer to phone number** block, enter the
    following settings:
+
    - **Transfer to**
+
      - **Phone number**—Sets the phone number
        to transfer the call to.
      - **Set dynamically**—Specify a contact
@@ -24,6 +26,7 @@ company couldn't resolve their issue.
        number to transfer the call to.
 
    - **Set timeout**
+
      - **Timeout (in seconds)**—The number of
        seconds to wait for the recipient to answer the transferred
        call.
@@ -40,6 +43,7 @@ company couldn't resolve their issue.
      block when you select this option so that you can appropriately route
      contacts when there is an issue with the transfer.
    - **Optional parameters**
+
      - **Send DTMF**—Select **Send
        DTMF** to include up to 50 Dual-Tone
        Multi-frequency (DTMF) characters with the transferred call. You

@@ -34,6 +34,7 @@ recommended resource availability for each concurrent session.
 - **URLs to add to your firewall allowlist**:
   To ensure smooth screen recording functionality, add the following URL
   patterns to your allowlist:
+
   - From CCP:
     `connect-recording-staging-*.s3.dualstack.your-region-name.amazonaws.com`.
     If you prefer to not use wild cards, the list of endpoints is

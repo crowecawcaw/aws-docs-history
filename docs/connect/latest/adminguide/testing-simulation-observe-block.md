@@ -52,7 +52,7 @@ observation is marked as inactive, and any Check blocks or Action blocks in the
 same interaction group will execute before moving to the next connected
 interaction group.
 
-![Diagram showing how observations transition between active and inactive states during test execution.](images/test-observe-active-observations.png)
+![Observations transition between active and inactive states during test execution.](images/test-observe-active-observations.png)
 
 ## What events can you observe?
 
@@ -107,6 +107,7 @@ Configuration options:
 - **Message Content** –
   Specify what message to look for using one of these
   methods:
+
   - **Text** – Type the
     expected text content of the message
   - **SSML** – Provide
@@ -114,6 +115,7 @@ Configuration options:
 
 - **Matching Criteria** –
   Choose how to match the message:
+
   - **Similar** – Uses
     intelligent semantic matching to find messages with similar
     meaning (recommended for most cases)
@@ -144,6 +146,7 @@ Configuration options:
   "Action Triggered" from the dropdown
 - **Resource Type** – Choose
   which flow action to observe:
+
   - **Lambda Function** –
     Detects when a Lambda function is called (select from the
     dropdown or specify the function ARN)
@@ -157,7 +160,7 @@ Configuration options:
     Detects Lex bot connections (select from the dropdown or
     specify the bot ARN and alias)
 
-![Observe block configuration showing Action Triggered event type with resource type options for Lambda, Hours of Operation, Queue, and Lex Bot.](images/test-observe-flow-action-started.png)
+![Observe block configuration showing Action Triggered event type with resource type options.](images/test-observe-flow-action-started.png)
 
 ## How often should the event occur?
 

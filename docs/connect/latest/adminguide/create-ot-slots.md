@@ -25,6 +25,7 @@ Work with the sub-type **Work** is not shown.
    overtime.
 3. Select the productive activity from the Activity list.
 4. Select by Staffing group or by Staff rules.
+
    - Staffing Groups send a notification to all agents regarding
      availability of overtime slots. Agents are approved based on a first
      come, first served model.

@@ -43,6 +43,7 @@ stored and encrypted.
 
 - **How can I be notified when there is a latest version
   of the client application?**
+
   - For Windows, to be notified when there is an update to the
     Connect Customer Client Application, we recommend subscribing to the RSS feed of this
     administrator guide. Choose the **RSS** link that

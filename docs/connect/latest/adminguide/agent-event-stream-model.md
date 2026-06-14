@@ -7,12 +7,14 @@ included in agent event streams:
 - LOGIN—An agent login to the contact center.
 - LOGOUT—An agent logout from the contact center.
 - STATE_CHANGE—One of the following changed:
+
   - The agent changed their status in the Contact Control Panel (CCP). For
     example, they changed it from Available to on Break.
   - The state of the conversation between the agent and contact changed.
     For example, they were connected and then on hold.
   - One of the following settings changed in the agent's
     configuration:
+
     - Their routing profile
     - The queues in their routing profile
     - Auto-accept call

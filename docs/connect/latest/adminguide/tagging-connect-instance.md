@@ -46,16 +46,16 @@ will appear in the **Tags** section.
    [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
 2. Select an existing instance that you would like to add tags too.
 
-![Select an instance that you would like to tag.](images/tag-existing-instance-1.png) 3. On the **Account overview**, choose **Add new
+![An instance that you would like to tag.](images/tag-existing-instance-1.png) 3. On the **Account overview**, choose **Add new
 tag**.
 
-![Choose the add tag button.](images/tag-existing-instance-2.png) 4. Enter a `Key` and `Value` pair and choose
+![The add tag button.](images/tag-existing-instance-2.png) 4. Enter a `Key` and `Value` pair and choose
 **Next**. You can add up to 50 tags on a single
 instance.
 
 ![Add key and value pairs for your tags.](images/tag-existing-instance-3.png) 5. Choose **Save** to add your tags to your instance.
 
-![Choose save to add your tags to your instance.](images/tag-existing-instance-4.png)
+![Save to add your tags to your instance.](images/tag-existing-instance-4.png)
 
 ## Tagging an Connect Customer instance using the API
 

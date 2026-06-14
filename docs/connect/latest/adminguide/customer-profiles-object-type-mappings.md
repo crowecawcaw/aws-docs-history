@@ -81,7 +81,7 @@ For **ProfileType**
 using the same method. 4. Create two data mappings - one for sub-profiles and one for account-based
 profiles.
 
-![Create two data source integration that will each create a mapping based off the relationship described. For example, accounts/profiles.](images/customer-profiles-ingesting-account-based-profiles-1.png) 5. Next, map customer profile attributes. Note the destination called
+![Create two data source integration that will each create a mapping based off the relationship described.](images/customer-profiles-ingesting-account-based-profiles-1.png) 5. Next, map customer profile attributes. Note the destination called
 `ProfileType`.
 
 ![Next, map customer profile attributes. Note the destination called ProfileType.](images/customer-profiles-ingesting-account-based-profiles-2.png)

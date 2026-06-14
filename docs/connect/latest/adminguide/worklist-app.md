@@ -11,9 +11,11 @@ An agent can only access the Worklist App in the Agent Workspace if they have
 a Security Profile with the appropriate permissions described below.
 
 1. Update the security profiles by selecting one of these permissions:
+
    - **Allow 'Assign to me' for any
      contact** permission - Enables agents to view contacts
      under any of these conditions:
+
      - Current Agent is the only Preferred Agent on the
        Contact.
      - Current Agent is one of the Preferred Agents on the
@@ -25,6 +27,7 @@ a Security Profile with the appropriate permissions described below.
    - **Allow 'Assign to me' for my
      contact** permission - Enables agents to view contacts
      under these conditions:
+
      - Current Agent is the only Preferred Agent on the
        Contact.
      - Current Agent is one of the Preferred Agents on the
@@ -52,12 +55,12 @@ The available filter options depend on the agent's permissions:
 - An Agent with **Allow 'Assign to me' for any
   contact** can view these filter options:
 
-![Filter options for agents with 'Assign to me' for any contact permission.](images/worklist-filter-any-contact.png)
+![Filter options for agents with Assign to me for any contact permission.](images/worklist-filter-any-contact.png)
 
 - An Agent with **Allow 'Assign to me' for my
   contact** can view these filter options:
 
-![Filter options for agents with 'Assign to me' for my contact permission.](images/worklist-filter-my-contact.png)
+![Filter options for agents with Assign to me for my contact permission.](images/worklist-filter-my-contact.png)
 
 ## Time Range filter for contact history
 

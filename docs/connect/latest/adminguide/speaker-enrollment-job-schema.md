@@ -41,6 +41,7 @@ Following is a description of each attribute of the input schema.
   Currently, this should be `1.0`.
 - `SpeakerEnrollmentRequests`: List of speaker enrollment
   requests to be fulfilled as part of the job.
+
   - `RequestId`: An identifier for this speaker
     enrollment request. It must be unique within the input file. It
     is used for mapping and identifying entries in the output
@@ -57,6 +58,7 @@ Following is a description of each attribute of the input schema.
     allowed for an enrollment request is **10**. Each file can be a .wav file up to 20MB,
     containing audio with 8KHz sample rate and PCM-16
     encoding.
+
     - `S3URI`: The Amazon S3 location of the audio
       file in .wav format that needs to be used for enrolling
       the speaker.
@@ -138,12 +140,12 @@ Following is a description of each attribute of the output schema.
 
       	* Internal Server Error (Unexpected error on the
       	 Service-side).
-
   - `ErrorMessage`: A message describing the cause of
     the enrollment failure.
 
 - `SuccessfulEnrollments`: The list of enrollment requests
   that succeeded.
+
   - `RequestId`: The request identifier associated with
     this request. This is the same as the `RequestId`
     specified in the input file for this request.
@@ -153,6 +155,7 @@ Following is a description of each attribute of the output schema.
     identifier for the speaker who was enrolled.
   - `EnrollmentStatus`: The status of successful
     speaker enrollment
+
     - `DUPLICATE_SKIPPED`: The speaker is already
       enrolled, and the enrollment was skipped.
     - `NEW_ENROLLMENT`: The speaker was newly

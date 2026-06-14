@@ -19,10 +19,10 @@ The following procedure shows how to create a test case.
     * **Voice call** – Configure the starting point by specifying the contact flow, incoming phone number, and any contact data to be initialized during test case execution.
     * **Chat** – Configure the starting point by specifying the contact flow and any contact data to be initialized during test case execution.
 
-![Test settings page showing simulation configuration options including channel, starting point, flow selection, and JSON attributes editor.](images/test-settings.png) 6. Choose the **Design** tab to design your test. 7. Choose
+![Test settings page showing simulation configuration options including channel, starting point, flow selection.](images/test-settings.png) 6. Choose the **Design** tab to design your test. 7. Choose
 **New interaction** to create a new interaction. This represents a simulated interaction with a contact center.
 
-![Designer canvas with New interaction button highlighted in the toolbar.](images/GIF/test-create-interaction-gif.gif) 8. For each interaction group, specify an observe block to validate the
+![Designer canvas with New interaction button toolbar.](images/GIF/test-create-interaction-gif.gif) 8. For each interaction group, specify an observe block to validate the
 expected interaction from the system with a matching type (Contains and
 Similarity match). Then, add check or actions blocks if necessary. For
 more information, see

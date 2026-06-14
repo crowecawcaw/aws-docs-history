@@ -129,11 +129,13 @@ step never expires.
 ###### You can use the following items in a routing criteria:
 
 - Choose from the following:
+
   - One or more preferred agents, based on user ID or username.
   - Up to eight attributes using the `AND`
     condition.
   - Up to three OR conditions in a routing step. Each requirement
     separated by an OR can have up to eight attributes.
+
     - You can only use OR when setting attributes dynamically.
       For more information, see [How to set routing criteria](#set-routing-criteria-using-the-flow-block "#set-routing-criteria-using-the-flow-block").
 
@@ -323,6 +325,7 @@ export const handler = async(event) => {
 1. **Inactive:** When the routing criteria is
    activated the first step immediately becomes Inactive. The routing engine
    executes the criteria one step at a time as per the expiration timer.
+
    1. Every step starts as Inactive Until the previous step expires.
 
 2. **Active:** When a step is actively being

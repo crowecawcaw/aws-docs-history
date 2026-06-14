@@ -295,6 +295,7 @@ Ping, OneLogin, Shibboleth, ADFS, AzureAD, and more).
 
 1. Update (or override) the Assertion Consumer Service (ACS) URL. There are two
    ways you can do this:
+
    - **Option 1**: Download the AWS SAML
      metadata and update the `Location` attribute to the Region of
      your choice. Load this new version of the AWS SAML metadata into your
@@ -313,11 +314,13 @@ Ping, OneLogin, Shibboleth, ADFS, AzureAD, and more).
      https://`region-id`.signin.aws.amazon.com/saml).
 
 2. Update the associated role trust policy:
+
    1. This step needs to be done for every role in every account that trusts
       the given identity provider.
    2. Edit the trust relationship, and replace the singular
       `SAML:aud` condition with a multivalued condition. For
       example:
+
       - Default: "`SAML:aud`":
         "https://signin.aws.amazon.com/saml".
       - With modifications: "`SAML:aud`": [
@@ -329,6 +332,7 @@ Ping, OneLogin, Shibboleth, ADFS, AzureAD, and more).
       not be done as part of a plan during an incident.
 
 3. Configure a relay state for the Region-specific console page.
+
    1. If you don't do this final step, there's no guarantee that the
       Region-specific SAML sign in process will forward the user to the
       console sign in page within the same Region. This step is most varied

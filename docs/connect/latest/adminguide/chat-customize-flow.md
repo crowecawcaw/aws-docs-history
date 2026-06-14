@@ -21,8 +21,10 @@ inbound chat flow.
 2.  Call the Connect Customer [CreateParticipant](../APIReference/API_CreateParticipant.md "../APIReference/API_CreateParticipant.md") API to add a custom participant
     (`ParticipantRole` = `CUSTOM_BOT`) to the chat
     contact.
+
     1. For information about how to create the SDK client for calling Connect Customer APIs,
        see the following topics:
+
        - [Class AmazonConnectClientBuilder](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/connect/AmazonConnectClientBuilder.md")
        - [Creating Service Clients](../../../sdk-for-java/v1/developer-guide/creating-clients.md "../../../sdk-for-java/v1/developer-guide/creating-clients.md")
 
@@ -79,6 +81,7 @@ optionally set custom timer values. These steps assume that the you already use 
 custom participant feature for chat.
 
 1. Before the custom participant joins the chat, invoke the [UpdateParticipantRoleConfig](../APIReference/API_UpdateParticipantRoleConfig.md "../APIReference/API_UpdateParticipantRoleConfig.md") API for the customer.
+
    1. Timers activate only for the customer. Custom participants do not have idle participant or auto-disconnect timers.
    2. You can choose the method for invoking the API.
    3. Timer values configured in this step persist for the life of the chat.
@@ -89,6 +92,7 @@ custom participant feature for chat.
 2. (Optional) To configure timers and timer values that are different during the
    **customer and agent interaction** than during
    the **customer and custom participant interaction**:
+
    - Before the agent joins the chat, invoke the [UpdateParticipantRoleConfig](../APIReference/API_UpdateParticipantRoleConfig.md "../APIReference/API_UpdateParticipantRoleConfig.md") API again with the
      configurations you want.
 

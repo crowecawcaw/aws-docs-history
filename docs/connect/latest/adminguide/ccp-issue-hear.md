@@ -9,13 +9,16 @@ Problems with the agent's headset are usually caused by two issues:
 - **Check that your computer recognizes your headset**—Check the settings in
   Device Manager to ensure that your computer recognizes the headset and allows proper
   headset connectivity. For example, if you're using a Windows PC:
+
   1.  Go to **Device Manager**, then expand **Audio
       inputs and outputs**.
   2.  If your computer recognizes your headset, you'll see it listed
       there.
 
 - **Check your browser settings for your headset/microphone**
+
   - **Chrome**
+
     1. go to **Settings**, **Site
        Settings**, **Microphone**.
     2. Then check that the correct headset is enabled.
@@ -23,6 +26,7 @@ Problems with the agent's headset are usually caused by two issues:
        your camera and microphone in Chrome](https://support.google.com/chrome/answer/2693767?hl=en "https://support.google.com/chrome/answer/2693767?hl=en").
 
   - **Firefox**
+
     1. While in the CCP, choose the lock icon in the address bar. If
        needed, grant permissions to the CCP.
     2. To learn more, see [Firefox Page Info window](https://support.mozilla.org/en-US/kb/firefox-page-info-window "https://support.mozilla.org/en-US/kb/firefox-page-info-window").

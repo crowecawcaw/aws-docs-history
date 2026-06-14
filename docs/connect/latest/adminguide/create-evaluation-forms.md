@@ -107,7 +107,7 @@ options to appear on the form:
 The following image shows example answers for a **Single
 selection** question.
 
-![The Answers tab, the "Add option" command.](images/evaluationforms-greetingquestion1-answer.png)
+![The Answers tab, the Add option command.](images/evaluationforms-greetingquestion1-answer.png)
 
 The following image shows an answer range for a
 **Number** question.
@@ -116,7 +116,7 @@ The following image shows an answer range for a
 the question (or mark it as **Not applicable**) while
 performing an evaluation.
 
-![The option to mark a question "not applicable".](images/evaluationforms-questionscoring-not-applicable.png)
+![The option to mark a question not applicable.](images/evaluationforms-questionscoring-not-applicable.png)
 
 ## Step 4: Conditionally enable questions
 

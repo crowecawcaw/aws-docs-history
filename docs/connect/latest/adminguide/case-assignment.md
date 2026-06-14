@@ -29,10 +29,12 @@ resources:
 
 1. **Case template**. Add the following [system case fields](case-fields.md#system-case-fields "case-fields.md#system-case-fields") to a new or
    existing case template:
+
    - Assigned queue
    - Assigned user
 
 2. To enable agents to assign case ownership in the agent workspace:
+
    - **Security profile**. Grant agents permission to
      view the queues, users, and quick connects that are going to appear
      in the dropdown lists in the agent workspace. For more information,

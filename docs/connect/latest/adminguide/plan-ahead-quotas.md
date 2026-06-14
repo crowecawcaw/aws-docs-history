@@ -10,12 +10,15 @@ ensure sufficient capacity for your agents and concurrent calls. Follow these be
 practices:
 
 1. **Include quotas in your migration plan**.
+
    - Address service quotas during the project design phase.
    - Submit quota increase requests well before final migration
      stages.
 
 2. **Size your production workloads**.
+
    - Prepare the following data to support your quota requests:
+
      - Current number of agents
      - Call volume metrics
      - Average call duration
@@ -46,10 +49,12 @@ If you need urgent support during an emergency:
 
 - Open a high-severity support case through the AWS Support
   Center:
+
   - Business Support plan: Select **Production system
     down** (1-hour response).
   - Enterprise On-Ramp or Enterprise Support plan: Select
     **Business-critical system down**.
+
     - Enterprise Support: 15-minute response
     - Enterprise On-Ramp: 30-minute response
 

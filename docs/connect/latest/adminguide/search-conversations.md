@@ -31,6 +31,7 @@ your security profile. They allow you to do the type of search you want.
 
 - Enable one of the following permissions to access the
   **Contact Search** page:
+
   - **Contact search**. Allows you to search for
     all contacts.
   - **View my contacts**: Allows you to search
@@ -88,6 +89,7 @@ conversation you want to search. Note the following:
 
 6. In the **Logic** section, choose from the following
    options:
+
    - Choose **Match any** to return contacts that
      have any of the words present in the transcripts.
 
@@ -143,6 +145,7 @@ scores](sentiment-scores.md "sentiment-scores.md").
     agent.
 3.  In **Type of score analysis**, specify what type of
     scores to return:
+
     - **Sentiment score**: This returns the average
       score for the customer or agent's portion of the
       conversation.

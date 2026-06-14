@@ -22,6 +22,7 @@ A Data Table consists of:
 
 1. Go to the Routing menu and select **Data tables**.
 2. Select **Add new data table**.
+
    1. Provide a **Name**.
    2. Optionally provide a **Description**.
    3. Indicate a **Time zone** to support time-based use cases.
@@ -58,6 +59,7 @@ As attributes are added, they are inserted into the table in the leftmost column
     7. Repeat as needed.
 
 4. When ready, select **Add value** to insert a row into your table.
+
    1. When adding the first value, you must acknowledge that primary attributes cannot be changed if values exist in the table.
    2. Data inputs are automatically validated (type, length, etc.).
    3. As values are added, they are sorted based on primary value(s), for example if the first column is text, the values (rows) will be sequenced from A-Z.

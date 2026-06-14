@@ -3,17 +3,20 @@
 Following is an overview of the steps to set up routing based on agent proficiencies:
 
 1. [Create predefined attributes for routing contacts to agents](predefined-attributes.md "predefined-attributes.md")
+
    - You create the predefined attributes that you want to use to make a
      routing decision. In the next step, you can use predefined attributes
      individually, or you can combine them by using the `AND` or
      `OR` operators to form a routing step.
 
 2. [Assign proficiencies to agents in your Connect Customer instance](assign-proficiencies-to-agents.md "assign-proficiencies-to-agents.md")
+
    - You select predefined attributes and associate them with an agent. All
      available agents that meet a routing step requirement of a contact within
      the same queue will be considered for a match.
 
 3. Set routing criteria
+
    - Use the [Set routing criteria](set-routing-criteria.md "set-routing-criteria.md") flow block to set a routing
      criteria manually or dynamically.
 
@@ -96,6 +99,7 @@ Agent2.
    create the following routing criteria manually or dynamically using JSON that is
    created by invoking a Lambda function as shown in a potential Inbound flow.
    Create the following routing criteria:
+
    1. Step 1: connect:Language(connect:French) >=4 **AND**
       Technology (AWS DynamoDB) >=5 **[30 seconds]**
    2. Step 2: connect:Language(connect:French) >=4 **AND**
@@ -140,43 +144,53 @@ Models have been added for proficiency routing in the following sections:
 ## Frequently asked questions
 
 - **Are queues still relevant?**
+
   - Yes, queues are still necessary. The routing criteria is only activated
     when a contact is enqueued. Agent proficiencies provide additional control
     to target specific agents within a queue.
 
 - **When should we model something as a proficiency instead of
   modeling it as a queue?**
+
   - This is a business decision. You should consider the impact on the number
     of queues you can eliminate and consolidate while using agent proficiencies.
 
 - **Do agent proficiencies work across all channels?**
+
   - Yes, routing using agent proficiencies works for all channels.
 
 - **How do I remove a routing criteria?**
+
   - You can interrupt a routing criteria using a customer queue flow.
   - You can also update the routing criteria this way.
 
 - **How many times can I change a routing criteria on a queued
   contact?**
+
   - You can change the routing criteria an unlimited number of times. However,
     only the latest 3 routing criteria updates are stored on the contact record.
 
 - **With agent proficiencies, do queue priority and delay
   operate as usual?**
+
   - Yes, queue priority and delay operate as they already do in a
     non-agent-proficiencies environment.
 
 - **Which operators are supported for creating a routing
   criteria?**
+
   - The following Boolean operators are supported:
+
     - AND
     - OR
 
   - The following comparison operators are supported:
+
     - > =
 
   - You can also define a range of minimum and maximum proficiency levels such
     as:
+
     - connect:English(1-3)
     - connect:Chat(4-4)
 
@@ -185,10 +199,12 @@ Models have been added for proficiency routing in the following sections:
     allowed.
   - NOT (for exclusion) - You can use the NOT operator to exclude agents with
     certain proficiencies when routing such as:
+
     - NOT connect:French(1-5)
 
 - **Which characters can be used for predefined
   attributes?**
+
   - The pattern for predefined attribute name and value is
     `^(?!(aws:|connect:))[\p{L}\p{Z}\p{N}_.:/=+-@']+$`. For
     example, it can contain any letter, numeric value, whitespace, or
@@ -197,10 +213,12 @@ Models have been added for proficiency routing in the following sections:
 
 - **Can I add the same attribute multiple times in a routing
   criteria?**
+
   - Yes, you can the same attribute multiple times in a routing criteria.
 
 - **When triggering a transfer (quick connect), is it possible
   to set the routing criteria?**
+
   - You use the [Set routing criteria](set-routing-criteria.md "set-routing-criteria.md") block in the transfer flow
     to set the routing criteria on the transferred contact segment. It is not
     possible to carry forward the routing criteria of previous contact to the
@@ -208,6 +226,7 @@ Models have been added for proficiency routing in the following sections:
 
 - **What happens to the routing criteria if a contact is being
   transferred queue to queue, before it was routed?**
+
   - The routing criteria starts from the first step in the new queue in case a
     contact was transferred before being joined to an agent. For this, we
     carry-forward the routing criteria of previous contact to the new contact
@@ -215,16 +234,19 @@ Models have been added for proficiency routing in the following sections:
 
 - **Does the contact record have a snapshot of the proficiencies
   of the matched agent?**
+
   - No, the contact record does not carry the proficiencies of an agent.
   - The agent event stream does have a snapshot of the agent's proficiencies
     at the time of joining.
 
 - **Can we search for an agent by proficiency using
   APIs?**
+
   - No, this is not supported.
 
 - **What happens if we delete an attribute if it is on an active
   contact?**
+
   - You can delete an attribute that is used on active contacts. However, any
     routing step with that attribute will not find a matching agent and the
     contact stays in the queue until the routing criteria expires.
@@ -233,6 +255,7 @@ Models have been added for proficiency routing in the following sections:
 
 - **What happens to the routing criteria steps / expiration when
   an agent rejects a call?**
+
   - Routing considers a join to be complete when an agent accepts the contact
     and a join is completed. When an agent rejects a contact, the routing engine
     continues to run through the routing criteria with the timer continually
@@ -240,21 +263,25 @@ Models have been added for proficiency routing in the following sections:
 
 - **Will the agent who rejected the step be part of the pool
   when routing runs again?**
+
   - Yes, the agent continues to be a part of the pool when routing runs
     again.
 
 - **Are historical metrics available?**
+
   - No, historical metrics are not available in analytics.
   - The contact record, agent event stream, and contact event stream contain
     all the required information.
 
 - **Where can I find a sample Lambda function for setting
   routing criteria?**
+
   - For a sample Lambda function for setting routing criteria, see [Sample
     Lambda function for setting routing criteria](set-routing-criteria.md#set-routing-criteria-sample-lambda-function "set-routing-criteria.md#set-routing-criteria-sample-lambda-function").
 
 - **What happens to the routing criteria set on a contact if the
   contact is being transferred to an agent queue?**
+
   - The routing criteria has no effect on contacts present in an agent queue.
     If a contact with routing criteria is transferred from an agent queue to a
     standard queue, then the routing criteria is forwarded to the new contact

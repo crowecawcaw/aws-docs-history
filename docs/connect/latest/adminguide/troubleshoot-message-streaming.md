@@ -9,6 +9,7 @@ When this happens, we recommend checking the information in [Step 1: Create a st
   standard SNS for real-time streaming of messages.
 - Make sure an SNS resource-based permission is applied correctly in your
   account.
+
   - If server-side encryption is enabled, you need to give the same
     Connect Customer service principal permission for encrypt and decrypt.
 

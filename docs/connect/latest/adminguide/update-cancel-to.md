@@ -10,4 +10,4 @@ An agent will see the updated time off status in their calendar and request
 drawer. The following image shows the status of Nikki Wolfe's time off requests. Her
 requests for Sick day off were Accepted.
 
-![The agent's calendar in the agent application, the status of time off requests for the agent.](images/cancel-edit-agent-view-to.png)
+![The agent calendar in the agent application, the status of time off requests for the agent.](images/cancel-edit-agent-view-to.png)

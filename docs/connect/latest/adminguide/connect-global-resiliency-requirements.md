@@ -40,6 +40,7 @@ function](invoke-lambda-function-block.md "invoke-lambda-function-block.md") blo
 ARN.
 
 - For Amazon Lex bots, you can do one of the following:
+
   - Use Amazon Lex Global Resiliency to replicate bots across AWS Regions and
     retain the bot ID.
   - Change your flows to branch based on the AWS Region where the flow

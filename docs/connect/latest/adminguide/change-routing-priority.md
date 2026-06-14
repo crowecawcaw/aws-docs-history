@@ -36,13 +36,14 @@ The following image shows the **Properties** page of the
 **Change routing priority / age** block. It is configured to
 add 8 seconds to the routing age of the contact.
 
-![The properties page of the Change routing priority / age block.](images/change-routing-priority-properties.png)
+![The properties page of the Change routing priority or age block.](images/change-routing-priority-properties.png)
 
 This block gives you two options for changing a contact's position in queue:
 
 - **Set priority**. The default priority for new contacts
   is 5. You can raise the priority of a contact - compared to other contacts
   in the queue - by assigning them a higher priority, such as 1 or 2.
+
   - Default priority: 5
   - Range of valid values: 1 (highest) - 9223372036854775807 (lowest).
     If you enter a number larger than that, it will fail when the flow

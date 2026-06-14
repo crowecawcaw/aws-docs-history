@@ -82,6 +82,7 @@ folder that contains only exported flows.
 2. On the navigation menu, choose **Routing**, **Contact
    flows**.
 3. Do one of the following:
+
    - To replace an existing flow with the one you are importing, open the
      flow to replace.
    - Create a new flow of the same type as the one you are

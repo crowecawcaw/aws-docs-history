@@ -38,6 +38,7 @@ Configuration options:
   Choose "Log data"
 - **Log data** – Define one or
   more key-value pairs:
+
   - **Log identifier** –
     A descriptive name for the logged value (e.g., "Current
     Queue Name")

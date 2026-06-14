@@ -42,7 +42,7 @@ connectivity to from agent browser.
   ports for media streams. The following image shows the results for an agent
   workstation that meets all of requirements for Connect Customer
 
-![The results of test when an agent's workstation meets all requirements.](images/endpointtestresults.png)
+![The results of test when the agent workstation meets all requirements.](images/endpointtestresults.png)
 
 - Higher latency also leads to packet loss.
 

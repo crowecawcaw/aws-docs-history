@@ -7,6 +7,7 @@ customer experiences.
 ## Description
 
 - Use this flow block to:
+
   - Create [step-by-step guides](step-by-step-guided-experiences.md "step-by-step-guided-experiences.md") for agents who are using the Connect Customer
     agent workspace. These guides are workflows that provide your agents
     with instructions to help them interact consistently with your
@@ -351,6 +352,7 @@ is, the branches depend on which view is selected. It also supports
   shows the block is configured for the **Form** view,
   and the following actions: **Back**,
   **Next**, and **No Match**.
+
   - For this particular configuration, at runtime, the chat
     contact is routed down the **Back** or
     **Next** branches depending on what the

@@ -8,7 +8,7 @@
    available**, or **Email
    analysis is available** as the event source.
 
-![The define condition page, choose Post-call analysis is available, Post-chat analysis is available, or Email analysis is available as event source.](images/contact-lens-rules-create-case-1.png) 2. Choose **Next** 3. On the actions page, choose **Create case** for the
+![The define condition page with Post-call, Post-chat, and Email analysis event source options.](images/contact-lens-rules-create-case-1.png) 2. Choose **Next** 3. On the actions page, choose **Create case** for the
 action.
 
 ![The new rule page, the add action dropdown menu, the create case option.](images/contact-lens-rules-create-case-2.png) 4. In the **Create case** card, select a **Case

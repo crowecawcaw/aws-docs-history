@@ -281,7 +281,7 @@ The following image shows a language that is not supported by sentiment
 analysis. We recommend opening the **Sentiment** section to
 verify whether it is enabled or disabled.
 
-![The Sentiment analysis option when it is disable because the language isn't supported.](images/sentiment-analysis-verify.png)
+![The Sentiment analysis option when it is disable because the language is not supported.](images/sentiment-analysis-verify.png)
 
 To disable sentiment analysis for all agents and customers, deselect the
 **Enable Sentiment Analysis** option, as shown in the
@@ -298,6 +298,7 @@ original and redacted output files.
 
 - Redaction: choose one of the following (they are case
   sensitive)
+
   - None
   - RedactedOnly
   - RedactedAndOriginal
@@ -374,6 +375,7 @@ the call has ended, as shown in the following image.
 
 - A contact enters the inbound flow, and there is a call transfer.
   Following is the agent experience:
+
   - Agent 1 receives a call transcript after they leave the
     conference/warm transfer, during ACW.
 
@@ -410,6 +412,7 @@ the call has ended, as shown in the following image.
 
 - A contact enters the inbound flow, and there are no call
   transfers. Following is the agent experience:
+
   - Agent 1 receives a full call transcript (unredacted)
     during ACW.
 
@@ -422,6 +425,7 @@ the call has ended, as shown in the following image.
 
 - A contact enters the inbound flow, and there is a call transfer.
   Following is the agent experience:
+
   - Agent 1 receives a call transcript after they leave the
     conference/warm transfer, during ACW.
 

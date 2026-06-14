@@ -57,6 +57,7 @@ from the email overview and your knowledge base articles available. It does the 
 - Analyzes the email conversation context
 - Incorporates relevant knowledge base content
 - Generates a professional email response draft that includes:
+
   - Appropriate greeting and closing
   - Response to specific customer questions
   - Relevant information from your knowledge base
@@ -69,6 +70,7 @@ When an agent chooses **Reply all**, they can:
 2. Copy the generated response from the panel.
 3. Paste the generated response into their response editor, and
    either:
+
    - Use the generated response as-is
      — OR —
 
@@ -152,6 +154,7 @@ practices:
 - Use AI guardrails to ensure appropriate content generation. For more
   information, see [Create AI guardrails for Connect AI agents](create-ai-guardrails.md "create-ai-guardrails.md").
 - Monitor Connect AI agent performance through Amazon CloudWatch logs for:
+
   - Response feedback from your agents. For more information, see
     [TRANSCRIPT_RESULT_FEEDBACK](monitor-ai-agents.md#documenting-cw-events-ih "monitor-ai-agents.md#documenting-cw-events-ih").
   - Generated email responses shown to agents. For more information,

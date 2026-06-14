@@ -6,12 +6,14 @@ issues.
 ## Step 1: Observe the issue
 
 - No audio from agent:
+
   - Observation: If the customer cannot hear the agent, generally,
     leading to the customer disconnecting the call.
   - Potential causes: This can be caused by a combination of
     network/hardware configurations.
 
 - No audio from agent and customer:
+
   - Observation: If the customer cannot hear the agent, and the agent
     cannot hear the customer.
   - Potential causes: This can be caused by network connectivity
@@ -25,6 +27,7 @@ and to spot any trends. Using this information, answer the following questions t
 understand overall impact: 
 
 - What percentage of agents are impacted?
+
   - Scenario 1:  If only a single agent seems to be facing the
     problem, it could be related to agent
     workstation/hardware/system/network configuration of the agent.
@@ -55,8 +58,10 @@ information:
 - View the contact records for the contact ID. For instructions, see [View a contact record in the Connect Customer admin website](sample-ctr.md "sample-ctr.md").
 - The following additional resources will also help you identify the source
   of the issue:
+
   - Call recordings: Connect Customer call recordings are helpful in
     understanding deeper insights regarding call quality.
+
     - The agent audio is stored in the right channel.
     - All incoming audio, including the customer and anyone
       conferenced in, is stored in the left channel.

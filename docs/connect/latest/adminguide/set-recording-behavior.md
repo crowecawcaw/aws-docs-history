@@ -23,6 +23,7 @@ There is a lot of functionality in this block:
 - You can configure Contact Lens analytics settings for chat and
   voice contacts. For pricing information, see [Connect Customer Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
   This includes:
+
   - Language in which customers and agents will interact (to improve
     the speech to text transcript generation)
   - Redaction of sensitive data
@@ -86,6 +87,7 @@ In this section of the Properties page you configure recording and related
 analytics settings.
 
 - **Voice**:
+
   - **Agent and customer voice recording**:
     Choose who you want to record.
   - **Contact Lens speech analytics**:
@@ -135,6 +137,7 @@ to both speech and chat Contact Lens conversational analytics.
 
 - You can change call recording behavior in a flow, for example, change from
   "Agent and customer" to "Agent only." Perform the following steps:
+
   1.  Add a second **Set recording and analytics
       behavior** block to the flow.
   2.  Configure the second block to set agent and customer voice

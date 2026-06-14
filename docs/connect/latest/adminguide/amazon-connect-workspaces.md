@@ -20,6 +20,7 @@ To create a new workspace:
 3. Choose **Add new workspace**.
 4. Provide a name and description for your workspace.
 5. Identify the pages that are provided in this workspace.
+
    1. Use existing Connect page — choose from the list of eligible Connect pages, which will grow as more UIs are supported by Views.
 
    ###### Note
@@ -31,11 +32,13 @@ To create a new workspace:
    Up to 17 custom pages can be set up per instance.
 
 6. Assign the workspace to the desired audience.
+
    1. Visible to all users — provide organization-wide access.
    2. Visible to assigned users — restrict to one or more users and/or routing profiles.
    3. Visible to no users — for testing and preparation, or retiring a workspace.
 
 7. Optionally customize theme and branding elements.
+
    1. Logo, font and color scheme can be updated to match your branding.
 
 ###### How workspaces relate to other assignments

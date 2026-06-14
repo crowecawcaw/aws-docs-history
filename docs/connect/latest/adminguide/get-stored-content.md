@@ -25,6 +25,7 @@ This flow block is designed to be used in the following scenarios::
 - Use it with the [Check contact attributes](check-contact-attributes.md "check-contact-attributes.md") and
   [Send message](send-message.md "send-message.md") flow blocks to
   configure automated email responses and routing.
+
   - In the [Check contact attributes](check-contact-attributes.md "check-contact-attributes.md") block, for namespace, choose **Email**
     and for **Key** choose **Email Message**. Then, add conditions depending on
     your use case. For example, if you wanted to route to a specific
@@ -103,6 +104,7 @@ A contact is routed down the Error branch if the flows services runs into any of
 the following error scenarios:
 
 - When using Email message (Plain text):
+
   - When the size of the email message in plaintext format is more than 32KB.
   - Connect Customer is unable to download the email body from the S3
     bucket. This may be due to the S3 bucket policy not being set up

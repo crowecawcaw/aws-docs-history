@@ -49,6 +49,7 @@ This routing profile prioritizes the Tier 1 Support and Tier 2 Support queues
 equally because each is priority 1.
 
 - Agents may take contacts from the Tier 3 Support queue when:
+
   - Customers for Tier 3 Support are waiting for 20 seconds or
     longer.
   - And no contacts are in the Tier 1 Support or Tier 2 Support
@@ -100,6 +101,7 @@ For example:
 
 - **Both agents are available. Who will get the call? It
   depends ...**
+
   - Routing always attempts to route to the longest available agent
     first.
 

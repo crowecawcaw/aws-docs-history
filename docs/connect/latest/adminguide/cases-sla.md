@@ -18,6 +18,7 @@ Case SLAs in Amazon Connect consist of the following components:
   needs to be updated to for the SLA to be considered fulfilled.
 - **SLA status**: The current fulfillment status of
   the SLA. Possible statuses include:
+
   - Active: SLA not yet fulfilled, but target time not reached
   - Met: SLA fulfilled before target time
   - Not met: SLA fulfilled after target time exceeded
@@ -52,9 +53,9 @@ and identify those at risk of missing service goals.
 
 ![Open the Agent Workspace.](images/cases-sla-viewing-1.png) 3. Choose the gear icon in the top right of the table.
 
-![Choose the gear icon in the top right of the table.](images/cases-sla-viewing-2.png) 4. Add the **Next SLA Breach** field to the active list.
+![The gear icon in the top right of the table.](images/cases-sla-viewing-2.png) 4. Add the **Next SLA Breach** field to the active list.
 
-![Add the "Next SLA Breach" field to the active list.](images/cases-sla-viewing-3.png) 5. Toggle the field from inactive to active.
+![Add the Next SLA Breach field to the active list.](images/cases-sla-viewing-3.png) 5. Toggle the field from inactive to active.
 
 ![You then toggle this new field to make it appear in the SLA dashboard.](images/cases-sla-viewing-4.png)
 
@@ -70,6 +71,7 @@ These settings persist unless you clear your cookies.
   the next active SLA will breach.
 - An SLAs section below the case details lists all active and completed SLAs
   associated with the case, including:
+
   - SLA name
   - Status
   - Target date and time

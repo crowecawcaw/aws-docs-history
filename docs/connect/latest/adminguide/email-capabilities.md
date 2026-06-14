@@ -52,7 +52,7 @@ There are three main ways that Connect Customer can receive emails:
 The following diagram illustrates how emails sent from your customers are received
 by Connect Customer using the [StartEmailContact](../APIReference/API_StartEmailContact.md "../APIReference/API_StartEmailContact.md") API for each of the methods mentioned above.
 
-![A diagram showing how a message is sent as a webform or email to the StartEmailContact API.](images/email-ses-diagram.png)
+![How a message is sent as a webform or email to the StartEmailContact API.](images/email-ses-diagram.png)
 
 To integrate Methods 1 or 2, you need to verify an email domain on Amazon SES before
 you can use the email domain in Connect Customer. For instructions, see [Verifying a
@@ -115,7 +115,7 @@ The following diagram illustrates the flow of the email message from the custome
 to Amazon SES and then to Connect Customer. It shows the email message content stored in your S3
 bucket, and then getting data from that bucket to display it to the agent.
 
-![A diagram that shows email message content stored in your S3 bucket.](images/email-concepts-translated.png)
+![Email message content stored in your S3 bucket.](images/email-concepts-translated.png)
 
 ## Every email message is a unique email contact
 
@@ -179,7 +179,7 @@ customers.
 The following diagram shows that the [StartOutboundEmailContact](../APIReference/API_StartOutboundEmailContact.md "../APIReference/API_StartOutboundEmailContact.md") API sends email to Amazon SES, and Amazon SES sends it
 to your customer.
 
-![Diagram showing email flow from StartOutboundEmailContact API through SES to customer.](images/email-concepts-sent.png)
+![Email flow from StartOutboundEmailContact API through SES to customer.](images/email-concepts-sent.png)
 
 The [StartOutboundEmailContact](../APIReference/API_StartOutboundEmailContact.md "../APIReference/API_StartOutboundEmailContact.md") API is the primary API of all integration
 methods for outbound email contacts including agent replies to inbound contact and

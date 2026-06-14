@@ -29,6 +29,7 @@ Enhance your active tab with various data visualization widgets:
 ### Available widgets
 
 - Default widgets
+
   - [Generative AI summary](default-widgets.md#generative-ai-summary "default-widgets.md#generative-ai-summary")
   - [Customer information](default-widgets.md#customer-information "default-widgets.md#customer-information")
   - [Calculated attribute](default-widgets.md#calculated-attribute "default-widgets.md#calculated-attribute")
@@ -38,6 +39,7 @@ Enhance your active tab with various data visualization widgets:
   - [Assets](default-widgets.md#assets-cp "default-widgets.md#assets-cp")
 
 - Custom widgets
+
   - [Table](custom-widgets.md#table-widget "custom-widgets.md#table-widget")
   - [Key value pair](custom-widgets.md#key-value-pair "custom-widgets.md#key-value-pair")
   - [Key metric](custom-widgets.md#key-metric "custom-widgets.md#key-metric")

@@ -76,14 +76,17 @@ feature, you have the flexibility to configure three distinct attribute
 types, enabling precise control over the matching process.
 
 - **Email type**
+
   - You can choose from EmailAddress,
     BusinessEmailAddress, and PersonalEmailAddress
 
 - **PhoneNumber type**
+
   - You can choose from PhoneNumberNumber,
     HomePhoneNumber, and MobilePhoneNumber
 
 - **Address type**
+
   - You can choose from Address, BusinessAddress,
     MaillingAddress, and ShippingAddress
 
@@ -153,12 +156,14 @@ profiles is dependant on how many profiles exist.
 
 - **By default, the default rule will be
   applied if no custom rule specified.**
+
   - Connect Customer Customer Profiles provides a default matching rule if you do
     not provide a custom matching rule. You can check the
     custom matching rule here.
 
 - **All the records will go through the rule-based
   matching rules.**
+
   - The system assesses each matching rule level until a
     match is identified or until the maximum allowed rule
     level for matching is reached. The evaluation process
@@ -171,6 +176,7 @@ profiles is dependant on how many profiles exist.
 - **All attributes in a single matching rule
   level are connected using an _AND_
   relationship**
+
   - When multiple attributes are present within a single
     rule level, they are interconnected by an AND
     relationship. During profile matching, all attribute
@@ -183,6 +189,7 @@ profiles is dependant on how many profiles exist.
 - **All attributes in an attribute type
   selector are connected with an _OR_
   relationship**
+
   - When specifying attributes within the attribute type
     selector, attributes of the same type are linked through
     an OR relationship. For instance, consider the
@@ -195,6 +202,7 @@ profiles is dependant on how many profiles exist.
 
 - **The match result is eventually
   optimized.**
+
   - Due to the near real-time nature of profile matching
     in the system, there is a possibility that a match group
     for your profile may be found at a lower (less

@@ -17,6 +17,7 @@ For calls, you have the following options:
   a library of ready-made options.
 - **Record your own prompts**. You have the
   following options:
+
   - Use the Connect Customer library. Upload your recordings directly from the
     Connect Customer admin website.
   - Use Amazon S3. Store your prompts on S3 and access them dynamically
@@ -348,6 +349,7 @@ The **Play prompt** block includes a checkbox:
 enabled**.
 
 - When the checkbox is selected and touchtone buffering is active:
+
   - If the buffer already contains digits, the prompt is
     skipped entirely and the contact proceeds to the next
     block.

@@ -13,7 +13,7 @@ The following diagram shows the high-level components of screen recording. For a
 diagram that shows the network calls between different components, see
 [Network requirements](sr-system-req.md#network-requirements "sr-system-req.md#network-requirements").
 
-![A diagram of the screen recording flow.](images/screen-recording-flow.png)
+![The screen recording flow.](images/screen-recording-flow.png)
 
 ###### Contents
 

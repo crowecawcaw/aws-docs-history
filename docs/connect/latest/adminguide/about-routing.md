@@ -70,6 +70,7 @@ adjustment.
 - **Agent transfers the contact using a quick
   connect**: A contact is originally enqueued at time **X** and is then handled by an agent. The agent then
   transfers it back to a queue using a quick connect at time **Y**. In this scenario:
+
   - The original enqueue time **X** is
     used to calculate the order in which this contact is ranked in the
     subsequent queue.
@@ -80,6 +81,7 @@ adjustment.
   a queue from time **S** and is eventually
   transferred to a different queue at time **T**.
   In this scenario:
+
   - The new enqueue time **T** is used to
     calculate the order in which the contact is ranked.
   - Any routing age adjustments are applied relative to that contact

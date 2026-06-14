@@ -170,6 +170,7 @@ on the event source.
 
 1. Choose **Add action**. You can choose the following
    actions:
+
    - [Create
      Task](contact-lens-rules-create-task.md "contact-lens-rules-create-task.md")
    - [Send email

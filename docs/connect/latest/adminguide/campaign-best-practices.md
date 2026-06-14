@@ -104,6 +104,7 @@ predictive campaigns, use the following best practices to help reduce that silen
 - Ensure that you have enough agents logged in to your call queue. For more information
   about staffing, see [Forecasting, capacity planning, and scheduling in Connect Customer](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
 - Consider using Connect Customer's machine learning services.
+
   - [Forecasting](forecasting.md "forecasting.md"). Analyze and predict contact volume
     based on historical data. What will future demand—the contact volume and handle time—look
     like? Connect Customer forecasting provides accurate and auto-generated forecasts that are
@@ -568,19 +569,23 @@ C**. 5. Edit the branches in the split as follows:
 
 6. Add a **Wait** activity after each branch, then edit each
    **Wait** activity as follows:
+
    - Branch A
+
      1. In the **Time period** section, enter
         **4**.
      2. In the **Unit** list and select **hours**.
      3. Select **Save**.
 
    - Branch B
+
      1. In the **Time period** section, enter
         **1**.
      2. In the **Unit** list and select **hours**.
      3. Select **Save**.
 
    - Branch C
+
      1. In the **Time period** section, enter
         **4**.
      2. In the **Unit** list and select **days**.

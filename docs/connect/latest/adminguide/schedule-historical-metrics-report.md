@@ -64,8 +64,10 @@ For example:
 - A scheduled report with **Generate this report** =
   **Daily** produces a report using trailing 24 hour
   intervals for the specified number of days.
+
   - For example, to create a scheduled report for yesterday that generates a
     report at 2:00PM EST every day apply the following settings:
+
     - Generate this report **Daily**, running every
       **1 Day**, starting at 2:00PM EST for the
       previous **1 Days**.
@@ -73,12 +75,14 @@ For example:
       2:00PM EST November 10th and contain data from 2:00 PM EST
       November 9th to 2:00 PM EST November 10th. This 24 hour interval
       will appear as two rows in the generated report for every run.
+
       - Row 1: 2:00PM EST November 9th to midnight (00:00) November 10th
       - Row 2: Midnight (00:00) November 10th to 2:00PM EST November 10th
 
   ![Settings to create a scheduled report for yesterday that generates a report at 2:00PM EST every day.](images/metrics-scheduled-reports-historical-daily-2pm.png)
   - To create a scheduled report for yesterday that generates only one row
     for the 24 hour interval in each run, apply the following settings:
+
     - Generate this report **Daily**, running every
       **1 Day**, starting at 12:00 AM in your **required timezone** for the
       previous **1 Days**.

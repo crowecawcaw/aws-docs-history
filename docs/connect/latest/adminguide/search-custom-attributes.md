@@ -27,6 +27,7 @@ Assign the following permissions to their security profile:
 
 - Enable one of the following permissions to access the **Contact
   Search** page:
+
   - **Contact search**. Allows you to search for all
     contacts.
   - **View my contacts**: Allows agents to view only

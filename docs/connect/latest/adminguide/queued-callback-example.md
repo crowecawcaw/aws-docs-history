@@ -24,6 +24,7 @@ Assume we have set up the following flows:
   In this example, John calls customer service. Here's what happens:
 
 1.  Inbound flow creates contact record-1:
+
     1. John calls customer service at 11:35. The Inbound flow runs and
        puts him in queue at 11:35.
     2. The Customer queue flow runs. At 11:37, John chooses to schedule a

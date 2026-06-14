@@ -96,6 +96,7 @@ You cannot apply rules to past, stored conversations.
    available**.
 3. Choose **Add condition** to trigger a situation-specific
    evaluation. For example:
+
    - A specific answer on another evaluation, shown in the following image.
 
    ![A specific answer on another evaluation.](images/add-condition-1.png)

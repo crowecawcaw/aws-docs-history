@@ -8,6 +8,7 @@ conditions set for that queue.
 - Checks the status of the queue based on specified conditions.
 - Branches based on the comparison of **Time in Queue** or
   **Queue capacity**.
+
   - **Time in queue** is the amount of time the
     oldest contact spends in queue, before they are routed to an agent
     or removed from the queue.

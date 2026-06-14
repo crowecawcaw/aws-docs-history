@@ -70,6 +70,7 @@ attribute, use one of these options:
 
 - Use the **Network** tab of the browser debugger to
   retrieve the agent ID. For example:
+
   1.  In a Chrome browser, press F12 and go to the
       **Network** tab.
   2.  In Connect Customer, in the navigation menu, choose

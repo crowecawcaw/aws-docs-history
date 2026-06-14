@@ -14,7 +14,7 @@ intelligent routing, and track performance in real-time.
 
 Connect Customer helps a variety of personas:
 
-![One application that provides a seamless experience for customers, agents, supervisors and administrators. Amazon Connect Customer.](images/firstcallimage.png)
+![One application that provides a seamless experience for customers, agents, supervisors and administrators.](images/firstcallimage.png)
 
 - **Customers** reach out to your contact center
   because they are having trouble with some issue they can't resolve for themselves,

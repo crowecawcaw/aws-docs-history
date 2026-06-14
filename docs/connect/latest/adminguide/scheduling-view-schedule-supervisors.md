@@ -111,6 +111,7 @@ Sort by start time is not available in Week view.
   choosing that date.
 - Week view provides the following metrics, aggregated at a day
   level:
+
   - Occupancy
   - Hours: forecasted versus scheduled hours
   - Service level (by channel): goal versus actual based on
@@ -118,4 +119,4 @@ Sort by start time is not available in Week view.
   - Average speed of answer (by channel): goal versus actual based
     on scheduled agents
 
-![A Week view where manager searched for agents with first name, last name or login ID with the string sal, sorted by their shift start times.](images/scheduling-view-schedule-supervisors-weekly.png)
+![A Week view where manager searched for agents with first name, last name or login ID with the string sal.](images/scheduling-view-schedule-supervisors-weekly.png)

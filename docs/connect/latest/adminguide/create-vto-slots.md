@@ -6,6 +6,7 @@
    off.
 3. Select the productive activity from the Activity list.
 4. Select by Staffing group or by Staff rules.
+
    - Staffing Groups send notifications to all agents regarding the
      availability of overtime slots. Agents are approved based on a first
      come, first served model.

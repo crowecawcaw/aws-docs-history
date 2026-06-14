@@ -11,6 +11,7 @@ To transfer contacts programmatically, use the [TransferContact](../APIReference
 1. Enable one of the following permissions to view contacts on the
    **Contact search** and **Contact
    details** pages:
+
    1. **Contact search - View**: Allows a user to view
       all contacts
    2. **View my contacts - View**: Allows agents to
@@ -35,6 +36,7 @@ To transfer contacts programmatically, use the [TransferContact](../APIReference
 2. In Connect Customer choose **Analytics and optimization**,
    **Contact search**.
 3. Search for an in-progress task or email contact to transfer:
+
    1. Select the **Contact status** filter and set it
       to **In progress**, as shown in the following
       image.

@@ -38,13 +38,16 @@ anything else running on the workstation to avoid resource contention.
 - **Browser**: For a list of all supported browsers, see
   [Browsers supported by Connect Customer](connect-supported-browsers.md "connect-supported-browsers.md").
 - **Network**
+
   - **Audio**
+
     - **1:1 call:** 54 Kbps up and
       down
     - **Large call**: no more than 32
       Kbps extra down for 50 callers
 
   - **Video**
+
     - **1:1 call**: 650 Kbps up and
       down
     - **HD mode**: 1400 Kbps up and
@@ -56,6 +59,7 @@ anything else running on the workstation to avoid resource contention.
     - Up and down bandwidth adapts lower based on network conditions
 
   - **Screen**
+
     - 1.2 Mbps up (when presenting) and down (when viewing) for high quality. This adapts as low as 320 Kbps based on network conditions.
     - **Remote control**: 800 Kbps
       fixed
@@ -95,6 +99,7 @@ quotas](../../../general/latest/gr/connect_region.md "../../../general/latest/gr
 - Regular monitoring of workstations that show processes running, and the
   current resource usage of each process.
 - Workstation performance/use in these areas:
+
   - Processor (CPU)
   - Disk / drive
   - RAM / memory

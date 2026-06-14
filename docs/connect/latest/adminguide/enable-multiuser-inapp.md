@@ -75,7 +75,7 @@ The following diagram illustrates how previous and next contact IDs are
 mapped in a scenario where multiple participants and agents are added in a
 web, in-app or video call.
 
-![Diagram showing how contact IDs are mapped for multi-party WebRTC calls.](images/multiparty-webrtc-contact-mapping.png)
+![Contact IDs are mapped for multi-party WebRTC calls.](images/multiparty-webrtc-contact-mapping.png)
 
 ## Handling concurrent user joins
 

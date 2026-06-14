@@ -52,6 +52,7 @@ increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../
   your quotas as part of a larger project, keep this information in mind and [plan accordingly](plan-ahead-quotas.md "plan-ahead-quotas.md").
 - There are two types of quota adjustability: account level and
   resource-level.
+
   - Account level quotas, when adjusted, apply to all Connect Customer
     instances in this account and Region. For example, the maximum
     transactions per second (TPS) limits for a specific API.
@@ -494,6 +495,7 @@ limited to the following:
 
 - The following APIs have a `RateLimit` of 1 request per second,
   and a `BurstLimit` of 2 requests per second:
+
   - [CreateCampaign](../../../connect-outbound/latest/APIReference/API_CreateCampaign.md "../../../connect-outbound/latest/APIReference/API_CreateCampaign.md")
   - [DeleteCampaign](../../../connect-outbound/latest/APIReference/API_DeleteCampaign.md "../../../connect-outbound/latest/APIReference/API_DeleteCampaign.md")
   - [PauseCampaign](../../../connect-outbound/latest/APIReference/API_PauseCampaign.md "../../../connect-outbound/latest/APIReference/API_PauseCampaign.md")
@@ -509,12 +511,14 @@ limited to the following:
 
 - The following APIs have a `RateLimit` of 5 requests per second,
   and a `BurstLimit` of 10 requests per second:
+
   - [GetCampaignState](../../../connect-outbound/latest/APIReference/API_GetCampaignState.md "../../../connect-outbound/latest/APIReference/API_GetCampaignState.md")
   - [GetCampaignStateBatch](../../../connect-outbound/latest/APIReference/API_GetCampaignStateBatch.md "../../../connect-outbound/latest/APIReference/API_GetCampaignStateBatch.md")
   - [ListCampaigns](../../../connect-outbound/latest/APIReference/API_ListCampaigns.md "../../../connect-outbound/latest/APIReference/API_ListCampaigns.md")
 
 - The following APIs have a RateLimit of 10 requests per second, and a
   BurstLimit of 10 requests per second:
+
   - [PutDialRequestBatch](../APIReference/API_connect-outbound-campaigns_PutDialRequestBatch.md "../APIReference/API_connect-outbound-campaigns_PutDialRequestBatch.md")
   - [PutOutboundRequestBatch](../APIReference/API_connect-outbound-campaigns-v2_PutOutboundRequestBatch.md "../APIReference/API_connect-outbound-campaigns-v2_PutOutboundRequestBatch.md")
   - [PutProfileOutboundRequestBatch](../APIReference/API_connect-outbound-campaigns-v2_PutProfileOutboundRequestBatch.md "../APIReference/API_connect-outbound-campaigns-v2_PutProfileOutboundRequestBatch.md")

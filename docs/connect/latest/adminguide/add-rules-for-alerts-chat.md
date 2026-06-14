@@ -63,7 +63,7 @@ highlight. Real-time rules only support any keywords or phrases that
 ![A words and phrases rule.](images/contact-lens-add-alert-rules-1.png) 8. Choose **Add**. Each word or phrase separated by
 a comma gets its own line.
 
-![A words and phrases rule with multiple phrases, each on it's own line.](images/contact-lens-add-alert-rules-2.png)
+![A words and phrases rule with multiple phrases, each on its own line.](images/contact-lens-add-alert-rules-2.png)
 
 The logic that Contact Lens uses to read these words or
 phrases is: (Talk OR to OR your OR manager) OR (this OR is OR not OR

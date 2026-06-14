@@ -45,6 +45,7 @@ IDs.
    ML-based matching are enabled after you enable Identity Resolution. You can disable one of
    them or both from the Identity Resolution page. For more information, see [Disable Identity Resolution in Connect Customer Customer Profiles](disable-identity-resolution.md "disable-identity-resolution.md").
 8. Rule-based matching for Identity Resolution:
+
    1. After you enable the rule-based matching with a new domain the matching
       will start immediately if you set up an integration and the
       integration is running.
@@ -52,6 +53,7 @@ IDs.
       matching process will start within one hour.
 
 9. ML-based matching for Identity Resolution:
+
    1. After you enable Identity Resolution the Identity Resolution Job runs for the first time within 24
       hours.
 

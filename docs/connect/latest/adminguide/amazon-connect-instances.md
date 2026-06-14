@@ -44,6 +44,7 @@ information, see [Plan your identity management in Connect Customer](connect-ide
 2. Choose **Get started**. If you have previously created an
    instance, choose **Add an instance** instead.
 3. Choose one of the following options:
+
    - **Store users in Connect Customer** - Use Connect Customer to create and
      manage user accounts. You cannot share users with other
      applications.
@@ -73,6 +74,7 @@ security profile.
 
 1. Do one of the following, based on the option that you chose in the previous
    step:
+
    - If you chose **Store users within Connect Customer**, select
      **Specify an administrator**, and provide a name,
      password, and email address for the user account in Connect Customer.

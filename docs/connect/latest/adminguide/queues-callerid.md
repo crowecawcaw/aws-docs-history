@@ -73,6 +73,7 @@ it's possible. The phone number needs to be in a [country we support](https://d1
 4. Select the required severity.
 5. Choose **Next step: Additional information**
 6. On the **Additional information** page:
+
    1. Enter the subject.
    2. Under **Description**, include as much
       information as possible about your request. If you don't know
@@ -88,6 +89,7 @@ it's possible. The phone number needs to be in a [country we support](https://d1
 
 7. Choose **Next step: Solve now or contact us**.
 8. On the **Solve now or contact us** page:
+
    1. Choose the **Contact us** tab and select your
       **Preferred contact language** and your
       preferred contact method.

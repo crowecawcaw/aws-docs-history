@@ -19,6 +19,7 @@ conversations are not reflects on this page.
 
 1. Log in to the Connect Customer admin website at https://`instance name`.my.connect.aws/. Use an Admin account or an account that has the following permissions in
    its security profile:
+
    - **Channels and Flows** - **Bots** -
      **View**
    - **Channels and Flows** - **Bots** -

@@ -11,27 +11,32 @@ Every component in the layout definition is comprised of five common
 elements:
 
 - **Type**
+
   - Defines the component category
   - Determines how the component renders
   - Examples: BoardItem, Table, KeyValuePair
 
 - **Id**
+
   - Unique identifier for each component
   - Used for component tracking and updates
   - Generated automatically when components are created in the
     builder
 
 - **Props**
+
   - Component-specific properties
   - Controls appearance and behavior
   - Contains configuration settings
 
 - **Children**
+
   - Nested components or content
   - Defines hierarchical relationships
   - Can contain multiple sub-components
 
 - **DataSource**
+
   - Specifies data origin
   - Defines data retrieval parameters
   - Controls data binding for components

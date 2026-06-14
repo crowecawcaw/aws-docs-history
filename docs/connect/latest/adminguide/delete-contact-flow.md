@@ -72,6 +72,7 @@ There are two ways you can restore flows or modules.
    **Flows**.
 3. On the **Flows** page, choose **View
    archive**.
+
    1. To restore archived modules, on the **Flows**
       page, choose the **Modules** tab, and then choose
       **View archive**.
@@ -114,6 +115,7 @@ from your Connect Customer instance.
    **Flows**.
 3. On the **Flows** page, choose **View
    archive**.
+
    1. To delete modules, on the **Flows** page, choose
       the **Modules** tab, and then choose **View
       archive**.

@@ -76,6 +76,7 @@ automatically merged, the FirstName “John” will be preserved.
   consolidation criteria are connected with `AND`
   criteria with exact value comparison before
   merging**.
+
   - For example, when multiple attributes are specified in
     the criteria, such as `email address` and
     `phone number`, then all similar profiles
@@ -95,6 +96,7 @@ number` are merged.
 
 - **Multiple criteria are evaluated in the
   order of priority starting with Criteria 1**.
+
   - The sequence in which consolidation criteria are
     applied. It starts with Criteria 1 as the highest
     priority to Criteria 10 as the lowest priority.
@@ -107,6 +109,7 @@ number` are merged.
 - **Each criteria runs independently and
   operates as an `OR` with other
   criteria**.
+
   - When you have multiple criteria, each criteria is
     applied individually and in the sequence of priority
     order before the Identity Resolution Job moves on to the next
@@ -118,6 +121,7 @@ number` are merged.
 
 - **By default, profile conflicts are
   managed by recency**.
+
   - When two or more similar profiles in a match group
     meet a consolidation criteria, the resulting
     consolidated profile is created by comparing each value
@@ -142,6 +146,7 @@ number` are merged.
 
 - **Profile conflicts are managed by source
   object type and recency**.
+
   - You can also change default behavior of conflict
     resolution to choose a similar constituent profile from
     a specific source as the source of truth to inform
@@ -155,6 +160,7 @@ number` are merged.
 
 - **Last updated timestamp identifies which
   record was most recently updated**.
+
   - The timestamp attribute associated with the source
     record’s object type is used to identify which record
     was most recently updated.
@@ -166,6 +172,7 @@ number` are merged.
 
 - **Consolidation is a one-way process and
   cannot be undone**.
+
   - Choose your criteria carefully before starting the
     consolidation process. For more information, see [Tips for creating strong criteria](create-consolidation-criteria.md#tips-for-creating-consolidation-criteria "create-consolidation-criteria.md#tips-for-creating-consolidation-criteria").
   - Use the [GetAutoMergingPreview](../../../customerprofiles/latest/APIReference/API_GetAutoMergingPreview.md "../../../customerprofiles/latest/APIReference/API_GetAutoMergingPreview.md") API to test the

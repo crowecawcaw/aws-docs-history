@@ -27,6 +27,7 @@ You can use modules across all [flow types](create-contact-flow.md#contact-flow-
 
 - Modules do not allow overriding flow local data of the invoking flow. This
   means you can't use the following with modules:
+
   - External attributes
   - Amazon Lex attributes
   - Customer Profiles attributes
@@ -56,7 +57,7 @@ This module shows how to check call back number from customers and allows them t
 
 Following is an image of the customer call back module that invokes the sub module for setting the call back number:
 
-![Flow diagram showing contact attribute check, set contact attributes, get customer input with multiple branches, invoke module, and return steps.](images/module-nested-call-back-number-example.png)
+![Flow diagram showing contact attribute check, set contact attributes, get customer input with multiple branches.](images/module-nested-call-back-number-example.png)
 
 Following is an image of the set call back number sub module::
 

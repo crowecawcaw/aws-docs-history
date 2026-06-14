@@ -31,7 +31,7 @@ provider.
 In the **Voice provider** dropdown, choose the third-party
 text-to-speech provider you want to use.
 
-![The 'Set voice' configuration pane showing a drop-down list of voice providers.](images/Lex/08-set-voice-amazon.png)
+![The Set voice configuration pane showing a drop-down list of voice providers.](images/Lex/08-set-voice-amazon.png)
 
 ## Step 4: Specify model, voice, Secrets Manager ARN, and language
 
@@ -41,6 +41,7 @@ text-to-speech provider you want to use.
    enter the provider voice.
 3. Under **Secrets Manager ARN**, choose **Set manually**
    and enter the ARN of the provider secret.
+
    - The secret must be in the same AWS Region.
    - AWS Secrets Manager and KMS policies must permit retrieval and decryption. For
      more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").
@@ -48,7 +49,7 @@ text-to-speech provider you want to use.
 4. Under **Language**, choose **Set manually**
    and choose a language that is supported by the provider voice.
 
-![The 'Voice provider' configuration pane showing the ElevenLabs third-party voice provider.](images/Lex/09-voice-provider-elevenlabs.png)
+![The Voice provider configuration pane showing the ElevenLabs third-party voice provider.](images/Lex/09-voice-provider-elevenlabs.png)
 
 ## Step 5: Save and publish the flow
 

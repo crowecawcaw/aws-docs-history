@@ -12,7 +12,7 @@ reviewing [Security in Connect Customer](security.md "security.md") and [Securit
 follow these guidelines and steps to understand and implement your security
 requirements relative to the following core security areas:
 
-![A diagram showing the core security areas to implement in Connect Customer.](images/architecture/securityjourney.png)
+![The core security areas to implement in Connect Customer.](images/architecture/securityjourney.png)
 
 ### Understanding the AWS Security Model
 
@@ -271,6 +271,7 @@ to the following:
    AWS integrations including AWS Lambda, Amazon DynamoDB, Amazon API Gateway, Amazon S3, and
    other services. Follow the security pillar guidelines for AWS services,
    with special attention to the following:
+
    - Plan identity management, keeping in mind best practices noted in
      [Security Best Practices for Connect Customer](security-best-practices.md "security-best-practices.md").
    - Integrations with other AWS services: Identify each AWS

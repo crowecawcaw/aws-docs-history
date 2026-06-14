@@ -60,6 +60,7 @@ if (shouldRenderVideoUI()) {
 ```
 
 5. To build a video UI and join a video meeting session, see:
+
    - [Amazon Chime SDK for JavaScript](https://github.com/aws/amazon-chime-sdk-js "https://github.com/aws/amazon-chime-sdk-js") on GitHub
    - [Amazon Chime SDK React Components Library](https://github.com/aws/amazon-chime-sdk-component-library-react "https://github.com/aws/amazon-chime-sdk-component-library-react") on
      GitHub

@@ -50,6 +50,7 @@ contact center performance.
 
 1. Ensure users are assigned the appropriate security profile permissions so they
    can access the dashboards they need and view the metrics:
+
    - **Access metrics - Access permission** or the
      **Dashboard - Access permission**. For information
      about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").
@@ -152,6 +153,14 @@ Use the following actions on your dashboards to save, download, and share them.
    [View shared
    reports](view-a-shared-report.md "view-a-shared-report.md"), and [Publishing
    reports](publish-reports.md "publish-reports.md").
+
+###### Important
+
+You must publish a dashboard before other users can view it. Sharing a
+dashboard distributes the link, but only published dashboards are accessible
+to users other than the dashboard creator. If you share an unpublished
+dashboard, recipients receive an access denied error when attempting to open
+it.
 
 The following image shows the actions that you can select on an example
 dashboard.

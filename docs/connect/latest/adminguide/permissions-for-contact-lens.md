@@ -14,6 +14,7 @@ analytics.
 
 - **Contact Lens - conversational
   analytics**
+
   - On the **Contact details** page you can view
     graphs that summarize conversational analytics (customer
     sentiment, talk time for voice contacts), as well as sentiment

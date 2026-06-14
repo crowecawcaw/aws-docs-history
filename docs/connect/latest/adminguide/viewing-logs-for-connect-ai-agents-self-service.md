@@ -11,8 +11,8 @@ and tracing options.
   trace how the AI agent reasoned through a request and which tools it
   selected and executed.
 - **CloudWatch Logs**: Enable CloudWatch Logging for your
-  Connect AI agents by following the steps in [Monitor
-  Connect AI agents](monitor-ai-agents.md "monitor-ai-agents.md").
+  Connect AI agents by following the steps in [Monitor AI agents using
+  CloudWatch](monitor-ai-agents.md "monitor-ai-agents.md").
 
 Legacy self-service interactions generate log entries with the
 event type `TRANSCRIPT_SELF_SERVICE_MESSAGE` in the following

@@ -84,6 +84,7 @@ If you enable **Continue prompts during interrupt**:
 - At 60 seconds, after playing the first prompt and 20 seconds of the
   second, Connect executes the Flows logic in the timeout branch for the Loop
   prompts block.
+
   - If your timeout branch doesn't use Flow blocks that play different
     audio (such as Play prompt, Get customer input, Store customer
     input, or Invoke Lex bot), Connect continues playing the prompt
@@ -103,6 +104,7 @@ If you enable **Continue prompts during interrupt**:
 
 - The following blocks are not allowed before the **Loop
   prompts** block:
+
   - [Get customer input](get-customer-input.md "get-customer-input.md")
   - [Loop](loop.md "loop.md")
   - [Play prompt](play.md "play.md")

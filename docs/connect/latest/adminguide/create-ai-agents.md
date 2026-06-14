@@ -53,6 +53,7 @@ name`.my.connect.aws/. Use an admin account, or an account with
 4. On the **Create AI Agent** dialog box, for **AI
    Agent type**, use the dropdown box to choose from one of the
    following types:
+
    - **Orchestration**: An AI agent with agentic capabilities
      that orchestrates different use cases per customer needs. It can engage in
      multi-turn conversation and invoke pre-configured tools.
@@ -61,6 +62,7 @@ name`.my.connect.aws/. Use an admin account, or an account with
      drives the automatic intent-based recommendations that are pushed to
      agents when they engage in a contact with customers. It uses the
      following types of AI prompt:
+
      - **Intent labelling generation** AI prompt
        to generate the intents for the customer service agent to
        choose as a first step.

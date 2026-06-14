@@ -31,6 +31,7 @@ Assign users the following permissions in their security profile so they can
 access the **Agent workspace performance dashboard**:
 
 - Assign to agents:
+
   - **Agent Applications** - **Performance
     metrics** - **Access**: Displays the
     **Performance metrics** option in the
@@ -46,6 +47,7 @@ access the **Agent workspace performance dashboard**:
   workspace, assign them the **Agent Applications - Performance
   metrics - Access** permission, and one of the following
   permissions:
+
   - **Analytics and Optimization** -
     **Dashboards** - **Access**:
     Grants access to only the **Dashboards**

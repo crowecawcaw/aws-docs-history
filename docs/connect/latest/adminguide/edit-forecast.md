@@ -175,7 +175,7 @@ forecast.
 
 The following image shows an example CSV file with data in it.
 
-![A CSV file opened in Excel, historical data that is properly formatted.](images/wfm-forecasting-override-table.png)
+![CSV file opened in Excel, historical data that is properly formatted.](images/wfm-forecasting-override-table.png)
 
 Following are the requirements for imported data:
 
@@ -202,6 +202,7 @@ Following are the requirements for imported data:
      handle time (in seconds) as type double/decimal.
 
 - You can upload only one override file for a forecast group.
+
   - This means if you previously uploaded an override file (for
     example, with 120 lines of overrides), you must add new
     overrides to this override file (for example, add 50 new lines

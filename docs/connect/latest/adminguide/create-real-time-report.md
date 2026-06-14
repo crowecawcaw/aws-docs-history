@@ -13,6 +13,7 @@ For more information, see [Security profiles for Connect Customer and Contact Co
    **Real-time metrics**.
 3. Choose one of the following report types. They group and order the data in
    different ways and include different metrics by default.
+
    - **Queues**
    - **Agents**
    - **Routing profiles**
@@ -36,6 +37,7 @@ experiencing performance issues if you add a lot of them. 5. To customize a repo
 7. (Optional) On the **Filters** tab, specify filters to
    scope the data to be included in the report. The available filters depend on
    the report type. The following are the possible filters:
+
    - **Queues**—Includes data only for the
      queues that you select from **Include**.
    - **Routing profiles**—Includes data only

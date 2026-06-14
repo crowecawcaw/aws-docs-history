@@ -35,6 +35,7 @@ DCV** and complete those instructions.
 
 - **Networking/firewall
   configurations**
+
   - **Workspace VDI
     configuration**
 
@@ -51,6 +52,7 @@ DCV** and complete those instructions.
 ![Workspace VDI and agent machine firewall settings.](images/vdi-workspaces.png)
 
 - **Unsupported CCP Deployment**
+
   - Native CCP
 
 ## Confirm media flows between agent machine and Connect Customer during the call

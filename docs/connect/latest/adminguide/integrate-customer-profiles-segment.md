@@ -62,6 +62,7 @@ of the following:
    **Source set up** page, copy your AWS account ID to your clipboard, and then choose
    **Log in to Segment** to configure Amazon EventBridge.
 8. Use the following instructions to set up Segment:
+
    1. Log in to Segment.
    2. In your application, select a source to set up the
       destination to Amazon EventBridge.

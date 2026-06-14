@@ -5,13 +5,14 @@ Connect Customer provides managers with a random sample of their agents’ conta
 ###### Random sampling of contacts for evaluation
 
 1. Login to Amazon Connect with a user, who has the following set of permissions on their security profile:
+
    1. Contact Search - View
    2. Sample contacts
    3. Evaluation forms – perform evaluations
 
 2. Select the timeframe of contacts for evaluation, such as trailing week. Note that you can sample contacts from a maximum period of 5 weeks.
 
-![Select timeframe.](images/evaluationforms-randomsampling-time-range.png) 3. Select the agent or agent hierarchy that you need to evaluate.
+![Timeframe.](images/evaluationforms-randomsampling-time-range.png) 3. Select the agent or agent hierarchy that you need to evaluate.
 
 ![Filter search - Agent.](images/evaluationforms-randomsampling-agent-filter.png)
 
@@ -35,7 +36,7 @@ Connect Customer provides managers with a random sample of their agents’ conta
 
 ![Create draft evaluations.](images/evaluationforms-randomsampling-create-draft-eval-empty.png)
 
-![Select evaluation form.](images/evaluationforms-randomsampling-create-draft-eval-form-select.png)
+![Evaluation form.](images/evaluationforms-randomsampling-create-draft-eval-form-select.png)
 
 This associates the draft evaluations with the sample name.
 

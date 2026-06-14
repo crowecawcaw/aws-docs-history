@@ -8,6 +8,7 @@
   impact the third-party applications experience. If you are using
   third-party apps in the Connect Customer Agent workspace on the Chrome browser, we
   recommend that you:
+
   - **Temporary solution**: Update
     [Enterprise Chrome policies](https://support.google.com/chrome/a/answer/7679408?sjid=16745203858910744446-EU#upChromeBrsrBB117 "https://support.google.com/chrome/a/answer/7679408?sjid=16745203858910744446-EU#upChromeBrsrBB117")). You can set
     `BlockThirdPartyCookies` Policy to false and

@@ -10,6 +10,7 @@ voice to use for the contact flow.
 - The default voice is configured to Joanna (Conversational speaking style).
 - You can choose **Override speaking style** to make it and
   other voices [Neural Voices](../../../polly/latest/dg/neural-voices.md "../../../polly/latest/dg/neural-voices.md") or [Generative Voices](../../../polly/latest/dg/generative-voices.md "../../../polly/latest/dg/generative-voices.md").
+
   - Neural voices make automated conversations sound more lifelike by
     improving the pitch, inflection, intonation, and tempo.
   - For a list of supported neural voices, see [Neural

@@ -38,6 +38,7 @@ With Connect Customer Voice ID you can:
 2. Voice ID starts listening to the customer's speech after the contact has
    encountered the [Set Voice ID](set-voice-id.md "set-voice-id.md") block, where Voice ID is enabled.
    Voice ID listens to the call until one of the following happens:
+
    - It gets enough audio to evaluate the speaker for authentication,
      fraud, and enroll the speaker (if requested). This is 30 seconds of
      customer speech, excluding silence.

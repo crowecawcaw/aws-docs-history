@@ -87,6 +87,7 @@ profile:
 
 1.  Configure the **Properties** page of the [Set recording and analytics
     behavior](set-recording-behavior.md "set-recording-behavior.md") as follows:
+
     1. Set **Analytics** to **On**.
     2. Choose either **Enable speech analytics**,
        **Enable chat analytics**, or both.
@@ -99,7 +100,6 @@ profile:
          wants to view post-contact summaries for in progress
          contacts (that is, the agent is still in ACW but the
          call has ended).
-
     3. Granular redaction is not supported for post-contact summary.
        When granular redaction is selected, post-contact summary
        redacts all PII identified in text and replaces it with a [PII]
@@ -110,6 +110,7 @@ profile:
 
 2.  Assign the following permissions to the user's security
     profile:
+
     - **Analysis and Optimization - Contact
       Search** OR **View my
       contacts**
@@ -129,6 +130,7 @@ profile:
 1. Add a [Set recording, analytics and processing behavior](set-recording-analytics-processing-behavior.md "set-recording-analytics-processing-behavior.md")
    block to your inbound email flow.
 2. Configure the **Properties** page of the block:
+
    1. For **Channel**, choose **Email**.
    2. Set **Analytics** to **On**.
    3. Choose **Enable email analytics**.
@@ -163,12 +165,12 @@ To help managers and other users review contacts, they can view post-contact
 summaries on the Connect Customer admin website. The following image shows an example of
 generative AI-powered post-contact summaries on the **Contact details** page.
 
-![The Contact details page showing a generative AI-powered post-contact summary with structured information about the customer conversation.](images/genai-summary2.png)
+![The Contact details page showing a generative AI-powered post-contact summary.](images/genai-summary2.png)
 
 The following image shows an example of generative AI-powered post-contact summaries on the
 **Contact search** page.
 
-![The Contact search page displaying generative AI-powered post-contact summaries for multiple customer interactions in a list view format.](images/genai-summary-contactsearch2.png)
+![The Contact search page displaying generative AI-powered post-contact summaries.](images/genai-summary-contactsearch2.png)
 
 Each contact has no more than one summary generated. Not all contacts will
 have a summary generated; for more information, see [Why a summary is not generated](#summary-not-generated "#summary-not-generated").

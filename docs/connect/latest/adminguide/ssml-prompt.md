@@ -9,4 +9,4 @@ The default setting in a flow block for interpreting text-to-speech is
 the **Interpret as** field to **SSML** as shown in the
 following image.
 
-![Image of the settings for a flow block showing the Text to speech Interpret as field set to SSML.](images/connect-interpret-as-ssml.png)
+![The settings for a flow block showing the Text to speech Interpret as field set to SSML.](images/connect-interpret-as-ssml.png)

@@ -24,6 +24,7 @@ Guide_.
   140-byte sections known as [message
   parts](../../../sms-voice/latest/userguide/sms-limitations-mps.md "../../../sms-voice/latest/userguide/sms-limitations-mps.md"). Your throughput rate is the number of message parts
   that you can send each second.
+
   - **1–3 message parts per second**:
     Use a toll-free number. We recommend using a 10DLC number or
     short code if your throughput needs will exceed these limits as

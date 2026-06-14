@@ -96,6 +96,7 @@ upload of time off group allowance data_ in [Forecasting, capacity planning, and
 2. Choose the Forecast group the group allowance applies to, and then
    choose **Upload group allowance**. Connect Customer does the
    following:
+
    - Validates the data and provides details if there are
      errors.
    - Prompts you for confirmation that you want to upload the

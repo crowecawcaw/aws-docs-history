@@ -14,6 +14,7 @@ associated with a contact.
 
 1. Enable security in the communications widget as described in [Add a chat user interface to your website hosted by Connect Customer](add-chat-to-website.md "add-chat-to-website.md"), if
    you haven't already:
+
    1. In Step 2, under **Add security for your chat
       widget**, choose **Yes**.
    2. In Step 3, use the security key to generate JSON web
@@ -131,4 +132,4 @@ amazon_connect('authenticate', function(callback) {
   sure to enclose both the key and value in quotes, as shown in the following
   image.
 
-![The test settings page, a contact attribute key in quotes, a value in quotes.](images/test-chat-contact-attributes.png)
+![The test settings page, a contact attribute key in quotes, a value in quotes.](/images/connect/latest/adminguide/images/test-chat-contact-attributes.png)

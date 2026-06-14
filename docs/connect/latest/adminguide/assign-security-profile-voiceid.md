@@ -11,6 +11,7 @@ Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-
 - To enable users to search for contacts by their Voice ID status, assign the
   following **Analytics and Optimization** permission to their
   security profile:
+
   - **Voice ID - attributes and search**: Enables users
     to search for and view Voice ID results on the **Contact
     detail** page.
@@ -41,7 +42,7 @@ Voice ID end of support](amazonconnect-voiceid-end-of-support.md "amazonconnect-
 
   The following image shows an example of these controls on the CCP:
 
-![Contact Control Panel (CCP) showing Voice ID controls including enrollment status, authentication result, and buttons for enrolling or opting out customers.](images/voiceid-ccp-controls.png)
+![Contact Control Panel (CCP) showing Voice ID controls including enrollment status, authentication result.](images/voiceid-ccp-controls.png)
 For information about how to add more permissions to an existing security profile,
 see [Update security profiles in Connect Customer](update-security-profiles.md "update-security-profiles.md").
 

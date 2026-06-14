@@ -73,7 +73,7 @@ Connect Customer admin website
 4. Copy and save the `flowARN`. It is the entire
    string, as shown in the following image.
 
-![Dialog box displaying the complete flowARN (Amazon Resource Name) for a step-by-step guide, showing the unique identifier needed for integration.](images/qic-flow-id.png)
+![Dialog box displaying the complete flowARN (Amazon Resource Name) for a step-by-step guide.](images/qic-flow-id.png)
 
 You'll use the `flowARN` in [Step 2](#associate-guide-content "#associate-guide-content").
 

@@ -130,6 +130,7 @@ installation will fail.
 - Protocol prefixes such as https:// or http:// are not
   required.
 - Limitations:
+
   - Maximum 500 domain entries
   - Maximum 256 characters per domain entry
   - Maximum 128,000 characters total input length

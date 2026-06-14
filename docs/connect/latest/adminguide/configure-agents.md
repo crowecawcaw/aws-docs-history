@@ -35,6 +35,7 @@ next available agent.
    custom security profiles.
 5. Under **Phone Type** choose whether the agent is using a desk
    phone or soft phone.
+
    - If you select **Desk phone**, enter their phone
      number.
 
@@ -50,11 +51,13 @@ next available agent.
 
 6. Under Contact handling choose whether you want to auto accept contacts and set the After Contact
    timeout duration.
+
    - **Auto-Accept Call**: This enables agents to be connected to contacts
      automatically for the respective channel. For more information, see [Enable auto-accept](enable-auto-accept.md "enable-auto-accept.md").
    - In **After call work (ACW) timeout**, type how many seconds agents have
      for after contact work, such as entering notes about the contact. This needs to be typed
      separately for each individual channel.
+
      - Minimum setting is 1 second.
      - Maximum setting is 2,000,000 seconds (24 days).
      - Enter **0** if you don't want to allocate a specific amount of
@@ -64,6 +67,7 @@ next available agent.
      - The following image shows the **Contact Handling** section of the
        **User Management** page. Each channel has a separate **Auto-accept**
        and **ACW timeout** setting.
+
        - Note -To configure auto-accept or ACW timeouts for Outbound Campaigns calls
          or customer-first callbacks, use the “Voice” settings.
        - ![The Edit User page, the contact handling section.](images/agent-contact-handling-config.png)

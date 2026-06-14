@@ -5,6 +5,7 @@ like self-service and agent assistance. They integrate with tools and security p
 resolution capabilities.
 
 - **Tools**: You can configure your Orchestrator AI Agent with these tool types:
+
   - [MCP tools](ai-agent-mcp-tools.md "ai-agent-mcp-tools.md"): Extend agent capabilities through the Model Context Protocol.
   - Return to control: Ends the conversation and exits the GCI block in self-service flows
   - Constant: Returns a static string value. Useful for testing and rapid iteration during development

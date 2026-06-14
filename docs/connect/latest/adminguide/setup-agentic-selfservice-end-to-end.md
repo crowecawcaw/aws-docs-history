@@ -87,6 +87,7 @@ The Connect Customer Communications Widget is an embeddable chat interface that 
 
 1. Choose **Add widget** to create a new Communications Widget
 2. Enter the following details:
+
    - **Name**: `AI-Streaming-Demo-Widget`
    - **Description**: `Widget for testing AI Message Streaming`
 
@@ -113,6 +114,7 @@ The Communications Widget only loads on websites that are explicitly allowed. Th
 
 1. Scroll down to **Allowed domains**
 2. Choose **Add domain** and add the following domain for localhost testing:
+
    - `http://localhost`
 
 3. Select **No** under security
@@ -123,6 +125,7 @@ The Communications Widget only loads on websites that are explicitly allowed. Th
 1. Choose **Save and continue** to save your widget configuration
 2. After creation, you'll see the **Widget details** page with your embed code
 3. **Important**: Copy and save the following values from the embed code snippet:
+
    - **Client URI** - The URL to the widget JavaScript file
    - **Widget ID** - A unique identifier for your widget
    - **Snippet ID** - A Base64-encoded configuration string

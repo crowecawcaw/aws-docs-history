@@ -48,19 +48,23 @@ environment.
 2. Append a query parameter with the key `VDIPlatform` and
    the value equal to the specific VDI environment you have. For
    example:
+
    1. For Citrix cloud desktop, the value for the query
       parameter is `CITRIX`. The following code shows
       an example of the complete URL:
+
       - `https://`your-instance-url`/agent-app-v2?VDIPlatform=CITRIX`
 
    2. For Amazon WorkSpaces cloud desktop, the value for the query
       parameter is `AWS_WORKSPACE`. The following code
       shows an example of the complete URL:
+
       - `https://`your-instance-url`/agent-app-v2?VDIPlatform=AWS_WORKSPACE`
 
    3. For Omnissa cloud desktop, the value for the query
       parameter is `OMNISSA`. The following code shows
       an example of the complete URL:
+
       - `https://`your-instance-url`/agent-app-v2?VDIPlatform=OMNISSA`
 
 3. Copy and paste the URL into the agent's browser.
@@ -73,6 +77,7 @@ environment.
 1. If you use SSO to directly login into the Connect Customer agent workspace, you
    need to change the relay state URL of your SSO setup to append the
    VDI query parameter. Complete the following steps to do this:
+
    1. Copy and paste the relay state you are using to access the
       agent workspace in the relay state of your Identity Provider
       (IdP).
@@ -83,6 +88,7 @@ environment.
       appropriate value to this relay state. Using the example
       from the preceding link, the complete relay state URL for the
       Connect Customer agent workspace would look like the following:
+
       1. In Citrix Desktop
 
       `https://us-east-1.console.aws.amazon.com/connect/federate/instance-id?destination=%2Fagent-app-v2?VDIPlatform=CITRIX` 2. In Amazon WorkSpaces
@@ -94,6 +100,7 @@ environment.
 2. Setting `VDIPlatform` in relay state URL automatically
    sets the audio optimization in the agent workspace for the specific VDI
    environment being used.
+
    1. Log in from your IdP, and confirm that
       `VDIPlatform` is present as a query
       parameter.

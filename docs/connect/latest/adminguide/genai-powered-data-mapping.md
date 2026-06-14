@@ -36,15 +36,15 @@ regions:
 3. Set up the connection. Select the data source from drop-down that has
    all supported connectors available.
 
-![Select the data source from drop-down that has all supported connectors available.](images/genai-augmented-data-mapping-1.png) 4. Map data. Select the option to auto-generate data mapping, or select
+![The data source from drop-down that has all supported connectors available.](images/genai-augmented-data-mapping-1.png) 4. Map data. Select the option to auto-generate data mapping, or select
 an already existing mapping template or create one from scratch..
 
-![Map data. Select the option to auto-generate data mapping, or select an already existing mapping template or create one from scratch.](images/genai-augmented-data-mapping-2.png) 5. Review mapping summary. Review the auto-generated mapping results
+![Map data.](images/genai-augmented-data-mapping-2.png) 5. Review mapping summary. Review the auto-generated mapping results
 summary that shows all the customer attributes. Make edits to ingestion
 keys and confirm before starting data ingestion. For more on field
 mappings and keys, see [Object type mapping definition details in Connect Customer Customer Profiles](object-type-mapping-definition-details.md "object-type-mapping-definition-details.md").
 
-![Review mapping summary. Review the auto-generated mapping results summary that shows all the customer attributes. Make edits to ingestion keys and confirm before starting data ingestion.](images/genai-augmented-data-mapping-3.png)
+![Review mapping summary. Review the auto-generated mapping results summary that shows all the customer attributes.](images/genai-augmented-data-mapping-3.png)
 
 ## How it works
 
@@ -83,7 +83,7 @@ Up to 120 attributes are allowed in a JSON object, including nested JSON
 attributes. Remove some attributes that don't need to be mapped from the
 JSON object.
 
-![Up to 120 attributes are allowed in a JSON object, including nested JSON attributes. Remove some attributes that don't need to be mapped from the JSON object.](images/genai-augmented-data-mapping-breached-limit.png)
+![Up to 120 attributes are allowed in a JSON object, including nested JSON attributes.](images/genai-augmented-data-mapping-breached-limit.png)
 
 ### Warning: We couldn't find a **unique key**, which distinguishes your data. We couldn't find a **profile key**, which identifies your profiles.
 

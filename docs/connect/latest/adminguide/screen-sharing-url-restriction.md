@@ -29,6 +29,7 @@ the following steps.
 2. In the **Add predefined attributes** section, in the
    **Predefined attribute** box, add one of the
    following.
+
    - To create allowed list for customer screen sharing, enter
      `screensharing:customer-allowed-urls`.
    - To create allowed list for agent screen sharing, enter

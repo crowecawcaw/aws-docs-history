@@ -86,7 +86,7 @@ to view routing profiles, queues, and Connect Customer user accounts. **Routing
 profiles - View**, **Queues - View**, and
 **Users - View** are selected.
 
-!["View" permissions for routing profiles, queues, and users.](images/dashboard-hbac-resource-permissions.png)
+![View permissions for routing profiles, queues, and users.](images/dashboard-hbac-resource-permissions.png)
 
 ## Limitations
 
@@ -96,6 +96,7 @@ reports and dashboards:
 - Access to view **Agent Queues** is disabled.
 - There are additional things to consider if tag-based access control is
   being applied simultaneously with hierarchy-based access control:
+
   - If tag-based access control is enabled along with hierarchy-based
     access control, the [limitations](rtm-tag-based-access-control.md#rtm-tag-based-access-control-limitations "rtm-tag-based-access-control.md#rtm-tag-based-access-control-limitations")
     imposed by tag-based access will still be there.

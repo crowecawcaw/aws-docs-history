@@ -12,6 +12,7 @@ instances in the traffic distribution group.
 - When creating a traffic distribution group, it must be created in the source AWS Region. A _source Region_ is the
   Region where you set up your existing Connect Customer instance.
 - When associating phone numbers to a traffic distribution group:
+
   - You can associate only phone numbers that are claimed in the
     source Region.
   - The phone number must be in the same Region as where the traffic distribution group

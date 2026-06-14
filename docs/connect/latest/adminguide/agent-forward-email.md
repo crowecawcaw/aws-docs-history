@@ -24,6 +24,7 @@ To forward an email contact to an external address:
 4. Optionally, add a message in the body field to provide context or instructions for the external recipients.
 5. Optionally, add any attachments required.
 6. Review the forwarded content, which includes:
+
    - The original email message and thread
    - Your additional message (if provided)
 

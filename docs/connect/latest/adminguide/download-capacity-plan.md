@@ -4,7 +4,7 @@ When you download a capacity plan file, it downloads as a .csv file type with
 multiple tabs. It's helpful to open this file using Excel. The following image shows
 an example of what a capacity plan file looks like in Excel.
 
-![A downloaded capacity plan file opened with Excel showing multiple tabs for metrics, capacity plan details, scenario inputs, and generation details.](images/wfm-capacity-planning-download1.png)
+![A downloaded capacity plan file opened with Excel showing multiple tabs for metrics, capacity plan details.](images/wfm-capacity-planning-download1.png)
 Following is a description of each worksheet:
 
 - **Metrics**: When you download the Monthly view, the

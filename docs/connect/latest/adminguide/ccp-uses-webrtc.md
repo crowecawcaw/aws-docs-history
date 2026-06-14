@@ -155,6 +155,7 @@ WebRTC.
   row for `TurnNlb-*.elb.region.amazonaws.com`.
 - If you're using [Option 2 (not recommended): Allow IP address ranges](ccp-networking.md#option2 "ccp-networking.md#option2"), we
   recommend the following to mitigate error behaviors:
+
   - Monitor the IP ranges allow-listed by your business for
     Connect Customer.
   - Ensure changes within the IP ranges are monitored.
@@ -162,6 +163,7 @@ WebRTC.
     port and protocol allow-listings for SEND/RECEIVE traffic.
 
 - Before moving to production, do the following
+
   - Test WebRTC connectivity by using the [Connect Customer Endpoint Connectivity
     testing tool](check-connectivity-tool.md "check-connectivity-tool.md"). This tool helps you ascertain whether the
     Connect Customer WebRTC Media endpoints are accessible from the agent

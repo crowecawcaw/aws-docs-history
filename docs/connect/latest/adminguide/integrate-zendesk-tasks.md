@@ -5,6 +5,7 @@
 If you don't already have the EventBridge connector for Zendesk enabled, you need to set it up first. Otherwise, go to [Step 2: Integrate Zendesk with Connect Customer for task creation](#steps-integrate-zendesk "#steps-integrate-zendesk").
 
 1. Copy your AWS account number:
+
    1. In the Amazon EventBridge console, go to **Partner event
       sources**.
    2. Search for or scroll to **Zendesk**, and choose

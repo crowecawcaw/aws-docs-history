@@ -17,6 +17,7 @@ The list of phone numbers claimed to your Connect Customer instance is displayed
 2. On the navigation menu, choose **Channels**,
    **Phone numbers**, **Download
    CSV**.
+
    - ALL of the phone numbers listed on that page are downloaded to the
      CSV file, regardless of which ones are selected.
    - It does not download all of the phone numbers claimed by your

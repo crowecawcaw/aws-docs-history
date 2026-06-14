@@ -7,6 +7,7 @@ using Connect Customer.
 This topic explains how to investigate device problems.
 
 - Investigate platform issues
+
   - Run the [Endpoint Test
     Utility](check-connectivity-tool.md "check-connectivity-tool.md") from the affected agent's machine and check the
     results.
@@ -30,15 +31,18 @@ This topic explains how to investigate device problems.
     Connect Customer](connect-supported-browsers.md "connect-supported-browsers.md").
 
 - Investigate headset issues
+
   - Ensure that the agent's headset meets the [minimum headset requirements](ccp-agent-hardware.md#ccp-agent-headset "ccp-agent-hardware.md#ccp-agent-headset").
   - Check whether the issue occurs when a different headset (or no
     headset) is used.
+
     - If using a wireless headset, consider using a wired one.
 
   - If your audio input device supports noise cancellation, consider
     changing the settings for the same as required.
 
 - Investigate for application incompatibility
+
   - Check whether any recent software/application installed on the
     workstation that may be doing one of the following:
 
@@ -51,5 +55,6 @@ This topic explains how to investigate device problems.
     installed applications one at a time until the issue is resolved.
 
 - Investigate your custom CCP
+
   - If you are using a custom CCP (not the default CCP), does the issue
     reproduce on a default CCP?

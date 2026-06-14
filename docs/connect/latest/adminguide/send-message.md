@@ -148,6 +148,7 @@ Configure the following properties on the page to send an SMS message:
 - **From**: The phone number that the message is to be
   sent from. The dropdown menu shows a list of phone numbers that are
   claimed for your Connect Customer instance.
+
   - **Set manually**: Use the dropdown menu to
     search for a phone number that has been claimed to your Connect Customer
     instance.
@@ -162,6 +163,7 @@ Configure the following properties on the page to send an SMS message:
 
 - **To**: The phone number that the message is to be
   sent to.
+
   - **Set manually**: Enter the customer's phone
     number. This is where the SMS message will be sent. You can
     enter only one phone number. This is useful for testing the
@@ -173,6 +175,7 @@ Configure the following properties on the page to send an SMS message:
 
 - **Message**: The message that will be sent to the
   customer.
+
   - **Use template**: Use the dropdown menu to
     choose from a list of SMS templates. You can choose one template
     to be sent to the customer.
@@ -198,6 +201,7 @@ Configure the following properties on the page to send an SMS message:
 - **Flow**: The Connect Customer flow that will
   handle the outbound contact created. This flow can be used to assign the
   outbound contact to an agent to respond to the customer.
+
   - **Set manually**: Use the drop-down menu to
     choose from a list of published flows.
   - **Set dynamically**: Accepts an attribute
@@ -209,6 +213,7 @@ Configure the following properties on the page to send an SMS message:
   contact that initiated the flow. In some situations, you may not want to
   link the outbound contact that is created to avoid repetitive contact
   associations.
+
   - This property gives you the option to link the outbound SMS
     contact to the inbound contact that initiated the flow.
 
@@ -231,6 +236,7 @@ Configure the following properties on the page to send an WhatsApp message:
 - **From**: The phone number that the message is to be
   sent from. The dropdown menu shows a list of WhatsApp numbers that are
   imported into your Connect Customer instance.
+
   - **Set manually**: Use the dropdown menu to
     search for a WhatsApp number that has been imported into your Connect Customer
     instance.
@@ -245,6 +251,7 @@ Configure the following properties on the page to send an WhatsApp message:
 
 - **To**: The WhatsApp number that the message is to be
   sent to.
+
   - **Set manually**: Enter the customer's WhatsApp
     number. This is where the WhatsApp message will be sent. You can
     enter only one WhatsApp number. This is useful for testing the
@@ -256,6 +263,7 @@ Configure the following properties on the page to send an WhatsApp message:
 
 - **Message template**: The template containing the
   message that will be sent to the customer.
+
   - Use the dropdown menu to choose from a list of WhatsApp templates.
     Selecting a template is required for sending WhatsApp messages to customers.
 
@@ -281,6 +289,7 @@ Configure the following properties on the page to send an WhatsApp message:
 - **Flow**: The Connect Customer flow that will
   handle the outbound contact created. This flow can be used to assign the
   outbound contact to an agent to respond to the customer.
+
   - **Set manually**: Use the drop-down menu to
     choose from a list of published flows.
   - **Set dynamically**: Accepts an attribute
@@ -292,6 +301,7 @@ Configure the following properties on the page to send an WhatsApp message:
   contact that initiated the flow. In some situations, you may not want to
   link the outbound contact that is created to avoid repetitive contact
   associations.
+
   - This property gives you the option to link the outbound WhatsApp
     contact to the inbound contact that initiated the flow.
 
@@ -331,6 +341,7 @@ of emails.
 
 - **To**: The email address email message is sent
   to.
+
   - **Set manually**: Enter a single email
     address in the following format:
     *customer@example.com*.
@@ -360,12 +371,14 @@ You can enter only one email address on the cc line.
      **CC Email Address List**.
 
 - **Message**:
+
   - **Use template**: Use the dropdown menu to
     choose from a list of email templates that have been created for
     your contact center. You can choose one template to be sent to
     the customer.
   - **Use text**: Enter a plain text
     message.
+
     - **Subject**: To enter the Subject
       dynamically, for example, to use the same subject that
       was in the customer's original email to you, choose
@@ -377,6 +390,7 @@ You can enter only one email address on the cc line.
       attribute.
 
 - **Link to contact**:
+
   - This property gives you the option to link the outbound email
     contact to the inbound contact that initiated the flow.
 

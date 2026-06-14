@@ -52,6 +52,7 @@ The following image shows a sample rule with multiple conditions:
 
 1. Choose **Add action**. You can choose the following
    actions:
+
    - [Assign service level agreement to
      case](cases-sla.md#cases-sla-adding "cases-sla.md#cases-sla-adding")
    - [Create

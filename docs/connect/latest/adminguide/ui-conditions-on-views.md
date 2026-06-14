@@ -5,6 +5,7 @@ The UI conditions capability of Views enables customers to change properties of 
 To create a UI condition, visit the UI builder and drag a supported component onto the canvas. Visit the settings panel of the component on the right side of the screen and choose the UI conditions tab. The UI conditions tab is organized to collect the following inputs:
 
 1. Change Type: The property of the selected component that you would like to update based on a condition
+
    - Visibility: Makes a component visible or hidden
    - DefaultValue: Updates the default value(s) of a component
    - Required: Updates the required property of a component

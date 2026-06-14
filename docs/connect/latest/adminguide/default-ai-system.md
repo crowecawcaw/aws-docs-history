@@ -28,12 +28,14 @@ reformulation** AI prompt.
 - **EmailGenerativeAnswer**: Generates an answer
   to a customer email query by making use of documents and excerpts in a
   knowledge base.
+
   - Provides agents with comprehensive, properly formatted responses
     that include relevant citations and source references.
   - Adheres to the specified language requirements.
 
 - **EmailOverview**: Analyzes and summarizes
   email conversations (threads).
+
   - Provides agents with a structured overview that includes the
     customer's key issues, agent responses, required next steps, and
     important contextual details.
@@ -52,6 +54,7 @@ off to either the **EmailResponse** or
 
 - **EmailResponse**: Creates complete,
   professional email responses.
+
   - Incorporates relevant knowledge base content.
   - Maintains appropriate tone and formatting.
   - Includes proper greetings and closings.

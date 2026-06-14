@@ -57,6 +57,7 @@ profiles that are not duplicates, we recommend the following steps:
   related business address attributes.
 - Include one of the following attributes likely to uniquely identify a
   customer in combination with other attributes in the criteria:
+
   - Account number
   - Phone number
   - Email
@@ -120,26 +121,31 @@ In this example there are three criteria:
   conflicting values, Identity Resolution is going to use the last updated timestamp to
   determine which value to use.
 - Criteria 1:
+
   - First name, Last name
   - Email
 
 - Criteria 2:
+
   - Phone number
 
 These criteria are applied to the following profiles:
 
 - Profile A
+
   - John Doe [last updated **05:00**a]
   - doefamily@anyemail.com [last updated **05:00**a]
   - 555-555-5555 [last updated **07:00**a]
 
 - Profile B
+
   - John Doe [last updated **04:00**a]
   - doefamily@anyemail.com [last updated **06:00**a]
   - 555-555-555**6** [last updated
     *04:00*a]
 
 - Profile C
+
   - **Jane** Doe [last updated
     **06:00**a]
   - doefamily@anyemail.com [last updated **07:00**a]

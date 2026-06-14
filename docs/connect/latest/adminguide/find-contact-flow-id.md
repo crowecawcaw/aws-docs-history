@@ -29,7 +29,7 @@ information**.
 ![A sample flow, the show additional flow information section.](images/abc-find-contactflow-id.png) 5. Under the ARN (Amazon Resource Number), copy everything after contact-flow/.
 For example, in the following image, you would copy the underlined part.
 
-![A diagram showing how to copy the key portion of the Amazon Resource Number.](images/abc-find-contactflow-id-copy.png)
+![How to copy the key portion of the Amazon Resource Number.](images/abc-find-contactflow-id-copy.png)
 
     1. Notice the **Type** = **Flow
      (Inbound)**.

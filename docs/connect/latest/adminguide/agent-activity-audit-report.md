@@ -88,12 +88,14 @@ Starting March 09, 2026, the following statuses have been updated for the
 corresponding contact types.
 
 - Chat
+
   - **Joining Customer** →
     **Connecting**
   - **Busy** →
     **Connected**
 
 - Voice
+
   - **Connected** →
     **Call Connected**
 
@@ -101,6 +103,7 @@ Starting March 09, 2026, a new status has been added for the
 corresponding contact types.
 
 - Voice/Chat/Task/Email
+
   - **On Hold**
 
 ###### Note
@@ -114,24 +117,28 @@ Following is a summary of when the **Status** column can be
 Missed**, or **Rejected**:
 
 - Voice contact
+
   - When anyone misses a voice contact, the status in the agent
     audit is **Agent Disconnected**.
   - When anyone rejects a voice contact, the status in the agent
     audit is **Agent Disconnected**.
 
 - Chat contact
+
   - When anyone misses a chat contact, the status in the agent
     audit is **Contact Missed**.
   - When anyone rejects a chat contact, the status in the agent
     audit is **Contact Missed**.
 
 - Task contact
+
   - When anyone misses a task contact, the status in the agent
     audit is **Contact Missed**.
   - When anyone rejects a task contact, the status in the agent
     audit is **Rejected**.
 
 - Email contact
+
   - When anyone misses an email contact, the status in the agent
     audit is **Contact Missed**.
   - When anyone rejects an email contact, the status in the agent

@@ -153,6 +153,7 @@ the chat, how long until they sent the first message to the customer.
 
 1. Choose **Add action**. You can choose the following
    actions:
+
    - [Create
      Task](contact-lens-rules-create-task.md "contact-lens-rules-create-task.md"): this option is not available for real-time
      chat

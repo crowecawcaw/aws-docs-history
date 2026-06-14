@@ -24,6 +24,7 @@ For example, you may want to hide the **Advanced Configuration** field unless th
 5. Use the **Source field** dropdown list to choose the field you want to evaluate for the condition.
 6. You can add up to 5 field conditions and choose whether they are fulfilled by AND or OR conditions, by choosing the Add Condition button.
 7. Configure the visibility settings:
+
    - **Default visibility**: Choose whether the field is hidden or shown when no conditions match
    - **Show field when**: Define the conditions that will show the field
 

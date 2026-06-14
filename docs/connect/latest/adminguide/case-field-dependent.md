@@ -22,6 +22,7 @@ For example, you may want the **State/Province** field options to change based o
 3. Choose **New Field Condition**.
 4. On the **Create new field condition** page, select **Field Options** as the condition type.
 5. Configure the relationship:
+
    - **Source field**: Choose the field that will control the options
    - **Target field**: Choose the field whose options will be controlled
 
@@ -52,9 +53,11 @@ In this step, you specify which target field the options condition will apply to
 ### Example 1: Show states/provinces based on country selection
 
 1. Create the following condition:
+
    - **Source field**: **Country**
    - **Target field**: **State/Province**
    - Mappings:
+
      - "United States" → ["California", "New York", "Texas", "Florida"]
      - "Canada" → ["Ontario", "Quebec", "British Columbia"]
 
@@ -64,9 +67,11 @@ In this step, you specify which target field the options condition will apply to
 ### Example 2: Show product subcategories based on main category
 
 1. Create the following condition:
+
    - **Source field**: **Product Category**
    - **Target field**: **Subcategory**
    - Mappings:
+
      - "Electronics" → ["Computers", "Phones", "Tablets", "Accessories"]
      - "Clothing" → ["Shirts", "Pants", "Shoes", "Accessories"]
      - "Books" → ["Fiction", "Non-Fiction", "Technical", "Children"]
@@ -77,9 +82,11 @@ In this step, you specify which target field the options condition will apply to
 ### Example 3: Show department-specific issue types
 
 1. Create the following condition:
+
    - **Source field**: **Department**
    - **Target field**: **Issue Type**
    - Mappings:
+
      - "IT" → ["Hardware", "Software", "Network", "Security"]
      - "HR" → ["Benefits", "Payroll", "Policy", "Training"]
      - "Finance" → ["Invoicing", "Expenses", "Budget", "Reporting"]

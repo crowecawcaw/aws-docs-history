@@ -14,7 +14,7 @@ create and manage quick responses programmatically, see [APIs to create and mana
 2. On the navigation bar, choose **Content
    Management**, then **Quick responses**.
 
-![Menu showing "Content Management" and "Quick responses.".](images/agent-application-1.png) 3. On the **Quick responses** page, choose **Add
+![Menu showing Content Management and Quick responses.](images/agent-application-1.png) 3. On the **Quick responses** page, choose **Add
 response**.
 
 ###### Note

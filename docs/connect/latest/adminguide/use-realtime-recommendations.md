@@ -15,6 +15,7 @@ on a call.
 1. The Connect AI agent toggle button on the top-right can be used to toggle the expansion of the Connect AI agent widget.
 2. A Connect AI agent proactively generates clickable intents to assist the customer service agent handling the contact.
 3. Upon choosing an intent, the Connect AI agent generates a solution using an appropriate source from the knowledge base configured for it.
+
    - The Connect AI agent provides a solution with citations.
    - Sources associated with the citations and other related articles are also displayed and can be clicked to dive into the knowledge base material.
 

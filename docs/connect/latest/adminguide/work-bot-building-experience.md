@@ -63,6 +63,7 @@ Your bot must have at least one intent. There are two types of intents:
 2. In the **Add intent** dialog box, enter a name for your intent and
    a description that's meaningful to you. Choose **Add**.
 3. Enter the following information to configure your intent:
+
    - Add sample **Utterances**: Choose **Add**
      and then provide phrases or questions that users might use to express that
      intent. Choose **Save**.
@@ -74,6 +75,7 @@ Your bot must have at least one intent. There are two types of intents:
    - Create **Prompts**: Choose **Edit** and
      then you can enter prompts that the bot will use to ask for information or
      clarify user inputs. Choose **Save** when finished.
+
      - **Initial response message**: The initial message
        sent to the user after the intent is invoked. You can provide
        responses, initialize values, and define the next step that the bot

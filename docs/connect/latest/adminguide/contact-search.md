@@ -31,7 +31,9 @@ contacts using the Connect Customer admin website. For the APIs used to search f
   For contacts handled by agents, a contact is only marked as completed
   after the agent has completed After Contact Work (ACW).
 - The ability to search for in-progress contacts varies by channel (see [Contact events data model](contact-events.md#contact-events-data-model "contact-events.md#contact-events-data-model") for reference):
+
   - **Voice**
+
     - You can search for in-progress queued callbacks after
       they are queued, connected to an agent or disconnected.
     - For other voice contacts, you can search them only after
@@ -150,6 +152,7 @@ permissions:
 - At least one of the following permissions is required to view contacts on
   **Contact search** and **Contact details**
   pages:
+
   - **Contact search - View**: Allows a user to access
     all contacts on **Contact search** and
     **Contact details** pages.

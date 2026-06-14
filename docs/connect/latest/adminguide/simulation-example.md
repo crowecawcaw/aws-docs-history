@@ -36,7 +36,7 @@ select the contact flow you want to simulate. This test case supports both
 initiate a call or a chat session. The following steps use Chat simulation for
 demonstration purposes.
 
-![Settings tab showing Channel set to Chat, Starting point to Flow, and Flow dropdown with flight booking bot flow example selected.](images/test-case-settings.png)
+![Settings tab showing Channel set to Chat, Starting point to Flow.](images/test-case-settings.png)
 **Configure interaction groups**
 
 **Interaction group 1: Validate bot initial message**

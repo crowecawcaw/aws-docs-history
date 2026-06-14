@@ -50,6 +50,7 @@ agents to engage in chats, perform the following steps:
   procure an SMS-enabled phone number by using AWS End User Messaging SMS, import it into
   Connect Customer, and then assign it to your flows. For more
   information, see:
+
   - [Request an SMS-enabled phone number through AWS End User Messaging SMS](sms-number.md "sms-number.md")
   - [Set up SMS messaging in Connect Customer](setup-sms-messaging.md "setup-sms-messaging.md")
 

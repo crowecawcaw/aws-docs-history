@@ -38,14 +38,17 @@ enable or disable any of the push channels at a later time:
 3. For **Application name** enter the name for your
    application.
 4. (Optional) Follow this optional step to enable the **Apple Push Notification service (APNs)**.
+
    1. For **Apple Push Notification service
       (APNs)** select **Enable**.
    2. For **Default authentication type**
       choose either:
+
       1. If you choose **Key
          credentials**, provide the following information
          from your Apple developer account. AWS End User Messaging Push
          requires this information to construct authentication tokens.
+
          1. **Key ID** – The ID that's
             assigned to your signing key.
          2. **Bundle identifier** – The
@@ -58,6 +61,7 @@ enable or disable any of the push channels at a later time:
 
       2. If you choose **Certificate
          credentials**, provide the following information:
+
          1. **SSL certificate** – The
             .p12 file for your TLS certificate.
          2. **Certificate password** –
@@ -67,6 +71,7 @@ enable or disable any of the push channels at a later time:
             Select the type of certificate to use.
 
 5. (Optional) Follow this optional step to enable the **Firebase Cloud Messaging (FCM)**.
+
    1. For **Firebase Cloud Messaging (FCM)**
       select **Enable**.
    2. Choose **Token credentials**
@@ -109,6 +114,7 @@ To register the device with a chat contact, we recommend that you do the followi
    `deviceType` from the user-defined contact attributes, and the
    `initialContactId` from the system attributes, then pass these
    values to the Lambda function.
+
    1. Depending on your use case, place the Lambda function either
       immediately after starting the chat (at the beginning of the flow) if
       you want the end user to receive push notifications immediately, or
@@ -138,6 +144,7 @@ channels:
    notifications. For more information, see [Monitoring AWS End User Messaging Push](../../../push-notifications/latest/userguide/monitoring-overview.md "../../../push-notifications/latest/userguide/monitoring-overview.md").
 2. Depending on the push notification service you're using, you can access
    additional usage data through their respective consoles.
+
    1. Firebase Cloud Messaging (FCM) : Consult the FCM documentation
       on [Understanding message delivery](https://firebase.google.com/docs/cloud-messaging/understand-delivery?platform=android "https://firebase.google.com/docs/cloud-messaging/understand-delivery?platform=android") for insights into your FCM
       usage.

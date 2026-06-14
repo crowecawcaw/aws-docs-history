@@ -48,6 +48,7 @@ Following are the top tips for resolving issues with audio devices.
   exclusive mode for your audio device.
 - Ensure that the device is not muted or disabled in your operating system
   settings. Following are instructions for a Windows computer:
+
   1.  Press **Windows** + **I** to
       open **Settings**.
   2.  Choose **System**, and then choose

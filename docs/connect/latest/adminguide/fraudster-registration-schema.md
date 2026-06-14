@@ -40,6 +40,7 @@ Following is a description of each attribute of the input schema.
   this should be `1.0`.
 - `FraudsterRegistrationRequests`: List of fraudster
   registration requests to be fulfilled as part of the job.
+
   - `RequestId`: An identifier for this fraudster
     registration request. It must be unique within the input file.
     It is used for mapping and identifying entries in the output
@@ -51,6 +52,7 @@ Following is a description of each attribute of the input schema.
     allowed for a registration request is **10**. Each file can be a .wav file up to 20MB,
     containing audio with 8KHz sample rate and PCM-16
     encoding.
+
     - `S3URI`: The Amazon S3 location of the audio
       file in .wav format that needs to be used for
       registering the fraudster.
@@ -124,17 +126,18 @@ Following is a description of each attribute of the output schema.
 
       	* Internal Server Error (Unexpected error on the
       	 Service-side).
-
   - `ErrorMessage`: A message describing the cause of
     the fraudster registration failure.
 
 - `SuccessfulRegistrations`: The list of registration
   requests that succeeded.
+
   - `RequestId`: The request identifier associated with
     this request. This is the same as the `RequestId`
     specified in the input file for this request.
   - `RegistrationStatus`: The status of successful
     fraudster registration.
+
     - `DUPLICATE_SKIPPED`: The fraudster was
       identified as a duplicate, and the registration was
       skipped.

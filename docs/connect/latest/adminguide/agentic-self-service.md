@@ -111,7 +111,7 @@ the Return to Control tool selected by the AI agent. For more information, see [
 The following image shows an example contact flow for agentic
 self-service.
 
-![Example agentic self-service contact flow with Set logging behavior, Set voice, Get customer input with a Lex bot, Check contact attributes for tool selection with Complete, Escalate, and No Match branches, Set working queue, Transfer to queue, and Disconnect blocks.](images/agentic-self-service-contact-flow.png)
+![Example agentic self-service contact flow with Set logging behavior, Set voice, Get customer input with a Lex bot.](images/agentic-self-service-contact-flow.png)
 
 ###### Tip
 
@@ -265,6 +265,7 @@ Follow these steps to add Return to Control routing to your contact flow:
     pops.
 4.  Connect each condition to the appropriate routing logic. For
     example:
+
     - **Complete** – Route to a
       **Disconnect** block to end the
       interaction.

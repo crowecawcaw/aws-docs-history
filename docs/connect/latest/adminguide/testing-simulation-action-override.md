@@ -42,11 +42,13 @@ Test Configuration:
 
 - **First Interaction Group**
   – Observe: Test started
+
   - Action: Override Lambda function "ValidateAccount" with
     mock response returning "Active"
 
 - **Second Interaction Group**
   – Observe: Lambda function "ValidateAccount" starts
+
   - Action: Override Lambda function "ValidateAccount" with
     mock response returning "Suspended"
   - The first override (returning "Active") is used
@@ -57,6 +59,7 @@ Test Configuration:
 - **Third Interaction Group**
   – Observe: Lambda function "ValidateAccount" starts
   again
+
   - The most recent override (returning "Suspended") is now
     used
   - Your flow receives "Suspended" status.

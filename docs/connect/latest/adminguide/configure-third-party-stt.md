@@ -49,12 +49,14 @@ speech-to-text provider.
 ## Step 5: Enter the model ID and Secrets Manager ARN
 
 1. In **Model ID**, enter the provider's model name.
+
    - Some providers require a minimum or maximum length.
    - Model IDs are case-sensitive and must match provider
      documentation.
 
 2. In **Secrets Manager ARN**, enter the ARN of the secret that contains the
    provider API key.
+
    - The secret must be in the same Region as your Connect Customer instance.
    - Secrets Manager and KMS key policies must permit Connect Customer to access and decrypt the
      key. For more information, see [Managing secrets and resource policies](managing-secrets-resource-policies.md "managing-secrets-resource-policies.md").

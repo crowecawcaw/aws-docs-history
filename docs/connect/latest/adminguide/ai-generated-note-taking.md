@@ -40,7 +40,7 @@ The GenerateNotes tool automatically processes conversation transcripts through 
 NoteTaking AI Prompt with RESULT_TYPE: NOTES to produce and display HTML-formatted
 structured notes in the Agent Workspace.
 
-![Sequence diagram showing the AI-generated note taking flow from Human Agent through Agent Assistance AI Agent, GenerateNotes Tool, NoteTaking AI Agent, and NoteTaking AI Prompt, returning structured HTML notes to the Agent Workspace.](images/ai-generated-note-taking.png)
+![Sequence diagram showing the AI-generated note taking flow from Human Agent through Agent Assistance AI Agent.](images/ai-generated-note-taking.png)
 
 ### Agent experience
 

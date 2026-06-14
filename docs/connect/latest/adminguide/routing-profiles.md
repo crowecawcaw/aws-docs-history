@@ -99,22 +99,26 @@ The agent will experience the following routing behavior:
 
 1. Assume the agent is fully idle. Next, the agent accepts a chat and begins
    working on it. Meanwhile, a task comes into queue.
+
    - Chat is set to **No other channels allowed**.
    - So even though there is a task in queue, it will not be offered to
      this agent.
 
 2. Next, there is a chat in queue.
+
    - The agent's maximum chat concurrency is 2, so they are routed
      another chat for total of 2 chats. The agent continues working on
      both of the chats.
 
 3. There are no other chats in queue. The agent finishes both chats (closes
    ACW).
+
    - There is still a task waiting in queue.
    - At this point, the task is offered to the agent because they are
      fully idle again. The agent begins working the task.
 
 4. Another chat comes into queue.
+
    - Tasks is set to **Allow other channels
      concurrently**. So, even though the agent is already
      working on a task, they can still be offered the chat.
@@ -122,6 +126,7 @@ The agent will experience the following routing behavior:
      chat and 1 task concurrently.
 
 5. Now there is a Voice call in queue.
+
    - The agent is still working on 1 chat and 1 task.
    - Even though **Task** is set to **Allow
      other channels concurrently**, the agent is still
@@ -132,6 +137,7 @@ The agent will experience the following routing behavior:
      task.
 
 6. The agent completes the chat, but still works on the task.
+
    - Now, because the only contact still assigned to the agent is a
      task, and **Tasks** are set to **Allow
      other channels concurrently**, this means that the
@@ -140,6 +146,7 @@ The agent will experience the following routing behavior:
      on both the voice call and the task.
 
 7. Now there is another task in queue.
+
    - The agent is currently working on a voice call AND a task. Once
      again, Connect Customer checks the cross channel settings and Voice is set to
      **No other channels while agent is on a Voice

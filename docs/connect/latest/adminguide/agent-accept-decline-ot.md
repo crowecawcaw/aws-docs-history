@@ -14,7 +14,7 @@ security profile. This permission is shown in the following image of
 Agent Applications permissions on the security profiles
 page.
 
-![A diagram showing permissions in the agent application schedule calendar.](images/security-profile-perms-accept-decline-wfm.png)
+![Permissions in the agent application schedule calendar.](images/security-profile-perms-accept-decline-wfm.png)
 
 ## Accept and Decline overtime buttons for agents
 

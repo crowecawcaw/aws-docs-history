@@ -17,9 +17,11 @@ must not be older than 24 hours.
 4. Call recording attachments, attached to the case.
 5. Share the findings from the tests you have performed, and your
    observations:
+
    1. Confirm whether you have followed all the requirements specified for
       the [network](ccp-networking.md "ccp-networking.md"), [agent workstation](ccp-agent-hardware.md "ccp-agent-hardware.md") and [browser](connect-supported-browsers.md "connect-supported-browsers.md").
    2. Provide your observations from testing the following:
+
       1. Browsers. Specify which browsers you tested and the
          results.
       2. Networks. Specify the different browsers you tested and the

@@ -3,7 +3,7 @@
 To view trade offers, agents go to their schedule calendar, and choose or tap
 on the request drawer, as shown in the following image.
 
-![The agent's calendar, the request drawer with an offer.](images/shiftexchange-twooffers.png)
+![The agent calendar, the request drawer with an offer.](images/shiftexchange-twooffers.png)
 Then choose the **Shift trades** tab, as shown in the
 following image.
 

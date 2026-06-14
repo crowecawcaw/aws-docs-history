@@ -82,7 +82,7 @@ Select **+ Add more time** at the bottom of the Operational
 hours section to create more rows, then set the hour ranges within each day. For
 example, if Saturday the hours are 8-11 then 1-5:
 
-![A diagram showing lunch breaks in a contact center schedule.](images/hours-of-operation-lunch.png)
+![Lunch breaks in a contact center schedule.](images/hours-of-operation-lunch.png)
 
 In most contact centers breaks are staggered. While some agents are at lunch, for
 example, others are still available to handle contacts. Instead of specifying this
@@ -133,6 +133,7 @@ it.
 1. A person initiates a call or chat with your contact center.
 2. Connect Customer looks at the hours of operation for your call center right
    now.
+
    - The contact is from timezone A.
    - Your call center's hours are 9 AM - 5 PM in timezone B.
    - If the current time in timezone B is 2 PM then the call or

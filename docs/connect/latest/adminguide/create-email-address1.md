@@ -23,6 +23,7 @@ name`.my.connect.aws/. Use an admin account, or an account with
    may also display up to five custom domains if you added them.
 4. Under **Additional information**, you can optionally add the
    following:
+
    - **Friendly sender name**
    - **Description**: This is for your use, not customer
      facing.

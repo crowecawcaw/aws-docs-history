@@ -24,7 +24,7 @@ methods:
   entering values manually in the text box. Multiple values can be
   separated by a comma.
 
-![Enter keywords or phrases option in the UI.](images/exact-match-1.png)
+![Keywords or phrases option in the UI.](images/exact-match-1.png)
 
 - Selecting **Import from word collection** to
   import pre-defined words and phrases from word collections.

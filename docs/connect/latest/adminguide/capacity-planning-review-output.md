@@ -12,6 +12,7 @@ shown in the following image.
 Following is a description of the metrics in the plan output:
 
 - **Forecasting Inputs**
+
   - **Forecasted Contact Volume**: This metric is a
     sum of both voice and chat volume for the selected forecast group.
   - **Forecasted Average Handling Time (AHT),
@@ -24,6 +25,7 @@ Following is a description of the metrics in the plan output:
     AHT.
 
 - **Outputs**
+
   - **Required FTEs (without Shrinkage)**: How many
     full-time equivalent agents need to be hired to meet the defined
     business goals (such as service level target), without considering
@@ -32,6 +34,7 @@ Following is a description of the metrics in the plan output:
     for the agents.
 
 - **Outputs with additional input**
+
   - **Required FTEs (with Shrinkage)**: How many
     full-time equivalent agents needed to be hired to meet the defined
     business goals (such as service level target), with considering
@@ -41,6 +44,7 @@ Following is a description of the metrics in the plan output:
     data** section.
 
 - **Metrics calculated from available FTE input**
+
   - **Gap between available FTEs and required FTEs**:
     The difference between available FTEs and required FTEs.
   - **Gap %**: The percentage of the gap.

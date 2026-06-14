@@ -31,11 +31,13 @@ following two images.
 
 - **Audit History**: Manage who can access the audit
   history of cases in the agent application.
+
   - **View Audit History**: Allows the user to view
     the audit history of cases in the agent application.
 
 - **Cases**: Manage who can access cases by using the agent
   application.
+
   - **View case**: Allows the user to view and search
     cases in the agent application. This includes viewing case data (for
     example, status, title, summary), contact history (for example,
@@ -51,11 +53,13 @@ following two images.
 
 - **My Cases**: Manage if the user can delete cases that they
   created.
+
   - **Delete case**: Allows the user to delete cases
     that they created.
 
 - **Case Fields**: Manage who can configure case fields by
   using the Connect Customer admin website.
+
   - **View Case Fields**: Allows users to view the
     case fields page and all of the existing case fields (could be
     system or custom).
@@ -67,6 +71,7 @@ following two images.
 
 - **Case Templates**: Manage who can configure case
   templates by using the Connect Customer admin website.
+
   - **View Case Templates**: Allows users to view
     the case templates page and all of the existing case
     templates.
@@ -77,6 +82,7 @@ following two images.
 
 - **Case Comments**: Manage who can edit or delete
   comments on any case, regardless of who authored them.
+
   - **Edit Case Comment**: Allows the user to edit
     any comment on a case.
   - **Delete Case Comment**: Allows the user to
@@ -84,6 +90,7 @@ following two images.
 
 - **My Case Comments**: Manage if the user can edit or delete
   comments that they authored.
+
   - **Edit Case Comment**: Allows the user to edit
     comments that they authored.
   - **Delete Case Comment**: Allows the user to
@@ -92,6 +99,7 @@ following two images.
 - **Case Custom Related Items**: Manage who can edit or
   delete custom related items on any case, regardless of who created
   them.
+
   - **Edit Case Custom Related Item**: Allows the
     user to edit any custom related item on a case.
   - **Delete Case Custom Related Item**: Allows
@@ -99,6 +107,7 @@ following two images.
 
 - **My Case Custom Related Items**: Manage if the user can edit
   or delete custom related items that they created.
+
   - **Edit Case Custom Related Item**: Allows the
     user to edit custom related items that they created.
   - **Delete Case Custom Related Item**: Allows
@@ -107,16 +116,28 @@ following two images.
 - **Case Contacts**: Manage who can remove contact
   associations (calls, chats, tasks, emails) from any case, regardless of
   who associated the contact.
+
   - **Delete Case Contact**: Allows the user to
     remove any contact associated with a case.
 
 - **My Case Contacts**: Manage if the user can remove contact
   associations that they created.
+
   - **Delete Case Contact**: Allows the user to
     remove contact associations that they created.
 
+- **Cases Export**: Manage who can export cases from the
+  agent workspace.
+
+  - **Export** (`Cases.Export`): Allows
+    the user to select cases in the case search view and download them
+    as a CSV file. Enabling this permission automatically grants
+    **View case** if it is not already
+    granted.
+
 - **Case Files**: Manage who can remove files attached to
   cases.
+
   - **Delete Case File**: Allows the user to delete
     any file attached to a case.
 

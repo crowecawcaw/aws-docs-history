@@ -182,6 +182,7 @@ attributes.
 
 1. For **Attribute**, you can choose
    an attribute of the following types
+
    1. **Calculated attributes** -
       Filter the audience based on one of calculated attributes.
 

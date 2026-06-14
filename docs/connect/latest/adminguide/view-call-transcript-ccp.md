@@ -23,6 +23,7 @@ in the CCP and the agent workspace. To make this feature available to agents:
    analytics](enable-analytics.md "enable-analytics.md") for your Connect Customer
    instance.
 2. Add the following permissions to the agent's security profile:
+
    - **Analytics and Optimization** -
      **Contact transcripts (unredacted) - Access**
    - **Analytics and Optimization** -

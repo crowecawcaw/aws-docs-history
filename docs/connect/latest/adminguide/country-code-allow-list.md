@@ -44,12 +44,14 @@ limit the countries that you can call from.
 4. Select the required severity.
 5. Choose **Next step: Additional information**
 6. On the **Additional information** page:
+
    1. Enter the subject.
    2. Under **Description**, list which countries you
       want to allow calling to, or limit calling from.
 
 7. Choose **Next step: Solve now or contact us**.
 8. On the **Solve now or contact us** page:
+
    1. Choose the **Contact us** tab and select your
       **Preferred contact language** and your
       preferred contact method.

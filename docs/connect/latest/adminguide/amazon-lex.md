@@ -40,6 +40,7 @@ Amazon Lex
 3. On the **Configure bot settings** page, choose
    **Create - Create a blank bot** and provide the
    following information:
+
    - **Bot name** — For this walkthrough, name
      the bot **AccountBalance**.
    - **IAM permissions** — Select a role if
@@ -53,6 +54,7 @@ Amazon Lex
 
 4. Choose **Next**.
 5. Provide language and voice specific information:
+
    - **Language** — Select language and locale
      from the list of [Languages and locales
      supported by Amazon Lex](../../../lexv2/latest/dg/how-languages.md "../../../lexv2/latest/dg/how-languages.md").
@@ -73,6 +75,7 @@ Amazon Lex (Classic)
 3. On the **Create your bot** page, choose
    **Custom bot** and provide the following
    information:
+
    - **Bot name** — For this walkthrough, name
      the bot **AccountBalance**.
    - **Output voice** — Select the voice for
@@ -196,6 +199,7 @@ Amazon Lex
 4. Scroll down to **Sample utterances** section. Enter
    the following utterances, which allow the customer to elicit the
    SpeakToAgent intent:
+
    - **Speak to an agent**
    - **Two**
 

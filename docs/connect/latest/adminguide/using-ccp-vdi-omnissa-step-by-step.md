@@ -17,6 +17,7 @@ This section describes the system requirements for using the Omnissa Horizon
 SDK with Connect Customer.
 
 - **Omnissa Horizon Client Version**
+
   - Minimum required version: 8.15.0 (Horizon 2503) for both agent
     and client
   - Omnissa only supports agent workstations running Windows for
@@ -34,6 +35,7 @@ SDK with Connect Customer.
 
 - **Omnissa Extension and SDK
   Requirements**
+
   - Horizon WebRTC Web App Supports both Extension and SDK 8.15.0
     or above.
   - This browser extension enables webapp support for the WebRTC
@@ -41,6 +43,7 @@ SDK with Connect Customer.
     Store from [here](https://chromewebstore.google.com/detail/horizon-webrtc-web-app-su/emildoafpcgihdmhphelfhghioccllfi?pli=1 "https://chromewebstore.google.com/detail/horizon-webrtc-web-app-su/emildoafpcgihdmhphelfhghioccllfi?pli=1").
 
 - **Browser Support (latest 3 versions)**
+
   - Google Chrome
   - Microsoft Edge (Chromium)
 
@@ -96,6 +99,7 @@ Manager.
 ![Task Manager, the wsnm.exe process running.](images/omnissa-2.png)
 
 - **Troubleshooting**
+
   - The Omnissa log file can be found at:
 
   `%tmp%\omnissa-{username}\horizon-html5Client-{pid}.log`
@@ -132,6 +136,7 @@ Manager.
 
 - **Networking/ Firewall
   Configurations**
+
   - **Omnissa VDI
     configuration**
 
@@ -149,7 +154,7 @@ Manager.
 
   The following diagram illustrates the use of UDP Port 3478.
 
-  ![A diagram illustrating the use of UDP Port 3478.](images/omnissa-3.png)
+  ![The use of UDP Port 3478.](images/omnissa-3.png)
 
 ## Required code changes on your custom CCP
 
@@ -234,6 +239,7 @@ optimization fails. This means:
      process crashes, the VDI functionality will fail.
 
 4. Test audio flow:
+
    1. Make a test call
    2. Verify audio optimization by disabling microphone access in
       the VM's browser - calls should continue to work as audio is

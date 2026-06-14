@@ -44,6 +44,7 @@ training.
 
 1. Login to Connect Customer using an account that has the following security
    profile permissions:
+
    - **Contact search - Access**
    - **Contact Lens - theme detection -
      Create**

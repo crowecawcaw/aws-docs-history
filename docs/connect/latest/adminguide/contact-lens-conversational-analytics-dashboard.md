@@ -40,6 +40,7 @@ handle time over a period of intervals in time in a time series chart.
 
 1. Ensure users are assigned the appropriate security profile
    permissions:
+
    - **Access metrics - Access permission** or the
      **Dashboard - Access permission**. For
      information about the difference in behavior, see [Assign permissions to view dashboards and reports in Connect Customer](dashboard-required-permissions.md "dashboard-required-permissions.md").

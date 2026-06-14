@@ -20,7 +20,7 @@ forward these events to Customer Profiles.
 1. In the navigation pane, choose **Cases** and note your Cases domain ID from the
    **Domain details** section.
 
-![The Cases page, the Domain details section, an arrow pointing to the domain ID.](images/stream-data-from-connect-cases-to-event-bridge-2.png)
+![The Cases page, the Domain details section showing the domain ID.](images/stream-data-from-connect-cases-to-event-bridge-2.png)
 
 1. Using the AWS CLI, create a Case event configuration to send Connect Customer
    Cases Events to your AWS account's default Event Bridge bus.
@@ -147,6 +147,7 @@ aws customer-profiles list-profile-objects --domain-name
 
 1. If you don't find an item in the response of the above API call,
    then there is a problem with your integration. To troubleshoot:
+
    1. Go to the Amazon EventBridge console.
    2. Check whether the EventSource is Active and the matching
       EventBus exists and is running.

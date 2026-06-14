@@ -1,4 +1,4 @@
-# Monitor Connect AI agents by using CloudWatch Logs
+# Monitor AI agents using CloudWatch
 
 To gain visibility into the real-time recommendations that Connect AI agents provide to your
 agents, and the customer intents they detect through natural language understanding, you
@@ -50,9 +50,9 @@ To enable logging for Connect AI agents, you use the CloudWatch API. Complete th
 
 ```
 {
-    "logType": "EVENT_LOGS",
-    "name": "`your-assistant-delivery-source`",
-    "resourceArn": "arn:aws:wisdom:`your-region`:`your-account-id`:assistant/`assistant_id`
+"logType": "EVENT_LOGS",
+"name": "`your-assistant-delivery-source`",
+"resourceArn": "arn:aws:wisdom:`your-region`:`your-account-id`:assistant/`assistant_id`
 }
 ```
 
@@ -69,14 +69,14 @@ Amazon CloudWatch Logs Group and in JSON format.
 
 ```
 {
-    "deliveryDestinationConfiguration": {
-        "destinationResourceArn": "arn:aws:logs:`your-region`:`your-account-id`:log-group:`your-log-group-name`:*"
-    },
-    "name": "string",
-    "outputFormat": "json",
-    "tags": {
-        "key": "value"
-    }
+"deliveryDestinationConfiguration": {
+    "destinationResourceArn": "arn:aws:logs:`your-region`:`your-account-id`:log-group:`your-log-group-name`:*"
+},
+"name": "string",
+"outputFormat": "json",
+"tags": {
+    "key": "value"
+}
 }
 ```
 
@@ -86,11 +86,11 @@ Amazon CloudWatch Logs Group and in JSON format.
 
 ```
 {
-    "deliveryDestinationArn": "string",
-    "deliverySourceName": "string",
-    "tags": {
-        "string": "string"
-    }
+"deliveryDestinationArn": "string",
+"deliverySourceName": "string",
+"tags": {
+    "string": "string"
+}
 }
 ```
 
@@ -185,11 +185,11 @@ of each event type.
 ```
 
 {
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530173612,
-    "event_type": "TRANSCRIPT_CREATE_SESSION",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "session_name": "nabbccdd-9999-4b23-aaee-112233445566"
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530173612,
+"event_type": "TRANSCRIPT_CREATE_SESSION",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"session_name": "nabbccdd-9999-4b23-aaee-112233445566"
 }
 
 ```
@@ -199,12 +199,12 @@ of each event type.
 ```
 
 {
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530173623,
-    "event_type": "TRANSCRIPT_INTENT_TRIGGERING_REFERENCE",
-    "intent": "To learn about how to autoscale DynamoDB.",
-    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530173623,
+"event_type": "TRANSCRIPT_INTENT_TRIGGERING_REFERENCE",
+"intent": "To learn about how to autoscale DynamoDB.",
+"intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```
@@ -216,19 +216,19 @@ Query Reformulation
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "completion": "<query>The customer is asking for information on how to autoscale DynamoDB.</query>",
-    "event_timestamp": 1729530173645,
-    "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
-    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
-    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5"
-    "model_id": "us.amazon.nova-lite-v1:0",
-    "parsed_response": "The customer is asking for information on how to autoscale DynamoDB.",
-    "prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}",
-    "prompt_type": "BEDROCK_KB_QUERY_REFORMULATION",
-    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"completion": "<query>The customer is asking for information on how to autoscale DynamoDB.</query>",
+"event_timestamp": 1729530173645,
+"event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
+"generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+"intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5"
+"model_id": "us.amazon.nova-lite-v1:0",
+"parsed_response": "The customer is asking for information on how to autoscale DynamoDB.",
+"prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}",
+"prompt_type": "BEDROCK_KB_QUERY_REFORMULATION",
+"session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```
@@ -238,19 +238,19 @@ Intent Detection
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "completion": "no</malice>\n  - Step 2. <specific>yes</specific>\n  - Step 3. <intent>To learn how to autoscale DynamoDB.</intent>",
-    "event_timestamp": 1729530173645,
-    "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
-    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
-    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5"
-    "model_id": "us.amazon.nova-lite-v1:0",
-    "parsed_response": "To learn how to autoscale DynamoDB.",
-    "prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}",
-    "prompt_type": "GENERATIVE_INTENT_DETECTION",
-    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"completion": "no</malice>\n  - Step 2. <specific>yes</specific>\n  - Step 3. <intent>To learn how to autoscale DynamoDB.</intent>",
+"event_timestamp": 1729530173645,
+"event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
+"generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+"intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5"
+"model_id": "us.amazon.nova-lite-v1:0",
+"parsed_response": "To learn how to autoscale DynamoDB.",
+"prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}",
+"prompt_type": "GENERATIVE_INTENT_DETECTION",
+"session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```
@@ -260,19 +260,19 @@ Intent Answer Generation
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "completion": "{\"citations\":[{\"citation\":{\"generatedResponsePart\":{\"textResponsePart\":{\"span\":{\"end\":1065,\"start\":0},\"text\":\"\\nDynamoDB auto s\"}}}}]}",
-    "event_timestamp": 1729530173645,
-    "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
-    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
-    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
-    "model_id": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
-    "parsed_response": "DynamoDB auto scaling works by creating CloudWatch alarms that monitor your table's activity. When the...",
-    "prompt": "{\"input\":{\"text\":\"The customer is seeking information on how to autoscale DynamoDB. Key utterance: \\\"How can \"}}",
-    "prompt_type": "BEDROCK_KB_GENERATIVE_ANSWER",
-    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"completion": "{\"citations\":[{\"citation\":{\"generatedResponsePart\":{\"textResponsePart\":{\"span\":{\"end\":1065,\"start\":0},\"text\":\"\\nDynamoDB auto s\"}}}}]}",
+"event_timestamp": 1729530173645,
+"event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
+"generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+"intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
+"model_id": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+"parsed_response": "DynamoDB auto scaling works by creating CloudWatch alarms that monitor your table's activity. When the...",
+"prompt": "{\"input\":{\"text\":\"The customer is seeking information on how to autoscale DynamoDB. Key utterance: \\\"How can \"}}",
+"prompt_type": "BEDROCK_KB_GENERATIVE_ANSWER",
+"session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```
@@ -282,18 +282,18 @@ Manual Search Generation
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "completion": "no</malice>\n  - Step 2. <specific>yes</specific>\n  - Step 3. <intent>To learn how to autoscale DynamoDB.</intent>",
-    "event_timestamp": 1729530173645,
-    "event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
-    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
-    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
-    "model_id": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
-    "parsed_response": "DynamoDB auto scaling works by creating CloudWatch alarms that monitor...",
-    "prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}",
-    "prompt_type": "BEDROCK_KB_GENERATIVE_ANSWER",
-    "session_id": "******************-*****************"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"completion": "no</malice>\n  - Step 2. <specific>yes</specific>\n  - Step 3. <intent>To learn how to autoscale DynamoDB.</intent>",
+"event_timestamp": 1729530173645,
+"event_type": "TRANSCRIPT_LARGE_LANGUAGE_MODEL_INVOCATION",
+"generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+"intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
+"model_id": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
+"parsed_response": "DynamoDB auto scaling works by creating CloudWatch alarms that monitor...",
+"prompt": "{\"anthropic_version\":\"bedrock-2023-05-31\",\"max_tokens\":1024,\"system\":\"You are a...\"}",
+"prompt_type": "BEDROCK_KB_GENERATIVE_ANSWER",
+"session_id": "******************-*****************"
 }
 
 ```
@@ -303,11 +303,11 @@ Manual Search Generation
 ```
 
 {
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530173667,
-    "event_type": "TRANSCRIPT_QUERY_ASSISTANT",
-    "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530173667,
+"event_type": "TRANSCRIPT_QUERY_ASSISTANT",
+"recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```
@@ -317,13 +317,13 @@ Manual Search Generation
 ```
 
 {
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530173656,
-    "event_type": "TRANSCRIPT_RECOMMENDATION",
-    "intent_clicked": 1,
-    "intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
-    "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530173656,
+"event_type": "TRANSCRIPT_RECOMMENDATION",
+"intent_clicked": 1,
+"intent_id": "i78bc90-1234-4dce-8012-f0e1d2c3b4a5",
+"recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```
@@ -333,12 +333,12 @@ Manual Search Generation
 ```
 
 {
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530173667,
-    "event_type": "TRANSCRIPT_RESULT_FEEDBACK",
-    "generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
-    "is_recommendation_useful": 1,
-    "recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff"
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530173667,
+"event_type": "TRANSCRIPT_RESULT_FEEDBACK",
+"generation_id": "gabc1234-9def-47ff-bb88-abcdefabcdef",
+"is_recommendation_useful": 1,
+"recommendation_id": "r0001112-3f4e-4fa5-9111-aabbccddeeff"
 }
 
 ```
@@ -348,17 +348,17 @@ Manual Search Generation
 ```
 
 {
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "completion": "{\"citations\":[{\"generatedResponsePart\":{\"textResponsePart\":{\"span\":{\"end\":276,\"start\":0},\"text\":\"To autoscale Amazon DynamoDB...\"}}]}",
-    "event_timestamp": 1729530173678,
-    "event_type": "TRANSCRIPT_SELF_SERVICE_MESSAGE",
-    "model_id": "us.amazon.nova-pro-v1:0",
-    "parsed_response": "To autoscale Amazon DynamoDB, follow these steps:...",
-    "prompt": "{\"input\":{\"text\":\"how to autoscale dynamodb\"},\"retrieveAndGenerateConfiguration\":...}",
-    "prompt_type": "SELF_SERVICE_ANSWER_GENERATION",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "session_message_id": "mdee1234-5678-4eab-9333-ffeebb998877",
-    "utterance": "[Customer] How can I autoscale DyanmoDB?"
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"completion": "{\"citations\":[{\"generatedResponsePart\":{\"textResponsePart\":{\"span\":{\"end\":276,\"start\":0},\"text\":\"To autoscale Amazon DynamoDB...\"}}]}",
+"event_timestamp": 1729530173678,
+"event_type": "TRANSCRIPT_SELF_SERVICE_MESSAGE",
+"model_id": "us.amazon.nova-pro-v1:0",
+"parsed_response": "To autoscale Amazon DynamoDB, follow these steps:...",
+"prompt": "{\"input\":{\"text\":\"how to autoscale dynamodb\"},\"retrieveAndGenerateConfiguration\":...}",
+"prompt_type": "SELF_SERVICE_ANSWER_GENERATION",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"session_message_id": "mdee1234-5678-4eab-9333-ffeebb998877",
+"utterance": "[Customer] How can I autoscale DyanmoDB?"
 }
 
 ```
@@ -368,12 +368,12 @@ Manual Search Generation
 ```
 
 {
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "connect_user_arn": "arn:aws:connect:us-east-1:204585150770:instance/seaa9988-2233-4f44-8899-abcabcabcabc/agent/agbbccdd-9999-4b23-aaee-112233445566",
-    "event_timestamp": 1729530173623,
-    "event_type": "TRANSCRIPT_SESSION_POLLED",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "session_name": "nabbccdd-9999-4b23-aaee-112233445566"
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"connect_user_arn": "arn:aws:connect:us-east-1:204585150770:instance/seaa9988-2233-4f44-8899-abcabcabcabc/agent/agbbccdd-9999-4b23-aaee-112233445566",
+"event_timestamp": 1729530173623,
+"event_type": "TRANSCRIPT_SESSION_POLLED",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"session_name": "nabbccdd-9999-4b23-aaee-112233445566"
 }
 
 ```
@@ -383,14 +383,14 @@ Manual Search Generation
 ```
 
 {
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530173634,
-    "event_type": "TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION",
-    "is_valid_trigger": 1,
-    "issue_probability": "0.87",
-    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
-    "session_event_ids": ["seaa9988-2233-4f44-8899-abcabcabcabc"],
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530173634,
+"event_type": "TRANSCRIPT_TRIGGER_DETECTION_MODEL_INVOCATION",
+"is_valid_trigger": 1,
+"issue_probability": "0.87",
+"session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+"session_event_ids": ["seaa9988-2233-4f44-8899-abcabcabcabc"],
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```
@@ -400,12 +400,12 @@ Manual Search Generation
 ```
 
 {
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530173623,
-    "event_type": "TRANSCRIPT_UTTERANCE",
-    "session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "utterance": "[Customer] My laptop won't connect to WiFi after the recent update"
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530173623,
+"event_type": "TRANSCRIPT_UTTERANCE",
+"session_event_id": "seaa9988-2233-4f44-8899-abcabcabcabc",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"utterance": "[Customer] My laptop won't connect to WiFi after the recent update"
 }
 
 ```
@@ -417,17 +417,17 @@ Customer message
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530173612,
-    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
-    "participant": "CUSTOMER",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "session_message_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
-    "values": "[{\"type\":\"text\",\"value\":\"How do I reset my password?\"}]"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530173612,
+"event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+"participant": "CUSTOMER",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"session_message_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+"values": "[{\"type\":\"text\",\"value\":\"How do I reset my password?\"}]"
 }
 
 ```
@@ -437,19 +437,19 @@ Bot text response
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530174234,
-    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
-    "guardrail_blocked": false,
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
-    "orchestration_iteration": 1,
-    "participant": "BOT",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "session_message_id": "mfff1234-5678-4eab-9333-112233445566",
-    "values": "[{\"type\":\"text\",\"value\":\"I can help you reset your password. Let me look up your account.\"}]"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530174234,
+"event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+"guardrail_blocked": false,
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+"orchestration_iteration": 1,
+"participant": "BOT",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"session_message_id": "mfff1234-5678-4eab-9333-112233445566",
+"values": "[{\"type\":\"text\",\"value\":\"I can help you reset your password. Let me look up your account.\"}]"
 }
 
 ```
@@ -459,18 +459,18 @@ Tool use
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530174500,
-    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
-    "orchestration_iteration": 1,
-    "participant": "BOT",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "session_message_id": "maaa2222-3333-4bbb-cccc-ddddeeeeffff",
-    "values": "[{\"type\":\"tool_use\",\"toolUseId\":\"toolu_01ABC\",\"toolId\":\"ResetPassword\",\"name\":\"ResetPassword\",\"arguments\":{\"email\":\"customer@example.com\"}}]"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530174500,
+"event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+"orchestration_iteration": 1,
+"participant": "BOT",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"session_message_id": "maaa2222-3333-4bbb-cccc-ddddeeeeffff",
+"values": "[{\"type\":\"tool_use\",\"toolUseId\":\"toolu_01ABC\",\"toolId\":\"ResetPassword\",\"name\":\"ResetPassword\",\"arguments\":{\"email\":\"customer@example.com\"}}]"
 }
 
 ```
@@ -480,18 +480,18 @@ Tool result
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530175100,
-    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
-    "orchestration_iteration": 1,
-    "participant": "BOT",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "session_message_id": "mbbb3333-4444-5ccc-dddd-eeeeffff0000",
-    "values": "[{\"type\":\"tool_result\",\"toolUseId\":\"toolu_01ABC\",\"toolId\":\"ResetPassword\",\"name\":\"ResetPassword\",\"values\":[{\"type\":\"text\",\"value\":\"Password reset email sent successfully.\"}],\"error\":null}]"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530175100,
+"event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+"orchestration_iteration": 1,
+"participant": "BOT",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"session_message_id": "mbbb3333-4444-5ccc-dddd-eeeeffff0000",
+"values": "[{\"type\":\"tool_result\",\"toolUseId\":\"toolu_01ABC\",\"toolId\":\"ResetPassword\",\"name\":\"ResetPassword\",\"values\":[{\"type\":\"text\",\"value\":\"Password reset email sent successfully.\"}],\"error\":null}]"
 }
 
 ```
@@ -501,18 +501,18 @@ Reasoning
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530175200,
-    "event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
-    "orchestration_iteration": 1,
-    "participant": "BOT",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "session_message_id": "mccc4444-5555-6ddd-eeee-ffff00001111",
-    "values": "[{\"type\":\"reasoning\",\"value\":\"The password reset was successful. I should inform the customer and ask if they need further help.\"}]"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530175200,
+"event_type": "TRANSCRIPT_ORCHESTRATION_MESSAGE",
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+"orchestration_iteration": 1,
+"participant": "BOT",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"session_message_id": "mccc4444-5555-6ddd-eeee-ffff00001111",
+"values": "[{\"type\":\"reasoning\",\"value\":\"The password reset was successful. I should inform the customer and ask if they need further help.\"}]"
 }
 
 ```
@@ -524,16 +524,16 @@ Maximum orchestration iterations exceeded
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530180000,
-    "event_type": "TRANSCRIPT_ORCHESTRATION_ERROR",
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "orchestration_error": "{\"errorMessage\":\"The orchestration exceeded the maximum number of iterations\"}",
-    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
-    "orchestration_iteration": 9,
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530180000,
+"event_type": "TRANSCRIPT_ORCHESTRATION_ERROR",
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"orchestration_error": "{\"errorMessage\":\"The orchestration exceeded the maximum number of iterations\"}",
+"orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+"orchestration_iteration": 9,
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```
@@ -543,16 +543,16 @@ System capacity constraints
 ```
 
 {
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
-    "assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530180000,
-    "event_type": "TRANSCRIPT_ORCHESTRATION_ERROR",
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "orchestration_error": "{\"errorMessage\":\"System capacity is constrained. We are actively working on scaling system to prevent such failures.\",\"errorDetails\":{\"estimatedInputTokens\":50000,\"estimatedOutputTokens\":2048}}",
-    "orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
-    "orchestration_iteration": 3,
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"ai_agent_orchestration_use_case": "CONNECT_AGENT_ASSISTANCE",
+"assistant_id": "a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530180000,
+"event_type": "TRANSCRIPT_ORCHESTRATION_ERROR",
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"orchestration_error": "{\"errorMessage\":\"System capacity is constrained. We are actively working on scaling system to prevent such failures.\",\"errorDetails\":{\"estimatedInputTokens\":50000,\"estimatedOutputTokens\":2048}}",
+"orchestration_id": "m1234567-abcd-4ef0-9876-aabbccddeeff",
+"orchestration_iteration": 3,
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa"
 }
 
 ```
@@ -564,48 +564,48 @@ Successful orchestration span (no guardrail intervention)
 ```
 
 {
-    "timestamp": 1729530173612,
-    "resource_arn": "arn:aws:wisdom:us-east-1:204585150770:assistant/a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530175612,
-    "event_type": "TRANSCRIPT_AI_AGENT_TRACE",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "span": {
-        "span_id": "7a3f2b1c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
-        "parent_span_id": "eb06e7cf-c3ba-4e75-86ef-ba761fd0ee30",
-        "span_name": "inference",
-        "span_type": "CLIENT",
-        "start_timestamp": "1729530173612",
-        "end_timestamp": "1729530175612",
-        "status": "OK",
-        "operation_name": "inference",
-        "provider_name": "aws.bedrock",
-        "session_name": "nabbccdd-9999-4b23-aaee-112233445566",
-        "ai_agent_arn": "arn:aws:wisdom:us-east-1:204585150770:ai-agent/ai112233-7a85-4b3c-8def-0123456789ab",
-        "ai_agent_type": "ANSWER_RECOMMENDATION",
-        "ai_agent_name": "MyAgent",
-        "ai_agent_version": "3",
-        "ai_agent_orchestrator_use_case": "Connect.AgentAssistance",
-        "request_model": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-        "request_max_tokens": "4096",
-        "temperature": "1.0",
-        "response_finish_reasons": "[\"end_turn\"]",
-        "usage_input_tokens": "5274",
-        "usage_output_tokens": "266",
-        "usage_total_tokens": "5540",
-        "cache_read_input_tokens": "4800",
-        "cache_write_input_tokens": "0",
-        "prompt_arn": "arn:aws:wisdom:us-east-1:204585150770:ai-prompt/prompt-abc:2",
-        "prompt_id": "prompt-abc",
-        "prompt_type": "ORCHESTRATION",
-        "prompt_name": "Agent Assistance Orchestration",
-        "prompt_version": "2",
-        "time_to_first_token_ms": "850",
-        "input_messages": "[{\"messageId\":\"msg-1\",\"participant\":\"CUSTOMER\",\"timestamp\":1729530173000,\"values\":[{\"text\":{\"value\":\"How can I autoscale DynamoDB?\"}}]}]",
-        "output_messages": "[{\"messageId\":\"msg-2\",\"participant\":\"BOT\",\"timestamp\":1729530175612,\"values\":[{\"text\":{\"value\":\"DynamoDB auto scaling works by creating CloudWatch alarms that monitor your table's activity.\"}}]}]",
-        "system_instructions": "[{\"messageId\":\"sys-1\",\"participant\":\"USER\",\"timestamp\":0,\"values\":[{\"text\":{\"value\":\"You are an AI assistant for contact center agents.\"}}]}]"
-    }
+"timestamp": 1729530173612,
+"resource_arn": "arn:aws:wisdom:us-east-1:204585150770:assistant/a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530175612,
+"event_type": "TRANSCRIPT_AI_AGENT_TRACE",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"span": {
+    "span_id": "7a3f2b1c-4d5e-6f7a-8b9c-0d1e2f3a4b5c",
+    "parent_span_id": "eb06e7cf-c3ba-4e75-86ef-ba761fd0ee30",
+    "span_name": "inference",
+    "span_type": "CLIENT",
+    "start_timestamp": "1729530173612",
+    "end_timestamp": "1729530175612",
+    "status": "OK",
+    "operation_name": "inference",
+    "provider_name": "aws.bedrock",
+    "session_name": "nabbccdd-9999-4b23-aaee-112233445566",
+    "ai_agent_arn": "arn:aws:wisdom:us-east-1:204585150770:ai-agent/ai112233-7a85-4b3c-8def-0123456789ab",
+    "ai_agent_type": "ANSWER_RECOMMENDATION",
+    "ai_agent_name": "MyAgent",
+    "ai_agent_version": "3",
+    "ai_agent_orchestrator_use_case": "Connect.AgentAssistance",
+    "request_model": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "request_max_tokens": "4096",
+    "temperature": "1.0",
+    "response_finish_reasons": "[\"end_turn\"]",
+    "usage_input_tokens": "5274",
+    "usage_output_tokens": "266",
+    "usage_total_tokens": "5540",
+    "cache_read_input_tokens": "4800",
+    "cache_write_input_tokens": "0",
+    "prompt_arn": "arn:aws:wisdom:us-east-1:204585150770:ai-prompt/prompt-abc:2",
+    "prompt_id": "prompt-abc",
+    "prompt_type": "ORCHESTRATION",
+    "prompt_name": "Agent Assistance Orchestration",
+    "prompt_version": "2",
+    "time_to_first_token_ms": "850",
+    "input_messages": "[{\"messageId\":\"msg-1\",\"participant\":\"CUSTOMER\",\"timestamp\":1729530173000,\"values\":[{\"text\":{\"value\":\"How can I autoscale DynamoDB?\"}}]}]",
+    "output_messages": "[{\"messageId\":\"msg-2\",\"participant\":\"BOT\",\"timestamp\":1729530175612,\"values\":[{\"text\":{\"value\":\"DynamoDB auto scaling works by creating CloudWatch alarms that monitor your table's activity.\"}}]}]",
+    "system_instructions": "[{\"messageId\":\"sys-1\",\"participant\":\"USER\",\"timestamp\":0,\"values\":[{\"text\":{\"value\":\"You are an AI assistant for contact center agents.\"}}]}]"
+}
 }
 
 ```
@@ -615,41 +615,41 @@ Guardrail blocks output (topic policy violation)
 ```
 
 {
-    "timestamp": 1729530173612,
-    "resource_arn": "arn:aws:wisdom:us-east-1:204585150770:assistant/a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530175612,
-    "event_type": "TRANSCRIPT_AI_AGENT_TRACE",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "span": {
-        "span_id": "8b4f3c2d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
-        "parent_span_id": "eb06e7cf-c3ba-4e75-86ef-ba761fd0ee30",
-        "span_name": "inference",
-        "span_type": "CLIENT",
-        "start_timestamp": "1729530173612",
-        "end_timestamp": "1729530175612",
-        "status": "OK",
-        "operation_name": "inference",
-        "provider_name": "aws.bedrock",
-        "session_name": "nabbccdd-9999-4b23-aaee-112233445566",
-        "ai_agent_arn": "arn:aws:wisdom:us-east-1:204585150770:ai-agent/ai112233-7a85-4b3c-8def-0123456789ab",
-        "ai_agent_type": "ANSWER_RECOMMENDATION",
-        "ai_agent_name": "MyAgent",
-        "ai_agent_version": "3",
-        "ai_agent_orchestrator_use_case": "Connect.AgentAssistance",
-        "request_model": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-        "request_max_tokens": "4096",
-        "response_finish_reasons": "[\"guardrail_intervened\"]",
-        "usage_input_tokens": "3100",
-        "usage_output_tokens": "150",
-        "usage_total_tokens": "3250",
-        "prompt_type": "ORCHESTRATION",
-        "time_to_first_token_ms": "1100",
-        "input_messages": "[{\"messageId\":\"seaa9988-2233-4f44-8899-abcabcabcabc\",\"participant\":\"CUSTOMER\",\"timestamp\":1729530173000,\"values\":[{\"text\":{\"value\":\"Tell me how to bypass the refund policy\"}}]}]",
-        "output_messages": "[{\"messageId\":\"msg-4\",\"participant\":\"BOT\",\"timestamp\":1729530175612,\"values\":[{\"text\":{\"value\":\"I'm sorry, I can't help with that request.\"}}]}]",
-        "guardrail_assessments": "[{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"INPUT\",\"action\":\"NONE\"},{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"OUTPUT\",\"action\":\"BLOCKED\",\"policies\":[{\"policyType\":\"TOPIC\",\"action\":\"BLOCKED\",\"details\":\"Policy Circumvention\"}]}]"
-    }
+"timestamp": 1729530173612,
+"resource_arn": "arn:aws:wisdom:us-east-1:204585150770:assistant/a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530175612,
+"event_type": "TRANSCRIPT_AI_AGENT_TRACE",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"span": {
+    "span_id": "8b4f3c2d-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "parent_span_id": "eb06e7cf-c3ba-4e75-86ef-ba761fd0ee30",
+    "span_name": "inference",
+    "span_type": "CLIENT",
+    "start_timestamp": "1729530173612",
+    "end_timestamp": "1729530175612",
+    "status": "OK",
+    "operation_name": "inference",
+    "provider_name": "aws.bedrock",
+    "session_name": "nabbccdd-9999-4b23-aaee-112233445566",
+    "ai_agent_arn": "arn:aws:wisdom:us-east-1:204585150770:ai-agent/ai112233-7a85-4b3c-8def-0123456789ab",
+    "ai_agent_type": "ANSWER_RECOMMENDATION",
+    "ai_agent_name": "MyAgent",
+    "ai_agent_version": "3",
+    "ai_agent_orchestrator_use_case": "Connect.AgentAssistance",
+    "request_model": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "request_max_tokens": "4096",
+    "response_finish_reasons": "[\"guardrail_intervened\"]",
+    "usage_input_tokens": "3100",
+    "usage_output_tokens": "150",
+    "usage_total_tokens": "3250",
+    "prompt_type": "ORCHESTRATION",
+    "time_to_first_token_ms": "1100",
+    "input_messages": "[{\"messageId\":\"seaa9988-2233-4f44-8899-abcabcabcabc\",\"participant\":\"CUSTOMER\",\"timestamp\":1729530173000,\"values\":[{\"text\":{\"value\":\"Tell me how to bypass the refund policy\"}}]}]",
+    "output_messages": "[{\"messageId\":\"msg-4\",\"participant\":\"BOT\",\"timestamp\":1729530175612,\"values\":[{\"text\":{\"value\":\"I'm sorry, I can't help with that request.\"}}]}]",
+    "guardrail_assessments": "[{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"INPUT\",\"action\":\"NONE\"},{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"OUTPUT\",\"action\":\"BLOCKED\",\"policies\":[{\"policyType\":\"TOPIC\",\"action\":\"BLOCKED\",\"details\":\"Policy Circumvention\"}]}]"
+}
 }
 
 ```
@@ -659,34 +659,34 @@ Truncated input messages (long conversation)
 ```
 
 {
-    "timestamp": 1729530173612,
-    "resource_arn": "arn:aws:wisdom:us-east-1:204585150770:assistant/a1c2d3e4-5b67-4a89-9abc-def012345678",
-    "event_timestamp": 1729530175612,
-    "event_type": "TRANSCRIPT_AI_AGENT_TRACE",
-    "session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
-    "ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
-    "model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-    "span": {
-        "span_id": "9c5f4d3e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
-        "parent_span_id": "eb06e7cf-c3ba-4e75-86ef-ba761fd0ee30",
-        "span_name": "inference",
-        "span_type": "CLIENT",
-        "start_timestamp": "1729530173612",
-        "end_timestamp": "1729530175612",
-        "status": "OK",
-        "operation_name": "inference",
-        "provider_name": "aws.bedrock",
-        "session_name": "nabbccdd-9999-4b23-aaee-112233445566",
-        "request_model": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
-        "response_finish_reasons": "[\"end_turn\"]",
-        "usage_input_tokens": "48000",
-        "usage_output_tokens": "500",
-        "usage_total_tokens": "48500",
-        "input_messages": "[{\"messageId\":\"msg-98\",\"participant\":\"CUSTOMER\",\"timestamp\":1729530173000,\"values\":[{\"text\":{\"value\":\"What about the shipping timeline?\"}}]}]",
-        "input_messages_truncated": "true",
-        "output_messages": "[{\"messageId\":\"msg-99\",\"participant\":\"BOT\",\"timestamp\":1729530175612,\"values\":[{\"text\":{\"value\":\"Based on your location, delivery takes 3-5 business days after shipping.\"}}]}]",
-        "guardrail_assessments": "[{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"INPUT\",\"action\":\"NONE\"},{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"OUTPUT\",\"action\":\"NONE\"}]"
-    }
+"timestamp": 1729530173612,
+"resource_arn": "arn:aws:wisdom:us-east-1:204585150770:assistant/a1c2d3e4-5b67-4a89-9abc-def012345678",
+"event_timestamp": 1729530175612,
+"event_type": "TRANSCRIPT_AI_AGENT_TRACE",
+"session_id": "s9f8e7d6-1234-4cde-9abc-ffeeddccbbaa",
+"ai_agent_id": "ai112233-7a85-4b3c-8def-0123456789ab",
+"model_id": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+"span": {
+    "span_id": "9c5f4d3e-6f7a-8b9c-0d1e-2f3a4b5c6d7e",
+    "parent_span_id": "eb06e7cf-c3ba-4e75-86ef-ba761fd0ee30",
+    "span_name": "inference",
+    "span_type": "CLIENT",
+    "start_timestamp": "1729530173612",
+    "end_timestamp": "1729530175612",
+    "status": "OK",
+    "operation_name": "inference",
+    "provider_name": "aws.bedrock",
+    "session_name": "nabbccdd-9999-4b23-aaee-112233445566",
+    "request_model": "us.anthropic.claude-4-5-sonnet-20250929-v1:0",
+    "response_finish_reasons": "[\"end_turn\"]",
+    "usage_input_tokens": "48000",
+    "usage_output_tokens": "500",
+    "usage_total_tokens": "48500",
+    "input_messages": "[{\"messageId\":\"msg-98\",\"participant\":\"CUSTOMER\",\"timestamp\":1729530173000,\"values\":[{\"text\":{\"value\":\"What about the shipping timeline?\"}}]}]",
+    "input_messages_truncated": "true",
+    "output_messages": "[{\"messageId\":\"msg-99\",\"participant\":\"BOT\",\"timestamp\":1729530175612,\"values\":[{\"text\":{\"value\":\"Based on your location, delivery takes 3-5 business days after shipping.\"}}]}]",
+    "guardrail_assessments": "[{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"INPUT\",\"action\":\"NONE\"},{\"guardrailId\":\"a1b2c3d4-5678-90ab-cdef-111122223333/1\",\"guardrailName\":\"Customer Support Safety Guardrail\",\"source\":\"OUTPUT\",\"action\":\"NONE\"}]"
+}
 }
 
 ```

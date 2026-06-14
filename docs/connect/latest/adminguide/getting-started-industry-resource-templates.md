@@ -31,6 +31,7 @@ without having to manually create each resource.
 
 1. On the Customer Profiles homepage, locate the Industry templates
    section.
+
    - If this is your first time setting up Customer Profiles, an
      announcement appears at the top of the page.
 
@@ -43,6 +44,7 @@ without having to manually create each resource.
 2. To enable a template, choose **Enable a template**.
 3. In the **Select template** dropdown, choose the industry that
    best matches your business:
+
    - **Airline** - For air travel businesses
    - **Hotel** - For hospitality businesses
 

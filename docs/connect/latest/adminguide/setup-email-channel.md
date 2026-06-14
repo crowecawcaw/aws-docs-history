@@ -59,6 +59,7 @@ In the routing profile:
   signature or a disclaimer, or they can be a full response.
 - Configure flows with the [Send message](send-message.md "send-message.md") block. Use this block to send a message to
   your customer based on a template or custom message. In addition, you can specify:
+
   - The To and From email addresses and display names. You can specify them
     manually or dynamically by using [System attributes](connect-attrib-list.md#attribs-system-table "connect-attrib-list.md#attribs-system-table") such as:
 
@@ -82,6 +83,7 @@ In the routing profile:
 
   - **Message**: Specify a template or enter plain
     text.
+
     - You can specify the **Subject** dynamically by
       using the **Segment attribute** - **Email
       Subject**.
@@ -95,6 +97,7 @@ In the routing profile:
 - Use the attributes in the [Check contact
   attributes](check-contact-attributes.md "check-contact-attributes.md") block to check the channel of
   the contact. If it's an email, you can use the following [Segment attributes](connect-attrib-list.md#attribs-segment-attributes "connect-attrib-list.md#attribs-segment-attributes") to check:
+
   - **Email Subject**: You can check the subject for certain
     keywords, for example.
   - **Amazon SES Spam Verdict** and **Amazon SES Virus
@@ -105,5 +108,6 @@ In the routing profile:
 
 - Assign the following security profile permission to your agents who need to
   initiate outbound emails.
+
   - **Contact Control Panel (CCP)** - **Initiate
     email conversations**

@@ -229,6 +229,7 @@ Initiator consults with another party - within the same Connect Customer instanc
 number.
 
 - Internal consults characteristics:
+
   - The consulted agent enters ACW before the initiator
     agent
   - The consulted agent never speaks with the customer, this is
@@ -237,6 +238,7 @@ number.
     the consulted agent is ZERO.
 
 - External consult characteristic:
+
   - The initiator's Customer Hold Duration is higher than the
     external party's Interaction Duration
     (`ExternalThirdPartyInteractionDuration`).
@@ -248,12 +250,14 @@ Initiator conferences with another participant within the same Connect Customer 
 number.
 
 - Internal consults characteristics:
+
   - The consulted agent enters ACW before the initiator
     agent.
   - The consulted agent speaks with the customer:
     `AgentInteractionDuration` is non ZERO.
 
 - External consult characteristics:
+
   - The initiator's Customer Hold Duration is lesser than the
     external party's Interaction Duration
     (`ExternalThirdPartyInteractionDuration`) . This
@@ -267,12 +271,14 @@ Initiator consults with another party - within the same Connect Customer instanc
 number.
 
 - Internal consults characteristics:
+
   - The consulted agent enters ACW after the initiator
     agent.
   - The field `TransferCompletedTimestamp` is non ZERO
     for the initiator agent.
 
 - External consult characteristics:
+
   - The initiator enters ACW
     (`AfterContactWorkStartTimestamp`) before the
     external leg is disconnected

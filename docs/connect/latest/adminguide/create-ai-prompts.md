@@ -209,6 +209,7 @@ the `MESSAGES` format.
   instructions to the LLM, such as specifying a particular goal or role.
 - **messages** – (Required) List of input
   messages.
+
   - **role** – (Required) The role of
     the conversation turn. Valid values are user and assistant.
   - **content** – (Required) The
@@ -216,6 +217,7 @@ the `MESSAGES` format.
 
 - **tools** - (Optional) List of tools that
   the model may use.
+
   - **name** – (Required) The name of
     the tool.
   - **description** – (Required) The

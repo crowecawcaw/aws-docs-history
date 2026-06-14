@@ -74,7 +74,7 @@ View**, **Test Cases - View**, \*\*Evaluation forms
   The following image shows an example of security profile permissions that grant
   users the ability to view routing profiles, queues, and Connect Customer user accounts.
 
-![Security profile permissions showing View permissions for routing profiles, queues, users, test cases, evaluation forms, flows, flow modules, and bots.](images/dashboard-tbac-permissions.png)
+![Security profile permissions showing View permissions for routing profiles, queues, users, test cases, evaluation forms.](images/dashboard-tbac-permissions.png)
 
 ## Important things to know when using tag-based access controls
 

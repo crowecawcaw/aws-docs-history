@@ -18,5 +18,5 @@ _Connect AI agents API Reference_.
 2. On the left navigation bar, choose **Content Management**, then
    **Quick responses**.
 
-![Menu showing "Content Management" and "Quick responses.".](images/agent-application-1.png) 3. On the **Quick responses** page, choose the **View
+![Menu showing Content Management and Quick responses.](images/agent-application-1.png) 3. On the **Quick responses** page, choose the **View
 import** history link.

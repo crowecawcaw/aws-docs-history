@@ -92,6 +92,7 @@ records are used. For example:
 
 - You need to upload historical data _separately_ for
   short-term and long-term forecast.
+
   - Data aggregated in 15- or 30-minute intervals is used for
     short-term forecasting.
   - Data aggregated at daily grain is used for long-term
@@ -160,6 +161,7 @@ data is used for the baseline. Take the previous example:
 - And now, the historical data baseline is: 7/1 to 7/9 from original,
   7/10 to 7/14 from file X, 7/15 to 8/1 from file Y.
 - If:
+
   1.  You deleted file Y, the baseline will be: 7/1 to 7/9 from
       original, 7/10 to 8/1 from X.
   2.  You deleted file X, the baseline will be: 7/1 to 7/14 from

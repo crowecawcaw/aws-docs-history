@@ -24,7 +24,7 @@ Note the following limitation:
 ![The number pad page, the call button on bottom right of page.](images/training-guide-dial-call-while-on-chat.png) 4. You'll be connected to the call at the same time the chat is still
 ongoing, as shown in the following image.
 
-![The CCP, a connected call, chat icon with red dot.](images/training-guide-connected-call-while-on-chat.png) 5. To go to the chat conversation while you're on the phone, choose the chat
+![The CCP, a connected call, chat icon with dot.](images/training-guide-connected-call-while-on-chat.png) 5. To go to the chat conversation while you're on the phone, choose the chat
 tab. 6. To end the phone conversation, choose the phone tab, choose **End
 call**, and then choose **Close contact**.
 You're still connected to the chat conversation.

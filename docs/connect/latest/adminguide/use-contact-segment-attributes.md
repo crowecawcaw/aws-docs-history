@@ -41,7 +41,7 @@ the **Predefined attribute** box and the value in the
 predefined attribute named **Business Unit**, and three values: Sales,
 Marketing, and Accounts.
 
-![The Add predefined attribute page, a predefined attribute named "Business Unit," and three sample values.](images/attribute-management-2.png) 5. Choose **Add value** to add more values to the predefined
+![The Add predefined attribute page, a predefined attribute named Business Unit, and three sample values.](images/attribute-management-2.png) 5. Choose **Add value** to add more values to the predefined
 attribute. 6. To use this attribute and its values to filter contact search results, select
 **Use as Contact search filter**. 7. To enforce value validations when attaching the attribute and value to a
 contact segment, select **Enforce valid values**. 8. To use this attribute and its values for filtering contact related metrics,

@@ -41,8 +41,10 @@ examples.
   **ResourceId**,
   **Copyable** and **Url**.
   For more information see, [Attribute](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute").
+
   - **LinkType** can be external or
     connect application such as case.
+
     - When it is _external_, a
       user can navigate to a new browser page, which is
       configured with **Url**.
@@ -128,6 +130,7 @@ with three items in it.
 - Required, will display these items as a list.
 - Each item may have a Heading, Description, Icon, and
   Id.
+
   - All properties are optional.
   - When Id is defined, the output will include the value
     as part of output.
@@ -142,8 +145,10 @@ with three items in it.
   **ResourceId**,
   **Copyable** and **Url**.
   For more information see, [Attribute](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute").
+
   - **LinkType** can be external or
     connect application such as case.
+
     - When it is _external_, a
       user can navigate to a new browser page, which is
       configured with **Url**.
@@ -244,16 +249,20 @@ reservation. It has location and date fields on it.
 - Location in the **Form view** where input
   fields and display fields are located.
 - **SectionProps**
+
   - **Heading**
+
     - Heading of the section
 
   - **Type**
+
     - Type of section
     - FormSection (forms handling user's input) or
       DataSection (displaying a list of label and
       value)
 
   - **Items**
+
     - List of data based on the type. When
       `Type` is `DataSection`, the
       data should be attributes. If the
@@ -261,6 +270,7 @@ reservation. It has location and date fields on it.
       data should be form components.
 
   - **isEditable**
+
     - Show edit button at the header when it is
       provided when the section type is
       `DataSection`.
@@ -272,6 +282,7 @@ reservation. It has location and date fields on it.
   of the view.
 - Each item may have a Heading, Description, and
   Optional.
+
   - Heading is required
 
 **Back (Optional)**
@@ -317,8 +328,10 @@ reservation. It has location and date fields on it.
   **ResourceId**,
   **Copyable** and **Url**.
   For more information see, [Attribute](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute").
+
   - **LinkType** can be external or
     connect application such as case.
+
     - When it is _external_, a
       user can navigate to a new browser page, which is
       configured with **Url**.
@@ -525,6 +538,7 @@ The following image shows an example of a confirmation.
 
 - Required.
 - Action button for next
+
   - Label - string label for the navigation button.
 
 **AttributeBar (Optional)**
@@ -537,8 +551,10 @@ The following image shows an example of a confirmation.
   **ResourceId**,
   **Copyable** and **Url**.
   For more information see, [Attribute](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute").
+
   - **LinkType** can be external or
     connect application such as case.
+
     - When it is _external_, a
       user can navigate to a new browser page, which is
       configured with **Url**.
@@ -562,6 +578,7 @@ The following image shows an example of a confirmation.
 
 - Displays an image
 - Object with the following key:
+
   - Include - boolean, if this is true then the graphic
     will be included in the page.
 
@@ -637,8 +654,10 @@ reservation.
   **ResourceId**,
   **Copyable** and **Url**.
   For more information, see [Attribute](https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute "https://d3irlmavjxd3d8.cloudfront.net/?path=/docs/aws-managed-views-common-configuration--page#attribute").
+
   - **LinkType** can be external or
     connect application such as case.
+
     - When it is _external_, a
       user can navigate to a new browser page, which is
       configured with **Url**.

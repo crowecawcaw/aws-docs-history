@@ -17,6 +17,7 @@ layouts:
 
 - Assign the following permissions within the Profile explorer Security
   profile:
+
   - **Profile explorer - Edit**: Allows modification
     of existing Profile explorer layout.
   - **Profile explorer - Create**: Enables creation
@@ -33,6 +34,7 @@ layout:
 
 - Assign the following permissions within the Profile explorer Security
   profile:
+
   - **Profile explorer - View**: Enables access to
     view configured Profile explorer layout.
 

@@ -24,9 +24,9 @@ between your Customer Profiles domain and your instance. The required object typ
 the Connect Customer admin website console by selecting your instance and then going to the
 **Outbound campaigns** subpage.
 
-![Communication section showing Delivery mode dropdown with Communication widget selected from options including Agent assisted voice, Automated voice, Email, SMS, and WhatsApp.](images/shows_channel_option.png)
+![Communication section showing Delivery mode dropdown with Communication widget selected.](images/shows_channel_option.png)
 
-![Communication section showing Communication widget dropdown with My-custom-widget selected and Notification type section with Action and View options.](images/shows_channel_option_after_a_widget_is_selected.png)
+![Communication section showing Communication widget dropdown with My-custom-widget selected and Notification type.](images/shows_channel_option_after_a_widget_is_selected.png)
 
 There are two notification types to choose from:
 **View** and **Action**.
@@ -70,13 +70,17 @@ Examples:
     * A VIP customer triggers an instant connection to a dedicated agent upon visiting the
      help page.
 
-![View notification type selected showing View selection dropdown, View version dropdown, and Recommendations section with Recommender dropdown.](images/shows_view_notification_type_components.png)
+![View notification type selected, a view with Web Notification Service integration chosen.](images/shows_view_notification_type_recommender.png)
 
-After you choose a notification type, you can select a recommender. 4. (Optional) Configure the **Recommendations** section to integrate
+Recommenders are only available when you select the
+**View** notification type and the selected view has a
+**Web Notification Service** integration type. If you select the
+**Action** notification type, or if your selected view does not have
+this integration, the recommender option does not appear. 4. (Optional) Configure the **Recommendations** section to integrate
 Predictive Insights with your event-triggered campaign. This enables you to deliver
 personalized template content through email and SMS channels.
 
-![Recommendations section in Amazon Connect console showing Recommender dropdown with frequently_paired_items selected, Calculated attribute for recommender with _last_interacted_item_id, Number of recommendations set to 3, and Recommendation attributes with Name, Price, Description, ImageLink, and Category selected.](images/how-to-create-campaigns-recommendations.png)
+![Recommendations section in Amazon Connect console showing Recommender dropdown with frequently_paired_items selected.](images/how-to-create-campaigns-recommendations.png)
 
 Configure the following settings:
 
@@ -110,6 +114,7 @@ For more information about Predictive Insights, see [Get started with Predictive
 ###### Connect Customer Customer Profiles event trigger APIs
 
 - Two API calls are made to create a functioning event trigger:
+
   - [CreateEventTrigger](../APIReference/API_connect-customer-profiles_CreateEventTrigger.md "../APIReference/API_connect-customer-profiles_CreateEventTrigger.md"): Defines which action to perform based on a specified
     condition.
   - [PutIntegration](../APIReference/API_connect-customer-profiles_PutIntegration.md "../APIReference/API_connect-customer-profiles_PutIntegration.md"): Defines the action to use.
@@ -178,30 +183,37 @@ values:**
 
 - **Source**: Used to define an attribute in the
   object.
+
   - Only one attribute is allowed in a single `ObjectAttribute` entry.
 
 - **FieldName**: Used to point to the mapped attribute in Data
   Mapping.
+
   - Only one attribute is allowed in a single `ObjectAttribute` entry.
 
 - **ObjectTypeName**: Supports all default and custom object
   type names, but not standard object types, such as `_profile`, `_asset`,
   `_order`, and others.
 - **EventTriggerLimits**:
+
   - Allow max of concurrent 20 event triggers per customer domain by default.
   - Default limit of 10 invocations per day, per profile, per trigger. You can override
     this by specifying `UNLIMITED` in `MaxInvocationPerProfile`.
   - **MaxInvocationPerProfile**:
+
     - Valid Range: Minimum value of 1. Maximum value of 1000. (or
       `UNLIMITED`)
 
   - Unit:
+
     - Valid Values: HOURS, DAYS, WEEKS, MONTHS
 
   - Value:
+
     - Valid Range: Minimum value of 1. Maximum value of 24
 
 - Time range comparison
+
   - Customer Profiles uses standard libraries to parse time values. For global services,
     it is important to account for timezone conversions to ensure accurate processing.
 

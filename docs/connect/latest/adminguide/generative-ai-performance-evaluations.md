@@ -62,6 +62,7 @@ The following is the overview of the automation process:
    a generative AI-powered recommendation for the answer, along with context
    and justification (reference points from the transcript that were used to
    provide answers).
+
    1. The answer will get automatically selected based on the
       generative AI recommendation, but can be changed by the user.
    2. You can get generative AI-powered recommendations by choosing

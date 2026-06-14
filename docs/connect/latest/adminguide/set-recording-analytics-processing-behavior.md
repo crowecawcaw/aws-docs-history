@@ -11,7 +11,7 @@ There are two actions supported as part of this block:
 
 \*Unavailable in PDT
 
-![The action dropdown showing the two actions in the block's Select action dropdown.](images/set-recording-analytics-processing-behavior-action-dropdown.png)
+![The action dropdown showing the two actions in the block Select action dropdown.](images/set-recording-analytics-processing-behavior-action-dropdown.png)
 
 The above screenshot shows the two actions in the block's "Select action" dropdown.
 
@@ -58,6 +58,7 @@ The following guide will discuss the **Set recording and analytics** action in t
 - You can enable automated interaction call recording to hear how a customer is interacting with your IVR or conversational AI bot. No additional charges apply.
 - You can enable screen recording of agents, if agent screen recording has been set up as described in [Enable screen recording](enable-sr.md "enable-sr.md"). For pricing information, see [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/").
 - You can configure Contact Lens analytics settings for voice, chat, and email contacts. For pricing information, see [Amazon Connect Pricing](https://aws.amazon.com/connect/pricing/ "https://aws.amazon.com/connect/pricing/"). This includes:
+
   - Language in which customers and agents will interact (to improve the speech to text transcript generation).
   - Redaction of sensitive data.
   - Additional Contact Lens Generative AI capabilities.
@@ -174,10 +175,10 @@ This block has three branches: **Success**, **Error** and **Channel mismatch**
 
 The channel mismatch branch is taken if the media channel that begins the contact is not the same as the media channel selected in the block. In the case of screen recording, this branch is taken when the contact is not a voice contact.
 
-![A configured Set recording, analytics and processing behavior block showing the Set recording and analytics behavior action with four branches.](images/set-recording-analytics-processing-behavior-configured-recording-action.png)
+![A configured Set recording.](images/set-recording-analytics-processing-behavior-configured-recording-action.png)
 
 In the case where **Set recording and analytics behavior** is selected as the action and **Chat** is selected as the media channel, there will be an additional branch called **In-flight redaction configuration failed**. This branch is taken if in-flight redaction fails to stop or start, but all other configurations are updated correctly.
 
 When the **Set message processor** action is selected, the block shows three branches: **Success**, **Error** and **Channel mismatch**:
 
-![A configured Set recording, analytics and processing behavior block showing the Set message processor action with three branches.](images/set-recording-analytics-processing-behavior-configured-message-processor.png)
+![A configured Set recording, analytics and processing behavior block with Set message processor action.](images/set-recording-analytics-processing-behavior-configured-message-processor.png)

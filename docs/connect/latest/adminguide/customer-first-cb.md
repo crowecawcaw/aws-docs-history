@@ -41,6 +41,7 @@ Following is a description of each contact.
 2. **Queued callback contact (C2)** is the queued
    leg of the customer first callback. It has a new initiation method of
    CALLBACK_CUSTOMER_FIRST_QUEUED.
+
    - C2 triggers the creation flow, if you selected **Set creation
      flow** in the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block. It does this before
      it is queued in the working queue, and after the **Initial
@@ -53,6 +54,7 @@ Following is a description of each contact.
 3. **Dialed callback contact (C3)** is the dialed
    leg of the customer first callback. It has a new initiation method of
    CALLBACK_CUSTOMER_FIRST_DIALED.
+
    - C3 triggers the required outbound callback flow that you specified in
      the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") flow block. You only
      specify an outbound callback flow for customer first callback mode, not
@@ -72,6 +74,7 @@ Following is a description of each contact.
 ###### Note
 
 - You must set the final working queue at least once before C2 is created.
+
   - You can do this in the C1 inbound flow by using the [Set working queue](set-working-queue.md "set-working-queue.md"). Or, while configuring
     C2 you can specify the queue in the [Transfer to queue](transfer-to-queue.md "transfer-to-queue.md") block.
   - You can modify the final working queue by using **Set

@@ -92,6 +92,7 @@ appropriate permissions in their security profile.
 3. Expand the **Settings** section.
 4. Under **File attachments**, choose the permissions to
    assign:
+
    - **View** — Allows users to view file
      attachment settings.
    - **Edit** — Allows users to view and modify
@@ -172,6 +173,7 @@ don't recommend.
 ###### To configure CORS on the attachments bucket
 
 1. Find the name of the Amazon S3 bucket for storing attachments:
+
    1. Open the Connect Customer console at
       [https://console.aws.amazon.com/connect/](https://console.aws.amazon.com/connect/ "https://console.aws.amazon.com/connect/").
    2. In the Connect Customer console, choose **Data storage**,
@@ -187,6 +189,7 @@ don't recommend.
    bucket. For example CORS policies, see [Cross-origin resource
    sharing: Use-case scenarios](../../../AmazonS3/latest/userguide/cors.md#example-scenarios-cors "../../../AmazonS3/latest/userguide/cors.md#example-scenarios-cors") in the _Amazon S3 Developer
    Guide_.
+
    - Option 1: List the endpoints from where attachments will be sent
      and received, such as the name of your business web site. This rule
      allows cross-origin PUT and GET requests from your website (for
@@ -211,7 +214,6 @@ don't recommend.
        }
    ]
    ```
-
    - Option 2: Add the `*` wildcard to
      `AllowedOrigin`. This rule allows cross-origin PUT
      and GET requests from all origins, so you don't have to list your

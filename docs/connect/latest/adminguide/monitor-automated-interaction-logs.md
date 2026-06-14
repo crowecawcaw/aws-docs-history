@@ -26,21 +26,29 @@ Lock](../../../AmazonS3/latest/userguide/object-lock.md "../../../AmazonS3/lates
 2. Automated interactions logs are saved to the **S3 bucket you
    configured for call recordings**. If the call recordings
    feature is not yet enabled for your instance, enable it now.
+
    1. On the navigation pane, choose **Data storage**,
       **Call recordings**, **Edit**,
       **Enable call recording**, and create or select
       your S3 bucket.
 
 3. In the navigation pane, choose **Flows**.
-4. Select **Enable Bot Analytics and Transcripts in Connect Customer**.
-   Choose this option to log a full transcript of the Amazon Lex portion of the
-   customer's experience. The transcript is then available for you to read on
-   the **Contact details** page.
-5. Select **Enable automated interaction logs**. Choose this
-   option to log key interaction points such as flows, prompts, menus, and
-   keypad selections. The can view the interaction log, and a listen to the
-   audio recording if available, on the **Contact details**
-   page.
+4. Under the **Amazon Lex Bots** section, select
+   **Enable Bot Analytics and Transcripts in
+   Amazon Connect**. Choose this option to log a full transcript
+   of the Amazon Lex portion of the customer's experience. The transcript and
+   traces is then available for you to read on the
+   **Contact details** page.
+
+###### Note
+
+If you previously enabled **Bot Analytics and Transcripts
+in Amazon Connect** (prior to June 5, 2026), you must
+disable and re-enable this setting to activate the AI agent traces
+feature. 5. Under the **Automated interaction logs** section,
+select **Enable Automated Interaction Logs**. This
+enables you to view Flow details, Lex bot, and AI agent traces on the
+**Contact details** page.
 
 ## Permissions for automated interaction logs
 
@@ -55,7 +63,7 @@ are gated by the following security profile permissions:
   interaction voice (IVR) transcripts (unredacted)** permissions:
   These permissions are required to access logs of the IVR interaction such as
   keypad inputs in response to IVR prompts, transcripts of Lex interactions,
-  and more.
+  AI agent traces and more.
 
 ## Navigate automated interactions logs and audio recording
 
@@ -68,8 +76,8 @@ The following image shows an example of an automated interaction log on the
 
 1. Use tabs to toggle between the automated interaction and agent interaction
    to see the end-to-end interaction of your customer.
-2. Choose **Show flow details** to hide system details about
-   the flows and flow blocks.
+2. Choose **Show flow & trace details** to show or
+   hide system details about the flows and flow blocks.
 3. Choose the flow and block hyperlinks to open the flow designer in a new
    tab, enabling you to quickly follow along with your flow.
 4. Choose **Play** to play the specific prompt within your
@@ -79,4 +87,4 @@ The following image shows an example of an automated interaction log on the
 
 If no audio recording is available, there is no option to play the
 prompt. 5. Quickly see where errors have occurred including customer timeouts or
-Lambda function errors. 6. See where bot intents are detected and resolved.
+Lambda function errors. 6. See where bot intents are detected and resolved. 7. To learn more about enabling AI agent traces, see [AI agent traces](ai-agent-traces.md "ai-agent-traces.md").

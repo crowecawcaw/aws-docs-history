@@ -100,23 +100,29 @@ following:
    **Historical metrics**.
 3. Choose one of the following report types, which group and order the
    data in different ways, and include different metrics:
+
    - **Queues**
+
      - **Contact metrics**
      - **Agent metrics**
 
    - **Agents**
+
      - **Agent performance**
      - [Agent activity audit report in Connect Customer](agent-activity-audit-report.md "agent-activity-audit-report.md")
 
    - **Phone numbers**
+
      - **Contact metrics**
 
    - **Email addresses**
+
      - **Email contact metrics**
 
 4. To customize your report, choose the gear icon.
 5. On the **Interval & Time range** tab, do the
    following:
+
    1. For **Interval**, choose **30
       minutes** to get a row for each 30-minute period in
       the time range, **Daily** to get a row for each

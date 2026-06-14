@@ -13,6 +13,7 @@ at the AWS account level by usage type. For example:
   the AWS Billing and Cost Management console.
 
 - Connect Customer automatically adds the following system-defined tags to each contact:
+
   - **aws:connect:instanceId**: This represents the ID of the
     Connect Customerinstance. If you have multiple instances under multiple AWS accounts
     for each line-of-business, you can view usage bills aggregated against

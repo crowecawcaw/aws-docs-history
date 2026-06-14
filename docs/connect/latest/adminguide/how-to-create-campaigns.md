@@ -2,7 +2,7 @@
 
 1. Open the Connect Customer Outbound campaigns page from the Connect Customer admin website.
 
-![The Connect Customer navigation menu showing the Outbound campaigns option highlighted in the left navigation pane.](images/how-to-create-campaigns-1.png) 2. From the **Output Campaigns**, choose Create Campaign.
+![The Connect Customer navigation menu showing the Outbound campaigns option left navigation pane.](images/how-to-create-campaigns-1.png) 2. From the **Output Campaigns**, choose Create Campaign.
 
 You have two options to create an outbound campaigns. Use visual journey builder to
 create multi-channel and multi-steps using an intuitive drag-and-drop canvas, or use guided
@@ -30,7 +30,7 @@ If you are running a campaign initiated by a customer event and using segment po
 supported channels include **Agent assisted voice**, **Automated
 voice**, **Email**, and **SMS**.
 
-![The Channel selection interface showing options for Agent assisted voice, Automated voice, Email, and SMS communication channels.](images/how-to-create-campaigns-4.png)
+![The Channel selection interface showing options for Agent assisted voice, Automated voice, Email.](images/how-to-create-campaigns-4.png)
 
 ###### Note
 
@@ -172,7 +172,7 @@ SMS
    hand, if select a version, the campaign will always send the exact same content for the
    life of the campaign.
 
-![SMS configuration panel showing originator selection, SMS message template dropdown, and template alias or version selection options.](images/create_campaign_sms-1.png)
+![SMS configuration panel showing originator selection, SMS message template dropdown.](images/create_campaign_sms-1.png)
 
 WhatsApp
 
@@ -198,7 +198,7 @@ For information about adding tags to your WABA, see [Getting started with AWS En
    Version is selected, the campaign will always send the exact same content for the life of
    the campaign.
 
-![WhatsApp configuration page showing originator selection, WhatsApp message template dropdown, and template alias or version selection options.](images/create_campaign_whatsapp-1.png)
+![WhatsApp configuration page showing originator selection, WhatsApp message template dropdown.](images/create_campaign_whatsapp-1.png)
 
 ## Outbound campaigns attempts
 
@@ -341,7 +341,7 @@ profiles](customer-profiles-object-type-mappings.md#customer-profiles-ingesting-
 You can set the number of retry attempts and next actions, but communications will not
 exceed the maximum limits set for each recipient.
 
-![You can set the number of retry attempts and next actions, but communications will not exceed the maximum limits set for each recipient.](images/campaign-set-up-and-cycling-through-recipient-contant-types-1.png)
+![You can set the number of retry attempts and next actions.](images/campaign-set-up-and-cycling-through-recipient-contant-types-1.png)
 
 **Example scenarios**
 
@@ -355,7 +355,7 @@ Priority dialing order (in Customer Profile):
 Retry action: Call again. Max dial attempts per number: 0. Toggled to retry all available
 numbers for the recipient.
 
-![All numbers fail with "Busy"- Retry action: Call again. Max dial attempts per number: 0. Toggled to retry all available numbers for the recipient.](images/campaign-set-up-and-cycling-through-recipient-contant-types-example-A.png)
+![All numbers fail with Busy- Retry action: Call again. Max dial attempts per number: 0.](images/campaign-set-up-and-cycling-through-recipient-contant-types-example-A.png)
 
 | Attempt | Phone Number | Disposition | Action Taken                       | Total Attempts |
 | ------- | ------------ | ----------- | ---------------------------------- | -------------- |
@@ -367,7 +367,7 @@ numbers for the recipient.
 Retry action: Call again. Max dial attempts per number: 2. Toggled to retry all available
 numbers for the recipient.
 
-![All numbers fail with "Busy"- Retry action: Call again. Max dial attempts per number: 2. Toggled to retry all available numbers for the recipient.](images/campaign-set-up-and-cycling-through-recipient-contant-types-example-B.png)
+![All numbers fail with Busy- Retry action: Call again. Max dial attempts per number: 2.](images/campaign-set-up-and-cycling-through-recipient-contant-types-example-B.png)
 
 | Attempt | Phone Number | Disposition | Action Taken                       | Total Attempts |
 | ------- | ------------ | ----------- | ---------------------------------- | -------------- |
@@ -385,7 +385,7 @@ numbers for the recipient.
 Retry action: Call again. Max dial attempts per number: 2. Toggled NOT to retry all available
 numbers for the recipient.
 
-![All numbers fail with "Busy"- Retry action: Call again. Max dial attempts per number: 2. Toggled NOT to retry all available numbers for the recipient.](images/campaign-set-up-and-cycling-through-recipient-contant-types-example-C.png)
+![All numbers fail with Busy- Retry action: Call again. Max dial attempts per number: 2.](images/campaign-set-up-and-cycling-through-recipient-contant-types-example-C.png)
 
 | Attempt | Phone Number | Disposition | Action Taken                       | Total Attempts |
 | ------- | ------------ | ----------- | ---------------------------------- | -------------- |
@@ -397,7 +397,7 @@ numbers for the recipient.
 "Unanswered", "Busy"- Retry action: Call again. Max dial attempts per number: 2. Toggled to
 retry all available numbers for the recipient.
 
-![Mixed disposition between "Unanswered", "Busy"- Retry action: Call again. Max dial attempts per number: 2. Toggled to retry all available numbers for the recipient.](images/campaign-set-up-and-cycling-through-recipient-contant-types-example-D.png)
+![Mixed disposition between Unanswered, Busy- Retry action: Call again. Max dial attempts per number: 2.](images/campaign-set-up-and-cycling-through-recipient-contant-types-example-D.png)
 
 | Attempt | Phone Number | Disposition | Action Taken                       | Total Attempts |
 | ------- | ------------ | ----------- | ---------------------------------- | -------------- |
@@ -512,7 +512,7 @@ Specify when you want your campaign to begin:
 
 The start and end times of a campaign are based on your local time zone.
 
-![Campaign schedule wizard step showing Start now and Start later options, expiry date and time fields, and the Refresh campaign section with an unchecked Refresh checkbox.](images/campaign-schedule-page-1.png)
+![Campaign schedule wizard step showing Start now and Start later options, expiry date and time fields.](images/campaign-schedule-page-1.png)
 
 ### Refresh - (optional)
 
@@ -540,7 +540,7 @@ EST.
   they are allowed to enter, regardless of whether they have previously gone through the
   campaign.
 
-![Refresh campaign section with Refresh enabled, refresh frequency set to 1 hour, Customize entry limits unchecked, showing default values of Entry limit Unlimited and Entry interval limit None.](images/campaign-schedule-page-2.png)
+![Refresh campaign section with Refresh enabled, refresh frequency set to 1 hour, Customize entry limits unchecked.](images/campaign-schedule-page-2.png)
 
 **Entry limits**: Entry limits control how many times and how
 often the same profile can enter the campaign. By default, profiles can enter the campaign
@@ -565,7 +565,7 @@ and an entry interval of 3 hours:
 - A profile won't enter again for at least 3 hours, even though the campaign refreshes
   hourly.
 
-![Refresh campaign section with Refresh enabled, refresh frequency set to 1 day, Customize entry limits checked, showing Entry limit and Entry interval limit input fields.](images/campaign-schedule-page-3.png)
+![Refresh campaign section with Refresh enabled, refresh frequency set to 1 day, Customize entry limits checked.](images/campaign-schedule-page-3.png)
 
 ## Review and publish
 
@@ -579,7 +579,7 @@ These settings cannot be changed once your campaign has been published.
 Once you have reviewed your campaign, choose **Publish** to
 publish your campaign.
 
-![Review and publish page showing campaign configuration summary including schedule and refresh settings before final publication.](images/campaign-review-1.png)
+![Review and publish page showing campaign configuration summary with schedule and refresh settings.](images/campaign-review-1.png)
 
 ## Campaign states
 

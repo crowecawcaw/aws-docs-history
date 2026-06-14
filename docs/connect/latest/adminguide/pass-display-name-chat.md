@@ -8,7 +8,7 @@ interaction. This display name is recorded in the chat transcript.
 The following images show the customer's display name in their chat experience, and
 their name in the agent's CCP.
 
-![The customer's name in their chat experience, the customer's name in the agent's CCP.](images/chatwidget-displayname.png)
+![The customers name in their chat experience, the customer name in the agents CCP.](images/chatwidget-displayname.png)
 
 1. How the customer display name may appear to the customer using the chat user
    interface.

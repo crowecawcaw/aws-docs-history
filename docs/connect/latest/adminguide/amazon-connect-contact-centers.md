@@ -9,6 +9,7 @@ After you create an Connect Customer instance, you can:
   how they work.
 - [Set up your channels](set-channels.md "set-channels.md"). How do you want
   customers to reach your contact center?
+
   - [Claim a phone number](ag-overview-numbers.md "ag-overview-numbers.md") for your
     contact center or [port](about-porting.md "about-porting.md") your own phone
     number from another carrier.

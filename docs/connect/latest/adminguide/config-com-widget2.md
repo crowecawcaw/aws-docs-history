@@ -54,6 +54,7 @@ Following are the high level steps to get started:
 3. Instantiate Amazon Chime SDK client `DefaultMeetingSession` with
    `MeetingSessionConfiguration`, which was created in step 2 to
    create a client meeting session.
+
    - iOS
 
    ```
@@ -63,7 +64,6 @@ Following are the high level steps to get started:
        logger: logger
    )
    ```
-
    - Android
 
    ```
@@ -74,7 +74,6 @@ Following are the high level steps to get started:
        context = applicationContext
    )
    ```
-
    - JavaScript
 
    ```
@@ -93,12 +92,12 @@ Following are the high level steps to get started:
 
 4. Use the `meetingSession.audioVideo.start()` method to join the
    WebRTC contact with audio.
+
    - iOS/Android
 
    ```
    meetingSession.audioVideo.start()
    ```
-
    - JavaScript
 
    ```
@@ -107,12 +106,12 @@ Following are the high level steps to get started:
 
 5. Use the `meetingSession.audioVideo.stop()` method to hangup the
    WebRTC contact.
+
    - iOS/Android
 
    ```
    meetingSession.audioVideo.stop()
    ```
-
    - JavaScript
 
    ```

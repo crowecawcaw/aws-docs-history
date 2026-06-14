@@ -47,6 +47,7 @@ level configuration or and advanced metric using metric builder.
   details about the metric's purpose (maximum 500 characters)
 - **Target time**: Specify the service
   level threshold.
+
   - **Length**: Enter a value between
     1 second and 7 days
   - **Unit**: Select seconds,
@@ -54,6 +55,7 @@ level configuration or and advanced metric using metric builder.
 
 - **Excluded contact outcomes**: Choose
   which types of contacts to exclude from the denominator:
+
   - **Contacts transferred**
   - **Contacts resulted in
     callbacks**
@@ -62,6 +64,7 @@ level configuration or and advanced metric using metric builder.
 
 - The service level calculation preview updates automatically as you
   configure these settings. The preview shows:
+
   - The calculation formula.
   - A plain language explanation of what the metric
     measures.
@@ -86,6 +89,7 @@ metrics, please see [link](metric-primitive-definitions.md "metric-primitive-def
 4. For example, we want to create a rate metric that calculates the
    percentage of total contacts handled that are SMS that is a channel
    subtype of Chat.
+
    1. Specify “M1” or any variable name for “contacts handled”, then
       add optional filters: channel = “Chat” and subtype =
       “SMS”.
@@ -116,17 +120,20 @@ the definition editor.
 
 - Maximum of 5 metric components can be added.
 - Component identifier
+
   - Starts with underscore or letter followed by letters, numbers
     or underscores only.
   - Should be unique across the added components.
 
 - Metric
+
   - Metric primitive to attach with the respective
     component.
   - Refer [link](metric-primitive-definitions.md "metric-primitive-definitions.md") to see what metric primitives can be used
     together among different components
 
 - Filters and thresholds
+
   - Applies filters and thresholds to a selected metric.
   - Existing filters and thresholds will be removed upon selecting
     a new metric.
@@ -301,11 +308,13 @@ icon and then choose **Edit**.
 1. From any [dashboard widget](dashboard-customize-widgets.md#dashboard-changing-metrics "dashboard-customize-widgets.md#dashboard-changing-metrics"), select the **Actions** icon and then choose **Edit**.
 2. In the edit panel, you'll see a list of available metrics organized into
    categories:
+
    1. Standard metrics (such as Proactive intent engagement rate,
       Reference count, and Response completion rate)
    2. **Custom metrics** section showing the list of
       available custom metrics in your instance.
    3. To add a custom metric:
+
       1. Use the search field at the top to find a specific metric
          by name
       2. Scroll through the **Custom metrics**

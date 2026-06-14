@@ -457,7 +457,7 @@ Managers use the **Recording** section of the
 **Contact details** page to view the screen recording, as
 shown in the following image.
 
-![The Recording and transcripts section of the Contact details page, the video displayer shows what the agent is viewing on their desktop during this portion of the contact.](images/whatisconnect-screenrecording.png)
+![The Recording and transcripts section of the Contact details page.](images/whatisconnect-screenrecording.png)
 
 You can [monitor live voice and chat
 conversations](monitoring-amazon-connect.md "monitoring-amazon-connect.md") to listen in, coach the agent, and barge into live
@@ -525,7 +525,7 @@ select **Monthly** from the dropdown.
   The following image shows a sample schedule in the Connect Customer admin website for a
   supervisor's team.
 
-![A sample schedule for a supervisor's team.](images/scheduling-view-schedule-supervisors-filter2.png)
+![A sample schedule for the supervisor team.](images/scheduling-view-schedule-supervisors-filter2.png)
 
 The following image shows a sample schedule that agents see in the
 agent workspace.

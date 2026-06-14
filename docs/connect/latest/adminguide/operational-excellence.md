@@ -240,7 +240,7 @@ interesting data to Amazon DynamoDB. Rather than having each endpoint go to the
 API directly to retrieve the data, they point to DynamoDB, as illustrated in
 the following diagram:
 
-![A diagram showing endpoints pointing to DynamoDB instead of retrieving data from the API.](images/architecture/amazonconnectapis2-oe.png)
+![Endpoints pointing to DynamoDB instead of retrieving data from the API.](images/architecture/amazonconnectapis2-oe.png)
 
 This architecture allows you to change polling intervals and add
 endpoints, as needed, without worrying about exceeding service quotas,
@@ -359,7 +359,7 @@ profiles 1, 2, and 4 as depicted in the following diagram:
 Using the combination of priority and delay in different Routing Profiles, you
 can create flexible routing strategies.
 
-![A diagram showing priority and delay in a Routing Profiles to create a routing strategy.](images/architecture/priorityandelay.png)
+![Priority and delay in a Routing Profiles to create a routing strategy.](images/architecture/priorityandelay.png)
 
 The preceding routing profile example shows a set of queues, and their
 respective priority and delay. The lower the number, the higher the priority.
@@ -377,7 +377,7 @@ call doesn’t get answered within a specified period of time, these agents woul
 become eligible to receive a call from the designated queue. For example,
 consider the following diagram:
 
-![A diagram showing the Savings queue routing a call to an available agent.](images/architecture/priorityandelay2.png)
+![The Savings queue routing a call to an available agent.](images/architecture/priorityandelay2.png)
 
 This diagram shows an SLA of 30 seconds. A call comes in for the Savings
 queue. The Savings queue immediately looks for an agent in the "Savings" routing
@@ -395,7 +395,7 @@ customer experience as they traverse through Connect Customer Flows. The followi
 customer experience shows some suggested checks to ensure a consistent quality
 experience for your contacts:
 
-![Diagram showing a Path to service to respond to unplanned events that could affect customer service.](images/architecture/pathtoservice.png)
+![A Path to service to respond to unplanned events that could affect customer service.](images/architecture/pathtoservice.png)
 
 This sample customer experience takes into account planned events such as
 Holidays and Business hours as well as unplanned events, like agents not staffed
@@ -424,7 +424,7 @@ diagram:
   Christmas. Please call back on December 26 when our normal business
   hours will resume."
 
-![A diagram showing how Amazon Connect uses AWS Lambda and DynamoDB to play messages to customers.](images/architecture/holidays.png)
+![How Amazon Connect uses AWS Lambda and DynamoDB to play messages to customers.](images/architecture/holidays.png)
 
 - **Business hours**: After holidays have
   been verified, you can check for business hours and, if outside of

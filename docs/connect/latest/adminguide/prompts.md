@@ -35,6 +35,7 @@ _Connect Customer API Reference Guide_.
 
 1. Log in to Connect Customer using an account that has the following security
    profile permission:
+
    - **Numbers and flows**, **Prompts -
      Create**
 
@@ -47,6 +48,7 @@ _Connect Customer API Reference Guide_.
    recommend using this box to provide a detailed description of the prompt. It is
    helpful for accessibility.
 6. Choose the following actions:
+
    - **Upload**—Select **Choose
      File** to upload a .wav file that you have legal permission
      to use.

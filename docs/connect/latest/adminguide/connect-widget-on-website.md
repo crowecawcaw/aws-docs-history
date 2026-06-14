@@ -22,6 +22,7 @@ for contacts created through your widget.
 3.  Select **Create View**.
 4.  Here you can configure a contact form for your customers using the [no-code builder](no-code-ui-builder.md "no-code-ui-builder.md"). Some important
     tips:
+
     - Using the Form component will allow you to link Form Inputs to your
       contact on creation. Form linking will allow you to take input directly
       from anyone interacting with your widget and use the information they

@@ -88,6 +88,7 @@ The following image shows the **Properties** page when
 
 - The **Create task** block branches based on whether the
   task was successfully created:
+
   - **Success** if task was created. It responds with
     the contact ID of the newly created task.
   - **Error** if task wasn't created.

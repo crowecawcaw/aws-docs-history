@@ -22,7 +22,7 @@ create a set-contact attribute, and then you add the attribute to a quick respon
 2. On the navigation bar, choose **Routing**, then
    **Flows**.
 
-![Menu showing "Routing" and "Flows".](images/routing-flows.png) 3. On the **Flows** page, the **Type** column lists each
+![Menu showing Routing and Flows.](images/routing-flows.png) 3. On the **Flows** page, the **Type** column lists each
 type of flow. Choose the flow that you want to add attributes to. 4. Follow the steps in [Creating a set contact
 attribute](set-contact-attributes.md "set-contact-attributes.md").
 
@@ -43,7 +43,7 @@ You can follow these steps when creating or updating a quick response.
 2. On the left navigation bar, choose **Content Management**, then
    **Quick responses**.
 
-![Menu showing "Content Management" and "Quick responses.".](images/agent-application-1.png) 3. Choose **Add response** to create a response.
+![Menu showing Content Management and Quick responses.](images/agent-application-1.png) 3. Choose **Add response** to create a response.
 
 —or—
 

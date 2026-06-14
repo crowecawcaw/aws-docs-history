@@ -23,6 +23,7 @@ the Close button to close the chat widget.
 2. Close widget button:
    `#amazon-connect-close-widget-button`
 3. Widget frame: `#amazon-connect-widget-frame`
+
    1. Widget frame while open:
       `#amazon-connect-widget-frame.show`
    2. Widget frame while closed:

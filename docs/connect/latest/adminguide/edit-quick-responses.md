@@ -14,7 +14,7 @@ programmatically, see [UpdateQuickResponse](../../../amazon-q-connect/latest/API
 2. On the navigation bar, choose **Content Management**, then
    **Quick responses**.
 
-![Menu showing "Content Management" and "Quick responses.".](images/agent-application-1.png) 3. On the **Quick responses** page, choose the name of the quick response
+![Menu showing Content Management and Quick responses.](images/agent-application-1.png) 3. On the **Quick responses** page, choose the name of the quick response
 that you want to edit. You can also select the checkbox next to the response, then choose
 **Edit**. 4. As needed, change the following fields:
 

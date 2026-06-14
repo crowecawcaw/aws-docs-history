@@ -269,6 +269,7 @@ widget in Agent Workspace. To do so you need to modify 2 main things.
 
 1. Update the AIAgent prompt with instructions to access the contact
    transcript.
+
    1. Open the prompt associated with the SalesAgent in Prompt
       editor and update the prompt to add instructions to access the
       contact’s transcript accessible by`<conversation>{{$.transcript}}</conversation>`
@@ -289,7 +290,6 @@ widget in Agent Workspace. To do so you need to modify 2 main things.
            {{$.transcript}}
            </conversation>
    ```
-
    3. Update the AIAgent with the new prompt version and update the
       Default configuration → Agent Assistance use case with this
       agent.
@@ -304,6 +304,7 @@ widget in Agent Workspace. To do so you need to modify 2 main things.
    Agents for respective use case
 
 2. Update the contact inbound flow.
+
    1. Remove the GetCustomerInput block and add the Connect
       assistant flow block instead
    2. Fill in the flow block config with the AIAssistant ARN and

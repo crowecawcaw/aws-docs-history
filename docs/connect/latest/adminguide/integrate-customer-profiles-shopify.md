@@ -83,6 +83,7 @@ of the following:
 7. On the **Source set up** page, copy your AWS account ID to your clipboard, and then choose
    **Log in to Shopify**.
 8. Use the following instructions to set up Shopify:
+
    1. Log in to partners.shopify.com.
    2. Under Amazon EventBridge, choose **Create
       source**.
@@ -233,6 +234,7 @@ Request Body:
 
 9. For each subscription replace the value for `topic`
    with the following values:
+
    - `customers/create`
    - `customers/enable`
    - `customers/update`
@@ -267,6 +269,7 @@ your Shopify integration.
    number.
 8. If you cannot see the customer profile, then there is a problem
    with your integration. To troubleshoot:
+
    1. Go to the Amazon EventBridge console.
    2. Check whether the EventSource is Active and the matching
       EventBus exists and is running.

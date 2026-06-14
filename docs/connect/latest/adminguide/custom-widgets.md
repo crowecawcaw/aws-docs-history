@@ -32,17 +32,22 @@ interaction and organization.
 ### Features
 
 1. **Column configurations**
+
    - Define custom column headers
    - Specify data for each column
    - Set data formatting options
    - Define column placement
 
 2. **Filtering**
+
    - Quickly filter items within your table
 
 3. **Linking**
+
    - Connect Resource Links
+
      - Seamless navigation to:
+
        - Segments
        - Calculated attributes
 
@@ -50,6 +55,7 @@ interaction and organization.
 
    - **External URL
      links**
+
      - Convert row item value into URLs that you can
        choose
      - Opens in new tab
@@ -57,17 +63,21 @@ interaction and organization.
        data
 
    - Drawer view links
+
      - Open detailed information in side
        drawer
      - View complete record details without leaving
        the page
 
 4. Data organization
+
    - Grouping
+
      - Group rows by specific field names
      - Persistent group settings
 
    - Sorting
+
      - Sort by any column field
      - Ascending order organization
      - Persistent sort settings
@@ -125,26 +135,32 @@ attribute pairs such as:
 
 1. **Interactive link
    options**
+
    - Connect resource links
+
      - Link directly to related resources
      - Seamless navigation to:
+
        - Calculated attributes
        - Segments
 
      - Opens in new tab
 
    - External URL Links
+
      - Convert item value into URLs that you can
        choose
      - Opens in new tab
 
    - Drawer View Links
+
      - Open detailed information in side
        drawer
      - View complete details without leaving the
        page
 
 2. Column configuration
+
    - Define 1-4 columns of key-value pairs
 
 3. Organize pairs in logical groupings
@@ -219,20 +235,25 @@ showcasing:
 2. **Metric format**
 3. **Interactive link
    options**
+
    - Connect resource links
+
      - Link directly to related resources
      - Seamless navigation to:
+
        - Calculated attributes
        - Segments
 
      - Opens in new tab
 
    - External URL links
+
      - Convert item value into URLs that you can
        choose
      - Opens in new tab
 
    - Drawer view links
+
      - Open detailed information in side
        drawer
      - View complete details without leaving the
@@ -299,9 +320,12 @@ criteria. This component is particularly useful for showing:
 ### Features
 
 1. Sentiment Analysis Options
+
    - Positive Sentiment
+
      - Starts from zero
      - Tracks achievement against criteria:
+
        - Custom point values
        - Color-coded segments
        - Grey for unmet conditions
@@ -309,8 +333,10 @@ criteria. This component is particularly useful for showing:
      - Shows success rate percentage
 
    - Negative Sentiment
+
      - Starts from maximum value
      - Tracks deductions:
+
        - Color-coded segments
        - Point reduction system
        - Green for remaining value
@@ -319,6 +345,7 @@ criteria. This component is particularly useful for showing:
 
 2. Calculated attribute value
 3. Operator Options
+
    - Equal To
    - Not Equal To
    - Greater Than

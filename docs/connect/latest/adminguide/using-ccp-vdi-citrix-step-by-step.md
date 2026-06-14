@@ -62,6 +62,7 @@ Manager** to finish the setup.
 
 - **Networking/Firewall
   Configurations**
+
   - **Citrix server
     configuration**
 
@@ -78,6 +79,7 @@ Manager** to finish the setup.
 ![Citrix server and agent machine firewall settings.](images/using-ccp-vdi-citrix-server-firewall.png)
 
 - **Unsupported CCP Deployment**
+
   - Native CCP
 
 ## Confirm media flows between thin client and Connect Customer during the call

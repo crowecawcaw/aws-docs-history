@@ -15,6 +15,7 @@ By default, this block returns queue metrics for the current queue. You can opti
   agents staffed), if there are no agents, no metrics are returned.
 - For queue estimated wait time, the metric would only return when there's one single channel provided.
 - Following are the metrics that can be retrieved:
+
   - Queue name
   - Queue ARN
   - [Contacts in queue](metrics-definitions.md#contacts-in-queue "metrics-definitions.md#contacts-in-queue")

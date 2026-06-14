@@ -9,6 +9,7 @@ storing addresses.
 1. Since agents may be working from different locations (for example, office
    building, home, or coffee shop), it's critical that the most recently
    validated address is passed along with the emergency outbound call.
+
    1. Store a validated address when you first set up an agent on Connect Customer,
       based on the agent's usual location.
    2. Prompt the agent to update their address at the start of their

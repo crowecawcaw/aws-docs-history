@@ -92,6 +92,7 @@ Hours** to start at 9AM, even though the forecast would start it at
   **+** and then use the dropdown to choose the type
   of rule to create for the staffing group. For example, you can
   specify:
+
   - **Minimum staff required**: Specify the
     minimum number of agents that should be available, despite what
     the forecast indicates. For example, if the forecast says that
@@ -99,6 +100,7 @@ Hours** to start at 9AM, even though the forecast would start it at
     contact center opens, you can ensure that there is a minimum of
     one agent during this time.
   - **Shift start time:**
+
     - **Same Start Time**: This creates
       schedules with the same shift start time for all
       staff.

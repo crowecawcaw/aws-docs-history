@@ -69,6 +69,7 @@ Note the following properties:
   that a customer can enter.
 - **Phone number**: This option is useful for queued
   callback scenarios.
+
   - **Local format**: If all of your customers all
     calling from the same country that your instance is in, choose that
     country from the dropdown list. Connect Customer then auto-populates the
@@ -99,6 +100,7 @@ Note the following properties:
   press the next digit. If they take longer than 10 seconds between any two
   digits, Connect Customer considers the input complete or timed out. By default, Connect Customer
   waits 5 seconds for each digit.
+
   - Minimum value: 1 second
   - Maximum value: 20 seconds
 

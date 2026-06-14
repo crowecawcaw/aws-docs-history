@@ -20,6 +20,7 @@ When you select **Access metrics - Access**:
 
 - **Saved reports - View** permission.
 - You gain access to:
+
   - All tabs on the **Dashboards and reports**
     page.
   - All real-time and historical metrics reports.
@@ -66,6 +67,7 @@ reports** page.
 - **Analytics and Optimization - Access metrics** - Access
   permission or the **Dashboard - Access** permission.
 - **Analytics and Optimization - Custom metrics**:
+
   - This permission enables users to view, create and manage custom
     metrics.
   - If you have enabled Next Generation Connect Customer in your instance, you

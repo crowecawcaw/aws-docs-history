@@ -58,7 +58,7 @@ changing a password, requesting a balance on an account, or scheduling an
 appointment, without needing to speak to an agent. These self-service options result
 in better customer experience and lowers your cost per contact.
 
-![Diagram showing self-service options reducing costs and improving customer experience.](images/architecture/selfservice.png)
+![Self-service options reducing costs and improving customer experience.](images/architecture/selfservice.png)
 
 ## Click-to-call
 

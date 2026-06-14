@@ -13,6 +13,7 @@ is created or updated.
 2.  Complete the steps to enable Connect Customer Cases event streams. For more information
     see [Set up Connect Customer Cases event streams](case-event-streams-enable.md "case-event-streams-enable.md"). Note the following changes to
     the procedure:
+
     1. You can skip the part that asks you to create a SQS queue, as it is
        not required.
     2. Run the `put-case-event-configuration` CLI command to
@@ -69,7 +70,6 @@ is created or updated.
         }
       }"
     ```
-
     3. If there are custom case fields, make sure to include a custom field
        ID the fields array in the previous payload as well. You can find field
        IDs by running the following `list-fields` CLI
@@ -79,19 +79,18 @@ is created or updated.
     aws connectcases list-fields --domain-id 01310a0e-24ba-4a3c-89e9-9e1daeaxxxx
 
     ```
-
     4. Repeat step 2 if you need to add new custom fields.
 
 3.  Make a [CreateEventIntegration](../../../appintegrations/latest/APIReference/API_CreateEventIntegration.md "../../../appintegrations/latest/APIReference/API_CreateEventIntegration.md") API call, or run the
     `create-event-integration` CLI command, as shown in the following
     example command.
+
     - Payload:
 
     ```
     aws appintegrations create-event-integration --name amazon-connect-cases --description amazon-connect-cases --event-filter '{"Source":"aws.cases"}' --event-bridge-bus default
 
     ```
-
     - The output will look similar to the following sample:
 
     ```

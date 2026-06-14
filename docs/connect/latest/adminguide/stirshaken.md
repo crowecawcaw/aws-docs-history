@@ -42,14 +42,17 @@ Connect Customer assigns one of three attestation levels when signing outbound
 calls:
 
 - A-level (Full) - Connect Customer has:
+
   - Authenticated the calling party
   - Confirmed their authorization to use the calling number
 
 - B-level (Partial) - Connect Customer has:
+
   - Authenticated the calling party
   - Cannot verify their authorization to use the number
 
 - C-level (Gateway) - Connect Customer has:
+
   - Originated the call
   - Cannot verify the calling party's identity
   - Cannot verify legitimate use of the number

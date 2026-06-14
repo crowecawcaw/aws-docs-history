@@ -36,5 +36,5 @@ override** to redisplay the dialog box), choose
 updated. Hover over the blue triangle to see the original value, as shown in
 the following image.
 
-![The Plan Outputs section showing a blue triangle indicator that displays the original value for the required FTEs when hovered over.](images/wfm-capacity-planning-override-without-shrinkage-blue.png) 7. The rest of the metrics are updated automatically to reflect the latest
+![The Plan Outputs section showing a triangle indicator that displays the original value for the required FTEs.](images/wfm-capacity-planning-override-without-shrinkage-blue.png) 7. The rest of the metrics are updated automatically to reflect the latest
 change for **Required FTEs (without Shrinkage)**.

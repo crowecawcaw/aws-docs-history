@@ -22,6 +22,7 @@ profiles that are not duplicates, the following tips are recommended:
   number.
 - Avoid using profile attributes that can belong to different
   identities without a high cardinality attribute.
+
   - **Phone number** with **First
     name**, **Last name** is a
     stronger rule than the combination of **First
@@ -33,6 +34,7 @@ profiles that are not duplicates, the following tips are recommended:
   more than 500 different profiles), Customer Profiles does not attempt to match
   the profile. You will receive the following SQS message in your DLQ
   if you setup one during the domain creation:
+
   - All attributes at rule level x are associated with more
     than 500 records.
 

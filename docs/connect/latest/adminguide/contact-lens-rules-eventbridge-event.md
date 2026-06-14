@@ -46,6 +46,7 @@ the following:
 - "source" = "aws.connect"
 - "detail-type" = "Contact Lens Post Call Rules Matched" or one
   of the following:
+
   - **Contact Lens Realtime Rules
     Matched**
   - **Contact Lens Realtime Chat Rules

@@ -83,6 +83,7 @@ To customize the JSON with your own values, follow these guidelines:
      occurring value specified in the expression.
 
 - **Range**:
+
   - Units: Currently supports only DAYS units.
   - ValueRange: Specify positive numbers in ValueRange’s Start or
     End fields to indicate how many days ago to begin from, and

@@ -190,6 +190,7 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
 ![The properties page of the Get customer input block, the session attributes section.](images/get-customer-input-properties3.png)
 
 - **Intents**
+
   - **Add intent**: Choose to enter the name of
     the Amazon Lex bot intent to compare against.
 
@@ -247,7 +248,6 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
       	2. Refresh the flow designer to see the
       	 selections in **Get customer
       	 input** block.
-
   - **Use sentiment override**: Branch based on
     sentiment score, before the Amazon Lex intent.
 
@@ -276,6 +276,7 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
   attributes](check-contact-attributes.md "check-contact-attributes.md").
 
 - **Initialize bot with message**
+
   - **Purpose**: Select this option to pass the
     customer's initial message. Or, enter a custom message manually
     or dynamically to be the initial message used to initialize the
@@ -298,10 +299,10 @@ represented by the [GetParticipantInput](../APIReference/participant-actions-get
       - **Set dynamically**: Accepts any
        selected attribute that has a text value. Supports a
        maximum of 1024 characters.
-
   - **Required**: No. This is not a
     required parameter.
   - **Use cases**:
+
     - Use **User initial customer utterance
       (text-only)** with web chat, SMS, WhatsApp,
       or Apple Messages for Business channels to have Lex
@@ -666,6 +667,7 @@ Behavior](set-touchtone-buffer-behavior.md "set-touchtone-buffer-behavior.md").
 - You can configure this block to accept DTMF input or a chat response.
   You can also configure it work with Amazon Lex for example, a contact can be
   routed based on their utterance.
+
   - Session attributes available for the integration with Amazon Lex.
     This topic explains some of the session attributes available for
     the integration with Amazon Lex. For a list of all the available
@@ -679,6 +681,7 @@ Behavior](set-touchtone-buffer-behavior.md "set-touchtone-buffer-behavior.md").
   - For both voice and DTMF, there can be only one set of session
     attributes per conversation. Following is the order of
     precedence:
+
     1. Lambda provided session attributes: Overrides to
        session attributes during customer Lambda
        invocation.

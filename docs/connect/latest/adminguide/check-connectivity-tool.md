@@ -28,12 +28,14 @@ if you want to customize it, use the following URL parameters:
 - **lng**: Change the language of the tool. Currently
   supported languages are English, Spanish, and French. It accepts the
   following values:
+
   - en (default)
   - es
   - fr
 
 - **autoRun**: Run the tool automatically. It accepts the
   following values:
+
   - true
   - false (default)
 

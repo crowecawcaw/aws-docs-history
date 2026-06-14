@@ -18,7 +18,7 @@ The available email addresses come from the queue that received the contact. The
 2. The default email address configured on the queue
 3. The remaining additional email addresses configured on the queue
 
-![The From address dropdown when replying to an inbound email, showing the original email address that received the contact labeled at the top, followed by the default queue address and additional addresses.](images/email-from-selector-reply.png)
+![The From address dropdown when replying to an inbound email.](images/email-from-selector-reply.png)
 
 ## Selecting a From address when initiating outbound emails
 
@@ -32,7 +32,7 @@ The available email addresses come from the default outbound queue configured in
 1. The default email address configured on the default outbound queue
 2. The remaining additional email addresses configured on the default outbound queue
 
-![The From address dropdown when initiating an outbound email, showing the default email address from the agent's routing profile at the top, followed by additional addresses.](images/email-from-selector-initiate.png)
+![The From address dropdown when initiating an outbound email.](images/email-from-selector-initiate.png)
 
 ## Using the From address selector
 
@@ -50,7 +50,7 @@ To select a From email address:
 
 4.  Select the appropriate address for your use case.
 
-![The From address selector showing the search box, and email addresses displayed with friendly sender names, email addresses, and descriptions.](images/email-from-selector-search.png)
+![The From address selector showing the search box, and email addresses displayed with friendly sender names.](images/email-from-selector-search.png)
 
 ###### Note
 

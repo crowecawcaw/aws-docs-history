@@ -147,7 +147,7 @@ must create a quick connect for the destination agent so it appears in the dropd
 list of choices, as shown in the following image. For instructions about creating a
 quick connect for an agent, see [Test tasks](chat-testing.md#test-tasks "chat-testing.md#test-tasks").
 
-![The CCP, create task page, the Assign to field set to John Doe's quick connect.](images/task-templates-choose-agent-quick-connect.png)
+![The CCP, create task page, the Assign to field set to John Does quick connect.](images/task-templates-choose-agent-quick-connect.png)
 
 If no quick connects exist, then the message **No data** appears
 when you choose the **Assign to** dropdown menu, as shown in the

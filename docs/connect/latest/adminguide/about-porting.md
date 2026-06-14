@@ -78,6 +78,7 @@ information** 6. On the **Additional information** page:
 7. Choose **Next step: Solve now or contact
    us**.
 8. On the **Solve now or contact us** page:
+
    1. Choose the **Contact us** tab and select
       your **Preferred contact language** and
       your preferred contact method.
@@ -255,6 +256,7 @@ On the mutually agreed port date and time, perform the following
 steps:
 
 - Double-check that the activities listed in [Step 5](#step4-porting "#step4-porting") have been completed:
+
   1.  Verify that the number(s) you had ported are in the
       requested Connect Customer instance, and they have been assigned to
       the appropriate flow.

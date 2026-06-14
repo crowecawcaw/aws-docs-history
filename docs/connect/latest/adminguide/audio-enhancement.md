@@ -32,6 +32,10 @@ requirements:
   custom, and [VDI
   client with local browser access](scenario-deployment-approaches.md#vdi-with-browser "scenario-deployment-approaches.md#vdi-with-browser") are supported; [VDI
   with Amazon Connect audio optimization](scenario-deployment-approaches.md#vdi-citrix "scenario-deployment-approaches.md#vdi-citrix") is not supported
+- **Custom CCP using Connect Customer APIs** – If you
+  are using Connect Customer APIs to build your own custom CCP, you must use
+  [Connect Customer
+  Streams JS version 2.25.2](https://github.com/amazon-connect/amazon-connect-streams/releases/tag/2.25.2 "https://github.com/amazon-connect/amazon-connect-streams/releases/tag/2.25.2") or later
 
 ## Enable Audio Enhancement for agents
 
@@ -48,6 +52,7 @@ specific agents through user management settings.
 4. Make sure to set **Phone type** to **Soft phone**.
 5. In the user edit panel, expand the **Audio Enhancement**
    dropdown and select your preferred mode:
+
    - **Isolate Agent's Voice** – Suppresses
      background noise and isolates the agent's voice. This mode should
      only be enabled if the agent uses a wired headset. If you're not

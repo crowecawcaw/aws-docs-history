@@ -55,7 +55,7 @@ When an agent accepts an email contact, the CCP displays a dedicated email inter
 - **Reply area**: Provides a text editor for composing responses.
 - **Action buttons**: Includes options to send, transfer, or end the contact.
 
-![The email contact interface in the CCP with labeled components including email header, message body, thread view, attachments section, reply area, and action buttons.](images/email-ccp-interface-components.png)
+![The email contact interface in the CCP with labeled components including email header, message body, thread view.](images/email-ccp-interface-components.png)
 
 ## Reading and reviewing email content
 
@@ -83,7 +83,7 @@ To view an email thread:
 2. Previous messages in the thread appear below, in chronological order.
 3. Expand or collapse individual messages to review their content.
 
-![The email thread view showing the current message at the top and previous messages in chronological order below, with expand/collapse controls.](images/email-ccp-thread-view.png)
+![The email thread view showing the current message at the top and previous messages in chronological order below.](images/email-ccp-thread-view.png)
 
 Email threads help agents understand the full context of a customer inquiry, including previous interactions and responses.
 

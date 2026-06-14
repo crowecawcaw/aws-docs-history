@@ -70,6 +70,7 @@ example, with chat bots).
 – OR –
 
 1.  Assign the following individual permissions:
+
     - **Call recordings (redacted) - Access**: If your
       organization uses Connect Customer Contact Lens, you can assign this permission so
       agents access only those agent call recordings in which sensitive data has
@@ -104,7 +105,6 @@ example, with chat bots).
         + The **Call recordings (unredacted) - Enable download button**
          permission controls only whether the download button appears in the
          user interface. It does not control access to the recording.
-
     - **Contact transcripts (unredacted) - Access**: Use this
       permission to manage who can view unredacted chat and email conversations,
       and unredacted voice transcripts produced by Contact Lens on the **Contact
@@ -118,7 +118,6 @@ example, with chat bots).
          button** permission controls only whether the download
          button appears in the user interface. It does not control access to
          the recording.
-
     - **Delete recorded conversations**: To enable a user to
       delete recordings on the **Contact search** and **Contact details** pages, choose
       the **Delete** permission.

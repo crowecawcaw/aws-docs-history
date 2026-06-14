@@ -121,10 +121,12 @@ Complete the following steps.
    **Staffing Groups**.
 2. Select a staffing group.
 3. Under **Adherence Settings**, you can:
+
    - Select which activities to override (Break, Training,
      Lunch)
    - Configure specific thresholds for the selected
      activities:
+
      - **Allowed to**: Start or End
        time
      - **Minutes**: 1-10 minutes
@@ -219,6 +221,7 @@ In the **Queue and agent performance** dashboard, the
 against configured thresholds:
 
 - The **Adherence status** column shows:
+
   - Non-adherent (red indicator)
   - Using thresholds (yellow warning icon) - indicates the agent is
     operating within configured threshold windows
@@ -304,6 +307,7 @@ and correctly evaluate their adherence.
 
 - **An agent starts an activity within the configured
   threshold**
+
   - The agent is considered adherent.
   - Their status shows **Using thresholds** in the
     dashboard.

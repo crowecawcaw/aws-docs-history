@@ -39,6 +39,7 @@ allows Managed Synchronization to complete the following actions on the specifie
 resources:
 
 - Action: Connect Customer for all Connect Customer resources
+
   - `connect:Create*`
   - `connect:Update*`
   - `connect:Delete*`
@@ -64,6 +65,7 @@ The role permissions policy named [AmazonConnectSynchronizationServiceRolePolicy
 Synchronization from completing the following actions on the specified resources:
 
 - Action: Amazon Connect for all Amazon Connect resources
+
   - `connect:Start*`
   - `connect:Stop*`
   - `connect:Resume*`

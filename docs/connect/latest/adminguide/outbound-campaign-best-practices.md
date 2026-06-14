@@ -77,6 +77,7 @@ predictive mode, use the following best practices to help reduce that silence:
 - Ensure that you have enough agents logged in to your call queue. For more information
   about staffing, see [Forecasting, capacity planning, and scheduling in Connect Customer](forecasting-capacity-planning-scheduling.md "forecasting-capacity-planning-scheduling.md").
 - Consider using Connect Customer's machine learning services.
+
   - [Forecasting](forecasting.md "forecasting.md"). Analyze and predict contact volume
     based on historical data. What will future demand—the contact volume and handle time—look
     like? Connect Customer forecasting provides accurate and auto-generated forecasts that are

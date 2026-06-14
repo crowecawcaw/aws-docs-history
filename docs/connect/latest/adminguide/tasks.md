@@ -320,7 +320,9 @@ data is included in an export.
 
 - Flow ID
 - Potential attributes:
+
   - [ContactDetails](ctr-data-model.md#ctr-contact-details "ctr-data-model.md#ctr-contact-details")
+
     - Name: the name of the task
     - Description: the description of the task
 

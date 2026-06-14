@@ -22,6 +22,7 @@ instructions if you don't have an AWS Support account.
    situation.
 6. Choose **Next step: Additional information**.
 7. On the **Additional information** page:
+
    1. Enter the subject.
    2. Under **Description**, include as much information as
       possible about your request, such as your instance ARN, phones numbers,
@@ -38,6 +39,7 @@ instructions if you don't have an AWS Support account.
    the required information.
 9. Choose **Next step: Solve now or contact us**.
 10. On the **Solve now or contact us** page:
+
     1. Choose the **Contact us** tab and select your
        **Preferred contact language** and your preferred
        contact method.

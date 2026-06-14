@@ -140,7 +140,7 @@ that indicates which fields have mismatches. This makes it easier for you to
 troubleshoot your file uploads. The following image shows example error
 messages.
 
-![Error messages when a .csv file upload doesn't have the correct format.](images/shift-rotation-error-handling.png)
+![Error messages when a .csv file upload does not have the correct format.](images/shift-rotation-error-handling.png)
 
 After the .csv file is uploaded, a banner is displayed indicating that the
 data is being loaded into agent scheduling. That process can take up to 10

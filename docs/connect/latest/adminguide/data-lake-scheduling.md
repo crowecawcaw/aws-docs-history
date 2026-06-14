@@ -437,7 +437,7 @@ The diagram illustrates how these tables relate to each other through foreign
 key relationships, providing a comprehensive view of the scheduling data
 model.
 
-![An entity relationship diagram that shows the structure and relationships between scheduling tables in the Connect Customer analytics data lake.](images/data-lake-scheduling-tables-overview-1.png)
+![An entity relationship diagram that shows the structure and relationships between scheduling tables.](images/data-lake-scheduling-tables-overview-1.png)
 
 ## Sample queries
 

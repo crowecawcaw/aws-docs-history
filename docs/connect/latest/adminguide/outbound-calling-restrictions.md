@@ -62,6 +62,7 @@ use.
 #### Eligibility criteria
 
 - **Unsupported use cases**
+
   - Short calls and alerting (less than 15 seconds).
   - Any form of cold calling, marketing or advertising.
   - Any calls to invalid phone numbers. All numbers called
@@ -71,6 +72,7 @@ use.
   - Any calls from a number that cannot be called back.
 
 - **Supported use cases**
+
   - Direct calls to known business entities. For example,
     calling a hotel or IT support function.
   - Calling users who attempted to engage with your business.
@@ -90,6 +92,7 @@ to call China are required to follow these conditions.
 #### Eligibility criteria
 
 - **Unsupported use cases**
+
   - Short calls and alerting (less than 15 seconds).
   - High volume of calls, especially when done over a short
     period of time, using the same outbound caller ID (more than
@@ -102,6 +105,7 @@ to call China are required to follow these conditions.
     pre-approved.
 
 - **Supported use cases**
+
   - Direct calls to known business entities. For example,
     calling a hotel or IT support function.
   - Calling users who attempted to engage with your business.
@@ -115,6 +119,7 @@ the following steps:
 
 - You must provide an exact list of telephony numbers you will use
   to phone China.
+
   - The number must be a DID provided by Connect Customer.
     No other number is acceptable.
   - The number cannot be a DID provided by Hong Kong, Macau,

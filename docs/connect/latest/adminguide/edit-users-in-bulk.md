@@ -90,7 +90,7 @@ You have the following options:
 
 
 
-    ![A diagram showing why edits failed and the failed fields.](images/user-management-failed-edit-reason.png)
+    ![Why edits failed and the failed fields.](images/user-management-failed-edit-reason.png)
     + Choose **Try again** to resubmit only those user
      records that failed. The others were already successfully updated.
     + Choose **Edit** to be directed to the
@@ -99,7 +99,7 @@ You have the following options:
 
 
 
-    ![A diagram showing the Bulk edit option.](images/user-management-bulk-edit-fail-input.png)
+    ![The Bulk edit option.](images/user-management-bulk-edit-fail-input.png)
     + Choose **Cancel** to not do anything with the 3
      user records that weren't updated.
 

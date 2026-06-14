@@ -109,7 +109,7 @@ chat.
 
 ### Enter DTMF input while connected on a call
 
-![Enter DTMF input while connected on a call earlier CCP, latest CCP.](images/upgradeccp-dtmf.png)
+![DTMF input while connected on a call earlier CCP, latest CCP.](images/upgradeccp-dtmf.png)
 
 - While on a call, only use **Number pad** to enter DTMF input.
 

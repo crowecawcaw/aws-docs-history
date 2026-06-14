@@ -79,6 +79,7 @@ accordingly.
   says "I want to update an appointment," _update_ can
   mean _reschedule_ or _cancel_.
   Amazon Lex provides the confidence score on a scale of 0 to 1:
+
   - 0 = not at all confident
   - .5 = 50% confident
   - 1 = 100% confident
@@ -90,6 +91,7 @@ accordingly.
   MIXED, or NEUTRAL.
 - **Sentiment Score**: Amazon Lex integrates with Amazon Comprehend to
   determine the sentiment expressed in an utterance:
+
   - Positive
   - Negative
   - Mixed: The utterance expresses both positive and negative

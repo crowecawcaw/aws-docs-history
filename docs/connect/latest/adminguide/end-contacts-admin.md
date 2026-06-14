@@ -15,6 +15,7 @@ To end contacts programmatically, use the [StopContact](../APIReference/API_Stop
   **Contact details** page.
 - You cannot end voice contacts when they are initiated using the following
   methods:
+
   - DISCONNECT
   - TRANSFER
   - QUEUE_TRANSFER
@@ -27,6 +28,7 @@ To end contacts programmatically, use the [StopContact](../APIReference/API_Stop
 1. Enable one of the following permissions to view contacts on the
    **Contact search** and **Contact
    details** pages:
+
    1. **Contact search - View**: Allows a user to view
       all contacts.
    2. **View my contacts - View**: Allows agents to

@@ -57,6 +57,7 @@ compare the value of the attribute to. Next, branch the flow based on the condit
 
 1. In the **Check contact attributes** block, for **Attribute to
    check** do one of the following:
+
    - Select **External** for the **Type**, then enter
      the key name returned from the Lambda function in the **Attribute**
      field.

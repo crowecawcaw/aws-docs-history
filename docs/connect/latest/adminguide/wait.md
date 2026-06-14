@@ -43,6 +43,7 @@ It has the following properties:
 
 - **Participant Type**: Runs the **Wait**
   block for the specified participant type.
+
   - **Default** - A customer contact.
   - **Bot** - A custom participant, such as a
     third-party bot. For more information about using this option, see
@@ -50,6 +51,7 @@ It has the following properties:
 
 - **Timeout**: Run this branch if the customer hasn't sent
   a message after a specified amount of time. Maximum is 7 days.
+
   - Manually set timeout: You can provide the
     **Number** and
     **Units**.
@@ -105,6 +107,7 @@ configuration results in the following error on the second **Wait** block:
   branch.
 - You can add multiple **Wait** blocks to your
   flows. For example:
+
   - If the customer comes back in 5 minutes, connect them to the same
     agent. This is because that agent has all of the context.
   - If the customer doesn't come back after 5 minutes, send a text

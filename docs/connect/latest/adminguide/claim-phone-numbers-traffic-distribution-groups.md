@@ -39,14 +39,17 @@ Following is an example workflow to claim phone numbers and use them across
 multiple AWS Regions:
 
 1. Create a replica of your instance:
+
    1. Call the [ReplicateInstance](../APIReference/API_ReplicateInstance.md "../APIReference/API_ReplicateInstance.md") API.
 
 2. Create a traffic distribution group that links these instances
    together:
+
    1. Call the [CreateTrafficDistributionGroup](../APIReference/API_CreateTrafficDistributionGroup.md "../APIReference/API_CreateTrafficDistributionGroup.md") API.
 
 3. Find available phone numbers that can be claimed to your traffic
    distribution group:
+
    1. Call the [SearchAvailablePhoneNumbers](../APIReference/API_SearchAvailablePhoneNumbers.md "../APIReference/API_SearchAvailablePhoneNumbers.md") API in the Region where
       the traffic distribution group was created. Provide the traffic
       distribution group ARN for the `TargetArn`
@@ -54,6 +57,7 @@ multiple AWS Regions:
 
 4. In the Region where the traffic distribution group was created, call
    the [ClaimPhoneNumber](../APIReference/API_ClaimPhoneNumber.md "../APIReference/API_ClaimPhoneNumber.md") API:
+
    1. Provide your traffic distribution group ARN for the
       `TargetArn` parameter.
    2. Provide the E164 phone number value that was returned by the
@@ -62,6 +66,7 @@ multiple AWS Regions:
       returned. You can use these values for follow-up operations.
 
 5. Verify that the phone number status is `CLAIMED`:
+
    1. Call the [DescribePhoneNumber](../APIReference/API_DescribePhoneNumber.md "../APIReference/API_DescribePhoneNumber.md") API.
 
    (DescribePhoneNumber can also be called in the other Region

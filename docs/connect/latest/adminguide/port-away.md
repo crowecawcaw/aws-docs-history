@@ -10,8 +10,10 @@
 4. Select the required severity.
 5. Choose **Next step: Additional information**
 6. On the **Additional information** page:
+
    1. Enter the subject.
    2. Under **Description**:
+
       1. Let us know you're porting away.
       2. The name of your Connect Customer instance and the numbers you
          are porting away.
@@ -19,6 +21,7 @@
 
 7. Choose **Next step: Solve now or contact us**.
 8. On the **Solve now or contact us** page:
+
    1. Choose the **Contact us** tab and select your
       **Preferred contact language** and your
       preferred contact method.
@@ -32,6 +35,7 @@
     with the winning carrier.
 12. The winning carrier will request that you provide them with following
     information:
+
     - Proof of ownership of the numbers you want to port away.
       Provide them with screenshots of the Connect Customer instance with the
       phone numbers you want to port away, and screenshots of your

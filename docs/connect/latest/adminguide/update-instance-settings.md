@@ -66,6 +66,7 @@ For more information, see [Barge into live voice and chat conversations between 
 
 - In the navigation pane, choose **Data storage**. Choose
   the following:
+
   - **Call recordings**: Choose
     **Edit**, specify the bucket and KMS key for
     recordings of voice conversations, and then choose
@@ -138,6 +139,7 @@ For more information, see [Barge into live voice and chat conversations between 
 2. Choose **Enable data streaming**. For more information,
    see [Enable data streaming for your Connect Customer instance](data-streaming.md "data-streaming.md").
 3. For **Contact records**, do one of the following:
+
    - Choose **Kinesis Firehose** and select an
      existing delivery stream, or choose **Create a new Kinesis
      Firehose** to open the Kinesis Firehose console and

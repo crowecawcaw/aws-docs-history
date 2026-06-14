@@ -102,7 +102,7 @@ Apple Pay on the Web. When a business asks for payment from a customer who is
 purchasing goods and services through Apple Messages for Business, the customer can use Apple Pay to make
 the payment.
 
-![Picture of a smartphone using Apple Pay.](images/apple-pay-1.png)
+![Smartphone using Apple Pay.](images/apple-pay-1.png)
 
 To learn more about Apple Pay, see [Apple Pay for
 developers](https://developer.apple.com/apple-pay/ "https://developer.apple.com/apple-pay/").
@@ -122,7 +122,7 @@ interactive message types.
 The following figure is an example of an iMessage App sent using an Apple CIM with
 a detailed map and location pin:
 
-![Image of an iMessage app sent using an Apple CIM with a detailed map and location pin.](images/imessage-apps-1.png)
+![An iMessage app sent using an Apple CIM with a detailed map and location pin.](images/imessage-apps-1.png)
 
 For information about how to set iMessage Apps using Connect Customer, see [Add Amazon Lex interactive messages for customers in chat](interactive-messages.md "interactive-messages.md").
 
@@ -150,7 +150,7 @@ URL in a message separate from your chat text, as shown in the following
 example. The first message introduces the URL. The next message includes the
 URL.
 
-![A URL sent in a chat message.](images/abc-rich-link.png)
+![URL sent in a chat message.](images/abc-rich-link.png)
 
 ## Use Apple Messages for Business contact attributes in contact flows
 

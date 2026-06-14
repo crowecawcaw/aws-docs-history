@@ -80,6 +80,7 @@ domain names within the same instance that do not start with the
 - Action: Connect AI agents `wisdom:*` on all Connect Customer Connect AI agents
   resources with resource tag `'AmazonConnectEnabled':'True'` associated with
   your Connect Customer instance, except for the following actions which are explicitly denied:
+
   - `wisdom:DeleteAssistant`
   - `wisdom:DeleteKnowledgeBase`
 
@@ -115,6 +116,7 @@ domain names within the same instance that do not start with the
   accounts may be listed. Additionally, the templates of a WhatsApp business account may be
   listed and a template's details may be retrieved as long as the WhatsApp business account
   is tagged `AmazonConnectEnabled: True`.
+
   - `social-messaging:ListLinkedWhatsAppBusinessAccounts`
   - `social-messaging:GetWhatsAppMessageTemplate`
   - `social-messaging:ListWhatsAppMessageTemplates`
@@ -141,6 +143,7 @@ domain names within the same instance that do not start with the
        to be passed, which it assumes.
 
 - Action: Amazon Polly
+
   - `polly:ListLexicons`
   - `polly:DescribeVoices`
   - `polly:SynthesizeSpeech`
@@ -226,7 +229,7 @@ Instance, take the following actions:
    your Customer Profiles domain's AWS KMS keys by navigating to the Customer Profiles’s page in Connect Customer’s AWS
    Management Console and choose **Update KMS permission**.
 
-![Choose the Update KMS permission button to grant KMS permissions for you Connect Customer instance's service-linked role.](images/kms-permissions-slr-1.png) 2. Create a [support ticket](https://support.console.aws.amazon.com/support "https://support.console.aws.amazon.com/support") with the Connect Customer Customer Profiles team to request CMK permission enforcement for
+![The Update KMS permission button to grant KMS permissions for the Connect Customer instance service-linked role.](images/kms-permissions-slr-1.png) 2. Create a [support ticket](https://support.console.aws.amazon.com/support "https://support.console.aws.amazon.com/support") with the Connect Customer Customer Profiles team to request CMK permission enforcement for
 your account.
 
 For a list of IAM permission to update your Connect Customer instance, see the required

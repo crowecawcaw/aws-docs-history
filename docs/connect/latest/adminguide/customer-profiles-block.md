@@ -6,11 +6,13 @@ profile.
 ## Description
 
 - Enables you to retrieve, create, and update a customer profile.
+
   - You can configure the block to retrieve profiles using up to five
     search identifiers of your choice.
 
 - Enables you to retrieve a Customer Profile's object and calculated
   attributes.
+
   - You can configure the block to retrieve objects using a search
     identifier of your choice.
   - You must provide a profile ID in this block. You can provide a
@@ -29,6 +31,7 @@ profile.
   `$.Customer.City` and
   `$.Customer.Asset.Status`.
 - The following examples show how you might use this block:
+
   - Use a [Play prompt](play.md "play.md") block
     after retrieving a profile to provide a personalized call or chat
     experience by referencing the supported profile fields.
@@ -64,6 +67,7 @@ types](create-contact-flow.md#contact-flow-types "create-contact-flow.md#contact
   instance. For instructions, see [Use Connect Customer Customer Profiles](customer-profiles.md "customer-profiles.md").
 - A contact is routed down the **Error** branch in the
   following situations:
+
   - Customer Profiles is not enabled for your Connect Customer instance.
   - Request data values are not valid. The request values cannot be
     over 255 characters.
@@ -101,12 +105,14 @@ following:
   operator, either **AND** or **OR**. The
   logical operator is applied across all search identifiers like one of the
   following expressions:
+
   - (a **AND** b **AND** c)
   - (x **OR** y **OR** z)
 
 - Define attributes to persist in subsequent blocks, storing them in contact
   attributes under **Response fields**.
 - Contacts can be routed down the following branches
+
   - **Success:** one profile was found.
     Response fields are stored to contact attributes
   - **Error:** An error was encountered
@@ -214,6 +220,7 @@ membership**, consider the following:
   **Get profile** block. Use the **Get profile** block to pinpoint the specific
   profile before moving forward to retrieve the profile's object in the
   subsequent block.
+
   - You have the option to manually input the Profile ID or use a
     pre-defined value stored in a pre-defined or user attribute.
 
@@ -267,6 +274,7 @@ the following:
   **Get profile** block to pinpoint the specific profile
   before moving forward to retrieve the profile’s object in the subsequent
   block.
+
   - You have the option to manually input the Profile ID or use a
     pre-defined value stored in a pre-defined or user attribute.
 
@@ -275,6 +283,7 @@ the following:
 - You must indicate the object type from which you intend to retrieve
   information.
 - You must choose one of the following options for object retrieval:
+
   - **Use latest profile object:** This
     option consistently retrieves the most recent object.
   - **Use search identifier:** This option
@@ -325,6 +334,7 @@ consider the following:
   **Get profile** block to pinpoint the specific profile
   before moving forward to retrieve the profile's calculated attributes in the
   subsequent block.
+
   - You have the option to manually input the Profile ID or use a
     pre-defined value stored in a pre-defined or user attribute.
 
@@ -332,6 +342,7 @@ consider the following:
 
 - Define attributes to persist in subsequent blocks, storing them in contact
   attributes under **Response fields**.
+
   - The options under **Response fields** are the
     Calculated Attribute definitions defined for your Customer Profiles
     domain
@@ -390,6 +401,7 @@ consider the following:
   profile** block, as illustrated in the following image. Use the
   **Get profile** block to pinpoint the specific profile
   you wish to associate the contact to in the next block.
+
   - You have the option to manually input the Profile ID or use a
     pre-defined value stored in a pre-defined or user attribute.
 

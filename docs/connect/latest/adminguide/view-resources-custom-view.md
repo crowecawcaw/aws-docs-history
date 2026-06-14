@@ -102,7 +102,7 @@ Let's say `NoIconCardHeading` is set to `No Icon
 
 **Appearance**
 
-![Image of the agent workspace view card.](images/view-resources-custom-the-view.png)
+![The agent workspace view card.](images/view-resources-custom-the-view.png)
 
 ## View output example
 

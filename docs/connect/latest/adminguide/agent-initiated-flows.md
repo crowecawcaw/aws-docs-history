@@ -84,7 +84,7 @@ For additional details on quick connects, see [Create quick connects in Connect 
 
 ![Agent control panel Quick connect button.](images/agent-initiated-flows-agent-example-1.png)
 
-![Select form and Add to chat.](images/agent-initiated-flows-agent-example-2.png)
+![Form and Add to chat.](images/agent-initiated-flows-agent-example-2.png)
 
 When the form is active, the agent may cancel the workflow. Agents will see events
 for the status of the workflow.

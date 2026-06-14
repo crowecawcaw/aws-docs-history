@@ -42,6 +42,7 @@ transfer the call to, or use an attribute to set the queue.
    the block.
 5. Choose **Add another prompt to the loop**.
 6. Under **Prompts**, do one of the following:
+
    - Choose **Audio recording** in the drop-down menu,
      then select the audio recording to use as the prompt.
    - Choose **Text to Speech** in the drop-down menu, then

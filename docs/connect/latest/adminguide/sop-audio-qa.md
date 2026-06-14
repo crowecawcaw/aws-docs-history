@@ -48,6 +48,7 @@ participant media connection. You can observe these symptoms on a Connect Custom
 on the participant channel.
 
 - Choppy/broken audio
+
   - Observation: The audio stream gets interrupted and sounds choppy or
     broken on the media connection as heard by the listener on the other
     end.
@@ -56,6 +57,7 @@ on the participant channel.
     to the other party.
 
 - Delayed audio
+
   - Observation: Participant experiences a delayed audio from the other
     side. An effect of delayed audio is consistent overlapping in
     conversation between the caller and the agent.
@@ -63,16 +65,19 @@ on the participant channel.
     bandwidth/hardware/workstation congestion.
 
 - Echo
+
   - Observation: Echo is when agent hears their own voice repeated back to
     them with a delay.
   - Potential causes: This is often due to audio feedback between the
     microphone and speaker.
 
 - Background noise
+
   - Observation: Extraneous background noise like fans, typing, or call
     center noise can make it difficult to hear the caller clearly.
 
 - Distorted audio
+
   - Observation: Distorted, garbled, or robotic-sounding audio heard by
     one party coming from the other end.
   - Potential causes: This is typically a sign of a bandwidth issue or
@@ -86,6 +91,7 @@ spot any trends. Use this information to answer the following questions to under
 overall impact:
 
 - What percentage of agents or calls are impacted?
+
   - Scenario 1: If only 1 agent is encountering the problem, it could be
     related to agent workstation including operating system and
     browser/network configuration of the agent.
@@ -114,6 +120,7 @@ source of the issue.
 
 - **QualityScore**: An estimate of overall audio
   quality using a numerical value.
+
   - Minimum value: 1.00 (indicates poor quality)
   - Maximum value: 5.00 (indicates high quality)
 
@@ -130,7 +137,9 @@ investigation.
 - `HighPacketLoss`: When this value occurs for
   `PotentialQualityIssues`, it suggests that there is packet loss
   observed on the outbound audio (egress) stream for the participant.
+
   - Causes:
+
     - This can occur in the path the packets traverse the network
       between the participant and the Connect Customer endpoint which could be
       due to a bad/poor network, congestion in network, constrained
@@ -144,7 +153,9 @@ investigation.
   traversal. Jitter buffer plays a major role in ensuring that the packets
   received over network at a device are aligned appropriately to provide the audio
   without distortion.
+
   - Causes:
+
     - If a congestion (network and/or hardware) occurs at the
       participant's end, the `JitterBuffer` increases
       causing audio delays/distorted or choppy audio.
@@ -162,7 +173,9 @@ investigation.
   in callers experiencing noticeable delays (speech overlap) on the call.
   RoundTripTime (RTT) is the estimated network round trip time between the
   participant's device and Connect Customer endpoint.
+
   - Causes:
+
     - The most common cause of high round trip time is a
       low-bandwidth or constrained network.
     - You may also experience high round-trip time if a certain

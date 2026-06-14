@@ -51,6 +51,7 @@ detail.
 
 - [Create an Connect Customer instance](amazon-connect-instances.md "amazon-connect-instances.md") if
   you don't already have one.
+
   - You don't need to claim a phone number to Connect Customer to integrate
     with Contact Lens.
   - [Add agents](user-management.md "user-management.md") and [set up agent hierarchies](agent-hierarchy.md "agent-hierarchy.md"). This will
@@ -66,6 +67,7 @@ detail.
 - [Request
   service quota increases](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") for the following quotas in your Connect Customer
   account:
+
   - **Contact Lens connectors per account**
   - **Maximum active recording sessions from external voice
     systems per instance**

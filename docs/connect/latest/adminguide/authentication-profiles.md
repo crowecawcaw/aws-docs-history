@@ -134,6 +134,7 @@ describe how IP-based access control works.
 - Blocked IP configurations always take precedence.
 - If IP addresses are defined in the Allowed IP list, _only_
   those IP addresses are allowed.
+
   - These IP addresses can be scoped down by the Blocked IP list.
 
 - If only Blocked IP addresses are defined, any IP address can access the
@@ -167,6 +168,7 @@ Following is what happens if the IP address fails the check:
 - If the agent is on an active call, the agent's session is invalidated.
   However, this does not end the currently active call. Here's what
   happens:
+
   1.  The agent loses the ability to take any action, such as changing
       agent status, transferring calls, putting the call on hold, ending
       the call, or creating a case.

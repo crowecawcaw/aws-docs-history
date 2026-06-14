@@ -83,7 +83,7 @@ The following diagram shows the programming flow between a customer using a mobi
 and an agent. Numbered text in the diagram corresponds to numbered text below the
 image.
 
-![Diagram showing the Connect Customer chat program flow.](images/integrate-chat-mobile-diagram.png)
+![The Connect Customer chat program flow.](images/integrate-chat-mobile-diagram.png)
 
 ###### In the diagram
 

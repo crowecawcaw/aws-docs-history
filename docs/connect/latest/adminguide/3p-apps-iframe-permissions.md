@@ -63,6 +63,7 @@ For example, to grant clipboard permissions:
 1. By default, if the iframe configuration field is left blank or set to
    empty curly braces {}, the following sandbox permissions are
    automatically granted:
+
    - allow-forms
    - allow-popups
    - allow-same-origin
