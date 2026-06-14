@@ -18,7 +18,9 @@ You can also deploy the collector in an Amazon EC2 instance using the collector
 AMI.
 
 - Verify that your operating system (OS) environment is supported:
+
   - **Linux**
+
     - Amazon Linux 2012.03, 2015.03
     - Amazon Linux 2 (9/25/2018 update and later)
     - Ubuntu 12.04, 14.04, 16.04, 18.04, 20.04
@@ -27,6 +29,7 @@ AMI.
     - SUSE 11 SP4, 12 SP5
 
   - **Windows**
+
     - Windows Server 2008 R1 SP2, 2008 R2 SP1
     - Windows Server 2012 R1, 2012 R2
     - Windows Server 2016
@@ -49,6 +52,7 @@ _Porting Assistant for .NET User Guide_.
 - You must use AWS Application Discovery Service to collect data about your servers and
   applications in the AWS Migration Hub console before using Strategy Recommendations. You can use
   one of the following methods to collect the data.
+
   - **Migration Hub import** – With Migration Hub
     import, you can import information about your on-premises servers and
     applications into Migration Hub. For more information, see [Migration Hub Import](../../../application-discovery/latest/userguide/discovery-import.md "../../../application-discovery/latest/userguide/discovery-import.md") in

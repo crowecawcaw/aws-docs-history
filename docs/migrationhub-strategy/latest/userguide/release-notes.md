@@ -60,6 +60,7 @@ source code.
 **New feature**
 
 - Collector v1.1.12
+
   - SCT version 667
   - EMPAnalyzer 2.2.0.368
 
@@ -76,11 +77,13 @@ source code.
 **New feature**
 
 - Collector v1.1.11
+
   - Added VMware API support.
   - A2C requested changes to add user header while downloading the binary file.
   - Added Linux home path, default shell, and remote termination of all shells.
 
 - A2C v1.17 public binary
+
   - Added support for Azure DevOps as a pipeline deployment target.
 
 ## April 18, 2022
@@ -108,11 +111,13 @@ source code.
 
 - SCT v5.6.8
 - A2C v1.1.1
+
   - Added a check for the **tar** command on Linux.
   - Fixed the issue of checking application images in Amazon ECR.
   - Fixed the issue requiring container removal for pre-validation.
 
 - Collector v1.1.3
+
   - Fixed the 4xx error for remote 32-bit machine.
   - Updated the A2C error codes.
   - Validated the IP address in `C#` for source code analysis of the remote

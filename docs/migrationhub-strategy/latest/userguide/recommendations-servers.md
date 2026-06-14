@@ -13,6 +13,7 @@ strategy recommendations for the servers in your migration portfolio.
    then choose **Recommendations**.
 3. On the **Recommendations** page, choose the
    **Servers** tab.
+
    1. Under **Server summary**, you view an overview of the
       various types of servers that you are running in your portfolio.
    2. Under **Servers**, you view server and operating system

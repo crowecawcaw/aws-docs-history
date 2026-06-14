@@ -27,6 +27,7 @@ strategy recommendations for application components.
    then choose **Recommendations**.
 3. On the **Recommendations** page, choose the
    **Application components** tab.
+
    1. Under **Application components summary**, is an
       overview of the various types of application components that you are
       running in your server portfolio.

@@ -16,8 +16,10 @@ recommendations for the first time.
    service-linked role (SLR) in your account. For more information about the SLR, see
    [Using service-linked roles for Strategy Recommendations](using-service-linked-roles.md "using-service-linked-roles.md").
 5. **Configure data sources**
+
    1. On the **Configure data sources** page, you must choose
       the source of your servers to analyze from the following options:
+
       1. **Strategy Recommendations application data collector**
          – You can use the Strategy Recommendations collector to retrieve information
          about VMs hosted in VMware vCenter automatically. Using this option,
@@ -59,6 +61,7 @@ recommendations for the first time.
    `migrationhub-strategy`. 7. Choose **Next**.
 
 6. **Specify preferences**
+
    1. On the **Specify preferences** page, set up your business
       goals and migration preferences. Strategy Recommendations recommends the optimal strategy
       for migrating and modernizing your applications and databases based on the
@@ -67,6 +70,7 @@ recommendations for the first time.
    2. Choose **Next**.
 
 7. **Review and submit**.
+
    1. Review your configured data sources and migration preferences.
    2. If everything looks correct, choose **Start data
       analysis**. This will perform an analysis of your server
