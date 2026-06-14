@@ -51,6 +51,7 @@ consider in your device components are:
   For optimal performance, select based on your device
   constraints, prioritizing lower-level languages for
   battery-powered or resource-limited deployments:
+
   - **Embedded C SDK**: Best
     for highly constrained devices with minimal RAM
     (256KB+). Offers lowest memory footprint and power

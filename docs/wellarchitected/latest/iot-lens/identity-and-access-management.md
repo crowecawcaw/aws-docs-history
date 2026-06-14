@@ -884,6 +884,7 @@ for further investigation._
   in time provisioning or just-in-time registration.
 - Be sure to monitor usage on the device as well as in AWS IoT Core.
 - For example:
+
   - Use AWS IoT CloudWatch metrics and logs to monitor for
     indications of misuse. If you detect misuse, disable the
     provisioning claim certificate so it cannot be used for

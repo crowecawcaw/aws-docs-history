@@ -201,11 +201,13 @@ IOTREL03-BP01-01** _Use device edge software
 capabilities for down sampling._
 
 - Use compression as a means of down sampling data
+
   - Data transmitted to the cloud can be in JSON format, or
     in other formats such as Protocol Buffers.
 
 - Using AWS IoT Greengrass for device software to down sample
   data.
+
   - Applications built using Components can be used on AWS IoT Greengrass to down sample the data before sending it
     to the cloud.
   - [ETL

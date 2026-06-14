@@ -60,6 +60,7 @@ The architecture includes:
   client, is also installed on each client device.
 - A core device that has AWS IoT Greengrass deployed with the
   following components:
+
   - MQTT broker
   - MQTT bridge
   - Client device authentication

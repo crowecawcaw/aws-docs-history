@@ -127,6 +127,7 @@ security:
   boundary using a protocol converter to translate the insecure
   protocol to a secure protocol as close to the data source as
   possible.
+
   - Alternatively, separate the plant network into smaller
     cell or area zones by grouping ICS devices into functional
     areas. This separation enables the limiting of scope and

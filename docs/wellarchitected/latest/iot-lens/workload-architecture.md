@@ -164,6 +164,7 @@ data._
   based on the notification.
 - Use Amazon CloudWatch Logs to trigger on events on writing
   and reading data and take appropriate error handling action.
+
   - Use AWS IoT rules engine error actions to provision data
     storage to other locations if primary storage is
     unavailable.

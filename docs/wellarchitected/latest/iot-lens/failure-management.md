@@ -179,6 +179,7 @@ software capabilities for storing data locally._
 - Design your edge applications according to your device
   constraints to store and forward critical data when devices
   become disconnected from the cloud.
+
   - If your device has sufficient storage available, your
     application may implement a local cache of messages
     written to disk to make sure that data is not lost when
@@ -194,6 +195,7 @@ software capabilities for storing data locally._
 
 - If using AWS IoT Greengrass for device software, AWS IoT Greengrass components can help collect, process, and export
   data streams, including when devices are offline.
+
   - Messages collected on the device are queued and
     processed in FIFO order.
   - By default, AWS IoT Greengrass Core stores unprocessed

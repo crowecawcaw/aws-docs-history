@@ -44,6 +44,7 @@ behavior._
   increase to 100%. Additionally, consider exercising the
   workload beyond the traditional expected load by performing
   stress tests.
+
   - Start the load test at a low percent of your estimated
     total device fleet (for example, 10%).
   - Evaluate the performance of your application using
@@ -88,6 +89,7 @@ quotas of the different IoT services._
 - Pay attention to which limits are adjustable quotas and
   which are unadjustable quotas as they require different
   approaches. For example:
+
   - An unadjustable _quota_, such a
     control plane request rate, requires changes in the
     application behavior to avoid the event repeating too
@@ -102,6 +104,7 @@ quotas of the different IoT services._
     and provide sufficient notice so that a request for a
     limit increase can be made well ahead of time. For
     example:
+
     - For AWS IoT Core, alert on `RulesMessageThrottles`,
       `Connect.ClientIDThrottle`, `Connect.Throttle`,
       `PublishIn.Throttle`, `Subscribe.Throttle`,
@@ -146,15 +149,19 @@ data._
   (device or gateway). If device-side diagnostic metrics
   cannot be obtained, then it is possible to obtain limited
   cloud-side metrics. For example:
+
   - TCP connections
+
     - Connections
     - Local-interface
 
   - Listening TCP/UDP ports
+
     - Listening-TCP/UDP-ports
     - Interface
 
   - Network statistics
+
     - Bytes-in/out
     - Packets-in/out
     - Network-statistics

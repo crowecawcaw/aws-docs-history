@@ -72,6 +72,7 @@ IOTPERF03-BP01-01** _Add timestamps on the server side._
   `timestamp()` function to generate a timestamp when the
   message is received.
 - When using AWS IoT Greengrass:
+
   - Use AWS IoT Greengrass stream manager to batch timestamped
     messages during connectivity interruptions while
     preserving message sequence integrity
@@ -86,6 +87,7 @@ device._
 
 - Without a reliable time source, the timestamp can only be
   used relative to the specific device. For example:
+
   - Devices should use the Network Time Protocol (NTP) to
     obtain a reliable time when connected.
   - Real-time clock (RTC) devices can be used to maintain an
@@ -251,6 +253,7 @@ mechanism for telemetry data._
 
 - Determine if the communication pattern is unidirectional
   (device to backend) or bi-directional. For example:
+
   - HTTPS should be considered over MQTT when your device is
     acting as an aggregator. Use multiple threads and
     multiple HTTP connections to maximize the throughput for
@@ -258,6 +261,7 @@ mechanism for telemetry data._
 
 - Consider the APIs provided by the destination for your data
   and adopt them if you can securely access them. For example:
+
   - AWS IoT SiteWise provides an HTTP API to ingest
     operational data from industrial applications which
     needs to be stored for a limited period and processed as
@@ -271,6 +275,7 @@ mechanism for telemetry data._
 - Consider the need for data to be buffered locally while the
   device is disconnected and the transmission resumed as soon
   as the connection is re-established. For example:
+
   - AWS IoT Greengrass stream manager provides a managed
     stream service with local persistence, local processing
     pipelines, and exporters to Amazon Kinesis Data Streams,
@@ -278,6 +283,7 @@ mechanism for telemetry data._
 
 - Consider the latency, throughput, and ordering
   characteristics of the data you want to ingest. For example:
+
   - For applications with a high ingestion rate
     (high-frequency sensor data) and where message ordering
     is important, Amazon Kinesis Data Streams provides

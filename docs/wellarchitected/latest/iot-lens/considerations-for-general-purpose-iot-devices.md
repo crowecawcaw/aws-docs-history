@@ -14,6 +14,7 @@ to improved energy efficiency and sustainability. 
 
 - Support for multiple low power modes, allowing power
   consumption to be reduced when the processor is not active. 
+
   - This should include a mode that retains volatile memory
     content, allowing for quick restoration of application
     state when required.

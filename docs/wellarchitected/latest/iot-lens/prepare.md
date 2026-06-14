@@ -206,6 +206,7 @@ that stage and clearly define the sequence._
 
 - Identify the steps at each stage and the corresponding
   actors.
+
   - Device assembly by hardware manufacturer.
   - Device registration by service and solution provider.
   - Device activation by the end user of the service or
@@ -227,6 +228,7 @@ a fleet._
   search and force common actions and behaviors.
 - For example, you can assign the following metadata at the
   time of manufacturing:
+
   - Unique ID
   - Manufacturer details
   - Model number
@@ -280,6 +282,7 @@ mechanisms if you are bringing your own certificates._
   beforehand
 - If you do not have device information beforehand, use
   just-in-time provisioning (JITP).
+
   - Enable automatic registration and associate a
     provisioning template with the CA certificate used to
     sign the device certificate.
@@ -289,6 +292,7 @@ mechanisms if you are bringing your own certificates._
 
 - If you have device information beforehand, use bulk
   registration.
+
   - Specify a list of single-thing provisioning template
     values that are stored in a file in an S3 bucket.
   - Run the start-thing-registration-task command to
