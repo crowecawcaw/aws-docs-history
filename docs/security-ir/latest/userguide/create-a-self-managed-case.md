@@ -17,6 +17,7 @@ The following example covers use of the console.
    selecting the **Generate Title** option.
 6. Enter AWS account IDs that are part of the case. To add an
    account ID, do the following:
+
    1. Enter the 12-digit account ID and choose
       **Add account**.
    2. To remove an account, choose
@@ -24,8 +25,10 @@ The following example covers use of the console.
       account you want to remove from the case.
 
 7. Provide a detailed description of the case. 
+
    1. Consider the following aspects which can help incident
       responders with the case resolution:
+
       1. What happened?
       2. Who discovered and reported the incident?
       3. Who is affected by the case?
@@ -33,6 +36,7 @@ The following example covers use of the console.
       5. What is the urgency for this case?
 
 8. Add optional case details:
+
    1. Select the main services that are impacted from the
       drop-down list.
    2. Select the main regions that are impacted from the
@@ -43,6 +47,7 @@ The following example covers use of the console.
 9. Add optional additional incident responders to the case that
    will receive notifications. To add an individual, do the
    following:
+
    1. Add an email address.
    2. Add an optional first and last name.
    3. Choose **Add new** to add
@@ -56,6 +61,7 @@ The following example covers use of the console.
 
 10. Add optional tags to the case. To add a tag, do the
     following:
+
     1. Choose **Add new tag**.
     2. For **Key**, enter the
        name of the tag.

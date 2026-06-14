@@ -15,6 +15,7 @@ the process of recovery, you should perform a business impact analysis to determ
 The NIST SP 800-61 Computer Security Incident Handling Guide provides several steps to recover systems, including:
 
 - Restoring systems from clean backups.
+
   - Verify that backups are evaluated before restoring to systems to make sure that the
     infection is not present and to prevent a resurgence of the security event.
 
@@ -30,6 +31,7 @@ the file you are recovering is known safe and unaffected by the incident
 
 - Installing patches.
 - Changing passwords.
+
   - This includes passwords for IAM principals that might have been abused.
   - If possible, we recommend using roles for IAM principals and federation as part of a least privilege strategy.
 

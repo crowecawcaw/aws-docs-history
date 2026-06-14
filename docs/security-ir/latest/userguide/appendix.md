@@ -10,6 +10,7 @@ Complete the following table and provide it to your AWS account team before depl
 
 1. Complete the preceding metadata table with your environment information.
 2. Create an [AWS Support case](https://repost.aws/knowledge-center/get-aws-technical-support "https://repost.aws/knowledge-center/get-aws-technical-support") with the following details:
+
    - **Case type:** Technical
    - **Service:** Security Incident Response
    - **Category:** Other

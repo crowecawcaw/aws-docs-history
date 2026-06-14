@@ -30,18 +30,22 @@ fostering your lessons learned discussions:
 - What didn't work well?
 - Which process or procedures failed or failed to scale to respond to the incident?
 - What can be improved within the following areas:
+
   - **People**
+
     - Were the people who were needed to be contacted actually available and was the contact list up to date?
     - Were people missing training or capabilities needed to effectively respond and investigate the incident?
     - Were the appropriate resources ready and available?
 
   - **Process**
+
     - Were processes and procedures followed?
     - Were processes and procedures documented and available for this (type of) incident?
     - Were required processes and procedures missing?
     - Were the responders able to gain timely access to the required information to respond to the issue?
 
   - **Technology**
+
     - Did existing alerting systems effectively identify and alert on the activity?
     - Do existing alerts need improvement or new alerts need to be built for this (type of) incident?
     - Did existing tooling allow for effective investigation (search/analysis) of the incident?

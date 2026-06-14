@@ -170,6 +170,7 @@ situations:
   objects in Amazon S3. A service might do this using the
   calling principal's permissions, using a service role, or
   using a service-linked role.
+
   - **Service role** – A
     service role is
     an [IAM

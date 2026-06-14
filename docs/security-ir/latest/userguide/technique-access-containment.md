@@ -19,6 +19,7 @@ of technique and access containment using AWS services are highlighted here:
   identifiers](../../../IAM/latest/UserGuide/reference_identifiers.md "../../../IAM/latest/UserGuide/reference_identifiers.md")). To contain access for an IAM principal where an IAM access key
   has been compromised, the access key can be deactivated or deleted. It is important to
   note the following:
+
   - An access key can be reactivated after it has been deactivated.
   - An access key is not recoverable once it has been deleted.
   - An IAM principal can have up to two access keys at any given time.
@@ -40,6 +41,7 @@ of technique and access containment using AWS services are highlighted here:
   a user’s IAM access key is compromised by an unauthorized user who created temporary
   security credentials, the temporary security credentials can be revoked using two
   methods:
+
   - Attach an inline policy to the IAM user that prevents access based on the security
     token issue time (refer to the _Denying access to temporary security
     credentials issued before a specific time_ section in

@@ -28,6 +28,7 @@ The following example covers use of the console.
 3. Choose **Resolve case with
    AWS**
 4. Select the type of request
+
    1. **Active Security
       Incident**: This type is for urgent incident
       response support and services.
@@ -44,6 +45,7 @@ The following example covers use of the console.
 6. Define a title for the case
 7. Provide a detailed description of the case. 
    Consider the following aspects which can help incident responders with the case resolution:
+
    1. What happened?
    2. Who discovered and reported the incident?
    3. Who is affected by the case?
@@ -53,6 +55,7 @@ The following example covers use of the console.
       the case.
 
 8. Add optional case details:
+
    1. Select the main services that are impacted from the
       drop-down list.
    2. Select the main regions that are impacted from the
@@ -63,6 +66,7 @@ The following example covers use of the console.
 9. Add optional additional incident responders to the case that
    will receive notifications. To add an individual, do the
    following:
+
    1. Add an email address.
    2. Add an optional first and last name.
    3. Choose **Add new** to add
@@ -72,11 +76,13 @@ The following example covers use of the console.
       an individual.
    5. Choose **Add** to add all
       listed individuals to the case.
+
       1. You can select multiple individuals and choose
          **Remove** to delete
          them from the list.
 
 10. Add optional tags to the case.
+
     1. To add a tag, do the following:
     2. Choose **Add new tag**.
     3. For **Key**, enter the

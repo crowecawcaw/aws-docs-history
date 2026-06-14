@@ -57,6 +57,7 @@ Specifically, the order for response to acquire and preserve the most amount of 
    details.
 8. **Responder’s choice** – Based on the situation and
    goals, select one of the following:
+
    - Decommission and shut down the system (recommended).
 
    Shut down the system once the available evidence has been acquired in order to

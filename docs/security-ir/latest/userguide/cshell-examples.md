@@ -13,6 +13,7 @@ to configure credentials before making calls.
 
 1. From the AWS Management Console, launch CloudShell by choosing the following options
    available on the navigation bar:
+
    - Choose the CloudShell icon.
    - Start typing "cloudshell" in the Search box and then choose the CloudShell
      option.

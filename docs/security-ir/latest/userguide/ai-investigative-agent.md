@@ -35,17 +35,20 @@ The AI investigation agent follows a structured workflow when analyzing AWS supp
 1. **Case creation** – Customer creates an AWS supported case in the
    Security Incident Response console describing the security concern.
 2. **Parallel activation**
+
    - Security Incident Response engineers engage with the case.
    - Simultaneously, the AI agent begins its investigation workflow.
 
 3. **Contextual questions (optional)** – The agent may ask clarifying
    questions to gather specific details:
+
    - Affected AWS account IDs
    - Involved IAM principals (users, roles, access keys)
    - Specific resource identifiers (S3 buckets, EC2 instances, ARNs)
    - Timeframe of suspicious activity
 
 4. **Evidence gathering** – The agent automatically queries AWS data sources:
+
    - _AWS CloudTrail_ – API calls and activities associated with the incident
    - _IAM_ – User and role permissions, policy changes, and new identity creation
    - _Amazon EC2 Instance APIs_ – Information about compute resources if involved

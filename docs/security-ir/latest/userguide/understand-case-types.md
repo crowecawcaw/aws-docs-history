@@ -23,6 +23,7 @@ AWS Security Incident Response provides a subscription-based case management por
 1. Open the AWS Security Incident Response console.
 2. Choose **Cases**, then choose **Create case**.
 3. Choose a case type:
+
    - **AWS-supported**: Escalated directly to Security Incident Response Engineering for investigation and guidance (15-minute SLO).
    - **Self-managed**: Kept internal to your organization for tracking and documentation.
 

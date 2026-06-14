@@ -32,24 +32,28 @@ security events in the future.
 AWS customers can engage Security Incident Response engineers through an [AWS support case](../../../awssupport/latest/user/case-management.md "../../../awssupport/latest/user/case-management.md").
 
 - **All Customers**:
+
   1.  Account and billing
   2.  Service: Account
   3.  Category: Security
   4.  Severity: General question
 
 - **Customers with Developer Support plans**:
+
   1.  Account and billing
   2.  Service: Account
   3.  Category: Security
   4.  Severity: Important question
 
 - **Customers with Business Support plans**:
+
   1.  Account and billing
   2.  Service: Account
   3.  Category: Security
   4.  Severity: Urgent business impacting question
 
 - **Customers with Enterprise Support plans**:
+
   1.  Account and billing
   2.  Service: Account
   3.  Category: Security

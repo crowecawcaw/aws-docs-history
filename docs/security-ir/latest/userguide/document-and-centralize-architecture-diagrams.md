@@ -9,6 +9,7 @@ architecture patterns. You should develop documentation and internal repositorie
 detail items such as:
 
 - **AWS account structure** - You need to know:
+
   - How many AWS accounts do you have?
   - How are those AWS accounts organized?
   - Who are the business owners of the AWS accounts?
@@ -17,23 +18,28 @@ detail items such as:
   - What differences are there between business units and environments (dev/test/prod)?
 
 - **AWS service patterns**
+
   - What AWS services do you use?
   - What are the most widely used AWS services?
 
 - **Architecture patterns**
+
   - What cloud architectures do you use?
 
 - **AWS authentication patterns**
+
   - How do your developers typically authenticate to AWS?
   - Do you use IAM roles or users (or both)? Is your authentication to AWS connected to an identity provider (IdP)?
   - How do you map an IAM role or user to an employee or system?
   - How does access get revoked when someone is no longer authorized?
 
 - **AWS authorization patterns**
+
   - What IAM policies do your developers use?
   - Do you use resource-based policies?
 
 - **Logging and monitoring**
+
   - What logging sources do you use and where are they stored?
   - Do you aggregate AWS CloudTrail logs? If so, where are they stored?
   - How do you query CloudTrail logs?
@@ -44,11 +50,13 @@ detail items such as:
   - What tooling is in place to analyze logs for an investigation?
 
 - **Network topology**
+
   - How are devices, endpoints, and connections on your network physically or logically arranged?
   - How does your network connect with AWS?
   - How is network traffic filtered between environments?
 
 - **External infrastructure**
+
   - How are externally-facing applications deployed?
   - What AWS resources are publicly accessible?
   - What AWS accounts contain infrastructure that is externally facing?
