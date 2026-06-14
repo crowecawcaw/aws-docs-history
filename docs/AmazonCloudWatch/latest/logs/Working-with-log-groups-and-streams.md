@@ -70,6 +70,7 @@ by the CloudWatch Logs agent. You can specify the time range for the log data to
 4. In the list of log groups, choose the name of the log group that you want to view.
 5. In the list of log streams, choose the name of the log stream that you want to view.
 6. To change how the log data is displayed, do one of the following:
+
    - To expand a single log event, choose the arrow next to that log event.
    - To expand all log events and view them as plain text, above the list
      of log events, choose **Text**.

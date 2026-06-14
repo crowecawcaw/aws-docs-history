@@ -12,6 +12,7 @@ Create a role for identity federation. Follow the instructions in [Create a role
 in the _IAM User Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
@@ -100,11 +101,17 @@ see metrics about the top-N contributors, the total number of unique
 contributors, and their usage. For more information, see [Using
 Contributor Insights to Analyze High-Cardinality Data](../monitoring/ContributorInsights.md "../monitoring/ContributorInsights.md").
 
-When you grant a user the `cloudwatch:PutInsightRule` and
-`cloudwatch:GetInsightRuleReport` permissions, that user can
-create a rule that evaluates any log group in CloudWatch Logs and then see the results.
-The results can contain contributor data for those log groups. Be sure to grant
-these permissions only to users who should be able to view this data.
+Contributor Insights operations use the `cloudwatch:` IAM
+namespace. CloudWatch Logs (`logs:`) permissions are not evaluated
+when Contributor Insights processes log group data. For detailed information
+about the Contributor Insights permissions model, condition keys, and best
+practices, see [Using
+condition keys to limit Contributor Insights users' access to log
+groups](../monitoring/iam-cw-condition-keys-contributor.md "../monitoring/iam-cw-condition-keys-contributor.md") in the _Amazon CloudWatch User Guide_.
+
+If your log groups contain sensitive data, use CloudWatch Logs data protection
+policies to mask that data before Contributor Insights or any other feature
+can process it. For more information, see [Help protect sensitive log data with masking](mask-sensitive-log-data.md "mask-sensitive-log-data.md").
 
 ### Resource-based policies
 

@@ -76,6 +76,7 @@ metric filters and subscription filters or when filtering log events or Live Tai
 Either _m_ or _n_ can be omitted if you chose not to define a minimum or maximum.
 
 - `|`: Boolean "Or", which matches the term on either side of the vertical bar. For example:
+
   - `%gra|ey%` can match "gray" or "grey"
   - `%^starting|^initializing|^shutting down%` can match match "starting ...", or "initializing ...", or "shutting down", but won't match "skipping initializing ..."
   - `%abcc|ab[^c]$` can match match "abcc ..." and "aba ..." but won't match "aac ..."

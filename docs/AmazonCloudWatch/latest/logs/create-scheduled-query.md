@@ -11,6 +11,7 @@ Before creating a scheduled query, ensure you have the following:
   containing the data you want to analyze
 - **Execution IAM role** - An IAM role
   with the following permissions:
+
   - `logs:StartQuery` - Permission to start CloudWatch Logs Insights
     queries
   - `logs:GetQueryResults` - Permission to retrieve
@@ -20,6 +21,7 @@ Before creating a scheduled query, ensure you have the following:
 
 - **Destination permissions** - Additional
   IAM permissions for your chosen destination:
+
   - For Amazon S3 destinations: `s3:PutObject`
 
 - **For AWS CLI and API usage** - Configured
@@ -36,6 +38,7 @@ Console
    Insights**.
 3. Choose **Create scheduled query**.
 4. In the **Query definition** section:
+
    1. For **Query language**, choose the
       query language to use from the list.
    2. For **Query string**, enter your
@@ -44,6 +47,7 @@ Console
       groups to query from the list.
 
 5. In the **Schedule setup** section:
+
    1. For **Schedule expression**,
       configure when the query runs. Choose from predefined
       options or enter a custom cron expression.
@@ -66,6 +70,7 @@ Console
 7. In the **Post query results to S3 -
    optional** section (if using S3
    destination):
+
    1. For **S3 bucket**, select
       **This account** if the destination
       bucket is in the same AWS account, or select
@@ -88,6 +93,7 @@ Console
 8. In the **IAM role for posting query results to
    Amazon S3** section, choose one of the following
    options:
+
    1. Choose **Auto-create a new role with default
       permissions** to automatically set up an IAM
       role with the permissions required for CloudWatch Logs to deliver
@@ -101,6 +107,7 @@ Console
 9. In the **IAM role for scheduled query
    execution** section, choose one of the following
    options:
+
    1. Choose **Auto-create a new role with default
       permissions** to automatically set up an IAM
       role with the permissions required for CloudWatch Logs to execute

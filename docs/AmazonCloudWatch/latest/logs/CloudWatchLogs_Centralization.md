@@ -63,9 +63,11 @@ see [CloudWatch Logs Encryption documentation](encrypt-log-data-kms.md "encrypt-
   (customer managed or AWS owned KMS keys). If you are using customer managed KMS key in your destination log groups,
   add the tag `LogsManaged = true` to the kms key for Centralization service to access it.
 - **When KMS permissions are required**:
+
   - If you are using customer managed KMS keys in your source accounts, CloudWatch Logs
     requires [KMS permissions](encrypt-log-data-kms.md#cmk-permissions-lg "encrypt-log-data-kms.md#cmk-permissions-lg")
     in the following example scenarios:
+
     - **Throughput Management**: When centralization throughput limits are reached, log data is
       temporarily stored encrypted with your customer managed KMS key until bandwidth becomes available.
     - **Data Protection and Redaction**: When source log groups have data protection policies enabled,
@@ -178,6 +180,7 @@ data from source accounts to your destination account.
 4.  Choose **Configure rule**.
 5.  Specify source details by setting the following fields, then choose
     **Next**:
+
     1.  **Centralization rule name**: Enter a unique name
         for the centralization rule.
     2.  **Source accounts**: Define source selection
@@ -207,6 +210,7 @@ data from source accounts to your destination account.
 
 6.  Specify destination details by setting the following fields, then choose
     **Next**:
+
     1. **Destination account**: Select an account in the
        organization that acts as a central destination for telemetry
        data.
@@ -217,8 +221,10 @@ data from source accounts to your destination account.
 
 7.  Specify telemetry data by setting the following fields, then choose
     **Next**:
+
     1.  **Log groups**: Choose one of the following
         options:
+
         - **All log groups**: Centralize logs from
           all log groups in the source accounts.
         - **Filter log group**: Centralize logs
@@ -362,6 +368,7 @@ being replicated successfully and identify any issues with your centralization c
 CloudWatch Logs provides:
 
 1. _Rule health per Centralization rule_
+
    1. Choose **Settings**.
    2. Navigate to the **Organization** tab.
    3. Choose **Manage rules**.

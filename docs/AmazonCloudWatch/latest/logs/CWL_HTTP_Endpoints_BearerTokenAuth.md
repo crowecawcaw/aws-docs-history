@@ -21,6 +21,7 @@ The AWS Management Console provides a streamlined workflow to generate API keys 
 2. Navigate to **CloudWatch** > **Settings** > **Logs**.
 3. In the API Keys section, choose **Generate API key**.
 4. For **API key expiration**, do one of the following:
+
    - Select an API key expiration duration of **1**, **5**, **30**, **90**, or **365** days.
    - Choose **Custom duration** to specify a custom API key expiration date.
    - Select **Never expires** (not recommended).
@@ -34,6 +35,7 @@ The console automatically:
     * Generates service-specific credentials (API key)
 
 6. Copy and securely save the displayed credentials:
+
    - **API Key ID** (Service-specific credential ID)
    - **API Key Secret** (Bearer token)
 

@@ -292,6 +292,7 @@ You must grant SELECT and DESCRIBE permissions to the IAM principals (users or r
 4. **Principals**: Select the IAM users or roles that require access (e.g., your data analysts or the Admin role you are currently using).
 5. **LF-Tags or Catalog resources**: Select **Named Data Catalog resources**.
 6. **Databases and Tables**:
+
    - Select the S3 Table bucket created by the CloudWatch integration (`aws-cloudwatch`).
    - Select the specific table associated with your data source (optional).
 

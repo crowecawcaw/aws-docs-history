@@ -7,6 +7,7 @@ services. The following dashboards are available:
 - An **Amazon VPC flow logs dashboard** captures network flow data for
   Amazon VPC. It helps you analyze network traffic, detect unusual patterns, and monitor
   resource usage. Key metrics displayed include the following:
+
   - Total flows and acceptance and rejection of these flows
   - Traffic patterns over time
   - A Sankey diagram that illustrates data flow between source and destination
@@ -21,6 +22,7 @@ Currently only VPC version 2 fields format is supported.
   being monitored by AWS WAF. This dashboard helps you identify traffic patterns,
   blocked requests, and potential threats from specific regions or IPs. Key metrics
   displayed include the following:
+
   - Total requests, including by “ALLOW” and “BLOCK” counts.
   - Request history over time, displaying allowed and blocked requests.
   - Breakdowns of requests by Web ACL name, blocked requests by terminating
@@ -32,6 +34,7 @@ Currently only VPC version 2 fields format is supported.
   within your AWS environment using CloudTrail logs. It’s useful for monitoring API
   activity, auditing actions, and identifying potential security or compliance issues.
   Key metrics displayed include the following:
+
   - Total event count and event history over time
   - A breakdown of events by account IDs, categories, and Regions.
   - Top APIs, services, and source IPs involved in generating events.

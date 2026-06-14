@@ -42,6 +42,7 @@ Console
    in `folder-level-2`.
 7. (Optional) Change the query's log groups or query text.
 8. (Optional) To use parameters in your query, follow these additional steps:
+
    1. **Add parameters to
       your query.** Replace static values with
       placeholders using the `{{parameter}}` syntax
@@ -62,10 +63,10 @@ Console
    | filter level = {{logLevel}}
    | filter applicationName = {{applicationName}}
    ```
-
    2. **Define the parameters used in
       your query.** For each placeholder parameter,
       specify:
+
       - **Name**:
         Must exactly match the placeholder name (for example,
         `logLevel`,
@@ -176,6 +177,7 @@ Console
 4. Select your query from the **Saved queries** list. The
    query text appears in the query editor.
 5. (Optional) To use a query with parameters:
+
    1. Choose the **+** icon next to the query name in
       the **Saved queries** side panel.
    2. The query with parameters appears in the query editor. For

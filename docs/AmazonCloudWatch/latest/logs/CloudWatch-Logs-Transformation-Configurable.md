@@ -7,13 +7,17 @@ transformer.
 
 - [parseJSON](CloudWatch-Logs-Transformation-Configurable.md#CloudWatch-Logs-Transformation-parseJSON "CloudWatch-Logs-Transformation-Configurable.md#CloudWatch-Logs-Transformation-parseJSON")
 - [grok](CloudWatch-Logs-Transformation-Configurable.md#CloudWatch-Logs-Transformation-Grok "CloudWatch-Logs-Transformation-Configurable.md#CloudWatch-Logs-Transformation-Grok")
+
   - [Grok examples](CloudWatch-Logs-Transformation-Configurable.md#Grok-Examples "CloudWatch-Logs-Transformation-Configurable.md#Grok-Examples")
+
     - [Example 1: Use grok to extract a field from unstructured logs](CloudWatch-Logs-Transformation-Configurable.md#Grok-Example1 "CloudWatch-Logs-Transformation-Configurable.md#Grok-Example1")
     - [Example 2: Use grok in combination with parseJSON to extract fields from a JSON log event](CloudWatch-Logs-Transformation-Configurable.md#Grok-Example3 "CloudWatch-Logs-Transformation-Configurable.md#Grok-Example3")
     - [Example 3: Grok pattern with dotted annotation in FIELD_NAME](CloudWatch-Logs-Transformation-Configurable.md#Grok-Example4 "CloudWatch-Logs-Transformation-Configurable.md#Grok-Example4")
 
   - [Supported grok patterns](CloudWatch-Logs-Transformation-Configurable.md#Grok-Patterns "CloudWatch-Logs-Transformation-Configurable.md#Grok-Patterns")
+
     - [Common log format examples](CloudWatch-Logs-Transformation-Configurable.md#Common-Log-Examples "CloudWatch-Logs-Transformation-Configurable.md#Common-Log-Examples")
+
       - [Apache log example](CloudWatch-Logs-Transformation-Configurable.md#Apache-Log-Example "CloudWatch-Logs-Transformation-Configurable.md#Apache-Log-Example")
       - [NGINX log example](CloudWatch-Logs-Transformation-Configurable.md#NGINX-Log-Example "CloudWatch-Logs-Transformation-Configurable.md#NGINX-Log-Example")
       - [Syslog Protocol (RFC 5424) log example](CloudWatch-Logs-Transformation-Configurable.md#syslog5424-Log-Example "CloudWatch-Logs-Transformation-Configurable.md#syslog5424-Log-Example")

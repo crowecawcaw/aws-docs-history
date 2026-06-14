@@ -180,6 +180,7 @@ aws iam put-role-policy --role-name CWLtoKinesisFirehoseRole --policy-name Permi
 
 6. After the Firehose delivery stream is in the active state and you have
    created the IAM role, you can create the CloudWatch Logs destination.
+
    1. This step will not associate an access policy with your
       destination and is only the first step out of two that completes
       a destination creation. Make a note of the ARN of the new
@@ -201,7 +202,6 @@ aws iam put-role-policy --role-name CWLtoKinesisFirehoseRole --policy-name Permi
     "arn": "arn:aws:logs:us-east-1:222222222222:destination:testFirehoseDestination"}
    }`
    ```
-
    2. After the previous step is complete, in the log data recipient
       account (222222222222), associate an access policy with the
       destination. This policy enables the log data sender account
@@ -229,7 +229,6 @@ aws iam put-role-policy --role-name CWLtoKinesisFirehoseRole --policy-name Permi
    }`
 
    ```
-
    3. This creates a policy that defines who has write access to the
       destination. This policy must specify the
       `logs:PutSubscriptionFilter` and

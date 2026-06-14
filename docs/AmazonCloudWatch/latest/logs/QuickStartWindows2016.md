@@ -201,6 +201,7 @@ and other log data to CloudWatch Logs.
     to upload (for example, `WindowsBackup`).
 3.  For `LogName`, type the name of the
     log to upload. You can find the name of the log as follows.
+
     1. Open Event Viewer.
     2. In the navigation pane, choose
        **Applications and Services Logs**.

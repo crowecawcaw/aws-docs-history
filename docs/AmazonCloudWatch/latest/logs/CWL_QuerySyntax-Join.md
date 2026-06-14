@@ -24,6 +24,7 @@ join type=<join_type> left=<left_alias> right=<right_alias>
   The field must exist in both data sources.
 - `type=<join_type>` (optional) – Specifies the join type.
   Valid values are:
+
   - `inner` (default) – Returns only matching records
   - `left` – Returns all records from the primary data source
     and matching records from the secondary data source

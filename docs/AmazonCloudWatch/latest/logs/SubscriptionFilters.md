@@ -800,6 +800,7 @@ that match your defined filters to your OpenSearch Service domain.
    filter**.
 6. Choose whether you want to stream to a cluster in this account or another
    account.
+
    - If you chose **This account**, select the domain
      that you created in step 1.
    - If you chose **Another account**, enter ARN and

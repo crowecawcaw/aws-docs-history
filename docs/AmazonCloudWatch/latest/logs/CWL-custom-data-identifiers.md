@@ -24,11 +24,13 @@ CloudWatch Logs custom data identifiers have the following limitations:
   policy.
 - Custom data identifier names have a maximum length of 128 characters. The following
   characters are supported:
+
   - Alphanumeric: (a-zA-Z0-9)
   - Symbols: ( '\_' | '-' )
 
 - RegEx has a maximum length of 200 characters. The following characters
   are supported:
+
   - Alphanumeric: (a-zA-Z0-9)
   - Symbols: ( '\_' | '#' | '=' | '@' |'/' | ';' | ',' | '-' | ' ' )
   - RegEx reserved characters: ( '^' | '$' | '?' | '[' | ']' | '{' |

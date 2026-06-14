@@ -23,6 +23,7 @@ another with the prefix `/aws`. But you could have one transformer for
    new poiicy.
 5. For **Select log groups**, do one of the
    following:
+
    - Choose **All standard log groups** to have the
      transformer policy apply to all Standard Class log groups in the
      account.

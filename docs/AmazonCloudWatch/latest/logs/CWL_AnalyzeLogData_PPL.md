@@ -122,11 +122,13 @@ where,
 
 1. ``aws:fieldIndex`="region"` identifies region as field
    Index.
+
    1. Note: Instead of = customers can use IN to specify
       multiple indexes (example below)
 
 2. ``region`="us-west-2"` identifies the filter condition
    to be applied
+
    1. Note: Instead of = customers can use IN to specify
       multiple values (example below)
 

@@ -67,6 +67,7 @@ aws iam create-role
 
 3. Create a permissions policy to define the actions that CloudWatch Logs can
    perform on your account.
+
    1. First, use a text editor to create the following
       permissions policy in a file named
       `/PermissionsForCWLSubscriptionFilter.json`.
@@ -82,7 +83,6 @@ aws iam create-role
        ]
    }
    ```
-
    2. Enter the following command to associate the permissions
       policy you just created with the role that you created in
       step 2.

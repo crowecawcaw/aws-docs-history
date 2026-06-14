@@ -45,6 +45,7 @@ You can use the CloudWatch console to subscribe a log group to OpenSearch Servic
    filter**.
 5. Choose whether you want to stream to a cluster in this account or another
    account.
+
    - If you chose this account, select the domain you created in the
      previous step.
    - If you chose another account, provide the domain ARN and

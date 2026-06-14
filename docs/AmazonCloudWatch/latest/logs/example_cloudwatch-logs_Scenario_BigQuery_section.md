@@ -864,6 +864,7 @@ public class LargeQueryWorkflow
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [GetQueryResults](../../../goto/DotNetSDKV4/logs-2014-03-28/GetQueryResults.md "../../../goto/DotNetSDKV4/logs-2014-03-28/GetQueryResults.md")
   - [StartQuery](../../../goto/DotNetSDKV4/logs-2014-03-28/StartQuery.md "../../../goto/DotNetSDKV4/logs-2014-03-28/StartQuery.md")
 
@@ -1118,6 +1119,7 @@ export class CloudWatchQuery {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [GetQueryResults](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetQueryResultsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/GetQueryResultsCommand.md")
   - [StartQuery](../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartQueryCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/cloudwatch-logs/command/StartQueryCommand.md")
 
@@ -1503,6 +1505,7 @@ class CloudWatchQuery:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [GetQueryResults](../../../goto/boto3/logs-2014-03-28/GetQueryResults.md "../../../goto/boto3/logs-2014-03-28/GetQueryResults.md")
   - [StartQuery](../../../goto/boto3/logs-2014-03-28/StartQuery.md "../../../goto/boto3/logs-2014-03-28/StartQuery.md")
 

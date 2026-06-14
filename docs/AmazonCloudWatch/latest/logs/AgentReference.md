@@ -315,6 +315,7 @@ later.
 ###### To use the CloudWatch Logs agent with HTTP proxies
 
 1. Do one of the following:
+
    1. For a new installation of the CloudWatch Logs agent, run the following
       commands:
 

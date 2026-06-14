@@ -57,6 +57,7 @@ following:
 
 4. To suppress an anomaly, choose the radio button in its row and then do the
    following:
+
    1. Choose **Actions**, **Suppress
       Anomaly**.
    2. Then specify how long you want the anomaly to be suppressed.
@@ -115,6 +116,7 @@ following:
 
 5. To suppress an anomaly, choose the radio button in its row and then do the
    following:
+
    1. Choose **Actions**, **Suppress
       Anomaly**.
    2. Then specify how long you want the anomaly to be suppressed.

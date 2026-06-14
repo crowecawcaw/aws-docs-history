@@ -22,13 +22,13 @@ aws s3api create-bucket --bucket amzn-s3-demo-bucket --create-bucket-configurati
 
 2. Create the IAM role that grants Firehose permission to put data into
    the bucket.
+
    1. First, use a text editor to create a trust policy in a file
       `~/TrustPolicyForFirehose.json`.
 
    ```
    { "Statement": { "Effect": "Allow", "Principal": { "Service": "firehose.amazonaws.com" }, "Action": "sts:AssumeRole", "Condition": { "StringEquals": { "sts:ExternalId":"222222222222" } } } }
    ```
-
    2. Create the IAM role, specifying the trust policy file that
       you just made.
 
@@ -37,7 +37,6 @@ aws s3api create-bucket --bucket amzn-s3-demo-bucket --create-bucket-configurati
        --role-name FirehosetoS3Role \
        --assume-role-policy-document file://~/TrustPolicyForFirehose.json
    ```
-
    3. The output of this command will look similar to the following.
       Make a note of the role name and the role ARN.
 
@@ -70,6 +69,7 @@ aws s3api create-bucket --bucket amzn-s3-demo-bucket --create-bucket-configurati
 
 3. Create a permissions policy to define the actions that Firehose can
    perform in your account.
+
    1. First, use a text editor to create the following permissions
       policy in a file named
       `~/PermissionsForFirehose.json`.
@@ -92,7 +92,6 @@ aws s3api create-bucket --bucket amzn-s3-demo-bucket --create-bucket-configurati
        }]
    }
    ```
-
    2. Enter the following command to associate the permissions
       policy that you just created with the IAM role.
 

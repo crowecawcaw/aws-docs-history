@@ -213,6 +213,7 @@ where,
    below)
 2. 'region' = 'us-east-1' specifies the actual condition to be
    applied
+
    1. Note: Instead of = customers can use IN to specify
       multiple values (example below)
 

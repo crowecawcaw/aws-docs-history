@@ -17,6 +17,7 @@ start with the same string.
    policy.
 6. For **Select scope of policy**, do one of the
    following:
+
    - Choose **All standard log groups** to have the
      index policy apply to all Standard Class log groups in the
      account.

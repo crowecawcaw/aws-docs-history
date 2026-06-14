@@ -13,6 +13,7 @@ in a query.
    either: **Logs Insights QL**, **OpenSearch
    PPL**, or **OpenSearch SQL**.
 4. There are three ways to select log groups for the query:
+
    - Use the **Log group name** box. This is the
      default selection method. You can enter as many as 50 log group
      names with this method. If this is a monitoring account in CloudWatch

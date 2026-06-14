@@ -101,6 +101,7 @@ The command uses the following arguments:
 - `output-mode` –
   Specifies how output fields are added to the results. Use one
   of the following:
+
   - `OUTPUT` – Adds the output fields
     to the results. If a field with the same name already
     exists in the log event, it is overwritten with the
