@@ -210,6 +210,7 @@ Build a connected vehicle companion application to control your vehicle with AWS
    That mutation is persisted to **DynamoDB** and a subscription is then processed
    by **Lambda**.
 6. The vehicle state **Lambda** then checks the connected state.
+
    - If connected, **Lambda** publishes the command payload to the request topic with a
      unique `requestId` and a response topic in the header.
    - If the device is in a disconnected state, the vehicle state **Lambda** then
