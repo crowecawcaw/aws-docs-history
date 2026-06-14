@@ -58,6 +58,7 @@ To enhance backup security against cyber threats, consider implementing these ad
 
 1. Use encryption on each of your data stores. If your source data is
    encrypted, then the backup will also be encrypted.
+
    - [Use encryption in Amazon RDS.](../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md "../../../AmazonRDS/latest/UserGuide/Overview.Encryption.md"). You can configure encryption at rest using AWS Key Management Service
      when you create an RDS instance.
    - [Use encryption on Amazon EBS volumes.](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/latest/UserGuide/EBSEncryption.md"). You can configure default encryption or specify

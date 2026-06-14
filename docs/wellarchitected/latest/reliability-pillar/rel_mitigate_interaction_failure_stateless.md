@@ -48,6 +48,7 @@ optimize resource utilization.
   application.
 - Decouple data by separating and managing user data from the
   core application logic.
+
   - [Amazon Cognito](https://aws.amazon.com/cognito/ "https://aws.amazon.com/cognito/") can decouple user data from application
     code by using features, such as
     [identity
@@ -72,6 +73,7 @@ optimize resource utilization.
 
 - Offload session data to a database, cache, or external
   files.
+
   - [Amazon ElastiCache](https://aws.amazon.com/elasticache/ "https://aws.amazon.com/elasticache/"), Amazon DynamoDB,
     [Amazon Elastic File System](https://aws.amazon.com/efs/ "https://aws.amazon.com/efs/") (Amazon EFS), and
     [Amazon MemoryDB](https://aws.amazon.com/memorydb/ "https://aws.amazon.com/memorydb/") are examples of AWS services

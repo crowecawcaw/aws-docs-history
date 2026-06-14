@@ -29,19 +29,24 @@ is not established:** Medium
 ### Implementation steps
 
 - Identify business-critical components in your workload.
+
   - Each technical component in your workload should be mapped to its relevant business function and ranked as critical or non-critical. For examples of critical and non-critical functionality at Amazon, see [Any Day Can Be Prime Day: How Amazon.com Search Uses Chaos Engineering to Handle Over 84K Requests Per Second](https://community.aws/posts/how-search-uses-chaos-engineering "https://community.aws/posts/how-search-uses-chaos-engineering").
   - This is both a technical and business decision, and varies by organization and workload.
 
 - Design and architect the critical components in your workload to withstand failure of non-critical components.
+
   - During dependency analysis, consider all potential failure modes, and verify that your emergency lever mechanisms deliver the critical functionality to downstream components.
 
 - Conduct testing to validate the behavior of your critical components during activation of your emergency levers.
+
   - Avoid bimodal behavior. For more detail, see [REL11-BP05 Use static stability to prevent bimodal behavior](rel_withstand_component_failures_static_stability.md "rel_withstand_component_failures_static_stability.md").
 
 - Define, monitor, and alert on relevant metrics to initiate the emergency lever procedure.
+
   - Finding the right metrics to monitor depends on your workload. Some example metrics are latency or the number of failed request to a dependency.
 
 - Define the procedures, manual or automated, that comprise the emergency lever.
+
   - This may include mechanisms such as [load shedding](https://aws.amazon.com/builders-library/using-load-shedding-to-avoid-overload/ "https://aws.amazon.com/builders-library/using-load-shedding-to-avoid-overload/"), [throttling requests](../framework/rel_mitigate_interaction_failure_throttle_requests.md "../framework/rel_mitigate_interaction_failure_throttle_requests.md"), or implementing [graceful degradation](../framework/rel_mitigate_interaction_failure_graceful_degradation.md "../framework/rel_mitigate_interaction_failure_graceful_degradation.md").
 
 ## Resources

@@ -64,6 +64,7 @@ failures, see
   time objective (RTO).
 - Configure detailed monitoring for components and managed
   services.
+
   - Determine if
     [detailed
     monitoring for EC2 instances](../../../AWSEC2/latest/UserGuide/using-cloudwatch-new.md "../../../AWSEC2/latest/UserGuide/using-cloudwatch-new.md") and

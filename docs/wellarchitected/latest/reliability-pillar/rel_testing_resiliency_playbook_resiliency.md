@@ -49,12 +49,14 @@ is not established:** High
   information, identify potential sources of failure, isolate
   faults, and determine contributing factors (perform post-incident
   analysis).
+
   - Implement playbooks as code. Perform your operations as code by scripting your
     playbooks to ensure consistency and limit reduce errors caused by manual processes.
     Playbooks can be composed of multiple scripts representing the different steps that
     might be necessary to identify the contributing factors to an issue. Runbook
     activities can be invoked or performed as part of playbook activities, or might prompt
     to run a playbook in response to identified events.
+
     - [Automate your operational playbooks with AWS Systems Manager](https://aws.amazon.com/about-aws/whats-new/2019/11/automate-your-operational-playbooks-with-aws-systems-manager/ "https://aws.amazon.com/about-aws/whats-new/2019/11/automate-your-operational-playbooks-with-aws-systems-manager/")
     - [AWS Systems Manager
       Run Command](../../../systems-manager/latest/userguide/execute-remote-commands.md "../../../systems-manager/latest/userguide/execute-remote-commands.md")

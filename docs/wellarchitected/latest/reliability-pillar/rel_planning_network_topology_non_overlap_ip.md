@@ -28,10 +28,12 @@ Make use of an IPAM, such as the [Amazon VPC IP Address Manager](../../../vpc/la
 ### Implementation steps
 
 - Capture current CIDR consumption (for example, VPCs and subnets).
+
   - Use service API operations to collect current CIDR consumption.
   - Use the [Amazon VPC IP Address Manager to discover resources](../../../vpc/latest/ipam/res-disc-work-with-view.md "../../../vpc/latest/ipam/res-disc-work-with-view.md").
 
 - Capture your current subnet usage.
+
   - Use service API operations to [collect subnets](../../../AWSEC2/latest/APIReference/API_DescribeSubnets.md "../../../AWSEC2/latest/APIReference/API_DescribeSubnets.md") per VPC in each Region.
   - Use the [Amazon VPC IP Address Manager to discover resources](../../../vpc/latest/ipam/res-disc-work-with-view.md "../../../vpc/latest/ipam/res-disc-work-with-view.md").
 

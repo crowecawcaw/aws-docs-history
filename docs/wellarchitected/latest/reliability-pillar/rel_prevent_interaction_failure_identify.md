@@ -131,6 +131,7 @@ dependency, consider the following guidance:
 
 - Messaging and event streaming handle messages differently so you
   need to make trade-off decisions based on:
+
   - **Message priority:** message
     brokers can process high-priority messages ahead of normal
     messages. In event streaming, all messages have the same

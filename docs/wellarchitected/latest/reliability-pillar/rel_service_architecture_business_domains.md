@@ -29,6 +29,7 @@ _Domain-driven design_
 
 - Teams can hold [event storming](https://serverlessland.com/event-driven-architecture/visuals/event-storming "https://serverlessland.com/event-driven-architecture/visuals/event-storming") workshops to quickly identify events, commands, aggregates and domains in a lightweight sticky note format.
 - Once domain entities and functions have been formed in a domain context, you can divide your domain into services using [bounded context](https://martinfowler.com/bliki/BoundedContext.html "https://martinfowler.com/bliki/BoundedContext.html"), where entities that share similar features and attributes are grouped together. With the model divided into contexts, a template for how to boundary microservices emerges.
+
   - For example, the Amazon.com website entities might include package, delivery, schedule, price, discount, and currency.
   - Package, delivery, and schedule are grouped into the shipping context, while price, discount, and currency are grouped into the pricing context.
 
@@ -39,6 +40,7 @@ After teams have performed domain analysis and defined entities and service cont
 
 - Start your development by defining tests that exercise business rules of your domain. Test-driven development (TDD) and behavior-driven development (BDD) help teams keep services focused on solving business problems.
 - Select the [AWS services](https://aws.amazon.com/microservices/ "https://aws.amazon.com/microservices/") that best meet your business domain requirements and [microservice architecture](../../../whitepapers/latest/microservices-on-aws/microservices-on-aws.md "../../../whitepapers/latest/microservices-on-aws/microservices-on-aws.md"):
+
   - [AWS Serverless](https://aws.amazon.com/serverless/ "https://aws.amazon.com/serverless/") allows your team focus on specific domain logic instead of managing servers and infrastructure.
   - [Containers at AWS](https://aws.amazon.com/containers/ "https://aws.amazon.com/containers/") simplify the management of your infrastructure, so you can focus on your domain requirements.
   - [Purpose built databases](https://aws.amazon.com/products/databases/ "https://aws.amazon.com/products/databases/") help you match your domain requirements to the best fit database type.

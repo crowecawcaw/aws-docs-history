@@ -31,6 +31,7 @@ Application designs have to account for a diverse set of requirements that are d
 **Implementation steps**
 
 - Review and document the workload design considering the following questions:
+
   - Where are control planes used in the workload?
   - How does the workload implement fault tolerance?
   - What are the design patterns for scaling, automatic scaling, redundancy, and highly available components?

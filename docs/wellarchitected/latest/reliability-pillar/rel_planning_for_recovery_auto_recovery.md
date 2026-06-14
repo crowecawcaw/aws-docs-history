@@ -84,6 +84,7 @@ features that can enhance your recovery capabilities.
 
 1. **Plan for automated
    recovery**
+
    1. Conduct a thorough review of your workload architecture,
       components, and dependencies to identify and plan
       automated recovery mechanisms. Categorize your
@@ -115,6 +116,7 @@ features that can enhance your recovery capabilities.
 
 2. **Develop automated recovery
    process**
+
    1. Implement automated fault detection and failover
       mechanisms for hands-free recovery. Build dashboards
       such as with
@@ -133,6 +135,7 @@ features that can enhance your recovery capabilities.
       [REL13-BP03](../framework/rel_planning_for_recovery_dr_tested.md "../framework/rel_planning_for_recovery_dr_tested.md").
 
 3. **Prepare for recovery**
+
    1. Evaluate the state of your recovery site and deploy
       critical components to it in advance. For more detail,
       see

@@ -59,7 +59,9 @@ private network connections can be difficult to implement without proper plannin
   latency, regulatory, and disaster recovery (DR) requirements.
 - Identify your needs for regional VPC deployments.
 - Identify the size of the VPCs.
+
   - Determine if you are going to deploy multi-VPC connectivity.
+
     - [What
       Is a Transit Gateway?](../../../vpc/latest/tgw/what-is-transit-gateway.md "../../../vpc/latest/tgw/what-is-transit-gateway.md")
     - [Single Region
@@ -68,6 +70,7 @@ private network connections can be difficult to implement without proper plannin
   - Determine if you need segregated networking for regulatory requirements.
   - Make VPCs with appropriately-sized CIDR blocks to accommodate your current and
     future needs.
+
     - If you have unknown growth projections, you may wish to err on the side of
       larger CIDR blocks to reduce the potential for future reconfiguration
 

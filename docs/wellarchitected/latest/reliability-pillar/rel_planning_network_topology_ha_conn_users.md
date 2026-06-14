@@ -41,18 +41,22 @@ To help protect customers from DDoS attacks, AWS provides AWS Shield Standard. S
 
 1. Set up highly available DNS: Amazon Route 53 is a highly available and scalable [domain name system (DNS)](https://aws.amazon.com/route53/what-is-dns/ "https://aws.amazon.com/route53/what-is-dns/") web service. Route 53 connects user requests to internet applications running on AWS or on-premises. For more information, see [configuring Amazon Route 53 as your DNS service](../../../Route53/latest/DeveloperGuide/dns-configuring.md "../../../Route53/latest/DeveloperGuide/dns-configuring.md").
 2. Setup health checks: When using Route 53, verify that only healthy targets are resolvable. Start by [creating Route 53 health checks and configuring DNS failover](../../../Route53/latest/DeveloperGuide/dns-failover.md "../../../Route53/latest/DeveloperGuide/dns-failover.md"). The following aspects are important to consider when setting up health checks:
+
    1. [How Amazon Route 53 determines whether a health check is healthy](../../../Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.md "../../../Route53/latest/DeveloperGuide/dns-failover-determining-health-of-endpoints.md")
    2. [Creating, updating, and deleting health checks](../../../Route53/latest/DeveloperGuide/health-checks-creating-deleting.md "../../../Route53/latest/DeveloperGuide/health-checks-creating-deleting.md")
    3. [Monitoring health check status and getting notifications](../../../index.md "../../../index.md")
    4. [Best practices for Amazon Route 53 DNS](../../../Route53/latest/DeveloperGuide/health-checks-monitor-view-status.md "../../../Route53/latest/DeveloperGuide/health-checks-monitor-view-status.md")
 
 3. [Connect your DNS service to your endpoints.](../../../Route53/latest/DeveloperGuide/best-practices-dns.md "../../../Route53/latest/DeveloperGuide/best-practices-dns.md")
+
    1. When using Elastic Load Balancing as a target for your traffic, create an [alias record](../../../Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.md "../../../Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.md") using Amazon Route 53 that points to your load balancer’s regional endpoint. During the creation of the alias record, set the Evaluate target health option to Yes.
    2. For serverless workloads or private APIs when API Gateway is used, use [Route 53 to direct traffic to API Gateway](../../../Route53/latest/DeveloperGuide/routing-to-api-gateway.md "../../../Route53/latest/DeveloperGuide/routing-to-api-gateway.md").
 
 4. Decide on a content delivery network.
+
    1. For delivering content using edge locations closer to the user, start by understanding [how CloudFront delivers content](../../../AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.md "../../../AmazonCloudFront/latest/DeveloperGuide/HowCloudFrontWorks.md").
    2. Get started with a [simple CloudFront distribution](../../../AmazonCloudFront/latest/DeveloperGuide/GettingStarted.SimpleDistribution.md "../../../AmazonCloudFront/latest/DeveloperGuide/GettingStarted.SimpleDistribution.md"). CloudFront then knows where you want the content to be delivered from, and the details about how to track and manage content delivery. The following aspects are important to understand and consider when setting up CloudFront distribution:
+
       1. [How caching works with CloudFront edge locations](../../../AmazonCloudFront/latest/DeveloperGuide/cache-hit-ratio-explained.md "../../../AmazonCloudFront/latest/DeveloperGuide/cache-hit-ratio-explained.md")
       2. [Increasing the proportion of requests that are served directly from the CloudFront caches (cache hit ratio)](../../../AmazonCloudFront/latest/DeveloperGuide/cache-hit-ratio.md "../../../AmazonCloudFront/latest/DeveloperGuide/cache-hit-ratio.md")
       3. [Using Amazon CloudFront Origin Shield](../../../AmazonCloudFront/latest/DeveloperGuide/origin-shield.md "../../../AmazonCloudFront/latest/DeveloperGuide/origin-shield.md")

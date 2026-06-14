@@ -99,6 +99,7 @@ traffic should be considered.
   in the supported manner, service quota templates should
   be updated to reflect changes in any quotas that should
   be applied to multiple Regions and accounts.
+
   - Create a template and associate Regions to the quota change.
   - Review all existing service quota templates for any changes
     required (Region, limits, and accounts).

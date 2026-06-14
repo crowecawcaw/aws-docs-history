@@ -28,6 +28,7 @@ Incorporate AWS services including [Amazon API Gateway](https://aws.amazon.com/a
 
 - First, define a contract for your API. A contract will express the capabilities of an API as well as define strongly typed data objects and fields for the API input and output.
 - When you configure APIs in API Gateway, you can import and export OpenAPI Specifications for your endpoints.
+
   - [Importing an OpenAPI definition](../../../apigateway/latest/developerguide/import-edge-optimized-api.md "../../../apigateway/latest/developerguide/import-edge-optimized-api.md") simplifies the creation of your API and can be integrated with AWS infrastructure as code tools like the [AWS Serverless Application Model](https://aws.amazon.com/serverless/sam/ "https://aws.amazon.com/serverless/sam/") and [AWS Cloud Development Kit (AWS CDK)](https://aws.amazon.com/cdk/ "https://aws.amazon.com/cdk/").
   - [Exporting an API definition](../../../apigateway/latest/developerguide/api-gateway-export-api.md "../../../apigateway/latest/developerguide/api-gateway-export-api.md") simplifies integrating with API testing tools and provides services consumer an integration specification.
 
@@ -35,10 +36,12 @@ Incorporate AWS services including [Amazon API Gateway](https://aws.amazon.com/a
 - [AWS Amplify](https://aws.amazon.com/amplify/ "https://aws.amazon.com/amplify/") projects that are integrated with AWS AppSync generate strongly typed JavaScript query files for use in your application as well as an AWS AppSync GraphQL client library for [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/") tables.
 - When you consume service events from Amazon EventBridge, events adhere to schemas that already exist in the schema registry or that you define with the OpenAPI Spec. With a schema defined in the registry, you can also generate client bindings from the schema contract to integrate your code with events.
 - Extending or version your API. Extending an API is a simpler option when adding fields that can be configured with optional fields or default values for required fields.
+
   - JSON based contracts for protocols like REST and GraphQL can be a good fit for contract extension.
   - XML based contracts for protocols like SOAP should be tested with service consumers to determine the feasibility of contract extension.
 
 - When versioning an API, consider implementing proxy versioning where a facade is used to support versions so that logic can be maintained in a single codebase.
+
   - With API Gateway you can use [request and response mappings](../../../apigateway/latest/developerguide/request-response-data-mappings.md#transforming-request-response-body "../../../apigateway/latest/developerguide/request-response-data-mappings.md#transforming-request-response-body") to simplify absorbing contract changes by establishing a facade to provide default values for new fields or to strip removed fields from a request or response. With this approach the underlying service can maintain a single codebase.
 
 ## Resources

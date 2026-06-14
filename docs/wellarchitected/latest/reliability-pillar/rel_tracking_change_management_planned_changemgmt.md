@@ -50,13 +50,17 @@ is not established:** High
   infrastructure. By using AWS CloudFormation (or a trusted third
   party) to define your infrastructure, you can use version control
   software to version and track changes.
+
   - Use AWS CloudFormation (or a trusted third-party provider) to define your infrastructure.
+
     - [What is AWS CloudFormation?](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
 
   - Create templates that are singular and decoupled, using good software design
     principles.
+
     - Determine the permissions, templates, and responsible parties for
       implementation.
+
       - [Controlling access with AWS Identity and Access Management](../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md "../../../AWSCloudFormation/latest/UserGuide/using-iam-template.md")
 
     - Use a hosted source code management system based on a popular technology such as Git to store your source code and infrastructure as code (IaC) configuration.

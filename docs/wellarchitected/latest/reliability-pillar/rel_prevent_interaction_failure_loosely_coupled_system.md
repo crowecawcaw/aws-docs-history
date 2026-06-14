@@ -70,18 +70,22 @@ Implement loosely coupled dependencies. There are various solutions that allow y
 ### Implementation steps
 
 - Components in an event-driven architecture are initiated by events. Events are actions that happen in a system, such as a user adding an item to a cart. When an action is successful, an event is generated that actuates the next component of the system.
+
   - [Building Event-driven Applications with Amazon EventBridge](https://aws.amazon.com/blogs/compute/building-an-event-driven-application-with-amazon-eventbridge/ "https://aws.amazon.com/blogs/compute/building-an-event-driven-application-with-amazon-eventbridge/")
   - [AWS re:Invent 2022 - Designing Event-Driven Integrations using Amazon EventBridge](https://www.youtube.com/watch?v=W3Rh70jG-LM "https://www.youtube.com/watch?v=W3Rh70jG-LM")
 
 - Distributed messaging systems have three main parts that need to be implemented for a queue based architecture. They include components of the distributed system, the queue that is used for decoupling (distributed on Amazon SQS servers), and the messages in the queue. A typical system has producers which initiate the message into the queue, and the consumer which receives the message from the queue. The queue stores messages across multiple Amazon SQS servers for redundancy.
+
   - [Basic Amazon SQS architecture](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-basic-architecture.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-basic-architecture.md")
   - [Send Messages Between Distributed Applications with Amazon Simple Queue Service](https://aws.amazon.com/getting-started/hands-on/send-messages-distributed-applications/ "https://aws.amazon.com/getting-started/hands-on/send-messages-distributed-applications/")
 
 - Microservices, when well-utilized, enhance maintainability and boost scalability, as loosely coupled components are managed by independent teams. It also allows for the isolation of behaviors to a single component in case of changes.
+
   - [Implementing Microservices on AWS](../../../whitepapers/latest/microservices-on-aws/microservices-on-aws.md "../../../whitepapers/latest/microservices-on-aws/microservices-on-aws.md")
   - [Let's Architect! Architecting microservices with containers](https://aws.amazon.com/blogs/architecture/lets-architect-architecting-microservices-with-containers/ "https://aws.amazon.com/blogs/architecture/lets-architect-architecting-microservices-with-containers/")
 
 - With AWS Step Functions you can build distributed applications, automate processes, orchestrate microservices, among other things. The orchestration of multiple components into an automated workflow allows you to decouple dependencies in your application.
+
   - [Create a Serverless Workflow with AWS Step Functions and AWS Lambda](https://aws.amazon.com/tutorials/create-a-serverless-workflow-step-functions-lambda/ "https://aws.amazon.com/tutorials/create-a-serverless-workflow-step-functions-lambda/")
   - [Getting Started with AWS Step Functions](https://aws.amazon.com/step-functions/getting-started/ "https://aws.amazon.com/step-functions/getting-started/")
 

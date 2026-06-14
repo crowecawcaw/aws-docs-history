@@ -40,18 +40,22 @@ For stateful server-based workloads deployed to an on-premise data center, you c
    scaling, use automatic recovery for EC2 instances or implement
    self-healing automation based on Amazon EC2 or ECS container
    lifecycle events.
+
    - Use [Amazon EC2 Auto Scaling groups](../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md "../../../autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.md") for instances and container workloads that have no
      requirements for a single instance IP address, private IP address, Elastic IP address,
      and instance metadata.
+
      - The launch template user data can be used to implement automation that can self-heal most workloads.
 
    - Use automatic [recovery of Amazon EC2 instances](../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md "../../../AWSEC2/latest/UserGuide/ec2-instance-recover.md") for workloads that require a single
      instance ID address, private IP address, elastic IP address, and instance metadata.
+
      - Automatic Recovery will send recovery status alerts to a SNS topic as the
        instance failure is detected.
 
    - Use [Amazon EC2 instance lifecycle events](../../../autoscaling/ec2/userguide/lifecycle-hooks.md "../../../autoscaling/ec2/userguide/lifecycle-hooks.md") or [Amazon ECS events](../../../AmazonECS/latest/developerguide/ecs_cwe_events.md "../../../AmazonECS/latest/developerguide/ecs_cwe_events.md") to automate self-healing where
      automatic scaling or EC2 recovery cannot be used.
+
      - Use the events to invoke automation that will heal your component
        according to the process logic you require.
 
