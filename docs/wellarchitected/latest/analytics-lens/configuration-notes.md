@@ -1,6 +1,7 @@
 # Configuration notes
 
 - To organize data for efficient access and easy management:
+
   - The storage layer can store data in different states of consumption readiness,
     including raw, trusted, conformed, enriched, and modeled. It’s important to segment
     your data lake into landing, raw, trusted, and curated zones to store data depending

@@ -16,6 +16,7 @@ _Figure 3: Batch data processing reference architecture_
    JDBC-compliant data store from Amazon EMR or AWS Glue jobs.
 3. Choosing the right authoring tool for the job simplifies job development and improves
    agility.
+
    1. You can use AWS Glue Studio or Glue interactive sessions when authoring jobs for
       the AWS Glue Spark runtime engine.
    2. Use AWS Glue blueprints when you create a self-service parametrized job for

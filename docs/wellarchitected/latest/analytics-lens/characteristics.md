@@ -36,6 +36,7 @@ the business opportunity.
 - What are you not providing to your customers that you would like to provide?
 - Who is the executive level stakeholder for this effort?
 - Example-specific use case questions:
+
   - How does data define your customer acquisition strategy?
   - Would your business benefit from exploring modern approaches to managing fraud
     detection, predictive maintenance, customer 360, IoT, clickstream, operational
@@ -57,6 +58,7 @@ Here are few example questions to identify your data consumers.
 - What insights are on your roadmap?
 - Do you have a multi-tenant data model?
 - What are the different consumption models?
+
   - Which tool or interface do your data consumers use?
   - How real time does the data need to be for this use case (for example, near
     real time, every 15 minutes, hourly, daily)?
@@ -84,6 +86,7 @@ Table 3: Typical data sources in an organization
 Here are a few example questions to identify your data consumers.
 
 - How many data sources do you have to support?
+
   - Where and how is the data generated?
   - What are the different types of your data? (for example, structured,
     semi-structured, unstructured, batch, streaming)
