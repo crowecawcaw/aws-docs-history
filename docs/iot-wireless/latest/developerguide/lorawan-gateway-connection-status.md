@@ -37,6 +37,7 @@ support the CUPS protocol.
 
 1. Upload the following files that you obtained when adding your
    gateway.
+
    - Gateway device certificate and private key files.
    - Trust certificate file for CUPS endpoint,
      `cups.trust`.
@@ -54,6 +55,7 @@ support the LNS protocol.
 
 1. Upload the following files that you obtained when adding your
    gateway.
+
    - Gateway device certificate and private key files.
    - Trust certificate file for LNS endpoint,
      `lns.trust`.

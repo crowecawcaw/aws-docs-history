@@ -72,6 +72,7 @@ no longer using.
    console](https://console.aws.amazon.com/iot/home#/wireless/networkAnalyzer "https://console.aws.amazon.com/iot/home#/wireless/networkAnalyzer") and choose **Create
    configuration**.
 2. Specify the configuration settings.
+
    - ###### Name, description, and tags
 
    Specify a unique **Configuration name**

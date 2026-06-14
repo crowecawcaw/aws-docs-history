@@ -42,6 +42,7 @@ your LoRaWAN gateway and device.
    For recommended naming convention for your bucket, see [Bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md").
 2. Verify the following settings for your Amazon S3 bucket, and then choose
    **Create bucket**.
+
    - Make sure that the **Block all public
      access** setting is selected so that your bucket
      uses the default permissions.

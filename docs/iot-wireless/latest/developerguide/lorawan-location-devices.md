@@ -124,6 +124,7 @@ To add position information for your device:
 3. Enter the position information, optionally activate geolocation, and
    specify a position data destination that you want to use for routing
    messages.
+
    - ###### Position information
 
    Specify the position data for your device using the latitude

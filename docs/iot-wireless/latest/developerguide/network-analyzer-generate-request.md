@@ -121,6 +121,7 @@ canonical_uri = "/start-network-analyzer-stream"
 
 3. Create the canonical headers and signed headers. Note the
    trailing `\n` in the canonical headers.
+
    - Append the lowercase header name followed by a
      colon.
    - Append a comma-separated list of values for that
@@ -150,6 +151,7 @@ credential_scope = datestamp + "/" + region + "/" + service + "/" + "aws4_reques
 
 6. Create the canonical query string. Query string values must be
    URI-encoded and sorted by name.
+
    - Sort the parameter names by character code point in
      ascending order. Parameters with duplicate names should
      be sorted by value. For example, a parameter name that

@@ -27,6 +27,7 @@ To create your VPC:
 1. Navigate to the [VPCs](https://console.aws.amazon.com/vpc/home#/vpcs "https://console.aws.amazon.com/vpc/home#/vpcs") page of the Amazon VPC console and choose **Create
    VPC**.
 2. On the **Create VPC** page:
+
    - Enter a name for **VPC Name tag - optional** (for
      example, `VPC-A`).
    - Enter an IPv4 address range for your VPC in the **IPv4 CIDR**
@@ -43,6 +44,7 @@ To create your subnet:
 1. Navigate to the [Subnets](https://console.aws.amazon.com/vpc/home#/subnets "https://console.aws.amazon.com/vpc/home#/subnets") page of the Amazon VPC console and choose **Create
    subnet**.
 2. On the **Create subnet** page:
+
    - For **VPC ID**, choose the VPC that you created
      earlier (for example, `VPC-A`).
    - Enter a name for **Subnet name** (for example,
@@ -73,6 +75,7 @@ To launch your EC2 instance:
    instance type. To configure the instance details, choose
    **Next**.
 3. In the **Configure Instance Details** page:
+
    - For **Network**, choose the VPC that you created
      earlier (for example, `VPC-A`).
    - For **Subnet**, choose the subnet that you
@@ -97,6 +100,7 @@ subnet`).
    Security Group**.
 5. In the **Configure Security Group** page, configure the
    security group to allow:
+
    - Open **All TCP** for Source as
      `10.200.0.0/16`.
    - Open **All ICMP - IPV4** for Source as
@@ -118,6 +122,7 @@ API. To create the endpoint:
    Endpoint**.
 2. In the **Create Endpoint** page, specify the following
    information.
+
    - Choose **AWS services** for **Service
      category**.
    - For **Service Name**, search by entering the

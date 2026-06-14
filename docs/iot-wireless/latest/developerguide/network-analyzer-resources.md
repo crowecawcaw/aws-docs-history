@@ -76,6 +76,7 @@ edit your configuration settings and save the updated configuration.
 3. Add the resources you want to monitor by using the wireless gateway
    and wireless device identifiers. You can add up to 250 wireless gateways
    or wireless devices. To add your resource:
+
    1. Use the **View gateways** or
       **View devices** tab to see the list of
       gateways and devices that you've added to your
@@ -124,6 +125,7 @@ your network analyzer configuration.
 
 - To add resources and update your network analyzer configuration, use
   the [UpdateNetworkAnalyzerConfiguration](../apireference/API_UpdateNetworkAnalyzerConfiguration.md "../apireference/API_UpdateNetworkAnalyzerConfiguration.md") API or the [update-network-analyzer-configuration](../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md "../../../cli/latest/reference/iotwireless/update-network-analyzer-configuration.md") CLI.
+
   - ###### Add resources
 
   For the wireless devices you want to add, use

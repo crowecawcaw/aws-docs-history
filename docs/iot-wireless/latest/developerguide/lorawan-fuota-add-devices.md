@@ -64,6 +64,7 @@ to add devices to and perform the firmware update.
    FUOTA task. However, you can't add both individual devices and multicast
    groups to the same FUOTA task. To add devices using the by console, do
    the following.
+
    1. In the **FUOTA task details**, choose
       **Add device**.
    2. Choose the frequency band or **RFRegion** for
@@ -72,6 +73,7 @@ to add devices to and perform the firmware update.
       task.
    3. Choose whether you want to add individual devices or multicast
       groups to the task.
+
       - To add individual devices, choose **Add
         individual devices** and enter the device
         ID of each device that you want to add to your FUOTA

@@ -122,6 +122,7 @@ You can also configure additional downlink messages to be sent to the
 devices in your multicast group:
 
 - To configure additional downlink messages from the console:
+
   1.  Go to the [Multicast groups](https://console.aws.amazon.com/iot/home#/wireless/multicastGroups "https://console.aws.amazon.com/iot/home#/wireless/multicastGroups") page of the AWS IoT console and
       choose the multicast group you created.
   2.  In the multicast group details page, choose
@@ -153,6 +154,7 @@ cause a group of devices to wake up for a long duration and drain the
 battery.
 
 - To update the session schedule from the console:
+
   1.  Go to the [Multicast groups](https://console.aws.amazon.com/iot/home#/wireless/multicastGroups "https://console.aws.amazon.com/iot/home#/wireless/multicastGroups") page of the AWS IoT console and
       choose the multicast group you created.
   2.  In the multicast group details page, choose

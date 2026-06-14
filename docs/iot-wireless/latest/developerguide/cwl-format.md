@@ -25,6 +25,7 @@ navigation pane.
 3. To filter the log streams, you can also enter a query in the
    **Filter events** text box. Here are some queries
    to try:
+
    - `{ $.logLevel = "ERROR" }`
 
    Use this filter to find all logs that have a log level of

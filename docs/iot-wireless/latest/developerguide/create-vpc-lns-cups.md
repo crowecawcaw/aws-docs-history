@@ -41,6 +41,7 @@ create one for your control plane endpoint.
    Endpoint**.
 2. In the **Create Endpoint** page, specify the
    following information.
+
    - Choose **AWS services** for
      **Service category**.
    - For **Service Name**, search by entering the
@@ -102,6 +103,7 @@ To create the private hosted zone:
    hosted zone**.
 2. In the **Create hosted zone** page, specify the
    following information.
+
    - For **Domain name**, enter the full service
      name for your LNS endpoint,
      `lns.lorawan.region.amazonaws.com`.
@@ -155,6 +157,7 @@ To create a record of type A, perform the following steps.
 4. In the **Configure records** page, choose
    **Define simple record**.
 5. In the **Define simple record** page:
+
    - For **Record name**, enter the alias of your
      AWS account number. You get this value when onboarding your
      gateway or by using the [`GetServiceEndpoint`](../../../iotwireless/latest/apireference/API_GetServiceEndpoint.md "../../../iotwireless/latest/apireference/API_GetServiceEndpoint.md")

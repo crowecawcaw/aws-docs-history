@@ -14,6 +14,7 @@ ID, the device certificates, application server public key, and the SMSN.
    profile name to use for your Sidewalk devices as an alphanumeric
    string. The profile will help identify the devices to associate it
    with.
+
    - (Console) When adding your Sidewalk device, you can also
      create a new profile. This helps you quickly add your device to
      AWS IoT Core for Amazon Sidewalk and associate it with a profile.
@@ -24,6 +25,7 @@ ID, the device certificates, application server public key, and the SMSN.
 
 2. Add your wireless device to AWS IoT Core for Amazon Sidewalk. Specify a destination name and
    choose the device profile that you created in the previous step.
+
    - (Console) When adding your Sidewalk device, enter a
      destination name, and choose the profile that you created.
    - (API) Use the `CreateWirelessDevice` API operation.
@@ -39,6 +41,7 @@ ID, the device certificates, application server public key, and the SMSN.
 
 3. Obtain the JSON file that contains the required information for
    provisioning your end device.
+
    - (Console) Download this file from the details page of the
      Sidewalk device that you created.
    - (API) Use the `GetDeviceProfile` and

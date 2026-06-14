@@ -168,7 +168,6 @@ aws iotwireless create-device-profile --name `sidewalk_profile` --sidewalk {}
        --destination-name `"SidewalkDestination"` \
        --sidewalk DeviceProfileId=`"12345678-234a-45bc-67de-e8901234f0a1"`
    ```
-
    2. ###### (Optional) Create your Sidewalk end device and get the Sidewalk device location
 
    If you want to enable location data when you create your

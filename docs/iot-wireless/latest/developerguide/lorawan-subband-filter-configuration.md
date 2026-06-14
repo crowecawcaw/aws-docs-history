@@ -78,6 +78,7 @@ console:
    information about how to add a gateway, see [Add a gateway using the console](lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console "lorawan-onboard-gateway-add.md#lorawan-onboard-gateway-console").
 3. In the **LoRaWAN configuration** section, you can
    specify the subbands and filtering information.
+
    - `SubBands`: To add a subband, choose **Add
      SubBand** and specify a list of integer values that
      indicate which subbands are supported by the gateway. The

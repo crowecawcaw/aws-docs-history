@@ -66,12 +66,14 @@ that belong to a particular resource type and monitor them.
    resources**.
 2. Select the resources and events for which you want to receive
    notifications:
+
    1. Choose whether you want to monitor events for your
       **LoRaWAN resources** or **Sidewalk
       resources**.
    2. Depending on the resource type, you can choose the events you want
       to enable for the resources. You can then subscribe to these events
       and receive notifications. If you choose:
+
       - **LoRaWAN resources**: You can enable
         **join** events for your LoRaWAN
         devices or **connection status** events for

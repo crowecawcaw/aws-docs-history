@@ -59,6 +59,7 @@ To create a downlink message queue
    messages**.
 3. Specify the following parameters to configure your downlink
    message:
+
    - **FPort**: Choose the frame port for the
      device to communicate with AWS IoT Core for LoRaWAN.
    - **Payload**: Specify the payload message that
