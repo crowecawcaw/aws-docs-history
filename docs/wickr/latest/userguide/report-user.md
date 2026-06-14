@@ -17,6 +17,7 @@ Complete the following procedure to report a user.
    **Report** to report the user.
 5. In the **Why are you reporting this?** pane, choose one of
    the following options:
+
    - Spam/fraud
    - Child exploitation/abuse
    - Harassment/bullying/threats

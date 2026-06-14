@@ -31,6 +31,7 @@ steps.
     **Notifications**.
 7.  Select **Mute message notifications.**
 8.  Choose one of the following mute durations:
+
     - 1 hour
     - 8 hours
     - 1 week
@@ -38,6 +39,7 @@ steps.
 
 9.  On the **Notifications** pane that appears, select the
     notifications setting as needed:
+
     - Personal mentions
     - Room mentions
     - Sync notification settings - Apply mute settings across all devices

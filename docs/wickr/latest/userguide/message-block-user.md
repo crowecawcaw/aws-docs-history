@@ -12,7 +12,7 @@ To block a Wickr user, complete the following steps.
 2. In the navigation pane, find and select the name of the user who you want to
    block.
 3. Select the information icon (
-   ![Information icon](/images/wickr/latest/userguide/images/icon-wickr-user-information.png)
+   ![Information icon](images/icon-wickr-user-information.png)
    ) in the message window to view contact details.
 4. In the **Contact Details** pane that appears, choose
    **Block User** to block the user.

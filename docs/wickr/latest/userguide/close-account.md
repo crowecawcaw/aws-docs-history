@@ -14,6 +14,7 @@ Complete the following procedure to close a guest user account.
 3. Choose **Close Account**.
 4. In the **Close Your Account** pane that appears, choose one
    of the following options (optional):
+
    - It's missing important features
    - I need help to better use Wickr
    - I'm not satisfied with the product quality

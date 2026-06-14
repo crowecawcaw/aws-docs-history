@@ -14,6 +14,7 @@ Complete the following steps to access the account section of the Wickr client.
    ![Settings icon](images/icon-wickr-settings-hamburger.png)
    , and then choose **My Account**.
 3. Choose one of the following options:
+
    - **Update Avatar Image** — Update that avatar
      image that others users can see.
    - **Add Phone Number** — Add your phone

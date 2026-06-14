@@ -14,6 +14,7 @@ appearance.
    ![Settings icon](images/icon-wickr-settings-hamburger.png)
    , and then choose **Settings**.
 3. Choose one of the following options:
+
    - **Notifications** — Manage notifications for
      various message types.
    - **Privacy & Safety** — Manage message

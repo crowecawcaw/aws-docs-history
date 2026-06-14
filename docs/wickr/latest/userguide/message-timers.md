@@ -17,6 +17,7 @@ steps.
    ) in the message window to view contact details.
 4. In the **Contact Details** pane that appears, choose one of
    the following options:
+
    - **Expiration Timer** – Choose the dropdown to
      select an expiration timer for messages with the user.
    - **Burn-On-Read Timer** – Choose the dropdown
