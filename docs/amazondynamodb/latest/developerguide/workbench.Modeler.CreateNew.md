@@ -24,6 +24,7 @@ keys effectively, and using sort keys, see the following:
     * [Best practices for using sort keys to organize data in DynamoDB](bp-sort-keys.md "bp-sort-keys.md")
 
 3. You can add other attributes to more clearly validate your model and access patterns. To add other attributes:
+
    - Choose **Add an attribute**.
    - Specify the attribute name and its type.
    - Optionally, you can select a more granular data type format for sample data generation.

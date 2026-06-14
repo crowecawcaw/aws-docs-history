@@ -441,6 +441,7 @@ Example usage of conditional operations with AWS SDK for Java 2.x.
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [DeleteItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteItem.md")
   - [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md")
   - [UpdateItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/UpdateItem.md")
@@ -870,6 +871,7 @@ async function exampleUsage() {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [DeleteItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteItemCommand.md")
   - [PutItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/PutItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/PutItemCommand.md")
   - [UpdateItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/UpdateItemCommand.md")
@@ -1238,6 +1240,7 @@ def example_usage():
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [DeleteItem](../../../goto/boto3/dynamodb-2012-08-10/DeleteItem.md "../../../goto/boto3/dynamodb-2012-08-10/DeleteItem.md")
   - [PutItem](../../../goto/boto3/dynamodb-2012-08-10/PutItem.md "../../../goto/boto3/dynamodb-2012-08-10/PutItem.md")
   - [UpdateItem](../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md "../../../goto/boto3/dynamodb-2012-08-10/UpdateItem.md")

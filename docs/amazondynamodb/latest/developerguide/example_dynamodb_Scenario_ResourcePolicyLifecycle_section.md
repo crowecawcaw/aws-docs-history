@@ -112,6 +112,7 @@ aws dynamodb delete-resource-policy \
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteResourcePolicy](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteResourcePolicy.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteResourcePolicy.md")
   - [GetResourcePolicy](../../../goto/aws-cli/dynamodb-2012-08-10/GetResourcePolicy.md "../../../goto/aws-cli/dynamodb-2012-08-10/GetResourcePolicy.md")

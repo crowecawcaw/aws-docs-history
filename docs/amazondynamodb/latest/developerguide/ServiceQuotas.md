@@ -183,6 +183,7 @@ through AWS Support. If any of the following apply to you, please see [https://a
   24-hour period with a combined total greater than 10TB, you must request a
   service quota increase for your add replica data backfill quota.
 - If you encounter an error similar to the following:
+
   - Cannot create a replica of table 'example_table' in region
     'example_region_A' because its exceeds your current account limit in
     region 'example_region_B'.

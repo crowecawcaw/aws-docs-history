@@ -6,6 +6,7 @@ your app, follow these steps:
 1. Sign up as a developer with a third-party identity
    provider. The following external links provide information
    about signing up with supported identity providers:
+
    - [Login with Amazon Developer
      Center](http://login.amazon.com/ "http://login.amazon.com/")
    - [Registration](https://business.facebook.com/business/loginpage "https://business.facebook.com/business/loginpage") on the Facebook site

@@ -109,6 +109,7 @@ aws dynamodb list-tables
 - All names must be encoded using UTF-8 and are case sensitive.
 - Table names and index names must be between 3 and 255 characters long, and can
   contain only the following characters:
+
   - `a-z`
   - `A-Z`
   - `0-9`

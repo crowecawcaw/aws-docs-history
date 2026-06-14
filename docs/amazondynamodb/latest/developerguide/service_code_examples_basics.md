@@ -8,6 +8,7 @@ SDKs.
 - [Hello DynamoDB](example_dynamodb_Hello_section.md "example_dynamodb_Hello_section.md")
 - [Learn the basics](example_dynamodb_Scenario_GettingStartedMovies_section.md "example_dynamodb_Scenario_GettingStartedMovies_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [BatchExecuteStatement](example_dynamodb_BatchExecuteStatement_section.md "example_dynamodb_BatchExecuteStatement_section.md")
   - [BatchGetItem](example_dynamodb_BatchGetItem_section.md "example_dynamodb_BatchGetItem_section.md")
   - [BatchWriteItem](example_dynamodb_BatchWriteItem_section.md "example_dynamodb_BatchWriteItem_section.md")

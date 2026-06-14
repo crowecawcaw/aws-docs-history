@@ -43,6 +43,7 @@ WHERE Artist=? and SongTitle=?
 ```
 
 3. To specify a value for the `Artist` and `SongTitle` parameters:
+
    1. Choose **Optional request parameters**.
    2. Choose **Add new parameters**.
    3. Choose the attribute type **string** and value `Acme Band`.

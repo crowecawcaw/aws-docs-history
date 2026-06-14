@@ -8,6 +8,7 @@ to a new table in DynamoDB.
 2.  Choose **Create Table**.
 3.  On the **Create DynamoDB table** page, do the
     following:
+
     1. In **Table**, type
        `Features`.
     2. For **Primary key**, in the **Partition

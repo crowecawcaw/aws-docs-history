@@ -227,6 +227,7 @@ DynamoDB API operation.
 ### PutItem
 
 - `ReturnValues`: `ALL_OLD`
+
   - If you overwrite an existing item, `ALL_OLD` returns
     the entire item as it appeared before the overwrite.
   - If you write a nonexistent item, `ALL_OLD` has no
@@ -239,18 +240,21 @@ However, `UpdateItem` actually performs an _upsert_,
 meaning that it automatically creates the item if it doesn't already exist.
 
 - `ReturnValues`: `ALL_OLD`
+
   - If you update an existing item, `ALL_OLD` returns the
     entire item as it appeared before the update.
   - If you update a nonexistent item (upsert), `ALL_OLD`
     has no effect.
 
 - `ReturnValues`: `ALL_NEW`
+
   - If you update an existing item, `ALL_NEW` returns the
     entire item as it appeared after the update.
   - If you update a nonexistent item (upsert), `ALL_NEW`
     returns the entire item.
 
 - `ReturnValues`: `UPDATED_OLD`
+
   - If you update an existing item, `UPDATED_OLD` returns
     only the updated attributes, as they appeared before the
     update.
@@ -258,6 +262,7 @@ meaning that it automatically creates the item if it doesn't already exist.
     `UPDATED_OLD` has no effect.
 
 - `ReturnValues`: `UPDATED_NEW`
+
   - If you update an existing item, `UPDATED_NEW` returns
     only the affected attributes, as they appeared after the
     update.
@@ -268,6 +273,7 @@ meaning that it automatically creates the item if it doesn't already exist.
 ### DeleteItem
 
 - `ReturnValues`: `ALL_OLD`
+
   - If you delete an existing item, `ALL_OLD` returns the
     entire item as it appeared before you deleted it.
   - If you delete a nonexistent item, `ALL_OLD` doesn't

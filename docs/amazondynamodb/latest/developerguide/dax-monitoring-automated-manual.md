@@ -42,6 +42,7 @@ AWS Management Console dashboards provide an at-a-glance view of the state of yo
 environment. We recommend that you also check the log files on DAX.
 
 - The DAX dashboard shows the following:
+
   - Service health
 
 - The CloudWatch home page shows the following:

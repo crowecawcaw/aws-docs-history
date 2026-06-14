@@ -67,6 +67,7 @@ If you're switching a global table to provisioned mode, look at the maximum cons
 When you update a table from on-demand to provisioned mode:
 
 - If you're using the console, we recommend enabling auto scaling with the following defaults:
+
   - Target utilization: 70%
   - Minimum provisioned capacity: 5 units
   - Maximum provisioned capacity: The Region maximum

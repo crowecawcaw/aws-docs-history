@@ -23,6 +23,7 @@ as items in the same table, and each item is identified by a unique sort key.
 - Data locality to support queries for multiple entity types in a single
   database call
 - Reduces overall financial and latency costs of reads:
+
   - A single query for two items totalling less than 4KB is 0.5 RCU
     eventually consistent
   - Two queries for two items totalling less than 4KB is 1 RCU eventually
@@ -31,6 +32,7 @@ as items in the same table, and each item is identified by a unique sort key.
     than a single call
 
 - Reduces the number of tables to manage:
+
   - Permissions do not need to be maintained across multiple IAM roles
     or policies
   - Capacity management for the table is averaged across all entities,
@@ -40,6 +42,7 @@ as items in the same table, and each item is identified by a unique sort key.
     table
 
 - Smooths traffic to the table:
+
   - By aggregating multiple usage patterns to the same table, the overall
     usage tends to be smoother (the way a stock index's performance tends to
     be smoother than any individual stock) which works better for achieving
@@ -50,6 +53,7 @@ as items in the same table, and each item is identified by a unique sort key.
 - Learning curve can be steep due to paradoxical design compared to relational
   databases
 - Data requirements must be consistent across all entity types
+
   - Backups are all or nothing so if some data is not mission critical,
     consider keeping it in a separate table
   - Table encryption is shared across all items. For multi-tenant
@@ -61,6 +65,7 @@ as items in the same table, and each item is identified by a unique sort key.
 
 - All changed data will be propagated to DynamoDB Streams even if only a subset of
   entities need to be processed.
+
   - Thanks to Lambda event filters, this will not affect your bill when
     using Lambda, but will be an added cost when using the Kinesis Consumer
     Library
@@ -97,6 +102,7 @@ performance, but queries across multiple tables must be done independently.
 - Easier implementation of GraphQL resolvers due to each resolver mapping to a
   single entity(table)
 - Allows for unique data requirements across different entity types:
+
   - Backups can be made for the individual tables that are mission
     critical
   - Table encryption can be managed for each table. For multi-tenant

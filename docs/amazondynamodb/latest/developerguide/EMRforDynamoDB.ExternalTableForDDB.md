@@ -75,6 +75,7 @@ Note the following:
 - The table specified by `dynamodb.table.name` must exist in
   DynamoDB.
 - For `dynamodb.column.mapping`:
+
   - You must map the key schema attributes for the DynamoDB table. This
     includes the partition key and the sort key (if present).
   - You do not have to map the non-key attributes of the DynamoDB table.

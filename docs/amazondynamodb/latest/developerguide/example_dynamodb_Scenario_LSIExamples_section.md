@@ -99,6 +99,7 @@ aws dynamodb query \
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
   - [Query](../../../goto/aws-cli/dynamodb-2012-08-10/Query.md "../../../goto/aws-cli/dynamodb-2012-08-10/Query.md")
 

@@ -44,6 +44,7 @@ for the DAX cluster operations.
 3. Choose **Create subnet group**.
 4. In the **Create subnet group** window, do the
    following:
+
    1. **Name**—Enter a short name for the subnet
       group.
    2. **Description**—Enter a description for the
@@ -80,6 +81,7 @@ Amazon VPC.
     **Clusters**.
 3.  Choose **Create cluster**.
 4.  In the **Create cluster** window, do the following:
+
     1. **Cluster name**—Enter a short name for your
        DAX cluster.
 
@@ -141,7 +143,6 @@ Amazon VPC.
          to the IAM role.
         * **Access to DynamoDB tables**—Choose
          **All tables**.
-
     11. **Encryption**—Choose **Turn on
         encryption at rest** and **Turn on encryption in
         transit** For more information, see [DAX encryption at rest](DAXEncryptionAtRest.md "DAXEncryptionAtRest.md")
@@ -195,6 +196,7 @@ instead.
    rules**.
 4. Choose **Add Rule**, and enter the following
    information:
+
    - **Port Range**—Enter **8111**
      (if your cluster is unencrypted) or **9111** (if your cluster is encrypted).
    - **Source**—Leave this as **Custom**, and choose

@@ -52,6 +52,7 @@ aws dynamodb create-table \
    permissions for the table and its indexes. In this policy, you specify who has access
    to these resources, and the actions they are allowed to perform on each resource. To
    add a policy, do one of the following:
+
    - Type or paste a JSON policy document. For details about the IAM policy
      language, see [Creating policies using the JSON editor](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") in the
      _IAM User Guide_.

@@ -21,6 +21,7 @@ To run or generate code for a PartiQL statement, do the following.
    window.
 2. Enter a valid [PartiQL statement](ql-reference.statements.md "ql-reference.statements.md").
 3. If your statement uses parameters:
+
    1. Choose **Optional request
       parameters**.
    2. Choose **Add new parameters**.

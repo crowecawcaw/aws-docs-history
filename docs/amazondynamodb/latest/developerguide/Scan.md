@@ -86,6 +86,7 @@ To determine whether there are more results and to retrieve them one page at a t
 applications should do the following:
 
 1. Examine the low-level `Scan` result:
+
    - If the result contains a `LastEvaluatedKey` element,
      proceed to step 2.
    - If there is _not_ a `LastEvaluatedKey`

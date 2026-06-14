@@ -110,6 +110,7 @@ done
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
   - [ListTagsOfResource](../../../goto/aws-cli/dynamodb-2012-08-10/ListTagsOfResource.md "../../../goto/aws-cli/dynamodb-2012-08-10/ListTagsOfResource.md")
   - [TagResource](../../../goto/aws-cli/dynamodb-2012-08-10/TagResource.md "../../../goto/aws-cli/dynamodb-2012-08-10/TagResource.md")

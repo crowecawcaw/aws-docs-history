@@ -127,14 +127,17 @@ tables.
   service-linked role (SLR). The following permission allows DynamoDB to
   create this role automatically when you create a global table for the
   first time:
+
   - `iam:CreateServiceLinkedRole`
 
 - To create a global table or add a replica using the [`UpdateTable`](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md") API, you must have the
   following permission on the source table resource:
+
   - `dynamodb:UpdateTable`
 
 - You must have the following permissions on the table resource in the
   Regions for the replicas to be added:
+
   - `dynamodb:CreateTable`
   - `dynamodb:CreateTableReplica`
   - `dynamodb:Query`
@@ -387,6 +390,7 @@ for these additional update operations:
 - To update a replica auto scaling policy with the [`UpdateTableReplicaAutoScaling`](../APIReference/API_UpdateTableReplicaAutoScaling.md "../APIReference/API_UpdateTableReplicaAutoScaling.md") API, you must
   have the following permissions on the table resource in all Regions
   containing replicas:
+
   - `application-autoscaling:DeleteScalingPolicy`
   - `application-autoscaling:DeleteScheduledAction`
   - `application-autoscaling:DeregisterScalableTarget`
@@ -427,10 +431,12 @@ Consistency (MREC) and Multi-Region Strong Consistency (MRSC) global tables.
 - To remove replicas from a global table using the [`UpdateTable`](../APIReference/API_UpdateTable.md "../APIReference/API_UpdateTable.md") API, you need the following
   permission on the table resource in the Region from which you're making
   the API call:
+
   - `dynamodb:UpdateTable`
 
 - You need the following permissions on the table resource in each
   Region where you're removing a replica:
+
   - `dynamodb:DeleteTable`
   - `dynamodb:DeleteTableReplica`
 

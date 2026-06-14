@@ -49,6 +49,7 @@ software on that instance.
 
 3. In the **Select an existing key pair or create a new key
    pair** window, do one of the following:
+
    - If you don't have an Amazon EC2 key pair, choose **Create a new key
      pair** and follow the instructions. You are asked to
      download a private key file (`.pem` file). You need

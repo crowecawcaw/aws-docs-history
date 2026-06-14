@@ -154,6 +154,7 @@ Step 7: Review Instance Launch
 
 3. In the **Select an existing key pair or create a new key
    pair** window, do one of the following:
+
    - If you do not have an Amazon EC2 key pair, choose **Create a
      new key pair** and follow the instructions. You will be
      asked to download a private key file (_.pem_
@@ -196,6 +197,7 @@ Instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC
 1.  You will need to authorize inbound SSH traffic to your Amazon EC2 instance. To
     do this, you will create a new EC2 security group, and then assign the
     security group to your EC2 instance.
+
     1.  In the navigation pane, choose **Security
         Groups**.
     2.  Choose **Create Security Group**. In the

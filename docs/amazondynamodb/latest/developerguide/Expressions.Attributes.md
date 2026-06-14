@@ -59,6 +59,7 @@ Note the following:
   `Number`, `Boolean`, and `Null`.
 - One attribute (`Color`) is a `String Set`.
 - The following attributes are document data types:
+
   - A list of `RelatedItems`. Each element is an
     `Id` for a related product.
   - A map of `Pictures`. Each element is a short description of

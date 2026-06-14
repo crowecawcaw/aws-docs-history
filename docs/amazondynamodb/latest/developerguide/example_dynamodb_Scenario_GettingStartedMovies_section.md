@@ -876,6 +876,7 @@ Deletes the movie table.
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [BatchWriteItem](../../../goto/DotNetSDKV4/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/DotNetSDKV4/dynamodb-2012-08-10/BatchWriteItem.md")
   - [CreateTable](../../../goto/DotNetSDKV4/dynamodb-2012-08-10/CreateTable.md "../../../goto/DotNetSDKV4/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteItem](../../../goto/DotNetSDKV4/dynamodb-2012-08-10/DeleteItem.md "../../../goto/DotNetSDKV4/dynamodb-2012-08-10/DeleteItem.md")
@@ -2092,6 +2093,7 @@ function aws_cli_error_log() {
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [BatchWriteItem](../../../goto/aws-cli/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/BatchWriteItem.md")
   - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteItem](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteItem.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteItem.md")
@@ -2632,6 +2634,7 @@ bool AwsDoc::DynamoDB::waitTableActive(const Aws::String &tableName,
 ```
 
 - For API details, see the following topics in _AWS SDK for C++ API Reference_.
+
   - [BatchWriteItem](../../../goto/SdkForCpp/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/SdkForCpp/dynamodb-2012-08-10/BatchWriteItem.md")
   - [CreateTable](../../../goto/SdkForCpp/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForCpp/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteItem](../../../goto/SdkForCpp/dynamodb-2012-08-10/DeleteItem.md "../../../goto/SdkForCpp/dynamodb-2012-08-10/DeleteItem.md")
@@ -3243,6 +3246,7 @@ func (basics TableBasics) DeleteTable(ctx context.Context) error {
 ```
 
 - For API details, see the following topics in _AWS SDK for Go API Reference_.
+
   - [BatchWriteItem](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.BatchWriteItem "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.BatchWriteItem")
   - [CreateTable](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.CreateTable "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.CreateTable")
   - [DeleteItem](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.DeleteItem "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/dynamodb#Client.DeleteItem")
@@ -3741,6 +3745,7 @@ public class Scenario {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [BatchWriteItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/BatchWriteItem.md")
   - [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteItem.md")
@@ -4029,6 +4034,7 @@ export const main = async () => {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [BatchWriteItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchWriteItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/BatchWriteItemCommand.md")
   - [CreateTable](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/CreateTableCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/CreateTableCommand.md")
   - [DeleteItem](../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/dynamodb/command/DeleteItemCommand.md")
@@ -4387,6 +4393,7 @@ suspend fun scanMovies(tableNameVal: String) {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [BatchWriteItem](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CreateTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DeleteItem](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -4572,6 +4579,7 @@ class GettingStartedWithDynamoDB
 ```
 
 - For API details, see the following topics in _AWS SDK for PHP API Reference_.
+
   - [BatchWriteItem](../../../goto/SdkForPHPV3/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/SdkForPHPV3/dynamodb-2012-08-10/BatchWriteItem.md")
   - [CreateTable](../../../goto/SdkForPHPV3/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForPHPV3/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteItem](../../../goto/SdkForPHPV3/dynamodb-2012-08-10/DeleteItem.md "../../../goto/SdkForPHPV3/dynamodb-2012-08-10/DeleteItem.md")
@@ -5263,6 +5271,7 @@ class Question:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [BatchWriteItem](../../../goto/boto3/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/boto3/dynamodb-2012-08-10/BatchWriteItem.md")
   - [CreateTable](../../../goto/boto3/dynamodb-2012-08-10/CreateTable.md "../../../goto/boto3/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteItem](../../../goto/boto3/dynamodb-2012-08-10/DeleteItem.md "../../../goto/boto3/dynamodb-2012-08-10/DeleteItem.md")
@@ -5461,6 +5470,7 @@ end
 ```
 
 - For API details, see the following topics in _AWS SDK for Ruby API Reference_.
+
   - [BatchWriteItem](../../../goto/SdkForRubyV3/dynamodb-2012-08-10/BatchWriteItem.md "../../../goto/SdkForRubyV3/dynamodb-2012-08-10/BatchWriteItem.md")
   - [CreateTable](../../../goto/SdkForRubyV3/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForRubyV3/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteItem](../../../goto/SdkForRubyV3/dynamodb-2012-08-10/DeleteItem.md "../../../goto/SdkForRubyV3/dynamodb-2012-08-10/DeleteItem.md")
@@ -5675,6 +5685,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
 ```
 
 - For API details, see the following topics in _AWS SDK for SAP ABAP API reference_.
+
   - [BatchWriteItem](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
   - [CreateTable](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
   - [DeleteItem](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
@@ -6554,6 +6565,7 @@ struct Main {
 ```
 
 - For API details, see the following topics in _AWS SDK for Swift API reference_.
+
   - [BatchWriteItem](<https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/batchwriteitem(input:)> "https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/batchwriteitem(input:)")
   - [CreateTable](<https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/createtable(input:)> "https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/createtable(input:)")
   - [DeleteItem](<https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/deleteitem(input:)> "https://sdk.amazonaws.com/swift/api/awsdynamodb/latest/documentation/awsdynamodb/dynamodbclient/deleteitem(input:)")

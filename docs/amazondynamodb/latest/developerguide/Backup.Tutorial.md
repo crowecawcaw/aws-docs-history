@@ -11,6 +11,7 @@ Follow these steps to create a backup named `MusicBackup` for an existing `Music
 1. Sign in to the AWS Management Console and open the DynamoDB console at
    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
 2. You can create a backup by doing one of the following:
+
    - On the **Backups** tab of the `Music` table, choose **Create backup**.
    - In the navigation pane on the left side of the console, choose **Backups**. Then choose **Create backup**.
 

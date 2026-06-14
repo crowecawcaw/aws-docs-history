@@ -8,6 +8,7 @@ handler for DynamoDB will already be installed on the cluster.
 2. Choose **Create Cluster**.
 3. On the **Create Cluster - Quick Options** page, do the
    following:
+
    1. In **Cluster name**, type a name for your cluster
       (for example: `My EMR cluster`).
    2. In **EC2 key pair**, choose the key pair you

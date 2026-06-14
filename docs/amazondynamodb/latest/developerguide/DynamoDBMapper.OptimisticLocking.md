@@ -109,6 +109,7 @@ The internal implementation of optimistic locking within
 support provided by DynamoDB.
 
 - `transactionWrite` —
+
   - `Put` — For a new item, the
     `DynamoDBMapper` assigns an initial version number of 1.
     If you retrieve an item, update one or more of its properties, and

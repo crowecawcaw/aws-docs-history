@@ -6,6 +6,7 @@ identify, diagnose, and resolve throttling issues in your DynamoDB tables and in
 **General throttling metrics**
 
 - `ThrottledRequests`
+
   - Incremented by one when any event within a request is
     throttled, regardless of how many individual events within that
     request are throttled. For example, when updating an item in a
@@ -31,10 +32,12 @@ identify, diagnose, and resolve throttling issues in your DynamoDB tables and in
   causes of throttling issues.
 
 - `ReadThrottleEvents`
+
   - Watch for requests that exceed the provisioned RCU for a table
     or GSI.
 
 - `WriteThrottleEvents`
+
   - Watch for requests that exceed the provisioned WCU for a table
     or GSI.
 
@@ -43,36 +46,43 @@ identify, diagnose, and resolve throttling issues in your DynamoDB tables and in
 **On-Demand throughput throttling**
 
 - `ReadMaxOnDemandThroughputThrottleEvents`
+
   - Number of read requests throttled due to on-demand maximum
     throughput.
 
 - `WriteMaxOnDemandThroughputThrottleEvents`
+
   - Number of write requests throttled due to on-demand maximum
     throughput.
 
 **Account-Level throttling**
 
 - `ReadAccountLimitThrottleEvents`
+
   - Number of read requests throttled due to account
     limits.
 
 - `WriteAccountLimitThrottleEvents`
+
   - Number of write requests throttled due to account
     limits.
 
 **Partition-Level throttling**
 
 - `ReadKeyRangeThroughputThrottleEvents`
+
   - Number of read requests throttled due to partition
     limits.
 
 - `WriteKeyRangeThroughputThrottleEvents`
+
   - Number of write requests throttled due to partition
     limits.
 
 **Capacity analysis metrics**
 
 - `OnlineIndexConsumedWriteCapacity`
+
   - When you add a new GSI to an existing table, DynamoDB performs a
     backfill operation that copies data from the base table to the
     new index. This process consumes write capacity units. The
@@ -88,6 +98,7 @@ identify, diagnose, and resolve throttling issues in your DynamoDB tables and in
 
 - `ProvisionedReadCapacityUnits` and
   `ProvisionedWriteCapacityUnits`
+
   - View how many provisioned read or write capacity units were
     consumed over the specified time period, for a table or a
     specified global secondary index.
@@ -100,6 +111,7 @@ identify, diagnose, and resolve throttling issues in your DynamoDB tables and in
 
 - `ConsumedReadCapacityUnits` and
   `ConsumedWriteCapacityUnits`
+
   - View how many read or write capacity units were consumed over
     the specified time period.
     `ConsumedWriteCapacityUnits` does not include the

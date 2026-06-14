@@ -18,6 +18,7 @@ To create a new `Music` table using the DynamoDB console:
 2. In the left navigation pane, choose **Tables**.
 3. Choose **Create table**.
 4. Enter the **Table details** as follows:
+
    1. For **Table name**, enter
       `Music`.
    2. For **Partition key**, enter

@@ -158,6 +158,7 @@ the epoch timestamp to.
 - TTL deletes are run behind the scenes with no impact to your table performance
 - TTL is an asynchronous process that runs roughly every six hours, but can take
   over 48 hours for an expired record to be deleted
+
   - Do not rely on TTL deletes for use cases like lock records or state
     management if stale data must be cleaned up in less than 48 hours
 

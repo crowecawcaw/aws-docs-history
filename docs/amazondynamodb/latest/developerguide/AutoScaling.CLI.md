@@ -145,6 +145,7 @@ The policy contains the following elements:
 - `PredefinedMetricSpecification`—The metric that Application Auto Scaling is
   allowed to adjust. For DynamoDB, the following values are valid values for
   `PredefinedMetricType`:
+
   - `DynamoDBReadCapacityUtilization`
   - `DynamoDBWriteCapacityUtilization`
 

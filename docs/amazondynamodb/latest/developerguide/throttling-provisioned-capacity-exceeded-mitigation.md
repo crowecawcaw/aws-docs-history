@@ -71,12 +71,14 @@ Consider these strategies to resolve read capacity throttling:
   with your workload.
 - **If staying with provisioned mode and Auto Scaling is
   not enabled:**
+
   - Consider [increasing the table read capacity.](#provisioned-capacity-exceeded-increase-table-throughput "#provisioned-capacity-exceeded-increase-table-throughput")
   - [Enable
     Auto Scaling for read capacity](#provisioned-capacity-configure-autoscaling "#provisioned-capacity-configure-autoscaling") on your table.
 
 - **If Auto Scaling is enabled (default for tables
   created in the console):**
+
   - [Optimize your table's read Auto Scaling
     parameters](#provisioned-capacity-optimize-autoscaling-settings "#provisioned-capacity-optimize-autoscaling-settings").
 
@@ -99,12 +101,14 @@ Consider these strategies to resolve write capacity throttling:
   with your workload.
 - **If staying with provisioned mode and Auto Scaling is
   not enabled:**
+
   - Consider [increasing the table write capacity](#provisioned-capacity-exceeded-increase-table-throughput "#provisioned-capacity-exceeded-increase-table-throughput").
   - [Enable
     Auto Scaling for write capacity](#provisioned-capacity-configure-autoscaling "#provisioned-capacity-configure-autoscaling") on your table.
 
 - **If Auto Scaling is enabled (default for tables
   created in the console):**
+
   - [Optimize your table's write Auto Scaling
     parameters](#provisioned-capacity-optimize-autoscaling-settings "#provisioned-capacity-optimize-autoscaling-settings").
 
@@ -127,12 +131,14 @@ Consider these strategies to resolve GSI read capacity throttling:
   with your workload.
 - **If staying with provisioned mode and Auto Scaling is
   not enabled:**
+
   - Consider [increasing the GSI read capacity](#provisioned-capacity-exceeded-increase-index-throughput "#provisioned-capacity-exceeded-increase-index-throughput").
   - [Enable
     Auto Scaling for read capacity](#provisioned-capacity-configure-autoscaling "#provisioned-capacity-configure-autoscaling") on your GSI.
 
 - **If Auto Scaling is enabled (default for tables
   created in the console):**
+
   - [Optimize your GSI's read Auto Scaling parameters](#provisioned-capacity-optimize-autoscaling-settings "#provisioned-capacity-optimize-autoscaling-settings").
 
 ### IndexWriteProvisionedThroughputExceeded
@@ -155,12 +161,14 @@ Consider these strategies to resolve GSI write capacity throttling:
   with your workload.
 - **If staying with provisioned mode and Auto Scaling is
   not enabled:**
+
   - Consider [increasing the GSI write capacity](#provisioned-capacity-exceeded-increase-index-throughput "#provisioned-capacity-exceeded-increase-index-throughput").
   - [Enable
     Auto Scaling for write capacity](#provisioned-capacity-configure-autoscaling "#provisioned-capacity-configure-autoscaling") on your GSI.
 
 - **If Auto Scaling is enabled (default for tables
   created in the console):**
+
   - [Optimize your GSI's write Auto Scaling
     parameters](#provisioned-capacity-optimize-autoscaling-settings "#provisioned-capacity-optimize-autoscaling-settings").
 
@@ -193,6 +201,7 @@ capacity increase.
 
 1. Update your table's provisioned capacity using the DynamoDB console, AWS CLI,
    or SDK:
+
    - **For read capacity:** Increase the
      [`ReadCapacityUnits`](../APIReference/API_ProvisionedThroughput.md "../APIReference/API_ProvisionedThroughput.md") parameter, which
      specifies the maximum number of strongly consistent reads consumed
@@ -270,6 +279,7 @@ immediate capacity increase.
 
 1. Update the GSI's provisioned capacity using the DynamoDB console, AWS CLI, or
    SDK:
+
    - **For read capacity:** Increase the
      [`ReadCapacityUnits`](../APIReference/API_GlobalSecondaryIndexUpdate.md "../APIReference/API_GlobalSecondaryIndexUpdate.md") parameter for the
      specific GSI, which specifies the maximum number of reads the GSI

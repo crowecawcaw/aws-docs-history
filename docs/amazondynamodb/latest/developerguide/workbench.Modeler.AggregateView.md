@@ -5,6 +5,7 @@ The aggregate view in NoSQL Workbench for Amazon DynamoDB allows you to visualiz
 - Table column names
 - Sample data
 - All global secondary indexes that are associated with the table. NoSQL Workbench displays the following information for each index:
+
   - Index column names
   - Sample data
 

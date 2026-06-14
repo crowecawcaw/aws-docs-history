@@ -167,6 +167,7 @@ Optionally, you can also set lower limits on a per-table or per-GSI basis by
 configuring their maximum on-demand throughput settings.
 
 1. Identify the specific quota that needs to be increased:
+
    - **Per-table read throughput limit**
      (Quota code L-CF0CBE56): Default 40,000 RCUs per table
    - **Per-table write throughput limit**
@@ -174,11 +175,13 @@ configuring their maximum on-demand throughput settings.
 
 2. Use the [AWS Service Quotas
    console](../../../servicequotas/latest/userguide/intro.md "../../../servicequotas/latest/userguide/intro.md") to request an increase:
+
    - Navigate to the DynamoDB service in Service Quotas
    - Find the appropriate quota using the quota code
    - Request an increase based on your projected peak usage
 
 3. Provide justification for the increase, including:
+
    - Current usage patterns and peak traffic requirements
    - Business justification for the increased capacity
    - Timeline for when the increased capacity is needed

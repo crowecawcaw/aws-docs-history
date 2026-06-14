@@ -6,18 +6,17 @@ instance.
 ###### To run the Node.js sample for DAX
 
 1. Set up Node.js on your Amazon EC2 instance, as follows:
+
    1. Install node version manager (`nvm`).
 
    ```
    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
    ```
-
    2. Use nvm to install Node.js.
 
    ```
    nvm install 12.16.3
    ```
-
    3. Test that Node.js is installed and running correctly.
 
    ```

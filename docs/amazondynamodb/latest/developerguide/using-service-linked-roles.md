@@ -47,6 +47,7 @@ The role permissions policy allows DAX to complete the following actions on the
 specified resources:
 
 - Actions on `ec2`:
+
   - `AuthorizeSecurityGroupIngress`
   - `CreateNetworkInterface`
   - `CreateSecurityGroup`

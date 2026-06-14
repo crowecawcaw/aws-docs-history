@@ -41,6 +41,7 @@ States and Europe.
    **Tables**.
 4. Choose **Create Table**.
 5. On the **Create table** page:
+
    1. For **Table name**, enter
       `Music`.
    2. For **Partition key**, enter
@@ -55,6 +56,7 @@ States and Europe.
    you add later.
 
 6. After the table becomes active:
+
    1. Select the **Music** table from the tables
       list.
    2. Choose the **Global tables** tab.
@@ -85,6 +87,7 @@ region. 10. To test replication:
     5. Choose **Create item**.
 
 11. Verify replication by switching to the other regions:
+
     1.  From the Region selector in the upper-right corner, choose
         **Europe (Frankfurt)**.
     2.  Verify that the **Music** table contains the
@@ -237,6 +240,7 @@ echo "Global table demonstration complete."
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteTable](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md")
   - [DescribeTable](../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md")
@@ -617,6 +621,7 @@ Complete example of global table operations using AWS SDK for Java 2.x.
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
   - [DescribeTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md")
   - [PutItem](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/PutItem.md")
@@ -655,6 +660,7 @@ AWS Management Console.
 3. In the navigation pane, choose **Tables**.
 4. Choose **Create table**.
 5. On the **Create table** page:
+
    1. For **Table name**, enter
       `Music`.
    2. For **Partition key**, enter
@@ -675,6 +681,7 @@ AWS Management Console.
 7. Choose the **Global tables** tab, then choose
    **Create replica**.
 8. On the **Create replica** page:
+
    1. Under **Multi-Region Consistency**, choose
       **Strong consistency**.
    2. For **Replication Region 1**, choose
@@ -859,6 +866,7 @@ aws dynamodb delete-table \
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteTable](../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DeleteTable.md")
   - [DescribeTable](../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md")
@@ -1531,6 +1539,7 @@ Complete MRSC workflow demonstration using AWS SDK for Java 2.x.
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DeleteTable.md")
   - [DescribeTable](../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md "../../../goto/SdkForJavaV2/dynamodb-2012-08-10/DescribeTable.md")

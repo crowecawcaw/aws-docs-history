@@ -17,9 +17,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello DynamoDB](example_dynamodb_Hello_section.md "example_dynamodb_Hello_section.md")
   - [Learn the basics](example_dynamodb_Scenario_GettingStartedMovies_section.md "example_dynamodb_Scenario_GettingStartedMovies_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [BatchExecuteStatement](example_dynamodb_BatchExecuteStatement_section.md "example_dynamodb_BatchExecuteStatement_section.md")
     - [BatchGetItem](example_dynamodb_BatchGetItem_section.md "example_dynamodb_BatchGetItem_section.md")
     - [BatchWriteItem](example_dynamodb_BatchWriteItem_section.md "example_dynamodb_BatchWriteItem_section.md")
@@ -39,6 +41,7 @@ This topic also includes information about getting started and details about pre
     - [UpdateTimeToLive](example_dynamodb_UpdateTimeToLive_section.md "example_dynamodb_UpdateTimeToLive_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Accelerate reads with DAX](example_dynamodb_Usage_DaxDemo_section.md "example_dynamodb_Usage_DaxDemo_section.md")
   - [Advanced Global Secondary Index scenarios](example_dynamodb_Scenario_GSIAdvanced_section.md "example_dynamodb_Scenario_GSIAdvanced_section.md")
   - [Build an app to submit data to a DynamoDB table](example_cross_SubmitDataApp_section.md "example_cross_SubmitDataApp_section.md")
@@ -103,8 +106,10 @@ This topic also includes information about getting started and details about pre
   - [Work with table encryption](example_dynamodb_Scenario_EncryptionExamples_section.md "example_dynamodb_Scenario_EncryptionExamples_section.md")
 
 - [Serverless examples](service_code_examples_serverless_examples.md "service_code_examples_serverless_examples.md")
+
   - [Invoke a Lambda function from a DynamoDB trigger](example_serverless_DynamoDB_Lambda_section.md "example_serverless_DynamoDB_Lambda_section.md")
   - [Reporting batch item failures for Lambda functions with a DynamoDB trigger](example_serverless_DynamoDB_Lambda_batch_item_failures_section.md "example_serverless_DynamoDB_Lambda_batch_item_failures_section.md")
 
 - [AWS community contributions](service_code_examples_aws_community_contributions.md "service_code_examples_aws_community_contributions.md")
+
   - [Build and test a serverless application](example_tributary-lite_serverless-application_section.md "example_tributary-lite_serverless-application_section.md")

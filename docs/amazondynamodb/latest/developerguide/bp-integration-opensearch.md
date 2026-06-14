@@ -57,13 +57,13 @@ scratch.
   based on your write capacity units (WCUs) divided by 1000. Set the minimum to 1 OCU
   below that amount (but at least 1), and set the maximum to at least 1 OCU above that
   amount.
+
   - **Formula:**
 
   ```
   OCU_minimum = GREATEST((table_WCU / 1000) - 1, 1)
   OCU_maximum = (table_WCU / 1000) + 1
   ```
-
   - **Example:** Your table has 25000 WCUs provisioned.
     Your pipeline's OCUs should be set with a minimum of 24 (25000/1000 - 1) and maximum
     of at least 26 (25000/1000 + 1).
@@ -72,13 +72,13 @@ scratch.
   on your minimum and maximum WCUs, divided by 1000. Set the minimum to 1 OCU below the
   minimum from DynamoDB, and set the maximum to at least 1 OCU above the maximum from
   DynamoDB.
+
   - **Formula:**
 
   ```
   OCU_minimum = GREATEST((table_minimum_WCU / 1000) - 1, 1)
   OCU_maximum = (table_maximum_WCU / 1000) + 1
   ```
-
   - **Example:** Your table has an auto scaling policy
     with a minimum of 8000 and maximum of 14000. Your pipeline's OCUs should be set with
     a minimum of 7 (8000/1000 - 1) and a maximum of 15 (14000/1000 + 1).
@@ -88,6 +88,7 @@ scratch.
   longer time period, depending on the aggregation that's available to you. Set the
   minimum to 1 OCU below the minimum from DynamoDB, and set the maximum to at least 1 OCU
   above the maximum from DynamoDB.
+
   - **Formula:**
 
   ```
@@ -95,7 +96,6 @@ scratch.
   OCU_minimum = GREATEST((min(table_writes_1min) / (60 * 1000)) - 1, 1)
   OCU_maximum = (max(table_writes_1min) / (60 * 1000)) + 1
   ```
-
   - **Example:** Your table has an average valley of
     300 write request units per second and an average peak of 4300. Your pipeline's OCUs
     should be set with a minimum of 1 (300/1000 - 1, but at least 1) and a maximum of 5

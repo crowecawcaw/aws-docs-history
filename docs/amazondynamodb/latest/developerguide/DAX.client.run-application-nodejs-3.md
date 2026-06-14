@@ -11,24 +11,22 @@ instance.
 ###### To run the Node.js sample for DAX
 
 1. Set up Node.js on your Amazon EC2 instance, as follows:
+
    1. Install node version manager (`nvm`).
 
    ```
    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
    ```
-
    2. Use nvm to install Node.js.
 
    ```
    nvm install 18
    ```
-
    3. Use nvm to use Node 18
 
    ```
    nvm use 18
    ```
-
    4. Test that Node.js is installed and running correctly.
 
    ```
@@ -56,6 +54,7 @@ and a DAX cluster.
    `lib-dax` as a dependency, copy [TryDax.js](DAX.client.tutorial-TryDax.md "DAX.client.tutorial-TryDax.md") into your project.
 2. Run the program against your DAX cluster. To determine the endpoint
    for your DAX cluster, choose one of the following:
+
    - Using the DynamoDB console —
      Choose your DAX cluster. The cluster endpoint is shown on the
      console, as in the following example.
@@ -63,7 +62,6 @@ and a DAX cluster.
    ```
    dax://my-cluster.l6fzcv.dax-clusters.us-east-1.amazonaws.com
    ```
-
    - Using the AWS CLI — Enter
      the following command.
 

@@ -33,6 +33,7 @@
    your project name and location, and then choose
    **Create**.
 6. Add the AWS SDK for DynamoDB NuGet package to your project:
+
    1. In Solution Explorer, open the context (right-click) menu for your
       project, and then choose **Manage NuGet
       Packages**.

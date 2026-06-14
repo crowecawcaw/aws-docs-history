@@ -301,6 +301,7 @@ Follow these steps to run DynamoDB local in your AWS CloudShell anywhere in the 
    highlighted.)
 3. From the AWS Management Console, launch AWS CloudShell by choosing one of
    the following options:
+
    1. On the navigation bar, choose the **AWS CloudShell** icon.
    2. In the **Search** box, enter the word CloudShell, and then choose **CloudShell**.
    3. In the **Recently visited** widget, choose **CloudShell**.

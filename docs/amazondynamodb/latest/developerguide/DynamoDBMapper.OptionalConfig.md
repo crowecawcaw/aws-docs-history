@@ -67,6 +67,7 @@ DynamoDBMapper.
 - A `DynamoDBMapperConfig.SaveBehavior` enumeration value - Specifies
   how the mapper instance should deal with attributes during save
   operations:
+
   - `UPDATE`—during a save operation, all modeled
     attributes are updated, and unmodeled attributes are unaffected.
     Primitive number types (byte, int, long) are set to 0. Object types are

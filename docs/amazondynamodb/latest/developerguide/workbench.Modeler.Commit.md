@@ -13,6 +13,7 @@ Amazon DynamoDB.
 1.  Open NoSQL Workbench, and on the main screen, click on the name of the model that you want to commit.
 2.  In the top bar, click **Commit**.
 3.  Choose an existing connection, or create a new connection by clicking the **Add new connection** button.
+
     - To add a new connection, specify the following information:
 
           + **Account Alias**
@@ -23,10 +24,12 @@ Amazon DynamoDB.
       For more information about how to obtain the access keys, see [Getting an AWS access key](SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials "SettingUp.DynamoWebService.md#SettingUp.DynamoWebService.GetCredentials").
 
     - You can optionally specify the following:
+
       - [**Session token**](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md")
       - [**IAM role ARN**](../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns "../../../IAM/latest/UserGuide/reference_identifiers.md#identifiers-arns")
 
 4.  If you prefer to use [DynamoDB local](DynamoDBLocal.md "DynamoDBLocal.md"):
+
     1. Choose the **Local connection** tab.
     2. Click the **Add new connection** button.
     3. Specify the **Connection name** and **Port**.

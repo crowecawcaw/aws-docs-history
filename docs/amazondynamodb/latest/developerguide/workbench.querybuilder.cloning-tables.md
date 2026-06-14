@@ -13,10 +13,12 @@ Regions for faster experimentation.
    want to clone.
 3. From the horizontal ellipsis menu, select the **Clone** option.
 4. Input your clone destination details:
+
    1. Select a connection.
    2. Select a Region (Region is not available for DynamoDB local).
    3. Enter a new table name.
    4. Choose a clone option:
+
       1. **Key schema** is selected by
          default and cannot be unselected. By default, cloning a table
          will copy your primary key and sort key if they are
@@ -36,6 +38,7 @@ Regions for faster experimentation.
    clone** value at 0. The maximum number of items that can be cloned
    is 5000.
 6. Choose a capacity mode:
+
    1. **On-demand mode** is selected by
       default. DynamoDB on-demand offers pay-per-request pricing for read and
       write requests so that you pay only for what you use. To learn more, see

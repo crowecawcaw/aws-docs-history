@@ -61,6 +61,7 @@ To run a `Create Table` operation, do the following.
 3. Create a partition key.
 4. Optional: create a sort key.
 5. To customize capacity settings, and uncheck the box next to **Use default capacity settings**.
+
    - You can now select either **Provisioned** or **On-demand
      capacity.**
 
@@ -154,12 +155,14 @@ generate code for a `Put Item` operation, do the following.
 3. Enter the partition key value.
 4. Enter the sort key value, if one exists.
 5. If you want to add non-key attributes, do the following:
+
    1. Select **+ Add other attributes**.
    2. Specify the **Attribute name**,
       **Type**, and **Value**.
 
 6. If a condition expression must be satisfied for the `Put
 Item` operation to succeed, do the following:
+
    1. Choose **Condition**.
    2. Specify the attribute name, comparison operator, attribute
       type, and attribute value.
@@ -192,6 +195,7 @@ following:
    select the **+** icon.
 5. If a condition expression must be satisfied for the `Update
 Item` operation to succeed, do the following:
+
    1. Choose **Condition**.
    2. Specify the attribute name, comparison operator, attribute
       type, and attribute value.
@@ -245,6 +249,7 @@ following.
    NoSQL Workbench UI.
 2. Specify the partition key value.
 3. If a sort key is needed for the `Query` operation:
+
    1. Select **Sort key**.
    2. Specify the comparison operator, and attribute value.
 
@@ -258,6 +263,7 @@ following.
 8. If more attributes are needed, choose the **+** .
 9. If a condition expression must be satisfied for the `Query`
    operation to succeed, do the following:
+
    1. Choose **Condition**.
    2. Specify the attribute name, comparison operator, attribute
       type, and attribute value.
@@ -292,6 +298,7 @@ following.
    result, select **Projection expression**.
 5. If a condition expression must be satisfied for the scan operation to
    succeed, do the following:
+
    1. Choose **Condition**.
    2. Specify the attribute name, comparison operator, attribute
       type, and attribute value.

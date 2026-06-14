@@ -66,6 +66,7 @@ CloudWatch Logs, and AWS KMS keys used to decrypt the Amazon S3 object. For more
 In order to validate source S3 objects, take the following steps.
 
 1. Validate the data format and compression type
+
    - Make sure that all matching Amazon S3 objects under the specified prefix have the same format
      (DYNAMODB_JSON, DYNAMODB_ION, CSV)
    - Make sure that all matching Amazon S3 objects under the specified prefix are compressed the same way (GZIP, ZSTD, NONE)
@@ -76,6 +77,7 @@ In order to validate source S3 objects, take the following steps.
    as the input format specified in ImportTable call takes precedence.
 
 2. Validate that the import data conforms to the desired table schema
+
    - Make sure that each item in the source data has the primary key. A sort key is optional for imports.
    - Make sure that the attribute type associated with the primary key and any sort key matches the attribute type in the
      Table and the GSI schema, as specified in table creation parameters

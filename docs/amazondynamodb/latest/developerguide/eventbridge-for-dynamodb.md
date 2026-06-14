@@ -57,10 +57,12 @@ Follow the steps below to create an integration through the AWS Management Conso
    DynamoDB Streams Kinesis adapter.
 2. Create an EventBridge event bus by following the steps in the [Creating an
    Amazon EventBridge event bus](../../../eventbridge/latest/userguide/eb-create-event-bus.md "../../../eventbridge/latest/userguide/eb-create-event-bus.md") section of the EventBridge user guide.
+
    1. When creating the event bus, enable **Schema
       discovery**.
 
 3. Create an EventBridge pipe by following the steps in the [Creating an Amazon EventBridge pipe](../../../eventbridge/latest/userguide/eb-pipes-create.md "../../../eventbridge/latest/userguide/eb-pipes-create.md") section of the EventBridge user guide.
+
    1. When configuring the source, in the **Source** field select _DynamoDB_ and in
       the **DynamoDB Streams** field select the name of the
       source table stream.
@@ -103,6 +105,7 @@ def lambda_handler(event, context):
 6. Create an EventBridge rule that will route events to your new Lambda function by
    following the steps in the [Create a rule](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md")
    section that reacts to events EventBridge user guide.
+
    1. When defining the rule detail, select the name of the event bus you
       created in step 2 as the **Event
       bus**.
@@ -125,7 +128,6 @@ def lambda_handler(event, context):
    }
 
    ```
-
    4. When selecting targets, follow the guide for AWS service. In the
       Select a target field, choose “Lambda function”. In the Function field,
       select the Lambda function you created in step 5.
@@ -135,6 +137,7 @@ def lambda_handler(event, context):
    EventBridge user guide.
 8. Write a second example item to the source DynamoDB table to trigger an event.
    Validate that the event was successfully processed at each step.
+
    1. View the CloudWatch metric **PutEventsApproximateSuccessCount** for your event bus by
       following the [Monitoring
       Amazon EventBridge](../../../eventbridge/latest/userguide/eb-monitoring.md "../../../eventbridge/latest/userguide/eb-monitoring.md") section of the EventBridge user guide.

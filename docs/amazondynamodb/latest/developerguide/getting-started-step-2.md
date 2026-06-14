@@ -18,6 +18,7 @@ DynamoDB console.
     **Create item**.
 6.  On the **Create item** page, do the following to add
     items to your table:
+
     1. Choose **Add new attribute**, and then choose
        **Number**.
     2. For Attribute name, enter
@@ -26,6 +27,7 @@ DynamoDB console.
        `AlbumTitle` of type
        **String**.
     4. Enter the following values for your item:
+
        1. For **Artist**, enter `No
 One You Know`.
        2. For **SongTitle**, enter
@@ -38,6 +40,7 @@ One You Know`.
 7.  Choose **Create item**.
 8.  Repeat this process and create another item with the following
     values:
+
     1. For **Artist**, enter `Acme
 Band`.
     2. For **SongTitle** enter `Happy

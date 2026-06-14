@@ -48,6 +48,7 @@ The following IAM policy grants the permission to enable ABAC and view its statu
 2. From the top navigation pane, choose the Region for which you want to enable ABAC.
 3. On the left navigation pane, choose **Settings**.
 4. On the **Settings** page, do the following:
+
    1. In the **Attribute-based access control** card, choose **Enable**.
    2. In the **Confirm attribute-based access control setting** box, choose **Enable** to confirm your choice.
 

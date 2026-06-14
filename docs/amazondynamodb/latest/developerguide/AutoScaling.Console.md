@@ -81,10 +81,12 @@ DynamoDB auto scaling requires the presence of a service-linked role (`AWSServic
    [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
 2. In the navigation pane on the left side of the console, choose **Tables**.
 3. Choose the table on which you want to enable auto scaling, and then do the following:
+
    1. Choose the **Additional settings** tab.
    2. In the **Read/write capacity** section, choose **Edit**.
    3. In the **Capacity mode** section, choose **Provisioned**.
    4. In the **Table capacity** section, set **Auto scaling** to **On** for **Read capacity**, **Write capacity**, or both. For each of these, set your desired scaling policy for the table and, optionally, all global secondary indexes of the table.
+
       - **Minimum capacity units** – Enter your lower boundary for the auto scaling range.
       - **Maximum capacity units** – Enter your upper boundary for the auto scaling range.
       - **Target utilization** – Enter your target utilization percentage for the table.

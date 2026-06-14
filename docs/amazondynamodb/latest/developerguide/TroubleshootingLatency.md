@@ -114,6 +114,7 @@ applications](https://aws.amazon.com/blogs/database/tuning-aws-java-sdk-http-req
   global tables effectively, see [Using Amazon DynamoDB global tables](../../../prescriptive-guidance/latest/dynamodb-global-tables/introduction.md "../../../prescriptive-guidance/latest/dynamodb-global-tables/introduction.md") in AWS Prescriptive Guidance.
 - **Use caching:** If your traffic is read heavy,
   consider using one of these caching services:
+
   - DynamoDB Accelerator (DAX): A fully managed, highly available, in-memory cache for
     DynamoDB that delivers up to a 10x performance improvement, from milliseconds
     to microseconds, even at millions of requests per second. For more

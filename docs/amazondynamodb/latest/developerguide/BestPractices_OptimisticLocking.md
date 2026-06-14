@@ -39,6 +39,7 @@ Include a version attribute in each item. Here is a simple schema design:
 - Partition key – A unique identifier for each item (for example,
   `ItemId`).
 - Attributes:
+
   - `ItemId` – The unique identifier for the item.
   - `Version` – An integer that represents the version number of
     the item.

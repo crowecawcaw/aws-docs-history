@@ -232,6 +232,7 @@ Perform an offline migration using Amazon S3
 
 - An ETL job to extract and transform SQL data and store it in an S3 bucket such
   as:
+
   - AWS Database Migration Service, a service that can bulk load historical data and can also process
     Change Data Capture (CDC) records to synchronize source and target tables.
   - AWS Glue
@@ -274,6 +275,7 @@ Perform a hybrid online/offline migration with application dual writes
 
 - An ETL job to extract and transform SQL data and store it in an S3 bucket such
   as:
+
   - AWS DMS
   - AWS Glue
   - Amazon EMR

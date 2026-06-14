@@ -30,6 +30,7 @@
    choose **AWS Java Project**, and then choose
    **Next**.
 5. In **Create an AWS Java**, do the following:
+
    1. In **Project name**, enter a name for your
       project.
    2. In **Select Account**, choose your credentials

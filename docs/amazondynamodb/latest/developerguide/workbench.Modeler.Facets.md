@@ -14,6 +14,7 @@ Access patterns mirror your actual database interactions and help you build the 
 2. In the top bar, click the **Edit** action icon.
 3. Scroll down to the **Facet filters** section.
 4. Choose **Add facet**. Specify the following:
+
    - The **Facet name**.
    - A **Partition key alias** to help distinguish this facet view.
    - A **Sort key alias** if you provided a **Sort key** for the table.

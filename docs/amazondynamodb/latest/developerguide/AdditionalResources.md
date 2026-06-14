@@ -146,6 +146,7 @@ get the most out of DynamoDB:
 
 - [AWS re:Invent 2019:
   Data modeling with DynamoDB](https://www.youtube.com/watch?v=DIQVJqiSUkE "https://www.youtube.com/watch?v=DIQVJqiSUkE")
+
   - A talk by [Alex
     DeBrie](https://twitter.com/alexbdebrie "https://twitter.com/alexbdebrie") that helps you started with the principles of DynamoDB
     data modeling.
@@ -160,6 +161,7 @@ get the most out of DynamoDB:
   Advanced design patterns](https://www.youtube.com/watch?v=HaEPXoXVf2k "https://www.youtube.com/watch?v=HaEPXoXVf2k")
 - [AWS re:Invent 2019:
   Advanced design patterns](https://www.youtube.com/watch?v=6yqfmXiZTlM "https://www.youtube.com/watch?v=6yqfmXiZTlM")
+
   - Jeremy Daly shares his [12 key takeaways](https://www.jeremydaly.com/takeaways-from-dynamodb-deep-dive-advanced-design-patterns-dat403/ "https://www.jeremydaly.com/takeaways-from-dynamodb-deep-dive-advanced-design-patterns-dat403/") from this session.
 
 - [AWS

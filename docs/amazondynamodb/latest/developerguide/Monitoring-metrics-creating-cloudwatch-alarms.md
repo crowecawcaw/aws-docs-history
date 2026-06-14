@@ -34,6 +34,7 @@ You can create alarms in the CloudWatch console or using the AWS CLI.
 5. Under **Specify metric and conditions**, for **Statistic** choose **Sum**.
    Choose a **Period** of **1 minute**.
 6. Under **Conditions**, specify the following:
+
    1. For **Threshold type**, choose **Static**.
    2. For **Whenever `ConsumedReadCapacityUnits` is**, choose
       **Greater/Equal** and specify the threshold as 240.

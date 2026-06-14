@@ -55,6 +55,7 @@ Get started with JavaScript documentation with the following resources:
   methods.
 - The SDK for JavaScript supports many AWS services other than DynamoDB. Use the
   following procedure to locate specific API coverage for DynamoDB:
+
   1.  From **Services**, choose **DynamoDB and
       Libraries**. This documents the low-level client.
   2.  Choose **lib-dynamodb**. This documents the

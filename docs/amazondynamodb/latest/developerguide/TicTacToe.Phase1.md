@@ -56,6 +56,7 @@ Installer (PIP):
 3. Download DynamoDB to your computer. For instructions on how to run it, see
    [Setting up DynamoDB local (downloadable version)](DynamoDBLocal.md "DynamoDBLocal.md").
 4. Download the Tic-Tac-Toe application:
+
    1. Install Git. For instructions, see [git downloads](http://git-scm.com/downloads "http://git-scm.com/downloads").
    2. Run the following code to download the application.
 

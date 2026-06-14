@@ -153,6 +153,7 @@ creation.
   owned and managed by DynamoDB and doesn't appear in your AWS account in the Region where
   it's configured.
 - MRSC global tables are available in the following Region sets:
+
   - US Region set: US East (N. Virginia), US East (Ohio), US West (Oregon)
   - EU Region set: Europe (Ireland), Europe (London), Europe (Paris), Europe
     (Frankfurt)

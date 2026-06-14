@@ -393,6 +393,7 @@ attributeUpdates = {
 ```
 
 - Conditions that must be true for the update to take place:
+
   - The game must be in progress. That is, the
     `StatusDate` attribute value must begin with
     `IN_PROGRESS`.

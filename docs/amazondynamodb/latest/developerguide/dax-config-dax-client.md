@@ -21,6 +21,7 @@ This guide outlines best practices for DAX client configuration.
    DAX servers experience temporary latency spikes. When a timeout occurs, the DAX client terminates
    the existing server node connection and establishes a new one. Since connection establishment is
    resource-intensive, numerous consecutive connections can overload DAX servers. We recommend the following:
+
    - Maintaining default request timeout settings.
    - If lower timeouts are necessary, implement separate application threads with lower timeout values
      and include retry mechanisms with exponential back-off.
@@ -29,11 +30,13 @@ This guide outlines best practices for DAX client configuration.
    default connection timeout settings.
 4. **Concurrent connections** – Certain SDKs, such as JavaV2, allow adjustment
    of concurrent connections to the DAX server. Key considerations:
+
    - DAX server instances can handle up to 40,000 concurrent connections.
    - Default settings are suitable for most use cases.
    - Large client instances combined with high concurrent connections may overload servers.
    - Lower concurrent connection values reduce server overload risk.
    - Performance calculation example:
+
      - Assuming 1ms request latency, each connection can theoretically
        handle 1,000 requests/second.
      - For a 3-node cluster, a single client instance connecting to all nodes

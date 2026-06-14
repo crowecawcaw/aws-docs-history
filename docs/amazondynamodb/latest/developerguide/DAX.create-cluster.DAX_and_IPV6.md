@@ -16,11 +16,13 @@ You can create clusters with the following network types:
 With IPv6 support, you can do the following:
 
 - **Network configuration options:**
+
   - IPv4-only and dual-stack clusters on `dual_stack
 subnets`.
   - IPv6-only clusters on IPv6-only subnets.
 
 - **Subnet group management:**
+
   - Create subnet groups with IPv4-only, IPv6-only, or dual-stack
     support
   - Modify existing subnet groups with additional VPC subnets

@@ -109,6 +109,7 @@ You must provide the following parameters to `UpdateTable`:
   schema attributes of the index.
 - `GlobalSecondaryIndexUpdates` – Details about the
   index you want to create:
+
   - `IndexName` – A name for the index.
   - `KeySchema` – The attributes that are used
     for the index's primary key.

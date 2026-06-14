@@ -109,6 +109,7 @@ parameter determines how the stream is configured:
   table.
 - `StreamViewType` — Specifies the information that will be
   written to the stream whenever data in the table is modified:
+
   - `KEYS_ONLY` — Only the key attributes of the
     modified item.
   - `NEW_IMAGE` — The entire item, as it appears

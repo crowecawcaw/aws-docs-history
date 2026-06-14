@@ -34,6 +34,7 @@ what's happening:
   `Read` or `Write`
 - **LimitType** (Why the throttling
   occurred):
+
   - `KeyRangeThroughputExceeded`: This occurs when a specific
     partition backing your table or index has consumed read or write
     capacity exceeding the internal per-partition throughput limits.

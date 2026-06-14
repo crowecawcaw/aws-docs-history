@@ -9,12 +9,14 @@ associated resources. This will help you avoid being charged for resources you d
 need.
 
 1. Terminate the Amazon EMR cluster:
+
    1. Open the Amazon EMR console at
       [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr/ "https://console.aws.amazon.com/emr/").
    2. Choose the Amazon EMR cluster, choose **Terminate**,
       and then confirm.
 
 2. Delete the Features table in DynamoDB:
+
    1. Open the DynamoDB console at
       [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
    2. In the navigation pane, choose **Tables**.
@@ -22,6 +24,7 @@ need.
       menu, choose **Delete Table**.
 
 3. Delete the Amazon S3 bucket containing the Amazon EMR log files:
+
    1. Open the Amazon S3 console at
       [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
    2. From the list of buckets, choose `aws-logs-

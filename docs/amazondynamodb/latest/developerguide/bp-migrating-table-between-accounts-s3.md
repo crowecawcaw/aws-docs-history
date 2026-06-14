@@ -30,6 +30,7 @@ more information, see [Import quotas](S3DataImport.Validation.md#S3DataImport.Va
    is an optional folder to help keep your destination bucket organized.
 4. Choose **Full export**. A full export outputs the full
    table snapshot of your table, at the point in time you specify.
+
    1. Select **Current time** to export the latest full
       table snapshot.
    2. For **Exported file format**, choose between DynamoDB

@@ -346,6 +346,7 @@ if __name__ == "__main__":
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateTable](../../../goto/boto3/dynamodb-2012-08-10/CreateTable.md "../../../goto/boto3/dynamodb-2012-08-10/CreateTable.md")
   - [DeleteTable](../../../goto/boto3/dynamodb-2012-08-10/DeleteTable.md "../../../goto/boto3/dynamodb-2012-08-10/DeleteTable.md")
   - [GetItem](../../../goto/boto3/dynamodb-2012-08-10/GetItem.md "../../../goto/boto3/dynamodb-2012-08-10/GetItem.md")

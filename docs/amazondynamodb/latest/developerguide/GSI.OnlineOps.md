@@ -103,6 +103,7 @@ following:
   key attribute in the table. The data types for each schema attribute must be
   scalar: `String`, `Number`, or `Binary`.
 - The attributes to be projected from the table into the index:
+
   - `KEYS_ONLY` — Each item in the index consists only of
     the table partition key and sort key values, plus the index key values.
   - `INCLUDE` — In addition to the attributes described

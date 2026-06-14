@@ -6,12 +6,12 @@ on your Amazon EC2 instance.
 ###### To run the SDK for Go sample for DAX
 
 1. Set up the SDK for Go on your Amazon EC2 instance:
+
    1. Install the Go programming language (`Golang`).
 
    ```
    sudo yum install -y golang
    ```
-
    2. Test that Golang is installed and running correctly.
 
    ```

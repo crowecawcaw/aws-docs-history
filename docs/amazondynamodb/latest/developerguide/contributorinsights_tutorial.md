@@ -72,6 +72,7 @@ Insights.
    **Manage CloudWatch Contributor Insights**.
 2. In the **Manage Contributor Insights settings** dialog
    box, for each base table or GSIs:
+
    - Toggle **Only throttled keys mode** on or off to
      enable the _throttled keys_ mode or go back to
      the default _accessed and throttled keys_
@@ -93,6 +94,7 @@ key consumes more than 50,000 [ConsumedThroughputUnits](contributorinsights_HowI
    **Contributor Insights**.
 3. Choose the appropriate rule based on your mode and what you want to
    monitor:
+
    - For accessed items monitoring (accessed and throttled keys mode
      only): Choose
      **DynamoDBContributorInsights-PKC-Music**

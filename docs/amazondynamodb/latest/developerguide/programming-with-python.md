@@ -400,6 +400,7 @@ values you can specify:
   the `max_attempts` config file value.
 - **mode** – A string representing the type of
   retry mode botocore should use. Valid values are:
+
   - **legacy** – The default mode. Waits 50ms
     the first retry, then uses exponential backoff with a base factor of 2.
     For DynamoDB, it performs up to 10 total max attempts (unless overridden

@@ -210,6 +210,7 @@ The `UpdateItem` operation uses the following guidelines:
 - If the item does not exist, `UpdateItem` adds a new item using the primary
   key that is specified in the input.
 - If the item exists, `UpdateItem` applies the updates as follows:
+
   - Replaces the existing attribute values by the values in the update.
   - If the attribute that you provide in the input does not exist, it adds a new
     attribute to the item.

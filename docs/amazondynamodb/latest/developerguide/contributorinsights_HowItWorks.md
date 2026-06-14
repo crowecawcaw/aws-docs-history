@@ -86,6 +86,7 @@ When you switch modes:
 - Existing CloudWatch rules are updated to match the new mode
 - Throttled keys CloudWatch rules remain intact, maintaining your continuous
   historical data for throttling metrics:
+
   - When you switch from _throttled keys_ mode to
     _accessed and throttled keys_ mode, the
     existing throttled key rules are preserved, and new accessed key
@@ -390,6 +391,7 @@ that puts five items. Also assume that the `PutItem` operation gets
 throttled, but all other operations succeed.
 
 - **Accessed and throttled keys mode**
+
   - If your table or global secondary index has only a partition keys,
     it results in 7 events (1 for the `GetItem`, 1 for the
     `PutItem`, and 5 for the

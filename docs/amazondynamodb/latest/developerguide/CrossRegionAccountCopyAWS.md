@@ -25,6 +25,7 @@ To copy a backup, do the following:
 1. Sign in to the AWS Management Console and open the DynamoDB console at [https://console.aws.amazon.com/dynamodb/](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/").
 2. In the navigation pane on the left side of the console, choose **Backups**.
 3. Select the check box next to the backup you want to copy.
+
    - If the backup you want to copy is grayed out, you must enable
      [advanced features with AWS Backup](../../../aws-backup/latest/devguide/advanced-ddb-backup.md "../../../aws-backup/latest/devguide/advanced-ddb-backup.md").
      Then create a new backup. You can now copy this new backup to other Regions and accounts, and copy any other

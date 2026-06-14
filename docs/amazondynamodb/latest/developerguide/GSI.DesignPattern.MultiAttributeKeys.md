@@ -130,6 +130,7 @@ Before you begin, ensure you have:
 
 - An active AWS account ([create one here](https://aws.amazon.com/free/ "https://aws.amazon.com/free/") if needed)
 - IAM permissions for DynamoDB operations:
+
   - `dynamodb:CreateTable`
   - `dynamodb:DeleteTable`
   - `dynamodb:DescribeTable`

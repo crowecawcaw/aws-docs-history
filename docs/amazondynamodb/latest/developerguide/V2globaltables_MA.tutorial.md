@@ -9,6 +9,7 @@ Follow these steps to create a multi-account global table using the AWS Manageme
 3. In the navigation pane on the left side of the console, choose **Tables**.
 4. Choose **Create Table**.
 5. On the **Create table** page:
+
    1. For **Table name**, enter `MusicTable`.
    2. For **Partition key**, enter `Artist`.
    3. For **Sort key**, enter `SongTitle`.
@@ -64,6 +65,7 @@ JSON
 12. The console ensures that a table with the same name doesn't exist in the selected Region. If a table with the same name does exist, you must delete the existing table before you can create a new replica table in that Region.
 13. In the drop down near **Create Table**, choose **Create from another account**
 14. On the **Create table from another account** page:
+
     1. Add `arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable` as the table arn for the source table.
     2. In the **Replica Table ARNs**, add the ARN of the source table again `arn:aws:dynamodb:us-east-2:`111122223333`:table/MusicTable`. If there are multiple replicas already existing as part of a Multi Account Global Table, you must add every existing replica to the ReplicaTableARN.
     3. Keep the other default settings and choose **Submit**.

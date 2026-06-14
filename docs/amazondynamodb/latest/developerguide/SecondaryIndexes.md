@@ -83,6 +83,7 @@ it is associated with. For each secondary index, you must specify the following:
   top-level attribute of type `String`, `Number`, or
   `Binary`. Other data types, including documents and sets, are not
   allowed. Other requirements for the key schema depend on the type of index:
+
   - For a global secondary index, the partition key can be any scalar attribute of the base
     table. A sort key is optional, and it too can be any scalar attribute of the
     base table.

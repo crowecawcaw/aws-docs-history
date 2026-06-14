@@ -8,6 +8,7 @@ are two local secondary indexes on this table:
 - `OrderCreationDateIndex` — The sort key is
   `OrderCreationDate`, and the following attributes are projected
   into the index:
+
   - `ProductCategory`
   - `ProductName`
   - `OrderStatus`
