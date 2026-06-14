@@ -56,12 +56,12 @@ AWS CLI & AWS SDKs
 You can use one of the following operations:
 
 - AWS CLI: [list-instances](../../../cli/latest/reference/sso-admin/list-instances.md "../../../cli/latest/reference/sso-admin/list-instances.md") and [create-identity-source](../../../cli/latest/reference/mpa/create-identity-source.md "../../../cli/latest/reference/mpa/create-identity-source.md")
+
   1.  Run the following command to return a list of Amazon Resource Names (ARNs) for your IAM Identity Center instances:
 
   ```
   `$` `C:\>` **aws sso-admin list-instances**
   ```
-
   2.  Run the following command to create a Multi-party approval identity source with the available IAM Identity Center of your choice:
 
   ```

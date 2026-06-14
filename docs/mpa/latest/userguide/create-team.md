@@ -35,6 +35,7 @@ AWS Management Console
 2. On the left navigation, choose **Multi-party approval**.
 3. On the **Multi-party approval** console, choose **Create team**.
 4. On the **Create approval team** page, enter the following information:
+
    - **Name:** Name for the team.
    - **Description:** Description for the team.
    - **Approvers**: Choose **Assign approvers** to open a dialog box for selecting IAM Identity Center users to invite to the team. You must have at least three approvers per team.
@@ -50,6 +51,7 @@ AWS CLI & AWS SDKs
 You can use one of the following operations:
 
 - AWS CLI: [list-instances](../../../cli/latest/reference/sso-admin/list-instances.md "../../../cli/latest/reference/sso-admin/list-instances.md"), [list-users](../../../cli/latest/reference/identitystore/list-users.md "../../../cli/latest/reference/identitystore/list-users.md"), and [create-approval-team](../../../cli/latest/reference/mpa/create-approval-team.md "../../../cli/latest/reference/mpa/create-approval-team.md")
+
   1.  Run the following command to return a list of Amazon Resource Names (ARNs) for your IAM Identity Center instances:
 
   ```

@@ -46,12 +46,12 @@ AWS CLI & AWS SDKs
 You can use one of the following operations:
 
 - AWS CLI: [list-identity-sources](../../../cli/latest/reference/mpa/list-identity-sources.md "../../../cli/latest/reference/mpa/list-identity-sources.md") and [delete-identity-source](../../../cli/latest/reference/mpa/delete-identity-source.md "../../../cli/latest/reference/mpa/delete-identity-source.md")
+
   1.  Run the following command to return a list of Amazon Resource Names (ARNs) for your identity sources:
 
   ```
   `$` `C:\>` **aws mpa list-identity-sources**
   ```
-
   2.  Run the following command to delete an identity source:
 
   ```

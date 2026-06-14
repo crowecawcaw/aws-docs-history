@@ -35,6 +35,7 @@ AWS Management Console
 3. On the **Team** column, select a team to view its details.
 4. On the team page, choose **Edit**.
 5. On the **Edit approval team** page, you can update the following information:
+
    - **Description:** Description for the team.
    - **Approvers**: Choose **Assign approvers** to open a dialog box for selecting IAM Identity Center users to add or remove from the team. Teams must have at least three approvers
    - **Minimum required approvals**: Minimum number of approvals needed for a protected operation to run. It is recommended to set an approval threshold below the total number of approvers. The approval threshold must be at least two.
@@ -48,6 +49,7 @@ AWS CLI & AWS SDKs
 You can use one of the following operations:
 
 - AWS CLI: [list-instances](../../../cli/latest/reference/sso-admin/list-instances.md "../../../cli/latest/reference/sso-admin/list-instances.md"), [list-users](../../../cli/latest/reference/identitystore/list-users.md "../../../cli/latest/reference/identitystore/list-users.md"), [list-approval-teams](../../../cli/latest/reference/mpa/list-approval-teams.md "../../../cli/latest/reference/mpa/list-approval-teams.md") and [update-approval-team](../../../cli/latest/reference/mpa/update-approval-team.md "../../../cli/latest/reference/mpa/update-approval-team.md")
+
   1.  (If assigning new approvers) Run the following command to return a list of Amazon Resource Names (ARNs) for your IAM Identity Center instances:
 
   ```

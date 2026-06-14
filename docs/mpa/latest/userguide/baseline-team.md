@@ -49,6 +49,7 @@ AWS CLI & AWS SDKs
 You can use one of the following operations:
 
 - AWS CLI: [list-approval-teams](../../../cli/latest/reference/mpa/list-approval-teams.md "../../../cli/latest/reference/mpa/list-approval-teams.md") and [start-approval-team-baseline](../../../cli/latest/reference/mpa/start-approval-team-baseline.md "../../../cli/latest/reference/mpa/start-approval-team-baseline.md")
+
   1.  Run the following command to return a list of Amazon Resource Names (ARNs) for teams:
 
   ```
@@ -74,7 +75,6 @@ You can use one of the following operations:
 
       + **`--arn`**: Amazon Resource Name (ARN) for the approval team.
       + **`--approver-ids`** (Optional): One or more approver IDs to baseline. If not specified, all approvers in the team are baselined.
-
   3.  (Optional) Run the following command to view the last activity information for each approver in the team:
 
   ```

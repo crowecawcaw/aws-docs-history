@@ -158,11 +158,13 @@ For more information about ABAC, see [Define permissions with ABAC authorization
 Multi-party approval supports the following ABAC:
 
 - For Multi-party approval [identity sources](mpa-concepts.md#mpa-identity-source "mpa-concepts.md#mpa-identity-source") and [approval teams](mpa-concepts.md#mpa-team-term "mpa-concepts.md#mpa-team-term"), you can use all three tag condition types:
+
   - `aws:TagKeys`
   - `aws:RequestTag`
   - `aws:ResourceTag`
 
 - For [sessions](mpa-concepts.md#mpa-session "mpa-concepts.md#mpa-session"), you can only use the `aws:ResourceTag` condition because:
+
   - Sessions are not directly taggable resources
   - Sessions inherit tags from the approval team associated with them
 

@@ -53,12 +53,14 @@ Before starting the recovery process, check that:
 **To recover the team**:
 
 1. Collect the following information:
+
    - Amazon Resource Name (ARN) for the affected approval team
    - Amazon Resource Name (ARN) for the failed approval session
    - Business impact statement
    - Updated list of approvers
 
 2. Contact AWS Support to initiate the approval team recovery process.
+
    - Open a ticket using the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/")
    - In the ticket, include the team details you collected
    - Label the ticket "Approval Team Recovery" and then submit the ticket.

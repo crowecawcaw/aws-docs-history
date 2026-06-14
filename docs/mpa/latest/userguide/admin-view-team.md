@@ -42,12 +42,12 @@ AWS CLI & AWS SDKs
 You can use one of the following operations:
 
 - AWS CLI: [list-approval-teams](../../../cli/latest/reference/mpa/list-approval-teams.md "../../../cli/latest/reference/mpa/list-approval-teams.md") and [get-approval-team](../../../cli/latest/reference/mpa/get-approval-team.md "../../../cli/latest/reference/mpa/get-approval-team.md")
+
   1.  Run the following command to return a list of Amazon Resource Names (ARNs) for your teams:
 
   ```
   `$` `C:\>` **aws mpa list-approval-teams**
   ```
-
   2.  Run the following command to view details for a team:
 
   ```

@@ -43,18 +43,17 @@ AWS CLI & AWS SDKs
 You can use one of the following operations:
 
 - AWS CLI: [list-approval-teams](../../../cli/latest/reference/mpa/list-approval-teams.md "../../../cli/latest/reference/mpa/list-approval-teams.md"), [get-approval-team](../../../cli/latest/reference/mpa/get-approval-team.md "../../../cli/latest/reference/mpa/get-approval-team.md"), and [cancel-session](../../../cli/latest/reference/mpa/cancel-session.md "../../../cli/latest/reference/mpa/cancel-session.md")
+
   1.  Run the following command to return a list of Amazon Resource Names (ARNs) for your teams:
 
   ```
   `$` `C:\>` **aws mpa list-approval-teams**
   ```
-
   2.  Run the following command to get the Amazon Resource Name (ARN) for the session with the pending update from the relevant team:
 
   ```
   `$` `C:\>` **aws mpa get-approval-team --arn arn:aws:mpa:`region`:`123456789012`:approval-team/`TeamName-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`**
   ```
-
   3.  Run the following command to cancel a session:
 
   ```
