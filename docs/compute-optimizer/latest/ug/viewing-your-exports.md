@@ -38,6 +38,7 @@ Export jobs can have one of the following statuses.
      see [Troubleshooting failed export jobs](troubleshooting-account-opt-in.md#troubleshooting-exports "troubleshooting-account-opt-in.md#troubleshooting-exports").
 
 3. You can perform the following actions on the page:
+
    - Choose the export destination link for a completed job to access the destination
      S3 bucket. The export destination displays only for successful export
      jobs.

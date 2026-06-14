@@ -26,6 +26,7 @@ If you’re an individual AWS account holder, skip to [Step2: Regional scope](ri
 2. Choose **Rightsizing** in the navigation pane.
 3. Choose the resource type you want from the **Resource type** dropdown menu.
 4. In your chosen resource section, choose the **All opted-in accounts** dropdown menu.
+
    - To opt in all member accounts, choose **All opted-in accounts** from the
      Preference level dropdown.
    - To opt in an individual member account, choose **Choose account** from
@@ -66,6 +67,7 @@ organization or an individual AWS account holder.
    on your requirements.
 3. If you choose **Limit to specific instance types and sizes**, select the instance
    types you want in your recommendation output.
+
    - Use the **Search by instance families** dropdown menu. When you select
      any of the instance families, the list only displays the available instance types within
      those families that you selected.
@@ -94,6 +96,7 @@ use when generating your custom recommendations.
 1. Follow the steps outlined in [Step 4: Preferred EC2 instances](rightsizing-preferences.md#preferred-resources-steps "rightsizing-preferences.md#preferred-resources-steps").
 2. On the **Lookback period and metrics** page, choose a lookback period option based
    on your requirements.
+
    - If you want to use the 93-day lookback period (paid feature), you need to enable the enhanced infrastructure
      metrics preference. To do this, choose **Enable enhanced infrastructure metrics**.
      Then, in the prompt that appears, choose **Enable enhanced infrastructure metrics**.

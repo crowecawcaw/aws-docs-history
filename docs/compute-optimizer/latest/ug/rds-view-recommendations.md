@@ -56,6 +56,7 @@ The current instances listed are from the AWS Region that is currently selected,
 2. Choose **Aurora and RDS databases** in the navigation pane.
 3. Choose the finding classification listed next to the RDS DB instance or storage volume that you want to view.
 4. You can perform the following actions on the details page:
+
    - View your instance or storage recommendations by choosing the **Instance** or
      **Storage** tab.
    - In the **Instance** tab only, you can view the price

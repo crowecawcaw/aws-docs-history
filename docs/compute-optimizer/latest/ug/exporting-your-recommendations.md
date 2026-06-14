@@ -7,6 +7,7 @@ in a JSON file.
 
 - The following procedures assumes that you have already completed the [Specifying an existing S3 bucket for your recommendations export](create-s3-bucket-policy-for-compute-optimizer.md "create-s3-bucket-policy-for-compute-optimizer.md") procedure.
 - Make sure that you understand the following restrictions that apply to exporting Compute Optimizer recommendations.
+
   - You can't export recommendations from multiple AWS Regions into a single Amazon S3 bucket. To export recommendations from multiple AWS Regions, you must create separate Amazon S3 buckets for your recommendations in each AWS Region.
   - You can have only one recommendations export job in progress for each resource type,
     and for each AWS Region. Before creating a new export job, confirm that all previous
@@ -34,6 +35,7 @@ in a JSON file.
    Recommendations**.
 4. On the **Export Recommendations** page, under **Export
    destination settings**, specify the following:
+
    1. For **Region**, specify an AWS Region for your export.
    2. For **Destination S3 bucket name**, specify the name of an
       existing S3 bucket in the specific Region.
@@ -49,6 +51,7 @@ in a JSON file.
       `2020/april/ec2-instances`).
 
 5. Under **Export filters**, specify the following:
+
    1. For **Resource type**, choose the resource type to include in
       your recommendations export.
    2. For **Accounts**, choose if you want to include recommendations

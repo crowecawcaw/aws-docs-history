@@ -28,6 +28,13 @@ Compute Optimizer generates recommendations for the following resources:
 - Amazon Elastic Container Service (Amazon ECS) services on AWS Fargate
 - Commercial software licenses
 - Amazon Aurora and Amazon Relational Database Service (Amazon RDS) databases
+- Amazon NAT Gateway
+- Amazon DynamoDB
+- Amazon ElastiCache
+- Amazon MemoryDB
+- Amazon DocumentDB
+- Amazon WorkSpaces
+- Amazon SageMaker
 
 For Compute Optimizer to generate recommendations for these resources, they must meet a specific set of
 requirements, and must have accumulated sufficient metric data. For more information, see

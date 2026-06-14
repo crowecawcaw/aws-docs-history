@@ -46,6 +46,7 @@ CLI
 
 1. Open a terminal or command prompt window.
 2. Call the following API operation.
+
    - Replace `myRegion` with the source
      AWS Region.
    - Replace `123456789012` with your account ID.

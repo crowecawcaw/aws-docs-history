@@ -26,6 +26,7 @@ that allows Compute Optimizer to write recommendations export files to your buck
 5.  Copy one of the following policies, and paste it into the **Bucket
     Policy Editor** text box.
 6.  Replace the following placeholder text in the policy:
+
     - Replace `amzn-s3-demo-bucket` with the name of your
       bucket.
     - Replace `optionalPrefix` with the optional

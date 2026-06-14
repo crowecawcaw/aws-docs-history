@@ -49,6 +49,7 @@ selected account. 3. You can perform the following actions on the recommendation
 3. Select the service name you want to view detailed information for. Then, choose
    **View details**.
 4. You can perform the following actions on the details page:
+
    - On the utilization graphs, you can hover over the graph to see exact values on specific
      dates over the analysis period.
    - To change the time range of the graphs, choose **Time Range**, and then

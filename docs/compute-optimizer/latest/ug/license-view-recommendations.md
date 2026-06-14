@@ -50,6 +50,7 @@ The current licenses listed are from the AWS Region that is currently selected, 
 2. Choose **Licenses** in the navigation pane.
 3. Choose the **Instance ID** you want to view detailed information.
 4. You can perform the following actions on the details page:
+
    - On the utilization graphs, you can hover over the graph to see exact values on specific
      dates over the analysis period.
    - To change the time range of the graphs, choose **Time Range**, and then

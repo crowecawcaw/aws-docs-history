@@ -42,6 +42,30 @@ Amazon Aurora databases. For more information about the specific Amazon RDS reso
 
 Compute Optimizer generates idle recommendations for NAT Gateway. For more information, see [Viewing idle resource recommendations](view-idle-recommendations.md "view-idle-recommendations.md").
 
+- **Amazon DynamoDB**
+
+Compute Optimizer generates idle recommendations for DynamoDB provisioned tables. For more information, see [Viewing idle resource recommendations](view-idle-recommendations.md "view-idle-recommendations.md").
+
+- **Amazon ElastiCache**
+
+Compute Optimizer generates idle recommendations for ElastiCache clusters running Redis or Valkey engines. For more information, see [Viewing idle resource recommendations](view-idle-recommendations.md "view-idle-recommendations.md").
+
+- **Amazon MemoryDB**
+
+Compute Optimizer generates idle recommendations for MemoryDB clusters. For more information, see [Viewing idle resource recommendations](view-idle-recommendations.md "view-idle-recommendations.md").
+
+- **Amazon DocumentDB**
+
+Compute Optimizer generates idle recommendations for DocumentDB provisioned and serverless clusters. For more information, see [Viewing idle resource recommendations](view-idle-recommendations.md "view-idle-recommendations.md").
+
+- **Amazon WorkSpaces**
+
+Compute Optimizer generates idle recommendations for WorkSpaces. For more information, see [Viewing idle resource recommendations](view-idle-recommendations.md "view-idle-recommendations.md").
+
+- **Amazon SageMaker**
+
+Compute Optimizer generates idle recommendations for SageMaker endpoints. For more information, see [Viewing idle resource recommendations](view-idle-recommendations.md "view-idle-recommendations.md").
+
 ###### Note
 
 In order to generate recommendations for each resource, the resources must meet Compute Optimizer's metric and
@@ -91,6 +115,7 @@ Compute Optimizer supports rightsizing recommendations for EC2 Auto Scaling grou
 - Single EC2 instance types
 - Mixed EC2 instance types
 - One or multiple scaling policies based on CPU utilization:
+
   - Target tracking
   - Predictive scaling
   - Simple scaling
@@ -140,7 +165,7 @@ The following sections outline the Amazon Aurora and RDS resources supported by 
 
 ### Database engines
 
-Compute Optimizer Compute Optimizer generates recommendations for Amazon Aurora and RDS databases running the following engines:
+Compute Optimizer generates recommendations for Amazon Aurora and RDS databases running the following engines:
 
 - RDS for MySQL
 - RDS for PostgreSQL
