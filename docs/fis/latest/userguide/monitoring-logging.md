@@ -71,6 +71,7 @@ For more information, see [Example log records](#example-log-records "#example-l
 ###### Release notes
 
 - Version 2 introduces:
+
   - The `target_type` field and changes the
     `resolved_targets` field from a list of ARNs to a list of objects.
     The valid fields for the `resolved_targets` object depend on the

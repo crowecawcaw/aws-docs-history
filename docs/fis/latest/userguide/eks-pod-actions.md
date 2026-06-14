@@ -35,11 +35,13 @@ Upon experiment completion or if an error occurs, the ephemeral container and th
 ## Limitations
 
 - The following actions do not work with AWS Fargate:
+
   - aws:eks:pod-network-blackhole-port
   - aws:eks:pod-network-latency
   - aws:eks:pod-network-packet-loss
 
 - The following actions do not support the `bridge` [network mode](../../../AmazonECS/latest/bestpracticesguide/networking-networkmode.md "../../../AmazonECS/latest/bestpracticesguide/networking-networkmode.md"):
+
   - aws:eks:pod-network-blackhole-port
   - aws:eks:pod-network-latency
   - aws:eks:pod-network-packet-loss
@@ -56,6 +58,7 @@ Upon experiment completion or if an error occurs, the ephemeral container and th
   experiment template using resource ARNs or resource tags. You must identify
   targets using the required resource parameters.
 - The actions aws:eks:pod-network-latency and aws:eks:pod-network-packet-loss should not be run in parallel and target the same Pod. Depending on the value of the `maxErrors` parameter you specify, the action may end in completed or in failed state:
+
   - If `maxErrorsPercent` is 0 (default), the action will end in failed state.
   - Otherwise, the failure will add up to the `maxErrorsPercent` budget. If the number of failed injections do not reach the provided `maxErrors`, the action will end up in completed state.
   - You can identify these failures from the logs of the injected ephemeral container in the target Pod. It will fail with `Exit Code: 16`.

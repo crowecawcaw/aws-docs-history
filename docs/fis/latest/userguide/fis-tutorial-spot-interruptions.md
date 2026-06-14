@@ -98,10 +98,12 @@ AWS FIS chooses one of them at random.
    templates**.
 3. Choose **Create experiment template**.
 4. For **Step 1, Specify template details**, do the following:
+
    1. For **Description and name**, enter a description and a name for the template.
    2. Choose **Next**, and move to **Step 2, Specify actions and targets**.
 
 5. For **Actions**, do the following:
+
    1. Choose **Add action**.
    2. Enter a name for the action. For example, enter
       `interruptSpotInstance`.
@@ -114,6 +116,7 @@ AWS FIS chooses one of them at random.
    6. Choose **Save**.
 
 6. For **Targets**, do the following:
+
    1. Choose **Edit** for the target that
       AWS FIS automatically created for you in the previous step.
    2. Replace the default name with a more descriptive name. For
@@ -248,6 +251,7 @@ When the action for this experiment is completed, the following occurs:
 3. For **Spot Requests**, select the Spot Instance request.
    The initial status is `fulfilled`. After the experiment completes,
    the status changes as follows:
+
    - `terminate` - The status changes to
      `instance-terminated-by-experiment`.
    - `stop` - The status changes to
@@ -257,6 +261,7 @@ When the action for this experiment is completed, the following occurs:
 4. For **Instances**, select the Spot Instance. The initial
    status is `Running`. Two minutes after you receive the Spot Instance
    interruption notice, the status changes as follows:
+
    - `stop` - The status changes to `Stopping` and then
      `Stopped`.
    - `terminate` - The status changes to `Shutting-down`

@@ -16,6 +16,7 @@ Before you begin, complete the following tasks:
    templates**.
 3. Choose **Create experiment template**.
 4. For **Step 1, Specify template details**, do the following:
+
    1. For **Description and name**, enter a description for the template, such as `Amazon S3 Network Disrupt
 Connectivity`.
    2. (Optional) For **Account targeting**, choose **Multiple accounts**
@@ -25,6 +26,7 @@ Connectivity`.
 5. For **Actions**, specify the set of actions for the
    template. For each action, choose **Add action** and complete
    the following:
+
    - For **Name**, enter a name for the action.
 
    Allowed characters are alphanumeric characters, hyphens (-), and
@@ -54,6 +56,7 @@ Connectivity`.
    target that AWS FIS created for you in the previous step, or choose
    **Add target**. For each target, do the
    following:
+
    - For **Name**, enter a name for the
      target.
 
@@ -64,6 +67,7 @@ Connectivity`.
      that is supported for the action.
    - For **Target method**, do one of the
      following:
+
      - Choose **Resource IDs** and then choose or add
        the resource IDs.
      - Choose **Resource tags, filters, and

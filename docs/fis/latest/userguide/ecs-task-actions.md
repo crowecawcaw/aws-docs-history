@@ -33,6 +33,7 @@ The following diagram exemplifies the setup and fault injection on a task with o
 ## Limitations
 
 - The following actions cannot run in parallel:
+
   - aws:ecs:task-network-blackhole-port
   - aws:ecs:task-network-latency
   - aws:ecs:task-network-packet-loss
@@ -49,6 +50,7 @@ The following diagram exemplifies the setup and fault injection on a task with o
 ## Requirements
 
 - Add the following permissions to the AWS FIS [experiment role](getting-started-iam-service-role.md "getting-started-iam-service-role.md"):
+
   - `ecs:DescribeTasks`
   - `ssm:SendCommand`
   - `ssm:ListCommands`
@@ -68,6 +70,7 @@ The following diagram exemplifies the setup and fault injection on a task with o
 - In the task definition, set the environment variable `MANAGED_INSTANCE_ROLE_NAME` to the name
   of the [managed instance role](../../../systems-manager/latest/userguide/hybrid-multicloud-service-role.md "../../../systems-manager/latest/userguide/hybrid-multicloud-service-role.md"). This is the role that will be attached to the tasks registered as managed instances in SSM.
 - Add the following permissions to the managed instance role:
+
   - `ssm:DeleteActivation`
   - `ssm:DeregisterManagedInstance`
 

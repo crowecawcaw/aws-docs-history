@@ -28,6 +28,7 @@ supported](../../../scheduler/latest/UserGuide/schedule-types.md "../../../sched
    the schedule.
 4. Click **Actions**, and select **Schedule Experiment**
    from the dropdown.
+
    1. Under **Schedule name**, name is auto populated.
    2. Under **Schedule pattern**, select **Recurring
       schedule**.

@@ -141,6 +141,7 @@ aws iam create-role --role-name `my-fis-role` --assume-role-policy-document file
 2. Create a text file named `fis-role-permissions-policy.json`
    and add a permissions policy. For an example that you can use as a starting
    point, see the following.
+
    - Fault injection actions – Start
      from the following policy.
 
@@ -164,7 +165,6 @@ aws iam create-role --role-name `my-fis-role` --assume-role-policy-document file
    }`
 
    ```
-
    - Amazon EBS actions – Start from the
      following policy.
 
@@ -192,7 +192,6 @@ aws iam create-role --role-name `my-fis-role` --assume-role-policy-document file
    }`
 
    ```
-
    - Amazon EC2 actions – Start from the
      [AWSFaultInjectionSimulatorEC2Access](../../../aws-managed-policy/latest/reference/AWSFaultInjectionSimulatorEC2Access.md "../../../aws-managed-policy/latest/reference/AWSFaultInjectionSimulatorEC2Access.md") policy.
    - Amazon ECS actions – Start from the

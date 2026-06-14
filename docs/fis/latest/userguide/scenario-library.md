@@ -26,6 +26,7 @@ To view a scenario using the console:
 2. In the navigation pane, choose **Scenario library**.
 3. To view information about a specific scenario, select the scenario card to
    bring up a split panel.
+
    - In the **Description** tab in the split panel at
      the bottom of the page, you can view a short description of the scenario. You
      can also find a short summary of pre-requisites containing a summary of the
@@ -57,6 +58,7 @@ To use a scenario using the console:
    template with scenario**.
 5. In the **Create experiment template** view fill in any
    missing items.
+
    1. Some scenarios allow you to edit parameters that are shared
       across multiple actions or targets. This functionality will be disabled
       once you make any changes to the scenario, including changes by the shared

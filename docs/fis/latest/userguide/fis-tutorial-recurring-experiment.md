@@ -126,6 +126,7 @@ role**.
 3. Verify that you are in the same AWS Region as your AWS FIS experiment
    template.
 4. Choose **Create schedule**, and fill in the following:
+
    - Under **Schedule name**, insert
      `FIS_recurring_experiment_tutorial`.
    - Under **Schedule pattern**, select **Recurring schedule**.

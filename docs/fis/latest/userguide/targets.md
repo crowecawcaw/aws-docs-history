@@ -17,6 +17,7 @@ experiment. If no targets are found, the experiment fails.
 - [Target syntax](targets.md#target-syntax "targets.md#target-syntax")
 - [Resource types](targets.md#resource-types "targets.md#resource-types")
 - [Identify target resources](targets.md#target-identification "targets.md#target-identification")
+
   - [Resource filters](targets.md#target-filters "targets.md#target-filters")
   - [Resource parameters](targets.md#target-parameters "targets.md#target-parameters")
 

@@ -30,11 +30,13 @@ second action stops both test instances.
 2. In the navigation pane, choose **Experiment templates**.
 3. Choose **Create experiment template**.
 4. For **Step 1, Specify template details**, do the following:
+
    1. For **Description and name**, enter a description for the template, such as `Amazon S3 Network Disrupt
 Connectivity`.
    2. Choose **Next**, and move to **Step 2, Specify actions and targets**.
 
 5. For **Actions**, do the following:
+
    1. Choose **Add action**.
    2. Enter a name for the action. For example, enter
       `stopOneInstance`.
@@ -48,6 +50,7 @@ Connectivity`.
    6. Choose **Save**.
 
 6. For **Targets**, do the following:
+
    1. Choose **Edit** for the target that AWS FIS
       automatically created for you in the previous step.
    2. Replace the default name with a more descriptive name. For
@@ -62,6 +65,7 @@ Connectivity`.
    6. Choose **Save**.
 
 7. Choose **Add target** and do the following:
+
    1. Enter a name for the target. For example, enter
       `bothInstances`.
    2. For **Resource type**, choose
@@ -74,6 +78,7 @@ Connectivity`.
 
 8. From the **Actions** section, choose **Add
    action**. Do the following:
+
    1. For **Name**, enter a name for the action. For
       example, enter `stopBothInstances`.
    2. For **Action type**, choose

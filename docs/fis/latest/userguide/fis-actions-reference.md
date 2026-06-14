@@ -1046,6 +1046,7 @@ removed.
   `litmuschaos.io/v1alpha1`.
 - **kubernetesKind** – The Kubernetes custom resource
   kind. The value depends on the API version.
+
   - `chaos-mesh.org/v1alpha1` – The possible values are
     `AWSChaos` | `DNSChaos` |
     `GCPChaos` | `HTTPChaos` |
@@ -1652,6 +1653,7 @@ Denies the specified traffic to the target subnets by temporarily cloning the or
 
 - **scope** – The type of traffic to deny. When the scope is not `all`, the maximum number of entries in network ACLs is 20.
   The possible values are:
+
   - `all` – Denies all traffic entering and leaving the subnet.
     Note that this option allows intra-subnet traffic, including traffic to and from network interfaces in the subnet.
   - `availability-zone` – Denies intra-VPC traffic to and from subnets in other Availability Zones. The maximum number of subnets that can be targeted in a VPC is 30.

@@ -13,6 +13,7 @@ account after 120 days.
 3. Choose the **Experiment ID** of the experiment to open
    its details page.
 4. Do one or more of the following:
+
    - Check **Details**, **State** for
      the [state of the
      experiment](#experiment-states "#experiment-states").

@@ -16,6 +16,7 @@ To delete or disable a rule
    Select the schedule associated and Click the button **Update
    Schedule**.
 6. Do one of the following:
+
    1. To delete the schedule, select the button next to the rule **Delete Schedule**. Type `delete` and
       click the **Delete Schedule** button.
    2. To disable the schedule, select the button next to the rule **Disable Schedule**. Type `disable` and
