@@ -26,6 +26,7 @@ must be the **Space administrator** or the **Project administrator**.
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to your CodeCatalyst space.
 3. Do one of the following to view a list of the installed extensions for your space:
+
    1. Choose **Settings**, and then choose **Installed extensions**.
    2. Choose the **Catalog** icon
 
@@ -35,6 +36,7 @@ must be the **Space administrator** or the **Project administrator**.
 4. Choose **Configure** for one of the following extensions you want to configure: **GitHub repositories**, **Bitbucket repositories**,
    **GitLab repositories**, or **Jira Software**.
 5. Do one of the following depending on the third-party extension you chose to configure:
+
    - **GitHub repositories**: Unlink a GitHub repository.
 
    In the **GitHub repositories** tab, choose the GitHub repository you want to unlink, and then

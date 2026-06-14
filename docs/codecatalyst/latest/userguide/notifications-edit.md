@@ -13,6 +13,7 @@ notifications altogether.
 4. Choose the **Notifications** tab.
 5. Choose **Edit notifications**.
 6. Do one of the following:
+
    - To send a notification to a specific channel, choose the channel from the
      drop-down list.
    - To turn off a notification globally, choose the toggle next to the

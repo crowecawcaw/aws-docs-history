@@ -11,12 +11,14 @@ Perform the following steps to create a package repository in CodeCatalyst.
 3. From the navigation pane, choose **Packages**.
 4. On the **Package repositories** page, choose **Create package repository**.
 5. In the **Package repository details** section, add the following:
+
    1. **Repository name**. Consider using a descriptive name with details such as your project or team name, or how the repository will be used.
    2. (Optional) **Description**.
       A repository description is especially helpful when you have multiple repositories across multiple teams in a project.
 
 6. In the **Upstream repositories** section, choose **Select upstream repositories** to add any package repositories that you want to access through your
    CodeCatalyst package repository. You can add **Gateway repositories** to connect to external package repositories or other **CodeCatalyst repositories**.
+
    1. When a package is requested from a package repository, upstream repositories will be searched in the order they appear in this list. Once a package is found, CodeCatalyst will stop
       searching. To change the order of the upstream repositories, you can drag and drop the repositories in the list.
 

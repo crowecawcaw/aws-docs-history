@@ -183,6 +183,7 @@ Visual
    properties**.
 7. Expand **Advanced**, and under **Run
    mode**, choose one of the following:
+
    1. **Queued** – see [About queued run mode](#workflows-configure-runs-queued "#workflows-configure-runs-queued")
    2. **Superseded** – see [About superseded run mode](#workflows-configure-runs-superseded "#workflows-configure-runs-superseded")
    3. **Parallel** – see [About parallel run mode](#workflows-configure-runs-parallel "#workflows-configure-runs-parallel")

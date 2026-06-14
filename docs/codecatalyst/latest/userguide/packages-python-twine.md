@@ -20,6 +20,7 @@ The following instructions explain how to authenticate and connect `twine` to yo
     **Twine** from the list of package manager
     clients.
 6.  You will need a personal access token (PAT) to authenticate twine with CodeCatalyst. If you already have one, you can use that. If not, you can create one here.
+
     1. Choose **Create token**.
     2. Choose **Copy** to copy your PAT.
 
@@ -28,6 +29,7 @@ The following instructions explain how to authenticate and connect `twine` to yo
     You will not be able to see or copy your PAT again after you close the dialog box.
 
 7.  You can configure twine with a `.pypirc` file, or with environment variables.
+
     1. **To configure with a `.pypirc` file.**
 
     Open `~/.pypirc` in your editor of choice.
@@ -54,7 +56,6 @@ The following instructions explain how to authenticate and connect `twine` to yo
     password = `PAT`
     username = `username`
     ```
-
     2. **To configure with environment variables.**
 
     Set the following environment variables. In the `TWINE_REPOSITORY_URL` value, update

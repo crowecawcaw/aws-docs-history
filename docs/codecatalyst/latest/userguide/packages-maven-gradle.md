@@ -13,6 +13,7 @@ connecting Gradle Groovy to your package repository in the CodeCatalyst console.
 - [Fetching packages from external package repositories through CodeCatalyst](packages-maven-gradle.md#gradle-install-public "packages-maven-gradle.md#gradle-install-public")
 - [Publishing packages to CodeCatalyst](packages-maven-gradle.md#gradle-publish-packages "packages-maven-gradle.md#gradle-publish-packages")
 - [Running a Gradle build in IntelliJ IDEA](packages-maven-gradle.md#gradle-intellij "packages-maven-gradle.md#gradle-intellij")
+
   - [Method 1: Put the PAT in gradle.properties](packages-maven-gradle.md#gradle-intellij-gradle-properties "packages-maven-gradle.md#gradle-intellij-gradle-properties")
   - [Method 2: Put the PAT in a separate file](packages-maven-gradle.md#gradle-intellij-file "packages-maven-gradle.md#gradle-intellij-file")
 
@@ -35,6 +36,7 @@ your CodeCatalyst package repository.
 7. You will need a personal access token (PAT) to authenticate Gradle Groovy with
    CodeCatalyst. If you already have one, you can use that. If not, you can create
    one here.
+
    1. Choose **Create token**.
    2. Choose **Copy** to copy your PAT.
 
@@ -108,6 +110,7 @@ repository.
 7. You will need a personal access token (PAT) to authenticate Gradle with
    CodeCatalyst. If you already have one, you can use that. If not, you can create
    one here.
+
    1. Choose **Create token**.
    2. Choose **Copy** to copy your PAT.
 
@@ -210,6 +213,7 @@ repository.
 6. You will need a personal access token (PAT) to authenticate Gradle with
    CodeCatalyst. If you already have one, you can use that. If not, you can create
    one here.
+
    1. Choose **Create token**.
    2. Choose **Copy** to copy your PAT.
 

@@ -13,6 +13,7 @@ repository available to package managers that are connected to the downstream re
    add an upstream repository to.
 3. Under the package repository's name, choose **Upstreams** and choose **Select upstream repositories**.
 4. In **Select upstream type**, choose one of the following:
+
    - **Gateway repositories**
 
    You can choose from a list of available gateway repositories.

@@ -18,6 +18,7 @@ projects that are created with or adding the blueprint.
 2. In the CodeCatalyst console, navigate to the space where you want to view a custom blueprint.
 3. On the space dashboard, choose the **Settings** tab, and then choose **Blueprints** to
    view the **Space blueprints**. The following details are displayed in the table:
+
    - **Name** - Name of the custom blueprint.
    - **Catalog status** - Whether the custom blueprint is published to the space's blueprints catalog.
    - **Latest version** - The atest version of the custom blueprint.

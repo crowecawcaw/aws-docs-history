@@ -92,6 +92,7 @@ Data replicated across AWS Regions inside a partition includes:
 - The role ID that indicates a user's role in a space or project
 - When signing up for CodeCatalyst, data and metadata about the signup process,
   including:
+
   - The unique ID of the AWS Builder ID
   - The display name for the user in their AWS Builder ID
   - The alias of the user in their AWS Builder ID

@@ -28,12 +28,14 @@ Visual
 8. From the drop-down list, choose **Amazon CodeCatalyst**.
 9. Search for the **AWS Lambda invoke** action, and do one of the
    following:
+
    - Choose the plus sign (**+**) to add the action to the
      workflow diagram and open its configuration pane.
 
    Or
    - Choose **AWS Lambda invoke**. The action details dialog box
      appears. On this dialog box:
+
      - (Optional) Choose **View source** to [view the action's source
        code](workflows-view-source.md#workflows-view-source.title "workflows-view-source.md#workflows-view-source.title").
      - Choose **Add to workflow** to add the action to the
@@ -66,12 +68,14 @@ YAML
 8. From the drop-down list, choose **Amazon CodeCatalyst**.
 9. Search for the **AWS Lambda invoke** action, and do one of the
    following:
+
    - Choose the plus sign (**+**) to add the action to the
      workflow diagram and open its configuration pane.
 
    Or
    - Choose **AWS Lambda invoke**. The action details dialog box
      appears. On this dialog box:
+
      - (Optional) Choose **View source** to [view the action's source
        code](workflows-view-source.md#workflows-view-source.title "workflows-view-source.md#workflows-view-source.title").
      - Choose **Add to workflow** to add the action to the

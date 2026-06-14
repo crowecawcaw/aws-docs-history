@@ -45,6 +45,7 @@ Visual
 10. Under **Monitor alarm ARNs**, choose **Add
     alarm**.
 11. Enter information into the following fields.
+
     - **Alarm ARN**
 
     Specify the Amazon Resource Name (ARN) of an Amazon CloudWatch alarm to use as a rollback trigger.

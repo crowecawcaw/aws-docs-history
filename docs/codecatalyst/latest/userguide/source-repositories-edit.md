@@ -29,6 +29,7 @@ documentation for the service that hosts the linked repository.
 3. On the overview page for the repository, choose **More**, and
    then choose **Manage settings**.
 4. Do one or more of the following:
+
    - Edit the description of the repository and then choose **Save**.
    - To change the default branch for the repository, in **Default branch**, choose **Edit**.
      For more information, see [Managing the default branch for a repository](source-branches-default-branch.md "source-branches-default-branch.md").

@@ -39,6 +39,7 @@ You can use Dev Environments with the following supported integrated development
 
 - [AWS Cloud9](../../../cloud9/latest/user-guide/welcome.md "../../../cloud9/latest/user-guide/welcome.md")
 - [JetBrains IDEs](https://www.jetbrains.com/help "https://www.jetbrains.com/help")
+
   - [IntelliJ
     IDEA Ultimate](https://www.jetbrains.com/help/idea/getting-started.html "https://www.jetbrains.com/help/idea/getting-started.html")
   - [GoLand](https://www.jetbrains.com/help/go/getting-started.html "https://www.jetbrains.com/help/go/getting-started.html")
@@ -57,6 +58,7 @@ either your [AWS Builder ID](id-how-to-sign-in.md "id-how-to-sign-in.md") or [SS
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to the project where you want to create a Dev Environment.
 3. In the navigation pane, do one of the following:
+
    - Choose **Overview**, and then navigate to the **My Dev Environments** section.
    - Choose **Code**, and then choose **Dev Environments**.
    - Choose **Code**, choose **Source repositories**, and choose the repository for which you want to create a Dev Environment.
@@ -65,6 +67,7 @@ either your [AWS Builder ID](id-how-to-sign-in.md "id-how-to-sign-in.md") or [SS
 5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](#devenvironment-supported-ide "#devenvironment-supported-ide") for more information.
 6. Choose **Clone a repository**.
 7. Do one of the following:
+
    1. Choose the repository to clone, choose **Work in existing branch**, and then choose a branch from the
       **Existing branch** drop-down menu.
 
@@ -99,6 +102,7 @@ When you create a Dev Environment with a VPC connection, a new network interface
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to the project where you want to create a Dev Environment.
 3. In the navigation pane, do one of the following:
+
    - Choose **Overview**, and then navigate to the **My Dev Environments** section.
    - Choose **Code**, and then choose **Dev Environments**.
 

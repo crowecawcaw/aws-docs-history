@@ -7,6 +7,7 @@ You can view the name and contents of the updated task definition file.
 ###### To view the name of the updated task definition file, after the **Render Amazon ECS task definition** action has processed it.
 
 1. Find the run that includes a completed render action:
+
    1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
    2. Choose your project.
    3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
@@ -24,6 +25,7 @@ You can view the name and contents of the updated task definition file.
 ###### To view the contents of the updated task definition file
 
 1. Find the run that includes a completed render action:
+
    1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
    2. Choose your project.
    3. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.

@@ -33,6 +33,7 @@ To view a project, you must be a member of the project or have the
    **Projects**, choose your project.
 3. In the navigation pane, choose **Overview**.
 4. View the project tasks assigned to you and created by you.
+
    - View the **Members + View all** list to view a list of the
      project members.
    - View the **Repositories** card to view the source repositories

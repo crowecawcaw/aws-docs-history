@@ -37,6 +37,7 @@ available for a pull request before you start to review it.
 1. Navigate to your project.
 2. Navigate to the pull requests by doing one of the
    following:
+
    - If the pull request is listed on the project page, choose it from the list.
    - If the pull request is not listed on the project page, choose **View
      all**. Use the filters and sort to find the pull request, and then choose it

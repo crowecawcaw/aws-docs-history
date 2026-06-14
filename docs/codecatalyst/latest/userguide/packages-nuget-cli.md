@@ -29,6 +29,7 @@ connect to your CodeCatalyst package repository.
    package manager clients.
 6. You will need a personal access token (PAT) to authenticate NuGet with CodeCatalyst.
    If you already have one, you can use that. If not, you can create one here.
+
    1. Choose **Create token**.
    2. Choose **Copy** to copy your PAT.
 

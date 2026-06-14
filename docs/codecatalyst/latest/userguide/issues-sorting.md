@@ -29,6 +29,7 @@ Use the following procedure to change how issues are sorted.
 3. (Optional) Choose **Active issues** to open the **issues view switcher** dropdown menu to
    navigate to a different issues view.
 4. To sort a grid view, there are two options:
+
    1. Choose the **header** of the field you want to sort by. Choosing the **header** will
       cycle between ascending and descending order.
    2. Choose the **Sort by** dropdown menu and choose a parameter to sort by. Issues will

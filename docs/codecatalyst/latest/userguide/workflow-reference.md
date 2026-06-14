@@ -109,6 +109,7 @@ Permitted:
 - **Escape codes**: If your property value
   includes escape codes (for example, `\n` or `\t`),
   follow these guidelines:
+
   - Use single quotes to return the escape code as a string. For
     example, `'my string \n my string'`, returns the string
     `my string \n my string`.

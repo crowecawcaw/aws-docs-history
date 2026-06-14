@@ -54,6 +54,7 @@ icon, and then choose **Support**. 4. Choose **Create case**. 5. Choose one of t
 6. Choose the **Service**, **Category**, and
    **Severity**. For information about choosing a severity,
    see [Choosing a severity](../../../awssupport/latest/user/case-management.md#choosing-severity "../../../awssupport/latest/user/case-management.md#choosing-severity").
+
    - **General guidance**
    - **System impaired**
    - **Production system impaired**
@@ -65,6 +66,7 @@ icon, and then choose **Support**. 4. Choose **Create case**. 5. Choose one of t
    **Subject**, enter a title about your issue.
 9. For **Description**, follow the prompts to describe your
    case, such as the following:
+
    - Troubleshooting information that is specific to CodeCatalyst, such as
      workflow ID, logs, or screenshots
    - Error messages that you received

@@ -58,6 +58,7 @@ YAML
 7. Find the action whose version you want to edit.
 8. Find the action's `Identifier` property, and set the
    version to one of the following:
+
    - action-identifier@v`major`
      – Use this syntax to have the workflow use a specific
      major version, and allow the latest minor and patch versions

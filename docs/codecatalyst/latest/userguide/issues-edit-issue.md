@@ -23,6 +23,7 @@ estimate, or labels of an issue.
    dropdown menus.
 6. In **Labels**, you can add an existing label, create a
    new label, or remove a label.
+
    1. To add an existing label, choose **+ Add label**
       and choose the label from the list. You can enter a search term in
       the field to search all labels containing that term in the

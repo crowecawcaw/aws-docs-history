@@ -532,6 +532,7 @@ git push
 ###### To test that 'Hello World' cannot pull version 4.17.21 of 'lodash'
 
 1.  Run the workflow with the version mismatch:
+
     1. Switch to the CodeCatalyst console.
     2. In the navigation pane, choose **CI/CD**, and then choose
        **Workflows**.
@@ -554,6 +555,7 @@ git push
     Because the import does not occur, the workflow fails.
 
 2.  Verify that the workflow failed:
+
     1. In the green notification at the top, on the right, choose the link to the run.
        The link looks similar to `View Run-2345`.
     2. In the workflow diagram, choose the **RunHelloWorldApp**
@@ -592,6 +594,7 @@ Your workflow can now import version 4.17.21 of `lodash`.
 
 1. Run your workflow again. This time the workflow should succeed because the import of
    4.17.21 should now work. To run the workflow again:
+
    1. Choose **CI/CD** and then choose
       **Workflows**.
    2. Next to `codecatalyst-package-workflow`, choose
@@ -613,6 +616,7 @@ Your workflow can now import version 4.17.21 of `lodash`.
 
 2. Verify that version 4.17.21 was imported to your CodeCatalyst and gateway
    repositories:
+
    1. In the navigation pane, choose **Packages**.
    2. Choose **npm-public-registry-gateway**.
    3. Find `lodash` and make sure the version is `4.17.21`.
@@ -632,6 +636,7 @@ them.
 ###### To clean up the packages tutorial
 
 1. Delete the `codecatalyst-package-project`:
+
    1. In the CodeCatalyst console, nagivate to the
       `codecatalyst-package-project` project if you're not there
       already.
@@ -643,6 +648,7 @@ them.
    package repositories. The Dev Environment is also deleted.
 
 2. Delete the PAT token:
+
    1. Choose your username on the right, and then choose **My
       settings**.
    2. Under **Personal access tokens**, choose the token you created in

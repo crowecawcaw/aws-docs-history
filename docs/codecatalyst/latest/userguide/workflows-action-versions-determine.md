@@ -12,6 +12,7 @@ Visual
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Choose your project.
 3. Find the action whose versions you want to view:
+
    1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
    2. Choose the name of any workflow, or create one. For
       information about creating a workflow, see [Creating a workflow](workflows-create-workflow.md "workflows-create-workflow.md").

@@ -24,6 +24,7 @@ For more information about gates, see [Gating a workflow run](workflows-gates.md
 9. Configure the gate. Choose **Visual** to use the visual
    editor, or **YAML** to use the YAML editor. For detailed
    instructions, see:
+
    - [Adding an 'Approval' gate](workflows-approval-add.md "workflows-approval-add.md")
 
 10. (Optional) Choose **Validate** to make sure the YAML code is

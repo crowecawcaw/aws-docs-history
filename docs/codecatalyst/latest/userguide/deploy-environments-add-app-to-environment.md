@@ -122,6 +122,7 @@ console. For more information, see [Which actions support having their deploymen
 1. If a workflow run did not start automatically when you committed your changes in
    [Step 1: Associate the environment with a workflow action](#deploy-environments-add-app-to-environment-assoc "#deploy-environments-add-app-to-environment-assoc"), manually start a
    run as follows:
+
    1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
    2. Choose the name of your workflow. You can filter by the source repository or
       branch name where the workflow is defined, or filter by workflow name or
@@ -130,6 +131,7 @@ console. For more information, see [Which actions support having their deploymen
       information to CodeCatalyst.
 
 2. Verify that deployment activity was added to the CodeCatalyst console:
+
    1. In the navigation pane, choose **CI/CD**, and then choose
       **Environments**.
    2. Choose your environment (for example, `Production`).

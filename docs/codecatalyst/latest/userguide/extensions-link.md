@@ -73,6 +73,7 @@ To link your Jira project to your CodeCatalyst project, you must be the CodeCata
 1.  Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2.  Navigate to your CodeCatalyst space.
 3.  Do one of the following to view a list of the installed extensions for your space space:
+
     1. Choose **Settings**, and then choose **Installed extensions**.
     2. Choose the **Catalog** icon
 
@@ -82,6 +83,7 @@ To link your Jira project to your CodeCatalyst project, you must be the CodeCata
 4.  Choose **Configure** for one of the following extensions: **GitHub repositories**, **Bitbucket repositories**, **GitLab repositories**,
     or **Jira Software**.
 5.  Do one of the following depending on the third-party extension you chose to configure:
+
     - **GitHub repositories**: Link a GitHub repository.
 
           1. In the **Linked GitHub repositories** tab, choose **Link GitHub repository**.
@@ -178,7 +180,9 @@ To link your Jira project to your CodeCatalyst project, you must be the CodeCata
 5.  From the **Repository provider** dropdown menu, choose one of the following third-party repository providers:
     **GitHub**, **Bitbucket**, **GitLab**.
 6.  Do one of the following depending on the third-party repository provider you chose to link:
+
     - **GitHub repositories**: Link a GitHub repository.
+
       1. From the **GitHub account** dropdown menu, choose the GitHub account that contains the repository that you want to link.
       2. From the **GitHub repository** dropdown menu, choose the GitHub repository you want to link your CodeCatalyst project.
 
@@ -199,6 +203,7 @@ To link your Jira project to your CodeCatalyst project, you must be the CodeCata
           	 repositories** dropdown, and then choose a repository you want to allow to link in CodeCatalyst.
 
     - **Bitbucket repositories**: Link a Bitbucket repository.
+
       1. From the **Bitbucket workspace** dropdown menu, choose the Bitbucket workspace that contains the repository that you want to link.
       2. From the **Bitbucket repository** dropdown menu, choose the Bitbucket repository you want to link your CodeCatalyst project.
 
@@ -207,6 +212,7 @@ To link your Jira project to your CodeCatalyst project, you must be the CodeCata
       If the name of the repository is greyed out, you can't link that repository because it has already been linked to another project in the Amazon CodeCatalyst.
 
     - **GitLab repositories**: Link a GitLab project repository.
+
       1. From the **GitLab user** dropdown menu, choose the GitLab user that contains the project repository that you want to link.
       2. From the **GitLab project repository** dropdown menu, choose the GitLab project repository you want to link your CodeCatalyst project.
 

@@ -12,6 +12,7 @@ Use the following procedure to change the name or color of an existing label.
 3. On the **Labels** tile is a list of the labels used in the
    project. Choose the edit icon next to the label that you want to edit. Do one or more
    of the following:
+
    1. Edit the name of the label.
    2. To change the color, choose the color wheel. Use the picker to choose a new
       color.

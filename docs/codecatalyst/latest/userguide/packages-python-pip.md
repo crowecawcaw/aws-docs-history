@@ -11,6 +11,7 @@ instructions for connecting `pip` to your package repository in the CodeCatalyst
 - [Installing Python packages from CodeCatalyst with pip](packages-python-pip.md#pip-install "packages-python-pip.md#pip-install")
 - [Consuming Python packages from PyPI through CodeCatalyst](packages-python-pip.md#pip-install-pypi "packages-python-pip.md#pip-install-pypi")
 - [pip command support](packages-python-pip.md#pip-command-support "packages-python-pip.md#pip-command-support")
+
   - [Supported commands that interact with a repository](packages-python-pip.md#supported-pip-commands-that-interact-with-a-repository "packages-python-pip.md#supported-pip-commands-that-interact-with-a-repository")
   - [Supported client-side commands](packages-python-pip.md#supported-pip-client-side-commands "packages-python-pip.md#supported-pip-client-side-commands")
 
@@ -29,6 +30,7 @@ from your CodeCatalyst package repository or one of its upstream repositories.
    **pip** from the list of package manager
    clients.
 6. You will need a personal access token (PAT) to authenticate pip with CodeCatalyst. If you already have one, you can use that. If not, you can create one here.
+
    1. Choose **Create token**.
    2. Choose **Copy** to copy your PAT.
 

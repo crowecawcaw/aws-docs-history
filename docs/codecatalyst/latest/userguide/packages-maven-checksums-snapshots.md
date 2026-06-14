@@ -32,6 +32,7 @@ Maven package:
   package is not set to `Unfinished`. The package is not visible
   and its assets cannot be consumed. When this happens, try one of the
   following, and then try to download the asset again.
+
   - Run the command that publishes the Maven package again. This might
     work if a network issue corrupted the checksum file during download.
     If the network issue is resolved for the retry, the checksum matches

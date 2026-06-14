@@ -108,6 +108,7 @@ Bitbucket workspace, GitLab project repository, or Jira site to your CodeCatalys
 ###### To connect your GitHub account, Bitbucket workspace, or Jira site to CodeCatalyst
 
 - Do one of the following depending on the third-party extension you installed:
+
   - **GitHub repositories**: Connect to a GitHub account.
 
         1. In the **Connected GitHub accounts** tab, choose **Connect GitHub account** to go to
@@ -219,6 +220,7 @@ Jira issues in CodeCatalyst is to link them to the CodeCatalyst project in which
 ###### To link a GitHub repository, Bitbucket repository, GitLab project repository, or Jira project to a CodeCatalyst project from the extension details page
 
 - Do one of the following depending on the third-party extension you installed and provider you connected:
+
   - **GitHub repositories**: Link a GitHub repository.
 
         1. In the **Linked GitHub repositories** tab, choose **Link GitHub repository**.

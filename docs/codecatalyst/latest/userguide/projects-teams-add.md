@@ -17,6 +17,7 @@ displayed with the role with the most permissions first.
 4. In **Team**, choose a team from the list of teams available.
 5. Under **Project role**, choose a role from the list of project roles
    available in CodeCatalyst.
+
    - **Project administrator** — For details, see [Project administrator role](ipa-role-types.md#ipa-role-project-admin "ipa-role-types.md#ipa-role-project-admin").
    - **Contributor** — For details, see [Contributor role](ipa-role-types.md#ipa-role-contributor "ipa-role-types.md#ipa-role-contributor").
    - **Reviewer** — For details, see [Reviewer role](ipa-role-types.md#ipa-role-reviewer "ipa-role-types.md#ipa-role-reviewer").

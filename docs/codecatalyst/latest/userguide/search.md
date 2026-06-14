@@ -21,6 +21,7 @@ the search query language.
 2. (Optional) Refine your search query using CodeCatalyst's search query language. For more
    information, see [Refining your search query](#search-query-language-examples "#search-query-language-examples").
 3. Do one of the following:
+
    - To search for resources within the project that you are currently in, choose
      **This project**.
    - To search for resources within all of the projects in the space you are currently
@@ -28,6 +29,7 @@ the search query language.
 
 4. View search results in a dedicated search results window by doing one of the
    following:
+
    - In the bottom of the quick search results window, choose **View all results in
      project-name | space-name** to view all search results.
    - Press **Enter** to view all search results.

@@ -19,6 +19,7 @@ in the _Amazon Q Developer User Guide_.
    your issue, see [Finding and viewing issues](issues-view.md "issues-view.md").
 2. In **Tasks**, you can view and manage tasks for the
    issue.
+
    1. To add a task, input the task name in the text field and press
       enter.
    2. If there are no tasks for the issue, you can choose to have Amazon Q

@@ -9,6 +9,7 @@ To configure and use NuGet with CLI tools such as `dotnet` or `nuget`, see [Conf
 ###### Contents
 
 - [Configuring Visual Studio with CodeCatalyst](packages-nuget-visual-studio.md#packages-nuget-vs-configure "packages-nuget-visual-studio.md#packages-nuget-vs-configure")
+
   - [Windows](packages-nuget-visual-studio.md#packages-nuget-vs-configure-windows "packages-nuget-visual-studio.md#packages-nuget-vs-configure-windows")
   - [macOS](packages-nuget-visual-studio.md#packages-nuget-vs-configure-mac "packages-nuget-visual-studio.md#packages-nuget-vs-configure-mac")
 
@@ -68,6 +69,7 @@ Package source with Name: `repo_name` added successfully.
 2. Choose **Preferences** from the menu bar.
 3. In the **NuGet** section, choose **Sources**.
 4. Choose **Add** and add your repository information.
+
    1. For **Name**, enter your CodeCatalyst package repository name.
    2. For **Location**, enter your CodeCatalyst package repository endpoint. The
       following snippet shows an example endpoint. Replace `space-name`, `proj-name`,
@@ -76,7 +78,6 @@ Package source with Name: `repo_name` added successfully.
    ```
    https://packages.`region`.codecatalyst.aws/nuget/`space-name`/`proj-name`/`repo-name`/
    ```
-
    3. For **Username**, enter any valid value.
    4. For **Password**, enter your PAT.
 

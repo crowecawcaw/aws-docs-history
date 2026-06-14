@@ -63,11 +63,13 @@ the workflow is not yet committed. 8. Choose **Visual**. 9. Build the workflow:
     workflow's YAML code before committing.
 11. Choose **Commit**, and on the **Commit
     workflow** dialog box, do the following:
+
     1.  For **Workflow file name**, leave the default
         name or enter your own. The file will be stored in a
         `~/.codecatalyst/workflows/` folder in
         the chosen source repository and branch. You can preface the
         file name with a folder or subfolder. Examples:
+
         - Specifying `my-workflow` (no
           folder) stores the file as
           `~/.codecatalyst/workflows/my-workflow.yaml`
@@ -126,11 +128,13 @@ the workflow is not yet committed. 8. Choose **YAML**. 9. Build the workflow:
     workflow's YAML code before committing.
 11. Choose **Commit**, and on the **Commit
     workflow** dialog box, do the following:
+
     1.  For **Workflow file name**, leave the default
         name or enter your own. The file will be stored in a
         `~/.codecatalyst/workflows/` folder in
         the chosen source repository and branch. You can preface the
         file name with a folder or subfolder. Examples:
+
         - Specifying `my-workflow` (no
           folder) stores the file as
           `~/.codecatalyst/workflows/my-workflow.yaml`

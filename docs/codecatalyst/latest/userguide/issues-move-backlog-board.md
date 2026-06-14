@@ -11,12 +11,14 @@ issue. You can also move an issue back to the backlog if the work is postponed.
 2. In the navigation pane, choose **Issues**. The default
    view is the **Board**.
 3. To move an issue from the board to the backlog:
+
    1. Choose the issue that you want to move. For help with finding your
       issue, see [Finding and viewing issues](issues-view.md "issues-view.md").
    2. Choose **Backlog** from the dropdown
       **Status** menu.
 
 4. To move an issue from the backlog to the board:
+
    1. To navigate to the backlog, choose **Board** and
       choose **Backlog**.
    2. Choose the issue that you want to move. For help with finding your

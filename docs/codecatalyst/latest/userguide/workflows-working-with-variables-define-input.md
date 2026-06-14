@@ -93,6 +93,7 @@ Visual
    Actions YAML**, whichever is available, define a
    variable in the action's `Steps`, either explicitly
    or implicitly.
+
    - To define the variable explicitly, include it in a
      bash command directly to the `Steps`
      section.
@@ -123,6 +124,7 @@ YAML
 7. In a workflow action, define a variable in the action's
    `Steps` section, either explicitly or
    implicitly.
+
    - To define the variable explicitly, include it in a
      bash command directly to the `Steps`
      section.

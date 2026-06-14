@@ -20,6 +20,7 @@ You must have the **Space administrator** role to manage teams.
    role**. In **Project**, choose the project you want to add and
    in **Role**, choose the role. Choose one of the available project
    roles:
+
    - **Project administrator** - For details, see [Project administrator role](ipa-role-types.md#ipa-role-project-admin "ipa-role-types.md#ipa-role-project-admin").
    - **Contributor** - For details, see [Contributor role](ipa-role-types.md#ipa-role-contributor "ipa-role-types.md#ipa-role-contributor").
    - **Reviewer** - For details, see [Reviewer role](ipa-role-types.md#ipa-role-reviewer "ipa-role-types.md#ipa-role-reviewer").

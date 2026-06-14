@@ -26,6 +26,7 @@ deleted the branch, create a new branch and push your changes to it.
 2. Navigate to the project where you want to resume a Dev Environment, and navigate to the
    **My Dev Environments** section.
 3. Choose **Resume in (IDE)**.
+
    - For JetBrains IDEs, choose JetBrains Gateway-EAP when prompted to **Choose an
      application to open the JetBrains-gateway link**. Choose **Open
      Link** to confirm when prompted.
@@ -43,6 +44,7 @@ deleted the branch, create a new branch and push your changes to it.
 6. Choose the branch name to view a drop-down menu of your branches, then choose your
    branch.
 7. Choose **Resume Dev Environment**.
+
    - For JetBrains IDEs, choose **Open Link** to confirm when prompted
      to **Allow this site to open the JetBrains-gateway link with JetBrains
      Gateway?**.
@@ -58,6 +60,7 @@ deleted the branch, create a new branch and push your changes to it.
 4. Choose **Dev Environments**.
 5. From the **IDE** column, choose **Resume in (IDE)**
    for the Dev Environment.
+
    - For JetBrains IDEs, choose **Open Link** to confirm when prompted
      to **Allow this site to open the JetBrains-gateway link with JetBrains
      Gateway?**.

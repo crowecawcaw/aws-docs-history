@@ -17,9 +17,11 @@ it.
 6. At the top-left, choose **+ Actions**, The
    **Actions** catalog appears.
 7. In the drop-down list, do one of the following:
+
    - Choose **Amazon CodeCatalyst** to view [CodeCatalyst](workflows-actions.md#workflows-actions-types-cc "workflows-actions.md#workflows-actions-types-cc"), [CodeCatalyst Labs](workflows-actions.md#workflows-actions-types-cc-labs "workflows-actions.md#workflows-actions-types-cc-labs") , or
      [third-party](workflows-actions.md#workflows-actions-types-3p "workflows-actions.md#workflows-actions-types-3p")
      actions.
+
      - CodeCatalyst actions have a **by AWS**
        label.
      - CodeCatalyst Labs actions have a **by CodeCatalyst Labs**
@@ -34,6 +36,7 @@ it.
 
 8. In the action catalog, search for an action, and then do one of the
    following:
+
    - Choose the plus sign (**+**) to add the action to
      your workflow.
    - Choose the action's name to view its readme.

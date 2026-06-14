@@ -27,6 +27,7 @@ repositories to open that repository in the service that hosts it.
 ###### To navigate to the source repositories for a project
 
 1. Navigate to your project, and do one of the following:
+
    - On the summary page for your project, choose the repository you want from the list, and then choose **View repository**.
    - In the navigation pane, choose **Code**, and then choose **Source
      repositories**. In **Source repositories**, choose the name of the repository from the list. You can filter the list of repositories by

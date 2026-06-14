@@ -217,6 +217,7 @@ Complete the following series of procedures to deploy the placeholder applicatio
 This role grants Amazon ECS and AWS Fargate permission to make API calls on your behalf.
 
 1. Create a trust policy:
+
    1. In AWS CloudShell, enter the following command:
 
    ```
@@ -243,7 +244,6 @@ This role grants Amazon ECS and AWS Fargate permission to make API calls on your
    }`
 
    ```
-
    3. Place your cursor after the last curly bracket (`}`).
    4. Press `Enter` and then `Ctrl+d` to save
       the file and exit cat.
@@ -371,6 +371,7 @@ placeholder application, and later, the Hello World application.
     `codecatalyst-ecs-cluster`.
 3.  In the **Services** tab, choose **Create**.
 4.  In the **Create** page, do the following:
+
     1. Keep all default settings except for those listed next.
     2. For **Launch type**, choose **FARGATE**.
     3. Under **Task definition**, in the **Family**
@@ -381,7 +382,6 @@ placeholder application, and later, the Hello World application.
     ```
     `codecatalyst-ecs-service`
     ```
-
     5. For **Desired tasks**, enter:
 
     ```
@@ -418,7 +418,6 @@ placeholder application, and later, the Hello World application.
         3. Choose **Add rule**. For **Type**,
          choose **HTTP**, and for **Source**, choose
          **Anywhere**.
-
     10. At the bottom, choose **Create**.
     11. Wait while the service is created. This may take a few minutes.
 
@@ -503,6 +502,7 @@ procedures.
 ###### To create a build role
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -540,7 +540,6 @@ procedures.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -548,12 +547,12 @@ procedures.
    ```
    `codecatalyst-ecs-build-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -568,17 +567,16 @@ procedures.
    ```
    `codecatalyst-ecs-build-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst ECS build role`
    ```
-
    10. Choose **Create role**.You have now created a build role with a permissions policy and a trust
        policy.
 
 3. Obtain the build role ARN, as follows:
+
    1. In the navigation pane, choose **Roles**.
    2. In the search box, enter the name of the role you just created
       (`codecatalyst-ecs-build-role`).
@@ -590,6 +588,7 @@ procedures.
 ###### To create a deploy role
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -675,7 +674,6 @@ procedures.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -683,12 +681,12 @@ procedures.
    ```
    `codecatalyst-ecs-deploy-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the deploy role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -703,16 +701,15 @@ procedures.
    ```
    `codecatalyst-ecs-deploy-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst ECS deploy role`
    ```
-
    10. Choose **Create role**.You have now created a deploy role with a trust policy.
 
 3. Obtain the deploy role ARN, as follows:
+
    1. In the navigation pane, choose **Roles**.
    2. In the search box, enter the name of the role you just created
       (`codecatalyst-ecs-deploy-role`).
@@ -743,13 +740,13 @@ cat > codecatalyst-ecs-trust-policy.json
 ###### To create the build policy and build role
 
 1. Create the build policy:
+
    1. As `CodeCatalystECSUser`, in AWS CloudShell, create a build policy
       file:
 
    ```
    cat > codecatalyst-ecs-build-policy.json
    ```
-
    2. At the prompt, enter the following code:
 
    JSONJSON
@@ -770,7 +767,6 @@ cat > codecatalyst-ecs-trust-policy.json
    }`
 
    ```
-
    3. Place your cursor after the last curly bracket (`}`).
    4. Press `Enter` and then `Ctrl+d` to
       save the file and exit cat.
@@ -818,12 +814,12 @@ aws iam get-role \
 ###### To create the deploy policy and deploy role
 
 1. Create a deploy policy:
+
    1. In AWS CloudShell, create a deploy policy file:
 
    ```
    cat > codecatalyst-ecs-deploy-policy.json
    ```
-
    2. At the prompt, enter the following code:
 
    JSONJSON
@@ -902,7 +898,6 @@ aws iam get-role \
    ```
    "Resource": "*"
    ```
-
    3. Place your cursor after the last curly bracket (`}`).
    4. Press `Enter` and then `Ctrl+d` to
       save the file and exit cat.
@@ -1410,6 +1405,7 @@ change. 7. Watch the deployment progress:
      see the workflow run progress.
 
 8. Verify that your application was updated, as follows:
+
    1. Open the Amazon ECS classic console at
       [https://console.aws.amazon.com/ecs/](https://console.aws.amazon.com/ecs/ "https://console.aws.amazon.com/ecs/").
    2. Choose your cluster, `codecatalyst-ecs-cluster`.
@@ -1431,6 +1427,7 @@ them.
 In the AWS Management Console, clean up in this order:
 
 1. In Amazon ECS, do the following:
+
    1. Delete `codecatalyst-ecs-service`.
    2. Delete `codecatalyst-ecs-cluster`.
    3. Deregister `codecatalyst-ecs-task-definition`.
@@ -1438,6 +1435,7 @@ In the AWS Management Console, clean up in this order:
 2. In Amazon ECR, delete `codecatalyst-ecs-image-repo`.
 3. In Amazon EC2, delete `codecatalyst-ecs-security-group`.
 4. In IAM Identity Center, delete:
+
    1. `CodeCatalystECSUser`
    2. `CodeCatalystECSPermissionSet`
 

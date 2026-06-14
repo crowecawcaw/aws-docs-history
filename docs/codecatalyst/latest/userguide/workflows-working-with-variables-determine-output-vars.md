@@ -10,6 +10,7 @@ For more information about predefined variables, see [Using predefined variables
 ###### To determine the predefined variables that your workflow emits
 
 - Do one of the following:
+
   - **Run the workflow once**. After the run
     finishes, the variables emitted by the workflow are displayed on the
     **Variables** tab of the run details page. For more

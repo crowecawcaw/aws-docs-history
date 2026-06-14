@@ -22,6 +22,7 @@ For more information, see [Personal connections](concepts.md#personal-connection
 1.  Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2.  Navigate to your CodeCatalyst space.
 3.  Do one of the following to view a list of the installed extensions for your space:
+
     1. Choose **Settings**, and then choose **Installed extensions**.
     2. Choose the **Catalog** icon
 

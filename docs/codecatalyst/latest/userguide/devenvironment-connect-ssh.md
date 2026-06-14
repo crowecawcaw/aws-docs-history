@@ -12,6 +12,7 @@ doesn't stop due to inactivity in the IDE.
 ###### Prerequisites
 
 - You need one of the following operating systems:
+
   - Windows 10 or newer and OpenSSH enabled
   - macOS and Bash version 3 or higher
   - Linux with `yum`, `dpkg` or `rpm` package managers and Bash version 3 or higher
@@ -26,9 +27,11 @@ doesn't stop due to inactivity in the IDE.
 4.  Choose **Dev Environments**.
 5.  Choose a running Dev Environment you want to connect to using SSH.
 6.  Choose **Connect via SSH**, choose your desired operating system, and do the following:
+
     - If you haven't done so already, paste and execute the first command in your specified terminal. The command
       downloads a script and executes the following modifications in your local environment
       so that you can connect to your Dev Environment using SSH:
+
       - Installs the [Session Manager plugin for the AWS CLI](../../../systems-manager/latest/userguide/session-manager-working-with-install-plugin.md "../../../systems-manager/latest/userguide/session-manager-working-with-install-plugin.md")
       - Modifies your local AWS Config and adds a CodeCatalyst profile so that you're able to perform the SSO login.
         For more information, see [Setting up to use the AWS CLI with CodeCatalyst](set-up-cli.md "set-up-cli.md").

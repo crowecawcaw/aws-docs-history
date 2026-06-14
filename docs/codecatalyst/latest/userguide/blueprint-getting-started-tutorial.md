@@ -43,6 +43,7 @@ tools and resources. Your project is where you will develop, test, and publish t
 4. In the **Space settings** tab, choose **Blueprints**
    and choose **Create blueprint**.
 5. Update the fields in the blueprint creation wizard with the following values:
+
    - In **Blueprint name**, enter `react-app-blueprint`.
    - In **Blueprint Display Name**, enter `react-app-blueprint`.
 
@@ -158,6 +159,7 @@ version.
 
 1. Navigate to the **react-app-blueprint** project created in [Tutorial: Creating and updating a React application](blueprint-getting-started-tutorial.md "blueprint-getting-started-tutorial.md").
 2. Open the Dev Environment created in [Tutorial: Creating and updating a React application](blueprint-getting-started-tutorial.md "blueprint-getting-started-tutorial.md").
+
    1. In the navigation pane, choose **Code**, and then choose **Dev Environments**.
    2. From the table, find the Dev Environment, and then choose **Open in AWS Cloud9 (in browser)**.
 

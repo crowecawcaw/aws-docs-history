@@ -29,6 +29,7 @@ third-party repository provider, where you can view and work on the code in the 
 1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
 2. Navigate to your CodeCatalyst space, and then choose the **Installed extensions** tab.
 3. Depending on the third-party repositories you want to view, do one of the following:
+
    - In **GitHub repositories**, choose **Configure**, and then choose **Linked GitHub repositories**
      to view all GitHub repositories connected to CodeCatalyst projects in your CodeCatalyst space.
    - In **Bitbucket repositories**, choose **Configure**, and then choose **Linked Bitbucket repositories**

@@ -13,6 +13,7 @@ instructions for connecting `npm` to your package repository in the CodeCatalyst
 - [Installing npm packages from npmjs through CodeCatalyst](packages-npm-use.md#npm-install-npmjs "packages-npm-use.md#npm-install-npmjs")
 - [Publishing npm packages to your CodeCatalyst package repository](packages-npm-use.md#npm-publish "packages-npm-use.md#npm-publish")
 - [npm command support](packages-npm-use.md#npm-commands "packages-npm-use.md#npm-commands")
+
   - [Supported commands that interact with a package repository](packages-npm-use.md#supported-commands-that-interact-with-a-repository "packages-npm-use.md#supported-commands-that-interact-with-a-repository")
   - [Supported client-side commands](packages-npm-use.md#supported-client-side-commands "packages-npm-use.md#supported-client-side-commands")
   - [Unsupported commands](packages-npm-use.md#unsupported-commands "packages-npm-use.md#unsupported-commands")
@@ -35,6 +36,7 @@ to your CodeCatalyst package repository. For more information about npm, see the
 8.  A personal access token (PAT) is required to authenticate npm with CodeCatalyst. If
     you already have a token, you can use it. If not, you can create one using the
     following steps.
+
     1. **(Optional):** Update the
        **PAT name** and **Expiration date**.
     2. Choose **Create token**.

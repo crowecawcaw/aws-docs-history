@@ -45,6 +45,7 @@ Because the **Write description for me**, **Create content summary**, **Recommen
 
 1. Navigate to your project.
 2. Do one of the following:
+
    - In the navigation pane, choose **Code**, choose **Pull
      requests**, and then choose **Create pull request**.
    - On the repository home page, choose **More**, and then choose

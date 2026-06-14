@@ -200,6 +200,7 @@ are:
 ###### To navigate to the source repositories for a project
 
 1. Navigate to your project, and do one of the following:
+
    - On the summary page for your project, choose the repository you want from the list, and then choose **View repository**.
    - In the navigation pane, choose **Code**, and then choose **Source
      repositories**. In **Source repositories**, choose the name of the repository from the list. You can filter the list of repositories by
@@ -346,6 +347,7 @@ The main blocks are:
 
 4. Choose the **Definition** tab (near the top). The [workflow definition file](workflow-reference.md "workflow-reference.md") appears on the right. The
    file has the following noteworthy sections:
+
    - A `Triggers` section, at the top. This section indicates that the
      workflow must start whenever code is pushed to the source repository's
      `main` branch. Pushes to other branches (such as `test`) will
@@ -412,6 +414,7 @@ branch.
 
 1. Navigate to your project.
 2. Do one of the following:
+
    - In the navigation pane, choose **Code**, choose **Pull
      requests**, and then choose **Create pull request**.
    - On the repository home page, choose **More**, and then choose
@@ -571,7 +574,9 @@ The Modern three-tier web application blueprint deploys resources into your Code
 account in the AWS cloud. These resources are:
 
 - **In your CodeCatalyst space**:
+
   - A CodeCatalyst project that includes the following resources:
+
     - A [source repository](source.md "source.md") – This repository
       contains sample code for a 'Mysfits' web application.
     - A [workflow](workflow.md "workflow.md") – This workflow builds and
@@ -583,8 +588,10 @@ account in the AWS cloud. These resources are:
       This suite includes automated reports included in the sample code.
 
 - **In the associated AWS account**:
+
   - A **CDKToolkit** stack – This stack deploys the following
     resources:
+
     - An Amazon S3 staging bucket, bucket policy, and the AWS KMS key used to encrypt the
       bucket.
     - An IAM deployment role for the deploy action.
@@ -598,6 +605,7 @@ account in the AWS cloud. These resources are:
   AWS CDK.
   - A **development-mysfits`string`BackEnd**
     stack – This stack deploys the following backend resources:
+
     - An Amazon API Gateway endpoint.
     - AWS IAM roles and policies in support of the resources in the
       stack.

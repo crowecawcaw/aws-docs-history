@@ -135,6 +135,7 @@ procedure.
    want to set for this package. Both package origin control settings,
    **Publish** and **Upstream**, must be set at the same
    time.
+
    - To allow publishing package versions directly, in **Publish**, choose
      **Allow**. To block publishing of package versions, choose
      **Block**.

@@ -71,6 +71,7 @@ AWS Identity and Access Management User Guide_.
 ###### To create a build role
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -109,7 +110,6 @@ AWS Identity and Access Management User Guide_.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -117,12 +117,12 @@ AWS Identity and Access Management User Guide_.
    ```
    `codecatalyst-s3-build-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -138,13 +138,11 @@ AWS Identity and Access Management User Guide_.
    ```
    `codecatalyst-s3-build-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst build role`
    ```
-
    10. Choose **Create role**.You have now created a build role with a trust policy and permissions policy.
 
 ## Step 2: Create an Amazon S3 bucket
@@ -335,6 +333,7 @@ source repository, the trigger started the workflow run.
 4. Choose **Upload** to see the second build action
    progress.
 5. When the **Upload** action finishes, do the following:
+
    - If the workflow run succeeded, go to the next procedure.
    - If the workflow run failed, choose **Logs** to
      troubleshoot the issue.
@@ -373,6 +372,7 @@ Clean up in CodeCatalyst and AWS to avoid being charged for these services.
 ###### To clean up in AWS
 
 1. Clean up in Amazon S3, as follows:
+
    1. Open the Amazon S3 console at
       [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
    2. Delete the files in the `codecatalyst-artifact-bucket`
@@ -380,6 +380,7 @@ Clean up in CodeCatalyst and AWS to avoid being charged for these services.
    3. Delete the `codecatalyst-artifact-bucket` bucket.
 
 2. Clean up in IAM, as follows:
+
    1. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Delete the `codecatalyst-s3-build-policy`.

@@ -23,6 +23,7 @@ workflow. For more information, see [Adding an 'Approval' gate](workflows-approv
 2. In the CodeCatalyst project that contains the workflow that requires an approval,
    enable notifications, if they're not already enabled. To enable
    notifications:
+
    1. Navigate to your project and in the navigation pane, choose
       **Project settings**.
    2. At the top, choose **Notifications**.

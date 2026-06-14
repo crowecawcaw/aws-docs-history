@@ -13,6 +13,7 @@ assignee, labels, and priority.
    navigate to a different issues view.
 4. Choose **Group**.
 5. In **Group by**, choose a parameter to group by:
+
    - If you choose **Assignee** or **Priority**,
      choose the **Group order**.
    - If you choose **Label**, choose the labels and then choose

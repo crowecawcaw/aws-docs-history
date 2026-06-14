@@ -14,6 +14,7 @@ resources.
 2. Navigate to your space, and then choose **Settings**. Choose
    **Machine resources**.
 3. Choose one of the following.
+
    - To enable individually, choose the selector next to one or more machine resources
      you want to enable. Choose **Enable**, and then choose **This
      resource**.

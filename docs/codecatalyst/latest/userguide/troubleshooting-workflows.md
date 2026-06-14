@@ -351,6 +351,7 @@ authentication information.
 1. Create secrets for your authentication information. You'll reference these
    secrets in the `cdk.json` file instead of providing the
    cleartext equivalents. To create the secrets:
+
    1. Open the CodeCatalyst console at [https://codecatalyst.aws/](https://codecatalyst.aws/ "https://codecatalyst.aws/").
    2. Choose your project.
    3. In the navigation pane, choose **CI/CD**, and then
@@ -365,6 +366,7 @@ authentication information.
 
 2. Add the secrets as environment variables to your AWS CDK action. The action will
    replace the variables with real values when it runs. To add the secrets:
+
    1. In the navigation pane, choose **CI/CD**, and then choose **Workflows**.
    2. Choose the name of your workflow. You can filter by the source
       repository or branch name where the workflow is defined, or filter
@@ -446,6 +448,7 @@ JavaScript project, the code will look similar though not identical.
 
 3. In the code highlighted in `red italics`,
    replace:
+
    - `your-registry/folder/CDK-package/`
      with the path to your AWS CDK project dependencies in your private
      registry.

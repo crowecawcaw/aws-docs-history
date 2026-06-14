@@ -62,6 +62,7 @@ by Slack channel.
 7. Read the dialog box contents, and then choose **Connect to
    Slack workspace**.
 8. On the **Amazon Q Developer in chat applications** message:
+
    1. In the upper right, choose the Slack workspace that contains your channel.
    2. Choose **Allow**.You are returned to the CodeCatalyst console.
 
@@ -93,6 +94,7 @@ CodeCatalyst.
 
 1. Before you begin, if your Slack channel is private, add the Amazon Q Developer in chat applications app to the
    channel as follows:
+
    1. In your Slack channel’s message box, enter `@aws` and choose
       **aws app** from the dialog box.
    2. Press Enter.

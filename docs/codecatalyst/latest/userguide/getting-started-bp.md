@@ -79,11 +79,13 @@ Do one of the following depending on the third-party repository provider you wan
      source code created by the blueprint.
 
 7. Under **Blueprint details**, do the following:
+
    1. In the **Blueprint display name** text input field, enter a name that will appear in your space's
       blueprints catalog.
    2. In the **Description** text input field, enter a description for your custom blueprint.
    3. In the **Author name** text input field, enter an author name for your custom blueprint.
    4. (Optional) Choose the **Advanced settings**.
+
       1. Choose **+ Add** to add tags that are added to the `package.json` file.
       2. Choose the **License** dropdown menu, and then choose a license for your custom blueprint.
       3. In the **Blueprint package name** text input field, enter a name to identify your blueprint package.
@@ -125,6 +127,7 @@ A Dev Environment is necessary to work with the required tools and packages.
 **To create a Dev Environment**
 
 1. In the navigation pane, do one of the following:
+
    1. Choose **Overview**, and then navigate to the **My Dev Environments** section.
    2. Choose **Code**, and then choose **Dev Environments**.
    3. Choose **Code**, choose **Source repositories**, and choose

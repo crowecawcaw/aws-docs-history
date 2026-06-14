@@ -121,11 +121,13 @@ View details
 6. (Optional) To view the in-depth details of the suggested blueprint, choose **View
    details**.
 7. Do one of the following:
+
    1. Choose **Yes, use this blueprint** if you’re satisfied with the suggestion.
    2. Choose **Edit prompt** if you want to modify the prompt.
    3. Choose **Start over** if you want to clear the prompt completely.
 
 8. Do one of the following:
+
    1. Choose **Configure** if you want to configure the blueprint that is suggested.
       You can also configure the blueprint at a later time.
    2. Choose **Skip** if you don’t want to modify the blueprint configurations at the
@@ -190,11 +192,13 @@ View details
 6. (Optional) To view the in-depth details of the suggested blueprint, choose **View
    details**.
 7. Do one of the following:
+
    1. Choose **Yes, use this blueprint** if you’re satisfied with the suggestion.
    2. Choose **Edit prompt** if you want to modify the prompt.
    3. Choose **Start over** if you want to clear the prompt completely.
 
 8. Do one of the following:
+
    1. Choose **Configure** if you want to configure the blueprint that is suggested.
       You can also configure the blueprint at a later time.
    2. Choose **Skip** if you don’t want to modify the blueprint configurations at the

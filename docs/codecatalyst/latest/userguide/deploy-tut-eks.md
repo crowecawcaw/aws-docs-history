@@ -208,6 +208,7 @@ token, but if you want detailed instructions, see [Configuring the AWS CLI](../.
 _AWS Command Line Interface User Guide_.
 
 1.  Create an IAM Identity Center user, as follows:
+
     1. Sign in to the AWS Management Console and open the AWS IAM Identity Center console at [https://console.aws.amazon.com/singlesignon/](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/").
 
     (You might need to choose **Enable** if you've never signed in to
@@ -224,7 +225,6 @@ _AWS Command Line Interface User Guide_.
     ```
     `codecatalyst-eks-user`
     ```
-
     4. Under **Password**, choose **Generate a one-time password
        that you can share with this user**.
     5. In **Email address** and **Confirm email
@@ -235,19 +235,16 @@ _AWS Command Line Interface User Guide_.
     ```
     `codecatalyst-eks-user`
     ```
-
     7. In **Last name**, enter:
 
     ```
     `codecatalyst-eks-user`
     ```
-
     8. In **Display name**, keep:
 
     ```
     `codecatalyst-eks-user codecatalyst-eks-user`
     ```
-
     9. Choose **Next**.
     10. On the **Add user to groups** page, choose
         **Next**.
@@ -259,6 +256,7 @@ _AWS Command Line Interface User Guide_.
     and a one-time password. 13. Choose **Close**.
 
 2.  Create a permission set, as follows:
+
     1. In the navigation pane, choose **Permission sets**, and then
        choose **Create permission set**.
     2. Choose **Predefined permission set** and then select
@@ -271,12 +269,12 @@ _AWS Command Line Interface User Guide_.
     ```
     `codecatalyst-eks-permission-set`
     ```
-
     5. Choose **Next**.
     6. On the **Review and create** page, review the information and
        choose **Create**.
 
 3.  Assign the permission set to `codecatalyst-eks-user`, as follows:
+
     1. In the navigation pane, choose **AWS accounts**, and then
        select the check box next to the AWS account that you're currently signed in
        to.
@@ -295,6 +293,7 @@ _AWS Command Line Interface User Guide_.
 
 4.  Obtain `codecatalyst-eks-user`'s access keys and session token, as
     follows:
+
     1. Make sure you have the AWS access portal URL and the username and one-time
        password for `codecatalyst-eks-user`. You should have copied this
        information to a text editor earlier.
@@ -318,7 +317,6 @@ _AWS Command Line Interface User Guide_.
 
 
         `one-time-password`
-
     5. In **Set new password**, enter a new password and choose
        **Set new password**.
 
@@ -337,6 +335,7 @@ _AWS Command Line Interface User Guide_.
     ...where `session-token` is a long random string.
 
 5.  Add the access keys and session token to the AWS CLI, as follows:
+
     1. Return to your CodeCatalyst Dev Environment.
     2. At the terminal prompt, paste the commands you copied. Press Enter.
 
@@ -1226,6 +1225,7 @@ For more information about viewing run details, see [Viewing workflow run status
 3. Select the load balancer that was created as part of your Kubernetes deployment. If you're
    not sure which load balancer to choose, look for the following tags under the
    **Tags** tab:
+
    - `kubernetes.io/service-name`
    - `kubernetes.io/cluster/ekstutorialcluster`
 
@@ -1287,6 +1287,7 @@ started. 8. Watch the deployment progress:
      see the workflow run progress.
 
 9. Verify that your application was updated, as follows:
+
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. On the left, near the bottom, choose **Load Balancers**.
@@ -1308,6 +1309,7 @@ storage and compute resources used by this tutorial.
 ###### To clean up
 
 1.  Delete your cluster:
+
     1. In the Dev Environment terminal, enter:
 
     ```
@@ -1348,6 +1350,7 @@ AWS credentials, see [How do I fix "Unable to locate credentials" and "ExpiredTo
     	* `codecatalyst-eks-deploy-policy`
 
 3. In the CodeCatalyst console, clean up as follows:
+
    1. Delete `codecatalyst-eks-workflow`.
    2. Delete `codecatalyst-eks-environment`.
    3. Delete `codecatalyst-eks-source-repository`.

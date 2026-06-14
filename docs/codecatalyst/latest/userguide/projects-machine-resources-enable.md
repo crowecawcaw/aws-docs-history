@@ -14,6 +14,7 @@ You must have the **Space administrator** role or the
 2. Navigate to your project, and then choose **Project settings**.
    Choose **Machine resources**.
 3. Choose one of the following.
+
    - To enable individually, choose the selector next to one or more machine resources
      you want to enable. Choose **Enable**, and then choose **This
      resource**.

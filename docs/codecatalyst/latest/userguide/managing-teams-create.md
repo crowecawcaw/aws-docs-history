@@ -55,6 +55,7 @@ members of the team.
 
 6. In **Team membership**, choose one of the following to choose the
    method for adding members to the team.
+
    - Choose **Add members directly** to manage users individually.
      This includes adding AWS Builder ID users for a space or adding SSO users for a
      space that supports identity federation.

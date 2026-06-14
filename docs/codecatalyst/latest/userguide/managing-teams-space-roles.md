@@ -18,6 +18,7 @@ You must have the **Space administrator** role to manage teams.
 3. In **Actions**, choose **Change space role**. You
    can change the space role to one of the following. This changes the role for all
    members of the team.
+
    - **Space administrator** - For details, see [Space administrator role](ipa-role-types.md#ipa-role-space-admin "ipa-role-types.md#ipa-role-space-admin").
    - **Limited access** - For details, see [Limited access role](ipa-role-types.md#ipa-role-limited-access "ipa-role-types.md#ipa-role-limited-access").
    - **Power user** - For details, see [Power user role](ipa-role-types.md#ipa-role-power-user "ipa-role-types.md#ipa-role-power-user").

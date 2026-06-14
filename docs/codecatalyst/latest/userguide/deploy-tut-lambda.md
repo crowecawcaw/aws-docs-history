@@ -111,6 +111,7 @@ workflow in step 5.
 ###### To create a deploy role
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -129,7 +130,6 @@ workflow in step 5.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -137,12 +137,12 @@ workflow in step 5.
    ```
    `codecatalyst-deploy-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the deploy role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -156,16 +156,15 @@ workflow in step 5.
    ```
    `codecatalyst-deploy-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst deploy role`
    ```
-
    10. Choose **Create role**.You have now created a deploy role with a trust policy and permissions policy.
 
 3. Obtain the deploy role ARN, as follows:
+
    1. In the navigation pane, choose **Roles**.
    2. In the search box, enter the name of the role you just created
       (`codecatalyst-deploy-role`).
@@ -177,6 +176,7 @@ workflow in step 5.
 ###### To create a build role
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -195,7 +195,6 @@ workflow in step 5.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -203,12 +202,12 @@ workflow in step 5.
    ```
    `codecatalyst-build-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -223,16 +222,15 @@ workflow in step 5.
    ```
    `codecatalyst-build-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst build role`
    ```
-
    10. Choose **Create role**.You have now created a build role with a trust policy and permissions policy.
 
 3. Obtain the build role ARN, as follows:
+
    1. In the navigation pane, choose **Roles**.
    2. In the search box, enter the name of the role you just created
       (`codecatalyst-build-role`).
@@ -247,6 +245,7 @@ workflow in step 5.
 2.  Open the IAM console at
     [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 3.  Create the stack role as follows:
+
     1. In the navigation pane, choose **Roles**.
     2. Choose **Create role**.
     3. Choose **AWS service**.
@@ -279,10 +278,10 @@ workflow in step 5.
     ```
     `codecatalyst-stack-role`
     ```
-
     10. Choose **Create role**.
 
 4.  Obtain the stack role's ARN, as follows:
+
     1. In the navigation pane, choose **Roles**.
     2. In the search box, enter the name of the role you just created
        (`codecatalyst-stack-role`).
@@ -968,6 +967,7 @@ uses the default traffic shifting configuration specified in the Lambda console.
 3. Choose your source repository
    `codecatalyst-cfn-source-repository`.
 4. Change the application file:
+
    1. Choose the `hello-world` folder.
    2. Choose the `app.js` file.
    3. Choose **Edit**.
@@ -980,6 +980,7 @@ complete!`.
    updated the unit tests to reflect the name change.
 
 5. Update the unit tests:
+
    1. Choose `hello-world\tests\unit\test-handler.js`.
    2. Choose **Edit**.
    3. On line 19, change `hello world` to `Tutorial
@@ -1020,6 +1021,7 @@ them.
 ###### To clean up in the AWS Management Console
 
 1. Clean up in CloudFormation, as follows:
+
    1. Open the CloudFormation console at
       [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Delete the `codecatalyst-cfn-stack`.
@@ -1028,6 +1030,7 @@ them.
    services.
 
 2. Clean up in Amazon S3, as follows:
+
    1. Open the Amazon S3 console at
       [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
    2. Choose the `codecatalyst-cfn-s3-bucket`.
@@ -1035,6 +1038,7 @@ them.
    4. Delete the bucket.
 
 3. Clean up in IAM, as follows:
+
    1. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Delete the `codecatalyst-deploy-policy`.

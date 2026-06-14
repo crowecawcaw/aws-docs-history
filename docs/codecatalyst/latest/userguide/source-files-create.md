@@ -17,6 +17,7 @@ repository. When working on more than one file, consider [creating a Dev Environ
 4. Choose **Create Dev Environment**.
 5. Choose a supported IDE from the drop-down menu. See [Supported integrated development environments for Dev Environments](devenvironment-create.md#devenvironment-supported-ide "devenvironment-create.md#devenvironment-supported-ide") for more information.
 6. Do one of the following:
+
    - Choose **Work in existing branch**, and then choose a branch from the
      **Existing branch** drop-down menu.
    - Choose **Work in new branch**, enter a branch name into the **Branch
@@ -67,6 +68,7 @@ documentation](https://git-scm.com/book/en/v2/Git-Tools-Submodules "https://git-
    [Cloning a source repository](source-repositories-clone.md "source-repositories-clone.md").
 2. Create files in your local repo or copy files into your local repo.
 3. Create and push a commit by doing one of the following:
+
    - If you are using a Git client, at the terminal or command line, run
      the **git add** command, specifying the names of the
      files you want to add. Alternatively, to add all added or changed files,

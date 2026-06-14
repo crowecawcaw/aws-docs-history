@@ -580,6 +580,7 @@ Follow these steps to create these roles in IAM.
 ###### To create a deploy role
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -598,7 +599,6 @@ Follow these steps to create these roles in IAM.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -606,12 +606,12 @@ Follow these steps to create these roles in IAM.
    ```
    `codecatalyst-deploy-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the deploy role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -625,16 +625,15 @@ Follow these steps to create these roles in IAM.
    ```
    `codecatalyst-deploy-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst deploy role`
    ```
-
    10. Choose **Create role**.You have now created a deploy role with a trust policy and permissions policy.
 
 3. Obtain the deploy role ARN, as follows:
+
    1. In the navigation pane, choose **Roles**.
    2. In the search box, enter the name of the role you just created
       (`codecatalyst-deploy-role`).
@@ -646,6 +645,7 @@ Follow these steps to create these roles in IAM.
 ###### To create a build role
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -664,7 +664,6 @@ Follow these steps to create these roles in IAM.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -672,12 +671,12 @@ Follow these steps to create these roles in IAM.
    ```
    `codecatalyst-build-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -692,16 +691,15 @@ Follow these steps to create these roles in IAM.
    ```
    `codecatalyst-build-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst build role`
    ```
-
    10. Choose **Create role**.You have now created a build role with a trust policy and permissions policy.
 
 3. Obtain the build role ARN, as follows:
+
    1. In the navigation pane, choose **Roles**.
    2. In the search box, enter the name of the role you just created
       (`codecatalyst-build-role`).
@@ -742,6 +740,7 @@ show which permissions you need to add. 8. Choose **Next: Tags**. 9. Choose **Ne
 
 11. Choose **Create role**.
 12. To obtain the stack role's ARN, do the following:
+
     1.  In the navigation pane, choose **Roles**.
     2.  In the search box, enter the name of the role you just created
         (`codecatalyst-stack-role`).
@@ -816,6 +815,7 @@ Follow these steps to create the role in IAM.
 ###### To create a build role
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -834,7 +834,6 @@ Follow these steps to create the role in IAM.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -842,12 +841,12 @@ Follow these steps to create the role in IAM.
    ```
    `codecatalyst-webapp-build-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -865,16 +864,15 @@ Follow these steps to create the role in IAM.
    ```
    `codecatalyst-webapp-build-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst Web app build role`
    ```
-
    10. Choose **Create role**.You have now created a build role with a trust policy and permissions policy.
 
 3. Attach the permissions policy to the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then search for
       `codecatalyst-webapp-build-role`.
    2. Choose `codecatalyst-webapp-build-role`
@@ -889,6 +887,7 @@ Follow these steps to create the role in IAM.
    has two policies: a permissions policy and a trust policy.
 
 4. Obtain the build role ARN, as follows:
+
    1. In the navigation pane, choose **Roles**.
    2. In the search box, enter the name of the role you just created
       (`codecatalyst-webapp-build-role`).
@@ -907,6 +906,7 @@ Follow these steps to create the roles in IAM.
 ###### To create a build role for CloudFormation
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -944,7 +944,6 @@ Follow these steps to create the roles in IAM.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -952,12 +951,12 @@ Follow these steps to create the roles in IAM.
    ```
    `codecatalyst-SAM-build-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -975,16 +974,15 @@ Follow these steps to create the roles in IAM.
    ```
    `codecatalyst-SAM-build-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst SAM build role`
    ```
-
    10. Choose **Create role**.You have now created a build role with a trust policy and permissions policy.
 
 3. Attach the permissions policy to the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then search for
       `codecatalyst-SAM-build-role`.
    2. Choose `codecatalyst-SAM-build-role` to
@@ -999,6 +997,7 @@ Follow these steps to create the roles in IAM.
    has two policies: a permissions policy and a trust policy.
 
 4. Obtain the build role ARN, as follows:
+
    1. In the navigation pane, choose **Roles**.
    2. In the search box, enter the name of the role you just created
       (`codecatalyst-SAM-build-role`).
@@ -1010,6 +1009,7 @@ Follow these steps to create the roles in IAM.
 ###### To create a deploy role for SAM
 
 1. Create a policy for the role, as follows:
+
    1. Sign in to AWS.
    2. Open the IAM console at
       [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
@@ -1028,7 +1028,6 @@ Follow these steps to create the roles in IAM.
    ```
    "Resource": "*"
    ```
-
    8. Choose **Next: Tags**.
    9. Choose **Next: Review**.
    10. In **Name**, enter:
@@ -1036,12 +1035,12 @@ Follow these steps to create the roles in IAM.
    ```
    `codecatalyst-SAM-deploy-policy`
    ```
-
    11. Choose **Create policy**.
 
    You have now created a permissions policy.
 
 2. Create the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then choose
       **Create role**.
    2. Choose **Custom trust policy**.
@@ -1059,16 +1058,15 @@ Follow these steps to create the roles in IAM.
    ```
    `codecatalyst-SAM-deploy-role`
    ```
-
    9. For **Role description**, enter:
 
    ```
    `CodeCatalyst SAM deploy role`
    ```
-
    10. Choose **Create role**.You have now created a build role with a trust policy and permissions policy.
 
 3. Attach the permissions policy to the build role, as follows:
+
    1. In the navigation pane, choose **Roles**, and then search for
       `codecatalyst-SAM-deploy-role`.
    2. Choose `codecatalyst-SAM-deploy-role`
@@ -1083,6 +1081,7 @@ Follow these steps to create the roles in IAM.
    has two policies: a permissions policy and a trust policy.
 
 4. Obtain the build role ARN, as follows:
+
    1. In the navigation pane, choose **Roles**.
    2. In the search box, enter the name of the role you just created
       (`codecatalyst-SAM-deploy-role`).

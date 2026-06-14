@@ -39,6 +39,7 @@ started it.
 6. In **Run history**, in the **Run ID**
    column, choose a run. For example, `Run-95a4d`.
 7. Under the run's name, do one of the following:
+
    - **Visual** to see a workflow diagram showing your
      workflow run's actions and their status (see [Workflow run states](workflows-view-run-status.md "workflows-view-run-status.md")). This view also shows
      the source repository and branch used during the run.

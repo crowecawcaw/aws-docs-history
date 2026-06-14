@@ -21,6 +21,7 @@ You can create an environment without an account connection; however, you will n
 to come back and add the connection later.
 
 - One of the following CodeCatalyst roles:
+
   - **Space administrator**
   - **Project administrator**
   - **Contributor**
@@ -42,6 +43,7 @@ to come back and add the connection later.
 4. In **Environment name**, enter a name, such as
    `Production` or `Staging`.
 5. In **Environment type**, select one of the following:
+
    - **Non-production** – An environment where you can test
      your application to make sure it's working as intended before moving it into
      production.

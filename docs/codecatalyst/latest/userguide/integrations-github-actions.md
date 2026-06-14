@@ -89,6 +89,7 @@ the following [limitations](#integrations-github-actions-limitations "#integrati
 
 - GitHub Actions that internally rely on the [`github` context](https://docs.github.com/en/actions/learn-github-actions/contexts#github-context "https://docs.github.com/en/actions/learn-github-actions/contexts#github-context") or that reference GitHub-specific resources won't
   work in CodeCatalyst. For example, the following actions won't work in CodeCatalyst:
+
   - Actions that attempt to add, change, or update GitHub resources. Examples include
     actions that update pull requests, or create issues in GitHub.
   - Almost all actions listed in [https://github.com/actions](https://github.com/actions "https://github.com/actions").
@@ -109,6 +110,7 @@ The high-level steps to add a GitHub Action to a CodeCatalyst workflow are as fo
 2. In the workflow, you **add a curated GitHub Action** or you
    **add the GitHub Actions** action.
 3. You do one of the following:
+
    - If you chose to add a curated action, configure it. For more information, see
      [Adding a curated GitHub Action](integrations-github-action-add-curated.md "integrations-github-action-add-curated.md").
    - If you chose to add a non-curated action, within the **GitHub

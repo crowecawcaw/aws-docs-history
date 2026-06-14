@@ -12,6 +12,7 @@ environments.
 1. You must store a personal access token (PAT) into an environment variable to
    authenticate `curl` with CodeCatalyst. If you already have one, you can use
    that. If not, you can create one and configure the environment variable.
+
    1. Create a PAT by following the steps in [Grant users repository access with personal access tokens](ipa-tokens-keys.md "ipa-tokens-keys.md"). Copy the PAT to store it in an
       environment variable.
    2. On your local machine's command line, configure an environment
