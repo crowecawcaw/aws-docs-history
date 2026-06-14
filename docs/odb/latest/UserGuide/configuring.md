@@ -102,6 +102,7 @@ control which subnets in the peer VPC have access to your ODB network.
 3. Select the ODB peering connection that you want to update.
 4. Choose **Actions**, and then choose **Update peering connection**.
 5. In the **Peer network CIDRs** section, add or remove CIDR blocks as needed:
+
    - To add CIDRs, choose **Add CIDR** and enter the CIDR block.
    - To remove CIDRs, choose the **X** next to the CIDR block you want to remove.
 
@@ -211,8 +212,10 @@ outbound DNS queries to your network](../../../Route53/latest/DeveloperGuide/res
 4. Choose **Create outbound endpoint**.
 5. Complete the **General settings for outbound endpoint** section as
    follows:
+
    1. Choose a **Security group** that allows outbound TCP and UDP
       connectivity to the following:
+
       - IP addresses that the resolvers use for DNS queries on your ODB network
       - Ports that the resolvers use for DNS queries on your ODB network
 
@@ -221,11 +224,13 @@ outbound DNS queries to your network](../../../Route53/latest/DeveloperGuide/res
       **Do53**.
 
 6. In **IP addresses**, provide the following information:
+
    - Either specify IP addresses or let the Route 53 Resolver choose IP addresses for you from the
      available addresses in the subnet. Choose a minimum of 2 up to a maximum of 6 IP addresses
      for DNS queries. We recommend that you choose IP addresses in at least two different
      Availability Zones.
    - For **Subnet**, choose subnets that have the following:
+
      - Route tables that include routes to the IP addresses of the DNS listener on
        ODB network
      - Network access control lists (ACLs) that allow UDP and TCP traffic to the IP
@@ -273,6 +278,7 @@ console.
    outbound endpoint exists.
 4. Choose **Create rule**.
 5. Complete the **Rule for outbound traffic** sections as follows:
+
    1. For **Rule type**, choose **Forward rule**.
    2. For **Domain name**, specify the full domain name from ODB
       network.
@@ -287,6 +293,7 @@ console.
    the outbound endpoint.
 
 6. Complete the **Target IP addresses** section as follows:
+
    1. For **IP address**, specify the IP address of the DNS listener IP on
       your ODB network.
    2. For **Port**, specify **53**. This is the port that
@@ -399,7 +406,7 @@ ODB network.
 The following diagram shows a transit gateway that is connected to two VPCs and one
 on-premises network.
 
-![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](images/ODB-tgw.png)
+![Shows an ODB network peered with a VPC that is connected to a transit gateway. The gateway is connected to a VPC and an on-premises network.](/images/odb/latest/UserGuide/images/ODB-tgw.png)
 
 In the preceding diagram, one VPC is peered to an ODB network. In this configuration, the ODB network
 can route traffic to all VPCs attached to the transit gateway. The route table for each VPC
@@ -430,6 +437,7 @@ Note the following limitations of Amazon VPC Transit Gateways for Oracle Databas
 
 - Amazon VPC Transit Gateways doesn't offer native integration to use an ODB network as an attachment.
   Therefore, VPC features such as the following aren't available:
+
   - Resolution of public DNS hostnames to private IP addresses
   - Event notification for changes in the ODB network topology, routing, and connection
     status

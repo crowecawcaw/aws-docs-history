@@ -4,6 +4,11 @@
 
 Oracle Database@AWS High Performance Networking provides consistent, sub-millisecond network roundtrip latency between your Amazon EC2 application instances and Oracle Database@AWS databases. This capability is designed for latency-sensitive workloads such as payment processing, securities trading, high-volume transaction processing, and manufacturing execution systems that require predictable, low-latency connectivity to Oracle Exadata databases.
 
+###### Note
+
+High Performance Networking is available for Exadata VM clusters and Autonomous VM clusters
+on Dedicated Exadata Infrastructure. It does not apply to Autonomous Database Serverless.
+
 When you create an ODB network, a placement group is automatically associated with it. You can use this placement group when launching Amazon EC2 instances to ensure optimized instance placement that delivers consistent sub-millisecond latency to your Oracle Database@AWS database.
 
 ### How It Works

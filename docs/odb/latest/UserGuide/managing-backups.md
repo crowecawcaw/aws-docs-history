@@ -113,6 +113,7 @@ the client subnet to add the egress rule for the VPC endpoint IP address.
 4. Choose **OCI resources**.
 5. Choose the **Service integrations** tab.
 6. Under **Amazon S3**, note the following pieces of information:
+
    - The IPv4 address of the Amazon VPC S3 endpoint. You need this information later. For
      example, the IP address might be `192.168.12.223`.
    - The domain name of the Amazon VPC S3 endpoint. You need this information later. For
@@ -131,6 +132,7 @@ the client subnet to add the egress rule for the VPC endpoint IP address.
     (`exa_static_nsg`). For more information, see [Managing Security Rules for an NSG](https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/manage-nsg-security-rules.htm "https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/manage-nsg-security-rules.htm") in the OCI documentation.
 13. On the details page, perform one of the following actions depending on the option that
     you see:
+
     - On the **Security** tab, go to **Network Security
       Groups**.
     - Under **Resources**, choose **Network Security

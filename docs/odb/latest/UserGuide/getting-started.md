@@ -3,22 +3,36 @@
 To begin using Oracle Database@AWS, you can create the following resources using the Oracle Database@AWS console,
 CLI, or APIs:
 
+**For Oracle Exadata Database Service on Dedicated Infrastructure or
+Autonomous Database on Dedicated Exadata Infrastructure:**
+
 1. ODB network
 2. Oracle Exadata infrastructure
 3. Exadata VM cluster or Autonomous VM cluster
 4. ODB peering connection
-   To create Oracle Exadata databases on your infrastructure, you must use the Oracle Cloud Infrastructure (OCI)
-   console or APIs rather than the Oracle Database@AWS dashboard. Thus, you deploy resources in two cloud
-   environments: network and infrastructure resources are in AWS, while the database administration
-   control plane is in OCI. For more information, see [Oracle Database@AWS](https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws.htm "https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws.htm") in
-   the Oracle Cloud Infrastructure documentation.
+   **For Autonomous Database Serverless (ADB-S):**
+
+5. ODB network
+6. Autonomous Database Serverless instance
+7. ODB peering connection
+
+###### Note
+
+Autonomous Database Serverless does not require Exadata infrastructure or VM cluster
+provisioning.
+
+To create Oracle Exadata databases on your infrastructure, you must use the Oracle Cloud Infrastructure (OCI)
+console or APIs rather than the Oracle Database@AWS dashboard. Thus, you deploy resources in two cloud
+environments: network and infrastructure resources are in AWS, while the database administration
+control plane is in OCI. For more information, see [Oracle Database@AWS](https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws.htm "https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws.htm") in
+the Oracle Cloud Infrastructure documentation.
 
 ## Prerequisites for setting up Oracle Database@AWS
 
 Before configuring your Oracle Exadata infrastructure, make sure that you do the following:
 
 - Perform the steps in [Onboarding to Oracle Database@AWS](setting-up.md "setting-up.md"). You must
-  have accepted a private offer to use Oracle Database@AWS.
+  have accepted a private offer or a public offer to use Oracle Database@AWS.
 - Grant your IAM principal the policy permissions listed in [Allow users to provision Oracle Database@AWS resources](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-full-access "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-full-access"). These permissions are
   necessary to use Oracle Database@AWS.
 
@@ -34,6 +48,10 @@ Oracle Database@AWS supports the following Oracle Cloud Infrastructure (OCI) ser
   automated, fully managed database environment running in OCI with committed hardware and
   software resources. For more information, see [About Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbaa/index.html "https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbaa/index.html") in the OCI
   documentation.
+- Autonomous Database Serverless – Provides a fully managed, serverless Oracle
+  Autonomous Database that auto-scales compute and storage based on workload demand. No Exadata
+  infrastructure or VM cluster provisioning is required. Available via public offer on AWS Marketplace. For
+  more information, see [Oracle Autonomous Database Serverless](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/index.html "https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/index.html") in the OCI documentation.
 
 ## Supported Regions for Oracle Database@AWS
 
@@ -79,6 +97,16 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | ------------------------- | ----------- | ------------------ |
 | South America (São Paulo) | `sa-east-1` | `sae1-az1`         |
 
+**Supported Availability Zones for Autonomous Database Serverless
+(ADB-S)**
+
+ADB-S is available in the following Availability Zones:
+
+| Region name           | Region code | Availability Zones     |
+| --------------------- | ----------- | ---------------------- |
+| US East (N. Virginia) | `us-east-1` | `use1-az6`             |
+| US West (Oregon)      | `us-west-2` | `usw2-az3`, `usw2-az4` |
+
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run
 the following command.
 
@@ -112,11 +140,13 @@ Note the following restrictions regarding CIDR ranges in the ODB network:
   column in the table in [IPv4 CIDR block association restrictions](../../../vpc/latest/userguide/vpc-cidr-blocks.md#add-cidr-block-restrictions "../../../vpc/latest/userguide/vpc-cidr-blocks.md#add-cidr-block-restrictions").
 - For Exadata X9M, IP addresses 100.106.0.0/16 and 100.107.0.0/16 are reserved for the
   cluster interconnect by OCI automation, so you can't do the following:
+
   - Assign these ranges to the client or backup CIDR range of the ODB network.
   - Use these ranges for a VPC CIDR that is used to connect to the ODB network.
 
 - The following CIDR ranges are reserved for Oracle Cloud Infrastructure and can't be used for the
   ODB network:
+
   - Oracle Cloud reserved range CIDR 169.254.0.0/16
   - Reserved Class D 224.0.0.0 — 239.255.255.255
   - Reserved Class E 240.0.0.0 — 255.255.255.255
@@ -179,6 +209,29 @@ client subnet. If the CIDR range is /25, 128 IP addresses are available. Thus, y
 | 2 VM clusters with 2 VMs each (27 IPs) | 1                        | 2                        | 4                         | 9                         | 18                        | 36                         |
 | 2 VM clusters with 3 VMs each (35 IPs) | 0                        | 1                        | 3                         | 7                         | 14                        | 28                         |
 | 2 VM clusters with 4 VMs each (43 IPs) | 0                        | 1                        | 2                         | 5                         | 11                        | 23                         |
+
+## Creating an Autonomous Database Serverless instance
+
+To create an Autonomous Database Serverless instance, you need only an ODB network. No Exadata
+infrastructure or VM cluster creation is needed.
+
+###### To create an Autonomous Database Serverless instance
+
+1. Create an ODB network (see [Step 1: Create an ODB network in Oracle Database@AWS](#getting-started-odb "#getting-started-odb")).
+2. Sign in to the AWS Management Console and open the Oracle Database@AWS console at [https://console.aws.amazon.com/odb/](https://console.aws.amazon.com/odb/ "https://console.aws.amazon.com/odb/").
+3. From the left pane, choose **Autonomous Databases**.
+4. Choose **Create Autonomous Database**.
+5. Select a workload type: Transaction Processing, Data Warehouse, JSON, or APEX.
+6. Configure compute resources, including the ECPU count and auto-scaling options.
+7. Configure storage allocation.
+8. Set the administrator credentials.
+9. Configure network access. Choose mTLS (requires wallet download for connections) or TLS
+   for network connectivity.
+10. Choose **Create Autonomous Database**.
+
+After the database is provisioned, you can connect using the connection strings from the
+Oracle Database@AWS console. If you chose mTLS, download the wallet from the console to use with your database
+client.
 
 ## Step 1: Create an ODB network in Oracle Database@AWS
 
@@ -268,6 +321,7 @@ You can't modify an Oracle Exadata infrastructure after you create it. To delete
 6. For **Exadata system model**, choose either
    **Exadata.X9M** or **Exadata.X11M**. For
    **Exadata.X11M**, also choose the following server types:
+
    - For **Database server type**, choose the database server model type of
      your Exadata infrastructure. Currently, the only choice is **X11M**.
    - For **Storage server type**, choose the storage server model type of
@@ -357,7 +411,9 @@ Exadata VM cluster
     **Next**. This license is the OCI license provided by Oracle, not a license
     provided by AWS.
 8.  Configure Exadata infrastructure settings as follows:
+
     1.  For **Infrastructure**, choose the following:
+
         - For **Exadata infrastructure name**, choose the infrastructure to use
           for this VM cluster.
         - For **Grid Infrastructure version**, choose the version to use for
@@ -369,6 +425,7 @@ Exadata VM cluster
     2.  For **Database servers**, select one or more database servers to host
         your VM cluster.
     3.  For **Configuration**, do the following:
+
         - Choose the **CPU core count**, **Memory**, and
           **Local storage** for each VM, or accept the defaults.
         - Choose the total amount of **Exadata storage** for the VM cluster, or
@@ -385,6 +442,7 @@ Exadata VM cluster
         **Next**.
 
 9.  Configure connectivity as follows:
+
     1. For **ODB network**, choose an existing ODB network.
     2. For **Host name prefix**, enter a prefix for the VM cluster. Make sure not
        to include the domain name. The prefix forms the first portion of the Oracle Exadata VM cluster host
@@ -403,6 +461,7 @@ Exadata VM cluster
     pairs used for SSH access to the VM cluster. Then choose **Next**.
 
 10. (Optional) Choose diagnostics and tags as follows:
+
     1. Choose whether to enable diagnostic collection for **Diagnostic
        events**, **Health monitor**, and **Incident logs and
        trace collections**. Oracle can use this diagnostic information to identify, track,
@@ -429,11 +488,13 @@ Autonomous VM cluster
    **Next**. This license is the OCI license provided by Oracle, not a
    license provided by AWS.
 7. Configure Exadata infrastructure settings as follows:
+
    1. For **Exadata infrastructure name**, choose the infrastructure to use
       for this Autonomous VM cluster.
    2. For **Database servers**, select one or more database servers to host
       your Autonomous VM cluster.
    3. For **Configuration**, do the following:
+
       - Choose the **ECPU core count per VM**, **Database memory
         per CPU**, **Database storage**, and **Maximum number
         of Autonomous Container Database** or accept the defaults.
@@ -441,6 +502,7 @@ Autonomous VM cluster
         VM cluster, or accept the default.
 
 8. Configure connectivity as follows:
+
    1. For **ODB network**, choose an existing ODB network.
    2. For **SCAN listener port (TCP/IP)**, enter a port number for Port
       (non-TLS). The default port is **1521**. Or you can enter a Port(TLS) in
@@ -453,6 +515,7 @@ Autonomous VM cluster
    TLS authentication.
 
 9. (Optional) Choose diagnostics and tags as follows:
+
    1. Choose whether to schedule modification configuration to **Oracle-managed
       schedule** or **Customer-managed schedule**. If you choose
       **Customer-managed schedule**, set the **Maintenance

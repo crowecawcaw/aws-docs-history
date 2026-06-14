@@ -2,7 +2,7 @@
 
 Before you can begin using Oracle Database@AWS, make sure you're signed up for AWS and create
 necessary users. Then you can purchase Oracle Database@AWS from AWS Marketplace by accepting a private
-offer from Oracle.
+offer from Oracle or by subscribing to a public offer.
 
 ## Sign up for an AWS account
 
@@ -44,6 +44,29 @@ access the Oracle activation links directly from AWS Management Console.
      manage your resources.
 
 10. In the AWS Management Console, choose **Dashboard**.
+
+## Accept a public offer for Oracle Database@AWS
+
+Autonomous Database Serverless (ADB-S) is available via public offer on AWS Marketplace. With a
+public offer, you can subscribe directly without waiting for an Oracle sales representative to
+create a private offer.
+
+###### To accept a public offer for Oracle Database@AWS
+
+1. Sign in to the AWS Management Console.
+2. Navigate to Oracle Database@AWS in AWS Marketplace.
+3. Choose the public offer and then choose **Subscribe**.
+4. Review the terms and choose **Create contract** to accept the public
+   offer.
+5. Activate your OCI account using the activation link provided in the AWS Management Console or sent
+   via email.
+6. After activation is complete, the Oracle Database@AWS dashboard becomes available and you can begin
+   provisioning Autonomous Database Serverless instances.
+
+###### Note
+
+For public offer subscribers, the onboarding process is streamlined. No “Request
+private offer” step is required.
 
 ## Subscribe to Oracle Database@AWS in multiple Regions
 

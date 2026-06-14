@@ -114,6 +114,16 @@ You can use Oracle Database@AWS in the following AWS Regions:
 | ------------------------- | ----------- | ------------------ |
 | South America (São Paulo) | `sa-east-1` | `sae1-az1`         |
 
+**Supported Availability Zones for Autonomous Database Serverless
+(ADB-S)**
+
+ADB-S is available in the following Availability Zones:
+
+| Region name           | Region code | Availability Zones     |
+| --------------------- | ----------- | ---------------------- |
+| US East (N. Virginia) | `us-east-1` | `use1-az6`             |
+| US West (Oregon)      | `us-west-2` | `usw2-az3`, `usw2-az4` |
+
 To find the logical AZ names in your account that map to the preceding physical AZ IDs, run
 the following command.
 
@@ -285,6 +295,22 @@ intervention required.
 
 You can configure the ECPU core count per VM, database memory per CPU, database storage, and
 maximum number of autonomous container databases. For more information, see [Step 3: Create an Exadata VM cluster or Autonomous VM cluster in Oracle Database@AWS](getting-started.md#getting-started-vm "getting-started.md#getting-started-vm").
+
+## Autonomous Database Serverless
+
+Oracle Autonomous Database Serverless (ADB-S) runs on shared Exadata infrastructure managed
+entirely by Oracle. Unlike Autonomous Database on Dedicated Exadata Infrastructure, customers do
+not provision or manage Exadata infrastructure or VM clusters. The database is fully managed and
+auto-scales compute and storage based on workload demand.
+
+ADB-S is accessed through the ODB network using the same networking model as other Oracle Database@AWS
+services. Connectivity is via mTLS or TLS endpoints exposed through the ODB network.
+
+Key differences from Autonomous Database on Dedicated Exadata Infrastructure:
+
+- No customer-managed Exadata infrastructure or Autonomous VM cluster is required.
+- Infrastructure is shared and managed entirely by Oracle.
+- Available via public offer on AWS Marketplace (no private offer negotiation required).
 
 ## Oracle Exadata databases
 

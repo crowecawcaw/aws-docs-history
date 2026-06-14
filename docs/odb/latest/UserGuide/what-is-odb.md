@@ -1,10 +1,11 @@
 # What is Oracle Database@AWS?
 
-Oracle Database@AWS is an offering that enables you to access Oracle Exadata infrastructure managed by
-Oracle Cloud Infrastructure (OCI) inside AWS data centers. You can migrate your Oracle Exadata workloads,
-establish low-latency connectivity with applications running on AWS, and integrate with AWS
-services. You get a single invoice through AWS Marketplace, which counts towards AWS commitments and
-Oracle Support rewards.
+Oracle Database@AWS is an offering that enables you to access Oracle Exadata infrastructure and Oracle
+Autonomous Database Serverless managed by Oracle Cloud Infrastructure (OCI) inside AWS data centers. You can
+migrate your Oracle Exadata workloads, deploy serverless Oracle Autonomous Databases, establish
+low-latency connectivity with applications running on AWS, and integrate with AWS services.
+You get a single invoice through AWS Marketplace, which counts towards AWS commitments and Oracle Support
+rewards.
 
 The following diagram shows a high-level overview of an OCI region tied to an AWS data
 center that hosts Oracle Exadata infrastructure. Within an AWS Availability Zone (AZ), you can establish one or more peering connections (up to 45) between your Amazon VPCs and the
@@ -26,6 +27,14 @@ architectural compatibility, and the same performance as on-premises Exadata dep
 can use standard Oracle database migration tools such as Recovery Manager (RMAN), Oracle Data
 Guard, transportable tablespaces, Oracle Data Pump, Oracle GoldenGate, AWS Database Migration Service, and Oracle Zero
 Downtime Migration.
+
+**Fully managed serverless Oracle Autonomous Database**
+
+Oracle Autonomous Database Serverless (ADB-S) provides a fully managed, serverless Oracle
+Autonomous Database that auto-scales compute and storage based on workload demand. No
+infrastructure provisioning is required—you go from subscription to a running database
+without creating Exadata infrastructure or VM clusters. ADB-S is available via public offer on
+AWS Marketplace in addition to private offer.
 
 **Reduced application latency**
 
@@ -117,12 +126,20 @@ You're now ready to begin creating your Oracle Database@AWS resources.
 ###### Note
 
 If you're familiar with AWS and Oracle Exadata and want to get started right away, skip this
-step. 2. Request a private offer for Oracle Database@AWS through the AWS Management Console, and then accept the
-offer. For more information, see [Request a private offer for Oracle Database@AWS](setting-up.md#sign-up-for-odb "setting-up.md#sign-up-for-odb").
+step. 2. Request a private offer or accept a public offer for Oracle Database@AWS through the AWS Management Console. For
+more information, see [Request a private offer for Oracle Database@AWS](setting-up.md#sign-up-for-odb "setting-up.md#sign-up-for-odb").
 
 ###### Note
 
-To request a private offer in this preview, you must contact AWS to get your
-AWS account added to an allow list. 3. Create your ODB network, Oracle Exadata infrastructure, and Exadata VM clusters using the AWS console. Create your Exadata
-databases using OCI tools. For more information, see [Getting started with Oracle Database@AWS](getting-started.md "getting-started.md"). 4. Share your resources across accounts with AWS Resource Access Manager (AWS RAM). For more information, see
+For Autonomous Database Serverless, you can accept a public offer on AWS Marketplace without
+contacting an Oracle sales representative. 3. Create your Oracle Database@AWS resources:
+
+    * For Oracle Exadata Database Service on Dedicated Infrastructure or Autonomous Database on
+     Dedicated Exadata Infrastructure, create your ODB network, Oracle Exadata infrastructure, and Exadata VM clusters using the AWS
+     console. Create your Exadata databases using OCI tools.
+    * For Autonomous Database Serverless, create an ODB network and then create an Autonomous
+     Database directly from the Oracle Database@AWS console. No Exadata infrastructure or VM cluster provisioning
+     is required.
+
+For more information, see [Getting started with Oracle Database@AWS](getting-started.md "getting-started.md"). 4. Share your resources across accounts with AWS Resource Access Manager (AWS RAM). For more information, see
 [Working with shared Oracle Database@AWS resources in a trusted account](working-with-shared-resources.md "working-with-shared-resources.md").

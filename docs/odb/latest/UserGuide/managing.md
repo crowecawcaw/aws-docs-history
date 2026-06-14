@@ -97,3 +97,61 @@ When you no longer need an ODB peering connection, you can delete it. You must d
 aws odb delete-odb-peering-connection \
     --odb-peering-connection-id `odbpcx-1234567890abcdef`
 ```
+
+## Managing Autonomous Database Serverless instances
+
+You can perform the following lifecycle operations on Autonomous Database Serverless (ADB-S)
+instances from the Oracle Database@AWS console, CLI, or APIs.
+
+###### Note
+
+Some operations may also be available from the OCI console. Check the OCI documentation
+for additional management options.
+
+**Start and stop**
+
+Start and stop an ADB-S instance to reduce cost when the database is not in use. When
+stopped, compute charges stop while storage charges continue.
+
+**Scaling**
+
+Scale ECPUs and storage independently. You can also enable or disable auto-scaling to
+allow the database to automatically use up to three times the base ECPU count during peak
+workloads.
+
+**Switchover**
+
+Initiate a switchover to the standby database for planned maintenance or testing.
+
+**Failover**
+
+Perform a manual failover for disaster recovery scenarios.
+
+**Clone**
+
+Create a full clone or metadata clone of an ADB-S instance.
+
+**Restart**
+
+Restart the database instance without stopping and starting it manually.
+
+**Delete**
+
+Permanently delete an ADB-S instance. This action cannot be undone.
+
+## Encryption using AWS Key Management Service
+
+To use AWS Key Management Service encryption with ADB-S, you need the following:
+
+- An IAM role with a trust policy that allows the OCI service account role to assume
+  this role, and permission to perform `kms:ListKeys` and
+  `kms:ListAliases` actions. This trust policy can be updated to include an
+  `sts:ExternalId` condition.
+- An AWS Key Management Service key with a key policy that allows the above IAM role to perform
+  `kms:Encrypt`, `kms:Decrypt`, and `kms:DescribeKey`
+  actions.
+
+Additional permissions required for the caller:
+
+- `iam:PassRole` scoped to the above IAM role
+- `kms:DescribeKey` on the AWS Key Management Service key being used
