@@ -38,6 +38,7 @@ For complete details on CloudFormation permissions, see [CloudFormation permissi
 5. Choose **Choose file**, and then select the `AWS-IncidentManager-MigrationResources.yaml` file.
 6. Choose **Next**.
 7. On the **Specify stack details** page, enter the following:
+
    - **Stack name** - Enter a name (for example, `im-migration-infrastructure`)
    - **ApprovalEmail** - Enter the email address to receive approval notifications (only used when the RequireManualApproval runbook parameter is set to true).
    - **IsPrimaryMigrationRegion** - Choose `true` if this is the first region in your account where you're deploying the stack, otherwise choose `false`

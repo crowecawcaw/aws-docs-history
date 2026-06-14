@@ -87,6 +87,7 @@ To create a contact, use the following steps.
 3. Type the full name of the contact and provide a unique and identifiable alias.
 4. Define a **Contact channel**. We recommend having
    two or more different types of contact channels.
+
    1. Choose the type: email, SMS, or voice.
    2. Enter an identifiable name for the contact channel.
    3. Provide the contact channel details, such as email: arosalez@example.com

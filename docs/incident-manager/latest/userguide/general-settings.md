@@ -90,11 +90,13 @@ resource in different ways, such as by purpose, owner, or environment.
 2. In the **Tags** area, choose
    **Edit**.
 3. To add a tag, do the following:
+
    1. Choose **Add new tag**.
    2. Enter a key and optional value for the tag.
    3. Choose **Save**.
 
 4. To delete a tag, do the following:
+
    1. Under the tag you want to delete, choose
       **Remove**.
    2. Choose **Save**.

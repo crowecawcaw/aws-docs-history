@@ -155,8 +155,10 @@ planning_ section of this user guide.
 
 - Choose **Add** in the upper-right corner of this
   tab.
+
   - To add a metric from an existing CloudWatch dashboard, choose
     **From existing CloudWatch dashboard**.
+
     1. Choose a **Dashboard**. This adds all
        metrics and alarms that are part of the chosen
        dashboard.
@@ -167,6 +169,7 @@ planning_ section of this user guide.
   - Add a single metric by selecting **From
     CloudWatch** and pasting a metric source. To copy a
     metric source:
+
     1. Open the CloudWatch console at
        [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
     2. In the navigation pane, choose

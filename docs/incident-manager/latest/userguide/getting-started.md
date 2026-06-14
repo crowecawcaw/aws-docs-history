@@ -100,6 +100,7 @@ Incident Manager engages contacts during an incident. For more information about
 3. For **Unique alias**, enter an alias to identify this contact.
 4. In the **Contact channel** section., do the following to define how the
    contact is engaged during incidents:
+
    1. For **Type**, choose **Email**,
       **SMS**, or **Voice**.
    2. For **Channel name**, enter a unique name to help you identify the

@@ -165,6 +165,7 @@ For more information about using runbooks in response plans, [Integrating System
 To specify a runbook for incident mitigation:
 
 1. For **Runbook**, do one of the following:
+
    - Choose **Clone runbook from template** to
      make a copy of the default Incident Manager runbook. For
      **Runbook name**, enter a descriptive name
@@ -264,6 +265,7 @@ Choose from the following:
 5. Expand **Additional options** and choose one of the
    following to specify the AWS account where the runbook workflow should
    run.
+
    - **Response plan owner's account** –
      Start the runbook workflow in the AWS account that created
      it.

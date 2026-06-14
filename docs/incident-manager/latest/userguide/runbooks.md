@@ -218,6 +218,7 @@ Guide_.
 8. (Optional) Add a **Target** type.
 9. (Optional) Add tags.
 10. Fill in the steps that the runbook will take when it runs. Each step requires:
+
     - A name.
     - A description of the purpose of the step.
     - The action to run during the step. Runbooks use the **Pause** action

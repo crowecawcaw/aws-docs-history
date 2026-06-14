@@ -166,6 +166,7 @@ weeks, or months.
 1. On the **Create on-call schedule** page, in the
    **Recurrence settings** section for the rotation, do
    the following:
+
    - For **Shift recurrence type**, specify whether
      each on-call's shift lasts a number of days, weeks, or months by
      choosing from `Daily`, `Weekly`, and

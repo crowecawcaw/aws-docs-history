@@ -92,6 +92,7 @@ resources.
    or by one of your application accounts. Depending on your use case, you will
    need to install the appropriate AWS CloudFormation template for the roles necessary
    to create and view runbooks during an incident.
+
    - _Running a runbook in the management account._
      The management account must download and install the [AWS-SystemsManager-AutomationReadOnlyRole](https://s3.amazonaws.com/aws-incident-manager-assets.us-east-1/cross-account-setup/AWS-SystemsManager-AutomationReadOnlyRole.zip "https://s3.amazonaws.com/aws-incident-manager-assets.us-east-1/cross-account-setup/AWS-SystemsManager-AutomationReadOnlyRole.zip")
      CloudFormation template. When installing

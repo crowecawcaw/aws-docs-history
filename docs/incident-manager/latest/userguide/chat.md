@@ -124,6 +124,7 @@ Slack chat channel. For information, see [Interacting through the chat channel](
 - Follow the steps in [Tutorial: Get started with
   Slack](../../../chatbot/latest/adminguide/slack-setup.md "../../../chatbot/latest/adminguide/slack-setup.md") in the _Amazon Q Developer in chat applications Administrator
   Guide_ and include the following in your configuration.
+
   - In step 10, for **Role settings**, choose **Channel
     role**.
   - In step 10d, for **Policy templates**, select
@@ -132,6 +133,7 @@ Slack chat channel. For information, see [Interacting through the chat channel](
     **Policy name**, choose [`AWSIncidentManagerResolverAccess`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess$jsonEditor").
   - In step 12, in the **SNS topics** section, do the
     following:
+
     - For **Region 1**, select an AWS Region that is
       included in your replication set.
     - For **Topics 1**, select the SNS topic you created in
@@ -152,6 +154,7 @@ Microsoft Teams chat channel. For information, see [Interacting through the chat
 - Follow the steps in [Tutorial: Get started with
   Microsoft Teams](../../../chatbot/latest/adminguide/teams-setup.md "../../../chatbot/latest/adminguide/teams-setup.md") in the _Amazon Q Developer in chat applications Administrator
   Guide_ and include the following in your configuration:
+
   - In step 10, for **Role settings**, choose **Channel
     role**.
   - In step 10d, for **Policy templates**, select
@@ -160,6 +163,7 @@ Microsoft Teams chat channel. For information, see [Interacting through the chat
     **Policy name**, choose [`AWSIncidentManagerResolverAccess`](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess$jsonEditor "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess$jsonEditor").
   - In step 12, in the **SNS topics** section, do the
     following:
+
     - For **Region 1**, select an AWS Region that is
       included in your replication set.
     - For **Topics 1**, select the SNS topic you created in
@@ -176,10 +180,12 @@ Amazon Chime
 - Follow the steps in [Tutorial: Get started with
   Amazon Chime](../../../chatbot/latest/adminguide/chime-setup.md "../../../chatbot/latest/adminguide/chime-setup.md") in the _Amazon Q Developer in chat applications Administrator Guide_ and
   include the following in your configuration:
+
   - In step 11, for **Policy templates**, select
     **Incident Manager permissions**.
   - In step 12, in the **SNS topics** section, select the SNS
     topics that will send notifications to the Amazon Chime webhook:
+
     - For **Region 1**, select an AWS Region that is
       included in your replication set.
     - For **Topics 1**, select the SNS topic you created in

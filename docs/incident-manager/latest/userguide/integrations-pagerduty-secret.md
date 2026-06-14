@@ -149,6 +149,7 @@ IAM permission `secretsmanager:GetSecretValue`.
 1.  Follow the steps through Step 3a in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in
     the _AWS Secrets Manager User Guide_.
 2.  For Step 3b, for **Key/value pairs**, do the following:
+
     - Choose the **Plaintext** tab.
     - Replace the default contents of the box with the following JSON structure:
 
@@ -159,7 +160,6 @@ IAM permission `secretsmanager:GetSecretValue`.
         "pagerDutyFromEmail": "`pagerduty-email`"
     }
     ```
-
     - In the JSON sample you pasted, replace the `placeholder values`
       as follows:
 
@@ -196,6 +196,7 @@ IAM permission `secretsmanager:GetSecretValue`.
     meets the requirements listed under the previous **Prerequisites**
     section.
 4.  On Step 4c, for **Resource permissions**, do the following:
+
     - Expand **Resource permissions**.
     - Choose **Edit permissions**.
     - Replace the default contents of the policy box with the following JSON structure:
@@ -210,11 +211,11 @@ IAM permission `secretsmanager:GetSecretValue`.
         "Resource": "*"
     }
     ```
-
     - Choose **Save**.
 
 5.  On Step 4d, for **Replicate secret**, do the following if you replicated
     your response plan to more than one AWS Region:
+
     - Expand **Replicate secret**.
     - For **AWS Region**, select the Region where you replicated your
       response plan to.

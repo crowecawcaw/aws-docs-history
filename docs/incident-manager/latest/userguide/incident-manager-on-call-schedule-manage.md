@@ -27,6 +27,7 @@ view that shows which contacts are on call at any specific time.
 2. In the left navigation, choose **On-call schedules**.
 3. In the row for the on-call schedule to view, do one of the
    following:
+
    - To open a summary view of the calendar, choose the schedule
      alias.
 
@@ -64,6 +65,7 @@ change these values, you can copy the calendar instead. For information, see [Co
 1. Open the [Incident Manager console](https://console.aws.amazon.com/systems-manager/incidents/home "https://console.aws.amazon.com/systems-manager/incidents/home").
 2. In the left navigation, choose **On-call schedules**.
 3. Do one of the following:
+
    - Select the radio button in the row for the on-call schedule to
      edit, and then choose **Edit**.
    - Choose the schedule alias for the on-call schedule to open the
@@ -131,6 +133,7 @@ for John Doe and Martha Rivera, starting May 5th and ending May 11th.
 1. Open the [Incident Manager console](https://console.aws.amazon.com/systems-manager/incidents/home "https://console.aws.amazon.com/systems-manager/incidents/home").
 2. In the left navigation, choose **On-call schedules**.
 3. In the row for the on-call schedule to view, do one of the following:
+
    - Choose the schedule alias, then choose the **Schedule
      calendar** tab.
    - Choose **View calendar**
@@ -139,6 +142,7 @@ for John Doe and Martha Rivera, starting May 5th and ending May 11th.
    .
 
 4. Do one of the following:
+
    - Choose **Create override**.
    - Choose the name of a contact in the calendar preview, and then choose
      **Override shift**.

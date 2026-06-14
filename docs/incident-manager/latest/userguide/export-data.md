@@ -12,6 +12,7 @@ for further analysis or archival purposes.
 The script exports the following data:
 
 - Complete incident records, including:
+
   - Timeline events
   - Related items
   - Engagements

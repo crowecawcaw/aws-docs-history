@@ -141,6 +141,7 @@ Incident Manager.
 3. To create the new template, use the `CreateDocument` operation with the
    updated JSON from the previous step. You must include the following, where
    `Analysis_Template_Name` is the name of your template,
+
    - `DocumentFormat: "JSON"`
    - `DocumentType: "ProblemAnalysisTemplate"`
    - `Name: "`Analysis_Template_Name`"`
