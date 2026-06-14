@@ -12,6 +12,7 @@ for game hosting.
   `RegisterGameServer()` to notify Amazon GameLift Servers FleetIQ that it is ready to
   host players and gameplay. A game server has two statuses to track its current
   availability:
+
   - Utilization status tracks whether the game server is currently
     supporting gameplay. This status is initially set to AVAILABLE,
     indicating that it is ready to accept new gameplay. Once the game server
