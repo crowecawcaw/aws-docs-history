@@ -477,6 +477,7 @@ Add entries to the VPC route table or tables associated with the subnets of your
 2. In the navigation pane, choose **Route Tables**, and select the route table associated with the subnets where your instances have been deployed.
 3. Choose **Actions**, **Edit routes**.
 4. To add a route, choose **Add route**.
+
    1. Add your chosen overlay IP address CIDR and the instance ID of your primary instance for SAP ASE database. See the following table for an **example**.
 
    |             |                      |

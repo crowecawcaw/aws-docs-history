@@ -49,6 +49,7 @@ Red Hat Enterprise Linux for SAP with HA and US is available on [AWS Marketplace
 The following access is required for setting up the cluster.
 
 - An IAM user with the following privileges.
+
   - modify Amazon VPC route tables
   - modify Amazon EC2 instance properties
   - create IAM policies and roles

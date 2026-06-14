@@ -45,6 +45,7 @@ SLES for SAP is available at [AWS Marketplace](https://aws.amazon.com/marketplac
 The following access is required for setting up the cluster.
 
 - An IAM user with the following privileges.
+
   - modify Amazon VPC route tables
   - modify Amazon EC2 instance properties
   - create IAM policies and roles
