@@ -27,6 +27,7 @@ How it works:
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
    **Choose by category** view.
+
    - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
      **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
@@ -120,6 +121,7 @@ aws amscm create-rfc --cli-input-json file://UpdateRdsMPRfc.json --execution-par
 You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. 6. To view the RDS, look in the execution output: Use the "stack_id" to view the RDS in the Cloud Formation Console. 7. You are now able to manage the database via a database management tool such as SQL server management studio. You do not have to request access from AMS.
 
 - Before you use this CT, you must first store your new master user password in one of the following:
+
   - [AWS Systems Manager (SSM) Parameter Store](../../../systems-manager/latest/userguide/systems-manager-parameter-store.md "../../../systems-manager/latest/userguide/systems-manager-parameter-store.md")
   - [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md")
 

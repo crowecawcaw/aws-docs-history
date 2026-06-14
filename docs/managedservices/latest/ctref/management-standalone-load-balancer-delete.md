@@ -27,6 +27,7 @@ How it works:
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
    **Choose by category** view.
+
    - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
      **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
@@ -135,6 +136,7 @@ You receive the ID of the new RFC in the response and can use it to submit and m
 - In AMS Advanced standalone load balancers are created by AMS Support engineers at your request, or by you using the Developer role or through the AMS
   Self-service Provisioning service.
 - Important considerations:
+
   - Before deleting, make sure that no traffic is currently being routed through the load balancer
   - Deleting a load balancer does not automatically delete the target groups associated with it
   - If you have a DNS record for your domain pointing to the load balancer, update it to point to a new location before deleting the load balancer
