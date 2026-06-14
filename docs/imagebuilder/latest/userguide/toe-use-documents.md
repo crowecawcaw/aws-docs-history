@@ -48,6 +48,7 @@ in the order that they appear in the component document.
 - You can define many phases in your document.
 - You must include at least one of the following phases in your
   document:
+
   - build – for Image Builder, this
     phase is generally used during the _build stage_.
   - validate – for Image Builder, this
@@ -92,6 +93,7 @@ The log folder name is comprised of the following parts:
    a service runs a AWSTOE component, it passes in the log directory,
    along with other settings for the command. For the following
    examples, we show the log file format that Image Builder uses.
+
    - **Linux and macOS**: `/var/lib/amazon/toe/`
    - **Windows**:
      `$env:ProgramFiles\Amazon\TaskOrchestratorAndExecutor\`
@@ -157,6 +159,7 @@ the document.
   step.
 - Statements with chaining expressions must be enclosed in quotes. For
   example:
+
   - **Invalid expression**: `echo {{ phase.step.inputs.variable
 }}`
   - **Valid expression**: `"echo {{ phase.step.inputs.variable

@@ -116,6 +116,7 @@ Each object consists of the following fields:
   An array of key-value pair objects that represent parameters that apply
   globally to all of the components that are included in the current
   **run** command execution.
+
   - name (String, required) –
     The name of the global parameter.
   - value (String, required) –

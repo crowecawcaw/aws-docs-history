@@ -82,6 +82,7 @@ The SSM Agent must be pre-installed in the selected AMI.
 
 - **Instance configuration** – Settings are pre-selected,
   but you can edit them.
+
   - **Systems Manager agent** – You can select or clear this check
     box to control installation of the Systems Manager agent on the new image. The
     check box is cleared by default to include the Systems Manager agent in your new

@@ -80,6 +80,7 @@ Docker Hub image
 - **AMI source** (Required) – Identify a custom AMI to use as
   the base image for your container build and test instance. This can be an AMI ID or an
   AWS Systems Manager (SSM) Parameter Store parameter that contains an AMI ID.
+
   - **AMI ID** – This setting is not
     pre-filled with your original entry. Enter the AMI ID for
     your base image. Example: `ami-1234567890abcdef1`.

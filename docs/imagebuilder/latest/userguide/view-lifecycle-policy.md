@@ -69,6 +69,7 @@ configured for the policy you're viewing. The tab includes the following details
 
 - **Name** – The name of the rule. These names are
   static, based on policy actions you can configure.
+
   - `Deprecation rule`
   - `Disable rule`
   - `Deletion rule`
@@ -89,6 +90,7 @@ configured for the policy you're viewing. The tab includes the following details
 - **Filter: `type of filter`** –
   The filter type you used to define the scope. The filter type can be one of the
   following:
+
   - `recipes` – The recipes that were used to create
     the images that the lifecycle policy applies to.
   - `tags` – A set of tags that Image Builder uses to select

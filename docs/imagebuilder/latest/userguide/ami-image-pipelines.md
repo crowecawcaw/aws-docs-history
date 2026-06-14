@@ -14,6 +14,7 @@ the following steps.
   or images that you subscribe to through the AWS Marketplace.
   The recipe also includes components that perform the following tasks on
   the EC2 instances that Image Builder uses to build your image:
+
   - Add and remove software
   - Customize settings and scripts
   - Run selected tests

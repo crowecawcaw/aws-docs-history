@@ -50,6 +50,7 @@ To make an AMI public, set the launch permission authorized accounts to
   **Actions** menu.
 - To create a new image and deliver it to the specified Regions, accounts, Organizations,
   and OUs, use distribution settings with the following API action or Image Builder command in the AWS CLI:
+
   - The **[CreateImage](../APIReference/API_CreateImage.md "../APIReference/API_CreateImage.md")**
     action in the Image Builder API.
   - The **[create-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image.html")**

@@ -25,6 +25,7 @@ To create an AWSTOE application component from the Image Builder console, follow
 2. Select **Components** from the navigation pane.
    Then select **Create component**.
 3. On the **Create component** page, under **Component details**, enter the following:
+
    1. **Image Operating system (OS)**. Specify
       the operating system that the component is compatible with.
    2. **Component category**. From the dropdown, select the type
@@ -65,6 +66,7 @@ component**.
 To create a new component version, follow these steps:
 
 1. Depending on where you start:
+
    - From the **Components** list page – Select the check box next to
      the component name, then select **Create new
      version** from the **Actions** menu.

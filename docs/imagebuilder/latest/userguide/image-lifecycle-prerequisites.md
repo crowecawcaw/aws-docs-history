@@ -5,6 +5,7 @@ resources, you must meet the following prerequisites.
 
 - Create an IAM role that grants permission for Image Builder to run lifecycle policies.
   You can create this role in one of the following ways:
+
   - Use the **Create lifecycle execution role using service defaults** option
     in the Image Builder console when creating a lifecycle policy. This automatically creates a
     role with the `EC2ImageBuilderLifecycleExecutionPolicy` managed policy attached.

@@ -53,6 +53,7 @@ components. To learn more about semantic versioning for Image Builder resources,
    Amazon ECR repositories in target Regions.
 3. In the **General** section, enter the following required
    boxes:
+
    - **Name** – your recipe name
    - **Version** – your recipe version
      (use the format _<major>.<minor>.<patch>_,
@@ -64,6 +65,7 @@ components. To learn more about semantic versioning for Image Builder resources,
    (OS)**, and **Image origin**. This results in a
    list of Amazon Linux 2 container images, managed by Amazon, for you to choose from
    for your base image.
+
    1. From the **Image name** dropdown, choose an
       image.
    2. Keep the default for **Auto-versioning options**

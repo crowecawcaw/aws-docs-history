@@ -29,6 +29,7 @@ The following actions create a new image:
 
 - Run the pipeline wizard in the Image Builder console to create a custom image.
 - Use one of the following API actions, or its corresponding AWS CLI command:
+
   - The **[CreateImage](../APIReference/API_CreateImage.md "../APIReference/API_CreateImage.md")**
     API action (**[create-image](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/imagebuilder/create-image.html")**
     in the AWS CLI).

@@ -39,6 +39,7 @@ To import a VM with the Image Builder console, follow these steps:
    navigation pane.
 3. To open the import dialog, choose **Import image**.
 4. Enter the following **General** information:
+
    - Specify a unique **Name** for your image.
    - Specify a **Version** for the base image. Use the
      following format: `*major*.*minor*.*patch*`.

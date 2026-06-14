@@ -172,6 +172,7 @@ To import an ISO disk image with the Image Builder console, follow these steps:
    navigation pane.
 3. To open the import dialog, choose **Import image**.
 4. Enter the following **General** information:
+
    - Specify a unique **Name** for your image.
    - Specify a **Version** for the base image. Use the
      following format: `*major*.*minor*.*patch*`.
@@ -179,6 +180,7 @@ To import an ISO disk image with the Image Builder console, follow these steps:
 5. Choose the import type: **ISO import**.
 6. Enter the following **ISO import configuration**
    details. Then choose **Import image** when you are done.
+
    - **S3 URI** – Enter the location
      where your ISO disk file is stored. To browse for the file,
      choose **Browse S3**.
@@ -195,6 +197,7 @@ To import an ISO disk image with the Image Builder console, follow these steps:
 7. You can optionally configure the following advanced settings
    for the import. For more information about these settings, see
    [Optional import settings](#iso-import-optional-settings "#iso-import-optional-settings").
+
    - **Secure Boot** – Secure Boot
      is enabled by default. To disable Secure Boot for the
      imported image, clear the **Secure Boot**
@@ -260,6 +263,7 @@ Here is a summary of the parameters that we specify in this example:
 - registerImageOptions (object) –
   Configures Secure Boot and UEFI settings for the imported image.
   Contains the following fields:
+
   - secureBootEnabled (boolean) –
     Specifies whether Secure Boot is enabled for the output AMI.
     The default value is `true`. To disable Secure Boot
@@ -272,6 +276,7 @@ Here is a summary of the parameters that we specify in this example:
 - windowsConfiguration (object) –
   Windows-specific configuration settings for the ISO import.
   Contains the following fields:
+
   - imageIndex (integer) –
     The 1-based index that specifies which Windows edition to install
     from a multi-edition Windows ISO file. A Windows ISO can contain a
@@ -331,6 +336,7 @@ Here is a summary of the parameters that we specify in this example:
 - registerImageOptions (object) –
   Configures Secure Boot and UEFI settings for the imported image.
   Contains the following fields:
+
   - secureBootEnabled (boolean) –
     Specifies whether Secure Boot is enabled for the output AMI.
     The default value is `true`. To disable Secure Boot
@@ -343,6 +349,7 @@ Here is a summary of the parameters that we specify in this example:
 - windowsConfiguration (object) –
   Windows-specific configuration settings for the ISO import.
   Contains the following fields:
+
   - imageIndex (integer) –
     The 1-based index that specifies which Windows edition to install
     from a multi-edition Windows ISO file. A Windows ISO can contain a

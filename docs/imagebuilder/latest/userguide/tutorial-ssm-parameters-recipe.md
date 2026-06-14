@@ -106,6 +106,7 @@ For more information about public parameter resources, see [Calling AMI public p
 2. Choose **Image recipes**, then choose **Create image
    recipe** from the list page.
 3. Fill out the **Base image** section, as follows:
+
    1. Choose the **Use
       custom AMI** option. This displays additional fields where you
       can enter the AMI ID or an SSM parameter that contains the AMI ID.

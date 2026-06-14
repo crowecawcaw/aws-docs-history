@@ -7,6 +7,7 @@ types of looping constructs in AWSTOE:
 - `for` constructs – Iterate over a bounded sequence of
   integers.
 - `forEach` constructs
+
   - `forEach` loop with input list – Iterates over a finite
     collection of strings.
   - `forEach` loop with delimited list – Iterates over a
@@ -52,6 +53,7 @@ The reference expression consists of the following members:
 The AWSTOE resolves reference expressions as follows:
 
 - `{{ <loop_name>.* }}` – AWSTOE resolves this expression using the following logic:
+
   - If the loop of the currently running step matches the `<loop_name>` value, then
     the reference expression resolves to the looping construct of the
     currently running step.
@@ -289,6 +291,7 @@ individual iterations. Step fields apply only at the step level, as follows:
   timed out.
 - _onFailure_ – Failure handling is applied to the
   step as follows:
+
   - If _onFailure_ is set to `Abort`, AWSTOE exits
     the loop and retries the step according to the retry policy. After the
     maximum number of retry attempts, AWSTOE marks the current step as
@@ -325,6 +328,7 @@ individual iterations. Step fields apply only at the step level, as follows:
 - _status_ – The overall status of the running of a
   step.`status` does not represent the status of individual
   iterations. The status of a step with loops is determined as follows:
+
   - If a single iteration fails to run, the status of a step points to a failure.
   - If all iterations succeed, the status of a step points to a success.
 

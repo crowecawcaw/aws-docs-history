@@ -14,6 +14,7 @@ steps:
     configuration**.
 3.  Choose **Create infrastructure configuration**.
 4.  In the **General** section, enter the following required information:
+
     - Enter the **Name** of your infrastructure
       configuration resource.
     - Select an **IAM role** that you want to

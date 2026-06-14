@@ -56,6 +56,7 @@ components. To learn more about semantic versioning for Image Builder resources,
    an image pipeline that will produce and distribute an AMI.
 3. In the **General** section, enter the following required
    boxes:
+
    - **Name** – your recipe name
    - **Version** – your recipe version
      (use the format _<major>.<minor>.<patch>_,
@@ -67,6 +68,7 @@ components. To learn more about semantic versioning for Image Builder resources,
    (OS)**, and **Image origin**. This results in a
    list of Linux AMIs that are managed by Amazon. For this tutorial, select the
    `Amazon Linux 2 x86` image.
+
    1. From the **Image name** dropdown, choose an
       image.
    2. Keep the default for **Auto-versioning options**

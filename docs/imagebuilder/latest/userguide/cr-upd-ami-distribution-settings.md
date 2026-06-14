@@ -96,6 +96,7 @@ the AWS Management Console:
     for your distribution configuration, and optional description.
 6.  In the **Region settings** section, enter the following
     details for each Region where you are distributing your AMI:
+
     1. The AMI is distributed to the current Region (**Region 1**),
        by default. **Region 1** is the source for the
        distribution. Some settings for **Region 1** are not open
@@ -203,7 +204,6 @@ the AWS Management Console:
         **Data type** – Keep the default
          value (`AWS EC2 Image`). This tells Systems Manager to validate the
          parameter value to ensure that it's a valid AMI ID.
-
     2. To add distribution settings for another Region, choose
        **Add Region**.
 

@@ -41,6 +41,7 @@ Configure **General** settings for your policy.
    the schedule right away. To create a policy that's initially
    deactivated, you can turn **Activate** off.
 5. For the **IAM role**, select one of the following options:
+
    - **Create lifecycle execution role using service defaults**
      – Generates a pre-configured role with the
      `EC2ImageBuilderLifecycleExecutionPolicy` managed policy
@@ -107,6 +108,7 @@ the criteria specified by the exclusion rules are excluded from lifecycle
 actions.
 
 1. For AMI image policies, you can configure the following AMI exclusion rules:
+
    - **Exclude public AMIs** – Select this option
      to exclude public AMIs from lifecycle actions.
    - **Exclude AMIs by Region** – Specify AWS Regions
@@ -235,6 +237,7 @@ Configure **General** settings for your policy.
    the schedule right away. To create a policy that's initially
    deactivated, you can turn **Activate** off.
 5. For the **IAM role**, select one of the following options:
+
    - **Create lifecycle execution role using service defaults**
      – Generates a pre-configured role with the
      `EC2ImageBuilderLifecycleExecutionPolicy` managed policy
@@ -301,6 +304,7 @@ the criteria specified by the exclusion rules are excluded from lifecycle
 actions.
 
 1. For AMI image policies, you can configure the following AMI exclusion rules:
+
    - **Exclude public AMIs** – Select this option
      to exclude public AMIs from lifecycle actions.
    - **Exclude AMIs by Region** – Specify AWS Regions

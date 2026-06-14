@@ -279,6 +279,7 @@ This policy includes the following permissions:
 - **Amazon EC2** – Access is granted for Amazon EC2
   to perform the following actions for Amazon Machine Images (AMIs) in the account
   that are tagged with `CreatedBy: EC2 Image Builder`.
+
   - Enable and disable an AMI.
   - Enable and disable image deprecation.
   - Describe and deregister an AMI.

@@ -26,6 +26,7 @@ To display a list of components in the AWS Management Console, follow these step
    one of the values. The owner type list is located in the search bar,
    next to the search text box. You can select from the following
    values:
+
    - **AWS Marketplace** – Components that are
      associated directly with an AWS Marketplace product subscription.
    - **Quick start (Amazon managed)** –

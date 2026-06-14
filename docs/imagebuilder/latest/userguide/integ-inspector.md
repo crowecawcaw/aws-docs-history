@@ -13,6 +13,7 @@ it takes the following actions:
 - Rates the severity of the finding. The severity rating categorizes
   vulnerabilities to help you prioritize your findings, and includes the
   following values:
+
   - Untriaged
   - Informational
   - Low

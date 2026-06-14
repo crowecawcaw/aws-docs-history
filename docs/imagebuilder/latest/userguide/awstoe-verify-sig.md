@@ -86,6 +86,7 @@ it as a trusted key in your `GPG` keyring.
 
 1. Obtain a copy of our public `GPG` build key by doing one of
    the following:
+
    - Download the key from
 
    https://awstoe-`<region>`.s3.`<region>`.amazonaws.com/assets/awstoe.gpg.
@@ -276,6 +277,7 @@ To verify this value, perform the following procedure:
 6. Scroll down until you see the **Thumbprint** field and
    then choose **Thumbprint**. This displays the entire
    thumbprint value in the lower window.
+
    - If the thumbprint value in the lower window is identical to the
      following value:
 

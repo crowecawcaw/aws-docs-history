@@ -37,6 +37,7 @@ You can select an existing recipe or create a new one.
 - Select AWS Regions where Image Builder distributes your Amazon Machine Image (AMI) or
   container image.
 - If your Image Builder pipeline creates an AMI, Image Builder also supports the following configuration:
+
   - Select a KMS key to use for encryption.
   - Configure AMI sharing across AWS accounts and Organizations.
   - Associate a License Manager self-managed license with your distributed image.

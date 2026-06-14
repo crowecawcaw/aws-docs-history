@@ -13,6 +13,7 @@ it takes the following actions:
 - Rates the severity of the finding. The severity rating categorizes
   vulnerabilities to help you prioritize your findings, and includes the
   following values:
+
   - Untriaged
   - Informational
   - Low
@@ -115,6 +116,7 @@ view:
   **Finding ID** is linked to more detailed information about
   the finding. This information appears on a panel that opens on the right side of
   the page. The panel includes the following information:
+
   - A detailed description of the finding.
   - A **Finding details** tab. This tab includes a
     finding overview, affected packages, summary remediation advice,
