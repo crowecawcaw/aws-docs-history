@@ -44,6 +44,7 @@ You can separately add and remove emails to the distribution list without requir
     1. In **AWS Console Mobile Application** select mobile devices to add.
 
 8. (Optional) Add chat channels:
+
    1. In **Chat channels** select chat channels to add.
 
 9. Choose **Add delivery channels**.

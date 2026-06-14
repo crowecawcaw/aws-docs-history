@@ -9,6 +9,7 @@ However, notifications expire 90 days after they are generated.
 ###### To add or remove notification hubs
 
 1. Open User Notifications in the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+
    1. In the navigation pane, choose **Notification hubs**.
 
 2. Choose **Edit**.

@@ -50,6 +50,7 @@ receives organization notifications. To configure notification for a member acco
 ###### To create a notification configuration for your organization
 
 1. Open User Notifications in the [AWS Management Console](https://console.aws.amazon.com/notifications/ "https://console.aws.amazon.com/notifications/"):
+
    1. Choose
       the
       bell icon in the top navigation bar.

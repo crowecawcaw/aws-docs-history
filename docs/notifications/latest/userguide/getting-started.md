@@ -25,6 +25,7 @@ User Notifications stores your notification data. For more information about not
 ###### To create a notification configuration
 
 1. Open User Notifications in the [AWS Management Console](https://console.aws.amazon.com/notifications/ "https://console.aws.amazon.com/notifications/"):
+
    1. Choose
       the
       bell icon in the top navigation bar.

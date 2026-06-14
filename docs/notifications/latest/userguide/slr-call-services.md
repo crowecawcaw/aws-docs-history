@@ -58,6 +58,7 @@ again.
 ###### To delete notification configurations
 
 1. Open User Notifications in the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
+
    1. In the navigation pane, choose **Notification configurations**.
 
 2. Select the configuration you want to delete.
