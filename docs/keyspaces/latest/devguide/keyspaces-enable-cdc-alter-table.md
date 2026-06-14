@@ -78,6 +78,7 @@ Console
 5. Select **Turn on streams**.
 6. Choose **View type** of the stream. The following options are available. Note that you can't change the view type
    of a stream after it's been created.
+
    - **New and old images** – Amazon Keyspaces captures both versions of the row, before and after the change. This is the default.
    - **New image** – Amazon Keyspaces captures only the version of the row after the change.
    - **Old image** – Amazon Keyspaces captures only the version of the row before the change.

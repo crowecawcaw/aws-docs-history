@@ -35,6 +35,7 @@ spark.cassandra.output.concurrent.writes = 3
 
 - **Break down the total throughput and distribute it across
   multiple Cassandra sessions.**
+
   - The Cassandra Spark Connector creates one session for each Spark
     executor. Think about this session as the unit of scale to determine the
     required throughput and the number of connections required.
@@ -55,6 +56,7 @@ spark.cassandra.output.concurrent.writes = 3
   ```
 
 - **Turn off batching.**
+
   - We recommend that you turn off batching to improve random access
     patterns. The following code snippet is an example of this.
 
@@ -66,6 +68,7 @@ spark.cassandra.output.concurrent.writes = 3
 
 - **Set `SPARK_LOCAL_DIRS` to a fast, local disk
   with enough space.**
+
   - By default, Spark saves map output files and resilient distributed
     datasets (RDDs) to a `/tmp` folder. Depending on your
     Spark host’s configuration, this can result in _no space left

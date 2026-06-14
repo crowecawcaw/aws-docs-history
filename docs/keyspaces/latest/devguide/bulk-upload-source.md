@@ -5,6 +5,7 @@ name `keyspaces_sample_table.csv` as the source file for the
 data migration. The provided sample file contains a few rows of data for a table with the name `book_awards`.
 
 1.  Create the source file. You can choose one of the following options:
+
     - Download the sample CSV file (`keyspaces_sample_table.csv`) contained in the
       following archive file [samplemigration.zip](samples/samplemigration.zip.md "samples/samplemigration.zip.md").
       Unzip the archive and take note of the path to `keyspaces_sample_table.csv`.
@@ -25,20 +26,19 @@ data migration. The provided sample file contains a few rows of data for a table
         + All data values are valid Amazon Keyspaces data types. See [Data types](cql.elements.md#cql.data-types "cql.elements.md#cql.data-types").
 
 2.  Create the target keyspace and table in Amazon Keyspaces.
+
     1. Connect to Amazon Keyspaces using `cqlsh`, replacing the service endpoint, user name, and
        password in the following example with your own values.
 
     ```
     cqlsh cassandra.`us-east-1`.amazonaws.com 9142 -u "`111122223333`" -p "`wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY`" --ssl
     ```
-
     2. Create a new keyspace with the name `catalog` as shown in the following
        example.
 
     ```
     CREATE KEYSPACE `catalog` WITH REPLICATION = {'class': 'SingleRegionStrategy'};
     ```
-
     3. When the new keyspace is available, use the following code to create the target table `book_awards`.
 
     ````

@@ -14,6 +14,7 @@ instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC
 1.  You need to authorize inbound SSH traffic to your Amazon EC2 instance. To do this,
     create a new EC2 security group, and then assign the security group to your EC2
     instance.
+
     1.  In the navigation pane, choose **Security
         Groups**.
     2.  Choose **Create Security Group**. In the

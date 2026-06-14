@@ -5,6 +5,7 @@ edited with NoSQL Workbench.
 
 1.  To create a new connection using IAM credentials, choose the **Connect
     by using IAM credentials** tab.
+
     1.  Before you begin, you must create IAM credentials using one of the
         following methods.
 

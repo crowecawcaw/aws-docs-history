@@ -42,8 +42,10 @@ Where:
   name of the keyspace to be created.
 - _options_ are one or more of the
   following:
+
   - `REPLICATION` – A map that indicates the
     replication strategy for the keyspace:
+
     - `SingleRegionStrategy` – For a
       single-Region keyspace. (Required)
     - `NetworkTopologyStrategy` – Specify
@@ -97,9 +99,11 @@ Where:
 - `*keyspace\_name*` is the
   name of the keyspace to be altered.
 - _options_ are one of the following:
+
   - `ADD | DROP TAGS` – A list of key-value pair tags to be added or
     removed from the keyspace.
   - `REPLICATION` – A map that indicates the replication strategy for the keyspace;
+
     - `class`– `NetworkTopologyStrategy` defines the keyspace
       as a multi-Region keyspace.
     - `region`– Specify one

@@ -20,6 +20,7 @@ more information, see [Expire data with Time to Live (TTL) for Amazon Keyspaces 
 
 - You can use `ALTER KEYSPACE` to add a Region to a single-Region or a multi-Region keyspace. For more
   information, see [Add an AWS Region to a keyspace in Amazon Keyspaces](keyspaces-multi-region-add-replica.md "keyspaces-multi-region-add-replica.md").
+
   - Before adding a Region to a single-Region keyspace, ensure that no tables under the keyspace are configured with
     customer managed keys.
   - Any existing tags configured for keyspaces or tables are not replicated to the new

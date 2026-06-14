@@ -20,6 +20,7 @@ This chapter covers key aspects of resource management in Amazon Keyspaces.
   You can use Amazon CloudWatch to monitor actual capacity utilization. For more information about monitoring with CloudWatch, see [Monitoring Amazon Keyspaces with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 - **Configure read/write capacity modes** – You can choose between two capacity modes for processing
   reads and writes on your tables:
+
   - **On-demand mode (default)** – Pay per request for read and write throughput.
     Amazon Keyspaces can instantly scale capacity
     up to any previously reached traffic level.

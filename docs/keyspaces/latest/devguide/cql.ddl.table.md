@@ -65,6 +65,7 @@ Where:
   prefix. Alternatively, you can set the current keyspace with the `USE` keyspace statement.
 - `*column\_definition*` consists of the
   following:
+
   - _`column_name`_ – The name
     of the column.
   - `*cql\_type*` – An Amazon Keyspaces
@@ -83,22 +84,26 @@ Where:
 
 - `*primary\_key*` consists of the
   following:
+
   - `partition_key`
   - `clustering_columns`
 
 - `*partition\_key*`:
+
   - The partition key can be a single column, or it can be a
     compound value composed of two or more columns. The partition
     key portion of the primary key is required and determines how
     Amazon Keyspaces stores your data.
 
 - `*clustering\_columns*`:
+
   - The optional clustering column portion of your primary key
     determines how the data is clustered and sorted within each
     partition.
 
 - `*table\_options*` consist of the
   following:
+
   - _`CLUSTERING ORDER BY`_ –
     The default CLUSTERING ORDER on a table is composed of your
     clustering keys in the `ASC` (ascending) sort direction. Specify it to
@@ -108,6 +113,7 @@ Where:
     To specify the `view type` when enabling a stream, set the `cdc_specification` with `CUSTOM_PROPERTIES` .
   - _`CUSTOM_PROPERTIES`_ – A
     map of settings that are specific to Amazon Keyspaces.
+
     - `capacity_mode`: Specifies the read/write
       throughput capacity mode for the table. The options are
       `throughput_mode:PAY_PER_REQUEST` and
@@ -155,7 +161,9 @@ Where:
       AWS Region. You can do this by configuring the
       following parameters. For more information and examples,
       see [Create a multi-Region table in provisioned mode with auto scaling in Amazon Keyspaces](tables-mrr-create-provisioned.md "tables-mrr-create-provisioned.md").
+
       - `region` – The AWS Region of the table replica with the following settings:
+
         - `read_capacity_units`
 
     - `TTL`: Enables Time to Live custom settings for the
@@ -167,7 +175,9 @@ Where:
   - `*AUTOSCALING\_SETTINGS*` includes the following optional
     settings for tables in provisioned mode. For more information and
     examples, see [Create a new table with automatic scaling](autoscaling.createTable.md "autoscaling.createTable.md").
+
     - `provisioned_write_capacity_autoscaling_update`:
+
       - `autoscaling_disabled` – To enable auto scaling for write capacity, set the value to `false`.
         The default is `true`. (Optional)
       - `minimum_units` – The minimum level of write throughput that the table
@@ -181,10 +191,12 @@ Where:
       - `scaling_policy` – Amazon Keyspaces supports the target tracking policy. The auto
         scaling target is the provisioned write capacity
         of the table.
+
         - `target_tracking_scaling_policy_configuration` – To define the target tracking policy,
           you must define the target value. For more information about target tracking and cooldown
           periods, see [Target
           Tracking Scaling Policies](../../../autoscaling/application/userguide/application-auto-scaling-target-tracking.md "../../../autoscaling/application/userguide/application-auto-scaling-target-tracking.md") in the _Application Auto Scaling User Guide_.
+
           - `target_value` – The target utilization rate of the table. Amazon Keyspaces auto scaling
             ensures that the ratio of consumed capacity to provisioned capacity stays at or near this value.
             You define `target_value` as a percentage. A double between 20 and 90. (Required)
@@ -201,6 +213,7 @@ Where:
             down for a table on your behalf. (Optional)
 
     - `provisioned_read_capacity_autoscaling_update`:
+
       - `autoscaling_disabled` – To enable auto scaling for read capacity, set the value to `false`.
         The default is `true`. (Optional)
       - `minimum_units` – The minimum level of throughput that the table should
@@ -214,12 +227,14 @@ Where:
       - `scaling_policy` – Amazon Keyspaces supports the target tracking policy. The auto
         scaling target is the provisioned read capacity of
         the table.
+
         - `target_tracking_scaling_policy_configuration`
           – To define the target tracking policy, you
           must define the target value. For more information
           about target tracking and cooldown periods, see
           [Target Tracking Scaling Policies](../../../autoscaling/application/userguide/application-auto-scaling-target-tracking.md "../../../autoscaling/application/userguide/application-auto-scaling-target-tracking.md") in the
           _Application Auto Scaling User Guide_.
+
           - `target_value` – The
             target utilization rate of the table. Amazon Keyspaces auto
             scaling ensures that the ratio of consumed
@@ -252,8 +267,11 @@ Where:
       AWS Region. You can do this by configuring the
       following parameters. For more information and examples,
       see [Update the provisioned capacity and auto scaling settings for a multi-Region table in Amazon Keyspaces](tables-mrr-autoscaling.md "tables-mrr-autoscaling.md").
+
       - `region` – The AWS Region of the table replica with the following settings:
+
         - `provisioned_read_capacity_autoscaling_update`
+
           - `autoscaling_disabled` – To enable auto scaling for the table's read
             capacity, set the value to `false`. The
             default is `true`. (Optional)
@@ -274,11 +292,13 @@ Where:
           - `scaling_policy` – Amazon Keyspaces supports the target tracking policy. The auto
             scaling target is the provisioned read capacity of
             the table.
+
             - `target_tracking_scaling_policy_configuration` – To define the target tracking policy, you must define the target value.
               For more information about target tracking and cooldown
               periods, see [Target
               Tracking Scaling Policies](../../../autoscaling/application/userguide/application-auto-scaling-target-tracking.md "../../../autoscaling/application/userguide/application-auto-scaling-target-tracking.md") in the _Application Auto Scaling User
               Guide_.
+
               - `target_value` – The target utilization rate of the table. Amazon Keyspaces auto
                 scaling ensures that the ratio of consumed read
                 capacity to provisioned read capacity stays at or
@@ -303,6 +323,7 @@ Where:
     it's created.
   - `*clustering\_order*` consists of the
     following:
+
     - _`column_name`_ – The name
       of the column.
     - _`ASC | DESC`_ – Sets the
@@ -393,6 +414,7 @@ Where:
   comma-separated list of columns placed inside parentheses.
 - `*table\_options*` consist of the
   following:
+
   - `*AUTOSCALING\_SETTINGS*` includes the optional auto scaling
     settings for provisioned tables. For syntax and detailed
     descriptions, see [CREATE TABLE](#cql.ddl.table.create "#cql.ddl.table.create"). For
@@ -402,6 +424,7 @@ Where:
     To specify the `view type` when enabling a stream, set the `cdc_specification` with `CUSTOM_PROPERTIES` .
   - _`CUSTOM_PROPERTIES`_ – A
     map of settings specific to Amazon Keyspaces.
+
     - `capacity_mode`: Specifies the read/write
       throughput capacity mode for the table. The options are
       `throughput_mode:PAY_PER_REQUEST` and
@@ -447,7 +470,9 @@ Where:
       table's read capacity differently per AWS Region. You
       can do this by configuring the following parameters. For
       more information and examples, see [Update the provisioned capacity and auto scaling settings for a multi-Region table in Amazon Keyspaces](tables-mrr-autoscaling.md "tables-mrr-autoscaling.md").
+
       - `region` – The AWS Region of the table replica with the following settings:
+
         - `read_capacity_units`
 
     - `ttl`: Enables Time to Live custom settings for the
@@ -552,11 +577,13 @@ Where:
   source table.
 - `*table\_options*` consists of the
   following:
+
   - `*restore\_timestamp*` is the
     restore point time in ISO 8601 format. If it's not specified, the current timestamp
     is used.
   - _`CUSTOM_PROPERTIES`_ – A
     map of settings specific to Amazon Keyspaces.
+
     - `capacity_mode`: Specifies the read/write
       throughput capacity mode for the table. The options are
       `throughput_mode:PAY_PER_REQUEST` and
@@ -587,7 +614,9 @@ Where:
       table. For a multi-Region table, you can configure the
       table's read capacity differently per AWS Region. You
       can do this by configuring the following parameters.
+
       - `region` – The AWS Region of the table replica with the following settings:
+
         - `read_capacity_units`
 
   - `*AUTOSCALING\_SETTINGS*` includes the optional auto scaling

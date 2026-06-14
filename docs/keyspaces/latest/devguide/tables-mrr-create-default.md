@@ -21,6 +21,7 @@ Console
 6. Under **Table settings**, continue with the **Default
    settings** option. Note the following default settings for
    multi-Region tables.
+
    - **Capacity mode** – The default
      capacity mode is **On-demand**. For more
      information about configuring

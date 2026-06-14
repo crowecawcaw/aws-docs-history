@@ -33,6 +33,7 @@ Console
    **Restore**.
 5. For the new table name, enter a new name for the restored table, for example `mytable_restored`.
 6. To define the point in time for the restore operation, you can choose between two options:
+
    - Select the preconfigured **Earliest** time.
    - Select **Specify date and time** and enter the date and time you want to restore the new table to.###### Note
 
@@ -85,7 +86,6 @@ Point-in-time recovery is enabled as shown in the following sample output.
    RESTORE TABLE mykeyspace.mytable_restored
    FROM TABLE mykeyspace.mytable;
    ```
-
    - You can also restore to a specific point in time, defined by a
      `restore_timestamp` in ISO 8601 format. You can specify any point in
      time during the last 35 days. For example, the following command restores the
@@ -206,7 +206,6 @@ The output of this command returns the following.
     "restoredTableARN": "arn:aws:cassandra:us-east-1:111122223333:/keyspace/myKeyspace/table/myTable_restored"
    }`
    ```
-
    - To restore the table to the current time, you can omit the `restore-timestamp` parameter.
 
    ```

@@ -4,17 +4,20 @@ This guide covers troubleshooting steps for various scenarios when working with 
 resolving general errors, connection issues, capacity management problems, and Data Definition Language (DDL) errors.
 
 - **General errors**
+
   - Troubleshooting top-level exceptions like `NoNodeAvailableException`, `NoHostAvailableException`,
     and `AllNodesFailedException`.
   - Isolating underlying errors from Java driver exceptions.
   - Implementing retry policies and configuring connections correctly.
 
 - **Connection issues**
+
   - Resolving errors when connecting to Amazon Keyspaces endpoints using `cqlsh` or Apache Cassandra client drivers.
   - Troubleshooting VPC endpoint connections, Cassandra-stress connections, and IAM configuration errors.
   - Handling connection losses during data imports.
 
 - **Capacity management errors**
+
   - Recognizing and resolving insufficient capacity errors related to tables, partitions, and connections.
   - Monitoring relevant Amazon Keyspaces metrics in Amazon CloudWatch Logs.
   - Optimizing connections and throughput for improved performance.

@@ -15,6 +15,7 @@ git clone https://github.com/aws-samples/amazon-keyspaces-examples.git
 2. After downloading the Github repo, unzip the downloaded file and navigate to the
    `resources` directory to the
    `application.conf` file.
+
    1. **Application configuration**
 
    In this step you configure the SigV4 authentication plugin. You can use the
@@ -39,7 +40,6 @@ git clone https://github.com/aws-samples/amazon-keyspaces-examples.git
      }
    }
    ```
-
    2. **Add the STS module dependency.**
 
    This adds the ability to use a `WebIdentityTokenCredentialsProvider` that
@@ -53,7 +53,6 @@ git clone https://github.com/aws-samples/amazon-keyspaces-examples.git
                <version>1.11.717</version>
            </dependency>
    ```
-
    3. **Add the SigV4 dependency.**
 
    This package implements the SigV4 authentication plugin that is needed to authenticate to Amazon Keyspaces

@@ -35,6 +35,7 @@ To connect to Amazon Keyspaces, you need to complete the following tasks before 
 
 1.  Amazon Keyspaces requires the use of Transport Layer Security (TLS) to help secure connections with
     clients.
+
     1.  Download the following digital certificates and save
         the files locally or in your home directory.
 

@@ -22,6 +22,7 @@ using the VPC endpoint with Amazon Keyspaces.
    permissions. In AWS Identity and Access Management (IAM), you can use the AWS managed policy
    `AmazonKeyspacesReadOnlyAccess` to grant the IAM user read
    access to Amazon Keyspaces.
+
    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. On the IAM console dashboard, choose **Users**, and
       then choose your IAM user from the list.

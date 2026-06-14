@@ -23,6 +23,7 @@ Console
 5. Select **Turn on streams** .
 6. Select the **View type** and continue to **Tags** to create tags for the stream.
 7. You can select one of the following options:
+
    - **No tags** – Use this option if you don't want to create any tags for the stream.
    - **Copy tags from table** – Use this option if you want to copy the tags from the table
      to the stream. After copying the tags, you can edit them for the stream. Note that this option is only available if the table has tags.

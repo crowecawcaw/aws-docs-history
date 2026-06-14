@@ -94,6 +94,7 @@ This policy includes the following permissions.
   size and create a CloudWatch dashboard.
 - `IAM` – Allows Amazon Keyspaces to create service-linked roles with
   IAM automatically when the following features are turned on:
+
   - `Amazon Keyspaces CDC streams` – When an administrator enables a stream for a table,
     Amazon Keyspaces creates the service-linked role [AWSServiceRoleForAmazonKeyspacesCDC](using-service-linked-roles-CDC-streams.md#service-linked-role-permissions-CDC-streams "using-service-linked-roles-CDC-streams.md#service-linked-role-permissions-CDC-streams") to publish CloudWatch metrics into your account on your behalf.
   - `Application Auto Scaling` – When an administrator enables Application Auto Scaling for a table, Amazon Keyspaces

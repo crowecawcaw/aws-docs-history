@@ -709,6 +709,7 @@ public class CassandraWrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [CreateKeyspace](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/CreateKeyspace.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/CreateKeyspace.md")
   - [CreateTable](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/CreateTable.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/CreateTable.md")
   - [DeleteKeyspace](../../../goto/DotNetSDKV3/keyspaces-2022-02-10/DeleteKeyspace.md "../../../goto/DotNetSDKV3/keyspaces-2022-02-10/DeleteKeyspace.md")
@@ -1288,6 +1289,7 @@ public class ScenarioKeyspaces {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateKeyspace](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/CreateKeyspace.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/CreateKeyspace.md")
   - [CreateTable](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/CreateTable.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/CreateTable.md")
   - [DeleteKeyspace](../../../goto/SdkForJavaV2/keyspaces-2022-02-10/DeleteKeyspace.md "../../../goto/SdkForJavaV2/keyspaces-2022-02-10/DeleteKeyspace.md")
@@ -1878,6 +1880,7 @@ suspend fun createKeySpace(keyspaceNameVal: String) {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [CreateKeyspace](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CreateTable](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DeleteKeyspace](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -2544,6 +2547,7 @@ class QueryManager:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateKeyspace](../../../goto/boto3/keyspaces-2022-02-10/CreateKeyspace.md "../../../goto/boto3/keyspaces-2022-02-10/CreateKeyspace.md")
   - [CreateTable](../../../goto/boto3/keyspaces-2022-02-10/CreateTable.md "../../../goto/boto3/keyspaces-2022-02-10/CreateTable.md")
   - [DeleteKeyspace](../../../goto/boto3/keyspaces-2022-02-10/DeleteKeyspace.md "../../../goto/boto3/keyspaces-2022-02-10/DeleteKeyspace.md")

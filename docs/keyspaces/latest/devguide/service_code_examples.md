@@ -13,9 +13,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Amazon Keyspaces](example_keyspaces_Hello_section.md "example_keyspaces_Hello_section.md")
   - [Learn the basics](example_keyspaces_Scenario_GetStartedKeyspaces_section.md "example_keyspaces_Scenario_GetStartedKeyspaces_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateKeyspace](example_keyspaces_CreateKeyspace_section.md "example_keyspaces_CreateKeyspace_section.md")
     - [CreateTable](example_keyspaces_CreateTable_section.md "example_keyspaces_CreateTable_section.md")
     - [DeleteKeyspace](example_keyspaces_DeleteKeyspace_section.md "example_keyspaces_DeleteKeyspace_section.md")

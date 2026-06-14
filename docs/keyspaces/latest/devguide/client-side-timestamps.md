@@ -29,17 +29,19 @@ Amazon Keyspaces doesn't charge extra to turn on client-side timestamps. However
 This can lead to additional storage usage and in some cases additional throughput usage. For more information about Amazon Keyspaces pricing, see
 [Amazon Keyspaces (for Apache Cassandra) pricing](https://aws.amazon.com/keyspaces/pricing "https://aws.amazon.com/keyspaces/pricing").
 
-When client-side timestamps are turned on in Amazon Keyspaces, every column of every row stores a timestamp. These
-timestamps take up approximately 20–40 bytes (depending on your data), and
-contribute to the storage and throughput cost for the row. These metadata bytes also
-count towards your 1-MB row size quota. To determine the overall increase in storage
-space (to ensure that the row size stays under 1 MB), consider the number of
-columns in your table and the number of collection elements in each row. For example, if
-a table has 20 columns, with each column storing 40 bytes of data, the size of the row
-increases from 800 bytes to 1200 bytes. For more information on how to estimate the size
-of a row, see [Estimate row size in Amazon Keyspaces](calculating-row-size.md "calculating-row-size.md"). In addition to the extra 400 bytes
-for storage, in this example, the number of write capacity units (WCUs) consumed per
-write increases from 1 WCU to 2 WCUs. For more information on how to calculate read and
+When client-side timestamps are turned on in Amazon Keyspaces, additional metadata is stored alongside your row data.
+The per-row overhead depends on your column types, whether the row uses TTL, and (for
+multi-Region tables) the number of replicating Regions. Overhead can range from a few bytes
+for rows of simple scalar columns to tens of bytes or more for rows with non-frozen
+collections or multi-Region counters. This metadata counts toward both your storage cost and
+your 1-MB row size quota.
+
+To determine the overall impact on storage and throughput, consider the number of columns
+in your table, the data types used, and the number of collection elements in each row. For
+example, rows with many non-frozen collection columns containing large numbers of elements
+will have higher overhead than rows with only scalar columns. The additional metadata also
+affects the number of write capacity units (WCUs) consumed per write. For more information
+on how to estimate the overhead for your specific schema, see [Estimate row size in Amazon Keyspaces](calculating-row-size.md "calculating-row-size.md"). For more information on how to calculate read and
 write capacity, see [Configure read/write capacity modes in Amazon Keyspaces](ReadWriteCapacityMode.md "ReadWriteCapacityMode.md").
 
 After client-side timestamps have been turned on for a table, you can't turn it off.

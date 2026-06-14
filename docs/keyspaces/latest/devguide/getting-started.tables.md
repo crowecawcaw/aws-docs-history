@@ -92,6 +92,7 @@ publisher      text
     key can be made of one or more columns.
 8.  Add `category` and `rank` as **Clustering columns**. Clustering columns are optional and
     determine the sort order within each partition.
+
     1. To add a clustering column, choose **Add clustering column**.
     2. In the **Column** list, choose
        **category**. In the **Order**

@@ -165,6 +165,7 @@ Consider the following when you're using encryption at rest in Amazon Keyspaces.
 - Encryption at rest only encrypts data while it's static (at rest) on a persistent
   storage media. If data security is a concern for data in transit or data in use, you must
   take additional measures:
+
   - Data in transit: All your data in Amazon Keyspaces is encrypted in transit. By default, communications
     to and from Amazon Keyspaces are protected by using Secure Sockets Layer (SSL)/Transport Layer Security
     (TLS) encryption.

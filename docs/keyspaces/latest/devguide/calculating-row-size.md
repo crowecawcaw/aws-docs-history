@@ -125,27 +125,28 @@ and the `field value` for the fields of a UDT:
 
 ## Consider the impact of Amazon Keyspaces features on row size
 
-This section shows how features in Amazon Keyspaces impact the encoded size of a row.
+This section shows how Client-side timestamps and Time to Live (TTL) features in Amazon Keyspaces impact the encoded size of a row.
 
-- **Client-side timestamps** – Client-side timestamps are stored for every column in
-  each row when the feature is turned on. These timestamps take up approximately
-  20–40 bytes (depending on your data), and contribute to the storage and
-  throughput cost for the row. For more information about client-side timestamps, see [Client-side timestamps in Amazon Keyspaces](client-side-timestamps.md "client-side-timestamps.md").
-- **Time to Live (TTL)** – TTL metadata takes up approximately 8
-  bytes for a row when the feature is turned on. Additionally, TTL metadata is
-  stored for every column of each row. The TTL metadata takes up approximately 8
-  bytes for each column storing a scalar data type or a frozen collection. If the
-  column stores a collection data type that's not frozen, for each element of the
-  collection TTL requires approximately 8 additional bytes for metadata. For a
-  column that stores a collection data type when TTL is enabled, you can use the
-  following formula.
+When client-side timestamps are turned on or TTL is utilized (using the `USING TTL` clause),
+additional metadata is stored for every column of every row in your table.
+Additionally, metadata may also be stored for each element in case of certain
+collection data types. The following table shows the metadata overhead for each data type.
 
-```
-`**total encoded size of column** = (column id) + sum (nested elements + collection metadata (1 byte) + TTL metadata (8 bytes)) + collection column metadata (3 bytes)`
-```
+| Column/Data Type                       | Client-side timestamps enabled     | TTL without client-side timestamps | Client-side timestamps enabled with TTL |
+| -------------------------------------- | ---------------------------------- | ---------------------------------- | --------------------------------------- |
+| Scalar types                           | 18 bytes/column                    | 16 bytes/column                    | 27 bytes/column                         |
+| Frozen collection / Frozen UDT / Tuple | 18 bytes/column                    | 16 bytes/column                    | 27 bytes/column                         |
+| Non-frozen List                        | 30 bytes/element + 19 bytes/column | 15 bytes/element                   | 39 bytes/element + 19 bytes/column      |
+| Non-frozen Set                         | 14 bytes/element + 26 bytes/column | 12 bytes/element + 7 bytes/column  | 23 bytes/element + 26 bytes/column      |
+| Non-frozen Map / Non-frozen UDT        | 17 bytes/element + 26 bytes/column | 15 bytes/element + 7 bytes/column  | 26 bytes/element + 26 bytes/column      |
+| Counter (single-Region)                | 51 bytes/column                    | N/A (no TTL support)               | N/A (no TTL support)                    |
+| Counter (multi-Region)                 | 25 + (N_regions × 26) bytes/column | N/A (no TTL support)               | N/A (no TTL support)                    |
 
-TTL metadata contributes to the storage and throughput
-cost for the row. For more information about TTL, see [Expire data with Time to Live (TTL) for Amazon Keyspaces (for Apache Cassandra)](TTL.md "TTL.md").
+These metadata bytes count towards your 1-MB row size quota.
+In the counter formula, N_regions represents the number of AWS Regions in which the counter
+column has received at least one write operation. Counter overhead values are approximate
+and may vary slightly.
+For more information about client-side timestamps, see [Client-side timestamps in Amazon Keyspaces](client-side-timestamps.md "client-side-timestamps.md"). For more information about TTL, see [Expire data with Time to Live (TTL) for Amazon Keyspaces (for Apache Cassandra)](TTL.md "TTL.md").
 
 ## Choose the right formula to calculate the encoded size of a row
 
@@ -198,18 +199,17 @@ following steps.
 
 1. Calculate the size of a partition key column by adding the bytes for the data type stored in
    the column and the metadata bytes. Repeat this for all partition key columns.
+
    1. Calculate the size of the first column of the partition key (pk_col1):
 
    ```
    `(2 bytes for the integer data type) x 2 + 1 byte for the column id + 3 bytes for partition key metadata = 8 bytes`
    ```
-
    2. Calculate the size of the second column of the partition key (pk_col2):
 
    ```
    `(2 bytes for the integer data type) x 2 + 1 byte for the column id + 3 bytes for partition key metadata = 8 bytes`
    ```
-
    3. Add both columns to get the total estimated size of the partition key columns:
 
    ```
@@ -218,18 +218,17 @@ following steps.
 
 2. Calculate the size of the clustering column by adding the bytes for the data type stored in
    the column and the metadata bytes. Repeat this for all clustering columns.
+
    1. Calculate the size of the first column of the clustering column (ck_col1):
 
    ```
    `(2 bytes for the integer data type) x 2 + 20% of the data value (2 bytes) for clustering column metadata + 1 byte for the column id = 6 bytes`
    ```
-
    2. Calculate the size of the second column of the clustering column (ck_col2):
 
    ```
    `(2 bytes for the integer data type) x 2 + 20% of the data value (2 bytes) for clustering column metadata + 1 byte for the column id = 6 bytes`
    ```
-
    3. Add both columns to get the total estimated size of the clustering columns:
 
    ```

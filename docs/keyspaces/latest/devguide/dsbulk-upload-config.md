@@ -5,6 +5,7 @@ configuration file directly from the command line.
 
 1. Create a DSBulk configuration file for the migration to Amazon Keyspaces, in this example we use the file name `dsbulk_keyspaces.conf`.
    Specify the following settings in the DSBulk configuration file.
+
    1. _`PlainTextAuthProvider`_ – Create the authentication provider with the `PlainTextAuthProvider` class. `ServiceUserName` and
       `ServicePassword` should match the user name and password you obtained when you generated the service-specific credentials by
       following the steps at [Create credentials for programmatic access to Amazon Keyspaces](programmatic.credentials.md "programmatic.credentials.md").
@@ -56,6 +57,7 @@ advanced.connection.pool.local.size = 3
 ```
 
 2.  Review the parameters for the DSBulk `load` command.
+
     1. _`executor.maxPerSecond`_ – The maximum number of rows that the load command attempts to process
        concurrently per second. If unset, this setting is disabled with -1.
 

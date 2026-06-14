@@ -8,6 +8,7 @@ You can use the console to do the following in Amazon Keyspaces:
 
 - Create, delete, and manage keyspaces and tables.
 - Monitor important table metrics on a table's **Monitor** tab:
+
   - Billable table size (Bytes)
   - Capacity metrics
 

@@ -6,6 +6,7 @@ In this step, you confirm that the partitioner for your account is compatible wi
    Cassandra Connector. For more information on partitioners and how to change
    them, see [Working with partitioners in Amazon Keyspaces](working-with-partitioners.md "working-with-partitioners.md").
 2. Setup your IAM permissions for Amazon Keyspaces, using interface VPC endpoints, with Apache Spark.
+
    - Assign read/write access to the user table and read access to the system tables as shown in the IAM policy example listed below.
    - Populating the system.peers table with your available interface VPC endpoints is required for clients accessing Amazon Keyspaces with
      Spark over [VPC endpoints](vpc-endpoints.md "vpc-endpoints.md").
@@ -41,6 +42,7 @@ In this step, you confirm that the partitioner for your account is compatible wi
 3. Consider the following best practices to configure sufficient read/write
    throughput capacity for your Amazon Keyspaces table to support the traffic from the Spark
    Cassandra Connector.
+
    - Start using on-demand capacity to help you test the
      scenario.
    - To optimize the cost of table throughput for production environments,

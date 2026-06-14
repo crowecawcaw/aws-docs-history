@@ -76,17 +76,21 @@ The policy contains the following elements:
 - `AUTOSCALING_SETTINGS` – Specifies if Amazon Keyspaces is allowed to
   adjust throughput capacity on your behalf. The following values are
   required:
+
   - `provisioned_write_capacity_autoscaling_update`:
+
     - `minimum_units`
     - `maximum_units`
 
   - `provisioned_read_capacity_autoscaling_update`:
+
     - `minimum_units`
     - `maximum_units`
 
   - `scaling_policy` – Amazon Keyspaces supports the target
     tracking policy. To define the target tracking policy, you configure the
     following parameters.
+
     - `target_value` – Amazon Keyspaces auto scaling ensures
       that the ratio of consumed capacity to provisioned capacity
       stays at or near this value. You define
@@ -183,6 +187,7 @@ The policy contains the following elements:
   to adjust capacity throughput on your behalf. You can enable auto scaling for
   read and for write capacity separately. Then you must specify the following
   parameters for `autoScalingSpecification`:
+
   - `writeCapacityAutoScaling` – The maximum and minimum
     write capacity units.
   - `readCapacityAutoScaling` – The maximum and minimum
@@ -190,6 +195,7 @@ The policy contains the following elements:
   - `scalingPolicy` – Amazon Keyspaces supports the target tracking
     policy. To define the target tracking policy, you configure the
     following parameters.
+
     - `targetValue` – Amazon Keyspaces auto scaling ensures
       that the ratio of consumed capacity to provisioned capacity
       stays at or near this value. You define `targetValue`

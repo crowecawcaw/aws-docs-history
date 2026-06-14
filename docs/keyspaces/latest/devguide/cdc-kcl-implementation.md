@@ -3,6 +3,7 @@
 This topic provides a step-by-step guide to implementing a KCL consumer application to process Amazon Keyspaces CDC streams.
 
 1. Prerequisites: Before you begin, ensure you have:
+
    - An Amazon Keyspaces table with a CDC stream
    - Required IAM permissions for the IAM principal to access the Amazon Keyspaces CDC stream,
      create and access DynamoDB tables for KCL stream processing, and permissions to publish metrics to CloudWatch. For more

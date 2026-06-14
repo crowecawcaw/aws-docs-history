@@ -236,6 +236,7 @@ Usage notes:
    `"`path_to_file/keyspaces-bundle.pem`"`
    with the path to the certificate file saved in the first step.
 2. For this example to run locally, you need to define the following variables as environment variables:
+
    - `AWS_ACCESS_KEY_ID`
    - `AWS_SECRET_ACCESS_KEY`
    - `AWS_DEFAULT_REGION`

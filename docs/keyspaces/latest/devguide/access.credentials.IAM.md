@@ -73,9 +73,11 @@ CLI
 ###### Create an IAM user with programmatic access (AWS CLI)
 
 1. Create a user with the following AWS CLI code.
+
    - [aws iam create-user](../../../cli/latest/reference/iam/create-user.md "../../../cli/latest/reference/iam/create-user.md")
 
 2. Give the user programmatic access. This requires access keys, that can be generated in the following ways.
+
    - AWS CLI: [aws iam
      create-access-key](../../../cli/latest/reference/iam/create-access-key.md "../../../cli/latest/reference/iam/create-access-key.md")
    - Tools for Windows PowerShell: [New-IAMAccessKey](../../../powershell/latest/reference/items/New-IAMAccessKey.md "../../../powershell/latest/reference/items/New-IAMAccessKey.md")
@@ -91,5 +93,6 @@ CLI
 3. Attach the `AmazonKeyspacesReadOnlyAccess` policy to the user that defines the user's permissions. **Note:** As a best practice, we recommend that you manage user permissions by adding the
    user to a group and attaching a policy to the group instead of attaching directly to a
    user.
+
    - AWS CLI: [aws iam
      attach-user-policy](../../../cli/latest/reference/iam/attach-user-policy.md "../../../cli/latest/reference/iam/attach-user-policy.md")

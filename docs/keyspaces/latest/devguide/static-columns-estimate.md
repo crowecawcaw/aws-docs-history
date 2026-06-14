@@ -45,20 +45,19 @@ following steps.
 1. Calculate the size of a partition key column by adding the bytes for the
    data type stored in the column and the metadata bytes. Repeat this for all
    partition key columns.
+
    1. Calculate the size of the first column of the partition key
       (pk_col1):
 
    ```
    4 bytes for the integer data type + 3 bytes for partition key metadata = 7 bytes
    ```
-
    2. Calculate the size of the second column of the partition key
       (pk_col2):
 
    ```
    4 bytes for the integer data type + 3 bytes for partition key metadata = 7 bytes
    ```
-
    3. Add both columns to get the total estimated size of the partition
       key columns:
 

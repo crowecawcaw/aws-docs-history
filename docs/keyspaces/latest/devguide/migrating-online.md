@@ -8,6 +8,7 @@ during the entire migration process, minimizing the impact on your users.
 When designing an online migration strategy from Apache Cassandra to Amazon Keyspaces, you need to consider the following key steps.
 
 1. **Writing new data**
+
    - **ZDM Dual Write Proxy for Amazon Keyspaces Migration** – Use the ZDM Dual Write Proxy available on
      [Github](https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/migration/online/zdm-proxy/README.md "https://github.com/aws-samples/amazon-keyspaces-examples/blob/main/migration/online/zdm-proxy/README.md")
      to perform zero-downtime migration from Apache Cassandra to Amazon Keyspaces. The ZDM Proxy performs dual writes without the need to
@@ -20,6 +21,7 @@ When designing an online migration strategy from Apache Cassandra to Amazon Keys
      Cassandra and Amazon Keyspaces using an additional consumer. This creates eventually consistent views across both databases.
 
 2. **Migrating historical data**
+
    - Copy historical data: You can migrate historical data from Cassandra to Amazon Keyspaces using
      AWS Glue or custom extract, transform, and load (ETL) scripts. Handle conflict resolution between dual writes and bulk loads using techniques
      like lightweight transactions or timestamps.
@@ -28,12 +30,14 @@ When designing an online migration strategy from Apache Cassandra to Amazon Keys
      Amazon Keyspaces eventually catches up.
 
 3. **Validating data**
+
    - Dual reads: Implement dual reads from both Cassandra (primary) and Amazon Keyspaces (secondary) databases,
      comparing results asynchronously. Differences are logged or sent to a DLQ.
    - Sample reads: Use Λ functions to periodically sample and compare data across both systems,
      logging any discrepancies to a DLQ.
 
 4. **Migrating the application**
+
    - Blue-green strategy: Switch your application to treat Amazon Keyspaces as the primary and Cassandra as the secondary
      data store in a single step. Monitor performance and roll back if issues arise.
    - Canary deployment: Gradually roll out the migration to a subset of users first,

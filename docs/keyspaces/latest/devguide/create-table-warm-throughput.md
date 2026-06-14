@@ -34,6 +34,7 @@ pre-warm the table for peak traffic events, additional charges apply. 10. Config
 Cassandra Query Language (CQL)
 
 - Create a table with warm throughput using one of the following methods:
+
   - For provisioned mode, create a table and specify the expected peak capacity for reads and
     writes using the following CQL syntax:
 
@@ -59,7 +60,6 @@ Cassandra Query Language (CQL)
        }
   };
   ```
-
   - For on-demand mode, create a table and specify the expected peak capacity for reads and
     writes using the following CQL syntax:
 
@@ -88,6 +88,7 @@ Cassandra Query Language (CQL)
 CLI
 
 1. Create a table with warm throughput using one of the following methods using the AWS CLI
+
    - Create a new table in provisioned mode and specify the expected peak capacity values for reads
      and writes for the new table. The following statement is an
      example of this.
@@ -100,7 +101,6 @@ CLI
    --capacity-specification throughputMode=PROVISIONED,readCapacityUnits=20000,writeCapacityUnits=10000 \
    --warm-throughput-specification readUnitsPerSecond=40000,writeUnitsPerSecond=20000
    ```
-
    - Create a new table in on-demand mode and specify the expected peak capacity values for reads
      and writes for the new table. The following statement is an
      example of this.
