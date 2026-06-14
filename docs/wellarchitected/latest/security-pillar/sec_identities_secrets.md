@@ -153,12 +153,14 @@ side caching.
 1. Identify code paths containing hard-coded credentials using
    automated tools such as
    [Amazon CodeGuru](https://aws.amazon.com/codeguru/features/ "https://aws.amazon.com/codeguru/features/").
+
    1. Use Amazon CodeGuru to scan your code repositories. Once
       the review is complete, filter on
       Type=Secrets in CodeGuru to find
       problematic lines of code.
 
 2. Identify credentials that can be removed or replaced.
+
    1. Identify credentials no longer needed and mark for
       removal.
    2. For AWS Secret Keys that are embedded in source code,
@@ -173,12 +175,14 @@ side caching.
 3. For other third-party, long-lived secrets that require the
    use of the rotate strategy, integrate Secrets Manager into
    your code to retrieve third-party secrets at runtime.
+
    1. The CodeGuru console can automatically
       [create
       a secret in Secrets Manager](https://aws.amazon.com/blogs/aws/codeguru-reviewer-secrets-detector-identify-hardcoded-secrets/ "https://aws.amazon.com/blogs/aws/codeguru-reviewer-secrets-detector-identify-hardcoded-secrets/") using the discovered
       credentials.
    2. Integrate secret retrieval from Secrets Manager into
       your application code.
+
       1. Serverless Lambda functions can use a
          language-agnostic
          [Lambda
@@ -191,6 +195,7 @@ side caching.
 
 4. Periodically review your code base and re-scan to verify no
    new secrets have been added to the code.
+
    1. Consider using a tool such as
       [git-secrets](https://github.com/awslabs/git-secrets "https://github.com/awslabs/git-secrets")
       to prevent committing new secrets to your source code

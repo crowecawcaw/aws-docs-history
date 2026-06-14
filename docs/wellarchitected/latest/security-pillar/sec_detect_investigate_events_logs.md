@@ -114,6 +114,7 @@ standardized data storage location for querying.
 
 1. **Create the Log Archive and Security
    Tooling accounts**
+
    1. Using AWS Organizations,
       [create
       the Log Archive and Security Tooling accounts](../../../organizations/latest/userguide/orgs_manage_accounts_create.md "../../../organizations/latest/userguide/orgs_manage_accounts_create.md") under
@@ -124,6 +125,7 @@ standardized data storage location for querying.
 
 2. **Configure your standardized security
    data locations**
+
    1. Determine your strategy for creating standardized security
       data locations.  You can achieve this through options like
       common data lake architecture approaches, third-party data
@@ -135,6 +137,7 @@ standardized data storage location for querying.
 
 3. **Configure data source publication to
    your standardized locations**
+
    1. Identify the sources for your security data and configure
       them to publish into your standardized locations. Evaluate
       options to automatically export data in the desired format
@@ -146,6 +149,7 @@ standardized data storage location for querying.
 
 4. **Configure tools to access your
    standardized locations**
+
    1. Configure tools such as Amazon Athena, Quick,
       or third-party solutions to have the access required to
       your standardized locations.  Configure these tools to

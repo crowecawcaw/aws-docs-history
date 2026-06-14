@@ -26,6 +26,7 @@ When using managed services, be familiar with the process of updating their reso
 ### Implementation steps
 
 1. Evaluate the components of your workload that can be replaced with a managed service.
+
    1. If you are migrating a workload to AWS, consider the reduced management (time and expense) and reduction of risk when you assess if you should rehost, refactor, replatform, rebuild, or replace your workload. Sometimes additional investment at the start of a migration can have significant savings in the long run.
 
 2. Consider implementing managed services, like Amazon RDS, instead of installing and managing your own technology deployments.

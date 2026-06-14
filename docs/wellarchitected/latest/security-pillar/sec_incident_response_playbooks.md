@@ -48,6 +48,7 @@ Items to include in a playbook include:
   phases of incident response, what tactical steps should be
   taken? What queries should an analyst run? What code should
   be run to achieve the desired outcome?
+
   - **Detect**: How will the
     incident be detected?
   - **Analyze**: How will the

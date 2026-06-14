@@ -65,6 +65,7 @@ stored in Amazon Glacier.
 
 1. **Enforce access control with the
    principle of least privilege**:
+
    - Review the access permissions granted to users and
      services, and verify that they have only the necessary
      permissions to perform their tasks.
@@ -73,6 +74,7 @@ stored in Amazon Glacier.
 
 2. **Separate data based on different
    classification levels**:
+
    - Use distinct AWS accounts for each data classification
      level.
    - Manage these accounts using
@@ -80,6 +82,7 @@ stored in Amazon Glacier.
 
 3. **Review Amazon S3 bucket and object
    permissions**:
+
    - Regularly review the level of access granted in Amazon S3 bucket policies.
    - Avoid using publicly readable or writeable buckets
      unless absolutely necessary.
@@ -93,12 +96,14 @@ stored in Amazon Glacier.
      as SQS or third-party data stores.
 
 4. **Use AWS IAM Access Analyzer**:
+
    - You can configure [AWS IAM Access Analyzer](../../../IAM/latest/UserGuide/what-is-access-analyzer.md "../../../IAM/latest/UserGuide/what-is-access-analyzer.md")
      to analyze Amazon S3 buckets and generate findings when
      an S3 policy grants access to an external entity.
 
 5. **Implement versioning and object
    locking mechanisms**:
+
    - Use
      [Amazon S3 versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md") to preserve previous versions of
      objects, which provides recovery from accidental
@@ -113,12 +118,14 @@ stored in Amazon Glacier.
      Amazon Glacier.
 
 6. **Use Amazon S3 Inventory**:
+
    - You can use
      [Amazon S3 Inventory](../../../AmazonS3/latest/dev/storage-inventory.md "../../../AmazonS3/latest/dev/storage-inventory.md") to audit and report on the
      replication and encryption status of your S3 objects.
 
 7. **Review Amazon EBS and AMI sharing
    permissions**:
+
    - Review your sharing permissions for
      [Amazon EBS](../../../AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.md "../../../AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.md") and
      [AMI
@@ -128,6 +135,7 @@ stored in Amazon Glacier.
 
 8. **Review AWS Resource Access Manager
    Shares periodically**:
+
    - You can use
      [AWS Resource Access Manager](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md") to share resources, such
      as AWS Network Firewall policies, Amazon Route 53

@@ -109,15 +109,18 @@ departments and responsible individuals.
 ## Implementation steps
 
 1. Set up an incident management solution.
+
    1. Consider deploying Incident Manager in your Security
       Tooling account.
 
 2. Define contacts in your incident management solution.
+
    1. Define at least two types of contact channels for each
       contact (such as SMS, phone, or email), to ensure
       reachability during an incident.
 
 3. Define a response plan.
+
    1. Identify the most appropriate contacts to engage during an
       incident. Define escalation plans aligned to the roles of
       personnel to be engaged, rather than individual contacts.

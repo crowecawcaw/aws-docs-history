@@ -72,6 +72,7 @@ monitored for sensitive data using Amazon Macie.  
 1. Review the data classification scheme within your
    organization described in
    [SEC07-BP01](sec_data_classification_identify_data.md "sec_data_classification_identify_data.md").
+
    1. With an understanding of your organization's data
       classification scheme, you can establish accurate
       processes for automated identification and
@@ -79,6 +80,7 @@ monitored for sensitive data using Amazon Macie.  
 
 2. Perform an initial scan of your environments for automated
    identification and classification.
+
    1. An initial full scan of your data can help produce a
       comprehensive understanding of where sensitive data
       resides in your environments. When a full scan is not
@@ -97,6 +99,7 @@ monitored for sensitive data using Amazon Macie.  
       your data storage resources identified within your scan.
 
 3. Configure ongoing scans of your environments.
+
    1. The automated sensitive data discovery capability of
       Macie can be used to perform ongoing scans of your
       environments.  Known S3 buckets that are authorized to
@@ -105,6 +108,7 @@ monitored for sensitive data using Amazon Macie.  
 
 4. Incorporate identification and classification into your
    build and test processes.
+
    1. Identify tools that developers can use to scan data for
       sensitivity while workloads are in development.  Use
       these tools as part of integration testing to alert when
@@ -113,6 +117,7 @@ monitored for sensitive data using Amazon Macie.  
 
 5. Implement a system or runbook to take action when sensitive
    data is found in unauthorized locations.
+
    1. Restrict access to data using auto-remediation. For
       example, you can move this data to an S3 bucket with
       restricted access or tag the object if you use

@@ -58,11 +58,14 @@ inherits from AWS.
   include:
 
 - **Patch management:** AWS is responsible for patching and fixing flaws within the infrastructure, but customers are responsible for patching their guest operating system and applications.
+
   - For AWS managed services operating on single-tenant architectures (such as Amazon ElastiCache, Amazon RDS, and Amazon OpenSearch Service), patch management responsibility is shared as follows:
+
     - **AWS responsibility:** Identify vulnerabilities, develop and validate patches, release patches within the service's patching SLA, and notify customers of available updates through the service's documented notification mechanism.
     - **Customer responsibility:** Review available updates and facilitate patching by selecting maintenance windows, applying service updates, or scheduling required restarts within the timeframes communicated by AWS.
 
   - For AWS managed services operating on multi-tenant architectures (such as Amazon ElastiCache Serverless, Amazon DynamoDB, and Amazon S3), patch management responsibility is shared as follows:
+
     - **AWS responsibility:** Apply patches without requiring customer action.
     - **Customer responsibility:** Consult patching and maintenance documentation for each AWS managed service they use to understand specific notification mechanisms, maintenance window options, and update application processes available to them.
 

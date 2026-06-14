@@ -59,15 +59,18 @@ Finally, OAuth 2.0 and OpenID Connect (OIDC) are two protocols typically used fo
 ### Implementation steps
 
 - **Define and document your workload network flows:** The first step in implementing a defense-in-depth strategy is defining your workload’s traffic flows.
+
   - Create a data flow diagram that clearly defines how data is transmitted between different services that comprise your workload. This diagram is the first step to enforcing those flows through authenticated network channels.
   - Instrument your workload in development and testing phases to validate that the data flow diagram accurately reflects the workload’s behavior at runtime.
   - A data flow diagram can also be useful when performing a threat modeling exercise, as described in [SEC01-BP07 Identify threats and prioritize mitigations using a threat model](sec_securely_operate_threat_model.md "sec_securely_operate_threat_model.md").
 
 - **Establish network controls:** Consider AWS capabilities to establish network controls aligned to your data flows. While network boundaries should not be the only security control, they provide a layer in the defense-in-depth strategy to protect your workload.
+
   - Use [security groups](../../../vpc/latest/userguide/security-groups.md "../../../vpc/latest/userguide/security-groups.md") to establish define and restrict data flows between resources.
   - Consider using [AWS PrivateLink](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") to communicate with both AWS and third-party services that support AWS PrivateLink. Data sent through a AWS PrivateLink interface endpoint stays within the AWS network backbone and does not traverse the public Internet.
 
 - **Implement authentication and authorization across services in your workload:** Choose the set of AWS services most appropriate to provide authenticated, encrypted traffic flows in your workload.
+
   - Consider [Amazon VPC Lattice](../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md "../../../vpc-lattice/latest/ug/what-is-vpc-lattice.md") to secure service-to-service communication. VPC Lattice can use [SigV4 authentication combined with auth policies](../../../vpc-lattice/latest/ug/auth-policies.md "../../../vpc-lattice/latest/ug/auth-policies.md") to control service-to-service access.
   - For service-to-service communication using mTLS,
     consider
@@ -80,6 +83,7 @@ Finally, OAuth 2.0 and OpenID Connect (OIDC) are two protocols typically used fo
   - For communication between your workload and IoT devices, consider [AWS IoT Core](../../../iot/latest/developerguide/client-authentication.md "../../../iot/latest/developerguide/client-authentication.md"), which provides several options for network traffic encryption and authentication.
 
 - **Monitor for unauthorized access:** Continually monitor for unintended communication channels, unauthorized principals attempting to access protected resources, and other improper access patterns.
+
   - If using VPC Lattice to manage access to your services, consider enabling and monitoring [VPC Lattice access logs](../../../vpc-lattice/latest/ug/monitoring-access-logs.md "../../../vpc-lattice/latest/ug/monitoring-access-logs.md"). These access logs include information on the requesting entity, network information including source and destination VPC, and request metadata.
   - Consider enabling [VPC flow logs](../../../vpc/latest/userguide/flow-logs.md "../../../vpc/latest/userguide/flow-logs.md") to capture metadata on network flows and periodically review for anomalies.
   - Refer to the [AWS Security Incident Response Guide](../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.md "../../../whitepapers/latest/aws-security-incident-response-guide/aws-security-incident-response-guide.md") and the [Incident Response section](incident-response.md "incident-response.md") of the AWS Well-Architected Framework security pillar for more guidance on planning, simulating, and responding to security incidents.

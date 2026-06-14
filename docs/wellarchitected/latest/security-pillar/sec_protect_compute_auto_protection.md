@@ -103,6 +103,7 @@ Initiate remediation for non-compliant resources](../framework/sec_detect_invest
 2. Automate configuration management. Enforce and validate secure
    configurations in your compute resources automatically by
    using a configuration management service or tool. 
+
    1. Automated configuration management
       using [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/")
    2. Automated security and compliance posture management
@@ -114,11 +115,13 @@ Initiate remediation for non-compliant resources](../framework/sec_detect_invest
    security-related and other types of updates. You can use Patch
    Manager to apply patches for both operating systems and
    applications.
+
    1. [AWS Systems Manager Patch Manager](../../../systems-manager/latest/userguide/systems-manager-patch.md "../../../systems-manager/latest/userguide/systems-manager-patch.md")
 
 4. Automate scanning of compute resources for common
    vulnerabilities and exposures (CVEs), and embed security
    scanning solutions within your build pipeline.
+
    1. [Amazon Inspector](https://aws.amazon.com/inspector/ "https://aws.amazon.com/inspector/")
    2. [ECR
       Image Scanning](../../../AmazonECR/latest/userguide/image-scanning.md "../../../AmazonECR/latest/userguide/image-scanning.md")
@@ -127,6 +130,7 @@ Initiate remediation for non-compliant resources](../framework/sec_detect_invest
    detection to protect compute resources. GuardDuty can also
    identify potential issues when an
    [AWS Lambda](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") function gets invoked in your AWS environment. 
+
    1. [Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/")
 
 6. Consider AWS Partner solutions. AWS Partners offer
@@ -136,6 +140,7 @@ Initiate remediation for non-compliant resources](../framework/sec_detect_invest
    services to allow you to deploy a comprehensive security
    architecture and a more seamless experience across your cloud
    and on-premises environments.
+
    1. [Infrastructure
       security](https://aws.amazon.com/security/partner-solutions/#infrastructure_security "https://aws.amazon.com/security/partner-solutions/#infrastructure_security")
 

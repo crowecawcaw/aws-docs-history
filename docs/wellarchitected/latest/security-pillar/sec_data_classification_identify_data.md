@@ -101,6 +101,7 @@ sensitive data.
    available, to tag data with its sensitivity level and other
    operational metadata that can help with monitoring and
    incident response.
+
    1. AWS Organizations tag policies can be used to enforce
       tagging standards.
 
