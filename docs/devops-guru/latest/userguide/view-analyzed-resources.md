@@ -54,6 +54,7 @@ information about the supported services and resources, see
 2.  Expand **Analyzed resources** in the navigation pane.
 3.  Choose **Edit**.
 4.  Choose one of the following coverage options.
+
     - Choose **All account resources** if you want DevOps Guru to analyze all supported
       resources in your AWS account and Region. If you choose this option,
       your AWS account is your resource analysis coverage boundary. All resources

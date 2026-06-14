@@ -32,9 +32,11 @@ can update these settings later as needed.
     about important DevOps Guru events, such as the creation of a new insight. If you
     don't specify a topic now, you can add one later by choosing
     **Settings** in the navigation pane.
+
     1. In **Specify an Amazon SNS topic**, choose a topic to
        use.
     2. To add an Amazon SNS topic, do one of the following.
+
        - Choose **Generate a new SNS topic using email**. Then, from **Specify the email address**,
          enter the email address you want to receive notifications. To enter in additional email addresses, choose **Add new email**.
        - Choose **Use an existing SNS topic**. Then, from **Choose a topic in

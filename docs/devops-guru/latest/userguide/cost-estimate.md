@@ -33,8 +33,10 @@ can specify up to 1000 stacks.
    already enabled DevOps Guru, the role has already been created and this option does not
    appear.
 4. Choose the resources you want to use to create your estimate.
+
    - If you want to estimate the cost for DevOps Guru to analyze the resources
      defined by one CloudFormation stack, do the following.
+
      1. Choose **CloudFormation stack in the current
         Region**.
      2. In **Choose a CloudFormation stack**, choose the
@@ -51,6 +53,7 @@ can specify up to 1000 stacks.
 
    - If you want to estimate the cost for DevOps Guru to analyze resources with a
      tag, do the following.
+
      1. Choose **Tags on AWS resources in the current Region**
      2. In **Tag key** choose your tag's _key_
      3. In **Tag value** choose **(all values)** or

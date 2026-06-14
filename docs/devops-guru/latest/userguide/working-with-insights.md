@@ -33,6 +33,7 @@ You can view your insights using the AWS Management Console.
    proactive insights.
 4. (Optional) Use one or more of the following filters to find the insights you
    are looking for.
+
    - Choose the **Reactive** or
      **Proactive** tab, depending on the type of insight
      for which you are looking.

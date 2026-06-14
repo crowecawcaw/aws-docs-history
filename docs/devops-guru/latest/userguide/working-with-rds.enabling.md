@@ -44,6 +44,7 @@ For a user to access DevOps Guru for RDS, they must have permissions from eithe
 
 - The AWS managed policy `AmazonRDSFullAccess`
 - A customer managed policy that allows the following actions:
+
   - `pi:GetResourceMetrics`
   - `pi:DescribeDimensionKeys`
   - `pi:GetDimensionKeyDetails`

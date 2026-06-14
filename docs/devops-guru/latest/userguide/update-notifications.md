@@ -50,6 +50,7 @@ The Settings page includes the **Notifications** section, with information about
 1. [Navigate to notification settings in the DevOps Guru console](#navigate-to-notification-settings "#navigate-to-notification-settings").
 2. Choose **Add notification**.
 3. To add an Amazon SNS topic, do one of the following.
+
    - Choose **Generate a new SNS topic using email**. Then, from **Specify the email address**,
      enter the email address you want to receive notifications. To enter in additional email addresses, choose **Add new email**.
    - Choose **Use an existing SNS topic**. Then, from **Choose a topic in

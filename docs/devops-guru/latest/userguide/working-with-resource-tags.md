@@ -99,6 +99,7 @@ _key_ and zero or more _values_.
 4. Choose **Tags** if you want DevOps Guru to analyze all
    resources that contain the tags you choose. Choose a _key_, then
    choose one of the following options.
+
    - **All account resources** – Analyze all AWS resources in the current Region and account.
      Resources with the selected tag key are grouped by tag value, if any exist.
      Resources without this tag key are grouped and analyzed separately.

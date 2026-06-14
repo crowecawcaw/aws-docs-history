@@ -43,6 +43,7 @@ You can add AWS CloudFormation stacks using the console.
 4. Choose **CloudFormation stacks** if you want DevOps Guru to
    analyze the resources that are in stacks you choose, then choose one of
    the following options.
+
    - **All resources** – All resources that
      are in stacks in your account are analyzed. Resources in each
      stack are grouped into their own application. Any resources in

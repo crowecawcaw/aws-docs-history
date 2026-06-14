@@ -26,6 +26,7 @@ The Amazon DevOps Guru workflow can be broken down into three high level steps.
    This is an ongoing process. You can view the insights and see the
    recommendations and related information they contain in the DevOps Guru console.
    DevOps Guru analyzes the following data to find issues and create insights.
+
    - Individual Amazon CloudWatch metrics emitted by your AWS resources. When
      an issue is identified, DevOps Guru collects those metrics together.
    - Log anomalies from Amazon CloudWatch log groups. If you enable log anomaly detection,
@@ -45,6 +46,7 @@ The Amazon DevOps Guru workflow can be broken down into three high level steps.
 
 3. In the third step, DevOps Guru integrates insight notification into your
    workflow to help you manage issues and quickly address them.
+
    - Insights generated in your AWS account are published to the
      Amazon Simple Notification Service (Amazon SNS) topic chosen during DevOps Guru setup. This is how you
      are notified as soon as an insight is created. For more information,
