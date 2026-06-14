@@ -50,6 +50,7 @@ your application must meet the following criteria.
 
 - For deployment to Fargate, App2Container supports the following types of
   applications:
+
   - Java applications running on Linux.
   - .NET applications running on Windows Server 2019.
 
@@ -84,6 +85,7 @@ Initial steps for App2Container are the same for all applications deploying to A
     applicable. To learn more about what is included in all of the App2Container
     containerization phases, see the [Command reference](a2c-commands.md "a2c-commands.md").
 3.  Complete the analyze phase for each application that you want to containerize.
+
     - If you are running commands directly on application servers, use
       the **inventory** and **analyze** commands.
     - If you are running a remote workflow on a worker machine, use the
@@ -91,6 +93,7 @@ Initial steps for App2Container are the same for all applications deploying to A
       commands.
 
 4.  Integration begins with the containerization step.
+
     - When you run the **containerize** command, App2Container
       generates the `deployment.json` file, which provides
       configurable parameters for all supported container management service
@@ -142,6 +145,7 @@ Initial steps for App2Container are the same for all applications deploying to A
     file that are targeted for the Amazon ECS container management service, based on the settings in
     the `deployment.json` file, where the `createEcsArtifacts`
     flag is set to **true**.
+
     - When you run the **generate app-deployment** command, App2Container
       validates the properties in the `deployment.json` file,
       and pushes the container image to Amazon ECR. This is the standard workflow.
@@ -162,12 +166,14 @@ Initial steps for App2Container are the same for all applications deploying to A
 6.  The pipeline step generates a CloudFormation template for the
     pipeline that is targeted for the Amazon ECS container management service,
     based on the settings in the `pipeline.json` file.
+
     - When you run the **generate pipeline** command,
       App2Container validates the properties in the `pipeline.json`
       file, verifies that initial deployment to Amazon ECS has been completed,
       and verifies that your application is active.
     - The command generates a CloudFormation template to create a two-step
       pipeline:
+
       1. Code commit – Creates or updates an AWS CodeCommit
          repository that contains the Dockerfile and application
          artifacts that are required to create your application container

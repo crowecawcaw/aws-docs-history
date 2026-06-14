@@ -105,6 +105,7 @@ CodePipeline
 
 - Generates CI/CD artifacts **generate pipeline
   `--application-id `id``**
+
   - Checks for AWS and Docker prerequisites
   - Creates a CodeCommit repository, if one doesn't already exist
   - Generates a buildspec file
@@ -130,6 +131,7 @@ Jenkins
 
 - Generates CI/CD artifacts **generate pipeline
   `--application-id `id``**
+
   - Checks for AWS and Docker prerequisites
   - Creates a CodeCommit repository, if one doesn't exist already
   - Generates the following files for your pipeline definition:
@@ -146,6 +148,7 @@ Jenkins
   the settings from the files that it generates: **generate pipeline
   `--application-id `id`` `--deploy` `--profile 
 `admin-profile``**
+
   - Performs all steps to validate and customize pipeline resources
   - Creates the pipeline in Jenkins, and starts the pipeline build
 
@@ -154,6 +157,7 @@ Azure DevOps
 ###### Generate pipeline artifacts for customization
 
 - Generates CI/CD artifacts: **generate pipeline `--application-id `id``**
+
   - Checks for AWS, Microsoft Azure DevOps, and Docker prerequisites
   - Creates the Azure Repos Git repository, if it doesn't already exist
   - Commits updated files to the Azure Repos Git repository

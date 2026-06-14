@@ -22,6 +22,7 @@ your application must meet the following criteria.
 
 - You must have a Microsoft Azure account with the following organization and project
   structure:
+
   - An organization that Azure DevOps services can use for your pipeline. To learn more about
     how to set up an organization for your Microsoft Azure account, see the
     [Create an organization](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops "https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops") page on the
@@ -39,6 +40,7 @@ your application must meet the following criteria.
 
 - To access AWS resources for your application from your Azure DevOps pipeline,
   install the AWS Toolkit for Azure DevOps extension into your Azure DevOps account .
+
   - Search for `AWS toolkit for Azure DevOps` in the [Azure DevOps
     section of the Visual Studio Marketplace](https://marketplace.visualstudio.com/azuredevops "https://marketplace.visualstudio.com/azuredevops").
   - Choose the **AWS toolkit for Azure DevOps** extension
@@ -113,12 +115,15 @@ Azure DevOps pipeline as follows:
 - Set the flags to activate Azure DevOps deployment.
   Configure exactly one source repository, and one type of pipeline. In each section, set one
   Boolean value `enabled` flag to `true`, and all others to `false`.
+
   - sourceInfo
+
     - CodeCommit – enabled: **false**
     - ExistingGitRepo – enabled: **false**
     - AzureRepo – enabled: **true**
 
   - pipelineInfo
+
     - CodePipeline – enabled: **false**
     - Jenkins – enabled: **false**
     - AzureDevOps – enabled: **true**
@@ -126,6 +131,7 @@ Azure DevOps pipeline as follows:
 - In the `AzureRepo` object of the `sourceInfo` section, set the
   following additional parameters, or leave the default values that App2Container
   creates:
+
   - repositoryName (string, required) –
     The name of the Azure Repos Git repository that you want to use
     or create.
@@ -136,6 +142,7 @@ Azure DevOps pipeline as follows:
 - In the `Azure DevOps` object of the `pipelineInfo` section, set the
   following additional parameters, or leave the default values that App2Container
   creates:
+
   - organizationName (string, required) –
     The name of the organization that you set up under your Microsoft Azure account
     for Azure DevOps.

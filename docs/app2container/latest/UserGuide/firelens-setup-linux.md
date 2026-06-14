@@ -97,6 +97,7 @@ in the **Configuring your application** section of this user guide.
   _true_.
 - Configure one or more valid `logDestinations`
   as follows:
+
   - service – the
     AWS service to route logs to. _Valid values are
     "cloudwatch", "firehose", and "kinesis"._
@@ -213,6 +214,7 @@ command, and that your log destinations were created, if applicable.
    [Example: CloudFormation template FireLens parameters](#firelens-example-ecs-cfn-template "#firelens-example-ecs-cfn-template")
 4. If you are routing logs to Kinesis Data Streams or Firehose, verify that the streams have been
    created for you by using the AWS Management Console.
+
    1. Sign in to the AWS Management Console and open the Kinesis console at
       [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
    2. From the Amazon Kinesis dashboard, choose

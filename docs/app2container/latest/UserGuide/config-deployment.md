@@ -40,6 +40,7 @@ false.
 - exposedPorts (array of objects, required) – An
   array of JSON objects representing the ports that should be exposed when the container is
   running. Each object consists of the following fields:
+
   - localPort (number) – A port to expose for
     container communication.
   - protocol (string) – The
@@ -52,6 +53,7 @@ false.
   `deployment.yml` file.
 - ecrParameters (object) – Contains parameters needed
   to register application container images in Amazon ECR.
+
   - ecrRepoTag (string, required) – The version
     tag to use for registering an application container image in Amazon ECR.
 
@@ -59,6 +61,7 @@ false.
   parameters needed for deployment to Amazon ECS. _The `createEcsArtifacts`
   parameter is always required. Other parameters in this section that are
   marked as required apply only to Amazon ECS deployment._
+
   - createEcsArtifacts (Boolean, required) – A flag
     that indicates if you are targeting Amazon ECS for deployment.
   - ecsFamily (string, required) – An
@@ -120,12 +123,14 @@ false.
   deployment, it's ignored by default.
   - reuseResources (object) – Contains shared
     resource identifiers that can be used throughout your CloudFormation templates.
+
     - vpcId (string) – The VPC
       ID, if you want to bring your own VPC or to reuse an existing
       VPC that App2Container created for a prior deployment.
     - reuseExistingA2cStack (object)
       – Contains references so that you can reuse CloudFormation
       resources that App2Container has already created.
+
       - cfnStackName (string) – The name or
         ID (ARN) of the CloudFormation stack created with App2Container for the containerized
         application.
@@ -163,6 +168,7 @@ false.
     that are deployed on EC2 instances. The gMSAParameters are not valid for deployments to
     Fargate, and will generate an error when the **generate app-deployment**
     command runs.
+
     - domainSecretsArn (string)
       – The Secrets Manager ARN for the domain credentials to join
       the Amazon ECS nodes to gMSA Active Directory.
@@ -182,6 +188,7 @@ false.
   - deployTarget (string, required)
     – Identifies which Amazon ECS container launch type runs the task.
     Valid values depend on your application environment, as follows:
+
     - _.NET applications running on Windows_ –
       `ec2`, `fargate`.
     - _Java applications running on Linux_ –
@@ -201,13 +208,13 @@ false.
        If you are using a worker machine for containerization, this means
        that the worker machine must be running Windows 2019.
       - Your application must not use gMSA.
-
   - dependentApps (array of objects) –
     For complex Windows applications, this array of JSON objects contains identifying
     details for dependent applications. App2Container does not generate this array. For complex
     Windows applications that incorporate dependent applications, you must add details
     to this array for each dependent application. You can include up to two dependent
     applications in the array.
+
     - appId (string, required) – The
       application ID that App2Container generated for this dependent
       application.
@@ -254,6 +261,7 @@ This section is not included for applications running on Windows.
   parameters needed for deployment to Amazon EKS. _The `createEksArtifacts`
   parameter is always required. Other parameters in this section that are
   marked as required apply only to Amazon EKS deployments._
+
   - createEksArtifacts (Boolean, required) – A flag
     that indicates if you are targeting Amazon EKS for deployment.
   - stackName (string, required) – A
@@ -269,6 +277,7 @@ This section is not included for applications running on Windows.
   - ingress (string, required) – The type
     of load balancer to use for the deployment. Specify one of the following
     values:
+
     - `alb` – Provisions an Application Load Balancer in the
       VPC for the deployment.
     - `nginx` – Provisions a Network Load Balancer in the VPC,
@@ -287,6 +296,7 @@ This section is not included for applications running on Windows.
     the root of the web server, as accessed from the public URL, for example _/my-application_.
   - reuseResources (object) – Contains shared resource
     identifiers that can be used throughout your CloudFormation templates.
+
     - vpcId (string) – The VPC
       ID, if you want to bring your own VPC or to reuse an existing
       VPC that App2Container created for a prior deployment. _If you
@@ -343,6 +353,7 @@ This section is not included for applications running on Windows.
 
   - gMSAParameters (object) – Contains parameters
     used by the CloudFormation template to create gMSA-related artifacts for .NET applications.
+
     - domainSecretsArn (string)
       – The Secrets Manager ARN for the domain credentials to join
       the Amazon EKS nodes to gMSA Active Directory.
@@ -365,6 +376,7 @@ This section is not included for applications running on Windows.
     Windows applications that incorporate dependent applications, you must add details
     to this array for each dependent application. You can include up to two dependent
     applications in the array.
+
     - appId (string, required) – The
       application ID that App2Container generated for this dependent
       application.

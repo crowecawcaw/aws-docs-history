@@ -398,13 +398,13 @@ App2Container on both.
 ###### To download and install App2Container for Linux
 
 1. Download the installation file in one of the following ways:
+
    - Use the **curl** command to download the App2Container
      installation package from Amazon S3.
 
    ```
    `$` `curl -o AWSApp2Container-installer-linux.tar.gz https://app2container-release-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/AWSApp2Container-installer-linux.tar.gz`
    ```
-
    - Use your browser to download the installer from the following URL: [https://app2container-release-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/AWSApp2Container-installer-linux.tar.gz](https://app2container-release-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/AWSApp2Container-installer-linux.tar.gz "https://app2container-release-us-east-1.s3.us-east-1.amazonaws.com/latest/linux/AWSApp2Container-installer-linux.tar.gz").
 
 2. Extract the package to a local folder on the server.

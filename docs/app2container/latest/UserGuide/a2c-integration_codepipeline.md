@@ -14,12 +14,15 @@ app-deployment** command creates. Configure the parameters for your CodeCommit
 pipeline as follows:
 
 - Set the flags to enable CodePipeline deployment.
+
   - sourceInfo
+
     - CodeCommit – enabled: **true**
     - ExistingGitRepo – enabled: **false**
     - AzureRepo – enabled: **false**
 
   - pipelineInfo
+
     - CodePipeline – enabled: **true**
     - Jenkins – enabled: **false**
     - AzureDevOps – enabled: **false**

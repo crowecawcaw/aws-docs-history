@@ -24,10 +24,12 @@ Guide_.
 ###### Contents
 
 - [Prerequisites](automation-runbook.md#automation-runbook-prerequisites "automation-runbook.md#automation-runbook-prerequisites")
+
   - [Create policies and roles for the automation](automation-runbook.md#automation-runbook-prerequisites-create-policies-roles "automation-runbook.md#automation-runbook-prerequisites-create-policies-roles")
   - [Attaching the IAM role](automation-runbook.md#automation-runbook-prerequisites-instance-role-attach "automation-runbook.md#automation-runbook-prerequisites-instance-role-attach")
 
 - [Run the automation](automation-runbook.md#automation-runbook-run "automation-runbook.md#automation-runbook-run")
+
   - [Runbook parameters](automation-runbook.md#automation-runbook-parameters "automation-runbook.md#automation-runbook-parameters")
   - [Running the automation](automation-runbook.md#automation-runbook-running-automation "automation-runbook.md#automation-runbook-running-automation")
   - [Reviewing output from the automation](automation-runbook.md#automation-runbook-reviewing-output "automation-runbook.md#automation-runbook-reviewing-output")
@@ -552,6 +554,7 @@ You can run the automation from the Systems Manager console.
 4. Choose the `AWSApp2Container-ReplatformApplications` runbook, then choose
    **Next**.
 5. Enter the required parameters, and any optional ones you require:
+
    1. For `AutomationAssumeRole`, enter the ARN of the
       service role you created previously.
    2. For `EnableContainerization`, specify `TRUE`

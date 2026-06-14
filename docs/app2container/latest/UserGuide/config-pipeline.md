@@ -32,11 +32,13 @@ CodeCommit repository, or an existing Git repository.
 CodePipeline
 
 - sourceInfo
+
   - CodeCommit – enabled: **true**
   - ExistingGitRepo – enabled: **false**
   - AzureRepo – enabled: **false**
 
 - pipelineInfo
+
   - CodePipeline – enabled: **true**
   - Jenkins – enabled: **false**
   - AzureDevOps – enabled: **false**
@@ -44,11 +46,13 @@ CodePipeline
 Jenkins
 
 - sourceInfo
+
   - CodeCommit – enabled: **false**
   - ExistingGitRepo – enabled: **true**
   - AzureRepo – enabled: **false**
 
 - pipelineInfo
+
   - CodePipeline – enabled: **false**
   - Jenkins – enabled: **true**
   - AzureDevOps – enabled: **false**
@@ -56,11 +60,13 @@ Jenkins
 Microsoft Azure DevOps
 
 - sourceInfo
+
   - CodeCommit – enabled: **false**
   - ExistingGitRepo – enabled: **false**
   - AzureRepo – enabled: **true**
 
 - pipelineInfo
+
   - CodePipeline – enabled: **false**
   - Jenkins – enabled: **false**
   - AzureDevOps – enabled: **true**
@@ -75,6 +81,7 @@ false.
 
 - imageInfo (object) – Contains parameters needed for
   Amazon ECR configuration.
+
   - image (string, required) – The full repository
     name of the application container image to store in Amazon ECR. _Must be in the
     format <application ID>.<repository name>:<tag>._
@@ -82,8 +89,10 @@ false.
 - sourceInfo (object) – Contains JSON objects
   for pipeline source repository configuration for CodePipeline or Jenkins pipelines. CodePipeline uses
   CodeCommit for its source repository, while Jenkins uses Git.
+
   - CodeCommit (object) – Contains parameters
     needed for AWS CodeCommit configuration.
+
     - enabled (Boolean, required) –
       A flag that indicates if you are targeting CodeCommit as the source repository
       for your pipeline.
@@ -94,6 +103,7 @@ false.
 
   - ExistingGitRepo (object) – Contains
     parameters needed for Git repository configuration.
+
     - enabled (Boolean, required) –
       A flag that indicates if you are targeting Git as the source repository
       for your pipeline.
@@ -109,6 +119,7 @@ false.
   - AzureRepo (object) – Contains
     parameters to specify the Azure Repos Git repository where App2Container
     uploads pipeline artifacts for your application.
+
     - enabled (Boolean, required) – A flag
       that indicates if you want to use an Azure Repos Git repository
       as the source repository for an Azure DevOps pipeline that you
@@ -123,13 +134,16 @@ false.
 - releaseInfo (object) – Contains JSON
   objects with parameters needed to create a pipeline for your target deployment
   environments.
+
   - ECS | EKS | AppRunner (object) – Contains
     JSON objects representing the environments to target for deployment. The
     key name specifies the container management service that you are
     targeting for your application container pipeline. _Key must be
     "ECS", "EKS", or "AppRunner". At least one of the pipeline environments must be
     enabled._
+
     - beta (object) –
+
       - clusterName (string, required\*) –
         The name of the Amazon ECS or Amazon EKS cluster to set up in the CloudFormation stack.
       - serviceName (string, required\*) –
@@ -143,6 +157,7 @@ false.
 
     Beta environments are not supported for App Runner.
     - prod (object) –
+
       - clusterName (string, required\*) –
         The name of the Amazon ECS or Amazon EKS cluster to set up in the CloudFormation stack.
 
@@ -157,13 +172,16 @@ false.
 - pipelineInfo (object) – Contains JSON
   objects with parameters needed to access and configure your target pipeline
   environments.
+
   - CodePipeline (object) – Contains parameters
     needed for CodePipeline configuration.
+
     - enabled (Boolean, required) –
       A flag that indicates if you are targeting CodePipeline for your pipeline.
 
   - Jenkins (object) – Contains parameters
     needed for Jenkins pipeline access and configuration.
+
     - enabled (Boolean, required) –
       A flag that indicates if you are targeting Jenkins for your pipeline.
     - jenkinsServerUrl (string, required) – The
@@ -188,6 +206,7 @@ false.
 
   - AzureDevOps (object) – Contains parameters
     that you need to access and configure your Azure DevOps pipeline.
+
     - enabled (Boolean, required) – A flag that
       indicates if you want App2Container to use Azure DevOps to set up your
       CI/CD pipeline.

@@ -18,6 +18,7 @@ To configure Jenkins pipeline integration for your application container from Ap
 your application must meet the following criteria.
 
 - A fully functional Jenkins server with the following plugins installed:
+
   - [Pipeline](https://plugins.jenkins.io/workflow-aggregator/ "https://plugins.jenkins.io/workflow-aggregator/")
   - [Pipeline: AWS Steps](https://plugins.jenkins.io/pipeline-aws/ "https://plugins.jenkins.io/pipeline-aws/")
   - [Git](https://plugins.jenkins.io/git/ "https://plugins.jenkins.io/git/")
@@ -33,6 +34,7 @@ agent node for Jenkins. A .NET application that runs on Windows, must use
 a Windows agent node.
 
 - Agent nodes must have the following tools installed:
+
   - **AWS command line tool**
     – To install the AWS CLI or Tools for Windows PowerShell on the agent nodes,
     [follow the
@@ -51,6 +53,7 @@ a Windows agent node.
 - Agent nodes must be able to connect to AWS and run commands using the AWS CLI.
 - The Jenkins server must have access to an existing Git repository for pipeline source.
   The following credentials and resources are required for pipeline builds:
+
   - Credentials created on the Jenkins server that are used to
     access the Git repository from the Jenkins agent node through SSH. The ID of
     the Jenkins credentials is required in `pipeline.json`
@@ -84,18 +87,23 @@ the pipeline step.
    `pipeline.json` file that was created by the
    **generate app-deployment** command. Configure the parameters
    for your Jenkins pipeline as follows:
+
    - Set the flags to enable Jenkins deployment.
+
      - sourceInfo
+
        - CodeCommit – enabled: **false**
        - ExistingGitRepo – enabled: **true**
        - AzureRepo – enabled: **false**
 
      - pipelineInfo
+
        - CodePipeline – enabled: **false**
        - Jenkins – enabled: **true**
        - AzureDevOps – enabled: **false**
 
    - In the `ExistingGitRepo` object, set the following parameters:
+
      - repositoryUri (string, required) –
        The URI of the Git repository to use for your pipeline. SSH access
        is required.
@@ -106,6 +114,7 @@ the pipeline step.
        for Git authentication from the Jenkins server.
 
    - In the `pipelineInfo` section `Jenkins` object, set the following parameters:
+
      - jenkinsServerUrl (string, required) –
        The URL of the Jenkins server. HTTPS is required for secure access.
      - nodeLabels (array of strings, required) –

@@ -271,6 +271,7 @@ Follow these steps if you are using the App2Container automated deployment.
    `deployment.json` files for all of your application
    components, before running the **generate app-deployment**
    command for your root application, as follows:
+
    - None of the application components in the multi-tier
      application should specify `reuseCfnStack`.
    - Dependent application components should not specify
@@ -317,6 +318,7 @@ follow the same general order of operations in the console.
    `deployment.json` files for all of your application
    components, before running the **generate app-deployment**
    command for your root application, as follows:
+
    - None of the application components in the multi-tier
      application should specify `reuseCfnStack`.
    - Dependent application components should not specify

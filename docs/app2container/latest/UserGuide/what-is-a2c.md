@@ -44,6 +44,7 @@ App2Container performs the following tasks:
 - Initiates builds for the application container.
 - Generates AWS artifacts and optionally deploys the containers on Amazon ECS,
   Amazon EKS, or AWS App Runner. For example:
+
   - a CloudFormation template to configure required compute, network, and
     security infrastructure to deploy containers using Amazon ECS, Amazon EKS, or
     AWS App Runner.
