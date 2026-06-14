@@ -85,6 +85,7 @@ the associated **AWS account connection**. 4. Choose **Add VPC connection**. 5. 
     For more information about roles, see [Managing IAM roles for connected accounts](../userguide/spaces-manage-roles.md "../userguide/spaces-manage-roles.md")  in the *CodeCatalyst User Guide*.
 
 6. In **VPC connection details**, do the following:
+
    - For **VPC**, choose a VPC from the drop-down menu.
 
    For more information, see
