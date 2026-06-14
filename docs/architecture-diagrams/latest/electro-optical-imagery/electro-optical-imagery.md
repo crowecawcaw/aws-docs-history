@@ -12,8 +12,10 @@ This diagram demonstrates how to extract, process, and store electro-optical sat
    forward error correction.
 2. Convert into raw sensor data: Decommutate signal frames; decrypt data.
 3. Process raw images and perform QA review.
+
    - QA review: Confirm Images are sufficient for processing.
    - **AWS Batch**: Run multiple jobs in parallel.
+
      - **AWS Fargate** and **AWS Lambda**:
      - Sensor correction: Apply corrections for optical distortions.
      - Orthorectify: Sensor perspective.
@@ -27,6 +29,7 @@ This diagram demonstrates how to extract, process, and store electro-optical sat
 5. Storage: Store preprocessed images in a variety of **Amazon Simple Storage Service** (Amazon S3) services by balancing cost savings and time of
    retrieval
 6. Post processing and analysis: Complete imagery processing.
+
    - Feature extraction: Identify features in images (such as ships).
    - Naming/tagging of features: Tag features by name or identification system.
    - Time series creation: Tag images to sort by time.
@@ -46,9 +49,11 @@ This diagram demonstrates how to extract, process, and store electro-optical sat
 4. Optional classified processing: Throughout the image processing, move data to the
    appropriate regions for classified processing.
 5. Process raw images: Process raw images and perform QA review:
+
    - QA Review: Confirm Images are sufficient for processing
    - **AWS Batch**: Run multiple jobs in parallel.
    - **AWS Fargate** and **AWS Lambda**:
+
      - Sensor correction: Apply corrections for optical distortions.
      - Orthorectify: Sensor perspective.
      - Georeference: Apply image to spatial grid and assign known coordinate
@@ -61,6 +66,7 @@ This diagram demonstrates how to extract, process, and store electro-optical sat
 7. Storage: Store preprocessed images in a variety of Amazon S3 services by balancing cost
    savings and time of retrieval.
 8. Post processing and analysis: Complete imagery processing.
+
    - Feature extraction: Identify features in images (such as ships).
    - Naming/tagging of features: Tag features by name/identification system.
    - Time seriesc reation: Tag images to sort by time.
