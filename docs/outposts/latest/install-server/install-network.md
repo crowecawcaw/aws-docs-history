@@ -16,6 +16,7 @@ Consider the following information about connecting to the network:
   auto-negotiation of port speed. If the host port tries to negotiate port speed, for example,
   between 10 through 25 Gbits, you can run into problems. In such cases, we recommend you do
   the following:
+
   - Set the port speed on the switch port to 10 Gbits.
   - Work with your switch vendor to support a static configuration.
 

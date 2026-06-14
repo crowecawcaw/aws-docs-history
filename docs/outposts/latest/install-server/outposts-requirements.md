@@ -187,11 +187,13 @@ and required power and network cables, to the address that you provided. The box
 server is shipped in has the following dimensions:
 
 - Box with a 2U server:
+
   - Length: 44 inches / 111.8 cm
   - Height: 26.5 inches / 67.3 cm
   - Width: 17 inches / 43.2 cm
 
 - Box with a 1U server:
+
   - Length: 34.5 inches / 87.6 cm
   - Height: 24 inches / 61 cm
   - Width: 9 inches / 22.9 cm

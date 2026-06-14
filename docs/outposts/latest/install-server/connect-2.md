@@ -30,6 +30,7 @@ The following image shows the end of the cable with the 4 breakout cables:
 1. Locate the QSFP breakout cable that came with the server.
 2. Connect the single end of the QSFP breakout cable to the QSFP port on the
    server.
+
    1. Locate the QSFP port.
 
    The following image shows the location of the QSFP port on the 2U server.

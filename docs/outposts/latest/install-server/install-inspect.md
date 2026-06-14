@@ -38,6 +38,7 @@ Open the package and ensure it contains the following items:
 - Rack installation kit (2 inner rails, 2 outer rails, and screws)
 - Installation pamphlet
 - Accessory kit
+
   - Pair of C13/14 power cables ‐ 10 feet (3m)
   - QSFP breakout cable ‐10 feet (3m)
   - USB cable, micro-USB to USB-C ‐ 10 feet (3m)
