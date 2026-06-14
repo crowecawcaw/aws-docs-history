@@ -21,6 +21,7 @@ usage.
 - Internet connectivity on the machine running the assessment
 - If your machine is behind a proxy with restricted internet access, you
   must permit access to the following:
+
   - **Amazon S3 Datastore** —
     `https://s3.us-west-2.amazonaws.com/aws.portingassistant.dotnet.datastore/`
   - **Amazon S3 Datastore authentication

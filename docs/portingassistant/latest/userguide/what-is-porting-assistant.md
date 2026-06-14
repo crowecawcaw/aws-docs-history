@@ -71,6 +71,7 @@ NuGet version strings that conform to SemVer are supported. Version strings that
 or variable names are not supported.
 
 - Supported .NET Core target platform versions:
+
   - .NET 7.0 on Linux
   - .NET 6.0 on Linux
   - .NET 5.0 on Linux

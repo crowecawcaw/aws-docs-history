@@ -10,6 +10,7 @@ extension, perform the following steps:
    **Analyze** tab. In the drop-down menu, you can choose to
    **Enable Incremental Assessments** or **Run Full
    Assessment**.
+
    1. **Enable Incremental Assessments**. When you select
       this option, Porting Assistant for .NET automatically runs a continuous assessment as you make
       changes to the source code. Compatibility errors are displayed when

@@ -80,6 +80,7 @@ of your solutions and the following details about each solution:
 4.  From the solution assessment page, choose **Export assessment
     report** to download a .csv file with your report details.
     Under the overview, you can choose the following tabs:
+
     - **Projects** — this tab lists
       the projects in your solution, the **Target
       framework** for the solution, the number of
