@@ -6,12 +6,12 @@ procedure to uninstall it.
 ###### To uninstall ACM for Nitro Enclaves
 
 1. Stop the web server.
+
    - **NGINX**
 
    ```
    `$` sudo systemctl stop nginx
    ```
-
    - **Apache**
 
    ```

@@ -101,6 +101,7 @@ Option 2: Using RPM packages
 
 3. Install your preferred web server. Do one of the
    following:
+
    - **NGINX**
 
    Enable the `nginx1` topic in the Amazon Linux
@@ -114,7 +115,6 @@ Option 2: Using RPM packages
    ```
    `$` sudo amazon-linux-extras install nginx1 -y
    ```
-
    - **Apache**
 
    Install and configure the Apache HTTP server with
@@ -598,13 +598,13 @@ can use. To use the configuration file, rename it from
 
 7. Test that the ACM for Nitro Enclaves is working as
    expected.
+
    - If you used a public certificate, use the following
      command.
 
    ```
    `$` curl https://`host_name_or_IPM`
    ```
-
    - If you used a private certificate, you must add the
      host name to `/etc/hosts` in the following
      format: 127.0.0.1 `host_name`,

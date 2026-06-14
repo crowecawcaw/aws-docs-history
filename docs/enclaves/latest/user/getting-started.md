@@ -48,10 +48,12 @@ The following example command launches an `m5.xlarge` instance using the Amazon 
 
 2. Connect to the parent instance. For more information about connecting to an instance, see
    the following topics in the _Amazon EC2 User Guide_.
+
    - [Connect to your Linux instance](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md")
    - [Connect to your Windows instance](../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md "../../../AWSEC2/latest/WindowsGuide/connecting_to_windows_instance.md")
 
 3. Install the AWS Nitro Enclaves CLI on the parent instance.
+
    - If you are using a Linux parent instance, you must preallocate the memory and vCPUs. For
      the purposes of this tutorial, you must preallocate at least 2 vCPUs and 512 MiB of memory.
      For more information, see [Install the Nitro Enclaves CLI on Linux](nitro-enclave-cli-install.md "nitro-enclave-cli-install.md").

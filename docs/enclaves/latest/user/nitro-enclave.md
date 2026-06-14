@@ -54,6 +54,7 @@ enclave using a sample enclave application, see [Getting started with the Hello 
 Nitro Enclaves has the following requirements:
 
 - **Parent instance requirements:**
+
   - The parent instance must use one of the following instance types and a Linux or Windows (2016 or later) operating system.
 
   General purpose
@@ -86,11 +87,13 @@ Nitro Enclaves has the following requirements:
   | M8gn            | All instance types, **except**: `m8gn.medium`  | `m8gn.metal-24xl`  | `m8gn.metal-48xl`  |
   | M8i             | All instance types, **except**: `m8i.large`    | `m8i.metal-48xl`   | `m8i.metal-96xl`   |
   | M8id            | All instance types, **except**: `m8id.large`   | `m8id.metal-48xl`  | `m8id.metal-96xl`  |
-  | M8in            | All instance types, **except**: `m8in.large`   |
-  | M8idn           | All instance types, **except**: `m8idn.large`  |
+  | M8in            | All instance types, **except**: `m8in.large`   | `m8in.metal-48xl`  | `m8in.metal-96xl`  |
+  | M8idn           | All instance types, **except**: `m8idn.large`  | `m8idn.metal-48xl` | `m8idn.metal-96xl` |
   | M8ine           | All instance types, **except**: `m8ine.large`  |
-  | M8ib            | All instance types, **except**: `m8ib.large`   |
-  | M8idb           | All instance types, **except**: `m8idb.large`  |
+  | M8ib            | All instance types, **except**: `m8ib.large`   | `m8ib.metal-48xl`  | `m8ib.metal-96xl`  |
+  | M8idb           | All instance types, **except**: `m8idb.large`  | `m8idb.metal-48xl` | `m8idb.metal-96xl` |
+  | M9g             | All instance types, **except**: `m9g.medium`   | `m9g.metal-48xl`   |
+  | M9gd            | All instance types, **except**: `m9gd.medium`  | `m9gd.metal-48xl`  |
 
   Compute optimized
 
@@ -126,7 +129,7 @@ Nitro Enclaves has the following requirements:
   Memory optimized
 
   | Instance family | Instance types                                      |
-  | --------------- | --------------------------------------------------- | ------------------- | ----------------- |
+  | --------------- | --------------------------------------------------- | ------------------- | ------------------ |
   | R5              | All instance types, **except**: `r5.large`          | `r5.metal`          |
   | R5a             | All instance types, **except**: `r5a.large`         |
   | R5ad            | All instance types, **except**: `r5ad.large`        |
@@ -141,29 +144,29 @@ Nitro Enclaves has the following requirements:
   | R6id            | All instance types, **except**: `r6id.large`        | `r6id.metal`        |
   | R6idn           | All instance types, **except**: `r6idn.large`       | `r6idn.metal`       |
   | R6in            | All instance types, **except**: `r6in.large`        | `r6in.metal`        |
-  | R7a             | All instance types, **except**: `r7a.medium`        | `r7a.large`         | `r7a.metal-48xl`  |
+  | R7a             | All instance types, **except**: `r7a.medium`        | `r7a.large`         | `r7a.metal-48xl`   |
   | R7g             | All instance types, **except**: `r7g.medium`        | `r7g.metal`         |
   | R7gd            | All instance types, **except**: `r7gd.medium`       | `r7gd.metal`        |
-  | R7i             | All instance types, **except**: `r7i.large`         | `r7i.metal-24xl`    | `r7i.metal-48xl`  |
-  | R7iz            | All instance types, **except**: `r7iz.large`        | `r7iz.metal-16xl`   | `r7iz.metal-32xl` |
-  | R8a             | All instance types, **except**: `r8a.medium`        | `r8a.metal-24xl`    | `r8a.metal-48xl`  |
-  | R8g             | All instance types, **except**: `r8g.medium`        | `r8g.metal-24xl`    | `r8g.metal-48xl`  |
-  | R8gb            | All instance types, **except**: `r8gb.medium`       | `r8gb.metal-24xl`   | `r8gb.metal-48xl` |
-  | R8gd            | All instance types, **except**: `r8gd.medium`       | `r8gd.metal-24xl`   | `r8gd.metal-48xl` |
-  | R8gn            | All instance types, **except**: `r8gn.medium`       | `r8gn.metal-24xl`   | `r8gn.metal-48xl` |
-  | R8i             | All instance types, **except**: `r8i.large`         | `r8i.metal-48xl`    | `r8i.metal-96xl`  |
-  | R8id            | All instance types, **except**: `r8id.large`        | `r8id.metal-48xl`   | `r8id.metal-96xl` |
-  | R8in            | All instance types, **except**: `r8in.large`        |
-  | R8idn           | All instance types, **except**: `r8idn.large`       |
-  | R8ib            | All instance types, **except**: `r8ib.large`        |
-  | R8idb           | All instance types, **except**: `r8idb.large`       |
+  | R7i             | All instance types, **except**: `r7i.large`         | `r7i.metal-24xl`    | `r7i.metal-48xl`   |
+  | R7iz            | All instance types, **except**: `r7iz.large`        | `r7iz.metal-16xl`   | `r7iz.metal-32xl`  |
+  | R8a             | All instance types, **except**: `r8a.medium`        | `r8a.metal-24xl`    | `r8a.metal-48xl`   |
+  | R8g             | All instance types, **except**: `r8g.medium`        | `r8g.metal-24xl`    | `r8g.metal-48xl`   |
+  | R8gb            | All instance types, **except**: `r8gb.medium`       | `r8gb.metal-24xl`   | `r8gb.metal-48xl`  |
+  | R8gd            | All instance types, **except**: `r8gd.medium`       | `r8gd.metal-24xl`   | `r8gd.metal-48xl`  |
+  | R8gn            | All instance types, **except**: `r8gn.medium`       | `r8gn.metal-24xl`   | `r8gn.metal-48xl`  |
+  | R8i             | All instance types, **except**: `r8i.large`         | `r8i.metal-48xl`    | `r8i.metal-96xl`   |
+  | R8id            | All instance types, **except**: `r8id.large`        | `r8id.metal-48xl`   | `r8id.metal-96xl`  |
+  | R8in            | All instance types, **except**: `r8in.large`        | `r8in.metal-48xl`   | `r8in.metal-96xl`  |
+  | R8idn           | All instance types, **except**: `r8idn.large`       | `r8idn.metal-48xl`  | `r8idn.metal-96xl` |
+  | R8ib            | All instance types, **except**: `r8ib.large`        | `r8ib.metal-48xl`   | `r8ib.metal-96xl`  |
+  | R8idb           | All instance types, **except**: `r8idb.large`       | `r8idb.metal-48xl`  | `r8idb.metal-96xl` |
   | X2gd            | All instance types, **except**: `x2gd.medium`       | `x2gd.metal`        |
   | X2idn           | All instance types, **except**: `x2idn.metal`       |
   | X2iedn          | All instance types, **except**: `x2iedn.metal`      |
   | X2iezn          | All instance types, **except**: `x2iezn.metal`      |
-  | X8g             | All instance types, **except**: `x8g.medium`        | `x8g.metal-24xl`    | `x8g.metal-48xl`  |
+  | X8g             | All instance types, **except**: `x8g.medium`        | `x8g.metal-24xl`    | `x8g.metal-48xl`   |
   | X8aedz          | All instance types, **except**: `x8aedz.metal-12xl` | `x8aedz.metal-24xl` |
-  | X8i             | All instance types, **except**: `x8i.large`         | `x8i.metal-48xl`    | `x8i.metal-96xl`  |
+  | X8i             | All instance types, **except**: `x8i.large`         | `x8i.metal-48xl`    | `x8i.metal-96xl`   |
   | z1d             | All instance types, **except**: `z1d.large`         | `z1d.metal`         |
 
   Storage optimized
@@ -207,6 +210,7 @@ Nitro Enclaves has the following requirements:
   | Trn2u           | All instance types.                          |
 
 - **Enclave requirements:**
+
   - The enclave must run a Linux operating system.
 
 ## Considerations

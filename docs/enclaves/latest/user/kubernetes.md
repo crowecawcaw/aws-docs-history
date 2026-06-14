@@ -53,6 +53,7 @@ GitHub repo](https://github.com/aws/aws-nitro-enclaves-with-k8s "https://github.
 - This tutorial assumes familiarity with Kubernetes concepts. For more
   information, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/overview/ "https://kubernetes.io/docs/concepts/overview/").
 - The following tools are required to complete this tutorial:
+
   - bash shell
   - **AWS CLI** version 2. For more information
     about installing the AWS CLI, see [Getting

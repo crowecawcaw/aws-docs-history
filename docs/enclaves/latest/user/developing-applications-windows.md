@@ -82,6 +82,7 @@ Amazon SNS console
 4. Choose **Create subscription**.
 5. In the **Create subscription** dialog
    box, do the following:
+
    1. For **Topic ARN**, enter
       `arn:aws:sns:us-west-2:404587003957:aws-nitro-enclaves-windows`.
    2. For **Protocol**, choose
