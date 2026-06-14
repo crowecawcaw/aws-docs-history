@@ -181,6 +181,7 @@ In the Lake Formation console, you must also grant `AmazonSecurityLakeMetaStoreM
 3. If a **Welcome to Lake Formation** window appears, choose the user that you created or
    selected in Step 1, and then choose Get started.
 4. If you don't see a **Welcome to Lake Formation** window, then perform the following steps to configure a Lake Formation Administrator.
+
    1. In the navigation pane, under **Permissions**, choose **Administrative Roles and tasks**. In the
       **Data lake administrators** section of the console page, choose **Choose administrators**.
    2. In the **Manage data lake administrators** dialog box, for IAM users and roles, choose the

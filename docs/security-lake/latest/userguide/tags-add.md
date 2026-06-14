@@ -23,6 +23,7 @@ these steps.
 1. Open the Security Lake console at [https://console.aws.amazon.com/securitylake/](https://console.aws.amazon.com/securitylake/ "https://console.aws.amazon.com/securitylake/").
 2. Depending on the type of resource that you want to add a tag to, do one of the
    following:
+
    - For a data lake configuration, choose **Regions** in the navigation
      pane. Then, in the **Regions** table,
      select the Region.

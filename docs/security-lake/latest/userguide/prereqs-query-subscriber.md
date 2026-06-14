@@ -59,6 +59,7 @@ steps:
    that you created or selected in Step 1, and then choose Get started.
 4. If you don't see a **Welcome to Lake Formation** window, then
    perform the following steps to configure a Lake Formation Administrator.
+
    1. In the navigation pane, under **Permissions**,
       choose **Administrative roles and tasks**. In the
       **Data lake administrators** section, choose

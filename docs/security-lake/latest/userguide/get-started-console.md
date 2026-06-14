@@ -19,6 +19,7 @@ AWS service as a source. For information about adding a custom source, see [Coll
 3. Choose **Get started**.
 4. For **Select log and event sources**, choose one of the following options
    for **Source selection**:
+
    1. **Ingest default AWS sources** – When
       you choose the recommended option, CloudTrail - S3 data events and AWS WAF are not included
       for ingestion by default. This is because ingesting high volume of both source types

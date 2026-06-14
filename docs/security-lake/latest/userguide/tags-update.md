@@ -18,6 +18,7 @@ console.
 1.  Open the Security Lake console at [https://console.aws.amazon.com/securitylake/](https://console.aws.amazon.com/securitylake/ "https://console.aws.amazon.com/securitylake/").
 2.  Depending on the type of resource whose tags you want to edit, do one of the
     following:
+
     - For a data lake configuration, choose
       **Regions** in the navigation pane.
       Then, in the **Regions** table, select the
@@ -127,6 +128,7 @@ console.
 1. Open the Security Lake console at [https://console.aws.amazon.com/securitylake/](https://console.aws.amazon.com/securitylake/ "https://console.aws.amazon.com/securitylake/").
 2. Depending on the type of resource whose tags you want to review,
    do one of the following:
+
    - For a data lake configuration, choose **Regions** in the navigation
      pane. In the **Regions** table, select the
      Region, and then choose **Edit**. Then

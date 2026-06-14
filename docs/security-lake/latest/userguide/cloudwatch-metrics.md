@@ -49,6 +49,7 @@ CloudWatch console
    **Per-Source Version Metrics**.
 5. Select a metric to view it in detail. You can also choose to do
    the following:
+
    - To sort the metrics, use the column heading.
    - To graph a metric, select the metric name, and choose a
      graphing option.

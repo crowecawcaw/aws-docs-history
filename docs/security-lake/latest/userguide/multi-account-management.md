@@ -200,10 +200,12 @@ Use the following steps to edit the configuration for new organization accounts:
    from each **Region**.
 4. Choose **Edit** to edit this configuration.
 5. On the **Edit new account configuration** page, perform the following steps:
+
    1. For **Select Regions**, select one or more Regions for which you want to
       update the sources to ingest the data from. Then, choose **Next**.
    2. For **Select sources**, choose one of the following options
       for **Source selection**:
+
       1. **Ingest default AWS sources** – When
          you choose the recommended option, CloudTrail - S3 data events and AWS WAF are not included
          for ingestion by default. This is because ingesting high volume of both source types

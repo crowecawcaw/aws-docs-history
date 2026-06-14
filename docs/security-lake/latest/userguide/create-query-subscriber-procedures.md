@@ -106,6 +106,7 @@ The subscriber should follow these steps to consume data from your Lake Formatio
 
 2.  **Create a resource link to the shared database**
     – The subscriber must create a resource link to the shared Lake Formation database in either AWS Lake Formation (if using the console) or AWS Glue (if using API/AWS CLI). This resource link points the subscriber's account to the shared database. Choose one of the following access methods:
+
     - For console and AWS CLI, see
       [see Creating a resource link to a shared Data Catalog database.](../../../lake-formation/latest/dg/create-resource-link-database.md "../../../lake-formation/latest/dg/create-resource-link-database.md") in the _AWS Lake Formation Developer Guide_.
     - We recommend that subscribers also create

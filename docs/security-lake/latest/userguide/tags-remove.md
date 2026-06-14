@@ -18,6 +18,7 @@ Security Lake console.
 1. Open the Security Lake console at [https://console.aws.amazon.com/securitylake/](https://console.aws.amazon.com/securitylake/ "https://console.aws.amazon.com/securitylake/").
 2. Depending on the type of resource that you want to remove a tag from, do one of the
    following:
+
    - For a data lake configuration, choose
      **Regions** in the navigation pane.
      Then, in the **Regions** table, select the
@@ -38,6 +39,7 @@ Security Lake console.
    lists all the tags that are currently assigned to the
    resource.
 5. Do any of the following:
+
    - To remove only the tag value for a tag, choose
      **X** in the **Value**
      box that contains the value to remove.

@@ -15,6 +15,7 @@ Console
 3. Select the subscriber.
 4. Choose **Edit**, and then do any of the
    following:
+
    - To update the sources for the subscriber, enter the new
      settings in the **Log and event sources**
      section.
