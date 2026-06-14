@@ -37,10 +37,12 @@ The role permissions policy named AWSRolesAnywhereServicePolicy allows IAM Roles
 specified resources:
 
 - Actions on CloudWatch:
+
   - `cloudwatch:PutMetricData` – Allows IAM Roles Anywhere to publish metric
     data points to the `AWS/RolesAnywhere` and `AWS/Usage` namespaces.
 
 - Actions on AWS Private CA:
+
   - `acm-pca:GetCertificateAuthorityCertificate` – Allows IAM Roles Anywhere to retrieve the certificate and
     certificate chain for your private certificate authority.
   - `acm-pca:DescribeCertificateAuthority` – Allows IAM Roles Anywhere to list information about your

@@ -105,11 +105,14 @@ You can invalidate a IAM Roles Anywhere session if you need to revoke access for
 ###### To invalidate a IAM Roles Anywhere session
 
 1. To get an updated certificate revocation list (CRL), do one of the following:
+
    - If you use AWS Private CA, see [Revoking IAM role session permissions](../../../IAM/latest/UserGuide/id_roles_use_revoke-sessions.md#revoke-session "../../../IAM/latest/UserGuide/id_roles_use_revoke-sessions.md#revoke-session").
    - If you use a different certificate authority:
+
      1. Follow their documentation for revoking certificate access and invalidating sessions.
      2. Request a new CRL from your certificate authority.
 
 2. After you get your updated CRL, import it using one of the following:
+
    - The [ImportCrl](../APIReference/API_ImportCrl.md "../APIReference/API_ImportCrl.md") API operation
    - The [import-crl](../../../cli/latest/reference/rolesanywhere/import-crl.md "../../../cli/latest/reference/rolesanywhere/import-crl.md") AWS CLI command

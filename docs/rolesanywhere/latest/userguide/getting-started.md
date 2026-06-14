@@ -32,6 +32,7 @@ certificates that are used as trust anchors have to satisfy certain constraints.
 ###### To set up a certificate authority (CA)
 
 - Do one of the following:
+
   - To use a AWS Private CA resource, open the [AWS Private CA
     console](https://console.aws.amazon.com/acm-pca/home "https://console.aws.amazon.com/acm-pca/home"). Follow the instructions in the [AWS Private CA User Guide](../../../acm-pca/latest/userguide/PcaWelcome.md "../../../acm-pca/latest/userguide/PcaWelcome.md").
 
@@ -54,6 +55,7 @@ certificates that are used as trust anchors have to satisfy certain constraints.
    anchor.
 4. For **Certificate authority (CA) source**,
    do one of the following:
+
    - To use an AWS Private CA resource, choose **AWS Private CA**.
      In the **AWS Private CA** table, choose the AWS Private CA
      resource.

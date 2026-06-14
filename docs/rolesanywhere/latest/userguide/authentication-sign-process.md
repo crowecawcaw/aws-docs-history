@@ -58,8 +58,10 @@ The following examples shows how to construct the canonical form of a request to
 1. The `HttpRequestMethod` is the verb of the HTTP request, in upper case. From the example, `POST`.
 2. The `CanonicalUri` is the path of the request up until the query string delimiter `?`. From the example, `/sessions`. The path MUST be normalized according to RFC 3986, with redundant and relative path components removed. Path segments MUST be URI-encoded twice.
 3. The `CanonicalQueryString` is the string following `?` in the request URI. If the request does not include a query string, use an empty string (essentially, a blank line). The example request does not include a query string, therefore we will use an empty string. To construct the canonical query string, complete the following steps:
+
    1. Sort the parameter names by character code point in ascending order. Parameters with duplicate names should be sorted by value. For example, a parameter name that begins with the uppercase letter F precedes a parameter name that begins with a lowercase letter b.
    2. URI-encode each parameter name and value according to the following rules:
+
       1. Do not URI-encode any of the unreserved characters that RFC 3986 defines: A-Z, a-z, 0-9, hyphen ( ‐ ), underscore ( \_ ), period ( . ), and tilde ( ˜ ).
       2. Percent-encode all other characters with %XY, where X and Y are hexadecimal characters (0-9 and uppercase A-F). For example, the space character must be encoded as %20 (not using '+', as some encoding schemes do) and extended UTF-8 characters must be in the form %XY%ZA%BC.
       3. Double-encode any equals ( = ) characters in parameter values.
