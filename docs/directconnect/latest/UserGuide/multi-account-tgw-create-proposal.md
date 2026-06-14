@@ -21,6 +21,7 @@ Direct Connect. You can create an association proposal using either the Direct C
 6. For **Direct Connect gateway owner**, enter the ID of
    the account that owns the Direct Connect gateway.
 7. Under **Association settings**, do the following:
+
    1. For **Direct Connect gateway ID**, enter the ID
       of the Direct Connect gateway.
    2. For **Virtual interface owner**, enter the ID of

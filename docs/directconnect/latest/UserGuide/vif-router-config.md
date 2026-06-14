@@ -20,6 +20,7 @@ turned on, we automatically create the configuration file for your router:
 4. Choose **Download router configuration**.
 5. For **Download router configuration**, do the
    following:
+
    1. For **Vendor**, select the manufacturer of your
       router.
    2. For **Platform**, select the model of your

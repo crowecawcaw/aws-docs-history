@@ -61,6 +61,7 @@ console dashboards provide an at-a-glance view of the state of your AWS
 environment.
 
 - The Direct Connect console shows:
+
   - Connection status (see the **State**
     column)
   - Virtual interface status (see the **State**

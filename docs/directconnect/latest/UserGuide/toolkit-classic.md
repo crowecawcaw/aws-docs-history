@@ -34,6 +34,7 @@ accept. Skip the following procedure and go to [Accept your hosted connection](#
 3.  Choose **Classic**.
 4.  On the **Create Connection** pane, under
     **Connection settings,** do the following:
+
     1. For **Name**, enter a name for the
        connection.
     2. For **Location**, select the appropriate Direct Connect
@@ -190,6 +191,7 @@ review and approve your request.
     **Type**, choose **Public**.
 5.  Under **Public virtual interface settings**, do the
     following:
+
     1. For **Virtual interface name**, enter a name for the
        virtual interface.
     2. For **Connection**, choose the Direct Connect
@@ -201,6 +203,7 @@ review and approve your request.
        the new virtual interface. The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 6.  Under **Additional settings**, do the following:
+
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
 
     [IPv4] To configure an IPv4 BGP peer, choose **IPv4**
@@ -240,6 +243,7 @@ review and approve your request.
 3.  Choose **Create virtual interface**.
 4.  Under **Virtual interface type**, for **Type**, choose **Private**.
 5.  Under **Private virtual interface settings**, do the following:
+
     1. For **Virtual interface name**, enter a name for the virtual interface.
     2. For **Connection**, choose the Direct Connect connection that you want to use for this interface.
     3. For **Gateway type**, choose **Virtual private gateway**, or **Direct Connect gateway**.
@@ -252,6 +256,7 @@ review and approve your request.
     The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 6.  Under **Additional Settings**, do the following:
+
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
 
     [IPv4] To configure an IPv4 BGP peer, choose **IPv4** and do one of
@@ -306,6 +311,7 @@ configure your router for use with your private or public virtual interface.
 3. Select the connection and choose **View Details**.
 4. Choose **Download router configuration**.
 5. For **Download router configuration**, do the following:
+
    1. For **Vendor**, select the manufacturer of your router.
    2. For **Platform**, select the model of your router.
    3. For **Software**, select the software version for your router.

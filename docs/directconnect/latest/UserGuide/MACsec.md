@@ -141,6 +141,7 @@ Note the following requirements for MACsec on dedicated connections:
 - MACsec is supported on 10 Gbps , 100 Gbps, and 400 Gbps dedicated
   Direct Connect connections at selected points of presence. For these
   connections, the following MACsec cipher suites are supported:
+
   - For 10Gbps connections, GCM-AES-256 and
     GCM-AES-XPN-256.
   - For 100 Gbps and 400 Gbps connections, GCM-AES-XPN-256.

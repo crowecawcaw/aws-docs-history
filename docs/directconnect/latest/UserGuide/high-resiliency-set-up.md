@@ -33,6 +33,7 @@ in the _AWS Account Management Reference Guide_.
     Resiliency**, and then choose **Next**.
 5.  On the **Configure connections** pane, under
     **Connection settings,** do the following:
+
     1. For **bandwidth**, choose the connection
        bandwidth.
 
@@ -112,6 +113,7 @@ review and approve your request.
 4.  Under **Virtual interface type**, for **Type**, choose
     **Public**.
 5.  Under **Public virtual interface settings**, do the following:
+
     1. For **Virtual interface name**, enter a name for the virtual
        interface.
     2. For **Connection**, choose the Direct Connect connection that you want to use for this interface.
@@ -122,6 +124,7 @@ review and approve your request.
     The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 6.  Under **Additional settings**, do the following:
+
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
 
     [IPv4] To configure an IPv4 BGP peer, choose
@@ -159,6 +162,7 @@ review and approve your request.
 3.  Choose **Create virtual interface**.
 4.  Under **Virtual interface type**, for **Type**, choose **Private**.
 5.  Under **Private virtual interface settings**, do the following:
+
     1. For **Virtual interface name**, enter a name for the virtual interface.
     2. For **Connection**, choose the Direct Connect connection that you want to use for this interface.
     3. For **Gateway type**, choose **Virtual private gateway**, or **Direct Connect gateway**.
@@ -171,6 +175,7 @@ review and approve your request.
     The valid values are 1 to 4294967294. This includes support for both ASNs (1-2147483647) and long ASNs (1-4294967294). For more information about ASNs and long ASNs see [Long ASN support in Direct Connect](long-asn-support.md "long-asn-support.md").
 
 6.  Under **Additional Settings**, do the following:
+
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
 
     [IPv4] To configure an IPv4 BGP peer, choose **IPv4** and do one of

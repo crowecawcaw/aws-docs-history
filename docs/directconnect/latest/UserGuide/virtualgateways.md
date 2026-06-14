@@ -30,6 +30,7 @@ The following rules apply to virtual private gateway associations:
   interfaces and associated virtual private gateways only, and may enable a
   virtual private gateway to another private gateway. The following traffic flows
   are not supported:
+
   - Direct communication between the VPCs that are associated with a
     single Direct Connect gateway. This includes traffic from one VPC to
     another by using a hairpin through an on-premises network through a

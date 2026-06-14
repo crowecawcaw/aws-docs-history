@@ -10,6 +10,7 @@ ensure that you have read the information in [Prerequisites for virtual interfac
 3. Choose **Create virtual interface**.
 4. Under **Virtual interface type**, for **Type**, choose **Public**.
 5. Under **Public Virtual Interface Settings**, do the following:
+
    1. For **Virtual interface name**, enter a name for the virtual interface.
    2. For **Connection**, choose the Direct Connect connection that you want to use for this interface.
    3. For **Virtual interface owner**, choose

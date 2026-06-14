@@ -56,16 +56,19 @@ _AWS General Reference_.
 - Direct Connect keeps prefixes advertised by customers within the Amazon network. We
   do not re-advertise customer prefixes learned from a public VIF to any of the
   following:
+
   - Other Direct Connect customers
   - Networks that peer with the AWS Global Network
   - Amazon's transit providers
 
 - When using a public interface, you can use either a public or private ASN.
   However, there are important considerations:
+
   - Public ASNs: You must own the ASN and have the right to announce it.
     AWS will verify your ownership of the ASN. Both ASNs (1-2147483647)
     and long ASNs (1-4294967295) are supported.
   - Private ASNs: You can use private ASNs from the following ranges:
+
     - private ASNs: 64512-65534
     - private long ASNs: 4200000000-4294967294
       However, Direct Connect will replace the private ASN with the AWS ASN
@@ -73,6 +76,7 @@ _AWS General Reference_.
       internet.
 
   - ASN prepending:
+
     - With a public ASN (both ASN and long ASN), prepending will work as expected,
       and your prepended ASN will be visible to other networks.
     - With a private ASN (both ASN and long ASN, any prepending you do will be stripped
@@ -106,6 +110,7 @@ prefixes:
 
 - `7224:9100`—Local AWS Regions
 - `7224:9200`—All AWS Regions for a continent:
+
   - North America-wide
   - Asia Pacific
   - Europe, the Middle East and Africa

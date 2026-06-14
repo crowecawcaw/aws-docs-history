@@ -19,6 +19,7 @@ following steps to troubleshoot the issue:
    routed towards your on-premises network by default, you can add the default
    route (0.0.0.0/0 or ::/0) with the virtual private gateway as the target in your
    VPC route tables.
+
    - Alternatively, enable route propagation to automatically update routes
      in your route tables based on your dynamic BGP route advertisement. You
      can have up to 100 propagated routes per route table. This limit cannot

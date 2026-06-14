@@ -12,6 +12,7 @@ review and approve your request.
     **Type**, choose **Public**.
 5.  Under **Public virtual interface settings**, do the
     following:
+
     1. For **Virtual interface name**, enter a name for
        the virtual interface.
     2. For **Connection**, choose the Direct Connect
@@ -32,6 +33,7 @@ review and approve your request.
     gateway device should be different from that ASN.
 
 6.  Under **Additional settings**, do the following:
+
     1. To configure an IPv4 BGP or an IPv6 peer, do the following:
 
     [IPv4] To configure an IPv4 BGP peer, choose

@@ -31,6 +31,7 @@ _Amazon CloudWatch User Guide_.
 4. Choose a **ConnectionId** or **Metric
    name**, and then choose any of the following to further define
    the metric:
+
    - **Add to search** — Adds this metric to your
      search results.
    - **Search for this only** — Searches only for this

@@ -11,6 +11,7 @@ console or using the command line or API.
 3. Choose **Create Direct Connect gateway**.
 4. Specify the following information, and choose **Create Direct
    Connect gateway**.
+
    - **Name**: Enter a name to help you identify the
      Direct Connect gateway.
    - **Amazon side ASN**: Specify the ASN for the

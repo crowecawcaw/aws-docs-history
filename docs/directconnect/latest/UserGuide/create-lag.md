@@ -24,6 +24,7 @@ of the LAG.
 3.  Choose **Create LAG**.
 4.  Under **Lag creation type**, choose **Request new
     connections**, and provide the following information:
+
     - **LAG name**: A name for the LAG.
     - **Location**: The location for the LAG.
     - **Port speed**: The port speed for the connections.
@@ -56,6 +57,7 @@ of the LAG.
 3. Choose **Create LAG**.
 4. Under **Lag creation type**, choose **Use existing
    connections**, and provide the following information:
+
    - **LAG name**: A name for the LAG.
    - **Existing connections**: The Direct Connect connection to use for
      the LAG.

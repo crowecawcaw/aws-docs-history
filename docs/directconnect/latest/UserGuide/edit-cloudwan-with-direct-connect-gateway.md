@@ -10,6 +10,7 @@ the Direct Connect console or the Direct Connect API or command line.
 3. Choose the Direct Connect gateway attachment that you want to view the association
    for.
 4. Choose the **Gateway associations** tab.
+
    - The **ID** column displays the core network ID that the
      Direct Connect gateway is associated with.
    - The **State** column displays

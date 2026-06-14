@@ -26,6 +26,7 @@ create a Classic connection, see the steps at [Step 2: Request an Direct Connect
 5.  Choose **Next**.
 6.  On the **Configure connections** page,
     provide the following details.
+
     1. From the **Bandwidth** drop-down list, choose the bandwidth
        required for the connection. This can be anywhere from
        **1Gbps** to **400

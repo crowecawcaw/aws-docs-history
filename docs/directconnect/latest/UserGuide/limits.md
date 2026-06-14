@@ -28,43 +28,6 @@ The following table lists the quotas related to Direct Connect.
 Direct Connect supports these port speeds over single-mode fiber: 1 Gbps: 1000BASE-LX (1310 nm),
 10 Gbps: 10GBASE-LR (1310 nm) , 100Gbps: 100GBASE-LR4, and 400 Gbps: 400GBASE-LR4.
 
-## BGP quotas
-
-The following are BGP quotas. The BGP timers negotiate down to the lowest value
-between the routers. The BFD intervals are defined by the slowest device.
-
-- Default hold timer: 90 seconds
-- Minimum hold timer: 3 seconds
-
-A hold value of 0 is not supported.
-
-- Default keepalive timer: 30 seconds
-- Minimum keepalive timer: 1 second
-- Graceful restart timer: 120 seconds
-
-We recommend that you do not configure graceful restart and BFD at the same
-time.
-
-- BFD liveness detection minimum interval: 300 ms
-- BFD minimum multiplier: 3
-
-## ASN limits
-
-The following limits apply to Autonomous System Numbers (ASNs) used with Direct Connect:
-
-- **Customer-side ASN range**: 1 to 4,294,967,294
-  - ASNs: 1 to 2147483647
-  - Long ASNs: 1 to 4294967294
-
-- **Amazon-side ASN**: Fixed values assigned by AWS (typically 7224 for public virtual interfaces)
-- **Private ASN ranges**:
-  - private ASNs: 64,512 to 65,534
-  - private long ASNs: 4,200,000,000 to 4,294,967,294
-
-###### Note
-
-For public virtual interfaces, your ASN must be either a private ASN or already registered and allowed for use with the virtual interface.
-
 ## Load balance considerations
 
 If you want to use load balancing with multiple public VIFs, all the VIFs must be in the same Region.

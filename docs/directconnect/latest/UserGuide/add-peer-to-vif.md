@@ -24,6 +24,7 @@ Use the following procedure to add a BGP peer.
 4.  Choose **Add peering**.
 5.  (Private virtual interface) To add IPv4 BGP peers, do the
     following:
+
     - Choose **IPv4**.
     - To specify these IP addresses yourself, for **Your router
       peer ip**, enter the destination IPv4 CIDR address to
@@ -32,6 +33,7 @@ Use the following procedure to add a BGP peer.
       traffic to AWS.
 
 6.  (Public virtual interface) To add IPv4 BGP peers, do the following:
+
     - For **Your router peer ip**, enter the IPv4 CIDR
       destination address where traffic should be sent.
     - For **Amazon router peer IP**, enter the IPv4
