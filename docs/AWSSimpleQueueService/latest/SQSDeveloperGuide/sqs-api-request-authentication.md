@@ -11,6 +11,7 @@ procedure:
 3. The consumer uses the credential to verify whether the producer sent the
    request.
 4. One of the following happens:
+
    - If authentication succeeds, the consumer processes the request.
    - If authentication fails, the consumer rejects the request and returns an
      error.
@@ -27,6 +28,7 @@ authenticate your request:
   AWS—for more information, see [RFC2104](http://www.faqs.org/rfcs/rfc2104.html "http://www.faqs.org/rfcs/rfc2104.html")). The [AWS SDK](https://aws.amazon.com/code/ "https://aws.amazon.com/code/") handles the signing process;
   however, if you submit a query request over HTTP or HTTPS, you must include a
   signature in every query request.
+
   1.  Derive a Signature Version 4 Signing Key. For more information, see
       [Deriving the Signing Key with Java](../../../general/latest/gr/signature-v4-examples.md#signature-v4-examples-java "../../../general/latest/gr/signature-v4-examples.md#signature-v4-examples-java").
 
@@ -98,6 +100,7 @@ AWS begins the following process in response.
    using the same algorithm that you used to calculate the signature you sent in
    the request.
 3. One of the following happens:
+
    - If the signature that AWS generates matches the one you send in the
      request, AWS considers the request to be authentic.
    - If the comparison fails, the request is discarded, and AWS returns

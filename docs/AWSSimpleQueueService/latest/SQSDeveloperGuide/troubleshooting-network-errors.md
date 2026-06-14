@@ -18,6 +18,7 @@ Test your network connection to Amazon SQS by running commands like
 Example: telnet sqs.us-east-1.amazonaws.com 443
 
 - **Check network settings**
+
   - Make sure that your local firewall rules, routes, and access control lists (ACLs)
     allow traffic on the port that you use.
   - The security group outbound (egress) rules must allow traffic to the port 80 or

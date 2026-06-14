@@ -14,6 +14,7 @@ information, see [Amazon SQS cost allocation tags](sqs-queue-tags.md "sqs-queue-
 3. Choose a queue and choose **Edit**.
 4. Scroll to the **Tags** section.
 5. Add, modify, or remove the queue tags:
+
    1. To add a tag, choose **Add new tag**, enter a
       **Key** and **Value**, and then choose
       **Add new tag**.

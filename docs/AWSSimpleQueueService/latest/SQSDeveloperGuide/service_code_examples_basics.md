@@ -7,6 +7,7 @@ SDKs.
 
 - [Hello Amazon SQS](example_sqs_Hello_section.md "example_sqs_Hello_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [AddPermission](example_sqs_AddPermission_section.md "example_sqs_AddPermission_section.md")
   - [ChangeMessageVisibility](example_sqs_ChangeMessageVisibility_section.md "example_sqs_ChangeMessageVisibility_section.md")
   - [ChangeMessageVisibilityBatch](example_sqs_ChangeMessageVisibilityBatch_section.md "example_sqs_ChangeMessageVisibilityBatch_section.md")

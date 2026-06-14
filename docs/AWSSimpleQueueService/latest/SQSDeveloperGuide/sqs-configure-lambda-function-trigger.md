@@ -42,11 +42,13 @@ To configure Lambda function triggers, you must meet the following requirements:
 
 - If you use a user, your Amazon SQS role must include the following
   permissions:
+
   - `lambda:CreateEventSourceMapping`
   - `lambda:ListEventSourceMappings`
   - `lambda:ListFunctions`
 
 - The Lambda execution role must include the following permissions:
+
   - `sqs:DeleteMessage`
   - `sqs:GetQueueAttributes`
   - `sqs:ReceiveMessage`

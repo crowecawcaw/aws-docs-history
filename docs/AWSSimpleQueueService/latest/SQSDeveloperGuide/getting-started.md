@@ -113,6 +113,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 3. Create a text message and send it to the queue.
+
    - To send a message to a standard queue, you don't need to set any
      additional parameters.
 
@@ -124,7 +125,6 @@ MessageProducer producer = session.createProducer(queue);
    producer.send(message);
    System.out.println("JMS Message " + message.getJMSMessageID());
    ```
-
    - To send a message to a FIFO queue, you must set the message group ID.
      You can also set a message deduplication ID. For more information, see
      [Amazon SQS FIFO queue key terms](FIFO-key-terms.md "FIFO-key-terms.md").
@@ -164,6 +164,7 @@ connection.start();
 
 2. Call the `receive` method on the consumer with a timeout set to 1
    second, and then print the contents of the received message.
+
    - After receiving a message from a standard queue, you can access the
      contents of the message.
 
@@ -176,7 +177,6 @@ connection.start();
        System.out.println("Received: " + ((TextMessage) receivedMessage).getText());
    }
    ```
-
    - After receiving a message from a FIFO queue, you can access the
      contents of the message and other, FIFO-specific message attributes,
      such as the message group ID, message deduplication ID, and sequence

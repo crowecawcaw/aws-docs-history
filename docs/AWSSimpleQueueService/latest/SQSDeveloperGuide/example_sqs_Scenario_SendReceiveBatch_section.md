@@ -967,6 +967,7 @@ public class SimpleProducerConsumer {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue.md")
   - [DeleteMessage](../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessage.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessage.md")
   - [DeleteMessageBatch](../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md")
@@ -1189,6 +1190,7 @@ def usage_demo():
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateQueue](../../../goto/boto3/sqs-2012-11-05/CreateQueue.md "../../../goto/boto3/sqs-2012-11-05/CreateQueue.md")
   - [DeleteMessage](../../../goto/boto3/sqs-2012-11-05/DeleteMessage.md "../../../goto/boto3/sqs-2012-11-05/DeleteMessage.md")
   - [DeleteMessageBatch](../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md")

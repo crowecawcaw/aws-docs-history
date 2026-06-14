@@ -42,6 +42,7 @@ Each message attribute consists of the following components:
   `a`-`z`, `0`-`9`, underscore
   (`_`), hyphen (`-`), and period (`.`).
   The following restrictions apply:
+
   - Can be up to 256 characters long
   - Can't start with `AWS.` or `Amazon.` (or any
     casing variations)
@@ -57,6 +58,7 @@ Each message attribute consists of the following components:
   information, see `SendMessage` in the
   _Amazon Simple Queue Service API Reference_). In addition, the following
   restrictions apply:
+
   - Can be up to 256 characters long
   - Is case-sensitive
 
@@ -90,6 +92,7 @@ Amazon SQS removes leading and trailing zeroes.
   images.
 - **Custom** – To create a custom data
   type, append a custom-type label to any data type. For example:
+
   - `Number.byte`, `Number.short`,
     `Number.int`, and `Number.float` can help
     distinguish between number types.
@@ -153,6 +156,7 @@ The logical data type `Binary` uses the
     2. For the `Binary` transport type, encode 2.
 
 4. Encode the attribute value.
+
    1. For the `String` transport type, encode the
       attribute value: the length (4 bytes) and the UTF-8 bytes of the
       value.

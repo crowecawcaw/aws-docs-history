@@ -129,6 +129,7 @@ public class TagExamples {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [ListQueueTags](../../../goto/SdkForJavaV2/sqs-2012-11-05/ListQueueTags.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/ListQueueTags.md")
   - [TagQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/TagQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/TagQueue.md")
   - [UntagQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/UntagQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/UntagQueue.md")

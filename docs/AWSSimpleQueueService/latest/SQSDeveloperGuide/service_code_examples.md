@@ -13,8 +13,10 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Amazon SQS](example_sqs_Hello_section.md "example_sqs_Hello_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [AddPermission](example_sqs_AddPermission_section.md "example_sqs_AddPermission_section.md")
     - [ChangeMessageVisibility](example_sqs_ChangeMessageVisibility_section.md "example_sqs_ChangeMessageVisibility_section.md")
     - [ChangeMessageVisibilityBatch](example_sqs_ChangeMessageVisibilityBatch_section.md "example_sqs_ChangeMessageVisibilityBatch_section.md")
@@ -34,6 +36,7 @@ This topic also includes information about getting started and details about pre
     - [SetQueueAttributes](example_sqs_SetQueueAttributes_section.md "example_sqs_SetQueueAttributes_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Create a messaging application](example_cross_SQSMessageApp_section.md "example_cross_SQSMessageApp_section.md")
   - [Create a messenger application](example_cross_StepFunctionsMessenger_section.md "example_cross_StepFunctionsMessenger_section.md")
   - [Create an Amazon Textract explorer application](example_cross_TextractExplorer_section.md "example_cross_TextractExplorer_section.md")
@@ -48,5 +51,6 @@ This topic also includes information about getting started and details about pre
   - [Work with queue tags](example_sqs_Scenario_WorkWithTags_section.md "example_sqs_Scenario_WorkWithTags_section.md")
 
 - [Serverless examples](service_code_examples_serverless_examples.md "service_code_examples_serverless_examples.md")
+
   - [Invoke a Lambda function from an Amazon SQS trigger](example_serverless_SQS_Lambda_section.md "example_serverless_SQS_Lambda_section.md")
   - [Reporting batch item failures for Lambda functions with an Amazon SQS trigger](example_serverless_SQS_Lambda_batch_item_failures_section.md "example_serverless_SQS_Lambda_batch_item_failures_section.md")

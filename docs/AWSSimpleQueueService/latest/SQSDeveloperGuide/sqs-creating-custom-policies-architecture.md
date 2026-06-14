@@ -8,7 +8,7 @@ resources.
 ![In the previous diagram, section number one.](images/number-1-red.png)
 You, the resource owner.
 
-![In the previous diagram, section number two.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-2-red.png)
+![In the previous diagram, section number two.](images/number-2-red.png)
 Your resources contained within the AWS service (for
 example, Amazon SQS queues).
 

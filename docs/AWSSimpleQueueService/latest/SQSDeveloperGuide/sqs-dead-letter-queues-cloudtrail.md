@@ -136,6 +136,7 @@ If you are using `AmazonSQSFullAccess` and
    `UserName` or `RoleName` from the
    `userIdentity` ARN.
 4. Sign into IAM console.
+
    - For users, choose Users. Select the user with the
      `UserName` identified in the previous step.
    - For roles, choose Roles. Search for the user with the

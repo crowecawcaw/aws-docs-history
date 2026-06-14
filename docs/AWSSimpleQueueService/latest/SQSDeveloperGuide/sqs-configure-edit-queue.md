@@ -23,5 +23,6 @@ type) and modify or remove features as needed.
 8. (Optional) To add, update, or remove the [tags](sqs-configure-tag-queue.md "sqs-configure-tag-queue.md") for the queue, expand
    **Tags**.
 9. Choose **Save**.
+
    - The console displays the **Details** page for the
      queue.

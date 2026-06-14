@@ -49,6 +49,7 @@ You can configure a dead-letter queue redrive using the
 4. Choose **Start DLQ redrive**.
 5. Under **Redrive configuration**, for **Message
    destination**, do either of the following:
+
    - To redrive messages to their source queue, choose **Redrive to
      source queue(s)**.
    - To redrive messages to another queue, choose **Redrive to
@@ -57,12 +58,14 @@ You can configure a dead-letter queue redrive using the
 
 6. Under **Velocity control settings**, choose one of the
    following:
+
    - **System optimized** - Redrive dead-letter queue
      messages at the maximum number of messages per second.
 
    - **Custom max velocity** - Redrive dead-letter queue
      messages with a custom maximum rate of messages per second. The maximum
      allowed rate is 500 messages per second.
+
      - It is recommended to start with a small value for Custom max
        velocity and verify that the source queue doesn't get
        overwhelmed with messages. From there, gradually ramp-up the

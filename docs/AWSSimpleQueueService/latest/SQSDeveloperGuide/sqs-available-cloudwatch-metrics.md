@@ -48,6 +48,7 @@ When working with DLQs, it's important to understand how Amazon SQS metrics beha
 
 - **`NumberOfMessagesSent`** – This
   metric behaves differently for DLQs:
+
   - **Manual Sending** – Messages manually sent
     to a DLQ are captured by this metric.
   - **Automatic Redrive** – Messages

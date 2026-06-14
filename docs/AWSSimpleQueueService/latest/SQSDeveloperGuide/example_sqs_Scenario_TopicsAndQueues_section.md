@@ -856,6 +856,7 @@ public class SNSWrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [CreateQueue](../../../goto/DotNetSDKV3/sqs-2012-11-05/CreateQueue.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/CreateQueue.md")
   - [CreateTopic](../../../goto/DotNetSDKV3/sns-2010-03-31/CreateTopic.md "../../../goto/DotNetSDKV3/sns-2010-03-31/CreateTopic.md")
   - [DeleteMessageBatch](../../../goto/DotNetSDKV3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/DotNetSDKV3/sqs-2012-11-05/DeleteMessageBatch.md")
@@ -1508,6 +1509,7 @@ Aws::String AwsDoc::TopicsAndQueues::createPolicyForQueue(const Aws::String &que
 ```
 
 - For API details, see the following topics in _AWS SDK for C++ API Reference_.
+
   - [CreateQueue](../../../goto/SdkForCpp/sqs-2012-11-05/CreateQueue.md "../../../goto/SdkForCpp/sqs-2012-11-05/CreateQueue.md")
   - [CreateTopic](../../../goto/SdkForCpp/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForCpp/sns-2010-03-31/CreateTopic.md")
   - [DeleteMessageBatch](../../../goto/SdkForCpp/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/SdkForCpp/sqs-2012-11-05/DeleteMessageBatch.md")
@@ -2185,6 +2187,7 @@ func (resources Resources) Cleanup(ctx context.Context) {
 ```
 
 - For API details, see the following topics in _AWS SDK for Go API Reference_.
+
   - [CreateQueue](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.CreateQueue "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.CreateQueue")
   - [CreateTopic](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.CreateTopic "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sns#Client.CreateTopic")
   - [DeleteMessageBatch](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteMessageBatch "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/sqs#Client.DeleteMessageBatch")
@@ -2902,6 +2905,7 @@ public class SNSWorkflow {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateQueue](../../../goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/CreateQueue.md")
   - [CreateTopic](../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md "../../../goto/SdkForJavaV2/sns-2010-03-31/CreateTopic.md")
   - [DeleteMessageBatch](../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md")
@@ -3356,6 +3360,7 @@ export class TopicsQueuesWkflw {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [CreateQueue](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/CreateQueueCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/CreateQueueCommand.md")
   - [CreateTopic](../../../AWSJavaScriptSDK/v3/latest/client/sns/command/CreateTopicCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sns/command/CreateTopicCommand.md")
   - [DeleteMessageBatch](../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteMessageBatchCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/sqs/command/DeleteMessageBatchCommand.md")
@@ -3977,6 +3982,7 @@ suspend fun createFIFO(topicName: String?, duplication: String): String? {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [CreateQueue](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CreateTopic](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DeleteMessageBatch](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -4871,6 +4877,7 @@ class SqsWrapper:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateQueue](../../../goto/boto3/sqs-2012-11-05/CreateQueue.md "../../../goto/boto3/sqs-2012-11-05/CreateQueue.md")
   - [CreateTopic](../../../goto/boto3/sns-2010-03-31/CreateTopic.md "../../../goto/boto3/sns-2010-03-31/CreateTopic.md")
   - [DeleteMessageBatch](../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/boto3/sqs-2012-11-05/DeleteMessageBatch.md")
@@ -5592,6 +5599,7 @@ struct Main {
 ```
 
 - For API details, see the following topics in _AWS SDK for Swift API reference_.
+
   - [CreateQueue](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/createqueue(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/createqueue(input:)")
   - [CreateTopic](<https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/createtopic(input:)> "https://sdk.amazonaws.com/swift/api/awssns/latest/documentation/awssns/snsclient/createtopic(input:)")
   - [DeleteMessageBatch](<https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletemessagebatch(input:)> "https://sdk.amazonaws.com/swift/api/awssqs/latest/documentation/awssqs/sqsclient/deletemessagebatch(input:)")

@@ -83,6 +83,7 @@ The following API permissions are required to make DLQ redrive requests:
 **To start a message redrive:**
 
 - Dead-letter queue permissions:
+
   - `sqs:StartMessageMoveTask`
   - `sqs:ReceiveMessage`
   - `sqs:DeleteMessage`
@@ -91,6 +92,7 @@ The following API permissions are required to make DLQ redrive requests:
     original source queue are encrypted.
 
 - Destination queue permissions:
+
   - `sqs:SendMessage`
   - `kms:GenerateDataKey` – When the destination queue is
     encrypted.
@@ -100,6 +102,7 @@ The following API permissions are required to make DLQ redrive requests:
 **To cancel an in-progress message redrive:**
 
 - Dead-letter queue permissions:
+
   - `sqs:CancelMessageMoveTask`
   - `sqs:ReceiveMessage`
   - `sqs:DeleteMessage`
@@ -110,6 +113,7 @@ The following API permissions are required to make DLQ redrive requests:
 **To show a message move status:**
 
 - Dead-letter queue permissions:
+
   - `sqs:ListMessageMoveTasks`
   - `sqs:GetQueueAttributes`
 

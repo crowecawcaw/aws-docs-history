@@ -116,6 +116,7 @@ This example show how to process S3 notification event by using Amazon SQS.
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [DeleteMessageBatch](../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/DeleteMessageBatch.md")
   - [GetQueueAttributes](../../../goto/SdkForJavaV2/sqs-2012-11-05/GetQueueAttributes.md "../../../goto/SdkForJavaV2/sqs-2012-11-05/GetQueueAttributes.md")
   - [PutBucketNotificationConfiguration](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketNotificationConfiguration.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketNotificationConfiguration.md")

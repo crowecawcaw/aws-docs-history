@@ -37,6 +37,7 @@ configured to use the selected queue as a source, including:
     * when the pipe was last modified
 
 4. View more pipe details or create a new pipe, if desired:
+
    - **To access more details about a pipe:**
 
    Choose the pipe name.

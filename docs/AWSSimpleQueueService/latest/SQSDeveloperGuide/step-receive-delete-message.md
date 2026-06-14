@@ -7,17 +7,20 @@ and explains key settings to optimize this operation. The following are key conc
 receiving and deleting messages:
 
 1. **Receiving messages**
+
    - When you retrieve messages from an Amazon SQS queue, you cannot target
      specific messages. Instead, specify the maximum number of messages to
      retrieve in a single request (up to 10).
    - Due to Amazon SQS's distributed nature, retrieving from a queue with
      few messages may return an empty response. To mitigate this:
+
      - Use long polling, which waits until a message is available or
        the poll times out. This approach reduces unnecessary polling
        costs and improves efficiency.
      - Re-issue the request if needed.
 
 2. **Message visibility and deletion**
+
    - Messages are not deleted automatically after retrieval. This feature
      ensures you can reprocess messages in case of application failures or
      network disruptions.
@@ -30,6 +33,7 @@ receiving and deleting messages:
      they are being processed.
 
 3. **Visibility timeout**
+
    - This setting determines how long a message remains hidden after
      retrieval. Set an appropriate timeout to ensure messages are processed
      only once and to prevent duplication during distributed

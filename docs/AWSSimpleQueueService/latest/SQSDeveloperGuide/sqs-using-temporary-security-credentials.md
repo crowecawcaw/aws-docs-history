@@ -20,6 +20,7 @@ You can't set a policy based on temporary credentials.
 ## Prerequisites
 
 1. Use IAM to create temporary security credentials:
+
    - Security token
    - Access Key ID
    - Secret Access Key

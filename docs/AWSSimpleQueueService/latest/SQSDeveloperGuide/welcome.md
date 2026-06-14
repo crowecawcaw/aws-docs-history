@@ -59,7 +59,7 @@ creation to deletion.
 
 ![The lifecycle of an Amazon SQS message in a queue, from creation to deletion.](images/sqs-message-lifecycle-diagram.png)
 
-![Section one description for the previous lifecycle diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-1-red.png)
+![Section one description for the previous lifecycle diagram.](images/number-1-red.png)
 A producer (Component 1) sends message A to a queue, and the
 message is distributed across the Amazon SQS servers redundantly.
 
@@ -70,7 +70,7 @@ processed, it remains in the queue and isn't returned to subsequent receive requ
 the duration of the [visibility
 timeout](sqs-visibility-timeout.md "sqs-visibility-timeout.md").
 
-![Section three description for the previous lifecycle diagram.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-3-red.png)
+![Section three description for the previous lifecycle diagram.](images/number-3-red.png)
 The consumer (Component 2) deletes message A from the queue to
 prevent the message from being received and processed again when the visibility timeout
 expires.

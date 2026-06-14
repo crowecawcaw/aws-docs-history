@@ -136,8 +136,10 @@ AWS account that owns the Amazon SQS queue.
   cross-account permissions)** – To grant cross-account
   permissions to an SQS queue, you must combine both IAM and
   resource-based policies:
+
   1.  In **Account A** (which owns the
       queue):
+
       - Attach a **resource-based
         policy** to the SQS queue. This policy must
         explicitly grant the necessary permissions (for example,
@@ -147,6 +149,7 @@ AWS account that owns the Amazon SQS queue.
 
   2.  In **Account A**, create an IAM
       role:
+
       - A **trust policy** that
         allows **Account B** or an
         AWS service to assume the role.

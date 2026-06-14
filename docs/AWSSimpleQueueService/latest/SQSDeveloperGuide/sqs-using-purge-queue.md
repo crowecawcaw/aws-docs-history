@@ -18,5 +18,6 @@ When you purge a queue, you can't retrieve any of the deleted messages.
 4. From **Actions**, choose **Purge**.
 5. In the **Purge queue** dialog box, confirm the purge by entering
    `purge` and choosing **Purge**.
+
    - All messages are purged from the queue. The console displays a
      confirmation banner.

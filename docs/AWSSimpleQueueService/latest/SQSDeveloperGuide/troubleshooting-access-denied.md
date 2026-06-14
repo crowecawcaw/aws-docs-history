@@ -31,11 +31,13 @@ following:
   Identity and Access Management (IAM) policy must include permissions to explicitly allow
   access for the action.
 - If the principal is an IAM entity:
+
   - You can identify your IAM user or role by checking the upper-right corner of the
     AWS Management Console, or by using the [`aws sts get-caller-identity`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/get-caller-identity.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/get-caller-identity.html") command.
 
   - Check the IAM policies that are related to the IAM user or role. You can use
     one of the following methods:
+
     - Test IAM policies with the [IAM Policy Simulator](../../../IAM/latest/UserGuide/access_policies_testing-policies.md "../../../IAM/latest/UserGuide/access_policies_testing-policies.md").
     - Review the different [IAM policy
       types](../../../IAM/latest/UserGuide/access_policies.md#access_policy-types "../../../IAM/latest/UserGuide/access_policies.md#access_policy-types").

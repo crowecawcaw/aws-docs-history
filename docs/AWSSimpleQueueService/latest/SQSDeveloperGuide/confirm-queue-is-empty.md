@@ -31,6 +31,7 @@ confirm that a queue is empty.
 
 1.  Stop all producers from sending messages.
 2.  Repeatedly run one of the following commands:
+
     - AWS CLI: `get-queue-attributes`
     - AWS API: `GetQueueAttributes`
 

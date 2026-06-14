@@ -71,6 +71,7 @@ The stack for this tutorial includes the following resources:
    `SQS-VPCE-SQS-Tutorial-CloudFormation.yaml` file, and then choose
    **Next**.
 5. On the **Specify Details** page, do the following:
+
    1. For **Stack name**, enter
       `SQS-VPCE-Tutorial-Stack`.
    2. For **KeyName**, choose
