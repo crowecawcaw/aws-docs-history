@@ -4,6 +4,7 @@ Before you set up the C++ producer SDK on your Raspberry Pi, ensure that you hav
 following prerequisites:
 
 - A Raspberry Pi device with the following configuration:
+
   - Board version: 3 Model B or later.
   - A connected [camera module](https://www.raspberrypi.com/documentation/accessories/camera.html "https://www.raspberrypi.com/documentation/accessories/camera.html") or a connected USB camera (web cam).
   - An SD card with a capacity of at least 8 GB.

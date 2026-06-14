@@ -10,6 +10,7 @@ use the C producer library to send H.264-encoded video frames inside the folder
 This sample application has three sections:
 
 - Initialization and configuration:
+
   - Initializing and configuring the platform-specific media
     pipeline.
   - Initializing and configuring KinesisVideoClient and KinesisVideoStream
@@ -18,6 +19,7 @@ This sample application has three sections:
     getting the stream to READY state.
 
 - Main loop:
+
   - Getting the frame from the media pipeline with the timestamps and
     flags.
   - Submitting the frame to the KinesisVideoStream.

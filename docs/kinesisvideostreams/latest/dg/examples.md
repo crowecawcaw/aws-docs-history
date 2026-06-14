@@ -40,6 +40,7 @@ The following code examples demonstrate how to work with the Kinesis Video Strea
   and Region for Development](../../../sdk-for-java/latest/developer-guide/setup-credentials.md "../../../sdk-for-java/latest/developer-guide/setup-credentials.md").
 - We recommend that you use a Java IDE to view and run the code, such as one of
   the following:
+
   - [Eclipse Java Neon](https://www.eclipse.org/downloads/packages/release/neon/3/eclipse-jee-neon-3 "https://www.eclipse.org/downloads/packages/release/neon/3/eclipse-jee-neon-3")
   - [JetBrains IntelliJ
     IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")

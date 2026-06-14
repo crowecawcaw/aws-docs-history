@@ -21,6 +21,7 @@ store:
 [https://www.amazontrust.com/repository/SFSRootCAG2.pem](https://www.amazontrust.com/repository/SFSRootCAG2.pem "https://www.amazontrust.com/repository/SFSRootCAG2.pem")
 
 - Install the following build dependencies for macOS:
+
   - [Autoconf 2.69](http://www.gnu.org/software/autoconf/autoconf.html "http://www.gnu.org/software/autoconf/autoconf.html") (License GPLv3+/Autoconf: GNU GPL version
     3 or later)
   - [CMake 3.7 or 3.8](https://cmake.org/ "https://cmake.org/")
@@ -30,6 +31,7 @@ store:
   - [Lib-Pkg](https://github.com/freebsd/pkg/tree/master/libpkg "https://github.com/freebsd/pkg/tree/master/libpkg")
 
 - Install the following build dependencies for Ubuntu:
+
   - Git: `sudo apt install git`
   - [CMake](http://kitware.com/cmake "http://kitware.com/cmake"): `sudo
 apt install cmake`

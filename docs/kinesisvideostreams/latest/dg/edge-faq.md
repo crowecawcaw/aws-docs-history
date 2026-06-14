@@ -9,14 +9,17 @@ Amazon Kinesis Video Streams Edge Agent currently supports the following operati
 **Ubuntu**
 
 - 22.x
+
   - AMD64
 
 - 18.x
+
   - ARM
 
 **AL2**
 
 - amzn2
+
   - AMD64 amazonlinux:2.0.20210219.0-amd64 (Snowball)
 
 ## Does the Amazon Kinesis Video Streams Edge Agent support H.265 media?

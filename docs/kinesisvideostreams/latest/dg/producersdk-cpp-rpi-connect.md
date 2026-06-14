@@ -9,6 +9,7 @@ Raspberry Pi on your network and SSH into it from your host machine.
 
 1.  Before connecting to your Raspberry Pi device remotely, do one of the
     following to determine its IP address:
+
     - If you have access to your network's Wi-Fi router, look at the
       connected Wi-Fi devices. Find the device named `Raspberry
 Pi` to find your device's IP address.

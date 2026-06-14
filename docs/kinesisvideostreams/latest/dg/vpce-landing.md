@@ -5,6 +5,7 @@
 The primary quota differences are:
 
 - Lower quota for all bandwidth APIs (2 mbps):
+
   - PutMedia
   - GetMedia
   - GetMediaForFragmentList

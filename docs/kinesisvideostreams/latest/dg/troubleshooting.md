@@ -415,6 +415,7 @@ duration limit. See the maximum fragment duration limit in the [Media and archiv
 To resolve this issue, try the following:
 
 - If you are using a webcam/USB camera, do one of the following:
+
   - If you're using key frame-based fragmentation, then set the encoder to provide key
     frames within 10 seconds.
   - If you're not using key frame-based fragmentation, then when defining the stream in

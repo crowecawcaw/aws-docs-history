@@ -78,6 +78,7 @@ For more information about the Producer SDKs, see the [Producer SDK for C](https
 1. The `controlPlaneUrl` parameter for `createAbstractDefaultCallbacksProvider`.
 2. Endpoint configuration CMake parameters: (`-DAWS_KVS_USE_LEGACY_ENDPOINT_ONLY=TRUE`, `-DAWS_KVS_USE_DUAL_STACK_ENDPOINT_ONLY=TRUE`)
 3. Environment variables: (`export AWS_USE_DUALSTACK_ENDPOINT=TRUE`)
+
    - If `AWS_USE_DUALSTACK_ENDPOINT` is `TRUE` (case-insensitive), the dual-stack endpoint will be used.
 
 4. Otherwise, the legacy endpoint will be constructed and used.

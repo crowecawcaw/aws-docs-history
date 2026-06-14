@@ -21,7 +21,9 @@ navigation.
 Verify that the appropriate Region is selected.
 
 1. Choose **Store a new secret**.
+
    1. **Step 1: Choose secret type**
+
       - Select **Other type of
         secret**.
       - In the **Key/Value Pairs**

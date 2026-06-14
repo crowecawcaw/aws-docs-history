@@ -11,6 +11,7 @@ At this point you've created:
 
 1.  Register the device as an AWS IoT thing and generate the X.509 certificate
     for the device.
+
     1.  Sign in to the AWS Management Console and open the AWS IoT Core console at
         [https://console.aws.amazon.com/iot/](https://console.aws.amazon.com/iot/ "https://console.aws.amazon.com/iot/").
     2.  Select the appropriate Region.
@@ -19,6 +20,7 @@ At this point you've created:
     4.  Choose **Create things**.
     5.  Select **Create single thing**, then choose
         **Next**.
+
         1. **Step 1. Specify thing
            properties**
 

@@ -46,9 +46,11 @@ We have tested web cameras and RTSP cameras with the following devices and
 operating systems:
 
 - Mac mini
+
   - High Sierra
 
 - MacBook Pro laptops
+
   - Sierra (10.12)
   - El Capitan (10.11)
 

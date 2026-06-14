@@ -31,6 +31,7 @@ To run the Kinesis Video Streams RTSP example application, you must have the fol
 
 - **Docker:** For information about installing
   and using Docker, see the following links:
+
   - [Docker download
     instructions](https://docs.docker.com/desktop/ "https://docs.docker.com/desktop/")
   - [Getting started

@@ -41,6 +41,7 @@ git clone https://github.com/aws/amazon-kinesis-video-streams-parser-library
 
 2.  Open the Java IDE that you are using (for example, [Eclipse](https://www.eclipse.org/ "https://www.eclipse.org/") or [IntelliJ IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")), and import
     the Apache Maven project that you downloaded:
+
     - **In Eclipse:** Choose
       **File**, **Import**,
       **Maven**, **Existing Maven

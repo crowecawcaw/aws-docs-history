@@ -12,6 +12,7 @@ step.
 ###### Install the AWS IoT Greengrass log manager component
 
 1. Confirm that the AWS IoT Greengrass device role has the [appropriate permissions](../../../greengrass/v2/developerguide/log-manager-component.md#log-manager-component-requirements "../../../greengrass/v2/developerguide/log-manager-component.md#log-manager-component-requirements").
+
    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Click **Roles** in the left navigation.
    3. Choose the name of the TES role created in [Set up the AWS IoT Greengrass V2 core device on the device](gs-setup-gg.md "gs-setup-gg.md"). Use the search bar if necessary.
@@ -41,7 +42,6 @@ step.
    }`
 
    ```
-
    6. If the `GreengrassV2TokenExchangeRoleAccess` policy
       doesn't exist, or if some required permissions are missing, create a
       new IAM policy with these permissions and attach it to the TES

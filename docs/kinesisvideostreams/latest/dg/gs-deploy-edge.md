@@ -99,6 +99,7 @@ For additional information, see the following sections in the _AWS IoT Greengras
     * [Deploy AWS IoT Greengrass components to devices](../../../greengrass/v2/developerguide/manage-deployments.md "../../../greengrass/v2/developerguide/manage-deployments.md")
 
 8. Send configurations to the application using the AWS CLI.
+
    1. Create a new file,
       ``example-edge-configuration`.json`.
 
@@ -141,7 +142,6 @@ For additional information, see the following sections in the _AWS IoT Greengras
        }
    }
    ```
-
    2. Type the following in the AWS CLI to send the file to the
       Amazon Kinesis Video Streams Edge Agent:
 

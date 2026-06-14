@@ -86,6 +86,7 @@ The preceding example shows the following coding pattern:
   the `FragmentMetadataVisitor`.
 - Retrieve and verify the following data from the `Frame` and
   `MkvTrackMetadata` objects:
+
   - The track number.
   - The frame's pixel height.
   - The frame's pixel width.

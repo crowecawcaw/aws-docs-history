@@ -21,6 +21,7 @@ development environment (IDE).
 - Your `NativeLibraryPath` must contain your
   `KinesisVideoProducerJNI` file, available at [https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp](https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp "https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-cpp").
   The file name extension for this file depends on your operating system:
+
   - **KinesisVideoProducerJNI.so** for
     Linux
   - **KinesisVideoProducerJNI.dylib** for

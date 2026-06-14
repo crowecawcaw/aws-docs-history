@@ -32,6 +32,7 @@ git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-j
 
 2. Open the Java IDE that you're using (for example, [Eclipse](https://www.eclipse.org/ "https://www.eclipse.org/") or [IntelliJ IDEA](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")), and import
    the Apache Maven project that you downloaded:
+
    - **In Eclipse:** Choose
      **File**, **Import**,
      **Maven**, **Existing Maven
@@ -45,7 +46,9 @@ git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-j
 
 3. Update the project so that the IDE can find the libraries that you
    imported.
+
    - For IntelliJ IDEA, do the following:
+
      1. Open the context (right-click) menu for the project's
         **lib** directory, and choose
         **Add as library**.
@@ -58,10 +61,12 @@ git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-j
         `7` or higher.
 
    - For Eclipse, do the following:
+
      1. Open the context (right-click) menu for the project, and
         choose **Properties**, **Java Build
         Path**, **Source**. Then do
         the following:
+
         1. On the **Source** tab,
            double-click **Native library
            location**.
@@ -75,6 +80,7 @@ git clone https://github.com/awslabs/amazon-kinesis-video-streams-producer-sdk-j
      2. Open the context (right-click) menu for the project, and
         choose **Properties**. Then do the
         following:
+
         1. On the **Libraries** tab, choose
            **Add Jars**.
         2. In the **JAR selection** wizard,

@@ -41,6 +41,7 @@ Multiple independent applications can consume a Kinesis video stream in parallel
   write applications that consume and process data in Kinesis Video Streams in real time, or after the data is stored and
   time-indexed when low latency processing isn't required. You can create these consumer applications to run on
   Amazon EC2 instances.
+
   - [Watch output from cameras using parser library](parser-library.md "parser-library.md") – Enables Kinesis Video Streams
     applications to reliably get media from Kinesis video stream in a low-latency manner. Additionally, it parses the
     frame boundaries in the media so that applications can focus on processing and analyzing the frames

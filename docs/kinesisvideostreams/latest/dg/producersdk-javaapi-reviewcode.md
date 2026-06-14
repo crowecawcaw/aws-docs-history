@@ -7,6 +7,7 @@ following.
 2. Choose **Run**, **Run
    'DemoAppMain'**.
 3. Add your credentials to the JVM arguments for the application:
+
    - **For non-temporary AWS credentials:**
      `"-Daws.accessKeyId={YourAwsAccessKey}
  -Daws.secretKey={YourAwsSecretKey}
