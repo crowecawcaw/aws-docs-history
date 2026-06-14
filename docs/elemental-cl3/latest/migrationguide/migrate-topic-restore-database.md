@@ -74,6 +74,7 @@ earlier on this page.
 
 1. Locate the other copies of the backup and of the checksum files that you
    should have copied to storage off the node. The files to locate are:
+
    - `<hostname>_lifeboat-archive.zip`
    - `<hostname>_lifeboat-archive_export-checksum.txt`
 

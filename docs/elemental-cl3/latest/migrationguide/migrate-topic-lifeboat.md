@@ -26,6 +26,7 @@ The script backs up the following data:
 - Timecode configuration such as NTP, PTP, and chronyd.
 - Firewall settings.
 - SSL certificates that are in the following directories:
+
   - `/etc/httpd/conf`
   - `/home/elemental/cert`
 

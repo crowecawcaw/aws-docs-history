@@ -3,6 +3,7 @@
 1. From the Linux command line, log in to the Conductor node where you want to install
    Conductor Live software. Use the _elemental_ user credentials.
 2. Run the installer:
+
    - For the **primary** (or only) Conductor Live, enter this
      command:
 

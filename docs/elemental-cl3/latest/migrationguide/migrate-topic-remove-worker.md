@@ -34,6 +34,7 @@ Wait for all the channels to stop.
    channels on all nodes in the cluster appears.
 3. Select the channels that you want to de-assign from the worker node. There
    are several ways to select the channels.
+
    - If you want to de-assign all channels from all nodes, choose
      **Select all channels**.
    - To de-assign the channels from one node, filter the list by node

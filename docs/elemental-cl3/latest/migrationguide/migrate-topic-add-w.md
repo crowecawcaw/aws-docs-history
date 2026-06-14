@@ -15,11 +15,13 @@
     Node**.
 3.  In the **Add Nodes to Cluster** dialog, do one of the
     following:
+
     - In **Node IP Address/s**, enter the IP address or
       range of IP addresses for multiple nodes and choose
       **Add**.
     - If your network has a DNS server, search for the node by its
       hostname:
+
       1. In **Lookup Node IP Address**, enter the
          hostname of the node that you're adding. You set the
          hostname during installation of the node.
@@ -34,6 +36,7 @@
 5.  Verify that the nodes have been added to the list on the
     **Nodes** page and the correct information is
     shown:
+
     - The **Status** is
       **Online**.
     - The **Elemental Product** is the correct type of
