@@ -24,6 +24,7 @@ You can sort the search by choosing either **Most frequently used**,
 In the AMS console, on the **RFCs** -> **Create RFC** page:
 
 - With **Browse by change type** selected (the default), either:
+
   - Use the **Quick create** area to select from AMS's most popular CTs. Click on a label and the
     **Run RFC** page opens with the **Subject** option auto-filled for you. Complete the remaining options
     as needed and click **Run** to submit the RFC.

@@ -7,12 +7,14 @@ Gathering the following data before you begin will make the deployment go more q
 REQUIRED DATA HA STACK:
 
 - **AutoScalingGroup**:
+
   - **UserData**: This value is provided in this tutorial. It includes commands to set up the resource for CodeDeploy and start the CodeDeploy agent.
   - **AMI-ID**: This value determines the operating system of EC2 instances your Auto Scaling group (ASG) will spin up. Select an AMI in your account
     that starts with "customer-" and is of the operating system that you want. Find AMI IDs in the AMS Console VPCs -> VPCs details page. This walkthrough is for ASGs configured to
     use an Amazon Linux or RHEL AMI.
 
 - **Database**:
+
   - These parameters, **DBEngine**, **EngineVersion**, and **LicenseModel** should be set according to your situation
     though the values shown in the example have been tested. The tutorial uses these values, respectively: `MySQL`, `8.0.16`,
     `general-public-license`.
@@ -25,6 +27,7 @@ REQUIRED DATA HA STACK:
     the For the AMS SKMS API reference, see the **Reports** tab in the AWS Artifact Console. operation (CLI: list-subnet-summaries) or in the AMS Console VPCs -> VPC details page.
 
 - **LoadBalancer**:
+
   - Set this parameter, **Public** to **true** because the tutorial uses Public ELB subnets.
   - **ELBSubnetIds**: Use two Public subnets. Enter them one at a time pressing "Enter" after each. Find Subnet IDs with the
     For the AMS SKMS API reference, see the **Reports** tab in the AWS Artifact Console. operation (CLI: list-subnet-summaries) or in the AMS Console VPCs -> VPC details page.
@@ -34,6 +37,7 @@ REQUIRED DATA HA STACK:
   `WordPress` but, if you will use that value, make sure that it is not already in use.
 
 1. Launch the high availability stack.
+
    1. On the **Create RFC** page, select the category **Deployment**,
       subcategory **Standard Stacks**, item **High availability two-tier stack** and operation **Create**,
       from the list.
@@ -44,7 +48,6 @@ REQUIRED DATA HA STACK:
    ```
    **Subject**: WP-HA-2-Tier-RFC
    ```
-
    4. For the **Resource information** section, set parameters for **AutoScalingGroup**, **Database**,
       **LoadBalancer**, **Application**, and **Tags**.
 
@@ -87,7 +90,6 @@ REQUIRED DATA HA STACK:
    **Tags**:
        **Name**:                WP-Rhel-Stack
    ```
-
    5. Click **Submit** when finished.
 
 2. Log in to the database that you created and change the password.

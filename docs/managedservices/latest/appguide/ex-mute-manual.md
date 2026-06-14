@@ -20,6 +20,7 @@ aws s3 cp `ZIP_FILEPATH_AND_NAME` s3://`S3BUCKET_NAME`/
 ```
 
 3. Find an AMS AMI, all will have CodeDeploy on them. To find a "customer-" AMI use either:
+
    - AMS Console: The VPC details page for the relevant VPC
    - AMS API For the AMS SKMS API reference, see the **Reports** tab in the AWS Artifact Console. or CLI: `aws amsskms list-amis`
 
@@ -27,6 +28,7 @@ aws s3 cp `ZIP_FILEPATH_AND_NAME` s3://`S3BUCKET_NAME`/
    `customer-mc-ec2-instance-profile` for the `InstanceProfile` parameter. Note the instance ID that is returned.
 5. Request admin access to the instance. CT: ct-1dmlg9g1l91h6. You'll need the FQDN for your account. If you’re unsure what your FQDN is,
    you can find it by:
+
    - Using the AWS Management Console for Directory Services (under Security and Identity) Directory Name tab.
    - Running one of these commands (return directory classes; DC+DC+DC=FQDN): Windows: `whoami /fqdn` or Linux: `hostname --fqdn`.
 

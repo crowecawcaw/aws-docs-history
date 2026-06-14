@@ -8,6 +8,7 @@ an AMS Cloud Migration Partner (migration partner), and an Application Owner (yo
 ![Migration workflow showing VM migration to EC2 through four stages: preparation, ingestion, stack deployment, and validation.](images/migration-ams-wigs.png)
 
 1. Migration partner, Set Up:
+
    1. The migration partner submits a Service Request to AMS for an IAM role for the purpose
       of migrating your instance. For details on submitting service requests,
       see [Service Request Examples](../userguide/serv-req-mgmt-examples.md "../userguide/serv-req-mgmt-examples.md").
@@ -16,6 +17,7 @@ an AMS Cloud Migration Partner (migration partner), and an Application Owner (yo
       The AMS Operations team provides the migration partner access to your account through the requested IAM role.
 
 2. Migration partner, Migrate Individual Workloads:
+
    1. The migration partner migrates your non-AWS instance to a subnet in your AMS account through native Amazon EC2 or other migration tooling, with
       the `customer-mc-ec2-instance-profile` IAM instance profile (must be in the account).
    2. The migration partner submits an RFC with the Deployment | Ingestion | Stack from migration partner migrated instance | Create CT (ct-257p9zjk14ija);
@@ -26,6 +28,7 @@ an AMS Cloud Migration Partner (migration partner), and an Application Owner (yo
    The migration partner provides you with the instance ID of the workload created in your account.
 
 3. You, Access and Validate the Migration:
+
    1. Using the execution output provided you (AMI ID, instance ID, and IP address) by the migration partner, submit an access RFC and log into
       the newly-created AMS stack and verify that your application is working properly. For details,
       see [Requesting Instance Access](../ctref/ex-access-admin-request-col.md "../ctref/ex-access-admin-request-col.md").

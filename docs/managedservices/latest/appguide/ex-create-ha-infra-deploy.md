@@ -5,18 +5,21 @@ Gathering the following data before you begin will make the deployment go more q
 REQUIRED DATA HA STACK:
 
 - AutoScalingGroup:
+
   - `UserData`: This value is provided in this tutorial. It includes commands to set up the resource for CodeDeploy and start the CodeDeploy agent.
   - `AMI-ID`: This value determines what kind of EC2 instances your Auto Scaling group (ASG) will spin up. Be sure to select an AMI in your account
     that starts with "customer-" and is of the operating system that you want. Find AMI IDs with the For the AMS SKMS API reference, see the **Reports** tab in the AWS Artifact Console. operation (CLI: list-amis) or in
     the AMS Console VPCs -> VPCs details page. This walkthrough is for ASGs configured to use a Linux AMI.
 
 - Database:
+
   - These parameters, `DBEngine`, `EngineVersion`, and `LicenseModel` should be set according to your situation
     though the values shown in the example have been tested.
   - These parameters, `RDSSubnetIds`, `DBName`, `MasterUsername`, and `MasterUserPassword` are
     required when deploying the application bundle. For RDSSubnetIds, use two Private subnets.
 
 - LoadBalancer:
+
   - These parameters, `DBEngine`, `EngineVersion`, and `LicenseModel` should be set according to your situation
     though the values shown in the example have been tested.
   - `ELBSubnetIds`: Use two Public subnets.
@@ -28,12 +31,12 @@ REQUIRED DATA HA STACK:
   authenticated account, follow these steps at the command line.
 
 1. Launch the infrastructure stack.
+
    1. Output the execution parameters JSON schema for the HA two tier stack CT to a file in your current folder named CreateStackParams.json.
 
    ```
    aws amscm get-change-type-version --change-type-id "ct-06mjngx5flwto" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateStackParams.json
    ```
-
    2. Modify the schema. Replace the `variables` as appropriate. For example, use the OS that you want for the EC2 instances the ASG will create.
       Record the `ApplicationName` as you will use it later to deploy the application. Note that you can add up to 50 tags.
 
@@ -80,13 +83,11 @@ REQUIRED DATA HA STACK:
            }
    }
    ```
-
    3. Output the CreateRfc JSON template to a file in your current folder named CreateStackRfc.json:
 
    ```
    aws amscm create-rfc --generate-cli-skeleton > CreateStackRfc.json
    ```
-
    4. Modify the RFC template as follows and save it, you can delete and replace the contents. Note that
       `RequestedStartTime` and `RequestedEndTime` are now optional; excluding them creates an ASAP RFC
       that executes as soon as it is approved (which usually happens automatically). To submit a scheduled RFC, add those values.
@@ -98,7 +99,6 @@ REQUIRED DATA HA STACK:
    "Title":                "HA-Stack-For-WP-RFC"
    }
    ```
-
    5. Create the RFC, specifying the CreateStackRfc.json file and the CreateStackParams.json execution parameters file:
 
    ```

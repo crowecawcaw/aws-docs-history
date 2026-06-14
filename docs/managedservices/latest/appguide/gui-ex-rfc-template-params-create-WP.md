@@ -22,6 +22,7 @@ The **Create RFC** page opens. 2. Choose either **Browse change types** (the def
      open the area at the top of the page.
 
 4. **Choose by category**:
+
    1. Select the appropriate Category, Subcategory, Item, and Operation.
 
    The change type details box appears at the bottom of the page. 2. Choose **Create RFC** at the bottom of the page. 3. The **General configuration** area for that change type opens, the subject line is filled in. To see the change type details,

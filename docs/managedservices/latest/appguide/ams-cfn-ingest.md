@@ -44,6 +44,7 @@ For information on CFN drift detection, see
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
    **Choose by category** view.
+
    - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
      **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
@@ -86,6 +87,7 @@ RFC parameters part of the request (not the execution parameters). For a list of
    and upload it to your S3 bucket. For important details, see
    [AWS CloudFormation Ingest Guidelines, Best Practices, and Limitations](cfn-author-templates.md "cfn-author-templates.md").
 2. Create and submit the RFC to AMS:
+
    1. Create and save the execution parameters JSON file, include the CloudFormation template
       parameters that you want. The following example names it
       CreateCfnParams.json.
@@ -228,6 +230,7 @@ To learn more about CFN validation and validator, see
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
    **Choose by category** view.
+
    - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
      **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
@@ -270,6 +273,7 @@ RFC parameters part of the request (not the execution parameters). For a list of
    upload it to your S3 bucket. For important details, see
    [AWS CloudFormation Ingest Guidelines, Best Practices, and Limitations](cfn-author-templates.md "cfn-author-templates.md").
 2. Create and submit the RFC to AMS:
+
    1. Create and save the execution parameters JSON file, include the
       CloudFormation template parameters that you want. This example names it
       UpdateCfnParams.json.
@@ -382,6 +386,7 @@ the console**
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
    **Choose by category** view.
+
    - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
      **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
@@ -458,6 +463,7 @@ How it works:
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
    **Choose by category** view.
+
    - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
      **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 

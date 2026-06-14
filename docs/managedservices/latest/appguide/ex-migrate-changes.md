@@ -8,6 +8,7 @@ The configurations added are AMS-specific as follows.
 _Changes made to ingested Linux instances_:
 
 - Software that is installed:
+
   - [Cloud Init](https://cloud-init.io/ "https://cloud-init.io/"): Used to configure private keys for
     Jarvis Access.
   - [Python 3](https://www.python.org/downloads/release/python-367/ "https://www.python.org/downloads/release/python-367/") (scripting language)
@@ -34,16 +35,19 @@ _Changes made to ingested Linux instances_:
   _Changes made to ingested Windows instances_:
 
 - Software that is installed:
+
   - [AWS Tools for Windows PowerShell](https://aws.amazon.com/powershell "https://aws.amazon.com/powershell"): The AWS Tools for PowerShell let developers and administrators manage their
     AWS services and resources in the PowerShell scripting environment.
   - [Trend Micro Deep Security Agent](https://help.deepsecurity.trendmicro.com/Welcome.html "https://help.deepsecurity.trendmicro.com/Welcome.html"): Anti-Virus protection
   - AMS PowerShell Modules containing PowerShell code for controlling Boot, Active Directory Join, Monitoring, Security, and Logging.
 
 - Software that is changed:
+
   - Server Message Block (SMB) version 1 is disabled.
   - Windows Remote Management (WinRM) is enabled and configured to listen on port 5986. A firewall rule allowing this inbound port is also created.
 
 - Software that _might be_ installed or changed:
+
   - [Microsoft .Net Framework 4.5 (Developer platform)](https://www.microsoft.com/net "https://www.microsoft.com/net"), if a version lower then .Net Framework 4.5 is detected.
   - For Windows 2012, ad Windows 2012R2, we upgrade to
     [PowerShell 5.1](https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1 "https://docs.microsoft.com/en-us/skypeforbusiness/set-up-your-computer-for-windows-powershell/download-and-install-windows-powershell-5-1").

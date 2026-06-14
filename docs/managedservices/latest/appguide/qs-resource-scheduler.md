@@ -58,6 +58,7 @@ To deploy an AMS Resource scheduler solution, follow these steps.
    [Deployment | AMS Resource Scheduler | Solution | Deploy](../ctref/deployment-ams-solution-deploy.md "../ctref/deployment-ams-solution-deploy.md")
    ([ct-0ywnhc8e5k9z5](../ctref/schemas.md#ct-0ywnhc8e5k9z5-schema-section "../ctref/schemas.md#ct-0ywnhc8e5k9z5-schema-section"))
    RFC and provide the following parameters:
+
    - **SchedulingActive**: **Yes** to enable resource scheduling,
      **No** to disable. Default is **Yes**.
    - **ScheduledServices**: Enter a comma-separated list of services to schedule resources

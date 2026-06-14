@@ -27,6 +27,7 @@ aws s3 cp `ZIP_FILEPATH_AND_NAME` s3://`S3BUCKET_NAME`/
 ```
 
 3. Find an AMS `customer-` AMI; use either:
+
    - AMS Console: The VPC details page for the relevant VPC
    - AMS API For the AMS SKMS API reference, see the **Reports** tab in the AWS Artifact Console. or CLI: `aws amsskms list-amis`
 

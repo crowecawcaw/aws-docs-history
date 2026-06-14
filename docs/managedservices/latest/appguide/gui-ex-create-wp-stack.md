@@ -13,6 +13,7 @@ The essential variable parameters are notated as `replaceable`; however, you may
 Summary of tasks and required RFCs:
 
 1. Create the infrastructure:
+
    1. Create a MySQL RDS database cluster
    2. Create a load balancer
    3. Create an Auto scaling group and tie it to the load balancer
@@ -20,6 +21,7 @@ Summary of tasks and required RFCs:
 
 2. Create a WordPress application bundle (does not require an RFC)
 3. Deploy the WordPress application bundle with CodeDeploy:
+
    1. Create a CodeDeploy application
    2. Create a CodeDeploy deployment group
    3. Upload your WordPress application bundle to the S3 bucket (does not require an RFC)

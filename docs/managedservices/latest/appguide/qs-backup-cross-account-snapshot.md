@@ -75,6 +75,7 @@ Example CloudFormation template for a Backup Vault:
    copy snapshots cross account. To do this, submit an RFC using the _Deployment | AWS Backup | Backup plan | Create_ change type(ct-2hyozbpa0sx0m).
    If you need to update an existing backup plan, submit an RFC using the
    _Management | Other | Other | Update_ change type (ct-0xdawir96cy7k) with this information:
+
    1. The backup plan name as well as the rule name to be updated.
    2. The destination/ICE account backup vault ARN.
    3. The retention days/months you would like to keep the snapshots in the target ICE vault for.

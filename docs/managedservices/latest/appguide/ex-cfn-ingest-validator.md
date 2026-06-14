@@ -165,11 +165,13 @@ EC2 stacks and Auto Scaling groups (ASGs) are not allowed in the same stack due 
 ## Security group ingress rule validation
 
 - For requests that come from the CFN Ingest Create or Stack Update CT change types:
+
   - If (`IpProtocol` is tcp or 6) AND (Port is 80 or 443) , there are no
     restrictions around the `CidrIP` value
   - Otherwise, the `CidrIP` cannot be 0.0.0.0/0
 
 - For requests that come from Service Catalog (Service Catalog products):
+
   - In addition to the CFN Ingest Create or Stack Update CT change type validation, the port in
     `management_ports` with the protocol in `ip_protocols` can only be
     accessed via `allowed_cidrs`:

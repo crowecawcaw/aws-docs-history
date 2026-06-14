@@ -47,6 +47,7 @@ StackSet-mc
 
 - **Policies**: The inline policy embedded in the IAM role can only include a set of IAM actions that are pre-approved by AMS.
   This is the upper bound of all IAM actions allowed to create an IAM role with (control policy). The control policy consists of:
+
   - All actions in the AWS managed policy ReadOnlyAccess that provides read-only access to all AWS services and resources
   - The following actions, with the restriction on cross-account S3 actions i.e. allowed S3 actions can only be performed on resources
     present in the same account as the role being created:

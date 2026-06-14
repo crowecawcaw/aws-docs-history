@@ -4,6 +4,7 @@ Application development processes and practices that enable effective design and
 environment. AMS guides you through the following high level process:
 
 1. Envision and architect an application to be developed or integrated to your AMS-managed environment. Some considerations:
+
    1. How will you deploy your application? With automation using a deployment tool such Ansible, or manually by directly uploading needed files?
    2. How will you update your application? With a mutable approach updating each instance separately, or with an immutable approach
       updating each instance with a single, updated, AMI in an Auto Scaling group?
@@ -13,6 +14,7 @@ environment. AMS guides you through the following high level process:
    and AMS and other cloud architecture subject matter experts. The following
    sections of this guide provide information that can help with this.
 3. Select an infrastructure deployment approach:
+
    1. Full Stack: All infrastructure components are deployed at once, together.
    2. Tier and Tie: Infrastructure deployments are deployed separately and, after, tied together with security group modifications. This type of
       deployment is also achieved by a serial configuration of stack components that builds upon each other; for example, specifying the load balancer that

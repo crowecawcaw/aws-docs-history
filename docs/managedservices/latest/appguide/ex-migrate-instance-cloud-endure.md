@@ -28,6 +28,7 @@ Preparation: You and AMS operator:
 1. Prepare a Request for Change (RFC) with the Management | Other | Other | Update
    change type to AMS for the following resources and updates. You can submit separate Other | Other Update RFCs, or one.
    For details on that RFC/CT, see [Other | Other Update](../ctref/ex-other-other-update-col.md "../ctref/ex-other-other-update-col.md") with these requests:
+
    1. Assign a secondary CIDR block in your AMS VPC; a temporary CIDR block that will be removed
       after the migration is completed.
       Ensure that the block will not conflict with any existing routes back to your on-premise network.
@@ -71,6 +72,7 @@ the AMS operator in a screen-sharing session.
 Preparation: Migration Partner and AMS Operator:
 
 1.  Create CloudEndure migration project.
+
     1. During project creation, have AMS type-in IAM user credentials in screen-sharing
        sessions.
     2. In **Replication Settings** -> **Choose the subnet where the Replication Servers will be launched**,

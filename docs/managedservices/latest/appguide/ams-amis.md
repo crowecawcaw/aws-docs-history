@@ -36,6 +36,7 @@ aws amsskms list-amis --vpc-id `VPC_ID` --query "Amis.sort_by(@,&Name)[? starts_
 **AMS AMI content added to base AWS AMIs, by operating system (OS)**
 
 - Linux AMIs:
+
   - [AWS CLI Tools](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/")
   - [NTP](http://www.ntp.org/documentation.html "http://www.ntp.org/documentation.html")
   - [Trend Micro Endpoint Protection Service Agent](https://www.trendmicro.com/en_us/business.html "https://www.trendmicro.com/en_us/business.html")

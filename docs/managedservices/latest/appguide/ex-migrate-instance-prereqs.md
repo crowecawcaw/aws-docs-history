@@ -26,12 +26,14 @@ BEFORE YOU BEGIN, for Linux and Windows:
 The operating system must be supported by AMS workload ingest.
 
 - The following operating systems are supported:
+
   - Microsoft Windows Server: 2008 R2, 2012, 2012 R2, 2016, 2019 and 2022
   - Linux: Amazon Linux 2023, Amazon Linux 2, and Amazon Linux, CentOS 7.x, CentOS 6.5-6.10, Oracle Linux 7: minor versions 7.5 and above,
     Oracle Linux 8: minor versions up to 8.3, RHEL 8.x, RHEL 7.x, RHEL 6.5-6.10, SUSE Linux Enterprise Server 15 SP3, SP4, and SAP specific versions,
     SUSE Linux Enterprise Server 12 SP5, Ubuntu 18.04
 
 - The following AMIs are not supported:
+
   - Amazon Linux 2023 Minimal AMI.
 
 ###### Note

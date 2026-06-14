@@ -10,6 +10,7 @@ guidelines:
 - **Don't embed credentials or other sensitive information in the template** – The CloudFormation
   template is visible in the CloudFormation console, so you don't want to embed credentials or sensitive data in the template. The template can't contain
   sensitive information. The following resources are allowed only if you use AWS Secrets Manager for the value:
+
   - `AWS::RDS::DBInstance` - [MasterUserPassword,TdeCredentialPassword]
   - `AWS::RDS::DBCluster` - [MasterUserPassword]
   - `AWS::ElastiCache::ReplicationGroup` - [AuthToken]

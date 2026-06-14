@@ -6,6 +6,7 @@ What are all the different components that will need configuring to support your
 - High Availability (HA): What Availability Zones will be used?
 - Virtual Private Cloud (VPC): What is the CIDR block for the VPC?
 - What server instances are needed?
+
   - Authenticated Reverse Proxy (ARP): OS, AMI, instance type, subnet ID, security group, ingress
     port?
   - Application Deployment Tool server: OS, AMI, instance type, subnet ID, security group, ingress
@@ -23,6 +24,7 @@ What are all the different components that will need configuring to support your
   the tag `name=value` in order for any EC2 instances you create to
   display a name in the console.
 - Security groups:
+
   - What security groups are needed?
   - Security group ingress rules?
   - Security group egress rules?
