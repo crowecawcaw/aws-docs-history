@@ -49,6 +49,7 @@ gateway is activated.
    information**.
 4. For **Choose how to set up log group**, choose one of the
    following:
+
    - **Create a new log group** to create a new CloudWatch
      log group.
    - **Use an existing log group** to use a CloudWatch log
@@ -61,6 +62,7 @@ gateway is activated.
 
 5. Choose **Save changes**.
 6. To see the health logs for your gateway, do the following:
+
    1. In the navigation pane, choose **Gateways**, and
       then choose the gateway that you configured the CloudWatch log group
       for.

@@ -16,6 +16,7 @@ console.
 3. From the **AWS Appliance Activation - Network
    Configuration** menu, enter the corresponding numeral for the task
    that you want to perform:
+
    - **Edit DNS Configuration** - The gateway local console displays the available adapters
      for the primary and secondary DNS servers. The console then prompts
      you to provide the new IP address.

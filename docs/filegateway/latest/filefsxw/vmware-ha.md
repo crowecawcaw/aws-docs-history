@@ -52,6 +52,7 @@ Next, configure your VMware cluster to work with Storage Gateway.
 1.  On the **Edit Cluster Settings** page in VMware vSphere, make
     sure that VM monitoring is configured for VM and application monitoring. To do
     so, set the following values for each option:
+
     - **Host Failure Response**: **Restart
       VMs**
     - **Response for Host Isolation**: **Shut down
@@ -99,6 +100,7 @@ Use the following procedure to set up the gateway
 
 - Download the .ova image for your gateway type from one of the
   following:
+
   - File Gateway – [Create and activate an Amazon FSx File Gateway](create-gateway-file.md "create-gateway-file.md")
 
 ## Deploy the Gateway

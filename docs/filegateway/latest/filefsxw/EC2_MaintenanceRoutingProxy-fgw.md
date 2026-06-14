@@ -22,6 +22,7 @@ and endpoints is encrypted, even when using the HTTP proxy.
 3. From the **AWS Appliance Activation HTTP Proxy
    Configuration** menu, enter the corresponding numeral for the task
    you want to perform:
+
    - **Configure HTTP proxy** - You will need to supply a
      host name and port to complete configuration.
    - **View current HTTP proxy configuration** - If an

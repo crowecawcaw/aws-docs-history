@@ -55,9 +55,11 @@ Depending on the model of appliance you ordered, it may come with a 10G-Base-T
 RJ45 copper, or a 10G DA/SFP+ network card.
 
 - 10G-Base-T NIC configuration:
+
   - Use CAT6 cables for 10G or CAT5(e) for 1G
 
 - 10G DA/SFP+ NIC configuration:
+
   - Use Twinax copper Direct Attach Cables up to 5 meters
   - Dell/Intel compatible SFP+ optical modules (SR or LR)
   - SFP/SFP+ copper transceiver for 1G-Base-T or 10G-Base-T

@@ -27,6 +27,7 @@ cannot migrate settings or data from an FSx File Gateway to an S3 File Gateway.
 2. Use the AWS Command Line Interface (AWS CLI) to gather and save the configuration information about
    your existing FSx File Gateway and associated file systems by doing
    the following:
+
    1. Save the gateway configuration information for the FSx File Gateway.
 
    ```

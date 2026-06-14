@@ -10,6 +10,7 @@ test can be useful when you are troubleshooting network issues with your gateway
 ###### To test your gateway's network connectivity
 
 1. Log in to your gateway's local console:
+
    - For more information on logging in to the VMware ESXi local console,
      see [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
    - For more information on logging in to the Microsoft Hyper-V local

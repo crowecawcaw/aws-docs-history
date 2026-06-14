@@ -13,6 +13,7 @@ using the procedure described following.
 ###### To view and synchronize the time of a hypervisor gateway virtual machine to a Network Time Protocol (NTP) server
 
 1. Log in to your gateway's local console:
+
    - For more information on logging in to the Microsoft Hyper-V local console,
      see [Access the Gateway Local Console with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
    - For more information on logging in to the local console for Linux

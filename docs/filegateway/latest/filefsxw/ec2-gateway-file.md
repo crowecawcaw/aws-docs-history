@@ -60,6 +60,7 @@ Gateway metrics and dimensions](../../../AmazonCloudWatch/latest/monitoring/awss
 6. In the **Network settings** section, review the preconfigured
    settings and choose **Edit** to make changes to the following
    fields:
+
    1. For **VPC - _required_**, choose the
       VPC where you want to launch your Amazon EC2 instance. For more information, see
       [How Amazon VPC works](../../../vpc/latest/userguide/how-it-works.md "../../../vpc/latest/userguide/how-it-works.md") in the _Amazon Virtual Private Cloud User

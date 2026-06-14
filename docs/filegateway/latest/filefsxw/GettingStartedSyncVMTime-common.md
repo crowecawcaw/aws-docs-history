@@ -18,6 +18,7 @@ activation.
 ###### To synchronize VM time with host time
 
 1. Configure your VM time.
+
    1. In the vSphere client, right-click on the name of your gateway VM in panel
       on the left side of the application window to open the context menu for the
       VM, and then choose **Edit Settings**.

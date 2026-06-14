@@ -24,6 +24,7 @@ File Gateway in AWS Storage Gateway.
    gateway** page.
 3. In the **Gateway settings** section, do the
    following:
+
    1. For **Gateway name**, enter a name for your
       gateway. After your gateway is created, you can search for this name
       to find your gateway on the list pages in the AWS Storage Gateway
@@ -36,11 +37,13 @@ File Gateway in AWS Storage Gateway.
    type**, choose **Amazon FSx File Gateway**.
 5. In the **Platform options** section, do the
    following:
+
    1. For **Host platform**, choose the platform on
       which you want to deploy your gateway. Then follow the
       platform-specific instructions displayed on the Storage Gateway console page
       to set up your host platform. You can choose from the following
       options:
+
       - **VMware ESXi** – Download,
         deploy, and configure the gateway virtual machine using
         VMware ESXi.
@@ -81,6 +84,7 @@ File Gateway in AWS Storage Gateway.
    **Service endpoint**, choose the type of endpoint your
    gateway will use to communicate with AWS. You can choose from the
    following options:
+
    - **Publicly accessible** – Your gateway
      communicates with AWS over the public internet. If you select this
      option, use the
@@ -110,6 +114,7 @@ File Gateway in AWS Storage Gateway.
 3. In the **Gateway connection options** section, for
    **Connection options**, choose how to identify your
    gateway to AWS. You can choose from the following options:
+
    - **IP address** – Provide the IP address of
      your gateway in the corresponding field. This IP address must be
      public or accessible from within your current network, and you must
@@ -175,6 +180,7 @@ configuration to allocate local storage disks and configure logging. Choose
 3.  In the **CloudWatch log group** section, choose how to set up
     Amazon CloudWatch Logs to monitor the health of your gateway. You can choose from the
     following options:
+
     - **Create a new log group** – Set up a new
       log group to monitor your gateway.
     - **Use an existing log group** – Choose an

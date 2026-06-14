@@ -12,6 +12,7 @@ console.
 ###### To view the status of a system resource check
 
 1. Log in to your gateway's local console:
+
    - For more information on logging in to the VMware ESXi console, see
      [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
    - For more information on logging in to the Microsoft Hyper-V local

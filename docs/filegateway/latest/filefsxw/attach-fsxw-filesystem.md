@@ -41,6 +41,7 @@ Amazon FSx File Gateway:
 1.  In the Storage Gateway console, on the **FSx file systems** >
     **Attach FSx file system** page, complete the following fields
     in the **FSx file system settings** section:
+
     - For **FSx file system name**, choose the file system that
       you want to attach from the dropdown list.
     - For **Local Endpoint IP address**, enter the gateway IP

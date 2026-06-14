@@ -111,6 +111,7 @@ the following gateway configuration for your gateway host server:
 
 - 24 CPUs.
 - 16 GiB of reserved RAM for File Gateways
+
   - 16 GiB of reserved RAM for gateways with cache size up to
     16 TiB
   - 32 GiB of reserved RAM for gateways with cache size 16 TiB
@@ -120,13 +121,16 @@ the following gateway configuration for your gateway host server:
 
 - Disk 1 attached to paravirtual controller 1, to be used as the
   gateway cache as follows:
+
   - SSD using an NVMe controller.
 
 - Network adapter 1 configured on VM network 1:
+
   - Use VM network 1 and add VMXnet3 (10 Gbps) to be used for
     ingestion.
 
 - Network adapter 2 configured on VM network 2:
+
   - Use VM network 2 and add a VMXnet3 (10 Gbps) to be used to
     connect to AWS.
 
