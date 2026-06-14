@@ -39,6 +39,7 @@ Create and manage your WhatsApp message templates directly in the AWS End User M
    [https://console.aws.amazon.com/social-messaging/](https://console.aws.amazon.com/social-messaging/ "https://console.aws.amazon.com/social-messaging/").
 2. Choose **Business account**, and then choose a WABA.
 3. On the **Message templates** tab, you can:
+
    - **Create new templates** by choosing **Create template** and following the template creation workflow
    - **View template status** to see which templates are approved, pending, or rejected
    - **Edit existing templates** by selecting a template and choosing **Edit**

@@ -146,6 +146,7 @@ WhatsApp business profile, or **Create a new WhatsApp Business Profile**. 10. Ch
     register. This phone number is displayed to your customers when you send them a message.
 13. For **Choose how you would like to verify your number**, choose either
     **Text message** or **Phone call**.
+
     - Once you are ready to receive the verification code, choose
       **Next**.
     - Enter the verification code, and then choose **Next**.

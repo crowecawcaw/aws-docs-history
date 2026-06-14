@@ -56,11 +56,13 @@ To add a new phone number to your existing WABA
     been verified, you can choose **Next** to close the window from
     Meta.
 11. Under **WhatsApp Phone numbers**:
+
     1. For **Phone number verification**, enter the existing
        PIN or enter a new PIN code. To reset a lost or forgotten PIN, follow
        the directions in [Updating PIN](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/two-step-verification/#updating-pin "https://developers.facebook.com/docs/whatsapp/cloud-api/reference/two-step-verification/#updating-pin") in the _WhatsApp Business Platform
        Cloud API Reference_.
     2. For **Additional setting**:
+
        1. For **Data localization region - optional**, choose one of Meta's regions in
           which to store your data at rest. For more information on Meta's
           data privacy policies, see [Data Privacy & Security](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/data-privacy-and-security "https://developers.facebook.com/docs/whatsapp/cloud-api/overview/data-privacy-and-security") and [Cloud API Local Storage](https://developers.facebook.com/docs/whatsapp/cloud-api/overview/local-storage/ "https://developers.facebook.com/docs/whatsapp/cloud-api/overview/local-storage/") in the _WhatsApp

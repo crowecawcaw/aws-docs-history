@@ -7,6 +7,7 @@
 2. Choose **Business account**, and then choose a WABA.
 3. On the **Message templates** tab, choose **Create template**.
 4. Configure your template:
+
    - **Template name**: Enter a unique name for your template (lowercase letters, numbers, and underscores only)
    - **Category**: Select the template category (Marketing, Utility, or Authentication)
    - **Language**: Choose the language for your template content

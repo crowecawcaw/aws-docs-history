@@ -45,6 +45,9 @@ AWS End User Messaging Social provides the following features and capabilities:
 - Access to rich messaging capabilities for a more engaging experience. Beyond text and
   media, you can send locations and interactive messages.
 - Receive incoming text and media messages from your customers.
+- Create interactive, multi-screen experiences using [WhatsApp Flows](managing-flows.md "managing-flows.md"). Collect data through forms,
+  surveys, appointment booking, and other structured interactions without users
+  leaving WhatsApp.
 - Build trust with your customers by verifying your business identity through Meta.
 
 ## Related services

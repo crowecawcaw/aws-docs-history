@@ -35,12 +35,15 @@ Amazon SNS FIFO topics are not supported.
    destination**.
 4. To turn on an event destination, choose **Enable**.
 5. For **Destination type** choose either Amazon SNS or Connect Customer
+
    1. To send your events to an Amazon SNS destination, enter an existing topic
       ARN in **Topic ARN**. For example IAM policies, see
       [IAM policies for Amazon SNS topics](#managing-event-destinations-sns-policies "#managing-event-destinations-sns-policies").
    2. For Connect Customer
+
       1. For **Connect instance** choose an instance from the drop down.
       2. For **Two-way channel role**, choose either:
+
          1. **Choose existing IAM role** – Choose an existing IAM policy from the **Existing IAM roles** drop down. For example IAM policies, see [IAM policies for Connect Customer](#managing-event-destinations-amazon-connect-policies "#managing-event-destinations-amazon-connect-policies").
          2. **Enter IAM role ARN** – Enter the ARN of the IAM policy into **Use existing IAM role Arn**. For example IAM policies, see [IAM policies for Connect Customer](#managing-event-destinations-amazon-connect-policies "#managing-event-destinations-amazon-connect-policies").
 
@@ -141,6 +144,7 @@ To create new IAM polices, do the following:
 1. Create a new **permission policy** by following
    the directions in [Creating policies using the JSON editor](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") in the
    IAM User Guide.
+
    1. In step 5 use the **permission policy**
       for the IAM role to allow for publishing to Connect Customer.
 
@@ -176,6 +180,7 @@ To create new IAM polices, do the following:
 2. Create a new **trust policy** by following the
    directions in [Creating a role using custom trust policies](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") in
    the IAM User Guide.
+
    1. In step 4 use the **trust policy** for
       the IAM role.
 
@@ -198,7 +203,6 @@ To create new IAM polices, do the following:
    }`
 
    ```
-
    2. In step 10 add the **permission policy**
       that you created in the previous step.
 
