@@ -50,11 +50,13 @@ There is no restriction on the port values for either `ingressAddress` or `egres
 **CPU Planning:**
 
 - Receiver Instance 1
+
   - 1 core (2 vCPU) for running the single AWS Ground Station Agent on the instance.
   - 9 cores (18 vCPU) to receive DigIF Dataflow 1 (400MHz lookup in [CPU core planning](agent-instance-selection.md#cpu-core-planning "agent-instance-selection.md#cpu-core-planning") table).
   - Total Dedicated Agent CPU Space = **10 cores** (20 vCPU) on the same socket.
 
 - Receiver Instance 2
+
   - 1 core (2 vCPU) for running the single AWS Ground Station Agent on the instance.
   - 9 cores (18 vCPU) to receive DigIF Dataflow 2 (400MHz lookup in [CPU core planning](agent-instance-selection.md#cpu-core-planning "agent-instance-selection.md#cpu-core-planning") table).
   - Total Dedicated Agent CPU Space = **10 cores** (20 vCPU) on the same socket.

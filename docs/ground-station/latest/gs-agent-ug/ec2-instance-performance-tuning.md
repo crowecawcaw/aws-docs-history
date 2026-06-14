@@ -38,6 +38,7 @@ echo "@reboot sudo /opt/aws/groundstation/bin/set_irq_affinity.sh '${interrupt_c
   This should not overlap with the cores selected above. (Ex: ‘0,1,48,49’ for a hyper-threaded, 96-CPU instance).
 - `rps_core_mask` is a hexadecimal bit mask specifying which CPUs should be processing incoming packets, with each digit representing 4 CPUs.
   It must also be comma separated every 8 characters starting from the right. It is recommended to allow all CPUs and let caching handle the balancing.
+
   - To see the list of recommended parameters for each instance type, refer to [Appendix: Recommended parameters for interrupt/RPS tune](#recommended-parameters "#recommended-parameters").
 
 - Example for 96-CPU instance:

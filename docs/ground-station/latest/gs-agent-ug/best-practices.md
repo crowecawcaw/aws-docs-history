@@ -31,6 +31,7 @@ Cores to avoid:
 
 - `agentCpuCores` from [Agent config file](configuring-agent.md#agent-config-file "configuring-agent.md#agent-config-file")
 - `interrupt_core_list` from [Tune hardware interrupts and receive queues - impacts CPU and network](ec2-instance-performance-tuning.md#tune-hardware-interrupts "ec2-instance-performance-tuning.md#tune-hardware-interrupts").
+
   - Default values can be found from [Appendix: Recommended parameters for interrupt/RPS tune](ec2-instance-performance-tuning.md#recommended-parameters "ec2-instance-performance-tuning.md#recommended-parameters")
 
 ### As an example using a `c5.24xlarge` instance

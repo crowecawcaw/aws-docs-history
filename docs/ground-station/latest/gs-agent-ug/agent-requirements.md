@@ -10,6 +10,7 @@ The AWS Ground Station Agent receiver EC2 instance requires a set of dependent A
 2. An AWS KMS Key for data encryption/decryption.
 3. An SSH key or EC2 Instance Profile configured for [SSM Session Manager](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md").
 4. Network/Security Group rules to allow the following:
+
    1. UDP traffic from AWS Ground Station on the ports specified in your dataflow endpoint group.
       The agent reserves a range of contiguous ports used to deliver data to the ingress dataflow endpoint(s).
    2. SSH access to your instance (Note: You can alternatively use AWS Session Manager to access your EC2 instance).
