@@ -18,6 +18,7 @@ To start a signing job, you need to specify the following:
 3. From the list of profiles, choose a signing profile to perform code
    signing for your Lambda application.
 4. Do either of the following:
+
    - For **Code asset source location**, enter the URL
      for the Amazon S3 bucket that contains your code.
    - Choose **Browse**, and locate the S3 bucket that
