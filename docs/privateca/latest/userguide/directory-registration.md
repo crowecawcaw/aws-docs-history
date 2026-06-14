@@ -32,6 +32,7 @@ options.
     button opens the details page for the registration.
 5.  The **Directory registration details** pane displays the
     following information:
+
     - **Directory domain site name**
     - **Directory ID** – The unique ID of the directory.
       Choosing the link takes you to the AWS Directory Service console.
@@ -48,6 +49,7 @@ options.
     key must be unique to the resource and the value is optional. The pane displays any
     existing tags for the resource in a table. The following actions are
     supported.
+
     - Choose **Manage tags** to open the **Manage
       tags** page.
     - Choose Add new tag to create a tag. Fill in the

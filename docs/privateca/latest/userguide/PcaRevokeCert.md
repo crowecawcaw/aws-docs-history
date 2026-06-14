@@ -32,6 +32,7 @@ administrator can use either of the following approaches:
   in a single resource share. For more information, see [Customer managed permissions in RAM](pca-cmp.md "pca-cmp.md").
 - **AWS managed permissions** – Create two
   RAM shares, both pointing at the same CA:
+
   1.  A share with the `AWSRAMRevokeCertificateCertificateAuthority`
       permission.
   2.  A share with the `AWSRAMDefaultPermissionCertificateAuthority`

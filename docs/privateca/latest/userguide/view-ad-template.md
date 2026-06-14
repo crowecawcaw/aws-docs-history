@@ -59,6 +59,7 @@ Console
 
 5.  The lower pane displays a row of tabs allowing changes to the configuration of
     the template.
+
     - **Groups and permissions** – View and manage
       permissions for Active Directory groups to enroll certificates using
       this template. For more information, see [Configure groups and permissions](create-ad-template.md#create-ad-template-console-12 "create-ad-template.md#create-ad-template-console-12")

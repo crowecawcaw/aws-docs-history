@@ -222,13 +222,13 @@ The following is an example output:
     use a KMS key to encrypt and decrypt data. However, the resource owner can
     grant permissions to access the KMS key to other users and resources. The service
     principal must be in the same Region as where the KMS key is stored.
+
     1.  First, save the default policy for your KMS key as `policy.json` using the
         following [get-key-policy](../../../cli/latest/reference/kms/get-key-policy.md "../../../cli/latest/reference/kms/get-key-policy.md") command:
 
     ```
     `$` `aws kms get-key-policy --key-id `key-id` --policy-name default --output text > ./policy.json`
     ```
-
     2.  Open the `policy.json` file in a text editor. Select one of the following policy statements and add it to the existing policy.
 
     If your Amazon S3 bucket key is _enabled_, use the following statement:
@@ -279,7 +279,6 @@ The following is an example output:
        }
     }
     ```
-
     3.  Finally, apply the updated policy using the following [put-key-policy](../../../cli/latest/reference/kms/put-key-policy.md "../../../cli/latest/reference/kms/put-key-policy.md") command:
 
     ```

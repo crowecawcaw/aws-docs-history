@@ -14,6 +14,7 @@ Console
    details**.
 3. On the connector details page, review the information in the Connector
    details, pane, which includes the following:
+
    - **Connector ID**
    - **Connector status**
    - **Additional status details**

@@ -14,8 +14,10 @@ Console
 3.  On the details page for the connector, find the **Templates** section and then choose **Create template**.
 4.  On the **Create template** page, in the **Template
     creation method** section, choose one of the method options.
+
     - **Start from a predefined template** (default) –
       Choose from a list of predefined templates for AD applications:
+
       - **Code Signing**
       - **Computer**
       - **Domain Controller Authentication**
@@ -37,6 +39,7 @@ Console
 
 5.  In the **Certificate settings** section, define the following
     settings for certificates based on this template.
+
     - **Certificate type** – Specify whether to create
       **User** or **Computer**
       certificates.
@@ -61,7 +64,6 @@ Console
         + **DNS as common name**
         + **Directory path**
         + **Email**
-
     - **Subject alternative name** – Choose one or more
       options to be included in the subject alternative name based on information
       contained in Active Directory.
@@ -113,6 +115,7 @@ Console
     templates existing groups and permissions for enrollment, or you can choose the
     **Add new groups and permissions** button to add a new ones.
     The button opens a form requiring the following information:
+
     - **Display name**
     - **Security identifier** (SID)
     - **Enroll**, with options ALLOW | DENY | NOT SET
@@ -129,6 +132,7 @@ Console
     key must be unique to the resource and the value is optional. The pane displays any
     existing tags for the resource in a table. The following actions are
     supported.
+
     - Choose **Manage tags** to open the **Manage
       tags** page.
     - Choose Add new tag to create a tag. Fill in the

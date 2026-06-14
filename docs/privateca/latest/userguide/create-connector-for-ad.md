@@ -14,8 +14,10 @@ Sign in to your AWS account and open the AWS Private CA Connector for Active Dir
     Directory** page, choose **Create connector**.
 2.  On the **Create Private CA Connector for Active Directory** page,
     provide information in the **Active Directory** section.
+
     - Under **Select your Active Directory type**, choose one
       of the two available types:
+
       - **AWS Directory Service for Microsoft Active Directory**
         – Specifies an Active Directory managed by Directory Service.
       - **On-premises Active Directory with AWS
@@ -38,7 +40,6 @@ Sign in to your AWS account and open the AWS Private CA Connector for Active Dir
 
         + **AWS Managed Microsoft AD**
         + **AD Connector**
-
     - Under **Select security groups for VPC endpoint**, choose
       a security group from the list.
 
@@ -51,6 +52,7 @@ Sign in to your AWS account and open the AWS Private CA Connector for Active Dir
 
 3.  In the **IP address type** section, choose from
     the following options:
+
     - **IPv4** - Enables IPv4 connectivity to
       the service. Choose this option only if all subnets hosting your directory have IPv4 address ranges.
     - **Dualstack** - Enables both IPv4 and IPv6 connectivity to the service. Choose

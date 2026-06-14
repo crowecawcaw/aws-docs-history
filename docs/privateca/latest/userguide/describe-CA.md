@@ -12,9 +12,11 @@ CAs, see [Update a private CA in AWS Private Certificate Authority](PCAUpdateCA.
 3.  To show detailed metadata for a listed CA, choose the radio button by the CA
     that you want to inspect. This opens a details pane with the following tabbed
     views:
+
     - **Subject** tab– Information about the
       distinguished name for the CA. For more information, see [Subject distinguished name](create-CA.md#PcaCreateCaName "create-CA.md#PcaCreateCaName"). The
       fields displayed include:
+
       - **Subject** – Summary of provided name
         information fields
       - **Organization (O)** – For example, a company
@@ -29,6 +31,7 @@ CAs, see [Update a private CA in AWS Private Certificate Authority](PCAUpdateCA.
 
     - **CA certificate** tab – Information about the
       validity of the CA certificate
+
       - **Valid until** – The date and time
         until the CA certificate is valid
       - **Expires in** – The number of days
@@ -37,6 +40,7 @@ CAs, see [Update a private CA in AWS Private Certificate Authority](PCAUpdateCA.
     - **Revocation configuration** tab – Your
       current selections for certificate revocation options. Choose
       **Edit** to update.
+
       - **Certificate Revocation List (CRL)
         distribution** – Status of
         **Enabled** or
@@ -56,6 +60,7 @@ CAs, see [Update a private CA in AWS Private Certificate Authority](PCAUpdateCA.
     - **Resource shares** tab – Your current
       assignment of resource shares for this CA through AWS Resource Access Manager (RAM).
       Choose **Manage resource shares** to update.
+
       - **Name** – Name of the resource
         share
       - **Status** – status of the resource

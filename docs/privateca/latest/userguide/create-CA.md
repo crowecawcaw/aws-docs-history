@@ -42,6 +42,7 @@ Sign in to your AWS account and open the AWS Private CA console at `https://cons
 
 2. Under **Mode options**, choose the
    expiration mode of the certificates that your CA issues.
+
    - **General-purpose** – Issues certificates that
      can be configured with any expiration date. This is the default.
    - **Short-lived certificate** – Issues
@@ -51,6 +52,7 @@ Sign in to your AWS account and open the AWS Private CA console at `https://cons
 
 3. On the **Type options** section of the console, choose the
    type of private certificate authority that you want to create.
+
    - Choosing **Root** establishes a new CA hierarchy.
      This CA is backed by a self-signed certificate. It serves as the
      ultimate signing authority for other CAs and end-entity certificates
@@ -74,6 +76,7 @@ Sign in to your AWS account and open the AWS Private CA console at `https://cons
 4. Under **Subject distinguished name options**, configure the
    subject name of your private CA. You must enter a value for at least one of the
    following options:
+
    - **Organization (O)** – For example, a company
      name
    - **Organization Unit (OU)** – For example, a division within a
@@ -169,6 +172,7 @@ To configure **Certificate revocation options**, perform the following steps.
 
 7.  For **Certificate revocation options**,
     choose **Turn on OCSP**.
+
     1. In the **Custom OCSP endpoint _- optional_** field, you can provide
        a fully qualified domain name (FQDN) for a non-Amazon OCSP
        endpoint. To use OCSP over IPv6, set this field to a dualstack endpoint
@@ -292,6 +296,7 @@ object with the following information:
   certificates issued by the CA. If the CRL is not publicly accessible, this
   will point to a distribution mechanism such as Amazon CloudFront.
 - (Optional) A `CrlDistributionPointExtensionConfiguration` object with the following information:
+
   - The `OmitExtension` flag set to "true" or "false". This controls whether the default value for the CDP extension will be written to a certificate issued by the CA. For more information about the CDP extension, see [Determining the CRL Distribution Point (CDP) URI](crl-planning.md#crl-url "crl-planning.md#crl-url"). A CustomCname cannot be set if OmitExtension is "true".
 
 - (Optional) A custom path for the CRL in the S3 bucket.

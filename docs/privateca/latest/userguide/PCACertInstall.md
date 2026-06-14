@@ -21,6 +21,7 @@ console and AWS CLI operations.
 
 - A parent CA with the RSA key algorithm can issue certificates with the
   following signing algorithms:
+
   - SHA256 RSA
   - SHA384 RSA
   - SHA512 RSA
@@ -58,12 +59,14 @@ console and AWS CLI operations.
 | ap-southeast-2 | Asia Pacific (Sydney)     |
 
 - In a non-legacy AWS Region, the following rules apply for EDCSA:
+
   - A parent CA with the EC_prime256v1 signing algorithm can issue
     certificates with ECDSA P256.
   - A parent CA with the EC_secp384r1 signing algorithm can issue
     certificates with ECDSA P384.
 
 - In every AWS Region, the following rules apply for EDCSA:
+
   - A parent CA with the EC_secp521r1 signing algorithm can issue
     certificates with ECDSA P521.
 
@@ -414,6 +417,7 @@ hosted subordinate CA.
 4. Under **Select parent CA**, choose a CA from the
    **Parent private CA** list. The list is filtered to
    display CAs that meet the following criteria:
+
    - You have permission to use the CA.
    - The CA would not be signing itself.
    - The CA is in state `ACTIVE`.
@@ -422,11 +426,13 @@ hosted subordinate CA.
 5. Under **Specify the subordinate CA certificate
    parameters**, specify the following certificate
    parameters:
+
    - **Validity** — Specifies the expiration
      date and time for the CA certificate.
    - **Signature algorithm** — Specifies the
      signing algorithm to use when the root CA issues new certificates.
      Options are:
+
      - SHA256 RSA
      - SHA384 RSA
      - SHA512 RSA

@@ -19,6 +19,7 @@ AWS provides the following resources to help with compliance:
 - For organizations that are required to encrypt their Amazon S3 buckets, the
   following topics describe how to configure encryption to accommodate AWS Private CA
   assets:
+
   - [Encrypting Your Audit Reports](PcaAuditReport.md#audit-report-encryption "PcaAuditReport.md#audit-report-encryption")
   - [Encrypting
     Your CRLs](crl-planning.md#crl-encryption "crl-planning.md#crl-encryption")

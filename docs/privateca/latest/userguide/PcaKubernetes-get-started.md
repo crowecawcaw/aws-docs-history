@@ -122,6 +122,7 @@ To create a private CA, refer to [https://docs.aws.amazon.com/privateca/latest/u
 private CA in AWS Private CA
 
 - A computer with the following software installed:
+
   - [AWS CLI v2](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md")
     configured
   - [kubectl v1.13+](https://kubernetes.io/docs/tasks/tools/install-kubectl/ "https://kubernetes.io/docs/tasks/tools/install-kubectl/")
@@ -317,12 +318,12 @@ PROFILE_ARN=$(aws rolesanywhere create-profile \
 
 2. Generate a client certificate for use with the Connector for Kubernetes and
    IAM Roles Anywhere to authenticate with AWS Private CA:
+
    1. Generate a private key for the client certificate:
 
    ```
    openssl genrsa -out client.key 2048
    ```
-
    2. Generate a certificate signing request (CSR) for the
       client certificate:
 
@@ -332,7 +333,6 @@ PROFILE_ARN=$(aws rolesanywhere create-profile \
      -out client.csr \
      -subj "/CN=aws-privateca-issuer"
    ```
-
    3. Issue the client certificate from AWS Private CA:
 
    ```
@@ -345,7 +345,6 @@ PROFILE_ARN=$(aws rolesanywhere create-profile \
      --query 'CertificateArn' \
      --output text)
    ```
-
    4. Store the client certificate locally:
 
    ```
@@ -359,19 +358,18 @@ PROFILE_ARN=$(aws rolesanywhere create-profile \
 
 3. Install the AWS Private CA issuer in the cluster with the client
    certificate:
+
    1. Add the `awspca` Helm repository:
 
    ```
    helm repo add awspca https://cert-manager.github.io/aws-privateca-issuer
    helm repo update
    ```
-
    2. Create a namespace:
 
    ```
    kubectl create namespace aws-privateca-issuer
    ```
-
    3. Put the certificate created earlier into a secret:
 
    ```
@@ -382,6 +380,7 @@ PROFILE_ARN=$(aws rolesanywhere create-profile \
    ```
 
 4. Install the AWS Private CA issuer with IAM Roles Anywhere:
+
    1. Create a file named `values.yaml` to configure
       the AWS Private CA issuer plugin to use with IAM Roles Anywhere:
 
@@ -417,7 +416,6 @@ PROFILE_ARN=$(aws rolesanywhere create-profile \
          secretName: aws-privateca-credentials
    EOF
    ```
-
    2. Install the AWS Private CA issuer with IAM Roles Anywhere:
 
    ```

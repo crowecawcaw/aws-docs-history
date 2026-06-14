@@ -54,12 +54,14 @@ This example can be implemented using [Amazon CloudFront](../../../AmazonCloudFr
 have configured a CA as described above.
 
 1. In CloudFront, create a distribution and configure it as follows:
+
    - Create an alternate name that matches your custom
      CNAME.
    - Bind your certificate to it.
    - Set
      `ocsp.acm-pca.`<region>`.amazonaws.com`
      as the origin.
+
      - To use IPv6 connections, use the dualstack endpoint
        `acm-pca-ocsp.`<region>`.api.aws`
 

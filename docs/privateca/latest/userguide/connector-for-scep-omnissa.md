@@ -29,6 +29,7 @@ certificate authority and template in Omnissa Workspace ONE.
    Authorities**.
 2. Choose **+ ADD** and provide the following
    information:
+
    - **Name**: AWS-Private-CA.
    - **Description**: AWS Private CA for device certificate
      issuance.
@@ -51,6 +52,7 @@ certificate authority and template in Omnissa Workspace ONE.
    and then choose **Templates**.
 2. Choose **Add Templates** and provide the following
    information:
+
    - **Template Name**: Device-Cert-Template.
    - **Certificate Authority**: Choose
      **AWS-Private-CA**.
@@ -87,7 +89,9 @@ certificate.
 7. Select **SCEP** and then choose
    **+Add**.
 8. Use the following configuration:
+
    - **SCEP**:
+
      - For **Credential Source** select
        **Defined Certificate Authority**
        (Default).
@@ -116,6 +120,7 @@ For more information, see [SCEP](https://docs.omnissa.com/bundle/CertificateAuth
    **Groups** and then choose **Assignment
    Groups**.
 2. Create or edit the POC-Devices smart group:
+
    - **Name**: POC-Devices.
    - **Device Type**: Select **All** or a
      specific platform (Android or iOS, for example).
