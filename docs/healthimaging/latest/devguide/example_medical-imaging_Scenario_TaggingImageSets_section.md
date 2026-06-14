@@ -114,6 +114,7 @@ The utility function for untagging a resource.
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [ListTagsForResource](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListTagsForResource.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/ListTagsForResource.md")
   - [TagResource](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/TagResource.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/TagResource.md")
   - [UntagResource](../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/UntagResource.md "../../../goto/SdkForJavaV2/medical-imaging-2023-07-19/UntagResource.md")
@@ -281,6 +282,7 @@ export const untagResource = async (
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [ListTagsForResource](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListTagsForResourceCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/ListTagsForResourceCommand.md")
   - [TagResource](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/TagResourceCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/TagResourceCommand.md")
   - [UntagResource](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UntagResourceCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/UntagResourceCommand.md")
@@ -437,6 +439,7 @@ The following code instantiates the MedicalImagingWrapper object.
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [ListTagsForResource](../../../goto/boto3/medical-imaging-2023-07-19/ListTagsForResource.md "../../../goto/boto3/medical-imaging-2023-07-19/ListTagsForResource.md")
   - [TagResource](../../../goto/boto3/medical-imaging-2023-07-19/TagResource.md "../../../goto/boto3/medical-imaging-2023-07-19/TagResource.md")
   - [UntagResource](../../../goto/boto3/medical-imaging-2023-07-19/UntagResource.md "../../../goto/boto3/medical-imaging-2023-07-19/UntagResource.md")

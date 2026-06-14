@@ -14,11 +14,13 @@ Here's how the authentication works at a high level:
    client must include the OIDC access token in the Authorization header (typically a Bearer token).
    Before the request reaches your data, HealthImaging extracts this token from the incoming request and
    calls a Lambda authorizer that you configure.
+
    1. The header typically follows the format: `Authorization: Bearer <token>`.
 
 2. **Initial verification:** HealthImaging verifies access token claims in order to quickly reject any
    obviously invalid or expired tokens without invoking the Lambda function unnecessarily. HealthImaging performs an initial verification
    of certain standard claims in the access token before invoking the Lambda authorizer:
+
    1. `iat` (Issued At): HealthImaging checks if the token's issue time is within acceptable limits.
    2. `exp` (Expiration Time): HealthImaging verifies that the token has not expired.
    3. `nbf` (Not Before Time): If present, HealthImaging ensures the token is not being used before its valid start time.

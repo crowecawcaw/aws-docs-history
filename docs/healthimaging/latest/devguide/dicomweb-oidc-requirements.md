@@ -12,6 +12,7 @@ the requests with appropriate permissions.
 1. Create IAM policies defining the desired DICOMWeb API privileges. Refer to the "[Using DICOMweb](using-dicomweb.md "using-dicomweb.md")" section of the HealthImaging documentation for
    available permissions.
 2. Create IAM roles that:
+
    - Attach these policies
    - Include a trust relationship allowing the AWS HealthImaging service principal (`medical-imaging.amazonaws.com`)
      to assume these roles.

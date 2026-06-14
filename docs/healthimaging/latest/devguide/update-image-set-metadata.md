@@ -29,6 +29,7 @@ set metadata. Keep the following points in mind when updating image set metadata
 - Set the [`force`](../APIReference/API_UpdateImageSetMetadata.md#API_UpdateImageSetMetadata_RequestParameters "../APIReference/API_UpdateImageSetMetadata.md#API_UpdateImageSetMetadata_RequestParameters") request parameter to force completion of the
   `UpdateImageSetMetadata` action on non-primary [image sets](getting-started-concepts.md#concept-image-set "getting-started-concepts.md#concept-image-set"). Setting this parameter allows the following
   updates to an image set:
+
   - Updating the `Tag.StudyInstanceUID`,
     `Tag.SeriesInstanceUID`, `Tag.SOPInstanceUID`, and
     `Tag.StudyID` attributes

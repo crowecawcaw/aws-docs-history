@@ -13,8 +13,10 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello HealthImaging](example_medical-imaging_Hello_section.md "example_medical-imaging_Hello_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CopyImageSet](example_medical-imaging_CopyImageSet_section.md "example_medical-imaging_CopyImageSet_section.md")
     - [CreateDatastore](example_medical-imaging_CreateDatastore_section.md "example_medical-imaging_CreateDatastore_section.md")
     - [DeleteDatastore](example_medical-imaging_DeleteDatastore_section.md "example_medical-imaging_DeleteDatastore_section.md")
@@ -35,6 +37,7 @@ This topic also includes information about getting started and details about pre
     - [UpdateImageSetMetadata](example_medical-imaging_UpdateImageSetMetadata_section.md "example_medical-imaging_UpdateImageSetMetadata_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Get started with image sets and image frames](example_medical-imaging_Scenario_ImageSetsAndFrames_section.md "example_medical-imaging_Scenario_ImageSetsAndFrames_section.md")
   - [Tagging a data store](example_medical-imaging_Scenario_TaggingDataStores_section.md "example_medical-imaging_Scenario_TaggingDataStores_section.md")
   - [Tagging an image set](example_medical-imaging_Scenario_TaggingImageSets_section.md "example_medical-imaging_Scenario_TaggingImageSets_section.md")

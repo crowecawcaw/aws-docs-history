@@ -7,6 +7,7 @@ SDKs.
 
 - [Hello HealthImaging](example_medical-imaging_Hello_section.md "example_medical-imaging_Hello_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [CopyImageSet](example_medical-imaging_CopyImageSet_section.md "example_medical-imaging_CopyImageSet_section.md")
   - [CreateDatastore](example_medical-imaging_CreateDatastore_section.md "example_medical-imaging_CreateDatastore_section.md")
   - [DeleteDatastore](example_medical-imaging_DeleteDatastore_section.md "example_medical-imaging_DeleteDatastore_section.md")

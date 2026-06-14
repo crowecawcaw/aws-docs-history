@@ -70,6 +70,7 @@ DICOM import jobs:
 - Always create new image sets or increment the version of existing image sets.
 - Do not deduplicate SOP Instance storage. Each import of the same SOP Instance uses additional storage as a new non-primary image set, or incremented version of an existing primary image set.
 - Automatically organize SOP instances with consistent, non-conflicting metadata as primary image sets, which contain instances with consistent Patient, Study, and Series metadata elements.
+
   - If the instances comprising a DICOM series are imported in two or more import jobs, and the instances do not conflict with instances already in the data store, then all instances will be organized in one Primary image set.
 
 - Create non-primary image sets containing DICOM P10 data that conflicts with primary image sets already in the data store.

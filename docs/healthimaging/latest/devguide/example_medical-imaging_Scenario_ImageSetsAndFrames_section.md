@@ -751,6 +751,7 @@ bool AwsDoc::Medical_Imaging::emptyDatastore(const Aws::String &datastoreID,
 ```
 
 - For API details, see the following topics in _AWS SDK for C++ API Reference_.
+
   - [DeleteImageSet](../../../goto/SdkForCpp/medical-imaging-2023-07-19/DeleteImageSet.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/DeleteImageSet.md")
   - [GetDICOMImportJob](../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetDICOMImportJob.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetDICOMImportJob.md")
   - [GetImageFrame](../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/SdkForCpp/medical-imaging-2023-07-19/GetImageFrame.md")
@@ -1675,6 +1676,7 @@ export const deleteStack = new ScenarioAction(
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [DeleteImageSet](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteImageSetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/DeleteImageSetCommand.md")
   - [GetDICOMImportJob](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDICOMImportJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetDICOMImportJobCommand.md")
   - [GetImageFrame](../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/medical-imaging/command/GetImageFrameCommand.md")
@@ -2288,6 +2290,7 @@ class MedicalImagingWrapper:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [DeleteImageSet](../../../goto/boto3/medical-imaging-2023-07-19/DeleteImageSet.md "../../../goto/boto3/medical-imaging-2023-07-19/DeleteImageSet.md")
   - [GetDICOMImportJob](../../../goto/boto3/medical-imaging-2023-07-19/GetDICOMImportJob.md "../../../goto/boto3/medical-imaging-2023-07-19/GetDICOMImportJob.md")
   - [GetImageFrame](../../../goto/boto3/medical-imaging-2023-07-19/GetImageFrame.md "../../../goto/boto3/medical-imaging-2023-07-19/GetImageFrame.md")

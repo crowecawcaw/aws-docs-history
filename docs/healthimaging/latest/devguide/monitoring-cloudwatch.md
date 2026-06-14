@@ -101,6 +101,7 @@ roles for HealthImaging](security-iam-service-linked-roles.md "security-iam-serv
 2. Choose **Metrics**, choose **All Metrics**, and then
    choose **`AWS/HealthImaging`**.
 3. Choose the dimension:
+
    - **By Account Id** - View account-level metrics
    - **By Datastore Id** - View data store-level metrics
 

@@ -22,6 +22,7 @@ transfer syntax or as uncompressed (ELE) format.
    `frameList` parameter. The `frameList` parameter is a comma-separated
    list of one or more non-duplicate frame numbers, in any order. For example, the first image
    frame in the metadata will be frame 1.
+
    - Single-frame request: `/frames/1`
    - Multi-frame request: `/frames/1,2,3,4`
 
