@@ -12,6 +12,7 @@ create a farm, you can create queues and fleets to meet your project's needs.
    console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"), choose **Go to Dashboard**.
 2. In the Farms section of the Deadline Cloud dashboard, choose
    **Actions** → **Create farm**.
+
    1. Alternatively, in the left side panel choose
       **Farms and other resources**, then choose
       **Create Farm**.

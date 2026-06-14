@@ -11,6 +11,7 @@ details.
    can use the Deadline Cloud management console to add or change groups and
    users.
 4. (Optional) Choose **Additional farm settings**.
+
    1. (Optional) By default, your data is encrypted with a key that
       AWS owns and manages for your security. You can choose
       **Customize encryption settings (advanced)** to
@@ -22,6 +23,7 @@ details.
    more tags to your farm.
 
 5. Choose one of the following options:
+
    - Select **Skip to Review and Create** to [review and create your
      farm](review-and-create.md "review-and-create.md").
    - Select **Next** to proceed to additional,

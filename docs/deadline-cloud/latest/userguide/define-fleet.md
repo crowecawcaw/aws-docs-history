@@ -4,6 +4,7 @@ A fleet allocates workers to execute your rendering tasks. If you need a fleet f
 your rendering tasks, check the box for **Create fleet**.
 
 1. **Fleet details**
+
    1. Provide both a **Name** and optional
       **Description** for your fleet.
    2. Review the fleet type and operating system for awareness.

@@ -65,6 +65,7 @@ To install the Deadline Cloud submitter for Autodesk 3ds Max, prepare the follow
 - Autodesk 3ds Max 2024, 2025, or 2026 installation.
 - Optional: V-Ray 6 or 7 for 3ds Max installation.
 - Access to an Deadline Cloud farm with either:
+
   - A Windows service-managed fleet with Autodesk 3ds Max host configuration.
   - A customer-managed fleet with Autodesk 3ds Max and licensing set up.
 

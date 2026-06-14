@@ -80,11 +80,13 @@ When you run the submitter, a dialog asks how you want to handle file attachment
 Choose one of the following options:
 
 - **The scene BIP file and all external file references** (Recommended)
+
   - Automatically packages your scene file and all referenced files. Internally, the submitter creates a KeyShot Package (KSP) which bundles all linked files and uses relative paths.
   - Best for scenes with textures, models, and other external assets.
   - Ensures workers have all necessary files to render your scene.
 
 - **Only the scene BIP file**
+
   - Only submits the KeyShot scene file.
   - Use this option if your workers already have access to all referenced files.
   - Requires shared network storage or another method to access external files.

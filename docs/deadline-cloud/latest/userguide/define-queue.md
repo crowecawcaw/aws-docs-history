@@ -10,6 +10,7 @@ jobs.
 3.  For **Job attachments**, you can either create a new Amazon S3
     bucket or choose an existing Amazon S3 bucket. If you don't have an existing Amazon S3
     bucket, you'll need to create one.
+
     1. To create a new Amazon S3 bucket, select **Create new job
        bucket**. You can define the name of the job bucket in
        the **Root prefix** field. We recommend calling the

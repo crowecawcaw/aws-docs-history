@@ -59,15 +59,18 @@ your queue.
    Deadline Cloud Submitter Installers. When you install the submitter, you can choose
    between User Install (no admin required) or System Install (Windows only,
    requires admin). macOS users must use User Install.
+
    - **User Install**: Installs to user
      directory without admin privileges. The submitter will be a standalone
      window rather than a dockable panel.
+
      - Windows: `C:\Users\<user>\DeadlineCloudSubmitter\Submitters\AfterEffects\AE<version>`
      - macOS: `/Users/<user>/Library/Preferences/Adobe/After Effects/<version>/Scripts/ScriptUI Panels`
 
    - **System Install** (Windows only):
      Installs to Adobe After Effects installation directory as a dockable
      panel.
+
      - Windows: `C:\Program Files\Adobe\Adobe After Effects
 <version>\Support Files\Scripts\Script UI Panels`
 
@@ -79,6 +82,7 @@ To install the Deadline Cloud submitter for After Effects, prepare the following
 - Adobe After Effects 24, 25, or 26 installation.
 - Python 3.9 or higher.
 - Access to an Deadline Cloud farm with either:
+
   - A service-managed fleet with After Effects available (via custom conda package).
   - A customer-managed fleet with After Effects and licensing set up.
 
@@ -108,6 +112,7 @@ During the installer process, you choose between User Install or System Install.
 2. Run the installer (no admin required).
 3. Follow the prompts and select the After Effects submitter and choose the major version (for example, 24, 25, or 26).
 4. The submitter is installed based on your operating system:
+
    - **macOS**: The installer automatically places `DeadlineCloudSubmitter(User).jsx` and `DeadlineCloudSubmitter_Assets` into your After Effects user preferences directory for all minor versions of the selected major version:
 
    ```
@@ -132,6 +137,7 @@ Automatic macOS system install is not yet supported by the submitter installer. 
 1. Download the Deadline Cloud submitter installer by following [Step 1: Install the Deadline Cloud Submitter](submitter.md#submitter-installation "submitter.md#submitter-installation").
 2. **Windows only**: Right-click the installer and choose **Run as Admin**.
 3. Follow the prompts and select the After Effects submitter. It is installed to:
+
    - **Windows**: `C:\Program Files\Adobe\Adobe After Effects <version>\Support Files\Scripts\Script UI Panels`
    - **macOS** (manual): `/Applications/Adobe After Effects <version>/Scripts/ScriptUI Panels`
 
@@ -152,6 +158,7 @@ If you prefer to install manually, you can copy the submitter files directly:
 
 1. Locate the `DeadlineCloudSubmitter.jsx` file and the `DeadlineCloudSubmitter_Assets` folder in the `dist` folder of the [deadline-cloud-for-after-effects repository](https://github.com/aws-deadline/deadline-cloud-for-after-effects "https://github.com/aws-deadline/deadline-cloud-for-after-effects").
 2. Copy both to the **ScriptUI Panels** folder within your After Effects installation:
+
    - **Windows**: `Program Files\Adobe\Adobe After Effects <version>\Support Files\Scripts\Script UI Panels`
    - **macOS**: `Applications/Adobe After Effects <version>/Scripts/Script UI Panels`
 
@@ -254,6 +261,7 @@ Fonts used in the submitted composition are detected by the submitter and are au
 If fonts are missing at render time:
 
 1. Check that fonts are installed on your system:
+
    - **Windows**: Open **Settings** > **Personalization** > **Fonts** to view installed fonts.
    - **macOS**: Open Font Book application to view installed fonts.
 

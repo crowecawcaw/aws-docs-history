@@ -92,6 +92,7 @@ fleet, or be ready to create a new fleet.
    (Size, IOPS, and Throughput).
 6. Under **Persistent storage**, configure the following
    settings:
+
    - **Size** – The size of the persistent volume. The
      valid range is 1–65,536 GiB. Verify that the default size is suitable
      for your render workloads, and consider increasing the volume size for

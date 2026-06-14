@@ -54,6 +54,7 @@ browser.
    within that folder.
 2. Choose **Download**.
 3. Choose a download method:
+
    - **AWS Command Line Interface (AWS CLI)** –
      Downloads files to your storage profile paths, preserving the
      original directory structure. Use this method for large files or

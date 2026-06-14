@@ -81,11 +81,14 @@ You can replace your current job attachments bucket with a different job attachm
 
 1. Go to **Queue details**, then locate the **Job Attachments** tab.
 2. From the job attachments tab, there are 2 options:
+
    1. Change the job attachments bucket by doing the following:
+
       1. Select a new S3 bucket.
       2. Update the queue's service role policy to grant access to the new bucket.OR
 
    2. Change the root folder within an existing bucket by doing the following:
+
       1. Modify the root folder name.
       2. Update the resource ARN in the queue service role.
 

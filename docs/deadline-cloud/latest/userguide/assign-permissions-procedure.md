@@ -29,6 +29,7 @@ Groups
 3. From the dropdown, select the groups to add.
 4. For the group access level, choose one of the following
    options:
+
    - **Viewer**
    - **Contributor**
    - **Manager**
@@ -50,6 +51,7 @@ Users
 2. From the dropdown, select the users to add.
 3. For the user access level, choose one of the following
    options:
+
    - **Viewer**
    - **Contributor**
    - **Manager**

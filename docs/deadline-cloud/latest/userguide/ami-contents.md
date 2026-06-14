@@ -44,22 +44,26 @@ safely take dependencies on these packages.
 
 - FUSE and FUSE3 libraries for filesystem operations
 - Image Libraries
+
   - libpng
   - libjpeg
   - libtiff
 
 - OpenGL Libraries
+
   - mesa-libGLU
   - mesa-libGL
   - mesa-libEGL
   - libglvnd-opengl
 
 - Development Libraries:
+
   - json-c (JSON parsing)
   - libnsl (network services library)
   - libxcrypt-compat (encryption compatibility)
 
 - X Window Libraries
+
   - libXmu
   - libXpm
   - libXinerama
@@ -74,6 +78,7 @@ safely take dependencies on these packages.
   - libSM
 
 - Network and system utilities
+
   - tcsh
 
 ### GPU accelerated fleets

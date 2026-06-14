@@ -46,6 +46,7 @@ Choose tag keys that align with your organizational structure, such as
 
 3. In (), filter or group by your activated IAM
    principal tags to view costs.
+
    1. Choose **Tag** as the grouping dimension.
    2. Select your tag key.
 

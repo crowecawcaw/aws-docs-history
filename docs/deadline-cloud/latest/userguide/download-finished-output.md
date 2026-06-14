@@ -13,6 +13,7 @@ Guide_.
 1. Follow the steps in [View and manage job details in Deadline Cloud](view-a-job.md "view-a-job.md") to
    view a list of jobs.
 2. Select the job, step, or task that you want to download the output for.
+
    - If you select a job, you can download all of the output for all of the
      tasks in all of the steps for that job.
    - If you select a step, you can download all of the output for all of

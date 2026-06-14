@@ -15,6 +15,7 @@ To work with queues, you should already have a monitor and farm set up.
 1. From the [Deadline Cloud
    console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home") dashboard, select the farm that you want to create a queue
    for.
+
    1. Alternatively, in the left side panel choose **Farms and
       other resources**, then select the farm you want to create
       a queue for.
@@ -26,7 +27,9 @@ To work with queues, you should already have a monitor and farm set up.
    description helps you identify your queue's purpose.
 5. For **Job attachments**, you can either create a new Amazon S3
    bucket or choose an existing Amazon S3 bucket.
+
    1. To create a new Amazon S3 bucket
+
       1. Select **Create new job bucket**.
       2. Enter a name for the bucket. We recommend naming the bucket
          `deadlinecloud-job-attachments-[MONITORNAME]`.
@@ -34,6 +37,7 @@ To work with queues, you should already have a monitor and farm set up.
          your queue's root location.
 
    2. To choose an existing Amazon S3 bucket
+
       1. Select **Choose an existing S3 bucket** >
          **Browse S3**.
       2. Select the S3 bucket for your queue from the list of available
@@ -77,6 +81,7 @@ information about the potential security risks, see [Run jobs as users and group
 9. Your queue requires permission to access Amazon S3 on your behalf. You can create a
    new service role or use an existing service role. If you don't have an existing
    service role, create and use a new service role.
+
    1. To use an existing service role, select **Choose a service
       role**, and then select a role from the dropdown.
    2. To create a new service role, select **Create and use a new

@@ -80,6 +80,7 @@ Windows
 1.  In a file browser, navigate to the folder where the installer
     downloaded, and then select
     `DeadlineCloudSubmitter-windows-x64-installer.exe`.
+
     1. If a **Windows protected your PC**
        pop-up displays, choose **More
        info**.
@@ -89,6 +90,7 @@ Windows
     **Next**.
 3.  Choose the installation scope by completing one of the
     following steps:
+
     - To install for only the current user, choose
       **User**.
     - To install for all users, choose
@@ -329,6 +331,7 @@ to set up the Deadline Cloud monitor.
 
 1. Open **Deadline Cloud monitor**.
 2. When prompted to create a new profile, complete the following steps.
+
    1. Enter your monitor URL into the URL input, which looks like
       `https://``MY-MONITOR``.deadlinecloud.amazonaws.com/`
    2. Enter a **Profile** name.
@@ -339,6 +342,7 @@ to set up the Deadline Cloud monitor.
 
 3. After you create the Deadline Cloud monitor profile, you can't change the profile name or the
    studio URL. If you need to make changes, do the following instead:
+
    1. Delete the profile. In the left navigation pane, choose
       **Deadline Cloud monitor** > **Settings**
       > **Delete**.
@@ -346,6 +350,7 @@ to set up the Deadline Cloud monitor.
 
 4. From the left navigation pane, use the **>Deadline Cloud monitor** option to
    do the following:
+
    - Change the Deadline Cloud monitor profile to log in to a different monitor.
    - Enable **Autologin** so you don’t have to enter your
      monitor URL on subsequent opens of Deadline Cloud monitor.
@@ -354,6 +359,7 @@ to set up the Deadline Cloud monitor.
    enable other Deadline Cloud tools to access your render farm.
 6. For each digital content creation (DCC) application that you plan to use for
    your rendering projects, complete the following steps:
+
    1. From your Deadline Cloud submitter, open the Deadline Cloud workstation
       configuration.
    2. In the workstation configuration, select the profile that you created
@@ -374,6 +380,7 @@ environment for service-managed fleets. For more information, see [Default conda
 
 1. Open **Blender**.
 2. In the **Render** menu, choose **Submit to AWS Deadline Cloud**.
+
    1. If you are not already authenticated in the Deadline Cloud submitter, the
       **Credentials Status** shows as
       **NEEDS_LOGIN**.

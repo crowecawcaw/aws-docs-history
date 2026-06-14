@@ -29,6 +29,7 @@ following:
 - Resubmit the job with different properties or settings.
 - Archive the job. For more information, see [Archive a job](#view-jobs-steps-tasks-archive "#view-jobs-steps-tasks-archive").
 - View and modify the properties of a job.
+
   - You can view the dependencies between steps in the job.
   - You can change the priority of the job in a queue. Jobs with higher
     number priority are processed before jobs with lower number priority.

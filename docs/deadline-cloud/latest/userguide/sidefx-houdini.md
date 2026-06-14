@@ -58,6 +58,7 @@ To install the Deadline Cloud for Houdini submitter, you need:
 
 1. Download the [Deadline Cloud submitter installer](submitter.md "submitter.md").
 2. Run the installer.
+
    - When prompted, select each version of Houdini you want to use the submitter with.
 
 3. Launch Houdini.
@@ -91,6 +92,7 @@ To use the Deadline Cloud for Houdini submitter, you need:
 1. In the Network Editor, choose the **/out** network.
 2. Open the context menu (right-click or press **Tab**) and search for `deadline` to create an Deadline Cloud node.
 3. Connect the output of a ROP to the input of the Deadline Cloud node.
+
    - When you connect a node to the Deadline Cloud node, the submitted job renders the input ROP and all ROPs in its graph.
 
 4. Select the Deadline Cloud node.
@@ -132,7 +134,9 @@ You can override the render strategy by creating a `deadline_cloud_render_strate
 3. Under **Create Parameters**, **By Type**, choose **Ordered Menu**.
 4. Add an ordered menu to **Existing parameters** by selecting the right arrow next to the **Create Parameters** column.
 5. Select the new parameter under **Existing Parameters**, then edit its configuration under **Parameter Description**:
+
    - In the **Parameter** tab:
+
      - For **Name**, enter `deadline_cloud_render_strategy`.
      - For **Label**, enter `Deadline Cloud Render Strategy`.
 
@@ -172,13 +176,16 @@ The Husk example job bundle:
 Before using the Husk example job bundle, you need:
 
 - A scene exported to USD format.
+
   - See the [SideFX USD documentation](https://www.sidefx.com/docs/houdini/solaris/output.html "https://www.sidefx.com/docs/houdini/solaris/output.html") for information on writing out USD files in Houdini.
 
 - The Deadline Cloud CLI installed and configured.
+
   - The CLI can be installed from either the submitter installer or directly following the [deadline-cloud getting started guide](https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/index.md#getting-started "https://github.com/aws-deadline/deadline-cloud/blob/mainline/docs/index.md#getting-started").
 
 - A git clone of the [deadline-cloud-samples repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples").
 - The Hydra render delegate available on the worker nodes.
+
   - Karma is included with Houdini. If you want to use other Hydra render delegates, you must provide them on the worker. See the deadline-cloud-samples repository for example conda packages for [V-Ray](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-vray-7 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-vray-7") and [Redshift](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026 "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/conda_recipes/houdini-redshift-2026") as one option to make them available on the worker nodes.
 
 ##### Using the Husk example job bundle

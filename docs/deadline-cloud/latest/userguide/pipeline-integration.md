@@ -24,6 +24,7 @@ This example focuses on a pipeline where artists work together on-premises and s
 Here are the factors for pipeline integration of this example studio:
 
 - Asset data is stored on a NAS shared file system in their on-premises office.
+
   - On Windows, projects are mounted to the P: drive and utilities are mounted to X:.
   - On macOS, projects are mounted to /Volumes/Projects and utilities are mounted to /Volumes/Utilities.
 

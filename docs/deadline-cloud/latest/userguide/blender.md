@@ -66,6 +66,7 @@ You can install the Deadline Cloud for Blender submitter using the Deadline Clou
 
 1. Download the [Deadline Cloud submitter installer](submitter.md "submitter.md").
 2. Run the installer.
+
    - When prompted, select each version of Blender you want to use the submitter with.
 
 3. Launch Blender.
@@ -123,6 +124,7 @@ To use the Deadline Cloud for Blender submitter, you need:
 
 1. Save your Blender file.
 2. On the **Render** menu, choose **Submit to Deadline Cloud**.
+
    - You might see a pop-up to install GUI dependencies. Choose **OK** and wait for the dialog to disappear, then choose **Submit to Deadline Cloud** again.
 
 3. Use the tabs in the dialog to customize your job.

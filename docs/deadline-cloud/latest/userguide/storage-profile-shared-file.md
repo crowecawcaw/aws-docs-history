@@ -9,10 +9,12 @@ For example, suppose you have one shared file system for projects and another on
 the three operating systems Windows, macOS, and Linux. You can create one storage profile for each operating system with the following values:
 
 - **Storage profile name**: Linux-Host, **operating system family**: Linux.
+
   - **File system location name**: Projects, **path**: /mnt/projects, **type**: Shared.
   - **File system location name**: Tools, **path**: /mnt/projects, **type**: Shared.
 
 - **Storage profile name**: Windows-Host, **operating system family**: Windows.
+
   - **File system location name**: Projects, **path**: X:\projects, **type**: Shared.
   - **File system location name**: Tools, **path**: Z:, **type**: Shared.
 

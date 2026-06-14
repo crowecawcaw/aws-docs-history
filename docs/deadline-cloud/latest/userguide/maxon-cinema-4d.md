@@ -82,11 +82,13 @@ Set up Cinema 4D and Deadline Cloud in just a few steps.
 ### What you need
 
 - **Cinema 4D 2024 - 2026** installed on your workstation.
+
   - Redshift, Arnold, and Cargo are supported natively.
 
 - **Windows or macOS** workstation for job submission.
 - [Deadline Cloud monitor](monitor-onboarding.md "monitor-onboarding.md") installed.
 - **Access to an Deadline Cloud farm** with either:
+
   - A Windows service-managed fleet, or
   - A customer-managed fleet with Cinema 4D, the Cinema 4D adaptor, and licensing set up.
 
@@ -116,16 +118,19 @@ Make sure that you have the following prerequisites:
 **Installation steps**:
 
 1. Install the submitter as Administrator:
+
    - Run the [Deadline Cloud submitter installer](submitter.md "submitter.md") as Administrator.
    - Select "system installation" option during installation.
 
 2. Initial dependency setup:
+
    - Open Cinema 4D as Administrator (right-click → "Run as administrator").
    - Choose **Extensions**, **Deadline Cloud Submitter**.
    - Choose "Yes" when prompted to install GUI dependencies.
    - This step configures permissions so all users can access the installed packages.
 
 3. Regular usage:
+
    - After initial setup, any user can open Cinema 4D normally (without Administrator privileges).
    - The Deadline Cloud submitter is available to all users.
 
@@ -350,22 +355,26 @@ A: No, Redshift proxy files are not detected when submitting Cinema 4D jobs to D
 A: If users encounter permission errors when accessing the submitter after a system-wide installation:
 
 1. Verify initial setup was completed:
+
    - Ensure Cinema 4D was opened as Administrator at least once.
    - Ensure the dependency installation prompt was accepted.
    - Check that the installation completed without errors.
 
 2. Check file permissions:
+
    - Navigate to the installation directory (for example, `C:\Program Files\DeadlineCloudSubmitter\`).
    - Right-click → Properties → Security tab.
    - Verify that "Users" group has "Read & execute" permissions.
    - Permissions should be inherited by all subdirectories and files.
 
 3. Manual permission fix (if needed):
+
    - Open Command Prompt as Administrator.
    - Run: `icacls "C:\Program Files\DeadlineCloudSubmitter" /grant *S-1-5-32-545:(OI)(CI)(RX) /T`.
    - This grants read and execute permissions to all users.
 
 4. Verify Cinema 4D Python environment:
+
    - Open Cinema 4D as the affected user.
    - Choose **Extensions**, **Console**.
    - Try importing: `import deadline`.
@@ -383,6 +392,7 @@ Before reaching out for help, try these troubleshooting steps. They often resolv
 
 - **Render one frame locally** - Before submitting to the cloud, render at least one frame locally in Cinema 4D to verify your scene renders correctly. This step helps identify scene-specific issues vs. cloud rendering issues.
 - **Update to the latest submitter** - We release updates frequently with bug fixes and improvements. Your issue may already be fixed in a newer version. To check if you're running the latest version:
+
   - Find your current version: The version is displayed in the submitter window title.
   - Compare with the latest release: Visit the [releases page](https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/releases "https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/releases") to see the most recent version.
   - If your version is older, update the submitter and test again before reporting the issue.
@@ -431,6 +441,7 @@ Use GitHub issues as your primary channel for Cinema 4D-specific problems:
 
 1. [Search existing bugs](https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues?q=label%3Abug "https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues?q=label%3Abug") to see if your problem has already been reported or fixed in latest versions.
 2. If you find an existing issue that matches your problem:
+
    - Add a thumbs-up reaction to help us prioritize.
    - Comment with any additional details or reproduction steps you can provide.
    - This helps us understand how many users are affected.
@@ -443,6 +454,7 @@ If no existing issue matches, [create a new bug report](https://github.com/aws-d
 
 1. [Search existing enhancements](https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues?q=is%3Aopen+label%3Aenhancement "https://github.com/aws-deadline/deadline-cloud-for-cinema-4d/issues?q=is%3Aopen+label%3Aenhancement") to see if someone has already suggested your idea.
 2. If you find an existing request that matches:
+
    - Add a thumbs-up reaction to show your support.
    - Comment with your specific use case - this strengthens the request and helps us understand different needs.
    - The more users who express interest, the higher priority it receives.
@@ -473,6 +485,7 @@ Logs are essential for diagnosing issues. To enable detailed logging:
 1. In the Cinema 4D submitter, select **Activate detailed logging** in Job-Specific Settings.
 2. Submit your job.
 3. After the job completes (or fails), retrieve the logs:
+
    - Open Deadline Cloud monitor.
    - Navigate to your job.
    - Choose **Download logs** and select **Entire session** to download the full session logs for sharing with support.

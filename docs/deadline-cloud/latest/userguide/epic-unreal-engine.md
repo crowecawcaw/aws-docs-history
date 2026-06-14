@@ -69,6 +69,7 @@ If you're setting up on a brand new Windows Amazon Elastic Compute Cloud (Amazon
 
 1. Launch an Amazon EC2 instance with a valid Instance Profile. This is required to download NVIDIA GRID drivers as instructed below.
 2. Download the Epic Installer and install a supported version of Unreal (5.4 - 5.7).
+
    - UE 5.5 has a known crash bug when running with the DirectX 11 plugin (see UE issue #UE-276282). If you need DirectX support on UE 5.5, use DirectX 12 or later.
 
 3. NVIDIA GRID drivers - Follow the [Windows installation instructions](../../../AWSEC2/latest/UserGuide/install-nvidia-driver.md#nvidia-GRID-driver "../../../AWSEC2/latest/UserGuide/install-nvidia-driver.md#nvidia-GRID-driver").
@@ -100,6 +101,7 @@ Deadline Cloud monitor is used to both manage your credentials for submitting jo
 
 1. (If not already installed) Install a recent version of Python for all users (verified with 3.12).
 2. Make sure your environment variables are set correctly. In System Environment Variables, your PATH must include:
+
    - The path to your Python installation (for example, `C:\Program Files\Python312`).
    - The path to your Python Scripts folder (for example, `C:\Program Files\Python312\scripts`).
    - The path to your Unreal binaries (for example, `C:\Program Files\Epic Games\UE_5.5\Engine\Binaries\Win64`).
@@ -229,36 +231,47 @@ This example uses the Meerkat Demo from the Unreal Marketplace:
 4. From the **Edit** menu, select **Plugins**, search for and enable **UnrealDeadlineCloudService**.
 5. Restart Unreal if you've enabled the plugin for the first time.
 6. Under **Edit** > **Project Settings**, search for the **Movie Render Pipeline** section.
+
    - For **Default Remote Executor**, select **MoviePipelineDeadlineCloudRemoteExecutor**.
    - For **Default Executor Job**, select **MoviePipelineDeadlineCloudExecutorJob**.
    - Under **Default Job Settings Classes**, choose the add icon, and add **DeadlineCloudRenderStepSetting**.
 
 7. Search for **Deadline Cloud** settings and verify authentication:
+
    - Ensure your Status shows "AUTHENTICATED" and Deadline Cloud API shows "AUTHORIZED".
    - If it does not appear, first try using the **Login** button. If that doesn't work, open Deadline Cloud monitor and ensure you're logged in.
    - In the **Deadline Cloud Workstation Configuration** section:
+
      - Under **Global Settings**, ensure your AWS Profile is set correctly to your Deadline Cloud monitor profile.
      - Under **Profile**, ensure your Default Farm is set to your farm.
      - Under **Farm**, ensure your Default Queue is set to a queue that is associated with the fleet you set up above.
 
 8. Exit the Project Settings window.
 9. Choose **Windows**, **Cinematics**, **Movie Render Queue**.
+
    - Choose **+ Render**, and select **Main_SEQ**.
    - Choose **UnsavedConfig** in the settings column.
+
      - In the popup window, you should see Deadline Cloud settings on the left. This window can then be closed.
 
    - On the right side of the dialog, configure the job settings:
+
      - Under **Preset Overrides** (you may need to widen this dialog):
+
        - Expand **Job Shared Settings**:
+
          - Set **Name** to `Unreal Test Job`.
          - Set **Maximum retries** to 2.
 
        - Expand **Job Attachments**:
+
          - Under **Input Files**, select **Show Auto-Detected**.
          - Verify that the list of auto-detected files populates correctly.
 
      - Under **Job Template Overrides**:
+
        - Update the Unreal Engine version in **CondaPackages** if you are using a different version than 5.6.
+
          - Unreal Engine version autodetection is coming in a future release.
 
    - Choose **Render (Remote)**.
@@ -405,10 +418,12 @@ On your CMF worker instance:
 1. Open **Task Manager**.
 2. Choose the **Services** tab on the right.
 3. Find **DeadlineWorker**.
+
    - If you don't see it listed you've likely missed steps (`install-deadline-worker` in particular) from the [CMF host setup steps](../developerguide/worker-host.md#worker-agent-config "../developerguide/worker-host.md#worker-agent-config").
 
 4. If the status of the service isn't currently "Running", right-click it and select **Start**.
 5. If your DeadlineWorker service isn't starting, check the worker agent launch logs in these locations:
+
    - `C:\ProgramData\Amazon\Deadline\Logs\worker-agent.log`
    - `C:\ProgramData\Amazon\Deadline\Logs\queue-<queueid>\session-<sessionid>.log`
 
@@ -513,7 +528,6 @@ Workers need `secretsmanager:GetSecretValue` permission to access the secret. Th
 
 ```
 {
-  "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
@@ -705,14 +719,17 @@ Set up an OpenJD environment for creating a Perforce workspace, syncing files fr
 
 1. Create a new **Deadline Cloud Perforce Environment** data asset.
 2. Name the data asset based on your fleet type:
+
    - **P4SyncSMFEnv** for service-managed fleet (SMF).
    - **P4SyncCMFEnv** for customer-managed fleet (CMF).
 
 3. Select the appropriate template from `Content/Python/openjd_templates/p4/`:
+
    - **SMF**: `p4_sync_smf_environment.yml`.
    - **CMF**: `p4_sync_cmf_environment.yml`.
 
 4. Configure the secret reference:
+
    - Enter your Perforce credential secret name in **AWS_SECRET_P4INFO**.
    - Must match the secret from step 1.
 
@@ -728,6 +745,7 @@ Set up an OpenJD environment for launching Unreal Engine with Perforce integrati
 2. Name the data asset descriptively (for example, "P4LaunchUEEnv").
 3. Select the `p4_launch_ue_environment.yml` template from `Content/Python/openjd_templates/p4/`.
 4. Configure environment settings:
+
    - Set **REMOTE_EXECUTION** to `True`.
    - This setting enables remote rendering capabilities.
 
@@ -896,6 +914,7 @@ Used when the requirement is numeric (for example, number of licenses, concurren
 1. Find the section **Custom Amount Requirements**.
 2. Add a new entry and set a name, for example: `amount.custom.license`.
 3. Set Min and Max values:
+
    - Min: 1.
    - Max: 0 (0 means unlimited).
 
@@ -906,6 +925,7 @@ Used to filter workers based on tags and labels.
 1. Find the section **Custom Attributes Requirements**.
 2. Add a new attribute name, for example: `attr.custom.gpu.vendor`.
 3. Choose the matching rule:
+
    - **AllOf** - all values must match.
    - **AnyOf** - at least one must match.
 

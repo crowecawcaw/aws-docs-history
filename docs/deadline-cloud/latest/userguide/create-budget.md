@@ -14,6 +14,7 @@ To create a budget, use the following procedure.
    dropdown to select the queue that you want to create a budget for.
 6. For **Period**, set the start and end date for the budget by
    completing the following steps:
+
    1. For **Start date**, enter the first date of the
       budget tracking in YYYY/MM/DD format, or choose the
       **calendar** icon and select a
@@ -32,11 +33,13 @@ To create a budget, use the following procedure.
    actions** section, you can implement automated actions that occur
    when specific amounts remain in the budget. To do this, complete the following
    steps:
+
    1. Choose **Add new action**.
    2. For **Remaining amount**, enter the dollar amount
       that you want to start the action.
    3. In the **Action** dropdown, choose the action that
       you want. Actions include:
+
       - **Stop after finishing current
         work** – All work currently running when the
         threshold amount is met continue to run (and incur costs) until

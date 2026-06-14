@@ -49,24 +49,29 @@ available packages for Linux or Windows.
 Linux
 
 - Autodesk Arnold for Cinema 4D
+
   - `cinema4d-c4dtoa=2025`
 
 - Autodesk Arnold for Maya
+
   - `maya-mtoa=2024.5.3`
   - `maya-mtoa=2025.5.4`
   - `maya-mtoa=2026.5.5`
 
 - Autodesk Maya
+
   - `maya=2024`
   - `maya=2025`
   - `maya=2026`
   - `maya-openjd`
 
 - Autodesk VRED
+
   - `vredcore=2025`
   - `vredcore=2026`
 
 - Blender
+
   - `blender=3.6`
   - `blender=4.2`
   - `blender=4.5`
@@ -75,25 +80,30 @@ Linux
   - `blender-openjd`
 
 - Chaos V-Ray for Maya
+
   - `maya-vray=2025.7`
   - `maya-vray=2026.7`
 
 - Foundry Nuke
+
   - `nuke=15`
   - `nuke=16`
   - `nuke=17`
   - `nuke-openjd`
 
 - Maxon Cinema 4D
+
   - `cinema4d=2025`
   - `cinema4d=2026`
   - `cinema4d-openjd`
 
 - Maxon Redshift for Maya
+
   - `maya-redshift=2025.4`
   - `maya-redshift=2026.2`
 
 - SideFX Houdini
+
   - `houdini=19.5`
   - `houdini=20.0`
   - `houdini=20.5`
@@ -103,6 +113,7 @@ Linux
 Windows
 
 - Adobe After Effects
+
   - `aftereffects=24.6`
   - `aftereffects=25.1`
   - `aftereffects=25.2`
@@ -110,16 +121,19 @@ Windows
   - `aftereffects=26.0`
 
 - Autodesk Arnold for Cinema 4D
+
   - `cinema4d-c4dtoa=2025`
   - `cinema4d-c4dtoa=2026`
 
 - Maxon Cinema 4D
+
   - `cinema4d=2024`
   - `cinema4d=2025`
   - `cinema4d=2026`
   - `cinema4d-openjd`
 
 - Unreal Engine
+
   - `unrealengine=5.4`
   - `unrealengine=5.5`
   - `unrealengine=5.6`

@@ -129,6 +129,7 @@ existing fleet.
    **Edit**.
 5. In the **Auto scaling** section, configure
    the following settings:
+
    - **Minimum worker count** – Enter the minimum
      number of workers to maintain.
    - **Maximum worker count** – Enter the maximum

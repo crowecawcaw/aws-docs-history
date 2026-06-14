@@ -177,7 +177,9 @@ PS C:\> Get-Command deadline
 3.  You only need to do this step if your downloading machine is the same as submitting machine. Replace
     `--storage-profile-id YOUR_PROFILE_ID \` above with `--ignore-storage-profiles`.
 4.  Submit a test job.
+
     1. Download the .zip file from GitHub.
+
        1. Open the [deadline-cloud-samples
           GitHub repository](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline").
        2. Choose **Code** and then, from the dropdown menu, select **Download ZIP**.
@@ -188,7 +190,6 @@ PS C:\> Get-Command deadline
     ```
      cd /path/to/unzipped/deadline-cloud-samples-mainline/job_bundles/job_attachments_devguide_output
     ```
-
     3. Run
 
     ```
@@ -202,7 +203,6 @@ PS C:\> Get-Command deadline
         ```
         --farm-id `YOUR-FARM-ID` --queue-id `YOUR-QUEUE-ID`
         ```
-
     4. Wait for the job to complete before going to the next step.
 
 5.  Run the sync-output command again.
@@ -217,6 +217,7 @@ PS C:\> Get-Command deadline
 ```
 
 6. Verify the following:
+
    - Your test job's outputs appear in the destination directory.
    - A checkpoint file is created in your specified checkpoint directory.
 
@@ -599,6 +600,7 @@ If you encounter issues with the automatic downloads, check the following:
 ### Directory Permissions
 
 - Ensure the scheduler service user has:
+
   - Read/write access to the checkpoint directory
   - Write access to the output destination directory
 

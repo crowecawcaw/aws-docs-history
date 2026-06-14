@@ -9,10 +9,12 @@ Everything is the same as in the **Storage profiles for shared file systems** to
 network containing your workstations. You can create one storage profile for each operating system with the following values:
 
 - **Storage profile name**: Linux-Host, **operating system family**: Linux.
+
   - **File system location name**: Projects, **path**: /mnt/projects, **type**: Local.
   - **File system location name**: Tools, **path**: /mnt/projects, **type**: Local.
 
 - **Storage profile name**: Windows-Host, **operating system family**: Windows.
+
   - **File system location name**: Projects, **path**: X:\projects, **type**: Local.
   - **File system location name**: Tools, **path**: Z:, **type**: Local.
 

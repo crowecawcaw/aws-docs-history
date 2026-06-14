@@ -49,6 +49,7 @@ infrastructure.
 4. (Optional) To change the **AWS Region** so it's closest
    to your users, choose **Change
    Region**.
+
    1. Select the Region closest to your users.
    2. Choose **Apply Region**.
 

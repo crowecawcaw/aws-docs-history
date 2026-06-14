@@ -61,6 +61,7 @@ To install the Deadline Cloud submitter for Autodesk VRED, prepare the following
 - VRED Pro 2025 or 2026 installation.
 - Python 3.11 or higher.
 - Access to an Deadline Cloud farm with either:
+
   - A service-managed fleet with VRED software and licensing configured.
   - A customer-managed fleet with VRED and licensing set up.
 
@@ -142,6 +143,7 @@ The **Job-specific settings** tab contains render options specific to VRED.
 - **Printing Size (cm w,h)** - Physical print dimensions in centimeters. This value is linked to image size and resolution.
 - **Resolution (px/inch)** - Dots-per-inch (DPI) setting that affects the relationship between image size and printing size (default: 72).
 - **Render Quality** - Quality preset for rendering. Options include:
+
   - Analytic Low/High
   - Realistic Low/High
   - Raytracing
@@ -174,6 +176,7 @@ Region rendering requires **Use GPU Ray Tracing** to be enabled. Scene files mus
 #### Job type
 
 - **Job Type** - Select the type of job to submit:
+
   - **Render** - Renders images or animation frames from the scene (default).
   - **Sequencer** - Executes VRED Sequencer workflows defined in your scene.
 

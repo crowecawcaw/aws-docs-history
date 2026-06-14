@@ -58,6 +58,7 @@ To install the Deadline Cloud submitter for Autodesk Maya, prepare the following
 - Optional: Arnold (MtoA 5.3.5 or higher), V-Ray, or Redshift for Maya installation.
 - [Deadline Cloud monitor](monitor-onboarding.md "monitor-onboarding.md") installed.
 - Access to an Deadline Cloud farm with either:
+
   - A service-managed fleet.
   - A customer-managed fleet with Autodesk Maya and licensing set up.
 

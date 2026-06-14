@@ -10,6 +10,7 @@ Using storage profiles in your Deadline Cloud farm enables the following behavio
 
 - When submitting a job to a queue, the files that the job references will be categorized by
   the workstation storage profile:
+
   - Files that are under a shared file system location will be left alone.
   - Files that are under a local file system location will be attached to the job by uploading
     them to the job attachments S3 bucket. Files that were previously uploaded are not uploaded again.
@@ -35,6 +36,7 @@ Using storage profiles in your Deadline Cloud farm enables the following behavio
    for a workstation. For example, names like _Windows-Workstation_ or _Windows-OnPremFleet_
    can make it easy to identify it later.
 7. Create a file system location of **Shared** type for each shared file system that is mounted on both workstations and fleet worker hosts.
+
    1. Enter a **name** that identifies the mount, such as _Projects_ for a shared file
       system that contains project data, or _Tools_ for a shared file system with tools to use.
    2. Enter the mount location for the chosen shared file system on the operating system of the storage profile.
@@ -43,6 +45,7 @@ Using storage profiles in your Deadline Cloud farm enables the following behavio
    For example when your fleets are on AWS and you want job attachments to handle the data transfer. You can also create this kind
    of file system location for directories that are local to each workstation, to specify equivalent paths on different operating
    systems even if they are not mounted storage.
+
    1. Enter a **name** that identifies the mount, such as _Projects_ for a shared file system
       that contains project data, or _Tools_ for a shared file system with tools to use.
    2. Enter the chosen file system location on the operating system of the storage profile.
@@ -57,6 +60,7 @@ Using storage profiles in your Deadline Cloud farm enables the following behavio
 3. From the dropdown list to associate storage profiles, select the storage profile you created.
 4. In the Required file system location list, select the **file system location names** that you want to ensure are available on any storage profile for the associated fleets.
 5. (Optional) If you created the storage profile for a fleet, navigate to the fleet and select the **Configurations** tab.
+
    1. From the Storage profiles section, choose **Configure storage profile**.
    2. Select the storage profile, and then choose **Save changes**.
 
@@ -65,6 +69,7 @@ Using storage profiles in your Deadline Cloud farm enables the following behavio
 On each workstation that will submit jobs to a queue, use the settings dialog to select its default storage profile.
 
 1. To open the Deadline Cloud settings dialog, complete one of the following steps:
+
    1. Select the **Settings** button in a Deadline Cloud submitter.
 
    **OR** 2. Run the CLI command `deadline config gui`.
