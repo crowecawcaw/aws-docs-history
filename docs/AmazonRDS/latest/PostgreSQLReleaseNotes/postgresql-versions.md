@@ -126,6 +126,7 @@ This version also includes the following extension changes:
 - The `pgactive` extension was updated to version 2.1.8.
 - The `PostGIS` extension was updated to version 3.6.3, and the following
   dependencies were updated:
+
   - Added support for postgis_topology.
   - PROJ_DATA was updated to version 1.24.
   - GEOS was updated to 3.14.1.
@@ -442,6 +443,7 @@ This version also includes the following extension changes:
 - The `pgactive` extension was updated to version 2.1.8.
 - The `PostGIS` extension was updated to version 3.5.6, and the following
   dependencies were updated:
+
   - PROJ_DATA was updated to version 1.24.
 
 - The `pg_partman` extension was updated to version 5.4.3.
@@ -656,6 +658,7 @@ results in an error.
 
 - `PostGIS` was updated to version 3.5.0, and the following dependencies
   were updated:
+
   - `json-c` was updated to version 0.18_20240915.
   - `GDAL` was updated to version 3.9.3
   - `PROJ` was updated to version 9.5.0
@@ -692,6 +695,7 @@ following release documentation, [PostgreSQL 17](https://www.postgresql.org/docs
 This version also includes the following extension and dependency updates:
 
 - The following `PostGIS` dependencies were updated:
+
   - `gdal` was upgraded to version 3.9.2
   - `PROJ` was upgraded to version 9.4.1
   - `PROJ_DATA` was upgraded to version 1.18
@@ -847,6 +851,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 ###### Minor versions
 
+- [PostgreSQL version 16.14-R2 on Amazon RDS](#postgresql-versions-version1614R2 "#postgresql-versions-version1614R2")
 - [PostgreSQL version 16.14 on Amazon RDS](#postgresql-versions-version1614 "#postgresql-versions-version1614")
 - [PostgreSQL version 16.13 on Amazon RDS](#postgresql-versions-version1613 "#postgresql-versions-version1613")
 - [PostgreSQL version 16.12 on Amazon RDS](#postgresql-versions-version1612 "#postgresql-versions-version1612")
@@ -880,6 +885,11 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 16 Beta 2 in the Amazon RDS Preview environment](#postgresql-versions-version16Beta2 "#postgresql-versions-version16Beta2")
 - [PostgreSQL version 16 Beta 1 in the Amazon RDS Preview environment](#postgresql-versions-version16Beta1 "#postgresql-versions-version16Beta1")
 
+### PostgreSQL version 16.14-R2 on Amazon RDS
+
+PostgreSQL version 16.14-R2 is now available on Amazon RDS. This release contains several fixes and improvements for PostgreSQL
+announced in the [PostgreSQL 16.14 release](https://www.postgresql.org/docs/release/16.14/ "https://www.postgresql.org/docs/release/16.14/").
+
 ### PostgreSQL version 16.14 on Amazon RDS
 
 PostgreSQL version 16.14 is now available on Amazon RDS. This release contains several fixes and
@@ -898,6 +908,7 @@ This version also includes the following extension changes:
 - The `pgactive` extension was updated to version 2.1.8.
 - The `PostGIS` extension was updated to version 3.4.6, and the following
   dependencies were updated:
+
   - PROJ_DATA was updated to version 1.24.
 
 - The `pg_partman` extension was updated to version 5.4.3.
@@ -1171,6 +1182,7 @@ and improvements for PostgreSQL announced in the [PostgreSQL 16.3 release](https
 **New features and enhancements**
 
 - Includes support for four new crates in PL/Rust, including:
+
   - `regex`
   - `serde`
   - `serde_json`
@@ -1461,6 +1473,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 ###### Minor versions
 
+- [PostgreSQL version 15.18-R2 on Amazon RDS](#postgresql-versions-version1518R2 "#postgresql-versions-version1518R2")
 - [PostgreSQL version 15.18 on Amazon RDS](#postgresql-versions-version1518 "#postgresql-versions-version1518")
 - [PostgreSQL version 15.17 on Amazon RDS](#postgresql-versions-version1517 "#postgresql-versions-version1517")
 - [PostgreSQL version 15.16 on Amazon RDS](#postgresql-versions-version1516 "#postgresql-versions-version1516")
@@ -1496,6 +1509,15 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 15.2-R2 on Amazon RDS (Deprecated)](#postgresql-versions-version152R2 "#postgresql-versions-version152R2")
 - [PostgreSQL version 15.2 on Amazon RDS (Deprecated)](#postgresql-versions-version152 "#postgresql-versions-version152")
 
+### PostgreSQL version 15.18-R2 on Amazon RDS
+
+PostgreSQL version 15.18-R2 is now available on Amazon RDS. This release contains several fixes and improvements for PostgreSQL
+announced in the [PostgreSQL 15.18 release](https://www.postgresql.org/docs/release/15.18/ "https://www.postgresql.org/docs/release/15.18/").
+
+**Fixes and improvements**
+
+- Fixed performance issues on x86_64 type instances.
+
 ### PostgreSQL version 15.18 on Amazon RDS
 
 PostgreSQL version 15.18 is now available on Amazon RDS. This release contains several fixes and
@@ -1514,6 +1536,7 @@ This version also includes the following extension changes:
 - The `pgactive` extension was updated to version 2.1.8.
 - The `PostGIS` extension was updated to version 3.4.6, and the following
   dependencies were updated:
+
   - PROJ_DATA was updated to version 1.24.
 
 - The `pg_partman` extension was updated to version 5.4.3.
@@ -1785,6 +1808,7 @@ PostgreSQL version 15.7-R2 is now available on Amazon RDS. This release contains
 **New features and enhancements**
 
 - Includes support for four new crates in PL/Rust, including:
+
   - `regex`
   - `serde`
   - `serde_json`
@@ -1880,6 +1904,7 @@ PostgreSQL version 15.5-R2 is now available on Amazon RDS. This release contains
 
 - Fixed a crash in `CatalogCacheComputeHashValue` with `dblink_connect` due to a `Null` or `invalid` connection.
 - Backported run_as_owner to RPG 15:
+
   - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds_superuser).
     The logical apply worker mitigates the risk by temporarily switching the role from the subscription owner to the table owner during logical apply.
 
@@ -1950,6 +1975,7 @@ PostgreSQL version 15.4-R2 is now available on Amazon RDS. This release contains
 - A new `rds.cte_materialize_mode` parameter was introduced which controls the materialization behavior of the query of a `WITH` clause,
   also known as a Common Table Expression. See [`WITH` Queries](https://www.postgresql.org/docs/current/queries-with.html "https://www.postgresql.org/docs/current/queries-with.html") for more information.
   The parameter values include the following:
+
   - _default_: The `WITH` clause will be treated using the engine's default behavior.
   - _always_: The full output of the query in the `WITH` clause will be materialized and the output reused in the outer query.
   - _never_: The query in the `WITH` clause will be inlined with the outer query if possible. This parameter will also override the
@@ -2098,6 +2124,7 @@ For version information on all extensions, see [Extensions supported for RDS for
 
 ###### Minor versions
 
+- [PostgreSQL version 14.23-R2 on Amazon RDS](#postgresql-versions-version1423R2 "#postgresql-versions-version1423R2")
 - [PostgreSQL version 14.23 on Amazon RDS](#postgresql-versions-version1423 "#postgresql-versions-version1423")
 - [PostgreSQL version 14.22 on Amazon RDS](#postgresql-versions-version1422 "#postgresql-versions-version1422")
 - [PostgreSQL version 14.21 on Amazon RDS](#postgresql-versions-version1421 "#postgresql-versions-version1421")
@@ -2139,6 +2166,15 @@ For version information on all extensions, see [Extensions supported for RDS for
 - [PostgreSQL version 14.2 on Amazon RDS (Deprecated)](#postgresql-versions-version142 "#postgresql-versions-version142")
 - [PostgreSQL version 14.1 on Amazon RDS (Deprecated)](#postgresql-versions-version141 "#postgresql-versions-version141")
 
+### PostgreSQL version 14.23-R2 on Amazon RDS
+
+PostgreSQL version 14.23-R2 is now available on Amazon RDS. This release contains several fixes and improvements for PostgreSQL
+announced in the [PostgreSQL 14.23 release](https://www.postgresql.org/docs/release/14.23/ "https://www.postgresql.org/docs/release/14.23/").
+
+**Fixes and improvements**
+
+- Fixed performance issues on x86_64 type instances.
+
 ### PostgreSQL version 14.23 on Amazon RDS
 
 PostgreSQL version 14.23 is now available on Amazon RDS. This release contains several fixes and
@@ -2157,6 +2193,7 @@ This version also includes the following extension changes:
 - The `pgactive` extension was updated to version 2.1.8.
 - The `PostGIS` extension was updated to version 3.4.6, and the following
   dependencies were updated:
+
   - PROJ_DATA was updated to version 1.24.
 
 - The `pg_partman` extension was updated to version 5.4.3.
@@ -2440,6 +2477,7 @@ PostgreSQL version 14.12-R2 is now available on Amazon RDS. This release contain
 **New features and enhancements**
 
 - Includes support for four new crates in PL/Rust, including:
+
   - `regex`
   - `serde`
   - `serde_json`
@@ -2555,6 +2593,7 @@ PostgreSQL version 14.10-R2 is now available on Amazon RDS. This release contain
 
 - Fixed a crash in `CatalogCacheComputeHashValue` with `dblink_connect` due to a `Null` or `invalid` connection.
 - Backported run_as_owner to RPG 14
+
   - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds_superuser).
     The logical apply worker mitigates the risk by temporarily switching the role from the subscription owner to the table owner during logical apply.
 
@@ -2612,6 +2651,7 @@ PostgreSQL version 14.9-R2 is now available on Amazon RDS. This release contains
 - A new `rds.cte_materialize_mode` parameter was introduced which controls the materialization behavior of the query of a `WITH` clause,
   also known as a Common Table Expression. See [`WITH` Queries](https://www.postgresql.org/docs/current/queries-with.html "https://www.postgresql.org/docs/current/queries-with.html") for more information.
   The parameter values include the following:
+
   - _default_: The `WITH` clause will be treated using the engine's default behavior.
   - _always_: The full output of the query in the `WITH` clause will be materialized and the output reused in the outer query.
   - _never_: The query in the `WITH` clause will be inlined with the outer query if possible. This parameter will also override the
@@ -3139,6 +3179,7 @@ PostgreSQL version 13.15-R2 is now available on Amazon RDS. This release contain
 **New features and enhancements**
 
 - Includes support for four new crates in PL/Rust, including:
+
   - `regex`
   - `serde`
   - `serde_json`
@@ -3257,6 +3298,7 @@ PostgreSQL version 13.13-R2 is now available on Amazon RDS. This release contain
 
 - Fixed a crash in `CatalogCacheComputeHashValue` with `dblink_connect` due to a `Null` or `invalid` connection.
 - Backported run_as_owner to RPG 13:
+
   - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds_superuser).
     The logical apply worker mitigates the risk by temporarily switching the role from the subscription owner to the table owner during logical apply.
 
@@ -3493,6 +3535,7 @@ This version also includes the following changes:
 - The `pglogical` extension is updated to version 2.4.0.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the following
   related extensions:
+
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
@@ -3519,6 +3562,7 @@ This version also includes the following changes:
   extension is updated to version 4.5.1.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.0.3, along with the following
   related extensions:
+
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
@@ -3826,6 +3870,7 @@ PostgreSQL version 12.17-R2 is now available on Amazon RDS. This release contain
 
 - Fixed a crash in `CatalogCacheComputeHashValue` with `dblink_connect` due to a `Null` or `invalid` connection.
 - Backported run_as_owner to RPG 12:
+
   - Backported a security fix for the logical replication apply worker that allows regular table owners to obtain privilege escalation to the subscription owner (an rds_superuser).
     The logical apply worker mitigates the risk by temporarily switching the role from the subscription owner to the table owner during logical apply.
 
@@ -4040,6 +4085,7 @@ This version also includes the following changes:
 - The `pglogical` extension is updated to version 2.4.0.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the following
   related extensions:
+
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
@@ -4066,6 +4112,7 @@ This version also includes the following changes:
   extension is updated to version 4.5.1.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.0.3, along with the following
   related extensions:
+
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
@@ -4179,6 +4226,7 @@ release](https://www.postgresql.org/docs/release/11.22/ "https://www.postgresql.
 ###### New features and enhancements
 
 - Backported run_as_owner to RPG 11:
+
   - Backported a security fix for the logical replication apply
     worker that allows regular table owners to obtain privilege
     escalation to the subscription owner (an rds_superuser). The logical
@@ -4392,6 +4440,7 @@ This version also includes the following changes:
 - The `pglogical` extension is updated to version 2.4.0.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the
   following related extensions:
+
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
@@ -4580,6 +4629,7 @@ pg_stat_statements;`. Also, `track_io_timing` is
   about the `chkpass` extension, see [PostgreSQL
   chkpass](https://www.postgresql.org/docs/10/chkpass.html "https://www.postgresql.org/docs/10/chkpass.html").
 - Extension updates for RDS for PostgreSQL 11.1 include the following:
+
   - `pgaudit` is updated to 1.3.0
   - `pg_hint_plan` is updated to 1.3.2
   - `pglogical` is updated to 2.2.1
@@ -4715,6 +4765,7 @@ This version also includes the following changes:
 - The `pglogical` extension is updated to version 2.4.0.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 3.1.4, along with the
   following related extensions:
+
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [PostGIS_raster](https://postgis.net/docs/raster.html "https://postgis.net/docs/raster.html")
@@ -5051,6 +5102,7 @@ This version also includes the following changes:
 - The `pglogical` extension is updated to version 2.4.0.
 - The [PostGIS](../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md "../UserGuide/Appendix.PostgreSQL.CommonDBATasks.PostGIS.md") extension is updated to version 2.5.5, along with the
   following related extensions:
+
   - [address_standardizer](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [address_standardizer_data_us](https://postgis.net/docs/standardize_address.html "https://postgis.net/docs/standardize_address.html")
   - [PostGIS_tiger_geocoder](http://postgis.net/docs/Geocode.html "http://postgis.net/docs/Geocode.html")
@@ -5349,6 +5401,7 @@ PostgreSQL version 9.6.1 includes the following changes:
   the new operators <-> and <N>.
 
 - **Two new extensions are supported**:
+
   - `bloom`, an index access method based on [Bloom
     filters](http://en.wikipedia.org/wiki/Bloom_filter "http://en.wikipedia.org/wiki/Bloom_filter")
   - `pg_visibility`, which provides a means for examining
