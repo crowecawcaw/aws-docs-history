@@ -15,6 +15,7 @@
 
 - Operator - "CONTAINS_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
+
   - 'INBOUND'
   - 'OUTBOUND'
   - 'TRANSFER'
@@ -32,6 +33,7 @@
 
 - Operator - "CONTAINS_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
+
   - 'TELECOM_BUSY'
   - 'TELECOM_NUMBER_INVALID'
   - 'TELECOM_POTENTIAL_BLOCKING'

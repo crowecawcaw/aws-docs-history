@@ -10,15 +10,18 @@ Observes when the system plays a prompt or send any voice response to the simula
   originate from the testing system.
 - Properties - Empty object. Object containing the following message
   details:
+
   - PromptId (Optional): Specific prompt ID or ARN to match
   - Text (Optional): Text content of the message to match
   - SSML (Optional): SSML content to match
   - Media (Optional): External media source details
+
     - Uri: Location of the media file
     - SourceType: Source from which media is fetched such as S3
     - MediaType: Type of media such as "audio/mpeg"
 
   - MatchingCriteria - Defines how to match the message:
+
     - Similarity: Uses semantic matching to find similar messages
     - Inclusion: Checks if the observed message contains the specified text
 

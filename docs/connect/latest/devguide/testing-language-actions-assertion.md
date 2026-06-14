@@ -7,11 +7,13 @@ Validates that a specific attribute or value in the flow matches expected criter
 - Identifier: Unique identifier for the action
 - Type: Must be `Assert`
 - Parameters:
+
   - Namespace: JSON path to the attribute value to check
   - Operator: Comparison operator to use (see [Supported operators](#testing-language-actions-assertion-operators "#testing-language-actions-assertion-operators"))
   - Operand: Expected value to compare against
 
 - Transitions
+
   - NextAction: The unique identifier for the next action
 
 ## Supported operators

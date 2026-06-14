@@ -13,9 +13,11 @@ Observes when a Lambda function invocation action starts.
 - Actor - Must always be `System`. This indicates that the event
   originates from the testing system.
 - Properties:
+
   - ActionType - Must always be
     `InvokeLambdaFunction`.
   - ActionParameters:
+
     - LambdaFunctionARN: The ARN of the Lambda function being invoked
 
 ```
@@ -42,9 +44,11 @@ Observes when the flow checks hours of operation.
 - Actor - Must always be `System`. This indicates that the event
   originates from the testing system.
 - Properties:
+
   - ActionType - Must always be
     `CheckHoursOfOperation`.
   - ActionParameters:
+
     - HoursOfOperationId: The ID or ARN of the hours of operation resource being checked
 
 ```
@@ -71,9 +75,11 @@ Observes when a contact is being transferred to a queue.
 - Actor - Must always be `System`. This indicates that the event
   originates from the testing system.
 - Properties:
+
   - ActionType - Must always be
     `TransferContactToQueue`.
   - ActionParameters:
+
     - QueueId: The ID or ARN of the target queue
     - AgentId (Optional): Specific agent ID if transferring to a particular agent
 
@@ -102,10 +108,13 @@ Observes when a participant is being connected to a Lex bot.
 - Actor - Must always be `System`. This indicates that the event
   originates from the testing system.
 - Properties:
+
   - ActionType - Must always be
     `ConnectParticipantWithLexBot`.
   - ActionParameters:
+
     - LexV2Bot: Object containing bot details
+
       - AliasArn: The ARN of the Lex V2 bot alias
 
 ```

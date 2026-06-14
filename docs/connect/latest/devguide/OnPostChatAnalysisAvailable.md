@@ -15,6 +15,7 @@
 
 - Operator - "CONTAINS_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
+
   - 'INBOUND'
   - 'OUTBOUND'
   - 'TRANSFER'
@@ -32,6 +33,7 @@
 
 - Operator - "CONTAINS_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
+
   - 'TELECOM_BUSY'
   - 'TELECOM_NUMBER_INVALID'
   - 'TELECOM_POTENTIAL_BLOCKING'
@@ -107,6 +109,7 @@ The KEY must be an instance pre-defined attribute resource.
 
 - Operator - "CONTAINS_ANY"
 - Operands - A list of strings. Strings are either a list of different UUIDs by themselves or a list of strings prefixed with the same UUID, with different possible version numbers uuid:2 and uuid:3. For example:
+
   - Different UUIDs by themselves: ['30682191-2312-4c27-9fc1-752e7a399d52', '2b81c7d5-85bc-459f-b605-0f5280a4301e']
   - Prefixed with the same UUID with different possible version numbers: ['30682191-2312-4c27-9fc1-752e7a399d52:1', '30682191-2312-4c27-9fc1-752e7a399d52:2']
 

@@ -41,6 +41,7 @@ the contact to record.
 
 - `AnalyticsRedactionMaskMode`: Optional, String. Allowed
   values:
+
   - `PII`: All PII data is replaced with
     `[PII]`. For example, Jane Doe is replaced with
     `[PII]`
@@ -51,6 +52,7 @@ the contact to record.
     used.
 
 - `AnalyticsRedactionEntities`: Optional, Array of strings.
+
   - Valid values include: "BANK_ACCOUNT_NUMBER", "BANK_ROUTING",
     "CREDIT_DEBIT_NUMBER", "CREDIT_DEBIT_CVV", "CREDIT_DEBIT_EXPIRY",
     "INTERNATIONAL_BANK_ACCOUNT_NUMBER", "PIN", "SWIFT_CODE",

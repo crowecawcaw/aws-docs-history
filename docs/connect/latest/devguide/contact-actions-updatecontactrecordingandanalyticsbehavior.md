@@ -67,15 +67,18 @@ Sets contact recording behavior, including analysis behavior and which participa
 ###### Notes
 
 - `AnalyticsRedactionMaskMode`: Optional, String. Allowed values:
+
   - `PII`: All PII data is replaced with `[PII]`. For example, Jane Doe is replaced with `[PII]`
   - `EntityType`: Each PII entity is replaced with its type. For example, Jane Doe is replaced with `[NAME]`.
   - If no value is provided, the default `PII` is used.
 
 - `AnalyticsRedactionEntities`: Optional, Array of strings.
+
   - Valid values include: "BANK_ACCOUNT_NUMBER", "BANK_ROUTING", "CREDIT_DEBIT_NUMBER", "CREDIT_DEBIT_CVV", "CREDIT_DEBIT_EXPIRY", "INTERNATIONAL_BANK_ACCOUNT_NUMBER", "PIN", "SWIFT_CODE", "CA_HEALTH_NUMBER", "UK_NATIONAL_HEALTH_SERVICE_NUMBER", "CA_SOCIAL_INSURANCE_NUMBER", "SSN", "UK_NATIONAL_INSURANCE_NUMBER", "PASSPORT_NUMBER", "DRIVER_ID", "IN_AADHAAR", "NAME", "AGE", "EMAIL", "PHONE", "ADDRESS", "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER", "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER", "IN_PERMANENT_ACCOUNT_NUMBER", "IN_NREGA", "AWS_ACCESS_KEY", "AWS_SECRET_KEY", "IP_ADDRESS", "MAC_ADDRESS", "PASSWORD", "URL", "USERNAME", "LICENSE_PLATE", "VEHICLE_IDENTIFICATION_NUMBER", "IN_VOTER_NUMBER", "DATE_TIME", "AGENT_DISPLAY_NAME", "CUSTOMER_DISPLAY_NAME", "ATTACHMENT_NAME".
   - An empty array is not allowed.
   - If `AnalyticsRedactionEntities` is not present, the default "redact all PII data" is used.
   - The following redaction entities are not supported for chat in-flight redaction:
+
     - IN_PERMANENT_ACCOUNT_NUMBER
     - IN_NREGA
     - IN_VOTER_NUMBER

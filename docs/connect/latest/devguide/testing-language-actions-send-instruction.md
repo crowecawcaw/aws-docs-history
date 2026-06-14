@@ -11,14 +11,18 @@ Simulates a customer pressing keys on their phone keypad.
 - Identifier: Unique identifier for the action
 - Type: Must be `SendInstruction`
 - Parameters:
+
   - ActionType: Must be `SendInstruction`
   - Actor: `Customer` indicates this simulates customer behavior
   - Instruction: Object defining the instruction type
+
     - Type: Must be `DtmfInput`
     - Properties:
+
       - Value: String or number representing the DTMF input (e.g., "1", "#", "\*")
 
 - Transitions:
+
   - NextAction: The unique identifier for the next action
 
 ```
@@ -48,16 +52,20 @@ Simulates customer voice or text input. This is used for Lex bot or AI agent int
 - Identifier: Unique identifier for the action
 - Type: Must be `SendInstruction`
 - Parameters:
+
   - ActionType: Must be `SendInstruction`
   - Actor: `Customer` indicates this simulates customer behavior
   - Instruction: Object defining the instruction
+
     - Type: Must be `TextUtterance`
     - Properties:
+
       - Text (Optional): Plain text input to send
       - SSML (Optional): SSML-formatted input to send
       - LanguageCode: Language code for the input (e.g., "en-US")
 
 - Transitions:
+
   - NextAction: The unique identifier for the next action
 
 ```
@@ -89,13 +97,16 @@ Simulates customer ending the call.
 - Identifier: Unique identifier for the action
 - Type: Must be `SendInstruction`
 - Parameters:
+
   - ActionType: Must be `SendInstruction`
   - Actor: `Customer` indicates this simulates customer behavior
   - Instruction: Object defining the instruction
+
     - ActionType: Must be `SendInstruction`
     - Type: Must be `Disconnect`
 
 - Transitions:
+
   - NextAction: The unique identifier for the next action
 
 ```

@@ -21,10 +21,12 @@ event occurs.
 - Event - Defines the expected event from the system to observe
 - Actions - Array of actions to execute when the event is observed
 - Usage - Defines how many times this observation should be matched
+
   - Type: "EXACTLY"
   - Times: Integer value for the count, when applicable
 
 - Transitions - Optional object defining flow control to next observations
+
   - NextObservations: Array of observation IDs to transition to
 
 ```

@@ -95,6 +95,7 @@ the Connect Customer service’s attached file APIs.
 1. Call the `StartAttachedFileUpload` API with the required attached file
    information, which will provide a signed Amazon S3 URL, headers, and file ID for
    uploading the file directly to Amazon S3.
+
    1. If you are attaching a file to a Case, the calling identity must also have
       the `cases:CreateRelatedItem` permission on the target Case resource.
 

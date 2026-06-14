@@ -15,6 +15,7 @@ Each operand is an array of Pattern match objects.
 ###### Value
 
 - Description: Depending on the type, value type varies.
+
   - If type is `PLAIN`, Value is a string.
   - If type is `LIST`, Value is an array of
     `PLAIN` PatternMatch object.
@@ -27,7 +28,6 @@ Each operand is an array of Pattern match objects.
     "IsWithin": boolean
   }
   ```
-
   - If type is `NUMERICAL`, Value is an object for
     format.
 

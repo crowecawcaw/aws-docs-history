@@ -65,6 +65,7 @@ as:
   out**.
 
 - **fraudDetection**:
+
   - **High risk**: The risk score meets or exceeds
     the set threshold.
   - **Low risk**: The risk score did not meet the set

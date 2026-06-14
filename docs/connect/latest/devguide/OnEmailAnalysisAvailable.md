@@ -15,6 +15,7 @@
 
 - Operator - "CONTAINS_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
+
   - 'INBOUND'
   - 'OUTBOUND'
   - 'AGENT_REPLY'
@@ -29,6 +30,7 @@
 
 - Operator - "CONTAINS_ANY"
 - Operands - A validated enum set of possible values. Possible values are as follows:
+
   - 'AGENT_DISCONNECT'
   - 'CONTACT_FLOW_DISCONNECT'
   - 'EXPIRED'
