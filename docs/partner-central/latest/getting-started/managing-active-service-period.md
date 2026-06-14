@@ -21,11 +21,13 @@ Partners may need to replace an existing active service period with new terms to
 1. **Partner initiates replacement** – Channel Partners access the active service period through AWS Partner Central channel relationship management and select the option to replace the service period. Partners specify the new service period terms (either updated minimum notice days or new start/end dates for fixed-term commitments) and can include optional context explaining the reason for replacement.
 2. **Customer notification** – A new service period channel handshake is automatically created and the end-customer's AWS management account receives an email notification with a unique link to review the proposed replacement terms.
 3. **Customer review and response** – An authorized user from the customer's AWS management account must:
+
    - Access the replacement request using the provided link
    - Sign in to the AWS Console to review the new service period terms and partner's explanation
    - Accept or reject the replacement request
 
 4. **Seamless transition** – When the customer accepts the replacement handshake:
+
    - The previous service period ends immediately
    - The new service period becomes active with the updated terms
    - The billing transfer relationship continues uninterrupted under the new service period governance

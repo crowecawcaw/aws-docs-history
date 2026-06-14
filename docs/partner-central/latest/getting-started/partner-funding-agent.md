@@ -6,6 +6,7 @@ AWS Partner Central agents analyze your opportunities against available funding 
 
 - Your account has migrated to AWS Partner Central in the AWS Management Console.
 - Your IAM user or role has the required permissions:
+
   - `partnercentral:ListBenefitAllocations`
   - `partnercentral:ListBenefitApplications`
   - `partnercentral:CreateBenefitApplication`

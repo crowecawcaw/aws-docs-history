@@ -39,6 +39,7 @@ You must complete identity verification before you can start business verificati
 
 1. After identity verification succeeds, choose **Next** to continue to the business verification process.
 2. Complete the business verification fields. If you have Tax Console permissions, your business information pre-populates automatically. Otherwise, enter the following information:
+
    - Legal business name (as registered)
    - Country of incorporation
    - Tax ID or business registration number
@@ -47,6 +48,7 @@ You must complete identity verification before you can start business verificati
 3. **Review your information for accuracy.** Make sure the business information is correct before you proceed with verification. The failure of initial verification will require additional information to verify your business entity.
 4. Choose **Next** to begin business verification. **This process can take up to an hour.** You can stay on this page or leave and return later.
 5. If business verification fails, complete the supplementary form with the following information:
+
    - Tax ID or VAT Number
    - Business Registration Number
    - Full address and zip code where the incorporation is registered

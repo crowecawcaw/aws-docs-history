@@ -11,6 +11,7 @@ Before you begin, ensure you have:
 ###### To complete AWS Partner registration
 
 1. **Enter your alliance lead contact information.** The alliance lead is your organization's primary contact for AWS Partner Network communications, including the APN Newsletter and announcements about policy changes. The information can be changed in AWS Partner Central settings after registration.
+
    1. First name
    2. Last name
    3. Job title

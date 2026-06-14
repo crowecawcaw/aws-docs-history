@@ -225,6 +225,7 @@ set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../.
    **Permission set type**, choose **Custom permission
    set**, then choose **Next**.
 5. Do the following:
+
    1. On the **Specify policies and permission boundary** page,
       choose the types of IAM policies that you want to apply to the permission
       set.
@@ -240,6 +241,7 @@ set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../.
    accounts. For more information, see [Inline policies](../../../singlesignon/latest/userguide/permissionsetcustom.md#permissionsetsinlineconcept "../../../singlesignon/latest/userguide/permissionsetcustom.md#permissionsetsinlineconcept"). 3. Copy and paste the JSON policy from [AWS Partner Central and AWS Account Linking pre-requisite](account-linking.md#linking-prerequisites "account-linking.md#linking-prerequisites")
 
 6. On the **Specify permission set details** page, do the following:
+
    1. Under **Permission set name**, type a name to identify this
       permission set in IAM Identity Center. The name that you specify for this
       permission set appears in the AWS access portal as an available role. Users sign

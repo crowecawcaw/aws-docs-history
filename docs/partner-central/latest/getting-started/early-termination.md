@@ -12,6 +12,7 @@ Partners can request early termination of service periods before their natural e
 1.  **Partner initiates request** – Channel Partners access the active service period through AWS Partner Central and select the option to end the agreement early. Partners can include optional context explaining the reason for termination.
 2.  **Customer notification** – A termination channel handshake is created and the end-customer receives an email notification with a unique link to review the termination request.
 3.  **Customer review and consent** – An authorized user from the customer's AWS management account must:
+
     - Access the termination request using the provided link
     - Sign in to the AWS Console to review the termination details and partner's explanation
     - Accept or reject the early termination request

@@ -84,6 +84,7 @@ To add a new user:
 
 1. **Identify the user's role and required access level:** Review the managed policy mappings to determine which role (persona) best describes their job function. Refer to this table for common Partner Central user personas and which Managed policies best fit that user's required level of access.
 2. **Request the IAM Administrator to add the user.** Provide the IAM Administrator with:
+
    - User's name and company email address
    - Required managed policies (e.g., AWSPartnerCentralOpportunityManagement)
    - Any specific access requirements if custom policies are needed

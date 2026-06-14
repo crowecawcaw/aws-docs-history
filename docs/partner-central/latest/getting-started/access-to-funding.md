@@ -10,6 +10,7 @@ To access funding tools:
 2. Click on **Launch AWS Partner Central** in the middle of the home screen.
 3. Select **Funding dashboard** under **Funding Benefits** on the lefthand navigation pane
 4. Users can begin submitting Fund Requests from this page in Partner Central
+
    1. Click the **Create fund request** button and a dropdown selection of eligible programs will appear
    2. The subsequent templates will route the user to create a Fund Request for the core programs offered
 

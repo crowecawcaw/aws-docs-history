@@ -2,6 +2,10 @@
 
 AWS Partner Central Channel Management provides AWS Solution Providers, Distributors, and Distribution Sellers (Channel Partners) with capabilities to manage their AWS accounts participating in Channel Programs. AWS Partner Central Channel Management is used with [AWS Billing Transfer](https://aws.amazon.com/aws-cost-management/aws-billing-transfer "https://aws.amazon.com/aws-cost-management/aws-billing-transfer") to enable channel partners to resell to end customers while customers retain root access to their own AWS management account.
 
+To learn more about Channel Program Management, see the [Solution Provider Program User Guide](https://partnercentral.awspartner.com/partnercentral2/s/article?category=AWS_Solution_Provider_Program&article=AWS-Solution-Provider-Program-User-Guide "https://partnercentral.awspartner.com/partnercentral2/s/article?category=AWS_Solution_Provider_Program&article=AWS-Solution-Provider-Program-User-Guide") or the [Distribution Program User Guide](https://partnercentral.awspartner.com/partnercentral2/s/article?category=AWS_Distribution_Program&article=AWS-Distribution-Program-User-Guide "https://partnercentral.awspartner.com/partnercentral2/s/article?category=AWS_Distribution_Program&article=AWS-Distribution-Program-User-Guide"). These guides provide step-by-step setup instructions covering activation, relationship reporting, and post-setup configuration.
+
+For more information on AWS Billing Conductor pricing, see [AWS Billing Conductor Pricing](https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/ "https://aws.amazon.com/aws-cost-management/aws-billing-conductor/pricing/").
+
 Key capabilities include:
 
 - Centrally manage AWS accounts used for reselling

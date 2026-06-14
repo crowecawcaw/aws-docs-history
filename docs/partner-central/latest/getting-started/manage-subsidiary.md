@@ -29,6 +29,7 @@ Once you are in Primary account and in the Subsidiary Account Connections page, 
 
 1. Click on **Send connection request**.
 2. Fill out the connection request form with:
+
    - Your full name
    - Your email address
    - 12-digit AWS account IDs of the accounts that you own and want to connect with
