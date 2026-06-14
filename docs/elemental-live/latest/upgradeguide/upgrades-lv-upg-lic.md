@@ -8,6 +8,7 @@ If you didn't purchase any add-on packages, skip this step.
 ###### To obtain the license for an Elemental Live appliance
 
 - Contact your AWS Elemental sales person and provide the following information:
+
   - The names of the add-on packages you want. For a list of add-on packages, see
     [Purchasing an add-on
     package](../ug/ref-licenses-purchase.md "../ug/ref-licenses-purchase.md") in Elemental Live User Guide.
@@ -16,6 +17,7 @@ If you didn't purchase any add-on packages, skip this step.
 ###### To obtain the license for qualified hardware or a VM
 
 1.  Contact your AWS Elemental sales person and provide the following information:
+
     - The names of the add-on packages you want. For a list of add-on packages, see
       [Purchasing an add-on
       package](../ug/ref-licenses-purchase.md "../ug/ref-licenses-purchase.md") in Elemental Live User Guide.
@@ -43,6 +45,7 @@ and restart the elemental service. Following are detailed instructions.
 
 1. AWS Elemental provides you with a new version of the license. You receive this license in one
    of these ways:
+
    - Via email
    - Via your Salesforce account
 

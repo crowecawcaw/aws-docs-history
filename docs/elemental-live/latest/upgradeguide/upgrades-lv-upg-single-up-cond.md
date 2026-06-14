@@ -102,6 +102,7 @@ in the _AWS Elemental Live User Guide_.)
 
 1. Follow the appropriate procedure in the _AWS Elemental Live Installation
    Guide_:
+
    - [Install the
      AWS Elemental Live software](../installguide/install-lv-ig-install-sw.md "../installguide/install-lv-ig-install-sw.md"): to install on hardware
    - [Install

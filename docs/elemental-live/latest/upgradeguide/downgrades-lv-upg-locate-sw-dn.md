@@ -4,6 +4,7 @@ Locate and copy the installer for Elemental Live.
 
 1. Find the version of the AWS Elemental Live software that you're downgrading
    to:
+
    - From a Linux prompt, log in to the hardware until with the
      _elemental_ user credentials.
    - Look for the desired installer as shown here.
@@ -31,6 +32,7 @@ h:/corporate/downloads/.
 6. Copy the download file from your workstation to
    `/home/elemental/` on one of the nodes. For
    example:
+
    - Use SFTP protocol and an FTP client application on your
      workstation computer. Connect to the IP address for Elemental Live
      on port 22 with the _elemental_ user

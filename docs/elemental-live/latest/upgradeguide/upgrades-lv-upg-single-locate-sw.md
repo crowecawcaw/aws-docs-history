@@ -12,6 +12,7 @@ h:/corporate/downloads/.
    `elemental_production_live_2.25.4.12345.run`
 4. Copy the download file from your workstation to `/home/elemental/`
    on one of the nodes. For example:
+
    - Use SFTP protocol and an FTP client application on your workstation computer.
      Connect to the IP address for Elemental Live on port 22 with the
      _elemental_ user credentials and transfer the file.
