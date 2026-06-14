@@ -117,6 +117,7 @@ You must use the following keys value pairs in a custom dataset.
 
 - `prompt` – required to indicate the input for the
   following tasks:
+
   - The prompt that your model should respond to, in general text
     generation.
   - The question that your model should answer in the question and
@@ -129,6 +130,7 @@ You must use the following keys value pairs in a custom dataset.
 - `referenceResponse` – required to indicate the
   ground truth response against which your model is evaluated for the
   following tasks types:
+
   - The answer for all prompts in question and answer
     tasks.
   - The answer for all accuracy, and robustness

@@ -21,10 +21,12 @@ Example: `vocabulary-manifest.json`
 
 - **File Format:** JSONL (JSON Lines)
 - **Entity JSON:**
+
   - **entityId** (required): Unique identifier (max 128 characters)
   - **description** (optional): Description of the entityId
   - **language** (required): ISO language code ([Supported languages](bda-library-character-sets.md "bda-library-character-sets.md"))
   - **phrases** (required): Array of text objects. Each object contains:
+
     - **text** (required): Individual word or phrase
     - **displayAsText** (optional): Use this to replace actual word in transcript (NOTE: Case sensitive)
 

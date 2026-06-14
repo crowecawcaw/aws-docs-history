@@ -9,6 +9,7 @@ The following image shows a flow with one condition node returns one of three po
 1.  Create a flow by following the instructions at [Create your first flow in Amazon Bedrock](flows-get-started.md "flows-get-started.md").
 2.  Delete the **Prompt** node in the center pane.
 3.  Set up the condition node by doing the following:
+
     1. From the **Flow builder** left pane, select the **Nodes** tab.
     2. Drag a **Condition** node into your flow in the center pane.
     3. Select the **Configure** tab in the **Flow builder** pane.
@@ -27,12 +28,14 @@ The following image shows a flow with one condition node returns one of three po
 
 4.  Choose the **Flow input** node and select the **Configure** tab. Select **Object** as the **Type**. This means that flow invocation will expect to receive a JSON object.
 5.  Add flow output nodes so that you have three in total. Configure them as follows in the **Configure** tab of the **Flow builder** pane of each flow output node:
+
     1. Set the input type of the first flow output node as `String` and the expression as `$.data.action[0]` to return the first value in the array in the `action` field of the incoming object.
     2. Set the input type of the second flow output node as `String` and the expression as `$.data.action[1]` to return the second value in the array in the `action` field of the incoming object.
     3. Set the input type of the third flow output node as `String` and the expression as `$.data.action[2]` to return the third value in the array in the `action` field of the incoming object.
 
 6.  Connect the first condition to the first flow output node, the second condition to the second flow output node, and the default condition to the third flow output node.
 7.  Connect the inputs and outputs in all the nodes to complete the flow by doing the following:
+
     1. Drag a connection from the output node of the **Flow input** node to the **retailPrice** input in the condition node.
     2. Drag a connection from the output node of the **Flow input** node to the **marketPrice** input in the condition node.
     3. Drag a connection from the output node of the **Flow input** node to the **type** input in the condition node.
@@ -40,6 +43,7 @@ The following image shows a flow with one condition node returns one of three po
 
 8.  Choose **Save** to save your flow. Your flow should now be prepared for testing.
 9.  Test your flow by entering the following JSON objects is the **Test flow** pane on the right. Choose **Run** for each input:
+
     1. The following object fulfills the first condition (the `retailPrice` is more than 10 and the `type` is "produce") and returns the first value in `action` ("don't buy"):
 
     ```
@@ -63,7 +67,6 @@ The following image shows a flow with one condition node returns one of three po
         "action": ["don't buy", "buy", "undecided"]
     }
     ```
-
     3. The following object fulfills neither the first condition (the `retailPrice` is more than 10, but the `type` is not "produce") nor the second condition (the `retailPrice` isn't less than the `marketPrice`), so the third value in `action` ("undecided") is returned:
 
     ```

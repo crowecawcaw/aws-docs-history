@@ -37,6 +37,7 @@ required elements:
 - `kms:ViaService` – The condition key limits use of a
   KMS key to request from specified AWS services. You must specify the
   following services:
+
   - Amazon S3, because Amazon Bedrock stores a temporary copy of your data in an Amazon S3
     location that Amazon Bedrock owns.
   - Amazon Bedrock, because the evaluation service calls the Amazon Bedrock Knowledge Bases API to execute

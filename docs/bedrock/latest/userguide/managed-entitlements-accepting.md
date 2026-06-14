@@ -45,6 +45,7 @@ If your organization uses consolidated billing without all features enabled, gra
 4. In the navigation pane, choose **Granted Licenses**.
 5. Choose the grant you want to accept.
 6. Choose **Accept & Activate** to accept and activate the grant in one action.
+
    - Alternatively, choose **Accept** to accept the grant but keep it in Disabled state for future activation.
    - Or choose **Reject** to decline the license (this is a terminal state).
 

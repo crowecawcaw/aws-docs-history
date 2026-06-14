@@ -129,9 +129,11 @@ The `body` response has the following fields:
 
 - **outputs** – A list of outputs from the model. Each output has the following
   fields.
+
   - **text** – The text that the model generated.
   - **stop_reason** – The reason why the response stopped
     generating text. Possible values are:
+
     - **stop** – The model has
       finished generating text for the input prompt. The model stops because it
       has no more content to generate or if the model generates one of the stop sequences that you define in the `stop`

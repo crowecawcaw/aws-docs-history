@@ -146,6 +146,7 @@ Provide a full rubric with a grading scale that you define. Your custom judge pr
 - **Format:** `"customLLMJConfig": {"customLLMJPrompt": "...", "customLLMJModelId": "..."}` plus `"customEvaluationMetricLabel": "My Metric"`
 - **Available judge models:** anthropic.claude-opus-4-6-v1, anthropic.claude-sonnet-4-5-20250929-v1:0, anthropic.claude-sonnet-4-6
 - **Placeholders in your judge prompt:**
+
   - `{{prompt}}`: the fully rendered prompt (prompt template plus evaluation samples combined)
   - `{{response}}`: the model output
   - `{{referenceResponse}}`: the ground truth

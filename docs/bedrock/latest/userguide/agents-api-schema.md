@@ -88,6 +88,7 @@ Each key in the `responses` object is a response code, which describes the statu
 - `<media type>` – The format of the response body. For more information, see [Media types](https://swagger.io/docs/specification/media-types/ "https://swagger.io/docs/specification/media-types/") on the Swagger website.
 - `schema` – (Required for each media type) Defines the data type of the response body and its fields.
 - `properties` – (Required if there are `items` in the schema) Your agent uses properties that you define in the schema to determine the information it needs to return to the end user to fulfill a task. Each property contains the following fields:
+
   - `type` – (Required for each property) The data type of the response field.
   - `description` – (Optional) Describes the property. The agent can use this information to determine the information that it needs to return to the end user.
 
@@ -143,6 +144,7 @@ The following list describes each field:
 - `<media type>` – (Optional) The format of the request body. For more information, see [Media types](https://swagger.io/docs/specification/media-types/ "https://swagger.io/docs/specification/media-types/") on the Swagger website.
 - `schema` – (Optional) Defines the data type of the request body and its fields.
 - `properties` – (Optional) Your agent uses properties that you define in the schema to determine the information it must get from the end user to make the API request. Each property contains the following fields:
+
   - `type` – (Optional) The data type of the request field.
   - `description` – (Optional) Describes the property. The agent can use this information to determine the information it needs to return to the end user.
 

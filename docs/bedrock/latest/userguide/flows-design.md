@@ -8,6 +8,7 @@ nodes that are available to you. For example flows that you can try, see [Try ex
 ###### To build your flow
 
 1. If you're not already in the **flow builder**, do the following:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. Select **Amazon Bedrock Flows** from the left navigation pane. Then, choose a flow in the **Amazon Bedrock Flows** section.
@@ -16,6 +17,7 @@ nodes that are available to you. For example flows that you can try, see [Try ex
 2. In the **flow builder** section, the center pane displays a **Flow input**
    node and a **Flow output** node. These are the input and output nodes for your flow.
 3. Do the following to add and configure nodes:
+
    1. In the **Flow builder** pane, select **Nodes**.
    2. Drag a node you want to use for the first step of your flow and drop it in the center pane.
    3. The circles on the nodes are connection points. To connect your flow input node to the second node, drag a line from

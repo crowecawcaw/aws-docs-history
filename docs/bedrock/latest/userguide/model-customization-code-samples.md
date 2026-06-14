@@ -3,12 +3,12 @@
 The following code samples show how to prepare a basic dataset, set up permissions, create a custom model, view the output files, purchase throughput for the model, and run inference on the model. You can modify these code snippets to your specific use-case.
 
 1. Prepare the training dataset.
+
    1. Create a training dataset file containing the following one line and name it `train.jsonl`.
 
    ```
    {"prompt": "what is AWS", "completion": "it's Amazon Web Services"}
    ```
-
    2. Create an S3 bucket for your training data and another one for your output
       data (the names must be unique).
    3. Upload `train.jsonl` into the training data

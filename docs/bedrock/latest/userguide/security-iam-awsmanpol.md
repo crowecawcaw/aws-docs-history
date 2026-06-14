@@ -291,6 +291,7 @@ You can attach the [AmazonBedrockLimitedAccess](../../../aws-managed-policy/late
 policy to your IAM identities to allow it access to Amazon Bedrock services, AWS KMS key management, networking resources, and AWS Marketplace subscriptions for third-party foundation models. The policy includes the following statements:
 
 - The `BedrockAPIs` statement allows you to perform several operations in Amazon Bedrock including:
+
   - Passing the Amazon Bedrock API key when making API requests to the Amazon Bedrock service.
   - Describing information about resources.
   - Creating resources (guardrails, models, jobs).
@@ -300,10 +301,12 @@ policy to your IAM identities to allow it access to Amazon Bedrock services, AWS
 
 - The `DescribeKey` statement allows you to view information about KMS keys across all regions and accounts, as long as the policies on the keys permit you to do so.
 - The `APIsWithAllResourceAccess` statement allows you to:
+
   - List IAM roles.
   - Describe Amazon VPC resources (VPCs, subnets, and security groups) across all resources.
 
 - The `MarketplaceOperationsFromBedrockFor3pModels` statement enables you to:
+
   - Subscribe to AWS Marketplace offerings.
   - View subscriptions.
   - Unsubscribe from AWS Marketplace offerings.
@@ -319,30 +322,37 @@ policy to your IAM identities to allow it to manage and use Amazon Bedrock marke
 
 - The `BedrockMarketplaceAPIs` statement allows you to create, delete, register, deregister, and update marketplace model endpoints in Amazon Bedrock on all resources.
 - The `MarketplaceModelEndpointMutatingAPIs` statement allows you to create and manage SageMaker AI endpoints, endpoint configurations, and models on specified resources.
+
   - Use the `aws:CalledViaLast` condition key to ensure that these actions are only performed when called through Bedrock.
   - Use the `aws:ResourceTag/sagemaker-sdk:bedrock` condition key to ensure that these actions are only performed on resources tagged as Amazon Bedrock-compatible.
 
 - The `MarketplaceModelEndpointAddTagsOperations` statement allows adding specific tags to SageMaker AI endpoints, endpoint configurations, and models on specified resources.
+
   - Use the `aws:TagKeys` condition key to restrict which tags can be added
   - Use the `aws:RequestTag/*` condition key to ensure tag values match specified patterns
 
 - The `MarketplaceModelEndpointDeleteTagsOperations` statement allows deleting specific tags from SageMaker AI endpoints, endpoint configurations, and models on specified resources.
+
   - Use the `aws:TagKeys` condition key to restrict which tags can be deleted
   - Use the `aws:ResourceTag/*` condition key to ensure deleted tags match specified patterns
 
 - The `MarketplaceModelEndpointNonMutatingAPIs` statement allows viewing and describing SageMaker AI endpoints, endpoint configurations, and models on specified resources.
+
   - Use `aws:CalledViaLast` condition key to ensure actions are only performed through the Amazon Bedrock service
 
 - The `MarketplaceModelEndpointInvokingOperations` statement allows invoking SageMaker AI endpoints on specified resources.
+
   - Use the `aws:CalledViaLast` condition key to ensure actions are only performed through the Amazon Bedrock service
   - Use the `aws:ResourceTag/sagemaker-sdk:bedrock` condition key to ensure actions are only performed on Bedrock-compatible resources
 
 - The `DiscoveringMarketplaceModel` statement allows decribing SageMaker AI hub content on specified resources.
 - The `AllowMarketplaceModelsListing` statement allows listing SageMaker AI hub contents on specified resources.
 - The `PassRoleToSageMaker` statement allows passing IAM roles to SageMaker AI and Amazon Bedrock on specified resources.
+
   - Use `iam:PassedToService` condition key to ensure roles are only passed to specified services.
 
 - The `PassRoleToBedrock` statement allows you to pass specific IAM roles to Amazon Bedrock on specified resources.
+
   - Use the `iam:PassedToService` condition key to ensure roles are only passed to the Amazon Bedrock service.
 
 ## AWS managed policy: AmazonBedrockMantleFullAccess

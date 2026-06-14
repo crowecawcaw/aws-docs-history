@@ -41,6 +41,7 @@ OpenSearch Dashboards link for each OpenSearch domain.
 4. Provide any name for the role, for example,
    **kb_opensearch_role**.
 5. Under **Cluster permissions**, add the following permissions.
+
    - `indices:data/read/msearch`
    - `indices:data/write/bulk*`
    - `indices:data/read/mget*`
@@ -51,6 +52,7 @@ OpenSearch Dashboards link for each OpenSearch domain.
    following permissions to an action group, such as
    `KnowledgeBasesActionGroup`. Add the following permissions to
    an action group.
+
    - `indices:admin/get`
    - `indices:data/read/msearch`
    - `indices:data/read/search`
@@ -62,7 +64,7 @@ OpenSearch Dashboards link for each OpenSearch domain.
    - `indices:admin/mapping/put`
    - `indices:data/read/mget*`
 
-![The action groups to create in OpenSearch Dashboards for adding cluster and index permissions.](images/kb/kb-test-os-action-groups.png) 7. Choose **Create** to create the OpenSearch role.
+![Action groups to create in OpenSearch Dashboards for cluster and index permissions.](images/kb/kb-test-os-action-groups.png) 7. Choose **Create** to create the OpenSearch role.
 The following shows a sample OpenSearch role with the permissions added.
 
 ![A sample OpenSearch role in OpenSearch Dashboards with the permissions added.](images/kb/kb-test-os-dashboards-permissions.png)
@@ -70,6 +72,7 @@ The following shows a sample OpenSearch role with the permissions added.
 ###### To create a role mapping to your Knowledge Base service role
 
 1. Identify the IAM role that will need to be mapped.
+
    - If you created your own custom IAM role, you can copy the role
      ARN for this role from the IAM console.
    - If you are allowing Knowledge Bases to create the role for you, you

@@ -23,6 +23,7 @@ Console
    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 2. Choose **Guardrails** from the left navigation pane. Then, select a guardrail in the **Guardrails** section.
 3. A test window appears on the right. You have the following options in the test window:
+
    1. By default, the working draft of the guardrail is used in the test window. To test a different version of the guardrail, choose **Working draft** at the top of the test window and then select the version.
    2. To select a model, choose **Select model**. After you make a choice, select **Apply**. To change the model, choose **Change**.
    3. Enter a prompt in the **Prompt** box.
@@ -294,14 +295,18 @@ The response returns the following fields if you enable a guardrail.
 
 - `amazon-bedrock-guardrailAction` – Specifies whether the guardrail `INTERVENED` or not (`NONE`).
 - `amazon-bedrock-trace` – Only appears if you enable the trace. Contains a list of traces, each of which provides information about the content that the guardrail blocked. The trace contains the following fields:
+
   - `modelOutput` – An object containing the outputs from the model that was blocked.
   - `input` – Contains the following details about the guardrail's assessment of the prompt:
+
     - `topicPolicy` – Contains `topics`, a list of assessments for each topic policy that was violated. Each topic includes the following fields:
+
       - `name` – The name of the topic policy.
       - `type` – Specifies whether to deny the topic.
       - `action` – Specifies that the topic was blocked
 
     - `contentPolicy` – Contains `filters`, a list of assessments for each content filter that was violated. Each filter includes the following fields:
+
       - `type` – The category of the content filter.
       - `confidence` – The level of confidence that the output can be categorized as belonging to the harmful category.
       - `action` – Specifies that the content was blocked. This result depends on the strength of the filter set in the guardrail.
@@ -309,23 +314,29 @@ The response returns the following fields if you enable a guardrail.
     - `wordPolicy` – Contains a collection of custom words and
       managed words were filtered and a corresponding assessment on those words.
       Each list contains the following fields:
+
       - `customWords` – A list of custom words that matched the filter.
+
         - `match` – The word or phrase that matched the filter.
         - `action` – Specifies that the word was blocked.
 
       - `managedWordLists` – A list of managed words that matched the filter.
+
         - `match` – The word or phrase that matched the filter.
         - `type` – Specifies the type of managed word that matched the filter.
           For example, `PROFANITY` if it matched the profanity filter.
         - `action` – Specifies that the word was blocked.
 
     - `sensitiveInformationPolicy` – Contains the following objects, which contain assessments for personally identifiable information (PII) and regex filters that were violated:
+
       - `piiEntities` – A list of assessments for each PII filter that was violated. Each filter contains the following fields:
+
         - `type` – The PII type that was found.
         - `match` – The word or phrase that matched the filter.
         - `action` – Specifies whether the word was `BLOCKED` or replaced with an identifier (`ANONYMIZED`).
 
       - `regexes` – A list of assessments for each regex filter that was violated. Each filter contains the following fields:
+
         - `name` – The name of the regex filter.
         - `regex` – The PII type that was found.
         - `match` – The word or phrase that matched the filter.

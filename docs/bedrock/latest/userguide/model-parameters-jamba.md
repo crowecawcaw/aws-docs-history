@@ -21,6 +21,7 @@ The AI21 Labs Jamba models supports the following required fields:
   Each message includes the following members:
 - **Role** (`role`) – The role of the message author.
   One of the following values:
+
   - **User** (`user`) – Input provided by the user.
     Any instructions given here that conflict with instructions given in the `system` prompt take precedence
     over the `system` prompt instructions.

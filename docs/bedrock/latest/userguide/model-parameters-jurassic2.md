@@ -59,6 +59,7 @@ in the generated response.
   completion. The value is proportional to the frequency of the token appearances (normalized to
   text length).
 - **Penalize special tokens** – Reduce the probability of repetition of special characters. The default values are `true`.
+
   - **Whitespaces** (`applyToWhitespaces`) – A `true` value applies the penalty to whitespaces and new lines.
   - **Punctuations** (`applyToPunctuation`) – A `true` value applies the penalty to punctuation.
   - **Numbers** (`applyToNumbers`) – A `true` value applies the penalty to numbers.

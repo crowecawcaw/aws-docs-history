@@ -37,6 +37,7 @@ The following list describes the fields of [TracePart](../APIReference/API_agent
 - `sessionId` – The unique identifier of the session with the agent.
 - `trace` – Contains the agent's reasoning process and results from calling API actions. See below for more information.
 - `callerChain` – List of callers between the agent that published this trace and the end user.
+
   - If it is a single agent, this field will contain the alias Arn of the same agent who published the trace.
   - If multi-agent collaboration is enabled, this field will contain the alias Arn of all agents that forwarded the
     end user request to the current agent.
@@ -112,15 +113,19 @@ The [PreProcessingTrace](../APIReference/API_agent-runtime_PreProcessingTrace.md
 
 - `metadata` – Contains the following information
   about the foundation model output.
+
   - `usage` – Contains the following information of the usage of the foundation
     model.
+
     - `inputTokens` – Contains the information about the input tokens from the foundation model usage.
     - `outputTokens` – Contains the information about the output tokens from the foundation model usage.
 
 - `rawResponse` – Contains the raw output from the foundation model.
+
   - `content` – The foundation model's raw output content.
 
 - `parsedResponse` – Contains the following details about the parsed user prompt.
+
   - `isValid` – Specifies whether the user prompt is valid.
   - `rationale` – Specifies the agent's reasoning for the next steps to take.
 
@@ -210,6 +215,7 @@ The following list describes the fields of the [InvocationInput](../APIReference
   Appears if the `type` is
   `AGENT_COLLABORATOR` and if routing is enabled for the supervisor agent. For more information, see
   [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md").
+
   - The `agentCollaborationInvocationInput` structure is as follows:
 
   ```
@@ -233,6 +239,7 @@ The following list describes the fields of the [InvocationInput](../APIReference
   Appears if the `type` is
   `ACTION_GROUP`. For more information, see
   [Define actions in the action group](action-define.md "action-define.md"). Can be one of the following structures:
+
   - If the action group is defined by an API schema, the structure is as follows:
 
   ```
@@ -283,7 +290,6 @@ The following list describes the fields of the [InvocationInput](../APIReference
        the API schema.
       - `executionType` – Whether fulfillment of the action is passed to a Lambda function (`LAMBDA`) or control is returned through the `InvokeAgent` response (`RETURN_CONTROL`). For more information, see [Handle fulfillment of the action](action-handle.md "action-handle.md").
       - `invocationId` – The unique identifier of the invocation. Only returned if the `executionType` is `RETURN_CONTROL`.
-
   - If the action group is defined by function details, the structure is as follows:
 
   ```
@@ -316,6 +322,7 @@ The following list describes the fields of the [InvocationInput](../APIReference
       - `invocationId` – The unique identifier of the invocation. Only returned if the `executionType` is `RETURN_CONTROL`.
 
 - `knowledgeBaseLookupInput` – Appears if the `type` is `KNOWLEDGE_BASE`. For more information, see [Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases](knowledge-base.md "knowledge-base.md"). Contains the following information about the knowledge base and the search query for the knowledge base:
+
   - `knowledgeBaseId` – The unique identifier of the knowledge base that the agent will look up.
   - `text` – The query to be made to the knowledge base.
 
@@ -377,12 +384,14 @@ The following list describes the fields of the [Observation](../APIReference/API
   `AGENT_COLLABORATOR` and if routing is enabled for the supervisor agent. For more
   information, see [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md").
   Each response contains the following fields:
+
   - `agentCollaboratorName` – The name of the collaborator agent sending the response.
   - `agentCollaboratorAliasArn` – The alias Arn of the collaborator agent sending the response.
   - `output` – Contains the response sent by the collaborator agent.
 
 - `actionGroupInvocationOutput` – Contains the JSON-formatted string returned by the API operation that was invoked by the action group. Appears if the `type` is `ACTION_GROUP`. For more information, see [Define OpenAPI schemas for your agent's action groups in Amazon Bedrock](agents-api-schema.md "agents-api-schema.md").
 - `knowledgeBaseLookupOutput` – Contains text retrieved from the knowledge base that is relevant to responding to the prompt, alongside the Amazon S3 location of the data source. Appears if the `type` is `KNOWLEDGE_BASE`. For more information, see [Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases](knowledge-base.md "knowledge-base.md"). Each object in the list of `retrievedReferences` contains the following fields:
+
   - `content` – Contains `text` from the knowledge base that is returned from the knowledge base query.
   - `location` – Contains the Amazon S3 URI of the data source from which the returned text was found.
 
@@ -413,12 +422,15 @@ The following list describes the fields of the [Observation](../APIReference/API
 The [PostProcessingTrace](../APIReference/API_agent-runtime_PostProcessingTrace.md "../APIReference/API_agent-runtime_PostProcessingTrace.md") consists of a [ModelInvocationInput](../APIReference/API_agent-runtime_ModelInvocationInput.md "../APIReference/API_agent-runtime_ModelInvocationInput.md") object and a [PostProcessingModelInvocationOutput](../APIReference/API_agent-runtime_PostProcessingModelInvocationOutput.md "../APIReference/API_agent-runtime_PostProcessingModelInvocationOutput.md") object. The [PostProcessingModelInvocationOutput](../APIReference/API_agent-runtime_PostProcessingModelInvocationOutput.md "../APIReference/API_agent-runtime_PostProcessingModelInvocationOutput.md") contains the following fields:
 
 - `rawResponse` – Contains the raw output from the foundation model.
+
   - `content` – The foundation model's raw output content.
 
 - `metadata` – Contains the following information
   about the foundation model output.
+
   - `usage` – Contains the following information of the usage of the foundation
     model.
+
     - `inputTokens` – Contains the information about the input tokens from the foundation model usage.
     - `outputTokens` – Contains the information about the output tokens from the foundation model usage.
 

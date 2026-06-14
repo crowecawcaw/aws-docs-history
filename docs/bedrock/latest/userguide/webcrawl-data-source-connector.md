@@ -182,12 +182,15 @@ Console
 3. Provide the **Source URLs** of the URLs you want to crawl.
    You can add up to 9 additional URLs by selecting **Add Source URLs**. By providing a source URL, you are confirming that you are authorized to crawl its domain.
 4. In the **Advanced settings** section, you can optionally configure the following:
+
    - **KMS key for transient data storage.** – You can encrypt the transient data while converting your data into embeddings with the default AWS managed key or your own KMS key. For more information, see [Encryption of transient data storage during data ingestion](encryption-kb.md#encryption-kb-ingestion "encryption-kb.md#encryption-kb-ingestion").
    - **Data deletion policy** – You can delete the vector embeddings for your data source that are stored in the vector store by default, or choose to retain the vector store data.
 
 5. (Optional) Provide a user agent suffix for **bedrock-UUID-** that identifies the crawler or bot when it accesses a web server.
 6. Configure the following in the **Sync scope** section:
+
    1. Select a **Website domain range** for crawling your source URLs:
+
       - Default: Limit crawling to web pages that belong to the same host and with the
         same initial URL path. For example, with a seed URL of
         "https://aws.amazon.com/bedrock/" then only this path and web pages that extend
@@ -215,6 +218,7 @@ Console
    If there's a conflict, the exclude pattern takes precedence.
 
 7. (Optional) In the **Content parsing and chunking** section, you can customize how to parse and chunk your data. Refer to the following resources to learn more about these customizations:
+
    - For more information about parsing options, see [Parsing options for your data source](kb-advanced-parsing.md "kb-advanced-parsing.md").
    - For more information about chunking strategies, see [How content chunking works for knowledge bases](kb-chunking.md "kb-chunking.md").
 

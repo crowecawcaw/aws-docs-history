@@ -40,6 +40,7 @@ Before you import an Amazon Nova model, note the following:
 
 - You must use the US East (N. Virginia) region.
 - When you customize the model in SageMaker AI, you must use one of the following Amazon Nova models:
+
   - Amazon Nova Lite
   - Amazon Nova Micro
   - Amazon Nova Pro

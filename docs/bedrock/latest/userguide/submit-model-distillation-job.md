@@ -22,6 +22,7 @@ Console
 3. Choose **Create distillation job**.
 4. For **Distilled model details**, do the
    following:
+
    1. For **Distilled model name**, enter a
       name for your distilled model.
    2. (Optional) For **Model encryption**,
@@ -33,6 +34,7 @@ Console
 
 5. For **Job configuration**, do the
    following:
+
    1. For **Job name**, enter a name for
       your distillation job.
    2. (Optional) For **Model encryption**,

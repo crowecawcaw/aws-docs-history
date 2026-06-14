@@ -45,3 +45,4 @@ Amazon Bedrock has a concept of a Model Deployment Account—in each AWS Region 
 
 - [Data encryption](data-encryption.md "data-encryption.md")
 - [Protect your data using Amazon VPC and AWS PrivateLink](usingVPC.md "usingVPC.md")
+- [Data retention](data-retention.md "data-retention.md")

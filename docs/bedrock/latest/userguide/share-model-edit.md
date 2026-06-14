@@ -11,8 +11,11 @@ Console
 2. From the left navigation pane, choose **Custom models** under **Tune**.
 3. In the **Models** section, select a model that you want to update access to.
 4. In the **Model sharing details** section, do one of the following:
+
    - To share the model with another account, choose **Share** and then do the following:
+
      1. In the **Model sharing details** section, do the following:
+
         1. In the **Name for shared model** field, give the shared model a name.
         2. In the **Recipient account ID** field, specify the ID of the account that will receive the model.
         3. (Optional) To add tags, expand the **Tags** section. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").
@@ -20,6 +23,7 @@ Console
      2. Choose **Share model**. After the recipient accepts the model in [Resource Access Manager](../../../ram/latest/userguide/getting-started-shared.md "../../../ram/latest/userguide/getting-started-shared.md"), the model appears in their list of custom models.
 
    - To delete a model share and revoke access from the accounts specified in that model share, do the following:
+
      1. Select a model share and choose **Revoke shared model**.
      2. Review the message, type `revoke` in the text box, and choose **Revoke shared model** to confirm revoking of access.
 

@@ -10,6 +10,7 @@ Before using Amazon Bedrock's OpenAI-compatible fine-tuning APIs, ensure you hav
 
 1. An AWS account with appropriate permissions to access Amazon Bedrock
 2. **Authentication** – You can authenticate using:
+
    - Amazon Bedrock API key (required for OpenAI SDK and available for HTTP requests)
    - AWS credentials (supported for HTTP requests)
 

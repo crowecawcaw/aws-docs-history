@@ -41,6 +41,7 @@ If you already have an agent configured and want to assign supervisor role to th
    **Multi-agent collaboration**. This will
    identify the agent as a supervisor agent.
 4. In the **Collaboration configuration** section, choose how you want the supervisor agent to handle information across multiple collaborator agents to coordinate a final response.
+
    1. If you want supervisor agent to coordinate responses from the collaborator agents, select **Supervisor**.
    2. If you want supervisor agent to route information to the appropriate collaborator agent to send the final response, select **Supervisor with routing**.
    3. Continue with the next steps to add collaborator
@@ -51,6 +52,7 @@ If you already have an agent configured and want to assign supervisor role to th
 1. Expand the **Agent collaborator** section and
    provide details of the collaborator agent you created for
    multi-agent collaboration.
+
    1. For **Collaborator agent**, select a
       collaborator agent and **Agent alias**from the drop-down. You can choose **View** to view the details of the collaborator agent.
    2. For **Collaborator name**, enter an alternate name for your collaborator agent. This name will not replace the original name of this agent.
@@ -71,6 +73,7 @@ If you already have an agent configured and want to assign supervisor role to th
    collaborator agents.
 3. When you've finished adding collaborator agents, select one of the
    following options:
+
    - To stay in the **Multi-agent collaboration**, choose **Save** and continue with the next step to prepare and test your multi-agents collaboration team.
    - To return to the **Agent Details** page, choose **Save and exit**.
 

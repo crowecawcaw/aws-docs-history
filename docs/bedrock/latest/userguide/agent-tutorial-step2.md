@@ -24,6 +24,7 @@ For more information, see [Create and configure agent manually](agents-create.md
 6. (Optional) For **Description**, enter a description.
 7. Choose **Create**. The **Agent builder** pane opens.
 8. In the **Agent details** section:
+
    - For **Agent resource role**, select **Create
      and use a new service role**.
    - For **Select model**, select a model, such as

@@ -6,11 +6,13 @@ provide the following fields:
 - Name – Enter a name for the node.
 - Type – In the console, you drag and drop the type of node to use. In the API, use the `type` field and the corresponding [FlowNodeConfiguration](../APIReference/API_agent_FlowNodeConfiguration.md "../APIReference/API_agent_FlowNodeConfiguration.md") in the `configuration` field.
 - Inputs – Provide the following information for each input:
+
   - Name – A name for the input. Some nodes have pre-defined names or types that you must use. To learn which ones have pre-defined names, see [Logic node types](#flows-nodes-logic-table "#flows-nodes-logic-table").
   - Expression – Define the part of the whole input to use as the individual input. For more information, see [Use expressions to define inputs by extracting the relevant part of a whole input in Amazon Bedrock Flows](flows-expressions.md "flows-expressions.md").
   - Type – The data type for the input. When this node is reached at runtime, Amazon Bedrock applies the expression to the whole input and validates that the result matches the data type.
 
 - Outputs – Provide the following information for each output:
+
   - Name – A name for the output. Some nodes have pre-defined names or types that you must use. To learn which ones have pre-defined names, see [Logic node types](#flows-nodes-logic-table "#flows-nodes-logic-table").
   - Type – The data type for the output. When this node is reached at runtime, Amazon Bedrock validates that the node output matches the data type.
 
@@ -75,6 +77,7 @@ For an example, see [Create a flow with a condition node](flows-ex-condition.md 
 3. Connect each input to the relevant output from an upstream node.
 4. Add as many conditions as you need.
 5. For each condition:
+
    1. Enter a name for the condition.
    2. Use relational and logical operators to define a condition that compares inputs to other inputs or to a constant.
 

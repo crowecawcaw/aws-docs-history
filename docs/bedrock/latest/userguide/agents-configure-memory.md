@@ -19,6 +19,7 @@ Console
 ###### To configure memory for your agent
 
 1. If you're not already in the agent builder, do the following:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.
@@ -27,6 +28,7 @@ Console
 2. In the Agent details section, for **Select
    model**.
 3. In the **Memory** section, do the following:
+
    1. For **Enable session summarization**, select **Enabled**.
    2. (Optional) For **Memory duration**, enter a number between 1 and 365 to specify the memory duration for your agent. By default, agent retains conversational context for 30 days.
    3. For **Maximum number of recent sessions**, select a number for maximum number of recent sessions to store as memory.

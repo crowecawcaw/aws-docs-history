@@ -114,11 +114,13 @@ The following list describes the input event fields;
 - `actionGroup` – The name of the action group.
 - `parameters` – Contains a list of objects. Each object contains the name, type, and value of a parameter in the API operation, as defined in the OpenAPI schema, or in the function.
 - If you defined the action group with an API schema, the input event contains the following fields:
+
   - `apiPath` – The path to the API operation, as defined in the OpenAPI schema.
   - `httpMethod` – The method of the API operation, as defined in the OpenAPI schema.
   - `requestBody` – Contains the request body and its properties, as defined in the OpenAPI schema for the action group.
 
 - If you defined the action group with function details, the input event contains the following field:
+
   - `function` – The name of the function as defined in the function details for the action group.
 
 - `sessionAttributes` – Contains [session attributes](agents-session-state.md "agents-session-state.md") and their values. These attributes are stored over a [session](advanced-prompts.md#advanced-prompts-terminology "advanced-prompts.md#advanced-prompts-terminology") and provide context for the agent.
@@ -220,15 +222,19 @@ The following list describes the response fields:
 
 - `messageVersion` – The version of the message that identifies the format of the event data going into the Lambda function and the expected format of the response from a Lambda function. Amazon Bedrock only supports version 1.0.
 - `response` – Contains the following information about the API response.
+
   - `actionGroup` – The name of the action group.
   - If you defined the action group with an API schema, the following fields can be in the response:
+
     - `apiPath` – The path to the API operation, as defined in the OpenAPI schema.
     - `httpMethod` – The method of the API operation, as defined in the OpenAPI schema.
     - `httpStatusCode` – The HTTP status code returned from the API operation.
     - `responseBody` – Contains the response body, as defined in the OpenAPI schema.
 
   - If you defined the action group with function details, the following fields can be in the response:
+
     - `responseState` (Optional) – Set to one of the following states to define the agent's behavior after processing the action:
+
       - FAILURE – The agent throws a `DependencyFailedException` for the current session. Applies when the function execution fails because of a dependency failure.
       - REPROMPT – The agent passes a response string to the model to reprompt it. Applies when the function execution fails because of invalid input.
 

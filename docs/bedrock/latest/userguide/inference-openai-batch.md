@@ -33,6 +33,7 @@ OpenAI SDK
 - **Install an OpenAI SDK** – For more information, see [Libraries](https://platform.openai.com/docs/libraries "https://platform.openai.com/docs/libraries") in the OpenAI documentation.
 - **Batch JSONL file uploaded to S3** – Follow the steps at [Prepare your batch file](https://platform.openai.com/docs/guides/batch#1-prepare-your-batch-file "https://platform.openai.com/docs/guides/batch#1-prepare-your-batch-file") in the OpenAI documentation to prepare your batch file with the correct format. Then upload it to an Amazon S3 bucket.
 - **IAM permissions** – Make sure that you have the following IAM identities with the proper permissions:
+
   - An IAM identity that you authenticate with can carry out batch inference-related API operations. For more information, see [Required permissions for an IAM identity to submit and manage batch inference jobs](batch-inference-permissions.md "batch-inference-permissions.md").
   - The batch inference service role that you use can assume your identity, invoke the OpenAI model that you use, and has access to your batch JSONL file in S3. For more information, see [Service roles](security-iam-sr.md "security-iam-sr.md").
 
@@ -49,6 +50,7 @@ Set up your AWS credentials or generate an Amazon Bedrock API key to authenticat
 - **Model access** – Request access to an Amazon Bedrock model that supports this feature. For more information, see [Manage model access using SDK and CLI](model-access.md#model-access-modify "model-access.md#model-access-modify").
 - **Batch JSONL file uploaded to S3** – Follow the steps at [Prepare your batch file](https://platform.openai.com/docs/guides/batch#1-prepare-your-batch-file "https://platform.openai.com/docs/guides/batch#1-prepare-your-batch-file") in the OpenAI documentation to prepare your batch file with the correct format. Then upload it to an Amazon S3 bucket.
 - **IAM permissions** – Make sure that you have the following IAM identities with the proper permissions:
+
   - An IAM identity that you authenticate with can carry out batch inference-related API operations. For more information, see [Required permissions for an IAM identity to submit and manage batch inference jobs](batch-inference-permissions.md "batch-inference-permissions.md").
   - The batch inference service role that you use can assume your identity, invoke the OpenAI model that you use, and has access to your batch JSONL file in S3. For more information, see [Service roles](security-iam-sr.md "security-iam-sr.md").
 
@@ -93,12 +95,12 @@ OpenAI SDK (Python)
 To create a batch job with the OpenAI SDK, do the following:
 
 1. Import the OpenAI SDK and set up the client with the following fields:
+
    - `base_url` – Prefix the Amazon Bedrock Runtime endpoint to `/openai/v1`, as in the following format:
 
    ```
    https://`${bedrock-runtime-endpoint}`/openai/v1
    ```
-
    - `api_key` – Specify an Amazon Bedrock API key.
    - `default_headers` – If you need to include any headers, you can include them as key-value pairs in this object. You can alternatively specify headers in the `extra_headers` when making a specific API call.
 
@@ -184,12 +186,12 @@ OpenAI SDK (Python)
 To retrieve a batch job with the OpenAI SDK, do the following:
 
 1. Import the OpenAI SDK and set up the client with the following fields:
+
    - `base_url` – Prefix the Amazon Bedrock Runtime endpoint to `/openai/v1`, as in the following format:
 
    ```
    https://`${bedrock-runtime-endpoint}`/openai/v1
    ```
-
    - `api_key` – Specify an Amazon Bedrock API key.
    - `default_headers` – If you need to include any headers, you can include them as key-value pairs in this object. You can alternatively specify headers in the `extra_headers` when making a specific API call.
 
@@ -250,12 +252,12 @@ OpenAI SDK (Python)
 To list batch jobs with the OpenAI SDK, do the following:
 
 1. Import the OpenAI SDK and set up the client with the following fields:
+
    - `base_url` – Prefix the Amazon Bedrock Runtime endpoint to `/openai/v1`, as in the following format:
 
    ```
    https://`${bedrock-runtime-endpoint}`/openai/v1
    ```
-
    - `api_key` – Specify an Amazon Bedrock API key.
    - `default_headers` – If you need to include any headers, you can include them as key-value pairs in this object. You can alternatively specify headers in the `extra_headers` when making a specific API call.
 
@@ -314,12 +316,12 @@ OpenAI SDK (Python)
 To cancel a batch job with the OpenAI SDK, do the following:
 
 1. Import the OpenAI SDK and set up the client with the following fields:
+
    - `base_url` – Prefix the Amazon Bedrock Runtime endpoint to `/openai/v1`, as in the following format:
 
    ```
    https://`${bedrock-runtime-endpoint}`/openai/v1
    ```
-
    - `api_key` – Specify an Amazon Bedrock API key.
    - `default_headers` – If you need to include any headers, you can include them as key-value pairs in this object. You can alternatively specify headers in the `extra_headers` when making a specific API call.
 

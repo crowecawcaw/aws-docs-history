@@ -114,6 +114,7 @@ The following general example uses a prompt session attribute to provide tempora
 4. If a user uses a word indicating relative time, your code will send the `timeZone` prompt session attribute and the agent will store it for the duration of the [turn](advanced-prompts.md#advanced-prompts-terminology "advanced-prompts.md#advanced-prompts-terminology").
 5. For example, if a user asks `I need to book a hotel for tomorrow`, your code sends the user's time zone to the agent and the agent can determine the exact date that "tomorrow" refers to.
 6. The prompt session attribute can be used at the following steps.
+
    - If you include the $prompt\_session\_attributes$ [placeholder](prompt-placeholders.md "prompt-placeholders.md") in the orchestration prompt template, the orchestration prompt to the FM includes the prompt session attributes.
    - Prompt session attributes are sent in the [Lambda input event](agents-lambda.md#agents-lambda-input "agents-lambda.md#agents-lambda-input") and can be used to help populate API requests or returned in the [response](agents-lambda.md#agents-lambda-response "agents-lambda.md#agents-lambda-response").
 
@@ -123,6 +124,7 @@ If you configured an action group to [return control in an InvokeAgent response]
 
 - `invocationId` – This ID must match the `invocationId` returned in the [ReturnControlPayload](../APIReference/API_agent-runtime_ReturnControlPayload.md "../APIReference/API_agent-runtime_ReturnControlPayload.md") object in the `returnControl` field of the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") response.
 - `returnControlInvocationResults` – Includes results that you obtain from invoking the action. You can set up your application to pass the [ReturnControlPayload](../APIReference/API_agent-runtime_ReturnControlPayload.md "../APIReference/API_agent-runtime_ReturnControlPayload.md") object to perform an API request or call a function that you define. You can then provide the results of that action here. Each member of the `returnControlInvocationResults` list is one of the following:
+
   - An [ApiResult](../APIReference/API_agent-runtime_ApiResult.md "../APIReference/API_agent-runtime_ApiResult.md") object containing the API operation that the agent predicted should be called in a previous [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") sequence and the results from invoking the action in your systems. The general format is as follows:
 
   ```
@@ -140,7 +142,6 @@ If you configured an action group to [return control in an InvokeAgent response]
       }
   }
   ```
-
   - A [FunctionResult](../APIReference/API_agent-runtime_FunctionResult.md "../APIReference/API_agent-runtime_FunctionResult.md") object containing the function that the agent predicted should be called in a previous [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") sequence and the results from invoking the action in your systems. The general format is as follows:
 
   ```

@@ -28,6 +28,15 @@ The supported models are as follows:
 
 ###### Note
 
+Claude Mythos 5 and Claude Fable 5 do not support extended thinking. Requests with `thinking.type: "enabled"` or `thinking.type: "disabled"` will return a 400 error. These models use adaptive thinking exclusively. See [Adaptive thinking](claude-messages-adaptive-thinking.md "claude-messages-adaptive-thinking.md") for details.
+
+**Migration from extended thinking:**
+
+- Replace `{"type": "enabled", "budget_tokens": N}` with `{"type": "adaptive"}` and use `output_config.effort` to control thinking depth.
+- Remove `{"type": "disabled"}` — omitting the thinking parameter entirely gives you adaptive thinking by default.
+
+###### Note
+
 API behavior differs between Claude 3.7 and Claude 4 models. For more
 information, see [Differences in thinking across model versions](claude-messages-thinking-differences.md "claude-messages-thinking-differences.md").
 

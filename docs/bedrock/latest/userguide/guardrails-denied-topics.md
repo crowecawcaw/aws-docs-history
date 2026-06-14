@@ -14,6 +14,7 @@ detect if a prompt or response belongs to the topic:
 - **Name** – The name of the topic. The name
   should be a noun or a phrase. Don't describe the topic in the name. For
   example:
+
   - `Investment Advice`
 
 - **Definition** – Up to 200 characters
@@ -30,6 +31,7 @@ The following is an example topic definition that you can provide:
   up to five sample phrases that refer to the topic. Each phrase can be up to 100
   characters long. A sample is a prompt or continuation that shows what kind of
   content should be filtered out. For example:
+
   - `Is investing in the stocks better than
 bonds?`
   - `Should I invest in gold?`
@@ -73,6 +75,7 @@ Console
    **Create guardrail**.
 3. For **Provide guardrail details** page, do
    the following:
+
    1. In the **Guardrail details** section,
       provide a **Name** and optional
       **Description** for the
@@ -109,6 +112,7 @@ Console
 4. When you get to the **Add denied topics**
    page, choose **Add denied topic** and do the
    following:
+
    1. Enter a **Name** for the
       topic.
    2. For **Definition**, define the topic.
@@ -145,6 +149,7 @@ Console
       guardrail.
 
 5. Review the settings for your guardrail.
+
    1. Select **Edit** in any section you
       want to make changes to.
    2. When you're done configuring policies, select
@@ -194,6 +199,7 @@ Content-type: application/json
 - Specify topics for the guardrail to deny in the
   `topicPolicyConfig` object. Each item in the
   `topicsConfig` list pertains to one topic.
+
   - Specify a `name` and
     `definition` for the topic that should be
     denied.

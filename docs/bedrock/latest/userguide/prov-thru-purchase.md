@@ -26,6 +26,7 @@ Console
 3. In the **Provisioned Throughput** section, choose
    **Purchase Provisioned Throughput**.
 4. For the **Provisioned Throughput details** section, do the following:
+
    1. In the **Provisioned Throughput name** field, enter a name for the Provisioned Throughput.
    2. Under **Select model**, select a base model provider or a custom model category. Then select the model for which to provision throughput.
 
@@ -37,6 +38,7 @@ Console
 
 5. For **Provisioning mode**, select **By Model Units**
 6. For the **Commitment term & model units** section, do the following:
+
    1. In the **Select commitment term** section, select the amount of time for which you want to commit to using the Provisioned Throughput.
    2. In the **Model units** field, enter the desired number of model units (MUs). If you are provisioning a model with commitment, you must first visit the [AWS support center](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase") to request an increase in the number of MUs that you can purchase.
 

@@ -13,6 +13,7 @@ Console
 2. In the left-hand pane under **Inference and assessment**, select **Evaluations**.
 3. In the **RAG evaluations** pane, choose **Create**.
 4. Enter your RAG evaluation details by doing the following:
+
    1. In the **Evaluation details** pane under **Evaluation name**, enter a name for your evaluation job. The name
       you choose must be unique within your AWS Region.
    2. Optionally, under **Description - _optional_**, enter a description for your evaluation job.
@@ -22,10 +23,12 @@ Console
 5. Enter the inference source for your evaluation job. With Amazon Bedrock RAG evaluations, you can either evaluate the performance of Amazon Bedrock Knowledge Bases,
    or of other RAG sources by providing your own inference response data in the [prompt dataset](knowledge-base-evaluation-prompt.md "knowledge-base-evaluation-prompt.md").
    To select an Amazon Bedrock Knowledge Base, do the following:
+
    1. In the **Inference source** pane, under **Select source** select **Bedrock Knowledge Base**.
    2. Under **Choose a Knowledge Base**, select a Knowledge Base using the dropdown list.
 
 6. To bring your own inference response data, do the following:
+
    1. In the **Inference source** pane, under **Select source** select **Bring your own inference responses**.
    2. For **Source name**, enter a name for the RAG source you used to create the response data. The name you enter must match the
       `knowledgeBaseIdentifier` parameter in your [prompt dataset](knowledge-base-evaluation-prompt.md "knowledge-base-evaluation-prompt.md").
@@ -34,6 +37,7 @@ Console
 8. Select the built-in metrics you want the evaluator model to use by selecting
    at least one metric in the **Metrics** pane.
 9. Define your input and output locations for your dataset and results by doing the following:
+
    1. In the **Datasets** pane under **Choose a prompt dataset**, enter the Amazon S3 URI for your prompt dataset,
       or choose **Browse S3** and select your file. To see a definition of the required prompt dataset format for a retrieve-only
       evaluation job, see [Create a prompt dataset for retrieve-only RAG evaluation jobs](knowledge-base-evaluation-prompt-retrieve.md "knowledge-base-evaluation-prompt-retrieve.md").

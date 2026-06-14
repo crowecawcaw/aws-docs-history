@@ -11,6 +11,7 @@ Console
 1. From your knowledge base details page, scroll to the
    **Test knowledge base** section.
 2. Choose your query type:
+
    - **Standard retrieval only:**
      Query and retrieve information from data sources in a single
      Knowledge Base.
@@ -25,6 +26,7 @@ Console
    parser for retrieval and response generation.
 
 3. Configure additional options as needed:
+
    - **Source chunks:** Specify
      the maximum number of source chunks to return
    - **Search Type:** Select
@@ -38,6 +40,7 @@ Console
    only) to search your multimodal content. Use the attachment button
    to upload images for visual similarity search.
 5. Review the results, which include:
+
    - Retrieved content chunks with relevance scores
    - Source file references and timestamps (for
      audio/video)
@@ -142,6 +145,7 @@ structure is used in the vector database:
 
 - **Auto-created fields:** Additional fields
   for filtering and identification:
+
   - `x-amz-bedrock-kb-source-uri`: Original source URI for
     filtering operations
   - `x-amz-bedrock-kb-data-source-id`: Data source

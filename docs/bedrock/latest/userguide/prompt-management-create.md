@@ -60,6 +60,7 @@ Console
 ###### To configure your prompt
 
 1. If you're not already in the prompt builder, do the following:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. Select **Prompt management** from the left navigation pane. Then, choose a prompt in the **Prompts** section.
@@ -124,6 +125,7 @@ When you write a prompt, you can include variables in double curly braces (as in
     	+ To leave the comparison mode, choose **Exit compare mode**.
 
 4. You have the following options when you're finished configuring the prompt:
+
    - To save your prompt, choose **Save draft**. For more information about the draft version, see [Deploy a prompt to your application using versions in Prompt management](prompt-management-deploy.md "prompt-management-deploy.md").
    - To delete your prompt, choose **Delete**. For more information, see [Delete a prompt in Prompt management](prompt-management-delete.md "prompt-management-delete.md").
    - To create a version of your prompt, choose **Create version**. For more information about prompt versioning, see [Deploy a prompt to your application using versions in Prompt management](prompt-management-deploy.md "prompt-management-deploy.md").
@@ -173,6 +175,7 @@ Fill in the fields as follows:
 
 - name – Enter a name for the variant.
 - Include one of these fields, depending on the model invocation resource to use:
+
   - modelId – To specify a [foundation model](models-supported.md "models-supported.md") or [inference profile](cross-region-inference.md "cross-region-inference.md") to use with the prompt, enter its ARN or ID.
   - genAiResource – To specify an [agent](agents.md "agents.md"), enter its ID or ARN. The value of the `genAiResource` is a JSON object of the following format:
 
@@ -193,6 +196,7 @@ Fill in the fields as follows:
   `CHAT` is only compatible with models that support the
   [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API. If you want to use prompt caching, you must use the `CHAT` template type.
 - templateConfiguration – The value depends on the template type that you specified:
+
   - If you specified `TEXT` as the template type, the value should be a [TextPromptTemplateConfiguration](../APIReference/API_agent_TextPromptTemplateConfiguration.html.md "../APIReference/API_agent_TextPromptTemplateConfiguration.html.md") JSON object.
   - If you specified `CHAT` as the template type, the value should be a [ChatPromptTemplateConfiguration](../APIReference/API_agent_ChatPromptTemplateConfiguration.html.md "../APIReference/API_agent_ChatPromptTemplateConfiguration.html.md") JSON object.
 

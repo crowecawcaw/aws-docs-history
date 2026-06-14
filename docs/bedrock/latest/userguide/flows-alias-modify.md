@@ -13,6 +13,7 @@ Console
    select a flow.
 3. In the **Aliases** section, choose the option button next to the alias that you want to edit.
 4. You can edit the name and description of the alias. Additionally, you can perform one of the following actions:
+
    - To create a new version and associate this alias with that version, choose **Create a new version and associate it to this alias**.
    - To associate this alias with a different existing version, choose **Use an existing version and associate this alias**.
 

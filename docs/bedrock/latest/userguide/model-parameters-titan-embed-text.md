@@ -34,6 +34,7 @@ The fields are described below.
 - embedding – An array that represents the embedding vector of the input you provided. This will always be type `float`.
 - inputTextTokenCount – The number of tokens in the input.
 - embeddingsByType – A dictionary or map of the embedding list. Depends on the input, lists "float", "binary", or both.
+
   - Example: `"embeddingsByType": {"binary": [int,..], "float": [float,...]}`
   - This field will always appear. Even if you don't specify `embeddingTypes` in your input,
     there will still be “float”. Example: `"embeddingsByType": {"float": [float,...]}`

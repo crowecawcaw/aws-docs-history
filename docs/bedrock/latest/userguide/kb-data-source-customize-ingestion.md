@@ -23,10 +23,12 @@ You can't add an S3 location to store multimodal data (including images, figures
 The steps involved in choosing a parsing strategy depend on whether you use the AWS Management Console or the Amazon Bedrock API and the parsing method you choose. If you choose a parsing method that supports multimodal data, you must specify an S3 URI in which to store the multimodal data extracted from your documents. This data can be returned in knowledge base query.
 
 - In the AWS Management Console, do the following:
+
   1.  Select the parsing strategy when you connect to a data source while setting up a knowledge base or when you add a new data source to your existing knowledge base.
   2.  (If you choose Amazon Bedrock Data Automation or a foundation model as your parsing strategy) Specify an S3 URI in which to store the multimodal data extracted from your documents in the **Multimodal storage destination** section when you select an embeddings model and configure your vector store. You can also optionally use a customer managed key to encrypt your S3 data at this step.
 
 - In the Amazon Bedrock API, do the following:
+
   1.  (If you plan to use Amazon Bedrock Data Automation or a foundation model as your parsing strategy) Include a [SupplementalDataStorageLocation](../APIReference/API_agent_SupplementalDataStorageLocation.md "../APIReference/API_agent_SupplementalDataStorageLocation.md") in the [VectorKnowledgeBaseConfiguration](../APIReference/API_agent_VectorKnowledgeBaseConfiguration.md "../APIReference/API_agent_VectorKnowledgeBaseConfiguration.md") of a [CreateKnowledgeBase](../APIReference/API_agent_CreateKnowledgeBase.md "../APIReference/API_agent_CreateKnowledgeBase.md") request.
   2.  Include a [ParsingConfiguration](../APIReference/API_agent_ParsingConfiguration.md "../APIReference/API_agent_ParsingConfiguration.md") in the `parsingConfiguration` field of the [VectorIngestionConfiguration](../APIReference/API_agent_VectorIngestionConfiguration.md "../APIReference/API_agent_VectorIngestionConfiguration.md") in the [CreateDataSource](../APIReference/API_agent_CreateDataSource.md "../APIReference/API_agent_CreateDataSource.md") request.
 

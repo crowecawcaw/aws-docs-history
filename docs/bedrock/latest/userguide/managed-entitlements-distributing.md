@@ -36,6 +36,7 @@ The grant is created and will appear in the recipient account's License Manager 
 1. Follow steps 1-6 from the previous procedure.
 2. Under **Grant details**, enter a descriptive name for the grant in **Grant name**.
 3. Under **AWS account ID or AWS Organization ID or AWS Organizational Unit ID**, enter your AWS Organization ID.
+
    - To find your organization ID, open the AWS Organizations console. The ID appears in the navigation pane and starts with "o-".
 
 4. Review your grant details.
@@ -48,6 +49,7 @@ The grant is created and automatically distributed to all member accounts in you
 1. Follow steps 1-6 from the create individual grant procedure.
 2. Under **Grant details**, enter a descriptive name for the grant in **Grant name**.
 3. Under **AWS account ID or AWS Organization ID or AWS Organizational Unit ID**, enter your organizational unit (OU) ID.
+
    - To find your OU ID, open the AWS Organizations console and navigate to your OU. The ID starts with "ou-".
 
 4. Review your grant details.

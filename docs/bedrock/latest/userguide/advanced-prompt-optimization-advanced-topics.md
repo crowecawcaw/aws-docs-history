@@ -17,6 +17,7 @@ Two facts about the system make this work:
 
 - **The metric returns a single float value per sample.** The optimization feedback loop reads this scalar as the optimization signal. You can compute it from any number of sub-scores under the hood.
 - **Both metric backends already aggregate sub-scores internally.**
+
   - The default LLM-as-a-Judge template grades on three dimensions (Answer Accuracy, Answer Completeness, Expression Quality), assigns weights, and emits a single `Overall` score normalized to [0, 1]. Custom criteria are merged into the same scalar. For more information, see [Custom LLM-as-a-judge](advanced-prompt-optimization-evaluation.md#advanced-prompt-optimization-evaluation-llmj "advanced-prompt-optimization-evaluation.md#advanced-prompt-optimization-evaluation-llmj").
   - Lambda / custom-code metrics return one number, and you control how it's computed — including any composite of sub-objectives.
 

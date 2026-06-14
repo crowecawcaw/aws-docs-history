@@ -28,7 +28,7 @@ These embeddings are used to determine semantic similarity between queries and t
 the data sources. The following image illustrates pre-processing of data for the vector
 database.
 
-![Pre-processing data for retrieval-augmented generation](images/kb/rag-preprocess.png)
+![Pre-processing data for retrieval-augmented generation.](images/kb/rag-preprocess.png)
 Vector embeddings are a series of numbers that represent each chunk of text. A model
 converts each text chunk into series of numbers, known as vectors, so that the texts can
 be mathematically compared. These vectors can either be floating-point numbers (float32)
@@ -60,7 +60,7 @@ from the vector index. The prompt alongside the additional context is then sent 
 model to generate a response for the user. The following image illustrates how RAG
 operates at runtime to augment responses to user queries.
 
-![Retrieval-augmented generation at runtime](images/kb/rag-runtime.png)
+![Retrieval-augmented generation at runtime.](images/kb/rag-runtime.png)
 To learn more about how to turn your data into a knowledge base, how to query your
 knowledge base after you've set it up, and customizations that you can apply to the data
 source during ingestion, see the following topics:

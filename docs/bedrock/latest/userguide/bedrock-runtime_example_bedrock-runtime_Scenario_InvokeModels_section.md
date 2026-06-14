@@ -132,6 +132,7 @@ func (scenario InvokeModelsScenario) InvokeTitanImage(ctx context.Context, promp
 ```
 
 - For API details, see the following topics in _AWS SDK for Go API Reference_.
+
   - [InvokeModel](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.InvokeModel "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.InvokeModel")
   - [InvokeModelWithResponseStream](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.InvokeModelWithResponseStream "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/bedrockruntime#Client.InvokeModelWithResponseStream")
 
@@ -227,6 +228,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [InvokeModel](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeModelCommand.md")
   - [InvokeModelWithResponseStream](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeModelWithResponseStreamCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-runtime/command/InvokeModelWithResponseStreamCommand.md")
 
@@ -300,6 +302,7 @@ class GettingStartedWithBedrockRuntime
 ```
 
 - For API details, see the following topics in _AWS SDK for PHP API Reference_.
+
   - [InvokeModel](../../../goto/SdkForPHPV3/bedrock-runtime-2023-09-30/InvokeModel.md "../../../goto/SdkForPHPV3/bedrock-runtime-2023-09-30/InvokeModel.md")
   - [InvokeModelWithResponseStream](../../../goto/SdkForPHPV3/bedrock-runtime-2023-09-30/InvokeModelWithResponseStream.md "../../../goto/SdkForPHPV3/bedrock-runtime-2023-09-30/InvokeModelWithResponseStream.md")
 

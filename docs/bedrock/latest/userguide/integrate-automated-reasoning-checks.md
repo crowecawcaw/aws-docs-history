@@ -5,10 +5,61 @@ validate LLM responses and act on the feedback. This page explains how to call t
 validation API, interpret the findings programmatically, and implement common integration
 patterns such as rewriting invalid responses and asking clarifying questions.
 
-Automated Reasoning checks operate in _detect mode_ only — they
+Automated Reasoning checks operate in _detect mode_ only – they
 return findings and feedback rather than blocking content. Your application is responsible
 for deciding what to do with the findings: serve the response, rewrite it, ask for
 clarification, or fall back to a default behavior.
+
+## How Automated Reasoning checks evaluate content
+
+Automated Reasoning checks translate the content that you submit into a logical
+_implication_ – an "if/then" relationship – and then check that
+implication against your policy rules. The translation produces two kinds of logical
+statements:
+
+- **Premises** – The "if" side: the antecedent
+  conditions and scenario facts that set the context for reasoning (for example, a fact
+  the user states about their situation, or a condition the response makes its answer
+  depend on). Premises are optional.
+- **Claims** – The "then" side: the assertions to
+  validate against your policy rules (typically the substantive statements in the
+  model's response).
+
+Automated Reasoning checks decide which statements are premises and which are claims
+when they translate the content – the split is not taken directly from the input fields.
+What you control through the API is whether each piece of content enters as
+_user-side_ input (a question or stated condition) or
+_agent-side_ input (a response to validate). The `query`
+qualifier marks content as user-side; `guardContent` (or untagged text) marks
+it as agent-side; `groundingSource` is ignored by Automated Reasoning checks.
+The translation then derives the premises and claims from the combined input.
+
+Whether you have to tag content, and how, depends on the API that you use.
+
+| API                              | Tagging required? | How content enters Automated Reasoning checks                                                                                                                                                                                                                                                                                                                        |
+| -------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ApplyGuardrail`                 | No (optional)     | All content that you pass is evaluated. Each content block's<br>`qualifiers` set whether it enters as user-side<br>(`query`) or agent-side (`guard_content`) input; a block<br>with no qualifier defaults to agent-side. `ApplyGuardrail` does not<br>append a model response on your behalf, so your content must include at least<br>one agent-side (claim) block. |
+| `Converse` (plain text only)     | Yes               | Plain `text` blocks are not tagged, so Automated Reasoning checks<br>have no content to evaluate and are skipped<br>(`automatedReasoningPolicyUnits: 0`). Use a `guardContent`<br>block to opt in.                                                                                                                                                                   |
+| `Converse` (with `guardContent`) | Yes               | Use `qualifiers` on `guardContent` blocks to mark<br>user-side and agent-side content. The model's response is appended as an<br>agent-side (claim) block automatically.                                                                                                                                                                                             |
+| `InvokeModel`                    | Yes               | Wrap input text in XML tags and set `tagSuffix` in the request<br>configuration. The model's response is appended as an agent-side (claim) block<br>automatically.                                                                                                                                                                                                   |
+
+### Key differences between APIs
+
+- On `Converse` and `InvokeModel`, the model's response is
+  appended as an agent-side (claim) block automatically. As a result, an input that
+  you tag only with `query` still runs Automated Reasoning checks – the
+  response supplies the claim.
+- Omitting tags on `InvokeModel`, or sending only plain text on
+  `Converse`, does not produce an error, but Automated Reasoning checks
+  are not applied. The response indicates this with
+  `automatedReasoningPolicyUnits: 0`.
+- On `InvokeModel`, text between guardrail XML tags that carries no
+  qualifier defaults to agent-side (claim) content.
+- Automated Reasoning checks evaluate the response (the agent-side content);
+  they do not run on a standalone `INPUT`-only evaluation.
+- With `ApplyGuardrail`, no model response is appended for you, so the
+  content you submit must include at least one agent-side (claim) block. If it does
+  not, the request returns a `ValidationException`.
 
 ## Integration overview
 
@@ -16,81 +67,51 @@ At runtime, the integration follows this flow:
 
 ```
 
-User question ──► LLM generates response ──► ApplyGuardrail validates response
-                                                        │
-                                              ┌─────────┴─────────┐
-                                              │                   │
-                                            VALID              Not VALID
-                                              │                   │
-                                              ▼                   ▼
-                                        Serve response     Inspect findings
-                                        to user                  │
-                                                        ┌────────┴────────┐
-                                                        │                 │
-                                                   OTHER FINDING     TRANSLATION_
-                                                      TYPES       AMBIGUOUS / SATISFIABLE
-                                                        │                 │
-                                                        ▼                 ▼
-                                                   Rewrite using    Ask user for
-                                                   AR feedback      clarification
-                                                        │                 │
-                                                        ▼                 ▼
-                                                   Validate again   Validate with
-                                                                    clarified input
+User question ──► LLM generates response ──► Validate response
+                                                      │
+                                            ┌─────────┴─────────┐
+                                            │                   │
+                                          VALID              Not VALID
+                                            │                   │
+                                            ▼                   ▼
+                                      Serve response     Inspect findings
+                                      to user                  │
+                                                      ┌────────┴────────┐
+                                                      │                 │
+                                                 OTHER FINDING     TRANSLATION_
+                                                    TYPES       AMBIGUOUS / SATISFIABLE
+                                                      │                 │
+                                                      ▼                 ▼
+                                                 Rewrite using    Ask user for
+                                                 AR feedback      clarification
+                                                      │                 │
+                                                      ▼                 ▼
+                                                 Validate again   Validate with
+                                                                  clarified input
 
 ```
 
 Automated Reasoning findings are returned through any API that supports a Amazon Bedrock Guardrails
 configuration:
 
-- `ApplyGuardrail` — Standalone validation API. Use this when you want
+- `ApplyGuardrail` – Standalone validation API. Use this when you want
   to validate content independently of the LLM invocation. This is the recommended
   approach for Automated Reasoning checks because it gives you full control over what
   content is validated and when.
-- `Converse` and `InvokeModel` — LLM invocation APIs with
+- `Converse` and `InvokeModel` – LLM invocation APIs with
   guardrail configuration. Automated Reasoning findings are returned in the
   `trace` field of the response.
-- `InvokeAgent` and `RetrieveAndGenerate` — Agent and
-  knowledge base APIs with guardrail configuration.
-
-This page focuses on the `ApplyGuardrail` API because it provides the
-most flexibility for implementing the rewriting and clarification patterns described
-below. For information about using guardrails with the other APIs, see [Use a guardrail](guardrails-use.md "guardrails-use.md").
-
-## Open-source rewriting chatbot sample
-
-For a complete, production-style implementation of the patterns described on this
-page, see the [Automated Reasoning checks rewriting chatbot](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/responsible_ai/automated-reasoning-rewriting-chatbot "https://github.com/aws-samples/amazon-bedrock-samples/tree/main/responsible_ai/automated-reasoning-rewriting-chatbot") on GitHub. This sample
-application demonstrates:
-
-- An iterative rewriting loop where invalid responses are automatically corrected
-  based on AR feedback.
-- Follow-up questions when the LLM needs additional context from the user to
-  rewrite accurately.
-- A timeout mechanism that automatically resumes processing when users don't
-  respond to clarification questions.
-- Policy context injection into LLM prompts so the LLM can reference the full
-  policy rules during rewriting.
-- JSON audit logging of every validation iteration for compliance and
-  debugging.
-
-The sample uses a Python/Flask backend with a React frontend and communicates with
-Amazon Bedrock for LLM inference and Amazon Bedrock Guardrails for validation through the
-`ApplyGuardrail` API.
-
-###### Note
-
-The sample application includes the policy content directly in the LLM generation
-prompts to support any Automated Reasoning policy without requiring document uploads.
-In a production deployment, you would typically use RAG content or feed the LLM the
-original natural language document instead of the Automated Reasoning policy source
-code.
 
 ## Call ApplyGuardrail with Automated Reasoning checks
 
-Use the `ApplyGuardrail` API to validate content against your guardrail.
-The API accepts one or more content blocks and returns an assessment that includes
-Automated Reasoning findings.
+`ApplyGuardrail` evaluates all the content that you pass. Tagging is
+optional: by default each content block is treated as agent-side (claim) content and
+validated against your policy rules, which is the simplest integration path. To give
+Automated Reasoning checks additional context, you can set `qualifiers` on a
+content block to mark it as user-side (`query`) input. Unlike
+`Converse` and `InvokeModel`, `ApplyGuardrail` does not
+append a model response for you, so the content you submit must include at least one
+claim block; otherwise the request returns a `ValidationException`.
 
 ### Request structure
 
@@ -173,7 +194,7 @@ for assessment in response.get("assessments", []):
 
 The `ApplyGuardrail` response includes an `assessments`
 array. Each assessment contains an `automatedReasoningPolicy` object with
-a `findings` array. Each finding is a union type — exactly one of the
+a `findings` array. Each finding is a union type – exactly one of the
 following keys is present:
 
 - `valid`
@@ -186,7 +207,235 @@ following keys is present:
 
 For a detailed description of each finding type and its fields, see [Findings and validation results](automated-reasoning-checks-concepts.md#ar-concept-findings "automated-reasoning-checks-concepts.md#ar-concept-findings").
 
-## Interpret AR findings at runtime
+## Call Converse with Automated Reasoning checks
+
+Automated Reasoning checks run on a `Converse` request only when the
+request includes at least one `guardContent` block. A request that sends only
+plain `text` does not run Automated Reasoning checks.
+
+### Plain text only (Automated Reasoning checks skipped)
+
+If your `Converse` request uses only plain `text` blocks
+(no `guardContent` blocks), the text is not tagged for guardrail evaluation,
+so Automated Reasoning checks have nothing to evaluate and are skipped:
+
+```
+{
+  "messages": [{"role": "user", "content": [{"text": "Apply a 20% discount to my order"}]}]
+}
+```
+
+This request returns `automatedReasoningPolicyUnits: 0`. Other guardrail
+policies (content, topic, word, and sensitive information) still evaluate the content;
+only Automated Reasoning checks are skipped. To run Automated Reasoning checks, use a
+`guardContent` block as shown in the next section.
+
+###### Important
+
+When Automated Reasoning checks are skipped, the request still succeeds with no
+error – so a misconfigured request can silently go unvalidated. Always confirm your
+configuration by checking that `automatedReasoningPolicyUnits` is greater
+than `0` in the response. A value of `0` means Automated
+Reasoning checks did not run (for example, because the content was not tagged), even
+though the request succeeded.
+
+### Using guardContent blocks
+
+To run Automated Reasoning checks on `Converse`, wrap the content you
+want evaluated in a `guardContent` block and set its qualifiers. This is how
+you mark which content is user-side and which is agent-side.
+
+###### Note
+
+The `Converse` API uses snake_case for qualifier strings
+(`guard_content`, `grounding_source`), while
+`InvokeModel` XML tags use camelCase (`guardContent`,
+`groundingSource`). These map to the same underlying roles.
+
+The following table shows how each qualifier marks content for Automated Reasoning
+checks.
+
+| Qualifier string (snake_case) | XML tag equivalent (camelCase) | Automated Reasoning input role                                                                                                     |
+| ----------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `"query"`                     | `query`                        | \*_User-side_<br>• – the user's question or<br>stated conditions. Provides context that the translation can draw premises<br>from. |
+| `"guard_content"`             | `guardContent`                 | \*_Agent-side_<br>• – content to validate against<br>your policy. Supplies the claims the translation checks.                      |
+| `"grounding_source"`          | `groundingSource`              | Ignored by Automated Reasoning checks (used by contextual grounding<br>checks).                                                    |
+
+The qualifier sets only whether content is user-side or agent-side; Automated
+Reasoning checks derive the actual premises and claims when they translate the combined
+input. A block with no qualifiers specified defaults to `guard_content`
+(agent-side). You can specify multiple qualifiers on one block. The precedence order is
+`guard_content > query > grounding_source`.
+
+###### Note
+
+On `Converse`, the model's response is appended as an agent-side
+(claim) block automatically, so a request whose blocks use only `query`
+still runs Automated Reasoning checks. (When you call `ApplyGuardrail`
+directly, no response is appended, so you must supply at least one agent-side block
+yourself or the request returns a `ValidationException`.)
+
+### Example: Call Converse with Automated Reasoning qualifiers using the AWS CLI
+
+```
+aws bedrock-runtime converse \
+  --model-id "`model-id`" \
+  --guardrail-config '{
+    "guardrailIdentifier": "`your-guardrail-id`",
+    "guardrailVersion": "`1`",
+    "trace": "enabled"
+  }' \
+  --messages '[
+    {
+      "role": "user",
+      "content": [
+        {
+          "guardContent": {
+            "text": {
+              "text": "Apply a 20% discount to my order and confirm it is done.",
+              "qualifiers": ["query"]
+            }
+          }
+        }
+      ]
+    }
+  ]'
+```
+
+### When Automated Reasoning checks run
+
+The following table summarizes whether Automated Reasoning checks run for each
+`Converse` request shape. In every case where they run, the model's response
+is appended as an agent-side (claim) block.
+
+| Request shape                                                      | Automated Reasoning checks run?                                                                                                                                                                                                       |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Only plain `text` blocks, no `guardContent`                        | No – content is not tagged, so checks are skipped<br>(`automatedReasoningPolicyUnits: 0`)                                                                                                                                             |
+| Has `guardContent` blocks with `guard_content` or<br>no qualifiers | Yes                                                                                                                                                                                                                                   |
+| Has `guardContent` blocks with only `query`                        | Yes – the appended model response supplies the claim                                                                                                                                                                                  |
+| Has `guardContent` blocks with only<br>`grounding_source`          | Yes – the appended model response supplies the claim. The<br>`grounding_source` block itself is ignored (it contributes neither a<br>premise nor a claim), but the request still runs because the response provides<br>claim content. |
+
+## Call InvokeModel with Automated Reasoning checks
+
+###### Warning
+
+You must tag your input with XML guardrail tags for Automated Reasoning checks to
+evaluate responses. Without tags, Automated Reasoning checks return
+`automatedReasoningPolicyUnits: 0` – no error is raised and no evaluation
+occurs.
+
+### How it works
+
+`InvokeModel` requires two things for Automated Reasoning checks:
+
+1. A `tagSuffix` in the body's
+   `amazon-bedrock-guardrailConfig` object.
+2. Input text wrapped in XML tags that use that suffix.
+
+The XML tag format is as follows:
+
+```
+<amazon-bedrock-guardrails-`QUALIFIER`_`SUFFIX`>text</amazon-bedrock-guardrails-`QUALIFIER`_`SUFFIX`>
+```
+
+Where:
+
+- `QUALIFIER` is one of `query`,
+  `guardContent`, or `groundingSource` (camelCase in
+  XML).
+- `SUFFIX` matches the `tagSuffix` value in
+  the request body.
+- `tagSuffix` must match the pattern
+  `^[a-zA-Z0-9][a-zA-Z0-9-_]{0,18}[a-zA-Z0-9]$` (2–20
+  characters).
+
+### Tag roles for Automated Reasoning checks
+
+| XML tag qualifier | Automated Reasoning input role | Meaning                                                                                                    |
+| ----------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| `query`           | **User-side**                  | The user's question or stated conditions. Provides context that the<br>translation can draw premises from. |
+| `guardContent`    | **Agent-side**                 | Content to validate against your policy. Supplies the claims the<br>translation checks.                    |
+| `groundingSource` | Ignored                        | Not used by Automated Reasoning checks (used by contextual grounding<br>checks).                           |
+
+The qualifier sets only whether the tagged text is user-side or agent-side input;
+Automated Reasoning checks derive the premises and claims when they translate the
+combined input. Tag the user prompt with `query` to give the checks
+context. The model's output is automatically appended as an agent-side (claim) block,
+so tagging the prompt with `query` alone is enough for the checks to
+run.
+
+###### Note
+
+Text between guardrail tags that carries no qualifier defaults to agent-side
+(claim) content. Because `InvokeModel` appends the model's response as a
+claim, a request that tags the prompt only with `query` still runs
+Automated Reasoning checks. (This differs from a direct `ApplyGuardrail`
+call, which appends no response and so returns a `ValidationException` if
+you supply no claim content.)
+
+### Multi-tag precedence and nesting rules
+
+A single text segment can be wrapped in multiple nested tag types. When multiple
+tags apply to the same content, precedence determines the Automated Reasoning role:
+`guardContent > query > groundingSource`. If content is tagged with
+both `guardContent` and `query`, it is treated as a
+claim.
+
+The following nesting rules apply:
+
+- Tags of different types can be nested (for example,
+  `<amazon-bedrock-guardrails-query_arp><amazon-bedrock-guardrails-guardContent_arp>text</amazon-bedrock-guardrails-guardContent_arp></amazon-bedrock-guardrails-query_arp>`).
+- Tags of the same type cannot self-nest, and tags must be closed in the reverse
+  order that they were opened. An invalid tag structure returns a
+  `ValidationException`.
+
+### Example: Call InvokeModel with Automated Reasoning tags using the AWS CLI
+
+```
+aws bedrock-runtime invoke-model \
+  --model-id "`model-id`" \
+  --guardrail-identifier "`your-guardrail-id`" \
+  --guardrail-version "`1`" \
+  --trace "ENABLED" \
+  --cli-binary-format raw-in-base64-out \
+  --body '{
+    "anthropic_version": "bedrock-2023-05-31",
+    "max_tokens": 256,
+    "amazon-bedrock-guardrailConfig": {
+      "tagSuffix": "arp"
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "text": "<amazon-bedrock-guardrails-query_arp>Apply a 20% discount to my order and confirm it is done.</amazon-bedrock-guardrails-query_arp>"
+          }
+        ]
+      }
+    ]
+  }' \
+  output.json
+```
+
+This request returns `automatedReasoningPolicyUnits: 1`, with Automated
+Reasoning findings in the trace.
+
+### Default behavior (without tags)
+
+The same request without the XML tags uses plain text:
+
+```
+"text": "Apply a 20% discount to my order and confirm it is done."
+```
+
+This request returns `automatedReasoningPolicyUnits: 0` – Automated
+Reasoning checks did not run, and no error is raised. The guardrail still evaluates
+other policies (content, topic, word, and sensitive information), but Automated
+Reasoning checks are skipped entirely.
+
+## Interpret Automated Reasoning findings at runtime
 
 To act on Automated Reasoning findings programmatically, your application needs to
 extract the finding type, the translation details, and the supporting or contradicting
@@ -194,7 +443,7 @@ rules. The following sections explain how to parse each part of a finding.
 
 ### Determine the finding type
 
-Each finding is a union — exactly one key is present. Check which key exists to
+Each finding is a union – exactly one key is present. Check which key exists to
 determine the finding type:
 
 ```
@@ -215,30 +464,30 @@ Most finding types include a `translation` object that shows how
 Automated Reasoning checks translated the natural language input into formal logic.
 The translation contains:
 
-- `premises` — The conditions extracted from the input (for example,
+- `premises` – The conditions extracted from the input (for example,
   `isFullTime = true`, `tenureMonths = 24`).
-- `claims` — The assertions to validate (for example,
+- `claims` – The assertions to validate (for example,
   `eligibleForParentalLeave = true`).
-- `untranslatedPremises` — Parts of the input that could not be
+- `untranslatedPremises` – Parts of the input that could not be
   mapped to policy variables. These parts are not validated.
-- `untranslatedClaims` — Claims that could not be mapped to policy
+- `untranslatedClaims` – Claims that could not be mapped to policy
   variables.
 
 Check `untranslatedPremises` and `untranslatedClaims` to
 understand the scope of the validation. A `VALID` result only covers the
-translated claims — untranslated content is not verified.
+translated claims – untranslated content is not verified.
 
 ### Read the supporting or contradicting rules
 
 Depending on the finding type, the finding includes rules that explain the
 result:
 
-- `valid` findings include `supportingRules` — the policy
+- `valid` findings include `supportingRules` – the policy
   rules that prove the claims are correct.
-- `invalid` findings include `contradictingRules` — the
+- `invalid` findings include `contradictingRules` – the
   policy rules that the claims violate.
 - `satisfiable` findings include both a
-  `claimsTrueScenario` and a `claimsFalseScenario` — showing
+  `claimsTrueScenario` and a `claimsFalseScenario` – showing
   the conditions under which the claims are true and false.
 
 These rules and scenarios are the key inputs for the rewriting pattern described
@@ -248,8 +497,8 @@ in [Rewrite invalid responses using AR feedback](#rewrite-invalid-responses "#re
 
 A single validation request can return multiple findings. To determine the overall
 result, sort findings by severity and select the worst. The severity order from worst
-to best is: `TRANSLATION_AMBIGUOUS`, `IMPOSSIBLE`,
-`INVALID`, `SATISFIABLE`, `VALID`.
+to best is: `translationAmbiguous`, `impossible`,
+`invalid`, `satisfiable`, `valid`.
 
 ```
 SEVERITY_ORDER = {
@@ -280,15 +529,15 @@ def get_aggregate_result(findings):
 Use the aggregate result to decide what your application does next. The following
 table summarizes the recommended action for each result type.
 
-| Result                 | What it means                                                                                                                                | Recommended action                                                                                                                                                                                                                                        |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `valid`                | The response is mathematically proven correct given the premises and your<br>policy rules.                                                   | Serve the response to the user. Log the finding for audit purposes (see<br>[Build an audit trail](#build-audit-trail "#build-audit-trail")).                                                                                                              |
-| `invalid`              | The response contradicts your policy rules. The<br>`contradictingRules` field identifies which rules were<br>violated.                       | Rewrite the response using the AR feedback (see [Rewrite invalid responses using AR feedback](#rewrite-invalid-responses "#rewrite-invalid-responses")). If rewriting fails after<br>multiple attempts, block the response and return a fallback message. |
-| `satisfiable`          | The response is correct under some conditions but not all. It's not wrong,<br>but it's incomplete — it doesn't mention all the requirements. | Rewrite the response to include the missing conditions. Use the<br>`claimsFalseScenario` to identify what's missing. Alternatively,<br>you can let your LLM ask the user clarifying questions.                                                            |
-| `impossible`           | The premises are contradictory, or the policy contains conflicting<br>rules.                                                                 | Ask the user to clarify their input (see [Ask clarifying questions](#ask-clarifying-questions "#ask-clarifying-questions")). If the issue persists, it may<br>indicate a policy problem — review the quality report.                                      |
-| `translationAmbiguous` | The input has multiple valid interpretations. The translation models<br>disagreed on how to map the natural language to policy variables.    | Ask the user for clarification to resolve the ambiguity. Use the<br>`options` and `differenceScenarios` fields to generate<br>targeted clarifying questions.                                                                                              |
-| `tooComplex`           | The input exceeds processing limits for logical analysis.                                                                                    | Simplify the input by breaking it into smaller parts, or return a fallback<br>message explaining that the response could not be verified.                                                                                                                 |
-| `noTranslations`       | The input is not relevant to your policy's domain. No policy variables<br>could be mapped.                                                   | The content is off-topic for this policy. Serve the response without AR<br>validation, or use other guardrail components (such as topic policies) to<br>handle off-topic content.                                                                         |
+| Result                 | What it means                                                                                                                                | Recommended action                                                                                                                                                                                                                                                         |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `valid`                | The response is mathematically proven correct given the premises and your<br>policy rules.                                                   | Serve the response to the user. Log the finding for audit purposes (see<br>[Build an audit trail](#build-audit-trail "#build-audit-trail")).                                                                                                                               |
+| `invalid`              | The response contradicts your policy rules. The<br>`contradictingRules` field identifies which rules were<br>violated.                       | Rewrite the response using the Automated Reasoning feedback (see [Rewrite invalid responses using AR feedback](#rewrite-invalid-responses "#rewrite-invalid-responses")). If rewriting fails after<br>multiple attempts, block the response and return a fallback message. |
+| `satisfiable`          | The response is correct under some conditions but not all. It's not wrong,<br>but it's incomplete – it doesn't mention all the requirements. | Rewrite the response to include the missing conditions. Use the<br>`claimsFalseScenario` to identify what's missing. Alternatively,<br>you can let your LLM ask the user clarifying questions.                                                                             |
+| `impossible`           | The premises are contradictory, or the policy contains conflicting<br>rules.                                                                 | Ask the user to clarify their input (see [Ask clarifying questions](#ask-clarifying-questions "#ask-clarifying-questions")). If the issue persists, it may<br>indicate a policy problem – review the quality report.                                                       |
+| `translationAmbiguous` | The input has multiple valid interpretations. The translation models<br>disagreed on how to map the natural language to policy variables.    | Ask the user for clarification to resolve the ambiguity. Use the<br>`options` and `differenceScenarios` fields to generate<br>targeted clarifying questions.                                                                                                               |
+| `tooComplex`           | The input exceeds processing limits for logical analysis.                                                                                    | Simplify the input by breaking it into smaller parts, or return a fallback<br>message explaining that the response could not be verified.                                                                                                                                  |
+| `noTranslations`       | The input is not relevant to your policy's domain. No policy variables<br>could be mapped.                                                   | The content is off-topic for this policy. Serve the response without AR<br>validation, or use other guardrail components (such as topic policies) to<br>handle off-topic content.                                                                                          |
 
 ## Rewrite invalid responses using AR feedback
 
@@ -338,7 +587,7 @@ The rewriting prompt should include three pieces of information from the AR
 findings:
 
 1. The original response that failed validation.
-2. The specific finding — including the translated premises, claims, and the
+2. The specific finding – including the translated premises, claims, and the
    contradicting or supporting rules.
 3. An instruction to rewrite the response so that it is consistent with the
    policy rules.
@@ -403,18 +652,18 @@ validation attempt.
 
 ### When to ask for clarification
 
-- **`translationAmbiguous`** — The
+- **`translationAmbiguous`** – The
   input has multiple valid interpretations. The `options` field shows
   the competing interpretations, and the `differenceScenarios` field
   shows how they differ in practice. Use these to generate targeted questions
   about the specific ambiguity.
-- **`satisfiable`** — The response is
+- **`satisfiable`** – The response is
   correct under some conditions but not all. The
   `claimsFalseScenario` shows the conditions under which the response
   would be incorrect. Ask the user about those specific conditions.
-- **`impossible`** — The input contains
+- **`impossible`** – The input contains
   contradictory statements. Ask the user to clarify the contradiction.
-- **Rewriting fails** — If the LLM cannot rewrite
+- **Rewriting fails** – If the LLM cannot rewrite
   the response to be `valid` after multiple attempts, it may need
   additional context from the user. Ask the LLM to generate clarifying questions
   based on the findings.
@@ -425,7 +674,7 @@ The clarification flow works as follows:
 
 1. Extract the ambiguous variables or missing conditions from the AR
    findings.
-2. Generate clarifying questions — either programmatically from the finding
+2. Generate clarifying questions – either programmatically from the finding
    fields, or by asking the LLM to formulate questions based on the findings.
 3. Present the questions to the user and collect answers.
 4. Incorporate the answers into the context and generate a new response.
@@ -456,10 +705,39 @@ def generate_clarifying_questions(finding_data, user_question):
     return generate_response(prompt, "You are a helpful assistant.")
 ```
 
+## Open-source rewriting chatbot sample
+
+For a complete, production-style implementation of the patterns described on this
+page, see the [Automated Reasoning checks rewriting chatbot](https://github.com/aws-samples/amazon-bedrock-samples/tree/main/responsible_ai/automated-reasoning-rewriting-chatbot "https://github.com/aws-samples/amazon-bedrock-samples/tree/main/responsible_ai/automated-reasoning-rewriting-chatbot") on GitHub. This sample
+application demonstrates:
+
+- An iterative rewriting loop where invalid responses are automatically corrected
+  based on Automated Reasoning feedback.
+- Follow-up questions when the LLM needs additional context from the user to
+  rewrite accurately.
+- A timeout mechanism that automatically resumes processing when users don't
+  respond to clarification questions.
+- Policy context injection into LLM prompts so the LLM can reference the full
+  policy rules during rewriting.
+- JSON audit logging of every validation iteration for compliance and
+  debugging.
+
+The sample uses a Python/Flask backend with a React frontend and communicates with
+Amazon Bedrock for LLM inference and Amazon Bedrock Guardrails for validation through the
+`ApplyGuardrail` API.
+
+###### Note
+
+The sample application includes the policy content directly in the LLM generation
+prompts to support any Automated Reasoning policy without requiring document uploads.
+In a production deployment, you would typically use RAG content or feed the LLM the
+original natural language document instead of the Automated Reasoning policy source
+code.
+
 ## Build an audit trail
 
 Automated Reasoning findings provide mathematically verifiable proof of validity.
-For regulated industries and compliance scenarios, this proof is a key differentiator —
+For regulated industries and compliance scenarios, this proof is a key differentiator –
 you can demonstrate that an AI response was verified against specific policy rules with
 specific variable assignments, not just pattern-matched or probabilistically
 assessed.
@@ -475,7 +753,7 @@ request:
   (`valid`, `invalid`, etc.), the translated premises and
   claims, and the supporting or contradicting rules.
 - **Action taken.** What your application did with
-  the finding — served the response, rewrote it, asked for clarification, or blocked
+  the finding – served the response, rewrote it, asked for clarification, or blocked
   it.
 - **Rewriting history.** If the response was
   rewritten, log each iteration: the original response, the rewriting prompt, the

@@ -400,6 +400,7 @@ Inpaint has the following required parameters:
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
 - **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
 - **mask** ‐ (string) Controls the strength of the inpainting process on a per-pixel basis, either via a second image (passed into this parameter) or via the alpha channel of the image parameter.
+
   - **Passing in a Mask** ‐ The image passed to this parameter should be a black and white image that represents, at any pixel, the strength of inpainting based on how dark or light the given pixel is. Completely black pixels represent no inpainting strength while completely white pixels represent maximum strength. In the event the mask is a different size than the image parameter, it will be automatically resized.
   - **Alpha Channel Support** ‐ If you don't provide an explicit mask, one will be derived from the alpha channel of the image parameter. Transparent pixels will be inpainted while opaque pixels will be preserved. In the event an image with an alpha channel is provided along with a mask, the mask will take precedence.
 
@@ -862,6 +863,7 @@ Erase has the following required parameters:
 - **seed** ‐ (number) A specific value that is used to guide the 'randomness' of the generation. (Omit this parameter or pass 0 to use a random seed.) Range 0 to 4294967294. Default 0.
 - **output_format** ‐ (string) Dictates the content-type of the generated image. Enum: jpeg, png, webp. Default png.
 - **mask** ‐ (string) Controls the strength of the inpainting process on a per-pixel basis, either via a second image (passed into this parameter) or via the alpha channel of the image parameter.
+
   - **Passing in a Mask** ‐ The image passed to this parameter should be a black and white image that represents, at any pixel, the strength of inpainting based on how dark or light the given pixel is. Completely black pixels represent no inpainting strength while completely white pixels represent maximum strength. In the event the mask is a different size than the image parameter, it will be automatically resized.
   - **Alpha Channel Support** ‐ If you don't provide an explicit mask, one will be derived from the alpha channel of the image parameter. Transparent pixels will be inpainted while opaque pixels will be preserved. In the event an image with an alpha channel is provided along with a mask, the mask will take precedence.
 

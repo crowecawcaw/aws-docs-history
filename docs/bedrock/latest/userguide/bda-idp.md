@@ -105,6 +105,7 @@ To define a field, you need to specify the following parameters:
   field, aiding in the accurate extraction of data.
 - _Type:_ Specifies the data type of the field's value. BDA supports
   the following types:
+
   - string: For text-based values
   - number: For numerical values
   - boolean: For true or false values

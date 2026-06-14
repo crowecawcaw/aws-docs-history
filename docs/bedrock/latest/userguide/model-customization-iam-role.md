@@ -5,6 +5,7 @@ To use a custom role for model customization instead of the one Amazon Bedrock a
 - Trust relationship
 - Permissions to access your training and validation data in S3 and to write your output data to S3
 - (Optional) If you encrypt any of the following resources with a KMS key, permissions to decrypt the key (see [Encryption of custom models](encryption-custom-job.md "encryption-custom-job.md"))
+
   - A model customization job or the resulting custom model
   - The training, validation, or output data for the model customization
     job

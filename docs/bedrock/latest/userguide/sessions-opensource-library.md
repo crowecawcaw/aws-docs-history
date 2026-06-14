@@ -8,6 +8,7 @@ The following code sample shows how to use the BedrockSessionSaver LangGraph lib
 interacts with Claude. To use this code sample:
 
 - Install the required dependencies:
+
   - boto3
   - langgraph
   - langgraph-checkpoint-aws
@@ -15,6 +16,7 @@ interacts with Claude. To use this code sample:
 
 - Make sure you have access to the Claude 3.5 Sonnet v2 model in your account. Or you can modify the code to use a different model.
 - Replace `REGION` with your region:
+
   - This Region for your runtime client and the BedrockSessionSaver must match.
   - It must support Claude 3.5 Sonnet v2 (or the model you are using).
 

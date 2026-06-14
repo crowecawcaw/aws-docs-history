@@ -81,8 +81,10 @@ The following are required parameters.
 
 - **messages** – (Required) The
   messages that you want to pass to the model.
+
   - **role** – The role for the message.
     Valid values are:
+
     - **system** – Sets the behavior and context for the model in the conversation.
     - **user** – The user message to send to the model.
     - **assistant** – The response from the model.
@@ -209,8 +211,10 @@ The `body` response has the following fields:
 
 - **choices** – The output from the model.
   fields.
+
   - **index** – The index for the message.
   - **message** – The message from the model.
+
     - **role** – The role for the message.
     - **content** – The content for the message.
     - **tool_calls** – If the value of `stop_reason`
@@ -243,6 +247,7 @@ The `body` response has the following fields:
 
   - **stop_reason** – The reason why the response stopped
     generating text. Possible values are:
+
     - **stop** – The model has
       finished generating text for the input prompt. The model stops because it
       has no more content to generate or if the model generates one of the stop sequences that you define in the `stop`

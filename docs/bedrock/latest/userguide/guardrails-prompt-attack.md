@@ -99,6 +99,7 @@ Console
    **Create guardrail**.
 4. On the **Provide guardrail details**
    page, do the following:
+
    1. In the **Guardrail details**
       section, provide a **Name** and
       optional **Description** for the
@@ -136,6 +137,7 @@ Console
 5. On the **Configure content filters**
    page, configure prompt attack filters by doing the
    following:
+
    1. Select **Configure prompt attacks
       filter**.
    2. Choose **Block** or
@@ -159,6 +161,7 @@ Console
    guardrail.
 
 6. Review the settings for your guardrail.
+
    1. Select **Edit** in any section
       you want to make changes to.
    2. When you're done configuring policies, select
@@ -212,6 +215,7 @@ Content - type: application/json
   `filtersConfig` array, include a filter with
   `type` set to
   `PROMPT_ATTACK`.
+
   - Specify the strength of the filter for prompts in
     the `inputStrength` field. Choose from
     `NONE`, `LOW`,

@@ -10,6 +10,7 @@ The following examples show how to create a model evaluation job that uses human
 2. In the navigation pane, under **Inference and Assessment**, select **Evaluations**.
 3. In the **Model evaluation** pane, under **Human**, choose **Create** and select **Human: Bring your own work team**.
 4. On the **Specify job details** page provide the following.
+
    1. **Evaluation name** — Give the model evaluation
       job a name that describes the job. This name is shown in your model
       evaluation job list. The name must be unique in your account in an
@@ -22,11 +23,13 @@ The following examples show how to create a model evaluation job that uses human
    of other models by providing your own inference response data in your prompt dataset. You can select up to two inference sources. For jobs with two sources, you don't have to choose the same type
    for both sources; you can select one Amazon Bedrock model, and provide your own inference response data for the second source.
    To evaluate Amazon Bedrock models, do the following:
+
    1. Under **Select source**, select **Bedrock models**.
    2. Choose **Select model** to choose the model you want to evaluate.
    3. To select a second model, choose **Add model** and repeat the preceding steps.
 
 6. To bring your own inference response data, do the following:
+
    1. Under **Select source**, select **Bring your own inference responses**.
    2. For **Source Name**, enter a name for the model you used to create the response data. The name you
       enter must match the `modelIdentifier` parameter in your [prompt dataset](model-evaluation-prompt-datasets-custom-human.md#model-evaluation-prompt-datasets-custom-human-byoir "model-evaluation-prompt-datasets-custom-human.md#model-evaluation-prompt-datasets-custom-human-byoir").
@@ -38,6 +41,7 @@ The following examples show how to create a model evaluation job that uses human
    task type does not control the model's responses.
 8. In the **Datasets** pane, provide the
    following.
+
    1. Under **Choose a prompt dataset**, specify the
       S3 URI of your prompt dataset file or choose **Browse S3** to see available S3 buckets. You can have
       a maximum of 1000 prompts in a custom prompt dataset.
@@ -48,6 +52,7 @@ The following examples show how to create a model evaluation job that uses human
    customer managed key you want to use to encrypt your model evaluation job.
 10. In the **Amazon Bedrock IAM role – Permissions** pane, do the following. To learn more about the required permissions for
     model evaluations, see [Service role requirements for model evaluation jobs](model-evaluation-security-service-roles.md "model-evaluation-security-service-roles.md").
+
     1. To use an existing Amazon Bedrock service role, choose **Use an existing role**. Otherwise, use **Create a new role** to specify the details
        of your new IAM service role.
     2. In **Service role name**, specify the
@@ -57,6 +62,7 @@ The following examples show how to create a model evaluation job that uses human
 
 11. Choose **Next**.
 12. Under **Work team**, use the **Select team** dropdown to select an existing team, or create a new team by doing the following:
+
     1. Under **Team name**, enter a name for your team.
     2. Under **Email addresses**, enter the email addresses of the human workers
        in your team.

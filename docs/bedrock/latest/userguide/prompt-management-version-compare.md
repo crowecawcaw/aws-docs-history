@@ -10,6 +10,7 @@ The Amazon Bedrock console offers a tool to let you compare versions of a prompt
 3. In the **Versions** section, select the checkboxes next to two prompts to compare.
 4. Choose **Compare**.
 5. The JSON objects defining each prompt version are shown side by side. Differences between the versions are shown as follows:
+
    - Fields that exist in one version, but don't exist in the other, are marked by a plus (+) symbol and highlighted in green.
    - Fields that don't exist in one version, but exist in the other, are marked by a minus (-) symbol and highlighted in red.
 

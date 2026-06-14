@@ -22,6 +22,7 @@ Console
 ###### To delete a knowledge base
 
 1. Before the following steps, make sure to delete the knowledge base from any agents that it's associated with. To do this, carry out the following steps:
+
    1. From the left navigation pane, select **Agents**.
    2. Choose the **Name** of the agent that you want to delete the knowledge base from.
    3. A red banner appears to warn you to delete the reference to the knowledge base, which no longer exists, from the agent.

@@ -119,6 +119,7 @@ public class VideoGenerationService {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [GetAsyncInvoke](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/GetAsyncInvoke.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/GetAsyncInvoke.md")
   - [StartAsyncInvoke](../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/StartAsyncInvoke.md "../../../goto/SdkForJavaV2/bedrock-runtime-2023-09-30/StartAsyncInvoke.md")
 

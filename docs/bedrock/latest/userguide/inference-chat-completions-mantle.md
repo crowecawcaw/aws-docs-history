@@ -228,11 +228,13 @@ For more details on supported models, Regions, and advanced features with the `b
 To include safeguards in model input and responses, apply a [guardrail](guardrails.md "guardrails.md") when running model invocation by including the following [extra parameters](https://github.com/openai/openai-python#undocumented-request-params "https://github.com/openai/openai-python#undocumented-request-params") as fields in the request body:
 
 - `extra_headers` – Maps to an object containing the following fields, which specify extra headers in the request:
+
   - `X-Amzn-Bedrock-GuardrailIdentifier` (required) – The ID of the guardrail.
   - `X-Amzn-Bedrock-GuardrailVersion` (required) – The version of the guardrail.
   - `X-Amzn-Bedrock-Trace` (optional) – Whether or not to enable the guardrail trace.
 
 - `extra_body` – Maps to an object. In that object, you can include the `amazon-bedrock-guardrailConfig` field, which maps to an object containing the following fields:
+
   - `tagSuffix` (optional) – Include this field for [input tagging](guardrails-tagging.md "guardrails-tagging.md").
 
 For more information about these parameters in Amazon Bedrock Guardrails, see [Test your guardrail](guardrails-test.md "guardrails-test.md").

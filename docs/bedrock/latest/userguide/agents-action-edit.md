@@ -13,6 +13,7 @@ Console
 4. In the **Action groups** section, select an action group to edit. Then choose **Edit**.
 5. Edit the existing fields as necessary. For more information, see [Use action groups to define actions for your agent to perform](agents-action-create.md "agents-action-create.md").
 6. To define the schema for the action group with the in-line OpenAPI schema editor, for **Select API schema**, choose **Define with in-line OpenAPI schema editor**. A sample schema appears that you can edit. You can configure the following options:
+
    - To import an existing schema from Amazon S3 to edit, choose **Import schema**, provide the Amazon S3 URI, and select **Import**.
    - To restore the schema to the original sample schema, choose **Reset** and then confirm the message that appears by choosing **Confirm**.
    - To select a different format for the schema, use the dropdown menu labeled **JSON**.

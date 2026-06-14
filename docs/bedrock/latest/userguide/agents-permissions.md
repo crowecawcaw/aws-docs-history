@@ -156,6 +156,7 @@ If your agent uses an [inference profile](inference-profiles-support.md "inferen
 
 - Add the inference profile ARN to the `Resource` list. The format is `arn:aws:bedrock:`region`:`account-id`:inference-profile/`inference-profile-id``.
 - Add the following actions to the `Action` list:
+
   - `bedrock:InvokeModelWithResponseStream`
   - `bedrock:GetInferenceProfile`
   - `bedrock:GetFoundationModel`

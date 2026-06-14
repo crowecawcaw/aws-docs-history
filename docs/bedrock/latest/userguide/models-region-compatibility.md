@@ -225,9 +225,50 @@ Now, let us look at Regional availability across all the models supported by Ama
 
 ## Anthropic
 
+| [Claude Mythos 5](model-card-anthropic-claude-mythos-5.md "model-card-anthropic-claude-mythos-5.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                            |        |           |     |
+
+| [Claude Fable 5](model-card-anthropic-claude-fable-5.md "model-card-anthropic-claude-fable-5.md") | Region | In-Region | Geo | Global |
+| ------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                         |        |           |     |
+| `us-east-2` (Ohio)                                                                                |        |           |     |
+| `us-west-1` (N. California)                                                                       |        |           |     |
+| `us-west-2` (Oregon)                                                                              |        |           |     |
+| `ca-central-1` (Canada)                                                                           |        |           |     |
+| `ca-west-1` (Calgary)                                                                             |        |           |     |
+| `eu-central-1` (Frankfurt)                                                                        |        |           |     |
+| `eu-central-2` (Zurich)                                                                           |        |           |     |
+| `eu-north-1` (Stockholm)                                                                          |        |           |     |
+| `eu-south-1` (Milan)                                                                              |        |           |     |
+| `eu-south-2` (Spain)                                                                              |        |           |     |
+| `eu-west-1` (Ireland)                                                                             |        |           |     |
+| `eu-west-2` (London)                                                                              |        |           |     |
+| `eu-west-3` (Paris)                                                                               |        |           |     |
+| `ap-east-2` (Taipei)                                                                              |        |           |     |
+| `ap-northeast-1` (Tokyo)                                                                          |        |           |     |
+| `ap-northeast-2` (Seoul)                                                                          |        |           |     |
+| `ap-northeast-3` (Osaka)                                                                          |        |           |     |
+| `ap-south-1` (Mumbai)                                                                             |        |           |     |
+| `ap-south-2` (Hyderabad)                                                                          |        |           |     |
+| `ap-southeast-1` (Singapore)                                                                      |        |           |     |
+| `ap-southeast-2` (Sydney)                                                                         |        |           |     |
+| `ap-southeast-3` (Jakarta)                                                                        |        |           |     |
+| `ap-southeast-4` (Melbourne)                                                                      |        |           |     |
+| `ap-southeast-5` (Malaysia)                                                                       |        |           |     |
+| `ap-southeast-6` (New Zealand)                                                                    |        |           |     |
+| `ap-southeast-7` (Thailand)                                                                       |        |           |     |
+| `il-central-1` (Tel Aviv)                                                                         |        |           |     |
+| `me-central-1` (UAE)                                                                              |        |           |     |
+| `me-south-1` (Bahrain)                                                                            |        |           |     |
+| `af-south-1` (Cape Town)                                                                          |        |           |     |
+| `sa-east-1` (São Paulo)                                                                           |        |           |     |
+| `mx-central-1` (Mexico)                                                                           |        |           |     |
+
 | [Claude Mythos Preview](model-card-anthropic-claude-mythos-preview.md "model-card-anthropic-claude-mythos-preview.md") | Region | In-Region | Geo | Global |
 | ---------------------------------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
 | `us-east-1` (N. Virginia)                                                                                              |        |           |     |
+| `ap-southeast-4` (Melbourne)                                                                                           |        |           |     |
 
 | [Claude Sonnet 4](model-card-anthropic-claude-sonnet-4.md "model-card-anthropic-claude-sonnet-4.md") | Region | In-Region                | Geo | Global |
 | ---------------------------------------------------------------------------------------------------- | ------ | ------------------------ | --- | ------ |
@@ -693,6 +734,27 @@ Now, let us look at Regional availability across all the models supported by Ama
 
 ## Google
 
+| [Gemma 4 31B](model-card-google-gemma-4-31b.md "model-card-google-gemma-4-31b.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                          |        |           |     |
+| `us-east-2` (Ohio)                                                                 |        |           |     |
+| `us-west-2` (Oregon)                                                               |        |           |     |
+| `eu-central-1` (Frankfurt)                                                         |        |           |     |
+
+| [Gemma 4 26B-A4B](model-card-google-gemma-4-26b-a4b.md "model-card-google-gemma-4-26b-a4b.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                                      |        |           |     |
+| `us-east-2` (Ohio)                                                                             |        |           |     |
+| `us-west-2` (Oregon)                                                                           |        |           |     |
+| `eu-central-1` (Frankfurt)                                                                     |        |           |     |
+
+| [Gemma 4 E2B](model-card-google-gemma-4-e2b.md "model-card-google-gemma-4-e2b.md") | Region | In-Region | Geo | Global |
+| ---------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                                          |        |           |     |
+| `us-east-2` (Ohio)                                                                 |        |           |     |
+| `us-west-2` (Oregon)                                                               |        |           |     |
+| `eu-central-1` (Frankfurt)                                                         |        |           |     |
+
 | [Gemma 3 27B PT](model-card-google-gemma-3-27b-pt.md "model-card-google-gemma-3-27b-pt.md") | Region | In-Region | Geo | Global |
 | ------------------------------------------------------------------------------------------- | ------ | --------- | --- | ------ |
 | `us-east-1` (N. Virginia)                                                                   |        |           |     |
@@ -1119,10 +1181,12 @@ Now, let us look at Regional availability across all the models supported by Ama
 
 | [GPT-5.5](model-card-openai-gpt-55.md "model-card-openai-gpt-55.md") | Region | In-Region | Geo | Global |
 | -------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                            |        |           |     |
 | `us-east-2` (Ohio)                                                   |        |           |     |
 
 | [GPT-5.4](model-card-openai-gpt-54.md "model-card-openai-gpt-54.md") | Region | In-Region | Geo | Global |
 | -------------------------------------------------------------------- | ------ | --------- | --- | ------ |
+| `us-east-1` (N. Virginia)                                            |        |           |     |
 | `us-east-2` (Ohio)                                                   |        |           |     |
 | `us-west-2` (Oregon)                                                 |        |           |     |
 | `us-gov-west-1` (GovCloud)                                           |        |           |     |

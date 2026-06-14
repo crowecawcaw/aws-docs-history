@@ -108,6 +108,7 @@ The `inPaintingParams` fields are described below. The _mask_ defines the part o
 
 - **image** (Required) – The JPEG or PNG image to modify, formatted as a string that specifies a sequence of pixels, each defined in RGB values and encoded in base64. For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#model-parameters-titan-image-code-examples "#model-parameters-titan-image-code-examples").
 - You must define one of the following fields (but not both) to define.
+
   - **maskPrompt** – A text prompt that defines the mask.
   - **maskImage** – A string that defines the mask by specifying a sequence of pixels that is the same size as the `image`. Each pixel is turned into an RGB value of (0 0 0) (a pixel inside the mask) or (255 255 255) (a pixel outside the mask). For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#model-parameters-titan-image-code-examples "#model-parameters-titan-image-code-examples").
 
@@ -152,6 +153,7 @@ The `outPaintingParams` fields are defined below. The _mask_ defines the Region 
 
 - **image** (Required) – The JPEG or PNG image to modify, formatted as a string that specifies a sequence of pixels, each defined in RGB values and encoded in base64. For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#model-parameters-titan-image-code-examples "#model-parameters-titan-image-code-examples").
 - You must define one of the following fields (but not both) to define.
+
   - **maskPrompt** – A text prompt that defines the mask.
   - **maskImage** – A string that defines the mask by specifying a sequence of pixels that is the same size as the `image`. Each pixel is turned into an RGB value of (0 0 0) (a pixel inside the mask) or (255 255 255) (a pixel outside the mask). For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#model-parameters-titan-image-code-examples "#model-parameters-titan-image-code-examples").
 
@@ -163,6 +165,7 @@ The `outPaintingParams` fields are defined below. The _mask_ defines the Region 
 Don't use negative words in the `negativeText` prompt. For example, if you don't want to include mirrors in an image, enter `mirrors` in the `negativeText` prompt. Don't enter `no mirrors`.
 
 - **outPaintingMode** – Specifies whether to allow modification of the pixels inside the mask or not. The following values are possible.
+
   - DEFAULT – Use this option to allow modification of the image inside the mask to keep it consistent with the reconstructed background.
   - PRECISE – Use this option to prevent modification of the image inside the mask.
 
@@ -345,6 +348,7 @@ The response body is a streaming object that contains one of the following field
 
 - `images` – If the request is successful, it returns this field, a list of base64-encoded strings, each defining a generated image. Each image is formatted as a string that specifies a sequence of pixels, each defined in RGB values and encoded in base64. For examples of how to encode an image into base64 and decode a base64-encoded string and transform it into an image, see the [code examples](#model-parameters-titan-image-code-examples "#model-parameters-titan-image-code-examples").
 - `error` – If the request violates the content moderation policy in one of the following situations, a message is returned in this field.
+
   - If the input text, image, or mask image is flagged by the content moderation policy.
   - If at least one output image is flagged by the content moderation policy
 

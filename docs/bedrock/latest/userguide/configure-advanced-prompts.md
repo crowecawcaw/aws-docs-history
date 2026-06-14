@@ -35,6 +35,7 @@ One Lambda function is used for all the prompt templates.
     You must attach permissions for your agent so that it can access the Lambda function. For more information, see [Resource-based policy to allow Amazon Bedrock to invoke an action group Lambda function](agents-permissions.md#agents-permissions-lambda "agents-permissions.md#agents-permissions-lambda").
 
 11. To save your settings, choose one of the following options:
+
     1.  To remain in the same window so that you can dynamically update the prompt settings while testing your updated agent, choose **Save**.
     2.  To save your settings and return to the **Working draft** page, choose **Save and exit**.
 
@@ -70,16 +71,19 @@ To configure advanced prompts by using the API operations, you send an [UpdateAg
 1. In the `promptConfigurations` list, include a `promptConfiguration` object for each prompt template that you want to edit.
 2. Specify the prompt to modify in the `promptType` field.
 3. Modify the prompt template through the following steps:
+
    1. Specify the `basePromptTemplate` fields with your prompt template.
    2. Include inference parameters in the `inferenceConfiguration` objects. For more information about inference configurations, see [Inference request parameters and response fields for foundation models](model-parameters.md "model-parameters.md").
 
 4. To enable the prompt template, set the `promptCreationMode` to `OVERRIDDEN`.
 5. To allow or prevent the agent from performing the step in the `promptType` field, modify the `promptState` value. This setting can be useful for troubleshooting the agent's behavior.
+
    - If you set `promptState` to `DISABLED` for the `PRE_PROCESSING`, `KNOWLEDGE_BASE_RESPONSE_GENERATION`, or `POST_PROCESSING` steps, the agent skips that step.
    - If you set `promptState` to `DISABLED` for the `ORCHESTRATION` step, the agent sends only the user input to the foundation model in orchestration. In addition, the agent returns the response as is without orchestrating calls between API operations and knowledge bases.
    - By default, the `POST_PROCESSING` step is `DISABLED`. By default, the `PRE_PROCESSING`, `ORCHESTRATION`, and `KNOWLEDGE_BASE_RESPONSE_GENERATION` steps are `ENABLED`.
    - By default, the `MEMORY_SUMMARIZATION` step is `ENABLED` if Memory is enabled and the `MEMORY_SUMMARIZATION` step is `DISABLED` if Memory is disabled.
 
 6. To use a Lambda function that you have defined to parse the raw foundation model output, perform the following steps:
+
    1. For each prompt template that you want to enable the Lambda function for, set `parserMode` to `OVERRIDDEN`.
    2. Specify the Amazon Resource Name (ARN) of the Lambda function in the `overrideLambda` field in the `promptOverrideConfiguration` object.

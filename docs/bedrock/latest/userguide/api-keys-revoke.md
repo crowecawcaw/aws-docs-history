@@ -3,6 +3,7 @@
 If your API key becomes compromised, you should revoke permissions to use it. There are various methods that you can use to revoke permissions for an Amazon Bedrock API key:
 
 - For long-term Amazon Bedrock API keys, you can use the [UpdateServiceSpecificCredential](../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_UpdateServiceSpecificCredential.html.md"), [ResetServiceSpecificCredential](../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_ResetServiceSpecificCredential.html.md"), or [DeleteServiceSpecificCredential](../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html.md "../../../IAM/latest/APIReference/API_DeleteServiceSpecificCredential.html.md") to revoke permissions in the following ways:
+
   - Set the status of the key to inactive. You can reactivate the key later.
   - Reset the key. This action generates a new password for the key.
   - Delete the key permanently.

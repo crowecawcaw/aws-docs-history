@@ -193,6 +193,7 @@ client.prepare_flow(flowIdentifier=flow_id)
 ```
 
 5. Version the working draft of your flow to create a static snapshot of your flow and then retrieve information about it with the following actions:
+
    1. Create a version by running the following code snippet to make a [CreateFlowVersion](../APIReference/API_agent_CreateFlowVersion.md "../APIReference/API_agent_CreateFlowVersion.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"):
 
    ```
@@ -200,13 +201,11 @@ client.prepare_flow(flowIdentifier=flow_id)
 
    flow_version = response.get("version")
    ```
-
    2. List all versions of your flow by running the following code snippet to make a [ListFlowVersions](../APIReference/API_agent_ListFlowVersions.md "../APIReference/API_agent_ListFlowVersions.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"):
 
    ```
    client.list_flow_versions(flowIdentifier=flow_id)
    ```
-
    3. Get information about the version by running the following code snippet to make a [GetFlowVersion](../APIReference/API_agent_GetFlowVersion.md "../APIReference/API_agent_GetFlowVersion.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"):
 
    ```
@@ -214,6 +213,7 @@ client.prepare_flow(flowIdentifier=flow_id)
    ```
 
 6. Create an alias to point to the version of your flow that you created and then retrieve information about it with the following actions:
+
    1. Create an alias and point it to the version you just created by running the following code snippet to make a [CreateFlowAlias](../APIReference/API_agent_CreateFlowAlias.md "../APIReference/API_agent_CreateFlowAlias.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"):
 
    ```
@@ -230,13 +230,11 @@ client.prepare_flow(flowIdentifier=flow_id)
 
    flow_alias_id = response.get("id")
    ```
-
    2. List all aliases of your flow by running the following code snippet to make a [ListFlowAliass](../APIReference/API_agent_ListFlowAliass.md "../APIReference/API_agent_ListFlowAliass.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"):
 
    ```
    client.list_flow_aliases(flowIdentifier=flow_id)
    ```
-
    3. Get information about the alias that you just created by running the following code snippet to make a [GetFlowAlias](../APIReference/API_agent_GetFlowAlias.md "../APIReference/API_agent_GetFlowAlias.md") request with an [Agents for Amazon Bedrock build-time endpoint](../../../general/latest/gr/bedrock.md#bra-bt "../../../general/latest/gr/bedrock.md#bra-bt"):
 
    ```

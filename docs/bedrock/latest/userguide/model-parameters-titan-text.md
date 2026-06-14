@@ -80,9 +80,11 @@ The response body contains the following fields:
 
 - **inputTextTokenCount** – The number of tokens in the prompt.
 - **results** – An array of one item, an object containing the following fields:
+
   - **tokenCount** – The number of tokens in the response.
   - **outputText** – The text in the response.
   - **completionReason** – The reason the response finished being generated. The following reasons are possible:
+
     - FINISHED – The response was fully generated.
     - LENGTH – The response was truncated because of the response length you set.
     - STOP_CRITERIA_MET – The response was truncated because the stop criteria was reached.
@@ -112,6 +114,7 @@ the following format. You must decode the `bytes` field (see [Submit a single pr
 - **totalOutputTextTokenCount** – The number of tokens in the response.
 - **outputText** – The text in the response.
 - **completionReason** – The reason the response finished being generated. The following reasons are possible.
+
   - FINISHED – The response was fully generated.
   - LENGTH – The response was truncated because of the response length you set.
   - STOP_CRITERIA_MET – The response was truncated because the stop criteria was reached.

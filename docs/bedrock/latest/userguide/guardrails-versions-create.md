@@ -10,6 +10,7 @@ Console
    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 2. Select **Guardrails** from the left navigation pane in the Amazon Bedrock console and choose the name of the guardrail that you want to edit in the **Guardrails** section.
 3. Carry out one of the following steps.
+
    - In the **Versions**, section, select **Create**.
    - Choose the **Working draft** and select **Create version** at the top of the page
 

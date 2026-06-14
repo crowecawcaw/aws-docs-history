@@ -26,12 +26,15 @@ aws bedrock-data-automation-data-automation invoke-data-automation-library-inges
 1. Navigate to the "Library details" page for your library
 2. Select the desired entity from the "Custom vocabulary lists"
 3. Make the desired modifications:
+
    1. Update:
+
       1. Select the desired phrase
       2. Update the phrase
       3. Choose the check mark to the right of the phrase
 
    2. Delete
+
       1. Select the checkbox to the left of the desired phrase(s)
       2. Choose "Delete phrases"
 

@@ -45,6 +45,7 @@ Console
    **Create guardrail**.
 3. For **Provide guardrail details** page,
    do the following:
+
    1. In the **Guardrail details**
       section, provide a **Name** and
       optional **Description** for the
@@ -84,6 +85,7 @@ Console
    page, set up how strongly you want to filter out content
    related to the categories defined in [Block harmful words and conversations with content filters](guardrails-content-filters.md "guardrails-content-filters.md") by doing
    the following:
+
    1. Select **Configure harmful categories
       filter**. Select
       **Text** and/or
@@ -118,6 +120,7 @@ Console
    guardrail.
 
 5. Review the settings for your guardrail.
+
    1. Select **Edit** in any section
       you want to make changes to.
    2. When you're done configuring policies, select

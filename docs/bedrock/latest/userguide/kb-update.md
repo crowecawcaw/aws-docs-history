@@ -13,6 +13,7 @@ Console
 2. In the left navigation pane, choose **Knowledge bases**.
 3. Select a knowledge base to view details about it, or choose the radio button next to the knowledge base and select **Edit**.
 4. You can modify the knowledge base in the following ways.
+
    - Change configurations for the knowledge base by choosing **Edit** in the **Knowledge base overview** section.
    - Change and manage the tags attached to the knowledge base by choosing **Manage tags** in the **Tags** section
    - Change and manage the data source for the knowledge base in the **Data source** section.

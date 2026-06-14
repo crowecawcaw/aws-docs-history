@@ -45,6 +45,7 @@ The examples in this section let you count tokens for an `InvokeModel` and `Conv
 
 - You've downloaded AWS SDK for Python (Boto3) and your configuration is set up such that your credentials and default AWS Region are automatically recognized.
 - Your IAM identity has permissions for the following actions (for more information, see [Action, resources, and condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md "../../../service-authorization/latest/reference/list_amazonbedrock.md")):
+
   - bedrock:CountTokens – Allows the usage of `CountTokens`.
   - bedrock:InvokeModel – Allows the usage of `InvokeModel` and `Converse`. Should be scoped to the `arn:${Partition}:bedrock:${Region}::foundation-model/anthropic.claude-3-haiku-20240307-v1:0`, at minimum.
 

@@ -204,10 +204,12 @@ Console
    `https://example.atlassian.net`. The URL for Confluence
    Cloud must be the base URL, ending with `.atlassian.net`.
 4. In the **Advanced settings** section, you can optionally configure the following:
+
    - **KMS key for transient data storage.** – You can encrypt the transient data while converting your data into embeddings with the default AWS managed key or your own KMS key. For more information, see [Encryption of transient data storage during data ingestion](encryption-kb.md#encryption-kb-ingestion "encryption-kb.md#encryption-kb-ingestion").
    - **Data deletion policy** – You can delete the vector embeddings for your data source that are stored in the vector store by default, or choose to retain the vector store data.
 
 5. Provide the authentication information to connect to your Confluence instance:
+
    - For basic authentication, go to AWS Secrets Manager to add your secret
      authentication credentials or use an existing Amazon Resource Name (ARN) for the secret you created.
      Your secret must contain the admin user email address of the Atlassian account as
@@ -221,6 +223,7 @@ Console
      see [OAuth 2.0 apps](https://developer.atlassian.com/cloud/confluence/oauth-2-3lo-apps/ "https://developer.atlassian.com/cloud/confluence/oauth-2-3lo-apps/") on the Atlassian website.
 
 6. (Optional) In the **Content parsing and chunking** section, you can customize how to parse and chunk your data. Refer to the following resources to learn more about these customizations:
+
    - For more information about parsing options, see [Parsing options for your data source](kb-advanced-parsing.md "kb-advanced-parsing.md").
    - For more information about chunking strategies, see [How content chunking works for knowledge bases](kb-chunking.md "kb-chunking.md").
 

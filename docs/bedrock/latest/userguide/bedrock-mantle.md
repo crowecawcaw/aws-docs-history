@@ -58,6 +58,7 @@ Before using OpenAI APIs, ensure you have the following:
 
 - **Authentication** – You can authenticate
   using:
+
   - Amazon Bedrock API key (required for OpenAI SDK)
   - AWS credentials (supported for HTTP requests)
 
@@ -65,6 +66,7 @@ Before using OpenAI APIs, ensure you have the following:
   OpenAI Python SDK if using SDK-based requests.
 - **Environment variables** – Set the
   following environment variables:
+
   - `OPENAI_API_KEY` – Set to your Amazon Bedrock API key
   - `OPENAI_BASE_URL` – Set to the Amazon Bedrock endpoint for your
     region (for example, `https://bedrock-mantle.us-east-1.api.aws/v1`)

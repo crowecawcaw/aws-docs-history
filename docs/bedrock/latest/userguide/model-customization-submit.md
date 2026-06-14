@@ -28,6 +28,7 @@ To submit a model customization job in the console, carry out the following step
 2. From the left navigation pane, choose **Custom models** under **Tune**.
 3. In the **Models** tab, choose **Customize model** and then **Create Fine-tuning job**.
 4. In the **Model details** section, do the following.
+
    1. Choose the model that you want to customize with your own data and give your resulting model a name. You can choose either a foundation model or a previously customized model (fine-tuned or distilled) as your base model.
    2. (Optional) By default, Amazon Bedrock encrypts your model with a key owned and managed by AWS. To use a [custom KMS key](encryption-custom-job.md "encryption-custom-job.md"), select **Model encryption** and choose a key.
    3. (Optional) To associate [tags](tagging.md "tagging.md") with the custom model, expand the **Tags** section

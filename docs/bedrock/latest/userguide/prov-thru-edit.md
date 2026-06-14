@@ -27,6 +27,7 @@ Console
 2. Select **Provisioned Throughput** from the left navigation pane.
 3. From the **Provisioned Throughput** section, select a Provisioned Throughput.
 4. Choose **Edit**. You can edit the following fields:
+
    - **Provisioned Throughput name** – Change the name of the Provisioned Throughput.
    - **Select model** – If the Provisioned Throughput is associated with a custom model, you can change the associated model.
 

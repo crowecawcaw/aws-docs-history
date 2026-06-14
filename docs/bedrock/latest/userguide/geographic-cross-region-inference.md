@@ -13,10 +13,13 @@ Note the following information about Geographic cross-Region inference:
   geography (e.g. US, EU and APAC) are kept within the AWS Regions that are
   part of the geography where the data originally resides. For example, a
   request made within the US is kept within the AWS Regions in the US.
-  Although the data remains stored only in the source Region, your input
+  By default the data remains stored only in the source Region, but your input
   prompts and output results might move outside of your source Region during
-  cross-Region inference. All data will be transmitted encrypted across
-  Amazon's secure network.
+  cross-Region inference. To the extent we store data for abuse detection,
+  your input prompts and output results will be stored in the destination region.
+  See [Amazon Bedrock abuse detection](abuse-detection.md "abuse-detection.md")
+  for more information on which models require storage. All data will be transmitted
+  encrypted across Amazon's secure network.
 - To see the default quotas for cross-Region throughput when using inference
   profiles tied to a geography (such as US, EU and APAC), refer to the
   **Cross-region model inference requests per minute

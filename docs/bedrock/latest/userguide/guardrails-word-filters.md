@@ -39,6 +39,7 @@ Console
    **Create guardrail**.
 3. For **Provide guardrail details** page, do
    the following:
+
    1. In the **Guardrail details** section,
       provide a **Name** and optional
       **Description** for the
@@ -74,6 +75,7 @@ Console
 
 4. On the **Add word filters** page, do the
    following:
+
    1. Select **Filter profanity** to block
       profanity in prompts and responses. The list of
       profanity is based on conventional definitions and is
@@ -94,6 +96,7 @@ Console
       in the **View and edit words and
       phrases** section. You have the following
       options:
+
       - If you uploaded a word list from a local file
         or Amazon S3 object, this section will populate with
         your word list. To filter for items with errors,
@@ -150,6 +153,7 @@ Console
         editor**. The **Text
         editor** provides the following
         features:
+
         - You can copy a word list from another text
           editor and paste it into this editor.
         - A red X icon appears next to items
@@ -161,6 +165,7 @@ Console
       create** to finish creating your
       guardrail.
    5. Review the settings for your guardrail.
+
       1. Select **Edit** in any
          section you want to make changes to.
       2. When you're done configuring policies, select
@@ -217,10 +222,12 @@ Content-type: application/json
   `blockedOutputsMessaging` fields.
 - Configure word policies in the `wordPolicyConfig`
   object:
+
   - Use `managedWordListsConfig` to configure a
     predefined list of profane words.
   - Use `wordsConfig` array to specify custom
     words and phrases to filter:
+
     - Specify the words and phrases to filter in the
       `text` field.
     - (Optional) Specify the action to take when the

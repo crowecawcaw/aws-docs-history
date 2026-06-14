@@ -33,6 +33,7 @@ and word providing each word as a separate response. The available granularity l
 Output settings determine the way your downloaded results will be structured. This setting is exclusive to the console. The options for output settings are:
 
 - JSON – The default output structure for document analysis. Provides a JSON output file with the information from your configuration settings.
+
   - Async [InvokeDataAutomationAsync](../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md "../APIReference/API_data-automation-runtime_InvokeDataAutomationAsync.md") API: JSON output for Async API is S3 only.
   - Sync [InvokeDataAutomation](../APIReference/API_data-automation-runtime_InvokeDataAutomation.md "../APIReference/API_data-automation-runtime_InvokeDataAutomation.md") API: JSON output can be set to S3 or inline by using `outputconfiguration`. If S3 is selected, then output JSON goes to S3 only (not inline). If S3 not provided, Sync API output supports JSON inline only.
 

@@ -42,6 +42,7 @@ The following are required:
 
 1. ###### Plan your guardrail configuration
    1. Define your safeguards:
+
       - Review available guardrail filters in the [Amazon Bedrock Guardrails documentation](guardrails.md "guardrails.md")
       - Identify which filter you need. Currently, content filters, denied topics, word filters, sensitive information filters, contextual grounding checks are supported.
       - ###### Important
@@ -49,6 +50,7 @@ The following are required:
       Do not include the automated reasoning policy, as it is unsupported for guardrail enforcements and will cause runtime failures.
 
    2. Identify target accounts:
+
       - Determine which OUs, accounts, or your entire organization will have this guardrail enforced
 
 2. ###### Create your guardrail in the management account

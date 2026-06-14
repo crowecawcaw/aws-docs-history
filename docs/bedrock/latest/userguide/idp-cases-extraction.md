@@ -16,6 +16,7 @@ To define a field for extraction, you need to specify the following parameters:
   description helps in understanding the context and purpose of the field, aiding in the accurate
   extraction of data.
 - Type: Specifies the data type of the field's value. BDA supports the following data types:
+
   - string: For text-based values
   - number: For numerical values
   - boolean: For true/false values
@@ -30,7 +31,7 @@ To define a field for extraction, you need to specify the following parameters:
 
 Console
 
-![Console showing how to add 'Field name' and 'Instruction'. The 'Type' is set to 'String' and 'Extraction type' is set to 'Explicit'.](images/bda/bdaadd.png)
+![Console showing field configuration with Type set to String and Extraction type set to Explicit.](images/bda/bdaadd.png)
 
 API
 
@@ -72,7 +73,7 @@ multiple expense items for that field.
 
 Console
 
-![Console showing how to add 'Field name' and 'Instruction'. The 'Type' is set to 'Array of String' and 'Extraction type' is set to 'Explicit'.](images/bda/bdaarray.png)
+![Console showing field configuration with Type set to Array of String and Extraction type set to Explicit.](images/bda/bdaarray.png)
 
 API
 
@@ -97,7 +98,7 @@ description, quantity, unit price and amount.
 
 Console
 
-![Console showing how to add 'Field name' and 'Instruction'. The 'Type' is set to 'Table' and 'Extraction type' is set to 'Explicit' and shows column-specific fields that are added.](images/bda/bdatable.png)
+![Console showing field configuration with Type set to Table, Extraction type set to Explicit, and column-specific fields.](images/bda/bdatable.png)
 
 API
 

@@ -3,6 +3,7 @@
 Before you can use an inference profile, check that you've fulfilled the following prerequisites:
 
 - Your role has access to the inference profile API actions. If your role has the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess") AWS-managed policy attached, you can skip this step. Otherwise, do the following:
+
   1.  Follow the steps at [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") and create the following policy, which allows a role to do inference profile-related actions and run model inference using all foundation models and inference profiles.
 
   JSON
@@ -160,7 +161,6 @@ Before you can use an inference profile, check that you've fulfilled the followi
 
 
       ```
-
   2.  Follow the steps at [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md") to attach the policy to a role to grant the role permissions to view and use all the inference profiles.
 
 - You've requested access to the model defined in the inference profile that you want to use, in the Region from which you want to call the inference profile.

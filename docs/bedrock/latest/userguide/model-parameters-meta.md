@@ -150,6 +150,7 @@ More information about each field is provided below.
   generated text.
 - **stop_reason** – The reason why the response stopped
   generating text. Possible values are:
+
   - **stop** – The model has
     finished generating text for the input prompt.
   - **length** – The length of the

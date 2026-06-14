@@ -10,6 +10,7 @@ sure to create a symmetric encryption key.
 After you create your key, configure the following permission policies.
 
 1. Do the following to create a resource-based key policy:
+
    1. [Create a
       key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") to create a resource-based policy for your
       KMS key.

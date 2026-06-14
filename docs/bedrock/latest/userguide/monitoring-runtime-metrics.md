@@ -47,6 +47,7 @@ To retrieve metrics for your Amazon Bedrock operations, you specify the followin
 
 - The metric dimension. A _dimension_ is a set of name-value pairs that
   you use to identify a metric. Amazon Bedrock supports the following dimensions:
+
   - `ModelId` – all metrics
   - `ModelId + ImageSize + BucketedStepSize` – OutputImageCount
 

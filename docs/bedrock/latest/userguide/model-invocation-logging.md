@@ -191,6 +191,7 @@ Sign in to the AWS Management Console with an IAM identity that has permissions 
 1. From the left navigation pane, select **Settings**.
 2. In the **Model invocation logging** page, select **Model invocation logging**. Additional configuration settings for logging will appear.
 3. Select the modalities of the data requests and responses that you want to publish to the logs. You can select any combination of the following output options:
+
    - Text
    - Image
    - Embedding

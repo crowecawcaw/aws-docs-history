@@ -15,6 +15,7 @@ To use Amazon Bedrock Model Distillation, you do the following:
 2. **Prepare your training data for distillation** – Your training data is a collection of prompts
    stored in `.jsonl` files. Amazon Bedrock uses the input data to generate responses from the teacher
    model and uses the responses to fine-tune the student model.
+
    - **Optimize prompts** – Format your input prompts for
      the use case that you want. For more information, see [Optimize your input prompts for synthetic data generation](distillation-prepare-datasets.md#distillation-data-prep-prompt-optimization "distillation-prepare-datasets.md#distillation-data-prep-prompt-optimization").
    - **Use labeled examples** – Prepare labeled input data as prompt-response pairs. Amazon Bedrock can use these pairs as

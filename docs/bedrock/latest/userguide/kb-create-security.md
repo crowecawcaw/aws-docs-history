@@ -86,7 +86,9 @@ Console
 4. Choose **Edit**.
 5. For **Select policy definition method**, do
    one of the following:
+
    - Leave **Select policy definition method** as **Visual editor** and configure the following settings in the **Rule 1** section:
+
      1. (Optional) In the **Rule
         name** field, enter a name for the
         network access rule.

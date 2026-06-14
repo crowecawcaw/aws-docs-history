@@ -41,6 +41,7 @@ This enables cross-account grant acceptance and creates a trusted access relatio
 2. In the navigation pane, choose **Settings**.
 3. Under **AWS License Manager Integration**, choose **View setting details**.
 4. Select both checkboxes:
+
    - **Enable trusted access across your organization**
    - **AWS Marketplace license management service-linked role for this account**
 

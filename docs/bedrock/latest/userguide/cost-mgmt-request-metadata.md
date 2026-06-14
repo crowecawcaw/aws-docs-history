@@ -1,6 +1,6 @@
 # Per-request metadata tagging
 
-Request metadata lets you attach key-value tags to individual Amazon Bedrock inference calls on the [bedrock-runtime](endpoints.md "endpoints.md") endpoint. The tags are recorded with the request in your [model invocation logs](model-invocation-logging.md "model-invocation-logging.md"), so you can attribute usage to a team, application, environment, experiment, or any other dimension that varies per call. There is no resource to create or configure ahead of time — each call can carry a different set of tags.
+Request metadata lets you attach key-value tags to individual Amazon Bedrock inference calls on the [bedrock-runtime](endpoints.md "endpoints.md") endpoint. The tags are recorded with the request in your [model invocation logs](model-invocation-logging.md "model-invocation-logging.md"). You can then attribute usage to a team, application, environment, experiment, or any other dimension that varies per call. There is no resource to create or configure ahead of time — each call can carry a different set of tags.
 
 Request metadata is supported on the following [bedrock-runtime](endpoints.md "endpoints.md") APIs:
 
@@ -117,7 +117,7 @@ Request metadata and token counts are written to your model invocation logs, not
 
 Compute from token counts
 
-Each log record carries the input, output, cache-read, and cache-write token counts for the request. Multiply these by the per-token rates in [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") and group by any metadata tag. This is per-prompt and near real-time, but it is an estimate. You maintain the rate card, and it does not reflect discounts, commitments, batch pricing, free tier, or provisioned throughput unless you model them.
+Each log record carries the input, output, cache-read, and cache-write token counts for the request. Multiply these by the per-token rates in [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/") and group by any metadata tag. This approach is per-prompt and near real-time, but it is an estimate. You maintain the rate card. It does not reflect discounts, commitments, batch pricing, free tier, or provisioned throughput unless you model them.
 
 The following CloudWatch Logs Insights query totals tokens per user and model when invocation logs are delivered to CloudWatch Logs:
 
@@ -148,17 +148,17 @@ ORDER BY est_input_cost DESC;
 
 Reconcile against CUR
 
-Join your invocation logs to your AWS Cost and Usage Report for invoice-accurate totals. Neither classic CUR nor CUR 2.0 includes a per-request identifier on its line items; both aggregate cost by usage type over an hour or a day. Treat this path as reconciliation at the model and usage-type grain, with the logs providing the per-request detail underneath.
+Join your invocation logs to your AWS Cost and Usage Report for invoice-accurate totals. Neither classic CUR nor CUR 2.0 includes a per-request identifier on its line items. Both aggregate cost by usage type over an hour or a day. Treat this path as reconciliation at the model and usage-type grain, with the logs providing the per-request detail underneath.
 
 ###### Note
 
-Request metadata and IAM session tags are different mechanisms. Request metadata is set per call and varies per request; it lands in your invocation logs. IAM session tags are bound per session and surface only as aggregated billing data in AWS Cost Explorer and CUR. For per-user, per-prompt attribution, use request metadata, or a per-user identity in the ARN, rather than session tags.
+Request metadata and IAM session tags are different mechanisms. Request metadata is set per call and varies per request. It lands in your invocation logs. IAM session tags are bound per session and surface only as aggregated billing data in AWS Cost Explorer and CUR. For per-user, per-prompt attribution, use request metadata or a per-user identity in the ARN rather than session tags.
 
 ## Considerations
 
 - Request metadata values are recorded only when model invocation logging is enabled in the call's AWS Region. If logging is not configured, the request still succeeds but the metadata is not retained.
-- Request metadata is not delivered as an AWS cost allocation tag and does not appear in AWS Cost Explorer or CUR. To analyze costs by metadata dimension, join your invocation logs with your Cost and Usage Report on `requestId`, or aggregate token counts directly from log records and multiply by the per-token rates in [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/"). For attribution that flows natively to Cost Explorer and CUR, use [Application inference profiles](cost-mgmt-application-inference-profiles.md "cost-mgmt-application-inference-profiles.md"), [Projects](cost-mgmt-projects.md "cost-mgmt-projects.md"), or [Workspaces](cost-mgmt-workspaces.md "cost-mgmt-workspaces.md").
+- Request metadata is not delivered as an AWS cost allocation tag and does not appear in AWS Cost Explorer or CUR. To analyze costs by metadata dimension, join your invocation logs with your Cost and Usage Report on `requestId`. Alternatively, aggregate token counts directly from log records and multiply by the per-token rates in [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing/ "https://aws.amazon.com/bedrock/pricing/"). For attribution that flows natively to Cost Explorer and CUR, use [Application inference profiles](cost-mgmt-application-inference-profiles.md "cost-mgmt-application-inference-profiles.md"), [Projects](cost-mgmt-projects.md "cost-mgmt-projects.md"), or [Workspaces](cost-mgmt-workspaces.md "cost-mgmt-workspaces.md").
 - Choose stable, low-cardinality keys such as `team`, `environment`, `feature`, or `experiment` for analytics that are easy to aggregate. Use higher-cardinality values such as session or trace identifiers only when you need to trace individual calls.
 - Avoid placing personally identifiable information (PII), credentials, or other sensitive data in request metadata. Values are stored in your model invocation logs and any system that reads those logs.
-- Request metadata is supplied per call and is not enforced by Amazon Bedrock. Requests that omit it still succeed, and there is no service-side policy to require it. To guarantee coverage across an organization, set request metadata in a shared client or LLM gateway. For attribution that is always present without per-call code, use [IAM principal attribution](cost-mgmt-iam-principal-tracking.md "cost-mgmt-iam-principal-tracking.md"), which captures the caller identity automatically.
+- Request metadata is supplied per call and is not enforced by Amazon Bedrock. Requests that omit it still succeed, and there is no service-side policy to require it. To guarantee coverage across an organization, set request metadata in a shared client or LLM gateway. For attribution that is always present without per-call code, use [IAM principal attribution](cost-mgmt-iam-principal-tracking.md "cost-mgmt-iam-principal-tracking.md"). It captures the caller identity automatically.
 - Request metadata works alongside the other Amazon Bedrock usage tracking methods. You can use [IAM principal attribution](cost-mgmt-iam-principal-tracking.md "cost-mgmt-iam-principal-tracking.md") for per-identity attribution and [Application inference profiles](cost-mgmt-application-inference-profiles.md "cost-mgmt-application-inference-profiles.md") for resource-level cost allocation tags on the same workload.

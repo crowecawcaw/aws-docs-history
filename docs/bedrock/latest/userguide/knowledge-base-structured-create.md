@@ -51,6 +51,7 @@ To connect to a structured data store using the AWS Management Console, do the f
 2. In the left navigation pane, choose **Knowledge bases**.
 3. In the **Knowledge bases** section, choose **Create** and then select **Knowledge base with structured data store**.
 4. Set up the following details for the knowledge base:
+
    1. (Optional) Change the default name and provide a description for your knowledge base.
    2. Select the query engine to use for retrieving data from your data store.
    3. Choose an IAM service role with the proper permissions to create and manage this knowledge base. You can let Amazon Bedrock create the service role or choose a custom role that you have created. For more information about creating a custom role, see [Set up your query engine and permissions for creating a knowledge base with structured data store](knowledge-base-prereq-structured.md "knowledge-base-prereq-structured.md").
@@ -58,6 +59,7 @@ To connect to a structured data store using the AWS Management Console, do the f
    5. Choose **Next**.
 
 5. Configure your query engine:
+
    1. Select the service in which you created a cluster or workgroup. Then choose the cluster or workgroup to use.
    2. Select the authentication method and provide the necessary fields.
    3. Select the data store in which to store your metadata. Then, choose or enter the name of the database.

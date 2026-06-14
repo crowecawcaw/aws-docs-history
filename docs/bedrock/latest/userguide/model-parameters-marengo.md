@@ -8,6 +8,7 @@ The TwelveLabs Marengo Embed 2.7 model generates embeddings from video, text, au
 
 - For more information about use cases for different API methods, see [Making inference requests](inference.md "inference.md").
 - For more information about model types, see [Making inference requests](inference.md "inference.md").
+
   - For a list of model IDs and to see the models and AWS Regions that TwelveLabs Marengo Embed 2.7 is supported in, search for the model in the table at [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
   - For a full list of inference profile IDs, see [Supported Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md"). The inference profile ID is based on the AWS Region.
 
@@ -168,6 +169,7 @@ Modality for the embedding.
 - **Type:** String
 - **Required:** No
 - **Valid values:**
+
   - `end` – Truncates the end of the text.
   - `none` – Returns an error if the text exceeds the limit
 
@@ -211,6 +213,7 @@ Specifies which types of embeddings to retrieve.
 - **Type:** List
 - **Required:** No
 - **Valid values for list members:**
+
   - `visual-text` – Visual embeddings optimized for text search.
   - `visual-image` – Visual embeddings optimized for image search.
   - `audio` – Embeddings of the audio in the video.
@@ -242,6 +245,7 @@ Specifies which types of embeddings to retrieve.
 - **Required:** No
 - **Value parameters:** 2 - 10. Must be greater than or equal to `minClipSec`.
 - **Default value:** Depends on the type of media:
+
   - **Video:** Divided dynamically by shot boundary detection.
   - **Audio:** Divided evenly with segments as close to 10 seconds as possible.
 
@@ -290,6 +294,7 @@ Embeddings vector representation of input.
 
 - **Type:** String
 - **Possible values:**
+
   - `visual-text` – Visual embeddings optimized for text search.
   - `visual-image` – Visual embeddings optimized for image search.
   - `audio` – Embeddings of the audio in the video.

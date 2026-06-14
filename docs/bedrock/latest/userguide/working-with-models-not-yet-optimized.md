@@ -19,6 +19,7 @@ You can view the list of models that are not yet optimized for Agents in the Ama
 ###### To view models not optimized for Amazon Bedrock agent
 
 1. If you're not already in the agent builder, do the following:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.

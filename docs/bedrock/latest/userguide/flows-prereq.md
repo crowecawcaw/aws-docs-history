@@ -4,6 +4,7 @@ Before
 creating a flow, review the following prerequisites and determine which ones you need to fulfill:
 
 1. Define or create resources for one or more nodes you plan to add to your flow:
+
    - For a prompt node – Create a prompt by using Prompt management. For more information, see [Construct and store reusable prompts with Prompt management in Amazon Bedrock](prompt-management.md "prompt-management.md"). If you plan to define prompts inline when creating the node in the flow, you don't have to create a prompt in Prompt management.
    - For a knowledge base node – Create a knowledge base that you plan to use in the flow. For more information, see [Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases](knowledge-base.md "knowledge-base.md").
    - For an agent node – Create an agent that you plan to use in the flow. For more information, see [Automate tasks in your application using AI agents](agents.md "agents.md").
@@ -13,6 +14,7 @@ creating a flow, review the following prerequisites and determine which ones you
    - For a Amazon Lex node – Create a Amazon Lex bot to identify intents. For more information, see the [Amazon Lex Developer Guide](../../../lex/latest/dg.md "../../../lex/latest/dg.md").
 
 2. To use flows, you must have two different roles:
+
    1. **User role** – The IAM role that you use to log into the AWS Management Console or to make API calls must have permissions to carry out flows-related actions.
 
    If your role has the [AmazonBedrockFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonBedrockFullAccess") policy attached, you don't need to configure additional permissions for this role. To restrict a role's permissions to only actions that are used for flows, attach the following identity-based policy to the IAM role:

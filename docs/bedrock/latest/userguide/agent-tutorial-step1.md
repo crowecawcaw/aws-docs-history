@@ -15,6 +15,7 @@ in the _AWS Lambda developer guide_.
 2. Choose **Create function**.
 3. Select **Author from scratch**.
 4. In the **Basic information** section:
+
    - For **Function name**, enter a function name (for
      example, `DateTimeFunction`). Note the name of the function,
      you'll need it in step 15 of [Step 2: Create an Amazon Bedrock agent](agent-tutorial-step2.md "agent-tutorial-step2.md").
@@ -71,6 +72,7 @@ def lambda_handler(event, context):
 11. Under **Resource-based policy statements**, choose
     **Add permissions**.
 12. In **Edit policy statement**, do the following:
+
     1. Choose **AWS service**
     2. In **Service** select **Other**.
     3. For **Statement ID**, enter a unique identifier (for

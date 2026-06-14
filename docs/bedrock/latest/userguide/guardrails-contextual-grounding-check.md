@@ -150,6 +150,7 @@ Source:
    then choose **Create guardrail**.
 3. For **Provide guardrail details** page, do the
    following:
+
    1. In the **Guardrail details** section, provide a
       **Name** and optional
       **Description** for the guardrail.

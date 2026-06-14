@@ -13,10 +13,13 @@ This topic also includes information about getting started and details about pre
 ###### Amazon Bedrock
 
 - [Basics](service_code_examples_bedrock_basics.md "service_code_examples_bedrock_basics.md")
+
   - [Hello Amazon Bedrock](bedrock_example_bedrock_Hello_section.md "bedrock_example_bedrock_Hello_section.md")
   - [Actions](service_code_examples_bedrock_actions.md "service_code_examples_bedrock_actions.md")
+
     - [GetFoundationModel](bedrock_example_bedrock_GetFoundationModel_section.md "bedrock_example_bedrock_GetFoundationModel_section.md")
     - [ListFoundationModels](bedrock_example_bedrock_ListFoundationModels_section.md "bedrock_example_bedrock_ListFoundationModels_section.md")
 
 - [Scenarios](service_code_examples_bedrock_scenarios.md "service_code_examples_bedrock_scenarios.md")
+
   - [Orchestrate generative AI applications with Step Functions](bedrock_example_cross_ServerlessPromptChaining_section.md "bedrock_example_cross_ServerlessPromptChaining_section.md")

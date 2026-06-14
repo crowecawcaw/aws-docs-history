@@ -25,6 +25,7 @@ Console
    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 2. In the left navigation pane, choose **Knowledge bases**.
 3. In the **Knowledge bases** section, do one of the following actions:
+
    - Choose the radio button next to the knowledge base you want to test and select **Test knowledge base**. A test window expands from the right.
    - Choose the knowledge base that you want to test. A test window expands from the right.
 

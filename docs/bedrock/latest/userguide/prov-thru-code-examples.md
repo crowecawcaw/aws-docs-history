@@ -9,11 +9,14 @@ The following examples use the Amazon Nova Lite model, whose model ID is `amazon
 If you want to purchase Provisioned Throughput for a different foundation model or a custom model, you'll have to do the following:
 
 1. Find the model's ID (for foundation models), name (for custom models), or ARN (for either) by doing one of the following:
+
    - If you're purchasing a Provisioned Throughput for a foundation model, find the ID or Amazon Resource Name (ARN) of a model that supports provisioning in one of the following ways:
+
      - Look up the value in the table.
      - Send a [ListFoundationModels](../APIReference/API_ListFoundationModels.md "../APIReference/API_ListFoundationModels.md") request and specify the `byInferenceType` value as `PROVISIONED` to see a list of models that support provisioning. Find the value in the `modelId` or `modelArn` field.
 
    - If you're purchasing a Provisioned Throughput for a custom model, find the name or Amazon Resource Name (ARN) of the model that you customized in one of the following ways:
+
      - In the Amazon Bedrock console, choose **Custom models** from the left navigation pane. Find the name of your customized model in the **Models** list or select it and find the **Model ARN** in the **Model details**.
      - Send a [ListCustomModels](../APIReference/API_ListCustomModels.md "../APIReference/API_ListCustomModels.md") request and find the `modelName` or `modelArn` value of your custom model in the response.
 

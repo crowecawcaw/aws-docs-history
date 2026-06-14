@@ -19,12 +19,16 @@ An agent consists of the following components:
 - **Foundation model** – You choose a foundation model (FM) that the agent invokes to interpret user input and subsequent prompts in its orchestration process. The agent also invokes the FM to generate responses and follow-up steps in its process.
 - **Instructions** – You write instructions that describe what the agent is designed to do. With advanced prompts, you can further customize instructions for the agent at every step of orchestration and include Lambda functions to parse each step's output.
 - At least one of the following:
+
   - **Action groups** – You define the actions that the agent should perform for the user (through providing the following resources):
+
     - One of the following schemas to define the parameters that the agent needs to elicit from the user (each action group can use a different schema):
+
       - An OpenAPI schema to define the API operations that the agent can invoke to perform its tasks. The OpenAPI schema includes the parameters that need to be elicited from the user.
       - A function detail schema to define the parameters that the agent can elicit from the user. These parameters can then be used for further orchestration by the agent, or you can set up how to use them in your own application.
 
     - (Optional) A Lambda function with the following input and output:
+
       - Input – The API operation and/or parameters identified during orchestration.
       - Output – The response from the API invocation or the response from the function invocation.
 
@@ -34,7 +38,9 @@ An agent consists of the following components:
 
 At build-time, all these components are gathered to construct base prompts for the agent to perform orchestration until the user request is completed. With advanced prompts, you can modify these base prompts with additional logic and few-shot examples to improve accuracy for each step of agent invocation. The base prompt templates contain instructions, action descriptions, knowledge base descriptions, and conversation history, all of which you can customize to modify the agent to meet your needs. You then _prepare_ your agent, which packages all the components of the agents, including security configurations. Preparing the agent brings it into a state where it can be tested in runtime. The following image shows how build-time API operations construct your agent.
 
-![How build-time APIs construct your agent. An action group consists of an OpenAPI schema and a Lambda function to define what API operations an agent can call and how the agent should handle the requests and responses. The agent synthesizes information from the base prompt templates, instructions provided to it, and any attached action groups and knowledge bases to generate prompts with the model that it uses. The prompts are added to the agent's prompt store.](images/agents/agents-buildtime.png)
+![How build-time APIs construct your agent with action groups and knowledge bases.](images/agents/agents-buildtime.png)
+
+An action group consists of an OpenAPI schema and a Lambda function to define what API operations an agent can call and how the agent should handle the requests and responses. The agent synthesizes information from the base prompt templates, instructions provided to it, and any attached action groups and knowledge bases to generate prompts with the model that it uses. The prompts are added to the agent's prompt store.
 
 ## Runtime process
 
@@ -63,4 +69,6 @@ When you invoke your agent, you can turn on a **trace** at runtime. With the tra
 
 As the user session with the agent continues through more `InvokeAgent` requests, the conversation history is preserved. The conversation history continually augments the orchestration base prompt template with context, helping improve the agent's accuracy and performance. The following diagram shows the agent's process during runtime:
 
-![How your agent works in runtime. After receiving user input, the agent fetches augmented prompts from the prompt store and conversation history from the sessions store. If the preprocessing step is enabled, the agent invokes the FM with the preprocessing prompt to validate the user input. In the orchestration step, the agent invokes the FM with the orchestration prompt and parses the response. It then determines action groups and queries knowledge bases as necessary and generates an observation that might trigger a new orchestration prompt. The orchestration stage loops until the observation returns a final response to the user.](images/agents/agents-runtime.png)
+![How your agent processes user input at runtime through orchestration and action execution.](images/agents/agents-runtime.png)
+
+After receiving user input, the agent fetches augmented prompts from the prompt store and conversation history from the sessions store. If the preprocessing step is enabled, the agent invokes the FM with the preprocessing prompt to validate the user input. In the orchestration step, the agent invokes the FM with the orchestration prompt and parses the response. It then determines action groups and queries knowledge bases as necessary and generates an observation that might trigger a new orchestration prompt. The orchestration stage loops until the observation returns a final response to the user.

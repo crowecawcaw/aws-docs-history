@@ -57,6 +57,7 @@ inference parameters for a text-to-image inference call.
 - **aspect_ratio** (string) – Controls the aspect ratio of the generated image. Valid for text-to-image requests only. Enum: 16:9, 1:1, 21:9, 2:3, 3:2, 4:5, 5:4, 9:16, 9:21. Default 1:1.
 - **mode** (string) (GenerationMode) - Default: text-to-image. Enum: image-to-image or text-to-image.
   Controls whether this is a text-to-image or image-to-image generation, which affects which parameters are required:
+
   - text-to-image requires only the prompt parameter.
   - image-to-image requires the prompt, image, and strength parameters.
 
@@ -102,6 +103,7 @@ inference parameters for an image-to-image inference call.
 - **image** (string) – Base64-encoded input image. Minimum 64 pixels per side. Supported formats: jpeg, png, webp.
 - **mode** (string) (GenerationMode) - Default: text-to-image. Enum: image-to-image or text-to-image.
   Controls whether this is a text-to-image or image-to-image generation, which affects which parameters are required:
+
   - text-to-image requires only the prompt parameter.
   - image-to-image requires the prompt, image, and strength parameters.
 

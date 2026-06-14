@@ -15,6 +15,7 @@ The TwelveLabs Marengo Embed 3.0 model generates enhanced embeddings from video,
 
 - For more information about use cases for different API methods, see [Making inference requests](inference.md "inference.md").
 - For more information about model types, see [Making inference requests](inference.md "inference.md").
+
   - For a list of model IDs and to see the models and AWS Regions that TwelveLabs Marengo Embed 3.0 is supported in, search for the model in the table at [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
   - For a full list of inference profile IDs, see [Supported Regions and models for inference profiles](inference-profiles-support.md "inference-profiles-support.md"). The inference profile ID is based on the AWS Region.
 
@@ -65,6 +66,7 @@ The following are the key changes between TwelveLabs Marengo Embed 2.7 and Twelv
   input type is not supported in TwelveLabs Marengo Embed 2.7.
 - **Parameter changes** – The `embeddingOption`
   parameter values changed:
+
   - TwelveLabs Marengo Embed 2.7: `visual-text`, `visual-image`,
     `audio`
   - TwelveLabs Marengo Embed 3.0: `visual`, `audio`,
@@ -347,11 +349,13 @@ Specifies which types of embeddings to retrieve.
 - **Type:** List
 - **Required:** No
 - **Valid values for list members:**
+
   - `visual` – Visual embeddings from the video.
   - `audio` – Embeddings of the audio in the video.
   - `transcription` – Embeddings of the transcribed text.
 
 - **Default value:**
+
   - Video: ["visual", "audio", "transcription"]
   - Audio: ["audio", "transcription"]
 
@@ -361,6 +365,7 @@ Specifies which types of embeddings to retrieve.
 - **Type:** List
 - **Required:** No
 - **Valid values for list members:**
+
   - `clip` – Returns embeddings for each clip.
   - `asset` – Returns embeddings for the entire asset.
 
@@ -389,6 +394,7 @@ Specifies which types of embeddings to retrieve.
 
 - `method` – The segmentation method to use. Valid values: `dynamic` | `fixed`
 - `dynamic` – For video, uses shot boundary detection to divide content dynamically. Contains:
+
   - `minDurationSec` – Minimum duration for each segment in seconds. Type: Integer. Range: 1-5. Default: 4.
 
 - `fixed` – Divides content into segments of equal duration. Contains:
@@ -422,6 +428,7 @@ Specifies which types of embeddings to retrieve.
 - **Type:** List
 - **Required:** No
 - **Valid values for list members:**
+
   - `separate_embedding` – Returns embeddings for each modality separately (visual, audio, transcription).
   - `fused_embedding` – Returns a weighted fusion of multiple embedding modalities.
 
@@ -477,6 +484,7 @@ Embeddings vector representation of input.
 
 - **Type:** String
 - **Possible values:**
+
   - visual – Visual embeddings from the video.
   - audio – Embeddings of the audio in the video.
   - transcription – Embeddings of the transcribed text.

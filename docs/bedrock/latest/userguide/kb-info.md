@@ -15,6 +15,7 @@ Console
 2. In the left navigation pane, choose **Knowledge bases**.
 3. To view details for a knowledge base, either select the **Name** of the source or choose the radio button next to the source and select **Edit**.
 4. On the details page, you can carry out the following actions:
+
    - To change the details of the knowledge base, select **Edit** in the **Knowledge base overview** section.
    - To update the tags attached to the knowledge base, select **Manage tags** in the **Tags** section.
    - If you update the data source from which the knowledge base was created and need to sync the changes, select **Sync** in the **Data source** section.

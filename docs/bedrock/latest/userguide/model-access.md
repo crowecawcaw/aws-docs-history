@@ -449,6 +449,7 @@ In AWS GovCloud (US), you use the **Model access** page in the Amazon Bedrock co
 3. In the left navigation pane, under **Bedrock configurations**, choose **Model access**.
 4. On the **Model access** page, choose **Modify model access**.
 5. Select the models that you want the account to have access to and unselect the models that you don't want the account to have access to. You have the following options:
+
    1. Be sure to review the **End User License Agreement (EULA)** for terms and conditions of using a model before requesting access to it.
    2. Select the check box next to an individual model to check or uncheck it.
    3. Select the top check box to check or uncheck all models.

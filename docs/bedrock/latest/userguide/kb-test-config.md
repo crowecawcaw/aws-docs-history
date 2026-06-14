@@ -129,6 +129,7 @@ fulfills the following requirements:
   that the vector index is configured with the `faiss` engine. If
   the vector index is configured with the `nmslib` engine, you'll
   have to do one of the following:
+
   - [Create a new knowledge
     base](knowledge-base-create.md "knowledge-base-create.md") in the console and let Amazon Bedrock automatically create a
     vector index in Amazon OpenSearch Serverless for you.

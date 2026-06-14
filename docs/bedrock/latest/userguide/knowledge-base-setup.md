@@ -42,6 +42,7 @@ Amazon OpenSearch Serverless
    Amazon OpenSearch Serverless in the AWS Management Console, follow steps 1 and 2 at [Working with vector search collections](../../../opensearch-service/latest/developerguide/serverless-vector-search.md "../../../opensearch-service/latest/developerguide/serverless-vector-search.md") in the
    Amazon OpenSearch Service Developer Guide. Note the following considerations while setting up your
    collection:
+
    1. Give the collection a name and description of your
       choice.
    2. To make your collection private, select **Standard
@@ -69,6 +70,7 @@ Amazon OpenSearch Serverless
    **Add vector field**. Amazon Bedrock stores the vector
    embeddings for your data source in this field. Provide the following
    configurations:
+
    - **Vector field name** –
      Provide a name for the field (for example,
      `embeddings`).
@@ -336,6 +338,7 @@ Note the following considerations when creating your vector bucket and index in 
 [Amazon S3 console](https://console.aws.amazon.com/s3/vector-buckets# "https://console.aws.amazon.com/s3/vector-buckets#").
 
 1. When creating your S3 vector bucket, take note of the following considerations.
+
    - Provide a unique **Vector bucket name**.
    - (Optional) Amazon S3 will automatically encrypt the data using the default
      **Server-side encryption with Amazon S3 managed keys (SSE-S3)**.
@@ -355,6 +358,7 @@ Note the following considerations when creating your vector bucket and index in 
    Name (ARN)** of the vector bucket for when you create the knowledge base.
 3. Choose the vector bucket that you created and then create a vector index. When creating
    the vector index, take note of the following considerations.
+
    - **Vector index name** –
      Provide a name for the field (for example,
      `embeddings`).
@@ -664,6 +668,7 @@ configuration to Amazon Bedrock through the AWS Secrets Manager.
 2. Follow the steps at [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md"). Set up the following keys with
    the appropriate values from your Redis Enterprise Cloud configuration in the
    secret:
+
    - `username` – The username to access your
      Redis Enterprise Cloud database. To find your username, look under the
      **Security** section of your database in

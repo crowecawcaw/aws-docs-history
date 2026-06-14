@@ -35,6 +35,7 @@ the agent. You configure them while editing the agent.
 7. To allow the agent to use the template when generating responses, turn on **Activate template**. If this configuration is turned off, the agent doesn't use the template.
 8. A green banner appears at the top of the page indicating that the changes have been successfully saved.
 9. To save your settings, choose one of the following options:
+
    1. To remain in the same window so that you can dynamically change the AWS Lambda function while testing your updated agent, choose **Save**.
    2. To save your settings and return to the **Working draft** page, choose **Save and exit**.
 

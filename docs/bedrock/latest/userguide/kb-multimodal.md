@@ -70,6 +70,7 @@ that handles different data types appropriately:
    pipeline.
 3. **Content processing:** Depending on your
    configuration, files are processed using one of two approaches:
+
    - **Nova Multimodal Embeddings:** Preserves
      native format for visual and audio similarity matching. Images, audio,
      and video are embedded directly without conversion to text.
@@ -101,6 +102,7 @@ that handles different data types appropriately:
    relevant content.
 3. **Result retrieval:** The system returns matching
    content with metadata including:
+
    - Source URI (original file location)
    - Timestamp metadata (for audio and video segments)
    - Content type and modality information

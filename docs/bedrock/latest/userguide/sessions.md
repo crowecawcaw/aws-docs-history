@@ -85,6 +85,7 @@ Before you create and manage sessions, note the following:
 - If you specify a customer managed AWS KMS key when you create a session, the user or role creating the session
   must have permission to use the key. For more information, [Session encryption](sessions-encryption.md "sessions-encryption.md").
 - The Session Management APIs have the following quotas:
+
   - Number of invocation steps in a session across all invocations – 1000
   - Maximum size of each invocation step – 50 MB
   - IdleSession Timeout – 1 hour

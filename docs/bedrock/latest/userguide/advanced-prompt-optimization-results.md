@@ -20,6 +20,7 @@ The output file is JSONL with per-template results. Each line contains:
 
 - `promptTemplateId`: correlates to your input templateId
 - `promptOptimizationResults`: array with one entry per target model, each containing:
+
   - `modelId`: the target model
   - `status`: optimization status for this model
   - `optimizedPromptTemplate`: the rewritten prompt template

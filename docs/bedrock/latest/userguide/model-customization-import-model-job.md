@@ -14,6 +14,7 @@ To submit a model import job in the console, complete the following steps.
 
 1. If you are importing your model files from Amazon S3, convert the model to
    the Hugging Face format.
+
    1. If your model is a Mistral AI model, use [convert_mistral_weights_to_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/mistral/convert_mistral_weights_to_hf.py").
    2. If your model is a Llama model, see [convert_llama_weights_to_hf.py](https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py "https://github.com/huggingface/transformers/blob/main/src/transformers/models/llama/convert_llama_weights_to_hf.py").
    3. Upload the model files to an Amazon S3 bucket in your
@@ -29,12 +30,14 @@ To submit a model import job in the console, complete the following steps.
 5. In the **Imported** tab, choose **Import
    model** to open the **Import model** page.
 6. In the **Model details** section, do the following:
+
    1. In **Model name** enter a name for the model.
    2. (Optional) To associate [tags](tagging.md "tagging.md") with the
       model, expand the **Tags** section and select
       **Add new tag**.
 
 7. In the **Import job name** section, do the following:
+
    1. In **Job name** enter a name for the model import
       job.
    2. (Optional) To associate [tags](tagging.md "tagging.md") with the
@@ -42,6 +45,7 @@ To submit a model import job in the console, complete the following steps.
       select **Add new tag**.
 
 8. In **Model import settings**, select the import options you want to use.
+
    - Select **Amazon S3 bucket** or **Amazon SageMaker AI model**
      to specify the import source.
    - If you are importing your model files from an Amazon S3 bucket, enter the Amazon S3 location in
@@ -59,6 +63,7 @@ To submit a model import job in the console, complete the following steps.
     **Customize encryption settings (advanced).**.
 11. In the **Service access** section, select one of the
     following:
+
     - **Create and use a new service role** –
       Enter a name for the service role.
     - **Use an existing service role** – Select a
@@ -80,6 +85,7 @@ To submit a model import job in the console, complete the following steps.
     the value of **Status** for the model is
     **Complete**.
 15. Get the model ID for your model by doing the following.
+
     1. On the **Imported models** page, choose the
        **Models** tab.
     2. Copy the ARN for the model that you want to use from the

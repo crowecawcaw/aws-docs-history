@@ -63,9 +63,10 @@ Amazon Bedrock offers multiple service tiers to match your workload requirements
 
 Bedrock offers three inference options: **In-Region** keeps requests within a single Region for strict compliance, **Geo Cross-Region** routes across Regions within a geography (US, EU, etc.) for higher throughput while respecting data residency, and **Global Cross-Region** routes anywhere worldwide for maximum throughput when there are no residency constraints. Refer to the [Regional availability](models-region-compatibility.md "models-region-compatibility.md") page for more details.
 
-| **Region**         | **In-Region**                           | **Geo**                                                                 | **Global**                                                              |
-| ------------------ | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `us-east-2` (Ohio) | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| **Region**                | **In-Region**                           | **Geo**                                                                 | **Global**                                                              |
+| ------------------------- | --------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| `us-east-1` (N. Virginia) | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
+| `us-east-2` (Ohio)        | Green circle with white checkmark icon. | Red circle with white X icon indicating error, cancel, or close action. | Red circle with white X icon indicating error, cancel, or close action. |
 
 ## Quotas and Limits
 

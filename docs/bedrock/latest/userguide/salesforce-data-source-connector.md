@@ -171,10 +171,12 @@ Console
    `https://company.salesforce.com/`. The instance must
    be running a Salesforce Connected App.
 4. In the **Advanced settings** section, you can optionally configure the following:
+
    - **KMS key for transient data storage.** – You can encrypt the transient data while converting your data into embeddings with the default AWS managed key or your own KMS key. For more information, see [Encryption of transient data storage during data ingestion](encryption-kb.md#encryption-kb-ingestion "encryption-kb.md#encryption-kb-ingestion").
    - **Data deletion policy** – You can delete the vector embeddings for your data source that are stored in the vector store by default, or choose to retain the vector store data.
 
 5. Provide the authentication information to connect to your Salesforce instance:
+
    1. For OAuth 2.0 authentication, go to AWS Secrets Manager to add your secret
       authentication credentials or use an existing Amazon Resource Name (ARN) for
       the secret you created. Your secret must
@@ -184,6 +186,7 @@ Console
       documentation on [Create a Connected App](https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5 "https://help.salesforce.com/s/articleView?id=sf.connected_app_create.htm&type=5") and [Configure a Connected App for the OAuth 2.0 Client Credentials](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5 "https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5").
 
 6. (Optional) In the **Content parsing and chunking** section, you can customize how to parse and chunk your data. Refer to the following resources to learn more about these customizations:
+
    - For more information about parsing options, see [Parsing options for your data source](kb-advanced-parsing.md "kb-advanced-parsing.md").
    - For more information about chunking strategies, see [How content chunking works for knowledge bases](kb-chunking.md "kb-chunking.md").
 

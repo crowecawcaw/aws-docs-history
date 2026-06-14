@@ -24,12 +24,15 @@ To add or modify documents directly in the AWS Management Console, do the follow
 3. In the **Knowledge bases** section, select the knowledge base to ingest documents into.
 4. In the **Data source** section, select the data source for which you want to add, modify, or delete documents.
 5. In the **Documents** section, choose **Add documents**. Then, do one of the following:
+
    - To add or modify a document directly, select **Add documents directly**. Then, do the following:
+
      1. In the **Document identifier** field, specify a unique name for the document. If you specify a name that already exists in the data source, the document will be replaced.
      2. To upload a document, select **Upload**. To define a document inline, select **Add document inline**, choose a format, and enter the text of the document in the box.
      3. (Optional) To associate metadata with the document, select **Add metadata** and enter a key, type, and value.
 
    - To add or modify a document by specifying its S3 location, select **Add S3 documents**. Then, do the following:
+
      1. In the **Document identifier** field, specify a unique name for the document. If you specify a name that already exists in the data source, the document will be replaced.
      2. Specify whether the **S3 location** of the document is in your current AWS account or a different one. Then specify the S3 URI of the document.
      3. (Optional) To associate metadata with the document, choose a **Metadata source**. Specify the S3 URI of the metadata or select **Add metadata** and enter a key, type, and value.

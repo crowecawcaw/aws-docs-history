@@ -18,6 +18,7 @@ For more information, see [Test and troubleshoot agent behavior](agents-test.md 
    **TestAlias: Working draft**.
 4. In the chat interface, enter a prompt that would trigger one of your agent's
    actions, such as:
+
    - `What time is it?`
    - `Can you tell me today's date?`
 

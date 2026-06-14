@@ -22,6 +22,7 @@ After an agent is created, you can add action groups to it by doing the followin
 4. In the **Action groups** section, choose **Add**.
 5. (Optional) In the **Action group details** section, change the automatically generated **Name** and provide an optional **Description** for your action group.
 6. In the **Action group type** section, select one of the following methods for defining the parameters that the agent can elicit from users to help carry out actions:
+
    1. **Define with function details** – Define parameters for your agent to elicit from the user to carry out the actions. For more information on adding functions, see [Define function details for your agent's action groups in Amazon Bedrock](agents-action-function.md "agents-action-function.md").
    2. **Define with API schemas** – Define the API operations that the agent can invoke and the parameters . Use an OpenAPI schema that you created or use the console text editor to create the schema. For more information on setting up an OpenAPI schema, see [Define OpenAPI schemas for your agent's action groups in Amazon Bedrock](agents-api-schema.md "agents-api-schema.md")
 
@@ -41,7 +42,9 @@ Choose one of the following options:
     * **Return control** – Rather than passing the parameters for the API or function that it predicts to the Lambda function, the agent returns control to your application by passing the action that it predicts should be invoked, in addition to the parameters and information for the action that it determined from the session, in the [InvokeAgent](../APIReference/API_agent-runtime_InvokeAgent.md "../APIReference/API_agent-runtime_InvokeAgent.md") response. For more information, see [Return control to the agent developer by sending elicited information in an InvokeAgent response](agents-returncontrol.md "agents-returncontrol.md").
 
 8. Depending on your choice for the **Action group type**, you'll see one of the following sections:
+
    - If you selected **Define with function details**, you'll have an **Action group function** section. Do the following to define the function:
+
      1. Provide a **Name** and optional (but recommended) **Description**.
      2. To request confirmation from the user before the function is invoked, select **Enabled**. Requesting confirmation before invoking the function
         may safeguard your application from taking actions due to malicious prompt injections.
@@ -78,13 +81,16 @@ Choose one of the following options:
 
    To add another function to your action group by defining another set of parameters, choose **Add action group function**.
    - If you selected **Define with API schemas**, you'll have an **Action group schema** section with the following options:
+
      - To use an OpenAPI schema that you previously prepared with API descriptions, structures, and parameters for the action group, select **Select API schema** and provide a link to the Amazon S3 URI of the schema.
      - To define the OpenAPI schema with the in-line schema editor, select **Define via in-line schema editor**. A sample schema appears that you can edit.
+
        1. Select the format for the schema by using the dropdown menu next to **Format**.
        2. To import an existing schema from S3 to edit, select **Import schema**, provide the S3 URI, and select **Import**.
        3. To restore the schema to the original sample schema, select **Reset** and then confirm the message that appears by selecting **Reset** again.
 
 9. When you're done creating the action group, choose **Add**. If you defined an API schema, a green success banner appears if there are no issues. If there are issues validating the schema, a red banner appears. You have the following options:
+
    - Scroll through the schema to see the lines where an error or warning about formatting exists. An X indicates a formatting error, while an exclamation mark indicates a warning about formatting.
    - Select **View details** in the red banner to see a list of errors about the content of the API schema.
 

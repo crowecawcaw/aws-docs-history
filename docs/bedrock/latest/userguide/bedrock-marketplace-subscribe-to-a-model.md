@@ -23,6 +23,7 @@ Subscription is not required before first invocation due to auto-enablement, Ama
    Catalog.
 4. Specify **Model Collection** = **Bedrock
    Marketplace** to load Amazon Bedrock Marketplace models.
+
    1. Alternatively, you can search for the model name directly in the
       search bar.
 

@@ -15,6 +15,7 @@ Console
    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 2. From the left navigation pane, choose **Custom models** under **Tune**.
 3. Models that have been shared with you by other accounts will be shown in the following ways, depending on whether you've [copied them to a Region](copy-model.md "copy-model.md"):
+
    1. Shared models that you haven't copied to a Region yet are listed in the **Models shared with you** section.
    2. Shared models that have been copied to the current Region are listed in the **Models** section with a **Share status** of `Shared`.
 

@@ -46,6 +46,7 @@ The following are text per call and character limits.
   not mix different types together, except when mixing types for
   for search and retrieval. In this case, embed your corpus with the
   `search_document` type and embedded queries with type `search_query` type.
+
   - `search_document` – In search
     use-cases, use `search_document` when you encode
     documents for embeddings that you store in a vector database.
@@ -53,6 +54,7 @@ The following are text per call and character limits.
   - `classification` – Use `classification` when using embeddings as an input to a text classifier.
   - `clustering` – Use `clustering` to cluster the embeddings.
   - `images` – This is an array of images.
+
     - An array of image data URIs for the model to embed. Maximum number of images per call is 1 (i.e, the model only supports one image input).
     - The image must be a valid data URI. The image must be in either image/jpeg or image/png format and has a maximum size of 5MB.
     - Only one of either “images” or “texts” must be provided.
@@ -74,6 +76,7 @@ The following are optional parameters:
 - **embedding_types** –
   Specifies the types of embeddings you want to have returned. Optional and default is `None`,
   which returns the `Embed Floats` response type. Can be one or more of the following types:
+
   - `float` – Use this value to return the default float embeddings.
   - `int8` – Use this value to return signed int8 embeddings.
   - `uint8` – Use this value to return unsigned int8 embeddings.

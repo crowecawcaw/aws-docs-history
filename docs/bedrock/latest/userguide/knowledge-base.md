@@ -42,6 +42,7 @@ With Amazon Bedrock Knowledge Bases, you can:
    source.
 3. Sync your data source with your knowledge base.
 4. Set up your application or agent to do the following:
+
    - Query the knowledge base and return relevant sources.
    - Query the knowledge base and generate natural language responses based on
      the retrieved results.

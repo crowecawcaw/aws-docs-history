@@ -949,12 +949,14 @@ Tool definition example:
 ###### Validation rules
 
 - Schema conformance: Each example in `input_examples` must be valid according to the tool's `input_schema`.
+
   - Required fields must be present in at least one example.
   - Field types must match the schema.
   - Enum values must be from the allowed set.
   - If validation fails, return a 400 error with details about which example failed validation.
 
 - Array requirements: `input_examples` must be an array (can be empty).
+
   - Empty array `[]` is valid and equivalent to omitting the field.
   - Single example must still be wrapped in an array: `[{...}]`
   - Length limit: start with a limit of 20 examples per tool definition.

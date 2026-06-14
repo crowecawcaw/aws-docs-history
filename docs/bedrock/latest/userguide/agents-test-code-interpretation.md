@@ -16,6 +16,7 @@ Console
 ###### To attach files for code interpretation,
 
 1. If you're not already in the agent builder, do the following:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.
@@ -26,6 +27,7 @@ Console
 2. If test window is not open, choose **Test**.
 3. In the bottom of the test window, select the paper clip icon to attach files.
 4. In the **Attach files** page,
+
    1. ###### For **Choose function**, specify the following:
       - If you are attaching files for the agent to use to answer your queries and summarize content, choose **Attach files to chat (faster)**.
       - If you are attaching files for code interpretation to analyze the content and provide metrics, choose **Attach files to code interpreter**.

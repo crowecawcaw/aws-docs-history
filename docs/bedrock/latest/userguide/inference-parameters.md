@@ -79,6 +79,7 @@ Foundation models typically support parameters that limit the length of the resp
 - **Response length** – An exact value to specify the minimum or maximum number of tokens to return in the generated
   response.
 - **Penalties** – Specify the degree to which to penalize outputs in a response. Examples include the following.
+
   - The length of the response.
   - Repeated tokens in a response.
   - Frequency of tokens in a response.

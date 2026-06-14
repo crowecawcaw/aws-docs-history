@@ -97,6 +97,7 @@ responses that incorrectly state a different requirement.
    scenario and the related rules. Each scenario shows a set of variable assignments
    that are logically possible given your policy rules. Evaluate whether the scenario
    is realistic in your domain:
+
    - If the scenario could happen in your domain (it is
      _satisfiable_), select the thumbs up icon. This saves the
      scenario as a test that expects a `SATISFIABLE` result.
@@ -178,6 +179,7 @@ the annotation APIs to provide feedback if the scenario reveals a rule issue.
 2. Choose **View tests**, then select
    **Add**.
 3. In the **Add tests** dialog, do the following:
+
    1. For **Input** (optional), enter the question a user might
       ask. For **Output**, enter the response your foundation model
       might provide. Together these form a QnA pair that tests how your policy
@@ -253,6 +255,7 @@ Example response:
    **MyHrPolicy**).
 2. Choose **View tests**.
 3. Do one of the following:
+
    - To run all tests, choose **Validate all
      tests**.
    - To run a single test, select the **Action** button next

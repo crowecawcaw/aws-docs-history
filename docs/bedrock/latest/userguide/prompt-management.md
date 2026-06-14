@@ -10,6 +10,7 @@ The following is the general workflow for using Prompt management:
 2. Choose a model, inference profile, or agent to run inference on the prompt and modify the inference configurations as necessary.
 3. Fill in test values for the variables and run the prompt. You can create variants of your prompt and compare the outputs of different variants to choose the best one for your use case.
 4. Integrate the prompt into your application in one of the following ways:
+
    - Specify the prompt when [running model inference](inference.md "inference.md").
    - Add a prompt node to a [flow](flows.md "flows.md") and specify the prompt.
 

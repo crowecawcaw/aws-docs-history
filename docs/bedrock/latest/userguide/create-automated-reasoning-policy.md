@@ -213,7 +213,9 @@ help determine whether an employee is eligible for a specific type of leave.
 3. (Optional) Enter a **Description** for the policy.
 4. For **Source**, provide the document that describes the rules and
    policies of your knowledge domain. Do the following:
+
    1. For **Ingest method**, do one of the following:
+
       1. Select **Upload document**, then select
          **Choose file**. Upload a PDF document of the source
          content.
@@ -436,7 +438,7 @@ table. Each row shows:
 - The number of **Variables** grounded by that statement.
 
 Use the **Rules** and **Variables** dropdown
-filters at the top of the table to focus on statements that ground a specific rule or
+filters to focus on statements that ground a specific rule or
 variable. Use the search bar to find specific content within the extracted
 statements.
 

@@ -12,6 +12,7 @@ Console
 3. In the **Aliases** section, choose **Create alias**.
 4. Enter a unique name for the alias and provide an optional description.
 5. Choose one of the following options:
+
    - To create a new version, choose **Create a new version and to associate it to this alias**.
    - To use an existing version, choose **Use an existing version to associate this alias**. From the dropdown menu, choose the version that you want to associate the alias to.
 

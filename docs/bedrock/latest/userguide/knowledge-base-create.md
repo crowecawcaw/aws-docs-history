@@ -29,6 +29,7 @@ Expand the section that corresponds to your use case:
 8.  (Optional) Configure services for which to deliver activity logs for your knowledge base.
 9.  Go to the next section and follow the steps at [Connect a data source to your knowledge base](data-source-connectors.md "data-source-connectors.md") to configure a data source.
 10. In the **Embeddings model** section, do the following:
+
     1. Choose an embeddings model to convert your data into vector embeddings. For multimodal data (images, audio, and video), select a multimodal embedding model such as Amazon Titan Multimodal Embeddings G1 or Cohere Embed v3.
 
     ###### Note
@@ -39,7 +40,9 @@ Expand the section that corresponds to your use case:
         * **Vector dimensions** – Higher values improve accuracy but increase cost and latency.
 
 11. In the **Vector database** section, do the following:
+
     1.  Choose a vector store to store the vector embeddings that will be used for query. You have the following options:
+
         - **Quick create a new vector store** – choose one of the available
           vector stores for Amazon Bedrock to create. You can also optionally configure AWS KMS key encryption for your
           vector store.
@@ -63,7 +66,6 @@ Expand the section that corresponds to your use case:
             ###### Note
 
             When using Amazon S3 Vectors with Amazon Bedrock Knowledge Bases, you can attach up to 1 KB of custom metadata (including both filterable and non-filterable metadata) and 35 metadata keys per vector. For detailed information about metadata limitations, see [Metadata support](knowledge-base-setup.md#metadata-support "knowledge-base-setup.md#metadata-support") in [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
-
         - **Choose a vector store you have created** – Select a supported vector store and identify the vector field names and metadata
           field names in the vector index. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md").
 

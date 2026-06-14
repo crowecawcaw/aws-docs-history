@@ -60,6 +60,7 @@ choose your parsing strategy:
 
 9. Choose **Next** and select your embedding model
    and multimodal processing approach.
+
    - **Amazon Nova Multimodal Embeddings
      V1.0:** Choose **Amazon Nova embedding
      V1.0** for direct visual and audio similarity

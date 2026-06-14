@@ -49,6 +49,7 @@ To find this page, under **Infer** in the navigation pane, choose **Custom model
 3. In the **Models** tab, choose the radio button for the model you want to deploy.
 4. Choose **Set up inference** and choose **Deploy for on-demand**.
 5. In **Deployment details**, provide the following information:
+
    - **Deployment Name** (required) – Enter a unique name for your deployment.
    - **Description** (optional) – Enter a description for your deployment.
    - **Tags** (optional) – Add tags for cost allocation and resource management.

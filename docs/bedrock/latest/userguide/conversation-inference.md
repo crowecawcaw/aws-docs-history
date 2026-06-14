@@ -52,6 +52,7 @@ fields:
 - **modelId** – A required parameter in
   the header that lets you specify the resource to use for inference.
 - The following fields let you customize the prompt:
+
   - **messages** – Use to specify
     the content and role of the prompts.
   - **system** – Use to specify
@@ -70,6 +71,7 @@ fields:
 
 - The following fields let you customize how the response is
   returned:
+
   - **guardrailConfig** – Use this
     field to include a guardrail to apply to the entire prompt.
   - **toolConfig** – Use this field
@@ -207,6 +209,7 @@ request conforms to the following restrictions:
   in base64.
 - The `name` field can only contain the
   following characters:
+
   - Alphanumeric characters
   - Whitespace characters (no more than one in a
     row)
@@ -765,6 +768,7 @@ metadata                              (once per response;
    use only.
 3. `contentBlockDelta` ([ContentBlockDeltaEvent](../APIReference/API_runtime_ContentBlockDeltaEvent.md "../APIReference/API_runtime_ContentBlockDeltaEvent.md")). A Content block delta event.
    Includes one of the following:
+
    - `text` – The partial text that the model
      generates.
    - `reasoningContent` – The partial reasoning

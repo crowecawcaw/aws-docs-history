@@ -180,6 +180,7 @@ Transform static images into dynamic videos by providing keyframes. You can spec
 **Additional Parameters for Image-to-Video**
 
 - **keyframes** – (object) Define start (frame0) and/or end (frame1) keyframes
+
   - **frame0** – Starting keyframe image
   - **frame1** – Ending keyframe image
   - **type** – Must be "image"

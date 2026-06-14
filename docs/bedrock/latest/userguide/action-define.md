@@ -4,6 +4,7 @@ You can define action groups in one of the following ways (you can use different
 
 - [Set up an OpenAPI schema](agents-api-schema.md "agents-api-schema.md") with descriptions,
   structure, and parameters that define each action in the action group as an API operation. With this option, you can define actions more explicitly and map them to API operations in your system. You add the API schema to the action group in one of the following ways:
+
   - Upload the schema that you create to an Amazon Simple Storage Service (Amazon S3) bucket.
   - Write the schema in the inline OpenAPI schema editor in the AWS Management Console when you add the action group. This option is only available after the agent that the action group belongs to has already been created.
 

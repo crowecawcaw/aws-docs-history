@@ -3,13 +3,14 @@
 You can use your Amazon Bedrock API key in the following ways:
 
 - **Set it as environment variable** – The Amazon Bedrock service recognizes the environment variable `AWS_BEARER_TOKEN_BEDROCK` You have the following options to set the key:
+
   - Open a terminal to set it:
+
     - **MacOS/Linux**
 
     ```
     export AWS_BEARER_TOKEN_BEDROCK=`${api-key}`
     ```
-
     - **Windows**
 
     ```
@@ -17,6 +18,7 @@ You can use your Amazon Bedrock API key in the following ways:
     ```
 
   - Set it as an environment variable in your code before you make the API request. For example, you could include the following lines before making the request:
+
     - **Python**
 
     ```
@@ -25,12 +27,12 @@ You can use your Amazon Bedrock API key in the following ways:
     ```
 
 - **Specify it in a request** – You can include the Amazon Bedrock API key in the authorization header in the following ways (replace `$AWS_BEARER_TOKEN_BEDROCK` with the actual value):
+
   - **In a direct HTTP request** – Include the following as an authorization header:
 
   ```
   Authorization: Bearer `$AWS_BEARER_TOKEN_BEDROCK`
   ```
-
   - **As a parameter in a supported SDK** – Specify the value in the parameter when setting up the client. For example, you can specify it in the `api_key` field when setting up a client with the [OpenAI Python SDK](https://github.com/openai/openai-python?tab=readme-ov-file#usage "https://github.com/openai/openai-python?tab=readme-ov-file#usage").
 
 ###### Note

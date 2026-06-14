@@ -388,7 +388,7 @@ Follow the instructions in [Generate responses in the console using playgrounds]
 playground. For supported models, prompt caching is automatically turned on
 in the playground. However, if it’s not, then do the following to turn on prompt caching:
 
-1. In the left side panel, open the **Configurations** menu.
+1. Open the **Configurations** menu.
 2. Turn on the **Prompt caching** toggle.
 3. Run your prompts.
    After your combined input and model responses reach the minimum required

@@ -18,6 +18,7 @@ OpenAI offers the following open-weight models:
 The OpenAI models support the following features:
 
 - [Model invocation](inference.md "inference.md") with the following operations:
+
   - [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md")
   - [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md")
   - [OpenAI Chat completions API](inference-chat-completions.md "inference-chat-completions.md")
@@ -39,7 +40,9 @@ Use the request body fields in the following ways:
 
 - In an [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") or OpenAI Chat Completions request, include the fields in the request body.
 - In a [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") request, do the following:
+
   - Map the `messages` as follows:
+
     - For each message whose role is `developer`, add the `content` a [SystemContentBlock](../APIReference/API_runtime_SystemContentBlock.md "../APIReference/API_runtime_SystemContentBlock.md") in the `system` array.
     - For each message whose role is `user` or `assistant`, add the `content` to a [ContentBlock](../APIReference/API_runtime_ContentBlock.md "../APIReference/API_runtime_ContentBlock.md") in the `content` field and specify the `role` in the `role` field of a [Message](../APIReference/API_runtime_Message.md "../APIReference/API_runtime_Message.md") in the `messages` array.
 
@@ -58,6 +61,7 @@ Use the request body fields in the following ways:
 - The OpenAI models support only text input and text output.
 - The value in the `model` field must match the one in the header. You can omit this field to let it be automatically populated with the same value as the header.
 - The value in the `stream` field must match the API operation that you use. You can omit this field to let it be automatically populated with the correct value.
+
   - If you use [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), the `stream` value must be `false`.
 
 ## OpenAI response body

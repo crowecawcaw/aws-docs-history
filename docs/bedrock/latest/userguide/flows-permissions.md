@@ -10,10 +10,12 @@ To create a custom service role for Amazon Bedrock Flows, create an IAM role by 
 
 - Trust policy
 - The following identity-based permissions:
+
   - Access to the Amazon Bedrock base models that the flow will use. Add each model that's used in the flow to the `Resource` list.
   - If you invoke a model using Provisioned Throughput, permissions to access and invoke the provisioned model. Add each model that's used in the flow to the `Resource` list.
   - If you invoke a custom model, permissions to access and invoke the custom model. Add each model that's used in the flow to the `Resource` list.
   - Permissions based on the nodes that you add to the flow:
+
     - If you include prompt nodes that use prompts from Prompt management, you need permissions to access the prompt. Add each prompt that's used in the flow to the `Resource` list.
     - If you include knowledge base nodes, you need permissions to query the knowledge base. Add each knowledge base that's queried in the flow to the `Resource` list.
     - If you include agent nodes, you need permissions to invoke an alias of the agent. Add each agent that's invoked in the flow to the `Resource` list.
@@ -82,6 +84,7 @@ Attach the following policy to provide permissions for the service role, replaci
 - If you invoke a model using Provisioned Throughput, permissions to access and invoke the provisioned model. Add each model that's used in the flow to the `Resource` list.
 - If you invoke a custom model, permissions to access and invoke the custom model. Add each model that's used in the flow to the `Resource` list.
 - Permissions based on the nodes that you add to the flow:
+
   - If you include prompt nodes that use prompts from Prompt management, you need permissions to access the prompt. Add each prompt that's used in the flow to the `Resource` list.
   - If you include knowledge base nodes, you need permissions to query the knowledge base. Add each knowledge base that's queried in the flow to the `Resource` list.
   - If you include agent nodes, you need permissions to invoke an alias of the agent. Add each agent that's invoked in the flow to the `Resource` list.

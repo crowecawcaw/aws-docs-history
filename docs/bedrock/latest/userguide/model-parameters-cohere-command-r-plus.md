@@ -328,6 +328,7 @@ The response has the following possible fields:
 - **citations** — An array of
   inline citations and associated metadata for the generated reply.
   Contains the following fields:
+
   - **start** — The index that the citation begins at, starting from 0.
   - **end** — The index that the citation ends after, starting from 0.
   - **text** — The text that the citation pertains to.
@@ -338,6 +339,7 @@ The response has the following possible fields:
 - **finish_reason** — The reason
   why the model stopped generating output. Can be any of the
   following:
+
   - **complete** — The
     completion reached the end of generation token, ensure this
     is the finish reason for best performance.
@@ -387,10 +389,12 @@ field.
 
 - **meta** — API usage data
   (only exists for streaming).
+
   - `api_version` — The API version. The
     version is in the `version` field.
   - `billed_units` — The billed units.
     Possible values are:
+
     - `input_tokens` — The number of
       input tokens that were billed.
     - `output_tokens` — The number of

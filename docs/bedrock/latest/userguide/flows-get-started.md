@@ -30,6 +30,7 @@ Amazon Bedrock Flows and to learn about the types of nodes that are available to
    **Description**.
 5. For the **Service role name**, choose one of the following
    options:
+
    - **Create and use a new service role** – Let Amazon Bedrock
      create a service role for you to use.
    - **Use an existing service role** – Select a custom
@@ -37,10 +38,12 @@ Amazon Bedrock Flows and to learn about the types of nodes that are available to
 
 6. (Optional) Encrypt your flow with a customer managed key by doing the
    following:
+
    1. Select **Additional configurations**.
    2. In **KMS key selection**, select
       **Customize encryption settings (advanced)**. Then do one of the following
       in **Choose an AWS KMS key**:
+
       - To use an existing key, enter the ARN or find the key
         that you want to use.
       - To create a new key, choose **Create an AWS KMS key**

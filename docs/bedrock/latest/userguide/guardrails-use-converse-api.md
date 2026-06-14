@@ -300,6 +300,7 @@ how to prevent a model from creating a playlist that includes songs from the hea
 3.  In the following code examples ([Converse](#converse-api-guardrail-example-converse "#converse-api-guardrail-example-converse")
     and [ConverseStream](#converse-api-guardrail-example-converse-stream "#converse-api-guardrail-example-converse-stream")), set the
     following variables:
+
     - `guardrail_id` – The ID of the guardrail that you created in
       step 1.
     - `guardrail_version` – The version of the guardrail that you created in

@@ -1,6 +1,6 @@
 # Enable user input in Amazon Bedrock
 
-If user input is enabled, agent reprompts the user for information about the missing parameters.
+Configure your agent to ask the user for more information if the required information is not available to complete a task. If user input is enabled, the agent reprompts the user for information about the missing parameters. You can configure the agent by enabling user input in your agent's action group.
 
 You can enable user input in the Amazon Bedrock console when you [create](agents-create.md "agents-create.md")
 or [modify](agents-manage.md#agents-edit "agents-manage.md#agents-edit") your agent.
@@ -14,6 +14,7 @@ Console
 ###### To enable user input for your agent
 
 1. If you're not already in the agent builder, do the following:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.
@@ -22,7 +23,7 @@ Console
 2. Go to **Additional settings** and expand the section.
 3. For **User input**, select **Enabled**.
 
-![Configure your agent to ask user for more information if the required information is not there to complete a task. You can configure the agent by enabling user input in your agent's action group.](images/agents/agents-user-input.png) 4. Make sure to first **Save** and then **Prepare** to apply the changes you have made to the agent before testing it.
+![Agent user input configuration for requesting additional information.](images/agents/agents-user-input.png) 4. Make sure to first **Save** and then **Prepare** to apply the changes you have made to the agent before testing it.
 
 API
 To enable user input for your agent, send an [CreateActionGroup](../APIReference/API_agent_CreateAgentActionGroup.md "../APIReference/API_agent_CreateAgentActionGroup.md")

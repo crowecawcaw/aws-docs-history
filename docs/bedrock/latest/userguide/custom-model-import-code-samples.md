@@ -9,6 +9,7 @@ The following code samples show how to set up permissions, create a custom model
 - **Converse API Not Supported:** GPT-OSS based custom model import models do NOT support the Converse API or ConverseStream API.
 - **Use InvokeModel API Instead:** Customers must use the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") API when working with GPT-OSS based custom models.
 - **API Schema Requirement:** GPT-OSS models require OpenAI-compatible API schemas:
+
   - Completion format for completion requests
   - ChatCompletion format for chat requests
   - Response format follows OpenAI API specifications
@@ -18,6 +19,7 @@ The following code samples show how to set up permissions, create a custom model
 For GPT-OSS model usage examples with [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") API, refer to the OpenAI API documentation for request/response schemas.
 
 1. Prepare model files for import
+
    1. If you are importing from an Amazon S3 bucket, you need to supply the model files in the
       Hugging Face weights format. For more information, see [Import a model source from Amazon S3](model-customization-import-model.md#model-customization-import-model-source "model-customization-import-model.md#model-customization-import-model-source").
    2. Create an Amazon S3 bucket for your model files (the names must be unique).

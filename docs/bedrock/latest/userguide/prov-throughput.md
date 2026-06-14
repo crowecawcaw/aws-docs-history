@@ -13,6 +13,7 @@ depends on the following factors:
 2. The number of Model Units (MUs) that you specify for the Provisioned Throughput. An MU delivers a
    specific throughput level for the specified model. The throughput level of an MU
    specifies the following:
+
    - The number of input tokens that an MU can process across all requests
      within a span of one minute.
    - The number of output tokens that an MU can generate across all requests

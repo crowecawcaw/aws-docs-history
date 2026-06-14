@@ -44,6 +44,7 @@ Console
    one Amazon Kendra GenAI index**.
 9. (Optional) Under **Additional configurations**,
    do any of the following:
+
    - Configure an AWS Key Management Service (AWS KMS) customer managed key to encrypt your
      knowledge base.
    - Add tags to your knowledge base. For more information, see

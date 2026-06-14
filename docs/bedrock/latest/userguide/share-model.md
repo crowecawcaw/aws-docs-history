@@ -4,6 +4,7 @@ By default, models are only available in the Region and account in which they we
 
 1. Sign up for an AWS Organizations account, create an organization, and add the account that will share the model and the account that will receive the model to the organization.
 2. Set up IAM permissions for the following:
+
    - The account that will share the model.
    - The model that will be shared.
 

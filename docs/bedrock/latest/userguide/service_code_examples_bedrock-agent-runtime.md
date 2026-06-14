@@ -15,11 +15,14 @@ This topic also includes information about getting started and details about pre
 ###### Amazon Bedrock Agents Runtime
 
 - [Basics](service_code_examples_bedrock-agent-runtime_basics.md "service_code_examples_bedrock-agent-runtime_basics.md")
+
   - [Learn the basics](bedrock-agent-runtime_example_bedrock-agent-runtime_Scenario_ConverseWithFlow_section.md "bedrock-agent-runtime_example_bedrock-agent-runtime_Scenario_ConverseWithFlow_section.md")
   - [Actions](service_code_examples_bedrock-agent-runtime_actions.md "service_code_examples_bedrock-agent-runtime_actions.md")
+
     - [InvokeAgent](bedrock-agent-runtime_example_bedrock-agent-runtime_InvokeAgent_section.md "bedrock-agent-runtime_example_bedrock-agent-runtime_InvokeAgent_section.md")
     - [InvokeFlow](bedrock-agent-runtime_example_bedrock-agent-runtime_InvokeFlow_section.md "bedrock-agent-runtime_example_bedrock-agent-runtime_InvokeFlow_section.md")
 
 - [Scenarios](service_code_examples_bedrock-agent-runtime_scenarios.md "service_code_examples_bedrock-agent-runtime_scenarios.md")
+
   - [Create and invoke a flow](bedrock-agent-runtime_example_bedrock-agent_GettingStartedWithBedrockFlows_section.md "bedrock-agent-runtime_example_bedrock-agent_GettingStartedWithBedrockFlows_section.md")
   - [Orchestrate generative AI applications with Step Functions](bedrock-agent-runtime_example_cross_ServerlessPromptChaining_section.md "bedrock-agent-runtime_example_cross_ServerlessPromptChaining_section.md")

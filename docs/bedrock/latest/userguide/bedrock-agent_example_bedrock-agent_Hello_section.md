@@ -89,6 +89,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [GetAgent](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/GetAgentCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/GetAgentCommand.md")
   - [ListAgents](../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/ListAgentsCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/bedrock-agent/command/ListAgentsCommand.md")
 

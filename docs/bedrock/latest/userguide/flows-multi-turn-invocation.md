@@ -187,6 +187,7 @@ of music, and the theme for the playlist.
 ###### To create the flow
 
 1. Create an agent in the Amazon Bedrock console by following the instructions at [Create and configure agent manually](agents-create.md "agents-create.md").
+
    - For step
      _2.d_, enter
      `You are a playlist creator for a radio station. When asked to create
@@ -201,7 +202,7 @@ the playlist.`.
 3. Link the agent node to the agent that you created in step 1. The flow should look
    like the following image.
 
-![Flow multi-turn conversation](images/flows/flows-multi-turn.png) 4. Run the flow in the Amazon Bedrock console. For testing you can trace the steps
+![Flow multi-turn conversation.](images/flows/flows-multi-turn.png) 4. Run the flow in the Amazon Bedrock console. For testing you can trace the steps
 that the flow makes. For more information, see [Test a flow in Amazon Bedrock](flows-test.md "flows-test.md").
 
 The following Python code example shows how use the flow.

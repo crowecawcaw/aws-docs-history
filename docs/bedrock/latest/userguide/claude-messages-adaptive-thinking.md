@@ -6,6 +6,8 @@ The supported models are as follows:
 
 | Model                 | Model ID                          |
 | --------------------- | --------------------------------- |
+| Claude Mythos 5       | `anthropic.claude-mythos-5`       |
+| Claude Fable 5        | `anthropic.claude-fable-5`        |
 | Claude Opus 4.7       | `anthropic.claude-opus-4-7`       |
 | Claude Mythos Preview | `anthropic.claude-mythos-preview` |
 | Claude Opus 4.6       | `anthropic.claude-opus-4-6-v1`    |
@@ -13,7 +15,7 @@ The supported models are as follows:
 
 ###### Note
 
-Claude Opus 4.7 and Claude Mythos Preview _only_ support adaptive thinking. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) is not supported on these models and will return a 400 error.
+Claude Mythos 5, Claude Fable 5, Claude Opus 4.7, and Claude Mythos Preview _only_ support adaptive thinking. Manual extended thinking (`thinking.type: "enabled"` with `budget_tokens`) and disabled thinking (`thinking.type: "disabled"`) are not supported on these models and will return a 400 error. Use `thinking.type: "adaptive"` with `output_config.effort` to control thinking behavior.
 
 `thinking.type: "enabled"` and `budget_tokens` are deprecated on Claude Opus 4.6 and Claude Sonnet 4.6 and will be removed in a future model release. Use `thinking.type: "adaptive"` with the effort parameter instead.
 
@@ -218,3 +220,15 @@ that require multi-step reasoning. When in doubt, respond directly.
 ###### Warning
 
 Steering Claude to think less often may reduce quality on tasks that benefit from reasoning. Measure the impact on your specific workloads before deploying prompt-based tuning to production. Consider testing with lower effort levels first.
+
+## Connector text summarization (beta)
+
+On Claude Fable 5, text that the model emits between tool calls (sometimes called "connector text" — for example, "Let me check that file next...") is summarized server-side and returned as a thinking block rather than a plain text content block. The thinking block uses the same shape as any other thinking block (empty text with a signature under the default `omitted` display).
+
+**Customer impact:**
+
+- **Response shape:** Tool-use responses from Claude Fable 5 may contain additional thinking blocks where previous models emitted plain text between `tool_use` blocks. There is no new content block type. Final assistant answers (after all tool use is complete) are unaffected and remain plain text.
+- **Multi-turn handling:** Pass these thinking blocks back unchanged in multi-turn conversations — the same handling as protected thinking (signature validated on passback; silently stripped if sent to a different model).
+- **Scope:** Connector summarization applies only after a `tool_result` exists in the conversation. Narration before the first tool call in a fresh conversation remains plain text. Short text segments may pass through as plain text without summarization.
+
+This feature is enabled server-side for Claude Fable 5. There is no customer opt-in or opt-out.

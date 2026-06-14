@@ -8,6 +8,7 @@ Console
    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 2. From the left navigation pane, choose **Custom models** under **Tune**.
 3. Depending on your use case, do one of the following:
+
    - To copy a model that you own into a different Region, select the button next to the model that you want to share in the **Models** section. Then, choose the three dots (
 
    ![Vertical ellipsis icon representing a menu or more options.](images/icons/vertical-ellipsis.png)
@@ -16,6 +17,7 @@ Console
    - To copy a model that was shared with you into a Region, select the button next to the model that you want to share in the **Models shared with you** section. Then, choose **Copy**.
 
 4. In the **Copy details** section, do the following:
+
    1. In the **Model name** field, give the model copy a name.
    2. Select a Region from the dropdown menu in the **Destination Region** field.
    3. (Optional) To add tags, expand the **Tags** section. For more information, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").

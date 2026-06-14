@@ -36,6 +36,7 @@ and follow the steps.
    endpoint.
 7. Choose the number of instances and select the instance type.
 8. Under **Advanced Settings**, you can optionally:
+
    1. Set up your VPC
    2. Configure the service access role
    3. Customize your encryption settings

@@ -25,6 +25,7 @@ Agents perform the following tasks:
 
 1. (Optional) Create a knowledge base to store your private data in that database. For more information, see [Retrieve data and generate AI responses with Amazon Bedrock Knowledge Bases](knowledge-base.md "knowledge-base.md").
 2. Configure an agent for your use case and add at least one of the following components:
+
    - At least one action group that the agent can perform. To
      learn how to define the action group and how it's handled by the agent, see [Use action groups to define actions for your agent to perform](agents-action-create.md "agents-action-create.md").
    - Associate a knowledge base with the agent to augment the agent's performance. For

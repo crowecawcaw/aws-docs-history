@@ -16,6 +16,7 @@ The identities or resources to which you need to attach the above permissions de
   permissions to access S3 data:
 
 - IAM identity permissions
+
   - If you can auto-create a service role in the console, the permissions will
     be configured for the service role, so you don't need to configure it
     yourself.

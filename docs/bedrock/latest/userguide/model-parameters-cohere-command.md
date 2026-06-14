@@ -53,6 +53,7 @@ The following are optional parameters.
 - **return_likelihoods** – Specify how and if the token
   likelihoods are returned with the response. You can specify the following
   options.
+
   - `GENERATION` – Only return likelihoods for generated
     tokens.
   - `ALL` – Return likelihoods for all tokens.
@@ -154,6 +155,7 @@ The response has the following possible fields:
 
 - `generations` — A list of generated results along with the likelihoods for tokens requested. (Always returned).
   Each generation object in the list contains the following fields.
+
   - `id` — An identifier for the generation. (Always returned).
   - `likelihood` — The likelihood of the output. The value is the average
     of the token likelihoods in `token_likelihoods`. Returned if you specify

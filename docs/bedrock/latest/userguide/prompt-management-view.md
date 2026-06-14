@@ -10,6 +10,7 @@ Console
    [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
 2. Select **Prompt management** from the left navigation pane. Then, choose a prompt in the **Prompts** section.
 3. The **Prompt details** page includes the following sections:
+
    - **Overview** – Contains general information about the prompt and when it was created and last updated.
    - **Prompt draft** – Contains the prompt message and configurations for the latest saved draft version of the prompt.
    - **Prompt versions** – A list of all versions of the prompt that have been created. For more information about prompt versions, see [Deploy a prompt to your application using versions in Prompt management](prompt-management-deploy.md "prompt-management-deploy.md").

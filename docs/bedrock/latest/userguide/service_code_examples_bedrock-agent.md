@@ -13,8 +13,10 @@ This topic also includes information about getting started and details about pre
 ###### Amazon Bedrock Agents
 
 - [Basics](service_code_examples_bedrock-agent_basics.md "service_code_examples_bedrock-agent_basics.md")
+
   - [Hello Amazon Bedrock Agents](bedrock-agent_example_bedrock-agent_Hello_section.md "bedrock-agent_example_bedrock-agent_Hello_section.md")
   - [Actions](service_code_examples_bedrock-agent_actions.md "service_code_examples_bedrock-agent_actions.md")
+
     - [CreateAgent](bedrock-agent_example_bedrock-agent_CreateAgent_section.md "bedrock-agent_example_bedrock-agent_CreateAgent_section.md")
     - [CreateAgentActionGroup](bedrock-agent_example_bedrock-agent_CreateAgentActionGroup_section.md "bedrock-agent_example_bedrock-agent_CreateAgentActionGroup_section.md")
     - [CreateAgentAlias](bedrock-agent_example_bedrock-agent_CreateAgentAlias_section.md "bedrock-agent_example_bedrock-agent_CreateAgentAlias_section.md")
@@ -51,6 +53,7 @@ This topic also includes information about getting started and details about pre
     - [UpdateKnowledgeBase](bedrock-agent_example_bedrock-agent_UpdateKnowledgeBase_section.md "bedrock-agent_example_bedrock-agent_UpdateKnowledgeBase_section.md")
 
 - [Scenarios](service_code_examples_bedrock-agent_scenarios.md "service_code_examples_bedrock-agent_scenarios.md")
+
   - [Create and invoke a flow](bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockFlows_section.md "bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockFlows_section.md")
   - [Create and invoke a managed prompt](bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockPrompts_section.md "bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockPrompts_section.md")
   - [Create and invoke an agent](bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockAgents_section.md "bedrock-agent_example_bedrock-agent_GettingStartedWithBedrockAgents_section.md")

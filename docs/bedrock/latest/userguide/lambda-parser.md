@@ -546,19 +546,24 @@ The `orchestrationParsedResponse` contains the following fields:
 - `rationale` – The reasoning for what to do next, based on the foundation model output. You can define the function to parse from the model output.
 - `parsingErrorDetails` – Contains the `repromptResponse`, which is the message to reprompt the model to update its raw response when the model response can't be parsed. You can define the function to manipulate how to reprompt the model.
 - `responseDetails` – Contains the details for how to handle the output of the foundation model. Contains an `invocationType`, which is the next step for the agent to take, and a second field that should match the `invocationType`. The following objects are possible.
+
   - `agentAskUser` – Compatible with the `ASK_USER` invocation type. This invocation type ends the orchestration step. Contains the `responseText` to ask the user for more information. You can define your function to manipulate this field.
   - `actionGroupInvocation` – Compatible with the `ACTION_GROUP` invocation type. You can define your Lambda function to determine action groups to invoke and parameters to pass. Contains the following fields:
+
     - `actionGroupName` – The action group to invoke.
     - The following fields are required if you defined the action group with an OpenAPI schema:
+
       - `apiName` – The name of the API operation to invoke in the action group.
       - `verb` – The method of the API operation to use.
 
     - The following field is required if you defined the action group with function details:
+
       - `functionName` – The name of the function to invoke in the action group.
 
     - `actionGroupInput` – Contains parameters to specify in the API operation request.
 
   - `agentKnowledgeBase` – Compatible with the `KNOWLEDGE_BASE` invocation type. You can define your function to determine how to query knowledge bases. Contains the following fields:
+
     - `knowledgeBaseId` – The unique identifier of the knowledge base.
     - `searchQuery` – Contains the query to send to the knowledge base in the `value` field.
 

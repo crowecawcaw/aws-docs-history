@@ -10,11 +10,13 @@ the number of songs to include in the playlist.
 
 1. Create a flow by following the instructions at [Create your first flow in Amazon Bedrock](flows-get-started.md "flows-get-started.md").
 2. Set up the prompt node by doing the following:
+
    1. Select the **Prompt** node in the center pane.
    2. Select the **Configure** tab in the **Flow builder** pane.
    3. Enter `MakePlaylist` as the **Node name**.
    4. Choose **Define in node**.
    5. Set up the following configurations for the prompt:
+
       1. Under **Select model**, select a model to
          run inference on the prompt.
       2. In the **Message** text box, enter
@@ -40,6 +42,7 @@ the following number of songs: {{number}}.`.
 
 3. Choose the **Flow input** node and select the **Configure** tab. Select **Object** as the **Type**. This means that flow invocation will expect to receive a JSON object.
 4. Connect your nodes to complete the flow by doing the following:
+
    1. Drag a connection from the output node of the **Flow input** node to the **genre** input in the **MakePlaylist** prompt node.
    2. Drag a connection from the output node of the **Flow input** node to the **number** input in the **MakePlaylist** prompt node.
    3. Drag a connection from the output node of the **modelCompletion** output in the **MakePlaylist** prompt node to the **document** input in the **Flow output** node.

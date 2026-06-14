@@ -27,6 +27,7 @@ delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_c
   your output data to S3
 - (Optional) If you encrypt any of the following resources with a KMS key,
   permissions to decrypt the key (see [Encryption of custom models](encryption-custom-job.md "encryption-custom-job.md"))
+
   - A model customization job or the resulting custom model
   - The training, validation, or output data for the model
     customization job

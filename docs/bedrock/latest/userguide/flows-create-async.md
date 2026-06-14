@@ -30,6 +30,7 @@ Console
 2. Create an alias for the flow by following the instructions at [Create an alias of a flow in Amazon Bedrock](flows-alias-create.md "flows-alias-create.md").
 3. If you're not already in the **Flow builder**, do the
    following:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. Select **Amazon Bedrock Flows** from the left navigation
@@ -39,6 +40,7 @@ Console
    **Create execution**.
 5. In the **Create execution** dialog, enter the
    following
+
    1. For **Name**, enter a name for the flow
       execution.
    2. For **Select alias**, choose the alias of the

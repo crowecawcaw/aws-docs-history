@@ -32,6 +32,7 @@ At least one of the following fields is required. Include both to generate an em
 The following field is optional.
 
 - **embeddingConfig** – Contains an `outputEmbeddingLength` field, in which you specify one of the following lengths for the output embeddings vector.
+
   - 256
   - 384
   - 1024 (default)

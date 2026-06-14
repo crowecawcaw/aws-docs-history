@@ -40,6 +40,8 @@ The following tables show which Amazon Bedrock endpoints support each model, org
 
 | Model name                                                                                                                 | `bedrock-runtime` | `bedrock-mantle` |
 | -------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------- |
+| **[Claude Mythos 5](model-card-anthropic-claude-mythos-5.md "model-card-anthropic-claude-mythos-5.md")**                   |                   |                  |
+| **[Claude Fable 5](model-card-anthropic-claude-fable-5.md "model-card-anthropic-claude-fable-5.md")**                      |                   |                  |
 | **[Claude Mythos Preview](model-card-anthropic-claude-mythos-preview.md "model-card-anthropic-claude-mythos-preview.md")** |                   |                  |
 | **[Claude 3 Haiku](model-card-anthropic-claude-3-haiku.md "model-card-anthropic-claude-3-haiku.md")**                      |                   |                  |
 | **[Claude 3.5 Haiku](model-card-anthropic-claude-3-5-haiku.md "model-card-anthropic-claude-3-5-haiku.md")**                |                   |                  |

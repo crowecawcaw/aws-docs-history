@@ -23,6 +23,7 @@ Console
 2. In the left-hand pane under **Inference and assessment**, select **Evaluations**.
 3. In the **RAG evaluations** pane, choose **Create**.
 4. Enter your RAG evaluation details by doing the following:
+
    1. In the **Evaluation details** pane under **Evaluation name**, enter a name for your evaluation job. The name
       you choose must be unique within your AWS Region.
    2. Optionally, under **Description - _optional_**, enter a description for your evaluation job.
@@ -32,10 +33,12 @@ Console
 5. Enter the inference source for your evaluation job. With Amazon Bedrock RAG evaluations, you can either evaluate the performance of Amazon Bedrock Knowledge Bases,
    or of other RAG sources by providing your own inference response data in the [prompt dataset](knowledge-base-evaluation-prompt.md "knowledge-base-evaluation-prompt.md").
    To select an Amazon Bedrock Knowledge Base, do the following:
+
    1. In the **Inference source** pane, under **Select source** select **Bedrock Knowledge Base**.
    2. Under **Choose a Knowledge Base**, select a Knowledge Base using the dropdown list.
 
 6. To bring your own inference response data, do the following:
+
    1. In the **Inference source** pane, under **Select source** select **Bring your own inference responses**.
    2. For **Source name**, enter a name for the RAG source you used to create the response data. The name you enter must match the
       `knowledgeBaseIdentifier` parameter in your [prompt dataset](knowledge-base-evaluation-prompt.md "knowledge-base-evaluation-prompt.md").
@@ -45,6 +48,7 @@ Console
    them in the **Metrics** pane.
 9. To add one more custom metrics, begin by selecting the evaluator model you want to use to evaluate your metrics.
    In the **Custom metrics** pane, do the following:
+
    1. Choose **Select model**.
    2. In the pop-up, select the model you want to use.
    3. Choose **Apply**.
@@ -66,6 +70,7 @@ To create a metric from a JSON file, do the following:
     When you have finished creating your custom metrics, proceed to step 14 to configure your datasets for the evaluation job.
 
 12. To create a custom metric from a built-in template, do the following:
+
     1.  Under **Choose metric type**, select **Use a template**.
     2.  Under **Select a template**, use the dropdown list to choose an existing built-in metric prompt to use as a starting point for your
         custom metric.
@@ -82,6 +87,7 @@ To create a metric from a JSON file, do the following:
     When you have finished creating your custom metrics, proceed to step 14 to configure your datasets for the evaluation job.
 
 13. To create a custom metric from scratch in the console, do the following:
+
     1.  Under **Choose metric type**, select **Custom**.
     2.  Under **Instructions**, enter the prompt for your custom metric directly in the text box. For best practices and for a list of required elements
         when creating a custom metric prompt, see [Prompt construction and best practices](kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-create "kb-evaluation-custom-metrics-prompt-formats.md#kb-evaluation-custom-metrics-prompt-formats-create").
@@ -96,6 +102,7 @@ To create a metric from a JSON file, do the following:
     When you have finished creating your custom metrics, proceed to the next step to configure your datasets for the evaluation job.
 
 14. Define your input and output locations for your dataset and results by doing the following:
+
     1.  In the **Datasets** pane under **Choose a prompt dataset**, enter the Amazon S3 URI for your prompt dataset,
         or choose **Browse S3** and select your file. To see a definition of the required prompt dataset format for a retrieve-only
         evaluation job, see [Create a prompt dataset for retrieve-only RAG evaluation jobs](knowledge-base-evaluation-prompt-retrieve.md "knowledge-base-evaluation-prompt-retrieve.md").

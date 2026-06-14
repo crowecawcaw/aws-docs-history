@@ -67,6 +67,7 @@ and contains the following for each turn. You can only evaluate one RAG source p
 - `referenceContexts` (optional) – This optional parent key is used to specify the ground truth passages you would expect to be retrieved from the RAG source. You
   only need to include this key if you want to use it in your own custom evaluation metrics. The built-in metrics Amazon Bedrock provides don't use this property.
 - `output` – the output from your RAG source, comprising the following:
+
   - `text` – The final output from the LLM in your RAG system.
   - `retrievedPassages` – This parent key is used to specify the content your RAG source retrieved.
 

@@ -35,6 +35,7 @@ You use the two sets of operations in different use cases:
   you must sync your data source in the AWS Management Console or by submitting a [StartIngestionJob](../APIReference/API_agent_StartIngestionJob.md "../APIReference/API_agent_StartIngestionJob.md")
   request through the Amazon Bedrock API.
 - Index documents into the vector store set up for your knowledge base or remove the indexed documents in the following ways:
+
   1.  Add documents into your S3 location or delete documents from it. Then sync your data source in the AWS Management Console or submit a `StartIngestionJob` request in the API. For details about syncing and the `StartIngestionJob` operation, see [Sync your data with your Amazon Bedrock knowledge base](kb-data-source-sync-ingest.md "kb-data-source-sync-ingest.md").
   2.  Ingest S3 documents into the knowledge base directly with an `IngestKnowledgeBaseDocuments` request. For details about directly ingesting documents, see [Ingest documents directly into a knowledge base](kb-direct-ingestion-add.md "kb-direct-ingestion-add.md").
 

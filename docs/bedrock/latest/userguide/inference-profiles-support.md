@@ -26,7 +26,7 @@ When you invoke a cross-Region inference profile in Amazon Bedrock, your request
 
 The destination Regions in a cross-Region inference profile can include _opt-in Regions_, which are Regions that you must explicitly enable at AWS account or Organization level.
 To learn more, see [Enable or disable AWS Regions in your account](../../../accounts/latest/reference/manage-acct-regions.md "../../../accounts/latest/reference/manage-acct-regions.md"). When using a cross-Region inference profile,
-your inference request can be routed to any of the destination Regions in the profile, even if you did not opt-in to such Regions in your account.
+your inference request can be routed to any of the destination Regions in the profile, even if you did not opt-in to such Regions in your account. Your input prompts and output results may be stored in the opt-in Regions for abuse detection purposes.
 
 Service Control Policies (SCPs) and AWS Identity and Access Management (IAM) policies work together to control where cross-Region inference is allowed. Using SCPs,
 you can control which Regions Amazon Bedrock can use for inference, and using IAM policies, you can define which users or roles have permission to run inference.

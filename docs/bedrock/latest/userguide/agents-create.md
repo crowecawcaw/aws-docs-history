@@ -37,14 +37,17 @@ Console
 ###### To configure your agent
 
 1. If you're not already in the agent builder, do the following:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. Select **Agents** from the left navigation pane. Then, choose an agent in the **Agents** section.
    3. Choose **Edit in Agent builder**.
 
 2. In the **Agent details** section, you can set up the following configurations:
+
    1. Edit the **Agent name** or **Agent description**.
    2. For the **Agent resource role**, select one of the following options:
+
       - **Create and use a new service role** – Let Amazon Bedrock create the service role and set up the required permissions on your behalf.
       - **Use an existing service role** – Use a [custom role](agents-permissions.md "agents-permissions.md") that you set up previously.
 
@@ -56,13 +59,13 @@ Console
 
    To use cross-Region inference with your agent, specify an inference profile ID in the `foundationModel` field when using the API. For more information, see [Increase throughput with cross-Region inference](cross-region-inference.md "cross-region-inference.md").
 
-   ![You can create agents with any foundation model. Currently, some of the offered models are optimized with prompts/parsers fine-tuned for integrating with the agents architecture. No additional models are planned to be optimized for Amazon Bedrock Agents.](images/agents/agents-optimized-model-selection.png) 4. In **Instructions for the Agent**, enter details to tell the agent what it should do and how it should interact with users. The instructions replace the $instructions$ placeholder in the [orchestration prompt template](prompt-placeholders.md#placeholders-orchestration "prompt-placeholders.md#placeholders-orchestration"). Following is an example of instructions:
+   ![Foundation models available for agents, with optimization status for the agent framework.](images/agents/agents-optimized-model-selection.png) 4. In **Instructions for the Agent**, enter details to tell the agent what it should do and how it should interact with users. The instructions replace the $instructions$ placeholder in the [orchestration prompt template](prompt-placeholders.md#placeholders-orchestration "prompt-placeholders.md#placeholders-orchestration"). Following is an example of instructions:
 
    ```
    `You are an office assistant in an insurance agency. You are friendly and polite. You help with managing insurance claims and coordinating pending paperwork.`
    ```
-
    5. If you expand **Additional settings**, you can modify the following configurations:
+
       - **Code Interpreter** –
         (Optional) Choose whether to enable agent to handle
         tasks that involve writing, running, testing, and
@@ -89,6 +92,7 @@ Console
 6. In the **Orchestration strategy** section, you can choose **Edit** to customize your agent's orchestration. For more information about the orchestration strategy you can use for your agent, see [Customize agent orchestration strategy](orch-strategy.md "orch-strategy.md").
 7. In the **Multi-agent collaboration** section, you can choose **Edit** to create a multi-agent collaboration team. For more information about multi-agent collaboration, see [Use multi-agent collaboration with Amazon Bedrock Agents](agents-multi-agent-collaboration.md "agents-multi-agent-collaboration.md").
 8. When you finish configuring your agent, select one of the following options:
+
    - To stay in the **Agent builder**, choose **Save**. You can then **Prepare** the agent to test it with your updated configurations in the test window. To learn how to test your agent, see [Test and troubleshoot agent behavior](agents-test.md "agents-test.md").
    - To return to the **Agent Details** page, choose **Save and exit**.
 

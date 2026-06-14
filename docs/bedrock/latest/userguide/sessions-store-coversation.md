@@ -11,6 +11,7 @@ How you organize invocation steps within invocations depends on your use case. F
 - You can include up to 20 images. Each image's size, height, and width must be no more than 3.75 MB, 8000 px,
   and 8000 px, respectively.
 - You can import the following types of images:
+
   - PNG
   - JPEG
   - GIF

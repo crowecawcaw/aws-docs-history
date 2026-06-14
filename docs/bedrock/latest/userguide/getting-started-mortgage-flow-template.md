@@ -4,12 +4,15 @@ The `cloudformation-mortgage-flow-setup.zip` file that you download contains the
 
 - `deploy.sh` – A shell script that deploys your resources and prepares the main CloudFormation template that you'll use.
 - `artifacts` – A folder that contains .zip files with functions for the agent and knowledge base templates:
+
   - Lambda functions for the agent's action groups
+
     - `agent_loan_calculator.zip`
     - `mls_lookup.zip`
     - `loader_deployment_package.zip`
 
   - Functions for setting up the knowledge base
+
     - `custom-resource-lambda.zip`
     - `opensearchpy-layer.zip`
     - `provider-event-handler.zip`
@@ -17,6 +20,7 @@ The `cloudformation-mortgage-flow-setup.zip` file that you download contains the
 - `api-schema` – A folder that contains API schemas for action groups.
 - `knowledge-base-data-source` – A folder that contains the PDF for [Fannie Mae's Selling Guide](https://selling-guide.fanniemae.com/ "https://selling-guide.fanniemae.com/").
 - `templates` – A folder that contains the templates for the resources in this flow, both in JSON and YAML format:
+
   - `main-stack-tmp` – The main template that deploys the remaining templates as nested stacks. This file is turned into `main-stack` after the deployment script is run.
   - `guardrails-template` – The template for the guardrail to be associated with the agent.
   - `prompts-template` – The template for the prompts to be used in flow.

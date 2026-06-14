@@ -51,6 +51,7 @@ To further restrict permissions, you can omit actions, or you can specify resour
     * If you plan to use a [flow](flows.md "flows.md") in Amazon Bedrock Flows to deploy your prompt, see [Prerequisites for Amazon Bedrock Flows](flows-prereq.md "flows-prereq.md") to learn about the permissions that you must set up to create a flow.
 
 2. If you plan to encrypt your prompt with a customer managed key rather than using an AWS managed key (for more information, see [AWS KMS keys](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md")), create the following policies:
+
    1. Follow the steps at [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") and attach the following key policy to a KMS key to allow Amazon Bedrock encrypt and decrypt a prompt with the key, replacing the `values` as necessary. The policy contains optional condition keys (see [Condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys") and [AWS global condition context keys](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys")) in the `Condition` field that we recommend you use as a security best practice.
 
    ```
@@ -72,7 +73,6 @@ To further restrict permissions, you can omit actions, or you can specify resour
        }
    }
    ```
-
    2. Follow the steps at [Update the permissions policy for a role](../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md#id_roles_update-role-permissions-policy "../../../IAM/latest/UserGuide/id_roles_update-role-permissions.md#id_roles_update-role-permissions-policy") and attach the following policy to the prompt management role, replacing the `values` as necessary, to allow it to generate and decrypt the customer managed key for a prompt. The policy contains optional condition keys (see [Condition keys for Amazon Bedrock](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys") and [AWS global condition context keys](../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys "../../../service-authorization/latest/reference/list_amazonbedrock.md#amazonbedrock-policy-keys")) in the `Condition` field that we recommend you use as a security best practice.
 
    ```

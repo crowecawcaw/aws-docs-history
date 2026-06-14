@@ -269,6 +269,7 @@ Complete the following steps to request a limit increase:
 3. From the list of services, find and choose **Amazon Bedrock**.
 4. In the list of quotas for Amazon Bedrock, use the search filter to find the specific
    global CRIS quotas. For example:
+
    - Global cross-Region model inference tokens per minute for
      Anthropic Claude Sonnet 4.5 V1
 

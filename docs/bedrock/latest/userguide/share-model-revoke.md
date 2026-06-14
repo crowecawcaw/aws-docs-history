@@ -9,6 +9,7 @@ Console
 2. From the left navigation pane, choose **Custom models** under **Tune**.
 3. In the **Models** table, select the model that you want to revoke access to.
 4. In the **Model sharing details** section, do the following to delete a model share and revoke access from the accounts specified in that model share:
+
    1. Select a model share and choose **Revoke shared model**.
    2. Review the message, type `revoke` in the text box, and choose **Revoke shared model** to confirm revoking of access.
 

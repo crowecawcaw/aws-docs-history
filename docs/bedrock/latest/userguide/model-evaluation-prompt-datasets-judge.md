@@ -61,6 +61,7 @@ To run an evaluation job using responses you've already generated, create a prom
   each category.
 - `modelResponses` – the response from your own inference that you want Amazon Bedrock to evaluate. Evaluation jobs that use a
   model as a judge support only one model response for each prompt, defined using the following keys:
+
   - `response` – a string containing the response from your model inference.
   - `modelIdentifier` – a string identifying the model that generated the response. You may use only one unique
     `modelIdentifier` in an evaluation job, and each prompt in your dataset must use this identifier.

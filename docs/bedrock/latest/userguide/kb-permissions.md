@@ -17,6 +17,7 @@ A policy cannot be shared between multiple roles when the service role is used.
 - (If you create a vector database in Pinecone or Redis Enterprise Cloud) Permissions for AWS Secrets Manager to authenticate your Pinecone or Redis Enterprise Cloud account
 - (Optional) If you encrypt any of the following resources with a KMS key,
   permissions to decrypt the key (see [Encryption of knowledge base resources](encryption-kb.md "encryption-kb.md")).
+
   - Your knowledge base
   - Data sources for your knowledge base
   - Your vector database in Amazon OpenSearch Service

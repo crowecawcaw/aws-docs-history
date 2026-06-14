@@ -30,6 +30,7 @@ BDA uses the grant for your customer managed key for the following internal oper
 - GenerateDataKey and Decrypt — Send requests to AWS KMS to generate data keys encrypted by your customer managed key and decrypt
   the encrypted data keys so that they can be used to encrypt your resources.
 - CreateGrant — Send requests to AWS KMS to create scoped down grants for the asynchronous execution of operations. The grant operations vary by API:
+
   - InvokeDataAutomationAsync: DescribeKey, GenerateDataKey, Decrypt
   - CreateDataAutomationLibrary: DescribeKey, GenerateDataKey, Decrypt, CreateGrant
 

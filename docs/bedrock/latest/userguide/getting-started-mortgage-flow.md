@@ -8,7 +8,7 @@ For this tutorial, we will use the `us-east-1` Region. You can use any Region th
 
 This flow isn't meant for deployment purposes, but rather to use as a tutorial to understand Amazon Bedrock resources. The following image is the visual representation of the flow in the AWS Management Console:
 
-![Mortgage processing flow](images/cloudformation/mortgage-processing-flow.png)
+![Mortgage processing flow.](images/cloudformation/mortgage-processing-flow.png)
 The flow combines an Amazon Bedrock [agent](agents.md "agents.md"), [prompts](prompt-management.md "prompt-management.md"), and a [Lambda function](../../../lambda/latest/dg/welcome.md "../../../lambda/latest/dg/welcome.md") to create a mortgage processing flow that intakes customer financial information and processes whether the customer qualifies for a loan. An Amazon Bedrock [knowledge base](knowledge-base.md "knowledge-base.md") and [guardrail](guardrails.md "guardrails.md") are also attached to the flow's agent to augment responses and to provide safeguards. For more detailed information about the components of the flow, see [Details about the mortgage processing flow](getting-started-mortgage-flow-details.md "getting-started-mortgage-flow-details.md").
 
 ###### Topics
@@ -33,14 +33,17 @@ Then, complete the following prerequisites:
 1. Download the [cloudformation-mortgage-flow-setup.zip](samples/cloudformation-mortgage-flow-setup.zip.md "samples/cloudformation-mortgage-flow-setup.zip.md") file.
 2. Unzip the file. You can learn more about the contents at [CloudFormation templates](getting-started-mortgage-flow-template.md "getting-started-mortgage-flow-template.md").
 3. Request access to Amazon Bedrock foundation models by doing the following:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. Make sure that you're in the **US East (N. Virginia)** Region by checking your Region in the upper-right corner. If you're not, switch Regions.
    3. Select **Model access** at the bottom of the left navigation pane.
    4. Choose **Modify model access**.
    5. Do one of the following:
+
       - To request access to all models, choose **Enable all models**. On the page you're taken to, the checkboxes next to all the models will be filled.
       - To request access to specific models, choose **Enable specific models**. On the page you're taken to, you have the following options:
+
         - To request access to all models by a provider, select the checkbox next to the provider name.
         - To request access to one model, select the checkbox next to the model name.
 
@@ -80,6 +83,7 @@ If the script fails, you can manually prepare the resources by doing the followi
 
 1. Upload the _contents_ (don't include the folder itself) of the unzipped `cloudformation-mortgage-flow-setup` folder to an S3 bucket in US East (N. Virginia) in the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Find the `templates/json/main-stack-tmp.yaml` or `templates/json/main-stack-tmp.json` file and do the following:
+
    1. Change the `Default` value of the `Q01pS3BucketName` parameter from `MortgageFlowBucket` to your S3 bucket name.
    2. Remove `-tmp` from the file name, such that it becomes `templates/json/main-stack.yaml` or `templates/json/main-stack.json`.
 
@@ -90,12 +94,14 @@ Next, use the template you've saved to provision a CloudFormation stack.
 1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/"). Make sure that you're in the **US East (N. Virginia)** Region by checking your Region in the upper-right corner. If you're not, switch Regions.
 2. On the **Stacks** page, from the **Create stack** menu, choose **With new resources (standard)**.
 3. Specify the template:
+
    1. Under **Prerequisite**, choose **Choose an existing template**.
    2. Under **Specify template**, choose **Upload a template file**.
    3. Choose **Choose file**, navigate to the `main-stack.yaml` or the `main-stack.json` template, and select it.
    4. Choose **Next**.
 
 4. Specify the stack details:
+
    1. In the **Stack name** field, enter a name for the stack.
    2. In the **Parameters** field, leave the default values.
 
@@ -104,6 +110,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
    The `Q01pS3BucketName` value should match the name of the S3 bucket to which you uploaded the resources for this template. The remaining arguments are related to the configurations of the knowledge base--if you modify any of them, make sure that the configurations are compatible with each other. For more information, see [Prerequisites for using a vector store you created for a knowledge base](knowledge-base-setup.md "knowledge-base-setup.md"). 3. Choose **Next**.
 
 5. Configure the stack options:
+
    1. Under **Stack failure options**, choose **Delete all newly created resources**.
 
    ###### Note
@@ -112,6 +119,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
 6. Review the stack details and choose **Submit**. CloudFormation creates the stack. The creation will take several minutes. After the stack creation is complete, you can use the **Resources** tab on the stack detail page to view the resources that where provisioned in your account.
 7. After the stack creation completes, do the following to sync the data source for the knowledge base so that the knowledge base can be queried:
+
    1. Sign in to the AWS Management Console with an IAM identity that has permissions to use the Amazon Bedrock console. Then, open the Amazon Bedrock console at
       [https://console.aws.amazon.com/bedrock](https://console.aws.amazon.com/bedrock "https://console.aws.amazon.com/bedrock").
    2. From the left navigation pane, choose **Knowledge Bases** and then select the knowledge base that was created, named `AWSDocsTutorial-MortgageKB`.

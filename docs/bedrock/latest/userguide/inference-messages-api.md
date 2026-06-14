@@ -25,10 +25,12 @@ Before using the Messages API, ensure you have the following:
 - **Model access** – Request access to
   Claude models in the Amazon Bedrock console. See [Request access to models](model-access.md "model-access.md").
 - **Authentication** – Depends on the endpoint:
+
   - `bedrock-mantle` – Use a Amazon Bedrock API key (see [API keys](api-keys.md "api-keys.md")) or AWS SigV4 credentials.
   - `bedrock-runtime` – Use AWS SigV4 credentials via the AWS SDK (boto3, etc.).
 
 - **Anthropic version header** – All requests require an API version:
+
   - `bedrock-mantle`: Set `anthropic-version: 2023-06-01` as an HTTP header.
   - `bedrock-runtime`: Set `"anthropic_version": "bedrock-2023-05-31"` in the request body.
 
@@ -171,7 +173,7 @@ for event in response["body"]:
 In addition to the [Extended
 thinking](claude-messages-extended-thinking.md "claude-messages-extended-thinking.md"), [Adaptive
 thinking](claude-messages-adaptive-thinking.md "claude-messages-adaptive-thinking.md"), [Structured
-outputs](claude-messages-structured-outputs.md "claude-messages-structured-outputs.md"), [Compaction](claude-messages-compaction.md "claude-messages-compaction.md"), and
+outputs](claude-messages-structured-outputs.md "claude-messages-structured-outputs.md"), [Compaction](claude-messages-compaction.md "claude-messages-compaction.md"), [Fallback credit for refused requests (beta)](claude-messages-fallback-credit.md "claude-messages-fallback-credit.md"), and
 [Mid-conversation system
 messages](claude-messages-mid-conversation-system.md "claude-messages-mid-conversation-system.md") sections above, the Messages API supports the following features with
 Claude models:

@@ -213,6 +213,7 @@ aws bedrock create-prompt-router \
    criteria.
 4. As you work with prompt routers, you can also use these
    additional API operations:
+
    - [`GetPromptRouter`](../APIReference/API_GetPromptRouter.md "../APIReference/API_GetPromptRouter.md")
    - [`ListPromptRouters`](../APIReference/API_ListPromptRouters.md "../APIReference/API_ListPromptRouters.md")
    - [`DeletePromptRouter`](../APIReference/API_DeletePromptRouter.md "../APIReference/API_DeletePromptRouter.md")

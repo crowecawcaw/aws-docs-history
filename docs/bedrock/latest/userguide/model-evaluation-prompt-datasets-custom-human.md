@@ -54,6 +54,7 @@ To run an evaluation job using responses you've already generated, you provide a
   the model evaluation report card.
 - `modelResponses` – the responses from your own inference that you want to evaluate. You can
   provide either one or two entries with the following properties in the `modelResponses` list.
+
   - `response` – a string containing the response from your model inference.
   - `modelIdentifier` – a string identifying the model that generated the responses.
 

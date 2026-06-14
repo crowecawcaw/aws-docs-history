@@ -44,6 +44,7 @@ To further restrict permissions, you can omit actions, or you can specify resour
 - `bedrock:InvokeModel` – Required to carry out model invocation. Allows the role to call the [InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md") and [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md") API operations.
 - `bedrock:InvokeModelWithResponseStream` – Required to carry out model invocation and return streaming responses. Allows the role to call the [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md") and [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md")Stream API operations.
 - The following actions allow a role to run inference with Amazon Bedrock resources other than foundation models:
+
   - `bedrock:GetInferenceProfile` – Required to run inference with an [inference profile](inference-profiles.md "inference-profiles.md").
   - `bedrock:RenderPrompt` – Required to invoke a prompt from [Prompt management](prompt-management.md "prompt-management.md").
   - `bedrock:GetCustomModel` – Required to run inference with a [custom model](custom-models.md "custom-models.md").
@@ -51,12 +52,14 @@ To further restrict permissions, you can omit actions, or you can specify resour
   - `bedrock:GetProvisionedModelThroughput` – Required to run inference with a [Provisioned Throughput](prov-throughput.md "prov-throughput.md").
 
 - The following actions allow a role to see Amazon Bedrock resources other than foundation models in the Amazon Bedrock console and to select them:
+
   - `bedrock:ListInferenceProfiles` – Required to choose an [inference profile](custom-models.md "custom-models.md") in the Amazon Bedrock console.
   - `bedrock:ListCustomModels` – Required to choose a [custom model](custom-models.md "custom-models.md") in the Amazon Bedrock console.
   - `bedrock:ListImportedModels` – Required to choose an [imported model](model-customization-import-model.md "model-customization-import-model.md") in the Amazon Bedrock console.
   - `bedrock:ListProvisionedModelThroughputs` – Required to choose a [Provisioned Throughput](prov-throughput.md "prov-throughput.md") in the Amazon Bedrock console.
 
 - The following actions allow a role to access and apply guardrails from [Amazon Bedrock Guardrails](guardrails.md "guardrails.md") during model invocation:
+
   - `bedrock:GetGuardrail` – Required to use a guardrail during model invocation.
   - `bedrock:ApplyGuardrail` – Required to apply a guardrail during model invocation.
   - `bedrock:ListGuardrails` – Required to choose a guardrail in the Amazon Bedrock console.

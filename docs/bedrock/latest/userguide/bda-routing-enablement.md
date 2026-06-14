@@ -76,7 +76,7 @@ Below is a screenshot of the console, with a manual modality routing that sends 
 Settings for JPEG files apply to both ".jpeg" and ".jpg" files. Settings for MP4 settings apply to both ".mp4"
 ".m4v" files.
 
-![An image from the AWS console, showing a pair of drop down menus labeled file type and modality destination, selected as PNG and Document.](images/bda/manualrouting.png)
+![Console drop-down menus for file type and modality destination, selected as PNG and Document.](images/bda/manualrouting.png)
 
 ###### Routing with the BDA API
 

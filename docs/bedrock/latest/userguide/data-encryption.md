@@ -20,6 +20,7 @@ Use the AWS Key Management Service to manage the keys that you use to encrypt yo
 concepts](../../../kms/latest/developerguide/concepts.md#master_keys "../../../kms/latest/developerguide/concepts.md#master_keys"). You can encrypt the following resources with a KMS key.
 
 - Through Amazon Bedrock
+
   - Model customization jobs and their output custom models – During job creation in the console or by specifying the `customModelKmsKeyId` field in the [CreateModelCustomizationJob](../APIReference/API_CreateModelCustomizationJob.md "../APIReference/API_CreateModelCustomizationJob.md") API call.
   - Agents – During agent creation in the console or by specifying the `customerEncryptionKeyArn` field in the [CreateAgent](../APIReference/API_agent_CreateAgent.md "../APIReference/API_agent_CreateAgent.md") API call.
   - Data source ingestion jobs for knowledge bases – During knowledge base creation in the console or by specifying the `kmsKeyArn` field in the [CreateDataSource](../APIReference/API_agent_CreateDataSource.md "../APIReference/API_agent_CreateDataSource.md") or [UpdateDataSource](../APIReference/API_agent_UpdateDataSource.md "../APIReference/API_agent_UpdateDataSource.md") API call.
@@ -27,10 +28,12 @@ concepts](../../../kms/latest/developerguide/concepts.md#master_keys "../../../k
   - Model evaluations jobs – When you create a model evaluation job in console or by specify a key ARN in `customerEncryptionKeyId` in the [CreateEvaluationJob](../APIReference/API_CreateEvaluationJob.md "../APIReference/API_CreateEvaluationJob.md") API call.
 
 - Through Amazon S3 – For more information, see [Using server-side encryption with AWS KMS keys (SSE-KMS).](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md")
+
   - Training, validation, and output data for model customization
   - Data sources for knowledge bases
 
 - Through AWS Secrets Manager – For more information, see [Secret encryption and decryption in AWS Secrets Manager](../../../secretsmanager/latest/userguide/security-encryption.md "../../../secretsmanager/latest/userguide/security-encryption.md")
+
   - Vector stores for third-party models
 
 After you encrypt a resource, you can find the ARN of the KMS key by selecting a resource and viewing its **Details** in the console or by using the following `Get` API calls.

@@ -28,6 +28,7 @@ guardrails detects:
   Amazon Bedrock Guardrails offers the following PIIs to block or anonymize:
 
 - **General**
+
   - **ADDRESS**
 
   A physical address, such as "100 Main Street, Anytown, USA" or "Suite
@@ -81,6 +82,7 @@ guardrails detects:
   specification. Each country has specific codes and formats for VINs.
 
 - **Finance**
+
   - **CREDIT_DEBIT_CARD_CVV**
 
   A three-digit card verification code (CVV) that is present on VISA,
@@ -117,6 +119,7 @@ guardrails detects:
   ending in 'XXX') refer to the head or primary office.
 
 - **IT**
+
   - **IP_ADDRESS**
 
   An IPv4 address, such as _198.51.100.0_.
@@ -139,6 +142,7 @@ guardrails detects:
   cryptographically.
 
 - **USA specific**
+
   - **US_BANK_ACCOUNT_NUMBER**
 
   A US bank account number, which is typically 10 to 12 digits long.
@@ -163,6 +167,7 @@ guardrails detects:
   residents.
 
 - **Canada specific**
+
   - **CA_HEALTH_NUMBER**
 
   A Canadian Health Service Number is a 10-digit unique identifier,
@@ -179,6 +184,7 @@ guardrails detects:
   algorithm](https://www.wikipedia.org/wiki/Luhn_algorithm "https://www.wikipedia.org/wiki/Luhn_algorithm").
 
 - **UK Specific**
+
   - **UK_NATIONAL_HEALTH_SERVICE_NUMBER**
 
   A UK National Health Service Number is a 10-17 digit number, such as
@@ -201,6 +207,7 @@ guardrails detects:
   identifies a taxpayer or a business.
 
 - **Custom**
+
   - **Regex filter**
 
   You can use regular expressions to define patterns for a guardrail
@@ -252,6 +259,7 @@ Console
    **Create guardrail**.
 3. For **Provide guardrail details** page, do
    the following:
+
    1. In the **Guardrail details** section,
       provide a **Name** and optional
       **Description** for the
@@ -288,10 +296,12 @@ Console
 4. On the **Add sensitive information filters
    page** page, do the following to configure filters
    to block or mask sensitive information:
+
    1. In the **PII types** section,
       configure the personally identifiable information (PII)
       categories to block, mask, or take no action (detect
       mode). You have the following options:
+
       - To add all PII types, select the dropdown
         arrow next to **Add PII type**.
         Then select the guardrail behavior to apply to
@@ -335,6 +345,7 @@ Console
       use regular expressions to define patterns for the
       guardrail to filter. You have the following
       options:
+
       - To add a pattern, select **Add regex
         pattern**. Configure the following
         fields:
@@ -429,8 +440,10 @@ Content-type: application/json
   `blockedOutputsMessaging` fields.
 - Configure sensitive information policies in the
   `sensitiveInformationPolicyConfig` object:
+
   - Use `piiEntitiesConfig` array to configure
     predefined PII entity types:
+
     - Specify the PII entity type in the
       `type` field. Valid values include
       `ADDRESS`, `EMAIL`,
@@ -451,6 +464,7 @@ Content-type: application/json
 
   - Use `regexesConfig` array to define custom
     patterns to detect:
+
     - Specify a `name` for the regex
       pattern (1-100 characters).
     - Define the regular expression
