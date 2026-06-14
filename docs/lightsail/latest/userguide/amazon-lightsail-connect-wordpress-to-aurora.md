@@ -70,6 +70,7 @@ instance can establish a connection to your Aurora database.
 10. In the **Edit inbound rules** page, choose **Add
     rule**.
 11. Complete one of the following steps:
+
     - If you are using the default MySQL port 3306, select
       **MySQL/Aurora** in the **Type** dropdown
       menu.

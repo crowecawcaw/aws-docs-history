@@ -40,6 +40,7 @@ Resource names:
      underscores.
 
 10. Choose one of the following options to add tags to your database:
+
     - **Add key-only tags** or **Manage tags**
       (if tags have already been added). Enter your new tag into the tag key text box, and
       press **Enter**. Choose **Save** when you’re done

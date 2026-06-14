@@ -38,6 +38,7 @@ the input field to acknowledge that you want to delete the instance. 4. Choose *
 ## Delete an instance using the AWS CLI
 
 1. Complete the following prerequisites if you haven't already.
+
    1. Install the AWS CLI. For more information, see [Install the
       AWS CLI](../../../cli/latest/userguide/installing.md "../../../cli/latest/userguide/installing.md") .
    2. Configure the AWS CLI. For more information, see [Configuring the AWS CLI](lightsail-how-to-set-up-and-configure-aws-cli.md "lightsail-how-to-set-up-and-configure-aws-cli.md").

@@ -9,6 +9,7 @@ rather than prescriptions.
 ###### Contents
 
 - [Preventative security best practices](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-preventative-practices "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-preventative-practices")
+
   - [Implement least privilege access](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-least-privilege-access "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-least-privilege-access")
   - [Verify that your Lightsail buckets are not publicly accessible](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-verify-bucket-permissions "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-verify-bucket-permissions")
   - [Enable block public access in Amazon S3](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-block-public-access "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-block-public-access")
@@ -19,6 +20,7 @@ rather than prescriptions.
   - [Enable versioning](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-versioning "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-versioning")
 
 - [Monitoring and auditing best practices](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-auditing "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-auditing")
+
   - [Enable access logging and perform periodic security and access audits](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-access-logging "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-enable-access-logging")
   - [Identify, tag, and audit your Lightsail buckets](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-identify-tag "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-identify-tag")
   - [Implement monitoring using AWS monitoring tools](amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-tools "amazon-lightsail-bucket-security-best-practices.md#bucket-security-best-practices-monitoring-tools")

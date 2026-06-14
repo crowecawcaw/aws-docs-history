@@ -60,7 +60,7 @@ permissions** section of the page.
 ![The Change permissions button.](images/amazon-lightsail-bucket-access-permissions.png) 6. Choose **Individual objects can be made public and read
 only**.
 
-![The Individual objects can be made public and read only option.](/images/lightsail/latest/userguide/images/amazon-lightsail-bucket-access-permissions-options.png) 7. Choose **Save**. 8. Choose **Yes, save** in the confirmation prompt that appears.
+![The Individual objects can be made public and read only option.](images/amazon-lightsail-bucket-access-permissions-options.png) 7. Choose **Save**. 8. Choose **Yes, save** in the confirmation prompt that appears.
 
 ![The Yes, save button.](images/amazon-lightsail-bucket-access-permissions-confirmation.png)
 
@@ -69,7 +69,7 @@ access. This ensures that objects uploaded to your bucket from your WordPress we
 using the Offload Media Lite plugin are readable to your customers. 9. Scroll to the **Resource access** section of the page, and choose
 **Attach instance**.
 
-![The Attach instance option.](/images/lightsail/latest/userguide/images/amazon-lightsail-bucket-resource-access.png) 10. Choose the name of your WordPress instance in the drop-down that appears, and then
+![The Attach instance option.](images/amazon-lightsail-bucket-resource-access.png) 10. Choose the name of your WordPress instance in the drop-down that appears, and then
 choose **Attach**.
 
 ![The Attach option.](images/amazon-lightsail-bucket-attach-resource-access.png)
@@ -300,6 +300,7 @@ to your bucket:
 
 5. Learn how to enable access logging for your bucket, and how to use access logs to audit
    the security of your bucket. For more information, see the following guides.
+
    - [Access logging for buckets in the
      Amazon Lightsail object storage service](amazon-lightsail-bucket-access-logs.md "amazon-lightsail-bucket-access-logs.md")
    - [Access log format for a bucket in
@@ -316,6 +317,7 @@ to your bucket:
    information, see [Understanding object key names in Amazon Lightsail](understanding-bucket-object-key-names-in-amazon-lightsail.md "understanding-bucket-object-key-names-in-amazon-lightsail.md").
 8. Learn how to upload files and manage objects in your buckets. For more information, see
    the following guides.
+
    - [Uploading files to a
      bucket in Amazon Lightsail](amazon-lightsail-uploading-files-to-a-bucket.md "amazon-lightsail-uploading-files-to-a-bucket.md")
    - [Uploading files to a bucket in Amazon Lightsail using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md "amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md")
@@ -347,6 +349,7 @@ to your bucket:
     transfer. For more information, see [Changing the plan of your bucket in Amazon Lightsail](amazon-lightsail-changing-bucket-plans.md "amazon-lightsail-changing-bucket-plans.md").
 14. Learn how to connect your bucket to other resources. For more information, see the
     following tutorials.
+
     - [Tutorial:
       Connecting a WordPress instance to an Amazon Lightsail bucket](amazon-lightsail-connecting-buckets-to-wordpress.md "amazon-lightsail-connecting-buckets-to-wordpress.md")
     - [Tutorial: Using an

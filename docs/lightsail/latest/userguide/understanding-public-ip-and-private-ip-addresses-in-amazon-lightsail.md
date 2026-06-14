@@ -152,6 +152,7 @@ Keep the following in mind when you enable and use IPv6 for your resources:
 - Not all instance blueprints available in Lightsail are automatically configured for
   IPv6 when IPv6 is enabled. Instances that use the following blueprints require additional
   configuration steps after you enable IPv6 for them:
+
   - **cPanel** – For more information, see [Configure IPv6 for cPanel
     instances](amazon-lightsail-configure-ipv6-on-cpanel.md "amazon-lightsail-configure-ipv6-on-cpanel.md").
   - **GitLab** – For more information, see [Configure IPv6 for GitLab

@@ -93,6 +93,7 @@ Lightsail instance and a distribution.
 
 1.  Complete one of the following, depending on whether you want to use an instance,
     container service, or a bucket with your distribution.
+
     - **Create a Lightsail instance to host your
       content.** The instance serves as the origin of your distribution. The
       origin stores the original, definitive version of your content. For more information,

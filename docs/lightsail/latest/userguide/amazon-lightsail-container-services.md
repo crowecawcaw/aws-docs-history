@@ -20,6 +20,7 @@ Developer Guide](../../../AmazonECS/latest/developerguide/Welcome.md "../../../A
 - [Containers](#understanding-containers "#understanding-containers")
 - [Lightsail
   container service elements](#understanding-lightsail-container-services "#understanding-lightsail-container-services")
+
   - [Lightsail container
     services](#lightsail-container-services "#lightsail-container-services")
   - [Container service capacity
@@ -311,8 +312,10 @@ public registry.
    container services](amazon-lightsail-creating-container-services.md "amazon-lightsail-creating-container-services.md").
 2. Use one of the following options to use container images with your Lightsail
    container service:
+
    - **Use a container image from your local machine** – You can install software on your local machine to create your own container images,
      and then push them to your Lightsail container service. For more information, see the following guides:
+
      - [Install software to manage
        container images for your Lightsail container services](amazon-lightsail-install-software.md "amazon-lightsail-install-software.md")
      - [Create container

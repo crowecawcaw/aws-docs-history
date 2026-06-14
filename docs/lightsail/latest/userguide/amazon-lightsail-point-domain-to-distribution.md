@@ -58,6 +58,7 @@ Complete the following procedure to add a record to your domain's DNS zone.
    record**.
 4. Complete one of the following steps depending on the type of domain that you want to
    point to your distribution:
+
    - Choose an address (A) record to point an apex domain (e.g.,
      `example.com`) to your distribution.
 

@@ -73,6 +73,7 @@ Amazon Route 53 Developer Guide.
 2. Choose the **Domains & DNS** tab.
 3. Choose **Register domain**, and specify the domain that you want to
    register.
+
    1. Enter the domain name that you want to register, and choose **Check
       availability** to find out whether the domain name is available. If the
       domain is available, continue to **Automatic domain

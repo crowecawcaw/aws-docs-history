@@ -47,6 +47,7 @@ In Amazon EC2, instance blueprints are referred to as Amazon Machine Images
 (AMIs).
 
 - For Linux instances:
+
   - [Configure the instance metadata options](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md")
   - [Retrieve instance metadata](../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md "../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md")
   - [Work
@@ -57,6 +58,7 @@ In Amazon EC2, instance blueprints are referred to as Amazon Machine Images
   - [Instance identity documents](../../../AWSEC2/latest/UserGuide/instance-identity-documents.md "../../../AWSEC2/latest/UserGuide/instance-identity-documents.md")
 
 - For Windows instances:
+
   - [Configure the instance metadata options](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md")
   - [Retrieve instance metadata](../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md "../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md")
   - [Work

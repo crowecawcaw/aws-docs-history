@@ -97,6 +97,7 @@ type, region is replaced with one of the following abbreviations:
 
 - **APN1:** Asia Pacific (Tokyo) (ap-northeast-1)
 - **APN2:** Asia Pacific (Seoul) (ap-northeast-2)
+- **APE1:** Asia Pacific (Hong Kong) (ap-east-1)
 - **APS1:** Asia Pacific (Singapore)
   (ap-southeast-1)
 - **APS2:** Asia Pacific (Sydney) (ap-southeast-2)
@@ -109,6 +110,8 @@ type, region is replaced with one of the following abbreviations:
 - **EUW2:** EU (London) (eu-west-2)
 - **EUW3:** EU (Paris) (eu-west-3)
 - **EUN1:** EU (Stockholm) (eu-north-1)
+- **EUS2:** EU (Spain) (eu-south-2)
 - **USE1:** US East (N. Virginia) (us-east-1)
 - **USE2:** US East (Ohio) (us-east-2)
 - **USW2:** US West (Oregon) (us-west-2)
+- **SAE1:** South America (São Paulo) (sa-east-1)

@@ -15,7 +15,8 @@ workloads.
 
 ###### Topics
 
-- [Troubleshoot WordPress setup issues on Lightsail instances](amazon-lightsail-troubleshooting-wp-setup.md "amazon-lightsail-troubleshooting-wp-setup.md")
+- [WordPress](troubleshooting-wordpress.md "troubleshooting-wordpress.md")
+- [WordPress by Bitnami](troubleshooting-wordpress-bitnami.md "troubleshooting-wordpress-bitnami.md")
 - [Resolve 403 (unauthorized) errors in the Lightsail console](create-policy-that-grants-access-to-amazon-lightsail.md "create-policy-that-grants-access-to-amazon-lightsail.md")
 - [Resolve Lightsail disk attachment and usage issues](troubleshooting-block-storage-disk-issues.md "troubleshooting-block-storage-disk-issues.md")
 - [Resolve connection errors with Lightsail browser-based SSH and RDP clients](amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection.md "amazon-lightsail-troubleshooting-browser-based-ssh-rdp-client-connection.md")

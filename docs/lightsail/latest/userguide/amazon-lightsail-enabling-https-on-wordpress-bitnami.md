@@ -38,7 +38,7 @@ that will configure the following:
 
 ###### Tip
 
-Review the following tips before you begin. For troubleshooting information, see [Troubleshooting WordPress setup](amazon-lightsail-troubleshooting-wp-setup.md "amazon-lightsail-troubleshooting-wp-setup.md").
+Review the following tips before you begin. For troubleshooting information, see [Troubleshooting WordPress setup](amazon-lightsail-troubleshooting-wp-https-bitnami.md "amazon-lightsail-troubleshooting-wp-https-bitnami.md").
 
 - Setup supports Lightsail instances with WordPress version 6 and newer, that were created after
   January 1, 2023.

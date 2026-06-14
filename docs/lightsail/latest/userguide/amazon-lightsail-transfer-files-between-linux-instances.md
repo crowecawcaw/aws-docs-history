@@ -186,6 +186,7 @@ In the following procedure you will run the scp command from one instance
    `destination-path/` is the location on the
    **target instance** where you are transferring the files
    to.
+
    - (**IPv4**) To transfer files from the
      **source instance** to the **target
      instance**, enter the following command from the
@@ -194,7 +195,6 @@ In the following procedure you will run the scp command from one instance
    ```
    scp -i `/path/private-key`.pem `/path/my-file.txt` `ec2-user`@`public-ipv4-address`:`destination-path/`
    ```
-
    - (**IPv6**) To transfer files from the
      **source instance** to the **target
      instance**, enter the following command from the

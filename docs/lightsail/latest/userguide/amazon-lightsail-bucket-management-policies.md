@@ -80,6 +80,7 @@ to your bucket:
 
 5. Learn how to enable access logging for your bucket, and how to use access logs to audit
    the security of your bucket. For more information, see the following guides.
+
    - [Access logging for buckets in the
      Amazon Lightsail object storage service](amazon-lightsail-bucket-access-logs.md "amazon-lightsail-bucket-access-logs.md")
    - [Access log format for a bucket in
@@ -96,6 +97,7 @@ to your bucket:
    information, see [Understanding object key names in Amazon Lightsail](understanding-bucket-object-key-names-in-amazon-lightsail.md "understanding-bucket-object-key-names-in-amazon-lightsail.md").
 8. Learn how to upload files and manage objects in your buckets. For more information, see
    the following guides.
+
    - [Uploading files to a
      bucket in Amazon Lightsail](amazon-lightsail-uploading-files-to-a-bucket.md "amazon-lightsail-uploading-files-to-a-bucket.md")
    - [Uploading files to a bucket in Amazon Lightsail using multipart upload](amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md "amazon-lightsail-uploading-files-to-a-bucket-using-multipart-upload.md")
@@ -127,6 +129,7 @@ to your bucket:
     transfer. For more information, see [Changing the plan of your bucket in Amazon Lightsail](amazon-lightsail-changing-bucket-plans.md "amazon-lightsail-changing-bucket-plans.md").
 14. Learn how to connect your bucket to other resources. For more information, see the
     following tutorials.
+
     - [Tutorial:
       Connecting a WordPress instance to an Amazon Lightsail bucket](amazon-lightsail-connecting-buckets-to-wordpress.md "amazon-lightsail-connecting-buckets-to-wordpress.md")
     - [Tutorial: Using an

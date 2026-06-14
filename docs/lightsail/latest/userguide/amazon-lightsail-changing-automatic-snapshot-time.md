@@ -70,6 +70,7 @@ the AWS Region where your instance or block storage disk is located:
 - US East (N. Virginia) (us-east-1): 06:00 UTC
 - US East (Ohio) (us-east-2): 03:00 UTC
 - US West (Oregon) (us-west-2): 06:00 UTC
+- Asia Pacific (Hong Kong) (ap-east-1): 08:00 UTC
 - Asia Pacific (Mumbai) (ap-south-1): 17:00 UTC
 - Asia Pacific (Seoul) (ap-northeast-2): 13:00 UTC
 - Asia Pacific (Singapore) (ap-southeast-1): 14:00 UTC
@@ -83,6 +84,8 @@ the AWS Region where your instance or block storage disk is located:
 - EU (London) (eu-west-2): 06:00 UTC
 - EU (Paris) (eu-west-3): 07:00 UTC
 - EU (Stockholm) (eu-north-1): 08:00 UTC
+- EU (Spain) (eu-south-2): 08:00 UTC
+- South America (São Paulo) (sa-east-1): 08:00 UTC
 
 ## Change the automatic snapshot time using the Lightsail console
 

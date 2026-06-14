@@ -32,6 +32,7 @@ Registrar**
 1. In a web browser, go to one of the following websites. Both websites display the
    same information. However, they use different protocols and display the information in
    different formats:
+
    - **WHOIS**: [https://registrar.amazon.com/whois](https://registrar.amazon.com/whois "https://registrar.amazon.com/whois")
    - **RDAP**: [https://registrar.amazon.com/rdap](https://registrar.amazon.com/rdap "https://registrar.amazon.com/rdap")
 

@@ -828,6 +828,7 @@ response from your origin to the viewer:
   to the viewer.
 - `Upgrade`
 - `Vary` – Note the following:
+
   - If you configure your distribution to forward any of the device-specific headers
     to your origin (`CloudFront-Is-Desktop-Viewer`,
     `CloudFront-Is-Mobile-Viewer`,

@@ -22,6 +22,7 @@ container images:
 - [Install the AWS CLI](#install-software-aws-cli "#install-software-aws-cli")
 - [Install the Lightsail
   Control plugin](#install-software-lightsailctl "#install-software-lightsailctl")
+
   - [Install the
     lightsailctl plugin on Windows](#install-lightsailctl-on-windows "#install-lightsailctl-on-windows")
   - [Install the lightsailctl
@@ -212,12 +213,12 @@ Linux.
 
 1. Open a terminal window.
 2. Enter the following command to download the lightsailctl plugin.
+
    - For the AMD 64-bit architecture version of the plugin:
 
    ```
    curl "https://s3.us-west-2.amazonaws.com/lightsailctl/latest/linux-amd64/lightsailctl" -o "/usr/local/bin/lightsailctl"
    ```
-
    - For the ARM 64-bit architecture version of the plugin:
 
    ```

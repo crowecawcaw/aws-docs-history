@@ -91,6 +91,7 @@ sudo nano /var/www/wp-config.php
 3. Scroll down until you find the values for `DB_USER`,
    `DB_PASSWORD`, and `DB_HOST`.
 4. Modify the following values:
+
    - **DB_USER** — Edit this to match the user name of
      your MySQL managed database. The default primary user name for Lightsail managed
      databases is `dbmasteruser`.

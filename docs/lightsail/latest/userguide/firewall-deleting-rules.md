@@ -14,6 +14,7 @@ Lightsail console.
    page.
 5. Complete one of the following steps depending on whether the source IP for the rule is
    an IPv4 or IPv6 address:
+
    - To delete an IPv4 firewall rule, scroll down to the **IPv4
      Firewall** section of the page, and choose **Delete** (the
      trash icon) next to an existing rule to delete it.

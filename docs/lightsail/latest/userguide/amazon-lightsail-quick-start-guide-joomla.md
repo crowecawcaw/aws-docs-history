@@ -137,6 +137,7 @@ test ! -f "/opt/bitnami/common/bin/openssl" && echo "Approach A: Using system pa
 3. Complete the following steps if the result of the previous command indicated
    that you should use approach A. Otherwise, continue to step 4 if the result of
    the previous command indicated that you should use approach B.
+
    1. Enter the following command to open the Apache virtual host
       configuration file using Vim and create a virtual host for your domain
       name.
@@ -144,7 +145,6 @@ test ! -f "/opt/bitnami/common/bin/openssl" && echo "Approach A: Using system pa
    ```
    sudo vim /opt/bitnami/apache2/conf/vhosts/joomla-vhost.conf
    ```
-
    2. Press `I` to enter insert mode in Vim.
    3. Add your domain name to the file as shown in the following example. In
       this example we are using the `example.com` and
@@ -159,6 +159,7 @@ test ! -f "/opt/bitnami/common/bin/openssl" && echo "Approach A: Using system pa
 
 4. Complete the following steps if the result of the previous command indicated
    that you should use approach B.
+
    1. Enter the following command to open the Apache virtual host
       configuration file using Vim and create a virtual host for your domain
       name.
@@ -166,7 +167,6 @@ test ! -f "/opt/bitnami/common/bin/openssl" && echo "Approach A: Using system pa
    ```
    sudo vim /opt/bitnami/apps/joomla/conf/httpd-vhosts.conf
    ```
-
    2. Press `I` to enter insert mode in Vim.
    3. Add your domain name to the file as shown in the following example. In
       this example we are using the `example.com` and
@@ -187,7 +187,6 @@ test ! -f "/opt/bitnami/common/bin/openssl" && echo "Approach A: Using system pa
    ```
    Include "/opt/bitnami/apps/joomla/conf/httpd-vhosts.conf"
    ```
-
    6. Enter the following command to restart the Apache server.
 
    ```
@@ -284,7 +283,7 @@ public IP address of the instance from which you are using the
 `bncert` tool to enable HTTPS on the instance. This confirms that
 you own the domain, and serves as the validation for your certificate.
 
-![Entering the primary and alternate domain names](images/bncert-domain-names.png) 9. The `bncert` tool will ask you how you want your website's
+![Entering the primary and alternate domain names](/images/lightsail/latest/userguide/images/bncert-domain-names.png) 9. The `bncert` tool will ask you how you want your website's
 redirection to be configured. These are the options available:
 
     * **Enable HTTP to HTTPS redirection** -
@@ -320,7 +319,7 @@ Your selections should look like the following example.
 ![Website redirection options](images/bncert-enable-disable-redirection.png) 10. The changes that are going to be made are listed. Type `Y` and
 press **Enter** to confirm and continue.
 
-![Confirming the changes](images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
+![Confirming the changes](/images/lightsail/latest/userguide/images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
 press **Enter**.
 
 ![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press

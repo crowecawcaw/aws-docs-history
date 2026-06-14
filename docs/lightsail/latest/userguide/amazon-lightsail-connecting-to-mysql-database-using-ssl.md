@@ -54,6 +54,7 @@ Complete the following steps to connect to your MySQL database using SSL.
 1.  Open a Terminal or Command Prompt window.
 2.  Enter one of the following commands depending on the version of your MySQL
     database:
+
     - Enter the following command to connect to a database that is MySQL 5.7 or
       later.
 
@@ -76,7 +77,6 @@ Complete the following steps to connect to your MySQL database using SSL.
     ```
     mysql -h `ls-1c51a7c70a4fb55e542829a4e4e0d735ba42.czowadgeezqi.us-west-2.rds.amazonaws.com` --ssl-ca=`/home/ec2-user/rds-combined-ca-bundle.pem` --ssl-mode=VERIFY_IDENTITY -u `dbmasteruser` -p
     ```
-
     - Enter the following command to connect to a database that is MySQL 6.7 or
       earlier.
 

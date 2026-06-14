@@ -54,6 +54,7 @@ or canonical (CNAME) record to your domain's DNS zone.
 3. Choose the **DNS records** tab.
 4. Complete one of the following steps depending on the current state of your DNS
    zone:
+
    - If you haven't added an A, AAAA, or CNAME record, choose **Add
      record**.
    - If you previously added an A, AAAA, or CNAME record, choose the edit icon next to
@@ -63,6 +64,7 @@ or canonical (CNAME) record to your domain's DNS zone.
 5. Choose **A record**, **AAAA record**, or
    **CNAME record** in the **Record type** dropdown
    menu.
+
    - Add an A record to map the apex of your domain (e.g., `example.com`) or
      a subdomain (e.g., `www.example.com`) to your container service under the
      IPv4 network.
@@ -74,6 +76,7 @@ or canonical (CNAME) record to your domain's DNS zone.
 
 6. In the **Record name** text box, enter one of the following
    options:
+
    - For an A record or AAAA record, enter `@` to route traffic for the apex
      of your domain (e.g., `example.com`) to your container service, or enter a
      subdomain (e.g., `www`) to route traffic for a subdomain (e.g.,
@@ -82,6 +85,7 @@ or canonical (CNAME) record to your domain's DNS zone.
      for a subdomain (e.g., `www.example.com`) to your container service.
 
 7. Complete one of the following steps depending on the record you're adding:
+
    - For an A record or AAAA record, choose the name of your container service in the
      **Resolves to** text box.
    - For a CNAME record, enter the default domain name of your container service into

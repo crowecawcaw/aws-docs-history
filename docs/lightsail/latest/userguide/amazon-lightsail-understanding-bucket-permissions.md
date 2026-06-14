@@ -8,6 +8,7 @@ to others. You can grant access to a bucket and its objects in the following way
 - **Read-only access** – The following options control
   read-only access to a bucket and its objects through the bucket's URL (for example,
   `https://amzn-s3-demo-bucket.us-east-1.amazonaws.com/media/sailbot.jpg`).
+
   - **Bucket access permissions** – Use bucket access
     permissions to grant access to all objects in a bucket for anyone on the internet. For
     more information, see [Bucket
@@ -24,6 +25,7 @@ to others. You can grant access to a bucket and its objects in the following way
 - **Read and write access** – The following options control
   full read and write access to a bucket and its objects. Use these options with the AWS Command Line Interface
   (AWS CLI), AWS APIs, and AWS SDKs.
+
   - **Access keys** – Use access keys to grant access to
     applications or plugins. For more information, see [Access keys](#bucket-access-keys "#bucket-access-keys") later in this guide.
   - **Resource access** – Use resource access to grant

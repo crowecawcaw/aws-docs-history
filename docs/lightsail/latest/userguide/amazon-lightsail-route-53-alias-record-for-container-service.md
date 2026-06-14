@@ -66,6 +66,8 @@ Lightsail container service.
 
 **Asia Pacific (Seoul) (ap-northeast-2)**: Z06260262XZM84B2WPLHH
 
+**Asia Pacific (Hong Kong) (ap-east-1)**: Z08783602ZZF1Q7DYQZ4Q
+
 **Asia Pacific (Jakarta) (ap-southeast-3)**: Z03072883T5HFTY4T7CDL
 
 **Asia Pacific (Malaysia) (ap-southeast-5)**: Z09430204C5DXNNO314Y
@@ -82,9 +84,13 @@ Lightsail container service.
 
 **Europe (Paris) (eu-west-3)**: Z09594631DSW2QUR7CFGO
 
+**Europe (Spain) (eu-south-2)**: Z09429752610EUUODCNMZ
+
 **US East (Ohio) (us-east-2)**: Z10362273VJ548563IY84
 
 **US West (Oregon) (us-west-2)**: Z0959753D43BBB908BAV
+
+**South America (São Paulo) (sa-east-1)**: Z06385701RRVJGO1IDVWQ
 
 ## Step 3: Create a record set JSON file
 

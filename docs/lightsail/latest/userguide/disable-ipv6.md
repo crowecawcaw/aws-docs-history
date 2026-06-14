@@ -6,6 +6,7 @@ load balancers.
 1. Sign in to the [Lightsail console](https://lightsail.aws.amazon.com/ "https://lightsail.aws.amazon.com/").
 2. Complete one of the following steps depending on the resource for which you want to
    disable IPv6:
+
    - To disable IPv6 for an instance, choose the **Instances** tab on
      the Lightsail home page, and then choose the name of the instance for which you want
      to disable IPv6.

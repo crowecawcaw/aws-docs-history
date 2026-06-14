@@ -20,6 +20,7 @@ Lightsail](amazon-lightsail-container-services.md "amazon-lightsail-container-se
 - [Prerequisites](#creating-container-deployments-prerequisites "#creating-container-deployments-prerequisites")
 - [Deployment
   parameters](#creating-container-deployments-parameters "#creating-container-deployments-parameters")
+
   - [Container entry
     parameters](#creating-deployments-container-entry "#creating-deployments-container-entry")
   - [Public endpoint
@@ -49,11 +50,13 @@ your container service:
   container services](amazon-lightsail-creating-container-services.md "amazon-lightsail-creating-container-services.md").
 - Identify the container images that you want to use when you launch containers on your
   container service.
+
   - Find container images on a public registry, such as the Amazon ECR Public Gallery. For
     more information, see [Amazon ECR Public
     Gallery](https://gallery.ecr.aws/ "https://gallery.ecr.aws/") in the _Amazon ECR Public User Guide_.
   - Create container images on your local machine, then push them to your Lightsail
     container service. For more information, see the following guides:
+
     - [Installing software to
       manage container images for your Amazon Lightsail container
       services](amazon-lightsail-install-software.md "amazon-lightsail-install-software.md")
@@ -80,6 +83,7 @@ following parameters that you can specify:
   start or end of the name.
 - **Source image** – Specify a source container image for
   the container. You can specify container images from the following sources:
+
   - A public registry, such as the Amazon ECR Public Gallery, or some
     other public container image
     registry.
@@ -163,6 +167,7 @@ HTTP, but serves content to users using HTTPS.
   check to make sure it's healthy.
 - **Advanced health check settings** – You can configure
   the following health check settings for the selected public endpoint container:
+
   - **Health check timeout seconds** - The amount of
     time, in seconds, to wait for a response. If no response is received during this
     time, the health check fails. You can specify 2–60 seconds.

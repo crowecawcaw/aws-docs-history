@@ -14,6 +14,7 @@ For more information about managed databases in Lightsail, see [Choose a databas
 2. In the left navigation pane, choose **Databases**.
 3. Choose **Create database**.
 4. Choose the AWS Region and Availability Zone for your database.
+
    1. Choose **Change AWS Region and Availability Zone**, then choose a
       Region.
    2. Choose **Change your Availability Zone**, then choose an
@@ -121,6 +122,7 @@ Resource names:
      underscores.
 
 9. Choose one of the following options to add tags to your database:
+
    - **Add key-only tags** or **Manage tags**
      (if tags have already been added). Enter your new tag into the tag key text box, and
      press **Enter**. Choose **Save** when you’re done

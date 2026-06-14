@@ -28,6 +28,7 @@ minutes to several hours.
 3. Choose the **DNS records** tab.
 4. Complete one of the following steps depending on the current state of your DNS
    zone:
+
    - If you haven't added an A record, choose **Add record**.
    - If you previously added an A record, choose the edit icon next to the existing A
      record listed on the page, and then skip to step 5 of this procedure.
@@ -36,6 +37,7 @@ minutes to several hours.
    menu.
 6. In the **Record name** text box, enter one of the following
    options:
+
    - Enter `@` to route traffic for the apex of your domain (e.g.,
      `example.com`) to your load balancer.
    - Enter `www` to route traffic for the www subdomain (e.g.,

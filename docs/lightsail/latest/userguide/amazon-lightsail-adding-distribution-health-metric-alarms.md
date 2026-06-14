@@ -92,6 +92,7 @@ console.
 10. Choose the evaluation periods. The period can be specified in 5-minute increments,
     from 5 minutes up to 24 hours.
 11. Choose one of the following notification methods:
+
     - **Email** — You are notified by email when the alarm
       state changes to ALARM.
     - **SMS text message** — You are notified by SMS text
@@ -151,6 +152,7 @@ to ensure that you receive an email or an SMS text message when the alarm is tri
 6. Scroll down to the **Alarms** section of the page, and choose the
    ellipsis icon (⋮) next to the alarm you want to test.
 7. Choose one of the following options:
+
    - **Test alarm notification** — Choose this option to test
      the notifications for when the alarm state changes to `ALARM`.
    - **Test OK notification** — Choose this option to test the

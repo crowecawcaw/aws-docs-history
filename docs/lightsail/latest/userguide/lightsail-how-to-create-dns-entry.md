@@ -60,6 +60,7 @@ zone, you must specify the domain name that the DNS zone will apply to.
 2. In the left navigation pane, choose **Domains & DNS**. Then
    choose **Create DNS zone**.
 3. Choose one of the following options:
+
    - **Use a domain that is registered with Amazon Route 53**, to specify a
      domain that was registered with Amazon Route 53
    - **Use a domain from another registrar**, to specify a domain that

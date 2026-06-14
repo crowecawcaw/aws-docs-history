@@ -23,6 +23,7 @@ In this step, you create a Lightsail instance running OpenClaw.
    **Create instance**.
 3. Choose the AWS Region and Availability Zone for your instance.
 4. Choose the image for your instance as follows:
+
    - Under **Select a platform**, choose
      **Linux/Unix**.
    - Under **Select a blueprint**, choose
@@ -361,6 +362,7 @@ If a messaging platform token or credential stored on your OpenClaw instance is 
 Credentials for connected channels are stored in `~/.openclaw/credentials/` on your instance. To rotate a credential:
 
 - Revoke the compromised token at the source:
+
   - Telegram: Open Telegram, message `@BotFather`, and use `/revoke` to invalidate your existing bot token and generate a new one.
   - WhatsApp: Log out the linked device session from WhatsApp on your phone (`Settings` → `Linked Devices` → select your OpenClaw session → `Log out`). Then re-link using the QR code pairing flow.
 

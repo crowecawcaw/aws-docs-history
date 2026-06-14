@@ -69,6 +69,7 @@ Resource names:
 8. (Optional) Choose **Add new tag** to add a tag to your instance. Repeat this step as needed to add additional tags. For more
    information on tag usage, such as for billing and resource organization, see
    [Tags](amazon-lightsail-tags.md "amazon-lightsail-tags.md").
+
    - For **Key**, enter a tag key.
    - (Optional) For **Value**, enter a tag value.
 
@@ -131,12 +132,15 @@ You can only attach one static IP to a Lightsail instance. Static IP addresses a
 2. On the **Instances** home page of the Lightsail console, choose the name of your Plesk instance.
 3. Under the **Networking** tab, choose **Attach static IP**.
 4. Create and attach a static IP address.
+
    - To create and attach a static IP when none exists in the Region:
+
      1. Enter a name to identify the static IP.
      2. Choose **Create and attach**.
      3. Choose **Continue**.
 
    - To create and attach a new static IP when you already have one in the Region:
+
      1. Choose the **Select a static IP** menu to display the available options.
      2. Choose **Create a new static IP** in the dropdown menu.
      3. Enter a name to identify the static IP.
@@ -144,6 +148,7 @@ You can only attach one static IP to a Lightsail instance. Static IP addresses a
      5. Choose **Continue**.
 
    - To use an existing static IP in the Region:
+
      1. Choose the **Select a static IP** menu to display the available options.
      2. Choose an already available static IP in the dropdown menu.
      3. Choose **Attach**.

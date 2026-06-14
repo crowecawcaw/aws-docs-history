@@ -53,6 +53,7 @@ page:
 - If an IAM user will create the EC2 instance, then an AWS account administrator
   must add the following permissions to the user. For more information about how to change
   permissions for a user, see [Changing Permissions for an IAM User](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the IAM documentation.
+
   - The following permissions are required for users to create Amazon EC2 instances using
     Lightsail:
 
@@ -74,21 +75,23 @@ page:
       - cloudformation:ValidateTemplate
       - iam:CreateServiceLinkedRole
       - iam:PutRolePolicy
-
   - The following permissions are required if the user will configure ports in the
     security group for the EC2 instance:
+
     - ec2:DescribeSecurityGroups
     - ec2:CreateSecurityGroup
     - ec2:AuthorizeSecurityGroupIngress
 
   - The following permissions are required if the user is creating a Windows Server
     instance in Amazon EC2:
+
     - ec2:DescribeKeyPairs
     - ec2:ImportKeyPair
 
   - The following permissions are required if the user is creating Amazon EC2 instances for
     the first time, or when the virtual private cloud (VPC) fails to configure
     completely:
+
     - ec2:AssociateRouteTable
     - ec2:AttachInternetGateway
     - ec2:CreateInternetGateway
@@ -207,6 +210,7 @@ following options:
    connected to the source Lightsail instance. This ensures that you get the correct SSH
    key to connect to your new EC2 instance. You may have connected to the source Lightsail
    instance using one of the following methods:
+
    1. **Using the default Lightsail key pair for the source
       instance’s region** — Download and use the unique default Lightsail key
       for that AWS Region to connect to your EC2 instance.

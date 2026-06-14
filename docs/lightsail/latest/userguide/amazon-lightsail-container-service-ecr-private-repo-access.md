@@ -22,10 +22,12 @@ Guide](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/la
   Lightsail console to manage access to private repositories](#ecr-private-repo-access-lightsail-console "#ecr-private-repo-access-lightsail-console")
 - [Use the AWS CLI to manage
   access to private repositories](#ecr-private-repo-access-cli "#ecr-private-repo-access-cli")
+
   - [Activate or
     deactivate the Amazon ECR image puller IAM role](#activate-ecr-puller-role "#activate-ecr-puller-role")
   - [Determine
     if your Amazon ECR private repository has a policy statement](#identify-ecr-repo-policy-statement "#identify-ecr-repo-policy-statement")
+
     - [Add a policy to
       a private repository that doesn't have a policy
       statement](#ecr-private-repo-add-policy-no-policy "#ecr-private-repo-add-policy-no-policy")
@@ -260,6 +262,7 @@ Examples:
     ```
 
 3. If you:
+
    - **Activated the Amazon ECR image puller
      role** — Wait at least 30 seconds after getting
      the previous response. Then, continue to the next step to get the

@@ -47,11 +47,13 @@ APIs.
 The following character sets are generally safe for use in key names.
 
 - Alphanumeric characters
+
   - 0-9
   - a-z
   - A-Z
 
 - Special characters
+
   - Forward slash (`/`)
   - Exclamation point (`!`)
   - Hyphen (`-`)

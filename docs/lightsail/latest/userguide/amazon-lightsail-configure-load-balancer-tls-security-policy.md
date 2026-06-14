@@ -62,6 +62,7 @@ console.
    protocols** section of the page.
 6. Select one of the following options in the **Supported
    protocols** dropdown menu:
+
    - **TLS version 1.2** — This option is the most
      secure but older browsers might be unable to connect.
    - **TLS version 1.0, 1.1, and 1.2** — This

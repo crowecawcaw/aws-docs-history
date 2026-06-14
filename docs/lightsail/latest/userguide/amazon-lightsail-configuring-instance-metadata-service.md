@@ -62,12 +62,12 @@ retrieve the top-level instance metadata items. These examples do the following:
 Start by running the following commands:
 
 - **On Linux:**
+
   - First, generate a token with the following command.
 
   ```
   `[ec2-user ~]$` TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
   ```
-
   - Then, use the token to generate top-level metadata items with the
     following command.
 
@@ -76,12 +76,12 @@ Start by running the following commands:
   ```
 
 - **On Windows:**
+
   - First, generate a token with the following command.
 
   ```
   `PS C:\>` `[string]$token = Invoke-RestMethod -Headers @{"X-aws-ec2-metadata-token-ttl-seconds" = "21600"} -Method PUT -Uri http://169.254.169.254/latest/api/token`
   ```
-
   - Then, use the token to generate top-level metadata items with the
     following command.
 
@@ -121,6 +121,7 @@ following:
   expired token receive a `401 - Unauthorized` HTTP error code. For
   information about changing the token usage requirement, see [update-instance-metadata-options](../../../cli/latest/reference/lightsail/update-instance-metadata-options.md "../../../cli/latest/reference/lightsail/update-instance-metadata-options.md") in the
   _AWS CLI Command Reference_.
+
   - The token is an instance-specific key. The token is not valid on other
     instances and will be rejected if you attempt to use it outside of the
     instance on which it was generated.
@@ -234,6 +235,7 @@ In Amazon EC2, instance blueprints are referred to as Amazon Machine Images
 (AMIs).
 
 - For Linux instances:
+
   - [Configure the instance metadata options](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md")
   - [Retrieve instance metadata](../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md "../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md")
   - [Work with instance user data](../../../AWSEC2/latest/UserGuide/instancedata-add-user-data.md "../../../AWSEC2/latest/UserGuide/instancedata-add-user-data.md")
@@ -243,6 +245,7 @@ In Amazon EC2, instance blueprints are referred to as Amazon Machine Images
   - [Instance identity documents](../../../AWSEC2/latest/UserGuide/instance-identity-documents.md "../../../AWSEC2/latest/UserGuide/instance-identity-documents.md")
 
 - For Windows instances:
+
   - [Configure the instance metadata options](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md")
   - [Retrieve instance metadata](../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md "../../../AWSEC2/latest/UserGuide/instancedata-data-retrieval.md")
   - [Work with instance user data](../../../AWSEC2/latest/UserGuide/instancedata-add-user-data.md "../../../AWSEC2/latest/UserGuide/instancedata-add-user-data.md")

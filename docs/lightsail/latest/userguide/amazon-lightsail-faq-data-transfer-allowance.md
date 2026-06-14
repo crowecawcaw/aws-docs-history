@@ -23,6 +23,7 @@ charge for these types of data transfer above the free allowance is as follows.
 - US East (Ohio) (us-east-2): $0.09 USD/GB
 - US East (N. Virginia) (us-east-1): $0.09 USD/GB
 - US West (Oregon) (us-west-2): $0.09 USD/GB
+- Asia Pacific (Hong Kong) (ap-east-1): $0.09 USD/GB
 - Asia Pacific (Mumbai) (ap-south-1): $0.13 USD/GB
 - Asia Pacific (Seoul) (ap-northeast-2): $0.13 USD/GB
 - Asia Pacific (Singapore) (ap-southeast-1): $0.12 USD/GB
@@ -36,6 +37,8 @@ charge for these types of data transfer above the free allowance is as follows.
 - EU (London) (eu-west-2): $0.09 USD/GB
 - EU (Paris) (eu-west-3): $0.09 USD/GB
 - EU (Stockholm) (eu-north-1): $0.09 USD/GB
+- EU (Spain) (eu-south-2): $0.12 USD/GB
+- South America (São Paulo) (sa-east-1): $0.15 USD/GB
 
 Instances created in different Availability Zones can communicate between zones
 privately and for free, and are much less likely to be impaired concurrently. Availability
@@ -120,7 +123,7 @@ Amazon Lightsail API Reference.
 
 The regional data transfer allowance for Lightsail instances is found on [Amazon Lightsail pricing](https://aws.amazon.com/lightsail/pricing/ "https://aws.amazon.com/lightsail/pricing/"). The
 allowance is the same for all AWS Regions, with the exception of the Asia Pacific (Mumbai
-& Sydney & Jakarta & Malaysia) Regions. Plans in the Mumbai, Sydney, Jakarta and Malaysia Regions include half the data transfer
+& Sydney & Jakarta & Malaysia & Hong Kong) and South America (São Paulo) Regions. Plans in the Mumbai, Sydney, Jakarta, Malaysia, Hong Kong and São Paulo Regions include half the data transfer
 allowances of other Regions.
 
 The data transfer allowance for Lightsail managed databases is the same in all
@@ -207,6 +210,7 @@ follows.
 - US East (Ohio) (us-east-2): $0.09 USD/GB
 - US East (N. Virginia) (us-east-1): $0.09 USD/GB
 - US West (Oregon) (us-west-2): $0.09 USD/GB
+- Asia Pacific (Hong Kong) (ap-east-1): $0.09 USD/GB
 - Asia Pacific (Mumbai) (ap-south-1): $0.13 USD/GB
 - Asia Pacific (Seoul) (ap-northeast-2): $0.13 USD/GB
 - Asia Pacific (Singapore) (ap-southeast-1): $0.12 USD/GB
@@ -220,3 +224,5 @@ follows.
 - EU (London) (eu-west-2): $0.09 USD/GB
 - EU (Paris) (eu-west-3): $0.09 USD/GB
 - EU (Stockholm) (eu-north-1): $0.09 USD/GB
+- EU (Spain) (eu-south-2): $0.12 USD/GB
+- South America (São Paulo) (sa-east-1): $0.15 USD/GB

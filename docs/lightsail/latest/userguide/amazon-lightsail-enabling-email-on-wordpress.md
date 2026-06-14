@@ -60,6 +60,7 @@ instance:
   up for Amazon SES, see [Amazon SES Quick
   Start](../../../ses/latest/DeveloperGuide/quick-start.md "../../../ses/latest/DeveloperGuide/quick-start.md") in the Amazon SES documentation. For more information about Amazon SES, see the
   following guides in the Amazon SES documentation:
+
   - [Amazon SES Developer Guide](../../../ses/latest/DeveloperGuide/Welcome.md "../../../ses/latest/DeveloperGuide/Welcome.md")
   - [Amazon SES FAQs](https://aws.amazon.com/ses/faqs/ "https://aws.amazon.com/ses/faqs/")
   - [Amazon SES Pricing](https://aws.amazon.com/ses/pricing/ "https://aws.amazon.com/ses/pricing/")

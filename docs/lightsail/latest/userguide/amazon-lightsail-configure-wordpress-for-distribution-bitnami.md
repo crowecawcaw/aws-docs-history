@@ -122,6 +122,7 @@ define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/');
 
 7. Add one of the following lines of code to the file depending on the version of
    WordPress that you're using:
+
    - If you're using version 3.3 or lower, add the following lines of code where you
      previously deleted the code.
 
@@ -133,7 +134,6 @@ define('WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] . '/');
    $_SERVER['HTTPS'] = 'on';
    }
    ```
-
    - If you're using version 3.3.1-5 or higher, add the following lines of code where
      you previously deleted the code.
 

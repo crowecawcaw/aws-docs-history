@@ -68,6 +68,7 @@ Review the following considerations:
 1. On the instance management page, on the **Snapshots**
    tab, choose **Create snapshot**. For more information, see
    one of the following topics:
+
    - [Back up Linux/Unix Lightsail instances with snapshots](lightsail-how-to-create-a-snapshot-of-your-instance.md "lightsail-how-to-create-a-snapshot-of-your-instance.md")
    - [Create a snapshot of your Lightsail Windows Server instance](prepare-windows-based-instance-and-create-snapshot.md "prepare-windows-based-instance-and-create-snapshot.md")
 

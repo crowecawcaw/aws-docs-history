@@ -74,6 +74,7 @@ following documentation:
    section for the type of firewall that you want to use. For IPv4, complete
    the steps in the **IPv4 Firewall** section. For IPv6,
    complete the steps in the **IPv6 Firewall** section.
+
    1. From the **Application** dropdown menu, choose
       **Ping (ICMP)**.
    2. Select the **Restrict to IP address** box to

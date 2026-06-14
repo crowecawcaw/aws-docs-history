@@ -33,7 +33,7 @@ that will configure the following:
 
 ###### Tip
 
-Review the following tips before you begin. For troubleshooting information, see [Troubleshooting WordPress setup](amazon-lightsail-troubleshooting-wp-setup.md "amazon-lightsail-troubleshooting-wp-setup.md").
+Review the following tips before you begin. For troubleshooting information, see [Troubleshooting WordPress setup](amazon-lightsail-troubleshooting-wp-https-lightsail.md "amazon-lightsail-troubleshooting-wp-https-lightsail.md").
 
 - Your instance must be in a **Running** state. Allow a few minutes for the SSH connection to become ready
   if the instance was just started.

@@ -161,8 +161,8 @@ Amazon Lightsail creates the service-linked role for you again.
 ###### Important
 
 You must configure IAM permissions to allow Amazon Lightsail to create the service-linked
-role. To do this, complete the steps that are in the following _Service-Linked Role
-Permissions_ section.
+role. To do this, complete the steps in the preceding [Service-Linked Role
+Permissions](#service-linked-role-permissions "#service-linked-role-permissions") section.
 
 ## Editing a Service-Linked Role for Amazon Lightsail
 
