@@ -17,7 +17,7 @@ The example below is the action summary for the `PutObject` (Write) action from
 the Amazon S3 service summary (see [Service summary (list of actions)](access_policies_understand-service-summary.md "access_policies_understand-service-summary.md")). For this action, the policy
 defines multiple conditions on a single resource.
 
-![Action summary dialog image](images/policies-summary-resource-dialog.png)
+![Action summary dialog image.](images/policies-summary-resource-dialog.png)
 
 The action summary page includes the following information:
 
@@ -42,6 +42,7 @@ The action summary page includes the following information:
 5. **Region** – This column shows the Region in which the
    resource is defined. Resources can be defined for all Regions, or a single Region. They
    cannot exist in more than one specific Region.
+
    - **All regions** – The actions that are associated with the
      resource apply to all Regions. In this example, the action belongs to a global
      service, Amazon S3. Actions that belong to global services apply to all Regions.
@@ -53,6 +54,7 @@ The action summary page includes the following information:
    actions associated with the resource apply to a specific account. Resources can exist in
    all accounts or a single account. They cannot exist in more than one specific
    account.
+
    - **All accounts** – The actions that are associated with
      the resource apply to all accounts. In this example, the action belongs to a global
      service, Amazon S3. Actions that belong to global services apply to all accounts.

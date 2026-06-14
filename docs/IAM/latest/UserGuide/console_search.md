@@ -38,14 +38,14 @@ that account.
 
 The following icons identify the types of items that are found by a search:
 
-| Icon                                            | Description                                    |
-| ----------------------------------------------- | ---------------------------------------------- |
-| a portrait outline on gray background           | IAM users                                      |
-| multiple portrait outlines on a blue background | IAM groups                                     |
-| a magic wand icon on a navy background          | IAM roles                                      |
-| a document icon on an organe background         | IAM policies                                   |
-| a white start on an organe background           | Tasks such as "create user" or "attach policy" |
-| a white X on a red background                   | Results from the keyword `delete`              |
+| Icon                                             | Description                                    |
+| ------------------------------------------------ | ---------------------------------------------- |
+| a portrait outline on gray background.           | IAM users                                      |
+| multiple portrait outlines on a blue background. | IAM groups                                     |
+| a magic wand icon on a navy background.          | IAM roles                                      |
+| a document icon on an orange background.         | IAM policies                                   |
+| a white star on an orange background.            | Tasks such as "create user" or "attach policy" |
+| a white X on a red background.                   | Results from the keyword `delete`              |
 
 **Sample search phrases**
 

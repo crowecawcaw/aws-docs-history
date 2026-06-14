@@ -238,16 +238,19 @@ untag-saml-provider`](../../../cli/latest/reference/iam/untag-saml-provider.md "
 
 1. (Optional) To list information for all providers, such as the ARN, creation date, and
    expiration, run the following command:
+
    - [`aws iam
 list-saml-providers`](../../../cli/latest/reference/iam/list-saml-providers.md "../../../cli/latest/reference/iam/list-saml-providers.md")
 
 2. (Optional) To get information about a specific provider, such as the ARN, creation
    date, expiration date, encryption settings, and private key information, run the following
    command:
+
    - [`aws iam
 get-saml-provider`](../../../cli/latest/reference/iam/get-saml-provider.md "../../../cli/latest/reference/iam/get-saml-provider.md")
 
 3. To delete an IAM identity provider, run the following command:
+
    - [`aws iam
 delete-saml-provider`](../../../cli/latest/reference/iam/delete-saml-provider.md "../../../cli/latest/reference/iam/delete-saml-provider.md")
 
@@ -286,14 +289,17 @@ information about rotating private keys, see [Manage SAML encryption keys](#id_f
 
 1. (Optional) To list information for all IdPs, such as the ARN, creation date, and
    expiration, call the following operation:
+
    - [`ListSAMLProviders`](../APIReference/API_ListSAMLProviders.md "../APIReference/API_ListSAMLProviders.md")
 
 2. (Optional) To get information about a specific provider, such as the ARN, creation
    date, expiration date, encryption settings, and private key information, call the
    following operation:
+
    - [`GetSAMLProvider`](../APIReference/API_GetSAMLProvider.md "../APIReference/API_GetSAMLProvider.md")
 
 3. To delete an IdP, call the following operation:
+
    - [`DeleteSAMLProvider`](../APIReference/API_DeleteSAMLProvider.md "../APIReference/API_DeleteSAMLProvider.md")
 
 ## Next steps

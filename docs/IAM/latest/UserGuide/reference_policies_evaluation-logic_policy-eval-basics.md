@@ -5,14 +5,14 @@
 The following flow chart provides details about how a policy evaluation decision is
 made for an IAM role within a single account.
 
-![Evaluation flow chart for an IAM role within a single account](images/PolicyEvaluationSingleAccountRole.png)
+![Evaluation flow chart for an IAM role within a single account.](images/PolicyEvaluationSingleAccountRole.png)
 
 ## Policy evaluation for an IAM user
 
 The following flow chart provides details about how a policy evaluation decision is
 made for an IAM user within a single account.
 
-![Evaluation flow chart for an IAM user within a single account](images/PolicyevaluationSingleAccountUser.png)
+![Evaluation flow chart for an IAM user within a single account.](images/PolicyevaluationSingleAccountUser.png)
 
 ## Example identity-based and resource-based policy evaluation
 
@@ -110,7 +110,7 @@ policies apply to the request. In this case, only the identity-based policy and 
 resource-based policy apply. These are both permissions policies. Because no permissions
 boundaries apply, the evaluation logic is reduced to the following logic.
 
-![Evaluation flow chart](images/EffectivePermissionsShort.png)
+![Evaluation flow chart.](images/EffectivePermissionsShort.png)
 
 AWS first checks for a `Deny` statement that applies to the context of
 the request. It finds one, because the identity-based policy explicitly denies Carlos

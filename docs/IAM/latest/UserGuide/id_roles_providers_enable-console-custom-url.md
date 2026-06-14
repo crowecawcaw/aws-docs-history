@@ -19,6 +19,7 @@ _identity broker_ that performs the following steps:
 2.  Call the AWS Security Token Service (AWS STS) [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") (recommended) or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md") API operations to obtain temporary security credentials for
     the user. To learn about the different methods that you can use to assume a role, see [Methods to assume a role](id_roles_manage-assume.md "id_roles_manage-assume.md"). To learn how to
     pass optional session tags when you obtain your security credentials, see [Pass session tags in AWS STS](id_session-tags.md "id_session-tags.md").
+
     - If you use one of the `AssumeRole*` API operations to get the temporary
       security credentials for a role, you can include the `DurationSeconds`
       parameter in your call. This parameter specifies the duration of your role session, from
@@ -39,6 +40,7 @@ _identity broker_ that performs the following steps:
 3.  Call the AWS federation endpoint and supply the temporary security credentials to
     request a sign-in token.
 4.  Construct a URL for the console that includes the token:
+
     - If you use one of the `AssumeRole*` API operations in your URL, you can
       include the `SessionDuration` HTTP parameter. This parameter specifies the
       duration of the console session, from 900 seconds (15 minutes) to 43200 seconds (12

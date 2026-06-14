@@ -32,6 +32,7 @@ same root user or IAM user.
 3. Authenticate with the type of MFA device that you selected.
 4. The next step varies based on whether you successfully signed in with an alternate MFA
    device.
+
    - If you have successfully signed in, you can [Resynchronize virtual and hardware MFA devices](id_credentials_mfa_sync.md "id_credentials_mfa_sync.md"), which
      may resolve the issue. If your MFA device is lost or broken, you can deactivate it.
      For instructions on deactivating any MFA device type, see [Deactivate an MFA device](id_credentials_mfa_disable.md "id_credentials_mfa_disable.md").
@@ -132,6 +133,7 @@ new device.
    in [Deactivate an MFA device](id_credentials_mfa_disable.md "id_credentials_mfa_disable.md")
    so that you can sign in.
 2. The next step varies depending on the type of MFA you are using:
+
    - For a virtual MFA device, remove the account from your device. Then enable the
      virtual device as described in [Assign a virtual MFA device in the AWS Management Console](id_credentials_mfa_enable_virtual.md "id_credentials_mfa_enable_virtual.md").
    - For a FIDO security key, contact the third-party provider for help with replacing

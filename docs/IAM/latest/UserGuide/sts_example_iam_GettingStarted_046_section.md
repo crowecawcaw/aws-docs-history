@@ -583,6 +583,7 @@ rm -f ssm-onboarding-policy.json trust-policy.json ssm-config.json 2>/dev/null |
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateConfigurationManager](../../../goto/aws-cli/ssm-2014-11-06/CreateConfigurationManager.md "../../../goto/aws-cli/ssm-2014-11-06/CreateConfigurationManager.md")
   - [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")

@@ -1003,6 +1003,7 @@ echo "Script completed successfully!"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AddRoleToInstanceProfile](../../../goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile.md "../../../goto/aws-cli/iam-2010-05-08/AddRoleToInstanceProfile.md")
   - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
   - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")

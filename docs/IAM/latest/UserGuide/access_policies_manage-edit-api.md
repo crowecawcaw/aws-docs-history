@@ -27,26 +27,32 @@ versions.
 ###### To edit a customer managed policy (AWS API)
 
 1. (Optional) To view information about a policy, call the following operations:
+
    - To list managed policies: [ListPolicies](../APIReference/API_ListPolicies.md "../APIReference/API_ListPolicies.md")
    - To retrieve detailed information about a managed policy: [GetPolicy](../APIReference/API_GetPolicy.md "../APIReference/API_GetPolicy.md")
 
 2. (Optional) To find out about the relationships between the policies and identities,
    call the following operations:
+
    - To list the identities (IAM users, IAM groups, and IAM roles) to which a managed policy
      is attached:
+
      - [ListEntitiesForPolicy](../APIReference/API_ListEntitiesForPolicy.md "../APIReference/API_ListEntitiesForPolicy.md")
 
    - To list the managed policies attached to an identity (a user, user group, or
      role):
+
      - [ListAttachedUserPolicies](../APIReference/API_ListAttachedUserPolicies.md "../APIReference/API_ListAttachedUserPolicies.md")
      - [ListAttachedGroupPolicies](../APIReference/API_ListAttachedGroupPolicies.md "../APIReference/API_ListAttachedGroupPolicies.md")
      - [ListAttachedRolePolicies](../APIReference/API_ListAttachedRolePolicies.md "../APIReference/API_ListAttachedRolePolicies.md")
 
 3. To edit a customer managed policy, call the following operation:
+
    - [CreatePolicyVersion](../APIReference/API_CreatePolicyVersion.md "../APIReference/API_CreatePolicyVersion.md")
 
 4. (Optional) To validate a customer managed policy, call the following IAM Access Analyzer
    operation:
+
    - [ValidatePolicy](../../../access-analyzer/latest/APIReference/API_ValidatePolicy.md "../../../access-analyzer/latest/APIReference/API_ValidatePolicy.md")
 
 ## Setting the default version of a customer managed policy (AWS API)
@@ -56,10 +62,12 @@ You can set a default version of a customer managed policy from the AWS API.
 ###### To set the default version of a customer managed policy (AWS API)
 
 1. (Optional) To list managed policies, call the following operation:
+
    - [ListPolicies](../APIReference/API_ListPolicies.md "../APIReference/API_ListPolicies.md")
 
 2. To set the default version of a customer managed policy, call the following
    operation:
+
    - [SetDefaultPolicyVersion](../APIReference/API_SetDefaultPolicyVersion.md "../APIReference/API_SetDefaultPolicyVersion.md")
 
 ## Deleting a version of a customer managed policy (AWS API)
@@ -69,9 +77,11 @@ You can delete a version of a customer managed policy from the AWS API.
 ###### To delete a version of a customer managed policy (AWS API)
 
 1. (Optional) To list managed policies, call the following operation:
+
    - [ListPolicies](../APIReference/API_ListPolicies.md "../APIReference/API_ListPolicies.md")
 
 2. To delete a customer managed policy, call the following operation:
+
    - [DeletePolicyVersion](../APIReference/API_DeletePolicyVersion.md "../APIReference/API_DeletePolicyVersion.md")
 
 ## Editing inline policies (AWS API)
@@ -82,21 +92,26 @@ You can edit an inline policy from the AWS API.
 
 1. (Optional) To view information about an inline policy, call the following
    operations:
+
    - To list inline policies associated to an identity (a user, user group, or role):
+
      - [ListUserPolicies](../APIReference/API_ListUserPolicies.md "../APIReference/API_ListUserPolicies.md")
      - [ListRolePolicies](../APIReference/API_ListRolePolicies.md "../APIReference/API_ListRolePolicies.md")
      - [ListGroupPolicies](../APIReference/API_ListGroupPolicies.md "../APIReference/API_ListGroupPolicies.md")
 
    - To retrieve detailed information about an inline policy:
+
      - [GetUserPolicy](../APIReference/API_GetUserPolicy.md "../APIReference/API_GetUserPolicy.md")
      - [GetRolePolicy](../APIReference/API_GetRolePolicy.md "../APIReference/API_GetRolePolicy.md")
      - [GetGroupPolicy](../APIReference/API_GetGroupPolicy.md "../APIReference/API_GetGroupPolicy.md")
 
 2. To edit an inline policy, call the following operations:
+
    - [PutUserPolicy](../APIReference/API_PutUserPolicy.md "../APIReference/API_PutUserPolicy.md")
    - [PutRolePolicy](../APIReference/API_PutRolePolicy.md "../APIReference/API_PutRolePolicy.md")
    - [PutGroupPolicy](../APIReference/API_PutGroupPolicy.md "../APIReference/API_PutGroupPolicy.md")
 
 3. (Optional) To validate an inline policy, run the following IAM Access Analyzer
    operation:
+
    - [ValidatePolicy](../../../access-analyzer/latest/APIReference/API_ValidatePolicy.md "../../../access-analyzer/latest/APIReference/API_ValidatePolicy.md")

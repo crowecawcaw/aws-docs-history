@@ -70,6 +70,7 @@ AWS Management Console, the AWS Discussion Forums, and the AWS Marketplace. When
 used more than once in a 5-minute span, only the first use is recorded in this field.
 
 - The value in this field is `no_information` in these cases:
+
   - The user's password has never been used.
   - There is no sign-in data associated with the password, such as when user's
     password has not been used after IAM started tracking this information on

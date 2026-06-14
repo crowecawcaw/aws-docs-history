@@ -119,7 +119,7 @@ alias to be redirected to the IAM user sign-in page for your account.
 To get your AWS account ID, contact your administrator. 2. In the navigation bar on the upper right, choose your user name, and then choose
 **Security credentials**.
 
-![AWS Management Console Security credentials link](images/security-credentials-user.shared.console.png) 3. On the selected IAM user's page, choose the **Security
+![AWS Management Console Security credentials link.](images/security-credentials-user.shared.console.png) 3. On the selected IAM user's page, choose the **Security
 credentials** tab. 4. Under **Multi-factor authentication (MFA)**, choose **Assign
 MFA device**. 5. On the **MFA device name** page, enter a **Device
 name**, choose **Passkey or Security Key**, and then choose

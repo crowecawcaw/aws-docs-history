@@ -10,7 +10,7 @@ and uses, see [Policies and permissions in AWS Identity and Access Management](a
 
 For details about the rest of the authentication and authorization process, see [How IAM works](intro-structure.md "intro-structure.md").
 
-![AccessManagement_Diagram](images/access-diagram_800.png)
+![AccessManagement_Diagram.](images/access-diagram_800.png)
 During authorization, the AWS enforcement code uses values from the [request context](intro-structure.md#intro-structure-request "intro-structure.md#intro-structure-request") to check for matching policies and
 determine whether to allow or deny the request.
 

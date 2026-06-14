@@ -107,6 +107,7 @@ federation.
     sign-in endpoint for your SAML provider.
 
 6.  The procedure for defining attributes varies depending on the access type.
+
     - If you're creating a role for programmatic access, choose an attribute from the
       **Attribute** list. Then, in the **Value** box,
       enter a value to include in the role. This restricts role access to users from the
@@ -117,6 +118,7 @@ federation.
       **Sign-in endpoints** section defines the URL your browser displays
       when signing into the console. This endpoint is your identity provider's SAML
       recipient attribute, which maps to the [saml:aud](reference_policies_iam-condition-keys.md#condition-keys-saml "reference_policies_iam-condition-keys.md#condition-keys-saml") context key. For more information, see [Configure SAML assertions for the authentication response](id_roles_providers_create_saml_assertions.md "id_roles_providers_create_saml_assertions.md").
+
       1. Choose **Regional endpoints** or **Non-regional
          endpoint**. We recommend using multiple Regional SAML sign-in endpoints
          to improve federation resiliency.

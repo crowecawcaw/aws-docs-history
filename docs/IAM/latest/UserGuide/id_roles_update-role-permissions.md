@@ -68,6 +68,7 @@ service.
 
 1. (Optional) To view the current permissions associated with a role, run
    the following commands:
+
    1. [aws iam
       list-role-policies](../../../cli/latest/reference/iam/list-role-policies.md "../../../cli/latest/reference/iam/list-role-policies.md") to list inline policies
    2. [aws iam list-attached-role-policies](../../../cli/latest/reference/iam/list-attached-role-policies.md "../../../cli/latest/reference/iam/list-attached-role-policies.md") to list managed
@@ -100,6 +101,7 @@ documentation for that service.
 
 1. (Optional) To view the current permissions associated with a role,
    call the following operations:
+
    1. [ListRolePolicies](../APIReference/API_ListRolePolicies.md "../APIReference/API_ListRolePolicies.md") to list inline policies
    2. [ListAttachedRolePolicies](../APIReference/API_ListAttachedRolePolicies.md "../APIReference/API_ListAttachedRolePolicies.md") to list managed
       policies
@@ -140,6 +142,7 @@ this role.
 
 1.  (Optional) To view the current [permissions boundary](access_policies_boundaries.md "access_policies_boundaries.md") for
     a role, run the following command:
+
     - [aws iam
       get-role](../../../cli/latest/reference/iam/get-role.md "../../../cli/latest/reference/iam/get-role.md")
 
@@ -156,6 +159,7 @@ this role.
 
 1.  (Optional) To view the current [permissions boundary](access_policies_boundaries.md "access_policies_boundaries.md") for
     a role, call the following operation:
+
     - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
 
 2.  To use a different managed policy to update the permissions boundary

@@ -19,6 +19,7 @@ If you are not already signed in to the AWS Management Console, a new window ope
 
 5. Review the permission simulation results. The permission simulation capability automatically evaluates your identity's permissions against those included in the request. Based on this analysis, a recommendation is displayed indicating whether to approve the request with your current identity or forward the request to an administrator. For details, see [Permission simulation beta capability](#temporary-delegation-permission-simulation "#temporary-delegation-permission-simulation") .
 6. In the dialog, select how you would like to proceed.
+
    - Select _Allow access_ when your identity has sufficient permissions to allow the product provider to perform onboarding procedures on your behalf. When you select this option, the product provider's access duration starts once you provide access.
    - Select _Request approval_ if your identity doesn't have sufficient permissions to allow the product provider to perform onboarding procedures on your behalf. Then, choose _Create approval request_. When you select this option, a temporary delegation request link is created that you can share with your account administrator. Your administrator can access the AWS Management Console or use the access link to Review Temporary delegation requests to approve the request and share temporary access with the requestor.
 

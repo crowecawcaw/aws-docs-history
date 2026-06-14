@@ -805,6 +805,7 @@ echo "Log file: $LOG_FILE"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateMitigationAction](../../../goto/aws-cli/iot-2015-05-28/CreateMitigationAction.md "../../../goto/aws-cli/iot-2015-05-28/CreateMitigationAction.md")
   - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")

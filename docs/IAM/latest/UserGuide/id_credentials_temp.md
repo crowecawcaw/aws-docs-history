@@ -80,6 +80,7 @@ Documentation_.
   Language (SAML) 2.0, with which you can use Microsoft AD FS to leverage your Microsoft
   Active Directory. You can also use SAML 2.0 to manage your own solution for federating
   user identities. For more information, see [SAML 2.0 federation](id_roles_providers_saml.md "id_roles_providers_saml.md").
+
   - **Custom federation broker** – You can use
     your organization's authentication system to grant access to AWS resources. For an
     example scenario, see [Enable custom identity broker access to the AWS console](id_roles_providers_enable-console-custom-url.md "id_roles_providers_enable-console-custom-url.md").

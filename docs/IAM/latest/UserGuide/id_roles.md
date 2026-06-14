@@ -110,6 +110,7 @@ Roles can be assumed by the following:
 - An IAM user in the same AWS account or another AWS account
 - IAM roles in the same account
 - Service principals, for use with AWS services and features like:
+
   - Services that allow you to run code on compute services, like Amazon EC2 or
     AWS Lambda
   - Features that perform actions to your resources on your behalf, like Amazon S3

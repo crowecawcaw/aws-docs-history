@@ -76,6 +76,7 @@ You can manage tags for IAM SAML Identity Providers from the AWS Management Cons
 3. Choose the **Tags** tab, then in the
    **Tags** section, choose **Manage tags**
    and then complete one of the following actions:
+
    - Choose **Add tag** if the SAML identity provider does
      not yet have tags or to add a new tag.
    - Edit existing tag keys and values.

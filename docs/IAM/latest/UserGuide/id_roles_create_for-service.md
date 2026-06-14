@@ -155,6 +155,7 @@ Console
     that the service requires.
 5.  Choose **Next**.
 6.  For **Permissions policies**, the options depend on the use case that you selected:
+
     - If the service defines the permissions for the role, you can't select permissions policies.
     - Select from a limited set of permission polices.
     - Select from all permission policies.
@@ -163,6 +164,7 @@ Console
 7.  (Optional) Set a [permissions
     boundary](access_policies_boundaries.md "access_policies_boundaries.md"). This is an advanced feature that is available for service roles, but
     not service-linked roles.
+
     1. Open the **Set permissions boundary** section, and then choose
        **Use a permissions boundary to control the maximum role
        permissions**.
@@ -171,6 +173,7 @@ Console
 
 8.  Choose **Next**.
 9.  For **Role name**, the options depend on the service:
+
     - If the service defines the role name, you can't edit the role name.
     - If the service defines a prefix for the role name, you can enter an optional suffix.
     - If the service doesn't define the role name, you can name the role.

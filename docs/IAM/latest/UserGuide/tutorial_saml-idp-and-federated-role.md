@@ -47,6 +47,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
 2.  On the **Stacks** page, from the **Create stack**
     menu, choose **with new resources (standard)**.
 3.  Specify the template:
+
     1. Under **Prerequisite**, choose **Choose an existing
        template**.
     2. Under **Specify template**, choose **Upload a template
@@ -56,6 +57,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
     4. Choose **Next**.
 
 4.  Specify the following stack details:
+
     1. Enter a stack name.
     2. For **IdentityProviderName**, you can leave this empty to
        auto-generate a name based on the stack name, or enter a custom name for your SAML
@@ -87,7 +89,6 @@ Next, use the template you've saved to provision a CloudFormation stack.
     ```
     <?xml version="1.0" encoding="UTF-8"?><md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://portal.sso.example.com/saml/assertion/CompanyIdP"><md:IDPSSODescriptor WantAuthnRequestsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:KeyDescriptor use="signing"><ds:KeyInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509Data><ds:X509Certificate>MIIDXTCCAkWgAwIBAgIJAJC1HiIAZAiIMA0GCSqGSIb3DQEBBQUAMEUxCzAJBgNV...</ds:X509Certificate></ds:X509Data></ds:KeyInfo></md:KeyDescriptor><md:SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/logout/CompanyIdP"/><md:NameIDFormat>urn:oasis:names:tc:SAML:2.0:nameid-format:persistent</md:NameIDFormat><md:SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://portal.sso.example.com/saml/assertion/CompanyIdP"/></md:IDPSSODescriptor></md:EntityDescriptor>
     ```
-
     4. For **RoleName**, you can leave this empty to auto-generate a
        name based on the stack name, or enter a custom name for the federated IAM
        role.
@@ -129,10 +130,10 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
         Example for RoleManagedPolicy2:
          `arn:aws:iam::123456789012:policy/CustomPolicy`
-
     6. Choose **Next**.
 
 5.  Configure the stack options:
+
     1. Under **Stack failure options**, choose **Delete all
        newly created resources**.
 

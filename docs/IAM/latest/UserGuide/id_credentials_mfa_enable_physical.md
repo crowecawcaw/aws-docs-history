@@ -118,7 +118,7 @@ alias to be redirected to the IAM user sign-in page for your account.
 To get your AWS account ID, contact your administrator. 2. In the navigation bar on the upper right, choose your user name, and then choose
 **Security credentials**.
 
-![AWS Management Console Security credentials link](images/security-credentials-user.shared.console.png) 3. On the **AWS IAM credentials** tab, in the **Multi-factor
+![AWS Management Console Security credentials link.](images/security-credentials-user.shared.console.png) 3. On the **AWS IAM credentials** tab, in the **Multi-factor
 authentication (MFA)** section, choose **Assign MFA
 device**. 4. In the wizard, type a **Device name**, choose **Hardware TOTP
 token**, and then choose **Next**. 5. Type the device serial number. The serial number is usually on the back of the
@@ -126,7 +126,7 @@ device. 6. In the **MFA code 1** box, type the six-digit number displayed by the
 MFA device. You might need to press the button on the front of the device to display the
 number.
 
-![IAM Dashboard, MFA Device](images/MFADevice.png) 7. Wait 30 seconds while the device refreshes the code, and then type the next six-digit
+![IAM Dashboard, MFA Device.](images/MFADevice.png) 7. Wait 30 seconds while the device refreshes the code, and then type the next six-digit
 number into the **MFA code 2** box. You might need to press the button on
 the front of the device again to display the second number. 8. Choose **Add MFA**.
 
@@ -161,7 +161,7 @@ You can enable a hardware TOTP token for another IAM user from the AWS Managemen
    MFA device. You might need to press the button on the front of the device to display the
    number.
 
-![IAM Dashboard, MFA Device](images/MFADevice.png) 8. Wait 30 seconds while the device refreshes the code, and then type the next six-digit
+![IAM Dashboard, MFA Device.](images/MFADevice.png) 8. Wait 30 seconds while the device refreshes the code, and then type the next six-digit
 number into the **MFA code 2** box. You might need to press the button on
 the front of the device again to display the second number. 9. Choose **Add MFA**.
 

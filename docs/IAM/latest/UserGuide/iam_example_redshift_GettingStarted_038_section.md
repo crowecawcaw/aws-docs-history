@@ -676,6 +676,7 @@ echo "Tutorial completed at $(date)"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateNamespace](../../../goto/aws-cli/redshift-2012-12-01/CreateNamespace.md "../../../goto/aws-cli/redshift-2012-12-01/CreateNamespace.md")
   - [CreateRole](../../../goto/aws-cli/iam-2010-05-08/CreateRole.md "../../../goto/aws-cli/iam-2010-05-08/CreateRole.md")
   - [CreateSecret](../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md "../../../goto/aws-cli/secretsmanager-2017-10-17/CreateSecret.md")

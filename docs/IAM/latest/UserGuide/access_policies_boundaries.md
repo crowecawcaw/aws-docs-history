@@ -100,7 +100,7 @@ permissions boundaries limit those permissions. The effective permissions are th
 intersection of both policy types. An explicit deny in either of these policies
 overrides the allow.
 
-![Evaluation of identity-based policies and permissions boundaries](images/permissions_boundary.png)
+![Evaluation of identity-based policies and permissions boundaries.](images/permissions_boundary.png)
 
 **Resource-based policies** – Resource-based
 policies control how the specified principal can access the resource to which the
@@ -114,7 +114,7 @@ an IAM user ARN (that is not an AWS STS federated user principal session)
 are not limited by an implicit deny in an identity-based policy or
 permissions boundary.
 
-![Evaluation of a resource-based policy, permissions boundary, and identity-based policy](images/EffectivePermissions-rbp-boundary-id.png)
+![Evaluation of a resource-based policy, permissions boundary, and identity-based policy.](images/EffectivePermissions-rbp-boundary-id.png)
 
 _Resource-based policies for IAM roles_
 
@@ -156,7 +156,7 @@ only if all three policy types allow it. The effective permissions are the inter
 of all three policy types. An explicit deny in any of these policies overrides the
 allow.
 
-![Evaluation of an SCP, permissions boundary, and identity-based policy](images/EffectivePermissions-scp-boundary-id.png)
+![Evaluation of an SCP, permissions boundary, and identity-based policy.](images/EffectivePermissions-scp-boundary-id.png)
 
 You can learn [whether your account is a member of an organization](../../../organizations/latest/userguide/orgs_manage_org_details.md#orgs_view_account "../../../organizations/latest/userguide/orgs_manage_org_details.md#orgs_view_account") in AWS Organizations.
 Organization members might be affected by an SCP. To view this data using the AWS CLI
@@ -176,7 +176,7 @@ intersection of all three policy types. An explicit deny in any of these policie
 overrides the allow. For more information about session policies, see [Session
 Policies](access_policies.md#policies_session "access_policies.md#policies_session").
 
-![Evaluation of a session policy, permissions boundary, and identity-based policy](images/EffectivePermissions-session-boundary-id.png)
+![Evaluation of a session policy, permissions boundary, and identity-based policy.](images/EffectivePermissions-session-boundary-id.png)
 
 ## Delegating responsibility to others using permissions boundaries
 

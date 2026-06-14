@@ -26,22 +26,27 @@ You can delete a customer managed policy using the AWS API.
 ###### To delete a customer managed policy (AWS API)
 
 1. (Optional) To view information about a policy, call the following operations:
+
    - To list managed policies: [ListPolicies](../APIReference/API_ListPolicies.md "../APIReference/API_ListPolicies.md")
    - To retrieve detailed information about a managed policy: [GetPolicy](../APIReference/API_GetPolicy.md "../APIReference/API_GetPolicy.md")
 
 2. (Optional) To find out about the relationships between the policies and identities,
    call the following operations:
+
    - To list the identities (IAM users, IAM groups, and IAM roles) to which a managed policy
      is attached, call the following operation:
+
      - [ListEntitiesForPolicy](../APIReference/API_ListEntitiesForPolicy.md "../APIReference/API_ListEntitiesForPolicy.md")
 
    - To list the managed policies attached to an identity (a user, user group, or
      role), call one of the following operations:
+
      - [ListAttachedUserPolicies](../APIReference/API_ListAttachedUserPolicies.md "../APIReference/API_ListAttachedUserPolicies.md")
      - [ListAttachedGroupPolicies](../APIReference/API_ListAttachedGroupPolicies.md "../APIReference/API_ListAttachedGroupPolicies.md")
      - [ListAttachedRolePolicies](../APIReference/API_ListAttachedRolePolicies.md "../APIReference/API_ListAttachedRolePolicies.md")
 
 3. To delete a customer managed policy, call the following operation:
+
    - [DeletePolicy](../APIReference/API_DeletePolicy.md "../APIReference/API_DeletePolicy.md")
 
 ## Deleting inline policies (AWS API)
@@ -52,12 +57,14 @@ You can delete an inline policy using the AWS API.
 
 1. (Optional) To list all inline policies that are attached to an identity (user, user
    group, role), call one of the following operations:
+
    - [ListUserPolicies](../APIReference/API_ListUserPolicies.md "../APIReference/API_ListUserPolicies.md")
    - [ListGroupPolicies](../APIReference/API_ListGroupPolicies.md "../APIReference/API_ListGroupPolicies.md")
    - [ListRolePolicies](../APIReference/API_ListRolePolicies.md "../APIReference/API_ListRolePolicies.md")
 
 2. (Optional) To retrieve an inline policy document that is embedded in an identity
    (user, user group, or role), call one of the following operations:
+
    - [GetUserPolicy](../APIReference/API_GetUserPolicy.md "../APIReference/API_GetUserPolicy.md")
    - [GetGroupPolicy](../APIReference/API_GetGroupPolicy.md "../APIReference/API_GetGroupPolicy.md")
    - [GetRolePolicy](../APIReference/API_GetRolePolicy.md "../APIReference/API_GetRolePolicy.md")
@@ -65,6 +72,7 @@ You can delete an inline policy using the AWS API.
 3. To delete an inline policy from an identity (user, user group, or role that is not a
    _[service-linked role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_),
    call one of the following operations:
+
    - [DeleteUserPolicy](../APIReference/API_DeleteUserPolicy.md "../APIReference/API_DeleteUserPolicy.md")
    - [DeleteGroupPolicy](../APIReference/API_DeleteGroupPolicy.md "../APIReference/API_DeleteGroupPolicy.md")
    - [DeleteRolePolicy](../APIReference/API_DeleteRolePolicy.md "../APIReference/API_DeleteRolePolicy.md")

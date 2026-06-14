@@ -39,6 +39,7 @@ Accessed** tab in the IAM console.
    **Summary** page and choose the **Last
    Accessed** tab. View the following information, based on the resource
    that you chose:
+
    - **User group** – View the list of
      services that user group members can access. You can also view when a member
      last accessed the service, what user group policies they used, and which user
@@ -111,6 +112,7 @@ IAM resource can be a user, user group, role, or policy.
     `get-service-last-accessed-details` and
     `get-service-last-accessed-details-with-entities` operations to monitor
     the `job-status` until the job is complete.
+
     - [aws
       iam generate-service-last-accessed-details](../../../cli/latest/reference/iam/generate-service-last-accessed-details.md "../../../cli/latest/reference/iam/generate-service-last-accessed-details.md")
 
@@ -148,6 +150,7 @@ IAM resource can be a user, user group, role, or policy.
     each entity's ARN, ID, name, path, type (user or role), and when they last attempted
     to access the service. You can also use this operation for users and roles, but it
     only returns information about that entity.
+
     - [aws
       iam get-service-last-accessed-details-with-entities](../../../cli/latest/reference/iam/get-service-last-accessed-details-with-entities.md "../../../cli/latest/reference/iam/get-service-last-accessed-details-with-entities.md")
 
@@ -159,6 +162,7 @@ IAM resource can be a user, user group, role, or policy.
     return other policy types, such as resource-based policies, access control lists,
     AWS Organizations policies, IAM permissions boundaries, or session policies. For more
     information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
+
     - [aws iam
       list-policies-granting-service-access](../../../cli/latest/reference/iam/list-policies-granting-service-access.md "../../../cli/latest/reference/iam/list-policies-granting-service-access.md")
 
@@ -178,6 +182,7 @@ services and actions.
     `GetServiceLastAccessedDetails` and
     `GetServiceLastAccessedDetailsWithEntities` operations to monitor the
     `JobStatus` until the job is complete.
+
     - [GenerateServiceLastAccessedDetails](../APIReference/API_GenerateServiceLastAccessedDetails.md "../APIReference/API_GenerateServiceLastAccessedDetails.md")
 
 2.  Retrieve details about the report using the `JobId` parameter from the
@@ -213,6 +218,7 @@ services and actions.
     each entity's ARN, ID, name, path, type (user or role), and when they last attempted
     to access the service. You can also use this operation for users and roles, but it
     only returns information about that entity.
+
     - [GetServiceLastAccessedDetailsWithEntities](../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md "../APIReference/API_GetServiceLastAccessedDetailsWithEntities.md")
 
 4.  Learn more about the identity-based policies that an identity (user, user group,
@@ -223,4 +229,5 @@ services and actions.
     return other policy types, such as resource-based policies, access control lists,
     AWS Organizations policies, IAM permissions boundaries, or session policies. For more
     information, see [Policy types](access_policies.md#access_policy-types "access_policies.md#access_policy-types") or [Policy evaluation for requests within a single account](reference_policies_evaluation-logic_policy-eval-basics.md "reference_policies_evaluation-logic_policy-eval-basics.md").
+
     - [ListPoliciesGrantingServiceAccess](../APIReference/API_ListPoliciesGrantingServiceAccess.md "../APIReference/API_ListPoliciesGrantingServiceAccess.md")

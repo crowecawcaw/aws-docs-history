@@ -39,6 +39,7 @@ Console
    policy**.
 5. On the **Generate policy** page, configure the
    following items:
+
    - For **Select time period**, choose
      **Last 7 days**.
    - For **CloudTrail trail to be analyzed**, select

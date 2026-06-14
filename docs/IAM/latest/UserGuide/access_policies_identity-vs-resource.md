@@ -50,7 +50,7 @@ access that resource. For example, the resource-based policy on `Resource X` all
 the `John` and `Mary` users list and read access to the
 resource.
 
-![Identity-based vs resource-based policies](images/Types_of_Permissions.diagram.png)
+![Identity-based vs resource-based policies.](images/Types_of_Permissions.diagram.png)
 The `123456789012` account example allows the following users to perform
 the listed actions:
 

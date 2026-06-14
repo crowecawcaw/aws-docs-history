@@ -60,6 +60,7 @@ Console
 3. Select the checkboxes next to the policies to delete and choose
    **Remove**. Then, in the confirmation dialog, confirm the removal
    and deletion of the policy.
+
    - To delete an inline policy in **Users** or
      **Roles**, choose **Remove** to confirm the
      deletion.

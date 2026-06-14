@@ -395,6 +395,7 @@ If the **Type** column specifies a "List of …" one of the simple types, then y
 - [Amazon Redshift](list_amazonredshift.md "list_amazonredshift.md")
 - [Amazon Redshift Data API](list_amazonredshiftdataapi.md "list_amazonredshiftdataapi.md")
 - [Amazon Redshift Serverless](list_amazonredshiftserverless.md "list_amazonredshiftserverless.md")
+- [AWS reInvent event pass amount charge to customer AWS account](list_awsreinventeventpassamountchargetocustomerawsaccount.md "list_awsreinventeventpassamountchargetocustomerawsaccount.md")
 - [Amazon Rekognition](list_amazonrekognition.md "list_amazonrekognition.md")
 - [AWS rePost Private](list_awsrepostprivate.md "list_awsrepostprivate.md")
 - [AWS Resilience Hub](list_awsresiliencehub.md "list_awsresiliencehub.md")

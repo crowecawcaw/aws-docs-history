@@ -124,6 +124,7 @@ existing but unassigned virtual MFA device.
 ###### To delete an existing but unassigned virtual MFA device
 
 1. View the virtual MFA devices in your account.
+
    - AWS CLI: [`aws iam
 list-virtual-mfa-devices`](../../../cli/latest/reference/iam/list-virtual-mfa-devices.md "../../../cli/latest/reference/iam/list-virtual-mfa-devices.md")
    - AWS API: [`ListVirtualMFADevices`](../APIReference/API_ListVirtualMFADevices.md "../APIReference/API_ListVirtualMFADevices.md")
@@ -131,6 +132,7 @@ list-virtual-mfa-devices`](../../../cli/latest/reference/iam/list-virtual-mfa-de
 2. In the response, locate the ARN of the virtual MFA device for the user you are trying
    to fix.
 3. Delete the virtual MFA device.
+
    - AWS CLI: [`aws iam
 delete-virtual-mfa-device`](../../../cli/latest/reference/iam/delete-virtual-mfa-device.md "../../../cli/latest/reference/iam/delete-virtual-mfa-device.md")
    - AWS API: [`DeleteVirtualMFADevice`](../APIReference/API_DeleteVirtualMFADevice.md "../APIReference/API_DeleteVirtualMFADevice.md")

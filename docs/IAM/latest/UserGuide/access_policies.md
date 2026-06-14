@@ -5,9 +5,9 @@ groups of users, or roles) or AWS resources. A policy is an object in AWS that, 
 associated with an identity or resource, defines their permissions. AWS evaluates these
 policies when an IAM principal (user or role) makes a request. Permissions in the policies
 determine whether the request is allowed or denied. Most policies are stored in AWS as JSON
-documents. AWS supports seven types of policies: identity-based policies, resource-based
-policies, permissions boundaries, AWS Organizations service control policies (SCPs), AWS Organizations resource control
-policies (RCPs), access control lists (ACLs), and session policies.
+documents. AWS supports nine types of policies: identity-based policies, resource-based
+policies, VPC endpoint policies, permissions boundaries, AWS Organizations service control policies (SCPs), AWS Organizations resource control
+policies (RCPs), access control lists (ACLs), Resource Access Manager shares (RAM) and session policies.
 
 IAM policies define permissions for an action regardless of the method that you use to
 perform the operation. For example, if a policy allows the [GetUser](../APIReference/API_GetUser.md "../APIReference/API_GetUser.md") action, then a user with that policy can
@@ -33,6 +33,11 @@ type.
   policies. Resource-based policies grant permissions to the principal that is specified in
   the policy. Principals can be in the same account as the resource or in other
   accounts.
+- **[VPC endpoint
+  policies](#policies_vpc-endpoint "#policies_vpc-endpoint")** – Attach to a VPC endpoint to control which
+  principals can use the VPC endpoint policies and which resources can be accessed through it. VPC endpoint
+  policies act as an additional access boundary scoped to traffic that traverses the
+  endpoint.
 - **[Permissions
   boundaries](#policies_bound "#policies_bound")** – Use a managed policy as the permissions boundary
   for an IAM entity (user or role). That policy defines the maximum permissions that the
@@ -57,6 +62,10 @@ type.
   document structure. ACLs are cross-account permissions policies that grant permissions to
   the specified principal. ACLs cannot grant permissions to entities within the same
   account.
+- **[AWS RAM resource
+  shares](#policies_ram "#policies_ram")** – Use AWS Resource Access Manager to share resources
+  across AWS accounts, organizational units, or an entire organization without writing
+  individual resource-based policies for each shared resource.
 - **[Session
   policies](#policies_session "#policies_session")** – Pass advanced session policies when you use the
   AWS CLI or AWS API to assume a role or a federated user. Session policies limit the
@@ -75,6 +84,7 @@ what conditions. Identity-based policies can be further categorized:
   policies** – Standalone identity-based policies that you can attach to
   multiple users, groups, and roles in your AWS account. There are two types of managed
   policies:
+
   - **AWS managed policies** – Managed
     policies that are created and managed by AWS.
   - **Customer managed policies** – Managed
@@ -116,6 +126,19 @@ To see which other services support resource-based policies, see [AWS services t
 resource-based policies, see [Identity-based policies and resource-based policies](access_policies_identity-vs-resource.md "access_policies_identity-vs-resource.md").
 To learn whether principals in accounts outside of your zone of trust (trusted organization or account) have access to assume your roles, see
 [What is IAM Access Analyzer?](what-is-access-analyzer.md "what-is-access-analyzer.md").
+
+### VPC endpoint policies
+
+A VPC endpoint policy is a resource-based policy that you attach to a VPC endpoint to
+control which principals can use the endpoint and which resources can be accessed through
+it. VPC endpoint policies do not override or replace identity-based policies or resource-based
+policies attached to the destination service—they act as an additional access boundary
+scoped to traffic that traverses the endpoint. VPC endpoint policies are used to ensure that only trusted identities in your AWS Organizations
+organization can access trusted resources through your VPC endpoints. If you do not attach a custom endpoint
+policy, AWS attaches a default policy that allows full access. For more information about
+endpoint policies, see [Control access to VPC endpoints
+using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the _AWS PrivateLink
+Guide_.
 
 ### IAM permissions boundaries
 
@@ -169,6 +192,23 @@ see [Access
 Control List (ACL) overview](../../../AmazonS3/latest/userguide/acl-overview.md "../../../AmazonS3/latest/userguide/acl-overview.md") in the _Amazon Simple Storage Service Developer
 Guide_.
 
+### AWS Resource Access Manager (AWS RAM) resource shares
+
+AWS Resource Access Manager (AWS RAM) lets you share resources you create in one
+AWS account with other AWS accounts, organizational units, or an entire organization in
+AWS Organizations, without writing individual resource-based policies for each shared resource. While
+you can grant cross-account access by attaching a resource-based policy directly to a
+resource, AWS RAM provides a managed, centralized alternative that eliminates the need to
+enumerate account IDs in policies or maintain identical policy documents across accounts.
+With RAM, consuming accounts see shared resources natively in their service consoles,
+resource owners retain full ownership and visibility into who has access, and managed
+permissions define the maximum actions consumers can perform—all governed by a single
+resource share rather than per-resource policies. Common use cases include sharing VPC
+subnets, AWS Transit Gateway attachments, Route 53 Resolver rules, and License Manager
+configurations across accounts. For more information, see [What is AWS Resource Access
+Manager?](../../../ram/latest/userguide/what-is.md "../../../ram/latest/userguide/what-is.md") in the _AWS RAM User
+Guide_.
+
 ### Session policies
 
 Session policies are advanced policies that you pass as a parameter when you
@@ -199,7 +239,7 @@ resulting session's permissions are the intersection of the session policies and
 resource-based policies plus the intersection of the session policies and identity-based
 policies.
 
-![Evaluation of the session policy with a resource-based policy specifying the entity ARN](images/EffectivePermissions-session-rbp-id.png)
+![Evaluation of the session policy with a resource-based policy specifying the entity ARN.](images/EffectivePermissions-session-rbp-id.png)
 
 A resource-based policy can specify the ARN of the session as a principal. In that case,
 the permissions from the resource-based policy are added after the session is created. The
@@ -207,7 +247,7 @@ resource-based policy permissions are not limited by the session policy. The res
 session has all the permissions of the resource-based policy _plus_ the intersection of the identity-based policy and the session
 policy.
 
-![Evaluation of the session policy with a resource-based policy specifying the session ARN](images/EffectivePermissions-session-rbpsession-id.png)
+![Evaluation of the session policy with a resource-based policy specifying the session ARN.](images/EffectivePermissions-session-rbpsession-id.png)
 
 A permissions boundary can set the maximum permissions for a user or role that is used
 to create a session. In that case, the resulting session's permissions are the intersection
@@ -215,7 +255,7 @@ of the session policy, the permissions boundary, and the identity-based policy. 
 permissions boundary does not limit permissions granted by a resource-based policy that
 specifies the ARN of the resulting session.
 
-![Evaluation of the session policy with a permissions boundary](images/EffectivePermissions-session-boundary-id.png)
+![Evaluation of the session policy with a permissions boundary.](images/EffectivePermissions-session-boundary-id.png)
 
 ## Policies and the root user
 
@@ -257,7 +297,7 @@ multiple statements, AWS applies a logical `OR` across the statements when
 evaluating them. If multiple policies apply to a request, AWS applies a logical
 `OR` across all of those policies when evaluating them.
 
-![JSON policy document structure](images/AccessPolicyLanguage_General_Policy_Structure.diagram.png)
+![JSON policy document structure.](images/AccessPolicyLanguage_General_Policy_Structure.diagram.png)
 
 The information in a statement is contained within a series of elements.
 

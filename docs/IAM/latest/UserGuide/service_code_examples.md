@@ -9,10 +9,13 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [IAM](service_code_examples_iam.md "service_code_examples_iam.md")
+
   - [Basics](service_code_examples_iam_basics.md "service_code_examples_iam_basics.md")
+
     - [Hello IAM](iam_example_iam_Hello_section.md "iam_example_iam_Hello_section.md")
     - [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
     - [Actions](service_code_examples_iam_actions.md "service_code_examples_iam_actions.md")
+
       - [AddClientIdToOpenIdConnectProvider](iam_example_iam_AddClientIdToOpenIdConnectProvider_section.md "iam_example_iam_AddClientIdToOpenIdConnectProvider_section.md")
       - [AddRoleToInstanceProfile](iam_example_iam_AddRoleToInstanceProfile_section.md "iam_example_iam_AddRoleToInstanceProfile_section.md")
       - [AddUserToGroup](iam_example_iam_AddUserToGroup_section.md "iam_example_iam_AddUserToGroup_section.md")
@@ -139,6 +142,7 @@ This topic also includes information about getting started and details about pre
       - [UploadSigningCertificate](iam_example_iam_UploadSigningCertificate_section.md "iam_example_iam_UploadSigningCertificate_section.md")
 
   - [Scenarios](service_code_examples_iam_scenarios.md "service_code_examples_iam_scenarios.md")
+
     - [Build and manage a resilient service](iam_example_cross_ResilientService_section.md "iam_example_cross_ResilientService_section.md")
     - [Configure Amazon ECS Service Connect](iam_example_ecs_ServiceConnect_085_section.md "iam_example_ecs_ServiceConnect_085_section.md")
     - [Create a REST API with Lambda proxy integration](iam_example_api_gateway_GettingStarted_087_section.md "iam_example_api_gateway_GettingStarted_087_section.md")
@@ -178,8 +182,11 @@ This topic also includes information about getting started and details about pre
     - [Work with the IAM Policy Builder API](iam_example_iam_Scenario_IamPolicyBuilder_section.md "iam_example_iam_Scenario_IamPolicyBuilder_section.md")
 
 - [AWS STS](service_code_examples_sts.md "service_code_examples_sts.md")
+
   - [Basics](service_code_examples_sts_basics.md "service_code_examples_sts_basics.md")
+
     - [Actions](service_code_examples_sts_actions.md "service_code_examples_sts_actions.md")
+
       - [AssumeRole](sts_example_sts_AssumeRole_section.md "sts_example_sts_AssumeRole_section.md")
       - [AssumeRoleWithWebIdentity](sts_example_sts_AssumeRoleWithWebIdentity_section.md "sts_example_sts_AssumeRoleWithWebIdentity_section.md")
       - [DecodeAuthorizationMessage](sts_example_sts_DecodeAuthorizationMessage_section.md "sts_example_sts_DecodeAuthorizationMessage_section.md")
@@ -187,6 +194,7 @@ This topic also includes information about getting started and details about pre
       - [GetSessionToken](sts_example_sts_GetSessionToken_section.md "sts_example_sts_GetSessionToken_section.md")
 
   - [Scenarios](service_code_examples_sts_scenarios.md "service_code_examples_sts_scenarios.md")
+
     - [Assume an IAM role that requires an MFA token](sts_example_sts_Scenario_AssumeRoleMfa_section.md "sts_example_sts_Scenario_AssumeRoleMfa_section.md")
     - [Configure Amazon ECS Service Connect](sts_example_ecs_ServiceConnect_085_section.md "sts_example_ecs_ServiceConnect_085_section.md")
     - [Construct a URL for federated users](sts_example_sts_Scenario_ConstructFederatedUrl_section.md "sts_example_sts_Scenario_ConstructFederatedUrl_section.md")

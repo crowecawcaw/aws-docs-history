@@ -25,6 +25,7 @@ pricing](https://aws.amazon.com/iam/access-analyzer/pricing "https://aws.amazon.
 4. On the **Exclusion** tab, if the analyzer was created for an
    organization as the scope of analysis, choose **Manage** in the
    **Excluded AWS accounts** section.
+
    1. To specify individual account IDs to exclude, choose **Specify
       AWS account ID** and enter the account IDs separated by
       commas in the **AWS account ID** field. Choose
@@ -32,6 +33,7 @@ pricing](https://aws.amazon.com/iam/access-analyzer/pricing "https://aws.amazon.
       **AWS accounts to exclude** table.
    2. To choose from a list of accounts in your organization to exclude,
       choose **Choose from organization**.
+
       1. You can search for accounts by name, email, and account ID in
          the **Exclude accounts from organization**
          field.
@@ -59,6 +61,7 @@ pricing](https://aws.amazon.com/iam/access-analyzer/pricing "https://aws.amazon.
 5. On the **Exclusion** tab, choose **Manage**
    in the **Excluded IAM users and roles with tags**
    section.
+
    1. You can specify key-value pairs for IAM users and roles to exclude
       from unused access analysis. For the **Tag key**, enter
       a value that is 1 to 128 characters in length and not prefixed with

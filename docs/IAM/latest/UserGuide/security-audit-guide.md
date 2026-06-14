@@ -168,6 +168,7 @@ permissions granted by each policy. Use the following guidelines when reviewing 
   permissions to users or roles whom you don't trust with full access to the resources in
   your account. When conducting your security audit confirm that the following IAM
   permissions are granted to trusted identities:
+
   - `iam:PutGroupPolicy`
   - `iam:PutRolePolicy`
   - `iam:PutUserPolicy`
@@ -189,6 +190,7 @@ get-account-authorization-details`](../../../cli/latest/reference/iam/get-accoun
   include `*`. When possible, grant `Allow` access to the individual
   actions and resources that users need. However, the following are reasons that it might be
   suitable to use `*` in a policy:
+
   - The policy is designed to grant administrative-level permissions.
   - The wildcard character is used for a set of similar actions (for example,
     `Describe*`) as a convenience, and you are comfortable with the complete

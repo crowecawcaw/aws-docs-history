@@ -35,4 +35,4 @@ Here are some important characteristics of IAM groups:
   individual set of security credentials. In this example, each user belongs to a single user
   group. However, users can belong to multiple IAM groups.
 
-![Example of relationship between AWS accounts, users, and IAM groups](images/Relationship_Between_Entities_Example.diagram.png)
+![Example of relationship between AWS accounts, users, and IAM groups.](images/Relationship_Between_Entities_Example.diagram.png)

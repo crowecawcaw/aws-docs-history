@@ -15,7 +15,7 @@ that owns the role. You cannot use session policies to grant more permissions th
 by the identity-based policy of the role that is being assumed. To learn more about how AWS
 determines the effective permissions of a role, see [Policy evaluation logic](reference_policies_evaluation-logic.md "reference_policies_evaluation-logic.md").
 
-![PermissionsWhenPassingRoles_Diagram](images/role_passed_policy_permissions.png)
+![PermissionsWhenPassingRoles_Diagram.](images/role_passed_policy_permissions.png)
 The policies that are attached to the credentials that made the original call to
 `AssumeRole` are not evaluated by AWS when making the "allow" or "deny"
 authorization decision. The user temporarily gives up its original permissions in favor of the

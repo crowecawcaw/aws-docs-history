@@ -25,7 +25,7 @@ permissions of the two types. If an action is allowed by an identity-based polic
 resource-based policy, or both, then AWS allows the action. An explicit deny in either of
 these policies overrides the allow.
 
-![Evaluation of identity-based policies and resource-based policies](images/permissions_policies_effective.png)
+![Evaluation of identity-based policies and resource-based policies.](images/permissions_policies_effective.png)
 
 ## Evaluating identity-based policies with permissions boundaries
 
@@ -37,7 +37,7 @@ a user, you might increase the actions they can perform. An explicit deny in eit
 policies overrides the allow. To view information about how other policy types are evaluated
 with permissions boundaries, see [Evaluating effective permissions with boundaries](access_policies_boundaries.md#access_policies_boundaries-eval-logic "access_policies_boundaries.md#access_policies_boundaries-eval-logic").
 
-![Evaluation of identity-based policies and permissions boundaries](images/permissions_boundary.png)
+![Evaluation of identity-based policies and permissions boundaries.](images/permissions_boundary.png)
 
 ## Evaluating identity-based policies with AWS Organizations SCPs or RCPs
 
@@ -47,7 +47,7 @@ the intersection of the user's policies, service control policies (SCPs), and re
 policy (RCP). This means that an action must be allowed by all three policy types. An explicit
 deny in the identity-based policy, an SCP, or an RCP overrides the allow.
 
-![Evaluation of identity-based policies and SCPs or RCPs](images/permissions_scp-idp.png)
+![Evaluation of identity-based policies and SCPs or RCPs.](images/permissions_scp-idp.png)
 
 You can learn [whether your account is a member of an organization](../../../organizations/latest/userguide/orgs_manage_org_details.md#orgs_view_account "../../../organizations/latest/userguide/orgs_manage_org_details.md#orgs_view_account") in AWS Organizations. Organization
 members might be affected by an SCP or RCP. To view this data using the AWS CLI command or AWS

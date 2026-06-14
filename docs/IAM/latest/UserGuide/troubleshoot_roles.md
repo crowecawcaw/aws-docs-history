@@ -262,6 +262,7 @@ versions, see [Versioning IAM policies](access_policies_managed-versioning.md "a
    attached** tab to view which IAM users, groups, or roles
    use this policy. If any of these identities use the policy, complete the following
    tasks:
+
    1. Create a new managed policy with the necessary permissions. To ensure that the
       identities have the same permissions before and after your actions, copy the JSON
       policy document from the existing policy. Then create the new managed policy and paste
@@ -274,6 +275,7 @@ versions, see [Versioning IAM policies](access_policies_managed-versioning.md "a
 7. Choose the **Trust relationships** tab to view which entities can
    assume the role. If any entity other than the service is listed, complete the following
    tasks:
+
    1. [Create a new role](id_roles_create_for-user.md#roles-creatingrole-user-console "id_roles_create_for-user.md#roles-creatingrole-user-console") that
       trusts those entities.
    2. The policy that you created in the previous step. If you skipped that step, create

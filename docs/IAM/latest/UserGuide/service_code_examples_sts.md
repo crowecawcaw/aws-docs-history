@@ -13,7 +13,9 @@ This topic also includes information about getting started and details about pre
 ###### AWS STS
 
 - [Basics](service_code_examples_sts_basics.md "service_code_examples_sts_basics.md")
+
   - [Actions](service_code_examples_sts_actions.md "service_code_examples_sts_actions.md")
+
     - [AssumeRole](sts_example_sts_AssumeRole_section.md "sts_example_sts_AssumeRole_section.md")
     - [AssumeRoleWithWebIdentity](sts_example_sts_AssumeRoleWithWebIdentity_section.md "sts_example_sts_AssumeRoleWithWebIdentity_section.md")
     - [DecodeAuthorizationMessage](sts_example_sts_DecodeAuthorizationMessage_section.md "sts_example_sts_DecodeAuthorizationMessage_section.md")
@@ -21,6 +23,7 @@ This topic also includes information about getting started and details about pre
     - [GetSessionToken](sts_example_sts_GetSessionToken_section.md "sts_example_sts_GetSessionToken_section.md")
 
 - [Scenarios](service_code_examples_sts_scenarios.md "service_code_examples_sts_scenarios.md")
+
   - [Assume an IAM role that requires an MFA token](sts_example_sts_Scenario_AssumeRoleMfa_section.md "sts_example_sts_Scenario_AssumeRoleMfa_section.md")
   - [Configure Amazon ECS Service Connect](sts_example_ecs_ServiceConnect_085_section.md "sts_example_ecs_ServiceConnect_085_section.md")
   - [Construct a URL for federated users](sts_example_sts_Scenario_ConstructFederatedUrl_section.md "sts_example_sts_Scenario_ConstructFederatedUrl_section.md")

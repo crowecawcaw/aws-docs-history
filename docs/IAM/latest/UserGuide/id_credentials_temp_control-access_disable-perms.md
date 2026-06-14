@@ -382,6 +382,7 @@ in the identity-based policy.
    different location in the console for attaching policies.
 3. Edit the resource-based policy. Add a deny policy statement to specify the identifying
    information of the credential:
+
    1. In the `Principal` element, enter wildcard (\*). The principal will be
       restricted in the `Condition` element.
    2. In the `Effect` element, enter “Deny.”

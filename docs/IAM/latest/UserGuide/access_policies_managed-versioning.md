@@ -12,7 +12,7 @@ you edit a policy that would create a sixth saved version, you can choose which 
 should no longer be saved. You can revert to any of the other four saved versions at any
 time.
 
-![Changes to managed policies become new versions of the policy](images/policies-managed-policies-versions-overview.diagram.png)
+![Changes to managed policies become new versions of the policy.](images/policies-managed-policies-versions-overview.diagram.png)
 A policy version is different from a `Version` policy element. The
 `Version` policy element is used within a policy and defines the version of the
 policy language. To learn more about the `Version` policy element see [IAM JSON policy elements: Version](reference_policies_elements_version.md "reference_policies_elements_version.md").
@@ -121,7 +121,7 @@ automatically set as the default. For customer managed policies with more than o
 you choose which version to set as the default. For AWS managed policies, the default
 version is set by AWS. The following diagrams illustrate this concept.
 
-![Managed policy with a single version, which is the default version](images/policies-managed-policies-versions-default-one.diagram.png)
+![Managed policy with a single version, which is the default version.](images/policies-managed-policies-versions-default-one.diagram.png)
 
 ![Customer managed policy with three versions, where version v2 is the default version.](images/policies-managed-policies-versions-default-multiple.diagram.png)
 

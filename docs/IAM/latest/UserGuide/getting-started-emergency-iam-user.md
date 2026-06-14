@@ -92,6 +92,7 @@ The new IAM user is displayed in the **Users** list. Select the
 AWS CLI
 
 1. Create a user named `EmergencyAccess`.
+
    - [aws iam
      create-user](../../../cli/latest/reference/iam/create-user.md "../../../cli/latest/reference/iam/create-user.md")
 
@@ -106,6 +107,7 @@ aws iam create-user \
    parameter to pass a JSON file that contains the password.You must also give the user
    the [URL of your account's sign-in
    page.](id_users_sign-in.md "id_users_sign-in.md")
+
    - [aws
      iam create-login-profile](../../../cli/latest/reference/iam/create-login-profile.md "../../../cli/latest/reference/iam/create-login-profile.md")
 
@@ -114,7 +116,6 @@ aws iam create-user \
    aws iam create-login-profile \
       --generate-cli-skeleton > create-login-profile.json
    ```
-
    - Open the `create-login-profile.json` file in a text editor and
      enter a password that complies with your password policy, then save the file.
      For example:
@@ -128,7 +129,6 @@ aws iam create-user \
    }
 
    ```
-
    - Use the `aws iam create-login-profile` command again, passing the
      `--cli-input-json` parameter to specify your JSON file.
 

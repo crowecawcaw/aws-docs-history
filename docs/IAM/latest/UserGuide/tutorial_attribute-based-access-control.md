@@ -286,6 +286,7 @@ JSON
   you are not required to add that action to the statement. The statement implements
   ABAC using three condition blocks. The request is allowed only if all three blocks
   return true.
+
   - The first condition block of this statement returns true if the specified
     tag keys are present on the resource, and their values match the principal's
     tags. This block returns false for mismatched tags, or for actions that don't
@@ -426,6 +427,7 @@ working as expected by testing your roles in Secrets Manager.
 ###### To test viewing a secret with and without the required tags
 
 1.  Sign in as one of the following IAM users:
+
     - `access-Arnav-peg-eng`
     - `access-Mary-peg-qas`
     - `access-Saanvi-uni-eng`
@@ -495,6 +497,7 @@ engineers, including Nikhil Jayashankar, who will work on only the
    IAM role named `access-cen-engineering`. Attach the
    `access-same-project-team` permissions policy to the role and
    add the following role tags:
+
    - `access-project` = `cen`
    - `access-team` = `eng`
    - `cost-center` = `101010`
@@ -502,6 +505,7 @@ engineers, including Nikhil Jayashankar, who will work on only the
 3. In the navigation pane on the left, choose **Users**.
 4. Add a new user named `access-Nikhil-cen-eng`, attach the policy named
    `access-assume-role`, and add the following user tags.
+
    - `access-project` = `cen`
    - `access-team` = `eng`
    - `cost-center` = `101010`
@@ -566,6 +570,7 @@ Secrets Manager.
 ###### To test updating and deleting a secret with and without the required tags
 
 1.  Sign in as one of the following IAM users:
+
     - `access-Arnav-peg-eng`
     - `access-Mary-peg-qas`
     - `access-Saanvi-uni-eng`

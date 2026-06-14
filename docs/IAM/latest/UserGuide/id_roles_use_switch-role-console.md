@@ -73,6 +73,7 @@ session.
    typically looks like this:
    **`username`@`account_ID_number_or_alias`**.
 3. Select one of the following methods to switch roles:
+
    - Choose **Switch role**.
    - If you have opted in to multi-session support, choose **Add
      session** and select **Switch role**.

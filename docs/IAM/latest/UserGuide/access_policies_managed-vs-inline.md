@@ -80,7 +80,7 @@ managed policies: **AdministratorAccess**, **PowerUserAccess**, and **AWSCloudTr
 Notice that a single AWS managed policy can be attached to principal entities in different
 AWS accounts, and to different principal entities in a single AWS account.
 
-![Diagram of AWS managed policies](images/policies-aws-managed-policies.diagram.png)
+![Diagram of AWS managed policies.](images/policies-aws-managed-policies.diagram.png)
 
 ## Customer managed policies
 
@@ -104,7 +104,7 @@ policy is attached to two different IAM roles.
 
 For more information, see [Define custom IAM permissions with customer managed policies](access_policies_create.md "access_policies_create.md")
 
-![Diagram of customer managed policies](images/policies-customer-managed-policies.diagram.png)
+![Diagram of customer managed policies.](images/policies-customer-managed-policies.diagram.png)
 
 ## Inline policies
 
@@ -118,4 +118,4 @@ The following diagram illustrates inline policies. Each policy is an inherent pa
 user, group, or role. Notice that two roles include the same policy (the **DynamoDB-books-app** policy), but they are not sharing a single policy. Each role
 has its own copy of the policy.
 
-![Diagram of inline policies](images/policies-inline-policies.diagram.png)
+![Diagram of inline policies.](images/policies-inline-policies.diagram.png)

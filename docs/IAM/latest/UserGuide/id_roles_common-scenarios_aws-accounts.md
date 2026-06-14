@@ -49,7 +49,7 @@ difficult. In the following figure, all users are managed in the development acc
 developers require limited access to the production account. The development account has two
 groups: Testers and Developers, and each group has its own policy.
 
-![Use a role to delegate permissions to a user in a different account](images/roles-usingroletodelegate.png)
+![Use a role to delegate permissions to a user in a different account.](images/roles-usingroletodelegate.png)
 
 1. In the production account, an administrator uses IAM to create the
    `UpdateApp` role in that account. In the role, the administrator defines a
@@ -89,6 +89,7 @@ to the role and therefore cannot access the S3 bucket in the production account.
      call `AssumeRole` for the `UpdateApp` role ARN.
 
 4. AWS STS returns temporary credentials:
+
    - AWS console: AWS STS verifies the request with the role's trust policy to
      ensure that the request is from a trusted entity (which it is: the development
      account). After verification, AWS STS returns [temporary security credentials](../../../STS/latest/UsingSTS/Welcome.md "../../../STS/latest/UsingSTS/Welcome.md") to the AWS
@@ -98,6 +99,7 @@ to the role and therefore cannot access the S3 bucket in the production account.
      After verification, AWS STS returns [temporary security credentials](../../../STS/latest/UsingSTS/Welcome.md "../../../STS/latest/UsingSTS/Welcome.md") to the application.
 
 5. The temporary credentials allow access to the AWS resource:
+
    - AWS console: The AWS console uses the temporary credentials on behalf of the
      user for all subsequent console actions, in this case, to read and write to the
      `productionapp` bucket. The console cannot access any other resource in

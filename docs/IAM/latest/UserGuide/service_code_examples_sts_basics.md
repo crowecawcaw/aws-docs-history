@@ -6,6 +6,7 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_sts_actions.md "service_code_examples_sts_actions.md")
+
   - [AssumeRole](sts_example_sts_AssumeRole_section.md "sts_example_sts_AssumeRole_section.md")
   - [AssumeRoleWithWebIdentity](sts_example_sts_AssumeRoleWithWebIdentity_section.md "sts_example_sts_AssumeRoleWithWebIdentity_section.md")
   - [DecodeAuthorizationMessage](sts_example_sts_DecodeAuthorizationMessage_section.md "sts_example_sts_DecodeAuthorizationMessage_section.md")

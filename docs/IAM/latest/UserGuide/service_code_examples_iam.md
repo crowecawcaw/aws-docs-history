@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### IAM
 
 - [Basics](service_code_examples_iam_basics.md "service_code_examples_iam_basics.md")
+
   - [Hello IAM](iam_example_iam_Hello_section.md "iam_example_iam_Hello_section.md")
   - [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
   - [Actions](service_code_examples_iam_actions.md "service_code_examples_iam_actions.md")
+
     - [AddClientIdToOpenIdConnectProvider](iam_example_iam_AddClientIdToOpenIdConnectProvider_section.md "iam_example_iam_AddClientIdToOpenIdConnectProvider_section.md")
     - [AddRoleToInstanceProfile](iam_example_iam_AddRoleToInstanceProfile_section.md "iam_example_iam_AddRoleToInstanceProfile_section.md")
     - [AddUserToGroup](iam_example_iam_AddUserToGroup_section.md "iam_example_iam_AddUserToGroup_section.md")
@@ -144,6 +146,7 @@ This topic also includes information about getting started and details about pre
     - [UploadSigningCertificate](iam_example_iam_UploadSigningCertificate_section.md "iam_example_iam_UploadSigningCertificate_section.md")
 
 - [Scenarios](service_code_examples_iam_scenarios.md "service_code_examples_iam_scenarios.md")
+
   - [Build and manage a resilient service](iam_example_cross_ResilientService_section.md "iam_example_cross_ResilientService_section.md")
   - [Configure Amazon ECS Service Connect](iam_example_ecs_ServiceConnect_085_section.md "iam_example_ecs_ServiceConnect_085_section.md")
   - [Create a REST API with Lambda proxy integration](iam_example_api_gateway_GettingStarted_087_section.md "iam_example_api_gateway_GettingStarted_087_section.md")

@@ -74,6 +74,7 @@ def rollback_policy_version(policy_arn):
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [DeletePolicyVersion](../../../goto/boto3/iam-2010-05-08/DeletePolicyVersion.md "../../../goto/boto3/iam-2010-05-08/DeletePolicyVersion.md")
   - [ListPolicyVersions](../../../goto/boto3/iam-2010-05-08/ListPolicyVersions.md "../../../goto/boto3/iam-2010-05-08/ListPolicyVersions.md")
   - [SetDefaultPolicyVersion](../../../goto/boto3/iam-2010-05-08/SetDefaultPolicyVersion.md "../../../goto/boto3/iam-2010-05-08/SetDefaultPolicyVersion.md")

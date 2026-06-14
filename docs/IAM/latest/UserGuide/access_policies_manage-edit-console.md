@@ -34,6 +34,7 @@ Console
 4. Choose the **Permissions** tab, and then choose
    **Edit**.
 5. Do one of the following:
+
    - Choose the **Visual** option to change your policy without
      understanding JSON syntax. You can make changes to the service, actions,
      resources, or optional conditions for each permission block in your policy. You
@@ -125,6 +126,7 @@ Console
    policy.
 3. To edit an inline policy, choose **Edit Policy**.
 4. Do one of the following:
+
    - Choose the **Visual** option to change your policy without
      understanding JSON syntax. You can make changes to the service, actions,
      resources, or optional conditions for each permission block in your policy. You

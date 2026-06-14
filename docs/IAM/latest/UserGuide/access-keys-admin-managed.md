@@ -191,9 +191,10 @@ Console
 3. Choose the user name to go to the user details page.
 4. If necessary, add the **Access key ID** column to
    the users table by completing the following steps:
+
    1. Above the table on the far right, choose the
       **Preferences** icon (
-      ![Preferences icon](images/console-settings-icon.console.png)
+      ![Preferences icon.](images/console-settings-icon.console.png)
       ).
    2. In the **Preferences** dialog box, under
       **Select visible columns** turn on
@@ -245,7 +246,7 @@ Console
 
 If the column is not displayed, choose the
 **Preferences** icon (
-![Preferences icon](images/console-settings-icon.console.png)
+![Preferences icon.](images/console-settings-icon.console.png)
 ) and under **Select visible
 columns** turn on **Access key last
 used** to display the column. 3. (optional) In the navigation pane, under **Access

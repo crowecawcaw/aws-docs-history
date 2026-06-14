@@ -37,7 +37,7 @@ entity.
 You can build an entity path using the known structure of your organization. For
 example, assume that you have the following organizational structure in AWS Organizations.
 
-![Organization path structure](images/ou-path-diagram.png)
+![Organization path structure.](images/ou-path-diagram.png)
 
 The path for the **Dev Managers** OU is built using the IDs of the
 organization, root, and all OUs in the path down to and including the OU.
@@ -165,6 +165,7 @@ OU, account, or policy.
     policy. The command returns a `job-id` that you can then use in the
     `get-organizations-access-report` command to monitor the
     `job-status` until the job is complete.
+
     - [aws iam
       generate-organizations-access-report](../../../cli/latest/reference/iam/generate-organizations-access-report.md "../../../cli/latest/reference/iam/generate-organizations-access-report.md")
 
@@ -198,6 +199,7 @@ root, OU, account, or policy.
     policy. The operation returns a `JobId` that you can then use in the
     `GetOrganizationsAccessReport` operation to monitor the
     `JobStatus` until the job is complete.
+
     - [GenerateOrganizationsAccessReport](../APIReference/API_GenerateOrganizationsAccessReport.md "../APIReference/API_GenerateOrganizationsAccessReport.md")
 
 3.  Retrieve details about the report using the `JobId` parameter from the

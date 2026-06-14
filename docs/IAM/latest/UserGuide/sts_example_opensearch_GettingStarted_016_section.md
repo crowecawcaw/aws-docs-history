@@ -535,6 +535,7 @@ echo "4. Remember to delete resources when done to avoid charges"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateDomain](../../../goto/aws-cli/es-2021-01-01/CreateDomain.md "../../../goto/aws-cli/es-2021-01-01/CreateDomain.md")
   - [DeleteDomain](../../../goto/aws-cli/es-2021-01-01/DeleteDomain.md "../../../goto/aws-cli/es-2021-01-01/DeleteDomain.md")
   - [DescribeDomain](../../../goto/aws-cli/es-2021-01-01/DescribeDomain.md "../../../goto/aws-cli/es-2021-01-01/DescribeDomain.md")

@@ -95,6 +95,7 @@ organization will be removed permanently after 90 days.
     section, you can choose AWS accounts in your organization to exclude from
     unused access analysis. Findings will not be generated for excluded
     accounts.
+
     1.  To specify individual account IDs to exclude, choose **Specify
         AWS account ID** and enter the account IDs separated by
         commas in the **AWS account ID** field. Choose

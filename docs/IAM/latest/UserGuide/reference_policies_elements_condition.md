@@ -137,6 +137,7 @@ The request context can return the following values:
   the last one hour or less, then the condition returns _true_.
 - **False** – If the requester signed in using MFA
   more than one hour ago, then the condition returns _false_.
+
   - **Not present** – If the requester made a
     request using their IAM user access keys in the AWS CLI or AWS API, the key is not
     present. In this case, the key is not present, and it won't match.

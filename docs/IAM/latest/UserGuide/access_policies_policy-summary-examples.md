@@ -34,17 +34,17 @@ JSON
 **\*DenyCustomerBucket** Policy
 Summary:\*
 
-![Policy summary dialog image](images/policies-summary-example1-dialog.png)
+![Policy summary dialog image.](images/policies-summary-example1-dialog.png)
 
 **\*DenyCustomerBucket S3 (Explicit deny)** Service
 Summary:\*
 
-![Service summary dialog image](images/policies-summary-action-example1-dialog.png)
+![Service summary dialog image.](images/policies-summary-action-example1-dialog.png)
 
 **\*GetObject (Read)** Action
 Summary:\*
 
-![Action summary dialog image](images/policies-summary-resource-example1-dialog.png)
+![Action summary dialog image.](images/policies-summary-resource-example1-dialog.png)
 
 ## Policy 2: DynamoDbRowCognitoID
 
@@ -83,17 +83,17 @@ JSON
 **\*DynamoDbRowCognitoID** Policy
 Summary:\*
 
-![Policy summary dialog image](images/policies-summary-example2-dialog.png)
+![Policy summary dialog image.](images/policies-summary-example2-dialog.png)
 
 **\*DynamoDbRowCognitoID DynamoDB (Allow)** Service
 Summary:\*
 
-![Service summary dialog image](images/policies-summary-action-example2-dialog.png)
+![Service summary dialog image.](images/policies-summary-action-example2-dialog.png)
 
 **\*GetItem (List)** Action
 Summary:\*
 
-![Action summary dialog image](images/policies-summary-resource-example2-dialog.png)
+![Action summary dialog image.](images/policies-summary-resource-example2-dialog.png)
 
 ## Policy 3: MultipleResourceCondition
 
@@ -134,17 +134,17 @@ JSON
 **\*MultipleResourceCondition** Policy
 Summary:\*
 
-![Policy summary dialog image](images/policies-summary-example3-dialog.png)
+![Policy summary dialog image.](images/policies-summary-example3-dialog.png)
 
 **\*MultipleResourceCondition S3 (Allow)** Service
 Summary:\*
 
-![Service summary dialog image](images/policies-summary-action-example3-dialog.png)
+![Service summary dialog image.](images/policies-summary-action-example3-dialog.png)
 
 **\*PutObject (Write)** Action
 Summary:\*
 
-![Action summary dialog image](images/policies-summary-resource-example3-dialog.png)
+![Action summary dialog image.](images/policies-summary-resource-example3-dialog.png)
 
 ## Policy 4: EC2_troubleshoot
 
@@ -184,17 +184,17 @@ JSON
 **\*EC2_Troubleshoot** Policy
 Summary:\*
 
-![Policy summary dialog image](images/policies-summary-example4-dialog.png)
+![Policy summary dialog image.](images/policies-summary-example4-dialog.png)
 
 **\*EC2_Troubleshoot S3 (Allow)** Service
 Summary:\*
 
-![Service summary dialog image](images/policies-summary-action-example4-dialog.png)
+![Service summary dialog image.](images/policies-summary-action-example4-dialog.png)
 
 **\*ListBucket (List)** Action
 Summary:\*
 
-![Action summary dialog image](images/policies-summary-resource-example4-dialog.png)
+![Action summary dialog image.](images/policies-summary-resource-example4-dialog.png)
 
 ## Policy 5: CodeBuild_CodeCommit_CodeDeploy
 
@@ -232,14 +232,14 @@ JSON
 **\*CodeBuild_CodeCommit_CodeDeploy** Policy
 Summary:\*
 
-![Policy summary dialog image](images/policies-summary-example6-dialog.png)
+![Policy summary dialog image.](images/policies-summary-example6-dialog.png)
 
 **\*CodeBuild_CodeCommit_CodeDeploy CodeBuild
 (Allow)** Service Summary:\*
 
-![Service summary dialog image](images/policies-summary-action-example6-dialog.png)
+![Service summary dialog image.](images/policies-summary-action-example6-dialog.png)
 
 **\*CodeBuild_CodeCommit_CodeDeploy StartBuild
 (Write)** Action Summary:\*
 
-![Action summary dialog image](images/policies-summary-resource-example6-dialog.png)
+![Action summary dialog image.](images/policies-summary-resource-example6-dialog.png)

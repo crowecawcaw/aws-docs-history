@@ -51,7 +51,7 @@ _AWS Sign-In User Guide_. 2. On the right side of the navigation bar, choose on 
 choose **Security credentials**. If necessary, choose
 **Continue to Security credentials**.
 
-![Security credentials in the navigation menu](images/security-credentials-root.shared.console.png) 3. In the **Multi-factor authentication (MFA)** section, choose the
+![Security credentials in the navigation menu.](images/security-credentials-root.shared.console.png) 3. In the **Multi-factor authentication (MFA)** section, choose the
 radio button next the MFA device that you want to deactivate and choose
 **Remove**. 4. Choose **Remove**.
 

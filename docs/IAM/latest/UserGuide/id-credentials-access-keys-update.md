@@ -30,6 +30,7 @@ You can update access keys from the AWS Management Console.
 ###### To update access keys for an IAM user without interrupting your applications (console)
 
 1. While the first access key is still active, create a second access key.
+
    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. In the navigation pane, choose **Users**.
    3. Choose the name of the intended user, and then choose the
@@ -69,6 +70,7 @@ You can update access keys from the AWS Management Console.
    [Step 3](#id_credentials_access-keys-key-still-in-use "#id_credentials_access-keys-key-still-in-use") and update this application to use the new key.
 6. After you wait some period of time to ensure that all applications and tools
    have been updated, you can delete the first access key:
+
    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. In the navigation pane, choose **Users**.
    3. Choose the name of the intended user, and then choose the
@@ -84,8 +86,9 @@ You can update access keys from the AWS Management Console.
 2. In the navigation pane, choose **Users**.
 3. If necessary, add the **Access key age** column to the users
    table by completing the following steps:
+
    1. Above the table on the far right, choose the settings icon (
-      ![Settings icon](images/console-settings-icon.console.png)
+      ![Settings icon.](images/console-settings-icon.console.png)
       ).
    2. In **Manage columns**, select **Access key
       age**.
@@ -104,6 +107,7 @@ You can update access keys from the AWS Command Line Interface.
 
 1.  While the first access key is still active, create a second access key, which
     is active by default. Run the following command:
+
     - [`aws iam
 create-access-key`](../../../cli/latest/reference/iam/create-access-key.md "../../../cli/latest/reference/iam/create-access-key.md")
 
@@ -123,6 +127,7 @@ create-access-key`](../../../cli/latest/reference/iam/create-access-key.md "../.
     indicates no use of the old key, we recommend that you do not immediately delete
     the first access key. Instead, change the state of the first access key to
     `Inactive` using this command:
+
     - [`aws iam
 update-access-key`](../../../cli/latest/reference/iam/update-access-key.md "../../../cli/latest/reference/iam/update-access-key.md")
 
@@ -134,6 +139,7 @@ update-access-key`](../../../cli/latest/reference/iam/update-access-key.md "../.
     application to use the new key.
 6.  After you wait some period of time to ensure that all applications and tools
     have been updated, you can delete the first access key with this command:
+
     - [`aws iam
 delete-access-key`](../../../cli/latest/reference/iam/delete-access-key.md "../../../cli/latest/reference/iam/delete-access-key.md")
 
@@ -145,6 +151,7 @@ You can update access keys using the AWS API.
 
 1.  While the first access key is still active, create a second access key, which
     is active by default. Call the following operation:
+
     - [`CreateAccessKey`](../APIReference/API_CreateAccessKey.md "../APIReference/API_CreateAccessKey.md")
 
     At this point, the user has two active access keys.
@@ -161,6 +168,7 @@ You can update access keys using the AWS API.
 4.  Even if step [Step 3](#step-determine-use-2 "#step-determine-use-2") indicates no use of the old key, we recommend that you do not immediately
     delete the first access key. Instead, change the state of the first access key to
     `Inactive` by calling this operation:
+
     - [`UpdateAccessKey`](../APIReference/API_UpdateAccessKey.md "../APIReference/API_UpdateAccessKey.md")
 
 5.  Use only the new access key to confirm that your applications are working. Any
@@ -172,4 +180,5 @@ You can update access keys using the AWS API.
 6.  After you wait some period of time to ensure that all applications and tools
     have been updated, you can delete the first access key by calling this
     operation:
+
     - [`DeleteAccessKey`](../APIReference/API_DeleteAccessKey.md "../APIReference/API_DeleteAccessKey.md")

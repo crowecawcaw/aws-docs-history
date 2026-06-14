@@ -22,6 +22,7 @@ the visual editor in the AWS Management Console. To learn more about JSON syntax
 **Troubleshooting IAM Policy Topics**
 
 - [Troubleshoot using the visual editor](#troubleshoot_policies-viseditor "#troubleshoot_policies-viseditor")
+
   - [Policy restructuring](#troubleshoot_viseditor-restructure "#troubleshoot_viseditor-restructure")
   - [Choosing a resource ARN in the visual editor](#troubleshoot_policies-resource-arn "#troubleshoot_policies-resource-arn")
   - [Denying permissions in the visual editor](#troubleshoot_policies-switch-deny "#troubleshoot_policies-switch-deny")
@@ -30,16 +31,19 @@ the visual editor in the AWS Management Console. To learn more about JSON syntax
   - [Fixing unrecognized services, actions, or resource types in the visual editor](#troubleshoot_policies-unrecognized-visual "#troubleshoot_policies-unrecognized-visual")
 
 - [Troubleshoot with policy summaries](#troubleshoot_policies-polsum "#troubleshoot_policies-polsum")
+
   - [Missing policy summary](#missing-policy-summary "#missing-policy-summary")
   - [Policy summary includes unrecognized services, actions, or resource types](#unrecognized-services-actions "#unrecognized-services-actions")
   - [Service does not support IAM policy summaries](#unsupported-services-actions "#unsupported-services-actions")
   - [My policy does not grant the expected permissions](#policy-summary-not-grant-permissions "#policy-summary-not-grant-permissions")
 
 - [Troubleshoot policy management](#troubleshoot_policies-policy-manage "#troubleshoot_policies-policy-manage")
+
   - [Attaching or detaching a policy in an IAM account](#troubleshoot_roles_cant-attach-detach-policy "#troubleshoot_roles_cant-attach-detach-policy")
   - [Changing policies for your IAM identities based on their activity](#troubleshoot_change-policies-based-on-activity "#troubleshoot_change-policies-based-on-activity")
 
 - [Troubleshoot JSON policy documents](#troubleshoot_policies-json "#troubleshoot_policies-json")
+
   - [Validate your policies](#usepolicyvalidation "#usepolicyvalidation")
   - [I don't have permissions for policy validation in the JSON editor](#nopermsforpolicyvalidation "#nopermsforpolicyvalidation")
   - [More than one JSON policy object](#morethanonepolicyblock "#morethanonepolicyblock")
@@ -256,6 +260,7 @@ occurred:
 
 - **Unsupported policy element** – IAM does not
   support generating policy summaries for policies that include one of the following [policy elements](reference_policies_elements.md "reference_policies_elements.md"):
+
   - `Principal`
   - `NotPrincipal`
   - `NotResource`
@@ -343,6 +348,7 @@ the service does not fully support IAM policy summaries.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Locate the policy that includes the unsupported service:
+
    - If the policy is a managed policy, choose **Policies** in the
      navigation pane. In the list of policies, choose the name of the policy that you
      want to view.
@@ -363,6 +369,7 @@ editor`.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Locate the policy that includes the unsupported service:
+
    - If the policy is a managed policy, choose **Policies** in the
      navigation pane. In the list of policies, choose the name of the policy that you
      want to view.

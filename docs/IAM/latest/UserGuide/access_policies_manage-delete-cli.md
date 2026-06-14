@@ -26,22 +26,27 @@ You can delete a customer managed policy from the AWS Command Line Interface.
 ###### To delete a customer managed policy (AWS CLI)
 
 1. (Optional) To view information about a policy, run the following commands:
+
    - To list managed policies: [list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md")
    - To retrieve detailed information about a managed policy: [get-policy](../../../cli/latest/reference/iam/get-policy.md "../../../cli/latest/reference/iam/get-policy.md")
 
 2. (Optional) To find out about the relationships between the policies and identities,
    run the following commands:
+
    - To list the identities (IAM users, IAM groups, and IAM roles) to which a managed policy
      is attached, run the following command:
+
      - [list-entities-for-policy](../../../cli/latest/reference/iam/list-entities-for-policy.md "../../../cli/latest/reference/iam/list-entities-for-policy.md")
 
    - To list the managed policies attached to an identity (a user, user group, or
      role), run one of the following commands:
+
      - [list-attached-user-policies](../../../cli/latest/reference/iam/list-attached-user-policies.md "../../../cli/latest/reference/iam/list-attached-user-policies.md")
      - [list-attached-group-policies](../../../cli/latest/reference/iam/list-attached-group-policies.md "../../../cli/latest/reference/iam/list-attached-group-policies.md")
      - [list-attached-role-policies](../../../cli/latest/reference/iam/list-attached-role-policies.md "../../../cli/latest/reference/iam/list-attached-role-policies.md")
 
 3. To delete a customer managed policy, run the following command:
+
    - [delete-policy](../../../cli/latest/reference/iam/delete-policy.md "../../../cli/latest/reference/iam/delete-policy.md")
 
 ## Deleting inline policies (AWS CLI)
@@ -52,6 +57,7 @@ You can delete an inline policy from the AWS CLI.
 
 1. (Optional) To list all inline policies that are attached to an identity (user, user
    group, role), use one of the following commands:
+
    - [aws iam
      list-user-policies](../../../cli/latest/reference/iam/list-user-policies.md "../../../cli/latest/reference/iam/list-user-policies.md")
    - [aws iam
@@ -61,6 +67,7 @@ You can delete an inline policy from the AWS CLI.
 
 2. (Optional) To retrieve an inline policy document that is embedded in an identity
    (user, user group, or role), use one of the following commands:
+
    - [aws iam
      get-user-policy](../../../cli/latest/reference/iam/get-user-policy.md "../../../cli/latest/reference/iam/get-user-policy.md")
    - [aws iam
@@ -71,6 +78,7 @@ You can delete an inline policy from the AWS CLI.
 3. To delete an inline policy from an identity (user, user group, or role that is not a
    _[service-linked role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_),
    use one of the following commands:
+
    - [aws iam
      delete-user-policy](../../../cli/latest/reference/iam/delete-user-policy.md "../../../cli/latest/reference/iam/delete-user-policy.md")
    - [aws iam

@@ -5,7 +5,7 @@ Policies are summarized in three tables: the policy summary, the [service summar
 _policy summary_ table includes a list of services and summaries of the
 permissions that are defined by the chosen policy.
 
-![Policy summaries diagram image that illustrates the 3 tables and their relationship](images/policy_summaries-pol-sum.png)
+![Policy summaries diagram image that illustrates the 3 tables and their relationship.](images/policy_summaries-pol-sum.png)
 The policy summary table is grouped into one or more **Uncategorized
 services**, **Explicit deny**, and **Allow**
 sections. If the policy includes a service that IAM does not recognize, then the service is
@@ -20,7 +20,7 @@ In the following example of a policy details page, the
 **SummaryAllElements** policy is a managed policy (customer managed policy)
 that is attached directly to the user. This policy is expanded to show the policy summary.
 
-![Policy summary dialog image](images/policies-summary-user-page-dialog.png)
+![Policy summary dialog image.](images/policies-summary-user-page-dialog.png)
 
 In the preceding image, the policy summary is visible from within the
 **Policies** page:
@@ -41,7 +41,7 @@ In the preceding image, the policy summary is visible from within the
 The following policy summary table image shows the expanded
 **SummaryAllElements** policy on the policy details page.
 
-![Policy summary dialog image](images/policies-summary-table-dialog.png)
+![Policy summary dialog image.](images/policies-summary-table-dialog.png)
 
 In the preceding image, the policy summary is visible from within the
 **Policies** page:
@@ -60,6 +60,7 @@ In the preceding image, the policy summary is visible from within the
    `Permission Management`, and `Tagging`) have `Full` or
    `Limited` permissions defined in the policy. For additional details and
    examples of the access level summary, see [Access levels in policy summaries](access_policies_understand-policy-summary-access-level-summaries.md "access_policies_understand-policy-summary-access-level-summaries.md").
+
    - **Full access** – This entry indicates that the service
      has access to all actions within all four of the access levels available for the
      service.
@@ -79,6 +80,7 @@ Management`, and `Tagging`):
 
 4. **Resource** – This column shows the resources that the policy
    specifies for each service.
+
    - **Multiple** – The policy includes more than one but not
      all of the resources within the service. In this example, access is explicitly denied
      to more than one Amazon S3 resource.
@@ -104,6 +106,7 @@ Management`, and `Tagging`):
 
 5. **Request condition** – This column indicates whether the
    services or actions associated with the resource are subject to conditions.
+
    - **None** – The policy includes no conditions for the
      service. In this example no conditions are applied to the denied actions in the Amazon S3
      service.
@@ -128,7 +131,7 @@ shows the expanded **Show remaining services** services on the
 **SummaryAllElements** policy details page with the possible
 warnings.
 
-![Policy summary dialog image](images/policies-summary-table-showremaining-dialog.png)
+![Policy summary dialog image.](images/policies-summary-table-showremaining-dialog.png)
 
 In the preceding image, you can see all services that include defined actions, resources,
 or conditions with no permissions:
@@ -165,6 +168,7 @@ or conditions with no permissions:
 2.  **Request condition warnings** – For services that do not
     provide permissions for all of the included conditions, you see one of the following
     warnings in the **Request condition** column of the table:
+
     - **![Warning hazard sign icon with yellow triangle background.](images/console-alert-icon.console.png)
       One or more actions do not have an applicable
       condition.** – This means that the service has defined actions, but

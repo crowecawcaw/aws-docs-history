@@ -17,6 +17,7 @@ the following steps:
    those steps individually.
 2. Create credentials for the user, depending on the type of access the user
    requires:
+
    - **Enable console access – _optional_**:
      If the user needs to access the AWS Management Console, [create a password for the
      user](id_credentials_passwords_admin-change-user.md "id_credentials_passwords_admin-change-user.md"). Disabling console access for a user prevents them from signing in to the

@@ -13,12 +13,14 @@ posture.
 ###### Contents
 
 - [How IAM Access Analyzer sends findings to Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-sending-findings "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-sending-findings")
+
   - [Types of findings that IAM Access Analyzer sends](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-types "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-types")
   - [Latency for sending findings](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-latency "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-latency")
   - [Retrying when Security Hub CSPM is not available](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-retry-send "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-retry-send")
   - [Updating existing findings in Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-updates "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-updates")
 
 - [Viewing IAM Access Analyzer findings in Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-viewing-findings "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-viewing-findings")
+
   - [Interpreting IAM Access Analyzer finding names in Security Hub CSPM](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-intrepreting-finding-names "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-intrepreting-finding-names")
 
 - [Typical findings from IAM Access Analyzer](access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-example "access-analyzer-securityhub-integration.md#access-analyzer-securityhub-integration-finding-example")

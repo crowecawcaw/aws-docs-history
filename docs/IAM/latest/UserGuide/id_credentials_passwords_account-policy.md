@@ -105,6 +105,7 @@ following conditions:
   characters and a maximum of 128 characters.
 - **Password strength** – You can select any of the following
   checkboxes to define the strength of your IAM user passwords:
+
   - Require at least one uppercase letter from the Latin alphabet (A–Z)
   - Require at least one lowercase letter from the Latin alphabet (a–z)
   - Require at least one number

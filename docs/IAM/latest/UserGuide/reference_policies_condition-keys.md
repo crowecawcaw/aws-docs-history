@@ -92,6 +92,7 @@ role, not the ARN of the user that assumed the role.
   in the request context for all signed requests. Anonymous requests do not
   include this key. You can specify the following types of principals in this
   condition key:
+
   - IAM role
   - IAM user
   - AWS STS federated user principal
@@ -107,6 +108,7 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
 - **Example values** The following list shows
   the request context value returned for different types of principals that
   you can specify in the `aws:PrincipalArn` condition key:
+
   - **IAM role** – The request
     context contains the following value for condition key
     `aws:PrincipalArn`. Do not specify the assumed role
@@ -116,7 +118,6 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
   ```
   `arn:aws:iam::123456789012:role/role-name`
   ```
-
   - **IAM user** – The request
     context contains the following value for condition key
     `aws:PrincipalArn`.
@@ -124,7 +125,6 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
   ```
   `arn:aws:iam::123456789012:user/`user-name``
   ```
-
   - **AWS STS federated user principals**
     – The request context contains the following value for
     condition key `aws:PrincipalArn`.
@@ -132,7 +132,6 @@ operators](reference_policies_elements_condition_operators.md#Conditions_String 
   ```
   `arn:aws:sts::123456789012:federated-user/`user-name``
   ```
-
   - **AWS account root user** – The
     request context contains the following value for condition key
     `aws:PrincipalArn`. When you specify the root user ARN
@@ -452,6 +451,7 @@ the service principal. For example, the AWS CloudTrail service principal name is
 - **Availability** – This key is present
   in the request when the call is made by an AWS service principal. This key
   is not present in any other situation, including the following:
+
   - If the service uses a [service role or service-linked role](id_roles.md#id_roles_terms-and-concepts "id_roles.md#id_roles_terms-and-concepts") to make a call on
     the principal's behalf.
   - If the service uses the credentials of an IAM principal to make
@@ -508,6 +508,7 @@ service principal names associated with the Regional instance of the service.
 - **Availability** – This key is present
   in the request when the call is made by an AWS service principal. This key
   is not present in any other situation, including the following:
+
   - If the service uses a [service role or service-linked role](id_roles.md#id_roles_terms-and-concepts "id_roles.md#id_roles_terms-and-concepts") to make a call on
     the principal's behalf.
   - If the service uses the credentials of an IAM principal to make
@@ -683,6 +684,7 @@ authentication method from your identity provider to IAM Identity Center.
 - **Availability** – This key is included
   in the request context only when the principal uses [temporary security credentials](id_credentials_temp.md "id_credentials_temp.md") to
   make the request. Policies with MFA conditions can be attached to:
+
   - An IAM user or group
   - A resource such as an Amazon S3 bucket, Amazon SQS queue, or Amazon SNS
     topic
@@ -715,6 +717,7 @@ authentication method from your identity provider to IAM Identity Center.
 - **Availability** – This key is included
   in the request context only when the principal uses temporary credentials to
   make the request. Policies with MFA conditions can be attached to:
+
   - An IAM user or group
   - A resource such as an Amazon S3 bucket, Amazon SQS queue, or Amazon SNS
     topic
@@ -1539,6 +1542,7 @@ exclude service principals from your `Deny` statements by adding the
 Use this key to verify the ARN of the VPC through which a request was made via a VPC endpoint. This key returns the ARN of the VPC to which the VPC endpoint is attached.
 
 - **Availability** – This key is included in the request context for supported services when a request is made through a VPC endpoint. The key is not included for requests made through public service endpoints. The following services support this key:
+
   - AWS App Runner (prefix: [`apprunner`](../../../service-authorization/latest/reference/list_awsapprunner.md "../../../service-authorization/latest/reference/list_awsapprunner.md"))
   - AWS Application Discovery Service (prefix: [`discovery`](../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md "../../../service-authorization/latest/reference/list_awsapplicationdiscoveryservice.md"))
   - Amazon Athena (prefix: [`athena`](../../../service-authorization/latest/reference/list_amazonathena.md "../../../service-authorization/latest/reference/list_amazonathena.md"))
@@ -2041,17 +2045,22 @@ based on the account that owns the resource.
 - **Availability** – This key is always
   included in the request context for most service actions. The following
   actions don't support this key:
+
   - AWS Audit Manager
+
     - `auditmanager:UpdateAssessmentFrameworkShare`
 
   - Amazon Detective
+
     - `detective:AcceptInvitation`
 
   - AWS Directory Service
+
     - `ds:AcceptSharedDirectory`
 
   - Amazon Elastic Block Store – All actions
   - Amazon EC2
+
     - `ec2:AcceptTransitGatewayPeeringAttachment`
     - `ec2:AcceptVpcEndpointConnections`
     - `ec2:AcceptVpcPeeringConnection`
@@ -2060,6 +2069,7 @@ based on the account that owns the resource.
     - `ec2:CreateVpcPeeringConnection`
 
   - Amazon EventBridge
+
     - `events:PutEvents` – EventBridge
       `PutEvents` calls on an event bus in another
       account, if that event bus was configured as a cross-account
@@ -2069,19 +2079,24 @@ based on the account that owns the resource.
       Guide_.
 
   - Amazon GuardDuty
+
     - `guardduty:AcceptAdministratorInvitation`
 
   - Amazon Macie
+
     - `macie2:AcceptInvitation`
 
   - Amazon OpenSearch Service
+
     - `es:AcceptInboundConnection`
 
   - Amazon Route 53
+
     - `route53:AssociateVpcWithHostedZone`
     - `route53:CreateVPCAssociationAuthorization`
 
   - AWS Security Hub CSPM
+
     - `securityhub:AcceptAdministratorInvitation`
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
@@ -2188,17 +2203,22 @@ Organizations entity. For more information about using and understanding paths, 
   in the request context only if the account that owns the resource is a
   member of an organization. This global condition key does not support the
   following actions:
+
   - AWS Audit Manager
+
     - `auditmanager:UpdateAssessmentFrameworkShare`
 
   - Amazon Detective
+
     - `detective:AcceptInvitation`
 
   - AWS Directory Service
+
     - `ds:AcceptSharedDirectory`
 
   - Amazon Elastic Block Store – All actions
   - Amazon EC2
+
     - `ec2:AcceptTransitGatewayPeeringAttachment`
     - `ec2:AcceptVpcEndpointConnections`
     - `ec2:AcceptVpcPeeringConnection`
@@ -2207,6 +2227,7 @@ Organizations entity. For more information about using and understanding paths, 
     - `ec2:CreateVpcPeeringConnection`
 
   - Amazon EventBridge
+
     - `events:PutEvents` – EventBridge
       `PutEvents` calls on an event bus in another
       account, if that event bus was configured as a cross-account
@@ -2216,19 +2237,24 @@ Organizations entity. For more information about using and understanding paths, 
       Guide_.
 
   - Amazon GuardDuty
+
     - `guardduty:AcceptAdministratorInvitation`
 
   - Amazon Macie
+
     - `macie2:AcceptInvitation`
 
   - Amazon OpenSearch Service
+
     - `es:AcceptInboundConnection`
 
   - Amazon Route 53
+
     - `route53:AssociateVpcWithHostedZone`
     - `route53:CreateVPCAssociationAuthorization`
 
   - AWS Security Hub CSPM
+
     - `securityhub:AcceptAdministratorInvitation`
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String") (list)
@@ -2308,17 +2334,22 @@ the requested resource belongs with the identifier specified in the policy.
   in the request context only if the account that owns the resource is a
   member of an organization. This global condition key does not support the
   following actions:
+
   - AWS Audit Manager
+
     - `auditmanager:UpdateAssessmentFrameworkShare`
 
   - Amazon Detective
+
     - `detective:AcceptInvitation`
 
   - AWS Directory Service
+
     - `ds:AcceptSharedDirectory`
 
   - Amazon Elastic Block Store – All actions
   - Amazon EC2
+
     - `ec2:AcceptTransitGatewayPeeringAttachment`
     - `ec2:AcceptVpcEndpointConnections`
     - `ec2:AcceptVpcPeeringConnection`
@@ -2327,6 +2358,7 @@ the requested resource belongs with the identifier specified in the policy.
     - `ec2:CreateVpcPeeringConnection`
 
   - Amazon EventBridge
+
     - `events:PutEvents` – EventBridge
       `PutEvents` calls on an event bus in another
       account, if that event bus was configured as a cross-account
@@ -2336,19 +2368,24 @@ the requested resource belongs with the identifier specified in the policy.
       Guide_.
 
   - Amazon GuardDuty
+
     - `guardduty:AcceptAdministratorInvitation`
 
   - Amazon Macie
+
     - `macie2:AcceptInvitation`
 
   - Amazon OpenSearch Service
+
     - `es:AcceptInboundConnection`
 
   - Amazon Route 53
+
     - `route53:AssociateVpcWithHostedZone`
     - `route53:CreateVPCAssociationAuthorization`
 
   - AWS Security Hub CSPM
+
     - `securityhub:AcceptAdministratorInvitation`
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
@@ -2503,7 +2540,7 @@ CloudFormation, which calls DynamoDB, which calls AWS KMS. These are three separ
 final call to AWS KMS is performed by User 1 _via_
 CloudFormation and then DynamoDB.
 
-![Example using aws:CalledVia](images/condition-key-calledvia-example-diagram.png)
+![Example using aws:CalledVia.](images/condition-key-calledvia-example-diagram.png)
 
 In this case, the `aws:CalledVia` key in the request context includes
 `cloudformation.amazonaws.com` and `dynamodb.amazonaws.com`,
@@ -2593,7 +2630,7 @@ call to AWS KMS is performed by `User 1`
 _via_ CloudFormation, then `X Service`, and then
 DynamoDB. It was first called via CloudFormation and last called via DynamoDB.
 
-![Example using aws:CalledViaFirst and aws:CalledViaLast](images/condition-key-calledviafirstlast-example-diagram.png)
+![Example using aws:CalledViaFirst and aws:CalledViaLast.](images/condition-key-calledviafirstlast-example-diagram.png)
 
 ### aws:CalledViaFirst
 
@@ -3022,7 +3059,7 @@ documentation of the AWS services you use for more information about
 service-specific mechanisms for mitigating cross-service confused deputy
 risks.
 
-![aws:SourceAccount](images/sourceAccount.png)
+![aws:SourceAccount.](images/sourceAccount.png)
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
 - **Value type** – Single-valued
@@ -3105,7 +3142,7 @@ documentation of the AWS services you use for more information about
 service-specific mechanisms for mitigating cross-service confused deputy
 risks.
 
-![aws:SourceArn](images/sourceArn.png)
+![aws:SourceArn.](images/sourceArn.png)
 
 - **Data type** – ARN
 
@@ -3152,7 +3189,7 @@ documentation of the AWS services you use for more information about
 service-specific mechanisms for mitigating cross-service confused deputy
 risks.
 
-![aws:SourceOrgID](images/sourceOrgID.png)
+![aws:SourceOrgID.](images/sourceOrgID.png)
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String")
 - **Value type** – Single-valued
@@ -3228,7 +3265,7 @@ documentation of the AWS services you use for more information about
 service-specific mechanisms for mitigating cross-service confused deputy
 risks.
 
-![aws:SourceOrgPaths](images/sourceOrgPaths.png)
+![aws:SourceOrgPaths.](images/sourceOrgPaths.png)
 
 - **Data type** – [String](reference_policies_elements_condition_operators.md#Conditions_String "reference_policies_elements_condition_operators.md#Conditions_String") (list)
 - **Value type** – Multivalued

@@ -26,6 +26,7 @@ access analyzer and a maximum of one internal access analyzer.
    the search box.
 4. In the **Filter access type** dropdown, choose the access
    type:
+
    - **All types** – display resources with all
      types of access findings.
    - **Public access** – display only resources
@@ -87,6 +88,7 @@ access:
   property to filter by the type of restriction applied by an Organizations resource
   control policy (RCP). To learn more, see [Resource
   control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md") in the AWS Organizations User Guide.
+
   - **Failed to evaluate RCP**: There was an error
     evaluating the RCP.
   - **Not applicable**: No RCP restricts this resource or

@@ -488,6 +488,7 @@ echo "Log file: $LOG_FILE"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AssociateWebAcl](../../../goto/aws-cli/wafv2-2019-07-29/AssociateWebAcl.md "../../../goto/aws-cli/wafv2-2019-07-29/AssociateWebAcl.md")
   - [CreateWebAcl](../../../goto/aws-cli/wafv2-2019-07-29/CreateWebAcl.md "../../../goto/aws-cli/wafv2-2019-07-29/CreateWebAcl.md")
   - [DeleteWebAcl](../../../goto/aws-cli/wafv2-2019-07-29/DeleteWebAcl.md "../../../goto/aws-cli/wafv2-2019-07-29/DeleteWebAcl.md")

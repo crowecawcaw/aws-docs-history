@@ -78,6 +78,7 @@ Console
 8. (Optional) You can choose **Create group** to define a new
    group. This is useful if you want to add the user to a group with different
    attached policies than the existing groups:
+
    1. In the new tab, for **User group name**, type a name for
       your new group.
 
@@ -256,6 +257,7 @@ Console
 6. If you want to remove permissions by removing an existing policy, view the
    **Attached via** column to understand how the user is getting
    that policy before choosing **Remove** to remove the policy:
+
    - If the policy applies because of group membership, then choosing
      **Remove** removes the user from the group. Remember that you
      might have multiple policies attached to a single group. If you remove a user

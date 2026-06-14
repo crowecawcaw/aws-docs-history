@@ -484,6 +484,7 @@ echo "Script completed at: $(date)"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateApp](../../../goto/aws-cli/pinpoint-2016-12-01/CreateApp.md "../../../goto/aws-cli/pinpoint-2016-12-01/CreateApp.md")
   - [DeleteApp](../../../goto/aws-cli/pinpoint-2016-12-01/DeleteApp.md "../../../goto/aws-cli/pinpoint-2016-12-01/DeleteApp.md")
   - [GetApp](../../../goto/aws-cli/pinpoint-2016-12-01/GetApp.md "../../../goto/aws-cli/pinpoint-2016-12-01/GetApp.md")

@@ -10,7 +10,7 @@ actions and associated permissions for the chosen service. You can choose an act
 table to view the _action summary_. This table includes a list of resources
 and conditions for the chosen action.
 
-![Policy summaries diagram image that illustrates the 3 tables and their relationship](images/policy_summaries-diagram.png)
+![Policy summaries diagram image that illustrates the 3 tables and their relationship.](images/policy_summaries-diagram.png)
 You can view policy summaries on the **Users** page or
 **Roles** page for all policies (managed and inline) that are attached to
 that user. View summaries on the **Policies** page for all managed policies.

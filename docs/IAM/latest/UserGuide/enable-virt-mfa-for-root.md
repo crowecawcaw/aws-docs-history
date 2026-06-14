@@ -13,7 +13,7 @@ to the AWS Management Console as the root user](../../../signin/latest/userguide
 Guide_. 2. On the right side of the navigation bar, choose your account name, and choose
 **Security credentials**.
 
-![Security credentials in the navigation menu](images/security-credentials-root.shared.console.png) 3. In the **Multi-Factor Authentication (MFA)** section, choose
+![Security credentials in the navigation menu.](images/security-credentials-root.shared.console.png) 3. In the **Multi-Factor Authentication (MFA)** section, choose
 **Assign MFA device**. 4. In the wizard, type a **Device name**, choose
 **Authenticator app**, and then choose
 **Next**.

@@ -108,6 +108,7 @@ Before you generate a policy, review the following important details.
 - AWS Control Tower support – Policy generation
   does not support using AWS CloudTrail trails that AWS Control Tower creates when generating
   policies, for these reasons:
+
   - The CloudTrail data from the organization is logged in another account, the
     AWS Control Tower Log Archive account.
   - Permissions for the S3 bucket where these logs are stored cannot be
@@ -318,6 +319,7 @@ You can add actions for any services that were used to the generated policy
 template.
 
 1. Review the following sections:
+
    - On the **Review permissions** page, review the
      list of **Actions included in the generated
      policy**. The list displays the services
@@ -355,7 +357,7 @@ each service, and to learn which actions support resource-level permissions,
 see [Actions, Resources, and Condition Keys for AWS
 Services](../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md "../../../service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.md").
 
-![Resource ARN placeholder in policy template](images/res_plc_lg.png) 2. (Optional) Add, modify, or remove JSON policy statements in the template.
+![Resource ARN placeholder in policy template.](images/res_plc_lg.png) 2. (Optional) Add, modify, or remove JSON policy statements in the template.
 To learn more about writing JSON policies, see [Creating
 IAM policies (console)](access_policies_create-console.md "access_policies_create-console.md"). 3. When you are done customizing the policy template, you have the following
 options:
@@ -386,6 +388,7 @@ a user or role in your account.
    pairs. For more information about using tags in IAM, see [Tagging
    IAM resources](id_tags.md "id_tags.md").
 4. When you are finished, do one of the following:
+
    - You can attach the new policy directly to the role that was used
      to generate the policy. To do this, near the bottom of the page,
      select the checkbox next to the **Attach policy to

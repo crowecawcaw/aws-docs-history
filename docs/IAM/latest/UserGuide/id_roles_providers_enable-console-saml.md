@@ -21,7 +21,7 @@ sign-in endpoint instead of directly calling the `AssumeRoleWithSAML` API. The
 endpoint calls the API for the user and returns a URL that automatically redirects the
 user's browser to the AWS Management Console.
 
-![Single sign-on (SSO) to the AWS Management Console using SAML](images/saml-based-sso-to-console.diagram.png)
+![Single sign-on (SSO) to the AWS Management Console using SAML.](images/saml-based-sso-to-console.diagram.png)
 
 The diagram illustrates the following steps:
 

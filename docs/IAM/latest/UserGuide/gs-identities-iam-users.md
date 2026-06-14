@@ -31,6 +31,7 @@ umbrella of your AWS account, and use IAM to manage their permissions.
 
 - Emergency access to your AWS account
 - Workloads that can't use IAM roles
+
   - AWS CodeCommit access
   - Amazon Keyspaces (for Apache Cassandra) access
 

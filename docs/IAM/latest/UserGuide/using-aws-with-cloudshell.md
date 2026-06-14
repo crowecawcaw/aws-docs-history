@@ -49,6 +49,7 @@ the group, and then verify that the command succeeded.
 
 1. From the AWS Management Console, you can launch CloudShell by choosing the following options
    available on the navigation bar:
+
    - Choose the CloudShell icon.
    - Start typing "cloudshell" in Search box and then choose the CloudShell
      option.

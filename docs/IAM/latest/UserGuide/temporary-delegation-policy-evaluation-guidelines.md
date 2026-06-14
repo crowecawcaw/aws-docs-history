@@ -23,6 +23,7 @@ The following restrictions apply to security-sensitive services mentioned above:
 - Actions in Allow statements must be more specific than [service]:\*
 - Actions in Allow statements for temporary access policy templates must not contain wildcards
 - Sensitive actions, such as iam:PassRole or iam:CreateServiceLinkedRole, require additional scoping, such as specific resources or conditional checks. These actions include:
+
   - IAM role passing
   - IAM role modification actions
   - IAM policy modification actions

@@ -45,7 +45,7 @@ request in the trusting account and the trusted account. For more information ab
 request is evaluated within a single account, see [How AWS enforcement code logic evaluates requests to allow or deny access](reference_policies_evaluation-logic_policy-eval-denyallow.md "reference_policies_evaluation-logic_policy-eval-denyallow.md"). The request is
 allowed only if both evaluations return a decision of `Allow`.
 
-![Cross-account evaluation](images/policy_cross-account-eval-simple.png)
+![Cross-account evaluation.](images/policy_cross-account-eval-simple.png)
 
 1. When a principal in one account makes a request to access a resource in another
    account, this is a cross-account request.
@@ -63,7 +63,7 @@ The following flow chart provides a more detailed illustration of how a policy e
 decision is made for a cross-account request. Again, AWS allows the request only if both
 account policy evaluations allow the request.
 
-![Detailed cross-account policy evaluation](images/PolicyEvaluationCrossAccount.png)
+![Detailed cross-account policy evaluation.](images/PolicyEvaluationCrossAccount.png)
 
 ## Example cross-account policy evaluation
 
@@ -156,7 +156,7 @@ how a request is evaluated within a single account, see [How AWS enforcement cod
 Because the request is explicitly denied within one of the accounts, the final decision is
 to deny the request.
 
-![Request to amzn-s3-demo-bucket-production-logs bucket](images/policy_cross-account-eval-example.png)
+![Request to amzn-s3-demo-bucket-production-logs bucket.](images/policy_cross-account-eval-example.png)
 
 Assume that Carlos then realizes his mistake and tries to save the file to the
 `Production` bucket. AWS first checks account
@@ -166,4 +166,4 @@ identity-based policy applies, and it allows the request. AWS then checks accoun
 `Production` bucket applies, and it allows the request. Because both accounts
 allow the request, the final decision is to allow the request.
 
-![Request to Production bucket](images/policy_cross-account-eval-example-correct.png)
+![Request to Production bucket.](images/policy_cross-account-eval-example-correct.png)

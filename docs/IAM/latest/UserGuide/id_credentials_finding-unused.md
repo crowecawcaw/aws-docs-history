@@ -24,8 +24,9 @@ information from the AWS CLI or the IAM API.
 2. In the navigation pane, choose **Users**.
 3. If necessary, add the **Console last sign-in** column to the users
    table:
+
    1. Above the table on the far right, choose the settings icon (
-      ![Settings icon](images/console-settings-icon.console.png)
+      ![Settings icon.](images/console-settings-icon.console.png)
       ).
    2. In **Select visible columns**, select **Console last
       sign-in**.
@@ -63,6 +64,7 @@ refer to access key last used information because it is accurate for all dates.
    `status_reports_`<date>`T`<time>`.csv`.
    The fifth column contains the `password_last_used` column with the dates or one
    of the following:
+
    - **N/A** – Users that do not have a password assigned at
      all.
    - **no_information** – Users that have not used their
@@ -101,8 +103,9 @@ the IAM API.
 2. In the navigation pane, choose **Users**.
 3. If necessary, add the **Access key last used** column to the users
    table:
+
    1. Above the table on the far right, choose the settings icon (
-      ![Settings icon](images/console-settings-icon.console.png)
+      ![Settings icon.](images/console-settings-icon.console.png)
       ).
    2. In **Select visible columns**, select **Access key last
       used**.

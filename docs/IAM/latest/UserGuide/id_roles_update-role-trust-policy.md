@@ -80,6 +80,7 @@ For more information and detail about this procedure, see [Grant a user permissi
 3. Choose the name of the user or group to which you want to grant access, and
    then choose the **Permissions** tab.
 4. Do one of the following:
+
    - To edit a customer managed policy, choose the name of the policy,
      choose **Edit policy**, and then choose the
      **JSON** tab. You cannot edit an AWS managed
@@ -112,11 +113,13 @@ You can use the AWS CLI to change who can assume a role.
 
 1. (Optional) If you don't know the name of the role that you want to modify, run
    the following command to list the roles in your account:
+
    - [aws iam
      list-roles](../../../cli/latest/reference/iam/list-roles.md "../../../cli/latest/reference/iam/list-roles.md")
 
 2. (Optional) To view the current trust policy for a role, run the following
    command:
+
    - [aws iam
      get-role](../../../cli/latest/reference/iam/get-role.md "../../../cli/latest/reference/iam/get-role.md")
 
@@ -199,6 +202,7 @@ users or groups in your account:
 
 4. Use one of the following commands to attach the policy that you created in the
    previous step to the user or group:
+
    - [aws iam
      attach-user-policy](../../../cli/latest/reference/iam/attach-user-policy.md "../../../cli/latest/reference/iam/attach-user-policy.md")
    - [aws iam
@@ -212,10 +216,12 @@ You can use the AWS API to change who can assume a role.
 
 1. (Optional) If you don't know the name of the role that you want to modify,
    call the following operation to list the roles in your account:
+
    - [ListRoles](../APIReference/API_ListRoles.md "../APIReference/API_ListRoles.md")
 
 2. (Optional) To view the current trust policy for a role, call the following
    operation:
+
    - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
 
 3. To modify the trusted principals that can access the role, create a text file
@@ -293,5 +299,6 @@ users or groups in your account:
 
 4. Call one of the following operations to attach the policy that you created in
    the previous step to the user or group:
+
    - API: [AttachUserPolicy](../APIReference/API_AttachUserPolicy.md "../APIReference/API_AttachUserPolicy.md")
    - [AttachGroupPolicy](../APIReference/API_AttachGroupPolicy.md "../APIReference/API_AttachGroupPolicy.md")

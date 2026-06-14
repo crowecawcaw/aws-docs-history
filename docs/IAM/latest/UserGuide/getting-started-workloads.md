@@ -68,12 +68,14 @@ Console
 3. In the navigation pane, choose **Users** and then choose
    **Create user**.
 4. On the **Specify user details** page, do the following:
+
    1. For **User name**, type _`WorkloadName`_. Replace _`WorkloadName`_ with the name of
       the workload that will be using the account.
    2. Choose **Next**.
 
 5. (Optional) On the **Set Permissions** page, do the
    following:
+
    1. Choose **Add user to group**.
    2. Choose **Create group**.
    3. In the **Create user group** dialog box, for **User
@@ -99,6 +101,7 @@ Console
    page
 9. Select the **Security credentials** tab. Then create the
    credentials needed for the workload.
+
    - **Access keys**–Select **Create access
      key** to generate and download access keys for the user.
 
@@ -156,6 +159,7 @@ additional users to the user group after it's created, see [Edit users in IAM gr
 AWS CLI
 
 1. Create a user named `Automation`.
+
    - [aws iam
      create-user](../../../cli/latest/reference/iam/create-user.md "../../../cli/latest/reference/iam/create-user.md")
 
@@ -227,6 +231,7 @@ policies](../../../aws-managed-policy/latest/reference/policy-list.md "../../../
     ```
 
 3. Create the security credentials needed for the workload.
+
    - **Create access keys for testing**–[aws iam
      create-access-key](../../../cli/latest/reference/iam/create-access-key.md "../../../cli/latest/reference/iam/create-access-key.md")
 
@@ -261,7 +266,6 @@ policies](../../../aws-managed-policy/latest/reference/policy-list.md "../../../
                               --user-name `Automation` \
                               --ssh-public-key-body file://sshkey.pub
    ```
-
    - **Upload an X.509 signing certificate**–[aws iam
      upload-signing-certificate](../../../cli/latest/reference/iam/upload-signing-certificate.md "../../../cli/latest/reference/iam/upload-signing-certificate.md")
 

@@ -36,9 +36,11 @@ settings:
 3.  Select a name from the member account list, and choose **Take
     privileged action**.
 4.  Choose the privileged action you want to take in the member account.
+
     - Select **Delete Amazon S3 bucket policy** to remove a
       misconfigured bucket policy that denies all principals from accessing
       the Amazon S3 bucket.
+
       1. Choose **Browse S3** to select a name from
          the buckets owned by the member account, and select
          **Choose**.
@@ -51,6 +53,7 @@ settings:
     - Select **Delete Amazon SQS policy** to delete an Amazon Simple Queue Service
       resource-based policy that denies all principals from accessing an Amazon SQS
       queue.
+
       1. Enter the queue name in **SQS queue name**,
          and select **Delete SQS policy**.
       2. Use the Amazon SQS console to correct the queue policy after
@@ -62,6 +65,7 @@ settings:
       access from a member account. Deleting root user credentials removes the
       root user password, access keys, signing certificates, and deactivates
       multi-factor authentication (MFA) for the member account.
+
       1. Choose **Delete root credentials**.
 
     - Select **Allow password recovery** to recover root user
@@ -118,9 +122,11 @@ aws sts assume-root \
    `SecretAccessKey` from the response to perform privileged actions
    in the member account. You can omit the user name and password in the request to
    default to the member account.
+
    - **Check the status of root user credentials**. Use the
      following commands to check the status of root user credentials for a
      member account.
+
      - [get-user](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-user.html")
      - [get-login-profile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-login-profile.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-login-profile.html")
      - [list-access-keys](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-access-keys.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-access-keys.html")
@@ -133,6 +139,7 @@ aws sts assume-root \
      access keys, signing certificates, and deactivate multi-factor
      authentication (MFA) to remove all access to and recovery of the
      root user.
+
      - [delete-login-profile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-login-profile.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-login-profile.html")
      - [delete-access-key](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-access-key.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-access-key.html")
      - [delete-signing-certificate](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-signing-certificate.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/delete-signing-certificate.html")
@@ -141,6 +148,7 @@ aws sts assume-root \
    - **Delete Amazon S3 bucket policy**. Use the following
      commands to read, edit, and delete a misconfigured bucket policy that
      denies all principals from accessing the Amazon S3 bucket.
+
      - [list-buckets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-buckets.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-buckets.html")
      - [get-bucket-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/get-bucket-policy.html")
      - [put-bucket-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-bucket-policy.html")
@@ -149,6 +157,7 @@ aws sts assume-root \
    - **Delete Amazon SQS policy**. Use the following commands
      to view and delete an Amazon Simple Queue Service resource-based policy that denies all
      principals from accessing an Amazon SQS queue.
+
      - [list-queues](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/list-queues.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/list-queues.html")
      - [get-queue-url](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/get-queue-url.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/get-queue-url.html")
      - [get-queue-attributes](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/get-queue-attributes.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sqs/get-queue-attributes.html")
@@ -157,6 +166,7 @@ aws sts assume-root \
    - **Allow password recovery**. Use the following
      commands to view the user name and recover root user credentials for a
      member account.
+
      - [get-login-profile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-login-profile.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/get-login-profile.html")
      - [create-login-profile](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-login-profile.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-login-profile.html")
 
@@ -203,9 +213,11 @@ https://sts.us-east-2.amazonaws.com/
    `SecretAccessKey` from the response to perform privileged actions
    in the member account. You can omit the user name and password in the request to
    default to the member account.
+
    - **Check the status of root user credentials**. Use the
      following commands to check the status of root user credentials for a
      member account.
+
      - [GetUser](../APIReference/API_GetUser.md "../APIReference/API_GetUser.md")
      - [GetLoginProfile](../APIReference/API_GetLoginProfile.md "../APIReference/API_GetLoginProfile.md")
      - [ListAccessKeys](../APIReference/API_ListAccessKeys.md "../APIReference/API_ListAccessKeys.md")
@@ -218,6 +230,7 @@ https://sts.us-east-2.amazonaws.com/
      access keys, signing certificates, and deactivate multi-factor
      authentication (MFA) to remove all access to and recovery of the
      root user.
+
      - [DeleteLoginProfile](../APIReference/API_DeleteLoginProfile.md "../APIReference/API_DeleteLoginProfile.md")
      - [DeleteAccessKey](../APIReference/API_DeleteAccessKey.md "../APIReference/API_DeleteAccessKey.md")
      - [DeleteSigningCertificate](../APIReference/API_DeleteSigningCertificate.md "../APIReference/API_DeleteSigningCertificate.md")
@@ -226,6 +239,7 @@ https://sts.us-east-2.amazonaws.com/
    - **Delete Amazon S3 bucket policy**. Use the following
      commands to read, edit, and delete a misconfigured bucket policy that
      denies all principals from accessing the Amazon S3 bucket.
+
      - [ListBuckets](../../../AmazonS3/latest/API/API_ListBuckets.md "../../../AmazonS3/latest/API/API_ListBuckets.md")
      - [GetBucketPolicy](../../../AmazonS3/latest/API/API_GetBucketPolicy.md "../../../AmazonS3/latest/API/API_GetBucketPolicy.md")
      - [PutBucketPolicy](../../../AmazonS3/latest/API/API_PutBucketPolicy.md "../../../AmazonS3/latest/API/API_PutBucketPolicy.md")
@@ -234,6 +248,7 @@ https://sts.us-east-2.amazonaws.com/
    - **Delete Amazon SQS policy**. Use the following commands
      to view and delete an Amazon Simple Queue Service resource-based policy that denies all
      principals from accessing an Amazon SQS queue.
+
      - [ListQueues](../../../AWSSimpleQueueService/latest/APIReference/API_ListQueues.md "../../../AWSSimpleQueueService/latest/APIReference/API_ListQueues.md")
      - [GetQueueUrl](../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.md "../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.md")
      - [GetQueueAttributes](../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.md "../../../AWSSimpleQueueService/latest/APIReference/API_GetQueueAttributes.md")
@@ -242,5 +257,6 @@ https://sts.us-east-2.amazonaws.com/
    - **Allow password recovery**. Use the following
      commands to view the user name and recover root user credentials for a
      member account.
+
      - [GetLoginProfile](../APIReference/API_GetLoginProfile.md "../APIReference/API_GetLoginProfile.md")
      - [CreateLoginProfile](../APIReference/API_CreateLoginProfile.md "../APIReference/API_CreateLoginProfile.md")

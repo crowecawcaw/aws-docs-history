@@ -573,6 +573,7 @@ echo "Script completed at $(date)"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
   - [AuthorizeSecurityGroupIngress](../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md "../../../goto/aws-cli/ec2-2016-11-15/AuthorizeSecurityGroupIngress.md")
   - [CreateCluster](../../../goto/aws-cli/ecs-2014-11-13/CreateCluster.md "../../../goto/aws-cli/ecs-2014-11-13/CreateCluster.md")

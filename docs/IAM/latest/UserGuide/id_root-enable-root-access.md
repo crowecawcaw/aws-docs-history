@@ -35,6 +35,7 @@ Before you centralize root access, you must have an account configured with the
 following settings:
 
 - You must have the following IAM permissions:
+
   - `iam:GetAccessKeyLastUsed`
   - `iam:GetAccountSummary`
   - `iam:GetLoginProfile`
@@ -68,6 +69,7 @@ including:
 - You must manage your AWS accounts in [AWS Organizations](../../../organizations/latest/userguide/orgs_introduction.md "../../../organizations/latest/userguide/orgs_introduction.md").
 - You must have the following permissions to enable this feature in your
   organization:
+
   - `iam:EnableOrganizationsRootCredentialsManagement`
   - `iam:EnableOrganizationsRootSessions`
   - `iam:ListOrganizationsFeatures`
@@ -77,6 +79,7 @@ including:
 
 - To ensure optimal console functionality, we recommend enabling the following
   additional permissions:
+
   - `organizations:DescribeAccount`
   - `organizations:DescribeOrganization`
   - `organizations:ListAWSServiceAccessForOrganization`

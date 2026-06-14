@@ -93,7 +93,7 @@ alias to be redirected to the IAM user sign-in page for your account.
 To get your AWS account ID, contact your administrator. 2. In the navigation bar on the upper right, choose your user name, and then choose
 **Security credentials**.
 
-![AWS Management Console Security credentials link](images/security-credentials-user.shared.console.png) 3. On the **AWS IAM credentials** tab, in the **Multi-factor
+![AWS Management Console Security credentials link.](images/security-credentials-user.shared.console.png) 3. On the **AWS IAM credentials** tab, in the **Multi-factor
 authentication (MFA)** section, choose the radio button next to the MFA device
 and choose **Resync**. 4. Type the next two sequentially generated codes from the device into **MFA code
 1** and **MFA code 2**. Then choose
@@ -154,7 +154,7 @@ _AWS Sign-In User Guide_. 2. On the right side of the navigation bar, choose on 
 **Security credentials**. If necessary, choose **Continue to
 Security credentials**.
 
-![Security credentials in the navigation menu](images/security-credentials-root.shared.console.png) 3. Expand the **Multi-factor authentication (MFA)** section on the
+![Security credentials in the navigation menu.](images/security-credentials-root.shared.console.png) 3. Expand the **Multi-factor authentication (MFA)** section on the
 page. 4. Choose the radio button next to the device and choose
 **Resync**. 5. In the **Resync MFA device** dialog box, type the next two
 sequentially generated codes from the device into **MFA code 1** and

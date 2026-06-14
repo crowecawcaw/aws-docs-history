@@ -71,6 +71,7 @@ information to ensure the validity and authenticity of the request.
 
 - Algorithm – The algorithm that you're using as part of the signing
   process.
+
   - SigV4 – Use `AWS4-HMAC-SHA256` to specify Signature Version 4
     with the `HMAC-SHA256` hash algorithm.
   - SigV4a – Use `AWS4-ECDSA-P256-SHA256` to specify the
@@ -78,6 +79,7 @@ information to ensure the validity and authenticity of the request.
 
 - Credential – A string that is formed by concatenating your access key ID
   and your credential scope components.
+
   - SigV4 – Credential scope includes your access key ID, the date
     in _YYYYMMDD_ format, the Region code, the service
     code, and the `aws4_request` termination string, separated by
@@ -87,7 +89,6 @@ information to ensure the validity and authenticity of the request.
   ```
   `AKIAIOSFODNN7EXAMPLE`/`YYYYMMDD`/`region`/`service`/aws4_request
   ```
-
   - SigV4a – Credential scope includes the date in YYYYMMDD format,
     the service name, and the `aws4_request` termination string,
     separated by slashes (/). Note that credential scope does not include

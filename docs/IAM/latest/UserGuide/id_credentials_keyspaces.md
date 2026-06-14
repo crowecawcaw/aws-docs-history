@@ -45,6 +45,7 @@ You can use the AWS CLI to generate Amazon Keyspaces (for Apache Cassandra) cred
 ###### To generate Amazon Keyspaces service-specific credentials (AWS CLI)
 
 - Use the following command:
+
   - [aws iam
     create-service-specific-credential](../../../cli/latest/reference/iam/create-service-specific-credential.md "../../../cli/latest/reference/iam/create-service-specific-credential.md")
 
@@ -55,4 +56,5 @@ You can use the AWS API to generate Amazon Keyspaces (for Apache Cassandra) cred
 ###### To generate Amazon Keyspaces service-specific credentials (AWS API)
 
 - Complete the following operation:
+
   - [CreateServiceSpecificCredential](../APIReference/API_CreateServiceSpecificCredential.md "../APIReference/API_CreateServiceSpecificCredential.md")

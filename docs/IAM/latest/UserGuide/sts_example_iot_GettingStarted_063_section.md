@@ -385,6 +385,7 @@ echo "Script execution completed. See $LOG_FILE for details." | tee -a $LOG_FILE
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AttachPolicy](../../../goto/aws-cli/iot-2015-05-28/AttachPolicy.md "../../../goto/aws-cli/iot-2015-05-28/AttachPolicy.md")
   - [AttachThingPrincipal](../../../goto/aws-cli/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/aws-cli/iot-2015-05-28/AttachThingPrincipal.md")
   - [CreateKeysAndCertificate](../../../goto/aws-cli/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/aws-cli/iot-2015-05-28/CreateKeysAndCertificate.md")

@@ -25,8 +25,10 @@ Use the following procedure to update an internal access analyzer.
     analyzer. For more information, see [Tags for AWS Identity and Access Management resources](id_tags.md "id_tags.md").
 6.  On the **Resources** tab, choose **Edit** in
     the **Resources to analyze** section.
+
     1.  To add resources by account, choose **Add resources > Add
         resources from selected accounts**.
+
         1. Choose **All supported resource types** or
            choose **Define specific resource types** and
            select the resource types from the **Resource
@@ -41,7 +43,6 @@ Use the following procedure to update an internal access analyzer.
             * [Amazon Relational Database Service DB cluster snapshots](access-analyzer-resources.md#access-analyzer-rds-db-cluster "access-analyzer-resources.md#access-analyzer-rds-db-cluster")
             * [Amazon DynamoDB streams](access-analyzer-resources.md#access-analyzer-ddb-stream "access-analyzer-resources.md#access-analyzer-ddb-stream")
             * [Amazon DynamoDB tables](access-analyzer-resources.md#access-analyzer-ddb-table "access-analyzer-resources.md#access-analyzer-ddb-table")
-
         2. Choose **Add resources**.
 
     2.  To add resources by Amazon Resource Name (ARN), choose **Add
@@ -58,7 +59,6 @@ Use the following procedure to update an internal access analyzer.
          resource ARN separated by a comma. Enter one account owner ID
          and resource ARN per line.
         2. Choose **Add resources**.
-
     3. To add resources by a CSV file, choose **Add resources > Add
        resources by uploading a CSV**.
 
@@ -69,7 +69,6 @@ Use the following procedure to update an internal access analyzer.
         1. Choose **Choose file** and select the CSV
          file from your computer.
         2. Choose **Add resources**.
-
     4. To remove resources from the analyzer, select the check box next to
        the resources to remove and choose **Remove**.
     5. Choose **Save changes**.

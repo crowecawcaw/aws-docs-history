@@ -5,7 +5,7 @@ summary, and the [action summary](access_policies_understand-action-summary.md "
 _service summary_ table includes a list of the actions and summaries of the
 permissions that are defined by the policy for the chosen service.
 
-![Policy summaries diagram image that illustrates the 3 tables and their relationship](images/policy_summaries-svc-sum.png)
+![Policy summaries diagram image that illustrates the 3 tables and their relationship.](images/policy_summaries-svc-sum.png)
 You can view a service summary for each service listed in the policy summary that grants
 permissions. The table is grouped into **Uncategorized actions**,
 **Uncategorized resource types**, and access level sections. If the policy
@@ -24,7 +24,7 @@ summary. The actions for this service are grouped by access level. For example, 
 **Read** actions are defined out of the total 52 **Read**
 actions available for the service.
 
-![Service summary dialog image](images/policies-summary-action-dialog.png)
+![Service summary dialog image.](images/policies-summary-action-dialog.png)
 
 The service summary page for a managed policy includes the following information:
 

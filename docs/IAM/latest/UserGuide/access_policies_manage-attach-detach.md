@@ -143,6 +143,7 @@ policy:
    permissions**, and then choose **Create inline
    policy**.
 5. Do one of the following:
+
    - Choose the **Visual** option to create the policy. For more
      information, see [Creating policies with the visual editor](access_policies_create-console.md#access_policies_create-visual-editor "access_policies_create-console.md#access_policies_create-visual-editor").
    - Choose the **JSON** option to create the policy. For more
@@ -218,12 +219,14 @@ an inline policy.
 ###### To use a managed policy as a permissions policy for an entity (AWS CLI)
 
 1. (Optional) To view information about a managed policy, run the following commands:
+
    - To list managed policies: [aws iam
      list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md")
    - To retrieve detailed information about a managed policy: [get-policy](../../../cli/latest/reference/iam/get-policy.md "../../../cli/latest/reference/iam/get-policy.md")
 
 2. To attach a managed policy to an identity (user, user group, or role), use one of the
    following commands:
+
    - [aws iam
      attach-user-policy](../../../cli/latest/reference/iam/attach-user-policy.md "../../../cli/latest/reference/iam/attach-user-policy.md")
    - [aws iam
@@ -234,12 +237,14 @@ an inline policy.
 ###### To use a managed policy to set a permissions boundary (AWS CLI)
 
 1. (Optional) To view information about a managed policy, run the following commands:
+
    - To list managed policies: [aws iam
      list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md")
    - To retrieve detailed information about a managed policy: [aws iam get-policy](../../../cli/latest/reference/iam/get-policy.md "../../../cli/latest/reference/iam/get-policy.md")
 
 2. To use a managed policy to set the permissions boundary for an entity (user or role),
    use one of the following commands:
+
    - [aws iam
      put-user-permissions-boundary](../../../cli/latest/reference/iam/put-user-permissions-boundary.md "../../../cli/latest/reference/iam/put-user-permissions-boundary.md")
    - [aws iam
@@ -267,19 +272,23 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 ###### To detach a managed policy used as a permissions policy (AWS CLI)
 
 1. (Optional) To view information about a policy, run the following commands:
+
    - To list managed policies: [aws iam
      list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md")
    - To retrieve detailed information about a managed policy: [aws iam get-policy](../../../cli/latest/reference/iam/get-policy.md "../../../cli/latest/reference/iam/get-policy.md")
 
 2. (Optional) To find out about the relationships between the policies and identities,
    run the following commands:
+
    - To list the identities (IAM users, IAM groups, and IAM roles) to which a managed policy
      is attached:
+
      - [aws iam
        list-entities-for-policy](../../../cli/latest/reference/iam/list-entities-for-policy.md "../../../cli/latest/reference/iam/list-entities-for-policy.md")
 
    - To list the managed policies attached to an identity (a user, user group, or
      role), use one of the following commands:
+
      - [aws iam
        list-attached-user-policies](../../../cli/latest/reference/iam/list-attached-user-policies.md "../../../cli/latest/reference/iam/list-attached-user-policies.md")
      - [aws iam
@@ -289,6 +298,7 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 
 3. To detach a managed policy from an identity (user, user group, or role), use one of
    the following commands:
+
    - [aws iam
      detach-user-policy](../../../cli/latest/reference/iam/detach-user-policy.md "../../../cli/latest/reference/iam/detach-user-policy.md")
    - [aws iam
@@ -300,22 +310,26 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 
 1. (Optional) To view which managed policy is currently used to set the permissions
    boundary for a user or role, run the following commands:
+
    - [aws iam get-user](../../../cli/latest/reference/iam/get-user.md "../../../cli/latest/reference/iam/get-user.md")
    - [aws iam get-role](../../../cli/latest/reference/iam/get-role.md "../../../cli/latest/reference/iam/get-role.md")
 
 2. (Optional) To view the users or roles on which a managed policy is used for a
    permissions boundary, run the following command:
+
    - [aws iam
      list-entities-for-policy](../../../cli/latest/reference/iam/list-entities-for-policy.md "../../../cli/latest/reference/iam/list-entities-for-policy.md")
 
 3. (Optional) To view information about a managed policy, run the following
    commands:
+
    - To list managed policies: [aws iam
      list-policies](../../../cli/latest/reference/iam/list-policies.md "../../../cli/latest/reference/iam/list-policies.md")
    - To retrieve detailed information about a managed policy: [aws iam get-policy](../../../cli/latest/reference/iam/get-policy.md "../../../cli/latest/reference/iam/get-policy.md")
 
 4. To remove a permissions boundary from a user or role, use one of the following
    commands:
+
    - [aws iam
      delete-user-permissions-boundary](../../../cli/latest/reference/iam/detach-user-policy.md "../../../cli/latest/reference/iam/detach-user-policy.md")
    - [aws iam
@@ -325,6 +339,7 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 
 1. (Optional) To list all inline policies that are attached to an identity (user, user
    group, role), use one of the following commands:
+
    - [aws iam
      list-user-policies](../../../cli/latest/reference/iam/list-user-policies.md "../../../cli/latest/reference/iam/list-user-policies.md")
    - [aws iam
@@ -334,6 +349,7 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 
 2. (Optional) To retrieve an inline policy document that is embedded in an identity
    (user, user group, or role), use one of the following commands:
+
    - [aws iam
      get-user-policy](../../../cli/latest/reference/iam/get-user-policy.md "../../../cli/latest/reference/iam/get-user-policy.md")
    - [aws iam
@@ -344,6 +360,7 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 3. To delete an inline policy from an identity (user, user group, or role that is not a
    _[service-linked role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_),
    use one of the following commands:
+
    - [aws iam
      delete-user-policy](../../../cli/latest/reference/iam/delete-user-policy.md "../../../cli/latest/reference/iam/delete-user-policy.md")
    - [aws iam
@@ -360,11 +377,13 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 ###### To use a managed policy as a permissions policy for an entity (AWS API)
 
 1. (Optional) To view information about a policy, call the following operations:
+
    - To list managed policies: [ListPolicies](../APIReference/API_ListPolicies.md "../APIReference/API_ListPolicies.md")
    - To retrieve detailed information about a managed policy: [GetPolicy](../APIReference/API_GetPolicy.md "../APIReference/API_GetPolicy.md")
 
 2. To attach a managed policy to an identity (user, user group, or role), call one of the
    following operations:
+
    - [AttachUserPolicy](../APIReference/API_AttachUserPolicy.md "../APIReference/API_AttachUserPolicy.md")
    - [AttachGroupPolicy](../APIReference/API_AttachGroupPolicy.md "../APIReference/API_AttachGroupPolicy.md")
    - [AttachRolePolicy](../APIReference/API_AttachRolePolicy.md "../APIReference/API_AttachRolePolicy.md")
@@ -372,11 +391,13 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 ###### To use a managed policy to set a permissions boundary (AWS API)
 
 1. (Optional) To view information about a managed policy, call the following operations:
+
    - To list managed policies: [ListPolicies](../APIReference/API_ListPolicies.md "../APIReference/API_ListPolicies.md")
    - To retrieve detailed information about a managed policy: [GetPolicy](../APIReference/API_GetPolicy.md "../APIReference/API_GetPolicy.md")
 
 2. To use a managed policy to set the permissions boundary for an entity (user or role),
    call one of the following operations:
+
    - [PutUserPermissionsBoundary](../APIReference/API_PutUserPermissionsBoundary.md "../APIReference/API_PutUserPermissionsBoundary.md")
    - [PutRolePermissionsBoundary](../APIReference/API_PutRolePermissionsBoundary.md "../APIReference/API_PutRolePermissionsBoundary.md")
 
@@ -399,23 +420,28 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 ###### To detach a managed policy used as a permissions policy (AWS API)
 
 1. (Optional) To view information about a policy, call the following operations:
+
    - To list managed policies: [ListPolicies](../APIReference/API_ListPolicies.md "../APIReference/API_ListPolicies.md")
    - To retrieve detailed information about a managed policy: [GetPolicy](../APIReference/API_GetPolicy.md "../APIReference/API_GetPolicy.md")
 
 2. (Optional) To find out about the relationships between the policies and identities,
    call the following operations:
+
    - To list the identities (IAM users, IAM groups, and IAM roles) to which a managed policy
      is attached:
+
      - [ListEntitiesForPolicy](../APIReference/API_ListEntitiesForPolicy.md "../APIReference/API_ListEntitiesForPolicy.md")
 
    - To list the managed policies attached to an identity (a user, user group, or
      role), call one of the following operations:
+
      - [ListAttachedUserPolicies](../APIReference/API_ListAttachedUserPolicies.md "../APIReference/API_ListAttachedUserPolicies.md")
      - [ListAttachedGroupPolicies](../APIReference/API_ListAttachedGroupPolicies.md "../APIReference/API_ListAttachedGroupPolicies.md")
      - [ListAttachedRolePolicies](../APIReference/API_ListAttachedRolePolicies.md "../APIReference/API_ListAttachedRolePolicies.md")
 
 3. To detach a managed policy from an identity (user, user group, or role), call one of
    the following operations:
+
    - [DetachUserPolicy](../APIReference/API_DetachUserPolicy.md "../APIReference/API_DetachUserPolicy.md")
    - [DetachGroupPolicy](../APIReference/API_DetachGroupPolicy.md "../APIReference/API_DetachGroupPolicy.md")
    - [DetachRolePolicy](../APIReference/API_DetachRolePolicy.md "../APIReference/API_DetachRolePolicy.md")
@@ -424,20 +450,24 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 
 1. (Optional) To view which managed policy is currently used to set the permissions
    boundary for a user or role, call the following operations:
+
    - [GetUser](../APIReference/API_GetUser.md "../APIReference/API_GetUser.md")
    - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
 
 2. (Optional) To view the users or roles on which a managed policy is used for a
    permissions boundary, call the following operation:
+
    - [ListEntitiesForPolicy](../APIReference/API_ListEntitiesForPolicy.md "../APIReference/API_ListEntitiesForPolicy.md")
 
 3. (Optional) To view information about a managed policy, call the following
    operations:
+
    - To list managed policies: [ListPolicies](../APIReference/API_ListPolicies.md "../APIReference/API_ListPolicies.md")
    - To retrieve detailed information about a managed policy: [GetPolicy](../APIReference/API_GetPolicy.md "../APIReference/API_GetPolicy.md")
 
 4. To remove a permissions boundary from a user or role, call one of the following
    operations:
+
    - [DeleteUserPermissionsBoundary](../APIReference/API_DeleteUserPermissionsBoundary.md "../APIReference/API_DeleteUserPermissionsBoundary.md")
    - [DeleteRolePermissionsBoundary](../APIReference/API_DeleteRolePermissionsBoundary.md "../APIReference/API_DeleteRolePermissionsBoundary.md")
 
@@ -445,12 +475,14 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 
 1. (Optional) To list all inline policies that are attached to an identity (user, user
    group, role), call one of the following operations:
+
    - [ListUserPolicies](../APIReference/API_ListUserPolicies.md "../APIReference/API_ListUserPolicies.md")
    - [ListGroupPolicies](../APIReference/API_ListGroupPolicies.md "../APIReference/API_ListGroupPolicies.md")
    - [ListRolePolicies](../APIReference/API_ListRolePolicies.md "../APIReference/API_ListRolePolicies.md")
 
 2. (Optional) To retrieve an inline policy document that is embedded in an identity
    (user, user group, or role), call one of the following operations:
+
    - [GetUserPolicy](../APIReference/API_GetUserPolicy.md "../APIReference/API_GetUserPolicy.md")
    - [GetGroupPolicy](../APIReference/API_GetGroupPolicy.md "../APIReference/API_GetGroupPolicy.md")
    - [GetRolePolicy](../APIReference/API_GetRolePolicy.md "../APIReference/API_GetRolePolicy.md")
@@ -458,6 +490,7 @@ boundary](access_policies_boundaries.md "access_policies_boundaries.md"). You ca
 3. To delete an inline policy from an identity (user, user group, or role that is not a
    _[service-linked role](id_roles.md#iam-term-service-linked-role "id_roles.md#iam-term-service-linked-role")_),
    call one of the following operations:
+
    - [DeleteUserPolicy](../APIReference/API_DeleteUserPolicy.md "../APIReference/API_DeleteUserPolicy.md")
    - [DeleteGroupPolicy](../APIReference/API_DeleteGroupPolicy.md "../APIReference/API_DeleteGroupPolicy.md")
    - [DeleteRolePolicy](../APIReference/API_DeleteRolePolicy.md "../APIReference/API_DeleteRolePolicy.md")

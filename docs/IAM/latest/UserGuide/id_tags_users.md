@@ -97,6 +97,7 @@ You can manage tags for IAM users from the AWS Management Console.
    then choose the name of the user that you want to edit.
 3. Choose the **Tags** tab and then complete one of the
    following actions:
+
    - Choose **Add new tag** if the user does not yet have
      tags.
    - Choose **Manage tags** to manage the existing set of

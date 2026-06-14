@@ -1,23 +1,23 @@
 # API keys for AWS services
 
-You can access AWS services through the AWS Management Console and programmatically using the AWS CLI or
-AWS API. When making programmatic requests to services like Amazon Bedrock and Amazon CloudWatch Logs, you can
-authenticate using IAM credentials (for example, temporary security credentials or long-term
-access keys) or API keys. There are two types of API keys:
+Some AWS services support API keys for authenticating programmatic requests in addition
+to standard IAM credentials such as temporary security credentials and long-term access keys.
+AWS offers two types of API keys:
 
 - **Long-term API keys** – Long-term API keys are
   associated with an IAM user and generated using IAM [service-specific credentials](id_credentials_service-specific-creds.md "id_credentials_service-specific-creds.md"). These
   credentials are designed for use with only a single AWS service, enhancing security by
-  limiting credential scope. You can set an expiration time for the long-term API key. You can use the IAM or service-specific console (for example, Amazon Bedrock or CloudWatch Logs
-  console), the AWS CLI, or AWS API to generate long-term API keys.
-- **Short-term API keys** (only supported by Amazon Bedrock)
-  – A short-term API key is a pre-signed URL that uses AWS Signature Version 4.
-  Short-term API keys share the same permissions and expiration as the credentials of the
-  identity that generates the API key and are valid for up to 12 hours or the remaining time
-  of your console session, whichever is shorter. You can use the Amazon Bedrock console, Python package
-  `aws-bedrock-token-generator`, and packages for other programming languages to
-  generate short-term API keys. For more information, see [Generate Amazon Bedrock API keys for easy access to
-  the Amazon Bedrock API](../../../bedrock/latest/userguide/api-keys.md "../../../bedrock/latest/userguide/api-keys.md") in the _Amazon Bedrock User Guide_.
+  limiting credential scope. You can set an expiration time for when the long-term API key
+  expires. To generate long-term API keys, you can use the IAM or service-specific console,
+  the AWS CLI, or AWS API.
+- **Short-term API keys** – A short-term API key is
+  a pre-signed URL that uses AWS Signature Version 4. Short-term API keys share the same
+  permissions and expiration as the credentials of the identity that generates the API key and
+  are valid for up to 12 hours or the remaining time of your console session, whichever is
+  shorter. You can use the Amazon Bedrock/Claude Platform on AWS console, Python, and packages for other programming
+  languages to generate short-term API keys. For more information, see [Generate Amazon Bedrock API
+  keys for easy access to the Amazon Bedrock API](../../../bedrock/latest/userguide/api-keys.md "../../../bedrock/latest/userguide/api-keys.md") in the _Amazon Bedrock User
+  Guide_ and [Authentication](../../../claude-platform/latest/userguide/authentication.md "../../../claude-platform/latest/userguide/authentication.md") in the _Claude Platform on AWS User Guide_.
 
 ###### Note
 
@@ -25,24 +25,25 @@ Long-term API keys have a higher security risk compared to short-term API keys. 
 recommend using short-term API keys or temporary security credentials when possible. If you
 use long-term API keys, we recommend implementing regular key rotation practices.
 
-## Supported services
+## Services that support API keys
 
 The following table lists the AWS services that support API keys and the type of API key
 each service supports.
 
-| #   | Service                | Long-term API keys | Short-term API keys | Managed policy auto-attached                                                                                                                                                          |
-| --- | ---------------------- | ------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Amazon Bedrock         | Yes                | Yes                 | [AmazonBedrockLimitedAccess](../../../aws-managed-policy/latest/reference/AmazonBedrockLimitedAccess.md "../../../aws-managed-policy/latest/reference/AmazonBedrockLimitedAccess.md") |
-| 2   | Amazon CloudWatch Logs | Yes                | N/A                 | [CloudWatchLogsAPIKeyAccess](../../../aws-managed-policy/latest/reference/CloudWatchLogsAPIKeyAccess.md "../../../aws-managed-policy/latest/reference/CloudWatchLogsAPIKeyAccess.md") |
+| #   | Service                | Long-term API keys | Short-term API keys | Managed policy auto-attached                                                                                                                                                          | Service-specific documentation                                                                                                                                                                                                      |
+| --- | ---------------------- | ------------------ | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Amazon Bedrock         | Yes                | Yes                 | [AmazonBedrockLimitedAccess](../../../aws-managed-policy/latest/reference/AmazonBedrockLimitedAccess.md "../../../aws-managed-policy/latest/reference/AmazonBedrockLimitedAccess.md") | [Use an Amazon Bedrock API<br>key](../../../bedrock/latest/userguide/api-keys-use.md "../../../bedrock/latest/userguide/api-keys-use.md")                                                                                           |
+| 2   | Claude Platform on AWS | Yes                | Yes                 | [AnthropicInferenceAccess](../../../aws-managed-policy/latest/reference/AnthropicInferenceAccess.md "../../../aws-managed-policy/latest/reference/AnthropicInferenceAccess.md")       | [Authentication](../../../claude-platform/latest/userguide/authentication.md "../../../claude-platform/latest/userguide/authentication.md")                                                                                         |
+| 3   | Amazon CloudWatch      | Yes                | N/A                 | [CloudWatchAPIKeyAccess](../../../aws-managed-policy/latest/reference/CloudWatchAPIKeyAccess.md "../../../aws-managed-policy/latest/reference/CloudWatchAPIKeyAccess.md")             | [Setting up bearer token authentication for Metrics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.md") |
+| 4   | Amazon CloudWatch Logs | Yes                | N/A                 | [CloudWatchLogsAPIKeyAccess](../../../aws-managed-policy/latest/reference/CloudWatchLogsAPIKeyAccess.md "../../../aws-managed-policy/latest/reference/CloudWatchLogsAPIKeyAccess.md") | [Setting up bearer token authentication](../../../AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.md "../../../AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.md")                                 |
 
 When you generate a long-term API key for a service, the corresponding AWS managed
 policy is automatically attached to the IAM user, granting access to core operations for
 that service. If you require additional access, you can modify the permissions for the
-IAM user. For information about modifying permissions, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md"). For more information on how to use an Amazon Bedrock
-key, see [Use an
-Amazon Bedrock API key](../../../bedrock/latest/userguide/api-keys-use.md "../../../bedrock/latest/userguide/api-keys-use.md") in the _Amazon Bedrock User Guide_. For more information on
-how to use bearer token for Amazon CloudWatch Logs, see [Bearer token
-authentication](../../../AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.md "../../../AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.md") in the _CloudWatch Logs User Guide_.
+IAM user. For information about modifying permissions, see [Adding and removing IAM identity permissions](access_policies_manage-attach-detach.md "access_policies_manage-attach-detach.md").
+
+To learn more about API keys for specific services, refer to the Service-specific
+documentation links in the table above.
 
 ## Prerequisites for long-term API keys
 
@@ -93,6 +94,7 @@ JSON
 6. From the **AWS service** dropdown list, choose the service that
    you want the API key to authenticate to.
 7. For **API key expiration**, do one of the following:
+
    - Choose an API key expiration duration of **1**,
      **5**, **30**, **90**, or
      **365** days.
@@ -114,7 +116,7 @@ Instead, generate a new API key and make the old key inactive.
 
 To generate a long-term API key using the AWS CLI, use the following steps:
 
-1. Create an IAM user that will be used with Amazon Bedrock or Amazon CloudWatch Logs using the [create-user](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-user.html") command:
+1. Create an IAM user that will be used with the service using the [create-user](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-user.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-user.html") command:
 
 ```
 aws iam create-user \
@@ -128,6 +130,20 @@ For Amazon Bedrock:
 ```
 aws iam attach-user-policy --user-name `APIKeyUser_1` \
     --policy-arn arn:aws:iam::aws:policy/AmazonBedrockLimitedAccess
+```
+
+For Claude Platform on AWS:
+
+```
+aws iam attach-user-policy --user-name `APIKeyUser_1` \
+    --policy-arn arn:aws:iam::aws:policy/AnthropicInferenceAccess
+```
+
+For Amazon CloudWatch:
+
+```
+aws iam attach-user-policy --user-name `APIKeyUser_1` \
+    --policy-arn arn:aws:iam::aws:policy/CloudWatchAPIKeyAccess
 ```
 
 For Amazon CloudWatch Logs:
@@ -145,6 +161,24 @@ For Amazon Bedrock:
 aws iam create-service-specific-credential \
     --user-name `APIKeyUser_1` \
     --service-name bedrock.amazonaws.com \
+    --credential-age-days `30`
+```
+
+For Claude Platform on AWS:
+
+```
+aws iam create-service-specific-credential \
+    --user-name `APIKeyUser_1` \
+    --service-name aws-external-anthropic.amazonaws.com \
+    --credential-age-days `30`
+```
+
+For Amazon CloudWatch:
+
+```
+aws iam create-service-specific-credential \
+    --user-name `APIKeyUser_1` \
+    --service-name cloudwatch.amazonaws.com \
     --credential-age-days `30`
 ```
 
@@ -181,7 +215,8 @@ aws iam list-service-specific-credentials \
 ###### Note
 
 Replace `bedrock.amazonaws.com` with the appropriate service name (for
-example, `logs.amazonaws.com` for Amazon CloudWatch Logs).
+example, `logs.amazonaws.com` for Amazon CloudWatch Logs or
+`aws-external-anthropic.amazonaws.com` for Claude Platform on AWS).
 
 To list all long-term API keys metadata in the account, use the [list-service-specific-credentials](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-service-specific-credentials.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/list-service-specific-credentials.html") command with the `--all-users`
 parameter:
@@ -214,15 +249,23 @@ supported service:
 - [DeleteServiceSpecificCredential](../APIReference/API_DeleteServiceSpecificCredential.md "../APIReference/API_DeleteServiceSpecificCredential.md")
 - [ResetServiceSpecificCredential](../APIReference/API_ResetServiceSpecificCredential.md "../APIReference/API_ResetServiceSpecificCredential.md")
 
-## Short-term API keys (Amazon Bedrock)
+## Short-term API keys (select services)
 
-Short-term API keys are currently supported by Amazon Bedrock only. For information on
-generating and using short-term API keys, see [Generate an API key](../../../bedrock/latest/userguide/api-keys-generate.md "../../../bedrock/latest/userguide/api-keys-generate.md") in the
-_Amazon Bedrock User Guide_.
+Short-term API keys are currently supported by select services.
+
+For information on generating and using short-term API keys with Amazon Bedrock, see [Generate an API
+key](../../../bedrock/latest/userguide/api-keys-generate.md "../../../bedrock/latest/userguide/api-keys-generate.md") in the _Amazon Bedrock User Guide_.
+
+For information on generating and using short-term API keys for Claude Platform on AWS, see [Authentication](../../../claude-platform/latest/userguide/authentication.md "../../../claude-platform/latest/userguide/authentication.md") in the _Claude Platform on AWS User Guide_.
 
 ## Service-specific information
 
 - For more information about using API keys with Amazon Bedrock, see [Use an Amazon Bedrock API
   key](../../../bedrock/latest/userguide/api-keys-use.md "../../../bedrock/latest/userguide/api-keys-use.md") in the _Amazon Bedrock User Guide_.
-- For more information about using API keys with Amazon CloudWatch Logs, see [Log ingestion through HTTP
-  endpoints](../../../AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints.md "../../../AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints.md") in the _Amazon CloudWatch Logs User Guide_.
+- For more information about using API keys with Claude Platform on AWS, see [Authentication](../../../claude-platform/latest/userguide/authentication.md "../../../claude-platform/latest/userguide/authentication.md") in
+  the _Claude Platform on AWS User Guide_.
+- For more information about using API keys with Amazon CloudWatch, see [Setting up bearer token authentication for Metrics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-OTLP-MetricsBearerTokenAuth.md") in the _Amazon CloudWatch
+  User Guide_.
+- For more information about using API keys with Amazon CloudWatch Logs, see [Setting up
+  bearer token authentication](../../../AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.md "../../../AmazonCloudWatch/latest/logs/CWL_HTTP_Endpoints_BearerTokenAuth.md") in the _Amazon CloudWatch Logs User
+  Guide_.

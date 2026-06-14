@@ -66,7 +66,7 @@ can use the role's temporary credentials to access the photos bucket. The admini
 doesn't have to grant the developer permission to access the photos bucket, and the developer
 never has to share or manage credentials.
 
-![Application on an Amazon EC2 instance accessing an AWS resource](images/roles-usingrole-ec2roleinstance.png)
+![Application on an Amazon EC2 instance accessing an AWS resource.](images/roles-usingrole-ec2roleinstance.png)
 
 1. The administrator uses IAM to create the `Get-pics` role. In
    the role's trust policy, the administrator specifies that only Amazon EC2 instances can assume
@@ -389,6 +389,7 @@ more.
   application running on an Amazon EC2 instance that uses temporary credentials for roles to read
   an Amazon S3 bucket. Each of the following walkthroughs presents similar steps with a different
   programming language:
+
   - [Configure IAM Roles for Amazon EC2 with
     the SDK for Java](../../../sdk-for-java/latest/developer-guide/java-dg-roles.md "../../../sdk-for-java/latest/developer-guide/java-dg-roles.md") in the _AWS SDK for Java Developer Guide_
   - [Launch an Amazon EC2 Instance using the SDK

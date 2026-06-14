@@ -11,6 +11,7 @@ You must have the iam:AcceptDelegationRequest permission to approve temporary de
 1. Sign in to the AWS Management Console and open the IAM console at https://console.aws.amazon.com/iam/.
 2. In the navigation pane on the left, choose _Temporary delegation requests_.
 3. The main page displays a list of your temporary delegation requests with the following information:
+
    - _Request ID_ – Unique identifier for the request
    - _Status_ – Current status (Pending, Approved, Rejected, Shared, Expired)
    - _Requestor_ - Product provider associated with the request
@@ -19,6 +20,7 @@ You must have the iam:AcceptDelegationRequest permission to approve temporary de
    - _Request expires_ – When the request expired or will expire
 
 4. (Optional) Use the filter options to view requests by status:
+
    - _All requests_ – View all your requests regardless of status
    - _Pending_ – View requests awaiting administrator approval
    - _Approved_ – View approved requests
@@ -27,14 +29,17 @@ You must have the iam:AcceptDelegationRequest permission to approve temporary de
 
 5. To view detailed information about a specific request or to review a pending request for approval, choose the request ID.
 6. Review the detailed request information:
+
    - Product provider information
    - Request reason and justification
    - Requested duration
    - Requested AWS permissions
 
 7. If you are an administrator reviewing a pending request, choose one of the following options:
+
    - To approve the request, choose _Approve_. In the approval dialog, you can view the results of the permission simulation. For more information, see [Permission simulation beta capability](temporary-delegation-initiate-request.md#temporary-delegation-permission-simulation "temporary-delegation-initiate-request.md#temporary-delegation-permission-simulation"). After confirming access duration and your AWS identity, choose _Approve_ to grant access. If the product provider requested immediate access, they automatically receive temporary permissions and the access duration begins. Otherwise, notify the person who initiated the request to release access to the product provider.
    - To reject the request, choose _Reject_.
+
      - In the rejection dialog, provide a clear reason for the rejection to help the requester understand why their request was denied.
      - Choose _Reject_ to deny access.
 

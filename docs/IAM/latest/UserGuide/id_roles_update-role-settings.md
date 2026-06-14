@@ -22,11 +22,13 @@ To change the description of the role, modify the description text.
 
 1. (Optional) To view the current description for a role, run the
    following command:
+
    - [aws iam
      get-role](../../../cli/latest/reference/iam/get-role.md "../../../cli/latest/reference/iam/get-role.md")
 
 2. To update a role's description, run the following command with the
    description parameter:
+
    - [aws iam
      update-role](../../../cli/latest/reference/iam/update-role.md "../../../cli/latest/reference/iam/update-role.md")
 
@@ -34,10 +36,12 @@ To change the description of the role, modify the description text.
 
 1. (Optional) To view the current description for a role, call the
    following operation:
+
    - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
 
 2. To update a role's description, call the following operation with the
    description parameter:
+
    - [UpdateRole](../APIReference/API_UpdateRole.md "../APIReference/API_UpdateRole.md")
 
 ## Update the maximum session duration for a role
@@ -93,6 +97,7 @@ are valid for one hour.
 
 1.  (Optional) To view the current maximum session duration setting for a
     role, run the following command:
+
     - [aws iam
       get-role](../../../cli/latest/reference/iam/get-role.md "../../../cli/latest/reference/iam/get-role.md")
 
@@ -122,6 +127,7 @@ are valid for one hour.
 
 1.  (Optional) To view the current maximum session duration setting for a
     role, call the following operation:
+
     - [GetRole](../APIReference/API_GetRole.md "../APIReference/API_GetRole.md")
 
 2.  To update a role's maximum session duration setting, call the

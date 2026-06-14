@@ -54,6 +54,7 @@ your account security, consider the following.
 - Use alternatives to long-term access keys for the AWS Command Line Interface
   (AWS CLI) or the `aws-shell` – Alternatives include the
   following.
+
   - **Login for AWS local development with console credentials**. You can use the AWS CLI Version 2 and the `aws login` command to generate short-term credentials to run
     AWS CLI commands using your console credentials. To learn more, see [Login for AWS local development](../../../cli/latest/userguide/cli-authentication-user.md "../../../cli/latest/userguide/cli-authentication-user.md") in
     the _AWS Command Line Interface User Guide_.

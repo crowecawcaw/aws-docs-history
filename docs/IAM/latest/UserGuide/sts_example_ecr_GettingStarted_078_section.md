@@ -280,6 +280,7 @@ echo "==================================================="
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [BatchDeleteImage](../../../goto/aws-cli/ecr-2015-09-21/BatchDeleteImage.md "../../../goto/aws-cli/ecr-2015-09-21/BatchDeleteImage.md")
   - [CreateRepository](../../../goto/aws-cli/ecr-2015-09-21/CreateRepository.md "../../../goto/aws-cli/ecr-2015-09-21/CreateRepository.md")
   - [DeleteRepository](../../../goto/aws-cli/ecr-2015-09-21/DeleteRepository.md "../../../goto/aws-cli/ecr-2015-09-21/DeleteRepository.md")

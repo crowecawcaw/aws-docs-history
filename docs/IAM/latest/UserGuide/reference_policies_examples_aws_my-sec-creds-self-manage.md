@@ -33,6 +33,7 @@ To learn how users can access the **Security credentials** page, see
   they do not support or do not need to specify a resource ARN. Instead the
   permissions specify `"Resource" : "*"`. This statement includes the
   following actions that allow the user to view specific information:
+
   - `GetAccountPasswordPolicy` – View the account password
     requirements while changing their own IAM user password.
   - `ListVirtualMFADevices` – View details about a virtual

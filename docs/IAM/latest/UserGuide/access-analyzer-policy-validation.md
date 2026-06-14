@@ -20,6 +20,7 @@ policies.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Begin creating or editing a policy using one of the following methods:
+
    1. To create a new managed policy, go to the
       **Policies** page and create a new policy. For more
       information, see [Creating policies using the JSON editor](access_policies_create-console.md#access_policies_create-json-editor "access_policies_create-console.md#access_policies_create-json-editor").
@@ -36,6 +37,7 @@ policies.
 4. In the policy validation pane below the policy, choose one or more of the
    following tabs. The tab names also indicate the number of each finding type for
    your policy.
+
    - **Security** – View warnings if your policy
      allows access that AWS considers a security risk because the access is
      overly permissive.

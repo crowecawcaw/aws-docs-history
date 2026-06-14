@@ -8,6 +8,7 @@ SDKs.
 - [Hello IAM](iam_example_iam_Hello_section.md "iam_example_iam_Hello_section.md")
 - [Learn the basics](iam_example_iam_Scenario_CreateUserAssumeRole_section.md "iam_example_iam_Scenario_CreateUserAssumeRole_section.md")
 - [Actions](service_code_examples_iam_actions.md "service_code_examples_iam_actions.md")
+
   - [AddClientIdToOpenIdConnectProvider](iam_example_iam_AddClientIdToOpenIdConnectProvider_section.md "iam_example_iam_AddClientIdToOpenIdConnectProvider_section.md")
   - [AddRoleToInstanceProfile](iam_example_iam_AddRoleToInstanceProfile_section.md "iam_example_iam_AddRoleToInstanceProfile_section.md")
   - [AddUserToGroup](iam_example_iam_AddUserToGroup_section.md "iam_example_iam_AddUserToGroup_section.md")

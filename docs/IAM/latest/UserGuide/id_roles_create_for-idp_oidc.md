@@ -20,6 +20,7 @@ prerequisite steps.
    identifying your app with the provider.) You can configure multiple apps with each
    provider, or multiple providers with a single app. View information about using the
    identity providers as follows:
+
    - [Login with Amazon Developer
      Center](https://login.amazon.com/ "https://login.amazon.com/")
    - [Add Facebook
@@ -267,6 +268,7 @@ console to create a role for OIDC federation.
 3. Choose **Web identity** as the trusted entity type and select
    **Next**.
 4. For **Identity provider**, choose the IdP for your role:
+
    - If you want to create a role for an individual web IdP, choose **Login
      with Amazon**, **Facebook**, or
      **Google**.
@@ -317,8 +319,10 @@ console to create a role for OIDC federation.
 5. The
    requested information varies based on the OIDC provider you
    choose.
+
    - Enter the identifier for your application. The label of the identifier changes
      based on the provider you choose:
+
      - If you want to create a role for Login with Amazon, enter the app ID into the
        **Application ID** box.
      - If you want to create a role for Facebook, enter the app ID into the
@@ -331,6 +335,7 @@ console to create a role for OIDC federation.
 
    - If you want to create a role for GitHub Actions, enter the following
      details:
+
      - For **Audience**, choose
        `sts.amazonaws.com`.
      - For **GitHub organization**, enter the GitHub organization
@@ -346,6 +351,7 @@ console to create a role for OIDC federation.
 
    - If you want to create a role for HashiCorp Cloud Platform (HCP) Terraform, enter
      the following details:
+
      - For **Audience**, choose
        `aws.workload.identity`.
      - For **Organization**, enter the organization name. You can

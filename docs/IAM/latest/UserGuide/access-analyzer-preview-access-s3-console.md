@@ -34,6 +34,7 @@ enabling IAM Access Analyzer and permissions required, see [Getting started with
    would change access to the bucket. For example, they help you validate whether the
    policy change introduces new findings or resolves existing findings for external
    access:
+
    1. **New** – indicates a finding for new
       external access that the policy would introduce.
    2. **Resolved** – indicates a finding for

@@ -121,8 +121,10 @@ role named `AWSServiceRoleForAccessAnalyzer` is created in your account.
     analyzer.
 8.  In the **Resources to analyze** section, add resources for
     the analyzer to monitor.
+
     - To add resources for the account, choose **Add resources > Add
       resources from selected accounts**.
+
       1. Choose **All supported resource types** or
          choose **Define specific resource types** and
          select the resource types from the **Resource
@@ -137,7 +139,6 @@ role named `AWSServiceRoleForAccessAnalyzer` is created in your account.
           + [Amazon Relational Database Service DB cluster snapshots](access-analyzer-resources.md#access-analyzer-rds-db-cluster "access-analyzer-resources.md#access-analyzer-rds-db-cluster")
           + [Amazon DynamoDB streams](access-analyzer-resources.md#access-analyzer-ddb-stream "access-analyzer-resources.md#access-analyzer-ddb-stream")
           + [Amazon DynamoDB tables](access-analyzer-resources.md#access-analyzer-ddb-table "access-analyzer-resources.md#access-analyzer-ddb-table")
-
       2. To select accounts from your organization, choose
          **Select from organization**. In the
          **Select accounts** section, choose
@@ -165,7 +166,6 @@ role named `AWSServiceRoleForAccessAnalyzer` is created in your account.
          resource ARN separated by a comma. Enter one account owner ID
          and resource ARN per line.
         2. Choose **Add resources**.
-
     - To add resources by a CSV file, choose **Add resources > Add
       resources by uploading a CSV**.
 

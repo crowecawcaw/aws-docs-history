@@ -204,6 +204,7 @@ JSON
 - The `AllowIamUserAssumeRole` statement allows the
   `test-session-tags` user to assume the role with the attached policy. When
   that user assumes the role, they must pass the required session tags and [external ID](id_roles_common-scenarios_third-party.md#id_roles_third-party_external-id "id_roles_common-scenarios_third-party.md#id_roles_third-party_external-id").
+
   - The first condition block of this statement requires the user to pass the
     `Project`, `CostCenter`, and `Department` session
     tags. The tag values do not matter in this statement, so you can use wildcards (\*) for
@@ -216,6 +217,7 @@ JSON
   `sts:TagSession` permissions-only action. This action must be allowed before
   the user can pass session tags. If your policy includes the first statement without the
   second statement, the user can't assume the role.
+
   - The first condition block of this statement allows the user to pass any value for
     the `CostCenter` and `Project` session tags. You do this by
     using wildcards (\*) for the tag value in the policy, which requires that you use the
@@ -484,7 +486,7 @@ to assume a third role named `Role3`. These requests occur as three separate
 operations. Each role is already tagged in IAM. And during each request, you pass additional
 session tags.
 
-![Role chaining](images/session-tags-chaining-simple.png)
+![Role chaining.](images/session-tags-chaining-simple.png)
 
 When you chain roles, you can ensure that tags from an earlier session persist to the
 later sessions. To do this using the `assume-role` CLI command, you must pass the
@@ -495,7 +497,7 @@ you also want the `Heart` = `1` tag to automatically pass to the second
 or third session. To do that, you manually include it as a session tag. The resulting session
 principal tags include both of these tags, and sets them as transitive.
 
-![Assuming the first role in a role chain](images/session-tags-chaining-role1.png)
+![Assuming the first role in a role chain.](images/session-tags-chaining-role1.png)
 
 You perform this request using the following AWS CLI command:
 
@@ -518,7 +520,7 @@ and `Sun` = `2`. `Heart` and `Star` continue to be
 transitive. The `Sun` tag attached to `Role2` is not marked as
 transitive because it is not a session tag. Future sessions do not inherit this tag.
 
-![Assuming the second role in a role chain](images/session-tags-chaining-role2.png)
+![Assuming the second role in a role chain.](images/session-tags-chaining-role2.png)
 
 You perform this second request using the following AWS CLI command:
 
@@ -543,7 +545,7 @@ role trust policy. In this example, if `Role3` uses `Star` as a
 to the transitive tag value from the calling role session. The role `Lightning` tag
 also applies to the third session, and is not set as transitive.
 
-![Assuming the third role in a role chain](images/session-tags-chaining-role3.png)
+![Assuming the third role in a role chain.](images/session-tags-chaining-role3.png)
 
 You perform the third request using the following AWS CLI command:
 

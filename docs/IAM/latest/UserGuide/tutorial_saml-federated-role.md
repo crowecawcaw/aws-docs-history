@@ -51,6 +51,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
     stack** menu, choose **with new resources
     (standard)**.
 3.  Specify the template:
+
     1. Under **Prerequisite**, choose **Choose
        an existing template**.
     2. Under **Specify template**, choose
@@ -60,6 +61,7 @@ Next, use the template you've saved to provision a CloudFormation stack.
     4. Choose **Next**.
 
 4.  Specify the following stack details:
+
     1. Enter a stack name.
     2. For **SAMLProviderARN**, enter the ARN of your
        existing SAML IdP. This should be in the format
@@ -106,10 +108,10 @@ Next, use the template you've saved to provision a CloudFormation stack.
 
         Example for ManagedPolicy2:
          `arn:aws:iam::123456789012:policy/CustomPolicy`
-
     5. Choose **Next**.
 
 5.  Configure the stack options:
+
     1. Under **Stack failure options**, choose
        **Delete all newly created resources**.
 

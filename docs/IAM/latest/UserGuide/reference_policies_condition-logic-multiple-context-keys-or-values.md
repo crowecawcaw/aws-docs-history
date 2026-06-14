@@ -32,7 +32,7 @@ All context keys in a condition element block must resolve to true to invoke the
 evaluation logic for a condition with multiple condition operators and context key-value
 pairs.
 
-![Condition block showing how AND and OR are applied to multiple context keys and values](images/AccessPolicyLanguage_Condition_Block_AND_2.diagram.png)
+![Condition block showing how AND and OR are applied to multiple context keys and values.](images/AccessPolicyLanguage_Condition_Block_AND_2.diagram.png)
 
 For example, the following S3 bucket policy illustrates how the previous figure is
 represented in a policy. The condition block includes condition operators
@@ -109,7 +109,7 @@ The following figure illustrates the evaluation logic for a condition with multi
 condition operators and context key-value pairs. The figure includes a negated matching
 condition operator for context key 3.
 
-![Condition block showing how AND and OR are applied to multiple context keys and values when a negated matching condition operator is used](images/AccessPolicyLanguage_Condition_Block_AND_Negated_NOR_2.diagram.png)
+![Condition block showing how AND and OR are applied to multiple context keys and values when a negated matching condition operator is used.](images/AccessPolicyLanguage_Condition_Block_AND_Negated_NOR_2.diagram.png)
 
 For example, the following S3 bucket policy illustrates how the previous figure is
 represented in a policy. The condition block includes condition operators

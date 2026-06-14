@@ -33,7 +33,7 @@ API calls to access resources in the account that owns the role. You cannot use 
 to grant more permissions than those allowed by the identity-based policy. To learn more about
 how AWS determines the effective permissions of a role, see [Policy evaluation logic](reference_policies_evaluation-logic.md "reference_policies_evaluation-logic.md").
 
-![PermissionsWhenPassingRoles_Diagram](images/role_passed_policy_permissions.png)
+![PermissionsWhenPassingRoles_Diagram.](images/role_passed_policy_permissions.png)
 You can call `AssumeRole` when you are signed in as an IAM user, or as an [externally authenticated user](id_roles_providers.md "id_roles_providers.md") ([SAML](id_roles_providers_saml.md "id_roles_providers_saml.md") or [OIDC](id_roles_providers_oidc.md "id_roles_providers_oidc.md")) already using a role. You can also use [role chaining](id_roles.md#iam-term-role-chaining "id_roles.md#iam-term-role-chaining"), which is using a role to assume a
 second role. You cannot assume a role when you are signed in as the AWS account root user.
 
@@ -959,6 +959,7 @@ public class UIWrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [AttachRolePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/AttachRolePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateAccessKey](../../../goto/DotNetSDKV3/iam-2010-05-08/CreateAccessKey.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreateAccessKey.md")
   - [CreatePolicy](../../../goto/DotNetSDKV3/iam-2010-05-08/CreatePolicy.md "../../../goto/DotNetSDKV3/iam-2010-05-08/CreatePolicy.md")
@@ -2002,6 +2003,7 @@ function iam_delete_user() {
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateAccessKey](../../../goto/aws-cli/iam-2010-05-08/CreateAccessKey.md "../../../goto/aws-cli/iam-2010-05-08/CreateAccessKey.md")
   - [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")
@@ -2416,6 +2418,7 @@ bool AwsDoc::IAM::DeleteCreatedEntities(const Aws::IAM::IAMClient &client,
 ```
 
 - For API details, see the following topics in _AWS SDK for C++ API Reference_.
+
   - [AttachRolePolicy](../../../goto/SdkForCpp/iam-2010-05-08/AttachRolePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateAccessKey](../../../goto/SdkForCpp/iam-2010-05-08/CreateAccessKey.md "../../../goto/SdkForCpp/iam-2010-05-08/CreateAccessKey.md")
   - [CreatePolicy](../../../goto/SdkForCpp/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForCpp/iam-2010-05-08/CreatePolicy.md")
@@ -3355,6 +3358,7 @@ func (wrapper UserWrapper) ListAccessKeys(ctx context.Context, userName string) 
 ```
 
 - For API details, see the following topics in _AWS SDK for Go API Reference_.
+
   - [AttachRolePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.AttachRolePolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.AttachRolePolicy")
   - [CreateAccessKey](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateAccessKey "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreateAccessKey")
   - [CreatePolicy](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreatePolicy "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/iam#Client.CreatePolicy")
@@ -3748,6 +3752,7 @@ public class IAMScenario {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [AttachRolePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/AttachRolePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateAccessKey](../../../goto/SdkForJavaV2/iam-2010-05-08/CreateAccessKey.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreateAccessKey.md")
   - [CreatePolicy](../../../goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForJavaV2/iam-2010-05-08/CreatePolicy.md")
@@ -4039,6 +4044,7 @@ const listBuckets = async (s3Client) => {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [AttachRolePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/AttachRolePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/AttachRolePolicyCommand.md")
   - [CreateAccessKey](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateAccessKeyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreateAccessKeyCommand.md")
   - [CreatePolicy](../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreatePolicyCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iam/command/CreatePolicyCommand.md")
@@ -4318,6 +4324,7 @@ fun readJsonSimpleDemo(filename: String): Any? {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [AttachRolePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CreateAccessKey](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CreatePolicy](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -4439,6 +4446,7 @@ echo "Delete user: {$user['UserName']}\n";
 ```
 
 - For API details, see the following topics in _AWS SDK for PHP API Reference_.
+
   - [AttachRolePolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/AttachRolePolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateAccessKey](../../../goto/SdkForPHPV3/iam-2010-05-08/CreateAccessKey.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreateAccessKey.md")
   - [CreatePolicy](../../../goto/SdkForPHPV3/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForPHPV3/iam-2010-05-08/CreatePolicy.md")
@@ -4738,6 +4746,7 @@ if __name__ == "__main__":
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [AttachRolePolicy](../../../goto/boto3/iam-2010-05-08/AttachRolePolicy.md "../../../goto/boto3/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateAccessKey](../../../goto/boto3/iam-2010-05-08/CreateAccessKey.md "../../../goto/boto3/iam-2010-05-08/CreateAccessKey.md")
   - [CreatePolicy](../../../goto/boto3/iam-2010-05-08/CreatePolicy.md "../../../goto/boto3/iam-2010-05-08/CreatePolicy.md")
@@ -5028,6 +5037,7 @@ run_scenario(ScenarioCreateUserAssumeRole.new(Aws::IAM::Client.new)) if $PROGRAM
 ```
 
 - For API details, see the following topics in _AWS SDK for Ruby API Reference_.
+
   - [AttachRolePolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/AttachRolePolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateAccessKey](../../../goto/SdkForRubyV3/iam-2010-05-08/CreateAccessKey.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreateAccessKey.md")
   - [CreatePolicy](../../../goto/SdkForRubyV3/iam-2010-05-08/CreatePolicy.md "../../../goto/SdkForRubyV3/iam-2010-05-08/CreatePolicy.md")
@@ -5266,6 +5276,7 @@ async fn run_iam_operations(
 ```
 
 - For API details, see the following topics in _AWS SDK for Rust API reference_.
+
   - [AttachRolePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.attach_role_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.attach_role_policy")
   - [CreateAccessKey](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_access_key "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_access_key")
   - [CreatePolicy](https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy "https://docs.rs/aws-sdk-iam/latest/aws_sdk_iam/client/struct.Client.html#method.create_policy")

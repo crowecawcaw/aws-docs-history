@@ -75,7 +75,7 @@ internal company application. The app can then use the temporary credentials to 
 AWS directly. The app caches the credentials until they expire, and then requests a new set
 of temporary credentials. The following figure illustrates this scenario.
 
-![Sample workflow using a custom identity broker application](images/enterprise-authentication-with-identity-broker-application.diagram.png)
+![Sample workflow using a custom identity broker application.](images/enterprise-authentication-with-identity-broker-application.diagram.png)
 
 This scenario has the following attributes:
 

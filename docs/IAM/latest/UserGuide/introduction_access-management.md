@@ -92,6 +92,7 @@ categorized:
 - **Managed policies** – Standalone identity-based
   policies that you can attach to multiple users, groups, and roles in your AWS account.
   You can use two types of managed policies:
+
   - **AWS managed policies** – Managed policies
     that are created and managed by AWS. If you are new to using policies, we recommend
     that you start by using AWS managed policies.

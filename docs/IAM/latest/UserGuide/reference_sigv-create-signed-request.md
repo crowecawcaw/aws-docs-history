@@ -314,6 +314,7 @@ characters. Do not end this string with a newline character.
 
 - `Algorithm` – The algorithm used to create the
   hash of the canonical request.
+
   - SigV4 – Use `AWS4-HMAC-SHA256` to specify the
     `HMAC-SHA256` hash algorithm.
   - SigV4a – Use `AWS4-ECDSA-P256-SHA256` to specify the
@@ -324,6 +325,7 @@ characters. Do not end this string with a newline character.
   example, `20130524T000000Z`).
 - `CredentialScope` – The credential scope, which
   restricts the resulting signature to the specified Region and service.
+
   - SigV4 – Credentials include your access key ID, the date in
     `YYYYMMDD` format, the Region code, the service code, and
     the `aws4_request` termination string, separated by slashes

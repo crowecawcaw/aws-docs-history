@@ -124,6 +124,7 @@ done
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreatePolicy](../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md "../../../goto/aws-cli/iam-2010-05-08/CreatePolicy.md")
   - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
   - [ListTables](../../../goto/aws-cli/dynamodb-2012-08-10/ListTables.md "../../../goto/aws-cli/dynamodb-2012-08-10/ListTables.md")

@@ -11,7 +11,7 @@ enabled.
    **Security credentials**.
 3. Check under **Multi-factor Authentication (MFA)** to see whether MFA is
    enabled or disabled. If MFA has not been activated, an alert symbol (
-   ![Alert icon](images/console-alert-icon.console.png)
+   ![Alert icon.](images/console-alert-icon.console.png)
    ) is displayed.
    If you want to enable MFA for the account, see one of the following:
 
@@ -25,8 +25,9 @@ enabled.
 2. In the navigation pane, choose **Users**.
 3. If necessary, add the **MFA** column to the users table by completing
    the following steps:
+
    1. Above the table on the far right, choose the settings icon (
-      ![Settings icon](images/console-settings-icon.console.png)
+      ![Settings icon.](images/console-settings-icon.console.png)
       ).
    2. In **Manage Columns**, select **MFA**.
    3. (Optional) Clear the checkbox for any column headings that you do not want to

@@ -33,27 +33,35 @@ Console
 AWS CLI
 
 1. Remove all users from the IAM group.
+
    - [aws iam get-group](../../../cli/latest/reference/iam/get-group.md "../../../cli/latest/reference/iam/get-group.md") (to get the list of users in the IAM group), and [aws iam remove-user-from-group](../../../cli/latest/reference/iam/remove-user-from-group.md "../../../cli/latest/reference/iam/remove-user-from-group.md") (to remove a user from the IAM group)
 
 2. Delete all inline policies embedded in the IAM group.
+
    - [aws iam list-group-policies](../../../cli/latest/reference/iam/list-group-policies.md "../../../cli/latest/reference/iam/list-group-policies.md") (to get a list of the IAM group's inline policies), and [aws iam delete-group-policy](../../../cli/latest/reference/iam/delete-group-policy.md "../../../cli/latest/reference/iam/delete-group-policy.md") (to delete the IAM group's inline policies)
 
 3. Detach all managed policies attached to the IAM group.
+
    - [aws iam list-attached-group-policies](../../../cli/latest/reference/iam/list-attached-group-policies.md "../../../cli/latest/reference/iam/list-attached-group-policies.md") (to get a list of the managed policies attached to the IAM group), and [aws iam detach-group-policy](../../../cli/latest/reference/iam/detach-group-policy.md "../../../cli/latest/reference/iam/detach-group-policy.md") (to detach a managed policy from the IAM group)
 
 4. Delete the IAM group.
+
    - [aws iam delete-group](../../../cli/latest/reference/iam/delete-group.md "../../../cli/latest/reference/iam/delete-group.md")
 
 API
 
 1. Remove all users from the IAM group.
+
    - [GetGroup](../APIReference/API_GetGroup.md "../APIReference/API_GetGroup.md") (to get the list of users in the IAM group) and [RemoveUserFromGroup](../APIReference/API_RemoveUserFromGroup.md "../APIReference/API_RemoveUserFromGroup.md") (to remove a user from the IAM group)
 
 2. Delete all inline policies embedded in the IAM group.
+
    - [ListGroupPolicies](../APIReference/API_ListGroupPolicies.md "../APIReference/API_ListGroupPolicies.md") (to get a list of the IAM group's inline policies) and [DeleteGroupPolicy](../APIReference/API_DeleteGroupPolicy.md "../APIReference/API_DeleteGroupPolicy.md") (to delete the IAM group's inline policies)
 
 3. Detach all managed policies attached to the IAM group.
+
    - [ListAttachedGroupPolicies](../APIReference/API_ListAttachedGroupPolicies.md "../APIReference/API_ListAttachedGroupPolicies.md") (to get a list of the managed policies attached to the IAM group) and [DetachGroupPolicy](../APIReference/API_DetachGroupPolicy.md "../APIReference/API_DetachGroupPolicy.md") (to detach a managed policy from the IAM group)
 
 4. Delete the IAM group.
+
    - [DeleteGroup](../APIReference/API_DeleteGroup.md "../APIReference/API_DeleteGroup.md")

@@ -74,6 +74,7 @@ Check the following:
   is limited to IAM roles for Amazon EC2 instances.
 - If you are making requests as an IAM user, verify that you have the following
   permissions:
+
   - `ec2:RunInstances` with a wildcard resource ("\*")
   - `iam:PassRole` with the resource matching the role ARN (for example,
     `arn:aws:iam::999999999999:role/ExampleRoleName`)
