@@ -9,6 +9,7 @@ We release models under two support levels:
   There are two approaches for selecting the model version for your workflow:
 
 - **Automatically track to the latest version**
+
   - Select the `nova-act-latest` alias to automatically use the latest GA model version.
   - Select the `nova-act-preview` alias to automatically use the latest preview model.
 

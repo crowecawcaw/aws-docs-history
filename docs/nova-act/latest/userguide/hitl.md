@@ -42,11 +42,13 @@ Setup steps:
 
 1. **Deploy the infrastructure:** Use the Human Intervention CDK package from the [nova-act-human-intervention](https://github.com/amazon-agi-labs/nova-act-human-intervention "https://github.com/amazon-agi-labs/nova-act-human-intervention") GitHub repository to deploy the HIS to your AWS account.
 2. **Configure notifications:** The managed HIS supports Slack and email notifications to alert supervisors when intervention is needed.
+
    - **Slack**: Real-time notifications via Slack Bot SDK with rich formatting and threaded conversations
    - **Email**: HTML-formatted email notifications via AWS SES
 
 3. **Integrate with your workflows:** Integrate the Human Intervention Service client SDK into your Nova Act workflows and configure callbacks for human approval or UI takeover patterns at the identified points with appropriate timeouts and retry policies. The managed HIS automatically handles supervisor routing and response collection. See the [nova-act-human-intervention](https://github.com/amazon-agi-labs/nova-act-human-intervention "https://github.com/amazon-agi-labs/nova-act-human-intervention") repository for code examples.
 4. **Train supervisors:** Ensure your supervisors are familiar with the HIS interfaces.
+
    - **One-off action interface**: Streamlined experience for quick approvals or interventions
    - **Supervisor dashboard**: Comprehensive view of all HITL activities, including pending requests, historical actions, and performance metrics.
 

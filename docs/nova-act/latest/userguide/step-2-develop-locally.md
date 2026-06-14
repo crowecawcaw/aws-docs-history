@@ -45,7 +45,9 @@ With API key authentication, you can develop Nova Act workflows using either the
 2. Install the Nova Act extension (check the [nova-act-extension](https://github.com/aws/nova-act-extension "https://github.com/aws/nova-act-extension") GitHub repository for instructions and supported environments).
 3. Open Builder Mode in the Nova Act extension to access the live browser preview
 4. Generate your workflow using one of these approaches:
+
    - **Chat-to-code**: Use GitHub Copilot in VS Code to describe your automation needs in natural language
+
      - Example: `@novaAct: "I need an agent that logs into a customer portal, searches for unresolved tickets, and updates their status based on completion criteria."`
 
    - **Import from playground**: Download a script you created in the Nova Act playground and open it in the IDE
@@ -90,6 +92,7 @@ To develop workflows locally using AWS IAM authentication:
 
 1. Configure AWS credentials with appropriate IAM roles and permissions (see [AWS Managed Policies](security-iam-awsmanpol.md "security-iam-awsmanpol.md")) in your development environment.
 2. Create a Nova Act workflow definition using the Nova Act AWS console or CLI:
+
    - In the Nova Act AWS console, select **Create workflow definition** and follow the instructions to create a workflow definition.
    - Or, using the Nova Act CLI, run `act workflow create —name <your-workflow-name>`
 

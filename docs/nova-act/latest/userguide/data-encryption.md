@@ -9,6 +9,7 @@ Key considerations:
 - Nova Act temporarily stores Agent Trajectory data, which includes the input prompt, screenshots, and agent response to maintain historical context while executing a workflow.
 - If you wish to persist the Agent Trajectory Data indefinitely, you may opt into the service writing this data to an S3 bucket that you own and control. We strongly encourage you to enable encryption on this S3 bucket.
 - The following data is not encrypted by default:
+
   - WorkflowDefinition Names
   - Workflow Run Ids
 
