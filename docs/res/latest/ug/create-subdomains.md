@@ -16,6 +16,7 @@ zone.
 5. For **Value**, enter the link you received in the initial email.
 6. Choose **Create records**.
 7. To create a record for the VDC, retrieve the NLB address.
+
    1. Open the [AWS CloudFormation
       console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
    2. Choose `<environment-name>-vdc`.

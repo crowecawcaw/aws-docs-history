@@ -38,10 +38,12 @@ As a best practice, [increase the service
 quotas](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") for:
 
 - [Amazon VPC](../../../vpc/latest/userguide/amazon-vpc-limits.md "../../../vpc/latest/userguide/amazon-vpc-limits.md")
+
   - Increase the Elastic IP address quota per NAT gateway from five to eight.
   - Increase the NAT gateways per Availability Zone from five to ten.
 
 - [Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md")
+
   - Increase the EC2-VPC Elastic IPs from five to ten.
 
 Your AWS account has default quotas for each AWS service.
@@ -79,6 +81,7 @@ the domain using AWS Certificate Manager.
 1. Follow the directions to [register
    a domain](../../../Route53/latest/DeveloperGuide/domain-register.md#register_new_console "../../../Route53/latest/DeveloperGuide/domain-register.md#register_new_console") with Route 53. You should receive a confirmation email.
 2. Retrieve the hosted zone for your domain. Route 53 creates this automatically.
+
    1. Open the Route 53 console.
    2. Choose **Hosted zones** from the left navigation.
    3. Open the hosted zone created for your domain name and copy the
@@ -107,12 +110,14 @@ Research and Engineering Studio, you must complete these prerequisite steps.
 3. In the GovCloud partition account, create a secret with the value of the
    `CertificateARN` output. Note the new secret ARN and add two tags to the
    secret so `vdc-gateway` can access the secret value:
+
    1. res:ModuleName = virtual-desktop-controller
    2. res:EnvironmentName = [environment name] (This could be res-demo.)
 
 4. In the GovCloud partition account, create a secret with the value of the
    `PrivateKeySecretARN` output. Note the new secret ARN and add two tags to
    the secret so `vdc-gateway` can access the secret value:
+
    1. res:ModuleName = virtual-desktop-controller
    2. res:EnvironmentName = [environment name] (This could be res-demo.)
 
@@ -164,6 +169,7 @@ provide communication between AD and RES.
    to enable server-side LDAPS for your AWS Managed Microsoft AD](https://aws.amazon.com/blogs/security/how-to-enable-ldaps-for-your-aws-microsoft-ad-directory/ "https://aws.amazon.com/blogs/security/how-to-enable-ldaps-for-your-aws-microsoft-ad-directory/"). You can skip this
    step if you have already enabled LDAPS.
 2. After confirming that LDAPS is configured on the AD, export the AD certificate:
+
    1. Go to your Active Directory server.
    2. Open PowerShell as an administrator.
    3. Run `certmgr.msc` to open the certificate list.
@@ -271,12 +277,14 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
      and then choose **Create role**.
 
 3. Create the EC2 image builder component:
+
    1. Open the EC2 Image Builder console at [https://console.aws.amazon.com//imagebuilder](https://console.aws.amazon.com//imagebuilder "https://console.aws.amazon.com//imagebuilder").
    2. Under **Saved resources**, choose
       **Components** and choose **Create
       component**.
    3. On the **Create component** page, enter the following
       details:
+
       - For **Component type**, choose
         **Build**.
       - For **Component details** choose:
@@ -291,6 +299,7 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
 
    4. On the **Create component** page, choose
       **Define document content**.
+
       1. Before entering the definition document content, you will need a
          file URI for the tar.gz file. Upload the tar.gz file provided by
          RES to an Amazon S3 bucket and copy the file's URI from the
@@ -364,6 +373,7 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
    5. Choose **Create component**.
 
 4. Create an Image Builder image recipe.
+
    1. On the **Create recipe** page, enter the
       following:
 
@@ -384,6 +394,7 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
    2. Choose **Create recipe**.
 
 5. Create Image Builder infrastructure configuration.
+
    1. Under **Saved resources**, choose
       **Infrastructure configurations**.
    2. Choose **Create infrastructure configuration**.
@@ -400,10 +411,12 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
    4. Choose **Create infrastructure configuration**.
 
 6. Create a new EC2 Image Builder pipeline:
+
    1. Go to **Image pipelines**, and choose **Create
       image pipeline**.
    2. On the **Specify pipeline details** page, enter the
       following and choose **Next**:
+
       - Pipeline name and optional description
       - For **Build schedule**, set a schedule or choose
         **Manual** if you want to start the AMI baking
@@ -420,6 +433,7 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
       configuration. Choose **Next**.
    6. On the **Define distribution settings** page,
       consider the following for your selections:
+
       - The output image must reside in the same region as the
         deployed RES environment, so that RES can properly launch
         infrastructure host instances from it. Using service defaults,
@@ -433,6 +447,7 @@ is not the latest. 2. Create an IAM role with Amazon S3 read-only access and tru
       pipeline**.
 
 7. Run the EC2 Image Builder pipeline:
+
    1. From **Image pipelines**, find and select the pipeline
       you created.
    2. Choose **Actions**, and select **Run
@@ -491,14 +506,17 @@ your identity provider.
 
 1. Launch a Linux instance in the public subnet of the VPC you will use for your RES
    deployment.
+
    - Linux family – Amazon Linux 2 or Amazon Linux 3
    - Architecture – x86
    - Instance type – t2.micro or higher
    - Security group – TCP on port 3128 from 0.0.0.0/0
 
 2. Connect to the instance to set up a proxy server.
+
    1. Open the http connection.
    2. Allow connection to the following domains from all relevant subnets:
+
       - .amazonaws.com (for generic AWS services)
       - .amazoncognito.com (for Amazon Cognito)
       - .awsapps.com (for Identity Center)
@@ -510,6 +528,7 @@ your identity provider.
    5. Note the PORT on which the proxy server listens.
 
 3. Configure your route table to allow access to the proxy server.
+
    1. Go to your VPC console and identify the route tables for the subnets
       you will be using for Infrastructure Hosts and VDI hosts.
    2. Edit route table to allow all incoming connections to go to the proxy

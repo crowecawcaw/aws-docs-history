@@ -10,6 +10,7 @@ the S3 buckets dashboard, you can:
 
 1. Use **Add bucket** to onboard an S3 bucket to RES.
 2. Select an S3 bucket and use the **Actions** menu to:
+
    - Edit a bucket
    - Remove a bucket
 

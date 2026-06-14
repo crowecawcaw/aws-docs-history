@@ -70,6 +70,7 @@ After you enable IAM Identity Center, complete these recommended set up steps:
    `<your-portal-domain>/sso`.
 10. Under **Application ACS URL**, enter the redirect
     URL from the RES portal. To find this:
+
     1. Under **Environment management**, choose
        **General settings**.
     2. Select the **Identity provider** tab.
@@ -119,6 +120,7 @@ To create the urn:
 1. Under **Single Sign-On**, choose **Edit**
    (next to **Status**).
 1. Complete the form with the following information:
+
    1. Choose **SAML**.
    2. Under **Provider name**, enter a user friendly
       name.

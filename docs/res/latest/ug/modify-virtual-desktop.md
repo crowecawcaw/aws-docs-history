@@ -3,6 +3,7 @@
 You can update the hardware of your virtual desktop or change the session name.
 
 1. Before making changes to the instance size, you must stop the session:
+
    1. Choose **Actions**.
 
    ![Virtual desktops](images/res-virtualdesktops.png) 2. Choose **Virtual Desktop State**. 3. Choose **Stop**.###### Note

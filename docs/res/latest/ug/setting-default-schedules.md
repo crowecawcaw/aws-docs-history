@@ -36,6 +36,7 @@ The valid values are:
 4.  If `CUSTOM_SCHEDULE` is set, you must provide the customized
     start and stop times. To do this, use the following filter in the cluster-settings
     table:
+
     - **Attribute name** = `key`
     - **Condition** = `Contains`
     - **Type** = `String`

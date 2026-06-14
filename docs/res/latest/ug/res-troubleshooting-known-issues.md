@@ -1,6 +1,7 @@
 # Known Issues
 
 - [Known Issues 2024.x](#res-troubleshooting-known-issues-2024x "#res-troubleshooting-known-issues-2024x")
+
   - [(2024.12 and 2024.12.01) Regex failure when registering a new Cognito user](#res-troubleshooting-known-issues-2024x-regex-failure-cognito "#res-troubleshooting-known-issues-2024x-regex-failure-cognito")
   - [(2024.12.01 and earlier) Invalid bad cert error when connecting to VDI using a custom domain](#res-troubleshooting-known-issues-2024x-invalid-bad-cert "#res-troubleshooting-known-issues-2024x-invalid-bad-cert")
   - [(2024.12 and 2024.12.01) Active Directory users cannot SSH to Bastion Host](#res-troubleshooting-known-issues-2024x-ad-users-cannot-ssh "#res-troubleshooting-known-issues-2024x-ad-users-cannot-ssh")
@@ -50,6 +51,7 @@ RES versions 2024.12 and 2024.12.01
    replacing `<output-directory>` with the directory where you
    want to download the patch script and patch file, and
    `<environment-name>` with the name of your RES environment:
+
    1. The patch applies to RES 2024.12 and 2024.12.01.
    2. The patch script requires [AWS CLI v2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"), Python 3.9.16 or above, and [Boto3](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/").
    3. Configure the AWS CLI for the account and region where RES is deployed,
@@ -220,6 +222,7 @@ All RES versions 2024.10 or earlier.
    `<output-directory>` with the directory where you want to download
    the patch script and patch file and `<environment-name>` with the
    name of your RES environment in the command below:
+
    1. The patch only applies to RES 2024.10.
    2. The patch script requires AWS CLI v2, Python 3.9.16 or above, and
       Boto3.
@@ -340,6 +343,7 @@ to the corresponding S3 bucket.
    command, replacing `<output-directory>` with the directory where
    you want to download the patch script and patch file and `<environment-name>`
    with the name of your RES environment:
+
    1. The patch only applies to RES 2024.08.
    2. The patch script requires [AWS CLI
       v2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"), Python 3.9.16 or above, and [Boto3](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/").
@@ -426,6 +430,7 @@ The error results from RES only accepting group names that meet the following re
    `<output-directory>` with the directory where you want to put
    the files, and `<environment-name>` with the name of your RES
    environment:
+
    1. The patch only applies to RES 2024.06
    2. The patch script requires
       [AWS CLI v2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"), Python 3.9.16 or above, and
@@ -597,6 +602,7 @@ These instructions describe how to run a script to apply the platform update on 
 ###### PATCH EXISTING VDIs
 
 1. Run the following command which will patch all existing Ubuntu and RHEL9 VDIs:
+
    1. The patch script requires [AWS CLI v2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
    2. Configure the AWS CLI for the account and region where RES is deployed,
       and make sure that you have AWS Systems Manager permissions to send a
@@ -691,6 +697,7 @@ a project:
    [vdi_host_role_permission_boundary.patch](https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_host_role_permission_boundary.patch "https://research-engineering-studio-us-east-1.s3.amazonaws.com/releases/2024.04.02/patch_scripts/patches/vdi_host_role_permission_boundary.patch")), run the following command,
    replacing `<output-directory>` with the local directory where
    you'd like to put the files:
+
    1. The patch only applies to RES 2024.04.02. If you are on version
       2024.04 or 2024.04.01, you can follow [the steps listed in the public document for minor version updates](update-the-product.md#minor-version-updates "update-the-product.md#minor-version-updates")
       to update your environment to 2024.04.02.
@@ -771,6 +778,7 @@ All RES versions 2024.04.02 or earlier are impacted
 The following mitigation has been tested on RES version 2024.01.01:
 
 - Register a new software stack with the following settings
+
   - AMI ID: `ami-027cf6e71e2e442f4`
   - Operating System: Windows
   - GPU Manufacturer: NVIDIA
@@ -812,6 +820,7 @@ RES version 2024.04 and 2024.04.01
 The following mitigation has been tested on RES version 2024.04:
 
 - Open the `UnprotectCognitoUserPool` Lambda
+
   - Naming convention:
     ``<env-name>`-InstallerTasksUnprotectCognitoUserPool-...`
 

@@ -20,6 +20,7 @@ The high-level process flow for the product components deployed with the AWS Clo
 template is as follows:
 
 1. RES installs components for the web portal as well as:
+
    1. Engineering Virtual Desktop (eVDI) component for interactive workloads
    2. Metrics component
 

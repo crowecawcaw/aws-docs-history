@@ -50,10 +50,12 @@ a key pair using Amazon EC2](../../../AWSEC2/latest/UserGuide/create-key-pairs.m
 We recommend [increasing the service quotas](../../../servicequotas/latest/userguide/request-quota-increase.md "../../../servicequotas/latest/userguide/request-quota-increase.md") for:
 
 - [Amazon VPC](../../../vpc/latest/userguide/amazon-vpc-limits.md "../../../vpc/latest/userguide/amazon-vpc-limits.md")
+
   - Increase the Elastic IP address quota per NAT gateway from five to eight
   - Increase the NAT gateways per Availability Zone from five to ten
 
 - [Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md")
+
   - Increase the EC2-VPC Elastic IPs from five to ten
 
 Your AWS account has default quotas, formerly referred to as limits, for each AWS service.
@@ -90,6 +92,7 @@ product template and modify them as necessary.
    the passwords for each user you would like to log in as. You can reset user passwords
    from the AWS Directory Service. The demo stack creates four users with usernames
    which you can use: admin1, user1, admin2, and user2.
+
    1. Go to the Directory Service console.
    2. Select the Directory Id for your environment. You can get the Directory Id
       from the output of the `<StackName>*DirectoryService*` stack.

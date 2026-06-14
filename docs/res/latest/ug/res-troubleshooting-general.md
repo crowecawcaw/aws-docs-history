@@ -3,12 +3,14 @@
 This section contains information about where information can be found within RES.
 
 - [Useful log and event information sources](#res-troubleshooting-general-info "#res-troubleshooting-general-info")
+
   - [Where to find environment variables](#res-troubleshooting-general-info-env-vars "#res-troubleshooting-general-info-env-vars")
   - [Log files on the environment Amazon EC2 instances](#res-troubleshooting-general-info-logs "#res-troubleshooting-general-info-logs")
   - [CloudFormation Stacks](#res-troubleshooting-cf-stacks "#res-troubleshooting-cf-stacks")
   - [System failures due to an issue and reflected by Amazon EC2 Auto Scaling Group Activity](#res-troubleshooting-asg-activity "#res-troubleshooting-asg-activity")
 
 - [Typical Amazon EC2 Console Appearance](#res-troubleshooting-ec2-console "#res-troubleshooting-ec2-console")
+
   - [Infrastructure hosts](#res-troubleshooting-ec2-console-infra "#res-troubleshooting-ec2-console-infra")
   - [Infrastructure hosts and virtual desktops](#res-troubleshooting-ec2-console-virtual "#res-troubleshooting-ec2-console-virtual")
   - [Hosts in a terminated state](#res-troubleshooting-ec2-console-hosts-terminated "#res-troubleshooting-ec2-console-hosts-terminated")
@@ -80,9 +82,11 @@ Those groups are named as follows:
 
 - `/aws/lambda/`<envname>`-/ - lambda related`
 - `/`<envname>`/`
+
   - `cluster-manager/ - main infrastructure host`
   - `virtual-desktop-app/ - virtual desktop bootstrap and DCV related`
   - `vdc/ - virtual desktop related`
+
     - `dcv-broker/ - desktop related`
     - `dcv-connection-gateway/ - desktop related`
     - `controller/ - main desktop controller host`

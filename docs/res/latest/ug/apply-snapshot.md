@@ -33,6 +33,7 @@ status from the [Snapshot management](snapshots.md "snapshots.md") page.
 3. Under **Bucket policy**, choose **Edit**.
 4. Add the following statement to the bucket policy. Replace these values with
    your own:
+
    - `111122223333` -> your AWS Account ID
    - `{RES_ENVIRONMENT_NAME}` -> your RES environment name
    - `amzn-s3-demo-bucket` -> your S3 bucket name

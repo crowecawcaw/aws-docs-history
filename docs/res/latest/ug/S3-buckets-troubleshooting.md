@@ -6,6 +6,7 @@ If a bucket fails to mount on a VDI, there are a few locations where you can che
 errors. Follow the steps below.
 
 1.  Check the VDI Logs:
+
     1. Sign in to the AWS Management Console.
     2. Open the EC2 Console and navigate to **Instances**.
     3. Select the VDI instance you launched.
@@ -23,6 +24,7 @@ errors. Follow the steps below.
     Additionally, check the `/etc/message` log for more details.
 
 2.  Check Custom Credential Broker Lambda CloudWatch Logs:
+
     1. Sign in to the AWS Management Console.
     2. Open the CloudWatch Console and navigate to **Log groups**.
     3. Search for the log group
@@ -46,16 +48,20 @@ errors. Follow the steps below.
 4.  Sign in to the [AWS DynamoDB
     Console](https://console.aws.amazon.com/dynamodbv2/home "https://console.aws.amazon.com/dynamodbv2/home").
 5.  Select the Table:
+
     1. In the left navigation pane, choose **Tables**.
     2. Find and select ``<stack-name>`.cluster-settings`.
 
 6.  Scan the Table:
+
     1. Choose **Explore table items**.
     2. Ensure **Scan** is selected.
 
 7.  Add a Filter:
+
     1. Choose **Filters** to open the filter entry section.
     2. Set the filter to match your key-
+
        - **Attribute**: Enter the key.
        - **Condition**: Select **Begins with**.
        - **Value**: Enter

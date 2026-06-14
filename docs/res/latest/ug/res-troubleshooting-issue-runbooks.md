@@ -4,6 +4,7 @@ The following section contains issues that may occur, how to detect them, and su
 on how to resolve the issue.
 
 - [Installation issues](#installation-issues "#installation-issues")
+
   - [CloudFormation stack fails to create with message "WaitCondition received failed message. Error:States.TaskFailed"](#cf-stack-fails "#cf-stack-fails")
   - [Email notification not received after CloudFormation stacks created successfully](#email-invitation-not-received "#email-invitation-not-received")
   - [Instances cycling or vdc-controller in failed state](#instances-cycling "#instances-cycling")
@@ -13,6 +14,7 @@ on how to resolve the issue.
   - [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE_FAILED](#demo-environment-stack-fails "#demo-environment-stack-fails")
 
 - [Identity management issues](#troubleshooting-identity-management "#troubleshooting-identity-management")
+
   - [I am not authorized to perform iam:PassRole](#res-troubleshooting-issue-runbooks-unauth-passrole "#res-troubleshooting-issue-runbooks-unauth-passrole")
   - [I want to allow people outside of my AWS account to access my Research and Engineering Studio on AWS resources](#res-troubleshooting-issue-runbooks-outside-acct "#res-troubleshooting-issue-runbooks-outside-acct")
   - [When logging into the environment, I immediately return to the login page](#return-to-login "#return-to-login")
@@ -22,21 +24,26 @@ on how to resolve the issue.
   - [Size limit exceeded error in CloudWatch cluster-manager log](#sizelimit-exceeded-error "#sizelimit-exceeded-error")
 
 - [Storage](#res-troubleshooting-storage "#res-troubleshooting-storage")
+
   - [I created file system through RES but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-created "#res-troubleshooting-storage-created")
   - [I onboarded a file system through RES but it doesn't mount on the VDI hosts](#res-troubleshooting-storage-onboarded "#res-troubleshooting-storage-onboarded")
   - [I am not able to read/write on from VDI hosts](#res-troubleshooting-storage-rw "#res-troubleshooting-storage-rw")
+
     - [Example permission handling use cases](#res-troubleshooting-storage-rw-example "#res-troubleshooting-storage-rw-example")
 
   - [I created Amazon FSx for NetApp ONTAP from RES but it did not join my domain](#res-troubleshooting-storage-join "#res-troubleshooting-storage-join")
 
 - [Snapshots](#res-troubleshooting-snapshots "#res-troubleshooting-snapshots")
+
   - [A Snapshot has a status of Failed](#res-troubleshooting-snapshots-failed "#res-troubleshooting-snapshots-failed")
   - [A Snapshot fails to apply with logs indicating that the tables could not be imported.](#res-troubleshooting-snapshots-not-imported "#res-troubleshooting-snapshots-not-imported")
 
 - [Infrastructure](#res-troubleshooting-infrastructure "#res-troubleshooting-infrastructure")
+
   - [Load balancer target groups without healthy instances](#res-troubleshooting-infrastructure-load-balancer "#res-troubleshooting-infrastructure-load-balancer")
 
 - [Launching Virtual Desktops](#res-troubleshooting-virtual-desktops "#res-troubleshooting-virtual-desktops")
+
   - [I need to launch / resume a large number of VDIs in the RES web portal](#res-troubleshooting-virtual-desktops-resume-vdis "#res-troubleshooting-virtual-desktops-resume-vdis")
   - [Login account for Windows Virtual Desktop is set to Administrator](#res-troubleshooting-virtual-desktops-windows-admin "#res-troubleshooting-virtual-desktops-windows-admin")
   - [Certificate expires when using external resource CertificateRenewalNode](#res-troubleshooting-virtual-desktops-certificate-expires "#res-troubleshooting-virtual-desktops-certificate-expires")
@@ -48,6 +55,7 @@ on how to resolve the issue.
   - [VDI session goes to a blank screen after logging in](#res-troubleshooting-virtual-desktops-vdi-blank-screen "#res-troubleshooting-virtual-desktops-vdi-blank-screen")
 
 - [Virtual Desktop Component](#res-troubleshooting-vd-component "#res-troubleshooting-vd-component")
+
   - [Amazon EC2 instance is repeatedly showing terminated in the console](#res-troubleshooting-vd-component-ec2-terminated "#res-troubleshooting-vd-component-ec2-terminated")
   - [vdc-controller instance is cycling due to failing to join AD / eVDI module shows Failed API Health Check](#res-troubleshooting-vd-component-cycling "#res-troubleshooting-vd-component-cycling")
   - [Project does not appear in the pull down when editing the Software Stack to add it](#res-troubleshooting-vd-component-not-in-pulldown "#res-troubleshooting-vd-component-not-in-pulldown")
@@ -57,6 +65,7 @@ on how to resolve the issue.
   - [Firefox error MOZILLA_PKIX_ERROR_REQUIRED_TLS_FEATURE_MISSING](#res-troubleshooting-vd-firefox "#res-troubleshooting-vd-firefox")
 
 - [Env deletion](#res-troubleshooting-env-deletion "#res-troubleshooting-env-deletion")
+
   - [res-xxx-cluster stack in "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](#res-troubleshooting-env-deletion-role-invalid "#res-troubleshooting-env-deletion-role-invalid")
   - [Collecting Logs](#res-troubleshooting-env-deletion-collect-logs "#res-troubleshooting-env-deletion-collect-logs")
   - [Downloading VDI Logs](#res-troubleshooting-env-deletion-download-logs "#res-troubleshooting-env-deletion-download-logs")
@@ -66,10 +75,12 @@ on how to resolve the issue.
   - [Network interface deletion failure](#res-troubleshooting-env-deletion-eni-failure "#res-troubleshooting-env-deletion-eni-failure")
 
 - [Demo environment](#res-troubleshooting-demo-env "#res-troubleshooting-demo-env")
+
   - [Demo environment login error when handling authentication request to identity provider](#demo-environment-login-error "#demo-environment-login-error")
   - [Demo stack keycloak not working](#demo-environment-stack-keycloak "#demo-environment-stack-keycloak")
 
 - [Active Directory issues](#active-directory-issues "#active-directory-issues")
+
   - [My VDI is stuck in the provisioning state for a long time, or I cannot login my VDI as an AD user after the VDI is ready](#active-directory-issues-vdi-stuck "#active-directory-issues-vdi-stuck")
   - [I cannot login the RES web portal after configuring SSO](#active-directory-issues-res-web-portal "#active-directory-issues-res-web-portal")
   - [AD user cannot access the home directory using File Browser even after launching Linux VDIs successfully](#active-directory-issues-home-directory-access "#active-directory-issues-home-directory-access")
@@ -174,6 +185,7 @@ was unable to join the Active Directory.
 
 1. Verify the parameter values for the following were entered correctly
    during RES stack creation.
+
    - directoryservice.ldap_connection_uri
    - directoryservice.ldap_base
    - directoryservice.users.ou
@@ -213,7 +225,9 @@ was unable to join the Active Directory.
     and choose **Plaintext**.
 11. If you forgot the password or you are unsure if the entered password is correct,
     you can reset the password in Active Directory and Secrets Manager.
+
     1. To reset the password in AWS Managed Microsoft AD:
+
        1. Open the AWS Console and go to Directory Service.
        2. Select the **Directory ID**
           for your RES directory, and choose
@@ -224,6 +238,7 @@ was unable to join the Active Directory.
           password**.
 
     2. To reset the password in Secrets Manager:
+
        1. Open the AWS Console and go to Secrets Manager.
        2. Search for `directoryserviceServiceAccountPassword`.
           The secret should be
@@ -396,6 +411,7 @@ check the controller instance logs and review the configuration settings for err
    ``<environment-name>`.cluster-settings`.
 3. Open the table and choose **Explore table items**.
 4. Expand the filters section, and enter the following variables:
+
    - **Attribute name** – key
    - **Condition** – contains
    - **Value** – sso
@@ -582,6 +598,7 @@ DynamoDB table:
    `<stack-name>-cluster-settings`.
 3. Under **Explore table items**, expand
    **Filters**, and enter the following filter:
+
    - Attribute name - key
    - Condition - Equal to
    - Value -
@@ -735,11 +752,13 @@ group name `/`<res-environment-name>`/cluster-manager`
 for more details about the failure:
 
 - `Insufficient permissions to modify computer account`
+
   - This error indicates that your Service Account doesn't have the proper
     permissions to add computers to the AD. Check the [Set up a Service Account for Microsoft Active Directory](prerequisites.md#service-account-ms-ad "prerequisites.md#service-account-ms-ad")
     section for the permissions required by the Service Account.
 
 - `Invalid Credentials`
+
   - Your Service Account credentials in AD have expired or you provided
     incorrect credentials. To check or update your Service Account credentials,
     access the secret that stores the password in the [Secrets Manager console](https://console.aws.amazon.com/secretsmanager/listsecrets "https://console.aws.amazon.com/secretsmanager/listsecrets"). Make
@@ -1288,6 +1307,7 @@ role you created.
 
 1. Cluster-manager: Get logs for the cluster manager from the following places and
    attach them to the ticket.
+
    1. All the logs from the CloudWatch log group
       `<env-name>/cluster-manager`.
    2. All the logs under the `/root/bootstrap/logs` directory
@@ -1297,6 +1317,7 @@ role you created.
 
 2. Vdc-controller: Get the logs for the vdc-controller from the following places
    and attach them to the ticket.
+
    1. All the logs from the CloudWatch log group
       `<env-name>/vdc-controller`.
    2. All the logs under the `/root/bootstrap/logs` directory
@@ -1368,6 +1389,7 @@ download them from there. To do that, follow the steps listed in the next sectio
 5. Choose **Add permissions** to attach that policy.
 6. After that, follow the steps listed below based on your VDI type to download the
    logs. The module name would be the instance name.
+
    1. [Downloading logs from Linux EC2 instances](#res-troubleshooting-env-deletion-linux-ec2-logs "#res-troubleshooting-env-deletion-linux-ec2-logs")
       for Linux.
    2. [Downloading logs from Windows EC2 instances](#res-troubleshooting-env-deletion-windows-ec2-logs "#res-troubleshooting-env-deletion-windows-ec2-logs")
@@ -1477,6 +1499,7 @@ the user you are trying to log in as or your Active Directory Service Account.
 
 1. Reset the user and Service Account passwords in the [Directory service console](https://console.aws.amazon.com/directoryservicev2 "https://console.aws.amazon.com/directoryservicev2").
 2. Update the Service Account passwords in [Secrets Manager](https://console.aws.amazon.com/secretsmanager "https://console.aws.amazon.com/secretsmanager") to match the new password you entered above:
+
    - for the Keycloak stack:
      **PasswordSecret**-...-**RESExternal**-...-**DirectoryService**-...
      with Description: Password for Microsoft Active Directory
@@ -1504,6 +1527,7 @@ You will need to delete the existing infrastructure and redeploy the Keycloak st
 to restore Keycloak to a healthy state. Follow these steps:
 
 1. Go to Cloudformation. You should see two keycloak related stacks there:
+
    - ``<env-name>`-RESSsoKeycloak-`<random characters>`` (Stack1)
 
    ``<env-name>`-RESSsoKeycloak-`<random characters>`-RESSsoKeycloak-\*` (Stack2)
@@ -1551,6 +1575,7 @@ and filter for error messages that contains `[preset-computer]`. Common issues
 include:
 
 - Credentials for the AD Service Account are invalid.
+
   - Check the Service Account secret you provided to RES. Make sure that the
     username and password are provided as a key value pair
     `{`username`: `password`}`
@@ -1560,12 +1585,14 @@ include:
     Then launch new VDIs to apply the change.
 
 - Service Account doesn't have the permission to create computer accounts in AD.
+
   - Make sure that your Service Account has all the required permissions listed
     at [Set up a Service Account for Microsoft Active Directory](prerequisites.md#service-account-ms-ad "prerequisites.md#service-account-ms-ad").
     You will need to launch new VDIs after fixing the Service Account permissions
     in AD.
 
 - Cannot connect to the LDAP server.
+
   - Make sure that your AD configuration allows LDAP/LDAPS connection within the
     VPC and the DHCP option of your VPC is set properly following [Creating or changing a DHCP options set for AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/dhcp_options_set.md "../../../directoryservice/latest/admin-guide/dhcp_options_set.md")
     if you're using AWS managed AD.
@@ -1613,10 +1640,12 @@ Besides the common AD configuration issues mentioned at [My VDI is stuck in the 
 other errors may include:
 
 - Service Account doesn't have the permission to query users and groups in AD.
+
   - Make sure that your Service Account has all the required permissions listed at
     [Set up a Service Account for Microsoft Active Directory](prerequisites.md#service-account-ms-ad "prerequisites.md#service-account-ms-ad").
 
 - Users / groups in Active Directory missing required attributes like email address.
+
   - Update your user / group attributes accordingly to fix the issue.
 
 After you fix the AD sync issue, you can wait for the next scheduled AD sync which happens

@@ -6,10 +6,12 @@ how to create a VPC endpoint for the S3 service that supports access to S3 bucke
 account, as well as any additional accounts that have cross-account buckets.
 
 1.  Open the Amazon VPC Console:
+
     1. Sign in to the AWS Management Console.
     2. Open the Amazon VPC console at [https://console.aws.amazon.com/vpcconsole/](https://console.aws.amazon.com/vpcconsole "https://console.aws.amazon.com/vpcconsole").
 
 2.  Create a VPC Endpoint for S3:
+
     1. In the left navigation pane, choose **Endpoints**.
     2. Choose **Create Endpoint**.
     3. For **Service category**, ensure that
@@ -21,6 +23,7 @@ account, as well as any additional accounts that have cross-account buckets.
     5. Select the S3 service from the list.
 
 3.  Configure Endpoint Settings:
+
     1. For **VPC**, select the VPC where you want to create the
        endpoint.
     2. For **Subnets**, select both the private subnets used for
@@ -30,6 +33,7 @@ account, as well as any additional accounts that have cross-account buckets.
        interfaces.
 
 4.  Configure the Policy to Restrict Access:
+
     1. Under **Policy**, choose **Custom**.
     2. In the policy editor, enter a policy that restricts access to resources within
        your account or a specific account. Here's an example policy (replace
@@ -75,6 +79,7 @@ account, as well as any additional accounts that have cross-account buckets.
     ```
 
 5.  Create the Endpoint:
+
     1. Review your settings.
     2. Choose **Create endpoint**.
 

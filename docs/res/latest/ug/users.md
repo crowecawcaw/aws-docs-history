@@ -15,5 +15,6 @@ From the **Users** page, you can:
 
 1. Search for users.
 2. When a username is selected, use the **Actions** menu to:
+
    1. Set as Admin user
    2. Disable user

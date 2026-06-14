@@ -11,13 +11,16 @@ troubleshoot specific issues.
   Detailed contents:
 
 - [General Debugging and Monitoring](res-troubleshooting-general.md "res-troubleshooting-general.md")
+
   - [Useful log and event information sources](res-troubleshooting-general.md#res-troubleshooting-general-info "res-troubleshooting-general.md#res-troubleshooting-general-info")
+
     - [Where to find environment variables](res-troubleshooting-general.md#res-troubleshooting-general-info-env-vars "res-troubleshooting-general.md#res-troubleshooting-general-info-env-vars")
     - [Log files on the environment Amazon EC2 instances](res-troubleshooting-general.md#res-troubleshooting-general-info-logs "res-troubleshooting-general.md#res-troubleshooting-general-info-logs")
     - [CloudFormation Stacks](res-troubleshooting-general.md#res-troubleshooting-cf-stacks "res-troubleshooting-general.md#res-troubleshooting-cf-stacks")
     - [System failures due to an issue and reflected by Amazon EC2 Auto Scaling Group Activity](res-troubleshooting-general.md#res-troubleshooting-asg-activity "res-troubleshooting-general.md#res-troubleshooting-asg-activity")
 
   - [Typical Amazon EC2 Console Appearance](res-troubleshooting-general.md#res-troubleshooting-ec2-console "res-troubleshooting-general.md#res-troubleshooting-ec2-console")
+
     - [Infrastructure hosts](res-troubleshooting-general.md#res-troubleshooting-ec2-console-infra "res-troubleshooting-general.md#res-troubleshooting-ec2-console-infra")
     - [Infrastructure hosts and virtual desktops](res-troubleshooting-general.md#res-troubleshooting-ec2-console-virtual "res-troubleshooting-general.md#res-troubleshooting-ec2-console-virtual")
     - [Hosts in a terminated state](res-troubleshooting-general.md#res-troubleshooting-ec2-console-hosts-terminated "res-troubleshooting-general.md#res-troubleshooting-ec2-console-hosts-terminated")
@@ -27,7 +30,9 @@ troubleshoot specific issues.
   - [Find Amazon DCV Version Information](res-troubleshooting-general.md#res-troubleshooting-find-nice-dcv "res-troubleshooting-general.md#res-troubleshooting-find-nice-dcv")
 
 - [Issue RunBooks](res-troubleshooting-issue-runbooks.md "res-troubleshooting-issue-runbooks.md")
+
   - [Installation issues](res-troubleshooting-issue-runbooks.md#installation-issues "res-troubleshooting-issue-runbooks.md#installation-issues")
+
     - [CloudFormation stack fails to create with message "WaitCondition received failed message. Error:States.TaskFailed"](res-troubleshooting-issue-runbooks.md#cf-stack-fails "res-troubleshooting-issue-runbooks.md#cf-stack-fails")
     - [Email notification not received after CloudFormation stacks created successfully](res-troubleshooting-issue-runbooks.md#email-invitation-not-received "res-troubleshooting-issue-runbooks.md#email-invitation-not-received")
     - [Instances cycling or vdc-controller in failed state](res-troubleshooting-issue-runbooks.md#instances-cycling "res-troubleshooting-issue-runbooks.md#instances-cycling")
@@ -37,6 +42,7 @@ troubleshoot specific issues.
     - [Creation of external resources (demo) stack fails with AdDomainAdminNode CREATE_FAILED](res-troubleshooting-issue-runbooks.md#demo-environment-stack-fails "res-troubleshooting-issue-runbooks.md#demo-environment-stack-fails")
 
   - [Identity management issues](res-troubleshooting-issue-runbooks.md#troubleshooting-identity-management "res-troubleshooting-issue-runbooks.md#troubleshooting-identity-management")
+
     - [I am not authorized to perform iam:PassRole](res-troubleshooting-issue-runbooks.md#res-troubleshooting-issue-runbooks-unauth-passrole "res-troubleshooting-issue-runbooks.md#res-troubleshooting-issue-runbooks-unauth-passrole")
     - [I want to allow people outside of my AWS account to access my Research and Engineering Studio on AWS resources](res-troubleshooting-issue-runbooks.md#res-troubleshooting-issue-runbooks-outside-acct "res-troubleshooting-issue-runbooks.md#res-troubleshooting-issue-runbooks-outside-acct")
     - [When logging into the environment, I immediately return to the login page](res-troubleshooting-issue-runbooks.md#return-to-login "res-troubleshooting-issue-runbooks.md#return-to-login")
@@ -46,21 +52,26 @@ troubleshoot specific issues.
     - [Size limit exceeded error in CloudWatch cluster-manager log](res-troubleshooting-issue-runbooks.md#sizelimit-exceeded-error "res-troubleshooting-issue-runbooks.md#sizelimit-exceeded-error")
 
   - [Storage](res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage "res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage")
+
     - [I created file system through RES but it doesn't mount on the VDI hosts](res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-created "res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-created")
     - [I onboarded a file system through RES but it doesn't mount on the VDI hosts](res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-onboarded "res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-onboarded")
     - [I am not able to read/write on from VDI hosts](res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-rw "res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-rw")
+
       - [Example permission handling use cases](res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-rw-example "res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-rw-example")
 
     - [I created Amazon FSx for NetApp ONTAP from RES but it did not join my domain](res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-join "res-troubleshooting-issue-runbooks.md#res-troubleshooting-storage-join")
 
   - [Snapshots](res-troubleshooting-issue-runbooks.md#res-troubleshooting-snapshots "res-troubleshooting-issue-runbooks.md#res-troubleshooting-snapshots")
+
     - [A Snapshot has a status of Failed](res-troubleshooting-issue-runbooks.md#res-troubleshooting-snapshots-failed "res-troubleshooting-issue-runbooks.md#res-troubleshooting-snapshots-failed")
     - [A Snapshot fails to apply with logs indicating that the tables could not be imported.](res-troubleshooting-issue-runbooks.md#res-troubleshooting-snapshots-not-imported "res-troubleshooting-issue-runbooks.md#res-troubleshooting-snapshots-not-imported")
 
   - [Infrastructure](res-troubleshooting-issue-runbooks.md#res-troubleshooting-infrastructure "res-troubleshooting-issue-runbooks.md#res-troubleshooting-infrastructure")
+
     - [Load balancer target groups without healthy instances](res-troubleshooting-issue-runbooks.md#res-troubleshooting-infrastructure-load-balancer "res-troubleshooting-issue-runbooks.md#res-troubleshooting-infrastructure-load-balancer")
 
   - [Launching Virtual Desktops](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops")
+
     - [I need to launch / resume a large number of VDIs in the RES web portal](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-resume-vdis "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-resume-vdis")
     - [Login account for Windows Virtual Desktop is set to Administrator](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-windows-admin "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-windows-admin")
     - [Certificate expires when using external resource CertificateRenewalNode](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-certificate-expires "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-certificate-expires")
@@ -72,6 +83,7 @@ troubleshoot specific issues.
     - [VDI session goes to a blank screen after logging in](res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-vdi-blank-screen "res-troubleshooting-issue-runbooks.md#res-troubleshooting-virtual-desktops-vdi-blank-screen")
 
   - [Virtual Desktop Component](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component")
+
     - [Amazon EC2 instance is repeatedly showing terminated in the console](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-ec2-terminated "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-ec2-terminated")
     - [vdc-controller instance is cycling due to failing to join AD / eVDI module shows Failed API Health Check](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-cycling "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-cycling")
     - [Project does not appear in the pull down when editing the Software Stack to add it](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-not-in-pulldown "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-component-not-in-pulldown")
@@ -81,6 +93,7 @@ troubleshoot specific issues.
     - [Firefox error MOZILLA_PKIX_ERROR_REQUIRED_TLS_FEATURE_MISSING](res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-firefox "res-troubleshooting-issue-runbooks.md#res-troubleshooting-vd-firefox")
 
   - [Env deletion](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion")
+
     - [res-xxx-cluster stack in "DELETE_FAILED" state and cannot be deleted manually due to "Role is invalid or cannot be assumed" error](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-role-invalid "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-role-invalid")
     - [Collecting Logs](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-collect-logs "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-collect-logs")
     - [Downloading VDI Logs](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-download-logs "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-download-logs")
@@ -89,10 +102,12 @@ troubleshoot specific issues.
     - [Collecting ECS logs for the WaitCondition error](res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-waitcondition "res-troubleshooting-issue-runbooks.md#res-troubleshooting-env-deletion-waitcondition")
 
   - [Demo environment](res-troubleshooting-issue-runbooks.md#res-troubleshooting-demo-env "res-troubleshooting-issue-runbooks.md#res-troubleshooting-demo-env")
+
     - [Demo environment login error when handling authentication request to identity provider](res-troubleshooting-issue-runbooks.md#demo-environment-login-error "res-troubleshooting-issue-runbooks.md#demo-environment-login-error")
     - [Demo stack keycloak not working](res-troubleshooting-issue-runbooks.md#demo-environment-stack-keycloak "res-troubleshooting-issue-runbooks.md#demo-environment-stack-keycloak")
 
   - [Active Directory issues](res-troubleshooting-issue-runbooks.md#active-directory-issues "res-troubleshooting-issue-runbooks.md#active-directory-issues")
+
     - [My VDI is stuck in the provisioning state for a long time, or I cannot login my VDI as an AD user after the VDI is ready](res-troubleshooting-issue-runbooks.md#active-directory-issues-vdi-stuck "res-troubleshooting-issue-runbooks.md#active-directory-issues-vdi-stuck")
     - [I cannot login the RES web portal after configuring SSO](res-troubleshooting-issue-runbooks.md#active-directory-issues-res-web-portal "res-troubleshooting-issue-runbooks.md#active-directory-issues-res-web-portal")
     - [AD user cannot access the home directory using File Browser even after launching Linux VDIs successfully](res-troubleshooting-issue-runbooks.md#active-directory-issues-home-directory-access "res-troubleshooting-issue-runbooks.md#active-directory-issues-home-directory-access")
@@ -100,6 +115,7 @@ troubleshoot specific issues.
     - [View and manage my Active Directory deployed by RES external resource stack](res-troubleshooting-issue-runbooks.md#active-directory-issues-external-resource-stack "res-troubleshooting-issue-runbooks.md#active-directory-issues-external-resource-stack")
 
 - [Known Issues 2024.x](res-troubleshooting-known-issues.md#res-troubleshooting-known-issues-2024x "res-troubleshooting-known-issues.md#res-troubleshooting-known-issues-2024x")
+
   - [(2024.12 and 2024.12.01) Regex failure when registering a new Cognito user](res-troubleshooting-known-issues.md#res-troubleshooting-known-issues-2024x-regex-failure-cognito "res-troubleshooting-known-issues.md#res-troubleshooting-known-issues-2024x-regex-failure-cognito")
   - [(2024.12.01 and earlier) Invalid bad cert error when connecting to VDI using a custom domain](res-troubleshooting-known-issues.md#res-troubleshooting-known-issues-2024x-invalid-bad-cert "res-troubleshooting-known-issues.md#res-troubleshooting-known-issues-2024x-invalid-bad-cert")
   - [(2024.12 and 2024.12.01) Active Directory users cannot SSH to Bastion Host](res-troubleshooting-known-issues.md#res-troubleshooting-known-issues-2024x-ad-users-cannot-ssh "res-troubleshooting-known-issues.md#res-troubleshooting-known-issues-2024x-ad-users-cannot-ssh")

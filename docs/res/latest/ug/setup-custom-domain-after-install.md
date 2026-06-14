@@ -8,6 +8,7 @@ contents in a Secrets Manager secret before performing these steps.
 ###### Add certs to the web client
 
 1. Update the cert attached to the listener of the external-alb load balancer:
+
    1. Navigate to the RES external load balancer in the AWS console under
       **EC2** > **Load Balancing** >
       **Load Balancers**.
@@ -19,6 +20,7 @@ contents in a Secrets Manager secret before performing these steps.
    5. Save your changes.
 
 2. In the cluster-settings table:
+
    1. Find the cluster-settings table in DynamoDB -> Tables ->
       ``<env-name>`.cluster-settings`.
    2. Go to **Explore Items** and **Filter by Attribute**
@@ -47,12 +49,14 @@ contents in a Secrets Manager secret before performing these steps.
 
 1. Grant the RES application permission to perform a GetSecret operation on the
    secret by adding the following tags to the secrets:
+
    - `res:EnvironmentName` :
      `<env-name>`
    - `res:ModuleName` :
      `virtual-desktop-controller`
 
 2. In the cluster-settings table:
+
    1. Find the cluster-settings table in DynamoDB -> Tables ->
       ``<env-name>`.cluster-settings`.
    2. Go to **Explore Items** and **Filter by Attribute**
@@ -71,6 +75,7 @@ contents in a Secrets Manager secret before performing these steps.
       This is the ARN for the secret that holds the Private Key contents.
 
 3. Update the launch template used for the gateway instance:
+
    1. Open the Auto Scaling group in the AWS Console under **EC2**
       > **Auto Scaling** >
       > **Auto Scaling Groups**.

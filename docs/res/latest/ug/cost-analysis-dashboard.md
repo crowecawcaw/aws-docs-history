@@ -21,6 +21,7 @@ To use the cost dashboard for Research and Engineering Studio, you must first:
 - Attach the budget to the project (see [Edit a project](edit-project.md "edit-project.md")).
 - Activate the cost analysis chart for accounts with new RES deployments. To do this,
   follow these steps:
+
   1.  Deploy a [VDI](virtual-desktops.md "virtual-desktops.md") for the project you
       created. This provisions the `res:Project` tag in the [AWS Cost
       Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ "https://aws.amazon.com/aws-cost-management/aws-cost-explorer/"), which can take up to 24 hours.

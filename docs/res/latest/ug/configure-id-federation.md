@@ -29,6 +29,7 @@ the RES Amazon Cognito user pool.
     source](../../../singlesignon/latest/userguide/gs-ad.md "../../../singlesignon/latest/userguide/gs-ad.md") in the _AWS IAM Identity Center User Guide_.
 2.  Configure a SAML 2.0 application for RES in your identity provider (IdP).
     This configuration requires the following parameters:
+
     - SAML Redirect URL — The URL that your
       IdP uses to send the SAML 2.0 response to the service provider.
 
@@ -48,7 +49,6 @@ the RES Amazon Cognito user pool.
          **General Settings** ⇒ **Identity
          Provider**.
         3. Choose **SAML Redirect URL**.
-
     - SAML Audience URI — The unique ID of
       the SAML audience entity on the service provider side.
 
@@ -77,6 +77,7 @@ the RES Amazon Cognito user pool.
 
 3.  The SAML assertion posted to RES must have the following fields/claims set
     to the user's email address:
+
     - SAML Subject or NameID
     - SAML email
 
@@ -85,6 +86,7 @@ the RES Amazon Cognito user pool.
     Most providers automatically fill these fields by default.
     Refer to the following field inputs and values if you have to
     configure them.
+
     - AudienceRestriction — Set to
       `urn:amazon:cognito:sp:`user-pool-id``. 
 Replace `user-pool-id` with the ID of your Amazon Cognito user
@@ -95,7 +97,6 @@ Replace `user-pool-id` with the ID of your Amazon Cognito user
         <saml:Audience> urn:amazon:cognito:sp:`user-pool-id`
     </saml:AudienceRestriction>
     ```
-
     - Response — Set `InResponseTo`
       to `https://`user-pool-domain`/saml2/idpresponse`.
       Replace `user-pool-domain` with the domain name of
@@ -111,7 +112,6 @@ Replace `user-pool-id` with the ID of your Amazon Cognito user
       xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol"
       xmlns:xs="http://www.w3.org/2001/XMLSchema">
     ```
-
     - SubjectConfirmationData — Set
       `Recipient` to your user pool `saml2/idpresponse` endpoint
       and `InResponseTo` to the original SAML request ID.
@@ -122,7 +122,6 @@ Replace `user-pool-id` with the ID of your Amazon Cognito user
       NotOnOrAfter="Date-time stamp"
       Recipient="https://`user-pool-domain`/saml2/idpresponse"/>
     ```
-
     - AuthnStatement — Configure as the
       following:
 

@@ -8,6 +8,7 @@ From the Sessions page, you can filter and view session information or create a 
 1. Use the menu to filter results by sessions created or updated within a specified
    time frame.
 2. Select a session and use the Actions menu to:
+
    1. Resume Session(s)
    2. Stop/Hibernate Session(s)
    3. Force Stop/Hibernate Session(s)
