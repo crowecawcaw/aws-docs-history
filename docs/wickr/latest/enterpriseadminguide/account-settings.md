@@ -13,6 +13,7 @@ Complete the following steps to access the **My Account** section.
    Administrator** panel. The **My Account** section
    opens.
 2. Choose one of the following options:
+
    - **First Name —** Update your first name.
    - **Last Name —** Update your last name.
    - **Administrator Password —** Change your password.

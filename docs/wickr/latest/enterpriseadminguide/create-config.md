@@ -12,6 +12,7 @@ You can create a new configuration file.
 2. Choose **Create New Config**.
 3. On the **Create Configuration File** window, perform the following
    steps.
+
    1. Choose a security group from the **Security group** drop-down
       list.
    2. Choose the expiration period from the **Expiration period** drop-down
@@ -34,6 +35,7 @@ You can create a new configuration file.
    certificate.
 
 4. Paste the contents of the SSL certificate in the load config file.
+
    1. In the navigation pane, choose **Network Settings**, and then choose
       **Security group**.
    2. Choose **Details**, for the security group you want to disable

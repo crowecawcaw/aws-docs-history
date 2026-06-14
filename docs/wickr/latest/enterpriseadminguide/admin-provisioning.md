@@ -19,6 +19,7 @@ Complete the following procedure to create a network administrator.
 2. On the **Admin Provisioning** page, choose **Create
    Admin**.
 3. In the **Create Admin** dialog box that appears, do the following:
+
    1. (Optional) For **First Name** and **Last Name**, enter
       the name of the admin.
    2. For **Username**, enter the username of the admin.

@@ -13,6 +13,7 @@ containers.
   addition to the default level.
 - **Messaging:** Shows the most information, which can
   include:
+
   - IP address
   - Client ID
   - Device type
