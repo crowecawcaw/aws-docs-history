@@ -39,6 +39,7 @@ The AWS for SAP MCP Server can be deployed via a CloudFormation template (see [D
 - Allow outbound HTTPS access from Amazon Bedrock AgentCore Runtime to AWS services such as AWS Secrets Manager, Amazon S3, and Amazon Bedrock AgentCore Identity. Because these service endpoints are public, the private subnet where Amazon Bedrock AgentCore Runtime runs must provide internet access through a NAT Gateway. As an alternative, you can use VPC endpoints to access these services privately.
 - Inbound connectivity on HTTPS (443) port from the MCP client (AI agent) to Amazon Bedrock AgentCore Runtime.
 - For detailed prerequisites, refer to the Amazon Bedrock AgentCore documentation:
+
   - [AgentCore Runtime](../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md "../../../bedrock-agentcore/latest/devguide/agents-tools-runtime.md")
   - [AgentCore Identity](../../../bedrock-agentcore/latest/devguide/identity.md "../../../bedrock-agentcore/latest/devguide/identity.md")
   - [AgentCore VPC configuration](../../../bedrock-agentcore/latest/devguide/agentcore-vpc.md "../../../bedrock-agentcore/latest/devguide/agentcore-vpc.md")
@@ -53,6 +54,7 @@ Inbound authentication requires a JSON Web Token (JWT) compatible identity provi
 
 - **Amazon Cognito:** No prerequisites.
 - **External Identity Provider (Entra ID):** If you use an external identity provider (IdP) for inbound authentication, you must configure your IdP before deployment and provide the following through the CloudFormation template parameters:
+
   - **Discovery URL:** Your identity provider’s well-known configuration endpoint, used by AgentCore Identity to fetch token validation keys and issuer information.
   - **Allowed audiences:** The audience values that AgentCore Identity accepts when validating incoming tokens.
 
@@ -99,16 +101,19 @@ Additionally, SAP and IdP related OAuth2/OIDC/SAML configuration are required as
 **Pattern 1: SAP as Authorization Server with OAuth2**
 
 - Same as M2M Pattern 1 prerequisites, plus:
+
   - The AgentCore callback URL must be registered with SAP as a redirect URI in the OAuth2 client configuration. This URL is auto-generated during deployment.
 
 **Pattern 2: SAP as Authorization Server with OAuth2 + SAML IdP (Entra ID)**
 
 - Same as M2M Pattern 1 prerequisites, plus:
+
   - A SAML identity provider (Entra ID) configured as a trusted provider in SAP ([SAML2 transaction](https://help.sap.com/doc/saphelp_scm700_ehp02/7.0.2/en-US/4a/b4c93185376d61e10000000a42189c/frameset.htm "https://help.sap.com/doc/saphelp_scm700_ehp02/7.0.2/en-US/4a/b4c93185376d61e10000000a42189c/frameset.htm")).
   - The AgentCore callback URL must be registered with SAP as a redirect URI in the OAuth2 client configuration. This URL is auto-generated during deployment.
 
 **Pattern 3: External IdP (Entra ID) with OIDC**
 
 - Same as External IdP M2M OIDC prerequisites, plus:
+
   - The AgentCore callback URL must be registered as a redirect URI in your identity provider’s application configuration. This URL is auto-generated during deployment.
   - This is applicable only to SAP S/4HANA.
