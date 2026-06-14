@@ -12,6 +12,7 @@ Edit the details of a device, including whether the location type is either on-p
    choose **Edit**.
 6. Choose **Edit device**.
 7. Add or update any of the following device information:
+
    - **Description**
    - **Model**
    - **Serial number**

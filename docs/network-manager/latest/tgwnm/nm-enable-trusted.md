@@ -19,6 +19,7 @@ trusted access, see [Trusted access](nm-multi-account.md#nm-multi-trust "nm-mult
    management account when accessing resources from other accounts using the global networks
    console. You can choose only one permission level for all accounts. Permission can be one
    of the following:
+
    - **Read-only** — Assign this permission if the delegated
      administrator and management accounts only need to review information about resources
      from other accounts in the global network while using the console switch role, but

@@ -11,11 +11,13 @@ Perform a route analysis of your AWS global network. You can only use Route Anal
 5. The **Overview** page opens by default, showing information about your transit gateways.
 6. Choose the **Route Analyzer** tab.
 7. Under **Source**, do the following:
+
    - Choose the transit gateway and the transit gateway attachment.
    - For **IP address**, enter a source IPv4 or IPv6
      address.
 
 8. Under **Destination**, do the following:
+
    - Choose the transit gateway and the transit gateway attachment.
    - For **IP address**, enter a target IPv4 or IPv6
      address.

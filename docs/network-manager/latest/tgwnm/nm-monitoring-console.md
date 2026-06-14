@@ -27,6 +27,7 @@ the Connect peer status, and any network events affecting your transit gateways.
 4. In the navigation pane, choose **Transit Gateway network**.
 5. The **Overview** page opens by default, showing information about your transit gateways.
 6. On the **Overview** page you contains the following information:
+
    - Your transit gateway network **Inventory**:
 
    | Icon                           | Description                                                                                                                                                                                                                       |
@@ -36,6 +37,7 @@ the Connect peer status, and any network events affecting your transit gateways.
    | AWS Cloud WAN devices          | **Devices**<br>The total number of devices associated with your transit<br>gateways. Choose the link to open the<br>\*_Devices_<br>• page to view more information<br>about your transit gateway devices.                         |
    - The **Transit gateways VPN status**. The following is
      displayed:
+
      - **ID** – The ID of the transit gateway. Choose
        the link to open details about the transit gateway.
      - **Name** – Name of the transit gateway.
@@ -50,6 +52,7 @@ the Connect peer status, and any network events affecting your transit gateways.
 
    - The **Transit gateways connect peer status**. The
      following is displayed:
+
      - **ID** – The ID of the transit gateway.
      - **Name** – Name of the transit gateway.
      - **Region** – Region where the transit peer is
@@ -351,6 +354,7 @@ Route Analyzer checks the routes on Transit Gateway route tables only
 5. The **Overview** page opens by default, showing information about your transit gateways.
 6. Choose the **Route Analyzer** tab.
 7. In the **Source** section,
+
    - Choose the source **Transit Gateway** for the route
      that you want to analyze.
 
@@ -367,6 +371,7 @@ Route Analyzer checks the routes on Transit Gateway route tables only
      information on middlebox configurations, see [Route analysis with a middlebox configuration](example-route-analyzer-middlebox.md "example-route-analyzer-middlebox.md").
 
 8. In the Destination section,
+
    - Choose the destination **Transit Gateway**.
 
    If you're logged on to an account that's set up as a delegated
