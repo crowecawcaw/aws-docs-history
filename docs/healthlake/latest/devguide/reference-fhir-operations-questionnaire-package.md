@@ -261,15 +261,18 @@ When you call `$questionnaire-package`, HealthLake performs the following steps:
 
 1. **Identify Patient & Payer**: Extracts the patient and insurance organization from your `coverage` parameter.
 2. **Find the Right Questionnaire**:
+
    - **With** `questionnaire` **parameter**: Uses the canonical URL you provided
    - **With** `order` **parameter**: Matches the order code (CPT/HCPCS/LOINC) and payer to find the appropriate questionnaire
 
 3. **Gather Dependencies**: Automatically retrieves everything needed to render the questionnaire:
+
    - **CQL Libraries** - Logic for pre-population and conditional questions
    - **ValueSets** - Answer choices (automatically expanded if <40 options)
    - **QuestionnaireResponse** - Any existing in-progress or completed responses
 
 4. **Package Everything Together**:
+
    - Bundles all resources (each resource included only once)
    - Filters by `changedSince` timestamp if provided
    - Adds warnings to `Outcome` if any resources are missing
@@ -398,6 +401,7 @@ To use the `$questionnaire-package` operation, ensure your IAM role has:
 
 - **Canonical URL** (if `questionnaire` parameter provided) - Highest priority
 - **Order Analysis** (if `order` parameter provided):
+
   - Match order codes (CPT, HCPCS, LOINC) to payer medical policies
   - Use coverage payor to filter payer-specific questionnaires
   - Consider reason codes for additional context

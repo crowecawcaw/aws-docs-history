@@ -61,6 +61,13 @@ JWT](reference-smart-on-fhir-token-validation.md "reference-smart-on-fhir-token-
 To create a SMART on FHIR HealthLake data store you need to provide an
 `IdentityProviderConfiguration`. For more information, see [Creating a HealthLake data store](managing-data-stores-create.md "managing-data-stores-create.md").
 
+###### Note
+
+After the data store is created, you can update the identity provider
+configuration—for example, to rotate the token validation Lambda function,
+change the authorization server metadata, or change the authorization
+strategy—by using `UpdateFHIRDatastore`. For more information, see [Updating a HealthLake data store](managing-data-stores-update.md "managing-data-stores-update.md").
+
 ## Client application workflow for SMART on FHIR
 
 The following section explains how to launch a client application and make a

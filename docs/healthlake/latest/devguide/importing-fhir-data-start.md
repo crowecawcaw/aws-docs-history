@@ -184,6 +184,7 @@ information:
 
 5. Under the **Import output files** section, enter the following
    information:
+
    - **Import output files location in Amazon S3**
 
    - **Import output files encryption**

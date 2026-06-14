@@ -61,6 +61,7 @@ AWS Console
 
 2. Under the **Query settings** section, make the following
    selections.
+
    - **Data Store ID** — choose a data store ID to generate
      a query string.
    - **Query type** — choose `Read`.

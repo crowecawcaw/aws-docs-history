@@ -357,6 +357,7 @@ Conditional PUTs are supported only in `batch` bundles. `Transaction` bundles do
 
 - `_id` (standalone)
 - `_id` in combination with one of the following:
+
   - `_tag`
   - `_createdAt`
   - `_lastUpdated`

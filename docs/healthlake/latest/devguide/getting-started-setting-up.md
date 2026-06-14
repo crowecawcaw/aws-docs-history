@@ -481,6 +481,7 @@ can also request this information using HealthLake SDKs.
 
 1. Download and configure the AWS CLI. For instructions, see the following topics
    in the _AWS Command Line Interface User Guide_.
+
    - [Installing
      or updating the latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
    - [Getting

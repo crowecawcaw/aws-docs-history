@@ -5,10 +5,11 @@ AWS Lambda function in the `CreateFHIRDatastore` request. The ARN of the Lambda
 function is specified in `IdentityProviderConfiguration` object using the
 `IdpLambdaArn` parameter.
 
-You must create the Lambda function prior to creating your SMART on FHIR enabled data
-store. Once you create the data store, the Lambda ARN cannot be changed. To see the Lambda
-ARN you specified when the data store was created, use the
-`DescribeFHIRDatastore` API action.
+You must create the Lambda function before you create your SMART on FHIR enabled data
+store. After the data store is created, you can point to a different Lambda function by
+updating `IdpLambdaArn` with `UpdateFHIRDatastore`. To see the Lambda ARN
+currently configured for the data store, use the `DescribeFHIRDatastore` API
+action. For more information, see [Updating a HealthLake data store](managing-data-stores-update.md "managing-data-stores-update.md").
 
 ###### For a FHIR REST request to succeed on a SMART on FHIR enabled data store, your Lambda function must do the following:
 

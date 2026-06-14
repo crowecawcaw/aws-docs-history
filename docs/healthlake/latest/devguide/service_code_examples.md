@@ -11,7 +11,9 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateFHIRDatastore](example_healthlake_CreateFHIRDatastore_section.md "example_healthlake_CreateFHIRDatastore_section.md")
     - [DeleteFHIRDatastore](example_healthlake_DeleteFHIRDatastore_section.md "example_healthlake_DeleteFHIRDatastore_section.md")
     - [DescribeFHIRDatastore](example_healthlake_DescribeFHIRDatastore_section.md "example_healthlake_DescribeFHIRDatastore_section.md")

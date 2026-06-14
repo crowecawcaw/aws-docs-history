@@ -8,6 +8,10 @@ to a SMART on FHIR enabled HealthLake data store. To use fine-grained authorizat
 `IdentityProviderConfiguration` parameter of your `CreateFHIRDatastore`
 request.
 
+You can also enable or disable fine-grained authorization on an existing data store by
+updating `FineGrainedAuthorizationEnabled` with `UpdateFHIRDatastore`. For more
+information, see [Updating a HealthLake data store](managing-data-stores-update.md "managing-data-stores-update.md").
+
 If you enabled fine-grained authorization, your authorization server returns a
 `fhirUser` scope in the `id_token` along with the access token.
 This permits information about the User to be retrieved by client application. The client

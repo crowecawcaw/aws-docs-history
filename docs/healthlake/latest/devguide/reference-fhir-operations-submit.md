@@ -626,6 +626,7 @@ HealthLake performs comprehensive validation on your submission:
 - `Bundle.type` must be `"collection"`
 - Can contain multiple Claim resources
 - However, must contain exactly one Claim resource with preauthorization use
+
   - And this Claim resource must be the first entry in the bundle
 
 - All referenced resources must be included in the Bundle

@@ -3,15 +3,18 @@
 Follow these steps to understand the FHIR Subscription lifecycle:
 
 1. Create a `SubscriptionTopic`
+
    - Create a `SubscriptionTopic` with status `"unknown"`
 
 2. Create a `Subscription`
+
    - Create a `Subscription` with status `"requested"`
    - HealthLake validates the `Subscription` configuration
    - `Subscription` _must_ reference an already existing topic
      (topic _must_ be in status `unknown`, `draft`, `active`).
 
 3. Activation
+
    - If valid, HealthLake updates status of `Subscription` to `"active"`
    - While creating a `Subscription`, if the topic given was in status `"unknown"`, HealthLake
      updates the status to `"active"` once the Subscription is also active
@@ -22,13 +25,16 @@ Follow these steps to understand the FHIR Subscription lifecycle:
 
 4. Ingesting while Subscription is `active`
 5. While `Subscription` is `active`
+
    - HealthLake monitors for events matching your criteria
    - Notifications are sent to configured endpoint when matches occur
 
 6. Error Handling
+
    - HealthLake attempts retries for 14 days and then stops retrying for those events
 
 7. Deactivation
+
    - A `Subscription` can be deactivated by:
 
    Setting an end date (automatic deactivation)

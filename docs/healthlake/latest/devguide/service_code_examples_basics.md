@@ -6,6 +6,7 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [CreateFHIRDatastore](example_healthlake_CreateFHIRDatastore_section.md "example_healthlake_CreateFHIRDatastore_section.md")
   - [DeleteFHIRDatastore](example_healthlake_DeleteFHIRDatastore_section.md "example_healthlake_DeleteFHIRDatastore_section.md")
   - [DescribeFHIRDatastore](example_healthlake_DescribeFHIRDatastore_section.md "example_healthlake_DescribeFHIRDatastore_section.md")

@@ -16,7 +16,7 @@ To find the FHIR-related capabilities (behaviors) of an active HealthLake data s
 its [Capability Statement](reference-fhir-capability-statement.md "reference-fhir-capability-statement.md").
 
 The following topics describe how to use HealthLake cloud native actions to create, describe,
-list, tag, and delete FHIR data stores using the AWS CLI, AWS SDKs, and AWS Management Console.
+list, update, tag, and delete FHIR data stores using the AWS CLI, AWS SDKs, and AWS Management Console.
 
 ###### Topics
 
@@ -24,5 +24,6 @@ list, tag, and delete FHIR data stores using the AWS CLI, AWS SDKs, and AWS Mana
 - [Getting data store
   properties](managing-data-stores-describe.md "managing-data-stores-describe.md")
 - [Listing data stores](managing-data-stores-list.md "managing-data-stores-list.md")
+- [Updating a data store](managing-data-stores-update.md "managing-data-stores-update.md")
 - [Tagging data stores](managing-data-stores-tagging.md "managing-data-stores-tagging.md")
 - [Deleting a data store](managing-data-stores-delete.md "managing-data-stores-delete.md")

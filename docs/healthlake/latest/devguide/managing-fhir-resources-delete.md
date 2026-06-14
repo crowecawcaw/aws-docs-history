@@ -65,6 +65,7 @@ AWS Console
 
 2. Under the **Query settings** section, make the following
    selections.
+
    - **Data Store ID** — choose a data store ID to generate
      a query string.
    - **Query type** — choose `Delete`.
@@ -136,6 +137,7 @@ This request deletes a Patient resource where:
 1. Use specific search criteria to avoid multiple matches and prevent 412 errors.
 2. Consider ETag headers for version control when needed to handle concurrent modifications.
 3. Handle error responses appropriately:
+
    - For 404: Refine your search criteria
    - For 412: Make criteria more specific or resolve version conflicts
 

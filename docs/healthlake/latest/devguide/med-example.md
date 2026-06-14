@@ -29,10 +29,13 @@ Amazon Comprehend Medical API operations only detect medical entities in English
   as an `extension` to each document found within the
   `DocumentReference` resource type. Results in the extension are divided into
   two groups. You can find them in the results based on their `URL`.
+
   - `http://healthlake.amazonaws.com/system-generated-resources/`
+
     - These are resource types that have been created or added to by HealthLake.
 
   - `http://healthlake.amazonaws.com/aws-cm/`
+
     - Where the raw output of the Amazon Comprehend Medical API operations is added to your HealthLake data
       store.
 
@@ -43,6 +46,7 @@ Amazon Comprehend Medical API operations only detect medical entities in English
   learn more about the FHIR specifications for Linkage, see [`Linkage`](https://hl7.org/fhir/R4/linkage.html "https://hl7.org/fhir/R4/linkage.html") in the
   **FHIR R4 documentation**.
 - FHIR resource types generated as a result of the Amazon Comprehend Medical operations.
+
   - `Observation`: includes results from the Amazon Comprehend Medical API actions
     `DetectEntities-V2` and `InferICD10-CM` when the traits are
     `SIGN` or `SYMPTOM`.

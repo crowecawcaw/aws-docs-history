@@ -28,6 +28,7 @@ Your request must be a FHIR Bundle resource with:
 
 - **Bundle.type**: Must be `"collection"`
 - **Bundle.entry**: Must contain exactly **one** Claim resource with:
+
   - `use = "preauthorization"`
   - `status = "active"`
 

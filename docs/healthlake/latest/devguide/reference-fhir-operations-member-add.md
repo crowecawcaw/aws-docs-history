@@ -323,6 +323,7 @@ Resource Updates
 - Updates the Group resource version ID
 - Creates a history entry with the original resource state before the operation
 - Adds member information to the Group.member array with:
+
   - Patient reference in entity.reference
   - Attribution period in period
   - Coverage and provider information in extension fields

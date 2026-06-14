@@ -151,27 +151,25 @@ in the `Metadata` field of your [`IdentityProviderConfiguration`](../APIReferenc
 
 ##### Existing data stores
 
-For existing data stores, submit a support ticket requesting the addition
-of `permission-v2.2` to your data store configuration. This
-follows the same process used when upgrading from SMART on FHIR V1 to
-SMART on FHIR V2.
-
-Self-service updates for V2.2 on existing data stores are not yet
-available. The HealthLake team will apply the change on your behalf upon ticket
-submission.
+To enable SMART on FHIR V2.2 on an existing data store, add
+`permission-v2.2` to the `capabilities` array in
+the `Metadata` field of your [`IdentityProviderConfiguration`](../APIReference/API_IdentityProviderConfiguration.md "../APIReference/API_IdentityProviderConfiguration.md") and submit the
+change with `UpdateFHIRDatastore`. For more information, see [Updating a HealthLake data store](managing-data-stores-update.md "managing-data-stores-update.md").
 
 Requirements:
 
-- `permission-v2` must remain in the array. V2.2 cannot
-  be used without V2.
+- `permission-v2` must remain in the array. V2.2 extends
+  V2 and can't be used on its own.
 - `AuthorizationStrategy` must be
   `SMART_ON_FHIR` (not
   `SMART_ON_FHIR_V1` or
   `AWS_AUTH`).
-- No downtime required. The change takes effect
-  immediately.
+- Updating the identity provider configuration replaces it in full,
+  so include all existing fields and capabilities along with
+  `permission-v2.2`.
 
-To verify, confirm via the [Discovery
+The change takes effect immediately, with no downtime. To verify, fetch
+the [Discovery
 Document](reference-smart-on-fhir-discovery-document.md "reference-smart-on-fhir-discovery-document.md") (requires
 SigV4):
 

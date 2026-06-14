@@ -21,6 +21,11 @@ SMART on FHIR requests:
   You can create a SMART on FHIR enabled data store using the AWS CLI or AWS SDKs. For more
   information, see [Creating a HealthLake data store](managing-data-stores-create.md "managing-data-stores-create.md").
 
+After you create a SMART on FHIR enabled data store, you can update its identity provider
+configuration—including the authorization server metadata, the token validation Lambda
+function, and the authorization strategy—by using `UpdateFHIRDatastore`. For more
+information, see [Updating a HealthLake data store](managing-data-stores-update.md "managing-data-stores-update.md").
+
 ###### Topics
 
 - [Getting started with SMART on FHIR](reference-smart-on-fhir-getting-started.md "reference-smart-on-fhir-getting-started.md")

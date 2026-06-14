@@ -16,6 +16,10 @@ When you create a HealthLake data store, a FHIR data repository is made availabl
 API [endpoint](reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints "reference-healthlake-endpoints-quotas.md#reference-healthlake-endpoints"). After you've created your
 HealthLake data store, you can request its [Capability Statement](reference-fhir-capability-statement.md "reference-fhir-capability-statement.md") to find all associated FHIR-related capabilities (behaviors).
 
+After you create a data store, you can change its name, default FHIR validation profiles,
+NLP configuration, analytics configuration, and identity provider configuration. The encryption
+configuration can't be changed. For more information, see [Updating a data store](managing-data-stores-update.md "managing-data-stores-update.md").
+
 The following menus provide examples for the AWS CLI and AWS SDKs and a procedure for the
 AWS Management Console. For more information, see [`CreateFHIRDatastore`](../APIReference/API_CreateFHIRDatastore.md "../APIReference/API_CreateFHIRDatastore.md") in the _AWS HealthLake API Reference_.
 

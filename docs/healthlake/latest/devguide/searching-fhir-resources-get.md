@@ -77,6 +77,7 @@ authorization is supported through AWS CLI and AWS SDKs.
 
 2. Under the **Query settings** section, make the
    following selections.
+
    - **Data Store ID** — choose a data
      store ID to generate a query string.
    - **Query type** — choose `Search
