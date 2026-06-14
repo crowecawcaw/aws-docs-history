@@ -312,6 +312,7 @@ Cluster naming constraints are as follows:
     * Can't end with a hyphen.
 
 5. Under **Selected users** do one of the following:
+
    1. Create a new user by choosing **Create user**
    2. Add users by choosing **Manage** and then selecting users from the **Manage users** dialog and then selecting **Choose**.
 
@@ -346,6 +347,7 @@ aws memorydb create-acl ^
 2. On left navigation pane, choose **Access control lists (ACL)**.
 3. Choose the ACL you wish to modify and then choose **Modify**
 4. On the **Modify** page, under **Selected users** do one of the following:
+
    1. Create a new user by choosing **Create user** to add to the ACL.
    2. Add or remove users by choosing **Manage** and then selecting or de-selecting users from the **Manage users** dialog and then selecting **Choose**.
 
@@ -359,6 +361,7 @@ Cluster naming constraints are as follows:
     * Can't end with a hyphen.
 
 6. Under **Selected users** do one of the following:
+
    1. Create a new user by choosing **Create user**
    2. Add users by choosing **Manage** and then selecting users from the **Manage users** dialog and then selecting **Choose**.
 

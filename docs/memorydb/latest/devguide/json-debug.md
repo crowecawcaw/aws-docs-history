@@ -23,6 +23,7 @@ Depends on the subcommand:
 MEMORY
 
 - If the path is enhanced syntax:
+
   - returns an array of integers, representing memory size (in bytes) of JSON value at each path.
   - returns an empty array if the key does not exist.
 
@@ -38,6 +39,7 @@ MEMORY
   FIELDS
 
 - If the path is enhanced syntax:
+
   - returns an array of integers, representing number of fields of JSON value at each path.
   - returns an empty array if the key does not exist.
 

@@ -63,6 +63,7 @@ For more information about tagging your resources for billing, see [Monitoring c
 The following rules apply to tagging as part of request operations:
 
 - **CreateCluster** :
+
   - If the `--cluster-name` is supplied:
 
   If tags are included in the request, the cluster will be tagged.
@@ -72,6 +73,7 @@ The following rules apply to tagging as part of request operations:
   the snapshot tags will be added to the cluster.
 
 - **CreateSnapshot** :
+
   - If the `--cluster-name` is supplied:
 
   If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request,

@@ -24,6 +24,7 @@ engine minor version and MemoryDB will start updating your cluster immediately.
 4. The **Modify** page appears.
 5. In the **Modify** window, make the modifications that you
    want. Options include:
+
    - Description
    - Subnet groups
    - VPC Security Group(s)

@@ -65,6 +65,7 @@ Use the following parameters with `update-cluster`.
   the shard reconfiguration operation is to be performed on.
 - `--shard-configuration` – Required. Allows you to set
   the number of shards.
+
   - `ShardCount` – Set this property to specify the number of shards you want.
 
 ###### Example

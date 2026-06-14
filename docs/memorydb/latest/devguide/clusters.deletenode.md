@@ -64,6 +64,7 @@ To remove nodes using the MemoryDB API, call the
   from.
 - `ReplicaConfiguration` – Allows you to set
   the number of replicas:
+
   - `ReplicaCount` – Set this property to specify the number of replica nodes you want.
 
 - `Region` Specifies the AWS Region of the cluster that you want to remove a

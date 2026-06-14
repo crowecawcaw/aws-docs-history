@@ -51,6 +51,7 @@ MemoryDB console, the AWS CLI, or the MemoryDB API.
 3.  In the list of snapshots, choose button next to the name of the snapshot name you want to restore from.
 4.  Choose **Actions** and then choose **Restore**
 5.  Under **Cluster configuration, enter the following:**
+
     1. **Cluster name** –
        Required.
        The name of the new cluster.
@@ -59,8 +60,10 @@ MemoryDB console, the AWS CLI, or the MemoryDB API.
        The description of the new cluster.
 
 6.  Complete the **Subnet groups** section:
+
     1. For **Subnet groups**, create a new subnet group or choose an existing
        one from the available list that you want to apply to this cluster. If you are creating a new one:
+
        - Enter a **Name**
        - Enter a **Description**
        - If you enabled Multi-AZ,
@@ -71,6 +74,7 @@ MemoryDB console, the AWS CLI, or the MemoryDB API.
          _Amazon VPC User Guide._
 
 7.  Complete the **Cluster settings** section:
+
     1. For **Valkey version compatibility** or **Redis OSS version compatibility**, accept the default `6.0`.
     2. For **Port**, accept the default port of 6379 or, if you have a reason to use a different port, enter the port number..
     3. For **Parameter group**, accept the `default.memorydb-redis6` parameter group.
@@ -92,9 +96,9 @@ MemoryDB console, the AWS CLI, or the MemoryDB API.
         * If you have Multi-AZ enabled, make sure that you have at least one replica per
          shard.
         * The number of replicas is the same for each shard when creating the cluster using the console.
-
     7.  Choose **Next**
     8.  Complete the **Advanced settings** section:
+
         1. For **Security groups**, choose the security groups that you want for
            this cluster. A _security group_
            acts as a firewall to control network access to your cluster. You

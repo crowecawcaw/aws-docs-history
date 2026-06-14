@@ -43,6 +43,7 @@ Create a role for identity federation. Follow the instructions in [Create a role
 in the _IAM User Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
@@ -88,11 +89,13 @@ The following examples show how to create a cluster using the AWS Management Con
 3.  Complete the **Configuration** section. This configures the node type and
     default configuration of your cluster. Select the appropriate memory size and network performance you require
     from the following options:
+
     - Production
     - Dev/Test
     - Demo
 
 4.  Complete the **Cluster info** section.
+
     1. In **Name**, enter a name for your cluster.
 
     Cluster naming constraints are as follows:
@@ -101,13 +104,14 @@ The following examples show how to create a cluster using the AWS Management Con
         * Must begin with a letter.
         * Can't contain two consecutive hyphens.
         * Can't end with a hyphen.
-
     2. In the **Description** box, enter a description for this
        cluster.
 
 5.  Complete the **Subnet groups** section:
+
     1. For **Subnet groups**, create a new subnet group or choose an existing
        one from the available list that you want to apply to this cluster. If you are creating a new one:
+
        - Enter a **Name**
        - Enter a **Description**
        - If you enabled Multi-AZ,
@@ -155,8 +159,10 @@ Create new cluster1. Complete the **Cluster info** section.
      cluster.
 
 2.  Complete the **Subnet groups** section:
+
     1. For **Subnet groups**, create a new subnet group or choose an existing
        one from the available list that you want to apply to this cluster. If you are creating a new one:
+
        - Enter a **Name**
        - Enter a **Description**
        - If you enabled Multi-AZ,
@@ -167,6 +173,7 @@ Create new cluster1. Complete the **Cluster info** section.
          _Amazon VPC User Guide._
 
 3.  Complete the **Cluster settings** section:
+
     1. For **Enable Vector search capability**, you can enable
        this to store vector embeddings and perform vector searches. Note that this will fix the values
        for engine version compatibility, **Parameter groups** and **Shards**. For more
@@ -194,9 +201,9 @@ Create new cluster1. Complete the **Cluster info** section.
         * If you have Multi-AZ enabled, make sure that you have at least one replica per
          shard.
         * The number of replicas is the same for each shard when creating the cluster using the console.
-
     8.  Choose **Next**
     9.  Complete the **Advanced settings** section:
+
         1. For **Security groups**, choose the security groups that you want for
            this cluster. A _security group_
            acts as a firewall to control network access to your cluster. You
@@ -217,7 +224,6 @@ Create new cluster1. Complete the **Cluster info** section.
              the key.
             * **Encryption in-transit** – Enables encryption of data on the wire. If you select no encryption, then an open Access control list called “open access” will be created with a default user. For more
              information, see [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md").
-
         3. For **Snapshot**, optionally specify a snapshot retention period and a snapshot window. By default, **Enable automatic snapshots** is pre-selected.
         4. For **Maintenance window** optionally specify a maintenance window. The _maintenance window_ is
            the time, generally an hour in length, each week when MemoryDB
@@ -260,6 +266,7 @@ have vector search enabled.
 The target cluster defaults to the settings of the source cluster. Optionally, you can change the following settings on the target cluster:
 
 1.  **Cluster info**
+
     1. In **Name**, enter a name for your cluster.
 
     Cluster naming constraints are as follows:
@@ -268,13 +275,14 @@ The target cluster defaults to the settings of the source cluster. Optionally, y
         * Must begin with a letter.
         * Can't contain two consecutive hyphens.
         * Can't end with a hyphen.
-
     2. In the **Description** box, enter a description for this
        cluster.
 
 2.  **Subnet groups**
+
     1. For **Subnet groups**, create a new subnet group or choose an existing
        one from the available list that you want to apply to this cluster. If you are creating a new one:
+
        - Enter a **Name**
        - Enter a **Description**
        - If you enabled Multi-AZ,
@@ -285,6 +293,7 @@ The target cluster defaults to the settings of the source cluster. Optionally, y
          _Amazon VPC User Guide._
 
 3.  **Cluster settings**
+
     1. For **Enable Vector search capability**, you can enable
        this to store vector embeddings and perform vector searches. Note that this will fix the values
        for engine version compatibility, **Parameter groups** and **Shards**. For more
@@ -311,9 +320,9 @@ The target cluster defaults to the settings of the source cluster. Optionally, y
         * If you have Multi-AZ enabled, make sure that you have at least one replica per
          shard.
         * The number of replicas is the same for each shard when creating the cluster using the console.
-
     8.  Choose **Next**
     9.  **Advanced settings**
+
         1. For **Security groups**, choose the security groups that you want for
            this cluster. A _security group_
            acts as a firewall to control network access to your cluster. You
@@ -334,7 +343,6 @@ The target cluster defaults to the settings of the source cluster. Optionally, y
              the key.
             * **Encryption in-transit** – Enables encryption of data on the wire. If you select no encryption, then an open Access control list called “open access” will be created with a default user. For more
              information, see [Authenticating users with Access Control Lists (ACLs)](clusters.acls.md "clusters.acls.md").
-
         3. For **Snapshot**, optionally specify a snapshot retention period and a snapshot window. By default, **Enable automatic snapshots** is pre-selected.
         4. For **Maintenance window** optionally specify a maintenance window. The _maintenance window_ is
            the time, generally an hour in length, each week when MemoryDB
@@ -482,6 +490,7 @@ the security group to access the clusters.
    select **Add Rule**. This security group will allow access to
    members of another security group.
 4. From **Type** choose **Custom TCP Rule**.
+
    1. For **Port Range**, specify the port you used when you created your
       cluster.
 

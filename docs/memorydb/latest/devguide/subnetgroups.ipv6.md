@@ -9,6 +9,7 @@ With this functionality you can:
 - Create new subnet groups to support ipv4-only, dual stack, and ipv6-only subnets.
 - Modify existing subnet groups to include additional subnets from the underlying VPC.
 - Modify existing subnets in subnet groups
+
   - Add IPv6 only subnets to subnet groups configured for IPv6
   - Add IPv4 or dual stack subnets to subnet groups configured for IPv4 and dual stack support
 

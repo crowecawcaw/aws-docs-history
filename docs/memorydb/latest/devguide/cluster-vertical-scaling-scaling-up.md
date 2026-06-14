@@ -17,6 +17,7 @@ continue to serve requests with minimal downtime.
 2. From the list of clusters, choose the cluster.
 3. Choose **Actions** and then choose **Modify**.
 4. In the **Modify Cluster** dialog:
+
    1. Choose the node type you want to scale to from the **Node type** list. To scale up, select a node type larger than your existing node.
 
 5. Choose **Save changes**.
@@ -106,6 +107,7 @@ depending upon your node type and the amount of data in your current cluster.
 
 1. Determine which node types you can scale up to using the MemoryDB API
    `ListAllowedNodeTypeUpdates` action with the following parameter.
+
    - `ClusterName` – the name of the cluster.
      Use this parameter to describe a specific cluster rather than all clusters.
 

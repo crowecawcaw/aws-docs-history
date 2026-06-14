@@ -65,6 +65,7 @@ export and store your MemoryDB snapshot.
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose **Create Bucket**.
 3. In **Create a Bucket - Select a Bucket Name and Region**, do the following:
+
    1. In **Bucket Name**,
       type a name for your Amazon S3 bucket.
    2. From the **Region** list, choose an AWS Region for your Amazon S3 bucket.
@@ -184,6 +185,7 @@ The Amazon S3 bucket must be in the same AWS Region as the MemoryDB snapshot.
 3.  From the list of snapshots, choose the radio button to the left of the name of the snapshot you want to export.
 4.  Choose **Copy**.
 5.  In **Create a Copy of the Backup?**, do the following:
+
     1. In **New snapshot name** box,
        type a name for your new snapshot.
 

@@ -23,6 +23,7 @@ The following procedure shows how to create a subnet group (console).
 3.  Choose **Create Subnet Group**.
 4.  In the **Create Subnet Group** page,
     do the following:
+
     1. In the **Name** box,
        type a name for your subnet group.
 
@@ -32,7 +33,6 @@ The following procedure shows how to create a subnet group (console).
         * Must begin with a letter.
         * Can't contain two consecutive hyphens.
         * Can't end with a hyphen.
-
     2. In the **Description** box,
        type a description for your subnet group.
     3. In the **VPC ID** box,

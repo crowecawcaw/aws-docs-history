@@ -22,16 +22,19 @@ service-linked role documentation for that service.
 
 - [Service-Linked Role Permissions](using-service-linked-roles.md#service-linked-role-permissions "using-service-linked-roles.md#service-linked-role-permissions")
 - [Creating a Service-Linked Role (IAM)](using-service-linked-roles.md#create-service-linked-role-iam "using-service-linked-roles.md#create-service-linked-role-iam")
+
   - [Using the IAM Console](using-service-linked-roles.md#create-service-linked-role-iam-console "using-service-linked-roles.md#create-service-linked-role-iam-console")
   - [Using the IAM CLI](using-service-linked-roles.md#create-service-linked-role-iam-cli "using-service-linked-roles.md#create-service-linked-role-iam-cli")
   - [Using the IAM API](using-service-linked-roles.md#create-service-linked-role-iam-api "using-service-linked-roles.md#create-service-linked-role-iam-api")
 
 - [Editing a Service-Linked Role Description](using-service-linked-roles.md#edit-service-linked-role "using-service-linked-roles.md#edit-service-linked-role")
+
   - [Using the IAM Console](using-service-linked-roles.md#edit-service-linked-role-iam-console "using-service-linked-roles.md#edit-service-linked-role-iam-console")
   - [Using the IAM CLI](using-service-linked-roles.md#edit-service-linked-role-iam-cli "using-service-linked-roles.md#edit-service-linked-role-iam-cli")
   - [Using the IAM API](using-service-linked-roles.md#edit-service-linked-role-iam-api "using-service-linked-roles.md#edit-service-linked-role-iam-api")
 
 - [Deleting a Service-Linked Role for MemoryDB](using-service-linked-roles.md#delete-service-linked-role "using-service-linked-roles.md#delete-service-linked-role")
+
   - [Cleaning Up a Service-Linked Role](using-service-linked-roles.md#service-linked-role-review-before-delete "using-service-linked-roles.md#service-linked-role-review-before-delete")
   - [Deleting a Service-Linked Role (IAM Console)](using-service-linked-roles.md#delete-service-linked-role-iam-console "using-service-linked-roles.md#delete-service-linked-role-iam-console")
   - [Deleting a Service-Linked Role (IAM CLI)](using-service-linked-roles.md#delete-service-linked-role-iam-cli "using-service-linked-roles.md#delete-service-linked-role-iam-cli")
@@ -325,6 +328,7 @@ it.
 ###### To delete MemoryDB resources that require AWSServiceRoleForMemoryDB (console)
 
 - To delete a cluster, see the following:
+
   - [Using the AWS Management Console](getting-started.md#clusters.deleteclusters.viewdetails "getting-started.md#clusters.deleteclusters.viewdetails")
   - [Using the AWS CLI](getting-started.md#clusters.delete.cli "getting-started.md#clusters.delete.cli")
   - [Using the MemoryDB API](getting-started.md#clusters.delete.api "getting-started.md#clusters.delete.api")

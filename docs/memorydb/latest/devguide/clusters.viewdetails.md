@@ -22,6 +22,7 @@ For more information, see [Metrics for MemoryDB](metrics.memorydb.md "metrics.me
     2. In **Security groups**, you can see the security group ID, name and description.
 
 7. Choose the **Maintenace and snapshot** tab to see details of the snapshot settings.
+
    1. In **Snapshot**, you can see whether Automated Snapshots are enabled, the snapshot retention period and
       the snapshot window.
    2. In **Snapshots**, you will see a list of any snapshots to this cluster, including the snapshot name, size, number of shards and status.For more information, see [Snapshot and restore](snapshots.md "snapshots.md").

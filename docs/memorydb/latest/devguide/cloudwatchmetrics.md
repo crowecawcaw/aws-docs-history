@@ -92,6 +92,7 @@ mon-get-stats CPUUtilization ^
 - Call the CloudWatch API `GetMetricStatistics`
   with the following parameters (note that the start and end times are shown as examples only; you will
   need to substitute your own appropriate start and end times):
+
   - `Statistics.member.1``=Average`
   - `Namespace``=AWS/MemoryDB`
   - `StartTime``=2013-07-05T00:00:00`

@@ -27,6 +27,7 @@ In this case, you will need to grant network ingress to the cluster.
    this security group will be named _default_.
 4. Choose the **Inbound** tab, and then do
    the following:
+
    1. Choose **Edit**.
    2. Choose **Add rule**.
    3. In the **Type** column, choose **Custom TCP
@@ -120,6 +121,7 @@ Under **Virtual Private Network**, select **Client VPN Endpoints** and do the fo
 
 - Select **Create Client VPN Endpoint**.
 - Specify the following options:
+
   - **Client IPv4 CIDR**: use a private network with a netmask of at least /22 range.
     Make sure that the selected subnet does not conflict with the VPC networks' addresses. Example: 10.0.0.0/22.
   - In **Server certificate ARN**, select the ARN of the certificate previously imported.
@@ -146,6 +148,7 @@ Example output:
 
 - Select the new VPN endpoint, and then select the **Associations** tab.
 - Select **Associate** and specify the following options.
+
   - **VPC**: Select the MemoryDB Cluster's VPC.
   - Select one of the MemoryDB cluster's networks. If in doubt, review the networks in the **Subnet Groups** on the MemoryDB dashboard.
   - Select **Associate**. If necessary, repeat the steps for the remaining networks.

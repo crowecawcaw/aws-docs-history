@@ -6,13 +6,17 @@ MemoryDB supports the following scenarios for accessing a cluster in an Amazon V
 
 - [Accessing a MemoryDB Cluster when it and the Amazon EC2 Instance are in the Same Amazon VPC](memorydb-vpc-accessing.md#memorydb-vpc-accessing-same-vpc "memorydb-vpc-accessing.md#memorydb-vpc-accessing-same-vpc")
 - [Accessing a MemoryDB Cluster when it and the Amazon EC2 Instance are in Different Amazon VPCs](memorydb-vpc-accessing.md#memorydb-vpc-accessing-different-vpc "memorydb-vpc-accessing.md#memorydb-vpc-accessing-different-vpc")
+
   - [In Different Amazon VPCs in the Same Region](memorydb-vpc-accessing.md#memorydb-vpc-accessing-different-vpc-same-region "memorydb-vpc-accessing.md#memorydb-vpc-accessing-different-vpc-same-region")
+
     - [Using Transit Gateway](memorydb-vpc-accessing.md#memorydb-vpc-accessing-using-transit-gateway "memorydb-vpc-accessing.md#memorydb-vpc-accessing-using-transit-gateway")
 
   - [In Different Amazon VPCs in Different Regions](memorydb-vpc-accessing.md#memorydb-vpc-accessing-different-vpc-different-region "memorydb-vpc-accessing.md#memorydb-vpc-accessing-different-vpc-different-region")
+
     - [Using Transit VPC](memorydb-vpc-accessing.md#memorydb-vpc-accessing-different-vpc-different-region-using-transit-vpc "memorydb-vpc-accessing.md#memorydb-vpc-accessing-different-vpc-different-region-using-transit-vpc")
 
 - [Accessing a MemoryDB Cluster from an Application Running in a Customer's Data Center](memorydb-vpc-accessing.md#memorydb-vpc-accessing-data-center "memorydb-vpc-accessing.md#memorydb-vpc-accessing-data-center")
+
   - [Using VPN Connectivity](memorydb-vpc-accessing.md#memorydb-vpc-accessing-data-center-vpn "memorydb-vpc-accessing.md#memorydb-vpc-accessing-data-center-vpn")
   - [Using Direct Connect](memorydb-vpc-accessing.md#memorydb-vpc-accessing-data-center-direct-connect "memorydb-vpc-accessing.md#memorydb-vpc-accessing-data-center-direct-connect")
 
@@ -43,6 +47,7 @@ the security group to access the clusters.
    select **Add Rule**. This security group will allow access to
    members of another security group.
 4. From **Type** choose **Custom TCP Rule**.
+
    1. For **Port Range**, specify the port you used when you created your
       cluster.
 

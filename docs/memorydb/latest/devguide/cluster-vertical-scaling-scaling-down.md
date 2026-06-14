@@ -17,6 +17,7 @@ continue to serve requests with minimal downtime.
 2. From the list of clusters, choose your preferred cluster.
 3. Choose **Actions** and then choose **Modify**.
 4. In the **Modify Cluster** dialog:
+
    1. Choose the node type you want to scale to from the **Node type** list.
       To scale down, select a node type smaller than your existing node. Note that not all node types are available to scale down to.
 
@@ -105,6 +106,7 @@ depending upon your node type and the amount of data in your current cluster.
 ###### Scaling down (MemoryDB API)
 
 1. Determine which node types you can scale down to using the [ListAllowedNodeTypeUpdates](../APIReference/API_ListAllowedNodeTypeUpdates.md "../APIReference/API_ListAllowedNodeTypeUpdates.md") API with the following parameter:
+
    - `ClusterName` – the name of the cluster.
      Use this parameter to describe a specific cluster rather than all clusters.
 
@@ -122,6 +124,7 @@ https://memory-db.us-east-1.amazonaws.com/
 2. Scale your current cluster down to the new node type using the
    [UpdateCluster](../APIReference/API_UpdateCluster.md "../APIReference/API_UpdateCluster.md") API
    with the following parameters.
+
    - `ClusterName` –
      the name of the cluster.
    - `NodeType` –
