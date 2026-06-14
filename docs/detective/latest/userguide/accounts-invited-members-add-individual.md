@@ -14,6 +14,7 @@ Console
 4. Under **Add accounts**, choose **Add individual
    accounts**.
 5. To add a member account to the invitation list, perform the following steps.
+
    1. Choose **Add account**.
    2. For **AWS Account ID**, enter the AWS account ID.
    3. For **Email address**, enter the root user email address for the

@@ -220,6 +220,7 @@ JSON
    auto-filled. You can change the stack name to a name that does not conflict with
    existing stack names.
 3. Enter the following **Parameters**.
+
    - **AthenaResultsBucket** – If you don't enter
      values, this template generates an Amazon S3 bucket. If you want to use your
      own bucket, enter a bucket name to store the Athena query results. If you

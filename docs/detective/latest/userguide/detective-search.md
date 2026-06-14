@@ -49,6 +49,7 @@ For each entity type, the following identifiers are supported:
 - For IP addresses, the address in CIDR or dot notation.
 - For Kubernetes subjects (service accounts or users), the name.
 - For a role session, you can use any of the following values to search:
+
   - Role session identifier.
 
   The role session identifier uses the format

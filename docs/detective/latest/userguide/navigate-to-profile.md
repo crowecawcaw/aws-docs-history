@@ -165,6 +165,7 @@ The instance identifier of the finding or entity.
 - For FindingGroups, a UUID. for example,
   `ca6104bc-a315-4b15-bf88-1c1e60998f83`
 - For EKS resources, use the following formats:
+
   - EKS cluster: `<clusterName>~<accountId>~EKS`
   - Kubernetes Pod:
     `<podUid>~<clusterName>~<accountId>~EKS`

@@ -15,6 +15,7 @@ Detective ingests data from these types of AWS logs:
 
 - AWS CloudTrail logs
 - Amazon Virtual Private Cloud (Amazon VPC) flow logs
+
   - Ingests both IPv4 and IPv6 records, but not MAC records produced by Elastic Fabric Adapters.
   - Ingests log records when the value of the `log-status` field is in
     `OK` state. For more information, see [Flow log records](../../../vpc/latest/userguide/flow-logs.md#flow-logs-fields "../../../vpc/latest/userguide/flow-logs.md#flow-logs-fields") in the

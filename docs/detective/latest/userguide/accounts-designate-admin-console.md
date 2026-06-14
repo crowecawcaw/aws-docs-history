@@ -18,6 +18,7 @@ To designate a Detective administrator from the **Enable Detective** page, follo
 4. Choose **Attach policy from IAM** to view the recommended policy directly
    in the IAM console.
 5. Depending on whether you have permissions in the IAM console, proceed as follows:
+
    - If you have permissions to operate in the IAM console, attach the recommended policy
      to the principal you use for Detective.
    - If you don't have permissions to operate in the IAM console, copy the Amazon Resource

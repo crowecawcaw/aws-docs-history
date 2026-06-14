@@ -15,6 +15,7 @@ console.
 4.  In the **Select resource** section, you have three ways to run an investigation. You can choose
     to run the investigation for a resource recommended by Detective. You can
     run the investigation for a specific resource. You can also investigate a resource from the Detective Search page.
+
     1. `Choose a recommended resource` – Detective recommends resources based on its activity in findings and
        finding groups. To run the investigation for a resource recommended by Detective, in the **Recommended resources** table, select a resource to
        investigate.
@@ -36,14 +37,12 @@ console.
          prioritized on top of the list.
         * **Resource type** – Identifies the type of
          resource. For example, an AWS user or AWS role.
-
     2. `Specify an AWS role or user with an ARN` – You can select an AWS role or AWS user and run an investigation for the specific resource.
 
     Follow these steps to investigate a specific resource type.
 
         1. From the **Select resource type** drop-down list, choose AWS role or AWS user.
         2. Enter the **Resource ARN** of the IAM resource. For more details about Resource ARNs, see [Amazon Resource Names (ARNs)](../../../IAM/latest/UserGuide/reference-arns.md "../../../IAM/latest/UserGuide/reference-arns.md") in the IAM User Guide.
-
     3. `Find a resource to investigate from the Search page` – You can search all of your IAM resources from the Detective
        **Search** page.
 

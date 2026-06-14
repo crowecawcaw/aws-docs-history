@@ -144,6 +144,7 @@ You can also run the scripts from your local machine.
 1. Make sure that you have set up on your local machine credentials for your administrator
    account that have permission to call `AssumeRole`.
 2. Install the required software:
+
    - Python 3
    - Boto (minimum version 1.15)
    - GitHub scripts
