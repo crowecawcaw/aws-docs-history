@@ -25,6 +25,7 @@ The following are the available configuration options under **monitoringConfigur
 
 - **Image** (optional) – Log agent image url. Will fetch by emrReleaseLabel if not provided.
 - **s3MonitoringConfiguration** – Set this option to archive to Amazon S3.
+
   - **logUri** – (required) – The Amazon S3 bucket path where you want to store your logs.
   - The following are sample formats for the Amazon S3 bucket paths, after the logs are uploaded. The first example shows no log rotation enabled.
 
@@ -41,6 +42,7 @@ The following are the available configuration options under **monitoringConfigur
   ```
 
 - **cloudWatchMonitoringConfiguration** – The configuration key to set up forwarding to Amazon CloudWatch.
+
   - **logGroupName** (required) – Name of the Amazon CloudWatch log group that you want to send logs to. The group
     automatically gets created if it doesn't exist.
   - **logStreamNamePrefix** (optional) – Name of the log stream that you want to send logs into. The default value is an
@@ -51,6 +53,7 @@ The following are the available configuration options under **monitoringConfigur
   ```
 
 - **sideCarResources** (optional) – The configuration key to set resource limits on the launched Fluentd sidecar container.
+
   - **memoryLimit** (optional) – The memory limit. Adjust according to your needs. The default is 512Mi.
   - **cpuLimit** (optional) – The CPU limit. Adjust according to your needs. The default is 500m.
 

@@ -64,6 +64,7 @@ Use the following steps to retrieve the OIDC issuer URL from the Amazon EKS cons
 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation panel, choose **Identity Providers**, and then
    choose **Create Provider**.
+
    1. For **Provider Type**, choose **Choose a provider
       type**, and then choose **OpenID Connect**.
    2. For **Provider URL**, paste the OIDC issuer URL for your

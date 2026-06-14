@@ -31,6 +31,7 @@ To set up cross-account access for Amazon EMR on EKS, complete the following ste
    table in `AccountB`. For more information, see [Creating a DynamoDB table](../../../amazondynamodb/latest/developerguide/getting-started-step-1.md "../../../amazondynamodb/latest/developerguide/getting-started-step-1.md").
 2. Create a `Cross-Account-Role-B` IAM role in `AccountB` that can access
    the `cross-account-bucket`.
+
    1. Sign in to the IAM console.
    2. Choose **Roles** and create a new role: `Cross-Account-Role-B`.
       For more information about how to create IAM roles, see [Creating IAM roles](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/UserGuide/id_roles_create.md") in the IAM user Guide.
@@ -92,6 +93,7 @@ To set up cross-account access for Amazon EMR on EKS, complete the following ste
    ```
 
 3. Edit the trust relationship for the `Cross-Account-Role-B` role.
+
    1. To configure the trust relationship for the role, choose the **Trust
       Relationships** tab in the IAM console for the role created
       in Step 2: `Cross-Account-Role-B`.
@@ -123,6 +125,7 @@ To set up cross-account access for Amazon EMR on EKS, complete the following ste
    STS
    Assume role permission to assume
    `Cross-Account-Role-B`.
+
    1. In the IAM console for AWS account `AccountA`, select `Job-Execution-Role-A`.
    2. Add the following policy statement to the `Job-Execution-Role-A` to allow the
       `AssumeRole` action on the `Cross-Account-Role-B`

@@ -249,13 +249,13 @@ jupyter-notebook  1/1    Running  0         46s
 
 4. Attach the notebook security group to the node where the notebook is
    scheduled.
+
    1. First, identify the node where `jupyter-notebook` pod is scheduled
       with the `describe pod` command.
 
    ```
    kubectl describe pod jupyter-notebook -n `namespace`
    ```
-
    2. Open the Amazon EKS console at [https://console.aws.amazon.com/eks/home#/clusters](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters").
    3. Navigate to the **Compute** tab for your Amazon EKS cluster and
       select the node identified by the `describe pod` command. Select the

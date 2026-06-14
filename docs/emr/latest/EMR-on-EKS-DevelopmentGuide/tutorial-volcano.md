@@ -73,6 +73,7 @@ aws s3 mv podGroup.yaml s3://`bucket-name`
 ## Run a Spark application with Volcano scheduler with the Spark operator
 
 1. If you haven't already, complete the steps in the following sections to get set up:
+
    1. [Install and set up Volcano](#tutorial-volcano-install "#tutorial-volcano-install")
    2. [Setting up the Spark operator for Amazon EMR on EKS](spark-operator-setup.md "spark-operator-setup.md")
    3. [Install the Spark operator](spark-operator-gs.md#spark-operator-install "spark-operator-gs.md#spark-operator-install")

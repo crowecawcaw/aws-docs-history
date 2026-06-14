@@ -76,6 +76,7 @@ cluster:
 
 1. Set up the following environment variables that you will use to complete the
    installation:
+
    - **`$REGION`** points to the
      AWS Region for your cluster. For example, `us-west-2`.
    - **`$ACCOUNT_ID`** points to the Amazon ECR

@@ -24,9 +24,11 @@ Use the following options to configure job run parameters:
 - `--job-driver`: Job driver is used to provide input on the main job.
   This is a union type field where you can only pass one of the values for the job type
   that you want to run. Supported job types include:
+
   - Spark submit jobs - Used to run a command through Spark submit. You can use
     this job type to run Scala, PySpark, SparkR, SparkSQL and any other supported jobs
     through Spark Submit. This job type has the following parameters:
+
     - Entrypoint - This is the HCFS (Hadoop compatible file system) reference to
       the main jar/py file you want to run.
     - EntryPointArguments - This is an array of arguments you want to pass to
@@ -42,6 +44,7 @@ Use the following options to configure job run parameters:
   - Spark SQL jobs - Used to run a SQL query file through Spark SQL. You can use
     this job type to run SparkSQL jobs. This job type has the following
     parameters:
+
     - Entrypoint - This is the HCFS (Hadoop compatible file system) reference to
       the SQL query file you want to run.
 

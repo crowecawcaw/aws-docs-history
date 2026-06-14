@@ -29,6 +29,7 @@ kubectl delete crd scheduledSparkApplication
 
 - Complete the steps in [Setting up vertical autoscaling for Amazon EMR on EKS](jobruns-vas-setup.md "jobruns-vas-setup.md").
 - Give access to the files in your Amazon S3 location:
+
   1.  Annotate your driver and operator service account with the `JobExecutionRole` that
       has S3 permissions.
 
@@ -36,7 +37,6 @@ kubectl delete crd scheduledSparkApplication
   kubectl annotate serviceaccount -n spark-operator emr-containers-sa-spark eks.amazonaws.com/role-arn=`JobExecutionRole`
   kubectl annotate serviceaccount -n spark-operator emr-containers-sa-spark-operator eks.amazonaws.com/role-arn=`JobExecutionRole`
   ```
-
   2.  Update the trust policy of your job execution role in that namespace.
 
   ```
@@ -45,7 +45,6 @@ kubectl delete crd scheduledSparkApplication
   --namespace ${Namespace}\
   --role-name iam_role_name_for_job_execution
   ```
-
   3.  Edit the IAM role trust policy of your job execution role and update the `serviceaccount` from
       `emr-containers-sa-spark-*-*-xxxx` to `emr-containers-sa-*`.
 
@@ -63,7 +62,6 @@ kubectl delete crd scheduledSparkApplication
       }
   }
   ```
-
   4.  If you're using Amazon S3 as your file storage, add the following defaults to your yaml file.
 
   ```

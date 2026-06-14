@@ -17,6 +17,7 @@ and mounting an image:
   folders aren't available in the container. If you want to add an application or its
   dependencies for custom images, we recommend that you choose a directory that isn't part
   of the following predefined paths:
+
   - `/var/log/fluentd`
   - `/var/log/spark/user`
   - `/var/log/spark/apps`

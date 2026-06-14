@@ -102,6 +102,7 @@ Applications](../ReleaseGuide/emr-configure-apps.md "../ReleaseGuide/emr-configu
 The following changes are included with the 7.8.0 release of Amazon EMR on EKS:
 
 - Native-FGAC features, including:
+
   - Iceberg support to run jobs that perform actions on Non-Lake Formation Tables in a fine-grained access control(FGAC) virtual cluster. (There is a fallback to IAM.)
   - S3 table support
 

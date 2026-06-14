@@ -64,6 +64,7 @@ kubectl create namespace spark-job
 
 4. Next, create a Kubernetes role and role binding. This is required for the
    service account that the Spark job run uses.
+
    1. Define the service account, role, and role binding for Spark
       jobs.
 
@@ -102,7 +103,6 @@ kubectl create namespace spark-job
        namespace: spark-job
    EOF
    ```
-
    2. Apply the Kubernetes role and role binding definition with the
       following command:
 
@@ -137,6 +137,7 @@ helm install yunikorn yunikorn/yunikorn --namespace yunikorn
 
 1. If you haven't already, complete the steps in the following sections to get
    set up:
+
    1. [Create your cluster and get set up for YuniKorn](#tutorial-yunikorn-setup "#tutorial-yunikorn-setup")
    2. [Install and set up YuniKorn](#tutorial-yunikorn-install "#tutorial-yunikorn-install")
    3. [Setting up the Spark operator for Amazon EMR on EKS](spark-operator-setup.md "spark-operator-setup.md")

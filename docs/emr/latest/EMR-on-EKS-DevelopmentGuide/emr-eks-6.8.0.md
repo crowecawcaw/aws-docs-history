@@ -38,6 +38,7 @@ Applications](../ReleaseGuide/emr-configure-apps.md "../ReleaseGuide/emr-configu
   which supports using separate node selector labels for Spark driver executor pods. These new
   labels enable you to define the node types for the driver and executor pods separately in the
   StartJobRun API, without using pod templates.
+
   - Driver node selector property: spark.kubernetes.driver.node.selector.[labelKey]
   - Executor node selector property:
     spark.kubernetes.executor.node.selector.[labelKey]

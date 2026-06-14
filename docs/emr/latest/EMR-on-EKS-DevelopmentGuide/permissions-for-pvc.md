@@ -225,6 +225,7 @@ kubectl get role -n ${NAMESPACE} emr-containers-role-spark-client -o yaml >> cli
 
 2. Based on the permission your application requires, edit each file and add
    additional rules such as the following:
+
    - emr-containers-role-patch.yaml
 
    ```
@@ -238,7 +239,6 @@ kubectl get role -n ${NAMESPACE} emr-containers-role-spark-client -o yaml >> cli
      - delete
      - patch
    ```
-
    - driver-role-patch.yaml
 
    ```
@@ -273,7 +273,6 @@ kubectl get role -n ${NAMESPACE} emr-containers-role-spark-client -o yaml >> cli
      - deletecollection
 
    ```
-
    - client-role-patch.yaml
 
    ```
@@ -290,6 +289,7 @@ kubectl get role -n ${NAMESPACE} emr-containers-role-spark-client -o yaml >> cli
 
 3. Remove the following attributes with their values. This is necessary to
    apply the update.
+
    - creationTimestamp
    - resourceVersion
    - uid

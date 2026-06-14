@@ -21,6 +21,7 @@ the cluster.
 - Name of the IAM role used for job execution
 - Release label for the Amazon EMR release (for example, `emr-6.4.0-latest`)
 - Destination targets for logging and monitoring:
+
   - Amazon CloudWatch log group name and log stream prefix
   - Amazon S3 location to store event and container logs
 

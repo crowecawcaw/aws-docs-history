@@ -18,6 +18,7 @@ image tag.
 - With the upgrade to JEG 2.6, kernel management is now asynchronous, which means that JEG
   does not block transactions when a kernel launch is in progress. This greatly improves the user
   experience by providing the following:
+
   - capability to execute commands in currently running notebooks when other kernel launches
     are in progress
   - capability to launch multiple kernels simultaneously without impacting already running

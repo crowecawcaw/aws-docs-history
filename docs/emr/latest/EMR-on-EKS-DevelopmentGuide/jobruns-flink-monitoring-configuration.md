@@ -56,14 +56,15 @@ The following are configuration options.
 
 - `s3MonitoringConfiguration` – configuration key to set up
   forwarding to S3
+
   - `logUri` (required) – the S3 bucket path of where you want to store your logs.
   - The path on S3 once the logs are uploaded will look like the following.
+
     - No log rotation enabled:
 
     ```
     s3://${`logUri`}/${`POD NAME`}/`STDOUT or STDERR`.gz
     ```
-
     - Log rotation is enabled. You can use both a rotated file and a current file (one without the date stamp).
 
     ```
@@ -93,6 +94,7 @@ The following are configuration options.
 
 - `cloudWatchMonitoringConfiguration` – configuration key to set up
   forwarding to CloudWatch.
+
   - `logGroupName` (required) – nameof the CloudWatch log group that you
     want to send logs to (automatically creates the group if it doesn't exist).
   - `logStreamNamePrefix` (optional) – name of the log
@@ -102,7 +104,6 @@ The following are configuration options.
   ```
   ${logStreamNamePrefix}/${`POD NAME`}/`STDOUT or STDERR`
   ```
-
   - The following IAM permissions are required to use this forwarder.
 
   ```
@@ -122,11 +123,13 @@ The following are configuration options.
 
 - `sideCarResources` (optional) – the configuration key to set
   resource limits on the launched Fluentbit sidecar container.
+
   - `memoryLimit` (optional) – the default value is 512Mi. Adjust according to your needs.
   - `cpuLimit` (optional) – this option doesn't have a default. Adjust according to your needs.
 
 - `containerLogRotationConfiguration` (optional) – controls the
   container log rotation behavior. It is enabled by default.
+
   - `rotationSize` (required) – specifies the file size for the log rotation.
     The range of possible values is from 2KB to 2GB.
     The numeric unit portion of the rotationSize parameter is passed as an integer.
@@ -162,12 +165,12 @@ The following are the available configuration options under `monitoringConfigura
 - `s3MonitoringConfiguration` – set this option to archive to S3.
 - `logUri` (required) – The S3 bucket path where you want to store your logs.
 - The following are formats of what the S3 bucket paths might look like once the logs are uploaded.
+
   - No log rotation enabled.
 
   ```
   s3://${`logUri`}/${`POD NAME`}/`OPERATOR or WEBHOOK`/`STDOUT or STDERR`.gz
   ```
-
   - Log rotation is enabled. You can use both a rotated file and a current file (one without the date stamp).
 
   ```
@@ -181,6 +184,7 @@ The following are the available configuration options under `monitoringConfigura
   ```
 
 - `cloudWatchMonitoringConfiguration` – the configuration key to set up forwarding to CloudWatch.
+
   - `logGroupName` (required) – name of the CloudWatch log group
     that you want to send logs to. The group automatically gets created if it doesn't exist.
   - `logStreamNamePrefix` (optional) – name of the log stream that
@@ -193,12 +197,14 @@ The following are the available configuration options under `monitoringConfigura
 
 - `sideCarResources` (optional) – the configuration key to set resource limits
   on the launched Fluentbit sidecar container.
+
   - `memoryLimit` (optional) – the memory limit. Adjust according to your needs.
     The default is 512Mi.
   - `cpuLimit` – the CPU limit. Adjust according to your needs. No default value.
 
 - `containerLogRotationConfiguration` (optional): – controls the container log rotation behavior.
   It is enabled by default.
+
   - `rotationSize` (required) – specifies file size for the log rotation.
     The range of possible values is from 2KB to 2GB. The numeric unit portion of
     the rotationSize parameter is passed as an integer. Since decimal values aren't supported,

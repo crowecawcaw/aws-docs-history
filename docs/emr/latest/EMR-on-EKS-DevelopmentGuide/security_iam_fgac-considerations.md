@@ -17,12 +17,14 @@ Note the following considerations and limitations when you use Lake Formation wi
 - EMR on EKS with Lake Formation only supports cross-account table queries shared through
   resource links.
 - The following aren't supported:
+
   - Resilient distributed datasets (RDD)
   - Spark streaming
   - Write with Lake Formation granted permissions
   - Access control for nested columns
 
 - EMR on EKS blocks functionalities that might undermine the complete isolation of system driver, including the following:
+
   - UDTs, HiveUDFs, and any user-defined function that involves custom classes
   - Custom data sources
   - Supply of additional jars for Spark extension, connector, or metastore `ANALYZE TABLE` command
