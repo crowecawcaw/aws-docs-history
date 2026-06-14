@@ -33,18 +33,19 @@ For detailed information about creating topics using the AWS tools, see the [Cre
 ## Creating a topic on the client machine
 
 1.  **Connect to your client machine.**
+
     1. Open the Amazon EC2 console at
        [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
     2. In the navigation pane, choose **Instances**. Then, select the check box beside the name of the client machine that you created in [Step 3: Create a client machine](create-client-machine.md "create-client-machine.md").
     3. Choose **Actions**, and then choose **Connect**. Follow the instructions in the console to connect to your client machine.
 
 2.  **Install Java and set up the Kafka version environment variable.**
+
     1. Install Java on the client machine by running the following command.
 
     ```
     sudo yum -y install java-11
     ```
-
     2. Store the [Kafka version](#find-msk-cluster-version "#find-msk-cluster-version") of your MSK cluster in the environment variable, `KAFKA_VERSION`, as shown in the following command. You'll need this information throughout the setup.
 
     ```
@@ -58,6 +59,7 @@ For detailed information about creating topics using the AWS tools, see the [Cre
     ```
 
 3.  **Download and extract Apache Kafka.**
+
     1. Run the following command to download Apache Kafka.
 
     ```
@@ -76,13 +78,11 @@ For detailed information about creating topics using the AWS tools, see the [Cre
         wget https://www.apache.org/dyn/closer.cgi?path=/kafka/$KAFKA_VERSION/kafka_2.13-$KAFKA_VERSION.tgz
         ```
         * Download an appropriate version directly from the [Apache Kafka website](https://kafka.apache.org/downloads "https://kafka.apache.org/downloads").
-
     2. Run the following command in the directory where you downloaded the TAR file in the previous step.
 
     ```
     tar -xzf kafka_2.13-$KAFKA_VERSION.tgz
     ```
-
     3. Store the full path to the newly created directory inside the `KAFKA_ROOT` environment variable.
 
     ```
@@ -90,6 +90,7 @@ For detailed information about creating topics using the AWS tools, see the [Cre
     ```
 
 4.  **Set up authentication for your MSK cluster.**
+
     1. [Find the latest version](https://github.com/aws/aws-msk-iam-auth/releases/latest "https://github.com/aws/aws-msk-iam-auth/releases/latest") of the Amazon MSK IAM client library. This library allows your client machine to access the MSK cluster using IAM authentication.
     2. Using the following commands, navigate to the `$KAFKA_ROOT/libs` directory and download the associated Amazon MSK IAM JAR that you found in the previous step. Make sure to replace `{LATEST VERSION}` with the actual version number you're downloading.
 
@@ -114,7 +115,6 @@ For detailed information about creating topics using the AWS tools, see the [Cre
     ```
     cd $KAFKA_ROOT/config
     ```
-
     4. Copy the following property settings and paste them into a new file. Save the file as `client.properties`.
 
     ```
@@ -135,6 +135,7 @@ export KAFKA_HEAP_OPTS="-Xmx512M -Xms512M"
 ```
 
 6. **Get your cluster connection information.**
+
    1. Open the Amazon MSK console at [https://console.aws.amazon.com/msk/](https://console.aws.amazon.com/msk/ "https://console.aws.amazon.com/msk/").
    2. Wait for the status of your cluster to become **Active**. This might take several minutes. After the status becomes **Active**, choose the cluster name. This takes you to a page containing the cluster summary.
    3. Choose **View client information**.
@@ -169,6 +170,7 @@ $KAFKA_ROOT/bin/kafka-topics.sh --create \
 ```
 
 8. **(Optional) Verify that the topic was created successfully.**
+
    1. If the command succeeds, you should see the following message: `Created topic MSKTutorialTopic.`
    2. List all topics to confirm your topic exists.
 

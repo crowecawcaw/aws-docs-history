@@ -8,6 +8,7 @@ Amazon MSK supports consumer lag metrics for clusters with Apache Kafka 2.2.1 or
 
 - Consumer lag metrics are emitted only if a consumer group is in a STABLE or EMPTY state. A consumer group is STABLE after the successful completion of re-balancing, ensuring that partitions are evenly distributed among the consumers.
 - Consumer lag metrics are absent in the following scenarios:
+
   - If the consumer group is unstable.
   - The name of the consumer group contains a colon (:).
   - You haven't set the consumer offset for the consumer group.

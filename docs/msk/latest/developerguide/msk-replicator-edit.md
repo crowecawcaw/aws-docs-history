@@ -7,6 +7,7 @@ You cannot change the source cluster, target cluster, Replicator starting positi
 3. Choose the **Properties** tab.
 4. In the **Replicator settings** section, choose **Edit replicator**.
 5. You can edit the following settings:
+
    - Topics to replicate using regular expressions in the allow and deny lists.
    - Metadata replication settings (topic configurations, ACLs, consumer group offsets).
 

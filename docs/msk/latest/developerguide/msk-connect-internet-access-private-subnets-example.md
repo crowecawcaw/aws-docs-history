@@ -31,6 +31,7 @@ Make sure you have the following items.
    setup. You should already have a main route table that was automatically created at the
    same time as your VPC. In this step you create an additional route table for your public
    subnet.
+
    1. Use the following settings to modify your VPC's main route table so that your
       private subnets route traffic to your NAT gateway. For instructions, see
       [Work with route tables](../../../vpc/latest/userguide/WorkWithRouteTables.md "../../../vpc/latest/userguide/WorkWithRouteTables.md") in the _Amazon Virtual Private Cloud_

@@ -13,6 +13,7 @@ This procedure describes how to create a connector using the AWS Management Cons
 5. For the connector name enter `mkc-tutorial-connector`.
 6. In the list of clusters, choose `mkc-tutorial-cluster`.
 7. In the **Connector network settings** section, choose one of the following for network type:
+
    - **IPv4** (default) - For connectivity to destinations over IPv4 only
    - **Dual-stack** - For connectivity to destinations over both IPv4 and IPv6 (only available if your subnets have IPv4 and IPv6 CIDR blocks associated with them)
 

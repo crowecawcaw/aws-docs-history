@@ -9,12 +9,14 @@ In this step of [Getting Started Using Amazon MSK](getting-started.md "getting-s
 3. For **Creation method**, leave the **Quick create** option selected. The **Quick create** option lets you create a cluster with default settings.
 4. For **Cluster name**, enter a descriptive name for your cluster. For example, `MSKTutorialCluster`.
 5. For **General cluster properties**, do the following:
+
    1. For **Cluster type**, choose **Provisioned**.
    2. Choose an **Apache Kafka version** to run on the brokers. Choose **View version compatibility** to see a comparison table.
    3. For **Broker type**, choose either Standard or Express brokers.
    4. Choose a **Broker size**.
 
 6. From the table under **All cluster settings**, copy the values of the following settings and save them because you need them later in this tutorial:
+
    - VPC
    - Subnets
    - Security groups associated with VPC

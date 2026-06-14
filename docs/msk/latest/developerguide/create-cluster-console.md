@@ -40,6 +40,7 @@ The procedures in this topic describe the common task of creating an MSK Provisi
     This procedure describes how you can configure your data storage needs across all brokers and specify the storage mode. This helps you define your data storage requirements based on your workload needs. Additionally, this procedure describes the cluster configuration settings that control how your brokers operate. These settings include broker configurations, default topic settings, and tiered storage policy.
 
 8.  If you selected the broker type as **Standard**, do the following in the **Storage** section:
+
     1. For **Storage**, choose the initial amount of storage you want your cluster to have. You can't decrease storage capacity after you create the cluster.
     2. (Optional) Depending on the broker size (instance size) you selected, you can also specify **Provisioned storage throughput per broker**. This option allows you to allocate dedicated input and output (I/O) performance for the Amazon EBS volumes of each broker.
 
@@ -57,6 +58,7 @@ You don't need to manage storage for Express brokers. 2. For **Cluster configura
    Network configuration defines how your cluster is deployed within your AWS infrastructure. This includes VPC, Availability Zones and subnets, and security groups that control networking, availability, and access.
 
 1. For **Networking**, do the following:
+
    1. Choose the VPC you want to use for the cluster.
    2. Based on the number of Availability Zones you previously selected, specify the Availability Zones and subnets where brokers will deploy.
 
@@ -70,7 +72,9 @@ You don't need to manage storage for Express brokers. 2. For **Cluster configura
 
 1. Choose **Next** to proceed.
 1. In the **Security settings** section, do the following:
+
    1. Choose one or more of the following authentication and authorization methods to control client access to your Kafka clusters:
+
       - **Unauthenticated access**: Allows clients to access the cluster without providing any authentication credentials. This method is a security risk and might not comply with security best practices. For more information, see [msk-unrestricted-access-check](../../../config/latest/developerguide/msk-unrestricted-access-check.md "../../../config/latest/developerguide/msk-unrestricted-access-check.md").
       - **IAM role-based authentication**: Enables client authentication and authorization using AWS IAM users/roles. This method provides fine-grained control over cluster access through IAM policies. We recommended this method for applications already running in AWS.
       - **SASL/SCRAM authentication**: Requires clients to provide username and password credentials stored in AWS Secrets Manager for authentication. Amazon MSK retrieves these credentials from Secrets Manager and securely authenticates users.
@@ -86,6 +90,7 @@ Encrypting data at rest protects stored data integrity, while encrypting in tran
 This procedure describes how to set up your broker metrics, and collect and deliver broker logs. With these settings, you can observe and analyze your cluster's health, performance, and troubleshoot issues. For more information, see [Monitor an Amazon MSK Provisioned cluster](monitoring.md "monitoring.md").
 
 1. For **Amazon CloudWatch metrics for this cluster**, choose one of the following monitoring levels. The metrics collected at each monitoring level are integrated with CloudWatch for visualization and alerting.
+
    1. **Basic monitoring**: Provides a set of essential cluster-level metrics at no additional cost. This level is good for for most use cases with general monitoring needs.
    2. **Enhanced broker-level monitoring**: Provides detailed broker metrics at additional cost. This level includes basic monitoring and more granular broker metrics, such as tiered storage metrics bytes in/out of other brokers, total time for read/write operations. You pay for the metrics in this level, whereas the basic level metrics continue to be free.
    3. **Enhanced topic-level monitoring**: Provides metrics for individual topics at additional cost. Choose this level to obtain a more granular view of topic performance across brokers. This level includes enhanced broker-level monitoring and topic-level metrics, such as tiered storage metrics for a specified topic and number of messages received per second.
@@ -93,6 +98,7 @@ This procedure describes how to set up your broker metrics, and collect and deli
 
 2. (Optional) If you want to export metrics in Prometheus format using JMX Exporter, Node Exporter, or both, choose **Enable open monitoring with Prometheus**. For more information about this option, see [Monitor with Prometheus](open-monitoring.md "open-monitoring.md").
 3. (Optional) To configure your MSK cluster to deliver broker logs to various AWS services for troubleshooting and auditing, choose one or more of the following options. Amazon MSK doesn't create these destination resources for you if they don't already exist. For more information, see [Broker logs](msk-logging.md#broker-logs "msk-logging.md#broker-logs").
+
    - **Deliver to Amazon CloudWatch Logs**: Sends logs to CloudWatch with clustering, searching, and visualization capabilities. You can query and analyze logs without leaving the AWS Management Console.
    - **Deliver to Amazon S3**: Stores logs as files in Amazon S3 buckets for long-term archiving and batch analysis.
    - **Deliver to Amazon Data Firehose**: Send logs to Firehose for automatic delivery to Amazon OpenSearch Service for real-time troubleshooting.

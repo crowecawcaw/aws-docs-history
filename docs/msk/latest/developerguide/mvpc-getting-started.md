@@ -20,6 +20,7 @@ The network configuration for this use case is as follows:
 
 - A cross-account user (Kafka client) and an MSK cluster are in the same
   AWS network/Region, but in different accounts:
+
   - MSK cluster in Account A
   - Kafka client in Account B
 

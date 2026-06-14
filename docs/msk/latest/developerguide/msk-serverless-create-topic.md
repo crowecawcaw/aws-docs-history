@@ -19,12 +19,12 @@ wget https://github.com/aws/aws-msk-iam-auth/releases/download/v2.3.0/aws-msk-ia
 This JAR file is required for IAM authentication with your MSK Serverless cluster.
 
 - When running Kafka commands, you might need to make sure the `classpath` includes the AWS MSK IAM JAR file. To do this, do one of the following:
+
   - Set the `CLASSPATH` environment variable to include your Kafka libraries as shown in the following example.
 
   ```
   export CLASSPATH=`<path-to-your-kafka-installation>`/libs/*:`<path-to-your-kafka-installation>`/libs/aws-msk-iam-auth-2.3.0-all.jar
   ```
-
   - Run Kafka commands using the full Java command with explicit `classpath`, as shown in the following example.
 
   ```

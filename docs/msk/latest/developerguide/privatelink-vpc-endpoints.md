@@ -11,6 +11,7 @@ When creating an Interface VPC Endpoint, choose one of the following service nam
 ###### For MSK Provisioned:
 
 - The following service name endpoints are no longer supported for new connections:
+
   - com.amazonaws.region.kafka
   - com.amazonaws.region.kafka-fips (FIPS-enabled)
 

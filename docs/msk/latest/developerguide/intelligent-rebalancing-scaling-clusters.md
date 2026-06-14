@@ -14,6 +14,7 @@ Scaling clusters using AWS Management Console
 2. On the **Clusters** page, choose a newly created Express-based cluster. For information about creating a provisioned Express-based cluster, see [Step 1: Create an MSK Provisioned cluster](create-cluster.md "create-cluster.md").
 3. On the **Actions** dropdown list, choose **Edit number of brokers**.
 4. On the **Edit number of brokers per zone** page, do one of the following:
+
    - To add more brokers in your cluster, choose **Add brokers to each Availability Zone**, and then enter the number of brokers you want to add.
    - To remove brokers from your cluster, choose **Remove one broker from each Availability Zone**.
 

@@ -88,6 +88,7 @@ JSON
    bootstrap brokers in the console cluster details.
 10. Update the security groups associated with the VPC connections as
     follows:
+
     1. Set **inbound rules** for the PrivateLink
        VPC to allow all traffic for the IP range from the Account B
        network.

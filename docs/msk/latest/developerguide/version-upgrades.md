@@ -11,6 +11,7 @@ For information about how to make a cluster highly available during an upgrade, 
 3.  Choose the MSK cluster which you want to upgrade.
 4.  On the **Properties** tab, choose **Upgrade** in the **Apache Kafka version** section.
 5.  In the **Apache Kafka version** section, do the following:
+
     1. In the _Choose Apache Kafka version_ dropdown list, choose the target version to which you want to upgrade. For example, choose `3.9.x`.
     2. (Optional) Choose **View version compatibility** to verify compatibility between your cluster's current version and the available upgrade versions. Then, select **Choose** to proceed.
 
@@ -24,7 +25,6 @@ For information about how to make a cluster highly available during an upgrade, 
 
         * Server-side upgrades don't automatically update client applications.
         * To maintain cluster stability, version downgrades aren't supported.
-
     4. Choose **Upgrade** to start the process.
 
 ###### Upgrade the Apache Kafka version using the AWS CLI

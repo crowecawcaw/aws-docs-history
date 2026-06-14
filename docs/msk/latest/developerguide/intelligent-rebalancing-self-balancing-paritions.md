@@ -18,6 +18,7 @@ Pause and resume steady state rebalancing in AWS Management Console
 3. On the Cluster detail page, verify that the **Intelligent rebalancing** status is **Active**. If Intelligent rebalancing isn’t available or the status is **Paused**, create a new Express-based cluster.
 4. On the **Actions** dropdown list, choose **Edit intelligent rebalancing**.
 5. On the **Edit intelligent rebalancing** page, do the following:
+
    1. Choose **Paused**.
    2. Choose **Save changes**.
 

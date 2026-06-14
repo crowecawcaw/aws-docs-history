@@ -136,4 +136,5 @@ print("Connectivity update initiated:", response)
 - You can change the network type from IPv4 to dual-stack for an existing cluster only if all its subnets support the dual-stack network type.
 - You can't revert to the IPv4 network type after enabling dual-stack. To switch back, you must delete and recreate the cluster.
 - You must have the following IAM permissions:
+
   - `ec2:CreateTags`, `ec2:DescribeSubnets` and `kafka:UpdateConnectivity`

@@ -20,6 +20,7 @@ To create a new key pair, do the following:
     4. Choose **Create key pair**.Alternatively, you can use an existing key pair.
 
 7.  Scroll down the page and expand the **Advanced details** section, then do the following:
+
     1. For **IAM instance profile**, choose an IAM role that you want the client machine to assume.
 
     If you don't have an IAM role, do the following:

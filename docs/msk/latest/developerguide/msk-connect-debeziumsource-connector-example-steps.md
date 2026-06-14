@@ -9,6 +9,7 @@ This procedure describes how to create a Debezium source connector.
        connector based on your Debezium version.
     2. Download and extract the [AWS Secrets Manager Config Provider](https://www.confluent.io/hub/jcustenborder/kafka-config-provider-aws "https://www.confluent.io/hub/jcustenborder/kafka-config-provider-aws").
     3. Place the following archives into the same directory:
+
        - The `debezium-connector-mysql`
          folder
        - The
@@ -41,7 +42,6 @@ This procedure describes how to create a Debezium source connector.
         }
     }
     ```
-
     6. Run the following AWS CLI command from the folder where you
        saved the JSON file to create a plugin.
 
@@ -59,7 +59,6 @@ This procedure describes how to create a Debezium source connector.
         "Revision": 1
     }
     ```
-
     7. Run the following command to check the plugin state. The state
        should change from `CREATING` to `ACTIVE`. Replace
        the ARN placeholder with the ARN that you got in the output of the
@@ -119,7 +118,6 @@ This procedure describes how to create a Debezium source connector.
     config.providers=secretManager
     config.providers.secretManager.param.aws.region=`<us-east-1>`
     ```
-
     2. Run the following AWS CLI command to create your custom worker
        configuration.
 
@@ -282,7 +280,6 @@ This procedure describes how to create a Debezium source connector.
     	}
     }
     ```
-
     2. Run the following AWS CLI command in the folder where you saved the JSON file in
        the previous step.
 

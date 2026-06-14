@@ -11,6 +11,7 @@ the following two capacity modes.
 
 - _Provisioned_ - Choose this mode if you know the capacity
   requirements for your connector. You specify two values:
+
   - The number of workers.
   - The number of MCUs per worker.
 

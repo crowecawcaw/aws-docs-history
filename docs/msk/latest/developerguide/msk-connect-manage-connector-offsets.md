@@ -21,6 +21,7 @@ Consider the following when you manage source connector offsets.
   `offset.storage.topic`, you can customize the number of
   partitions for the offset and status storage topics. Default partitions for
   internal topics are as follows.
+
   - `config.storage.topic`: 1, not configurable, must be
     single partition topic
   - `offset.storage.topic`: 25, configurable by providing

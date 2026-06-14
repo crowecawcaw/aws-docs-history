@@ -5,9 +5,11 @@ This topic describes how to deploy a streaming data vectorization blueprint.
 ###### Deploy streaming data vectorization blueprint
 
 1. Ensure following resources are setup correctly:
+
    1. Provisioned or Serverless MSK cluster with one or more topics containing data.
 
 2. Bedrock Setup: [Access to desired Bedrock Model](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md"). Currently supported Bedrock models are:
+
    - Amazon Titan Embeddings G1 - Text
    - Amazon Titan Text Embeddings V2
    - Amazon Titan Multimodal Embeddings G1
@@ -15,6 +17,7 @@ This topic describes how to deploy a streaming data vectorization blueprint.
    - Cohere Embed Multilingual
 
 3. AWS OpenSearch collection:
+
    - You may use a provisioned or Serverless OpenSearch Service collection.
    - The OpenSearch Service collection must have at least one index.
    - If you plan to use an **OpenSearch Serverless collection**, make sure to create a vector search collection. For details on how to setup a vector index, see [Prerequisites for your own vector store for a knowledge base](../../../bedrock/latest/userguide/knowledge-base-setup.md "../../../bedrock/latest/userguide/knowledge-base-setup.md"). To learn more about vectorization, see [Amazon OpenSearch Service’s vector database capabilities explained](https://aws.amazon.com/blogs/big-data/amazon-opensearch-services-vector-database-capabilities-explained/ "https://aws.amazon.com/blogs/big-data/amazon-opensearch-services-vector-database-capabilities-explained/").

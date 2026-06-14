@@ -20,6 +20,7 @@ Intelligent rebalancing is turned on by default for all new MSK Provisioned clus
 
 - **Scaling up and down**: Lets you add or remove brokers to your MSK Express-based clusters with a single click. Once you specify the brokers to add or remove, intelligent rebalancing automatically redistributes partitions across the new cluster setup based on internal AWS best practices.
 - **Steady state rebalancing**: At steady state, this feature monitors your cluster’s health continuously and automatically rebalances partitions when:
+
   - Resource utilization becomes skewed across brokers.
   - Brokers become over-provisioned or under-utilized.
   - New brokers are added or existing brokers are removed.

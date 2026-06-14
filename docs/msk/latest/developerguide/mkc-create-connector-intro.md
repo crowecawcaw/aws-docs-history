@@ -16,6 +16,7 @@ This procedure describes how to create a connector using the AWS Management Cons
 5. Enter a name and, optionally, a description.
 6. Choose the cluster that you want to connect to.
 7. In the **Connector network settings** section, choose one of the following for network type:
+
    - **IPv4** (default) - For connectivity to destinations over IPv4 only
    - **Dual-stack** - For connectivity to destinations over both IPv4 and IPv6 (only available if your subnets have IPv4 and IPv6 CIDR blocks associated with them)
 

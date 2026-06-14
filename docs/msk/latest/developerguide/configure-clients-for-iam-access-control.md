@@ -46,6 +46,7 @@ producer.close()
 ```
 
 2. Download the helper library for your chosen configuration language and follow the instructions in the _Getting started_ section of that language library’s homepage.
+
    - JavaScript: [https://github.com/aws/aws-msk-iam-sasl-signer-js#getting-started](https://github.com/aws/aws-msk-iam-sasl-signer-js#getting-started "https://github.com/aws/aws-msk-iam-sasl-signer-js#getting-started")
    - Python: [https://github.com/aws/aws-msk-iam-sasl-signer-python#get-started](https://github.com/aws/aws-msk-iam-sasl-signer-python#get-started "https://github.com/aws/aws-msk-iam-sasl-signer-python#get-started")
    - Go: [https://github.com/aws/aws-msk-iam-sasl-signer-go#getting-started](https://github.com/aws/aws-msk-iam-sasl-signer-go#getting-started "https://github.com/aws/aws-msk-iam-sasl-signer-go#getting-started")

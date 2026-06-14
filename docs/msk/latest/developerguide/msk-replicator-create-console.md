@@ -26,6 +26,7 @@ arn:aws:kafka:ap-southeast-2:123456789012:cluster/cluster-11/eec93c7f-4e8b-4baf-
 2.  Select **MSK cluster** as the cluster type, then enter the ARN of your source cluster or choose **Browse** to select it.
 3.  Choose subnet(s) for your source cluster. The subnets will auto-populate based on your cluster selection. If they do not populate, or if you want to use different ones, you can select them manually. You must select a minimum of two subnets. For a same-region MSK Replicator, the subnets you select to access the source cluster and the subnets to access the target cluster must be in the same Availability Zone.
 4.  Choose security group(s) for the MSK Replicator to access your source cluster. The security groups will auto-populate based on your cluster selection. If they do not populate, or if you want to use different ones, you can select them manually.
+
     - For cross-region replication (CRR), you do not need to provide security group(s) for your source cluster.
     - For same-region replication (SRR), go to the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/") and ensure that the security groups you will provide for the Replicator have outbound rules to allow traffic to your source cluster's security groups. Also, ensure that your source cluster's security groups have inbound rules that allow traffic from the Replicator security groups provided for the source.
 
@@ -111,6 +112,7 @@ You can also configure the **Consumer group offset sync mode**:
 
 6.  In the **Compression** pane, you can optionally choose to compress the data written to the target cluster. If you use compression, we recommend using the same compression method as the data in your source cluster.
 7.  In the **Access permissions** pane, do either of the following:
+
     1. Select **Create or update IAM role with required policies**. The MSK console will automatically attach the necessary permissions and trust policy to the service execution role.
 
     ![MSK console to create or update replicator IAM role](images/msk-replicator-ezCRC.png) 2. Provide your own IAM role by selecting **Choose from IAM roles that Amazon MSK can assume**. We recommend attaching the [`AWSMSKReplicatorExecutionRole`](security-iam-awsmanpol-AWSMSKReplicatorExecutionRole.md "security-iam-awsmanpol-AWSMSKReplicatorExecutionRole.md") managed IAM policy to your service execution role. See [Service execution role (SER)](msk-replicator-ser.md "msk-replicator-ser.md").
