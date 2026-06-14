@@ -22,6 +22,7 @@ page is not available in the China (Beijing) and China (Ningxia) Regions.
 ###### Contents
 
 - [Use case and marketing information](manifest-use-case-marketing.md "manifest-use-case-marketing.md")
+
   - [Finding providers and consumers use case](manifest-use-case-marketing.md#manfiest-use-case-finding-providers-consumers "manifest-use-case-marketing.md#manfiest-use-case-finding-providers-consumers")
   - [Consulting Partner (CP) use case](manifest-use-case-marketing.md#manifiest-use-case-consulting-partner "manifest-use-case-marketing.md#manifiest-use-case-consulting-partner")
   - [Datasets](manifest-use-case-marketing.md#manifest-datasets "manifest-use-case-marketing.md#manifest-datasets")
@@ -38,5 +39,6 @@ page is not available in the China (Beijing) and China (Ningxia) Regions.
   - [Heartbeat finding](manifest-use-case-marketing.md#manifest-heartbeat-finding "manifest-use-case-marketing.md#manifest-heartbeat-finding")
 
 - [AWS Security Hub CSPM console information](manifest-console-information.md "manifest-console-information.md")
+
   - [Company information](manifest-console-information.md#manifest-console-company-info "manifest-console-information.md#manifest-console-company-info")
   - [Product information](manifest-console-information.md#manifest-console-product-information "manifest-console-information.md#manifest-console-product-information")

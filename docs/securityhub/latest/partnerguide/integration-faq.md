@@ -4,6 +4,7 @@ The following are common questions about setting up and maintaining an integrati
 AWS Security Hub CSPM.
 
 1. **What are the benefits of Security Hub CSPM integration?**
+
    - **Customer satisfaction** – The number one reason to
      integrate with Security Hub CSPM is because you have customer requests to do so.
 
@@ -21,6 +22,7 @@ AWS Security Hub CSPM.
      demonstrate their integrations to AWS customers.
 
 2. **What types of partners are there?**
+
    - Partners that send findings to Security Hub CSPM
    - Partner that receive findings from Security Hub CSPM
    - Partners that both send and receive findings
