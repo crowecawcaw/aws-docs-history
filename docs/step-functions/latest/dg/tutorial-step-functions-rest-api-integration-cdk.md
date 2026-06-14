@@ -645,6 +645,7 @@ backend integration, you can test the API Gateway.
 
 7. Choose **Test**. The following information will be
    displayed:
+
    - **Request** is the resource's path that was
      called for the method.
    - **Status** is the response's HTTP status

@@ -140,7 +140,7 @@ Step Functions manages your application's components and logic, so you can write
 focus on building and updating your application quickly. The following image shows six
 use cases for Step Functions workflows.
 
-![Visual examples of six common workflow use cases, described in the following text.](images/use-case-examples.png)
+![Visual examples of six common workflow use cases, described in the following text.](/images/step-functions/latest/dg/images/use-case-examples.png)
 
 1. **Orchestrate tasks** – You can create
    workflows that orchestrate a series of tasks, or _steps_, in a specific order. For example, _Task A_ might be a Lambda function which provides inputs for

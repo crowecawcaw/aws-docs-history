@@ -48,6 +48,7 @@ Your state machine then implements a `Choice` state that executes some applicati
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home"), and then choose **Create function**.
 2. On the **Create function** page, choose **Author from scratch**.
 3. In the **Basic information** section, configure your Lambda function, as follows:
+
    1. For **Function name**, enter `Iterator`.
    2. For **Runtime**, choose **Node.js 16.x**.
    3. Keep all the default selections on the page, and then choose **Create function**.
@@ -132,6 +133,7 @@ If you set `index` to `9` for this test, the `index` increments to `10`, and `co
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda/home "https://console.aws.amazon.com/lambda/home"), and then choose **Create function**.
 2. On the **Create function** page, choose **Author from scratch**.
 3. In the **Basic information** section, configure your Lambda function, as follows:
+
    1. For **Function name**, enter `Restart`.
    2. For **Runtime**, choose **Node.js 16.x**.
 

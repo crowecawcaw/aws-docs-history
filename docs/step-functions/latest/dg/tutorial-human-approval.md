@@ -33,6 +33,7 @@ For this example the file is called `human-approval.yaml`.
 1. Log into the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
 2. Choose **Create Stack**, and then choose **With new resources (standard)**.
 3. On the **Create stack** page, do the following:
+
    1. In the **Prerequisite - Prepare template** section, make sure **Template is ready** is selected.
    2. In the **Specify template** section, choose **Upload a template file** and then choose **Choose file** to
       upload the `human-approval.yaml` file you created earlier that includes the [template source
@@ -40,6 +41,7 @@ For this example the file is called `human-approval.yaml`.
 
 4. Choose **Next**.
 5. On the **Specify stack details** page, do the following:
+
    1. For **Stack name**, enter a name for your stack.
    2. Under **Parameters**, enter a valid email address. You'll use this email address to subscribe to the Amazon SNS topic.
 

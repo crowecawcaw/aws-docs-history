@@ -61,6 +61,7 @@ Ensure that your Lambda function is under the same AWS account and AWS Region as
    **Author from scratch**.
 3. In the **Basic information** section, configure your
    Lambda function:
+
    1. For **Function name**, enter
       `TestFunction1`.
    2. For **Runtime**, choose **Node.js

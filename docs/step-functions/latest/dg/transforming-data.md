@@ -1,10 +1,10 @@
 # Transforming data with JSONata in Step Functions
 
-With JSONata, you gain a powerful open source query and expression language to **select** and **transform** data in your workflows. For a brief introduction and complete JSONata reference, see [JSONata.org documentation](https://docs.jsonata.org/overview.html "https://docs.jsonata.org/overview.html").
+With JSONata, you gain a powerful open source query and expression language to **select** and **transform** data in your workflows. For a complete JSONata language reference, see the [JSONata 2.0.6 documentation](https://docs.jsonata.org/2.0.0/overview "https://docs.jsonata.org/2.0.0/overview").
 
 ###### Supported JSONata version
 
-Step Functions supports JSONata version 2.0.6.
+Step Functions implements JSONata based on the 2.0.6 specification. All built-in JSONata functions and operators in the 2.0.6 specification are supported, with one exception: `$eval` is not available—use `$parse` instead. Step Functions also provides additional functions described in [JSONata functions](#jsonata-functions-provided-by-sfn "#jsonata-functions-provided-by-sfn").
 
 The following video describes variables and JSONata in Step Functions with a DynamoDB example:
 

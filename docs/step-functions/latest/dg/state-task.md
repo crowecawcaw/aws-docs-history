@@ -74,12 +74,14 @@ The following list explains the individual components in this syntax:
 
 - `partition` is the AWS Step Functions partition to use, most commonly `aws`.
 - `service` indicates the AWS service used to execute the task, and can be one of the following values:
+
   - `states` for an [activity](#state-task-activity "#state-task-activity").
   - `lambda` for a [Lambda function](#state-task-lambda "#state-task-lambda"). If you integrate with other AWS services, for example, Amazon SNS or Amazon DynamoDB, use `sns` or `dynamodb`.
 
 - `region` is the [AWS Region code](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in which the Step Functions activity or state machine type, Lambda function, or any other AWS resource has been created.
 - `account` is the AWS account ID in which you've defined the resource.
 - `task_type` is the type of task to run. It can be one of the following values:
+
   - `activity` – An [activity](#state-task-activity "#state-task-activity").
   - `function` – A [Lambda function](#state-task-lambda "#state-task-lambda").
   - `servicename` – The name of a supported connected service (see [Integrating services with Step Functions](integrate-optimized.md "integrate-optimized.md")).
@@ -320,10 +322,12 @@ is run when the `Task` state is complete.
 The following examples show how you can specify the Task state definition based on your requirement.
 
 - [Specifying Task state timeouts and heartbeat intervals](#task-state-example-timeouts "#task-state-example-timeouts")
+
   - [Static timeout and heartbeat notification example](#task-state-example-static "#task-state-example-static")
   - [Dynamic task timeout and heartbeat notification example](#task-state-example-dynamic "#task-state-example-dynamic")
 
 - [Using Credentials field](#task-state-example-credentials "#task-state-example-credentials")
+
   - [Specifying hard-coded IAM role ARN](#example-credentials-specify-role-arn "#example-credentials-specify-role-arn")
   - [Specifying JSONPath as IAM role ARN](#example-credentials-specify-dynamic-jsonpath "#example-credentials-specify-dynamic-jsonpath")
   - [Specifying an intrinsic function as IAM role ARN](#example-credentials-specify-dynamic-intrinsic-function "#example-credentials-specify-dynamic-intrinsic-function")

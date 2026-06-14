@@ -60,6 +60,7 @@ steps.
    canvas. This invokes the cross-account Lambda function that's using this
    `Task` state.
 5. On the **Configuration** tab, do the following:
+
    1. Rename the state to `Cross-account call`.
    2. For **Function name**, choose **Enter function name**, and then enter the Lambda function ARN in the box. For example,
       `arn:aws:lambda:us-east-2:111122223333:function:`Echo``.
@@ -180,6 +181,7 @@ in the state machine's execution role to allow it to assume a target IAM role in
 more AWS accounts.
 
 1. Open your state machine's execution role in the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). To do this:
+
    1. Open the state machine that you created in [Step
       1 in the source account](#tutorial-access-cross-acct-resources-update-task-def "#tutorial-access-cross-acct-resources-update-task-def").
    2. On the **State machine detail** page, choose

@@ -101,6 +101,7 @@ Task states that call [optimized service integrations](integrate-optimized.md "i
 Task states that call [AWS SDK integrations](supported-services-awssdk.md "supported-services-awssdk.md") require an execution role. If you don’t have a role with sufficient permissions, use one of the following options to create a role:
 
 - **Auto-generate a role with Workflow Studio (recommended)** – This is the secure option. Close the **Test state** dialog box and follow the instructions in [Automatically generating roles](#auto-generating-roles "#auto-generating-roles"). This will require you to create or update your state machine first, then go back into Workflow Studio to test your state. Do the following:
+
   1.  Close the **Test state** dialog box
   2.  Choose the **Config** tab to view the Config mode.
   3.  Scroll down to the **Permissions** section.
@@ -114,8 +115,10 @@ Task states that call [AWS SDK integrations](supported-services-awssdk.md "suppo
 You require an execution role to test flow states in Workflow Studio. Flow states are those states that direct execution flow, such as [Choice workflow state](state-choice.md "state-choice.md"), [Parallel workflow state](state-parallel.md "state-parallel.md"), [Map workflow state](state-map.md "state-map.md"), [Pass workflow state](state-pass.md "state-pass.md"), [Wait workflow state](state-wait.md "state-wait.md"), [Succeed workflow state](state-succeed.md "state-succeed.md"), or [Fail workflow state](state-fail.md "state-fail.md"). The [TestState](../apireference/API_TestState.md "../apireference/API_TestState.md") API doesn't work with Map or Parallel states. Use one of the following options to create a role for testing a flow state:
 
 - **Use any role in your AWS account (recommended)** – Flow states do not require any specific IAM policies, because they don’t call AWS actions or resources. Therefore, you can use any IAM role in your AWS account.
+
   1.  In the **Test state** dialog box, select any role from the **Execution role** dropdown list.
   2.  If no roles appear in the dropdown list, do the following:
+
       1. In the IAM console [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"), choose **Roles**.
       2. Choose a role from the list, and copy its ARN from the role details page. You will need to provide this ARN in the **Test state** dialog box.
       3. In the **Test state** dialog box, select **Enter a role ARN** from the **Execution role** dropdown list.

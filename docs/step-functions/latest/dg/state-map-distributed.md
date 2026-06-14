@@ -198,6 +198,7 @@ Sets the type of state, such as `Map`.
 Contains the following JSON objects that specify the `Map` state processing mode and definition.
 
 - `ProcessorConfig` – JSON object that specifies the mode for processing items, with the following sub-fields:
+
   - `Mode` – Set to `DISTRIBUTED` to use the `Map` state in Distributed mode.
 
   ###### Warning

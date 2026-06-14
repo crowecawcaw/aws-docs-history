@@ -34,6 +34,7 @@ application logic if `continue` is `true`, or exits if it is
    **Author from scratch**.
 3. In the **Basic information** section, configure your
    Lambda function, as follows:
+
    1. For **Function name**, enter
       `Iterator`.
    2. For **Runtime**, choose **Node.js**.

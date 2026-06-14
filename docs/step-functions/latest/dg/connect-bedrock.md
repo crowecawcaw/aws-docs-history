@@ -54,6 +54,10 @@ The following example shows the syntax for InvokeModel API for Amazon Bedrock in
 }
 ```
 
+###### Tip
+
+To learn about additional Amazon Bedrock APIs available in your workflows, see [AWS SDK integrations](supported-services-awssdk.md "supported-services-awssdk.md").
+
 ## Task state definition for Amazon Bedrock integration
 
 The following Task state definition shows how you can integrate with Amazon Bedrock in your state machines. This example shows a Task state that extracts the full result of model invocation specified by the path, `result_one`. This is based on [Inference parameters for foundation models](../../../bedrock/latest/userguide/model-parameters.md "../../../bedrock/latest/userguide/model-parameters.md"). This example uses the Cohere Command large language model (LLM).

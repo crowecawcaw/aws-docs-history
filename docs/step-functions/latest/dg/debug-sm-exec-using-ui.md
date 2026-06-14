@@ -75,6 +75,7 @@ exports.handler = async function(event, context) {
 5. Create two additional Lambda functions, named
    `GetFruitPrice` and `CalculateAverage`
    respectively, with the following steps:
+
    1. Copy the following code into the **Code source** area
       of the **GetFruitPrice** Lambda function:
 
@@ -94,7 +95,6 @@ exports.handler = async function(event, context) {
        return Math.floor(Math.random()*100)/10;
    };
    ```
-
    2. Copy the following code into the **Code source** area
       of the **CalculateAverage** Lambda function:
 
@@ -134,7 +134,6 @@ exports.handler = async function(event, context) {
        return average(event);
    };
    ```
-
    3. Make sure to copy the ARNs of these two Lambda functions, and then
       **Deploy** and **Test**
       them.

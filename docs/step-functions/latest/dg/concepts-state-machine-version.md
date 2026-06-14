@@ -119,6 +119,7 @@ state machine for the execution. For information about how Step Functions associ
 2. On the **State machine detail** page, choose the
    **Versions** tab.
 3. In the **Versions** section, do the following:
+
    1. Select
       the version that you want to start the execution with.
    2. Choose **Start execution**.

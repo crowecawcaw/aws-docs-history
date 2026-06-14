@@ -8,6 +8,10 @@ Learn about [Passing data between states with variables](workflow-variables.md "
 
 Intrinsic functions are only available to states that use the **JSONPath** query language. For JSONata, see [Transforming data with JSONata in Step Functions](transforming-data.md "transforming-data.md").
 
+###### Consider converting to JSONata
+
+Intrinsic functions are not planned to receive additional capabilities. JSONata provides a far more powerful transformation language that covers the gaps in JSONPath, including data type conversions, advanced string manipulation, and higher-order functions. If you need transformation capabilities beyond what intrinsic functions offer, we recommend converting your states to JSONata. For guidance, see [Converting from JSONPath to JSONata](transforming-data.md#converting-from-jsonpath-to-jsonata "transforming-data.md#converting-from-jsonpath-to-jsonata").
+
 The Amazon States Language provides several intrinsic functions, also known as
 _intrinsics_, for use in fields that accept JSONPath. With intrinsics,
 you can perform basic data processing operations without using a `Task` state.

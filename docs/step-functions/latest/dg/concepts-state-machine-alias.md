@@ -43,6 +43,7 @@ to this soft limit, use the **Support Center** page in the
    **Aliases** tab.
 3. Choose **Create new alias**.
 4. On the **Create alias** page, do the following:
+
    1. Enter an **Alias name**.
    2. (Optional) Enter a **Description** for the
       alias.
@@ -99,6 +100,7 @@ each version in the alias routing configuration.
 
 - On the **Create alias** page, under **Routing
   configuration**, do the following:
+
   1.  For **Version**, choose the first state machine
       version that the alias points to.
   2.  Select
@@ -133,6 +135,7 @@ revision.
 2. On the **State machine detail** page, choose the
    **Aliases** tab.
 3. In the **Aliases** section, do the following:
+
    1. Select
       the alias that you want to start the execution with.
    2. Choose **Start execution**.

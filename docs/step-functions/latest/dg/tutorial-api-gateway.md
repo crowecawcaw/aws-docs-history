@@ -23,6 +23,7 @@ actions.
    console](https://console.aws.amazon.com/iam/home "https://console.aws.amazon.com/iam/home") and choose **Roles**, **Create
    role**.
 2. On the **Select trusted entity** page, do the following:
+
    1. For **Trusted entity type**, keep the default selection of **AWS service**.
    2. For **Use case**, choose **API Gateway** from the dropdown list.
 

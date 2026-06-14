@@ -11,6 +11,7 @@ source table for more recent data and inserting it into the target table.
 1. Open the [Step Functions console](https://console.aws.amazon.com/states/home?region=us-east-1#/ "https://console.aws.amazon.com/states/home?region=us-east-1#/") and choose **Create state machine**.
 2. Choose **Create from template** and find the related starter template. Choose **Next** to continue.
 3. Choose how to use the template:
+
    1. **Run a demo** – creates a read-only state machine. After review, you can create the workflow and all related resources.
    2. **Build on it** – provides an editable workflow definition that you can review, customize, and deploy with your own resources. (Related resources, such as functions or queues, will **not** be created automatically.)
 

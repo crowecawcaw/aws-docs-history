@@ -55,6 +55,7 @@ each repetition.
 ```
 
 2. Choose the **Map demo** state and in the **Configuration** tab, do the following:
+
    1. Choose **Provide a path to items array**.
    2. Specify the following [reference
       path](amazon-states-language-paths.md#amazon-states-language-reference-paths "amazon-states-language-paths.md#amazon-states-language-reference-paths") to select the node that contains the input array:
@@ -64,6 +65,7 @@ each repetition.
    ```
 
 3. Choose the **Generate UUID** state and in the **Input** tab, do the following:
+
    1. Choose **Transform input with Parameters**.
    2. Enter the following JSON input to generate the v4 UUIDs for each of the input array items. You
       use the `States.UUID` intrinsic function to generate the UUIDs.
@@ -75,6 +77,7 @@ each repetition.
    ```
 
 4. For the **Generate UUID** state, choose the **Output** tab and do the following:
+
    1. Choose **Filter output with OutputPath**.
    2. Enter the following reference path to select the JSON node that contains the output array
       items:

@@ -29,16 +29,17 @@ Make sure to copy the name and Amazon Resource Name of this state machine in a t
 4. From the **Actions** tab, drag the **StartExecution** API action and drop it on the empty state labelled **Drag
    first state here**.
 5. Choose the **StartExecution** state and do the following in the **Configuration** tab in [Design mode](workflow-studio.md#wfs-interface-design-mode "workflow-studio.md#wfs-interface-design-mode"):
+
    1. Rename the state to `Start nested execution`.
    2. For **Integration type**, choose **AWS SDK - new** from the dropdown list.
    3. In **API Parameters**, do the following:
+
       1. For `StateMachineArn`, replace the sample Amazon Resource Name with the ARN of your state machine. For example, enter the ARN of the [state machine that uses Lambda](tutorial-creating-lambda-state-machine.md "tutorial-creating-lambda-state-machine.md").
       2. For `Input` node, replace the existing placeholder text with the following value:
 
       ```
       "Comment": "Starting workflow execution using a Step Functions API action"
       ```
-
       3. Make sure your inputs in **API Parameters** look similar to the following:
 
       ```
@@ -80,6 +81,7 @@ _IAM User Guide_.
 
 1. On the **ParentStateMachine** page, choose the **IAM role ARN** to navigate to the IAM **Roles** page for your state machine.
 2. Assign an appropriate permission to the IAM role of the **ParentStateMachine** for it to be able to start execution of another state machine. To assign the permission, do the following:
+
    1. On the IAM **Roles** page, choose **Add permissions**, and then choose
       **Create inline policy**.
    2. On the **Create policy** page, choose the **JSON** tab.
@@ -102,7 +104,6 @@ _IAM User Guide_.
    }`
 
    ```
-
    4. Choose **Review policy**.
    5. Specify a name for the policy, and then choose **Create policy**.
 

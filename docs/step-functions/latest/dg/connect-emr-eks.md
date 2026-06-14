@@ -32,11 +32,13 @@ Supported Amazon EMR on EKS APIs:
 When sending or receiving data between services, the maximum input or result for a task is 256 KiB of data as a UTF-8 encoded string. See [Quotas related to state machine executions](service-quotas.md#service-limits-state-machine-executions "service-quotas.md#service-limits-state-machine-executions").
 
 - [`CreateVirtualCluster`](../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md "../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md")
+
   - [Request syntax](../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_RequestSyntax "../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_RequestSyntax")
   - [Supported parameters](../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_RequestBody "../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_RequestBody")
   - [Response syntax](../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_ResponseSyntax "../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_ResponseSyntax")
 
 - [`DeleteVirtualCluster`](../../../emr-on-eks/latest/APIReference/API_DeleteVirtualCluster.md "../../../emr-on-eks/latest/APIReference/API_DeleteVirtualCluster.md")
+
   - [Request syntax](../../../emr-on-eks/latest/APIReference/API_DeleteVirtualCluster.md#API_DeleteVirtualCluster_RequestSyntax "../../../emr-on-eks/latest/APIReference/API_DeleteVirtualCluster.md#API_DeleteVirtualCluster_RequestSyntax")
   - [Supported parameters](../../../emr-on-eks/latest/APIReference/API_DeleteVirtualCluster.md#API_DeleteVirtualCluster_RequestParameters "../../../emr-on-eks/latest/APIReference/API_DeleteVirtualCluster.md#API_DeleteVirtualCluster_RequestParameters")
   - [Response syntax](../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_ResponseSyntax "../../../emr-on-eks/latest/APIReference/API_CreateVirtualCluster.md#API_CreateVirtualCluster_ResponseSyntax")

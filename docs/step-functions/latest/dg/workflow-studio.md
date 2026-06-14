@@ -36,6 +36,7 @@ Workflow Studio.
 1. Mode buttons switch between the three modes. You cannot switch modes if your ASL workflow definition is invalid.
 2. The [States browser](#workflow-studio-components-states "#workflow-studio-components-states") contains the following
    three tabs:
+
    - The **Actions** tab provides a list of AWS APIs
      that you can drag and drop into your workflow graph in the canvas.
      Each action represents a [Task workflow state](state-task.md "state-task.md") state.

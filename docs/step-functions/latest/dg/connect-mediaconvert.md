@@ -90,8 +90,10 @@ Even if the native service API is in camelCase, for example the API action `star
 ## Optimized MediaConvert APIs
 
 - [`CreateJob`](../../../mediaconvert/latest/apireference/jobs.md#jobspost "../../../mediaconvert/latest/apireference/jobs.md#jobspost")
+
   - [Request syntax](../../../mediaconvert/latest/apireference/jobs.md#jobs-request-body-post-example "../../../mediaconvert/latest/apireference/jobs.md#jobs-request-body-post-example")
   - Supported parameters:
+
     - [`Role`](../../../mediaconvert/latest/apireference/jobs.md#jobs-prop-createjobrequest-role "../../../mediaconvert/latest/apireference/jobs.md#jobs-prop-createjobrequest-role") (Required)
     - [`Settings`](../../../mediaconvert/latest/apireference/jobs.md#jobs-prop-createjobrequest-settings "../../../mediaconvert/latest/apireference/jobs.md#jobs-prop-createjobrequest-settings") (Required)
     - [`CreateJobRequest`](../../../mediaconvert/latest/apireference/jobs.md#jobs-model-createjobrequest "../../../mediaconvert/latest/apireference/jobs.md#jobs-model-createjobrequest") (Optional)

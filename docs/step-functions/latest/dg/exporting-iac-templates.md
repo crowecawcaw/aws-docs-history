@@ -17,12 +17,14 @@ apply to your state machine.
   resource. This option is only applicable if the state machine has a CloudWatch log group attached to it and the [log
   level](cw-logs.md#cloudwatch-log-level "cw-logs.md#cloudwatch-log-level") is _not_ set to `OFF`.
 - Replace resource references with DefinitionSubstitutions – This option generates [DefinitionSubstitutions](concepts-sam-sfn.md#sam-definition-substitution-eg "concepts-sam-sfn.md#sam-definition-substitution-eg") for the following components:
+
   - [Distributed Map](state-map-distributed.md "state-map-distributed.md") S3 fields.
   - `Activity` resources. The export includes `Activity` resources in the CloudFormation template for any `Run Activity`
     task. The export also provides `DefinitionSubstitutions` referencing the created `Activity` resources.
   - Any `ARN` or `S3URI` in the Payload field for all service integrations.
   - In addition to the `ARN` and `S3URI` fields, the export generates `DefinitionSubstitutions` for other
     frequently used service integration payload fields. The specific service integrations are the following:
+
     - `athena:startQueryExecution`
     - `batch:submitJob`
     - `dynamodb:getItem`, `dynamodb:updateItem`, `dynamodb:updateItem`, `dynamodb:deleteItem`
@@ -42,6 +44,7 @@ apply to your state machine.
    work with. Make sure that any changes to the state machine are saved before you proceed to the next step.
 2. Select **Export to CloudFormation or SAM template** from the **Actions** menu.
 3. Select **Type** as either **SAM** or **CloudFormation** from the dialog box that appears.
+
    - If you selected the **CloudFormation** template, next choose either the **JSON** or **YAML**
      file format.
    - If you selected the **SAM** template, no formats choices are presented. The SAM template defaults to YAML file format.

@@ -115,9 +115,11 @@ The console TestState feature does not yet support some of the enhancements desc
 3. In the [Design mode](workflow-studio.md#wfs-interface-design-mode "workflow-studio.md#wfs-interface-design-mode") of Workflow Studio, choose a state that you want to test.
 4. Choose **Test state** in the [Inspector panel](workflow-studio.md#workflow-studio-components-formdefinition "workflow-studio.md#workflow-studio-components-formdefinition") of Workflow Studio.
 5. In the **Test state** dialog box, do the following:
+
    1. For **Execution role**, choose an execution role to test the state. Make sure that you have the required [IAM permissions](#test-state-permissions "#test-state-permissions") for the state that you want to test.
    2. (Optional) Provide any JSON input that your selected state needs for the test.
    3. For **Inspection level**, select one of the following options based on the values you want to view:
+
       - [INFO](#test-state-info-level "#test-state-info-level") – Shows the state output in the **Output** tab if the test succeeds. If the test fails, **INFO** shows the error output, which includes the error name and a detailed explanation of the cause for that error. By default, Step Functions sets **Inspection level** to **INFO** if you don't select a level.
       - [DEBUG](#test-state-debug-level "#test-state-debug-level") – Shows the state output and the result of input and output data processing if the test succeeds. If the test fails, **DEBUG** shows the error output, which includes the error name and a detailed explanation of the cause for that error.
       - [TRACE](#test-state-trace-level "#test-state-trace-level") – Shows the raw HTTP request and response, and is useful for verifying headers, query parameters, and other API-specific details. This option is only available for the [HTTP Task](call-https-apis.md "call-https-apis.md").

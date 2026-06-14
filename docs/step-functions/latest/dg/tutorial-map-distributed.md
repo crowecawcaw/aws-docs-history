@@ -54,6 +54,7 @@ In this step, you configure the following required fields of the _Distributed Ma
 
 - [ItemReader](input-output-itemreader.md "input-output-itemreader.md") – Specifies the dataset and its location from which the `Map` state can read input.
 - [ItemProcessor](state-map-distributed.md#distitemprocessor "state-map-distributed.md#distitemprocessor") – Specifies the following values:
+
   - `ProcessorConfig` – Set the `Mode` and `ExecutionType` to `DISTRIBUTED` and `EXPRESS` respectively. This sets the `Map` state's processing mode and the workflow type for child workflow executions that the _Distributed Map state_ starts.
   - `StartAt` – The first state in the Map workflow.
   - `States` – Defines the Map workflow, which is a set of steps to repeat in each child workflow execution.
@@ -68,9 +69,11 @@ Make sure that the Amazon S3 bucket you use to export the results of a Map Run i
 
 1. Choose the **Process data** state and, in the
    **Configuration** tab, do the following:
+
    1. For **Processing mode**, choose **Distributed**.
    2. For **Item source**, choose **Amazon S3**, and then choose **CSV file in S3** from the **S3 item source** dropdown list.
    3. Do the following to specify the Amazon S3 location of your CSV file:
+
       1. For **S3 object**, select **Enter bucket and key** from the
          dropdown list.
       2. For **Bucket**, enter the name of the Amazon S3 bucket, which contains the CSV file. For example, `amzn-s3-demo-source-bucket`.
@@ -91,6 +94,7 @@ Make sure that the Amazon S3 bucket you use to export the results of a Map Run i
 
 2. In **Export location**, to export the Map Run results to a specific Amazon S3 location, choose **Export Map state's output to Amazon S3**.
 3. Do the following:
+
    1. For **S3 bucket**, choose **Enter bucket name and prefix** from the dropdown list.
    2. For **Bucket**, enter the name of the Amazon S3 bucket where you want to export
       the results to. For example, `mapOutputs`.
@@ -106,6 +110,7 @@ and the location to export the `Map` state result to.
 1. Choose the **Process data** state. Then, in **Item source**,
    choose **Additional configuration**.
 2. Do the following:
+
    1. Choose **Modify items with ItemSelector** to specify a custom JSON input for
       each child workflow execution.
    2. Enter the following JSON input:
@@ -137,6 +142,7 @@ Ensure that your Lambda function is under the same AWS Region as your state mach
    **Author from scratch**.
 3. In the **Basic information** section, configure your
    Lambda function:
+
    1. For **Function name**, enter
       `distributedMapLambda`.
    2. For **Runtime**, choose **Node.js**.
@@ -174,6 +180,7 @@ In the Step Functions console, you'll update your workflow to add the Lambda fun
 
 1. Return to the tab or window where you created the workflow prototype.
 2. Choose the **Process CSV data** step, and in the **Configuration** tab, do the following:
+
    1. For **Integration type**, choose **Optimized**.
    2. For **Function name**, start to enter the name of your Lambda function. Choose
       the function from the dropdown list that appears, or choose

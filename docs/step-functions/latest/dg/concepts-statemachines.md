@@ -116,6 +116,7 @@ using any data type supported by JSON.
 - Numbers in JSON text format conform to JavaScript semantics. These numbers
   typically correspond to double-precision [IEEE-854](https://standards.ieee.org/findstds/standard/854-1987.html "https://standards.ieee.org/findstds/standard/854-1987.html") values.
 - The following is valid JSON text:
+
   - Standalone, quote-delimited strings
   - Objects
   - Arrays

@@ -27,6 +27,7 @@ your custom workflow.
 1. Open the [Step Functions console](https://console.aws.amazon.com/states/home?region=us-east-1#/ "https://console.aws.amazon.com/states/home?region=us-east-1#/") and choose **Create state machine**.
 2. In the **Choose a template** dialog box, do one of the following
    to choose a sample project:
+
    - Type `Task Timer` in the Search by keyword box, and then
      choose **Task Timer** from the search
      results.
@@ -85,6 +86,7 @@ action provides the following options:
 - **Integration type**: You can choose the service integration type used to call API actions on other
   services.
 - **Function name** provides options to:
+
   - **Enter a function name**: You can enter your function name or its
     ARN.
   - **Get function name at runtime from state input**: You can use this
@@ -100,6 +102,7 @@ action provides the following options:
 - (Optional) Some states will have an option to select **Wait for task to
   complete** or **Wait for callback**. When
   available, you can choose one of the following [service integration patterns](connect-to-resource.md "connect-to-resource.md"):
+
   - **No option selected**: Step Functions will use the [Request Response](connect-to-resource.md#connect-default "connect-to-resource.md#connect-default") integration pattern.
     Step Functions will wait for an HTTP response and then progress to the next state. Step Functions will
     not wait for a job to complete. When no options are available, the state will use
@@ -109,6 +112,7 @@ action provides the following options:
     pattern.
 
 - (Optional) To access resources configured in different AWS accounts within your workflows, Step Functions provides [cross-account access](concepts-access-cross-acct-resources.md "concepts-access-cross-acct-resources.md"). **IAM role for cross-account access** provides options to:
+
   - **Provide IAM role ARN**: Specify the IAM role that contains appropriate resource access permissions. These resources are available in a target account, which is an AWS account to which you make cross-account calls.
   - **Get IAM role ARN at runtime from state input**: Specify a reference path to an existing key-value pair in the state’s JSON input which contains the IAM role.
 
@@ -171,6 +175,7 @@ You can export your workflow's [Amazon States Language](concepts-amazon-states-l
    console](https://console.aws.amazon.com/states/home "https://console.aws.amazon.com/states/home").
 2. On the _State machine detail_ page, choose **Edit**.
 3. Choose the **Actions** dropdown button, and then do one or both of the following:
+
    - To export the workflow graph to an SVG or PNG file, under **Export graph**, select the format you want.
    - To export the workflow definition as a JSON or YAML file, under **Export definition**, select the format you want.
 
@@ -186,7 +191,9 @@ To create a workflow prototype:
 3. Choose **Create from blank**.
 4. Name your state machine, then choose **Continue** to edit your state machine in Workflow Studio.
 5. The [Design mode](workflow-studio.md#wfs-interface-design-mode "workflow-studio.md#wfs-interface-design-mode") of Workflow Studio opens. Design your workflow in Workflow Studio. To include placeholder resources:
+
    1. Choose the state for which you want to include a placeholder resource, and then in **Configuration**:
+
       - For Lambda Invoke states, choose **Function name**, then choose **Enter function
         name**. You can also enter a custom name for your function.
       - For Amazon SQS Send Message states, choose **Queue URL**, then choose **Enter queue

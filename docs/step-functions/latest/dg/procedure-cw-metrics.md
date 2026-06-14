@@ -111,6 +111,7 @@ metrics:
     * **Service Integration Metrics**
 
 3. Choose a metric type to see a list of metrics.
+
    - To view graphs for a metric, choose the box next to the metric on the
      list. You can change the graph parameters using the time range controls
      above the graph view.

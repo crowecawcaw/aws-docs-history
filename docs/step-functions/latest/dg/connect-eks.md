@@ -69,6 +69,7 @@ Supported parameters include:
 
 - `ClusterName`: The name of the Amazon EKS cluster you want to
   call.
+
   - `Type`: `String`
   - Required: yes
 
@@ -76,27 +77,32 @@ Supported parameters include:
   required to communicate with your cluster. You can obtain this value from
   the [Amazon EKS console](https://console.aws.amazon.com/eks/home "https://console.aws.amazon.com/eks/home") or by
   using the Amazon EKS [DescribeCluster](../../../eks/latest/APIReference/API_DescribeCluster.md "../../../eks/latest/APIReference/API_DescribeCluster.md") API.
+
   - `Type`: `String`
   - Required: yes
 
 - `Endpoint`: The endpoint URL for your Kubernetes API server.
   You can obtain this value from the [Amazon EKS console](https://console.aws.amazon.com/eks/home "https://console.aws.amazon.com/eks/home") or by using the Amazon EKS [DescribeCluster](../../../eks/latest/APIReference/API_DescribeCluster.md "../../../eks/latest/APIReference/API_DescribeCluster.md")
   API.
+
   - `Type`: `String`
   - Required: yes
 
 - `Namespace`: The namespace in which to run the job. If not
   provided, the namespace `default` is used.
+
   - `Type`: `String`
   - Required: no
 
 - `Job`: The definition of the Kubernetes Job. See [Jobs](https://kubernetes.io/docs/concepts/workloads/controllers/job/ "https://kubernetes.io/docs/concepts/workloads/controllers/job/") in the Kubernetes documentation.
+
   - `Type`: `JSON` or `String`
   - Required: yes
 
 - `LogOptions`: A set of options to control the optional
   retrieval of logs. Only applicable if the Run a Job (.sync) service
   integration pattern is used to wait for the completion of the job.
+
   - `Type`: `JSON`
   - Required: no
   - Logs are included in the response under the key `logs`.
@@ -120,13 +126,13 @@ Supported parameters include:
       }
     }
   ```
-
   - Log retrieval is performed on a best-effort basis. If there is an
     error retrieving a log, in place of the `log` field there
     will be the fields `error` and `cause`.
 
 - `LogOptions.RetrieveLogs`: Enable log retrieval after the job
   completes. By default, logs are not retrieved.
+
   - `Type`: `Boolean`
   - Required: no
 
@@ -135,6 +141,7 @@ Supported parameters include:
   JSON. By default, logs are deserialized into JSON if possible. In some cases
   such parsing can introduce unwanted changes, such as limiting the precision
   of numbers containing many digits.
+
   - `Type`: `Boolean`
   - Required: no
 
@@ -143,6 +150,7 @@ Supported parameters include:
   `tailLines` or `limitBytes` to limit the size of
   retrieved logs and remain within the Step Functions data size quota. For more
   information, see the [Read Log](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#read-log-pod-v1-core "https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.27/#read-log-pod-v1-core") section of the Kubernetes API Reference.
+
   - `Type:` Map of `String` to `List of
 Strings`
   - Required: no
@@ -223,6 +231,7 @@ Supported parameters for `Call` include:
 
 - `ClusterName`: The name of the Amazon EKS cluster you want to
   call.
+
   - `Type`: String
   - Required: Yes
 
@@ -230,27 +239,32 @@ Supported parameters for `Call` include:
   required to communicate with your cluster. You can obtain this value from
   the [Amazon EKS console](https://console.aws.amazon.com/eks/home "https://console.aws.amazon.com/eks/home") or by
   using the Amazon EKS [DescribeCluster](../../../eks/latest/APIReference/API_DescribeCluster.md "../../../eks/latest/APIReference/API_DescribeCluster.md") API.
+
   - `Type`: `String`
   - Required: Yes
 
 - `Endpoint`: The endpoint URL for your Kubernetes API server.
   You can find this value on the [Amazon EKS console](https://console.aws.amazon.com/eks/home "https://console.aws.amazon.com/eks/home") or by using Amazon EKS’ DescribeCluster API.
+
   - `Type`: `String`
   - Required: Yes
 
 - `Method`: The HTTP method of your request. One of:
   `GET`, `POST`, `PUT`,
   `DELETE`, `HEAD`, or `PATCH`.
+
   - `Type`: `String`
   - Required: Yes
 
 - `Path`: The HTTP path of the Kubernetes REST API
   operation.
+
   - `Type`: `String`
   - Required: Yes
 
 - `QueryParameters`: The HTTP query parameters of the Kubernetes
   REST API operation.
+
   - `Type:` Map of `String` to `List of
 Strings`
   - Required: No
@@ -264,6 +278,7 @@ Strings`
 
 - `RequestBody`: The HTTP message body of the Kubernetes REST API
   operation.
+
   - `Type`: `JSON` or `String`
   - Required: No
 
@@ -329,6 +344,7 @@ to delete the job `example-job`, and sets the
 Supported Amazon EKS APIs and syntax include:
 
 - [`CreateCluster`](../../../eks/latest/APIReference/API_CreateCluster.md "../../../eks/latest/APIReference/API_CreateCluster.md")
+
   - [Request syntax](../../../eks/latest/APIReference/API_CreateCluster.md#API_CreateCluster_RequestSyntax "../../../eks/latest/APIReference/API_CreateCluster.md#API_CreateCluster_RequestSyntax")
   - [Response syntax](../../../eks/latest/APIReference/API_CreateCluster.md#API_CreateCluster_ResponseSyntax "../../../eks/latest/APIReference/API_CreateCluster.md#API_CreateCluster_ResponseSyntax")
 
@@ -357,6 +373,7 @@ Supported Amazon EKS APIs and syntax include:
   EKS cluster IAM role](../../../eks/latest/userguide/service_IAM_role.md "../../../eks/latest/userguide/service_IAM_role.md") in the _Amazon EKS User Guide_.
 
 - [`DeleteCluster`](../../../eks/latest/APIReference/API_DeleteCluster.md "../../../eks/latest/APIReference/API_DeleteCluster.md")
+
   - [Request syntax](../../../eks/latest/APIReference/API_DeleteCluster.md#API_DeleteCluster_RequestSyntax "../../../eks/latest/APIReference/API_DeleteCluster.md#API_DeleteCluster_RequestSyntax")
   - [Response syntax](../../../eks/latest/APIReference/API_DeleteCluster.md#API_DeleteCluster_ResponseSyntax "../../../eks/latest/APIReference/API_DeleteCluster.md#API_DeleteCluster_ResponseSyntax")
 
@@ -364,6 +381,7 @@ Supported Amazon EKS APIs and syntax include:
   a cluster.
 
 - [`CreateFargateProfile`](../../../eks/latest/APIReference/API_CreateFargateProfile.md "../../../eks/latest/APIReference/API_CreateFargateProfile.md")
+
   - [Request syntax](../../../eks/latest/APIReference/API_CreateFargateProfile.md#API_CreateFargateProfile_RequestSyntax "../../../eks/latest/APIReference/API_CreateFargateProfile.md#API_CreateFargateProfile_RequestSyntax")
   - [Response syntax](../../../eks/latest/APIReference/API_CreateFargateProfile.md#API_CreateFargateProfile_ResponseSyntax "../../../eks/latest/APIReference/API_CreateFargateProfile.md#API_CreateFargateProfile_ResponseSyntax")
 
@@ -384,10 +402,12 @@ Supported Amazon EKS APIs and syntax include:
   execution role](../../../eks/latest/userguide/pod-execution-role.md "../../../eks/latest/userguide/pod-execution-role.md") in the _Amazon EKS User Guide_.
 
 - [`DeleteFargateProfile`](../../../eks/latest/APIReference/API_DeleteFargateProfile.md "../../../eks/latest/APIReference/API_DeleteFargateProfile.md")
+
   - [Request syntax](../../../eks/latest/APIReference/API_DeleteFargateProfile.md#API_DeleteFargateProfile_RequestSyntax "../../../eks/latest/APIReference/API_DeleteFargateProfile.md#API_DeleteFargateProfile_RequestSyntax")
   - [Response syntax](../../../eks/latest/APIReference/API_DeleteFargateProfile.md#API_DeleteFargateProfile_ResponseSyntax "../../../eks/latest/APIReference/API_DeleteFargateProfile.md#API_DeleteFargateProfile_ResponseSyntax")
 
 - [`CreateNodegroup`](../../../eks/latest/APIReference/API_CreateNodegroup.md "../../../eks/latest/APIReference/API_CreateNodegroup.md")
+
   - [Request syntax](../../../eks/latest/APIReference/API_CreateNodegroup.md#API_CreateNodegroup_RequestSyntax "../../../eks/latest/APIReference/API_CreateNodegroup.md#API_CreateNodegroup_RequestSyntax")
   - [Response syntax](../../../eks/latest/APIReference/API_CreateNodegroup.md#API_CreateNodegroup_ResponseSyntax "../../../eks/latest/APIReference/API_CreateNodegroup.md#API_CreateNodegroup_ResponseSyntax")
 
@@ -404,6 +424,7 @@ Supported Amazon EKS APIs and syntax include:
   Service-Linked Roles](../../../eks/latest/userguide/create-node-role.md "../../../eks/latest/userguide/create-node-role.md") in the _Amazon EKS User Guide_.
 
 - [`DeleteNodegroup`](../../../eks/latest/APIReference/API_DeleteNodegroup.md "../../../eks/latest/APIReference/API_DeleteNodegroup.md")
+
   - [Request syntax](../../../eks/latest/APIReference/API_DeleteNodegroup.md#API_DeleteNodegroup_RequestSyntax "../../../eks/latest/APIReference/API_DeleteNodegroup.md#API_DeleteNodegroup_RequestSyntax")
   - [Response syntax](../../../eks/latest/APIReference/API_DeleteNodegroup.md#API_DeleteNodegroup_ResponseSyntax "../../../eks/latest/APIReference/API_DeleteNodegroup.md#API_DeleteNodegroup_ResponseSyntax")
 

@@ -39,6 +39,7 @@ terraform init
 
 2. Open the [Step Functions console](https://console.aws.amazon.com/states/home?region=us-east-1#/ "https://console.aws.amazon.com/states/home?region=us-east-1#/") to create a prototype for your state machine.
 3. In Workflow Studio, do the following:
+
    1. Create your workflow prototype.
    2. Export the [Amazon States Language (ASL)](concepts-amazon-states-language.md "concepts-amazon-states-language.md") definition of your workflow. To do this, choose the **Import/Export** dropdownlist, and then select **Export JSON definition**.
 

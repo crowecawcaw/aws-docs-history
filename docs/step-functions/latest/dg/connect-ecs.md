@@ -11,6 +11,7 @@ To learn about integrating with AWS services in Step Functions, see [Integrating
 
 - The [Run a Job (.sync)](connect-to-resource.md#connect-sync "connect-to-resource.md#connect-sync") integration pattern is supported.
 - `ecs:runTask` can return an HTTP 200 response, but have a non-empty `Failures` field as follows:
+
   - **Request Response**: Return the response and do not fail the task, which is the same as non-optimized integrations.
   - **Run a Job or Task Token**: If a non-empty `Failures` field is encountered, the task is failed with an `AmazonECS.Unknown` error.
 

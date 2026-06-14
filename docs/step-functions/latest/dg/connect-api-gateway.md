@@ -19,6 +19,7 @@ detailed list of supported features, see the following.
 
 - Supported by both the Step Functions API Gateway REST API and API Gateway HTTP API
   integrations:
+
   - **Authorizers**: IAM (using [Signature Version 4](../../../general/latest/gr/sigv4_signing.md "../../../general/latest/gr/sigv4_signing.md")),
     No Auth, Lambda Authorizers (request-parameter based and token-based with
     custom header)
@@ -28,6 +29,7 @@ detailed list of supported features, see the following.
 
 - Supported by the Step Functions API Gateway HTTP API integration. The Step Functions API Gateway REST API integration that provides the option for Edge-optimized APIs are not supported.
 - Unsupported by the Step Functions API Gateway integration:
+
   - **Authorizers**: Amazon Cognito, Native Open ID Connect /
     OAuth 2.0, Authorization header for token-based Lambda authorizers
   - **API types**: Private
@@ -50,6 +52,7 @@ has both required and optional parameters.
 ### Required request parameters
 
 - `ApiEndpoint`
+
   - Type: `String`
   - The hostname of an API Gateway URL. The format is
     ``<API
@@ -60,8 +63,10 @@ ID>`.execute-api.`region`.amazonaws.com`.
   `0123456789abcdefghijklmnopqrstuvwxyz`
 
 - `Method`
+
   - Type: `Enum`
   - The HTTP method, which must be one of the following:
+
     - `GET`
     - `POST`
     - `PUT`
@@ -73,25 +78,30 @@ ID>`.execute-api.`region`.amazonaws.com`.
 ### Optional request parameters
 
 - `Headers`
+
   - Type: `JSON`
   - HTTP headers allow a list of values associated with the same
     key.
 
 - `Stage`
+
   - Type: `String`
   - The name of the stage where the API is deployed to in API Gateway.
     It's optional for any HTTP API that uses the `$default`
     stage.
 
 - `Path`
+
   - Type: `String`
   - Path parameters that are appended after the API endpoint.
 
 - `QueryParameters`
+
   - Type: `JSON`
   - Query strings only allow a list of values associated with the same key.
 
 - `RequestBody`
+
   - Type: `JSON` or `String`
   - The HTTP Request body. Its type can be either a `JSON`
     object or `String`. `RequestBody` is only
@@ -99,6 +109,7 @@ ID>`.execute-api.`region`.amazonaws.com`.
     `PUT` HTTP methods.
 
 - `AllowNullValues`
+
   - Type: `BOOLEAN` – default value: `false`
   - With the default setting, any **null** values in the request input state will **not** be sent to your API. In the following example, the `category` field will **not** be included in the request, unless `AllowNullValues` is set to `true` in your state machine definition.
 
@@ -117,6 +128,7 @@ ID>`.execute-api.`region`.amazonaws.com`.
   By default, fields with **null** values in the request input state will **not** be sent to your API. You can force null values to be sent to your API by setting `AllowNullValues` to `true` in your state machine definition.
 
 - `AuthType`
+
   - Type: `JSON`
   - The authentication method. The default method is
     `NO_AUTH`. The allowed values are:

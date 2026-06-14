@@ -131,6 +131,7 @@ To gather information about the Amazon S3 buckets in your current region, you mu
 
 1. On the **Gather-S3-Bucket-Info-Standard** page, choose **Start execution**.
 2. In the **Start execution** dialog box, do the following:
+
    1. (Optional) Enter a custom execution name to override the generated default.
 
    ###### Non-ASCII names and logging
