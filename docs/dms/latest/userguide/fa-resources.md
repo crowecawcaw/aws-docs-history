@@ -65,6 +65,7 @@ resources that make up a stack. The template is stored as a JSON file.
 
 1. Open the context (right-click) menu for one of the following links and
    choose **Save Link As**:
+
    - If you plan to use DMS Fleet Advisor, choose [dms-fleetadvisor-iam-slr-s3.zip](samples/dms-fleetadvisor-iam-slr-s3.zip.md "samples/dms-fleetadvisor-iam-slr-s3.zip.md"). If you have
      already created the SLR for DMS Fleet Advisor, choose [dms-fleetadvisor-iam-s3.zip](samples/dms-fleetadvisor-iam-s3.zip.md "samples/dms-fleetadvisor-iam-s3.zip.md")
    - If you plan to use the AWS Application Discovery Service (ADS)
@@ -87,6 +88,7 @@ resources listed previously.
    dropdown list.
 3. On the **Create stack** page, do the
    following:
+
    1. For **Prepare template**, choose
       **Template is ready**.
    2. For **Template source**, choose
@@ -100,6 +102,7 @@ resources listed previously.
 
 4. On the **Specify stack details** page, do the
    following:
+
    1. For **Stack name**, enter
       `dms-fleetadvisor-iam-slr-s3`,`dms-fleetadvisor-iam-s3`,
       `dms-fleetadvisor-ads-iam-slr-s3`, or
@@ -114,6 +117,7 @@ resources listed previously.
    dms-fleetadvisor-ads-iam-slr-s3**, or **Review
    dms-fleetadvisor-ads-iam-s3** page, do the
    following:
+
    1. Select the \***\*I acknowledge that
       CloudFormation might create IAM resources with custom
       names\*\*** check box.
@@ -132,6 +136,7 @@ resources listed previously.
    **dms-fleetadvisor-ads-iam-slr-s3**, or
    **dms-fleetadvisor-ads-iam-s3**. In the right
    panel, do the following:
+
    1. Choose **Stack info**. Your stack has an ID
       in the format
       **arn:aws:cloudformation:`region`:`account-no`:stack/dms-fleetadvisor-iam-slr-s3/`identifier`**,
@@ -141,6 +146,7 @@ resources listed previously.
       **arn:aws:cloudformation:`region`:`account-no`:stack/dms-fleetadvisor-ads-iam-s3/`identifier`**.
    2. Choose **Resources**. You should see the
       following:
+
       - An Amazon S3 bucket named
         `dms-fleetadvisor-data-`accountId`-`region``
       - A service role named

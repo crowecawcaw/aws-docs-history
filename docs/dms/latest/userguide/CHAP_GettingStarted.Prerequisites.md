@@ -102,6 +102,7 @@ sure to configure the following:
 2. On the navigation pane, choose **Parameter groups**.
 3. On the **Parameter groups** page, choose **Create parameter group**.
 4. On the **Create parameter group** page, enter the following settings:
+
    - **Parameter group family**: **mariadb10.6**
    - **Group name**: `dms-mariadb-parameters`
    - **Description**: `Group for specifying binary log settings for replication`Choose **Create**.
@@ -110,11 +111,13 @@ sure to configure the following:
    **dms-mariadb-parameters**, and on the
    **dms-mariadb-parameters** page, choose **Edit**.
 6. Set the following parameters to the following values:
+
    - **binlog_checksum**: **NONE**
    - **binlog_format**: **ROW**Choose **Save changes**.
 
 7. On the **Parameter groups** page, choose **Create parameter group** again.
 8. On the **Create parameter group** page, enter the following settings:
+
    - **Parameter group family**: **postgres16**
    - **Group name**: `dms-postgresql-parameters`
    - **Description**: `Group for specifying role setting for replication`Choose **Create**.
@@ -139,13 +142,16 @@ Use the following procedure to create your source Amazon RDS database.
    Database** in the **Try the new Amazon RDS Multi-AZ deployment option for MySQL and PostgreSQL** section at the
    top of the page.
 3. On the **Create database** page, set the following options:
+
    - **Choose a database creation method**: Choose **Standard Create**.
    - **Engine options**: For **Engine type**, choose
      **MariaDB**. For **Version**, leave **MariaDB 10.6.14** selected.
    - **Templates**: Choose **Dev/Test**.
    - **Settings**:
+
      - **DB instance identifier**: Enter `dms-mariadb`.
      - In the **Credentials settings** section, enter the following:
+
        - **Master username**: Leave as `admin`.
        - Leave **Manage master credentials in AWS Secrets Manager** unchecked.
        - **Auto generate a password**: Leave unselected.
@@ -153,16 +159,19 @@ Use the following procedure to create your source Amazon RDS database.
        - **Confirm password**: Enter `changeit` again.
 
    - **Instance configuration**:
+
      - **DB instance class**: Leave **Standard classes** chosen.
      - For **DB instance class**, choose **db.m5.large**.
 
    - **Storage**:
+
      - Clear the **Enable storage autoscaling** box.
      - Leave the rest of the settings as they are.
 
    - **Availability and Durability**: Leave
      **Do not create a standby instance** selected.
    - **Connectivity**:
+
      - **Compute resource** Leave **Don't connect to an EC2 compute resource**
      - **Network type**: Leave **IPv4** selected.
      - **Virtual private cloud**: **DMSVPC-vpc**
@@ -176,10 +185,12 @@ Use the following procedure to create your source Amazon RDS database.
      Expand the **Additional configuration** section, and clear the **Enable Enhanced monitoring**
      box.
    - Expand **Additional configuration**:
+
      - Under **Database options**, enter `dms_sample` for **Initial database name**.
      - Under **DB parameter group**, choose **dms-mariadb-parameters**.
      - For **Option group**, leave **default:mariadb-10-6** selected.
      - Under **Backup**, do the following:
+
        - Leave **Enable automatic backups**
          selected. Your source database must have automatic backups
          enabled to support ongoing replication.
@@ -208,6 +219,7 @@ changes.
 1. Repeat steps 1 and 2 from the previous procedure.
 2. On the **Create database** page, set the same options, except
    for these:
+
    1. For **Engine options**, choose **PostgreSQL**.
    2. For **Version**, choose an available **PostgreSQL 16**
       version
@@ -239,6 +251,7 @@ accessing your databases over the internet:
     [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2.  On the **Dashboard**, choose **Launch instance**.
 3.  On the **Launch an Instance** page, enter the following values:
+
     1.  In the **Name and tags** section, enter `DMSClient` for **Name**.
     2.  In the **Application and OS Images (Amazon Machine Image)** section, leave the settings as they are.
     3.  In the **Instance Type** section, choose **t2.xlarge**.

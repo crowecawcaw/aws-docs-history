@@ -644,6 +644,7 @@ for CDC, start with the following prerequisites:
 
 - AWS DMS currently supports only Oracle Active Data Guard Standby.
 - Make sure that the Oracle Data Guard configuration uses:
+
   - Redo transport services for automated transfers of redo
     data.
   - Apply services to automatically apply redo to the standby
@@ -1034,6 +1035,7 @@ GRANT READ ON DIRECTORY ARCHIVELOG_DIR TO `dms_user`;
 
 3. Set the following extra connection attributes on the Amazon RDS Oracle
    source endpoint:
+
    - For RDS Oracle versions 11.2 and 12.1, set the
      following.
 
@@ -1041,7 +1043,6 @@ GRANT READ ON DIRECTORY ARCHIVELOG_DIR TO `dms_user`;
    useLogminerReader=N;useBfile=Y;accessAlternateDirectly=false;useAlternateFolderForOnline=true;
    oraclePathPrefix=/rdsdbdata/db/{$DATABASE_NAME}_A/;usePathPrefix=/rdsdbdata/log/;replacePathPrefix=true;
    ```
-
    - For RDS Oracle versions 12.2, 18.0, and 19.0, set the
      following.
 
@@ -1157,6 +1158,7 @@ For more information, see [Validate the length of the object name included in th
   the columns, make sure that supplemental logging is activated for all fields
   and columns. For more information on setting up supplemental logging, see
   the following topics:
+
   - For a self-managed Oracle source database, see [Setting up supplemental logging](#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging "#CHAP_Source.Oracle.Self-Managed.Configuration.SupplementalLogging").
   - For an AWS-managed Oracle source database, see [Configuring an AWS-managed Oracle source for AWS DMS](#CHAP_Source.Oracle.Amazon-Managed.Configuration "#CHAP_Source.Oracle.Amazon-Managed.Configuration").
 
@@ -1249,6 +1251,7 @@ numeric column defined as a primary key.
   set to `true`.
 - When you use Oracle LogMiner to access the redo logs, AWS DMS has the
   following limitations:
+
   - For Oracle 12 only, AWS DMS does not replicate any changes to LOB
     columns.
   - AWS DMS does not support XA transactions in replication while using
@@ -1259,6 +1262,7 @@ numeric column defined as a primary key.
   - SHRINK SPACE operations aren’t supported.
 
 - When you use Binary Reader, AWS DMS has these limitations:
+
   - It does not support table clusters.
   - It supports only table-level `SHRINK SPACE` operations.
     This level includes the full table, partitions, and
@@ -1304,6 +1308,7 @@ columns;`.
 - AWS DMS does not support multiple table rename operations in quick succession.
 - When using Oracle 19.0 as source, AWS DMS does not support the following
   features:
+
   - Data-guard DML redirect
   - Partitioned hybrid tables
   - Schema-only Oracle accounts
@@ -1320,6 +1325,7 @@ columns;`.
 - Prior to AWS DMS version 3.5.3, Direct-load `INSERT` procedure
   with the parallel execution option is not supported in the following
   cases:
+
   - Uncompressed tables with more than 255 columns
   - Row size exceeds 8K
   - Exadata HCC tables

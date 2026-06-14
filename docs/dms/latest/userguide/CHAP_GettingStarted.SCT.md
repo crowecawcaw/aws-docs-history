@@ -30,6 +30,7 @@ then choose **MySQL**, and choose **Next**. 5. In the **Add source** page, set t
    database to your project, then choose **Amazon RDS for PostgreSQL**.
    Choose **Next**.
 7. In the **Add target** page, set the following values:
+
    - **Connection name**: `target`
    - **Server name**: Enter the endpoint for the PostgreSQL database that you
      noted previously.

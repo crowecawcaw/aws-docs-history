@@ -43,12 +43,12 @@ WARNING: out of background worker slots.
    connecting resource.
 9. Grant an existing user replication permissions, or create a new user with
    replication permissions, using the following commands.
+
    - Grant an existing user replication permissions using the following command:
 
    ```
    ALTER USER `<existing_user>` WITH REPLICATION;
    ```
-
    - Create a new user with replication permissions using the following command:
 
    ```

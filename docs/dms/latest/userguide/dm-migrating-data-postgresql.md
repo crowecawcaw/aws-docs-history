@@ -57,6 +57,7 @@ to RDS for PostgreSQL or Aurora PostgreSQL.
 - To speed up initial data syncing on the subscriber side for FLCDC task, you must adjust
   `max_logical_replication_workers` and `max_sync_workers_per_subscription`. Increasing
   these values enhances table synchronization speed.
+
   - **max_logical_replication_workers** –
     Specifies maximum number of logical replication workers. This includes both the apply workers on the
     subscriber side and the table synchronization workers.

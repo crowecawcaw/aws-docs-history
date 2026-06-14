@@ -5,6 +5,7 @@ Full-load settings include the following. For information about how to use a tas
 - To indicate how to handle loading the target at full-load startup,
   specify one of the following values for the
   `TargetTablePrepMode` option:
+
   - `DO_NOTHING` – Data and metadata of the
     existing target table aren't affected.
   - `DROP_AND_CREATE` – The existing table is
@@ -17,6 +18,7 @@ Full-load settings include the following. For information about how to use a tas
   `true`.
 - For full-load and CDC-enabled tasks, you can set the following options
   for `Stop task after full load completes`:
+
   - `StopTaskCachedChangesApplied` – Set this
     option to `true` to stop a task after a full load
     completes and cached changes are applied.

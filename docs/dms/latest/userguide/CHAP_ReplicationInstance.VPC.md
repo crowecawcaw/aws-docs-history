@@ -239,6 +239,7 @@ that is not in a VPC to a VPC containing an AWS DMS replication instance and a t
 
 1. Create an AWS DMS replication instance and assign a VPC
    security group:
+
    1. Sign in to the AWS Management Console and open the AWS DMS console at
       [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
 
@@ -257,6 +258,7 @@ that is not in a VPC to a VPC containing an AWS DMS replication instance and a t
 
 2. Associate the security group from the last step with the target
    DB instance:
+
    1. Open the Amazon RDS service console. Choose **Instances** from the navigation
       pane.
    2. Choose the target DB instance. For **Instance Actions**, choose
@@ -364,6 +366,7 @@ To set up a proxy server on an EC2 Classic instance
 4. Create a ClassicLink connection between the proxy server and the
    target VPC that contains the target DB instance and the replication
    instance:
+
    1. Open the EC2 console and choose the EC2 Classic instance that is running the proxy
       server.
    2. For **Actions**, choose **ClassicLink**, then choose

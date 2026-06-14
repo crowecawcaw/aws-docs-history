@@ -406,6 +406,7 @@ The following limitations apply when using Kinesis Data Streams as a target:
   stream need to handle duplicate records. For more information, see [Handling
   duplicate records](../../../streams/latest/dev/kinesis-record-processor-duplicates.md "../../../streams/latest/dev/kinesis-record-processor-duplicates.md") in the _Amazon Kinesis Data Streams Developer Guide._
 - AWS DMS supports the following four forms for partition keys:
+
   - `SchemaName.TableName`: A combination of the schema and
     table name.
   - `${AttributeName}`: The value of one of the fields in

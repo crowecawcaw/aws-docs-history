@@ -15,6 +15,7 @@ To configure, you must follow the following steps:
    groups**, and choose **Create security
    group**.
 3. Configure security group details:
+
    - **Security group name**: Example:
      `SecretsManagerEndpointSG`
    - **Description**: Enter an appropriate
@@ -25,6 +26,7 @@ To configure, you must follow the following steps:
 
 4. Click **Add Rule** to set inbound rules and configure the
    following:
+
    - Type: HTTPS (As the secrets manager uses HTTPS on port
      443).
    - Source: Choose **Custom**, and enter the securty
@@ -52,6 +54,7 @@ following:
 
 1. Select **VPC and Subnets** and configure the
    following:
+
    - **VPC**: Ensure it is the same VPC as
      your replication instance.
    - **Subnets**: Select the subnets where
@@ -69,11 +72,13 @@ following:
 ###### Retrieve the VPC endpoint DNS name
 
 1. Access the VPC endpoint details:
+
    1. Navigate to the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") and choose
       **Endpoints**.
    2. Select the appropriate endpoint you created.
 
 2. Copy the DNS name:
+
    1. Under the **Details** tab, navigate to the
       **DNS Names** section.
    2. Copy the first DNS name listed. (Example:
@@ -84,6 +89,7 @@ following:
 
 1. Navigate to the [AWS DMS](https://console.aws.amazon.com/dms/v2 "https://console.aws.amazon.com/dms/v2") console.
 2. Modify the DMS endpoint:
+
    1. In the navigation pane on the left, select
       **Endpoints**.
    2. Choose the appropriate endpoint you want to configure.
@@ -91,6 +97,7 @@ following:
       **Modify**.
 
 3. Configure endpoint settings:
+
    1. Navigate to **Endpoint settings** and select
       **Use endpoint connection attributes**
       checkbox.

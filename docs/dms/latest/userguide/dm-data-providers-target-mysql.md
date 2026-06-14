@@ -45,6 +45,7 @@ ERROR 1419 (HY000): You don't have the SUPER privilege and binary logging is ena
 The following limitations apply when using a MySQL compatible database as a target for homogeneous data migrations:
 
 - The username you use to connect to your data source has the following limitations:
+
   - Can be 2 to 64 characters in length.
   - Can't have spaces.
   - Can include the following characters: a-z, A-Z, 0-9, underscore (\_).
@@ -52,5 +53,6 @@ The following limitations apply when using a MySQL compatible database as a targ
   - Must start with a-z or A-Z.
 
 - The password you use to connect to your data source has the following limitations:
+
   - Can be 1 to 128 characters in length.
   - Can't contain any of the following: single quote ('), double quote ("), semicolon (;) or space.

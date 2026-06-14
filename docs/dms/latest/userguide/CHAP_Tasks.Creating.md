@@ -5,6 +5,7 @@ To create an AWS DMS migration task, you do the following:
 - Create a source endpoint, a target endpoint, and a replication instance before
   you create a migration task.
 - Choose a migration method:
+
   - Migrating data to the target database
     – This process creates files or tables in the target database and
     automatically defines the metadata that is required at the target. It

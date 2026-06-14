@@ -736,6 +736,7 @@ The following limitations apply to AWS DMS context logging:
 - While AWS DMS creates minimal logging for all endpoint types, extensive engine-specific
   context logging is only available for the following endpoint types. We recommend turning on context logging when using
   these endpoint types.
+
   - MySQL
   - PostgreSQL
   - Oracle

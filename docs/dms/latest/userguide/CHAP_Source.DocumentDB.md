@@ -230,6 +230,7 @@ how to do so.
    CA certificate** page appears.
 4. In the **Certificate configuration** section, do one of
    the following:
+
    - For **Certificate identifier**, enter a unique
      name for the certificate, such as
      `docdb-cert`.
@@ -491,6 +492,7 @@ task only for Amazon DocumentDB versions 4.0 and higher. If you want to migrate 
 databases, do the following:
 
 1. When you create the Amazon DocumentDB source endpoint:
+
    - In the AWS Management Console for AWS DMS, leave **Database
      name** empty under **Endpoint
      configuration** on the **Create

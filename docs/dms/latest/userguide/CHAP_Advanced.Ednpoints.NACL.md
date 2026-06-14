@@ -28,10 +28,12 @@ that subnet's NACL.
    you can browse through the subnets in the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"),
    find the DMS subnet, and note the associated NACL ID.
 2. Edit the inbound rules:
+
    1. Click the **Inbound Rules** tab for the selected
       NACL.
    2. Select **Edit inbound rules**.
    3. Add a new rule:
+
       - **Rule #**: Choose a unique
         number (Example: 100).
       - **Type**: Select
@@ -45,10 +47,12 @@ that subnet's NACL.
         **Allow**.
 
 3. Edit the outbound rules:
+
    1. Click the **Outbound Rules** tab for the selected
       NACL.
    2. Click **Edit outbound rules**.
    3. Add a new rule:
+
       - **Rule #**: Use the same
         number as used in the inbound rules.
       - **Type**: All traffic.

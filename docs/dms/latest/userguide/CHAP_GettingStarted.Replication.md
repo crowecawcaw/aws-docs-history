@@ -22,6 +22,7 @@ about replication instances, see [Working with an AWS DMS replication instance](
    then choose **Create replication instance**.
 3. On the **Create replication instance** page, specify your
    replication instance configuration:
+
    1. For **Name**, enter `DMS-instance`.
    2. For **Description**, enter a short description for your replication
       instance (optional).
@@ -39,6 +40,7 @@ about replication instances, see [Working with an AWS DMS replication instance](
 
 4. Choose the **Advanced security and network configuration**
    tab to set values for network and encryption settings if you need them:
+
    1. For **Availability zone**, choose **us-west-2a**.
    2. For **VPC security group(s)**, choose the **Default**
       security group if it isn't already chosen.
@@ -105,6 +107,7 @@ In this step, you create a task to migrate data between the databases you create
    **Create database migration task** page opens.
 2. In the **Task configuration** section, specify the following
    task options:
+
    - **Task identifier**: Enter
      `dms-task`.
    - **Replication instance**:
@@ -117,11 +120,13 @@ In this step, you create a task to migrate data between the databases you create
      replicate on-going changes**.
 
 3. Choose the **Task settings** tab. Set the following settings:
+
    - **Target table preparation mode**: **Do nothing**
    - **Stop task after full load completes**: **Don't stop**
 
 4. Choose the **Table mappings** tab, and expand **Selection rules**. Choose
    **Add new selection rule**. Set the following settings:
+
    - **Schema**: **Enter a schema**
    - **Schema name**: `dms_sample`
 

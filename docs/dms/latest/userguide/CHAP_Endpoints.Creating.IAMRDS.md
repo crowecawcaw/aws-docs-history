@@ -140,6 +140,7 @@ aws dms import-certificate --certificate-identifier rdsglobal --certificate-pem 
 ```
 
 4. Run the following commands to create an IAM endpoint:
+
    - For PostgreSQL/Aurora PostgreSQL endpoints (When
      `sslmode` is set to
      `required`, `--certificate-arn`
@@ -148,7 +149,6 @@ aws dms import-certificate --certificate-identifier rdsglobal --certificate-pem 
    ```
    aws dms create-endpoint --endpoint-identifier <endpoint-name> --endpoint-type <source/target> --engine-name <postgres/aurora-postgres> --username <db username with iam auth privileges> --server-name <db server name> --port <port number> --ssl-mode <required/verify-ca/verify-full> --postgre-sql-settings "{\"ServiceAccessRoleArn\": \"role arn created from step 2 providing permissions for iam authentication\", \"AuthenticationMethod\": \"iam\", \"DatabaseName\": \"database name\"}" --certificate-arn <if sslmode is verify-ca/verify full use cert arn generated in step 3, otherwise this parameter is not required>
    ```
-
    - For MySQL, MariaDB, or Aurora MySQL endpoints:
 
    ```

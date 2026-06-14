@@ -38,6 +38,7 @@ Use the following topics to better understand how to use DMS Schema Conversion.
 - [Schema conversion features](#schema-conversion-features "#schema-conversion-features")
 - [Schema conversion limitations](#schema-conversion-limitations "#schema-conversion-limitations")
 - [Getting started with DMS Schema Conversion](getting-started.md "getting-started.md")
+- [DMS Schema Conversion concepts](sc-concepts.md "sc-concepts.md")
 - [Setting up a network for DMS Schema Conversion](instance-profiles-network.md "instance-profiles-network.md")
 - [Creating source data providers in DMS Schema Conversion](data-providers-source.md "data-providers-source.md")
 - [Creating and setting target data providers in DMS Schema Conversion](data-providers-target.md "data-providers-target.md")
@@ -108,8 +109,7 @@ DMS Schema Conversion provides the following features:
   rules. You can use transformation rules to change the data type of columns, move
   objects from one schema to another, and change the names of objects. You can
   apply transformation rules to databases, schemas, tables, and columns. For more
-  information, see [Setting up
-  transformation rules](schema-conversion-transformation-rules.md "schema-conversion-transformation-rules.md").
+  information, see [Transformation rules](sc-transformation-rules.md "sc-transformation-rules.md").
 - You can change conversion settings to improve the performance of the converted
   code. These settings are specific for each conversion pair and depend on the
   features of the source database that you use in your code. For more information,

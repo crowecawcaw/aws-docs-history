@@ -374,6 +374,7 @@ migrated to the target.
 - AWS DMS does not capture changes to computed (`VIRTUAL` and
   `GENERATED ALWAYS`) columns. To work around this limitation, do
   the following:
+
   - Pre-create the target table in the target database, and create the
     AWS DMS task with the `DO_NOTHING` or `TRUNCATE_BEFORE_LOAD`
     full-load task setting.

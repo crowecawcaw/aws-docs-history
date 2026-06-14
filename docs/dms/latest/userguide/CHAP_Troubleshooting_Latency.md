@@ -138,6 +138,7 @@ For more information about task settings, see [Specifying task settings for AWS 
   volume of changes on the source, task latency will take time to subside.
 - **LOB settings**: Large Object data types can hinder replication performance
   due to the way AWS DMS replicates large binary data. For more information, see the following topics:
+
   - [Setting LOB support for source databases in an AWS DMS task](CHAP_Tasks.LOBSupport.md "CHAP_Tasks.LOBSupport.md")
   - [Migrating large binary objects (LOBs)](CHAP_BestPractices.md#CHAP_BestPractices.LOBS "CHAP_BestPractices.md#CHAP_BestPractices.LOBS").
 

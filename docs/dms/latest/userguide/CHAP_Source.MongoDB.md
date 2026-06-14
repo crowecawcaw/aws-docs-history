@@ -471,6 +471,7 @@ take these steps:
 
 1. When you create the MongoDB source endpoint, do one of the
    following:
+
    - On the DMS console's **Create
      endpoint** page, make sure that **Database name** is empty under **Endpoint configuration**.
    - Using the AWS CLI `CreateEndpoint` command, assign an
@@ -566,6 +567,7 @@ specify the prefixed column. For example, you specify
 - AWS DMS requires UTF-8 encoded source data when migrating to non-DocumentDB targets. For sources
   with non-UTF-8 characters, convert them to UTF-8 before migration or migrate to Amazon DocumentDB instead.
 - AWS DMS doesn't support the following features of MongoDB version 5.0:
+
   - Live resharding
   - Client-Side Field Level Encryption (CSFLE)
   - Timeseries collection migration

@@ -65,6 +65,7 @@ The cgroup limits are based on the resources available for your AWS DMS replicat
 AWS DMS raises this metric against the combined dimensions of `ReplicationInstanceIdentifer` and `ReplicationTaskIdentifier` in the CloudWatch console. Use the `ReplicationInstanceIdentifier`, `ReplicationTaskIdentifier` category to view this metric.
 
 - **Validation record count**: This chart is visible only if validation is enabled for the AWS DMS task. This is a combination of validation metrics available for the AWS DMS task, which includes the following:
+
   - `ValidationSucceededRecordCount` – Number of rows that AWS DMS validated per minute.
   - `ValidationAttemptedRecordCount` – Number of rows that the validation was attempted per minute.
   - `ValidationFailedOverallCount` – Number of rows where validation failed.

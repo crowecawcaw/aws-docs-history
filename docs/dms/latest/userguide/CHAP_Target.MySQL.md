@@ -175,6 +175,7 @@ COLUMN`column_name`` statement to add
   report errors caused by constraints in the task logs, which can cause duplicate key errors
   or mismatches with the number of records. This is caused by the way MySQL handles local
   data with the `LOAD DATA` command. Be sure to do the following during the full load phase:
+
   - Disable constraints
   - Use AWS DMS validation to make sure the data is consistent.
 
@@ -204,6 +205,7 @@ the target database. See awsdms_apply_exceptions table for details.
   `innodb_read_only` parameters are set to `0` or
   `OFF`. For more information about using Amazon RDS and Aurora as
   targets, see the following:
+
   - [Determining which DB instance you are connected to](../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.DeterminePrimaryInstanceConnection "../../../AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.BestPractices.md#AuroraMySQL.BestPractices.DeterminePrimaryInstanceConnection")
   - [Updating read replicas with MySQL](../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.ReadReplicas.md#USER_MySQL.Replication.ReadReplicas.Updates "../../../AmazonRDS/latest/UserGuide/USER_MySQL.Replication.ReadReplicas.md#USER_MySQL.Replication.ReadReplicas.Updates")
 

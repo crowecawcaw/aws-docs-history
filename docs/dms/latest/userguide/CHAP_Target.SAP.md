@@ -26,6 +26,7 @@ AWS DMS:
 
 - AWS DMS doesn't support tables that include fields with the following data
   types. Replicated columns with these data types show as null.
+
   - User-defined type (UDT)
 
 ## Endpoint settings when using SAP ASE as a target for AWS DMS

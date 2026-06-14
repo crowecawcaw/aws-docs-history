@@ -288,6 +288,7 @@ define the policies that control how these keys can be used.
 1. Sign in to the AWS Management Console and open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
 3. Choose one of the following options to work with AWS KMS keys:
+
    - To view the keys in your account that AWS creates and manages for you, in the navigation pane, choose **AWS managed keys**.
    - To view the keys in your account that you create and manage, in the navigation
      pane choose **Customer managed keys**.

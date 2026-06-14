@@ -58,6 +58,7 @@ AWS-managed databases on supported source and target endpoints:
   `SecretsManagerOracleAsmSecretId` and
   `SecretsManagerOracleAsmAccessRoleArn` settings. The secret values for
   these settings can include the following for:
+
   - `SecretsManagerSecretId` – The full Amazon Resource Name
     (ARN), partial ARN, or friendly name of a secret that you have created for
     endpoint database access in the AWS Secrets Manager.
@@ -128,6 +129,7 @@ access role and its secret.
 5. If the user doesn't have those permission, add the permissions.
 6. If you're using an IAM Role for making DMS API calls, repeat the steps above for the respective role.
 7. Open a terminal and use the AWS CLI to validate that permissions are given correctly by assuming the Role or User used above.
+
    1. Validate user’s permission on the SecretAccessRole using the IAM
       `get-role` command.
 

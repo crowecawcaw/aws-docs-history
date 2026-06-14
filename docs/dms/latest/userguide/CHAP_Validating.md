@@ -62,6 +62,7 @@ the table level:
 - ValidationState—The
   validation state of the table. The parameter can have the following
   values:
+
   - Not enabled—Validation is not enabled for the table in
     the migration task.
   - Pending records—Some records in the table are waiting for
@@ -517,6 +518,7 @@ For self-managed PostgreSQL instances, you need to install the `contrib` module 
     ```
 
 - For Amazon RDS for PostgreSQL instances, configure the SSL mode for the AWS DMS endpoint:
+
   - By default, Amazon RDS forces an SSL connection. When you create a AWS DMS endpoint for a Amazon RDS for PostgreSQL instance, use the "SSL mode" option = "required".
   - If you want to use the "SSL mode" option = "none", set the `rds.force_ssl` parameter to 0 in the RDS Parameter Group.
 
@@ -531,10 +533,12 @@ CREATE OR REPLACE AGGREGATE BIT_XOR(IN v bit) (SFUNC = bitxor, STYPE = bit);
 This enhanced data validation feature has the following limitations:
 
 - Database endpoint requirements: This improvement is enabled only for database endpoints that meet the following criteria:
+
   - Use AWS Secrets Manager to store credentials.
   - For Microsoft SQL Server, Kerberos authentication is also supported.
 
 - Database version support:
+
   - PostgreSQL 12 and higher
   - Oracle 12.1 and higher
   - For Microsoft SQL Server versions lower than 2019, validation of NCHAR and NVARCHAR data types is not supported.
@@ -543,6 +547,7 @@ This enhanced data validation feature has the following limitations:
 
 - Data validation requires that the table has a primary key or unique
   index.
+
   - Primary key columns cannot be of type `CLOB`, `BLOB`,
     `BINARY`, or `BYTE`.
   - For primary key columns of type `VARCHAR` or

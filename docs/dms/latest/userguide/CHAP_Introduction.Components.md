@@ -151,6 +151,7 @@ settings:
 - Target endpoint
 - Migration type options, as listed following. For a full
   explanation of the migration type options, see [Creating a task](CHAP_Tasks.Creating.md "CHAP_Tasks.Creating.md").
+
   - Full load (Migrate existing data) – If you can
     afford an outage long enough to copy your existing data,
     this option is a good one to choose. This option simply
@@ -176,6 +177,7 @@ settings:
 
 - Target table preparation mode options, as listed following. For a
   full explanation of target table modes, see [Creating a task](CHAP_Tasks.Creating.md "CHAP_Tasks.Creating.md").
+
   - Do nothing – AWS DMS assumes that the target tables
     are precreated on the target.
   - Drop tables on target – AWS DMS drops and recreates
@@ -187,6 +189,7 @@ settings:
 
 - LOB mode options, as listed following. For a full explanation of
   LOB modes, see [Setting LOB support for source databases in an AWS DMS task](CHAP_Tasks.LOBSupport.md "CHAP_Tasks.LOBSupport.md").
+
   - Don't include LOB columns – LOB columns are
     excluded from the migration.
   - Full LOB mode – Migrate complete LOBs regardless of
@@ -202,6 +205,7 @@ settings:
   they are migrated. For more information, see [Using table mapping to specify task settings](CHAP_Tasks.CustomizingTasks.TableMapping.md "CHAP_Tasks.CustomizingTasks.TableMapping.md").
 - Data transformations, as listed following. For more information on
   data transformations, see [Specifying table selection and transformations rules using JSON](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+
   - Changing schema, table, and column names.
   - Changing tablespace names (for Oracle target
     endpoints).

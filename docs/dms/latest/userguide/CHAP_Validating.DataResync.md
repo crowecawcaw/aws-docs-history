@@ -158,13 +158,13 @@ Data resync feature are:
   occur. Monitor validation failure and resync rates to determine optimal
   resync windows during source inactivity periods. Some examples for setting
   up the resync windows are:
+
   - Multiple short window configuration:
 
   ```
   "ResyncSchedule": "0 0,2,4,6 * * *",
   "MaxResyncTime": 60
   ```
-
   - Single daily window configuration:
 
   ```
@@ -181,6 +181,7 @@ Data resync feature are:
 - When the task is in an ongoing replication phase, avoid initiating a
   reload for individual tables during the resync window.
 - Best practices for a CDC replication task:
+
   - All the tables in your database complete loading process.
   - Mismatches are identified in the on going validation
     process.
@@ -371,6 +372,7 @@ each parameters are:
   to specify the range. Maximum 10 items separated by a comma
   (`,`).
 - **Examples**:
+
   - `2-5` equals to
     `2,3,5,5`.
   - `1-2,3-4,5,7-10` is a valid range.

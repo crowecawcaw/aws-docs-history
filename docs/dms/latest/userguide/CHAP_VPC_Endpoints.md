@@ -40,6 +40,7 @@ Before you configure a VPC endpoint, you must meet the following prerequisites:
   endpoints. For more information, see [Gateway endpoints](../../../vpc/latest/privatelink/gateway-endpoints.md "../../../vpc/latest/privatelink/gateway-endpoints.md") in the _AWS PrivateLink
   guide_.
 - Configure IAM permissions to use DMS:
+
   - Configure the `dms-vpc-role` role. For more information,
     see [AWS managed policy:
     AmazonDMSVPCManagementRole](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonDMSVPCManagementRole "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonDMSVPCManagementRole").
@@ -97,6 +98,7 @@ connections.
 4. In **Endpoints**, choose **Create
    endpoint**.
 5. Configure the VPC endpoint as follows:
+
    1. Select **Type** as **AWS
       Services**.
    2. In the **Service Name** textbox, search for
@@ -173,6 +175,7 @@ following prerequisites:
 4. In **Endpoints**, choose **Create
    endpoint**.
 5. Configure the VPC endpoint as follows:
+
    1. Select **Type** as **AWS
       Services**.
    2. In the **Service Name** textbox, search for

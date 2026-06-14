@@ -21,6 +21,7 @@ You can use the following data stores as source endpoints for data migration usi
   editions
 - Microsoft SQL Server versions 2008 (supported in DMS v3.5.4), 2008R2(supported in DMS v3.5.4),
   2012, 2014, 2016, 2017, 2019, and 2022.
+
   - The
     Enterprise, Standard, Workgroup, Developer, and Web editions support full-load replication.
   - The
@@ -62,6 +63,7 @@ where MySQL is supported.
 - SAP Adaptive Server Enterprise (ASE) versions 12.5, 15, 15.5, 15.7, 16, and
   higher
 - IBM Db2 for Linux, UNIX, and Windows (Db2 LUW) versions:
+
   - Version 9.7, all fix packs
   - Version 10.1, all fix packs
   - Version 10.5, all fix packs except for Fix Pack 5

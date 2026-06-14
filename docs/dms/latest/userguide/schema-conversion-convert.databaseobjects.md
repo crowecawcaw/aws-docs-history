@@ -266,6 +266,7 @@ limitations:
   produce different results for the same SQL statements over a period of
   time. You must review and validate all conversion outputs.
 - Generative AI conversion is not supported for:
+
   - DEFAULT constraint in a table
   - DEFAULT value for a function or procedure parameter
   - COMPUTE COLUMN in a table

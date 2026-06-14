@@ -13,6 +13,7 @@ For information about working with the task log, see
   on the replication instance. For more information, see [SORTER message in task log](CHAP_Troubleshooting_Latency_Target.md#CHAP_Troubleshooting_Latency_Target_Sorter "CHAP_Troubleshooting_Latency_Target.md#CHAP_Troubleshooting_Latency_Target_Sorter") following.
 - **Debug task logs**: If DMS interrupts the read process, your task
   repeatedly writes the following message to the debug task logs, without a change to the context field or timestamp:
+
   - **Binary reader**:
 
   ```
@@ -22,7 +23,6 @@ For information about working with the task log, see
   thread 2  (oradcdc_oralog.c:817)
 
   ```
-
   - **Logminer**:
 
   ```

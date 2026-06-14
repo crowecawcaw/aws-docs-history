@@ -45,6 +45,7 @@ If your source PostgreSQL has a high workload, check the following to reduce lat
   database changes to the replication instance which DMS then filters, based on the task’s table mapping.
   Events for tables that aren’t part of the task’s table mapping can increase source latency.
 - Check TPS throughput using one of the following methods.
+
   - For Aurora PostgreSQL sources, use the `CommitThroughput` CloudWatch metric.
   - For PostgreSQL running on Amazon RDS or on-premises, use the following query using a
     PSQL client version 11 or higher (Press `enter` during the query to advance the results):

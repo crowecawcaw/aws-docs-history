@@ -333,6 +333,7 @@ to your Amazon DocumentDB Elastic Cluster endpoint because your existing SSL cer
    example `SFSRootCAG2.pem`. This is the certificate file that
    you need to import in subsequent steps.
 2. Create the Elastic Cluster endpoint and set the following options:
+
    1. Under **Endpoint Configuration**, choose
       **Add new CA certificate**.
    2. For **Certificate identifier**, enter

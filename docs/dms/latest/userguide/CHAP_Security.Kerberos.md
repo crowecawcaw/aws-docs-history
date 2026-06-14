@@ -48,6 +48,7 @@ mydomain.org = MYDOMAIN.ORG
   principal information. The file does not store the client's password. Your DMS task uses this cache ticket
   information to get additional credentials without a password. Run the following steps on an existing Active
   Directory or Kerberos-authenticated host to generate a keycache file.
+
   - Create a Kerberos keytab file. You can generate a keytab file using the
     **kutil** or **ktpass** utility.
 

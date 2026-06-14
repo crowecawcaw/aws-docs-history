@@ -514,7 +514,9 @@ the following steps to configure pglogical for use with DMS.
 
 1. Create a pglogical extension on your source PostgreSQL
    database:
+
    1. Set the correct parameter:
+
       - For self-managed PostgreSQL databases, set the
         database parameter `shared_preload_libraries=
 'pglogical'`.
@@ -938,6 +940,7 @@ PostgreSQL database in two ways:
   are created. For more information, see [Endpoint settings and Extra Connection Attributes (ECAs) when using PostgreSQL as a DMS source](#CHAP_Source.PostgreSQL.ConnectionAttrib "#CHAP_Source.PostgreSQL.ConnectionAttrib").
 - You can override connection string parameters. Choose this option to do
   either of the following:
+
   - Specify internal AWS DMS parameters. Such parameters are rarely
     required so aren't exposed in the user interface.
   - Specify pass-through (passthru) values for the specific database
@@ -1132,6 +1135,7 @@ control when DMS spills change data to disk. For more information, see
 - AWS DMS does not support migrating table metadata related to table
   partitioning or [table inheritance](https://www.postgresql.org/docs/15/ddl-inherit.html "https://www.postgresql.org/docs/15/ddl-inherit.html"). When AWS DMS encounters a partitioned table or a
   table that uses inheritance, the following behavior is observed:
+
   - AWS DMS identifies and reports both parent and child tables involved in
     partitioning or inheritance on the source database.
   - **Table Creation on Target**: On the
@@ -1165,6 +1169,7 @@ control when DMS spills change data to disk. For more information, see
   Parallel Load, see [Using parallel load for selected tables, views, and collections](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.md#CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.Tablesettings.ParallelLoad")
 - AWS DMS does not support Deferred Constraints.
 - AWS DMS version 3.4.7 supports PostgreSQL 14.x as a source with these limitations:
+
   - AWS DMS does not support change processing of two phase
     commits.
   - AWS DMS does not support logical replication to stream long

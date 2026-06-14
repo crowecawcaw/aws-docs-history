@@ -41,11 +41,13 @@ At any given time, a trigger can be in one of the following states: `origin`,
 The following limitations apply when using a PostgreSQL compatible database as a target for homogeneous data migrations:
 
 - The username you use to connect to your data source has the following limitations:
+
   - Can be 2 to 64 characters in length.
   - Can't have spaces.
   - Can include the following characters: a-z, A-Z, 0-9, underscore (\_).
   - Must start with a-z or A-Z.
 
 - The password you use to connect to your data source has the following limitations:
+
   - Can be 1 to 128 characters in length.
   - Can't contain any of the following: single quote ('), double quote ("), semicolon (;) or space.

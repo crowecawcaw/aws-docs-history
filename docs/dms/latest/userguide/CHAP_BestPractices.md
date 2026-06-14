@@ -368,6 +368,7 @@ You can create an on-premises name server for AWS DMS to resolve endpoints using
    your Route 53 Resolver. The Route 53 Resolver is specific to a Region.
 3. Choose the query direction—inbound, outbound, or both.
 4. Provide your inbound query configuration:
+
    1. Enter an endpoint name and choose a VPC.
    2. Assign one or more subnets from within the VPC
       (for example, choose two for availability).
@@ -590,6 +591,7 @@ or equal to 5 KiB (5,120 bytes) being transferred inline.
   LOB columns.
 - Create separate tasks for LOBs with different characteristics to
   optimize performance:
+
   - Frequently updated LOBs vs. rarely modified LOBs
   - Large LOBs vs. small LOBs
   - Frequently accessed tables vs. infrequently accessed

@@ -24,6 +24,7 @@ high performance of your data migration, monitor its progress regularly.
    migration.
 4. On the **Details** tab, you can see the migration progress. Particularly, you
    can see the following metrics.
+
    - **Public IP address** – The public IP address of your
      data migration. You need this value to configure a network. For more information, see
      [Setting up a network](dm-network.md "dm-network.md").

@@ -12,6 +12,7 @@ want to do so, there's no need to migrate the LOB data.
 If you decide to include LOBs, you can then decide the other LOB settings:
 
 - The LOB mode determines how LOBs are handled:
+
   - **Full LOB mode** – In full
     LOB mode AWS DMS migrates all LOBs from source to target regardless of
     size. In this configuration, AWS DMS has no information about the

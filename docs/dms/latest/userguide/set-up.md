@@ -24,6 +24,7 @@ resources.
 2. Choose **Create VPC**.
 3. On the **Create VPC** page, enter the following
    settings:
+
    - **Resources to create** – **VPC
      and more**
    - **Name tag auto-generation** – Choose
@@ -100,6 +101,7 @@ to your databases in the migration project.
 3. The **Choose secret type** page opens. For
    **Secret type**, choose the type of database
    credentials to store:
+
    - **Credentials for Amazon RDS database** – Choose this
      option to store credentials for your Amazon RDS database. For
      **Credentials**, enter the credentials for your

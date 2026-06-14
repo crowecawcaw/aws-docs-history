@@ -33,8 +33,10 @@ task using the AWS DMS Management Console, the AWS CLI, and the AWS DMS API.
 
 1. From the **Database migration tasks** page in the
    AWS DMS Management Console, do one of the following:
+
    - To create a new task and assess it, choose **Create task**. The **Create
      database migration task page** opens:
+
      1. Enter the task settings required to create your task,
         including table mapping.
      2. In the **Premigration assessment**
@@ -51,6 +53,7 @@ task using the AWS DMS Management Console, the AWS CLI, and the AWS DMS API.
    - To assess an existing task, choose the **Identifier** for an existing
      task on the **Database migration tasks** page.
      The task page for the chosen existing task opens:
+
      1. Choose **Actions** and select
         **Create premigration assessment**.
         A **Create premigration assessment**

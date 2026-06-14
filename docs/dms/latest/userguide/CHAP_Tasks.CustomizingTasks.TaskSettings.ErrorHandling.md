@@ -8,6 +8,7 @@ following settings. For information about how to use a task configuration file t
   level. Some examples of data processing errors include conversion
   errors, errors in transformation, and bad data. The default is
   `LOG_ERROR`.
+
   - `IGNORE_RECORD` – The task continues and the
     data for that record is ignored. The error counter for the
     `DataErrorEscalationCount` property is
@@ -24,6 +25,7 @@ following settings. For information about how to use a task configuration file t
 - `DataTruncationErrorPolicy` – Determines the action
   AWS DMS takes when data is truncated. The default is
   `LOG_ERROR`.
+
   - `IGNORE_RECORD` – The task continues and the
     data for that record is ignored. The error counter for the
     `DataErrorEscalationCount` property is
@@ -41,6 +43,7 @@ following settings. For information about how to use a task configuration file t
   AWS DMS takes when the maximum number of errors (set in the
   `DataErrorEscalationCount` parameter) is reached. The
   default is `SUSPEND_TABLE`.
+
   - `SUSPEND_TABLE` – The task continues but
     data from the table with the error record is moved into an error
     state and the data isn't replicated.
@@ -55,6 +58,7 @@ following settings. For information about how to use a task configuration file t
 - `EventErrorPolicy` – Determines the action AWS DMS
   takes when an error occurs while sending a task-related event.
   Its possible values are
+
   - `IGNORE` – The task continues and any
     data associated with that event is ignored.
   - `STOP_TASK` – The task stops and manual
@@ -65,6 +69,7 @@ following settings. For information about how to use a task configuration file t
   for a specific table. This error only applies to general table data and
   isn't an error that relates to a specific record. The default is
   `SUSPEND_TABLE`.
+
   - `SUSPEND_TABLE` – The task continues but
     data from the table with the error record is moved into an error
     state and the data isn't replicated.
@@ -138,6 +143,7 @@ a fatal error occurs, DMS stops making restart attempts in most scenarios.
   AWS DMS takes when there is a conflict with a DELETE operation. The
   default is `IGNORE_RECORD`. Possible values are the
   following:
+
   - `IGNORE_RECORD` – The task continues and the
     data for that record is ignored. The error counter for the
     `ApplyErrorEscalationCount` property is
@@ -155,6 +161,7 @@ a fatal error occurs, DMS stops making restart attempts in most scenarios.
   AWS DMS takes when there is a conflict with an INSERT operation. The
   default is `LOG_ERROR`. Possible values are the
   following:
+
   - `IGNORE_RECORD` – The task continues and the
     data for that record is ignored. The error counter for the
     `ApplyErrorEscalationCount` property is
@@ -189,6 +196,7 @@ a fatal error occurs, DMS stops making restart attempts in most scenarios.
   AWS DMS takes when there is a missing data conflict with an UPDATE operation.
   The default is `LOG_ERROR`.
   Possible values are the following:
+
   - `IGNORE_RECORD` – The task continues and the
     data for that record is ignored. The error counter for the
     `ApplyErrorEscalationCount` property is
@@ -226,6 +234,7 @@ a fatal error occurs, DMS stops making restart attempts in most scenarios.
 - `ApplyErrorEscalationPolicy` – Determines what
   action AWS DMS takes when the maximum number of errors (set using the
   `ApplyErrorEscalationCount` parameter) is reached. The default is LOG_ERROR:
+
   - `LOG_ERROR` – The task continues and the
     error is written to the task log.
   - `SUSPEND_TABLE` – The task continues but
@@ -270,6 +279,7 @@ option is set to `true`, the task fails.
   them. The default is `true`.
 - `DataMaskingErrorPolicy` – Determines the action AWS DMS takes when the data masking is failed due to incompatible data type or any other reason.
   The follwing are available options:
+
   - `STOP_TASK` (Default) – The task stops and manual intervention is required.
   - `IGNORE_RECORD` – The task continues and the data for that record is ignored.
   - `LOG_ERROR` – The task continues and the error is written to the task log. Unmasked data will be loaded in target table.

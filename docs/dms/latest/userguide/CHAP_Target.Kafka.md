@@ -120,6 +120,7 @@ Topic=`topic-name`,MessageMaxBytes=`integer-of-max-message-size-in-bytes`
 - `SslEndpointIdentificationAlgorithm` – Sets hostname
   verification for the certificate. This setting is supported in AWS DMS
   version 3.5.1 and later. Options include the following:
+
   - `NONE`: Disable hostname verification of the broker in the client connection.
   - `HTTPS`: Enable hostname verification of the broker in the client connection.
 
@@ -683,6 +684,7 @@ provided with your instance.
 - AWS DMS publishes each update to a single record in the source database as
   one data record (message) in a given Kafka topic regardless of transactions.
 - AWS DMS supports the following four forms for partition keys:
+
   - `SchemaName.TableName`: A combination of the schema and
     table name.
   - `${AttributeName}`: The value of one of the fields in

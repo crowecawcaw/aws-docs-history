@@ -188,6 +188,7 @@ your EC2 instances.
 ###### To configure the patch manager, perform the following steps:
 
 1. Enable Systems Manager:
+
    1. Attach the `AmazonSSMManagedInstanceCore` IAM policy to your EC2
       instance role.
    2. Ensure SSM Agent is installed (default for Amazon Linux 2, Ubuntu 20.04+

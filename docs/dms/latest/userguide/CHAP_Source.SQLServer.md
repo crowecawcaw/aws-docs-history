@@ -254,6 +254,7 @@ USE db_name;
 ```
 
 3. In addition to the preceding permissions, the user needs one of the following:
+
    - The user must be a member of the `sysadmin` fixed server role
    - Configurations and permissions as described in [Setting up ongoing replication on a SQL Server in an availability group environment: Without sysadmin role](CHAP_Source.SQLServer.CDC.md#CHAP_SupportScripts.SQLServer.ag "CHAP_Source.SQLServer.CDC.md#CHAP_SupportScripts.SQLServer.ag") or
      [Setting up ongoing replication on a standalone SQL Server: Without sysadmin role](CHAP_Source.SQLServer.CDC.md#CHAP_SupportScripts.SQLServer.standalone "CHAP_Source.SQLServer.CDC.md#CHAP_SupportScripts.SQLServer.standalone"),

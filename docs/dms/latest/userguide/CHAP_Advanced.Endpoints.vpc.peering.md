@@ -19,6 +19,7 @@ You must perform the following steps:
    under **Virtual private cloud**.
 3. Click **Create Peering Connection**.
 4. Configure the peering connections:
+
    - Name tag (optional): Enter a name for the peering connection
      (example: `DMS-RDS-Peering`).
 
@@ -52,22 +53,26 @@ To enable traffic between the VPCs, you must update the route table in both
 your VPCs. To update the route tables in the DMS VPC:
 
 1. Identify CIDR block of the RDS VPC:
+
    1. Navigate to your VPCs and select your RDS VPC.
    2. Copy the IPv4 CIDR value in **CIDRs** tab.
 
 2. Identify relevant DMS route tables using resource map:
+
    1. Navigate to your VPCs and select your DMS VPC.
    2. Click the **Resource Map** tab and note the route
       tables associated with the subnets where your DMS instance is
       located.
 
 3. Update all route tables in the DMS VPC:
+
    1. Navigate to the route tables in the [Amazon VPC
       console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
    2. Select the route tables identifies for the DMS VPC. You can open
       them from the VPC's **Resource map** tab.
    3. Click **Edit routes**.
    4. Click Add route and enter the following information:
+
       - **Destination**: Enter the
         IPv4 CIDR block of the RDS VPC (Example:
         `10.1.0.0/16`).
@@ -83,8 +88,10 @@ your VPCs. To update the route tables in the DMS VPC:
 ###### Update Security Groups
 
 1. Verify the DMS instance Security Group:
+
    1. You must ensure that the outbound rules allow traffic to the RDS
       instance:
+
       - **Type**: Custom TCP or the
         specific database port (Example: 3306 fir MySQL).
       - **Destination**: The CIDR
@@ -92,8 +99,10 @@ your VPCs. To update the route tables in the DMS VPC:
         instance.
 
 2. Verify the RDS instance Security Group:
+
    1. You must ensure that the inbound rules allow traffic from the DMS
       instance:
+
       - **Type**: The specific
         database port.
       - Source: The CIDR block of the DMS VPC or the security

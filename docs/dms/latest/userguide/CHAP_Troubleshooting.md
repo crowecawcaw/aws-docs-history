@@ -652,6 +652,7 @@ following:
   hold your largest LOB.
 - Check that you have the following variables set to have a large timeout value. We suggest you
   use a value of at least 5 minutes for each of these variables.
+
   - `net_read_timeout`
   - `net_write_timeout`
   - `wait_timeout`
@@ -1196,6 +1197,7 @@ Amazon Redshift databases.
 - [Errors with tables whose name begins with "awsdms_changes"](#CHAP_Troubleshooting.Redshift.Changes "#CHAP_Troubleshooting.Redshift.Changes")
 - [Seeing tables in clusters with names like dms.awsdms_changes000000000XXXX](#CHAP_Troubleshooting.Redshift.TempTables "#CHAP_Troubleshooting.Redshift.TempTables")
 - [Permissions required to work with Amazon Redshift](#CHAP_Troubleshooting.Redshift.Permissions "#CHAP_Troubleshooting.Redshift.Permissions")
+- [Error: column "TASK_NAME" of relation "awsdms_apply_exceptions" does not exist](#CHAP_Troubleshooting.Redshift.CaseSensitivity "#CHAP_Troubleshooting.Redshift.CaseSensitivity")
 
 ### Loading in to an Amazon Redshift cluster in a different AWS Region
 
@@ -1228,11 +1230,40 @@ it is placed in its final target table.
 To use AWS DMS with Amazon Redshift, the user account that you use to access Amazon Redshift must
 have the following permissions:
 
-- CRUD (Choose, Insert, Update, Delete)
+- CRUD (Select, Insert, Update, Delete)
 - Bulk load
 - Create, alter, drop (if required by the task's definition)
 
 To see the prerequisites required for using Amazon Redshift as a target, see [Using an Amazon Redshift database as a target for AWS Database Migration Service](CHAP_Target.Redshift.md "CHAP_Target.Redshift.md").
+
+### Error: column "TASK_NAME" of relation "awsdms_apply_exceptions" does not exist
+
+This error occurs when the case sensitivity setting
+(`enable_case_sensitive_identifier`) on the Amazon Redshift cluster does not
+match the setting that was in effect when the AWS DMS control tables were originally
+created. Resuming tasks after changing case sensitivity on the target database is
+not supported by AWS DMS.
+
+To resolve this issue, you must force AWS DMS to recreate the control tables. Use
+one of the following methods:
+
+- Stop all tasks replicating to the target endpoint. Modify each task to
+  use a non-default `ControlSchema` setting (if the default was
+  used before). Resume the tasks.
+  AWS DMS creates new control tables in the new schema with the correct column
+  name casing.
+- Stop all tasks replicating to the target endpoint. Drop ALL control
+  tables on the Amazon Redshift target, including the
+  `awsdms_apply_exceptions` table. Resume the first task to
+  recreate the control tables with the correct casing. Then resume all
+  remaining tasks.
+
+###### Important
+
+All tasks sharing the target endpoint must be stopped before performing
+either recovery option. Control tables are shared across all tasks replicating
+to the same endpoint. For more information about control tables and default
+control schema settings, see [Control table task settings](CHAP_Tasks.CustomizingTasks.TaskSettings.ControlTable.md "CHAP_Tasks.CustomizingTasks.TaskSettings.ControlTable.md").
 
 ## Troubleshooting issues with Amazon Aurora MySQL
 
@@ -1316,6 +1347,7 @@ This can occur due to multiple known issues or limitations, They are:
   is primary key column existing on source but not on the target or may have been
   removed.
 - Known limitations or missing prerequisites:
+
   - Supplemental logging not properly enabled on Oracle tables.
   - Oracle table created with long object names (over 30 bytes) , Hence
     object names could be table or column name.

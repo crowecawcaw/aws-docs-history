@@ -1180,6 +1180,7 @@ GO
 ```
 
 3. Set the retention period:
+
    - For RDS for SQL Server instances that are replicating using DMS version 3.5.3 and above,
      make sure that the retention period is set to the default value of 5 seconds. If you’re upgrading or moving from DMS 3.5.2 and
      below to DMS 3.5.3 and above, change the polling interval value after the tasks are running
@@ -1191,7 +1192,6 @@ GO
    exec sp_cdc_stop_job 'capture'
    exec sp_cdc_start_job 'capture'
    ```
-
    - The parameter `@pollinginterval` is measured in seconds with a
      recommended value set to 86399. This means that the transaction log retains
      changes for 86,399 seconds (one day) when `@pollinginterval =

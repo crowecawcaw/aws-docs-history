@@ -146,6 +146,7 @@ elements:
 - `TableOwner` – the schema name for this table.
 - `TableColumns` – an array of one or more maps, each of
   which describes a column in the source table:
+
   - `ColumnName` – the name of a column in the
     source table.
   - `ColumnType` – the data type for the column. For
@@ -158,7 +159,6 @@ elements:
 
       - BYTE
       - STRING
-
   - `ColumnNullable` – a Boolean value that is
     `true` if this column can contain NULL values
     (default=`false`).

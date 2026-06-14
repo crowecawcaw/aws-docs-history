@@ -35,6 +35,7 @@ If your database is recoverable, then AWS DMS can access the Db2
 - DB2 requires `SYSADM` or `DBADM` authorization to
   extract transaction log records. Grant the user account the following
   permissions:
+
   - `SYSADM` or `DBADM`
   - `DATAACCESS`
 
@@ -114,6 +115,7 @@ When using ongoing replication (CDC), the following limitations apply:
   is because Db2 LUW records a separate DDL for each partition.
 - The following DDL actions aren't supported on partitioned
   tables:
+
   - ALTER TABLE ADD PARTITION
   - ALTER TABLE DETACH PARTITION
   - ALTER TABLE ATTACH PARTITION
@@ -141,6 +143,7 @@ When using ongoing replication (CDC), the following limitations apply:
 - While a replication task is running, DMS captures CREATE TABLE DDLs only
   if the tables were created with the DATA CAPTURE CHANGE attribute.
 - DMS has the following limitations when using the Db2 Database Partition Feature (DPF):
+
   - DMS can't coordinate transactions across Db2 nodes in a DPF environment. This is due to constraints
     within the IBM DB2READLOG API interface. In DPF, transactions may span multiple Db2 nodes, depending upon how
     DB2 partitions the data. As a result, your DMS solution must capture transactions from each Db2 node independently.

@@ -96,6 +96,7 @@ timestamp to an LSN or SCN as Oracle and SQL Server do.
   log. In some cases, you might prefer this approach because a timestamp can
   indicate multiple native points in the transaction log. AWS DMS supports this
   feature for the following source endpoints:
+
   - SQL Server
   - PostgreSQL
   - Oracle

@@ -26,6 +26,7 @@ following:
 - You can define the template to use for the schema names in the converted
   code. For **Schema names**, choose one of the following
   options:
+
   - **DB** – Uses the SQL Server database name as a
     schema name in PostgreSQL.
   - **SCHEMA** – Uses the SQL Server schema name as a
@@ -49,6 +50,7 @@ following:
 - To convert unsupported built-in objects to stub objects, enable the
   **Convert unsupported built-in objects to stub
   objects** setting:
+
   - When enabled, DMS SC replaces unsupported built-in objects with
     corresponding stub objects in the target database. This feature
     converts code sections that would normally be enclosed by migration
@@ -80,6 +82,7 @@ following:
 
 - `CITEXT` datatype for all string datatypes setting in DMS
   Schema Conversion include the following:
+
   - To use the `CITEXT` datatype for case-insensitive
     string operations when converting from SQL Server to PostgreSQL,
     enable the **Use CITEXT for all string datatypes**
@@ -108,6 +111,7 @@ following:
   installed and available in your target PostgreSQL database.
   - When using the `CITEXT` datatype conversion, consider
     the following best practices:
+
     - Enable this feature when migrating from a case-insensitive
       SQL Server to maintain consistent behavior in
       PostgreSQL.

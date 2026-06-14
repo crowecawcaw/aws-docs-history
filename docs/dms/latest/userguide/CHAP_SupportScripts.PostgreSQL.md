@@ -21,13 +21,13 @@ on the PostgreSQL version.
 ###### To grant account permissions to run these scripts for a PostgreSQL databases version 10.x or higher
 
 - Do one of the following:
+
   - For a new user account, run the following.
 
   ```
   CREATE USER `script_user` WITH PASSWORD '`password`';
   GRANT EXECUTE ON FUNCTION pg_catalog.pg_ls_waldir TO `script_user`;
   ```
-
   - For an existing user account, run the following.
 
   ```
@@ -37,12 +37,12 @@ on the PostgreSQL version.
 ###### To grant account permissions to run these scripts for a PostgreSQL 9.x or earlier database
 
 - Do one of the following:
+
   - For a new user account, run the following with default permissions.
 
   ```
   CREATE USER `script_user` WITH PASSWORD `password`;
   ```
-
   - For an existing user account, use the existing permissions.
 
 ###### Note
@@ -78,6 +78,7 @@ Support later.
 ###### To run this script and upload the results to your support case
 
 1. Do one of the following:
+
    - Run the script from your database environment using the following psql command line.
 
    ```

@@ -9,6 +9,7 @@ character substitution for any task with endpoints from the following source and
 target databases:
 
 - Source databases:
+
   - Oracle
   - Microsoft SQL Server
   - MySQL

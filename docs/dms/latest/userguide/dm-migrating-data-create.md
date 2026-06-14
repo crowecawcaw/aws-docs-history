@@ -30,6 +30,7 @@ data providers, and upgrade your target database version, if needed.
    a unique name for your data migration so that you can easily identify it.
 5. For **Replication type**, choose the type of data migration that you want to
    configure. You can choose one of the following options.
+
    - **Full load** — Migrates your existing source data.
    - **Full load and change data capture (CDC)** — Migrates your
      existing source data and replicates ongoing changes.
@@ -44,6 +45,7 @@ data providers, and upgrade your target database version, if needed.
    For more information, see [Creating an IAM role for homogeneous data migrations in AWS DMS](dm-iam-resources.md#dm-resources-iam-role "dm-iam-resources.md#dm-resources-iam-role").
 9. Configure the **Start mode** for data migrations of the
    **Change data capture (CDC)** type. You can choose one of the following options.
+
    - **Immediately** — Starts the ongoing replication when you start your data
      migration.
    - **Using a native start point** — Starts the ongoing replication from
@@ -59,6 +61,7 @@ data providers, and upgrade your target database version, if needed.
 10. Configure the **Stop mode** for data migrations of the
     **Change data capture (CDC)** or **Full load and change data capture (CDC)**
     type. You can choose one of the following options.
+
     - **Don’t stop CDC** — AWS DMS continues the ongoing replication until you
       stop your data migration.
     - **Using a server time point** — AWS DMS stops the ongoing replication at

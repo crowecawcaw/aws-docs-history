@@ -14,10 +14,12 @@ You must perform the following steps:
    select **Security Groups**.
 3. Select the RDS Security Group associated with your RDS instance.
 4. Edit the inbound rules:
+
    1. Click **Actions** and select **Edit
       inbound rules**.
    2. Click **Add Rule** to create a new rule.
    3. Configure the rule as follows:
+
       - **Type**: Select your
         database type (Example: MySQL/Aurora for port 3306,
         PostgreSQL for port 5432).
@@ -43,10 +45,12 @@ You must perform the following steps:
 3. In the **Security Group** list find and select the
    security group associated with your DMS replication instance.
 4. Edit the outbound rules:
+
    1. Click **Actions** and select **Edit
       outbound rules**.
    2. Click **Add Rule** to create a new rule.
    3. Configure the rule as follows:
+
       - Type: Select your database type (Example: MySQL/Aurora,
         PostgreSQL).
       - Protocol: This auto-populates based on your database

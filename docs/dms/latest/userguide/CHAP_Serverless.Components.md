@@ -14,6 +14,7 @@ The following diagram shows the state transitions for an AWS DMS Serverless repl
 - The states immediately following include **Preparing Metadata Resources**, **Testing Connection**, and
   **Fetching Metadata**. In these states, AWS DMS Serverless connects to your
   source database to obtain the information needed to predict the capacity needed.
+
   - When the replication state
     is **Testing Connection**, AWS DMS Serverless verifies that the connection to your
     source and target databases are set up successfully.
@@ -29,6 +30,7 @@ The following diagram shows the state transitions for an AWS DMS Serverless repl
 - The replication state after all resources are
   successfully provisioned is **Replication Starting**. In this state, AWS DMS Serverless
   begins the replication of data. The phases of a replication include the following:
+
   - **Full load:** In this phase, DMS replicates the source
     data store as it was when the replication started.
   - **CDC (initial):** In this phase, DMS replicates the changes
@@ -44,6 +46,7 @@ The following diagram shows the state transitions for an AWS DMS Serverless repl
   replication can go into a stopped state for full-load only replication tasks
   that are successfully completed. These circumstances need to be accounted for
   resuming or restarting replications in the stopped or failed state:
+
   - You cannot restart a replication that has not started in 48 hours as AWS DMS deprovisions the
     resources.
 
@@ -370,6 +373,7 @@ throughput, do the following:
   for a data store with sparse data, and `false` for a data store
   with dense data.
 - Set the following task settings to `0`:
+
   - `ParallelLoadThreads`
   - `ParallelLoadQueuesPerThread`
   - `ParallelApplyThreads`

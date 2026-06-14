@@ -8,6 +8,7 @@ Oracle to PostgreSQL conversion settings in DMS Schema Conversion include the fo
   **Action Item 5444**, which states: "This
   conversion uses machine learning models that generate predictions based on
   patterns in data. For more information, see [Converting database objects with generative AI](schema-conversion-convert.databaseobjects.md "schema-conversion-convert.databaseobjects.md").
+
   - You can convert schemas for different supported versions of your
     target database, not just the latest version. To specify a version,
     use the **Target engine version**
@@ -29,6 +30,7 @@ Oracle to PostgreSQL conversion settings in DMS Schema Conversion include the fo
   pseudocolumn** or **Use the character varying data type
   to emulate the ROWID pseudocolumn** for **Row
   ID**.
+
   - To convert NUMBER data type to the best fitting numeric data type,
     depending on the precision and scale you can select Use the
     optimized data type mapping for columns of the NUMBER data

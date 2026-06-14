@@ -50,6 +50,7 @@ event notifications in EventBridge.
 - Perform the steps described in [Creating Amazon EventBridge
   rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _Amazon EventBridge User
   Guide_, and create a rule for AWS DMS events:
+
   1.  Specify a notification action to take when EventBridge receives an event that
       matches the event pattern in the rule. When an event matches, EventBridge sends
       the event and invokes the action defined in the rule.

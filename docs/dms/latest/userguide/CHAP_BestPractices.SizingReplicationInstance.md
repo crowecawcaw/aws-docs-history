@@ -96,6 +96,7 @@ Consider these two most common best practices when sizing a replication instance
 1. Size your workload and understand if it's computer-intensive or
    memory-intensive. Based on this, you can determine the class and size of the
    replication instance:
+
    - AWS DMS processes LOBs in memory. This operation requires a fair amount of memory.
    - The number of tasks and the number of threads impact CPU consumption.
      Avoid using more than eight `MaxFullLoadSubTasks` during the full load operation.

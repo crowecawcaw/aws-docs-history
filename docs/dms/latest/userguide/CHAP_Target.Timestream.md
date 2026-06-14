@@ -81,6 +81,7 @@ Note the following about using Timestream as a target:
   retention period of the Timestream table greater than or equal to the oldest timestamp. Then, once migration completes,
   edit the table's memory store retention to the desired value. For example, to migrate data with the oldest timestamp
   being 2 months old, do the following:
+
   - Set the Timestream target table's memory store retention to 2 months.
   - Start the data migration using AWS DMS.
   - Once the data migration completes, change the retention period of the target Timestream table to your desired value.
@@ -376,6 +377,7 @@ The following limitations apply when using Amazon Timestream as a target:
   boolean fields.
 - Timestream as a target doesn't support sources that aren't relational databases (RDBMS).
 - AWS DMS only supports Timestream as a target in the following regions:
+
   - US East (N. Virginia)
   - US East (Ohio)
   - US West (Oregon)

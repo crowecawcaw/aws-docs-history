@@ -100,6 +100,7 @@ Additional control table settings include the following:
   database schema name for the control tables for the AWS DMS target. If you
   don't enter any information for this option, then the tables are
   copied to the default location in the database as listed following:
+
   - PostgreSQL, Public
   - Oracle, the target schema
   - Microsoft SQL Server, dbo in the target database
