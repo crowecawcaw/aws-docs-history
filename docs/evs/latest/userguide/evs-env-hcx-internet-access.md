@@ -53,6 +53,7 @@ To enable internet connectivity without DNAT, Amazon EVS uses a specific CIDR co
 - **VPC configuration**: You must manually add the public IPAM-allocated CIDR to your VPC as a secondary VPC CIDR.
 - **VLAN subnet deployment**: After IPAM and VPC are configured, you can use the public IPAM-allocated CIDR in the HCX VLAN subnet during Amazon EVS deployment.
 - **Elastic IP configuration**: Amazon EVS requires the following configuration:
+
   - **Allocate Elastic IPs**: You allocate Elastic IPs from the IPAM allocated CIDR.
     You must allocate at least two Elastic IP addresses (EIPs) from the IPAM pool for the HCX Manager and HCX Interconnect (HCX-IX) appliances.
     Allocate an additional Elastic IP address for each HCX network appliance that you need to deploy.
@@ -120,6 +121,7 @@ These EIPs are reserved as network and default gateway addresses. 8. Check the *
 AWS CLI
 
 1. To associate an Elastic IP address with a VLAN, use the example `associate-eip-to-vlan` command.
+
    - `environment-id` - The ID of your Amazon EVS environment.
    - `vlan-name` - Must be `hcx`. Amazon EVS only supports EIP association with the HCX VLAN at this time.
    - `allocation-id` - The allocation ID of the Elastic IP address.

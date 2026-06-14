@@ -37,6 +37,7 @@ To ensure reachability, check the following:
   For more information, see [Managing Certificates in VMware Cloud Foundation](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/certificate-management-admin.html "https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vcf-5-2-and-earlier/5-2/map-for-administering-vcf-5-2/certificate-management-admin.html") in the VMware Cloud Foundation documentation.
 - Ensure that your DNS servers are reachable from the service access subnet, DNS records are valid, and no duplicate hostnames or IP addresses exist.
 - If you wish to create your own firewall rules, follow these guidelines:
+
   - Allow TCP/UDP access to the DNS servers.
   - Allow HTTPS/SSH access to the host management VLAN subnet.
   - Allow HTTPS/SSH access to the Management VM VLAN subnet.

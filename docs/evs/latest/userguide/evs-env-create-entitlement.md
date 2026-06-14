@@ -39,6 +39,7 @@ Amazon EVS console
 5. Choose **Add**.
 6. Product type defaults to **Windows server**.
 7. Add the VMs you want to create entitlements for via text or by uploading a CSV file.
+
    - CSV format is a single column of only VM IDs.
 
 8. Choose **Add entitlement**.

@@ -167,12 +167,14 @@ Custom route tables should not be used during Amazon EVS environment creation, a
 Configure routes for these gateway types based on your connectivity requirements:
 
 - **NAT gateway (NGW)**
+
   - Optional for outbound-only internet access.
   - Must be in a public subnet with internet gateway access.
   - Add routes from private subnets and EVS VLAN subnets to the NAT gateway.
   - For more information, see [Work with NAT gateways](../../../vpc/latest/userguide/nat-gateway-working-with.md "../../../vpc/latest/userguide/nat-gateway-working-with.md") in the _Amazon VPC User Guide_.
 
 - **Transit gateway (TGW)**
+
   - Required for on-premises connectivity via both AWS Direct Connect and AWS Site-to-Site VPN.
   - Add routes for on-premises network ranges.
   - Configure route propagation if using BGP.
@@ -201,6 +203,7 @@ Your environment deployment fails if you don’t meet these Amazon EVS requireme
 - Configure the VPC’s main route table to ensure a route to your DNS servers exist.
 - Ensure that your domain name registration is valid and unexpired, and no duplicate hostnames or IP addresses exist.
 - Configure your security groups and network access control lists (ACLs) to allow Amazon EVS to communicate with:
+
   - DNS servers over TCP/UDP port 53.
   - Host management VLAN subnet over HTTPS and SSH.
   - Management VLAN subnet over HTTPS and SSH.
@@ -328,6 +331,7 @@ VMware HCX is not installed in the EVS environment by default.
 - Ensure that VMware HCX is activated and installed in the environment.
   For more information about activating and installing VMware HCX, see [About Getting Started with VMware HCX](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/getting-started-with-vmware-hcx-4-11/about-getting-started-with-vmware-hcx.html "https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/getting-started-with-vmware-hcx-4-11/about-getting-started-with-vmware-hcx.html") in the _Getting Started with VMware HCX Guide_.
 - If you need HCX internet connectivity, you must complete the following prerequisite tasks:
+
   - Ensure that your IPAM quota for Amazon-provided contiguous public IPv4 CIDR block netmask length is /28 or greater.
 
   ###### Important

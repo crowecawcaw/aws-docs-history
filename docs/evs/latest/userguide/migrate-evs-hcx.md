@@ -39,11 +39,13 @@ The following table compares the differences between HCX private and public conn
 The HCX private connectivity solution integrates several components:
 
 - **Amazon EVS network components**
+
   - Uses only private VLAN subnets for secure communication, including a private HCX VLAN.
   - Supports network ACLs for traffic control.
   - Supports dynamic BGP propagation of routes through a private VPC route server.
 
 - **AWS managed network transit options for on-premises connectivity**
+
   - AWS Direct Connect + AWS Transit Gateway enables you to connect your on-premises network to Amazon EVS over a private dedicated connection.
     For more information, see [AWS Direct Connect + AWS Transit Gateway](../../../whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-aws-transit-gateway.md "../../../whitepapers/latest/aws-vpc-connectivity-options/aws-direct-connect-aws-transit-gateway.md").
   - AWS Site-to-Site VPN + AWS Transit Gateway provides the option of creating an IPsec VPN connection between your remote network and the transit gateway over the internet.
@@ -62,11 +64,13 @@ The following diagram illustrates the HCX private connectivity architecture, sho
 The HCX internet connectivity solution consists of several components working together:
 
 - **Amazon EVS network components**
+
   - Uses an isolated public HCX VLAN subnet to enable internet connectvity between Amazon EVS and your on-premises HCX appliances.
   - Supports network ACLs for traffic control.
   - Supports dynamic BGP propagation of routes through a public VPC route server.
 
 - **IPAM and public IP management**
+
   - Amazon VPC IP Address Manager (IPAM) manages public IPv4 address allocation from the Amazon-owned public IPAM pool.
   - Secondary VPC CIDR block (/28) is allocated from the IPAM pool, creating an isolated public subnet separate from the main VPC CIDR.
 

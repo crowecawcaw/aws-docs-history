@@ -519,6 +519,7 @@ Your environment deployment fails if you don’t meet these Amazon EVS requireme
 - Configure the VPC’s main route table to ensure a route to your DNS servers exist.
 - Ensure that your domain name registration is valid and unexpired, and no duplicate hostnames or IP addresses exist.
 - Configure your security groups and network access control lists (ACLs) to allow Amazon EVS to communicate with:
+
   - DNS servers over TCP/UDP port 53.
   - Host management VLAN subnet over HTTPS and SSH.
   - Management VLAN subnet over HTTPS and SSH.
@@ -588,6 +589,7 @@ For more information about Amazon Time Sync Service, see [Precision clock and ti
 **To configure NTP settings**
 
 1. Choose your NTP source:
+
    - Amazon Time Sync Service (recommended)
    - Custom NTP servers
 
@@ -778,6 +780,7 @@ For more information, see [Setting up Amazon Elastic VMware Service](setting-up.
         6. Choose **Add host**.
 
 6.  On the **Configure networks and connectivity** page, do the following.
+
     1. For **HCX connectivity requirements**, select whether you want to use HCX with private connectivity or over the internet.
     2. For **VPC**, choose the VPC that you previously created.
     3. (For HCX internet connectivy only) For **HCX network ACL**, choose which network ACL your HCX VLAN will be associated with.
@@ -809,6 +812,7 @@ For more information, see [Setting up Amazon Elastic VMware Service](setting-up.
     For more information, see [Set up a VPC Route Server instance with endpoints and peers](#getting-started-create-rs-resources "#getting-started-create-rs-resources"). 9. Choose **Next**.
 
 7.  On the **Specify Management DNS hostnames** page, do the following.
+
     1. Under **Management appliance DNS hostnames**, enter the DNS hostnames for the virtual machines to host VCF management appliances. If using Route 53 as your DNS provider, also choose the hosted zone that contains your DNS records.
     2. Under **Credentials**, choose whether you’d like to use the AWS managed KMS key for Secrets Manager or a customer managed KMS key that you provide.
        This key is used to encrypt the VCF credentials that are required to use SDDC Manager, NSX Manager, and vCenter appliances.
@@ -1222,6 +1226,7 @@ Amazon EVS console
 AWS CLI
 
 1.  To associate an Elastic IP address with a VLAN, use the example `associate-eip-to-vlan` command.
+
     - `environment-id` - The ID of your Amazon EVS environment.
     - `vlan-name` - The name of the VLAN to associate with the Elastic IP address.
     - `allocation-id` - The allocation ID of the Elastic IP address.

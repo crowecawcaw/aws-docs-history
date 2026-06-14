@@ -33,9 +33,11 @@ Amazon EVS console
 5. Select the connector you want to update.
 6. Choose **Actions**, and then in the dropdown, select **Update Secret** or **Update FQDN**.
 7. For **Update Secret**:
+
    1. In the secret dropdown, select the secret with the appliance credentials and choose **Update**.
 
 8. For **Update FQDN**:
+
    1. Enter the new FQDN and choose **Update**.
 
 9. To verify completion, check that the **connector state** has returned to Active from Updating.
