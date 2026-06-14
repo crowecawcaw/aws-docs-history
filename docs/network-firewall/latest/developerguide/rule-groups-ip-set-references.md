@@ -32,6 +32,7 @@ The following limits apply to IP set references:
   group. Only IP set references count against this
   limit.
 - Maximum of 1,000,000 CIDRs - You can use a maximum of 1,000,000 CIDRs in all of the IP set references used in a single firewall. If you exceed this limit, then Network Firewall includes only the first 1,000,000 CIDRs from your referenced IP set resources. Network Firewall calculates CIDRs differently for prefix lists and resource groups:
+
   - Prefix lists – Network Firewall takes an aggregated account of the CIDRs in each referenced IP set.
   - Resource groups – Network Firewall calculates the number of IP addresses associated with all of the resources in the group, such as all of the IP addresses associated with an Amazon EC2 instance, both public and private.
 

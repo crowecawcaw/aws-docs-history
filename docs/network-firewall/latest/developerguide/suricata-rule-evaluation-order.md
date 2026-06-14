@@ -97,6 +97,7 @@ For other protocols, such as UDP, Network Firewall considers the connection esta
 
 - **Application Layer drop established** – Drops server-initiated banner packets and packets in established connections.
   It also provides enhanced support for segmented application layer traffic through the following behaviors:
+
   - Allows segmented TLS client hello packets until a `TLS.SNI` field is detected, then applies rules based on SNI.
   - Allows segmented HTTPS request packets until the `HTTP.HOST` field is detected, then applies rules based on host
 

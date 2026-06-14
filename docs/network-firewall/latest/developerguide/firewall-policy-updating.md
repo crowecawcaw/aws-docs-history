@@ -10,6 +10,7 @@ To change your Network Firewall firewall policy settings, use the following proc
 3. In the **Firewall policies** page, select the name of the firewall
    policy you want to update.
 4. In the firewall policy's page, make your changes. Note the following constraints:
+
    - You can't change the name of the firewall policy.
    - You can't add or remove a TLS inspection configuration. However, you can replace an existing TLS inspection configuration with another TLS inspection configuration.
    - You can change other policy details, including rule groups.

@@ -16,6 +16,7 @@ Dashboard performance and data availability depend on two main factors:
    to edit. This takes you to the firewall's details page.
 4. In the firewall's details page, choose the **Monitoring** tab.
 5. Optionally, adjust the scope of data shown in the dashboards:
+
    - Enter a valid IP address to specify which source or destination IPs you want to analyze
    - Select a protocol to specify the kind of traffic you want to analyze
    - Use the scope selector to specify whether metrics reflect logged activity from the top 10, 50, or 100 domains

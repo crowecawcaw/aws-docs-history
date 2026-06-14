@@ -45,6 +45,7 @@ For information on other things to consider before you create a transit gateway-
 2. In the navigation pane, under **Network Firewall**, choose **Firewalls**.
 3. From the **Actions** menu, choose **Accept the transit gateway attachment**.
 4. Review the following details in the dialog box:
+
    - The firewall name
    - Status (whether it has been accepted by this account)
    - Account ID of the firewall owner

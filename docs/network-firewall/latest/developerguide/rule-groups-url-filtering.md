@@ -16,10 +16,12 @@ Network Firewall provides two filtering keywords:
 
 - Supported protocol in rules: HTTP
 - Traffic handling:
+
   - **For HTTP traffic** - Evaluates complete URLs
   - **For HTTPS traffic** - Requires TLS inspection to evaluate URLs. Without TLS inspection, HTTPS traffic is treated as encrypted TLS traffic and cannot be evaluated
 
 - Performs evaluation in the following order:
+
   - Complete URL path evaluation (up to 30 recursive path lookups)
   - If no match is found, falls back to domain-level evaluation (up to 10 recursive subdomain lookups)
 
@@ -32,14 +34,17 @@ Network Firewall provides two filtering keywords:
 
 - Supported protocols in rules: TLS, HTTP
 - Traffic handling:
+
   - **For HTTP traffic** - Evaluates domain from Host field
   - **For TLS traffic** - Evaluates domain from SNI field
   - No TLS inspection required
 
 - Performs domain-level evaluation:
+
   - Evaluates only domain-level information (up to 10 recursive subdomain lookups)
 
 - Matches against:
+
   - Server Name Indication (SNI) field from TLS handshake
   - Host field from HTTP request headers
 

@@ -25,6 +25,7 @@ those defined as VPC endpoint associations.
 4. Choose the tab **Firewall details**, then, in each section where you want to
    make changes, choose **Edit** and follow the console
    guidance to make your changes.
+
    - In the **Details** section, you can change the firewall description.
      The name is fixed after creation.
    - In the **Traffic analysis mode** section, you can enable
@@ -47,6 +48,7 @@ those defined as VPC endpoint associations.
      [Tagging AWS Network Firewall resources](tagging.md "tagging.md").
 
 5. Choose the **Monitoring** tab, then follow the console guidance to use the available reporting capabilities.
+
    - In the **Firewall requests** section, you can view a chart of dropped, passed, and received
      stateless and stateful packets monitored by the firewall within a customizable time frame.
    - In the **Reports** section, if you have enabled traffic analysis mode, you can generate an HTTP

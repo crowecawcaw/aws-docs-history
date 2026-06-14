@@ -32,6 +32,7 @@ In this scenario, one AWS account manages both the firewall and its VPC endpoint
 - The account creates a firewall in a production VPC
 - The same account creates VPC endpoint associations to extend protection to development VPCs
 - As both the firewall owner and VPC endpoint association owner, the account can:
+
   - Configure all firewall settings
   - Monitor traffic across all endpoints
   - Manage all VPC endpoint associations
@@ -39,11 +40,13 @@ In this scenario, one AWS account manages both the firewall and its VPC endpoint
 In this scenario, two separate AWS accounts share firewall resources:
 
 - Account A (firewall owner):
+
   - Creates and configures the firewall in its own VPC
   - Shares the firewall with Account B
   - Monitors traffic across all endpoints, including those in Account B
 
 - Account B (VPC endpoint association owner):
+
   - Creates VPC endpoint associations in its own VPCs
   - Uses the firewall settings as configured by Account A
   - Cannot modify the firewall settings

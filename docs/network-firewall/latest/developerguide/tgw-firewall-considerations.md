@@ -4,6 +4,7 @@ Before you create or use a transit gateway-attached firewall, consider the follo
 
 - A transit gateway-attached firewall involves multiple AWS services: AWS Network Firewall, AWS Transit Gateway, and AWS RAM.
 - If the Transit Gateway owner and Network Firewall owner are different AWS accounts:
+
   - The Network Firewall account owner depends on the Transit Gateway owner to share the transit gateway.
   - Either account can delete the transit gateway-attached firewall.
   - The Transit Gateway owner has limited visibility into firewall details.

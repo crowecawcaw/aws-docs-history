@@ -37,7 +37,9 @@ The subnets that you specify should be dedicated for Network Firewall firewall u
     * **Transit Gateway** - Create a firewall that automatically provisions networking components
 
 11. Based on your attachment type selection:
+
     1.  If you selected **VPC**:
+
         1. Choose your **VPC** from the dropdown list.
 
         ###### Note
@@ -45,7 +47,9 @@ The subnets that you specify should be dedicated for Network Firewall firewall u
         You can't change the VPC after you create the firewall. 2. For **Firewall subnets**, choose the Availability Zones and subnets that you want to use for your firewall endpoints.
 
     2.  If you selected **Transit Gateway**:
+
         1. For **Transit Gateway**, choose an existing transit gateway from the dropdown list. The list includes:
+
            - Any transit gateway attachment in your account (marked as "this account")
            - AWS Transit Gateways shared with you from other accounts (showing the owner account ID)
 

@@ -23,6 +23,7 @@ ARN from one of the rule groups and subscribe to it to get notifications for
 all of the managed rule groups.
 
 - **Console**
+
   - On
     the
     Network Firewall rule groups page, in the **AWS

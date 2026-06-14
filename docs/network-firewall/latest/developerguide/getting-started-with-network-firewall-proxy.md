@@ -96,6 +96,7 @@ Note: If the proxy creation fails and you need to attach another proxy to the NA
 4. Add the proxy configuration that you created in the previous step from the dropdown.
 5. Attach to the right NAT Gateway.
 6. Optionally, if you want to perform TLS interception on your traffic to filter on attributes in the HTTP header, check the box to enable TLS intercept mode. These are optional values you can enter:
+
    1. TLS interception + PCM
    2. Listener ports
    3. AWS account number

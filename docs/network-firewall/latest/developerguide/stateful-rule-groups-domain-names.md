@@ -19,6 +19,7 @@ A domain list rule group has the following general settings.
 - **Action** – Defines how Network Firewall handles
   traffic that matches the rule match settings. Valid values for domain rules are
   `Allow` `Deny`, `Reject`, and `Alert`:
+
   - For `Allow`, traffic of the specified protocol type that does not
     match the domain specifications is denied.
   - For `Deny`, traffic matching the domain specifications is blocked.
@@ -67,6 +68,7 @@ match.
   one of the domain specifications in the list to be
   a match for the rule group. Valid domain name
   specifications are the following:
+
   - Explicit names. For example,
     `abc.example.com` matches only the
     domain `abc.example.com`.

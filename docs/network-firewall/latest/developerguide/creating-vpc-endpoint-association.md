@@ -11,9 +11,11 @@ Before you create a VPC endpoint association, review these requirements:
 - You must own the firewall that you want to use or it must be shared with you. If you don't own the firewall, ask the owner to share it with your account. For information about sharing firewalls, see [Sharing Network Firewall resources](sharing.md "sharing.md").
 - VPC endpoint association can only be created in an Availability Zone where the firewall consists of primary endpoints.
 - For same-account associations:
+
   - VPC endpoint association can be created within Firewall owner's account - for the same primary VPC within different subnets or different VPCs
 
 - For cross-account associations:
+
   - VPC endpoint association can be created from another account for different VPCs, but the firewall must be shared with you
 
 - The subnet that you want to use in the VPC must be available to host a firewall endpoint. For information, see [VPC subnets](vpc-config-subnets.md "vpc-config-subnets.md").

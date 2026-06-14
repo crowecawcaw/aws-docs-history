@@ -22,6 +22,7 @@ actions and stateless default actions in the firewall policy. For information ab
    **Logging** section, choose **Edit**.
 5. Adjust the **Log type** selections as needed.
    To disable logging for a firewall, deselect all options.
+
    - **Flow** – Sends logs for all
      network traffic that the stateless engine forwards to the stateful
      rules engine.

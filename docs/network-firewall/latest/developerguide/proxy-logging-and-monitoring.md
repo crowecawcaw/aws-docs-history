@@ -57,6 +57,7 @@ Proxy provides comprehensive logs that include details of each request it receiv
 
 - First alert match
 - All matching rules, including:
+
   - Rule IDs
   - Hook points (pre_dns, pre_request, post_response)
   - Actions taken (alert, allow)

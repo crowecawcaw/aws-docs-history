@@ -19,11 +19,13 @@ When using flow capture operations with broad filter criteria (like wide IP rang
 3. Choose the name of the firewall where you want to perform the flow operation.
 4. In the **Firewall operations** section, choose **Configure flow capture**.
 5. Configure the scope of the flow operation, depending on your firewall configuration:
+
    - To perform the operation in the primary firewall endpoint only, define the VpcEndpointId.
    - To perform the operation in a VPC endpoint association only, define the VPC endpoint association ARN.
    - To perform the operation in the primary firewall endpoint and all associated VPC endpoints, define the Availability Zone of the primary firewall endpoint.
 
 6. Optionally, configure additional flow filters to further customize the scope of the operation:
+
    - **Minimum age** - To exclude recently established flows, set this value to filter out flows that are newer than the specified age, in seconds
    - **Source** - A single IP address, a range of IPs (CIDR), or port
    - **Destination** - A single IP address, a range of IPs (CIDR), or port

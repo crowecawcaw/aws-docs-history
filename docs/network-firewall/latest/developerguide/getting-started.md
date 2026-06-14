@@ -67,6 +67,7 @@ group. For information about rule groups, see [Managing your rule groups](rule-g
    change the name of a rule group after you create it.
 6. For **Capacity**, enter `10`.
 7. Enter the following rule specifications to create a stateless rule that blocks all packets coming from the source IP address CIDR range `192.0.2.0/24`:
+
    1. Set the priority to **10**.
    2. Leave the protocol setting at **All**.
    3. For the source address, specify `192.0.2.0/24`.
