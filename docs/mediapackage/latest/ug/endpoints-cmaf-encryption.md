@@ -15,6 +15,7 @@ Define the encryption values.
 2. To serve content with copyright protection, choose **Encrypt
    content** and complete the additional fields as
    follows:
+
    1. For **Resource ID**, enter an identifier for the content. The service sends this to the key server to identify the current
       endpoint. How unique you make this depends on how fine-grained you want access
       controls to be. The service
@@ -25,7 +26,6 @@ Define the encryption values.
    ```
    MovieNight20171126093045
    ```
-
    2. For **System IDs**, enter a unique identifier for your streaming protocol and DRM system. Provide up to three IDs. If you provide more than one system ID, enter one per line and choose **Add**. If you do not know your IDs, ask your system provider.
    3. For **URL**, enter the URL of the API Gateway proxy that you set up to talk to your key server. The API Gateway proxy must reside in the same AWS Region as MediaPackage.
 
@@ -34,7 +34,6 @@ Define the encryption values.
    ```
    https://1wm2dx1f33.execute-api.us-west-2.amazonaws.com/SpekeSample/copyProtection
    ```
-
    4. For **Role ARN**, enter the Amazon Resource Name (ARN) of the IAM role that provides you access to send your requests through API Gateway. Get
       this from your DRM solution provider.
 
@@ -43,7 +42,6 @@ Define the encryption values.
    ```
    arn:aws:iam::444455556666:role/SpekeAccess
    ```
-
    5. (Optional) For **SPEKE version**, select the SPEKE version that you'd
       like to use for encryption. SPEKE Version 1.0 is the legacy version that uses CPIX Version 2.0, and supports single key
       encryption. SPEKE Version 2.0 uses CPIX Version 2.3, and supports multiple key encryption. For more information about

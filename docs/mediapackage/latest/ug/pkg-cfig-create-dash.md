@@ -17,6 +17,7 @@ DASH-ISO.
    **Packaging configurations**, choose
    **Add** and **New config**.
 6. Complete the fields as described in the following topics:
+
    - [General settings fields](cfigs-dash-new.md "cfigs-dash-new.md")
    - [Manifest settings fields](cfigs-dash-manset.md "cfigs-dash-manset.md")
    - [Stream selection fields](cfigs-dash-include-streams.md "cfigs-dash-include-streams.md")

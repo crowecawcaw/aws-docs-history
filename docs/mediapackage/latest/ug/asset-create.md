@@ -29,6 +29,7 @@ inclusion in diagnostic logs or Amazon CloudWatch Events.
    assets**.
 4. On the **Ingest assets** page, complete the fields as
    described in the following topics:
+
    - [Asset access fields](asset-create-access.md "asset-create-access.md")
    - [Asset details fields](asset-create-details.md "asset-create-details.md")
    - [Packaging settings field](asset-create-pkg.md "asset-create-pkg.md")

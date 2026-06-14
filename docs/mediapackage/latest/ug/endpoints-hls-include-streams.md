@@ -12,6 +12,7 @@ regardless of the sum of the bitrates for other tracks.
 
 1. (Optional) For **Stream order**, choose from the
    following:
+
    - **Original** to sort the output streams in
      the same order that the incoming source uses.
    - **Video bitrate ascending** to sort the

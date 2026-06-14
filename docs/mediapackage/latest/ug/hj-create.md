@@ -23,6 +23,7 @@ MediaPackage API, AWS CLI, or AWS SDKs. Any data that you enter into MediaPackag
    jobs**.
 3. On the **Harvest jobs** page, choose **Create harvest job**.
 4. On the **Create harvest job** page, complete the fields as described in the following topics:
+
    - [Basic details fields](#hj-create-basic "#hj-create-basic")
    - [Start and end date and time fields](#hj-create-time "#hj-create-time")
    - [Destination fields](#hj-create-destination "#hj-create-destination")
@@ -77,6 +78,7 @@ two seconds earlier, at the start of the segment.
 
 1. For **Date and time format**, choose the format that
    you're using to indicate the start and end times of the live-to-VOD asset.
+
    - **Local time** - the date and time is formatted
      according to the settings of your current browser session. Local
      time uses a 24-hour clock.

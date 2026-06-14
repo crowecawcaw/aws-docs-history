@@ -11,6 +11,8 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [ListChannels](example_mediapackage_ListChannels_section.md "example_mediapackage_ListChannels_section.md")
     - [ListOriginEndpoints](example_mediapackage_ListOriginEndpoints_section.md "example_mediapackage_ListOriginEndpoints_section.md")

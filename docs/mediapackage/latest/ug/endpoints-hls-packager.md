@@ -62,6 +62,7 @@ Choose from the following:
 2. (Optional) For **Ad triggers**, choose the SCTE-35 message types that you want to be treated as ad markers in the output. If you
    don't make a selection here, MediaPackage inserts ad markers in the
    output manifest based on these message types:
+
    - Splice insert
    - Provider advertisement
    - Distributor advertisement
@@ -70,6 +71,7 @@ Choose from the following:
 
 3. (Optional) For **Ads on delivery restrictions**, choose what ad insertion action MediaPackage takes
    based on delivery restriction flags in the segmentation descriptors of SCTE-35 messages.
+
    - **None** – MediaPackage doesn't
      insert any ad markers in the output manifest.
    - **Restricted** – MediaPackage inserts

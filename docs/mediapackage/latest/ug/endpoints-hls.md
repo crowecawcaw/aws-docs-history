@@ -9,6 +9,7 @@ Create an endpoint that formats content for devices that support Apple HLS.
 2. On the details page for the channel, under **Origin
    endpoints**, choose **Manage endpoints**.
 3. Complete the fields as described in the following topics:
+
    - [New endpoint fields](endpoints-hls-new.md "endpoints-hls-new.md")
    - [Packager settings fields](endpoints-hls-packager.md "endpoints-hls-packager.md")
    - [Package encryption fields](endpoints-hls-encryption.md "endpoints-hls-encryption.md")

@@ -10,6 +10,7 @@ fragmented MP4 (fMP4).
 2. On the details page for the channel, under **Origin
    endpoints**, choose **Manage endpoints**.
 3. Complete the fields as described in the following topics:
+
    - [New endpoint fields](endpoints-cmaf-new.md "endpoints-cmaf-new.md")
    - [Packager settings fields](endpoints-cmaf-packager.md "endpoints-cmaf-packager.md")
    - [Package encryption fields](endpoints-cmaf-encryption.md "endpoints-cmaf-encryption.md")

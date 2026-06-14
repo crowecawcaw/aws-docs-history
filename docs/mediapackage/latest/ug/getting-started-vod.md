@@ -85,6 +85,7 @@ MediaPackage doesn't require customer data from you, so assets don't include tho
 
 1. From your Amazon S3 buckets, determine what file you're using as source content. Make note of the
    following:
+
    - The name of the Amazon S3 bucket where the file is stored
    - The full path for the file, such as _S3://bucket/path/source-file-name_
    - The IAM role that allows MediaPackage to read from

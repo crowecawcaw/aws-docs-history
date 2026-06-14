@@ -12,6 +12,7 @@ MediaPackage displays metrics throughout the console.
 
 1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
 2. Navigate to the appropriate page to view metrics:
+
    - For metrics on all channels and endpoints in the AWS Region, go to the
      **Channels** page.
    - For metrics on a specific channel and all of its endpoints, go to the channel's details

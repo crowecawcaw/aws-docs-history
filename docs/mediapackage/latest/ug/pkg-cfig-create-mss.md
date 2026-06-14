@@ -18,6 +18,7 @@ Microsoft Smooth.
    **Add** and select **New
    config**.
 6. Complete the fields as described in the following topics:
+
    - [General settings fields](cfigs-mss-new.md "cfigs-mss-new.md")
    - [Manifest settings fields](cfigs-mss-manset.md "cfigs-mss-manset.md")
    - [Stream selection fields](cfigs-mss-include-streams.md "cfigs-mss-include-streams.md")

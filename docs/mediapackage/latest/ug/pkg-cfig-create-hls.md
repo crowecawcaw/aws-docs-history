@@ -18,6 +18,7 @@ Apple HLS.
    **Add** and select **New
    config**.
 6. Complete the fields as described in the following topics:
+
    - [General settings fields](cfigs-hls-new.md "cfigs-hls-new.md")
    - [Manifest settings fields](cfigs-hls-manset.md "cfigs-hls-manset.md")
    - [Stream selection fields](cfigs-hls-include-streams.md "cfigs-hls-include-streams.md")

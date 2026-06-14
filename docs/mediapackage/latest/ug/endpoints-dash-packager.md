@@ -133,6 +133,7 @@ The following fields dictate how MediaPackage processes SCTE-35 messages from th
 1.  (Optional) For **Ad triggers**, choose the SCTE-35 message types that you want to be treated as ad markers in the output. If you
     don't make a selection here, MediaPackage inserts ad markers in the
     output manifest based on these message types:
+
     - Splice insert
     - Provider advertisement
     - Distributor advertisement

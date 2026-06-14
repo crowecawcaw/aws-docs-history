@@ -116,6 +116,7 @@ action based on the value that you selected in **Ad markers**:
   that meet the requirements that you set. In the output manifest, MediaPackage
   inserts ad markers that correspond to the applicable messages. To check for your
   requirements, MediaPackage does the following:
+
   1.  Checks if any SCTE-35 messages match the message types that you
       indicated in **Customize ad triggers**
   2.  For messages of the right types, checks if the delivery restriction

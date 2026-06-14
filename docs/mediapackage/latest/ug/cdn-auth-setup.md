@@ -40,6 +40,7 @@ X-MediaPackage-CDNIdentifier: `9ceebbe7-9607-4552-8764-876e47032660`
 2. Create or edit a distribution.
 3. In **Origin Settings**, complete the fields. You will use
    this same value for your secret in Secrets Manager.
+
    - For **Header Name**, enter
      `X-MediaPackage-CDNIdentifier`.
    - For **Value**, enter a value. We recommend that
@@ -67,6 +68,7 @@ account.
    type**, choose **Other type of
    secrets**.
 3. For **Key/value pairs**, enter the key and value information.
+
    - In the box on the left, enter
      `MediaPackageCDNIdentifier`.
    - In the box on the right, enter the value that you configured for
@@ -122,6 +124,7 @@ CDN authorization is enabled on the endpoint.
 3. Create or edit an endpoint.
 4. In **Access control settings**, select **Use
    CDN authorization**. Complete the fields:
+
    - In **Secrets role ARN**, enter the ARN for the
      IAM role that you created in [Step 3: Create an IAM policy and role for MediaPackage access to Secrets Manager](#cdn-aut-setup-iam "#cdn-aut-setup-iam").
    - In **CDN identifier secret ARN**, enter the ARN for the secret in Secrets Manager that
@@ -136,6 +139,7 @@ CDN authorization is enabled on the endpoint.
 3. Create or edit a packaging group.
 4. In **Configure access control**, select **Enable
    authorization**. Complete the fields:
+
    - In **Secrets role ARN**, enter the ARN for the
      IAM role that you created in [Step 3: Create an IAM policy and role for MediaPackage access to Secrets Manager](#cdn-aut-setup-iam "#cdn-aut-setup-iam").
    - In **CDN identifier secret ARN**, enter the ARN for the secret in Secrets Manager that

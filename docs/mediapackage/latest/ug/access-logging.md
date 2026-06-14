@@ -25,6 +25,7 @@ You can enable access logs using the AWS Management Console or the AWS CLI.
 1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
 2. Select your channel.
 3. In the **Configure Access Logs** section, do the following:
+
    1. Choose **Enable ingress access logs** or **Enable egress access logs**, or both.
    2. You can specify a custom CloudWatch **Log group name**. If left blank, the default group is used.
 
@@ -33,6 +34,7 @@ You can enable access logs using the AWS Management Console or the AWS CLI.
 1. Open the MediaPackage console at [https://console.aws.amazon.com/mediapackage/](https://console.aws.amazon.com/mediapackage/ "https://console.aws.amazon.com/mediapackage/").
 2. Select **Packaging groups** from the navigation section.
 3. Choose your packaging group.
+
    1. Select **Edit** in the navigation bar.
    2. In the **Access logging** section, select **Enable egress access logs**.
    3. You can specify a custom CloudWatch **Log group name**. If left blank, the default group is used.

@@ -10,6 +10,7 @@ Create an endpoint that formats content for devices that support MPEG-DASH.
    endpoints**, choose **Manage endpoints**.
 3. Choose **Manage endpoints**.
 4. Complete the fields as described in the following topics:
+
    - [New endpoint fields](endpoints-dash-new.md "endpoints-dash-new.md")
    - [Packager settings fields](endpoints-dash-packager.md "endpoints-dash-packager.md")
    - [Package encryption fields](endpoints-dash-encryption.md "endpoints-dash-encryption.md")

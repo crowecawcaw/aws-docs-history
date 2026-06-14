@@ -10,6 +10,7 @@ Streaming.
 2. On the details page for the channel, under **Origin
    endpoints**, choose **Manage endpoints**.
 3. Complete the fields as described in the following topics:
+
    - [New endpoint fields](endpoints-smooth-new.md "endpoints-smooth-new.md")
    - [Packager settings fields](endpoints-smooth-packager.md "endpoints-smooth-packager.md")
    - [Package encryption fields](endpoints-smooth-encryption.md "endpoints-smooth-encryption.md")

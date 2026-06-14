@@ -81,6 +81,7 @@ Choose from the following:
     functionality like fast forward and rewind.
 7.  For **Period triggers**, select how MediaPackage creates
     MPD periods in the DASH output manifest.
+
     - **None** – MediaPackage doesn't create
       additional periods. It formats the manifest as a single period
       and doesn't include SCTE-35 markers in the segments.
@@ -100,6 +101,7 @@ Choose from the following:
 
 8.  For **SCTE markers source**, specify the source of
     SCTE-35 markers to use from your input HLS content.
+
     - Select **Segments** to use SCTE-35 markers from input HLS media segments.
     - Select **Manifest** to use SCTE-35 markers, formatted using SCTE-35 Enhanced syntax (`#EXT-OATCLS-SCTE35` tags), from input HLS child manifests.
       SCTE-35 Elemental and SCTE-35 Daterange syntaxes are not supported.

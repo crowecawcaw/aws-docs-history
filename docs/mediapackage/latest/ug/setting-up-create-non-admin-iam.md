@@ -178,6 +178,7 @@ a role rather than attaching individual policies to each user.
    account**.
 4. Under **An AWS account**, select the account with the
    users that will be assuming this role.
+
    - If a third-party will be accessing this role, it's best practice
      to select **Require external ID**. For more
      information about external IDs, see [Using an external ID for third-party access](../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md "../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md") in the
@@ -191,7 +192,9 @@ a role rather than attaching individual policies to each user.
 5. Choose **Next**.
 6. Under **Permissions policies**, search for and add the
    policy with the appropriate MediaPackage permissions level.
+
    - For access to live functionality, choose one of the following options:
+
      - Use
        **AWSElementalMediaPackageFullAccess**
        to allow the user to perform all actions on all live
@@ -206,6 +209,7 @@ a role rather than attaching individual policies to each user.
 7. Add policies to allow the MediaPackage console to make calls to Amazon CloudWatch
    on the user's behalf. Without these policies, the user is able to use the
    service's API only (not the console). Choose one of the following options:
+
    - Use **ReadOnlyAccess** to allow MediaPackage to
      communicate with CloudWatch, and also provide the user read-only access to
      all AWS services on your account.
@@ -220,6 +224,7 @@ a role rather than attaching individual policies to each user.
 9. (Optional) Set a [permissions
    boundary](../../../IAM/latest/UserGuide/access_policies_boundaries.md "../../../IAM/latest/UserGuide/access_policies_boundaries.md"). This is an advanced feature that is available for
    service roles, but not service-linked roles.
+
    1. Expand the **Permissions boundary** section and choose
       **Use a permissions boundary to control the maximum role
       permissions**. IAM includes a list of the AWS managed and

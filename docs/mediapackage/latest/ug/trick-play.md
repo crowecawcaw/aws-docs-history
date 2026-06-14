@@ -65,6 +65,7 @@ Your HLS source content must meet the following requirements:
 - The HLS parent playlist that references the image playlist must include the
   `EXT-X-IMAGE-STREAM-INF` tag.
 - The image playlist must include the following tags:
+
   - An `EXT-X-IMAGES-ONLY` tag above the segment
     list.
   - If using tiled thumbnails, `EXT-X-TILES` tags above
@@ -82,6 +83,7 @@ Your HLS source content must meet the following requirements:
   MB. For tiled thumbnails, the image segments can be tiled, with multiple
   thumbnails in a grid in the JPEG, or a single tile can occupy the entire
   JPEG.
+
   - For live, each JPEG must contain only one image segment. The
     encoder must produce image segments and video segments at the same
     cadence.
@@ -119,6 +121,7 @@ In addition to the general requirements listed before this section, keep in mind
 - In general, the service doesn't support multi-period DASH for packaging configurations that use `NUMBER_WITH_DURATION` because it impacts segment alignment. This limitation also applies to trick-play.
 - The service generates the image segment time format for live and VOD as
   follows:
+
   - For live, the image segment's time format is the same as your
     endpoint's time format for audio and video segments. This format is
     set by the **segment template format** on your

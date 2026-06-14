@@ -12,6 +12,7 @@ attached to any discovered signal maps.
 2. In the upper-right of the signal map page, in the **CloudWatch
    alarm template groups** tab, select **Attach
    CloudWatch alarm template groups**.
+
    1. In the new section that opens, choose all of the alarm
       template groups that you want to apply to this signal map, then
       select **Add**. This will cause the selected
@@ -23,6 +24,7 @@ attached to any discovered signal maps.
 3. At the right of the signal map page, select the **EventBridge rule
    template groups** tab then select **Attach EventBridge
    rule template groups**.
+
    1. In the new section that opens, choose all of the event
       template groups that you want to apply to this signal map, then
       select **Add**. This will cause the selected

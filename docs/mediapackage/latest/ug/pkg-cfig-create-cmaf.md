@@ -18,6 +18,7 @@ Apple HLS fragmented MP4 (fMP4).
    **Add** and select **New
    config**.
 6. Complete the fields as described in the following topics:
+
    - [General settings fields](cfigs-cmaf-new.md "cfigs-cmaf-new.md")
    - [Manifest settings fields](cfigs-cmaf-manset.md "cfigs-cmaf-manset.md")
    - [Stream selection fields](cfigs-cmaf-include-streams.md "cfigs-cmaf-include-streams.md")
