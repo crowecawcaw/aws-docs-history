@@ -16,6 +16,7 @@ The top-level goals are to:
 
 - Accelerate time to market for IoT devices.
 - Ease the transition to cloud connected solutions:
+
   - Reduce the skill gap required for cloud-connected embedded
     applications.
   - Allow OEMs to migrate existing designs by adding ExpressLink to existing
@@ -24,6 +25,7 @@ The top-level goals are to:
 - Dramatically reduce the resources embedded devices require to connect to AWS IoT
   Core and publish and subscribe to topics, regardless of the connectivity solution
   chosen (Wi-Fi, ethernet, or cellular):
+
   - An abstract API does not reveal (leak) implementation details to the
     customer application.
   - Configuration parameters (implementation dependent) are easily isolated.

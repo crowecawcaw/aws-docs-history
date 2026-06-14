@@ -48,6 +48,7 @@ Where _type_ is:
 
 - **IOCapabilities**:
   Specifies I/O Capability of the host, used during pairing (see [13.4 Pairing, Bonding and Filtering](#elpg-pairing-bonding-filtering "#elpg-pairing-bonding-filtering")).
+
   - Setting "IOCapability":{"display":0,"keyboard": 0,"YesNo": 0} implies Just Works method.
 
 - **customFilters** (JSON object) – additional
@@ -85,11 +86,13 @@ BLE devices adopting a peripheral role require the host to initialize the BLEPer
 BLEPeripheral configuration parameters use JSON notation and expect the following keys:
 
 - **mode**: Indicates advertising mode. Possible values are:
+
   - "**LEGACY**": refers to BLE specifications before 5.0. (default).
   - "**EXTENDED**": refers to the extended advertising as define in BLE specification 5.0 and later.
 
 - **IOCapability**:
   Specifies I/O Capability of the peripheral, used during pairing (see [13.4 Pairing, Bonding and Filtering](#elpg-pairing-bonding-filtering "#elpg-pairing-bonding-filtering")), possible values are:
+
   - "**display**": 0/1 the device can interact with a user via a display (default 0)
   - "**keyboard**": 0/1 the device can interact with the user via a keyboard to enter numerical values (default 0)
   - "**YesNo**": 0/1 the device has buttons for the user to accept or reject a connection (default 0)
@@ -100,6 +103,7 @@ BLEPeripheral configuration parameters use JSON notation and expect the followin
 
 - **filterPolicy**:
   Used to apply a filter policy using the following keys:
+
   - "**ALLOW_LIST_SCAN**": to grant scan requests to devices in the AllowList.
   - "**ALLOW_LIST_CONNECT**": to grant connection requests to devices in the AllowList.
 

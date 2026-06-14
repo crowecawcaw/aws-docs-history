@@ -42,6 +42,7 @@ categories:
 - [Event handling commands (EVENT, ...)](elpg-event-handling.md#elpg-event-handling-commands.title "elpg-event-handling.md#elpg-event-handling-commands.title")
 - [Diagnostic commands (DIAG, ...)](elpg-event-handling.md#elpg-diagnostic-commands.title "elpg-event-handling.md#elpg-diagnostic-commands.title")
 - [OTA commands (OTA)](elpg-ota-updates.md#elpg-ota-commands.title "elpg-ota-updates.md#elpg-ota-commands.title")
+
   - [Host OTA certificate update](elpg-ota-updates.md#elpg-hota-cert-update.title "elpg-ota-updates.md#elpg-hota-cert-update.title")
   - [Over the Wire (OTW) module firmware update command](elpg-ota-updates.md#elpg-otw-firmware-update.title "elpg-ota-updates.md#elpg-otw-firmware-update.title")
 
