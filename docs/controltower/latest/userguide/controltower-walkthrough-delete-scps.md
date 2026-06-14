@@ -9,5 +9,6 @@ how to delete the SCPs specifically related to AWS Control Tower.
 2. Open the **Policies** tab, and find the Service Control Policies (SCPs)
    that have the prefix **aws-guardrails-** and do the following for each
    SCP:
+
    1. Detach the SCP from the associated OU.
    2. Delete the SCP.

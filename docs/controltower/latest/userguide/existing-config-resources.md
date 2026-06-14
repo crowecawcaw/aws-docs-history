@@ -149,6 +149,7 @@ For this step, the following information is needed about your AWS Control Tower 
 - `CONFIG_BUCKET` - the AWS S3 bucket to which AWS Config delivers configuration snapshots
   and configuration history files. Locate and confirm that the AWS S3 bucket exists before proceeding
   to the next steps.
+
   - For landing zone version 3.3 or lower, the AWS S3 bucket is named
     `aws-controltower-logs-LOGGING_ACCOUNT-HOME_REGION`, located in the Logging account.
   - For landing zone version 4.0 or higher, the AWS S3 bucket is named
@@ -174,6 +175,7 @@ as shown. Replace the item `GLOBAL_RESOURCE_RECORDING` with
 
 - **Name:** DON'T CHANGE
 - **RoleARN:** `IAM_ROLE_ARN`
+
   - **RecordingGroup:**
   - **AllSupported:** true
   - **IncludeGlobalResourceTypes:**

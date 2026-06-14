@@ -10,6 +10,7 @@ following procedures walk through how to delete these specific resources.
 2. From the left navigation menu, choose **StackSets**.
 3. For each StackSet with the prefix **AWSControlTower**, do the following.
    If you have many accounts in a StackSet, this can take some time.
+
    1. Choose the specific StackSet from the table in the dashboard. This opens the properties
       page for that StackSet.
    2. At the bottom of the page, in the **Stacks** table, make a record of
@@ -42,6 +43,7 @@ following procedures walk through how to delete these specific resources.
 2. From the **Stacks** dashboard, search for all of the stacks with the
    prefix **AWSControlTower**.
 3. For each stack in the table, do the following:
+
    1. Choose the check box next to the name of the stack.
    2. From the **Actions** menu, choose **Delete
       Stack**.

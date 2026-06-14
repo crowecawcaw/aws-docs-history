@@ -13,14 +13,14 @@ terraform_version = "1.6.1"
 AFT supports three Terraform distributions:
 
 - Terraform Community Edition
-- Terraform Cloud
+- HCP Terraform
 - Terraform Enterprise
 
 These distributions are explained in the sections that follow. Provide the Terraform
 distribution of your choice as an input parameter during the AFT bootstrap process. For
 more information on AFT deployment and input parameters, see [Deploy AWS Control Tower Account Factory for Terraform (AFT)](aft-getting-started.md "aft-getting-started.md") .
 
-If you choose the Terraform Cloud or Terraform Enterprise distributions, the [API
+If you choose the HCP Terraform or Terraform Enterprise distributions, the [API
 token](https://www.terraform.io/cloud-docs/users-teams-organizations/api-tokens "https://www.terraform.io/cloud-docs/users-teams-organizations/api-tokens") you specify for `terraform_token` must be a User or Team
 API token. An Organization token is not supported for all required APIs. For security
 reasons, you must avoid checking in this token's value to your version control system
@@ -28,7 +28,7 @@ reasons, you must avoid checking in this token's value to your version control s
 
 ```
 
- # Sensitive variable managed in Terraform Cloud:
+ # Sensitive variable managed in HCP Terraform:
  terraform_token = var.terraform_cloud_token
 
 ```
@@ -65,10 +65,10 @@ parameter:
 terraform_distribution = "oss"
 ```
 
-### Terraform Cloud
+### HCP Terraform
 
-When you select Terraform Cloud as your distribution, AFT creates workspaces for
-the following components in your Terraform Cloud organization, which initiates an
+When you select HCP Terraform as your distribution, AFT creates workspaces for
+the following components in your HCP Terraform organization, which initiates an
 API-driven workflow.
 
 - Account request
@@ -76,28 +76,28 @@ API-driven workflow.
 - Account customizations for accounts that AFT provisions
 - Global customizations for accounts that AFT provisions
 
-Terraform Cloud manages the resulting Terraform state configuration.
+HCP Terraform manages the resulting Terraform state configuration.
 
-When you select Terraform Cloud as your distribution, provide the following input
+When you select HCP Terraform as your distribution, provide the following input
 parameters:
 
 - `terraform_distribution = "tfc"`
 - `terraform_token` – This parameter contains the value of
-  the Terraform Cloud token. AFT marks the as sensitive and stores the value
+  the HCP Terraform token. AFT marks the as sensitive and stores the value
   as a secure string in the SSM parameter store in the AFT management
   account. We recommend that you periodically rotate the value of the
   Terraform token according to your company's security policies and compliance
   guidelines. The Terraform token should be a User or Team level API token.
   Organization tokens are not supported.
 - `terraform_org_name` – This parameter contains the name of
-  your Terraform Cloud organization.
+  your HCP Terraform organization.
 
 ###### Note
 
-Multiple AFT deployments in a single Terraform Cloud organization is not
+Multiple AFT deployments in a single HCP Terraform organization is not
 supported.
 
-For information about how to set up Terraform Cloud, see [the Terraform
+For information about how to set up HCP Terraform, see [the Terraform
 documentation](https://www.terraform.io/docs/cloud/index.html "https://www.terraform.io/docs/cloud/index.html").
 
 ### Terraform Enterprise

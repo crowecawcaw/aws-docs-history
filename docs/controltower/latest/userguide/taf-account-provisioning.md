@@ -40,6 +40,7 @@ For accounts enrolled via Auto Enroll:
 
 - New account creation through AFT continues to work normally.
 - Existing account import requires additional steps:
+
   - Register OU to create the necessary provisioned products before importing.
   - Register OU will emit `CreateManagedAccount` and `UpdateManagedAccount` events, enabling AFT customizations.
 

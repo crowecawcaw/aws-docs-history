@@ -10,16 +10,17 @@ within an OU is to perform one of the following actions:
 
 ###### When you re-register an OU:
 
-- The **State** field indicates whether the account currently
-  is enrolled with AWS Control Tower (**Enrolled**), whether the account
-  has never been enrolled (**Not enrolled**), or whether
-  enrollment failed previously (**Enrollment failed**).
+- The **AWS Control Tower baseline status** field indicates
+  whether the `AWSControlTowerBaseline` is applied to the account
+  (**Enabled**), whether the baseline has not been applied
+  (**Not enabled**), or whether applying the baseline failed
+  previously (**Failed**).
 - When you re-register the OU, the `AWSControlTowerExecution` role is
-  added to all accounts with status **Not enrolled** or
-  **Enrollment failed**.
+  added to all accounts with status **Not enabled** or
+  **Failed**.
 - AWS Control Tower creates a single sign-on (IAM Identity Center) login for those new enrolled
   accounts.
-- **Enrolled** accounts are re-enrolled into AWS Control Tower.
+- **Enabled** accounts are re-enrolled into AWS Control Tower.
 - Drift on any preventive controls applied to the OU is fixed, because the SCPs
   are returned to their default definitions.
 - All accounts are updated to reflect the latest landing zone changes.

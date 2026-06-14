@@ -118,9 +118,9 @@ account by doing one of the following:
     + Not targeting the OU that the account belongs to.
     + Not targeting the account directly.
 
-- **Used incorrect token for Terraform Cloud**
+- **Used incorrect token for HCP Terraform**
 
-Make sure that you set up the correct token. Terraform Cloud only
+Make sure that you set up the correct token. HCP Terraform only
 supports team-based tokens, not organization-based tokens.
 
 - **Failed to create account before account customizations pipeline is

@@ -27,6 +27,7 @@ to a nested OU structure.
 2. Go to the AWS Organizations console and use their bulk move feature to move the
    accounts from the source OU (flat) into the destination OU (nested). Here’s
    how:
+
    1. Go to the OU from which you want to move accounts.
    2. Select all the accounts in the OU.
    3. Choose **Move**.
@@ -39,6 +40,7 @@ to a nested OU structure.
 3. Go to the nested OU in AWS Control Tower and **Register** or
    **Re-register** it. All of the accounts in the nested OU
    will be enrolled.
+
    - If you created the OU in AWS Control Tower, **Re-register**
      the OU.
    - If you created the OU in AWS Organizations, **Register** the

@@ -59,5 +59,3 @@ access to the account, and finally close the AWS account. You also can close an
 account with [an AWS Organizations
 API](delete-account.md "delete-account.md"). For better viewing, select the icon at the lower right corner of the
 video to enlarge it to full screen. Captioning is available.
-
-You can view a list of AWS [YouTube videos](https://www.youtube.com/playlist?list=PLhr1KZpdzukdS9skEXbY0z67F-wrcpbjm "https://www.youtube.com/playlist?list=PLhr1KZpdzukdS9skEXbY0z67F-wrcpbjm") that explain common tasks in AWS Control Tower.

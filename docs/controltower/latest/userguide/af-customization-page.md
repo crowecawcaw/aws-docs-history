@@ -314,6 +314,7 @@ AWS Service Catalog and AWS Control Tower.
 3. In AWS Control Tower, update each account using a _Terraform Open
    Source_ blueprint to use the new _External_
    blueprint.
+
    1. To update a blueprint, you must first remove the
       _Terraform Open Source_ blueprint completely.
       For more details, review [Remove a blueprint from an account](remove-a-blueprint.md "remove-a-blueprint.md").

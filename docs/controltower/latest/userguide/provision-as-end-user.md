@@ -30,6 +30,7 @@ If you have disabled IAM Identity Center in your landing zone settings, the SSO 
    **Launch product** button. This selection starts the wizard
    to provision a new account.
 9. Fill in the information, and keep the following in mind:
+
    - The **SSOUserEmail** can be a new email address, or
      the email address associated with an existing IAM Identity Center user. Whichever you
      choose, this user will have administrative access to the account you're

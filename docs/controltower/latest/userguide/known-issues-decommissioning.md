@@ -8,6 +8,7 @@ issues:
 - The AWS Control Tower management account is part of the AWS Control Tower **Root
   OU**. Be sure that these IAM roles and IAM policies are removed
   from the management account:
+
   - Roles:
 
   `- AWSControlTowerAdmin`
@@ -34,6 +35,7 @@ issues:
   to bring your own logging and audit accounts. For more information, see [Considerations for bringing existing security or logging accounts](accounts.md#considerations-for-existing-shared-accounts "accounts.md#considerations-for-existing-shared-accounts").
 - Setup fails if Amazon S3 buckets with the following reserved names already exist in
   the logging account:
+
   - `aws-controltower-logs-`{accountId}`-`{region}``
     (used for the logging bucket).
 
@@ -60,9 +62,3 @@ aws organizations disable-aws-service-access --service-principal controltower.am
 - Delete the remaining managed rule, called
   `AWSControlTowerManagedRule`, from shared and member accounts for
   all governed Regions.
-
-###### Note
-
-You cannot set up a new landing zone in an organization with top-level OUs named
-either **Security** or **Sandbox**. You must
-rename or remove these OUs to set up a landing zone again.

@@ -3,6 +3,7 @@
 AWS Control Tower is closely associated with AWS Organizations. Here is some specific guidance about how they work together best to protect your AWS environment.
 
 - You can find guidance about best practices to protect the security of your AWS Control Tower management account and member accounts in the AWS Organizations documentation.
+
   - [Best practices for the management account](../../../organizations/latest/userguide/orgs_best-practices_mgmt-acct.md "../../../organizations/latest/userguide/orgs_best-practices_mgmt-acct.md")
   - [Best practices for member accounts](../../../organizations/latest/userguide/orgs_best-practices_member-acct.md "../../../organizations/latest/userguide/orgs_best-practices_member-acct.md")
 

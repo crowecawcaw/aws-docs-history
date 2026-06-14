@@ -10,9 +10,15 @@ aspects of your AWS Control Tower landing zone are configurable. Other choices c
   are named **Security** and **Sandbox**. For
   more information, see [Guidelines to set up a well-architected environment](aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup "aws-multi-account-landing-zone.md#guidelines-for-multi-account-setup").
 - During setup, you can select customized names for the shared accounts that
-  AWS Control Tower creates, called **log archive** and
-  **audit** by default, but you cannot change these names
-  after setup. (This is a one-time selection.)
+  AWS Control Tower creates, called **CloudTrail Administrator** and
+  **Aggregator account** by default.
+
+###### Note
+
+In Landing Zone versions prior to 4.0, these accounts are named
+"Log Archive" and "Audit" by default. Customers using earlier versions
+may still see the original names.
+
 - During setup, you can optionally specify existing AWS accounts for AWS Control Tower
   to use as audit and log archive accounts. If you plan to specify existing AWS
   accounts, and if those accounts have existing AWS Config resources, you must delete

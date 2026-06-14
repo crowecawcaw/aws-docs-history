@@ -50,6 +50,7 @@ It is a best practice to update to the latest version of the landing zone.
   trails are removed.
 - AWS Control Tower creates a new path in the same Amazon S3 bucket for the trails, to
   differentiate account-level trails from organization-level trails.
+
   - An account trail log path is of this form:
     `/orgId/AWSLogs/...`
   - An organization trail log path is of this form:

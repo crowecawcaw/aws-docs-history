@@ -17,6 +17,7 @@ This section describes known limitations and unsupported use cases in AWS Contro
 - AWS Control Tower has overall _concurrency limitations_. In general,
   one operation at a time is permitted. Two exceptions to this limitation are
   allowed:
+
   - Optional controls can be activated and deactivated concurrently,
     through an asynchronous process. Up to one hundred (100) control-related
     operations at a time can be in progress, in total, no matter if they are
@@ -25,6 +26,7 @@ This section describes known limitations and unsupported use cases in AWS Contro
     Account Factory, through an asynchronous process, with up to five (5)
     account-related operations in progress simultaneously. Unmanaging
     accounts must be performed one account at a time.
+
     - With auto-enrollment enabled, only a single move account
       operation can be performed on the destination OU and any
       additional account-related operations on the same OU will be
@@ -67,6 +69,7 @@ This section describes known limitations and unsupported use cases in AWS Contro
 - **AWS Control Tower Account Factory for Terraform (AFT)** is not
   available in the following AWS Regions, because some dependencies are not
   available:
+
   - Europe (Zurich), eu-central-2
   - Europe (Spain), eu-south-2
   - Canada West (Calgary), ca-west-1
@@ -79,6 +82,7 @@ This section describes known limitations and unsupported use cases in AWS Contro
   deployed by new AFT customers in the following Regions, because AWS
   CodeConnections is not available to connect to a third-party version control
   system (VCS):
+
   - Asia Pacific (Hong Kong), Africa (Cape Town), Middle East (Bahrain),
     Europe (Zurich), Asia Pacific (Jakarta), Asia Pacific (Hyderabad), Asia
     Pacific (Osaka), Asia Pacific (Melbourne), Israel (Tel Aviv), Europe
@@ -86,6 +90,7 @@ This section describes known limitations and unsupported use cases in AWS Contro
     Mexico (Central)
 
 - The following Regions do not support **AWS Service Catalog**.
+
   - Canada West (Calgary), ca-west-1
   - Asia Pacific (Malaysia), ap-southeast-5
   - Asia Pacific (Thailand), ap-southeast-7

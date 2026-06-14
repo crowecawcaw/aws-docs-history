@@ -283,6 +283,7 @@ in the _Amazon CloudWatch Logs User Guide_.
    choose **Account Factory for Terraform**,
    and then select
    one of the following queries:
+
    - **Customization Logs by Account ID**
 
    ###### Note
@@ -296,7 +297,6 @@ in the _Amazon CloudWatch Logs User Guide_.
    | sort @timestamp desc
    | filter log_message.account_id == `"YOUR-ACCOUNT-ID"` and @message like /customization_request_id/
    ```
-
    - **Customization Logs by Customization Request ID**
 
    ###### Note

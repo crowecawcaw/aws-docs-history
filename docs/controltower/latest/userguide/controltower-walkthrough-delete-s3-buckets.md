@@ -25,6 +25,7 @@ buckets in your log archive account.
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Search for bucket names that contain **aws-controltower**.
 3. For each bucket in the table, do the following:
+
    1. Choose the check box for the bucket in the table.
    2. Choose **Delete**.
    3. In the dialog box that opens, review the information to make sure it's accurate, enter

@@ -52,6 +52,7 @@ OU.
 - _For controls implemented with CloudFormation
   hooks:_ This behavior  depends on the status of controls in
   the new OU.
+
   - _If the destination OU has no hook-based
     controls active:_ The old  controls remain active for
     the moved account, unless you remove them  manually.

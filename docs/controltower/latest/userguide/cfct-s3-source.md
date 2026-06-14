@@ -18,6 +18,7 @@ The zip file is protected by [Server-Side Encryption](../../../AmazonS3/latest/d
 2. In **Customer Managed Keys**, select **CustomControlTowerKMSKey**.
 3. Select the **Key policy** tab. Then, select **Edit**.
 4. In the **Edit key policy** page, find the **Allow Use of the key** section in the code, and add one of the following permissions:
+
    - To add an administration role:
 
    `arn:aws:iam::`<account-ID>`:role/`<administrator-role>``
@@ -30,5 +31,6 @@ The zip file is protected by [Server-Side Encryption](../../../AmazonS3/latest/d
    the S3 bucket containing the configuration zip file, and select download.
 7. Make the necessary configuration changes to the manifest file and template files. For information about customizing the manifest and template files, see [CfCT customization guide](cfct-customizations-dev-guide.md "cfct-customizations-dev-guide.md").
 8. Upload your changes:
+
    1. Zip the modified configuration files, and name the file: `custom-control-tower-configuration.zip`.
    2. Upload the file to Amazon S3 using SSE with the AWS KMS master-key: `CustomControlTowerKMSKey`.

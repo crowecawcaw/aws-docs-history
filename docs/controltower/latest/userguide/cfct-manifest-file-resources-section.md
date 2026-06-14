@@ -130,6 +130,7 @@ parameters:
 
 - **parameter_key** – The key associated with the
   parameter.
+
   - **Type:** String
   - **Required:** Yes (under parameters
     property)

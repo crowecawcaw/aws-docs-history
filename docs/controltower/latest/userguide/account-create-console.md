@@ -14,6 +14,7 @@ previously set up custom blueprints. For more information about customization, s
 3. From the upper right, choose **Create resources**.
 4. In the dropdown menu, choose **Create account**.
 5. Fill in the information on the page, and keep the following in mind:
+
    - The **Account email** must be an email address that
      isn't already associated with an AWS account.
    - The display name is the name you want to see for this account.

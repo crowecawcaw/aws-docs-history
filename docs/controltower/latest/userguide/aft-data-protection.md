@@ -15,7 +15,7 @@ purposes, we recommend the following best practices for security.
 
 AFT creates Amazon S3 buckets, Amazon SNS topics, Amazon SQS queues, and Amazon DynamoDB
 databases that are encrypted at rest with AWS Key Management Service keys. KMS keys
-created by AFT have yearly rotation enabled by default. If you choose the Terraform Cloud or
+created by AFT have yearly rotation enabled by default. If you choose the HCP Terraform or
 Terraform Enterprise distributions of Terraform, AFT includes a AWS Systems Manager
 SecureString parameter to store Terraform token values that are sensitive.
 
@@ -29,7 +29,7 @@ AFT relies upon AWS services described in [Component services](aft-components.md
 details, see the AWS documentation for each component AWS service of AFT, and learn
 about the data protection practices followed by each service.
 
-For Terraform Cloud or Terraform Enterprise distributions, AFT calls an HTTPS endpoint
+For HCP Terraform or Terraform Enterprise distributions, AFT calls an HTTPS endpoint
 API for access to your Terraform organization. If you choose a third-party VCS provider
 supported by AWS CodeStar connections, AFT calls an HTTPS endpoint API for access to your
 VCS provider organization.

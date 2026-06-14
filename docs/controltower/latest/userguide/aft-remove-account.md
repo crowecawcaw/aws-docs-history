@@ -37,7 +37,7 @@ account request for the account you want to remove from AFT.
 
 When you remove an account request from the account request repository, AFT
 deletes the customization pipeline and account metadata. For more information, see
-the [1.8.0 release notes](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/releases/tag/1.8.0 "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/releases/tag/1.8.0") for AFT on GitHub. 2. **Delete Terraform workspace (For Terraform Cloud and Terraform
+the [1.8.0 release notes](https://github.com/aws-ia/terraform-aws-control_tower_account_factory/releases/tag/1.8.0 "https://github.com/aws-ia/terraform-aws-control_tower_account_factory/releases/tag/1.8.0") for AFT on GitHub. 2. **Delete Terraform workspace (For HCP Terraform and Terraform
 Enterprise customers only)**
 
 Delete the global customizations and account customizations workspaces for the
@@ -63,9 +63,9 @@ customizations state_, _customizations
 pipeline state_, and _global customizations
 state_
 
-###### Example: Terraform Cloud or Terraform Enterprise
+###### Example: HCP Terraform or Terraform Enterprise
 
-When you choose Terraform Cloud or Terraform Enterprise, you find a folder
+When you choose HCP Terraform or Terraform Enterprise, you find a folder
 for each account in the
 `aft-backend-`012345678901`-primary-region`
 and

@@ -1,7 +1,7 @@
 # Monitor resource changes with AWS Config
 
 AWS Control Tower enables AWS Config on all enrolled accounts, so that it can monitor compliance through
-detective controls, record resource changes, and deliver resource change logs to the log archive
+detective controls, record resource changes, and deliver resource change logs to a centralized
 account.
 
 **If your landing zone version is earlier than 3.0**: For your
@@ -22,8 +22,15 @@ global resources](../../../config/latest/developerguide/select-resources.md "../
 - To learn about how to customize resource tracking in the AWS Control Tower environment, see the
   blog post entitled [Customize AWS Config resource tracking in AWS Control Tower](https://aws.amazon.com/blogs//mt/customize-aws-config-resource-tracking-in-aws-control-tower-environment "https://aws.amazon.com/blogs//mt/customize-aws-config-resource-tracking-in-aws-control-tower-environment").
   AWS Control Tower sets up an AWS Config delivery channel in all enrolled accounts. Through this delivery
-  channel, it logs all changes recorded by AWS Config in the log archive account, where they are stored
-  to a folder in an Amazon Simple Storage Service bucket.
+  channel, it logs all recorded changes in a centralized account, where they are stored in an
+  Amazon Simple Storage Service bucket. The name and location of the Amazon S3 bucket depend on your landing zone
+  version:
+
+- For landing zone version 3.3 or earlier, the logs are stored in the
+  `aws-controltower-logs-*` Amazon S3 bucket in the log archive account.
+- For landing zone version 4.0 or later, the logs are stored in the
+  `aws-controltower-config-logs-*` Amazon S3 bucket in the AWS Config integration account
+  (previously known as the Audit account). For more information, see [AWS Config Updates](config-updates-v4.md "config-updates-v4.md").
 
 ## View the AWS Config recorder data on enrolled accounts
 

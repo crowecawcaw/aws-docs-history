@@ -21,6 +21,7 @@ To see a full landing zone schema example, see [Landing zone schemas](landing-zo
 - **Required:** Yes
 - **Properties:**
 - **Example:**
+
   - `security` - an object with one required property, `name`, which takes a `String`
   - `sandbox` - an object with one required property, `name`, which takes a `String`
 
@@ -40,9 +41,11 @@ To see a full landing zone schema example, see [Landing zone schemas](landing-zo
 - **Type:** Object
 - **Required:** Yes
 - **Properties:**
+
   - _accountId_ - a `String` the represents the AWS account into
     which the logging resource should be deployed
   - _configurations_ - an `Object` with three properties
+
     - `loggingBucket` - an object with one property,
       `retentionDays`, which takes a
       `Number`
@@ -103,8 +106,10 @@ To see a full landing zone schema example, see [Landing zone schemas](landing-zo
 - **Type:** Object
 - **Required:** No
 - **Properties:**
+
   - _configurations_ - an `Object` with three
     properties
+
     - `centralBackup` - an object with one property,
       `accountId`, which takes a `String`
     - `backupAdmin` - an object with one property,

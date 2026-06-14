@@ -174,6 +174,7 @@ the account.
    email is sent to the email address for the account.
 3. Accept the invitation to bring the shared account back into the organization.
    Do one of the following:
+
    - Sign in to the shared account that was removed, then go to [https://console.aws.amazon.com/organizations/home#/invites](https://console.aws.amazon.com/organizations/home#/invites "https://console.aws.amazon.com/organizations/home#/invites")
    - If you have access to the email message sent when you re-invited the
      account, sign in to the removed account, then click the link in the

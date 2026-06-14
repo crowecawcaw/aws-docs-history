@@ -75,7 +75,7 @@ Here is a generalized example event for AWS Control Tower.
         },
         "eventTime": "2018-08-30T21:42:18Z", // Timestamp when call was made. Format: yyyy-MM-dd'T'hh:mm:ssZ.
         "eventSource": "controltower.amazonaws.com",
-        "eventName": "<event name>", // one of the 9 event names in https://docs.aws.amazon.com/controltower/latest/userguide/lifecycle-events.html
+        "eventName": "<event name>", // one of the event names listed in https://docs.aws.amazon.com/controltower/latest/userguide/lifecycle-events.html
         "awsRegion": "<region>",
         "sourceIPAddress": "AWS Internal",
         "userAgent": "AWS Internal",

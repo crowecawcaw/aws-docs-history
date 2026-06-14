@@ -136,6 +136,22 @@ of letters and numbers. Its form is preserved in the examples.
   records whether AWS Control Tower successfully completed every action to disable an existing
   enabled baseline on a target member account under an OU. The disable operation can
   be initiated using the `DisableBaseline` API or the console.
+- [EnableControl](#enable-control-lfc "#enable-control-lfc"): The log
+  records whether AWS Control Tower successfully completed every action to enable a control on
+  a target account under an OU. The enable operation can be initiated using the
+  `EnableControl` API or the console.
+- [ResetEnabledControl](#reset-enabled-control-lfc "#reset-enabled-control-lfc"):
+  The log records whether AWS Control Tower successfully completed every action to reset an
+  existing enabled control on a target account under an OU. The reset operation can be
+  initiated using the `ResetEnabledControl` API or the console.
+- [UpdateEnabledControl](#update-enabled-control-lfc "#update-enabled-control-lfc"):
+  The log records whether AWS Control Tower successfully completed every action to update an
+  existing enabled control on a target account under an OU. The update operation can
+  be initiated using the `UpdateEnabledControl` API or the console.
+- [DisableControl](#disable-control-lfc "#disable-control-lfc"): The log
+  records whether AWS Control Tower successfully completed every action to disable an existing
+  enabled control on a target account under an OU. The disable operation can be
+  initiated using the `DisableControl` API or the console.
   The following sections provide a list of AWS Control Tower lifecycle events, with examples of the
   details logged for each type of lifecycle event.
 
@@ -924,6 +940,212 @@ timestamp of the operation.
             },
             "requestedTimestamp": "2025-03-14T00:49:13Z",
             "completedTimestamp": "2025-03-14T00:50:58+0000"
+        }
+    },
+    "eventCategory": "Management"
+}
+```
+
+## `EnableControl`
+
+This lifecycle event records whether AWS Control Tower successfully enabled a control on a
+target account that is being managed by AWS Control Tower. This event corresponds to the
+AWS Control Tower `EnableControl` CloudTrail event, and is emitted when a control is
+enabled using the `EnableControl` API or the console. The lifecycle event log
+includes the `controlIdentifier` of the control that was enabled, the
+`arn` of the resulting enabled control, the `parentIdentifier` of
+the enabled control on the parent OU, the `targetIdentifier` on which the
+control was enabled, and the `state` showing the SUCCEEDED or FAILED status,
+along with a `message` and the timestamps of the operation.
+
+###### Note
+
+The `EnableControl` lifecycle event corresponds to the
+`EnableControl` API. AWS Control Tower also emits the legacy
+`EnableGuardrail` lifecycle event when a control is enabled. If you build
+automation that reacts to controls being enabled, account for both event
+names.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "accountId": "XXXXXXXXXXXX",
+        "invokedBy": "AWS Internal"
+    },
+    "eventTime": "2026-01-07T15:59:28Z",
+    "eventSource": "controltower.amazonaws.com",
+    "eventName": "EnableControl",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "AWS Internal",
+    "userAgent": "AWS Internal",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "a4f45d0d-ab6d-41c7-9f97-786d80ff23d2",
+    "readOnly": false,
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "XXXXXXXXXXXX",
+    "serviceEventDetails": {
+        "enableControlStatus": {
+            "arn": "arn:aws:controltower:us-east-1:XXXXXXXXXXXX:enabledcontrol/143RH67Q683RJ20V",
+            "parentIdentifier": "arn:aws:controltower:us-east-1:XXXXXXXXXXXX:enabledcontrol/8WU3TCOLC0JPSV6T",
+            "controlIdentifier": "arn:aws:controltower:us-east-1::control/AWS-GR_AUDIT_BUCKET_LOGGING_ENABLED",
+            "targetIdentifier": "arn:aws:organizations::XXXXXXXXXXXX:account/o-k54j7iydcs/XXXXXXXXXXXX",
+            "state": "SUCCEEDED",
+            "message": "AWS Control Tower successfully enabled a control on the target.",
+            "requestedTimestamp": "2026-01-07T15:59:24+0000",
+            "completedTimestamp": "2026-01-07T15:59:28+0000"
+        }
+    },
+    "eventCategory": "Management"
+}
+```
+
+## `ResetEnabledControl`
+
+This lifecycle event records whether AWS Control Tower successfully reset an existing enabled
+control on a target account that is being managed by AWS Control Tower. This event corresponds to
+the AWS Control Tower `ResetEnabledControl` CloudTrail event, and is emitted when an
+enabled control is reset using the `ResetEnabledControl` API or the console.
+The lifecycle event log includes the `controlIdentifier` of the control, the
+`arn` of the enabled control, the `parentIdentifier` of the enabled
+control on the parent OU, the `targetIdentifier` on which the control was
+reset, and the `state` showing the SUCCEEDED or FAILED status, along with a
+`message` and the timestamps of the operation.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "accountId": "XXXXXXXXXXXX",
+        "invokedBy": "AWS Internal"
+    },
+    "eventTime": "2026-01-07T16:10:42Z",
+    "eventSource": "controltower.amazonaws.com",
+    "eventName": "ResetEnabledControl",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "AWS Internal",
+    "userAgent": "AWS Internal",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "c82d6f3a-4b9e-43ca-8d21-1a3f8d5b62e9",
+    "readOnly": false,
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "XXXXXXXXXXXX",
+    "serviceEventDetails": {
+        "resetEnabledControlStatus": {
+            "arn": "arn:aws:controltower:us-east-1:XXXXXXXXXXXX:enabledcontrol/143RH67Q683RJ20V",
+            "parentIdentifier": "arn:aws:controltower:us-east-1:XXXXXXXXXXXX:enabledcontrol/8WU3TCOLC0JPSV6T",
+            "controlIdentifier": "arn:aws:controltower:us-east-1::control/AWS-GR_AUDIT_BUCKET_LOGGING_ENABLED",
+            "targetIdentifier": "arn:aws:organizations::XXXXXXXXXXXX:account/o-k54j7iydcs/XXXXXXXXXXXX",
+            "state": "SUCCEEDED",
+            "message": "AWS Control Tower has successfully reset the enabled control on the target.",
+            "requestedTimestamp": "2026-01-07T16:10:36+0000",
+            "completedTimestamp": "2026-01-07T16:10:42+0000"
+        }
+    },
+    "eventCategory": "Management"
+}
+```
+
+## `UpdateEnabledControl`
+
+This lifecycle event records whether AWS Control Tower successfully updated an existing enabled
+control on a target account that is being managed by AWS Control Tower. This event corresponds to
+the AWS Control Tower `UpdateEnabledControl` CloudTrail event, and is emitted when an
+enabled control is updated using the `UpdateEnabledControl` API or the
+console. The lifecycle event log includes the `controlIdentifier` of the
+control, the `arn` of the enabled control, the `parentIdentifier`
+of the enabled control on the parent OU, the `targetIdentifier` on which the
+control was updated, and the `state` showing the SUCCEEDED or FAILED status,
+along with a `message` and the timestamps of the operation.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "accountId": "XXXXXXXXXXXX",
+        "invokedBy": "AWS Internal"
+    },
+    "eventTime": "2026-01-07T16:25:19Z",
+    "eventSource": "controltower.amazonaws.com",
+    "eventName": "UpdateEnabledControl",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "AWS Internal",
+    "userAgent": "AWS Internal",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "d93e7a4b-5caf-44db-9e32-2b4a9e6c73fa",
+    "readOnly": false,
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "XXXXXXXXXXXX",
+    "serviceEventDetails": {
+        "updateEnabledControlStatus": {
+            "arn": "arn:aws:controltower:us-east-1:XXXXXXXXXXXX:enabledcontrol/143RH67Q683RJ20V",
+            "parentIdentifier": "arn:aws:controltower:us-east-1:XXXXXXXXXXXX:enabledcontrol/8WU3TCOLC0JPSV6T",
+            "controlIdentifier": "arn:aws:controltower:us-east-1::control/AWS-GR_AUDIT_BUCKET_LOGGING_ENABLED",
+            "targetIdentifier": "arn:aws:organizations::XXXXXXXXXXXX:account/o-k54j7iydcs/XXXXXXXXXXXX",
+            "state": "SUCCEEDED",
+            "message": "AWS Control Tower successfully updated the enabled control on the target.",
+            "requestedTimestamp": "2026-01-07T16:25:13+0000",
+            "completedTimestamp": "2026-01-07T16:25:19+0000"
+        }
+    },
+    "eventCategory": "Management"
+}
+```
+
+## `DisableControl`
+
+This lifecycle event records whether AWS Control Tower successfully disabled an existing enabled
+control on a target account that is being managed by AWS Control Tower. This event corresponds to
+the AWS Control Tower `DisableControl` CloudTrail event, and is emitted when a control
+is disabled using the `DisableControl` API or the console. The lifecycle event
+log includes the `controlIdentifier` of the control, the `arn` of
+the enabled control, the `parentIdentifier` of the enabled control on the
+parent OU, the `targetIdentifier` on which the control was disabled, and the
+`state` showing the SUCCEEDED or FAILED status, along with a
+`message` and the timestamps of the operation.
+
+###### Note
+
+AWS Control Tower also emits the legacy `DisableGuardrail` lifecycle event when a
+control is disabled. If you build automation that reacts to controls being disabled,
+account for both event names.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "accountId": "XXXXXXXXXXXX",
+        "invokedBy": "AWS Internal"
+    },
+    "eventTime": "2026-01-07T16:42:11Z",
+    "eventSource": "controltower.amazonaws.com",
+    "eventName": "DisableControl",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "AWS Internal",
+    "userAgent": "AWS Internal",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "e04f8b5c-6dba-45ec-af43-3c5b0f7d84ab",
+    "readOnly": false,
+    "eventType": "AwsServiceEvent",
+    "managementEvent": true,
+    "recipientAccountId": "XXXXXXXXXXXX",
+    "serviceEventDetails": {
+        "disableControlStatus": {
+            "arn": "arn:aws:controltower:us-east-1:XXXXXXXXXXXX:enabledcontrol/143RH67Q683RJ20V",
+            "parentIdentifier": "arn:aws:controltower:us-east-1:XXXXXXXXXXXX:enabledcontrol/8WU3TCOLC0JPSV6T",
+            "controlIdentifier": "arn:aws:controltower:us-east-1::control/AWS-GR_AUDIT_BUCKET_LOGGING_ENABLED",
+            "targetIdentifier": "arn:aws:organizations::XXXXXXXXXXXX:account/o-k54j7iydcs/XXXXXXXXXXXX",
+            "state": "SUCCEEDED",
+            "message": "AWS Control Tower successfully disabled the enabled control on the target.",
+            "requestedTimestamp": "2026-01-07T16:42:05+0000",
+            "completedTimestamp": "2026-01-07T16:42:11+0000"
         }
     },
     "eventCategory": "Management"

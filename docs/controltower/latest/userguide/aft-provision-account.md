@@ -23,6 +23,7 @@ You can view [an example account request Terraform file](https://github.com/aws-
 - The value of `control_tower_parameters` captures the required
   input to create an AWS Control Tower account. The value includes the following input
   fields:
+
   - `AccountEmail`
   - `AccountName`
   - `ManagedOrganizationalUnit`
@@ -48,6 +49,7 @@ in the **aft-account-request** repository include
   additional information, such as why an account request was created and who
   initiated the account request. The value includes the following input
   fields:
+
   - `change_reason`
   - `change_requested_by`
 

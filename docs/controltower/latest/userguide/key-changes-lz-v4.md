@@ -64,7 +64,9 @@ create permission sets manually using the IAM Identity Center resources that AWS
 - **Optional Service Integrations:** You now have the ability to enable/disable all AWS Control Tower integrations including AWS Config, AWS CloudTrail, SecurityRoles,
   and AWS Backup. These integrations also now have optionally required `enabled` flags in the API. The baselines
   that may apply to your landing zone or shared accounts now have dependencies on one another. The Integrations specific dependencies are:
+
   - Enablement:
+
     - `CentralSecurityRolesBaseline` → requires `CentralConfigBaseline` to be enabled
     - `IdentityCenterBaseline` → requires `CentralSecurityRolesBaseline` to be enabled
     - `BackupCentralVaultBaseline` → requires `CentralSecurityRolesBaseline` to be enabled
@@ -73,6 +75,7 @@ create permission sets manually using the IAM Identity Center resources that AWS
     - `CentralConfigBaseline` → independent (no dependencies)
 
   - Disablement:
+
     - `CentralConfigBaseline` can only be disabled if `CentralSecurityRolesBaseline`,
       `IdentityCenterBaseline`, `BackupAdminBaseline` and `BackupCentralVaultBaseline`
       baselines are disabled first.

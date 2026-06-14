@@ -72,6 +72,7 @@ Below is the complete structure of the manifest file with all available configur
 
 - All `enabled` flags are required in the manifest.
 - If you disable AWS Config integration (`"config.enabled": false`), you must also disable the following integrations:
+
   - Security Roles (`"securityRoles.enabled": false`)
   - Access Management (`"accessManagement.enabled": false`)
   - Backup (`"backup.enabled": false`)
@@ -115,14 +116,17 @@ You can monitor the operation status using `GetLandingZoneOperation` API which r
 Important changes to the manifest structure and requirements:
 
 - Organization Structure
+
   - `organizationStructure` definition has been removed from the manifest
   - Customers can now define their own organizational structure
   - Only requirement: Service integration accounts must be in the same OU directly under root
 
 - Enabled Flags
+
   - All service integration configurations have an `enabled` flag which is now a required field.
   - Customers need to always provide a boolean value. No default values are provided.
   - Customers need to explicitly enable/disable each service integration configuration in the manifest:
+
     - `accessManagement`
     - `backup`
     - `centralizedLogging`
@@ -130,15 +134,19 @@ Important changes to the manifest structure and requirements:
     - `securityRoles`
 
 - Security Roles
+
   - Security Roles integration is now optional
   - New `enabled` flag introduced to manage `securityRoles` deployment
   - When disabled, related security features will not be implemented
 
 - AWS Config Integration
+
   - New AWS Config service integration section added to manifest as `config` with the following fields:
+
     - `enabled`: Required boolean flag to manage AWS Config integration deployment
     - `accountId`: AWS account ID for AWS Config aggregator
     - configurations:
+
       - `accessLoggingBucket.retentionDays`: Retention period for access logs
       - `loggingBucket.retentionDays`: Retention period for AWS Config logs
       - `kmsKeyArn`: KMS key for encryption

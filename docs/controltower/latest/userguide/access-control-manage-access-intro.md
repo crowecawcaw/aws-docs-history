@@ -47,6 +47,7 @@ following:
   (_Account B_), or the administrator
   can create a role that grants permissions to another AWS
   service.
+
   1.  The Account A administrator creates an IAM role and attaches
       a permissions policy to the role that grants permissions to
       manage resources in Account A.

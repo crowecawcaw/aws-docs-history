@@ -149,7 +149,7 @@ VPC.
 
 You can customize the Terraform project name used by AFT by setting the
 `terraform_project_name` parameter. By default, AFT puts the
-deployment in the "default" project in Terraform Cloud or Terraform
+deployment in the "default" project in HCP Terraform or Terraform
 Enterprise.
 
 Example configuration:

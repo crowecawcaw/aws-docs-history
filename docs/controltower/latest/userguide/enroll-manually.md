@@ -30,6 +30,7 @@ IAM role to sign in, then you may follow these steps:
    **Switch Role**.
 5. On the **Switch role** form, fill in the following
    fields:
+
    - Under **Account**, enter the account ID you
      copied.
    - Under **Role**, enter the name of the IAM role that
@@ -110,7 +111,7 @@ to enroll the account and verify enrollment.
          navigation.
         * Look for the account you have recently enrolled. Its initial state
          will show a status of **Enrolling**.
-        * When the state changes to **Enrolled**, the move was
+        * When the state changes to **Enabled**, the move was
          successful.
 
     To continue this process, sign into each account in your organization that you want to

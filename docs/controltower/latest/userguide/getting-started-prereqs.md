@@ -8,6 +8,7 @@ Here are the checks that AWS Control Tower runs before setting up a landing zone
 - The existing service limits for the AWS account must be sufficient for
   AWS Control Tower to launch. For more information, see [Limitations and quotas in AWS Control Tower](limits.md "limits.md").
 - The AWS account must be subscribed to the following AWS services:
+
   - Amazon Simple Storage Service (Amazon S3)
   - Amazon Elastic Compute Cloud (Amazon EC2)
   - Amazon SNS
@@ -33,6 +34,7 @@ By default, all accounts are subscribed to these services.
   organization.
 - Three options apply to your IAM Identity Center directory, based on the identity source
   you choose:
+
   - **IAM Identity Center User Store**: If AWS Control Tower is
     set up with IAM Identity Center, AWS Control Tower creates groups in the IAM Identity Center directory
     and provisions access to these groups, for the user you select, for

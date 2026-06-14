@@ -6,7 +6,7 @@ Two common ways exist to enroll an individual AWS account into AWS Control Tower
    **Settings** page, you can create an AWS account outside
    of AWS Control Tower and move it directly into a registered OU. For more information, see
    [Move and
-   enroll accounts automatically](account-auto-enroll.md "account-auto-enroll.md"). This option is available for landing zone versions 3.1 and later.
+   enroll accounts automatically](account-auto-enrollment.md "account-auto-enrollment.md"). This option is available for landing zone versions 3.1 and later.
 2. You can enroll an existing account from the AWS Control Tower console manually.
    **The following sections describe the second option,** which requres no previous
    configuration of your AWS Control Tower environment. The AWS account must fulfill the required

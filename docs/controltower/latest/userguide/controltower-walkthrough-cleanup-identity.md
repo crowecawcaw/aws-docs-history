@@ -25,6 +25,7 @@ created when your landing zone was set up, or later.
 3. From the table, search for roles with the name
    **AWSControlTower**.
 4. For each role in the table, do the following:
+
    1. Choose the check box for the role.
    2. Choose **Delete role**.
    3. In the dialog box that opens, review the information to make sure it's accurate, and
@@ -38,6 +39,7 @@ created when your landing zone was set up, or later.
 3. From the table, search for policies with the name
    **AWSControlTower**.
 4. For each policy in the table, do the following:
+
    1. Choose the check box for the policy.
    2. Choose **Policy actions**, and **Delete** from the
       dropdown menu.

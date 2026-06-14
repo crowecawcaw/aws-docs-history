@@ -3,6 +3,7 @@
 - **Dedicated resources for AWS Config and AWS CloudTrail:** AWS Config and AWS CloudTrail now use
   separate dedicated S3 buckets and SNS topics instead of shared resources. Customers have restricted flexibility to
   use a single or separate accounts for multiple integrations.
+
   - When upgrading to AWS Control Tower landing zone version 4.0, existing data and S3 buckets are not moved. AWS CloudTrail integration
     continues to use the existing S3 bucket with prefix `aws-controltower-logs`. The new AWS Config data post the
     update operation will be stored in a new S3 bucket with prefix `aws-controltower-config` that AWS Control
@@ -25,6 +26,7 @@
     [Enroll accounts that have existing AWS Config resources](existing-config-resources.md "existing-config-resources.md").
 
 - **AWS Config integration on landing zone version 4.0:** When migrating to landing zone 4.0 with AWS Config integration enabled, customers would see the following changes -
+
   1.  The existing Audit account is registered as a delegated admin for AWS Config.
   2.  Service-Linked Config Aggregator is deployed into the Audit account (AWS Config central aggregator account for new
       customers and Audit account for existing customers). The new aggregator can aggregate data from any AWS Config Recorder
@@ -32,6 +34,7 @@
   3.  Existing aggregators will be deleted - Organization aggregator in management account (`aws-controltower-ConfigAggregatorForOrganizations`)
       and account aggregator in Audit account (`aws-controltower-GuardRailsComplianceAggregator`) will be deleted.
   4.  Since Configuration Aggregator is service-linked, controls associated with deleted aggregators will be automatically removed.
+
       1. [Disallow Changes to Tags Created by AWS Control Tower for AWS Config Resources](../controlreference/mandatory-controls.md#cloudwatch-disallow-config-changes "../controlreference/mandatory-controls.md#cloudwatch-disallow-config-changes")
       2. [Disallow Deletion of AWS Config Aggregation Authorizations Created by AWS Control Tower](../controlreference/mandatory-controls.md#config-aggregation-authorization-policy "../controlreference/mandatory-controls.md#config-aggregation-authorization-policy")
 
@@ -42,6 +45,7 @@
   [Key changes](key-changes-lz-v4.md "key-changes-lz-v4.md").
 - **Service-Linked Config Aggregator:** Replaces organization and account aggregators
   in the AWS Config central aggregator account.
+
   - When upgrading to landing zone 4.0 with AWS Config integration enabled, customers need to have
     `organizations:ListDelegatedAdministrators` permissions
 

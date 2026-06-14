@@ -166,7 +166,6 @@ For more information about how to resolve the resulting drift, see [Managing Res
 - Change the name of a registered OU.
 - Change the name of the Security OU.
 - Change the name of member accounts in non-Foundational OUs.
-- Change the name of AWS Control Tower shared accounts in the Security OU.
 - Delete a non-Foundational OU.
 - Delete an enrolled account from a non-Foundational OU.
 - Change the email address of a shared account in the Security OU.

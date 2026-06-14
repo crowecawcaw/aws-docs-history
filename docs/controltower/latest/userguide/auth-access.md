@@ -64,6 +64,7 @@ Version 4 Signing Process](../../../general/latest/gr/signature-version-4.md "..
   it. Instead, when you assume a role, it provides you with temporary security
   credentials for your role session. IAM roles with temporary credentials are
   useful in the following situations:
+
   - **Federated user access** – Instead
     of creating an IAM user, you can use existing identities from Directory Service,
     your enterprise user directory, or a web identity provider. These are
@@ -104,6 +105,7 @@ Version 4 Signing Process](../../../general/latest/gr/signature-version-4.md "..
   portal is controlled by the directory that you have connected to IAM Identity Center. However,
   authorization to the AWS accounts that are available to end users from within
   the user portal is determined by two factors:
+
   - Who has been assigned access to those AWS accounts in the AWS
     IAM Identity Center console. For more information, see [Single Sign-On Access](../../../singlesignon/latest/userguide/useraccess.md "../../../singlesignon/latest/userguide/useraccess.md") in
     the _AWS IAM Identity Center User Guide_.

@@ -26,13 +26,13 @@ and to the logging account and delete them individually.
   AWS CloudFormation stack set.
 - Before you can set up a new landing zone in a new AWS Region, you must
   follow these additional steps.
+
   - Enter the following command through the CLI:
 
   ```
   aws organizations disable-aws-service-access --service-principal controltower.amazonaws.com
 
   ```
-
   - Delete the remaining managed rule, called
     `AWSControlTowerManagedRule`, from the shared and member
     accounts for all governed Regions.

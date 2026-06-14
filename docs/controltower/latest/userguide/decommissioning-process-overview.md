@@ -13,6 +13,7 @@ actions.
   Regions.
 - For each provisioned account, AWS Control Tower does the following actions during the
   decommissioning process.
+
   - Deletes records of each account factory account.
   - Revokes the AWS Control Tower permissions to the account by removing the IAM
     role that AWS Control Tower created (unless additional policies have been added

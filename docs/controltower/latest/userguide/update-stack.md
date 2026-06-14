@@ -17,6 +17,7 @@ Amazon S3](../../../AmazonS3/latest/userguide/GetStartedWithS3.md "../../../Amaz
 3. Under **Prerequisite — Prepare template**, select
    **Replace current template**.
 4. Under **Specify template**, do the following:
+
    1. For **Template source**, select **Replace
       current template**.
    2. For **Amazon S3 URL**, enter the template URL for the

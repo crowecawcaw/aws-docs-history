@@ -11,7 +11,7 @@ provisioning stage is complete, AFT automatically runs a series of steps before 
 customizations stage begins. For more information, see [AFT account
 provisioning pipeline](aft-provisioning-framework.md "aft-provisioning-framework.md").
 
-AFT supports Terraform Cloud, Terraform Enterprise, and Terraform Community Edition. With
+AFT supports HCP Terraform, Terraform Enterprise, and Terraform Community Edition. With
 AFT you can initiate account creation using an input file and a simple `git push`
 command and customize new or existing accounts. Account creation includes all of the
 AWS Control Tower governance benefits and account customizations that help you meet your

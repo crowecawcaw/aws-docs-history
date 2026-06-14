@@ -7,6 +7,7 @@ control assignment, and auditing. You can set up these automated actions with ca
 - [AWS Organizations APIs](../../../organizations/latest/APIReference/Welcome.md "../../../organizations/latest/APIReference/Welcome.md")
 - [AWS Control Tower APIs](../APIReference/Welcome.md "../APIReference/Welcome.md")
 - [the AWS CLI](../../../cli/latest/reference/servicecatalog/index.md "../../../cli/latest/reference/servicecatalog/index.md")
+- [Lifecycle Events](lifecycle-events.md "lifecycle-events.md")
   The [Additional information and links](related-information.md "related-information.md") page
   contains links to many excellent technical blog posts that can help you automate tasks in
   AWS Control Tower. The sections that follow provide links to areas in this _AWS Control Tower User Guide_ that can assist you with automating tasks.
@@ -84,3 +85,12 @@ the AWS CLI](using-aws-with-cloudshell.md "using-aws-with-cloudshell.md").
 
 Because AWS Control Tower is an orchestration layer for AWS Organizations, many other AWS services
 are available by means of APIs and the AWS CLI. For more information, see [Related AWS services](related-information.md#related-aws-services "related-information.md#related-aws-services").
+
+You can extend automation by using the lifecycle events that AWS Control Tower
+emits. These events can be monitored through an Amazon EventBridge rule, which can then trigger
+custom automation, such as invoking an AWS Lambda function to apply tags, configure
+resources, or notify teams when specific account or control-related events occur in your
+landing zone.
+
+For more information about lifecycle events, see [Lifecycle events in
+AWS Control Tower](lifecycle-events.md "lifecycle-events.md").

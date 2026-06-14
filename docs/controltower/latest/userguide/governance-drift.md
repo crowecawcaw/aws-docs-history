@@ -121,6 +121,7 @@ method for making updates with a script: [Provision and update accounts using au
 - When this type of drift occurs in an OU with more than 1000 accounts,
   the drift resolution may depend on which type of account has been moved,
   as explained in the next paragraphs. For more information, see [Update your landing zone](update-controltower.md "update-controltower.md").
+
   - **If an Account Factory provisioned account is
     moved** – In an OU with fewer than 1000
     accounts, you can resolve the account drift by updating the
@@ -493,15 +494,18 @@ Guidance to create EventBridge rule to receive drift notifications:
 4. Enter a name and description for the rule.
 5. For **Rule type**, choose **Rule with an event pattern**.
 6. **Define the Event Source**:
+
    - For "Event source", select **AWS services** as the event source.
    - For "AWS service name", select **AWS Control Tower**.
    - For "Event type", select **Drift Detected**
 
 7. **Select the Target**:
+
    - For **Target types**, choose **AWS service**, and for **Select a target**, choose a target such as an drift notification topic or Lambda function. The target is triggered when an event is received that matches the event pattern defined in the rule.
    - Depending on the target you selected, provide the necessary configuration details, such as the Lambda function name or the drift notification topic ARN.
 
 8. **Review and Create the Rule**:
+
    - Review the details of your rule and make any necessary changes.
    - Once you're satisfied, click on **Create rule** to save the new EventBridge rule.
 

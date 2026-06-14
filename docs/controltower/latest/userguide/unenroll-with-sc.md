@@ -24,10 +24,10 @@ member account in Service Catalog.
 The word _terminate_ is specific to Service Catalog. When you
 terminate an account in Service Catalog Account Factory, the account is not closed. This
 action removes the account from its OU and your landing zone. 6. When the account has been unenrolled, its status changes to **Not
-Enrolled**. 7. If you no longer need the account, close it. For more information about
+Enabled**. 7. If you no longer need the account, close it. For more information about
 closing AWS accounts, see [Closing an
 account](../../../awsaccountbilling/latest/aboutv2/close-account.md "../../../awsaccountbilling/latest/aboutv2/close-account.md") in the _AWS Billing User Guide_
 
 ###### Note
 
-Wait for the account's status to show **Not enrolled**.
+Wait for the account's status to show **Not Enabled**.

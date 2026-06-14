@@ -29,6 +29,7 @@ From your **Developer Tools --Connections** instance for Github, perform the fol
 - Create a new CloudFormation stack, using the `custom-control-tower-initiation.template` file.
 - Under **AWS CodePipeline Source**, choose **GitHub (via Code Connection)**.
 - Under **GitHub Setup**, specify these fields:
+
   - For **ARN of the Code Connection**, provide the Code Connection ARN
   - for **GitHub User or Organization**, provide the name of the GitHub user or organization under which you created the repository
   - For **GitHub Repository Name**, enter the repository name (defaults to `custom-control-tower-configuration`)

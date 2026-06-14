@@ -33,6 +33,7 @@ decommissioning:
   removed.
 - IAM Identity Center directories are not changed.
 - These IAM Identity Center policies for AWS Control Tower are not removed:
+
   - `AWSControlTowerAdminPolicy`
   - `AWSControlTowerCloudTrailRolePolicy`
   - `AWSControlTowerStackSetRolePolicy`

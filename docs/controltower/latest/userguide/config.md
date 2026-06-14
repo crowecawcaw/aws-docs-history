@@ -68,6 +68,7 @@ The service-linked Config Aggregator provides improved capabilities for Config d
 **Data Aggregation Scope**
 
 - Service-Linked Config Aggregator can aggregate configuration data from:
+
   - Control Tower managed accounts
   - Non-Control Tower managed accounts
   - Any account with an active Config recorder in your organization
