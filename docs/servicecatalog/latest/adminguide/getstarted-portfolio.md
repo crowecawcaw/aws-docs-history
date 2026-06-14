@@ -8,6 +8,7 @@ To provide users with products, begin by creating a portfolio for those products
 2. In the left navigation panel, choose **Portfolios**, and then choose
    **Create portfolio**.
 3. Type the following values:
+
    - **Portfolio name** –
      `Engineering Tools`
    - **Portfolio description** – `Sample

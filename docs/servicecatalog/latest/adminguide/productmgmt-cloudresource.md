@@ -16,6 +16,7 @@ provisioning engine and launch role. For more information, review
    you want to create. AWS Service Catalog supports CloudFormation, Terraform Cloud, and External (supports Terraform Community Edition) product types.
    Product details also contains the metadata that appears when
    you search for and view products in a list or detail page. Enter the following:
+
    - **Product name** – The name of the product.
    - **Product description** – The description shows in the
      product listing to help you choose the correct product.
@@ -28,8 +29,10 @@ provisioning engine and launch role. For more information, review
 
 4. **Version details** enables you to add your template file
    and build your product. Enter the following:
+
    - **Choose method** – There are four ways to add a template
      file.
+
      - **Use a local template file** - Upload an CloudFormation template
        or a Terraform tar.gz configuration file from a local drive.
      - **Use an Amazon S3 URL** - Specify a URL that points to an
@@ -54,6 +57,7 @@ provisioning engine and launch role. For more information, review
 
 5. **Support details** identifies the organization within your
    company, and provides a point of contact for support. Enter the following:
+
    - **Email contact** (optional) – The email address for
      reporting issues with the product.
    - **Support link** (optional) – An URL to a site where users

@@ -36,6 +36,7 @@ currently selected portfolio.
 2. On the **Portfolio details** page, expand the
    **Products** section, and then choose **Upload new product**.
 3. For **Enter product details**, enter the following:
+
    - **Product name** – The name of the product.
    - **Product description** (optional) – The
      product description. This description is shown in the product listing to help you
@@ -49,6 +50,7 @@ currently selected portfolio.
      products.
 
 4. On the **Version details** page, enter the following:
+
    - **Choose template** – For CloudFormation products, choose your own template file,
      an CloudFormation template from a local drive or a URL that points to a template stored in Amazon S3, an existing
      CloudFormation Stack ARN template, or a template file stored in an external repository.
@@ -62,6 +64,7 @@ currently selected portfolio.
      version including how this version differs from the previous version.
 
 5. For **Enter support details**, enter the following:
+
    - **Email contact** (optional) – The email address for
      reporting issues with the product.
    - **Support link** (optional) – An URL to a site where users

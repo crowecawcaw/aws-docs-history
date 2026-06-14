@@ -10,6 +10,7 @@ product, sign in to AWS as the end user and perform those tasks.
 2. In the menu bar, choose the AWS Region in which you created the
    `Engineering Tools` portfolio. For this tutorial, choose **us-east-1 region**.
 3. Open the AWS Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/") to see:
+
    - **Products** – The products that the user can use.
    - **Provisioned products** – The provisioned
      products that the user has launched.
@@ -26,6 +27,7 @@ region**.
    `Linux-Desktop` for the provisioned product name.
 4. On the **Parameters** page, enter the following and choose
    **Next**:
+
    - **Server size** – Choose `t2.micro`.
    - **Key pair** – Select the key pair that you created in [Step 2: Create a key pair](getstarted-keypair.md "getstarted-keypair.md").
    - **CIDR range** – Enter a valid CIDR range for the IP address to

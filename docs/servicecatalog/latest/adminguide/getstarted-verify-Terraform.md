@@ -7,6 +7,7 @@ and perform the tasks below.
 ###### To verify that the end user can access the end user console
 
 - Open the AWS Service Catalog console at [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/") to see:
+
   - **Products** – The products that the user can use.
   - **Provisioned products** – The provisioned
     products that the user has launched.
@@ -20,6 +21,7 @@ and perform the tasks below.
    `Amazon S3 product` for the provisioned product name.
 4. On the **Parameters** page, enter the following and choose
    **Next**:
+
    - **bucket_name** – Provide a unique name for the Amazon S3 bucket. For example,
      `terraform-s3-product`.
 

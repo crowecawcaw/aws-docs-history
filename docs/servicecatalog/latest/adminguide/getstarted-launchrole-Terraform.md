@@ -23,6 +23,7 @@ the following permissions:
 2. Create a **policy** for your simple Amazon S3 bucket Terraform product.
    This policy must be created before you create the launch role, and
    consists of the following permissions:
+
    - `s3`— Allows AWS Service Catalog full permissions to list, read, write, provision,
      and tag the Amazon S3 product.
    - `s3`— Allows access to Amazon S3 buckets owned by AWS Service Catalog. To deploy the product,

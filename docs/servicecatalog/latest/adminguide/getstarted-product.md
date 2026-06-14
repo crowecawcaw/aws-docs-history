@@ -14,6 +14,7 @@ cloud development environment that runs on Amazon Linux, inside of the
 3. Choose **Upload new product.**
 4. On the **Create product** page in the Product details section, enter
    the following:
+
    - **Product name** –
      `Linux Desktop`
    - **Product description** – `Cloud
@@ -24,12 +25,14 @@ Linux.`
      _(blank)_
 
 5. On the **Version details** page, choose **Use a CloudFormation template**. Then choose **Specify an Amazon S3 template URL** and enter the following:
+
    - **Select template** – `https://awsdocs.s3.amazonaws.com/servicecatalog/development-environment.template`
    - **Version title** – `v1.0`
    - **Description** – `Base
 Version`
 
 6. In the **Support details** section, enter the following:
+
    - **Email contact** –
      `ITSupport@example.com`
    - **Support link** –

@@ -29,6 +29,7 @@ IAM permissions that allow you to perform tasks such as the following:
    and then choose **Add permissions**.
    Otherwise,
    create a user as follows:
+
    1. Choose **Add user**.
    2. For **User name**,
       type `ServiceCatalogAdmin`.
@@ -38,6 +39,7 @@ IAM permissions that allow you to perform tasks such as the following:
 3. Choose **Attach existing policies directly**.
 4. Choose **Create policy**,
    and then do the following:
+
    1. Choose the **JSON** tab.
    2. Copy the following example policy, and paste it
       in **Policy Document**:
@@ -71,7 +73,6 @@ IAM permissions that allow you to perform tasks such as the following:
        ]
    }
    ```
-
    3. Choose **Next: Tags**.
    4. (Optional) Choose **Add tag**
       to associate a key-value pair

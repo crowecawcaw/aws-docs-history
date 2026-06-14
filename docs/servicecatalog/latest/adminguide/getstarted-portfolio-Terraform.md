@@ -9,6 +9,7 @@ organization and distribution to end user accounts (spoke accounts).
 2. In the left navigation panel, choose **Portfolios**, and then choose
    **Create portfolio**.
 3. Enter the following values:
+
    - **Portfolio name** –
      `S3 bucket`
    - **Portfolio description** – `Sample

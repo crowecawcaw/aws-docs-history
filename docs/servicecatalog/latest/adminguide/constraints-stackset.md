@@ -17,6 +17,7 @@
 4. In **Product**, choose the product. In **Constraint
    type**, choose **Stack Set**.
 5. Configure the accounts, regions, and permissions for your stack set constraints.
+
    - In **Account settings**, identify the accounts where
      you want to create products.
    - In **Region settings**, choose the geographic regions

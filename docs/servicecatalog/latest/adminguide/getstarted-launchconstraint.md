@@ -36,6 +36,7 @@ the _IAM User Guide_.
 
 1. Follow the instructions to [Create new policies on the JSON tab](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the _IAM User guide_.
 2. Paste the following JSON policy document:
+
    - `cloudformation`–
      Allows AWS Service Catalog full permissions
      to create, read, update, delete, list, and tag CloudFormation stacks.
@@ -122,6 +123,7 @@ JSON
 6. Choose **Create policy**.
 7. In the navigation pane, choose **Roles**. Then choose
    **Create role** and do the following:
+
    1. For **Select trusted entity**, choose **AWS service** and then under **Use case for
       other AWS services** choose **Service
       Catalog**. Select the Service Catalog use case and then choose **Next**.

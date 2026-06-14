@@ -11,6 +11,7 @@ to an IAM group.
    [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **User groups**.
 3. Choose **Create group** and do the following:
+
    1. For **User group name**, type `Endusers`.
    2. In the search field, type `AWSServiceCatalog` to filter the policy list.
    3. Select the checkbox for the \***\*`AWSServiceCatalogEndUserFullAccess`\*\*** policy.
@@ -19,6 +20,7 @@ to an IAM group.
 
 4. In the navigation pane, choose **Users**.
 5. Choose **Add users** and do the following:
+
    1. For **User name**, type a name for the user.
    2. Select **Password - AWS Management Console access**.
    3. Choose **Next: Permissions**.

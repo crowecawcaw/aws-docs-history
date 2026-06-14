@@ -50,6 +50,7 @@ the same products and test the constraints with that portfolio.
    **Continue**.
 5. On the **Template constraint builder** page, edit the constraint rules by using the
    JSON editor or the rule builder interface.
+
    - To edit the JSON code for the rule, choose the **Constraint Text Editor** tab.
      Several samples are provided on this tab to help you get started.
 

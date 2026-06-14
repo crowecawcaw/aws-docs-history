@@ -173,12 +173,14 @@ To learn how to connect an existing AWS Service Catalog product to a template fi
 
 1. In the left navigation panel, choose **Product list**, and then choose one
    of the following options:
+
    - To update a **single product**, select the product, navigate to the **Product source details** section,
      and then choose **Edit details**.
    - To update **multiple products**, choose **Connect products to an
      external repository**, select up to ten products, and then choose **Next**.
 
 2. In the **Product source details** section, perform the following updates:
+
    - Specify the connection.
    - Specify the repository.
    - Specify the branch.

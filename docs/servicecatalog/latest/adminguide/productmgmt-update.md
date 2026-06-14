@@ -33,6 +33,7 @@ in the Terraform engine to ensure that they function properly.
    and then choose **Create new version**.
 4. Under **Version details**,
    perform the following:
+
    - **Choose template** – There are four ways to add a template
      file.
 

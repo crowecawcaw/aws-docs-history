@@ -14,6 +14,7 @@ product in AWS Service Catalog. In this tutorial, you create a Terraform product
    Service Catalog uses the _External_ product type
    to support Terraform Community Edition products.
 5. Enter the following product details:
+
    - **Product name** –
      `Simple S3 bucket`
    - **Product description** – Terraform product
@@ -26,12 +27,14 @@ product in AWS Service Catalog. In this tutorial, you create a Terraform product
    and then choose **Choose file**. Select the file you downloaded in
    [Step 1: Terraform configuration file download](getstarted-template-Terraform.md "getstarted-template-Terraform.md").
 7. Enter the following:
+
    - **Version name** – `v1.0`
    - **Version description** – `Base
 Version`
 
 8. In the **Support details** section, enter the following and then choose
    **Create product**.
+
    - **Email contact** –
      `ITSupport@example.com`
    - **Support link** –
