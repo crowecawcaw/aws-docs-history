@@ -37,6 +37,7 @@ infrastructure, licensing, and services. Decide where the responsibility for cos
 lies. The following questions can be asked as part of this process.
 
 - Are the costs from the provider:
+
   - Based on a percentage of infrastructure spend?
   - Based on an agreed total cost of ownership (TCO)?
   - Variable (both up and down) according to changed business conditions?

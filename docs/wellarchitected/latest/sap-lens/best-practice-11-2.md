@@ -31,6 +31,7 @@ and AWS. Consider the following:
 - Excess capacity and mechanisms to scale up and down to facilitate rolling
   outages.
 - Use of a live patching approach for the operating system, if possible.
+
   - [SUSE Linux Enterprise
     Live Patching](https://www.suse.com/products/live-patching/ "https://www.suse.com/products/live-patching/")
   - [Red Hat Reducing downtime for SAP HANA Whitepaper](https://www.redhat.com/cms/managed-files/pa-sap-hana-reducing-downtime-overview-f22788pr-202004-en.pdf "https://www.redhat.com/cms/managed-files/pa-sap-hana-reducing-downtime-overview-f22788pr-202004-en.pdf")

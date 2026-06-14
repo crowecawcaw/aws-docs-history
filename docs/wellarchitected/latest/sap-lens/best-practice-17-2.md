@@ -91,6 +91,7 @@ For the database:
 - If using a smaller instance for the secondary SAP HANA database, turn off memory
   preload to accommodate a smaller memory footprint on the standby and reduce cost. SAP
   estimates the memory requirements in the help document for [Secondary System Usage](https://help.sap.com/viewer/4e9b18c116aa42fc84c7dbfd02111aba/2.0.05/en-US/9d62b8108063497f9d6aab08902b2e04.html "https://help.sap.com/viewer/4e9b18c116aa42fc84c7dbfd02111aba/2.0.05/en-US/9d62b8108063497f9d6aab08902b2e04.html").
+
   - SUSE Documentation: [SAP HANA System Replication Scale-Up - Cost Optimized Scenario | SUSE](https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-CostOpt-12/index.html "https://documentation.suse.com/sbp/all/html/SLES4SAP-hana-sr-guide-CostOpt-12/index.html")
 
 - If your recovery time objective and resiliency requirements allow, consider data
@@ -99,6 +100,7 @@ For the database:
   requiring redundant secondary resources. In the event of failure, secondary resources
   can be created on demand and quickly restored from cross-location backups and log
   storage.
+
   - SAP on AWS Blog: [How to use snapshots to create an automated recovery procedure for SAP ASE
     databases](https://aws.amazon.com/blogs/awsforsap/how-to-use-snapshots-to-create-an-automated-recovery-procedure-for-sap-ase-databases/ "https://aws.amazon.com/blogs/awsforsap/how-to-use-snapshots-to-create-an-automated-recovery-procedure-for-sap-ase-databases/")
     For the application:

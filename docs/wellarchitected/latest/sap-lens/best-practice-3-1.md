@@ -18,6 +18,7 @@ Assess the certification needs of your team to be able to support your technolog
 - SAP Documentation: [SAP
   Certifications](https://training.sap.com/certification/ "https://training.sap.com/certification/")
 - Operating System Certifications
+
   - SUSE Documentation: [SUSE Enterprise Linux Certifications](https://training.suse.com/certification/ "https://training.suse.com/certification/")
   - Red Hat Documentation: [Red Hat Enterprise Linux
     Certifications](https://www.redhat.com/en/services/certifications "https://www.redhat.com/en/services/certifications")
