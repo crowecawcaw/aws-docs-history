@@ -18,14 +18,15 @@ Please use a Full Platform User (not Basic/Core) in New relic to enable New Reli
 #### Configuration
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
-2. Find **New Relic** in the **Available** providers section under **Telemetry** and click **Register**
+2. Find **New Relic** in the **Available** providers section under **Telemetry** and choose **Register**
 3. Follow the instructions to obtain your New Relic API Key
 4. Enter your New Relic MCP server API Key details:
+
    - **Account ID:** Enter your New Relic account ID obtained above
    - **API Key:** Enter the API Key obtained above
    - **Select US or EU region** based on where your New Relic account is.
 
-5. Click Add
+5. Choose Add
 
 ### Step 2: Enable
 

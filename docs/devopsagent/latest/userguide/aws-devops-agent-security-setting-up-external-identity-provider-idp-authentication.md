@@ -34,6 +34,7 @@ Choose your identity provider and follow the corresponding setup instructions.
 2. Select **OIDC - OpenID Connect** as the sign-in method and **Web Application** as the application type. Choose **Next**
 3. Set a descriptive name for the application (for example, `AWS DevOps Agent`)
 4. Under **Grant type**, ensure the following are checked:
+
    - **Authorization Code** (default)
    - **Refresh Token** — This is required for session refresh. If not enabled, users will be unable to maintain sessions.
 
@@ -45,6 +46,7 @@ Okta does not enable the Refresh Token grant type by default. You must explicitl
 2. Under **Assignments**, assign the users or groups that should have access
 3. Choose **Save**
 4. On the application's **General** tab, note the following values:
+
    - **Client ID**
    - **Client secret** — Choose **Copy** to save this value securely
 
@@ -65,14 +67,17 @@ Okta does not enable the Refresh Token grant type by default. You must explicitl
 3. Under **Supported account types**, select the option appropriate for your organization (typically **Accounts in this organizational directory only**)
 4. Leave the **Redirect URI** blank for now. Choose **Register**
 5. On the application **Overview** page, note the following values:
+
    - **Application (client) ID** — used as the Client ID when configuring the Agent Space
    - **Directory (tenant) ID** — used to construct the Issuer URL
 
 6. Navigate to **Certificates & secrets** > **New client secret**
+
    - Set a description and expiration period
    - Choose **Add** and copy the secret **Value** immediately — it will not be shown again
 
 7. The Issuer URL for Entra ID follows this format. Replace `{tenant-id}` with your Directory (tenant) ID from step 5:
+
    - `https://login.microsoftonline.com/{tenant-id}/v2.0`
 
 ###### Note
@@ -85,12 +90,14 @@ Okta does not enable the Refresh Token grant type by default. You must explicitl
 2. Go to the **Access** tab
 3. Under **User access**, choose **External identity provider**
 4. In the configuration form, configure the following:
+
    - **Identity Provider** — Select your identity provider (Okta or Microsoft Entra ID)
    - **Issuer URL** — The OIDC issuer URL from your identity provider
    - **Client ID** — The client ID from the OIDC application you created
    - **Client Secret** — The client secret from your OIDC application
 
 5. Under **Identity Provider Application Role Name**, choose one of three options:
+
    - **Auto-create a new DevOps Agent role** (recommended) — Creates a new service role with appropriate permissions
    - **Assign an existing role** — Use an existing IAM role that you've already created
    - **Create a new DevOps Agent role using a policy template** — Use the provided details to create your own role in the IAM Console
@@ -114,12 +121,15 @@ After choosing **Connect**, the console displays the **External Identity Provide
 1. In the Okta Admin Console, navigate to your application's **General** tab
 2. Under **Login**, choose **Edit**
 3. Add the callback URL as a **Sign-in redirect URI**:
+
    - `https://{agentSpaceId}.aidevops.global.app.aws/authorizer/idp/callback`
 
 4. (Optional) Set the **Initiate login URI** to enable IdP-initiated login from the Okta dashboard:
+
    - `https://{agentSpaceId}.aidevops.global.app.aws/authorizer/idp/login`
 
 5. (Recommended) Add a **Sign-out redirect URI** to redirect users back to the web app after logout. Without this, users may see an error page when logging out:
+
    - `https://{agentSpaceId}.aidevops.global.app.aws/authorizer/welcome`
 
 6. Choose **Save**
@@ -129,9 +139,11 @@ After choosing **Connect**, the console displays the **External Identity Provide
 1. In the Azure portal, navigate to your application's **Authentication** page
 2. Under **Platform configurations**, choose **Add a platform** > **Web**
 3. Enter the callback URL as the **Redirect URI**:
+
    - `https://{agentSpaceId}.aidevops.global.app.aws/authorizer/idp/callback`
 
 4. (Optional) Add a sign-out redirect URI to redirect users back to the web app after logout:
+
    - `https://{agentSpaceId}.aidevops.global.app.aws/authorizer/welcome`
 
 5. Choose **Configure**
@@ -139,6 +151,7 @@ After choosing **Connect**, the console displays the **External Identity Provide
 ### Step 4: Verify the configuration
 
 1. Navigate to the **Login URL** shown in the console:
+
    - `https://{agentSpaceId}.aidevops.global.app.aws/authorizer/idp/login`
 
 2. You should be redirected to your identity provider's login page
@@ -229,11 +242,12 @@ Active user sessions will continue until they expire or the next credential refr
 - **Redirect to IdP fails** — Verify the Issuer URL matches your IdP's OIDC discovery endpoint. For Okta, ensure the **Issuer** is set to **Okta URL** (not **Dynamic**) on the **Sign On** tab. For Entra, use the format `https://login.microsoftonline.com/{tenant-id}/v2.0`.
 - **Access denied or policy error (Okta)** — Verify the user or their group is assigned to the application under **Assignments**. Check **Sign On** > **Sign On Policy** rules.
 - **IdP configuration error after login** — Your identity provider did not return a refresh token. Ensure the `offline_access` scope and refresh token grant type are enabled:
+
   - **Okta** — Go to your application's **General** tab and enable the **Refresh Token** checkbox under **Grant type**
   - **Entra** — Go to **API permissions** and ensure `offline_access` is listed under delegated permissions
 
 - **Authentication succeeds but web app shows error** — Verify the redirect URI in your IdP exactly matches the **Callback URL** shown in the AWS DevOps Agent console.
 - **Authentication failures** — If the **groups** optional claim is enabled in your IdP, disable it. AWS DevOps Agent does not use group claims.
 - **Login fails after IdP authentication** — For Entra, verify `requestedAccessTokenVersion` is not set to `null` in the application **Manifest**. For Okta, verify the **Issuer URL** is correct.
-- **Error page after clicking Logout (Okta)** — If you see a `post_logout_redirect_uri` error after logging out, add `https://{agentSpaceId}.aidevops.global.app.aws/authorizer/welcome` as a **Sign-out redirect URI** in your Okta application's **General** tab.
+- **Error page after choosing Logout (Okta)** — If you see a `post_logout_redirect_uri` error after logging out, add `https://{agentSpaceId}.aidevops.global.app.aws/authorizer/welcome` as a **Sign-out redirect URI** in your Okta application's **General** tab.
 - **Users stay on identity provider page after logout (Entra)** — To redirect users back to the web app after logout, add `https://{agentSpaceId}.aidevops.global.app.aws/authorizer/welcome` as a **Redirect URI** in your Entra application's **Authentication** page.

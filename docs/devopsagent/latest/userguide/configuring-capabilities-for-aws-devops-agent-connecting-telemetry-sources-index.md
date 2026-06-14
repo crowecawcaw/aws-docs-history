@@ -46,7 +46,7 @@ To learn about 1-way integrations, see the following:
 
 ## Bring-your-own telemetry sources
 
-For any other telemetry source, including Prometheus metrics, you can leverage AWS DevOps Agent’s support for both webhook and MCP server integration.
+For any other telemetry source, including Prometheus metrics, you can use AWS DevOps Agent’s support for both webhook and MCP server integration.
 
 To learn about bring-your-own integrations, see the following
 

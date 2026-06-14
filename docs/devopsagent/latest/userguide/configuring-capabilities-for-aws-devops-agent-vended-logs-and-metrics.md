@@ -127,6 +127,7 @@ AWS DevOps Agent provides two locations in the AWS Management Console to configu
 6. **Amazon S3** – Enter the S3 bucket ARN.
 7. **Amazon Data Firehose** – Select or create a Firehose delivery stream.
 8. For **Additional settings** – _optional_, you can specify the following options:
+
    1. For **Field selection**, select the log field names that you want to deliver to your destination. You can select [access log fields](../../../AmazonCloudFront/latest/DeveloperGuide/standard-logs-reference.md#BasicDistributionFileFormat "../../../AmazonCloudFront/latest/DeveloperGuide/standard-logs-reference.md#BasicDistributionFileFormat") and a subset of [real-time access log fields](../../../AmazonCloudFront/latest/DeveloperGuide/standard-logging.md#standard-logging-real-time-log-selection "../../../AmazonCloudFront/latest/DeveloperGuide/standard-logging.md#standard-logging-real-time-log-selection").
    2. (Amazon S3 only) For **Partitioning**, specify the path to partition your log file data.
    3. (Amazon S3 only) For **Hive-compatible file format**, you can select the checkbox to use Hive-compatible S3 paths. This helps simplify loading new data into your Hive-compatible tools.
@@ -146,6 +147,7 @@ AWS DevOps Agent provides two locations in the AWS Management Console to configu
 6. **Amazon S3** – Enter the S3 bucket ARN.
 7. **Amazon Data Firehose** – Select or create a Firehose delivery stream.
 8. For **Additional settings – \*optional** \*, you can specify the following options:
+
    1. For **Field selection**, select the log field names that you want to deliver to your destination. You can select [access log fields](../../../AmazonCloudFront/latest/DeveloperGuide/standard-logs-reference.md#BasicDistributionFileFormat "../../../AmazonCloudFront/latest/DeveloperGuide/standard-logs-reference.md#BasicDistributionFileFormat") and a subset of [real-time access log fields](../../../AmazonCloudFront/latest/DeveloperGuide/standard-logging.md#standard-logging-real-time-log-selection "../../../AmazonCloudFront/latest/DeveloperGuide/standard-logging.md#standard-logging-real-time-log-selection").
    2. (Amazon S3 only) For **Partitioning**, specify the path to partition your log file data.
    3. (Amazon S3 only) For **Hive-compatible file format**, you can select the checkbox to use Hive-compatible S3 paths. This helps simplify loading new data into your Hive-compatible tools.

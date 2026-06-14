@@ -22,7 +22,7 @@ This categorization helps you understand where your operational improvements are
 - **Prevent recurring incidents** – Address root causes systematically rather than repeatedly responding to the same types of issues
 - **Reduce operational toil** – Free your team from repetitive firefighting to focus on innovation and strategic improvements
 - **Improve system resilience** – Strengthen your infrastructure, observability, and deployment processes based on real incident data
-- **Learn from historical patterns** – Leverage insights from past incidents to make targeted improvements that have the greatest impact
+- **Learn from historical patterns** – Use insights from past incidents to make targeted improvements that have the greatest impact
 
 ## Agent summary
 
@@ -34,17 +34,17 @@ The summary helps you quickly understand what the agent discovered during its mo
 
 You can control when AWS DevOps Agent evaluates incidents and generates recommendations:
 
-- **Running evaluations manually** – Click the **Run Now** button in the Improvements page to start an evaluation immediately. This is useful when a recent investigation warrants a quick turnaround on recommended improvements.
-- **Stopping active evaluations** – Click the **Stop Evaluation** button in the Improvements page to halt an evaluation that is currently in progress.
+- **Running evaluations manually** – Choose the **Run Now** button in the Improvements page to start an evaluation immediately. This is useful when a recent investigation warrants a quick turnaround on recommended improvements.
+- **Stopping active evaluations** – Choose the **Stop Evaluation** button in the Improvements page to halt an evaluation that is currently in progress.
 
 ## Managing recommendations
 
 AWS DevOps Agent provides recommendations in the Improvements page where you can review and manage them:
 
-- **Viewing recommendation details** – Click on a recommendation to open the recommendation details page, where you can see more information about the suggested improvement including the incidents that informed the recommendation, the expected impacts, and next steps. For recommendations with code changes, you can also view the agent-ready specification that can be handed to a coding agent for implementation.
-- **Keep** – Click ‘Keep’ to retain a recommendation in your backlog for tracking. This allows you to monitor which improvements you plan to implement and track their progress.
-- **Discard** – Click ‘Discard’ to remove a recommendation from your backlog. When you discard a recommendation, you can provide a natural language explanation of why it doesn’t meet your needs. The agent learns from this feedback and uses it to inform future recommendations, ensuring they become more aligned with your operational priorities and requirements over time.
-- **Implemented** – Click ‘Implemented’ to mark a recommendation as completed. This helps you track which improvements have been applied and allows the agent to measure the effectiveness of its recommendations over time.
+- **Viewing recommendation details** – Choose a recommendation to open the recommendation details page, where you can see more information about the suggested improvement including the incidents that informed the recommendation, the expected impacts, and next steps. For recommendations with code changes, you can also view the agent-ready specification that can be handed to a coding agent for implementation.
+- **Keep** – Choose ‘Keep’ to retain a recommendation in your backlog for tracking. This allows you to monitor which improvements you plan to implement and track their progress.
+- **Discard** – Choose ‘Discard’ to remove a recommendation from your backlog. When you discard a recommendation, you can provide a natural language explanation of why it doesn’t meet your needs. The agent learns from this feedback and uses it to inform future recommendations, ensuring they become more aligned with your operational priorities and requirements over time.
+- **Implemented** – Choose ‘Implemented’ to mark a recommendation as completed. This helps you track which improvements have been applied and allows the agent to measure the effectiveness of its recommendations over time.
 - **Automatic removal** – Recommendations that have not been marked as Keep or Implemented may be removed after approximately 6 weeks if no new incidents would have been prevented by implementing the recommendation. This ensures the Improvements page focuses on the most relevant improvements for your operational challenges.
 - **Recommendation updates** – Existing recommendations are updated when newer incidents are found that would have been prevented by the recommendation. Updates may change the recommendation’s priority or refine the recommendation based on new insights.
 

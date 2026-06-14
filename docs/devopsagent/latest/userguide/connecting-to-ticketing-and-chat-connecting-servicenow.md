@@ -9,6 +9,7 @@ The first step is to create in ServiceNow an OAuth application client that AWS D
 ### Create a ServiceNow OAuth application client
 
 1. Enable your instance’s client credential system property
+
    1. Search `sys_properties.list` in the filter search box and then hit enter (it will not show the option but hitting enter works)
    2. Choose New
    3. Add the name as `glide.oauth.inbound.client.credential.grant_type.enabled` and the value to true with type as true | false
@@ -17,13 +18,13 @@ The first step is to create in ServiceNow an OAuth application client that AWS D
 
 1. Navigate to System OAuth > Application Registry from the filter search box
 2. Choose “New” > “New Inbound Integration Experience” > “New Integration” > “OAuth - Client Credentials Grant”
-3. Pick a name and set the OAuth application user to “Problem Administrator”, click “Save“
+3. Pick a name and set the OAuth application user to “Problem Administrator”, choose “Save“
 
 ![New record form for OAuth client credentials with fields for name, client ID, and secret.](images/aeff4c127f7c.png)
 
 ### Connect your ServiceNow OAuth client to AWS DevOps Agent
 
-1. You can start this process in two places. First, by navigating to the **Capability Providers** page and finding **ServiceNow** under **Communication**, then clicking **Register**. Alternatively you can select any DevOps Agent Space you may have created and navigate to Capabilities → Communications → Add → ServiceNow and click Register.
+1. You can start this process in two places. First, by navigating to the **Capability Providers** page and finding **ServiceNow** under **Communication**, then choosing **Register**. Alternatively you can select any DevOps Agent Space you may have created and navigate to Capabilities → Communications → Add → ServiceNow and choose Register.
 2. Next, authorize DevOps Agent to access your ServiceNow instance using the OAuth application client you just created.
 
 ![ServiceNow registration form with fields for Client Name, Client ID, and Instance URL.](images/3db5a9aafc5f.png)
@@ -40,12 +41,12 @@ You will not see this information again
 
 Once you have established connectivity, you’ll need to configure a business rule in ServiceNow to send tickets to your DevOps Agent Space(s).
 
-1. Navigate to Activity Subscriptions → Administration → Business Rules, and click New.
+1. Navigate to Activity Subscriptions → Administration → Business Rules, and choose New.
 2. Set the “Table” field to “Incident [incident]”, check the “Advanced” box, and set the rule to run after Insert, Update, and Delete.
 
 ![Business Rule form for CloudSmith Integration on Incident table.](images/6f2a7370e2c0.png)
 
-1. Navigate to the “Advanced” tab and add the following webhook script, inserting your webhook secret and URL where indicated, and click Submit.
+1. Navigate to the “Advanced” tab and add the following webhook script, inserting your webhook secret and URL where indicated, and choose Submit.
 
 ```
 (function executeRule(current, previous /*null when async*/ ) {

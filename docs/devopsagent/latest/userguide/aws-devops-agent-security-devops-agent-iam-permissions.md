@@ -50,15 +50,23 @@ These actions control the ability to manage recommendations as backlog tasks:
 - **aidevops:GetBacklogTask** – Allows users to retrieve details about a specific task.
 - **aidevops:ListBacklogTasks** – Allows users to list tasks for an Agent Space, filtered by task type, status, priority, or creation time.
 
-## Knowledge management actions
+## Asset management actions
 
-These actions control the ability to add and manage custom knowledge that the agent can use during investigations:
+These actions control the ability to add and manage assets in an Agent Space, including skills, AGENTS.md files, and attachments. For details on the Asset API, see [Managing Assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
 
-- **aidevops:CreateKnowledgeItem** – Allows users to add custom knowledge items, such as skills, troubleshooting guides, or application-specific information that the agent should reference.
-- **aidevops:ListKnowledgeItems** – Allows users to view all knowledge items configured for an Agent Space.
-- **aidevops:GetKnowledgeItem** – Allows users to retrieve the details of a specific knowledge item.
-- **aidevops:UpdateKnowledgeItem** – Allows users to modify existing knowledge items to keep information current.
-- **aidevops:DeleteKnowledgeItem** – Allows users to remove knowledge items that are no longer relevant.
+- **aidevops:CreateAsset** – Allows users to create a new asset in an Agent Space, including skills, AGENTS.md files, and attachments.
+- **aidevops:GetAsset** – Allows users to retrieve an asset's metadata and version information.
+- **aidevops:UpdateAsset** – Allows users to update the metadata or content of an existing asset.
+- **aidevops:DeleteAsset** – Allows users to delete an asset and all of its files from an Agent Space.
+- **aidevops:ListAssets** – Allows users to list assets in an Agent Space, with optional filtering by asset type.
+- **aidevops:ListAssetVersions** – Allows users to list the historical versions of an asset.
+- **aidevops:GetAssetContent** – Allows users to download an asset's full content as a zip bundle.
+- **aidevops:CreateAssetFile** – Allows users to add a new file to an existing asset.
+- **aidevops:GetAssetFile** – Allows users to retrieve a single file from an asset by its path.
+- **aidevops:UpdateAssetFile** – Allows users to replace the content or metadata of an existing file in an asset.
+- **aidevops:DeleteAssetFile** – Allows users to remove a single file from an asset.
+- **aidevops:ListAssetFiles** – Allows users to list the files within an asset.
+- **aidevops:ListAssetTypes** – Allows users to list the asset types supported by AWS DevOps Agent. This action is not scoped to a specific Agent Space and requires `Resource: "*"`.
 
 ## AWS Support integration actions
 
@@ -67,6 +75,16 @@ These actions control integration with AWS Support cases:
 - **aidevops:InitiateChatForCase** – Allows users to start a chat session with AWS Support directly from an investigation, automatically providing context about the incident.
 - **aidevops:EndChatForCase** – Allows users to end an active AWS Support case chat session.
 - **aidevops:DescribeSupportLevel** – Allows users to check the AWS Support plan level for the account to determine available support options.
+
+## Access token management actions
+
+These actions control access to access token operations for remote MCP and A2A server authentication:
+
+- **aidevops:CreateAccessToken** – Allows users to create access tokens for an Agent Space.
+- **aidevops:GetAccessToken** – Allows users to view access token details.
+- **aidevops:ListAccessTokens** – Allows users to list access tokens in an Agent Space.
+- **aidevops:RotateAccessToken** – Allows users to rotate an access token, generating a new value while preserving configuration.
+- **aidevops:RevokeAccessToken** – Allows users to revoke an access token, permanently disabling it.
 
 ## Usage and monitoring actions
 
@@ -117,16 +135,23 @@ This policy grants access to investigation and prevention features without admin
         "aidevops:UpdateBacklogTask",
         "aidevops:GetBacklogTask",
         "aidevops:ListBacklogTasks",
-        "aidevops:ListKnowledgeItems",
-        "aidevops:GetKnowledgeItem",
+        "aidevops:ListAssets",
+        "aidevops:ListAssetVersions",
+        "aidevops:ListAssetFiles",
+        "aidevops:ListAssetTypes",
+        "aidevops:GetAsset",
+        "aidevops:GetAssetContent",
+        "aidevops:GetAssetFile",
         "aidevops:InitiateChatForCase",
         "aidevops:EndChatForCase",
         "aidevops:ListChats",
         "aidevops:CreateChat",
         "aidevops:SendMessage",
         "aidevops:ListGoals",
-        "aidevops:CreateKnowledgeItem",
-        "aidevops:UpdateKnowledgeItem",
+        "aidevops:CreateAsset",
+        "aidevops:CreateAssetFile",
+        "aidevops:UpdateAsset",
+        "aidevops:UpdateAssetFile",
         "aidevops:DescribeSupportLevel",
         "aidevops:ListPendingMessages"
       ],
@@ -156,8 +181,13 @@ This policy grants view-only access to investigations and recommendations:
         "aidevops:GetRecommendation",
         "aidevops:ListBacklogTasks",
         "aidevops:GetBacklogTask",
-        "aidevops:ListKnowledgeItems",
-        "aidevops:GetKnowledgeItem",
+        "aidevops:ListAssets",
+        "aidevops:ListAssetVersions",
+        "aidevops:ListAssetFiles",
+        "aidevops:ListAssetTypes",
+        "aidevops:GetAsset",
+        "aidevops:GetAssetContent",
+        "aidevops:GetAssetFile",
         "aidevops:GetAccountUsage"
       ],
       "Resource": "*"
@@ -291,15 +321,22 @@ Provides full access to Amazon DevOps Agent via the AWS Management Console
 			"Resource": "*"
 		},
 		{
-			"Sid": "AIDevOpsKnowledgeAccess",
+			"Sid": "AIDevOpsAssetAccess",
 			"Effect": "Allow",
 			"Action": [
-				"aidevops:CreateKnowledgeItem",
-				"aidevops:DeleteKnowledgeItem",
-				"aidevops:GetKnowledgeItem",
-				"aidevops:ListKnowledgeItems",
-				"aidevops:ListKnowledgeItemVersions",
-				"aidevops:UpdateKnowledgeItem"
+				"aidevops:CreateAsset",
+				"aidevops:CreateAssetFile",
+				"aidevops:DeleteAsset",
+				"aidevops:DeleteAssetFile",
+				"aidevops:GetAsset",
+				"aidevops:GetAssetContent",
+				"aidevops:GetAssetFile",
+				"aidevops:ListAssets",
+				"aidevops:ListAssetFiles",
+				"aidevops:ListAssetTypes",
+				"aidevops:ListAssetVersions",
+				"aidevops:UpdateAsset",
+				"aidevops:UpdateAssetFile"
 			],
 			"Resource": "*"
 		},
@@ -421,12 +458,19 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
 				"aidevops:ListExecutions",
 				"aidevops:GetRecommendation",
 				"aidevops:UpdateRecommendation",
-				"aidevops:CreateKnowledgeItem",
-				"aidevops:ListKnowledgeItems",
-				"aidevops:ListKnowledgeItemVersions",
-				"aidevops:GetKnowledgeItem",
-				"aidevops:UpdateKnowledgeItem",
-				"aidevops:DeleteKnowledgeItem",
+				"aidevops:CreateAsset",
+				"aidevops:CreateAssetFile",
+				"aidevops:ListAssets",
+				"aidevops:ListAssetVersions",
+				"aidevops:ListAssetFiles",
+				"aidevops:ListAssetTypes",
+				"aidevops:GetAsset",
+				"aidevops:GetAssetContent",
+				"aidevops:GetAssetFile",
+				"aidevops:UpdateAsset",
+				"aidevops:UpdateAssetFile",
+				"aidevops:DeleteAsset",
+				"aidevops:DeleteAssetFile",
 				"aidevops:ListPendingMessages",
 				"aidevops:InitiateChatForCase",
 				"aidevops:EndChatForCase",
@@ -478,6 +522,19 @@ Provides access to use the AWS DevOps operator web app for an Agent Space.
 			"Action": [
 				"secretsmanager:CreateSecret",
 				"secretsmanager:ListSecrets"
+			],
+			"Resource": "*",
+			"Condition": {
+				"StringEquals": {
+					"aws:ResourceAccount": "${aws:PrincipalAccount}"
+				}
+			}
+		},
+		{
+			"Sid": "AllowTranscribeOperatorActions",
+			"Effect": "Allow",
+			"Action": [
+				"transcribe:StartStreamTranscriptionWebSocket"
 			],
 			"Resource": "*",
 			"Condition": {
@@ -850,6 +907,7 @@ Provides permissions required by the AWS DevOps Agent to conduct investigations 
                 "guardduty:GetMembers",
                 "guardduty:GetThreatIntelSet",
                 "guardduty:List*",
+                "health:DescribeAffectedEntities",
                 "health:DescribeEvents",
                 "health:DescribeEventDetails",
                 "healthlake:Describe*",
@@ -1199,6 +1257,7 @@ Provides permissions required by the AWS DevOps Agent to conduct investigations 
                 "securityhub:GetConfigurationPolicy",
                 "securityhub:GetConfigurationPolicyAssociation",
                 "securityhub:GetEnabledStandards",
+                "securityhub:GetFindings",
                 "securityhub:GetFindingAggregator",
                 "securityhub:GetInsights",
                 "securityhub:List*",

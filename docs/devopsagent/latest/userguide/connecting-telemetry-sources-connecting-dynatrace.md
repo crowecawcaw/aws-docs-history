@@ -32,19 +32,21 @@ Establish connection to your Dynatrace environment
 #### Configuration
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
-2. Find **Dynatrace** in the **Available** providers section under **Telemetry** and click **Register**
+2. Find **Dynatrace** in the **Available** providers section under **Telemetry** and choose **Register**
 3. **Create OAuth client in Dynatrace, with the detailed permissions.**
+
    1. See [Dynatrace documentation](https://docs.dynatrace.com/docs/manage/identity-access-management/access-tokens-and-oauth-clients/oauth-clients#create-an-oauth2-client "https://docs.dynatrace.com/docs/manage/identity-access-management/access-tokens-and-oauth-clients/oauth-clients#create-an-oauth2-client")
    2. When ready press next
    3. You can connect multiple Dynatrace environments and later scope to specific ones for each DevOps Agent Space you may have.
 
 4. Enter your Dynatrace details from the OAuth client setup:
+
    - **Client Name**
    - **Client ID**
    - **Client Secret**
    - **Account URN**
 
-5. Click Next
+5. Choose Next
 6. Review and add
 
 ### Step 2: Enable
@@ -56,7 +58,7 @@ Activate Dynatrace in a specific Agent space and configure appropriate scoping
 1. From the agent spaces page, select an agent space and press view details
 2. Select the Capabilities tab
 3. Locate the Telemetry section, Press Add
-4. You will notice Dynatrace with ‘Registered’ status. Click on add to add this to your agent space
+4. You will notice Dynatrace with ‘Registered’ status. Choose add to add this to your agent space
 5. Dynatrace Environment ID - Provide the Dynatrace environment ID you would like to associate with this DevOps agent space.
 6. Enter one or more Dynatrace Entity IDs - these help DevOps agent discover your most important resources, examples might be services or applications. **If you are unsure you can press remove.**
 7. Review and press Save

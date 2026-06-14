@@ -22,12 +22,12 @@ The Admin Consent method uses a consent-based flow with the AWS DevOps Agent man
 
 1. Sign in to the AWS Management Console and navigate to the AWS DevOps Agent console
 2. Go to the **Capability Providers** page
-3. Locate the **Azure DevOps** section and click **Register**
+3. Locate the **Azure DevOps** section and choose **Register**
 4. Enter your **Azure DevOps organization name** when prompted
 
 ### Step 2: Complete Admin Consent
 
-1. Click to proceed - you are redirected to the Microsoft Entra admin consent page
+1. Choose to proceed - you are redirected to the Microsoft Entra admin consent page
 2. Sign in with a user principal account that has permission to perform admin consent
 3. Review and grant consent for the AWS DevOps Agent application
 
@@ -48,7 +48,7 @@ App Registration is shared between Azure Resources and Azure DevOps. If you have
 ### Step 1: Start the ADO App Registration
 
 1. In the AWS DevOps Agent console, go to the **Capability Providers** page
-2. Locate the **Azure Cloud** section and click **Register**
+2. Locate the **Azure Cloud** section and choose **Register**
 3. Select the **App Registration** method
 
 ### Step 2: Create and configure your Entra application
@@ -75,7 +75,7 @@ An IAM role will be automatically created when you submit the registration throu
 ### Step 5: Complete the registration
 
 1. Confirm the configuration in the AWS DevOps Agent console
-2. Click **Submit** to complete the registration
+2. Choose **Submit** to complete the registration
 
 ### Step 6: Grant access in Azure DevOps
 
@@ -90,7 +90,7 @@ After registration, grant the application access to your Azure DevOps organizati
 3. Set the access level to **Basic**
 4. Under **Add to projects**, select the projects you want the agent to access
 5. Under **Azure DevOps Groups**, select **Project Readers**
-6. Click **Add** to complete
+6. Choose **Add** to complete
 
 ## Associating a project with an Agent Space
 
@@ -98,13 +98,13 @@ After registering Azure DevOps at the account level, associate specific projects
 
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
-3. In the **Pipelines** section, click **Add**
+3. In the **Pipelines** section, choose **Add**
 4. Select **Azure DevOps** from the list of available providers
 5. Select the project from the dropdown of available projects
-6. Click **Add** to complete the association
+6. Choose **Add** to complete the association
 
 ## Managing Azure DevOps connections
 
 - **Viewing connected projects** – In the **Capabilities** tab, the **Pipelines** section lists all connected Azure DevOps projects.
-- **Removing a project** – To disconnect a project from an Agent Space, select it in the **Pipelines** section and click **Remove**.
+- **Removing a project** – To disconnect a project from an Agent Space, select it in the **Pipelines** section and choose **Remove**.
 - **Removing the registration** – To remove the Azure DevOps registration entirely, go to the **Capability Providers** page and delete the registration. All Agent Space associations must be removed first.

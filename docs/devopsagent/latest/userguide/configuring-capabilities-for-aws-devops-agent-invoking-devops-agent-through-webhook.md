@@ -59,7 +59,7 @@ Because the timestamp is included in the signature, HMAC also provides replay pr
 1. Sign in to the AWS Management Console and navigate to the AWS DevOps Agent console
 2. Select your Agent Space
 3. Go to the **Capabilities** tab
-4. In the **Webhook** section, click **Configure**
+4. In the **Webhook** section, choose **Configure**
 
 ### Step 2: Generate webhook credentials
 
@@ -69,7 +69,7 @@ Webhooks are automatically generated when you complete the configuration of a th
 
 **For generic webhooks:**
 
-1. Click **Generate webhook**
+1. Choose **Generate webhook**
 2. The system will generate an HMAC key pair
 3. Securely store the generated key and secret—you won't be able to retrieve them again
 4. Copy the webhook endpoint URL provided
@@ -80,7 +80,7 @@ Use the webhook endpoint URL and credentials to configure your external system t
 
 ## Managing webhook credentials
 
-**Removing credentials** – To delete webhook credentials, go to the webhook configuration section and click **Remove**. After removing credentials, the webhook endpoint will no longer accept requests until you generate new credentials.
+**Removing credentials** – To delete webhook credentials, go to the webhook configuration section and choose **Remove**. After removing credentials, the webhook endpoint will no longer accept requests until you generate new credentials.
 
 **Regenerating credentials** – To generate new credentials, remove the existing credentials first, then generate a new key pair or token.
 
@@ -112,18 +112,19 @@ Headers:
 The request body should include information about the incident:
 
 ```
-json
-
 {
-  "title": "Incident title",
-  "severity": "high",
-  "affectedResources": ["resource-id-1", "resource-id-2"],
+  "eventType": "incident",
+  "incidentId": "incident-123",
+  "action": "created",
+  "priority": "HIGH",
+  "title": "High CPU usage on production server",
+  "description": "High CPU usage on production server host ABC in AWS account 1234 region us-east-1",
   "timestamp": "2025-11-23T18:00:00Z",
-  "description": "Detailed incident description",
+  "service": "MyProductionService",
   "data": {
     "metadata": {
-        "region": "us-east-1",
-        "environment": "production"
+      "region": "us-east-1",
+      "environment": "production"
     }
   }
 }

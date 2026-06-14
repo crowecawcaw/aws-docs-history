@@ -21,13 +21,13 @@ The Admin Consent method uses a consent-based flow with the AWS DevOps Agent man
 
 1. Sign in to the AWS Management Console and navigate to the AWS DevOps Agent console
 2. Go to the **Capability Providers** page
-3. Locate the **Azure Cloud** section and click **Register**
+3. Locate the **Azure Cloud** section and choose **Register**
 4. Select the **Admin Consent** registration method
 
 ### Step 2: Complete Admin Consent
 
 1. Review the permissions being requested
-2. Click to proceed — you are redirected to the Microsoft Entra admin consent page
+2. Choose to proceed — you are redirected to the Microsoft Entra admin consent page
 3. Sign in with a user principal account that has permission to perform admin consent
 4. Review and grant consent for the AWS DevOps Agent application
 
@@ -48,7 +48,7 @@ The App Registration method uses your own Entra application with federated ident
 ### Step 1: Start the registration
 
 1. In the AWS DevOps Agent console, go to the **Capability Providers** page
-2. Locate the **Azure Cloud** section and click **Register**
+2. Locate the **Azure Cloud** section and choose **Register**
 3. Select the **App Registration** method
 
 ### Step 2: Create and configure your Entra application
@@ -79,7 +79,7 @@ See [Assigning Azure roles](#assigning-azure-roles "#assigning-azure-roles") bel
 ### Step 6: Complete the registration
 
 1. Confirm the configuration in the AWS DevOps Agent console
-2. Click **Submit** to complete the registration
+2. Choose **Submit** to complete the registration
 
 ## Assigning Azure roles
 
@@ -87,10 +87,10 @@ After registration, grant the application read access to your Azure subscription
 
 1. In the Azure Portal, navigate to your target subscription
 2. Go to **Access Control (IAM)**
-3. Click **Add** > **Add role assignment**
-4. Select the **Reader** role and click **Next**
-5. Click **Select members**, search for the application (either **AWS DevOps Agent** for Admin Consent, or your own Entra application for App Registration)
-6. Select the application and click **Review + assign**
+3. Choose **Add** > **Add role assignment**
+4. Select the **Reader** role and choose **Next**
+5. Choose **Select members**, search for the application (either **AWS DevOps Agent** for Admin Consent, or your own Entra application for App Registration)
+6. Select the application and choose **Review + assign**
 7. (Optional) To enable the agent to access Azure Kubernetes Service (AKS) clusters, complete the following AKS access setup.
 
 ### AKS access setup (optional)
@@ -201,15 +201,15 @@ After registering Azure at the account level, associate specific subscriptions w
 
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
-3. In the **Secondary sources** section, click **Add**
+3. In the **Secondary sources** section, choose **Add**
 4. Select **Azure**
 5. Provide the **Subscription ID** for the Azure subscription you want to associate
-6. Click **Add** to complete the association
+6. Choose **Add** to complete the association
 
 You can associate multiple subscriptions with the same Agent Space to give the agent visibility across your Azure environment.
 
 ## Managing Azure Resources connections
 
 - **Viewing connected subscriptions** – In the **Capabilities** tab, the **Secondary sources** section lists all connected Azure subscriptions.
-- **Removing a subscription** – To disconnect a subscription from an Agent Space, select it in the **Secondary sources** list and click **Remove**. This does not affect the account-level registration.
+- **Removing a subscription** – To disconnect a subscription from an Agent Space, select it in the **Secondary sources** list and choose **Remove**. This does not affect the account-level registration.
 - **Removing the registration** – To remove the Azure Cloud registration entirely, go to the **Capability Providers** page and delete the registration. All Agent Space associations must be removed first.

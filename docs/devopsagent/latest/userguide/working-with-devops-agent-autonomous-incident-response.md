@@ -10,7 +10,7 @@ Incident response investigations can be started in one of three ways.
 
 ![Investigation form with description field, suggestion buttons, and Start Investigation button.](images/2f22200ef528.png)
 
-Once you click "Start Investigation" you'll be asked to provide some additional details to help the agent focus its work. The investigation dialog includes the following fields:
+Once you choose "Start Investigation" you'll be asked to provide some additional details to help the agent focus its work. The investigation dialog includes the following fields:
 
 - **Investigation details** – Pre-filled with your description. You can edit this to refine the investigation scope.
 - **Investigation starting point** – Optionally describe a specific alarm, metric, log snippet, or other starting point for the agent.
@@ -18,7 +18,7 @@ Once you click "Start Investigation" you'll be asked to provide some additional 
 - **Name your investigation** – Auto-generated with a timestamp. You can customize this (maximum 400 characters).
 - **Priority** – Select the investigation priority from the dropdown (Medium is the default).
 
-Review and adjust these fields as needed, then click "Start investigating..." to begin. You will then be taken to the investigation details page where you can see your DevOps Agent in action!
+Review and adjust these fields as needed, then choose "Start investigating..." to begin. You will then be taken to the investigation details page where you can see your DevOps Agent in action!
 
 ## Incident triage
 

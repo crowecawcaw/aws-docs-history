@@ -183,32 +183,35 @@ Before creating skills, you must have an Agent Space. For more information, see 
 
 You can create skills in two ways depending on your workflow preferences and skill complexity:
 
+To manage skills programmatically through the AWS CLI or AWS SDKs, see [Managing Assets](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md").
+
 ### Creating a skill in the UI
 
 Skills created in the AWS DevOps Agent Operator Web App contain a name, description, and instructions in a single SKILL.md file.
 
 **To create a skill in the UI:**
 
-- Navigate to the Skills page in your Agent Space Operator Web App.
+- Navigate to the **Knowledge** page in your Agent Space Operator Web App and choose the **Skills** tab.
 - Click "Add skill".
 - Select "Create skill" from the modal.
 - Fill out the skill form:
+
   - **Name** – Lowercase letters, numbers, and hyphens only (maximum 64 characters). Must not start or end with a hyphen. Example: `rds-throttling-investigation`
   - **Description** – Brief explanation of when to use this skill (minimum 100 characters recommended, maximum 1,024 characters). This helps the agent determine when to activate the skill.
   - **Status** – Set to Active (default) or Inactive. Inactive skills are not used by the agent.
   - **Agent Type** – Select one or more agent types that can use this skill. **Generic** is selected by default and makes the skill available to all agent types. To target specific agents, deselect Generic and choose from: On-demand, Incident Triage, Incident RCA, Incident Mitigation, or Evaluation.
   - **Instructions** – Step-by-step procedures in Markdown format. Be specific and actionable.
 
-- Click "Create" to save the skill.
+- Choose "Create" to save the skill.
 
 The system automatically generates a SKILL.md file with the proper frontmatter structure.
 
 **To edit a skill created in the UI:**
 
-- Navigate to the skill in the Skills list and click the skill to open it.
+- Navigate to the skill on the **Knowledge** page **Skills** tab and click the skill to open it.
 - Click **Edit**.
 - Modify the name, description, or instructions.
-- Click **Save** to update the skill.
+- Choose **Save** to update the skill.
 
 ### Uploading a skill
 
@@ -251,13 +254,13 @@ description: Comprehensive RDS performance investigation procedures
 - Create a directory with your skill files following the structure above.
 - Ensure SKILL.md includes proper frontmatter (name and description).
 - Compress the directory into a .zip file.
-- Navigate to the Skills page in your Agent Space Operator Web App.
+- Navigate to the **Knowledge** page in your Agent Space Operator Web App and choose the **Skills** tab.
 - Click "Add skill".
 - Select "Upload skill" from the modal.
-- Drag and drop your .zip file or click to browse (ZIP files only, maximum 6 MB).
+- Drag and drop your .zip file or choose to browse (ZIP files only, maximum 6 MB).
 - Select one or more agent types that can use this skill (Generic is selected by default and applies to all agent types; deselect to target On-demand, Incident Triage, Incident RCA, Incident Mitigation, or Evaluation specifically).
 - Review the zip file requirements and validation results.
-- Click "Upload" to add the skill to your Agent Space.
+- Choose "Upload" to add the skill to your Agent Space.
 
 **Important restrictions for skills uploaded as zip files:**
 
@@ -269,27 +272,93 @@ description: Comprehensive RDS performance investigation procedures
 
 Use clear, descriptive names like "rds-throttling-investigation" rather than generic names. A good skill name reflects the specific scenario or service it addresses, making it easier to identify the right skill at a glance.
 
+### Importing a skill from a repository
+
+You can import skills directly from a GitHub repository directory. AWS DevOps Agent fetches the skill content from the repository, extracts the name and description from the SKILL.md frontmatter, and creates the skill in your Agent Space. This allows you to manage skills in version control and import them with a single action.
+
+**Prerequisites:**
+
+- A GitHub account associated with your Agent Space. To connect a GitHub account, see [Connecting GitHub](connecting-to-cicd-pipelines-connecting-github.md "connecting-to-cicd-pipelines-connecting-github.md"). Any GitHub account connection enables importing from public repositories. For private repositories, the associated account must have read access to the repository.
+- A GitHub repository containing a valid skill directory with a SKILL.md file at the root.
+
+**Repository structure:**
+
+The repository directory you import must follow the standard skill structure:
+
+```
+my-skill/
+├── SKILL.md              # Required: must include name and description in frontmatter
+├── references/           # Optional: reference documentation
+│   └── runbook.md
+└── assets/               # Optional: images, diagrams, data files
+    └── architecture.png
+```
+
+**To import a skill from a repository:**
+
+- Navigate to the **Knowledge** page in your Agent Space Operator Web App and choose the **Skills** tab.
+- Click "Add skill".
+- Select "Import from repository" from the modal.
+- Enter the GitHub directory URL that contains your SKILL.md file. For example: `https://github.com/my-org/my-repo/tree/main/skills/rds-investigation`
+- Select one or more agent types that can use this skill.
+- Set the lifecycle status (Active or Inactive).
+- Click "Import skill".
+
+AWS DevOps Agent fetches the directory contents, reads the SKILL.md frontmatter to extract the skill name and description, and imports all files into your Agent Space.
+
+**Viewing imported skills:**
+
+Imported skills appear in the Custom Skills list with a link to the source repository. In the skill detail view:
+
+- The skill name and description are read-only (managed by your SKILL.md file).
+- The instructions and resource files are displayed in read-only mode.
+- The status and agent type remain editable.
+- A "Last synced" timestamp shows when the skill was last synced from the repository.
+
+**Syncing imported skills:**
+
+When you update the skill files in your repository, you can sync the imported skill to pull the latest changes:
+
+- Open the imported skill in the detail view.
+- Click the **Sync** button.
+- AWS DevOps Agent re-fetches the directory contents from the source repository and updates the skill content.
+
+You can also sync from the skills list view by clicking the Sync button on the imported skill row.
+
+**Constraints:**
+
+- **URL format** – Only GitHub directory URLs are accepted (for example, `https://github.com/org/repo/tree/branch/path/to/skill`). Direct paths to a SKILL.md file are also accepted (for example, `https://github.com/org/repo/tree/branch/path/to/skill/SKILL.md`).
+- **SKILL.md required** – The directory must contain a SKILL.md file with valid frontmatter (name and description).
+- **Maximum directory size** – Total directory size must not exceed 6 MB.
+- **Maximum files** – A directory can contain up to 100 files.
+- **GitHub account required** – Your Agent Space must have an associated GitHub account to import skills. Any associated GitHub account enables importing from public repositories. For private repositories, the associated account must have read access to the repository.
+
 ## Sample skills
 
 The [AWS DevOps Agent Skills samples repository](https://github.com/aws-samples/sample-code-for-devops-agent-skills "https://github.com/aws-samples/sample-code-for-devops-agent-skills") on GitHub contains community-contributed skills you can use as-is or as a starting point for writing your own. Available samples include skills for AWS Health event investigation, AWS Support case analysis, EKS operational reviews, and RDS operational reviews.
 
-To use a sample skill, clone the repository, zip the skill directory, and upload it to your Agent Space. Each skill includes a README with prerequisites and usage instructions.
+To use a sample skill:
+
+- **Import from GitHub** – Copy the skill directory URL and paste it into the "Import from repository" flow in the Operator Web App. For details, see [Importing a skill from a repository](#importing-a-skill-from-a-repository "#importing-a-skill-from-a-repository").
+- **Upload as zip** – Clone the repository, zip the skill directory, and upload it using the "Upload skill" flow. For details, see [Uploading a skill](#uploading-a-skill "#uploading-a-skill").
+
+Each skill includes a README with prerequisites and usage instructions.
 
 ## Managing Skills
 
 AWS DevOps Agent provides comprehensive skill management capabilities through the Operator Web App:
 
-**Listing skills** – View all Skills in your Agent Space. The Skills page displays skill name, Active or Inactive status, creation date, last updated date, and available actions.
+**Listing skills** – View all Skills in your Agent Space. The **Knowledge** page **Skills** tab displays skill name, Active or Inactive status, creation date, last updated date, and available actions.
 
-**Viewing skills** – Click on any skill to see its detail view. Skills created in the UI display editable content where you can modify the name, description, or instructions directly in the UI and click "Save" to update. Skills uploaded as zip files display a file tree showing SKILL.md and any additional directories like references/ and assets/. Click files in the tree to view their contents in read-only mode.
+**Viewing skills** – Choose any skill to see its detail view. Skills created in the UI display editable content where you can modify the name, description, or instructions directly in the UI and choose "Save" to update. Skills uploaded as zip files display a file tree showing SKILL.md and any additional directories like references/ and assets/. Choose files in the tree to view their contents in read-only mode.
 
 **Selecting agents for a skill** – Configure which agent types can use each skill when creating or editing it. In the Agent Type dropdown, select one or more agent types using the checkboxes: **Generic** (default — applies to all agent types), **On-demand** (conversational queries), **Incident Triage** (initial incident assessment), **Incident RCA** (root cause analysis), **Incident Mitigation** (automated incident response), or **Evaluation** (proactive recommendations). Generic is selected by default and makes the skill available to all agent types. Skills targeted to specific agents reduce context consumption and improve agent focus.
 
-**Activating and deactivating skills** – Temporarily disable skills without deleting them using the Active/Inactive toggle. Open the skill detail view and toggle the switch to "Inactive" to prevent the agent from loading it for new investigations while preserving all content and configurations. In-progress investigations continue using the skill. Toggle back to "Active" to make the skill immediately available again.
+**Activating and deactivating skills** – Temporarily disable skills without deleting them using the Active/Inactive toggle. Open the skill detail view and toggle the switch to "Inactive" to prevent the agent from loading it for new investigations while preserving all content and configurations. In-progress investigations continue using the skill. Toggle back to "Active" to make the skill immediately available again. To activate or deactivate skills programmatically, see [Activating and deactivating skills](about-aws-devops-agent-managing-assets.md "about-aws-devops-agent-managing-assets.md") on the Managing Assets page.
 
-**Updating skills** – Modify existing skills based on how they were created. For skills created in the UI, click "Edit" in the skill detail view, modify the name, description, or instructions, and click "Save" to update. For skills uploaded as zip files, modify the files locally, create a new zip file, and upload a new version.
+**Updating skills** – Modify existing skills based on how they were created. For skills created in the UI, choose "Edit" in the skill detail view, modify the name, description, or instructions, and choose "Save" to update. For skills uploaded as zip files, modify the files locally, create a new zip file, and upload a new version.
 
-**Deleting skills** – Permanently remove skills from your Agent Space. Open the skill list view, click the more options menu (⋮) and select "Delete," review the warning about permanent deletion, type the skill name to confirm, and click "Delete Skill." Deletion cannot be undone. In-progress investigations may be affected if they attempt to load the deleted skill. For skills uploaded as zip files, download the zip file before deleting as a backup. Consider deactivating the skill instead of deleting it if you may need it again.
+**Deleting skills** – Permanently remove skills from your Agent Space. Open the skill list view, choose the more options menu (⋮) and select "Delete," review the warning about permanent deletion, type the skill name to confirm, and choose "Delete Skill." Deletion cannot be undone. In-progress investigations may be affected if they attempt to load the deleted skill. For skills uploaded as zip files, download the zip file before deleting as a backup. Consider deactivating the skill instead of deleting it if you may need it again.
 
 ## Migrating from Runbooks
 

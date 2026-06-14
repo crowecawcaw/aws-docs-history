@@ -66,12 +66,15 @@ You can run either test independently or both together:
 We'll use CloudFormation to create our test resources, which allows AWS DevOps Agent to properly track and investigate them.
 
 1.  **Navigate to CloudFormation**:
-    1. In AWS Console, search for "CloudFormation" and click **CloudFormation**
-    2. Click **Create stack** > **With new resources (standard)**
+
+    1. In AWS Console, search for "CloudFormation" and choose **CloudFormation**
+    2. Choose **Create stack** > **With new resources (standard)**
 
 2.  **Upload template**:
+
     1.  Create a new local file called`AWS-DevOpsAgent-ec2-test.yaml`
     2.  Copy and paste this CloudFormation template into the file:
+
         1. ```
            AWSTemplateFormatVersion: '2010-09-09'
            Description: 'AWS DevOps Agent EC2 CPU Test Stack'
@@ -252,27 +255,32 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
         ```
 
     3.  In the CloudFormation console, select **Upload a template file**
-    4.  Click **Choose file**
+    4.  Choose **Choose file**
     5.  Select the `AWS-DevOpsAgent-ec2-test.yaml` file
-    6.  Click **Next**
+    6.  Choose **Next**
 
 3.  **Configure stack**:
+
     1. **Stack name**:`AWS-DevOpsAgent-EC2-Test`
     2. **Parameters**:
+
        1. **VpcId**: Select an existing VPC from the dropdown.
        2. **SubnetId**: Select a subnet within the VPC you chose. For SSH access, the subnet must route to an internet gateway, and the instance must have a public IPv4 address associated. Otherwise, the `SSHCommand` output will be empty and SSH connections won't succeed.
        3. **MyIP**: Leave as default `0.0.0.0/0` (you can secure this later if needed)
 
-    3. Click **Next**
+    3. Choose **Next**
 
 4.  **Configure stack options**:
-    1. Leave defaults, click **Next**
+
+    1. Leave defaults, choose **Next**
 
 5.  **Review and create**:
+
     1. Check **I acknowledge that AWS CloudFormation might create IAM resources**
-    2. Click **Submit**
+    2. Choose **Submit**
 
 6.  **Wait for completion**:
+
     1. Stack creation takes 3-5 minutes
     2. Status will change from`CREATE_IN_PROGRESS`to`CREATE_COMPLETE`
     3. **Important**: Your EC2 instance is now part of a CloudFormation stack that AWS DevOpsAgent can track!
@@ -282,29 +290,34 @@ We'll use CloudFormation to create our test resources, which allows AWS DevOps A
 Skip this step if you just want to run the automated test
 
 1. **Locate the security group**:
+
    1. In AWS Console, go to **CloudFormation** and select the `AWS-DevOpsAgent-EC2-Test` stack
    2. Open the **Outputs** tab and copy the value of `SecurityGroupId` (starts with `sg-`)
    3. Go to **EC2** → **Security Groups** and paste the ID into the search bar to open the security group
 
 2. **Update SSH rule**:
+
    1. Select the security group → **Inbound rules** tab → **Edit inbound rules**
    2. Find the SSH rule (port 22)
    3. Change source from`0.0.0.0/0`to your IP:`[YOUR_IP]/32`
    4. Get your IP from [https://whatismyipaddress.com](https://whatismyipaddress.com/ "https://whatismyipaddress.com/")
-   5. Click **Save rules**
+   5. Choose **Save rules**
 
 ### Step 2: Wait for automatic test execution
 
 1. **Automatic test execution**:
+
    - The CPU stress test will **automatically start 5 minutes** after instance launch
    - No manual intervention required - just wait, the test runs completely in the background
 
 2. **Monitor the test**:
+
    - Instance boots and prepares the test automatically
    - The script will run for 5 minutes and generate >70% CPU usage
    - CloudWatch alarm should trigger within 8-10 minutes total (5 min delay + 3-5 min for alarm)
 
 3. **Optional: Manual re-run** (for additional testing):
+
    - Connect to your instance: EC2 console →`AWS-DevOpsAgent-Test-Instance`→ **Connect** → **Session Manager**
    - Run the stress test again:`./cpu-stress-test.sh`
    - Perfect for testing AWS DevOpsAgent's response multiple times
@@ -314,12 +327,15 @@ Skip this step if you just want to run the automated test
 ### Step 1: Deploy CloudFormation stack for Lambda test
 
 1.  **Navigate to CloudFormation**:
+
     1. In AWS Console, go to **CloudFormation**
-    2. Click **Create stack** → **With new resources (standard)**
+    2. Choose **Create stack** → **With new resources (standard)**
 
 2.  **Upload template**:
+
     1.  Create a new local file called`AWS-DevOpsAgent-lambda-test.yaml`
     2.  Copy and paste this CloudFormation template into the file:
+
         1. ```
            AWSTemplateFormatVersion: '2010-09-09'
            Description: 'AWS DevOpsAgent Lambda Error Test Stack'
@@ -422,36 +438,43 @@ Skip this step if you just want to run the automated test
         ```
 
     3.  In the CloudFormation console, select **Upload a template file**
-    4.  Click **Choose file**
+    4.  Choose **Choose file**
     5.  Select the `AWS-DevOpsAgent-lambda-test.yaml` file
-    6.  Click **Next**
+    6.  Choose **Next**
 
 3.  **Configure stack**:
+
     1. **Stack name**:`AWS-DevOpsAgent-Lambda-Test`
-    2. Click **Next**
+    2. Choose **Next**
 
 4.  **Configure stack options**:
-    1. Leave defaults, click **Next**
+
+    1. Leave defaults, choose **Next**
 
 5.  **Review and create**:
+
     1. Check **I acknowledge that AWS CloudFormation might create IAM resources**
-    2. Click **Submit**
+    2. Choose **Submit**
 
 6.  **Wait for completion**:
+
     1. Stack creation takes 2-3 minutes
     2. Status will change to`CREATE_COMPLETE`
 
 ### Step 2: Trigger Lambda errors
 
 1. **Navigate to Lambda console**:
+
    1. Go to **AWS Lambda** console
    2. Find your function`AWS-DevOpsAgent-test-lambda`
 
 2. **Test the function**:
-   1. Click **Test** tab
-   2. Click **Create new event**
+
+   1. Choose **Test** tab
+   2. Choose **Create new event**
    3. **Event name**:`AWS-DevOpsAgent-test-event`
    4. Use this JSON payload:
+
       1. ```
          {
          "test": "AWS DevOpsAgent validation",
@@ -463,10 +486,11 @@ Skip this step if you just want to run the automated test
 
       ```
 
-   5. Click **Save**
+   5. Choose **Save**
 
 3. **Generate errors**:
-   1. Click **Test** button 3 times (wait 10 seconds between each)
+
+   1. Choose **Test** button 3 times (wait 10 seconds between each)
    2. Each test will generate an intentional error
    3. **CloudWatch alarm** should trigger within 2-3 minutes
    4. **AWS DevOpsAgent** should now be able to detect the alarm with an **Investigation** in the **Operator app** which you will set up next.
@@ -492,9 +516,10 @@ This step is for ensuring that the above tests are now in an alarm state.
 ### Step 2: Start a AWS DevOps Agent Investigation
 
 1. Open your **AWS DevOps Agent AgentSpace**
-2. Click **Admin access**. This will open the DevOps Agent Space web app in a new window
-3. Click the **Start Investigation** button on the right side of the screen
+2. Choose **Admin access**. This will open the DevOps Agent Space web app in a new window
+3. Choose the **Start Investigation** button on the right side of the screen
 4. Complete the following form:
+
    1. **Investigation details:** Describe the investigation you'd like to run. Include any details you can about the investigation goals, areas to explore, or relevant information.
    2. **Investigation starting point**: Describe the information you'd like to start the investigation from. You can mention an alarm, metric, log snippet, or anything else to give DevOps Agent a starting point to work from. In this case, provide a summary of the alarms you just created.
    3. **Date and time of incident** (ISO 8601 preferred): YYYY-MM-DDTHH:MMZ
@@ -503,8 +528,8 @@ This step is for ensuring that the above tests are now in an alarm state.
    6. **Region** where the incident occurred
    7. **Priority** - AWS DevOpsAgent allows for two concurrent investigations. The Priority allows for you to define the order of execution of your investigations.
 
-5. Click Investigate to launch the investigation.
-6. Click on your Investigation listed in the dashboard. You will be taken to the Investigation Details screen where you can view the granular steps that DevOps Agent is taking.
+5. Choose Investigate to launch the investigation.
+6. Choose your Investigation listed in the dashboard. You will be taken to the Investigation Details screen where you can view the granular steps that DevOps Agent is taking.
 
 ### Expected Results
 
@@ -533,18 +558,20 @@ This step is for ensuring that the above tests are now in an alarm state.
 #### Manual cleanup (immediate)
 
 1. **Delete CloudFormation Stack**:
+
    1. Go to CloudFormation console
    2. Select`AWS-DevOpsAgent-EC2-Test`stack
-   3. Click **Delete**
+   3. Choose **Delete**
    4. Confirm deletion
    5. **This will automatically delete all resources**: EC2 instance, security group, key pair, and CloudWatch alarm
 
 ### Cleanup test B (Lambda test)
 
 1. **Delete CloudFormation Stack**:
+
    1. Go to CloudFormation console
    2. Select`AWS-DevOpsAgent-Lambda-Test`stack
-   3. Click **Delete**
+   3. Choose **Delete**
    4. Confirm deletion
    5. **This will automatically delete all resources**: Lambda function, IAM role, and CloudWatch alarm
 

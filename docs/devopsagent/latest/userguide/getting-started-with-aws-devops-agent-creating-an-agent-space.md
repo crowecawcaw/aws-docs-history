@@ -11,7 +11,7 @@ An Agent Space defines the tools and infrastructure that AWS DevOps Agent has ac
 
 ### Name the Agent Space
 
-1. Click **Create Agent Space**
+1. Choose **Create Agent Space**
 
 In the **Agent Space details** section, provide:
 
@@ -83,15 +83,15 @@ Use this option when you need to customize permissions for web app access.
 
 ### Adding tags (optional)
 
-You can add AWS tags to your Agent Space during creation. Tags are key-value pairs that help you organize and identify your resources. You can add up to 50 tags per Agent Space. To add tags, expand the **Tags** section on the Create Agent Space page and click **Add new tag**.
+You can add AWS tags to your Agent Space during creation. Tags are key-value pairs that help you organize and identify your resources. You can add up to 50 tags per Agent Space. To add tags, expand the **Tags** section on the Create Agent Space page and choose **Add new tag**.
 
 ### Complete agent space creation
 
-Once all sections are filled out, click **Create**
+Once all sections are filled out, choose **Create**
 
 ## Verifying your Agent Space setup
 
-Once configured, the **Operator access** button will appear on the Agent Space details page. Clicking it will open the Web App in a new tab and authenticate successfully.
+Once configured, the **Operator access** button will appear on the Agent Space details page. Choosing it will open the Web App in a new tab and authenticate successfully.
 
 ## Next steps
 

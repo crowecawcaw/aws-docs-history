@@ -35,15 +35,16 @@ MCP servers are registered at the AWS account level and shared among all Agent S
 1. Sign in to the AWS Management Console
 2. Navigate to the AWS DevOps Agent console
 3. Go to the **Capability Providers** page (accessible from the side navigation)
-4. Find **MCP Server** in the **Available** providers section and click **Register**
+4. Find **MCP Server** in the **Available** providers section and choose **Register**
 5. On the **MCP server details** page, enter the following information:
+
    - **Name** – Enter a descriptive name for your MCP server
    - **Endpoint URL** – Enter the full HTTPS URL of your MCP server endpoint
    - **Description** (optional) – Add a description to help identify the server's purpose
    - **Enable Dynamic Client Registration** – Select this checkbox if you want to allow AWS DevOps Agent to automatically register with your MCP server's authorization server
    - **Connect to endpoint using private connection** – Select this checkbox if you want AWS DevOps Agent to make requests to your MCP server privately. You may select an existing private connection or create a new one. If you use OAuth authentication, the private connection applies to both the MCP server endpoint and the token exchange endpoint. Ensure the private connection is configured with a host address that can route traffic to both endpoints. For more information, see [Connecting to privately hosted tools](configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md "configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md").
 
-6. Click **Next**
+6. Choose **Next**
 
 ###### Note
 
@@ -56,22 +57,22 @@ Select the authentication method for your MCP server:
 **OAuth Client Credentials** – If your MCP server uses OAuth Client Credentials flow:
 
 1. Select **OAuth Client Credentials**
-2. Click **Next**
+2. Choose **Next**
 
 **OAuth 3LO (Three-Legged OAuth)** – If your MCP server uses OAuth 3LO for authentication:
 
 1. Select **OAuth 3LO**
-2. Click **Next**
+2. Choose **Next**
 
 **API Key** – If your MCP server uses API key authentication:
 
 1. Select **API Key**
-2. Click **Next**
+2. Choose **Next**
 
 **AWS SigV4** – If your MCP server uses AWS Signature Version 4 authentication:
 
 1. Select **AWS SigV4**
-2. Click **Next**
+2. Choose **Next**
 
 ### Step 3: Authorization configuration
 
@@ -84,7 +85,7 @@ Configure additional authorization parameters based on the selected authenticati
 3. **Exchange URL** – Enter the OAuth token exchange endpoint URL
 4. **Exchange Parameters** – Enter OAuth token exchange parameters for authenticating with the service
 5. **Add Scope** – Add OAuth scopes for authentication
-6. Click **Next**
+6. Choose **Next**
 
 **For OAuth 3LO:**
 
@@ -94,32 +95,33 @@ Configure additional authorization parameters based on the selected authenticati
 4. **Authorization URL** - Enter the OAuth authorization endpoint URL
 5. **Code Challenge Support** - Select this checkbox if your OAuth client supports code challenge
 6. **Add Scope** – Add OAuth scopes for authentication
-7. Click **Next**
+7. Choose **Next**
 
 **For API Key:**
 
 1. Enter an API key name
 2. Enter the the name of the header that will contain the API key in the request
 3. Enter your API key value
-4. Click **Next**
+4. Choose **Next**
 
 **For AWS SigV4:**
 
 AWS SigV4 authentication allows AWS DevOps Agent to connect to MCP servers that use AWS Signature Version 4 for request signing. This is useful for MCP servers hosted behind Amazon API Gateway or other AWS services that support SigV4 authentication.
 
 1. **Configure IAM role** – Choose one of the following options:
-   - **Use an existing role** – Select an existing IAM role from the dropdown. The role must have a trust policy that allows the AWS DevOps Agent service principal to assume it (see [Creating an IAM role for SigV4 authentication](configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md "configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md")).
+
+   - **Use an existing role** – Select an existing IAM role from the dropdown. The role must have a trust policy that allows the AWS DevOps Agent service principal to assume it (see [Creating an IAM role for SigV4 authentication](configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md#creating-an-iam-role-for-sigv4-authentication "configuring-capabilities-for-aws-devops-agent-connecting-mcp-servers.md#creating-an-iam-role-for-sigv4-authentication")).
    - **Create a new role manually** – Follow the step-by-step instructions displayed in the console to create a new IAM role with the correct trust policy.
 
 2. **AWS Region** – Enter the AWS Region for SigV4 signing (for example, `us-east-1`). To use SigV4a multi-region signing, enter `*`.
 3. **Service Name** – Enter the AWS service name for SigV4 signing (for example, `execute-api` for API Gateway).
 4. **Custom Headers** (optional) – Add up to 10 custom key-value header pairs to include with each signed request.
-5. Click **Next**
+5. Choose **Next**
 
 ### Step 4: Review and submit
 
 1. Review all the MCP server configuration details
-2. Click **Submit** to complete the registration
+2. Choose **Submit** to complete the registration
 3. AWS DevOps Agent will validate the connection to your MCP server
 4. Upon successful validation, your MCP server will be registered at the account level
 
@@ -129,23 +131,24 @@ After registering an MCP server at the account level, you can configure which to
 
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
-3. In the **MCP Servers** section, click **Add**
+3. In the **MCP Servers** section, choose **Add**
 4. Select the registered MCP server you want to connect to this Agent Space
 5. Configure which tools from this MCP server should be available to the Agent Space:
+
    - **Allow all tools** – Makes all tools from the MCP server available
    - **Select specific tools** – Allows you to choose which tools to allowlist
 
-6. Click **Add** to connect the MCP server to your Agent Space
+6. Choose **Add** to connect the MCP server to your Agent Space
 
 AWS DevOps Agent will now be able to use the allowlisted tools from your MCP server during investigations in this Agent Space.
 
 ## Managing MCP server connections
 
-**Updating authentication credentials** – If your authentication credentials need to be updated, you will need to re-register your MCP server. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, locate your MCP server, remove any active associations, and click **Deregister**. Next, **register** your MCP server with the new authentication credentials and re-create any necessary associations with your Agent Space.
+**Updating authentication credentials** – If your authentication credentials need to be updated, you will need to re-register your MCP server. Navigate to the **Capability Providers** page in the AWS DevOps Agent console, locate your MCP server, remove any active associations, and choose **Deregister**. Next, **register** your MCP server with the new authentication credentials and re-create any necessary associations with your Agent Space.
 
 **Viewing connected MCP servers** – To see all MCP servers connected to your Agent Space, select your Agent Space, go to the **Capabilities** tab, and check the **MCP Servers** section. You can also update selected tools here.
 
-**Removing MCP server connections** – To disconnect an MCP server from an Agent Space, select the server in the **MCP Servers** section and click **Remove**. To completely delete an MCP server registration, remove it from all Agent Spaces first, then delete the account-level registration.
+**Removing MCP server connections** – To disconnect an MCP server from an Agent Space, select the server in the **MCP Servers** section and choose **Remove**. To completely delete an MCP server registration, remove it from all Agent Spaces first, then delete the account-level registration.
 
 ## Creating an IAM role for SigV4 authentication
 

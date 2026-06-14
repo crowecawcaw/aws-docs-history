@@ -16,13 +16,14 @@ Establish connection to your Datadog remote MCP endpoint with account access cre
 #### Configuration
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
-2. Find **Datadog** in the **Available** providers section under **Telemetry** and click **Register**
+2. Find **Datadog** in the **Available** providers section under **Telemetry** and choose **Register**
 3. Enter your Datadog MCP server details:
+
    - **Server Name** - Unique identifier (e.g., my-datadog-server)
    - **Endpoint URL** - Your Datadog MCP server endpoint. The endpoint URL varies depending on your Datadog site. See the Datadog site endpoint table below.
    - **Description** - Optional server description
 
-4. Click Next
+4. Choose Next
 5. Review and submit
 
 #### Datadog site endpoints
@@ -43,7 +44,7 @@ The MCP endpoint URL varies depending on your Datadog site. To identify your sit
 Complete OAuth authorization by:
 
 - Authorizing as your user on the Datadog OAuth page
-- If not logged in, click Allow, login, then authorize
+- If not logged in, choose Allow, login, then authorize
 
 Once configured, Datadog becomes available across all Agent spaces.
 

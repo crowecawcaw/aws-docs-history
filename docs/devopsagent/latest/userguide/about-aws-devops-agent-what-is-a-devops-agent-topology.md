@@ -23,9 +23,19 @@ Resource mapping provides several capabilities that enhance incident investigati
 
 ## Topology views
 
-The topology visualization in the Topology page in the Operator Web App offers multiple levels of detail:
+The topology visualization in the Topology page in the Operator Web App offers multiple levels of detail, organized into two categories:
 
-- **Learned** – The default view, generated from the Agent Space Understanding skill. Displays a structured summary of your infrastructure organized by logical services and request paths.
+### Learned
+
+Learned view is generated from the Agent Space understanding and pipeline skill and display structured summaries of your infrastructure. The following learned views are available:
+
+- **Topology** – The default view, generated from the Agent Space Understanding skill. Displays a structured summary of your infrastructure organized by logical services and request paths.
+- **Pipeline** – Displays your CI/CD pipeline topology, showing deployment stages, actions, and their relationships to infrastructure resources. This view is only available when pipeline topology has been generated for your agent space.
+
+### Others
+
+This view shows your infrastructure at different levels of granularity based on raw resource discovery data:
+
 - **System** – Shows high-level account and region boundaries.
 - **Container** – Displays deployment stacks like CloudFormation stacks that contain related resources.
 - **Components** – Shows individual components within containers and their relationships.

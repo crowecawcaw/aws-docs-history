@@ -50,7 +50,7 @@ In the **Connect [Agent Space] to IAM Identity Center** section:
 - Use the provided policy details to create your own custom role in the IAM Console
 - Choose this option if you need to customize the role permissions
 
-After clicking Connect, the system automatically:
+After choosing Connect, the system automatically:
 
 - Creates or configures the specified IAM role
 - Sets up an IAM Identity Center application for your Agent Space
@@ -62,7 +62,7 @@ After clicking Connect, the system automatically:
 If you want to access the Agent Space web app immediately without setting up IAM Identity Center:
 
 1. In the **Admin access** section, note the IAM Role ARN that provides administrator access (for example, `arn:aws:iam::440491339484:role/service-role/DevOpsAgentRole-WebappAdmin-15ppoc42`)
-2. Click the blue **Admin access** button to launch the Agent Space web app with IAM authentication
+2. Choose the **Admin access** button to launch the Agent Space web app with IAM authentication
 3. Sessions using this method are limited to 30 minutes
 
 ###### Note
@@ -85,14 +85,14 @@ After configuring IAM Identity Center authentication, you need to grant specific
 
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Access** tab
-3. Under **User Access**, click **Manage Users and Groups**
+3. Under **User Access**, choose **Manage Users and Groups**
 
 ### Step 2: Add users or groups
 
 1. Choose **Add Users or Groups**
 2. Search for users or groups in your IAM Identity Center directory
 3. Select the checkboxes next to the users or groups you want to add
-4. Click **Add** to grant them access
+4. Choose **Add** to grant them access
 
 The selected users can now access the Agent Space web app using their IAM Identity Center credentials.
 
@@ -125,7 +125,7 @@ You can update user access at any time:
 **Removing access:**
 
 1. In the **User Access** section, find the user or group to remove
-2. Click the **Remove** button next to their name
+2. Choose the **Remove** button next to their name
 3. Confirm the removal
 
 Removed users will lose access immediately, but active sessions may continue until they expire.
@@ -148,5 +148,5 @@ To configure session duration:
 
 ## Disconnecting Identity Center
 
-1. In your Agent Space’s console, click **Actions** in the top-right and select **Disconnect from IAM Identity Center**
+1. In your Agent Space’s console, choose **Actions** in the top-right and select **Disconnect from IAM Identity Center**
 2. Confirm in confirmation dialog

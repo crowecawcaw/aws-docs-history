@@ -21,20 +21,21 @@ Grafana is registered at the AWS account level and shared among all Agent Spaces
 1. Sign in to the AWS Management Console
 2. Navigate to the AWS DevOps Agent console
 3. Go to the **Capability Providers** page (accessible from the side navigation)
-4. Find **Grafana** in the **Available** providers section under **Telemetry** and click **Register**
+4. Find **Grafana** in the **Available** providers section under **Telemetry** and choose **Register**
 5. On the **Configure Grafana** page, enter the following information:
+
    - **Service Name** (required) – Enter a descriptive name for your Grafana server using alphanumeric characters, hyphens, and underscores only. For example, `my-grafana-server`.
    - **Grafana URL** (required) – Enter the full HTTPS URL of your Grafana instance. For example, `https://myinstance.grafana.net`.
    - **Service Account Access Token** (required) – Enter a Grafana service account access token. Tokens typically start with `glsa_`. To create a service account token, navigate to your Grafana instance, go to **Administration > Service accounts**, create a service account with Viewer role, and generate a token.
    - **Description** (optional) – Add a description to help identify the server's purpose. For example, `Production Grafana server for monitoring`.
 
 6. (Optional) Add AWS tags to the registration for organizational purposes.
-7. Click **Next**
+7. Choose **Next**
 
 ### Step 2: Review and submit Grafana registration
 
 1. Review all the Grafana configuration details
-2. Click **Submit** to complete the registration
+2. Choose **Submit** to complete the registration
 3. Upon successful registration, Grafana appears in the **Currently registered** section of the Capability Providers page
 
 ## Adding Grafana to an Agent Space
@@ -43,9 +44,9 @@ After registering Grafana at the account level, you can connect it to individual
 
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
-3. In the **Telemetry** section, click **Add**
+3. In the **Telemetry** section, choose **Add**
 4. Select **Grafana** from the list of available providers
-5. Click **Save**
+5. Choose **Save**
 
 ## Configuring Grafana alert webhooks
 
@@ -82,19 +83,19 @@ This template formats Grafana alerts into the webhook payload structure expected
 
 ### Step 2: Create a webhook contact point
 
-1. In Grafana, navigate to **Alerting > Contact points** and click **Add contact point**
+1. In Grafana, navigate to **Alerting > Contact points** and choose **Add contact point**
 2. Select **Webhook** as the integration type
 3. Set the **URL** to your AWS DevOps Agent webhook endpoint
 4. Under **Optional Webhook settings**, configure the authentication headers based on your webhook type. See [Webhook authentication methods](configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md "configuring-capabilities-for-aws-devops-agent-invoking-devops-agent-through-webhook.md") for details.
 5. Set the **Custom Payload** field to use your custom template: `{{ template "devops-agent-payload" . }}`
-6. Click **Save contact point**
+6. Choose **Save contact point**
 
 ### Step 3: Assign the contact point to a notification policy
 
 1. Navigate to **Alerting > Notification policies**
 2. Edit an existing policy or create a new one
 3. Set the contact point to the webhook contact point you created
-4. Click **Save policy**
+4. Choose **Save policy**
 
 When a matching alert fires, Grafana will send the formatted payload to AWS DevOps Agent, which will start an investigation automatically.
 
@@ -114,4 +115,4 @@ If you are using [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https
 
 - **Updating credentials** – If your service account token expires or needs to be updated, deregister Grafana from the Capability Providers page and re-register with the new token.
 - **Viewing connected instances** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected telemetry sources.
-- **Removing Grafana** – To disconnect Grafana from an Agent Space, select it in the Telemetry section and click **Remove**. To completely remove the registration, remove it from all Agent Spaces first, then deregister from the Capability Providers page.
+- **Removing Grafana** – To disconnect Grafana from an Agent Space, select it in the Telemetry section and choose **Remove**. To completely remove the registration, remove it from all Agent Spaces first, then deregister from the Capability Providers page.

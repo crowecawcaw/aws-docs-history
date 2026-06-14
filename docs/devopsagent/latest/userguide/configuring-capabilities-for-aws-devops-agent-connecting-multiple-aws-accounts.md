@@ -20,7 +20,7 @@ In addition to the steps below, you can use the [AWS DevOps Agent CLI onboarding
 2. Select your Agent Space
 3. Go to the **Capabilities** tab
 4. In the **Cloud** section, locate the **Secondary sources** subsection
-5. Click **Add**
+5. Choose **Add**
 
 ### Step 2: Specify the role name
 
@@ -34,37 +34,37 @@ In addition to the steps below, you can use the [AWS DevOps Agent CLI onboarding
 2. Navigate to **IAM >\*\***Roles** > **Create role\*\*
 3. Select **Custom trust policy**
 4. Paste the trust policy you copied from Step 2
-5. Click **Next**
+5. Choose **Next**
 
 ### Step 4: Attach the AWS managed policy
 
 1. In the **Permissions policies** section, search for **AIDevOpsAgentAccessPolicy**
 2. Select the checkbox next to the **AIDevOpsAgentAccessPolicy** managed policy
-3. Click **Next**
+3. Choose **Next**
 
 ### Step 5: Name and create the role
 
 1. In the **Role name** field, enter the same role name you provided in Step 2
 2. (Optional) Add a description to help identify the role's purpose
 3. Review the trust policy and attached permissions
-4. Click **Create role**
+4. Choose **Create role**
 
 ### Step 6: Attach the inline policy
 
 1. In the IAM console, locate and select the role you just created
 2. Go to the **Permissions** tab
-3. Click **Add permissions** > **Create inline policy**
+3. Choose **Add permissions** > **Create inline policy**
 4. Switch to the **JSON** tab
 5. Paste the policy you saved in Step 2
 6. Paste the policy into the JSON editor in the IAM console
-7. Click **Next**
+7. Choose **Next**
 8. Provide a name for the inline policy (for example, "DevOpsAgentInlinePolicy")
-9. Click **Create policy**
+9. Choose **Create policy**
 
 ### Step 7: Complete the configuration
 
 1. Return to the AWS DevOps Agent console in the primary account
-2. Click **Next** to complete the secondary account configuration
+2. Choose **Next** to complete the secondary account configuration
 3. Verify the connection status shows as **Active**
 
 ## Understanding the required policies
@@ -81,4 +81,4 @@ In the primary account, the AWS DevOps Agent IAM Role must be able to assume the
 
 - **Viewing connected accounts** – In the **Capabilities** tab, the **Secondary sources** subsection lists all connected secondary accounts with their connection status.
 - **Updating the IAM role** – If you need to modify permissions, update the inline policy attached to the role in the secondary account. Changes take effect immediately.
-- **Removing a secondary account** – To disconnect a secondary account, select it in the **Secondary sources** list and click **Remove**. This does not delete the IAM role in the secondary account.
+- **Removing a secondary account** – To disconnect a secondary account, select it in the **Secondary sources** list and choose **Remove**. This does not delete the IAM role in the secondary account.

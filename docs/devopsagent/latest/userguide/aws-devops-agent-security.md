@@ -36,6 +36,14 @@ AWS DevOps Agent will securely route your inference requests to available comput
 - DevOps Agent and Bedrock are not impacted by customer policies in Service Control Policies (SCPs) or Control Tower that restrict customer content to specific regions
 - Bedrock may use regions other than the originating region within your geography to perform stateless inference to optimize performance and availability
 
+### Global cross-Region inference for specific Regions
+
+For the following Regions, the geography-based routing described above does not apply. Instead, AWS DevOps Agent will automatically select the optimal region globally to process your inference requests.
+
+- Asia Pacific (Singapore) – `ap-southeast-1`
+- Asia Pacific (Mumbai) – `ap-south-1`
+- South America (São Paulo) – `sa-east-1`
+
 ## Identity and access management
 
 ### Authentication methods
@@ -105,12 +113,13 @@ Prompt injection safeguards:
 
 While AWS DevOps Agent provides multiple layers of protection against prompt injection attacks, certain configurations can increase risk:
 
-- **Custom MCP server tools** – The bring-your-own MCP feature allows you to introduce custom tools to the agent, which can present additional opportunities for prompt injection. Custom tools may not have the same security controls as native AWS DevOps Agent tools, and malicious instructions could potentially leverage these tools in unintended ways. See [Shared responsibility model](aws-devops-agent-security.md "aws-devops-agent-security.md") section for more.
+- **Custom MCP server tools** – The bring-your-own MCP feature allows you to introduce custom tools to the agent, which can present additional opportunities for prompt injection. Custom tools may not have the same security controls as native AWS DevOps Agent tools, and malicious instructions could potentially use these tools in unintended ways. See [Shared responsibility model](aws-devops-agent-security.md "aws-devops-agent-security.md") section for more.
 - **Authorized user attacks** – Users who are authorized to operate within the AWS account boundary or connected tools have a higher chance of attempting an attack against the agent. These users may have the ability to modify data sources that the agent consumes, such as logs or resource tags, making it easier to embed malicious instructions that the agent will process.
 
 To mitigate these risks:
 
 1. Carefully review and test custom MCP servers before deploying them in Agent Spaces.
+
    1. Ensure they are only permitted to perform read-only actions
    2. Verify that users of external tools accessed by MCP servers are trusted entities, as AWS DevOps Agents interfacing with MCP rely on the implicit trust relationship established between these tool users and the AWS DevOps Agent
 
@@ -123,7 +132,7 @@ To mitigate these risks:
 AWS DevOps Agent supports several integration types, each with its own security model:
 
 - **Native bidirectional integrations** – Built-in integrations that can send data to the agent and receive updates from the agent. This uses the vendor’s authentication methods
-- **MCP servers** – Remote Model Context Protocol servers that utilize OAuth 2.0 authentication flows and API keys to securely communicate with external systems.
+- **MCP servers** – Remote Model Context Protocol servers that use OAuth 2.0 authentication flows and API keys to securely communicate with external systems.
 - **Webhook triggers** – Investigation triggers from remote services such as tickets or observability systems. Webhooks use Hash-based Message Authentication Code (HMAC) for security.
 - **Outbound communication** – Integrations like Slack and ticketing systems receive updates from the agent but do not yet support bidirectional communication.
 
@@ -153,7 +162,9 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
 
 - **Privately hosted tools** – If your tools are reachable from within an AWS VPC, you can use AWS DevOps Agent _private connections_ to keep traffic isolated to AWS networks, and off of the public internet. For more information, see [Connecting to privately hosted tools](configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md "configuring-capabilities-for-aws-devops-agent-connecting-to-privately-hosted-tools.md").
 - **Publicly hosted tools** – If your tools are reachable over the public internet and use IP allowlisting or firewall rules, you must allow inbound traffic from the following AWS DevOps Agent source IP addresses:
+
   - Asia Pacific (Sydney) (ap-southeast-2)
+
     - `13.237.95.197`
     - `13.238.84.102`
     - `52.64.174.242`
@@ -162,6 +173,7 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
     - `3.107.145.226`
 
   - Asia Pacific (Tokyo) (ap-northeast-1)
+
     - `13.192.12.233`
     - `35.74.181.230`
     - `57.183.50.158`
@@ -170,6 +182,7 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
     - `46.51.224.121`
 
   - Europe (Frankfurt) (eu-central-1)
+
     - `18.158.110.140`
     - `52.57.96.160`
     - `52.59.55.56`
@@ -178,6 +191,7 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
     - `63.184.36.38`
 
   - Europe (Ireland) (eu-west-1)
+
     - `34.251.85.24`
     - `52.30.157.157`
     - `52.51.192.222`
@@ -186,6 +200,7 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
     - `52.212.224.65`
 
   - US East (N. Virginia) (us-east-1)
+
     - `34.228.181.128`
     - `44.219.176.187`
     - `54.226.244.221`
@@ -194,6 +209,7 @@ AWS DevOps Agent initiates outbound connections to your third-party systems and 
     - `44.215.92.10`
 
   - US West (Oregon) (us-west-2)
+
     - `34.212.16.133`
     - `52.89.67.212`
     - `54.187.135.61`

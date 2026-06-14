@@ -11,7 +11,7 @@ GitLab is registered at the AWS account level and shared among all Agent Spaces 
 1. Sign in to the AWS Management Console
 2. Navigate to the AWS DevOps Agent console
 3. Go to the **Capability Providers** page (accessible from the side navigation)
-4. Find **GitLab** in the **Available** providers section under **Pipeline** and click **Register**
+4. Find **GitLab** in the **Available** providers section under **Pipeline** and choose **Register**
 
 ### Step 2: Configure GitLab connection
 
@@ -36,6 +36,7 @@ Currently, only publicly accessible GitLab instances are supported.
 1. In a separate browser tab, log in to your GitLab account
 2. Navigate to your user settings and select **Access Tokens**
 3. Create a new personal access token with the following permissions:
+
    - `read_repository` – Required to access repository content
    - `read_virtual_registry` – Required to access virtual registry information
    - `read_registry` – Required to access registry information
@@ -51,7 +52,7 @@ Currently, only publicly accessible GitLab instances are supported.
 
 **(Optional) Tags** – Add AWS tags to the GitLab registration for organizational purposes.
 
-Click **Next** to review your configuration, then click **Submit** to complete the GitLab registration process. The system will validate your access token and establish the connection.
+Choose **Next** to review your configuration, then choose **Submit** to complete the GitLab registration process. The system will validate your access token and establish the connection.
 
 ## Connecting projects to an Agent Space
 
@@ -59,10 +60,10 @@ After registering GitLab at the account level, you can connect specific projects
 
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
-3. In the **Pipeline** section, click **Add**
+3. In the **Pipeline** section, choose **Add**
 4. Select **GitLab** from the list of available providers
 5. Select the GitLab projects relevant to your Agent Space
-6. Click **Save**
+6. Choose **Save**
 
 AWS DevOps Agent will monitor these projects for deployments from GitLab Pipelines to inform causal investigations.
 
@@ -70,4 +71,4 @@ AWS DevOps Agent will monitor these projects for deployments from GitLab Pipelin
 
 - **Updating access token** – If your access token expires or needs to be updated, you can update it in the AWS DevOps Agent console by modifying the GitLab registration at the account level.
 - **Viewing connected projects** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected projects in the Pipeline section.
-- **Removing GitLab connection** – To disconnect GitLab projects from an Agent Space, select the connection in the Pipeline section and click **Remove**. To remove the GitLab registration completely, remove it from all Agent Spaces first, then delete the registration at the account level.
+- **Removing GitLab connection** – To disconnect GitLab projects from an Agent Space, select the connection in the Pipeline section and choose **Remove**. To remove the GitLab registration completely, remove it from all Agent Spaces first, then delete the registration at the account level.

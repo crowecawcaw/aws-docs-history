@@ -229,7 +229,7 @@ From the DevOps Agent console in the AWS Management Console...
 From the DevOps Agent console in the AWS Management Console...
 
 - Select the **Capabilities** tab
-- Select the secondary account you want to edit from the **Cloud** section and click Edit
+- Select the secondary account you want to edit from the **Cloud** section and choose Edit
 - Chose **Create a new DevOps Agent policy using a template** and follow the instructions
 
 ## Custom policy best practices

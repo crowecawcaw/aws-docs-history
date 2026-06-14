@@ -38,8 +38,9 @@ Establish connection to your Splunk remote MCP endpoint with account access cred
 #### Configuration
 
 1. Go to the **Capability Providers** page (accessible from the side navigation)
-2. Find **Splunk** in the **Available** providers section under **Telemetry** and click **Register**
+2. Find **Splunk** in the **Available** providers section under **Telemetry** and choose **Register**
 3. Enter your Splunk MCP server details:
+
    - **Server Name** - Unique identifier (e.g., my-splunk-server)
    - **Endpoint URL** - Your Splunk MCP server endpoint:
 

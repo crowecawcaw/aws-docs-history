@@ -1,6 +1,6 @@
 # Agent instructions
 
-Use agent instructions to provide always-on guidance that AWS DevOps Agent applies to every session. A session is a single conversation or investigation with an agent. On the **Agents** page in your Agent Space Operator Web App, you can set **Global instructions** that apply to all agents, or set instructions for a specific managed agent such as Chat or Incident triage. These instructions are stored as an AGENTS.md file. Unlike [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md"), which load on demand when the agent matches a skill description to the current task, agent instructions are always present from the start of every session, regardless of what the agent is working on.
+Use agent instructions to provide always-on guidance that AWS DevOps Agent applies to every session. A session is a single conversation or investigation with an agent. On the **Knowledge** page in your Agent Space Operator Web App, choose the **Instructions** tab to set instructions that apply to all agents, or set instructions for a specific managed agent such as Chat or Incident triage. These instructions are stored as an AGENTS.md file. Unlike [DevOps Agent Skills](about-aws-devops-agent-devops-agent-skills.md "about-aws-devops-agent-devops-agent-skills.md"), which load on demand when the agent matches a skill description to the current task, agent instructions are always present from the start of every session, regardless of what the agent is working on.
 
 ## What are agent instructions
 
@@ -91,23 +91,25 @@ Each agent has exactly one set of instructions. When you save new content, it ov
 
 **To set global instructions (applies to all agents):**
 
-1. Navigate to the **Agents** page in your Agent Space Operator Web App.
-2. Choose **View** next to **Global instructions**.
-3. Enter your markdown instructions in the editor.
-4. Choose **Save**.
+1. Navigate to the **Knowledge** page in your Agent Space Operator Web App.
+2. Choose the **Instructions** tab.
+3. Choose **View** next to **All agents**.
+4. Enter your markdown instructions in the editor.
+5. Choose **Save**.
 
 **To set instructions for a specific agent:**
 
-1. Navigate to the **Agents** page in your Agent Space Operator Web App.
-2. Under **Managed agents**, choose **View** next to the agent you want to configure: **Chat**, **Incident triage**, **Incident RCA**, **Incident mitigation**, or **Evaluation**.
-3. Enter your markdown instructions in the editor.
-4. Choose **Save**.
+1. Navigate to the **Knowledge** page in your Agent Space Operator Web App.
+2. Choose the **Instructions** tab.
+3. Choose **View** next to the agent you want to configure: **Chat**, **Incident triage**, **Incident RCA**, **Incident mitigation**, or **Evaluation**.
+4. Enter your markdown instructions in the editor.
+5. Choose **Save**.
 
 ## Managing agent instructions
 
 AWS DevOps Agent provides management capabilities for agent instructions through the Operator Web App.
 
-**Viewing instructions:** Navigate to the **Agents** page and choose **View** next to **Global instructions** or the specific managed agent. The editor shows the current content. Use the **Preview** tab to see the rendered markdown or the **Code** tab to see the raw markdown.
+**Viewing instructions:** Navigate to the **Knowledge** page, choose the **Instructions** tab, and choose **View** next to **All agents** or the specific managed agent. The editor shows the current content. Use the **Preview** tab to see the rendered markdown or the **Code** tab to see the raw markdown.
 
 **Editing instructions:** Open the agent as described above, modify the content in the editor, and choose **Save**.
 

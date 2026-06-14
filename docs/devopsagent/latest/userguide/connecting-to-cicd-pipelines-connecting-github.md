@@ -27,7 +27,7 @@ GitHub is registered at the AWS account level and shared among all Agent Spaces 
 1. Sign in to the AWS Management Console
 2. Navigate to the AWS DevOps Agent console
 3. Go to the **Capabilities** tab
-4. In the **Pipeline** section, click **Add**
+4. In the **Pipeline** section, choose **Add**
 5. Select **GitHub** from the list of available providers
 
 If GitHub hasn't been registered yet, you'll be prompted to register it first.
@@ -49,7 +49,7 @@ Do not include `/api/v3` or any trailing path in the URL — enter only the base
 
 ### Step 3: Set up the GitHub App
 
-Click **Submit** to begin the app setup process. The next steps differ depending on whether you are connecting to GitHub.com or GitHub Enterprise Server.
+Choose **Submit** to begin the app setup process. The next steps differ depending on whether you are connecting to GitHub.com or GitHub Enterprise Server.
 
 #### For GitHub.com
 
@@ -62,17 +62,18 @@ Click **Submit** to begin the app setup process. The next steps differ depending
 GitHub Enterprise Server uses a GitHub App Manifest flow, which automatically sets up a new GitHub App on your instance. This involves two redirects to your GitHub Enterprise Server instance.
 
 1. Your browser will be redirected to your GitHub Enterprise Server instance's "Create GitHub App" page.
-2. You'll see the app name pre-filled. Feel free to change the name as needed. Click **Create GitHub App**.
+2. You'll see the app name pre-filled. Feel free to change the name as needed. Choose **Create GitHub App**.
 3. You'll be redirected back to AWS DevOps Agent, which exchanges the manifest code for app credentials.
 
 ### Step 4: Select repositories and complete installation
 
 1. You'll see the **Install & Authorize** page for the GitHub App.
 2. Select which repositories to allow the app to access:
+
    - **All repositories** – Grant access to all current and future repositories
    - **Only select repositories** – Choose specific repositories from your account or organization
 
-3. Click **Install & Authorize**.
+3. Choose **Install & Authorize**.
 4. You'll be redirected back to the AWS DevOps Agent console, where GitHub will appear as registered at the account level.
 
 ## Connecting repositories to an Agent Space
@@ -81,10 +82,10 @@ After registering GitHub at the account level, you can connect specific reposito
 
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
-3. In the **Pipeline** section, click **Add**
+3. In the **Pipeline** section, choose **Add**
 4. Select **GitHub** from the list of available providers
 5. Select the subset of repositories relevant to this Agent Space
-6. Click **Add** to complete the connection
+6. Choose **Add** to complete the connection
 
 You can connect different sets of repositories to different Agent Spaces based on your organizational needs.
 
@@ -117,6 +118,7 @@ Until you accept a permission update, AWS DevOps Agent continues to operate with
 
 - **Updating repository access** – To change which repositories the GitHub app can access, go to your GitHub account or organization settings (or your GitHub Enterprise Server instance settings), navigate to installed GitHub apps, and modify the AWS DevOps Agent app configuration.
 - **Viewing connected repositories** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected repositories in the Pipeline section.
-- **Removing GitHub connection** – To disconnect GitHub from an Agent Space, select the connection in the Pipeline section and click **Remove**. To uninstall the GitHub app completely, uninstall it from your GitHub account or organization settings. For GitHub Enterprise Server, because the GitHub App is created directly on your instance during registration, you can optionally clean up the app entirely by performing both of the following:
-  - **Uninstall the app** – Go to **Settings > Applications > Installed GitHub Apps**, click **Configure** on the app, then uninstall it.
+- **Removing GitHub connection** – To disconnect GitHub from an Agent Space, select the connection in the Pipeline section and choose **Remove**. To uninstall the GitHub app completely, uninstall it from your GitHub account or organization settings. For GitHub Enterprise Server, because the GitHub App is created directly on your instance during registration, you can optionally clean up the app entirely by performing both of the following:
+
+  - **Uninstall the app** – Go to **Settings > Applications > Installed GitHub Apps**, choose **Configure** on the app, then uninstall it.
   - **Delete the app** – Go to **Settings > Developer settings > GitHub Apps**, select the app, go to the **Advanced** tab, and choose **Delete GitHub App**. **Warning:** Deleting the GitHub App is permanent and cannot be undone. If you delete it, you will need to re-register GitHub Enterprise Server from the beginning in the AWS DevOps Agent console to create a new app.

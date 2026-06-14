@@ -22,7 +22,7 @@ PagerDuty is registered at the AWS account level and shared among all Agent Spac
 1. Sign in to the AWS Management Console
 2. Navigate to the AWS DevOps Agent console
 3. Go to the **Capability Providers** page (accessible from the side navigation)
-4. Find **PagerDuty** in the **Available** providers section under **Communication** and click **Register**
+4. Find **PagerDuty** in the **Available** providers section under **Communication** and choose **Register**
 5. Follow the guided setup on the **Configure access in PagerDuty** page:
 
 **Check your service region and subdomain:**
@@ -33,12 +33,12 @@ PagerDuty is registered at the AWS account level and shared among all Agent Spac
 
 - In a separate browser tab, log in to PagerDuty and navigate to **Integrations > App Registration**
 - Create a new app using **OAuth 2.0 Scoped OAuth**
-- Under **Permissions**, grant the following minimum required scopes: `incidents.read`, `incidents.write`, and `services.read`
+- Under **Permissions**, grant the following minimum required scopes: `incidents.read`, `incidents.write`, `services.read`, `webhook_subscriptions.read`, and `webhook_subscriptions.write`
 - Enable **Events Integration** to allow bi-directional communication between AWS DevOps Agent and PagerDuty
 
 **Configure OAuth credentials:**
 
-- **Permission scope** – The minimum required scopes are: `incidents.read`, `incidents.write`, `services.read`
+- **Permission scope** – The minimum required scopes are: `incidents.read`, `incidents.write`, `services.read`, `webhook_subscriptions.read`, `webhook_subscriptions.write`
 - **Client name** – Enter a descriptive name for your OAuth client
 - **Client ID** – Enter the OAuth client ID from your PagerDuty app registration
 - **Client secret** – Enter the OAuth client secret from your PagerDuty app registration
@@ -46,7 +46,7 @@ PagerDuty is registered at the AWS account level and shared among all Agent Spac
 ### Step 2: Review and submit PagerDuty registration
 
 1. Review all the PagerDuty configuration details
-2. Click **Submit** to complete the registration
+2. Choose **Submit** to complete the registration
 3. Upon successful registration, PagerDuty appears in the **Currently registered** section of the Capability Providers page
 
 ## Adding PagerDuty to an Agent Space
@@ -55,15 +55,15 @@ After registering PagerDuty at the account level, you can connect it to individu
 
 1. In the AWS DevOps Agent console, select your Agent Space
 2. Go to the **Capabilities** tab
-3. In the **Communications** section, click **Add**
+3. In the **Communications** section, choose **Add**
 4. Select **PagerDuty** from the list of available providers
-5. Click **Save**
+5. Choose **Save**
 
 ## Managing PagerDuty connections
 
 - **Updating credentials** – If your OAuth credentials need to be updated, deregister PagerDuty from the Capability Providers page and re-register with the new credentials.
 - **Viewing connections** – In the AWS DevOps Agent console, select your Agent Space and go to the Capabilities tab to view connected communication integrations.
-- **Removing PagerDuty** – To disconnect PagerDuty from an Agent Space, select it in the Communications section and click **Remove**. To completely remove the registration, remove it from all Agent Spaces first, then deregister from the Capability Providers page.
+- **Removing PagerDuty** – To disconnect PagerDuty from an Agent Space, select it in the Communications section and choose **Remove**. To completely remove the registration, remove it from all Agent Spaces first, then deregister from the Capability Providers page.
 
 ## Webhook support
 
