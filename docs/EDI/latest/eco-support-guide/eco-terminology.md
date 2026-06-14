@@ -13,6 +13,7 @@ ECO uses the following general terms:
 - Incident: An unplanned interruption or performance degradation that affects your EDI environment and is reported by ECO or you.
 - Problem: A shared underlying root cause of one or more incidents.
 - Incident resolution:
+
   - ECO has restored all unavailable EDI services or resources that pertain to the incident to an available state.
   - Or ECO has determined that they can't restore unavailable stacks or resources to an available state.
 

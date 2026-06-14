@@ -7,6 +7,7 @@ _AMS Accelerate User Guide_.
 EDI on AWS supports the following AWS Regions, languages, and operating systems:
 
 - **AWS Regions:**
+
   - US East (N. Virginia)
   - US West (Oregon)
   - Asia Pacific (Singapore)

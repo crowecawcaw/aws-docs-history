@@ -14,6 +14,7 @@ The console has the following features:
 
 - Opening page – Has information and a **Get started** text box with a link to the **Dashboard** that
   includes the following information:
+
   - **Incidents on your resources** – Has a button to open an incident case in AWS Support Center, and shows how many incident cases are
     open, waiting for approval and require your attention
   - **Compliance status** – Links to the **Rules and Resources** page that shows are noncompliant and compliant
@@ -25,6 +26,7 @@ The console has the following features:
   - **Quick actions** – Links to **Go to backup vaults** and **Create patch maintenance window**
 
 - Feature pages in the left-hand navigation pane:
+
   - **Dashboard** – Includes the preceding information
   - **Reports** – Opens a page with links to your current ECO reports
   - **Configuration** – Opens a page with links to common AMS configuration tasks
