@@ -48,11 +48,13 @@ writing reviews:
 AWS reserves the right to remove reviews that include any of the following content:
 
 - Objectional material, including:
+
   - Obscene or distasteful content
   - Profanity or spiteful remarks
   - Promotion of illegal or immoral conduct
 
 - Promotional content, including:
+
   - Advertisements, promotional material, or repeated posts that make the same point
   - Sentiments by or on behalf of a person or company with a financial interest in the expert
     or firm or a directly competing expert or firm
@@ -60,6 +62,7 @@ AWS reserves the right to remove reviews that include any of the following conte
   - Reviews written by a customer without a verifiable completed proposal
 
 - Inappropriate content, including:
+
   - Content copied from others, including excessive quotations
   - Phone numbers, postal mailing addresses, and URLs external to [amazon.com](http://amazon.com "http://amazon.com").
   - Comments on other reviews visible on the page, because page visibility is subject to
