@@ -9,6 +9,7 @@ exports.
 
 1. Create an export of CUR 2.0 or Carbon emissions with the following data export
    delivery options:
+
    - Compression type and file format: Parquet - Parquet
    - File versioning: Overwrite existing data export file
 

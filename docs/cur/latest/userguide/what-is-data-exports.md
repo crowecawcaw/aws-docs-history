@@ -17,6 +17,7 @@ There are five export types:
 - **Standard data export**, with
   four
   different tables to choose from:
+
   - Cost and Usage Report 2.0 (CUR 2.0)
 
   ###### Note

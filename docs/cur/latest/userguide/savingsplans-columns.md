@@ -24,6 +24,7 @@ Plans?](../../../savingsplans/latest/userguide/what-is-savings-plans.md "../../.
 - **Line items applicable:**
   SavingsPlanRecurringFee
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -39,6 +40,7 @@ Plans?](../../../savingsplans/latest/userguide/what-is-savings-plans.md "../../.
   SavingsPlanCoveredUsage, SavingsPlanNegation, SavingsPlanUpfrontFee,
   SavingsPlanRecurringFee
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -55,6 +57,7 @@ Plans?](../../../savingsplans/latest/userguide/what-is-savings-plans.md "../../.
 - **Sample values:**
   `m4`, `g2`
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -93,6 +96,7 @@ applicable billing period.
   `ComputeSavingsPlans`, `EC2InstanceSavingsPlans`,
   `SageMakerSavingsPlans`
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -111,6 +115,7 @@ applicable billing period.
   `Partial Upfront`, `All Upfront`, `No
  Upfront`
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -126,6 +131,7 @@ applicable billing period.
 - **Sample values:**
   `1yr`, `3yr`
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -142,6 +148,7 @@ applicable billing period.
 - **Line items applicable:**
   SavingsPlanRecurringFee
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -160,6 +167,7 @@ applicable billing period.
   `US East (Ohio)`, `Asia Pacific (Mumbai)`,
   `Europe (Ireland)`
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -174,6 +182,7 @@ applicable billing period.
 - **Line items applicable:**
   SavingsPlanUpfrontFee
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -187,6 +196,7 @@ applicable billing period.
 - **Line items applicable:**
   SavingsPlanCoveredUsage
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -199,6 +209,7 @@ applicable billing period.
 - **Line items applicable:**
   SavingsPlanCoveredUsage
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -212,6 +223,7 @@ applicable billing period.
   SavingsPlanCoveredUsage, SavingsPlanNegation, SavingsPlanUpfrontFee,
   SavingsPlanRecurringFee
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -227,6 +239,7 @@ applicable billing period.
 - **Line items applicable:**
   SavingsPlanRecurringFee
 - **Services:**
+
   - Amazon EC2
   - Fargate
   - AWS Lambda
@@ -242,6 +255,7 @@ applicable billing period.
 - **Line items applicable:**
   SavingsPlanRecurringFee
 - **Services:**
+
   - Amazon EC2
   - AWS Lambda
   - Fargate

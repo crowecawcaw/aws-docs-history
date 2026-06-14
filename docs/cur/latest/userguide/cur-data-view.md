@@ -39,6 +39,7 @@ The legacy AWS Cost and Usage Report page supports reports only for billing grou
 12. Choose **Next**.
 13. For **S3 bucket**, choose **Configure**.
 14. In the **Configure S3 Bucket** dialog box, do one of the following:
+
     - Choose an existing bucket from the drop down list and choose **Next**.
     - Enter a bucket name and the AWS Region where you want to create a new bucket and choose **Next**.
 

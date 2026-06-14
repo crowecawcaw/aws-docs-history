@@ -58,6 +58,7 @@ following:
 13. For **Report data integration**, select whether you want to enable
     your AWS CUR to integrate with Amazon Athena, Amazon Redshift, or Quick. The report is compressed in the
     following formats:
+
     - **Athena**: Parquet format
     - **Amazon Redshift or Quick**: .gz compression
 

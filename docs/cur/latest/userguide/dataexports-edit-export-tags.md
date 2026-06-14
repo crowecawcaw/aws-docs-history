@@ -11,6 +11,7 @@ tags.
 4. In the **Tags** section at the bottom of the page, choose
    **Manage tags**.
 5. On the **Manage tags** page, do the following:
+
    - To add a new tag, choose **Add new tag**. You can add up to 50
      tags to search and filter your resources or track your AWS costs.
    - To delete an existing tag, choose **Remove** beside the entry you

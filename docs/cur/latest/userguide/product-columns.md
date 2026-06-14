@@ -24,6 +24,7 @@ subscription fees (`Fee`), and monthly recurring fees
 - **Sample values:**
   `100`, `500`, `10000`
 - **Services:**
+
   - Amazon DevOps Guru
 
 ### product/attachmentType
@@ -35,6 +36,7 @@ subscription fees (`Fee`), and monthly recurring fees
  DirectConnect`, `Connect`,
   `Transit Gateway`
 - **Services:**
+
   - Amazon Virtual Private Cloud
   - AWS Cloud WAN
 
@@ -45,6 +47,7 @@ subscription fees (`Fee`), and monthly recurring fees
 - **Sample values:**
   `99.99%`, `99.5%`
 - **Services:**
+
   - Amazon Glacier
   - Amazon S3
   - AWS Elemental MediaStore
@@ -65,6 +68,7 @@ capacity.
 - **Sample values:**
   `RC20`, `N/A`
 - **Services:**
+
   - Amazon FSx
 
 ### product/capacitystatus
@@ -75,6 +79,7 @@ capacity.
   `UnusedCapacityReservation`,
   `AllocatedCapacityReservation`, `Used`
 - **Services:**
+
   - Amazon EC2
 
 ### product/clockspeed
@@ -84,6 +89,7 @@ capacity.
 - **Sample values:**
   `2.4 GHz`, `2.6 GHz`
 - **Services:**
+
   - Amazon DocumentDB
   - Amazon EC2
   - Amazon MQ
@@ -104,6 +110,7 @@ attribute of Hosting.
 - **Sample values:**
   `Notebook`, `Hosting`
 - **Services:**
+
   - Amazon SageMaker AI
 
 ## D
@@ -114,6 +121,7 @@ attribute of Hosting.
   software suitable for different development, deployment scenarios, and
   specific application purposes.
 - **Services:**
+
   - Amazon RDS
 
 ### product/dataTransfer
@@ -124,6 +132,7 @@ attribute of Hosting.
   Zones. Interregional and inter availability zone data transfers incur
   costs, metered per Gigabyte.
 - **Services:**
+
   - AWS Systems Manager
 
 ### product/dedicatedEbsThroughput
@@ -137,6 +146,7 @@ attribute of Hosting.
 - **Sample values:**
   `200 Mbps`, `Upto 5000 Mbps`
 - **Services:**
+
   - Amazon EC2
   - Amazon Neptune
   - Amazon RDS
@@ -150,6 +160,7 @@ attribute of Hosting.
 - **Sample values:**
   `Multi-AZ`, `Single-AZ`
 - **Services:**
+
   - Amazon MQ
   - Amazon Neptune
   - Amazon RDS
@@ -159,6 +170,7 @@ attribute of Hosting.
 - **Description:** The description of the
   specific AWS service.
 - **Services:**
+
   - AWS CodePipeline
   - AWS Device Farm
   - AWS Elemental MediaConvert
@@ -184,6 +196,7 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
   `JP`, `IT`, `PR`, `RU`,
   `EE`
 - **Services:**
+
   - Amazon Simple Notification Service
 
 ### product/directconnectlocation
@@ -195,6 +208,7 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
   `Equinix DC1 - DC6`, `Equinix DC10 - DC11`,
   `Global Switch Singapore`
 - **Services:**
+
   - Direct Connect
 
 ### product/directorysize
@@ -203,6 +217,7 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
   that is used to store the meta information for the directory or
   folder.
 - **Services:**
+
   - Direct Connect
 
 ### product/directorytype
@@ -210,6 +225,7 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
 - **Description:** Specifies if the
   directory is a file or another directory.
 - **Services:**
+
   - Direct Connect
 
 ### product/directorytypedescription
@@ -217,6 +233,7 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
 - **Description:** The meaningful name
   given to the directory.
 - **Services:**
+
   - Direct Connect
 
 ### product/disableactivationconfirmationemail
@@ -231,6 +248,7 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
 - **Sample values:**
   `99.999999999%`, `N/A`, `99.99%`
 - **Services:**
+
   - Amazon Glacier
   - Amazon S3
   - AWS Elemental MediaStore
@@ -244,6 +262,7 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
 - **Sample values:**
   `Yes`, `No`
 - **Services:**
+
   - Amazon EC2
 
 ### product/ecu
@@ -254,6 +273,7 @@ For reference, visit [https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2](https://
 - **Sample values:**
   `9`, `100`, `variable`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon GameLift Servers
@@ -274,6 +294,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `Ipsec`, `Amazon SQS`, `AWS Lambda`
 - **Services:**
+
   - Amazon SNS
   - Amazon VPC
   - Storage Gateway
@@ -288,6 +309,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `Yes`, `No`
 - **Services:**
+
   - Amazon DocumentDB
   - Amazon EC2
   - Amazon Neptune
@@ -313,6 +335,7 @@ application programming interface that conforms to the constraints of
   `FreeFindingsIngestion-FreeTrial`,
   `PaidFindingsIngestion`
 - **Services:**
+
   - AWS Security Hub
 
 ### product/findingSource
@@ -323,6 +346,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `SecurityHubProduct`, `OtherProduct`
 - **Services:**
+
   - AWS Security Hub
 
 ### product/freeUsageIncluded
@@ -333,6 +357,7 @@ application programming interface that conforms to the constraints of
   Instance hours for free across all of the Regions you use. Not 750 hours
   per Region.
 - **Services:**
+
   - Amazon Inspector
 
 ### product/fromLocation
@@ -343,6 +368,7 @@ application programming interface that conforms to the constraints of
   `External`, `US East (N. Virginia)`,
   `Global`
 - **Services:**
+
   - Amazon CloudFront
   - AWS DataTransfer
 
@@ -353,6 +379,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `ap-northeast-1`
 - **Services:**
+
   - Amazon RDS
   - Amazon EC2
   - Amazon VPC
@@ -365,6 +392,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `AWS Region`, `AWS Edge Location`
 - **Services:**
+
   - Direct Connect
   - AWS Elemental MediaConnect
   - Amazon CloudFront
@@ -380,6 +408,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `16`, `32`
 - **Services:**
+
   - Amazon SageMaker AI
   - Amazon EC2
 
@@ -390,6 +419,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `16`, `32`
 - **Services:**
+
   - Amazon SageMaker AI
   - Amazon EC2
 
@@ -400,6 +430,7 @@ application programming interface that conforms to the constraints of
   example, the Amazon EC2 team can categorize their products into shared
   instances, dedicated host, and dedicated usage.
 - **Services:**
+
   - AWS Certificate Manager
   - AWS CodeCommit
   - AWS Glue
@@ -411,6 +442,7 @@ application programming interface that conforms to the constraints of
 - **Description:** A simplified name given
   to a product group.
 - **Services:**
+
   - AWS Budgets
   - AWS Certificate Manager
   - AWS Lambda
@@ -425,6 +457,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `APICallVolume`
 - **Services:**
+
   - CloudTrail
 
 ### product/instance
@@ -436,6 +469,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `T3`
 - **Services:**
+
   - Amazon EC2
 
 ### product/instanceFamily
@@ -449,6 +483,7 @@ application programming interface that conforms to the constraints of
   `General Purpose`, `Memory Optimized`,
   `Accelerated Computing`
 - **Services:**
+
   - Amazon EC2
   - Amazon RDS
   - OpenSearch Service
@@ -465,6 +500,7 @@ application programming interface that conforms to the constraints of
   `2vCPU`, `4vCPU`, `8vCPU`,
   `16vCPU`
 - **Services:**
+
   - Amazon CodeCatalyst
 
 ### product/instanceType
@@ -476,6 +512,7 @@ application programming interface that conforms to the constraints of
   `t2.small`, `m4.xlarge`, `t2.micro`,
   `m4.large`, `t2.large`
 - **Services:**
+
   - Amazon EC2
   - Amazon RDS
   - OpenSearch Service
@@ -491,6 +528,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `t2`, `m4`, `m3`
 - **Services:**
+
   - Amazon DocumentDB
   - Amazon RDS
 
@@ -516,6 +554,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `Yes`, `No`.
 - **Services:**
+
   - Amazon EC2
 
 ### product/intelAvx2Available
@@ -525,6 +564,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `Yes`, `No`
 - **Services:**
+
   - Amazon EC2
 
 ### product/intelTurboAvailable
@@ -534,6 +574,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `Yes`, `No`
 - **Services:**
+
   - Amazon EC2
 
 ### product/invocation
@@ -543,6 +584,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `Scheduled Invocation`
 - **Services:**
+
   - Amazon CloudWatch Events
 
 ## L
@@ -555,6 +597,7 @@ application programming interface that conforms to the constraints of
   `license-included`, `bring-your-own-license`,
   `general-public-license`
 - **Services:**
+
   - Amazon AppStream
   - Amazon EC2
   - Amazon MQ
@@ -570,6 +613,7 @@ application programming interface that conforms to the constraints of
   `Canada (Central)`, `EU (London)`, `US
  West (Oregon)`
 - **Services:**
+
   - Amazon EC2
   - AWS Certificate Manager
   - Amazon S3
@@ -586,6 +630,7 @@ application programming interface that conforms to the constraints of
   `AWS Region`, `AWS Edge Location`,
   `Other`
 - **Services:**
+
   - Amazon EC2
   - AWS Certificate Manager
   - Amazon S3
@@ -605,6 +650,7 @@ application programming interface that conforms to the constraints of
   `AWS Region`, `AWS Edge Location`,
   `Other`
 - **Services:**
+
   - Amazon EC2
   - AWS Certificate Manager
   - Amazon S3
@@ -622,6 +668,7 @@ application programming interface that conforms to the constraints of
 - **Sample value:**
   `3000 IOPS for volumes <= 1TB`
 - **Services:**
+
   - Amazon EC2
 
 ### product/maxIopsvolume
@@ -631,6 +678,7 @@ application programming interface that conforms to the constraints of
 - **Sample value:**
   `16,000 (maxiops for a General Purpose SSD (gp2))`
 - **Services:**
+
   - Amazon EC2
 
 ### product/maxThroughputvolume
@@ -641,6 +689,7 @@ application programming interface that conforms to the constraints of
   `500 MiB/s`, `250 MiB/s`, `1000 MiB/s`,
   `40 - 90 MB/sec`
 - **Services:**
+
   - Amazon EC2
   - Amazon SageMaker AI
 
@@ -650,6 +699,7 @@ application programming interface that conforms to the constraints of
   electronics for instructions and data a computer needs to respond
   quickly. Computer bytes indicate the storage units.
 - **Services:**
+
   - AWS Database Migration Service
   - DynamoDB Accelerator
   - Amazon DocumentDB
@@ -664,6 +714,7 @@ application programming interface that conforms to the constraints of
   `CarrierFeeCount`, `MessageFees`,
   `MessageCount`, `CarrierFees`
 - **Services:**
+
   - Amazon Simple Notification Service
 
 ### product/messageType
@@ -673,6 +724,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `OutboundSMS`
 - **Services:**
+
   - Amazon Simple Notification Service
 
 ## N
@@ -685,6 +737,7 @@ application programming interface that conforms to the constraints of
   `moderate`, `high`, `up to 10
  GB`
 - **Services:**
+
   - Amazon EC2
   - Amazon RDS
   - Amazon ElastiCache
@@ -702,6 +755,7 @@ application programming interface that conforms to the constraints of
  2`, `xlarge - 8`, `16xlarge -
  128`
 - **Services:**
+
   - Amazon DocumentDB
   - Amazon EC2
   - Amazon MQ
@@ -719,6 +773,7 @@ application programming interface that conforms to the constraints of
  Server`, `Oracle Linux`,
   `FreeBSD`
 - **Services:**
+
   - Amazon AppStream
   - Amazon EC2
   - Amazon GameLift Servers
@@ -734,6 +789,7 @@ application programming interface that conforms to the constraints of
   `RunInstances` (indicates the operation of an Amazon EC2
   instance)
 - **Services:**
+
   - Amazon EC2
   - Amazon S3
   - Amazon RDS
@@ -750,6 +806,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `Sharedroute`
 - **Services:**
+
   - Amazon Simple Notification Service
 
 ### product/osType
@@ -760,6 +817,7 @@ application programming interface that conforms to the constraints of
   `Dev Environment`, `Linux`, `Linux
  ARM64`, `Windows`
 - **Services:**
+
   - Amazon CodeCatalyst
 
 ## P
@@ -779,6 +837,7 @@ application programming interface that conforms to the constraints of
 - **Sample values:**
   `4`, `8`
 - **Services:**
+
   - Amazon EC2
 
 ### product/physicalProcessor
@@ -789,6 +848,7 @@ application programming interface that conforms to the constraints of
 Intel Xeon E7-8880 v3 (Haswell)`, `Intel Xeon
 E5-2670`, `AMD EPYC 7571`
 - **Services:**
+
   - Amazon DocumentDB
   - Amazon EC2
   - Amazon Neptune
@@ -803,6 +863,7 @@ E5-2670`, `AMD EPYC 7571`
   `3DLabeledObjectMultiFrame`,
   `3DLabeledObject`, `Processing:VolumeUsage`
 - **Services:**
+
   - Amazon SageMaker AI
 
 ### product/pricingUnit
@@ -810,6 +871,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Description:** The smallest billing
   unit for an AWS service. For example, 0.01c per API call.
 - **Services:**
+
   - Directory Service
 
 ### product/primaryplaceofuse
@@ -825,6 +887,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `32-bit`, `64-bit`
 - **Services:**
+
   - Amazon DocumentDB
   - Amazon EC2
   - Amazon Neptune
@@ -839,6 +902,7 @@ E5-2670`, `AMD EPYC 7571`
   `Intel AVX`, `Intel AVX2`, `Intel
  AVX512`, `Intel Turbo`
 - **Services:**
+
   - AWS Database Migration Service
   - Amazon DocumentDB
   - Amazon EC2
@@ -854,6 +918,7 @@ E5-2670`, `AMD EPYC 7571`
  Instance`, `Storage Snapshot`,
   `Compute`
 - **Services:**
+
   - Amazon EC2
   - AWS Certificate Manager
   - Amazon S3
@@ -884,6 +949,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `Yes`, `No`
 - **Services:**
+
   - Amazon EC2
   - Amazon MQ
 
@@ -894,6 +960,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `On-Demand`, `Pre-Provisioned`
 - **Services:**
+
   - Amazon CodeCatalyst
 
 ### product/PurchaseOption
@@ -921,6 +988,7 @@ E5-2670`, `AMD EPYC 7571`
   `eu-west-3`, `us-west-1`, `us-east-1`,
   `ap-northeast-2`, `sa-east-1`
 - **Services:**
+
   - Amazon EC2
   - AWS Certificate Manager
   - Amazon S3
@@ -942,6 +1010,7 @@ E5-2670`, `AMD EPYC 7571`
   `us-west-2`, `us-east-1`,
   `ap-southeast-2`
 - **Services:**
+
   - Amazon SageMaker AI
 
 ### product/replicationType
@@ -953,6 +1022,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `Free`
 - **Services:**
+
   - AWS Application Migration Service
 
 ### product/resourceAssessment
@@ -963,6 +1033,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `All assessment`
 - **Services:**
+
   - AWS Audit Manager
 
 ### product/resourcePriceGroup
@@ -976,6 +1047,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `RDS-DBInstance-GroupB`
 - **Services:**
+
   - Amazon DevOps Guru
 
 ### product/routeType
@@ -985,6 +1057,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `Standard`
 - **Services:**
+
   - Amazon Simple Notification Service
 
 ## S
@@ -997,6 +1070,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `Amazon EC2`, `AWS KMS`
 - **Services:**
+
   - AWS Budgets
   - AWS Backup
   - AWS Certificate Manager
@@ -1008,6 +1082,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Description:** A simplified description
   about the AWS service.
 - **Services:**
+
   - Amazon EC2 Budgets
   - Amazon ECR
   - Amazon ECS
@@ -1025,6 +1100,7 @@ E5-2670`, `AMD EPYC 7571`
   allocates bits. The actual encoding takes place in the second
   pass.
 - **Services:**
+
   - AWS Elemental MediaConvert
 
 ### product/sizeFlex
@@ -1035,6 +1111,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `true`, `false`
 - **Services:**
+
   - Amazon Elastic Compute Cloud
 
 ### product/sku
@@ -1049,6 +1126,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `FFNT87MQSCR328W6`, `VBYCEU494XUAHCA7`
 - **Services:**
+
   - Amazon EC2
   - AWS Certificate Manager
   - Amazon S3
@@ -1065,6 +1143,7 @@ E5-2670`, `AMD EPYC 7571`
   `60GB`, `True`, `EBS Only`, `1 x
  900 NVMe SSD`, `1 x 150 NVMe SSD`
 - **Services:**
+
   - Amazon EC2
   - Amazon RDS
   - Amazon Redshift
@@ -1082,6 +1161,7 @@ E5-2670`, `AMD EPYC 7571`
  Access`, `Intelligent-Tiering`, `Non-Critical
  Data`
 - **Services:**
+
   - AWS Elemental MediaStore
   - AWS Storage Gateway
   - Amazon Cloud Directory
@@ -1095,6 +1175,7 @@ E5-2670`, `AMD EPYC 7571`
   technology, including device and material used to place, keep, and
   retrieve electronic data.
 - **Services:**
+
   - AWS Database Migration Service
   - Amazon CloudWatch
   - Amazon DocumentDB
@@ -1109,6 +1190,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `Amazon S3`, `SSD`, `SSD-backed`
 - **Services:**
+
   - AWS Backup
   - Amazon ECR
 
@@ -1122,6 +1204,7 @@ E5-2670`, `AMD EPYC 7571`
   `Dedicated`, `Reserved`, `Shared`,
   `NA`, `Host`
 - **Services:**
+
   - Amazon EC2
   - Amazon ECS
 
@@ -1135,6 +1218,7 @@ E5-2670`, `AMD EPYC 7571`
   `125`, `250`, `500`,
   `1000`
 - **Services:**
+
   - Amazon FileCache
   - Amazon FSx
 
@@ -1146,6 +1230,7 @@ E5-2670`, `AMD EPYC 7571`
   pay per GB. AWS provides options to acquire services that assist your
   business needs.
 - **Services:**
+
   - AWS Elemental MediaConvert
 
 ### product/toLocation
@@ -1155,6 +1240,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `External`, `US East (N. Virginia)`
 - **Services:**
+
   - Amazon CloudFront
   - AWS Data Transfer
 
@@ -1165,6 +1251,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `AWS Region`, `AWS Edge Location`
 - **Services:**
+
   - Direct Connect
   - AWS Elemental MediaConnect
   - AWS Shield
@@ -1180,6 +1267,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Sample values:**
   `eu-west-1`
 - **Services:**
+
   - Amazon RDS
   - Amazon EC2
   - Amazon VPC
@@ -1191,6 +1279,7 @@ E5-2670`, `AMD EPYC 7571`
   an encoded video source to an intermediate uncompressed format, and
   re-encoding it into the target format.
 - **Services:**
+
   - AWS Elemental MediaConvert
 
 ### product/trialProduct
@@ -1198,6 +1287,7 @@ E5-2670`, `AMD EPYC 7571`
 - **Description:** Describes if AWS CloudHSM
   allows free hours.
 - **Services:**
+
   - AWS CloudHSM
 
 ## U
@@ -1215,6 +1305,7 @@ Network data transfers to and from your HSMs are charged separately.
 For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/").
 
 - **Services:**
+
   - AWS CloudHSM
 
 ### product/usagetype
@@ -1227,6 +1318,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   `SAE1-InstanceUsage:db.t2.medium`,
   `USW2-AW-SW-19`, `SAE1-BoxUsage:c4.large`,
 - **Services:**
+
   - Amazon EC2
   - AWS Certificate Manager
   - Amazon S3
@@ -1248,6 +1340,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   `8`, `16`, `36`, `72`,
   `128`
 - **Services:**
+
   - Amazon EC2
   - Amazon RDS
   - Amazon Redshift
@@ -1264,6 +1357,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   only compresses is typically called an encoder, and one that only
   decompresses is a decoder.
 - **Services:**
+
   - AWS Elemental MediaConvert;
 
 ### product/videoFrameRate
@@ -1273,6 +1367,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   consecutive images (frames) are captured or displayed by video cameras,
   computer graphics, and motion capture systems.
 - **Services:**
+
   - AWS Elemental MediaConvert;
 
 ### product/videoQualitySetting
@@ -1284,6 +1379,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   `Multi-pass`, `Multi-pass HQ`, `NA`,
   `Single-pass`, `Single-pass HQ`,
 - **Services:**
+
   - AWS Elemental MediaConvert
 
 ### product/volumeType
@@ -1295,6 +1391,7 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
  Purpose-Aurora`, `Amazon Glacier`, `Amazon
  SimpleDB – Standard`,
 - **Services:**
+
   - Amazon EC2
   - Amazon S3
   - Amazon RDS
@@ -1311,4 +1408,5 @@ For more information, see [Amazon EC2 Pricing](https://aws.amazon.com/ec2/pricin
   employed or unemployed labour pool. For example, `Full Time
 Employees` (FTE), or `Temporary`.
 - **Services:**
+
   - Amazon SageMaker AI

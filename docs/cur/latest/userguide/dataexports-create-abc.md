@@ -46,6 +46,7 @@ Use the following steps to generate a pro forma AWS CUR for a billing group.
 12. For **S3 path prefix**, enter the S3 path prefix that you want
     prepended to the name of your export.
 13. For **Time granularity**, choose one of the following:
+
     - **Hourly** if you want the line items in the report to be aggregated by the hour.
     - **Daily** if you want the line items in the report to be aggregated by the day.
     - **Monthly** if you want the line items in the report to be aggregated by the month.

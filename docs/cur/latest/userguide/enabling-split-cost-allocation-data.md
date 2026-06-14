@@ -15,10 +15,12 @@ Management preferences.
    preferences**.
 3. Under **General**, in the **Split cost allocation
    data** section, choose between the following:
+
    - **Amazon Elastic Container Service (Amazon ECS)** to opt in to Amazon ECS
      only.
    - **Amazon Elastic Kubernetes Service (Amazon EKS)** to opt in to Amazon EKS only.
      For Amazon EKS, choose between the following:
+
      - **Resource requests**: This allocates
        your Amazon EC2 by Kubernetes pod CPU and memory resources only.
        This will encourage application teams to only provision what

@@ -15,6 +15,7 @@ data export.
 5. For **Export name**, enter a name for your export.
 6. Under **Export content**, select the data to include in your CUR
    export.
+
    - For **Additional export content**, select **Include
      resource IDs** to include the IDs of each individual resource in the
      export.
@@ -42,6 +43,7 @@ data export.
 
 7. Under **Data table delivery options**, for **Time
    granularity**, choose one of the following:
+
    - **Hourly** if you want the line items in the export to be
      aggregated by the hour.
    - **Daily** if you want the line items in the export to be
@@ -50,6 +52,7 @@ data export.
      aggregated by month.
 
 8. For **Report versioning**, choose between the following:
+
    - **Create new report version**: Each report refresh will be
      written to a separate directory, even for deliveries of the same billing period.
      Choose this to improve the ability to audit your exports over time.
@@ -61,6 +64,7 @@ data export.
 9. For **Report data integration**, choose whether you want to enable
    your Cost and Usage Reports to integrate with Amazon Athena, Amazon Redshift, or Amazon
    QuickSight. The report is compressed in the following formats:
+
    - **Amazon Athena**: Selects the delivery options optimal for
      Amazon Athena which are Parquet file format and overwrite existing report. Also
      delivers a script that can be used to set up the integration.
@@ -72,6 +76,7 @@ data export.
 
 10. For **Compression type and file format**, choose between the
     following:
+
     - Parquet – Parquet
     - gzip – text/csv
     - zip – text/csv
@@ -80,6 +85,7 @@ data export.
     bucket** name, choose **Configure**.
 12. In the **Configure S3 bucket** dialog box, do one of the
     following:
+
     - Select existing bucket.
     - Choose **Create a bucket**, enter an **S3 bucket
       name**, and then choose the **Region** where you want to

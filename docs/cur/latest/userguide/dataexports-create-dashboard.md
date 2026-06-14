@@ -47,6 +47,7 @@ following:
     prepended to the name of your export.
 15. Under **Service access**, choose a method to authorize
     QuickSight:
+
     - Create a new service role (default)
     - Use an existing service role
 

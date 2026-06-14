@@ -49,6 +49,7 @@ following:
 12. For **Report path prefix**, enter the report path prefix that you
     want prepended to the name of your report.
 13. For **Time granularity**, choose one of the following:
+
     - **Hourly** if you want the line items in the report to be
       aggregated by the hour.
     - **Daily** if you want the line items in the report to be

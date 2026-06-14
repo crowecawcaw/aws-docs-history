@@ -100,6 +100,7 @@ different table configurations to add data to your export.
    the table. Selecting more columns may increase the file size of your export.
 8. Under **Data table delivery options**, for **Data export
    refresh cadence**: .
+
    - For billing and cost management data exports, the only option available is
      **Daily - export is refreshed up to one time per day**.
    - For carbon emissions data exports, the only option available is \*\*Monthly
@@ -108,6 +109,7 @@ different table configurations to add data to your export.
 
 9. For **File versioning**, choose between the following which
    determines whether your export is overwritten with each update:
+
    - **Overwrite existing data export file**: Each export refresh
      overwrites the previous delivery within the data partition (for example, billing
      periods). Overwriting exports can save on Amazon S3 storage costs.
@@ -124,6 +126,7 @@ different table configurations to add data to your export.
 10. For **Report data integration**, choose whether you want to enable your
     export to integrate with Amazon Athena,or Amazon Redshift. The export is
     compressed in the following formats:
+
     - **Amazon Athena:** Selects the delivery options optimal for Amazon Athena
       which are Parquet ﬁle format and overwrite existing report. Also delivers a script that
       can be used to set up the integration.
@@ -133,14 +136,17 @@ different table configurations to add data to your export.
 
 11. For **Compression type and file format**, choose between the
     following for your export:
+
     - Parquet – Parquet
     - gzip – text/csv
 
 12. Under **Data export storage settings**, choose whether you want your export delivered to the S3 bucket of:
+
     - This account
     - Another account
 
 13. If you choose **This Account** for **S3 bucket** name, choose **Configure** and do one of the following:
+
     - Select existing bucket.
     - Choose **Create a bucket** enter **S3 bucket name** and then choose the **Region** where you want to create a new bucket
     - Review the **Bucket policy**. If you are selecting an existing bucket, you need to acknowledge that Data Exports will

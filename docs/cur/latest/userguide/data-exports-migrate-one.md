@@ -6,6 +6,7 @@ today in CUR. You do this using the AWS API or SDK.
 1. Determine (a) the list of columns and (b) the CUR content settings (**Include
    resource IDs**, **Split cost allocation data**, and
    **Time granularity**) needed in order to match your CUR today.
+
    1. You can determine the list of columns either by viewing the schema of one of your
       CUR files or going to the manifest file and extracting the list of columns from
       there.
@@ -14,6 +15,7 @@ today in CUR. You do this using the AWS API or SDK.
 
 2. Write an SQL query that selects the columns you identified from the CUR 2.0 table
    named `COST_AND_USAGE_REPORT`.
+
    1. All column names in the CUR 2.0 table are in snake case (for example,
       `line_item_usage_amount`). For your SQL statement, you might need to
       convert the previous column names to snake case.
@@ -42,6 +44,7 @@ today in CUR. You do this using the AWS API or SDK.
    configurations with your data query in the next step.
 4. In the AWS SDK/CLI for Data Exports, use the `CreateExport` API to input your SQL
    query and table configurations into the data-query field.
+
    1. Specify delivery preferences, such as the target Amazon S3 bucket and the
       overwrite preference. We recommend choosing the same delivery preferences you had
       before. For more information on the required fields, see [AWS Data Exports](../../../aws-cost-management/latest/APIReference/API_Operations_AWS_Billing_and_Cost_Management_Data_Exports.md "../../../aws-cost-management/latest/APIReference/API_Operations_AWS_Billing_and_Cost_Management_Data_Exports.md") in the _AWS Billing and Cost Management API

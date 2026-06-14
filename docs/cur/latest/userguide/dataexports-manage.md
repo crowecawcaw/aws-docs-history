@@ -23,6 +23,7 @@ dashboard.
 
 - **Export name**: The name you chose when creating the export.
 - **Status**: The health of your export. It can have two values:
+
   - **Healthy**: This status indicates that the most recent export
     delivery was successful.
 
@@ -39,6 +40,7 @@ dashboard.
 
 - **Export type**: The type of export created. Data Exports has three types of
   exports:
+
   - **Standard data export**: A customized export of a table that
     delivers to Amazon S3 on a recurring basis.
   - **Cost and usage dashboard**: An export and integration to Amazon

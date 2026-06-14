@@ -7,6 +7,7 @@ columns. You do this using the console, the AWS API, or SDK.
 1. Determine the CUR content settings (**Include resource IDs**,
    **Split cost allocation data**, and **Time
    granularity**) needed in order to match your CUR today.
+
    - You can determine the CUR content settings by going to Data Exports in the console and
      choosing your CUR export to view its details.
 
@@ -15,6 +16,7 @@ columns. You do this using the console, the AWS API, or SDK.
    that selects all columns from the “Cost and usage report” table.
 3. **(Option A)** To create the export in the
    console:
+
    1. In the navigation pane, choose **Data Exports**.
    2. On the **Data Exports** page, choose **Create**.
    3. Choose **Standard data export**.
@@ -26,6 +28,7 @@ columns. You do this using the console, the AWS API, or SDK.
 4. **(Option B)** To create the export using the AWS
    API/SDK, first write a query that selects all columns in the
    `COST_AND_USAGE_REPORT` table.
+
    1. Use the `GetTable` API to determine the complete list of columns and
       receive the full schema.
    2. Write the CUR content settings, identified in step 1, into the table configuration

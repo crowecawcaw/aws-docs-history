@@ -26,6 +26,7 @@ The length of time that your RI is reserved for.
 - **Sample values:**
   `Standard`, `Convertible`
 - **Services:**
+
   - Amazon DynamoDB
   - Amazon EC2
   - Amazon ElastiCache

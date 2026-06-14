@@ -42,6 +42,7 @@ bills.
 9. On the **Contact us** page, choose your preferred
    language.
 10. Choose your preferred contact method. You can choose one of the following options:
+
     - **Web**: Receive a reply in Support Center.
     - **Phone**: Receive a phone call from an Support
       representative.

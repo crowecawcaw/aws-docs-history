@@ -10,9 +10,8 @@ details.
 3. From your list of exports, choose the name of the export that you want to edit.
 4. On the **Export details** page, choose
    **Edit**.
-5. In **Edit** mode, you can update the column selection for your export
-   and the export overwrite preference.
-
-You can't update the data table, the additional export content (table configurations),
-or the compression type and file format for an existing export. To change these details,
-you need to create a new export.
+5. In **Edit** mode, you can't change the report name or Billing view
+   but you can update the column selection, additional export content (table configurations),
+   time granularity, compression type, and file format for an existing export. For Data export
+   overwriting, you can switch from **Create New** to **Overwrite**,
+   but not from **Overwrite** to **Create New**.

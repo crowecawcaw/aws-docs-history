@@ -15,6 +15,7 @@ refresh to your Amazon S3 bucket. You may see one of the following error message
 your cursor over the “unhealthy” message or by calling the `GetExport` API.
 
 - **Data Exports issues**
+
   - **Insufficient permission:** This means Data Exports was unable to
     deliver the export files to your S3 bucket. This can be fixed by updating your S3 bucket
     policy with the permission listed in [Setting up an
@@ -31,6 +32,7 @@ your cursor over the “unhealthy” message or by calling the `GetExport` API.
     information or help.
 
 - **QuickSight integration issues**
+
   - **Insufficient SPICE capacity:** This error means that
     QuickSight does not have enough processing capacity provisioned to ingest your cost and
     usage data. For information on how to increase your SPICE capacity, see [Managing

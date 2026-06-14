@@ -26,6 +26,7 @@ normalized usage amount for DiscountedUsage line items` /
 - **Sample values:**
   `0.05`, `0.17`, `0.15`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -46,6 +47,7 @@ normalized usage amount for DiscountedUsage line items` /
 - **Sample values:**
   `29.15`, `200.67`, `214.43`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -63,6 +65,7 @@ normalized usage amount for DiscountedUsage line items` /
   `us-east-1`, `us-east-1b`,
   `eu-west-1b`, `ap-southeast-2a`
 - **Services:**
+
   - Amazon EC2
 
 ## E
@@ -79,6 +82,7 @@ normalized usage amount for DiscountedUsage line items` /
 - **Sample values:**
   `0.23`, `0.68`, `0.10`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -95,6 +99,7 @@ normalized usage amount for DiscountedUsage line items` /
   `2020-02-08T17:32:15.000Z`,
   `2019-07-14T00:00:33.000Z`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon Redshift
@@ -107,6 +112,7 @@ normalized usage amount for DiscountedUsage line items` /
 
 - **Description:** Shows whether the RI
   lease was modified or if it is unaltered.
+
   - **Original:** The purchased RI
     was never modified.
   - **System:** The purchased RI was
@@ -122,6 +128,7 @@ normalized usage amount for DiscountedUsage line items` /
   `Original`, `System`, `Manual`,
   `ManualWithData`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -182,6 +189,7 @@ period.
 - **Sample values:**
   `1316`, `54.5`, `319`
 - **Services:**
+
   - Amazon RDS
 
 ### reservation/NumberOfReservations
@@ -194,6 +202,7 @@ period.
 - **Sample values:**
   `5`, `50`, `500`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -218,6 +227,7 @@ size flexible Reserved Instances`. Because all upfront RIs
 - **Sample values:**
   `0.139`, `0.729`, `0.018`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -237,6 +247,7 @@ size flexible Reserved Instances`. Because all upfront RIs
   `arn:aws:ec2:us-east-1:074108124787:reserved-instances/1d3fbc13-f181-4c40-9dd6-12b345678de9`,
   `arn:aws:ec2:us-east-1:499958231354:reserved-instances/be41234c3-b5c0-403e-a80c-1cfd12345678`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -256,6 +267,7 @@ size flexible Reserved Instances`. Because all upfront RIs
   `2017-08-21T15:58:47.000Z`,
   `2019-02-01T22:01:34.000Z`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon Redshift
@@ -274,6 +286,7 @@ size flexible Reserved Instances`. Because all upfront RIs
   `123456789`, `111122222`,
   `333344444`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -295,6 +308,7 @@ size flexible Reserved Instances`. Because all upfront RIs
 - **Sample values:**
   `40320`, `3647.99`, `17928.77`
 - **Services:**
+
   - Amazon EC2
   - Amazon RDS
 
@@ -326,6 +340,7 @@ size flexible Reserved Instances`. Because all upfront RIs
 - **Sample values:**
   `26208`, `98.19`, `15796`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -361,6 +376,7 @@ size flexible Reserved Instances`. Because all upfront RIs
 - **Sample values:**
   `334.0`, `486.72`, `18455`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon DynamoDB
@@ -381,6 +397,7 @@ size flexible Reserved Instances`. Because all upfront RIs
 - **Sample values:**
   `6.05`, `1.97`, `0.17`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon Redshift
@@ -396,6 +413,7 @@ size flexible Reserved Instances`. Because all upfront RIs
 - **Sample values:**
   `25.00`, `3.50`, `274.33`
 - **Services:**
+
   - Amazon RDS
 
 ### reservation/UnusedQuantity
@@ -408,6 +426,7 @@ size flexible Reserved Instances`. Because all upfront RIs
   `209.65110408`, `191.00000000`,
   `176.00000000`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon Redshift
@@ -426,6 +445,7 @@ size flexible Reserved Instances`. Because all upfront RIs
   `0.02971114`, `0.19190000`,
   `1.37280000`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon Redshift
@@ -441,6 +461,7 @@ size flexible Reserved Instances`. Because all upfront RIs
 - **Sample values:**
   `150.00`, `1000.00`, `2000.00`
 - **Services:**
+
   - Amazon EC2
   - OpenSearch Service
   - Amazon Redshift
