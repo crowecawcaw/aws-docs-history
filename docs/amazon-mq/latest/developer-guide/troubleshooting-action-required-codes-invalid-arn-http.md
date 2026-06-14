@@ -30,6 +30,7 @@ fields @timestamp, @message
 ```
 
 3. Check the S3 Object/Secrets Manager secret and fix any issues such as:
+
    - Verify the resource exists in the same AWS region as the broker
    - Confirm the ARN syntax is correct
    - Ensure the IAM role has s3:GetObject and secretsmanager:GetSecretValue permissions

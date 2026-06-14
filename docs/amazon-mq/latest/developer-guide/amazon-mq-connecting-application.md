@@ -5,7 +5,7 @@ connect your application to it. The following examples show how you can use the 
 to create a connection to the broker, create a queue, and send a message. For a complete, working Java example,
 see [Working Java Example](amazon-mq-working-java-example.md "amazon-mq-working-java-example.md").
 
-You can connect to ActiveMQ brokers using [various ActiveMQ clients](http://activemq.apache.org/cross-language-clients.html "http://activemq.apache.org/cross-language-clients.html").
+You can connect to ActiveMQ brokers using [various ActiveMQ clients](https://activemq.apache.org/cross-language-clients.html "https://activemq.apache.org/cross-language-clients.html").
 We recommend using the [ActiveMQ Client](https://mvnrepository.com/artifact/org.apache.activemq/activemq-client "https://mvnrepository.com/artifact/org.apache.activemq/activemq-client").
 
 ###### Topics
@@ -75,7 +75,7 @@ your Java class path. The following example shows these dependencies in a Maven 
 ```
 
 For more information about `activemq-client.jar`, see [Initial
-Configuration](http://activemq.apache.org/initial-configuration.html "http://activemq.apache.org/initial-configuration.html") in the Apache ActiveMQ documentation.
+Configuration](https://activemq.apache.org/initial-configuration.html "https://activemq.apache.org/initial-configuration.html") in the Apache ActiveMQ documentation.
 
 ###### Important
 
@@ -98,7 +98,7 @@ The `-1` and `-2` suffixes denote a redundant pair. For more information, see
 [Deployment options for Amazon MQ for ActiveMQ brokers](amazon-mq-broker-architecture.md "amazon-mq-broker-architecture.md")).
 
 For wire-level protocol endpoints, you should allow your application to connect to either endpoint by using the
-[Failover Transport](http://activemq.apache.org/failover-transport-reference.html "http://activemq.apache.org/failover-transport-reference.html").
+[Failover Transport](https://activemq.apache.org/failover-transport-reference.html "https://activemq.apache.org/failover-transport-reference.html").
 
 ```
 // Create a connection factory.

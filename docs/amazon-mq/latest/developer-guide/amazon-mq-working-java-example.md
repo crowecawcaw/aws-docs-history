@@ -69,7 +69,7 @@ your Java class path. The following example shows these dependencies in a Maven 
 ```
 
 For more information about `activemq-client.jar`, see [Initial
-Configuration](http://activemq.apache.org/initial-configuration.html "http://activemq.apache.org/initial-configuration.html") in the Apache ActiveMQ documentation.
+Configuration](https://activemq.apache.org/initial-configuration.html "https://activemq.apache.org/initial-configuration.html") in the Apache ActiveMQ documentation.
 
 MQTT
 Add the `org.eclipse.paho.client.mqttv3.jar` package to

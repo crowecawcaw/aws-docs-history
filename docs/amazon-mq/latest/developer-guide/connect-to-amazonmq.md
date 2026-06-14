@@ -52,7 +52,7 @@ For more information on privately connecting to a broker endpoint, see
 [Configuring a private Amazon MQ broker](configuring-private-broker.md "configuring-private-broker.md").
 
 To access Amazon MQ API using PrivateLink, you must first create an
-[interface VPC endpoint](../../../VPC/latest/privatelink/create-interface-endpoint.md "../../../VPC/latest/privatelink/create-interface-endpoint.md")
+[interface VPC endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md")
 in the specific VPC you want to connect from.
 When you create the VPC endpoint, use the service name
 `com.amazonaws.`region`.mq`

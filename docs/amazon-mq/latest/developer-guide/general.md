@@ -210,7 +210,7 @@ RabbitMQ on Amazon MQ
     	 the broker `Connection.log` log group. If this metric is greater than zero, there is at least one client currently connected to the broker.
     	 If the metric shows zero connections, then perform the `telnet` path test again. You may need to repeat this process if the connection closes before
     	 your broker has published new connection metrics to CloudWatch. Metrics are published every minute.
-    	* For brokers without public accessibility, if the `telnet` command fails, check the status of your broker's [elastic network interfaces](../../../UserGuide/using-eni.md "../../../UserGuide/using-eni.md"),
+    	* For brokers without public accessibility, if the `telnet` command fails, check the status of your broker's [elastic network interfaces](../../../AWSEC2/latest/UserGuide/using-eni.md "../../../AWSEC2/latest/UserGuide/using-eni.md"),
     	 and confirm that the status is `in-use`. [Create an Amazon VPC flow log](../../../vpc/latest/userguide/working-with-flow-logs.md#create-flow-log "../../../vpc/latest/userguide/working-with-flow-logs.md#create-flow-log") for each network interface,
     	 and review the generated flow logs. Look for the broker's private IP addresses when you the `telnet` command was invoked, and confirm the connection packets are `ACCEPTED`, including a return packet.
     	 For more information, and to see a flow log example, see [Flow log record examples](../../../vpc/latest/userguide/flow-logs-records-examples.md "../../../vpc/latest/userguide/flow-logs-records-examples.md") in the *Amazon VPC Developer Guide*.
@@ -272,6 +272,7 @@ If your broker has restarted automatically, it may be due to one of the followin
 - Your broker instance type might not be suitable to your application workload. For example, running a production workload on a `mq.t3.micro`
   might result in the broker running out of resources. High CPU utilization, or high broker memory usage can cause a broker to unexpectedly restart.
   To see how much CPU and memory is being utilized by your broker, use the following CloudWatch metrics for your engine type.
+
   - ActiveMQ on Amazon MQ –
     Check `CpuUtilization` for the percentage of allocated Amazon EC2 compute units that the broker currently uses.
     Check `HeapUsage`for the percentage of the ActiveMQ JVM memory limit that the broker currently uses.

@@ -105,10 +105,17 @@ Single-instance, cluster
 
 - `max-connections:
 `number-of-connections-per-vhost``
-  (vhost limit) – Sets the limit for the number of client connections to
-  the broker. Limiting the number of connections according to the recommended values
+  (vhost limit) – Sets the limit for the number of client connections
+  _per vhost_. Limiting the number of connections according to the recommended values
   prevents excessive broker memory usage, which could result in the broker raising a high memory
   alarm and pausing operations.
+
+###### Important
+
+This vhost-level limit does not override the per-node connection limit
+enforced by the broker. The per-node limit is determined by the broker's instance type
+and cannot be changed. For per-node limits by instance type, see
+[Amazon MQ for RabbitMQ sizing guidelines](rabbitmq-sizing-guidelines.md "rabbitmq-sizing-guidelines.md").
 
 ###### Deployment modes
 

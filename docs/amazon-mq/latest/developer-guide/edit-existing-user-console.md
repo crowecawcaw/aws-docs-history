@@ -12,7 +12,7 @@ On the **`MyBroker`** page, in the **Users** section, all the users for this bro
 
 The **Edit user** dialog box is displayed. 4. (Optional) Type a new **Password**. 5. (Optional) Add or remove the names of groups to which the user belongs,
 separated by commas (for example: `Managers, Admins`). 6. (Optional) To enable the user to access the [ActiveMQ Web
-Console](http://activemq.apache.org/web-console.html "http://activemq.apache.org/web-console.html"), choose **ActiveMQ Web
+Console](https://activemq.apache.org/web-console.html "https://activemq.apache.org/web-console.html"), choose **ActiveMQ Web
 Console**. 7. To save the changes to the user, choose **Done**.
 
 ###### Important

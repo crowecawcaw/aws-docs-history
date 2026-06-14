@@ -443,11 +443,11 @@ To learn more about data-in-transit, see
 
 You can access your ActiveMQ brokers using the following protocols with TLS enabled:
 
-- [AMQP](http://activemq.apache.org/amqp.html "http://activemq.apache.org/amqp.html")
-- [MQTT](http://activemq.apache.org/mqtt.html "http://activemq.apache.org/mqtt.html")
-- MQTT over [WebSocket](http://activemq.apache.org/websockets.html "http://activemq.apache.org/websockets.html")
-- [OpenWire](http://activemq.apache.org/openwire.html "http://activemq.apache.org/openwire.html")
-- [STOMP](http://activemq.apache.org/stomp.html "http://activemq.apache.org/stomp.html")
+- [AMQP](https://activemq.apache.org/amqp.html "https://activemq.apache.org/amqp.html")
+- [MQTT](https://activemq.apache.org/mqtt.html "https://activemq.apache.org/mqtt.html")
+- MQTT over [WebSocket](https://activemq.apache.org/websockets.html "https://activemq.apache.org/websockets.html")
+- [OpenWire](https://activemq.apache.org/openwire.html "https://activemq.apache.org/openwire.html")
+- [STOMP](https://activemq.apache.org/stomp.html "https://activemq.apache.org/stomp.html")
 - STOMP over WebSocket
 
 ActiveMQ on Amazon MQ supports the following cipher suites:

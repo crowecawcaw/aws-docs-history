@@ -6,18 +6,18 @@ Amazon MQ does not support server certificate issued by a private CA.
 
 You can access your ActiveMQ brokers using the following protocols with TLS enabled:
 
-- [AMQP](http://activemq.apache.org/amqp.html "http://activemq.apache.org/amqp.html")
-- [MQTT](http://activemq.apache.org/mqtt.html "http://activemq.apache.org/mqtt.html")
-- MQTT over [WebSocket](http://activemq.apache.org/websockets.html "http://activemq.apache.org/websockets.html")
-- [OpenWire](http://activemq.apache.org/openwire.html "http://activemq.apache.org/openwire.html")
-- [STOMP](http://activemq.apache.org/stomp.html "http://activemq.apache.org/stomp.html")
+- [AMQP](https://activemq.apache.org/amqp.html "https://activemq.apache.org/amqp.html")
+- [MQTT](https://activemq.apache.org/mqtt.html "https://activemq.apache.org/mqtt.html")
+- MQTT over [WebSocket](https://activemq.apache.org/websockets.html "https://activemq.apache.org/websockets.html")
+- [OpenWire](https://activemq.apache.org/openwire.html "https://activemq.apache.org/openwire.html")
+- [STOMP](https://activemq.apache.org/stomp.html "https://activemq.apache.org/stomp.html")
 - STOMP over WebSocket
   Amazon MQ offers a choice between native ActiveMQ
   authentication and LDAP authentication and authorization to manage user permissions. For
   information about restrictions related to ActiveMQ usernames and passwords, see [Users](amazon-mq-limits.md#activemq-user-limits "amazon-mq-limits.md#activemq-user-limits").
 
 To authorize ActiveMQ users and groups to works with queues and topics, you must [edit your broker's
-configuration](amazon-mq-creating-applying-configurations.md "amazon-mq-creating-applying-configurations.md"). Amazon MQ uses ActiveMQ's [Simple Authentication Plugin](http://activemq.apache.org/security.html#Security-SimpleAuthenticationPlugin "http://activemq.apache.org/security.html#Security-SimpleAuthenticationPlugin") to restrict reading and writing to destinations.
+configuration](amazon-mq-creating-applying-configurations.md "amazon-mq-creating-applying-configurations.md"). Amazon MQ uses ActiveMQ's [Simple Authentication Plugin](https://activemq.apache.org/security.html#Security-SimpleAuthenticationPlugin "https://activemq.apache.org/security.html#Security-SimpleAuthenticationPlugin") to restrict reading and writing to destinations.
 For more information and examples, see [Always configure an authorization map](using-amazon-mq-securely.md#always-configure-authorization-map "using-amazon-mq-securely.md#always-configure-authorization-map") and `authorizationEntry`.
 
 ###### Note

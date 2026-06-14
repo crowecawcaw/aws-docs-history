@@ -19,6 +19,7 @@ If you’re unable to view logs for your broker in CloudWatch Logs, do the follo
    Amazon MQ will not create the log group.
 2. Check if you have configured a resource-based policy to allow Amazon MQ to publish logs to CloudWatch Logs. To allow Amazon MQ to publish logs to your CloudWatch Logs
    log group, configure a resource-based policy to give Amazon MQ access to the following CloudWatch Logs API actions:
+
    - [`CreateLogStream`](../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_CreateLogStream.md") –
      Creates a CloudWatch Logs log stream for the specified log group.
    - [`PutLogEvents`](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.md") –
@@ -50,12 +51,18 @@ For more information, and to see a code example of resolving XA transactions usi
 ## I see some of my clients connecting to the broker, while others are unable to connect.
 
 If your broker is in the `RUNNING` status and some clients are able to connect to the broker successfully, while others are unable
-to do so, you may have reached the [wire-level connections](amazon-mq-limits.md#broker-limits "amazon-mq-limits.md#broker-limits") limit for the broker.
-To verify that you've reached the wire-level connections limit, do the following:
+to do so, you may have reached the connection limit for the broker.
+For ActiveMQ brokers, this is the [wire-level connections](amazon-mq-limits.md#broker-limits "amazon-mq-limits.md#broker-limits") limit.
+For RabbitMQ brokers, this is the per-node connection limit determined by the broker's instance type
+(see [Amazon MQ for RabbitMQ sizing guidelines](rabbitmq-sizing-guidelines.md "rabbitmq-sizing-guidelines.md")).
+To verify that you've reached the connection limit, do the following:
 
-- Check the _general_ broker logs for your ActiveMQ on Amazon MQ broker in CloudWatch Logs. If the limit has been reached, you will see
+- **ActiveMQ:** Check the _general_ broker logs for your ActiveMQ on Amazon MQ broker in CloudWatch Logs. If the limit has been reached, you will see
   `Reached Maximum Connections` in the broker logs. For more information on CloudWatch Logs for ActiveMQ on Amazon MQ brokers, see
   [Understanding the structure of logging in CloudWatch Logs](configure-logging-monitoring-activemq.md#security-logging-monitoring-configure-cloudwatch-structure "configure-logging-monitoring-activemq.md#security-logging-monitoring-configure-cloudwatch-structure").
+- **RabbitMQ:** Check the `ConnectionCount` CloudWatch metric for your broker. If the value equals the maximum connections
+  for your instance type, the limit has been reached. You can also check the RabbitMQ web console
+  _Connections_ page to see the current connection count per node.
 
 Once the wire-level connections limit is reached, the broker will actively refuse additional incoming connections. To resolve this issue,
 we recommend upgrading your broker instance type. For more information on choosing the best instance type for your workload, see

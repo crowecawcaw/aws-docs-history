@@ -8,6 +8,10 @@ Amazon MQ provides at least a 90 day notice before an instance type reaches end 
 
 ###### Important
 
+The `mq.t3.micro` instance type is deprecated and is no longer available
+for new broker creation. Existing brokers using `mq.t3.micro` are not affected,
+but we recommend upgrading to `mq.m5.large` or `mq.m7g.medium` or higher.
+
 You cannot downgrade a broker from an `mq.m7g` or `mq.m5` instance type to a `mq.t3.micro` instance type.
 
 The `mq.t3.micro` instance type does not support cluster deployment.
@@ -48,13 +52,13 @@ for single instance deployment.
 
 The following tables show the available `mq.m5.x` instance types for single instance deployment
 
-| Instance Type | vCPU | Memory (GiB) | Network Baseline / Burst bandwidth (Gbps) | Recommended use | Storage | Disk volume size per node(GB) |
-| ------------- | ---- | ------------ | ----------------------------------------- | --------------- | ------- | ----------------------------- |
-| mq.t3.micro   | 2    | 1            | 0.064 / 5.0                               | Evaluation      | EBS     | 20                            |
-| mq.m5.large   | 2    | 8            | 0.75 / 10.0                               | Production      | EBS     | 200                           |
-| mq.m5.xlarge  | 4    | 16           | 1.25 / 10.0                               | Production      | EBS     | 200                           |
-| mq.m5.2xlarge | 8    | 32           | 2.5 / 10.0                                | Production      | EBS     | 200                           |
-| mq.m5.4xlarge | 16   | 64           | 5.0 / 10.0                                | Production      | EBS     | 200                           |
+| Instance Type            | vCPU | Memory (GiB) | Network Baseline / Burst bandwidth (Gbps) | Recommended use                                     | Storage | Disk volume size per node(GB) |
+| ------------------------ | ---- | ------------ | ----------------------------------------- | --------------------------------------------------- | ------- | ----------------------------- |
+| mq.t3.micro (deprecated) | 2    | 1            | 0.064 / 5.0                               | Evaluation<br>• no longer available for new brokers | EBS     | 20                            |
+| mq.m5.large              | 2    | 8            | 0.75 / 10.0                               | Production                                          | EBS     | 200                           |
+| mq.m5.xlarge             | 4    | 16           | 1.25 / 10.0                               | Production                                          | EBS     | 200                           |
+| mq.m5.2xlarge            | 8    | 32           | 2.5 / 10.0                                | Production                                          | EBS     | 200                           |
+| mq.m5.4xlarge            | 16   | 64           | 5.0 / 10.0                                | Production                                          | EBS     | 200                           |
 
 ## Instance types for `mq.m5` cluster deployment
 

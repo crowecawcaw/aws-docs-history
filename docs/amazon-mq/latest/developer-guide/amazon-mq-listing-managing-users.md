@@ -1,7 +1,7 @@
 # Creating an ActiveMQ broker user
 
 An ActiveMQ _user_ is a person or an application that can access the queues and topics of an ActiveMQ broker.
-You can configure users to have specific permissions. For example, you can allow some users to access the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html "http://activemq.apache.org/web-console.html").
+You can configure users to have specific permissions. For example, you can allow some users to access the [ActiveMQ Web Console](https://activemq.apache.org/web-console.html "https://activemq.apache.org/web-console.html").
 
 A _group_ is a semantic label. You can assign a group to a user and configure permissions for groups to send to, receive from, and administer specific queues and topics.
 
@@ -28,7 +28,7 @@ On the **`MyBroker`** page, in the **Users** section, all the users for this bro
 ![Table showing two users with their console access and group information.](images/amazon-mq-tutorials-list-users.png) 3. Choose **Create user**. 4. In the **Create user** dialog box, type a
 **Username** and **Password**. 5. (Optional) Type the names of groups to which the user belongs, separated
 by commas (for example: `Devs, Admins`). 6. (Optional) To enable the user to access the [ActiveMQ Web
-Console](http://activemq.apache.org/web-console.html "http://activemq.apache.org/web-console.html"), choose **ActiveMQ Web
+Console](https://activemq.apache.org/web-console.html "https://activemq.apache.org/web-console.html"), choose **ActiveMQ Web
 Console**. 7. Choose **Create user**.
 
 ###### Important

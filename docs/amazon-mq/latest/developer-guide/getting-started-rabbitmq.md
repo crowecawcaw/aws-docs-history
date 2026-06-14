@@ -16,6 +16,7 @@ to maximize broker performance and optimize message throughput efficiency.
 2. On the **Select broker engine** page, choose **RabbitMQ**, and then choose **Next**.
 3. On the **Select deployment mode** page, choose the **Deployment mode**, for example, **Cluster deployment**,
    and then choose **Next**.
+
    - A **single-instance broker**
      is comprised of one broker in one Availability Zone behind a Network Load Balancer (NLB).
      The broker communicates with your application and with an Amazon EBS storage volume. For more information, see
@@ -25,6 +26,7 @@ to maximize broker performance and optimize message throughput efficiency.
      [Option 2: Amazon MQ for RabbitMQ cluster deployment](rabbitmq-broker-architecture.md#rabbitmq-broker-architecture-cluster "rabbitmq-broker-architecture.md#rabbitmq-broker-architecture-cluster").
 
 4. On the **Configure settings** page, in the **Details** section, the following:
+
    1. Enter the Broker name.
 
    ###### Important
@@ -36,6 +38,7 @@ to maximize broker performance and optimize message throughput efficiency.
 
 5. On the **Configure settings** page, in the **RabbitMQ access** section,
    provide a **Username** and **Password**. The following restrictions apply to broker sign-in credentials:
+
    - Your username can contain only alphanumeric characters, dashes, periods, and underscores (- . \_).
      This value must not contain any tilde (~) characters. Amazon MQ prohibits using `guest` as a username.
    - Your password must be at least 12 characters long, contain at least 4 unique characters and must not contain commas, colons, or equal signs (,:=).

@@ -104,7 +104,7 @@ cat > rabbitmq.conf << EOF
 auth_backends.1 = oauth2
 auth_backends.2 = internal
 
-auth_oauth2.jwks_url = ${ISSUER_IDENTIFIER}/.well-known/jwks.json
+auth_oauth2.jwks_uri = ${ISSUER_IDENTIFIER}/.well-known/jwks.json
 auth_oauth2.resource_server_id = rabbitmq
 auth_oauth2.scope_prefix = rabbitmq/
 

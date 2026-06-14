@@ -30,6 +30,7 @@ fields @timestamp, @message
 ```
 
 3. Check the AWS resource and fix any issues such as:
+
    - Verify the resource exists in the same AWS region as the broker
    - Confirm the ARN syntax is correct
    - Ensure the IAM role has appropriate permissions to access the resource

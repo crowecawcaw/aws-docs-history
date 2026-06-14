@@ -127,4 +127,4 @@ When a new broker connects, it will receive a list of URIs of all brokers in the
 network. If the connection to the broker fails, it can dynamically switch to one of the
 brokers provided when it connected.
 
-For more information on failover, see [Broker-side Options for Failover](http://activemq.apache.org/failover-transport-reference.html#FailoverTransportReference-Broker-sideOptionsforFailover "http://activemq.apache.org/failover-transport-reference.html#FailoverTransportReference-Broker-sideOptionsforFailover") in the Active MQ documentation.
+For more information on failover, see [Broker-side Options for Failover](https://activemq.apache.org/failover-transport-reference.html#FailoverTransportReference-Broker-sideOptionsforFailover "https://activemq.apache.org/failover-transport-reference.html#FailoverTransportReference-Broker-sideOptionsforFailover") in the Active MQ documentation.

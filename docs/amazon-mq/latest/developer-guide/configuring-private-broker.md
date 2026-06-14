@@ -4,11 +4,13 @@ A private broker does not have public accessibility and cannot be accessed from 
 Before configuring a private broker, view the following information about VPCs, subnets, and security groups:
 
 - **VPCs**
+
   - A broker's subnet(s) and security group(s) must be in the same VPC.
   - When you are using a private broker, you may see IP addresses that you did not configure with your VPC.
     These are IP addresses from the Amazon MQ infrastructure, and they require no action.
 
 - **Subnets**
+
   - If subnets are within a shared VPC, the VPC must be owned by the same account creating the broker.
   - If no subnets are provided, the default subnets in the default VPC will be used.
   - Once the broker is created, the subnets used cannot be changed.
@@ -16,6 +18,7 @@ Before configuring a private broker, view the following information about VPCs, 
   - For single instance brokers, you can specify which subnet to use and the broker will be created within the same Availability Zone.
 
 - **Security groups**
+
   - If no security group is provided, the default security groups in the default VPC will be used.
   - Single-instance, cluster, and active/standby brokers require at least one security group (for example, the default security group).
 
@@ -23,6 +26,16 @@ Before configuring a private broker, view the following information about VPCs, 
 
   Public RabbitMQ brokers do not use subnets or security groups.
   - Once the broker is created, the security group used cannot be changed. The security groups can themselves still be modified.
+
+###### Important
+
+If you configure OAuth2 authentication for a private broker, the OAuth2 JWKS endpoint
+must be reachable from within the broker's VPC. Because private brokers do not have public
+internet access, the JWKS endpoint provided by your identity provider (for example, Amazon Cognito
+or an external identity provider) must be accessible through your VPC. You can enable this
+connectivity using a VPC endpoint, a NAT gateway, or other networking configurations.
+Without proper network connectivity to the JWKS endpoint, the broker cannot validate
+OAuth2 access tokens and authentication will fail.
 
 ## Configuring a private broker in the AWS Management Console
 

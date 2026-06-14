@@ -1,7 +1,7 @@
 # Elements, Child Collection Elements, and Their Child Elements Permitted in Amazon MQ Configurations
 
 The following is a detailed listing of the elements, child collection elements, and their
-child elements permitted in Amazon MQ configurations. For more information, see [XML Configuration](http://activemq.apache.org/xml-configuration.html "http://activemq.apache.org/xml-configuration.html") in the
+child elements permitted in Amazon MQ configurations. For more information, see [XML Configuration](https://activemq.apache.org/xml-configuration.html "https://activemq.apache.org/xml-configuration.html") in the
 Apache ActiveMQ documentation.
 
 Use the scroll bars to see the rest of the table.
@@ -30,10 +30,6 @@ Use the scroll bars to see the rest of the table.
 | `statisticsBrokerPlugin`                          |
 | `timeStampingBrokerPlugin`                        |
 | `systemUsage`                                     | [systemUsage](child-element-details.md#systemUsage "child-element-details.md#systemUsage")                |
-| `transportConnector`                              | `name`                                                                                                    |
-| `updateClusterClients`                            |
-| `rebalanceClusterClients`                         |
-| `updateClusterClientsOnRemove`                    |
 | `compositeQueue`                                  | `forwardTo`                                                                                               | `queue`                                                                                                         |
 | `tempQueue`                                       |
 | `tempTopic`                                       |

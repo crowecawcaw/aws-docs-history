@@ -29,13 +29,13 @@ For information about creating and managing brokers, see the following:
 
 ### Supported wire-level protocols
 
-You can access your brokers by using [any programming language that ActiveMQ supports](http://activemq.apache.org/cross-language-clients.html "http://activemq.apache.org/cross-language-clients.html") and by enabling TLS explicitly for the following protocols:
+You can access your brokers by using [any programming language that ActiveMQ supports](https://activemq.apache.org/cross-language-clients.html "https://activemq.apache.org/cross-language-clients.html") and by enabling TLS explicitly for the following protocols:
 
-- [AMQP](http://activemq.apache.org/amqp.html "http://activemq.apache.org/amqp.html")
-- [MQTT](http://activemq.apache.org/mqtt.html "http://activemq.apache.org/mqtt.html")
-- MQTT over [WebSocket](http://activemq.apache.org/websockets.html "http://activemq.apache.org/websockets.html")
-- [OpenWire](http://activemq.apache.org/openwire.html "http://activemq.apache.org/openwire.html")
-- [STOMP](http://activemq.apache.org/stomp.html "http://activemq.apache.org/stomp.html")
+- [AMQP](https://activemq.apache.org/amqp.html "https://activemq.apache.org/amqp.html")
+- [MQTT](https://activemq.apache.org/mqtt.html "https://activemq.apache.org/mqtt.html")
+- MQTT over [WebSocket](https://activemq.apache.org/websockets.html "https://activemq.apache.org/websockets.html")
+- [OpenWire](https://activemq.apache.org/openwire.html "https://activemq.apache.org/openwire.html")
+- [STOMP](https://activemq.apache.org/stomp.html "https://activemq.apache.org/stomp.html")
 - STOMP over WebSocket
 
 ### Attributes
@@ -48,7 +48,7 @@ An ActiveMQ broker has several attributes, for example:
 - An ActiveMQ Web Console URL
   (`https://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:8162`)
 
-For more information, see [Web Console](http://activemq.apache.org/web-console.html "http://activemq.apache.org/web-console.html") in the Apache ActiveMQ documentation.
+For more information, see [Web Console](https://activemq.apache.org/web-console.html "https://activemq.apache.org/web-console.html") in the Apache ActiveMQ documentation.
 
 ###### Important
 
@@ -69,7 +69,7 @@ messages to, or receive messages from, the Amazon MQ broker.
       + `stomp+ssl://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61614`
       + `wss://b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9-1.mq.us-east-2.amazonaws.com:61619`
 
-  For more information, see [Configuring Transports](http://activemq.apache.org/configuring-transports.html "http://activemq.apache.org/configuring-transports.html") in the Apache ActiveMQ documentation.
+  For more information, see [Configuring Transports](https://activemq.apache.org/configuring-transports.html "https://activemq.apache.org/configuring-transports.html") in the Apache ActiveMQ documentation.
 
 ###### Note
 
@@ -90,7 +90,7 @@ _Amazon MQ REST API Reference_:
 ## Broker users
 
 An ActiveMQ _user_ is a person or an application that can access the queues and topics of an ActiveMQ broker.
-You can configure users to have specific permissions. For example, you can allow some users to access the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html "http://activemq.apache.org/web-console.html").
+You can configure users to have specific permissions. For example, you can allow some users to access the [ActiveMQ Web Console](https://activemq.apache.org/web-console.html "https://activemq.apache.org/web-console.html").
 
 A _group_ is a semantic label. You can assign a group to a user and configure permissions for groups to send to, receive from, and administer specific queues and topics.
 
@@ -103,8 +103,8 @@ or [reboot the broker](amazon-mq-rebooting-broker.md "amazon-mq-rebooting-broker
 For information about users and groups, see the following in the Apache ActiveMQ
 documentation:
 
-- [Authorization](http://activemq.apache.org/security.html#Security-Authorization "http://activemq.apache.org/security.html#Security-Authorization")
-- [Authorization Example](http://activemq.apache.org/security.html#Security-AuthorizationExample "http://activemq.apache.org/security.html#Security-AuthorizationExample")
+- [Authorization](https://activemq.apache.org/security.html#Security-Authorization "https://activemq.apache.org/security.html#Security-Authorization")
+- [Authorization Example](https://activemq.apache.org/security.html#Security-AuthorizationExample "https://activemq.apache.org/security.html#Security-AuthorizationExample")
 
 For information about creating, editing, and deleting ActiveMQ users, see the
 following:

@@ -33,6 +33,7 @@ You can upgrade the engine version of a broker by using the AWS Management Conso
 3. Scroll to the bottom of the page, and choose **Schedule modifications**.
 4. On the **Schedule broker modifications** page, for **When to apply modifications**,
    choose one of the following.
+
    - Choose **After the next reboot**, if you want Amazon MQ to complete the version upgrade
      during the next scheduled maintenance window.
    - Choose **Immediately**, if you want to reboot the broker and upgrade
@@ -49,6 +50,7 @@ You can upgrade the engine version of a broker by using the AWS Management Conso
 
 1. Use the [update-broker](../../../cli/latest/reference/mq/update-broker.md "../../../cli/latest/reference/mq/update-broker.md") CLI command
    and specify the following parameters, as shown in the example.
+
    - `--broker-id` – The unique ID that Amazon MQ generates for the broker.
      You can parse the ID from your broker ARN. For example, given the following ARN,
      `arn:aws:mq:us-east-2:123456789012:broker:MyBroker:b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9`, the broker ID would be `b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9`.

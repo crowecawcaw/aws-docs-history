@@ -60,6 +60,7 @@ see [Amazon MQ for RabbitMQ broker users](rabbitmq-simple-auth-broker-users.md#r
     **Add / update a policy**.
 9.  To create a new broker policy, under **Add / update a policy**, do
     the following:
+
     1. For **Virtual host**, choose the name of the vhost to which you want to attach the policies
        from the dropdown list. To choose the default vhost, choose **/**.
 
@@ -95,7 +96,6 @@ see [Amazon MQ for RabbitMQ broker users](rabbitmq-simple-auth-broker-users.md#r
         ###### Note
 
         Does not apply to single-instance brokers.
-
     7. Choose **Add / update policy**.
 
 10. Confirm that the new policy appears in the list of **User

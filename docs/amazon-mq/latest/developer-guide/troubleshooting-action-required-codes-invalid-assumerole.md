@@ -30,6 +30,7 @@ fields @timestamp, @message
 ```
 
 3. Check the IAM role configuration and fix any issues such as:
+
    - Ensure the role exists in the same AWS account as the broker
    - Verify the trust policy allows mq.amazonaws.com to assume the role
    - Confirm the role has appropriate permissions to access the required AWS resources

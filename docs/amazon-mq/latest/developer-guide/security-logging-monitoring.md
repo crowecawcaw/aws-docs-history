@@ -9,7 +9,7 @@ potential incidents:
 You can use CloudWatch to view and analyze metrics for your Amazon MQ broker.
 You can view and analyze your broker metrics from the CloudWatch console, the AWS CLI, or the CloudWatch AWS CLI.
 CloudWatch metrics for Amazon MQ are automatically polled from the broker and then pushed to CloudWatch every minute.
-For ActiveMQ brokers, CloudWatch monitors only the first 1000 destinations.. For RabbitMQ brokers, CloudWatch monitors only the first 500 destinations, ordered by number of consumers..
+For ActiveMQ brokers, CloudWatch monitors only the first 1000 destinations. For RabbitMQ brokers, CloudWatch monitors only the first 500 destinations, ordered by number of consumers.
 
 For a full list of Amazon MQ metrics, see [Available CloudWatch metrics Amazon MQ for ActiveMQ brokers](activemq-logging-monitoring.md "activemq-logging-monitoring.md").
 

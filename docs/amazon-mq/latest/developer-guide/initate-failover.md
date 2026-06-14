@@ -35,6 +35,7 @@ You cannot initiate switchover or failover on a primary broker.
 
 1. Switch to the region for your replica broker. From your Brokers table, select the existing replica broker you will promote to primary.
 2. On the **Broker details page**, do the following:
+
    1. Select **Promote replica**.
    2. In the pop up window, chose _Switchover_ or _Failover_.
    3. Type “confirm” in the text box to confirm your choice.

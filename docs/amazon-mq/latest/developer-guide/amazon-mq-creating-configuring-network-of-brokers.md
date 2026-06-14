@@ -12,7 +12,7 @@ following:
 - `networkConnector`
 - `networkConnectionStartAsync`
 - [Networks of
-  Brokers](http://activemq.apache.org/networks-of-brokers.html "http://activemq.apache.org/networks-of-brokers.html") in the ActiveMQ documentation
+  Brokers](https://activemq.apache.org/networks-of-brokers.html "https://activemq.apache.org/networks-of-brokers.html") in the ActiveMQ documentation
   You can use the Amazon MQ console to create an Amazon MQ network of brokers. Because you can
   start the creation of the two brokers in parallel, this process takes approximately 15
   minutes.
@@ -120,6 +120,7 @@ After you allow traffic between your brokers, you must configure network
 connectors for one of them.
 
 1.  Edit the configuration revision for broker `MyBroker1`.
+
     1. On the **MyBroker1** page, choose
        **Edit**.
     2. On the **Edit MyBroker1** page, in the
@@ -176,7 +177,6 @@ connectors for one of them.
 
         Don't include the sign-in credentials for the ActiveMQ
          user.
-
     6. Choose **Save**.
     7. In the **Save revision** dialog box, type
        `Add network of brokers connector for
@@ -186,6 +186,7 @@ MyBroker2`.
 
 2.  Edit `MyBroker1` to set the latest configuration revision to
     apply immediately.
+
     1. On the **MyBroker1** page, choose
        **Edit**.
     2. On the **Edit MyBroker1** page, in the

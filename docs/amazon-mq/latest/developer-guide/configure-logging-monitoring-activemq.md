@@ -32,7 +32,7 @@ a format similar to the following:
 /aws/amazonmq/broker/b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9/general
 ```
 
-[Audit logging](http://activemq.apache.org/audit-logging.html "http://activemq.apache.org/audit-logging.html")
+[Audit logging](https://activemq.apache.org/audit-logging.html "https://activemq.apache.org/audit-logging.html")
 enables logging of management actions taken using JMX or using the ActiveMQ Web
 Console and publishes `audit.log` to a log group in your CloudWatch account.
 The log group has a format similar to the following:
@@ -228,4 +228,4 @@ JSON
 ```
 
 For more information about the confused deputy security issue, see
-[The confused deputy problem](../../../hIAM/latest/UserGuide/confused-deputy.md "../../../hIAM/latest/UserGuide/confused-deputy.md") in the _User Guide_.
+[The confused deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") in the _User Guide_.

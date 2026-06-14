@@ -2,7 +2,7 @@
 
 The following is a detailed explanation of child element attributes. For more
 information, see [XML
-Configuration](http://activemq.apache.org/xml-configuration.html "http://activemq.apache.org/xml-configuration.html") in the Apache ActiveMQ documentation.
+Configuration](https://activemq.apache.org/xml-configuration.html "https://activemq.apache.org/xml-configuration.html") in the Apache ActiveMQ documentation.
 
 ###### Topics
 
@@ -254,7 +254,7 @@ documentation](https://activemq.apache.org/kahadb "https://activemq.apache.org/k
 `systemUsage` is a child of the `systemUsage` child
 collection element. It controls the maximum amount of space the broker will use
 before slowing down producers. For more information, see [Producer Flow
-Control](http://activemq.apache.org/producer-flow-control.html "http://activemq.apache.org/producer-flow-control.html") in the Apache ActiveMQ documentation.
+Control](https://activemq.apache.org/producer-flow-control.html "https://activemq.apache.org/producer-flow-control.html") in the Apache ActiveMQ documentation.
 
 ### Child Element
 
@@ -263,7 +263,7 @@ Control](http://activemq.apache.org/producer-flow-control.html "http://activemq.
 `memoryUsage` is a child of the `systemUsage` child
 element. It manages memory usage. Use `memoryUsage` to keep track
 of how much of something is being used so that you can control working set
-usage productively. For more information, see [the schema](http://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html "http://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html") in the Apache ActiveMQ documentation.
+usage productively. For more information, see [the schema](https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html "https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html") in the Apache ActiveMQ documentation.
 
 ##### Child Element
 
@@ -285,7 +285,7 @@ _Default:_
 
 Sets whether a `send()` method should fail if there is no space
 free. The default value is false, which blocks the `send()`
-method until space becomes available. For more information, see the [schema](http://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html "http://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html") in the Apache Active MQ documentation.
+method until space becomes available. For more information, see the [schema](https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html "https://activemq.apache.org/schema/core/activemq-core-5.15.12-schema.html") in the Apache Active MQ documentation.
 
 **Default:**
 `false`

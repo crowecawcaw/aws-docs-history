@@ -65,6 +65,7 @@ Amazon MQ also enforces the following additional validations for HTTP authentica
 
 - `auth_http.http_method` must be either `get` or `post`
 - The following path configurations must use HTTPS URLs:
+
   - `auth_http.user_path`
   - `auth_http.vhost_path`
   - `auth_http.resource_path`

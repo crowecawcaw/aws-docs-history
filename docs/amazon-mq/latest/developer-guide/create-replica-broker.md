@@ -36,6 +36,7 @@ To use the cross-Region data replication feature, you must review and comply wit
 3. On the **Select broker engine** page, choose **Apache ActiveMQ**.
 4. On the **Select deployment and storage** page,
    in the **Deployment mode and storage type** section, do the following:
+
    1. For the **Deployment mode**, choose **Active/standby broker**.
       An **Active/standby broker** is comprised of two brokers in two different Availability Zones configured in a redundant pair.
       These brokers communicate synchronously with your application and with Amazon EFS. For more information, see
@@ -43,6 +44,7 @@ To use the cross-Region data replication feature, you must review and comply wit
 
 5. Choose **Next**.
 6. On the **Configure settings** page, in the **Details** section, do the following:
+
    1. Enter the **Broker name**.
 
    ###### Important
@@ -54,6 +56,7 @@ To use the cross-Region data replication feature, you must review and comply wit
 
 7. In the **ActiveMQ Web Console access** section, provide a **Username**
    and **Password**. The following restrictions apply to broker usernames and passwords:
+
    - Your username can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . \_ ~).
    - Your password must be at least 12 characters long, contain at least 4 unique characters and must not contain commas, colons, or equal signs (,:=).
 
@@ -74,6 +77,7 @@ Then, on the **Preferences** page, turn off CRDR Role or RPO Status.
 3. On the **Configure replica broker** page, use the drop down menu to choose the replica Region.
 4. In the **ActiveMQ console user for replica broker** section, provide a **Username**
    and **Password** for the replica broker console user. The following restrictions apply to broker usernames and passwords:
+
    - Your username can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . \_ ~).
    - Your password must be at least 12 characters long, contain at least 4 unique characters and must not contain commas, colons, or equal signs (,:=).
 

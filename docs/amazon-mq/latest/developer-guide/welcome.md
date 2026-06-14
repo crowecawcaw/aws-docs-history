@@ -1,6 +1,6 @@
 # What is Amazon MQ?
 
-Amazon MQ is a managed message broker service for [Apache ActiveMQ](http://activemq.apache.org/ "http://activemq.apache.org/") Classic
+Amazon MQ is a managed message broker service for [Apache ActiveMQ](https://activemq.apache.org/ "https://activemq.apache.org/") Classic
 and [RabbitMQ](https://www.rabbitmq.com/ "https://www.rabbitmq.com/") that manages the setup, operation, and maintenance of message brokers.
 You can create a new Amazon MQ broker using industry standard messaging protocols,
 or migrate existing message brokers to Amazon MQ without rewriting messaging code.
@@ -76,11 +76,11 @@ To get started with _RabbitMQ on Amazon MQ_, review the following documentation:
 To learn about Amazon MQ REST APIs, see the _[Amazon MQ REST API Reference](../api-reference.md "../api-reference.md")_.
 
 To learn about Amazon MQ AWS CLI commands, see [Amazon MQ in the
-_AWS CLI Command Reference_](../../../cli/latest/reference/mq/index.md "../../../cli/latest/reference/mq/index.md").
+_AWS CLI Command Reference_](../../../cli/latest/reference/mq.md "../../../cli/latest/reference/mq.md").
 
 ## How can I provide feedback to Amazon MQ?
 
-We welcome and encourgae your feedback on the documentation.
+We welcome and encourage your feedback on the documentation.
 You can use the thumbs up and thumbs down icons on the right hand side to submit feedback, or
 you can use the
 "Provide feedback" form linked below.

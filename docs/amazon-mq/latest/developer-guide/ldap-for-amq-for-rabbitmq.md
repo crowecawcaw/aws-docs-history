@@ -71,6 +71,7 @@ Amazon MQ also enforces the following additional validations for LDAP authentica
 - If any setting requires the use of an AWS ARN, `aws.arns.assume_role_arn` must be provided.
 - `auth_ldap.servers` must be a valid IP address or valid FQDN
 - The following keys must be a valid LDAP Distinguished Name:
+
   - `auth_ldap.dn_lookup_base`
   - `auth_ldap.dn_lookup_bind.user_dn`
   - `auth_ldap.other_bind.user_dn`

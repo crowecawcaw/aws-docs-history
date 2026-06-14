@@ -17,11 +17,11 @@ To take advantage of low latency and high throughput, use Amazon EBS.
 The following table provides a brief overview of the differences between
 in-memory, Amazon EFS, and Amazon EBS storage types for ActiveMQ brokers.
 
-| Storage Type | Persistence    | Example Use Case                                                       | Approximate Maximum Number of Messages Enqueued per Producer,<br>per Second (1KB Message) | Replication                                               |
-| ------------ | -------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| In-memory    | Non-persistent | • Stock quotes<br>• Location data updates<br>• Frequently changed data | 5,000                                                                                     | None                                                      |
-| Amazon EBS   | Persistent     | • High volumes of text<br>• Order processing                           | 500                                                                                       | Multiple copies within a single Availability Zone<br>(AZ) |
-| Amazon EFS   | Persistent     | Financial transactions                                                 | 80                                                                                        | Multiple copies across multiple AZs                       |
+| Storage Type | Persistence    | Example Use Case                                                       | Approximate Maximum Number of Messages Enqueued per Broker,<br>per Second (1KB Message) | Replication                                               |
+| ------------ | -------------- | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| In-memory    | Non-persistent | • Stock quotes<br>• Location data updates<br>• Frequently changed data | 5,000                                                                                   | None                                                      |
+| Amazon EBS   | Persistent     | • High volumes of text<br>• Order processing                           | 500                                                                                     | Multiple copies within a single Availability Zone<br>(AZ) |
+| Amazon EFS   | Persistent     | Financial transactions                                                 | 80                                                                                      | Multiple copies across multiple AZs                       |
 
 In-memory message storage provides the lowest latency and the highest
 throughput. However, messages are lost during instance replacement or broker

@@ -20,6 +20,14 @@ deployments for high availability.
 In cluster deployments, Amazon MQ performs maintenance operations
 one node at a time by keeping at least two running nodes at all times.
 
+###### Note
+
+During maintenance operations, Amazon MQ may terminate existing broker instances and launch
+new replacement instances. For active/standby deployments, instances are terminated and
+replaced sequentially to maintain broker availability throughout the maintenance window.
+Clients connected to the active instance may experience a brief failover to the standby
+instance during this process.
+
 When you first create your broker, you can schedule the maintenance window
 to occur once a week at a specified time.
 You can only adjust the maintenance window of a broker up to four times
@@ -38,6 +46,7 @@ you can use the AWS Management Console, the AWS CLI, or the Amazon MQ API.
    and then choose the broker that you want to upgrade from the list.
 3. On the broker details page, choose **Edit**.
 4. Under **Maintenance**, do the following.
+
    1. For **Start day**, choose a day of the week, for example, **Sunday**,
       from the drop-down list.
    2. For **Start time**, choose the hour and minute of the day that you want to schedule for the next
@@ -58,10 +67,12 @@ you can use the AWS Management Console, the AWS CLI, or the Amazon MQ API.
 
 1. Use the [update-broker](../../../cli/latest/reference/mq/update-broker.md "../../../cli/latest/reference/mq/update-broker.md") CLI command
    and specify the following parameters, as shown in the example.
+
    - `--broker-id` – The unique ID that Amazon MQ generates for the broker.
      You can parse the ID from your broker ARN. For example, given the following ARN,
      `arn:aws:mq:us-east-2:123456789012:broker:MyBroker:b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9`, the broker ID would be `b-1234a5b6-78cd-901e-2fgh-3i45j6k178l9`.
    - `--maintenance-window-start-time` – The parameters that determine the weekly maintenance window start time provided in the following structure.
+
      - `DayOfWeek` – The day of the week, in the following syntax:
        `MONDAY| TUESDAY | WEDNESDAY | THURSDAY | FRIDAY | SATURDAY | SUNDAY`
      - `TimeOfDay` – The time, in 24-hour format.

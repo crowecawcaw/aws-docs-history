@@ -12,7 +12,7 @@ To access Amazon MQ metrics using the CloudWatch API, use the `GetMetricStatisti
 For more information, see [Get Statistics for a Metric](../../../AmazonCloudWatch/latest/monitoring/getting-metric-statistics.md "../../../AmazonCloudWatch/latest/monitoring/getting-metric-statistics.md") in the
 _Amazon CloudWatch User Guide_.
 
-## Accesing CloudWatch metrics using the AWS Management Console
+## Accessing CloudWatch metrics using the AWS Management Console
 
 The following example shows you how to access CloudWatch metrics for Amazon MQ using the
 AWS Management Console.If you're already signed into the Amazon MQ console, on the broker
@@ -32,6 +32,7 @@ AWS Management Console.If you're already signed into the Amazon MQ console, on t
     In this example, **Broker Metrics** is selected.
 
 5.  You can now examine your Amazon MQ metrics:
+
     - To sort the metrics, use the column heading.
 
     - To graph the metric, select the check box next to the

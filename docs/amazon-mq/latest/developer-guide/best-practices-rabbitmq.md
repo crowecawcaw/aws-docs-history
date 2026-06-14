@@ -13,3 +13,4 @@ Currently, Amazon MQ does not support [streams](https://www.rabbitmq.com/streams
 - [Best practices for message durability and reliability in Amazon MQ for RabbitMQ](best-practices-message-reliability.md "best-practices-message-reliability.md")
 - [Best practices for performance optimization and efficiency in Amazon MQ for RabbitMQ](best-practices-performance.md "best-practices-performance.md")
 - [Best practices for network resilience and monitoring in Amazon MQ for RabbitMQ](best-practices-network-resilience.md "best-practices-network-resilience.md")
+- [Best practices for resource naming in Amazon MQ for RabbitMQ](best-practices-resource-naming.md "best-practices-resource-naming.md")

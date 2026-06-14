@@ -1,8 +1,13 @@
-# Elements permitted in Amazon MQ configurations
+# Elements permitted in Amazon MQ for ActiveMQ configurations
 
-The following is a detailed listing of the elements permitted in Amazon MQ
+The following is a detailed listing of the elements permitted in Amazon MQ for ActiveMQ
 configurations. For more information, see [XML
-Configuration](http://activemq.apache.org/xml-configuration.html "http://activemq.apache.org/xml-configuration.html") in the Apache ActiveMQ documentation.
+Configuration](https://activemq.apache.org/xml-configuration.html "https://activemq.apache.org/xml-configuration.html") in the Apache ActiveMQ documentation.
+
+###### Note
+
+This page applies to ActiveMQ brokers only. For information about RabbitMQ plugins, see
+[Plugins](rabbitmq-basic-elements-plugins.md "rabbitmq-basic-elements-plugins.md").
 
 | Element                                                                                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |

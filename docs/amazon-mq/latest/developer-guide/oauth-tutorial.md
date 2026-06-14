@@ -29,6 +29,7 @@ You can set the Amazon Cognito resources required in this tutorial by deploying 
 For information about creating a resource server, see [Defining a resource server for your user pool (AWS Management Console)](../../../cognito/latest/developerguide/cognito-user-pools-define-resource-servers.md#cognito-user-pools-define-resource-servers-console "../../../cognito/latest/developerguide/cognito-user-pools-define-resource-servers.md#cognito-user-pools-define-resource-servers-console") in the _Amazon Cognito Developer Guide_.
 
 - Create the following application clients:
+
   - Application client for the user pool of type `Machine-to-Machine application`. This is a confidential client with a client secret that will be used for RabbitMQ AMQP clients. For more information about application clients and creating one, see [App client types](../../../cognito/latest/developerguide/user-pool-settings-client-apps.md#user-pool-settings-client-app-client-types "../../../cognito/latest/developerguide/user-pool-settings-client-apps.md#user-pool-settings-client-app-client-types") and [Creating an app client](../../../cognito/latest/developerguide/user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-console-create "../../../cognito/latest/developerguide/user-pool-settings-client-apps.md#cognito-user-pools-app-idp-settings-console-create").
   - Application client for the user pool of type `Single-page application`. This is a public client that will be used to log in users into the RabbitMQ management console. You must update this application client to include the endpoint of the Amazon MQ for RabbitMQ broker you'll create in the following procedure as an allowed callback URL. For more information, see [Setting up managed login with the Amazon Cognito console](../../../cognito/latest/developerguide/cognito-user-pools-managed-login.md#set-up-managed-login "../../../cognito/latest/developerguide/cognito-user-pools-managed-login.md#set-up-managed-login").
 
@@ -76,7 +77,7 @@ auth_backends.1 = oauth2
 
 # FIXME: Update this value with the token signing key URL of your Amazon Cognito user pool.
 # If you used the AWS CDK stack to deploy Amazon Cognito, this is one of the stack outputs.
-auth_oauth2.jwks_url = `${RabbitMqOAuth2TestStack.JwksUri}`
+auth_oauth2.jwks_uri = `${RabbitMqOAuth2TestStack.JwksUri}`
 auth_oauth2.resource_server_id = rabbitmq
 # Amazon Cognito does not include an audience field in access tokens
 auth_oauth2.verify_aud = false
@@ -234,7 +235,7 @@ auth_backends.1 = oauth2
 auth_backends.2 = internal
 
 # FIXME: Update this value with the token signing key URL of your Amazon Cognito user pool
-auth_oauth2.jwks_url = `${RabbitMqOAuth2TestStack.JwksUri}`
+auth_oauth2.jwks_uri = `${RabbitMqOAuth2TestStack.JwksUri}`
 auth_oauth2.resource_server_id = rabbitmq
 auth_oauth2.verify_aud = false
 

@@ -25,7 +25,7 @@ and your broker.
 ## Always Use Connection Pooling
 
 In a scenario with a single producer and single consumer (such as the [Getting started: Creating and connecting to an ActiveMQ broker](getting-started-activemq.md "getting-started-activemq.md")
-tutorial), you can use a single [`ActiveMQConnectionFactory`](http://activemq.apache.org/maven/apidocs/org/apache/activemq/ActiveMQConnectionFactory.html "http://activemq.apache.org/maven/apidocs/org/apache/activemq/ActiveMQConnectionFactory.html") class for every producer and
+tutorial), you can use a single [`ActiveMQConnectionFactory`](https://activemq.apache.org/maven/apidocs/org/apache/activemq/ActiveMQConnectionFactory.html "https://activemq.apache.org/maven/apidocs/org/apache/activemq/ActiveMQConnectionFactory.html") class for every producer and
 consumer. For example:
 
 ```
@@ -44,7 +44,7 @@ consumerConnection.start();
 However, in more realistic scenarios with multiple producers and consumers, it can
 be costly and inefficient to create a large number of connections for multiple
 producers. In these scenarios, you should group multiple producer requests using the
-[`PooledConnectionFactory`](http://activemq.apache.org/maven/apidocs/org/apache/activemq/jms/pool/PooledConnectionFactory.html "http://activemq.apache.org/maven/apidocs/org/apache/activemq/jms/pool/PooledConnectionFactory.html") class. For example:
+[`PooledConnectionFactory`](https://activemq.apache.org/maven/apidocs/org/apache/activemq/jms/pool/PooledConnectionFactory.html "https://activemq.apache.org/maven/apidocs/org/apache/activemq/jms/pool/PooledConnectionFactory.html") class. For example:
 
 ###### Note
 
@@ -74,7 +74,7 @@ producerConnection.start();
 If you need your application to connect to multiple broker endpoints—for example,
 when you use an [active/standby](amazon-mq-broker-architecture.md#active-standby-broker-deployment "amazon-mq-broker-architecture.md#active-standby-broker-deployment") deployment mode or when you [migrate from an on-premises message broker to
 Amazon MQ](../migration-guide.md "../migration-guide.md")—use the [Failover
-Transport](http://activemq.apache.org/failover-transport-reference.html "http://activemq.apache.org/failover-transport-reference.html") to allow your consumers to randomly connect to either one. For
+Transport](https://activemq.apache.org/failover-transport-reference.html "https://activemq.apache.org/failover-transport-reference.html") to allow your consumers to randomly connect to either one. For
 example:
 
 ```
@@ -98,11 +98,11 @@ ephemeral.
 
 ## Prefer Virtual Destinations to Durable Subscriptions
 
-A [durable subscription](http://activemq.apache.org/how-do-durable-queues-and-topics-work.html "http://activemq.apache.org/how-do-durable-queues-and-topics-work.html") can help ensure that the consumer receives all
+A [durable subscription](https://activemq.apache.org/how-do-durable-queues-and-topics-work.html "https://activemq.apache.org/how-do-durable-queues-and-topics-work.html") can help ensure that the consumer receives all
 messages published to a topic, for example, after a lost connection is restored.
 However, the use of durable subscriptions also precludes the use of competing
 consumers and might have performance issues at scale. Consider using [virtual
-destinations](http://activemq.apache.org/virtual-destinations.html "http://activemq.apache.org/virtual-destinations.html") instead.
+destinations](https://activemq.apache.org/virtual-destinations.html "https://activemq.apache.org/virtual-destinations.html") instead.
 
 ## If using Amazon VPC peering, avoid client IPs in CIDR range `10.0.0.0/16`
 
@@ -179,7 +179,7 @@ throughput:
 - **Batched transactions** – When
   you use persistent mode and send multiple messages per transaction, you
   can achieve an overall higher message throughput by using larger broker
-  instance types. For more information, see [Should I Use Transactions?](http://activemq.apache.org/should-i-use-transactions.html "http://activemq.apache.org/should-i-use-transactions.html") in the ActiveMQ
+  instance types. For more information, see [Should I Use Transactions?](https://activemq.apache.org/should-i-use-transactions.html "https://activemq.apache.org/should-i-use-transactions.html") in the ActiveMQ
   documentation.
 
 ## Choose the correct broker storage type for the best throughput
@@ -202,16 +202,16 @@ configure it correctly for your application:
   message.
 
 If persistent mode is disabled, the first broker acknowledges the producer
-without persisting the message to storage. For more information, see [Replicated Message Store](http://activemq.apache.org/replicated-message-store.html "http://activemq.apache.org/replicated-message-store.html") and [What is the difference between persistent and non-persistent
-delivery?](http://activemq.apache.org/what-is-the-difference-between-persistent-and-non-persistent-delivery.html "http://activemq.apache.org/what-is-the-difference-between-persistent-and-non-persistent-delivery.html") in the Apache ActiveMQ documentation.
+without persisting the message to storage. For more information, see [Replicated Message Store](https://activemq.apache.org/replicated-message-store.html "https://activemq.apache.org/replicated-message-store.html") and [What is the difference between persistent and non-persistent
+delivery?](https://activemq.apache.org/what-is-the-difference-between-persistent-and-non-persistent-delivery.html "https://activemq.apache.org/what-is-the-difference-between-persistent-and-non-persistent-delivery.html") in the Apache ActiveMQ documentation.
 
 - **Don't disable advisory messages for broker
   instances** – For more information, see [Advisory
-  Message](http://activemq.apache.org/advisory-message.html "http://activemq.apache.org/advisory-message.html") in the Apache ActiveMQ documentation.
+  Message](https://activemq.apache.org/advisory-message.html "https://activemq.apache.org/advisory-message.html") in the Apache ActiveMQ documentation.
 - **Don't use multicast broker discovery**
   – Amazon MQ doesn't support broker discovery using multicast. For more
   information, see [What
-  is the difference between discovery, multicast, and zeroconf?](http://activemq.apache.org/multicast-transport-reference.html "http://activemq.apache.org/multicast-transport-reference.html") in
+  is the difference between discovery, multicast, and zeroconf?](https://activemq.apache.org/multicast-transport-reference.html "https://activemq.apache.org/multicast-transport-reference.html") in
   the Apache ActiveMQ documentation.
 
 ## Avoid slow restarts by recovering prepared XA transactions

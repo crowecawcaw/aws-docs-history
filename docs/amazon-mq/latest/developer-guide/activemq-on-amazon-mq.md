@@ -25,6 +25,7 @@ source mapping you create reads messages from your broker in batches and convert
 ###### To connect your broker to a Lambda function
 
 1. Add the following IAM role permissions to your Lambda function [execution role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md").
+
    - [mq:DescribeBroker](../api-reference/brokers-broker-id.md#brokers-broker-id-http-methods "../api-reference/brokers-broker-id.md#brokers-broker-id-http-methods")
    - [ec2:CreateNetworkInterface](../../../AWSEC2/latest/APIReference/API_CreateNetworkInterface.md "../../../AWSEC2/latest/APIReference/API_CreateNetworkInterface.md")
    - [ec2:DeleteNetworkInterface](../../../AWSEC2/latest/APIReference/API_DeleteNetworkInterface.md "../../../AWSEC2/latest/APIReference/API_DeleteNetworkInterface.md")

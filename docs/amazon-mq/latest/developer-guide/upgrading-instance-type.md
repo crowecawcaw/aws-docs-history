@@ -35,6 +35,7 @@ To upgrade your instance type, you can use the AWS Management Console, the AWS C
 5. At the bottom of the page, choose **Schedule modifications**.
 6. On the **Schedule broker modifications** page, for **When to apply modifications**,
    choose one of the following.
+
    - Choose **After the next reboot**, if you want Amazon MQ to complete the upgrade
      during the next scheduled maintenance window.
    - Choose **Immediately**, if you want to reboot the broker and upgrade
@@ -51,6 +52,7 @@ To upgrade your instance type, you can use the AWS Management Console, the AWS C
 
 1. Use the [modify-broker](../../../cli/latest/reference/mq/update-broker.md "../../../cli/latest/reference/mq/update-broker.md") CLI command
    and specify the following parameters, as shown in the example.
+
    - `--broker-id` – The unique ID that Amazon MQ generates for the broker.
    - `--host-instance-type` – The engine version number for the broker engine to upgrade to.
 
