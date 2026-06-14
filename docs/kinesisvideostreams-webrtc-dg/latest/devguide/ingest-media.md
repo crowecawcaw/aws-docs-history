@@ -21,6 +21,7 @@ Chrome is currently the only supported browser.
 
 1.  Open the Amazon Kinesis Video Streams with WebRTC SDK in the JavaScript [sample page](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html").
 2.  Complete the following information:
+
     - **KVS Endpoint** - In the
       **Region** field, select your region.
 
@@ -36,7 +37,6 @@ Chrome is currently the only supported browser.
          credentials. Leave this field blank if you're using
          long-term IAM credentials. See [Temporary security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") for
          more information.
-
     - **Signaling Channel** - In the **Channel Name** field, type
       the name of the signaling channel you configured earlier. For more
       information, see [Configure destination](configure-ingestion.md "configure-ingestion.md").
@@ -132,6 +132,7 @@ Chrome is the only supported browser.
 
 1.  Open another tab in the Amazon Kinesis Video Streams with WebRTC SDK in the JavaScript [sample page](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html"). All the information from the previous page will be
     automatically populated. If not, complete the following information:
+
     - **KVS Endpoint** - In the
       **Region** field, select your region.
 
@@ -147,7 +148,6 @@ Chrome is the only supported browser.
          credentials. Leave this field blank if you're using
          long-term IAM credentials. See [Temporary security credentials in IAM](../../../IAM/latest/UserGuide/id_credentials_temp.md "../../../IAM/latest/UserGuide/id_credentials_temp.md") for
          more information.
-
     - **Signaling Channel** - In the **Channel
       Name** field, type the name of the signaling channel
       you configured earlier. For more information, see [Configure destination](configure-ingestion.md "configure-ingestion.md").

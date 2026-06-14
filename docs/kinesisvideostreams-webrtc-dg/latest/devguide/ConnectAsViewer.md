@@ -16,6 +16,7 @@ metadata is overwritten with the new information.
 ```
 
 - **X-Amz-ChannelARN** - ARN of the signaling channel.
+
   - Type: string
   - Length constraints: Minimum length of 1. Maximum length of 1024
   - Pattern: `arn:aws:kinesisvideo:[a-z0-9-]+:[0-9]+:[a-z]+/[a-zA-Z0-9_.-]+/[0-9]+`
@@ -23,6 +24,7 @@ metadata is overwritten with the new information.
 
 - **X-Amz-ClientId** - A unique identifier for the
   client.
+
   - Type: string
   - Length constraints: Minimum length of 1. Maximum length of 256.
   - Pattern: `^(?!(?i)AWS_.*)[a-zA-Z0-9_.-]`

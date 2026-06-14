@@ -53,6 +53,7 @@ metrics is currently supported for the applications built with the WebRTC C SDK.
 into the following categories:
 
 - Networking:
+
   - [Ice
     Candidate](https://www.w3.org/TR/webrtc-stats/#icecandidate-dict* "https://www.w3.org/TR/webrtc-stats/#icecandidate-dict*"): these metrics provide information about the selected local and
     remote candidates for data exchange between the peers. This includes server source of
@@ -69,6 +70,7 @@ into the following categories:
     are being exchanged between the peers and also time-related measurements.
 
 - Media and data:
+
   - [Remote Inbound RTP](https://www.w3.org/TR/webrtc-stats/#remoteinboundrtpstats-dict* "https://www.w3.org/TR/webrtc-stats/#remoteinboundrtpstats-dict*"): these metrics represent the endpoint perspective of the
     data stream sent by the sender.
   - [Outbound RTP](https://www.w3.org/TR/webrtc-stats/#dom-rtcoutboundrtpstreamstats "https://www.w3.org/TR/webrtc-stats/#dom-rtcoutboundrtpstreamstats"): these metrics provide information about the outgoing RTP

@@ -167,6 +167,7 @@ screen /dev/tty.usbserial-`XXXXXXX` 115200
 ```
 
 6. Determine the appropriate action, based on the state of your board:
+
    - If the shell session ends with a `#`, the boot was interrupted. Use
      `boot` command to start the Linux OS, then continue with the rest of this step.
    - If the shell session asks you to log in, type your password.

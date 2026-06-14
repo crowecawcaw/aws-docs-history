@@ -27,6 +27,7 @@ offer for the same client which is not yet delivered, it is overwritten with the
 ```
 
 - **action** - Type of the message that is being sent.
+
   - Type: ENUM
   - Valid values: `SDP_OFFER`, `SDP_ANSWER`, `ICE_CANDIDATE`
   - Length constraints: Minimum length of 1. Maximum length of 256.
@@ -35,6 +36,7 @@ offer for the same client which is not yet delivered, it is overwritten with the
 
 - **recipientClientId** - The unique identifier for the
   recipient.
+
   - Type: String
   - Length constraints: Minimum length of 1. Maximum length of 256.
   - Pattern: `[a-zA-Z0-9_.-]+`
@@ -42,12 +44,14 @@ offer for the same client which is not yet delivered, it is overwritten with the
 
 - **messagePayload** - The base-64-encoded message
   content.
+
   - Type: String
   - Length constraints: Minimum length of 1. Maximum length of 10K.
   - Required: Yes
 
 - **correlationId** - A unique identifier for the message. This
   is an optional parameter.
+
   - Type: String
   - Length constraints: Minimum length of 1. Maximum length of 256.
   - Pattern: `[a-zA-Z0-9_.-]+`

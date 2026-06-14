@@ -81,6 +81,7 @@ The code for the sample application is in the `examples` directory.
 ### Stream peer-to-peer from the sample application to the AWS Management Console
 
 1. Open the [Kinesis Video Streams with WebRTC sample application](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html") and complete the following:
+
    - AWS Region. For example, `us-west-2`.
    - The AWS access key and the secret key for your IAM user or role. Leave the session
      token blank if you are using long-term AWS credentials.
@@ -95,6 +96,7 @@ The code for the sample application is in the `examples` directory.
    use letters, numbers, underscores (\_), and hyphens (-), but not spaces.
    - Whether you want to send audio, video, or both.
    - WebRTC Ingestion and Storage. Expand the node and choose one of the following:
+
      - Select **Automatically determine ingestion mode**.
      - Make sure **Automatically determine ingestion mode** isn't selected
        and set the manual override to **OFF**.
@@ -126,6 +128,7 @@ The media that is being sent on the demo page should display in the AWS Manageme
 ### Stream peer-to-peer from the sample application to the sample application
 
 1. Open the [Kinesis Video Streams with WebRTC sample application](https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html "https://awslabs.github.io/amazon-kinesis-video-streams-webrtc-sdk-js/examples/index.html") and complete the following information:
+
    - AWS Region. For example, `us-west-2`.
    - The AWS access key and the secret key for your IAM user or role. Leave the session
      token blank if you are using long-term AWS credentials.
@@ -140,6 +143,7 @@ The media that is being sent on the demo page should display in the AWS Manageme
    use letters, numbers, underscores (\_), and hyphens (-), but not spaces.
    - Whether you want to send audio, video, or both.
    - WebRTC Ingestion and Storage. Expand the node and choose one of the following:
+
      - Select **Automatically determine ingestion mode**.
      - Make sure **Automatically determine ingestion mode** isn't selected
        and set the manual override to **OFF**.

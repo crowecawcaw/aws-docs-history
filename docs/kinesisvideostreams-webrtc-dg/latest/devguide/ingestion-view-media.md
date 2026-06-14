@@ -27,6 +27,7 @@ the source code on [GitHub](https://github.com/aws-samples/amazon-kinesis-video-
 
 1. Open the [Amazon Kinesis Video Streams Media Viewer](https://aws-samples.github.io/amazon-kinesis-video-streams-media-viewer/ "https://aws-samples.github.io/amazon-kinesis-video-streams-media-viewer/").
 2. Complete the following fields:
+
    - **Region** - Select **us-west-2**.
    - **AWS Access Key**
    - **AWS Secret Key**

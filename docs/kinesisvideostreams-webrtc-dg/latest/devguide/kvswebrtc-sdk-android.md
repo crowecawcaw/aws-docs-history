@@ -161,6 +161,7 @@ pool.
 3. In the **User pools** section, choose **Create user
    pool**.
 4. Complete the following sections:
+
    1. **Step 1: Configure sign-in experience** - In the **Cognito user pool
       sign-in options** section, select the appropriate
       options.
@@ -206,6 +207,7 @@ In the `awsconfiguration.json` file, this is
     pools**.
 3.  Choose **Create identity pool**.
 4.  Configure the identity pool.
+
     1.  **Step 1: Configure identity pool trust** - Complete the following sections:
 
             * **User access** - Select **Authenticated access**

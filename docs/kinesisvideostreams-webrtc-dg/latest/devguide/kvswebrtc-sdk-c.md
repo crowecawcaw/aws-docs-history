@@ -6,11 +6,13 @@ with WebRTC SDK in C for embedded devices and its corresponding samples.
 The following codecs are supported:
 
 - **Audio:**
+
   - G.711 A-Law
   - G.711 U-Law
   - Opus
 
 - **Video:**
+
   - H.264
   - H.265
   - VP8
@@ -41,6 +43,7 @@ Complete the following steps:
 ######
 
 1. Install cmake:
+
    - On macOS, run `brew install cmake pkg-config srtp`
    - on Ubuntu, run `sudo apt-get install pkg-config cmake libcap2
 libcap-dev`

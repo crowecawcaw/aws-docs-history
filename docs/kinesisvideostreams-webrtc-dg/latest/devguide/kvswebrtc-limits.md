@@ -74,10 +74,12 @@ The following section describes service quotas for the media recording component
 **JoinStorageSession**
 
 - API:
+
   - Per AWS account - 50 TPS (h)
   - Per channel - 2 TPS (h)
 
 - Streaming session quotas:
+
   - Bit rate - 1 Mbps (s)
   - Session duration - 1 hour (h)
   - Idle timeout - 3 minutes (h)
@@ -85,10 +87,12 @@ The following section describes service quotas for the media recording component
 **JoinStorageSessionAsViewer**
 
 - API:
+
   - Per AWS account - 50 TPS (h)
   - Per channel - 2 TPS (h)
 
 - Streaming session quotas:
+
   - Max concurrent clients in a session - 3 count (h)
   - Session duration - 1 hour (h)
   - Idle timeout - 1 minutes (h)

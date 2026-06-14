@@ -29,6 +29,7 @@ honored.
 ```
 
 - **action** - Type of the message that is being sent.
+
   - Type: ENUM
   - Valid values: `SDP_OFFER`, `SDP_ANSWER`, `ICE_CANDIDATE`
   - Length constraints: Minimum length of 1. Maximum length of 256.
@@ -37,6 +38,7 @@ honored.
 
 - **recipientClientId** - A unique identifier for the
   recipient.
+
   - Type: String
   - Length constraints: Minimum length of 1. Maximum length of 256.
   - Pattern: `[a-zA-Z0-9_.-]+`
@@ -44,12 +46,14 @@ honored.
 
 - **messagePayload** - The base64-encoded message
   content.
+
   - Type: String
   - Length constraints: Minimum length of 1. Maximum length of 10K.
   - Required: Yes
 
 - **correlationId** - A unique identifier for the
   message.
+
   - Type: String
   - Length constraints: Minimum length of 1. Maximum length of 256.
   - Pattern: `[a-zA-Z0-9_.-]+`
