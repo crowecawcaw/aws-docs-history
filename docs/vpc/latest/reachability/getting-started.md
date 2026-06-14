@@ -67,6 +67,7 @@ analysis.
    Numbers (ARNs) for.
 2. On the **Analysis path** panel, enter an optional ARN for either of the
    following:
+
    - **Include an intermediate component feature**
 
    The analyzer only considers paths that include the specified intermediate
