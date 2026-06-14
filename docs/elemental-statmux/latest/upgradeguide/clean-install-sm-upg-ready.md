@@ -26,6 +26,7 @@ location. These files appear in the list in the table below.
 
 2. Copy these files to a directory on another system, using the protocol
    compatible with your equipment. For example:
+
    - Use Windows Share protocol: Connect to `\\<node IP>\elemental` on a PC.
    - Use Samba: Connect to `smb://<node IP>/elemental` on a Mac.
 
@@ -60,6 +61,7 @@ h:/corporate/downloads/.
 5. Make a note of the name of the download file. For example:
    `elemental_production_statmux_dg_version_short;.0.123456.run`
 6. Copy the download file from your workstation to `/home/elemental/` on one of the nodes. For example:
+
    - Use SFTP protocol and an FTP client application on your workstation computer.
      Connect to the IP address for AWS Elemental Delta on port 22 with the _elemental_ user
      credentials and transfer the file.
