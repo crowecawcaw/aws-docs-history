@@ -17,6 +17,7 @@ support the following:
 
 - AWS is responsible for securing components that support AWS TNB,
   including:
+
   - Compute instances (also known as _workers_)
   - Internal databases
   - Network communications between internal components
@@ -25,6 +26,7 @@ support the following:
 
 - You are responsible for securing your access to your AWS resources and your
   workload components, including (but not limited to):
+
   - IAM users, groups, roles, and policies
   - S3 buckets that you use to store your data for AWS TNB
   - Other AWS services and resources that you use to support the network service

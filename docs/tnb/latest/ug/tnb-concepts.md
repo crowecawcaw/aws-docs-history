@@ -161,6 +161,7 @@ tosca_definitions_version: tnb_simple_yaml_1_0
 2. VNFD – The NSD contains the definition of the
    network function on which to perform lifecycle operations. Each network function must be
    identified by the following values:
+
    - A unique ID for `descriptor_id`. The ID must match the ID in the network function
      CSAR package.
    - A unique name for `namespace`. The name must be associated with a unique ID to more easily reference

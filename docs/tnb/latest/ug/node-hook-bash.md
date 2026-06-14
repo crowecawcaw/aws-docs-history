@@ -43,6 +43,7 @@ value meets the following criteria:
   number (0-9).
 - Do not start the environment variable name with the following
   AWS TNB reserved keywords (case insensitive):
+
   - CODEBUILD
   - TNB
   - HOME
