@@ -46,6 +46,7 @@ Before you replicate your IAM Identity Center instance, ensure the following req
   application table in
   [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md")
   to confirm the following two application requirements:
+
   - All AWS managed applications that are in use by your organization must support IAM Identity Center
     that is configured with a customer managed KMS key.
   - The AWS managed applications that you want to deploy in additional Regions must support

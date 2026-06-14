@@ -37,11 +37,13 @@ IAM Identity Center:
   to IAM Identity Center.
 - The provisioning script is supported only in its default state, once changed
   the SCIM provisioning might fail.
+
   - Only one phone number attribute can be synchronized and the default is
     “work phone”.
 
 - If the role mapping in CyberArk IAM Identity Center application is changed,
   the below behavior is expected:
+
   - If the role names are changed - no changes to the group names in
     IAM Identity Center.
   - If the group names are changed - new groups will be created in IAM Identity Center,
@@ -50,6 +52,7 @@ IAM Identity Center:
 - User synchronization and de-provisioning behavior can be set up from the
   CyberArk IAM Identity Center application, make sure you set up the right
   behavior for your organization. These are the options you have:
+
   - Overwrite (or not) users in Identity Center directory with the same
     principal name.
   - De-provision users from IAM Identity Center when the user is removed from the
@@ -71,6 +74,7 @@ In this first step, you use the IAM Identity Center console to enable automatic 
 4. In the **Inbound automatic provisioning** dialog box, copy the SCIM endpoint and access token.
    You'll need to paste these in later when
    you configure provisioning in your IdP.
+
    1. **SCIM endpoint** - For example,
       https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
    2. **Access token** - Choose **Show token**
@@ -145,6 +149,7 @@ feature. For more information about how to do this, see [Enable and configure at
 2. Go to the **SAML Response** option.
 3. Under **Attributes**, add the relevant attributes to the
    table following the below logic:
+
    1. **Attribute Name** is the original attribute name
       from CyberArk.
    2. **Attribute Value** is the attribute name sent in the

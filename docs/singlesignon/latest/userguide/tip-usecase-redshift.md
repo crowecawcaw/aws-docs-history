@@ -39,6 +39,7 @@ propagation to Amazon Redshift:
 - **Tableau** including Tableau
   Desktop, Tableau Server, and
   Tableau Prep
+
   - To enable trusted identity propagation for users of
     Tableau, refer to [Integrate Tableau and Okta with Amazon Redshift using
     IAM Identity Center](https://aws.amazon.com/blogs//big-data/integrate-tableau-and-okta-with-amazon-redshift-using-aws-iam-identity-center/ "https://aws.amazon.com/blogs//big-data/integrate-tableau-and-okta-with-amazon-redshift-using-aws-iam-identity-center/") in the _AWS Big Data
@@ -46,6 +47,7 @@ propagation to Amazon Redshift:
 
 - **SQL Clients** (DBeaver and
   DBVisualizer)
+
   - To enable trusted identity propagation for users of SQL
     Clients (DBeaver and
     DBVisualizer), refer to [Integrate Identity Provider (IdP) with Amazon Redshift Query

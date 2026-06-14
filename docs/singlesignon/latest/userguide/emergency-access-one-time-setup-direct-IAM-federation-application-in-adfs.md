@@ -110,6 +110,7 @@ Choose **Add Rule** to add rules.
 
 1. Select **Transform an Incoming Claim** and then choose **Next**.
 2. Use the following settings:
+
    - Claim rule name: `NameId`
    - Incoming claim type: `Windows Account Name`
    - Outgoing claim type: `Name ID`
@@ -123,6 +124,7 @@ Choose **Add Rule** to add rules.
 1. Choose **Add Rule**.
 2. In the Claim rule template list, select **Send LDAP Attributes as Claims**.
 3. Use the following settings:
+
    - Claim rule name: `RoleSessionName`
    - Attribute store: `Active Directory`
    - LDAP Attribute: `E-Mail-Addresses`

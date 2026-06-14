@@ -95,6 +95,7 @@ browser.
    to complete user authentication.
 3. After authentication, the user is presented with a consent
    screen that displays the following information:
+
    - The name of the application
    - The access scopes that the application is requesting
      consent to use
@@ -131,6 +132,7 @@ _AWS Command Line Interface User Guide_.
    redirects them to complete user authentication.
 3. After authentication, the user is presented with a consent
    screen that displays the following information:
+
    - The name of the application
    - The access scopes that the application is requesting
      consent to use

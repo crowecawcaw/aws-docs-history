@@ -136,6 +136,7 @@ For each use case identified in step 1:
 3. In the AWS Management Console, locate the IAM policy of the IAM principal that is associated with
    the use case. The location of this policy varies depending on the use case and how
    access is granted.
+
    - For access granted directly in IAM, you can locate IAM principals, such as IAM
      roles in the IAM console.
    - For access granted through IAM Identity Center, you can locate the pertinent permission set
@@ -201,6 +202,7 @@ encryption at rest from the start. Before you start, refer to [Considerations fo
 2. Choose **Manage Encryption**.
 3. Choose **Customer managed key**.
 4. For **KMS key**, do one of the following:
+
    1. Choose **Select from your KMS keys** and select
       the key you created from the dropdown list.
    2. Choose **Enter KMS key ARN** and enter the full
@@ -226,6 +228,7 @@ Console
 3. Choose the **Additional settings** tab.
 4. Choose **Manage encryption**.
 5. Choose one of the following:
+
    1. **Customer managed key** - Select a
       different customer managed key from the dropdown or enter a new key ARN.
    2. **AWS owned key** - Switch to the

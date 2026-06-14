@@ -50,6 +50,7 @@ You can enable IAM Identity Center and trusted identity propagation with these a
 AWS services:
 
 - **Amazon Q Business** - for guidance, see:
+
   - [Admin workflow for apps using IAM Identity Center](../../../amazonq/latest/qbusiness-ug/how-it-works.md#admin-flow-idc "../../../amazonq/latest/qbusiness-ug/how-it-works.md#admin-flow-idc").
   - [Configuring an Amazon Q Business application using
     IAM Identity Center](../../../amazonq/latest/qbusiness-ug/create-application.md "../../../amazonq/latest/qbusiness-ug/create-application.md").
@@ -57,12 +58,14 @@ AWS services:
     propagation](https://aws.amazon.com/blogs//machine-learning/configuring-amazon-q-business-with-aws-iam-identity-center-trusted-identity-propagation/ "https://aws.amazon.com/blogs//machine-learning/configuring-amazon-q-business-with-aws-iam-identity-center-trusted-identity-propagation/").
 
 - **Amazon OpenSearch Service** - for guidance, see:
+
   - [IAM Identity Center Trusted Identity Propagation Support for
     Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/idc-aos.md "../../../opensearch-service/latest/developerguide/idc-aos.md").
   - [Centralized OpenSearch user interface (Dashboards) with
     Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/application.md "../../../opensearch-service/latest/developerguide/application.md").
 
 - **AWS Transfer Family** - for guidance, see:
+
   - [Transfer Family web
     apps](../../../transfer/latest/userguide/web-app.md "../../../transfer/latest/userguide/web-app.md").
 

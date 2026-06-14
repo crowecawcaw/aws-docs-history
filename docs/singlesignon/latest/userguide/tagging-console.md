@@ -11,6 +11,7 @@ your instance or permission sets.
 3. Choose the name of the permission set that has the tags you want to
    manage.
 4. On the **Permissions** tab, under **Tags**, do one of the following, and then proceed to the next step:
+
    1. If tags are already assigned for this permission set, choose
       **Edit tags**.
    2. If no tags are assigned to this permission set, choose

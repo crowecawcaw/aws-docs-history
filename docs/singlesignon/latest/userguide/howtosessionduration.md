@@ -46,6 +46,7 @@ a permission set.
 7. Choose **Save changes**.
 8. At the top of the **AWS accounts** page, a
    notification appears.
+
    - If the permission set is provisioned in one or more
      AWS accounts, the notification confirms that the
      AWS accounts were reprovisioned successfully, and the updated

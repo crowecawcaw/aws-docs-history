@@ -33,6 +33,7 @@ in the previous list), you can copy the URL to a clipboard to share it.
 1. While signed into the AWS access portal, choose the **Accounts** tab and
    then choose the **Create shortcut** button.
 2. In the dialog box:
+
    1. Choose an AWS account using the account ID or account name. As you type, a
       drop-down menu displays matching account IDs and names that you can access. You can
       choose only an account to which you have access.

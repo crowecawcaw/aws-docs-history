@@ -33,6 +33,7 @@ metadata exchange files so that you can finish setting up the trust.
    `MyApp`. Then, enter a
    **Description**.
 9. Under **IAM Identity Center metadata**, do the following:
+
    1. Under **IAM Identity Center SAML metadata file**, choose
       **Download** to download the
       identity provider metadata.

@@ -31,6 +31,7 @@ Guide_.
 4. On the user details page, choose **Reset password**.
 5. In the **Reset password** dialog box, select one of the
    following choices, and then choose **Reset password**:
+
    1. **Send an email to the user with instructions to reset the
       password** – This option automatically sends the user an
       email addressed from Amazon Web Services that walks them through how to reset

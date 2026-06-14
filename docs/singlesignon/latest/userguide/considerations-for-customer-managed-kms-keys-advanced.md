@@ -26,6 +26,7 @@ Identity Store ARNs are not available until after setup. You have the following 
 - Use generic ARN patterns temporarily, and then replace with full ARNs after the
   instance is enabled. Remember to switch between StringEquals and StringLike
   operators as needed.
+
   - For IAM Identity Center SPN: "arn:${Partition}:sso:::instance/\*".
   - For Identity Store SPN:
     "arn:${Partition}:identitystore::${Account}:identitystore/\*".
@@ -34,6 +35,7 @@ Identity Store ARNs are not available until after setup. You have the following 
   enablement and must be replaced with the actual ARN for your IAM Identity Center instance to
   function normally. The advantage of this approach is that you cannot forget to
   replace this after the instance is enabled.
+
   - For IAM Identity Center SPN, use: "arn:${Partition}:sso:::instance/purpose:KEY_CONFIGURATION"
   - For Identity Store SPN, use:
     "arn:${Partition}:identitystore::${Account}:identitystore/purpose:KEY_CONFIGURATION"

@@ -22,7 +22,9 @@ IAM Identity Center. For more information, see [Organization and account instanc
    type.
 5. Choose one or more policies that you want to use for the permission
    set, based on the permission set type:
+
    - **Predefined permission set**
+
      1. Under **Policy for predefined permission
         set**, select one of the IAM
         **Job function policies** or
@@ -35,6 +37,7 @@ IAM Identity Center. For more information, see [Organization and account instanc
         page.
 
    - **Custom permission set**
+
      1. Choose **Next**.
      2. On the **Specify policies and permission
         boundary** page, choose the types of IAM
@@ -48,10 +51,12 @@ IAM Identity Center. For more information, see [Organization and account instanc
         role_ in the Service Quotas console in each
         AWS account where you want to assign the permission
         set.
+
         - Expand **AWS managed
           policies** to add policies from IAM
           that AWS builds and maintains. For more
           information, see [AWS managed policies](permissionsetcustom.md#permissionsetsampconcept "permissionsetcustom.md#permissionsetsampconcept").
+
           1. Search for and choose **AWS
              managed policies** that you want to apply
              to your users in the permission set.
@@ -66,6 +71,7 @@ IAM Identity Center. For more information, see [Organization and account instanc
           policies** to add policies from IAM
           that you build and maintain. For more information,
           see [Customer managed policies](permissionsetcustom.md#permissionsetscmpconcept "permissionsetcustom.md#permissionsetscmpconcept").
+
           1. Choose **Attach policies**
              and enter the name of a policy that you want to
              add to your permission set. In each account where
@@ -90,6 +96,7 @@ IAM Identity Center. For more information, see [Organization and account instanc
           adds the policy to the IAM resources that it
           creates in your member accounts. For more
           information, see [Inline policies](permissionsetcustom.md#permissionsetsinlineconcept "permissionsetcustom.md#permissionsetsinlineconcept").
+
           1. Add your desired actions and resources
              within the interactive editor to your inline
              policy. Additional statements can be added with
@@ -107,6 +114,7 @@ IAM Identity Center. For more information, see [Organization and account instanc
           permissions that your other policies in the
           permission set can assign. For more information,
           see [Permissions boundaries](permissionsetcustom.md#permissionsetsboundaryconcept "permissionsetcustom.md#permissionsetsboundaryconcept").
+
           1. Choose **Use a permissions boundary
              to control the maximum
              permissions**.
@@ -126,6 +134,7 @@ IAM Identity Center. For more information, see [Organization and account instanc
 
 6. On the **Specify permission set details** page, do
    the following:
+
    1. Under **Permission set name**, type a name to
       identify this permission set in IAM Identity Center. The name that you specify
       for this permission set appears in the AWS access portal as an

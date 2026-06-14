@@ -51,6 +51,7 @@ IAM Identity Center and supports trusted identity propagation.
    IAM Identity Center** – The IAM Identity Center administrator [adds the trusted
    token issuer by using the IAM Identity Center console](#how-to-add-trustedtokenissuer "#how-to-add-trustedtokenissuer") or [APIs](../APIReference/API_Operations.md "../APIReference/API_Operations.md"). This
    configuration requires specifying the following:
+
    - A name for the trusted token issuer.
    - The OIDC discovery endpoint URL (in the IAM Identity Center console,
      this URL is called the _issuer URL_).
@@ -101,6 +102,7 @@ you must choose which external IdP to use as a trusted token issuer.
 5. On the **Set up an external IdP to issue trusted
    tokens** page, under **Trusted token issuer
    details**, do the following:
+
    - For **Issuer URL**, specify the [OIDC
      discovery URL](trusted-token-issuer-configuration-settings.md#oidc-discovery-endpoint-url "trusted-token-issuer-configuration-settings.md#oidc-discovery-endpoint-url") of the external IdP that will issue tokens
      for trusted identity propagation. You must specify the
@@ -120,6 +122,7 @@ you must choose which external IdP to use as a trusted token issuer.
 
 6. Under **Map attributes**, do the
    following:
+
    - For **Identity provider attribute**,
      select an attribute from the list to map to an attribute
      in the IAM Identity Center identity store.
@@ -193,6 +196,7 @@ process.
    application. If the user hasn't authenticated yet, this process
    triggers an authentication flow. The token contains the
    following information:
+
    - The subject (Sub) of the user.
    - The attribute that IAM Identity Center uses to look up the
      corresponding user in IAM Identity Center.
@@ -210,6 +214,7 @@ process.
 5. IAM Identity Center uses the OIDC Discovery endpoint to obtain the public
    key that it can use to verify the authenticity of the token.
    IAM Identity Center then does the following:
+
    - Verifies the token.
    - Searches the Identity Center directory. To do this,
      IAM Identity Center uses the mapped attribute specified in the

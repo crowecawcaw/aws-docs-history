@@ -15,9 +15,11 @@ To use trusted identity propagation, ensure your environment meets the
 following prerequisites:
 
 - Enable and provision IAM Identity Center
+
   - To use trusted identity propagation, you must enable IAM Identity Center in
     the same AWS Region where the AWS applications and services
     your users will access are enabled. For information, see [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md").
+
     - IAM Identity Center Organization instance is recommended - We
       recommend you use an [organization instance](organization-instances-identity-center.md "organization-instances-identity-center.md") of IAM Identity Center that you
       enable in the management account of AWS Organizations. You can
@@ -44,6 +46,7 @@ Keep in mind the following considerations when configuring and using trusted
 identity propagation:
 
 - **Organization vs account instance of IAM Identity Center**
+
   - An [organization instance](organization-instances-identity-center.md "organization-instances-identity-center.md") of IAM Identity Center will give you the
     most control and flexibility to grow your use cases to multiple
     AWS accounts, users, and AWS services. If you are unable to
@@ -54,6 +57,7 @@ identity propagation:
 
 - **Multi-account permissions (permission sets) not
   required**
+
   - Trusted identity propagation doesn't require you to set up
     [multi-account
     permissions](manage-your-accounts.md "manage-your-accounts.md") (permission sets). You can enable IAM Identity Center

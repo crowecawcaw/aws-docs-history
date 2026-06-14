@@ -80,6 +80,7 @@ considerations in mind.
 - A dynamic group can include a nested group. However, Microsoft Entra ID provisioning service
   doesn’t flatten the nested group. For example, if you have the following Microsoft Entra ID structure
   for dynamic groups:
+
   - Group A is a parent of group B.
   - Group A has ua1 as a member.
   - Group B has ub1 as a member.
@@ -206,11 +207,13 @@ account is denied by default.
    **Next**.
 5. Select **Inline policy** to expand it, and then create a policy
    for the permission set using the following steps:
+
    1. Choose **Add new statement** to create a policy
       statement.
    2. Under **Edit statement**, select
       **Account** from the list, and then choose the following
       checkboxes.
+
       - **`ListRegions`**
       - **`GetRegionOptStatus`**
       - **`DisableRegion`**
@@ -264,6 +267,7 @@ a user in IAM Identity Center that mirrors the core attributes from Nikki Wolfs 
    console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
 2. Choose **Users**, choose **Add user**, and
    then provide the following information:
+
    1. For both **Username** and **Email
       address** – Enter the same
       **`NikkiWolf`@`yourcompanydomain.extension`**
@@ -359,6 +363,7 @@ step.
 4. On the **Basic SAML Configuration** page, verify that both the
    **Identifier** and **Reply URL (Assertion Consumer Service URL)** values now
    point to endpoints in AWS.
+
    - **Identifier** - This is the **Issuer URL**
      from IAM Identity Center. The same value applies regardless of whether you use IPv4-only or
      dual-stack endpoints.
@@ -517,6 +522,7 @@ attributes were synced successfully to IAM Identity Center.
    value that is displayed.
 6. Choose **Properties**, and then provide the following
    values:
+
    - **First name** - Enter
      **`Richard`**
    - **Last name** - Enter
@@ -551,7 +557,9 @@ of users and groups coming from Microsoft Entra ID into IAM Identity Center.
 4. In the **Inbound automatic provisioning** dialog box, copy each
    of the values for the following options. You will need to paste these in the next
    step when you configure provisioning in Microsoft Entra ID.
+
    1. **SCIM endpoint** - For example,
+
       - IPv4:
         `https://scim.`aws-region`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2`
       - Dual stack:
@@ -666,6 +674,7 @@ feature. For more information about how to do this, see [Enable and configure at
    **Edit**.
 4. On the **Attributes & Claims** page, do the
    following:
+
    1. Choose **Add new claim**
    2. For **Name**, enter
       `AccessControl:`AttributeName``. Replace
@@ -729,12 +738,14 @@ information, see [Organization and account instances of IAM Identity Center](ide
     **Assign users or groups**.
 3.  The **Assign users and groups** workflow displays. It consists of
     three steps:
+
     1.  For **Step 1: Select users and groups** choose the user that
         will be performing the administrator job function. Then choose
         **Next**.
     2.  For **Step 2: Select permission sets** choose **Create
         permission set** to open a new tab that steps you through the three
         sub-steps involved in creating a permission set.
+
         1.  For **Step 1: Select permission set type** complete the
             following:
 
@@ -783,6 +794,7 @@ information, see [Organization and account instances of IAM Identity Center](ide
    Microsoft Entra ID application. By adding the user, you’ll allow them to sign-in to AWS. Search
    for the user you created at Step 4. If you followed this step, it would be
    `RichardRoe`.
+
    1. For a demo, see [Federate your existing
       IAM Identity Center instance with Microsoft Entra ID](https://youtu.be/iSCuTJNeN6c?si=29HSAK8DgBEhSVad "https://youtu.be/iSCuTJNeN6c?si=29HSAK8DgBEhSVad")
 
@@ -882,6 +894,7 @@ IAM Identity Center does not expect the email address to contain the
 4. Select **Unique User Identifier (Name ID)** following
    **Required Claims**.
 5. You will create two claim conditions for your Microsoft Entra ID users and guest users:
+
    1. For Microsoft Entra ID users, create a user type for members with source attribute set to
       `user.userprincipalname`.
    2. For Microsoft Entra ID guest users, create a user type for external guests with the source

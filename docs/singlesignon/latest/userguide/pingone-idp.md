@@ -75,6 +75,7 @@ affect how you implement provisioning with IAM Identity Center.
   IAM Identity Center.
 - The following are important notes regarding your SAML configuration in
   PingOne:
+
   - IAM Identity Center supports only `emailaddress` as a `NameId`
     format. This means you need to choose a user attribute that is unique within
     your directory in PingOne, non-null, and formatted as an
@@ -108,6 +109,7 @@ provisioning.
 4. In the **Inbound automatic provisioning** dialog box, copy the SCIM endpoint and access token.
    You'll need to paste these in later when
    you configure provisioning in your IdP.
+
    1. **SCIM endpoint** - For example,
       https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
    2. **Access token** - Choose **Show token**
@@ -190,6 +192,7 @@ feature. For more information about how to do this, see [Enable and configure at
 3. On the **Attribute Mappings** page, choose **Add new
    attribute**, and then do the following. You must perform these steps for
    each attribute you will add for use in IAM Identity Center for access control.
+
    1. In the **Application Attribute** field, enter
       `https://aws.amazon.com/SAML/Attributes/AccessControl:`AttributeName``.
 Replace `AttributeName`with the name of the attribute

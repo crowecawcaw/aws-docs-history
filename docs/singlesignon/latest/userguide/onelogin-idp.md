@@ -63,6 +63,7 @@ In this first step, you use the IAM Identity Center console to enable automatic 
 4. In the **Inbound automatic provisioning** dialog box, copy the SCIM endpoint and access token.
    You'll need to paste these in later when
    you configure provisioning in your IdP.
+
    1. **SCIM endpoint** - For example,
       https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
    2. **Access token** - Choose **Show token**
@@ -145,6 +146,7 @@ feature. For more information about how to do this, see [Enable and configure at
    **Parameters** from the navigation pane.
 3. In the **Required Parameters** section, do the following for each
    attribute you want to use in IAM Identity Center:
+
    1. Choose **+**.
    2. In **Field name**, enter
       `https://aws.amazon.com/SAML/Attributes/AccessControl:`AttributeName``,

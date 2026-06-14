@@ -15,6 +15,7 @@ types:
   identity data such as user and group attributes. You create, own, and manage these
   encryption keys. Because you have full control of this layer of encryption, you can
   perform such tasks as:
+
   - Establishing and maintaining key policies to restrict access to the key to only
     IAM principals who need access, such as IAM Identity Center and [AWS managed applications](awsapps.md "awsapps.md") in the same AWS Organizations and their administrators.
   - Establishing and maintaining IAM policies for access to the key including

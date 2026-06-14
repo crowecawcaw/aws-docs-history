@@ -25,6 +25,7 @@ page.
    **Manage logs**.
 4. Choose **Add log delivery** and one of the following destination
    types.
+
    1. Choose **To Amazon CloudWatch Logs**. Then choose or enter the destination
       log group.
    2. Choose **To Amazon S3**. Then choose or enter the destination

@@ -13,6 +13,7 @@ Console
 2. Choose **Users**.
 3. Choose **Add user** and provide the following
    required information:
+
    1. **Username** – This user name is
       required to sign in to the AWS access portal and cannot be changed
       later. It must be between 1 and 100 characters.
@@ -22,6 +23,7 @@ Console
       creating an administrative user and you choose to send an
       email, make sure that you specify an email address that you
       can access.
+
       1. **Send an email to this user with password
          setup
          instructions** – This option

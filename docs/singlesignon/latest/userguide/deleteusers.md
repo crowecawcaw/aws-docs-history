@@ -29,6 +29,7 @@ Console
    console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
 2. Choose **Users**.
 3. There are two ways you can delete a user:
+
    - On the **Users** page, you can select
      multiple users for deletion. Select the username that you
      want to delete and choose **Delete

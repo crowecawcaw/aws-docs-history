@@ -20,6 +20,7 @@ authentication in IAM](../../../IAM/latest/UserGuide/id_credentials_mfa.md "../.
    under **If a user does not yet have a registered MFA
    device** choose one of the following choices based on your
    business needs:
+
    - **Require them to register an MFA device at sign
      in**
 

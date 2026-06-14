@@ -65,8 +65,10 @@ the following:
    **Assign permission sets to
    "`AWS-account-name`"** page, do
    the following:
+
    1. Select one or more permission sets. If required, you can create
       and select new permission sets.
+
       - To select one or more existing permission sets, under
         **Permission sets**, select the
         permission sets that you want to apply to the users and
@@ -88,6 +90,7 @@ the following:
    **Review and submit assignments to
    "`AWS-account-name`"** page, do
    the following:
+
    1. Review the selected users, groups, and permission sets.
    2. After you confirm that the correct users, groups, and permission
       sets are selected, choose **Submit**.
@@ -103,6 +106,7 @@ the following:
 
 8. If either of the following applies, follow the steps in [Prompt users for MFA](mfa-getting-started.md "mfa-getting-started.md") to
    enable MFA for IAM Identity Center:
+
    - You're using the default Identity Center directory as your
      identity source.
    - You're using an AWS Managed Microsoft AD directory or a self-managed directory

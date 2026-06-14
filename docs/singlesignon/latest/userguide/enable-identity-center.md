@@ -45,6 +45,7 @@ or account instance:
 Organization (recommended)
 
 1. Do one of the following to sign in to the AWS Management Console.
+
    - **New to AWS (root user)**
      – Sign in as the account owner by choosing **Root
      user** and entering your AWS account email
@@ -104,6 +105,7 @@ following steps to finish setting up your environment:
 Account
 
 1. Do one of the following to sign in to the AWS Management Console.
+
    - **New to AWS (root user)**
      – Sign in as the account owner by choosing **Root
      user** and entering your AWS account email

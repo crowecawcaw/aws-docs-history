@@ -35,6 +35,7 @@ your application to IAM Identity Center.
    **Description**.
 2. Under **User and group assignment method**,
    choose one of the following options:
+
    - **Require assignments** – Allow
      only IAM Identity Center users and groups who are assigned to this
      application to access the application.
@@ -79,11 +80,13 @@ AWS managed applications (receiving applications).
 1. On the **Specify authentication settings** page,
    under **Trusted token issuers**, do either of the
    following:
+
    - To use an existing trusted token issuer:
 
    Select the check box next to the name of the trusted token
    issuer that you want to use.
    - To add a new trusted token issuer:
+
      1. Choose **Create trusted token
         issuer**.
      2. A new browser tab opens. Follow steps 5 through 8
@@ -135,7 +138,9 @@ API action. For more information about this policy, and an example that you can 
 
 1. On the **Specify application credentials** page,
    do either of the following:
+
    - To quickly specify one or more IAM roles:
+
      1. Choose **Enter one or more IAM
         roles**.
      2. Under **Enter IAM roles**,
@@ -154,6 +159,7 @@ API action. For more information about this policy, and an example that you can 
 
    - To manually edit the policy (required if you specify
      non-AWS credentials):
+
      1. Select **Edit the application
         policy**.
      2. Modify your policy by typing or pasting text in

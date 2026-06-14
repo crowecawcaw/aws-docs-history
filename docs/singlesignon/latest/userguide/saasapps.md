@@ -37,6 +37,7 @@ manually.
    relevant details for the application. You can edit this
    information.
 9. Under **IAM Identity Center metadata**, do the following:
+
    1. Under **IAM Identity Center SAML metadata file**, choose
       **Download** to download the
       identity provider metadata.

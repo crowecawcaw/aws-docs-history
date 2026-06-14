@@ -151,6 +151,7 @@ The following are a couple of common reasons for this error:
 3. Your IdP is trying to match users in the target (IAM Identity Center, in this case) based on
    multiple attributes. Since user names are guaranteed unique within a given IAM Identity Center instance,
    you only need to specify `username` as the attribute used for matching.
+
    1. **Solution:** Ensure that your SCIM configuration in
       your IdP is using only a single attribute for matching with users in IAM Identity Center. For
       example, mapping `username` or `userPrincipalName` in the IdP to
@@ -169,15 +170,19 @@ IdP:
 You can experience this problem in the following scenarios:
 
 - **Scenario 1**
+
   - You're using customized non-unique attributes in your external IdP for
     attributes that must be unique in IAM Identity Center. Existing IAM Identity Center users or groups fail to
     synchronize to your IdP.
 
 - **Scenario 2**
+
   - You attempt to create users that have duplicate attributes for attributes that
     must be unique in IAM Identity Center.
+
     - For example, you create or have an existing IAM Identity Center user with the following
       attributes:
+
       - **Username:** Jane Doe
       - **Primary Email
         Address:**
@@ -185,6 +190,7 @@ You can experience this problem in the following scenarios:
 
     - Then you attempt to create another user in your external IdP with the
       following attributes:
+
       - **Username:** Richard Doe
       - **Primary Email
         Address:**
@@ -309,6 +315,7 @@ identity source, the following must be true:
   response between the identity provider and IAM Identity Center. It does not support encrypted SAML
   assertions.
 - The following statements apply if [Attributes for access control](attributesforaccesscontrol.md "attributesforaccesscontrol.md") is enabled in your IAM Identity Center account:
+
   - The number of attributes mapped in the SAML request must be 50 or less.
   - The SAML request must not contain multi-valued attributes.
   - The SAML request must not contain multiple attributes with the same name.
@@ -385,6 +392,7 @@ following:
   **Action** and then choose **Manage Authentication**.
   If the IdP and IAM Identity Center certificates do not match, import a new certificate to IAM Identity Center.
 - Ensure the NameID format in your identity provider's metadata file is the following:
+
   - `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`
 
 - If you are using AD Connector from AWS Directory Service as your identity provider, verify that

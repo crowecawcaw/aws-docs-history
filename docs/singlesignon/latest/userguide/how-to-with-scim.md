@@ -19,6 +19,7 @@ considerations that are applicable to your IdP. For more information, see the [I
 4. In the **Inbound automatic provisioning** dialog box, copy the SCIM endpoint and access token.
    You'll need to paste these in later when
    you configure provisioning in your IdP.
+
    1. **SCIM endpoint** - For example,
       https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
    2. **Access token** - Choose **Show token**

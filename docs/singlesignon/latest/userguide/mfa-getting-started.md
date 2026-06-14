@@ -32,6 +32,7 @@ manages MFA settings, rather than IAM Identity Center managing them.
    under **Prompt users for MFA**, choose one of the following
    authentication modes based on the level of security that your business
    needs:
+
    - **Every time they sign in
      (always-on)**
 

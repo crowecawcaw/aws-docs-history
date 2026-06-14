@@ -7,6 +7,7 @@ instructions on how to activate your user credentials.
 
 1. Depending on the email you received from your company, choose one of the following
    methods to activate your user credentials so that you can start using the AWS access portal.
+
    1. If you received an email with the subject **Invitation to join AWS
       IAM Identity Center**, open it and choose **Accept invitation**. On the
       **New user sign up** page, enter and confirm a password, and then

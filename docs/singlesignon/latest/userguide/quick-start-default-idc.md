@@ -27,16 +27,19 @@ The following prerequisites are needed to complete this tutorial:
 - [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md") and
   have an [organization instance of
   IAM Identity Center](organization-instances-identity-center.md "organization-instances-identity-center.md").
+
   - If you have an [account instance](account-instances-identity-center.md "account-instances-identity-center.md") of IAM Identity Center, you can create users and groups
     as well as grant them access to applications. For more information, see [Application access](manage-your-applications.md "manage-your-applications.md").
 
 - Sign in to the AWS Management Console and access the IAM Identity Center console either as a:
+
   - **New to AWS (root user)** – Sign in as the
     account owner by choosing **AWS account root user** and entering
     your AWS account email address. On the next page, enter your password.
   - **Already using AWS (IAM credentials)**
     – Sign in using your IAM credentials with administrative
     permissions.
+
     - For more help signing in to the AWS Management Console, see [AWS Sign-In Guide.](../../../signin/latest/userguide/how-to-sign-in.md "../../../signin/latest/userguide/how-to-sign-in.md")
 
 - You can configure multi-factor authentication for your IAM Identity Center users. For more
@@ -48,6 +51,7 @@ The following prerequisites are needed to complete this tutorial:
    **Add user**.
 3. On the **Specify user details** page, complete the following
    information:
+
    - **Username** - For this tutorial, enter
      `nikkiw`.
 
@@ -118,12 +122,14 @@ Follow these steps only if you enabled an [organization instance of IAM Identity
     **Assign users or groups**.
 3.  The **Assign users and groups** workflow displays. It consists of
     three steps:
+
     1.  For **Step 1: Select users and groups** choose the
         `Admin team` group you created. Then choose
         **Next**.
     2.  For **Step 2: Select permission sets** choose **Create
         permission set** to open a new tab that steps you through the three
         sub-steps involved in creating a permission set.
+
         1.  For **Step 1: Select permission set type** complete the
             following:
 

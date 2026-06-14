@@ -22,6 +22,7 @@ identity propagation. For information about trusted identity propagation, see [T
    Details**.
 6. You can change the application's display name, description, as well as the
    user and group assignment method.
+
    1. To change the display name, enter the desired name in the
       **Display name** field and choose
       **Save changes**.

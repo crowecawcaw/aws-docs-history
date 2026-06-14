@@ -71,6 +71,7 @@ Directory and you are not using RADIUS MFA with AWS Directory Service, enable MF
 11. On the **Users** tab, under **User**, enter
     the exact username and choose **Add**.
 12. Under **Added Users and Groups**, do the following:
+
     1. Confirm that the user to whom you want to grant administrative permissions is
        specified.
     2. Select the check box to the left of the username.

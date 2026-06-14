@@ -23,6 +23,7 @@ Console
    console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
 2. Choose **Groups**.
 3. There are two ways you can delete a group:
+
    - On the **Groups** page, you can select
      multiple groups for deletion. Select the group name that you
      want to delete and choose **Delete group**.
@@ -31,6 +32,7 @@ Console
      .
 
 4. You might be asked to confirm your intent to delete the group.
+
    - If you delete multiple groups at once, confirm your intent
      by typing `Delete` in the **Delete
      group** dialog box.

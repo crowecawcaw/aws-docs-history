@@ -60,6 +60,7 @@ identity source, there are two ways to use attributes for ABAC.
   Center directory and replace the values for any matching attributes
   that come from an IdP through a SAML assertion. Depending on whether
   you are using SCIM, consider the following:
+
   - If using SCIM, the IdP automatically synchronizes the
     attribute values into IAM Identity Center. You can then select these
     synchronized attributes on the **Attributes for

@@ -51,6 +51,7 @@ into IAM Identity Center.
 5. On the **Users** tab, under **User**, enter the
    exact user name and choose **Add**.
 6. Under **Added Users and Groups**, do the following:
+
    1. Confirm that the user to whom you want to grant administrative permissions is
       specified.
    2. Select the check box to the left of the user name.

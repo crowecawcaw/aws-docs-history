@@ -79,6 +79,7 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
    **Amazon Web Services (SAML)** app from the list.
 5. On the **Google Identity Provider details -
    Amazon Web Services** page, you can do either of the following:
+
    1. Download IdP metadata.
    2. Copy the SSO URL, Entity ID URL, and Certificate
       information.You will need either the XML file or URL information in Step 2.
@@ -94,6 +95,7 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
 3. On the **Settings** page, choose
    **Actions**, and then choose **Change identity
    source**.
+
    - If you haven't enabled IAM Identity Center, see [Enable IAM Identity Center](enable-identity-center.md "enable-identity-center.md") for more information. After
      enabling and accessing IAM Identity Center for the first time, you will arrive at
      the **Dashboard** where you can select
@@ -105,9 +107,11 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
 5. The **Configure external identity provider** page opens.
    To complete this page and the Google Workspace page in Step 1, you will need to
    complete the following:
+
    1. Under **Identity Provider metadata** section in
       the **IAM Identity Center** console, you will need to do either
       of the following:
+
       1. Upload the **Google SAML
          metadata** as the **IdP SAML
          metadata** in the IAM Identity Center console.
@@ -134,6 +138,7 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
    **ACS URL** and **Entity ID** values.
    You copied these values in the previous step and they can be found in the
    IAM Identity Center console.
+
    - Paste the **IAM Identity Center Assertion Consumer Service (ACS)
      URL** into the **ACS URL**
      field
@@ -142,6 +147,7 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
 
 9. On the **Service provider details** page, complete the
    fields under **Name ID** as follows:
+
    - For **Name ID format**, select
      **EMAIL**
    - For **Name ID**, select **Basic
@@ -153,6 +159,7 @@ If you haven't enabled IAM Identity Center yet, see [Enable IAM Identity Center]
     MAPPING**, and then configure these fields under
     **Google Directory
     attribute**:
+
     - For the
       `https://aws.amazon.com/SAML/Attributes/RoleSessionName`
       **app attribute**, select the field **Basic
@@ -207,7 +214,9 @@ units to give user access to a particular subset of your users.
    copy each of the values for the following options. In Step 5 of this
    tutorial, you will enter these values to configure automatic provisioning in
    Google Workspace.
+
    1. **SCIM endpoint** - For example,
+
       - IPv4`https://scim.`Region`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2`
       - Dual-stack`https://scim.`Region`.api.aws/`11111111111-2222-3333-4444-555555555555`/scim/v2`
 
@@ -333,6 +342,7 @@ information, see [Organization and account instances of IAM Identity Center](ide
     users or groups**.
 3.  The **Assign users and groups** workflow displays. It
     consists of three steps:
+
     1.  For **Step 1: Select users and groups** choose
         the user that will be performing the administrator job function.
         Then choose **Next**.
@@ -340,6 +350,7 @@ information, see [Organization and account instances of IAM Identity Center](ide
         **Create permission set** to open a new tab
         that steps you through the three sub-steps involved in creating a
         permission set.
+
         1.  For **Step 1: Select permission set
             type** complete the following:
 

@@ -8,6 +8,7 @@ IAM Identity Center implements the following standards-based protocols for ident
   interoperate successfully with IAM Identity Center, with the following special considerations:
 
 - **SAML**
+
   - IAM Identity Center requires a SAML nameID format of email address (that is,
     `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`).
   - The value of the nameID field in assertions must be an RFC 2822 ([https://tools.ietf.org/html/rfc2822](https://tools.ietf.org/html/rfc2822 "https://tools.ietf.org/html/rfc2822")) addr-spec compliant

@@ -16,6 +16,7 @@ with when prompted for multi-factor authentication (MFA) in the AWS access porta
    under **Users can authenticate with these MFA types**
    choose one of the following MFA types based on your business needs. For more
    information, see [Available MFA types for IAM Identity Center](mfa-types.md "mfa-types.md").
+
    - **Security keys and built-in
      authenticators**
    - **Authenticator apps**

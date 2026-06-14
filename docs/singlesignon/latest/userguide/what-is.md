@@ -97,6 +97,7 @@ following related namespaces **remain unchanged** for backward
 compatibility purposes.
 
 - CLI commands
+
   - [`aws configure sso`](../../../cli/latest/userguide/cli-configure-sso.md "../../../cli/latest/userguide/cli-configure-sso.md")
   - [`identitystore`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/identitystore/index.html")
   - [`sso`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sso/index.html")

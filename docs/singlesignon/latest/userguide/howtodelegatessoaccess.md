@@ -26,6 +26,7 @@ permission sets. The following lists the commands for each step:
    management account.
 2. Follow the steps in [Create a permission set](howtocreatepermissionset.md "howtocreatepermissionset.md") to create a permission set,
    and then do the following:
+
    1. On the **Create new permission set** page, select
       the **Create a custom permission set** check box,
       and then choose **Next: Details**.

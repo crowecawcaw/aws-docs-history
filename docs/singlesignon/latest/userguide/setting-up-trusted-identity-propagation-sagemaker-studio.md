@@ -22,6 +22,7 @@ administrator must perform the following steps.
 SageMaker Studio uses domains to organize user profiles, applications, and their associated resources. To enable trusted identity propagation, you must create a SageMaker Studio domain or modify an existing domain as described in the following procedure.
 
 1.  Open the SageMaker AI console, navigate to **Domains**, and do either of the following.
+
     - **Create a new SageMaker Studio domain by using [Setup for organizations](../../../sagemaker/latest/dg/onboard-custom.md#onboard-custom-instructions "../../../sagemaker/latest/dg/onboard-custom.md#onboard-custom-instructions").**
 
     Choose **Set up for
@@ -29,8 +30,8 @@ SageMaker Studio uses domains to organize user profiles, applications, and their
 
         + Choose **AWS Identity Center** as the authentication method.
         + Select the **Enable trusted identity propagation for all users on this domain** check box.
-
     - **Modify an existing SageMaker Studio domain.**
+
       - Select an existing domain that uses IAM Identity Center for authentication.
 
       ###### Important
@@ -52,11 +53,14 @@ SageMaker Studio uses domains to organize user profiles, applications, and their
 A _domain execution role_ is an [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that a SageMaker Studio domain assumes on behalf of all users in the domain. The permissions that you assign to this role determine what actions SageMaker Studio can perform.
 
 1. To create or select a domain execution role, do either of the following:
+
    - **Create or select a role by using [Setup for organizations](../../../sagemaker/latest/dg/onboard-custom.md#onboard-custom-instructions "../../../sagemaker/latest/dg/onboard-custom.md#onboard-custom-instructions").**
+
      - Open the SageMaker AI console and follow the console guidance in **Step 2: Configure roles and ML activities** to create a new domain execution role or select an existing role.
      - Complete the rest of the setup steps to create your SageMaker Studio domain.
 
    - **Create an execution role manually.**
+
      - Open the IAM console and [create the execution role yourself](../../../sagemaker/latest/dg/sagemaker-roles.md#sagemaker-roles-create-execution-role "../../../sagemaker/latest/dg/sagemaker-roles.md#sagemaker-roles-create-execution-role").
 
 2. [Update the trust

@@ -28,6 +28,7 @@ external identity providers.
    provider**, and then choose **Next**.
 5. Under **Configure external identity provider**, do the
    following:
+
    1. Under **Service provider metadata**, choose **Download
       metadata file** to download the metadata file and save it on your system.
       The IAM Identity Center SAML metadata file is required by your external identity provider.

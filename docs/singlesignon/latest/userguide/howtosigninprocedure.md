@@ -6,6 +6,7 @@ in to the AWS access portal and access the AWS account.
 ###### Sign in to the AWS access portal
 
 1. Do either of the following to sign in to the AWS Management Console.
+
    - **New to AWS (root user)** – Sign in as the
      account owner by choosing **Root user** and entering your
      AWS account email address. On the next page, enter your password.
@@ -18,6 +19,7 @@ in to the AWS access portal and access the AWS account.
 4. On the **Dashboard** page, under **Settings
    summary**, choose the AWS access portal URL.
 5. Sign in by using either of the following:
+
    - If you are using Active Directory or an external identity provider (IdP) as your
      identity source, sign in by using the credentials of the Active Directory or IdP
      user.

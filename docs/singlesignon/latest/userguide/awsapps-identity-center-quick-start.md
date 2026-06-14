@@ -67,6 +67,7 @@ difficult to revoke.
 ### Step 1. Enable IAM Identity Center with AWS Organizations
 
 1. Do one of the following to sign in to the AWS Management Console.
+
    - **New to AWS (root user)**
      – Sign in as the account owner by choosing **Root
      user** and entering your AWS account email
@@ -167,6 +168,7 @@ Review the list of [AWS managed applications that you can use with IAM Identity 
 ### Step1. Enable an account instance of IAM Identity Center
 
 1. Do one of the following to sign in to the AWS Management Console.
+
    - **New to AWS (root user)**
      – Sign in as the account owner by choosing **Root
      user** and entering your AWS account email

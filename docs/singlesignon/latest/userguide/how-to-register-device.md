@@ -17,13 +17,16 @@ own MFA devices. For more information, see [Allow users to register their own MF
    then choose **Register MFA device**.
 4. On the **Register MFA device** page, select one of the
    following MFA device types, and follow the instructions:
+
    - **Authenticator app**
+
      1. On the **Set up the authenticator app** page,
         IAM Identity Center displays configuration information for the new MFA device,
         including a QR code graphic. The graphic is a representation of
         the secret key that is available for manual entry on devices
         that do not support QR codes.
      2. Using the physical MFA device, do the following:
+
         1. Open a compatible MFA authenticator app. For a list of
            tested apps that you can use with MFA devices, see [Virtual authenticator apps](mfa-types.md#mfa-types-apps "mfa-types.md#mfa-types-apps"). If the MFA app
            supports multiple accounts (multiple MFA devices),
@@ -32,6 +35,7 @@ own MFA devices. For more information, see [Allow users to register their own MF
         2. Determine whether the MFA app supports QR codes, and
            then do one of the following on the **Set up the
            authenticator app** page:
+
            1. Choose **Show QR code**, and
               then use the app to scan the QR code. For example,
               you might choose the camera icon or choose an
@@ -73,6 +77,7 @@ own MFA devices. For more information, see [Allow users to register their own MF
      with AWS.
 
    - **Security key**
+
      1. On the **Register your user's security key**
         page, follow the instructions given to you by your browser or
         platform.

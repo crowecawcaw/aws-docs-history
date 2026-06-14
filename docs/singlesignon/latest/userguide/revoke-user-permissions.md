@@ -33,6 +33,7 @@ operations.
    disable user access in step 6.
 5. In the IAM Identity Center console, find the user and delete their
    active session.
+
    1. Choose **Users**.
    2. Choose the user whose active session you want to delete.
    3. On the user's detail page, choose the **Active sessions** tab.
@@ -42,6 +43,7 @@ operations.
       duration](authconcept.md "authconcept.md").
 
 6. In the IAM Identity Center console, disable user access.
+
    1. Choose **Users**.
    2. Choose the user whose access you want to disable.
    3. On the user's detail page, expand **General

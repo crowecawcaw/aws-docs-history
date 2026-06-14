@@ -38,6 +38,7 @@ accounts under the AWS Reserved OU (prefixed with AWS\_).
   directory gateway that can redirect directory requests to your self-managed AD without
   caching any information in the cloud. For more information, see [Connect to a Directory](../../../directoryservice/latest/admin-guide/directory_ad_connector.md "../../../directoryservice/latest/admin-guide/directory_ad_connector.md") in the _AWS Directory Service Administration Guide_. The
   following are considerations when using AD Connector:
+
   - If you are connecting IAM Identity Center to an AD Connector directory, any future user
     password resets must be done from within AD. This means that users will not be able to
     reset their passwords from the AWS access portal.

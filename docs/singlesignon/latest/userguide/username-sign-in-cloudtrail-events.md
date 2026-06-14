@@ -7,6 +7,7 @@ which these events happen. Only one of the conditions can be true when a user is
 in.
 
 - `CredentialChallenge`
+
   - When `CredentialType` is "`PASSWORD`" – applies
     to password authentication with Directory Service or IAM Identity Center directory.
   - When `CredentialType` is "`EMAIL_OTP`" –

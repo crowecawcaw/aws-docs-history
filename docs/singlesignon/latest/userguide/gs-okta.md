@@ -118,6 +118,7 @@ Leave the Okta admin dashboard open, you will continue using this console in the
     **Next**.
 5.  Under **Configure external identity provider**, do the
     following:
+
     1.  Under **Service provider metadata**, copy the following items to a text file for easy access:
 
             * **IAM Identity Center Assertion Consumer Service (ACS)
@@ -182,7 +183,9 @@ open, and return to the IAM Identity Center console for the next step.
    information.
 2. In the **Inbound automatic provisioning** dialog box,
    copy each of the values for the following options:
+
    1. **SCIM endpoint** - The endpoint format depends on your configuration:
+
       - IPv4: https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
       - Dual-stack: https://scim.`us-east-2`.api.aws/`11111111111-2222-3333-4444-555555555555`/scim/v2
 
@@ -227,6 +230,7 @@ steps to synchronize groups and users with AWS IAM Identity Center.
 1.  In the **Okta IAM Identity Center app** page, choose the
     **Assignments** tab. You can assign both people and
     groups to the IAM Identity Center app.
+
     1.  To assign people:
 
             * In the **Assignments** page, choose
@@ -346,6 +350,7 @@ information, see [Organization and account instances of IAM Identity Center](ide
     **Assign users or groups**.
 3.  The **Assign users and groups** workflow displays. It
     consists of three steps:
+
     1.  For **Step 1: Select users and groups**,
         choose the user that will be performing the administrator job
         function. Then choose **Next**.
@@ -353,6 +358,7 @@ information, see [Organization and account instances of IAM Identity Center](ide
         choose **Create permission set** to open a new
         tab that walks you through the three sub-steps involved in
         creating a permission set.
+
         1.  For **Step 1: Select permission set
             type** complete the following:
 
@@ -477,6 +483,7 @@ sections:
 - You could receive the following error message in the Okta Console,
   if you're attempting to change either a user or group in Okta
   that was once synchronized and then deleted from IAM Identity Center:
+
   - **`Automatic profile push of user `Jane Doe`to app
 AWS IAM Identity Center failed: Error while trying to push profile update
 for`jane_doe@example.com`: No user returned for user
@@ -488,6 +495,7 @@ memberships.`**
 - You could also receive the following error message in the
   Okta's Systems Logs for either synchronized and deleted IAM Identity Center
   users or groups:
+
   - **`Okta Error: Eventfailed
 application.provision.user.push_profile : No user returned
 for user `xxxxx-xxxxxx-xxxxx-xxxxxxx``**

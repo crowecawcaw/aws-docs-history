@@ -86,6 +86,7 @@ provisioning.
 4. In the **Inbound automatic provisioning** dialog box, copy the SCIM endpoint and access token.
    You'll need to paste these in later when
    you configure provisioning in your IdP.
+
    1. **SCIM endpoint** - For example,
       https://scim.`us-east-2`.amazonaws.com/`11111111111-2222-3333-4444-555555555555`/scim/v2
    2. **Access token** - Choose **Show token**
@@ -178,6 +179,7 @@ Active Directory as an LDAP directory:
 
 13. On the **Attribute Mapping** page, ensure the following, and
     then click **Next**:
+
     1.  The **userName** field must be mapped to an
         **Attribute** that is formatted as an email
         (user@domain.com). It must also match the value that the user will use to log in
@@ -234,6 +236,7 @@ feature. For more information about how to do this, see [Enable and configure at
 7. On the **Attribute Contract** page, under **Extend the
    Contract** section, add a new attribute by performing the following
    steps:
+
    1. In the text box, enter
       `https://aws.amazon.com/SAML/Attributes/AccessControl:`AttributeName``,
 replace `AttributeName`with the name of the attribute you

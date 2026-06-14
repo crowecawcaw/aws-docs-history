@@ -5,6 +5,7 @@ identities in Microsoft Active Directory that are automatically synchronized int
 control the synchronization process.
 
 - With this sync method, you can do the following:
+
   - Control data boundaries by explicitly defining the users and groups in Microsoft
     Active Directory that are automatically synchronized into IAM Identity Center. You can [add users and
     groups](manage-sync-add-users-groups-configurable-ADsync.md "manage-sync-add-users-groups-configurable-ADsync.md") or [remove users and groups](manage-sync-remove-users-groups-configurable-ADsync.md "manage-sync-remove-users-groups-configurable-ADsync.md") to change the scope of the sync at any time.

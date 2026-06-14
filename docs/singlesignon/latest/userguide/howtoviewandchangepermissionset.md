@@ -58,6 +58,7 @@ use the following procedure:
 2. Select either Users or Groups under
    **Dashboard** to view IAM Identity Center users
    or groups.
+
    1. Once on the **Users** page,
       select the user for whom you want to see applied
       permission sets. Next, select the

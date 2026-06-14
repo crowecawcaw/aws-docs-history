@@ -39,6 +39,7 @@ subscriptions.
   opt-in AWS Region.
 - To enable identity-enhanced console sessions, you must have the following
   permissions:
+
   - `sso:CreateApplication`
   - `sso:GetSharedSsoConfiguration`
   - `sso:ListApplications`
