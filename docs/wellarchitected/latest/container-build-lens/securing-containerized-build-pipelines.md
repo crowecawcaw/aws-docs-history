@@ -36,6 +36,7 @@ applications_
 5. Build the container image based on the build manifest file
    (for example Dockerfile), handle tags and push it to the
    targeted registry.
+
    1. If building containerized only pipeline, you might skip
       storing the compiled artifact, as the target artifact is
       the container image.

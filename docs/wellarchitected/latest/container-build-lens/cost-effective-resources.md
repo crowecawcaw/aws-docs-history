@@ -112,6 +112,7 @@ Reducing image layers can be done with several techniques:
 - Follow
   [Dockerfile
   best practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy") such as:
+
   - Use `COPY` instead of `ADD`.
   - Use absolute path when using `WORKDIR`.
   - Exclude files from the build process using
