@@ -61,6 +61,7 @@ with this tutorial:
   the [AWS Backup pricing
   page](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/").
 - IAM roles used by AWS Backup to create a backup of the Amazon EC2 instance. 
+
   - If a subsequent role is not created, then the default IAM
     role can be used— AWSBackupDefaultRole.
 
