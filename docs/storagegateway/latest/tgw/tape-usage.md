@@ -17,6 +17,7 @@ usage information.
 3. Choose the tape you are interested in.
 4. The page that appears provides various details and information about the tape,
    including the following:
+
    - **Size:** The total capacity of the selected
      tape.
    - **Used:** The size of data written to the tape by

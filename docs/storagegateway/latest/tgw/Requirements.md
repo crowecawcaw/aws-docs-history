@@ -24,6 +24,7 @@ which you deploy the gateway VM can dedicate the following minimum resources:
 - Four virtual processors assigned to the VM.
 - For Tape Gateway, your hardware should dedicate
   the following amounts of RAM:
+
   - 16 GiB of reserved RAM for gateways with cache size up to 16
     TiB
   - 32 GiB of reserved RAM for gateways with cache size 16 TiB to 32

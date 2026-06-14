@@ -51,6 +51,7 @@ to virtual tapes in your VTL—that is, Amazon S3.
   offsite tape holding facility. You can archive tapes from your
   gateway's VTL to the archive. If needed, you can retrieve tapes from
   the archive back to your gateway's VTL.
+
   - Archiving tapes – When your
     backup software ejects a tape, your gateway moves the tape to the
     archive for long-term storage. The archive is located in the AWS

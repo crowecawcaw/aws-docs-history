@@ -32,6 +32,7 @@ activated.
     _CustomerGatewayName_** dialog box.
 4.  For **Gateway health log group**, choose one of the
     following:
+
     - **Disable logging** if you don't want to monitor
       your gateway using CloudWatch log groups.
     - **Create a new log group** to create a new CloudWatch log

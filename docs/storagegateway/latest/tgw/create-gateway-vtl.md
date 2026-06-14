@@ -21,6 +21,7 @@ Tape Gateway.
    gateway** page.
 3. In the **Gateway settings** section, do the
    following:
+
    1. For **Gateway name**, enter a name for your
       gateway. You can search for this name to find your gateway on list
       pages in the Storage Gateway console.
@@ -32,11 +33,13 @@ Tape Gateway.
    type**, choose **Tape Gateway**.
 5. In the **Platform options** section, do the
    following:
+
    1. For **Host platform**, choose the platform on
       which you want to deploy your gateway, then follow the
       platform-specific instructions displayed on the Storage Gateway console page
       to set up your host platform. You can choose from the following
       options:
+
       - **VMware ESXi** - Download, deploy, and
         configure the gateway virtual machine using VMware
         ESXi.
@@ -82,6 +85,7 @@ communicate with AWS. For instructions, see [Connect your Tape Gateway to AWS](c
    **Service endpoint**, choose the type of endpoint your
    gateway will use to communicate with AWS. You can choose from the
    following options:
+
    - **Publicly accessible** - Your gateway
      communicates with AWS over the public internet. If you select this
      option, use the **FIPS enabled endpoint** check box
@@ -110,6 +114,7 @@ communicate with AWS. For instructions, see [Connect your Tape Gateway to AWS](c
 3. In the **Gateway connection options** section, for
    **Connection options**, choose how to identify your
    gateway to AWS. You can choose from the following options:
+
    - **IP address** - Provide the IP address of your
      gateway in the corresponding field. This IP address must be public
      or accessible from within your current network, and you must be able
@@ -179,6 +184,7 @@ instructions, see [Configure your Tape Gateway](create-gateway-vtl.md#configure-
 3.  In the **CloudWatch log group** section, choose how to set up
     Amazon CloudWatch Logs to monitor the health of your gateway. You can choose from the
     following options:
+
     - **Create a new log group** - Set up a new log
       group to monitor your gateway.
     - **Use an existing log group** - Choose an

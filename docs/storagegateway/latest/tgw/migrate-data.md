@@ -59,6 +59,7 @@ Before proceeding, confirm that the ejected tapes have been archived:
    backup jobs, wait for them to finish and eject your tapes (see previous step)
    before stopping the gateway.
 4. Use the following steps to stop the existing Tape Gateway:
+
    1. In the navigation pane, choose **Gateways**, and then
       choose the old Tape Gateway that you want to stop. The status of the
       gateway is **Running**.
@@ -73,6 +74,7 @@ Before proceeding, confirm that the ejected tapes have been archived:
 
 5. Create a new Tape Gateway. For detailed instructions, see [Creating a Gateway](create-gateway-vtl.md "create-gateway-vtl.md").
 6. Use the following steps to create new tapes:
+
    1. In the navigation pane, choose the **Gateways**
       tab.
    2. Choose **Create tape** to open the **Create

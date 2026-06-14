@@ -122,6 +122,7 @@ If you plan to continue using your Tape Gateway, see additional information in [
 
 1. Delete tapes from both your gateway's virtual tape library (VTL) and archive. For more
    information, see [Deleting your gateway and removing associated resources](deleting-gateway-common.md "deleting-gateway-common.md").
+
    1. Archive any tapes that have the **RETRIEVED** status in your gateway's
       VTL. For instructions, see [Archiving Tapes](managing-virtual-tapes-vtl.md#main-archiving-tapes-managing-vtl "managing-virtual-tapes-vtl.md#main-archiving-tapes-managing-vtl").
    2. Delete any remaining tapes from your gateway's VTL. For instructions, see [Deleting virtual tapes from your Tape Gateway](deleting-tapes-vtl.md "deleting-tapes-vtl.md").

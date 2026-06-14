@@ -19,6 +19,7 @@ SNS?](../../../sns/latest/dg/welcome.md "../../../sns/latest/dg/welcome.md") in 
     open the CloudWatch console.
 5.  Use the CloudWatch console to create the type of alarm that you want. You can create
     the following types of alarms:
+
     - Static threshold alarm: An alarm based on a set threshold for a chosen
       metric. The alarm enters the ALARM state when the metric breaches the
       threshold for a specified number of evaluation periods.

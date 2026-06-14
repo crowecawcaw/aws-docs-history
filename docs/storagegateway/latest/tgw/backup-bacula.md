@@ -117,6 +117,7 @@ Restoring your archived data is a two-step process.
 1. Retrieve the archived tape from archive to a Tape Gateway. For instructions,
    see [Retrieving Archived Tapes](retrieving-archived-tapes-vtl.md "retrieving-archived-tapes-vtl.md").
 2. Restore your data by using the Bacula software:
+
    1. Import the tapes into the storage slot by using the
       `/opt/bacula/scripts/mtx-changer` command to transfer
       tapes from the I/E slot.

@@ -47,6 +47,7 @@ gateway configuration for your gateway's host server:
 - At least 64 dedicated physical CPU cores
 - For Tape Gateway, your hardware should dedicate the following
   amounts of RAM:
+
   - At least 16 GiB of reserved RAM for gateways with cache size up to 16
     TiB
   - At least 32 GiB of reserved RAM for gateways with cache size 16 TiB to
@@ -60,20 +61,25 @@ For optimal gateway performance, you must provision at least 32 GiB of
 RAM.
 
 - Disk 1, to be used as the gateway cache as follows:
+
   - Striped RAID (redundant array of independent disks)
     consisting of NVMe SSDs.
 
 - Disk 2, to be used as the gateway upload buffer as follows:
+
   - Striped RAID consisting of NVMe SSDs.
 
 - Disk 3, to be used as the gateway upload buffer as follows:
+
   - Striped RAID consisting of NVMe SSDs.
 
 - Network adapter 1 configured on VM network 1:
+
   - Use VM network 1 and add VMXnet3 (10 Gbps) to be used for
     ingestion.
 
 - Network adapter 2 configured on VM network 2:
+
   - Use VM network 2 and add a VMXnet3 (10 Gbps) to be used to connect to
     AWS.
 

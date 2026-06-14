@@ -22,6 +22,7 @@ Reference_.
    maintenance settings**.
 4. Under **Maintenance window start time**, do the
    following:
+
    1. For **Schedule**, choose **Weekly**
       or **Monthly** to set the maintenance window
       cadence.

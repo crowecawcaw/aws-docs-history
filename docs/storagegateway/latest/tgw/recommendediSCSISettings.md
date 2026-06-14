@@ -35,6 +35,7 @@ steps. It uses the Symantec NetBackup backup application. For more information, 
 ###### To customize your Windows iSCSI settings
 
 1. Increase the maximum time for which requests are queued.
+
    1. Start Registry Editor (`Regedit.exe`).
    2. Navigate to the globally unique identifier (GUID) key for the device
       class that contains iSCSI controller settings, shown following.
@@ -49,7 +50,6 @@ steps. It uses the Symantec NetBackup backup application. For more information, 
    ```
    HKEY_Local_Machine\SYSTEM\CurrentControlSet\Control\Class\{4D36E97B-E325-11CE-BFC1-08002BE10318}
    ```
-
    3. Find the subkey for the Microsoft iSCSI initiator, shown following as
       `[<Instance Number]`.
 
@@ -77,6 +77,7 @@ steps. It uses the Symantec NetBackup backup application. For more information, 
 
 2. You can increase the maximum amount of data that can be sent in iSCSI packets
    by modifying the following parameters:
+
    - **FirstBurstLength** controls the maximum amount of
      data that can be transmitted in an unsolicited write request. Set this
      value to `262144` or the Windows OS default,
@@ -142,6 +143,7 @@ examples are based on Red Hat Linux.
 ###### To customize your Linux iSCSI settings
 
 1. Increase the maximum time for which requests are queued.
+
    1. Open the `/etc/iscsi/iscsid.conf` file and find the
       following lines.
 
@@ -150,7 +152,6 @@ examples are based on Red Hat Linux.
    node.conn[0].timeo.noop_out_interval = `[noop_out_interval_value]`
    node.conn[0].timeo.noop_out_timeout = `[noop_out_timeout_value]`
    ```
-
    2. Set the `[replacement_timeout_value]` value
       to `600`.
 
@@ -176,6 +177,7 @@ examples are based on Red Hat Linux.
 
 2. Increase the maximum values for the amount of data that can be transmitted in
    each response.
+
    1. Open the `/etc/iscsi/iscsid.conf` file and find the
       following lines.
 
@@ -184,7 +186,6 @@ examples are based on Red Hat Linux.
    node.session.iscsi.MaxBurstLength = `[replacement_max_burst_length_value]`
    node.conn[0].iscsi.MaxRecvDataSegmentLength = `[replacement_segment_length_value]`
    ```
-
    2. We recommend the following values to achieve better performance. Your
       backup software might be optimized to use different values, so see your
       backup software documentation for best results.

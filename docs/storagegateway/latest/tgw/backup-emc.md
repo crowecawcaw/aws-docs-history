@@ -49,6 +49,7 @@ Console, see the NetWorker Management Console interface section of the _[Dell EM
 6. Open a command window (cmd.exe) with admin privileges and run the
    `jbconfig` utility that is installed with Dell EMC NetWorker
    19.5.
+
    1. At the menu prompt, enter the corresponding numeral to select
       **Configure an Autodetected SCSI Jukebox**.
    2. When prompted to provide a name for the jukebox device, enter a name

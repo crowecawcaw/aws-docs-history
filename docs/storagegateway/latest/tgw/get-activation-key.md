@@ -203,4 +203,5 @@ For more information, see [Endpoint types](Requirements.md#endpoint-types "Requi
 5. For network type, enter `1` for Public or `2` for VPC endpoint.
 6. For **Select endpoint type**, **Enable FIPS?**, enter `Y` to enable FIPS or `N` to use non-FIPS endpoint.
 7. For endpoint type, enter `1` for standard endpoint or `2` for dual-stack endpoint.
+
    1. For a dual-stack endpoint, for **Select IP version or exit:**, enter `1` for IPv4 or `2` for IPv6.

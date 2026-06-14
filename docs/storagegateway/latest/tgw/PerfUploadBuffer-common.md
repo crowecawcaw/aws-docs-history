@@ -47,6 +47,7 @@ _Amazon CloudWatch User Guide_.
 2. Choose **Create Alarm** to start the Create Alarm
    wizard.
 3. Specify a metric for your alarm:
+
    1. On the **Select Metric** page of the Create Alarm
       wizard, choose the
       **AWS/StorageGateway:GatewayId,GatewayName**
@@ -56,6 +57,7 @@ _Amazon CloudWatch User Guide_.
    3. Choose **Continue**.
 
 4. Define the alarm name, description, and threshold:
+
    1. On the **Define Alarm** page of the Create Alarm
       wizard, identify your alarm by giving it a name and description in the
       **Name** and **Description**
@@ -64,6 +66,7 @@ _Amazon CloudWatch User Guide_.
    3. Choose **Continue**.
 
 5. Configure an email action for the alarm:
+
    1. On the **Configure Actions** page of the Create Alarm
       wizard, choose **Alarm** for **Alarm
       State**.
@@ -77,6 +80,7 @@ _Amazon CloudWatch User Guide_.
    topic. 4. Choose **Add Action**. 5. Choose **Continue**.
 
 6. Review the alarm settings, and then create the alarm:
+
    1. On the **Review** page of the Create Alarm wizard,
       review the alarm definition, metric, and associated actions to take (for
       example, sending an email notification).
@@ -84,6 +88,7 @@ _Amazon CloudWatch User Guide_.
       Alarm**.
 
 7. Confirm your subscription to the alarm topic:
+
    1. Open the Amazon SNS email that was sent to the email address that you
       specified when creating the topic.
    2. Confirm your subscription by clicking the link in the email.

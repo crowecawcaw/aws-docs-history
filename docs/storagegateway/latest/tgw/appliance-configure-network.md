@@ -22,6 +22,7 @@ configure network parameters so your hardware appliance can connect to AWS.
    configure **DHCP** or **Static** addresses for
    each.
 2. For the **em1** interface, do one of the following:
+
    - Choose **DHCP** and press `Enter` to use
      the IPv4 address assigned by your Dynamic Host Configuration Protocol
      (DHCP) server to your physical network port.

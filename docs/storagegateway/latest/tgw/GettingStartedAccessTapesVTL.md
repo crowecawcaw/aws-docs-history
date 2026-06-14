@@ -42,6 +42,7 @@ necessary:
    Provider** is Microsoft.
 4. If **Driver Provider** is not Microsoft, set the value as
    follows:
+
    1. Choose **Update Driver**.
    2. In the **Update Driver Software** dialog box, choose
       **Browse my computer for driver software**.

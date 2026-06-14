@@ -62,6 +62,7 @@ Next, configure your VMware cluster to work with Storage Gateway.
 1.  On the **Edit Cluster Settings** page in VMware vSphere, make
     sure that VM monitoring is configured for VM and application monitoring. To do
     so, set the following values for each option:
+
     - **Host Failure Response**: **Restart
       VMs**
     - **Response for Host Isolation**: **Shut down
@@ -182,6 +183,7 @@ about how are different for each gateway type.
 ###### To activate your gateway
 
 - Follow the procedures outlined in the following topics:
+
   1.  [Connect your Tape Gateway to AWS](create-gateway-vtl.md#connect-to-amazon-tape "create-gateway-vtl.md#connect-to-amazon-tape")
   2.  [Review settings and activate your Tape Gateway](create-gateway-vtl.md#review-and-activate-tape "create-gateway-vtl.md#review-and-activate-tape")
   3.  [Configure your Tape Gateway](create-gateway-vtl.md#configure-gateway-tape "create-gateway-vtl.md#configure-gateway-tape")

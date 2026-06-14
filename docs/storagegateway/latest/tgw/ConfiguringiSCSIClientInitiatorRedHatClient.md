@@ -18,6 +18,7 @@ sudo yum install iscsi-initiator-utils
 ```
 
 2. Ensure that the iSCSI daemon is running.
+
    1. Verify that the iSCSI daemon is running using one of the following
       commands.
 
@@ -26,7 +27,6 @@ sudo yum install iscsi-initiator-utils
    ```
    sudo service iscsid status
    ```
-
    2. If the status command doesn't return a status of
       _running_, start the daemon using one of the
       following commands.

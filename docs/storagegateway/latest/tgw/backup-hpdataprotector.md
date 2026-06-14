@@ -96,6 +96,7 @@ load virtual tapes into the library.
     address**, and then choose **Next**.
 4.  On the following screen, choose **Advanced**. The
     **Advanced Options** pop-up screen appears.
+
     1.  On the **Settings** tab, you should consider the
         following options:
 
@@ -117,6 +118,7 @@ load virtual tapes into the library.
 
 5.  On the next screen, choose these options under **Device
     Policies**:
+
     - **Device may be used for restore**
     - **Device may be used as source device for object
       copy**
@@ -134,6 +136,7 @@ into slots.
 1. In the tape library tree node, open the node labeled
    **Slots**. Each slot has a status represented by an
    icon:
+
    - A green tape means that a tape is already loaded into the
      slot.
    - A gray slot means that the slot is empty.
