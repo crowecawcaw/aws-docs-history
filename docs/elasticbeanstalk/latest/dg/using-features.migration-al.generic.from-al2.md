@@ -80,6 +80,7 @@ runtime. For more information, see [Bundling applications for the .NET Core on L
   version.
 - PHP package availability – Some packages available
   on Amazon Linux 2 PHP platforms are not available on AL2023 PHP platforms:
+
   - _MySQL client packages_ – The `mysql`
     and `mysql-devel` command-line client packages are not installed on
     AL2023 PHP platforms. If your application requires MySQL database connectivity, use the

@@ -146,7 +146,9 @@ with the additional security group attached.
 ###### To add a security group to your environment
 
 - Do one of the following:
+
   - To add a security group using the Elastic Beanstalk console
+
     1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
        and in the **Regions** list, select your AWS Region.
     2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.

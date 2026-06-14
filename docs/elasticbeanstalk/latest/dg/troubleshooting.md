@@ -80,6 +80,7 @@ located.
    choose **Next**.
 6. Select **Execute**.
 7. In the **Input parameters** section:
+
    1. From the **AutomationAssumeRole** dropdown, select the ARN of the
       role that allows Systems Manager to perform actions on your behalf.
    2. For **ApplicationName**, enter the name of the Elastic Beanstalk

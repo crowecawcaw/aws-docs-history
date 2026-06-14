@@ -195,6 +195,7 @@ sample platform includes the following scripts:
   best practice. For this reason, we left the command in the sample script for reference.
 - `01-install-nginx.sh` – Installs nginx.
 - `02-setup-platform.sh` – Installs `wget`, `tree`, and `git`. Copies hooks and [logging configurations](using-features.logging.md "using-features.logging.md") to the instance, and creates the following directories:
+
   - `/etc/SampleNodePlatform` – Where the container configuration file is uploaded during deployment.
   - `/opt/elasticbeanstalk/deploy/appsource/` – Where the `00-unzip.sh` script uploads application source code during
     deployment (see the [Platform script tools for your Elastic Beanstalk environments](custom-platforms-scripts.md "custom-platforms-scripts.md") section for information about this

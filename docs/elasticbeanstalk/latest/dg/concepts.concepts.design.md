@@ -103,6 +103,7 @@ the configuration required to enable connectivity depends on the type of Amazon 
   instance a public Elastic IP address that enables the instance to communicate directly with the internet.
 - For load-balanced, scalable environments in an Amazon VPC with both public and private
   subnets, you must do the following:
+
   - Create a load balancer in the public subnet to route inbound traffic from the internet to the Amazon EC2 instances.
   - Create a network address translation (NAT) device to route outbound traffic from the Amazon EC2 instances in private subnets to the
     internet.

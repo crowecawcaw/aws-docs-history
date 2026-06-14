@@ -63,6 +63,7 @@ This step provides two procedures that you must complete:
 You can use the AWS CLI to complete and verify the prerequisite configurations.
 
 1. Associate an IPv6 CIDR block with your environment’s VPC.
+
    1. Use the [associate-vpc-cidr-block](../../../cli/latest/reference/ec2/associate-vpc-cidr-block.md "../../../cli/latest/reference/ec2/associate-vpc-cidr-block.md") command to associate a CIDR block with your
       VPC.
    2. Use the [describe-vpcs](../../../cli/latest/reference/ec2/describe-vpcs.md "../../../cli/latest/reference/ec2/describe-vpcs.md") command to
@@ -85,6 +86,7 @@ aws ec2 describe-vpcs \
 ```
 
 2. Associate IPv6 CIDR blocks to all of the VPC’s subnets.
+
    1. Use the [associate-subnet-cidr-block](../../../cli/latest/reference/ec2/associate-subnet-cidr-block.md "../../../cli/latest/reference/ec2/associate-subnet-cidr-block.md") command to associate a CIDR block with your
       subnet.
    2. Use the [describe-subnets](../../../cli/latest/reference/ec2/describe-subnets.md "../../../cli/latest/reference/ec2/describe-subnets.md")
@@ -115,6 +117,7 @@ aws ec2 describe-subnets \
 3. (Optional) If your environment exchanges network traffic with components outside of
    the VPC, it has route tables that specify which networks your VPC can communicate with.
    In this case you must update the VPC route tables to enable IPv6 traffic.
+
    1. Use the [create-route](../../../cli/latest/reference/ec2/create-route.md "../../../cli/latest/reference/ec2/create-route.md") command to
       add a route in a route table within the VPC.
    2. Use the [describe-route-tables](../../../cli/latest/reference/ec2/describe-route-tables.md "../../../cli/latest/reference/ec2/describe-route-tables.md") command to verify your route tables.
@@ -225,6 +228,7 @@ environment. For more information, see [Creating an Elastic Beanstalk environmen
 5. If you completed the [Amazon VPC prerequisites](#environments-cfg-elbv2-ipv6-dualstack.prereqs "#environments-cfg-elbv2-ipv6-dualstack.prereqs") described in the previous
    section, then you've already set up the required VPC and subnets. In this case, skip
    this step along with its sub-steps to move on to select the VPC.
+
    1. To configure the VPC and subnets you can select **Create VPC**
       to navigate to the VPC console. Follow the steps in [Complete VPC prerequisites using the console](#environments-cfg-elbv2-ipv6-dualstack.prereqs.console "#environments-cfg-elbv2-ipv6-dualstack.prereqs.console").
    2. Allow several minutes for the VPC updates to propagate, then return to the

@@ -19,6 +19,7 @@ Web server environments have the following resources.
 - `AWSEBAutoScalingGroup` ([AWS::AutoScaling::AutoScalingGroup](../../../AWSCloudFormation/latest/UserGuide/aws-properties-as-group.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-as-group.md")) – The Auto Scaling group attached to your
   environment.
 - One of the following two resources.
+
   - `AWSEBAutoScalingLaunchConfiguration` ([AWS::AutoScaling::LaunchConfiguration](../../../AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.md")) – The launch configuration
     attached to your environment's Auto Scaling group.
   - `AWSEBEC2LaunchTemplate` ([AWS::EC2::LaunchTemplate](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.md")) – The Amazon EC2 launch template used by your

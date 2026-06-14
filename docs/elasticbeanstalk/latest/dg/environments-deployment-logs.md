@@ -48,6 +48,7 @@ A deployment log captures the following information during a deployment:
   **go build**, and Java builds. On failure, the last 50 lines of output are included.
 - **Application startup output** – Initial output from your application after it starts. The source depends on
   your platform:
+
   - _Docker_ – Container logs from **docker logs** or **docker compose logs**
   - _Java SE, Go, Node.js, Python, Ruby, .NET_ – Process stdout logs
   - _Tomcat_ – Catalina log output
@@ -106,6 +107,7 @@ list.
    deployment policy (for example, _All at once_, _Rolling_, _Rolling with additional batch_,
    _Immutable_, or _Traffic splitting_) is shown when it can be determined from the deployment events.
 3. Below the summary, choose one of the following tabs:
+
    - **Events** – A timeline of events related to this deployment, filtered to show only events for the selected
      deployment.
    - **Deployment Logs** – The consolidated deployment log from the instance. You can search, filter by log level,

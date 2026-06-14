@@ -9,6 +9,7 @@ any VPC configuration that you like as long as it meets the following requiremen
 ###### VPC requirements
 
 - **Internet Access** – Instances can have access to the internet through one of the following methods:
+
   - **Public Subnet** – Instances have a public IP address and use an internet gateway to access the
     internet.
   - **Private Subnet** – Instances use a NAT device to access the internet.

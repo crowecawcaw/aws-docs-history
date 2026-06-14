@@ -39,6 +39,7 @@ tab. In the **Items to deploy** section, select **All Files in the Project Folde
 
 1. In **Solution Explorer**, right-click your application and then select **Publish to AWS**.
 2. In the **Publish to AWS** wizard, enter your account information.
+
    1. For **AWS account to use for deployment**, select your account or select **Other** to enter new account
       information.
    2. For **Region**, select the region where you want to deploy your application. For information about available AWS Regions,
@@ -50,6 +51,7 @@ tab. In the **Items to deploy** section, select **All Files in the Project Folde
    ![Publish to AWS wizard 1](images/aeb-vs-create-newapp-template.png)
 
 3. On the **Application** page, enter your application details.
+
    1. For **Name**, type the name of the application.
    2. For **Description**, type a description of the application. This step is optional.
    3. The version label of the application automatically appears in the **Deployment version label**.
@@ -61,6 +63,7 @@ tab. In the **Items to deploy** section, select **All Files in the Project Folde
    ![Publish to beanstalk wizard 2](images/aeb-vs-publish-beanstalk1.png) 5. Click **Next**.
 
 4. On the **Environment** page, describe your environment details.
+
    1. Select **Create a new environment for this application**.
    2. For **Name**, type a name for your environment.
    3. For **Description**, characterize your environment. This step is optional.
@@ -76,6 +79,7 @@ tab. In the **Items to deploy** section, select **All Files in the Project Folde
    ![Publish to beanstalk wizard 3](images/aeb-vs-publish-beanstalk2.png) 7. Click **Next**.
 
 5. On the **AWS Options** page, configure additional options and security information for your deployment.
+
    1. For **Container Type**, select **64bit Windows Server 2012 running IIS 8** or **64bit Windows
       Server 2008 running IIS 7.5**.
    2. For **Instance Type**, select **Micro**.
@@ -122,6 +126,7 @@ tab. In the **Items to deploy** section, select **All Files in the Project Folde
     5. Click **Next**.
 
 7. On the **Application Options** page, configure your application options.
+
    1. For Target framework, select **.NET Framework 4.0**.
    2. Elastic Load Balancing uses a health check to determine whether the Amazon EC2 instances running your application are healthy. The health
       check determines an instance's health status by probing a specified URL at a set interval. You can override the default URL to match an existing

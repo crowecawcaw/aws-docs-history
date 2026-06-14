@@ -145,6 +145,7 @@ JSON
 3. In the navigation pane, choose **Configuration**.
 4. In the **Updates, monitoring, and logging** configuration category, choose **Edit**.
 5. Under **Instance log streaming to CloudWatch Logs**:
+
    - Enable **Log streaming**.
    - Set **Retention** to the number of days to save the logs.
    - Select the **Lifecycle** setting that determines whether the logs are saved after the environment is terminated.

@@ -164,7 +164,9 @@ with the additional security group attached.
 ###### To add a security group to your environment
 
 - Do one of the following:
+
   - To add a security group using the Elastic Beanstalk console
+
     1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
        and in the **Regions** list, select your AWS Region.
     2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
@@ -323,6 +325,7 @@ create a source bundle.
 ###### To update configuration files and create a source bundle.
 
 1. Modify the configuration files as follows.
+
    - `.ebextensions/dev.config` – restricts access to your environment to your IP address to protect it during the Drupal
      installation process. Replace the placeholder IP address near the top of the file with your public IP address.
    - `.ebextensions/efs-create.config` – creates an EFS file system and mount points in each Availability Zone / subnet
@@ -359,6 +362,7 @@ Upload the source bundle to Elastic Beanstalk to deploy Drupal to your environme
 3. Choose the environment URL to open your site in a browser. You are redirected to a Drupal installation wizard because the site has not been
    configured yet.
 4. Perform a standard installation with the following settings for the database:
+
    - **Database name** – The **DB Name** shown in the Amazon RDS console.
    - **Database username and password** – The **Master Username** and **Master
      Password** values you entered when creating your database.

@@ -74,6 +74,7 @@ Use this command to display the following information:
 
 - View all IIS sites on the server
 - With `--verbose`, inspect detailed configuration including:
+
   - Site bindings and ports
   - Application pools
   - Virtual directories and their physical paths

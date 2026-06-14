@@ -164,6 +164,7 @@ manually.
 3. On the **Permissions** tab, choose **Attach policies**.
 4. Type `AWSElasticBeanstalk` to filter the policies.
 5. Select the following policies, and then choose **Attach policy**:
+
    - `AWSElasticBeanstalkWebTier`
    - `AWSElasticBeanstalkWorkerTier`
    - `AWSElasticBeanstalkMulticontainerDocker`

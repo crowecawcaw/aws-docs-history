@@ -25,6 +25,7 @@ To view instance logs, you can enable instance log rotation and log streaming in
 5. In the **S3 log storage** section, select **Activated** beneath **Rotate logs** to enable uploading
    rotated logs to Amazon S3.
 6. in the **Instance log streaming to CloudWatch Logs** section, configure the following settings:
+
    - **Log streaming** – Select **Activated** to enable log streaming.
    - **Retention** – Specify the number of days to retain logs in CloudWatch Logs.
    - **Lifecycle** – Set to **Delete logs upon termination** to delete logs from CloudWatch Logs immediately if the
@@ -48,6 +49,7 @@ To view environment health logs, you can enable environment health log streaming
 4. In the **Updates, monitoring, and logging** configuration category, choose **Edit**.
 5. Go to the **Monitoring** section.
 6. Under **Health event streaming to CloudWatch Logs**, configure the following settings:
+
    - **Log streaming** – Choose to **Activated** to enable log streaming.
    - **Retention** – Specify the number of days to retain logs in CloudWatch Logs.
    - **Lifecycle** – Set to **Delete logs upon termination** to delete logs from CloudWatch Logs immediately if the

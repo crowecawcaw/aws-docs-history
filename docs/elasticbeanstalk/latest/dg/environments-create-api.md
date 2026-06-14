@@ -1,6 +1,7 @@
 # Creating Elastic Beanstalk environments with the API
 
 1. Call `CheckDNSAvailability` with the following parameter:
+
    - `CNAMEPrefix` = `SampleApp`
 
 ###### Example
@@ -13,6 +14,7 @@ https://elasticbeanstalk.us-east-2.amazonaws.com/?CNAMEPrefix=sampleapplication
 
 2. Call `DescribeApplicationVersions` with the following
    parameters:
+
    - `ApplicationName` = `SampleApp`
    - `VersionLabel` = `Version2`
 
@@ -27,6 +29,7 @@ https://elasticbeanstalk.us-east-2.amazonaws.com/?ApplicationName=SampleApp
 
 3. Call `CreateConfigurationTemplate` with the following
    parameters:
+
    - `ApplicationName` = `SampleApp`
    - `TemplateName` = `MyConfigTemplate`
    - `SolutionStackName` =
@@ -44,7 +47,9 @@ https://elasticbeanstalk.us-east-2.amazonaws.com/?ApplicationName=SampleApp
 
 4. Call `CreateEnvironment` with one of the following sets of
    parameters.
+
    1. Use the following for a web server environment tier:
+
       - `EnvironmentName` = `SampleAppEnv2`
       - `VersionLabel` = `Version2`
       - `Description` = `description`
@@ -73,8 +78,8 @@ https://elasticbeanstalk.us-east-2.amazonaws.com/?ApplicationName=SampleApp
    &OptionSettings.member.1.Value=aws-elasticbeanstalk-ec2-role
    &AuthParams
    ```
-
    2. Use the following for a worker environment tier:
+
       - `EnvironmentName` = `SampleAppEnv2`
       - `VersionLabel` = `Version2`
       - `Description` = `description`

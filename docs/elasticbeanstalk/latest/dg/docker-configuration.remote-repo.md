@@ -131,6 +131,7 @@ option_settings:
 
 4. Create the following `01login.sh` script file and place it in the following locations (also shown in the preceding directory
    structure):
+
    - `.platform/confighooks/prebuild/01login.sh`
    - `.platform/hooks/prebuild/01login.sh`
 

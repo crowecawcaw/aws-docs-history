@@ -21,6 +21,7 @@ You can create scheduled actions for your environment's Auto Scaling group in th
 4. In the **Capacity** configuration category, choose **Edit**.
 5. In the **Time-based scaling** section, choose **Add scheduled action**.
 6. Fill in the following scheduled action settings:
+
    - **Name** – Specify a unique name of up to 255 alphanumeric characters, with no spaces.
    - **Instances** – Choose the minimum and maximum instance count to apply to the Auto Scaling group.
    - **Desired capacity** (optional) – Set the initial desired capacity for the Auto Scaling group. After the scheduled action is

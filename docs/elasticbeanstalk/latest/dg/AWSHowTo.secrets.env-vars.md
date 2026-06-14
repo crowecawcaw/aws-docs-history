@@ -63,6 +63,7 @@ Before you can set up your environment variables to reference secrets you'll fir
 
 1. Create the Secrets Manager secrets or the Parameter Store parameters to store your sensitive data. For more information, see one or both of the
    following topics:
+
    - _Creating secrets_ in [Using Secrets Manager to create and retrieve secrets](AWSHowTo.secrets.Secrets-Manager-and-Parameter-Store.md#AWSHowTo.secrets.Secrets-Manager "AWSHowTo.secrets.Secrets-Manager-and-Parameter-Store.md#AWSHowTo.secrets.Secrets-Manager")
    - _Creating parameters_ in [Using Systems Manager Parameter Store to create and retrieve parameters](AWSHowTo.secrets.Secrets-Manager-and-Parameter-Store.md#AWSHowTo.secrets.SSM-parmameter-store "AWSHowTo.secrets.Secrets-Manager-and-Parameter-Store.md#AWSHowTo.secrets.SSM-parmameter-store")
 

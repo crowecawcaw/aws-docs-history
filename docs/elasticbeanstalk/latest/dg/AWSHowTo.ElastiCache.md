@@ -8,6 +8,7 @@ Redis and Memcached environments will work seamlessly with the service. For more
 **To use Elastic Beanstalk with Amazon ElastiCache**
 
 1.  Create an ElastiCache cluster.
+
     - For instructions on how to create an ElastiCache cluster with Redis, go to [Getting Started with Amazon ElastiCache for Redis](../../../AmazonElastiCache/latest/red-ug/GettingStarted.md "../../../AmazonElastiCache/latest/red-ug/GettingStarted.md") in the _ElastiCache
       for Redis User Guide_.
     - For instructions on how to create an ElastiCache cluster with Memcached, go to [Getting Started with Amazon ElastiCache for Memcached](../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md "../../../AmazonElastiCache/latest/mem-ug/GettingStarted.md") in the

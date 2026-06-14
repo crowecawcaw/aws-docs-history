@@ -28,6 +28,7 @@ Before you use AI analysis, verify that your environment meets the following req
   API. You only need to do this once per AWS account. If you submit the form from the AWS Organizations management account, it automatically
   covers all member accounts in the organization. For more information, see
   [Access Amazon Bedrock foundation models](../../../bedrock/latest/userguide/model-access.md "../../../bedrock/latest/userguide/model-access.md").
+
   - Even after submitting the use case details form, the first invocation of an Anthropic Claude model in your account requires AWS Marketplace
     permissions to complete an automatic model subscription. If your instance profile doesn't have these permissions, AI analysis fails with the
     following error:

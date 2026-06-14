@@ -54,6 +54,7 @@ and omit the `Dockerfile`.
 The `AWSEBDockerrunVersion` parameter indicates the version of the `Dockerrun.aws.json` file.
 
 - The Docker AL2 and AL2023 platforms use the following versions of the file.
+
   - `Dockerrun.aws.json v3` — environments that use Docker Compose.
 
   - `Dockerrun.aws.json v1` — environments that do not use Docker Compose.

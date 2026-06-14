@@ -92,6 +92,7 @@ characters as needed by applying HTML URL encoding.
   value is `mysql`.
 - **rdsDBAllocatedStorage** – Specify the allocated database storage size in gigabytes (GB). You can specify the following
   values:
+
   - **MySQL** – `5` to `1024`. The default is `5`.
   - **Oracle** – `10` to `1024`. The default is `10`.
   - **Microsoft SQL Server Express Edition** – `30`.

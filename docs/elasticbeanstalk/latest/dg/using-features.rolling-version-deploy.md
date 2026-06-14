@@ -60,6 +60,7 @@ The **Application deployments** section of the **Rolling updates and deployments
 for application deployments:
 
 - **Deployment policy** – Choose from the following deployment options:
+
   - **All at once** – Deploy the new version to all instances simultaneously. All instances in your environment are out of
     service for a short time while the deployment occurs.
   - **Rolling** – Deploy the new version in batches. Each batch is taken out of service during the deployment phase,

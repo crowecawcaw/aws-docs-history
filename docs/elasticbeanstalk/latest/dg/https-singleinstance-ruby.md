@@ -154,6 +154,7 @@ configuration file and a JSON file to enable HTTPS.
    private key material as instructed, and save it in your source bundle's
    `.ebextensions` directory. The configuration file performs the
    following tasks:
+
    - The `files` key creates the following files on the instance:
 
    `/etc/pki/tls/certs/server.crt`

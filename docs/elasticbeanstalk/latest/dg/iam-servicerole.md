@@ -201,6 +201,7 @@ Alternatively, you can manually add the managed policies to the default service 
 3. On the **Permissions** tab, choose **Attach policies**.
 4. Enter `AWSElasticBeanstalk` to filter the policies.
 5. Select the following policies, and then choose **Attach policy**:
+
    - `AWSElasticBeanstalkEnhancedHealth`
    - `AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy`
 

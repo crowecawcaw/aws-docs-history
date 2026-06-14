@@ -228,7 +228,9 @@ with the additional security group attached.
 ###### To add a security group to your environment
 
 - Do one of the following:
+
   - To add a security group using the Elastic Beanstalk console
+
     1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
        and in the **Regions** list, select your AWS Region.
     2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
@@ -309,6 +311,7 @@ create a source bundle.
 ###### To update configuration files and create a source bundle
 
 1. Modify the configuration files as follows.
+
    - `.ebextensions/dev.config` – Restricts access to your environment to protect it during the WordPress installation
      process. Replace the placeholder IP address near the top of the file with the public IP address of the computer you'll use to access your
      environment's website to complete your WordPress installation.
@@ -369,6 +372,7 @@ you should not store it in source control. Use the Elastic Beanstalk console to 
 3. On the navigation pane, choose **Configuration**.
 4. Under **Software**, choose **Edit**.
 5. For `Environment properties`, modify the following properties:
+
    - `AUTH_KEY` – The value chosen for `AUTH_KEY`.
    - `SECURE_AUTH_KEY` – The value chosen for `SECURE_AUTH_KEY`.
    - `LOGGED_IN_KEY` – The value chosen for `LOGGED_IN_KEY`.

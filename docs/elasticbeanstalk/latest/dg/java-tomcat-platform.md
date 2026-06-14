@@ -212,6 +212,7 @@ environments](command-options-general.md "command-options-general.md"):
 - `aws:elasticbeanstalk:container:tomcat:jvmoptions` – Modify JVM
   settings. Options in this namespace correspond to options in the management console, as
   follows:
+
   - `Xms` – **JVM command line options**
   - `JVM Options` – **JVM command line
     options**
@@ -255,6 +256,7 @@ read the additional information in this section.
 - `aws:elasticbeanstalk:container:tomcat:jvmoptions` – In
   addition to the options mentioned earlier on this page for this namespace, older
   Amazon Linux AMI platform versions also support:
+
   - `XX:MaxPermSize` – **Maximum JVM permanent
     generation size**
 

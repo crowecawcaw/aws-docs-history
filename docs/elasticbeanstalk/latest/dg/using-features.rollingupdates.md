@@ -74,6 +74,7 @@ rolling updates:
 
 - **Rolling update type** – Elastic Beanstalk waits after it finishes updating a batch of instances before moving on to the next batch,
   to allow those instances to finish bootstrapping and start serving traffic. Choose from the following options:
+
   - **Rolling based on Health** – Wait until instances in the current batch are healthy before placing instances in service
     and starting the next batch.
   - **Rolling based on Time** – Specify an amount of time to wait between launching new instances and placing them in

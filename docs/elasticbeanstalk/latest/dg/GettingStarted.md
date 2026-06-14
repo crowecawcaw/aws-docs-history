@@ -109,6 +109,7 @@ interacting with other services.
 6. Choose **Next**.
 7. Verify that **Permissions policies** include the following, then choose
    **Next**:
+
    - `AWSElasticBeanstalkEnhancedHealth`
    - `AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy`
 
@@ -132,6 +133,7 @@ interacting with other services.
 6. Choose **Next**.
 7. Verify that **Permissions policies** include the following, then choose
    **Next**:
+
    - `AWSElasticBeanstalkWebTier`
    - `AWSElasticBeanstalkWorkerTier`
    - `AWSElasticBeanstalkMulticontainerDocker`
@@ -448,6 +450,7 @@ the environment created for you.
 ###### To delete the application and all associated resources
 
 1. Delete all application versions.
+
    1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
       and in the **Regions** list, select your AWS Region.
    2. In the navigation pane, choose **Applications**, and then choose
@@ -462,6 +465,7 @@ the environment created for you.
       **Done**.
 
 2. Terminate the environment.
+
    1. In the navigation pane, choose **getting-started-app**, and then
       choose **GettingStartedApp-env** in the environment list.
    2. Choose **Actions**, and then choose **Terminate
@@ -470,6 +474,7 @@ the environment created for you.
       typing the environment name, and then choose **Terminate**.
 
 3. Delete the getting-started-app application.
+
    1. In the navigation pane, choose the
       **getting-started-app**.
    2. Choose **Actions**, and then choose **Delete

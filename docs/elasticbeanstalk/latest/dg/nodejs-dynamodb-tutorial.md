@@ -253,6 +253,7 @@ instead of creating a new one.
 ```
 
 2. Open `.ebextensions/options.config` and change the values of the following settings:
+
    - **NewSignupEmail** – Your email address.
    - **STARTUP_SIGNUP_TABLE** – **nodejs-tutorial**
 

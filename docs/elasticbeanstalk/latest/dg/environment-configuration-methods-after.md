@@ -89,6 +89,7 @@ The Elastic Beanstalk console presents many configuration options on the
 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
 3. In the navigation pane, choose **Configuration**.
 4. Find the configuration page you want to edit:
+
    - If you see the option you're interested in, or you know which configuration category it's in, choose **Edit** in the
      configuration category for it.
    - To look for an option, turn on **Table View**, and then enter search terms into the search box. As you type, the list gets

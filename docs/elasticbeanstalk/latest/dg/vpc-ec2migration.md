@@ -115,6 +115,7 @@ configuration, so you can apply it when you create or update other environments.
 
 2. Swap the CNAMEs of the existing environment with the new environment. This way, the new environment that you created can be referenced with
    the familiar address. You can use the EB CLI or the AWS CLI.
+
    - Using the EB CLI, swap the environment CNAMEs by running the **eb swap** command. For more information, see [Setting up the EB command line interface (EB CLI) to manage Elastic Beanstalk](eb-cli3.md "eb-cli3.md").
    - Using the AWS CLI, swap the environment CNAMEs with the [elasticbeanstalk swap-environment-cnames](../../../cli/latest/reference/elasticbeanstalk/swap-environment-cnames.md "../../../cli/latest/reference/elasticbeanstalk/swap-environment-cnames.md") command. For
      more information, see the [AWS CLI Command Reference](../../../cli/latest/reference.md "../../../cli/latest/reference.md").

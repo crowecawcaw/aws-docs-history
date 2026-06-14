@@ -33,12 +33,14 @@ compatibility. Elastic Beanstalk supports these Windows Server versions as targe
 
 - _Default workflow (without the `--remote`
   option)_:
+
   - Python and the Elastic Beanstalk Command Line Interface (EB CLI) must be installed on the
     server that contains the application that you want to migrate to Elastic Beanstalk. While it
     is not required, we recommend installing the EB CLI inside a
     `virtualenv` sandbox as described in [Install the EB CLI in a virtual environment](eb-cli3.md#eb-cli3-install-virtualenv "eb-cli3.md#eb-cli3-install-virtualenv").
 
 - _Using the `--remote` option_:
+
   - Python and
     the Elastic Beanstalk Command Line Interface (EB CLI) must be installed on your bastion host. While it
     is not required, we recommend installing the EB CLI inside a `virtualenv`
@@ -75,9 +77,11 @@ Windows product documentation website.
 
 - _Default workflow (without the `--remote`
   option)_:
+
   - Your source server must have outbound internet access to AWS services.
 
 - _Using the `--remote` option_:
+
   - Your source server must have outbound internet access to AWS services.
   - Configure the proper security group ingress rules that allow for an outgoing
     network connection from your bastion host and an incoming connection into the remote

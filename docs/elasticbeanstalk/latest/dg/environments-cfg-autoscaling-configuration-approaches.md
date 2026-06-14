@@ -29,6 +29,7 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
     **Edit**.
 5.  In the **Auto Scaling group** section, configure the following
     settings.
+
     - **Environment type** – Select **Load
       balanced**.
     - **Min instances** – The minimum number of EC2
@@ -91,7 +92,6 @@ page in the [Elastic Beanstalk console](environments-console.md "environments-co
          in the Auto Scaling group before they're interrupted, minimizing Spot Instance
          interruptions to your applications. For more information, see [Capacity Rebalancing](../../../autoscaling/ec2/userguide/capacity-rebalance.md "../../../autoscaling/ec2/userguide/capacity-rebalance.md") in the *Amazon EC2 Auto Scaling User
          Guide*
-
     - **Architecture** – The processor architecture for your
       EC2 instances. The processor architecture determines the EC2 Instance types that
       become available in the next field.

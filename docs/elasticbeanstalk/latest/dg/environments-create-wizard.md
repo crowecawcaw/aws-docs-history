@@ -243,6 +243,7 @@ to create a Role that you can subsequently select for the **EC2 instance profile
 6. Choose **Next**.
 7. Verify that **Permissions policies** include the following, then choose
    **Next**:
+
    - `AWSElasticBeanstalkWebTier`
    - `AWSElasticBeanstalkWorkerTier`
    - `AWSElasticBeanstalkMulticontainerDocker`

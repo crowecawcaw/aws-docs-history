@@ -14,17 +14,20 @@ types.
 Amazon EC2 Auto Scaling provides the following allocation strategies for Spot Instances.
 
 - **Capacity optimized** (default)
+
   - Requests Spot Instances from the pool, with _optimal
     capacity_ for the number of instances that are launching.
   - This strategy works well for workloads where the possibility of service
     disruption must be minimized.
 
 - **Price capacity optimized**
+
   - Requests Spot Instances from the pools that have the _lowest chance of interruption_ and the _lowest
     possible price_.
   - This is the preferable choice for most Spot workloads.
 
 - **Capacity optimized prioritized**
+
   - Requests Spot Instances based on _capacity availability
     first_, while honoring your choice of _instance
     type prioritization_ on a best-effort basis. You can provide a list of

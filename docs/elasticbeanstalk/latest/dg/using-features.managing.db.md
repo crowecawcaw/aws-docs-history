@@ -243,6 +243,7 @@ follows:
 - The `DBDeletionPolicy` option sets the deletion policy. It can be set to the following values: `Snapshot`,
   `Delete`, or `Retain`. These values are described in [Database lifecycle](#environments-cfg-rds-lifecycle "#environments-cfg-rds-lifecycle") in this same topic.
 - The `HasCoupledDatabase` option determines if your environment has a coupled database.
+
   - If toggled to `true`, Elastic Beanstalk creates a new DB instance coupled to your environment.
   - If toggled to `false`, Elastic Beanstalk starts decoupling the DB instance from your environment.
 

@@ -49,6 +49,7 @@ You can enable environment health streaming to CloudWatch Logs using the Elastic
 4. In the **Monitoring** configuration category, choose **Edit**.
 5. Under **Health reporting**, make sure that the reporting **System** is set to **Enhanced**.
 6. Under **Health event streaming to CloudWatch Logs**
+
    - Enable **Log streaming**.
    - Set **Retention** to the number of days to save the logs.
    - Select the **Lifecycle** setting that determines whether the logs are saved after the environment is terminated.

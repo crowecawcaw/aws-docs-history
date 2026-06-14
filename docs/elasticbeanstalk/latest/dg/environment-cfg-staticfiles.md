@@ -25,8 +25,10 @@ additional folders as explained on this page.
 4. In the **Updates, monitoring, and logging** configuration category, choose **Edit**.
 5. Scroll to the **Platform software** section and locate
    the **Static files** group.
+
    1. To add a static file mapping, select **Add static
       files**. In the extra row that appears you'll enter a _path_ for serving static files and the _directory_ that contains the static files to serve.
+
       - In the **Path** field, start the path name with a
         slash (`/`) (for example, "_/images_").
       - In the **Directory** field, specify a directory

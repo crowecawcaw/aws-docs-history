@@ -654,6 +654,7 @@ fs.readFile(filename, 'UTF8', function(err, data) {
 ```
 
 8. Your environment will be updated after a few minutes. After your environment is green and ready, verify that the code worked.
+
    1. Check the [Amazon CloudWatch console](https://console.aws.amazon.com/cloudwatch/home "https://console.aws.amazon.com/cloudwatch/home") to view your ElastiCache metrics. To view your
       ElastiCache metrics, select **Metrics** in the left pane, and then search for **CurrItems**. Select
       **ElastiCache > Cache Node Metrics**, and then select your cache node to view the number of items in the cache.

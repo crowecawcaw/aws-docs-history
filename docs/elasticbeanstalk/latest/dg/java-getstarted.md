@@ -66,6 +66,7 @@ here. For information about supported platform versions, see [Elastic Beanstalk 
     	 continue.
 
 7. Your choice for **Presets** depends on your purpose for the environment.
+
    - If you're creating a sample environment to learn about Elastic Beanstalk or a development environment,
      choose **Single instance (free tier eligible)**.
    - If you're creating a production environment or an environment to learn more about load
@@ -94,6 +95,7 @@ interacting with other services.
 6. Choose **Next**.
 7. Verify that **Permissions policies** include the following, then choose
    **Next**:
+
    - `AWSElasticBeanstalkEnhancedHealth`
    - `AWSElasticBeanstalkManagedUpdatesCustomerRolePolicy`
 
@@ -117,6 +119,7 @@ interacting with other services.
 6. Choose **Next**.
 7. Verify that **Permissions policies** include the following, then choose
    **Next**:
+
    - `AWSElasticBeanstalkWebTier`
    - `AWSElasticBeanstalkWorkerTier`
    - `AWSElasticBeanstalkMulticontainerDocker`

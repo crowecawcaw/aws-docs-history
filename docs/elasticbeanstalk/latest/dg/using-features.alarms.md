@@ -38,6 +38,7 @@ The page displays a list of existing alarms. If any alarms are in the alarm stat
    ![Image of a bell, which serves as the alarm icon.](images/bell.png)
    ). The **Add alarm** page is displayed.
 5. Enter details about the alarm:
+
    - **Name**: A name for this alarm.
    - **Description** (optional): A short description of what this alarm is.
    - **Period**: The time interval between readings.
@@ -46,6 +47,7 @@ The page displays a list of existing alarms. If any alarms are in the alarm stat
      alarm.
    - **Notify**: The Amazon SNS topic that is notified when an alarm changes state.
    - **Notify when state changes to**:
+
      - **OK**: The metric is within the defined threshold.
      - **Alarm**: The metric exceeded the defined threshold.
      - **Insufficient data**: The alarm has just started, the metric is not available, or not enough data is available for the

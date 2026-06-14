@@ -69,6 +69,7 @@ This section describes how to create an Elastic Beanstalk environment for your a
 2. In **Solution Explorer**, open the context (right-click) menu for your application, and then select **Publish to
    AWS Elastic Beanstalk**.
 3. In the **Publish to AWS Elastic Beanstalk** wizard, enter your account information.
+
    1. For **Account profile to use**, select your **default** account or choose the **Add another
       account** icon to enter new account information.
    2. For **Region**, select the Region where you want to deploy your application. For information about available AWS Regions,
@@ -79,6 +80,7 @@ This section describes how to create an Elastic Beanstalk environment for your a
 4. On the **Application Environment** dialog box, enter the details for your new application environment.
 5. On the next **AWS** options dialog box, set Amazon EC2 options and other AWS related options for your deployed
    application.
+
    1. For **Container type** select **64bit Amazon Linux 2 v`<n.n.n>` running .NET
       Core.**
 
@@ -90,6 +92,7 @@ This section describes how to create an Elastic Beanstalk environment for your a
    **OK**. (In this example, we use `myuseastkeypair`.) A key pair enables remote-desktop access to your
    Amazon EC2 instances. For more information about Amazon EC2 key pairs, see [Using
    Credentials](../../../AWSEC2/latest/UserGuide/using-credentials.md "../../../AWSEC2/latest/UserGuide/using-credentials.md") in the _Amazon Elastic Compute Cloud User Guide_. 4. For a simple, low traffic application, select **Single instance environment**. For more information, see [Environment types](using-features-managing-env-types.md "using-features-managing-env-types.md") 5. Select **Next**. For more information about the AWS options that are not used in this example consider the following pages:
+
    - For **Use custom AMI**, see [Using a custom Amazon machine image (AMI) in your Elastic Beanstalk environment](using-features.customenv.md "using-features.customenv.md").
    - If you don't select **Single instance environment**, you need to choose a **Load balance type**. See [Load balancer for your Elastic Beanstalk environment](using-features.managing.elb.md "using-features.managing.elb.md") for more information.
    - Elastic Beanstalk uses the default [Amazon VPC](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md") (Amazon Virtual Private Cloud) configuration if you didn't choose **Use
