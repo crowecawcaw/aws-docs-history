@@ -21,6 +21,7 @@ In this module, you will:
 
 1. Open the **amplify/backend/api/amplifytripsplanner/schema.graphql** file and update
    it as follows:
+
    - Create a data model for the activity
    - Introduce an enum for the activity’s categories
    - Update the Trip model to set up a 1:n relation with the Activity
