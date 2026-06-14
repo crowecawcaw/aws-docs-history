@@ -51,6 +51,7 @@ Group Rules](../../../AWSEC2/latest/UserGuide/using-network-security.md#security
    For the **source** field, you should choose **Custom**
    and enter the security groups or IP address ranges associated with the instances
    that need to access your FSx for ONTAP file system, including:
+
    - Linux, Windows, and/or macOS clients that access data in your
      file system over NFS, SMB, or iSCSI.
    - Any ONTAP file systems/clusters that you will peer to your

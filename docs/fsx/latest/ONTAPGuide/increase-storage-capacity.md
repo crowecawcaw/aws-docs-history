@@ -14,6 +14,7 @@ and the API.
    **SSD storage capacity** value.
 4. To increase SSD storage capacity, choose **Modify storage capacity**.
 5. For **Input type**, choose one of the following:
+
    - To enter the new SSD storage capacity as a percentage change
      from the current value, choose
      **Percentage**.
@@ -21,6 +22,7 @@ and the API.
      **Absolute**.
 
 6. Depending on the input type, enter a value for **Desired % increase**.
+
    - For **Percentage**, enter the percentage increase value. This value must be
      at least 10 percent greater than the current value.
    - For **Absolute**, enter the new value in GiB, up to the maximum allowed value
@@ -28,6 +30,7 @@ and the API.
 
 7. For **Provisioned SSD IOPS**, you have two options to modify
    the number of provisioned SSD IOPS for your file system:
+
    - If you want Amazon FSx to automatically scale your SSD IOPS to maintain 3 provisioned SSD IOPS per
      GiB of SSD storage capacity (up to a maximum of 160,000), choose **Automatic**.
    - If you want to specify the number of SSD IOPS, choose **User-provisioned**.
@@ -55,6 +58,7 @@ Set the following parameters with your values:
 - To modify your provisioned SSD IOPS, use the `--ontap-configuration
 DiskIopsConfiguration` property. This property has two
   parameters, `Iops` and `Mode`:
+
   - If you want to specify the number of provisioned IOPS, use
     `Iops=`number_of_IOPS``(up to a maximum of 160,000) and`Mode=USER_PROVISIONED`. The IOPS value
     must be greater than or equal to three times the
@@ -99,6 +103,7 @@ in the _Amazon FSx for NetApp ONTAP API Reference_.
    **SSD storage capacity** value.
 4. To decrease SSD storage capacity, for **Action type**, choose **Decrease**.
 5. For **Input type**, choose one of the following:
+
    - To enter the new SSD storage capacity as a percentage change
      from the current value, choose
      **Percentage**.
@@ -106,6 +111,7 @@ in the _Amazon FSx for NetApp ONTAP API Reference_.
      **Absolute**.
 
 6. Depending on the input type, do one of the following.
+
    - For **Percentage**, enter the **Desired % decrease** value. This value must be
      at least 9 percent less than the current value.
    - For **Absolute**, enter the **Desired storage capacity** value in GiB.

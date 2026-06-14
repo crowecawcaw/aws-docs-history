@@ -27,6 +27,7 @@ AWS Command Line Interface (AWS CLI), and API.
 6. Choose **Select metric**.
 7. In the **Metrics** section, choose **FSx**.
 8. Choose a metric category:
+
    - **File System Metrics**
    - **Detailed File System Metrics**
    - **Volume Metrics**

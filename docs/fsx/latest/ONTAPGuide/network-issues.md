@@ -52,6 +52,7 @@ fsx test_vol2 /test_vol3`
 ```
 
 4. Start the trace with the minimum required arguments. Replace the following:
+
    - Replace `node_name` with the name of the node
      (for example, `FsxId01234567890abcdef-01`).
    - Replace `svm_name` with the name of your storage

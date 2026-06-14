@@ -214,6 +214,7 @@ permissions, SACLs for file and folder auditing, or both SACLs and DACLs.
 1. From the **Tools** menu in Windows Explorer, select
    **Map network drive**.
 2. Complete the **Map Network Drive** box:
+
    1. Choose a **Drive** letter.
    2. In the **Folder** box, type the SMB (CIFS) server name that
       contains the share, holding the data you want to audit and the name of the share.

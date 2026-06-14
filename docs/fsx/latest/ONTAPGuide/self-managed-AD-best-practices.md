@@ -48,6 +48,7 @@ Directory User and Computers MMC snap-in installed.
 10. Under **Show these permissions**, ensure that **General** and
     **Property-specific** are selected.
 11. For **Permissions**, choose the following:
+
     - **Reset Password**
     - **Read and write Account Restrictions**
     - **Validated write to DNS host name**
@@ -118,6 +119,7 @@ For **Encryption Key**, create a new key, don't use the AWS default KMS key. Be 
 3. For **Key Type**, choose **Symmetric**.
 4. For **Key Usage**, choose **Encrypt and decrypt**.
 5. For **Advanced options**, do the following:
+
    1. For **Key material origin**, choose **KMS**.
    2. For **Regionality**, choose **Single-Region key** and choose **Next**.
 
@@ -172,6 +174,7 @@ You can set more granular access control by modifying the `Resource` and `aws:So
 2. Choose **Store a new secret**.
 3. For **Secret type**, choose **Other type of secret**.
 4. For **Key/value pairs**, do the following to add your two keys:
+
    1. For the first key, enter `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME`.
    2. For the value of the first key, enter only the username (without the domain prefix) of the AD user.
    3. For the second key, enter `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD`.
@@ -229,6 +232,7 @@ In this command, set the `--policy` parameter to specify the key policy that def
 - Required KMS actions: `kms:Decrypt` and `kms:DescribeKey`.
 - Resource ARN pattern for your AWS Region and account.
 - Condition keys that restrict key usage:
+
   - `kms:ViaService` to ensure requests come through Secrets Manager.
   - `aws:SourceAccount` to limit to your account.
   - `aws:SourceArn` to restrict to specific Amazon FSx file systems.
@@ -294,6 +298,7 @@ To create a secret for Amazon FSx to access your Active Directory, use the AWS C
 - `--description`: A description of the secret's purpose.
 - `--kms-key-id`: The ARN of the KMS key you created in [Step 1](#create-kms-key-cli "#create-kms-key-cli") for encrypting the secret at rest.
 - `--secret-string`: A JSON string containing your AD credentials in the following format:
+
   - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME`: Your AD service account username without the domain prefix, such as `svc-fsx`. **Don't** provide the domain prefix, such as `CORP\svc-fsx`.
   - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD`: Your AD service account password
 
@@ -304,10 +309,12 @@ After creating the secret, attach a resource policy using the [put-resource-poli
 - `--secret-id`: The name or ARN of the secret to attach the policy to. The following example uses `FSxSecret` as the `--secret-id`.
 - `--region`: The same AWS Region as your secret.
 - `--resource-policy`: A JSON policy document that grants Amazon FSx permission to access the secret. The policy must include the following:
+
   - The service principal for Amazon FSx, which is `fsx.amazonaws.com`.
   - Required Secrets Manager actions: `secretsmanager:GetSecretValue` and `secretsmanager:DescribeSecret`.
   - Resource ARN pattern for your AWS Region and account.
   - The following condition keys that restrict access:
+
     - `aws:SourceAccount` to limit to your account.
     - `aws:SourceArn` to restrict to specific Amazon FSx file systems.
 

@@ -91,6 +91,7 @@ For more information, including instructions on how to change password setting, 
    **Manage** next to the file system's **Route tables**.
 4. In the **Manage route tables** dialog box. do
    one of the following:
+
    - To associate a new VPC route table, select a route table
      from the **Associate new route tables** dropdown
      list, and then choose **Associate**.

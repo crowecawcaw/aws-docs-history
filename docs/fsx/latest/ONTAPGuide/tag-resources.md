@@ -50,6 +50,7 @@ Some tagging behaviors to keep in mind:
 - If you delete a resource, any tags for the resource are also deleted.
 - If you're using the Amazon FSx API, the AWS Command Line Interface (AWS CLI), or an AWS SDK, you can do
   the following:
+
   - You can use the `TagResource` API action to apply tags to existing resources.
   - For some resource-creating actions, you can specify tags for a resource when the
     resource is created. By tagging resources at the time of creation, you can eliminate the need

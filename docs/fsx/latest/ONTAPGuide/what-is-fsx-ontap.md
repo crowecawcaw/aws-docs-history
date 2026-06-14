@@ -63,6 +63,7 @@ With FSx for ONTAP, you get a fully managed file storage solution with:
 - Support for NetApp's [SnapMirror replication](scheduled-replication.md "scheduled-replication.md") feature
 - Support for NetApp's FlexCache on-premises caching solution
 - Support for access and management using native AWS or NetApp tools and API operations
+
   - AWS Management Console, AWS Command Line Interface (AWS CLI), and SDKs
   - [NetApp ONTAP CLI, REST API, and NetApp Console](managing-resources-ontap-apps.md "managing-resources-ontap-apps.md")
 
@@ -76,6 +77,7 @@ FSx for ONTAP supports the following data protection, security, and access contr
 
 - [Encrypting data at rest](encryption-at-rest.md "encryption-at-rest.md") for file system data and backups using AWS KMS keys
 - Encrypting data in transit using:
+
   - [SMB Kerberos](encryption-in-transit.md#kerberos-encryption "encryption-in-transit.md#kerberos-encryption")
   - [IPSEC](encryption-in-transit.md#ipsec-encryption "encryption-in-transit.md#ipsec-encryption")
   - [Nitro-based](encryption-in-transit.md#nitro-encryption "encryption-in-transit.md#nitro-encryption") encryption

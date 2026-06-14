@@ -7,6 +7,7 @@ FSx for ONTAP integrates with AWS Secrets Manager to securely manage your domain
 
 1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
 2. Choose the SVM to update as follows:
+
    - In the left navigation pane, choose **File systems**, and then choose the
      ONTAP file system for which you want to update an SVM.
    - Choose the **Storage virtual machines**

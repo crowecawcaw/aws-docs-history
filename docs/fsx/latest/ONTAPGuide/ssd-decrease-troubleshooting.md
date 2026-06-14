@@ -46,6 +46,7 @@ Redirecting client access for volume(s) fsvol-123 has failed due to insufficient
 To resolve this issue, you can do the following:
 
 - Check your file system's resource utilization metrics in Amazon CloudWatch to ensure that your workload isn't consuming more than 50% of the following resources:
+
   - `NetworkThroughputUtilization`
   - `FileServerDiskThroughputUtilization`
   - `FileServerDiskIopsUtilization`

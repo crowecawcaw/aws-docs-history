@@ -79,6 +79,7 @@ Do you want to continue? {y|n}:` `y`
 ```
 
 3. Use the following command to modify the volume data-tiering policy, replacing the following values:
+
    - Replace `svm_name` with the name of the SVM that
      the volume is created on.
    - Replace `vol_name` with name of the volume for which you

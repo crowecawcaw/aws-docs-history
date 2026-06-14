@@ -192,6 +192,7 @@ that Harvest and Grafana is deployed on.
 ```
 
 2. Use the following command to open the `harvest.yml` file and:
+
    - Verify that an entry was created for your FSx for ONTAP instance as `Cluster-2`.
    - Verify that the entries for username and password match your `fsxadmin` credentials.
 

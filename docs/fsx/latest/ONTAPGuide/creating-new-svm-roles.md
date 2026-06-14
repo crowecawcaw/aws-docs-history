@@ -16,6 +16,7 @@ file system administrators with the `fsxadmin` role.
 ```
 
 2.  Specify the following required parameters in the command:
+
     - `-vserver` the name of the SVM
     - `-role`
       – The name of the role.
@@ -28,6 +29,7 @@ snapshot"`. Enter `DEFAULT` to
 
 3.  (Optional) You can also add any of the following parameters to the
     command:
+
     - `-vserver` – The name of the SVM that's associated
       with the role.
     - `-access` – The access level for the role. For

@@ -97,6 +97,7 @@ and IOPS:
   This is sometimes referred to as a cooldown period.
 - **Provisioned IOPS modes** –
   For a provisioned IOPS change, you must specify one of the two IOPS modes:
+
   - **Automatic** mode – Amazon FSx automatically scales your SSD IOPS to maintain 3 provisioned SSD IOPS per GiB of SSD storage capacity,
     up to the maximum SSD IOPS for your file system configuration.
 
@@ -182,6 +183,7 @@ Here are a few important items to consider when decreasing a file system's SSD s
 - **(Second-generation Single-AZ file systems only) Storage capacity spread** – The new storage capacity or SSD IOPS that you select for your file system is spread evenly across each of your file system's aggregates.
 - **Patching during storage capacity decrease** – Amazon FSx aborts moving data for a volume if your file system is patched during an SSD decrease operation. As a result, you may lose progress on the SSD decrease operation if a patch occurs during the operation. Amazon FSx automatically restarts the `vol move` after the patch operation is complete.
 - **Provisioned IOPS modes** – For a provisioned IOPS change, you must specify one of the two IOPS modes:
+
   - **Automatic** mode – Amazon FSx automatically scales your SSD IOPS to maintain 3 provisioned SSD IOPS per GiB of SSD storage capacity, up to the maximum SSD IOPS for your file system configuration. When decreasing SSD capacity, your automatic SSD IOPS will scale down proportionally.
 
   ###### Note

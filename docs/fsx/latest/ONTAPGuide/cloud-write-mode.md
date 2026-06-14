@@ -38,6 +38,7 @@ Do you want to continue? {y|n}:` `y`
 
 3. Use the following command to set the volume’s cloud write mode,
    replacing the following values:
+
    - Replace `svm_name` with the name of the SVM that
      the volume is created on.
    - Replace `vol_name` with name of the volume for

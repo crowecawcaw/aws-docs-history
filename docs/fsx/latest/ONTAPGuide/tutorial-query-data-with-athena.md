@@ -40,6 +40,7 @@ Before you begin, make sure you have the following:
 - An IAM role for AWS Glue with the `AWSGlueServiceRole`
   managed policy attached and an inline policy that grants access to your Amazon S3
   access point. If you do not have one, use the following steps.
+
   1.  Save the following trust policy as
       `glue-trust-policy.json`. It allows AWS Glue to assume the
       role.
@@ -56,7 +57,6 @@ Before you begin, make sure you have the following:
       ]
   }
   ```
-
   2.  Save the following permissions policy as
       `glue-s3-policy.json`. It grants access to the access point.
       Replace `region`,
@@ -82,7 +82,6 @@ Before you begin, make sure you have the following:
       ]
   }
   ```
-
   3.  Create the role and attach the policies.
 
   ```

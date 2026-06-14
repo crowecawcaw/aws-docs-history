@@ -14,12 +14,14 @@ The volume's security style is automatically set to the root volume's security s
 3. Choose **Create volume**.
 4. For **File system type**, choose **Amazon FSx for NetApp ONTAP**.
 5. In the **File system details** section, provide the following information:
+
    - For **File system**, choose the file system to create the volume on.
    - For **Storage virtual machine**, choose the storage virtual machine (SVM)
      to create the volume on.
 
 6. In the **Volume style** section, choose **FlexVol**.
 7. In the **Volume details** section, provide the following information:
+
    - In the **Volume name** field, provide a name for
      the volume. You can use up to 203 alphanumeric or underscore (\_)
      characters.
@@ -54,6 +56,7 @@ The volume's security style is automatically set to the root volume's security s
    in the NetApp ONTAP Product Documentation.
 
 8. In the **Storage tiering** section, provide the following information:
+
    - For **Capacity pool tiering policy**,
      choose the storage pool tiering policy for the volume, which can be
      **Auto** (the default), **Snapshot Only**, **All**, or
@@ -85,12 +88,14 @@ To create FlexVol volumes for file systems with multiple HA pairs, use the AWS C
 3. Choose **Create volume**.
 4. For **File system type**, choose **Amazon FSx for NetApp ONTAP**.
 5. In the **File system details** section, provide the following information:
+
    - For **File system**, choose the file system to create the volume on.
    - For **Storage virtual machine**, choose the storage virtual machine (SVM)
      to create the volume on.
 
 6. In the **Volume style** section, choose **FlexGroup**.
 7. In the **Volume details** section, provide the following information:
+
    - In the **Volume name** field, provide a name for
      the volume. You can use up to 203 alphanumeric or underscore (\_)
      characters.
@@ -131,6 +136,7 @@ To create FlexVol volumes for file systems with multiple HA pairs, use the AWS C
    in the NetApp ONTAP Product Documentation.
 
 8. In the **Storage tiering** section, provide the following information:
+
    - For **Capacity pool tiering policy**,
      choose the storage pool tiering policy for the volume, which can be
      **Auto** (the default), **Snapshot Only**, **All**, or

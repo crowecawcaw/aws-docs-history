@@ -5,6 +5,7 @@ the cloud. With FSx for ONTAP, you can join your SVMs directly to your existing 
 domain in the following ways:
 
 - Joining new SVMs to an Active Directory at creation:
+
   - Using the **Standard create** option in Amazon FSx console to create a new
     FSx for ONTAP file system, you can join the default SVM to a self-managed Active Directory. For more information,
     see [To create a file system (console)](creating-file-systems.md#create-MAZ-file-system-console "creating-file-systems.md#create-MAZ-file-system-console").
@@ -12,6 +13,7 @@ domain in the following ways:
     For more information, see [Creating storage virtual machines (SVM)](creating-svms.md "creating-svms.md").
 
 - Joining existing SVMs to an Active Directory:
+
   - Using the AWS Management Console, AWS CLI, and API to join an SVM to an Active Directory, and to reattempt joining an SVM to an Active Directory
     if the initial attempt to join failed. You can also update some Active Directory configuration properties for SVMs that are
     already joined to an Active Directory. For more information, see
@@ -57,8 +59,10 @@ range, except:
     + IP addresses in the following CIDR block range: 198.19.0.0/16
 
 - Credentials for an Active Directory service account that Amazon FSx uses to join the SVM to your domain. You can provide these as either:
+
   - **Option 1:** AWS Secrets Manager secret ARN - The secret containing the username and password for a service account on your Active Directory domain. For more information, see [Storing Active Directory credentials using AWS Secrets Manager](self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager "self-managed-AD-best-practices.md#bp-store-ad-creds-using-secret-manager").
   - **Option 2:** Plaintext credentials
+
     - **Service account username** – The user name of the service account in your existing Microsoft Active Directory. Don't include a domain prefix or suffix. For example, for `EXAMPLE\ADMIN`, use only `ADMIN`.
     - **Service account password** – The password for the service account.
 

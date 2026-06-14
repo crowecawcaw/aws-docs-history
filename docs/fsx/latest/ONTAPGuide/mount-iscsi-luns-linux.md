@@ -8,6 +8,7 @@ There are three main steps to process of configuring iSCSI on your Amazon FSx fo
 
 1. Install and configure the iSCSI client on the Linux host.
 2. Configure iSCSI on the file system's SVM.
+
    - Create an iSCSI initiator group.
    - Map the initiator group to the LUN.
 
@@ -40,7 +41,7 @@ endpoints. For more information, see
 - We recommend that the EC2 instance be in the same availability zone
   as your file system's preferred subnet, as shown in the following graphic.
 
-![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](images/fsx-ontap-iscsi-mnt-client.png)
+![Image showing an Amazon FSx for NetApp ONTAP file system with an iSCSI LUN and an Amazon EC2 instance located in the same availability zone as that of the file system's preferred subnet.](/images/fsx/latest/ONTAPGuide/images/fsx-ontap-iscsi-mnt-client.png)
 
 If your EC2 instance runs a different Linux AMI than Amazon Linux 2, some of the utilities used
 in these procedures and examples might already be installed, and you might use different commands to
@@ -314,6 +315,7 @@ so you can distinguish it from other multipathed disks.
 1. To provide your device a friendly name, create an alias in the `/etc/multipath.conf` file.
    To do this, add the following entry to the file using your preferred text editor, replacing the following
    placeholders:
+
    - Replace `serial_hex` with the value the you saved in the
      [Configure iSCSI on the FSx for ONTAP file system](#configure-iscsi-on-fsx-ontap "#configure-iscsi-on-fsx-ontap") procedure.
    - Add the prefix `3600a0980` to the `serial_hex` value as shown in the example. This is a unique

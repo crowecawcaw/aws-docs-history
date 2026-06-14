@@ -76,6 +76,7 @@ file system with a customized configuration, and for using the AWS CLI and API, 
    **:** **/**
 6. For **Deployment type** choose **Multi-AZ** or
    **Single-AZ**.
+
    - **Multi-AZ** file systems replicate your data and support failover
      across multiple Availability Zones in the same AWS Region.
    - **Single-AZ** file systems replicate your data and offer automatic
@@ -200,6 +201,7 @@ $ sudo mkdir /`mount-point`
 6. Mount your Amazon FSx for NetApp ONTAP file system to the directory that you created. Use a
    `mount` command similar to the example that follows. In the following example,
    replace the following placeholder values with your own information.
+
    - `nfs_version` – The NFS version
      you are using; FSx for ONTAP supports versions 3, 4.0, 4.1, and 4.2.
    - `nfs-dns-name` – The NFS DNS name of the storage
@@ -242,6 +244,7 @@ resources and protect your AWS account.
 5. On the Amazon FSx console, delete your file system. When you delete a file system, all
    automatic backups are deleted automatically. However, you still must delete any manually
    created backups. The following steps outline this process.
+
    1. From the console dashboard, choose the name of the file system that you created
       for this exercise.
    2. For **Actions**, choose **Delete file

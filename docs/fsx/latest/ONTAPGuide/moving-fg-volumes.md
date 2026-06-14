@@ -131,6 +131,7 @@ view them after setting them.
 ```
 
 2. Specify the maximum total bandwidth that can be used by replication, replacing the following option:
+
    - `kbs_throttle` with the maximum desired throughput to use for any replication (including SnapMirror and volume moves), in Kilobytes per second.
 
 ```

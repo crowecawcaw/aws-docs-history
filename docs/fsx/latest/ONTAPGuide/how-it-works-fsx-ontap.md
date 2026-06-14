@@ -96,12 +96,14 @@ its resources. You can manage your FSx for ONTAP resources using both AWS and Ne
 management tools:
 
 - AWS management tools
+
   - The AWS Management Console
   - The AWS Command Line Interface (AWS CLI)
   - The Amazon FSx API and SDKs
   - AWS CloudFormation
 
 - NetApp management tools:
+
   - NetApp Console
   - The NetApp ONTAP CLI
   - The NetApp ONTAP REST API

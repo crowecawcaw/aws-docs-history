@@ -36,6 +36,7 @@ For more information about volume backups, see [Protecting your data with volume
    **Yes**.
 7. In the confirmation dialog box, for **Create final
    backup**, you have two options:
+
    - Choose **Yes** to take a final backup of
      the volume. The name of the final backup is
      displayed.

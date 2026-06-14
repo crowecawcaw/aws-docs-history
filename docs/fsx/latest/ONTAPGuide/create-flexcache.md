@@ -38,6 +38,7 @@ Before you begin using the procedures in the following sections, be sure that yo
 ## Record the source and destination inter-cluster LIFs
 
 1. For the FSx for ONTAP file system that is the destination cluster:
+
    1. Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/").
    2. Choose **File systems**, then choose the FSx for ONTAP file system that is the destination cluster to open
       the file system details page.
@@ -69,6 +70,7 @@ When prompted, you will be asked to create a `cluster-peer-passphrase` that you 
 cluster peering on the **Origin** cluster.
 
 1. Set up cluster peering on the `Cache` cluster (your FSx for ONTAP file system).
+
    1. To access the ONTAP CLI, establish an SSH session on the management port of the
       Amazon FSx for NetApp ONTAP file system or SVM by running the following command. Replace
       `management_endpoint_ip` with the IP address of the file system's
@@ -153,13 +155,13 @@ For more information, see [FlexCache write modes](using-flexcache.md#flexcache_w
 
 1. On the cache cluster, use the following ONTAP CLI command to create your FlexCache volume. The example creates a 2 TB FlexCache volume
    named `CacheVol`.
+
    - To create a write-around FlexCache volume, use the following command.
 
    ```
    `FSx-Cache::>` `volume flexcache create -vserver `CacheSVM` -size 2t -volume `CacheVol` -origin-volume `OriginVol` -origin-vserver `OriginSVM` -junction-path `/flexcache` -aggr-list `aggr1``
 
    ```
-
    - To create a write-back FlexCache volume, use the following command.
 
    ```

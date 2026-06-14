@@ -212,6 +212,7 @@ Or
 
 - Trust the AWS certificate authorities (CAs) –
   The certificate bundle for the CAs in each region can be found at the follow URLs:
+
   - https://fsx-aws-certificates.s3.amazonaws.com/bundle-`aws-region`.pem for Public AWS Regions
   - https://fsx-aws-us-gov-certificates.s3.us-gov-west-1.amazonaws.com/bundle-`aws-region`.pem for AWSGovCloud Regions
   - https://fsx-aws-cn-certificates.s3.cn-north-1.amazonaws.com.cn/bundle-`aws-region`.pem for AWS China Regions

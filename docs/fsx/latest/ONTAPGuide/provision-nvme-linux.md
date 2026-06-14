@@ -15,6 +15,7 @@ There are three main steps to process of configuring NVMe/TCP on your Amazon FSx
 
 1. Install and configure the NVMe client on the Linux host.
 2. Configure NVMe on the file system's SVM.
+
    - Create an NVMe namespace.
    - Create an NVMe subsystem.
    - Map the namespace to the subsystem.

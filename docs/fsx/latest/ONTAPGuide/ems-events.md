@@ -132,6 +132,7 @@ by your file system.
 
 2. Use the [event notification destination create](https://docs.netapp.com/us-en/ontap-cli-9131/event-notification-destination-create.html "https://docs.netapp.com/us-en/ontap-cli-9131/event-notification-destination-create.html")
    command to create an event notification destination of type `syslog`, specifying the following attributes:
+
    - `dest_name` – The name of the notification destination
      that is to be created (for example, `syslog-ems`). An event notification destination name must be 2 to 64
      characters long. Valid characters are the following ASCII characters: A-Z, a-z, 0-9, "\_", and "-". The name must
@@ -139,6 +140,7 @@ by your file system.
    - `syslog_name` – The Syslog server host name or IP address that
      Syslog messages are sent to.
    - `transport_protocol` – The protocol used to send the events:
+
      - `udp-unencrypted` – User Datagram Protocol with no security.
        This is the default protocol.
      - `tcp-unencrypted` – Transmission Control Protocol with no security.
@@ -158,6 +160,7 @@ by your file system.
 3. Use the [event notification create](https://docs.netapp.com/us-en/ontap-cli-9131/event-notification-create.html "https://docs.netapp.com/us-en/ontap-cli-9131/event-notification-create.html")
    command to create a new notification of a set of events defined by an event filter to the notification destination
    created in the previous step, specifying the following attributes:
+
    - `node_name` – The name of the event filter. Events that are included
      in the event filter are forwarded to the destinations specified in the `-destinations` parameter.
    - `dest_name` – The name of the existing notification destination
@@ -170,6 +173,7 @@ by your file system.
 4. If you selected TCP as the `transport_protocol`, you can use the
    `event notification destination check` command to generate a test message and verify your setup works.
    Specify the following attributes with the command:
+
    - `node_name` – The name of the node (for example,
      `FsxId07353f551e6b557b4-01`).
    - `dest_name` – The name of the existing notification destination

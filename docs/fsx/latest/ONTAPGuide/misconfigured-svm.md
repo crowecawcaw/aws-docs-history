@@ -40,6 +40,7 @@ To resolve the misconfiguration, do the following:
 
 - Verify that the secret ARN is correct and follows the proper format: `arn:aws:secretsmanager:region:account-id:secret:secret-name-6chars`.
 - Verify that the secret contains both required fields with non-empty values:
+
   - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_USERNAME` – Your AD service account username.
   - `CUSTOMER_MANAGED_ACTIVE_DIRECTORY_PASSWORD` – Your AD service account password.
 

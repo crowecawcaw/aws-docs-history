@@ -18,6 +18,7 @@ file systems have reached a storage utilization threshold.
    Within the create alarm wizard, choose **Select metric**.
 3. In the **graph explorer**, choose the **Multi source query** tab.
 4. In the **query builder**, choose the following:
+
    - For **Namespace**, select **AWS/FSx** > **Detailed File System Metrics**.
    - For **Metric name**, select **MAX(StorageCapacityUtilization)**.
    - For **Filter by**, you can optionally include or exclude specific file systems by their ID.

@@ -29,6 +29,7 @@ default set of configuration parameters, see [Create an Amazon FSx for NetApp ON
     **Standard create**.
 5.  In the **File system details** section, provide the
     following information:
+
     - For **File system name - optional**, enter a name
       for your file system. It's easier to find and manage your file
       systems when you name them. You can use a maximum of 256 Unicode
@@ -37,6 +38,7 @@ default set of configuration parameters, see [Create an Amazon FSx for NetApp ON
     - For **Deployment type** choose
       **Multi-AZ 2**, **Single-AZ 2**,
       **Multi-AZ 1**, or **Single-AZ 1**.
+
       - **Multi-AZ** file systems replicate your
         data and support failover across multiple Availability Zones
         in the same AWS Region. Multi-AZ 1 is a first-generation FSx for ONTAP file system.
@@ -68,6 +70,7 @@ default set of configuration parameters, see [Create an Amazon FSx for NetApp ON
     [Managing storage capacity](managing-storage-capacity.md "managing-storage-capacity.md").
     - For **Provisioned SSD IOPS**, you have two
       options to provision the number of IOPS for your file system:
+
       - Choose **Automatic** (the default) if you
         want Amazon FSx to automatically provision 3 IOPS per GiB of SSD
         storage.
@@ -97,6 +100,7 @@ default set of configuration parameters, see [Create an Amazon FSx for NetApp ON
       Throughput capacity is the sustained speed at which the file server that hosts your file system can serve data. For more information, see [Amazon FSx for NetApp ONTAP performance](performance.md "performance.md").
 
 6.  In the **Networking** section, provide the following information:
+
     - For **Virtual Private Cloud (VPC)**, choose the VPC
       that you want to associate with your file system.
     - For **VPC Security Groups**, you can choose a security group to
@@ -175,11 +179,11 @@ default set of configuration parameters, see [Create an Amazon FSx for NetApp ON
         	- 224.0.0.0/4
         	- 240.0.0.0/4
         	- 255.255.255.255/32
-
     - (Multi-AZ and dual-stack only) **Endpoint IPv6 address range**
       specifies the IPv6 address range in which the endpoints to access your
       file system are created. You have two options for the endpoint
       IPv6 address range:
+
       - **Unallocated IPv6 address range from your
         VPC** – Amazon FSx chooses a block of 1024 available IPv6 addresses
         from one of the VPC’s IPv6 CIDR ranges to use as the endpoint IPv6 address range
@@ -285,6 +289,7 @@ information:
 
 10. In the **Default volume configuration** section, provide the following information
     for the default volume that is created with your file system:
+
     - In the **Volume name** field, provide a name for
       the volume. You can use up to 203 alphanumeric or underscore (\_)
       characters.
@@ -522,6 +527,7 @@ Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://con
 
 1. In the navigation pane, choose **Settings**.
 2. Locate the **Multi-AZ shared VPC settings** on the **Settings** page.
+
    - To enable VPC sharing for Multi-AZ file systems in VPC subnets that you share, choose
      **Enable route table updates from participant accounts**.
    - To disable VPC sharing for Multi-AZ file systems in all VPCs that you own, choose

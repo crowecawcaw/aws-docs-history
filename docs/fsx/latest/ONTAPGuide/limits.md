@@ -28,6 +28,7 @@ that you can increase.
 2. For **Create case**, choose **Account and billing
    support**.
 3. In the **Case details** panel make the following entries:
+
    - For **Type** choose **Account**.
    - For **Category** choose **Other Account
      Issues**.
@@ -35,6 +36,7 @@ that you can increase.
 increase request`.
    - Provide a detailed **Description** of your request,
      including:
+
      - The FSx quota that you want increased, and the value you want it increased to,
        if known.
      - The reason why you are seeking the quota increase.

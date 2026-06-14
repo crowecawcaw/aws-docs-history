@@ -32,6 +32,7 @@ in the AWS Private Certificate Authority User Guide.
 
 1. When you create a CA, you must specify the CA configuration in a file that you supply. The following command uses
    the Nano text editor to create the `ca_config.txt` file, which specifies the following information:
+
    - The name of the algorithm
    - The signing algorithm that the CA uses to sign
    - X.500 subject information

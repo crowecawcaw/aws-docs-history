@@ -13,6 +13,7 @@ Open the Amazon FSx console at [https://console.aws.amazon.com/fsx/](https://con
 3. Choose the **Updates** tab.
 4. The **Backup restore** **Update type** provides the following
    information:
+
    - **PENDING** indicates that the file metadata is being
      downloaded onto the volume. The volume's **Lifecycle state** is
      **CREATING**.
