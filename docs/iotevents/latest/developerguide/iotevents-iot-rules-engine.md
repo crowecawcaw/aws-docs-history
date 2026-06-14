@@ -18,8 +18,10 @@ to send MQTT messages using the AWS IoT message broker.
     routing**, then choose **Rules**.
 2.  Choose **Create rule** in the upper right.
 3.  On the **Create a rule** page, complete the following steps:
+
     1.  **Step 1. Specify rule properties**. Complete the following
         fields:
+
         - **Rule name.** Enter a name for your rule, such as
           `MyIoTEventsRule`.
 
@@ -41,6 +43,7 @@ to send MQTT messages using the AWS IoT message broker.
 
     3.  **Step 3. Attach rule actions**. In the **Rule
         actions** section, complete the following:
+
         - **Action 1. Select IoT Events.** The following fields
           appear:
 
@@ -108,6 +111,7 @@ to send MQTT messages using the AWS IoT message broker.
 4.  In the left navigation pane, under **Test**, choose **MQTT
     test client**.
 5.  Choose **Publish to a topic**. Complete the following fields:
+
     - **Topic name**. Enter a name to identify the message, such as
       `motors/Fulton-A32/status`.
     - **Message payload**. Enter the following:

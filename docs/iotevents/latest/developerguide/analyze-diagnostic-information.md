@@ -10,6 +10,7 @@ Detector model analyses gather the following diagnostic information:
 - **Level** – The severity level of the analysis
   result. Based on the severity level, analysis results fall into three general
   categories:
+
   - **Information** (`INFO`) –
     An information result tells you about a significant field in your detector
     model. This type of result usually doesn't require immediate action.
@@ -32,6 +33,7 @@ Detector model analyses gather the following diagnostic information:
 in event Init in action setVariable`).
 - **Type** – The type of the analysis result.
   Analysis types fall into the following categories:
+
   - `supported-actions` – AWS IoT Events can invoke actions when a
     specified event or transition event is detected. You can define built-in
     actions to use a timer or set a variable, or send data to other AWS

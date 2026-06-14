@@ -16,6 +16,7 @@ The following requirements apply when you create an alarm model.
 
 - You can create an alarm model to monitor an input attribute in AWS IoT Events or an
   asset property in AWS IoT SiteWise.
+
   - If you choose to monitor an input attribute in AWS IoT Events, [Create an input for models in AWS IoT Events](create-input-overview.md "create-input-overview.md") before you create the
     alarm model.
   - If you choose to monitor an asset property, you must [create an asset
@@ -40,6 +41,7 @@ in the AWS IoT Events console.
    alarm model**.
 4. In the **Alarm model details** section, do the
    following:
+
    1. Enter a unique name.
    2. (Optional) Enter a description.
 
@@ -67,6 +69,7 @@ have created an asset model in AWS IoT SiteWise.
 6.  In the **Threshold definitions** section, you define the
     input attribute, threshold value, and comparison operator that AWS IoT Events uses to
     change the state of the alarm.
+
     1. For **Input attribute**, choose the attribute
        that you want to monitor.
 
@@ -83,7 +86,6 @@ have created an asset model in AWS IoT SiteWise.
         * **<= less than or equal to**
         * **= equal to**
         * **!= not equal to**
-
     3. For threshold **Value**, enter a number or choose
        an attribute in AWS IoT Events inputs. AWS IoT Events compares this value with the
        value of the input attribute you choose.
@@ -130,6 +132,7 @@ You can add up to 10 notifications. For **Notification
     all alarm instances that are created based on this alarm model.
 9.  In the **Advanced settings** section, do the
     following:
+
     1.  For **Acknowledge flow**, you can enable or
         disable notifications.
 

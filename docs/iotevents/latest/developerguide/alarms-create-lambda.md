@@ -15,8 +15,10 @@ alarms:
 
 - If your alarm sends SMS notifications, ensure Amazon SNS is configured to
   deliver SMS messages.
+
   - For more information, see the following
     documentation:
+
     - [Mobile text messaging with Amazon SNS](../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md "../../../sns/latest/dg/sns-mobile-phone-number-as-subscriber.md") and [Origination identities for Amazon SNS SMS
       messages](../../../sns/latest/dg/channels-sms-originating-identities.md "../../../sns/latest/dg/channels-sms-originating-identities.md") in the
       _Amazon Simple Notification Service Developer Guide_.

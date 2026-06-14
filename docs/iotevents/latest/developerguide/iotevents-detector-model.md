@@ -31,6 +31,7 @@ conditional logic evaluates to `true`.
 4. Under **Event actions**, choose **Add
    action**.
 5. Under **Event actions**, do the following:
+
    1. Select **Set variable**
    2. For **Variable operation**, choose **Assign
       value**.
@@ -72,11 +73,13 @@ action**. 14. For **Choose an action**, choose **Set variable**.
     action**.
 18. For **Choose an action**, choose **Send SNS
     message**.
+
     1.  For **SNS topic**, enter the target ARN of your Amazon SNS
         topic.
     2.  Choose **Save**.
 
 19. Continue to add the events in the example.
+
     1.  For **OnInput**, choose **Add event**, and enter
         and save the following event information.
 
@@ -90,7 +93,6 @@ action**. 14. For **Choose an action**, choose **Set variable**.
           Variable name: pressureThresholdBreached
           Assign value: 3
     ```
-
     2.  For **OnInput**, choose **Add event**, and enter
         and save the following event information.
 
@@ -102,7 +104,6 @@ action**. 14. For **Choose an action**, choose **Set variable**.
           Variable operation: Decrement
           Variable name: pressureThresholdBreached
     ```
-
     3.  For **OnExit**, choose **Add event**, and enter
         and save the following event information using the ARN of the Amazon SNS topic that you
         created.

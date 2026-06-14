@@ -31,6 +31,7 @@ at-a-glance view of the state of your AWS environment. We recommend that you als
 the log files on AWS IoT Events.
 
 - The AWS IoT Events console shows:
+
   - Detector models
   - Detectors
   - Inputs

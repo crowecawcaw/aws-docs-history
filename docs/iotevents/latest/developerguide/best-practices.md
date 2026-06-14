@@ -27,11 +27,13 @@ helps you know what AWS IoT Events is doing, and any errors that it encounters.
 3. In the navigation pane, choose **Settings**.
 4. On the **Settings** page, choose **Edit**.
 5. On the **Edit logging options** page, in the **Logging options** section, do the following:
+
    1. For **Level of verbosity**, select an option.
    2. For **Select role**, select a role with sufficient permissions to
       perform the logging actions that you chose.
    3. (Optional) If you chose **Debug** for the **Level of
       verbosity**, you can add Debug targets by doing the following:
+
       1. Under **Debug targets**, choose **Add Model Option**.
       2. Enter a **Detector Model Name** and (optional)
          **KeyValue** to specify the detector models and specific detectors

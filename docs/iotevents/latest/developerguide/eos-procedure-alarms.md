@@ -137,6 +137,7 @@ def lambda_handler(message, context):
 - Follow the [Tutorial:
   Republishing an MQTT message](../../../iot/latest/developerguide/iot-repub-rule.md "../../../iot/latest/developerguide/iot-repub-rule.md") procedure entering the following
   information when prompted:
+
   1.  Name message routing rule
       `SiteWiseToCloudwatchAlarms`.
   2.  For the query, you can use the following:
@@ -144,7 +145,6 @@ def lambda_handler(message, context):
   ```
   SELECT * FROM '$aws/sitewise/asset-models/`your-asset-model-id`/assets/`your-asset-id`/properties/`your-property-id`'
   ```
-
   3.  In **Rule actions**, select the
       **Lambda** action to send the data generated
       from AWS IoT SiteWise to CloudWatch. For example:
