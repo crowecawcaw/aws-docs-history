@@ -62,6 +62,7 @@ For a comprehensive history of application versions for each release of Amazon E
 The following release notes include information for Amazon EMR release 7.12.0.
 
 - **New features**
+
   - **Serverless storage for EMR Serverless** – Amazon EMR serverless introduces serverless storage, with EMR release 7.12 and later, that eliminates local disk provisioning for Apache Spark workloads. EMR Serverless automatically handles intermediate data operation such as shuffle with no storage charges. Serverless storage decouples storage from compute, allowing Spark to release workers immediately when idle rather than keeping them active to preserve temporary data. To learn more, see [Serverless storage](../EMR-Serverless-UserGuide/jobs-serverless-storage.md "../EMR-Serverless-UserGuide/jobs-serverless-storage.md").
   - **Application upgrades** – Amazon EMR 7.12.0 application upgrades include Delta 3.3.2-amzn-1, Flink 1.20.0-amzn-6, HBase 2.6.2-amzn-3, HCatalog 3.1.3-amzn-21, Hadoop 3.4.1-amzn-4, Hive 3.1.3-amzn-21, Hudi 1.0.2-amzn-1, Iceberg 1.10.0-amzn-0, Presto 0.287-amzn-6, Spark 3.5.6-amzn-1, Tez 0.10.2-amzn-19, Trino 476-amzn-1, and ZooKeeper 3.9.3-amzn-4.
   - **Iceberg Materialized Views** - Starting Amazon EMR 7.12.0, Amazon EMR Spark supports creation and management of Iceberg Materialized Views (MV)
@@ -73,18 +74,22 @@ The following release notes include information for Amazon EMR release 7.12.0.
   - Starting Amazon EMR 7.12.0, Amazon EMR HBase on S3 has added a read-replica prewarm feature to simplify Amazon EMR version upgrades. This feature can be used to upgrade existing HBase clusters to and from Amazon EMR version 7.12+
 
 - **Known issues and limitations**
+
   - **Athena SQL compatibility**
+
     - Athena SQL cannot read Iceberg table type V3 created by Amazon EMR Spark due to the following error: GENERIC_INTERNAL_ERROR: Cannot read unsupported version 3.
     - Writing data using Amazon EMR Spark into iceberg tables created using Athena fails due to the following error: Property 'write.object-storage.path' has been deprecated and will be removed in 2.0, use 'write.data.path' instead.
 
   - **Iceberg Materialized Views (MV)** - Amazon EMR 7.12.0 has limited support for view SQL clause for creation of materialized views, query rewrite and incremental refresh. More details can be found in the Iceberg Materialized Views feature documentation page
   - **Hudi FTA writes** require using HoodieCredentialedHadoopStorage for credential vending during job execution. Set the following configuration when running Hudi jobs:
+
     - `hoodie.storage.class=org.apache.spark.sql.hudi.storage.HoodieCredentialedHadoopStorage`
 
   - Hudi FTA write support works only with the default Hudi configurations. Custom or non-default Hudi settings may not be fully supported and could result in unexpected behavior. Clustering for Hudi Merge-On-Read (MOR) tables is also not supported under FTA write mode.
   - **Missing step and container logs** - From Amazon EMR 7.9 to Amazon EMR 7.12, there is a bug where step logs and/or container logs may not get uploaded to S3 if the step or application is running longer for than 3 hours. Please upgrade to Amazon EMR 7.13 to resolve this issue.
 
 - **Changes, enhancements, and resolved issues**
+
   - Starting EMR 7.12.0, EMR supports KMS Key ARN for service-hosted spark logs through persistent spark history server. Previous EMR versions only supported KeyID.
   - Starting EMR 7.12.0, EMR has addressed an issue with Hue that prevented use of an SSL certificate when hosting Hue on EMR Clusters.
 

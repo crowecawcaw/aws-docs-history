@@ -67,6 +67,7 @@ are relative to the Amazon EMR 5.9.0 release.
 ###### Changes, enhancements, and resolved issues
 
 - Presto
+
   - Added support for using the AWS Glue Data Catalog as the default Hive metastore. For more information,
     see [Using
     Presto with the AWS Glue Data Catalog](emr-presto.md#emr-presto-glue "emr-presto.md#emr-presto-glue").
@@ -75,6 +76,7 @@ are relative to the Amazon EMR 5.9.0 release.
   - Added support for the [Redshift connector](https://prestodb.io/docs/current/connector/redshift.html "https://prestodb.io/docs/current/connector/redshift.html").
 
 - Spark
+
   - Backported [SPARK-20640](https://issues.apache.org/jira/browse/SPARK-20640 "https://issues.apache.org/jira/browse/SPARK-20640"), which makes the rpc timeout and the retries for shuffle registration values configurable using `spark.shuffle.registration.timeout` and `spark.shuffle.registration.maxAttempts` properties.
   - Backported [SPARK-21549](https://issues.apache.org/jira/browse/SPARK-21549 "https://issues.apache.org/jira/browse/SPARK-21549"), which corrects an error that occurs when writing custom OutputFormat to non-HDFS locations.
 

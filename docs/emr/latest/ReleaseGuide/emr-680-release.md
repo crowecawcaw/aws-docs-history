@@ -62,9 +62,10 @@ The following release notes include information for Amazon EMR release 6.8.0. Ch
   decommissioning state until the application
   completes. This change ensures that local data such
   as shuffle data doesn't get lost, and you don' need to re-run the job.
-  In Amazon EMR 6.8.0 and 6.9.0, this approach might also lead to
-  underutilization of resources on clusters with or
-  without managed scaling enabled.
+  In Amazon EMR 6.8.0 and 6.9.0, this approach might prevent Managed Scaling from
+  scaling down the cluster as expected. Nodes where containers ran will remain in a
+  DECOMMISSIONING state until the application completes, even if no containers are
+  actively running on them. This can result in underutilization of resources.
 
 With [Amazon EMR 6.10.0](emr-6100-release.md#emr-6100-relnotes "emr-6100-release.md#emr-6100-relnotes"),
 there's a workaround for this issue to set the value of

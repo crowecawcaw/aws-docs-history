@@ -50,6 +50,7 @@ for using S3 Select:
 - Comment characters in the last line are not supported.
 - Empty lines at the end of a file are not processed.
 - The following filters are not pushed down to Amazon S3:
+
   - Aggregate functions such as `COUNT()` and
     `SUM()`.
   - Filters that `CAST()` an attribute. For example,

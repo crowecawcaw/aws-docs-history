@@ -200,6 +200,7 @@ Hive using JDBC.
 1. Download and extract the drivers appropriate to the versions of Hive that
    you want to access. The Hive version differs depending on the AMI that you
    choose when you create an Amazon EMR cluster.
+
    - Hive 0.13.1 JDBC drivers: [https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC_1.0.4.1004.zip](https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC_1.0.4.1004.zip "https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC_1.0.4.1004.zip")
    - Hive 0.11.0 JDBC drivers: [https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.11.0](https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.11.0 "https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.11.0")
    - Hive 0.8.1 JDBC drivers: [https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.8.1](https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.8.1 "https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.8.1")
@@ -228,6 +229,7 @@ Hive using JDBC.
 | 0.8.1                         | **Source port**: 10003<br>**Destination**:<br>`master-public-dns-name`:10003 |
 
 4. Add the JDBC driver to SQL Workbench.
+
    1. In the **Select Connection Profile** dialog box,
       choose **Manage Drivers**.
    2. Choose the **Create a new entry** (blank page)

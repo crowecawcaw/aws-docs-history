@@ -62,8 +62,10 @@ For a comprehensive history of application versions for each release of Amazon E
 The following release notes include information for Amazon EMR release 7.11.0.
 
 - **New features**
+
   - **Application upgrades** – Amazon EMR 7.11.0 application upgrades include Delta 3.3.2-amzn-0, Flink 1.20.0-amzn-5, HBase 2.6.2-amzn-2, HCatalog 3.1.3-amzn-20, Hadoop 3.4.1-amzn-3, Hive 3.1.3-amzn-20, Hudi 1.0.2-amzn-0, Iceberg 1.9.1-amzn-0, Presto 0.287-amzn-5, Spark 3.5.6-amzn-0, TensorFlow 2.19.0, Tez 0.10.2-amzn-18, Trino 475-amzn-0, and ZooKeeper 3.9.3-amzn-3.
   - Amazon EMR on EC2 now supports IAM Identity Center User Background Sessions
+
     - **User Background Sessions**: Enables long-running Spark workloads to continue running even after users log off from SageMaker Unified Studio, supporting sessions up to 90 days
     - **Flexible Background Session Configuration**: Two-level configuration (IAM Identity Center instance and Amazon EMR-EC2 cluster) with customizable background session duration from 15 minutes to 90 days (default: 7 days)
     - **Trusted Identity Propagation**: Maintains secure identity context throughout the background session lifecycle using Amazon EMR's trusted identity propagation feature
@@ -73,6 +75,7 @@ The following release notes include information for Amazon EMR release 7.11.0.
   - **EMR-managed certificates for in-transit encryption** - Amazon EMR can now create and manage private certificates for in-transit encryption of open-source applications. When you select this option, Amazon EMR uploads the PEM-encoded CA certificate to AWS Secrets Manager in your account for use in your trust stores. For more information, see [Providing certificates for encrypting data in transit with Amazon EMR encryption](../ManagementGuide/emr-encryption-enable.md#emr-encryption-certificates "../ManagementGuide/emr-encryption-enable.md#emr-encryption-certificates").
 
 - **Known issues and limitations**
+
   - **Missing step and container logs** - From Amazon EMR 7.9 to Amazon EMR 7.12, there is a bug where step logs and/or container logs may not get uploaded to S3 if the step or application is running for longer than 3 hours. Please upgrade to Amazon EMR 7.13 to resolve this issue.
 
 ## 7.11.0 default Java versions

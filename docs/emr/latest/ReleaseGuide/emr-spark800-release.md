@@ -64,6 +64,7 @@ The following release notes include information for Amazon EMR release 8.0.0 (em
 
 - Spark Connect secure endpoint with Native FGAC support is not available in this release.
 - AL2023 ships Python 3.9 as the system Python, but it is not supported for PySpark workloads.
+- The maximum number of steps you can add or cancel per request is 100.
 
 ### Migration from EMR 7.x (Spark 3.5.x)
 
@@ -78,7 +79,9 @@ When migrating from EMR 7.x (which uses Spark 3.5.x) to emr-spark-8.0.0 (Spark 4
 - **Interactive Development** — JupyterHub, Zeppelin, and Hue are no longer included. For interactive Spark development, use EMR Studio, Livy, and JupyterEnterpriseGateway.
 - **Separate release train** — The release label is emr-spark-8.0.0, not emr-8.0.0. This release focuses on Spark. For Flink, HBase, Phoenix, Tez, Trino, Presto, use EMR 7.x and wait for the future emr-8.0.0 multi-engine release. Pig and Oozie are not included.
 - **VPC endpoint for EMR cluster communication** — Starting with Amazon EMR Spark 8.0.0, Amazon EMR on EC2 provisions a VPC endpoint in your VPC for communication between the Amazon EMR service and your cluster when launching a cluster in private subnets. Your Amazon EMR service role must include `ec2:CreateVpcEndpoint` and `ec2:ModifyVpcEndpoint` permissions, or you must create the VPC endpoint manually before launching a cluster. The VPC endpoint service name is `aws.api.`region`.emr-service-cell01`.
+
   - This change updates networking requirements for private subnet clusters:
+
     - The service access security group (`ElasticMapReduce-ServiceAccess`), attached to the VPC endpoint, requires inbound HTTPS (port 443) from the VPC CIDR block. The port 8443/9443 rules used in Amazon EMR releases 7.x and earlier are no longer required.
     - The primary instance security group requires outbound HTTPS (port 443) to the service access security group.
     - Inbound port 8443 and outbound port 9443 rules used in Amazon EMR releases 7.x and earlier are no longer required on primary, core, and task instance security groups.

@@ -69,12 +69,15 @@ Initial release date: July 19, 2018
 ###### Changes, enhancements, and resolved issues
 
 - HBase
+
   - Backported [HBASE-20723](https://issues.apache.org/jira/browse/HBASE-20723 "https://issues.apache.org/jira/browse/HBASE-20723")
 
 - Presto
+
   - Configuration changes to support LDAP authentication. For more information, see [Using LDAP authentication for Presto on Amazon EMR](emr-presto-ldap.md "emr-presto-ldap.md").
 
 - Spark
+
   - Apache Spark version 2.3.1, available beginning with Amazon EMR release 5.16.0, addresses [CVE-2018-8024](https://nvd.nist.gov/vuln/detail/CVE-2018-8024 "https://nvd.nist.gov/vuln/detail/CVE-2018-8024") and [CVE-2018-1334](https://nvd.nist.gov/vuln/detail/CVE-2018-1334 "https://nvd.nist.gov/vuln/detail/CVE-2018-1334"). We recommend that you migrate earlier versions of Spark to Spark version 2.3.1 or later.
 
 ###### Known issues

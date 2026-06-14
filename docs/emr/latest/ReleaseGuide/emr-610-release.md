@@ -94,6 +94,7 @@ Last updated date: Oct 15, 2020
   _Amazon EMR Management Guide_.
 - PrestoSQL version 338 is supported with EMR 6.1.0.
   For more information, see [Presto](emr-presto.md "emr-presto.md").
+
   - PrestoSQL is supported on EMR 6.1.0 and later versions only, not on EMR 6.0.0 or EMR 5.x.
   - The application name, `Presto` continues to be used to install PrestoDB on clusters. To install PrestoSQL on clusters, use the application name `PrestoSQL`.
   - You can install either PrestoDB or PrestoSQL, but you cannot install both on a single cluster. If both PrestoDB and PrestoSQL are specified when attempting to create a cluster, a validation error occurs and the cluster creation request fails.

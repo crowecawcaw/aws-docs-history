@@ -14,6 +14,7 @@ are met:
   `false`.
 - Spark's built-in data source support is used. Built-in data source
   support is used in the following circumstances:
+
   - When jobs write to built-in data sources or tables.
   - When jobs write to the Hive metastore Parquet table. This
     happens when
@@ -33,6 +34,7 @@ are met:
   a custom partition location is set using the `ALTER TABLE
 SQL` command.
 - The following values for Spark must be used:
+
   - `spark.sql.sources.commitProtocolClass` must be set
     to
     `org.apache.spark.sql.execution.datasources.SQLEmrOptimizedCommitProtocol`.

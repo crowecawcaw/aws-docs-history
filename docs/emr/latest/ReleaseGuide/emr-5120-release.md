@@ -64,14 +64,17 @@ are relative to 5.11.1.
 ###### Changes, enhancements, and resolved issues
 
 - **Hadoop**
+
   - The `yarn.resourcemanager.decommissioning.timeout` property has changed to
     `yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs`. You can use this property to customize cluster scale-down. For more information, see [Cluster Scale-Down](../ManagementGuide/emr-scaledown-behavior.md "../ManagementGuide/emr-scaledown-behavior.md") in the _Amazon EMR Management Guide_.
   - The Hadoop CLI added the `-d` option to the `cp` (copy) command, which specifies direct copy. You can use this to avoid creating an intermediary `.COPYING` file, which makes copying data between Amazon S3 faster. For more information, see [HADOOP-12384](https://issues.apache.org/jira/browse/HADOOP-12384 "https://issues.apache.org/jira/browse/HADOOP-12384").
 
 - **Pig**
+
   - Added the `pig-env` configuration classification, which simplifies the configuration of Pig environment properties. For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
 
 - **Presto**
+
   - Added the `presto-connector-redshift` configuration classification, which you can use to configure values in the Presto `redshift.properties` configuration file. For more information, see [Redshift Connector](https://prestodb.io/docs/current/connector/redshift.html "https://prestodb.io/docs/current/connector/redshift.html") in Presto documentation, and [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
   - Presto support for EMRFS has been added and is the default configuration. Earlier Amazon EMR releases used PrestoS3FileSystem, which was the only option. For more information, see [EMRFS and PrestoS3FileSystem configuration](emr-presto-considerations.md#emr-presto-prestos3 "emr-presto-considerations.md#emr-presto-prestos3").
 
@@ -88,6 +91,7 @@ are relative to 5.11.1.
   `sudo presto-server start`).
 
 - **Spark**
+
   - Backported [SPARK-22036: BigDecimal multiplication sometimes returns null](https://issues.apache.org/jira/browse/SPARK-22036 "https://issues.apache.org/jira/browse/SPARK-22036").
 
 ###### Known issues

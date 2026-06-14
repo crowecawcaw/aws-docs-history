@@ -16,12 +16,14 @@ EMR version with Amazon's Store File Tracking feature enabled, which is included
 with OSS Store File Tracking, which is available on EMR versions later than 7.3.0, follow these steps:
 
 1. In the existing cluster:
+
    1. Disable the `hbase:storefile` table.
    2. Drop the `hbase:storefile` table.
    3. Flush `hbase:meta`.
    4. Wait for the metadata to be updated.
 
 2. In the new cluster:
+
    1. Set the same Amazon S3 directory as the root directory.
    2. Start the cluster with the `DefaultStoreFileTracker` implementation:
 
@@ -33,15 +35,14 @@ with OSS Store File Tracking, which is available on EMR versions later than 7.3.
       }
    }
    ```
-
    3. At the table or column family level, use the following commands to change the store file tracker:
+
       1. Change the table's or table column family's Store File Tracker:
 
       ```
       hbase> change_sft 't1','FILE'
       hbase> change_sft 't2','cf1','FILE'
       ```
-
       2. Change all of the table's Store File Tracker matching the given regular expression (regex):
 
       ```
@@ -91,12 +92,12 @@ sudo -u hbase hbase hbck > hbck_report.txt
 ```
 
 2. Ensure there are no regions in the SPLIT state on the source cluster:
+
    1. If there are regions in SPLIT state, run major compactions on the respective tables and wait for them to complete
 
    ```
    major_compact <table_name>
    ```
-
    2. Run `catalogjanitor_run` in the HBase shell after the compaction is complete
 
 3. Create a new EMR 7.12.0+ cluster configured as a read-replica pointing to the same Amazon S3 location as your source cluster. Refer to this [blog](https://aws.amazon.com/blogs/big-data/setting-up-read-replica-clusters-with-hbase-on-amazon-s3/ "https://aws.amazon.com/blogs/big-data/setting-up-read-replica-clusters-with-hbase-on-amazon-s3/") for more details on how to set up a read replica cluster. Launch the new cluster with the DefaultStoreFileTracker configuration as mentioned in the above steps if you want to upgrade to the OSS Store file tracking.

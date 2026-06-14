@@ -108,6 +108,7 @@ asynchronous split opening capability:
   the table ten times, and take the average runtime.
 - Configurations to enable Tez async split
   opening – As follows:
+
   - `tez.grouping.split.init.threads` =
     `4`
   - `tez.grouping.split.init.recordreaders` =

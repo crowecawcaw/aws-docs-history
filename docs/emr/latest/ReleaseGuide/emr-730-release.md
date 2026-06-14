@@ -82,6 +82,7 @@ relative to 7.3.0.
   and will be fully resolved in [SPARK-44114](https://issues.apache.org/jira/browse/SPARK-44114 "https://issues.apache.org/jira/browse/SPARK-44114") when open-source Spark
   can upgrade to Hive 3. In the meantime, you can temporarily work around this issue by setting `hive.metastore.use.SSL` to `false`.
   For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
+
   - If you don't use Kerberos authentication, you must configure Spark to use SSL. To do so, set the following configurations when you provision your cluster.
 
   ```

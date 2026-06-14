@@ -27,6 +27,7 @@ system metrics in Amazon EMR 7.0.0:
    the _Amazon CloudWatch User Guide_.
 3. Next, navigate to the aws-emr-utilities repo on GitHub and
    download the following system metrics scripts:
+
    - [`install_system_metrics_launcher.sh`](https://github.com/aws-samples/aws-emr-utilities/blob/main/applications/cloudwatch-agent/configuration/7.0/system-metrics/install_system_metrics_launcher.sh "https://github.com/aws-samples/aws-emr-utilities/blob/main/applications/cloudwatch-agent/configuration/7.0/system-metrics/install_system_metrics_launcher.sh")
      – A script that downloads and then runs
      `install_system_metrics.sh` in the
@@ -52,6 +53,7 @@ system metrics in Amazon EMR 7.0.0:
    selections.
 9. In the **Bootstrap actions** section, select
    **Add**.
+
    - For the **Name**, insert
      `install_system_metrics_launcher.sh`.
    - For the **Script location**, insert
@@ -76,6 +78,7 @@ agent to publish application metrics:
    the configuration files that specify the CloudWatch agent metrics.
 2. Next, navigate to the aws-emr-utilities repo on GitHub and
    download the following scripts:
+
    - [`install_app_metrics_launcher.sh`](https://github.com/aws-samples/aws-emr-utilities/blob/main/applications/cloudwatch-agent/configuration/7.0/application-metrics/install_app_metrics_launcher.sh "https://github.com/aws-samples/aws-emr-utilities/blob/main/applications/cloudwatch-agent/configuration/7.0/application-metrics/install_app_metrics_launcher.sh")
      – A script that downloads and then runs
      `install_app_metrics.sh` in the
@@ -93,6 +96,7 @@ agent to publish application metrics:
    how these YAML files are structured, see [`javaagent`](https://github.com/open-telemetry/opentelemetry-java-instrumentation/tree/main/instrumentation/jmx-metrics/javaagent "https://github.com/open-telemetry/opentelemetry-java-instrumentation/tree/main/instrumentation/jmx-metrics/javaagent") in the
    _OpenTelemetry Instrumentation for
    Java_ GitHub repo.
+
    - [`datanode-metrics.yaml`](https://github.com/aws-samples/aws-emr-utilities/blob/main/applications/cloudwatch-agent/configuration/7.0/application-metrics/mappings/datanode-metrics.yaml "https://github.com/aws-samples/aws-emr-utilities/blob/main/applications/cloudwatch-agent/configuration/7.0/application-metrics/mappings/datanode-metrics.yaml")
      – The configuration for Hadoop DataNode
      metrics.
@@ -118,6 +122,7 @@ agent to publish application metrics:
    include **CloudWatch agent** with your selections.
 9. In the **Bootstrap actions** section, select
    **Add**.
+
    - For the **Name**, insert
      `install_app_metrics_launcher.sh`.
    - For the **Script location**, insert
@@ -182,6 +187,7 @@ Amazon Managed Service for Prometheus.
    the launch files that specify Amazon Managed Service for Prometheus as cloud storage.
 3. Next, navigate to the aws-emr-utilities repo on GitHub and
    download the following scripts:
+
    - [`add_prometheus_endpoint_launcher.sh`](https://github.com/aws-samples/aws-emr-utilities/blob/main/applications/cloudwatch-agent/configuration/7.0/prometheus/add_prometheus_endpoint_launcher.sh "https://github.com/aws-samples/aws-emr-utilities/blob/main/applications/cloudwatch-agent/configuration/7.0/prometheus/add_prometheus_endpoint_launcher.sh")
      – A script that downloads and then runs
      `add_prometheus_endpoint.sh` in the

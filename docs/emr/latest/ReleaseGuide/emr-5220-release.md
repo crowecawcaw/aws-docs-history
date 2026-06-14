@@ -65,6 +65,7 @@ Initial release date: March 20, 2019
 - Phoenix 4.14.1
 - Zeppelin 0.8.1
 - Connectors and drivers:
+
   - DynamoDB Connector 4.8.0
   - MariaDB Connector 2.2.6
   - Amazon Redshift JDBC Driver 1.2.20.1043
@@ -76,6 +77,7 @@ Initial release date: March 20, 2019
 ###### Changes, enhancements, and resolved issues
 
 - Spark
+
   - Introduced a new configuration property for Spark on YARN, `spark.yarn.executor.memoryOverheadFactor`. The value of this property is a scale factor that sets the value of memory overhead to a percentage of executor memory, with a minimum of 384 MB. If memory overhead is set explicitly using `spark.yarn.executor.memoryOverhead`, this property has no effect. The default value is `0.1875`, representing 18.75%. This default for Amazon EMR leaves more space in YARN containers for executor memory overhead than the 10% default set internally by Spark. The Amazon EMR default of 18.75% empirically showed fewer memory-related failures in TPC-DS benchmarks.
   - Backported [SPARK-26316](https://issues.apache.org/jira/browse/SPARK-26316 "https://issues.apache.org/jira/browse/SPARK-26316") to improve performance.
 
@@ -88,6 +90,7 @@ Initial release date: March 20, 2019
 ###### Known issues
 
 - Hue (Fixed in Amazon EMR release 5.24.0)
+
   - Hue running on Amazon EMR does not support Solr. Beginning with Amazon EMR release 5.20.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
 
   `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`

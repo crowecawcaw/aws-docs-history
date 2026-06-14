@@ -67,24 +67,29 @@ June 4, 2018
 ###### Changes, enhancements, and resolved issues
 
 - EMRFS
+
   - The userAgent string in requests to Amazon S3 has been updated to contain the user and group
     information of the invoking principal. This can be
     used with AWS CloudTrail logs for more comprehensive
     request tracking.
 
 - HBase
+
   - Included [HBASE-20447](https://issues.apache.org/jira/browse/HBASE-20447 "https://issues.apache.org/jira/browse/HBASE-20447"), which addresses an issue that could cause cache issues, especially with split Regions.
 
 - MXnet
+
   - Added OpenCV libraries.
 
 - Spark
+
   - When Spark writes Parquet files to an Amazon S3 location
     using EMRFS, the FileOutputCommitter algorithm has
     been updated to use version 2 instead of version 1.
     This reduces the number of renames, which improves
     application performance. This change does not
     affect:
+
     - Applications other than Spark.
     - Applications that write to other file
       systems, such as HDFS (which still use version 1
@@ -96,6 +101,7 @@ June 4, 2018
 ###### Known issues
 
 - JupyterHub
+
   - Using configuration classifications to set up JupyterHub and
     individual Jupyter notebooks when you create a cluster is not
     supported. Edit the jupyterhub_config.py file and

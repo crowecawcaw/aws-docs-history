@@ -100,6 +100,7 @@ Last updated date: Oct 30, 2019
   For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
 
 - EMRFS
+
   - The EMRFS setting, `fs.s3.buckets.create.enabled`, is now disabled by
     default. With testing, we found that disabling this setting improves
     performance and prevents unintentional creation of S3 buckets. If your
@@ -110,6 +111,7 @@ Last updated date: Oct 30, 2019
     a Configuration when Creating a Cluster](emr-configure-apps-create-cluster.md "emr-configure-apps-create-cluster.md").
 
 - Local Disk Encryption and S3 Encryption Improvements in Security Configurations (August 5, 2019)
+
   - Separated Amazon S3 encryption settings from local disk encryption settings in security configuration setup.
   - Added an option to enable EBS encryption with release 5.24.0 and later. Selecting this option encrypts the root device volume in addition to storage volumes. Previous versions required using a custom AMI to encrypt the root device volume.
   - For more information, see [Encryption Options](../ManagementGuide/emr-data-encryption-options.md "../ManagementGuide/emr-data-encryption-options.md") in the _Amazon EMR Management Guide_.

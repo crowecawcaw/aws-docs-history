@@ -16,6 +16,7 @@ Topics
 
 - Verify your MCP configurations are properly configured.
 - **Validate JSON syntax**:
+
   - Ensure your JSON is valid with no syntax errors
   - Check for missing commas, quotes, or brackets
 

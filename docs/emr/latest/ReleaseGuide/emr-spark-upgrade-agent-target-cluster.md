@@ -7,6 +7,7 @@ If you already have an EMR-EC2 cluster running the source Spark version, you can
 1. Sign in to the AWS Management Console and open the Amazon EMR console.
 2. In the left navigation pane, choose Clusters under EMR on EC2.
 3. From the cluster list:
+
    - Use search or filters if needed to find your cluster.
    - Select the check box next to the cluster you want to clone.
    - The Clone option will appear at the top of the list. Choose Clone.

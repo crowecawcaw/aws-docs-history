@@ -75,20 +75,25 @@ Last updated date: January 22, 2019
 ###### Changes, enhancements, and resolved issues
 
 - Default Amazon Linux AMI for Amazon EMR
+
   - Python3 package was upgraded from python 3.4 to 3.6.
 
 - The EMRFS S3-optimized committer
+
   - The EMRFS S3-optimized committer is now enabled by default, which improves write performance. For more information, see [Use the EMRFS S3-optimized committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md").
 
 - Hive
+
   - Backported [HIVE-16686](https://issues.apache.org/jira/browse/HIVE-16686 "https://issues.apache.org/jira/browse/HIVE-16686").
 
 - Glue with Spark and Hive
+
   - In EMR 5.20.0 or later, parallel partition pruning is enabled automatically for Spark and Hive when AWS Glue Data Catalog is used as the metastore. This change significantly reduces query planning time by executing multiple requests in parallel to retrieve partitions. The total number of segments that can be executed concurrently range between 1 and 10. The default value is 5, which is a recommended setting. You can change it by specifying the property `aws.glue.partition.num.segments` in `hive-site` configuration classification. If throttling occurs, you can turn off the feature by changing the value to 1. For more information, see [AWS Glue Segment Structure](../../../glue/latest/dg/aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-Segment "../../../glue/latest/dg/aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-Segment").
 
 ###### Known issues
 
 - Hue (Fixed in Amazon EMR release 5.24.0)
+
   - Hue running on Amazon EMR does not support Solr. Beginning with Amazon EMR release 5.20.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
 
   `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
@@ -116,6 +121,7 @@ Last updated date: January 22, 2019
       ```
 
 - Tez
+
   - This issue was fixed in Amazon EMR 5.22.0.
 
   When you connect to the Tez UI at http://`MasterDNS`:8080/tez-ui through an SSH connection to the cluster primary node, the error "Adapter operation failed - Timeline server (ATS) is out of reach. Either it is down, or CORS is not enabled" appears, or tasks unexpectedly show N/A.

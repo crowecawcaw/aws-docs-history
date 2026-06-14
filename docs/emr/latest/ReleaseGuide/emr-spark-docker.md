@@ -25,6 +25,7 @@ met:
   task nodes.
 - On Amazon EMR 6.1.0 and later, you can alternatively install Docker on a
   primary node by using following commands.
+
   - ```
     sudo yum install -y docker
     sudo systemctl start docker
@@ -40,17 +41,20 @@ met:
   the Classification API with the `container-executor`
   classification key to define additional parameters when launching the
   cluster:
+
   - `docker.trusted.registries`
   - `docker.privileged-containers.registries`
 
 - To execute a Spark application in a Docker container, the following
   configuration options are necessary:
+
   - `YARN_CONTAINER_RUNTIME_TYPE=docker`
   - `YARN_CONTAINER_RUNTIME_DOCKER_IMAGE={DOCKER_IMAGE_NAME}`
 
 - When using Amazon ECR to retrieve Docker images, you must configure the cluster
   to authenticate itself. To do so, you must use the following configuration
   option:
+
   - YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG={DOCKER_CLIENT_CONFIG_PATH_ON_HDFS}
 
 - In Amazon EMR 6.1.0 and later, you are not required to use the listed command

@@ -19,6 +19,7 @@ applications](https://spark.apache.org/docs/latest/submitting-applications.html 
 3. Scroll to the **Steps** section and expand it, then choose
    **Add step**.
 4. In the **Add Step** dialog box:
+
    - For **Step type**, choose **Spark
      application**.
    - For **Name**, accept the default name (Spark

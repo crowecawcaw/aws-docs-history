@@ -77,6 +77,7 @@ The following release notes include information for Amazon EMR release 7.10.0.
 - **ConcurrentModificationException exception** – YARN restarting frequently with ConcurrentModificationException exception due to open-source
   bug [YARN-11838](https://issues.apache.org/jira/browse/YARN-11838 "https://issues.apache.org/jira/browse/YARN-11838"). Reach out to the AWS support team if you encounter this issue.
 - **YARN application logs** – YARN application logs not visible through Resource Manager UI. In order to fix the issue, follow these steps:
+
   1.  Update the `yarn.log.server.url` configuration in yarn-site.xml to the following value:
 
   ```
@@ -85,7 +86,6 @@ The following release notes include information for Amazon EMR release 7.10.0.
     <value>https://<private-dns-master-node>:19890/jobhistory/logs</value>
   </property>
   ```
-
   2.  Restart the hadoop resource manager service: `systemctl restart hadoop-resourcemanager.service`
 
 - **Uploading step logs** – Some clusters may not be able to upload step logs to your S3 bucket due to a race condition. Reach out to the AWS support team if you encounter this issue.

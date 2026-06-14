@@ -25,6 +25,7 @@ a running cluster.
 3. Scroll to the **Steps** section and expand it, then
    choose **Add step**.
 4. In the **Add Step** dialog:
+
    - For **Step type**, choose **Custom
      JAR**.
    - For **Name**, accept the default name (Custom

@@ -56,12 +56,15 @@ Initial release date: Jan 10, 2020
 ###### Changes, enhancements, and resolved issues
 
 - Spark
+
   - Fixed Spark compatibility issues.
 
 - CloudWatch Metrics
+
   - Fixed Amazon CloudWatch Metrics publishing on an EMR cluster with multiple primary nodes.
 
 - Disabled log message
+
   - Disabled false log message, "...using old version (<4.5.8) of Apache http client."
 
 ###### Known issues

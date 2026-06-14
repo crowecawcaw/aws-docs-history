@@ -16,6 +16,7 @@ The error message from the upgrade process is available in different ways for di
 
 - Verify your MCP configuration are properly configured.
 - **Validate JSON syntax**:
+
   - Ensure your JSON is valid with no syntax errors
   - Check for missing commas, quotes, or brackets
 

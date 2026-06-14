@@ -26,6 +26,7 @@ cluster.
 3. Scroll to the **Steps** section and expand it, then choose **Add
    step**.
 4. In the **Add Step** dialog box:
+
    - For **Step type**, choose **Streaming
      program**.
    - For **Name**, accept the default name (Streaming program) or type a

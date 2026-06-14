@@ -63,11 +63,13 @@ Release date: April 26, 2017
 ###### Changes, enhancements, and resolved issues
 
 - **Spark**
+
   - Backported Spark Patch [(SPARK-20115) Fix DAGScheduler to recompute all the lost shuffle
     blocks when external shuffle service is unavailable](https://issues.apache.org/jira/browse/SPARK-20115 "https://issues.apache.org/jira/browse/SPARK-20115") to
     version 2.1.0 of Spark, which is included in this release.
 
 - **Flink**
+
   - Flink is now built with Scala 2.11. If you use the Scala API and
     libraries, we recommend that you use Scala 2.11 in your
     projects.
@@ -97,6 +99,7 @@ Release date: April 26, 2017
     Flink 1.2](https://issues.apache.org/jira/browse/FLINK-6125 "https://issues.apache.org/jira/browse/FLINK-6125").
 
 - **Presto**
+
   - Added support for LDAP authentication. Using LDAP with Presto on
     Amazon EMR requires that you enable HTTPS access for the Presto
     coordinator (`http-server.https.enabled=true` in
@@ -104,6 +107,7 @@ Release date: April 26, 2017
   - Added support for `SHOW GRANTS`.
 
 - **Amazon EMR Base Linux AMI**
+
   - Amazon EMR releases are now based on Amazon Linux 2017.03. For more information, see [Amazon Linux AMI 2017.03 Release Notes](https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/ "https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/").
   - Removed Python 2.6 from the Amazon EMR base Linux image. Python 2.7 and 3.4 are installed by default. You can install Python 2.6 manually if necessary.
 

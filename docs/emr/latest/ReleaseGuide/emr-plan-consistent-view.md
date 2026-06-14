@@ -90,7 +90,6 @@ applying them to your production environments.
    ```
    aws emr describe-cluster --cluster-id j-XXXXX | grep fs.s3.consistent.metadata.tableName
    ```
-
    2. If your cluster doesn't share your DynamoDB database with another
       cluster, use the following command to reconfigure the cluster and
       deactivate EMRFS CV. For more information, see [Reconfigure an instance group in a running
@@ -122,7 +121,6 @@ applying them to your production environments.
    	]
    }
    ```
-
    3. If your cluster shares the DynamoDB table with another cluster, turn
       off EMRFS CV on all clusters at a time when no clusters
       modify any objects in the shared S3 location.

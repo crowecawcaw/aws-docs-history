@@ -64,9 +64,11 @@ Initial release date: Jan 17, 2020
 ###### Changes, enhancements, and resolved issues
 
 - Spark
+
   - Spark performance optimizations.
 
 - EMRFS
+
   - Management Guide updates to emrfs-site.xml default settings for consistent view.
 
 ###### Known issues

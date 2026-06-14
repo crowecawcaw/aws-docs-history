@@ -90,6 +90,7 @@ The following release notes include information for Amazon EMR release 6.9.0. Ch
   workaround, you can install an Amazon EMR patch to enable retries and increase
   the timeout to a minimum of 300 seconds. Use the following steps to apply
   the bootstrap action when you launch your cluster.
+
   1.  Download the bootstrap script and RPM files from
       the following Amazon S3 URIs.
 
@@ -97,7 +98,6 @@ The following release notes include information for Amazon EMR release 6.9.0. Ch
   s3://emr-data-access-control-us-east-1/customer-bootstrap-actions/gcsc/replace-rpms.sh
   s3://emr-data-access-control-us-east-1/customer-bootstrap-actions/gcsc/emr-secret-agent-1.18.0-SNAPSHOT20221121212949.noarch.rpm
   ```
-
   2.  Upload the files from the previous step to an Amazon S3 bucket that
       you own. The bucket must be in the same AWS Region where
       you plan to launch the cluster.
@@ -163,9 +163,10 @@ As a workaround, you can install an Amazon EMR patch, which fixes the above issu
     decommissioning state until the application
     completes. This change ensures that local data such
     as shuffle data doesn't get lost, and you don' need to re-run the job.
-    In Amazon EMR 6.8.0 and 6.9.0, this approach might also lead to
-    underutilization of resources on clusters with or
-    without managed scaling enabled.
+    In Amazon EMR 6.8.0 and 6.9.0, this approach might prevent Managed Scaling from
+    scaling down the cluster as expected. Nodes where containers ran will remain in a
+    DECOMMISSIONING state until the application completes, even if no containers are
+    actively running on them. This can result in underutilization of resources.
 
 
     With [Amazon EMR 6.10.0](emr-6100-release.md#emr-6100-relnotes "emr-6100-release.md#emr-6100-relnotes"),

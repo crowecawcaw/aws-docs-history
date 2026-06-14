@@ -33,6 +33,7 @@ sudo aws s3 cp s3://elasticmapreduce/libs/pig/0.3/piggybank-0.3-amzn.jar /home/h
 5. Scroll to the **Steps** section and expand it, then
    choose **Add step**.
 6. In the **Add Step** dialog:
+
    - For **Step type**, choose **Pig
      program**.
    - For **Name**, accept the default name (Pig

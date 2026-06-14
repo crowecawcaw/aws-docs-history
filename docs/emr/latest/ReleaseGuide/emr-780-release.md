@@ -70,6 +70,7 @@ The following release notes include information for Amazon EMR release 7.8.0.
 
 - **KMS encryption using the EMR-EC2 SecretAgent component** – There is an error that occurs when KMS encryption at rest is enabled for Lake Formation-enabled clusters in EMR
   versions 7.8 and 7.9. Lake Formation-enabled jobs will fail with a _NoSuchMethodError_. There are two workarounds available:
+
   - Temporarily disable KMS encryption at rest for affected clusters.
   - Contact AWS Support to request a Bootstrap Action artifact if KMS encryption must be maintained.
 

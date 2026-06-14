@@ -4,6 +4,7 @@ With Amazon EMR 7.0.0 and higher, Hue requires Python 3.9 or higher. When you us
 in-transit encryption, you must use a 2048-bit cipher key.
 
 - Amazon S3 and Hadoop File System (HDFS) Browser
+
   - With the appropriate permissions, you can browse and move data between
     the ephemeral HDFS storage and S3 buckets belonging to your account.
   - By default, superusers in Hue can access all files that Amazon EMR

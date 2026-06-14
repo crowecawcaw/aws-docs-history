@@ -67,6 +67,7 @@ Release date: January 19, 2016
   when it is set to true; it is false by default. When set to true, this affects
   the defaults set by the `maximizeResourceAllocation`
   setting:
+
   - If `spark.dynamicAllocation.enabled` is set to true,
     `spark.executor.instances` is not set by
     `maximizeResourceAllocation`.

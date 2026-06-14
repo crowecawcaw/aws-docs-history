@@ -19,6 +19,7 @@
 See the following list for new Hadoop features in Amazon EMR 7.4.0.
 
 - The default configuration values have been fine-tuned for optimal performance:
+
   - **mapreduce.input.fileinputformat.list-status.num-threads=10** – This is up from 1.
   - **fs.s3a.block.size=64M** – This is up from 32M.
   - **fs.s3a.multipart.size=128M** – This is up from 64M.

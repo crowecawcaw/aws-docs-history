@@ -27,6 +27,7 @@ Use the following steps to enable the Flink autoscaler when you create an Amazon
 cluster.
 
 1. In the Amazon EMR console, create a new EMR cluster:
+
    1. Choose Amazon EMR release `emr-6.15.0` or higher. Select the
       **Flink** application bundle, and select any other
       applications that you might want to include on your cluster.

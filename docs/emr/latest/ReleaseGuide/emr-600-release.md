@@ -97,19 +97,24 @@ Flink, Sqoop, Pig, and Mahout are not available in Amazon EMR version 6.0.0.
 - Fixed an issue where cluster operations such as scale down and step submission failed for Amazon EMR clusters enabled with Kerberos authentication. This was because the Amazon EMR on-cluster daemon did not renew the Kerberos ticket, which is required to securely communicate with HDFS/YARN running on the primary node.
 - Newer Amazon EMR releases fix the issue with a lower "Max open files" limit on older AL2 in Amazon EMR. Amazon EMR releases 5.30.1, 5.30.2, 5.31.1, 5.32.1, 6.0.1, 6.1.1, 6.2.1, 5.33.0, 6.3.0 and later now include a permanent fix with a higher "Max open files" setting.
 - Amazon Linux
+
   - Amazon Linux 2 is the operating system for the EMR 6.x release series.
   - `systemd` is used for service management instead of `upstart` used inAmazon Linux 1.
 
 - Java Development Kit (JDK)
+
   - Corretto JDK 8 is the default JDK for the EMR 6.x release series.
 
 - Scala
+
   - Scala 2.12 is used with Apache Spark and Apache Livy.
 
 - Python 3
+
   - Python 3 is now the default version of Python in EMR.
 
 - YARN node labels
+
   - Beginning with Amazon EMR 6.x release series, the YARN node labels feature is disabled by default. The application
     master processes can run on both core and task nodes by default. You can enable the
     YARN node labels feature by configuring following properties: `yarn.node-labels.enabled` and `yarn.node-labels.am.default-node-label-expression`. For more information, see [Understanding Primary, Core, and Task Nodes](../ManagementGuide/emr-master-core-task-nodes.md "../ManagementGuide/emr-master-core-task-nodes.md").

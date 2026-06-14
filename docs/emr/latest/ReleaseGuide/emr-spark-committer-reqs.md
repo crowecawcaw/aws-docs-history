@@ -12,6 +12,7 @@ met:
   information, see [The EMRFS S3-optimized committer and multipart uploads](emr-spark-committer-multipart.md "emr-spark-committer-multipart.md").
 - Spark's built-in file format support is used. The built-in file format
   support is used in the following circumstances:
+
   - For Hive metastore tables, when
     `spark.sql.hive.convertMetastoreParquet` is set
     to `true` for Parquet tables, or
@@ -34,6 +35,7 @@ met:
   partition location—for example, if a custom partition location is
   set using the `ALTER TABLE SQL` command.
 - The following values for Spark must be used:
+
   - The
     `spark.sql.parquet.fs.optimized.committer.optimization-enabled`
     property must be set to `true`. This is the default

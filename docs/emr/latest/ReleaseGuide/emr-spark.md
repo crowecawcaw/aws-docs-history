@@ -20,7 +20,7 @@ Spark. A Hive context is included in the spark-shell as `sqlContext`.
 For an example tutorial on setting up an EMR cluster with Spark and analyzing a sample
 data set, see [Tutorial: Getting started with Amazon EMR](../ManagementGuide/emr-gs.md "../ManagementGuide/emr-gs.md") on the AWS News blog.
 
-You can use Apache Spark Troubleshooting Agent to troubleshoot your Apache Spark applications on EMR on EC2 and EMR Serverless. To learn more, please refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR](spark-troubleshoot.md "spark-troubleshoot.md").
+You can use Apache Spark Troubleshooting Agent to troubleshoot your Apache Spark applications on EMR on EC2 and EMR Serverless. To learn more, please refer to [What is Apache Spark Troubleshooting Agent for Amazon EMR and AWS Glue](spark-troubleshoot.md "spark-troubleshoot.md").
 
 ###### Important
 
@@ -61,7 +61,7 @@ For the version of components installed with Spark in this release, see [Release
 - [Use AWS Glue Data Catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md")
 - [Working with a multi-catalog hierarchy in AWS Glue Data Catalog with Spark on Amazon EMR](emr-multi-catalog.md "emr-multi-catalog.md")
 - [Configure Spark](emr-spark-configure.md "emr-spark-configure.md")
-- [What is Apache Spark Troubleshooting Agent for Amazon EMR](spark-troubleshoot.md "spark-troubleshoot.md")
+- [What is Apache Spark Troubleshooting Agent for Amazon EMR and AWS Glue](spark-troubleshoot.md "spark-troubleshoot.md")
 - [Optimize Spark performance](emr-spark-performance.md "emr-spark-performance.md")
 - [Spark Result Fragment Caching](emr-spark-fragment-result-caching.md "emr-spark-fragment-result-caching.md")
 - [Use the Nvidia RAPIDS Accelerator for Apache Spark](emr-spark-rapids.md "emr-spark-rapids.md")

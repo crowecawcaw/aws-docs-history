@@ -69,16 +69,20 @@ Latest feature update: September 25, 2017
 ###### Changes, enhancements, and resolved issues
 
 - **Integration with AWS Glue Data Catalog**
+
   - Added ability for Hive and Spark SQL to use AWS Glue Data Catalog as the Hive metadata store. For more information, see [Using the AWS Glue Data Catalog as the metastore for Hive](emr-hive-metastore-glue.md "emr-hive-metastore-glue.md") and [Use AWS Glue Data Catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md").
 
 - Added **Application history** to cluster details, which allows you to view historical data for YARN applications and additional details for Spark applications. For more information, see [View Application History](../ManagementGuide/emr-cluster-application-history.md "../ManagementGuide/emr-cluster-application-history.md") in the _Amazon EMR Management Guide_.
 - **Oozie**
+
   - Backported [OOZIE-2748](https://issues.apache.org/jira/browse/OOZIE-2748 "https://issues.apache.org/jira/browse/OOZIE-2748").
 
 - **Hue**
+
   - Backported [HUE-5859](https://issues.cloudera.org/browse/HUE-5859 "https://issues.cloudera.org/browse/HUE-5859")
 
 - **HBase**
+
   - Added patch to expose the HBase master server start time through Java Management Extensions
     (JMX) using `getMasterInitializedTime`.
   - Added patch that improves cluster start time.
@@ -101,6 +105,7 @@ As a workaround, use the `ANALYZE TABLE` command to gather new statistics, or se
 
 - **Spark**—When using Spark, there is a file handler leak issue with the apppusher daemon, which can appear for a long-running Spark job after several hours or days. To fix the issue, connect to the primary node and type `sudo /etc/init.d/apppusher stop`. This stops that apppusher daemon, which Amazon EMR will restart automatically.
 - **Application history**
+
   - Historical data for dead Spark executors is not available.
   - Application history is not available for clusters that use a security configuration to enable in-flight encryption.
 

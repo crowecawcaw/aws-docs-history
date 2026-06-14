@@ -61,6 +61,7 @@ are relative to 5.12.0.
 ###### Changes, enhancements, and resolved issues
 
 - Hive
+
   - Backported [HIVE-15436](https://issues.apache.org/jira/browse/HIVE-15436 "https://issues.apache.org/jira/browse/HIVE-15436"). Enhanced Hive APIs to return only views.
 
 ###### Known issues

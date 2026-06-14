@@ -72,17 +72,21 @@ Latest feature update: October 12, 2017
 ###### Changes, enhancements, and resolved issues
 
 - Spark
+
   - Added a new set of features that help ensure Spark handles node termination because of a manual resize or an automatic scaling policy request more gracefully. For more information, see [Configuring node decommissioning behavior](emr-spark-configure.md#spark-decommissioning "emr-spark-configure.md#spark-decommissioning").
   - SSL is used instead of 3DES for in-transit encryption for the block transfer service, which enhances performance when using Amazon EC2 instance types with AES-NI.
   - Backported [SPARK-21494](https://issues.apache.org/jira/browse/SPARK-21494 "https://issues.apache.org/jira/browse/SPARK-21494").
 
 - Zeppelin
+
   - Backported [ZEPPELIN-2377](https://issues.apache.org/jira/browse/ZEPPELIN-2377 "https://issues.apache.org/jira/browse/ZEPPELIN-2377").
 
 - HBase
+
   - Added patch [HBASE-18533](https://issues.apache.org/jira/browse/HBASE-18533 "https://issues.apache.org/jira/browse/HBASE-18533"), which allows additional values for HBase BucketCache configuration using the `hbase-site` configuration classification.
 
 - Hue
+
   - Added AWS Glue Data Catalog support for the Hive query editor in Hue.
   - By default, superusers in Hue can access all files that Amazon EMR IAM roles are allowed to access. Newly created users do not automatically have permissions to access the Amazon S3 filebrowser and must have the `filebrowser.s3_access` permissions enabled for their group.
 

@@ -68,11 +68,13 @@ Last updated date: April 3, 2019
 ###### Changes, enhancements, and resolved issues
 
 - Zeppelin
+
   - Backported [ZEPPELIN-3878](https://issues.apache.org/jira/browse/ZEPPELIN-3878 "https://issues.apache.org/jira/browse/ZEPPELIN-3878").
 
 ###### Known issues
 
 - Hue (Fixed in Amazon EMR release 5.24.0)
+
   - Hue running on Amazon EMR does not support Solr. Beginning with Amazon EMR release 5.20.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
 
   `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
@@ -100,6 +102,7 @@ Last updated date: April 3, 2019
       ```
 
 - Tez
+
   - This issue was fixed in Amazon EMR 5.22.0.
 
   When you connect to the Tez UI at http://`MasterDNS`:8080/tez-ui through an SSH connection to the cluster primary node, the error "Adapter operation failed - Timeline server (ATS) is out of reach. Either it is down, or CORS is not enabled" appears, or tasks unexpectedly show N/A.

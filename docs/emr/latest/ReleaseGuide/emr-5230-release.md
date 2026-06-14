@@ -70,6 +70,7 @@ Last updated date: April 30, 2019
 Tez UI does not work on an EMR cluster with multiple primary nodes.
 
 - Hue (Fixed in Amazon EMR release 5.24.0)
+
   - Hue running on Amazon EMR does not support Solr. Beginning with Amazon EMR release 5.20.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
 
   `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`

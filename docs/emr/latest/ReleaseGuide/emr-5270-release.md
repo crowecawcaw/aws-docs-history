@@ -61,12 +61,14 @@ Initial release date: Sep 23, 2019
 - Spark 2.4.4
 - Tensorflow 1.14.0
 - Connectors and drivers:
+
   - DynamoDB Connector 4.12.0
 
 ###### New features
 
 - (Oct 24, 2019) The following New features in EMR notebooks
   are available with all Amazon EMR releases.
+
   - You can now associate Git repositories with EMR notebooks to store your
     notebooks in a version controlled environment. You can share code with peers and
     reuse existing Jupyter notebooks through remote Git repositories. For more information, see [Associate Git Repositories with Amazon EMR Notebooks](../ManagementGuide/emr-git-repo.md "../ManagementGuide/emr-git-repo.md") in the
@@ -86,12 +88,14 @@ Initial release date: Sep 23, 2019
 ###### Changes, enhancements, and resolved issues
 
 - Amazon EMR cluster with multiple primary nodes
+
   - You can install and run Flink on an Amazon EMR cluster with multiple primary nodes. For more information, see [Supported applications and features](../ManagementGuide/emr-plan-ha-applications.md "../ManagementGuide/emr-plan-ha-applications.md").
   - You can configure HDFS transparent encryption on an Amazon EMR cluster with multiple primary nodes. For more information, see [HDFS Transparent Encryption on EMR clusters with
     Multiple Primary Nodes](emr-encryption-tdehdfs.md#emr-hadoop-kms-multi-master "emr-encryption-tdehdfs.md#emr-hadoop-kms-multi-master").
   - You can now modify the configuration of applications running on an Amazon EMR cluster with multiple primary nodes. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
 
 - Amazon EMR-DynamoDB Connector
+
   - Amazon EMR-DynamoDB Connector now supports the following DynamoDB data types: boolean, list, map, item, null. For more information, see [Set Up a Hive Table to Run Hive Commands](EMR_Interactive_Hive.md "EMR_Interactive_Hive.md").
 
 ###### Known issues

@@ -66,6 +66,7 @@ Release date: July 13, 2017
 ###### Changes, enhancements, and resolved issues
 
 - **HBase**
+
   - Added capability to configure HBase read-replica clusters. See [Using a Read-Replica Cluster.](emr-hbase-s3.md#emr-hbase-s3-read-replica "emr-hbase-s3.md#emr-hbase-s3-read-replica")
   - Multiple bug fixes and enhancements
 

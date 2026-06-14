@@ -21,6 +21,7 @@ application pages in the [Amazon EMR Release Guide](emr-release-components.md "e
   [Configure Flink to run with Java 11](flink-configure.md#flink-configure-java11 "flink-configure.md#flink-configure-java11").
 - For Amazon EMR 5.x and 6.x, the default Java Virtual Machine
   (JVM) is Java 8.
+
   - For Amazon EMR releases 6.12.0 and higher, some applications also
     support Java 11 and 17.
   - For Amazon EMR releases 6.9.0 and higher, Trino supports Java 17 as

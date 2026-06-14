@@ -2,7 +2,7 @@
 
 ###### Note
 
-The Apache Spark Upgrade Agent uses cross-region inference to process natural language requests and generate responses. For more details please refer to this page on [Cross-region processing for the Apache Spark Upgrade Agent](emr-spark-upgrade-agent-cross-region.md "emr-spark-upgrade-agent-cross-region.md"). The Amazon SageMaker Unified Studio MCP server is in preview and is subject to change.
+The Apache Spark Upgrade Agent uses cross-region inference to process natural language requests and generate responses. For more details please refer to this page on [Cross-region processing for the Apache Spark Upgrade Agent](emr-spark-upgrade-agent-cross-region.md "emr-spark-upgrade-agent-cross-region.md").
 
 ## Prerequisites
 

@@ -65,12 +65,15 @@ Initial release date: June 21, 2018
 ###### Changes, enhancements, and resolved issues
 
 - Hive
+
   - Backported [HIVE-18069](https://issues.apache.org/jira/browse/HIVE-18069 "https://issues.apache.org/jira/browse/HIVE-18069")
 
 - Hue
+
   - Updated Hue to correctly authenticate with Livy when Kerberos is enabled. Livy is now supported when using Kerberos with Amazon EMR.
 
 - JupyterHub
+
   - Updated JupyterHub so that Amazon EMR installs LDAP client libraries by default.
   - Fixed an error in the script that generates self-signed certificates.
 

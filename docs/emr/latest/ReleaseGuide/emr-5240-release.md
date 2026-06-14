@@ -66,6 +66,7 @@ Last updated date: August 5, 2019
 - Spark 2.4.2
 - AWS SDK for Java 1.11.546
 - Connectors and drivers:
+
   - DynamoDB Connector 4.9.0
   - MariaDB Connector 2.4.1
   - Amazon Redshift JDBC Driver 1.2.27.1051
@@ -82,6 +83,7 @@ Last updated date: August 5, 2019
   For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
 
 - Local Disk Encryption and S3 Encryption Improvements in Security Configurations (August 5, 2019)
+
   - Separated Amazon S3 encryption settings from local disk encryption settings in security configuration setup.
   - Added an option to enable EBS encryption. Selecting this option encrypts the root device volume in addition to storage volumes. Previous versions required using a custom AMI to encrypt the root device volume.
   - For more information, see [Encryption Options](../ManagementGuide/emr-data-encryption-options.md "../ManagementGuide/emr-data-encryption-options.md") in the _Amazon EMR Management Guide_.

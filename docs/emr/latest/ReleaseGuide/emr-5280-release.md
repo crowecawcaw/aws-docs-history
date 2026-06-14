@@ -77,15 +77,19 @@ Local Zones do not currently support Amazon EMR Notebooks and do not support con
 ###### Changes, enhancements, and resolved issues
 
 - Expanded Application Support for High Availability Clusters
+
   - For more information, see [Supported applications in an EMR cluster with Multiple Primary Nodes](../ManagementGuide/emr-plan-ha-applications.md#emr-plan-ha-applications-list "../ManagementGuide/emr-plan-ha-applications.md#emr-plan-ha-applications-list") in the _Amazon EMR Management Guide_.
 
 - Spark
+
   - Performance optimizations
 
 - Hive
+
   - Performance optimizations
 
 - Presto
+
   - Performance optimizations
 
 ###### Known issues

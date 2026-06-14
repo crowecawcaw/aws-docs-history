@@ -22,6 +22,7 @@ The basic steps are as follows:
    Support** to `true` for your VPC. Then, select your
    endpoint ID, choose **Edit VPC settings** from the
    **Actions** menu, and enable private DNS names.
+
    - The private DNS hostnames for the endpoint will follow the format
      `prod.emrwal.`region`.amazonaws.com`.
    - If you don't enable private DNS hostnames, Amazon VPC provides a DNS

@@ -23,6 +23,7 @@
   from Spark SQL, Presto, or Hive. Using the read-optimized view only exposes base
   file data, and does not expose a merged view of base and log data.
 - **Hive**
+
   - For registering tables in the Hive metastore, Hudi expects the
     Hive Thrift server to be running at the default port `10000`.
     If you override this port with a custom port, pass the
@@ -32,25 +33,25 @@
   ```
   .option(DataSourceWriteOptions.HIVE_URL_OPT_KEY, "jdbc:hive2://localhost:`override-port-number`
   ```
-
   - The `timestamp` data type in Spark is registerd as
     `long` data type in Hive, and not as Hive's
     `timestamp` type.
 
 - **Presto**
+
   - Presto does not support reading MoR real time tables in Hudi versions
     below 0.6.0.
   - Presto only supports snapshot queries.
   - For Presto to correctly interpret Hudi dataset columns, set the
     `hive.parquet_use_column_names` value to
     `true`.
+
     - To set the value for a session, in the Presto shell, run the
       following command:
 
     ```
     set session hive.parquet_use_column_names=true
     ```
-
     - To set the value at the cluster level, use the
       `presto-connector-hive` configuration
       classification to set `hive.parquet.use_column_names`
@@ -69,6 +70,7 @@
     ```
 
 - **HBase Index**
+
   - The HBase version used to _build_
     Hudi might be different from what is listed in the EMR Release Guide. To
     pull in the correct dependencies for your Spark session, run the

@@ -15,6 +15,7 @@ and s3://<please fill in your staging bucket path>/metadata for storing metadata
 The workflow follows the same steps as the standard upgrade process with these additional steps in the order above:
 
 - **[After Step 3: Plan Review and Customization]**
+
   - **Build with Current Configuration**: Build the application with current configuration for source cluster submission.
   - **Validate on Source EMR Cluster**: Run original application on source Spark version and collect output metadata for baseline comparison.
 
@@ -24,6 +25,7 @@ The workflow follows the same steps as the standard upgrade process with these a
 
 - **Schema Checks**: Detects changes in column structure: missing or newly added columns, data type differences, and nullability changes.
 - **Value Checks** _(numeric and string columns only)_
+
   - Compares min, max, and mean (mean only for numeric columns).
   - For strings, min and max are based on lexicographical order.
 

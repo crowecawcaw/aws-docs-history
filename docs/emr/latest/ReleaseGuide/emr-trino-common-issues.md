@@ -38,6 +38,7 @@ Mitigating HTTP 503 errors is discussed in more detail in the _HTTP slow down_ s
 - **Optimizing data size** – You can run the OPTIMIZE command to set configuration that's conducive to queries that perform better.
   To run it against Hive external tables,
   follow these steps:
+
   - Use `OPTIMIZE` with the following parameter: `hive.non-managed-table-writes-enabled=true`. For more information about this property,
     see [Hive general configuration properties](https://trino.io/docs/current/connector/hive.html#hive-general-configuration-properties "https://trino.io/docs/current/connector/hive.html#hive-general-configuration-properties").
   - Set the following session parameter: `SET SESSION` ``catalog`.non_transactional_optimize_enabled=true`

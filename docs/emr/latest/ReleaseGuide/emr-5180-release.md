@@ -68,12 +68,15 @@ Initial release date: October 24, 2018
 ###### Changes, enhancements, and resolved issues
 
 - Hive
+
   - Added support for S3 Select. For more information, see [Using S3 Select with Hive to improve performance](emr-hive-s3select.md "emr-hive-s3select.md").
 
 - Presto
+
   - Added support for [S3 Select](https://aws.amazon.com/blogs/aws/s3-glacier-select/ "https://aws.amazon.com/blogs/aws/s3-glacier-select/") Pushdown. For more information, see [Using S3 Select Pushdown with Presto to improve performance](emr-presto-s3select.md "emr-presto-s3select.md").
 
 - Spark
+
   - The default log4j configuration for Spark has been changed to roll container logs hourly for Spark streaming jobs. This helps prevent the deletion of logs for long-running Spark streaming jobs.
 
 ## 5.18.0 component versions

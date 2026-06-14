@@ -15,6 +15,7 @@ launch two clusters with the same S3 root directory. For more information, see [
    to provide a JSON configuration object that specifies the
    `hbase.emr.wal.enabled` property, as shown in the example
    below.
+
    - Specify the storage mode and the root directory location in Amazon S3. The
      Amazon S3 location that you specify should be in the same Region as your
      EMR cluster, but only one active cluster can use the same HBase root

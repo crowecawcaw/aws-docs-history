@@ -166,6 +166,7 @@ reconfigurations.
 5. In the **Reconfigure** drop-down menu, choose either
    **Edit in table** or **Edit in JSON
    file**.
+
    - **Edit in table** - In the configuration
      classification table, edit the property and value for existing
      configurations, or choose **Add configuration** to

@@ -80,6 +80,7 @@ With Amazon EMR releases 6.13 and higher, the `libfb303` jar is
 automatically symlinked to the Hive `auxlib` directory.
 
 - **Creating a table**
+
   - **Non-partitioned table**
     – External tables in Hive can be created by providing the
     storage handler as follows:
@@ -87,7 +88,6 @@ automatically symlinked to the Hive `auxlib` directory.
   ```
   CREATE EXTERNAL TABLE x (i int) STORED BY 'org.apache.iceberg.mr.hive.HiveIcebergStorageHandler'
   ```
-
   - **Partitioned table** –
     External partitioned tables in Hive can be created as
     follows:
@@ -127,6 +127,7 @@ Iceberg Select](https://iceberg.apache.org/docs/latest/hive/#select "https://ice
   with support for the Map Reduce execution engine only. Amazon EMR users don’t
   need to explicitly set the execution engine because Amazon EMR Hive selects
   the engine for Iceberg Tables at runtime.
+
   - **Single table insert into**
     – Example:
 
@@ -134,7 +135,6 @@ Iceberg Select](https://iceberg.apache.org/docs/latest/hive/#select "https://ice
   INSERT INTO table_name VALUES ('a', 1);
   INSERT INTO table_name SELECT...;
   ```
-
   - **Multi-table insert into**
     – Non-atomic multi-table insert into statements are
     supported. Example:
@@ -171,6 +171,7 @@ TBLPROPERTIES ('table_type'='iceberg', 'iceberg.catalog'='<catalog_name>');
 ## Considerations for using Iceberg with Hive
 
 - Iceberg supports the following query types:
+
   - Create table
   - Drop table
   - Insert into table

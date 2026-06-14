@@ -177,6 +177,7 @@ Hive:
 - Setting `hive.metastore.partition.inherit.table.properties` is not supported.
 - Using the following metastore constants is not supported: `BUCKET_COUNT, BUCKET_FIELD_NAME, DDL_TIME, FIELD_TO_DIMENSION, FILE_INPUT_FORMAT, FILE_OUTPUT_FORMAT, HIVE_FILTER_FIELD_LAST_ACCESS, HIVE_FILTER_FIELD_OWNER, HIVE_FILTER_FIELD_PARAMS, IS_ARCHIVED, META_TABLE_COLUMNS, META_TABLE_COLUMN_TYPES, META_TABLE_DB, META_TABLE_LOCATION, META_TABLE_NAME, META_TABLE_PARTITION_COLUMNS, META_TABLE_SERDE, META_TABLE_STORAGE, ORIGINAL_LOCATION`.
 - When you use a predicate expression, explicit values must be on the right side of the comparison operator, or queries might fail.
+
   - **Correct**: `SELECT * FROM mytable WHERE time > 11`
   - **Incorrect**: `SELECT * FROM mytable WHERE 11 > time`
 

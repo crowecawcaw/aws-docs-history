@@ -496,9 +496,10 @@ release timeline, see the [change log](emr-6110-release.md#6110-changelog "emr-6
   decommissioning state until the application
   completes. This change ensures that local data such
   as shuffle data doesn't get lost, and you don' need to re-run the job.
-  This approach might also lead to
-  underutilization of resources on clusters with or
-  without managed scaling enabled.
+  This approach might prevent Managed Scaling from
+  scaling down the cluster as expected. Nodes where containers ran will remain in a
+  DECOMMISSIONING state until the application completes, even if no containers are
+  actively running on them. This can result in underutilization of resources.
 
 With Amazon EMR releases 6.11.0 and higher as well as 6.8.1, 6.9.1,
 and 6.10.1, the value of
@@ -586,9 +587,10 @@ release timeline, see the [change log](emr-6100-release.md#6100-changelog "emr-6
   decommissioning state until the application
   completes. This change ensures that local data such
   as shuffle data doesn't get lost, and you don' need to re-run the job.
-  This approach might also lead to
-  underutilization of resources on clusters with or
-  without managed scaling enabled.
+  This approach might prevent Managed Scaling from
+  scaling down the cluster as expected. Nodes where containers ran will remain in a
+  DECOMMISSIONING state until the application completes, even if no containers are
+  actively running on them. This can result in underutilization of resources.
 
 To work around this issue in Amazon EMR 6.10.0, you can set the value of
 `yarn.resourcemanager.decommissioning-nodes-watcher.wait-for-applications`
@@ -712,6 +714,7 @@ The following release notes include information for Amazon EMR release 6.9.0. Ch
   workaround, you can install an Amazon EMR patch to enable retries and increase
   the timeout to a minimum of 300 seconds. Use the following steps to apply
   the bootstrap action when you launch your cluster.
+
   1.  Download the bootstrap script and RPM files from
       the following Amazon S3 URIs.
 
@@ -719,7 +722,6 @@ The following release notes include information for Amazon EMR release 6.9.0. Ch
   s3://emr-data-access-control-us-east-1/customer-bootstrap-actions/gcsc/replace-rpms.sh
   s3://emr-data-access-control-us-east-1/customer-bootstrap-actions/gcsc/emr-secret-agent-1.18.0-SNAPSHOT20221121212949.noarch.rpm
   ```
-
   2.  Upload the files from the previous step to an Amazon S3 bucket that
       you own. The bucket must be in the same AWS Region where
       you plan to launch the cluster.
@@ -785,9 +787,10 @@ As a workaround, you can install an Amazon EMR patch, which fixes the above issu
     decommissioning state until the application
     completes. This change ensures that local data such
     as shuffle data doesn't get lost, and you don' need to re-run the job.
-    In Amazon EMR 6.8.0 and 6.9.0, this approach might also lead to
-    underutilization of resources on clusters with or
-    without managed scaling enabled.
+    In Amazon EMR 6.8.0 and 6.9.0, this approach might prevent Managed Scaling from
+    scaling down the cluster as expected. Nodes where containers ran will remain in a
+    DECOMMISSIONING state until the application completes, even if no containers are
+    actively running on them. This can result in underutilization of resources.
 
 
     With [Amazon EMR 6.10.0](emr-6100-release.md#emr-6100-relnotes "emr-6100-release.md#emr-6100-relnotes"),
@@ -879,9 +882,10 @@ The following release notes include information for Amazon EMR release 6.8.0. Ch
   decommissioning state until the application
   completes. This change ensures that local data such
   as shuffle data doesn't get lost, and you don' need to re-run the job.
-  In Amazon EMR 6.8.0 and 6.9.0, this approach might also lead to
-  underutilization of resources on clusters with or
-  without managed scaling enabled.
+  In Amazon EMR 6.8.0 and 6.9.0, this approach might prevent Managed Scaling from
+  scaling down the cluster as expected. Nodes where containers ran will remain in a
+  DECOMMISSIONING state until the application completes, even if no containers are
+  actively running on them. This can result in underutilization of resources.
 
 With [Amazon EMR 6.10.0](emr-6100-release.md#emr-6100-relnotes "emr-6100-release.md#emr-6100-relnotes"),
 there's a workaround for this issue to set the value of
@@ -2299,6 +2303,7 @@ Last updated date: Oct 15, 2020
   _Amazon EMR Management Guide_.
 - PrestoSQL version 338 is supported with EMR 6.1.0.
   For more information, see [Presto](emr-presto.md "emr-presto.md").
+
   - PrestoSQL is supported on EMR 6.1.0 and later versions only, not on EMR 6.0.0 or EMR 5.x.
   - The application name, `Presto` continues to be used to install PrestoDB on clusters. To install PrestoSQL on clusters, use the application name `PrestoSQL`.
   - You can install either PrestoDB or PrestoSQL, but you cannot install both on a single cluster. If both PrestoDB and PrestoSQL are specified when attempting to create a cluster, a validation error occurs and the cluster creation request fails.
@@ -2467,19 +2472,24 @@ Flink, Sqoop, Pig, and Mahout are not available in Amazon EMR version 6.0.0.
 - Fixed an issue where cluster operations such as scale down and step submission failed for Amazon EMR clusters enabled with Kerberos authentication. This was because the Amazon EMR on-cluster daemon did not renew the Kerberos ticket, which is required to securely communicate with HDFS/YARN running on the primary node.
 - Newer Amazon EMR releases fix the issue with a lower "Max open files" limit on older AL2 in Amazon EMR. Amazon EMR releases 5.30.1, 5.30.2, 5.31.1, 5.32.1, 6.0.1, 6.1.1, 6.2.1, 5.33.0, 6.3.0 and later now include a permanent fix with a higher "Max open files" setting.
 - Amazon Linux
+
   - Amazon Linux 2 is the operating system for the EMR 6.x release series.
   - `systemd` is used for service management instead of `upstart` used inAmazon Linux 1.
 
 - Java Development Kit (JDK)
+
   - Corretto JDK 8 is the default JDK for the EMR 6.x release series.
 
 - Scala
+
   - Scala 2.12 is used with Apache Spark and Apache Livy.
 
 - Python 3
+
   - Python 3 is now the default version of Python in EMR.
 
 - YARN node labels
+
   - Beginning with Amazon EMR 6.x release series, the YARN node labels feature is disabled by default. The application
     master processes can run on both core and task nodes by default. You can enable the
     YARN node labels feature by configuring following properties: `yarn.node-labels.enabled` and `yarn.node-labels.am.default-node-label-expression`. For more information, see [Understanding Primary, Core, and Task Nodes](../ManagementGuide/emr-master-core-task-nodes.md "../ManagementGuide/emr-master-core-task-nodes.md").
@@ -2903,9 +2913,11 @@ Initial release date: Jan 17, 2020
 ###### Changes, enhancements, and resolved issues
 
 - Spark
+
   - Spark performance optimizations.
 
 - EMRFS
+
   - Management Guide updates to emrfs-site.xml default settings for consistent view.
 
 ###### Known issues
@@ -2951,12 +2963,15 @@ Initial release date: Jan 10, 2020
 ###### Changes, enhancements, and resolved issues
 
 - Spark
+
   - Fixed Spark compatibility issues.
 
 - CloudWatch Metrics
+
   - Fixed Amazon CloudWatch Metrics publishing on an EMR cluster with multiple primary nodes.
 
 - Disabled log message
+
   - Disabled false log message, "...using old version (<4.5.8) of Apache http client."
 
 ###### Known issues
@@ -3023,15 +3038,19 @@ Local Zones do not currently support Amazon EMR Notebooks and do not support con
 ###### Changes, enhancements, and resolved issues
 
 - Expanded Application Support for High Availability Clusters
+
   - For more information, see [Supported applications in an EMR cluster with Multiple Primary Nodes](../ManagementGuide/emr-plan-ha-applications.md#emr-plan-ha-applications-list "../ManagementGuide/emr-plan-ha-applications.md#emr-plan-ha-applications-list") in the _Amazon EMR Management Guide_.
 
 - Spark
+
   - Performance optimizations
 
 - Hive
+
   - Performance optimizations
 
 - Presto
+
   - Performance optimizations
 
 ###### Known issues
@@ -3082,12 +3101,14 @@ Initial release date: Sep 23, 2019
 - Spark 2.4.4
 - Tensorflow 1.14.0
 - Connectors and drivers:
+
   - DynamoDB Connector 4.12.0
 
 ###### New features
 
 - (Oct 24, 2019) The following New features in EMR notebooks
   are available with all Amazon EMR releases.
+
   - You can now associate Git repositories with EMR notebooks to store your
     notebooks in a version controlled environment. You can share code with peers and
     reuse existing Jupyter notebooks through remote Git repositories. For more information, see [Associate Git Repositories with Amazon EMR Notebooks](../ManagementGuide/emr-git-repo.md "../ManagementGuide/emr-git-repo.md") in the
@@ -3107,12 +3128,14 @@ Initial release date: Sep 23, 2019
 ###### Changes, enhancements, and resolved issues
 
 - Amazon EMR cluster with multiple primary nodes
+
   - You can install and run Flink on an Amazon EMR cluster with multiple primary nodes. For more information, see [Supported applications and features](../ManagementGuide/emr-plan-ha-applications.md "../ManagementGuide/emr-plan-ha-applications.md").
   - You can configure HDFS transparent encryption on an Amazon EMR cluster with multiple primary nodes. For more information, see [HDFS Transparent Encryption on EMR clusters with
     Multiple Primary Nodes](emr-encryption-tdehdfs.md#emr-hadoop-kms-multi-master "emr-encryption-tdehdfs.md#emr-hadoop-kms-multi-master").
   - You can now modify the configuration of applications running on an Amazon EMR cluster with multiple primary nodes. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](emr-configure-apps-running-cluster.md "emr-configure-apps-running-cluster.md").
 
 - Amazon EMR-DynamoDB Connector
+
   - Amazon EMR-DynamoDB Connector now supports the following DynamoDB data types: boolean, list, map, item, null. For more information, see [Set Up a Hive Table to Run Hive Commands](EMR_Interactive_Hive.md "EMR_Interactive_Hive.md").
 
 ###### Known issues
@@ -3163,6 +3186,7 @@ Last updated date: Aug 19, 2019
 - HBase 1.4.10
 - Phoenix 4.14.2
 - Connectors and drivers:
+
   - DynamoDB Connector 4.11.0
   - MariaDB Connector 2.4.2
   - Amazon Redshift JDBC Driver 1.2.32.1056
@@ -3179,9 +3203,11 @@ Last updated date: Aug 19, 2019
 ###### Changes, enhancements, and resolved issues
 
 - EMR Notebooks
+
   - With EMR 5.26.0 and later, EMR Notebooks supports notebook-scoped Python libraries in addition to the default Python libraries. You can install notebook-scoped libraries from within the notebook editor without having to re-create a cluster or re-attach a notebook to a cluster. Notebook-scoped libraries are created in a Python virtual environment, so they apply only to the current notebook session. This allows you to isolate notebook dependencies. For more information, see [Using Notebook Scoped Libraries](../ManagementGuide/emr-managed-notebooks-custom-libraries-limitations.md "../ManagementGuide/emr-managed-notebooks-custom-libraries-limitations.md") in the _Amazon EMR Management Guide_.
 
 - EMRFS
+
   - You can enable an ETag verification feature (Beta) by setting
     `fs.s3.consistent.metadata.etag.verification.enabled` to
     `true`. With this feature, EMRFS uses Amazon S3 ETags to
@@ -3192,6 +3218,7 @@ Last updated date: Aug 19, 2019
     more information, see [Configure Consistent View](../ManagementGuide/emrfs-configure-consistent-view.md "../ManagementGuide/emrfs-configure-consistent-view.md").
 
 - Spark
+
   - The following optimizations are now enabled by default: dynamic partition pruning, DISTINCT before INTERSECT, improvements in SQL plan statistics inference for JOIN followed by DISTINCT queries, flattening scalar subqueries, optimized join reorder, and bloom filter join. For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
   - Improved whole stage code generation for Sort Merge Join.
   - Improved query fragment and subquery reuse.
@@ -3199,6 +3226,7 @@ Last updated date: Aug 19, 2019
   - Bloom filter joins are no longer applied when the smaller side of the join includes a broadcast hint.
 
 - Tez
+
   - Resolved an issue with Tez. Tez UI now works on an Amazon EMR cluster with multiple primary nodes.
 
 ###### Known issues
@@ -3289,6 +3317,7 @@ Last updated date: Oct 30, 2019
   For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
 
 - EMRFS
+
   - The EMRFS setting, `fs.s3.buckets.create.enabled`, is now disabled by
     default. With testing, we found that disabling this setting improves
     performance and prevents unintentional creation of S3 buckets. If your
@@ -3299,6 +3328,7 @@ Last updated date: Oct 30, 2019
     a Configuration when Creating a Cluster](emr-configure-apps-create-cluster.md "emr-configure-apps-create-cluster.md").
 
 - Local Disk Encryption and S3 Encryption Improvements in Security Configurations (August 5, 2019)
+
   - Separated Amazon S3 encryption settings from local disk encryption settings in security configuration setup.
   - Added an option to enable EBS encryption with release 5.24.0 and later. Selecting this option encrypts the root device volume in addition to storage volumes. Previous versions required using a custom AMI to encrypt the root device volume.
   - For more information, see [Encryption Options](../ManagementGuide/emr-data-encryption-options.md "../ManagementGuide/emr-data-encryption-options.md") in the _Amazon EMR Management Guide_.
@@ -3400,6 +3430,7 @@ Last updated date: August 5, 2019
 - Spark 2.4.2
 - AWS SDK for Java 1.11.546
 - Connectors and drivers:
+
   - DynamoDB Connector 4.9.0
   - MariaDB Connector 2.4.1
   - Amazon Redshift JDBC Driver 1.2.27.1051
@@ -3416,6 +3447,7 @@ Last updated date: August 5, 2019
   For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
 
 - Local Disk Encryption and S3 Encryption Improvements in Security Configurations (August 5, 2019)
+
   - Separated Amazon S3 encryption settings from local disk encryption settings in security configuration setup.
   - Added an option to enable EBS encryption. Selecting this option encrypts the root device volume in addition to storage volumes. Previous versions required using a custom AMI to encrypt the root device volume.
   - For more information, see [Encryption Options](../ManagementGuide/emr-data-encryption-options.md "../ManagementGuide/emr-data-encryption-options.md") in the _Amazon EMR Management Guide_.
@@ -3477,6 +3509,7 @@ Last updated date: April 30, 2019
 Tez UI does not work on an EMR cluster with multiple primary nodes.
 
 - Hue (Fixed in Amazon EMR release 5.24.0)
+
   - Hue running on Amazon EMR does not support Solr. Beginning with Amazon EMR release 5.20.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
 
   `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
@@ -3553,6 +3586,7 @@ Initial release date: March 20, 2019
 - Phoenix 4.14.1
 - Zeppelin 0.8.1
 - Connectors and drivers:
+
   - DynamoDB Connector 4.8.0
   - MariaDB Connector 2.2.6
   - Amazon Redshift JDBC Driver 1.2.20.1043
@@ -3564,6 +3598,7 @@ Initial release date: March 20, 2019
 ###### Changes, enhancements, and resolved issues
 
 - Spark
+
   - Introduced a new configuration property for Spark on YARN, `spark.yarn.executor.memoryOverheadFactor`. The value of this property is a scale factor that sets the value of memory overhead to a percentage of executor memory, with a minimum of 384 MB. If memory overhead is set explicitly using `spark.yarn.executor.memoryOverhead`, this property has no effect. The default value is `0.1875`, representing 18.75%. This default for Amazon EMR leaves more space in YARN containers for executor memory overhead than the 10% default set internally by Spark. The Amazon EMR default of 18.75% empirically showed fewer memory-related failures in TPC-DS benchmarks.
   - Backported [SPARK-26316](https://issues.apache.org/jira/browse/SPARK-26316 "https://issues.apache.org/jira/browse/SPARK-26316") to improve performance.
 
@@ -3576,6 +3611,7 @@ Initial release date: March 20, 2019
 ###### Known issues
 
 - Hue (Fixed in Amazon EMR release 5.24.0)
+
   - Hue running on Amazon EMR does not support Solr. Beginning with Amazon EMR release 5.20.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
 
   `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
@@ -3699,11 +3735,13 @@ Last updated date: April 3, 2019
 ###### Changes, enhancements, and resolved issues
 
 - Zeppelin
+
   - Backported [ZEPPELIN-3878](https://issues.apache.org/jira/browse/ZEPPELIN-3878 "https://issues.apache.org/jira/browse/ZEPPELIN-3878").
 
 ###### Known issues
 
 - Hue (Fixed in Amazon EMR release 5.24.0)
+
   - Hue running on Amazon EMR does not support Solr. Beginning with Amazon EMR release 5.20.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
 
   `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
@@ -3731,6 +3769,7 @@ Last updated date: April 3, 2019
       ```
 
 - Tez
+
   - This issue was fixed in Amazon EMR 5.22.0.
 
   When you connect to the Tez UI at http://`MasterDNS`:8080/tez-ui through an SSH connection to the cluster primary node, the error "Adapter operation failed - Timeline server (ATS) is out of reach. Either it is down, or CORS is not enabled" appears, or tasks unexpectedly show N/A.
@@ -3802,20 +3841,25 @@ Last updated date: January 22, 2019
 ###### Changes, enhancements, and resolved issues
 
 - Default Amazon Linux AMI for Amazon EMR
+
   - Python3 package was upgraded from python 3.4 to 3.6.
 
 - The EMRFS S3-optimized committer
+
   - The EMRFS S3-optimized committer is now enabled by default, which improves write performance. For more information, see [Use the EMRFS S3-optimized committer](emr-spark-s3-optimized-committer.md "emr-spark-s3-optimized-committer.md").
 
 - Hive
+
   - Backported [HIVE-16686](https://issues.apache.org/jira/browse/HIVE-16686 "https://issues.apache.org/jira/browse/HIVE-16686").
 
 - Glue with Spark and Hive
+
   - In EMR 5.20.0 or later, parallel partition pruning is enabled automatically for Spark and Hive when AWS Glue Data Catalog is used as the metastore. This change significantly reduces query planning time by executing multiple requests in parallel to retrieve partitions. The total number of segments that can be executed concurrently range between 1 and 10. The default value is 5, which is a recommended setting. You can change it by specifying the property `aws.glue.partition.num.segments` in `hive-site` configuration classification. If throttling occurs, you can turn off the feature by changing the value to 1. For more information, see [AWS Glue Segment Structure](../../../glue/latest/dg/aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-Segment "../../../glue/latest/dg/aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-Segment").
 
 ###### Known issues
 
 - Hue (Fixed in Amazon EMR release 5.24.0)
+
   - Hue running on Amazon EMR does not support Solr. Beginning with Amazon EMR release 5.20.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
 
   `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
@@ -3843,6 +3887,7 @@ Last updated date: January 22, 2019
       ```
 
 - Tez
+
   - This issue was fixed in Amazon EMR 5.22.0.
 
   When you connect to the Tez UI at http://`MasterDNS`:8080/tez-ui through an SSH connection to the cluster primary node, the error "Adapter operation failed - Timeline server (ATS) is out of reach. Either it is down, or CORS is not enabled" appears, or tasks unexpectedly show N/A.
@@ -3913,9 +3958,11 @@ Last updated date: November 19, 2018
 ###### Changes, enhancements, and resolved issues
 
 - YARN
+
   - Modified the logic that limits the application master process to running on core nodes. This functionality now uses the YARN node labels feature and properties in the `yarn-site` and `capacity-scheduler` configuration classifications. For information, see [https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances-guidelines.html#emr-plan-spot-YARN.](../ManagementGuide/emr-plan-instances-guidelines.md#emr-plan-spot-YARN. "../ManagementGuide/emr-plan-instances-guidelines.md#emr-plan-spot-YARN.")
 
 - Default Amazon Linux AMI for Amazon EMR
+
   - `ruby18`, `php56`, and `gcc48` are no longer installed by default. These can be installed if desired using `yum`.
   - The aws-sdk ruby gem is no longer installed by default. It can be installed using `gem install aws-sdk`, if desired. Specific components can also be installed. For example, `gem install aws-sdk-s3`.
 
@@ -3951,12 +3998,15 @@ Initial release date: October 24, 2018
 ###### Changes, enhancements, and resolved issues
 
 - Hive
+
   - Added support for S3 Select. For more information, see [Using S3 Select with Hive to improve performance](emr-hive-s3select.md "emr-hive-s3select.md").
 
 - Presto
+
   - Added support for [S3 Select](https://aws.amazon.com/blogs/aws/s3-glacier-select/ "https://aws.amazon.com/blogs/aws/s3-glacier-select/") Pushdown. For more information, see [Using S3 Select Pushdown with Presto to improve performance](emr-presto-s3select.md "emr-presto-s3select.md").
 
 - Spark
+
   - The default log4j configuration for Spark has been changed to roll container logs hourly for Spark streaming jobs. This helps prevent the deletion of logs for long-running Spark streaming jobs.
 
 ## Release 5.17.1
@@ -3990,9 +4040,11 @@ Initial release date: August 30, 2018
 ###### Changes, enhancements, and resolved issues
 
 - JupyterHub
+
   - Added support for notebook persistence in Amazon S3. For more information, see [Configuring persistence for notebooks in Amazon S3](emr-jupyterhub-s3.md "emr-jupyterhub-s3.md").
 
 - Spark
+
   - Added support for [S3 Select](https://aws.amazon.com/blogs/aws/s3-glacier-select/ "https://aws.amazon.com/blogs/aws/s3-glacier-select/"). For more information, see [Use S3 Select with Spark to improve query performance](emr-spark-s3select.md "emr-spark-s3select.md").
 
 - Resolved the issues with the Cloudwatch metrics and the automatic scaling feature in Amazon EMR version 5.14.0, 5.15.0, or 5.16.0.
@@ -4030,12 +4082,15 @@ Initial release date: July 19, 2018
 ###### Changes, enhancements, and resolved issues
 
 - HBase
+
   - Backported [HBASE-20723](https://issues.apache.org/jira/browse/HBASE-20723 "https://issues.apache.org/jira/browse/HBASE-20723")
 
 - Presto
+
   - Configuration changes to support LDAP authentication. For more information, see [Using LDAP authentication for Presto on Amazon EMR](emr-presto-ldap.md "emr-presto-ldap.md").
 
 - Spark
+
   - Apache Spark version 2.3.1, available beginning with Amazon EMR release 5.16.0, addresses [CVE-2018-8024](https://nvd.nist.gov/vuln/detail/CVE-2018-8024 "https://nvd.nist.gov/vuln/detail/CVE-2018-8024") and [CVE-2018-1334](https://nvd.nist.gov/vuln/detail/CVE-2018-1334 "https://nvd.nist.gov/vuln/detail/CVE-2018-1334"). We recommend that you migrate earlier versions of Spark to Spark version 2.3.1 or later.
 
 ###### Known issues
@@ -4063,12 +4118,15 @@ Initial release date: June 21, 2018
 ###### Changes, enhancements, and resolved issues
 
 - Hive
+
   - Backported [HIVE-18069](https://issues.apache.org/jira/browse/HIVE-18069 "https://issues.apache.org/jira/browse/HIVE-18069")
 
 - Hue
+
   - Updated Hue to correctly authenticate with Livy when Kerberos is enabled. Livy is now supported when using Kerberos with Amazon EMR.
 
 - JupyterHub
+
   - Updated JupyterHub so that Amazon EMR installs LDAP client libraries by default.
   - Fixed an error in the script that generates self-signed certificates.
 
@@ -4107,24 +4165,29 @@ June 4, 2018
 ###### Changes, enhancements, and resolved issues
 
 - EMRFS
+
   - The userAgent string in requests to Amazon S3 has been updated to contain the user and group
     information of the invoking principal. This can be
     used with AWS CloudTrail logs for more comprehensive
     request tracking.
 
 - HBase
+
   - Included [HBASE-20447](https://issues.apache.org/jira/browse/HBASE-20447 "https://issues.apache.org/jira/browse/HBASE-20447"), which addresses an issue that could cause cache issues, especially with split Regions.
 
 - MXnet
+
   - Added OpenCV libraries.
 
 - Spark
+
   - When Spark writes Parquet files to an Amazon S3 location
     using EMRFS, the FileOutputCommitter algorithm has
     been updated to use version 2 instead of version 1.
     This reduces the number of renames, which improves
     application performance. This change does not
     affect:
+
     - Applications other than Spark.
     - Applications that write to other file
       systems, such as HDFS (which still use version 1
@@ -4136,6 +4199,7 @@ June 4, 2018
 ###### Known issues
 
 - JupyterHub
+
   - Using configuration classifications to set up JupyterHub and
     individual Jupyter notebooks when you create a cluster is not
     supported. Edit the jupyterhub_config.py file and
@@ -4203,6 +4267,7 @@ are relative to 5.12.0.
 ###### Changes, enhancements, and resolved issues
 
 - Hive
+
   - Backported [HIVE-15436](https://issues.apache.org/jira/browse/HIVE-15436 "https://issues.apache.org/jira/browse/HIVE-15436"). Enhanced Hive APIs to return only views.
 
 ###### Known issues
@@ -4249,14 +4314,17 @@ are relative to 5.11.1.
 ###### Changes, enhancements, and resolved issues
 
 - **Hadoop**
+
   - The `yarn.resourcemanager.decommissioning.timeout` property has changed to
     `yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs`. You can use this property to customize cluster scale-down. For more information, see [Cluster Scale-Down](../ManagementGuide/emr-scaledown-behavior.md "../ManagementGuide/emr-scaledown-behavior.md") in the _Amazon EMR Management Guide_.
   - The Hadoop CLI added the `-d` option to the `cp` (copy) command, which specifies direct copy. You can use this to avoid creating an intermediary `.COPYING` file, which makes copying data between Amazon S3 faster. For more information, see [HADOOP-12384](https://issues.apache.org/jira/browse/HADOOP-12384 "https://issues.apache.org/jira/browse/HADOOP-12384").
 
 - **Pig**
+
   - Added the `pig-env` configuration classification, which simplifies the configuration of Pig environment properties. For more information, see [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
 
 - **Presto**
+
   - Added the `presto-connector-redshift` configuration classification, which you can use to configure values in the Presto `redshift.properties` configuration file. For more information, see [Redshift Connector](https://prestodb.io/docs/current/connector/redshift.html "https://prestodb.io/docs/current/connector/redshift.html") in Presto documentation, and [Configure applications](emr-configure-apps.md "emr-configure-apps.md").
   - Presto support for EMRFS has been added and is the default configuration. Earlier Amazon EMR releases used PrestoS3FileSystem, which was the only option. For more information, see [EMRFS and PrestoS3FileSystem configuration](emr-presto-considerations.md#emr-presto-prestos3 "emr-presto-considerations.md#emr-presto-prestos3").
 
@@ -4273,6 +4341,7 @@ are relative to 5.11.1.
   `sudo presto-server start`).
 
 - **Spark**
+
   - Backported [SPARK-22036: BigDecimal multiplication sometimes returns null](https://issues.apache.org/jira/browse/SPARK-22036 "https://issues.apache.org/jira/browse/SPARK-22036").
 
 ###### Known issues
@@ -4346,6 +4415,7 @@ to include the following versions.
 ### New features
 
 - **Spark**
+
   - Added `spark.decommissioning.timeout.threshold`
     setting, which improves Spark decommissioning behavior when
     using Spot instances. For more information, see [Configuring node decommissioning behavior](emr-spark-configure.md#spark-decommissioning "emr-spark-configure.md#spark-decommissioning").
@@ -4406,6 +4476,7 @@ to include the following versions.
 ### Changes, enhancements, and resolved issues
 
 - Presto
+
   - Added support for using the AWS Glue Data Catalog as the default Hive
     metastore. For more information, see [Using
     Presto with the AWS Glue Data Catalog](emr-presto.md#emr-presto-glue "emr-presto.md#emr-presto-glue").
@@ -4414,6 +4485,7 @@ to include the following versions.
   - Added support for the [Redshift connector](https://prestodb.io/docs/current/connector/redshift.html "https://prestodb.io/docs/current/connector/redshift.html").
 
 - Spark
+
   - Backported [SPARK-20640](https://issues.apache.org/jira/browse/SPARK-20640 "https://issues.apache.org/jira/browse/SPARK-20640"), which makes the rpc timeout and the
     retries for shuffle registration values configurable using
     `spark.shuffle.registration.timeout` and
@@ -4484,6 +4556,7 @@ to include the following versions.
 ### Changes, enhancements, and resolved issues
 
 - Spark
+
   - Added a new set of features that help ensure Spark handles
     node termination because of a manual resize or an automatic
     scaling policy request more gracefully. For more information,
@@ -4494,14 +4567,17 @@ to include the following versions.
   - Backported [SPARK-21494](https://issues.apache.org/jira/browse/SPARK-21494 "https://issues.apache.org/jira/browse/SPARK-21494").
 
 - Zeppelin
+
   - Backported [ZEPPELIN-2377](https://issues.apache.org/jira/browse/ZEPPELIN-2377 "https://issues.apache.org/jira/browse/ZEPPELIN-2377").
 
 - HBase
+
   - Added patch [HBASE-18533](https://issues.apache.org/jira/browse/HBASE-18533 "https://issues.apache.org/jira/browse/HBASE-18533"), which allows additional values for
     HBase BucketCache configuration using the
     `hbase-site` configuration classification.
 
 - Hue
+
   - Added AWS Glue Data Catalog support for the Hive query editor in
     Hue.
   - By default, superusers in Hue can access all files that Amazon EMR
@@ -4583,6 +4659,7 @@ to include the following versions:
 ### Changes, enhancements, and resolved issues
 
 - **Integration with AWS Glue Data Catalog**
+
   - Added ability for Hive and Spark SQL to use AWS Glue Data Catalog as the
     Hive metadata store. For more information, see [Using the AWS Glue Data Catalog as the metastore for Hive](emr-hive-metastore-glue.md "emr-hive-metastore-glue.md") and [Use AWS Glue Data Catalog with Spark on Amazon EMR](emr-spark-glue.md "emr-spark-glue.md").
 
@@ -4593,12 +4670,15 @@ to include the following versions:
   application history](../ManagementGuide/emr-cluster-application-history.md "../ManagementGuide/emr-cluster-application-history.md") in the
   _Amazon EMR Management Guide_.
 - **Oozie**
+
   - Backported [OOZIE-2748](https://issues.apache.org/jira/browse/OOZIE-2748 "https://issues.apache.org/jira/browse/OOZIE-2748").
 
 - **Hue**
+
   - Backported [HUE-5859](https://issues.cloudera.org/browse/HUE-5859 "https://issues.cloudera.org/browse/HUE-5859")
 
 - **HBase**
+
   - Added patch to expose the HBase master server start time
     through Java Management Extensions (JMX) using
     `getMasterInitializedTime`.
@@ -4630,6 +4710,7 @@ see [Statistics in Hive](https://cwiki.apache.org/confluence/display/Hive/StatsD
 /etc/init.d/apppusher stop`. This stops that apppusher daemon,
   which Amazon EMR will restart automatically.
 - **Application history**
+
   - Historical data for dead Spark executors is not
     available.
   - Application history is not available for clusters that use a
@@ -4657,6 +4738,7 @@ Release date: July 13, 2017
 ### Changes, enhancements, and resolved issues
 
 - **HBase**
+
   - Added capability to configure HBase read-replica clusters. See
     [Using a read-replica cluster.](emr-hbase-s3.md#emr-hbase-s3-read-replica "emr-hbase-s3.md#emr-hbase-s3-read-replica")
   - Multiple bug fixes and enhancements
@@ -4686,6 +4768,7 @@ Release date: June 5, 2017
 ### Changes, enhancements, and resolved issues
 
 - **Presto**
+
   - Added the ability to enable SSL/TLS secured communication
     between Presto nodes by enabling in-transit encryption using a
     security configuration. For more information, see [In-transit data encryption](emr-data-encryption-options.md#emr-encryption-intransit "emr-data-encryption-options.md#emr-encryption-intransit").
@@ -4743,12 +4826,14 @@ Release date: April 26, 2017
 ### Changes, enhancements, and resolved issues
 
 - **Spark**
+
   - Backported Spark Patch [(SPARK-20115) fix DAGScheduler to recompute all the lost
     shuffle blocks when external shuffle service is
     unavailable](https://issues.apache.org/jira/browse/SPARK-20115 "https://issues.apache.org/jira/browse/SPARK-20115") to version 2.1.0 of Spark, which is
     included in this release.
 
 - **Flink**
+
   - Flink is now built with Scala 2.11. If you use the Scala API
     and libraries, we recommend that you use Scala 2.11 in your
     projects.
@@ -4778,6 +4863,7 @@ Release date: April 26, 2017
     Flink 1.2](https://issues.apache.org/jira/browse/FLINK-6125 "https://issues.apache.org/jira/browse/FLINK-6125").
 
 - **Presto**
+
   - Added support for LDAP authentication. Using LDAP with Presto
     on Amazon EMR requires that you enable HTTPS access for the Presto
     coordinator (`http-server.https.enabled=true` in
@@ -4786,6 +4872,7 @@ Release date: April 26, 2017
   - Added support for `SHOW GRANTS`.
 
 - **Amazon EMR Base Linux AMI**
+
   - Amazon EMR releases are now based on Amazon Linux 2017.03. For more
     information, see [Amazon Linux AMI 2017.03 release notes](https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/ "https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/").
   - Removed Python 2.6 from the Amazon EMR base Linux image. Python 2.7
@@ -5070,6 +5157,7 @@ Initial release date: August 29, 2018
 ###### Changes, enhancements, and resolved issues
 
 - HBase
+
   - This release addresses a potential security vulnerability.
 
 ## Release 4.9.4

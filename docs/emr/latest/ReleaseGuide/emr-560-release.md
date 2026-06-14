@@ -63,6 +63,7 @@ Release date: June 5, 2017
 ###### Changes, enhancements, and resolved issues
 
 - **Presto**
+
   - Added the ability to enable SSL/TLS secured communication between Presto nodes by enabling in-transit encryption using a security configuration. For more information, see [In-transit Data Encryption](emr-data-encryption-options.md#emr-encryption-intransit "emr-data-encryption-options.md#emr-encryption-intransit").
   - Backported [Presto 7661](https://github.com/prestodb/presto/pull/7661/commits "https://github.com/prestodb/presto/pull/7661/commits"), which adds the `VERBOSE` option to the `EXPLAIN ANALYZE` statement to report more detailed, low-level statistics about a query plan.
 

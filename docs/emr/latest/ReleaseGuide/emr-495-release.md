@@ -61,6 +61,7 @@ Initial release date: August 29, 2018
 ###### Changes, enhancements, and resolved issues
 
 - HBase
+
   - This release addresses a potential security vulnerability.
 
 ## 4.9.5 component versions

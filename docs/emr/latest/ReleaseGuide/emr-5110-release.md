@@ -60,6 +60,7 @@ are relative to 5.10.0.
 ###### New features
 
 - Spark
+
   - Added `spark.decommissioning.timeout.threshold` setting, which improves Spark decommissioning behavior when using Spot Instances. For more information, see [Configuring node decommissioning behavior](emr-spark-configure.md#spark-decommissioning "emr-spark-configure.md#spark-decommissioning").
   - Added the `aws-sagemaker-spark-sdk` component to Spark, which installs Amazon SageMaker Spark and associated dependencies for Spark integration with [Amazon SageMaker](https://aws.amazon.com/sagemaker/ "https://aws.amazon.com/sagemaker/"). You can use Amazon SageMaker Spark to construct Spark machine learning (ML) pipelines using Amazon SageMaker stages. For more information, see the [SageMaker Spark Readme](https://github.com/aws/sagemaker-spark/blob/master/README.md "https://github.com/aws/sagemaker-spark/blob/master/README.md") on GitHub and [Using Apache Spark with Amazon SageMaker](../../../sagemaker/latest/dg/apache-spark.md "../../../sagemaker/latest/dg/apache-spark.md") in the _Amazon SageMaker Developer Guide_.
 

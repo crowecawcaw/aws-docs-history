@@ -16,8 +16,10 @@ At this point, the agent will orchestrate the upgrade using specialized tools (f
 
 1. **Generate Plan**: The agent will analyze your project structure and generate an upgrade plan. Review the plan and provide your consent to proceed.
 2. **Plan Review and Customization**: When prompted to review the plan, you have several options:
+
    1. **Proceed as-is**: Accept the plan and continue with execution
    2. **Provide feedback**: Customize the plan by:
+
       1. Removing unnecessary steps - Example: Remove any integration test execution. Only compile/build locally, then proceed to EMR validation.
       2. Adding additional steps - Example: Add a step to run test file `tests/test_jobs/test_etl_job_x.py` before EMR validation.
       3. Modifying the upgrade approach - Example: Enforce Python 3.10 and Java 17 during the build and validation steps.

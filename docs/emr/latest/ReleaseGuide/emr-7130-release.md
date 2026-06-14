@@ -114,7 +114,7 @@ different nodes or applications on different runtime versions on the same cluste
 | Spark        | **17**, 11, 8                                       |
 | Spark RAPIDS | **17**, 11, 8                                       |
 | Tez          | **17**, 11, 8                                       |
-| Trino        | **21**, 17                                          |
+| Trino        | **25**                                              |
 | Zeppelin     | 17, **11**, 8                                       |
 | Pig          | **17**, 11, 8                                       |
 | Zookeeper    | **17**, 11, 8                                       |

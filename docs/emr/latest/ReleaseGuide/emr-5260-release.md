@@ -61,6 +61,7 @@ Last updated date: Aug 19, 2019
 - HBase 1.4.10
 - Phoenix 4.14.2
 - Connectors and drivers:
+
   - DynamoDB Connector 4.11.0
   - MariaDB Connector 2.4.2
   - Amazon Redshift JDBC Driver 1.2.32.1056
@@ -77,9 +78,11 @@ Last updated date: Aug 19, 2019
 ###### Changes, enhancements, and resolved issues
 
 - EMR Notebooks
+
   - With EMR 5.26.0 and later, EMR Notebooks supports notebook-scoped Python libraries in addition to the default Python libraries. You can install notebook-scoped libraries from within the notebook editor without having to re-create a cluster or re-attach a notebook to a cluster. Notebook-scoped libraries are created in a Python virtual environment, so they apply only to the current notebook session. This allows you to isolate notebook dependencies. For more information, see [Using Notebook Scoped Libraries](../ManagementGuide/emr-managed-notebooks-custom-libraries-limitations.md "../ManagementGuide/emr-managed-notebooks-custom-libraries-limitations.md") in the _Amazon EMR Management Guide_.
 
 - EMRFS
+
   - You can enable an ETag verification feature (Beta) by setting
     `fs.s3.consistent.metadata.etag.verification.enabled` to
     `true`. With this feature, EMRFS uses Amazon S3 ETags to
@@ -90,6 +93,7 @@ Last updated date: Aug 19, 2019
     more information, see [Configure Consistent View](../ManagementGuide/emrfs-configure-consistent-view.md "../ManagementGuide/emrfs-configure-consistent-view.md").
 
 - Spark
+
   - The following optimizations are now enabled by default: dynamic partition pruning, DISTINCT before INTERSECT, improvements in SQL plan statistics inference for JOIN followed by DISTINCT queries, flattening scalar subqueries, optimized join reorder, and bloom filter join. For more information, see [Optimizing Spark Performance](emr-spark-performance.md "emr-spark-performance.md").
   - Improved whole stage code generation for Sort Merge Join.
   - Improved query fragment and subquery reuse.
@@ -97,6 +101,7 @@ Last updated date: Aug 19, 2019
   - Bloom filter joins are no longer applied when the smaller side of the join includes a broadcast hint.
 
 - Tez
+
   - Resolved an issue with Tez. Tez UI now works on an Amazon EMR cluster with multiple primary nodes.
 
 ###### Known issues

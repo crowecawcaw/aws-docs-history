@@ -10,6 +10,7 @@ At this point, the agent will orchestrate the troubleshooting using specialized 
 
 1. **Feature Extraction and Context Building**: The agent automatically collects and analyzes telemetry data from your Spark application including History Server logs, configuration settings, and error traces. You'll see the tool gathering information about performance metrics, resource utilization patterns, and failure signatures.
 2. **Analysis and Root Cause Identification**: The agent leverages AI models and Spark knowledge base to correlate extracted features and identify root causes of performance issues or failures. You'll receive:
+
    - **Analysis Insights**: Technical details about what the agent discovered and analyzed.
    - **Root Cause**: Clear explanation of what went wrong and why.
    - **Initial Assessment**: Whether the issue is code-related, configuration-related, or resource-related, some general guidance and analysis will be provided for mitigations.

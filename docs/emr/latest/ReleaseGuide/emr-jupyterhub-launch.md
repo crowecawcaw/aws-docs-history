@@ -17,6 +17,7 @@ Use the following procedure to create a cluster with JupyterHub installed using
 1. Navigate to the new Amazon EMR console and select **Switch to the old console** from the side navigation. For more information on what to expect when you switch to the old console, see [Using the old console](../ManagementGuide/whats-new-in-console.md#console-opt-in "../ManagementGuide/whats-new-in-console.md#console-opt-in").
 2. Choose **Create cluster**, **Go to advanced options**.
 3. Under **Software Configuration**:
+
    - For **Release**, select emr-5.36.2, and choose JupyterHub.
    - If you use Spark, to use the AWS Glue Data Catalog as the metastore for Spark SQL, select **Use
      for Spark table metadata**. For more information, see
