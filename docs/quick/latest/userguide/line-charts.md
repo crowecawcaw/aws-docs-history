@@ -79,6 +79,7 @@ Use the following procedure to create a line chart.
    choose to use a dimension field as a measure, the **Count**
    aggregate function is automatically applied to it to create a numeric
    value.
+
    - To create a single-measure line chart, drag a dimension to the
      **X axis** field well and one measure to the
      **Value** field well.

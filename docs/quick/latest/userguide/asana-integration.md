@@ -18,6 +18,7 @@ Follow these steps to connect Amazon Quick to your Asana workspace.
 2. Choose the **Create for your team** tab.
 3. Find and choose **Asana**.
 4. Fill in the following details:
+
    - **Name** - Enter a descriptive name for your Asana integration.
    - **Description** - Describe the purpose of this integration.
 

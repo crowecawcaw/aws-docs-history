@@ -26,6 +26,7 @@ The following screenshot shows a waterfall chart.
 1. Open Amazon Quick and choose **Analyses** on the navigation
    pane at left.
 2. Choose one of the following:
+
    - To create a new analysis, choose **New analysis** at
      upper right. For more information, see [Starting an analysis in Quick Sight](creating-an-analysis.md "creating-an-analysis.md").
    - To use an existing analysis, choose the analysis that you want to

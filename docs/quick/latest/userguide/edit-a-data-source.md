@@ -16,8 +16,10 @@ Use the following procedure to edit a database data source.
 2. Choose a database data source.
 3. Choose **Edit Data Source**.
 4. Modify the data source information:
+
    - If you are editing an autodiscovered database data source, you
      can modify any of the following settings:
+
      - For **Data source name**, enter a
        name for the data source.
      - For **Instance ID**, choose the name
@@ -31,6 +33,7 @@ Use the following procedure to edit a database data source.
      - For **UserName**, enter the user name
        of a user account that has permissions to do the
        following:
+
        - Access the target database.
        - Read (perform a `SELECT` statement
          on) any tables in that database that you want to
@@ -41,10 +44,12 @@ Use the following procedure to edit a database data source.
 
    - If you are editing an external database data source, you can
      modify any of the following settings:
+
      - For **Data source name**, enter a
        name for the data source.
      - For **Database server**, enter one of
        the following values:
+
        - For an Amazon Redshift cluster, enter the endpoint of the
          cluster without the port number. For example, if
          the endpoint value is
@@ -70,6 +75,7 @@ Use the following procedure to edit a database data source.
      - For **UserName**, enter the user name
        of a user account that has permissions to do the
        following:
+
        - Access the target database.
        - Read (perform a `SELECT` statement
          on) any tables in that database that you want to

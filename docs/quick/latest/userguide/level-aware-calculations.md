@@ -114,6 +114,7 @@ for each region (showing in the sales column).
 - Use LAC-A combined with other aggregate functions and LAC-W functions.
   There are two ways you can nest LAC-A functions with other
   functions.
+
   - You can write a nested syntax when you create a calculation.
     For example, the LAC-A function can be nested with a LAC-W
     function to calculate the total sales by country of each
@@ -122,7 +123,6 @@ for each region (showing in the sales column).
   ```
   sum(avgOver({Sales},[{Product}],PRE_AGG),[{Country}])
   ```
-
   - When adding a LAC-A function into a visual, the calculation
     can be further nested with visual-level aggregate functions that
     you selected in the fields well. For more information about

@@ -12,6 +12,7 @@ console, use the following procedure.
   administrator. Make sure your admin role in IAM includes the following
   permissions. The `"iam:PassRole"` permission needs to be applied only
   to the execution role that is created in the procedures below.
+
   - `"quicksight:ListVPCConnections"`
   - `"quicksight:CreateVPCConnection"`
   - `"quicksight:DescribeVPCConnection"`
@@ -47,6 +48,7 @@ console, use the following procedure.
 - Before you begin, make sure that you have the following information available
   to copy and paste into the **VPC Connection** screen. For more
   information, see [Finding information to connect to a VPC](../../../quicksight/latest/user/vpc-finding-setup-information.md "../../../quicksight/latest/user/vpc-finding-setup-information.md").
+
   - AWS Region – The AWS Region where you plan
     to create a connection to your data source.
   - VPC ID – The ID of the VPC that contains the
@@ -112,7 +114,6 @@ console, use the following procedure.
   }`
 
   ```
-
   - Subnet IDs – The IDs of the subnets that the
     Amazon Quick network interface is using. Each VPC connection needs at
     least two subnets.

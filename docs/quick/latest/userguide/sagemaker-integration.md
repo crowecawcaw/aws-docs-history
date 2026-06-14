@@ -100,6 +100,7 @@ following:
   includes calling SageMaker AI if the dataset has inferred fields. Costs are incurred in
   the same AWS account where your Quick subscription is.
 - Your Quick subscription costs are as follows:
+
   - The cost of storing your data in the in-memory calculation engine in
     Quick (SPICE). If you are adding new data to
     SPICE, you might need to purchase enough

@@ -18,6 +18,7 @@ separately.
    from the on-visual menu.
 3. On the formatting pane at left, choose **Points**.
 4. Choose one of the following options:
+
    - **Basic** – use the default
      display setting for map points.
    - **Cluster points** – cluster

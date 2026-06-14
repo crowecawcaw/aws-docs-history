@@ -13,6 +13,7 @@ reports, or snapshots, can be printed or downloaded as a PDF or CSV.
    green pop up will appear that says **Your PDF is
    ready**.
 4. There are two ways to download your report:
+
    - Choose **DOWNLOAD NOW** in the green
      pop-up.
    - Choose the **Export** icon at the top right, and

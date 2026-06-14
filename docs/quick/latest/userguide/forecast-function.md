@@ -58,6 +58,7 @@ be used in the narrative.
 
 - `timeField` – From the **Time**
   field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**timeGranularity**` – The time
@@ -66,6 +67,7 @@ be used in the narrative.
 
 - `metricField` – From the
   **Values** field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**aggregationFunction**` – The
@@ -74,6 +76,7 @@ be used in the narrative.
 
 - `metricValue` – The value in the metric
   dimension.
+
   - `**value**`
     – The raw value.
   - `**formattedValue**` – The value
@@ -83,6 +86,7 @@ be used in the narrative.
 
 - `timeValue` – The value in the date
   dimension.
+
   - `**value**`
     – The raw value.
   - `**formattedValue**` – The value

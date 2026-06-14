@@ -6,6 +6,7 @@ connect to your data source, see [Data source connectivity issues for Amazon Qui
 
 - If you are having trouble adding a visual to an analysis, try the
   following:
+
   - Check your connectivity and confirm that you have access to all
     domains that Quick Sight uses for access. To see a list of all URLs
     Quick Sight uses, see [Domains accessed by Quick Sight](../../../quicksight/latest/developerguide/vpc-interface-endpoints.md#vpc-interface-endpoints-restrictvpc-interface-endpoints-supported-domains "../../../quicksight/latest/developerguide/vpc-interface-endpoints.md#vpc-interface-endpoints-restrictvpc-interface-endpoints-supported-domains").
@@ -20,6 +21,7 @@ connect to your data source, see [Data source connectivity issues for Amazon Qui
     this state.
 
 - If your visuals don't load, try the following:
+
   - If you are using a corporate network, seek out help from your
     network administrator and verify that the network's firewall
     settings permit traffic from `*.aws.amazon.com`,

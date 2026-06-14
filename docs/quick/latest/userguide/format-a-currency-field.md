@@ -18,6 +18,7 @@ visual field well.
 ###### To select a currency field's symbol by choosing a list option
 
 1. Choose one of the following options:
+
    - In the **Field list** pane, choose the
      selector icon to the right of the number field that you want
      to format.
@@ -29,6 +30,7 @@ visual field well.
 
 2. Choose **Format**, and then choose the currency
    field that you want:
+
    - Display in dollars ($).
    - Display in pounds (£).
    - Display in euros (€).
@@ -37,6 +39,7 @@ visual field well.
 ###### To manually change a currency field's format
 
 1. Choose one of the following options:
+
    - In the **Field list** pane, choose the
      selector icon to the right of the number field that you want
      to format.
@@ -60,6 +63,7 @@ following options:
 
 4.  Expand the **Separators** section and choose from
     the following options:
+
     - Under **Decimal**, choose a dot or a
       comma for the decimal separator. A dot is the default. If
       you choose a comma instead, use a dot or a space as the
@@ -81,6 +85,7 @@ following options:
     6.73.
 6.  Expand the **Units** section and choose from the
     following options:
+
     - Choose the unit to use. Choosing a unit adds the
       appropriate suffix to the number value. For example, if you
       choose **Thousands**, a field value of 1234
@@ -93,7 +98,6 @@ following options:
         + Millions (M)
         + Billions (B)
         + Trillions (T)
-
     - If you want to use a custom prefix or suffix, specify it
       in the **Prefix** or
       **Suffix** box. Using a custom suffix

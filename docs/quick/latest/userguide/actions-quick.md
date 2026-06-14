@@ -24,8 +24,10 @@ Retrieves a file from shared storage for use in your automation. Use this action
 **Properties:**
 
 - **File to download** (Required): The file to retrieve from shared storage. The File to download property includes a folder icon (📁) next to the field. Choose this icon to open the Select File editor, which provides an interface to:
+
   - _View all files_: See all files currently stored in your automation group's shared storage. Files appear as a list with Name, Last modified by, and Last modified time.
   - _Actions_: Each file has an Actions menu (⋮) with the following options:
+
     - _Download_: Save the file to your local machine
     - _Delete_: Remove the file from shared storage
 
@@ -85,6 +87,7 @@ Supported file types: HTML, TXT, JSON, CSV, PDF, XLSX, XLS, JPEG/JPG, PNG, DOCX,
 Keep the following considerations in mind when using shared file actions.
 
 - Quick Automate stores files at the automation group level. This means:
+
   - All automations within the same automation group can access the same shared files.
   - Files uploaded by one automation are immediately available to other automations in the group.
 

@@ -23,6 +23,7 @@ gather the following information for each domain:
   Dashboards URL by appending "`/dashboards/`" to an endpoint.
 - If the domain has a VPC endpoint, gather all the related information on the
   VPC tab of the OpenSearch Service console:
+
   - The VPC ID
   - The VPC security groups
   - The associated IAM role or roles
@@ -130,6 +131,7 @@ permissions:
    `*` as the index pattern.
 7. For **Index permissions**, add the following
    permissions:
+
    - `indices:admin/get`
    - `indices:admin/mappings/get`
    - `indices:admin/mappings/fields/get*`

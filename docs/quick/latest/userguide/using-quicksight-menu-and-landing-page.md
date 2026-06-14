@@ -82,6 +82,7 @@ homepage that suits your workflow.
 2. You can choose to add either **Quick use
    cases**, **Recents**, or **Business
    metrics**.
+
    1. If **Quick use cases** is already
       added to the homepage, this option will be unavailable. If you
       previously deleted the widget, choose **Add

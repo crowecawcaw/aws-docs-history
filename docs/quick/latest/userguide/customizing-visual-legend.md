@@ -24,6 +24,7 @@ settings for the legend title and items.
    the legend in the visual.
 3. For **Legend title**, enter a custom name for the legend and
    perform all or some of the following actions:
+
    1. (Optional) To change the color of the legend title, choose the color
       swatch underneath the legend title, and then choose the color that you
       want the legend title to be.
@@ -35,6 +36,7 @@ settings for the legend title and items.
 
 4. For **Legend item**, perform all or some of the following
    actions:
+
    1. (Optional) To change the color of the legend item font, choose the
       color swatch, and then choose the color that you want the legend title
       to be.

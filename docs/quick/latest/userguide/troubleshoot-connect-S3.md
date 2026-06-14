@@ -20,6 +20,7 @@ authorized separately.
    remove**.
 4. Locate Amazon S3 in the list. Choose one of the following actions to open the
    screen where you can choose S3 buckets:
+
    - If the check box is clear, select the check box next to Amazon S3.
    - If the check box is selected, choose **Details**,
      and then choose **Select S3 buckets**.

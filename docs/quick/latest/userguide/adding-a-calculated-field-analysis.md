@@ -50,6 +50,7 @@ analysis.
 2. Open the analysis that you want to change.
 3. In the **Data** pane, choose **Add** at
    top left, and then choose **+ CALCULATED FIELD**.
+
    1. In the calculations editor that opens, do the following:
    2. Enter a name for the calculated field.
    3. Enter a formula using fields from your dataset, functions, and
@@ -79,6 +80,7 @@ field.
 1. Open the dataset that you want to work with. For more information, see
    [Editing datasets](edit-a-data-set.md "edit-a-data-set.md").
 2. On the data prep page, do one of the following:
+
    - To create a new field, choose **Add calculated
      field** at left.
    - To edit an existing calculated field, choose it from

@@ -16,6 +16,7 @@ visual field well.
 ###### To change a date field's format by choosing a list option
 
 1. Choose one of the following options:
+
    - In the **Field list** pane, choose the
      selector icon to the right of the number field that you want
      to format.
@@ -29,6 +30,7 @@ visual field well.
 2. Choose **Format**, and then choose the format
    that you want. The following quick formatting options are offered
    for date fields:
+
    - Show the month, day, year, and time.
    - Show the month, day, and year.
    - Show the month and year.
@@ -37,6 +39,7 @@ visual field well.
 ###### To manually change a date field's format
 
 1. Choose one of the following options:
+
    - In the **Field list** pane, choose the
      selector icon to the right of the number field that you want
      to format.

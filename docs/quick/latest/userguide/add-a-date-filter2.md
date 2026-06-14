@@ -28,6 +28,7 @@ that you want to use. There are three filter types for dates:
   exclude current period, add support for Next N filters similar to Last N with an
   added capability to allow for Anchor date. You can use the following comparison
   types:
+
   - Previous – The previous
     UOM—for example, the previous year.
   - This – This UOM, which includes

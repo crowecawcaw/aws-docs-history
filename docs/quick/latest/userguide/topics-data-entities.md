@@ -21,6 +21,7 @@ displays the branch, state, and city where a transaction took place.
    entity**.
 4. In the **Named entity** page that opens, do the
    following:
+
    1. For **Dataset**, choose a dataset.
    2. For **Name**, enter a friendly name for the named
       entity.

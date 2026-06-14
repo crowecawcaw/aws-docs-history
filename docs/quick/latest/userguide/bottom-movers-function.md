@@ -60,6 +60,7 @@ the top movers computation.
 
 - `timeField` – From the **Time**
   field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**timeGranularity**` – The time
@@ -68,11 +69,13 @@ the top movers computation.
 
 - `categoryField` – From the
   **Categories** field well.
+
   - `**name**`
     – The formatted display name of the field.
 
 - `metricField` – From the
   **Values** field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**aggregationFunction**` – The
@@ -81,6 +84,7 @@ the top movers computation.
 
 - `startTimeValue` – The value in the date
   dimension.
+
   - `**value**`
     – The raw value.
   - `**formattedValue**` – The value
@@ -88,6 +92,7 @@ the top movers computation.
 
 - `endTimeValue` – The value in the date
   dimension.
+
   - `**value**`
     – The raw value.
   - `**formattedValue**` – The absolute
@@ -97,8 +102,10 @@ the top movers computation.
   The number of items included in this computation.
 - `**items**`: Bottom moving
   items.
+
   - `categoryField` – The category
     field.
+
     - `**value**` – The value
       (contents) of the category field.
     - `**formattedValue**` – The
@@ -109,6 +116,7 @@ the top movers computation.
 
   - `currentMetricValue` – The current value
     for the metric field.
+
     - `**value**` – The raw
       value.
     - `**formattedValue**` – The
@@ -119,6 +127,7 @@ the top movers computation.
 
   - `previousMetricValue` – The previous
     value for the metric field.
+
     - `**value**` – The raw
       value.
     - `**formattedValue**` – The
@@ -130,6 +139,7 @@ the top movers computation.
   - `percentDifference` – The percent
     difference between the current and previous values of the
     metric field.
+
     - `**value**` – The raw value of
       the calculation of the percent difference.
     - `**formattedValue**` – The
@@ -142,6 +152,7 @@ the top movers computation.
   - `absoluteDifference` – The absolute
     difference between the current and previous values of the
     metric field.
+
     - `**value**` – The raw value of
       the calculation of the absolute difference.
     - `**formattedValue**` – The

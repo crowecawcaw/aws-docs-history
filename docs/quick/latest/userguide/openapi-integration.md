@@ -184,6 +184,7 @@ You can share OpenAPI Specification action connectors with other users in your o
 
 1. From the OpenAPI integration details page, choose **Share**.
 2. Configure sharing options:
+
    - **Share with specific users** - Enter user names or email addresses.
    - **Share with organization** - Make available to all users in your organization.
 

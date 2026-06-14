@@ -17,12 +17,15 @@ to create small multiples appears as a field well, in the visuals that support i
    them, so you can see all of them at once.
 3. To format the set of small multiples, choose Format visual (the pencil icon)
    from the menu on the visual. You can adjust the following settings:
+
    - **Layout**
+
      - **Visible rows**
      - **Visible columns**
      - **Number of panels**
 
    - Panel title options (toggle)
+
      - Font size and color
      - Font weight
      - Text alignment

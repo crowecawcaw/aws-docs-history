@@ -26,6 +26,7 @@ The following rules apply to working with topics:
 1. Open the analysis that you want to use with automated data prep .
 2. On the top navigation bar, choose the topic icon.
 3. Choose one of the following:
+
    - To activate a new topic, select **Create new topic** and
      enter a topic title and optional description.
    - To activate an existing topic, select **Update existing

@@ -111,6 +111,7 @@ To learn more about which data can be managed with the key, see [Encrypting your
 1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick information with CloudTrail](../../../quicksight/latest/user/logging-using-cloudtrail.md "../../../quicksight/latest/user/logging-using-cloudtrail.md").
 2. Locate the most recent grant events for the SPICE
    dataset, using the following search arguments:
+
    - The event name (`eventName`) contains
      `Grant`.
    - The request parameters `requestParameters` contain the
@@ -165,6 +166,7 @@ CMK encrypted.
 1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick Sight information with AWS CloudTrail](incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail "incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail").
 2. Locate the most recent `GenerateDataKey` events for the report
    execution, using the following search arguments:
+
    - The event name (`eventName`) contains
      `GenerateDataKey` or `Decrypt`.
    - The request parameters (`requestParameters`) contain the

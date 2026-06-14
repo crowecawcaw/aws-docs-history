@@ -6,6 +6,7 @@ After defining your research objective, you can select the data sources that Qui
 
 1. In the material selection interface, review the available data source options.
 2. Select the types of materials you want to include:
+
    1. Toggle **Web search** to include online sources
    2. Choose **File upload** to add specific documents
 
@@ -38,6 +39,7 @@ Upload specific documents, PDFs, spreadsheets, or other files that you want Quic
 
 1. Choose **Upload** to open the **File Uploads** window.
 2. Add files using one of the following methods:
+
    1. Choose **Add Files** to navigate to your files in File Explorer
    2. Drag and drop up to 20 files into the upload areaIf you need to include more than 20 files in your research, consider organizing them in Spaces instead.
 
@@ -55,6 +57,7 @@ For optimal results, consider selecting the most relevant assets for your specif
 
 1. Choose **Browse** to open the **Add assets** window in the right pane.
 2. Select from the available resource type tabs:
+
    1. **Recent** - Recently accessed assets
    2. **Space** - Available data spaces (maximum of 2 selections)
    3. **Dashboard** - Dashboard resources (maximum of 2 selections)

@@ -32,6 +32,7 @@ successful authentication by AWS.
 Before configuring your SAML 2.0 connection, do the following:
 
 - Configure your IdP to establish a trust relationship with AWS:
+
   - Inside your organization's network, configure your identity store,
     such as Windows Active Directory, to work with a SAML-based IdP.
     SAML-based IdPs include Active Directory Federation Services,

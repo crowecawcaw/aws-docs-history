@@ -7,11 +7,13 @@ Exception handling allows you to manage errors and unexpected conditions in your
 Amazon Quick Automate supports two types of exceptions:
 
 - Business exceptions - Used for expected errors from business rule violations such as:
+
   - Missing required data
   - Invalid input values
   - Policy violations
 
 - System exceptions - Used for technical or infrastructure errors such as:
+
   - Connection failures
   - Service timeouts
   - Authentication errors

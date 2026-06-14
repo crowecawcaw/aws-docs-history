@@ -63,6 +63,7 @@ client credentials that you need for Amazon Quick.
    **Regenerate client secret**.
 7. Record the following values. You need them when you configure
    Amazon Quick.
+
    - **Client ID**
    - **Client secret**
 

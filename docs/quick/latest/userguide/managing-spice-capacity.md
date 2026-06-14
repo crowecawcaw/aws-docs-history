@@ -103,6 +103,7 @@ can use, for example data sources and dashboards.
     Quick** from your profile menu.
 3.  Choose **SPICE capacity** from the left
     navigation pane . The following information displays:
+
     - The **Total SPICE capacity** section
       displays the total amount of used and unused SPICE
       capacity. A bar graph shows how much of this storage space is in each of
@@ -123,6 +124,7 @@ can use, for example data sources and dashboards.
       bar graph shows how much of this storage space is in each of the
       following categories for this AWS account in the AWS Region that's
       currently selected in Amazon Quick:
+
       - Used SPICE capacity – This is the used
         portion of the default SPICE capacity that you
         get for each user.
@@ -245,6 +247,7 @@ auto-purchase logic starts.
    navigation pane .
 4. Choose **Release unused purchased capacity**.
 5. Do one of the following:
+
    - To release all SPICE capacity from the AWS Region
      that is currently selected in Amazon Quick, choose **Release
      all**.

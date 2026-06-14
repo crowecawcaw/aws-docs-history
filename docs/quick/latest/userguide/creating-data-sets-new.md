@@ -17,6 +17,7 @@ the dataset uses a direct query or instead stores data in [SPICE](spice.md "spic
    existing dataset or data source, or connect to a new data source and base the
    dataset on that.
 2. Provide connection information to the data source:
+
    - For local text or Microsoft Excel files, you can simply identify the
      file location and upload the file.
    - For Amazon S3, provide a manifest identifying the files or buckets that you

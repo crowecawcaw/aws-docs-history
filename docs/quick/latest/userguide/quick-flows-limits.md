@@ -24,11 +24,13 @@ File upload limits depend on your knowledge source and file type:
 **File size limits:**
 
 - **General knowledge:**
+
   - Document files: Up to 50 MB (supported file types depend on output preference)
   - Video files: Up to 1 GB
   - Image files: Up to 4.5 MB
 
 - **Quick data:**
+
   - Document files: Up to 50 MB (.pdf, .txt, .rtf, .doc, .docx, .ppt, .pptx, .csv, .xls, .xlsx)
   - Image files: Up to 10 MB (.png, .jpg, .jpeg)
 
@@ -53,10 +55,12 @@ File upload limits depend on your knowledge source and file type:
 Output limits control the size of prompts and generated responses:
 
 - **Maximum input prompt size:**
+
   - General knowledge: 5,000 characters
   - Quick data: 5,000 characters
 
 - **Maximum output characters rendered:**
+
   - General knowledge: Up to 40,000 characters
   - Quick data: 8,000 characters
 

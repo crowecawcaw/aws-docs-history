@@ -28,6 +28,7 @@ and Snowflake is enabled by SSL.
    Dataset**.
 3. Choose the **Snowflake** data source card.
 4. In the pop up that appears, enter the following information:
+
    1. For **Data source name**, enter a descriptive
       name for your Snowflake data source connection. Because you can
       create many datasets from a connection to Snowflake, it's bets to

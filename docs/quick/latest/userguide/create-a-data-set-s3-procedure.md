@@ -18,6 +18,7 @@
    source from others.
 8. For **Upload a manifest file**, do one of the
    following:
+
    - To use a local manifest file, choose **Upload**,
      and then choose **Upload a JSON manifest file**.
      For **Open**, choose a file, and then choose

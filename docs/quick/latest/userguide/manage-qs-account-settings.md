@@ -72,6 +72,7 @@ account. Contact your account administrator for help.
   Amazon Quick.
 - You need permissions to run the following (except if you're the root admin
   user (IAM ) who added Amazon Quick)
+
   - `quicksight:Unsubscribe`
   - `quicksight:DeleteAccountSubscription`
   - `ds:UnauthorizeApplication`
@@ -115,6 +116,7 @@ Amazon Quick instance.
    **Manage Quick**.
 2. Use one of the following methods to open the **Account
    termination** screen.
+
    - Use this [direct link](https://us-east-1.quicksight.aws.amazon.com/sn/console/unsubscribe "https://us-east-1.quicksight.aws.amazon.com/sn/console/unsubscribe") to the screen.
    - Choose **Account settings**,
      **Manage**.

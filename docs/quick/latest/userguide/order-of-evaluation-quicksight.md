@@ -30,6 +30,7 @@ analysis.
 
 1. **LAC-W Prefilter level**: Evaluates the data at
    the original table cardinality before analysis filters
+
    1. **Simple calculations**: Calculations at
       scalar level without any aggregations or window calculations. For
       example, `date_metric/60, parseDate(date, 'yyyy/MM/dd'),
@@ -44,6 +45,7 @@ County], PRE_FILTER) > 1000`.
 
 2. **LAC-W PRE_AGG**: Evaluates the data at the
    original table cardinality before aggregations
+
    1. **Filters added during analysis**:
       Filters created for un-aggregated fields in the visuals are applied at
       this point, which are similar to WHERE clauses. For example, `year
@@ -59,6 +61,7 @@ County], PRE_FILTER) > 1000`.
 
 3. **LAC-A level**: Evaluate aggregations at
    customized level, before visual aggregations
+
    1. **Custom-level aggregations**: If any
       LAC-A expression is involved in the visual, it is calculated at this
       point. Based on the table after the filters mentioned above, Amazon
@@ -69,6 +72,7 @@ County], PRE_FILTER) > 1000`.
 4. **Visual level**: Evaluates aggregations at
    visual level, and post-aggregation table calculations, with the remaining
    configurations applied in the visuals
+
    1. **Visual-level aggregations**: Visual
       aggregations should always be applied except for tabular tables (where
       dimension is empty). With this setting, aggregations based on the fields

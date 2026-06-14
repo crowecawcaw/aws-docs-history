@@ -8,6 +8,7 @@ You need administrator permissions to troubleshoot this issue.
 ###### To resolve an insufficient permissions error
 
 1. Make sure that Amazon Quick Sight can access the Amazon S3 buckets used by Athena:
+
    1. To do this, choose your profile name (upper right). Choose
       **Manage Quick Sight**, and then scroll down
       to the **Custom permissions** section.

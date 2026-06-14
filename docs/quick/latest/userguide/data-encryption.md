@@ -32,6 +32,7 @@ Amazon Quick securely stores your Amazon Quick metadata. This includes the follo
 - Names of your uploaded files, data source names, and data set names.
 - Statistics that Amazon Quick uses to populate machine learning (ML) insights.
 - Data indexed to support Amazon Q in Quick. This includes the following:
+
   - Topics
   - Metadata related to your dashboards
   - Your first index capacity purchase
@@ -50,6 +51,7 @@ Amazon Quick securely stores your Amazon Quick data. This includes the following
   encryption with AWS-managed keys.
 - Data-at-rest other than SPICE is encrypted using Amazon-managed KMS
   keys. This includes the following:
+
   - Email reports
   - Sample value for filters
 

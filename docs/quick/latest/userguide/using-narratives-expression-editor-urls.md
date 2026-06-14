@@ -28,6 +28,7 @@ Following are of examples of when you might add a static link in your narrative:
 
 - **To search a website with a query, by using the
   following steps.**
+
   1.  Create a URL with the following link.
 
   ```

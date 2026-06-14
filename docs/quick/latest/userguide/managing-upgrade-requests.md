@@ -34,6 +34,7 @@ For organizations using Identity Provider (IdP) authentication, administrators c
 1. In the upgrade requests table, choose **View details** for the request you want to process.
 2. Review the request details in the modal that opens.
 3. Choose one of the following options:
+
    - **Approve** — Grants the requested license upgrade immediately
    - **Deny** — Rejects the upgrade request
 

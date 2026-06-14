@@ -52,6 +52,7 @@ tree maps.
 1. In the **Properties** pane, choose the axis that you want to
    format.
 2. Adjust the following properties:
+
    - **Font family**
    - **Text size**
    - **Style** (Bold, Italic, Underline)
@@ -61,6 +62,7 @@ tree maps.
 
 - **Underline** is supported for axis titles, but not for axis labels
 - Different chart types use different terminology:
+
   - **Bar/Line charts** - **X-axis** and **Y-axis**
   - **Pie charts** - **Values**
   - **Heat maps** - **Rows** and **Columns**

@@ -20,6 +20,7 @@ table determines how this menu is accessed. For more information on accessing th
    options**.
 2. In the **Pivot options** menu, select the following
    options to customize the view:
+
    - **Hide +/– buttons** – Hide the
      plus and minus icons from your pivot table by default. Readers can
      still choose to show the plus and minus icons and expand or collapse

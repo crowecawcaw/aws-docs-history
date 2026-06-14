@@ -22,6 +22,7 @@ manually. You can also see when the data was last refreshed.
    refresh schedule for.
 3. Choose **Add schedule**, and then do one of the following
    in the **Add refresh schedule** page that opens.
+
    - If the dataset is a SPICE dataset, select
      **Refresh topic when dataset is imported into
      SPICE**.
@@ -32,6 +33,7 @@ manually. You can also see when the data was last refreshed.
    For more information about setting refresh schedules for
    SPICE datasets, see [Refreshing SPICE data](refreshing-imported-data.md "refreshing-imported-data.md").
    - If the dataset is a direct query dataset, do the following:
+
      1. For **Timezone**, choose a time
         zone.
      2. For **Repeats**, choose how often you

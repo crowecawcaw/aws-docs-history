@@ -28,6 +28,7 @@ following settings in **Format visual**.
   Compare values as a percent, the actual difference between values, or difference
   as a percent
 - **Axis style** –
+
   - **Show axis label** – Show or
     hide the axis label
   - **Range** – The numeric

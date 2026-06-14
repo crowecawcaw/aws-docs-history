@@ -45,6 +45,7 @@ Your AWS account number is displayed for verification purposes. 2. Enter a uniqu
    capacity, called SPICE.
 4. Choose an authentication method that you want to connect to Quick
    with. Select from one of the following:
+
    - **(Recommended) Password-based or Single-Sign
      On**
    - **IAM Identity Center**

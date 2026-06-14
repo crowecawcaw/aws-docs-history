@@ -47,9 +47,11 @@ assets listed. Here are a few examples:
     * Use the **Share** button to share all of the selected
      assets. A popup window displays sharing options to apply to the users or
      groups you specify.
-    * Use the **Transfer** button to transfer all of the
-     selected assets from one user or group to another. A popup window displays
-     transferring options to apply to the users or groups you specify.
+    * Select one or more assets, then choose the **Transfer**
+     button to transfer the selected assets from one user or group to another.
+     The **Transfer** button only appears after you select at
+     least one asset. A popup window displays transferring options to apply to
+     the users or groups you specify.
 
 When you need to share a Amazon Quick asset with 100 or more users, consider using
 Amazon Quick groups. For more information on Amazon Quick groups, see [Creating and managing groups in Amazon Quick](../../../quicksight/latest/user/creating-quicksight-groups.md "../../../quicksight/latest/user/creating-quicksight-groups.md").

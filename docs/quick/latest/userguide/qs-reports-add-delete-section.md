@@ -37,6 +37,7 @@ arranged in any order that you want.
    menu.
 2. Choose where you want to move your section. You can choose from
    the following options:
+
    - **Move section to top**
    - **Move section up**
    - **Move section down**

@@ -31,6 +31,7 @@ defaults**. The default language format is American English.
 1. On the analysis page, choose the visual that you want to modify.
 2. Navigate to the **Format data** pane using one of the
    following options:
+
    - On the visual that contains the data that you want to change, select
      the field that you want to change, open the **Format**
      dropdown list, and then choose **More formatting

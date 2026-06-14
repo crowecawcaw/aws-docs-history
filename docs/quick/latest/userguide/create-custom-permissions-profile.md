@@ -140,6 +140,7 @@ respective features.
    select **New profile** or choose to edit the default
    profile.
 5. In **New profile**, do the following:
+
    - In **Restrict capabilities** – Choose whether to
      allow specific capabilities for your system by checking or unchecking the
      appropriate options.
@@ -160,6 +161,7 @@ Directory.
 3. The Amazon Quick Admin console opens. Choose **Custom Permissions**.
 4. The **Manage custom permissions** page opens. Choose one of
    the following options.
+
    - To create a new custom permissions profile, choose
      **Create**.
    - To edit or view an existing custom permissions profile, choose the
@@ -168,6 +170,7 @@ Directory.
 
 5. If you want to create or update a custom permissions profile, make selections
    for the following items.
+
    - For **Name**, enter a name for the custom permissions
      profile.
    - For **Restrictions**, choose the options that you
@@ -211,6 +214,7 @@ the following options.
 
 5. If you want to create or update a custom permissions profile, make selections
    for the following items.
+
    - For **Name**, enter a name for the custom permissions
      profile.
    - For **Restrictions**, choose the options that you

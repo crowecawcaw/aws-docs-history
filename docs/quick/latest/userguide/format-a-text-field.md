@@ -7,6 +7,7 @@ visual field well.
 ###### To choose how to display a text field's null values
 
 1. Choose one of the following options:
+
    - In the **Field list** pane, choose the
      selector icon to the right of the number field that you want
      to format.

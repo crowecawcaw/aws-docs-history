@@ -38,6 +38,7 @@ anomaly detection.
 1. Open a dashboard that is shared with you.
 2. You can configure alerts from one of two screens. Choose one of the
    following, then go to the next step:
+
    - In the dashboard, locate the anomaly widget that you're
      interested in. Select it so that it has a highlighted box around it.
    - If you're in the dashboard and have the **Explore

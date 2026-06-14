@@ -18,11 +18,13 @@ Follow these steps to connect Amazon Quick to your BambooHR system.
 2.  Choose the **Create for your team** tab.
 3.  Find and choose **BambooHR**.
 4.  Complete the integration details:
+
     - **Name** - Enter a descriptive name for your BambooHR integration.
     - **Description** (Optional) - Describe the purpose of this integration.
 
 5.  Choose connection type (user or service authentication).
 6.  Complete the connection settings based on authentication method:
+
     - **For User authentication (OAuth):**
 
           + **Base URL** - Your BambooHR instance URL.
@@ -45,6 +47,7 @@ Follow these steps to connect Amazon Quick to your BambooHR system.
 
     Additional scopes may be required depending on the specific BambooHR actions you plan to use. Consult your BambooHR administrator for the complete list of available scopes.
     - **For Service authentication (API Key):**
+
       - **Base URL** - Your BambooHR instance URL.
       - **API Key** - Your BambooHR API key.
       - **Email** - Email address associated with the API key.

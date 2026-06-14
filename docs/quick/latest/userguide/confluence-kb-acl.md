@@ -113,6 +113,7 @@ steps.
    **API Keys**.
 5. Choose **Create API key**.
 6. Select the following scopes for the API key:
+
    - `read:directories:admin`
    - `read:workspaces:admin`
 

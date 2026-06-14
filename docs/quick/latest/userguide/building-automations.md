@@ -26,6 +26,7 @@ Get started quickly by exploring pre-built samples that demonstrate common autom
 
 - Search to explore different samples by industry.
 - Click on the sample to view an overview of the automation.
+
   - If any integrations are required, they will be listed as prerequisites.
 
 - Click **Start with sample** to open the automation in the canvas.
@@ -41,10 +42,12 @@ The Automation Assistant provides an AI-powered approach to creating automations
 When you provide input through either method, the Automation Assistant will generate your automation through a two-step guided experience:
 
 - **High-level plan**
+
   - First, the Assistant analyzes your requirements and generates a high-level automation plan. The plan consists of **process steps** that logically group the related actions as part of the automation. Each process step initially contains natural language instructions.
   - Review and edit the instructions for each process step and then click **Generate** to create the low-level actions for that step.
 
 - **Low-level actions**
+
   - Next, the Assistant will build the low-level actions and process logic based on the step instructions.
   - Review and edit the generated actions. Click **Run** or **Debug** to begin testing.
 
@@ -52,6 +55,7 @@ Best practices for providing natural language inputs:
 
 - Specify the step by step process as if you were training a new hire
 - Include exact details needed to perform each step:
+
   - Email address if sending a message
   - File name and location if uploading/downloading a document
   - URL if navigating to a website
@@ -99,6 +103,7 @@ Once you've created your automation, you can modify it using either the Automati
 The Automation Assistant helps you make changes through natural language. You can:
 
 - Ask for updates to the entire automation, specific steps or specific actions
+
   - Focus the chat on specific steps by selecting them first
 
 - Ask questions and get in-product help and suggestions based on your actual automation
@@ -109,6 +114,7 @@ To edit with the Assistant:
 - Click **Build with Assistant** in the toolbar
 - Describe the changes you want to make
 - Review and confirm the suggested modifications
+
   - The chat includes a summary of changes. Click **Reject changes** to revert to the previous version.
 
 - Test the updated automation
@@ -193,6 +199,7 @@ To define an input schema:
 - Choose the **Start** node on the canvas to open the schema editor. You can also open the schema editor from the properties pane. To do this, choose the **Start** node, and then choose **Edit** in **Input format** in the properties pane.
 - Choose **+Add field** to add an input field.
 - For each input field, configure the following properties:
+
   - **Name** – A unique identifier for the field.
   - **Type** – The type of data the field accepts. For more information, see Supported data types.
   - **Required** – Whether the field must be provided when running the automation.
@@ -206,6 +213,7 @@ To define an output schema:
 - Choose an **End** node on the canvas to open the Output schema editor. You can also open the schema editor from the properties pane. To do this, choose the **End** node, and then choose **Edit** in **Output format** in the properties pane.
 - Choose **+Add field** to add an output field.
 - For each output field, configure the following properties:
+
   - **Name** – A unique identifier for the field.
   - **Type** – The type of data for the output.
   - **Description** – A description of what the output represents.
@@ -277,6 +285,7 @@ To commit a version:
 - Click **Commit** in the canvas toolbar
 - Add a descriptive note explaining your changes
 - Choose how to increment the version number:
+
   - Minor version (e.g., 1.05 → 1.06) for smaller updates (default)
   - Major version (e.g., 1.0 → 2.0) for significant changes
 

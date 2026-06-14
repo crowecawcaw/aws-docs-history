@@ -40,6 +40,7 @@ radar chart.
    **Axis** dropdown list.
 3. Select the **Fill grid lines** check box.
 4. (Optional) Select colors for the even and odd numbered grid lines.
+
    - Choose the **Even color** icon that appears, and then
      choose the color that you want the even numbered grid lines to be. The
      default color for this value is white.

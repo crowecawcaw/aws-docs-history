@@ -38,6 +38,7 @@ Use the following procedure to create a topic.
    **Create Topic** at upper right.
 3. On the **Create Topic** page that opens, do the
    following:
+
    1. For **Topic name**, enter a descriptive name for
       the topic.
 
@@ -50,6 +51,7 @@ Use the following procedure to create a topic.
 
 4. On the **Add data to topic** page that opens, choose one
    of the following options:
+
    - To add one or more datasets that you own or have permission to,
      choose **Datasets**, and then select the dataset or
      datasets that you want to add.

@@ -28,6 +28,7 @@ Each automation is listed with key metrics and status information:
 - **Automation name** - Name and version of the deployed automation
 - **Latest run** - Most recent execution status and timestamp
 - **Case metrics** - Count of cases processed, broken down by:
+
   - Successfully completed cases
   - Cases with business exceptions
   - Cases with system exceptions
@@ -63,6 +64,7 @@ Each run provides comprehensive execution information through the following colu
 - **End time** - When the automation completed or stopped
 - **Duration** - Total running time of the automation
 - **Case metrics** - Count of cases processed, broken down by:
+
   - Successfully completed cases
   - Cases with business exceptions
   - Cases with system exceptions
@@ -93,6 +95,7 @@ Cases can be in one of these processing statuses:
 - **Pending Resolution** - The case is waiting for a human-in-the-loop task to be completed before processing can continue. Cases move back to Ready status after tasks are resolved.
 - **Successful** - The case has completed without any exceptions.
 - **Failed** - The case encountered one of the following exception types:
+
   - **Business Exception** - The case encountered a handled business rule violation and stopped processing. Detailed exception information is available in the logs.
   - **System Exception** - The case experienced a technical error and stopped processing. Detailed error information is available in the logs.
 

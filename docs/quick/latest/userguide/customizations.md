@@ -11,6 +11,7 @@ The following customization options are currently available:
 
 - You can customize the welcome content Quick provides for new
   users:
+
   - You can accept or decline the sample assets. These assets include
     sample datasets and analyses that are added when a person signs in for
     the first time.

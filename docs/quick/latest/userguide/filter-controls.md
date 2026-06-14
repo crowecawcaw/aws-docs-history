@@ -133,6 +133,7 @@ or labels, use the following procedure to customize the remaining options.
 
 1.  In the **Format control** pane, for
     **Style**, choose one of the following options:
+
     - **Dropdown** – Displays a dropdown list
       with buttons that you can use to select a single value.
 
@@ -188,7 +189,6 @@ or labels, use the following procedure to customize the remaining options.
          values** – Removes the option to select
          or clear the selection of all values in the filter
          control.
-
     - **List - multiselect** – Displays a list
       with boxes that you can use to select multiple values.
 
@@ -210,7 +210,6 @@ or labels, use the following procedure to customize the remaining options.
          values** – Removes the option to select
          or clear the selection of all values in the filter
          control.
-
     - **Text field** – Displays a text box where
       you can enter a single entry. Text fields support up to 79950
       characters.
@@ -219,7 +218,6 @@ or labels, use the following procedure to customize the remaining options.
 
         + **Show helper text in control** –
          Removes the helper text in text fields.
-
     - **Text field - multiline** – Displays a
       text box where you can enter multiple entries. Multiline text fields
       support up to 79950 characters across all entries.
@@ -244,6 +242,7 @@ customize the remaining options.
 
 1.  In the **Format control** pane, for
     **Style**, choose one of the following options:
+
     - **Dropdown** – Displays a list where you
       can select a single value.
 
@@ -267,7 +266,6 @@ customize the remaining options.
          values** – Removes the option to select
          or clear the selection of all values in the filter
          control.
-
     - **List** – Displays a list with buttons
       that enable selecting a single value.
 
@@ -289,12 +287,12 @@ customize the remaining options.
          values** – Removes the option to select
          or clear the selection of all values in the filter
          control.
-
     - **Slider** – Displays a horizontal bar
       with a toggle that you can slide to change the value. If you have a
       ranged filter for values between a minimum and a maximum, the slider
       provides a toggle for each number. For sliders, you can specify the
       following options:
+
       - **Minimum value** – Displays the
         smaller value at the left of the slider.
       - **Maximum value** – Displays the
@@ -306,6 +304,7 @@ customize the remaining options.
     - **Text box** – Displays a box where you
       can enter the value. When you select this option, you can choose the
       following:
+
       - **Show helper text in control** –
         Removes the helper text in text fields.
 
@@ -362,6 +361,7 @@ sort options are available in the **Sort** section of the
 3. In the **Format control** pane, locate the
    **Sort** section.
 4. Choose one of the following options:
+
    - **Ascending (A–Z,
      0–9)** – Sorts values in ascending
      order. This is the default.
@@ -395,9 +395,11 @@ a list of products by total sales.
 3. In the **Format control** pane, locate the
    **Sort** section.
 4. Configure the following options:
+
    - **Sort by control column**
      – Sorts the control values based on the column that the
      control is tied to.
+
      - For **Sort direction**, choose
        **Ascending** or
        **Descending**.
@@ -409,6 +411,7 @@ a list of products by total sales.
    - **Sort by another field**
      – Sorts the control values based on a different column in
      the dataset.
+
      - For **Sort by field**, choose a
        column from the dataset. For calculated fields, only
        scalar (non-aggregated) calculated columns are
@@ -460,6 +463,7 @@ valid for what is selected in other controls. This is called a cascading control
 4. For filter controls, the child control must be linked to a filter (instead of
    showing only specific values).
 5. The parent control must be one of the following:
+
    1. A string, integer, or numeric parameter control.
    2. A string filter control (excluding top-bottom filters).
    3. A non-aggregated numeric filter control.

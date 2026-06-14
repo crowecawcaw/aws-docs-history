@@ -29,6 +29,7 @@ The fragment after `#` follows these rules:
   **Parameter** on the left sidebar.
 - The value is set using equals (`=`). The following rules
   apply:
+
   - Literal values don't use quotation marks.
   - Spaces inside values are automatically encoded by the browser, so
     you don't need to use escape characters when manually creating

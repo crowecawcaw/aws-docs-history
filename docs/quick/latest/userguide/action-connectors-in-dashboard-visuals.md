@@ -9,6 +9,7 @@ The connector must meet these requirements:
 
 - Uses the **User Auth** authentication method
 - Uses one of the following integrations:
+
   - Atlassian Jira Cloud
   - Microsoft Outlook
   - Microsoft Teams
@@ -46,6 +47,7 @@ The connector must meet these requirements:
 8. Enter all the information you need to include with the action.
 9. Some fields allow the inclusion of autofill values. Choose **Autofill**
    to open the menu. Choose the values you need and they will be added to your entered text.
+
    - **Today’s date**: Injects today’s date
    - **Visual name**: Injects visual name
    - **All**: Injects both of the above
@@ -78,6 +80,7 @@ To learn more about CLS, see
 **Dashboard publishing options**
 
 - Enable Quick actions
+
   - You cannot see or use actions on any visuals of a dashboard that was published
     with the **Enable Quick actions** publishing option disabled.
 

@@ -18,10 +18,12 @@ Follow these steps to connect Amazon Quick to your PagerDuty system.
 2. Choose the **Create for your team** tab.
 3. Find and choose **PagerDuty**.
 4. Fill in the integration details:
+
    - **Name** - Enter a descriptive name for your PagerDuty integration.
    - **Description** (Optional) - Describe the purpose of this integration.
 
 5. Choose your connection type:
+
    - **User authentication** - OAuth for individual user access to PagerDuty.
    - **Service authentication** - API key-based authentication for service-to-service access.
 

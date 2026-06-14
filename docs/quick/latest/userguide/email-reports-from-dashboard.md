@@ -130,6 +130,7 @@ following options are available.
     changes, choose **Send test report**. This option displays
     beside the user name of the owner of the dashboard.
 18. Do one of the following:
+
     - (Recommended) Choose **Save** to confirm your
       entries.
     - To immediately send a report, choose **Save and run

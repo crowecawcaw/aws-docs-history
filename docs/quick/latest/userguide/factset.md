@@ -18,6 +18,7 @@ To use FactSet in Quick, you (or someone from your organization) will need to:
 
 1. Contact FactSet to get access at [AWS.QR.Partnership@factset.com](mailto:AWS.QR.Partnership@factset.com "mailto:AWS.QR.Partnership@factset.com").
 2. Create a Quick integration for FactSet.
+
    1. Open the Research page and select **New Research**.
    2. In the **Research Materials** section, find **Third party data** and select **Browse** to display a list of supported third party data integrations.
    3. Find the integration in the list and select **Connect**. This will display a pop-up with a summary of these setup steps. Select **Continue**.

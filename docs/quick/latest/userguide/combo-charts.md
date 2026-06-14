@@ -98,6 +98,7 @@ Use the following procedure to create a combo chart.
    choose to use a dimension field as a measure, the **Count**
    aggregate function is automatically applied to it to create a numeric value.
    You can create combo charts as follows:
+
    - Choose a dimension for the **X axis**.
    - To create a single-measure combo chart, choose one measure for
      either **Bars** or

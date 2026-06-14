@@ -16,6 +16,7 @@ cross-source. A dataset is considered same-source when it doesn't have any joins
 when all of the following conditions are met:
 
 - If any of the logical tables refer to a Quick Sight data source:
+
   - All of the logical tables in this dataset must refer to the same
     Quick Sight data source. This doesn't apply if two separate
     Quick Sight data sources refer to the same underlying database. It
@@ -24,6 +25,7 @@ when all of the following conditions are met:
 
 - If any of the logical tables refer to a Quick Sight dataset that is a
   parent dataset:
+
   - The parent dataset must use direct query.
   - The parent dataset must refer to the same Quick Sight data
     source.

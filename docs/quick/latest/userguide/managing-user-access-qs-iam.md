@@ -206,6 +206,7 @@ Use the following procedure to delete a Amazon Quick user account.
 4. Choose to either delete or transfer any resources owned by the user and
    then choose **OK**.
 5. Do one of the following:
+
    - If you chose to transfer user resources, enter the user name of
      the account to transfer them to and then choose **Delete and
      transfer resources**.

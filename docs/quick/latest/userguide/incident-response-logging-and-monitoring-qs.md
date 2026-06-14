@@ -140,6 +140,7 @@ This event works with Enterprise edition only.
   Analysis Access
 - UpdateAnalysis – Update
   Analysis
+
   - RenameAnalysis – Rename
     Analysis
   - CreateVisual – Create
@@ -155,6 +156,7 @@ This event works with Enterprise edition only.
 
 - CreateDataSource – Create Data
   Source
+
   - FlatFile – Flat file
   - External – External
   - S3 – S3
@@ -173,6 +175,7 @@ This event works with Enterprise edition only.
 ###### Data set
 
 - CreateDataSet – Create Data Set
+
   - CustomSQL – Custom
     SQL
   - SQLTable – SQL Table

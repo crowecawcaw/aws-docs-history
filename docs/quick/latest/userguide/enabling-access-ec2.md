@@ -29,6 +29,7 @@ For more information about what is required, see [Creating a dataset from a data
    SECURITY** section of the navigation pane. Then choose
    **Create Security Group**, as shown following.
 4. Enter the security group information as follows:
+
    - For **Security group name**, enter
      `Amazon-QuickSight-access`.
    - For **Description**, enter
@@ -40,6 +41,7 @@ For more information about what is required, see [Creating a dataset from a data
 5. Choose **Add Rule** on the **Inbound**
    tab.
 6. Create a new rule with the following values:
+
    - For **Type**, choose **Custom TCP
      Rule**.
    - For **Protocol**, choose

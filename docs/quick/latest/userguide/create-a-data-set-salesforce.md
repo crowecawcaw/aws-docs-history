@@ -31,6 +31,7 @@ Joined reports aren't supported as Quick Sight data sources. 8. Choose one of th
      **Select**.
 
 9. Choose one of the following options:
+
    - To create a dataset and an analysis using the data as-is, choose
      **Visualize**.
 

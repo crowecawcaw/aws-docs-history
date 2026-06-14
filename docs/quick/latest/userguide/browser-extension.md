@@ -47,11 +47,13 @@ To set the install mode in the **ExtensionSettings** policy,
 you need the extension identifier and the store URL:
 
 - **Chrome/Edge**
+
   - ID: `innkphffipcmiflfibbeghfnkifiokgo`
   - URL:
     `https://clients2.google.com/service/update2/crx`
 
 - **Firefox**
+
   - ID: `quick-browser-extension@amazon.com`
   - URL:
     `https://addons.mozilla.org/firefox/downloads/latest/amazon-quick/latest.xpi`

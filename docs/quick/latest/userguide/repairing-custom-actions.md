@@ -33,6 +33,7 @@ safer if you aren't sure what happened to it.
    scope**. **Selected fields** can only display
    fields that are in the visual. To disable selected fields that are removed,
    choose one of the following:
+
    - Change the **Filter scope** setting to
      **All fields**. Doing this enables the widget
      to filter on every field.

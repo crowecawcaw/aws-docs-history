@@ -18,6 +18,7 @@ on-visual editor, or a visual field well.
 ###### To change a percent field's number of decimal places by choosing a list option
 
 1. Choose one of the following options:
+
    - In the **Field list** pane, choose the
      selector icon to the right of the number field that you want
      to format.
@@ -31,6 +32,7 @@ on-visual editor, or a visual field well.
 2. Choose **Format**, and then choose the number of
    decimal places that you want. The following quick formats are
    offered for percent fields:
+
    - Display the value with two decimal places.
    - Display the value with one decimal place.
    - Display the value with no decimal places.
@@ -38,6 +40,7 @@ on-visual editor, or a visual field well.
 ###### To manually change a percent field's format
 
 1. Choose one of the following options:
+
    - In the **Field list** pane, choose the
      selector icon to the right of the number field that you want
      to format.
@@ -70,6 +73,7 @@ the following options:
 
 4. Expand the **Decimal Places** section and choose
    from the following options:
+
    - Choose **Auto** to have Amazon Quick
      automatically determine the appropriate number of decimal
      places, or choose **Custom** to specify a

@@ -156,6 +156,7 @@ in a Quick account that uses IAM Identity Center.
   _Amazon S3 User Guide_. If your query results are
   encrypted with an AWS KMS key, the Amazon S3 Access Grant IAM role and the
   Athena workgroup role both need permissions to AWS KMS.
+
   - For more information, see [Amazon S3
     Access Grants and corporate directory identities](../../../AmazonS3/latest/userguide/access-grants.md "../../../AmazonS3/latest/userguide/access-grants.md") in
     the Amazon S3 User Guide.

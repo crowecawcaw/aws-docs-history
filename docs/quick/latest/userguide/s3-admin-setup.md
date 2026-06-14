@@ -17,6 +17,7 @@ whether the buckets are in the same AWS account or a different account.
 3. Choose **Select S3 buckets**.
 4. In the **Select Amazon S3 buckets** dialog, choose the
    tab that matches your bucket location:
+
    - **S3 Buckets Linked To Quick Account** – Select
      the buckets from the list that you want Amazon Quick to access.
      Selected buckets have read-only permissions by default.
@@ -60,8 +61,10 @@ If you're accessing Amazon S3 buckets in a different AWS account, you must confi
 3. Choose the bucket that you want to grant access to.
 4. Choose **Permissions**, and then choose **Bucket Policy**.
 5. Add a bucket policy with the following elements:
+
    - `Version` – Set to "2012-10-17"
    - `Statement` – Array containing policy statements with:
+
      - `Sid` – "AllowQuickSuiteS3Access"
      - `Effect` – "Allow"
      - `Principal` – AWS ARN for the Amazon Quick service role in your account. For
@@ -86,6 +89,7 @@ If your Amazon S3 bucket uses AWS KMS encryption, complete the following steps.
 3. Choose **Key policy**, and then choose **Edit**.
 4. Add a statement to the key policy with the following structural
    elements:
+
    - `Sid` – "AllowQuickSuiteKMSAccess"
    - `Effect` – "Allow"
    - `Principal` – AWS ARN for the Amazon Quick service role in your account. For

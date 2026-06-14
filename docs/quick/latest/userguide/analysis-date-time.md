@@ -97,6 +97,7 @@ The following considerations apply to custom time zones.
   in SPICE. SPICE is engineered to handle time
   zone conversions in a performant way.
 - Custom time zones do not support the following database engines:
+
   - Timestream
   - OpenSearch Service
   - Teradata

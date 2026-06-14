@@ -19,6 +19,7 @@ To use S&P Global Market Intelligence in Quick, you (or someone from your organi
 
 1. Contact S&P Global to ensure your organization subscribes to S&P Global Market Intelligence data. To learn more about how to access S&P Global data via the Kensho LLM-ready API, email [commercial@kensho.com](mailto:commercial@kensho.com "mailto:commercial@kensho.com") for free trials and pricing, or read more [here](https://docs.kensho.com/llmreadyapi/overview "https://docs.kensho.com/llmreadyapi/overview").
 2. Create a Quick integration for S&P Global Market Intelligence.
+
    1. Open the Research page and select **New Research**.
    2. In the **Research Materials** section, find **Third party data** and select **Browse** to display a list of supported third party data integrations.
    3. Find the integration in the list and select **Connect**. This will display a pop-up with a summary of these setup steps. Select **Continue**.

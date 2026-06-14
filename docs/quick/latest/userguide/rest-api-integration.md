@@ -64,10 +64,12 @@ After you have prepared your API endpoint and authentication credentials, follow
 2. Choose the **Create for your team** tab.
 3. Find and choose **REST API Connection**.
 4. Fill in the integration details:
+
    - **Name** - Descriptive name for your REST API integration.
    - **Description** (Optional) - Purpose of the integration.
 
 5. Choose your connection type:
+
    - **User authentication** - OAuth-based authentication for individual user access.
    - **Service authentication** - API key-based authentication for service access.
 

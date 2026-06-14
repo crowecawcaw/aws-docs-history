@@ -47,10 +47,13 @@ There are two types of reference lines:
 5. The **New reference line** menu opens. Use this menu to
    configure your new reference line. The list below describes all reference line
    properties that can be configured.
+
    - **Data**
+
      - **Type** – The type of reference line
        that you want to use. Choose one of the following
        options:
+
        - To create a constant line based on a single value that
          you enter, choose **Constant line**.
        - To create a calculated line based on a field, choose
@@ -78,6 +81,7 @@ There are two types of reference lines:
        **Lines**.
 
    - **Line style**
+
      - **Pattern** – The pattern used for the
        line. Valid options include **Dashed**,
        **Dotted**, and
@@ -86,6 +90,7 @@ There are two types of reference lines:
        line.
 
    - **Label**
+
      - **Type** – The type of label to
        display. Valid options include **Value only**,
        **Custom text**, **Custom text and
@@ -104,6 +109,7 @@ There are two types of reference lines:
        below.
      - **Value format** – The format to use
        for the value. Choose one of the following:
+
        - **Same as value** – Uses the
          formatting that's already selected for this field
          in the visualization.

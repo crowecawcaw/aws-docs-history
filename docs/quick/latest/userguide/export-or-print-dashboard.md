@@ -16,6 +16,7 @@ is not currently supported for interactive dashboards.
    downloads** in the blue pop-up to open the
    **Downloads** pane on the right.
 4. There are two ways to download your report:
+
    - Choose **DOWNLOAD NOW** in the green
      pop-up.
    - Choose the **Export** icon at the top right,

@@ -60,6 +60,7 @@ Amazon Comprehend is a natural language processing (NLP) service for gaining ins
 The Microsoft Outlook actions allow your automations to manage emails and calendars.
 
 - **Email**
+
   - **Send User Email** - Send an email message on behalf of a specific user.
   - **Reply to Email** - Reply to the sender of a message.
   - **List Folder Messages** - Get the messages in a specific folder of the signed-in user's mailbox.
@@ -71,16 +72,19 @@ The Microsoft Outlook actions allow your automations to manage emails and calend
   - **Get Attachment** - Read the properties, relationships, or raw contents of an attachment.
 
 - **Folders**
+
   - **List Mail Folders** - Get the mail folder collection directly under the root folder of the signed-in user.
   - **Move Email to Folder** - Move a message to another folder within the specified user's mailbox.
   - **Get Mailbox Settings** - Get the user's mailbox settings, such as automatic replies, date format, and time zone.
 
 - **Calendar**
+
   - **List Calendar Events** - Fetch a list of calendar events for the specified user or resource from Microsoft Outlook.
   - **Create Calendar Event** - Create an event in the user's default calendar or specified calendar.
   - **Update Calendar Event** - Update the properties of an existing event object.
 
 - **Other**
+
   - **List Places** - Get a collection of place objects (rooms or room lists) defined in the tenant.
   - **List Users** - Retrieve a list of users in the organization from Microsoft Outlook with their basic information.
   - **List Contacts** - Get a contact collection from the default contacts folder of the signed-in user.
@@ -90,6 +94,7 @@ The Microsoft Outlook actions allow your automations to manage emails and calend
 The Microsoft Teams actions allow your automations to communicate with team members through channels and chat messages, as well as manage meetings.
 
 - **Messages**
+
   - **List Chats** - View all chat conversations
   - **Create Chat** - Start a new chat conversation
   - **Get Individual Chat** - View details of a specific chat
@@ -97,12 +102,14 @@ The Microsoft Teams actions allow your automations to communicate with team memb
   - **Send Chat Message** - Send a new message in a chat
 
 - **Teams**
+
   - **List Teams** - View all teams accessible to the authenticated user
   - **Get Team** - View detailed information about a specific team
   - **List All Team Members** - View members of a team
   - **Invite User To Team** - Add a new member to a team
 
 - **Channels**
+
   - **List All Channels** - View all channels within a specific team
   - **Create Channel** - Create a new channel within a team
   - **Get Channel** - View detailed information about a specific channel
@@ -112,12 +119,14 @@ The Microsoft Teams actions allow your automations to communicate with team memb
   - **Invite Channel Member** - Add a member to a specific channel
 
 - **Meetings**
+
   - **Create Online Teams Meeting** - Schedule a new online meeting
   - **Get Online Teams Meeting** - View details of a specific meeting
   - **List All Recordings** - View recordings from a meeting
   - **List All Transcripts** - View transcripts from a meeting
 
 - **Users**
+
   - **List Users** - View list of users in the organization
 
 ### Microsoft SharePoint
@@ -125,6 +134,7 @@ The Microsoft Teams actions allow your automations to communicate with team memb
 The Microsoft SharePoint allows you to centrally store, manage, and share documents and information through your automations.
 
 - **Lists and items**
+
   - **Get List** - Get a list of operations associated with a list
   - **Create Item** - Create a new list Item in a list
   - **Update Item** - Update the properties on a listItem
@@ -133,6 +143,7 @@ The Microsoft SharePoint allows you to centrally store, manage, and share docume
   - **List Item** - Get the collection of items in a list
 
 - **Sheets and files**
+
   - **Add Sheet** - Add a new worksheet to the workbook
   - **Delete Sheet** - Remove worksheet from workbook
   - **Update Sheet** - Edit worksheet properties (rename, visibility)
@@ -141,6 +152,7 @@ The Microsoft SharePoint allows you to centrally store, manage, and share docume
   - **Upload File** - Creates or updates a workbook file
 
 - **Ranges and cells**
+
   - **Read Range** - Retrieves values from a specified range
   - **Delete Range** - Deletes cells in a specified range
   - **Write Range** - Updates values in a specified range
@@ -154,6 +166,7 @@ The Microsoft SharePoint allows you to centrally store, manage, and share docume
 Microsoft OneDrive actions allow you to store, sync, and share files. You can interact directly with Microsoft Excel files saved to OneDrive for spreadsheet actions.
 
 - **File management**
+
   - **Get Item** - View details of a specific file or folder
   - **Get Drive** - View OneDrive account details and storage information
   - **List Items** - View all files and folders in a drive
@@ -166,6 +179,7 @@ Microsoft OneDrive actions allow you to store, sync, and share files. You can in
   - **Upload File** - Add new files to OneDrive
 
 - **Excel**
+
   - **Add Sheet** - Create a new worksheet in an Excel workbook
   - **Clear Range** - Remove content and formatting from a range of cells
   - **Delete Range** - Remove cells, rows, or columns from a worksheet
@@ -184,6 +198,7 @@ Microsoft OneDrive actions allow you to store, sync, and share files. You can in
 Salesforce actions allow you to automate the process of managing customer relationships across cases, opportunities, leads, campaigns, contacts and more.
 
 - **Cases**
+
   - **Get Case List** - Gets a list of customer support cases from Salesforce, including their metadata and recent items.
   - **Get Case** - View details of a specific case
   - **Create Case** - Create a new support case
@@ -191,6 +206,7 @@ Salesforce actions allow you to automate the process of managing customer relati
   - **Update Case** - Edit case details and information
 
 - **Opportunities**
+
   - **Get Opportunities** - View list of sales opportunities
   - **Get Specific Opportunity** - View details of a specific opportunity
   - **Create Opportunity** - Create a new sales opportunity
@@ -198,23 +214,29 @@ Salesforce actions allow you to automate the process of managing customer relati
   - **Delete Opportunity** - Remove an existing opportunity
 
 - **Leads**
+
   - **Update Lead** - Edit lead details and information
 
 - **Campaigns**
+
   - **Update Campaign** - Edit campaign details and information
 
 - **Feed Items**
+
   - **Update Feed Item** - Edit feed item content and properties
 
 - **Contacts**
+
   - **Get Contact List** - View all contacts in the system
   - **Get Contact** - Fetch details of a specific contact
   - **Update Contact** - Edit contact information
 
 - **Users**
+
   - **Get User List** - Retrieve list of Salesforce users
 
 - **System**
+
   - **Describe SObject** - Get object metadata and field details for any Salesforce object type
 
 ### Jira
@@ -222,6 +244,7 @@ Salesforce actions allow you to automate the process of managing customer relati
 Jira actions allow you to automate managing issues, projects, sprints and more.
 
 - **Issues**
+
   - **Create Issue** - Create an issue in a project.
   - **Edit Issue** - Modify an existing issue in a project.
   - **Update Issue Status (Do Transition)** - Change task status of an issue.
@@ -234,12 +257,14 @@ Jira actions allow you to automate managing issues, projects, sprints and more.
   - **Get All Labels** - View all labels.
 
 - **Comments**
+
   - **Add Comment** - Add new comment to an issue.
   - **Delete Comment** - Remove comment from an issue.
   - **Update Comment** - Edit an existing comment on an issue.
   - **Get Comments** - View issue comments.
 
 - **Projects**
+
   - **Create Project** - Create new project in Jira.
   - **Update Project** - Modify project details.
   - **Delete Project** - Remove project from Jira.
@@ -248,6 +273,7 @@ Jira actions allow you to automate managing issues, projects, sprints and more.
   - **Search Projects** - Find visible projects.
 
 - **Sprints**
+
   - **Create Sprint** - Create a sprint in a project.
   - **Update Sprint** - Update sprint details.
   - **Delete Sprint** - Delete a sprint in a project.
@@ -256,6 +282,7 @@ Jira actions allow you to automate managing issues, projects, sprints and more.
   - **Move Issues to Backlog** - Move issues to backlog.
 
 - **Users**
+
   - **Find Users** - Search for a Jira user.
   - **Find Assignable Users** - Returns a list of users that can be assigned to an issue.
   - **Get All Users** - List all Jira users.
@@ -265,24 +292,29 @@ Jira actions allow you to automate managing issues, projects, sprints and more.
 ServiceNow actions allow you to automate IT service management of incidents, change requests, and more.
 
 - **Incidents**
+
   - **Create Incident** - Creates a new incident record.
   - **Read Incident** - Retrieves details of a specific incident.
   - **Update Incident** - Modifies an existing incident record.
   - **Delete Incident** - Removes a specific incident record.
 
 - **Change Requests**
+
   - **Create Change Request** - Creates a new change request record.
   - **Read Change Request** - Retrieves details of a specific change request.
   - **Update Change Request** - Modifies an existing change request record.
   - **Delete Change Request** - Removes a specific change request record.
 
 - **Knowledge Base Articles**
+
   - **Update Knowledge Base Article** - Modifies an existing knowledge base article.
 
 - **Problem Records**
+
   - **Update Problem Record** - Modifies an existing problem record.
 
 - **Attachments**
+
   - **Upload Binary Attachment** - Uploads a file as an attachment to a specified record.
   - **Upload Multipart Form Attachment** - Uploads a form attachment to a record.
   - **Retrieve Attachment Content** - Gets the binary content of a specific attachment.
@@ -291,6 +323,7 @@ ServiceNow actions allow you to automate IT service management of incidents, cha
   - **Retrieve Metadata for Attachments** - Gets metadata for multiple attachments.
 
 - **System**
+
   - **List Users** - Retrieves all existing records from system user table.
   - **List Choices** - Retrieves choice list values from the system.
 
@@ -299,6 +332,7 @@ ServiceNow actions allow you to automate IT service management of incidents, cha
 SAP actions allow you to automate processes involving business partner data, material stocks, bills of material, product masters, and physical inventory.
 
 - **SAP Business Partners**
+
   - **Get Business Partner** - Retrieves general data for business partners, providing a comprehensive view of partner information.
   - **Get Business Partner By ID** - Retrieves detailed business partner data using a specific business partner number as identifier.
   - **Get Business Partner Address** - Retrieves address details associated with business partners, including postal addresses and contact information.
@@ -306,17 +340,21 @@ SAP actions allow you to automate processes involving business partner data, mat
   - **Get Business Partner Role By ID** - Retrieves specific role data for a business partner using key identifier fields.
 
 - **SAP Material Stock**
+
   - **Get Material Stock In Account Model Collection** - Gets material stock levels with details like batch, storage location, and special stock indicators.
 
 - **SAP Bill Of Material**
+
   - **Get Material BOM Item** - Retrieves details of materials used in bills of materials including quantities, categories, and relationships.
 
 - **SAP Product Master**
+
   - **Get Product Master Records** - View product master general details. Returns complete product master records with options to filter, sort and select specific data.
   - **Get Plant Data Of Product Master Record** - View plant details of the product. Access detailed plant-specific information for a given product including manufacturing, storage, and logistics data.
   - **Get Supply Planning Data By Product Number And Plant** - View supply planning details by product number and plant. Retrieves detailed planning parameters including lot sizes, safety stock levels, and procurement data.
 
 - **SAP Physical Inventory**
+
   - **Get Phys Inventory Doc Item** - Retrieves physical inventory document items including counting results and inventory differences.
 
 ## REST API Integration
@@ -335,6 +373,7 @@ The REST API Connection integration enables Quick Automate to interact with cust
 Before creating automations with REST API integration, ensure you have:
 
 - **Configured REST API Integration**
+
   - Access Quick Suite console
   - Navigate to Integrations > REST API Connection
   - Configure your REST API endpoint with base URL
@@ -342,11 +381,13 @@ Before creating automations with REST API integration, ensure you have:
   - Full details: [REST API Connection integration](rest-api-integration.md "rest-api-integration.md")
 
 - **Connected Integration to Automation Group**
+
   - Link your configured REST API integration to your automation group
   - Verify integration appears in available actions
   - Step-by-step guide: [AWS service action connectors](builtin-services-integration.md "builtin-services-integration.md")
 
 - **Authentication Configured**
+
   - OAuth 2.0 credentials obtained from your API provider
 
 ### Authentication
@@ -388,14 +429,17 @@ REST API actions must be added through the Actions Panel; they are not available
 ### Properties Reference
 
 - **Q Action Connector ID (Required)**
+
   - **Description:** Unique identifier that links the REST API action to your configured integration, including base URL and authentication settings.
   - **Format:** Auto-populated from your connected integration
   - **Example:** `rest-api-connector-abc123`
 
 - **URI (Optional)**
+
   - **Description:** Additional path appended to the base URL to specify the exact API endpoint.
   - **Format:** Path string with or without leading slash (depends on the base url format)
   - **How It Works:**
+
     - Base URL: `https://api.example.com`
     - URI: `/users/123`
     - Final URL: `https://api.example.com/users/123`
@@ -410,13 +454,13 @@ REST API actions must be added through the Actions Panel; they are not available
   ```
 
 - **Additional Headers (Optional)**
+
   - **Description:** Custom HTTP headers to include in the API request as key-value pairs.
   - **Format:**
 
   ```
   Key: Value
   ```
-
   - **Common Examples:**
 
   ```
@@ -425,13 +469,14 @@ REST API actions must be added through the Actions Panel; they are not available
   X-Custom-Header: custom-value
   X-API-Version: 2.0
   ```
-
   - **Important Limitations:**
+
     - Do not include Authorization headers; authentication is handled via OAuth configuration
     - Each header must be on a separate line
     - Headers are case-sensitive
 
 - **Request (Required)**
+
   - **Description:** JSON-formatted data to send with POST or PUT requests.
   - **Format:** Valid JSON object. {} for blank requests
   - **POST Request Example (Creating a resource):**
@@ -445,7 +490,6 @@ REST API actions must be added through the Actions Panel; they are not available
     "published": true
   }
   ```
-
   - **PUT Request Example (Updating a resource):**
 
   ```
@@ -457,6 +501,7 @@ REST API actions must be added through the Actions Panel; they are not available
   ```
 
 - **Output Variable (Optional)**
+
   - **Description:** Variable name to store the JSON response from the API call for use in subsequent automation actions.
   - **Format:** Alphanumeric variable name (no spaces)
   - **Example:** `apiResponse`, `userData`, `orderDetails`

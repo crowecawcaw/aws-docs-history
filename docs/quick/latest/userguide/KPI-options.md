@@ -58,6 +58,7 @@ secondary value.
    value.
 5. To add a secondary value, choose **Secondary
    value**.
+
    1. (Optional) Use the **Font** dropdown to choose
       the font size that you want. The default value is **Extra
       large**.

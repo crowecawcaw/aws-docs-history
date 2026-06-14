@@ -206,6 +206,7 @@ details.
 1. In Quick chat, upload the document you want to edit, or continue
    a conversation where a document was previously generated.
 2. Describe the changes you want to make. For example:
+
    - _"Change all the heading colors to dark blue."_
    - _"Add a new column called Status to the first
      table."_
@@ -343,6 +344,7 @@ To use a PowerPoint template:
    chat.
 2. Describe the new presentation you want to create. Mention that you want
    to use the uploaded file as a template. For example:
+
    - _"Using this template, create a 12-slide presentation
      about our 2026 product roadmap."_
    - _"Create a quarterly business review deck using this

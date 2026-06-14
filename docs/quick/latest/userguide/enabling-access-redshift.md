@@ -159,6 +159,7 @@ VPC.
 6. Choose **Create Security Group**.
 7. On the **Create Security Group** page, enter the security
    group information as follows:
+
    - For **Security group name**, enter
      `redshift-security-group`.
    - For **Description**, enter
@@ -198,6 +199,7 @@ input the following values.
     rule.
 13. Repeat the previous step for `quicksight-security-group` and
     enter the following values.
+
     - For **Type**, choose **All
       traffic**.
     - For **Protocol**, choose
@@ -214,6 +216,7 @@ input the following values.
 16. Choose **Manage VPC connections**, and then choose
     **Add VPC connection**.
 17. Configure the new VPC connection with the following values.
+
     - For **VPC connection name**, choose a meaningful
       name for the VPC connection.
     - For **VPC ID**, choose the VPC in which the Amazon Redshift
@@ -232,6 +235,7 @@ input the following values.
 20. In Amazon Quick, choose **Datasets**, and then choose
     **New dataset**. Create a new dataset with the
     following values.
+
     - For **Data source**, choose **Amazon Redshift
       Auto-discovered**.
     - Give the data source a meaningful name.

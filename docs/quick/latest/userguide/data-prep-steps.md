@@ -204,6 +204,7 @@ To configure the Aggregate step, in the **Configuration** pane:
 2. Choose aggregation functions for measure columns.
 3. Customize output column names.
 4. For `ListAgg` and `ListAgg distinct`:
+
    1. Select the column to aggregate.
    2. Choose a separator (comma, dash, semicolon, or vertical line).
 
@@ -315,6 +316,7 @@ To configure the Unpivot step, in the **Configuration** pane:
 2. Define output column row values. The default is the original column name. Some examples
    include Technology, Office Supplies, and Furniture.
 3. Name the two new outputs columns.
+
    - **Unpivoted column header**: The name for former
      column names (e.g., Category)
    - **Unpivoted column values**: The name for the

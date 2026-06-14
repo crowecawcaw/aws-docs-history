@@ -132,6 +132,7 @@ After preparing your website access requirements, create the Web Crawler integra
 3. Choose **Access data from Web Crawler**. Web Crawler integration supports data access only - action execution is not available for web crawling.
 4. Configure integration details and authentication method, then create
    knowledge bases as needed.
+
    1. Choose the authentication type for your web crawler
       integration.
    2. Enter the required details based on your chosen
@@ -326,6 +327,7 @@ Use this section to resolve common issues with Web Crawler integration.
 
 1. Verify network connectivity to target websites.
 2. Validate site accessibility:
+
    - Check DNS resolution for target domains.
    - Verify SSL/TLS configuration and certificates.
    - Test access from different networks if possible.
@@ -368,20 +370,24 @@ If you don't configure a DNS server, the crawler resolves only publicly register
 **Resolution steps:**
 
 1. Review robots.txt restrictions:
+
    - Check robots.txt file for crawl restrictions.
    - Verify that the crawler is allowed to access target paths.
    - Ensure robots.txt compliance isn't blocking content.
 
 2. Check rate limiting and throttling:
+
    - Monitor response headers for rate limit information.
    - Implement appropriate crawl delays.
 
 3. Verify URL patterns and filters:
+
    - Test regex patterns for accuracy.
    - Check URL formatting and structure.
    - Validate include/exclude pattern logic.
 
 4. Review content restrictions:
+
    - Check for noindex meta tags on pages.
    - Verify content type support.
    - Ensure content size is within limits.

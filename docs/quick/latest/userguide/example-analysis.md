@@ -6,6 +6,7 @@ Use the procedures in the following sections to complete these tasks:
   Analytics sample data.
 - Create a Marketing analysis and add several visuals to it.
 - Modify the visuals in the analysis, including the following:
+
   - Adding another measure to an existing visual
   - Changing chart colors
   - Changing date granularity

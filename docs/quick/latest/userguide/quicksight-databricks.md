@@ -15,6 +15,7 @@ Use this section to learn how to connect from Quick Sight to Databricks.
    best to keep the name simple.
 5. For **Connection type**, select the type of network you're
    using.
+
    - Public network – if your data is
      shared publicly.
    - VPC – if your data is inside a
@@ -51,6 +52,7 @@ create Databricks datasets to use for analysis.
    select **Use custom SQL**.
 4. Choose **Edit/Preview**.
 5. (Optional) To add more data, use the following steps:
+
    1. Choose **Add data** at top right.
    2. To connect to different data, choose **Switch data
       source**, and choose a different dataset.

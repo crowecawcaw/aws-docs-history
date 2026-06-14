@@ -10,6 +10,7 @@ Use the following procedure to print.
    and orientation that you want to use.
 4. Choose **Go to Preview**.
 5. Do one of the following:
+
    - To proceed to printing, choose **Print** to open your
      operating system's print dialog.
    - To make changes to the paper size or orientation, choose

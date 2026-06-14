@@ -87,8 +87,10 @@ maximum purchase limit, not for any temporary over-provisioning that occurs.
 4. In **Index capacity**, from **Total index
    capacity** select **Manage capacity**, and do the
    following:
+
    1. In **Manage purchase options**, do one of the
       following:
+
       1. To automatically scale index capacity as per usage, select
          **Auto-scale (Recommended)**. This
          automatically adjusts index capacity in 0.25 GB increments based

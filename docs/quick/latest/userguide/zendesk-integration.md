@@ -48,6 +48,7 @@ requires an API token.
    **API**.
 2. Choose **Add OAuth Client**.
 3. Complete the form with the following fields:
+
    - **Name** – Enter a name for your
      app.
    - **Description** – Enter a short
@@ -109,6 +110,7 @@ Amazon Quick.
 3. Choose **Zendesk Suite** from the options available.
 4. In the **Zendesk Suite** dialog, enter the
    following fields:
+
    - **Name** – A descriptive name for your
      Zendesk connector.
    - **Description (Optional)** – Choose **+ Add Description** to add notes about how this connector will be used.
@@ -117,8 +119,10 @@ Amazon Quick.
 
 5. Choose your authentication method and configure the connector
    settings:
+
    - **Custom OAuth app** –
      Enter the following fields for your Zendesk instance:
+
      - **Base URL**
      - **Client ID**
      - **Client Secret**
@@ -128,6 +132,7 @@ Amazon Quick.
 
    - **API Key** –
      Enter the following fields:
+
      - **Base URL**
      - **API Key** (Zendesk API token)
      - **Email** associated with your Zendesk account
@@ -135,6 +140,7 @@ Amazon Quick.
 6. Choose **Next**.
 7. Review the actions for Zendesk Suite and choose **Next**.
 8. Specify who can access the connector:
+
    - To share with a team, enter a team name or group email.
    - To keep it private, leave the field blank.
    - To share with all users, toggle **Everyone in your

@@ -10,7 +10,9 @@ following procedure to create a scenario in Amazon Quick Sight.
 
 1. Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
 2. Perform one of the following actions:
+
    1. Open any dashboard, and look for one of the following:
+
       - Choose **Analyze this dashboard in a
         Scenario**, if available, at the top of the
         dashboard.

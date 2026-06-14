@@ -63,6 +63,7 @@ on the Intuit Developer website.
    credentials.
 7. Record the following values. You need them when you configure
    Amazon Quick.
+
    - **Client ID**
    - **Client secret**
 

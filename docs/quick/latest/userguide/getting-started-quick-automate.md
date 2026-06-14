@@ -5,12 +5,14 @@ Amazon Quick Automate is a browser-based solution that requires no installation,
 ## Key capabilities
 
 - Multi-agent architecture
+
   - Planning Agent designs automations from natural language inputs
   - UI Agent handles interface interactions
   - Specialized agents for process-specific tasks
   - Integration with
 
 - Enterprise controls and governance
+
   - Granular access control management
   - Comprehensive activity logging
   - Built-in version control
@@ -44,6 +46,7 @@ Amazon Quick Automate provides granular role based access: Viewer, Contributor, 
 
 - After setting up AWS service integrations, you can begin using them in Quick Automate. See [Action connectors](action-integrations.md "action-integrations.md") for setup details.
 - First, add the integration to an Automation Group. This allows you to control access for which automations can use this integration. To add an integration to your Automation Group:
+
   - Go to the **Projects** page
   - Click **Manage groups** and select the group you want to add an integration to
   - In the **Assets** sections, click **Add**, and then **Actions**
@@ -103,6 +106,7 @@ This section walks you through the process of creating a new automation project 
 
 1. Click the **Create Project** button to begin.
 2. Fill in the project details in the Provide project details section:
+
    - **Name:** Enter a descriptive name for your automation project.
    - **Group:** Select the appropriate group for your automation.
    - **Description** (optional): Provide additional context about the project's purpose.

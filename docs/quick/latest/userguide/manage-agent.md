@@ -89,6 +89,7 @@ your system agent works as you configure it.
    agent**, select **Go to chat agent**.
 5. In the **My Assistant** page, in **Configure chat
    agent**, customize the following sections:
+
    1. In **Chat agent persona**, configure your chat
       agent's personality, identity, tone, and response style. For detailed
       information about agent customization options, see [Working with chat agents](../../../quicksuite/latest/userguide/working-with-agents.md "../../../quicksuite/latest/userguide/working-with-agents.md") in the
@@ -150,6 +151,7 @@ Guide_.
    then select **Chat agent customization**.
 4. In **Chat agent customizations**, for **Guardrails
    and safety controls**, do the following:
+
    1. **Add blocked words and phrases** – Select
       **Add** to add blocked words and phrases. You can
       add upto 50 words and phrases.
@@ -167,6 +169,7 @@ procedure.
    then select **Chat agent customization**.
 4. In **Chat agent customization**, for **Guardrails and
    safety controls**, do the following:
+
    1. **Add blocked words and phrases** – Select
       **Remove** to remove existing blocked words and
       phrases. Or, select **Add** to add new ones. You can

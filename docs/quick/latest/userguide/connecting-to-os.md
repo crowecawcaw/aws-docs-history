@@ -46,6 +46,7 @@ specified domains.
 8. For **Tables**, choose the one you want to use, then
    choose **Select** to continue.
 9. Do one of the following:
+
    - To import your data into the Quick Sight in-memory engine (called
      SPICE), choose **Import to
      SPICE for quicker analytics**. For
@@ -85,6 +86,7 @@ then follow these steps:
 
 5. (Optional) To edit permissions, you can choose **Viewer**
    or **Owner**.
+
    - Choose **Viewer** to allow read access.
    - Choose **Owner** to allow that user to edit,
      share, or delete this Quick Sight dataset.
@@ -124,10 +126,12 @@ contains the OpenSearch Service data that you want to use.
 
 1. Choose **Analyses** at left.
 2. Do one of the following:
+
    - To create a new analysis, choose **New analysis**
      at right.
    - To add to an existing analysis, open the analysis that you want to
      edit.
+
      - Choose the pencil icon near at top left.
      - Choose **Add data set**.
 

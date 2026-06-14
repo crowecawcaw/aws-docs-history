@@ -30,7 +30,9 @@ to Athena Federated Query data.
         7. (Optional) Select an IAM role ARN for queries to run as.
 
 4.  On the **Choose your table** screen, do the following:
+
     1.  For **Catalog**, choose one of the following:
+
         - If you are using Athena Federated Query, choose the catalog you
           want to use.
         - Otherwise, choose **AwsDataCatalog**.

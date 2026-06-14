@@ -56,6 +56,7 @@ You can customize the following marker options:
 8. Your changes are saved automatically.
 9. (Optional) To undo customizations, choose one or more of the following
    options:
+
    - To undo one change, click the undo arrow at top left. Repeat as
      needed. There is also a redo arrow.
    - To reset the base style for a data series, select **Base

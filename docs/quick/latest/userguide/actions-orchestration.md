@@ -21,6 +21,7 @@ To track the progress of work through your automation, cases follow a defined li
 - `Pending Resolution` - The case is waiting for a human-in-the-loop task to be completed before processing can continue. Cases automatically move back to Ready status after tasks are resolved.
 - `Successful` - The case has completed all processing steps without any exceptions.
 - `Failed` - The case encountered one of the following exception types:
+
   - Business Exception - The case encountered a handled business rule violation and stopped processing. Detailed exception information is available in the logs.
   - System Exception - The case experienced a technical error and stopped processing. Detailed error information is available in the logs.
 
@@ -89,11 +90,13 @@ Creates a task for human input. Tasks appear in a list for users to review, make
 - `Description` (required) - Detailed instructions and context provided to users completing the task (e.g., "Please review the attached application details and either approve or reject based on the following criteria...")
 - `Form` (required) - Interface for collecting structured input from users
 - `Severity` (required) - Priority level to help users triage tasks:
+
   - Critical - Urgent attention required, highest priority
   - Moderate - Normal priority (default)
   - Low - Non-urgent task
 
 - `Due in` (required):
+
   - Number - Quantity of time units (e.g., 24)
   - Unit - Hours or Days
 

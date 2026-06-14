@@ -10,7 +10,9 @@ You can customize the following options:
 
 - Position, which determines where the label appears in relation to the data
   point (for bar, combo, and line charts):
+
   - For vertical bar charts, you can customize to set position:
+
     - Above bars
     - Inside of bars
     - Bottom of bars
@@ -18,15 +20,18 @@ You can customize the following options:
 
   - For horizontal bar charts, you can customize to set
     position:
+
     - Right of bars
     - Inside of bars
 
   - For line charts, you can customize to set position:
+
     - Above lines
     - Left or right of points on lines
     - Below lines
 
   - For scatter charts, you can customize to set position:
+
     - Above points
     - Left or right of points
     - Below points
@@ -34,11 +39,14 @@ You can customize the following options:
 - Font size and color (for bar, combo, line, scatter, and pie charts)
 - Label pattern, which determines how data is labeled (for bar, combo, line,
   and scatter charts):
+
   - For bar, combo, and scatter charts, you can label:
+
     - All
     - By group or color
 
   - For line charts, the following label options are available:
+
     - All
     - By group or color
     - Line ends
@@ -46,6 +54,7 @@ You can customize the following options:
     - Minimum and maximum values
 
   - For pie charts, the following label options are available:
+
     - Show category
     - Show metric
     - Choose to show the metric label as value, percent, or both

@@ -69,6 +69,7 @@ The Security tab provides options for managing your account security.
   – Manage MFA devices for additional sign-in security. The MFA
   devices table displays the following columns: Name, Type, Make and Model,
   and Registered Date.
+
   - **Register device** – Add a new
     MFA device (authenticator app or security key).
   - **Rename** – Change the display
@@ -78,6 +79,7 @@ The Security tab provides options for managing your account security.
 
 - **Active sessions** – View all
   currently active sign-in sessions.
+
   - The sessions table displays the following columns: Device,
     IP address, and Sign-in date.
   - **Delete all active sessions** –
@@ -151,6 +153,7 @@ chat experience.
   You can override the default data scope within any individual
   conversation by using the data source selector in the chat footer.
   Options include:
+
   - **All data** – My Assistant can
     access all connected data sources and applications.
   - Other options may appear based on your connected

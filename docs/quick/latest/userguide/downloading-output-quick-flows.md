@@ -7,6 +7,7 @@ After a flow run completes, you can download one or more step outputs as a Word 
 1. In Run mode, choose the download icon (downward arrow) in the top right.
 2. Choose **Download as**.
 3. Select which outputs to include:
+
    - Choose **Select All** to include all steps in chronological order.
    - Use checkboxes to select specific steps.
 
@@ -18,5 +19,6 @@ User input and file upload steps cannot be downloaded. 4. Select your preferred 
     * **PDF** — Fixed-layout document format
 
 5. Choose your download destination:
+
    - **Download** to save the file locally.
    - **Save to a space** to save to a shared space (requires edit access).

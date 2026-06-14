@@ -24,6 +24,7 @@ and cannot be enabled in embedded dashboards for anonymous or unregistered users
 
 - Follow the steps in [Embedding Amazon Quick Sight dashboards for registered
   users](../../../quicksight/latest/user/embedded-analytics-dashboards-for-authenticated-users.md "../../../quicksight/latest/user/embedded-analytics-dashboards-for-authenticated-users.md") to embed a dashboard with the following changes:
+
   1.  When generating the URL in Step 2, set `Enabled: true` in the
       `ExecutiveSummary` parameter in the [GenerateEmbedUrlForRegisteredUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md") or [GenerateEmbedUrlForRegisteredUserWithIdentity](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUserWithIdentity.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUserWithIdentity.md") as shown in the
       following example:
@@ -43,7 +44,6 @@ and cannot be enabled in embedded dashboards for anonymous or unregistered users
       }
   }
   ```
-
   2.  When embedding the dashboard URL with the Amazon Quick Sight Embedding SDK
       in Step 3, set `executiveSummary: true` in
       `contentOptions`, as shown in the following example:

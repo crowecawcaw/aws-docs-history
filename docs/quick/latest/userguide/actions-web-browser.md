@@ -47,9 +47,11 @@ Clicks on a webpage element. Used to interact with buttons, links, or other clic
 **Properties:**
 
 - **Find Element with Description** (radio button): Use natural language description to identify the element with AI (default: ON)
+
   - **Description Field** (conditionally required): Natural language description of the browser element to click (e.g., "Submit button"). Don't use the action in the element, just the description of the element
 
 - **Find Element with Selector** (radio button): Use XPath expression to identify the element (default: OFF)
+
   - **XPath Field** (conditionally required): XPath expression (e.g., "//input[@id='xyz']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
@@ -71,9 +73,11 @@ Types text into an input field. Used to fill in forms, search boxes, or other te
 
 - **Text to Enter** (required): The text you want to type into the field (e.g., "Order #12345")
 - **Find Element with Description** (radio button): Use natural language description to identify the element with AI (default: ON)
+
   - **Description Field** (conditionally required): Natural language description (e.g., "Order number field")
 
 - **Find Element with Selector** (radio button): Use XPath expression to identify the element (default: OFF)
+
   - **XPath Field** (conditionally required): XPath expression (e.g., "//input[@id='xyz']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
@@ -92,9 +96,11 @@ Types a username or password. Used to securely sign in to a website using saved 
 - **Credential** (dropdown, required): Choose which saved credential to use from automation group
 - **Value to Enter** (dropdown, required): Choose whether to enter Username or Password (default: Username)
 - **Find Element with Description** (radio button): Use natural language description to identify the element with AI (default: ON)
+
   - **Description Field** (conditionally required): Natural language description (e.g., "Username field")
 
 - **Find Element with Selector** (radio button): Use XPath expression to identify the element (default: OFF)
+
   - **XPath Field** (conditionally required): XPath expression (e.g., "//input[@id='username']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
@@ -111,9 +117,11 @@ Chooses a value from a dropdown. Used to make selections in forms, filters, or o
 
 - **Value to Select** (required): The option you want to select from the dropdown field (e.g., "Complete")
 - **Find Element with Description** (radio button): Use natural language description to identify the element with AI (default: ON)
+
   - **Description Field** (conditionally required): Natural language description (e.g., "Order status dropdown")
 
 - **Find Element with Selector** (radio button): Use XPath expression to identify the element (default: OFF)
+
   - **XPath Field** (conditionally required): XPath expression (e.g., "//select[@id='xyz']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
@@ -129,9 +137,11 @@ Reads a value from a webpage. Used to capture the text from an individual field.
 **Properties:**
 
 - **Find Element with Description** (radio button): Use natural language description to identify the element with AI (default: ON)
+
   - **Description Field** (conditionally required): Natural language description (e.g., "Total amount field")
 
 - **Find Element with Selector** (radio button): Use XPath expression to identify the element (default: OFF)
+
   - **XPath Field** (conditionally required): XPath expression (e.g., "//input[@id='xyz']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
@@ -150,9 +160,11 @@ Intelligently extracts structured data from web pages using natural language tar
 **Properties:**
 
 - **Find Element with Description** (radio button): Use natural language description to identify the element with AI (default: ON)
+
   - **Description Field** (conditionally required): Natural language description (e.g., "Order details table")
 
 - **Find Element with Selector** (radio button): Use XPath expression to identify the element (default: OFF)
+
   - **XPath Field** (conditionally required): XPath expression (e.g., "//table[@id='xyz']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
@@ -199,9 +211,11 @@ Uploads files to a webpage. Used to automate file pickers by clicking on a file 
 
 - **Files to Upload** (required): The list of files to be uploaded, typically stored in a variable (e.g., [my\_file1, my\_file2])
 - **Find Element with Description** (radio button): Use natural language description to identify the element with AI (default: ON)
+
   - **Description Field** (conditionally required): Natural language description (e.g., "Upload button")
 
 - **Find Element with Selector** (radio button): Use XPath expression to identify the element (default: OFF)
+
   - **XPath Field** (conditionally required): XPath expression (e.g., "//input[@id='xyz']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
@@ -225,9 +239,11 @@ Sends a key command or shortcut. Used to automate typing individual keys or key 
 - **Special Keys** (dropdown, required): Select modifiers like Ctrl, Alt, Shift or singular keystrokes like Enter, Tab, Pagedown
 - **Command Key** (optional): Enter the key to be used in combination with the Special key (e.g., "c" for Ctrl+c)
 - **Find Element with Description** (radio button): Use natural language description to identify the element with AI (default: ON)
+
   - **Description Field** (conditionally required): Natural language description (e.g., "Search bar")
 
 - **Find Element with Selector** (radio button): Use XPath expression to identify the element (default: OFF)
+
   - **XPath Field** (conditionally required): XPath expression (e.g., "//input[@id='xyz']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)
@@ -314,9 +330,11 @@ Inserts text from the clipboard. Used to paste copied text into webpage fields.
 **Properties:**
 
 - **Find Element with Description** (radio button): Use natural language description to identify the element with AI (default: ON)
+
   - **Description Field** (conditionally required): Natural language description (e.g., "Order number field")
 
 - **Find Element with Selector** (radio button): Use XPath expression to identify the element (default: OFF)
+
   - **XPath Field** (conditionally required): XPath expression (e.g., "//input[@id='xyz']")
 
 - **Self-healing** (checkbox): Use AI to handle unexpected popups automatically (default: OFF, optional)

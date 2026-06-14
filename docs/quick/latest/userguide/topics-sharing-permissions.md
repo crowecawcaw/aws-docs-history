@@ -20,6 +20,7 @@ change the topic.
 5. On the **Manage topic permissions** page that opens, find the
    user that you want to manage access for, and then for
    **Permission**, choose one of the following options:
+
    - To allow a user to view and change the topic, choose
      **Co-Owner**.
    - To allow a user to view the topic only, choose

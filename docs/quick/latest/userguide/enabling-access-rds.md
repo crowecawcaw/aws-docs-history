@@ -54,6 +54,7 @@ Amazon Quick) or that has Internet Gateways attached, see [Connecting to a VPC w
 6. Choose **Create Security Group**.
 7. On the **Create Security Group** page, enter the security
    group information as follows:
+
    - For **Name tag** and **Group
      name**, enter
      `Amazon-QuickSight-access`.

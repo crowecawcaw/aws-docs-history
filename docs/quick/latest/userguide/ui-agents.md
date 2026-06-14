@@ -79,6 +79,7 @@ This structure would be configured as:
 - numberOfOrders (Number, required)
 - hasShipped (Boolean, required)
 - orderDetails (Object, required)
+
   - quantity (Number, required)
   - productName (String, required)
 

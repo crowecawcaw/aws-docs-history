@@ -28,6 +28,7 @@ source.
 4. Enter a name for the data source, and then choose
    **Connect**.
 5. When redirected to Google's sign-in page, do the following:
+
    1. Enter your Google account credentials, and then choose
       **Next**.
    2. Review the permissions to authorize your AWS account to connect

@@ -118,6 +118,7 @@ The zip file contains the following two text files:
      importing the sample .csv file into Quick Sight.
 
 3. Import the data by following these steps:
+
    1. Choose **Data**, **Datasets** tab,
       **New**, **Dataset**.
    2. Choose **Upload a file**.

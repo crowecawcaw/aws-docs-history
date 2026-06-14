@@ -176,6 +176,7 @@ Amazon Quick.
    choose **Next**.
 5. In the **Create integration** form, fill in the
    following fields:
+
    - **Name** – Descriptive name for your Confluence
      integration.
    - **Description** (Optional) – Notes about how
@@ -185,8 +186,10 @@ Amazon Quick.
 
 6. Under **Authentication settings**, choose your
    authentication method and fill in the required fields:
+
    1. For **User authentication**,
       configure the following fields:
+
       - **Base URL** – Your Confluence instance URL for API calls,
         in the format
         `https://api.atlassian.com/ex/confluence/`yourInstanceId``.
@@ -203,6 +206,7 @@ To find your instance ID, navigate to
 
    2. For **Service authentication**,
       configure the following fields:
+
       - **API Key** – Confluence API token.
       - **Base URL** – Your Confluence instance URL for API calls.
       - **Email** – Associated user account email.

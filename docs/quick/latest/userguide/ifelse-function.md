@@ -203,6 +203,7 @@ The logic for the region tagging breaks down as follows:
 
 1. We list the states that we want for each region, enclosing each list
    in quotation marks to make each list a string, as follows:
+
    - `'New York, New Jersey, Connecticut, Vermont, Maine,
 Rhode Island, New Hampshire'`
    - `'Georgia, Alabama, South Carolina,
@@ -228,12 +229,12 @@ locate('Georgia, Alabama, South Carolina, Louisiana',{State})
    around this, we can compare the result of `locate` to a
    number. If the state is in the list, the return value is greater than
    zero.
+
    1. Ask if the state is present.
 
    ```
    locate('New York, New Jersey, Connecticut, Vermont, Maine, Rhode Island, New Hampshire',{State}) > 0
    ```
-
    2. If it's present the region, label it as the specific region,
       in this case a Northeast region.
 

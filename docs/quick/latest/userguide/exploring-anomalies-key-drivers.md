@@ -13,6 +13,7 @@ the outliers. The **Contributors** section appears on the left.
   contributors and the date range to use in this section.
 - **Sort by** – Sets the sort applied to the
   results that appear below. You can choose from the following:
+
   - **Absolute difference**
   - **Contribution percentage** (default)
   - **Deviation from expected**

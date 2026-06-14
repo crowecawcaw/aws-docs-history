@@ -100,6 +100,7 @@ exactly for the filter to be applied to a given record.
    filter**.
 4. For **Filter condition**, choose one of the
    following:
+
    - **Equals** – When you choose this option,
      the values included or excluded in the field must match the value
      that you enter exactly.
@@ -164,6 +165,7 @@ how many top or bottom ranking values to show.
 4.  Choose **Top** or **Bottom**.
 5.  For **Show top** integer (or **Show
     bottom** integer), do one of the following:
+
     - Enter the number of top or bottom items to show.
     - To use a parameter for the number of top or bottom items to show,
       select **Use parameters**. Then choose an existing

@@ -23,6 +23,7 @@ access.
    **Next**.
 5. Enter a name for the data source.
 6. For public connections:
+
    1. Enter connection details for **Database server**,
       **HTTP Path**, **Port**,
       **Username**, and
@@ -31,6 +32,7 @@ access.
       source**.
 
 7. For private connections:
+
    1. Coordinate with your administrator to set up a VPC connection before
       entering connection details.
 
@@ -44,6 +46,7 @@ access.
    certificates](configure-access.md#ca-certificates "configure-access.md#ca-certificates").
 
 8. In the **Choose your table** menu, you can either:
+
    1. Choose a specific schema or table, then choose
       **Select**.
    2. Choose **Use custom SQL** to write your own SQL

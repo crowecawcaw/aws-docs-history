@@ -28,6 +28,7 @@ symbols—but not formatting.
 4. On the dataset page that opens, choose a column in the table preview at bottom
    or in the field list at left.
 5. To add or change the description, do one of the following:
+
    - At the bottom of the screen, open the settings for the field from the
      pencil icon next to the field's name.
    - In the field list, open the settings for the field from the menu next

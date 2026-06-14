@@ -45,6 +45,7 @@ be used in the narrative.
 
 - `timeField` – From the **Time**
   field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**timeGranularity**` – The time
@@ -53,6 +54,7 @@ be used in the narrative.
 
 - `metricField` – From the
   **Values** field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**aggregationFunction**` – The
@@ -61,6 +63,7 @@ be used in the narrative.
 
 - `previousMetricValue` – The previous value in
   the metric dimension.
+
   - `**value**`
     – The raw value.
   - `**formattedValue**` – The value
@@ -70,6 +73,7 @@ be used in the narrative.
 
 - `previousTimeValue` – The previous value in the
   datetime dimension.
+
   - `**value**`
     – The raw value.
   - `**formattedValue**` – The value
@@ -77,6 +81,7 @@ be used in the narrative.
 
 - `compoundedGrowthRate` – The percent difference
   between the current and previous values of the metric field.
+
   - `**value**`
     – The raw value of the calculation of the percent
     difference.
@@ -88,6 +93,7 @@ be used in the narrative.
 
 - `absoluteDifference` – The absolute difference
   between the current and previous values of the metric field.
+
   - `**value**`
     – The raw value of the calculation of the absolute
     difference.

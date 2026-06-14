@@ -63,6 +63,7 @@ options:
 
 - **Paragraph** – This menu offers options for
   changes to the font size:
+
   - **H1 Large header**
   - H2 Header
   - H3 Small header

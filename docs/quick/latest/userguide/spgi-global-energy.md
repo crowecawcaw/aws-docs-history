@@ -18,10 +18,12 @@ This integration requires a subscription to S&P Global Energy. S&P will need to 
 To use S&P Global Energy in Quick, you (or someone from your organization) will need to:
 
 1. Contact S&P Global at [ai.energy@spglobal.com](mailto:ai.energy@spglobal.com "mailto:ai.energy@spglobal.com") to ensure your organization subscribes to S&P Global Energy. S&P will provide you a client id and client secret.
+
    1. If your organization already subscribes, S&P needs to enable your account so you can access this data in Quick.
    2. If your organization does not subscribe already, S&P can help you get started with a free trial.
 
 2. Create a Quick integration for S&P Global Energy.
+
    1. Open the Research page and select **New Research**.
    2. In the **Research Materials** section, find **Third party data** and select **Browse** to display a list of supported third party data integrations.
    3. Find the integration in the list and select **Connect**. This will display a pop-up with a summary of these setup steps. Select **Continue**.

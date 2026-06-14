@@ -28,6 +28,7 @@ create the administrator for Amazon Quick.
 ###### To make a user the Amazon Quick administrator
 
 1. Create the AWS user:
+
    - Use IAM to create the user that you want to be the administrator
      of Amazon Quick. Alternatively, identify an existing user in IAM
      for the administrator role. You can also put the user inside a new

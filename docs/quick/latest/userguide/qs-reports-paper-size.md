@@ -13,6 +13,7 @@ whenever you want.
    **Layout Settings**.
 3. Open the **Paper size** dropdown menu and choose the
    paper size that you want. Choose from the following options:
+
    - US letter (8.5 x 11 in.)
    - US legal (8.5 x 14 in.)
    - A0 (841 x 1189 mm)

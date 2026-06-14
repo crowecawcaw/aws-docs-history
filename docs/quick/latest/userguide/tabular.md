@@ -13,6 +13,7 @@ bottom of the table. For more information, see [Analytics formatting per type in
 1. Open Amazon Quick and choose **Analyses** on the navigation
    pane at left.
 2. Choose one of the following:
+
    - To create a new analysis, choose **New analysis** at
      upper right. For more information, see [Starting an analysis in Quick Sight](creating-an-analysis.md "creating-an-analysis.md").
    - To use an existing analysis, choose the analysis that you want to
@@ -70,6 +71,7 @@ well.
 1. Open the analysis with the visual that you want to sort. Visuals pane will be
    open by default.
 2. Do one of the following:
+
    - Drag and drop one or more fields in **Field wells**
      to rearrange their order.
    - Select a field directly in the table and choose the left or right

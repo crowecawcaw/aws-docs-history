@@ -20,6 +20,7 @@ The Amazon Quick desktop application is currently available as a preview.
 - [Connecting your data sources](connecting-data-sources-desktop.md "connecting-data-sources-desktop.md")
 - [Working with chat](working-with-chat-desktop.md "working-with-chat-desktop.md")
 - [Skills and agents](skills-and-agents-desktop.md "skills-and-agents-desktop.md")
+- [Mission control](mission-control-desktop.md "mission-control-desktop.md")
 - [System tools](system-tools-desktop.md "system-tools-desktop.md")
 - [Configuring MCP servers](mcp-servers-desktop.md "mcp-servers-desktop.md")
 - [Knowledge graph](knowledge-graph-desktop.md "knowledge-graph-desktop.md")

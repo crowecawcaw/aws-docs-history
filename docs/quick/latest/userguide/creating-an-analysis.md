@@ -20,6 +20,7 @@ Use the following procedure to create a new analysis.
     more information on sheets, see [Adding and managing sheets](working-with-multiple-sheets.md "working-with-multiple-sheets.md").
 4.  (Optional) If you choose **Interactive sheet**, follow these
     steps:
+
     - (Optional): Choose the type layout that you want for your interactive
       sheet. You can choose one of the following options:
 
@@ -42,6 +43,7 @@ Use the following procedure to create a new analysis.
 
 5.  (Optional) If you choose **Pixel perfect report**, follow these
     steps:
+
     - (Optional) Choose the paper size that you want for your paginated
       report. You can choose from the following options:
 

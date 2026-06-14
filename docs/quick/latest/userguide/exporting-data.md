@@ -27,6 +27,7 @@ export file. You can export data into the following formats:
 - Default limit for export to CSV format: 500 MB or 1M rows whichever comes
   first
 - Default limit for export to Excel format:
+
   - from Pivot Table visual 400K cells or 50K rows
   - from Table visual 800K cells or 100K rows
 
@@ -54,12 +55,14 @@ of visuals in CSV and Excel formats](../../../quicksight/latest/user/sending-rep
    selected and highlighted.
 2. At top right on the visual, open the menu and choose one of the
    following:
+
    - To export to CSV, choose **Export to CSV**.
    - To export to XSLX, choose **Export to Excel**.
      This option is available only for pivot tables and table
      charts.
 
 3. Depending on your browser settings, one of the following happens:
+
    - The file automatically goes to your default **Download** location.
    - A dialog box appears so you can choose a file name and location.
    - A dialog box appears so you can choose to open the file with the

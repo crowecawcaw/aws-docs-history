@@ -12,6 +12,7 @@ to all users accessing Quick through the mobile application.
 3.  Under the **Security** section, choose **Mobile
     settings**.
 4.  Choose settings to enhance your data security on mobile devices:
+
     - **Require use of biometrics or PIN to unlock device** -
       Check the box to enable this security requirement. When enabled, users must
       use fingerprint recognition, Face ID, device PINs, or other biometric
@@ -23,6 +24,7 @@ to all users accessing Quick through the mobile application.
       systems up to date to access Amazon Quick.
 
 5.  To manage how long users can remain logged in on mobile devices:
+
     1.  Locate the **Current session lifetime for all devices**
         setting.
     2.  Select the desired duration from the dropdown menu. The maximum session

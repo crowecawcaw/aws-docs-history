@@ -100,11 +100,13 @@ You need administrative access to Amazon Quick Suite to perform the following st
 4. Choose one of the **supported AWS services**.
 5. Select **Next** to review available actions for this service.
 6. Select **Next** to configure the connection details:
+
    - **Name** – Enter a descriptive name for your integration.
    - **Description** – Optionally, add notes about how this integration will be used.
    - **Role ARN** – Enter the ARN of the IAM role to be used for this AWS service.
 
 7. Select **Next** to share the integration with users and/or user groups.
+
    - Provide **Owner access** for any users who need to edit, share, and delete the integration.
 
    ###### Note

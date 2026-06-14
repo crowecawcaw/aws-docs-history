@@ -18,6 +18,7 @@ failures.
 3. Keep the refresh type as **Full refresh**.
 4. If you are refreshing an Amazon S3 dataset, choose one of the following options
    for **S3 Manifest**:
+
    - To use the same manifest file you last provided to Amazon Quick Sight, choose
      **Existing Manifest**. If you have changed the
      manifest file at the file location or URL that you last provided,
@@ -83,6 +84,7 @@ Use the following procedure to incrementally refresh a [SPICE](spice.md "spice.m
    **Configure**.
 5. On the **Configure incremental refresh** page, do the
    following:
+
    1. For **Date column**, choose a date column that
       you want to base the look-back window on.
    2. For **Window size**, enter a number for
@@ -110,6 +112,7 @@ source during data preparation.
 3. Keep the refresh type set to **Full refresh**.
 4. (Optional) If you are refreshing an Amazon S3 dataset, choose one of the
    following options for **S3 Manifest**:
+
    - To use the same manifest file that you last provided to Amazon Quick Sight,
      choose **Existing Manifest**. If you have changed
      the manifest file at the file location or URL that you last
@@ -149,6 +152,7 @@ dashboard.
    schedule**.
 3. On the **Create a refresh schedule** screen, choose
    settings for your schedule:
+
    1. For **Time zone**, choose the time zone that
       applies to the data refresh.
    2. For **Starting time**, choose a date and time for
@@ -156,9 +160,11 @@ dashboard.
       13:30.
    3. For **Frequency**, choose one of the
       following:
+
       - For Standard or Enterprise editions, you can choose
         **Daily**, **Weekly**,
         or **Monthly**.
+
         - **Daily**: Repeats every
           day.
         - **Weekly**: Repeats on the same
@@ -212,6 +218,7 @@ source in the **Datasets** tab.
    type**, choose **Incremental refresh**.
 4. If this is your first incremental refresh for this dataset, choose
    **Configure**, and then do the following:
+
    1. For **Date column**, choose a date column that
       you want to base the look-back window on.
    2. For **Window size**, enter a number for
@@ -226,11 +233,13 @@ source in the **Datasets** tab.
 5. For **Time zone**, choose the time zone that applies to
    the data refresh.
 6. For **Repeats**, choose one of the following:
+
    - You can choose **Every 15 minutes**,
      **Every 30 minutes**,
      **Hourly**, **Daily**,
      **Weekly**, or
      **Monthly**.
+
      - **Every 15 minutes**: Repeats every 15
        minutes, beginning at the time you choose. So, if you select
        1:05 as the starting time, the data refreshes at 1:20, then

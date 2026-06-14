@@ -23,6 +23,7 @@ you can sort by using either the quick sort option or a field well.
 ###### To quickly sort dimensions and measures
 
 - Do one of the following:
+
   - Choose the sort icon that appears near the field name on either axis.
     In direct queries, this icon appears for any data type. For
     SPICE, this icon is available only for datetime,

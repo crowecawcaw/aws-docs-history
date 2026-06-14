@@ -96,12 +96,14 @@ Follow these steps only if you are using IAM Identity Center with Entra ID to se
 ###### To set up an Azure tenant
 
 1. In the Azure account, create a new app registration.
+
    1. Go to **App registrations**.
    2. In the **App registrations** screen, choose **New registration**. Under the **Supported account types** option, choose **Accounts in this organizational directory only (Personal use only - Single tenant)**. Once finished, choose **Register**.
    3. Note the client ID. You will need this later.
    4. Create a client secret for the app registration. Copy and save the secret's **Value** attribute. You need it later. This value is only shown once and cannot be retrieved after you leave the page.
 
 2. Add callback URLs for each Region in which your Teams extension will be installed.
+
    1. Navigate to the app registration's **Authentication** tab.
    2. Choose **Platform Configurations**, **Add a platform**.
    3. Choose **Web**.
@@ -110,7 +112,6 @@ Follow these steps only if you are using IAM Identity Center with Entra ID to se
    ```
    qbs-cell001.dp.appintegrations.`your-region`.prod.plato.ai.aws.dev/auth/idc-tti/callback
    ```
-
    5. Insert the callback URL as the redirect URI and choose **Configure** when done.
 
 Follow these steps to configure a Trusted Token Issuer on your IAM Identity Center instance in your AWS Console:
@@ -139,6 +140,7 @@ Follow these steps only if you are using IAM Identity Center with Okta to set up
 ###### To set up an Okta Application
 
 1. In your Okta account, create a new Okta App Integration.
+
    1. In your Okta Admin console, navigate to **Applications** > **Applications**.
    2. Click on **Create App Integration**.
    3. For the Sign-in method, select **OIDC - OpenID Connect**.
@@ -149,15 +151,16 @@ Follow these steps only if you are using IAM Identity Center with Okta to set up
    8. Under **Grant type** > **Advanced** > **Other grants**, ensure **Implicit (hybrid)** is selected.
 
 2. Add callback URIs for each Region in which your Teams extension will be installed
+
    1. Compose a callback URI using the following format, replacing `your-region` with your Amazon Quick instance Region for each region where you wish to configure the extension. The Teams extension supports the following Regions: `ap-southeast-2`, `eu-west-1`, `us-west-2`, and `us-east-1`.
 
    ```
    qbs-cell001.dp.appintegrations.`your-region`.prod.plato.ai.aws.dev/auth/idc-tti/callback
    ```
-
    2. Under **Sign-in redirect URIs**, click on **Add URI** and paste each of the URIs you generated from the previous step.
 
 3. Provide your organization access to the app:
+
    1. Under **Assignments** > **Controlled access**, select the groups in your organization that need to have access.
    2. Under **Assignments** > **Enable immediate access**, select **Enable immediate access with Federation Broker Mode**.
    3. Click on **Save**.
@@ -262,6 +265,7 @@ Now you can follow these steps to create a new extension access configuration th
 4. Under **Permissions**, choose **Extension access**.
 5. In the top right, choose **New extension access**.
 6. If this is your first time setting up extension access, you are prompted to complete the **Trusted Token Issuer Setup**. Configure the following fields and then choose **Next**:
+
    - **Trusted Token Issuer ARN** – Enter the trusted token issuer ARN that you noted from the earlier steps.
    - **Aud claim** – Enter the client ID from your app registration (Entra ID) or app integration (Okta) that you saved from the earlier steps.
 
@@ -306,6 +310,7 @@ environment.
 6. Select **Microsoft Teams**, then,
    **Next**.
 7. Configure the following fields:
+
    - **Name** - A name for your extension is
      pre-filled for you. You can edit this and enter a descriptive
      name for the Teams extension (maximum 512

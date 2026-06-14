@@ -27,6 +27,7 @@ Before you get started, make sure of the following:
 
 - Your internet browser settings contain one of the following to allow
   communication between the popup and the iframe:
+
   - Native support for the Mozilla Broadcast Channel API. For more
     information, see [Broadcast Channel API](https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API "https://developer.mozilla.org/en-US/docs/Web/API/Broadcast_Channel_API") in the Mozilla
     documentation.

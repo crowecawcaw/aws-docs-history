@@ -25,6 +25,7 @@ The following limitations apply to limits in repeating sections.
 - If the number of unique instancess for a dimension in a repeating
   section exceeds 1000, the PDF report is NOT generated. If this
   occurs, try one of the following options.
+
   - Define a limit for your dimension.
   - Create a sheet level filter to restrict the dimension
     values.

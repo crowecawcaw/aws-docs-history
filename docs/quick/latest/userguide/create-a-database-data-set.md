@@ -26,6 +26,7 @@ data source.
    you want to connect to.
 7. Enter the connection information for the data source, as
    follows:
+
    - For **Data source name**, enter a name for
      the data source.
    - For **Instance ID**, choose the name of the
@@ -36,6 +37,7 @@ data source.
      name.
    - For **UserName**, enter the user name of a
      user account that has permissions to do the following:
+
      - Access the target database.
      - Read (perform a `SELECT` statement on) any
        tables in that database that you want to use.
@@ -90,6 +92,7 @@ do anything to enable this. 10. Choose one of the following:
      **Select**.
 
 11. Choose one of the following options:
+
     - Prepare the data before creating an analysis. To do this,
       choose **Edit/Preview data** to open data
       preparation for the selected table. For more information about
@@ -148,10 +151,12 @@ Amazon EC2, or in some other accessible environment.
    Microsoft SQL Server, MySQL, Oracle, or PostgreSQL.
 7. Enter the connection information for the data source, as
    follows:
+
    - For **Data source name**, enter a name for
      the data source.
    - For **Database server**, enter one of the
      following values:
+
      - For an Amazon Redshift cluster or Amazon RDS instance, enter the
        endpoint of the cluster or instance without the port
        number. For example, if the endpoint value is
@@ -181,6 +186,7 @@ Amazon EC2, or in some other accessible environment.
      database that you want to use.
    - For **UserName**, enter the user name of a
      user account that has permissions to do the following:
+
      - Access the target database.
      - Read (perform a `SELECT` statement on) any
        tables in that database that you want to use.
@@ -243,6 +249,7 @@ try validating again. 11. Choose one of the following:
      **Select**.
 
 12. Choose one of the following options:
+
     - Prepare the data before creating an analysis. To do this,
       choose **Edit/Preview data** to open data
       preparation for the selected table. For more information about

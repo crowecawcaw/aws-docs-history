@@ -33,6 +33,7 @@ Use the following procedure to create a reader generated report.
     The schedule name can be up to 100 chatacters long.
 6.  For **Description**, choose the view option that you want
     the report to use. You can choose from the following views:
+
     - **Custom view** – The current
       view of the dashboard.
     - **Original view** – The author
@@ -81,6 +82,7 @@ Use the following procedure to create a reader generated report.
 13. (Optional, recommended) To send a sample of the report before you save
     changes, choose **Send test report**.
 14. Do one of the following:
+
     - (Recommended) Choose **Save** to confirm your
       entries.
     - To immediately send a report, choose **Save and run

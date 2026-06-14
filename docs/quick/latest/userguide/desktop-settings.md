@@ -7,8 +7,8 @@ bottom of the sidebar. Settings are organized into four categories: **Capabiliti
 ## Capabilities
 
 The Capabilities settings control the tools, integrations, and extensions
-available to Quick. The Capabilities page is organized into five
-tabs: **Connections**, **Skills**, **Scheduled tasks**, **MCP**, and **System**.
+available to Quick. The Capabilities page is organized into four
+tabs: **Connections**, **Skills**, **MCP**, and **System**.
 
 To open Capabilities, choose **Settings** in the
 sidebar and then choose **Capabilities**.
@@ -56,19 +56,6 @@ The Skills tab lets you view, create, and manage skills. You can create
 custom skills with AI or by uploading a `SKILL.md` file, and
 you can toggle built-in skills on or off. For more information about
 skills, see [Skills and agents](skills-and-agents-desktop.md "skills-and-agents-desktop.md").
-
-### Scheduled Tasks tab
-
-The Scheduled Tasks tab lets you view and manage automated agents that
-run on a recurring schedule. Each agent has four configuration tabs:
-Overview, Schedule, Capabilities, and Prompt. For more information about
-scheduled agents, see [Skills and agents](skills-and-agents-desktop.md "skills-and-agents-desktop.md").
-
-###### Important
-
-Scheduled agents run locally on your computer. Your computer must be
-turned on and the Amazon Quick desktop application must be running for
-scheduled agents to execute at their configured times.
 
 ### MCP tab
 

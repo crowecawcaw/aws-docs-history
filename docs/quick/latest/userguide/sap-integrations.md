@@ -129,6 +129,7 @@ After preparing your SAP system configuration and authentication credentials, th
 1.  In the Amazon Quick console, choose **Connectors**.
 2.  Choose the **Create for your team** tab.
 3.  Select one of the available SAP connectors:
+
     - **SAP Bill of Materials**
     - **SAP Business Partner**
     - **SAP Material Stock**
@@ -139,6 +140,7 @@ After preparing your SAP system configuration and authentication credentials, th
 5.  Fill in the name and description for your SAP integration.
 6.  Choose the connection type for your integration.
 7.  Configure authentication using one of the supported methods:
+
     1. **OAuth 2.0 configuration**
 
     For OAuth 2.0 authentication, provide:
@@ -147,7 +149,6 @@ After preparing your SAP system configuration and authentication credentials, th
         * **Client Secret** - Your SAP OAuth Client Secret
         * **Token URL** - OAuth token endpoint URL
         * **Domain URL** - SAP system API endpoint URL
-
     2. **Basic Authentication configuration**
 
     For Basic Authentication, provide:
@@ -275,6 +276,7 @@ Follow these steps to modify your SAP workload integration settings.
    connector list.
 3. Select your integration from the list and choose **Edit**.
 4. Modify integration settings:
+
    - Update authentication credentials (username and password).
    - Change SAP system URL or connection settings.
    - Modify integration name or description.
@@ -288,6 +290,7 @@ organization.
 
 1. From the SAP integration details page, choose **Share**.
 2. Configure sharing options:
+
    - **Share with specific users** - Enter user names or email addresses.
    - **Share with organization** - Make available to all users in your organization.
 

@@ -31,8 +31,10 @@ contribution analysis later, as described in [Using contribution analysis for ke
     configuration screen appears.
 4.  Under **Compute options**, choose values for the
     following options.
+
     1. For **Combinations to be analysed**, choose
        one of the following options:
+
        1. **Hierarchical**
 
        Choose this option if you want to analyze the fields
@@ -44,7 +46,6 @@ contribution analysis later, as described in [Using contribution analysis for ke
        ```
        T-N, T-C1-N, T-C1-C2-N, T-C1-C2-C3-N
        ```
-
        2. **Exact**
 
        Choose this option if you want to analyze only the
@@ -58,7 +59,6 @@ contribution analysis later, as described in [Using contribution analysis for ke
        ```
        T-C1-C2-C3-N
        ```
-
        3. **All**
 
        Choose this option if you want to analyze all field
@@ -89,6 +89,7 @@ contribution analysis later, as described in [Using contribution analysis for ke
     following options to customize what is displayed in your insight widget.
     You can still explore all your results, no matter what you
     display.
+
     1. **Maximum number of anomalies to show**
        – The number of outliers you want to display in the
        narrative widget.
@@ -111,10 +112,10 @@ contribution analysis later, as described in [Using contribution analysis for ke
         * **High and above**
         * **Medium and above**
         * **Low and above**
-
     3. **Direction** – The direction on the
        x-axis or y-axis that you want to identify as anomalous. You can
        choose from the following:
+
        - **Higher than expected** to identify
          higher values as anomalies.
        - **Lower than expected** to identify
@@ -127,6 +128,7 @@ contribution analysis later, as described in [Using contribution analysis for ke
        value counts as an anomaly. The values here change how the
        insight works in your analysis. In this section, you can set the
        following:
+
        - **Absolute value** – The
          actual value to use. For example, suppose this is 48.
          Amazon Quick Sight then identifies values as anomalous when the
@@ -142,6 +144,7 @@ contribution analysis later, as described in [Using contribution analysis for ke
        your results. Some methods are based on the anomaly score that
        Amazon Quick Sight generates. Amazon Quick Sight gives higher scores to data points
        that look anomalous. You can use any of the following options:
+
        - **Weighted anomaly score** –
          The anomaly score multiplied by the log of the absolute
          value of the difference between the actual value and the
@@ -163,6 +166,7 @@ contribution analysis later, as described in [Using contribution analysis for ke
     for automatically running the insight recalculation. The schedule runs
     only for published dashboards. In the analysis, you can run it manually
     as needed. Scheduling includes the following settings:
+
     - **Occurrence** – How often that you
       want the recalculation to run: every hour, every day, every
       week, or every month.

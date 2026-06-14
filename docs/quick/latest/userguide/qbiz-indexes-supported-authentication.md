@@ -10,6 +10,7 @@ The authentication methods supported depend on your implementation type:
 ## Non-IDC Implementation
 
 - Amazon Quick:
+
   - Native identities (username/password)
   - AWS Managed Microsoft AD
   - IAM federation

@@ -15,6 +15,7 @@ To use Amazon Q Business indexes in Amazon Quick, you need to set up the appropr
 You can either connect to an existing Amazon Q Business application or create a new one:
 
 1. Choose one of the following options:
+
    - **Connect to existing Amazon Q Business application** - Select an existing application from your account.
    - **Create new Amazon Q Business application** - Create a new application. The new application will use the same authentication used by your Amazon Quick instance setup.
 

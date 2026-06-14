@@ -118,6 +118,7 @@ customize the sort options.
    well, and then choose **Sort options**.
 4. In the **Sort options** pane that opens at left,
    specify the following options:
+
    1. For **Sort by**, choose a field from the
       drop-down list.
    2. For **Aggregation**, choose an aggregation

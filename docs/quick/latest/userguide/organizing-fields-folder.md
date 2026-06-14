@@ -111,6 +111,7 @@ your folder's description when they select the folder menu in the
    **Edit name & description**.
 2. On the **Edit folder** page that appears, do the
    following:
+
    - For **Name**, enter a name for the folder.
    - For **Description**, enter a description of the
      folder.
@@ -128,6 +129,7 @@ You can move folders and subfolders to new or existing folders in the
    choose **Move folder** on the folder menu.
 2. On the **Move folder** page that appears, do one of the
    following:
+
    - Choose **Create a new folder** and enter a name
      for the folder.
    - For **Existing folder,** choose a folder.

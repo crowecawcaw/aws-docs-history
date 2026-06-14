@@ -34,6 +34,7 @@ output twice. Items displayed in **bold** can
 be used in the narrative.
 
 - `categoryField` – The category field.
+
   - `**name**`
     – The display name of the category field.
 

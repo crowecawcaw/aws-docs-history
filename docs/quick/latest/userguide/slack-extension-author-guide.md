@@ -49,6 +49,7 @@ This action requires full author permissions.
 4. Select **Slack**. Then, select
    **Next**.
 5. Configure the following fields:
+
    - **Name** - A name for your extension is
      pre-filled for you. You can edit this and enter a descriptive
      name for the Slack extension.

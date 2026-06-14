@@ -140,5 +140,6 @@ Before creating data access integrations, ensure you have the following requirem
 - **Source system access** - Appropriate permissions in the target system (administrative access may be required for some integrations).
 - **Authentication credentials** - Valid credentials or service accounts for the target system.
 - **Network connectivity** - Ensure Amazon Quick can access your data sources. Network requirements differ by integration type:
+
   - **Knowledge bases** - Do not support VPC connectivity. Data sources must be accessible over the public internet.
   - **Action connectors** - Support VPC connectivity for resource servers within your VPC. However, authentication servers must remain publicly accessible.

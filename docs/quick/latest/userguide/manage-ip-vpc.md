@@ -57,6 +57,7 @@ includes allows your traffic, you can't save your changes.
    Permissions**.
 2. Choose **IP and VPC endpoint restrictions**.
 3. Perform one of the following actions.
+
    1. For **IP restriction**, enter the CIDR address
       that defines the IP range that you want to create a rule for.
    2. For **VPC endpoint restriction**, enter either

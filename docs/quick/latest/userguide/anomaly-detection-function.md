@@ -34,6 +34,7 @@ narrative.
 
 - `timeField` – From the **Time**
   field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**timeGranularity**` – The time
@@ -42,11 +43,13 @@ narrative.
 
 - `**categoryFields**`
   – From the **Categories** field well.
+
   - `**name**`
     – The formatted display name of the field.
 
 - `metricField` – From the
   **Values** field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**aggregationFunction**` – The
@@ -57,8 +60,10 @@ narrative.
   The number of items included in this computation.
 - `**items**` –
   Anomalous items.
+
   - `timeValue` – The values in the date
     dimension.
+
     - `**value**` – The date/time
       field at the point of the anomaly (outlier).
     - `**formattedValue**` – The
@@ -85,6 +90,7 @@ narrative.
   `AnomalyDetection.direction=''`.
   - `actualValue` – The metric's actual
     value at the point of the anomaly or outlier.
+
     - `**value**` – The raw
       value.
     - `**formattedValue**` – The
@@ -95,6 +101,7 @@ narrative.
 
   - `expectedValue` – The metric's expected
     value at the point of the anomaly (outlier).
+
     - `**value**` – The raw
       value.
     - `**formattedValue**` – The

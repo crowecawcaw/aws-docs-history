@@ -171,6 +171,7 @@ add synonyms for those values. You can add `Northwest` for
    **Configure value synonyms**.
 5. On the **Field Value Synonyms** page that opens, choose
    **Add**, and then do the following:
+
    1. For **Value**, choose the value that you want to
       add synonyms to.
    2. For **Synonyms**, enter one or more synonyms for

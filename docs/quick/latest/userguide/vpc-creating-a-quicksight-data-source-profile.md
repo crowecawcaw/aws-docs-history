@@ -71,6 +71,7 @@ you choose. For more information, see [Creating a data source](../../../quicksig
    information is correct. If your connection doesn't validate, correct the
    connection information and try again. If the information looks correct but
    doesn't validate, do one or all of the following:
+
    - Contact your data source administrator to verify your connection
      settings.
    - Contact your Amazon Quick administrator to verify the settings in the

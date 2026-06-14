@@ -109,6 +109,7 @@ percentages rather than currency.
 ###### To change a field's data type
 
 1. Choose one of the following options:
+
    - In the **Field list** pane, hover over the
      numeric field that you want to change. Then choose the selector icon
      to the right of the field name.

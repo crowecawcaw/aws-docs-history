@@ -113,6 +113,7 @@ Locate specific tasks using:
 
 - Search - Find tasks by title
 - Filters:
+
   - Status
   - Due date
   - Severity

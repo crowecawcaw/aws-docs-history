@@ -36,6 +36,7 @@ create a data source connection with Google BigQuery:
   Permissions** – To connect your Google
   account with Quick Sight, make sure that your Google account
   has the following permissions:
+
   - `BigQuery Job User` at the `Project`
     level.
   - `BigQuery Data Viewer` at the `Dataset` or
@@ -60,6 +61,7 @@ Google BigQuery data source.
    tile.
 5. Add the data source details that you recorded in the prerequisites section
    earlier:
+
    - **Data source name** – A name
      for the data source.
    - **Project ID** – A
@@ -92,6 +94,7 @@ SPICE.
 4. Choose the **Google BigQuery** tile, and
    then choose **Create dataset**.
 5. For **Tables**, do one of the following:
+
    - Choose the table that you want to use.
    - Choose **Use custom SQL** to use your own
      personal SQL statement. For more information about using custom SQL

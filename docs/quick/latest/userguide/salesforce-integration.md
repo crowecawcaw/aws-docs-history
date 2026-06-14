@@ -33,6 +33,7 @@ Create a connected app in Salesforce to enable OAuth authentication with Amazon 
 
 1. Sign in to your Salesforce account and navigate to the Setup page using the Setup icon in the top right.
 2. In the Quick Find bar, enter `Apps`, then follow these steps:
+
    - Select **External Client Apps**
    - Select **Settings**
    - Under Settings, create a new connected app
@@ -40,11 +41,13 @@ Create a connected app in Salesforce to enable OAuth authentication with Amazon 
 3. Choose **New Connected App**.
 4. Choose **Create a connected app**.
 5. In the Basic Information section, enter the following required information:
+
    - **Connected App Name** - A descriptive name for your connected app.
    - **API Name** - A unique API name for your application.
    - **Contact Email** - Your contact email address.
 
 6. In the OAuth Settings section, select the following checkboxes:
+
    - **Enable OAuth Settings**
    - **Require Proof Key for Code Exchange (PKCE) Extension for Supported Authorization Flows** _(recommended)_
 
@@ -58,6 +61,7 @@ Create a connected app in Salesforce to enable OAuth authentication with Amazon 
    - **Require Secret for Token Exchange Flow**
 
 7. Add the following required OAuth scopes:
+
    - `api` - Access Salesforce APIs
    - `refresh_token` - Maintain access when user is offline
    - `offline_access` - Perform requests at any time
@@ -88,6 +92,7 @@ Configure the consumer details and set up an execution user for the client crede
 3. Choose **Apply**.
 4. Choose **Initial Access Token**, then choose **OK**.
 5. Configure the execution user:
+
    1. From the connected app detail page, choose **Edit** under the Action column.
    2. Under OAuth Policies > Refresh Token Policy, select **Immediately expire refresh token**.
    3. Under Client Credentials Flow, for Run As, choose the user to assign the client credentials flow.
@@ -104,15 +109,19 @@ creation are not available for Salesforce systems.
 2. Choose the **Create for your team** tab.
 3. Find and choose **Salesforce**.
 4. Fill in the integration details:
+
    - **Name** - Descriptive name for your Salesforce action connector.
    - **Description** (Optional) - Purpose of the action connector.
 
 5. Choose your connection type:
+
    - **User authentication** - OAuth-based authentication for individual user access.
    - **Service authentication** - Service-to-service authentication for application access.
 
 6. Fill in the connection settings based on your selected authentication method (either user or service):
+
    1. For **User authentication (OAuth)**, configure the following fields:
+
       - **Base URL** - Salesforce instance URL (for example, https://your-domain.salesforce.com).
       - **Client ID** - Salesforce connected app consumer key.
       - **Client Secret** - Salesforce connected app consumer secret.

@@ -74,8 +74,10 @@ Use the following procedure to format a histogram.
    **Format visual** options.
 3. On the **Properties** pane, set the following options to
    control the display of the histogram:
+
    - **Histogram** settings. Chose
      _one_ of the following settings:
+
      - Bin count (option 1): The number of bins that display on
        the X-axis.
      - Bin width (option 1): The width (or length) of each
@@ -89,6 +91,7 @@ Use the following procedure to format a histogram.
      you might have a tall peak in one bin, while most of the other bins
      look sparse. This isn't a useful view. You can use the
      following settings individually or together:
+
      - Change the **Number of data points
        displayed** in the **X-axis**
        settings.
@@ -185,6 +188,7 @@ Most histograms fall into one of the following shapes:
   because this direction also describes the location of the mean (average). In
   skewed distributions, the mean and the median are two different numbers. The
   different types of skewed distribution are as follows:
+
   - _Negatively_ skewed or _left_ skewed – A chart that has
     the mean to the left of the peak. It has a longer tail to the left
     and a peak to the right, sometimes followed by a shorter
@@ -198,6 +202,7 @@ Most histograms fall into one of the following shapes:
   example, a bell curve). In a normal distribution, the mean and the median
   are the same value. The different types of normal distribution are as
   follows:
+
   - Normal distribution, or _unimodal_ – A chart that has one central peak
     representing the most common value. This is commonly called a bell
     curve, or a Gaussian distribution.

@@ -57,6 +57,7 @@ Use the following procedure to create a numeric field filter.
 4. For **Filter condition**, choose a comparison
    type.
 5. Do one of the following:
+
    - If you chose a comparison type other than
      **Between**, enter a comparison value.
 

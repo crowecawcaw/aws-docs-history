@@ -19,6 +19,7 @@ The Setup tab provides tools for managing your test configuration:
 
 - Breakpoint manager - Lists all breakpoints currently set in your automation. Remove breakpoints directly from this view without returning to the canvas.
 - Test navigation - Quick access links to view:
+
   - View runs - See all automation runs from testing
   - View cases - View cases created during testing
   - View tasks - Review any human-in-the-loop tasks generated
@@ -63,6 +64,7 @@ To run an automation with inputs:
 
 - Open your automation in Studio and choose **Run** or **Debug**.
 - In the **Provide input values** form, enter values for each field:
+
   - For text and number fields, type the values directly
   - For file fields, choose **Browse** to select a file from your local machine
   - Optional fields can be left blank unless you want to override default values
@@ -144,6 +146,7 @@ The Variable watcher in the Monitor tab provides visibility to inspect data bein
 - Click **Add** to search and select variables to inspect
 - View the current value for the variable
 - Modify values to test different scenarios:
+
   - Click the **pencil icon** next to any variable
   - Enter a new value to test
   - Continue the run to proceed with the new value
@@ -162,6 +165,7 @@ When your automation encounters an exception, the Automation Assistant can help 
 
 - Click **Fix with Assistant** when paused at an error
 - The Assistant will:
+
   - Analyze the error message
   - Review the run logs
   - Check its troubleshooting knowledge base
@@ -169,6 +173,7 @@ When your automation encounters an exception, the Automation Assistant can help 
   - Suggest potential solutions
 
 - Chat with the Assistant to:
+
   - Ask questions about the error
   - Update the automation based on any of the recommended changes
 

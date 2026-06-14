@@ -124,6 +124,7 @@ specified AWS KMS key's policy. You can do this in the AWS KMS console at
 
 1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 2. Verify that you have selected the workgroup you want to use:
+
    - Examine the **Workgroup** option at the top.
      It has the format **Workgroup:
      `group-name`**. If the

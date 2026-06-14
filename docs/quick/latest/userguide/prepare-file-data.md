@@ -7,6 +7,7 @@ files from either your local network or Amazon S3.
 
 1. Open a file dataset for data preparation by choosing one of the following
    options:
+
    - Create a new local file dataset, and then choose
      **Edit/Preview data**. For more information about
      creating a new dataset from a local text file, see [Creating a dataset using a local text
@@ -74,6 +75,7 @@ Use the following procedure to prepare a Microsoft Excel dataset.
 
 1. Open a text file dataset for preparation by choosing one of the following
    options:
+
    - Create a new Microsoft Excel dataset, and then choose
      **Edit/Preview data**. For more information
      about creating a new Excel dataset, see [Creating a dataset using a Microsoft Excel

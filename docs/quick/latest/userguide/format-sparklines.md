@@ -16,6 +16,7 @@ data.
    **Visuals** dropdown list and choose **APPLY
    SPARKLINES**.
 4. In the sparklines editing pane, configure the data settings:
+
    - For **Value column**, choose the measure field that
      you want the sparkline to represent. Fields already used by another
      sparkline or data bar are not available.
@@ -29,6 +30,7 @@ data.
    the sparkline appearance. See [Sparkline options](#format-sparklines-options "#format-sparklines-options") for details.
 6. (Optional) Configure marker visibility. All markers are hidden by default.
    You can choose to show:
+
    - **All points** – Show a marker
      on every data point.
    - **Max value** – Show a marker

@@ -29,6 +29,7 @@ other parts of the table.
 1. On the table that you want to change, choose the pinned column that you
    wnat to unpin.
 2. Choose one of the following options.
+
    - To unfreeze a single column, choose **Unfreeze
      column**.
    - To unfreeze all frozen columns, choose **Unfreeze all

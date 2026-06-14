@@ -13,6 +13,7 @@ add subtotal columns to your pivot table visuals.
 
 1. To display totals, open the **Properties** pane and
    choose **Total**.
+
    - To show totals for rows, toggle the **ROWS**
      switch on. Totals are displayed on the bottom row of the visual.
      Choose **Pin totals** to keep the totals
@@ -23,6 +24,7 @@ add subtotal columns to your pivot table visuals.
 
 2. To display totals, open the **Properties** pane and
    choose **Subtotal**.
+
    - To show subtotals for rows, toggle the
      **ROWS** switch on. Totals are displayed on
      the bottom row of the visual.
@@ -30,6 +32,7 @@ add subtotal columns to your pivot table visuals.
      **COLUMNS** switch on.
    - For **Level**, choose one of the
      following:
+
      - Choose **Last** to only show the
        subtotal of the last field in the chart's hierarchy.
        This is the default option.
@@ -169,6 +172,7 @@ subtotals.
 2. For **Apply styling to**, choose the visual that you
    want to apply subtotal styling to. You can choose from the following
    options.
+
    - **None**– Removes styling
      options from all cells.
    - **Headers only**– Aplies

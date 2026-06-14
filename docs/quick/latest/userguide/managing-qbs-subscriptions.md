@@ -138,6 +138,7 @@ edition, Amazon Quick supports the following additional features:
   console).
 - **ML Insights** to make the most of your data,
   including the following:
+
   - Anomaly detection that can run on billions of rows of data on a
     schedule.
   - Contribution analysis to help you figure out key drivers.
@@ -148,6 +149,7 @@ edition, Amazon Quick supports the following additional features:
 
 - **Embedded analytics** in applications and
   portals:
+
   - Embed dashboards with row level security.
   - Namespaces with multitenant support for creating dashboards with
     embedded analytics.
@@ -155,6 +157,7 @@ edition, Amazon Quick supports the following additional features:
   - Capacity pricing for embedding.
 
 - **Security and governance**
+
   - Row-level security.
   - Private virtual private cloud (VPC) support based on Amazon VPC.
   - Folders for organization and sharing.
@@ -164,6 +167,7 @@ edition, Amazon Quick supports the following additional features:
 
 - **User authentication and management
   options**
+
   - Integration with Microsoft Active Directory with support for Active
     Directory groups.
   - Group support for user management.

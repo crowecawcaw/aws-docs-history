@@ -11,6 +11,7 @@ Before deploying your automation, ensure that the following steps are complete:
 - **Automation is tested thoroughly** - Validate your automation through end-to-end testing to confirm that all logic, actions, and agent interactions work as expected.
 - **Version committed for deployment** - Only committed automation versions can be deployed. Review your changes, finalize the version, and commit it before proceeding.
 - **Integrations configured** - If your automation interacts with external applications such as Salesforce or Jira via APIs, make sure all necessary integrations are configured.
+
   - Navigate to **Connections → Integrations** in the left panel to create new integrations.
   - Currently, only integrations available under the **Actions** tab are supported in Amazon Quick Automate.
   - Once an integration action is created, associate it with the **Automation Group** where it will be used.

@@ -44,9 +44,9 @@ The Excel extension enables users to:
 
 ###### Topics
 
-- [Prerequisites for deploying the Microsoft Excel extension to your organization](#excel-preview-prerequisites "#excel-preview-prerequisites")
-- [Deploying the Microsoft Excel extension to your organization](#excel-preview-deployment "#excel-preview-deployment")
-- [Microsoft Excel extension permissions](#excel-preview-permissions "#excel-preview-permissions")
+- [Prerequisites for deploying the Microsoft Excel extension to your organization](#excel-prerequisites "#excel-prerequisites")
+- [Deploying the Microsoft Excel extension to your organization](#excel-deployment "#excel-deployment")
+- [Microsoft Excel extension permissions](#excel-permissions "#excel-permissions")
 
 ## Prerequisites for deploying the Microsoft Excel extension to your organization
 

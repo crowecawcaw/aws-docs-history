@@ -55,6 +55,7 @@ and Share integration.
    (MCP)**.
 4. On the **Create integration** page, enter the
    following fields:
+
    - **Name** – A descriptive name for your
      Visier integration.
    - **Description** (Optional) – Notes about

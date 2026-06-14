@@ -10,6 +10,7 @@ created using the procedure in [Tutorial: Create an Amazon Quick Sight analysis]
 3. For a new dashboard, enter `Marketing Dashboard` in **Dashboard name**. Optionally, add notes.
 4. Under **Select sheets**, choose **All sheets** or **Specific sheets**.
 5. Configure the following options as needed:
+
    - **Dashboard options** - **Enable Quick Actions** to allow dashboard users to take actions in connected services from visuals and alerts.
    - **Generative capabilities** - **Allow executive summary** to leverage generative capabilities to build precise summary for each sheet of the dashboard.
    - **Allow Data Q&A** to enable generative Q&A for this dashboard. This setting enables Amazon Q in QuickSight.

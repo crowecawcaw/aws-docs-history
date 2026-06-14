@@ -42,6 +42,7 @@ To register the OAuth application, complete the following steps.
 2. Choose **Create an OAuth API endpoint for external
    clients**.
 3. Complete the form:
+
    - **Name** – A descriptive name for the
      OAuth application.
    - **Redirect URL** –
@@ -70,6 +71,7 @@ DC](https://www.servicenow.com/community/developer-blog/up-your-oauth2-0-game-in
 1. Enable the client credentials grant type. Navigate to
    `sys_properties.list` using the filter navigator and
    create a new system property with the following values:
+
    - **Name** –
      `glide.oauth.inbound.client.credential.grant_type.enabled`
    - **Type** – `true |
@@ -80,6 +82,7 @@ false`
 2. Verify that the following plugins are installed (navigate to
    **Admin** > **Application
    Manager**):
+
    - OAuth 2.0
      (`com.snc.platform.security.oauth`)
    - REST API Provider
@@ -117,6 +120,7 @@ in Amazon Quick.
 2. Choose the **Create for your team** tab.
 3. Find and choose **ServiceNow**.
 4. Enter the integration details:
+
    - **Name** – Descriptive name for your
      ServiceNow integration.
    - **Description** (Optional) – Purpose of the
@@ -124,8 +128,10 @@ in Amazon Quick.
 
 5. Choose your connection type and fill in the connection
    settings:
+
    1. For **User authentication
       (OAuth)**, configure the following fields:
+
       - **Base URL** –
         `https://`{your-instance}`.service-now.com`
       - **Client ID** – Client ID from your
@@ -142,6 +148,7 @@ in Amazon Quick.
    2. For **Service authentication (client
       credentials)**, configure the following
       fields:
+
       - **Authentication type** –
         Service-to-service OAuth
       - **Base URL** –

@@ -10,6 +10,7 @@ data directly.
 
 1. Open a database dataset for preparation by choosing one of the following
    options:
+
    - Create a new database dataset and choose **Edit/Preview
      data**. For more information about creating a new dataset
      using a new database data source, see [Creating a dataset from a database](../../../quicksight/latest/user/create-a-database-data-set.md "../../../quicksight/latest/user/create-a-database-data-set.md"). For
@@ -55,6 +56,7 @@ preparation. Otherwise, it's `Untitled data
      SQL pane and edit the query.
 
 4. Prepare the data by doing one or more of the following:
+
    - [Selecting fields](../../../quicksight/latest/user/selecting-fields.md "../../../quicksight/latest/user/selecting-fields.md")
    - [Editing field names and
      descriptions](../../../quicksight/latest/user/changing-a-field-name.md "../../../quicksight/latest/user/changing-a-field-name.md")

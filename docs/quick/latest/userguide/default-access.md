@@ -21,6 +21,7 @@ displayed in a blue information box.
 3. Under **Permissions**, choose **Default access
    policy**.
 4. Choose one of the following:
+
    - Allow access to all AWS data and resources to all users and
      groups.
    - Deny access to all AWS data and resources to all users and

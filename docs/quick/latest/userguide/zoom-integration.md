@@ -57,6 +57,7 @@ on the Zoom Developer website.
 3. On the **Basic Information** tab, under
    **App Credentials**, record the following
    values. You need them when you configure Amazon Quick.
+
    - **Client ID**
    - **Client secret**
 

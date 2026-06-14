@@ -19,6 +19,7 @@ dataset settings. See the following procedure to learn how.
 3. Choose **Set alert schedule**.
 4. In the **Set alert schedule** page that opens, do the
    following.
+
    - For **Time zone**, choose a time zone.
    - For **Repeats**, choose how often you want the
      data to be evaluated.

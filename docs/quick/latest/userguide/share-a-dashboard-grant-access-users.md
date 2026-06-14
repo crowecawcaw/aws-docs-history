@@ -8,6 +8,7 @@ Use the following procedure to grant access to a dashboard.
     upper right. Then choose **Share dashboard**.
 2.  In the **Share dashboard** page that opens, do the
     following:
+
     1. For **Invite users and groups to dashboard**
        at left, enter a user email or group name in the search
        box.

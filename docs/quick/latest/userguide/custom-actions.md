@@ -151,12 +151,14 @@ To delete it, choose **Delete**. 3. To create a new action, choose either one of
 6. For **Action type**, choose the action type you want to
    use.
 7. For a **Filter action**, do the following:
+
    1. For **Filter scope**, choose the scope of the
       filter.
    2. For **Target visuals**, choose how far the filter
       cascades
 
 8. For a **Navigation action**, do the following:
+
    1. For **Target sheet**, choose the target
       sheet.
    2. For **Parameters**, choose the plus icon near the
@@ -165,6 +167,7 @@ To delete it, choose **Delete**. 3. To create a new action, choose either one of
       custom values, or select specific fields.
 
 9. For a **URL action**, do the following:
+
    1. For **URL**, enter the hyperlink.
    2. Choose the plus icon near the **URL** heading.
       Then, add variables from the list.
@@ -174,6 +177,7 @@ To delete it, choose **Delete**. 3. To create a new action, choose either one of
 10. After you are finished with the action, choose one of the following at the
     bottom of the **Actions** panel (you might need to scroll
     down):
+
     - **Save** – Save your selections, and
       create the custom action.
     - **Close** – Close this custom action and

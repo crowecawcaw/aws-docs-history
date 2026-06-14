@@ -24,6 +24,7 @@ dynamically adjust the scale.
 4.  Enter a new name in the box to rename the axis. To revert to the default name,
     delete your entry.
 5.  Set the range for the axis by choosing one of the following options:
+
     - Choose **Auto (starting at 0)** to have the range
       start at 0 and end around the highest value for the measure being
       displayed.
@@ -44,6 +45,7 @@ dynamically adjust the scale.
     logarithmic scale, also called log scale, enable the logarithmic option.
     Quick chooses the axis labels to display based on the range of
     values in that axis.
+
     - On a linear scale, the axis labels are evenly spaced to show the
       arithmetical difference between them. The labels display the numbers in
       sets like {1000, 2000, 3000…} or {0, 50 million, 100 million…}, but not
@@ -65,7 +67,6 @@ dynamically adjust the scale.
 
         + Profits in different regions of the same country
         + Costs incurred for manufacture of an item
-
     - On a _logarithmic scale_, the axis
       values are spaced to show the orders of magnitude as a way of comparing
       them. The log scale is often used to display very large ranges of values

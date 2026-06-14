@@ -281,6 +281,7 @@ dataset. For help with these requirements, see the procedures preceding.
    **Parameters**.
 2. Choose **Set a dynamic default**.
 3. Configure the following options with your settings:
+
    - **Dataset with default values and user information**
      – Choose the dataset that you created and added to your analysis.
    - **User name column** – To create defaults that

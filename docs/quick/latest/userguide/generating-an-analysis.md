@@ -29,6 +29,7 @@ prompt.
 ###### To generate an analysis from a natural language prompt
 
 1. Do one of the following:
+
    - Open a dataset and choose **Generate
      analysis**.
    - From the **Analyses** page, choose

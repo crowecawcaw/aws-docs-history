@@ -23,6 +23,7 @@ any time. Use the following procedure to add data to an Amazon Quick Sight scena
 3. Choose the **Data Source** icon in the actions bar to
    open the **Data** pane.
 4. Perform one of the following actions:
+
    1. To add Quick Sight data to the scenario, choose **Find
       Data**, and then choose the dataset or dashboard
       visuals that you want to add to the scenario. After you have

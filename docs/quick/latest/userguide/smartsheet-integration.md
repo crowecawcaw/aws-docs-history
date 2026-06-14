@@ -63,6 +63,7 @@ apps rather than a personal account.
 1. In Smartsheet Developer Tools, choose **Create New
    App**.
 2. Complete the form:
+
    - **App name** – A name to identify your
      app to users.
    - **App description** – A brief description
@@ -142,6 +143,7 @@ integration in Amazon Quick.
 2. Choose the **Create for your team** tab.
 3. Find and choose **Smartsheet**.
 4. Enter the integration details:
+
    - **Name** – Descriptive name for your
      Smartsheet integration.
    - **Description** (Optional) – Purpose of the
@@ -149,10 +151,12 @@ integration in Amazon Quick.
 
 5. Choose your connection type and fill in the connection settings. For
    more information about these authentication methods, see [Authentication methods](quick-action-auth.md "quick-action-auth.md").
+
    1. For **User authentication
       (OAuth)**, use the Client ID and Client Secret
       from your Smartsheet Developer Tools app registration.
       Configure the following fields:
+
       - **Base URL** –
         `https://api.smartsheet.com/2.0`
       - **Client ID** – App client ID from
@@ -172,6 +176,7 @@ integration in Amazon Quick.
       key)**, use the API access token from your
       Smartsheet Personal Settings. Configure the following
       fields:
+
       - **API Key** – Smartsheet API access
         token generated from your Personal
         Settings.

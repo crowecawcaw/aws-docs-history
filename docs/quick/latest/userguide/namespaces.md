@@ -49,6 +49,7 @@ Namespaces currently have the following limitations:
   accessible to IAM Federated Single-Sign On users.
 - Use default namespaces instead of custom namespaces if you need to support the
   following:
+
   - Integrating your Amazon Quick account with IAM Identity Center. For more information on
     integrating your Amazon Quick account with IAM Identity Center, see [AWS
     security in Amazon Quick](../../../quicksight/latest/user/security.md "../../../quicksight/latest/user/security.md").
@@ -122,6 +123,7 @@ The user ARNs include the namespace qualifier to
 distinguish them, as shown in the following examples:
 
 - Amazon Quick considers these two entities to be different persons:
+
   - `arn:aws:quicksight:us-east-1:111122223333:user/**namespace-123**/username123`
   - `arn:aws:quicksight:us-east-1:111122223333:user/**namespace-456**/username123`
 

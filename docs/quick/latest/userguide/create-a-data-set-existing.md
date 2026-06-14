@@ -59,6 +59,7 @@ source.
 3. Choose the Salesforce data source to use.
 4. Choose **Create Data Set**.
 5. Choose one of the following:
+
    - **Custom SQL**
 
    On the next screen, you can choose to write a query with the
@@ -87,6 +88,7 @@ source.
    **Select**.
 
 6. On the next screen, choose one of the following options:
+
    - To create a dataset and an analysis using the data as-is, choose
      **Visualize**.
 
@@ -115,6 +117,7 @@ source.
 3. Choose the database data source to use, and then choose **Create
    Data Set**.
 4. Choose one of the following:
+
    - **Custom SQL**
 
    On the next screen, you can choose to write a query with the
@@ -144,6 +147,7 @@ source.
    **Select**.
 
 5. Choose one of the following options:
+
    - Prepare the data before creating an analysis. To do this, choose
      **Edit/Preview data** to open data preparation
      for the selected table. For more information about data preparation,

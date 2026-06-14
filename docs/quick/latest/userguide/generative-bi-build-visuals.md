@@ -14,6 +14,7 @@ The following image shows a custom visual that's created with the
    to build a visual**.
 2. In the **Build a visual** panel that appears, perform the
    following steps.
+
    1. Describe the data that you want to visualize. You can enter a
       custom description, or you can choose from the
       **Suggested** questions that are generated

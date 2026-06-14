@@ -68,6 +68,7 @@ access.
 
 5.  Choose **Publish dashboard**.
 6.  (Optional) Do one of the following:
+
     - To publish a dashboard without sharing, choose **x**
       at the upper right of the **Share dashboard with
       users** screen when it appears. You can share the dashboard

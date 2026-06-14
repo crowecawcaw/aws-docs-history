@@ -69,10 +69,12 @@ After you prepare your MCP server configuration and authentication credentials, 
 2. Choose the **Create for your team** tab.
 3. Find and choose **Model Context Protocol (MCP)**.
 4. On the **Create Integration** page, enter the integration details:
+
    - **Name** – A descriptive name for your MCP integration.
    - **Description** (Optional) – The purpose of the integration.
    - **MCP server endpoint** – The URL of the MCP server.
    - **Connection type** – Choose how Amazon Quick connects to the MCP server:
+
      - **Public network** – Use this option for MCP servers that are reachable over the public internet.
      - A named VPC connection – Use this option for private MCP servers. The dropdown lists the VPC connections that are configured on your Amazon Quick account. Choose the connection that has network access to your MCP server. If you don't see your VPC connection in the list, confirm that it is fully provisioned and active. For more information, see [Configuring VPC connections in Amazon Quick Sight](working-with-aws-vpc.md "working-with-aws-vpc.md").
 
@@ -176,6 +178,7 @@ When you use MCP integrations in Amazon Quick, be aware of the following limitat
 - Server connectivity issues result in immediate failure without retry attempts.
 - Step-up authorization is not supported. If an MCP server requires additional scopes after the initial authorization (HTTP 403 with `insufficient_scope`), then you must re-authorize the entire connection. Incremental permission upgrades are not available.
 - Scope handling has the following limitations:
+
   - Amazon Quick does not extract the `scope` parameter from the server's initial 401 `WWW-Authenticate` challenge. Amazon Quick determines scopes from the Protected Resource Metadata document instead.
   - When the metadata does not specify supported scopes, Amazon Quick applies default scopes rather than omitting them. This behavior might cause authentication failures with servers that do not recognize the default scopes.
 

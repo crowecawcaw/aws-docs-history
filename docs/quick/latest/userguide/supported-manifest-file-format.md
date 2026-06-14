@@ -70,6 +70,7 @@ The manifest file elements are described following:
   specify the files to import. You can use either or both of the
   `URIs` and `URIPrefixes` arrays to do this.
   You must specify at least one value in one or the other of them.
+
   - **URIs** – Use this array to list URIs
     for specific files to import.
 

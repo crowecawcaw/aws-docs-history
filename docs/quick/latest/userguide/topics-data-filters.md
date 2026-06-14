@@ -16,6 +16,7 @@ answer. You can add filters to a topic to support requests like these.
     filter**.
 4.  In the **Filter configuration** page that opens, do the
     following:
+
     1. For **Name**, enter a friendly name for the
        filter.
     2. For **Dataset**, choose a dataset that you want
@@ -69,10 +70,10 @@ answer. You can add filters to a topic to support requests like these.
         	 rule.
         For more information about filtering numeric fields, see
          [Adding numeric filters](add-a-numeric-filter-data-prep.md "add-a-numeric-filter-data-prep.md").
-
     4. (Optional) To specify when the filter is applied, choose
        **Apply the filter anytime the dataset is
        used**, and then choose one of the following:
+
        - **Apply always** – When you choose
          this option, the filter is applied whenever any column from
          the dataset you specified is linked to a question.

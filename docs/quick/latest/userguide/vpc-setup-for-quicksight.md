@@ -26,6 +26,7 @@ and your data source:
 - The Amazon Quick elastic network interfaces and the subnets they use
 - The route table
 - Inbound and outbound rules for these security groups:
+
   - Security group for your VPC. We recommend you create a new security group
     to isolate the rules on the VPC security group from the rules on the
     Amazon Quick network interface's security group).

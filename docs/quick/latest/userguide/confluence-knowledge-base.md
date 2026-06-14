@@ -54,6 +54,7 @@ and additional settings.
    connection.
 4. If you are adding a new account, complete the following
    fields:
+
    - **Name** – A descriptive name for
      your connection.
    - **Description** (Optional) – Notes
@@ -66,6 +67,7 @@ and additional settings.
    **Use Atlassian admin credentials** to provide
    Atlassian admin credentials. When selected, enter the
    following:
+
    - **API key** – The Atlassian admin
      API key.
    - **OrganizationID (UUID)** – Your

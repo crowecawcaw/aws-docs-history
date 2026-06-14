@@ -44,6 +44,7 @@ the minimum computation.
 
 - `timeField` – From the **Time**
   field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**timeGranularity**` – The time
@@ -52,6 +53,7 @@ the minimum computation.
 
 - `metricField` – From the
   **Values** field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**aggregationFunction**` – The
@@ -60,6 +62,7 @@ the minimum computation.
 
 - `metricValue` – The value in the metric
   dimension.
+
   - `**value**`
     – The raw value.
   - `**formattedValue**` – The value
@@ -69,6 +72,7 @@ the minimum computation.
 
 - `timeValue` – The value in the datetime
   dimension.
+
   - `**value**`
     – The raw value.
   - `**formattedValue**` – The value

@@ -28,6 +28,7 @@ these steps:
 3. Amazon Quick redirects the user's input to the federation service and requests
    authentication.
 4. The federation service and the IdP authenticate the user:
+
    1. The federation service requests authentication from the organization's
       identity store.
    2. The identity store authenticates the user and returns the

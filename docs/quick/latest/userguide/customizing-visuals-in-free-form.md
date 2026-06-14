@@ -37,6 +37,7 @@ the front and back.
    choose **Menu options**.
 3. For **Menu options**, choose from the
    following:
+
    - **Send to back** sends the visual to the
      back.
    - **Send backward** sends the visual one layer

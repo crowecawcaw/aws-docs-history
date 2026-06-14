@@ -149,6 +149,7 @@ Amazon Quick.
 3. Find and choose **Atlassian Jira Cloud**.
 4. In the **Create integration** wizard, fill in the
    following fields:
+
    - **Name** – Descriptive name for your Jira
      integration.
    - **Description** (Optional) – Notes about how
@@ -158,8 +159,10 @@ Amazon Quick.
 
 5. Under **Authentication settings**, choose your
    authentication method and fill in the required fields:
+
    1. For **User authentication**,
       configure the following fields:
+
       - **Base URL** – Your Jira instance URL
         for API calls. This is not the same URL that users log into.
         It resembles the following:
@@ -177,6 +180,7 @@ To find your instance ID, navigate to
 
    2. For **Service authentication**,
       configure the following fields:
+
       - **API Key** – Jira API token.
       - **Base URL** – Your Jira instance URL for API calls.
       - **Email** – Associated user account email.

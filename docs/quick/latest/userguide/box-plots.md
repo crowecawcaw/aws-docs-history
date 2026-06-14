@@ -38,6 +38,7 @@ Box plot visuals aren't compatible with MySQL 5.3 and earlier.
 2. Open Quick and choose **Analyses** on the
    navigation pane at left.
 3. Choose one of the following:
+
    - To create a new analysis, choose **New analysis** at
      upper right. For more information, see [Starting an analysis in Quick Sight](creating-an-analysis.md "creating-an-analysis.md").
    - To use an existing analysis, choose the analyses that you want to

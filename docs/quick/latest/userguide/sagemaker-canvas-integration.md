@@ -11,6 +11,7 @@ dashboards.
   Quick account isn't integrated with IAM Identity Center, create a new
   Quick account and choose **Use IAM Identity Center enabled
   application** as the identity provider.
+
   - For more information on IAM Identity Center, see [Getting
     started](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md").
   - To learn more about integrating your Quick with IAM Identity Center, see

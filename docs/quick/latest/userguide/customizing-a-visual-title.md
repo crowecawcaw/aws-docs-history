@@ -24,6 +24,7 @@ also shown by default.
 7.  In the **Edit title** or **Edit subtitle**
     popup that opens, you can use the following options to make the updates that you
     want:
+
     - To enter a custom title or subtitle, enter your title or subtitle text
       in the editor. Titles can be up to 120 characters long, including
       spaces. Subtitles can be up to 500 characters long.

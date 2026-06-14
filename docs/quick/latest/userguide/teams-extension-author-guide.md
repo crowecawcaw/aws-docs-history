@@ -56,6 +56,7 @@ Teams extension for your organization.
 4. Select **Microsoft Teams**. Then,
    select **Next**.
 5. Configure the following fields:
+
    - **Name** - A name for your extension is
      pre-filled for you. You can edit this and enter a descriptive
      name for the Microsoft Teams extension.

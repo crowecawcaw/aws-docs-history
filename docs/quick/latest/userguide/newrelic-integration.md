@@ -44,6 +44,7 @@ Amazon Quick.
 3. Find and choose **New Relic**.
 4. In the **Create integration** dialog, enter the
    following fields:
+
    - **Name** – A descriptive name for your
      New Relic integration.
    - **Description** (Optional) – Notes about how

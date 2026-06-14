@@ -50,11 +50,13 @@ the top ranked computation.
 
 - `categoryField` – From the
   **Categories** field well.
+
   - `**name**`
     – The formatted display name of the field.
 
 - `metricField` – From the
   **Values** field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**aggregationFunction**` – The
@@ -65,8 +67,10 @@ the top ranked computation.
   The number of items included in this computation.
 - `**items**`: Bottom ranked
   items.
+
   - `categoryField` – The category
     field.
+
     - `**value**` – The value
       (contents) of the category field.
     - `**formattedValue**` – The
@@ -76,6 +80,7 @@ the top ranked computation.
       displays '`(empty)`'.
 
   - `metricValue` – The metric field.
+
     - `**value**` – The raw
       value.
     - `**formattedValue**` – The

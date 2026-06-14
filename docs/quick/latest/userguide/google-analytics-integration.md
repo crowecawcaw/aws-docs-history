@@ -58,6 +58,7 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 4. Choose **OAuth consent screen** and choose
    **Get Started**.
 5. Configure the consent screen:
+
    - Enter an **App Name** and select a
      **User support email**.
    - For **Audience**, choose
@@ -68,6 +69,7 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 
 6. Choose **Create OAuth client**.
 7. Configure the client:
+
    - For **Application type**, choose
      **Web application**.
    - Enter a **Name** for your client.
@@ -78,6 +80,7 @@ credentials that you need for Amazon Quick. For more information, see [Using OAu
 8. Choose **Create**.
 9. Record the following values. You need them when you configure
    Amazon Quick.
+
    - **Client ID**
    - **Client secret**
 

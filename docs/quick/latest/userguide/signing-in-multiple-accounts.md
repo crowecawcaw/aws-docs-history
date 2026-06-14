@@ -10,6 +10,7 @@ switch between them as necessary.
    menu.
 3. Hover over **Switch accounts**. A list of accounts that
    you've signed in to before appears. Do one of the following:
+
    - To switch to an account, select that account and provide sign-in
      credentials.
    - To sign in to a new account, choose **Add another

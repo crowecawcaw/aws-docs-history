@@ -43,6 +43,7 @@ following actions:
 2. From the left navigation menu, select **Spaces**.
 3. In **Spaces**, select the space you want to edit.
 4. Inside the space, do any of the following:
+
    1. To edit **Space name** or **Space
       description** , double click on the name or description
       field. Then, select the edit icon to update the description.
@@ -113,6 +114,7 @@ it.
 
 1. Log in to the Amazon Quick console.
 2. Then, do one of the following:
+
    1. From the left navigation menu, select
       **Spaces**.
    2. In **Spaces**, select the space name.
@@ -189,6 +191,7 @@ Amazon Quick system.
 2. From the left navigation menu, select **Spaces**, and
    then select your space from the list of spaces displayed.
 3. In the **Space knowledge** section:
+
    1. In **Files uploaded** – From the
       **Actions** menu select
       **Delete**.

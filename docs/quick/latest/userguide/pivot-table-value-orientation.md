@@ -12,6 +12,7 @@ value name is added to the right of the row header column.
    wells at the top of the visual.
 3. On the **Values** field well, choose one of the following
    options:
+
    - Choose **Column** for a columnar format.
    - Choose **Row** for a row format.
 

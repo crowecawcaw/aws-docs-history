@@ -47,6 +47,7 @@ following:
 4. (Optional) Choose **Add background color** to set a
    background color. If a background color is already added, choose
    **Background**.
+
    - **Fill type** – The background color can be
      **Solid** or **Gradient**. If you
      choose to use a gradient, additional color options display, enabling you
@@ -69,6 +70,7 @@ following:
 
 5. (Optional) Choose **Add text color** to set a text color. If
    a text color is already added, choose **Text**.
+
    - **Format field based on** – The field or item
      to use when applying the format.
    - **Aggregation** – The aggregation to use
@@ -86,6 +88,7 @@ following:
 
 6. (Optional) Choose **Add icons** to set an icon or icon set.
    If an icon is already added, choose **Icon**.
+
    - **Format field based on** – The field or item
      to use when applying the format.
    - **Aggregation** – The aggregation to use
@@ -112,6 +115,7 @@ following:
    - **Show icon only** – Replaces the value with
      the icon for tables and pivot tables.
    - **Additional options:**
+
      - In tables and pivot tables, you can set what you want to
        format by choosing options from the context menu
        (**…**): **Values**,
@@ -125,6 +129,7 @@ following:
 7. (Optional) Choose **Add foreground color** to set the
    foreground color of a KPI progress bar. If a foreground color is already added,
    choose **Foreground**.
+
    - **Format field based on** – The field to use
      when applying the format.
    - **Condition** – The comparison operator to
@@ -134,6 +139,7 @@ following:
 
 8. When you are finished configuring conditional formatting, choose one or more
    of the following:
+
    - To save your work, choose **Apply**.
    - To cancel selections and return to the previous panel, choose
      **Cancel**.

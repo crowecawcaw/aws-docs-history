@@ -43,9 +43,9 @@ The PowerPoint extension enables users to:
 
 ###### Topics
 
-- [Prerequisites for deploying the Microsoft PowerPoint extension to your organization](#powerpoint-preview-prerequisites "#powerpoint-preview-prerequisites")
-- [Deploying the Microsoft PowerPoint extension to your organization](#powerpoint-preview-deployment "#powerpoint-preview-deployment")
-- [Microsoft PowerPoint extension permissions](#powerpoint-preview-permissions "#powerpoint-preview-permissions")
+- [Prerequisites for deploying the Microsoft PowerPoint extension to your organization](#powerpoint-prerequisites "#powerpoint-prerequisites")
+- [Deploying the Microsoft PowerPoint extension to your organization](#powerpoint-deployment "#powerpoint-deployment")
+- [Microsoft PowerPoint extension permissions](#powerpoint-permissions "#powerpoint-permissions")
 
 ## Prerequisites for deploying the Microsoft PowerPoint extension to your organization
 

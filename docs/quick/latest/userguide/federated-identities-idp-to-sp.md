@@ -24,6 +24,7 @@ steps:
 1. The user browses to `https://applications.example.com` and signs on
    to the IdP. At this point, the user isn't signed in to the service provider.
 2. The federation service and the IdP authenticate the user:
+
    1. The federation service requests authentication from the organization's
       identity store.
    2. The identity store authenticates the user and returns the
@@ -32,6 +33,7 @@ steps:
       SAML assertion to the user’s browser.
 
 3. The user opens Amazon Quick:
+
    1. The user's browser posts the SAML assertion to the AWS
       Sign-In SAML endpoint (`https://signin.aws.amazon.com/saml`).
    2. AWS Sign-In receives the SAML request, processes the

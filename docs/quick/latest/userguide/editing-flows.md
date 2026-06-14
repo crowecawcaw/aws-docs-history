@@ -35,6 +35,7 @@ In Editor mode, add or select a file upload step. In the configuration panel, se
 In Editor mode, add or select a general knowledge step. In the configuration panel, set the following:
 
 - **Output preference**: Choose one:
+
   - **Fast responses** — Across image, video, and text inputs.
   - **Versatility and performance** — Balanced capabilities for diverse tasks.
 
@@ -64,6 +65,7 @@ In Editor mode, add or select a research step. In the configuration panel, set t
 - **Research objective**: Describe what you want to research.
 - **File uploads**: Optional. Upload default files to help guide your research.
 - **Research materials**:
+
   - **Preferred websites**: Optional. Specify websites or types of websites the agent should prioritize (for example, government websites, academic journals).
   - **Websites to avoid**: Optional. Specify websites or types of websites to exclude (for example, social media, blogs).
 

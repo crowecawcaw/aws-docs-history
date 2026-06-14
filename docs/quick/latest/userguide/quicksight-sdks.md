@@ -175,6 +175,7 @@ JavaScript (Node.js) SDK
 Use the following procedure to interact with Amazon Quick Sight using Node.js.
 
 1. Set up your node environment using the following commands:
+
    - `npm install aws-sdk`
    - `npm install aws4`
    - `npm install request`
@@ -284,6 +285,7 @@ slightly based on your IDE and platform. However, they should be similar.
    and choose **Add Source**.
 6. Choose **OK**. Then, with `QuickSightSDK`
    selected, select all three Amazon Quick Sight packages:
+
    - `AWSSDK.QuickSight`
    - `AWSSDK.Extensions.NETCore.Setup`
    - `AWSSDK.Extensions.CognitoAuthentication`

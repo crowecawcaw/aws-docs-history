@@ -29,7 +29,7 @@ Author capabilities for Microsoft Word extensions include:
 
 Before you deploy a Microsoft Word extension as an author, your
 Quick admin must [configure Amazon Quick access to Microsoft
-Word](../../../quicksuite/latest/userguide/word-extension.md "../../../quicksuite/latest/userguide/word-extension.md").
+Word](../../../quicksuite/latest/userguide/legacy-word-extension.md "../../../quicksuite/latest/userguide/legacy-word-extension.md").
 
 ###### Topics
 
@@ -58,6 +58,7 @@ extension for your organization.
 4. Select **Microsoft Word**. Then,
    select **Next**.
 5. Configure the following fields:
+
    - **Name** - A name for your extension is
      pre-filled for you. You can edit this and enter a descriptive
      name for the Microsoft Word extension.

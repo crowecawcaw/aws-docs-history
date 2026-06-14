@@ -47,6 +47,7 @@ Gets data from a range of cells. The action stores the output in a data table va
 - **Workbook Identifier** (required): The workbook to read from (e.g., `workbook_id`)
 - **Sheet Name** (required): Worksheet or tab name (default: "Sheet1")
 - **Cell Range** (optional): Range specification - supports multiple formats:
+
   - Starting cell: "A2" (reads all data from anchor point)
   - Exact range: "A1:B10"
   - Column range: "A:B"
@@ -161,6 +162,7 @@ Updates cell background color. Used to highlight a specific range of cells.
 - **Workbook Identifier** (required): Target workbook (e.g., `workbook_id`)
 - **Sheet Name** (required): Target worksheet (e.g., "Sheet1")
 - **Cell Range** (required): Range to format - supports:
+
   - Single cell: "A1"
   - Exact range: "A1:B10"
   - Column range: "A:B"

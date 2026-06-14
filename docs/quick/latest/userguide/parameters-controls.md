@@ -37,6 +37,7 @@ The following rules apply:
 2.  Enter a name to give the new control a label. This label appears at the top of
     the workspace, and later at the top of the sheet that a dashboard displays on.
 3.  Choose a style for the control from the following:
+
     - **Text field**
 
     A text field lets you type in their own value. A text field works with

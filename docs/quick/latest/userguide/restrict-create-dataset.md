@@ -22,6 +22,7 @@ datasets from your dataset.
    **Properties**.
 5. In the **Dataset properties** pane that opens, choose
    from the following options:
+
    - To restrict anyone from creating any type of new datasets from
      this dataset, turn off **Allow new datasets to be created
      from this one**.

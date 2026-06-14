@@ -6,6 +6,7 @@ Use the following procedure to prepare a Salesforce dataset.
 
 1. Open a Salesforce dataset for preparation by choosing one of the following
    options:
+
    - Create a new Salesforce dataset and choose **Edit/Preview
      data**. For more information about creating a new
      Salesforce dataset using a new Salesforce data source, see [Creating a dataset from Salesforce](../../../quicksight/latest/user/create-a-data-set-salesforce.md "../../../quicksight/latest/user/create-a-data-set-salesforce.md"). For

@@ -91,6 +91,7 @@ The contents of the file look similar to the following.
 2. In the navigation pane, choose **Identity providers**,
    **Create Provider**.
 3. Enter the following settings:
+
    - **Provider Type** – Choose
      **SAML** from the list.
    - **Provider Name** – Enter
@@ -325,6 +326,7 @@ User**. 7. Use the following settings:
    it.
 2. If you have to reopen Okta, you can return to this section by following these
    steps:
+
    1. Sign in to Okta. Choose **Applications**.
    2. Choose **AWS Account Federation -
       Amazon Quick**—the application that you created at
@@ -364,6 +366,7 @@ arn:aws:iam::`111122223333`:saml-provider/Okta
     **Provisioning** and **Import**, choose
     **Assign**.
 15. Do one or more of the following to enable federated access:
+
     - To work with individual users, choose **Assign to
       People**.
     - To work with IAM groups, choose **Assign to
@@ -372,6 +375,7 @@ arn:aws:iam::`111122223333`:saml-provider/Okta
       organization)**.
 
 16. For each IAM user or group, do the following:
+
     1. Choose **Assign**, **Role**.
     2. Select **QuicksightOktaFederatedRole** from the list
        of IAM roles.
@@ -417,6 +421,7 @@ using the IdP page first.
    tab, in **Embed Link**.
 4. For **IdP URL**, enter `RelayState`.
 5. Do one of the following:
+
    - To test signing in with your identity provider first, use the custom
      URL provided in **Test starting with your IdP**. You
      should arrive at the start page for Amazon Quick, for example

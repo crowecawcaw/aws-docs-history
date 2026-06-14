@@ -29,6 +29,7 @@ Avoid code blocks when:
 Code blocks are available through multiple interfaces:
 
 - **Actions Panel (Recommended):**
+
   - Open your automation in the automation builder
   - Click on the Actions Panel on the right side
   - Locate "Custom Code Block" under the Code Actions section
@@ -73,7 +74,9 @@ Custom Code Blocks are multi-line Python functions that execute complex logic, a
 
 - **Function Title (required)**: Name identifier for the code block (e.g., "Calculate_Total")
 - **Function (required):** Python code block that contains your custom logic.
+
   - Step 1: Define Parameters
+
     - Click the "Edit" button to open the code editor
     - In the Parameter panel, click "Add" to create new parameters
     - Enter parameter names that match your automation variables
@@ -82,6 +85,7 @@ Custom Code Blocks are multi-line Python functions that execute complex logic, a
   - Step 2: Write Your Python Code
 
 - **Return Value (optional):** Variable name to store the function's output
+
   - Follow the required code block structure (see below)
   - Implement your custom logic within the function
   - Use only approved libraries and built-in functions

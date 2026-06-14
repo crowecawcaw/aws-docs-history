@@ -13,6 +13,7 @@ default. The following procedure outlines how to create a space.
 2. From the left navigation menu, select **Spaces**, and then
    select **Create space**.
 3. On the space creation page that opens, do the following:
+
    1. (Optional) Enter a name for your space.
    2. (Optional) Enter a description for your space.
    3. Select **Add knowledge** to begin adding content to

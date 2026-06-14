@@ -21,11 +21,13 @@ security and emailed report settings.
 1. Open the analysis that you want to use. Choose
    **Publish**.
 2. Do one of the following:
+
    - To create a new dashboard, choose **New dashboard**,
      and then type a dashboard name.
    - To replace an existing dashboard, do one of the following. Replacing a
      dashboard updates it without altering security or emailed report
      settings.
+
      - To update it with your changes, choose **Replace an
        existing dashboard** and then choose a dashboard
        from the list.

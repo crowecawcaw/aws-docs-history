@@ -3,6 +3,7 @@
 If you cannot resolve an issue for an integration using the troubleshooting steps, follow this escalation path:
 
 1. Gather diagnostic information:
+
    - Integration configuration details
    - Error messages and timestamps
    - Steps to reproduce the issue

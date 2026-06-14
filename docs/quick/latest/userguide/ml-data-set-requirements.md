@@ -18,6 +18,7 @@ The data must have the following properties:
   daily, you need at least 38 days of data. If the grain is monthly, you need at
   least 43 months of data. Following are the requirements for each time
   grain:
+
   - Years: 32 data points
   - Quarters: 35 data points
   - Months: 43 data points

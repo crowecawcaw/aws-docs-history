@@ -149,6 +149,7 @@ which services surface items in your activity feed.
 2. Choose **Customization**.
 3. In the **Activity feed** section, select
    the integrations you want to include:
+
    - **Messaging** – Slack DMs
      & Mentions, Teams Messages & Mentions
    - **Mail** – Outlook Email,

@@ -109,6 +109,7 @@ Use the following procedure to create a stacked bar chart.
 6. From the **Fields list** pane, drag a measure to the
    **Value** field well.
 7. (Optional) Add data labels and show totals:
+
    1. On the menu in the upper-right corner of the visual, choose the
       **Format visual** icon.
    2. In the **Visual** pane, choose **Data

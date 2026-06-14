@@ -37,6 +37,7 @@ cross-account Amazon S3 access. For more information, see
 **Solution:**
 
 - Verify your IAM policy includes the required Amazon S3 permissions:
+
   - `s3:GetObject`
   - `s3:ListBucket`
   - `s3:GetBucketLocation`

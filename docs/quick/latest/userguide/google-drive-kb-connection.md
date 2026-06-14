@@ -35,6 +35,7 @@ Workspace configuration. 8. Choose **Next**.
 1. Enter a **Name** and optional
    **Description** for your knowledge base.
 2. Choose which Google Drive content to include:
+
    - **My Drive (all users)** – Includes files
      from all users' My Drive in your organization.
    - **Shared with me (all users)** – Includes

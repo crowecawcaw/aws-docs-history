@@ -40,6 +40,7 @@ You can customize table header text.
    **Headers**.
 2. Navigate to the **TEXT** section and do one or more
    of the following:
+
    - To change the color of the header text, choose the color
      swatch underneath **Text styling**, and then
      choose the color that you want the table text to be.
@@ -140,6 +141,7 @@ You can customize header borders' color.
    **Headers**.
 2. For **Borders**, do one or more of the
    following:
+
    - To customize the type of border that you want, choose a border
      type icon. You can choose no borders, horizontal borders only,
      vertical borders only, or all borders.
@@ -181,6 +183,7 @@ pivot table.
    **Format visual** menu.
 2. In the **Headers** section, you can perform the
    following tasks
+
    - Choose **Hide rows label** to hide the
      **Rows** label from your pivot
      table.

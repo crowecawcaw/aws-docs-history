@@ -45,6 +45,7 @@ Use the procedure below to add a nested filter to a Quick analysis.
    want. The filter type that you choose determines the final configuration steps
    for the nested filter. Available filter types and information about their
    configuration can be found in the list below.
+
    - [Filter
      list](../../../quicksuite/latest/userguide/text-filter-list.md "../../../quicksuite/latest/userguide/text-filter-list.md")
    - [Custom filter list](../../../quicksuite/latest/userguide/add-text-custom-filter-list-data-prep.md "../../../quicksuite/latest/userguide/add-text-custom-filter-list-data-prep.md")

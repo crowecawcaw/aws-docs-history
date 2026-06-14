@@ -128,6 +128,7 @@ therefore, the value for Next Step Number is 3.
 | 2           | 11:48 am | Step 3 | 3           | 4                |
 
 3.  Join the table with itself:
+
     1.  For **Join type**, choose
         **Inner**.
     2.  For **Join clauses**, do the following:

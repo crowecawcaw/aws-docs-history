@@ -34,11 +34,13 @@ output twice. Items displayed in **bold** can
 be used in the narrative.
 
 - `categoryField` – The category field.
+
   - `**name**`
     – The display name of the category field.
 
 - `metricField` – From the
   **Values** field well.
+
   - `**name**`
     – The formatted display name of the field.
   - `**aggregationFunction**` – The
@@ -47,6 +49,7 @@ be used in the narrative.
 
 - `totalAggregate` – The total value of the metric
   aggregation.
+
   - `**value**`
     – The raw value.
   - `**formattedValue**` – The value

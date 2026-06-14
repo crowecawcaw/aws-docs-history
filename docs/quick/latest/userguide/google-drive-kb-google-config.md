@@ -33,6 +33,7 @@ Library.
    **Library**.
 2. Search for each of the following APIs and choose
    **Enable**:
+
    - Google Drive API
    - Google Drive Activity API
    - Admin SDK API
@@ -116,6 +117,7 @@ dedicated user for this purpose and assign the minimum required roles.
    privileges** section.
 7. Under **Roles**, assign the following
    roles:
+
    - Groups Reader
    - User Management Admin
    - Storage Admin

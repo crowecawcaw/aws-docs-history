@@ -14,6 +14,7 @@ To use IDC in Quick, you (or someone from your organization) will need to:
 
 1. Contact IDC to enable API access at [https://www.idc.com/amazonquickresearch](https://www.idc.com/amazonquickresearch "https://www.idc.com/amazonquickresearch"). IDC will give you a client id and client secret.
 2. Create an integration for IDC:
+
    1. Open the Research page and select **New Research**.
    2. In the **Research Materials** section, find **Third party data** and select **Browse** to display a list of supported third party data integrations.
    3. Find the integration in the list and select **Connect**. This will display a pop-up with a summary of these setup steps. Select **Continue**.

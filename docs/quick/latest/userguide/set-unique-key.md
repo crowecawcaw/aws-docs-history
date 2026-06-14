@@ -20,6 +20,7 @@ The following limitations apply to unique keys:
 1. Open the [Quick console](https://quicksight.aws.amazon.com/ "https://quicksight.aws.amazon.com/").
 2. Choose **Data**.
 3. Perform one of the following actions:
+
    1. Navigate to the dataset that you want to add a unique key to, choose
       the ellpisis (three dots) next to the dataset, and then choose
       **Edit**.

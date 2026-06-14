@@ -9,6 +9,7 @@ your Amazon S3 knowledge base.
 2.  Under **Amazon S3**, choose **Add** (the
     plus **+** button).
 3.  On the **Connect S3 bucket** page, choose your data source:
+
     - To reuse an existing Amazon S3 data source, select it from the dropdown.
       Then choose **Next** to skip to the knowledge base
       details step.

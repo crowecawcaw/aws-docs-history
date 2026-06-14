@@ -93,6 +93,7 @@ control if the filter is scoped to your entire analysis.
 1. Go to the cross-sheet control and select the three-dot menu if the
    control is pinned to the top or the edit pencil icon if the control is
    on the sheet. You will be presented with the following options:
+
    - **Go to filter** (which directs you to the
      cross-sheet filter for you to edit or review
    - **Move to sheet** (which moves the control
@@ -121,6 +122,7 @@ You can remove controls in two places. First, from the control:
 1. Go to the cross-sheet control and select the three-dot menu if the
    control is pinned to the top or the edit pencil icon if the control is
    on the sheet. You will be presented with the following options:
+
    - **Go to filter** (which directs you to the
      cross-sheet filter for you to edit or review
    - **Move to sheet** (which moves the control

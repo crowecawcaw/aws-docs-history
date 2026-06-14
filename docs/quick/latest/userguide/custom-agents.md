@@ -49,6 +49,7 @@ Using natural language
    agent**.
 3. In **New chat agent**, do the
    following:
+
    1. In the text input box, enter a natural language
       description for what kind of chat agent you want to
       create. This is the prompt Amazon Quick will use you
@@ -107,9 +108,11 @@ Using builder view directly
 6.  (Optional) Select an icon for your chat agent.
 7.  In **Configure chat agent**, customize the
     following sections:
+
     1.  In **AGENT PERSONA**, configure your
         chat agent's personality, identity, tone, and response
         style:
+
         - For **Agent identity**
           – Define the identity of your chat agent.
           For example, you can give it instructions on what
@@ -170,6 +173,7 @@ Using builder view directly
         guide all interactions. For more information about how
         reference documents work with other context types, see
         [Types of agent context](quicksuite/latest/userguide/agent-knowledge-sources-best-practices.md "quicksuite/latest/userguide/agent-knowledge-sources-best-practices.md").
+
         - Select **Upload files** or
           drag and drop your documents to attach files that
           will guide your chat agent's responses.
@@ -180,7 +184,9 @@ Using builder view directly
 
 8.  (Optional) In **Knowledge sources**, choose
     between the following options:
+
     - Continue without linking knowledge sources
+
       - Your chat agent will generate responses from
         large language model (LLM) knowledge and all
         Amazon Quick resources the interacting user has
@@ -190,6 +196,7 @@ Using builder view directly
         chat agent.
 
     - To link specific existing spaces
+
       - Select **Link**.
       - From the **Link spaces**
         modal, select the spaces you want to link to your
@@ -207,6 +214,7 @@ Using builder view directly
       temporray context during chat.
 
     - To create and link a new space
+
       - Select **Create**.
       - From the **Create space**
         window that opens, select the assets you want to
@@ -242,7 +250,9 @@ Using builder view directly
 9.  (Optional) In **Actions**, for
     **Actions** – Choose between the
     following options:
+
     - To link specific existing actions
+
       - Select **Link**.
       - From the **Link action
         connectors** modal, select the action
@@ -257,6 +267,7 @@ Using builder view directly
 
     - To create an action connector and link new
       actions
+
       - Select **Create**.
       - From the **Actions** home
         page, select **New
@@ -294,6 +305,7 @@ Using builder view directly
 
 10. In **Customization**, do the
     following:
+
     1. For **Welcome message** – Add
        a welcome message for your chat agent to display to your
        end user.
@@ -352,6 +364,7 @@ agents.
 5. Assign permissions and access information for each user or group you're
    sharing your chat agent with using the dropdown next to the user or group
    name. You can assign one of two roles:
+
    - **Owner** – User can edit,
      share, and delete the chat agent.
    - **Viewer** – User can view and
@@ -467,6 +480,7 @@ chat agent. The following procedure shows how.
    all groups or users you want to change permissions for. The modal displays
    the users and group permissions you're changing. You can take the following
    three actions:
+
    - Change to **Owner** – User can
      edit, share, and delete the chat agent.
    - Change to **Viewer** – User

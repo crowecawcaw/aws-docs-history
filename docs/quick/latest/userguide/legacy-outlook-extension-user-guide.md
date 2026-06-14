@@ -8,11 +8,11 @@ intelligent responses.
 
 ###### Topics
 
-- [Add a Microsoft Outlook Extension to your Microsoft Outlook](#outlook-extension-setup-users "#outlook-extension-setup-users")
+- [Add a Microsoft Outlook Extension to your Microsoft Outlook](#legacy-outlook-extension-setup-users "#legacy-outlook-extension-setup-users")
 - [Access Quick in your Microsoft Outlook navigation pane at any time](#access-outlook-side-panel "#access-outlook-side-panel")
 - [Microsoft Outlook extension use cases](#outlook-use-cases "#outlook-use-cases")
 - [Amazon Quick Microsoft Outlook extension usage guidelines](#outlook-usage-guidelines "#outlook-usage-guidelines")
-- [Microsoft Outlook extension known limitations](#outlook-extension-known-limitations "#outlook-extension-known-limitations")
+- [Microsoft Outlook extension known limitations](#legacy-outlook-extension-known-limitations "#legacy-outlook-extension-known-limitations")
 
 ## Add a Microsoft Outlook Extension to your Microsoft Outlook
 

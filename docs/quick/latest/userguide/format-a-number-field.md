@@ -18,6 +18,7 @@ pane, an on-visual editor, or a visual field well.
 option:**
 
 - Choose one of the following options:
+
   - In the **Field list** pane, choose the
     selector icon to the right of the number field that you want
     to format.
@@ -45,6 +46,7 @@ option:**
   format:**
 
 1. Choose one of the following options:
+
    - In the **Field list** pane, choose the
      selector icon to the right of the number field that you want
      to format.
@@ -77,6 +79,7 @@ the following options:
 
 4.  Expand the **Decimal Places** section and choose
     from the following options:
+
     - Choose **Auto** to have Amazon Quick
       automatically determine the appropriate number of decimal
       places, or choose **Custom** to specify a
@@ -89,6 +92,7 @@ the following options:
 
 5.  Expand the **Units** section and choose from the
     following options:
+
     - Choose the unit to use. Choosing a unit adds the
       appropriate suffix to the number value. For example, if you
       choose **Thousands**, a field value of 1234
@@ -101,7 +105,6 @@ the following options:
         + Millions (M)
         + Billions (B)
         + Trillions (T)
-
     - If you want to use a custom prefix or suffix, specify it
       in the **Prefix** or
       **Suffix** box. You can specify both.

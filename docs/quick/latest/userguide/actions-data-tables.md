@@ -131,6 +131,7 @@ Combines the rows of two tables. Used to add data from one table to another.
 - **Table to Append To** (required): Main table receiving additional rows (e.g., `main_table`)
 - **Table to Add** (required): Source table providing rows to append (e.g., `new_data`)
 - **Handle Column Differences** (dropdown):
+
   - "Add": Keep all columns from both tables
   - "Ignore": Only keep columns matching the primary table
   - "Error": Require exact column matches

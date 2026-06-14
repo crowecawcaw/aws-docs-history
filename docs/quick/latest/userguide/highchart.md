@@ -31,6 +31,7 @@ limitations that apply to Highcharts visuals.
 
 - The following JSON values are not supported in the Highcharts
   **Chart code** JSON editor:
+
   - Functions
   - Dates
   - Undefined values
@@ -54,6 +55,7 @@ Use the following procedure to create a Highcharts visual in Amazon Quick.
    **Properties** pane opens on the left.
 5. In the **Properties** pane, expand the **Display
    settings** section and perform the following actions:
+
    1. For **Edit title**, choose the paintbrush icon,
       enter the title that you want the visual to have, and then choose
       **SAVE**. Alternatively, choose the eyeball

@@ -8,6 +8,7 @@ The query editor is made up of multiple components, as follows:
 - **Query mode** – At the
   top left, you can choose between direct query or SPICE query
   modes:
+
   - **Direct query** – To run the SELECT statement
     directly against the database
   - **SPICE** – To run the SELECT

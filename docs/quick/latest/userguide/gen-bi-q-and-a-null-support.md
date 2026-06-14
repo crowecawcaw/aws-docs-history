@@ -14,11 +14,13 @@ interactions.
 3. Choose the **Data** tab.
 4. Under **Data Fields**, choose **Add filter**.
 5. On the **Filter configuration** page that opens, do the following:
+
    1. For **Name**, enter a name for the filter.
    2. For **Dataset**, choose a dataset that you want to apply
       the filter to.
    3. For **Field**, choose the field that you want to filter for.
    4. For **Null Option**, choose one of the dropdown options:
+
       - **No null option selected** - No option
         is selected to filter nulls.
       - **Include nulls only** - Filter for
@@ -29,6 +31,7 @@ interactions.
    5. (Optional) To specify when the filter is applied, choose
       **Apply the filter anytime the dataset is used**, and then
       choose one of the following:
+
       1. **Apply always** - Filter is applied
          whenever a column from the specified dataset is linked to a question.
       2. **Apply always, unless a question results in an explicit filter from the dataset** -

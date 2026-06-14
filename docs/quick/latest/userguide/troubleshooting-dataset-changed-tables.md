@@ -25,6 +25,7 @@ following.
   choose each visual and readd the fields as needed.
 
 - If the dataset isn't based on custom SQL, do the following:
+
   1.  Create a new dataset using the new table, `y_table` for
       example.
   2.  Open your analysis.

@@ -10,6 +10,7 @@ Common uses include generating recurring reports, summarizing open items from ex
 2. Choose the scheduling icon.
 3. Choose **Create schedule**.
 4. Configure your schedule:
+
    - **Schedule name** — A unique name for the schedule.
    - **Description** — Optional. Details about the schedule's purpose.
    - **Repeat configuration** — Choose from suggestions or configure custom recurrence (daily, weekly, or monthly) with start date, optional end date, and time zone.
@@ -18,6 +19,7 @@ Common uses include generating recurring reports, summarizing open items from ex
 6. Provide default inputs for each scheduled run.
 7. Choose **Next**.
 8. Configure action permissions:
+
    - Turn on **Run with no confirmation** to automatically submit action forms during scheduled runs.
    - Turn off to review and confirm each action manually.
 

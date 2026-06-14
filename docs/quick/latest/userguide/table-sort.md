@@ -54,6 +54,7 @@ multi column sort for a table.
    that you want to sort.
 3. Choose the **Sort visual** icon to open the
    **Sort visual** menu.
+
    1. Alternatively, choose a header that you want to sort.
    2. For **Sort by**, choose the arrow icon, and
       then choose **Multiple fields**.

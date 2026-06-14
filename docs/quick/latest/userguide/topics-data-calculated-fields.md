@@ -16,6 +16,7 @@ The function might look like the following: `sum({Sales}) -
 3. For **Actions**, choose **Add calculated
    field**.
 4. In the calculations editor that opens, do the following:
+
    1. Give the calculated field a friendly name.
    2. For **Datasets** at right, choose a dataset that
       you want to use for the calculated field.

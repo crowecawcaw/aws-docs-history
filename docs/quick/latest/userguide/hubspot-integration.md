@@ -47,6 +47,7 @@ MCP Auth app configured in your HubSpot developer settings.
 3. Choose **Create MCP auth app**.
 4. On the **Create MCP Auth App** window, complete the
    following fields:
+
    - **Name** – Enter a name for your
      app.
    - **Description** – Enter a short
@@ -81,6 +82,7 @@ Amazon Quick.
 3. Choose **HubSpot** from the options available.
 4. In the **HubSpot** dialog, enter the
    following fields:
+
    - **Name** – A descriptive name for your
      HubSpot connector.
    - **Description (Optional)** – Choose **+ Add Description** to add notes about how this connector will be used.
@@ -89,6 +91,7 @@ Amazon Quick.
 
 5. For the **Custom OAuth app**
    authentication method, enter the following fields:
+
    - **Base URL** – This field is auto-populated as `https://mcp.hubspot.com`.
    - **Client ID** – Enter the client ID from your HubSpot MCP Auth app.
    - **Client Secret** – Enter the client secret from your HubSpot MCP Auth app.
@@ -99,6 +102,7 @@ Amazon Quick.
 6. Choose **Next**, review the actions for
    HubSpot, and then choose **Next** again.
 7. Specify who can access the connector:
+
    - To share with a team, enter a team name or group email.
    - To keep it private, leave the field blank.
    - To share with all users, toggle **Everyone in your

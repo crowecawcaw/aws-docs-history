@@ -14,6 +14,7 @@ The natural language prompt method lets you describe your desired flow in plain 
 2. In the navigation pane, choose **Flows**.
 3. Choose **Create Flow**. You see a page where you can enter a natural language prompt or use a sample prompt.
 4. In the prompt field, describe the flow you want to create. Be as specific as possible about:
+
    - The purpose of the flow
    - The inputs it should accept
    - The processing it should perform
@@ -38,6 +39,7 @@ Creating a flow from scratch gives you complete control over the design and func
 4. Create a blank flow.
 5. Enter a name and optional description for your flow.
 6. In the Flow builder, add and configure the steps you need:
+
    - Add user input steps to collect text or files from users.
    - Add AI response steps to generate content from chat agents, web search, general knowledge, or image generation.
    - Add data insight steps to get responses from Quick data or dashboards and topics.

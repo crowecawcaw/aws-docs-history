@@ -30,7 +30,7 @@ include:
 
 Before you deploy a Microsoft Outlook extension as an author,
 your Quick admin must [configure Amazon Quick access to Microsoft
-Outlook](../../../quicksuite/latest/userguide/outlook-extension.md "../../../quicksuite/latest/userguide/outlook-extension.md").
+Outlook](../../../quicksuite/latest/userguide/legacy-outlook-extension.md "../../../quicksuite/latest/userguide/legacy-outlook-extension.md").
 
 ###### Topics
 
@@ -57,6 +57,7 @@ This action requires full author permissions.
 4. Select **Microsoft Outlook**. Then,
    select **Next**.
 5. Configure the following fields:
+
    - **Name** - A name for your extension is
      pre-filled for you. You can edit this and enter a descriptive
      name for the Microsoft Outlook extension.

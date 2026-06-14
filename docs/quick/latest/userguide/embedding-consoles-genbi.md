@@ -26,6 +26,7 @@ You can enable the following Generative BI features in your embedded console:
 - Follow the steps in [Embedding the full functionality of the Amazon Quick Sight
   console for registered users](../../../quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.md "../../../quicksight/latest/user/embedded-analytics-full-console-for-authenticated-users.md") to embed a console with the following
   changes:
+
   1.  When generating the URL in Step 2, set `Enabled: true` in the
       `FeatureConfigurations` parameter for each of the features
       you want to enable in the [GenerateEmbedUrlForRegisteredUser](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUser.md") or [GenerateEmbedUrlForRegisteredUserWithIdentity](../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUserWithIdentity.md "../../../quicksight/latest/APIReference/API_GenerateEmbedUrlForRegisteredUserWithIdentity.md") APIs, as shown in
@@ -60,7 +61,6 @@ You can enable the following Generative BI features in your embedded console:
       }
   }
   ```
-
   2.  When embedding the console URL with the Amazon Quick Sight Embedding SDK in
       Step 3, set the values in the following example as desired. If no
       configuration is provided, the features are disabled by default.

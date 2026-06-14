@@ -56,6 +56,7 @@ credentials that you need for Amazon Quick.
 3. For **Choose an API**, select
    **Scoped access**.
 4. Choose the type of access that you need:
+
    - **App folder** – Provides access only to a
      specific folder.
    - **Full Dropbox** – Provides access to all
@@ -65,6 +66,7 @@ credentials that you need for Amazon Quick.
    **Create app**.
 6. On the app settings page, record the following values. You
    need them when you configure Amazon Quick.
+
    - **App key** – This is
      your Client ID.
    - **App secret** – This is

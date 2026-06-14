@@ -208,6 +208,7 @@ Amazon Quick.
    **Manage**.
 4. For **IAM role**, choose **Use an existing
    role**, and then do one of the following:
+
    - Choose the role that you want to use from the list.
    - Or, if you don't see a list of existing IAM roles, you can enter
      the IAM ARN for the role in the following format:
