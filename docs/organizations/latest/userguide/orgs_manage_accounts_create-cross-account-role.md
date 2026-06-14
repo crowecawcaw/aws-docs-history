@@ -28,6 +28,7 @@ AWS Management Console
 4. Enter the 12-digit account ID number of the management account
    that you want to grant administrator access to. Under
    **Options**, please note the following:
+
    - For this role, because the accounts are internal to your
      company, you should **not**
      choose **Require external ID**. For more

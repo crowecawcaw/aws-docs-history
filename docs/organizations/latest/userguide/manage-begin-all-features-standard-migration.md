@@ -247,6 +247,7 @@ previous command to accept that handshake.
 ```
 
 - AWS SDKs:
+
   - [list-handshakes-for-account](../../../cli/latest/reference/organizations/list-handshakes-for-account.md "../../../cli/latest/reference/organizations/list-handshakes-for-account.md")
   - [AcceptHandshake](../APIReference/API_AcceptHandshake.md "../APIReference/API_AcceptHandshake.md")
 
@@ -290,6 +291,7 @@ To finalize the process, you must accept the handshake with
 `"Action": "ENABLE_ALL_FEATURES"`.
 
 - AWS CLI:
+
   - [list-handshakes-for-organization](../../../cli/latest/reference/organizations/list-handshakes-for-organization.md "../../../cli/latest/reference/organizations/list-handshakes-for-organization.md")
   - [accept-handshake](../../../cli/latest/reference/organizations/accept-handshake.md "../../../cli/latest/reference/organizations/accept-handshake.md")
 
@@ -352,5 +354,6 @@ command.
 ```
 
 - AWS SDKs:
+
   - [ListHandshakesForOrganization](../APIReference/API_ListHandshakesForOrganization.md "../APIReference/API_ListHandshakesForOrganization.md")
   - [AcceptHandshake](../APIReference/API_AcceptHandshake.md "../APIReference/API_AcceptHandshake.md")

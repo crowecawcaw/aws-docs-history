@@ -21,6 +21,7 @@ interacts with its parent policies:
   any inherited policy settings with the specified settings. If the specified
   setting isn't inherited, this operator adds it to the effective policy. This
   operator can apply to any policy setting of any type.
+
   - For single-valued settings, this operator replaces the inherited
     value with the specified value.
   - For multi-valued settings (JSON arrays), this operator removes any
@@ -31,12 +32,14 @@ interacts with its parent policies:
   specified settings (without removing any) to the inherited ones. If the
   specified setting isn't inherited, this operator adds it to the effective
   policy. You can use this operator with only multi-valued settings.
+
   - This operator adds the specified values to any values in the
     inherited array.
 
 - `@@remove` – **Removes**
   the specified inherited settings from the effective policy, if they exist.
   You can use this operator with only multi-valued settings.
+
   - This operator removes only the specified values from the array of
     values inherited from the parent policies. Other values can continue
     to exist in the array and can be inherited by child policies.

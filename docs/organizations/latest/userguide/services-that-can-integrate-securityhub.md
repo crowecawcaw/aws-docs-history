@@ -72,6 +72,7 @@ _AWS Security Hub User Guide_.
 
 1. Sign in with your Organizations management account.
 2. Perform one of the following:
+
    - If your management account does not have Security Hub CSPM enabled, then on the
      Security Hub CSPM console, choose **Go to Security Hub CSPM**.
    - If your management account does have Security Hub CSPM enabled, then on the Security Hub CSPM

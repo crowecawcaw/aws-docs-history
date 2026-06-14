@@ -158,6 +158,7 @@ SCPs to restrict the following tasks:
 - Configure reverse DNS for an Amazon Lightsail email server and Amazon EC2 instance
   as the root user
 - Tasks on some AWS-related services:
+
   - Alexa Top Sites
   - Alexa Web Information Service
   - Amazon Mechanical Turk

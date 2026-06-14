@@ -94,6 +94,7 @@ organization's accounts from creating the resources they need.
   `enforced_for`. For more information about operators, see [Inheritance operators](policy-operators.md "policy-operators.md").
 - You can use the `*` wildcard in
   tag values.
+
   - You can use only one wildcard per tag value. For example,
     `*@example.com` is allowed, but `*@*.com` is
     not.

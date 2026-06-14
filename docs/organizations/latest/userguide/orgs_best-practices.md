@@ -18,6 +18,7 @@ Root access management prevents recovery of root user credentials, improving acc
 
 - Remove root user credentials for member accounts to prevent sign in to the root user. This also prevents member accounts from recovery of the root user.
 - Assume a privileged session to perform the following tasks on member accounts:
+
   - Remove a misconfigured bucket policy that denies all principals from accessing an Amazon S3 bucket.
   - Delete an Amazon Simple Queue Service resource-based policy that denies all principals from accessing an Amazon SQS queue.
   - Allow a member account to recover their root user credentials.

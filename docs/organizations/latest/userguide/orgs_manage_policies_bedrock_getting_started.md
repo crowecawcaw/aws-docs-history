@@ -10,6 +10,7 @@ Review the following requirements before implementing Amazon Bedrock policies:
 
 - Your account must be part of an AWS organization
 - You must be signed in as either:
+
   - The management account for the organization
   - A delegated administrator account with permissions to manage Amazon Bedrock
     policies

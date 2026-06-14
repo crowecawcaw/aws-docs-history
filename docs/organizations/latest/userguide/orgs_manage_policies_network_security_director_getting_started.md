@@ -10,6 +10,7 @@ Review the following requirements before implementing AWS Shield Network Securit
 
 - Your account must be part of an AWS organization
 - You must be signed in as either:
+
   - The management account for the organization
   - An AWS Organizations delegated administrator with permissions to manage AWS Shield Network
     Security Director policies

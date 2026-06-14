@@ -82,7 +82,9 @@ Guide_.
 The following are the available fields for this attribute:
 
 - `"internet_gateway"`:
+
   - `"mode"`:
+
     - `"off"`: VPC BPA is not enabled.
     - `"block_ingress"`: All internet traffic
       to the VPCs (except for VPCs or subnets which are
@@ -99,6 +101,7 @@ The following are the available fields for this attribute:
   be applied to a single VPC or subnet that exempts it from the
   account’s VPC BPA mode and will allow bidirectional or egress-only
   access.
+
   - `"enabled"`: Exclusions can be created by the
     account.
   - `"disabled"`: Exclusions cannot be created by
@@ -147,6 +150,7 @@ Console](../../../AWSEC2/latest/UserGuide/ec2-serial-console.md "../../../AWSEC2
 The following are the available fields for this attribute:
 
 - `"status"`:
+
   - `"enabled"`: EC2 serial console access is
     allowed.
   - `"disabled"`: EC2 serial console access is
@@ -185,6 +189,7 @@ information about AMIs, see [Amazon Machine Images
 The following are the available fields for this attribute:
 
 - `"state"`:
+
   - `"unblocked"`: No restrictions on the public
     sharing of AMIs.
   - `"block_new_sharing"`: Blocks new public
@@ -233,6 +238,7 @@ The following are the available fields for this attribute:
 ```
 
 - `"state"`:
+
   - `"enabled"`: The attribute is active and
     enforced.
   - `"disabled"`: The attribute is inactive and not
@@ -242,14 +248,17 @@ The following are the available fields for this attribute:
     block their use.
 
 - `"image_criteria"`: A list of criteria. Support up to 10 criteria with the name from criteria_1 to criteria_10
+
   - `"allowed_image_providers"`: A comma-separated
     list of 12 digit account IDs or owner alias of amazon, aws_marketplace, aws_backup_vault.
   - `"image_names"`: The names of the allowed images. Names can include wildcards (? and \*). Length: 1–128 characters. With ?, the minimum is 3 characters.
   - `"marketplace_product_codes"`: The AWS Marketplace product codes for allowed images. Length: 1-25 characters Valid characters: Letters (A–Z, a–z) and numbers (0–9)
   - `"creation_date_condition"`: The maximum age for allowed images.
+
     - `"maximum_days_since_created"`: The maximum number of days that have elapsed since the image was created. Valid Range: Minimum value of 0. Maximum value of 2147483647.
 
   - `"deprecation_time_condition"`: The maximum period since deprecation for allowed images.
+
     - `"maximum_days_since_deprecated"`: The maximum number of days that have elapsed since the image was deprecated. Valid Range: Minimum value of 0. Maximum value of 2147483647.
 
 **Considerations**
@@ -300,6 +309,7 @@ The following are the available fields for this attribute:
 ```
 
 - `"http_tokens"`:
+
   - `"no_preference"`: Other defaults apply. For
     example, AMI defaults if applicable.
   - `"required"`: IMDSv2 must be used. IMDSv1 is
@@ -318,6 +328,7 @@ information, see [Step 1: Identify instances with IMDSv2=optional and audit
 IMDSv1 usage](../../../AWSEC2/latest/UserGuide/instance-metadata-transition-to-version-2.md#path-step-1 "../../../AWSEC2/latest/UserGuide/instance-metadata-transition-to-version-2.md#path-step-1") in the _Amazon EC2 User Guide_.
 
 - `"http_put_response_hop_limit"`:
+
   - `"`Integer`"`: Integer
     value from -1 to 64, representing the maximum number of hops
     the metadata token can travel. To indicate no preference,
@@ -334,6 +345,7 @@ minimum of 2. For more information, see [Instance metadata access considerations
 the _Amazon Elastic Compute Cloud User Guide_.
 
 - `"http_endpoint"`:
+
   - `"no_preference"`: Other defaults apply. For
     example, AMI defaults if applicable.
   - `"enabled"`: The instance metadata service
@@ -342,6 +354,7 @@ the _Amazon Elastic Compute Cloud User Guide_.
     endpoint is not accessible.
 
 - `"instance_metadata_tags"`:
+
   - `"no_preference"`: Other defaults apply. For
     example, AMI defaults if applicable.
   - `"enabled"`: Instance tags can be accessed from
@@ -350,6 +363,7 @@ the _Amazon Elastic Compute Cloud User Guide_.
     from instance metadata.
 
 - `"http_tokens_enforced":`
+
   - `"no_preference"`: Other defaults apply. For
     example, AMI defaults if applicable.
   - `"enabled"`: IMDSv2 must be used. Attempts to
@@ -392,6 +406,7 @@ the _Amazon Elastic Block Store User Guide_.
 The following are the available fields for this attribute:
 
 - `"state"`:
+
   - `"block_all_sharing"`: Blocks all public
     sharing of snapshots. Snapshots that were already publicly
     shared are treated as private and are no longer publicly

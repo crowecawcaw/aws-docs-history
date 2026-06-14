@@ -203,6 +203,7 @@ To add a statement that _denies_ access:
      *IAM User Guide*.
 
 6. To add a statement that _allows_ access:
+
    1. In the JSON editor on the left, change the line
       `"Effect": "Deny"` to `"Effect":
 "Allow"`.
@@ -557,6 +558,7 @@ You can use one of the following to create a declarative
 policy:
 
 - AWS CLI: [create-policy](../../../cli/latest/reference/organizations/create-policy.md "../../../cli/latest/reference/organizations/create-policy.md")
+
   1.  Create a declarative policy like the following, and store
       it in a text file.
 
@@ -1269,6 +1271,7 @@ AWS CLI & AWS SDKs
 You can use one of the following to create a tag policy:
 
 - AWS CLI: [create-policy](../../../cli/latest/reference/organizations/create-policy.md "../../../cli/latest/reference/organizations/create-policy.md")
+
   1.  Create an AI services opt-out policy like the following, and
       store it in a text file. Note that "`optOut`" and
       "`optIn`" are case-sensitive.
@@ -1382,6 +1385,7 @@ You can use one of the following to create a upgrade rollout
 policy:
 
 - AWS CLI: [create-policy](../../../cli/latest/reference/organizations/create-policy.md "../../../cli/latest/reference/organizations/create-policy.md")
+
   1.  Create a upgrade rollout policy like the following, and
       store it in a text file.
 

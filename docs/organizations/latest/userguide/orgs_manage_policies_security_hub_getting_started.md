@@ -10,6 +10,7 @@ Review the following requirements before implementing Security Hub policies:
 
 - Your account must be part of an AWS Organizations organization
 - You must be signed in as either:
+
   - The management account for the organization
   - A delegated administrator account with permissions to manage Security Hub
     policies

@@ -45,6 +45,7 @@ AWS Management Console
 3. On the policy's detail page, choose **Edit
    policy**.
 4. Make any or all of the following changes:
+
    - You can rename the policy by entering a new name in
      **Policy name**.
    - You can change the description by entering new text in
@@ -160,6 +161,7 @@ AWS Management Console
 3. On the policy's detail page, choose **Edit
    policy**.
 4. Make any or all of the following changes:
+
    - You can rename the policy by entering a new name in
      **Policy name**.
    - You can change the description by entering new text in

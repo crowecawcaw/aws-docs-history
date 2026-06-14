@@ -80,6 +80,7 @@ trigger on.
    `My-Test-Trail`.
 6. Perform one of the following options to specify where CloudTrail is to deliver its
    logs:
+
    - If you need to create a bucket, choose **Create new S3 bucket** and then, for
      **Trail log bucket and folder**, enter a name for the new
      bucket.
@@ -122,6 +123,7 @@ it by the Amazon EventBridge rule that you configure later.
    **hello-world** blueprint.
 5. Choose **Configure**.
 6. On the **Basic information** page, do the following:
+
    1. For the Lambda function name, enter
       `LogOrganizationEvents` in the
       **Name** text box.
@@ -157,6 +159,7 @@ You make this topic a target of the Amazon EventBridge rule that you create late
 1. Open the Amazon SNS console at [https://console.aws.amazon.com/sns/v3/](https://console.aws.amazon.com/sns/v3/ "https://console.aws.amazon.com/sns/v3/").
 2. In the navigation pane, choose **Topics**.
 3. Choose **Create new topic**.
+
    1. For **Topic name**, enter
       `OrganizationsCloudWatchTopic`.
    2. For **Display name**, enter
@@ -166,6 +169,7 @@ You make this topic a target of the Amazon EventBridge rule that you create late
 4. Now you can create a subscription for the topic. Choose the ARN for the topic
    that you just created.
 5. Choose **Create subscription**.
+
    1. On the **Create subscription** page, for
       **Protocol**, choose
       **Email**.

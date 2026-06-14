@@ -19,6 +19,7 @@ You can include tag keys and values that are attached to the following
 resources as you create them.
 
 - AWS account
+
   - [Created
     account](orgs_manage_accounts_create.md "orgs_manage_accounts_create.md")
   - [Invited
@@ -26,6 +27,7 @@ resources as you create them.
 
 - [Organizational unit (OU)](create_ou.md "create_ou.md")
 - Policy
+
   - [Service control policy](orgs_policies_create.md#create-an-scp "orgs_policies_create.md#create-an-scp")
   - [Resource control policy](orgs_policies_create.md#create-an-rcp "orgs_policies_create.md#create-an-rcp")
   - [Declarative policy](orgs_policies_create.md#create-declarative-policy-procedure "orgs_policies_create.md#create-declarative-policy-procedure")

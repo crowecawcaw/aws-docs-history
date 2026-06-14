@@ -19,6 +19,7 @@ Review the following requirements before implementing Amazon Inspector policies:
 
 - Your account must be part of an AWS organization
 - You must be signed in as either:
+
   - The management account for the organization
   - An AWS Organizations delegated administrator with permissions to manage Amazon Inspector
     policies

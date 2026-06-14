@@ -102,56 +102,77 @@ This chat applications policy includes the following elements:
 
 - The `chatbot` field key name. Chat applications policies always start with this fixed key name. It's the top line in this example policy.
 - Under `chatbot`, there is a `platforms` block, which contains the configuration for the different supported chat applications: Slack, Microsoft Teams, and Amazon Chime.
+
   - For Slack, the following fields are available:
+
     - `"client"`:
+
       - `"enabled"`: The Slack client is enabled. Slack integrations are allowed.
       - `"disabled"`: The Slack client is disabled. Slack integrations are not allowed.
 
     - `"workspaces"`: Comma-separated listed of allowed Slack workspaces. In this example, the allowed Slack workspaces are `Slack-Workspace-Id1` and `Slack-Workspace-Id2`.
     - `"default"`: The default settings for Slack workspaces.
+
       - `"supported_channel_types"`:
+
         - `"public"`: Slack workspaces in scope allow public Slack channels by default.
         - `"private"`: Slack workspaces in scope allow private Slack channels by default.
 
       - `supported_role_settings`:
+
         - `"user_role"`: Slack workspaces in scope allow User level IAM roles by default.
         - `"channel_role"`: Slack workspaces in scope allow Channel level IAM roles by default.
 
     - `"overrides"`: The override settings for the Slack workspaces.
+
       - `Slack-Workspace-Id2`: Comma-separated listed of Slack workspaces where the override setting apply. In this example, the Slack workspace is `Slack-Workspace-Id2`.
+
         - `"supported_channel_types"`:
+
           - `"public"`: Override setting whether Slack workspaces in scope allow public Slack channels.
           - `"private"`: Override setting whether Slack workspaces in scope allow private Slack channels.
 
         - `supported_role_settings`:
+
           - `"user_role"`: Override setting whether Slack workspaces in scope allow User level IAM roles.
           - `"channel_role"`: Override setting whether Slack workspaces in scope allow Channel level IAM roles.
 
   - For Microsoft Teams, the following fields are available:
+
     - `"client"`:
+
       - `"enabled"`: The Microsoft Teams client is enabled. Microsoft Teams integrations are allowed.
       - `"disabled"`: The Microsoft Teams client is disabled. Microsoft Teams integrations are not allowed.
 
     - `"tenants"`: Comma-separated listed of allowed Microsoft Teams tenants.
       In this example, the allowed tenant is `Microsoft-Teams-Tenant-Id`.
+
       - `Microsoft-Teams-Tenant-Id`:
         Comma-separated list of allowed teams within the tenant. In this example, the allowed team is `Microsoft-Teams-Team-Id`.
 
     - `"default"`: The default settings for the teams within the tenant.
+
       - `supported_role_settings`:
+
         - `"user_role"`: Teams in scope allow User level IAM roles by default.
         - `"channel_role"`: Teams in scope allow Channel level IAM roles by default.
 
     - `"overrides"`: The override settings for the Microsoft Teams tenants.
+
       - `Microsoft-Teams-Tenant-Id`: Comma-separated listed of tenants where the override setting apply.
         In this example, the tenant is `Microsoft-Teams-Tenant-Id`.
+
         - `Microsoft-Teams-Team-Id`: Comma-separate listed of teams within the tenant. In this example, the allowed team is `Microsoft-Teams-Team-Id`.
+
           - `supported_role_settings`:
+
             - `"user_role"`: Override setting whether the teams in scope allow User level IAM roles.
             - `"channel_role"`: Override setting whether the teams in scope allow Channel level IAM roles.
 
   - For Amazon Chime, the following fields are available:
+
     - `"client"`:
+
       - `"enabled"`: The Amazon Chime client is enabled. Amazon Chime integrations are allowed.
       - `"disabled"`: The Amazon Chime client is disabled. Amazon Chime integrations are not allowed.
 

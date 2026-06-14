@@ -101,6 +101,7 @@ To convert an account-level trail or event data store to an organization trail o
   or [event data store](../../../awscloudtrail/latest/userguide/query-event-data-store-update.md "../../../awscloudtrail/latest/userguide/query-event-data-store-update.md")
   and choose the **Enable for all accounts in my organization** option.
 - From the AWS CLI, do the following:
+
   - To update a trail, run the [update-trail](../../../cli/latest/reference/cloudtrail/update-trail.md "../../../cli/latest/reference/cloudtrail/update-trail.md")
     command and include the `--is-organization-trail` parameter.
   - To update an event data store, run the [update-event-data-store](../../../cli/latest/reference/cloudtrail/update-event-data-store.md "../../../cli/latest/reference/cloudtrail/update-event-data-store.md") command and include the `--organization-enabled` parameter.

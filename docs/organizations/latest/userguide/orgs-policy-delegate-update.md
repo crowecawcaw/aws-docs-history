@@ -68,6 +68,7 @@ using one of the following methods:
    `Resources`. You must also select `policy`
    as a resource type. You
    can specify resources in the following ways:
+
    - Choose **Add a resource** and construct
      the Amazon Resource Name (ARN) by following the prompts in
      the dialog box.

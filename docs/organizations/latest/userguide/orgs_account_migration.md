@@ -170,6 +170,7 @@ completed the following steps.
 1. Evaluate all of the [billing tool configurations](../../../whitepapers/latest/cost-optimization-laying-the-foundation/reporting-cost-optimization-tools.md "../../../whitepapers/latest/cost-optimization-laying-the-foundation/reporting-cost-optimization-tools.md") for the migrated account, such as cost categories, budgets, and billing alarms.
 2. Review and update the following monetary information for any accounts that you migrated
    from one organization to another:
+
    1. If necessary, [update the tax settings](https://repost.aws/knowledge-center/update-tax-registration-number "https://repost.aws/knowledge-center/update-tax-registration-number") on the account.
    2. Make sure the [Support plan](../../../awsaccountbilling/latest/aboutv2/consolidatedbilling-support.md "../../../awsaccountbilling/latest/aboutv2/consolidatedbilling-support.md") for migrating account matches payer account for
       the new organization.

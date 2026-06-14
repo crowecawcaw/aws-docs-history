@@ -13,7 +13,9 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [AttachPolicy](example_organizations_AttachPolicy_section.md "example_organizations_AttachPolicy_section.md")
     - [CreateAccount](example_organizations_CreateAccount_section.md "example_organizations_CreateAccount_section.md")
     - [CreateOrganization](example_organizations_CreateOrganization_section.md "example_organizations_CreateOrganization_section.md")
@@ -29,6 +31,7 @@ This topic also includes information about getting started and details about pre
     - [ListPolicies](example_organizations_ListPolicies_section.md "example_organizations_ListPolicies_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Permission policy allows AWS Compute Optimizer Automation to apply recommended actions](example_iam-policies.AWSMettleDocs.latest.userguide.managed-policies.xml.10_section.md "example_iam-policies.AWSMettleDocs.latest.userguide.managed-policies.xml.10_section.md")
   - [Permission policy to enable Automation across your organization](example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.2_section.md "example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.2_section.md")
   - [Permission policy to enable Automation for your account](example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.1_section.md "example_iam-policies.AWSMettleDocs.latest.userguide.automation.xml.1_section.md")

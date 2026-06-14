@@ -75,6 +75,7 @@ The minimum permissions for these credentials are the following:
 - If one person has credentials with permissions in AWS Organizations but someone else
   has credentials with permissions in the trusted service, perform these steps in
   the following order:
+
   1.  The person who has credentials with permissions in AWS Organizations should use
       the AWS Organizations console, the AWS CLI, or an AWS SDK to enable trusted
       access for the trusted service. This grants permission to the other
@@ -133,6 +134,7 @@ The minimum permissions for these credentials are the following:
 - If the credentials with permissions in AWS Organizations aren't the credentials with
   permissions in the trusted service, perform these steps in the following
   order:
+
   1.  The person with permissions in the trusted service first disables
       access using that service. This instructs the trusted service to clean
       up by removing the resources required for trusted access. For more

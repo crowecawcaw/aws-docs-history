@@ -26,6 +26,7 @@ AWS Management Console
 3. On the OU's details page, choose the **Tags**
    tab, and then choose **Manage tags**.
 4. You can perform any of these actions on this tab:
+
    - Edit the value for any tag by entering a new value over
      the old one. You can't modify the tag key. To change a key,
      you must delete the tag with the old key and add a tag with

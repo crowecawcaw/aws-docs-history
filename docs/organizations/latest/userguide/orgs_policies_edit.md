@@ -42,6 +42,7 @@ AWS Management Console
 3. On the policy details page, choose the **Tags**
    tab, and then choose**Manage tags**.
 4. Make any or all of the following changes:
+
    - Change the value of a tag by entering a new value over the
      old one. You can't directly modify the tag key. To change a
      key, you must delete the tag with the old key and then add a
@@ -94,6 +95,7 @@ AWS Management Console
 3. On the policy details page, choose the **Tags**
    tab, and then choose **Manage tags**.
 4. Make any or all of the following changes:
+
    - Change the value of a tag by entering a new value over the
      old one. You can't directly modify the tag key. To change a
      key, you must delete the tag with the old key and then add a
@@ -147,6 +149,7 @@ AWS Management Console
    **Tags** tab, and then choose **Manage
    tags**.
 4. You can perform any of these actions on this page:
+
    - Edit the value for any tag by entering a new value over
      the old one. You can't modify the key. To change a key, you
      must delete the tag with the old key and add a tag with the
@@ -258,6 +261,7 @@ AWS Management Console
    **Tags** tab, and then choose **Manage
    tags**.
 4. You can perform any of these actions on this page:
+
    - Edit the value for any tag by entering a new value over
      the old one. You can't modify the key. To change a key, you
      must delete the tag with the old key and add a tag with the
@@ -314,6 +318,7 @@ AWS Management Console
    **Tags** tab, and then choose **Manage
    tags**.
 4. You can perform any of these actions on this page:
+
    - Edit the value for any tag by entering a new value over
      the old one. You can't modify the key. To change a key, you
      must delete the tag with the old key and add a tag with the
@@ -368,6 +373,7 @@ AWS Management Console
    **Tags** tab, and then choose **Manage
    tags**.
 4. You can perform any of these actions on this page:
+
    - Edit the value for any tag by entering a new value over
      the old one. You can't modify the key. To change a key, you
      must delete the tag with the old key and add a tag with the
@@ -421,6 +427,7 @@ AWS Management Console
    **Tags** tab, and then choose **Manage
    tags**.
 4. You can perform any of these actions on this page:
+
    - Edit the value for any tag by entering a new value over
      the old one. You can't modify the key. To change a key, you
      must delete the tag with the old key and add a tag with the
