@@ -73,6 +73,7 @@ All EventBridge events have the same top-level fields:
 - **detail** – A JSON object, whose content
   is different depending on event type. For tag change on resource, the following
   detailed fields are included:
+
   - **changed-tag-keys** – The tag
     keys that changed by this event.
   - **service** – The service that the

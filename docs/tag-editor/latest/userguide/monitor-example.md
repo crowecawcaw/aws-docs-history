@@ -72,6 +72,7 @@ change all references in the following code examples to your chosen Region.
 6. On the **Code** tab of the
    `AutoEC2Termination` detail page, open the
    **index.js** file to view its code.
+
    - If a tab with **index.js** is open, you can
      choose the edit box in that tab to edit its code.
    - If a tab with **index.js** isn't open,

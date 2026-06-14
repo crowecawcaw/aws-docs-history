@@ -27,6 +27,7 @@ Evaluating compliance with tag policies requires the following:
 - You must first enable the feature in AWS Organizations, and create and attach tag
   policies. For more information, see the following pages in the
   _AWS Organizations User Guide_:
+
   - [Prerequisites and permissions for managing tag
     policies](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies-prereqs.md")
   - [Enabling tag policies](../../../organizations/latest/userguide/orgs_manage_policies_enable-disable.md "../../../organizations/latest/userguide/orgs_manage_policies_enable-disable.md")

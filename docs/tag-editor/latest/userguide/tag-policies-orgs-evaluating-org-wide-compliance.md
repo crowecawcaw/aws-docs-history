@@ -81,6 +81,7 @@ report, check on its status, and view the report:
   in the AWS CLI](../../../organizations/latest/userguide/tag-policy-cli.md "../../../organizations/latest/userguide/tag-policy-cli.md") in the _AWS Organizations User Guide_.
 
 - AWS API:
+
   - [StartReportCreation](../../../resourcegroupstagging/latest/APIReference/API_StartReportCreation.md "../../../resourcegroupstagging/latest/APIReference/API_StartReportCreation.md")
   - [DescribeReportCreation](../../../resourcegroupstagging/latest/APIReference/API_DescribeReportCreation.md "../../../resourcegroupstagging/latest/APIReference/API_DescribeReportCreation.md")
   - [GetComplianceSummary](../../../resourcegroupstagging/latest/APIReference/API_GetComplianceSummary.md "../../../resourcegroupstagging/latest/APIReference/API_GetComplianceSummary.md")

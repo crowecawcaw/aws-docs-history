@@ -78,6 +78,7 @@ Use the following commands and operations to find noncompliant tags:
   in the AWS CLI](../../../organizations/latest/userguide/tag-policy-cli.md "../../../organizations/latest/userguide/tag-policy-cli.md") in the _AWS Organizations User Guide_.
 
 - AWS Resource Groups Tagging API:
+
   - [GetResources](../../../resourcegroupstagging/latest/APIReference/API_GetResources.md "../../../resourcegroupstagging/latest/APIReference/API_GetResources.md")
   - [TagResources](../../../resourcegroupstagging/latest/APIReference/API_TagResources.md "../../../resourcegroupstagging/latest/APIReference/API_TagResources.md")
   - [UntagResources](../../../resourcegroupstagging/latest/APIReference/API_UntagResources.md "../../../resourcegroupstagging/latest/APIReference/API_UntagResources.md")
