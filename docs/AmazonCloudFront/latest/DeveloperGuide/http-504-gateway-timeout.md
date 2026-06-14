@@ -194,6 +194,7 @@ timeouts:
 
 - **If you use MediaTailor as your origin**,
   the following are possible causes for a 504 error:
+
   - If relative URLs are mishandled, MediaTailor can receive
     malformed URLs from the players.
   - If MediaPackage is the manifest origin for MediaTailor, MediaPackage 404
@@ -205,6 +206,7 @@ timeouts:
 - **If you use Amazon API Gateway as your
   origin**, the following is a possible cause for a 504
   error:
+
   - An integration request takes longer than your API Gateway REST
     API maximum integration timeout parameter. For more
     information, see [How can I troubleshoot API HTTP 504 timeout errors with

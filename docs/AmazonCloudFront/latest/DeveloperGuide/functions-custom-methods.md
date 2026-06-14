@@ -35,6 +35,7 @@ get("`key`", `options`);
   fetched
 - `options`: There is one option, `format`. It ensures
   that the function parses the data correctly. Possible values:
+
   - `string`: (Default) UTF8 encoded
   - `json`
   - `bytes`: Raw binary data buffer

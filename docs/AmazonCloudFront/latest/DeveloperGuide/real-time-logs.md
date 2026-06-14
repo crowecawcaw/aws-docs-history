@@ -65,6 +65,7 @@ Console
    requests for which you want to receive log records.
 6. For **Fields**, choose the fields to receive in
    the real-time access logs.
+
    - To include all [CMCD
      fields](#CMCD-real-time-logging-fields "#CMCD-real-time-logging-fields") for your logs, choose **CMCD all
      keys**.

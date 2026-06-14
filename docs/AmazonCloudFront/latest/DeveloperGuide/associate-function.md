@@ -69,6 +69,7 @@ CLI
    function. This command saves the distribution configuration to a file
    named `dist-config.yaml`. To use this command, do the
    following:
+
    - Replace `DistributionID`
      with the distribution's ID.
    - Run the command on one line. In the example, line breaks are
@@ -115,6 +116,7 @@ created. Edit the file to make the following changes.
 
 4. Use the following command to update the distribution, adding the
    function association. To use this command, do the following:
+
    - Replace `DistributionID`
      with the distribution's ID.
    - Run the command on one line. In the example, line breaks are

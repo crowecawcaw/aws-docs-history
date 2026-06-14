@@ -31,6 +31,7 @@ list-domain-conflicts
 
 1. Use the `list-domain-conflicts` command as shown in the
    following example.
+
    1. Replace `www.example.com` with
       the domain name.
    2. For the `domain-control-validation-resource`, specify the ID of the target
@@ -118,6 +119,7 @@ target standard distribution.
 
 1. Use the `list-conflicting-aliases` command as shown in
    the following example.
+
    1. Replace `www.example.com` with
       the alternate domain name, and
       `EDFDVBD6EXAMPLE` with the ID of

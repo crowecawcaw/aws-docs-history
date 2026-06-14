@@ -22,6 +22,7 @@ Console
 2. Choose **Create response headers policy**.
 3. In the **Create response headers policy** form, do
    the following:
+
    1. In the **Details** panel, enter a
       **Name** for the response headers policy and
       (optionally) a **Description** that explains

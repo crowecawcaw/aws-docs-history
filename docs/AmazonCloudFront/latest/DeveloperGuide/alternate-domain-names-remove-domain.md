@@ -35,6 +35,7 @@ Do one of the following, depending on the DNS service for your domain:
    URL.
 3. Sign in to the AWS Management Console and open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home"), and update your CloudFront distribution
    to remove the domain name by doing the following:
+
    1. Choose the ID for the distribution that you want to update.
    2. On the **General** tab, choose **Edit**.
    3. In **Alternate Domain Names (CNAMEs)**, remove the alternate

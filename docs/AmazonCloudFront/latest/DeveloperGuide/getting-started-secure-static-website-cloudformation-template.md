@@ -204,6 +204,7 @@ aws cloudformation package \
 
 6. Run the following command to deploy the solution with CloudFormation,
    replacing the following values:
+
    - `your-CloudFormation-stack-name` –
      Replace with a name for the CloudFormation stack.
    - `example.com` – Replace with your

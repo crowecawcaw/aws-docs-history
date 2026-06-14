@@ -141,6 +141,7 @@ the portions of the body that are exposed or replaced.
   Lambda@Edge.
 - If the request body is large, CloudFront truncates it before exposing it to
   Lambda@Edge, as follows:
+
   - For viewer request events, the body is truncated at 40 KB.
   - For origin request events, the body is truncated at 1 MB.
 
@@ -148,12 +149,15 @@ the portions of the body that are exposed or replaced.
   request body to the origin.
 - If your Lambda@Edge function replaces the request body, the following size
   limits apply to the body that the function returns:
+
   - If the Lambda@Edge function returns the body as plain text:
+
     - For viewer request events, the body limit is 40 KB.
     - For origin request events, the body limit is 1 MB.
 
   - If the Lambda@Edge function returns the body as base64 encoded
     text:
+
     - For viewer request events, the body limit is 53.2
       KB.
     - For origin request events, the body limit is 1.33

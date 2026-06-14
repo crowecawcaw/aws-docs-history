@@ -32,6 +32,7 @@ Before you can delete a multi-tenant distribution, you must first delete all ass
    **Disable distribution** to confirm.
 5. Wait until the new timestamp appears
    under the **Last modified** column.
+
    - It might take a few minutes for CloudFront to propagate your change to all edge locations.
 
 6. Choose **Delete**, **Delete distribution**.
@@ -53,6 +54,7 @@ Standard
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 2. In the right pane of the CloudFront console, find the distribution that you want to
    delete.
+
    - If the **Status** column shows that the distribution is already
      **Disabled**, skip to Step 6.
    - If the **Status** shows **Enabled** but the distribution still shows **Deploying** in the **Last modified** column, wait for deployment to finish before continuing to step 3.
@@ -61,15 +63,18 @@ Standard
    you want to delete.
 4. Choose **Disable** to disable the distribution, and choose
    **Yes, Disable** to confirm. Then choose **Close**.
+
    - The value of the **Status** column immediately changes to
      **Disabled**.
 
 5. Wait until the new timestamp appears
    under the **Last modified** column.
+
    - It might take a few minutes for CloudFront to propagate your change to all edge locations.
 
 6. Select the check box for the distribution that you want to delete.
 7. Choose **Delete**, **Delete**.
+
    - If the **Delete** option isn't available, it means that CloudFront is
      still propagating your change to the edge locations. Wait until the new timestamp appears
      under the **Last modified** column, then repeat steps 6-7.

@@ -30,10 +30,12 @@ For both AWS Private CA and third-party CAs, you are responsible for monitoring 
 
 - **Certificate type:** X.509v3
 - **Public key algorithms:**
+
   - RSA: 2048-bit
   - ECDSA: P-256
 
 - **Signature algorithms:**
+
   - SHA256, SHA384, SHA512 with RSA
   - SHA256, SHA384, SHA512 with ECDSA
   - SHA256, SHA384, SHA512 with RSASSA-PSS with MGF1

@@ -49,6 +49,7 @@ To enable this feature for your distribution, complete the following steps:
    secondary channel in a different AWS Region with the same settings. For more
    information, see the following topics in the see the _AWS Elemental MediaPackage V2 User
    Guide_:
+
    - [Create a channel and endpoint](../../../mediapackage/latest/userguide/getting-started.md "../../../mediapackage/latest/userguide/getting-started.md")
    - [Enable the media
      quality score](../../../mediapackage/latest/userguide/mqcs.md "../../../mediapackage/latest/userguide/mqcs.md")

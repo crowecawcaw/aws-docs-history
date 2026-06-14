@@ -379,6 +379,7 @@ requests:
    object from the new location.
 5. The viewer sends another request for the object, but this time the
    viewer specifies the new location that it got from CloudFront:
+
    - If the Amazon S3 bucket is redirecting all requests to a CloudFront
      distribution, using either the domain name for the distribution
      or an alternate domain name, CloudFront requests the object from the

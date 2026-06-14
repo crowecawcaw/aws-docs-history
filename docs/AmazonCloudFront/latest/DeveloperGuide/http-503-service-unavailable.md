@@ -27,6 +27,7 @@ solutions:
 
 - **If you use Amazon S3 as your origin
   server**:
+
   - You can send 3,500 PUT/COPY/POST/DELETE or 5,500 GET/HEAD
     requests per second per partitioned Amazon S3 prefix. When Amazon S3
     returns a 503 Slow Down response, this typically indicates an
@@ -57,6 +58,7 @@ solutions:
        my Application Load Balancer?](https://repost.aws/knowledge-center/alb-troubleshoot-503-errors "https://repost.aws/knowledge-center/alb-troubleshoot-503-errors")
 
 - **If you use a custom origin**:
+
   - Examine the application logs to ensure that your origin has
     sufficient resources, such as memory, CPU, and disk size.
   - If you use Amazon EC2 as the backend, make sure that the instance
@@ -65,9 +67,11 @@ solutions:
     _Amazon EC2 User Guide_.
 
 - **If you use API Gateway**:
+
   - This error is related to the backend integration when the
     API Gateway API is unable to receive a response. The backend server
     might be:
+
     - Overloaded beyond capacity and unable to process new
       client requests.
     - Under temporary maintenance.

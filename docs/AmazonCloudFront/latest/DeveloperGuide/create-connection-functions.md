@@ -3,6 +3,7 @@
 You create a CloudFront Connection Function in two stages:
 
 1. Create the function code as JavaScript. You can use the default example from the CloudFront console or write your own. For more information, see the following topics:
+
    - Write CloudFront Connection Function code for mTLS validation
    - CloudFront Connection Function event structure and response format
    - Connection function code examples

@@ -74,6 +74,7 @@ To enable standard logging, you can use the CloudFront console or the CloudWatch
 2. Choose the **Logging** tab.
 3. Choose **Add**, then select the service to
    receive your logs:
+
    - CloudWatch Logs
    - Firehose
    - Amazon S3
@@ -81,6 +82,7 @@ To enable standard logging, you can use the CloudFront console or the CloudWatch
 4. For the **Destination**, select the resource for your
    service. If you haven’t already created your resource, you can choose
    **Create** or see the following documentation.
+
    - For CloudWatch Logs, enter the **[Log group name](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md")**.
    - For Firehose, enter the **[Firehose delivery
      stream](../../../firehose/latest/dev/basic-create.md "../../../firehose/latest/dev/basic-create.md")**.
@@ -97,6 +99,7 @@ To enable standard logging, you can use the CloudFront console or the CloudWatch
 5. For **Additional settings –
    _optional_**, you can specify the following
    options:
+
    1. For **Field selection**, select the log field
       names that you want to deliver to your destination. You can select
       [access log
@@ -193,6 +196,7 @@ the distribution.
 
 3. Use the [PutDeliveryDestination](../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md "../../../AmazonCloudWatchLogs/latest/APIReference/API_PutDeliveryDestination.md") API operation to
    configure where to store your logs.
+
    1. For `destinationResourceArn`, specify the ARN of the
       destination. This can be a CloudWatch Logs log group, a Firehose delivery stream,
       or an Amazon S3 bucket.
@@ -537,6 +541,7 @@ aws logs create-delivery --delivery-source-name `s3-cf-delivery` --delivery-dest
 ```
 
 3. Verify your cross-account delivery is successful.
+
    1. From the `source` account, sign in to the
       CloudFront console and choose your distribution. On the
       **Logging** tab, under **Type**,

@@ -13,7 +13,9 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateDistribution](example_cloudfront_CreateDistribution_section.md "example_cloudfront_CreateDistribution_section.md")
     - [CreateFunction](example_cloudfront_CreateFunction_section.md "example_cloudfront_CreateFunction_section.md")
     - [CreateInvalidation](example_cloudfront_CreateInvalidation_section.md "example_cloudfront_CreateInvalidation_section.md")
@@ -29,6 +31,7 @@ This topic also includes information about getting started and details about pre
     - [UpdateDistribution](example_cloudfront_UpdateDistribution_section.md "example_cloudfront_UpdateDistribution_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Create a multi-tenant distribution and distribution tenant](example_cloudfront_CreateSaasResources_section.md "example_cloudfront_CreateSaasResources_section.md")
   - [Delete signing resources](example_cloudfront_DeleteSigningResources_section.md "example_cloudfront_DeleteSigningResources_section.md")
   - [Get started with a basic CloudFront distribution](example_cloudfront_GettingStarted_section.md "example_cloudfront_GettingStarted_section.md")
@@ -36,6 +39,7 @@ This topic also includes information about getting started and details about pre
   - [Sign URLs and cookies](example_cloudfront_CloudFrontUtilities_section.md "example_cloudfront_CloudFrontUtilities_section.md")
 
 - [CloudFront Functions examples](service_code_examples_cloudfront_functions_examples.md "service_code_examples_cloudfront_functions_examples.md")
+
   - [Add HTTP security headers](example_cloudfront_functions_add_security_headers_section.md "example_cloudfront_functions_add_security_headers_section.md")
   - [Add a CORS header](example_cloudfront_functions_add_cors_header_section.md "example_cloudfront_functions_add_cors_header_section.md")
   - [Add a cache control header](example_cloudfront_functions_add_cache_control_header_section.md "example_cloudfront_functions_add_cache_control_header_section.md")

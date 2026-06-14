@@ -47,6 +47,7 @@ The billing report includes the following values that apply to CloudFront:
   `AmazonCloudFront`
 - **UsageType** – One of the following
   values:
+
   - A code that identifies the type of data transfer
   - `Invalidations`
   - `Executions-CloudFrontFunctions`
@@ -61,6 +62,7 @@ The billing report includes the following values that apply to CloudFront:
   Coordinated Universal Time (UTC).
 - **UsageQuantity** – One of the following
   values:
+
   - The number of requests during the specified time period
   - The amount of data transferred in gigabytes
   - The number of objects invalidated
@@ -100,6 +102,7 @@ The CloudFront usage report includes the following values:
   `PUT`.
 - **UsageType** – One of the following
   values:
+
   - A code that identifies the type of data transfer
   - `Invalidations`
   - `Executions-CloudFrontFunctions`

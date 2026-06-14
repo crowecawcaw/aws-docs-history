@@ -127,6 +127,7 @@ modify an HTTP listener.
 ###### To update the rules in an Application Load Balancer listener
 
 1. Add a new rule. Use the instructions from [Add a rule](../../../elasticloadbalancing/latest/application/listener-update-rules.md#add-rule "../../../elasticloadbalancing/latest/application/listener-update-rules.md#add-rule"), with the following modifications:
+
    - Add the rule to the load balancer that is the origin for your CloudFront distribution.
    - For **Add condition**, choose
      **Http header**. Specify the HTTP header name and value
@@ -136,6 +137,7 @@ modify an HTTP listener.
      to forward requests.
 
 2. Edit the default rule in your load balancer's listener. Use the instructions from [Edit a rule](../../../elasticloadbalancing/latest/application/listener-update-rules.md#edit-rule "../../../elasticloadbalancing/latest/application/listener-update-rules.md#edit-rule"), with the following modifications:
+
    - Edit the default rule of the load balancer that is the origin for your CloudFront distribution.
    - Delete the default action, and then for **Add action**, choose
      **Return fixed response**.
@@ -183,6 +185,7 @@ requests:
   global service, it automatically distributes the certificate from the
   `us-east-1` Region to all Regions associated with your CloudFront
   distribution.
+
   - For example, if you have an Application Load Balancer (ALB) in the
     `ap-southeast-2` Region, you must configure SSL/TLS certificates
     in both the `ap-southeast-2` Region (for using HTTPS between CloudFront and

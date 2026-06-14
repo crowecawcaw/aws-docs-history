@@ -128,6 +128,7 @@ Console
 3. Choose **Create control setting**.
 4. On the **Create control setting** form,
    do the following:
+
    1. In the **Details** pane, enter a
       **Name** and (optionally) a
       **Description** for the origin

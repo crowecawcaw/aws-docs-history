@@ -631,6 +631,7 @@ response from your origin to the viewer:
   returning the response to the viewer.
 - `Upgrade`
 - `Vary` – Note the following:
+
   - If you configure CloudFront to forward any of the device-specific
     headers to your origin
     (`CloudFront-Is-Desktop-Viewer`,

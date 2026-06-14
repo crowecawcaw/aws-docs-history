@@ -140,6 +140,7 @@ following might be returned:
 - A list of the contents of your Amazon S3 bucket
   – Under any of the following conditions, the contents of your origin are
   visible to anyone who uses CloudFront to access your distribution:
+
   - Your bucket is not properly configured.
   - The Amazon S3 permissions on the bucket associated with your
     distribution and on the objects in the bucket grant access to _everyone_.

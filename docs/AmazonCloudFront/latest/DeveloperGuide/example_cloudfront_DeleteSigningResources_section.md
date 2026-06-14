@@ -66,6 +66,7 @@ public class DeleteSigningResources {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [DeleteKeyGroup](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteKeyGroup.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteKeyGroup.md")
   - [DeleteOriginAccessControl](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteOriginAccessControl.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeleteOriginAccessControl.md")
   - [DeletePublicKey](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeletePublicKey.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/DeletePublicKey.md")

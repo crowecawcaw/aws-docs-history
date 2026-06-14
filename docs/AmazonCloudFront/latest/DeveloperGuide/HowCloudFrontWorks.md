@@ -20,6 +20,7 @@ your objects:
 3. CloudFront checks its cache for the requested object. If the object is in the cache, CloudFront returns it
    to the user. If the object is _not_ in the cache, CloudFront
    does the following:
+
    1. CloudFront compares the request with the specifications in your distribution and forwards the
       request to your origin server for the corresponding object—for
       example, to your Amazon S3 bucket or your HTTP server.

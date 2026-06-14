@@ -106,6 +106,7 @@ The following steps use OpenSSL as an example of one method for creating a
 key pair. There are many other ways to create an RSA or ECDSA key pair.
 
 1. Run one of the following example commands:
+
    - The following example command uses OpenSSL to generate an RSA key pair
      with a length of 2048 bits and save to the file named
      `private_key.pem`.
@@ -114,7 +115,6 @@ key pair. There are many other ways to create an RSA or ECDSA key pair.
 
    openssl genrsa -out private_key.pem 2048
    ```
-
    - The following example command uses OpenSSL to generate an ECDSA key pair
      with the `prime256v1` curve and save to the file named
      `private_key.pem`.
@@ -145,12 +145,14 @@ file) later, in the following procedure.
 3. Choose **Create public key**.
 4. In the **Create public key** window, do the
    following:
+
    1. For **Key name**, type a name to identify the
       public key.
    2. For **Key value**, paste the public key. If
       you followed the steps in the preceding procedure, the public
       key is in the file named `public_key.pem`. To
       copy and paste the contents of the public key, you can:
+
       - Use the **cat** command on the macOS or Linux command line, like
         this:
 
@@ -179,6 +181,7 @@ file) later, in the following procedure.
 3. Choose **Add key group**.
 4. On the **Create key group** page, do the
    following:
+
    1. For **Key group name**, type a name to
       identify the key group.
    2. (Optional) For **Comment**, type a comment to

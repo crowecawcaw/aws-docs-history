@@ -75,6 +75,7 @@ CloudFront console
 
 1. Get the ARN of the Lambda function that you want to add
    triggers for:
+
    1. Sign in to the AWS Management Console and open the AWS Lambda console at
       [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
    2. In the list of Regions at the top of the page, choose

@@ -35,6 +35,7 @@ In verify mode, CloudFront automatically adds the CloudFront-Viewer-Cert-\* head
    **Create policy** or select an existing
    policy
 4. Ensure the following headers are included in the origin request policy:
+
    - CloudFront-Viewer-Cert-Serial-Number
    - CloudFront-Viewer-Cert-Issuer
    - CloudFront-Viewer-Cert-Subject

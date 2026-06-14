@@ -24,6 +24,7 @@ The following procedure shows you how to enable AWS WAF when you create a new Cl
 4. In the **Web Application Firewall** section, choose
    **Edit**, then choose **Enable security protections**.
 5. Complete the following fields:
+
    - **Use monitor mode** – You enable monitor mode when you want to
      first collect data to test how protection will work. When you enable monitor mode, requests
      aren't blocked if the protections were active. Instead, monitor mode collects data about
@@ -50,6 +51,7 @@ If you have an existing web ACL, you can use it instead of the protection offere
 
 1. Open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 2. Do one of the following:
+
    1. Choose **Create distribution** and follow the steps in [Create a distribution](distribution-web-creating-console.md "distribution-web-creating-console.md"), then return to this topic.
    2. Choose an existing configuration, and then choose the **Security**
       tab.
@@ -102,6 +104,7 @@ verified.
 4. In the **Requests by bot category** chart, point to any of the items in the **Unverified bot action** column and
    choose the pencil icon to edit it.
 5. Open the resulting list and choose one of the following:
+
    - **Block**
    - **Allow**
    - **Monitor mode**

@@ -212,6 +212,7 @@ This policy has the following settings:
   None
 - **Query strings included in the cache
   key:**
+
   - `aws.manifestfilter`
   - `start`
   - `end`

@@ -74,8 +74,10 @@ To serve private content using CloudFront, you do the following:
 - Require that your users (viewers) access content using [signed URLs or signed cookies](PrivateContent.md "PrivateContent.md").
 - Restrict access to your origin so that it's only available from CloudFront's origin-facing
   servers. To do this, you can do one of the following:
+
   - For an Amazon S3 origin, you can [use an origin access control (OAC)](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
   - For a custom origin, you can do the following:
+
     - If the custom origin is protected by an Amazon VPC security group or AWS Firewall Manager, you can
       [use the CloudFront managed
       prefix list](LocationsOfEdgeServers.md#managed-prefix-list "LocationsOfEdgeServers.md#managed-prefix-list") to allow inbound traffic to your origin

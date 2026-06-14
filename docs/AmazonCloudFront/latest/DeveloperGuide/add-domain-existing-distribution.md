@@ -14,14 +14,17 @@ After you create a new CloudFront standard distribution, you can add a domain to
 4. Enter up to five domains to serve.
 5. Choose **Next**.
 6. For **TLS certificate**, if CloudFront can't find an existing AWS Certificate Manager (ACM) certificate for your domain in your AWS account in the `us-east-1` AWS Region, you can create one.
+
    - If you are using Amazon Route 53 (Route 53), CloudFront automatically creates a certificate for you.
 
 7. When your certificate is provisioned, you must update your DNS records with your DNS provider to prove domain ownership. Then, choose **Validate certificate**. For more information, see [Point domains to CloudFront (standard distribution)](#point-domains-standard "#point-domains-standard").
+
    - If you are using Route 53, CloudFront updates your DNS records for you.
 
 8. Choose **Next**.
 9. Review your changes and choose **Add domains**.
 10. Before you send traffic to your distribution, make sure to update your DNS records to point to CloudFront. For more information, choose **Route domains to CloudFront** in the **Settings** section of your distribution details page.
+
     - If you are using Route 53, you can have CloudFront set up DNS routing for you automatically.
 
 ## Point domains to CloudFront (standard distribution)
@@ -34,15 +37,19 @@ hostname.
 1. Copy the CloudFront hostname value, such as
    d111111abcdef8.cloudfront.net.
 2. Update your DNS records to route traffic from each domain to the CloudFront hostname.
+
    1. Sign in to your domain registrar or DNS provider management console.
    2. Navigate to the DNS management section for your domain.
+
       - For subdomains – Create a CNAME record. For example:
+
         - Name – Your subdomain (such as `www` or `app`)
         - Value / Target – Your CloudFront hostname
         - Record type – CNAME
         - TTL – 3600 (or whatever is appropriate for your use case)
 
       - For apex/root domains – This requires a unique DNS configuration, because standard CNAME records can’t be used at the root or apex domain level. Because most DNS providers don’t support ALIAS records, we recommend creating an ALIAS record in Route 53. For example:
+
         - Name – Your apex domain (such as `example.com`)
         - Record type – A
         - Alias – Yes

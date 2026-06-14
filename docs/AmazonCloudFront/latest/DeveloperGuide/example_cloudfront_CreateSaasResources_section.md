@@ -384,6 +384,7 @@ public class CreateDistributionTenant {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateDistribution](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CreateDistribution.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CreateDistribution.md")
   - [CreateDistributionTenant](../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CreateDistributionTenant.md "../../../goto/SdkForJavaV2/cloudfront-2020-05-31/CreateDistributionTenant.md")
 

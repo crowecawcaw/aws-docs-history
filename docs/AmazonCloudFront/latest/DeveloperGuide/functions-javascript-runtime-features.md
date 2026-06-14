@@ -10,6 +10,7 @@ The JavaScript runtime 2.0 features has the following changes compared to 1.0:
 
 - Buffer module methods are available
 - The following non-standard string prototype methods are not available:
+
   - `String.prototype.bytesFrom()`
   - `String.prototype.fromBytes()`
   - `String.prototype.fromUTF8()`
@@ -17,6 +18,7 @@ The JavaScript runtime 2.0 features has the following changes compared to 1.0:
   - `String.prototype.toUTF8()`
 
 - The cryptographic module has the following changes:
+
   - `hash.digest()` – Return type is changed to
     `Buffer` if no encoding is provided
   - `hmac.digest()` – Return type is changed to

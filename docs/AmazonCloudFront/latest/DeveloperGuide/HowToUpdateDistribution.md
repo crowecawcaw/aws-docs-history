@@ -57,6 +57,7 @@ Standard
    for the settings that you want to update.
 4. Make the updates, and then choose **Save changes**. For information
    about the fields, see the following topics:
+
    - **General settings:**
      [Distribution settings](DownloadDistValuesGeneral.md "DownloadDistValuesGeneral.md")
    - **Origin settings:**
@@ -65,6 +66,7 @@ Standard
      [Cache behavior settings](DownloadDistValuesCacheBehavior.md "DownloadDistValuesCacheBehavior.md")
 
 5. If you want to delete an origin in your distribution, do the following:
+
    1. Choose **Behaviors**, and then make sure you have moved any default cache behaviors associated
       with the origin to another origin.
    2. Choose **Origins**, and then select an origin.

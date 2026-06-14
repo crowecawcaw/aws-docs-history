@@ -90,6 +90,7 @@ happens:
 2. If a client request provides the SNI extension in the
    `ClientHello` message, CloudFront searches for a distribution
    that is associated with that SNI.
+
    - If there's a match, CloudFront responds to the request with the
      SSL/TLS certificate.
    - If there's no match, CloudFront uses the IP address instead to

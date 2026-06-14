@@ -36,11 +36,13 @@ Following are the settings that you can customize for your Amazon S3 origin in a
 ###### Customizable settings
 
 - S3 access – CloudFront sets this for you, based on your S3 bucket settings:
+
   - If your bucket is public – No Origin Access Control (OAC) policy is needed.
   - If your bucket is private – You can choose or create an OAC policy to use.
 
 - Enable Origin Shield – No
 - Compress objects automatically – Yes
+
   - If you choose **Yes**, then the `CachingOptimized` caching policy is used.
   - If you choose **No**, then the `CachingOptimizedForUncompressedObjects` caching policy is used.
 
@@ -128,10 +130,12 @@ Following are the settings that you can customize for your custom origin and EC2
 - Enable Origin Shield – (Default: No)
 - Compress objects automatically – (Default: Yes)
 - Caching – (Default: `Cache by Default`)
+
   - If `Cache by Default` is selected, the `UseOriginCacheControlHeaders` cache policy is used.
   - If `Do Not Cache by Default` is selected, the `CachingDisabled` cache policy is used.
 
 - Include query string in cache – (Default: Yes, if `Cache by Default` is already selected)
+
   - If `Do Not Cache by Default` is already selected and you then choose to include the query string in the cache, the `UseOriginCacheControlHeaders-QueryStrings` cache policy is used.
 
 ## Elastic Load Balancing origin
@@ -161,10 +165,12 @@ Following are the cache settings that CloudFront preconfigures for your Elastic 
 - Allow gRPC requests over HTTP/2 – No
 - Restrict viewer access – No
 - Caching – (Default: `Cache by Default`)
+
   - If `Cache by Default` is selected, the `UseOriginCacheControlHeaders` cache policy is used.
   - If `Do Not Cache by Default` is selected, the `CachingDisabled` cache policy is used.
 
 - Include query string in cache – (Default: Yes, if `Cache by Default` is already selected)
+
   - If `Do Not Cache by Default` is already selected and you then choose to include the query string in the cache, the `UseOriginCacheControlHeaders-QueryStrings` cache policy is used.
 
 - Origin request policy – `All Viewer` (Possible values: `AllViewerExceptHostHeader`, `AllViewerandCloudFrontHeaders-2022-06`)
@@ -181,10 +187,12 @@ Following are the settings that you can customize for your Elastic Load Balancin
 - Enable Origin Shield – (Default: No)
 - Compress objects automatically – (Default: Yes)
 - Caching – (Default: `Cache by Default`)
+
   - If `Cache by Default` is selected, the `UseOriginCacheControlHeaders` cache policy is used.
   - If `Do Not Cache by Default` is selected, the `CachingDisabled` cache policy is used.
 
 - Include query string in cache – (Default: Yes, if `Cache by Default` is already selected)
+
   - If `Do Not Cache by Default` is already selected and you then choose to include the query string in the cache, the `UseOriginCacheControlHeaders-QueryStrings` cache policy is used.
 
 ## MediaPackage v1 origin

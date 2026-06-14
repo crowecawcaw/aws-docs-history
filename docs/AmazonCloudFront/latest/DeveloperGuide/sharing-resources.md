@@ -84,6 +84,7 @@ the AWS CLI.
 5. For **Name**, enter a name for the resource share.
 6. For **Principal type**, select one of the following
    options:
+
    - **AWS account** – Grant access to a specific
      AWS account.
    - **Organizational unit** – Grant access to a
@@ -162,6 +163,7 @@ your CloudFront distributions.
 1. Open the CloudFront console at [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 2. On the navigation pane, for **Distributions**, do one of the
    following:
+
    - For a new distribution, choose **Create
      distribution**.
    - For an existing distribution, choose the distribution ID.
@@ -190,6 +192,7 @@ AWS CLI.
 3. Select a resource.
 4. On the resource detail page, under **Shared with**, you can
    see that your VPC origin is shared with the following details:
+
    - Resource share names
    - Share status
    - Last modified date

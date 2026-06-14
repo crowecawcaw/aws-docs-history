@@ -61,6 +61,7 @@ section.
    case.
 6. For **IP address type**, specify one of the following
    options:
+
    - **IPv4** – Allocate a list of only IPv4
      addresses
    - **Dualstack** – Allocate a list of both
@@ -91,8 +92,10 @@ static IP list:
 ###### To associate an Anycast static IP list with an existing distribution
 
 - Do one of the following:
+
   - Associate the static IP list from the static IP list detail
     page:
+
     1. Sign in to the AWS Management Console and open the CloudFront console at
        [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
     2. Choose **Static IPs** in the left
@@ -105,6 +108,7 @@ static IP list:
 
   - Associate the static IP list from the distribution detail
     page:
+
     1. Sign in to the AWS Management Console and open the CloudFront console at
        [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
     2. Choose **Distributions** in the left
@@ -127,6 +131,7 @@ preceding sections.
 - Create a new distribution. For more information, see [Create a CloudFront distribution in the console](distribution-web-creating-console.md#create-console-distribution "distribution-web-creating-console.md#create-console-distribution"). For
   **Settings**, you must make the following selections to
   use your Anycast static IP list:
+
   - For **Anycast IP list**, select your Anycast
     static IP list from the dropdown list.
   - For **Price class**, select **Use all
@@ -154,6 +159,7 @@ previous sections.
    group](custom-connection-group.md "custom-connection-group.md").
 3. For **Settings**, you must make the following selections
    to use your Anycast static IP list.
+
    1. For **Anycast IP list**, select your Anycast
       static IP list from the dropdown list.
 
@@ -183,6 +189,7 @@ list..
 4. Choose **Edit**.
 5. For **IP address type**, specify one of the following
    options:
+
    - **IPv4** – Allocate a list of only IPv4
      addresses
    - **Dualstack** – Allocate a list of both

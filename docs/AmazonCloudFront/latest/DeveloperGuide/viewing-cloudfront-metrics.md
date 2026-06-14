@@ -12,6 +12,7 @@ the CloudFront console.
    function, choose one, and then choose **View distribution
    metrics** or **View metrics**.
 4. You can customize the graphs by doing the following:
+
    1. To change the time range for the information displayed in the graphs,
       choose 1h (1 hour), 3h (3 hours), or another range, or specify a custom
       range.
@@ -284,6 +285,7 @@ objects.
   (`FunctionThrottles`) – The number of times that the
   function was throttled in a given time period. Functions can be throttled
   for the following reasons:
+
   - The function continuously exceeds the maximum time allowed for
     execution
   - The function results in compilation errors

@@ -419,6 +419,7 @@ echo "Tutorial completed at $(date)"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateDistribution](../../../goto/aws-cli/cloudfront-2020-05-31/CreateDistribution.md "../../../goto/aws-cli/cloudfront-2020-05-31/CreateDistribution.md")
   - [CreateOriginAccessControl](../../../goto/aws-cli/cloudfront-2020-05-31/CreateOriginAccessControl.md "../../../goto/aws-cli/cloudfront-2020-05-31/CreateOriginAccessControl.md")
   - [DeleteDistribution](../../../goto/aws-cli/cloudfront-2020-05-31/DeleteDistribution.md "../../../goto/aws-cli/cloudfront-2020-05-31/DeleteDistribution.md")

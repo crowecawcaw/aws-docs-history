@@ -12,6 +12,7 @@ Console
    [https://console.aws.amazon.com/cloudfront/v4/home#/functions](https://console.aws.amazon.com/cloudfront/v4/home#/functions "https://console.aws.amazon.com/cloudfront/v4/home#/functions").
 2. Choose the **KeyValueStores** tab.
 3. Select the key value store that you want to update.
+
    - To update the key-value pairs, choose
      **Edit** in the **Key value
      pairs** section. You can add or delete any

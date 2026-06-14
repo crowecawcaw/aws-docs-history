@@ -5,6 +5,7 @@ You can control user access to your private content in two ways:
 - [Restrict access to files
   in CloudFront caches](#private-content-overview-edge-caches "#private-content-overview-edge-caches").
 - Restrict access to files in your origin by doing one of the following:
+
   - [Set up an origin access control
     (OAC) for your Amazon S3 bucket](private-content-restricting-access-to-s3.md "private-content-restricting-access-to-s3.md").
   - [Configure

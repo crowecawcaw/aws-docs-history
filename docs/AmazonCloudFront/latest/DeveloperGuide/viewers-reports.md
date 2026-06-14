@@ -13,6 +13,7 @@ previous 60 days:
 - **Locations** – The top 50 locations
   (countries or U.S. states/territories) of the viewers that most frequently
   access your content
+
   - You can also view locations with hourly data points for any date range
     of up to 14 days in the previous 60 days
 

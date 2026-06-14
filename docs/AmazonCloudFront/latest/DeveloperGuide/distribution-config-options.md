@@ -51,6 +51,7 @@ source distribution. Then, you customize specific settings for your distribution
 1. To get started, you first create a multi-tenant distribution. CloudFront configures your
    distribution settings for you, based on your content origin type. You can customize settings for all origins except VPC origins. VPC origins settings are customized on the VPC origin resource itself. For more
    information about the multi-tenant distribution settings that you can customize, see [Preconfigured distribution settings reference](template-preconfigured-origin-settings.md "template-preconfigured-origin-settings.md").
+
    - The TLS certificate that you use for the multi-tenant distribution can be inherited
      by your distribution tenants. The multi-tenant distribution itself is not routable, so it will not
      have a domain name associated with it.

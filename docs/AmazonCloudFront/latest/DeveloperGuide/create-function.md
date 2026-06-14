@@ -5,6 +5,7 @@ You create a function in two stages:
 1. Create the function code as JavaScript. You can use the default example from the
    CloudFront console or write your own. For more information, see the following
    topics:
+
    - [Write function code](writing-function-code.md "writing-function-code.md")
    - [CloudFront Functions event structure](functions-event-structure.md "functions-event-structure.md")
    - [CloudFront Functions examples for CloudFront](service_code_examples_cloudfront_functions_examples.md "service_code_examples_cloudfront_functions_examples.md")

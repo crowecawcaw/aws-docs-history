@@ -148,6 +148,7 @@ receives from the origin for your distribution.
 4. In the **Deploy to Lambda@Edge** pane, under
    **Configure CloudFront trigger**, enter the following
    information:
+
    - **Distribution** – The CloudFront
      distribution ID to associate with your function. In the dropdown
      list, choose the distribution ID.

@@ -27,6 +27,7 @@ CloudFront blueprint.
 
 5. In the **Basic information** section, specify the
    following values:
+
    1. **Name** – Enter a name for your
       function.
    2. **Role** – To get started quickly, choose

@@ -32,10 +32,12 @@ Trust stores have specific requirements for the CA certificates they contain:
 
 - **Certificate type:** X.509v3
 - **Public key types:**
+
   - RSA 2048, RSA 3072, RSA 4096
   - ECDSA: secp256r1, secp384r1
 
 - **Signature algorithms:**
+
   - SHA256, SHA384, SHA512 with RSA
   - SHA256, SHA384, SHA512 with EC
   - SHA256, SHA384, SHA512 with RSASSA-PSS with MGF1
@@ -115,6 +117,7 @@ There are two avenues to associate a trust store within the CloudFront console: 
 3. Choose the name of the trust store you want to associate.
 4. Choose **Associate to distribution**.
 5. Configure the available Viewer mTLS options:
+
    - **Client certificate validation mode:** Choose between Required and Optional mode. In required mode, all clients are required to present certificates. In optional mode, clients that present certificates are validated, while clients that do not present certificates are permitted access.
    - **Advertise trust store CA names:** Choose whether to advertise the CA names in your trust store to clients during TLS handshake.
    - **Ignore certificate expiration date:** Choose whether to allow connections with expired certificates (other validation criteria still apply).
@@ -135,6 +138,7 @@ There are two avenues to associate a trust store within the CloudFront console: 
    **Connectivity** container, toggle the
    **Viewer mTLS** switch on
 5. Configure the available Viewer mTLS options:
+
    - **Client certificate validation mode:** Choose between Required and Optional mode. In required mode, all clients are required to present certificates. In optional mode, clients that present certificates are validated, while clients that do not present certificates are permitted access.
    - **Advertise trust store CA names:** Choose whether to advertise the CA names in your trust store to clients during TLS handshake.
    - **Ignore certificate expiration date:** Choose whether to allow connections with expired certificates (other validation criteria still apply).

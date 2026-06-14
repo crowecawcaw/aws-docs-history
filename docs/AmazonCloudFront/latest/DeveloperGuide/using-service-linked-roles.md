@@ -87,6 +87,7 @@ again.
 ###### To delete CloudFront VPC Origins resources used by the AWSServiceRoleForCloudFrontVPCOrigin
 
 - Delete the VPC origin resources in your account.
+
   - It might take some time for CloudFront to finish deleting the resources from your account. If you can't delete the service-linked role right away, wait and try again.
 
 **To manually delete the service-linked role using

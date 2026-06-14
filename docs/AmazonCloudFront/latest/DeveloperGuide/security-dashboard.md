@@ -29,6 +29,7 @@ and data:
   logs is primarily being driven by a subset of HTTP methods, IP addresses, URI paths, or
   countries. You can hover over values in the charts and block IP addresses and countries. For more information, see [Enable AWS WAF logs](#understand-logging "#understand-logging").
 - **Geographic restriction management** – CloudFront and AWS WAF provide geographic restriction features. CloudFront provides geographic restrictions for free, but metrics for CloudFront geographic restrictions aren't displayed in the security dashboard. To see request metrics for blocked country requests, you must use AWS WAF geographic restrictions. To do this, hover over a country bar in the security dashboard and block the country. For more information, see [Use CloudFront geographic restrictions](georestrictions.md#georestrictions-cloudfront "georestrictions.md#georestrictions-cloudfront").
+
   - The **Block** option might not be available if you previously created a custom AWS WAF rule outside of the CloudFront console to block countries.
 
 ###### Topics

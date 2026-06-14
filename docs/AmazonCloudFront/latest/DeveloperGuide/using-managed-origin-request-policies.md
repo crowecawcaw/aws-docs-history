@@ -66,6 +66,7 @@ This policy has the following settings:
 
 - **Headers included in origin requests:** All
   headers in the viewer request, and the following CloudFront headers:
+
   - `CloudFront-Forwarded-Proto`
   - `CloudFront-Is-Android-Viewer`
   - `CloudFront-Is-Desktop-Viewer`
@@ -146,6 +147,7 @@ This policy has the following settings:
 
 - **Headers included in origin
   requests:**
+
   - `Origin`
 
 - **Cookies included in origin requests:**
@@ -169,6 +171,7 @@ This policy has the following settings:
 
 - **Headers included in origin
   requests:**
+
   - `Origin`
   - `Access-Control-Request-Headers`
   - `Access-Control-Request-Method`
@@ -194,6 +197,7 @@ This policy has the following settings:
 
 - **Headers included in origin
   requests:**
+
   - `Origin`
   - `Access-Control-Request-Headers`
   - `Access-Control-Request-Method`
@@ -241,6 +245,7 @@ This policy has the following settings:
 
 - **Headers included in origin
   requests:**
+
   - `User-Agent`
   - `Referer`
 

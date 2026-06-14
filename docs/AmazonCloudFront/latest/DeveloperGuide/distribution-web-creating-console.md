@@ -10,6 +10,7 @@ This topic explains how to use the CloudFront console to create a distribution.
    your files, it goes to the origin to get the files that it distributes at
    edge locations. You can use any combination of Amazon S3 buckets and HTTP servers
    as your origin servers.
+
    - If you use Amazon S3, the name of your bucket must be all lowercase and cannot contain
      spaces.
    - If you use an Amazon EC2 server or another custom origin, review [Use Amazon EC2 (or another custom origin)](DownloadDistS3AndCustomOrigins.md#concept_CustomOrigin "DownloadDistS3AndCustomOrigins.md#concept_CustomOrigin").
@@ -94,6 +95,7 @@ Multi-tenant
 10. (Optional) To add a parameter, choose **Insert parameter** for
     either the origin domain name or origin path. You can enter up
     to two parameters for each field.
+
     1. Choose **Create new
        parameter**.
     2. On the **Create new parameter**
@@ -109,6 +111,7 @@ Multi-tenant
 
 11. For **Options**, choose one of the following
     options:
+
     - **Use recommended origin settings** – Use the default
       recommended cache and origin settings for the origin
       type that you selected.
@@ -139,6 +142,7 @@ template.
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 2. In the navigation pane, do one of the following:
+
    - Choose **Distributions**, choose a
      multi-tenant distribution, and then choose **Create
      tenant**.
@@ -208,6 +212,7 @@ Standard
    information, see [Tag a CloudFront resource](tagging.md "tagging.md").
 4. Choose **Single website or app**, **Next**.
 5. (Optional) For **Domain setup**, enter a domain that's already registered with Route 53 in your AWS account, or register a new domain. Complete the setup steps.
+
    - If your domain uses a DNS provider other than Route 53, you can still add the domain, but you'll need to do so after creating the distribution. Skip the domain setup for now to proceed with distribution creation. You must manually configure the domain and TLS certificate later. For more information, see [Add a domain to your CloudFront standard distribution](add-domain-existing-distribution.md "add-domain-existing-distribution.md").
 
 6. Choose **Next**.
@@ -220,6 +225,7 @@ Standard
    origin.
 9. For **Settings**, choose one of the following
    options:
+
    - **Use recommended origin settings** – Use the default
      recommended cache and origin settings for the origin
      type that you selected.

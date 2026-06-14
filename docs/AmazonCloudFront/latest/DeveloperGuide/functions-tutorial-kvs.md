@@ -36,6 +36,7 @@ First, create the key value store to use for your function.
    key names. The key-value pairs that you want to use in a function must be in a
    single key value store.
 2. Decide about the order of work. There are two ways to proceed:
+
    - Create a key value store, and add key-value pairs to the store. Then
      create (or modify) the function and incorporate the key names.
    - Or, create (or modify) the function and incorporate the key names you
@@ -48,6 +49,7 @@ First, create the key value store to use for your function.
    the **KeyValueStores** tab.
 5. Choose **Create KeyValueStore** and enter the following
    fields:
+
    - Enter a name and (optional) description for the store.
    - Leave **S3 URI** blank. In this tutorial you will
      enter the key-value pairs manually.

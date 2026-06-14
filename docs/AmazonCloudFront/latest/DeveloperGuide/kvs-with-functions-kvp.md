@@ -272,6 +272,7 @@ See the following CloudFront KeyValueStore API operations:
   Returns a list of key-value pairs
 - [CloudFrontKeyValueStore PutKey](../../../cloudfront/latest/APIReference/API_kvs_PutKey.md "../../../cloudfront/latest/APIReference/API_kvs_PutKey.md") – You
   can perform the following tasks:
+
   - Create a key-value pair in one key value store by specifying a
     new key name and value.
   - Set a different value in an existing key-value pair by
@@ -280,6 +281,7 @@ See the following CloudFront KeyValueStore API operations:
 - [CloudFrontKeyValueStore UpdateKeys](../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md "../../../cloudfront/latest/APIReference/API_kvs_UpdateKeys.md") –
   You can perform one or more of the following actions in one
   all-or-nothing operation:
+
   - Delete one or more key-value pairs
   - Create one or more new key-value pairs
   - Set a different value in one or more existing key-value

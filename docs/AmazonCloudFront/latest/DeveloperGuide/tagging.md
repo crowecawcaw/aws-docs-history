@@ -72,6 +72,7 @@ You can use the CloudFront console to manage tags for your CloudFront resources.
 1. Sign in to the AWS Management Console and open the CloudFront console at
    [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
 2. Navigate to your resource:
+
    - **For a distribution:** Choose the ID for the distribution that you want to update.
    - **For a function:** Choose Functions, then choose the name of the function that you want to update.
    - **For a KeyValueStore:** Choose Functions, choose the KeyValueStore tab, then choose the name of the KeyValueStore that you want to update.
@@ -79,6 +80,7 @@ You can use the CloudFront console to manage tags for your CloudFront resources.
 3. Choose the **Tags** tab.
 4. Choose **Manage tags**.
 5. On the **Manage tags** page, you can do the following:
+
    - To add a tag, enter a key and, optionally, a value for the tag. Choose
      **Add new tag** to add more tags.
    - To edit a tag, change the tag’s key or its value, or both. You can
@@ -93,6 +95,7 @@ You can also use the CloudFront API, AWS Command Line Interface (AWS CLI), AWS S
 tags. For more information, see the following topics:
 
 - CloudFront API operations:
+
   - [ListTagsForResource](../../../cloudfront/latest/APIReference/API_ListTagsForResource.md "../../../cloudfront/latest/APIReference/API_ListTagsForResource.md")
   - [TagResource](../../../cloudfront/latest/APIReference/API_TagResource.md "../../../cloudfront/latest/APIReference/API_TagResource.md")
   - [UntagResource](../../../cloudfront/latest/APIReference/API_UntagResource.md "../../../cloudfront/latest/APIReference/API_UntagResource.md")

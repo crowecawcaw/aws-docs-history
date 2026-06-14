@@ -65,6 +65,7 @@ You can view the CloudFront cache statistics report in the console.
     the specified location.
 6.  In the **Distribution** list, select the distributions
     for which you want to display data in the usage charts:
+
     - **An individual distribution**
       – The charts display data for the selected CloudFront distribution.
       The **Distribution** list displays the distribution

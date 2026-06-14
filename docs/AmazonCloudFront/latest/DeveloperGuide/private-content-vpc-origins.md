@@ -129,6 +129,7 @@ without creating a staging distribution.
    distribution**. For more information, see [Use CloudFront continuous deployment to safely test CDN configuration changes](continuous-deployment.md "continuous-deployment.md").
 9. Follow the steps in the **Create staging distribution**
    wizard to create a staging distribution. Include the following steps:
+
    - For **Origins**, choose **Create
      origin**.
    - For **Origin domain**, select your VPC origins

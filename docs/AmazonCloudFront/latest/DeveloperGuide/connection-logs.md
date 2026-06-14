@@ -35,17 +35,20 @@ Before enabling connection logs:
 3. Choose the **Logging** tab.
 4. Choose **Add**.
 5. Select the service to receive your logs:
+
    - **CloudWatch Logs**
    - **Firehose**
    - **Amazon S3**
 
 6. For **Destination**, select the resource for your
    chosen service:
+
    - For CloudWatch Logs, enter the **Log group name**
    - For Firehose, select the **Firehose delivery stream**
    - For Amazon S3, enter the **Bucket name** (optionally with a prefix)
 
 7. (Optional) Configure additional settings:
+
    - **Field selection:** Select specific log fields to include.
    - **Output format:** Choose from JSON, Plain, w3c, Raw, or Parquet (S3
      only).

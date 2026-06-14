@@ -167,6 +167,7 @@ string in a request URI.
   only in Lambda@Edge).
 - If a function creates or updates a query string, the following
   restrictions apply:
+
   - The query string can't include spaces, control characters, or the
     fragment identifier (`#`).
   - The total size of the URI, including the query string, must be

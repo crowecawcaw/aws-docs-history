@@ -50,6 +50,7 @@ distribution tenant.
 7. For **Domains**, choose **Add domain** and enter the domain name. Depending on
    your domain, the following messages will appear under the domain name that you
    enter.
+
    - This domain is covered by the certificate.
    - This domain is covered by the certificate, pending
      validation.
@@ -122,6 +123,7 @@ your origin/web server. Use the following procedure to validate domain ownership
    **Next**.
 2. For **Verify domain ownership**, choose one of the
    following options:
+
    - **Use existing certificate** – Search for an
      existing ACM certificate or enter the certificate ARN that covers
      the listed domains.
@@ -189,15 +191,19 @@ endpoint.
 1. Copy the CloudFront routing endpoint value, such as
    d111111abcdef8.cloudfront.net.
 2. Update your DNS records to route traffic from each domain to the CloudFront routing endpoint.
+
    1. Sign in to your domain registrar or DNS provider management console.
    2. Navigate to the DNS management section for your domain.
+
       - For subdomains – Create a CNAME record. For example:
+
         - Name – Your subdomain (such as `www` or `app`)
         - Value / Target – The CloudFront routing endpoint
         - Record type – CNAME
         - TTL – 3600 (or whatever is appropriate for your use case)
 
       - For apex/root domains – This requires a unique DNS configuration, because standard CNAME records can’t be used at the root or apex domain level. Because most DNS providers don’t support ALIAS records, we recommend creating an ALIAS record in Route 53. For example:
+
         - Name – Your apex domain (such as `example.com`)
         - Record type – A
         - Alias – Yes

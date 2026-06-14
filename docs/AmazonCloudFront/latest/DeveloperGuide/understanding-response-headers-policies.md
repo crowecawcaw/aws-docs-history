@@ -91,6 +91,7 @@ for this setting include a specific origin (such as
 - The wildcard character (`*`)
   _isn't_ allowed in the following
   positions:
+
   - Top-level domains (`example.*`)
   - To the right of subdomains
     (`test.*.example.org`) or within any

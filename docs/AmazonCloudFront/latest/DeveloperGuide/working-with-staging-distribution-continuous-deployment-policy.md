@@ -26,6 +26,7 @@ by using the AWS Management Console.
    **Create staging distribution** wizard.
 5. In the **Create staging distribution** wizard, do
    the following:
+
    1. (Optional) Type a description for the staging
       distribution.
    2. Choose **Next**.
@@ -133,8 +134,10 @@ aws cloudfront create-continuous-deployment-policy --generate-cli-skeleton yaml-
     created. Edit the file to specify the continuous deployment policy
     settings that you want, then save the file. When you edit the
     file:
+
     - In the `StagingDistributionDnsNames`
       section:
+
       - Change the value of `Quantity` to
         `1`.
       - For `Items`, paste the CloudFront domain name
@@ -426,6 +429,7 @@ distribution the next time you want to test a configuration change.
   distribution. The following example command uses escape characters
   (\) and line breaks for readability, but you should omit these from
   the command. In the following example command:
+
   - Replace `primary_distribution_ID`
     with the ID of the primary distribution.
   - Replace `staging_distribution_ID`

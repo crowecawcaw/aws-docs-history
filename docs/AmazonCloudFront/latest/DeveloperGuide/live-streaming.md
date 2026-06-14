@@ -54,6 +54,7 @@ CloudFront distribution and configure it to work with MediaStore.
     container](../../../mediastore/latest/ug/cdns-allowing-cloudfront-to-access-mediastore.md "../../../mediastore/latest/ug/cdns-allowing-cloudfront-to-access-mediastore.md"), and then return to these steps to create your
     distribution.
 2.  Create a distribution with the following settings:
+
     1.  **Origin domain** – The data endpoint that
         is assigned to your MediaStore container. From the dropdown list, choose
         the MediaStore container for your live video.

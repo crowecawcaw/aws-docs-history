@@ -28,6 +28,7 @@ Console
    choose **Create KeyValueStore**.
 3. Enter a name and optional description for the key value store.
 4. Complete **S3 URI**:
+
    - If you have a file of key-value pairs, enter the path
      to the Amazon S3 bucket where you stored the file.
    - Leave this field blank if you plan to enter the
@@ -51,6 +52,7 @@ value store.
 6. Look at the **Key value pairs** section. If
    you imported a file, this section shows some key-value pairs.
    You can do the following:
+
    - If you imported a file, you can also add more values
      manually.
    - If you didn't import a file from an Amazon S3 bucket, and
@@ -60,6 +62,7 @@ value store.
      later.
 
 7. To add the pairs now:
+
    1. Choose **Add key-value pairs**.
    2. Choose **Add pair** and enter a name
       and value. Repeat this step to add more pairs.
@@ -114,6 +117,7 @@ API
 1. Use the [CloudFront
    CreateKeyValueStore](../../../cloudfront/latest/APIReference/API_CreateKeyValueStore.md "../../../cloudfront/latest/APIReference/API_CreateKeyValueStore.md") operation. The
    operation takes several parameters:
+
    - A `name` of the key value store.
    - A `comment` parameter that includes a
      comment.

@@ -472,9 +472,9 @@ before the end of the month.
 
 ### Cancel a pricing plan
 
-When you cancel a pricing plan, you will maintain your flat-rate price through the
+When you cancel a paid pricing plan, you will maintain your flat-rate price through the
 end of your current billing cycle. Your distribution and all associated plan
-resources will then switch to pay-as-you-go pricing at the start of the next billing cycle.
+resources will then switch to pay-as-you-go pricing at the start of the next billing cycle. Free plans are cancelled immediately.
 
 ###### To cancel a pricing plan
 
@@ -483,9 +483,7 @@ resources will then switch to pay-as-you-go pricing at the start of the next bil
 2. In the navigation pane, choose **Distributions**.
 3. Choose your distribution that is subscribed to an existing pricing
    plan.
-4. Follow the prompts to cancel your distribution's pricing plan. If you have
-   unsupported features, you must either remove the feature or resource from
-   the distribution.
+4. Follow the prompts to cancel your distribution's pricing plan.
 5. Complete the steps to [update an
    existing distribution](HowToUpdateDistribution.md "HowToUpdateDistribution.md").
 
@@ -511,8 +509,7 @@ plan again, you must first cancel your pending plan change.
 ### Deleting a distribution with a pricing plan
 
 You can't delete a distribution that is subscribed to a pricing plan. You must
-first cancel the pricing plan and then after the current billing cycle, delete the
-distribution.
+first cancel the pricing plan. Paid pricing plan cancellations take effect after the current billing cycle. Free plans are cancelled immediately. Once the plan is canceled, you can delete the distribution.
 
 ###### To delete a distribution with a pricing plan
 

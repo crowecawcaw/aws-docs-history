@@ -53,6 +53,7 @@ webpage.
 5. For **Region**, we recommend choosing an AWS Region
    that is geographically close to you. (This reduces latency and
    costs.)
+
    - Choosing a different Region works, too. You might do this to
      address regulatory requirements, for example.
 

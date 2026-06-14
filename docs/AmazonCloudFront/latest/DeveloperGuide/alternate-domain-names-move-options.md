@@ -96,6 +96,7 @@ associate-alias (standard distributions only)
 
 1.  Use the `associate-alias` command, as shown in the
     following example.
+
     1. Replace `www.example.com` with
        the alternate domain name, and
        `EDFDVBD6EXAMPLE` with the

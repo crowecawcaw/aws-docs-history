@@ -4,6 +4,7 @@ After you've created your distribution, CloudFront knows where your origin serve
 know the domain name associated with the distribution. To test your distribution, do the following:
 
 1. Wait until your distribution is deployed.
+
    - View your distribution **Details** in the console. When your distribution is done deploying, the **Last modified** field changes from **Deploying** to a date and time.
 
 2. Create links to your objects with the CloudFront domain name by using the following procedure.

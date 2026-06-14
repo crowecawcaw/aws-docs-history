@@ -53,6 +53,7 @@ the following are true:
 - The object isn't in the edge cache.
 - Your origin returns an HTTP 4xx or 5xx status code and one of the
   following is true:
+
   - Your origin returns an HTTP 5xx status code instead of
     returning a 304 status code (Not Modified) or an updated version
     of the object.
@@ -78,6 +79,7 @@ the following are true:
 5. CloudFront returns the custom error page to the viewer that made the
    request, and also caches the custom error page for the maximum of the
    following:
+
    - The amount of time specified by the error caching minimum TTL
      (10 seconds by default)
    - The amount of time specified by a `Cache-Control
@@ -149,6 +151,7 @@ the following are true:
 - The object isn't in the edge cache.
 - Your origin returns an HTTP 4xx or 5xx status code and one of the
   following is true:
+
   - Your origin returns an HTTP 5xx status code instead of
     returning a 304 status code (Not Modified) or an updated version
     of the object.
@@ -166,6 +169,7 @@ CloudFront does the following:
 1. CloudFront returns the 4xx or 5xx status code to the viewer, and also caches
    status code in the edge cache that received the request for the maximum
    of the following:
+
    - The amount of time specified by the error caching minimum TTL
      (10 seconds by default)
    - The amount of time specified by a `Cache-Control

@@ -10,11 +10,13 @@ specific CloudFront metrics.
 2. In the navigation pane, choose **Alarms**.
 3. Choose **Create alarm**.
 4. For **Details**, specify the following:
+
    1. **Alarm name** – A name for the alarm.
    2. **Distribution** – The CloudFront distribution that
       you're creating the alarm for.
 
 5. For **Condition**, specify the following:
+
    1. **Metric** – The metric that you're creating
       the alarm for.
    2. **"IF" <condition>** – The threshold when

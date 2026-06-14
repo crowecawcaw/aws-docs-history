@@ -79,6 +79,7 @@ depend on whether your origin is an Amazon S3 bucket or a custom origin.
   forwarding headers with an Amazon S3 origin unless you need to implement
   cross-origin resource sharing (CORS) or you want to personalize content by
   using Lambda@Edge in origin-facing events.
+
   - To configure CORS, you must forward headers that allow CloudFront to
     distribute content for websites that are enabled for cross-origin
     resource sharing (CORS). For more information, see [Configure CloudFront to respect CORS settings](#header-caching-web-cors "#header-caching-web-cors").
@@ -125,6 +126,7 @@ custom) and whether you want to cache `OPTIONS` responses.
 
 - If you want `OPTIONS` responses to be cached, do the
   following:
+
   - Choose the options for default cache behavior settings that enable
     caching for `OPTIONS` responses.
   - Configure CloudFront to forward the following headers:
