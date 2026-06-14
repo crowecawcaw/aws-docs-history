@@ -16,6 +16,7 @@ required for AWS CloudHSM key store managers and users.
 
 - Principals who create and manage your AWS CloudHSM key store require the following permission
   to use the AWS CloudHSM key store API operations.
+
   - `cloudhsm:DescribeClusters`
   - `kms:CreateCustomKeyStore`
   - `kms:ConnectCustomKeyStore`

@@ -20,6 +20,7 @@ but you can use any supported programming language.
    tags**.
 7. On the details page for KMS key, choose the **Tags**
    tab.
+
    - To delete a tag, choose **Edit**. On the tag row, choose
      **Remove**, and then choose **Save**.
 

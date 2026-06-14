@@ -96,6 +96,7 @@ material, you'll first need to import new key material, not previously associate
 key.
 
 - **Single Region keys**
+
   - Use the [ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") operation with the `ImportType` parameter set
     to `NEW_KEY_MATERIAL` to accomplish this task. This key material is not
     permanently associated with the key until you perform the [RotateKeyOnDemand](../APIReference/API_RotateKeyOnDemand.md "../APIReference/API_RotateKeyOnDemand.md") operation
@@ -106,6 +107,7 @@ key.
     usability in cryptographic operations.
 
 - **Multi-Region keys**
+
   - To import key material into a multi-Region key, you must first import the new key
     material to the primary Region key. You cannot directly import new key materials to
     replica Region keys. After importing new key material to the primary Region key, you
@@ -176,9 +178,11 @@ creating KMS keys with imported key material, see [Importing key material for AW
      and rotations** tab.
 
 8. Choose the import action.
+
    - For asymmetric and HMAC keys, choose **Import key
      material**.
    - For symmetric encryption keys, choose one of the following:
+
      - **Import initial key material** (if no key material has been
        imported yet)
      - **Import new key material** (to add new material for

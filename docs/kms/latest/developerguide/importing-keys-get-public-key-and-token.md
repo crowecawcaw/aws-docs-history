@@ -161,9 +161,11 @@ creating KMS keys with imported key material, see, [Importing key material for A
      and rotations** tab.
 
 8. Choose the import action.
+
    - For asymmetric and HMAC keys, choose **Import key
      material**.
    - For symmetric encryption keys, choose one of the following:
+
      - **Import initial key material** (if no key material has been
        imported yet)
      - **Import new key material** (to add new material for

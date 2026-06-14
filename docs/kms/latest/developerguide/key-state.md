@@ -41,6 +41,7 @@ operations using the KMS key fail.
 
 - The `Creating`, `Updating`, and
   `PendingReplicaDeletion` key states apply only to [multi-Region keys](multi-region-keys-overview.md "multi-region-keys-overview.md").
+
   - A multi-Region replica key is in the transient `Creating` key state
     while it is being created. This process might still be in progress when the [ReplicateKey](../APIReference/API_ReplicateKey.md "../APIReference/API_ReplicateKey.md") operation completes.
     When the replicate process completes, the replica key is in the `Enabled`

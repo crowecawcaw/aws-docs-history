@@ -102,6 +102,7 @@ Therefore, for the `ReEncrypt` operation, you can specify
 The grant operations are:
 
 - Cryptographic operations
+
   - [Decrypt](../APIReference/API_Decrypt.md "../APIReference/API_Decrypt.md")
   - [DeriveSharedSecret](../APIReference/API_DeriveSharedSecret.md "../APIReference/API_DeriveSharedSecret.md")
   - [Encrypt](../APIReference/API_Encrypt.md "../APIReference/API_Encrypt.md")
@@ -117,6 +118,7 @@ The grant operations are:
   - [VerifyMac](../APIReference/API_VerifyMac.md "../APIReference/API_VerifyMac.md")
 
 - Other operations
+
   - [CreateGrant](../APIReference/API_CreateGrant.md "../APIReference/API_CreateGrant.md")
   - [DescribeKey](../APIReference/API_DescribeKey.md "../APIReference/API_DescribeKey.md")
   - [GetPublicKey](../APIReference/API_GetPublicKey.md "../APIReference/API_GetPublicKey.md")

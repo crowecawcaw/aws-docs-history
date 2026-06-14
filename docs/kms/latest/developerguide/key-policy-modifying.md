@@ -42,6 +42,7 @@ steps at [Using the AWS Management Console policy view](#key-policy-modifying-ho
 
 1. View the key policy for a customer managed key as described in [Using the AWS KMS console](key-policy-viewing.md#key-policy-viewing-console "key-policy-viewing.md#key-policy-viewing-console"). (You cannot change the key policies of AWS managed keys.)
 2. Decide what to change.
+
    - To add or remove [key
      administrators](key-policy-default.md#key-policy-default-allow-administrators "key-policy-default.md#key-policy-default-allow-administrators"), and to allow or prevent key administrators from [deleting the KMS key](deleting-keys.md "deleting-keys.md"), use the controls in the
      **Key administrators** section of the page. Key administrators
@@ -63,6 +64,7 @@ _policy view_.
    view**.
 3. Choose **Edit**.
 4. Decide what to change.
+
    - To add a new statement, choose **Add new statement**. Then,
      you can select the actions, principals, and conditions for your new key policy
      statement from the options listed in the statement builder panel, or manually

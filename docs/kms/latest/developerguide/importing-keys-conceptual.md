@@ -55,6 +55,7 @@ permissions.
 
 - [kms:CreateKey](customer-managed-policies.md#iam-policy-example-create-key "customer-managed-policies.md#iam-policy-example-create-key") (IAM
   policy)
+
   - To limit this permission to KMS keys with imported key material, use
     the [kms:KeyOrigin](conditions-kms.md#conditions-kms-key-origin "conditions-kms.md#conditions-kms-key-origin")
     policy condition with a value of `EXTERNAL`.
@@ -74,10 +75,12 @@ permissions.
   ```
 
 - [kms:GetParametersForImport](../APIReference/API_GetParametersForImport.md "../APIReference/API_GetParametersForImport.md") (Key policy or IAM policy)
+
   - To limit this permission to requests that use a particular wrapping
     algorithm and wrapping key spec, use the [kms:WrappingAlgorithm](conditions-kms.md#conditions-kms-wrapping-algorithm "conditions-kms.md#conditions-kms-wrapping-algorithm") and [kms:WrappingKeySpec](conditions-kms.md#conditions-kms-wrapping-key-spec "conditions-kms.md#conditions-kms-wrapping-key-spec") policy conditions.
 
 - [kms:ImportKeyMaterial](../APIReference/API_ImportKeyMaterial.md "../APIReference/API_ImportKeyMaterial.md") (Key policy or IAM policy)
+
   - To allow or prohibit key material that expires and control the
     expiration date, use the [kms:ExpirationModel](conditions-kms.md#conditions-kms-expiration-model "conditions-kms.md#conditions-kms-expiration-model") and [kms:ValidTo](conditions-kms.md#conditions-kms-valid-to "conditions-kms.md#conditions-kms-valid-to") policy
     conditions.
@@ -116,22 +119,28 @@ AWS KMS supports the following key specs for KMS keys with imported key
 material.
 
 - **Symmetric encryption keys**
+
   - **Key spec:**
+
     - SYMMETRIC_DEFAULT.
 
   - **Requirements:**
+
     - 256-bits (32 bytes) of binary data.
     - In China Regions, it must be a 128-bits (16 bytes) of binary
       data.
 
 - **HMAC keys**
+
   - **Key specs:**
+
     - HMAC_224
     - HMAC_256
     - HMAC_384
     - HMAC_512
 
   - **Requirements:**
+
     - HMAC key material must conform to [RFC
       2104](https://datatracker.ietf.org/doc/html/rfc2104 "https://datatracker.ietf.org/doc/html/rfc2104").
     - The key length must be at least the same length specified by
@@ -141,24 +150,29 @@ material.
       match the key spec of the HMAC KMS key you're creating.
 
   - **Example:**
+
     - To import 2048 bits of key material into an HMAC_256 key,
       first compute the SHA-256 hash of the 2048-bit key material,
       then import the resulting 256-bit hash output into the
       KMS key.
 
   - **Valid key lengths:**
+
     - HMAC_224: 224–1024 bits
     - HMAC_256: 256–1024 bits
     - HMAC_384: 384–1024 bits
     - HMAC_512: 512–1024 bits
 
 - **RSA asymmetric private key**
+
   - **Key specs:**
+
     - RSA_2048
     - RSA_3072
     - RSA_4096
 
   - **Requirements:**
+
     - The RSA asymmetric private key that you import must be part of
       a key pair that conforms to [RFC
       3447](https://datatracker.ietf.org/doc/html/rfc3447/ "https://datatracker.ietf.org/doc/html/rfc3447/").
@@ -171,7 +185,9 @@ material.
       with [RFC 5208](https://datatracker.ietf.org/doc/html/rfc5208 "https://datatracker.ietf.org/doc/html/rfc5208").
 
 - **Elliptic curve asymmetric private key**
+
   - **Key specs:**
+
     - ECC_NIST_P256 (secp256r1)
     - ECC_NIST_P384 (secp384r1)
     - ECC_NIST_P521 (secp521r1)
@@ -179,6 +195,7 @@ material.
     - ECC_NIST_EDWARDS25519 (ed25519)
 
   - **Requirements:**
+
     - The ECC asymmetric private key that you import must be part of
       a key pair that conforms to [RFC
       5915](https://datatracker.ietf.org/doc/html/rfc5915/ "https://datatracker.ietf.org/doc/html/rfc5915/").
@@ -193,7 +210,9 @@ material.
       with [RFC 5208](https://datatracker.ietf.org/doc/html/rfc5208 "https://datatracker.ietf.org/doc/html/rfc5208").
 
 - **ML-DSA key**
+
   - **Key specs:**
+
     - ML_DSA_44
     - ML_DSA_65
     - ML_DSA_87
@@ -204,7 +223,9 @@ Importing ML-DSA keys is not supported.
 
 - **SM2 asymmetric private key** (China Regions
   only)
+
   - **Requirements:**
+
     - The SM2 asymmetric private key that you import must be part of
       a key pair that conforms to GM/T 0003.
     - **Curve:** SM2.

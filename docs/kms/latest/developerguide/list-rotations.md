@@ -20,6 +20,7 @@ including those from completed automatic and on-demand rotations.
 3. In the navigation pane, choose **Customer managed keys**.
 4. Choose the alias or key ID of a KMS key.
 5. Choose the **Key material and rotations** tab.
+
    - The **Key material and rotations** tab appears
      only on the detail page of symmetric encryption KMS keys that
      support automatic or on-demand rotation. This includes KMS keys

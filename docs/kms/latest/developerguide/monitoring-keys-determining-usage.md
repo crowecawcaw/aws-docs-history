@@ -67,6 +67,7 @@ creation date to determine its usage history by comparing the key's creation dat
 - If last usage information is **empty**, the key has no recorded
   cryptographic operations since tracking began. Compare the key's creation date with the
   `TrackingStartDate` to determine what this means:
+
   - If the key was created _on or after_ the `TrackingStartDate`
     , the key has not been used for a cryptographic operation since it was
     created.

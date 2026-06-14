@@ -277,6 +277,7 @@ The VPC endpoint service must have the following properties:
 
 - The VPC endpoint service can reside in the same or a different
   AWS account as the external key store.
+
   - The VPC endpoint service must reside in the same AWS Region as
     the external key store.
   - You'll need to provide the AWS account ID of the VPC endpoint
@@ -289,6 +290,7 @@ The VPC endpoint service must have the following properties:
   `cks.kms.`<region>`.amazonaws.com`,
   such as
   `cks.kms.`us-east-1`.amazonaws.com`.
+
   - If your Amazon VPC endpoint service is owned by a different AWS account other than the AWS account owning the external key store (XKS), you’ll also need to allow XKS access to the VPC endpoint service.
     To do so, [allowlist the XKS AWS account ID as a principal](../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions "../../../vpc/latest/privatelink/configure-endpoint-service.md#add-remove-permissions") for the Amazon VPC endpoint
 

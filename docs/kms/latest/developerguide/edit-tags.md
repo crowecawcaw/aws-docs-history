@@ -19,6 +19,7 @@ but you can use any supported programming language.
    tags**.
 7. On the details page for KMS key, choose the **Tags**
    tab.
+
    - To change the name or value of a tag, choose **Edit**, make
      your changes, and then choose **Save**.
 

@@ -76,6 +76,7 @@ includes the KMS key.
    tags**.
 7. On the details page for KMS key, choose the **Tags**
    tab.
+
    - To create your first tag, choose **Create tag**, type a tag
      key (required) and tag value (optional), and then choose
      **Save**.

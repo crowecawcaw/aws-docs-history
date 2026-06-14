@@ -75,12 +75,14 @@ This table shows the AWS KMS API operations that are supported on each type of _
 While reading this table, be aware of the following interactions:
 
 - [Multi-Region keys](multi-region-keys-overview.md "multi-region-keys-overview.md"):
+
   - Multi-Region keys can be symmetric encryption KMS keys, asymmetric
     KMS keys, HMAC KMS keys, and KMS keys with imported key
     material.
   - You cannot create multi-Region keys in a custom key store.
 
 - [Imported key material](importing-keys.md "importing-keys.md")
+
   - You can import key material for symmetric encryption KMS keys,
     asymmetric KMS keys, and HMAC KMS keys.
   - You can create [multi-Region keys
@@ -93,6 +95,7 @@ While reading this table, be aware of the following interactions:
     symmetric encryption KMS keys with imported key material.
 
 - [Custom key stores](key-store-overview.md#custom-key-store-overview "key-store-overview.md#custom-key-store-overview")
+
   - Custom key stores support only symmetric encryption KMS keys.
   - Symmetric operations on asymmetric key pairs
     (`GenerateDataKeyPair`,

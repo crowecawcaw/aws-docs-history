@@ -270,6 +270,7 @@ To repair any of these conditions, use the following procedure.
 1. [Disconnect the AWS CloudHSM key store](disconnect-keystore.md "disconnect-keystore.md").
 2. Run the [DescribeCustomKeyStores](../APIReference/API_DescribeCustomKeyStores.md "../APIReference/API_DescribeCustomKeyStores.md") operation and view the value of the
    `ConnectionErrorCode` element in the response.
+
    - If the `ConnectionErrorCode` value is `INVALID_CREDENTIALS`,
      determine the current password for the `kmsuser` account. If necessary, use
      the [**user

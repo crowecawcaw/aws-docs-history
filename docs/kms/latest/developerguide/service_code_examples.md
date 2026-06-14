@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello AWS KMS](example_kms_Hello_section.md "example_kms_Hello_section.md")
   - [Learn the basics](example_kms_Scenario_Basics_section.md "example_kms_Scenario_Basics_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateAlias](example_kms_CreateAlias_section.md "example_kms_CreateAlias_section.md")
     - [CreateGrant](example_kms_CreateGrant_section.md "example_kms_CreateGrant_section.md")
     - [CreateKey](example_kms_CreateKey_section.md "example_kms_CreateKey_section.md")
@@ -47,4 +49,5 @@ This topic also includes information about getting started and details about pre
     - [Verify](example_kms_Verify_section.md "example_kms_Verify_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Work with table encryption](example_dynamodb_Scenario_EncryptionExamples_section.md "example_dynamodb_Scenario_EncryptionExamples_section.md")

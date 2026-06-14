@@ -75,6 +75,7 @@ aws dynamodb describe-table \
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateKey](../../../goto/aws-cli/kms-2014-11-01/CreateKey.md "../../../goto/aws-cli/kms-2014-11-01/CreateKey.md")
   - [CreateTable](../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/CreateTable.md")
   - [DescribeTable](../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md "../../../goto/aws-cli/dynamodb-2012-08-10/DescribeTable.md")

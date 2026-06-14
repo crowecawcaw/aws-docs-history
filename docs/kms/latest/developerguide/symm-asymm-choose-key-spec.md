@@ -46,15 +46,18 @@ signing and verification)
 - Asymmetric NIST-standard [elliptic curve
   key pairs](https://datatracker.ietf.org/doc/html/rfc5753/ "https://datatracker.ietf.org/doc/html/rfc5753/") (signing and verification -or- deriving shared
   secrets)
+
   - ECC_NIST_P256 (secp256r1)
   - ECC_NIST_P384 (secp384r1)
   - ECC_NIST_P521 (secp521r1)
   - ECC_NIST_EDWARDS25519 (ed25519) - signing and verification only
+
     - **Note:** For ECC_NIST_EDWARDS25519 KMS keys, the
       ED25519_SHA_512 signing algorithm requires [`MessageType:RAW`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"), while ED25519_PH_SHA_512 requires [`MessageType:DIGEST`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"). These message types cannot be used interchangeably.
 
 - Other asymmetric elliptic curve key pairs (signing and
   verification)
+
   - ECC_SECG_P256K1 ([secp256k1](https://en.bitcoin.it/wiki/Secp256k1 "https://en.bitcoin.it/wiki/Secp256k1")), commonly used for cryptocurrency.
 
 [SM2 key spec](#key-spec-sm "#key-spec-sm") (encryption and decryption -or-
@@ -260,14 +263,17 @@ AWS KMS supports the following ECC key specs for asymmetric KMS keys.
 
 - Asymmetric NIST-standard elliptic curve key pairs (signing and verification
   -or- deriving shared secrets)
+
   - ECC_NIST_P256 (secp256r1)
   - ECC_NIST_P384 (secp384r1)
   - ECC_NIST_P521 (secp521r1)
   - ECC_NIST_EDWARDS25519 (ed25519) - signing and verification only
+
     - **Note:** For ECC_NIST_EDWARDS25519 KMS keys, the
       ED25519_SHA_512 signing algorithm requires [`MessageType:RAW`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"), while ED25519_PH_SHA_512 requires [`MessageType:DIGEST`](../APIReference/API_Sign.md#KMS-Sign-request-MessageType "../APIReference/API_Sign.md#KMS-Sign-request-MessageType"). These message types cannot be used interchangeably.
 
 - Other asymmetric elliptic curve key pairs (signing and verification)
+
   - ECC_SECG_P256K1 ([secp256k1](https://en.bitcoin.it/wiki/Secp256k1 "https://en.bitcoin.it/wiki/Secp256k1")), commonly used for cryptocurrencies.
 
 The ECC key spec that you choose might be determined by your security standards or the

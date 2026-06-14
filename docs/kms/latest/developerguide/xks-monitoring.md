@@ -91,6 +91,7 @@ Modify the time range or time zone
    **Custom** to set your own time
    range.
 2. Choose **Custom**
+
    1. _Time range:_ select the
       **Absolute** tab in the upper left
       corner of the box. Use the calendar picker or text field

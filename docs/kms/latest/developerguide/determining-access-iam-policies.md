@@ -25,6 +25,7 @@ through an IAM policy.
 3. (Optional) Clear the check box next to any policies that you want to omit from the
    simulation. To simulate all policies, leave all policies selected.
 4. In the **Policy Simulator** pane, do the following:
+
    1. For **Select service**, choose **Key Management
       Service**.
    2. To simulate specific AWS KMS actions, for **Select actions**,
@@ -50,6 +51,7 @@ steps provide a general overview of how to do this:
    get all users and roles in the account.
 2. For each user and role in the list, use the [SimulatePrincipalPolicy](../../../IAM/latest/APIReference/API_SimulatePrincipalPolicy.md "../../../IAM/latest/APIReference/API_SimulatePrincipalPolicy.md")
    operation in the IAM API, passing in the following parameters:
+
    - For `PolicySourceArn`, specify the Amazon Resource Name (ARN) of a
      user or role from your list. You can specify only one `PolicySourceArn`
      for each `SimulatePrincipalPolicy` request, so you must call this

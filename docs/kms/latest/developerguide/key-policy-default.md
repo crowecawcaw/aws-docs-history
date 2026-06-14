@@ -28,6 +28,7 @@ AWS accounts who are key administrators and those who are key users (or both).
 - [Allows access to the AWS account and enables IAM policies](#key-policy-default-allow-root-enable-iam "#key-policy-default-allow-root-enable-iam")
 - [Allows key administrators to administer the KMS key](#key-policy-default-allow-administrators "#key-policy-default-allow-administrators")
 - [Allows key users to use the KMS key](#key-policy-default-allow-users "#key-policy-default-allow-users")
+
   - [Allows key users to use a KMS key for cryptographic operations](#key-policy-users-crypto "#key-policy-users-crypto")
   - [Allows key users to use the KMS key with AWS services](#key-policy-service-integration "#key-policy-service-integration")
 

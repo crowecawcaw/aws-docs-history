@@ -71,6 +71,7 @@ includes the new values.
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
 3. In the navigation pane, choose **Custom key stores**, **External key stores**.
 4. Choose the key store you want to edit.
+
    1. If necessary, disconnect the external key store from its external key
       store proxy. From the **Key store actions** menu,
       choose **Disconnect**.

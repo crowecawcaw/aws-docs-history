@@ -55,6 +55,7 @@ You can use the AWS KMS console to delete key material.
 2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
 3. In the navigation pane, choose **Customer managed keys**.
 4. Do one of the following:
+
    - Select the check box for a KMS key with imported key material. Choose
      **Key actions**, **Delete key material**. For
      symmetric encryption keys that have multiple key materials associated with them,

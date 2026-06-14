@@ -6,6 +6,7 @@ grants.
 - Limit the permissions in the grant to those that the grantee requires. Use the
   principle of [least
   privileged access](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege"). Be as specific as possible in all grant parameters:
+
   - Specify only the [grant operations](grants.md#terms-grant-operations "grants.md#terms-grant-operations")
     that the grantee needs.
   - Use a specific [grantee principal](grants.md#terms-grantee-principal "grants.md#terms-grantee-principal"),
