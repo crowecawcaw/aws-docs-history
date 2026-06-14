@@ -46,6 +46,7 @@ and bandwidth differences.
 
 - Estimate the bandwidth and latency requirements of your
   existing applications.
+
   - For existing workloads that are moving to AWS, leverage the
     data from your internal network monitoring systems.
   - For new or existing workloads for which you don’t have
@@ -58,6 +59,7 @@ and bandwidth differences.
   bandwidth, and traffic needs), you can either choose AWS Direct Connect or [Site-to-Site VPN](https://aws.amazon.com/vpn/ "https://aws.amazon.com/vpn/") (or both). The
   following diagram can help you choose the appropriate
   connection type.
+
   - [AWS Direct Connect](https://aws.amazon.com/directconnect/ "https://aws.amazon.com/directconnect/") provides dedicated connectivity to the
     AWS environment, from 50 Mbps up to 100 Gbps, using either
     dedicated connections or hosted connections. This gives you
@@ -73,6 +75,7 @@ and bandwidth differences.
 
 - Follow AWS documentation to choose an appropriate
   connectivity option:
+
   - If you decide to use Direct Connect, select the
     appropriate bandwidth for your connectivity.
   - If you are using an AWS Site-to-Site VPN across multiple

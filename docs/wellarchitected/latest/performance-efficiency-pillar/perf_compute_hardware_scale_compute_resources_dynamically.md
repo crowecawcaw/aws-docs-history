@@ -70,6 +70,7 @@ and scale-down events.
   [customized
   metric](https://aws.amazon.com/blogs/mt/create-amazon-ec2-auto-scaling-policy-memory-utilization-metric-linux/ "https://aws.amazon.com/blogs/mt/create-amazon-ec2-auto-scaling-policy-memory-utilization-metric-linux/") for your scaling policy if required. To choose
   the right metrics, consider the following guidance for Amazon EC2:
+
   - The metric should be a valid utilization metric and
     describe how busy an instance is.
   - The metric value must increase or decrease

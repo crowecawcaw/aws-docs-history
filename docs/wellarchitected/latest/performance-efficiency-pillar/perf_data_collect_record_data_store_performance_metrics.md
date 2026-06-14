@@ -52,6 +52,7 @@ measurements related to database performance.
 
 - Identify the key performance metrics for your data store to
   track.
+
   - [Amazon S3 Metrics and dimensions](../../../AmazonS3/latest/userguide/metrics-dimensions.md "../../../AmazonS3/latest/userguide/metrics-dimensions.md")
   - [Monitoring
     metrics for in an Amazon RDS instance](../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md "../../../AmazonRDS/latest/UserGuide/CHAP_Monitoring.md")
@@ -83,12 +84,14 @@ measurements related to database performance.
   thresholds are breached.
 - Check if data store monitoring can benefit from a machine
   learning solution that detects performance anomalies.
+
   - [Amazon DevOps Guru for Amazon RDS](../../../devops-guru/latest/userguide/working-with-rds.overview.how-it-works.md "../../../devops-guru/latest/userguide/working-with-rds.overview.how-it-works.md") provides visibility into
     performance issues and makes recommendations for
     corrective actions.
 
 - Configure data retention in your monitoring and logging
   solution to match your security and operational goals.
+
   - [Default
     data retention for CloudWatch metrics](https://aws.amazon.com/cloudwatch/faqs/#AWS_resource_.26_custom_metrics_monitoring "https://aws.amazon.com/cloudwatch/faqs/#AWS_resource_.26_custom_metrics_monitoring")
   - [Default

@@ -36,6 +36,7 @@ opportunities.
 - Explore AWS offerings to identify and learn about the relevant services and
   configuration options that can help you improve performance and reduce cost and
   operational complexity.
+
   - [Amazon Web Services Cloud](../../../whitepapers/latest/aws-overview/amazon-web-services-cloud-platform.md "../../../whitepapers/latest/aws-overview/amazon-web-services-cloud-platform.md")
   - [AWS Academy](https://aws.amazon.com/training/awsacademy/ "https://aws.amazon.com/training/awsacademy/")
   - [What’s New with AWS?](https://aws.amazon.com/new/ "https://aws.amazon.com/new/")

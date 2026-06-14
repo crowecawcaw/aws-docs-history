@@ -73,6 +73,7 @@ remote caching for multi-level caching to improve the latency.
   benefit from caching. Services that have heavy read
   workloads, have a high read-to-write ratio, or are expensive
   to scale are candidates for caching.
+
   - [Database
     Caching](https://aws.amazon.com/caching/database-caching/ "https://aws.amazon.com/caching/database-caching/")
   - [Enabling
@@ -80,6 +81,7 @@ remote caching for multi-level caching to improve the latency.
 
 - Identify the appropriate type of caching strategy that best
   fits your access pattern.
+
   - [Caching
     strategies](../../../AmazonElastiCache/latest/red-ug/Strategies.md "../../../AmazonElastiCache/latest/red-ug/Strategies.md")
   - [AWS Caching Solutions](https://aws.amazon.com/caching/aws-caching/ "https://aws.amazon.com/caching/aws-caching/")
@@ -94,12 +96,14 @@ remote caching for multi-level caching to improve the latency.
   exponential backoff, client-side timeouts, and connection
   pooling in the client, if available, as they can improve
   performance and reliability.
+
   - [Best
     practices: Redis clients and Amazon ElastiCache (Redis OSS)](https://aws.amazon.com/blogs/database/best-practices-redis-clients-and-amazon-elasticache-for-redis/ "https://aws.amazon.com/blogs/database/best-practices-redis-clients-and-amazon-elasticache-for-redis/")
 
 - Monitor cache hit rate with a goal of 80% or higher. Lower
   values may indicate insufficient cache size or an access
   pattern that does not benefit from caching.
+
   - [Which
     metrics should I monitor?](../../../AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.md "../../../AmazonElastiCache/latest/red-ug/CacheMetrics.WhichShouldIMonitor.md")
   - [Best

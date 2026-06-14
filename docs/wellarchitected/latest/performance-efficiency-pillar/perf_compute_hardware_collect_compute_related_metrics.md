@@ -44,6 +44,7 @@ goals.
   your workload. You should collect metrics around resource
   utilization and the way your cloud workload is operating (like
   response time and throughput).
+
   - [Amazon EC2
     default metrics](../../../AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md "../../../AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.md")
   - [Amazon ECS default metrics](../../../AmazonECS/latest/developerguide/cloudwatch-metrics.md "../../../AmazonECS/latest/developerguide/cloudwatch-metrics.md")
@@ -56,6 +57,7 @@ goals.
 
 - Choose and set up the right logging and monitoring solution
   for your workload.
+
   - [AWS native Observability](https://catalog.workshops.aws/observability/en-US/aws-native "https://catalog.workshops.aws/observability/en-US/aws-native")
   - [AWS Distro
     for OpenTelemetry](https://aws.amazon.com/otel/ "https://aws.amazon.com/otel/")
@@ -63,6 +65,7 @@ goals.
 
 - Define the required filter and aggregation for the metrics
   based on your workload requirements.
+
   - [Quantify
     custom application metrics with Amazon CloudWatch Logs and
     metric filters](https://aws.amazon.com/blogs/mt/quantify-custom-application-metrics-with-amazon-cloudwatch-logs-and-metric-filters/ "https://aws.amazon.com/blogs/mt/quantify-custom-application-metrics-with-amazon-cloudwatch-logs-and-metric-filters/")
@@ -72,6 +75,7 @@ goals.
 
 - Configure data retention policies for your metrics to match
   your security and operational goals.
+
   - [Default
     data retention for CloudWatch metrics](https://aws.amazon.com/cloudwatch/faqs/#AWS_resource_.26_custom_metrics_monitoring "https://aws.amazon.com/cloudwatch/faqs/#AWS_resource_.26_custom_metrics_monitoring")
   - [Default
@@ -79,6 +83,7 @@ goals.
 
 - If required, create alarms and notifications for your metrics
   to help you proactively respond to performance-related issues.
+
   - [Create
     alarms for custom metrics using Amazon CloudWatch anomaly
     detection](../../../prescriptive-guidance/latest/patterns/create-alarms-for-custom-metrics-using-amazon-cloudwatch-anomaly-detection.md "../../../prescriptive-guidance/latest/patterns/create-alarms-for-custom-metrics-using-amazon-cloudwatch-anomaly-detection.md")
@@ -87,6 +92,7 @@ goals.
 
 - Use automation to deploy your metric and log aggregation
   agents.
+
   - [AWS Systems Manager automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md")
   - [OpenTelemetry
     Collector](https://aws-otel.github.io/docs/getting-started/collector "https://aws-otel.github.io/docs/getting-started/collector")

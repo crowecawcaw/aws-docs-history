@@ -41,6 +41,7 @@ AWS Cloud.
 - Review AWS documentation and guidance and follow the best
   practices. These resources can help you effectively choose
   and configure services and achieve better performance.
+
   - [AWS documentation](../../../index.md "../../../index.md") (like user guides and whitepapers)
   - [AWS Blog](https://aws.amazon.com/blogs/ "https://aws.amazon.com/blogs/")
   - [AWS Training and Certifications](https://www.aws.training/ "https://www.aws.training/")
@@ -49,6 +50,7 @@ AWS Cloud.
 - Join AWS partner events (like AWS Global Summits, AWS
   re:Invent, user groups, and workshops) to learn from AWS
   experts about best practices for using AWS services.
+
   - [Learn step-by-step with an AWS Partner Learning Plan](https://aws.amazon.com/partners/training/aws-partner-learning-plans/ "https://aws.amazon.com/partners/training/aws-partner-learning-plans/")
   - [AWS Events and Webinars](https://aws.amazon.com/events/ "https://aws.amazon.com/events/")
   - [AWS Workshops](https://workshops.aws/ "https://workshops.aws/")

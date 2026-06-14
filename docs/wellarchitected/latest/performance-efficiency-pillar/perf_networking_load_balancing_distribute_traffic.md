@@ -89,6 +89,7 @@ required in response to incoming traffic. Load balancers can also integrate with
 - Define your load balancing requirements including traffic volume, availability and
   application scalability.
 - Choose the right load balancer type for your application.
+
   - Use Application Load Balancer for HTTP/HTTPS workloads.
   - Use Network Load Balancer for non-HTTP workloads that run on TCP or UDP.
   - Use a combination of both ([ALB as a target of NLB](https://aws.amazon.com/blogs/networking-and-content-delivery/application-load-balancer-type-target-group-for-network-load-balancer/ "https://aws.amazon.com/blogs/networking-and-content-delivery/application-load-balancer-type-target-group-for-network-load-balancer/")) if you want to leverage features of both
@@ -98,12 +99,14 @@ required in response to incoming traffic. Load balancers can also integrate with
   - For a full comparison of load balancers, see [ELB product comparison](https://aws.amazon.com/elasticloadbalancing/features/ "https://aws.amazon.com/elasticloadbalancing/features/").
 
 - Use SSL/TLS offloading if possible.
+
   - Configure HTTPS/TLS listeners with both [Application Load Balancer](../../../elasticloadbalancing/latest/application/create-https-listener.md "../../../elasticloadbalancing/latest/application/create-https-listener.md") and [Network Load Balancer](../../../elasticloadbalancing/latest/network/create-tls-listener.md "../../../elasticloadbalancing/latest/network/create-tls-listener.md") integrated with [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/ "https://aws.amazon.com/certificate-manager/").
   - Note that some workloads may require end-to-end encryption for compliance
     reasons. In this case, it is a requirement to allow encryption at the targets.
   - For security best practices, see [SEC09-BP02 Enforce encryption in transit](../security-pillar/sec_protect_data_transit_encrypt.md "../security-pillar/sec_protect_data_transit_encrypt.md").
 
 - Select the right routing algorithm (only ALB).
+
   - The routing algorithm can make a difference in how well-used your backend
     targets are and therefore how they impact performance. For example, ALB
     provides [two options for routing algorithms](../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md#modify-routing-algorithm "../../../elasticloadbalancing/latest/application/load-balancer-target-groups.md#modify-routing-algorithm"):
@@ -114,6 +117,7 @@ required in response to incoming traffic. Load balancers can also integrate with
     similar, or if you need to distribute requests equally among targets.
 
 - Consider cross-zone or zonal isolation.
+
   - Use cross-zone turned off (zonal isolation) for latency improvements and zonal
     failure domains. It is turned off by default in NLB and in [ALB you can
     turn it off per target group](../../../elasticloadbalancing/latest/application/disable-cross-zone.md "../../../elasticloadbalancing/latest/application/disable-cross-zone.md").
@@ -127,6 +131,7 @@ required in response to incoming traffic. Load balancers can also integrate with
   your backend targets. For detail on how to do this for Apache and Nginx, see [What are
   the optimal settings for using Apache or NGINX as a backend server for ELB?](https://aws.amazon.com/premiumsupport/knowledge-center/apache-backend-elb/ "https://aws.amazon.com/premiumsupport/knowledge-center/apache-backend-elb/")
 - Turn on monitoring for your load balancer.
+
   - Turn on access logs for your [Application Load Balancer](../../../elasticloadbalancing/latest/application/enable-access-logging.md "../../../elasticloadbalancing/latest/application/enable-access-logging.md") and [Network Load Balancer](../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md "../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md").
   - The main fields to consider for ALB
     are `request_processing_time`, `request_processing_time`,

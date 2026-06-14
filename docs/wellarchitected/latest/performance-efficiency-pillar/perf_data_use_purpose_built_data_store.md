@@ -33,6 +33,7 @@ one-size-fits-all approaches to focus on managing data appropriately.
 
 - Conduct an inventory of the various data types that exist in your workload.
 - Understand and document data characteristics and requirements, including:
+
   - Data type (unstructured, semi-structured, relational)
   - Data volume and growth
   - Data durability: persistent, ephemeral, transient
