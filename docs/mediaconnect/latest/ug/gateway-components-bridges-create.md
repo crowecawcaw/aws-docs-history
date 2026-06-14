@@ -9,6 +9,7 @@ select.
 - [Prerequisites](gateway-components-bridges-create.md#gateway-components-bridges-create-prerequisites "gateway-components-bridges-create.md#gateway-components-bridges-create-prerequisites")
 - [Procedure](gateway-components-bridges-create.md#gateway-components-bridges-create-procedure "gateway-components-bridges-create.md#gateway-components-bridges-create-procedure")
 - [Next steps](gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps "gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps")
+
   - [Starting a bridge](gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps-start-bridge "gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps-start-bridge")
   - [Updating a bridge](gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps-update-bridge "gateway-components-bridges-create.md#gateway-components-bridges-create-next-steps-update-bridge")
 
@@ -46,6 +47,7 @@ Console
 6. On the **Create bridge** page, complete
    the following steps in the **Details**
    section:
+
    1. Enter a **Name** for the bridge.
    2. For **Bridge type**, select
       **Ingress bridge**.
@@ -59,6 +61,7 @@ Console
    **Sources** section. The source of an
    ingress bridge is multicast content that originates at your
    premises:
+
    1. Enter a **Name** for the bridge
       source.
    2. Select a **Network**. This is a
@@ -80,6 +83,7 @@ Console
 8. If you add more than one source, you can set up failover
    using the **Failover configuration**
    section.
+
    1. Select the **Failover mode**:
       **Failover** or
       **Merge**.
@@ -109,6 +113,7 @@ Console
 6. On the **Create bridge** page, complete
    the following steps in the **Details**
    section:
+
    1. Enter a **Name** for the bridge.
    2. Select a **Bridge type** of
       **Egress bridge**.
@@ -118,6 +123,7 @@ Console
 
 7. Complete the following steps in the
    **Sources** section:
+
    1. Enter a **Name** for the bridge
       source. For an Egress bridge, the source is the
       content coming from a MediaConnect flow and delivered to
@@ -134,6 +140,7 @@ Console
 8. If you add more than one source, you can set up failover
    using the **Failover configuration**
    section.
+
    1. When you select an egress bridge, the only
       available **Failover mode** is
       **Failover**.
@@ -147,6 +154,7 @@ Console
 
 9. Under **Outputs**, complete the following
    steps.
+
    1. Enter a **Name** for the bridge
       output.
    2. Select a **Network**. This is a

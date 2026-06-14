@@ -23,6 +23,7 @@ meanings that vary between contexts. Understanding these differences helps you
 work with NDI sources across your production workflow.
 
 - In MediaConnect flows:
+
   - A **source** is the entry point
     of a flow. **NDI sources** ingest
     NDI content into your flow from an upstream NDI sender.
@@ -31,6 +32,7 @@ work with NDI sources across your production workflow.
     content from your flow to a downstream NDI receiver.
 
 - In NDI implementation:
+
   - An **NDI sender** is a network
     endpoint that sends video and audio streams over IP networks
     using the NDI protocol.

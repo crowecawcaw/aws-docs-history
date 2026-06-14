@@ -32,6 +32,7 @@ Console
 4. In the **Source monitoring
    configuration** section, choose **Edit**.
 5. Choose one of the following options:
+
    1. To disable all metrics, turn off **Content quality analysis
       state**.
    2. To disable specific metrics, turn off one or

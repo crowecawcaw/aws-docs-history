@@ -234,6 +234,7 @@ These permissions are restricted to ECS clusters with names starting with
      for MediaConnect Gateway components running on ECS.
 
 - **Amazon EC2 permissions**
+
   - `ec2:CreateNetworkInterfacePermission` – Allows MediaConnect to
     grant permissions for network interfaces used within the router.
   - `ec2:DeleteNetworkInterface` – Allows MediaConnect to remove network

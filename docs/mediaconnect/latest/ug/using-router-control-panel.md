@@ -43,15 +43,18 @@ Follow these procedures to review and assign routes in the control panel.
 1. Open the MediaConnect console at [https://console.aws.amazon.com/mediaconnect/](https://console.aws.amazon.com/mediaconnect/ "https://console.aws.amazon.com/mediaconnect/").
 2. Choose **Router control panel**. The control panel displays two
    main sections:
+
    - Input tiles represent your available content sources
    - Output tiles represent your available destinations
 
 3. To see all of your router I/Os in the control panel, choose **Auto-select inputs** and **Auto-select
    outputs**.
+
    - Alternatively, you can manually select inputs and outputs in the **Configure control panel** pane. This is useful when
      managing a subset of routes, like those for a particular event or program.
 
 4. (Optional) Customize your control panel experience with these options:
+
    - Turn on **Abbreviate resource names** to show
      shortened I/O names.
    - Select **Locked** to prevent accidental routing
@@ -74,6 +77,7 @@ The following image shows the control panel with no active routes.
    control** to enable immediate routing changes.
 2. Select an output to work with.
 3. Choose what you want to do:
+
    1. To set up a new route: Select the input that you want your output to
       take.
    2. To change an existing route: Select a different input for your output to
@@ -81,6 +85,7 @@ The following image shows the control panel with no active routes.
    3. To remove an existing route: Deselect the current input.
 
 4. Review the outcome:
+
    1. For a new route: You'll see a success message, and the input tile flashes
       yellow while the take is in progress. When the take is complete, the input is
       highlighted blue to indicate the new connection.

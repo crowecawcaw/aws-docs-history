@@ -113,6 +113,7 @@ bridge. The recommended ingress bridge troubleshooting metrics are separated
 by protocol.
 
 - RTP
+
   - `IngressBridgeTotalPackets`
   - `IngressBridgeDroppedPackets`
   - `IngressBridgeSourceTotalPackets`
@@ -121,6 +122,7 @@ by protocol.
   - `IngressBridgeSourceRoundTripTime`
 
 - RTP-FEC
+
   - `IngressBridgeTotalPackets`
   - `IngressBridgeDroppedPackets`
   - `IngressBridgeRecoveredPackets`
@@ -135,6 +137,7 @@ by protocol.
   - `IngressBridgeSourceRoundTripTime`
 
 - UDP
+
   - `IngressBridgeTotalPackets`
   - `IngressBridgeSourceTotalPackets`
   - `IngressBridgeSourceOverflowPackets`

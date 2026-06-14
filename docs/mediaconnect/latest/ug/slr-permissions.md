@@ -12,7 +12,9 @@ role:
   specified resources:
 
 1.  **Actions on all ECS resources**
+
     - Actions:
+
       - `ecs:CreateCluster`
       - `ecs:RegisterTaskDefinition`
 
@@ -21,7 +23,9 @@ role:
 
 2.  **Actions on the MediaConnect Gateway ECS
     cluster**
+
     - Actions:
+
       - `ecs:DeregisterContainerInstance`
       - `ecs:DescribeClusters`
       - `ecs:ListAttributes`
@@ -34,7 +38,9 @@ role:
 
 3.  **Actions on ECS services and tasks within the MediaConnect
     Gateway cluster**
+
     - Actions:
+
       - `ecs:CreateService`
       - `ecs:DeleteAttributes`
       - `ecs:DeleteService`
@@ -58,7 +64,9 @@ role:
 
 4.  **Actions on network interfaces within the MediaConnect
     router**
+
     - Actions:
+
       - `ec2:DeleteNetworkInterface`
       - `ec2:DeleteNetworkInterfacePermission`
       - `ec2:CreateNetworkInterfacePermission`

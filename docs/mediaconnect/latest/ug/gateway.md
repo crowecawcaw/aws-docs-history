@@ -15,6 +15,7 @@ to a different on-premises location.
 ###### Contents
 
 - [Key points](#gateway-key-points "#gateway-key-points")
+
   - [Gateway components](#gateway-components "#gateway-components")
   - [MediaConnect Gateway terminology](#gateway-components-terminology "#gateway-components-terminology")
 

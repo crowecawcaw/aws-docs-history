@@ -33,6 +33,7 @@ The details page for that flow appears. 3. In the **NDI configuration** section,
 
 6. Update the NDI discovery servers. You can add up to three discovery servers.
    For each discovery server, provide the following information:
+
    - Enter the discovery server IP address (IPv4 format).
    - Specify a port number if you’re not using the default
      (5959).

@@ -96,11 +96,13 @@ traffic from your output.
 ###### Supported protocols and output types
 
 - Peer IP addresses are shown for most protocols, including:
+
   - Pre-configured connections (like SRT Caller or Zixi Push
     outputs)
   - Dynamic connections (like RTP sources or SRT Listener)
 
 - Peer IP addresses aren't available for:
+
   - Entitlements
   - Managed (MediaLive) outputs
   - CDI/ST2110 outputs

@@ -9,6 +9,7 @@ of your gateway.
 - [Prerequisites](gateway-components-instances-delete.md#gateway-components-instances-delete-prerequisites "gateway-components-instances-delete.md#gateway-components-instances-delete-prerequisites")
 - [Procedure](gateway-components-instances-delete.md#gateway-components-instances-delete-procedure "gateway-components-instances-delete.md#gateway-components-instances-delete-procedure")
 - [Next steps](gateway-components-instances-delete.md#gateway-components-instances-delete-next-steps "gateway-components-instances-delete.md#gateway-components-instances-delete-next-steps")
+
   - [Reusing a gateway instance](gateway-components-instances-delete.md#gateway-components-instances-reuse "gateway-components-instances-delete.md#gateway-components-instances-reuse")
 
 - [Additional resources](gateway-components-instances-delete.md#gateway-components-instances-delete-additional-resources "gateway-components-instances-delete.md#gateway-components-instances-delete-additional-resources")

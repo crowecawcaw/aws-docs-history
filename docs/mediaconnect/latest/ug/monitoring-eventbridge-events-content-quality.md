@@ -6,6 +6,7 @@ MediaConnect publishes this event in three scenarios:
 
 1. When the duration threshold is breached for one of the following
    metrics:
+
    - **Black frames**: Periods of black video frames are detected in the stream.
    - **Frozen frames**: Periods of unchanging video frames are detected in the stream.
    - **Silent audio**: Periods of audio silence are detected in the stream.
@@ -51,14 +52,26 @@ content and a frozen frames duration threshold breach in the stream.
 
 ```
 {
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "MediaConnect Flow Content Quality",
+  "source": "aws.mediaconnect",
+  "account": "012345678901",
+  "time": "2026-05-03T18:37:24Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:mediaconnect:us-east-1:012345678901:flow:1-AbCdEfGhIjKlMnOp-abcdef123455:ExampleFlow"
+  ],
+  "detail": {
     "impacted": true,
     "streams": [
-        {
-            "audio_missing": true,
-        },
-        }
-            "frozen_frames_duration_breaching": true,
-        }
+      {
+        "audio_missing": true
+      },
+      {
+        "frozen_frames_duration_breaching": true
+      }
     ]
+  }
 }
 ```

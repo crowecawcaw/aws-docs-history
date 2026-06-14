@@ -408,6 +408,7 @@ Zixi push
     	 encrypt the source.
 
 10. For each VPC that you want to connect to the flow, do the following:
+
     1.  In the **VPC interface** section, choose
         **Add VPC interface**.
     2.  For **Name**, specify a name for your VPC
@@ -431,10 +432,12 @@ Zixi push
 
 11. Under **Source monitoring configuration**, choose which
     monitoring features you want to enable.
+
     1.  Turn on **Thumbnails state** to generate source
         thumbnails that you can preview in the console.
     2.  Turn on **Content quality analysis state** to
         monitor for the following audio and video quality issues.
+
         1. (Optional) Turn on **Black frames** to
            detect periods of black video frames in the stream.
         2. (Optional) Turn on **Frozen frames** to

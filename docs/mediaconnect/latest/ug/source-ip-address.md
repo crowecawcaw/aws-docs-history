@@ -59,5 +59,6 @@ source.
 - Peer IP addresses are shown for most protocols, including both
   pre-configured and dynamic connections
 - Peer IP addresses aren't available for:
+
   - Entitlements
   - CDI/ST2110 sources

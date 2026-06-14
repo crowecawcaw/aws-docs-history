@@ -586,10 +586,12 @@ and MediaLive to complete these steps.
 
 8. Under **Source monitoring configuration**, choose
    which monitoring features you want to enable.
+
    1. Turn on **Thumbnails state** to generate
       source thumbnails that you can preview in the console.
    2. Turn on **Content quality analysis state** to
       monitor for the following audio and video quality issues.
+
       1. (Optional) Turn on **Black frames**
          to detect periods of black video frames in the
          stream.

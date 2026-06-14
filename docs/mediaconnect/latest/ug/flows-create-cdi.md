@@ -78,6 +78,7 @@ an identifier that is visible only on the MediaConnect console. 8. Skip to the *
 
 10. For each media stream that you want to add to the flow, do the
     following:
+
     1.  In the **Media streams** section, choose
         **Add media stream**.
     2.  In the **Name** field, specify a descriptive name

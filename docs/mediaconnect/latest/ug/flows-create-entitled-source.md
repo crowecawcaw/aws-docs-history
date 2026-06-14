@@ -138,6 +138,7 @@ capabilities](flow-sizes-capabilities.md "flow-sizes-capabilities.md").
     		 discoverable across your network.
 
 6. In the **Source** section:
+
    - For **Source type**, choose **Entitled
      source**.
    - For **Entitlement ARN**, choose the appropriate

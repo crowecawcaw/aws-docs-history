@@ -120,6 +120,7 @@ Keep in mind the following:
   value of 30 seconds is used.
 - You can enable one or more of the following
   metrics.
+
   - If you enable video monitoring, you must
     enable at least one of the
     `BlackFrames` or
@@ -235,6 +236,7 @@ Keep in mind the following:
   value is retained.
 - You can enable one or more of the following
   metrics.
+
   - If you enable video monitoring, you must
     enable at least one of the
     `BlackFrames` or

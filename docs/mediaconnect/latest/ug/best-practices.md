@@ -102,6 +102,7 @@ with managed output types:
   devices.
 - Because packet loss is present on any network, even in fully managed networks such as the AWS Cloud, you should create and manage
   redundant connections throughout your workflows. In MediaConnect, there are multiple ways to add redundancy to your workflow:
+
   - Create flows in at least two different Availability Zones.
   - [Add a second source](source-adding.md "source-adding.md") to each flow. If there are errors in the stream, MediaConnect can use
     packets from a redundant source or switch to the redundant source completely.
@@ -119,6 +120,7 @@ with managed output types:
 - When you create a new SRT password to encrypt an SRT output, you must create
   that password in AWS Secrets Manager. AWS Secrets Manager does not enforce a specific password
   policy. However, we recommend the following password policy:
+
   - Minimum password length of 10 characters and a maximum length of 80
     characters
   - Minimum of three of the following mix of character types: uppercase,

@@ -29,6 +29,7 @@ assumed by users to grant access to MediaConnect.
    **Policies**.
 3. On the **Policies** page, create a policy named `MediaConnectAllAccess` that allows all actions on all resources in
    AWS Elemental MediaConnect:
+
    1. Choose **Create policy**.
    2. Choose the **JSON** tab and paste the following
       policy:
@@ -83,6 +84,7 @@ assumed by users to grant access to MediaConnect.
    **Create policy**.
 
 4. On the **Policies** page, create a read-only policy named `MediaConnectReadOnlyAccess` for AWS Elemental MediaConnect:
+
    1. Choose **Create policy**.
    2. Choose the **JSON** tab and paste the following policy:
 
@@ -130,7 +132,6 @@ assumed by users to grant access to MediaConnect.
    }`
 
    ```
-
    3. Choose **Next: Tags**.
    4. Choose **Next: Review**.
    5. On the **Review and create** page, for **Policy name**, enter
@@ -150,11 +151,13 @@ the **MediaConnectReadOnlyAccess** policy.
    **Roles**.
 2. On the **Roles** page, create an administrator role using the
    `MediaConnectAllAccess` policy:
+
    1. Choose **Create role**.
    2. In the **Select trusted entity** section, select
       **AWS account**.
    3. In the **An AWS account** section, select the
       account with the users that will be assuming this role.
+
       1. If a third-party will be accessing this role, it is a best
          practice to select **Require external ID**.
          For more information about external IDs, visit: [Using an external ID for third-party access](../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md "../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md") in
@@ -180,11 +183,13 @@ the **MediaConnectReadOnlyAccess** policy.
 
 3. On the **Roles** page, create an administrator role using the
    `MediaConnectReadOnlyAccess` policy:
+
    1. Choose **Create role**.
    2. In the **Select trusted entity** section, select
       **AWS account**.
    3. In the **An AWS account** section, select the
       account with the users that will be assuming this role.
+
       1. If a third-party will be accessing this role, it is a best
          practice to select **Require external ID**.
          For more information about external IDs, visit: [Using an external ID for third-party access](../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md "../../../IAM/latest/UserGuide/id_roles_create_for-user_externalid.md") in

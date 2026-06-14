@@ -32,6 +32,7 @@ Follow these steps to stop a router input or a router output.
 3. Select the router input that you want to stop.
 4. Choose **Stop**.
 5. Check the outcome:
+
    1. If successful: The router input status will change to
       **Stopping**, then **Standby**.
    2. If unsuccessful: You'll see an error message explaining what went
@@ -44,6 +45,7 @@ Follow these steps to stop a router input or a router output.
 10. In the confirmation dialog, choose **Stop router
     output**.
 11. Check the outcome:
+
     1. If successful: The router output status will change to
        **Stopping**, then **Standby**.
     2. If unsuccessful: You'll see an error message explaining what went

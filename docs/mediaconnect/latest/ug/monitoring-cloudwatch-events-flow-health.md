@@ -10,10 +10,12 @@ state of the flow.
 The following are flow health indicators:
 
 - **Source state**
+
   - Possible states: `connected`, `receiving`,
     `disconnected`, `idle`
 
 - **Failover switch**
+
   - Possible states: `true`, `false`
 
 - **TR-101**: TR-101 is an industry standard
@@ -44,7 +46,7 @@ The following message is an example of this event.
   "detail-type": "MediaConnect Flow Health",
   "source": "aws.mediaconnect",
   "account": "012345678901",
-  "time": "2006-01-02T15:04:05Z",
+  "time": "2026-05-03T18:37:24Z",
   "region": "us-east-1",
   "resources": [
     "arn:aws:mediaconnect:us-east-1:012345678901:flow:1-AbCdEfGhIjKlMnOp-abcdef123455:ExampleFlow"

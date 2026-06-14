@@ -27,6 +27,7 @@ allow.
    **JSON** tab.
 4. Enter a policy that uses the JSON format. For examples, see the
    following:
+
    - [Policy
      example for connecting to your VPC](security_iam_resource-based-policy-examples.md#iam-policy-examples-for-mediaconnect-vpc "security_iam_resource-based-policy-examples.md#iam-policy-examples-for-mediaconnect-vpc")
    - [Policy examples for

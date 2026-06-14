@@ -34,6 +34,7 @@ Before you start:
 5. In the dialog box that appears, choose **Delete router
    input** to confirm your decision.
 6. Check the outcome:
+
    1. If successful: The router output status will change to
       `Deleted`.
    2. If unsuccessful: You'll see an error message explaining what went
@@ -49,6 +50,7 @@ Before you start:
 5. In the dialog box that appears, choose **Delete router
    output** to confirm your decision.
 6. Check the outcome:
+
    1. If successful: The router output status will change to
       `Deleted`.
    2. If unsuccessful: You'll see an error message explaining what went

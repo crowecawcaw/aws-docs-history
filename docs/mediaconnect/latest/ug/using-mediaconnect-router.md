@@ -194,16 +194,14 @@ You manage these functions through the MediaConnect console, where you can:
 - See all your active routes at a glance
 - Make bulk changes to multiple routes at the same time
 - Control routing across all AWS Regions from one place
+
   - For example, you can use the US West (Oregon) console to create router inputs in
     Europe (Dublin) and assign them to router outputs in Europe (London). This eliminates
     the need to switch between Regional consoles and manually manage your IP address and
     encryption settings.
 
-MediaConnect manages router I/O maintenance through automated scheduling, with restarts occurring
-every 60-66 days from the time when you start the I/O. You can customize these maintenance
-windows by selecting your preferred day and start hour when you create or update your
-I/Os. You can monitor when your next maintenance window begins by checking the countdown timer
-in the console.
+For information about router I/O maintenance scheduling and windows, see
+[Maintenance in MediaConnect](maintenance.md "maintenance.md").
 
 ## Router considerations and limitations
 
@@ -222,7 +220,7 @@ As you plan your router implementation, keep these points in mind.
 | Source failover and merge          | The MediaConnect router supports both automatic failover between redundant sources and<br>merged content from two source endpoints.<br>Supported protocols:<br>• Failover: RTP, RIST, SRT-listener, SRT-caller<br>• Merge: RTP, RIST<br>Both sources must:<br>• Use the same protocol configuration<br>• Use the same network configuration (VPC or public)<br>• Use different port numbers<br>Merge inputs include configurable merge window timing.<br>Converting between failover and merge types requires recreating the<br>input.                                                                                                                                                                       |
 | MediaLive integration              | The MediaConnect router supports routing to or from MediaLive. You can send<br>content from router outputs to MediaLive inputs, or receive content from MediaLive channel<br>outputs into router inputs. For more details, see [Integrating router I/Os with MediaLive](integrate-eml-with-router.md "integrate-eml-with-router.md").                                                                                                                                                                                                                                                                                                                                                                        |
 | Flow integration                   | The MediaConnect router supports routing to or from MediaConnect flows.<br>For more details on flow integration considerations, see [Integrating router I/Os with MediaConnect flows](integrate-flow-with-router.md "integrate-flow-with-router.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Maintenance schedule updates       | Unlike flows, router resources must be in standby mode before you can make any<br>maintenance schedule changes. Once a router I/O is started, the schedule remains<br>fixed until the next restart.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Maintenance schedule updates       | Unlike flows, router resources must be in standby mode before you can make any<br>maintenance schedule changes. Once a router I/O is started, the schedule remains<br>fixed until the next restart. For more information, see [Maintenance in MediaConnect](maintenance.md "maintenance.md").                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 ## Next steps
 
@@ -230,12 +228,14 @@ You can learn how to set up and use the router in the following pages of this
 guide.
 
 - [Managing router network interfaces in MediaConnect](managing-router-network-interfaces.md "managing-router-network-interfaces.md")
+
   - [Creating a router network interface in MediaConnect](creating-router-network-interfaces.md "creating-router-network-interfaces.md")
   - [Viewing router network interfaces in MediaConnect](viewing-router-network-interfaces.md "viewing-router-network-interfaces.md")
   - [Updating a router network interface in MediaConnect](editing-router-network-interface.md "editing-router-network-interface.md")
   - [Deleting a router network interface in MediaConnect](deleting-router-network-interface.md "deleting-router-network-interface.md")
 
 - [Managing router I/Os in MediaConnect](managing-router-io.md "managing-router-io.md")
+
   - [Creating a router I/O in MediaConnect](creating-router-io.md "creating-router-io.md")
   - [Viewing router I/Os in MediaConnect](viewing-router-io.md "viewing-router-io.md")
   - [Updating a router I/O in MediaConnect](editing-router-io.md "editing-router-io.md")
@@ -249,5 +249,6 @@ guide.
   - [Source failover and merge for router inputs in MediaConnect](router-input-failover.md "router-input-failover.md")
 
 - [Managing routes in MediaConnect](assigning-route.md "assigning-route.md")
+
   - [Using the router control panel view in MediaConnect](using-router-control-panel.md "using-router-control-panel.md")
   - [Using the router matrix view in MediaConnect](using-router-matrix-editor.md "using-router-matrix-editor.md")

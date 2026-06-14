@@ -27,6 +27,7 @@ configuration parameters at any time.
 4. Update the router input details as needed.
 5. Choose **Save changes**.
 6. Check the outcome:
+
    1. If successful: The router input will be updated with your changes.
    2. If unsuccessful: You'll see an error message explaining what went
       wrong.
@@ -38,6 +39,7 @@ configuration parameters at any time.
 10. Update router output details as needed.
 11. Choose **Save changes**.
 12. Check the outcome:
+
     1. If successful: The router output will be updated with your changes.
     2. If unsuccessful: You'll see an error message explaining what went
        wrong.

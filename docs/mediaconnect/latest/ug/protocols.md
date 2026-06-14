@@ -29,6 +29,7 @@ protocols:
 - **Secure Reliable Transport (SRT)** is a highly
   available, low-latency protocol that is suitable for long-distance
   applications.
+
   - **SRT listener** is a pull-based
     implementation of the SRT protocol. You can use it as a source or an
     output. When configured as a source or an output, an SRT listener can
@@ -48,6 +49,7 @@ protocols:
   you can download the software. If you set up multiple flows for distribution, we
   recommend that you use Zixi as the protocol to send content between flows.
   MediaConnect supports two Zixi protocol options:
+
   - **Zixi pull** uses the Zixi protocol to
     send content to a receiver or an integrated receiver decoder (IRD) that
     is behind a firewall. Additionally, you can use this option when you

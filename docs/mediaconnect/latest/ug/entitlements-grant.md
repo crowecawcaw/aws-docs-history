@@ -126,6 +126,7 @@ SPEKE encryption
     in the list.
 13. Make a note of the entitlement ARN.
 14. Provide the following information to the subscriber:
+
     - The entitlement ARN
     - The AWS Region that you created the flow in
     - The encryption key and algorithm if you set up encryption on the

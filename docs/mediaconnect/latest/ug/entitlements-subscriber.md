@@ -22,6 +22,7 @@ metrics such as `SourceContinuityCounter` and
 Before you can create your flow, you must do the following:
 
 - Obtain the following information from the content originator:
+
   - The entitlement ARN
   - The AWS Region that the originator created the flow in
   - The encryption key and algorithm if the originator set up encryption

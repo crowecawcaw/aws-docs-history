@@ -46,6 +46,7 @@ You can create alarm templates with the CloudWatch metrics and parameters that y
 2. Give the alarm template a unique **Template name**
    and optional **Description**.
 3. In the **Choose metric** section:
+
    1. Select a **Target Resource Type**. The target
       resource type is a resource for the respective service, such as
       a channel for MediaLive and MediaPackage or a flow for MediaConnect.

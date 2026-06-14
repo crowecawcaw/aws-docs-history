@@ -23,6 +23,7 @@ up-to-date.
 3. Select the router network interface that you want to update.
 4. Choose **Edit**.
 5. Update any of the following settings:
+
    - For public interfaces: You can edit the interface name, the inbound
      connections setting, and the allowed CIDR blocks.
    - For VPC interfaces: You can edit the subnet and the security groups
@@ -30,6 +31,7 @@ up-to-date.
 
 6. Choose **Save changes**.
 7. Check the outcome:
+
    1. If successful: The router network interface will be updated with your
       changes.
    2. If unsuccessful: You'll see an error message explaining what went

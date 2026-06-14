@@ -37,6 +37,7 @@ necessary permissions to work with your flows. This is a one-time setup.
 - Check with your MediaLive operator that they’ve set up the necessary
   permissions for MediaLive to interact with your MediaConnect flows. They can choose
   their preferred approach:
+
   - **Simple option
     (recommended)**
 
@@ -71,6 +72,7 @@ and Availability Zones you'll use for your flows.
    one already.
 2. Ask them to provide you with the following information about the
    channel:
+
    - AWS Region
    - Availability Zones
    - Channel type (single-pipeline or dual-pipeline)
@@ -90,6 +92,7 @@ inputs for the MediaLive channel.
 1.  Sign into the MediaConnect console.
 2.  Determine how many flows you need based on the MediaLive channel
     type:
+
     - **For a single-pipeline
       channel**
 
@@ -102,6 +105,7 @@ inputs for the MediaLive channel.
     (matching the two MediaLive channel Availability Zones).
 
 3.  Decide whether to use existing flows or create new ones.
+
     - **If you’re using existing
       flows**
 
@@ -136,6 +140,7 @@ inputs for the MediaLive channel.
 
 4.  Take note of the Amazon Resource Name (ARN) for your flows, and share
     this information with the MediaLive operator. The flow ARNs look like this:
+
     - `arn:aws:mediaconnect:us-west-1:111122223333:flow:1bgf67:sports_event_A`
     - `arn:aws:mediaconnect:us-west-1:111122223333:flow:9pmlk76:sports_event_B`
 
@@ -152,6 +157,7 @@ start them.
 ###### To connect with MediaLive and start your flows
 
 1. Coordinate with your MediaLive operator:
+
    - Provide them the flow ARNs from [Step 3. Set up MediaConnect flows](#set-up-flows "#set-up-flows").
    - Inform them they can now create a MediaConnect input on the MediaLive
      channel using these flow ARNs.

@@ -29,6 +29,7 @@ amplifier for your routed content. This setup is useful when you want to:
 Before you start, review these important considerations:
 
 - **For connections between router inputs and flows**
+
   - The router inputs and flow outputs must be in the same availability zone and AWS Region.
   - A flow output can connect to one router input at a time. To switch connections,
     disconnect the flow output first.
@@ -36,6 +37,7 @@ Before you start, review these important considerations:
     router input before you can delete either resource.
 
 - **For connections between router outputs and flows**
+
   - If the flow has two sources, both sources must be connected to the router output.
   - A router output can connect to one flow at a time.
   - You can connect two router outputs to two flow sources on the same flow and
@@ -57,6 +59,7 @@ Before you start, review these important considerations:
    the flow output has **Router integration** enabled.
 2. [Create](creating-router-io.md "creating-router-io.md") or [update](editing-router-io.md "editing-router-io.md") a router input with the following
    settings:
+
    - Choose **Flow** as the configuration type
    - Specify the desired flow output from step 1
 
@@ -70,6 +73,7 @@ Before you start, review these important considerations:
    integration** enabled.
 2. [Create](creating-router-io.md "creating-router-io.md") or [update](editing-router-io.md "editing-router-io.md") a router output with the following
    settings:
+
    - Choose **Flow** as the configuration type
    - Specify the desired flow source from step 1
 

@@ -18,6 +18,7 @@ Follow these steps to start a router input or output.
 3. Select the router input that you want to start.
 4. Choose **Start**.
 5. Check the outcome:
+
    1. If successful: You'll see the status change from
       **Standby** to **Starting**, and then to
       **Active**.
@@ -29,6 +30,7 @@ Follow these steps to start a router input or output.
 8. Select the router output that you want to start.
 9. Choose **Start**.
 10. Check the outcome:
+
     1. If successful: You'll see the status change from
        **Standby** to **Starting**, and then to
        **Active**.

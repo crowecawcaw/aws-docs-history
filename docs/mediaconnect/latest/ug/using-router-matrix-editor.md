@@ -43,6 +43,7 @@ Follow these procedures to open the router matrix view and perform bulk takes.
 2. Choose **Router matrix**.
 3. To see all your router I/Os in the router matrix view, choose **Auto-select resources**. This view supports up to 20 inputs and
    10 outputs.
+
    - Alternatively, you can manually select inputs and outputs in the **Configure router matrix** pane. This is useful when
      managing a subset of routes, like those for a particular event or program.
 
@@ -58,6 +59,7 @@ format:
 ###### To perform a bulk take update
 
 1. In the router matrix view, choose the routes that you want to change.
+
    - To create a new route, select an empty cell.
    - To remove an existing route, select a populated cell.
 

@@ -23,6 +23,7 @@ differences helps you work with NDI outputs across your production
 workflow.
 
 - In MediaConnect flows:
+
   - A _source_ is the
     incoming video and audio feed to the flow.
     NDI
@@ -32,6 +33,7 @@ workflow.
     an output type.
 
 - In NDI implementation:
+
   - An NDI source is a network endpoint that sends video and
     audio streams over IP networks using the NDI protocol.
   - When you add an NDI output to your MediaConnect flow, MediaConnect acts

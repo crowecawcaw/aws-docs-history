@@ -16,8 +16,10 @@ metrics:
    flow.
 3. Choose the **Source** tab and view the status of your
    source. This includes:
+
    - The **Source health** field provides the current
      status of the source.
+
      - **Connected** indicates that the flow is
        connected successfully to its source.
      - **Disconnected** indicates that the flow

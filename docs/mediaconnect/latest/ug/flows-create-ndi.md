@@ -43,7 +43,9 @@ VPC.
 2.  On the **Flows** page, choose **Create
     flow**.
 3.  Configure the basic flow details:
+
     - For **Name**, enter a name for your flow.
+
       - You can create multiple flows with the same name. However,
         we encourage you to use unique flow names within an
         AWS Region to help with organization.
@@ -52,22 +54,26 @@ VPC.
 
     - For **Availability Zone**, choose an Availability
       Zone for your flow.
+
       - If you leave this as **Any**,
         MediaConnect will assign one based on your VPC
         subnet.
 
     - For **Flow size**, select
       **Large**.
+
       - You can only use NDI sources with large sized
         flows.
       - For more information about flow sizes, see [Flow sizes and
         capabilities](flow-sizes-capabilities.md "flow-sizes-capabilities.md").
 
 4.  Configure your flow source:
+
     - For **Source type**, select **NDI
       Source**.
     - For **Flow source name**, enter a unique name for
       the NDI flow source.
+
       - Keep in mind that you can't change this name after you
         create the flow.
 
@@ -85,6 +91,7 @@ VPC.
          `MACHINE (program)`).
 
 5.  Configure the VPC interfaces for your flow:
+
     - In the **VPC interface** section, choose Add VPC
       interface.
     - For **Name**, enter a unique name for your VPC
@@ -93,6 +100,7 @@ VPC.
       Name (ARN) of the role that you created when you set up MediaConnect as a
       trusted service.
     - For VPC, choose the ID of the VPC that you want to use.
+
       - If your VPC isn't listed, verify that it's set up in
         Amazon Virtual Private Cloud and that you have IAM
         permissions to view it.
@@ -105,9 +113,11 @@ VPC.
       You must choose at least one security group.
 
 6.  Configure the NDI settings:
+
     - Set **Flow NDI support** to **Enabled**
       if it's not already.
     - Enter an optional NDI machine name.
+
       - This name is used as a prefix to help you identify this
         flow source as an NDI receiver in your network. For example,
         if you enter `MACHINENAME`, your flow
@@ -118,25 +128,30 @@ VPC.
 
     - Add up to three NDI discovery servers. For each discovery server,
       provide the following information:
+
       - Enter the discovery server IP address (IPv4 format).
       - Specify a port number if you’re not using the default
         (5959).
       - Select the appropriate VPC interface adapter.
 
 7.  Configure the encoder settings:
+
     - For **Encoder profile name**, choose the encoder
       profile that you want to apply to your flow outputs.
     - (Optional) For **Maximum bitrate**, specify the
       maximum expected bitrate in bits per second (bps).
+
       - This setting lets you override the default video bitrate
         within the profile's supported range (10-50 Mbps).
       - If left blank, MediaConnect uses the default value of 20,000,000 bps.
 
 8.  Configure the monitoring options that you want to enable:
+
     1. Turn on **Thumbnails state** to generate source
        thumbnails that you can preview in the console.
     2. Turn on **Content quality analysis state** to
        monitor for the following audio and video quality issues.
+
        1. (Optional) Turn on **Black frames** to
           detect periods of black video frames in the stream.
        2. (Optional) Turn on **Frozen frames** to
@@ -181,6 +196,7 @@ can only discover and list available NDI senders when the flow is active.
 6. Choose **Update**.
 7. Under **NDI source name**, specify the upstream
    source that the NDI sender will send to your flow.
+
    - Start typing a name in the field. As you type, matching NDI
      sources from your network will appear in a dropdown list.
    - Select the NDI source that you want to use from the

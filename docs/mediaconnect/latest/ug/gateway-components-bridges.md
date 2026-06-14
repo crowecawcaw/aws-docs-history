@@ -8,6 +8,7 @@ to the AWS Cloud.
 ###### Contents
 
 - [Key points](#gateway-components-bridges-key-points "#gateway-components-bridges-key-points")
+
   - [Bridge types](#gateway-components-bridges-types "#gateway-components-bridges-types")
   - [Bridge sources](#gateway-components-bridges-sources "#gateway-components-bridges-sources")
   - [Bridge outputs](#gateway-components-bridges-outputs "#gateway-components-bridges-outputs")

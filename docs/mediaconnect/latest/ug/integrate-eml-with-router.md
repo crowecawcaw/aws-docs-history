@@ -39,6 +39,7 @@ they have the necessary permissions.
 
 - Your MediaLive operator has configured the necessary permissions for MediaLive to
   interact with MediaConnect. They can choose their preferred approach:
+
   - **Simple option**
 
   Use the `MediaLiveAccessRole`, which includes all necessary

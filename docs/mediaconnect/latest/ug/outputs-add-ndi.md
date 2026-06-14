@@ -76,6 +76,7 @@ video and audio streams appear to other devices in your VPC network.
 4. On the flow details page under **NDI
    configuration**, configure your settings as
    follows:
+
    1. Set **Flow NDI support** to
       **Enabled** if it’s not already.
    2. (Optional) Enter an **NDI machine
@@ -101,6 +102,7 @@ video and audio streams appear to other devices in your VPC network.
    c. Add up to three **NDI discovery
    servers**. For each server, provide the following
    information:
+
    - Enter the private IP address that's resolvable within the
      VPC subnet where the VPC adapter is pointed. This should be
      a private IP, not a public IP address.
@@ -133,6 +135,7 @@ video and audio streams appear to other devices in your VPC network.
    **SpeedHQ**.
 10. For **NDI SpeedHQ quality**, enter a value
     between 100-200.
+
     - This setting adjusts the NDI encoder's target bitrate as a
       percentage of the default.
     - The default value is 100, which uses the standard NDI

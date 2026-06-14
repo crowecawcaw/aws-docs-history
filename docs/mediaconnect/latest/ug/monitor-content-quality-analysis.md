@@ -13,6 +13,7 @@ reliable media delivery workflow.
 ###### Contents
 
 - [Key points](#monitor-content-quality-analysis-key-points "#monitor-content-quality-analysis-key-points")
+
   - [How content quality analysis works](#how-content-quality-analysis-works "#how-content-quality-analysis-works")
   - [Considerations](#content-quality-analysis-considerations "#content-quality-analysis-considerations")
 

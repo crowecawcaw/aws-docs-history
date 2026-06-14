@@ -39,6 +39,7 @@ Follow these steps to create a router network interface.b
 3.  Choose **Create router network interface**.
 4.  Under **Router network interface details**, provide the following
     information:
+
     1. **Name** - Enter a name that helps you identify the purpose
        of this network interface.
 

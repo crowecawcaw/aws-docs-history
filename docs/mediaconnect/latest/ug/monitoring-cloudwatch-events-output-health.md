@@ -26,7 +26,7 @@ The following message is an example of this event.
   "detail-type": "MediaConnect Output Health",
   "source": "aws.mediaconnect",
   "account": "012345678901",
-  "time": "2006-01-02T15:04:05Z",
+  "time": "2026-05-03T18:37:24Z",
   "region": "us-east-1",
   "resources": [
     "arn:aws:mediaconnect:us-east-1:012345678901:flow:1-AbCdEfGhIjKlMnOp-abcdef123455:ExampleFlow",

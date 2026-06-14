@@ -17,6 +17,7 @@ flow](flows-create.md "flows-create.md") and [add outputs to a flow](outputs-add
    determine its egress IP address.
 3. In the AWS Region that is closest to your destination, create a second flow
    (flow B) with the following details:
+
    - Source type: Choose **Standard
      source**.
    - Protocol: Choose **Zixi
@@ -33,6 +34,7 @@ flow](flows-create.md "flows-create.md") and [add outputs to a flow](outputs-add
 4. Review the **Details** page, **Source** tab for flow B to determine its ingest IP
    address.
 5. In flow A, create an output with the following details:
+
    - Protocol: Choose **Zixi push**.
    - IP address: Enter the ingest IP address of flow B.
    - Port: Enter `2088`.

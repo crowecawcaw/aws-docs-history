@@ -1,6 +1,6 @@
 # MediaConnect flow maintenance event
 
-This event is published when a flow's maintenance status has changed, either to or
+AWS Elemental MediaConnect publishes this event when a flow's maintenance status has changed, either to or
 from any of the following states:
 
 - **SCHEDULED** - Maintenance is scheduled for
@@ -16,29 +16,27 @@ from any of the following states:
   successfully for this flow.
 - **FAILED** - Maintenance did not complete
   successfully for this flow.
-
-For information about subscribing to this event, see [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
+  For information about subscribing to this event, see [Amazon EventBridge](../../../eventbridge/latest/userguide/eb-what-is.md "../../../eventbridge/latest/userguide/eb-what-is.md").
 
 For information about MediaConnect maintenance, see [MediaConnect
 flow maintenance](maintenance.md "maintenance.md").
 
-The following message is an example of this EventBridge event.
+The following message is an example of this event.
 
 ```
 {
-    "version": "0",
-    "id": "01234567-0123-0123-0123-0123456789ab",
-    "detail-type": "MediaConnect Flow Maintenance",
-    "source": "aws.mediaconnect",
-    "account": "111122223333",
-    "time": "2022-02-14T00:45:47Z",
-    "region": "us-east-1",
-    "resources": [
-        "arn:aws:mediaconnect:us-east-1:111122223333:flow:1-23aBC45dEF67hiJ8-12AbC34DE5fG:ExampleFlow"
-    ],
-    "detail": {
-        "currentStatus": "FINISHED"
-    }
+  "version": "0",
+  "id": "01234567-0123-0123-0123-0123456789ab",
+  "detail-type": "MediaConnect Flow Maintenance",
+  "source": "aws.mediaconnect",
+  "account": "012345678901",
+  "time": "2026-05-03T18:37:24Z",
+  "region": "us-east-1",
+  "resources": [
+    "arn:aws:mediaconnect:us-east-1:012345678901:flow:1-AbCdEfGhIjKlMnOp-abcdef123455:ExampleFlow"
+  ],
+  "detail": {
+    "currentStatus": "FINISHED"
+  }
 }
-
 ```

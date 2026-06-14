@@ -62,6 +62,7 @@ Follow these procedures to create a router input or a router output.
 2.  In the navigation pane, choose **Router inputs**.
 3.  Choose **Create router input**.
 4.  Under **Router input details**, set up your input:
+
     1. **Name** - Give your input a descriptive name.
 
     ###### Tip
@@ -87,7 +88,9 @@ Follow these procedures to create a router input or a router output.
     _global_ to enable cross-region routing.
 
 5.  Under **Input type**, choose an option and complete its configuration:
+
     1.  **Standard** - To receive content from an external source endpoint, follow these steps:
+
         1. Under **Standard router input configuration**,
            select a network interface to use. For public network interfaces, select the availability
            zone where the router input will be placed in. For VPC network interfaces, the
@@ -239,7 +242,6 @@ Follow these procedures to create a router input or a router output.
 
         		 The content of the secret must be an AES-256 key in hexadecimal format.
         		 The key must have 64 digits.
-
     3. **MediaLive channel** - To receive content from a
        MediaLive channel output, follow these steps.
 
@@ -265,8 +267,8 @@ Follow these procedures to create a router input or a router output.
          router input. This must match the encryption type configured on the
          MediaLive channel output. For details about the available options, see
          [Encryption options](integrate-eml-with-router.md#eml-router-encryption "integrate-eml-with-router.md#eml-router-encryption").
-
     4.  **Failover** - For failover configuration, follow these steps:
+
         1. Under **Failover router input configuration**, select the network interface
            and the protocol. For public network interfaces, select the availability
            zone where the router input will be placed in. For VPC network interfaces, the
@@ -376,7 +378,6 @@ Follow these procedures to create a router input or a router output.
             	3. Under **Secret ARN**, enter
             	 the ARN that AWS Secrets Manager assigned when you created the secret
             	 to store the encryption key.
-
         3. Under **Second source protocol configuration**,
            repeat the previous step for the secondary source using a different port
            number.
@@ -400,6 +401,7 @@ Follow these procedures to create a router input or a router output.
              source as soon as data returns.
 
     5.  **Merge** - For merge configuration, follow these steps:
+
         1. Under **Merge router input configuration**, select the network interface and
            the protocol, and define a recovery window in milliseconds.
 
@@ -427,7 +429,6 @@ Follow these procedures to create a router input or a router output.
              content.
             2. **Forward error correction** - Choose whether to
              enable this feature.
-
         3. Under **Second source protocol configuration**,
            repeat the previous configuration step for the second source using a
            different port number.
@@ -468,6 +469,7 @@ output and destination.
     	 The key must have 64 digits.
 
 7.  Under **Maintenance configuration**, choose an option:
+
     1. **Default** - Choose this if you want MediaConnect to define the maintenance schedule for you.
     2. **Preferred day and time** - Choose this if you want to define your own maintenance schedule.
 
@@ -479,6 +481,7 @@ output and destination.
 11. In the navigation pane, choose **Router outputs**.
 12. Choose **Create router output**.
 13. Under **Router output details**, set up your output:
+
     1. **Name** - Give your output a descriptive name.
 
     ###### Tip
@@ -505,8 +508,10 @@ output and destination.
 
 14. Under **Output type**, choose one of these options and
     complete its configuration.
+
     1.  **Standard** - To send content to an external source
         endpoint, follow these steps:
+
         1. Under **Standard router output configuration**,
            select a network interface to use. For public network interfaces, select the availability
            zone where the router output will be placed in. For VPC network interfaces, the
@@ -649,7 +654,6 @@ output and destination.
 
         		 The content of the secret must be an AES-256 key in hexadecimal format.
         		 The key must have 64 digits.
-
     3. **MediaLive input** - To send content to a MediaLive
        input, follow these steps.
 
@@ -695,6 +699,7 @@ output and destination.
         		 The key must have 64 digits.
 
 15. Under **Maintenance configuration**, choose an option:
+
     1. **Default** - Choose this if you want MediaConnect to define the
        maintenance schedule for you.
     2. **Preferred day and time** - Choose this if you want to

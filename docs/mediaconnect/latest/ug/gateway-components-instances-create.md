@@ -31,6 +31,7 @@ gateway.
    instance**.
 6. On the **Register Gateway instances** page, complete
    the following steps:
+
    1. For **Activation key duration**, enter the
       number of days that the activation key will remain active. After
       that number of days, the key will no longer work when

@@ -30,6 +30,7 @@ Console
 3. On the MediaConnect Gateway details page, select the
    **Bridges** tab. Complete the following
    steps to delete the bridges:
+
    1. Select the bridge you want to delete.
    2. If the bridge has been started, select
       **Stop**.
@@ -43,6 +44,7 @@ Console
 4. Return to the gateway's **Details** page,
    select the **Instances** tab. Complete the
    following steps to delete the instances:
+
    1. Select the instance you want to delete.
    2. Select **Deregister**.
    3. Confirm the deregistration of the instance by
@@ -78,6 +80,7 @@ Console
    instances associated with the gateway, you may delete the
    gateway. Deleting the gateway will delete all networks created
    under that gateway.
+
    1. From the navigation pane, select
       **Gateways**.
    2. In the **Gateways** section, select

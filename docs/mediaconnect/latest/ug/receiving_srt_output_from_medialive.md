@@ -20,11 +20,13 @@ You and the MediaLive operator must agree on the following things:
 
 - **Channel configuration** - Determine which type of
   MediaLive channel you’ll use:
+
   - If the MediaLive channel is a standard channel, you need two flow sources.
   - If the MediaLive channel is a single-pipeline channel, you need one flow source.
 
 - **Latency** - Determine the appropriate latency for
   your streams.
+
   - We recommend that you choose a latency value that's close to the MediaLive
     configuration.
   - If you want the source from MediaLive to include a stream ID, tell the MediaLive
@@ -32,11 +34,13 @@ You and the MediaLive operator must agree on the following things:
 
 - **Encryption algorithm** - Determine the appropriate
   algorithm.
+
   - You must agree about the encryption algorithm that you'll use, which can be: AES
     128, AES 192, or AES 256
 
 - **Encryption passphrase** - Determine the passphrase
   that you’ll use.
+
   - The passphrase can be 10 to 79 Unicode characters, which means that spaces are
     allowed.
 
@@ -81,6 +85,7 @@ encryption passphrase in a secret in Secrets Manager.
 ###### To request the secret
 
 1. Determine if you need one or two secrets.
+
    - **If MediaConnect and MediaLive are in the same
      AWS account**: You need only one shared secret that both services will
      use.
@@ -92,12 +97,14 @@ encryption passphrase in a secret in Secrets Manager.
    creation.
 3. If you're responsible for the secret creation, follow these steps for each secret
    that's needed:
+
    - Ask your AWS administrator to [create a secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md")
      in Secrets Manager, using **Other type** as the secret type.
    - Give your AWS administrator the agreed-upon SRT encryption passphrase to store
      in the secret.
    - Ask your AWS administrator to provide you with the following
      information:
+
      - The secret's name
      - The secret's ARN, which will look like this:
        `arn:aws:secretsmanager:`region`:123456789012:secret:`Sample-abcdef``
@@ -116,6 +123,7 @@ configure their channel.
 1. Open the MediaConnect console.
 2. Follow the steps to [create a flow](flows-create.md "flows-create.md") or [edit an existing
    flow](flows-update.md "flows-update.md") with these specific settings:
+
    - **Source type**: Choose either **Standard
      source** or **VPC source** based on your network
      configuration.
@@ -128,11 +136,13 @@ configure their channel.
    source. For example, `source-pipeline-0` and
    `source-pipeline-1`.
    - (For standard sources only):
+
      - **Allowlist CIDR block**: Enter a temporary value (such as
        `192.168.76.54/32`). You'll update this later with the
        actual MediaLive channel IP address.
 
    - (For VPC sources only):
+
      - **VPC interface name**: Specify your VPC interface.
      - **Subnet**: Choose the VPC subnet that you want MediaConnect to
        use.
@@ -163,12 +173,14 @@ from the channel.
 ###### To configure the flow
 
 1. Ask the MediaLive operator for the source IP addresses from their channel.
+
    - For standard MediaLive channels: Request both Source IP addresses.
    - For single-pipeline channels: Request the single Source IP address.
    - For MediaLive Anywhere channels: Request the Gateway IP address into the network
      where the channel is running.
 
 2. When you have the IP addresses:
+
    - Go to the MediaConnect console and open your flow.
    - Go to the **Sources** tab and select the SRT source.
    - Choose **Update**.
