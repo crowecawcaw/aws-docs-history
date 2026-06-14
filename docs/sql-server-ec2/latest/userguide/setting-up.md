@@ -96,6 +96,7 @@ New Amazon EC2 console
 3. In the left navigation pane, choose **Security Groups**.
 4. Choose **Create security group**.
 5. For **Basic details**, do the following:
+
    1. Enter a name for the new security group and a description. Use a name that is easy
       for you to remember, such as your user name, followed by \_SG\_, plus the Region name. For
       example, _me_\_SG\__uswest2_.
@@ -106,6 +107,7 @@ New Amazon EC2 console
    HTTP and HTTPS traffic. For more examples, see [Security group rules
    for different use cases](../../../AWSEC2/latest/WindowsGuide/security-group-rules-reference.md "../../../AWSEC2/latest/WindowsGuide/security-group-rules-reference.md") in the _User Guide for Windows
    Instances_.
+
    1. Choose **Add rule**. For **Type**, choose
       **HTTP**. For **Source**, choose
       **Anywhere**.
@@ -115,6 +117,7 @@ New Amazon EC2 console
    3. Choose **Add rule**. For **Type**, choose
       **RDP**. For **Source**, do one of the
       following:
+
       - Choose **My IP** to automatically add the public IPv4 address of
         your local computer.
       - Choose **Custom** and specify the public IPv4 address of your
@@ -148,6 +151,7 @@ Old Amazon EC2 console
 5. In the **VPC** list, select your default VPC for the Region.
 6. On the **Inbound rules** tab, create the following rules (choose
    **Add rule** for each new rule):
+
    - Choose **HTTP** from the **Type** list, and make
      sure that **Source** is set to **Anywhere**
      (`0.0.0.0/0`).

@@ -23,6 +23,7 @@ Perform the following steps to access a SQL Server instance on Amazon EC2 as a d
    Authentication** to log in with the built-in local
    administrator.
 4. (Optional) Allow domain users to log in.
+
    1. Choose **Connect**.
    2. In Object Explorer, expand **Security**.
    3. Open the context menu (right-click) for **Logins**

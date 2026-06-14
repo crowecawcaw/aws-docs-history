@@ -69,6 +69,7 @@ Console
    settings**, **Modify SQL High Availability settings**.
 4. In the **Review prerequisites** step, review each
    instance to make sure it is configured correctly.
+
    - The **SSM agent status** column indicates the
      state of the SSM Agent on the instance. **Online**
      indicates that the SSM Agent is running and accessible.
@@ -86,6 +87,7 @@ Console
 5. Choose **Next**.
 6. In the **Manage SQL High Availability license savings** step, for each
    instance do the following:
+
    - For **SQL High Availability license savings**, select
      **Enable**.
    - (_Optional_) For **SQL Server credentials**,

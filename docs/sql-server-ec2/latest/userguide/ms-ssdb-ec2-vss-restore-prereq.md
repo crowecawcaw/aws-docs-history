@@ -19,6 +19,7 @@ supports restoring snapshots to the original EC2 instance where the snapshots we
   To successfully initiate
   a restore operation, VSS metadata files are required. The following files are
   generated for each snapshot set taken during the snapshotting process.
+
   - `{Snapshot set id}-{timestamp}-BCD.xml`
   - `{Snapshot set id}-{timestamp}-SqlServerWriter.xml`
   - `{Snapshot set id}-{timestamp}-VolumeMapping.json`
@@ -143,6 +144,7 @@ follow these steps.
    This opens the **Specify permissions** page.
 4. Select the **JSON** policy editor and copy the following JSON policy
    content into the editor. The policy allows the role to:
+
    - Execute the `AWSEC2-RestoreSqlServerDatabaseWithVss` automation runbook.
    - Stop and send signals to an automation execution.
    - View details about the automation execution after it has been started.
