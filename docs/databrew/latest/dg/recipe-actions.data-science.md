@@ -21,6 +21,7 @@ Scales or normalizes the range of data in a numeric column.
 
 - `sourceColumn` – The name of an existing column.
 - `strategy` – The operation to be applied to the column values:
+
   - `MIN_MAX` – Rescales the values into a range of
     [0,1]
   - `SCALE_BETWEEN` – Rescales the values into a range

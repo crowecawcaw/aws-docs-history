@@ -23,6 +23,7 @@ Use the following procedure to create a DataBrew profile job.
    dataset to be profiled.
 5. (Optional) Configure the following on the **Data profile configurations**
    pane:
+
    - **Dataset level configurations** – Configure
      details of your profile job for all columns in your dataset.
 
@@ -52,6 +53,7 @@ Use the following procedure to create a DataBrew profile job.
    For more information on data quality validation, see [Validating data quality in AWS Glue DataBrew](profile.data-quality-rules.md "profile.data-quality-rules.md").
 7. On the **Advanced job settings** pane, you can choose more options
    for how your job is to run:
+
    - **Maximum number of units** – DataBrew processes
      jobs using multiple compute nodes, running in parallel. The default
      number of nodes is 5. The maximum number of nodes is 149.

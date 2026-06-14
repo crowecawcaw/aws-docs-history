@@ -7,6 +7,7 @@ Started exercises.
 ###### To set up the AWS CLI
 
 1. Download and configure the AWS CLI by using the steps found following:
+
    - [Installing the
      AWS CLI](../../../cli/latest/userguide/cli-chap-install.md "../../../cli/latest/userguide/cli-chap-install.md")
    - [Configuration

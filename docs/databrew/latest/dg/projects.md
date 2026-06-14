@@ -46,6 +46,7 @@ Use the following procedure to create a project.
    .
 2. On the navigation pane, choose **PROJECTS**. Then choose **Create project**.
 3. Enter a name for your project. Then choose a recipe to attach to your project:
+
    - Choose **Create new recipe** if you are starting from the
      beginning. Doing this creates a new, empty recipe and attaches it to
      your project.
@@ -57,6 +58,7 @@ Use the following procedure to create a project.
    - Choose **Import steps from recipe** if you have an existing
      recipe that's been published previously and want to import its steps,
      and then do the following:
+
      1. Choose **Browse recipes** to see what recipes are
         available.
      2. Choose the published version of the recipe that you
@@ -67,6 +69,7 @@ Use the following procedure to create a project.
 
 4. After you have a recipe, choose the dataset that you want to work with
    on the **Select a dataset** pane:
+
    - **My datasets** – Choose a dataset that you created
      previously. For more information, see Creating a project.)
    - **Sample files** – Create a new dataset based on

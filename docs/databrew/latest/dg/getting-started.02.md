@@ -30,6 +30,7 @@ focus on only the games where both players were Class A, meaning that their rati
 4.  Summarize the data to determine how many games were won by each side. To do
     this, on the transformation toolbar, choose **Group**.
 5.  For the **Group** properties, do the following:
+
     1. In the first row, choose `winner` for **Column
        name**. Leave **Aggregate** set to
        **Group by**.

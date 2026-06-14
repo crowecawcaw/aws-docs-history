@@ -12,6 +12,7 @@ log or root transform. We recommend this action for handling skewed data.
   – Specifies the name of an existing numeric column that might contain outliers.
 - `outlierStrategy` – Specifies the approach to use in detecting
   outliers. Valid values include the following:
+
   - `Z_SCORE` – Identifies a value as an outlier when it
     deviates from the mean by more than the standard deviation threshold.
   - `MODIFIED_Z_SCORE` – Identifies a value as an outlier
@@ -26,6 +27,7 @@ log or root transform. We recommend this action for handling skewed data.
   number. The default is 3.
 - `skewFunction` – Specifies the method to use when replacing
   outliers. Valid values include the following:
+
   - LOG – Applies a strong transformation to reduce positive and negative skew. This is a natural logarithm (2.718281828).
   - ROOT (with `value = 3` ) – Applies a fairly strong transformation to reduce positive and negative skew. (Cube root)
   - ROOT (with `value = 2` ) – Applies a moderate transformation to reduce positive skew only. (Square root)

@@ -8,6 +8,7 @@ If a column value can’t be converted to the new type, it will be replaced with
 
 - `sourceColumn` – The name of an existing column.
 - `columnDataType` – New type of the column. The following data types are supported:
+
   - **byte:** 1-byte signed integer numbers. The range of numbers is from -128 to 127.
   - **short:** 2-byte signed integer numbers. The range of numbers is from -32768 to 32767.
   - **int:** 4-byte signed integer numbers. The range of numbers is from -2147483648 to 2147483647.

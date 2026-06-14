@@ -17,12 +17,14 @@ To request a data profile, create and run a profile job.
 4. For **Job type**, choose **Create a profile
    job**.
 5. On the **Job input** pane, do the following:
+
    - For **Run on**, choose
      **Dataset**.
    - Choose **Select a dataset** to view a list of
      available datasets, and choose `chess-games`.
 
 6. On the **Job output settings** pane, do the following:
+
    - For **File type**, choose **JSON**
      (JavaScript Object Notation).
    - Choose **S3 location** to view a list of available

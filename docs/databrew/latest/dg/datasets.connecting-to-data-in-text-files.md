@@ -3,6 +3,7 @@
 You can configure the following format options for the input files that DataBrew supports:
 
 - **Comma-separated value (CSV) files**
+
   - **Delimiters**
 
   The default delimiter is a comma for .csv files.
@@ -19,7 +20,6 @@ You can configure the following format options for the input files that DataBrew
       - Caret (^)
       - Backslash (\)
       - Space
-
   - **Column header values**
 
   Your CSV file can include a header row as the first row of the file. If it

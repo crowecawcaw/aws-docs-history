@@ -8,6 +8,7 @@ Returns a column in which a phone number string is converted into a formatted va
 - `phoneNumberFormat` – The format to convert the phone
   number to. If no format is specified, the default is `E.164`, an
   internationally-recognized standard phone number format. Valid values include the following:
+
   - `E164` (omit the period after `E`)
 
 - `defaultRegion` – A valid region code consisting

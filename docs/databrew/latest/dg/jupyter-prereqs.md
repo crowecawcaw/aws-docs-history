@@ -11,6 +11,7 @@ Before you begin, set up the following items:
 - A JupyterLab installation (version 2.2.6 or greater) – For more
   information, see the following topics in the [JupyterLab
   documentation](https://JupyterLab.readthedocs.io/en/stable/index.html "https://JupyterLab.readthedocs.io/en/stable/index.html"):
+
   - [JupyterLab prerequisites](https://JupyterLab.readthedocs.io/en/stable/getting_started/installation.html#prerequisites "https://JupyterLab.readthedocs.io/en/stable/getting_started/installation.html#prerequisites")
   - [JupyterLab installation](https://JupyterLab.readthedocs.io/en/stable/getting_started/installation.html "https://JupyterLab.readthedocs.io/en/stable/getting_started/installation.html") – We recommend using `pip install
 jupyterlab`.

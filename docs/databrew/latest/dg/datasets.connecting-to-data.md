@@ -30,6 +30,7 @@ subscribed to or entitled to use.
 - **JDBC driver connections** – You can create
   a dataset by connecting DataBrew to a JDBC-compatible data source. DataBrew supports
   connecting to the following sources through JDBC:
+
   - Amazon Redshift
   - Microsoft SQL Server
   - MySQL

@@ -7,6 +7,7 @@ Returns a column in which a date string is converted into a formatted value.
 - `sourceColumn` – The name of an existing column.
 - `targetDateFormat` – One of the following date
   formats:
+
   - `mm/dd/yyyy`
   - `mm-dd-yyyy`
   - `dd month yyyy`

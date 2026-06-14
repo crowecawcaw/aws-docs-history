@@ -8,37 +8,44 @@ based on parameters.
 Categories for transformations in the UI include the following:
 
 - Basic column recipe steps
+
   - Filter
   - Column
 
 - Data cleaning recipe steps
+
   - Format
   - Clean
   - Extract
 
 - Data quality recipe steps
+
   - Missing
   - Invalid
   - Duplicates
   - Outliers
 
 - Personally indentifiable information (PII) recipe steps
+
   - Mask personal information
   - Replace personal information
   - Encrypt personal information
   - Shuffle rows
 
 - Column structure recipe steps
+
   - Split
   - Merge
   - Create
 
 - Column formatting recipe steps
+
   - Decimal precision
   - Thousands separator
   - Abbreviate numbers
 
 - Data structure recipe steps
+
   - Nest-Unnest
   - Pivot
   - Group
@@ -46,6 +53,7 @@ Categories for transformations in the UI include the following:
   - Union
 
 - Data science recipe steps
+
   - Text
   - Scale
   - Mapping

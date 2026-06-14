@@ -38,10 +38,12 @@ Known labextensions:
 ```
 
 7. Rebuild JupyterLab by using one of the following:
+
    - At the command prompt, run `jupyter lab build`.
    - In the webpage, choose **Rebuild** at top left.
 
 8. When the build is complete, do one of the following:
+
    - At the command prompt, run `jupyter lab`.
    - In the webpage, choose **Reload** on the **Build
      Complete** message.

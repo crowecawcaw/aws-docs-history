@@ -44,6 +44,7 @@ your identity source](../../../singlesignon/latest/userguide/step2.md "../../../
    and choose **Create group**. Enter the group name
    and choose **Create**.
 6. Add a user to IAM Identity Center store:
+
    1. In the IAM Identity Center navigation pane, choose **Users**.
    2. On the **Add user** screen, enter the required information and choose
       **Send an email to the user with password setup
@@ -58,6 +59,7 @@ your identity source](../../../singlesignon/latest/userguide/step2.md "../../../
    this URL to access DataBrew.
 
 7. Assign each user to an account:
+
    1. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon"), and in
       the navigation pane, choose **AWS accounts**.
    2. Choose **AWS organization** and choose an AWS account.

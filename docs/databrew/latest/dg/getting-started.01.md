@@ -11,6 +11,7 @@ project.
 3. On the navigation pane, choose **Projects**, and then choose
    **Create project**.
 4. On the **Project details** pane, do the following:
+
    - For **Project name**, enter
      `chess-project`.
    - For **Attached recipe**, create a new recipe. A

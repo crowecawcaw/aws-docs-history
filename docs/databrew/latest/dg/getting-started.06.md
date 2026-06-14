@@ -33,6 +33,7 @@ following procedure.
 4. For **Job type**, choose **Create a recipe
    job**.
 5. On the **Job input** pane, do the following:
+
    - For **Run on**, choose
      **Dataset**.
    - Choose **Select a dataset** to view a list of
@@ -41,6 +42,7 @@ following procedure.
      available recipes, and choose `chess-project-recipe`.
 
 6. On the **Job output settings** pane, do the following:
+
    - **File type** – chose **CSV**
      (comma-separated values).
    - **S3 location** - choose this field to view a list of

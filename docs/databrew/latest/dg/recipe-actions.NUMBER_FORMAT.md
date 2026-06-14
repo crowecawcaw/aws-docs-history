@@ -9,11 +9,13 @@ Returns a column in which a numeric value is converted into a formatted string.
   decimal separator.
 - `numericDecimalSeparator` – String. One of the following values
   indicating the decimal separator:
+
   - "."
   - ","
 
 - `numericThousandSeparator` – String. One of the following
   values indicating the thousand separator:
+
   - null. Indicates that a thousand separator isn't enabled.
   - ","
   - " "
@@ -22,6 +24,7 @@ Returns a column in which a numeric value is converted into a formatted string.
 
 - `numericAbbreviatedUnit` – String. One of the following
   values indicating the abbreviation unit:
+
   - null. Indicates that an abbreviation unit isn't enabled.
   - “THOUSAND”
   - "MILLION"
@@ -30,6 +33,7 @@ Returns a column in which a numeric value is converted into a formatted string.
 
 - `numericUnitAbbreviation` – String. One of the following
   values or any custom value, indicating unit abbreviation:
+
   - null. Indicates that unit abbreviation isn't enabled.
   - | Abbreviation unit | Options                   |
     | ----------------- | ------------------------- |

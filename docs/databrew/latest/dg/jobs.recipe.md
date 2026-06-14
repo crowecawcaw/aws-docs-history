@@ -110,6 +110,7 @@ start your existing jobs. 6. For Amazon S3 output destinations only, you have fu
 7. (Optional) Choose **Enable encryption for job output** to encrypt the
    job output that DataBrew writes to your output location, and then choose the encryption
    method:
+
    - **Use SSE-S3 encryption** – The output is
      encrypted using server-side encryption with Amazon S3–managed encryption keys.
    - **Use AWS Key Management Service (AWS KMS)** – The output is encrypted
@@ -124,6 +125,7 @@ start your existing jobs. 6. For Amazon S3 output destinations only, you have fu
    own.
 9. On the **Advanced job settings** pane, you can choose more options
    for how your job is to run:
+
    - **Maximum number of units** – DataBrew processes
      jobs using multiple compute nodes, running in parallel. The default
      number of nodes is 5. The maximum number of nodes is 149.
@@ -195,6 +197,7 @@ schedule. You can then set up your job to run according to the schedule.
    and choose **Add schedule**.
 2. Enter a name for your schedule, and then choose a value for **Run
    frequency**:
+
    - **Recurring** – Choose how frequently that you want
      the job to run (for example, every 12 hours). Then choose which day or days to run the
      job on. Optionally, you can enter the time of day when the job runs.

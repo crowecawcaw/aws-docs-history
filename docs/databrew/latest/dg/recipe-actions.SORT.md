@@ -6,6 +6,7 @@ Sorts the data in one or more columns of a dataset in ascending, descending, or 
 
 - `expressions` – A string that contains one or more JSON-encoded strings representing
   sorting expressions.
+
   - `sourceColumn` – A string that contains the name of an existing column.
   - `ordering` – Ordering can be either ASCENDING or DESCENDING.
   - `nullsOrdering` – Nulls ordering can be either NULLS_TOP or NULLS_BOTTOM to

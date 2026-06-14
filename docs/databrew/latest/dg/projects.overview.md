@@ -18,6 +18,7 @@ the following procedure for a short walkthrough of grid view.
 ###### To take a walkthrough of grid view
 
 1. Start by viewing the entire space:
+
    1. Scroll left and right to see all of the columns.
    2. Scroll up and down to see all of the data values.
    3. Use the zoom control at the bottom of the workspace to adjust the
@@ -106,10 +107,12 @@ Before doing so, you run a DataBrew job to create the profile.
    the file type.
 3. Find or create an Amazon S3 bucket and folder in your AWS account where you
    want the job output from DataBrew to be written:
+
    - If you already have this Amazon S3 bucket and
      folder, choose **Browse** and locate them. Make
      sure that you have write permissions for both.
    - If you don't have this Amazon S3 bucket and folder, create them:
+
      1. Open the Amazon S3 console at
         [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
      2. If you don't have an Amazon S3 bucket, choose **Create

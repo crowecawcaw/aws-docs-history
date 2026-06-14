@@ -8,6 +8,7 @@ Removes data points that classify as outliers, based on the settings in the para
   – Specifies the name of an existing numeric column that might contain outliers.
 - `outlierStrategy` – Specifies the approach to use in detecting
   outliers. Valid values include the following:
+
   - `Z_SCORE` – Identifies a value as an outlier when it
     deviates from the mean by more than the standard deviation threshold.
   - `MODIFIED_Z_SCORE` – Identifies a value as an outlier
@@ -24,6 +25,7 @@ Removes data points that classify as outliers, based on the settings in the para
   values include `DELETE_ROWS` and `CLEAR`.
 - `trimValue`
   – Specifies whether to remove all or some of the outliers. This Boolean value defaults to `FALSE`.
+
   - `FALSE` – Removes all outliers
   - `TRUE`
     – Removes outliers that rank outside of the percentile threshold specified in `minValue` and `maxValue`.
