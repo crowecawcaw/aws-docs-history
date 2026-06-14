@@ -8,6 +8,7 @@ following steps to help your users follow AWS security best practices when they 
    user](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") in IAM Identity Center if you haven't already done so. Then, [safeguard your
    root credentials](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials") and don't use them for everyday tasks.
 2. Sign in as the AWS account administrator and set up the following identities:
+
    - Create [least-privilege](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege") users for other [humans](../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp "../../../IAM/latest/UserGuide/best-practices.md#bp-users-federation-idp").
    - Set up [temporary
      credentials for workloads](../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles "../../../IAM/latest/UserGuide/best-practices.md#bp-workloads-use-roles").
@@ -17,6 +18,7 @@ following steps to help your users follow AWS security best practices when they 
 3. Add permissions to grant access to those identities. You can [get started
    with AWS managed policies](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies") and move towards [least-privilege
    permissions](../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege "../../../IAM/latest/UserGuide/best-practices.md#grant-least-privilege").
+
    - [Add permission
      sets to AWS IAM Identity Center (successor to AWS Single Sign-On) users](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md").
    - [Add identity-based policies to IAM roles](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md#add-policies-console") used for workloads.
@@ -29,6 +31,7 @@ following steps to help your users follow AWS security best practices when they 
    identity you created.
 5. Keep your root user email address and primary account contact phone number up to date to
    ensure that you can receive important account and security-related notifications.
+
    - [Modify the account
      name email address, or password for the AWS account root user](../../../accounts/latest/reference/manage-acct-update-root-user.md "../../../accounts/latest/reference/manage-acct-update-root-user.md").
    - [Access or

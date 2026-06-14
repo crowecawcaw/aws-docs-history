@@ -10,6 +10,7 @@ Your password must adhere to the following requirements:
 - Passwords must be between 8 and 64 characters in length.
 - Passwords must contain at least one character from each of the following four
   categories:
+
   - Lowercase letters (a-z)
   - Uppercase letters (A-Z)
   - Numbers (0-9)
@@ -30,6 +31,7 @@ Tools and services that use AWS Builder ID direct you to create and use your AWS
    profile](https://profile.aws.amazon.com/ "https://profile.aws.amazon.com/") or the sign-up page of the AWS tool or service that you want
    to access. For example, to access Amazon CodeCatalyst, go to [https://codecatalyst.aws](https://codecatalyst.aws "https://codecatalyst.aws").
 2. Choose how to create your AWS Builder ID
+
    - To use your Google Account, choose **Continue with Google**
      and follow the prompts to complete the sign-up process. This skips steps 3-8 below.
      Go to step 9.

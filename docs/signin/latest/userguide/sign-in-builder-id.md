@@ -45,6 +45,7 @@ Builder](https://skillbuilder.aws/ "https://skillbuilder.aws/").
    the sign-in page of the AWS tool or service that you want to access. For example, to access
    Amazon CodeCatalyst, go to [https://codecatalyst.aws](https://codecatalyst.aws "https://codecatalyst.aws").
 2. Choose how to sign-in to your AWS Builder ID
+
    - [I have an existing account](#sign-in-builder-id-email "#sign-in-builder-id-email")
    - [I have a Google Account](#sign-in-builder-id-google "#sign-in-builder-id-google")
    - [I have an Apple Account](#sign-in-builder-id-apple "#sign-in-builder-id-apple")

@@ -6,6 +6,7 @@ Your password must adhere to the following requirements:
 - Passwords must be between 8 and 64 characters in length.
 - Passwords must contain at least one character from each of the following four
   categories:
+
   - Lowercase letters (a-z)
   - Uppercase letters (A-Z)
   - Numbers (0-9)

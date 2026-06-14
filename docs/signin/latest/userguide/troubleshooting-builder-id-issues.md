@@ -125,6 +125,7 @@ with your local settings or email address.
   Protocol (NTP)](https://en.wikipedia.org/wiki/Network_Time_Protocol "https://en.wikipedia.org/wiki/Network_Time_Protocol") server.
 - Review your email address for formatting errors. The following issues will
   return an error when trying to sign in with your AWS Builder ID.
+
   - Space in an email address
   - Forward slash (/) in an email address
   - Two periods (.) in an email address
@@ -153,6 +154,7 @@ password:
   must be between 8 and 64 characters in length.
 - Passwords must contain at least one character from each of the following four
   categories:
+
   - Lowercase letters (a-z)
   - Uppercase letters (A-Z)
   - Numbers (0-9)
