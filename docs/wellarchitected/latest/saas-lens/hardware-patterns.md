@@ -28,6 +28,7 @@ excess resource consumption.
 - [Auto Scaling](../../../autoscaling/index.md "../../../autoscaling/index.md")—AWS
   provides multiple services that you can use to scale your application.
 - Examples of AWS managed services:
+
   - [Amazon Relational Database Service (Amazon RDS)](https://aws.amazon.com/rds/ "https://aws.amazon.com/rds/")
   - [AWS Fargate](https://aws.amazon.com/fargate/ "https://aws.amazon.com/fargate/")
   - [Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/")
