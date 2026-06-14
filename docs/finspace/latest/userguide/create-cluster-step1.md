@@ -39,13 +39,16 @@ Specify details for each of the following sections on **Add cluster details** pa
 ## Cluster running mode
 
 1. Choose if you want to add this cluster as a dedicated cluster or as a part of scaling groups.
+
    - **Run on kdb scaling group** – Allows you to share a single set of compute with multiple clusters.
    - **Run as a dedicated cluster** – Allows you to run each process on its own compute hose.
 
 2. If you choose **Run as a dedicated cluster**, you also need to provide the Availability Zones where you want to create a
    cluster.
+
    1. Choose **AZ mode** to specify the number of Availability Zones where you want to create a
       cluster. You can choose from one of the following options:
+
       - **Single** – Allows you to create a
         cluster in one Availability Zone that you select. If you choose
         this option, you must specify only one Availability Zone value

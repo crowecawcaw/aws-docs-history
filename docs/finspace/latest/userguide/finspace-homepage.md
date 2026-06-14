@@ -28,6 +28,7 @@ The navigation bar on the left consists of the following controls:
 - **Catalog** – Opens the data browser and the browse results page.
 - **Go to Notebook** – Opens a FinSpace notebook in a new tab of your browser. This control is visible only if your user is a member of a permission group with necessary permissions.
 - **Administrative controls** – The left navigation consists of the following controls that provide access to the administrative functions in FinSpace. Each menu item will take you to the function for that feature. These functions will be visible on the menu only if your user is a member of a permission group with necessary permissions.
+
   - **Add Data** – Opens the **Add Data** page, where you can quickly upload a data file and create a new dataset to store the data file. For more information, see [Adding and managing data in Amazon FinSpace](finspace-add-data.md "finspace-add-data.md").
   - **Manage Data** – Opens the **Manage Data** page, where you can configure a business data catalog for browsing datasets by using categories, controlled vocabularies, and attribute sets. You can also add data from this page.
 

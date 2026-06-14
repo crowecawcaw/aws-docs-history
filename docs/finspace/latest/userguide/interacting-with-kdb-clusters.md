@@ -91,6 +91,7 @@ account.
 ###### To connect to a cluster endpoint or cluster node
 
 1. **Create IAM role for a new user.**
+
    1. Sign in to AWS Management Console, and open IAM Identity
       Center.
    2. Create an IAM role.
@@ -121,7 +122,6 @@ account.
    }`
 
    ```
-
    4. Associate the IAM role to the following trust policy that allows
       FinSpace to assume the role, as well as the account itself.
 
@@ -157,6 +157,7 @@ aws finspace create-kx-user
 
 3. **Federate the user that you created into its user
    role.**
+
    1. To get a kdb connection string for a user, you must first federated
       into the role associated with the user. How you assume this role
       depends on what federation tool you use. If you use AWS Security Token Service, you
@@ -171,7 +172,6 @@ aws finspace create-kx-user
    --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
    --output text))
    ```
-
    2. Verify that the role has been assumed.
 
    ```

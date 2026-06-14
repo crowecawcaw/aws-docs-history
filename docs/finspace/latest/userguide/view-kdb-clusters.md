@@ -13,6 +13,7 @@ After careful consideration, we decided to end support for Amazon FinSpace, effe
    tab. The table under this tab displays a list of clusters.
 5. Choose a cluster name to view its details. The cluster details page opens
    where you can view the cluster details and the following tabs.
+
    - **Configuration** tab – Displays the cluster configuration
      details like the node details, code, availability zones, savedown
      database configuration etc.

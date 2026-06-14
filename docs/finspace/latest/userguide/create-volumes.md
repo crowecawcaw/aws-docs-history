@@ -15,6 +15,7 @@ After careful consideration, we decided to end support for Amazon FinSpace, effe
    the **Volume type**. Currently, FinSpace only supports
    **NAS_1** (network attached storage) volume type.
 7. Choose the throughput from one of the following types.
+
    - **SSD_1000**
    - **SSD_250**
    - **HDD_12**

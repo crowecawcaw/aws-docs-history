@@ -58,6 +58,7 @@ Before you proceed with this section, we recommend that you begin by reading [Wo
 1. Sign in to the FinSpace web application. For more information, see [Signing in to the Amazon FinSpace web application](signing-into-amazon-finspace.md "signing-into-amazon-finspace.md").
 2. Open data view in a notebook. For more information, see [Opening the notebook environment](opening-the-notebook-environment.md "opening-the-notebook-environment.md").
 3. A default notebook in read-only preview is populated with the details of the view. Choose **Create a copy.** The notebook is created with name **notebook.ipynb.** The notebook contains code for:
+
    - Starting a Spark cluster.
    - Loading the data view in a Spark DataFrame.
    - Print the schema and contents of the DataFrame.

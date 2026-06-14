@@ -33,6 +33,7 @@ A data view is constructed from changesets. Two factors are taken into account f
    auto-update view, the specified date and time is current day and timestamp.
 2. The changeset types are interpreted for a creating a data view in the following
    ways:
+
    - **Changeset with Append type** –
      Changeset is interpreted as an addition to the end of all the prior created
      changesets. The changeset will be considered for view creation.

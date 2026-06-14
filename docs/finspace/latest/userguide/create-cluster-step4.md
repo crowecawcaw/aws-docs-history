@@ -46,9 +46,11 @@ Dedicated clusters
 3. Choose whether you want to cache your data from your database to
    this cluster. If you choose to enable caching, provide the following
    information:
+
    1. Choose the cache type, which is a type of read-only storage
       for storing a subset of your database content for faster read
       performance. You can choose from one of the following options:
+
       - **CACHE_1000** – Provides a throughput of 1000 MB/s per unit storage (TiB).
       - **CACHE_250** – Provides a throughput of 250 MB/s per unit storage (TiB).
       - **CACHE_12** – Provides a throughput of 12 MB/s per unit storage (TiB).
@@ -114,6 +116,7 @@ Scaling group cluster
 
 1. **(Optional) Read data
    configuration**
+
    1. Choose the name of the database.
    2. Choose a dataview for the database you selected.
 
@@ -143,6 +146,7 @@ Dedicated clusters
 
 1. **(Optional) Read data
    configuration**
+
    1. Choose the name of the database. This database must have a
       changeset added to it.
    2. Choose the changeset that you want to use. By default, this
@@ -150,12 +154,14 @@ Dedicated clusters
    3. Choose whether you want to cache your data from your database to
       this cluster. If you choose to enable caching, provide the
       following information:
+
       1. Specify paths within the database directory where you want
          to cache data.
       2. Choose the cache type, which is a type of read-only
          storage for storing a subset of your database content for
          faster read performance. You can choose from one of the
          following options:
+
          - **CACHE_1000** – Provides a
            throughput of 1000 MB/s per unit storage (TiB).
          - **CACHE_250** – Provides a

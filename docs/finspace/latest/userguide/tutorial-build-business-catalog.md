@@ -85,11 +85,13 @@ On the **Categories** page, uncheck the eye (![Icon of a crossed-out eye, repres
 4. For attribute name, enter `Data and Source Information`.
 5. Choose **Categorization** to add a categorization field type.
 6. On the **Add Categorization Field** page, do the following:
+
    1. Choose **Data Types** as the categorization field type.
    2. Choose **Add Field**.Repeat these steps again and choose **Data Source** as the as the categorization field type.
 
 7. Choose **Controlled Vocabulary** to add a controlled vocabulary field type.
 8. On the **Add Controlled Vocabulary Field** page, do the following:
+
    1. Choose **Data Classification** as the controlled vocabulary field type.
    2. Choose **Add Field**.
 
@@ -125,10 +127,12 @@ Once the upload of the sample data file is complete, a process is kicked off to 
 2. On the **Catalog** page, choose **Industrial production total index** from the results, to go to the [Dataset details page](dataset-details-page.md "dataset-details-page.md").
 3. On the dataset details page for `Industrial production total index`, under **Details About This Dataset**, choose **Add Attribute Set**.
 4. On **Add Attribute Set** page, do the following
+
    1. From the drop down menu, choose `Data and Source Information`.
    2. Choose **Add Attribute Set**.
 
 5. Edit the values for `Data and Source Information` as following:
+
    1. For **Data Types**, enter `Economic Data`.
    2. For **Data Source**, enter `Central Bank`.
    3. For **Data Classification**, enter `Public Data`.

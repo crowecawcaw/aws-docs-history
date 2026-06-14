@@ -123,6 +123,7 @@ path structures [here](https://code.kx.com/q/database/ "https://code.kx.com/q/da
 7. Choose **Create changeset**.
 8. On the **Create changeset** page, select one of the
    following types of changeset.
+
    - _PUT_ – Adds or updates
      files in a database.
    - _DELETE_ – Deletes files in

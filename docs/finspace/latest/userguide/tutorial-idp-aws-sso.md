@@ -109,6 +109,7 @@ URL** and **URN**.
    then choose **Edit configuration**.
 5. In the **Application metadata** section, paste the
    following values that you copied in step 2 of this tutorial.
+
    1. For **Application ACS URL**, paste the
       **Redirect / Sign-in URL**.
    2. For **Application SAML audience**, paste the

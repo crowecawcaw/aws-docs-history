@@ -74,6 +74,7 @@ information about using datasets in the FinSpace web application, see [Using ext
 ###### Note
 
 - You can't edit the following fields:
+
   - **Environment**
   - **Data provider**
   - **Connector name**

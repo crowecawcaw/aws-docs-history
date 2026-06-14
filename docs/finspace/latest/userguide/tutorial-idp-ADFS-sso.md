@@ -100,6 +100,7 @@ need this document or URL to create the FinSpace environment.
     Directory**.
 21. Under **Mapping of LDAP attributes to outgoing claim
     types**, set the LDAP attributes as following:
+
     1. For **LDAP attribute**, enter
        `E-mail-Addresses` and for **Outgoing Claim
        Type** , enter `E-mail Address`.

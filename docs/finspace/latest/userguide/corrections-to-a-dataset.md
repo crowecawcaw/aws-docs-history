@@ -21,6 +21,7 @@ is created if both changesets fall under the specified date and time of the view
 4. Under the **Dataset Update History** table, from the list of changesets identify the changeset to be replaced and then choose the corrections icon (![Two curved arrows forming a circular shape, indicating a refresh or sync operation.](images/05-add-and-manage-data/corrections-icon.png)).
 5. Choose **Choose CSV File** to select and upload a file from your desktop.
 6. Once the file is uploaded, choose the input format for the ingested data from the following options:
+
    - **Delimiter** – Specifies the delimiter character. The
      default value is _Comma_.
    - **Escape Character** – Specifies a character to use for

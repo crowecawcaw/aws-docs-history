@@ -13,6 +13,7 @@ After careful consideration, we decided to end support for Amazon FinSpace, effe
    tab.
 5. From the list of scaling groups, choose a name to view its details. The Kdb scaling group
    details page opens where you can view the following details.
+
    - **Scaling group details** section – Displays the metadata
      of the scaling group that you view.
    - **Configuration** tab – Displays the

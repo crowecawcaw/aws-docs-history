@@ -21,6 +21,7 @@ You sign in to the Amazon FinSpace web application by using the credentials and 
 5. Enter the temporary password provided by your superuser.
 6. Enter your password in **Password**. If you aren't sure, ask the superuser. If you create a new password, enter your password again to confirm it.
    Passwords are case-sensitive, must be between 8 and 64 characters in length, and must contain at least one character from four of the following categories:
+
    - Lowercase letters (a-z)
    - Uppercase letters (A-Z)
    - Numbers (0-9)

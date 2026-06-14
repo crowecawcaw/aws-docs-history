@@ -19,6 +19,7 @@ Before you proceed, make sure that you have the following available:
 - Goldman Sachs Financial Cloud for Data API credentials –
   These credentials will be used to connect to the GSFCD. The credentials will be
   stored in AWS Secrets Manager so that the data connector can use them securely.
+
   - Registered users for Goldman Sachs Financial Cloud for Data can obtain new API credentials from [Goldman Sachs Developer website](https://developer.gs.com/go/apps/view "https://developer.gs.com/go/apps/view").
   - New users can submit a request to obtain API credentials at [Goldman Sachs Financial Cloud for Data](https://developer.gs.com/discover/data " https://developer.gs.com/discover/data").
 
@@ -69,6 +70,7 @@ page opens. You can choose an existing secret name or create a new one.
 1. On the **Secret name** page, choose an existing secret name from the dropdown
    list.
 2. You can also create a new secret name on this page by choosing the **Create new secret** option from the list.
+
    1. Under the **Create new secret** section, for **Secret name**, enter a unique name for the secret.
    2. Enter the key-value pair for your secret in **Client ID** and
       **Client secret**, respectively.

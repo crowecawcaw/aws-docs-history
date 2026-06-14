@@ -33,6 +33,7 @@ to it at the time of creation.
 5. Choose **Select CSV File** to select and
    upload a file from your desktop.
 6. Once the file is uploaded, choose the input format for the ingested data from the following options:
+
    - **Delimiter** – Specifies the delimiter character. The
      default value is _Comma_.
    - **Escape Character** – Specifies a character to use for
@@ -64,6 +65,7 @@ to it at the time of creation.
 5. Choose **Select CSV File** to select and
    upload a file from your desktop.
 6. Once the file is uploaded, choose the input format for the ingested data from the following options:
+
    - **Delimiter** – Specifies the delimiter character. The
      default value is _Comma_.
    - **Escape Character** – Specifies a character to use for

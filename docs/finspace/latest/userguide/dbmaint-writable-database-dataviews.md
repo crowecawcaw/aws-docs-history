@@ -41,6 +41,7 @@ Before you proceed, complete the following prerequisites:
     Currently, you can only choose single availability zone.
 11. Under **Changeset update settings**, do the
     following.
+
     1. Choose **Static** mode of update.
 
     ###### Note

@@ -11,6 +11,7 @@ After careful consideration, we decided to end support for Amazon FinSpace, effe
 3. From the kdb environments table, choose the name of the environment.
 4. On the environment details page, choose the **Volumes** tab. The table under this tab displays a list of volumes created in the environment.
 5. Choose a volume name to view its details. The volume details page opens where you can view the following details.
+
    - **Volume details** section – Displays the metadata of the
      volume that you created.
    - **Configuration** tab – Displays the details about the

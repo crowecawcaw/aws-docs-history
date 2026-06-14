@@ -26,6 +26,7 @@ Before you proceed, complete the following prerequisites:
   Guide_.
 - Make sure that you’ve gathered the following information to create an Support
   case to request access:
+
   - FinSpace environment ID.
   - AWS Region of the FinSpace environment.
   - Transit gateway ID of the transit gateway that you will connect your

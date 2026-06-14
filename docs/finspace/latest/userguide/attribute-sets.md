@@ -40,6 +40,7 @@ In order to create attribute sets, you must be a superuser or a member of a grou
 5. Enter a name for the attribute set. For example, `Data source and Vendor Information`.
 6. (Optional) Add a description for the attribute.
 7. Choose the type of fields to the attribute set.
+
    - **Data** – A field of type Number, String, or Boolean.
    - **Categorization** – A field that is a type of an already defined category. For example, an `Asset class`.
    - **Controlled Vocabulary** – A field that is a type of an already defined controlled vocabulary. For example, `Data Sensitivity Classification`.

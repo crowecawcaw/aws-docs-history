@@ -25,6 +25,7 @@ In order to create and manage data views, you must be a superuser or a member of
    see [Data view concepts](data-view-concepts.md "data-view-concepts.md").
 6. For **Access Through**, choose one of the
    following options:
+
    - **FinSpace notebook using Spark** – For
      accessing the data view using the notebook.
    - **Externally using FinSpace API** – For
@@ -33,8 +34,10 @@ In order to create and manage data views, you must be a superuser or a member of
 
 7. Select partitioning for the data view under **Partition
    Data**.
+
    - If partitioning is not required, choose **No**.
    - If partitioning is required, choose **Yes**.
+
      - Select the columns to partition the view.
      - After you have selected the columns, **Order
        Partitions** list is populated on the right side of the
@@ -42,8 +45,10 @@ In order to create and manage data views, you must be a superuser or a member of
        the partition order.
 
 8. Select sorting for the view.
+
    - If sorting is not required, choose **No**.
    - If sorting is required, choose **Yes**.
+
      - Select the columns to sort the view.
      - After you have selected the columns, **Column
        Sort-By Order** list is populated on the right side of the

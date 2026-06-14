@@ -21,6 +21,7 @@ The following sections provide a detailed overview of the operations that you ca
 9. Choose the availability zone that you want to associate with the dataview.
    Currently, you can only choose single availability zone.
 10. Choose a how you want to update data in the dataview from one of the following options.
+
     - **Auto-update** – Adds the most recent version of the
       data in a database. The dataview is automatically updated as new data is added to
       the database.
@@ -78,6 +79,7 @@ You can choose the dataview name from the list to view its details.
     created, and their creation time.
 7.  From the list of dataviews, choose a name to view its details. The dataviews details page
     opens where you can view the following details.
+
     - **Dataview details** section – Displays the metadata of
       the dataview that you created.
     - **Configuration** tab – Displays the details
