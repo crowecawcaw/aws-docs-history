@@ -45,6 +45,7 @@ the keys and the certificate in a safe place following security best practices.
 
 1.  Send an email with the following information to
     `<expresslink-onboarding@amazon.com>`:
+
     - Company name
     - AWS account ID
     - Technical/Developer Contact (name and email)
