@@ -37,6 +37,7 @@ Lan Param(3) IP address: 10 4 130 12
    should just be able to open it directly.
 5. Change the security level in the Java control panel in order for the
    applet to run:
+
    1. In Windows, open **Control Panel**,
       **Programs**, and then
       **Java**.
