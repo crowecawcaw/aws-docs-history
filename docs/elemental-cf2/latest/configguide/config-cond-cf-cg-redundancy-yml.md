@@ -6,8 +6,10 @@ latest version. For prior versions, see the _Archive_ section of
 
 1. Use a text editor to create a file called `dbrepl_config.yml` in the home/elemental directory.
 2. Enter the following lines in the file. Make sure to enter values in single quotes.
+
    - `primary_hostname`: The hostname for the primary Conductor. Use one of
      the following:
+
      - The name that you assigned when you installed the Conductor software, regardless of whether
        you installed on a hardware unit or a VM. For example
        `conductor_01`.

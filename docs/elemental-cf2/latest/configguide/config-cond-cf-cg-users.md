@@ -19,6 +19,7 @@ For information on REST API access with user authentication, see the documentati
 2. Hover over **Configuration** (cog icon) on the main menu and choose **Users** from the dropdown menu.
 3. On the Conductor Configuration screen, choose **Settings** > **Users**.
 4. On the Users screen, complete all fields and choose **Create**. Some notes:
+
    - **Expires**: If selected, the user will automatically expire after the specified period of time.
    - **Force Password Reset**: If checked, the user must reset their password the first time they login.
    - **Role**: Select a role: Admin, Manager, User, Viewer. For information about the actions allowed with each role, see the following section _user Roles_.
@@ -32,13 +33,16 @@ This API key is randomly generated when the user is created. It cannot be create
 This section describes the actions that each user role can perform.
 
 - **Viewer**
+
   - Read-only access to AWS Elemental Conductor File and AWS Elemental Server
 
 - **Operator**
+
   - Same access as Viewer
   - Control the state of a job (cancel, archive, etc)
 
 - **Manager**
+
   - Same access as Viewer
   - Same access as Operator
   - Create and edit jobs
@@ -47,5 +51,6 @@ This section describes the actions that each user role can perform.
   - Create and edit watch folders
 
 - **Administrator**
+
   - Access to the entire AWS Elemental Conductor File and AWS Elemental Server systems, including all of the
     access provided by the other roles

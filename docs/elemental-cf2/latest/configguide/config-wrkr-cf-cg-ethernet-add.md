@@ -10,6 +10,7 @@ latest version. For prior versions, see the _Archive_ section of
 4. On the **Network Devices** tab, choose **Add Network Device**.
 5. In the **Add Network Device** dialog, select **eth** as the device type and choose **Save**.
 6. In the **Edit a Network Device** dialog, complete the fields as follows:
+
    - **Device Name**: Specify "ethN" (for example, `eth1`).
    - **Management**: Leave unchecked. eth0 has already been set up as the management interface and you do not need more than one management interface in the cluster. The management interface is ideally connected to a network dedicated to communication between Conductor and its worker nodes.
    - **Description**: Optional.

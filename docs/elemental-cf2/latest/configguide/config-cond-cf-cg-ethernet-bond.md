@@ -48,6 +48,7 @@ Before you begin this process, make sure that you've done the following:
 ## Step B: Assign the Devices
 
 1. Revise the two regular Ethernet devices as follows:
+
    - **Management**: Always Unchecked. This indicates that whether the devices are management or not is defined in the bond, not in the individual devices.)
    - **Master Device**: Select the bond that you just created (for example, bond0).
 

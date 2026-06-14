@@ -9,6 +9,7 @@ latest version. For prior versions, see the _Archive_ section of
 1. Log in to the AWS Elemental Conductor File web interface using administrator credentials.
 2. Hover over **Settings** and choose **Users**.
 3. On the **Users** screen, perform the following actions as needed:
+
    - To change the existing information for a user, choose **Edit** (pencil icon).
    - To reset a forgotten password, edit the user and enter a new password.
    - To force a user to reset their password the next time they log in, edit the user, and select **Force Password Reset**.

@@ -5,6 +5,7 @@ latest version. For prior versions, see the _Archive_ section of
 # Step A: Get Ready
 
 1. Identify the interface that you have configured as the management interface. Typically, this is one of the following:
+
    - eth0
    - bond0, if you bonded the management interfaces for the two Conductor nodes
 
@@ -17,6 +18,7 @@ If you bonded the management interfaces for the two Conductor nodes, use the `if
 ```
 
 3. Decide on a virtual IP address that will be used by the management interfaces on both Conductor nodes. This address must meet the following criteria:
+
    - An address on your network that will never be allocated to any other host.
    - An address on the same subnet as the Conductor nodes.
 
