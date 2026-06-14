@@ -21,6 +21,7 @@ Before you get started, you must have the following:
 ###### To receive AWS Health events with Amazon Q Developer in chat applications
 
 1. Follow the instructions to set up a rule in Amazon EventBridge to capture AWS Health events outlined in [Creating rules using the Enhanced Builder](../../../eventbridge/latest/userguide/eb-create-rule-visual.md "../../../eventbridge/latest/userguide/eb-create-rule-visual.md") and [Creating rules using the Advanced Builder](../../../eventbridge/latest/userguide/eb-create-rule-wizard.md "../../../eventbridge/latest/userguide/eb-create-rule-wizard.md") in the _Amazon EventBridge User Guide_. For more information, see [Configuring an EventBridge rule to send notifications about events in AWS Health](creating-event-bridge-events-rule-for-aws-health.md "creating-event-bridge-events-rule-for-aws-health.md").
+
    1. When you finish setting up the event pattern, add a comma to the last
       line of the pattern, and add the following line to remove unnecessary chat messages
       from paginated AWS Health events. See [Viewing paginated lists of AWS Health events on EventBridge](pagnation-of-health-events.md "pagnation-of-health-events.md").

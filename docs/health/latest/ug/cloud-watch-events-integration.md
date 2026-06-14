@@ -11,6 +11,7 @@ take action, when events change.
 1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
 2. To navigate to the EventBridge console to create a rule, do one of the
    following:
+
    - From the navigation pane, under **Health
      Integrations**, choose
      **Amazon EventBridge**.

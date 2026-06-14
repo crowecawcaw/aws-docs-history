@@ -20,12 +20,14 @@ AWS Health notifies you in advance of important changes such as:
 - Open source software end of support - Some AWS services run open source versions of
   software. If the open source community ends support for software versions, then AWS informs
   you when you need to take action to upgrade and avoid impact to your applications.
+
   - [Amazon RDS for MySQL engine
     version end of support](../../../AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.md "../../../AmazonRDS/latest/UserGuide/MySQL.Concepts.VersionMgmt.md")
   - [Amazon EKS
     Kubernetes version end of support](../../../eks/latest/userguide/kubernetes-versions.md#kubernetes-release-calendar "../../../eks/latest/userguide/kubernetes-versions.md#kubernetes-release-calendar")
 
 - Changes that affect AWS-owned resources that might require your action.
+
   - [Amazon RDS
     Certificate Authority certificates expiration](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.SSL-certificate-rotation.md").
 
@@ -125,6 +127,7 @@ Planned lifecycle events can be accessed and monitored using several channels:
 - [Use
   Amazon EventBridge](cloudwatch-events-health.md "cloudwatch-events-health.md")
 - [Use the AWS Health dashboard](getting-started-health-dashboard.md "getting-started-health-dashboard.md")
+
   - [Calendar
     view](aws-health-account-views.md#calendar-view "aws-health-account-views.md#calendar-view")
   - [Affected

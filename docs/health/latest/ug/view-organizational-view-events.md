@@ -61,6 +61,7 @@ and resources that affect your organization.
    issues** to view recently reported events.
 3. Choose an event. On the **Details** tab, you can
    review the following information about the event:
+
    - Event name
    - Status
    - Region / Availability Zone
@@ -99,6 +100,7 @@ options, such as the **Event category**,
    health**, choose **Event log**.
 3. Under **Event log**, choose the event name. You can
    review the following information about the event:
+
    - Event name
    - Status
    - Region / Availability Zone
@@ -126,6 +128,7 @@ and then contact the account owner.
 4. Choose the **Affected accounts** tab.
 5. Choose **Show account details** to view the following
    information for the accounts:
+
    - Account ID
    - Account name
    - Primary email
@@ -135,6 +138,7 @@ and then contact the account owner.
 7. If there are more than 10 resources, choose **View all
    resources** to view them.
 8. To filter by account ID for this specific event, do the following:
+
    1. On the **Affected accounts** tab, choose
       **Add filter**, choose **Account
       ID**, and then enter the account ID. You can only

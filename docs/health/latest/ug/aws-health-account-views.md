@@ -7,6 +7,7 @@ You can sign in to your account to get personalized events and recommendations.
 1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
 2. In the navigation pane, for **Your account health**, you can
    choose the following options:
+
    1. **[Open and recent
       issues](#dashboard "#dashboard")** – View recently opened and closed
       events.
