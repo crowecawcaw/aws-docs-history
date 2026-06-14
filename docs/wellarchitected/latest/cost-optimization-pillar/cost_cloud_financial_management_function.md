@@ -29,6 +29,7 @@ If you have the Business, Enterprise-On-Ramp or Enterprise [support plan](https:
 ### Implementation steps
 
 - **Define key members:** All relevant parts of your organization must contribute and be interested in cost management. Common teams within organizations typically include: finance, application or product owners, management, and technical teams (DevOps). Some are engaged full time (finance or technical), while others are engaged periodically as required. Individuals or teams performing CFM need the following set of skills:
+
   - **Software development:** in the case where scripts and
     automation are being built out.
   - **Infrastructure engineering:** to deploy scripts,

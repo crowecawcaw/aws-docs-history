@@ -23,6 +23,7 @@ can model your costs at different workload demands.
 
 - **Identify requirements:** What is the primary goal and business requirements for the planned data transfer between source and destination? What is the expected business outcome at the end? Gather business requirements and define expected outcome.
 - **Identify source and destination:** What is the data source and destination for the data transfer, such as within AWS Regions, to AWS services, or out to the internet?
+
   - [Data transfer within an AWS Region](../../../cur/latest/userguide/cur-data-transfers-charges.md#data-transfer-within-region "../../../cur/latest/userguide/cur-data-transfers-charges.md#data-transfer-within-region")
   - [Data transfer between AWS Regions](../../../cur/latest/userguide/cur-data-transfers-charges.md#data-transfer-between-regions "../../../cur/latest/userguide/cur-data-transfers-charges.md#data-transfer-between-regions")
   - [Data transfer out to the internet](../../../cur/latest/userguide/cur-data-transfers-charges.md#data-transfer-out-internet "../../../cur/latest/userguide/cur-data-transfers-charges.md#data-transfer-out-internet")
