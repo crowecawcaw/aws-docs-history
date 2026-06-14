@@ -28,6 +28,7 @@ page.
 1. In the **Purchase order options** menu, select a purchase order
    option.
 2. Enter or verify your billing details.
+
    - If your billing address is located outside of the United States, we collect
      Value Added Tax (VAT) and Goods and Services Tax (GST) information to verify
      tax status. Enter your Tax ID in the **VAT/GST Identification
@@ -43,6 +44,7 @@ providing post-sales support and documentation.
 
 1. On the **Specify shipping information** page, select a delivery
    type and enter shipping details, or use previously saved information.
+
    - If you choose **Request shipping quote**, the AWS Elemental
      Operations team sends shipping quotes to the delivery contact listed on the
      page, and to the contact who originally received the quote. If the quote is
@@ -58,6 +60,7 @@ providing post-sales support and documentation.
    address**, and then use the **Additional shipping
    requests** field under each address to specify which items on the order
    to ship to each delivery location.
+
    - We assess sales tax for only your orders delivered within the US. You must
      self-report applicable taxes for orders delivered outside of the US, whether
      you are a US-based company or not.
