@@ -8,6 +8,7 @@ The following differences apply to AWS CloudFormation:
 
 - KmsKeyID property is not available.
 - CloudFormation doesn’t support the following resources:
+
   - `AWS::IAM::GroupPolicy`
   - `AWS::IAM::RolePolicy`
   - `AWS::IAM::UserPolicy`

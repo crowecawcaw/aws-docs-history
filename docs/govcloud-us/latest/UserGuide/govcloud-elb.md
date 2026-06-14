@@ -32,6 +32,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - All customer parameters provided as input to Elastic Load Balancing (via console, APIs, or other mechanism) are not permitted to contain export-controlled data. Examples include the names of load balancers and the names of load balancer policies.
 - Do not enter export-controlled data in the following fields:
+
   - Resource tags
 
 If you are processing export-controlled data with this service, use the SSL (HTTPS) endpoint to maintain export compliance. For more information, see [Service Endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md").

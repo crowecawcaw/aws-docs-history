@@ -13,6 +13,7 @@ Only the following DLAMI are available:
 **GPU**
 
 - **X86**
+
   - [AWS Deep Learning Base AMI (Amazon Linux 2)](https://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux-2 "https://aws.amazon.com/releasenotes/aws-deep-learning-base-ami-amazon-linux-2")
 
 ### Multi-framework DLAMI
@@ -20,6 +21,7 @@ Only the following DLAMI are available:
 **GPU**
 
 - **X86**
+
   - [AWS Deep Learning AMI (Amazon Linux 2)](https://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-2 "https://aws.amazon.com/releasenotes/aws-deep-learning-ami-amazon-linux-2")
 
 ## Documentation

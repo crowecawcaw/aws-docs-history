@@ -9,6 +9,7 @@ The following differences apply to AWS Organizations:
 - You must use AWS Organizations with all features enabled. The consolidated billing feature set is not available in this Region.
 - You must meet the U.S. regulatory requirements as described in [Signing Up for AWS GovCloud (US).](../ug-west/getting-started-sign-up.md "../ug-west/getting-started-sign-up.md")
 - Creating accounts from within AWS Organizations operates differently in the AWS GovCloud (US) Regions compared to commercial AWS Regions:
+
   - You start creating AWS GovCloud (US) accounts by calling the [CreateGovCloudAccount](../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md "../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md") action from the management account of the organization in the commercial Region. Calling account creation APIs from the AWS GovCloud (US) Regions is not available.
   - When you call the CreateGovCloudAccount API action, you create two accounts: a standalone account in the AWS GovCloud (US) Regions, and an associated account in the commercial Region for billing and support purposes. The account in the commercial Region is automatically a member of the organization whose credentials made the request. Both accounts are associated with the same email address.
   - After creating the standalone account in the AWS GovCloud (US) Regions, you can invite it to an organization in the AWS GovCloud (US) Regions only.
@@ -19,12 +20,14 @@ The following differences apply to AWS Organizations:
 - To sign in to the AWS Organizations console in the AWS GovCloud (US) Regions, you must be signed in from a AWS GovCloud (US) account.
 - To learn what AWS services are currently available for trusted access with AWS Organizations, check the list in the AWS Organizations console from the AWS GovCloud (US) Regions.
 - The following Organizations API operations work only when you specify the AWS GovCloud (US-West) Region:
+
   - [DeletePolicy](../../../organizations/latest/APIReference/API_DeletePolicy.md "../../../organizations/latest/APIReference/API_DeletePolicy.md")
   - [DisablePolicyType](../../../organizations/latest/APIReference/API_DisablePolicyType.md "../../../organizations/latest/APIReference/API_DisablePolicyType.md")
   - [EnablePolicyType](../../../organizations/latest/APIReference/API_EnablePolicyType.md "../../../organizations/latest/APIReference/API_EnablePolicyType.md")
   - Any operation that references the organization root, such as [ListRoots](../../../organizations/latest/APIReference/API_ListRoots.md "../../../organizations/latest/APIReference/API_ListRoots.md").
 
 - Organization policies – You can use only the following policy types in an AWS GovCloud (US) organization:
+
   - [Service control policies](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md")
   - [Resource control policies (RCPs)](../../../organizations/latest/userguide/orgs_manage_policies_rcps.md "../../../organizations/latest/userguide/orgs_manage_policies_rcps.md")
   - [Tag policies](../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md "../../../organizations/latest/userguide/orgs_manage_policies_tag-policies.md")
@@ -44,6 +47,7 @@ The following tagging API operations work only when you specify the AWS GovCloud
 - [GetComplianceSummary](../../../resourcegroupstagging/latest/APIReference/API_GetComplianceSummary.md "../../../resourcegroupstagging/latest/APIReference/API_GetComplianceSummary.md")
 - [GetResources](../../../resourcegroupstagging/latest/APIReference/API_GetResources.md "../../../resourcegroupstagging/latest/APIReference/API_GetResources.md")
 - [StartReportCreation](../../../resourcegroupstagging/latest/APIReference/API_StartReportCreation.md "../../../resourcegroupstagging/latest/APIReference/API_StartReportCreation.md")
+
   - You can’t create or use [backup policies](../../../organizations/latest/userguide/orgs_manage_policies_backup.md "../../../organizations/latest/userguide/orgs_manage_policies_backup.md"), [chat application policies](../../../organizations/latest/userguide/orgs_manage_policies_chatbot.md "../../../organizations/latest/userguide/orgs_manage_policies_chatbot.md"), or [AI services opt-out policies](../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md "../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md").
 
 ## Creating Your Account

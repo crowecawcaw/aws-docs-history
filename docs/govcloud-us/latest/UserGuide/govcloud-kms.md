@@ -17,6 +17,7 @@ The following differences apply to AWS KMS:
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - AWS KMS metadata is not permitted to contain export-controlled data. Do not enter export-controlled data in the following fields:
+
   - Alias
   - Descriptions
   - Key policy documents, including key administrators and key users
@@ -25,5 +26,6 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - The [Encryption Context](../../../kms/latest/developerguide/encrypt-context.md "../../../kms/latest/developerguide/encrypt-context.md") is outside the Export-Controlled Content.
 - AWS KMS generated metadata will not contain export-controlled data:
+
   - Key ID
   - Key ARN

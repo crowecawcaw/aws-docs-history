@@ -8,6 +8,7 @@ The following differences apply to Amazon FSx:
 
 - Amazon FSx for Lustre Persistent_2 is not available.
 - For Amazon FSx for OpenZFS, the following features are not available:
+
   - Single-AZ 2 deployment type
   - Amazon S3 access points
 
@@ -24,10 +25,12 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 - Resource Tags.
 - ClientRequestTokens.
 - FSx for Windows File Server file system configuration fields:
+
   - Self-managed Active Directory user names
   - Self-managed Active Directory domain names
   - Self-managed Active Directory organizational unit distinguished names
   - DNS aliases
 
 - FSx for Lustre file system configuration fields:
+
   - S3 import and export data paths

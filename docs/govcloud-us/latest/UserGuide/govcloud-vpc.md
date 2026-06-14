@@ -25,6 +25,7 @@ The following differences apply to Amazon Virtual Private Cloud:
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - Amazon VPC metadata is not permitted to contain export-controlled data. This metadata includes all of the configuration data that you enter when setting up and maintaining your VPCs. This applies to free-text entry fields for VPC resources, including but not limited to:
+
   - Names and descriptions of security groups and security group rules
   - Keys and values of DHCP option sets
   - Names of destination log groups for VPC Flow Logs

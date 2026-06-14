@@ -9,9 +9,6 @@ The supported QuickSight capabilities in AWS GovCloud (US) give decision-makers 
 The following differences apply to Amazon Quick Suite:
 
 - Amazon Quick Suite (formerly Amazon QuickSight) is supported in AWS GovCloud (US) regions with limitations. Only the core business intelligence capabilities are available, including dashboards, visualizations, data analysis, and reporting features. AI-powered features and functionality introduced as part of Amazon Quick Suite are not available in AWS GovCloud (US) regions.
-
-Below listed are the differences between the AWS GovCloud (US) and the standard AWS Regions.
-
 - Email based user provisioning is not available.
 - Using geospatial visualizations is not available.
 - Using Amazon SageMaker AI integration is not available.

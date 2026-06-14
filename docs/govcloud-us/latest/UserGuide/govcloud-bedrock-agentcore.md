@@ -16,6 +16,7 @@ The following differences apply to Amazon Bedrock AgentCore:
 - AgentCore Policy is not available.
 - AWS Agent Registry (Preview) is not available.
 - The following CloudFormation resources are not available:
+
   - `AWS::BedrockAgentCore::OnlineEvaluationConfig`
   - `AWS::BedrockAgentCore::OAuth2CredentialProvider`
   - `AWS::BedrockAgentCore::Evaluator`

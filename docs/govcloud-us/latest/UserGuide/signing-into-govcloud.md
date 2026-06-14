@@ -22,6 +22,7 @@ Before you sign in to an AWS GovCloud (US) account as an IAM user, be sure that 
 ###### Requirements
 
 - One of the following:
+
   - The account alias.
   - The 12-digit AWS GovCloud (US) account ID.
 

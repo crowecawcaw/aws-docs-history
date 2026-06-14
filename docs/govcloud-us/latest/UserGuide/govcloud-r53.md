@@ -6,7 +6,7 @@ Route 53 is a highly available and scalable Domain Name System (DNS) web servic
 
 The following differences apply to Amazon Route 53:
 
-Public Hosted Zones
+**Public Hosted Zones**
 
 - DNS queries will be answered from within FedRAMP boundary.
 - When creating alias records, you can now choose alias targets in the AWS GovCloud (US) Regions, but you cannot choose alias targets in global AWS Regions. Currently, we support alias targets for API Gateway, Elastic Beanstalk, Application Load Balancer, Classic Load Balancer, Network Load Balancer, Amazon S3 website endpoint, and VPC endpoint. The other alias targets are not available.
@@ -15,22 +15,24 @@ Public Hosted Zones
 - CloudWatch metrics like DNSQueries can be found in AWS GovCloud (US-West).
 - IP-based routing type is not available.
 - Route 53 [Traffic Flow](../../../Route53/latest/DeveloperGuide/traffic-flow.md "../../../Route53/latest/DeveloperGuide/traffic-flow.md") is supported as follows:
+
   - You can create traffic policies using all routing policy types.
   - You can’t use CloudFront distributions as alias targets in traffic policies.
 
 - DNS query checking tool on the console, and `TestDNSAnswer` API are not available.
 
-Private Hosted Zones
+**Private Hosted Zones**
 
 - You can create private hosted zones in the AWS GovCloud (US). In general, the functionality is the same as for private hosted zones in the commercial version of Route 53.
 - Latency based, geolocation, and geoproximity routing types are not available in private hosted zones.
 - Route 53 Resolver delegation is not available.
 
-Health Checking
+**Health Checking**
 
 - You can create health checks that monitor endpoints in the AWS GovCloud, and you can create health checks that monitor the status of other health checks.
 - As in other AWS Regions, if you create a health check that monitors an endpoint in the AWS GovCloud, you must make the endpoint available on the public internet. Route 53 health checkers send health checking requests over the public internet.
 - You can restrict access to your endpoints by allowlisting the IP addresses of Route 53 health checkers in the AWS GovCloud:
+
   - 160.1.56.0/25
   - 160.1.55.0/25
   - 160.1.55.128/25

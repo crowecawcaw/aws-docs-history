@@ -88,9 +88,11 @@ For more information about AWS CodeDeploy, see the [AWS CodeDeploy documentation
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - **Application Details:**
+
   - Name
 
 - **Deployment Groups:**
+
   - Deployment group name
   - Service Role name
   - EC2 Auto Scaling group names
@@ -105,5 +107,6 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
   - Deployment CloudWatch alarms
 
 - **Deployment Configuration:**
+
   - Deployment configuration name
   - Deployment description

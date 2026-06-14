@@ -18,4 +18,5 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Customer user cases
 - Do not enter export-controlled data in the following fields:
+
   - Registrations

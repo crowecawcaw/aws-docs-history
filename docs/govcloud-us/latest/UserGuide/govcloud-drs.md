@@ -13,6 +13,7 @@ The following differences apply to AWS Elastic Disaster Recovery:
 - AWS Elastic Disaster Recovery trusted account features are only supported between other GovCloud AWS accounts.
 - The Provisioned IOPS SSD (io2) EBS volume type is not available in the AWS GovCloud (US) Regions.
 - AWS Elastic Disaster Recovery leverages the following AWS services in AWS GovCloud (US). Please refer to the individual service for GovCloud differentiators:
+
   - [Amazon EC2](govcloud-ec2.md "govcloud-ec2.md")
   - [AWS Key Management Service](govcloud-kms.md "govcloud-kms.md")
   - [Amazon EBS](govcloud-ebs.md "govcloud-ebs.md")
@@ -40,6 +41,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon EC2 metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your AWS Elastic Disaster Recovery source servers.
 - Do not enter export-controlled data in the following fields:
+
   - Source server names
   - Key and Value of Tags associated with your resources.
   - Name and Description of Security Groups and Security Group Rules

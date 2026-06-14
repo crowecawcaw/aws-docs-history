@@ -26,6 +26,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon EMR metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your job flows.
 - Do not enter export-controlled data in Amazon EMR when doing the following:
+
   - Naming a job flow
   - Specifying a file location
   - Naming a bootstrap action

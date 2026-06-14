@@ -16,5 +16,6 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon Glacier metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your Amazon Glacier vaults names.
 - Do not enter export-controlled data in the following fields:
+
   - Resource tags: Key
   - Resource tags: Value

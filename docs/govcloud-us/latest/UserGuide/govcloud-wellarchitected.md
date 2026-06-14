@@ -11,8 +11,9 @@ AWS Well-Architected Tool (AWS WA Tool) is a service in the cloud that provides 
 
 The following differences apply to AWS Well-Architected Tool:
 
-**AWS Service Catalog AppRegistry integration with Well-Architected using service-managed attribute groups** – The ability to reference Well-Architected metadata in AppRegistry using service-managed attribute groups is not available.
-**Profiles** – Profiles is not available. \* Jira \* – The AWS Well-Architected Tool Connector for Jira is not available.
+- **AWS Service Catalog AppRegistry integration with Well-Architected using service-managed attribute groups** – The ability to reference Well-Architected metadata in AppRegistry using service-managed attribute groups is not available.
+- **Profiles** – Profiles is not available.
+- **Jira** – The AWS Well-Architected Tool Connector for Jira is not available.
 
 ## Documentation
 

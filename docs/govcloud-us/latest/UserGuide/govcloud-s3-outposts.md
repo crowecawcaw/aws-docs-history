@@ -17,6 +17,7 @@ The following differences apply to Amazon S3 on Outposts:
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - Amazon S3 on Outposts metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your Amazon S3 on Outposts buckets, such as bucket names. For example, do not enter export-controlled data in the following fields:
+
   - Outpost Bucket Name
   - Outpost Object Name
   - Resource tags

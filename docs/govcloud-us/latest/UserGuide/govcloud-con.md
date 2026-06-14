@@ -13,6 +13,7 @@ The following differences apply to Connect Customer:
 - It supports only the latest contact search experience, as described in [What’s new in contact search](../../../connect/latest/adminguide/contact-search.md#new-contact-search-experience "../../../connect/latest/adminguide/contact-search.md#new-contact-search-experience").
 - Amazon Connect in AWS GovCloud (US) is in a separate partition from all commercial Regions. Therefore it does not support cross-partition integration with other AWS services – such as Amazon Lex, Amazon Lambda, Amazon Kinesis, Amazon S3, Amazon CloudWatch, amongst others – that are available in commercial Regions.
 - The following Amazon Connect features are not available.
+
   - Amazon Connect Customer Profiles
   - Amazon Q in Connect
   - Amazon Connect Voice ID

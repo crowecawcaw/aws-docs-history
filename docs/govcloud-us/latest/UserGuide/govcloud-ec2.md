@@ -35,6 +35,7 @@ The following differences apply to Amazon Elastic Compute Cloud:
 - [EC2 Instance Connect](../../../AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.md "../../../AWSEC2/latest/UserGuide/Connect-using-EC2-Instance-Connect.md") will not work if your Linux instance has SELinux enabled in enforcing mode. The process for enabling or disabling SELinux varies across Linux distributions. For information about how to check the status of SELinux on your instance, or to enable or disable SELinux, see the relevant operating system guide for your instance.
 - EC2 CPU Optimization is currently API-only.
 - [Attestation documents](../../../enclaves/latest/user/set-up-attestation.md "../../../enclaves/latest/user/set-up-attestation.md") used by Nitro Enclaves are signed by the AWS Nitro Attestation Public Key Infrastructure (PKI). You can verify that the attestation documents are signed by the Nitro Attestation PKI. For more information, see [Verifying the root of trust](../../../enclaves/latest/user/verify-root.md "../../../enclaves/latest/user/verify-root.md") in the _AWS Nitro Enclaves User Guide_.
+
   - The root certificate for the Nitro Attestation PKI is unique for each [partition](../../../whitepapers/latest/aws-fault-isolation-boundaries/partitions.md "../../../whitepapers/latest/aws-fault-isolation-boundaries/partitions.md"). The root certificate for the `aws-us-gov` partition is as follows:
 
   ```
@@ -53,7 +54,6 @@ The following differences apply to Amazon Elastic Compute Cloud:
   WigyQlpyJUrWapqk0afDA4lef14=
   -----END CERTIFICATE-----
   ```
-
   - The Nitro Attestation PKI root certificate for the `aws-us-gov` partition has a subject as follows:
 
   `CN=aws-us-gov.nitro-enclaves, C=US, O=Amazon, OU=AWS`
@@ -68,10 +68,12 @@ The following differences apply to Amazon Elastic Compute Cloud:
 The following differences apply to VM Import/Export:
 
 - When using VM Import:
+
   - If your account is set up as default VPC, then your default VPC will be the target for your import.
   - If your account is not set up as default VPC, then you will need to specify an Availability Zone and subnet. To specify a subnet to use when you create the import task, use the `--subnet –0—` option and `–z –1—` option (specifying the Availability Zone corresponding to the subnet ID) with the [ec2-import-instance](../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-ImportInstance.md "../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-ImportInstance.md") command.
 
 - When using VM Export:
+
   - The Amazon EC2 instance must have been previously imported using VM Import.
   - The Amazon S3 bucket for the destination image must exist and must have WRITE and READ_ACP permissions granted to the AWS GovCloud (US) account with canonical ID: af913ca13efe7a94b88392711f6cfc8aa07c9d1454d4f190a624b126733a5602.
   - To export an instance, you can use the [ec2-create-instance-export-task](../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-CreateInstanceExportTask.md "../../../AWSEC2/latest/CommandLineReference/ApiReference-cmd-CreateInstanceExportTask.md") command. For more information, see [Exporting an instance as a VM using VM Import/Export](../../../vm-import/latest/userguide/vmexport.md "../../../vm-import/latest/userguide/vmexport.md").
@@ -101,6 +103,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon EC2 metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your instances.
 - Do not enter export-controlled data in the following fields:
+
   - Instance names
   - AMI descriptions
   - Resource tags

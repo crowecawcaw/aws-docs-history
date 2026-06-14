@@ -13,6 +13,7 @@ The Amazon Pinpoint API is currently available in AWS GovCloud (US-West).
 The following differences apply to Amazon Pinpoint:
 
 - Amazon Pinpoint API
+
   - You can’t use the SendMessages operation in the Amazon Pinpoint API to send voice messages.
   - The **Machine learning modules** section isn’t available in the Amazon Pinpoint console.
   - The **Analytics** section of the Amazon Pinpoint console doesn’t include the **Events** page.
@@ -33,6 +34,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon Pinpoint metadata is not permitted to contain export-controlled data. This metadata includes all the configuration data that you enter when creating and maintaining your Amazon Pinpoint tables, such as table names, hash attribute names, and range attribute names.
 - Do not enter export-controlled data in the following fields:
+
   - Keyspace names
   - Table names
   - Column names

@@ -8,11 +8,13 @@ The following differences apply to Application Auto Scaling:
 
 - Application Auto Scaling notifications are not currently supported in the AWS Health Dashboard.
 - The following resources are not currently supported for Application Auto Scaling in the AWS GovCloud (US-West) Region:
+
   - Amazon Neptune clusters
   - Spot Fleet requests
   - Custom resources
 
 - The following resources are not currently supported for Application Auto Scaling in the AWS GovCloud (US-East) Region:
+
   - Amazon Comprehend document classification and entity recognizer endpoints
   - Amazon Neptune clusters
   - SageMaker AI endpoint variants
@@ -33,5 +35,6 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Auto Scaling is not permitted to contain export-controlled data.
 - For example, do not enter export-controlled data in the following fields:
+
   - Scaling policy names
   - Scaling policy configuration

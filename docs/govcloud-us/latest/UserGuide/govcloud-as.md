@@ -20,6 +20,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Auto Scaling is not permitted to contain export-controlled data.
 - For example, do not enter export-controlled data in the following fields:
+
   - Capacity group tag names
   - Capacity group tag name values
   - Capacity group names

@@ -8,10 +8,12 @@ The following differences apply to AWS Directory Service:
 
 - Only AWS Managed Microsoft AD and AD Connector directory types are supported by AWS Directory Service.
 - The following directory types are not available:
+
   - Simple AD
   - Amazon Cloud Directory
 
 - The following AWS apps and services are not currently supported by AWS Directory Service:
+
   - Amazon WorkDocs
   - Amazon WorkMail
   - Amazon Chime
@@ -20,6 +22,7 @@ The following differences apply to AWS Directory Service:
   - AWS IAM Identity Center
 
 - The following AWS Managed Microsoft AD features are not currently supported in AWS GovCloud (US):
+
   - Directory sharing with other AWS accounts
   - AWS Managed Microsoft AD (Hybrid Edition)
 
@@ -31,6 +34,7 @@ The following differences apply to AWS Directory Service:
 If you are using the Amazon Linux AMI, the AWS CLI is already installed and configured.
 
 - To connect to AWS Directory Service by using the command line or APIs, use the following [endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md"):
+
   - https://ds-fips.us-gov-west-1.amazonaws.com
   - https://ds.us-gov-west-1.amazonaws.com
   - https://ds-fips.us-gov-east-1.amazonaws.com

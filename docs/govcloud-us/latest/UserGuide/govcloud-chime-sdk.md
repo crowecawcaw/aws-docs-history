@@ -7,12 +7,14 @@ With the Amazon Chime SDK, you can quickly add voice, video, and screen sharing 
 The following differences apply to Amazon Chime SDK:
 
 - WebRTC media sessions (meetings-chime)
+
   - Sessions can be hosted in AWS GovCloud (US) Regions only
   - The nearest AWS Region can be discovered via https://nearest-us-gov-media-region.l.chime.aws
   - Live transcription only uses Amazon Transcribe in the AWS GovCloud (US-West) Region
   - Live transcription does not support Amazon Transcribe Medical
 
 - The following Amazon Chime SDK features are not available:
+
   - Media Pipelines (media-pipelines-chime)
   - PSTN Audio (service.chime)
   - SIP Trunking (service.chime)

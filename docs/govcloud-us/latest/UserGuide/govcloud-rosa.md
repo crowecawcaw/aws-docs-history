@@ -13,6 +13,7 @@ The following differences apply to Red Hat OpenShift Service on AWS:
 - You must have access to the [Red Hat Hybrid Cloud Console on AWS GovCloud (US)](https://console.openshiftusgov.com/openshift "https://console.openshiftusgov.com/openshift"). To obtain access, complete the [ROSA FedRAMP access request form](https://console.redhat.com/openshift/create/rosa/govcloud "https://console.redhat.com/openshift/create/rosa/govcloud").
 - Support does not yet have the ability to transfer support cases to Red Hat on behalf of customers.
 - Red Hat support cases are managed through ServiceNow. ServiceNow has a Provisional Authority to Operate (P-ATO) at the FedRAMP High benchmark. Red Hat personnel that manage ROSA support cases through ServiceNow are U.S. persons. For more information, see [ServiceNow’s FedRAMP authorization details](https://marketplace.fedramp.gov/products/F1305072116 "https://marketplace.fedramp.gov/products/F1305072116") on the FedRAMP Marketplace.
+
   - Customers set up access to ServiceNow during the onboarding process.
 
 - ROSA classic and ROSA with Hosted Control Planes (HCP) are both supported.
@@ -76,18 +77,20 @@ If you cannot sign in to your AWS GovCloud (US) account or Red Hat Hybrid Cloud 
 1. Sign in to your AWS GovCloud (US) account.
 2. Go to the [Red Hat Hybrid Cloud Console on AWS GovCloud (US) login page](https://console.openshiftusgov.com/openshift "https://console.openshiftusgov.com/openshift") and sign in with your Red Hat account credentials.
 3. The remaining procedure varies depending on whether you are creating clusters using the Red Hat Hybrid Cloud Console on AWS GovCloud (US) or ROSA CLI.
+
    1. Console
+
       1. Choose **Create cluster with web interface**.
       2. Follow the console prompts to create the ROSA cluster.
 
    2. ROSA CLI
+
       1. Choose **Create cluster with CLI**.
       2. Copy the following command:
 
       ```
       rosa login --govcloud <TOKEN>
       ```
-
       3. Open a terminal session and run the command.
 
 ### Create and deploy a ROSA cluster that uses AWS PrivateLink

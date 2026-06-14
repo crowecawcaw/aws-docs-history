@@ -20,6 +20,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - DynamoDB metadata is not permitted to contain export-controlled data. This metadata includes all the configuration data that you enter when creating and maintaining your DynamoDB tables, such as table names, hash attribute names, and range attribute names.
 - Do not enter export-controlled data in the following fields:
+
   - Table names
   - Hash attribute names
   - Range attribute names

@@ -14,6 +14,7 @@ The following differences apply to AWS Control Tower:
 - You must meet the U.S. regulatory requirements as described in [Signing Up for AWS GovCloud (US).](../ug-west/getting-started-sign-up.md "../ug-west/getting-started-sign-up.md")
 - Organizations that you create in the AWS GovCloud (US) Regions are independent from organizations created in commercial AWS Regions.
 - Creating accounts from within AWS Control Tower operates differently in the AWS GovCloud (US) Regions compared to commercial AWS Regions:
+
   - You start creating AWS GovCloud (US) accounts by calling the [CreateGovCloudAccount](../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md "../../../organizations/latest/APIReference/API_CreateGovCloudAccount.md") action from the management account of the landing zone in the commercial Region. Calling account creation APIs from the AWS GovCloud (US) Regions is not available.
   - When you call the `CreateGovCloudAccount` API action, you create _two accounts_: a standalone account in the AWS GovCloud (US) Regions, and an associated account in the commercial Region for billing and support purposes. The account in the commercial Region automatically becomes a member of the organization whose credentials made the request. Both accounts are associated with the same email address.
   - After you create the standalone account in the AWS GovCloud (US) Regions, you can invite it to an organization in the AWS GovCloud (US) Regions only.
@@ -121,6 +122,7 @@ The following diagram shows how account access works, so that you can invite sta
 ###### Example: Account 1 invites Account 2 in the AWS GovCloud (US) Regions to an organization
 
 1. In this example, **AWS GovCloud (US) Account 1** is the AWS GovCloud (US) account that’s associated with the management account of your organization in the commercial Region. **AWS GovCloud (US) Account 2** is going to become a member account in the organization of **AWS GovCloud (US) Account 1**.
+
    - Sign into **AWS GovCloud (US) Account 1**. Assume the administrative role of the AWS GovCloud (US) account you just created.
    - Send an invitation to **Account 2**. Sign out of **Account 1**.
    - Sign into and assume the IAM role that was created in **AWS GovCloud (US) Account 2**.

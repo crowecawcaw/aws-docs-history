@@ -31,6 +31,7 @@ The following region-specific API Gateway account IDs are automatically added to
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - API Gateway’s configuration metadata is not permitted to contain export-controlled data\*, including:
+
   - API Name
   - API Description
   - Authorizer Name

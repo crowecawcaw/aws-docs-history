@@ -17,6 +17,7 @@ The following differences apply to AWS IoT Greengrass V1:
 | C, C++       | 1.1.0                |
 
 - The following connectors are supported in AWS GovCloud (US-East):
+
   - Cloudwatch Metrics, v4
   - Device Defender, v3
   - Docker Application Deployment, v6
@@ -27,6 +28,7 @@ The following differences apply to AWS IoT Greengrass V1:
   - Serial Stream, v3
 
 - The following connectors are supported in AWS GovCloud (US-West):
+
   - Modbus-RTU Protocol Adapter, v2
   - Raspberry Pi GPIO, v2
   - Serial Stream, v2
@@ -55,6 +57,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Message topics and topic filters
 - Customer-defined names and IDs of Greengrass resources:
+
   - Connectors
   - Cores
   - Devices

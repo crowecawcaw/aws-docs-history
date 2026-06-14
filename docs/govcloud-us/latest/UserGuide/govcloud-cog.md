@@ -8,6 +8,7 @@ The following differences apply to Amazon Cognito:
 
 - Amazon Pinpoint integration with user pools isn’t supported.
 - Amazon Cognito in AWS GovCloud (US) uses FIPS endpoints only.
+
   - The API service endpoints are `cognito-idp-fips.us-gov-west-1.amazonaws.com` and `cognito-idp-fips.us-gov-east-1.amazonaws.com`. For more information about FIPS in AWS, see [Federal Information Processing Standard (FIPS) 140-3](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
   - Hosted UI endpoints have a URL path in the format `–0—.auth-fips.us-gov-west-1.amazoncognito.com` or `–1—.auth-fips.us-gov-east-1.amazoncognito.com`.
 

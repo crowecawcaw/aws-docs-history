@@ -18,6 +18,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Message topics and topic filters
 - Customer-defined names and IDs of Greengrass resources:
+
   - CoreDevices
   - Components
   - Deployments

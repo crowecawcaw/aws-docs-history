@@ -19,6 +19,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon OpenSearch Service metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you specify when creating and maintaining your OpenSearch clusters and indices, such as index names, alias names, tags, snapshot names, and repository names.
 - Do not enter export-controlled data in the following fields:
+
   - Domain name
   - Index names
   - Type names

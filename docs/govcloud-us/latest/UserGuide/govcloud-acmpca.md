@@ -7,6 +7,7 @@ AWS Private Certificate Authority (AWS Private CA) is a managed private CA servi
 The following differences apply to AWS Private CA:
 
 - To connect to AWS Private CA by using the command line or API, use the following [endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md"):
+
   - `https://acm-pca.us-gov-west-1.amazonaws.com`
   - `https://acm-pca.us-gov-east-1.amazonaws.com`
 

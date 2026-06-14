@@ -19,6 +19,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon Redshift metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your Amazon Redshift clusters except the master password.
 - Do not enter export-controlled data in the following fields:
+
   - Database instance identified
   - Master user name
   - Database name
@@ -40,6 +41,7 @@ If you are processing export-controlled data with Amazon Redshift, follow these 
 - After you create your database, change the master password of your Amazon Redshift cluster by directly using the database client.
 - You can enter export-controlled data into any data fields by using your database client-side tools. Do not pass export-controlled data by using the web service APIs that are provided by Amazon Redshift.
 - To secure export-controlled data in your VPC, set up access control lists (ACLs) to control traffic entering and exiting your VPC. If you have multiple databases configured with different ports, set up ACLs on all the ports.
+
   - For example, if you’re running an application server on an Amazon EC2 instance that connects to an Amazon Redshift cluster, a non-U.S. person could reconfigure the DNS to redirect export-controlled data out of the VPC and into any server that could possibly be outside of the AWS GovCloud (US) Regions.
 
   To prevent this type of attack and to maintain export compliance, use network ACLs to prevent network traffic from exiting the VPC on the database port. For more information, see [Network ACLs](../../../vpc/latest/userguide/VPC_ACLs.md "../../../vpc/latest/userguide/VPC_ACLs.md") in the _Amazon VPC User Guide_.

@@ -31,6 +31,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon Keyspaces metadata is not permitted to contain export-controlled data. This metadata includes all the configuration data that you enter when creating and maintaining your Amazon Keyspaces resources such as keyspaces and tables, for example resource names and tags.
 - Do not enter export-controlled data in the following fields:
+
   - Keyspace names
   - Table names
   - Resource tags

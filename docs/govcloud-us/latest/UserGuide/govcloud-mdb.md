@@ -21,6 +21,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 - Unencrypted data stored in a cache cluster may not contain export-controlled data.
 - MemoryDB metadata is not permitted to contain export-controlled data. This metadata includes all the configuration data that you enter when creating and maintaining your MemoryDB clusters.
 - Do not enter export-controlled data in the following fields:
+
   - Cluster instance identifier
   - Cluster name
   - Cluster snapshot name
@@ -36,6 +37,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 If you are processing export-controlled data with MemoryDB, follow these guidelines in order to maintain export compliance:
 
 - To secure export-controlled data in your VPC, set up access control lists (ACLs) to control traffic entering and exiting your VPC. If you have multiple databases configured with different ports, set up ACLs on all the ports.
+
   - For example, if you’re running an application server on an Amazon EC2 instance that connects to an MemoryDB cluster, a non-U.S. person could reconfigure the DNS to redirect export-controlled data out of the VPC and into any server that could possibly be outside of AWS GovCloud (US) Regions
   - To prevent this type of attack and to maintain export compliance, use network ACLs to prevent network traffic from exiting the VPC on the database port. For more information, see [Network ACLs](../../../vpc/latest/userguide/VPC_ACLs.md "../../../vpc/latest/userguide/VPC_ACLs.md") in the Amazon VPC User Guide.
 

@@ -19,6 +19,7 @@ The following differences apply to Amazon Location Service:
 For AWS services architected within the AWS GovCloud (US) Regions, the following list explains which components of data may leave or remain within the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations.
 
 - When you use the following [geolocation data providers](https://aws.amazon.com/location/data-providers/ "https://aws.amazon.com/location/data-providers/"), you transmit request parameters (such as location searches) from Amazon Location features (Maps, Places, and Routes) to the geolocation provider for processing, which may be outside of the AWS Region in which your request was made.
+
   - Esri
   - Here
   - GrabMaps

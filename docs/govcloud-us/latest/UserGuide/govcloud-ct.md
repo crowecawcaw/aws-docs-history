@@ -16,6 +16,7 @@ In contrast, the **Event history** in the CloudTrail console and the **aws cloud
 - If you are using Direct Connect, you must enable CloudTrail in your standard AWS account (not your AWS GovCloud (US) account) and enable logging.
 - The Amazon S3 and Amazon SNS policy statements must refer to the ARN for AWS GovCloud (US) Regions. For more information, see [Amazon Resource Names (ARNs) in GovCloud (US) Regions](using-govcloud-arns.md "using-govcloud-arns.md").
 - The following CloudTrail Lake features are currently not available in the AWS GovCloud (US) Regions:
+
   - CloudTrail Lake integrations
   - CloudTrail Lake query generation
   - CloudTrail Lake query results summarization

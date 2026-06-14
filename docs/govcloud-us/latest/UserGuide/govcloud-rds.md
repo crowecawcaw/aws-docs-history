@@ -8,7 +8,6 @@ The following differences apply to Amazon Relational Database Service:
 
 - Multi-AZ DB clusters are not available. However, Multi-AZ DB instances are available.
 - Amazon RDS Custom for SQL Server isn’t available.
-- Amazon RDS Kerberos authentication for PostgreSQL DB instances is not available.
 - Creation of [cross-Region read replicas](../../../AmazonRDS/latest/UserGuide/USER_ReadRepl.XRgn.md "../../../AmazonRDS/latest/UserGuide/USER_ReadRepl.XRgn.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other AWS Regions is not available.
 - Copying of [DB snapshots](../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md "../../../AmazonRDS/latest/UserGuide/USER_CopySnapshot.md") from other AWS Regions to the AWS GovCloud (US) Regions or from AWS GovCloud (US) Regions to other AWS Regions is not available.
 - Oracle Management Agent versions 12.1 and 13.1 are not available.
@@ -30,6 +29,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon RDS metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your Amazon RDS instances except the master password.
 - Do not enter export-controlled data in the following fields:
+
   - Database instance identifier
   - Master user name
   - Database name
@@ -51,6 +51,7 @@ If you are processing export-controlled data with Amazon RDS, follow these guide
 - After you create your database, change the master password of your Amazon RDS instance by directly using the database client.
 - You can enter export-controlled data into any data fields by using your database client-side tools. Do not pass export-controlled data by using the web service APIs that are provided by Amazon RDS.
 - To secure export-controlled data in your VPC, set up access control lists (ACLs) to control traffic entering and exiting your VPC. If you have multiple databases configured with different ports, set up ACLs on all the ports.
+
   - To prevent this type of attack and to maintain export compliance, use network ACLs to prevent network traffic from exiting the VPC on the database port. For more information, see [Network ACLs](../../../vpc/latest/userguide/VPC_ACLs.md "../../../vpc/latest/userguide/VPC_ACLs.md") in the _Amazon VPC User Guide_.
 
 - For each database instance that contains export-controlled data, ensure that only specific CIDR ranges and Amazon EC2 security groups can access the database instance, especially when an Internet gateway is attached to the VPC. Only allow connections that are from the AWS GovCloud (US) Regions or other export-controlled environments to export-controlled database instances.

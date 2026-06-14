@@ -7,6 +7,7 @@ Amazon SageMaker AI is a fully managed machine learning service. With Amazon Sag
 The following differences apply to Amazon SageMaker AI:
 
 - Only the following features are available. API calls to unavailable features will fail with a 4xx message indicating "The requested operation is not available in the called region".
+
   - Notebook instances
   - Training
   - Pipelines
@@ -19,6 +20,7 @@ The following differences apply to Amazon SageMaker AI:
   - SageMaker Debugger and Profiler
   - Model Tuning
   - SageMaker Studio and Studio Classic
+
     - Authentication using AWS Identity and Access Management is supported; authentication using IAM Identity Center is not available
     - Scheduling a notebook job is not available
     - AWS Glue interactive sessions is supported only in AWS GovCloud (US-West)

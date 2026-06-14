@@ -17,6 +17,7 @@ The following differences apply to AWS AppConfig:
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - Any AWS AppConfig resource names (Application, Environment, ConfigurationProfile, Deployment Strategy, etc.)
+
   - Validator JSON Schema
   - Location URIs or Validator ARNs
   - Any AWS AppConfig resource descriptions

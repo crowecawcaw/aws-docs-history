@@ -22,6 +22,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon EBS metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your Amazon EBS volumes.
 - Do not enter export-controlled data in the following fields:
+
   - Volume names
   - Snapshot names
   - Image names

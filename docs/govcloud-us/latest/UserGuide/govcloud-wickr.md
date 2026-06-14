@@ -10,6 +10,7 @@ The following differences apply to AWS WickrGov:
 - The AWS GovCloud (US) Federation allows communication between WickrGov networks in the AWS GovCloud (US-West) Region and commercial networks in other Regions.
 - Client name will appear changed to AWS WickrGov and utilizes a new AWS WickrGov logo with blue background and white slashes.
 - AWS WickrGov Desktop, Android, and iOS apps are tailored for AWS GovCloud (US) users. When AWS GovCloud (US) users engage in conversations with commercial users (Wickr Enterprise, AWS Wickr, Guest users), they will see the following unclassified warnings displayed:
+
   - A U tag in the room list. (U tag refers to unclassified)
   - An unclassified acknowledgment on the message screen in every conversation.
   - An unclassified banner on top of the conversation.

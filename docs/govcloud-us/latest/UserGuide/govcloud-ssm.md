@@ -7,10 +7,12 @@ Use AWS Systems Manager to organize, monitor, and automate management tasks on y
 The following differences apply to AWS Systems Manager:
 
 - The following Systems Manager capabilities are not yet available for the AWS GovCloud (US) Regions:
+
   - Change Manager
   - Incident Manager
 
 - The following Systems Manager features are not yet available for the AWS GovCloud (US) Regions:
+
   - In the [Distributor](../../../systems-manager/latest/userguide/distributor.md "../../../systems-manager/latest/userguide/distributor.md") tool, third-party packages are not available.
   - In the [Application Manager](../../../systems-manager/latest/userguide/application-manager.md "../../../systems-manager/latest/userguide/application-manager.md") tool, integration with AWS Cost Explorer functionality is not available.
   - In the [Explorer](../../../systems-manager/latest/userguide/Explorer.md "../../../systems-manager/latest/userguide/Explorer.md") tool, delegated administrator support for Explorer is not available.
@@ -43,6 +45,7 @@ https://amazon-ssm-us-gov-west-1.s3.us-gov-west-1.amazonaws.com/latest/windows_a
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - The following AWS Systems Manager metadata fields are not permitted to contain export-controlled data:
+
   - Document names
   - Parameter Store parameter names
   - Patch group names (that is, the value of the Patch Group tag)

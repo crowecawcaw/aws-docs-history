@@ -9,6 +9,8 @@ AWS License Manager integrates with AWS services to simplify the management of l
 The following differences apply to AWS License Manager:
 
 - Sharing licenses between AWS standard accounts and AWS GovCloud (US) accounts is not available.
+- Microsoft Office EC2 Image Builder components are not available in AWS GovCloud (US).
+- EC2 Image Builder pipeline creation for multiple License Manager licensed products is not available in AWS GovCloud (US).
 
 ## Documentation
 

@@ -11,9 +11,11 @@ Additionally, Support customers who have a Business or Enterprise support plan c
 The following differences apply to AWS Health:
 
 - The Amazon EventBridge channel doesn’t send public events from the Service Health View of the Health Dashboard.
+
   - Instead, use the AWS Health API or Service Health View RSS feed to programmatically receive these events. Account specific events are accessible through the EventBridge endpoint.
 
 - AWS Health notifies you about planned lifecycle events and service changes that can affect resource availability. You won’t see the status on affected resources change in response to resolution.
+
   - AWS Health may send periodic reminder notifications with an updated list of outstanding resources.
 
 - The AWS Health API is accessible through a single regional endpoint in `us-gov-west-1`, as opposed to a global endpoint with failover-capable regions behind it.

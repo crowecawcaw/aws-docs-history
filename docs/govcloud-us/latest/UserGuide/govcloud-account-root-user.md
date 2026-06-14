@@ -224,6 +224,7 @@ aws kms decrypt \
 ```
 
 7. With the command copied, launch AWS CloudShell. You can launch CloudShell from the AWS Management Console using either one of the following two methods:
+
    - Choose the AWS CloudShell icon on the console navigation bar.
    - Start typing _cloudshell_ in the **Find Services** box and then choose the **CloudShell** option.
 
@@ -356,12 +357,12 @@ If you would like to retain your AWS GovCloud (US) account root user access keys
 
 - Directly edit the **credentials** files in a text editor. For more information, see [Where are configuration settings stored](../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-where "../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-where")?
 - Run the following commands to remove your root user access keys from the govcloudroot profile.
+
   1.  Remove your access key ID.
 
   ```
   $ aws configure set aws_access_key_id "" --profile govcloudroot
   ```
-
   2.  Remove your secret access key.
 
   ```

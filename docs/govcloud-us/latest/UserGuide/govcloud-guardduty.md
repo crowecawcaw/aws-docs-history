@@ -58,6 +58,7 @@ The following differences apply to Amazon GuardDuty:
 - The entity lists capability in [Customizing threat detection with entity lists and IP address lists](../../../guardduty/latest/ug/guardduty_upload-lists.md "../../../guardduty/latest/ug/guardduty_upload-lists.md") is not available in AWS GovCloud (US) Regions. GuardDuty continues to support IP address lists.
 - The [Extended Threat Detection](../../../guardduty/latest/ug/guardduty-extended-threat-detection.md "../../../guardduty/latest/ug/guardduty-extended-threat-detection.md") coverage for EKS clusters supports detecting multi-stage attacks through available EKS Protection finding types (EKS audit log monitoring) and AWS API activity.
 - The following [EKS Protection](../../../guardduty/latest/ug/kubernetes-protection.md "../../../guardduty/latest/ug/kubernetes-protection.md") (EKS audit log monitoring) finding types are not available in the AWS GovCloud (US) Regions:
+
   - [CredentialAccess:Kubernetes/AnomalousBehavior.SecretsAccessed](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#credaccess-kubernetes-anomalousbehavior-secretsaccessed "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#credaccess-kubernetes-anomalousbehavior-secretsaccessed")
   - [PrivilegeEscalation:Kubernetes/AnomalousBehavior.RoleBindingCreated](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolebindingcreated "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#privesc-kubernetes-anomalousbehavior-rolebindingcreated")
   - [Execution:Kubernetes/AnomalousBehavior.ExecInPod](../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#execution-kubernetes-anomalousbehvaior-execinprod "../../../guardduty/latest/ug/guardduty-finding-types-eks-audit-logs.md#execution-kubernetes-anomalousbehvaior-execinprod")
@@ -74,6 +75,7 @@ The following differences apply to Amazon GuardDuty:
 - In AWS GovCloud (US) Regions, AWS doesn’t use or store Customer Content processed by Amazon GuardDuty to develop and improve the service or technologies of AWS or its affiliates. Opt-out policies are currently not applicable to these Regions.
 - The [additional filterable fields](../../../guardduty/latest/ug/guardduty_filter-findings.md#filter_criteria "../../../guardduty/latest/ug/guardduty_filter-findings.md#filter_criteria") for suppression rules and filters are not available in AWS GovCloud (US) Regions. You can continue to use the console-supported fields.
 - The following IAM finding types are not available in the AWS GovCloud (US) Regions:
+
   - {https---docs-aws-amazon-com-guardduty-latest-ug-guardduty_finding-types-html-credentialaccess-iam-compromisedcredentials}[CredentialAccess:IAMUser/CompromisedCredentials]
 
 ## Documentation

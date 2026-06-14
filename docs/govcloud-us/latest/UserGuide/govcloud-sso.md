@@ -31,6 +31,7 @@ The email address `no-reply@<identitystore_id>.us-gov-home.awsapps.com` is used 
 
 - Multi-Region support is presently not available.
 - If you filter access to specific AWS domains by using a web content filtering solution such as next-generation firewalls (NGFW) or Secure Web Gateways (SWG), you must add the following domains to your web-content filtering solution allowlists. Doing so enables you to access your AWS access portal.
+
   - `start.us-gov-home.awsapps.com`
   - `start.[Region].us-gov-home.awsapps.com`
   - `[IAM-Identity-Center-instance-id].[Region].portal.amazonaws.com`
@@ -47,6 +48,7 @@ The email address `no-reply@<identitystore_id>.us-gov-home.awsapps.com` is used 
   - `opfcaptcha-prod.s3.amazonaws.com`
 
 - For dual-stack (IPv4 and IPv6) endpoint access, you must also add the following domains to your web-content filtering solution allowlists:
+
   - `[idcInstanceId].portal.[Region].app.aws`
   - `portal.sso.[Region].api.aws`
   - `oidc.[Region].api.aws`

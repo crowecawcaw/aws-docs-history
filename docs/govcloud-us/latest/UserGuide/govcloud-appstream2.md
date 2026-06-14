@@ -11,10 +11,12 @@ The following differences apply to Amazon WorkSpaces Applications:
 - Copying WorkSpaces Applications images from the AWS GovCloud (US) Regions to other AWS Regions is not available.
 - The WorkSpaces Applications user pool is not available.
 - The following CloudFormation resources are not available in AWS GovCloud (US):
+
   - [AWS::AppStream::User](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appstream-user.md")
   - [AWS::AppStream::StackUserAssociation](../../../AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-appstream-stackuserassociation.md")
 
 - The following AppStream 2.0 API actions are not available in AWS GovCloud (US):
+
   - [BatchAssociateUserStack](../../../appstream2/latest/APIReference/API_BatchAssociateUserStack.md "../../../appstream2/latest/APIReference/API_BatchAssociateUserStack.md")
   - [BatchDisassociateUserStack](../../../appstream2/latest/APIReference/API_BatchDisassociateUserStack.md "../../../appstream2/latest/APIReference/API_BatchDisassociateUserStack.md")
   - [DescribeUserStackAssociations](../../../appstream2/latest/APIReference/API_DescribeUserStackAssociations.md "../../../appstream2/latest/APIReference/API_DescribeUserStackAssociations.md"), when USERPOOL is specified for the AuthenticationType parameter. USERPOOL is the only supported value for this parameter.
@@ -38,6 +40,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon AppStream 2.0 metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining WorkSpaces Applications image builders, images, fleets, and stacks.
 - Do not enter export-controlled data in the following console fields or when using the WorkSpaces Applications API actions or AWS Command Line Interface (AWS CLI) commands:
+
   - Names and descriptions for Amazon AppStream 2.0 image builders, images, fleets and stacks.
   - Resource tags.
   - If importing export-controlled images, do not use pre-signed URLs for the CLI argument.

@@ -27,6 +27,7 @@ For AWS services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon Timestream metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your Amazon Timestream instances except the master password.
 - Do not enter export-controlled data in the following fields.
+
   - Master user name
   - Database name
   - Table name

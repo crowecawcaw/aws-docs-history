@@ -6,30 +6,33 @@ AWS CodePipeline is a continuous delivery service you can use to model, visualiz
 
 The following differences apply to AWS CodePipeline:
 
-The following actions/provider types are not available:
-
-- Custom actions
+- Custom actions are not available.
 - Source Actions. The following actions are only available in AWS GovCloud (US-East):
+
   - AWS CodeStar Source Connection (Bitbucket Cloud)
   - AWS CodeStar Source Connection (GitHub)
   - AWS CodeStar Source Connection (GitHub Enterprise Server)
   - AWS CodeStar﻿ Source Connection (GitLab.com)
 
 - Build Actions:
+
   - Jenkins
   - For the CodeBuild action, enabling batch builds is not available. For the CodeBuild action type, the action configuration does not contain the following parameters : BatchEnabled, CombineArtifacts.
 
 - Test Actions:
+
   - Device Farm
   - Jenkins
 
 - Deploy Actions:
+
   - OpsWorks
   - Amazon Alexa
   - AWS AppConfig (Supported in CLI, not supported in console)
   - AWS CloudFormation StackSets
 
 - Invoke Actions:
+
   - AWS Step Functions
 
 - Since AWS GovCloud (US) operates as isolated regions, you cannot share or use CodePipeline resources with other services outside of the Regions. For example, you cannot use a CodeCommit repository in AWS GovCloud (US-West) as the source for a pipeline in CodePipeline that is not in the AWS GovCloud (US-West) Region.

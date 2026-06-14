@@ -6,11 +6,11 @@ AWS Application Migration Service (MGN) is a highly automated lift-and-shift (re
 
 The following differences apply to AWS Application Migration Service:
 
-The following post-launch actions are not available for Application Migration Service in AWS GovCloud (US):
+- The following post-launch actions are not available:
 
-- Third party post-launch actions
-- App2Container for Replatforming
-- Enable Refactor Spaces
+  - Third party post-launch actions
+  - App2Container for Replatforming
+  - Enable Refactor Spaces
 
 ## Documentation
 

@@ -35,6 +35,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon RDS metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your Amazon RDS instances except the master password.
 - Do not enter export-controlled data in the following fields:
+
   - Database Cluster Identifier
   - Database instance identifier
   - Master user name
@@ -55,6 +56,7 @@ If you are processing export-controlled data with Amazon RDS, follow these guide
 - After you create your database, change the master password of your Amazon RDS instance by directly using the database client.
 - You can enter export-controlled data into any data fields by using your database client-side tools. Do not pass export-controlled data by using the web service APIs that are provided by Amazon RDS.
 - To secure export-controlled data in your VPC, set up access control lists (ACLs) to control traffic entering and exiting your VPC. If you have multiple databases configured with different ports, set up ACLs on all the ports.
+
   - For example, if you’re running an application server on an Amazon EC2 instance that connects to an Amazon RDS database instance, a non-U.S. person could reconfigure the DNS to redirect export-controlled data out of the VPC and into any server that might be outside of the AWS GovCloud (US-West) Region.
 
   To prevent this type of attack and to maintain export compliance, use network ACLs to prevent network traffic from exiting the VPC on the database port. For more information, see [Network ACLs](../../../vpc/latest/userguide/VPC_ACLs.md "../../../vpc/latest/userguide/VPC_ACLs.md") in the _Amazon VPC User Guide_.

@@ -8,6 +8,7 @@ The following differences apply to AWS Auto Scaling:
 
 - Predictive scaling is not available.
 - The following CloudFormation resource is not available in the AWS GovCloud (US) Regions:
+
   - [AWS::AutoScalingPlans::ScalingPlan](govcloud-as.md "govcloud-as.md")
 
 ## Documentation
@@ -24,6 +25,7 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Auto Scaling is not permitted to contain export-controlled data.
 - For example, do not enter export-controlled data in the following fields:
+
   - Scaling plan names
   - Scaling policy names
   - Scaling policy configurations

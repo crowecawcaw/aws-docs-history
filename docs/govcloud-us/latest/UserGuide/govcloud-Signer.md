@@ -10,6 +10,7 @@ The following differences apply to AWS Signer:
 - AWS Signer automatically uses the GovCloud partition specific root certificate when signing.
 - Signature revocation is only valid within the same AWS partition that an artifact was signed in. The [GetRevocationStatus API](../../../signer/latest/api/API_GetRevocationStatus.md "../../../signer/latest/api/API_GetRevocationStatus.md") will not return the revocation information for any signatures or profiles that were revoked in other partitions.
 - If you’re signing container images, you must complete the following steps:
+
   1.  You must use the AWS GovCloud specific root certificate when verifying container images signed in the GovCloud Region. You can install the GovCloud root certificate either using the AWS Signer plugin for Notation, which includes the GovCloud root certificate, or by directly downloading the [GovCloud root certificate](https://d2hvyiie56hcat.cloudfront.net/aws-us-gov-signer-notation-root.cert "https://d2hvyiie56hcat.cloudfront.net/aws-us-gov-signer-notation-root.cert"). For more information, see [Prerequisites for signing container images](https://d2hvyiie56hcat.cloudfront.net/image-signing-prerequisites.cert "https://d2hvyiie56hcat.cloudfront.net/image-signing-prerequisites.cert").
   2.  In your trust policy, you must set `signingAuthority` to `aws-us-gov-signer-ts`. For example:
 

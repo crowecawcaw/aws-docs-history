@@ -18,5 +18,6 @@ For AWS Services architected within the AWS GovCloud (US) Regions, the following
 
 - Amazon Cloud Directory metadata is not permitted to contain export-controlled data. This metadata includes configuration data that you enter when creating and maintaining your Cloud Directory.
 - Do not enter export-controlled data in the following fields:
+
   - Schema name
   - Directory name

@@ -12,12 +12,13 @@ The following differences apply to AWS Firewall Manager:
 
 ## Documentation
 
-link: [AWS Firewall Manager documentation](../../../waf/latest/developerguide/fms-chapter.md "../../../waf/latest/developerguide/fms-chapter.md").
+[AWS Firewall Manager documentation](../../../waf/latest/developerguide/fms-chapter.md "../../../waf/latest/developerguide/fms-chapter.md").
 
 ## Export-controlled content
 
 For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - AWS Firewall Manager metadata is not permitted to contain export-controlled data. For example, do not enter export-controlled data into user input fields such as the following:
+
   - Firewall Manager policy name
   - Resource Tag/Key values
