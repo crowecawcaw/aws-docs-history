@@ -88,12 +88,14 @@ own, we recommend reading that whitepaper.
    operations, and development.
 2. Have each stakeholder provide at least one requirement. For the first iteration, try
    to limit the number of items to thirty or less.
+
    - [Appendix
      B: Example ORR questions](../operational-readiness-reviews/appendix-b-example-orr-questions.md "../operational-readiness-reviews/appendix-b-example-orr-questions.md") from the Operational
      Readiness Reviews (ORR) whitepaper contains sample
      questions that you can use to get started.
 
 3. Collect your requirements into a spreadsheet.
+
    - You can use [custom lenses](../userguide/lenses-custom.md "../userguide/lenses-custom.md") in
      the [AWS Well-Architected Tool](https://console.aws.amazon.com/wellarchiected/ "https://console.aws.amazon.com/wellarchiected/") to develop your ORR
      and share them across your accounts and AWS Organization.

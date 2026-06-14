@@ -31,11 +31,13 @@ Incorporate automation to create efficient operational workflows and minimize ma
 
 1. **Identify automation opportunites:** Determine repetitive tasks for automation, such as issue remediation, ticket enrichment, capacity management, scaling, deployments, and testing.
 2. **Identify automation prompts:**
+
    - Assess and define specific conditions or metrics that initiate automated responses using [Amazon CloudWatch alarm actions](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#alarms-and-actions "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#alarms-and-actions").
    - Use [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/") to respond to events in AWS services, custom workloads, and SaaS applications.
    - Consider initiation events such as [specific log entries](../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md "../../../AmazonCloudWatch/latest/logs/MonitoringLogData.md"), [performance metrics thresholds](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md"), or [state changes](../../../config/latest/developerguide/remediation.md "../../../config/latest/developerguide/remediation.md") in AWS resources.
 
 3. **Implement event-driven automation:**
+
    - Use AWS Systems Manager Automation runbooks to simplify maintenance, deployment, and remediation tasks.
    - [Creating incidents in Incident Manager](../../../incident-manager/latest/userguide/incident-creation.md "../../../incident-manager/latest/userguide/incident-creation.md") automatically gathers and adds details about the involved AWS resources to the incident.
    - Proactively monitor quotas using [Quota Monitor for AWS](https://aws.amazon.com/solutions/implementations/quota-monitor/ "https://aws.amazon.com/solutions/implementations/quota-monitor/").
@@ -44,6 +46,7 @@ Incorporate automation to create efficient operational workflows and minimize ma
    - Smoke test or continually monitor endpoints and APIs [using synthetic monitoring](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md").
 
 4. **Perform risk mitigation through automation:**
+
    - Implement [automated security responses](https://aws.amazon.com/solutions/implementations/automated-security-response-on-aws/ "https://aws.amazon.com/solutions/implementations/automated-security-response-on-aws/") to swiftly address risks.
    - Use [AWS Systems Manager State Manager](../../../systems-manager/latest/userguide/systems-manager-state.md "../../../systems-manager/latest/userguide/systems-manager-state.md") to reduce configuration drift.
    - [Remediate noncompliant resources with AWS Config Rules](../../../config/latest/developerguide/remediation.md "../../../config/latest/developerguide/remediation.md").

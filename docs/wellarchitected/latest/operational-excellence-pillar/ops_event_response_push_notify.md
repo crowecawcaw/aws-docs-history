@@ -31,28 +31,33 @@ Creating a comprehensive communication plan for service impacting events involve
 ### Implementation steps
 
 1. **Define roles and responsibilities:**
+
    - Assign a major incident manager to oversee incident response activities.
    - Designate a communications manager responsible for coordinating all external and internal communications.
    - Include the support manager to provide consistent communication through support tickets.
 
 2. **Identify communication channels:** Select channels like workplace chat, email, SMS, social media, in-app notifications, and status pages. These channels should be resilient and able to operate independently during service impacting events.
 3. **Communicate quickly, clearly, and regularly to customers:**
+
    - Develop templates for various service impairment scenarios, emphasizing simplicity and essential details. Include information about the service impairment, expected resolution time, and impact.
    - Use Amazon Pinpoint to alert customers using push notifications, in-app notifications, emails, text messages, voice messages, and messages over custom channels.
    - Use Amazon Simple Notification Service (Amazon SNS) to alert subscribers programatically or through email, mobile push notifications, and text messages.
    - Communicate status through dashboards by sharing an Amazon CloudWatch dashboard publicly.
    - Encourage social media engagement:
+
      - Actively monitor social media to understand customer sentiment.
      - Post on social media platforms for public updates and community engagement.
      - Prepare templates for consistent and clear social media communication.
 
 4. **Coordinate internal communication:** Implement internal protocols using tools like Amazon Q Developer in chat applications for team coordination and communication. Use CloudWatch dashboards to communicate status.
 5. **Orchestrate communication with dedicated tools and services:**
+
    - Use AWS Systems Manager Incident Manager with Amazon Q Developer in chat applications to set up dedicated chat channels for real-time internal communication and coordination during incidents.
    - Use AWS Systems Manager Incident Manager runbooks to automate customer notifications through Amazon Pinpoint, Amazon SNS, or third-party tools like social media platforms during incidents.
    - Incorporate approval workflows within runbooks to optionally review and authorize all external communications before sending.
 
 6. **Practice and improve:**
+
    - Conduct training on the use of communication tools and strategies. Empower teams to make timely decisions during incidents.
    - Test the communication plan through regular drills or gamedays. Use these tests to refine messaging and evaluate the effectiveness of channels.
    - Implement feedback mechanisms to assess communication effectiveness during incidents. Continually evolve the communication plan based on feedback and changing needs.

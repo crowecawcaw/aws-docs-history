@@ -28,10 +28,12 @@ Leverage tools like Amazon CloudWatch to perform metric analysis. AWS services s
 
 1. **Analyze and review:** Regularly review and interpret your
    workload metrics.
+
    1. Prioritize business outcome metrics over purely technical metrics.
    2. Understand the significance of spikes, drops, or patterns in your data.
 
 2. **Utilize Amazon CloudWatch:** Use Amazon CloudWatch for a centralized view and deep-dive analysis.
+
    1. Configure CloudWatch dashboards to visualize your metrics and compare them over time.
    2. Use [percentiles in CloudWatch](https://aws-observability.github.io/observability-best-practices/guides/operational/business/sla-percentile/ "https://aws-observability.github.io/observability-best-practices/guides/operational/business/sla-percentile/") to get a clear view of metric distribution, which can help in defining SLAs and understanding outliers.
    3. Set up [CloudWatch anomaly detection](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md") to identify unusual patterns without relying on static thresholds.

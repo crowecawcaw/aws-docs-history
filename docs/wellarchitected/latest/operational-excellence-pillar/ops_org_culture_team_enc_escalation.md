@@ -73,6 +73,7 @@ of mechanisms throughout the organization at every level.
 
 1. Define policies, standards, and expectations for your
    organization.
+
    1. Ensure wide adoption and understanding of policies,
       expectations, and standards.
 
@@ -83,6 +84,7 @@ of mechanisms throughout the organization at every level.
    prove to be unfounded, and that it is better to have the
    opportunity to prevent an incident then to miss that
    opportunity by not escalating.
+
    1. Build a mechanism for escalation (like an
       Andon
       cord system).
@@ -95,7 +97,9 @@ of mechanisms throughout the organization at every level.
 4. When escalation occurs, it should continue until the team
    member is satisfied that the risk has been mitigated through
    actions driven from leadership.
+
    1. Escalations should include:
+
       1. Description of the situation, and the nature of the
          risk
       2. Criticality of the situation

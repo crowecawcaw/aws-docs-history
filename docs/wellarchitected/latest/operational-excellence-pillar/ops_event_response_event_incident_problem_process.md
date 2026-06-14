@@ -38,12 +38,14 @@ frequently. Problems are identified, prioritized, and fixed.
 **Events**
 
 1. **Monitor events:**
+
    - [Implement observability](implement-observability.md "implement-observability.md") and [utilize workload observability](utilizing-workload-observability.md "utilizing-workload-observability.md").
    - Monitor actions taken by a user, role, or an AWS service are recorded as events in [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/").
    - Respond to operational changes in your applications in real time with [Amazon EventBridge](https://aws.amazon.com/eventbridge/ "https://aws.amazon.com/eventbridge/").
    - Continually assess, monitor, and record resource configuration changes with [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/").
 
 2. **Create processes:**
+
    - Develop a process to assess which events are significant and require monitoring. This involves setting thresholds and parameters for normal and abnormal activities.
    - Determine criteria escalating an event to an incident. This could be based on the severity, impact on users, or deviation from expected behavior.
    - Regularly review the event monitoring and response processes. This includes analyzing past incidents, adjusting thresholds, and refining alerting mechanisms.
@@ -51,6 +53,7 @@ frequently. Problems are identified, prioritized, and fixed.
 **Incidents**
 
 1. **Respond to incidents:**
+
    - Use insights from observability tools to quickly identify and respond to incidents.
    - Implement [AWS Systems Manager Ops Center](https://aws.amazon.com/systems-manager/features/#OpsCenter "https://aws.amazon.com/systems-manager/features/#OpsCenter") to aggregate, organize, and prioritize operational items and incidents.
    - Use services like [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") and [AWS X-Ray](https://aws.amazon.com/xray/ "https://aws.amazon.com/xray/") for deeper analysis and troubleshooting.
@@ -58,11 +61,13 @@ frequently. Problems are identified, prioritized, and fixed.
    - Enterprise Support customers can use [AWS Incident Detection and Response](https://aws.amazon.com/premiumsupport/aws-incident-detection-response/ "https://aws.amazon.com/premiumsupport/aws-incident-detection-response/"), which provides continual proactive monitoring and incident management for production workloads.
 
 2. **Create an incident management process:**
+
    - Establish a structured incident management process, including clear roles, communication protocols, and steps for resolution.
    - Integrate incident management with tools like [Amazon Q Developer in chat applications](https://aws.amazon.com/chatbot/ "https://aws.amazon.com/chatbot/") for efficient response and coordination.
    - Categorize incidents by severity, with predefined [incident response plans](../../../incident-manager/latest/userguide/response-plans.md "../../../incident-manager/latest/userguide/response-plans.md") for each category.
 
 3. **Learn and improve:**
+
    - Conduct [post-incident analysis](ops_evolve_ops_perform_rca_process.md "ops_evolve_ops_perform_rca_process.md") to understand root causes and resolution effectiveness.
    - Continually update and improve response plans based on reviews and evolving practices.
    - Document and share lessons learned across teams to enhance operational resilience.
@@ -71,21 +76,25 @@ frequently. Problems are identified, prioritized, and fixed.
 **Problems**
 
 1. **Identify problems:**
+
    - Use data from previous incidents to identify recurring patterns that may indicate deeper systemic issues.
    - Leverage tools like [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/") and [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") to analyze trends and uncover underlying problems.
    - Engage cross-functional teams, including operations, development, and business units, to gain diverse perspectives on the root causes.
 
 2. **Create a problem management process:**
+
    - Develop a structured process for problem management, focusing on long-term solutions rather than quick fixes.
    - Incorporate root cause analysis (RCA) techniques to investigate and understand the underlying causes of incidents.
    - Update operational policies, procedures, and infrastructure based on findings to prevent recurrence.
 
 3. **Continue to improve:**
+
    - Foster a culture of constant learning and improvement, encouraging teams to proactively identify and address potential problems.
    - Regularly review and revise problem management processes and tools to align with evolving business and technology landscapes.
    - Share insights and best practices across the organization to build a more resilient and efficient operational environment.
 
 4. **Engage AWS Support:**
+
    - Use AWS support resources, such as [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/technology/trusted-advisor/ "https://aws.amazon.com/premiumsupport/technology/trusted-advisor/"), for proactive guidance and optimization recommendations.
    - Enterprise Support customers can access specialized programs like [AWS Countdown](https://aws.amazon.com/premiumsupport/aws-countdown/ "https://aws.amazon.com/premiumsupport/aws-countdown/") for support during critical events.
 

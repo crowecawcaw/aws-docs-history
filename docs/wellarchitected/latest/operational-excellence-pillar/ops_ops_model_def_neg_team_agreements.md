@@ -47,6 +47,7 @@ from the development team.
 **Implementation steps**
 
 1. Working with stakeholders across your organization, develop agreements between teams based on processes and procedures.
+
    1. If a process or procedure is shared between two teams, develop a runbook on how the teams will work together.
    2. If there are dependencies between teams, agree to a response SLA for requests.
 

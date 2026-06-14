@@ -31,6 +31,7 @@ Properly defined escalation paths are crucial for rapid incident response. AWS S
 1. **Set up escalation prompts:** Set up [CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#alarms-and-actions "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md#alarms-and-actions") to create an incident in [AWS Systems Manager Incident Manager](../../../incident-manager/latest/userguide/incident-creation.md "../../../incident-manager/latest/userguide/incident-creation.md").
 2. **Set up on-call schedules:** Create [on-call schedules](../../../incident-manager/latest/userguide/incident-manager-on-call-schedule-create.md "../../../incident-manager/latest/userguide/incident-manager-on-call-schedule-create.md") in Incident Manager that align with your escalation paths. Equip on-call personnel with the necessary permissions and tools to act swiftly.
 3. **Detail escalation procedures:**
+
    - Determine specific conditions under which an incident should be escalated.
    - Create [escalation plans](../../../incident-manager/latest/userguide/escalation.md "../../../incident-manager/latest/userguide/escalation.md") in Incident Manager.
    - Escalation channels should consist of a contact or an on-call schedule.
@@ -39,6 +40,7 @@ Properly defined escalation paths are crucial for rapid incident response. AWS S
 4. **Pre-approve mitigation actions:** Collaborate with decision-makers to pre-approve actions for anticipated scenarios. Use [Systems Manager Automation runbooks](../../../incident-manager/latest/userguide/tutorials-runbooks.md "../../../incident-manager/latest/userguide/tutorials-runbooks.md") integrated with Incident Manager to speed up incident resolution.
 5. **Specify ownership:** Clearly identify internal owners for each step of the escalation path.
 6. **Detail third-party escalations:**
+
    - Document third-party service-level agreements (SLAs), and align them with internal goals.
    - Set clear protocols for vendor communication during incidents.
    - Integrate vendor contacts into incident management tools for direct access.

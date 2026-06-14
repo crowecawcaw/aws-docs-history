@@ -77,6 +77,7 @@ is not established:** Medium
   business risk and liabilities, operational risks, and
   information security threats), so that you can include their
   impact when determining where to focus efforts.
+
   - [AWS Latest Security Bulletins](https://aws.amazon.com/security/security-bulletins/ "https://aws.amazon.com/security/security-bulletins/")
   - [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/ "https://aws.amazon.com/premiumsupport/trustedadvisor/")
 

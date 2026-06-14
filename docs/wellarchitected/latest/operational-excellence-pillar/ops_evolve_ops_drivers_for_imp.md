@@ -40,9 +40,11 @@ is not established:** Medium
 
 - Understand drivers for improvement: You should only make
   changes to a system when a desired outcome is supported.
+
   - Desired capabilities: Evaluate desired features and
     capabilities when evaluating opportunities for
     improvement.
+
     - [What's
       New with AWS](https://aws.amazon.com/new/ "https://aws.amazon.com/new/")
 
@@ -50,6 +52,7 @@ is not established:** Medium
     and vulnerabilities when evaluating opportunities for
     improvement. Track rightsizing options, and seek
     optimization opportunities.
+
     - [AWS Latest Security Bulletins](https://aws.amazon.com/security/security-bulletins/ "https://aws.amazon.com/security/security-bulletins/")
     - [AWS Trusted Advisor](https://aws.amazon.com/premiumsupport/trustedadvisor/ "https://aws.amazon.com/premiumsupport/trustedadvisor/")
     - [Cloud
@@ -59,6 +62,7 @@ is not established:** Medium
     required to maintain compliance with regulation, policy,
     or to remain under support from a third party, when
     reviewing opportunities for improvement.
+
     - [AWS Compliance](https://aws.amazon.com/compliance/ "https://aws.amazon.com/compliance/")
     - [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/")
     - [AWS Compliance Latest News](https://aws.amazon.com/compliance/compliance-latest-news/ "https://aws.amazon.com/compliance/compliance-latest-news/")

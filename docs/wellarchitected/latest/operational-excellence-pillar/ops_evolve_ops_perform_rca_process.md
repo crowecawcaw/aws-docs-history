@@ -62,6 +62,7 @@ organization.
 2. Describe key time points on the timeline to understand the
    events of the incident.
 3. Ask the following questions:
+
    1. Could you improve time to detection?
    2. Are there updates to metrics and alarms that would
       detect the incident sooner?

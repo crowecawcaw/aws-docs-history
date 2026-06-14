@@ -148,6 +148,7 @@ with a change calendar.
     change these alerts so that they start when human
     intervention is required. If an alert is initiated, provide
     a runbook or playbook.
+
     1. You can use
        [AWS Systems Manager Documents](../../../systems-manager/latest/userguide/sysman-ssm-docs.md "../../../systems-manager/latest/userguide/sysman-ssm-docs.md") to build playbooks and
        runbooks for alerts.
@@ -156,12 +157,14 @@ with a change calendar.
     planned events in a clear and actionable way with enough
     notice to allow appropriate responses. Use email lists or
     chat channels to send notifications ahead of planned events.
+
     1. [AWS Chatbot](../../../chatbot/latest/adminguide/what-is.md "../../../chatbot/latest/adminguide/what-is.md") can be used to send alerts and respond to
        events within your organizations messaging platform.
 
 17. Provide an accessible source of information where planned
     events can be discovered. Provide notifications of planned
     events from the same system.
+
     1. [AWS Systems Manager Change Calendar](../../../systems-manager/latest/userguide/systems-manager-change-calendar.md "../../../systems-manager/latest/userguide/systems-manager-change-calendar.md") can be used to
        create change windows when changes can occur. This
        provides team members notice when they can make changes
@@ -171,6 +174,7 @@ with a change calendar.
     understand vulnerabilities in the wild and potential risks
     associated to your workload components. Provide notification
     to team members so that they can act.
+
     1. You can subscribe to
        [AWS Security Bulletins](https://aws.amazon.com/security/security-bulletins/ "https://aws.amazon.com/security/security-bulletins/") to receive notifications of
        vulnerabilities on AWS.
@@ -180,6 +184,7 @@ with a change calendar.
     everyone. Give communication opportunities to
     under-represented groups. Rotate roles and responsibilities
     in meetings.
+
     1. **Expand roles and
        responsibilities:** Provide opportunities for
        team members to take on roles that they might not

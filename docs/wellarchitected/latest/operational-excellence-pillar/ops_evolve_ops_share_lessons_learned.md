@@ -54,6 +54,7 @@ is not established:** Low
   procedures, guidance, governance, and best practices through
   an accessible wiki. Share scripts, code, and libraries through
   a common repository.
+
   - Leverage [AWS re:Post Private](https://aws.amazon.com/repost-private/ "https://aws.amazon.com/repost-private/") as a knowledge service to streamline collaboration and knowledge sharing within your organization.
 
 ## Resources

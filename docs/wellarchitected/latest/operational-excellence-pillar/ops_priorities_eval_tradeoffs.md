@@ -102,6 +102,7 @@ and desired business outcomes.
 
 1. Formalize benefits measurement practices within a holistic
    cloud governance framework.
+
    1. Balance central control of decision-making with
       decentralized authority for some decisions.
    2. Understand that burdensome decision-making processes
@@ -113,6 +114,7 @@ and desired business outcomes.
    various levels of decisions, which includes who is required
    to unblock decisions that are subject to conflicted
    interests.
+
    1. Centralize one-way door decisions that could be
       irreversible.
    2. Allow two-way door decisions to be made by lower level
@@ -120,6 +122,7 @@ and desired business outcomes.
 
 3. Understand and manage benefits and risks. Balance the
    benefits of decisions against the risks involved.
+
    1. **Identify benefits**:
       Identify benefits based on business goals, needs, and
       priorities. Examples include business case impact,

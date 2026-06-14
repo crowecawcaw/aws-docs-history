@@ -47,6 +47,7 @@ opportunities into your software development cadence.
    workload with an agreed-upon frequency. Use a documented
    architectural standard that includes AWS-specific best
    practices.
+
    1. Use your internally-defined standards for these reviews.
       If you do not have an internal standard, use the AWS
       Well-Architected Framework.

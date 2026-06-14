@@ -52,6 +52,7 @@ is not established:** High
   highest level of leadership with a designated executive
   sponsor. The executive sponsor aligns the team's mindset,
   skillsets, and ways of working to the defined strategy.
+
   - **Explain the
     _why_:** Bring clarity and
     explain the reasoning behind the vision and strategy.
@@ -105,6 +106,7 @@ of productivity, and acceleration of growth through generative AI.
 3. Verify that your transformational strategy is very clear and
    communicated widely by the executive sponsor to every level
    of the organization.
+
    1. Establish clearly defined business objectives for IT and
       cloud initiatives.
    2. Document key business metrics to drive IT and cloud
@@ -116,6 +118,7 @@ of productivity, and acceleration of growth through generative AI.
    message needs to be delivered to specified leaders,
    managers, and individual contributors. Specify the person or
    team that should deliver this message.
+
    1. Fulfill communications plans consistently and reliably.
    2. Set and manage expectations through in-person events on
       a regular basis.

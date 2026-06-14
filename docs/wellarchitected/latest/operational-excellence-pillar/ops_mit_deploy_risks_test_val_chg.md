@@ -30,6 +30,7 @@ As part of their continuous integration and continuous delivery (CI/CD) pipeline
 ### Implementation steps
 
 1. Perform pre-install checks to mirror the pre-production environment to production.
+
    1. Use [drift detection](../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.md") to detect when resources have been changed outside of CloudFormation.
    2. Use [change sets](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.md") to validate that the intent of a stack update matches the actions that CloudFormation takes when the change set is initiated.
 

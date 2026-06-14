@@ -60,6 +60,7 @@ implementing trace data analysis using AWS services:
    applications. This allows for integrated viewing of traces,
    metrics, logs, alarms, and other health information.
 4. **Enable X-Ray Insights**:
+
    1. Turn on
       [X-Ray
       Insights](../../../xray/latest/devguide/xray-console-insights.md "../../../xray/latest/devguide/xray-console-insights.md") for automated anomaly detection in

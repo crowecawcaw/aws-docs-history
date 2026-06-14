@@ -33,6 +33,7 @@ AnyCompany Retail is on a mission to achieve minimal to zero downtime deployment
 
 1. Use an approval workflow to initiate the sequence of production roll-out steps upon promotion to production .
 2. Use an automated deployment system such as [AWS CodeDeploy](../../../codedeploy/latest/userguide/welcome.md "../../../codedeploy/latest/userguide/welcome.md"). AWS CodeDeploy [deployment options](../../../codedeploy/latest/userguide/deployment-steps.md "../../../codedeploy/latest/userguide/deployment-steps.md") include in-place deployments for EC2/On-Premises and blue/green deployments for EC2/On-Premises, AWS Lambda, and Amazon ECS (see the preceding workflow diagram).
+
    1. Where applicable, [integrate AWS CodeDeploy with other AWS services](../../../codedeploy/latest/userguide/integrations-aws.md "../../../codedeploy/latest/userguide/integrations-aws.md") or [integrate AWS CodeDeploy with partner product and services](../../../codedeploy/latest/userguide/integrations-partners.md "../../../codedeploy/latest/userguide/integrations-partners.md").
 
 3. Use blue/green deployments for databases such as [Amazon Aurora](../../../AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.md "../../../AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.md") and [Amazon RDS](../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md "../../../AmazonRDS/latest/UserGuide/blue-green-deployments.md").

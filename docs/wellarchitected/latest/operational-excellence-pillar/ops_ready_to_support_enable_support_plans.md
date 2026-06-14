@@ -56,6 +56,7 @@ information on how to request support, whom to notify, and best practices for ex
 1. Work with stakeholders in your organization to identify software and services vendors that your workload relies on. Document these dependencies.
 2. Determine service-level needs for your workload. Select a support plan that aligns with them.
 3. For commercial software and services, establish a support plan with the vendors.
+
    1. Subscribing to AWS Business Support or greater for all production accounts provides faster
       response time from AWS Support and strongly recommended. If you don’t have premium support,
       you must have an action plan to handle issues, which require help from AWS Support. AWS Support
