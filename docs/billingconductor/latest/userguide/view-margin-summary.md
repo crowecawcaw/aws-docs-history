@@ -16,6 +16,7 @@
    **Charged amount**, **AWS costs**, and
    **Margin**.
 6. You can view your margin analysis in two ways:
+
    - As a bar chart in the **Performance (up to last 13 months)**
      section.
    - As a table in the **Margin analysis** table.Negative margins are shown in red in the graph, with a negative dollar amount and negative

@@ -12,6 +12,7 @@ Use the following steps to create a pricing rule.
 5. For **Pricing rule details**, enter the name of the pricing rule. For naming restrictions, see [Quotas and restrictions](limits.md "limits.md").
 6. (Optional) For **Description**, enter a description for the pricing rule.
 7. For **Scope**, choose `Global`, `Service`, `Billing entity`, or `SKU`.
+
    - Global - applies to all usage.
    - Service - only applies to a given service. When choosing service, choose a service code to configure the pricing rates for. When you choose a service, choose the service code from the Price List Query API that you want to adjust.
    - Billing entity - only applies to a given billing entity. A billing entity is the seller of services provided by AWS, their affiliates, or third-party providers selling services through AWS Marketplace.

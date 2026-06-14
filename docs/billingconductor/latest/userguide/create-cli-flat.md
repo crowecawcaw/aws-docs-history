@@ -13,6 +13,7 @@ Use the following steps to create a custom line item that applies either a credi
 6. For **Billing period**, choose either the existing billing period or the previous billing period.
 7. For **Duration**, choose either one month or recurring (no defined end date).
 8. For **Billing group**, choose a billing group. You can only associate the custom charge to one billing group at a time.
+
    1. (Optional) For **Allocated account**, you can apply your custom line item to a billing group account of your choice. Your custom line item is applied to the primary account of the billing group of your choice by default.
 
 9. Choose **Flat charge** for your **custom line item type**.

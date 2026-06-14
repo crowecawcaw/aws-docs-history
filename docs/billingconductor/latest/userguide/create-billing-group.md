@@ -27,6 +27,7 @@ accounts mid-month doesn't affect previous billing periods.
 6. Choose `Standard` as the **billing group type**.
 7. For **Pricing plan**, choose a pricing plan to associate with the billing
    group. To create a pricing plan, see [Creating pricing plans](create-pricingplan.md "create-pricingplan.md").
+
    - Alternatively, you can use AWS managed `BasicPricingPlan`, which is available in the pricing plan dropdown list. The `BasicPricingPlan` calculates gross cloud costs from AWS. You cannot edit or delete this pricing plan.
 
 8. (Optional) For **Additional settings**, you can enable automatic account
@@ -99,6 +100,7 @@ Use this procedure when automatic billing group creation fails during billing tr
    group.
 6. Choose `Standard` as the **billing group type**.
 7. Choose an individual AWS Organizations that's transferring its bills for which you want to create a billing group.
+
    1. If you're using billing transfer with two-level transfers, expand the transfer name to view the organizations available for billing group creation.
    2. The list displays only organizations that aren't associated with a billing group. Organizations that already have an associated billing group don't appear in this list.
 

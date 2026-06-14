@@ -11,14 +11,17 @@ For billing transfer billing groups, the primary account corresponds to the mana
 ###### Contents
 
 - [Creating billing groups](create-billing-group.md "create-billing-group.md")
+
   - [Using Billing Conductor as a standalone service](create-billing-group.md#create-billing-group-standalone "create-billing-group.md#create-billing-group-standalone")
   - [Using Billing Conductor with billing transfer](create-billing-group.md#create-billing-group-tandem "create-billing-group.md#create-billing-group-tandem")
 
 - [Viewing your billing group details](viewing-abc.md "viewing-abc.md")
+
   - [Viewing the billing group table](viewing-abc.md#table-billing-group "viewing-abc.md#table-billing-group")
   - [Viewing your pro forma configurations by billing group](viewing-abc.md#custom-pricing-view-proforma "viewing-abc.md#custom-pricing-view-proforma")
   - [Viewing your pro forma configurations by linked account](viewing-abc.md#view-proforma-linked-acct "viewing-abc.md#view-proforma-linked-acct")
   - [Viewing your billing details by custom pricing dimensions](viewing-abc.md#custom-pricing-view "viewing-abc.md#custom-pricing-view")
 
 - [Configuring AWS CUR by billing group](configuring-abc.md "configuring-abc.md")
+
   - [Understanding the differences between AWS Billing Conductor AWS CUR and standard AWS CUR](configuring-abc.md#bp-standardCUR "configuring-abc.md#bp-standardCUR")

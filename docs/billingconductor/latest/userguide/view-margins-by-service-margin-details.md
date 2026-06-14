@@ -11,6 +11,7 @@
 3. Under **Report parameters**, choose a **Billing period**
    and a **Billing group**.
 4. You can view your margin analysis in two ways:
+
    - As a line chart in the **Margin trend by top 5 services**
      section.
    - As a table in the **Margin analysis** table.

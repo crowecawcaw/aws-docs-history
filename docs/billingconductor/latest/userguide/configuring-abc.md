@@ -40,6 +40,7 @@ Use the following steps to generate a pro forma AWS CUR for a billing group.
 - When using Billing Conductor as a standalone service, choose **Billing group view**
 
 - When using Billing Conductor with billing transfer, choose **Billing transfer view**
+
   1.  To include pro forma data in your , choose **Showback/Chargeback view** for your billing transfer view
 
 7. For **Additional report details**, select **Include resource
@@ -79,6 +80,7 @@ the report in step 4 and the date range for the report, in the following format:
 16. For **Enable report data integration for**, choose whether you want to
     upload your Cost and Usage Reports to Amazon Athena, Amazon Redshift, or Quick. The report is compressed in the following
     formats:
+
     - **Athena**: parquet compression
     - **Amazon Redshift or Quick**: .gz compression
 
