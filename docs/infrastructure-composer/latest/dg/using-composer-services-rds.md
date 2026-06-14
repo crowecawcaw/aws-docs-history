@@ -44,6 +44,7 @@ You can configure the following here:
   resource.
 - **Database secret** – An identifier for the AWS Secrets Manager secret that is associated
   with your Amazon RDS DB cluster, instance, or proxy. This field accepts the following values:
+
   - **Static value** – A unique identifier of the database secret, such as the secret ARN.
     The following is an example: `arn:aws:secretsmanager:us-west-2:123456789012:secret:my-path/my-secret-name-1a2b3c`.
     For more information, see [AWS Secrets Manager
@@ -59,6 +60,7 @@ You can configure the following here:
 - **Database hostname** – The hostname that can be used to connect to your
   Amazon RDS DB cluster, instance, or proxy. This value is specified in the external template that defines your
   Amazon RDS resource. The following values are accepted:
+
   - **Static value** – A unique identifier of the database hostname, such as the endpoint
     address. The following is an example: `mystack-mydb-1apw1j4phylrk.cg034hpkmmjt.us-east-2.rds.amazonaws.com`.
   - **Output value** – The output value of a deployed Amazon RDS DB
@@ -71,6 +73,7 @@ You can configure the following here:
 - **Database port** – The port number that can be used to connect to your Amazon RDS
   DB cluster, instance, or proxy. This value is specified in the external template that defines your Amazon RDS
   resource. The following values are accepted:
+
   - **Static value** – The database port. For example, `3306`.
   - **Output value** – The output value of a deployed Amazon RDS DB
     cluster, instance, or proxy. For example, `!ImportValue myStack-MyRDSInstancePort`.

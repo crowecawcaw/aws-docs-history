@@ -36,6 +36,7 @@ using configuration files, see [Configure project settings](../../../serverless-
 2. You may receive a prompt to confirm that you are working with a development stack. Select **OK** to
    continue.
 3. Infrastructure Composer may prompt you to configure the following options:
+
    - **AWS Region** – The region to sync your application to.
    - **CloudFormation stack name** – The name of your CloudFormation stack. You can select an existing stack name or create a new one.
    - **Amazon Simple Storage Service (Amazon S3) bucket** – The name of your Amazon S3 bucket. The AWS SAM CLI will package and store your application files

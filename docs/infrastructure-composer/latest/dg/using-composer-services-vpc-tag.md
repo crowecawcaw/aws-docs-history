@@ -20,6 +20,7 @@ Lambda function, provide a value and type.
 - **Value** – An identifier for the security group or subnet. Accepted values will vary
   based on the **type**.
 - **Type** – The following types of values are allowed:
+
   - Parameter name
   - AWS Systems Manager (SSM) Parameter Store
   - Static value

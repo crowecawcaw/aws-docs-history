@@ -36,6 +36,7 @@ The following image is of Infrastructure Composer's visual designer and visual c
    homepage.
 5. **Save status** – Indicates whether Infrastructure Composer changes
    are saved to your local machine. States include:
+
    - **Autosave** – **Local
      sync** is activated and your project is being automatically synced and
      saved.
@@ -61,6 +62,7 @@ The following image is of Infrastructure Composer's visual designer and visual c
     Properties displayed will change as you configure your card.
 14. **Menu** – Provides general options such as the
     following:
+
     - **Create a project**
     - **Open a template file or project**
     - **Save a template file**
@@ -77,6 +79,7 @@ The following image is of Infrastructure Composer's visual designer and visual c
     visual organization.
 18. **Card actions** – Provides actions you can take
     on your card.
+
     1. **Details** – Brings up the resource property
        panel.
     2. **Group** – Group selected cards

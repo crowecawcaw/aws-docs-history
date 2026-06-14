@@ -13,6 +13,7 @@ Infrastructure Composer's visual designer in the AWS Toolkit for Visual Studio C
 7. **Arrange** – Arranges your application architecture in the canvas.
 8. **Sync** – Initiates the AWS Serverless Application Model (AWS SAM) CLI `sam sync` command to deploy your application.
 9. **Menu** – Provides general options such as the following:
+
    - **Export canvas**
    - **Tour the canvas**
    - Links to **Documentation**
@@ -25,6 +26,7 @@ Infrastructure Composer's visual designer in the AWS Toolkit for Visual Studio C
 13. **Group** – A group of cards. You can group cards for visual organization.
 14. **Port** – Connection points to other cards.
 15. **Card actions** – Provides actions you can take on your card.
+
     - **Details** – Brings up the **Resource properties** panel.
     - **Group** – Group selected cards together.
     - **Delete** – Deletes the card from your canvas and template.
