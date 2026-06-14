@@ -51,6 +51,7 @@ accessing the objects in the bucket, and other metadata. For more information, s
    **Edit**.
 6. Edit the S3 Versioning settings for the bucket by choosing one of the
    following options:
+
    - To suspend S3 Versioning and stop the creation of new object
      versions, choose **Suspend**.
    - To enable S3 Versioning and save multiple distinct copies of each

@@ -114,6 +114,7 @@ configuration that you set on the source bucket.
 
 - In the replication configuration on the source bucket, verify the
   following:
+
   - The access point Amazon Resource Name (ARN) of the destination bucket is
     correct.
   - The key name prefix is correct. For example, if you set the
@@ -130,6 +131,7 @@ configuration that you set on the source bucket.
   source bucket owner to replicate objects. For an example, see [Granting permissions when the source and destination Outposts buckets are owned by different AWS accounts](outposts-replication-prerequisites-config.md#outposts-rep-prethree "outposts-replication-prerequisites-config.md#outposts-rep-prethree").
 - If an object replica doesn't appear in the destination bucket, the following
   issues might prevent replication:
+
   - S3 on Outposts doesn't replicate an object in a source bucket that is a replica
     created by another replication configuration. For example, if you set a
     replication configuration from bucket A to bucket B to bucket C, S3 on Outposts

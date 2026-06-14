@@ -58,6 +58,7 @@ Points** list.
 2. In the left navigation pane, choose **Outposts
    access points**.
 3. To copy the access point alias, do one of the following:
+
    - In the **Access Points** list, select the
      option button next to the access point name, and then choose
      **Copy Access Point alias**.

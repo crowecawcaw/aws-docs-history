@@ -79,6 +79,7 @@ Replication requires the following:
   bucket to the destination bucket on your behalf. That means you must create a
   service role to delegate `GET` and `PUT` permissions to
   S3 on Outposts.
+
   1.  Before creating the service role, you must have `GET`
       permission on the source bucket and `PUT` permission on the
       destination bucket.
@@ -112,6 +113,7 @@ default:
 - If you make a `DELETE` request without specifying an object version ID,
   S3 on Outposts adds a delete marker. S3 on Outposts deals with the delete marker as
   follows:
+
   - S3 on Outposts does not
     replicate the delete marker by default.
   - However, you can add

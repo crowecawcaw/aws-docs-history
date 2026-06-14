@@ -94,11 +94,13 @@ attempts to use them are rejected.
 - To route requests to an S3 on Outposts access point, you must create and configure an
   S3 on Outposts endpoint. The following limits apply to endpoints for
   S3 on Outposts:
+
   - Each virtual private cloud (VPC) on an Outpost can have one associated endpoint, and you can
     have up to 100 endpoints per Outpost.
   - You can map multiple access points to the same endpoint.
   - You can add endpoints only to VPCs with CIDR blocks in the subspaces
     of the following CIDR ranges:
+
     - 10.0.0.0/8
     - 172.16.0.0/12
     - 192.168.0.0/16

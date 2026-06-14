@@ -254,7 +254,9 @@ aws s3control put-bucket-versioning --account-id `123456789012` --bucket arn:aws
    `SOURCE-OUTPOSTS-BUCKET`
    bucket. S3 on Outposts assumes this role to replicate objects on your
    behalf. You create an IAM role in two steps:
+
    1. Create an IAM role.
+
       1. Copy the following trust policy and save it to a file
          named
          `s3-on-outposts-role-trust-policy.json`
@@ -279,7 +281,6 @@ aws s3control put-bucket-versioning --account-id `123456789012` --bucket arn:aws
       }`
 
       ```
-
       2. Run the following command to create the role. Replace
          the `user input
 placeholders` with your own
@@ -290,6 +291,7 @@ placeholders` with your own
       ```
 
    2. Attach a permissions policy to the service role.
+
       1. Copy the following permissions policy and save it to a
          file named
          `s3-on-outposts-role-permissions-policy.json`
@@ -332,7 +334,6 @@ placeholders` with your own
       }`
 
       ```
-
       2. Run the following command to create a policy and
          attach it to the role. Replace the
          `user input
@@ -346,6 +347,7 @@ placeholders` with your own
 5. Add a replication configuration to the
    `SOURCE-OUTPOSTS-BUCKET`
    bucket.
+
    1. Although the S3 on Outposts API requires a replication
       configuration in XML format, the AWS CLI requires that you specify
       the replication configuration in JSON format. Save the following
@@ -372,7 +374,6 @@ placeholders` with your own
      ]
    }
    ```
-
    2. Run the following `put-bucket-replication` command
       to add the replication configuration to your source Outposts
       bucket. To use this command, replace the `user
@@ -382,7 +383,6 @@ input placeholders` with your own
    ```
    aws s3control put-bucket-replication --account-id `123456789012` --bucket arn:aws:s3-outposts:`region`:`123456789012`:outpost/`SOURCE-OUTPOST-ID`/bucket/`SOURCE-OUTPOSTS-BUCKET` --replication-configuration `file://replication.json` --profile `acctA`
    ```
-
    3. To retrieve the replication configuration, use the
       `get-bucket-replication` command. To use this
       command, replace the `user input
@@ -394,6 +394,7 @@ placeholders` with your own
    ```
 
 6. Test the setup in the Amazon S3 console:
+
    1. Sign in to the AWS Management Console and open the Amazon S3 console at
       [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
    2. In the
@@ -406,6 +407,7 @@ placeholders` with your own
    4. In the
       `DESTINATION-OUTPOSTS-BUCKET`
       bucket, verify the following:
+
       - S3 on Outposts replicated the objects.
 
       ###### Note

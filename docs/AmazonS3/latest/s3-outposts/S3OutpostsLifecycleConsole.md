@@ -33,6 +33,7 @@ following topics.
 5. Enter a value for **Lifecycle rule name**.
 6. Under **Rule scope**, choose one of the following
    options:
+
    - To limit the scope to specific filters, choose **Limit
      the scope of this rule using one or more filters**. Then,
      add a prefix filter, tags, or object size.
@@ -41,6 +42,7 @@ following topics.
 
 7. Under **Lifecycle rule actions**, choose one of the following
    options:
+
    - **Expire current versions of objects** – For
      versioning-enabled buckets, S3 on Outposts adds a delete marker and
      retains the objects as noncurrent versions. For buckets that don't use
@@ -94,6 +96,7 @@ confirm that you want to delete expired object delete markers, select
 5. (Optional) Update the value for **Lifecycle rule
    name**.
 6. Under **Rule scope**, edit the scope as needed:
+
    - To limit the scope to specific filters, choose **Limit the
      scope of this rule using one or more filters**. Then, add a
      prefix filter, tags, or object size.
@@ -102,6 +105,7 @@ confirm that you want to delete expired object delete markers, select
 
 7. Under **Lifecycle rule actions**, choose one of the following
    options:
+
    - **Expire current versions of objects** – For
      versioning-enabled buckets, S3 on Outposts adds a delete marker and retains the objects as noncurrent versions. For buckets that don't use S3 Versioning, S3 on Outposts permanently deletes the objects.
    - **Permanently delete noncurrent versions of objects** – S3 on Outposts permanently deletes noncurrent

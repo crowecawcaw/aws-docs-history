@@ -26,7 +26,7 @@ Guide_](../../../directconnect/latest/UserGuide/Welcome.md "../../../directconne
 Interface endpoints route requests for S3 on Outposts bucket and endpoint management APIs over
 the AWS network and through AWS PrivateLink, as illustrated in the following diagram.
 
-![Data flow diagram shows how interface endpoints route requests for S3 on Outposts bucket and endpoint management APIs.](images/s3-outposts-interface-endpoints.png)
+![How interface endpoints route requests for S3 on Outposts bucket and endpoint management APIs.](images/s3-outposts-interface-endpoints.png)
 For general information about interface endpoints, see [Interface VPC endpoints
 (AWS PrivateLink)](../../../vpc/latest/privatelink/vpce-interface.md "../../../vpc/latest/privatelink/vpce-interface.md") in the _AWS PrivateLink Guide_.
 
