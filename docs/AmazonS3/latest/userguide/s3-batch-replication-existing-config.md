@@ -30,6 +30,7 @@ information, see [Configuring an IAM role for S3 Batch Replication](s3-batch-rep
    that you want to use. The manifest is a list of all of the objects that you
    want to run the specified action on. To learn more about Batch Operations
    manifests, see [Specifying a manifest](batch-ops-create-job.md#specify-batchjob-manifest "batch-ops-create-job.md#specify-batchjob-manifest").
+
    - If you have a manifest prepared, choose **S3 inventory
      report (manifest.json)** or **CSV**.
      If your manifest is in a versioned bucket, you can specify the

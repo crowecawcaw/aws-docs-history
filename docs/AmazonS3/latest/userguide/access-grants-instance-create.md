@@ -33,6 +33,7 @@ later.
    Grants**.
 4. On the **S3 Access Grants** page, choose **Create
    S3 Access Grants instance**.
+
    1. In **Step 1** of the **Set up
       Access Grants instance** wizard, verify that you want to
       create the instance in the current AWS Region. Make sure that this is

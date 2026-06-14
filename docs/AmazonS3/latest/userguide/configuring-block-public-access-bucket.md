@@ -118,6 +118,7 @@ For information about using Amazon S3 Block Public Access through the REST APIs,
 see the following topics in the _Amazon Simple Storage Service API Reference_.
 
 - Bucket-level operations
+
   - [PutPublicAccessBlock](../API/API_PutPublicAccessBlock.md "../API/API_PutPublicAccessBlock.md")
   - [GetPublicAccessBlock](../API/API_GetPublicAccessBlock.md "../API/API_GetPublicAccessBlock.md")
   - [DeletePublicAccessBlock](../API/API_DeletePublicAccessBlock.md "../API/API_DeletePublicAccessBlock.md")

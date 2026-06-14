@@ -50,6 +50,7 @@ replica that grants full control to the destination bucket owner.
 
 - When you update a replication configuration to enable or disable the owner
   override, the following behavior occurs:
+
   - If you add the owner override option to the replication
     configuration:
 
@@ -271,6 +272,7 @@ aws s3api put-bucket-versioning \
 
 4. You must add permissions to your destination bucket policy to allow
    changing the replica ownership.
+
    1. Save the following policy to a file named
       ``destination-bucket-policy`.json`.
 Make sure to replace the ``user input
@@ -304,7 +306,6 @@ Make sure to replace the ``user input
    }`
 
    ```
-
    2. Add the preceding policy to the destination bucket by using the
       following `put-bucket-policy` command:
 
@@ -316,9 +317,11 @@ Make sure to replace the ``user input
    configuration that you add to the source bucket later. Amazon S3 assumes this
    role to replicate objects on your behalf. You create an IAM role in two
    steps:
+
    - Create the role.
    - Attach a permissions policy to the role.
    1. Create the IAM role.
+
       1. Copy the following trust policy and save it to a file
          named
          ``s3-role-trust-policy`.json`
@@ -342,7 +345,6 @@ Make sure to replace the ``user input
       }`
 
       ```
-
       2. Run the following AWS CLI `create-role` command
          to create the IAM role:
 
@@ -358,6 +360,7 @@ Make sure to replace the ``user input
       step.
 
    2. Attach a permissions policy to the role.
+
       1. Copy the following permissions policy and save it to a
          file named
          ``s3-role-perm-pol-changeowner`.json`
@@ -407,7 +410,6 @@ Make sure to replace the ``user input
       }`
 
       ```
-
       2. To attach the preceding permissions policy to the role,
          run the following `put-role-policy`
          command:
@@ -421,6 +423,7 @@ Make sure to replace the ``user input
       ```
 
 6. Add a replication configuration to your source bucket.
+
    1. The AWS CLI requires specifying the replication configuration as
       JSON. Save the following JSON in a file named
       ``replication`.json`in the current directory on your local computer. In the
@@ -452,7 +455,6 @@ configuration, the`AccessControlTranslation` specifies
       ]
    }
    ```
-
    2. Edit the JSON by providing values for the destination bucket name,
       the destination bucket owner account ID, and the
       `IAM-role-ARN`.
@@ -471,6 +473,7 @@ configuration, the`AccessControlTranslation` specifies
 
 7. Test your replication configuration by checking replica ownership in the
    Amazon S3 console.
+
    1. Sign in to the AWS Management Console and open the Amazon S3 console at
       [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
    2. Add objects to the source bucket. Verify that the destination

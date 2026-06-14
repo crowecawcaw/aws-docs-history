@@ -15,7 +15,7 @@ If versioning is suspended for a bucket, a `DELETE` request:
   `DELETE` removes a null version and Amazon S3 inserts a delete marker in its
   place instead with a `null` version ID.
 
-![Illustration that shows a simple delete to remove an object with a NULL version ID.](images/versioning_DELETE_versioningSuspended.png)
+![A simple delete to remove an object with a NULL version ID.](images/versioning_DELETE_versioningSuspended.png)
 To permanently delete an object that has a `versionId`, you must include
 the object’s `versionId` in the request. Since a delete marker doesn't
 contain any content, you'll lose the content for the `null` version when a
@@ -25,7 +25,7 @@ The following figure shows a bucket that doesn't have a null version. In this ca
 the `DELETE` removes nothing. Instead, Amazon S3 just inserts a delete
 marker.
 
-![Illustration that shows a delete marker insertion.](images/versioning_DELETE_versioningSuspendedNoNull.png)
+![A delete marker insertion.](images/versioning_DELETE_versioningSuspendedNoNull.png)
 Even in a versioning-suspended bucket, the bucket owner can permanently delete a
 specified version by including the version ID in the `DELETE` request, unless
 permissions for the `DELETE` request have been explicitly denied. For
@@ -36,4 +36,4 @@ The following figure shows that deleting a specified object version permanently 
 version of the object. Only the bucket owner can delete a specified object
 version.
 
-![Illustration that shows a permanent object deletion using a specified version ID.](images/versioning_DELETE_versioningEnabled2.png)
+![A permanent object deletion using a specified version ID.](images/versioning_DELETE_versioningEnabled2.png)

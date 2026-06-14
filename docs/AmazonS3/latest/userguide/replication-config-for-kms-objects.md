@@ -190,6 +190,7 @@ encrypted by using KMS keys (SSE-KMS or DSSE-KMS).
 
 - **`kms:Decrypt` and `kms:Encrypt`
   AWS KMS actions for the KMS keys**
+
   - You must grant `kms:Decrypt` permissions for the
     AWS KMS key that's used to decrypt the source object.
   - You must grant `kms:Encrypt` permissions for the
@@ -570,9 +571,11 @@ aws s3api put-bucket-versioning \
    `amzn-s3-demo-source-bucket` bucket later. Amazon S3 assumes this
    role to replicate objects on your behalf. You create an IAM role in two
    steps:
+
    - Create a service role.
    - Attach a permissions policy to the role.
    1. To create an IAM service role, do the following:
+
       1. Copy the following trust policy and save it to a file
          called
          ``s3-role-trust-policy-kmsobj`.json`
@@ -597,7 +600,6 @@ aws s3api put-bucket-versioning \
       }`
 
       ```
-
       2. Use the following command to create the role:
 
       ```
@@ -609,6 +611,7 @@ aws s3api put-bucket-versioning \
 
    2. Next, you attach a permissions policy to the role. This policy
       grants permissions for various Amazon S3 bucket and object actions.
+
       1. Copy the following permissions policy and save it to a
          file named
          ``s3-role-permissions-policykmsobj`.json`
@@ -706,7 +709,6 @@ aws s3api put-bucket-versioning \
       }`
 
       ```
-
       2. Create a policy and attach it to the role.
 
       ```

@@ -510,6 +510,7 @@ JSON
 ```
 
 3. Test the updated permissions.
+
    1. Using the IAM user sign-in link (see [To provide a sign-in link for IAM users](#walkthrough-sign-in-user-credentials "#walkthrough-sign-in-user-credentials")), sign in
       to the AWS Management Console.
 
@@ -605,6 +606,7 @@ Use your AWS account credentials, not the credentials of an IAM user, to sign in
      **Create policy**.
 
 3. Test the change to Alice's permissions:
+
    1. Using the IAM user sign-in link (see [To provide a sign-in link for IAM users](#walkthrough-sign-in-user-credentials "#walkthrough-sign-in-user-credentials")), sign in
       to the AWS Management Console.
    2. Open the Amazon S3 console at
@@ -687,6 +689,7 @@ Use your AWS account credentials, not the credentials of an IAM user, to sign in
     ```
 
 3. Test the updated policy:
+
    1. Using the IAM user sign-in link (see [To provide a sign-in link for IAM users](#walkthrough-sign-in-user-credentials "#walkthrough-sign-in-user-credentials")), sign
       into the AWS Management Console.
    2. Open the Amazon S3 console at

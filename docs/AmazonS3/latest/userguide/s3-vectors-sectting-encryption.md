@@ -21,7 +21,9 @@ The bucket name must:
     * Consist only of lowercase letters, numbers, and hyphens (-)
 
 5.  For **Encryption**, choose
+
     - **Specify encryption type** – Choose a specific encryption method:
+
       - **Server-side encryption with Amazon S3 managed keys (SSE-S3)** – With SSE-S3, Amazon S3 handles the generation, rotation, and management of encryption keys automatically.
       - **Server-side encryption with AWS Key Management Service keys (SSE-KMS)** – Similar to SSE-S3, but uses customer managed keys (CMKs) in AWS KMS, giving you more control over your keys. For more information about customer managed keys, see [Customer managed keys](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service Developer Guide_.
 
@@ -66,6 +68,7 @@ Vector index names must be unique within the vector bucket. Index name must be b
     * Choose based on your embedding model's output dimensions.For more information about the dimension requirements, see [Limitations and restrictions](s3-vectors-limitations.md "s3-vectors-limitations.md").
 
 7. For **Distance metric**, choose one of the following options:
+
    - **Cosine** – Measures the cosine of the angle between vectors. Best for normalized vectors and when direction matters more than magnitude
    - **Euclidean** – Measures the straight-line distance between vectors. Best when both direction and magnitude are important.
 

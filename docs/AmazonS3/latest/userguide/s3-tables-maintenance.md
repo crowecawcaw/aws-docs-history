@@ -38,17 +38,21 @@ You can choose from multiple compaction strategies which can further increase qu
 S3 Tables supports these compaction strategies for tables:
 
 - **Auto (Default)**
+
   - Amazon S3 selects the best compaction strategy based on your table sort order. This is the default compaction strategy for all tables.
   - For tables with a defined sort order in their metadata, `auto` will automatically apply `sort` compaction.
   - For tables without a sort order, `auto` will default to using `binpack` compaction.
 
 - **Binpack**
+
   - Combines small files into larger files, typically targeting sizes over 100MB, while applying any pending deletes. This is the default compaction strategy for unsorted tables.
 
 - **Sort**
+
   - Organizes data based on specified columns which are sorted automatically by hierarchy during compaction, improving query performance for filtered operations. This strategy is recommended when your queries frequently filter on specific columns. When you use this strategy, S3 Tables automatically applies hierarchical sorting on columns when a `sort_order` is defined in table properties.
 
 - **Z-order**
+
   - Optimizes data organization by blending multiple attributes into a single scalar value that can be used for sorting, allowing efficient querying across multiple dimensions. This strategy is recommended when you need to query data across multiple dimensions simultaneously. This strategy requires you to define a sort order in your Iceberg table properties using the `sort_order` table property.
 
 Compaction will incur additional costs. The `z-order` and `sort` compaction strategies may incur a higher cost than `binpack`. For more information, see the pricing information in the .[Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").

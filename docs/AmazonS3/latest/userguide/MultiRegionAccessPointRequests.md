@@ -89,6 +89,7 @@ access point. However, it's important to be aware of the following differences:
   ``MultiRegionAccessPoint_alias`.accesspoint.s3-global.amazonaws.com`—for
 example, `mfzwi23gnjvgw.mrap.accesspoint.s3-global.amazonaws.com`.
   Note the differences compared to a single-Region access point:
+
   - Multi-Region Access Point hostnames use their alias, not the Multi-Region Access Point name.
   - Multi-Region Access Point hostnames don't include the owner's AWS account ID.
   - Multi-Region Access Point hostnames don't include an AWS Region.

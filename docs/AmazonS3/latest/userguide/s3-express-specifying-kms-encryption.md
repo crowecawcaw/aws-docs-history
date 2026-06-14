@@ -23,6 +23,7 @@ AWS Command Line Interface (AWS CLI).
 ###### Note
 
 - For directory buckets, the encryption overriding behaviors are as follows:
+
   - When you use [CreateSession](../API/API_CreateSession.md "../API/API_CreateSession.md") with the REST API to authenticate and authorize Zonal endpoint API requests except [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md") and [UploadPartCopy](../API/API_UploadPartCopy.md "../API/API_UploadPartCopy.md"),
     you can override the encryption settings to SSE-S3 or to SSE-KMS only if you specified the bucket’s default encryption with SSE-KMS previously.
   - When you use [CreateSession](../API/API_CreateSession.md "../API/API_CreateSession.md") with the AWS CLI or the AWS SDKs to authenticate and authorize Zonal endpoint API requests except [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md") and [UploadPartCopy](../API/API_UploadPartCopy.md "../API/API_UploadPartCopy.md"), you can’t override the encryption settings at all.

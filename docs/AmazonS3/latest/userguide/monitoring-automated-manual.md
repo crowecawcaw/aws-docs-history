@@ -34,6 +34,7 @@ a single access request, such as the requester, bucket name, request time, reque
 action, response status, and error code, if any. For more information, see [Logging requests with server access logging](ServerLogs.md "ServerLogs.md").
 
 - The Amazon S3 dashboard shows the following:
+
   - Your buckets and the objects and properties they contain
 
 - The CloudWatch home page shows the following:

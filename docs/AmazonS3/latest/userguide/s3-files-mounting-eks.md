@@ -5,7 +5,7 @@ Storage Interface (CSI) driver, which supports both dynamic provisioning and sta
 provisioning. This involves installing the efs-csi-driver, which is the CSI driver for both
 Amazon EFS and S3 Files.
 
-![Diagram showing the data flow between an S3 bucket, S3 file system, and Amazon EKS cluster.](images/S3Files_EKS_dataflow.png)
+![The data flow between an S3 bucket, S3 file system, and Amazon EKS cluster.](images/S3Files_EKS_dataflow.png)
 
 ## Prerequisites
 

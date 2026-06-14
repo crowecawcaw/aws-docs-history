@@ -64,6 +64,7 @@ S3 Intelligent-Tiering Archive Access or Deep Archive Access storage tiers.
    data to be accessible in the **Number of days that the restored copy is
    available** box.
 6. For **Retrieval tier**, do one of the following:
+
    - Choose **Bulk retrieval** or **Standard
      retrieval**, and then choose **Initiate restore**.
    - Choose **Expedited retrieval** (available only for
@@ -176,6 +177,7 @@ For more information about using Batch Operations to restore archive objects, se
    your job.
 5. Under **Manifest format**, choose the type of manifest to
    use.
+
    - If you choose **S3 inventory report**, enter the path to the
      `manifest.json` object that Amazon S3 generated as part of the
      CSV-formatted inventory report. If you want to use a manifest version other than the

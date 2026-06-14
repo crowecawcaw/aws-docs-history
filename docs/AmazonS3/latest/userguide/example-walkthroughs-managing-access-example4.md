@@ -70,11 +70,6 @@ assume the role. The user can then do the following to access objects:
 
 For more information about IAM roles, see [IAM Roles](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") in the _IAM User Guide_.
 
-The following is a summary of the walkthrough
-steps:
-
-![Cross-account permissions using IAM roles.](images/access-policy-ex4.png)
-
 1. Account A administrator user attaches a bucket policy granting Account B
    conditional permission to upload objects.
 2. Account A administrator creates an IAM role, establishing trust with Account
@@ -88,6 +83,11 @@ steps:
 5. User in Account C first assumes the role, which returns the user temporary
    security credentials. Using those temporary credentials, the user then accesses
    objects in the bucket.
+
+The following is a summary of the walkthrough
+steps:
+
+![Cross-account permissions using IAM roles.](images/access-policy-ex4.png)
 
 For this example, you need three accounts. The following table shows how we refer to
 these accounts and the administrator users in these accounts. In accordance with the
@@ -113,10 +113,12 @@ Resource Names (ARNs) of the IAM users, and roles.
 
 1. Make sure that you have three AWS accounts and each account has one administrator user
    as shown in the table in the preceding section.
+
    1. Sign up for AWS accounts, as needed. We refer to these accounts as
       Account A, Account B, and Account C.
    2. Using Account A credentials, sign in to the [IAM console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home") and
       do the following to create an administrator user:
+
       - Create user `AccountAadmin` and note its security credentials.
         For more information about adding users, see [Creating an
         IAM user in your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
@@ -154,6 +156,7 @@ information as follows:
 
 3.  When creating a bucket policy, you will need the following information. Note these
     values:
+
     - **Canonical user ID of Account A**
       – When the Account A administrator grants conditional upload
       object permission to the Account B administrator, the condition
@@ -265,6 +268,7 @@ because the role must be created in Account A.
 1. Before creating the role, prepare the managed policy that defines the
    permissions that the role requires. You attach this policy to the role in a
    later step.
+
    1. In the navigation pane on the left, choose
       **Policies** and then choose **Create
       Policy**.
@@ -293,7 +297,6 @@ because the role must be created in Account A.
    }`
 
    ```
-
    5. Choose **Create Policy**.
 
    The new policy appears in the list of managed policies.
@@ -511,8 +514,10 @@ to assume `examplerole`.
 ## Step 4: Clean up
 
 1. After you're done testing, you can do the following to clean up:
+
    1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/") using Account A
       credentials, and do the following:
+
       - In the Amazon S3 console, remove the bucket policy attached to
         `amzn-s3-demo-bucket1`. In the bucket
         **Properties**, delete the policy in the

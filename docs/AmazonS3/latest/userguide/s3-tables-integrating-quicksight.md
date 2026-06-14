@@ -63,6 +63,7 @@ You can connect to table data using Athena as a data source.
 
 - [Integrate your table buckets with
   AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+
   - [Create a namespace](s3-tables-namespace-create.md "s3-tables-namespace-create.md").
   - [Create a table](s3-tables-create.md "s3-tables-create.md").
   - [Configure permissions for Quick to access tables](#quicksight-permissions-tables "#quicksight-permissions-tables").

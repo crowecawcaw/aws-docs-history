@@ -98,6 +98,7 @@ on Amazon EMR using the AWS analytics services integration.
 - Create the default service role for Amazon EMR (`EMR_DefaultRole_V2`). For details, see [Service role for Amazon EMR (EMR role)](../../../emr/latest/ManagementGuide/emr-iam-role.md "../../../emr/latest/ManagementGuide/emr-iam-role.md") .
 - Create the Amazon EC2 instance profile for Amazon EMR (`EMR_EC2_DefaultRole`). For details, see [Service role
   for cluster EC2 instances (EC2 instance profile)](../../../emr/latest/ManagementGuide/emr-iam-role-ec2.md "../../../emr/latest/ManagementGuide/emr-iam-role-ec2.md").
+
   - Attach the `AmazonS3TablesFullAccess` policy to
     `EMR_EC2_DefaultRole`.
 

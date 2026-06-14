@@ -3,7 +3,7 @@
 You can attach an S3 file system to an Amazon ECS task definition and then deploy the task
 to access your S3 data from your containers.
 
-![Diagram showing the data flow between an S3 bucket, S3 file system, and Amazon ECS task.](images/S3Files_ECS_dataflow.png)
+![The data flow between an S3 bucket, S3 file system, and Amazon ECS task.](images/S3Files_ECS_dataflow.png)
 In Amazon ECS, S3 Files volume support is available for AWS Fargate and ECS Managed
 Instances at General Availability. S3 Files volumes are not supported on the Amazon EC2
 launch type. If you configure an S3 Files volume in a task definition and attempt to run it
@@ -36,6 +36,7 @@ following:
   transit encryption port.
 - Once the file system is attached in the task definition, you can start a task
   using this task definition in following ways:
+
   - You can deploy the task as a standalone, one-time run. For
     details, see [Running an application as an Amazon ECS task](../../../AmazonECS/latest/developerguide/standalone-task-create.md "../../../AmazonECS/latest/developerguide/standalone-task-create.md") in the
     _Amazon ECS Developer

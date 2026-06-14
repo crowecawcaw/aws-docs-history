@@ -37,6 +37,7 @@ bucket.
 4. To create a new replication rule or edit an existing rule, choose the
    **Management** tab, and scroll down to
    **Replication rules**:
+
    - To create a new replication rule, choose **Create replication
      rule**. For examples of how to set up a basic replication
      rule, see [Examples for configuring live replication](replication-example-walkthroughs.md "replication-example-walkthroughs.md").

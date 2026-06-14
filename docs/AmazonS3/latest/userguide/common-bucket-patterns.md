@@ -71,6 +71,6 @@ can use [AWS CloudFormation](../../../AWSCloudFormation/latest/UserGuide/Welcome
 already defines all of your desired settings for your S3 general purpose buckets so that you can easily
 deploy and track any changes to your infrastructure. For more information, see [AWS::S3::Bucket](../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.md") in the _AWS CloudFormation User Guide_.
 
-![A diagram showing you how you can create a CloudFormation template customized to your application that defines settings for your S3 buckets.](images/create-stack-diagram.png)
+![How to create a CloudFormation template customized to your application that defines settings for your S3 buckets.](images/create-stack-diagram.png)
 
 When building a workload with a bucket-per-use pattern, we recommend that you create the buckets in your account regional namespace. By creating buckets in your account regional namespace, you avoid competing for bucket names against others and have assurance that only your account can ever create buckets with your selected naming convention. For more information on account regional namespaces, see [Namespaces for general purpose buckets](gpbucketnamespaces.md "gpbucketnamespaces.md").

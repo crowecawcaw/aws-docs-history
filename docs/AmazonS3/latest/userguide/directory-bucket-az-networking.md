@@ -47,6 +47,7 @@ Amazon S3 Express One Zone storage class objects and directory buckets.
    that controls the principals' permissions to perform actions on
    resources over the VPC endpoint.
 10. For **IP address type**, choose from the following options:
+
     - **IPv4** – Assign IPv4 addresses to the endpoint network interfaces. This option is supported only if all selected subnets have IPv4 address ranges and the service accepts IPv4 requests.
     - **IPv6** – Assign IPv6 addresses to the endpoint network interfaces. This option is supported only if all selected subnets are IPv6 only subnets and the service accepts IPv6 requests.
     - **Dualstack** – Assign both IPv4 and IPv6 addresses to the endpoint network interfaces. This option is supported only if all selected subnets have both IPv4 and IPv6 address ranges and the service accepts both IPv4 and IPv6 requests.

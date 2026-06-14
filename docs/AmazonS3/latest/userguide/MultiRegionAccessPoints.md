@@ -35,12 +35,12 @@ The following image is a graphical representation of an Amazon S3 Multi-Region A
 configuration. The graphic shows how Amazon S3 requests are automatically routed to buckets in
 the closest active AWS Region.
 
-![Diagram showing requests routed through an Amazon S3 Multi-Region Access Point.](images/MultiRegionAccessPoints.png)
+![Requests routed through an Amazon S3 Multi-Region Access Point.](images/MultiRegionAccessPoints.png)
 The following image is a graphical representation of an Amazon S3 Multi-Region Access Point in an active-passive
 configuration. The graphic shows how you can control Amazon S3 data-access traffic to fail over
 between active and passive AWS Regions.
 
-![Diagram showing an Amazon S3 Multi-Region Access Point in an active-passive configuration.](images/MultiRegionAccessPointsFailover.png)
+![An Amazon S3 Multi-Region Access Point in an active-passive configuration.](images/MultiRegionAccessPointsFailover.png)
 
 ###### Topics
 

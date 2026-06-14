@@ -55,6 +55,7 @@ bucket policy, see [Granting permissions for cross-account access points](access
     3. In the **Bucket name** field, enter the name of the bucket, including the base name and the zone ID. For example, ``bucket-base-name`--`zone-id`--x-s3`.
 
 6. To create an access point for a directory bucket in your account:
+
    1. In the **Directory bucket** field, choose **Choose a bucket in this account**.
    2. In the **Bucket name** field, enter the name of the bucket, including the base name and the zone ID.
       For example, ``bucket-base-name`--`zone-id`--x-s3`. To choose the bucket from a list, choose **Browse S3** and choose the directory bucket.
@@ -64,6 +65,7 @@ bucket policy, see [Granting permissions for cross-account access points](access
 8. In **Network origin**, choose either **virtual private cloud (VPC)** or **Internet**.
    If you choose **virtual private cloud (VPC)**, in the **VPC ID** field, enter the ID of the VPC that you want to use with the access point.
 9. (Optional) In **Access point scope**, to apply a scope to this access point, choose **Limit the scope of this access point using prefixes or permissions**.
+
    1. To limit access to prefixes in the directory bucket, in **Prefixes**, enter one or more prefixes. To add another prefix, choose **Add prefix**. To remove a prefix, choose **Remove**.
 
    ###### Note

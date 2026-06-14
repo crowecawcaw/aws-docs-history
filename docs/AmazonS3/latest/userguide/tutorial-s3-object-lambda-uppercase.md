@@ -481,6 +481,7 @@ lambda.zip$
 3. Choose **Create function**.
 4. Choose **Author from scratch**.
 5. Under **Basic information**, do the following:
+
    1. For **Function name**, enter
       `tutorial-object-lambda-function`.
    2. For **Runtime**, choose **Python
@@ -589,6 +590,7 @@ provide the event context in JSON format as custom parameters for Lambda to use.
    Lambda function to process, select **GetObject**.
 7. For **Invoke Lambda function**, you can choose either of the
    following two options for this tutorial.
+
    - Choose **Choose from functions in your account**, and
      then choose the Lambda function that you created in [Step 4](#ol-upper-step4 "#ol-upper-step4") (for example,
      `tutorial-object-lambda-function`) from the

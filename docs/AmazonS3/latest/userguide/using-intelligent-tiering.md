@@ -97,6 +97,7 @@ object tag level configuration using the AWS Management Console, AWS CLI, or Ama
    configuration scope to use. Optionally, you can limit the configuration
    scope to specified objects within a bucket using a shared prefix, object
    tag, or combination of the two.
+
    1. To limit the scope of the configuration, select
       **Limit the scope of this configuration using one or
       more filters**.

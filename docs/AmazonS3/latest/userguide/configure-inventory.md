@@ -325,9 +325,11 @@ report:
     **Disable**.
 13. To configure server-side encryption, under **Inventory report
     encryption**, follow these steps:
+
     1.  Under **Server-side encryption**, choose either **Do not
         specify an encryption key** or **Specify an encryption
         key** to encrypt data.
+
         - To keep the bucket settings for default server-side encryption of objects when
           storing them in Amazon S3, choose **Do not specify an encryption
           key**. As long as the bucket destination has S3 Bucket Keys enabled, the copy

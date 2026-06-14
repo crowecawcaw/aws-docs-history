@@ -55,6 +55,7 @@ purpose bucket to Amplify Hosting starting from the Amazon S3 console.
 4. Choose the **Properties** tab.
 5. Under **Static website hosting**, choose **Create Amplify app**. At this step, the deployment process will move to the Amplify console.
 6. On the **Deploy with S3** page, do the following steps.
+
    1. For **App name**, enter the name of your app or
       website.
    2. For **Branch name**, enter the name of your app's

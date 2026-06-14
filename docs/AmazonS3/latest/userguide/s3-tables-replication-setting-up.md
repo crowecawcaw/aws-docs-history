@@ -106,6 +106,7 @@ Each replication configuration contains:
   perform replication operations
 - Rules – One or more replication rules (limited
   to 1 rule at launch). Each rule contains:
+
   - Destinations – List of destination table
     bucket ARNs (up to 5 destinations)
   - Status – Whether the rule is enabled or
@@ -141,6 +142,7 @@ source table bucket.
    **Create table bucket replication configuration**.
 6. In the **Destination** section, configure your replication
    destinations:
+
    1. In the **Table bucket ARN** field, enter the ARN of the
       destination table bucket. The format is:
       `arn:aws:s3tables:`region`:`account-id`:bucket/`table-bucket-name``
@@ -152,8 +154,10 @@ source table bucket.
 
 7. In the **IAM role** section, configure the replication
    role:
+
    1. For **IAM role selection method**, choose one of the
       following options:
+
       - **Create new IAM role** – Amazon S3 creates a new
         role with the necessary permissions for replication.
       - **Choose from existing IAM roles** – Select an
@@ -191,6 +195,7 @@ overrides any bucket-level replication configuration for that table.
    **Create table replication configuration**.
 8. In the **Destination** section, configure your replication
    destinations:
+
    1. In the **Table bucket ARN** field, enter the ARN of the
       destination table bucket. The format is:
       `arn:aws:s3tables:`region`:`account-id`:bucket/`table-bucket-name``
@@ -202,8 +207,10 @@ overrides any bucket-level replication configuration for that table.
 
 9. In the **IAM role** section, configure the replication
    role:
+
    1. For **IAM role selection method**, choose one of the
       following options:
+
       - **Create new IAM role** – Amazon S3 creates a new
         role with the necessary permissions for replication.
       - **Choose from existing IAM roles** – Select an

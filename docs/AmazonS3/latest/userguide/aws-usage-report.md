@@ -38,6 +38,7 @@ The Amazon S3 usage report includes the following information:
   values. The typical unit of measurement for data is gigabytes (GB). However,
   depending on the service and the report, terabytes (TB) might appear
   instead.
+
   - The number of requests during the specified time period
   - The amount of data transferred
   - The amount of data stored in a given hour
@@ -73,6 +74,7 @@ You can download a usage report as an XML or a CSV file.
    Report**.
 5. On the **Download usage report** page, choose the
    following settings:
+
    - **Services** – Choose
      **Amazon Simple Storage Service**.
    - **Usage Types**

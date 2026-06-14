@@ -56,6 +56,7 @@ object sizes when creating the Lifecycle rules.
   To restrict users, you’ll need to explicitly deny users the permissions for the
   following actions in your [Amazon S3 bucket
   policies](bucket-policies.md "bucket-policies.md"):
+
   - `s3:DeleteObject`, `s3:DeleteObjectVersion` (to
     control who can delete objects using API requests)
   - `s3:PutLifecycleConfiguration` (to control who can add
@@ -83,6 +84,7 @@ operations enable the following options:
 - Specify a versioned delete request –
   Specify both the key and version ID. In this case, the following outcomes are
   possible:
+
   - If the version ID maps to a specific object version, Amazon S3 deletes the
     specific version of the object.
   - If the version ID maps to the delete marker of an object, Amazon S3 deletes

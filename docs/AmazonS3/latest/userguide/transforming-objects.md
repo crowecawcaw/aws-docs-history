@@ -37,7 +37,7 @@ data retrieved by using an S3 `GET`, `LIST`, or `HEAD`
 request through the Object Lambda Access Point returns a transformed result back to the application. All other
 requests are processed as normal, as illustrated in the following diagram.
 
-![Diagram, showing how S3 Object Lambda works.](images/ObjectLamdaDiagram.png)
+![How S3 Object Lambda works.](images/ObjectLamdaDiagram.png)
 The topics in this section describe how to work with S3 Object Lambda.
 
 ###### Topics

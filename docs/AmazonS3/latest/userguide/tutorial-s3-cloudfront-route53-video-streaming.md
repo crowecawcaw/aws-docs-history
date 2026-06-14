@@ -20,7 +20,7 @@ viewers globally with low latency, high throughput, and high transfer speeds. Fo
 information about CloudFront caching management, see [Optimizing caching
 and availability](../../../AmazonCloudFront/latest/DeveloperGuide/ConfiguringCaching.md "../../../AmazonCloudFront/latest/DeveloperGuide/ConfiguringCaching.md") in the _Amazon CloudFront Developer Guide_.
 
-![Diagram showing how the CloudFront caching mechanism works.](images/cf-example-image-global.png)
+![How the CloudFront caching mechanism works.](images/cf-example-image-global.png)
 
 ###### Objective
 
@@ -290,6 +290,7 @@ the S3 bucket.
 2. In the left navigation pane, choose **Distributions**.
 3. To get the distribution domain name, do the
    following:
+
    1. In the **Origins** column, find the correct CloudFront
       distribution by looking for its origin name, which starts with the S3
       bucket that you created in [Step 1](#cf-s3-step1 "#cf-s3-step1")
@@ -490,6 +491,7 @@ If IPv6 is enabled for your distribution, you must create another DNS record.
 
 1. To check whether IPv6 is enabled for your
    distribution, do the following:
+
    1. Sign in to the AWS Management Console and open the CloudFront console at
       [https://console.aws.amazon.com/cloudfront/v4/home](https://console.aws.amazon.com/cloudfront/v4/home "https://console.aws.amazon.com/cloudfront/v4/home").
    2. In the left navigation pane, choose
@@ -505,6 +507,7 @@ If IPv6 is enabled for your distribution, you must create another DNS record.
 
 2. If IPv6 is enabled for your distribution, do the
    following to create a DNS record:
+
    1. Sign in to the AWS Management Console and open the Route 53 console at
       [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
    2. In the left navigation pane, choose **Hosted
@@ -549,6 +552,7 @@ name with the path to the video in the S3 bucket.
 2. In the left navigation pane, choose **Distributions**.
 3. To get the alternate domain name of your CloudFront
    distribution, do the following:
+
    1. In the **Origins** column, find the correct CloudFront
       distribution by looking for its origin name, which starts with the S3
       bucket name for the bucket that you created in [Step 1](#cf-s3-step1 "#cf-s3-step1") (for example,
@@ -632,6 +636,7 @@ Guide_.
    1](#cf-s3-step1 "#cf-s3-step1") (for example, `tutorial-bucket`).
 4. To delete the CloudFront distribution, you must disable it
    first.
+
    - If the value of the **Status** column is
      **Enabled** and the value of **Last
      modified** is the timestamp when the distribution was
@@ -646,6 +651,7 @@ Guide_.
 
 5. To disable the CloudFront distribution, do the
    following:
+
    1. In the **Distributions** list, select the check
       box next to the ID for the distribution that you want to delete.
    2. To disable the distribution, choose **Disable**,
@@ -670,6 +676,7 @@ Guide_.
 
 6. To delete the disabled distribution, do the
    following:
+
    1. Choose the check box next to the ID for the distribution that you
       want to delete.
    2. Choose **Delete**, and then choose

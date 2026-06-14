@@ -21,7 +21,7 @@ individual users.For more information about how to grant permissions to IAM role
 The following steps summarize the
 walkthrough:
 
-![Diagram showing an AWS account granting permissions.](images/access-policy-ex1.png)
+![An AWS account granting permissions.](images/access-policy-ex1.png)
 
 1. Account administrator creates a bucket policy granting a set of permissions to the
    user.
@@ -50,7 +50,9 @@ so you don't need to write any code.
 
 1.  Make sure you have an AWS account and that it has a user with administrator
     privileges.
+
     1. Sign up for an AWS account, if needed. We refer to this account as Account A.
+
        1. Go to [https://aws.amazon.com/s3](https://aws.amazon.com/s3 "https://aws.amazon.com/s3") and choose
           **Create
           an AWS account**.
@@ -62,6 +64,7 @@ so you don't need to write any code.
     2. In Account A, create an administrator user `AccountAadmin`. Using
        Account A credentials, sign in to the [IAM console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home") and
        do the following:
+
        1. Create user `AccountAadmin` and note the user security
           credentials.
 
@@ -95,11 +98,13 @@ Using the credentials of user `AccountAadmin` in Account A, and the special
 IAM user sign-in URL, sign in to the AWS Management Console and do the following:
 
 1. Create resources of a bucket and an IAM user
+
    1. In the Amazon S3 console, create a bucket. Note the AWS Region in which you created the
       bucket. For instructions, see [Creating a general purpose bucket](create-bucket-overview.md "create-bucket-overview.md").
    2. In the
       [IAM Console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"),
       do the following:
+
       1. Create a user named Dave.
 
       For step-by-step instructions, see [Creating IAM users (console)](../../../IAM/latest/UserGuide/id_users_create.md#id_users_create_console "../../../IAM/latest/UserGuide/id_users_create.md#id_users_create_console") in the

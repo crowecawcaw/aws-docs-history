@@ -45,6 +45,7 @@ cross-account scenario:
 2. Follow the step-by-step instructions in
    [Configuring replication for buckets in the same account](replication-walkthrough1.md "replication-walkthrough1.md") with the
    following changes:
+
    - For all AWS CLI commands related to source bucket activities (such as
      creating the source bucket, enabling versioning, and creating the IAM
      role), use the `acctA` profile. Use the `acctB`

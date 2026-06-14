@@ -154,6 +154,7 @@ metrics**. For more information, see [Using the S3 console](storage_lens_editing
    dashboard that you want to view.
 4. To identify specific buckets, accounts, and Regions with requests that use
    SigV2:
+
    1. Under **Top N overview for _date_**, in **Top N**,
       enter the number of buckets that you would like to see data for.
    2. For **Metric**, choose **All unsupported
@@ -189,7 +190,7 @@ metrics**. For more information, see [Using the S3 console](storage_lens_editing
 The **Buckets** list updates to display all the available
 **Data protection** metrics for the buckets shown. 6. To filter the **Buckets** list to display only specific
 data-protection metrics, choose the preferences icon (
-![A screenshot that shows the preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
+![The Preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
 ). 7. Clear the toggles for all data-protection metrics until only the following
 metrics remain selected:
 
@@ -237,10 +238,11 @@ S3 Storage Lens **Advanced metrics and recommendations** and then select
    protection**. Then clear **Summary**.
 6. To filter the **Buckets** list to display only
    replication rule count metrics, choose the preferences icon (
-   ![A screenshot that shows the preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
+   ![The Preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
    ).
 7. Clear the toggles for all data-protection metrics until only the
    replication rule count metrics remain selected:
+
    - **Same-Region Replication rule count**
    - **Cross-Region Replication rule count**
    - **Same-account replication rule count**

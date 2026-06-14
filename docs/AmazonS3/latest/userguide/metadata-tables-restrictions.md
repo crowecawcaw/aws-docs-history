@@ -29,6 +29,7 @@ days. For more information, see [Expiring journal table records](metadata-tables
 - Metadata tables don't contain all the same metadata as is available through S3 Inventory or
   through the Amazon S3 REST API. For example, the following information isn't available in metadata
   tables:
+
   - S3 Lifecycle expiration eligibility or transition status
   - Object Lock retention period or governance mode
   - Object access control list (ACL) information

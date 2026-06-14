@@ -46,6 +46,7 @@ tagging:
 - [PutJobTagging](../API/API_control_PutJobTagging.md "../API/API_control_PutJobTagging.md")
   – Replaces the tag set associated with a job. There are two distinct
   scenarios for S3 Batch Operations job tag management using this API action:
+
   - Job has no tags – You can add a set of tags to a job (the job has no prior
     tags).
   - Job has a set of existing tags – To modify the existing tag set, you can either replace

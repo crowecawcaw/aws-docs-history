@@ -123,6 +123,7 @@ resource. For example:
   that uploads objects owns those objects. The bucket owner doesn't have
   permissions on the objects that other accounts own, with the following
   exceptions:
+
   - The bucket owner pays the bills. The bucket owner can deny access to
     any objects, or delete any objects in the bucket, regardless of who owns
     them.

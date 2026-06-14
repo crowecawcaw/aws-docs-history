@@ -5,6 +5,7 @@ This section explains how to view details for your access point for directory bu
 View details of an access point for directory buckets to see the following information about the access point and the associated directory bucket:
 
 - Properties:
+
   - Directory bucket name
   - Directory bucket owner account ID
   - AWS Region
@@ -18,6 +19,7 @@ View details of an access point for directory buckets to see the following infor
   - Access point alias
 
 - Permissions:
+
   - IAM external access analyzer findings
   - Access point scope
   - Access point policy

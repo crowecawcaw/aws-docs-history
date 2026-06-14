@@ -83,6 +83,12 @@ However, lifecycle transitions to the S3 Intelligent-Tiering storage class are t
 exception. Changes in billing don't happen until after the object has transitioned into the
 S3 Intelligent-Tiering storage class.
 
+For transitions to S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive, the per-object storage
+overhead (40 KB per object) and minimum storage duration charges (90 days for
+S3 Glacier Flexible Retrieval, 180 days for S3 Glacier Deep Archive) also begin when the lifecycle rule
+is satisfied, regardless of when the physical transition occurs. For more information about
+Glacier storage overhead, see [Cost considerations](archival-storage.md#before-deciding-to-archive-objects "archival-storage.md#before-deciding-to-archive-objects").
+
 ###### Multiple or conflicting rules
 
 When you have multiple rules in an S3 Lifecycle configuration, an object can become
@@ -145,6 +151,7 @@ The name must be unique within the bucket. 6. Choose the scope of the lifecycle 
 
 7.  To filter a rule by object size, you can select **Specify minimum object
     size**, **Specify maximum object size**, or both options.
+
     - When you're specifying a value for **Minimum object size** or
       **Maximum object size**, the value must be larger than 0 bytes and up
       to 50 TB. You can specify this value in bytes, KB, MB, or GB.
@@ -183,9 +190,11 @@ The name must be unique within the bucket. 6. Choose the scope of the lifecycle 
 9.  To transition _current_ versions of objects between
     storage classes, under **Transition current versions of objects between storage
     classes**, do the following:
+
     1. In **Storage class transitions**, choose the storage class to
        transition to. For a list of possible transitions, see [Supported lifecycle transitions](lifecycle-transition-general-considerations.md#supported-lifecycle-transitions "lifecycle-transition-general-considerations.md#supported-lifecycle-transitions"). You can choose from the following storage
        classes:
+
        - S3 Standard-IA
        - S3 Intelligent-Tiering
        - S3 One Zone-IA

@@ -43,35 +43,35 @@ policy, which is evaluated at the user context. For more information about
 using these access policy alternatives, see [Walkthroughs that use policies to manage access to your Amazon S3 resources](example-walkthroughs-managing-access.md "example-walkthroughs-managing-access.md").
 
 If you as the bucket owner want to own all the objects in your bucket and use bucket
-policies or policies based on
-IAMto
-manage access to these objects, you can apply the bucket owner enforced
-setting for Object Ownership. With this setting, you as the bucket owner
-automatically own and have full control over every object in your bucket.
-Bucket and object ACLs can’t be edited and are no longer considered for
-access. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
+policies or policies based on IAMto manage access to these objects, you
+can apply the bucket owner enforced setting for Object Ownership. With this
+setting, you as the bucket owner automatically own and have full control
+over every object in your bucket. Bucket and object ACLs can’t be edited and
+are no longer considered for access. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").
 The following is an illustration of the context-based evaluation for an object operation.
 
-![Illustration that shows the context-based evaluation for an object operation.](images/AccessControlAuthorizationFlowObjectResource.png)
+![The context-based evaluation for an object operation.](images/AccessControlAuthorizationFlowObjectResource.png)
 
 ## Example of an object operation request
 
-In this example, IAM user Jill, whose parent AWS account is 1111-1111-1111, sends an
-object operation request (for example, `GetObject`) for an object owned
-by AWS account 3333-3333-3333 in a bucket owned by AWS account 2222-2222-2222.
+In this example, IAM user Jill, whose parent AWS account is 1111-1111-1111,
+sends an object operation request (for example, `GetObject`) for an
+object owned by AWS account 3333-3333-3333 in a bucket owned by AWS account
+2222-2222-2222.
 
-![Illustration that shows an object operation request.](images/example50-policy-eval-logic.png)
+![An object operation request.](images/example50-policy-eval-logic.png)
 
 Jill will need permission from the parent AWS account, the bucket owner, and the
 object owner. Amazon S3 evaluates the context as follows:
 
-1. Because the request is from an IAM principal, Amazon S3 evaluates the user context to verify
-   that the parent AWS account 1111-1111-1111 has given Jill permission to
-   perform the requested operation. If she has that permission, Amazon S3 evaluates
-   the bucket context. Otherwise, Amazon S3 denies the request.
-2. In the bucket context, the bucket owner, AWS account 2222-2222-2222, is the context
-   authority. Amazon S3 evaluates the bucket policy to determine if the bucket owner
-   has explicitly denied Jill access to the object.
+1. Because the request is from an IAM principal, Amazon S3 evaluates the user
+   context to verify that the parent AWS account 1111-1111-1111 has given
+   Jill permission to perform the requested operation. If she has that
+   permission, Amazon S3 evaluates the bucket context. Otherwise, Amazon S3 denies the
+   request.
+2. In the bucket context, the bucket owner, AWS account 2222-2222-2222, is
+   the context authority. Amazon S3 evaluates the bucket policy to determine if the
+   bucket owner has explicitly denied Jill access to the object.
 3. In the object context, the context authority is AWS account
    3333-3333-3333, the object owner. Amazon S3 evaluates the object ACL to determine
    if Jill has permission to access the object. If she does, Amazon S3 authorizes

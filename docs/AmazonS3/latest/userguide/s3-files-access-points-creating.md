@@ -39,6 +39,7 @@ for an S3 file system.
    can specify the full POSIX identity to use to enforce user and group
    information for all file operations by clients that are using the access
    point.
+
    - **User ID** – Enter a numeric
      POSIX user ID for the user.
    - **Group ID** – Enter a numeric

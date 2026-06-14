@@ -57,9 +57,11 @@ AWS Tools for Windows PowerShell, so you don't need to write any code.
 
 1.  Make sure you have two AWS accounts and that each account has one
     administrator user as shown in the table in the preceding section.
+
     1. Sign up for an AWS account, if needed.
     2. Using Account A credentials, sign in to the [IAM console](https://console.aws.amazon.com/iam/home?#home "https://console.aws.amazon.com/iam/home?#home") to
        create the administrator user:
+
        1. Create user `AccountAadmin` and note the
           security credentials. For instructions, see [Creating an
           IAM user in Your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
@@ -94,6 +96,7 @@ AWS Tools for Windows PowerShell, so you don't need to write any code.
 3.  Save the administrator user credentials, also referred to as profiles. You can
     use the profile name instead of specifying credentials for each command you
     enter. For more information, see [Setting up the tools for the walkthroughs](policy-eval-walkthrough-download-awscli.md "policy-eval-walkthrough-download-awscli.md").
+
     1. Add profiles in the AWS CLI credentials file for each of the
        administrator users, `AccountAadmin` and
        `AccountBadmin`, in the two accounts.
@@ -109,7 +112,6 @@ AWS Tools for Windows PowerShell, so you don't need to write any code.
     aws_secret_access_key = `secret-access-key`
     region = us-east-1
     ```
-
     2. If you're using the
        AWS Tools for Windows PowerShell,
        run the following command.
@@ -179,13 +181,13 @@ JSON
 
 2. Verify that Account B (and thus its administrator user) can perform the
    operations.
+
    - Verify using the AWS CLI
 
    ```
    aws s3 ls s3://`amzn-s3-demo-bucket` --profile AccountBadmin
    aws s3api get-bucket-lifecycle-configuration --bucket `amzn-s3-demo-bucket` --profile AccountBadmin
    ```
-
    - Verify using the AWS Tools for Windows PowerShell
 
    ```
@@ -319,12 +321,12 @@ Account B or users in Account B will not be able to list objects in
    bucket policy by the following.
 2. Now if you try to get a bucket list using `AccountBadmin`
    credentials, access is denied.
+
    - Using the AWS CLI, run the following command:
 
    ```
    aws s3 ls s3://`amzn-s3-demo-bucket` --profile AccountBadmin
    ```
-
    - Using the AWS Tools for Windows PowerShell, run the following command:
 
    ```
@@ -334,8 +336,10 @@ Account B or users in Account B will not be able to list objects in
 ## Step 4: Clean up
 
 1. After you're done testing, you can do the following to clean up:
+
    1. Sign in to the AWS Management Console ([AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/")) using Account A credentials, and do the
       following:
+
       - In the Amazon S3 console, remove the bucket policy attached to
         `amzn-s3-demo-bucket`.
         In the bucket **Properties**, delete the policy

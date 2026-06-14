@@ -41,6 +41,7 @@ To set the storage class when uploading a new object in the console:
 6. Under Storage class, choose a storage classes for the files you're uploading.
 7. (Optional) Configure any additional properties for the files you're uploading, For more information, see [Uploading objects](upload-objects.md "upload-objects.md")
 8. In the Upload window, do one of the following:
+
    - Drag files and folders to the Upload window.
    - Choose **Add file** or **Add folder**, choose the files or folders to upload, and choose **Open**.
 

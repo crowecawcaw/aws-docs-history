@@ -66,6 +66,7 @@ in CloudWatch, see the following list:
 - **Organization** – Metrics
   aggregated across the member accounts in your organization. S3 Storage Lens
   publishes metrics for member accounts to CloudWatch in the management account.
+
   - **Organization and account** – Metrics
     for the member accounts in your organization.
   - **Organization and bucket**

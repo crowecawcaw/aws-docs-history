@@ -67,7 +67,7 @@ The **Buckets** list displays data for all three
 Object Ownership settings: bucket owner enforced, bucket owner preferred, and
 object writer. 7. To filter the **Buckets** list to display metrics only for a
 specific Object Ownership setting, choose the preferences icon (
-![A screenshot that shows the preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
+![The Preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
 ). 8. Clear the metrics that you don't want to see. 9. (Optional) Under **Page size**, choose the number of buckets
 to display in the list. 10. Choose **Confirm**.
 

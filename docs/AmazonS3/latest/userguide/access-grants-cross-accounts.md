@@ -13,7 +13,7 @@ After you configure cross-account access, the other account can request temporar
 credentials to your Amazon S3 data from S3 Access Grants. The following image shows the user flow for
 cross-account S3 access through S3 Access Grants:
 
-![S3 Access Grants cross-account user flow](images/access-grants-cross-account.png)
+![S3 Access Grants cross-account user flow.](images/access-grants-cross-account.png)
 
 1. Users or applications in a second account (B) request credentials from the S3 Access Grants instance in
    your account (A), where the Amazon S3 data is stored. For more information, see [Request access to Amazon S3 data through S3 Access Grants](access-grants-credentials.md "access-grants-credentials.md").

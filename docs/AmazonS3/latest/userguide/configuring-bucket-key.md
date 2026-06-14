@@ -55,6 +55,7 @@ object.
    type**, choose **AWS Key Management Service key (SSE-KMS)**.
 6. Under **AWS KMS key**, do one of the following to choose your
    KMS key:
+
    - To choose from a list of available KMS keys, choose **Choose from
      your AWS KMS keys**, and then choose your
      **KMS key** from the list of available keys.
@@ -93,6 +94,7 @@ To disable an S3 Bucket Key, follow the previous steps, and choose
    type**, choose **AWS Key Management Service key (SSE-KMS)**.
 7. Under **AWS KMS key**, do one of the following to choose your
    KMS key:
+
    - To choose from a list of available KMS keys, choose **Choose from
      your AWS KMS keys**, and then choose your
      **KMS key** from the list of available keys.

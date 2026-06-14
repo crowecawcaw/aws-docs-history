@@ -10,6 +10,7 @@ AWS SDKs. For information about bulk object upload operations with S3 Express On
 3. Choose the name of the bucket that you want to upload your folders or files to.
 4. In the **Objects** list, choose **Upload**.
 5. On the **Upload** page, do one of the following:
+
    - Drag and drop files and folders to the dotted upload area.
    - Choose **Add files** or **Add folder**,
      choose the files or folders to upload, and then choose **Open**

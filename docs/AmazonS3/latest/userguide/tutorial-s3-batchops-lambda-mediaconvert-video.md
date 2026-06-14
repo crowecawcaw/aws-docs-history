@@ -986,6 +986,7 @@ commands:
 3. Choose **Create function**.
 4. Choose **Author from scratch**.
 5. Under **Basic information**, do the following:
+
    1. For **Function name**, enter
       `tutorial-lambda-convert`.
    2. For **Runtime**, choose **Python
@@ -1434,6 +1435,7 @@ bucket where the objects referenced in the manifest are located. 5. In the **Man
    function**.
 8. In the **Invoke Lambda function** section, do the
    following:
+
    1. Choose **Choose from functions in your
       account**.
    2. For **Lambda function**, choose the Lambda function

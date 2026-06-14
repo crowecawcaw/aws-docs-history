@@ -154,6 +154,7 @@ example policies, see [Object operations](security_iam_service-with-iam.md#using
   You can't specify AWS KMS policy actions in S3 resource-based policies, such as S3 bucket policies.
 - When you use access points to control access to object operations, you can use
   access point policies. To grant permissions to object operations in access point policies, note the following:
+
   - In access point policies that grant permissions to object operations, the `Resource` element must be the ARNs for objects accessed through an access point. For more information about the `Resource` element format and example
     policies, see [Object operations in access point policies](security_iam_service-with-iam.md#object-operations-ap "security_iam_service-with-iam.md#object-operations-ap").
   - Not all object operations are supported by access points. For more information, see [Access points compatibility with S3 operations](access-points-service-api-support.md#access-points-operations-support "access-points-service-api-support.md#access-points-operations-support").

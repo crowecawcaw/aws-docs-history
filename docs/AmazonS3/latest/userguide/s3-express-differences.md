@@ -17,12 +17,14 @@ the following topics.
 ## Differences for directory buckets
 
 - **Directory bucket names**
+
   - A directory bucket name consists of a base name that you
     provide and a suffix that contains the ID of the AWS Zone
     (an Availability Zone or Local Zone) that your bucket is located in, followed by `--x-s`. For a list of rules and examples of
     directory bucket names, see [Directory bucket naming rules](directory-bucket-naming-rules.md "directory-bucket-naming-rules.md").
 
 - **`ListObjectsV2` behavior**
+
   - For directory buckets, `ListObjectsV2` does not
     return objects in lexicographical (alphabetical) order.
     Additionally, prefixes must end in a delimiter and only "/" can
@@ -44,6 +46,7 @@ the following topics.
   [S3 additional checksum best practices](s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums "s3-express-optimizing-performance.md#s3-express-optimizing-performance-checksums").
 - **Object keys in `DeleteObjects`
   requests**
+
   - Object keys in `DeleteObjects` requests must
     contain at least one non-white space character. Strings of all
     white space characters aren't supported in
@@ -73,6 +76,7 @@ the following topics.
   using the multipart upload process. However, the following are some
   differences when using the multipart upload process with objects stored
   in directory buckets. For more information, see [Using multipart uploads with directory buckets](s3-express-using-multipart-upload.md "s3-express-using-multipart-upload.md").
+
   - The object creation date is the completion date of the
     multipart upload.
   - Multipart part numbers must use consecutive part numbers. If
@@ -101,6 +105,7 @@ the following topics.
   as an alternative to transfer files to or from
   directory buckets.
 - **AWS Local Zones** – Local Zones are only supported for directory buckets not general purpose buckets.
+
   - Appending data to existing objects isn’t supported for
     directory buckets that reside in Local Zones. You can only append data to
     existing objects in directory buckets that reside in Availability

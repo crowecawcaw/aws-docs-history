@@ -146,6 +146,7 @@ information about prebuilt functions, see [Using AWS built Lambda functions](ola
    `example-ap`. For information about
    creating standard access points, see [Creating an access point](creating-access-points.md "creating-access-points.md").
 3. Do one of the following:
+
    - Create a Lambda function in your account that you would like to use to
      transform your Amazon S3 object. For more information about creating Lambda
      functions, see [Writing Lambda functions for S3 Object Lambda Access Points](olap-writing-lambda.md "olap-writing-lambda.md"). To use your custom
@@ -291,6 +292,7 @@ _AWS CloudFormation User Guide_.
    `s3objectlambda_defaultconfig.yaml` at [S3 Object Lambda default configuration](https://github.com/aws-samples/amazon-s3-object-lambda-default-configuration "https://github.com/aws-samples/amazon-s3-object-lambda-default-configuration").
 2. Sign in to the AWS Management Console and open the AWS CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 3. Do one of the following:
+
    - If you've never used AWS CloudFormation before, on the AWS CloudFormation home page, choose
      **Create stack**.
    - If you have used AWS CloudFormation before, in the left navigation pane, choose
@@ -307,8 +309,10 @@ _AWS CloudFormation User Guide_.
 8. In the **Parameters** section, specify the following parameters
    that are defined in the stack
    template:
+
    1. For **CreateNewSupportingAccessPoint**, do one of the
       following:
+
       - If you already have a supporting access point for the S3 bucket
         where you uploaded the template, choose
         **false**.

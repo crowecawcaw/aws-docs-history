@@ -4,4 +4,4 @@ A `GET Object` request returns the current version of an object whether
 you've enabled versioning on a bucket or not. The following figure shows how a simple
 `GET` returns the current version of an object.
 
-![Illustration that shows how a simple GET returns the current version of an object.](images/versioning_GET_suspended.png)
+![How a simple GET returns the current version of an object.](images/versioning_GET_suspended.png)

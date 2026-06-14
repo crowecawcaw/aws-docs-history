@@ -19,6 +19,7 @@ Amazon S3 console, AWS Command Line Interface (AWS CLI), and AWS SDK for Java.
    to your Storage Lens group. To apply multiple filters, choose your filters,
    and then choose the **AND** or **OR**
    logical operator.
+
    - For the **Prefixes** filter, choose
      **Prefixes**, and enter a prefix string. To add
      multiple prefixes, choose **Add prefix**. To remove

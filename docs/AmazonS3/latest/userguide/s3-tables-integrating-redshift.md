@@ -12,6 +12,7 @@ warehouses](../../../redshift/latest/gsg/new-user-serverless.md "../../../redshi
 
 - [Integrate your table buckets with
   AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+
   - [Create a namespace](s3-tables-namespace-create.md "s3-tables-namespace-create.md").
   - [Create a table](s3-tables-create.md "s3-tables-create.md").
 

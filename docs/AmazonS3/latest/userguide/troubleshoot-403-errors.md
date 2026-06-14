@@ -86,6 +86,7 @@ a cross-account access request is allowed or denied, see [Cross-account policy e
 how to grant cross-account access, see [Example 2: Bucket owner granting cross-account bucket permissions](example-walkthroughs-managing-access-example2.md "example-walkthroughs-managing-access-example2.md").
 
 - For requests within the same organization in AWS Organizations:
+
   - Enhanced access denied messages aren't returned if a denial occurs because of a virtual
     private cloud (VPC) endpoint policy.
   - Enhanced access denied messages are provided whenever both the bucket owner and the caller
@@ -614,6 +615,7 @@ operation, try the following:
   get-caller-identity](../../../cli/latest/reference/sts/get-caller-identity.md "../../../cli/latest/reference/sts/get-caller-identity.md") command.
 - Check the IAM policies that are related to the IAM user or role. You
   can use one of the following methods:
+
   - [Test IAM policies with the IAM policy
     simulator](../../../IAM/latest/UserGuide/access_policies_testing-policies.md "../../../IAM/latest/UserGuide/access_policies_testing-policies.md").
   - Review the different [IAM policy
@@ -623,6 +625,7 @@ operation, try the following:
   IAM user policy](../../../IAM/latest/UserGuide/access_policies_manage-edit.md "../../../IAM/latest/UserGuide/access_policies_manage-edit.md").
 - Review the following examples of policies that explicitly deny or allow
   access:
+
   - Explicit allow IAM user policy: [IAM: Allows and denies access to multiple services
     programmatically and in the console](../../../IAM/latest/UserGuide/reference_policies_examples_iam_multiple-services-console.md "../../../IAM/latest/UserGuide/reference_policies_examples_iam_multiple-services-console.md")
   - Explicit allow bucket policy: [Granting permissions to multiple accounts to upload objects or
@@ -913,10 +916,12 @@ Guide_.
 If you receive a Access Denied (403 Forbidden) error when trying to access your S3 static website through CloudFront, check these common issues:
 
 - **Do you have the correct origin domain name format?**
+
   - Make sure you're using the S3 website endpoint format (bucket-name.s3-website-region.amazonaws.com) rather than the REST API endpoint
   - Verify that static website hosting is enabled on your bucket
 
 - **Does your bucket policy allow CloudFront access?**
+
   - Ensure your bucket policy includes permissions for your CloudFront distribution's Origin Access Identity (OAI) or Origin Access Control (OAC)
   - Verify the policy includes the required s3:GetObject permissions
 

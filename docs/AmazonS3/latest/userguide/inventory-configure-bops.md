@@ -26,6 +26,7 @@ strings for Batch Operations, use the following procedure.
 2. Navigate to your S3 Inventory report. The inventory report is located in the
    destination bucket that you specified while configuring your inventory report. For
    more information about locating inventory reports, see [Locating your inventory list](storage-inventory-location.md "storage-inventory-location.md").
+
    1. Choose the destination bucket.
    2. Choose the folder. The folder is named after the original source
       bucket.

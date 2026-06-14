@@ -20,6 +20,7 @@ Inventory are available in all AWS Regions.
 2.  Create your query by using one of the following sample query templates, depending
     on whether you're querying an ORC-formatted, a Parquet-formatted, or a CSV-formatted
     inventory report.
+
     - When you're using Athena to query an ORC-formatted inventory report, use
       the following sample query as a template.
 
@@ -82,7 +83,6 @@ Inventory are available in all AWS Regions.
         "projection.dt.interval.unit" = "HOURS"
       );
     ```
-
     - When you're using Athena to query a Parquet-formatted
       inventory report, use the sample query for an ORC-formatted report. However,
       use the following Parquet SerDe in place of the ORC SerDe in
@@ -91,7 +91,6 @@ Inventory are available in all AWS Regions.
     ```
     ROW FORMAT SERDE 'org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe'
     ```
-
     - When you're using Athena to query a CSV-formatted inventory report, use the
       following sample query as a template.
 

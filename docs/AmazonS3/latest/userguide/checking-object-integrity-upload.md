@@ -62,6 +62,7 @@ specify the algorithm that you want to use:
   match, Amazon S3 generates an error.
 - **When you use an SDK**, be aware of the
   following:
+
   - Set the `ChecksumAlgorithm` parameter to the algorithm that
     you want Amazon S3 to use. If you already have a precalculated checksum, you
     pass the checksum value to the AWS SDK, and the SDK includes the value in
@@ -657,6 +658,7 @@ the following headers:
   `x-amz-checksum-` prefix and ends with the algorithm name.
   The following `x-amz-trailer` values are currently
   supported:
+
   - `x-amz-checksum-crc32`
   - `x-amz-checksum-crc32c`
   - `x-amz-checksum-crc64nvme`

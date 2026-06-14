@@ -108,6 +108,7 @@ Related error messages:
 5. **Monitor permission changes** – Set up CloudTrail alerts for IAM policy modifications that might affect Batch Operations.
 6. **Document role requirements** – Maintain clear documentation of required permissions for each job type.
 7. **Use common permission templates** - Use the permission examples and policy templates:
+
    1. [Granting permissions for Batch Operations](batch-ops-iam-role-policies.md "batch-ops-iam-role-policies.md")
    2. [Cross account resources in IAM](../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md "../../../IAM/latest/UserGuide/access_policies-cross-account-resource-access.md") in the IAM User Guide.
    3. [Control access to VPC endpoints using endpoint policies](../../../vpc/latest/privatelink/vpc-endpoints-access.md "../../../vpc/latest/privatelink/vpc-endpoints-access.md") in the AWS PrivateLink Guide.
@@ -145,6 +146,7 @@ aws iam get-role --role-name `role-name`
 ```
 
 5. Use the following command to review the role's trust policy. The role running the job must have the following:
+
    1. A trust relationship allowing `batchoperations.s3.amazonaws.com` to assume the role.
    2. The operations the batch operation is performing (such as `s3:PutObjectTagging` for tagging operations).
    3. Access to the source and destination buckets.
@@ -167,6 +169,7 @@ aws s3 ls s3://`amzn-s3-demo-bucket`
 
 7. Test the operation being performed by the batch operation. For example, if the batch operation performs tagging, tag a sample object in the source bucket.
 8. Review bucket policies for policies that might deny the operation.
+
    1. Check object ACLs if working with legacy access controls.
    2. Verify no Service Control Policies (SCPs) are blocking the operation.
    3. Confirm VPC endpoint policies allow Batch Operations if using VPC endpoints.
@@ -249,11 +252,13 @@ aws logs filter-log-events \
 ```
 
 3. Review polling frequency.
+
    1. Avoid checking job status more than once every 30 seconds for active jobs.
    2. Use job completion notifications instead of polling when possible.
    3. Implement jitter in your polling intervals to avoid synchronized requests.
 
 4. Optimize your API usage patterns.
+
    1. Batch multiple operations when possible.
    2. Use `ListJobs` to get status of multiple jobs in one call.
    3. Cache job information to reduce redundant API calls.
@@ -340,6 +345,7 @@ aws s3 cp s3://`amzn-s3-demo-bucket1`/`manifest-key` `./manifest.csv`
 ```
 
 2. Check required columns for your operation:
+
    1. All operations: `Bucket`, `Key`
    2. Copy operations: `VersionId` (optional)
    3. Restore operations: `VersionId` (optional)
@@ -348,6 +354,7 @@ aws s3 cp s3://`amzn-s3-demo-bucket1`/`manifest-key` `./manifest.csv`
    6. Initiate restore: `VersionId` (optional)
 
 3. Check object count limits:
+
    1. Copy: 1 billion objects maximum.
    2. Delete: 1 billion objects maximum.
    3. Restore: 1 billion objects maximum.

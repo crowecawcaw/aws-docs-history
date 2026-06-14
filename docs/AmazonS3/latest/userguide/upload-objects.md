@@ -102,6 +102,7 @@ the key name that follows the last `/`. For example, within an
    upload your folders or files to.
 4. Choose **Upload**.
 5. In the **Upload** window, do one of the following:
+
    - Drag and drop files and folders to the **Upload** window.
    - Choose **Add file** or **Add folder**, choose the
      files or folders to upload, and choose **Open**.

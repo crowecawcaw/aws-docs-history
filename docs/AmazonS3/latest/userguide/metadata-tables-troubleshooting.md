@@ -70,6 +70,7 @@ If you're unable to query your metadata tables, check the following:
   For more information, see [Permissions for querying metadata tables](metadata-tables-bucket-query-permissions.md "metadata-tables-bucket-query-permissions.md").
 - If you're using Amazon Athena and receive errors when you try to run your queries, do the
   following:
+
   - If you receive the error **`"Insufficient permissions to execute the query. Principal
 does not have any privilege on specified resource"`** when you try to run a query in
     Athena, you must be granted the necessary Lake Formation permissions on the table. For more information, see

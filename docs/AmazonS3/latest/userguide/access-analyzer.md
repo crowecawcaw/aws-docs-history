@@ -137,6 +137,7 @@ For each bucket, IAM Access Analyzer for S3 provides the following information:
   point for taking immediate and precise corrective action.
 - **Status** ‐ The status of the bucket
   finding. IAM Access Analyzer for S3 displays findings for all public and shared buckets.
+
   - **Active** ‐ Finding has not been
     reviewed.
   - **Archived** ‐ Finding has been
@@ -146,6 +147,7 @@ For each bucket, IAM Access Analyzer for S3 provides the following information:
 
 - **Access level** ‐ Access permissions
   granted for the bucket:
+
   - **List** ‐ List resources.
   - **Read** ‐ Read but not edit
     resource contents and attributes.
@@ -223,6 +225,7 @@ under access points.
    bucket policy, bucket ACL, Multi-Region Access Point policy, or access point policy that you want to change or
    review.
 5. If you want to change or view a bucket ACL:
+
    1. Choose **Permissions**.
    2. Choose **Access Control List**.
    3. Review your bucket ACL, and make changes as required.
@@ -230,6 +233,7 @@ under access points.
    For more information, see [Configuring ACLs](managing-acls.md "managing-acls.md").
 
 6. If you want to change or review a bucket policy:
+
    1. Choose **Permissions**.
    2. Choose **Bucket Policy**.
    3. Review or change your bucket policy as required.
@@ -237,6 +241,7 @@ under access points.
    For more information, see [Adding a bucket policy by using the Amazon S3 console](add-bucket-policy.md "add-bucket-policy.md").
 
 7. If you want to change or view a Multi-Region Access Point policy:
+
    1. Choose **Multi-Region Access Point**.
    2. Choose the Multi-Region Access Point name.
    3. Review or change your Multi-Region Access Point policy as required.
@@ -244,6 +249,7 @@ under access points.
    For more information, see [Permissions](MultiRegionAccessPointPermissions.md "MultiRegionAccessPointPermissions.md").
 
 8. If you want to review or change an access point policy:
+
    1. Choose **Access Points for general purpose buckets** or **Access Points for directory buckets**.
    2. Choose the access point name.
    3. Review or change access as required.

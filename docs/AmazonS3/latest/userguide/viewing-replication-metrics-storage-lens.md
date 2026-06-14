@@ -43,8 +43,8 @@ replication. This information includes replication rules within and across bucke
 Regions. For more information, see [Count the total number of replication rules for each bucket](storage-lens-data-protection.md#storage-lens-data-protection-replication-rule "storage-lens-data-protection.md#storage-lens-data-protection-replication-rule"). 3. After you've created your dashboard, open the dashboard, and choose the
 **Buckets** tab. 4. Scroll down to the **Buckets** section. Under **Metrics categories**, choose **Data protection**. Then clear
 **Summary**. 5. To filter the **Buckets** list to display only replication metrics,
-choose the preferences icon (
-![The preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
+choose the **Preferences** icon (
+![The Preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
 ). 6. Clear the toggles for all data-protection metrics until only the replication metrics
 remain selected. 7. (Optional) Under **Page size**, choose the number of buckets to
 display in the list. 8. Choose **Continue**.

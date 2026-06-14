@@ -24,6 +24,7 @@ a bucket, see [Using the S3 console](replication-walkthrough1.md#enable-replicat
 4. Choose the **Management** tab, and then scroll down to
    **Replication rules**.
 5. You can change your replication rules in the following ways:
+
    - To enable or disable a replication rule, choose the option button to the left of the
      rule. On the **Actions** menu, choose **Enable rule**
      or **Disable rule**. You can also disable, enable, or delete all the

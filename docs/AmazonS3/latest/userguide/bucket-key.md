@@ -50,7 +50,7 @@ Amazon S3 will only share an S3 Bucket Key for objects encrypted by the same AWS
 S3 Bucket Keys are compatible with KMS keys created by AWS KMS, [imported key material](../../../kms/latest/developerguide/importing-keys.md "../../../kms/latest/developerguide/importing-keys.md"), and [key material backed by custom key
 stores](../../../kms/latest/developerguide/custom-key-store-overview.md "../../../kms/latest/developerguide/custom-key-store-overview.md").
 
-![Diagram showing AWS KMS generating a bucket key that creates data keys for objects in a bucket.](images/S3-Bucket-Keys.png)
+![AWS KMS generating a bucket key that creates data keys for objects in a bucket.](images/S3-Bucket-Keys.png)
 
 ## Configuring S3 Bucket Keys
 
@@ -85,18 +85,22 @@ For more information, see the following: 
 The following API operations support S3 Bucket Keys for SSE-KMS:
 
 - [PutBucketEncryption](../API/API_PutBucketEncryption.md "../API/API_PutBucketEncryption.md")
+
   - `ServerSideEncryptionRule` accepts the `BucketKeyEnabled`
     parameter for enabling and disabling an S3 Bucket Key.
 
 - [GetBucketEncryption](../API/API_GetBucketEncryption.md "../API/API_GetBucketEncryption.md")
+
   - `ServerSideEncryptionRule` returns the settings for
     `BucketKeyEnabled`.
 
 - [PutObject](../API/API_PutObject.md "../API/API_PutObject.md"), [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md"), [CreateMultipartUpload](../API/API_CreateMultipartUpload.md "../API/API_CreateMultipartUpload.md"), and [POST Object](../API/RESTObjectPOST.md "../API/RESTObjectPOST.md")
+
   - The `x-amz-server-side-encryption-bucket-key-enabled` request header
     enables or disables an S3 Bucket Key at the object level.
 
 - [HeadObject](../API/API_HeadObject.md "../API/API_HeadObject.md"), [GetObject](../API/API_GetObject.md "../API/API_GetObject.md"), [UploadPartCopy](../API/API_UploadPartCopy.md "../API/API_UploadPartCopy.md"), [UploadPart](../API/API_UploadPart.md "../API/API_UploadPart.md"), and [CompleteMultipartUpload](../API/API_CompleteMultipartUpload.md "../API/API_CompleteMultipartUpload.md")
+
   - The `x-amz-server-side-encryption-bucket-key-enabled` response header
     indicates if an S3 Bucket Key is enabled or disabled for an object.
 

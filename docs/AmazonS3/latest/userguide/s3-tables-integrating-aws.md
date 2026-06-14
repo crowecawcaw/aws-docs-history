@@ -19,6 +19,7 @@ services:
   bucket.](s3-tables-buckets-create.md "s3-tables-buckets-create.md")
 - Add the following AWS Glue permissions to your AWS Identity and Access Management (IAM)
   principal:
+
   - `glue:CreateCatalog` which is required to create `s3tablescatalog` federated catalog in the Data Catalog
   - `glue:PassConnection` grants the calling principal the right to delegate `aws:s3tables` connection creation to Amazon S3 service.
 
@@ -125,6 +126,7 @@ The AWS analytics services integration process has been updated to use IAM permi
    lake administrator](../../../lake-formation/latest/dg/initial-lf-config.md#create-data-lake-admin "../../../lake-formation/latest/dg/initial-lf-config.md#create-data-lake-admin") in the _AWS Lake Formation Developer
    Guide_.
 2. Delete your `s3tablescatalog` catalog by doing the following:
+
    - In the left navigation pane, choose **Catalogs**.
    - Select the option button next to the `s3tablescatalog` catalog in the
      **Catalogs** list. On the **Actions** menu, choose
@@ -132,6 +134,7 @@ The AWS analytics services integration process has been updated to use IAM permi
 
 3. Deregister the data location for the `s3tablescatalog` catalog by doing the
    following:
+
    - In the left navigation pane, go to the **Administration** section, and
      choose **Data lake locations**.
    - Select the option button next to the `s3tablescatalog` data lake location,

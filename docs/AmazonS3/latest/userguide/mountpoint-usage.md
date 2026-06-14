@@ -19,6 +19,7 @@ IAM role](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-pr
 Use Mountpoint for Amazon S3 to do the following:
 
 1. Mount your Amazon S3 buckets.
+
    1. You can mount Amazon S3 buckets manually by using the `mount-s3` command.
 
    In the following example, replace

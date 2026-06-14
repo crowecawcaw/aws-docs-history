@@ -23,6 +23,7 @@ Amazon Simple Storage Service now applies a new default bucket security setting 
 
 - S3 never stores the encryption key when you use SSE-C. You must supply the encryption key
   every time you want anyone to download your SSE-C encrypted data from S3.
+
   - You manage a mapping of which encryption key was used to encrypt which object. You are
     responsible for tracking which encryption key you provided for which
     object. That also means if you lose the encryption key, you lose the
@@ -38,6 +39,7 @@ Amazon Simple Storage Service now applies a new default bucket security setting 
     managed services.
 
 - You must use HTTPS when specifying SSE-C headers on your requests.
+
   - Amazon S3 rejects any requests made over HTTP when using SSE-C. For security considerations,
     we recommend that you consider any key that you erroneously send over
     HTTP to be compromised. Discard the key and rotate as appropriate.

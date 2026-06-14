@@ -77,13 +77,13 @@ spark.sql(
 ```
 
 - Load an existing data file into a table
+
   1.  Read the data into Spark.
 
   ```
   val data_file_location = "Path such as S3 URI to data file"
   val data_file = spark.read.parquet(`data_file_location`)
   ```
-
   2.  Write the data into an Iceberg table.
 
   ```

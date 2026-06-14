@@ -46,6 +46,7 @@ the console to add or change encryption for an object.
 6. Under **Encryption settings**, choose **Use bucket settings for default encryption** or **Override bucket settings for default encryption**.
 7. If you chose **Override bucket settings for default encryption**,
    configure the following encryption settings.
+
    1. Under **Encryption type**, choose **Server-side encryption with Amazon S3 managed keys (SSE-S3)**.
       SSE-S3 uses one of the strongest block ciphers—256-bit Advanced Encryption
       Standard (AES-256) to encrypt each object. For more information, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](UsingServerSideEncryption.md "UsingServerSideEncryption.md").

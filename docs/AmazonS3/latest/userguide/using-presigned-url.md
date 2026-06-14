@@ -57,6 +57,7 @@ credentials (the access key and secret key) to the method you're using to create
 the presigned URL.
 
 - **Temporary security credentials** – Can't be valid for longer than the credentials themselves. These credentials include:
+
   - **IAM role credentials** – The presigned URL expires when the role session expires, even if you specify a longer expiration time.
   - **IAM role credentials used by Amazon EC2 instances** – Valid for the duration of the role credentials (typically 6 hours).
   - **AWS Security Token Service credentials** – Valid only for the duration of the temporary credentials.

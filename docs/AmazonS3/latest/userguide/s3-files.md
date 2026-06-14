@@ -66,7 +66,7 @@ in both directions. For more information, see [Understanding how synchronization
 Supported compute services to mount your S3 file systems are Amazon EC2, AWS Lambda,
 Amazon EKS, and Amazon ECS. For more information, see [Mounting your S3 buckets on compute resources](s3-files-attach-compute.md "s3-files-attach-compute.md").
 
-![Diagram showing the data flow between an S3 bucket, S3 file system, and compute resources.](images/S3Files_Compute_dataflow.png)
+![The data flow between an S3 bucket, S3 file system, and compute resources.](images/S3Files_Compute_dataflow.png)
 
 ## Are you a first-time user of S3 Files?
 

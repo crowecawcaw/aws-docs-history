@@ -64,6 +64,7 @@ The response contains the following elements:
 - destinations – An array of destination status
   objects, one for each configured replication destination. Each destination object
   contains:
+
   - replicationStatus – The current
     replication status for this destination (COMPLETED, PENDING, or FAILED).
   - destinationBucketARN – The ARN of the
@@ -72,6 +73,7 @@ The response contains the following elements:
     replica table in the destination bucket.
   - lastSuccessfulReplicatedUpdate –
     Information about the most recent successful replication:
+
     - metadataLocation – The Iceberg
       metadata file name that was last successfully replicated. Compare this with the
       source table's current metadata location to determine if replication is up to

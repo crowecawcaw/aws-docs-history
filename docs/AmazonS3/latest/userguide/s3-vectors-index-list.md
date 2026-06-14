@@ -19,6 +19,7 @@ Prefix search allows you to list indexes that start with a specific prefix, maki
 2. In the left navigation pane, choose **Vector buckets**.
 3. In the list of vector buckets, choose the name of the bucket containing the indexes you want to view.
 4. The console displays a comprehensive list of all vector indexes in the bucket, including:
+
    - **Name** – The name for each index.
    - **Create date** – When the index was created.
    - **Amazon Resource Name (ARN)** – Full ARN for each index.

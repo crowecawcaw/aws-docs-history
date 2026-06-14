@@ -138,6 +138,7 @@ Identity Center and S3 Access Grants:
 To enable IAM Identity Center for your AWS Organizations, perform the following steps:
 
 1. Sign in to the AWS Management Console, using one of these methods:
+
    1. \***\*New to AWS (root user)**
       –\*\* Sign in as the account owner by choosing Root user and
       entering your AWS account email address. On the next page, enter your
@@ -204,6 +205,7 @@ following steps:
 3. Choose the **Authentication** tab.
 4. Navigate to the **Trusted token issuers** section, and fill out
    the following details:
+
    1. Under **Issuer URL**, enter the URL of the external IdP that
       serves as the trusted token issuer. You might need to contact the administrator of
       the external IdP to obtain this information. For more information, see [Using applications with a trusted token issuer](../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md "../../../singlesignon/latest/userguide/using-apps-with-trusted-token-issuer.md").
@@ -398,6 +400,7 @@ the following steps:
    requests for access, and then choose **Next**.
 10. On the **Configure access** page, under **Configuration
     method**, choose either of the following:
+
     - **Select access per application –** Select
       this option to configure different access levels for each application. Choose the
       application for which you want to configure the access level, and then choose

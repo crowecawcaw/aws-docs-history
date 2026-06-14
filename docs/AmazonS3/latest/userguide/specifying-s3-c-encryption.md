@@ -186,6 +186,7 @@ keys (SSE-C).
 - **Copy operation** – When you copy an object
   (see [CopyObject](../API/API_CopyObject.md "../API/API_CopyObject.md")), you have
   both a source object and a target object:
+
   - If you want to specify the target object's encryption type, you must provide the `x-amz-server-side-encryption` request header.
   - If you want the target object encrypted using SSE-C, you must provide encryption information using the S3 API [S3 API headers required for SSE-C object encryption and decryption requests](#s3-api-headers-required-for-sse-c-object-encryption-and-decryption-requests "#s3-api-headers-required-for-sse-c-object-encryption-and-decryption-requests").
   - If the source object is encrypted using SSE-C, you must provide encryption key information using the S3 API headers [S3 API headers required for requests to copy source objects encrypted with SSE-C](#s3-api-headers-required-for-requests-to-copy-source-objects-encrypted-with-sse-c "#s3-api-headers-required-for-requests-to-copy-source-objects-encrypted-with-sse-c").

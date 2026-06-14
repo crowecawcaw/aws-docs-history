@@ -7,7 +7,7 @@ By attaching an S3 file system to your Lambda function, you can easily share dat
 function invocations, read large reference data files, and write function output to a
 persistent and shared store, all through a local mount path.
 
-![Diagram showing the data flow between an S3 bucket, S3 file system, and AWS Lambda function.](images/S3Files_Lambda_dataflow.png)
+![The data flow between an S3 bucket, S3 file system, and AWS Lambda function.](images/S3Files_Lambda_dataflow.png)
 
 ## Prerequisites
 

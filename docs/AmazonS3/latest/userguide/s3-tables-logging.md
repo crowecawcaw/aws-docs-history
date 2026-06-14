@@ -60,6 +60,7 @@ You can identify S3 Tables maintenance events in CloudTrail logs by these attrib
 - `eventName: TablesMaintenanceEvent`
 - `userAgent: maintenance.s3tables.amazonaws.com`
 - `activityType:`
+
   - `IcebergCompaction` (for compaction)
   - `IcebergSnapshotManagement` (for snapshot expiration)
 

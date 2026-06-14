@@ -34,6 +34,7 @@ FIFO queue, you can use Amazon EventBridge. For more information, see [Enabling 
 6. In the **General configuration** section, specify descriptive event
    name for your event notification. Optionally, you can also specify a prefix and a suffix to
    limit the notifications to objects with keys ending in the specified characters.
+
    1. Enter a description for the **Event name**.
 
    If you don't enter a name, a globally unique identifier (GUID) is generated and used

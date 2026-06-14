@@ -59,6 +59,7 @@ The following fields are included in the request:
   recommend that you log this value to help with debugging.
 - `getObjectContext` – The input and output details for
   connections to Amazon S3 and S3 Object Lambda.
+
   - `inputS3Url` – A presigned URL that can be used to
     fetch the original object from Amazon S3. The URL is signed by using the original
     caller's identity, and that user's permissions will apply when the URL is
@@ -74,6 +75,7 @@ The following fields are included in the request:
 
 - `configuration` – Configuration information about the
   Object Lambda Access Point.
+
   - `accessPointArn` – The Amazon Resource Name (ARN) of
     the Object Lambda Access Point that received this request.
   - `supportingAccessPointArn` – The ARN of the
@@ -84,6 +86,7 @@ The following fields are included in the request:
 
 - `userRequest` – Information about the original call to
   S3 Object Lambda.
+
   - `url` – The decoded URL of the request as received by
     S3 Object Lambda, excluding any authorization-related query parameters.
   - `headers` – A map of string to strings containing
@@ -97,6 +100,7 @@ The following fields are included in the request:
   call to S3 Object Lambda. For more information, see [Logging data
   events for trails](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md") in the
   _AWS CloudTrail User Guide_.
+
   - `type` – The type of identity.
   - `accountId` – The AWS account to which the identity
     belongs.

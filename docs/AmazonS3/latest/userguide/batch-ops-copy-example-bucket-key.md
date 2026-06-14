@@ -361,6 +361,7 @@ later. For more information, see [Granting permissions for Batch Operations](bat
 6. If you chose **AWS Key Management Service key (SSE-KMS)**, under
    **AWS KMS key**, you can specify the AWS KMS key through one of the
    following options.
+
    - To choose from a list of available KMS keys, choose **Choose from your
      AWS KMS keys**. From the list of available keys, choose a symmetric encryption KMS key in the same Region as your bucket. Both the AWS managed key
      (`aws/s3`) and your customer managed keys appear in the list.
@@ -394,8 +395,10 @@ This includes objects that are copied by using Amazon S3 Batch Operations.
    parameters that you specify in this step apply to all operations performed on the
    objects that are listed in the manifest. Choose **Next**.
 7. To configure server-side encryption, follow these steps:
+
    1. Under **Server-side encryption**, choose one of the
       following:
+
       - To keep the bucket settings for default server-side encryption of objects
         when storing them in Amazon S3, choose **Do not specify an encryption
         key**. As long as the bucket destination has S3 Bucket Keys enabled, the
@@ -417,6 +420,7 @@ This includes objects that are copied by using Amazon S3 Batch Operations.
    3. If you choose **Override destination bucket settings for default
       encryption**, you must configure the following encryption
       settings.
+
       1. Under **Encryption type**, you must choose either
          **Amazon S3 managed keys (SSE-S3)** or **AWS Key Management Service key
          (SSE-KMS)**. SSE-S3 uses one of the strongest block
@@ -426,6 +430,7 @@ This includes objects that are copied by using Amazon S3 Batch Operations.
       2. If you choose **AWS Key Management Service key (SSE-KMS)**, under
          **AWS KMS key**, you can specify your AWS KMS key
          through one of the following options.
+
          - To choose from a list of available KMS keys, choose **Choose
            from your AWS KMS keys**, and then choose a symmetric encryption KMS key in the same Region as your bucket. Both the AWS managed key
            (`aws/s3`) and your customer managed keys appear in the list.

@@ -66,9 +66,9 @@ registered with the IAM role `s3ag-location-role`. This IAM role has
 permissions to perform Amazon S3 actions within the account when its credentials are obtained
 through S3 Access Grants.
 
-Within this location, two individual access grants are created for two IAM users. The
-IAM user Bob is granted both `READ` and `WRITE` access on the
-`bob/` prefix in the `DOC-BUCKET-EXAMPLE` bucket. Another
+Within this location, two individual access grants are created for two IAM users.
+The IAM user Bob is granted both `READ` and `WRITE` access on
+the `bob/` prefix in the `DOC-BUCKET-EXAMPLE` bucket. Another
 IAM role, Alice, is granted only `READ` access on the `alice/`
 prefix in the `DOC-BUCKET-EXAMPLE` bucket. A grant, colored in blue, is
 defined for Bob to access the prefix `bob/` in the
@@ -77,8 +77,8 @@ Alice to access the prefix `alice/` in the `DOC-BUCKET-EXAMPLE`
 bucket.
 
 When it's time for Bob to `READ` data, the IAM role that's associated
-with the location that his grant is in calls the S3 Access Grants [GetDataAccess](../API/API_control_GetDataAccess.md "../API/API_control_GetDataAccess.md") API operation. If Bob tries to
-`READ` any S3 prefix or object that starts with
+with the location that his grant is in calls the S3 Access Grants [GetDataAccess](../API/API_control_GetDataAccess.md "../API/API_control_GetDataAccess.md") API
+operation. If Bob tries to `READ` any S3 prefix or object that starts with
 `s3://DOC-BUCKET-EXAMPLE/bob/*`, the `GetDataAccess` request
 returns a set of temporary IAM session credentials with permission to
 `s3://DOC-BUCKET-EXAMPLE/bob/*`. Similarly, Bob can `WRITE` to
@@ -94,7 +94,7 @@ level of access (`READ` or `WRITE`) to data outside of
 `s3://DOC-BUCKET-EXAMPLE/alice/`, she will again receive an Access Denied
 error.
 
-![How S3 Access Grants works](images/s3ag-how-it-works.png)
+![S3 Access Grants location with IAM role issuing scoped credentials: Bob gets read and write access, Alice gets read-only access.](images/s3ag-how-it-works.png)
 
 This pattern scales to a high number of users and buckets and simplifies management of
 those permissions. Rather than editing potentially large S3 bucket policies every time

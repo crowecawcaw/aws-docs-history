@@ -44,6 +44,7 @@ applies:
 - There is no change to the encryption of the objects that existed in the bucket before
   default encryption was enabled.
 - When you upload objects after enabling default encryption:
+
   - If your `PUT` request headers don't include encryption information, Amazon S3
     uses the bucket’s default encryption settings to encrypt the objects.
   - If your `PUT` request headers include encryption information, Amazon S3 uses

@@ -233,6 +233,7 @@ If you chose to replicate objects encrypted with AWS KMS, do the following:
     is the same class as the original objects.
 13. You have the following additional options while setting the **Additional
     replication options**:
+
     - If you want to enable S3 Replication Time Control (S3 RTC) in your replication configuration, select
       **Replication Time Control (RTC)**. For more information about this
       option, see [Meeting compliance requirements with S3 Replication Time Control](replication-time-control.md "replication-time-control.md").
@@ -339,9 +340,11 @@ aws s3api put-bucket-versioning \
     configuration that you add to the source bucket later. Amazon S3 assumes this
     role to replicate objects on your behalf. You create an IAM role in two
     steps:
+
     - Create a role.
     - Attach a permissions policy to the role.
     1.  Create the IAM role.
+
         1. Copy the following trust policy and save it to a file
            named `s3-role-trust-policy.json` in the
            current directory on your local computer. This policy grants
@@ -365,7 +368,6 @@ aws s3api put-bucket-versioning \
         }`
 
         ```
-
         2. Run the following command to create a role.
 
         ```
@@ -376,6 +378,7 @@ aws s3api put-bucket-versioning \
         ```
 
     2.  Attach a permissions policy to the role.
+
         1. Copy the following permissions policy and save it to a
            file named `s3-role-permissions-policy.json` in
            the current directory on your local computer. This policy
@@ -433,7 +436,6 @@ aws s3api put-bucket-versioning \
              `s3:GetObjectRetention` and `s3:GetObjectLegalHold`.
              If the role has an `s3:Get*` permission statement, that statement
              satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
-
         2. Run the following command to create a policy and attach it
            to the role. Replace the `user input
 placeholders` with your own
@@ -448,6 +450,7 @@ placeholders` with your own
         ```
 
 5.  Add a replication configuration to the source bucket.
+
     1. Although the Amazon S3 API requires that you specify the replication
        configuration as XML, the AWS CLI requires that you specify the
        replication configuration as JSON. Save the following JSON in a file
@@ -470,7 +473,6 @@ placeholders` with your own
       ]
     }
     ```
-
     2. Update the JSON by replacing the values for the
        `amzn-s3-demo-destination-bucket` and
        `IAM-role-ARN` with

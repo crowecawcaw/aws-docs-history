@@ -25,7 +25,11 @@ that they are actually transitioned or expired. Changes in billing are applied a
 as the lifecycle rule is satisfied, even if the action isn't complete. The exception to
 this behavior is if you have a lifecycle rule set to transition to the
 S3 Intelligent-Tiering storage class. In that case, billing changes don't occur until the
-object has transitioned to S3 Intelligent-Tiering. For more information about changes in
+object has transitioned to S3 Intelligent-Tiering. For transitions to
+S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive, billing at the destination storage class
+rate, the per-object storage overhead (40 KB), and the minimum storage duration timer
+all begin when the lifecycle rule is satisfied, even though the physical transition
+occurs asynchronously. For more information about changes in
 billing, see [Setting lifecycle configuration on a bucket](how-to-set-lifecycle-configuration-intro.md "how-to-set-lifecycle-configuration-intro.md").
 
 ###### Note

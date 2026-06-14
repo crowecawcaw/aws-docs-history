@@ -32,6 +32,7 @@ The following table components are replicated:
   time-travel capabilities as source tables.
 - Table data – All data files referenced by table
   snapshots are replicated to the destination Region. This includes:
+
   - Metadata files – Table metadata.json files, manifests, manifest lists, partition statistics and table statistics.
   - Delete files – All delete files are replicated to
     maintain data accuracy in replica tables.
@@ -41,6 +42,7 @@ The following table components are replicated:
 - Table metadata – Complete metadata replication,
   including schema information (current and historical), partition specifications, sort orders,
   and table properties.
+
   - Schema Information – All table schemas are
     replicated, including the current schema and historical schema versions. This ensures that
     queries against replica tables use the correct column definitions, data types, and field

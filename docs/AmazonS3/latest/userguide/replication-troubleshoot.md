@@ -62,6 +62,7 @@ status. If you encounter this situation, contact AWS Support to verify the repli
 state of the affected objects.
 
 - In the replication configuration on the source bucket, verify the following:
+
   - The Amazon Resource Name (ARN) of the destination bucket is correct.
   - The key name prefix is correct. For example, if you set the configuration to
     replicate objects with the prefix `Tax`, then only objects with key names
@@ -243,6 +244,7 @@ objects](replication-walkthrough-4.md "replication-walkthrough-4.md").
   statement, that statement satisfies the requirement. For more information, see [Using Object Lock with S3 Replication](object-lock-managing.md#object-lock-managing-replication "object-lock-managing.md#object-lock-managing-replication").
 - If your objects still aren't replicating after you've validated the permissions, check
   for any explicit `Deny` statements in the following locations:
+
   - `Deny` statements in the source or destination bucket policies.
     Replication fails if the bucket policy denies access to the replication role for any
     of the following actions:
@@ -264,7 +266,6 @@ objects](replication-walkthrough-4.md "replication-walkthrough-4.md").
              "s3:ReplicateDelete",
              "s3:ReplicateTags"
   ```
-
   - `Deny` statements or permissions boundaries attached to the IAM role
     can cause replication to fail.
   - `Deny` statements in AWS Organizations service control policies (SCPs) that are
@@ -276,6 +277,7 @@ objects](replication-walkthrough-4.md "replication-walkthrough-4.md").
 
 - If an object replica doesn't appear in the destination bucket, the following issues
   might have prevented replication:
+
   - Amazon S3 doesn't replicate an object in a source bucket that is a replica created by
     another replication configuration. For example, if you set a replication configuration
     from bucket A to bucket B to bucket C, Amazon S3 doesn't replicate object replicas in

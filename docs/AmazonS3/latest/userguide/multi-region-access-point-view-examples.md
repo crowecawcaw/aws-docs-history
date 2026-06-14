@@ -11,6 +11,7 @@ the Amazon S3 console.
    **Multi-Region Access Points**.
 3. Choose the name of the Multi-Region Access Point for which you want to view the
    configuration details.
+
    - The **Properties** tab lists all of the
      buckets that are associated with your Multi-Region Access Point, the creation date,
      the Amazon Resource Name (ARN), and the alias. The AWS account

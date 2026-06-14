@@ -26,6 +26,7 @@ S3 Batch Operations job details page.
    general purpose bucket from a list, choose **Browse S3**.
 7. In the **Permissions** section, you can choose to have an IAM role auto-generated. Alternatively, you
    can select an IAM role from a list, or directly enter an IAM role ARN.
+
    - To allow Amazon S3 to create a new IAM role on your behalf, choose **Create
      new IAM role**.
 

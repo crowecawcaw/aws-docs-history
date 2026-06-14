@@ -10,7 +10,7 @@ system at instance boot time automatically by using entries in the
 part of the open-source collection of tools that is installed when you install the S3 Files
 client (amazon-efs-utils).
 
-![Diagram showing the data flow between an S3 bucket, S3 file system, and Amazon EC2 instance.](images/S3Files_EC2_dataflow.png)
+![The data flow between an S3 bucket, S3 file system, and Amazon EC2 instance.](images/S3Files_EC2_dataflow.png)
 
 ## Prerequisites to mount on EC2 instances
 
@@ -238,6 +238,7 @@ path:
   Shell (SSH) using this security group. For access by SSH, later you can edit
   the default security and add a rule to allow SSH or a new security group that
   allows SSH. You can use the following settings:
+
   - Type: SSH
   - Protocol: TCP
   - Port Range: 22

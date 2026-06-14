@@ -225,7 +225,11 @@ Client 1 tries to complete the multipart upload using a conditional write the up
 
 This scenario will result in a `412 Precondition Failed` response for both `If-None-Match` and `If-Match` headers.
 
-![An example of two clients writing items with the same key name. One with UploadPart for MPU and one with PutObject and a conditional write. The CompleteMultipartUpload operation, which starts after, fails.](images/conwrite_put_mpu.png)
+The following example shows two clients writing items with the same key name. One with
+UploadPart for MPU and one with PutObject and a conditional write. The CompleteMultipartUpload
+operation, which starts after, fails.
+
+![Two clients write to the same key using UploadPart and conditional PutObject. CompleteMultipartUpload fails.](images/conwrite_put_mpu.png)
 
 ###### Concurrent deletes during multipart uploads
 
@@ -241,7 +245,11 @@ This scenario will result in a `409 Conflict` response for an
 `If-None-Match` header and a `404 Not Found` response for
 an `If-Match` header.
 
-![An example of two clients, one using multipart upload and one sending a delete request after the MPU has started. The delete request finishes before the conditional write starts.](images/conwrite_delete_mpu.png)
+The following example shows two clients, one using multipart upload and one sending a
+delete request after the MPU has started. The delete request finishes before the
+conditional write starts.
+
+![One client uses MPU and another sends a delete request. The delete completes before the conditional write starts.](images/conwrite_delete_mpu.png)
 
 ###### Note
 

@@ -225,6 +225,7 @@ logs2013-11-01-21-32-16-E568B2907131C0C0
 ```
 
 8. Under **Log object key format**, do one of the following:
+
    - To choose non-date-based partitioning, choose
      **[DestinationPrefix][YYYY]-[MM]-[DD]-[hh]-[mm]-[ss]-[UniqueString]**.
    - To choose date-based partitioning, choose
@@ -616,10 +617,12 @@ procedure.
 
 1. Create two logging destination buckets in the US West (Oregon) and
    US East (N. Virginia) Regions and give them the following names:
+
    - ``amzn-s3-demo-destination-bucket`-logs-us-east-1`
    - ``amzn-s3-demo-destination-bucket1`-logs-us-west-2`
 
 2. Later in these steps, you will enable server access logging as follows:
+
    - ``amzn-s3-demo-source-bucket`-us-east-1` logs to the S3 bucket
 ``amzn-s3-demo-destination-bucket`-logs-us-east-1` with the prefix
      ``amzn-s3-demo-source-bucket`-us-east-1`
@@ -639,6 +642,7 @@ bucket ``amzn-s3-demo-destination-bucket1`-logs-us-west-2` with the
 3. For each destination logging bucket, grant permissions for server access log
    delivery by using a bucket ACL _or_ a bucket
    policy:
+
    - Update the bucket policy (Recommended)
      – To grant permissions to the logging service principal, use the
      following `put-bucket-policy` command. Replace
@@ -688,7 +692,6 @@ bucket ``amzn-s3-demo-destination-bucket1`-logs-us-west-2` with the
    }`
 
    ```
-
    - Update the bucket ACL – To grant
      permissions to the S3 log delivery group, use the following
      `put-bucket-acl` command. Replace

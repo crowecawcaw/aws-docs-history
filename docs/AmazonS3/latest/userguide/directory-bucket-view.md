@@ -11,6 +11,7 @@ console. For more information, see [Working with directory buckets](directory-bu
 4. Choose the **Properties** tab.
 5. On the **Properties** tab, you can view the following properties for
    the bucket:
+
    - **Directory bucket overview** – You can see the
      AWS Region, Zone (Availability Zone or Local Zone), Amazon Resource Name (ARN), and creation date
      for the bucket.

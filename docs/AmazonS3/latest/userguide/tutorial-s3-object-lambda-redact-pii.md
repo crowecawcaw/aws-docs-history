@@ -370,6 +370,7 @@ about all the fields in the event context, see [Event context format and usage](
 7. For **Invoke Lambda function**, you can
    choose either of the following two options for this
    tutorial.
+
    - Choose **Choose from functions in your
      account** and choose the Lambda function
      that you deployed in [Step 4](#ol-pii-step4 "#ol-pii-step4") (for example,

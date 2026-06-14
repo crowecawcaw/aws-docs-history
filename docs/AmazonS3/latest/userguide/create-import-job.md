@@ -44,6 +44,7 @@ To configure import jobs, you use the Amazon S3 console.
 5. For **Permission to access and copy source objects**, do one of the
    following to specify an IAM role with the permissions necessary to import your source
    objects:
+
    - To allow Amazon S3 to create a new IAM role on your behalf, choose **Create
      new IAM role**.
    - To choose an existing IAM role from a list, choose **Choose from

@@ -124,10 +124,12 @@ You can specify any amount of prefixes, but the total length of characters of al
 6. Choose the **Permissions** tab.
 7. In the **Access point scope** section, choose **Edit**.
 8. To add or remove prefixes:
+
    1. To add a prefix, choose **Add prefix**. In the **Prefix** field, enter a prefix of the directory bucket. Repeat to add more prefixes.
    2. To remove a prefix, choose **Remove**.
 
 9. To add or remove permissions:
+
    1. To add a permission, in the **Choose data operations** field, choose the permission.
    2. To remove a permission, choose the **X** next to the permission.
 

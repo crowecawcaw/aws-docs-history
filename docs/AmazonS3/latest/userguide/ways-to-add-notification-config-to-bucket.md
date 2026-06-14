@@ -61,6 +61,7 @@ Follow the steps to create and subscribe to an Amazon Simple Queue Service (Amaz
    Amazon SQS](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-getting-started.md") in the _Amazon Simple Queue Service Developer Guide_.
 2. Replace the access policy that's attached to the queue with the following
    policy.
+
    1. In the Amazon SQS console, in the **Queues** list, choose the queue name.
    2. On the **Access policy** tab, choose **Edit**.
    3. Replace the access policy that's attached to the queue. In it, provide
@@ -97,7 +98,6 @@ Follow the steps to create and subscribe to an Amazon Simple Queue Service (Amaz
    }`
 
    ```
-
    4. Choose **Save**.
 
 3. (Optional) If the Amazon SQS queue or the Amazon SNS topic is server-side encryption

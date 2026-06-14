@@ -15,6 +15,7 @@ Remember when using these examples:
 ###### Contents
 
 - [Journal table example queries](metadata-tables-example-queries.md#metadata-tables-example-queries-journal-tables "metadata-tables-example-queries.md#metadata-tables-example-queries-journal-tables")
+
   - [Finding objects by file extension](metadata-tables-example-queries.md#metadata-tables-example-query-object-pattern "metadata-tables-example-queries.md#metadata-tables-example-query-object-pattern")
   - [Listing object deletions](metadata-tables-example-queries.md#metadata-tables-example-query-delete-events "metadata-tables-example-queries.md#metadata-tables-example-query-delete-events")
   - [Listing AWS KMS encryption keys used by your objects](metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key "metadata-tables-example-queries.md#metadata-tables-example-query-objects-using-kms-key")
@@ -25,6 +26,7 @@ Remember when using these examples:
   - [Understanding the current state of your objects](metadata-tables-example-queries.md#metadata-tables-example-query-current-state "metadata-tables-example-queries.md#metadata-tables-example-query-current-state")
 
 - [Inventory table example queries](metadata-tables-example-queries.md#metadata-tables-example-queries-inventory-tables "metadata-tables-example-queries.md#metadata-tables-example-queries-inventory-tables")
+
   - [Discovering datasets that use specific tags](metadata-tables-example-queries.md#metadata-tables-example-query-datasets-specific-tags "metadata-tables-example-queries.md#metadata-tables-example-query-datasets-specific-tags")
   - [Listing objects not encrypted with SSE-KMS](metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-kms-encrypted "metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-kms-encrypted")
   - [Listing objects that aren't encrypted](metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-encrypted "metadata-tables-example-queries.md#metadata-tables-example-query-objects-not-encrypted")

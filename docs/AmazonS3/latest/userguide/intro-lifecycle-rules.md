@@ -295,6 +295,7 @@ topic).
   more information about storage classes, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md"). Amazon S3 makes all expired objects
   unavailable. Whether the objects are permanently removed depends on the
   versioning state of the bucket.
+
   - **Nonversioned bucket** – The
     `Expiration` action results in Amazon S3 permanently removing
     the object.

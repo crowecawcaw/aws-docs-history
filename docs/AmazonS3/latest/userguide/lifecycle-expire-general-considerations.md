@@ -51,6 +51,11 @@ on which [S3 Versioning](Versioning.md "Versioning.md") state the bucket is in:
 
 ###### Important
 
+An object is eligible for only one S3 Lifecycle action per day. When multiple rules
+match, Amazon S3 applies the least costly action.
+
+###### Important
+
 When you have multiple rules in an S3 Lifecycle configuration, an object can become
 eligible for multiple S3 Lifecycle actions on the same day. In such cases, Amazon S3
 follows these general rules:
@@ -76,6 +81,20 @@ prefix.
 You can't use a bucket policy to prevent deletions or transitions by an
 S3 Lifecycle rule. For example, even if your bucket policy denies all actions for all
 principals, your S3 Lifecycle configuration still functions as normal.
+
+## Tag-based filters and eligibility evaluation
+
+S3 Lifecycle evaluates objects against tag-based filters daily. When an object
+matches a tag-based expiration rule, Amazon S3 queues the action for asynchronous
+processing. At execution time, Amazon S3 re-evaluates the object's current tags. If the
+triggering tag is no longer present when the action executes, the expiration does
+not proceed.
+
+To reliably confirm an expiration occurred before removing the tag, wait for a
+[Lifecycle
+Event Notification](lifecycle-event-notifications.md "lifecycle-event-notifications.md"). If you need to prevent an expiration before it
+executes, remove the tag (tag updates take effect faster than rule policy changes,
+which can take up to 15 minutes to propagate).
 
 ## How to find when objects will expire
 

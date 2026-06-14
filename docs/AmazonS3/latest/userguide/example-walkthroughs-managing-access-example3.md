@@ -50,6 +50,7 @@ steps:
 ![A bucket owner granting permissions to objects it does not own.](images/access-policy-ex3.png)
 
 1. Account A administrator user attaches a bucket policy with two statements.
+
    - Allow cross-account permission to Account B to upload objects.
    - Allow a user in its own account to access objects in the bucket.
 
@@ -79,9 +80,11 @@ AWS Tools for Windows PowerShell, so you don't need to write any code.
 
 1.  Make sure that you have two AWS accounts and each account has one
     administrator as shown in the table in the preceding section.
+
     1. Sign up for an AWS account, if needed.
     2. Using Account A credentials, sign in to the [IAM Console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") and do
        the following to create an administrator user:
+
        - Create user `AccountAadmin` and note the user's security
          credentials. For more information about adding users, see [Creating an
          IAM user in your AWS account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md") in the
@@ -265,8 +268,10 @@ Read-S3Object -BucketName `amzn-s3-demo-bucket1` -Key HappyFace.jpg -file HappyF
 ## Step 4: Clean up
 
 1. After you're done testing, you can do the following to clean up:
+
    1. Sign in to the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/")
       using Account A credentials, and do the following:
+
       - In the Amazon S3 console, remove the bucket policy attached to
         `amzn-s3-demo-bucket1`. In the bucket
         **Properties**, delete the policy in the

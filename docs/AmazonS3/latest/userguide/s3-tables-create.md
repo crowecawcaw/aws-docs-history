@@ -77,6 +77,7 @@ When you create a table using Athena that table inherits the default encryption 
 4. On the bucket details page, choose **Create table with Athena**.
 5. In the **Create table with Athena** dialog box, do one of the
    following:
+
    - Create a new namespace. Choose **Create a namespace**, and then enter a
      name in the **Namespace name** field. Namespace names must be 1 to 255
      characters and unique within the table bucket. Valid characters are a–z, 0–9,
@@ -192,13 +193,13 @@ spark.sql(
 ```
 
 - Load an existing data file.
+
   1.  Read the data into Spark:
 
   ```
   val data_file_location = "`Path such as S3 URI to data file`"
   val data_file = spark.read.parquet(`data_file_location`)
   ```
-
   2.  Write the data into an Iceberg table:
 
   ```

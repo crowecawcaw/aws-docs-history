@@ -21,7 +21,7 @@ drill-down options to generate and visualize insights at the organization, accou
 Storage Lens group level. You can also send a daily metrics report in CSV or Parquet format to a general purpose S3 bucket or export
 the metrics directly to an AWS-managed S3 table bucket.
 
-![The Snapshot for date section in the S3 Storage Lens dashboard.](images/storage-lens-dashboard.png)
+![The Snapshot for [date] section in the S3 Storage Lens dashboard.](images/storage-lens-dashboard.png)
 
 ## S3 Storage Lens metrics and features
 

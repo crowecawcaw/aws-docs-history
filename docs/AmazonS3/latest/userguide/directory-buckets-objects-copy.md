@@ -96,6 +96,7 @@ The restrictions and limitations when you copy an object to a directory bucket w
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. In the left navigation pane, the bucket type that you want to copy objects from:
+
    - To copy from a general purpose bucket, choose the **General purpose
      buckets** tab.
    - To copy from a directory bucket, choose the **Directory

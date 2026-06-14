@@ -189,6 +189,7 @@ The following S3 Lifecycle configuration specifies a rule that applies to object
 the key name prefix `logs/`. The rule specifies the following actions:
 
 - Two transition actions:
+
   - Transition objects to the S3 Standard-IA storage class 30 days after
     creation.
   - Transition objects to the S3 Glacier Flexible Retrieval storage class 90

@@ -95,6 +95,7 @@ hosting. For detailed, step-by-step instructions on creating a bucket, see [Crea
 1. Sign in to the AWS Management Console and open the Amazon S3 console at
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Create your root domain bucket:
+
    1. In the navigation bar on the top of the page, choose the name of the currently displayed AWS Region. Next, choose the Region in which you want to create a bucket.
 
    ###### Note
@@ -110,6 +111,7 @@ hosting. For detailed, step-by-step instructions on creating a bucket, see [Crea
    your Amazon S3 website endpoint. For more information, see [Website endpoints](WebsiteEndpoints.md "WebsiteEndpoints.md"). 6. To accept the default settings and create the bucket, choose **Create**.
 
 3. Create your subdomain bucket:
+
    1. Choose **Create bucket**.
    2. Enter the **Bucket name** (for example,
       `www.example.com`).

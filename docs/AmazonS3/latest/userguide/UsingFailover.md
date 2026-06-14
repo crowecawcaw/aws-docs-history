@@ -12,6 +12,7 @@ follows:
   routing statuses of up to 17 AWS Regions in a single request for your Multi-Region Access Point
   by choosing **Edit routing status**. You can use **Edit
   routing status** for the following purposes:
+
   - To set or edit the routing statuses of one or more Regions in your
     Multi-Region Access Point
   - To create a failover configuration for your Multi-Region Access Point by configuring two

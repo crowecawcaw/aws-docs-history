@@ -69,6 +69,7 @@ you must have additional permissions.
 
 1.  The user or AWS Identity and Access Management (IAM) role needs the following permissions. You can grant these
     permissions by using the IAM console: [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+
     1. `s3tables:PutTableEncryption` to configure table encryption
     2. `kms:DescribeKey` on the AWS KMS key used
 

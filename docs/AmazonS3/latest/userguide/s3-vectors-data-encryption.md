@@ -147,7 +147,9 @@ comprehensive key policy example.
 ```
 
 - **Required KMS permissions:**
+
   - S3 Vectors service principal permission:
+
     - `kms:Decrypt` – Required by the
       S3 Vectors service principal
       (`indexing.s3vectors.amazonaws.com`) on
@@ -155,6 +157,7 @@ comprehensive key policy example.
       index in background operations
 
   - IAM principal permissions:
+
     - `kms:Decrypt` – Required for all vector-level operations ([PutVectors](../API/API_S3VectorBuckets_PutVectors.md "../API/API_S3VectorBuckets_PutVectors.md"), [GetVectors](../API/API_S3VectorBuckets_GetVectors.md "../API/API_S3VectorBuckets_GetVectors.md"), [QueryVectors](../API/API_S3VectorBuckets_QueryVectors.md "../API/API_S3VectorBuckets_QueryVectors.md"), [DeleteVectors](../API/API_S3VectorBuckets_DeleteVectors.md "../API/API_S3VectorBuckets_DeleteVectors.md"), [ListVectors](../API/API_S3VectorBuckets_ListVectors.md "../API/API_S3VectorBuckets_ListVectors.md"))
     - `kms:GenerateDataKey` – Required to create a vector bucket by using the customer managed key
 

@@ -21,6 +21,7 @@ Use the following steps to create an Amazon S3 Storage Lens dashboard on the Ama
 4. Choose **Create dashboard**.
 5. On the **Dashboard** page, in the **General**
    section, do the following:
+
    1. View the **Home Region** for your dashboard. The home Region is
       the AWS Region where the configuration and metrics for this Storage Lens dashboard
       are stored.
@@ -65,6 +66,7 @@ Use the following steps to create an Amazon S3 Storage Lens dashboard on the Ama
 
 1.  In the **Storage Lens tier** section, choose the tier of features
     that you want to aggregate for this dashboard.
+
     1. To include free metrics aggregated at the bucket level and available for queries
        for 14 days, choose **Free tier**.
     2. To enable advanced metrics, choose **Advanced tier**. These
@@ -100,6 +102,7 @@ Use the following steps to create an Amazon S3 Storage Lens dashboard on the Ama
 
 1. Under **Additional metrics aggregation**, choose which metrics you
    want to aggregate:
+
    - Prefix aggregation
    - Storage Lens group aggregation
 

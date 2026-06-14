@@ -20,7 +20,7 @@ To delete a delete marker permanently, you must include its version ID in a
 a `DeleteObject versionId` request permanently removes a delete
 marker.
 
-![Illustration that shows a delete marker deletion using its version ID.](images/versioning_DELETE_deleteMarkerVersioned.png)
+![A delete marker deletion using its version ID.](images/versioning_DELETE_deleteMarkerVersioned.png)
 
 The effect of removing the delete marker is that a simple `GET`
 request will now retrieve the current version ID (121212) of the object.
@@ -39,7 +39,7 @@ request made without a version ID where the current version is a delete marker,
 removes nothing, but instead adds an additional delete marker with a unique
 version ID (7498372).
 
-![Illustration that shows a delete marker deletion using a NULL version ID.](images/versioning_DELETE_deleteMarker.png)
+![A delete marker deletion using a NULL version ID.](images/versioning_DELETE_deleteMarker.png)
 
 Use the following steps to recover deleted objects that are not folders from your S3
 bucket, including objects that are within those folders.
@@ -55,6 +55,7 @@ bucket, including objects that are within those folders.
    Select the check box next to the **delete marker** of the object to recover, and then
    choose **Delete**.
 5. Confirm the deletion on the **Delete objects** page.
+
    1. For **Permanently delete objects?** enter `permanently
 delete`.
    2. Choose **Delete objects**.

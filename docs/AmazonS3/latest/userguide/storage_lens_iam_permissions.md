@@ -22,6 +22,7 @@ configuration, unless both of the following conditions are true:
   IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
 - Using S3 Storage Lens on the Amazon S3 console can require multiple permissions. For example, to
   edit a dashboard on the console, you need the following permissions:
+
   - `s3:ListStorageLensConfigurations`
   - `s3:GetStorageLensConfiguration`
   - `s3:PutStorageLensConfiguration`

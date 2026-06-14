@@ -48,9 +48,11 @@ using the Amazon S3 console.
 6. Under **Encryption settings**, choose **Use bucket settings for default encryption** or **Override bucket settings for default encryption**.
 7. If you chose **Override bucket settings for default encryption**,
    configure the following encryption settings.
+
    1. Under **Encryption type**, choose **Dual-layer server-side encryption with AWS Key Management Service keys (DSSE-KMS)**.
    2. Under **AWS KMS key**, do one of the following to choose your
       KMS key:
+
       - To choose from a list of available KMS keys, choose **Choose from your
         AWS KMS keys**, and then choose your **KMS key** from
         the list of available keys.

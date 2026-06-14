@@ -468,6 +468,7 @@ existing manifest file.
     create an IAM policy to assign the relevant permissions. The following role
     and policy grant Amazon S3 permission to add object tags, which you will need when
     you create the job in a subsequent step.
+
     1. Use the following example command to create an IAM role for Batch Operations
        to use. To use this example command, replace
        `S3BatchJobRole` with the name
@@ -610,6 +611,7 @@ name, size, storage class, and tags.
     create an IAM policy to assign permissions. The following role and policy
     grant Amazon S3 permission to delete object tags, which you will need when you create
     the job in a subsequent step.
+
     1. Use the following example command to create an IAM role for Batch Operations
        to use. To use this example command, replace
        `S3BatchJobRole` with the name

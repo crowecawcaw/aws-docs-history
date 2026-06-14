@@ -17,6 +17,7 @@ AWS SDK for Java.
    apply to your Storage Lens group. To apply multiple filters, select your
    filters, and choose the **AND** or **OR**
    logical operator.
+
    - For the **Prefixes** filter, select
      **Prefixes**, and enter a prefix string. To add
      multiple prefixes, choose **Add prefix**. To remove

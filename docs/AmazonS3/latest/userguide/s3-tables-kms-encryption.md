@@ -28,6 +28,7 @@ following ways:
 - You must grant permissions for certain roles and AWS service principals to
   access your AWS KMS key. For more information, see [Permission requirements for S3 Tables SSE-KMS encryption](s3-tables-kms-permissions.md "s3-tables-kms-permissions.md"). This includes granting access
   to:
+
   - The S3 maintenance principal – for performing table maintenance
     on encrypted tables
   - Your S3 Tables integration role – for working with encrypted

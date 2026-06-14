@@ -235,6 +235,7 @@ following:
 13. (Optional) S3 Object Lock helps protect new objects from being deleted or overwritten. For
     more information, see [Locking objects with Object Lock](object-lock.md "object-lock.md"). If you want to enable
     S3 Object Lock, do the following:
+
     1.  Choose **Advanced settings**.
 
     ###### Important

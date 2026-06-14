@@ -180,6 +180,7 @@ S3 tables.
 
 - [Integrate your table buckets with
   AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
+
   - [Create a namespace](s3-tables-namespace-create.md "s3-tables-namespace-create.md").
   - [Create a table](s3-tables-create.md "s3-tables-create.md").
 
@@ -199,6 +200,7 @@ records to a single Iceberg table](../../../firehose/latest/dev/apache-iceberg-f
    [https://console.aws.amazon.com/firehose/](https://console.aws.amazon.com/firehose/ "https://console.aws.amazon.com/firehose/").
 2. Choose **Create Firehose stream**.
 3. For **Source**, choose one of the following sources:
+
    - Amazon Kinesis Data Streams
    - Amazon MSK
    - Direct PUT
@@ -208,6 +210,7 @@ records to a single Iceberg table](../../../firehose/latest/dev/apache-iceberg-f
 5. Enter a **Firehose stream name**.
 6. Configure your **Source settings**.
 7. For **Destination settings**, choose **Current account** to stream to tables in your account or **Cross-account** for tables in another account.
+
    - For tables in the **Current account**, select your S3 Tables catalog from the **Catalog** dropdown.
    - For tables in a **Cross-account**, enter the **Catalog ARN** of the catalog you want to stream to in another account.
 

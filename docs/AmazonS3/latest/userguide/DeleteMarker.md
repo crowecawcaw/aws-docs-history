@@ -58,13 +58,13 @@ The following figure shows how a `GetObject` API call on an
 object whose current version is a delete marker responds with a 404 (Not Found) error and
 the response header includes `x-amz-delete-marker: true`.
 
-![Illustration that shows a GetObject call for a delete marker returning a 404 (Not Found) error.](images/versioning_DELETE_NoObjectFound.png)
+![A GetObject call for a delete marker returning a 404 (Not Found) error.](images/versioning_DELETE_NoObjectFound.png)
 If you make a `GetObject` call on an object by specifying a
 `versionId` in your request, and if the specified version is a delete marker,
 Amazon S3 responds with a 405 (Method Not Allowed) error and the response headers include
 `x-amz-delete-marker: true` and `Last-Modified: timestamp`.
 
-![Illustration that shows a GetObject call for a delete marker returning a 405 (Method Not Allowed) error.](images/versioning_DELETE_NoObjectFound_405.png)
+![A GetObject call for a delete marker returning a 405 (Method Not Allowed) error.](images/versioning_DELETE_NoObjectFound_405.png)
 Even if overwritten, delete markers remain in your object versions. The only way to list
 delete markers (and other versions of an object) is by using a [ListObjectVersions](../API/API_ListObjectVersions.md "../API/API_ListObjectVersions.md") request. You can make this request in the
 AWS Management Console by listing your objects in an general purpose bucket and selecting **Show
@@ -74,4 +74,4 @@ The following figure shows that a [ListObjectsV2](../API/API_ListObjectsV2.md ".
 [ListObjects](../API/API_ListObjects.md "../API/API_ListObjects.md") request doesn't return objects whose current
 version is a delete marker.
 
-![Illustration that shows how a ListObjectsV2 or ListObjects call doesn't return any delete markers.](images/versioning_GETBucketwithDeleteMarkers.png)
+![How a ListObjectsV2 or ListObjects call does not return any delete markers.](images/versioning_GETBucketwithDeleteMarkers.png)

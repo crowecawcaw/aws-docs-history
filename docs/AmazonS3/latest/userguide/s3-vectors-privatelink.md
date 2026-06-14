@@ -105,6 +105,7 @@ CLI, AWS SDKs, or AWS API.
    create the endpoint network interfaces.
 9. For **IP address type**, choose the IP address type
    for the endpoint:
+
    - **IPv4**: Assign IPv4 addresses to the
      endpoint network interfaces. This option is supported only if
      all selected subnets have IPv4 address ranges.

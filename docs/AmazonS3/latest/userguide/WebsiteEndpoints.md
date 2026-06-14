@@ -30,6 +30,7 @@ information, see [Setting permissions for website access](WebsiteAccessPermissio
 
 - Amazon S3 website endpoints do not support HTTPS or access points. If you want
   to use HTTPS, you can do one of the following:
+
   - (Recommended) Use [AWS Amplify
     Hosting](../../../amplify/latest/userguide/welcome.html.md "../../../amplify/latest/userguide/welcome.html.md") to host static website content stored on S3.
     Amplify Hosting is a fully managed service that makes it easy to

@@ -50,6 +50,7 @@ Prerequisites required to use the S3 Tables AWS analytics integration to run AWS
 - [Integrate your table buckets with
   AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md").
 - [Create an IAM role for AWS Glue](../../../glue/latest/dg/create-an-iam-role.md "../../../glue/latest/dg/create-an-iam-role.md").
+
   - Attach the `AmazonS3TablesFullAccess` managed policy to the
     role.
   - Attach the `AmazonS3FullAccess` managed policy to the
@@ -59,6 +60,7 @@ Amazon S3 Tables Iceberg REST endpoint
 Prerequisites to use the Amazon S3 Tables Iceberg REST endpoint to run AWS Glue ETL jobs.
 
 - [Create an IAM role for AWS Glue](../../../glue/latest/dg/create-an-iam-role.md "../../../glue/latest/dg/create-an-iam-role.md").
+
   - Attach the `AmazonS3TablesFullAccess` managed policy to the
     role.
   - Attach the `AmazonS3FullAccess` managed policy to the
@@ -68,6 +70,7 @@ Amazon S3 Tables Catalog for Apache Iceberg
 Prerequisites use the Amazon S3 Tables Catalog for Apache Iceberg to run AWS Glue ETL jobs.
 
 - [Create an IAM role for AWS Glue](../../../glue/latest/dg/create-an-iam-role.md "../../../glue/latest/dg/create-an-iam-role.md").
+
   - Attach the `AmazonS3TablesFullAccess` managed policy to the
     role.
   - Attach the `AmazonS3FullAccess` managed policy to the
@@ -407,6 +410,7 @@ ETL job that queries your S3 tables.
    PySpark script you created to query S3 tables.
 4. Select the **Job details** tab and enter the
    following for **Basic properties**.
+
    - For **Name**, enter a name for the
      job.
    - For **IAM Role**, select the role you created

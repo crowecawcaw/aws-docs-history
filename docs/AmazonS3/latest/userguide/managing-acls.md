@@ -116,6 +116,7 @@ You can edit the following ACL permissions for the bucket:
 7.  To grant or undo permissions for the general public (everyone on the
     internet), beside **Everyone (public access)**, clear or
     select from the following ACL permissions:
+
     - **Objects** –
       **List**
     - **Bucket ACL** –
@@ -139,6 +140,7 @@ permissions:
 9. To grant or undo permissions for Amazon S3 to write server access logs to the
    bucket, under **S3 log delivery group**, clear or select
    from the following ACL permissions:
+
    - **Objects** – **List** or
      **Write**
    - **Bucket ACL** – **Read**
@@ -153,10 +155,12 @@ permissions:
    information about server access logging, see [Enabling Amazon S3 server access logging](enable-server-access-logging.md "enable-server-access-logging.md").
 
 10. To grant access to another AWS account, do the following:
+
     1. Choose **Add grantee**.
     2. In the **Grantee** box, enter the canonical ID of
        the other AWS account.
     3. Select from the following ACL permissions:
+
        - **Objects** –
          **List** or
          **Write**
@@ -665,6 +669,7 @@ methods:
   following headers. Each header maps to specific permissions that Amazon
   S3 supports in an ACL. For more information, see [Access control list (ACL) overview](acl-overview.md "acl-overview.md"). In the
   header, you specify a list of grantees who get the specific permission.
+
   - x-amz-grant-read
   - x-amz-grant-write
   - x-amz-grant-read-acp

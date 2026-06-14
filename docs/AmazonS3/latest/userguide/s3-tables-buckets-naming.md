@@ -27,12 +27,14 @@ The following naming rules apply for table buckets.
 - Bucket names must not contain any underscores (`_`) or periods
   (`.`).
 - Bucket names must not start with any of the following reserved prefixes:
+
   - `xn--`
   - `sthree-`
   - `amzn-s3-demo-`
   - `aws`
 
 - Bucket names must not end with any of the following reserved suffixes:
+
   - `-s3alias`
   - `--ol-s3`
   - `--x-s3`

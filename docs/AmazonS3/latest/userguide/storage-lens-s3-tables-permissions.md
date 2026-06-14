@@ -40,6 +40,7 @@ have additional permissions.
 
 1. The user or IAM role needs the following permissions. You can grant these
    permissions by using the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+
    - `kms:DescribeKey` on the AWS KMS key used
 
 2. On the key policy for the AWS KMS key, you need the following permissions. You can

@@ -85,6 +85,7 @@ following list of considerations:
 - For the following S3 Glacier storage classes, the
   **Compute checksum** job can take up to a week to
   finish:
+
   - S3 Glacier Flexible Retrieval
   - S3 Glacier Deep Archive
 

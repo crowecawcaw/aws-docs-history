@@ -192,24 +192,22 @@ ls
 ```
 
 - You can also test other file operations:
+
   - Create a file:
 
   ```
   echo "Hello, S3 Files!" > test.txt
   ```
-
   - Read the file:
 
   ```
   cat test.txt
   ```
-
   - Create a directory:
 
   ```
   mkdir test-directory
   ```
-
   - Copy the file to the directory:
 
   ```

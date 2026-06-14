@@ -73,6 +73,7 @@ CloudWatch. 6. Choose **Save changes**.
 3. Choose **Create dashboard**.
 4. Under **General**, define the following configuration
    options:
+
    1. For **Dashboard name**, enter your dashboard
       name.
 

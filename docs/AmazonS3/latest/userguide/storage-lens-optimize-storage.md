@@ -251,7 +251,7 @@ optimization**. Then clear **Summary**.
 The **Buckets** list updates to display all the available
 **Cost optimization** metrics for the buckets shown. 8. To filter the **Buckets** list to display only specific
 cost-optimization metrics, choose the preferences icon (
-![A screenshot that shows the preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
+![The Preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
 ). 9. Clear the toggles for all cost-optimization metrics until only
 **Incomplete multipart upload bytes greater than 7 days
 old** and **Abort incomplete multipart upload lifecycle
@@ -368,7 +368,7 @@ information, see [Using the S3 console](storage_lens_editing.md#storage_lens_con
 The **Buckets** list updates to display all the available
 **Cost optimization** metrics for the buckets shown. 6. To filter the **Buckets** list to display only specific
 cost-optimization metrics, choose the preferences icon (
-![A screenshot that shows the preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
+![The Preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
 ). 7. Clear the toggles for all cost-optimization metrics until only the
 following remain selected:
 
@@ -476,7 +476,7 @@ review specific lifecycle rule counts for your buckets.
 The **Buckets** list updates to display all the available
 **Cost optimization** metrics for the buckets shown. 6. To filter the **Buckets** list to display only specific
 cost-optimization metrics, choose the preferences icon (
-![A screenshot that shows the preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
+![The Preferences icon in the S3 Storage Lens dashboard.](images/preferences.png)
 ). 7. Clear the toggles for all cost-optimization metrics until only the
 following remain selected:
 

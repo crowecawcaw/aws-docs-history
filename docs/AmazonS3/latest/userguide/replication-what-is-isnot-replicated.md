@@ -49,6 +49,7 @@ default:
 
 - If you make a DELETE request without specifying an object version ID, Amazon S3 adds a
   delete marker. Amazon S3 deals with the delete marker as follows:
+
   - If you are using the latest version of the replication configuration (that is,
     you specify the `Filter` element in a replication configuration rule),
     Amazon S3 does not replicate the delete marker by default. However, you can add

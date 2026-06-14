@@ -291,6 +291,7 @@ retrieved from your source data.
     You must use floating-point embeddings. Binary type isn't supported.
 13. (Optional) Expand the **Additional configurations** section to see
     the following configuration options (not all models support all configurations):
+
     - **Embeddings type** – Whether to convert the data to
       floating-point (float32) vector embeddings (more precise, but more costly) or binary
       vector embeddings (less precise, but less costly). To integrate with S3 Vectors,

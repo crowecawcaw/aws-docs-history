@@ -31,6 +31,7 @@ You can't change the following:
 
 6. On the **Dashboard** page, in the **General**
    section, you can make changes to the following:
+
    - Choose **Enabled** or **Disabled** to update
      whether you're receiving daily metrics in your dashboard.
    - (Optional) You can choose to add **Tags** to your dashboard.
@@ -115,6 +116,7 @@ delimiter characters. 6. Choose **Next** to save your changes and proceed.
 
 1. Under **Additional metrics aggregation**, update which metrics you
    want to aggregate by choosing one of the following:
+
    - Prefix aggregation
    - Storage Lens group aggregation
 
@@ -123,6 +125,7 @@ delimiter characters. 6. Choose **Next** to save your changes and proceed.
    depth**. Then, choose **Next** to save and proceed.
 3. If you've enabled **Storage Lens group aggregation**, choose one of
    the following:
+
    - **Include Storage Lens groups**
    - **Exclude Storage Lens groups**
 
