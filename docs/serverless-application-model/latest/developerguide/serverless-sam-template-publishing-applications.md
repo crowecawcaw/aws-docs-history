@@ -37,6 +37,7 @@ sam --version
 - A valid Amazon Simple Storage Service (Amazon S3) bucket policy that grants the service read permissions for
   artifacts that you upload to Amazon S3 when you package your application. To set up this
   policy, do the following:
+
   1.  Open the Amazon S3 console at
       [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
   2.  Choose the name of the Amazon S3 bucket that you used to package your
@@ -76,7 +77,6 @@ sam --version
   }`
 
   ```
-
   6.  Choose **Save changes**.
 
 ## Publishing a new application

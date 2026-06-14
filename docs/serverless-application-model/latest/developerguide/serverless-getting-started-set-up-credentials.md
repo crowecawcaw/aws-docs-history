@@ -40,6 +40,7 @@ To install the AWS CLI, see [Installing or updating the latest version of the AW
 
 1. Run the `aws configure` command from the command line.
 2. Configure the following. Select each link to learn more:
+
    1. [Access key ID](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-creds "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-creds")
    2. [Secret access key](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-creds "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-creds")
    3. [AWS Region](../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-region "../../../cli/latest/userguide/cli-configure-quickstart.md#cli-configure-quickstart-region")

@@ -428,6 +428,7 @@ The following template issues are caught locally before the AWS SAM transform ru
 - **Reserved Mapping names.** Mapping names starting with any of the
   following are reserved for the AWS SAM CLI — do not author your own mappings with
   these prefixes:
+
   - `SAMCodeUri`, `SAMImageUri`, `SAMContentUri`,
     `SAMDefinitionUri`, `SAMSchemaUri`, `SAMBodyS3Location`,
     `SAMDefinitionS3Location`, `SAMTemplateURL`, `SAMCode`,

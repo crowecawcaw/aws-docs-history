@@ -32,12 +32,12 @@ website.
 ```
 
 2. Install the most recent Docker Community Edition package.
+
    - For Amazon Linux 2, run the following:
 
    ```
    `$` `sudo amazon-linux-extras install docker`
    ```
-
    - For Amazon Linux 2023, run the following:
 
    ```

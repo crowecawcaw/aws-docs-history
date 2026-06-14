@@ -63,6 +63,7 @@ watch = true
 4. **Sync local changes to the AWS Cloud** – When you make local changes, the
    AWS SAM CLI detects and syncs those changes to the AWS Cloud through the quickest method available. Depending on the
    type of change, the following may occur:
+
    1. If your updated resource supports AWS service APIs, the AWS SAM CLI will use it to deploy your changes.
       This results in a quick sync to update your resource in the AWS Cloud.
    2. If your updated resource doesn’t support AWS service APIs, the AWS SAM CLI will perform an CloudFormation deployment.

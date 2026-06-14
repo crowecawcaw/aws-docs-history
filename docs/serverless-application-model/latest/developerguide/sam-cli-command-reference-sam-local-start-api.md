@@ -161,6 +161,19 @@ The log file to send runtime logs to.
 
 Removes the memory limitation in the container during local invoke, even when memory is configured in the AWS SAM template.
 
+`--no-watch`
+
+Disables file watching when used with `--warm-containers`. When specified,
+the AWS SAM CLI does not monitor your source code or template for changes, and
+warm containers are not automatically restarted on code modifications. To pick up
+local changes, stop and rerun the command.
+
+Use this option when file watching causes high CPU or I/O overhead, such as in
+large monorepos, environments with antivirus software scanning, or projects where
+multiple Lambda functions share a `CodeUri`.
+
+This option is ignored if `--warm-containers` is not specified.
+
 `--parameter-overrides`
 
 A string that contains CloudFormation parameter overrides encoded as key-value pairs. Use

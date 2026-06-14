@@ -40,6 +40,7 @@ previously:
 - For the scenario where `DeploymentPreferences` is specified for a
   serverless function, resource attributes are not copied to the following
   generated CloudFormation resources:
+
   - `AWS::CodeDeploy::Application`
   - `AWS::CodeDeploy::DeploymentGroup`
   - The `AWS::IAM::Role` named
@@ -52,11 +53,14 @@ previously:
   functions have different resource attributes, then for the generated
   `AWS::ApiGateway::RestApi` resource, AWS SAM copies the resource
   attributes according to the following prioritized lists:
+
   - `UpdateReplacePolicy`:
+
     1. `Retain`
     2. `Snapshot`
     3. `Delete`
 
   - `DeletionPolicy`:
+
     1. `Retain`
     2. `Delete`

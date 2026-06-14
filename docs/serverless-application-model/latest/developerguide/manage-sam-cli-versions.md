@@ -37,6 +37,7 @@ To uninstall the AWS SAM CLI on Linux, you must delete the symlink and installa
 directory by running the following commands:
 
 1. Locate the symlink and install paths.
+
    - Find the symlink using the **which** command:
 
    ```
@@ -49,7 +50,6 @@ directory by running the following commands:
    ```
     /usr/local/bin/sam
    ```
-
    - Find the directory that the symlink points to using the **ls**
      command:
 

@@ -11,6 +11,7 @@ system. This step must be run for each deployment stage in your pipeline prior t
 This subcommand sets up the following AWS infrastructure resources:
 
 - Option of configuring pipeline permissions through:
+
   - A pipeline IAM user with access key ID and secret key access credentials to be
     shared with the CI/CD system.
 

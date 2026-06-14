@@ -37,6 +37,7 @@ that are _not_ listed for a given use case are ignored.
 - **Creating a new application** – A new
   application is created if there is no application in the AWS Serverless Application Repository with a matching
   name for an account.
+
   - `Name`
   - `SpdxLicenseId`
   - `LicenseUrl`
@@ -54,6 +55,7 @@ that are _not_ listed for a given use case are ignored.
   application version is created if there is already an application in the AWS Serverless Application Repository
   with a matching name for an account _and_ the SemanticVersion
   _is_ changing.
+
   - `Description`
   - `Author`
   - `ReadmeUrl`
@@ -68,6 +70,7 @@ that are _not_ listed for a given use case are ignored.
   application is updated if there is already an application in the AWS Serverless Application Repository with a
   matching name for an account _and_ the SemanticVersion
   _is not_ changing.
+
   - `Description`
   - `Author`
   - `ReadmeUrl`

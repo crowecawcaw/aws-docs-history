@@ -51,6 +51,7 @@ These revisions to the AWS SAM template do the following:
 
 - `AutoPublishAlias`: By adding this property and
   specifying an alias name, AWS SAM:
+
   - Detects when new code is being deployed, based on changes to the Lambda function's
     Amazon S3 URI.
   - Creates and publishes an updated version of that function with the latest

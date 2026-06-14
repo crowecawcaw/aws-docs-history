@@ -136,6 +136,7 @@ If you previously installed the AWS SAM CLI through Homebrew or pip, you
 need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI](manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall "manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall").
 
 1. Download the macOS `pkg` to a directory of your choice:
+
    - **For Macs running Intel processors, choose x86_64** – [aws-sam-cli-macos-x86_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
    - **For Macs running Apple silicon, choose arm64** – [aws-sam-cli-macos-arm64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg")
 
@@ -177,6 +178,7 @@ If you previously installed the AWS SAM CLI through Homebrew or pip, you
 need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI](manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall "manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall").
 
 1. Download the macOS `pkg` to a directory of your choice:
+
    - **For Macs running Intel processors, choose x86_64** – [aws-sam-cli-macos-x86_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
    - **For Macs running Apple silicon, choose arm64** – [aws-sam-cli-macos-arm64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg")
 
@@ -238,6 +240,7 @@ If you previously installed the AWS SAM CLI through Homebrew or pip, you
 need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI](manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall "manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall").
 
 1. Download the macOS `pkg` to a directory of your choice:
+
    - **For Macs running Intel processors, choose x86_64** – [aws-sam-cli-macos-x86_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
    - **For Macs running Apple silicon, choose arm64** – [aws-sam-cli-macos-arm64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg")
 
@@ -280,6 +283,7 @@ If you previously installed the AWS SAM CLI through Homebrew or pip, you
 need to uninstall it first. For instructions, see [Uninstalling the AWS SAM CLI](manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall "manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall").
 
 1. Download the macOS `pkg` to a directory of your choice:
+
    - **For Macs running Intel processors, choose x86_64** – [aws-sam-cli-macos-x86_64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-x86_64.pkg")
    - **For Macs running Apple silicon, choose arm64** – [aws-sam-cli-macos-arm64.pkg](https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-macos-arm64.pkg")
 

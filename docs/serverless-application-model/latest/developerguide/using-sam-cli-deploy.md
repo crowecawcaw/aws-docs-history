@@ -235,6 +235,7 @@ Successfully created/updated stack - sam-app-zip in us-west-2
 ```
 
 5. To view your deployed application, do the following:
+
    1. Open the CloudFormation console directly with the URL [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Select **Stacks**.
    3. Identify your stack by application name and select it.

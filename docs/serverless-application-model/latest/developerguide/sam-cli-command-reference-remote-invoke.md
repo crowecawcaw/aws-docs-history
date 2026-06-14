@@ -46,6 +46,7 @@ If you don't provide a resource ID, but do provide a stack name with the `--stac
 a resource in your CloudFormation stack using the following logic:
 
 1. The AWS SAM CLI will identify resource types in the following order and move to the next step once the resource type is found in your stack:
+
    1. Lambda
    2. Step Functions
    3. Amazon SQS

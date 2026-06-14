@@ -43,6 +43,7 @@ sam init \
 
 2. Review the contents of the directory that the command created
    (`aws_sam_ocr/`):
+
    - `template.yaml` – Defines three AWS resources that the
      Amazon S3 application needs: a Lambda function, an Amazon S3 bucket, and a DynamoDB table. The
      template also defines the mappings and permissions between these resources.

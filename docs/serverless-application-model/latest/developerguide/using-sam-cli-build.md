@@ -35,6 +35,7 @@ Before using `sam build`, consider configuring the following:
 2. **Lambda runtime** – The _runtime_ provides a
    language-specific environment that runs your function in an execution environment when invoked. You can configure
    native and custom runtimes.
+
    1. **Native runtime** – Author your Lambda functions in a supported Lambda
       runtime and build you functions to use a native Lambda runtime in the AWS Cloud.
    2. **Custom runtime** – Author your Lambda functions using any programming
@@ -43,6 +44,7 @@ Before using `sam build`, consider configuring the following:
 
 3. **Lambda package type** – Lambda functions can be packaged in the following
    Lambda deployment package types:
+
    1. **.zip file archive** – Contains your application code and its
       dependencies.
    2. **Container image** – Contains the base operating system, the runtime,
@@ -116,6 +118,7 @@ Depending on how your application is configured, the AWS SAM CLI does the follo
    container images.
 3. Copies build artifacts to the `.aws-sam` directory. The format will vary based on your application
    package type.
+
    1. For .zip package types, the artifacts are not zipped yet so that they can be used for local testing.
       The AWS SAM CLI zips your application when using `sam deploy`.
    2. For container image package types, a container image is created locally and referenced

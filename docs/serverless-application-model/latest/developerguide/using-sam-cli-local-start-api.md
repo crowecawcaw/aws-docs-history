@@ -66,6 +66,7 @@ You can now browse to the above endpoints to invoke your functions. You do not n
 ```
 
 4. When you make changes to your Lambda function code, consider the following to refresh your local HTTP server:
+
    - If your application doesn’t have a `.aws-sam` directory and your function uses an
      interpreted language, the AWS SAM CLI will automatically update your function by creating a new container and
      hosting it.
@@ -157,6 +158,17 @@ When using `--warm-containers` and modifying your Lambda function code:
   function code in your application’s build artifacts.
 - When a code change is detected, the AWS SAM CLI automatically shuts down the Lambda function container.
 - When you invoke the function again, the AWS SAM CLI automatically creates a new container.
+
+If file watching causes high CPU or I/O overhead—for example, in large monorepos, environments
+with antivirus software, or projects where multiple functions share a `CodeUri`—you
+can disable it with the `--no-watch` option:
+
+```
+`$` `sam local start-api --warm-containers eager --no-watch`
+```
+
+With `--no-watch`, code and template changes are not detected automatically. Stop and
+rerun the command to pick up changes.
 
 ### Specify a container image to use for your Lambda functions
 

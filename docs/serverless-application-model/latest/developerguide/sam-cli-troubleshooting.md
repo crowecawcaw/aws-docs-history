@@ -140,6 +140,7 @@ following will occur:
 ###### Solutions:
 
 1. Use the AWS SAM CLI native package installer.
+
    1. Uninstall the AWS SAM CLI using pip. For instructions, see [Uninstalling the AWS SAM CLI](manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall "manage-sam-cli-versions.md#manage-sam-cli-versions-uninstall").
    2. Install the AWS SAM CLI using the native package installer. For
       instructions, see [Install the AWS SAM CLI](install-sam-cli.md "install-sam-cli.md").
