@@ -10,6 +10,7 @@ Linux Amazon DCV server
 1. Open `/etc/dcv/dcv.conf` using your preferred text editor.
 2. Add the `ca-file` and `auth-token-verifier` parameters
    to the `[security]` section.
+
    - For `ca-file`, specify the path to the broker's self-signed
      CA that you copied to the host in the previous step.
    - For `auth-token-verifier`, specify the URL for the token verifier on the
@@ -67,6 +68,7 @@ macOS Amazon DCV server
 1. Open `/etc/dcv/dcv.conf` using your preferred text editor.
 2. Add the `ca-file` and `auth-token-verifier` parameters
    to the `[security]` section.
+
    - For `ca-file`, specify the path to the broker's self-signed
      CA that you copied to the host in the previous step.
    - For `auth-token-verifier`, specify the URL for the token verifier on the

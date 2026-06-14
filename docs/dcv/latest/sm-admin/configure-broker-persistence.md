@@ -28,6 +28,7 @@ Configure the brokers to start storing their data on DynamoDB:
 
 1. Open `/etc/dcv-session-manager-broker/session-manager-broker.properties`
    using your preferred text editor and make the following edits:
+
    - Set `enable-persistence = true`
    - Set `persistence-db = dynamodb`
    - For `dynamodb-region` specify the &aws; Region where you want to store the
@@ -73,6 +74,7 @@ Configure the brokers to start persisting their data on MariaDB/MySQL:
 
 1. Open `/etc/dcv-session-manager-broker/session-manager-broker.properties`
    with your preferred text editor and make the following edits:
+
    - Set `enable-persistence = true`
    - Set `persistence-db = mysql`
    - Set `jdbc-connection-url = jdbc:mysql://`<db_endpoint>`:`<db_port>`/`<db_name>`?createDatabaseIfNotExist=true`

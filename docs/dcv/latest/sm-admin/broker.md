@@ -12,12 +12,12 @@ communicate with the agent.
 2. The packages are digitally signed with a secure GPG signature. To allow the
    package manager to verify the package signature, you must import the
    Amazon DCV GPG key. Run the following command to import the Amazon DCV GPG key.
+
    - Amazon Linux 2, RHEL, CentOS, and Rocky Linux
 
    ```
    `$` sudo rpm --import https://d1uj6qtbmh3dt5.cloudfront.net/NICE-GPG-KEY
    ```
-
    - Ubuntu
 
    ```
@@ -29,42 +29,37 @@ communicate with the agent.
    ```
 
 3. Download the installation package.
+
    - Amazon Linux 2
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1.el7.noarch.rpm
    ```
-
    - Amazon Linux 2023
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1.amzn2023.noarch.rpm
    ```
-
    - RHEL 8.x, and Rocky Linux 8.x
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1.el8.noarch.rpm
    ```
-
    - CentOS 9.x, RHEL 9.x, and Rocky Linux 9.x
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1.el9.noarch.rpm
    ```
-
    - Ubuntu 20.04
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker_2025.0.539-1_all.ubuntu2004.deb
    ```
-
    - Ubuntu 22.04
 
    ```
    `$` wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker_2025.0.539-1_all.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04
 
    ```
@@ -72,42 +67,37 @@ communicate with the agent.
    ```
 
 4. Install the package.
+
    - Amazon Linux 2
 
    ```
    `$` sudo yum install -y ./nice-dcv-session-manager-broker-2025.0.539-1.el7.noarch.rpm
    ```
-
    - Amazon Linux 2023
 
    ```
    `$` sudo yum install -y ./nice-dcv-session-manager-broker-2025.0.539-1.amzn2023.noarch.rpm
    ```
-
    - RHEL 8.x and Rocky Linux 8.x
 
    ```
    `$` sudo yum install -y ./nice-dcv-session-manager-broker-2025.0.539-1.el8.noarch.rpm
    ```
-
    - CentOS 9.x, RHEL 9.x, and Rocky Linux 9.x
 
    ```
    `$` sudo yum install -y ./nice-dcv-session-manager-broker-2025.0.539-1.el9.noarch.rpm
    ```
-
    - Ubuntu 20.04
 
    ```
    `$` sudo apt install -y ./nice-dcv-session-manager-broker_2025.0.539-1_all.ubuntu2004.deb
    ```
-
    - Ubuntu 22.04
 
    ```
    `$` sudo apt install -y ./nice-dcv-session-manager-broker_2025.0.539-1_all.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04
 
    ```

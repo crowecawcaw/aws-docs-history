@@ -21,6 +21,7 @@ to retrieve the information needed to route Amazon DCV connections to the host s
 
 1. Open `/etc/dcv-session-manager-broker/session-manager-broker.properties`
    using your preferred text editor and apply the following changes:
+
    - Set `enable-gateway = true`
    - Set `gateway-to-broker-connector-https-port` to a free TCP port (default is 8447)
    - Set `gateway-to-broker-connector-bind-host` to the IP address of the host where the Broker binds for Amazon DCV Connection Gateway connections (default is 0.0.0.0)
@@ -91,6 +92,7 @@ sudo cp /etc/dcv-session-manager-broker/resolver-creds/dcv_gateway_cert.pem $HOM
 ```
 
 4. Then open /etc/dcv-session-manager-broker/session-manager-broker.properties using your preferred text editor and do the following:
+
    - Set `enable-tls-client-auth-gateway` to `true`
    - Set `gateway-to-broker-connector-trust-store-file` to the path of the TrustStore file created in the previous step
    - Set `gateway-to-broker-connector-trust-store-pass` to the password used for creating the TrustStore file in the previous step
@@ -108,5 +110,6 @@ sudo systemctl start dcv-session-manager-broker
 ###### Amazon DCV Connection Gateway side
 
 - Please follow the [section](../gw-admin/setting-up-configuring.md "../gw-admin/setting-up-configuring.md") in the Amazon DCV Connection Gateway documentation.
+
   - use the full path of the certificate file that you copied in the previous step when setting the `cert-file` parameter in the `[resolver]` section
   - use the full path of the key file that you copied in the previous step when setting the `cert-key-file` parameter in the `[resolver]` section

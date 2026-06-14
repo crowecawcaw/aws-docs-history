@@ -21,42 +21,37 @@ with `aarch64`, and for Ubuntu, replace `amd64` with
 ```
 
 2. Download the installation package.
+
    - Amazon Linux 2 and RHEL 7.x
 
    ```
    `$`  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-1.el7.`x86_64`.rpm
    ```
-
    - RHEL 8.x and Rocky Linux 8.x
 
    ```
    `$`  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-1.el8.`x86_64`.rpm
    ```
-
    - Ubuntu 20.04
 
    ```
    `$`  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent_2025.0.888-1_`amd64`.ubuntu2004.deb
    ```
-
    - Ubuntu 22.04
 
    ```
    `$`  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent_2025.0.888-1_`amd64`.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04
 
    ```
    `$`  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent_2025.0.888-1_`amd64`.ubuntu2404.deb
    ```
-
    - SUSE Linux Enterprise 12
 
    ```
    `$`  curl -O https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerAgents/nice-dcv-session-manager-agent-2025.0.888-1.sles12.x86_64.rpm
    ```
-
    - SUSE Linux Enterprise 15
 
    ```
@@ -64,42 +59,37 @@ with `aarch64`, and for Ubuntu, replace `amd64` with
    ```
 
 3. Install the package.
+
    - Amazon Linux 2 and RHEL 7.x
 
    ```
    `$`  sudo yum install -y nice-dcv-session-manager-agent-2025.0.888-1.el7.`x86_64`.rpm
    ```
-
    - RHEL 8.x and Rocky Linux 8.x
 
    ```
    `$`  sudo yum install -y nice-dcv-session-manager-agent-2025.0.888-1.el8.`x86_64`.rpm
    ```
-
    - Ubuntu 20.04
 
    ```
    `$`  sudo apt install ./nice-dcv-session-manager-agent_2025.0.888-1_`amd64`.ubuntu2004.deb
    ```
-
    - Ubuntu 22.04
 
    ```
    `$`  sudo apt install ./nice-dcv-session-manager-agent_2025.0.888-1_`amd64`.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04
 
    ```
    `$`  sudo apt install ./nice-dcv-session-manager-agent_2025.0.888-1_`amd64`.ubuntu2404.deb
    ```
-
    - SUSE Linux Enterprise 12
 
    ```
    `$`  sudo zypper install nice-dcv-session-manager-agent-2025.0.888-1.sles12.`x86_64`.rpm
    ```
-
    - SUSE Linux Enterprise 15
 
    ```
@@ -151,12 +141,12 @@ macOS host
 ```
 
 3. Install the package. You can use either the command line or via agent installer:
+
    - Command line:
 
    ```
    `$` sudo installer -pkg ./nice-dcv-session-manager-agent-2025.0.888-macos-arm64.pkg -target /
    ```
-
    - Graphical: Double-click the `.pkg` file and follow the installation wizard.
 
 4. Run the following command to start the agent.

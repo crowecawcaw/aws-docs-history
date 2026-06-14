@@ -122,6 +122,7 @@ In the navigation pane, choose **Load Balancers** and then choose **Create Load 
     5. Choose **Next**.
 
 3. For **Step 2: Configure Security Settings**, do the following:
+
    1. For **Certificate type**, choose **Choose a certificate from ACM**.
    2. For **Certificate name**, select the private certificate that you requested earlier.
    3. Choose **Next**.
@@ -189,6 +190,7 @@ In the navigation pane, choose **Load Balancers** and then choose **Create Load 
     5. Choose **Next**.
 
 3. For **Step 2: Configure Security Settings**, do the following:
+
    1. For **Certificate type**, choose **Choose a certificate from ACM**.
    2. For **Certificate name**, select the private certificate that you requested earlier.
    3. Choose **Next**.

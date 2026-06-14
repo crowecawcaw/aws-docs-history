@@ -15,30 +15,27 @@ upgrading process of your Session Manager brokers.
 ```
 
 3. Download the installation package.
+
    - Amazon Linux 2 and RHEL 7.x
 
    ```
    `$`  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1.el7.noarch.rpm
    ```
-
    - RHEL 8.x and Rocky Linux 8.x
 
    ```
    `$`  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1.el8.noarch.rpm
    ```
-
    - Ubuntu 20.04
 
    ```
    `$`  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2004.deb
    ```
-
    - Ubuntu 22.04
 
    ```
    `$`  wget https://d1uj6qtbmh3dt5.cloudfront.net/2025.0/SessionManagerBrokers/nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04
 
    ```
@@ -46,30 +43,27 @@ upgrading process of your Session Manager brokers.
    ```
 
 4. Install the package.
+
    - Amazon Linux 2 and RHEL 7.x
 
    ```
    `$`  sudo yum install -y nice-dcv-session-manager-broker-2025.0.539-1.el7.noarch.rpm
    ```
-
    - RHEL 8.x and Rocky Linux 8.x
 
    ```
    `$`  sudo yum install -y nice-dcv-session-manager-broker-2025.0.539-1.el8.noarch.rpm
    ```
-
    - Ubuntu 20.04
 
    ```
    `$`  sudo apt install -y nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2004.deb
    ```
-
    - Ubuntu 22.04
 
    ```
    `$`  sudo apt install -y nice-dcv-session-manager-broker-2025.0.539-1_all.ubuntu2204.deb
    ```
-
    - Ubuntu 24.04
 
    ```

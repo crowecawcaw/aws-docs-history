@@ -39,6 +39,7 @@ You can configure the Session Manager Broker to send the following metric data t
 
 1. Open `/etc/dcv-session-manager-broker/session-manager-broker.properties` using
    your preferred text editor and do the following:
+
    - Set `enable-cloud-watch-metrics` to `true`
    - For `cloud-watch-region`, specify the Region in which to collect the metric
      data.
