@@ -50,11 +50,13 @@ recommend the most suitable hosting option on AWS:
 
 1. Rehost .NET Framework or cross-platform .NET to AWS (Windows
    or Linux-based)
+
    - **Managed service:** AWS Elastic Beanstalk
    - **Self-managed:** Amazon Elastic Compute Cloud (EC2)
 
 2. Replatform .NET Framework or cross-platform .NET to AWS
    (Windows-based)
+
    - **Serverless
      containers:** AWS Fargate with Amazon Elastic Container Service (ECS)
    - **AWS containers
@@ -63,6 +65,7 @@ recommend the most suitable hosting option on AWS:
      orchestration:** Amazon Elastic Kubernetes Service (EKS)
 
 3. Replatform cross-platform .NET to AWS (Linux-based)
+
    - **AWS serverless
      containers:** AWS Fargate with Amazon Elastic Container Service (ECS)
    - **Kubernetes serverless
@@ -75,6 +78,7 @@ recommend the most suitable hosting option on AWS:
      containers:** AWS App Runner
 
 4. Refactor cross-platform .NET to AWS (Linux-based)
+
    - **Serverless functions:**
      AWS Lambda
 

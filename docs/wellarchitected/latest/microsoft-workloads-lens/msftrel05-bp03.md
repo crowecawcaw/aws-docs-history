@@ -92,6 +92,7 @@ customers**
    Gradually expand to more complex scenarios like instance
    replacement or database failover as confidence builds.
 5. Configure specific Microsoft workload automation:
+
    - Deploy auto-recovery for EC2 instances running Windows
      Server.
    - Set up automated instance reboots based on health checks
@@ -102,6 +103,7 @@ customers**
    - Use State Manager for configuration drift correction on
      Windows systems.
    - Active Directory and DNS automation:
+
      - Automatically restart Active Directory Domain
        Services when authentication failures exceed
        thresholds.
@@ -111,6 +113,7 @@ customers**
        automatic promotion of backup DCs.
 
    - IIS and web application remediation:
+
      - Restart application pools when memory usage exceeds
        defined limits.
      - Clear IIS logs when disk space is low.
@@ -120,6 +123,7 @@ customers**
        request failure rates.
 
    - SQL Server specific automation:
+
      - Restart SQL Server services when connection timeouts
        increase.
      - Automatically shrink transaction logs when they
@@ -130,6 +134,7 @@ customers**
        transient issues.
 
    - Windows service and process management:
+
      - Restart Windows services that have stopped
        unexpectedly.
      - Kill and restart hung processes based on CPU or
@@ -140,6 +145,7 @@ customers**
        detected.
 
    - File system and storage remediation:
+
      - Automatically clean temporary files when disk space
        is low.
      - Compress old log files to free up storage space.
@@ -148,6 +154,7 @@ customers**
        detected.
 
    - Performance and resource optimization:
+
      - Automatically scale EC2 instances based on
        performance metrics.
      - Clear memory caches when system performance

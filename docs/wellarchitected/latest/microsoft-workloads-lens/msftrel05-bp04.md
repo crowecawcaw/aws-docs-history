@@ -95,6 +95,7 @@ testing**
    to your Microsoft environment.
 2. Create test cases that validate Windows-specific
    functionality, including:
+
    - Domain controller recovery and DNS functionality.
    - SQL Server Always On Availability Group failover.
    - Windows service startup and dependency chains.
@@ -102,6 +103,7 @@ testing**
    - Microsoft application functionality and data access.
 
 3. Implement automated testing frameworks:
+
    - Use AWS Systems Manager State Manager with PowerShell
      DSC to validate Windows configurations post-recovery.
    - Create automated scripts to validate database integrity,
@@ -112,6 +114,7 @@ testing**
      application pools, and .NET application functionality.
 
 4. Configure AWS testing tools:
+
    - Use AWS Systems Manager Automation with Windows-specific
      runbooks.
    - Use AWS Fault Injection Service to test Windows
@@ -121,6 +124,7 @@ testing**
      Microsoft-specific monitoring during tests.
 
 5. Establish Microsoft workload-specific validation:
+
    - Automate checks for Windows activation status and SQL
      Server licensing compliance.
    - Validate that recovered systems meet performance
@@ -131,6 +135,7 @@ testing**
      application data validation.
 
 6. Create comprehensive reporting and alerting:
+
    - Generate detailed reports on Microsoft workload recovery
      test results.
    - Implement alerting for failed tests specific to Windows

@@ -67,6 +67,7 @@ each component works together in a cohesive feedback loop.
 
 1. Set up specialized CloudWatch dashboards for Microsoft
    workloads including:
+
    1. SQL Server metrics (connection pools, deadlocks, wait
       statistics, backup status)
    2. IIS or .NET performance (request queues, application
@@ -79,6 +80,7 @@ each component works together in a cohesive feedback loop.
 
 2. Focus on key Windows Performance Counters to drive continual
    improvement, such as:
+
    1. \Memory\Available MBytes
    2. \Processor(\_Total)\% Processor Time
    3. \PhysicalDisk(\_Total)\Avg. Disk Queue Length

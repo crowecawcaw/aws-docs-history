@@ -76,6 +76,7 @@ security best practices.
 1. Assess current organizational identity infrastructure and
    determine integration requirements for Microsoft workloads
    on AWS:
+
    - Document existing Active Directory schema, domains, and
      trust relationships.
    - Map out current authentication flows and identify
@@ -84,6 +85,7 @@ security best practices.
 2. Choose appropriate Directory Service option (AWS Managed Microsoft AD, AD Connector, or Active Directory on EC2)
    based on your organizational needs and existing
    infrastructure:
+
    - Compare directory service options against requirements
      (scale, features, management overhead).
    - Evaluate cost implications and licensing requirements
@@ -94,6 +96,7 @@ security best practices.
 3. Establish trust relationships between AWS-hosted Active
    Directory and on-premises Active Directory domains if hybrid
    connectivity is required:
+
    - Configure VPN or Direct Connect for secure hybrid
      connectivity.
    - Set up forest and domain trusts and verify DNS
@@ -103,6 +106,7 @@ security best practices.
 4. Configure single sign-on (SSO) using AWS IAM Identity Center
    or compatible third-party solutions to provide unified
    access across Microsoft applications:
+
    - Set up AWS IAM Identity Center integration with chosen
      directory service.
    - Configure application-specific SSO connectors for
@@ -114,6 +118,7 @@ security best practices.
    authentication methods including TOTP, SMS, email, and
    passwordless options like Windows Hello for Business and
    FIDO2 security keys, or integrate with AWS Managed Microsoft AD using RADIUS-based MFA solutions:
+
    - Define MFA policies and enforcement rules.
    - Configure selected MFA methods in AWS IAM Identity Center or RADIUS.
    - Test MFA enrollment and authentication processes.
@@ -121,6 +126,7 @@ security best practices.
 6. Set up automated user provisioning and deprovisioning
    processes that integrate with HR systems and organizational
    identity management workflows:
+
    - Design user lifecycle workflows and approval processes.
    - Implement SCIM or PowerShell-based provisioning scripts.
    - Configure integration between HR systems and AWS
@@ -129,6 +135,7 @@ security best practices.
 7. Configure role-based access control (RBAC) that aligns with
    organizational roles and responsibilities while following
    least privilege principles:
+
    - Define role hierarchy and permission sets.
    - Create security groups and implement group-based
      assignments.
@@ -138,6 +145,7 @@ security best practices.
 8. Establish monitoring and auditing capabilities to track
    identity-related activities and adhere to organizational
    security policies:
+
    - Configure CloudWatch logging for directory service
      events.
    - Set up alerts for suspicious authentication activities.

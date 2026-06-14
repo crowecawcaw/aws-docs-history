@@ -63,6 +63,7 @@ for your specific use cases.
    needs, and network performance requirements.
 2. Evaluate different EC2 instance families based on your
    workload characteristics:
+
    - General purpose (m7i, m7a, m6i) for balanced workloads
    - Memory optimized (r7i, r7a, x2iedn) for SQL Server and
      memory-intensive applications

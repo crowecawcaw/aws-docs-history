@@ -14,6 +14,7 @@
 ![Reference architecture diagram](images/scenario6.png)
 
 1. Multi-AZ deployment of Windows Servers using Amazon EC2:
+
    - Auto Scaling groups for automatic scaling and
      replacement.
    - Use of Amazon FSx for Windows File Server or Amazon EFS
@@ -22,23 +23,27 @@
      application-level high availability (HA).
 
 2. Database high availability with Amazon RDS for SQL Server:
+
    - Multi-AZ deployment for automatic failover.
    - Use RDS SQL Server cross-Region read replica hosted in a
      different AWS Region.
    - Use of Amazon S3 and AWS Backup for offsite backups.
 
 3. Cross-Region data replication using AWS DataSync:
+
    - Replicate file shares, databases, and other critical
      data to secondary AWS Region.
    - Use RPO-based scheduling and throttling for optimal
      performance.
 
 4. Multi-Region Active Directory replication:
+
    - Enables AD Multi-Region replicas to keep AuthN and AuthZ
      during failovers.
 
 5. Automated failover and recovery using AWS Systems Manager
    and AWS Lambda:
+
    - Define recovery plans and runbooks for easier failover.
    - Implement CloudWatch alarms and automated remediation
      workflows.

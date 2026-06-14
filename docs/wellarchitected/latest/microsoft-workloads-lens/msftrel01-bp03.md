@@ -77,6 +77,7 @@ comprehensive Microsoft workload management.
 
 1. Create a complete inventory of Microsoft workload components
    requiring continuous accessibility, including:
+
    1. SQL Server databases
    2. Active Directory System State and SYSVOL,
    3. Exchange mailbox databases,

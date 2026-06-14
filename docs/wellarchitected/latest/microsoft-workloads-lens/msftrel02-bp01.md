@@ -59,6 +59,7 @@ the effectiveness of the monitoring strategy.
 1. Define and configure essential metrics and alarms for
    Microsoft workloads with thresholds appropriate to your
    specific environment and SLA requirements, including:
+
    1. SQL Server performance monitoring (CPU utilization,
       memory availability, deadlock detection, backup status)
    2. Active Directory health checks (authentication failures,
