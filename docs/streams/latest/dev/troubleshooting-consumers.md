@@ -224,6 +224,7 @@ Here are the most common reasons consumers can fall behind:
   metrics that the KCL emits associated with the `processTask`
   operation, including `RecordProcessor.processRecords.Time`,
   `Success`, and `RecordsProcessed`.
+
   - If you see an increase in the `processRecords.Time` metric
     that correlates with increased throughput, you should analyze your
     record processing logic to identify why it is not scaling with the

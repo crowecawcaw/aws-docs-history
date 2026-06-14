@@ -13,6 +13,7 @@ use the Data Viewer, follow these steps:
    **Starting Position**, and then click **Get
    records**. You can set the starting position to one of the
    following values:
+
    - **At sequence number**: Show records from the
      position denoted by the sequence number specified in the sequence number
      field.

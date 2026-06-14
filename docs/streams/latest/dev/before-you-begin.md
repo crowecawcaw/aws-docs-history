@@ -21,6 +21,7 @@ The following libraries and tools will help you work with Kinesis Data Streams:
 - The [Amazon Kinesis API Reference](../../../kinesis/latest/APIReference.md "../../../kinesis/latest/APIReference.md") is the basic set of operations that Kinesis Data Streams supports. For more
   information about performing basic operations using Java code, see the
   following:
+
   - [Develop producers using the Amazon Kinesis Data Streams API with the AWS SDK for Java](developing-producers-with-sdk.md "developing-producers-with-sdk.md")
   - [Develop consumers with the AWS SDK for Java](develop-consumers-sdk.md "develop-consumers-sdk.md")
   - [Create and manage Kinesis data streams](working-with-streams.md "working-with-streams.md")

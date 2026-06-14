@@ -11,6 +11,7 @@ this data (_consumer_).
 2. Create a project in your IDE with the source code, adhering to the provided
    directory structure.
 3. Add the following libraries to the project:
+
    - Amazon Kinesis Client Library (KCL)
    - AWS SDK
    - Apache HttpCore

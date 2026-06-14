@@ -444,6 +444,7 @@ Kinesis Data Streams resource policies have the following restrictions:
   granted through the resource policies that are directly attached to a data
   stream or registered consumer. In addition, carefully inspect the following
   policies to confirm that they do not grant broad access:
+
   - Identity-based policies attached to associated AWS principals
     (for example, IAM roles)
   - Resource-based policies attached to associated AWS resources

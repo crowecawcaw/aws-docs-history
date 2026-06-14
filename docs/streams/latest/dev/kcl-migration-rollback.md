@@ -83,6 +83,7 @@ these messages:
   If you don't see mitigation of any regression, please rollback to your
   previous application binaries by deploying the code with your previous
   KCL version.”
+
   - **Required action:** This means that
     your workers were running in the KCL 2.x compatible mode.
     If the issue persists, redeploy the code with the previous
@@ -94,6 +95,7 @@ these messages:
   you don’t see any mitigation for the issue within 5 minutes. If you still
   have an issue, please rollback to your previous application binaries by
   deploying the code with your previous KCL version.”
+
   - **Required action:** This means that
     your workers were running in KCL 3.x mode and the
     KCL Migration Tool switched all workers to KCL 2.x

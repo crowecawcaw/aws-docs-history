@@ -113,23 +113,27 @@ operation of these metadata tables.
 If you decide to switch the lease table to [provisioned capacity mode](../../../amazondynamodb/latest/developerguide/provisioned-capacity-mode.md "../../../amazondynamodb/latest/developerguide/provisioned-capacity-mode.md"), follow these best practices:
 
 - Analyze usage patterns:
+
   - Monitor your application's read and write patterns and usages
     (RCU, WCU) using Amazon CloudWatch metrics.
   - Understand peak and average throughput requirements.
 
 - Calculate the required capacity:
+
   - Estimate read capacity units (RCUs) and write capacity units
     (WCUs) based on your analysis.
   - Consider factors like the number of shards, checkpoint frequency,
     and worker count.
 
 - Implement auto scaling:
+
   - Use [DynamoDB auto scaling](../../../amazondynamodb/latest/developerguide/provisioned-capacity-mode.md#ddb-autoscaling "../../../amazondynamodb/latest/developerguide/provisioned-capacity-mode.md#ddb-autoscaling") to automatically adjust provisioned
     capacity and set appropriate minimum and maximum capacity limits.
   - DynamoDB auto scaling will help to avoid your KCL metadata
     table from hitting the capacity limit and getting throttled.
 
 - Regular monitoring and optimization:
+
   - Continuously monitor CloudWatch metrics for
     `ThrottledRequests`.
   - Adjust capacity as your workload changes over time.

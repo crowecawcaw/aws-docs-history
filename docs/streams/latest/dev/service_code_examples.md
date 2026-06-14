@@ -13,8 +13,10 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md "example_kinesis_Scenario_GettingStarted_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [AddTagsToStream](example_kinesis_AddTagsToStream_section.md "example_kinesis_AddTagsToStream_section.md")
     - [CreateStream](example_kinesis_CreateStream_section.md "example_kinesis_CreateStream_section.md")
     - [DeleteStream](example_kinesis_DeleteStream_section.md "example_kinesis_DeleteStream_section.md")
@@ -30,5 +32,6 @@ This topic also includes information about getting started and details about pre
     - [RegisterStreamConsumer](example_kinesis_RegisterStreamConsumer_section.md "example_kinesis_RegisterStreamConsumer_section.md")
 
 - [Serverless examples](service_code_examples_serverless_examples.md "service_code_examples_serverless_examples.md")
+
   - [Invoke a Lambda function from a Kinesis trigger](example_serverless_Kinesis_Lambda_section.md "example_serverless_Kinesis_Lambda_section.md")
   - [Reporting batch item failures for Lambda functions with a Kinesis trigger](example_serverless_Kinesis_Lambda_batch_item_failures_section.md "example_serverless_Kinesis_Lambda_batch_item_failures_section.md")

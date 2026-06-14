@@ -14,6 +14,7 @@ time.
   versions of KCL 1.x.
 
 - **MultistreamTracker interface**
+
   - To build a consumer application that can process multiple streams at
     the same time, you must implement a new interface called [MultistreamTracker](https://github.com/awslabs/amazon-kinesis-client/blob/0c5042dadf794fe988438436252a5a8fe70b6b0b/amazon-kinesis-client/src/main/java/software/amazon/kinesis/processor/MultiStreamTracker.java "https://github.com/awslabs/amazon-kinesis-client/blob/0c5042dadf794fe988438436252a5a8fe70b6b0b/amazon-kinesis-client/src/main/java/software/amazon/kinesis/processor/MultiStreamTracker.java"). This interface includes the
     `streamConfigList` method that returns the list of data

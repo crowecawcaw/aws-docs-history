@@ -187,6 +187,7 @@ initializationInput)**
 - When it's called: Once, when KCL assigns a shard to this
   record processor.
 - Key points:
+
   - `initializationInput.shardId()`: The ID of the
     shard this processor will handle.
   - `initializationInput.extendedSequenceNumber()`: The
@@ -200,6 +201,7 @@ processRecordsInput)**
 - When it's called: Repeatedly, as long as the record processor holds
   the lease for the shard.
 - Key points:
+
   - `processRecordsInput.records()`: List of records to
     process.
   - `processRecordsInput.checkpointer()`: Used to
@@ -221,6 +223,7 @@ leaseLostInput)**
 - When it's called: When another Scheduler takes over the lease for this
   shard.
 - Key points:
+
   - Checkpointing is not allowed in this method.
 
 **shardEnded(ShardEndedInput
@@ -230,6 +233,7 @@ shardEndedInput)**
 - When it's called: When the shard splits or merges, indicating all data
   for this shard has been processed.
 - Key points:
+
   - `shardEndedInput.checkpointer()`: Used to perform
     the final checkpointing.
   - Checkpointing in this method is mandatory to complete
@@ -245,6 +249,7 @@ shutdownRequestedInput)**
 - When it's called: When KCL is shutting down, for example,
   when the application is terminating).
 - Key points:
+
   - `shutdownRequestedInput.checkpointer()`: Used to
     perform checkpointing before shutdown.
   - Make sure you implemented checkpointing in the method so that

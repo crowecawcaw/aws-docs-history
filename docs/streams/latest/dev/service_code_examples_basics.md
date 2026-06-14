@@ -7,6 +7,7 @@ SDKs.
 
 - [Learn the basics](example_kinesis_Scenario_GettingStarted_section.md "example_kinesis_Scenario_GettingStarted_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [AddTagsToStream](example_kinesis_AddTagsToStream_section.md "example_kinesis_AddTagsToStream_section.md")
   - [CreateStream](example_kinesis_CreateStream_section.md "example_kinesis_CreateStream_section.md")
   - [DeleteStream](example_kinesis_DeleteStream_section.md "example_kinesis_DeleteStream_section.md")

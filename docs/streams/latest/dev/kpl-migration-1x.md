@@ -7,6 +7,7 @@ versions. You don’t have to update your core data processing logic to migrate 
 KPL 1.x.
 
 1. **Make sure that you have the following prerequisites:**
+
    - Java Development Kit (JDK) 8 or later
    - AWS SDK for Java 2.x
    - Maven or Gradle for dependency management

@@ -148,6 +148,7 @@ described in the [Apache Flink documentation](https://ci.apache.org/projects/fli
 1. Create a Java/Maven application in your development environment. For
    information about creating an application, see the documentation for your
    development environment:
+
    - [Creating your first Java project (Eclipse Java
      Neon)](https://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm "https://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm")
    - [Creating, Running and Packaging Your First Java Application
@@ -345,6 +346,7 @@ the console.
    application**.
 3. On the **Kinesis Analytics - Create application**
    page, provide the application details as follows:
+
    - For **Application name**, enter
      `MyApplication`.
    - For **Description**, enter `My
@@ -458,6 +460,7 @@ JSON
    **Configure**.
 2. On the **Configure application** page, provide
    the **Code location**:
+
    - For **Amazon S3 bucket**, enter
      `ka-app-code-`<username>``.
    - For **Path to Amazon S3 object**, enter

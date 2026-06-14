@@ -303,6 +303,7 @@ application's bootstrapping and at each stream reshard event:
   table
 - Iterates over all found open shards and for each open shard with no
   open parent:
+
   - Traverses the hierarchy tree through its ancestors path to
     determine if the shard is a descendant. A shard is considered a
     descendant, if an ancestor shard is being processed (lease entry

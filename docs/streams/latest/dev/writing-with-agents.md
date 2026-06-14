@@ -31,6 +31,7 @@ collects data from the files and reliably sends it to the stream.
   or Red Hat Enterprise Linux version 7 or later.
 - If you are using Amazon EC2 to run your agent, launch your EC2 instance.
 - Manage your AWS credentials using one of the following methods:
+
   - Specify an IAM role when you launch your EC2 instance.
   - Specify AWS credentials when you configure the agent (see [awsAccessKeyId](#awsAccessKeyId "#awsAccessKeyId") and [awsSecretAccessKey](#awsSecretAccessKey "#awsSecretAccessKey")).
   - Edit `/etc/sysconfig/aws-kinesis-agent` to specify your

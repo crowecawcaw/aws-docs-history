@@ -216,10 +216,12 @@ Make sure that you have added them before running your KCL 3.x
 application:
 
 - Actions: `UpdateTable`
+
   - Resources (ARNs):
     `arn:aws:dynamodb:region:account:table/KCLApplicationName`
 
 - Actions: `Query`
+
   - Resources (ARNs):
     `arn:aws:dynamodb:region:account:table/KCLApplicationName/index/*`
 
