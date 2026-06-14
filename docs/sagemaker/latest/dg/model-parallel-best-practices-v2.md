@@ -39,6 +39,7 @@ Depending on the size of you model, we recommend that you start with the followi
 guidance.
 
 1. Use sharded data parallelism.
+
    1. Depending on the batch size you intend to fit in the GPU memory,
       choose the appropriate sharded data parallel degree. Normally, you
       should start with the lowest degree to fit your model in the GPU
@@ -55,6 +56,7 @@ guidance.
 
 2. Use sharded data parallelism of PyTorch FSDP and tensor parallelism of SMP
    v2 simultaneously, as introduced in [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
+
    1. When training on large clusters, with FSDP alone the global batch
       size can become too large, causing convergence issues for the model.
       Typically, most research work keeps the batch size under 4 million

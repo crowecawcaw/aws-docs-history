@@ -16,6 +16,7 @@ To set up OAuth for Salesforce Data Cloud, follow these general steps:
 
 1. Sign in to Salesforce Data Cloud.
 2. In Salesforce Data Cloud, create a new app connection and do the following:
+
    1. Enable OAuth settings.
    2. When prompted for a callback URL (or the URL of the resource accessing your data),
       specify the URL for your Canvas application. The Canvas application URL follows this format:
@@ -37,7 +38,9 @@ To add a secret to your domain or user profile, do the following:
 1. Go to the [Amazon SageMaker AI console](https://console.aws.amazon.com/sagemaker "https://console.aws.amazon.com/sagemaker").
 2. Choose **domains** in the navigation pane.
 3. From the list of **domains**, choose your domain.
+
    1. If adding your secret to your domain, do the following:
+
       1. Choose the domain.
       2. On the **domain settings** page, choose the **domain settings**
          tab.
@@ -45,6 +48,7 @@ To add a secret to your domain or user profile, do the following:
 
    2. If adding the secret to your user profile, do the
       following:
+
       1. Choose the user’s domain.
       2. On the **domain settings** page, choose the user
          profile.
@@ -60,6 +64,7 @@ To add a secret to your domain or user profile, do the following:
    Alternatively, if you already created an AWS Secrets Manager secret
    with your credentials, enter the ARN for the secret. If creating a
    new secret, do the following:
+
    1. For **Identity Provider**, select
       **SALESFORCE**.
    2. For **Client ID**, **Client Secret**, **Authorization URL**, and **Token URL**, enter all of the information you
@@ -93,6 +98,7 @@ To set up OAuth for Snowflake, do the following:
 3. Get the following information from the identity provider: token URL, authorization URL,
    client ID, client secret. For Azure AD, also retrieve the OAuth scope credentials.
 4. Store the information retrieved in the previous step in an AWS Secrets Manager secret.
+
    1. For Okta and Ping Federate, the secret should look like the following format:
 
    ```
@@ -100,7 +106,6 @@ To set up OAuth for Snowflake, do the following:
    "client_id":"example-client-id", "client_secret":"example-client-secret", "identity_provider":"OKTA"|"PING_FEDERATE",
    "authorization_url":"https://identityprovider.com/oauth2/example-portion-of-URL-path/v2/authorize"}
    ```
-
    2. For Azure AD, the secret should also include the OAuth scope credentials as the `datasource_oauth_scope` field.
 
 After configuring the identity provider and the secret, you
@@ -113,7 +118,9 @@ To add a secret to your domain or user profile, do the following:
 1. Go to the [Amazon SageMaker AI console](https://console.aws.amazon.com/sagemaker "https://console.aws.amazon.com/sagemaker").
 2. Choose **domains** in the navigation pane.
 3. From the list of **domains**, choose your domain.
+
    1. If adding your secret to your domain, do the following:
+
       1. Choose the domain.
       2. On the **domain settings** page, choose the **domain settings**
          tab.
@@ -121,6 +128,7 @@ To add a secret to your domain or user profile, do the following:
 
    2. If adding the secret to your user profile, do the
       following:
+
       1. Choose the user’s domain.
       2. On the **domain settings** page, choose the user
          profile.
@@ -136,6 +144,7 @@ To add a secret to your domain or user profile, do the following:
    Alternatively, if you already created an AWS Secrets Manager secret
    with your credentials, enter the ARN for the secret. If creating a
    new secret, do the following:
+
    1. For **Identity Provider**, select
       **SNOWFLAKE**.
    2. For **Client ID**, **Client Secret**, **Authorization URL**, and **Token URL**, enter all of the information you

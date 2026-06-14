@@ -10,6 +10,7 @@
 4. Choose **Configure auto scaling**.
 5. On the **Configure variant automatic scaling** page, for
    **Variant automatic scaling**, do the following:
+
    1. For **Minimum instance count**, type the minimum
       number of instances that you want the scaling policy to maintain. At
       least 1 instance is required.
@@ -17,6 +18,7 @@
       number of instances that you want the scaling policy to maintain.
 
 6. For **Built-in scaling policy**, do the following:
+
    1. For the **Target metric**,
       `SageMakerVariantInvocationsPerInstance` is automatically
       selected for the metric and cannot be changed.

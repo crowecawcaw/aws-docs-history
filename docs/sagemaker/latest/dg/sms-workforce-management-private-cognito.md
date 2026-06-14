@@ -69,6 +69,7 @@ on any work team created using that user group.
 3. Choose the user pool associated with your SageMaker AI workforce.
 4. Under **General Settings**, choose **Users and Groups** and
    do one of the following:
+
    - Choose **Groups**, choose the group that you want to add the user
      to, and choose **Add users**. Choose the users that you want to add
      by choosing the plus-icon to the right of the user's name.

@@ -58,6 +58,7 @@ so the explainability config is SHAPConfig, including the following:
   dataset to compute the SHAP values.
 - agg_method – Aggregation method for global SHAP values. Following are
   valid values:
+
   - `mean_abs` – Mean of absolute SHAP values for all
     instances.
   - `median` – Median of SHAP values for all

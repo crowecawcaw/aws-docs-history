@@ -23,6 +23,7 @@ required:
 - Your VPC should have access to your CodeArtifact repository. To allow a
   connection from your VPC to your CodeArtifact repository, you must do the
   following:
+
   - [Create
     VPC endpoints for CodeArtifact](../../../codeartifact/latest/ug/create-vpc-endpoints.md "../../../codeartifact/latest/ug/create-vpc-endpoints.md").
   - [Create an Amazon S3 gateway endpoint](../../../codeartifact/latest/ug/create-s3-gateway-endpoint.md "../../../codeartifact/latest/ug/create-s3-gateway-endpoint.md") for your VPC, which

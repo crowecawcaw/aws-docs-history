@@ -27,6 +27,7 @@ ML models, and deploy ML models.
    notebook instance**.
 3. On the **Create notebook instance** page, provide the following
    information (if a field is not mentioned, leave the default values):
+
    1. For **Notebook instance name**, type a name for your
       notebook instance.
    2. For **Notebook Instance type**, choose

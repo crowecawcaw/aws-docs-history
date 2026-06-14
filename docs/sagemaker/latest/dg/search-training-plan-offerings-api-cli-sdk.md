@@ -168,6 +168,7 @@ that meet your requirements, you must provide the following values:
   `hyperpod-cluster`) for which the plan will be used. The default value is
   `training-job`. Training plans are specific to their target
   resource.
+
   - A training plan designed for SageMaker training jobs can only be used to schedule
     and run training jobs.
   - A training plan for HyperPod clusters can be used exclusively to

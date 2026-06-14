@@ -8,6 +8,7 @@ The following page outlines two main approaches to scaling down:
 
 - **Scale down at the instance group level:** This
   approach uses the `UpdateCluster` API, with which you can:
+
   - Scale down the instance counts for specific instance groups independently.
     SageMaker AI handles the termination of nodes in a way that reaches the new target
     instance counts you've set for each group. See [Scale down an instance group](#smcluster-scale-down-updatecluster "#smcluster-scale-down-updatecluster").
@@ -132,6 +133,7 @@ When removing an instance group:
 ###### To delete instance groups with `UpdateCluster`
 
 1. When following the steps outlined in [Updating SageMaker HyperPod cluster configuration](sagemaker-hyperpod-eks-operate-cli-command-update-cluster.md "sagemaker-hyperpod-eks-operate-cli-command-update-cluster.md"):
+
    1. Set the optional `InstanceGroupsToDelete` parameter in
       your `UpdateCluster` JSON and pass the comma-separated
       list of instance group names that you want to delete.

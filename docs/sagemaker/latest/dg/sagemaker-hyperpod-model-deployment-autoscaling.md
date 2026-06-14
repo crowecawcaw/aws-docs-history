@@ -179,6 +179,7 @@ decisions. The following fields are available in
   the metric is used for scaling calculations. Default:
   `Average`. Allowed values:
   `Average`, `Value`.
+
   - **Average**: Desired
     replicas = ceil (Metric Value) /
     (targetValue)
@@ -227,6 +228,7 @@ available in `prometheusTrigger`:
   the metric is used for scaling calculations. Default:
   `Average`. Allowed values:
   `Average`, `Value`.
+
   - **Average**: Desired
     replicas = ceil (Metric Value) /
     (targetValue)

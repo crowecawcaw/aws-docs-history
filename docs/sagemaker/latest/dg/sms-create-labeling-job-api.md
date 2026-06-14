@@ -8,6 +8,7 @@ To use the `CreateLabelingJob` operation, you need the following:
 
 - A worker task template (`UiTemplateS3Uri`) or human task UI ARN
   (`HumanTaskUiArn`) in Amazon S3.
+
   - For 3D point cloud jobs, video object detection and tracking jobs, and NER jobs, use the ARN listed in `HumanTaskUiArn` for your task type.
   - If you are using a built-in task type other than 3D point cloud tasks, you
     can add your worker instructions to one of the pre-built templates and save
@@ -30,6 +31,7 @@ To use the `CreateLabelingJob` operation, you need the following:
   Specify the location of this file in Amazon S3 using the
   `LabelCategoryConfigS3Uri` parameter. The format and label categories
   for this file depend on the task type you use:
+
   - For image classification and text classification (single and multi-label)
     you must specify at least two label categories. For all other task types,
     the minimum number of label categories required is one.
@@ -94,6 +96,7 @@ JSON
 
 - A pre-annotation and post-annotation (or annotation-consolidation) AWS Lambda
   function Amazon Resource Name (ARN) to process your input and output data.
+
   - Lambda functions are predefined in each AWS Region for built-in task types.
     To find the pre-annotation Lambda ARN for your Region, see [PreHumanTaskLambdaArn](API_HumanTaskConfig.md#SageMaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn "API_HumanTaskConfig.md#SageMaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn"). To find the annotation-consolidation
     Lambda ARN for your Region, see [AnnotationConsolidationLambdaArn](API_AnnotationConsolidationConfig.md#SageMaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn "API_AnnotationConsolidationConfig.md#SageMaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn").

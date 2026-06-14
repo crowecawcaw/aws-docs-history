@@ -100,8 +100,10 @@ Studio Classic
 6. Under the **Actions** dropdown menu, you
    can choose one of two possible menu options to update the
    model version status.
+
    - Using the **Update Status**
      option
+
      1. Under the **Actions**
         dropdown menu, choose the **Update
         Status** dropdown menu, and choose the
@@ -113,6 +115,7 @@ Studio Classic
         Update**.
 
    - Using the **Edit** option
+
      1. Under the **Actions**
         dropdown menu, choose
         **Edit**.

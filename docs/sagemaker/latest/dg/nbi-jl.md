@@ -84,6 +84,7 @@ more information about these features, see [JupyterLab 3.0 is
 released!](https://blog.jupyter.org/jupyterlab-3-0-is-out-4f58385e25bb "https://blog.jupyter.org/jupyterlab-3-0-is-out-4f58385e25bb").
 
 - Visual debugger when using the following kernels:
+
   - conda_pytorch_p38
   - conda_tensorflow2_p38
   - conda_amazonei_pytorch_latest_p37

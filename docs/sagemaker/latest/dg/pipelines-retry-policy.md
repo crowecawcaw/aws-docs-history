@@ -60,6 +60,7 @@ The retry policy for Pipelines has the following JSON schema:
 
 - `ExceptionType`: This field requires the following exception types in a
   string array format.
+
   - `Step.SERVICE_FAULT`
   - `Step.THROTTLING`
   - `SageMaker.JOB_INTERNAL_ERROR`

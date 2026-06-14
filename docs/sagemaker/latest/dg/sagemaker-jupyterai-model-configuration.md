@@ -32,14 +32,18 @@ However, you must configure at least one **Language model**.
    ) in the top right corner of the left pane. This opens the Jupyter AI
    configuration panel.
 3. Fill out the fields related to your service provider.
+
    - **For models provided by JumpStart or
      Amazon Bedrock**
+
      - In the **language model** dropdown list, select
        `sagemaker-endpoint` for models deployed with JumpStart or
        `bedrock` for models managed by Amazon Bedrock.
      - The parameters differ based on whether your model is deployed on SageMaker AI or
        Amazon Bedrock.
+
        - For models deployed with JumpStart:
+
          - Enter the name of your endpoint in **Endpoint
            name**, and then the AWS Region in which your model is
            deployed in [Region name](sagemaker-jupyterai-use.md#sagemaker-jupyterai-region-name "sagemaker-jupyterai-use.md#sagemaker-jupyterai-region-name"). To retrieve the ARN of the
@@ -72,6 +76,7 @@ However, you must configure at least one **Language model**.
 
    - **For models hosted by third-party
      providers**
+
      - In the **language model** dropdown list, select your
        provider ID. You can find the details of each provider, including their ID, in
        Jupyter AI [list of model providers](https://jupyter-ai.readthedocs.io/en/latest/users/index.html#model-providers "https://jupyter-ai.readthedocs.io/en/latest/users/index.html#model-providers").

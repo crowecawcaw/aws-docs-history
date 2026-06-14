@@ -50,6 +50,7 @@ standard build**.
 4. After your model opens, choose the **Add version** button in the top
    panel.
 5. From the dropdown menu, select one of the following options:
+
    1. **Add a new version from scratch** – When you select this option,
       the **Build** tab opens with the draft for a new model
       version. You can select a different dataset (as long as the schema matches

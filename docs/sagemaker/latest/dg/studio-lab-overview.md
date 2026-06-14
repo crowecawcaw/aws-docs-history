@@ -60,6 +60,7 @@ To copy the notebook preview to your Studio Lab project:
    puzzle. For more information on CAPTCHA, see [What is a CAPTCHA
    puzzle?](../../../waf/latest/developerguide/waf-captcha-puzzle.md "../../../waf/latest/developerguide/waf-captcha-puzzle.md")
 4. One time setup, for first time starting runtime using your Studio Lab account:
+
    1. Enter a mobile phone number to associate with your Amazon SageMaker Studio Lab account and choose
       **Continue**.
 

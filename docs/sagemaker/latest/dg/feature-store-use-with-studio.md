@@ -52,6 +52,7 @@ You can use the same key for both online and offline stores, or have a unique ke
 each. For more information about AWS KMS, see [AWS Key Management Service](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
 
 - If you create an offline store:
+
   - Decide if you want to create an Amazon S3 bucket or use an existing one. When using an
     existing one, you must know the Amazon S3 bucket URL or Amazon S3 bucket name and dataset
     directory name, if applicable.
@@ -77,6 +78,7 @@ default experience.
     configuration from the dropdown list. For information about storage configurations,
     see [Feature Store storage configurations](feature-store-storage-configurations.md "feature-store-storage-configurations.md").
 8.  If you have chosen to enable the online storage:
+
     1. If you _only_ enable the online storage, you
        can choose a **Storage type** from the dropdown list. For
        information about online store storage types, see [Online store](feature-store-storage-configurations-online-store.md "feature-store-storage-configurations-online-store.md").
@@ -87,6 +89,7 @@ default experience.
        feature group is created_. For more information about TTL, see [Time to live (TTL) duration for records](feature-store-time-to-live.md "feature-store-time-to-live.md").
 
 9.  If you have chosen to enable the offline storage:
+
     1. Under the **Amazon S3 bucket name**, enter a new bucket name, or
        enter an existing bucket URL, manually.
     2. From the **Table format** dropdown list, choose the table
@@ -99,6 +102,7 @@ default experience.
        format** and AWS Glue (default) **Table
        format**, under **Data catalog**, you can choose one
        of the following two options:
+
        - **Use default values for your AWS Glue Data Catalog**.
        - Provide your existing Data Catalog name, table name, and database name to
          extend your existing AWS Glue Data Catalog.
@@ -106,6 +110,7 @@ default experience.
 10. Under the **Online store encryption key** or **Offline
     store encryption key** dropdown list, choose one of the following
     options:
+
     - **Use AWS managed AWS KMS key (default)**
     - **Enter an AWS KMS key ARN** and enter your AWS KMS key ARN
       under **Offline store encryption key ARN**. For more information
@@ -182,6 +187,7 @@ groups catalog.
     configuration from the dropdown list. For information about storage configurations,
     see [Feature Store storage configurations](feature-store-storage-configurations.md "feature-store-storage-configurations.md").
 9.  If you have chosen to enable the online storage:
+
     1. If you _only_ enable the online storage, you
        may choose a **Storage type** from the dropdown list. For
        information about online store storage types, see [Online store](feature-store-storage-configurations-online-store.md "feature-store-storage-configurations-online-store.md").
@@ -192,6 +198,7 @@ groups catalog.
        feature group is created_. For more information about TTL, see [Time to live (TTL) duration for records](feature-store-time-to-live.md "feature-store-time-to-live.md").
 
 10. If you have chosen to enable the offline storage:
+
     1. Under the **Amazon S3 bucket name**, enter a new bucket name or
        enter an existing bucket URL manually.
     2. From the **Table format** dropdown list, choose the table
@@ -204,6 +211,7 @@ groups catalog.
        format** and AWS Glue (default) **Table
        format**, under **Data catalog**, you can choose one
        of the following two options:
+
        - **Use default values for your AWS Glue Data Catalog**.
        - Provide your existing Data Catalog name, table name, and database name to
          extend your existing AWS Glue Data Catalog.
@@ -211,6 +219,7 @@ groups catalog.
 11. Under the **Online store encryption key** or **Offline
     store encryption key** dropdown list, choose one of the following
     options:
+
     - **Use AWS managed AWS KMS key (default)**
     - **Enter an AWS KMS key ARN** and enter your AWS KMS key ARN
       under **Offline store encryption key ARN**. For more information

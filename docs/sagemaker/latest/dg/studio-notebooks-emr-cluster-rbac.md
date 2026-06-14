@@ -204,6 +204,7 @@ JSON
 4. Set up the cross-account network so that traffic can move back and forth between
    your accounts. For guided instruction, see _[Configure network access for your Amazon EMR cluster](studio-notebooks-emr-networking.md "studio-notebooks-emr-networking.md")Set up the_ . The steps in this
    section help you complete the following tasks:
+
    1. VPC-peer your Studio account and your Amazon EMR account to establish a
       connection.
    2. Manually add routes to the private subnet route tables in both accounts. This

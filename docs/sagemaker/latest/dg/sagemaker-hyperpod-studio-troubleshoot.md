@@ -26,6 +26,7 @@ tab.
 
 - Ensure that `RunAs` enabled in your [AWS Session Manager](../../../systems-manager/latest/userguide/session-manager.md "../../../systems-manager/latest/userguide/session-manager.md") preferences
   and the role you are using has the `SSMSessionRunAs` tag attached.
+
   - To enable `RunAs`, navigate to the **Preference** tab in
     the [Systems Manager console](https://console.aws.amazon.com/systems-manager/session-manager "https://console.aws.amazon.com/systems-manager/session-manager").
   - [Turn on Run As
@@ -35,9 +36,11 @@ For restricted task view in Studio for EKS clusters:
 
 - If your execution role doesn’t have permissions to list namespaces for EKS
   clusters.
+
   - See [Restrict task view in Studio for EKS clusters](sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view "sagemaker-hyperpod-studio-setup-eks.md#sagemaker-hyperpod-studio-setup-eks-restrict-tasks-view").
 
 - If users are experiencing issues with access for EKS clusters.
+
   1.  Verify RBAC is enabled by running the following AWS CLI command.
 
   ```
@@ -51,20 +54,22 @@ For restricted task view in Studio for EKS clusters:
   kubectl get clusterrole pods-events-crd-cluster-role
   kubectl get clusterrolebinding pods-events-crd-cluster-role-binding
   ```
-
   3.  Verify user group membership. Ensure the user is correctly assigned to the
       `pods-events-crd-cluster-level` group in your identity provider or IAM.
 
 - If user can't see any resources.
+
   - Verify group membership and ensure the `ClusterRoleBinding` is correctly
     applied.
 
 - If users can see resources in all namespaces.
+
   - If namespace restriction is required, consider using `Role` and
     `RoleBinding` instead of `ClusterRole` and
     `ClusterRoleBinding`.
 
 - If configuration appears correct, but permissions aren't applied.
+
   - Check if there are any `NetworkPolicies` or `PodSecurityPolicies`
     interfering with access.
 

@@ -37,13 +37,26 @@ resources in Amazon S3:
 When you specify a customer managed KMS key, Amazon SageMaker AI uses two
 mechanisms to encrypt your data:
 
-- **Grant** – At job creation
-  time, Amazon SageMaker AI uses the caller's credentials to create a grant on
-  the KMS key. This grant allows the service to encrypt all
-  temporary data stored within the platform during training. The
-  grant is retired automatically when the job completes, ensuring
-  that the service no longer has access to the key after the job
-  lifecycle ends.
+- **Grants** – At job creation
+  time, Amazon SageMaker AI uses the caller's credentials to create one or two
+  grants on the KMS key:
+
+      + **Write grant** –
+       Created for every job that specifies a customer managed
+       key. Allows the service to encrypt and decrypt the current
+       job's checkpoint and temporary data stored within the
+       platform during training.
+      + **Read grant** –
+       Created only for iterative jobs that resume from a previous
+       job's checkpoint when the previous job also used a customer
+       managed key. Allows the service to decrypt the previous
+       job's checkpoint data. This grant permits decryption
+       only and does not allow writing new data.
+
+  All grants are retired automatically when the job completes,
+  ensuring that the service no longer has access to the key after the
+  job lifecycle ends.
+
 - **Execution role** – When
   saving output data (model artifacts, checkpoints) to your Amazon S3
   bucket, Amazon SageMaker AI uses the execution role you provide. The execution
@@ -57,7 +70,8 @@ During a training job, the following AWS KMS operations occur:
   logs).
 - `kms:Decrypt` – Called through Amazon S3 when reading
   encrypted input data or previously written output data.
-- `kms:DescribeKey` – Called to verify the
+- `kms:DescribeKey` – Called by the caller identity
+  at job creation time to verify the
   KMS key configuration and state.
 - `kms:CreateGrant` – Called by the caller identity
   at job creation time to give permission to the service to store
@@ -119,9 +133,10 @@ other purposes.
 
 ###### KMS key policy
 
-Your KMS key policy must allow the execution role to use the key
-for encryption and decryption through Amazon S3. The following example shows
-a least-privilege key policy statement:
+The default KMS key policy already allows IAM roles in the same
+account to use the key. Optionally, you can add the following statement
+to further scope down access to only allow the execution role to use
+the key through Amazon S3:
 
 ```
 {
@@ -237,6 +252,107 @@ specific account or resource can use the key.
     }
 }
 ```
+
+## Encryption context for multi-turn RL jobs
+
+When a multi-turn RL job encrypts data using your customer managed KMS key,
+Amazon SageMaker AI includes an _encryption context_ in every AWS KMS
+request made through Amazon S3. An encryption context is a set of key-value pairs
+that provide additional authenticated data (AAD) for AWS KMS operations. The
+encryption context is logged in AWS CloudTrail and can be used in KMS key policies
+and grant constraints to further restrict access.
+
+Amazon SageMaker AI uses the following encryption context key-value pair for multi-turn
+RL training jobs:
+
+```
+{
+    "aws:sagemaker:finetuning-job-arn": "arn:aws:sagemaker:`region`:`account-id`:job/AgentRFT/`job-name`"
+}
+```
+
+For multi-turn RL evaluation jobs, the encryption context uses:
+
+```
+{
+    "aws:sagemaker:agent-rft-evaluation-job-arn": "arn:aws:sagemaker:`region`:`account-id`:job/AgentRFTEvaluation/`job-name`"
+}
+```
+
+The encryption context is bound to the specific job that creates the
+encrypted data. Each job encrypts its own output with its own ARN in the
+encryption context. This provides cryptographic binding between the encrypted
+data and the job that produced it.
+
+###### Using encryption context in key policies
+
+The encryption context is enforced automatically through the grant
+constraints that Amazon SageMaker AI creates at job creation time. You do not need to add
+encryption context conditions to your KMS key policy for encryption to work
+correctly.
+
+If you add encryption context conditions to the `kms:CreateGrant`
+statement in your KMS key policy, you must allow grants for both the current
+job and the previous job in iterative training chains. The following example
+allows Amazon SageMaker AI to create grants with any training job ARN in the encryption
+context:
+
+```
+{
+    "Sid": "AllowCreateGrantForCaller",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "arn:aws:iam::`account-id`:role/`CallerRole`"
+    },
+    "Action": [
+        "kms:CreateGrant",
+        "kms:DescribeKey"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "StringLike": {
+            "kms:ViaService": "sagemaker.*.amazonaws.com",
+            "kms:EncryptionContext:aws:sagemaker:finetuning-job-arn": "arn:aws:sagemaker:`region`:`account-id`:job/AgentRFT/*"
+        },
+        "Bool": {
+            "kms:GrantIsForAWSResource": "true"
+        }
+    }
+}
+```
+
+###### Note
+
+If you restrict `kms:CreateGrant` to a single specific job
+ARN in the encryption context, iterative training will fail because
+Amazon SageMaker AI also creates a read grant with the previous job's ARN as the
+encryption context. Use a wildcard pattern to allow grants for any job in
+your account.
+
+###### Encryption context in iterative training
+
+When you run iterative training jobs (where a subsequent job resumes from a
+previous job's checkpoint), the encryption context for each job contains that
+job's own ARN. Amazon SageMaker AI automatically manages two AWS KMS grants to support
+iterative training:
+
+- **Write grant** – Allows the
+  current job to encrypt its own checkpoint data using the current job's
+  ARN as the encryption context.
+- **Read grant** – Allows the
+  current job to decrypt checkpoint data from the previous job
+  using the previous job's ARN as the encryption context.
+
+Both grants are automatically retired when the job completes. You do not need
+to add any additional key policy statements for iterative training to work with
+customer managed keys.
+
+###### Encryption context in AWS CloudTrail
+
+When you review CloudTrail logs for AWS KMS API calls made by multi-turn RL jobs, the
+encryption context appears in the `requestParameters` field of the
+log entry. You can use this information to determine which job performed a
+specific encryption or decryption operation on your data.
 
 ## Monitoring multi-turn RL interaction with AWS KMS
 

@@ -360,6 +360,7 @@ use cases.
   size (in bytes) of this temporary buffer. If the size of the temporary
   buffer is smaller than the `AllGather` input buffer size, the
   `AllGather` collective falls back to use NCCL.
+
   - Default value: 16 \* 1024 \* 1024 (16 MB)
   - Acceptable values: any multiple of 8192
 
@@ -369,6 +370,7 @@ use cases.
   communication. If the size of this temporary buffer is smaller than
   `1/8 * sharded_data_parallel_degree * AllGather input size`,
   the `AllGather` collective falls back to use NCCL.
+
   - Default value: 128 \* 1024 \* 1024 (128 MB)
   - Acceptable values: any multiple of 8192
 
@@ -383,6 +385,7 @@ The following list discusses some tuning tips to reduce the GPU memory footprint
 of SMDDP Collectives while retaining the performance gain from them.
 
 - Tuning `SMDDP_AG_SCRATCH_BUFFER_SIZE_BYTES`
+
   - The `AllGather` input buffer size is smaller for
     smaller models. Hence, the required size for
     `SMDDP_AG_SCRATCH_BUFFER_SIZE_BYTES` can be smaller
@@ -395,6 +398,7 @@ of SMDDP Collectives while retaining the performance gain from them.
     `sharded_data_parallel_degree`.
 
 - Tuning `SMDDP_AG_SORT_BUFFER_SIZE_BYTES`
+
   - The amount of data gathered from inter-node communication is less
     for models with fewer parameters. Hence, the required size for
     `SMDDP_AG_SORT_BUFFER_SIZE_BYTES` can be smaller for

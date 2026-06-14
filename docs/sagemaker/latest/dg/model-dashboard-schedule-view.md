@@ -13,6 +13,7 @@ After you've set up monitoring schedules, you can view the details of these sche
 5. View the scheduled monitors in the **Monitor schedule** section.
    You can review the status for each monitor in the **Status schedule**
    column, which is one of the following values:
+
    - **Failed**: The monitoring schedule failed due to a problem
      with the configuration or settings (such as incorrect user permissions).
    - **Pending**: The monitor is in the process of becoming

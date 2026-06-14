@@ -25,6 +25,7 @@ SageMaker AI only supports endpoint testing in Studio for real-time endpoints.
    page in a new tab.
 5. Choose the **Test inference** tab.
 6. For **Testing Options**, select one of the following:
+
    1. Select **Test the sample request** to immediately send
       a request to your endpoint. Use the **JSON editor** to provide
       sample data in JSON format, and choose **Send Request** to
@@ -39,6 +40,7 @@ The top of the card shows the type of request that was sent to the endpoint (onl
 is accepted). The card shows the following fields:
 
 - **Status** – displays one of the following status types:
+
   - `Success` – The request succeeded.
   - `Failed` – The request failed. A response appears under **Failure
     Reason**.

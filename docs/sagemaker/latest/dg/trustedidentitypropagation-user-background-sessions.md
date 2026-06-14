@@ -42,6 +42,7 @@ find a banner with the following information:
 - The duration limit for user background sessions
 - A link to the IAM Identity Center console where administrators can change this
   configuration
+
   - The duration can be set to any value from 15 minutes up to 90 days
 
 An error message will occur when a user background session has expired. You can use the

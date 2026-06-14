@@ -148,6 +148,7 @@ The procedure is almost the same as setting up a new labeling job with
   `LabelAttributeName` value is important here. This is the key
   portion of a key-value pair where labeling data is the value. Sample use
   cases include:
+
   - **Adding new or more specific labels to a completed job** —
     Set a new label attribute name.
   - **Labeling the unlabeled items from a prior job** — Use the

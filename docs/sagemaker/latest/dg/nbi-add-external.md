@@ -59,6 +59,7 @@ Notebook Instance Lifecycle Config Samples](https://github.com/aws-samples/amazo
 Configuration Script](notebook-lifecycle-config.md "notebook-lifecycle-config.md").
 
 - Notebooks – The following commands are supported.
+
   - `%conda install`
   - `%pip install`
 

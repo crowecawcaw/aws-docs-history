@@ -143,6 +143,7 @@ allows you to configure the following:
 - **Namespace**: Select your team namespace with resource
   quotas and governance settings. This determines your available compute allocation.
 - **Space settings:**
+
   - **Template**: Select a pre-configured template (for
     example, JupyterLab or Code Editor) to apply default settings.
   - **Compute**: Choose between GPU and CPU configurations

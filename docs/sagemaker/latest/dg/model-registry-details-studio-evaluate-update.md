@@ -14,6 +14,7 @@ created externally or with SageMaker AI, associated with your model.
    tab.
 3. To update and view details related to model performance during
    evaluation, complete the following steps.
+
    1. Choose **Performance** in the
       **Evaluate** tab sidebar.
    2. View metrics related to your evaluation job in the
@@ -27,6 +28,7 @@ created externally or with SageMaker AI, associated with your model.
    4. To update any of the **Notes** fields for any
       metric or the **Observations** field, complete
       the following steps.
+
       1. Choose the vertical ellipsis in the top right of the
          model version page, and choose
          **Edit**.
@@ -38,6 +40,7 @@ created externally or with SageMaker AI, associated with your model.
 
 4. To update and view details related to your evaluation job datasets,
    complete the following steps.
+
    1. Choose **Artifacts** in the left sidebar of
       the **Evaluate** page.
    2. View datasets used in your evaluation job.

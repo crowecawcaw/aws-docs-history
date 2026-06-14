@@ -34,6 +34,7 @@ Studio
    [MLOps Project Templates](sagemaker-projects-templates.md "sagemaker-projects-templates.md").
 5. Choose **Next**.
 6. In the **Project details** page, enter the following information:
+
    - **Name**: A name for your project.
    - **Description**: An optional description for your project.
    - The values for the Service Catalog provisioning parameters related to your

@@ -421,6 +421,7 @@ identity is assuming, see [Change your execution role](#sagemaker-roles-change-e
 ###### To modify permissions to your execution roles
 
 1. First get name of the identity you would like to modify.
+
    - [Get domain execution role](#sagemaker-roles-get-execution-role-domain "#sagemaker-roles-get-execution-role-domain")
    - [Get space execution role](#sagemaker-roles-get-execution-role-space "#sagemaker-roles-get-execution-role-space")
    - [Get user execution role](#sagemaker-roles-get-execution-role-user "#sagemaker-roles-get-execution-role-user")
@@ -864,6 +865,7 @@ In the preceding policy, you scope the policy as follows:
   `CreateTrainingJob` request.
 - Scope `s3:GetObject` , `s3:PutObject`, and
   `s3:DeleteObject` permissions as follows:
+
   - Scope to the following values that you specify in a
     `CreateTrainingJob` request:
 
@@ -878,6 +880,7 @@ In the preceding policy, you scope the policy as follows:
   `SuplementalContainers.ModelDataUrl`
 
 - Scope `ecr` permissions as follows:
+
   - Scope to the `AlgorithmSpecification.TrainingImage`
     value that you specify in a `CreateTrainingJob`
     request.

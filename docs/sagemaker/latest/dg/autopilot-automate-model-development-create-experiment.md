@@ -207,6 +207,7 @@ whether you have one or two data sources.
 - If you only have **one data source**, the
   `ChannelType` is set to `training` by default and must
   have this value.
+
   - If the `ValidationFraction` value in [`AutoMLDataSplitConfig`](../APIReference/API_AutoMLDataSplitConfig.md "../APIReference/API_AutoMLDataSplitConfig.md") is not set, 0.2 (20%) of the
     data from this source is used for validation by default.
   - If the `ValidationFraction` is set to a value between 0 and
@@ -236,6 +237,7 @@ whether you have one or two data sources.
 - If you only have **one data source**, the
   `ChannelType` is set to `training` by default and must
   have this value.
+
   - If the `ValidationFraction` value in [`AutoMLDataSplitConfig`](../APIReference/API_AutoMLDataSplitConfig.md "../APIReference/API_AutoMLDataSplitConfig.md") is not set, 0.2 (20%) of the
     data from this source is used for validation by default.
   - If the `ValidationFraction` is set to a value between 0 and

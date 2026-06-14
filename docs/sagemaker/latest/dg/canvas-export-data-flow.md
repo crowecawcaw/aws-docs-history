@@ -16,6 +16,7 @@ it.
 3. In the context menu, hover over **Export**, and then hover
    over **Export via Jupyter notebook**.
 4. Choose one of the following:
+
    - **SageMaker Pipelines**
    - **Amazon S3**
    - **SageMaker AI Inference Pipeline**
@@ -24,6 +25,7 @@ it.
 
 5. The **Export data flow as notebook** dialog box opens. Select
    one of the following:
+
    - **Download a local copy**
    - **Export to S3 location**
 

@@ -120,6 +120,7 @@ sources into your data flow.
 5. (Optional) Select the checkbox next to **Add column to indicate source
    dataframe** to add a column to
    the resulting dataframe that lists the source dataset for each record.
+
    1. For **Indicator column name**, enter a name for the added column.
    2. For **First dataset indicating string**, enter the value you want to use to mark
       records from the first dataset (or the left node).
@@ -480,6 +481,7 @@ use one-hot encoding. Configure this transform using the following:
   all zero vector.
 - **Invalid handing strategy**: Select a method to handle
   invalid or missing values.
+
   - Choose **Skip** if you want to omit the rows with
     missing values.
   - Choose **Keep** to retain missing
@@ -533,6 +535,7 @@ To use similarity encoding, do the following.
 7. Choose **Add step**.
 8. Choose **Encode categorical**.
 9. Specify the following:
+
    - **Transform** – **Similarity
      encode**
    - **Input column** – The column containing
@@ -642,6 +645,7 @@ To learn more, see the Spark documentation on [Tokenizer](https://spark.apache.o
   tokens into a sparse numeric vector. Each token corresponds to an index in
   the vector and a non-zero indicates the existence of the token in the input
   sentence. You can choose from two vectorizer options, _Count_ and _Hashing_.
+
   - **Count vectorize** allows customizations that
     filter infrequent or too common tokens. **Count vectorize
     parameters** include the following:
@@ -694,6 +698,7 @@ To learn more, see the Spark documentation on [Tokenizer](https://spark.apache.o
   multiplies the term frequency with the standard inverse document frequency
   used for TF-IDF embedding. **IDF parameters** include the
   following:
+
   - **Minimum document frequency** : Minimum number
     of documents (rows) in which a term (token) must appear to be
     included. If **count_vectorize** is the chosen
@@ -703,6 +708,7 @@ To learn more, see the Spark documentation on [Tokenizer](https://spark.apache.o
     `5`.
 
 - **Output format**:The output format of each row.
+
   - Select **Vector** to produce a single column with
     a sparse vector.
   - Select **Flattened** to create a column for every
@@ -1160,6 +1166,7 @@ The most common uses of lagged features are the following:
    timestamps.
 7. For **Lag**, specify the duration of the lag.
 8. (Optional) Configure the output using one of the following options:
+
    - **Include the entire lag window**
    - **Flatten the output**
    - **Drop rows without history**
@@ -1691,6 +1698,7 @@ To split your dataset randomly, do the following
    proportions of each split. The proportions must sum to 1.
 5. (Optional) Choose the **+** to create an
    additional split.
+
    1. Specify the names and proportions of all the splits. The
       proportions must sum to 1.
 
@@ -1717,6 +1725,7 @@ To make an ordered split in your dataset, do the following.
    proportions of each split. The proportions must sum to 1.
 6. (Optional) Choose the **+** to create an
    additional split.
+
    1. Specify the names and proportions of all the splits. The
       proportions must sum to 1.
 
@@ -1750,6 +1759,7 @@ To make a stratified split in your dataset, do the following.
    proportions of each split. The proportions must sum to 1.
 6. (Optional) Choose the **+** to create an
    additional split.
+
    1. Specify the names and proportions of all the splits. The
       proportions must sum to 1.
 
@@ -1779,6 +1789,7 @@ To split by the column keys in your dataset, do the following.
    proportions of each split. The proportions must sum to 1.
 6. (Optional) Choose the **+** to create an
    additional split.
+
    1. Specify the names and proportions of all the splits. The
       proportions must sum to 1.
 
@@ -2043,6 +2054,7 @@ Use the following procedure to add the filter transform to your data.
 3. Choose **Add step**.
 4. Choose **Filter data**.
 5. Specify the following fields:
+
    - **Column name** – The column that you're filtering.
    - **Condition** – The condition of the filter.
    - **Value** – The value or category in the column to which you're applying the filter.

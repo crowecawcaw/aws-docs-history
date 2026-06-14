@@ -88,6 +88,7 @@ The following AWS accounts are trusted by default:
 
 - The account hosting the SageMaker AI domain.
 - SageMaker AI accounts that host the following SageMaker images:
+
   - DLC framework images
   - Sklearn, Spark, XGBoost processing images
 

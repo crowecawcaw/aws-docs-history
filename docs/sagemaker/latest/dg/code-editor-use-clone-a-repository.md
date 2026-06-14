@@ -21,6 +21,7 @@ To clone a repository, go through the following steps:
    **Cancel**.
 6. Within the repository, a prompt asks if you trust the authors of the files in your
    new repository. You have two choices:
+
    1. To trust the folder and enable all features, choose **Yes, I trust the
       authors**.
    2. To browse the repository content in _restricted

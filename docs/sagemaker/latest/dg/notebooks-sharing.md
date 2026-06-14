@@ -46,6 +46,7 @@ The following screenshot shows the menu from a Studio Classic notebook.
 1. In the upper-right corner of the notebook, choose **Share**.
 2. (Optional) In **Create shareable snapshot**, choose any of the
    following items:
+
    - **Include Git repo information** – Includes a link to
      the Git repository that contains the notebook. This enables you and your colleague
      to collaborate and contribute to the same Git repository.

@@ -16,6 +16,7 @@ more information, see [Add user profiles](domain-user-profile-add.md "domain-use
   auto-mounting in Amazon SageMaker Studio](studio-updated-automount.md "studio-updated-automount.md").
 - The following list is the minimum set of permissions for using the
   Profiler UI application.
+
   - `sagemaker:CreateApp`
   - `sagemaker:DeleteApp`
   - `sagemaker:DescribeTrainingJob`

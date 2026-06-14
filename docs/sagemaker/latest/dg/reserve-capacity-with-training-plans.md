@@ -126,6 +126,7 @@ AWS services.
 
 - You can use SageMaker training plans to reserve instances with the following reservation
   duration and instance quantity options.
+
   - Reservation durations are available in 1-day increments from 1 to 182 days.
   - The reservation instance quantity options are 1, 2, 4, 8, 16, 32 or 64
     instances.

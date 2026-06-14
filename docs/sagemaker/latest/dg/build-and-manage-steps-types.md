@@ -828,6 +828,7 @@ runs, the following procedure occurs:
   process.
 - When the process finishes, the customer calls one of the following APIs and submits
   the Pipelines–generated token:
+
   - [SendPipelineExecutionStepSuccess](../APIReference/API_SendPipelineExecutionStepSuccess.md "../APIReference/API_SendPipelineExecutionStepSuccess.md"), along with a list of output
     parameters
   - [SendPipelineExecutionStepFailure](../APIReference/API_SendPipelineExecutionStepFailure.md "../APIReference/API_SendPipelineExecutionStepFailure.md"), along with a failure reason
@@ -1281,6 +1282,7 @@ demonstrating both methods.
   policy.
 - If you process an EMR step on a running cluster, you can only use a cluster that
   is in one of the following states:
+
   - `STARTING`
   - `BOOTSTRAPPING`
   - `RUNNING`

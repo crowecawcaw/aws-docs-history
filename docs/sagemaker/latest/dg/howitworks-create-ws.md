@@ -108,6 +108,7 @@ instance with this storage is launched.
     notebook instance**.
 3.  On the **Create notebook instance** page, provide the
     following information:
+
     1. For **Notebook instance name**, type a name for your
        notebook instance.
     2. For **Notebook instance type**, choose an instance
@@ -190,7 +191,6 @@ instance with this storage is launched.
          access**, choose **Enable**.
          Internet access can make your notebook instance less secure. For
          more information, see [Connect a Notebook Instance in a VPC to External Resources](appendix-notebook-and-internet-access.md "appendix-notebook-and-internet-access.md").
-
     11. (Optional) To associate Git repositories with the notebook instance,
         choose a default repository and up to three additional repositories. For
         more information, see [Git repositories with SageMaker AI Notebook Instances](nbi-git-repo.md "nbi-git-repo.md").

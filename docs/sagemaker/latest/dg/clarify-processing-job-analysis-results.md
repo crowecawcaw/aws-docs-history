@@ -45,6 +45,7 @@ pre-training and post-training bias metrics are as follows.
 
 - pre_training_bias_metrics –
   Parameters for pre-training bias metrics. For more information, see [Pre-training Bias Metrics](clarify-measure-data-bias.md "clarify-measure-data-bias.md") and [Analysis Configuration Files](clarify-processing-job-configure-analysis.md "clarify-processing-job-configure-analysis.md").
+
   - label – The ground truth
     label name defined by the `label` parameter of the
     analysis configuration.
@@ -64,6 +65,7 @@ pre-training and post-training bias metrics are as follows.
     facet name defined by the `name_or_index` parameter of
     the facet configuration, and the value is an array of facet objects.
     Each facet object has the following members:
+
     - value_or_threshold –
       A string containing the facet values or interval defined by
       the `value_or_threshold` parameter of the facet
@@ -71,6 +73,7 @@ pre-training and post-training bias metrics are as follows.
     - metrics – The
       section contains an array of bias metric elements, and each
       bias metric element has the following attributes:
+
       - name – The
         short name of the bias metric. For example,
         `CI`.
@@ -170,9 +173,11 @@ of the SHAP analysis file are as follows:
 
 - explanations – The section of the
   analysis file that contains the feature importance analysis results.
+
   - kernal_shap – The section of
     the analysis file that contains the global SHAP analysis
     result.
+
     - global_shap_values –
       A section of the analysis file that contains several
       key-value pairs. Each key in the key-value pair represents a
@@ -319,6 +324,7 @@ valid JSON object. The JSON object has the following attributes:
 - explanations – The section of the
   analysis file that contains an array of Kernel SHAP explanations for a
   single instance. Each element in the array has the following members:
+
   - feature_name – The header
     name of the features provided by the headers configuration.
   - data_type – The feature type
@@ -330,10 +336,12 @@ valid JSON object. The JSON object has the following attributes:
     have multiple attribution objects, each for a unit defined by the
     `granularity` configuration. The attribution object
     has the following members:
+
     - attribution – A
       class-specific array of probability values.
     - description – (For
       text features) The description of the text units.
+
       - partial_text
         – The portion of the text explained by the
         SageMaker Clarify processing job.
@@ -441,10 +449,12 @@ are as follows:
 
 - explanations – The section of the
   analysis files that contains feature importance analysis results.
+
   - pdp – The section of the
     analysis file that contains an array of PDP explanations for a
     single instance. Each element of the array has the following
     members:
+
     - feature_name – The
       header name of the features provided by the
       `headers` configuration.
@@ -538,6 +548,7 @@ following parameters are included in the asymmetric Shapley value analysis file.
 - **asymmetric_shapley_value** —
   The section of the analysis file that contains metadata about the explanation
   job results, including the following:
+
   - **explanation_results_path** —
     The Amazon S3 location with the explanation results
   - **direction** — The

@@ -41,6 +41,7 @@ following options.
   logs to `/var/log/provision/provisioning.log`.
 - **Option 2:** Update the CloudWatch agent to look for your
   custom paths for logging lifecycle provisioning.
+
   1.  Each HyperPod cluster instance contains a CloudWatch agent
       configuration file in JSON format at
       `/opt/aws/amazon-cloudwatch-agent/sagemaker_cwagent_config.json`.
@@ -68,7 +69,6 @@ following options.
       "force_flush_interval": 3
   }
   ```
-
   2.  Replace the value for the `"file_path"` field name with
       the custom path you use in your lifecycle scripts. For example, if you have
       set up your lifecycle scripts to write to
@@ -78,7 +78,6 @@ following options.
   ```
   "file_path": "`/var/log/custom-provision/custom-provisioning.log`"
   ```
-
   3.  Restart the CloudWatch agent with the configuration file to finish
       applying the custom path. For example, the following CloudWatch command
       shows how to restart the CloudWatch agent with the CloudWatch agent

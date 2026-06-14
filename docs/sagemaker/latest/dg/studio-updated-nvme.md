@@ -28,6 +28,7 @@ Studio.
   frequently back up necessary data from the NVMe instance store to persistent
   storage solutions, such as Amazon Elastic Block Store, Amazon Elastic File System, or Amazon Simple Storage Service.
 - The following Studio applications support using NVMe storage:
+
   - JupyterLab
   - Code Editor, based on Code-OSS, Visual Studio Code - Open Source
   - KernelGateway

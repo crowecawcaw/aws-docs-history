@@ -90,7 +90,7 @@ entering your job name prefix in **Find objects by
 prefix** and then choosing the training job
 name.
 
-![The Find objects by prefix field in the Amazon S3 console.](/images/sagemaker/latest/dg/images/debugger/debugger-report-download-s3console-1.png) 4. In the training job's S3 bucket, choose
+![The Find objects by prefix field in the Amazon S3 console.](images/debugger/debugger-report-download-s3console-1.png) 4. In the training job's S3 bucket, choose
 **rule-output/** subfolder. There must be
 three subfolders for training data collected by Debugger:
 **debug-output/**,

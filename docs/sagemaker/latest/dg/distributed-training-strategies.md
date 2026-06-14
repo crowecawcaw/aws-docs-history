@@ -49,6 +49,7 @@ Try gradient compression (FP16, INT8):
   SageMaker AI data parallelism library runs its `AllReduce` operation in FP16.
   For more information about implementing AMP APIs to your training script, see the
   following resources:
+
   - [Frameworks - PyTorch](https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html#pytorch "https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html#pytorch") in the _NVIDIA Deep Learning
     Performance documentation_
   - [Frameworks - TensorFlow](https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html#tensorflow "https://docs.nvidia.com/deeplearning/performance/mixed-precision-training/index.html#tensorflow") in the _NVIDIA Deep

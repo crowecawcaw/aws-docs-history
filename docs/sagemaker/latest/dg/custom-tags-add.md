@@ -15,6 +15,7 @@ propagation requires the following steps:
 ## Prerequisites
 
 - Users must have the `sagemaker:AddTags` permission for any resource creation.
+
   - For new domains created with the `SageMakerFullAccess` managed policy or
     using the SageMaker Role Manager, the `sagemaker:AddTags` permission is
     pre-populated.

@@ -36,6 +36,7 @@ on how to shut down the instance, see [Shut down the Amazon SageMaker Debugger I
 4. Under the **OVERVIEW** menu, choose
    **Debuggger**. This should show the following two
    sections.
+
    - In the **Debugger rules** section, you can browse the
      status of the Debugger built-in rules associated with the training
      job.

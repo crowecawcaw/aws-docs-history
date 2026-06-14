@@ -10,6 +10,7 @@ Follow these steps to provision basic resources for your Amazon SageMaker HyperP
 1. Download the [sagemaker-hyperpod.yaml](https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/sagemaker-hyperpod.yaml "https://github.com/aws-samples/awsome-distributed-training/blob/main/1.architectures/5.sagemaker-hyperpod/sagemaker-hyperpod.yaml") template file to your machine.
    This YAML file is an CloudFormation template that defines the following
    resources to create for your Slurm cluster.
+
    - An execution IAM role for the compute node instance group
    - An Amazon S3 bucket to store the lifecycle scripts
    - Public and private subnets (private subnets have internet
@@ -45,6 +46,7 @@ Successfully created/updated stack - sagemaker-hyperpod
 ```
 
 3. (Optional) Verify the stack in the [CloudFormation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
+
    - From the left navigation, choose
      **Stack**.
    - On the **Stack** page, find and choose
@@ -95,6 +97,7 @@ Slurm cluster with multiple controller nodes.
    file to your machine. This second YAML file is an CloudFormation template
    that defines the additional resources to create for multiple
    controller nodes support in your Slurm cluster.
+
    - An execution IAM role for the controller node instance
      group
    - An Amazon RDS for MariaDB instance
@@ -131,6 +134,7 @@ Successfully created/updated stack - sagemaker-hyperpod-mh
 
 3. (Optional) Verify the stack in the [AWS
    Cloud Formation console](https://console.aws.amazon.com/cloudformation/home "https://console.aws.amazon.com/cloudformation/home").
+
    - From the left navigation, choose
      **Stack**.
    - On the **Stack** page, find and choose

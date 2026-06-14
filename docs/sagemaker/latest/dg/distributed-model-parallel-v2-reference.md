@@ -31,6 +31,7 @@ SageMaker HyperPod.
 - `hybrid_shard_degree` (Integer) – Specifies a sharded
   parallelism degree. The value must be an integer between `0` and
   `world_size`. The default value is `0`.
+
   - If set to `0`, it falls back to the native PyTorch
     implementation and API in the script when
     `tensor_parallel_degree` is 1. Otherwise, it computes the
@@ -497,6 +498,7 @@ def generate_alibi_attn_mask(attention_mask, batch_size, seq_length,
 layout="b h s d")` – A regular PyTorch module function. When a
   `module(x)` is called, SMP runs this function
   automatically.
+
   - `qkv` – `torch.Tensor` of the following
     form: `(batch_size x seqlen x (3 x num_heads) x
 head_size)` or `(batch_size, (3 x num_heads) x seqlen
@@ -562,6 +564,7 @@ class torch.sagemaker.nn.attn.FlashGroupedQueryAttention(
 d")` – A regular PyTorch module function. When a
   `module(x)` is called, SMP runs this function
   automatically.
+
   - `q` – `torch.Tensor` of the following form
     `(batch_size x seqlen x num_heads x head_size)` or
     `(batch_size x num_heads x seqlen x head_size)`.
@@ -616,6 +619,7 @@ class torch.sagemaker.nn.huggingface.llama_flashattn.LlamaFlashAttention(
 
 - `forward(self, hidden_states, attention_mask, position_ids,
 past_key_value, output_attentions, use_cache)`
+
   - `hidden_states` (`torch.Tensor`) –
     Hidden states of a tensor in form of `(batch_size x seq_len x
 num_heads x head_size)`.

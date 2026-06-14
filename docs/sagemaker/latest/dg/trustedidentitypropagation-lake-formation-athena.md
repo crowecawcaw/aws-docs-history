@@ -18,14 +18,17 @@ ensure you have completed the following setups:
 - [Connect Lake Formation with
   IAM Identity Center](../../../lake-formation/latest/dg/connect-lf-identity-center.md "../../../lake-formation/latest/dg/connect-lf-identity-center.md")
 - Create Lake Formation resources:
+
   - [Database](../../../lake-formation/latest/dg/creating-database.md "../../../lake-formation/latest/dg/creating-database.md")
   - [Tables](../../../lake-formation/latest/dg/creating-tables.md "../../../lake-formation/latest/dg/creating-tables.md")
 
 - [Create Athena
   workgroup](../../../athena/latest/ug/creating-workgroups.md "../../../athena/latest/ug/creating-workgroups.md")
+
   - Choose **AthenaSQL** for the engine
   - Choose **IAM Identity Center** for authentication method
   - Create a new service role
+
     - Ensure that the IAM Identity Center users have access to the query result location using
       Amazon S3 Access Grants
 

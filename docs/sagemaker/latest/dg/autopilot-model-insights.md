@@ -43,6 +43,7 @@ To view a performance report from an Autopilot job, follow these steps:
     name**. The **Best model** is listed at the top of
     the list under **Model name** and it is highlighted in the
     **Models** tab.
+
     1. To review model details, select the model that you are interested in
        and select **View in model details**. This opens a new
        **Model Details** tab.
@@ -147,12 +148,14 @@ positive rate** (FPR) and **true positive
 rate** (TPR) are defined as follows.
 
 - Correct predictions
+
   - **True positive** (TP): The
     predicted value is 1, and the true value is 1.
   - **True negative** (TN): The
     predicted value is 0, and the true value is 0.
 
 - Erroneous predictions
+
   - **False positive** (FP): The
     predicted value is 1, but the true value is 0.
   - **False negative** (FN): The

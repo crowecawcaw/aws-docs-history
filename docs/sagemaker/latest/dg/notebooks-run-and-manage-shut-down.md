@@ -75,6 +75,7 @@ When you choose to shut down all resources in a section, the following occurs:
 1. Launch Studio Classic by following the steps in [Launch Amazon SageMaker Studio Classic](studio-launch.md "studio-launch.md").
 2. Choose the **Running Terminals and Kernels** icon.
 3. Do either of the following:
+
    - To shut down a specific resource, choose the **Shut Down**
      icon on the same row as the resource.
 

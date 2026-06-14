@@ -87,6 +87,7 @@ Add `SlurmConfig` to each instance group to define the Slurm node type and parti
 **Parameters:**
 
 - `NodeType` – Required. The Slurm node type for this instance group. Valid values:
+
   - `Controller` – Slurm controller (head) node. Runs the `slurmctld` daemon. Exactly one instance group must have this node type.
   - `Login` – Login node for user access. Optional. At most one instance group can have this node type.
   - `Compute` – Worker nodes that execute jobs. Can have multiple instance groups with this node type.
@@ -135,6 +136,7 @@ Add `Orchestrator.Slurm` to the cluster configuration to specify how HyperPod ma
 **Parameters:**
 
 - `SlurmConfigStrategy` – Required when `Orchestrator.Slurm` is provided. Controls how HyperPod manages the `slurm.conf` file on the controller node. Valid values:
+
   - `Managed` (default) – HyperPod fully controls the partition-node mappings in `slurm.conf`. Drift detection is enabled: if the current `slurm.conf` differs from the expected configuration, UpdateCluster fails with an error. Use this strategy when you want HyperPod to be the single source of truth for Slurm configuration.
   - `Overwrite` – HyperPod forces the API configuration to be applied, overwriting any manual changes to `slurm.conf`. Drift detection is disabled. Use this strategy to recover from drift or reset the cluster to a known state.
   - `Merge` – HyperPod preserves manual `slurm.conf` changes and merges them with the API configuration. Drift detection is disabled. Use this strategy if you need to make manual Slurm configuration changes that should persist across updates.
@@ -424,6 +426,7 @@ processes, see [Customizing SageMaker HyperPod clusters using lifecycle scripts]
   Slurm login node.
 - `worker_groups` – Required. This is for setting up Slurm
   worker (compute) nodes on the HyperPod cluster.
+
   - `instance_group_name` – Required. This is for
     specifying the name of the HyperPod instance group you want
     to assign to Slurm worker (compute) node.

@@ -100,6 +100,7 @@ remote job, follow the optional advanced steps.
    Guide_.
 6. (Optional) For the **Advanced settings**, specify values
    for the following fields:
+
    1. **File type** – The file format of your
       exported data.
    2. **Delimiter** – The delimiter used to
@@ -190,6 +191,7 @@ following:
    the processing job.
 10. (Optional) For **Spark memory
     configuration**, do the following:
+
     1. Enter **Driver memory in MB** for the
        Spark driver node that handles job coordination and
        scheduling.
@@ -199,6 +201,7 @@ following:
 
 11. (Optional) For **Network configuration**, do
     the following:
+
     1. For **Subnet configuration**, enter
        the IDs of the VPC subnets for the processing instances
        to be launched in. By default, the job uses the settings

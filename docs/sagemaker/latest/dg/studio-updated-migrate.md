@@ -57,6 +57,7 @@ which supports JupyterLab 4.
    Studio: Heavy lift task that requires using
    AWS DataSync to migrate data from the Studio Classic Amazon Elastic File System volume to
    either a target Amazon EFS or Amazon Elastic Block Store volume.
+
    1. (Optional) Migrate data flows from Data Wrangler in Studio Classic:
       One time, low lift task for migrating your data flows from Data Wrangler in Studio Classic to Studio,
       which you can then access in the latest version of Studio through SageMaker Canvas. For more information,

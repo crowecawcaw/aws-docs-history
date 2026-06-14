@@ -19,8 +19,10 @@ you need to add details related to your evaluation job manually.
 2. Choose **Add**.
 3. You can add an evaluation job from Amazon S3 or a custom evaluation
    job.
+
    1. To add an evaluation job with collaterals from Amazon S3, complete
       the following steps.
+
       1. Choose **S3**.
       2. Enter a name for the evaluation job.
       3. Enter the Amazon S3 location to the output collaterals of
@@ -29,6 +31,7 @@ you need to add details related to your evaluation job manually.
 
    2. To add a custom evaluation job, complete the following
       step:
+
       1. Choose **Custom**.
       2. Enter a name for the evaluation job.
       3. Choose **Add**.
@@ -43,8 +46,10 @@ you need to add details related to your evaluation job manually.
 3. In the dialog box, choose **Add**.
 4. You can add an evaluation job from Amazon S3 or a custom evaluation
    job.
+
    1. To add an evaluation job with collaterals from Amazon S3, complete
       the following steps.
+
       1. Choose **S3**.
       2. Enter a name for the evaluation job.
       3. Enter the Amazon S3 location to the output collaterals of
@@ -53,6 +58,7 @@ you need to add details related to your evaluation job manually.
 
    2. To add a custom evaluation job, complete the following
       step:
+
       1. Choose **Custom**.
       2. Enter a name for the evaluation job.
       3. Choose **Add**.

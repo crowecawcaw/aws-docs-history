@@ -122,6 +122,7 @@ EOF`
 2. On the HyperPod cluster node, add the public key on your local device to
    the `~/.ssh/authorized_keys` file on the HyperPod cluster
    node.
+
    1. Print the public key file on your local machine.
 
    ```
@@ -136,7 +137,6 @@ EOF`
    ```
    `$` `ssh-keygen -t rsa -q -f "$HOME/.ssh/id_rsa" -N ""`
    ```
-
    2. Connect to the cluster node and switch to the user to add the key.
       The following command is an example of accessing as the
       `ubuntu` user. Replace `ubuntu` to the
@@ -148,7 +148,6 @@ EOF`
    `$` `sudo su - `ubuntu``
    `ubuntu@ip-111-22-333-444:/usr/bin#`
    ```
-
    3. Open the `~/.ssh/authorized_keys` file and add the
       public key at the end of the file.
 

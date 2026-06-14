@@ -21,6 +21,7 @@ container image.
    read access to your bucket. The following procedure shows how to create a role in the console,
    but you can also use the [CreateRole](../../../IAM/latest/APIReference/API_CreateRole.md "../../../IAM/latest/APIReference/API_CreateRole.md") API from the _IAM User Guide_. For information on giving your role more granular
    permissions based on your use case, see [How to use SageMaker AI execution roles](sagemaker-roles.md#sagemaker-roles-createmodel-perms "sagemaker-roles.md#sagemaker-roles-createmodel-perms").
+
    1. Sign in to the [IAM console](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. In the navigation tab, choose **Roles**.
    3. Choose **Create Role**.
@@ -39,6 +40,7 @@ container image.
 5. **Attach S3 bucket permissions to your SageMaker AI role.** After
    creating an IAM role, attach a policy that gives SageMaker AI permission to access the S3 bucket
    containing your model artifacts.
+
    1. In the IAM console navigation tab, choose **Roles**.
    2. From the list of roles, search for the role you created in the previous step by
       name.
@@ -69,7 +71,6 @@ container image.
    }`
 
    ```
-
    7. Choose **Next: Tags**.
    8. (Optional) Add tags in key-value pairs to the policy.
    9. Choose **Next: Review**.

@@ -43,6 +43,7 @@ selected by default. 
   library:**Toxicity evaluations created using the `fmeval` library
   use the UnitaryAI Detoxify-unbiased toxicity detector by default, but can be configured to
   use either toxicity detector as part of the [ToxicityConfig](https://github.com/aws/fmeval/blob/91e675be24800a262faf8bf6e59f07522b5314ea/src/fmeval/eval_algorithms/toxicity.py#L96 "https://github.com/aws/fmeval/blob/91e675be24800a262faf8bf6e59f07522b5314ea/src/fmeval/eval_algorithms/toxicity.py#L96") parameter.
+
   - `model_type`: Which toxicity detector to use. Choose between `toxigen` and
     `detoxify`.
 

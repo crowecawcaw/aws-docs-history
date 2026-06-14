@@ -24,14 +24,17 @@ configured with VPC and installed using Helm.
   When provisioning your Amazon EKS cluster, consider the following:
 
 1.  **Kubernetes version support**
+
     - SageMaker HyperPod supports Kubernetes versions 1.28, 1.29, 1.30,
       1.31, 1.32, 1.33, and 1.34.
 
 2.  **Amazon EKS cluster authentication mode**
+
     - The authentication mode of an Amazon EKS cluster supported by SageMaker HyperPod are
       `API` and `API_AND_CONFIG_MAP`.
 
 3.  **Networking**
+
     - SageMaker HyperPod requires the Amazon VPC Container Network Interface (CNI)
       plug-in version 1.18.3 or later.
 
@@ -45,6 +48,7 @@ configured with VPC and installed using Helm.
       clusters.
 
 4.  **IAM roles**
+
     - Ensure the necessary IAM roles for HyperPod are set up as
       guided in the [AWS Identity and Access Management for SageMaker HyperPod](sagemaker-hyperpod-prerequisites-iam.md "sagemaker-hyperpod-prerequisites-iam.md")
       section.

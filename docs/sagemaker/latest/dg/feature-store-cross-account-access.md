@@ -7,6 +7,7 @@ following:
 - Read-only permission (`AWSRAMPermissionSageMakerFeatureGroupReadOnly`): The read
   privilege allows resource consumer accounts to read records in the shared feature groups and
   view details and metadata.
+
   - `DescribeFeatureGroup`: Retrieves details about a feature group and its
     configuration
   - `DescribeFeatureMetadata`: Shows the metadata for a feature within a feature
@@ -17,6 +18,7 @@ following:
 - Read-write permission (`AWSRAMPermissionSagemakerFeatureGroupReadWrite`): The
   read-write privilege allows resource consumer accounts to write records to, and delete records
   from, the shared feature groups, in addition to read permissions.
+
   - `PutRecord`: Writes a record to a feature group
   - `DeleteRecord`: Removes a record from a feature group
   - APIs listed in `AWSRAMPermissionSageMakerFeatureGroupReadOnly`

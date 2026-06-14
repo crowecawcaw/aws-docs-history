@@ -21,10 +21,12 @@ Error downloading CA certificate: Connect timeout on endpoint URL: "https://****
   **Resolution:**
 
 1. If you don't have an Amazon S3 VPC endpoint:
+
    - Create an Amazon S3 VPC endpoint following the configuration in section
      5.3 of the [Admin guide](https://github.com/aws-samples/sagemaker-genai-hosting-examples/blob/main/SageMakerHyperpod/hyperpod-inference/Hyperpod_Inference_Admin_Notebook.ipynb "https://github.com/aws-samples/sagemaker-genai-hosting-examples/blob/main/SageMakerHyperpod/hyperpod-inference/Hyperpod_Inference_Admin_Notebook.ipynb").
 
 2. If you already have an Amazon S3 VPC endpoint:
+
    - Ensure that the subnet route table is configured to point to the
      VPC endpoint (if using gateway endpoint) or that private DNS is
      enabled for interface endpoint.

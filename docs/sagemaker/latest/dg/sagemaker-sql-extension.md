@@ -77,6 +77,7 @@ With access set up, JupyterLab users can:
 
 - If you are an administrator looking to create generic connections to data sources for
   the SQL extension, follow these steps:
+
   1.  Enable the network communication between your Studio domain and the data
       sources to which you want to connect. To learn about the networking requirements, see
       [Configure network access between Studio and data sources (for administrators)](sagemaker-sql-extension-networking.md "sagemaker-sql-extension-networking.md").
@@ -88,7 +89,9 @@ With access set up, JupyterLab users can:
 
 - If you are a data scientist looking to create your own connections to data sources for
   the SQL extension, follow these steps:
+
   1.  Have your administrator:
+
       - Enable the network communication between your Studio domain and the
         data sources to which you want to connect. To learn about the networking
         requirements, see [Configure network access between Studio and data sources (for administrators)](sagemaker-sql-extension-networking.md "sagemaker-sql-extension-networking.md").
@@ -108,6 +111,7 @@ With access set up, JupyterLab users can:
 - If you are a data scientist looking to browse and query your data sources using the
   SQL extension, ensure that you or your administrator have set up the connections to your
   data sources first. Then, follow these steps:
+
   1.  Create a private space to launch your JupyterLab application in Studio using
       the SageMaker distribution image version 1.6 or higher.
   2.  If you are a user of the SageMaker distribution image version 1.6, load the

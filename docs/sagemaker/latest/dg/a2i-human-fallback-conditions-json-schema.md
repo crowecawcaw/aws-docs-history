@@ -22,6 +22,7 @@ following attributes:
 - `ConditionType`: This attribute identifies the type of condition. Each
   AWS AI service API that integrates with Amazon A2I defines its own set of allowed
   `ConditionTypes`.
+
   - Rekognition `DetectModerationLabels` – This API supports
     the `ModerationLabelConfidenceCheck` and `Sampling`
     `ConditionType` values.

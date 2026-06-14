@@ -76,6 +76,7 @@ API.
     algorithm**.
 4.  On the **Training specifications** page, provide the
     following information:
+
     1. For **Algorithm name**, type a name for your
        algorithm. The algorithm name must be unique in your account and
        in the AWS region. The name must have 1 to 64 characters.
@@ -95,6 +96,7 @@ API.
        might specify 3 input channels named `train`,
        `validation`, and `test`. For each
        channel, specify the following information:
+
        1. For **Channel name**, type a name for
           the channel. The name must have 1 to 64 characters.
           Valid characters are a-z, A-Z, 0-9, and -
@@ -121,6 +123,7 @@ API.
 
 5.  On the **Tuning specifications** page, provide the
     following information:
+
     1. For **Hyperparameter specification**, specify
        the hyperparameters that your algorithm supports by editing the
        JSON object. For each hyperparameter that your algorithm
@@ -181,7 +184,6 @@ API.
          `Categorical`. The value must correspond to
          the type of `Range` that you
          specified.
-
     2. For **Metric definitions**, specify any
        training metrics that you want your algorithm to emit. SageMaker AI uses
        the regular expression that you specify to find the metrics by
@@ -190,6 +192,7 @@ API.
        your algorithm, and they can monitor and plot the metrics in
        Amazon CloudWatch. For information, see [Amazon CloudWatch Metrics for Monitoring and Analyzing Training Jobs](training-metrics.md "training-metrics.md"). For each metric, provide
        the following information:
+
        1. For **Metric name**, type a name for
           the metric.
        2. For `Regex`, type the regular expression
@@ -205,6 +208,7 @@ API.
 
 6.  On the **Inference specifications** page, provide the
     following information if your algorithm supports inference:
+
     1. For **Location of inference image**, type the path in
        Amazon ECR where your inference container is stored.
     2. For **Container DNS host name**, type the
@@ -227,6 +231,7 @@ API.
 
 7.  On the **Validation specifications** page, provide
     the following information:
+
     1. For **Publish this algorithm on AWS Marketplace**,
        choose **Yes** to publish the algorithm on
        AWS Marketplace.
@@ -255,7 +260,6 @@ API.
          is a JSON block that describes a batch transform job.
          This is in the same format as the [`TransformJobDefinition`](../APIReference/API_TransformJobDefinition.md "../APIReference/API_TransformJobDefinition.md") input
          parameter of the [`CreateAlgorithm`](../APIReference/API_CreateAlgorithm.md "../APIReference/API_CreateAlgorithm.md") API.
-
     5. Choose **Create algorithm**.
 
 ## Create an Algorithm Resource (API)

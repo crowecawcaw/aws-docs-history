@@ -7,6 +7,7 @@ repeatedly creating and deleting a HyperPod cluster.
 2. Log in to a cluster node.
 3. Develop a script (`configure_xyz.sh`) by editing and running it
    repeatedly on the node.
+
    1. HyperPod runs the lifecycle scripts as the root user, so we
       recommend that you run the `configure_xyz.sh` as the root
       user while developing to make sure that the script is tested under the

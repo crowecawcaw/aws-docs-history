@@ -24,6 +24,7 @@ To install SageMaker Notebook Jobs, complete the following steps:
 4. Install two sets of permissions. The IAM user needs permissions to submit jobs to
    SageMaker AI, and once submitted, the notebook job itself assumes an IAM role that needs
    permissions to access resources depending on the job tasks.
+
    1. If you haven’t yet created an IAM user, see [Creating an IAM user in your AWS
       account](../../../IAM/latest/UserGuide/id_users_create.md "../../../IAM/latest/UserGuide/id_users_create.md").
    2. If you haven’t yet created your notebook job role, see [Creating a role to delegate

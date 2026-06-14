@@ -15,6 +15,7 @@ update your model package stage.
 2. In the left navigation pane, choose the
    **Models**.
 3. Find your model.
+
    - You can use the tabs to find your models. For example, choose
      the **Registered models** or
      **Deployable models** tabs.

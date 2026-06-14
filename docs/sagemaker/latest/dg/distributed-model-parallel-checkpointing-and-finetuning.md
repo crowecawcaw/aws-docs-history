@@ -201,6 +201,7 @@ optimizer = smp.DistributedOptimizer(optimizer)
 
 4.  Save the model and the optimizer state using [`smp.save()`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.save "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.save"). Depending on how you want to save
     checkpoints, choose one of the following two options:
+
     - **Option 1:** Save a partial model on
       each `mp_rank` for a single `MP_GROUP`.
 
@@ -233,6 +234,7 @@ optimizer = smp.DistributedOptimizer(optimizer)
     without tensor parallelism, see [General Instruction for Saving and Loading](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#general-instruction-for-saving-and-loading "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#general-instruction-for-saving-and-loading") in the
     _SageMaker Python SDK
     documentation_.
+
     - **Option 2:** Save the full
       model.
 
@@ -262,6 +264,7 @@ optimizer = smp.DistributedOptimizer(optimizer)
 
 5.  Load the checkpoints using [`smp.load()`](https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.load "https://sagemaker.readthedocs.io/en/v2.199.0/api/training/smp_versions/latest/smd_model_parallel_pytorch.html#smdistributed.modelparallel.torch.load"). Depending on how you checkpointed
     in the previous step, choose one of the following two options:
+
     - **Option 1:** Load the partial
       checkpoints.
 

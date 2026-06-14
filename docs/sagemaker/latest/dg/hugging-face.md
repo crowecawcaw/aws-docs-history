@@ -56,6 +56,7 @@ the following environments:
   Notebook Instances](nbi.md "nbi.md"): An Amazon SageMaker notebook instance is a machine learning (ML)
   compute instance running the Jupyter Notebook App. This app lets you run Jupyter
   Notebooks in your notebook instance to:
+
   - prepare and process data
   - write code to train models
   - deploy models to SageMaker AI hosting

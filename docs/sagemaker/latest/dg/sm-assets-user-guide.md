@@ -223,6 +223,7 @@ Use the following procedure to publish an Amazon Redshift table.
 7. For **Type**, select
    **Amazon Redshift**.
 8. - Select **Redshift cluster**.
+
      1. For **Redshift cluster**,
         specify the name of the Amazon Redshift cluster containing
         the database for the table.
@@ -232,6 +233,7 @@ Use the following procedure to publish an Amazon Redshift table.
 
    - Select **Redshift
      serverless**.
+
      1. For **Redshift workgroup**,
         specify the name of the Amazon Redshift workgroup containing
         the database for the table.

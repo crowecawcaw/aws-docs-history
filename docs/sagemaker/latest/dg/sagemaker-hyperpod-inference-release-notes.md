@@ -150,6 +150,7 @@ certificate support, and per-pod request limits.
 - **Custom Kubernetes Pod Configuration** – Added
   a new `kubernetes` field to the `InferenceEndpointConfig`
   CRD that allows users to customize inference pod configurations:
+
   - **Custom init containers** – Run
     user-defined init containers before the inference server starts (for example,
     cache warming, GDS setup). Init containers are injected after the
@@ -170,6 +171,7 @@ certificate support, and per-pod request limits.
 - **Request Limits** – Control request handling
   per pod via the new `RequestLimits` configuration under
   `Worker`, with the following configurable fields:
+
   - `maxConcurrentRequests` – Maximum concurrent in-flight
     requests per pod.
   - `maxQueueSize` – Requests to queue when the concurrency
@@ -443,6 +445,7 @@ to enhance deployment configuration flexibility.
 **Features**
 
 - **Multi Instance Types**
+
   - **Enhanced deployment reliability** – Supports
     multi-instance type configurations with automatic failover to alternative
     instance types when preferred options lack capacity
@@ -466,6 +469,7 @@ Changes to the field `invocationEndpoint` in the spec of the
   in the `InferenceEndpointConfig` spec itself. When this value is used
   to create a Load Balancer and— if enabled— a SageMaker Endpoint, it will be
   normalised to have one leading forward slash.
+
   - `v1/chat/completions` will be normalised to
     `/v1/chat/completions` for the `Ingress`, AWS Load
     Balancer, and SageMaker Endpoint. For the

@@ -24,6 +24,7 @@ information, see
   and auto-mounting in Amazon SageMaker Studio](studio-updated-automount.md "studio-updated-automount.md").
 - The following list is the minimum set of permissions for using TensorBoard on
   SageMaker AI.
+
   - `sagemaker:CreateApp`
   - `sagemaker:DeleteApp`
   - `sagemaker:DescribeTrainingJob`

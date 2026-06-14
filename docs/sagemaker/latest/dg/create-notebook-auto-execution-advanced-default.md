@@ -54,6 +54,7 @@ new default values, and reset your default values for your notebook jobs.
    **Settings**. This may already be open by default.
 4. You can update the default settings directly in this UI page or by using the JSON
    editor.
+
    - In the UI you can insert new values for **Role ARN**,
      **S3 Input Folder**, **S3 Output Folder**,
      **Output encryption KMS key**, or **Job instance
@@ -62,6 +63,7 @@ new default values, and reset your default values for your notebook jobs.
      **Additional options**.
    - (Optional) To update the user defaults using the **JSON Settings
      Editor**, complete the following steps:
+
      1. In the top right corner, choose **JSON Settings
         Editor**.
      2. In the **Settings** left sidebar, choose
@@ -76,7 +78,7 @@ new default values, and reset your default values for your notebook jobs.
      **System Defaults** panel to the **User
      Preferences** panel, and update the fields. 4. If you updated the default values, choose the **Save User
      Settings** icon (
-     ![Icon showing a document or file with a question mark symbol.](images/icons/Notebook_save.png)
+     ![Icon showing a document or file with a question mark symbol.](/images/sagemaker/latest/dg/images/icons/Notebook_save.png)
      ) in the top right corner. Closing the editor does not
      save the changes.
 
@@ -88,11 +90,13 @@ new default values, and reset your default values for your notebook jobs.
    **Settings**. This may already be open by default.
 3. You can restore the defaults by directly using this UI page or using the JSON
    editor.
+
    - In the UI you can choose **Restore to Defaults** in the top
      right corner. Your defaults are restored to empty strings. You only see this
      option if you previously changed your default values.
    - (Optional) To restart the default settings using the **JSON Settings
      Editor**, complete the following steps:
+
      1. In the top right corner, choose **JSON Settings
         Editor**.
      2. In the **Settings** left sidebar, choose
@@ -106,6 +110,6 @@ new default values, and reset your default values for your notebook jobs.
      Defaults** panel. 3. To restore your current default settings copy the content from the
      **System Defaults** panel to the **User
      Preferences** panel. 4. Choose the **Save User Settings** icon (
-     ![](images/icons/Notebook_save.png)
+     ![](/images/sagemaker/latest/dg/images/icons/Notebook_save.png)
      ) in the top right corner. Closing the editor does not
      save the changes.

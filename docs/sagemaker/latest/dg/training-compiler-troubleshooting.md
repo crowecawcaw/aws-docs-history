@@ -186,6 +186,7 @@ hf_estimator=HuggingFace(
 - **Approach 2** – Use the
   `hyperparameters` argument of the SageMaker AI estimator class and
   parse it in your training script.
+
   1.  To specify the number of GPUs, add a key-value pair to the
       `hyperparameters` argument.
 
@@ -206,7 +207,6 @@ hf_estimator=HuggingFace(
   )
   hf_estimator.fit()
   ```
-
   2.  In your training script, parse the `n_gpus`
       hyperparameter and specify it as an input for the
       `GPU_NUM_DEVICES` environment variable.

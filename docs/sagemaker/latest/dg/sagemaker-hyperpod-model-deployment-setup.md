@@ -28,7 +28,7 @@ The SageMaker AI console provides the most streamlined experience with two insta
 2. Select your cluster where you want to install the Inference Operator.
 3. Navigate to the **Inference** tab. Select **Quick Install** for automated setup or **Custom Install** for configuration flexibility.
 4. If choosing Custom Install, specify existing resources or customize settings as needed.
-5. Click **Install** to begin the automated installation process.
+5. Choose **Install** to begin the automated installation process.
 6. Verify the installation status through the console, or by running the following commands:
 
 ```
@@ -233,13 +233,13 @@ cat <<EOF > /tmp/alb-trust-policy.json
     {
         "Effect": "Allow",
         "Principal": {
-            "Federated": "arn:aws:iam::$ACCOUNT_ID:oidc-provider/oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID"
+            "Federated": "arn:aws:iam::${ACCOUNT_ID}:oidc-provider/oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}"
         },
         "Action": "sts:AssumeRoleWithWebIdentity",
         "Condition": {
             "StringLike": {
-                "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:sub": "system:serviceaccount:hyperpod-inference-system:aws-load-balancer-controller",
-                "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:aud": "sts.amazonaws.com"
+                "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:sub": "system:serviceaccount:hyperpod-inference-system:aws-load-balancer-controller",
+                "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:aud": "sts.amazonaws.com"
             }
         }
     }
@@ -314,13 +314,13 @@ cat <<EOF > /tmp/keda-trust-policy.json
     {
         "Effect": "Allow",
         "Principal": {
-            "Federated": "arn:aws:iam::$ACCOUNT_ID:oidc-provider/oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID"
+            "Federated": "arn:aws:iam::${ACCOUNT_ID}:oidc-provider/oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}"
         },
         "Action": "sts:AssumeRoleWithWebIdentity",
         "Condition": {
             "StringLike": {
-                "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:sub": "system:serviceaccount:hyperpod-inference-system:keda-operator",
-                "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:aud": "sts.amazonaws.com"
+                "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:sub": "system:serviceaccount:hyperpod-inference-system:keda-operator",
+                "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:aud": "sts.amazonaws.com"
             }
         }
     }
@@ -376,6 +376,7 @@ aws iam attach-role-policy \
 
 2. If you're using gated models, create an IAM role to access the gated
    models.
+
    1. Create an IAM policy.
 
    ```
@@ -390,13 +391,13 @@ aws iam attach-role-policy \
        {
            "Effect": "Allow",
            "Principal": {
-               "Federated": "arn:aws:iam::$ACCOUNT_ID:oidc-provider/oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID"
+               "Federated": "arn:aws:iam::${ACCOUNT_ID}:oidc-provider/oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}"
            },
            "Action": "sts:AssumeRoleWithWebIdentity",
            "Condition": {
                "StringLike": {
-                   "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:sub": "system:serviceaccount:*:hyperpod-inference-service-account*",
-                   "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:aud": "sts.amazonaws.com"
+                   "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:sub": "system:serviceaccount:*:hyperpod-inference-service-account*",
+                   "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:aud": "sts.amazonaws.com"
                }
            }
        },
@@ -411,7 +412,6 @@ aws iam attach-role-policy \
    }
    EOF
    ```
-
    2. Create an IAM role.
 
    ```
@@ -450,7 +450,7 @@ aws eks create-addon \
     --cluster-name $EKS_CLUSTER_NAME \
     --addon-name aws-mountpoint-s3-csi-driver \
     --region $REGION \
-    --service-account-role-arn $S3_CSI_ROLE_ARN
+    --service-account-role-arn <S3_CSI_ROLE_ARN>
 ```
 
 For detailed installation instructions including required IAM permissions, see [Mountpoint for Amazon S3 CSI driver](../../../eks/latest/userguide/workloads-add-ons-available-eks.md#mountpoint-for-s3-add-on "../../../eks/latest/userguide/workloads-add-ons-available-eks.md#mountpoint-for-s3-add-on"). 2. **Amazon FSx CSI Driver** (minimum version: v1.6.0-eksbuild.1)
@@ -931,6 +931,7 @@ aws ec2 create-vpc-endpoint \
 ```
 
 10. Configure S3 storage access:
+
     1.  Create an IAM policy that grants the necessary S3 permissions for
         using Mountpoint for Amazon S3, which enables file system access to
         S3 buckets from within the cluster.
@@ -975,13 +976,13 @@ aws ec2 create-vpc-endpoint \
         {
             "Effect": "Allow",
             "Principal": {
-                "Federated": "arn:aws:iam::$ACCOUNT_ID:oidc-provider/oidc.eks.$REGION.amazonaws.com/id/${OIDC_ID}"
+                "Federated": "arn:aws:iam::${ACCOUNT_ID}:oidc-provider/oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}"
             },
             "Action": "sts:AssumeRoleWithWebIdentity",
             "Condition": {
                 "StringEquals": {
-                    "oidc.eks.$REGION.amazonaws.com/id/${OIDC_ID}:aud": "sts.amazonaws.com",
-                    "oidc.eks.$REGION.amazonaws.com/id/${OIDC_ID}:sub": "system:serviceaccount:kube-system:${s3-csi-driver-sa}"
+                    "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:aud": "sts.amazonaws.com",
+                    "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:sub": "system:serviceaccount:kube-system:${s3-csi-driver-sa}"
                 }
             }
         }
@@ -994,7 +995,6 @@ aws ec2 create-vpc-endpoint \
     aws iam attach-role-policy --role-name $S3_CSI_ROLE_NAME --policy-arn "arn:aws:iam::$ACCOUNT_ID:policy/S3MountpointAccessPolicy"
 
     ```
-
     2.  (Optional) Create an IAM service account for the Amazon S3 CSI
         driver. The Amazon S3 CSI driver requires an IAM service account
         with appropriate permissions to mount S3 buckets as persistent
@@ -1019,7 +1019,6 @@ aws ec2 create-vpc-endpoint \
 
     kubectl label serviceaccount s3-csi-driver-sa app.kubernetes.io/component=csi-driver app.kubernetes.io/instance=aws-mountpoint-s3-csi-driver app.kubernetes.io/managed-by=EKS app.kubernetes.io/name=aws-mountpoint-s3-csi-driver -n kube-system --overwrite
     ```
-
     3.  (Optional) Install the Amazon S3 CSI driver add-on. This driver
         enables your pods to mount S3 buckets as persistent volumes,
         providing direct access to S3 storage from within your Kubernetes
@@ -1031,7 +1030,6 @@ aws ec2 create-vpc-endpoint \
     export S3_CSI_ROLE_ARN=$(aws iam get-role --role-name $S3_CSI_ROLE_NAME  --query 'Role.Arn' --output text)
     eksctl create addon --name aws-mountpoint-s3-csi-driver --cluster $EKS_CLUSTER_NAME --service-account-role-arn $S3_CSI_ROLE_ARN --force
     ```
-
     4.  (Optional) Create a Persistent Volume Claim (PVC) for S3 storage.
         This PVC enables your pods to request and use S3 storage as if it
         were a traditional file system.
@@ -1088,13 +1086,13 @@ cat <<EOF > /tmp/keda-trust-policy.json
     {
         "Effect": "Allow",
         "Principal": {
-            "Federated": "arn:aws:iam::$ACCOUNT_ID:oidc-provider/oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID"
+            "Federated": "arn:aws:iam::${ACCOUNT_ID}:oidc-provider/oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}"
         },
         "Action": "sts:AssumeRoleWithWebIdentity",
         "Condition": {
             "StringLike": {
-                "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:sub": "system:serviceaccount:kube-system:keda-operator",
-                "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:aud": "sts.amazonaws.com"
+                "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:sub": "system:serviceaccount:kube-system:keda-operator",
+                "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:aud": "sts.amazonaws.com"
             }
         }
     }
@@ -1146,6 +1144,7 @@ aws iam attach-role-policy \
 
 2. If you're using gated models, create an IAM role to access the gated
    models.
+
    1. Create the trust policy and IAM role for gated model access.
 
    ```
@@ -1160,13 +1159,13 @@ aws iam attach-role-policy \
        {
            "Effect": "Allow",
            "Principal": {
-               "Federated": "arn:aws:iam::$ACCOUNT_ID:oidc-provider/oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID"
+               "Federated": "arn:aws:iam::${ACCOUNT_ID}:oidc-provider/oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}"
            },
            "Action": "sts:AssumeRoleWithWebIdentity",
            "Condition": {
                "StringLike": {
-                   "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:sub": "system:serviceaccount:*:hyperpod-inference-service-account*",
-                   "oidc.eks.$REGION.amazonaws.com/id/$OIDC_ID:aud": "sts.amazonaws.com"
+                   "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:sub": "system:serviceaccount:*:hyperpod-inference-service-account*",
+                   "oidc.eks.${REGION}.amazonaws.com/id/${OIDC_ID}:aud": "sts.amazonaws.com"
                }
            }
        },
@@ -1260,7 +1259,7 @@ helm install hyperpod-inference-operator charts/inference-operator \
 EKS_CLUSTER_ROLE_NAME=$(echo $EKS_CLUSTER_ROLE | sed 's/.*\///')
 
 # Annotate service account
-kubectl annotate serviceaccount hyperpod-inference-operator-controller-manager \
+kubectl annotate serviceaccount hyperpod-inference-controller-manager \
 -n hyperpod-inference-system \
 eks.amazonaws.com/role-arn=arn:aws:iam::${ACCOUNT_ID}:role/${EKS_CLUSTER_ROLE_NAME} \
 --overwrite
@@ -1282,19 +1281,19 @@ cat <<EOF>> simple_model_install.yaml
 apiVersion: inference.sagemaker.aws.amazon.com/v1
 kind: JumpStartModel
 metadata:
-name: testing-deployment-bert
-namespace: default
+  name: testing-deployment-bert
+  namespace: default
 spec:
-model:
-modelId: "huggingface-eqa-bert-base-cased"
-sageMakerEndpoint:
-name: "hp-inf-ep-for-testing"
-server:
-instanceType: "ml.c5.2xlarge"
-environmentVariables:
-- name: SAMPLE_ENV_VAR
-    value: "sample_value"
-maxDeployTimeInSeconds: 1800
+  sageMakerEndpoint:
+    name: "hp-inf-ep-for-testing"
+  model:
+    modelId: "huggingface-eqa-bert-base-cased"
+  server:
+    instanceType: "ml.c5.2xlarge"
+  environmentVariables:
+    - name: SAMPLE_ENV_VAR
+      value: "sample_value"
+  maxDeployTimeInSeconds: 1800
 EOF
 ```
 
@@ -1312,7 +1311,7 @@ rm -f simple_model_install.yaml
 kubectl get serviceaccount -n hyperpod-inference-system
 
 # Check if the service account has the AWS annotations
-kubectl describe serviceaccount hyperpod-inference-operator-controller-manager -n hyperpod-inference-system
+kubectl describe serviceaccount hyperpod-inference-controller-manager -n hyperpod-inference-system
 ```
 
 ###### Configure deployment settings (if using Studio UI)
@@ -1340,7 +1339,7 @@ configuring fine-grained Kubernetes RBAC permissions for data scientist users, r
 export DATASCIENTIST_ROLE_NAME="<Execution Role Name used in SageMaker Studio Classic>"
 
 export DATASCIENTIST_POLICY_NAME="HyperPodUIAccessPolicy"
-export EKS_CLUSTER_ARN=$(aws --region $REGION sagemaker describe-cluster --cluster-name $HYPERPOD_CLUSTER_NAME \
+export EKS_CLUSTER_ARN=$(aws --region ${REGION} sagemaker describe-cluster --cluster-name ${HYPERPOD_CLUSTER_NAME} \
   --query 'Orchestrator.Eks.ClusterArn' --output text)
 
 export DATASCIENTIST_HYPERPOD_NAMESPACE="team-namespace"
@@ -1362,7 +1361,7 @@ cat << EOF > hyperpod-deployment-ui-access-policy.json
             "Action": [
                 "sagemaker:DescribeCluster"
             ],
-            "Resource": "$HYPERPOD_CLUSTER_ARN"
+            "Resource": "${HYPERPOD_CLUSTER_ARN}"
         },
         {
             "Sid": "UseEksClusterPermissions",
@@ -1373,7 +1372,7 @@ cat << EOF > hyperpod-deployment-ui-access-policy.json
                 "eks:MutateViaKubernetesApi",
                 "eks:DescribeAddon"
             ],
-            "Resource": "$EKS_CLUSTER_ARN"
+            "Resource": "${EKS_CLUSTER_ARN}"
         },
         {
             "Sid": "ListPermission",
@@ -1391,13 +1390,13 @@ cat << EOF > hyperpod-deployment-ui-access-policy.json
                 "sagemaker:DescribeEndpoint",
                 "sagemaker:InvokeEndpoint"
             ],
-            "Resource": "arn:aws:sagemaker:$REGION:$ACCOUNT_ID:endpoint/*"
+            "Resource": "arn:aws:sagemaker:${REGION}:${ACCOUNT_ID}:endpoint/*"
         }
     ]
 }
 EOF
 
-aws iam put-role-policy --role-name DATASCIENTIST_ROLE_NAME --policy-name HyperPodDeploymentUIAccessInlinePolicy --policy-document file://hyperpod-deployment-ui-access-policy.json
+aws iam put-role-policy --role-name ${DATASCIENTIST_ROLE_NAME} --policy-name HyperPodDeploymentUIAccessInlinePolicy --policy-document file://hyperpod-deployment-ui-access-policy.json
 ```
 
 3. Create an EKS Access Entry for the user mapping them to a kubernetes
@@ -1406,8 +1405,8 @@ aws iam put-role-policy --role-name DATASCIENTIST_ROLE_NAME --policy-name HyperP
 ```
 %%bash -x
 
-aws eks create-access-entry --cluster-name $EKS_CLUSTER_NAME \
-    --principal-arn "arn:aws:iam::$ACCOUNT_ID:role/$DATASCIENTIST_ROLE_NAME" \
+aws eks create-access-entry --cluster-name ${EKS_CLUSTER_NAME} \
+    --principal-arn "arn:aws:iam::${ACCOUNT_ID}:role/${DATASCIENTIST_ROLE_NAME}" \
     --kubernetes-groups '["hyperpod-scientist-user-namespace-level","hyperpod-scientist-user-cluster-level"]'
 
 ```
@@ -1431,7 +1430,7 @@ rules:
   verbs: ["list"]
 - apiGroups: [""]
   resources: ["namespaces"]
-  verbs: ["list"]
+  verbs: ["get", "list"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -1480,7 +1479,7 @@ rules:
   resources: ["secrets"]
   verbs: ["create", "get", "list", "delete"]
 - apiGroups: [ "inference.sagemaker.aws.amazon.com" ]
-  resources: [ "inferenceendpointconfig", "inferenceendpoint", "jumpstartmodel" ]
+  resources: [ "inferenceendpointconfig", "inferenceendpoint", "jumpstartmodels" ]
   verbs: [ "get", "list", "create", "delete", "update", "describe" ]
 - apiGroups: [ "autoscaling" ]
   resources: [ "horizontalpodautoscalers" ]

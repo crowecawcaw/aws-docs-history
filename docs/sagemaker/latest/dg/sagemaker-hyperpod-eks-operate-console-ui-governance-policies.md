@@ -16,6 +16,7 @@ compute is borrowed and how tasks are prioritized by teams.
   allocated across teams. That is, how unused compute can be borrowed from teams.
   When choosing an **Idle compute allocation**, you can choose
   between:
+
   - **First-come first-serve**: When applied, teams are
     not prioritized against each other and each incoming task is equally
     likely to obtain over-quota resources. Tasks are prioritized based on
@@ -29,6 +30,7 @@ compute is borrowed and how tasks are prioritized by teams.
 - **Task prioritization** defines how tasks are queued as
   compute becomes available. When choosing a **Task
   prioritization**, you can choose between:
+
   - **First-come first-serve**: When applied, tasks are
     queued in the order they are requested.
   - **Task ranking**: When applied, tasks are queued in
@@ -153,6 +155,7 @@ Unllocated Resource Sharing only includes nodes that meet the following
 requirements:
 
 1. **Node Ready Status**
+
    - Nodes must be in `Ready` status to contribute to the
      unallocated resource pool.
    - Nodes in `NotReady` or other non-ready states are
@@ -161,12 +164,14 @@ requirements:
      included in the next reconciliation cycle.
 
 2. **Node Schedulable Status**
+
    - Nodes with `spec.unschedulable: true` are excluded
      from unallocated resource sharing.
    - When a node becomes schedulable again, it is automatically
      included in the next reconciliation cycle.
 
 3. **MIG Configuration (GPU nodes only)**
+
    - For GPU nodes with MIG (Multi-Instance GPU) partitioning, the
      `nvidia.com/mig.config.state` label must show
      `success` for the node to contribute MIG profiles to
@@ -175,6 +180,7 @@ requirements:
      completes successfully.
 
 4. **Supported Instance Types**
+
    - The instance must be a supported SageMaker HyperPod instance type.
    - See the list of supported instance types in the SageMaker HyperPod cluster.
 

@@ -45,7 +45,7 @@ then routes it based on one of the following routing strategies:
 2. `kvaware` — Incoming requests are routed to the instance with the highest KV cache hit rate.
 3. `session` — Requests from the same user session are routed to the same instance.
 4. `roundrobin` — Even distribution of requests without considering the state of the KV cache.
-   For more information on how to enable this feature, see [Configure KV caching and intelligent routing for improved performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+   For more information on how to enable this feature, see [Configure KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
 
 **Inbuilt L2 cache Tiered Storage Support for KV Caching**
 
@@ -90,5 +90,7 @@ We collect certain routine operational metrics to provide essential service avai
 - [Implementing inference observability on HyperPod clusters](sagemaker-hyperpod-model-deployment-observability.md "sagemaker-hyperpod-model-deployment-observability.md")
 - [Task governance for model deployment on HyperPod](sagemaker-hyperpod-model-deployment-task-gov.md "sagemaker-hyperpod-model-deployment-task-gov.md")
 - [Data capture for inference on HyperPod](sagemaker-hyperpod-model-deployment-data-capture.md "sagemaker-hyperpod-model-deployment-data-capture.md")
+- [Disaggregated Prefill and Decode for HyperPod inference](sagemaker-hyperpod-model-deployment-dpd.md "sagemaker-hyperpod-model-deployment-dpd.md")
 - [HyperPod inference troubleshooting](sagemaker-hyperpod-model-deployment-ts.md "sagemaker-hyperpod-model-deployment-ts.md")
+- [KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md "sagemaker-hyperpod-model-deployment-caching-routing.md")
 - [Amazon SageMaker HyperPod Inference release notes](sagemaker-hyperpod-inference-release-notes.md "sagemaker-hyperpod-inference-release-notes.md")

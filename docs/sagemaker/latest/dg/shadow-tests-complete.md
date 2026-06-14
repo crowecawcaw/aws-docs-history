@@ -25,6 +25,7 @@ To complete your test before its scheduled end date, do the following:
 2. From the **Actions** dropdown list, choose **Complete**, and the
    **Complete shadow test** dialog box appears.
 3. In the dialog box, choose one of the following options:
+
    - **Yes, deploy shadow variant**
    - **No, remove shadow variant**
 
@@ -64,6 +65,7 @@ variant.
 To promote your shadow variant, do the following:
 
 1. If your test has completed, do the following:
+
    1. Select the test from the **Shadow test** section on the **Shadow
       tests** page.
    2. From the **Actions** dropdown list, choose **View**. The
@@ -73,6 +75,7 @@ To promote your shadow variant, do the following:
       If your test has not completed, see [Complete a shadow test early](#shadow-tests-complete-early "#shadow-tests-complete-early") to complete it.
 
 2. In the **Variant settings** section, select one of the following options:
+
    - **Retain production settings**
    - **Retain shadow settings**
    - **Custom instance settings**

@@ -31,6 +31,7 @@ Studio run on spaces:
   A space is composed of the following resources:
 
 - A storage volume.
+
   - For Studio Classic, the space is connected to the shared Amazon Elastic File System (Amazon EFS)
     volume for the domain.
   - For other applications, a distinct Amazon Elastic Block Store (Amazon EBS) volume is attached to

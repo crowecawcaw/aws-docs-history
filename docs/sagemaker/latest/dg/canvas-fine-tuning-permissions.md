@@ -59,6 +59,7 @@ in the domain, do the following:
 6. The **Edit Canvas settings** page opens. For the
    **Canvas Ready-to-use models configuration** section, do
    the following:
+
    1. Turn on the **Enable Canvas Ready-to-use models option**.
    2. For **Amazon Bedrock role**, select **Create and use a new
       execution role** to create a new IAM execution role that has the

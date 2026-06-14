@@ -25,6 +25,7 @@ The high-level Debugger workflow is as follows:
 1. Modify your training script with the `sagemaker-debugger` Python
    SDK if needed.
 2. Configure a SageMaker training job with SageMaker Debugger.
+
    - Configure using the SageMaker AI Estimator API (for Python SDK).
    - Configure using the SageMaker AI [`CreateTrainingJob` request (for Boto3 or
      CLI)](debugger-createtrainingjob-api.md "debugger-createtrainingjob-api.md").
@@ -32,15 +33,18 @@ The high-level Debugger workflow is as follows:
      training containers](debugger-bring-your-own-container.md "debugger-bring-your-own-container.md") with SageMaker Debugger.
 
 3. Start a training job and monitor training issues in real time.
+
    - [List of Debugger built-in rules](debugger-built-in-rules.md "debugger-built-in-rules.md").
 
 4. Get alerts and take prompt actions against the training issues.
+
    - Receive texts and emails and stop training jobs when training issues
      are found using [Use Debugger built-in actions for rules](debugger-built-in-actions.md "debugger-built-in-actions.md").
    - Set up your own actions using [Amazon CloudWatch Events and
      AWS Lambda](debugger-cloudwatch-lambda.md "debugger-cloudwatch-lambda.md").
 
 5. Explore deep analysis of the training issues.
+
    - For debugging model output tensors, see [Visualize Debugger Output
      Tensors in TensorBoard](debugger-enable-tensorboard-summaries.md "debugger-enable-tensorboard-summaries.md").
 

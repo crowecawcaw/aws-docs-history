@@ -433,6 +433,7 @@ replace missing values in a specified column, do the following.
    replaces missing values with imputed values that best fit your data. This imputation method is done automatically
    for each model build, unless you specify the **Manual** mode.
 5. Set the **Replace with** value:
+
    - If your column is numeric, then select **Mean**,
      **Median**, or **Custom**. **Mean**
      replaces missing values with the mean for the column, and **Median**

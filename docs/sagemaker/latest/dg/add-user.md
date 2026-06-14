@@ -12,6 +12,7 @@ distinct usernames, there are two options:
    `arn:aws:sts::{ACCOUNT_ID}:assumed-role/{ROLE_NAME}/{SESSION_NAME}`. With this
    default, users will already be differentiated by session name. An Admin has a few
    ways to enforce unique session names per user.
+
    - SSO login - Users using SSO login will by default have a session
      name tied to their AWS username
    - Central credentials vending service - For enterprise customers,

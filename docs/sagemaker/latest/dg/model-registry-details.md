@@ -716,6 +716,7 @@ Studio
 6. In the list of model versions, select the model version to
    view.
 7. Choose one of the following tabs.
+
    - **Training**: To view or edit
      details related to your training job, including
      performance metrics, artifacts, IAM role and
@@ -754,6 +755,7 @@ Studio Classic
    model version for which you want to view details.
 7. On the model version tab that opens, choose one of the
    following to see details about the model version:
+
    - **Activity**: Shows events for
      the model version, such as approval status
      updates.

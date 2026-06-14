@@ -44,6 +44,7 @@ https://sagemaker-distributed-model-parallel.s3.`<us-west-2>`.amazonaws.com/enro
 ```
 
 - Pre-installed packages
+
   - The SMP library v2.8.0
   - The SMDDP library v2.6.0
   - CUDNN v9.4.0
@@ -100,6 +101,7 @@ https://sagemaker-distributed-model-parallel.s3.`<us-west-2>`.amazonaws.com/enro
 ```
 
 - Pre-installed packages
+
   - The SMP library v2.7.0
   - The SMDDP library v2.5.0
   - CUDNN v9.4.0
@@ -162,6 +164,7 @@ picks up the SMP Docker containers.
 ```
 
 - Pre-installed packages
+
   - The SMP library v2.6.1
   - The SMDDP library v2.5.0
   - CUDNN v9.4.0
@@ -195,12 +198,14 @@ _Date: October 17, 2024_
 - Added support for the following LLM model configurations. You can start
   using [Context parallelism](model-parallel-core-features-v2-context-parallelism.md "model-parallel-core-features-v2-context-parallelism.md")
   and [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md").
+
   - [Llama3.1 8B](https://huggingface.co/meta-llama/Llama-3.1-8B "https://huggingface.co/meta-llama/Llama-3.1-8B")
   - [Llama3.1 70B](https://huggingface.co/meta-llama/Llama-3.1-70B "https://huggingface.co/meta-llama/Llama-3.1-70B")
   - [Mistral 7B](https://huggingface.co/mistralai/Mistral-7B-v0.3 "https://huggingface.co/mistralai/Mistral-7B-v0.3")
 
 - Added [Tensor parallelism](model-parallel-core-features-v2-tensor-parallelism.md "model-parallel-core-features-v2-tensor-parallelism.md")
   support for the following Mixtral model configurations.
+
   - [Mixtral 8x7B](https://huggingface.co/mistralai/Mixtral-8x7B-v0.1 "https://huggingface.co/mistralai/Mixtral-8x7B-v0.1")
   - [Mixtral 8x22B](https://huggingface.co/mistralai/Mixtral-8x22B-v0.1 "https://huggingface.co/mistralai/Mixtral-8x22B-v0.1")
 
@@ -254,6 +259,7 @@ picks up the SMP Docker containers.
 ```
 
 - Pre-installed packages
+
   - The SMP library v2.6.0
   - The SMDDP library v2.5.0
   - CUDNN v9.4.0
@@ -286,17 +292,20 @@ _Date: August 28, 2024_
 
 - Added support for mixed-precision training using FP8 data format on P5
   instances for the Mixtral model.
+
   - Supported Mixtral configurations are 8x7B and 8x22B. To learn
     more, see [Mixed precision training with FP8 on P5 instances using Transformer Engine](model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5").
 
 - Added support for [Context parallelism](model-parallel-core-features-v2-context-parallelism.md "model-parallel-core-features-v2-context-parallelism.md") for the
   following model configurations.
+
   - Llama-v2: 7B and 70B
   - Llama-v3: 8B and 70B
   - GPT-NeoX: 20B
 
 - Added support for saving checkpoints asynchronously. To learn more, see
   [Checkpointing using SMP](model-parallel-core-features-v2-checkpoints.md "model-parallel-core-features-v2-checkpoints.md").
+
   - Support for saving checkpoints to S3 directly without using Amazon EBS
     or file servers.
 
@@ -335,6 +344,7 @@ Python SDK to v2.224.0 or later.
 
 - Upgraded the FlashAttention library to v2.5.8
 - Upgraded the Transformer Engine library to v1.8
+
   - If you want to install Transformer Engine in a Conda environment,
     you need to build from the source and cherry-pick the specific
     upstream fixes ([744624d](https://github.com/NVIDIA/TransformerEngine/commit/744624d004f4514ffbaa90ac83e214311c86c607 "https://github.com/NVIDIA/TransformerEngine/commit/744624d004f4514ffbaa90ac83e214311c86c607"), [27c6342](https://github.com/NVIDIA/TransformerEngine/commit/27c6342ea8ad88034bf04b587dd13cb6088d2474 "https://github.com/NVIDIA/TransformerEngine/commit/27c6342ea8ad88034bf04b587dd13cb6088d2474"), [7669bf3](https://github.com/NVIDIA/TransformerEngine/commit/7669bf3da68074517b134cd6acebd04b221fd545 "https://github.com/NVIDIA/TransformerEngine/commit/7669bf3da68074517b134cd6acebd04b221fd545")).
@@ -350,6 +360,7 @@ Python SDK to v2.224.0 or later.
 For a complete list of supported regions, see [AWS Regions](distributed-data-parallel-support.md#distributed-data-parallel-availablity-zone "distributed-data-parallel-support.md#distributed-data-parallel-availablity-zone").
 
 - Pre-installed packages
+
   - The SMP library v2.5.0
   - The SMDDP library v2.3.0
   - CUDNN v8.9.7.29
@@ -435,6 +446,7 @@ Python SDK to v2.224.0 or later.
 ```
 
 - Pre-installed packages
+
   - The SMP library v2.4.0
   - The SMDDP library v2.3.0
   - CUDNN v8.9.7.29
@@ -529,6 +541,7 @@ _Date: March 7, 2024_
 
 - Added support for [FP8 training](model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5 "model-parallel-core-features-v2-mixed-precision.md#model-parallel-core-features-v2-mixed-precision-fp8-training-on-p5") of the following Hugging Face transformer models on P5
   instances with Transformer Engine integration:
+
   - GPT-NeoX
   - Llama 2
 
@@ -684,6 +697,7 @@ offerings.
 
 - Activation checkpointing currently only works with the following wrapping
   policies with FSDP.
+
   - `auto_wrap_policy =
 functools.partial(transformer_auto_wrap_policy, ...)`
 

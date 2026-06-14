@@ -21,6 +21,7 @@ following:
 - A model package ARN or model name. Inference Recommender supports either
   one model package ARN or a model name as input. Specify one
   of the following:
+
   - The ARN of the versioned model package you created
     when you registered your model with SageMaker AI model
     registry. Define this for
@@ -122,6 +123,7 @@ In addition, provide the following:
 - A model package ARN or model name. Inference Recommender supports either
   one model package ARN or a model name as input. Specify one
   of the following
+
   - The ARN of the versioned model package you created
     when you registered your model with Model Registry.
     Define this for `ModelPackageVersionArn`
@@ -244,6 +246,7 @@ doing the following:
    page, choose **Create job**.
 4. For **Step 1: Model configuration**, do
    the following:
+
    1. For **Job type**, choose
       **Default recommender
       job**.
@@ -251,6 +254,7 @@ doing the following:
       model registry, then turn on the **Choose a
       model from the model registry** toggle
       and do the following:
+
       1. From the **Model group**
          dropdown list, choose the model group in SageMaker AI
          model registry where your model is located.
@@ -262,6 +266,7 @@ doing the following:
       SageMaker AI, then turn off the **Choose a model
       from the model registry toggle** and do
       the following:
+
       1. For the **Model name**
          field, enter the name of your SageMaker AI model.
 
@@ -286,6 +291,7 @@ doing the following:
       and specified a SageMaker AI model, then for
       **Container configuration**, do
       the following:
+
       1. For the **Domain** dropdown
          list, select the machine learning domain of the
          model, such as computer vision, natural language
@@ -316,6 +322,7 @@ doing the following:
 
 5. For **Step 2: Instances and environment
    parameters**, do the following:
+
    1. (Optional) For **Select instances for
       benchmarking**, you can select up to 8
       instance types that you want to benchmark. If you
@@ -325,6 +332,7 @@ doing the following:
 
 6. For **Step 3: Job parameters**, do the
    following:
+
    1. (Optional) For the **Job name**
       field, enter a name for your instance recommendation
       job. When you create the job, SageMaker AI appends a

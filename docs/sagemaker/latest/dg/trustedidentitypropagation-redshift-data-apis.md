@@ -14,6 +14,7 @@ have completed the following setups:
 - [Setting up trusted identity propagation for Studio](trustedidentitypropagation-setup.md "trustedidentitypropagation-setup.md")
 - [Using Redshift Data API with
   trusted identity propagation](../../../redshift/latest/mgmt/data-api-trusted-identity-propagation.md "../../../redshift/latest/mgmt/data-api-trusted-identity-propagation.md")
+
   - Ensure your execution role has relevant permissions for Redshift Data API. See [authorizing
     access](../../../redshift/latest/mgmt/data-api-access.md "../../../redshift/latest/mgmt/data-api-access.md") for more information.
 

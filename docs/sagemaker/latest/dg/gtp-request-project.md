@@ -14,6 +14,7 @@ To request a project, do the following:
 2. On the **SageMaker Ground Truth Plus** page, choose **Request project**.
 3. A page titled **Request a project** opens. The page includes fields for
    **General information** and **Project overview**. Enter the following information
+
    1. Under **General information**, enter your **First name**,
       **Last name** and **Business email address**.
       An AWS expert uses this information for contacting you to discuss the project after you submit the request.
@@ -21,6 +22,7 @@ To request a project, do the following:
       Choose the **Task type** based on your data and use case.
       You can also indicate if your data contains personally identifiable information (PII).
    3. Create or select an IAM role that grants SageMaker Ground Truth Plus permissions to perform a labeling job by choosing one of the options below.
+
       1. You can **Create an IAM role** that provides access to any S3 bucket you specify.
       2. You can **Enter a custom IAM role ARN**.
       3. You can choose an existing role.

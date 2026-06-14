@@ -20,6 +20,7 @@ Review the following prerequisites before you create a Ground Truth labeling job
 - If you are a new user of Ground Truth, review [Getting started](sms-getting-started.md "sms-getting-started.md") to learn how to create a labeling job.
 - If your input data is located in a VPC-protected Amazon S3 bucket, your workers must access the worker portal from your VPC. VPC based labeling jobs require the use of a private work team. To learn more about creating a private work team, see [Use a Private Workforce](sms-workforce-private.md "sms-workforce-private.md").
 - The following prerequisites are specific to launching a labeling job in your VPC.
+
   - Use the instructions in [Create an Amazon S3 VPC Endpoint](train-vpc.md#train-vpc-s3 "train-vpc.md#train-vpc-s3"). Training and inference
     containers used in the automated data labeling workflow use this
     endpoint to communicate with your buckets in Amazon S3.
@@ -28,6 +29,7 @@ Review the following prerequisites before you create a Ground Truth labeling job
     do not support automated data labeling.
 
 - Review the [Ground Truth Security and Permissions](sms-security-general.md "sms-security-general.md") section and ensure that you have met the following conditions.
+
   - The
     user creating the labeling job has all necessary permissions
   - You have created

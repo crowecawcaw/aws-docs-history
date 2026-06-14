@@ -31,6 +31,7 @@ create an Inference Recommender load test. Specify `Advanced` for the
 - An endpoint configuration dictionary
   (`InputConfig`) where you specify the
   following:
+
   - For `TrafficPattern`, specify either
     the phases or stairs traffic pattern. With the
     phases traffic pattern, new users spawn every minute
@@ -39,6 +40,7 @@ create an Inference Recommender load test. Specify `Advanced` for the
     _steps_) at a
     rate you specify. Choose one of the
     following:
+
     - For `TrafficType`, specify
       `PHASES`. Then, for the
       `Phases` array, specify the
@@ -87,6 +89,7 @@ create an Inference Recommender load test. Specify `Advanced` for the
     10).
   - For `EndpointConfigurations`, you can
     specify one of the following:
+
     - The `InstanceType` field, where
       you specify the instance type on which you want to
       run your load tests.
@@ -100,6 +103,7 @@ create an Inference Recommender load test. Specify `Advanced` for the
   (`StoppingConditions`), where if any of the
   conditions are met, the Inference Recommender job stops. For this example,
   specify the following fields in the dictionary:
+
   - For `MaxInvocations`, specify the
     maximum number of requests per minute expected for
     the endpoint, with a minimum of 1 and a maximum of
@@ -218,6 +222,7 @@ create an Inference Recommender load test. Specify `Advanced` for the
 - An endpoint configuration dictionary
   (`input-config`) where you specify the
   following:
+
   - For `TrafficPattern`, specify either
     the phases or stairs traffic pattern. With the
     phases traffic pattern, new users spawn every minute
@@ -226,6 +231,7 @@ create an Inference Recommender load test. Specify `Advanced` for the
     _steps_) at a
     rate you specify. Choose one of the
     following:
+
     - For `TrafficType`, specify
       `PHASES`. Then, for the
       `Phases` array, specify the
@@ -274,6 +280,7 @@ create an Inference Recommender load test. Specify `Advanced` for the
     10).
   - For `EndpointConfigurations`, you can
     specify one of the following:
+
     - The `InstanceType` field, where
       you specify the instance type on which you want to
       run your load tests.
@@ -287,6 +294,7 @@ create an Inference Recommender load test. Specify `Advanced` for the
   (`stopping-conditions`), where if any of the
   conditions are met, the Inference Recommender job stops. For this example,
   specify the following fields in the dictionary:
+
   - For `MaxInvocations`, specify the
     maximum number of requests per minute expected for
     the endpoint, with a minimum of 1 and a maximum of
@@ -400,6 +408,7 @@ Create a load test with Studio Classic.
 11. Choose **Stopping Conditions** to expand
     the available input fields. Provide a set of conditions for
     stopping a deployment recommendation.
+
     1. Specify the maximum number of requests per minute
        expected for the endpoint in the **Max
        Invocations Per Minute** field.
@@ -416,6 +425,7 @@ Create a load test with Studio Classic.
 
 12. Choose **Traffic Pattern** to expand the
     available input fields.
+
     1. Set the initial number of virtual users by
        specifying an integer in the **Initial
        Number of Users** field.
@@ -441,6 +451,7 @@ Create a load test with Studio Classic.
     Select up to 10 instances for Inference Recommender to use for load
     testing.
 17. Choose **Additional settings**.
+
     1. Provide an integer that sets an upper limit on the
        number of tests a job can make for the **Max
        number of tests field**. Note that each
@@ -474,6 +485,7 @@ following:
    page, choose **Create job**.
 4. For **Step 1: Model configuration**, do
    the following:
+
    1. For **Job type**, choose
       **Advanced recommender
       job**.
@@ -481,6 +493,7 @@ following:
       model registry, then turn on the **Choose a
       model from the model registry** toggle
       and do the following:
+
       1. For the **Model group**
          dropdown list, choose the model group in SageMaker AI
          model registry where your model is.
@@ -492,6 +505,7 @@ following:
       SageMaker AI, then turn off the **Choose a model
       from the model registry** toggle and do
       the following:
+
       1. For the **Model name**
          field, enter the name of your SageMaker AI model.
 
@@ -514,6 +528,7 @@ following:
    7. For **Traffic pattern**,
       configure phases for the load test by doing the
       following:
+
       1. For **Initial number of
          users**, specify how many concurrent
          users you want to start with (with a minimum of 1
@@ -532,6 +547,7 @@ following:
       and specified a SageMaker AI model, then for
       **Container configuration**, do
       the following:
+
       1. For the **Domain** dropdown
          list, select the machine learning domain of the
          model, such as computer vision, natural language
@@ -562,6 +578,7 @@ following:
 
 5. For **Step 2: Instances and environment
    parameters**, do the following:
+
    1. For **Select instances for
       benchmarking**, select up to 8 instance
       types that you want to benchmark against.
@@ -574,6 +591,7 @@ following:
 
 6. For **Step 3: Job parameters**, do the
    following:
+
    1. (Optional) For the **Job name**
       field, enter a name for your instance recommendation
       job. When you create the job, SageMaker AI appends a

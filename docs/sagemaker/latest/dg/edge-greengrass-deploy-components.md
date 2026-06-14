@@ -13,6 +13,7 @@ Deploy your AWS IoT Greengrass components with the AWS IoT console.
    choose **Deploy**.
 4. From `Add to deployment`, choose one of the
    following:
+
    1. To merge this component to an existing deployment on your
       target device, choose **Add to existing
       deployment**, and then select the deployment
@@ -24,6 +25,7 @@ Deploy your AWS IoT Greengrass components with the AWS IoT console.
 
 5. On the **Specify target** page, do the
    following:
+
    1. Under **Deployment information**, enter
       or modify the friendly name for your deployment.
    2. Under **Deployment targets**, select a
@@ -34,6 +36,7 @@ Deploy your AWS IoT Greengrass components with the AWS IoT console.
 
 6. On the **Select components** page, under
    **My components**, choose:
+
    - com.`<CUSTOM-COMPONENT-NAME>`
    - `aws.greengrass.SageMakerEdgeManager`
    - SagemakerEdgeManager.`<YOUR-PACKAGING-JOB>`
@@ -41,6 +44,7 @@ Deploy your AWS IoT Greengrass components with the AWS IoT console.
 7. On the **Configure components** page, choose
    **com.greengrass.SageMakerEdgeManager**, and do
    the following.
+
    1. Choose **Configure component**.
    2. Under **Configuration update**, in
       **Configuration to merge**, enter the

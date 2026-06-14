@@ -125,6 +125,7 @@ aws sagemaker \
 1. Call the [UpdateDomain](../APIReference/API_UpdateDomain.md "../APIReference/API_UpdateDomain.md") API to
    add support for RStudio on SageMaker AI. The `defaultusersettings` parameter is only
    needed if you have refactored the default security groups for your user profiles.
+
    - For `VPCOnly` mode:
 
    ```
@@ -135,7 +136,6 @@ aws sagemaker \
        --domain-settings-for-update RStudioServerProDomainSettingsForUpdate={DomainExecutionRoleArn=`<DOMAIN_EXECUTION_ROLE_ARN>`} \
        --default-user-settings "{\"SecurityGroups\": [\"`<SECURITY_GROUP>`\", \"`<SECURITY_GROUP>`\"]}"
    ```
-
    - For `PublicInternetOnly` mode:
 
    ```

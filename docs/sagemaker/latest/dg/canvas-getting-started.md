@@ -19,6 +19,7 @@ To set up a SageMaker Canvas application, onboard using one of the following set
    through the AWS console, you first create an Amazon SageMaker AI domain. SageMaker AI domains support the various machine learning (ML) environments such as Canvas and
    [SageMaker Studio](studio.md "studio.md"). For more information
    about domains, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
+
    1. (Quick) [Use quick setup for Amazon SageMaker AI](onboard-quick-start.md "onboard-quick-start.md") – Choose this option if you’d like to quickly
       set up a domain. This grants your user all of the default Canvas permissions and basic functionality.
       Any additional features such as [document querying](canvas-fm-chat.md#canvas-fm-chat-query "canvas-fm-chat.md#canvas-fm-chat-query")
@@ -87,6 +88,7 @@ In the domain setup’s **Step 3: Applications** section, choose **Configure Can
    SageMaker AI creates a `Canvas/` folder inside this bucket to store the data.
    For more information, see [Configure your Amazon S3 storage](canvas-storage-configuration.md "canvas-storage-configuration.md").
    For this section, do the following:
+
    1. Select **System managed** if you want to set the location to the
       default SageMaker AI-created bucket that follows the pattern
       `s3://sagemaker-`{Region}`-`{your-account-id}``.
@@ -96,6 +98,7 @@ In the domain setup’s **Step 3: Applications** section, choose **Configure Can
       Canvas artifacts stored at the specified location.
 
 2. (Optional) For **Amazon Q Developer**, do the following:
+
    1. Turn on **Enable Amazon Q Developer in SageMaker Canvas for natural language ML** to
       give your users permissions to leverage generative AI assistance during their ML workflow in Canvas.
       This option only grants permissions to query Amazon Q Developer for help with predetermined tasks that
@@ -107,6 +110,7 @@ In the domain setup’s **Step 3: Applications** section, choose **Configure Can
    plan to process datasets larger than 5 GB in Canvas. For more detailed information about how
    to configure these options, see [Grant Users Permissions to Use Large Data across the ML Lifecycle](canvas-large-data-permissions.md "canvas-large-data-permissions.md").
 4. (Optional) For the **ML Ops permissions configuration** section, do the following:
+
    1. Leave the **Enable direct deployment of Canvas models** option
       turned on to give your users permissions to deploy their models from Canvas to a SageMaker AI endpoint.
       For more information about model deployment in Canvas, see
@@ -122,6 +126,7 @@ In the domain setup’s **Step 3: Applications** section, choose **Configure Can
    policy to the Amazon S3 bucket specified in the **Canvas storage configuration** (and overrides any existing CORS policy).
    To learn more about local file upload permissions, see [Grant Your Users Permissions to Upload Local Files](canvas-set-up-local-upload.md "canvas-set-up-local-upload.md").
 6. (Optional) For the **OAuth settings** section, do the following:
+
    1. Choose **Add OAuth configuration**.
    2. For **Data source**, select your data source.
    3. For **Secret setup**, select **Create a new secret** and enter the
@@ -130,6 +135,7 @@ In the domain setup’s **Step 3: Applications** section, choose **Configure Can
 
 7. (Optional) For the **Canvas Ready-to-use models configuration**, do
    the following:
+
    1. Leave the **Enable Canvas Ready-to-use models** option
       turned on to give your users permissions to generate predictions with Ready-to-use models in
       Canvas (it is turned on by default). This option also gives you permissions to chat with

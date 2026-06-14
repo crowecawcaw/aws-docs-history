@@ -119,6 +119,7 @@ To configure a rolling deployment, use the following example and fields:
   to use.
 - Under `DeploymentConfig`, for the `RollingUpdatePolicy`
   object, specify the following fields:
+
   - `MaximumExecutionTimeoutInSeconds` — The time limit
     for the total deployment. Exceeding this limit causes a timeout. The
     maximum value you can specify for this field is 28800 seconds, or 8

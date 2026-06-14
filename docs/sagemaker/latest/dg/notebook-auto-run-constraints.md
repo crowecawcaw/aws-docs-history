@@ -98,6 +98,7 @@ The notebook job step supports the following images:
   image](https://github.com/aws/sagemaker-distribution "https://github.com/aws/sagemaker-distribution") as a base.
 - A custom image (BYOI) pre-installed with notebook job dependencies (i.e., [sagemaker-headless-execution-driver](https://pypi.org/project/sagemaker-headless-execution-driver/ "https://pypi.org/project/sagemaker-headless-execution-driver/"). Your image must meet the following
   requirements:
+
   - The image is pre-installed with notebook job dependencies.
   - A base Python runtime environment is installed and is default in the shell
     environment.

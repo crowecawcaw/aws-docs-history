@@ -8,6 +8,7 @@ labeling task** as the **Task type**.
 ###### To configure your workforce.
 
 1. First choose an option from the **Worker types**. There are three types currently available:
+
    - **Public** uses an on-demand workforce of independent contractors, powered by Amazon Mechanical Turk. They are paid on a per-task basis.
    - **Private** uses your employees or contractors for handling data that needs to stay within your organization.
    - **Vendor** uses third party vendors that specialize in providing data labeling services, available via the AWS Marketplace.

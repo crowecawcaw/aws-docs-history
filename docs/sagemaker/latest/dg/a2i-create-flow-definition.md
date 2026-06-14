@@ -66,6 +66,7 @@ see the built-in task types in [Use Cases and Examples Using Amazon A2I](a2i-tas
 2. In the navigation pane, under the **Augmented AI** section, choose **Human review workflows** and then choose
    **Create human review workflow**.
 3. In **Overview**, do the following:
+
    1. For **Name**, enter a unique workflow name. The name must
       be lowercase, unique within the AWS Region in your account, and can have
       up to 63 characters. Valid characters include: a-z, 0-9, and -
@@ -83,6 +84,7 @@ see the built-in task types in [Use Cases and Examples Using Amazon A2I](a2i-tas
    worker to perform.
 5. If you chose the Amazon Rekognition or Amazon Textract task type, specify the conditions that invoke
    human review.
+
    - For Amazon Rekognition image moderation tasks, choose an inference confidence score
      threshold interval that initiates human review.
    - For Amazon Textract tasks, you can initiate a human review when specific form
@@ -96,15 +98,20 @@ see the built-in task types in [Use Cases and Examples Using Amazon A2I](a2i-tas
      (images or forms) and their labels to humans for review.
 
 6. Configure and specify your worker task template:
+
    1. If you are using the Amazon Rekognition or Amazon Textract task type:
+
       1. In the **Create template** section:
+
          - To create instructions for your workers using the
            Amazon A2I default template for Amazon Rekognition and Amazon Textract task
            types, choose **Build from a default
            template**.
+
            - If you choose **Build from a default
              template**, create your instructions
              under **Worker task design**:
+
              - Provide a **Template name**
                that is unique in the AWS Region you are in.
              - In the **Instructions**
@@ -126,6 +133,7 @@ see the built-in task types in [Use Cases and Examples Using Amazon A2I](a2i-tas
            custom template, see [Create a Worker Task Template](a2i-worker-template-console.md#a2i-create-worker-template-console "a2i-worker-template-console.md#a2i-create-worker-template-console").
 
    2. If you are using the custom task type:
+
       1. In the **Worker task template** section, select
          your template from the list. All of the templates that you have
          created in the SageMaker AI console appear in this list. To learn how to

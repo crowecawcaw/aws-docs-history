@@ -33,10 +33,12 @@ If the processing job fails to finish, you can try the following:
 - Inspect the job logs in CloudWatch.
 - Add the following line in your notebook to describe the last processing job
   and look for the failure reason and exit message:
+
   - `clarify_processor.jobs[-1].describe()`
 
 - Run the following AWS CLI; command to describe the processing job and look for
   the failure reason and exit message:
+
   - `aws sagemaker describe-processing-job —processing-job-name
 <processing-job-id>`
 
@@ -108,6 +110,7 @@ If your receive one of the following error messages **`No Label values are
   uses heuristics to determine the [`DataType`](https://github.com/aws/amazon-sagemaker-clarify/blob/master/src/smclarify/bias/metrics/common.py#L114) "https://github.com/aws/amazon-sagemaker-clarify/blob/master/src/smclarify/bias/metrics/common.py#L114)"). For post-training bias metrics, the data
   type returned by the model may not match what is in the dataset or SageMaker Clarify may not
   be able to transform it correctly.
+
   - In the bias report, you should see a single value for categorical
     columns or an interval for continuous columns.
   - For example, if a column has values 0.0 and 1.0 as floats, it will be

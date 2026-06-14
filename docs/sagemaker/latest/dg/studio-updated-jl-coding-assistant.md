@@ -40,6 +40,7 @@ JupyterLab**
 2. Go to **Spaces** in the left navigation panel or click
    "Customize with agent" from the model hub
 3. Either:
+
    - Click **Create Space** and select JupyterLab as
      your application
    - Open an existing Space that includes JupyterLab
@@ -123,11 +124,17 @@ To use a different ACP-compatible coding assistant:
 
 1. Install the assistant's CLI tool in your JupyterLab terminal:
 
-For Claude: `npm install -g @zed-industries/claude-agent-acp`
+For Claude: `npm install -g @anthropic-ai/claude-code @agentclientprotocol/claude-agent-acp`
 
 For Gemini: `npm install -g @google/gemini-cli`
 
-For OpenCode: `npm install -g opencode-ai` 2. Restart the space by running the command
+For OpenCode: `npm install -g opencode-ai`
+
+###### Note
+
+Global npm packages are installed outside of the home directory
+(`/home/sagemaker-user`) and do not persist when the space
+restarts. To persist the installation, use a [lifecycle configuration (LCC)](jl-lcc.md "jl-lcc.md") or a [custom image](studio-updated-byoi-how-to.md "studio-updated-byoi-how-to.md"). 2. Restart the space by running the command
 `restart-jupyter-server` or by restarting the space via the
 Studio UI. Please note this will result in any unsaved work or in memory
 state (like active kernels) being lost. 3. Authenticate with the assistant following its specific authentication

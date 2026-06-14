@@ -46,6 +46,7 @@ When building your processing container, consider the following details:
   `ContainerArgument` parameters configure a Docker image's
   entrypoint and arguments mirrors how Docker overrides the entrypoint and
   arguments through the Docker API:
+
   - If neither `ContainerEntrypoint` nor
     `ContainerArguments` are provided, Processing uses the
     default `ENTRYPOINT` or CMD in the image.

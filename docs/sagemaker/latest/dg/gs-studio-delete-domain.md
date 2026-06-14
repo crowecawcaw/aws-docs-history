@@ -79,6 +79,7 @@ artifacts.
 5. Choose the **User profiles** tab.
 6. Repeat the following steps for each user in the **User
    profiles** list.
+
    1. Choose the user name link.
    2. If not already selected, choose the **User
       Details** tab
@@ -94,6 +95,7 @@ artifacts.
    management** tab.
 8. Repeat the following steps for each space in the
    **Spaces** list.
+
    1. Select the bubble corresponding to the space.
    2. Choose **Delete**.
    3. Follow the delete instructions.

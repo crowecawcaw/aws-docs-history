@@ -30,6 +30,7 @@ Where:
   TNa)/(TPa +
   TNa + FPa +
   FNa)
+
   - TPa are the true positives predicted for facet
     _a_
   - TNa are the true negatives predicted for facet

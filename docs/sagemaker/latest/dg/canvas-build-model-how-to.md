@@ -26,6 +26,7 @@ To build a numeric or categorical prediction model, use the following procedure:
 2. In the left navigation pane, choose **My models**.
 3. Choose **New model**.
 4. In the **Create new model** dialog box, do the following:
+
    1. Enter a name in the **Model name** field.
    2. Select the **Predictive analysis** problem type.
    3. Choose **Create**.
@@ -103,6 +104,7 @@ To build a single-label image prediction model, use the following procedure:
 2. In the left navigation pane, choose **My models**.
 3. Choose **New model**.
 4. In the **Create new model** dialog box, do the following:
+
    1. Enter a name in the **Model name** field.
    2. Select the **Image analysis** problem type.
    3. Choose **Create**.
@@ -140,6 +142,7 @@ To build a text prediction model, use the following procedure:
 2. In the left navigation pane, choose **My models**.
 3. Choose **New model**.
 4. In the **Create new model** dialog box, do the following:
+
    1. Enter a name in the **Model name** field.
    2. Select the **Text analysis** problem type.
    3. Choose **Create**.
@@ -178,6 +181,7 @@ To build a time series forecasting model, use the following procedure:
 2. In the left navigation pane, choose **My models**.
 3. Choose **New model**.
 4. In the **Create new model** dialog box, do the following:
+
    1. Enter a name in the **Model name** field.
    2. Select the **Time series forecasting** problem type.
    3. Choose **Create**.
@@ -192,6 +196,7 @@ To build a time series forecasting model, use the following procedure:
 8. In the **Model type** section, choose **Configure model**.
 9. The **Configure model** box opens. For the **Time series configuration** section,
    fill out the following fields:
+
    1. For **Item ID column**, choose a column in your
       dataset that uniquely identifies each row. The column should have a data type of `Text`.
    2. (Optional) For **Group column**, choose one or more
@@ -208,6 +213,7 @@ To build a time series forecasting model, use the following procedure:
     additional settings in the **Advanced** section. For
     more information about each of the advanced settings, see [Advanced model building configurations](canvas-advanced-settings.md "canvas-advanced-settings.md").
     To configure the **Advanced** settings, do the following:
+
     1. For the **Objective metric** dropdown menu, select the metric that you
        want Canvas to optimize while building your model. If you don’t select a metric,
        Canvas chooses one for you by default. For descriptions of the available metrics,

@@ -105,6 +105,7 @@ To complete this procedure, you need:
 6. (Optional) For **Resource configuration**, either accept the
    default values or, to reduce computation time, increase the resource
    consumption.
+
    1. (Optional) For **Instance type**, choose the ML
       compute instance type that you want to use. In most cases,
       **ml.m4.xlarge** is sufficient.
@@ -117,6 +118,7 @@ To complete this procedure, you need:
       size.
 
 7. Provide information about the input data for the training dataset.
+
    1. For **Channel name**, either accept the default
       (`train`) or enter a more meaningful name, such
       as `training-augmented-manifest-file`.
@@ -156,6 +158,7 @@ To complete this procedure, you need:
 
 8. For **Output data configuration**, provide the following
    information:
+
    1. For **S3 location**, type the path to the S3 bucket
       where you want to store the output data.
    2. (Optional) You can use your AWS Key Management Service (AWS KMS) encryption key to

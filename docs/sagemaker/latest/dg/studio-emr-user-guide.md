@@ -32,6 +32,7 @@ using [Apache Livy](https://livy.apache.org/ "https://livy.apache.org/").
 - **For Studio Classic users:** The following images
   come pre-installed with
   `sagemaker-studio-analytics-extension`:
+
   - DataScience – Python 3 kernel
   - DataScience 2.0 – Python 3 kernel
   - DataScience 3.0 – Python 3 kernel

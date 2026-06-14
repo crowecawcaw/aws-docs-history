@@ -32,11 +32,13 @@ Open your JupyterLab space and complete the following steps.
 3. In the **Amazon Q Features** tab, under **Select
    Customization**, choose your Q Developer customization.
 4. Interact with your customization in either of the following ways:
+
    - Create a notebook, and write code in it. As you do, Q Developer
      automatically provides tailored inline suggestions based on your
      customization.
    - Chat with Q Developer in the **Amazon Q** panel by
      following these steps:
+
      1. In the left sidebar in JupyterLab, choose the
         **Jupyter AI Chat**
         icon. The **Amazon Q** panel
@@ -65,6 +67,7 @@ Open your JupyterLab space and complete the following steps.
    You can customize Q Developer in JupyterLab only if you use the default
    embedding model, which is **CodeSage :: codesage-small**.
    To check, do the following:
+
    1. In the left sidebar in JupyterLab, choose the **Jupyter
       AI Chat** icon. The **Amazon Q** panel
       opens.
@@ -111,11 +114,13 @@ Customization`, and choose that option in the filtered list of
    customizations.
 3. Choose your customization.
 4. Interact with your customization in either of the following ways:
+
    - Create a Python file or a Jupyter notebook, and write code in it. As
      you do, Q Developer automatically provides tailored inline suggestions
      based on your customization.
    - Chat with Q Developer in the **Amazon Q** panel by
      following these steps:
+
      1. In the left sidebar in Code Editor, choose the
         **Amazon Q** icon. The **Amazon Q:
         Chat** panel opens.

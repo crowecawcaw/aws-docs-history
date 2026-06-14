@@ -9,12 +9,14 @@ Before you start setting up your environment to run the recipe, make sure you
 have:
 
 - Set up a HyperPod GPU Slurm cluster.
+
   - Your HyperPod Slurm cluster must have Nvidia Enroot and
     Pyxis enabled (these are enabled by default).
 
 - A shared storage location. It can be an Amazon FSx file system or an NFS system
   that's accessible from the cluster nodes.
 - Data in one of the following formats:
+
   - JSON
   - JSONGZ (Compressed JSON)
   - ARROW

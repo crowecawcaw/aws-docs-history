@@ -9,6 +9,7 @@ When sharing the feature group resource type using the AWS RAM console, you need
 following choices.
 
 1.  **Specify resource share details**:
+
     - Resource type: Choose **SageMaker AI Feature Groups**.
     - ARN: Choose your feature group ARN with the format:
       `arn:aws:sagemaker:us-east-1:111122223333:feature-group/`your-feature-group-name``.
@@ -22,10 +23,12 @@ following choices.
       which you want to grant access permissions.
 
 2.  **Associate managed permissions**:
+
     - Managed permission: Choose the access permission. For more information
       about access permissions, see [Enabling cross account access](feature-store-cross-account-access.md "feature-store-cross-account-access.md").
 
 3.  **Grant access to principals**:
+
     - Choose the principal type (AWS account, Organization, Organizational
       unit, IAM role, or IAM user) and enter the appropriate ID or ARN.
 

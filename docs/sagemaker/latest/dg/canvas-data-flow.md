@@ -16,6 +16,7 @@ To get started, use the following procedure to import your data into a data flow
    Otherwise, connect to a data source such as Amazon S3 or Snowflake and browse through
    your data. For information about connecting to a data source or importing data,
    see the following pages:
+
    - [Data import](canvas-importing-data.md "canvas-importing-data.md")
    - [Connect to data sources](canvas-connecting-external.md "canvas-connecting-external.md")
 
@@ -24,6 +25,7 @@ To get started, use the following procedure to import your data into a data flow
    expand the **Advanced** dropdown
    menu. You can specify the following advanced settings for data
    flow imports:
+
    - **Sampling method** – Select the sampling method and sample size you'd
      like to use. For more information about how to change your sample,
      see the section [Edit the data flow sampling configuration](canvas-data-flow-edit-sampling.md "canvas-data-flow-edit-sampling.md").

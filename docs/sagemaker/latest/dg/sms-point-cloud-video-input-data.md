@@ -88,6 +88,7 @@ you will see the following in your S3 input dataset location:
 
 - A key name prefix (a folder in the Amazon S3 console) named after each video.
   Each of these prefixes leads to:
+
   - A sequence of video frames extracted from the video used to name
     that prefix.
   - A sequence file used to identify all of the images that make up

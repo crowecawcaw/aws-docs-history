@@ -35,6 +35,7 @@ If you used the **Quick setup** option when creating
 your SageMaker AI domain, follow these steps:
 
 1. Navigate to the Amazon SageMaker AI domain settings:
+
    1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
    2. In the left navigation pane, choose **Domains**.
    3. Select your domain.
@@ -43,9 +44,11 @@ your SageMaker AI domain, follow these steps:
       **Edit**.
 
 2. Enable large data processing:
+
    1. In the **Large data processing configuration** section,
       turn on **Enable EMR Serverless for large data processing**.
    2. Create or select an EMR Serverless role:
+
       1. Choose **Create and use a new execution role** to
          create a new IAM role that has a trust relationship with EMR Serverless
          and the [AWS managed policy: AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasEMRServerlessExecutionRolePolicy") policy attached.
@@ -53,6 +56,7 @@ your SageMaker AI domain, follow these steps:
       2. Alternatively, if you already have an execution role with a trust relationship
          for EMR Serverless, then select **Use an existing execution role**
          and choose your role from the dropdown.
+
          - The existing role must have a name that begins with the prefix
            `AmazonSageMakerCanvasEMRSExecutionAccess-`.
          - The role you select should also have at least the permissions described
@@ -84,6 +88,7 @@ your SageMaker AI domain, follow these steps:
          ```
 
 3. (Optional) Add Amazon S3 permissions for custom Amazon S3 buckets:
+
    1. The Canvas managed policy automatically grants read and write permissions for Amazon S3
       buckets with `sagemaker` or `SageMaker AI` in their names. It also grants
       read permissions for objects in custom Amazon S3 buckets with the tag `"SageMaker": "true"`.
@@ -109,7 +114,6 @@ your SageMaker AI domain, follow these steps:
    }`
 
    ```
-
    4. We recommend that you scope down the permissions to specific Amazon S3 buckets that you want Canvas to access.
 
 4. Save your changes and restart your SageMaker Canvas application.
@@ -122,6 +126,7 @@ do these additional steps:
 1. Add permissions for the Amazon ECR `DescribeImages` operation
    to your Amazon SageMaker AI execution role, as Canvas utilizes public Amazon ECR Docker images
    for data preparation and model training:
+
    1. Sign in to the AWS console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Choose **Roles**.
    3. In the search box, search for your SageMaker AI execution role by name and select it.
@@ -155,10 +160,12 @@ If you created or use a custom domain, follow all steps from Scenario 2, then
 follow these additional steps:
 
 1. Ensure your VPC subnets are private:
+
    1. Verify that the route table for your subnets doesn't have an entry mapping
       `0.0.0.0/0` to an Internet Gateway.
 
 2. Add permissions for creating network interfaces:
+
    1. When using SageMaker Canvas with EMR Serverless for large-scale data processing, EMR Serverless
       requires the ability to create Amazon EC2 ENIs to enable network communication between
       EMR Serverless applications and your VPC resources.
@@ -193,6 +200,7 @@ follow these additional steps:
    ```
 
 3. (Optional) Restrict ENI creation to specific subnets:
+
    1. To further secure your setup by restricting the creation of ENIs to certain subnets
       within your VPC, you can tag each subnet with specific conditions.
    2. Use the following IAM policy to ensure that EMR Serverless applications can only

@@ -1,0 +1,126 @@
+# SageMaker HyperPod Slurm cluster events
+
+Amazon SageMaker HyperPod emits structured cluster events that provide visibility into operational
+changes at the cluster, instance group, and instance level. You can use these events to
+monitor provisioning activity, track scaling operations, detect failures, and build automated
+alerting pipelines.
+
+Cluster events are available for HyperPod Slurm clusters with
+`NodeProvisioningMode` set to `Continuous`. Events are accessible
+through the `ListClusterEvents` and `DescribeClusterEvent` APIs, the
+SageMaker AI console, and Amazon EventBridge.
+
+For the complete event schema, severity levels, full event catalog, and EventBridge
+integration details, see [SageMaker HyperPod cluster events reference](sagemaker-hyperpod-cluster-events-reference.md "sagemaker-hyperpod-cluster-events-reference.md").
+
+## Prerequisites
+
+- Your HyperPod Slurm cluster must have
+  `NodeProvisioningMode` set to `Continuous`.
+  Clusters using the legacy provisioning mode do not emit structured
+  events.
+- To use the API, you need `sagemaker:ListClusterEvents` and
+  `sagemaker:DescribeClusterEvent` permissions in your IAM
+  policy.
+
+## Event types
+
+HyperPod emits two categories of events for Slurm clusters on continuous
+provisioning: common events that apply to all orchestrators, and Slurm-specific
+events.
+
+**Common events** cover core infrastructure operations
+such as instance provisioning and termination, instance group scaling, capacity
+reservation handling, lifecycle script execution, ENI management, FSx filesystem
+lifecycle, and patching workflows. For the complete list, see [Common events (EKS and Slurm)](sagemaker-hyperpod-cluster-events-reference.md#sagemaker-hyperpod-cluster-events-common "sagemaker-hyperpod-cluster-events-reference.md#sagemaker-hyperpod-cluster-events-common") in the
+HyperPod cluster events reference.
+
+**Slurm-specific events** cover orchestrator-specific
+operations such as provisioning parameter validation, munge key creation, Slurm
+configuration drift detection, Slurm reconfiguration, and cluster rollback. These
+events provide visibility into Slurm-specific lifecycle stages that were previously
+only observable through CloudWatch logs. For the complete list, see [Slurm-specific events](sagemaker-hyperpod-cluster-events-reference.md#sagemaker-hyperpod-cluster-events-slurm "sagemaker-hyperpod-cluster-events-reference.md#sagemaker-hyperpod-cluster-events-slurm") in the
+HyperPod cluster events reference.
+
+## Viewing events in the console
+
+1. Open the [SageMaker AI
+   console](https://console.aws.amazon.com/sagemaker "https://console.aws.amazon.com/sagemaker").
+2. In the left navigation pane, choose **HyperPod
+   clusters**.
+3. Choose your cluster name.
+4. Choose the **Events** tab.
+
+The **Events** tab displays a paginated list of events with
+columns for event level, event ID, resource name, resource type, description, and
+event time. You can filter events by attribute using the search box, sort by event
+time, and choose an event ID to see full event details including the event metadata
+and the complete event record.
+
+## Listing events using the AWS CLI
+
+Use the `list-cluster-events` command to retrieve events for your
+cluster:
+
+```
+aws sagemaker list-cluster-events \
+    --cluster-name my-slurm-cluster \
+    --sort-by EventTime \
+    --sort-order Descending \
+    --max-results 20
+```
+
+You can narrow results using the following filters:
+
+- `--resource-type` — filter by `Cluster`,
+  `InstanceGroup`, or `Instance`.
+- `--instance-group-name` — filter to events for a specific
+  instance group.
+- `--node-id` — filter to events for a specific EC2
+  instance.
+- `--event-time-after` and `--event-time-before` —
+  filter to a specific time window.
+
+For example, to see only instance-group-level events for a specific instance
+group:
+
+```
+aws sagemaker list-cluster-events \
+    --cluster-name my-slurm-cluster \
+    --resource-type InstanceGroup \
+    --instance-group-name gpu-workers
+```
+
+## Describing a specific event
+
+Use the `describe-cluster-event` command with an event ID from the list
+output to retrieve full event details, including the `EventLevel`,
+`Description`, and `EventMetadata`:
+
+```
+aws sagemaker describe-cluster-event \
+    --cluster-name my-slurm-cluster \
+    --event-id 83ea0bb5-be77-45e8-a458-0a87f778a205
+```
+
+For the structure of the returned event record and a description of each field, see
+[Cluster event record](sagemaker-hyperpod-cluster-events-reference.md#sagemaker-hyperpod-cluster-events-record "sagemaker-hyperpod-cluster-events-reference.md#sagemaker-hyperpod-cluster-events-record") in the
+HyperPod cluster events reference.
+
+## Automating responses with Amazon EventBridge
+
+HyperPod cluster events are automatically sent to Amazon EventBridge under
+the detail type `SageMaker HyperPod Cluster Event`, enabling you to route
+events to targets such as Lambda, Amazon SNS, Step Functions, or Amazon SQS. You can filter on the
+`EventLevel` field to trigger alerts only for `Error`
+events, or filter by cluster ARN to scope rules to a specific cluster.
+
+For EventBridge event patterns, payload examples, and the related `SageMaker
+ HyperPod Cluster State Change` and `SageMaker HyperPod Cluster Node
+ Health Event` detail types, see [EventBridge integration](sagemaker-hyperpod-cluster-events-reference.md#sagemaker-hyperpod-cluster-events-eventbridge "sagemaker-hyperpod-cluster-events-reference.md#sagemaker-hyperpod-cluster-events-eventbridge") in the
+HyperPod cluster events reference.
+
+## Related topics
+
+- [SageMaker HyperPod cluster events reference](sagemaker-hyperpod-cluster-events-reference.md "sagemaker-hyperpod-cluster-events-reference.md")
+- [Events that Amazon SageMaker AI sends to Amazon EventBridge](automating-sagemaker-with-eventbridge.md "automating-sagemaker-with-eventbridge.md")

@@ -25,6 +25,7 @@ see [Open source LLM evaluation framework](https://github.com/comet-ml/opik "htt
 2. Launch a Jupyter notebook or Code Editor space.
 3. From the development environment, install the compatible Comet, Opik, and SageMaker Python SDK
    versions. To be compatible:
+
    - The SageMaker Python SDK version must be at least `2.237.0`.
    - The Comet SDK version must be the latest version.
    - The Opik SDK version must match the version used by your Opik application. Verify the
@@ -95,6 +96,7 @@ about the Fiddler Python Client, see [About Client 3.x](https://docs.fiddler.ai
 2. Launch a Jupyter notebook or Code Editor space.
 3. From the development environnment, install the Fiddler Python Client and SageMaker Python SDK
    versions. To be compatible:
+
    - The SageMaker Python SDK version must be at least `2.237.0`.
    - The Fiddler Python Client version must be compatible with the version of Fiddler used in
      the application. After verifying the Fiddler version from the UI, see the Fiddler
@@ -141,6 +143,7 @@ Complete the following procedure to install and use Deepchecks Python SDK.
 3. From the development environment, install the compatible Deepchecks Python SDK and SageMaker
    Python SDK versions.  Partner AI Apps is running version `0.21.15` of Deepchecks. To be
    compatible:
+
    - The SageMaker Python SDK version must be at least `2.237.0`.
    - The Deepchecks Python SDK must use the minor version `0.21`.
 

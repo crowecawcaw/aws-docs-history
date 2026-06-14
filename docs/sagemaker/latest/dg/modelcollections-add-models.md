@@ -85,11 +85,13 @@ steps:
    which you add your models.
 9. (Optional) To add your Model Groups to an existing Collection,
    complete the following steps:
+
    1. Select the destination Collection.
    2. Choose **Add to collection**.
 
 10. (Optional) To add your Model Groups to a new Collection,
     complete the following steps:
+
     1. Choose **New collection**.
     2. Enter a name for your new Collection.
     3. Choose **Create**.

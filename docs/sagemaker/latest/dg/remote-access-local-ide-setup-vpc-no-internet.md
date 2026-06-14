@@ -76,6 +76,7 @@ remote server and extensions**
 
 1. Install VS Code on your local machine
 2. When you connect to the SageMaker space:
+
    - Use the Default profile to ensure compatibility with
      pre-packaged extensions. Otherwise, you’ll need to install
      extensions using downloaded VSIX files after connecting to the

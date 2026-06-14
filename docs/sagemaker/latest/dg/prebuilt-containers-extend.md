@@ -55,12 +55,14 @@ container through a SageMaker Notebook instance.
    notebook instance**.
 3. On the **Create notebook instance** page, provide the
    following information:
+
    1. For **Notebook instance name**, enter
       `RunScriptNotebookInstance`.
    2. For **Notebook Instance type**, choose
       `ml.t2.medium`.
    3. In the **Permissions and encryption** section, do the
       following:
+
       1. For **IAM role**, choose **Create a new
          role**.
       2. On the **Create an IAM role**
@@ -105,6 +107,7 @@ container through a SageMaker Notebook instance.
     Folder** icon, and then enter the folder name
     `docker_test_folder`.
 2.  Create a `Dockerfile` text file in the `docker_test_folder` directory.
+
     1. Choose the **New Launcher** icon (+) in the upper-left
        corner.
     2. In the right pane under the **Other** section, choose
@@ -146,7 +149,6 @@ container through a SageMaker Notebook instance.
         * `ENV SAGEMAKER_PROGRAM cifar10.py`
          – Sets your `cifar10.py` training
          script as the entrypoint script.
-
     4. On the left directory navigation pane, the text file name might
        automatically be named `untitled.txt`. To rename the file,
        right-click the file, choose **Rename**, rename the

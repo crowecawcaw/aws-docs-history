@@ -32,6 +32,7 @@ it.
   stops the instance that the application is running on.
 - After you stop an application, you can start up the application again
   later.
+
   - When you stop an application, the files in the space will persist. You
     can run the application again and expect to have access to the same
     files that are stored in the space, as you did before deleting the
@@ -159,6 +160,7 @@ aws sagemaker delete-app \
   stop. For example, replace
   `example-app-type` with
   one of the following application types:
+
   - JupyterLab application type: `JupyterLab`. For
     information about JupyterLab, see [SageMaker JupyterLab](studio-updated-jl.md "studio-updated-jl.md").
   - Code Editor application type: `CodeEditor`. For
@@ -196,6 +198,7 @@ aws sagemaker delete-app \
   example, replace
   `example-app-type` with one of
   the following application types:
+
   - SageMaker Canvas application type: `Canvas`. For information
     about SageMaker Canvas, see [Amazon SageMaker Canvas](canvas.md "canvas.md").
   - Studio Classic application type: `JupyterServer`. For
@@ -206,6 +209,7 @@ aws sagemaker delete-app \
 - To obtain your
   `example-user-name`, navigate
   to the **Domain details** page.
+
   - Next, choose the **User profiles** tab, and
     copy the relevant space name.
 
@@ -261,6 +265,7 @@ your domain. You can view, create, and delete spaces on this page.
 6.  Choose **Delete**.
 7.  In the pop-up box titled **Delete space**, you have
     two options:
+
     - If you already shut down all applications in the space, choose
       **Yes, delete space**.
     - If you still have applications running in the space, choose

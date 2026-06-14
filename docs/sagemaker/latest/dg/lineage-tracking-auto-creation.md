@@ -61,12 +61,14 @@ The following entities are created:
 - An association between the model package artifact and each model package group
   context to which the package belongs to.
 - Inference containers
+
   - An artifact for the image used in each container defined in the model
     package.
   - An artifact for the model used in each container.
   - An association between each artifact and the model package artifact.
 
 - Algorithms
+
   - An artifact for each algorithm defined in the model package.
   - An artifact for the model created by each algorithm.
   - An association between each artifact and the model package artifact.

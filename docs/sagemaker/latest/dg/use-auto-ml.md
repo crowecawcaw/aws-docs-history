@@ -21,6 +21,7 @@ search, and generative AI.
   to prepare it for training, handles automatic model training, and performs
   hyperparameter optimization to find the best performing model for your
   dataset.
+
   - As of November 30, 2023, the user interface (UI) for Autopilot is integrated
     into the [Amazon SageMaker Canvas](canvas.md "canvas.md") application in Studio.
   - Users of [Amazon SageMaker Studio Classic](studio.md "studio.md"), the previous

@@ -18,6 +18,7 @@ from pre-configured data sources.
 - Use the _user interface_ of the SQL extension to
   discover and explore your data sources. The UI capabilities can be further divided into the
   following subcategories.
+
   - With the **data exploration** UI element, you can
     browse your data sources and explore their tables, columns, and metadata. For details on
     the data exploration features of the SQL extension, see [Browse data using SQL extension](sagemaker-sql-extension-features-data-discovery.md "sagemaker-sql-extension-features-data-discovery.md").
@@ -26,6 +27,7 @@ from pre-configured data sources.
 
 - Use the _SQL Editor and Executor_ to write, edit, and
   run SQL queries against connected data sources.
+
   - With the **SQL editor** element, you can write,
     format, and validate SQL statements within the notebooks of your JupyterLab application
     in Studio. For details on the SQL editor features, see [SQL editor features of the JupyterLab SQL extension](sagemaker-sql-extension-features-editor.md "sagemaker-sql-extension-features-editor.md").

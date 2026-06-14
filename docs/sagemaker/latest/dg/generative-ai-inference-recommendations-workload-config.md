@@ -290,6 +290,21 @@ instead of passing the token in plaintext.
 
 Integer. Timeout in seconds for individual requests.
 
+`goodput`
+
+String. Define service level objectives (SLOs) for goodput
+measurement. Goodput is the number of completed requests per
+second that meet all specified latency constraints. Format:
+space-separated `metric:threshold_ms` pairs.
+For example,
+`"time_to_first_token:100 inter_token_latency:10"`
+measures throughput counting only requests where TTFT is under
+100ms and ITL is under 10ms. When set, the benchmark results
+include a `goodput` metric (requests/sec meeting
+all SLOs) and a `good_request_fraction` metric
+(proportion of requests meeting all SLOs). Requires streaming
+mode for token-level metrics.
+
 `benchmark_grace_period`
 
 Integer. Grace period in seconds after the benchmark
@@ -297,8 +312,15 @@ completes to allow in-flight requests to finish.
 
 `extra_inputs`
 
-String. Additional JSON-encoded inputs to include in each
-request payload.
+String. Space-separated key-value pairs passed through to
+the benchmark tool. Each pair uses `key:value`
+format. Common keys include
+`payload_template:/path/to/template.jinja` for
+custom-format endpoints,
+`response_field:jmespath.query` for response
+extraction, and
+`ignore_eos:true` to force max_tokens
+generation.
 
 `random_seed`
 
@@ -381,6 +403,17 @@ the `DatasetConfig` parameter, the data is
 mounted at `/opt/ml/input/data/{ChannelName}/`.
 Use this parameter to point to a specific file within
 that mount path.
+
+`dataset_sampling_strategy`
+
+String. Controls how prompts are sampled from the dataset
+pool during benchmarking. Valid values:
+`shuffle` (default) — randomly shuffles the
+dataset and draws prompts without replacement;
+`sequential` — sends prompts in the order they
+appear in the dataset file. Use `sequential` when
+prompt order matters for your evaluation (for example, when
+measuring performance across increasing prompt lengths).
 
 **Image inputs**
 

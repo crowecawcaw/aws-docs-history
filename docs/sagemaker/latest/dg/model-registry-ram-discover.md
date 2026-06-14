@@ -10,6 +10,7 @@ discoverability using the AWS RAM console or Model Registry Resource Policy APIs
 AWS CLI
 
 1.  Create a resource share in the model owner account.
+
     1. The model owner attaches a resource policy to the
        model package group using the SageMaker AI Resource Policy
        API [put-model-package-group-policy](../../../cli/latest/reference/sagemaker/put-model-package-group-policy.md "../../../cli/latest/reference/sagemaker/put-model-package-group-policy.md"), as
@@ -67,6 +68,7 @@ AWS CLI
 
 2.  Accept the resource share invitation in the model consumer
     account.
+
     1. The model package group consumer accepts the
        invitation for resource share. To see all resource
        invitations, run the following command:
@@ -90,8 +92,10 @@ AWS RAM console
    console](https://console.aws.amazon.com/ram/home "https://console.aws.amazon.com/ram/home").
 2. Complete the following steps to create a resource share
    from the model package group owner account.
+
    1. Complete the following steps to specify resource
       share details.
+
       1. In the **Name** field, add
          a unique name for your resource.
       2. In the **Resources** card,
@@ -109,6 +113,7 @@ AWS RAM console
 
    2. Complete the following steps to associate managed
       permissions to the resource share.
+
       1. If you use a managed permission, choose a
          managed permission in the **Managed
          permissions** dropdown menu.
@@ -127,6 +132,7 @@ AWS RAM console
 
    3. Complete the following steps to grant access to
       principals.
+
       1. Choose **Allow sharing with
          anyone** to allow sharing with accounts
          outside of your organization, or choose

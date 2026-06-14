@@ -52,6 +52,7 @@ the following options:
   values against the actual values. The following example explains how a
   confusion matrix works for a 2 category prediction model that predicts
   positive and negative labels:
+
   - True positive – The model correctly predicted positive when
     the true label was positive.
   - True negative – The model correctly predicted negative when

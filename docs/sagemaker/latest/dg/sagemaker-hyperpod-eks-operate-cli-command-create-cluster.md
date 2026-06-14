@@ -4,6 +4,7 @@ Learn how to create SageMaker HyperPod clusters orchestrated by Amazon EKS using
 AWS CLI.
 
 1. Before creating an SageMaker HyperPod cluster:
+
    1. Ensure that you have an existing Amazon EKS cluster up and running. For
       detailed instructions about how to set up an Amazon EKS cluster, see
       [Create an Amazon EKS

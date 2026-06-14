@@ -1491,6 +1491,7 @@ to control tagging abilities.
   domain ARN provides traceability into how SageMaker AI resources such as
   training jobs, models, and endpoints originate. For finer control and
   tracking, new resources receive additional tags such as:
+
   - `sagemaker:user-profile-arn` - The ARN of the user
     profile that created the resource. This allows tracking resources
     created by specific users.

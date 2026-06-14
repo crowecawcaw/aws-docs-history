@@ -30,6 +30,7 @@ The following sections show how to enable idle shutdown from the console.
    is entered.
 5. (Optional) Select **Allow users to set custom idle shutdown time** to allow users to modify the
    idle shutdown time.
+
    - Enter a maximum value that users can set the default idle shutdown time to. You must
      enter a maximum value. The minimum value is set by Amazon SageMaker AI and must be
      `60`.
@@ -51,6 +52,7 @@ shutdown settings to take effect.
    `10,080` if no value is entered.
 7. (Optional) Select **Allow users to set custom idle shutdown time** to
    allow users to modify the idle shutdown time.
+
    - Enter a maximum value that users can set the default idle shutdown time to. You must
      enter a maximum value. The minimum value is set by Amazon SageMaker AI and must be
      `60`.
@@ -68,6 +70,7 @@ shutdown settings to take effect.
    `10,080` if no value is entered.
 5. (Optional) Select **Allow users to set custom idle shutdown time** to
    allow users to modify the idle shutdown time.
+
    - Enter a maximum value that users can set the default idle shutdown time to. You must
      enter a maximum value. The minimum value is set by Amazon SageMaker AI and must be
      `60`.
@@ -90,6 +93,7 @@ shutdown settings to take effect.
    `10,080` if no value is entered.
 8. (Optional) Select **Allow users to set custom idle shutdown time** to
    allow users to modify the idle shutdown time.
+
    - Enter a maximum value that users can set the default idle shutdown time to. You must
      enter a maximum value. The minimum value is set by Amazon SageMaker AI and must be
      `60`.

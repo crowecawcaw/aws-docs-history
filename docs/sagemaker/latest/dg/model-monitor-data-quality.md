@@ -20,6 +20,7 @@ To monitor data quality, follow these steps:
 - Define and schedule data quality monitoring jobs. For specific information and
   code samples of data quality monitoring jobs, see [Schedule data quality monitoring jobs](model-monitor-schedule-data-monitor.md "model-monitor-schedule-data-monitor.md"). For general
   information about monitoring jobs, see [Schedule monitoring jobs](model-monitor-scheduling.md "model-monitor-scheduling.md").
+
   - Optionally use preprocessing and postprocessing scripts to transform
     the data coming out of your data quality analysis. For more information,
     see [Preprocessing and Postprocessing](model-monitor-pre-and-post-processing.md "model-monitor-pre-and-post-processing.md").

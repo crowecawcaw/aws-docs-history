@@ -78,6 +78,7 @@ available for this task type:
 - **Bulk label and attribute management**
   – Workers can add, delete, and rename annotations, label category
   attributes, and frame attributes in bulk.
+
   - Workers can manually delete annotations for a given object before
     or after a frame. For example, a worker can delete all labels for an
     object after frame 10 if that object is no longer located in the

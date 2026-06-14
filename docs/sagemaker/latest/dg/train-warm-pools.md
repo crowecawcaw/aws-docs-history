@@ -94,12 +94,14 @@ is a match if the following values are identical:
 
 - `RoleArn`
 - `ResourceConfig` values:
+
   - `InstanceCount`
   - `InstanceType`
   - `VolumeKmsKeyId`
   - `VolumeSizeInGB`
 
 - `VpcConfig` values:
+
   - `SecurityGroupIds`
   - `Subnets`
 

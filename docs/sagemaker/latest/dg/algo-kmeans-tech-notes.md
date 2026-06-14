@@ -75,6 +75,7 @@ strategies to determine how these initial cluster centers are selected:
   to the 784-dimensional space that corresponds to any 10 images in the MNIST
   training dataset.
 - The k-means++ approach, which works as follows:
+
   1.  Start with one cluster and determine its center. You randomly
       select an observation from your training dataset and use the point
       corresponding to the observation as the cluster
@@ -88,6 +89,7 @@ strategies to determine how these initial cluster centers are selected:
       This observation corresponds to a point that is far away from
       cluster center 1. Using the MNIST dataset as an example, you do the
       following:
+
       - For each of the remaining images, find the distance of the
         corresponding point from cluster center 1. Square the
         distance and assign a probability that is proportional to

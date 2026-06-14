@@ -62,6 +62,7 @@ in the details page as you would with a model or a completed training job.
 6. (Optional) For **Resource configuration**, either leave the
    default values or increase the resource consumption to reduce computation
    time.
+
    1. (Optional) For **Instance type**, choose the ML
       compute instance type that you want to use. In most cases,
       **ml.m4.xlarge** is sufficient.
@@ -73,6 +74,7 @@ in the details page as you would with a model or a completed training job.
 
 7. Provide information about the input data for the training
    dataset.
+
    1. For **Channel name**, either leave the default
       (`train`) or enter a more meaningful name for
       the training dataset, such as
@@ -110,6 +112,7 @@ in the details page as you would with a model or a completed training job.
 8. To use model artifacts in a training job, you need to add a new channel and
    provide the needed information about the model
    artifacts.
+
    1. For **Input data configuration**, choose
       **Add channel**.
    2. For **Channel name**, enter
@@ -145,6 +148,7 @@ in the details page as you would with a model or a completed training job.
 
 9. For **Output data configuration**, provide the following
    information:
+
    1. For **S3 location**, type the path to the S3 bucket
       where you want to store the output data.
    2. (Optional) For **Encryption key**, you can add your

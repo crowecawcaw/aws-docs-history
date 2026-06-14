@@ -522,6 +522,220 @@ Output tokens generated per second.
 Each metric includes statistical summaries: average, minimum, maximum, P50, P90,
 P99, and standard deviation.
 
+## Benchmark custom-format endpoints
+
+If your endpoint uses a custom request or response format (for example, DJL
+custom handlers, TensorRT-LLM native format, or other serving frameworks that
+don't support the OpenAI chat completions API), you can benchmark it using a
+Jinja2 template to define your endpoint's payload shape.
+
+The benchmarking service renders the template per-request with synthetic or
+custom prompts, then forwards the payload to your SageMaker AI endpoint. You also specify
+a JMESPath query to extract the generated text from your endpoint's response.
+
+### Create the payload template
+
+Define your endpoint's request format as a Jinja2 template file. The
+following variables are available in the template:
+
+| Variable     | Description                                     |
+| ------------ | ----------------------------------------------- |
+| `text`       | First text content (synthetic or from dataset). |
+| `texts`      | List of all text contents.                      |
+| `model`      | Model name.                                     |
+| `max_tokens` | Output token limit.                             |
+| `stream`     | Whether streaming is enabled.                   |
+
+Use the `|tojson` filter for proper JSON escaping of string
+values. The following example shows a template for a DJL endpoint with
+tool-calling format:
+
+```
+{
+  "messages": [{"role": "user", "content": {{ text|tojson }}}],
+  "tools": [
+    {"function": {"name": "Chit_Chat", "description": "casual conversation",
+      "parameters": {"type": "object", "properties": {}}}}
+  ],
+  "max_tokens": {{ max_tokens }}
+}
+```
+
+Upload the template file to Amazon S3 (for example,
+`s3://DOC-EXAMPLE-BUCKET/templates/my_endpoint_template.jinja`).
+
+### Create the workload configuration
+
+Create a workload configuration that references the template file. Use the
+`extra_inputs` parameter to specify the template path and the
+response extraction query. Deliver the template file to the benchmark
+container through a `DatasetConfig` channel.
+
+```
+
+import json
+
+TEMPLATE_LOCAL_PATH = "/opt/ml/input/data/template/my_endpoint_template.jinja"
+RESPONSE_FIELD = "generation_details.generations[0].content"
+
+workload_spec = {
+    "benchmark": {"type": "aiperf"},
+    "parameters": {
+        "extra_inputs": f"payload_template:{TEMPLATE_LOCAL_PATH} response_field:{RESPONSE_FIELD}",
+        "tokenizer": "meta-llama/Llama-3.2-1B",
+        # ... other benchmark parameters (concurrency, request_count, etc.)
+    },
+}
+
+response = client.create_ai_workload_config(
+    AIWorkloadConfigName="custom-format-config",
+    AIWorkloadConfigs={"WorkloadSpec": {"Inline": json.dumps(workload_spec)}},
+    DatasetConfig={
+        "InputDataConfig": [
+            {
+                "ChannelName": "template",
+                "DataSource": {
+                    "S3DataSource": {
+                        "S3Uri": "s3://DOC-EXAMPLE-BUCKET/templates/my_endpoint_template.jinja",
+                    }
+                },
+            }
+        ]
+    },
+)
+
+```
+
+The `ChannelName` determines where the file appears inside the
+benchmark container. A channel named `template` makes the file
+available at `/opt/ml/input/data/template/<filename>`.
+
+The `response_field` value is a
+[JMESPath](https://jmespath.org/ "https://jmespath.org/") query that extracts the
+generated text from your endpoint's response. Common patterns include:
+
+- `choices[0].message.content` — OpenAI format
+- `generation_details.generations[0].content` — DJL
+  format
+- `output.text` — simple text response
+
+If you omit `response_field`, the benchmarking tool
+auto-detects the response format.
+
+### Run the benchmark
+
+Create a benchmark job targeting your endpoint. The service automatically
+detects template mode from the `payload_template` key in
+`extra_inputs` and routes requests through the appropriate proxy
+path.
+
+```
+
+response = client.create_ai_benchmark_job(
+    AIBenchmarkJobName="custom-format-benchmark",
+    BenchmarkTarget={"Endpoint": {"Identifier": "my-custom-endpoint"}},
+    OutputConfig={"S3OutputLocation": "s3://DOC-EXAMPLE-BUCKET/results/"},
+    AIWorkloadConfigIdentifier="custom-format-config",
+    RoleArn="arn:aws:iam::111122223333:role/ExampleRole",
+)
+
+```
+
+### Considerations
+
+- Templates must be delivered as files through Amazon S3. Inline JSON
+  templates in the `extra_inputs` string are not supported
+  because commas in JSON conflict with the parameter parser.
+- Endpoints with a single inference component are supported. Endpoints
+  with multiple inference components are not supported in template mode
+  because the service cannot determine which component to route each
+  request to from an arbitrary payload format.
+- Both streaming and non-streaming endpoints are supported. Set
+  `"streaming": true` or `"streaming": false` in
+  the workload parameters.
+
+## Correlate benchmark prompts and responses
+
+After a benchmark job completes, the output artifacts include per-request
+input and output data that you can join together for post-processing. This
+enables use cases such as quality evaluation, safety auditing, response
+comparison across configurations, and debugging unexpected model behavior.
+
+### Benchmark output artifacts
+
+The `output.tar.gz` archive in your Amazon S3 output location
+contains the following files relevant to prompt-response correlation:
+
+`inputs.json`
+
+The full synthetic dataset of generated conversations. Each
+record has a `session_id` and the complete request
+payload (messages, max_tokens, model).
+
+`outputs.json`
+
+Per-request response metadata for requests that were sent to
+the endpoint. Each record includes the model's response text,
+per-request latency, output token count, and a
+`conversation_id` that maps back to the input.
+
+### Join inputs to outputs
+
+Correlate prompts with their responses using the
+`conversation_id` field in `outputs.json` and the
+`session_id` field in `inputs.json`:
+
+```
+
+import json
+
+# Load the artifacts extracted from output.tar.gz in your S3 output location
+with open("inputs.json") as f:
+    inputs = json.load(f)
+with open("outputs.json") as f:
+    outputs = json.load(f)
+
+# Build lookup tables and join
+inputs_by_id = {rec["session_id"]: rec for rec in inputs["data"]}
+outputs_by_id = {rec["conversation_id"]: rec for rec in outputs["data"]}
+
+matched_ids = set(inputs_by_id.keys()) & set(outputs_by_id.keys())
+print(f"Matched: {len(matched_ids)} prompt-response pairs")
+
+# Display a correlated sample
+for sid in sorted(matched_ids)[:3]:
+    in_rec = inputs_by_id[sid]
+    out_rec = outputs_by_id[sid]
+    prompt = in_rec["payloads"][0]["messages"][0]["content"][:100]
+    response = out_rec.get("response_text", "")[:100]
+    latency = out_rec["metrics"]["request_latency"]
+    print(f"\n[{sid}] Latency: {latency:.0f}ms")
+    print(f"  Prompt:   {prompt}...")
+    print(f"  Response: {response}...")
+
+```
+
+### Important notes
+
+- **Join key.** Use
+  `conversation_id` in `outputs.json` to match
+  against `session_id` in `inputs.json`. Do not
+  use `session_num` as a positional index — it represents
+  execution order, which differs from input creation order when
+  concurrency is greater than 1.
+- **Not all inputs have outputs.** The
+  `inputs.json` file contains the full generated dataset
+  pool. When `request_count` is less than the pool size, only
+  a subset of conversations are sent to the endpoint. The unmatched
+  inputs are conversations that were generated but not used.
+- **Output schema.** Each record in
+  `outputs.json` includes `conversation_id`,
+  `response_text`, `metrics` (with
+  `request_latency` and
+  `output_sequence_length`), and timing fields
+  (`request_start_ns`,
+  `request_end_ns`).
+
 ## Manage benchmark resources
 
 Use the following operations to manage your benchmark jobs and workload

@@ -15,6 +15,7 @@ the console.
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2. Complete the steps in [Use custom setup for Amazon SageMaker AI](onboard-custom.md "onboard-custom.md") with the following modification to set up a domain.
+
    - On the **Configure storage** step, turn off
      **Automatically mount EFS storage and data**.
 
@@ -81,6 +82,7 @@ from the console.
 2. Complete the steps in
    [Add user profiles](domain-user-profile-add.md "domain-user-profile-add.md")
    with the following modification to create a user profile.
+
    - On the **Data and Storage** step, turn off **Inherit
      settings from domain**. This allows the user to have a different value
      than the defaults that are set for the domain.

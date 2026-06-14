@@ -19,6 +19,7 @@ clusters by:
 To use this capability:
 
 - You need:
+
   - An active **SageMaker HyperPod environment**
     with a running EKS-orchestrated cluster.
   - (Strongly recommended) **Task Governance
@@ -26,6 +27,7 @@ To use this capability:
     setup instructions, see [Task Governance setup](sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md "sagemaker-hyperpod-eks-operate-console-ui-governance-setup.md").
 
 - Familiarize yourself with these core concepts:
+
   - **Allocated compute quota:** Resources
     reserved for a team based on predefined quotas in their Task Governance
     policies. This is _guaranteed capacity_
@@ -37,6 +39,7 @@ To use this capability:
   - **Compute usage:** The measurement of
     resources (GPU, CPU, Neuron Core hours) consumed by a team, tracked
     as:
+
     - **Allocated utilization**: Usage
       within the team's quota.
     - **Borrowed utilization**: Usage

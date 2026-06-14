@@ -17,6 +17,7 @@ and setting it up with Slurm. The steps are put in order of a **_bottom-up_** ap
     example, if you want to configure two Slurm nodes, you'll need to set up two
     instance groups in a HyperPod cluster.
 2.  Prepare Slurm configuration. Choose one of the following approaches:
+
     - **Option A: API-driven configuration
       (recommended)** – Define Slurm node types and
       partitions directly in the `CreateCluster` API payload using
@@ -45,7 +46,6 @@ and setting it up with Slurm. The steps are put in order of a **_bottom-up_** ap
         }
     }
     ```
-
     - **Option B: Legacy configuration**
       – Prepare a `provisioning_parameters.json` file, which
       is a [Configuration form for provisioning_parameters.json](sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms-slurm "sagemaker-hyperpod-ref.md#sagemaker-hyperpod-ref-provisioning-forms-slurm").

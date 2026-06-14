@@ -25,6 +25,7 @@ Studio Classic notebook cell.
 ```
 
 - **For models hosted by AWS:**
+
   - To invoke a model deployed in SageMaker AI, pass the string
     `sagemaker-endpoint:`endpoint-name``to the`%%ai` magic command with the required parameters below, then add your
     prompt in the following lines.
@@ -57,7 +58,6 @@ Studio Classic notebook cell.
   %%ai sagemaker-endpoint:hf-text2text-flan-t5-small --request-schema={"inputs":"<prompt>","parameters":{"num_return_sequences":4}} --region-name=us-west-2 --response-path=[0]["generated_text"] -f text
   What is the atomic number of Hydrogen?
   ```
-
   - To invoke a model deployed in Amazon Bedrock, pass the string
     `bedrock:`model-name``to the`%%ai` magic command with any optional parameter defined in the list of
     [parameters for

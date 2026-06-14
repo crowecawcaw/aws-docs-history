@@ -73,6 +73,7 @@ blog_.
 
 - To achieve the most optimal training time for distributed training,
   consider the following.
+
   - Use instances with multiple GPUs instead of using single-gpu
     instances. For example, a single `ml.p3dn.24xlarge`
     instance has faster training time compared to 8 x

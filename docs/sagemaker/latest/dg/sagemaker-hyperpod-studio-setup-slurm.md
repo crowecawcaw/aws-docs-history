@@ -6,6 +6,7 @@ Studio.
 1. Create a domain or have one ready. For information on creating a domain, see
    [Guide to getting set up with Amazon SageMaker AI](gs.md "gs.md").
 2. (Optional) Create and attach a custom FSx for Lustre volume to your domain.
+
    1. Ensure that your FSx Lustre file system exists in the same VPC as your intended
       domain, and is in one of the subnets present in the domain.
    2. You can follow the instructions in [Adding a custom file system to a domain](domain-custom-file-system.md "domain-custom-file-system.md").
@@ -13,6 +14,7 @@ Studio.
 3. (Optional) We recommend that you add tags to your clusters to ensure a more smooth
    workflow. For information on how to add tags, see [Edit a SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters") to update your cluster
    using the SageMaker AI console.
+
    1. Tag your FSx for Lustre file system to your Studio domain. This will help you
       identify the file system while launching your Studio spaces. To do so, add the
       following tag to your cluster to identify it with the FSx filesystem ID, `fs-id`.

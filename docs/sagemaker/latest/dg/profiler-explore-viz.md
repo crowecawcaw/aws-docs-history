@@ -166,12 +166,14 @@ follows.
   – This is what SageMaker AI tags to assign jobs to provisioned
   instances. The digit inode is randomly assigned. For
   example, if you use 4 instances, this section expands from **algo-1** to **algo-4**.
+
   - **CPU** – In this section, you
     can check the average CPU utilization rate and performance
     counters.
   - **GPUs** – In this section,
     you can check the average GPU utilization rate, individual GPU
     utilization rate, and kernels.
+
     - **SUM Utilization** –
       The average GPU utilization rates per instance.
     - **HOST-0 PID-123** – A
@@ -180,6 +182,7 @@ follows.
       process ID number that's recorded during data capture from
       the process. This section shows the following information
       from the process.
+
       - **GPU-inum_gpu
         utilization** – The utilization
         rate of the inum_gpu-th GPU
@@ -188,6 +191,7 @@ follows.
         device** – The kernel runs on the
         inum_gpu-th GPU
         device.
+
         - **stream
           icuda_stream**
           – CUDA streams showing kernel runs on the

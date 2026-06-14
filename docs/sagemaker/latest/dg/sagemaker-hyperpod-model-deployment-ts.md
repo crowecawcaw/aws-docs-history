@@ -22,3 +22,4 @@ confirms that the solution worked correctly.
 - [Missing NVIDIA GPU plugin error](sagemaker-hyperpod-model-deployment-ts-gpu.md "sagemaker-hyperpod-model-deployment-ts-gpu.md")
 - [Inference operator fails to start](sagemaker-hyperpod-model-deployment-ts-startup.md "sagemaker-hyperpod-model-deployment-ts-startup.md")
 - [Hugging Face Hub model deployment failures](sagemaker-hyperpod-model-deployment-ts-huggingface.md "sagemaker-hyperpod-model-deployment-ts-huggingface.md")
+- [Disaggregated Prefill and Decode (DPD) deployment issues](sagemaker-hyperpod-model-deployment-ts-dpd.md "sagemaker-hyperpod-model-deployment-ts-dpd.md")

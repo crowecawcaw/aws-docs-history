@@ -33,17 +33,20 @@ following:
 4. If your Ready-to-use model is identity document analysis or document analysis, complete
    the following actions. If you’re doing expense analysis or document queries, skip this step
    and go to Step 5 or Step 6, respectively.
+
    1. Choose **Upload document**.
    2. You are prompted to upload a PDF, JPG, or PNG file from your local computer. Select
       the document from your local files, and then the prediction results will generate.
 
 5. If your Ready-to-use model is expense analysis, do the following:
+
    1. Choose **Upload invoice or receipt**.
    2. You are prompted to upload a PDF, JPG, PNG, or TIFF file from your local computer.
       Select the document from your local files, and then the prediction results will
       generate.
 
 6. If your Ready-to-use model is document queries, do the following:
+
    1. Choose **Upload document**.
    2. You are prompted to upload a PDF file from your local computer. Select the document
       from your local files. Your PDF must be 1–100 pages long.

@@ -31,6 +31,7 @@ For more information about billing for Amazon SNS, see [Amazon SNS pricing](http
    **Create topic**.
 4. On the **Create topic** page, in the
    **Details** section, do the following:
+
    1. For **Type**, choose
       **Standard** for topic type.
    2. In **Name**, enter
@@ -49,6 +50,7 @@ For more information about billing for Amazon SNS, see [Amazon SNS pricing](http
    subscription**.
 4. On the **Create subscription** page, in the
    **Details** section, do the following:
+
    1. For **Topic ARN**, choose the
       **SMDebugRules** topic ARN. The ARN should be
       in format of `arn:aws:sns:*<region-id>*:*111122223333*:SMDebugRules`.
@@ -90,6 +92,7 @@ In this step, you add the required policies to your IAM role.
    choose **Create policy**.
 3. On the **Create policy** page, do the following to create
    a new sns-access policy:
+
    1. Choose the **JSON** tab.
    2. Paste the JSON strings formatted in bold in the following code
       into the `"Statement"`, replacing the 12-digit AWS
@@ -115,7 +118,6 @@ In this step, you add the required policies to your IAM role.
    }`
 
    ```
-
    3. At the bottom of the page, choose **Review
       policy**.
    4. On the **Review policy** page, for **Name**, enter

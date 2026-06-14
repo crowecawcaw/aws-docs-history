@@ -75,6 +75,7 @@ mandatory; if no model is specified, Autopilot automatically defaults to the mod
 - Place your dataset in an Amazon S3 bucket.
 - Grant full access to the Amazon S3 bucket containing your input data for the SageMaker AI execution
   role used to run your experiment.
+
   - For information on retrieving your SageMaker AI execution role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role").
   - For information on granting your SageMaker AI execution role permissions to access one or
     more specific buckets in Amazon S3, see _Add Additional Amazon S3
@@ -193,6 +194,7 @@ training and validation datasets depends on whether you have one or two data sou
 - If you only have **one data source**, the
   `ChannelType` is set to `training` by default and must have
   this value.
+
   - If the `ValidationFraction` value in [`AutoMLDataSplitConfig`](../APIReference/API_AutoMLDataSplitConfig.md "../APIReference/API_AutoMLDataSplitConfig.md") is not set, 0.2 (20%) of the data
     from this source is used for validation by default.
   - If the `ValidationFraction` is set to a value between 0 and 1, the

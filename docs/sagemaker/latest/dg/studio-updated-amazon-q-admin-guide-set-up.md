@@ -72,6 +72,7 @@ JSON
 4. Navigate to the **Launcher** and choose
    **Terminal**.
 5. In JupyterLab, do the following:
+
    1. Specify `restart-jupyter-server`.
    2. Restart your browser and navigate back to
       Amazon SageMaker Studio.

@@ -75,6 +75,7 @@ following procedure for the **Canvas** section:
 
 1. For the **Canvas storage configuration**, do
    the following:
+
    1. Select **System managed** if you want to
       set the location to the default SageMaker AI bucket that follows
       the pattern `s3://sagemaker-`{Region}`-`{your-account-id}``.
@@ -101,6 +102,7 @@ Applications**, use the following procedure for the
 
 1. For the **Canvas storage configuration**, do
    the following:
+
    1. Select **System managed** if you want to
       set the location to the default SageMaker AI created bucket that follows
       the pattern `s3://sagemaker-`{Region}`-`{your-account-id}``.
@@ -147,6 +149,7 @@ Use the following procedure to update the storage configuration for a domain.
 7. The **Edit Canvas settings** page opens.
    For the **Canvas storage configuration** section, do
    the following:
+
    1. Select **System managed** if you want to
       set the location to the default SageMaker AI created bucket that follows
       the pattern `s3://sagemaker-`{Region}`-`{your-account-id}``.
@@ -172,6 +175,7 @@ profile.
 7. In the navigation pane, choose **Canvas settings**.
 8. For the **Canvas storage configuration**, do
    the following:
+
    1. Select **System managed** if you want to
       set the location to the default SageMaker AI bucket that follows
       the pattern `s3://sagemaker-`{Region}`-`{your-account-id}``.

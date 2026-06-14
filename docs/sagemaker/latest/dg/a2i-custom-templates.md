@@ -175,12 +175,15 @@ element. This element supports the following attributes:
 
 - `categories` – An array of strings _or_ an array of objects where each object has a `name`
   field.
+
   - If the categories come in as objects, the following applies:
+
     - The displayed categories are the value of the
       `name` field.
     - The returned answer contains the _full_ objects of any selected categories.
 
   - If the categories come in as strings, the following applies:
+
     - The returned answer is an array of all the strings that were
       selected.
 

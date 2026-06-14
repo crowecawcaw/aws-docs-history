@@ -47,6 +47,7 @@ ENTRYPOINT ["python", "k_means_inference.py"]
 
 - SageMaker AI sets environment variables specified in [`CreateModel`](../APIReference/API_CreateModel.md "../APIReference/API_CreateModel.md") and [`CreateTransformJob`](../APIReference/API_CreateTransformJob.md "../APIReference/API_CreateTransformJob.md") on your container. Additionally, the
   following environment variables are populated:
+
   - `SAGEMAKER_BATCH` is set to `true` when the
     container runs batch transforms.
   - `SAGEMAKER_MAX_PAYLOAD_IN_MB` is set to the largest size

@@ -90,6 +90,7 @@ forecasting needs, or generative AI.
   with a specific data type and each row contains an observation. The column data types
   accepted include numerical, categorical, text, and time series that consists of strings of
   comma-separated numbers.
+
   - To create an Autopilot job as a pilot experiment using the SageMaker API reference, see
     [Create Regression or Classification Jobs for Tabular Data Using the AutoML API](autopilot-automate-model-development-create-experiment.md "autopilot-automate-model-development-create-experiment.md").
   - To create an Autopilot job as a pilot experiment using the Studio Classic UI, see [Create a Regression or Classification Autopilot experiment for tabular data using the Studio Classic UI](autopilot-automate-model-development-create-experiment-ui.md "autopilot-automate-model-development-create-experiment-ui.md").

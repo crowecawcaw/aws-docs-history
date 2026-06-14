@@ -20,8 +20,10 @@ training job, you need to add details related to your training job manually.
    job.
 3. You can add a training job you created in SageMaker AI or a training job you
    created externally.
+
    1. To add a training job you created in SageMaker AI, complete the
       following steps.
+
       1. Choose **SageMaker AI**.
       2. Select the radio box next to the training job you want
          to add.
@@ -29,6 +31,7 @@ training job, you need to add details related to your training job manually.
 
    2. To add a training job you created externally, complete the
       following steps.
+
       1. Choose **Custom**.
       2. In the **Name** field, insert the
          name of your custom training job.

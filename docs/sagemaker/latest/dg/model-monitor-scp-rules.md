@@ -13,6 +13,7 @@ respectively. Depending on your use case, you can do this in one of the followin
   `MonitoringJobDefinitionName` field of `MonitoringScheduleConfig`, when you invoke
   `CreateMonitoringSchedule` or `UpdateMonitoringSchedule`. You can use this for any
   job definition that you create with one of the following APIs:
+
   - [CreateDataQualityJobDefinition](../APIReference/API_CreateDataQualityJobDefinition.md "../APIReference/API_CreateDataQualityJobDefinition.md")
   - [CreateModelQualityJobDefinition](../APIReference/API_CreateModelQualityJobDefinition.md "../APIReference/API_CreateModelQualityJobDefinition.md")
   - [CreateModelBiasJobDefinition](../APIReference/API_CreateModelBiasJobDefinition.md "../APIReference/API_CreateModelBiasJobDefinition.md")

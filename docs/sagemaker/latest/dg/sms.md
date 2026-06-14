@@ -50,6 +50,7 @@ If you are a first-time user of Ground Truth, we recommend that you do the follo
    walks you through setting up your first Ground Truth labeling job.
 2. **Explore other topics**—Depending on your
    needs, do the following:
+
    - **Explore built-in task types**—
      Use built-in task types to streamline the process of creating a labeling
      job. See [Built-in Task Types](sms-task-types.md "sms-task-types.md") to learn more about Ground Truth built-in task types.

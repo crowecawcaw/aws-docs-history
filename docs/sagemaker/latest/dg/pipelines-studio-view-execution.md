@@ -23,6 +23,7 @@ Studio
 7. Choose any of the pipeline steps in the graph to see step settings in the right
    sidebar.
 8. Choose one of the following tabs to view more pipeline details:
+
    - **Definition** — The pipeline graph, including all
      steps.
    - **Parameters** – Includes the model approval

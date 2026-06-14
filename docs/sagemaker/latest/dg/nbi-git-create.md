@@ -30,6 +30,7 @@ cross-account access for the repository. For information, see [Associate a CodeC
 1. Follow the instructions at [Create an Amazon SageMaker Notebook Instance for the tutorial](gs-setup-working-env.md "gs-setup-working-env.md").
 2. For **Git repositories**, choose Git repositories to
    associate with the notebook instance.
+
    1. For **Default repository**, choose a
       repository that you want to use as your default repository. SageMaker AI
       clones this repository as a subdirectory in the Jupyter startup

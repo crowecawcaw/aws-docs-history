@@ -205,6 +205,7 @@ Apache Iceberg documentation.
 FROM`](https://iceberg.apache.org/docs/latest/spark-writes/#delete-from "https://iceberg.apache.org/docs/latest/spark-writes/#delete-from") command in Apache Spark.
 - To remove the record from previous versions of your Iceberg tables to hard delete the
   record from `OfflineStore`:
+
   - When changing your Iceberg table configuration: instead of using the `ALTER
 TABLE` command from Athena, use [`expire_snapshots`](https://iceberg.apache.org/docs/1.3.1/spark-procedures/#expire_snapshots "https://iceberg.apache.org/docs/1.3.1/spark-procedures/#expire_snapshots") procedure.
   - To remove no longer needed data files from your Iceberg tables: instead of using the

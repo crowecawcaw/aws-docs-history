@@ -30,6 +30,7 @@ name link to see details of each cluster.
     the configurations of existing instance groups, add more instance
     groups, delete instance groups, and change tags for the cluster. After
     making changes, choose **Submit**.
+
     1. In the **Configure instance groups** section,
        you can add more instance groups by choosing **Create
        instance group**.

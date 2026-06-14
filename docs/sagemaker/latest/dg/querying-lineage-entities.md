@@ -41,6 +41,7 @@ You can query your lineage entities to:
 ###### Limitations
 
 - Lineage querying is not available in the following Regions:
+
   - Africa (Cape Town) – af-south
   - Asia Pacific (Jakarta) – ap-southeast-3
   - Asia Pacific (Osaka) – ap-northeast-3

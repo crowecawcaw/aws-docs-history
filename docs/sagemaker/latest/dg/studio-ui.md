@@ -36,6 +36,7 @@ This chapter is based on Studio Classic's updated user interface (UI) available 
 
 - To retrieve your version of Studio Classic UI, from the [Studio Classic Launcher](studio-launcher.md "studio-launcher.md"),
   open a System Terminal, then
+
   1.  Run `conda activate studio`
   2.  Run `jupyter labextension list`
   3.  Search for the version displayed after `@amzn/sagemaker-ui version` in the output.

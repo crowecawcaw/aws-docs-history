@@ -197,6 +197,7 @@ pipeline step type:
 - For the `Model` class, the argument used depends on if you run
   `create` or `register` on your model before passing the
   result to `ModelStep`
+
   - If you call `create`, the custom prefix comes from the
     `name` argument when you construct your model (i.e.,
     `Model(name=)`)

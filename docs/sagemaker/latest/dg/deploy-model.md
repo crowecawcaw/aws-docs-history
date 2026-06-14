@@ -55,6 +55,7 @@ over the technical breadth and depth of your deployments:
 
 - **Deploying a model to an endpoint.**
   When deploying your model, consider the following options:
+
   - [Real-time inference](realtime-endpoints.md "realtime-endpoints.md").
     Real-time inference is ideal for inference workloads where you have
     interactive, low latency requirements.
@@ -68,6 +69,7 @@ over the technical breadth and depth of your deployments:
 
 - **Cost optimization.** To optimize
   your inference costs, consider the following options:
+
   - [Model performance optimization with SageMaker Neo](neo.md "neo.md"). Use SageMaker Neo to
     optimize and run your machine learning models with better performance
     and efficiency, helping you to minimize compute costs by automatically

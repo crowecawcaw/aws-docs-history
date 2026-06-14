@@ -15,6 +15,7 @@ instance, set up cross-account access for the CodeCommit repository.
    _CodeCommit User Guide_.
 3. Create a profile in the notebook instance that uses the role that you
    created in the previous step:
+
    1. Open the notebook instance.
    2. Open a terminal in the notebook instance.
    3. Edit a new profile by typing the following in the terminal:
@@ -22,7 +23,6 @@ instance, set up cross-account access for the CodeCommit repository.
    ```
    vi /home/ec2-user/.aws/config
    ```
-
    4. Edit the file with the following profile information:
 
    ```
@@ -42,6 +42,7 @@ instance, set up cross-account access for the CodeCommit repository.
 
 4. On the notebook instance, configure git to use the profile you created in
    the previous step:
+
    1. Open the notebook instance.
    2. Open a terminal in the notebook instance.
    3. Edit the Git configuration file typing the following in the
@@ -50,7 +51,6 @@ instance, set up cross-account access for the CodeCommit repository.
    ```
    vi /home/ec2-user/.gitconfig
    ```
-
    4. Edit the file with the following profile information:
 
    ```

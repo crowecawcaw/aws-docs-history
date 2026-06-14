@@ -33,6 +33,7 @@ that you can use in your AWS Glue interactive session, see [Configure your AWS G
 
 - For Studio Classic users initiating an AWS Glue interactive session, they can select from
   the following images and kernels:
+
   - Images: `SparkAnalytics 1.0`, `SparkAnalytics
 2.0`
   - Kernel: `Glue Python [PySpark and Ray]` and `Glue

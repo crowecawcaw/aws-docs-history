@@ -62,10 +62,12 @@ operations must be permitted in the key policy. The principal for these operatio
 depends on whether the role is used to create or use the application.
 
 - Creating the application:
+
   - `kms:CreateGrant`
   - [`kms:DescribeKey`](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md")
 
 - Using the application:
+
   - [`kms:Decrypt`](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md")
   - [`kms:GenerateDataKey`](../../../kms/latest/APIReference/API_GenerateDataKey.md "../../../kms/latest/APIReference/API_GenerateDataKey.md")
 

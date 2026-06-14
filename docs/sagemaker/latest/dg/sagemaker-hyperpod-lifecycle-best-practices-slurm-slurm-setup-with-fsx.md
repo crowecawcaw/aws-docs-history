@@ -4,6 +4,7 @@ To mount an Amazon FSx for Lustre shared file system to your HyperPod cluster, s
 up the following.
 
 1. Use your Amazon VPC.
+
    1. For HyperPod cluster instances to communicate within your
       VPC, make sure that you attach the [Setting up SageMaker HyperPod with a custom Amazon VPC](sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc "sagemaker-hyperpod-prerequisites.md#sagemaker-hyperpod-prerequisites-optional-vpc") to the IAM role for SageMaker HyperPod.
    2. In `create_cluster.json`, include the following VPC

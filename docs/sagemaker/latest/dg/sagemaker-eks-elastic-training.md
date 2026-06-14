@@ -476,11 +476,13 @@ When a high-priority job needs resources, Kueue can preempt lower-priority Elast
 Preemption can cause the entire training job to pause, which may not be desirable for all workflows. To avoid full-job suspension while still allowing elastic scaling, customers can configure two different priority levels within the same training job by defining two `replicaSpec` sections:
 
 - A primary (fixed) replicaSpec with normal or high priority
+
   - Contains the minimum required number of replicas needed to keep the training job running.
   - Uses a higher PriorityClass, ensuring these replicas are _never_ preempted.
   - Maintains baseline progress even when the cluster is under resource pressure.
 
 - An elastic (scalable) replicaSpec with lower priority
+
   - Contains the additional optional replicas that provide extra compute during elastic scaling.
   - Uses a lower PriorityClass, allowing Kueue to preempt these replicas when higher-priority jobs need resources.
   - Ensures only the elastic portion is reclaimed, while the core training continues uninterrupted.

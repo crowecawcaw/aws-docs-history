@@ -48,6 +48,7 @@ For the key value pairs associated with `humanAnswers`, see [Key values pairs fo
 **`inputContent`**
 
 - This key value describes the _metric types_, and the instructions your provided for workers in the worker portal.
+
   - `additionalDataS3Uri`: The location in Amazon S3 where the instructions for workers is saved.
   - `instructions`: The instructions you provided to workers in the worker portal.
   - `evaluationMetrics`: The name of the metric and it's description. The key value `metricType` is the tool provided to workers to evaluate the models' responses.
@@ -140,6 +141,7 @@ The structure of answer depends on the evaluation metrics selected when model ev
 **`answerContent`**
 
 - `evaluationResults` contains the worker's responses.
+
   - When **Choice buttons** is selected, the results from each worker are as `"evaluationResults": "comparisonChoice"`.
 
   `metricName`: The name of the metric
@@ -169,7 +171,6 @@ The structure of answer depends on the evaluation metrics selected when model ev
   	"rank": 1
   }]
   ```
-
   - When **Likert scale, evaluation of a single model response** is selected, the results a worker are saved in `"evaluationResults": "individualLikertScale"`. This is a JSON array containing the scores for `metricName` specified when the job was created.
 
   `metricName`: The name of the metric.

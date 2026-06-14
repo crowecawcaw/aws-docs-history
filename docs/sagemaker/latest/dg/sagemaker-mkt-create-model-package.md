@@ -69,6 +69,7 @@ SageMaker API.
     **Create marketplace model package**.
 4.  On the **Inference specifications** page, provide the
     following information:
+
     1. For **Model package name**, type a name for
        your model package. The model package name must be unique in
        your account and in the AWS region. The name must have 1 to 64
@@ -89,6 +90,7 @@ SageMaker API.
        specification options**, provide the following
        information for **Container definition** and
        **Supported resources**:
+
        1. For **Location of inference image**,
           type the path to the image that contains your inference
           code. The image must be stored as a Docker container in
@@ -118,6 +120,7 @@ SageMaker API.
        and its model artifacts** for **Inference
        specification options**, provide the following
        information:
+
        1. For **Algorithm ARN**, type the
           Amazon Resource Name (ARN) of the algorithm resource to
           use to create the model package.
@@ -129,6 +132,7 @@ SageMaker API.
 
 5.  On the **Validation and scanning** page, provide the
     following information:
+
     1. For **Publish this model package on AWS Marketplace**,
        choose **Yes** to publish the model package on
        AWS Marketplace.

@@ -42,6 +42,7 @@ separate data source and crawler for each location. Each data source creates a t
 named after the folder that contain them unless prefixed.
 
 1.  Configure a query result location
+
     1. Go to the Athena console: [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
     2. From the left menu, choose **Workgroups**.
     3. Follow the link for the `primary` workgroup and choose
@@ -51,6 +52,7 @@ named after the folder that contain them unless prefixed.
        changes**.
 
 2.  Create an Athena data source for your Amazon S3 data
+
     1. From the left menu in the Athena console, choose **Data
        sources** and then **Create Data Source**.
     2. Choose **S3 - AWS Glue Data Catalog** and then
@@ -61,10 +63,12 @@ named after the folder that contain them unless prefixed.
        opens the AWS Glue console.
 
 3.  Use AWS Glue to crawl your data source
+
     1. Enter a name and a description for your new crawler and then choose
        **Next**.
     2. Under **Data Sources**, choose **Add a data
        source**.
+
        1. If the Amazon Amazon S3 bucket containing your data is in a
           different AWS account than your SageMaker AI environment, choose
           **In a different account** for the
@@ -74,7 +78,6 @@ named after the folder that contain them unless prefixed.
        ```
        s3://dsoaws/nyc-taxi-orig-cleaned-split-parquet-per-year-multiple-files/ride-info/year=2019/
        ```
-
        3. Keep all other default values and then choose **Add an
           Amazon S3 data source**. You should see a new Amazon S3 data
           source in the data sources table.
@@ -94,6 +97,7 @@ named after the folder that contain them unless prefixed.
          **Next**.
 
 4.  Create or select a database for your tables
+
     1. If you do not have an existing database in Athena, choose **Add
        database** and then **Create a new
        database**.
@@ -128,6 +132,7 @@ to access Athena.
 
 1. Retrieve the ARN of the execution role associated with your user
    profile
+
    1. Go to the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/") and choose
       **Domains** in the left menu.
    2. Follow the name for your domain name.
@@ -137,6 +142,7 @@ to access Athena.
       execution role.
 
 2. Update the policy of your execution role
+
    1. Find your AWS region and account ID at the top right of the SageMaker AI
       console. Use these values and your database name to update the
       placeholders in the following JSON policy in a text editor.
@@ -209,7 +215,6 @@ to access Athena.
    }`
 
    ```
-
    2. Go to the IAM console: [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/") and choose
       **Roles** in the left menu.
    3. Search for your role by role name.

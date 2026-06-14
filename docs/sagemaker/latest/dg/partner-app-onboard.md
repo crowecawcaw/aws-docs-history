@@ -6,12 +6,14 @@ permissions required are split into two parts, depending on the user permissions
 - **Administrative permissions** – Permissions for
   administrators setting up data scientist and machine learning (ML) developer
   environments.
+
   - AWS Marketplace
   - Partner AI Apps management
   - AWS License Manager
 
 - **User permissions** – Permissions for data scientists
   and machine learning developers.
+
   - User authorization
   - Identity propagation
   - SDK access
@@ -22,6 +24,7 @@ Admins can complete the following prerequisites to set up Partner AI Apps.
 
 - (Optional) Onboard to a SageMaker AI domain. Partner AI Apps can be accessed directly from a SageMaker AI
   domain. For more information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
+
   - If using Partner AI Apps in a SageMaker AI domain in VPC-only mode, admins must create an endpoint
     with the following format to connect to the Partner AI Apps. For more information about using
     Studio in VPC-only mode, see [Connect Amazon SageMaker Studio in a VPC to External Resources](studio-updated-and-internet-access.md "studio-updated-and-internet-access.md").
@@ -32,6 +35,7 @@ Admins can complete the following prerequisites to set up Partner AI Apps.
 
 - (Optional) If admins are interacting with the domain using the AWS CLI, they must also
   complete the following prerequisites.
+
   1.  Update the AWS CLI by following the steps in [Installing the
       current AWS CLI Version](../../../cli/latest/userguide/install-cliv1.md#install-tool-bundled "../../../cli/latest/userguide/install-cliv1.md#install-tool-bundled").
   2.  From the local machine, run `aws configure` and provide AWS

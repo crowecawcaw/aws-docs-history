@@ -100,6 +100,7 @@ parameter.
 - You need to provide pre-defined ARNs for the pre-annotation and
   post-annotation (ACS) Lambda functions. These ARNs are specific to the
   AWS Region you use to create your labeling job.
+
   - To find the pre-annotation Lambda ARN, refer to [`PreHumanTaskLambdaArn`](../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn "../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn"). Use the
     Region in which you are creating your labeling job to find the
     correct ARN that ends with

@@ -27,6 +27,7 @@ AMI Name: HyperPod EKS 1.32 x86_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.32.3
   - Containerd Version: 1.7.23
   - Runc Version: 1.2.6
@@ -46,6 +47,7 @@ AMI Name: HyperPod EKS 1.32 x86_64 AMI Amazon Linux 2
 - **AWS OFI NCCL:**
   1.13.0-aws
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**
@@ -90,6 +92,7 @@ AMI Name: HyperPod EKS 1.30 x86_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.30.11
   - Containerd Version: 1.7.\*
   - Runc Version: 1.2.6
@@ -109,6 +112,7 @@ AMI Name: HyperPod EKS 1.30 x86_64 AMI Amazon Linux 2
 - **AWS OFI NCCL:**
   1.13.0-aws
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**
@@ -153,6 +157,7 @@ AMI Name: HyperPod EKS 1.31 x86_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.31.7
   - Containerd Version: 1.7.\*
   - Runc Version: 1.2.6
@@ -172,6 +177,7 @@ AMI Name: HyperPod EKS 1.31 x86_64 AMI Amazon Linux 2
 - **AWS OFI NCCL:**
   1.13.0-aws
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**
@@ -216,6 +222,7 @@ AMI Name: HyperPod EKS 1.29 x86_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.29.15
   - Containerd Version: 1.7.\*
   - Runc Version: 1.2.6
@@ -235,6 +242,7 @@ AMI Name: HyperPod EKS 1.29 x86_64 AMI Amazon Linux 2
 - **AWS OFI NCCL:**
   1.13.0-aws
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**
@@ -279,6 +287,7 @@ AMI Name: HyperPod EKS 1.28 x86_64 AMI Amazon Linux 2
 2025080407
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.28.15
   - Containerd Version: 1.7.\*
   - Runc Version: 1.2.6
@@ -298,6 +307,7 @@ AMI Name: HyperPod EKS 1.28 x86_64 AMI Amazon Linux 2
 - **AWS OFI NCCL:**
   1.13.0-aws
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**

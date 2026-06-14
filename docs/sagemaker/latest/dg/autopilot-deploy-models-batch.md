@@ -45,6 +45,7 @@ predictions.
     optional information.
 13. In the **Input data configuration** section, open the dropdown
     menu.
+
     1. For **S3 data type**, choose
        **ManifestFile** or **S3Prefix**.
     2. For **Split type**, choose **Line**,
@@ -57,12 +58,14 @@ predictions.
     input data and other optional information.
 15. Under **Output data configuration**, enter the S3 bucket for
     the output data, and choose how to [assemble the output](../APIReference/API_TransformOutput.md#sagemaker-Type-TransformOutput-AssembleWith "../APIReference/API_TransformOutput.md#sagemaker-Type-TransformOutput-AssembleWith") of your job.
+
     1. For **Additional configuration (optional)**, you can enter
        a MIME type and an **S3 Encryption key**.
 
 16. For **Input/output filtering and data joins (optional)**, you
     enter a JSONpath expression to filter your input data, join the input source data
     with your output data, and enter a JSONpath expression to filter your output data.
+
     1. For examples for each type of filter, see the [DataProcessing API](../APIReference/API_DataProcessing.md#sagemaker-Type-DataProcessing-InputFilter "../APIReference/API_DataProcessing.md#sagemaker-Type-DataProcessing-InputFilter").
 
 17. To perform batch predictions on your input dataset, select **Create

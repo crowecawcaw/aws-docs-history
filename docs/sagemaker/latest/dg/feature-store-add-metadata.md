@@ -33,6 +33,7 @@ enabled [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") or [Ama
    you can view the resource owner account ID of the feature group.
 7. You can search for your feature in the **Search**
    dropdown list.
+
    - (Optional) To filter your search, choose the filter icon next
      to the **Search** dropdown list. You can use
      filters to specify parameters or date ranges in your search
@@ -76,6 +77,7 @@ enabled [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") or [Ama
     group.
 22. You can search for your feature in the **Search**
     dropdown list.
+
     - (Optional) To filter your search, choose the filter icon next
       to the **Search** dropdown list. You can use
       filters to specify parameters or date ranges in your search

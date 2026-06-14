@@ -23,9 +23,11 @@ infrastructure.
 ![Animated screenshot that shows how to create a Jupyter notebook in the SageMaker AI notebook instance.](images/get-started-ni/gs-ni-create-notebook.gif)
 
 1. Open the notebook instance as follows:
+
    1. Sign in to the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
    2. On the **Notebook instances** page, open your notebook
       instance by choosing either:
+
       - **Open JupyterLab** for the JupyterLab
         interface
       - **Open Jupyter** for the classic Jupyter
@@ -39,6 +41,7 @@ infrastructure.
    when the notebook instance is ready to use.
 
 2. Create a notebook as follows:
+
    - If you opened the notebook in the JupyterLab view, on the
      **File** menu, choose **New**, and
      then choose **Notebook**. For **Select
@@ -51,6 +54,7 @@ infrastructure.
      environment includes the default Anaconda installation and Python 3.
 
 3. Save the notebooks as follows:
+
    - In the JupyterLab view, choose **File**, choose
      **Save Notebook As...**, and then rename the
      notebook.

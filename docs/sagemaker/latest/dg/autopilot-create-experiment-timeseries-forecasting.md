@@ -70,6 +70,7 @@ Make sure to provide enough data to capture seasonal and recurrent patterns.
 - Grant full access to the Amazon S3 bucket containing your input data for the SageMaker AI execution
   role used to run your experiment. Once this is done, you can use the ARN of this execution
   role in Autopilot API requests.
+
   - For information on retrieving your SageMaker AI execution role, see [Get your execution role](sagemaker-roles.md#sagemaker-roles-get-execution-role "sagemaker-roles.md#sagemaker-roles-get-execution-role").
   - For information on granting your SageMaker AI execution role permissions to access one or
     more specific buckets in Amazon S3, see _Add Additional Amazon S3

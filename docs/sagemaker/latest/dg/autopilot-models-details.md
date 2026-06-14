@@ -24,12 +24,14 @@ include the following:
    name**. The **Best model** is listed at the top of
    the list under **Model name** and is also highlighted in the
    **Models** tab.
+
    1. To review model details, select the model that you are interested in
       and select **View model details**. This opens a new
       **Model Details** tab.
 
 5. The **Model Details** tab is divided into four
    subsections.
+
    1. The top of the **Explainability** tab contains a plot
       of aggregated SHAP values that indicate the importance of each feature.
       Following that are the metrics and hyperparameter values for this model.

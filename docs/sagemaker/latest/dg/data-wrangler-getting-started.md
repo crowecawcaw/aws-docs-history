@@ -106,6 +106,7 @@ the _RMS Titanic_ in 1912.
 In this tutorial, you perform the following steps.
 
 1. Do one of the following:
+
    - Open your Data Wrangler flow and choose **Use Sample Dataset**.
    - Upload the [Titanic dataset](https://s3.us-west-2.amazonaws.com/amazon-sagemaker-data-wrangler-documentation-artifacts/walkthrough_titanic.csv "https://s3.us-west-2.amazonaws.com/amazon-sagemaker-data-wrangler-documentation-artifacts/walkthrough_titanic.csv")
      to Amazon Simple Storage Service (Amazon S3), and then import this dataset into Data Wrangler.
@@ -236,6 +237,7 @@ To drop the unused columns.
    The standard transformations are ready-made, built-in transformations.
    Make sure that **Drop column** is selected.
 6. Under **Columns to drop**, check the following column names:
+
    - cabin
    - ticket
    - name

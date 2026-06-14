@@ -22,6 +22,7 @@ Before you start, you must complete the following prerequisites:
 
 3. Attach the following permission and inline policy to the IAM role
    created during AWS IoT Greengrass V2 setup.
+
    - Navigate to the IAM console [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    - Search for the role you created by typing in rhe role name in the
      **Search** field.
@@ -53,7 +54,6 @@ Before you start, you must complete the following prerequisites:
    }`
 
    ```
-
    - Choose **Attach policy**.
    - Choose **Trust relationship**.
    - Choose **Edit trust relationship**.

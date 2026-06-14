@@ -15,8 +15,10 @@ role.
 
 1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/") and delete the following
    resources:
+
    - The endpoint. Deleting the endpoint also deletes the ML compute
      instance or instances that support it.
+
      1. Under **Inference**, choose
         **Endpoints**.
      2. Choose the endpoint that you created in the example, choose
@@ -24,6 +26,7 @@ role.
         **Delete**.
 
    - The endpoint configuration.
+
      1. Under **Inference**, choose
         **Endpoint configurations**.
      2. Choose the endpoint configuration that you created in the
@@ -31,6 +34,7 @@ role.
         **Delete**.
 
    - The model.
+
      1. Under **Inference**, choose
         **Models**.
      2. Choose the model that you created in the example, choose
@@ -39,6 +43,7 @@ role.
 
    - The notebook instance. Before deleting the notebook instance, stop
      it.
+
      1. Under **Notebook**, choose **Notebook
         instances**.
      2. Choose the notebook instance that you created in the example,

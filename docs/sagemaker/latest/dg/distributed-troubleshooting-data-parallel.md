@@ -102,6 +102,7 @@ group configuration to enable traffic between the nodes.
 5. On the **Inbound rules** tab, choose **Edit inbound rules**.
 6. On the **Edit inbound rules** page, do the
    following:
+
    1. Choose **Add rule**.
    2. For **Type**, choose **All traffic**.
    3. For **Source**, choose **Custom**, paste the security group ID into the

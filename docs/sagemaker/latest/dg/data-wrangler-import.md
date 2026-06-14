@@ -164,8 +164,10 @@ Amazon S3 bucket in a single import step.
 2. Under **Available**, choose
    **Amazon S3**.
 3. From the **Import tabular, image, or time-series data from S3**, do one of the following:
+
    - Choose an Amazon S3 bucket from the tabular view and navigate to the file that you're importing.
    - For **S3 source**, specify an Amazon S3 bucket or an Amazon S3 URI and select **Go**. The Amazon S3 URIs can be in one of the following formats:
+
      - `s3://`amzn-s3-demo-bucket`/`example-prefix`/`example-file``
      - `example-access-point`-`aqfqprnstn7aefdfbarligizwgyfouse1a`-s3alias/datasets/`example-file`
      - `s3://arn:aws:s3:`AWS-Region`:`111122223333`:accesspoint/`example-prefix`/`example-file``
@@ -206,9 +208,11 @@ Use the following procedure to import multiple files.
 2. Under **Available**, choose
    **Amazon S3**.
 3. From the **Import tabular, image, or time-series data from S3**, do one of the following:
+
    - Choose an Amazon S3 bucket from the tabular view and navigate to the folder containing the files that you're importing.
    - For **S3 source**, specify the Amazon S3 bucket or an Amazon S3 URI with your files and select **Go**.
      The following are valid URIs:
+
      - `s3://`amzn-s3-demo-bucket`/`example-prefix`/`example-prefix``
      - ``example-access-point`-`aqfqprnstn7aefdfbarligizwgyfouse1a`-s3alias/`example-prefix`/`
      - `s3://arn:aws:s3:**AWS-Region**:`111122223333`:accesspoint/`example-prefix``
@@ -293,6 +297,7 @@ The following procedure shows how to import a dataset from Athena into Data Wran
     in your database using the **Tables** listed under
     **Details**.
 12. (Optional) Choose **Advanced configuration**.
+
     1. Choose a **Workgroup**.
     2. If your workgroup hasn't enforced the Amazon S3 output location or if you
        don't use a workgroup, specify a value for **Amazon S3 location of
@@ -547,6 +552,7 @@ You must meet the following prerequisites to connect to an Amazon EMR cluster:
   - The Amazon EMR clusters that you're running must be in the same Amazon VPC.
   - The Amazon EMR clusters and the Amazon VPC must be in the same AWS account.
   - Your Amazon EMR clusters are running Hive or Presto.
+
     - Hive clusters must allow inbound traffic from Studio Classic security groups on port 10000.
     - Presto clusters must allow inbound traffic from Studio Classic security groups on port 8889.
 
@@ -575,6 +581,7 @@ You must meet the following prerequisites to connect to an Amazon EMR cluster:
 - ###### Amazon EMR clusters using IAM runtime roles
   - Use the following pages to set up IAM runtime roles for the
     Amazon EMR cluster. You must enable in-transit encryption when you're using runtime roles:
+
     - [Prerequisites for launching an Amazon EMR cluster with a
       runtime role](../../../emr/latest/ManagementGuide/emr-steps-runtime-roles.md#emr-steps-runtime-roles-configure "../../../emr/latest/ManagementGuide/emr-steps-runtime-roles.md#emr-steps-runtime-roles-configure")
     - [Launch an Amazon EMR cluster with role-based access
@@ -583,6 +590,7 @@ You must meet the following prerequisites to connect to an Amazon EMR cluster:
   - You must Lake Formation as a governance tool for the data within your
     databases. You must also use external data filtering for access
     control.
+
     - For more information about Lake Formation, see [What is AWS Lake Formation?](../../../lake-formation/latest/dg/what-is-lake-formation.md "../../../lake-formation/latest/dg/what-is-lake-formation.md")
     - For more information about integrating Lake Formation into Amazon EMR, see [Integrating third-party services with Lake Formation](../../../lake-formation/latest/dg/Integrating-with-LakeFormation.md "../../../lake-formation/latest/dg/Integrating-with-LakeFormation.md").
 
@@ -863,6 +871,7 @@ To import data from a cluster, do the following.
 2. Choose **Create Connection**.
 3. Choose **Amazon EMR**.
 4. Do one of the following.
+
    - (Optional) For **Secrets ARN**, specify the Amazon
      Resource Number (ARN) of the database within the cluster. Secrets provide additional security.
      For more information about secrets, see [What is AWS Secrets Manager?](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md")
@@ -879,6 +888,7 @@ To import data from a cluster, do the following.
    choose a query engine.
 7. (Optional) Select **Save connection**.
 8. Choose **Next, select login** and choose one of the following:
+
    - No authentication
    - LDAP
    - IAM
@@ -1054,6 +1064,7 @@ To import data from Databricks, do the following.
 5. From the **Import data** tab of your Data Wrangler flow, choose
    **Databricks**.
 6. Specify the following fields:
+
    - **Dataset name** – A name that you want to use
      for the dataset in your Data Wrangler flow.
    - **Driver** –
@@ -1183,6 +1194,7 @@ the following.
    Manager**.
 4. Select **New Connected App**.
 5. Specify the following fields:
+
    - Connected App Name – You can specify any name, but we
      recommend choosing a name that includes Data Wrangler. For example, you can
      specify **Salesforce Data Cloud Data Wrangler
@@ -1198,6 +1210,7 @@ the following.
 6. Under **Selected OAuth Scopes**, move the following from
    the **Available OAuth Scopes** to **Selected OAuth
    Scopes**:
+
    - Manage user data via APIs (`api`)
    - Perform requests at any time (`refresh_token`,
      `offline_access`)
@@ -1237,6 +1250,7 @@ To provide your users with permissions, do the following.
 4. Navigate to **Permission Set Assignments**.
 5. Choose **Edit Assignments**.
 6. Add the following permissions:
+
    - **Customer Data Platform Admin**
    - **Customer Data Platform Data Aware
      Specialist**
@@ -1253,6 +1267,7 @@ Use the following procedure to get the authorization URL and the token URL.
 2. Use one of the following methods to get the URLs. If you are on a Linux
    distribution with `curl` and `jq` installed, we
    recommend using the method that only works on Linux.
+
    - (Linux only) Specify the following command in your terminal.
 
    ```
@@ -1262,7 +1277,6 @@ Use the following procedure to get the authorization URL and the token URL.
    jq '.  += { identity_provider: "SALESFORCE", client_id: "`example-client-id`", client_secret: "`example-client-secret`" }'
 
    ```
-
    - 1. Navigate to ``example-org-URL`/.well-known/openid-configuration` in your browser.
      2. Copy the `authorization_endpoint` and `token_endpoint` to a text editor.
      3. Create the following JSON object:
@@ -1307,6 +1321,7 @@ To create a secret, do the following.
 7. For **Secret Name**, specify the name of the
    secret.
 8. Under **Tags**, choose **Add**.
+
    1. For the **Key**, specify
       **sagemaker:partner**. For
       **Value**, we recommend specifying a value that
@@ -1392,6 +1407,7 @@ the following.
 3. Choose the domain that you're using to access Data Wrangler.
 4. Choose your **User Profile**.
 5. If you see the following applications, delete them:
+
    - KernelGateway
    - JupyterKernel
 
@@ -1867,6 +1883,7 @@ endpoint.
 2. Select the **Hosted Zones** option (if necessary,
    expand the left-hand menu to find this option).
 3. Choose **Create Hosted Zone**.
+
    1. In the **Domain name** field, reference the
       value that was stored for `privatelink-account-url`
       in the preceding steps. In this field, your Snowflake account ID
@@ -1888,8 +1905,10 @@ endpoint.
 
 4. Next, create two records, one for `privatelink-account-url`
    and one for `privatelink_ocsp-url`.
+
    - In the **Hosted Zone** menu, choose
      **Create Record Set**.
+
      1. Under **Record name**, enter your
         Snowflake Account ID only (the first 8 characters in
         `privatelink-account-url`).
@@ -1915,11 +1934,13 @@ for your VPC.
 
 1. Navigate to the [Route 53
    menu](https://console.aws.amazon.com/route53 "https://console.aws.amazon.com/route53") within your AWS console.
+
    - In the left hand panel in the **Security**
      section, select the **Security Groups**
      option.
 
 2. Choose **Create Security Group**.
+
    - Provide a name for your security group (such as
      `datawranger-doc-route53-resolver-sg`) and a
      description.
@@ -1935,10 +1956,12 @@ for your VPC.
 
 3. Navigate to the [Route 53
    menu](https://console.aws.amazon.com/route53 "https://console.aws.amazon.com/route53") within your AWS console.
+
    - In the **Resolver** section, select the
      **Inbound Endpoint** option.
 
 4. Choose **Create Inbound Endpoint**.
+
    - Provide an endpoint name.
    - From the **VPC in the Region** dropdown list,
      select the VPC ID you have used in all previous steps.
@@ -2004,6 +2027,7 @@ endpoints.**
 This section explains how to configure Studio Classic and Data Wrangler.
 
 1. Configure the security group.
+
    1. Navigate to the Amazon EC2 menu in the AWS Console.
    2. Select the **Security Groups** option in the
       **Network & Security** section.
@@ -2011,6 +2035,7 @@ This section explains how to configure Studio Classic and Data Wrangler.
    4. Provide a name and description for your security group (such
       as `datawrangler-doc-sagemaker-studio`).
    5. Create the following inbound rules.
+
       - The HTTPS connection to the security group you
         provisioned for the Snowflake PrivateLink connection you
         created in the _Set up the
@@ -2030,6 +2055,7 @@ This section explains how to configure Studio Classic and Data Wrangler.
       button in the lower right hand corner.
 
 2. Configure Studio Classic.
+
    - Navigate to the SageMaker AI menu in the AWS console.
    - From the left hand console, Select the **SageMaker AI
      Studio Classic** option.
@@ -2044,6 +2070,7 @@ This section explains how to configure Studio Classic and Data Wrangler.
    - From the **Permissions** menu, you can create
      a new role or use a pre-existing role, depending on your use
      case.
+
      - If you choose **Create a new role**,
        you are presented the option to provide an S3 bucket
        name, and a policy is generated for you.
@@ -2056,6 +2083,7 @@ This section explains how to configure Studio Classic and Data Wrangler.
    - Select the **Network and Storage** dropdown
      list to configure the VPC, security, and subnets SageMaker AI
      uses.
+
      - Under **VPC**, select the VPC in
        which your Snowflake PrivateLink connection
        exists.
@@ -2071,7 +2099,9 @@ This section explains how to configure Studio Classic and Data Wrangler.
    - Choose **Submit**.
 
 3. Edit the SageMaker AI security group.
+
    - Create the following inbound rules:
+
      - Port 2049 to the inbound and outbound NFS Security
        Groups created automatically by SageMaker AI in step 2 (the
        security group names contain the Studio Classic domain
@@ -2080,6 +2110,7 @@ This section explains how to configure Studio Classic and Data Wrangler.
        for VPC Only).
 
 4. Edit the VPC Endpoint Security Groups:
+
    - Navigate to the Amazon EC2 menu in the AWS console.
    - Locate the security group you created in a preceding
      step.
@@ -2087,11 +2118,13 @@ This section explains how to configure Studio Classic and Data Wrangler.
      security group created in step 1.
 
 5. Create a user profile.
+
    - From the **SageMaker Studio Classic Control Panel** ,
      choose **Add User**.
    - Provide a user name.
    - For the **Execution Role**, choose to create
      a new role or to use a pre-existing role.
+
      - If you choose **Create a new role**,
        you are presented the option to provide an Amazon S3 bucket
        name, and a policy is generated for you.
@@ -2105,6 +2138,7 @@ This section explains how to configure Studio Classic and Data Wrangler.
 
 6. Create a data flow (follow the data scientist guide outlined in a
    preceding section).
+
    - When adding a Snowflake connection, enter the value of
      `privatelink-account-name` (from the _Set up Snowflake PrivateLink
      Integration_ step) into the **Snowflake
@@ -2123,6 +2157,7 @@ Your users need to run Amazon SageMaker Studio Classic version 1.3.0 or later. F
 
 1. To allow your data scientist to access Snowflake from SageMaker Data Wrangler,
    provide them with one of the following:
+
    - For Basic Authentication, a Snowflake account name, user name, and password.
    - For OAuth, a user name and password in the identity provider.
    - For ARN, the Secrets Manager secret Amazon Resource Name (ARN).
@@ -2187,6 +2222,7 @@ You can connect to Snowflake in one of the following ways:
   password) in Data Wrangler.
 - Providing an Amazon Resource Name (ARN) of a secret containing the credentials.
 - Using an open standard for access delegation (OAuth) provider that connects to Snowflake. Your administrator can give you access to one of the following OAuth providers:
+
   - [Azure AD](https://docs.snowflake.com/en/user-guide/oauth-azure.html "https://docs.snowflake.com/en/user-guide/oauth-azure.html")
   - [Okta](https://docs.snowflake.com/en/user-guide/oauth-okta.html "https://docs.snowflake.com/en/user-guide/oauth-okta.html")
   - [Ping Federate](https://docs.snowflake.com/en/user-guide/oauth-pingfed.html "https://docs.snowflake.com/en/user-guide/oauth-pingfed.html")
@@ -2216,6 +2252,7 @@ Specifying your Snowflake Credentials
 13. For **Username**, specify the username that you use to access the Snowflake account.
 14. For **Password**, specify the password associated with the username.
 15. (Optional) For **Advanced settings**. specify the following:
+
     - **Role** – A role within Snowflake. Some roles have access to different datasets. If you don't specify a role, Data Wrangler uses the default role in your Snowflake account.
     - **Storage integration** – When you specify and run a query, Data Wrangler creates a temporary copy of the query results in memory. To store a permanent copy of the query results, specify the Amazon S3 location for the storage integration. Your administrator provided you with the S3 URI.
     - **KMS key ID** – A KMS key that you've created. You can specify its ARN to encrypt the output of the Snowflake query. Otherwise, Data Wrangler uses the default encryption.
@@ -2241,6 +2278,7 @@ Providing an Amazon Resource Name (ARN)
 11. For **Authentication method**, choose **ARN**.
 12. **Secrets Manager ARN** – The ARN of the AWS Secrets Manager secret used to store the credentials used to connect to Snowflake.
 13. (Optional) For **Advanced settings**. specify the following:
+
     - **Role** – A role within Snowflake. Some roles have access to different datasets. If you don't specify a role, Data Wrangler uses the default role in your Snowflake account.
     - **Storage integration** – When you specify and run a query, Data Wrangler creates a temporary copy of the query results in memory. To store a permanent copy of the query results, specify the Amazon S3 location for the storage integration. Your administrator provided you with the S3 URI.
     - **KMS key ID** – A KMS key that you've created. You can specify its ARN to encrypt the output of the Snowflake query. Otherwise, Data Wrangler uses the default encryption.
@@ -2277,6 +2315,7 @@ Use the following procedure to update the Jupyter server application.
 10. For **Connection name**, specify a name that uniquely identifies the connection.
 11. For **Authentication method**, choose **OAuth**.
 12. (Optional) For **Advanced settings**. specify the following:
+
     - **Role** – A role within Snowflake. Some roles have access to different datasets. If you don't specify a role, Data Wrangler uses the default role in your Snowflake account.
     - **Storage integration** – When you specify and run a query, Data Wrangler creates a temporary copy of the query results in memory. To store a permanent copy of the query results, specify the Amazon S3 location for the storage integration. Your administrator provided you with the S3 URI.
     - **KMS key ID** – A KMS key that you've created. You can specify its ARN to encrypt the output of the Snowflake query. Otherwise, Data Wrangler uses the default encryption.
@@ -2441,6 +2480,7 @@ To connect to a data source, do the following.
 10. For the **Name** field, specify the name of the
     connection.
 11. (Optional) Choose **Advanced configuration**.
+
     1. Choose a **Workgroup**.
     2. If your workgroup hasn't enforced the Amazon S3 output location or if you
        don't use a workgroup, specify a value for **Amazon S3 location of

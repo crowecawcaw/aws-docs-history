@@ -16,11 +16,14 @@ After you have created your private workforce, add a VPC configuration to it.
 2. Select **Labeling workforces** in the left panel.
 3. Select **Private** to access your private workforce. After your **Workforce status** is **Active**, select **Add** next to **VPC**.
 4. When you are prompted to configure your VPC, provide the following:
+
    1. Your **VPC**
    2. **Subnets**
+
       1. Ensure that your VPC has an existing subnet
 
    3. **Security groups**
+
       1. ###### Note
 
       You cannot select more than 5 security groups.

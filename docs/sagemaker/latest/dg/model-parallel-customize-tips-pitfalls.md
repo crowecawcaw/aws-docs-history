@@ -108,6 +108,7 @@ smp.dp_rank())`). If you do not do this, different partitions of an
   on, and if you want to work with only the pipeline parallel group, you might
   need to replace the references with `smp.pp_size()`. The following
   identities are always true:
+
   - `smp.mp_size() * smp.rdp_size() == smp.size()`
   - `smp.pp_size() * smp.dp_size() == smp.size()`
   - `smp.pp_size() * smp.tp_size() * smp.rdp_size() ==

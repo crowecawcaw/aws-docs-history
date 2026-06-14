@@ -29,6 +29,7 @@ a private workforce using Amazon Cognito.
    **Next**.
 3. Choose **Private** for the workforce type.
 4. In the **Workers** section, enter:
+
    1. The **Team name**.
    2. Email addresses for up to 100 workforce members. Email addresses are
       case sensitive. Your workers must log in using the same case used when

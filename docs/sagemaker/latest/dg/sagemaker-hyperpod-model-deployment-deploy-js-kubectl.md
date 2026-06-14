@@ -134,6 +134,10 @@ spec:
 EOF
 ```
 
+###### Note
+
+To configure KV caching and intelligent routing for improved performance, see [Configure KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+
 ## Deploy your model
 
 ###### Update your kubernetes configuration and deploy your model

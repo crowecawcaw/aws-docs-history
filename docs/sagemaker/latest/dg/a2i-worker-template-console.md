@@ -36,6 +36,7 @@ operation [`CreateHumanTaskUi`](../APIReference/API_CreateHumanTaskUi.md "../API
    extraction** or **Rekognition-image moderation**
    task, choose the appropriate option.
 7. Enter your custom template elements as follows:
+
    - If you selected the Amazon Textract or Amazon Rekognition task template, the
      **Template editor** autopopulates with a default
      template that you can customize.

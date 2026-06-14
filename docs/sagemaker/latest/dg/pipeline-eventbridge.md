@@ -45,6 +45,7 @@ The following procedure shows how to create an EventBridge rule using the EventB
    description for your rule.
 5. Select how you want to initiate this rule. You have the following choices for your
    rule:
+
    - **Event pattern**: Your rule is initiated when an
      event matching the pattern occurs. You can choose a predefined pattern that matches
      a certain type of event, or you can create a custom pattern. If you select a
@@ -64,6 +65,7 @@ Pipeline` in the target dropdown list.
 9. Add parameters to pass to your pipeline execution using a name and value pair.
    Parameter values can be static or dynamic. For more information on Amazon SageMaker AI Pipeline
    parameters, see [AWS::Events::Rule SagemakerPipelineParameters](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.md#aws-resource-sagemaker-pipeline-properties "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.md#aws-resource-sagemaker-pipeline-properties").
+
    - Static values are passed to the pipeline execution every time the pipeline is
      initiated. For example, if `{"Name": "Instance_type",
 "Value": "ml.4xlarge"}` is specified in the parameter
@@ -86,6 +88,7 @@ The following procedure shows how to create an EventBridge rule using the AWS CL
 
 1. Create a rule to be initiated. When creating an EventBridge rule using the AWS CLI, you have two
    options for how your rule is initiated, event pattern and schedule.
+
    - **Event pattern**: Your rule is initiated when an
      event matching the pattern occurs. You can choose a predefined pattern that matches
      a certain type of event, or you can create a custom pattern. If you select a
@@ -95,7 +98,6 @@ The following procedure shows how to create an EventBridge rule using the AWS CL
    ```
    aws events put-rule --name `<RULE_NAME>` ----event-pattern `<YOUR_EVENT_PATTERN>` --description `<RULE_DESCRIPTION>` --role-arn `<ROLE_TO_EXECUTE_PIPELINE>` --tags `<TAGS>`
    ```
-
    - **Schedule**: Your rule is initiated regularly on a
      specified schedule. You can use a fixed-rate schedule that initiates regularly for a
      specified number of minutes, hour, or weeks. You can also use a cron expression to
@@ -109,6 +111,7 @@ The following procedure shows how to create an EventBridge rule using the AWS CL
 
 2. Add target(s) to invoke when an event matches your event pattern or when the schedule
    is initiated. You can add up to 5 targets per rule.  For each target, you must specify: 
+
    - ARN: The resource ARN of your pipeline.
    - Role ARN: The ARN of the role EventBridge should assume to execute the pipeline.
    - Parameters:  Amazon SageMaker AI pipeline parameters to pass.

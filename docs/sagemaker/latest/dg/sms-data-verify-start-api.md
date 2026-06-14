@@ -52,6 +52,7 @@ adjustment and include them in your task template:
   contain the same label categories as the previous labeling job.
 - Use the bounding box or semantic segmentation adjustment or
   verification lambda ARNs for [`PreHumanTaskLambdaArn`](../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn "../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn") and [`AnnotationConsolidationLambdaArn`](../APIReference/API_AnnotationConsolidationConfig.md#sagemaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn "../APIReference/API_AnnotationConsolidationConfig.md#sagemaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn"):
+
   - For bounding box, the adjustment labeling job lambda function
     ARNs end with `AdjustmentBoundingBox` and the
     verification lambda function ARNs end with
@@ -100,6 +101,7 @@ adjustment and include them in your task template:
 - Use the 3D point cloud or video frame adjustment lambda ARNs for
   [`PreHumanTaskLambdaArn`](../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn "../APIReference/API_HumanTaskConfig.md#sagemaker-Type-HumanTaskConfig-PreHumanTaskLambdaArn") and [`AnnotationConsolidationLambdaArn`](../APIReference/API_AnnotationConsolidationConfig.md#sagemaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn "../APIReference/API_AnnotationConsolidationConfig.md#sagemaker-Type-AnnotationConsolidationConfig-AnnotationConsolidationLambdaArn") for both
   adjustment and verification labeling jobs:
+
   - For 3D point clouds, the adjustment and verification labeling
     job lambda function ARNs end with
     `Adjustment3DPointCloudSemanticSegmentation`,

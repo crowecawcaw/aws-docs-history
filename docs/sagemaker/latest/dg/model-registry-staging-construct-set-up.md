@@ -97,6 +97,7 @@ In this example, the role’s permissions are limited to set or define
 the model lifecycle stage to:
 
 - Update a model package with:
+
   - The stage `"QA"` and status
     `"Approved"` or
     `"Rejected"`.
@@ -153,6 +154,7 @@ In this example, the role’s permissions are limited to set or define
 the model lifecycle stage to:
 
 - Update a model package with:
+
   - The stage `"Production"` and status
     `"Approved"` or
     `"Rejected"`.

@@ -176,6 +176,7 @@ aws sagemaker delete-image \
 
 8. (Optional) Delete your Amazon ECR resources. The following list provides AWS CLI commands to
    obtain your Amazon ECR resource information for the steps below.
+
    1. Set your variables for the AWS CLI commands that follow.
 
    ```
@@ -191,7 +192,6 @@ aws sagemaker delete-image \
    aws ecr describe-repositories \
            --region ${REGION}
    ```
-
    2. Delete your repository from Amazon ECR.
 
    ###### Important

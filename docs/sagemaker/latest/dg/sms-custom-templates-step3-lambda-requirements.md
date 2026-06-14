@@ -299,6 +299,7 @@ Each parameter is described in the following bulleted list.
   `workerId` that can be used to identify the worker that
   submitted that annotation. The `annotationData` key contains
   one of the following:
+
   - `content` (string): Contains the annotation data.
   - `s3Uri` (string): Contains an S3 URI that
     identifies the location of the annotation data.

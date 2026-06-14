@@ -41,6 +41,7 @@ We support two types of deployments to update models in production: blue/green d
   [multiple traffic shifting modes](deployment-guardrails-blue-green.md "deployment-guardrails-blue-green.md").
   A traffic shifting mode is a configuration that specifies how SageMaker AI routes endpoint traffic to a new fleet containing your updates. The
   following traffic shifting modes provide you with different levels of control over the endpoint update process:
+
   - [Use all at once traffic shifting](deployment-guardrails-blue-green-all-at-once.md "deployment-guardrails-blue-green-all-at-once.md") shifts all of your endpoint traffic from the blue fleet to the green fleet.
     Once the traffic shifts to the green fleet, your pre-specified Amazon CloudWatch alarms begin
     monitoring the green fleet for a set amount of time (the _baking

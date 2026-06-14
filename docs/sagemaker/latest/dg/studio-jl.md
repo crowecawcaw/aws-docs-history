@@ -52,6 +52,7 @@ Consider the following when using JupyterLab 3:
   installing extensions. For more information, see [Installing JupyterLab and Jupyter Server extensions](#studio-jl-install "#studio-jl-install").
 - Debugger is only supported when
   using the following images:
+
   - Base Python 2.0
   - Data Science 2.0
   - Base Python 3.0

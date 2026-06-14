@@ -546,6 +546,7 @@ LCC_CONTENT=`openssl base64 -A -in ${SCRIPT_FILE_NAME}`
 ```
 
 14. Verify the following before you use the script:
+
     - The Amazon EBS volume is large enough to store the objects that you're
       exporting.
     - You aren't migrating hidden files and folders, such as
@@ -712,6 +713,7 @@ Use the following procedure to export your flow files from Studio Classic to Ama
 
 1. Open Studio Classic.
 2. Open a new terminal by doing the following:
+
    1. On the top navigation bar, choose **File**.
    2. In the context menu, hover over **New**, and then select **Terminal**.
 
@@ -750,6 +752,7 @@ Use the following procedure to download your flow files from Studio Classic:
 1. Open Studio Classic.
 2. (Optional) If you want to compress multiple flow files into a zip archive and
    download them all at once, then do the following:
+
    1. On the top navigation bar of Studio Classic, choose **File**.
    2. In the context menu, hover over **New**, and then select **Terminal**.
    3. By default, the terminal opens in your home directory. Navigate to the folder that contains all of the flow files that you want to migrate.
@@ -760,6 +763,7 @@ Use the following procedure to download your flow files from Studio Classic:
    ```
 
 3. Download the zip archive or individual flow files to your local machine by doing the following:
+
    1. In the left navigation pane of Studio Classic, choose **File Browser**.
    2. Find the file you want to download in the file browser.
    3. Right click the file, and in the context menu, select **Download**.

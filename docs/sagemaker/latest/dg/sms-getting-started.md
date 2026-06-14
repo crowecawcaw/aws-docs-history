@@ -79,6 +79,7 @@ more information about storing data in an Amazon S3 bucket, see [Use input and o
    process.
 4. In the **Job overview** section, provide the following
    information:
+
    - **Job name** – Give the labeling job a name
      that describes the job. This name is shown in your job list. The name
      must be unique in your account in an AWS Region.

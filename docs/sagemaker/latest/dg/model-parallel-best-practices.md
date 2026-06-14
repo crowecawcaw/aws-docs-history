@@ -79,6 +79,7 @@ For more information, see [Tensor Parallelism](model-parallel-extended-features-
 - Pipeline parallelism comes with the following three knobs:
   `microbatches`, `active_microbatches`, and
   `prescaled_batch`.
+
   - When you use tensor parallelism with pipeline parallelism, we
     recommend activating `prescaled_batch` so that the batch size
     per model parallel group can be increased for efficient pipelining. With

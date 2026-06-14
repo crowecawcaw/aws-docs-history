@@ -198,6 +198,7 @@ Studio Classic
    using the [ListTags](../APIReference/API_ListTags.md "../APIReference/API_ListTags.md") API.
 2. To apply the tags to your model package group, choose one
    of the following methods:
+
    - If you create a new model package group and want
      to add tags, pass your tags from Step 1 to the
      [CreateModelPackageGroup](../APIReference/API_CreateModelPackageGroup.md "../APIReference/API_CreateModelPackageGroup.md") API.

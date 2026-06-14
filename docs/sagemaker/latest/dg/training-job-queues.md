@@ -14,6 +14,7 @@ section.
   [Setting up AWS Batch](../../../batch/latest/userguide/get-set-up-for-aws-batch.md "../../../batch/latest/userguide/get-set-up-for-aws-batch.md") in the _AWS Batch User
   Guide_.
 - Create the following AWS Batch resources in the console or using the AWS CLI:
+
   - [Service environment](../../../batch/latest/userguide/service-environments.md "../../../batch/latest/userguide/service-environments.md") – Contains configuration parameters for
     integrating with SageMaker AI.
   - [SageMaker AI training job queue](../../../batch/latest/userguide/create-sagemaker-job-queue.md "../../../batch/latest/userguide/create-sagemaker-job-queue.md") – Integrates with SageMaker AI to submit
@@ -25,6 +26,7 @@ section.
   SDK.
 - Submit your training jobs to the job queue. You can use the following
   options to submit jobs:
+
   - Use the AWS Batch [SubmitServiceJob](../../../batch/latest/APIReference/API_SubmitServiceJob.md "../../../batch/latest/APIReference/API_SubmitServiceJob.md") API.
   - Use the [`aws_batch` module](https://github.com/aws/sagemaker-python-sdk/tree/master/src/sagemaker/aws_batch "https://github.com/aws/sagemaker-python-sdk/tree/master/src/sagemaker/aws_batch") from the SageMaker AI Python SDK.
     After creating a TrainingQueue object and a model training object

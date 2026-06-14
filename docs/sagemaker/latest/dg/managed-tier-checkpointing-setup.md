@@ -21,6 +21,7 @@ Before setting up managed tiered checkpointing, ensure you have:
   checkpoint allocation
 - PyTorch training workloads and DCP jobs (both are supported)
 - Appropriate IAM permissions for cluster management, including:
+
   - Amazon CloudWatch and Amazon S3 write permissions for the training pod to read/write
     checkpoints and push metrics
   - These permissions can be configured via [EKS OIDC

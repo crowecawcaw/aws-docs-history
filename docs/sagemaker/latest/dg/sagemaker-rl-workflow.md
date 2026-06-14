@@ -9,6 +9,7 @@ RL.
    conditions that you define. Currently, this requires setting up alarms, scaling
    policies, thresholds, and other manual steps. To solve this with RL, we define
    the components of the Markov Decision Process:
+
    1. **Objective**—Scale instance capacity so that it matches the
       desired load profile.
    2. **Environment**—A custom environment that includes the load

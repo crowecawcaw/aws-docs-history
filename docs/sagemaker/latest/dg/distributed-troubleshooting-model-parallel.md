@@ -160,6 +160,7 @@ any further support, reach out to the SageMaker distributed training team throug
 
 - If you see **a distributed training job stalling at the
   NCCL initialization step**, consider the following:
+
   - If you are using one of the EFA-enabled instances (
     `ml.p4d` or `ml.p3dn` instances) with a custom
     VPC and its subnet, ensure that the security group used has inbound and
@@ -206,6 +207,7 @@ For more information about checkpointing a model with model parallelism, see
   downloaded to the same Amazon S3 path and might significantly increase checkpoint
   loading time.
 - Use FSx for Lustre when you deal with large data and models.
+
   - If your dataset is large and fetching it takes a long time, we
     recommend keeping your dataset in [FSx for Lustre](https://aws.amazon.com/fsx/lustre/ "https://aws.amazon.com/fsx/lustre/").
   - When training models are beyond 10 billion parameters, we recommend

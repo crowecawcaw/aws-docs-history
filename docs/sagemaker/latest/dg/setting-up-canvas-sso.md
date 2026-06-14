@@ -49,6 +49,7 @@ account. You gain access to AWS through an IAM account.
 3. Choose **Identity Providers**.
 4. Choose **Create Provider**.
 5. For **Configure Provider**, specify the following:
+
    - **Provider Type** – From the dropdown list, choose
      **SAML**.
    - **Provider Name** – Specify
@@ -144,6 +145,7 @@ code following the procedure.
 4. Select **Sign On** for the AWS Account Federation
    application.
 5. Choose **Edit** and specify the following:
+
    - SAML 2.0
    - **Default Relay State** –
      https://`Region`.console.aws.amazon.com/sagemaker/home?region=`Region`#/studio/canvas/open/`StudioId`.
@@ -168,6 +170,7 @@ Value: {"SageMakerStudioUserProfileName"}
 
 8. Select **Environment Type**. Choose **Regular
    AWS**.
+
    - If your environment type isn't listed, you can set your ACS URL in the
      **ACS URL** field. If your environment type is listed, you don't
      need to enter your ACS URL
@@ -179,6 +182,7 @@ Value: {"SageMakerStudioUserProfileName"}
 11. Choose **Join all roles**.
 12. Turn on **Use Group Mapping** by specifying the following
     fields:
+
     - **App Filter** – `okta`
     - **Group Filter** –
       `^aws\#\S+\#(?`IAM-role`[\w\-]+)\#(?`accountid`\d+)$`

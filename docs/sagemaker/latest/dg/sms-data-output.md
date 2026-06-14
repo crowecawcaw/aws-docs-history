@@ -189,6 +189,7 @@ output data. The following data is located in the directories under the
 - If you use a [private
   workforce](sms-workforce-private.md "sms-workforce-private.md"), in `workerMetadata`, you see the
   following.
+
   - The `identityProviderType` is the service used to manage
     the private workforce.
   - The `issuer` is the Cognito user pool or OIDC Identity

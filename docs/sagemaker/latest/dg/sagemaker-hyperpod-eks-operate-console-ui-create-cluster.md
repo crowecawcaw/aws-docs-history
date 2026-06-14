@@ -22,6 +22,7 @@ Amazon EKS orchestration, follow these steps.
    drop-down, choose **Orchestrated by Amazon EKS**.
 5. On the EKS cluster creation page, you will see two options, choose the
    option that best fits your needs.
+
    1. **Quick setup** - To get started immediately
       with default settings, choose **Quick setup**.
       With this option, SageMaker AI will create new resources such as VPC,

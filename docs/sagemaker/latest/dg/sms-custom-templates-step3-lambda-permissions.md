@@ -229,6 +229,7 @@ the following procedure.
    that role opens in the IAM console in a new tab.
 5. Select **Attach policies**.
 6. Do one of the following:
+
    - Search for and select
      **`AmazonS3ReadOnlyAccess`**
      to give the function permission to read all buckets and objects

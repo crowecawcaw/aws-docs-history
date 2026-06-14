@@ -10,6 +10,7 @@ Before you start setting up your environment, make sure you have:
 - [Set up HyperPod training operator (v1.2+)](sagemaker-eks-operator.md "sagemaker-eks-operator.md")
 - A shared storage location. It can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
 - Data in one of the following formats:
+
   - JSON
   - JSONGZ (Compressed JSON)
   - ARROW

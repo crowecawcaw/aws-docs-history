@@ -46,6 +46,7 @@ job:
   created.
 - **Status**: The current status of the job, which is one of the
   following values:
+
   - **In progress**: The job is running
   - **Failed**: The job failed from configuration or notebook logic
     errors

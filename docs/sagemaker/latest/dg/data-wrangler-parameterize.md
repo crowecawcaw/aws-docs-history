@@ -162,6 +162,7 @@ To create a pattern parameter, do the following.
    dataset**.
 2. Highlight the `0` in `example-prefix-0`.
 3. Specify values for the following fields:
+
    - **Name** – A name for parameter
    - **Type** –
      **Pattern**
@@ -181,6 +182,7 @@ To create a pattern parameter, do the following.
    pattern parameter.
 9. Choose **Create custom parameter**.
 10. Specify values for the following fields:
+
     - **Name** – A name for parameter
     - **Type** –
       **Pattern**

@@ -100,7 +100,7 @@ Using Amazon FSx as the model source
         modelLocation: Llama-3.1-8B-Instruct
         modelSourceType: fsx
       worker:
-        image: vllm/vllm-openai:v0.10.1
+        image: vllm/vllm-openai:v0.19.1
         modelInvocationPort:
           containerPort: 8000
           name: http
@@ -178,7 +178,7 @@ Using Amazon S3 as the model source
         modelLocation: Llama-3.1-8B-Instruct
         prefetchEnabled: true
       worker:
-        image: vllm/vllm-openai:v0.10.1
+        image: vllm/vllm-openai:v0.19.1
         modelInvocationPort:
           containerPort: 8000
           name: http
@@ -265,7 +265,7 @@ Using Hugging Face Hub as the model source
       instanceType: "ml.g5.24xlarge"
       invocationEndpoint: v1/chat/completions
       worker:
-        image: "vllm/vllm-openai:v0.10.1"
+        image: "vllm/vllm-openai:v0.19.1"
         modelInvocationPort:
           containerPort: 8000
           name: http
@@ -306,44 +306,9 @@ Using Hugging Face Hub as the model source
     	* `huggingFaceModel.tokenSecretRef` (optional) — Reference to a Kubernetes Secret containing your Hugging Face API token. Required for gated models. The token is only used during model download and is not exposed to the inference container.
     	* `prefetchEnabled` (optional) — When `true`, an init container downloads the model before the inference container starts. When `false`, the inference runtime (vLLM, TGI, SGLang) downloads the model natively at startup. Defaults to `false`.
 
-## Configure KV caching and intelligent routing for improved performance
-
-1. Enable KV caching by setting `enableL1Cache` and `enableL2Cache` to `true`.Then, set `l2CacheSpec` to `redis` and update `l2CacheLocalUrl` with the Redis cluster URL.
-
-```
-  kvCacheSpec:
-    enableL1Cache: true
-    enableL2Cache: true
-    l2CacheSpec:
-      l2CacheBackend: <redis | tieredstorage>
-      l2CacheLocalUrl: <redis cluster URL if l2CacheBackend is redis >
-```
-
 ###### Note
 
-If the redis cluster is not within the same Amazon VPC as the HyperPod cluster, encryption for the data in transit is not guaranteed.
-
-###### Note
-
-Do not need l2CacheLocalUrl if tieredstorage is selected. 2. Enable intelligent routing by setting `enabled` to `true` under `intelligentRoutingSpec`. You can specify which routing strategy to use under `routingStrategy`. If no routing strategy is specified, it defaults to `prefixaware`.
-
-```
-intelligentRoutingSpec:
-    enabled: true
-    routingStrategy: <routing strategy to use>
-```
-
-3. Enable router metrics and caching metrics by setting `enabled` to `true` under `metrics`. The `port` value needs to be the same as the `containerPort` value under `modelInvocationPort`.
-
-```
-metrics:
-    enabled: true
-    modelMetrics:
-      port: <port value>
-    ...
-    modelInvocationPort:
-      containerPort: <port value>
-```
+To configure KV caching and intelligent routing for improved performance, see [Configure KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
 
 ## Deploy your model from Amazon S3, Amazon FSx, or Hugging Face Hub
 

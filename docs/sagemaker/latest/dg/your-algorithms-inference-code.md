@@ -77,6 +77,7 @@ sends the `SIGKILL` signal 30 seconds later.
   the DNS hostname for the container as follows:
 
    
+
   - It sets environment variables using the
     `ContainerDefinition.Environment` string-to-string
     map.
@@ -146,6 +147,7 @@ requirements:
   seconds.
 - A customer’s model container that supports bidirectional streaming
   must:
+
   - support WebSockets connections on port 8080 to /invocations-bidirectional-stream by default.
   - have a web server listening on port 8080 and must accept POST requests to the /ping endpoints.
   - In addition to container health checks over HTTP, container must
@@ -542,6 +544,7 @@ SageMaker AI passes the input PayloadParts to Model container as WebSocket Data 
 
 1. SageMaker AI does not inspect into the binary chunk.
 2. On receiving an input PayloadPart
+
    - SageMaker AI creates exactly one WebSocket Data Frame from
      `PayloadPart.Bytes`, then pass it to model container.
    - If `PayloadPart.DataType = UTF8`, SageMaker AI creates a Text Data Frame
@@ -551,6 +554,7 @@ SageMaker AI passes the input PayloadParts to Model container as WebSocket Data 
 PARTIAL`, and terminated by a PayloadPart with
    `PayloadPart.CompletionState = COMPLETE`, SageMaker AI translates
    them into WebSocket fragmented message [RFC6455-Section-5.4: Fragmentation](https://datatracker.ietf.org/doc/html/rfc6455#section-5.4 "https://datatracker.ietf.org/doc/html/rfc6455#section-5.4"):
+
    - The initial PayloadPart with `PayloadPart.CompletionState = PARTIAL` will be translated into a WebSocket Data Frame, with FIN bit clear.
    - The subsequent PayloadParts with `PayloadPart.CompletionState = PARTIAL` will be translated into WebSocket Continuation Frames with FIN bit clear.
    - The final PayloadPart with `PayloadPart.CompletionState = COMPLETE` will be translated into WebSocket Continuation Frame with FIN bit set.
@@ -612,6 +616,7 @@ PayloadParts:
 1. On receiving a WebSocket Text Data Frame from the model container, SageMaker AI gets the raw bytes from the Text Data Frame, and wraps it into a response PayloadPart, meanwhile set `PayloadPart.DataType = UTF8`.
 2. On receiving a WebSocket Binary Data Frame from the model container, SageMaker AI directly wraps the bytes from the data frame into a response PayloadPart, meanwhile set `PayloadPart.DataType = BINARY`.
 3. For fragmented message as defined in [RFC6455-Section-5.4: Fragmentation](https://datatracker.ietf.org/doc/html/rfc6455#section-5.4 "https://datatracker.ietf.org/doc/html/rfc6455#section-5.4"):
+
    - The initial Data Frame with FIN bit clear will be translated into a PayloadPart with `PayloadPart.CompletionState = PARTIAL`.
    - The subsequent Continuation Frames with FIN bit clear will be translated into PayloadParts with `PayloadPart.CompletionState = PARTIAL`.
    - The final Continuation Frame with FIN bit set will be translated into PayloadPart with `PayloadPart.CompletionState = COMPLETE`.

@@ -153,7 +153,9 @@ spec:
 EOF
 ```
 
-2. Deploy the `InferenceEndpointConfig`.
+###### Note
+
+To configure KV caching and intelligent routing for improved performance, see [Configure KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route"). 2. Deploy the `InferenceEndpointConfig`.
 
 ```
 kubectl apply -f deploy_nvme_k8s_volume.yaml
@@ -319,8 +321,10 @@ spec:
 EOF
 ```
 
-2. Deploy the
-   `InferenceEndpointConfig`.
+###### Note
+
+To configure KV caching and intelligent routing for improved performance, see [Configure KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route"). 2. Deploy the
+`InferenceEndpointConfig`.
 
 ```
 kubectl apply -f deploy_nvme_k8s_volume_fallback.yaml
@@ -459,7 +463,9 @@ spec:
 EOF
 ```
 
-2. Deploy the `InferenceEndpointConfig`.
+###### Note
+
+To configure KV caching and intelligent routing for improved performance, see [Configure KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route"). 2. Deploy the `InferenceEndpointConfig`.
 
 ```
 kubectl apply -f deploy_nvme_s3_prefetch_fallback.yaml
@@ -542,7 +548,7 @@ helm upgrade hyperpod-inference-operator <CHART_PATH> \
 - Verify the operator pod has the environment variable set:
 
 ```
-kubectl get deployment hyperpod-inference-operator-controller-manager \
+kubectl get deployment hyperpod-inference-controller-manager \
   -n hyperpod-inference-system \
   -o jsonpath='{.spec.template.spec.containers[0].env}' | jq '.[] | select(.name=="ENABLE_CUSTOM_SERVICE_ACCOUNTS")'
 ```
@@ -861,6 +867,7 @@ The operator manages several internal volumes that cannot be overridden via
   `model-weights-copy` works with prefetch.** When
   `prefetchEnabled: true`, the operator creates two
   model-related volumes:
+
   - `model-weights` — the source volume (from
     Amazon S3/Amazon FSx PVC or your override)
   - `model-weights-copy` — a RAM-backed emptyDir where

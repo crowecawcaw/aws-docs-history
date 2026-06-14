@@ -269,10 +269,10 @@ _AWS CloudTrail User Guide_.
 The following table lists the Amazon SageMaker AI resource types for which you can log
 data events:
 
-| Resource type (console) | resources.type value       | Data APIs logged to CloudTrail                                           | API Reference                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ----------------------- | -------------------------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SageMaker endpoint**  | `AWS::SageMaker::Endpoint` | InvokeEndpoint, InvokeEndpointAsync,<br>InvokeEndpointWithResponseStream | [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md"),<br>[InvokeEndpointAsync](../APIReference/API_runtime_InvokeEndpointAsync.md "../APIReference/API_runtime_InvokeEndpointAsync.md"),<br>[InvokeEndpointWithResponseStream](../APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../APIReference/API_runtime_InvokeEndpointWithResponseStream.md")                                                            |
-| **SageMaker jobs**      | `AWS::SageMaker::Job`      | ChatCompletions, CompleteRollout, Sample,<br>SampleWithResponseStream    | [ChatCompletions](../APIReference/API_runtime_ChatCompletions.md "../APIReference/API_runtime_ChatCompletions.md"),<br>[CompleteRollout](../APIReference/API_runtime_CompleteRollout.md "../APIReference/API_runtime_CompleteRollout.md"),<br>[Sample](../APIReference/API_runtime_Sample.md "../APIReference/API_runtime_Sample.md"),<br>[SampleWithResponseStream](../APIReference/API_runtime_SampleWithResponseStream.md "../APIReference/API_runtime_SampleWithResponseStream.md") |
+| Resource type (console) | resources.type value       | Data APIs logged to CloudTrail                                           | API Reference                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------------- | -------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SageMaker endpoint**  | `AWS::SageMaker::Endpoint` | InvokeEndpoint, InvokeEndpointAsync,<br>InvokeEndpointWithResponseStream | [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md "../APIReference/API_runtime_InvokeEndpoint.md"),<br>[InvokeEndpointAsync](../APIReference/API_runtime_InvokeEndpointAsync.md "../APIReference/API_runtime_InvokeEndpointAsync.md"),<br>[InvokeEndpointWithResponseStream](../APIReference/API_runtime_InvokeEndpointWithResponseStream.md "../APIReference/API_runtime_InvokeEndpointWithResponseStream.md") |
+| **SageMaker jobs**      | `AWS::SageMaker::Job`      | CompleteRollout, Sample,<br>SampleWithResponseStream                     | [CompleteRollout](../APIReference/API_job_runtime_CompleteRollout.md "../APIReference/API_job_runtime_CompleteRollout.md"),<br>[Sample](../APIReference/API_job_runtime_Sample.md "../APIReference/API_job_runtime_Sample.md"),<br>[SampleWithResponseStream](../APIReference/API_job_runtime_SampleWithResponseStream.md "../APIReference/API_job_runtime_SampleWithResponseStream.md")                                     |
 
 ###### Note
 
@@ -333,12 +333,6 @@ see the
 [Amazon SageMaker AI API Reference](../APIReference.md "../APIReference.md").
 
 ### CloudTrail event examples
-
-###### Note
-
-`ChatCompletions` calls are transformed into
-`Sample` and `SampleWithResponseStream` calls in the
-CloudTrail logs.
 
 For information about CloudTrail record contents, see
 [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the

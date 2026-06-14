@@ -82,9 +82,11 @@ JSON
 
 3. [Grant
    IAM users access to Kubernetes with EKS access entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md").
+
    1. Navigate to the Amazon EKS cluster associated with your HyperPod cluster.
    2. Choose the **Access** tab and [create an access entry](../../../eks/latest/userguide/creating-access-entries.md "../../../eks/latest/userguide/creating-access-entries.md") for
       the execution role you created.
+
       1. In step 1, Select the execution role you created above in the
          **IAM** principal dropdown.
       2. In step 2, select a policy name and select an access scope that you want the users to
@@ -93,6 +95,7 @@ JSON
 4. (Optional) To ensure a more smooth experience, we recommend that you add tags to your
    clusters. For information on how to add tags, see [Edit a SageMaker HyperPod cluster](sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters "sagemaker-hyperpod-operate-slurm-console-ui.md#sagemaker-hyperpod-operate-slurm-console-ui-edit-clusters") to update your cluster
    using the SageMaker AI console.
+
    1. Tag your [Amazon Managed Grafana](../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md "../../../grafana/latest/userguide/what-is-Amazon-Managed-Service-Grafana.md")
       workspace to your Studio domain. This will be used to quickly link to your Grafana
       workspace directly from your cluster in Studio. To do so, add the following tag to your

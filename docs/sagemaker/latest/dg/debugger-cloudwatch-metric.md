@@ -13,6 +13,7 @@ Amazon SageMaker AI](monitoring-overview.md "monitoring-overview.md").
 2. In the left navigation pane under the **Log** node,
    choose **Log Groups**.
 3. In the log groups list, do the following:
+
    - Choose **/aws/sagemaker/TrainingJobs** for
      training job logs.
    - Choose **/aws/sagemaker/ProcessingJobs** for

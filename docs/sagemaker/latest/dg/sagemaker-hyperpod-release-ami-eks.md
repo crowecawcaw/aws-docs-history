@@ -34,6 +34,7 @@ Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -75,6 +76,7 @@ Kubernetes v1.28
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -115,6 +117,7 @@ Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -156,6 +159,7 @@ Kubernetes v1.29
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -196,6 +200,7 @@ Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -237,6 +242,7 @@ Kubernetes v1.30
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -277,6 +283,7 @@ Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -318,6 +325,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -355,6 +363,7 @@ Kubernetes v1.31
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.83-113.160.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -395,6 +404,7 @@ Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -436,6 +446,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -473,6 +484,7 @@ Kubernetes v1.32
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -512,6 +524,7 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -549,6 +562,7 @@ Kubernetes v1.33
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.80-105.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -588,6 +602,7 @@ Kubernetes v1.33
 Kubernetes v1.34
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -625,6 +640,7 @@ Kubernetes v1.34
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.80-106.156.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -664,6 +680,7 @@ Kubernetes v1.34
 Kubernetes v1.35
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.170-210.320.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -701,6 +718,7 @@ Kubernetes v1.35
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -752,6 +770,7 @@ Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -793,6 +812,7 @@ Kubernetes v1.28
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -833,6 +853,7 @@ Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -874,6 +895,7 @@ Kubernetes v1.29
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -914,6 +936,7 @@ Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -955,6 +978,7 @@ Kubernetes v1.30
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -995,6 +1019,7 @@ Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -1036,6 +1061,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1073,6 +1099,7 @@ Kubernetes v1.31
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1113,6 +1140,7 @@ Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -1154,6 +1182,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1191,6 +1220,7 @@ Kubernetes v1.32
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1230,6 +1260,7 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1267,6 +1298,7 @@ Kubernetes v1.33
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.80-105.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1306,6 +1338,7 @@ Kubernetes v1.33
 Kubernetes v1.34
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1343,6 +1376,7 @@ Kubernetes v1.34
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.80-106.156.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1382,6 +1416,7 @@ Kubernetes v1.34
 Kubernetes v1.35
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.168-203.330.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1419,6 +1454,7 @@ Kubernetes v1.35
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1470,6 +1506,7 @@ Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -1511,6 +1548,7 @@ Kubernetes v1.28
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1551,6 +1589,7 @@ Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -1592,6 +1631,7 @@ Kubernetes v1.29
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1632,6 +1672,7 @@ Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -1673,6 +1714,7 @@ Kubernetes v1.30
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1713,6 +1755,7 @@ Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -1754,6 +1797,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1791,6 +1835,7 @@ Kubernetes v1.31
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1831,6 +1876,7 @@ Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -1872,6 +1918,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1909,6 +1956,7 @@ Kubernetes v1.32
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1948,6 +1996,7 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -1985,6 +2034,7 @@ Kubernetes v1.33
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2024,6 +2074,7 @@ Kubernetes v1.33
 Kubernetes v1.34
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2061,6 +2112,7 @@ Kubernetes v1.34
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2100,6 +2152,7 @@ Kubernetes v1.34
 Kubernetes v1.35
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.166-197.305.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2137,6 +2190,7 @@ Kubernetes v1.35
   - rdma-core version: 61.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.79-101.147.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.5.5
@@ -2188,6 +2242,7 @@ Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -2229,6 +2284,7 @@ Kubernetes v1.28
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2269,6 +2325,7 @@ Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -2310,6 +2367,7 @@ Kubernetes v1.29
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2350,6 +2408,7 @@ Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -2391,6 +2450,7 @@ Kubernetes v1.30
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2431,6 +2491,7 @@ Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -2472,6 +2533,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2509,6 +2571,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.73-95.123.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2549,6 +2612,7 @@ Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10.248-247.988.amzn2.x86_64
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -2590,6 +2654,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2627,6 +2692,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.73-95.123.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2666,6 +2732,7 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2703,6 +2770,7 @@ Kubernetes v1.33
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.73-95.123.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2742,6 +2810,7 @@ Kubernetes v1.33
 Kubernetes v1.34
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1.163-186.299.amzn2023.x86_64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2779,6 +2848,7 @@ Kubernetes v1.34
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12.73-95.123.amzn2023.aarch64
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2830,6 +2900,7 @@ Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -2869,6 +2940,7 @@ Kubernetes v1.28
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2907,6 +2979,7 @@ Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -2946,6 +3019,7 @@ Kubernetes v1.29
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -2984,6 +3058,7 @@ Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -3023,6 +3098,7 @@ Kubernetes v1.30
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3061,6 +3137,7 @@ Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -3100,6 +3177,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3135,6 +3213,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3173,6 +3252,7 @@ Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -3212,6 +3292,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3247,6 +3328,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3284,6 +3366,7 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3319,6 +3402,7 @@ Kubernetes v1.33
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3356,6 +3440,7 @@ Kubernetes v1.33
 Kubernetes v1.34
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3391,6 +3476,7 @@ Kubernetes v1.34
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3440,6 +3526,7 @@ Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -3479,6 +3566,7 @@ Kubernetes v1.28
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3517,6 +3605,7 @@ Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -3556,6 +3645,7 @@ Kubernetes v1.29
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3594,6 +3684,7 @@ Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -3633,6 +3724,7 @@ Kubernetes v1.30
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3671,6 +3763,7 @@ Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -3710,6 +3803,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3745,6 +3839,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3783,6 +3878,7 @@ Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -3822,6 +3918,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3857,6 +3954,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3894,6 +3992,7 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3929,6 +4028,7 @@ Kubernetes v1.33
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -3966,6 +4066,7 @@ Kubernetes v1.33
 Kubernetes v1.34
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4001,6 +4102,7 @@ Kubernetes v1.34
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4050,6 +4152,7 @@ Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -4088,6 +4191,7 @@ Kubernetes v1.28
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4125,6 +4229,7 @@ Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -4163,6 +4268,7 @@ Kubernetes v1.29
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4200,6 +4306,7 @@ Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -4238,6 +4345,7 @@ Kubernetes v1.30
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4275,6 +4383,7 @@ Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -4313,6 +4422,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4347,6 +4457,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4384,6 +4495,7 @@ Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -4422,6 +4534,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4456,6 +4569,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4492,6 +4606,7 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4526,6 +4641,7 @@ Kubernetes v1.33
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4562,6 +4678,7 @@ Kubernetes v1.33
 Kubernetes v1.34
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4596,6 +4713,7 @@ Kubernetes v1.34
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4644,6 +4762,7 @@ Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -4682,6 +4801,7 @@ Kubernetes v1.28
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4719,6 +4839,7 @@ Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -4757,6 +4878,7 @@ Kubernetes v1.29
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4794,6 +4916,7 @@ Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -4832,6 +4955,7 @@ Kubernetes v1.30
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4869,6 +4993,7 @@ Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -4907,6 +5032,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4941,6 +5067,7 @@ Kubernetes v1.31
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -4978,6 +5105,7 @@ Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -5016,6 +5144,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5050,6 +5179,7 @@ Kubernetes v1.32
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5086,6 +5216,7 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5120,6 +5251,7 @@ Kubernetes v1.33
   - rdma-core version: 60.0
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5168,6 +5300,7 @@ Kubernetes v1.28
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -5206,6 +5339,7 @@ Kubernetes v1.28
   - rdma-core version: 59.
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5243,6 +5377,7 @@ Kubernetes v1.29
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -5281,6 +5416,7 @@ Kubernetes v1.29
   - rdma-core version: 59.
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5318,6 +5454,7 @@ Kubernetes v1.30
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -5356,6 +5493,7 @@ Kubernetes v1.30
   - rdma-core version: 58.
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5393,6 +5531,7 @@ Kubernetes v1.31
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -5431,6 +5570,7 @@ Kubernetes v1.31
   - rdma-core version: 59.
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5465,6 +5605,7 @@ Kubernetes v1.31
   - rdma-core version: 59.
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5502,6 +5643,7 @@ Kubernetes v1.32
 
 - **AL2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - Linux Kernel version: 5.10
   - Glibc version: 2.26
   - OpenSSL version: 1.0.2k-fips
@@ -5540,6 +5682,7 @@ Kubernetes v1.32
   - rdma-core version: 59.
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5574,6 +5717,7 @@ Kubernetes v1.32
   - rdma-core version: 59.
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5610,6 +5754,7 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - Linux Kernel version: 6.1
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5644,6 +5789,7 @@ Kubernetes v1.33
   - rdma-core version: 59.
 
 - AL2023 (ARM64):
+
   - Linux Kernel version: 6.12
   - Glibc version: 2.34
   - OpenSSL version: 3.2.2
@@ -5693,11 +5839,13 @@ Kubernetes v1.28
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.28.15
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.28.15
@@ -5709,11 +5857,13 @@ Kubernetes v1.29
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.29.15
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.29.15
@@ -5725,11 +5875,13 @@ Kubernetes v1.30
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.30.11
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.30.11
@@ -5741,16 +5893,19 @@ Kubernetes v1.31
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.31.7
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.31.13
 
 - AL2023 (arm):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.31.13
@@ -5763,17 +5918,20 @@ Kubernetes v1.32
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.32.3
   - AWS IAM Authenticator version: v0.6.29
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.32.9
 
 - AL2023 (arm):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.32.9
@@ -5785,12 +5943,14 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.33.5
   - Kernel version: 6.1.155-176.282.amzn2023.x86_64
 
 - AL2023 (arm):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.33.5
@@ -5819,11 +5979,13 @@ Kubernetes v1.28
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.28.15
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.28.15
@@ -5835,11 +5997,13 @@ Kubernetes v1.29
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.29.15
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.29.15
@@ -5851,11 +6015,13 @@ Kubernetes v1.30
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.30.11
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.30.11
@@ -5867,16 +6033,19 @@ Kubernetes v1.31
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.31.7
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.31.13
 
 - AL2023 (arm):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.31.13
@@ -5889,16 +6058,19 @@ Kubernetes v1.32
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - AL2 (x86_64):
+
   - NVIDIA driver version: 570.195.03
   - CUDA version: 12.8
   - Kubernetes version: 1.32.3
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.32.9
 
 - AL2023 (arm):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.32.9
@@ -5910,12 +6082,14 @@ Kubernetes v1.32
 Kubernetes v1.33
 
 - AL2023 (x86_64):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.33.5
   - Kernel version: 6.1.155-176.282.amzn2023.x86_64
 
 - AL2023 (arm):
+
   - NVIDIA driver version: 580.95.05
   - CUDA version: 13.0
   - Kubernetes version: 1.33.5
@@ -6153,11 +6327,14 @@ Kubernetes v1.28
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - NVIDIA SMI:
+
   - NVIDIA driver version: 570.172.08
   - CUDA version: 12.8
 
 - Packages:
+
   - Languages and core libraries:
+
     - GCC: 11.5.0-5.amzn2023.0.5
     - GCC 14: 14.2.1-7.amzn2023.0.1
     - Java: 17.0.16+8-1.amzn2023.1
@@ -6167,6 +6344,7 @@ Kubernetes v1.28
     - Rust: 1.89.0-1.amzn2023.0.2
 
   - Core Libraries:
+
     - GlibC: 2.34-196.amzn2023.0.1
     - OpenSSL: 3.2.2-1.amzn2023.0.1
     - Zlib: 1.2.11-33.amzn2023.0.5
@@ -6174,16 +6352,19 @@ Kubernetes v1.28
     - Util-linux: 2.37.4-1.amzn2023.0.4
 
   - Neuron:
+
     - aws-neuronx-dkms: 2.23.9.0-dkms
     - aws-neuronx-tools: 2.25.145.0-1
 
   - EFA:
+
     - efa driver: 2.17.2-1.amzn2023
     - efa config: 1.18-1.amzn2023
     - efa nv peermem: 1.2.2-1.amzn2023
     - efa profile: 1.7-1.amzn2023
 
   - kernel:
+
     - kernel: 6.1.148-173.267.amzn2023
     - kernel development: 6.1.148-173.267.amzn2023
     - kernel headers: 6.1.148-173.267.amzn2023
@@ -6192,6 +6373,7 @@ Kubernetes v1.28
     - kernel livepatch: 1.0-0.amzn2023
 
   - Nvidia:
+
     - nvidia container toolkit: 1.17.8-1
     - nvidia container toolkit base: 1.17.8-1
     - libnvidia-container: 1.17.8-1 (with tools)
@@ -6202,11 +6384,14 @@ Kubernetes v1.29
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - NVIDIA SMI:
+
   - NVIDIA driver version: 570.172.08
   - CUDA version: 12.8
 
 - Packages:
+
   - Languages and core libraries:
+
     - GCC: 11.5.0-5.amzn2023.0.5
     - GCC 14: 14.2.1-7.amzn2023.0.1
     - Java: 17.0.16+8-1.amzn2023.1
@@ -6216,6 +6401,7 @@ Kubernetes v1.29
     - Rust: 1.89.0-1.amzn2023.0.2
 
   - Core Libraries:
+
     - GlibC: 2.34-196.amzn2023.0.1
     - OpenSSL: 3.2.2-1.amzn2023.0.1
     - Zlib: 1.2.11-33.amzn2023.0.5
@@ -6223,16 +6409,19 @@ Kubernetes v1.29
     - Util-linux: 2.37.4-1.amzn2023.0.4
 
   - Neuron:
+
     - aws-neuronx-dkms: 2.23.9.0-dkms
     - aws-neuronx-tools: 2.25.145.0-1
 
   - EFA:
+
     - efa driver: 2.17.2-1.amzn2023
     - efa config: 1.18-1.amzn2023
     - efa nv peermem: 1.2.2-1.amzn2023
     - efa profile: 1.7-1.amzn2023
 
   - kernel:
+
     - kernel: 6.1.148-173.267.amzn2023
     - kernel development: 6.1.148-173.267.amzn2023
     - kernel headers: 6.1.148-173.267.amzn2023
@@ -6241,6 +6430,7 @@ Kubernetes v1.29
     - kernel livepatch: 1.0-0.amzn2023
 
   - Nvidia:
+
     - nvidia container toolkit: 1.17.8-1
     - nvidia container toolkit base: 1.17.8-1
     - libnvidia-container: 1.17.8-1 (with tools)
@@ -6251,11 +6441,14 @@ Kubernetes v1.30
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - NVIDIA SMI:
+
   - NVIDIA driver version: 570.172.08
   - CUDA version: 12.8
 
 - Packages:
+
   - Languages and core libraries:
+
     - GCC: 11.5.0-5.amzn2023.0.5
     - GCC 14: 14.2.1-7.amzn2023.0.1
     - Java: 17.0.16+8-1.amzn2023.1
@@ -6265,6 +6458,7 @@ Kubernetes v1.30
     - Rust: 1.89.0-1.amzn2023.0.2
 
   - Core Libraries:
+
     - GlibC: 2.34-196.amzn2023.0.1
     - OpenSSL: 3.2.2-1.amzn2023.0.1
     - Zlib: 1.2.11-33.amzn2023.0.5
@@ -6272,16 +6466,19 @@ Kubernetes v1.30
     - Util-linux: 2.37.4-1.amzn2023.0.4
 
   - Neuron:
+
     - aws-neuronx-dkms: 2.23.9.0-dkms
     - aws-neuronx-tools: 2.25.145.0-1
 
   - EFA:
+
     - efa driver: 2.17.2-1.amzn2023
     - efa config: 1.18-1.amzn2023
     - efa nv peermem: 1.2.2-1.amzn2023
     - efa profile: 1.7-1.amzn2023
 
   - kernel:
+
     - kernel: 6.1.148-173.267.amzn2023
     - kernel development: 6.1.148-173.267.amzn2023
     - kernel headers: 6.1.148-173.267.amzn2023
@@ -6290,6 +6487,7 @@ Kubernetes v1.30
     - kernel livepatch: 1.0-0.amzn2023
 
   - Nvidia:
+
     - nvidia container toolkit: 1.17.8-1
     - nvidia container toolkit base: 1.17.8-1
     - libnvidia-container: 1.17.8-1 (with tools)
@@ -6300,11 +6498,14 @@ Kubernetes v1.31
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - NVIDIA SMI:
+
   - NVIDIA driver version: 570.172.08
   - CUDA version: 12.8
 
 - Packages:
+
   - Languages and core libraries:
+
     - GCC: 11.5.0-5.amzn2023.0.5
     - GCC 14: 14.2.1-7.amzn2023.0.1
     - Java: 17.0.16+8-1.amzn2023.1
@@ -6314,6 +6515,7 @@ Kubernetes v1.31
     - Rust: 1.89.0-1.amzn2023.0.2
 
   - Core Libraries:
+
     - GlibC: 2.34-196.amzn2023.0.1
     - OpenSSL: 3.2.2-1.amzn2023.0.1
     - Zlib: 1.2.11-33.amzn2023.0.5
@@ -6321,16 +6523,19 @@ Kubernetes v1.31
     - Util-linux: 2.37.4-1.amzn2023.0.4
 
   - Neuron:
+
     - aws-neuronx-dkms: 2.23.9.0-dkms
     - aws-neuronx-tools: 2.25.145.0-1
 
   - EFA:
+
     - efa driver: 2.17.2-1.amzn2023
     - efa config: 1.18-1.amzn2023
     - efa nv peermem: 1.2.2-1.amzn2023
     - efa profile: 1.7-1.amzn2023
 
   - kernel:
+
     - kernel: 6.1.148-173.267.amzn2023
     - kernel development: 6.1.148-173.267.amzn2023
     - kernel headers: 6.1.148-173.267.amzn2023
@@ -6339,6 +6544,7 @@ Kubernetes v1.31
     - kernel livepatch: 1.0-0.amzn2023
 
   - Nvidia:
+
     - nvidia container toolkit: 1.17.8-1
     - nvidia container toolkit base: 1.17.8-1
     - libnvidia-container: 1.17.8-1 (with tools)
@@ -6349,11 +6555,14 @@ Kubernetes v1.32
 
 - **Amazon Linux 2 is now deprecated. Kubernetes AMI is based on AL2023.**
 - NVIDIA SMI:
+
   - NVIDIA driver version: 570.172.08
   - CUDA version: 12.8
 
 - Packages:
+
   - Languages and core libraries:
+
     - GCC: 11.5.0-5.amzn2023.0.5
     - GCC 14: 14.2.1-7.amzn2023.0.1
     - Java: 17.0.16+8-1.amzn2023.1
@@ -6363,6 +6572,7 @@ Kubernetes v1.32
     - Rust: 1.89.0-1.amzn2023.0.2
 
   - Core Libraries:
+
     - GlibC: 2.34-196.amzn2023.0.1
     - OpenSSL: 3.2.2-1.amzn2023.0.1
     - Zlib: 1.2.11-33.amzn2023.0.5
@@ -6370,16 +6580,19 @@ Kubernetes v1.32
     - Util-linux: 2.37.4-1.amzn2023.0.4
 
   - Neuron:
+
     - aws-neuronx-dkms: 2.23.9.0-dkms
     - aws-neuronx-tools: 2.25.145.0-1
 
   - EFA:
+
     - efa driver: 2.17.2-1.amzn2023
     - efa config: 1.18-1.amzn2023
     - efa nv peermem: 1.2.2-1.amzn2023
     - efa profile: 1.7-1.amzn2023
 
   - kernel:
+
     - kernel: 6.1.148-173.267.amzn2023
     - kernel development: 6.1.148-173.267.amzn2023
     - kernel headers: 6.1.148-173.267.amzn2023
@@ -6388,6 +6601,7 @@ Kubernetes v1.32
     - kernel livepatch: 1.0-0.amzn2023
 
   - Nvidia:
+
     - nvidia container toolkit: 1.17.8-1
     - nvidia container toolkit base: 1.17.8-1
     - libnvidia-container: 1.17.8-1 (with tools)
@@ -6702,33 +6916,41 @@ Kubernetes v1.32
 - Operating System: Amazon Linux 2023
 - Compute Architecture: ARM64
 - Latest available version is installed for the following packages:
+
   - Linux Kernel: 6.12
   - FSx Lustre
   - Docker
   - AWS CLI v2 at `/usr/bin/aws`
   - NVIDIA DCGM
   - Nvidia container toolkit:
+
     - Version command: `nvidia-container-cli -V`
 
   - Nvidia-docker2:
+
     - Version command: `nvidia-docker version`
 
   - Nvidia-IMEX: v570.172.08-1
 
 - NVIDIA Driver: 570.158.01
 - NVIDIA CUDA 12.4, 12.5, 12.6, 12.8 stack:
+
   - CUDA, NCCL and cuDDN installation directories: `/usr/local/cuda-xx.x/`
+
     - Example: `/usr/local/cuda-12.8/`, `/usr/local/cuda-12.8/`
 
   - Compiled NCCL Version:
+
     - For CUDA directory of 12.4, compiled NCCL Version 2.22.3+CUDA12.4
     - For CUDA directory of 12.5, compiled NCCL Version 2.22.3+CUDA12.5
     - For CUDA directory of 12.6, compiled NCCL Version 2.24.3+CUDA12.6
     - For CUDA directory of 12.8, compiled NCCL Version 2.27.5+CUDA12.8
 
   - Default CUDA: 12.8
+
     - PATH `/usr/local/cuda` points to CUDA 12.8
     - Updated below env vars:
+
       - `LD_LIBRARY_PATH` to have `/usr/local/cuda-12.8/lib:/usr/local/cuda-12.8/lib64:/usr/local/cuda-12.8:/usr/local/cuda-12.8/targets/sbsa-linux/lib:/usr/local/cuda-12.8/nvvm/lib64:/usr/local/cuda-12.8/extras/CUPTI/lib64`
       - `PATH` to have `/usr/local/cuda-12.8/bin/:/usr/local/cuda-12.8/include/`
       - For any different CUDA version, please update `LD_LIBRARY_PATH` accordingly.
@@ -6736,6 +6958,7 @@ Kubernetes v1.32
 - EFA installer: 1.42.0
 - Nvidia GDRCopy: 2.5.1
 - AWS OFI NCCL plugin comes with EFA installer
+
   - Paths `/opt/amazon/ofi-nccl/lib` and `/opt/amazon/ofi-nccl/efa` are added to `LD_LIBRARY_PATH`.
 
 - AWS CLI v2 at `/usr/local/bin/aws`
@@ -6751,6 +6974,7 @@ The AMIs include the following updates:
 K8s v1.28
 
 - **Neuron packages:**
+
   - **aws-neuronx-collectives:**
     2.27.34.0_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
@@ -6766,6 +6990,7 @@ K8s v1.28
 K8s v1.29
 
 - **Neuron packages:**
+
   - **aws-neuronx-collectives:**
     2.27.34.0_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
@@ -6781,6 +7006,7 @@ K8s v1.29
 K8s v1.30
 
 - **Neuron packages:**
+
   - **aws-neuronx-collectives:**
     2.27.34.0_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
@@ -6796,6 +7022,7 @@ K8s v1.30
 K8s v1.31
 
 - **Neuron packages:**
+
   - **aws-neuronx-collectives:**
     2.27.34.0_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
@@ -6811,6 +7038,7 @@ K8s v1.31
 K8s v1.32
 
 - **Neuron packages:**
+
   - **aws-neuronx-collectives:**
     2.27.34.0_ec8cd5e8b-1
   - **aws-neuronx-dkms:**
@@ -7013,6 +7241,7 @@ K8s v1.28
 - **Default CUDA:** 12.4
 - **EFA Installer:** 1.38.0
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**
@@ -7059,6 +7288,7 @@ K8s v1.29
 - **CUDA Version:** 12.4
 - **EFA Installer:** 1.38.0
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**
@@ -7106,6 +7336,7 @@ K8s v1.30
 - **EFA installer version:**
   1.38.0
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**
@@ -7153,6 +7384,7 @@ K8s v1.31
 - **EFA installer version:**
   1.38.0
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**
@@ -7200,6 +7432,7 @@ K8s v1.32
 - **EFA installer version:**
   1.38.0
 - **Neuron packages:**
+
   - **aws-neuronx-dkms.noarch:**
     2.22.2.0-dkms
   - **aws-neuronx-oci-hook.x86_64:**
@@ -7259,6 +7492,7 @@ Deep Learning Base AMI AL2
 - **Latest NVIDIA Driver:**
   550.163.01
 - **CUDA Stack updates:**
+
   - **Default CUDA:**
     12.1
   - **NCCL Version:**
@@ -7276,6 +7510,7 @@ Deep Learning Base AMI AL2
   disabled
 - **EFA Updates from 1.37 to
   1.38:**
+
   - AWS OFI NCCL plugin now located in
     /opt/amazon/ofi-nccl
   - Previous location /opt/aws-ofi-nccl/ is
@@ -7376,6 +7611,7 @@ The AMIs include the following:
 Deep Learning EKS AMI 1.32.1
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.32.1
   - Containerd Version: 1.7.27
   - Runc Version: 1.1.14
@@ -7461,6 +7697,7 @@ The AMIs include the following:
 Deep Learning EKS AMI 1.31
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.31.2
   - Containerd Version: 1.7.23
   - Runc Version: 1.1.14
@@ -7497,6 +7734,7 @@ The AMIs include the following:
 K8s v1.28
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.28.15
   - Containerd Version: 1.7.23
   - Runc Version: 1.1.14
@@ -7527,6 +7765,7 @@ K8s v1.28
 K8s v1.29
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.29.10
   - Containerd Version: 1.7.23
   - Runc Version: 1.1.14
@@ -7557,6 +7796,7 @@ K8s v1.29
 K8s v1.30
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.30.6
   - Containerd Version: 1.7.23
   - Runc Version: 1.1.14
@@ -7596,6 +7836,7 @@ K8s v1.30
 
 - Released in `MEL` (Melbourne) Region.
 - Updated SageMaker HyperPod base DLAMI to the following versions:
+
   - Kubernetes: 2024-11-01.
 
 ## SageMaker HyperPod AMI releases for Amazon EKS: November 15, 2024
@@ -7607,6 +7848,7 @@ The AMIs include the following:
 Deep Learning EKS AMI 1.28
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.28.15
   - Containerd Version: 1.7.23
   - Runc Version: 1.1.14
@@ -7637,6 +7879,7 @@ Deep Learning EKS AMI 1.28
 Deep Learning EKS AMI 1.29
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.29.10
   - Containerd Version: 1.7.23
   - Runc Version: 1.1.14
@@ -7667,6 +7910,7 @@ Deep Learning EKS AMI 1.29
 Deep Learning EKS AMI 1.30
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.30.6
   - Containerd Version: 1.7.23
   - Runc Version: 1.1.14
@@ -7706,6 +7950,7 @@ Deep Learning EKS AMI 1.30
 **AMI general updates**
 
 - Updated SageMaker HyperPod base DLAMI to the following versions:
+
   - Amazon EKS: 1.28.11, 1.29.6, 1.30.2.
 
 ## SageMaker HyperPod AMI releases for Amazon EKS: September 10, 2024
@@ -7717,6 +7962,7 @@ The AMIs include the following:
 Deep Learning EKS AMI 1.28
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.28.11
   - Containerd Version: 1.7.20
   - Runc Version: 1.1.11
@@ -7747,6 +7993,7 @@ Deep Learning EKS AMI 1.28
 Deep Learning EKS AMI 1.29
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.29.6
   - Containerd Version: 1.7.20
   - Runc Version: 1.1.11
@@ -7777,6 +8024,7 @@ Deep Learning EKS AMI 1.29
 Deep Learning EKS AMI 1.30
 
 - **Amazon EKS Components**
+
   - Kubernetes Version: 1.30.2
   - Containerd Version: 1.7.20
   - Runc Version: 1.1.11

@@ -83,6 +83,7 @@ image version, see [Create a Custom SageMaker Image for Amazon SageMaker Studio 
     the kernel.
 18. Choose **Add kernel**.
 19. Choose **Submit**.
+
     1. Wait for the image version to be attached to the
        domain. When attached, the version is displayed in the **Custom images**
        list and briefly highlighted.

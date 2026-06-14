@@ -44,6 +44,7 @@ role** dialog box opens:
 10. Choose **Next**.
 11. In the **SageMaker Studio** section, you have the option to choose
     between the newer and classic version of Studio as your default experience.
+
     - If you choose **SageMaker Studio** (recommended) as your
       default experience, the Studio Classic IDE has default settings. For information on the
       default settings, see [Default settings](onboard-quick-start.md#onboard-quick-start-defaults "onboard-quick-start.md#onboard-quick-start-defaults").
@@ -56,12 +57,14 @@ role** dialog box opens:
 
 12. Under **SageMaker Canvas** , you can configure your SageMaker Canvas settings. For the
     instructions and configuration details for onboarding, see [Getting started with using Amazon SageMaker Canvas](canvas-getting-started.md "canvas-getting-started.md").
+
     1. For the **Canvas base permissions configuration**, select
        whether to establish the minimum required permissions to use the SageMaker Canvas
        application.
 
 13. Under **RStudio**, if RStudio license, select whether you want to
     create the user with one of the following authorizations:
+
     - Unauthorized
     - RStudio Admin
     - RStudio User

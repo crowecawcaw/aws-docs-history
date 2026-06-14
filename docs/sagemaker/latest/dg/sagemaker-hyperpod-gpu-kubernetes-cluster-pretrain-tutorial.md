@@ -13,6 +13,7 @@ Before you start setting up your environment, make sure you have:
 - A shared storage location. It can be an Amazon FSx file system or NFS system
   that's accessible from the cluster nodes.
 - Data in one of the following formats:
+
   - JSON
   - JSONGZ (Compressed JSON)
   - ARROW
@@ -36,6 +37,7 @@ source venv/bin/activate
 ```
 
 - Install dependencies using one of the following methods:
+
   - (Recommended): [HyperPod command-line tool](https://github.com/aws/sagemaker-hyperpod-cli "https://github.com/aws/sagemaker-hyperpod-cli") method:
 
   ```
@@ -45,7 +47,6 @@ source venv/bin/activate
   pip3 install .
 
   ```
-
   - SageMaker HyperPod recipes method:
 
   ```
@@ -157,6 +158,7 @@ git:
 
 - Update
   `launcher_scripts/llama/run_hf_llama3_8b_seq16k_gpu_p5x16_pretrain.sh`
+
   - `your_contrainer`: A Deep Learning container. To find
     the most recent release of the SMP container, see [Release notes for the SageMaker model parallelism library](model-parallel-release-notes.md "model-parallel-release-notes.md").
   - (Optional) You can provide the HuggingFace token if you need

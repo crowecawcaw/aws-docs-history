@@ -268,6 +268,7 @@ python -m pip install ‐‐no-build-isolation git+https://github.com/NVIDIA/Tra
 ```
 
 5. Run a test training job.
+
    1. In the shared file system (`/fsx`), clone the
       [Awsome Distributed Training GitHub repository](https://github.com/aws-samples/awsome-distributed-training/ "https://github.com/aws-samples/awsome-distributed-training/"),
       and go to the `3.test_cases/11.modelparallel`
@@ -277,7 +278,6 @@ python -m pip install ‐‐no-build-isolation git+https://github.com/NVIDIA/Tra
    git clone https://github.com/aws-samples/awsome-distributed-training/
    cd awsome-distributed-training/3.test_cases/11.modelparallel
    ```
-
    2. Submit a job using `sbatch` as follows.
 
    ```

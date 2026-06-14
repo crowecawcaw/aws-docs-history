@@ -57,6 +57,7 @@ This guide assumes that you have completed the following prerequisites:
 
 - Install the following tools on the client machine used to access your Kubernetes
   cluster:
+
   - [`kubectl`](../../../eks/latest/userguide/install-kubectl.md "../../../eks/latest/userguide/install-kubectl.md") Version 1.13 or later. Use a `kubectl`
     version that is within one minor version of your Amazon EKS cluster control plane. For
     example, a 1.13 `kubectl` client works with Kubernetes 1.13 and 1.14

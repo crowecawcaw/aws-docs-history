@@ -52,6 +52,7 @@ In recovery mode:
   directory does not impact your recovery mode operations. You can navigate to
   your standard home directory by using the command `cd
 /home/sagemaker-user`.
+
   - Standard mode: `/home/sagemaker-user`
   - Recovery mode: `/tmp/sagemaker-recovery-mode-home`
 

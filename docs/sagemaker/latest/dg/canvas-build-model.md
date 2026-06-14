@@ -12,6 +12,7 @@ categories:
   price of houses based on features such as the house’s square footage.
 - **Categorical prediction** – This is known as _classification_ in machine learning. When you want to categorize data
   into groups, use the categorical prediction model types:
+
   - **2 category prediction** – Use the 2 category
     prediction model type (also known as _binary classification_
     in machine learning) when you have two categories that you want to predict for your data. For

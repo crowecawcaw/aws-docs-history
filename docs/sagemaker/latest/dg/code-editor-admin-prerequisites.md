@@ -6,6 +6,7 @@ To use Code Editor, based on Code-OSS, Visual Studio Code - Open Source, you mus
    information, see [Amazon SageMaker AI domain overview](gs-studio-onboard.md "gs-studio-onboard.md").
 2. If you are interacting with your Code Editor application using the AWS CLI, you must also
    complete the following prerequisites.
+
    1. Update the AWS CLI by following the steps in [Installing the
       current AWS CLI Version](../../../cli/latest/userguide/install-cliv1.md#install-tool-bundled "../../../cli/latest/userguide/install-cliv1.md#install-tool-bundled").
    2. From your local machine, run `aws configure` and provide your AWS

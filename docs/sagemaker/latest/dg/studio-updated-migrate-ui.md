@@ -24,6 +24,7 @@ permissions to create applications.
 1. Create an AWS Identity and Access Management policy with one of the following contents by following the
    steps in [Creating IAM
    policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md"):
+
    - Use the following policy to grant permissions for all application
      types and spaces.
 
@@ -165,7 +166,6 @@ permissions to create applications.
    }`
 
    ```
-
    - Because Studio shows an expanded set of applications, users may
      have access to applications that weren't displayed before.
      Administrators can limit access to these default applications by
@@ -214,6 +214,7 @@ configurations, and launch applications, before migrating the existing
 domain.
 
 1. Get the domain ID of your existing domain.
+
    1. Open the Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
    2. From the left navigation pane, expand **Admin
       configurations** and choose
@@ -397,6 +398,7 @@ using the SageMaker AI console.
 5. (Optional) To view the details about the steps involved in enabling
    Studio as your default experience, choose **View
    details**. The page shows the following.
+
    - In the **SageMaker Studio Overview** section
      you can view the applications that are included or available in
      the Studio web-based interface.

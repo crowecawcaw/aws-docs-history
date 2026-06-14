@@ -39,6 +39,7 @@ plans and assign permissions accordingly.
   ease-of-use policy primarily for experimentation purposes. While it provides broad
   access to SageMaker AI features, including the use of training plans, it's important to
   note:
+
   - This policy is not recommended for production environments due to its broad
     permissions.
   - It does not include permissions for creating training plans, as
@@ -150,6 +151,7 @@ Plan users require these permissions:
   resources are required for both SageMaker training jobs and SageMaker HyperPod clusters. This
   allows your IAM roles to interact with SageMaker training plans resources and manage Reserved
   Capacity.
+
   - For SageMaker training jobs, ensure your policy includes the
     `"arn:aws:sagemaker:::training-plan/"` and
     `"arn:aws:sagemaker:::reserved-capacity/"` resource ARNs.

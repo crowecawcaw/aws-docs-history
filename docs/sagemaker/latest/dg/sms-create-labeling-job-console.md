@@ -68,13 +68,16 @@ task type page](sms-task-types.md "sms-task-types.md").
    specified in the previous step will be used to identify your labels in your output
    manifest file.
 6. Choose a data setup to create a connection between your input dataset and Ground Truth.
+
    - For **Automated data setup**:
+
      - Follow the instructions in [Automate data setup for labeling jobs](sms-console-create-manifest-file.md "sms-console-create-manifest-file.md") for image,
        text, and video clip labeling jobs.
      - Follow the instructions in [Set up Automated Video Frame Input Data](sms-video-automated-data-setup.md "sms-video-automated-data-setup.md") for video frame
        labeling jobs.
 
    - For **Manual data setup**:
+
      - For **Input dataset location**, provide the
        location in Amazon S3 in which your input manifest file is located. For
        example, if your input manifest file, manifest.json, is located in

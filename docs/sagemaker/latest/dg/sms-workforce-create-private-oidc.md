@@ -242,6 +242,7 @@ curl --request POST \
 
 6.  This step depends on the type of `access_token` your IdP returns, a
     plain text access token or a JWT access token.
+
     - If your IdP does not support JWT access tokens,
       `access_token` may be plain text (for example, a UUID).
       The response you see may look similar to the following. In this case,
@@ -256,7 +257,6 @@ curl --request POST \
       "scope":"openid"
     }
     ```
-
     - If your IdP supports JWT access tokens, step 5 should generate an
       access token in JWT format. For example, the response may look similar
       to the following:

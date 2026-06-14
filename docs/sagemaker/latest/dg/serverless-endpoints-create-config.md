@@ -17,6 +17,7 @@ The following example uses the [AWS SDK for Python (Boto3)](https://boto3.amazon
 - For `ModelName`, use the name of the model you want to deploy. It should be
   the same model that you used in the [Create a model](serverless-endpoints-create-model.md "serverless-endpoints-create-model.md") step.
 - For `ServerlessConfig`:
+
   - Set `MemorySizeInMB` to `2048`. For this example, we set the
     memory size to 2048 MB, but you can choose any of the following values for your memory
     size: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.

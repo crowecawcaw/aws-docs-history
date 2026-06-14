@@ -175,6 +175,7 @@ SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod 
   clusters.
 - SageMaker HyperPod now supports the following instance types for both Slurm and
   Amazon EKS clusters.
+
   - New instance types: I3en, M7i, R7i instances. For the full list of
     supported instances, see the `InstanceType` field in the
     `ClusterInstanceGroupDetails`.
@@ -259,6 +260,7 @@ SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod 
 
 - SageMaker HyperPod now supports the following instance types for both Slurm and
   Amazon EKS clusters.
+
   - New instance types: C6gn, C6i, M6i, R6i.
   - New Trainium instance types: Trn1 and Trn1n.
 
@@ -318,6 +320,7 @@ more information, see and [SageMaker HyperPod AMI releases for Amazon EKS: Novem
 - Added support for trn1 and trn1n instance types for both Amazon EKS and Slurm
   orchestrated clusters.
 - Improved log management for Slurm clusters:
+
   - Implemented log rotation: weekly or daily based on size.
   - Set log retention to 3 weeks.
   - Compressed logs to reduce storage impact.

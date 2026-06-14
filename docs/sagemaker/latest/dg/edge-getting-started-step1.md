@@ -23,6 +23,7 @@ You can create an IAM role by using the IAM console, AWS SDK for Python
 attach the necessary policies with the IAM console, and create an Amazon S3 bucket.
 
 1.  **Create an IAM role for Amazon SageMaker AI.**
+
     1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
     2. In the navigation pane of the IAM console, choose
        **Roles**, and then choose **Create
@@ -32,6 +33,7 @@ attach the necessary policies with the IAM console, and create an Amazon S3 buck
     4. Choose the service that you want to allow to assume this role. In this
        case, choose **SageMaker AI**. Then choose **Next:
        Permissions**.
+
        - This automatically creates an IAM policy that grants access
          to related services such as Amazon S3, Amazon ECR, and CloudWatch Logs.
 

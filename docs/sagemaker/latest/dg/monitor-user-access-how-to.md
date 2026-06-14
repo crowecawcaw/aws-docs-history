@@ -27,6 +27,7 @@ configuration.
   Apps](studio-tasks-update-apps.md "studio-tasks-update-apps.md").
 - If source identity propagation is turned on, all execution roles must have the
   following trust policy permissions: 
+
   - Any role that the domain's execution role assumes must have
     the `sts:SetSourceIdentity` permission in the trust policy. If this
     permission is missing, your actions fail with `AccessDeniedException` or
@@ -54,9 +55,9 @@ configuration.
   }`
 
   ```
-
   - When you assume a role with another role, called role chaining, do the
     following:
+
     - Permissions for `sts:SetSourceIdentity` are required in both the
       permissions policy of the principal that is assuming the role, and in the role
       trust policy of the target role. Otherwise, the assume role operation will

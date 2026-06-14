@@ -12,6 +12,7 @@ indexing with [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") o
 
 - AWS account with an [AWS Identity and Access Management](../../../IAM/latest/UserGuide/getting-started.md "../../../IAM/latest/UserGuide/getting-started.md") (IAM) role with
   permissions to manage
+
   - [Amazon ECR](../../../AmazonECR/latest/userguide/what-is-ecr.md "../../../AmazonECR/latest/userguide/what-is-ecr.md")
   - [Amazon SageMaker AI](gs.md "gs.md")
 
@@ -19,8 +20,10 @@ indexing with [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") o
   private repositories](../../../AmazonECR/latest/userguide/Repositories.md "../../../AmazonECR/latest/userguide/Repositories.md") for storing your container images
 - [AWS CLI v2.0+](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") configured with appropriate credentials
 - The following container tools:
+
   - Required: [soci-snapshotter](https://github.com/awslabs/soci-snapshotter "https://github.com/awslabs/soci-snapshotter")
   - Options:
+
     - [nerdctl](https://github.com/containerd/nerdctl "https://github.com/containerd/nerdctl")
     - [finch](https://github.com/runfinch/finch "https://github.com/runfinch/finch")
 
@@ -29,6 +32,7 @@ indexing with [Amazon SageMaker Studio](studio-updated.md "studio-updated.md") o
 Your IAM role needs permissions to:
 
 - Create and manage SageMaker AI resources (domains, images, app configs).
+
   - You may use the [SageMakerFullAccess](../../../aws-managed-policy/latest/reference/AmazonSageMakerFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonSageMakerFullAccess.md") AWS managed policy. For more permission details,
     see [AWS managed policy: AmazonSageMakerFullAccess](security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess "security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonSageMakerFullAccess").
 

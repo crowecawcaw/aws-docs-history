@@ -35,6 +35,7 @@ processes from any other custom or external training containers.
 - [PythonProfilingConfig](https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html#sagemaker.debugger.PythonProfilingConfig "https://sagemaker.readthedocs.io/en/stable/api/training/debugger.html#sagemaker.debugger.PythonProfilingConfig") – Specify a target step or time
   range to profile Python functions. You can also choose between two Python
   profilers: cProfile and Pyinstrument.
+
   - _cProfile_ – The standard Python
     profiler. cProfile collects information for every Python operator
     called during training. With cProfile, Debugger saves cumulative time

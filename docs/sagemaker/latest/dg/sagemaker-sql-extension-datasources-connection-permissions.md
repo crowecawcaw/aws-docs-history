@@ -408,6 +408,7 @@ The IAM policy permissions for a user can account for the presence of the
 `UserProfile` tag on AWS Glue connection resources.
 
 - **For viewing AWS Glue connections**:
+
   - Users can view all connections that do not have the `UserProfile` tag
     (created by an administrator).
   - Users can view connections that have the `UserProfile` tag with the
@@ -416,6 +417,7 @@ The IAM policy permissions for a user can account for the presence of the
     different value than their user profile name.
 
 - **For updating or deleting AWS Glue connections**:
+
   - Users can update or delete a connection that has the `UserProfile`
     tag with the same value as their user profile name.
   - Users cannot update or delete a connection that has the `UserProfile`

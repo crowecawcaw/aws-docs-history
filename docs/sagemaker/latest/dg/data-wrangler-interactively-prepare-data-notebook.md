@@ -151,6 +151,7 @@ To get target column insights, do the following.
 2. Choose **Select as target column**.
 3. Choose the problem type. The widget's insights and warnings are tailored to
    the problem types. The following are the problem types:
+
    - **Classification** – The target column has
      categorical data.
    - **Regression** – The target column has numeric
@@ -171,6 +172,7 @@ insights to warn you about issues with your dataset.
   input data. Filling them in or dropping the rows with missing data is therefore a
   crucial data preparation step. If you see the missing values warning, you can use
   one of the following transforms to correct the issue.
+
   - **Drop missing** – Drops rows with missing values.
     We recommend dropping rows when the percentage of rows with missing data is
     small and imputing the missing values isn't appropriate.
@@ -191,6 +193,7 @@ insights to warn you about issues with your dataset.
   as a missing value. For example, instead of using a `NaN` to indicate a
   missing value, the value could be `Placeholder`. You can use one of the
   following transforms to handle the missing values:
+
   - **Drop missing** – Drops rows with missing
     values
   - **Replace with new value** – Replaces textual
@@ -227,6 +230,7 @@ insights to warn you about issues with your dataset.
 - **Too few instances per class** – The target column has
   categories that appear rarely. Some of the categories don't have enough rows for the
   target column to be useful. You can use one of the following transforms:
+
   - **Drop rare target** – Drops unique values with
     fewer than ten observations. For example, drops the value `cat`
     if it appears nine times in the column.
@@ -242,6 +246,7 @@ insights to warn you about issues with your dataset.
   large number of classes in the target column. Having many classes might result in
   longer training times or poor predictive quality. We recommend doing one of the
   following:
+
   - Grouping some of the categories into their own category. For example, if
     six categories are closely related, we recommend using a single category for
     them.

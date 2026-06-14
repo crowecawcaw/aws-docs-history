@@ -24,6 +24,7 @@ users_ and _data scientist users_.
 - **Cluster admin users** – Are responsible for
   creating and managing SageMaker HyperPod clusters. This includes configuring the
   HyperPod clusters and managing user access to them.
+
   - Create and configure SageMaker HyperPod clusters with Slurm or Amazon EKS.
   - Create and configure IAM roles for data scientist users and
     HyperPod cluster resources.

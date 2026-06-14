@@ -184,6 +184,7 @@ do the following:
 7. On the **Edit Canvas settings** page, go to
    the **Amazon Q Developer** section and do the
    following:
+
    1. Turn on **Enable Amazon Q Developer in SageMaker Canvas for natural
       language ML** to add the permissions to chat
       with Q Developer in Canvas to your domain's execution

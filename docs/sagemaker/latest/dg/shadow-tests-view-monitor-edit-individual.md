@@ -17,6 +17,7 @@ To edit the details of your test through the console, do the following:
 4. Choose **Next**. The **Enter shadow test settings** page
    appears.
 5. (Optional) To edit your shadow variant, do the following:
+
    1. Select the shadow variant and choose **Edit**. The **Edit shadow
       variant** dialog box appears. If your test has already started, then you can
       only change the traffic sampling percentage.
@@ -33,6 +34,7 @@ To edit the details of your test through the console, do the following:
       **Remove**. Then add a new shadow variant.
 
 6. (Optional) To edit the duration of the test, do the following:
+
    1. Choose the box under **Duration** in the **Schedule**
       section. A popup calender appears.
    2. If your test is yet to start, you can change both the start and end dates. Select the new

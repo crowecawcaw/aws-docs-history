@@ -30,6 +30,7 @@ running the cell. For more information on the SQL execution capabilities, see [S
 - **Query result dropdown**: You can specify how to
   render query results by selecting a result type from the dropdown menu next to your
   connection-selection dropdown menu. Choose between the following two alternatives:
+
   - **Cell Output**: (default) This option displays the
     result of your query in the notebook cell output area.
   - **Pandas Dataframe**: This option populates a
@@ -45,6 +46,7 @@ running the cell. For more information on the SQL execution capabilities, see [S
 - **SQL formatting**: You can apply consistent indents,
   capitalization, spacing, and line breaks to group or separate SQL statements and clauses
   in one of the following ways. This makes SQL code easier to read and understand.
+
   - Right-click on the SQL cell and choose **Format SQL**.
   - When the SQL cell is in focus, use the _ALT + F_
     shortcut on Windows or _Option + F_ on MacOS.

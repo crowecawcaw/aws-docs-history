@@ -83,6 +83,7 @@ evaluate your model for the following:
   that the summary is of high quality. A low numerical score indicates a
   poor summary. The following metrics are used to evaluate the accuracy of
   a summarization:
+
   - [ROUGE-N](https://huggingface.co/spaces/evaluate-metric/rouge "https://huggingface.co/spaces/evaluate-metric/rouge") – Computes
     N-gram overlaps between the reference and
     model summary.
@@ -117,6 +118,7 @@ answering, FMEval can evaluate your model for the following:
 - _Accuracy_ – An average score
   comparing the generated response to the question answer pairs given in
   the references. The score is averaged from the following methods:
+
   - _Exact match_ – A binary
     score of `1` is assigned to an exact match, and
     `0` otherwise.
@@ -167,6 +169,7 @@ and/or against your own prompt datasets for the following.
 - **Accuracy** – A score that
   compares the predicted class to its label. Accuracy is measured using
   the following metrics:
+
   - **Classification accuracy**
     – A binary score of `1` if the predicted label
     equals the true label, and `0` otherwise.
@@ -183,6 +186,7 @@ and/or against your own prompt datasets for the following.
     for each data point can be aggregated using the following values
     for the `multiclass_average_strategy`
     parameter.
+
     - **`micro`**
       (default) – The sum of the true positives divided
       by the sum of true positives and false negatives for all

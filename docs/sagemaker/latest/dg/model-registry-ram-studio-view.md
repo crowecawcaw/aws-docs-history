@@ -30,6 +30,7 @@ This feature is not available in Amazon SageMaker Studio Classic.
 5. Choose **Shared with me** to view the model groups
    that are shared with you.
 6. To accept pending model group invitations:
+
    1. Choose **View pending approvals** to open the
       **Pending invitations** list.
    2. If you would like to accept the invitation, choose

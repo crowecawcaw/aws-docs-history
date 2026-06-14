@@ -12,6 +12,7 @@
 6.  To view alert history, select the **Alert history** tab.
 7.  (optional) To view job reports of monitoring executions, complete the following
     steps:
+
     1. In the **Alert history** tab, choose **View
        executions** for the alert you want to investigate.
     2. In the **Execution history** table, choose **View

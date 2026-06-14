@@ -24,8 +24,10 @@ Studio.
 
 1. In SageMaker AI Studio, create an optimization job through any of the
    following paths:
+
    - To create a job for a JumpStart model, do the
      following:
+
      1. In the navigation menu, choose
         **JumpStart**.
      2. On the **All public models** page, choose
@@ -45,6 +47,7 @@ Studio.
 
    - To create a job for a fine-tuned JumpStart model, do the
      following:
+
      1. In the navigation menu, under **Jobs**,
         choose **Training**.
      2. On the **Training Jobs** page, choose the
@@ -56,6 +59,7 @@ Studio.
         **Optimize**.
 
    - To create a job for a custom model, do the following:
+
      1. In the navigation menu, under **Jobs**,
         choose **Inference optimization**.
      2. Choose **Create new job**.

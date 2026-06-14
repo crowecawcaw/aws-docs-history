@@ -52,6 +52,7 @@ In Studio, open the form in one of two ways:
     	) in the Studio toolbar.
 
 2. Complete the popup form. The form displays the following fields:
+
    - **Job name**: A descriptive name you specify for your
      job.
    - **Input file**: The name of the notebook which you are
@@ -71,13 +72,16 @@ In Studio, open the form in one of two ways:
 
 3. Schedule your job. You can run your notebook on demand or on a fixed
    schedule.
+
    - To run the notebook on demand, complete the following steps:
+
      - Select **Run Now**.
      - Choose **Create**.
      - The **Notebook Jobs** tab appears. Choose
        **Reload** to load your job into the dashboard.
 
    - To run the notebook on a fixed schedule, complete the following steps:
+
      - Choose **Run on a schedule**.
      - Choose the **Interval** dropdown list and select an
        interval. The intervals range from every minute to monthly. You can also select

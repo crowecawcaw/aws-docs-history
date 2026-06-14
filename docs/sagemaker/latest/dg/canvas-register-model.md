@@ -99,6 +99,7 @@ the following procedure:
 6. In the dropdown list, choose **Add to Model Registry**. The **Add to
    Model Registry** dialog box opens.
 7. In the **Add to Model Registry** dialog box, do the following:
+
    1. (Optional) In the **SageMaker Studio Classic model group** section, for the **Model group name** field, enter the
       name of the model group to which you want to register your version. You can specify the name for a new model group that SageMaker AI creates for you,
       or you can specify an existing model group. If you don’t specify this field, Canvas registers

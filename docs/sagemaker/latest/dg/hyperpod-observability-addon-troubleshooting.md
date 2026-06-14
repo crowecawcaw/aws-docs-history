@@ -19,6 +19,7 @@ following steps to identify and resolve the issue.
    **Data sources** tab.
 5. Verify that the Amazon Managed Service for Prometheus data source exists.
 6. Check the connection settings:
+
    - Confirm that the endpoint URL is correct.
    - Verify that IAM authentication is properly
      configured.
@@ -44,6 +45,7 @@ following steps to identify and resolve the issue.
 4. In the **Pod Identity associations** table,
    choose the association that has the following property
    values:
+
    - **Namespace**:
      `hyperpod-observability`
    - **Service account**:
@@ -142,9 +144,9 @@ JSON
 
 ### Verify KV caching and intelligent routing are enabled
 
-If the `KVCache Metrics` dashboard is missing, feature is either not enabled or the port isn't mentioned in the `modelMetrics`. For more information on how to enable this, see steps 1 and 3 in [Configure KV caching and intelligent routing for improved performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+If the `KVCache Metrics` dashboard is missing, feature is either not enabled or the port isn't mentioned in the `modelMetrics`. For more information on how to enable this, see steps 1 and 3 in [Configure KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
 
-If the `Intelligent Router Metrics` dashboard is missing, enable the feature to have them show up. For more information on how to enable this, see [Configure KV caching and intelligent routing for improved performance](sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-deploy-ftm.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
+If the `Intelligent Router Metrics` dashboard is missing, enable the feature to have them show up. For more information on how to enable this, see [Configure KV caching and intelligent routing](sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route "sagemaker-hyperpod-model-deployment-caching-routing.md#sagemaker-hyperpod-model-deployment-deploy-ftm-cache-route").
 
 ## Troubleshooting add-on installation failures
 

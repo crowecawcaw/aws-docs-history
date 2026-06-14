@@ -159,6 +159,7 @@ one training job is not supported.
 
 - For the `"mpi"` key, pass a dictionary that contains the
   following:
+
   - `"enabled"` – Required. Set `True` to
     launch the distributed training job with MPI.
   - `"processes_per_host"` – Required. Specify the
@@ -350,6 +351,7 @@ ARG SMDATAPARALLEL_BINARY=https://smdataparallel.s3.amazonaws.com/binary/pytorch
 ```
 
 4. Install dependencies that the SageMaker model parallel library requires.
+
    1. Install the [METIS](http://glaros.dtc.umn.edu/gkhome/metis/metis/overview "http://glaros.dtc.umn.edu/gkhome/metis/metis/overview") library.
 
    ```
@@ -369,7 +371,6 @@ ARG SMDATAPARALLEL_BINARY=https://smdataparallel.s3.amazonaws.com/binary/pytorch
      && rm -rf /var/lib/apt/lists/* \
      && apt-get clean
    ```
-
    2. Install the [RAPIDS Memory Manager library](https://github.com/rapidsai/rmm#rmm-rapids-memory-manager "https://github.com/rapidsai/rmm#rmm-rapids-memory-manager"). This requires [CMake](https://cmake.org/ "https://cmake.org/") 3.14 or later.
 
    ```

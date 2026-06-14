@@ -151,6 +151,7 @@ to configure how you're creating dataset:
   base feature group and another feature group using the record identifier and the
   target feature name in the base feature group. The following provides
   information about the parameters that you specify:
+
   - `feature_group` – The feature group that you're
     joining.
   - `target_feature_name_in_base` – The name of the

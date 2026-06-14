@@ -72,6 +72,7 @@ aws sagemaker list-clusters \
 
 2. To delete your compute allocations
    (`ComputeQuota`):
+
    1. List all of the compute quotas associated with the
       HyperPod cluster.
 
@@ -80,7 +81,6 @@ aws sagemaker list-clusters \
        --cluster-arn `cluster-arn` \
        --region ${REGION}
    ```
-
    2. For each
       `compute-quota-id`
       you wish to delete, run the following command to delete the
@@ -94,6 +94,7 @@ aws sagemaker list-clusters \
 
 3. To delete your cluster policies
    (`ClusterSchedulerConfig`):
+
    1. List all of the cluster policies associated with the
       HyperPod cluster.
 
@@ -102,7 +103,6 @@ aws sagemaker list-clusters \
        --cluster-arn `cluster-arn` \
        --region ${REGION}
    ```
-
    2. For each
       `cluster-scheduler-config-id`
       you wish to delete, run the following command to delete the

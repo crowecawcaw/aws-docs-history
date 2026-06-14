@@ -25,6 +25,7 @@ To learn more about creating a model, see [How custom models work](canvas-build-
 - [Export the data](canvas-export-data.md "canvas-export-data.md"). You can export your data for use in machine
   learning workflows. When you choose to export your data, you have several
   options:
+
   - You can save your data in the Canvas application as a dataset. For
     more information about the supported file types for Canvas datasets and
     additional requirements when importing data into Canvas, see [Create a dataset](canvas-import-dataset.md "canvas-import-dataset.md").

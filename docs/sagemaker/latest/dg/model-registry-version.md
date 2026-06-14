@@ -111,6 +111,7 @@ Studio Classic
    **Model registry**.
 4. Open the **Register Version** form. You
    can do this in one of two ways:
+
    - Choose **Actions**, and then
      choose **Create model
      version**.
@@ -120,6 +121,7 @@ Studio Classic
 
 5. In the **Register model version** form,
    enter the following information:
+
    - In the **Model package group
      name** dropdown, select the model group
      name.
@@ -134,6 +136,7 @@ Studio Classic
 6. Choose **Next**.
 7. In the **Inference Specification** form,
    enter the following information:
+
    - Enter your inference image location.
    - Enter your model data artifacts location.
    - (Optional) Enter information about images to use

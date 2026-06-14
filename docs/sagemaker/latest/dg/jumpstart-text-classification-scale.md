@@ -27,6 +27,7 @@ Configure CloudWatch monitoring to track your model's performance in production.
 1. In your JupyterLab space, open the `sagemaker_production_monitoring.ipynb` notebook from the evaluation package you uploaded earlier.
 2. Update your endpoint name and region in the configuration section.
 3. Follow the notebook instructions to set up:
+
    - Auto-scaling (1-10 instances based on traffic).
    - CloudWatch alarms for latency and invocation thresholds.
    - Metrics dashboard for visual monitoring.

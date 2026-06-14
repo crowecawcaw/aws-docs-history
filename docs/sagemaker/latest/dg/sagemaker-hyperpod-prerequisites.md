@@ -169,6 +169,7 @@ information, see [Setting up SageMaker HyperPod clusters across multiple AZs](#s
   Guide_.
 - Consider your subnet's Classless Inter-Domain Routing (CIDR) block size
   carefully before creating HyperPod clusters.
+
   - The subnet CIDR block size cannot be changed after creation. This is
     especially important when you use large accelerated instances like P5.
     Without sufficient block size, you must recreate your clusters when

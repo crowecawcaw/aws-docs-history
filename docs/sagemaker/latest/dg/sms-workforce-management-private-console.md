@@ -35,6 +35,7 @@ creating a user group in the Amazon Cognito console, see [Manage a Private Workf
    name must be unique in your account in an AWS Region.
 5. Under **Add workers**, choose a method to add workers to the team
    using a user group.
+
    - If you chose **Create a team by adding workers to a new Amazon Cognito user
      group**, select the workers to add to the team.
    - If you chose **Create a team by importing existing Amazon Cognito user

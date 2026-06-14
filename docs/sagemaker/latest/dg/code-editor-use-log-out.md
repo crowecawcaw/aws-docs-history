@@ -12,6 +12,7 @@ To stop your Code Editor space in Studio use the following steps:
 ###### To stop your Code Editor space in Studio
 
 1. Return to the Code Editor landing page by doing one of the following:
+
    1. In the navigation bar in the upper-left corner, choose
       **Code Editor**.
    2. Alternatively, in the left navigation pane, choose **Code Editor**

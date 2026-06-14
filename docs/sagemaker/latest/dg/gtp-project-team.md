@@ -6,6 +6,7 @@ You can create a SageMaker Ground Truth Plus project team once you have shared y
 To add team members using Amazon Cognito, you have two options:
 
 1.  Create a new Amazon Cognito user group
+
     1. Enter an **Amazon Cognito user group name**. This name cannot be changed.
     2. Enter the email addresses of up to 50 team members in the **Email addresses** field. The addresses must be separated by a comma.
     3. Choose **Create project team**.

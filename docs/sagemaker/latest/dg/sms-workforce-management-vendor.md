@@ -35,6 +35,7 @@ vendors.
 
 1.  Open the SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/").
 2.  Choose the appropriate page in the SageMaker AI console.
+
     - For Ground Truth labeling jobs, choose **Labeling workforces**,
       choose **Vendor**, and then choose **Find data
       labeling services**.

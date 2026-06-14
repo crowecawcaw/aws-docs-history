@@ -14,6 +14,7 @@ SageMaker AI supports the following machine learning environments:
 
 - _Amazon SageMaker Studio_ (Recommended): The latest web-based experience for running ML workflows with a suite of IDEs.
   Studio supports the following applications:
+
   - Amazon SageMaker Studio Classic
   - Code Editor, based on Code-OSS, Visual Studio Code - Open Source
   - JupyterLab

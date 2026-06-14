@@ -7,17 +7,20 @@ change depending on the training scenario:
 
 - **Spot instances acquired with no interruption during
   training**
+
   1.  `InProgress`: `Starting`↠ `Downloading` ↠
       `Training` ↠ `Uploading`
 
 - **Spot instances interrupted once. Later, enough spot instances were
   acquired to finish the training job.**
+
   1.  `InProgress`: `Starting` ↠ `Downloading` ↠
       `Training` ↠ `Interrupted` ↠ `Starting` ↠
       `Downloading` ↠ `Training` ↠ `Uploading`
 
 - **Spot instances interrupted twice and
   `MaxWaitTimeInSeconds` exceeded.**
+
   1.  `InProgress`: `Starting` ↠ `Downloading` ↠
       `Training` ↠ `Interrupted` ↠ `Starting` ↠
       `Downloading` ↠ `Training` ↠ `Interrupted` ↠
@@ -26,6 +29,7 @@ change depending on the training scenario:
   3.  `Stopped`: `MaxWaitTimeExceeded`
 
 - **Spot instances were never launched.**
+
   1.  `InProgress`: `Starting`
   2.  `Stopping`: `Stopping`
   3.  `Stopped`: `MaxWaitTimeExceeded`

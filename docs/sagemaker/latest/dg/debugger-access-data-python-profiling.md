@@ -104,6 +104,7 @@ mode, start_phase, end_phase)` – Takes in a start step and end
   step and returns the function stats of all step stats whose profiled
   `step` satisfies `start_step <= step <
 end_step`.
+
   - `start_step` and `end_step` (str) –
     Specify the start step and end step to fetch the Python profiling stats
     data.

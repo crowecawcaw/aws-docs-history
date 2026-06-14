@@ -47,6 +47,7 @@ Follow these steps to ensure all roles have the necessary permissions:
 6. Choose **Grant access**.
 7. In the **Grant access** dialog, select **Roles**.
 8. Grant access for all roles that are used by the domain's user profiles, including:
+
    - The domain's execution role
    - Any custom execution roles assigned to individual user profiles
 
@@ -71,6 +72,7 @@ Studio or Studio Classic, see [Amazon SageMaker AI domain overview](gs-studio-on
 5. Choose the **Domain Settings** tab.
 6. Under **SageMaker Projects and JumpStart**, make sure the
    following options are turned on:
+
    - **Enable Amazon SageMaker AI project templates and Amazon SageMaker JumpStart
      for this account**
    - **Enable Amazon SageMaker AI project templates and Amazon SageMaker JumpStart

@@ -81,12 +81,14 @@ spaces:
 
 - macOS 13+
 - Windows 10
+
   - [Windows 10 support ends on October 14, 2025](https://support.microsoft.com/en-us/windows/windows-10-support-ends-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281 "https://support.microsoft.com/en-us/windows/windows-10-support-ends-on-october-14-2025-2ca8b313-1946-43d3-b55c-2b95b107f281")
 
 - Windows 11
 - Linux
 - Install the official [Microsoft VS
   Code for Linux](https://code.visualstudio.com/docs/setup/linux "https://code.visualstudio.com/docs/setup/linux")
+
   - not an open-source version
 
 ### Local machine prerequisites

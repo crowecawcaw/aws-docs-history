@@ -14,6 +14,7 @@ Before you start setting up your environment, make sure you have:
 - A shared storage location that can be an Amazon FSx file system or NFS system
   that's accessible from the cluster nodes.
 - Data in one of the following formats:
+
   - JSON
   - JSONGZ (Compressed JSON)
   - ARROW
@@ -41,6 +42,7 @@ source venv/bin/activate
 ```
 
 4. Install the dependencies
+
    - (Recommended) Use the following HyperPod command-line
      tool
 
@@ -51,7 +53,6 @@ source venv/bin/activate
    pip3 install .
 
    ```
-
    - If you're using SageMaker HyperPod recipes, specify the following
 
    ```

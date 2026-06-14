@@ -32,6 +32,7 @@ the following task lists.
 
 - `model_input` – Required to indicate the input
   for the following tasks.
+
   - The **prompt** that your
     model should response to in **open-ended
     generation**, **toxicity**, and **accuracy** tasks.
@@ -51,6 +52,7 @@ the following task lists.
 - `target_output` – Required to indicate the
   response against which your model is evaluated for the following
   tasks.
+
   - The **answer** for **question**
     **answering**, **accuracy**, **semantic**
     **robustness**, and **factual**
@@ -103,6 +105,7 @@ for your input dataset:
   number of records that the evaluation uses is fixed. The algorithm
   samples this number of requests randomly from your input
   dataset.
+
   - **To change this number:**
     Use the `fmeval` library as described in
     **Customize your work flow using the
@@ -118,6 +121,7 @@ for your input dataset:
 - The target output delimiter as previously described in the
   `target_output` parameter is set to
   `<OR>` in the UI.
+
   - **To separate acceptable answers using
     another delimiter:** Use the
     `fmeval` library as described in **Customize your work flow using the
@@ -166,6 +170,7 @@ the permissions needed to evaluate your model.
    Amazon S3 bucket must be in the same AWS Region as your
    Studio instance. If you don't have an Amazon S3 bucket, do the
    following.
+
    1. Select **Create bucket** to open a new
       **Create bucket** page.
    2. In the **General configuration** section,
@@ -327,6 +332,7 @@ procedure.
 1.  Next, choose **Evaluate a model,**.
 2.  In **Step 1: Specify job details** do the
     following:
+
     1. Enter the **Name** of your model
        evaluation. This name helps you identify your model
        evaluation job after it is submitted.
@@ -336,6 +342,7 @@ procedure.
 
 3.  In **Step 2: Set up evaluation** do the
     following:
+
     1. Under **Evaluation type** choose
        **Automatic**.
     2. Then, choose **Add model to
@@ -353,13 +360,16 @@ procedure.
        expected input format for prompts based on the model you
        selected. For information about how to configure a prompt
        template for a dataset, see [Prompt templates](clarify-foundation-model-evaluate-whatis.md#clarify-automatic-jobs-summary-prompt-templates "clarify-foundation-model-evaluate-whatis.md#clarify-automatic-jobs-summary-prompt-templates").
+
        - To use the default prompt template, complete the following steps:
+
          1. Toggle on **Use the default prompt templates provided by the
             datasets**.
          2. (Optional) For each dataset, review the prompt supplied by Clarify.
          3. Choose **Save**.
 
        - To use a custom prompt template, complete the following steps:
+
          1. Toggle off **Use the default prompt templates provided by the
             datasets**.
          2. If Clarify displays a default prompt, you can customize it or remove it and supply
@@ -410,7 +420,6 @@ procedure.
         * Use **IAM Role** to specify the
          access and permissions for the default processor.
          Enter the IAM role that you set up in [Set up your environment](#clarify-foundation-model-evaluate-auto-ui-setup "#clarify-foundation-model-evaluate-auto-ui-setup")
-
     12. After you specify your model and criteria, choose
         **Next**. The main window skips to
         **Step 5 Review and Save**.

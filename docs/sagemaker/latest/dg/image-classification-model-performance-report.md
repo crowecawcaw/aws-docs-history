@@ -64,12 +64,14 @@ A summary of the graph's components of **false positive rate** (FPR) and **true 
 defined as follows.
 
 - Correct predictions
+
   - **True positive** (TP): The predicted the value
     is 1, and the true value is 1.
   - **True negative** (TN): The predicted the value
     is 0, and the true value is 0.
 
 - Erroneous predictions
+
   - **False positive** (FP): The predicted the
     value is 1, but the true value is 0.
   - **False negative** (FN): The predicted the

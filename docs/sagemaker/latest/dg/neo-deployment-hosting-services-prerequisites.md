@@ -9,6 +9,7 @@ To create a SageMaker Neo-compiled model, you need the following:
 
 1.  A Docker image Amazon ECR URI. You can select one that meets your needs from [this list](neo-deployment-hosting-services-container-images.md "neo-deployment-hosting-services-container-images.md").
 2.  An entry point script file:
+
     1. **For PyTorch and MXNet models:**
 
     _If you trained your model using
@@ -289,7 +290,6 @@ To create a SageMaker Neo-compiled model, you need the following:
         return json.dumps(output.cpu().numpy().tolist()), response_content_type
 
     ```
-
     2. **For inf1 instances or onnx, xgboost, keras
        container images**
 

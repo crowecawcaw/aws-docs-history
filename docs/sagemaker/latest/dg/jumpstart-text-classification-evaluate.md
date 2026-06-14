@@ -28,6 +28,7 @@ Create a JupyterLab space in SageMaker Amazon SageMaker Studio to run the evalua
 
 1. In Studio, choose **JupyterLab** from the home screen.
 2. If you don't have a space:
+
    1. Choose **Create space**.
    2. Enter a descriptive name (for example, `TextModelEvaluation)`.
    3. Keep the default instance type.

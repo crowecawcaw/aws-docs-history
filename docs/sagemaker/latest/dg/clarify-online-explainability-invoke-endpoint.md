@@ -60,6 +60,7 @@ members of this JSON object are as follows:
   For example, `1.0`.
 - `predictions`: The predictions that the request makes have the
   following:
+
   - `content_type`: The MIME type of the predictions,
     referring to the `ContentType` of the model container
     response.
@@ -89,10 +90,12 @@ The `kernel_shap` element has the following members:
 - `attributions`: An array of attribution objects. Text features
   can have multiple attribution objects, each for a unit. The attribution
   object has the following members:
+
   - `attribution`: A list of probability values, given for
     each class.
   - `description`: The description of the text units,
     available only for NLP explainability problems.
+
     - `partial_text`: The portion of the text
       explained by the explainer.
     - `start_idx`: A zero-based index to identify the

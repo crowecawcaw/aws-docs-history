@@ -40,19 +40,24 @@ The above checks are passive, background health checks HyperPod runs continuousl
 When SageMaker HyperPod detects a fault, it implements a four-part response:
 
 1. **Node Labels**
+
    1. Health Status: `sagemaker.amazonaws.com/node-health-status`
    2. Fault Type: `sagemaker.amazonaws.com/fault-types` label for high-level categorization
    3. Fault Reason: `sagemaker.amazonaws.com/fault-reasons` label for detailed fault information
 
 2. **Node Taint**
+
    1. `sagemaker.amazonaws.com/node-health-status=Unschedulable:NoSchedule`
 
 3. **Node Annotation**
+
    1. Fault details: `sagemaker.amazonaws.com/fault-details`
    2. Records up to 20 faults with timestamps that occurred on the node
 
 4. **Node Conditions**([Kubernetes Node Condition](https://kubernetes.io/docs/reference/node/node-status/#condition "https://kubernetes.io/docs/reference/node/node-status/#condition"))
+
    1. Reflects current health status in node conditions:
+
       - Type: Same as fault type
       - Status: `True`
       - Reason: Same as fault reason

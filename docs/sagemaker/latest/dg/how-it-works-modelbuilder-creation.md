@@ -376,6 +376,7 @@ list for some issues you may face and how to resolve them.
   or experience space limitations for the Docker cache. In this case, you can
   try to move your Docker volume to a filesystem that has enough space. To
   move your Docker volume, complete the following steps:
+
   1.  Open a terminal and run `df` to display disk usage, as shown
       in the following output:
 
@@ -393,7 +394,6 @@ list for some issues you may face and how to resolve them.
   tmpfs           39187860         0  39187860   0% /run/user/1001
   tmpfs           39187860         0  39187860   0% /run/user/1000
   ```
-
   2.  Move the default Docker directory from `/dev/nvme0n1p1` to
       `/dev/nvme2n1` so you can fully utilize the 256 GB
       SageMaker AI volume. For more details, see documentation about how to [move your Docker directory](https://www.guguweb.com/2019/02/07/how-to-move-docker-data-directory-to-another-location-on-ubuntu/ "https://www.guguweb.com/2019/02/07/how-to-move-docker-data-directory-to-another-location-on-ubuntu/").
@@ -402,7 +402,6 @@ list for some issues you may face and how to resolve them.
   ```
   sudo service docker stop
   ```
-
   4.  Add a `daemon.json` to `/etc/docker`
       or append the following JSON blob to the existing one.
 
@@ -411,27 +410,23 @@ list for some issues you may face and how to resolve them.
       "data-root": "/home/ec2-user/SageMaker/{`created_docker_folder`}"
   }
   ```
-
   5.  Move the Docker directory in `/var/lib/docker` to
       `/home/ec2-user/SageMaker AI` with the following command:
 
   ```
   sudo rsync -aP /var/lib/docker/ /home/ec2-user/SageMaker/{`created_docker_folder`}
   ```
-
   6.  Start Docker with the following command:
 
   ```
   sudo service docker start
   ```
-
   7.  Clean trash with the following command:
 
   ```
   cd /home/ec2-user/SageMaker/.Trash-1000/files/*
   sudo rm -r *
   ```
-
   8.  If you are using a SageMaker notebook instance, you can follow
       the steps in the [Docker
       prep file](https://github.com/melanie531/amazon-sagemaker-pytorch-lightning-distributed-training/blob/main/prepare-docker.sh "https://github.com/melanie531/amazon-sagemaker-pytorch-lightning-distributed-training/blob/main/prepare-docker.sh") to prepare Docker for local mode.

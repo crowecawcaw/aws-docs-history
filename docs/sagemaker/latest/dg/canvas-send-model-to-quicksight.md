@@ -21,6 +21,7 @@ can add a predictive field to your Quick dataset using a Canvas model:
 3. Open Quick and choose a dataset with the same schema as the
    dataset you used to build your model. Add a predictive field to the
    dataset and do the following:
+
    1. Specify the model sent from Canvas.
    2. Upload the schema file that was downloaded in Step 2.
 

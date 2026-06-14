@@ -49,6 +49,7 @@ Use the following procedure to create a Data Quality and Insights report. It ass
 5. For **Problem type**, specify **Regression** or **Classification**.
 6. For **Target column**, specify the target column.
 7. For **Data size**, specify one of the following:
+
    - **Sampled dataset** – Uses the interactive sample from your data flow,
      which can contain up to 200,000 rows of your dataset. For information about how to
      edit the size of your sample, see [Edit the data flow sampling configuration](canvas-data-flow-edit-sampling.md "canvas-data-flow-edit-sampling.md").

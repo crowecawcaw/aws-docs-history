@@ -54,6 +54,7 @@ specify the correct Cross-origin resource sharing (CORS) permissions.
    **Name**, choose the name of the S3 bucket that
    you want to use to store your model input and output in the console.
    If you do not have an S3 bucket, do the following.
+
    1. Select **Create bucket** to open a new
       **Create bucket** page.
    2. In the **General configuration** section,
@@ -278,6 +279,7 @@ JSON
    Access Management (IAM)**.
 4. Choose **Roles** in the navigation pane.
 5. If you are creating a new role:
+
    1. Choose **Create role**.
    2. On the **Select trusted entity** step,
       under **Trusted entity type** choose
@@ -313,6 +315,7 @@ JSON
    14. Choose **Create role**.
 
 6. If you are adding the policy to an existing role:
+
    1. Select the name of the role under **Role
       name**. The main window changes to show
       information about your role.
@@ -412,6 +415,7 @@ previously deployed to an endpoint.
 
 1.  On the Model evaluation home page, choose **Evaluate a model**
 2.  Specify job details.
+
     1. Enter the **Evaluation name** of your model
        evaluation. This name helps you identify your model evaluation
        job after it is submitted.
@@ -739,6 +743,7 @@ The following also displays:
 
 3. Select your model evaluation under **Name** to view a
    summary of your evaluation.
+
    - The summary gives information about the status of the job,
      what kind of evaluation task you ran on which model, and when it
      ran. Following the summary, the human evaluation scores are

@@ -14,8 +14,10 @@ parameters must be provided in a JSON file and the path must be provided in the
 - `"**methods**"` – A list of
   methods and their parameters for the analyses and reports. If any section is
   omitted, then it is not computed.
+
   - `"shap"` – (Optional) Section on SHAP value
     computation.
+
     - `"baseline"` – (Optional) A list of rows (at
       least one), or an Amazon Simple Storage Service Amazon S3 object URI. To be used as the
       baseline dataset (also known as a background dataset) in the
@@ -30,6 +32,7 @@ parameters must be provided in a JSON file and the path must be provided in the
       based on a count of features.
     - `"agg_method"` – Aggregation method for
       global SHAP values. Valid values are as follows:
+
       - `"mean_abs"` – Mean of absolute SHAP
         values for all instances.
       - `"median"` – Median of SHAP values

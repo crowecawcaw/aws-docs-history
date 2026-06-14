@@ -52,6 +52,7 @@ operation.
 1. The library assigns ranks to GPUs (workers).
 2. At each iteration, the library divides each global batch by the total number of
    workers (world size) and assigns small batches (batch shards) to the workers.
+
    - The size of the global batch is `(number of nodes in a cluster) * (number of
 GPUs per node) * (per batch shard)`.
    - A batch shard (small batch) is a subset of dataset assigned to each GPU (worker)

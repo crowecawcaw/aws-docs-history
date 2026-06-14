@@ -87,6 +87,7 @@ The following list describes the options and provides a link for more informatio
   that are currently running in Studio. For more information, see [View your Studio running instances, applications, and spaces](studio-updated-running.md "studio-updated-running.md").
 - Data– Data preparation options where you
   can collaborate to store, explore, prepare, transform, and share your data. 
+
   - For more information about Amazon SageMaker Data Wrangler, see [Data preparation](canvas-data-prep.md "canvas-data-prep.md").
   - For more information about Amazon SageMaker Feature Store, see [Create, store, and share features with Feature Store](feature-store.md "feature-store.md").
   - For more information about Amazon EMR clusters, see
@@ -98,6 +99,7 @@ The following list describes the options and provides a link for more informatio
   compare your machine learning experiments using Amazon SageMaker Experiments. For more
   information, see [Amazon SageMaker Experiments in Studio Classic](experiments.md "experiments.md").
 - Jobs– View jobs created in Studio. 
+
   - For more information about training, see [Model training](train-model.md "train-model.md").
   - For more information about model evaluation, see [Understand options for evaluating large language models with SageMaker Clarify](clarify-foundation-model-evaluate.md "clarify-foundation-model-evaluate.md").
 
@@ -112,6 +114,7 @@ The following list describes the options and provides a link for more informatio
   started with machine learning. For more information, see [SageMaker JumpStart pretrained models](studio-jumpstart.md "studio-jumpstart.md").
 - Deployments– Deploy your machine learning
   (ML) models for inference.
+
   - For more information about Amazon SageMaker Inference Recommender, see [Amazon SageMaker Inference Recommender](inference-recommender.md "inference-recommender.md").
   - For more information about endpoints, see [Deploy models for inference](deploy-model.md "deploy-model.md").
 

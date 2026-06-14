@@ -12,6 +12,7 @@ dataset updates and automatic batch predictions. On the **Automations** tab, you
   name** of the associated auto update configuration, and the
   **Status** showing whether the job was
   successful or not. You can filter the jobs by configuration name:
+
   - For dataset update jobs, you can choose the latest version of the
     dataset, or the most recent job, to preview the dataset.
   - For batch prediction jobs, you can choose the **More options** icon (

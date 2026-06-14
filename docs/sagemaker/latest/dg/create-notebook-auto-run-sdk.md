@@ -117,17 +117,20 @@ tags:
 - To display the notebook to all user profiles or [spaces](studio-updated-jl-user-guide.md "studio-updated-jl-user-guide.md") in a
   domain, add the domain tag with your domain name. An example is shown as
   follows:
+
   - key: `sagemaker:domain-name`, value:
     `d-abcdefghij5k`
 
 - To display the notebook job to a certain user profile in a domain, add both the
   user profile and the domain tags. An example of a user profile tag is shown as
   follows:
+
   - key: `sagemaker:user-profile-name`, value:
     `studio-user`
 
 - To display the notebook job to a [space](studio-updated-jl-user-guide.md "studio-updated-jl-user-guide.md"), add both
   the space and the domain tags. An example of a space tag is shown as follows:
+
   - key: `sagemaker:shared-space-name`, value:
     `my-space-name`
 

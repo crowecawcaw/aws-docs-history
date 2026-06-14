@@ -28,6 +28,7 @@ must be provided in the `ConfigUri` parameter of the [`ModelBiasAppSpecification
   list of features that are sensitive attributes, referred to as facets. Facets
   are used for _bias metrics_ in the form of
   pairs, and include the following:
+
   - `"name_or_index"` – Facet column name or
     index.
   - `"value_or_threshold"` – (Optional) List of values

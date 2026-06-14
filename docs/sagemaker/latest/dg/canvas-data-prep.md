@@ -31,10 +31,12 @@ transformations to customize workflows.
   scatter plots and histograms, as well as data analysis tools like target leakage
   analysis and quick modeling to understand feature correlation.
 - **Export** – Export your data preparation workflow to a different location. The following are example locations:
+
   - Amazon Simple Storage Service (Amazon S3) bucket
   - Amazon SageMaker Feature Store – Store the features and their data in a centralized store.
 
 - **Automate data preparation** – Create machine learning workflows from your data flow.
+
   - Amazon SageMaker Pipelines – Build workflows that manage your SageMaker AI data preparation, model training, and model deployment jobs.
   - Serial inference pipeline – Create a serial inference pipeline from your data flow. Use it to make predictions on new data.
   - Python script – Store the data and their transformations in a Python script for your custom workflows.

@@ -115,13 +115,13 @@ more information, see [SageMaker AI Updates to AWS Managed Policies](security-ia
     	- `s3:GetObject`
 
 - Access to AWS services from a terminal environment on either:
+
   - Your local machine using the AWS CLI version `2.13+`. Use the following
     command to verify the AWS CLI version.
 
   ```
   aws --version
   ```
-
   - AWS CloudShell. For more information, see [What is AWS CloudShell?](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md")
 
 - From your local machine or AWS CloudShell, run the following command

@@ -95,6 +95,7 @@ following sections for information on the setup.
 9. Under **How do you want to access Studio?**, you can choose one
    of two options. For information on the authentication methods, see [Authentication methods](#onboard-custom-authentication-details "#onboard-custom-authentication-details"). Details on the options are
    provided in the following:
+
    - **AWS Identity Center**:
 
    Under **Who will use Studio?** choose an AWS IAM Identity Center group that will

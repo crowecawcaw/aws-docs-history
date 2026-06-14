@@ -20,6 +20,7 @@ For end-to-end notebook examples, we recommend taking a look at the
 The following SageMaker AI Hosting modes are supported by Triton containers:
 
 - Single model endpoints
+
   - This is SageMaker AI’s default mode of operation. In this mode, the
     Triton container can load a single model, or a single ensemble
     model.
@@ -29,6 +30,7 @@ The following SageMaker AI Hosting modes are supported by Triton containers:
     `SAGEMAKER_TRITON_DEFAULT_MODEL_NAME`.
 
 - Single model endpoints with ensemble
+
   - Triton Inference Server supports _ensemble_, which is a pipeline, or a
     DAG (directed acyclic graph) of models. While an ensemble
     technically comprises of multiple models, in the default single model endpoint mode,
@@ -44,6 +46,7 @@ The following SageMaker AI Hosting modes are supported by Triton containers:
     `SAGEMAKER_TRITON_DEFAULT_MODEL_NAME`.
 
 - Multi-model endpoints
+
   - In this mode, SageMaker AI can serve multiple models
     on a single endpoint. You can use this mode by specifying the
     environment variable `‘MultiModel’: true` as a property
@@ -56,6 +59,7 @@ The following SageMaker AI Hosting modes are supported by Triton containers:
     `InvokeEndpoint` SageMaker API call.
 
 - Multi-model endpoints with ensemble
+
   - In this mode, SageMaker AI functions as described for
     multi-model endpoints. However, the SageMaker AI Triton container can load
     multiple ensemble models, meaning that multiple model pipelines can

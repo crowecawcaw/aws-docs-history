@@ -261,6 +261,7 @@ For optimal performance with UltraServer architecture in SageMaker HyperPod:
 - **Set appropriate block sizes**: Configure `BlockSizes=18` (or 17 if one node is spare) to match the UltraServer architecture.
 - **Use segments for better availability**: Use `--segment=16`, `--segment=8`, or `--segment=9` with `srun` and `sbatch` commands to improve job scheduling flexibility.
 - **Consider job size and segment size**:
+
   - If `BlockSizes=18`, jobs with up to 18 instances will always run on a single UltraServer.
   - If `BlockSizes=16`, jobs with fewer than 16 instances will always run on a single UltraServer, while jobs with 18 instances may run on one or two UltraServers.
 

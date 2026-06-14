@@ -11,12 +11,14 @@ Toolkit](https://github.com/aws/sagemaker-training-toolkit "https://github.com/a
    notebook instance**.
 3. On the **Create notebook instance** page, provide the
    following information:
+
    1. For **Notebook instance name**, enter
       `RunScriptNotebookInstance`.
    2. For **Notebook Instance type**, choose
       `ml.t2.medium`.
    3. In the **Permissions and encryption** section, do the
       following:
+
       1. For **IAM role**, choose **Create a
          new role**. This opens a new window.
       2. On the **Create an IAM role** page, choose
@@ -61,6 +63,7 @@ Toolkit](https://github.com/aws/sagemaker-training-toolkit "https://github.com/a
     icon, and then enter the folder name `docker_test_folder`.
 2.  Create a `Dockerfile` text file in the
     `docker_test_folder` directory.
+
     1. Choose the **New Launcher** icon (+) in the
        upper-left corner.
     2. In the right pane under the **Other** section, choose
@@ -104,7 +107,6 @@ Toolkit](https://github.com/aws/sagemaker-training-toolkit "https://github.com/a
          `/opt/ml/code` folder of the container.
          This is the only environmental variable that you must specify
          when you build your own container.
-
     4. On the left directory navigation pane, the text file name might
        automatically be named `untitled.txt`. To rename the file,
        right-click the file, choose **Rename**, rename the

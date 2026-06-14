@@ -32,6 +32,7 @@ on the image. Studio Classic supports the following package installation tools:
 - Notebooks – The following commands are
   supported. If one of the following does not work on your image, try the other
   one.
+
   - `%conda install`
   - `%pip install`
 

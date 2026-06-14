@@ -19,6 +19,7 @@ multi-model endpoint:
 - For the traffic distribution (access patterns) to the models that you want to host
   behind the multi-model endpoint, along with the model size (how many models could be
   loaded in memory on the instance), keep the following information in mind:
+
   - Think of the amount of memory on an instance as the cache space for models to be
     loaded, and think of the number of vCPUs as the concurrency limit to perform inference
     on the loaded models (assuming that invoking a model is bound to CPU).

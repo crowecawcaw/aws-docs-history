@@ -60,18 +60,21 @@ sagemaker-studio-XXXXXXXXXXXXXXX
 
 - Amazon VPC: SageMaker AI selects a public VPC with the following
   logic.
+
   1.  If there is a default VPC with associated subnets in the Region, SageMaker AI uses it.
   2.  If there is no default VPC or the default VPC has no associated subnets, then SageMaker AI
       uses any existing VPC with associated subnets. If there are multiple existing VPCs, SageMaker AI
       can select any of them.
 
 - Storage configurations: SageMaker AI configures the domain with the following default storage settings.
+
   - `HomeEfsCreation`: Disabled. An Amazon EFS volume is not created by default during quick setup. You can enable EFS creation later through Domain Settings. To enable EFS after domain creation, see [Amazon EFS creation and auto-mounting in Studio](studio-updated-automount.md "studio-updated-automount.md").
   - `AutoMountHomeEFS`: Disabled. This setting becomes active only after EFS creation is enabled at the domain level.
   - Space EBS storage: Default space size is 5 GB, maximum space size is 100 GB (applies to both private and shared spaces).
 
 - Studio experience: Amazon SageMaker Studio is set as the UI
   default experience and Studio Classic is made hidden. That is, in [`UserSettings`](../APIReference/API_UserSettings.md "../APIReference/API_UserSettings.md"):
+
   - `DefaultLandingUri` is set to `studio::`.
   - [`StudioWebPortalSettings`](../APIReference/API_StudioWebPortalSettings.md "../APIReference/API_StudioWebPortalSettings.md")
     `HiddenAppTypes` is set to `["JupyterServer"]`
@@ -92,6 +95,7 @@ For example, choose **Studio** from the left navigation pane and
 choose **Open Studio**.
 
 - Begin learning how to:
+
   - [Automated ML, no-code, or low-code](use-auto-ml.md "use-auto-ml.md")
   - [Machine learning environments offered by Amazon SageMaker AI](machine-learning-environments.md "machine-learning-environments.md")
 

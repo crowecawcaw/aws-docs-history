@@ -31,6 +31,7 @@ Use the following procedure to add a destination node to your data flow.
    Amazon S3 access points](../../../AmazonS3/latest/userguide/access-points.md "../../../AmazonS3/latest/userguide/access-points.md") in the _Amazon S3 User
    Guide_.
 6. For **Export settings**, specify the following fields:
+
    1. **File type** – The file format of the exported
       data.
    2. **Delimiter** – The delimiter used to separate
@@ -39,6 +40,7 @@ Use the following procedure to add a destination node to your data flow.
       reduce the file size.
 
 7. For **Partitioning**, specify the following fields:
+
    1. **Number of partitions** – The number of dataset
       files that SageMaker Canvas writes as the output of the job.
    2. **Choose columns** – You can choose a subset of

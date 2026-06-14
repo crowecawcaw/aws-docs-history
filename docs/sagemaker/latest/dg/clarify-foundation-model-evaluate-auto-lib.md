@@ -46,6 +46,7 @@ the permissions needed to evaluate your model.
    **Name**, choose the name of the S3 bucket that
    you want to use to store your model input and output in the console.
    If you do not have an S3 bucket, do the following:
+
    1. Select **Create bucket** to open a new
       **Create bucket** page.
    2. In the **General configuration** section,

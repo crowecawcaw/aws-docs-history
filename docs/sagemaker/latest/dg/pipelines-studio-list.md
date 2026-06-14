@@ -31,6 +31,7 @@ Studio
    pipeline name in the search field.
 4. Select a pipeline name to view details about the pipeline.
 5. Choose one of the following tabs to view pipeline details:
+
    - **Executions** – Details about the
      executions.
    - **Graph** – The pipeline graph, including all
@@ -58,6 +59,7 @@ Studio Classic
    ) to choose which columns to display.
 6. From the pipeline details page, choose one of the following tabs to view details
    about the pipeline:
+
    - **Executions** – Details about the executions. You
      can create an execution from this tab or the **Graph**
      tab.

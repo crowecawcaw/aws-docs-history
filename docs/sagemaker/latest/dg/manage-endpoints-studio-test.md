@@ -8,6 +8,7 @@ To test inference, do the following:
 
 1. On the model's **Test inference** tab, choose one of the
    following options:
+
    1. Select **Enter the request body** if you’d like
       to test the endpoint and receive a response through the Studio
       interface.

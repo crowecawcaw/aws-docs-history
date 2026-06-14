@@ -139,9 +139,11 @@ spec:
 2. Browse or search for your desired model (e.g., "DeepSeek", "Llama", etc.)
 3. Click on the model card and select **Deploy**
 4. In the deployment configuration:
+
    - Choose **HyperPod** as the deployment target
    - Select your MIG-enabled cluster from the dropdown
    - Under **Instance configuration**:
+
      - Select instance type (e.g., `ml.p4d.24xlarge`)
      - Choose **GPU Partition Type** from available options
      - Configure **Instance count** and **Auto-scaling** settings
@@ -172,6 +174,7 @@ spec:
 1. Navigate to **Studio Classic** > **Deployments** > **Endpoints**
 2. Select your MIG-enabled endpoint
 3. View metrics including:
+
    - **MIG utilization** - Per GPU partition usage
    - **Memory consumption** - Per GPU partition
    - **Inference latency** - Request processing time

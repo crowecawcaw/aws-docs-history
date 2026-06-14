@@ -515,6 +515,7 @@ following.
    description to make your feature group more discoverable.
 10. To create a feature group for an online store, do the
     following.
+
     1. Select **Enable storage
        online**.
     2. For **Online store encryption key**,
@@ -523,8 +524,10 @@ following.
 
 11. To create a feature group for an offline store, do the
     following.
+
     1. Select **Enable storage offline**.
        Specify values for the following fields:
+
        - **S3 bucket name** – The name of the Amazon S3 bucket
          that stores the feature group.
        - (Optional) **Dataset directory name** – The
@@ -541,6 +544,7 @@ following.
          specify a key of your own.
 
     2. Specify values for the following fields:
+
        - **S3 bucket name** –
          The name of the bucket storing the feature
          group.
@@ -895,6 +899,7 @@ To specify a schedule with a RATE expression, do the following.
 8. For **Run Frequency**, choose **Rate**.
 9. For **Value**, specify an integer.
 10. For **Unit**, select one of the following:
+
     - **Minutes**
     - **Hours**
     - **Days**
@@ -926,6 +931,7 @@ To specify a schedule with a CRON expression, do the following.
 8. For **Run Frequency**, make sure **Recurring** is selected by default.
 9. For **Every x hours**, specify the hourly frequency that the job runs during the day. Valid values are integers in the inclusive range of `1` and `23`.
 10. For **On days**, select one of the following options:
+
     - **Every Day**
     - **Weekends**
     - **Weekdays**

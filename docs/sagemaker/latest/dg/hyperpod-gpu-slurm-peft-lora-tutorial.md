@@ -8,12 +8,14 @@ fine-tuning (PEFT) job on a Llama 8 billion parameter model.
 Before you start setting up your environment, make sure you have:
 
 - Set up HyperPod GPU Slurm cluster
+
   - Your HyperPod Slurm cluster must have Nvidia Enroot and
     Pyxis enabled (these are enabled by default).
 
 - A shared storage location. It can be an Amazon FSx file system or NFS system
   that's accessible from the cluster nodes.
 - Data in one of the following formats:
+
   - JSON
   - JSONGZ (Compressed JSON)
   - ARROW

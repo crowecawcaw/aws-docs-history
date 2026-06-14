@@ -15,6 +15,7 @@ Before you start setting up your environment, make sure you have:
   the training artifacts.
 - Requested a Service Quota for 1x ml.p4d.24xlarge and 1x ml.p5.48xlarge on
   Amazon SageMaker AI. To request a service quota increase, do the following:
+
   1.  On the AWS Service Quotas console, navigate to AWS
       services,
   2.  Choose **Amazon SageMaker AI**.
@@ -22,10 +23,12 @@ Before you start setting up your environment, make sure you have:
 
 - Create an AWS Identity and Access Management(IAM) role with the following managed policies to
   give SageMaker AI permissions to run the examples.
+
   - AmazonSageMakerFullAccess
   - AmazonEC2FullAccess
 
 - Data in one of the following formats:
+
   - JSON
   - JSONGZ (Compressed JSON)
   - ARROW

@@ -53,6 +53,7 @@ To get started, ensure that you have the following prerequisites:
 
 2.  Locally configure your dependencies, as shown in the following
     examples.
+
     1. Install version 2 of the AWS CLI:
 
     ```
@@ -61,7 +62,6 @@ To get started, ensure that you have the following prerequisites:
     #Follow the instructions to install v2 on the terminal
     !cat aws/README.md
     ```
-
     2. Install SageMaker AI and the Boto3 client:
 
     ```

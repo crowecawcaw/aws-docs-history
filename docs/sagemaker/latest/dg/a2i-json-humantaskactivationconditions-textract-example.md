@@ -18,6 +18,7 @@ following inputs in the `ConditionType` parameter:
 - `Sampling` – Use this condition to specify a percentage of
   forms to send to humans for review, regardless of inference confidence scores.
   Use this condition to do the following:
+
   - Audit your ML model by randomly sampling all forms analyzed by your
     model and sending a specified percentage to humans for review.
   - Using the `ImportantFormKeyConfidenceCheck` condition,

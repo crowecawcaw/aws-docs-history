@@ -743,6 +743,7 @@ This policy includes the following permissions.
 `ecr` – Read all resources.
 
 - `iam` – Pass the following roles:
+
   - `AmazonSageMakerServiceCatalogProductsCloudformationRole` to AWS CloudFormation.
   - `AmazonSageMakerServiceCatalogProductsCodeBuildRole` to AWS CodeBuild.
   - `AmazonSageMakerServiceCatalogProductsCodePipelineRole` to AWS CodePipeline.

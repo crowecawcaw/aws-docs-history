@@ -12,6 +12,7 @@ Studio and your EMR Serverless applications reside in the same AWS account
 involved:
 
 - Execution roles:
+
   - [Runtime execution roles](../../../http:/emr/latest/EMR-Serverless-UserGuide/jobs-spark.md#spark-defaults-executionRoleArn "../../../http:/emr/latest/EMR-Serverless-UserGuide/jobs-spark.md#spark-defaults-executionRoleArn") (Role-Based Access Control roles)
     used by EMR Serverless: These are the IAM roles used by the
     EMR Serverless job execution environments to access other AWS

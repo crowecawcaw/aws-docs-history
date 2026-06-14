@@ -62,6 +62,7 @@ values that users can pass for those fields. The following list shows the contex
 domain supports and where they're implemented.
 
 - `sagemaker:ImageArns`
+
   - Implemented as part of
     `DefaultUserSettings`:`SagemakerImageArn` in
     `DefaultUserSettings.JupyterServerAppSettings` and
@@ -73,6 +74,7 @@ domain supports and where they're implemented.
     `DefaultSpaceSettings.KernelGatewayAppSettings`.
 
 - `sagemaker:VpcSecurityGroupIds`
+
   - Implemented as part of
     `DefaultUserSettings`:`SecurityGroups` in
     `DefaultUserSettings`.

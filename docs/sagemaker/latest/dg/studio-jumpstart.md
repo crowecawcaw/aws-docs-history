@@ -89,6 +89,7 @@ In Amazon SageMaker Studio Classic, open the JumpStart landing page either throu
 panel.
 
 - From the **Home** page you can either:
+
   - Choose **JumpStart** in the **Prebuilt and automated
     solutions** pane. This opens the **SageMaker JumpStart** landing
     page.
@@ -97,6 +98,7 @@ panel.
     models of a specific type.
 
 - From the **Home** menu in the left panel you can either:
+
   - Navigate to the **SageMaker JumpStart** node, then choose
     **Models, notebooks, solutions**. This opens the **SageMaker
     JumpStart** landing page.
@@ -144,6 +146,7 @@ Use the tabs to filter the available solutions by categories:
   **Explore All Solutions** to view all available solutions.
 - **Resources** – Use example notebooks, blogs, and
   video tutorials to learn and head start your problem types.
+
   - **Blogs** – Read details and solutions from
     machine learning experts.
   - **Video tutorials** – Watch video tutorials for

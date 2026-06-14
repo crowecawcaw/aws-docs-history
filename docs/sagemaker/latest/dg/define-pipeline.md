@@ -346,6 +346,7 @@ dataset for training.
    model. The evaluation step uses the trained model and preprocessed test features and
    labels to evaluate the model. The script uses `scikit-learn` to do the
    following:
+
    - Fill in missing `sex` categorical data and encode it so it's
      suitable for training.
    - Scale and normalize all numerical fields except for `rings` and

@@ -31,6 +31,7 @@ Before you can use an Amazon Bedrock model, you have to request access to
 it.
 
 1. Sign into your AWS account.
+
    1. If you do not have an AWS account, see [Sign up for an AWS account](../../../bedrock/latest/userguide/setting-up.md#sign-up-for-aws "../../../bedrock/latest/userguide/setting-up.md#sign-up-for-aws") in **Set up Amazon Bedrock**.
 
 2. Open the [Amazon Bedrock

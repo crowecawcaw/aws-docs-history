@@ -49,7 +49,9 @@ parameters.
 - dataset_type – The format of the
   dataset. The input dataset format can be any of the following
   values:
+
   - Tabular
+
     - `text/csv` for CSV
     - `application/jsonlines` for [SageMaker AI JSON Lines dense format](cdf-inference.md#cm-jsonlines "cdf-inference.md#cm-jsonlines")
     - `application/json` for JSON
@@ -58,6 +60,7 @@ parameters.
       for computer vision problems
 
   - Time series forecasting model explanations
+
     - `application/json` for JSON
 
 - dataset_uri – (Optional) The
@@ -72,6 +75,7 @@ parameters.
   as a **tabular dataset**. This format
   allows SageMaker AI to easily manipulate and analyze the input dataset.
 - headers – (Optional)
+
   - **Tabular:** An array of
     strings containing the column names of a tabular dataset. If a value is
     not provided for `headers`, the SageMaker Clarify processing job
@@ -101,6 +105,7 @@ parameters.
     column names in the dataset. If not provided, Clarify generates headers to
     use internally. For time series explainability cases, provide headers
     in the following order:
+
     1. item id
     2. timestamp
     3. target time series
@@ -114,9 +119,11 @@ parameters.
   compute bias metrics. The value for `label` is specified
   depending on the value of the `dataset_type` parameter as
   follows.
+
   - If `dataset_type` is
     `text/csv`, `label` can be
     specified as either of the following:
+
     - A valid column name
     - An index that lies within the range of dataset
       columns
@@ -232,6 +239,7 @@ the value of the `dataset_type` as follows:
   bias analysis or feature attribution analysis. A value for
   `joinsource_name_or_index` is needed in the following
   cases:
+
   - There are multiple input datasets, and any one is split across
     multiple files.
   - Distributed processing is activated by setting the SageMaker Clarify
@@ -249,6 +257,7 @@ the value of the `dataset_type` as follows:
   selected. The default value is `0.5`. The SageMaker Clarify processing
   job uses `probability_threshold` in the following
   cases:
+
   - In post-training bias analysis,
     `probability_threshold` converts a numeric model
     prediction (probability value or score) to a binary label, if
@@ -270,6 +279,7 @@ probability_threshold` filters out objects detected
   numeric, the threshold is applied as the lower bound to select the
   positive outcome. To set `label_values_or_threshold` for
   different problem types, refer to the following examples:
+
   - For a binary classification problem, the label has two
     possible values, `0` and `1`. If label
     value `1` is favorable to a demographic group
@@ -296,6 +306,7 @@ probability_threshold` filters out objects detected
   your model is trained without using sensitive attributes. For more
   information, see **Facet** in [Amazon SageMaker Clarify Terms for Bias and Fairness](clarify-detect-data-bias.md#clarify-bias-and-fairness-terms "clarify-detect-data-bias.md#clarify-bias-and-fairness-terms"). Each facet object
   includes the following fields:
+
   - name_or_index – (Optional) The name
     or zero-based index of the sensitive attribute column in a
     tabular dataset. If `facet_dataset_uri` is specified,
@@ -313,6 +324,7 @@ probability_threshold` filters out objects detected
     (rather than all values). To set `value_or_threshold`
     for different `facet` data types, refer to the
     following examples:
+
     - For a binary facet data type, the feature has two
       possible values, `0` and `1`. If
       you want to compute the bias metrics for each value,
@@ -402,11 +414,13 @@ in the facet dataset.
 - methods – An object containing
   one or more analysis methods and their parameters. If any method is
   omitted, it is neither used for analysis nor reported.
+
   - pre_training_bias –
     Include this method if you want to compute pre-training bias
     metrics. The detailed description of the metrics can be found in
     [Pre-training Bias Metrics](clarify-measure-data-bias.md "clarify-measure-data-bias.md"). The object has
     the following parameters:
+
     - methods – An
       array that contains any of the pre-training bias metrics
       from the following list that you want to compute. Set
@@ -416,6 +430,7 @@ in the facet dataset.
       **Class Imbalance** and
       **Difference in Proportions of
       Labels**.
+
       - `CI` for [Class Imbalance (CI)](clarify-bias-metric-class-imbalance.md "clarify-bias-metric-class-imbalance.md")
       - `DPL` for [Difference in Proportions of Labels (DPL)](clarify-data-bias-metric-true-label-imbalance.md "clarify-data-bias-metric-true-label-imbalance.md")
       - `KL` for [Kullback-Leibler Divergence (KL)](clarify-data-bias-metric-kl-divergence.md "clarify-data-bias-metric-kl-divergence.md")
@@ -431,6 +446,7 @@ in the facet dataset.
     [Post-training Data and Model Bias Metrics](clarify-measure-post-training-bias.md "clarify-measure-post-training-bias.md"). The
     `post_training_bias` object has the following
     parameters.
+
     - methods – An
       array that contains any of the post-training bias
       metrics from the following list that you want to
@@ -440,6 +456,7 @@ in the facet dataset.
       `["DPPL", "DI"]` computes the **Difference in Positive Proportions in
       Predicted Labels** and **Disparate Impact**. The
       available methods are as follows.
+
       - `DPPL` for [Difference in Positive Proportions in Predicted Labels (DPPL)](clarify-post-training-bias-metric-dppl.md "clarify-post-training-bias-metric-dppl.md")
       - `DI`for [Disparate Impact (DI)](clarify-post-training-bias-metric-di.md "clarify-post-training-bias-metric-di.md")
       - `DCA` for [Difference in Conditional Acceptance (DCAcc)](clarify-post-training-bias-metric-dcacc.md "clarify-post-training-bias-metric-dcacc.md")
@@ -458,12 +475,14 @@ in the facet dataset.
     method if you want to compute SHAP values. The SageMaker Clarify processing
     job supports the Kernel SHAP algorithm. The `shap`
     object has the following parameters.
+
     - baseline –
       (Optional) The SHAP baseline dataset, also known as the
       background dataset. Additional requirements for the
       baseline dataset in a tabular dataset or computer vision
       problem are as follows. For more information about SHAP
       Baselines, see [SHAP Baselines for Explainability](clarify-feature-attribute-shap-baselines.md "clarify-feature-attribute-shap-baselines.md")
+
       - For a **tabular**
         dataset, `baseline` can be either the
         in-place baseline data or the S3 URI of a baseline
@@ -584,6 +603,7 @@ in the facet dataset.
       the entire dataset). Defaults to `mean_abs`.
       The following methods can be used to aggregate SHAP
       values.
+
       - mean_abs
         – The mean of absolute local SHAP values of
         all instances.
@@ -601,6 +621,7 @@ in the facet dataset.
       individual units of text. For an example of an analysis
       configuration for natural language processing
       explainability, see [Analysis configuration for natural language processing explainability](#clarify-analysis-configure-nlp-example "#clarify-analysis-configure-nlp-example")
+
       - granularity
         – The unit of granularity for the analysis
         of text columns. Valid values are
@@ -694,9 +715,11 @@ in the facet dataset.
       this configuration if you have an input dataset
       consisting of images and you want to analyze them for
       explainability in a computer vision problem.
+
       - model_type
         – The type of the model. Valid values
         include:
+
         - `IMAGE_CLASSIFICATION` for an
           image classification model.
         - `OBJECT_DETECTION` for an object
@@ -743,6 +766,7 @@ in the facet dataset.
   - pdp – Include this
     method to compute partial dependence plots (PDPs). For an
     example of an analysis configuration to generate PDPs, see [Compute partial dependence plots (PDPs)](#clarify-analysis-configure-csv-example-pdp "#clarify-analysis-configure-csv-example-pdp")
+
     - features –
       Mandatory if the `shap` method is not
       requested. An array of feature names or indices to
@@ -860,13 +884,13 @@ in the facet dataset.
 
       	In the preceding example, `<item_id_1>`
       	 and `<item_id_2>` are the item ids from the dataset.
-
   - report – (Optional) Use
     this object to customize the analysis report. This parameter is
     not supported for time series explanation jobs. There are three
     copies of the same report as part of the analysis result:
     Jupyter Notebook report, HTML report, and PDF report. The object
     has the following parameters:
+
     - name – File name
       of the report files. For example, if `name`
       is `MyReport`, then the report
@@ -884,6 +908,7 @@ in the facet dataset.
   `post_training_bias` method is requested, but predicted
   labels are not provided as part of the input dataset. The following are
   parameters to be used in conjunction with `predictor`:
+
   - model_name – The name of
     your SageMaker AI model created by the [CreateModel](../APIReference/API_CreateModel.md "../APIReference/API_CreateModel.md") API. If you specify
     `model_name` instead of endpoint_name, the SageMaker Clarify
@@ -946,6 +971,7 @@ in the facet dataset.
     content_type – The model input format to be used for getting
     predictions from the endpoint. If provided, it is passed to the
     `ContentType` parameter of the SageMaker AI [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax "../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax") API.
+
     - For computer vision explainability, the valid values
       are `image/jpeg`,
       `image/png` or
@@ -969,6 +995,7 @@ in the facet dataset.
     output format to be used for getting predictions from the
     endpoint. The value for `accept_type` is passed to
     the `Accept` parameter of the SageMaker AI [InvokeEndpoint](../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax "../APIReference/API_runtime_InvokeEndpoint.md#RequestSyntax") API.
+
     - For computer vision explainability, if
       `model_type` is "OBJECT_DETECTION" then
       `accept_type` defaults to
@@ -1145,6 +1172,7 @@ in the facet dataset.
     or to choose the predicted label for bias analysis. The value of
     `probability` depends on the value of the
     `accept_type` parameter as follows.
+
     - If `accept_type` is
       `text/csv`,
       `probability` is the index of the
@@ -1162,6 +1190,7 @@ in the facet dataset.
   - time_series_predictor_config – (Optional)
     Used only for time series explainability. Used to instruct the SageMaker Clarify processor how to
     parse data correctly from the data passed as an S3 URI in `dataset_uri`.
+
     - forecast – A JMESPath expression
       used to extract the forecast result.
 

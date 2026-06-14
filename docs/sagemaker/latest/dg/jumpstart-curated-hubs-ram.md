@@ -15,6 +15,7 @@ permission are listed in the following:
 - Read permission (`AWSRAMPermissionSageMakerHubRead`): The read privilege allows
   resource consumer accounts to read contents in the shared hubs and view details
   and metadata.
+
   - `DescribeHub`: Retrieves details about a hub and its configuration
   - `DescribeHubContent`: Retrieves details about a model available in a specific
     hub
@@ -23,6 +24,7 @@ permission are listed in the following:
 
 - Read and use permission (`AWSRAMPermissionSageMakerHubReadAndUse`): The read and use privilege allows
   resource consumer accounts to read contents in the shared hubs and deploy available models for inference.
+
   - `DescribeHub`: Retrieves details about a hub and its configuration
   - `DescribeHubContent`: Retrieves details about a model available in a specific
     hub
@@ -33,6 +35,7 @@ permission are listed in the following:
 - Full access permission (`AWSRAMPermissionSageMakerHubFullAccessPolicy`): The full access
   privilege allows resource consumer accounts to read contents in the shared hubs,
   add and remove hub content, and deploy available models for inference.
+
   - `DescribeHub`: Retrieves details about a hub and its configuration
   - `DescribeHubContent`: Retrieves details about a model available in a specific
     hub

@@ -19,6 +19,7 @@ Create a resources share](../../../ram/latest/userguide/getting-started-sharing.
 give the specifications for using the AWS RAM console instructions.
 
 1.  **Specify resource share details**:
+
     - Resource type: Choose **SageMaker AI Resource Catalogs**.
     - ARN: Choose the feature group catalog ARN with the format:
       `arn:aws:sagemaker:`us-east-1`:`111122223333`:sagemaker-catalog/DefaultFeatureGroupCatalog`
@@ -29,10 +30,12 @@ give the specifications for using the AWS RAM console instructions.
     - Resource ID: Choose `DefaultFeatureGroupCatalog`.
 
 2.  **Associate managed permissions**:
+
     - Managed permission: Choose
       `AWSRAMPermissionSageMakerCatalogResourceSearch`.
 
 3.  **Grant access to principals**:
+
     - Choose the principal types (AWS account, Organization, or Organizational unit) and
       enter the appropriate ID.
 

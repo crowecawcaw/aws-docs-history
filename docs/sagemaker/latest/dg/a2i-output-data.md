@@ -337,6 +337,7 @@ following from the output data in Amazon S3:
 - If you use a [private
   workforce](sms-workforce-private.md "sms-workforce-private.md"), in `workerMetadata`, you see the
   following.
+
   - The `identityProviderType` is the service used to manage
     the private workforce.
   - The `issuer` is the Amazon Cognito user pool or OpenID Connect (OIDC) Identity Provider (IdP) issuer

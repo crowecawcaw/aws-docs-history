@@ -49,6 +49,7 @@ SDK, and annotate your code with the decorator.
 
 1. Create a SageMaker Notebook and attach an image in SageMaker Studio Classic as
    follows:
+
    1. Follow the instructions in [Launch Amazon SageMaker
       Studio Classic](studio-launch.md "studio-launch.md") in the _Amazon SageMaker AI Developer
       Guide_.
@@ -343,6 +344,7 @@ decorator.
 
 1. Install prerequisites by setting up the AWS Command Line Interface (AWS CLI) and creating
    a role, as follows:
+
    - Onboard to a SageMaker AI domain following the instructions in the
      **AWS CLI Prerequisites** section
      of [Set
@@ -353,7 +355,9 @@ decorator.
 2. Create a virtual environment by using either PyCharm or
    `conda` and using Python version 3.7 or higher, up to
    3.10.x.
+
    - Set up a virtual environment using PyCharm as follows:
+
      1. Select **File** from the main
         menu.
      2. Choose **New Project**.
@@ -368,6 +372,7 @@ decorator.
 
    - If you have Anaconda installed, you can set up a virtual
      environment using `conda`, as follows:
+
      - Open an Anaconda prompt terminal interface.
      - Create and activate a new `conda`
        environment using a Python version of 3.7 or higher, up

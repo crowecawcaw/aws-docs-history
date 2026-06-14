@@ -100,6 +100,7 @@ To learn more about how to use multi-model endpoints, you can try the following 
 notebooks:
 
 - Examples for multi-model endpoints using CPU backed instances:
+
   - [Multi-Model Endpoint XGBoost Sample Notebook](https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/multi_model_xgboost_home_value/xgboost_multi_model_endpoint_home_value.html "https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/multi_model_xgboost_home_value/xgboost_multi_model_endpoint_home_value.html") – This notebook shows
     how to deploy multiple XGBoost models to an endpoint.
   - [Multi-Model Endpoints BYOC Sample Notebook](https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/multi_model_bring_your_own/multi_model_endpoint_bring_your_own.html "https://sagemaker-examples.readthedocs.io/en/latest/advanced_functionality/multi_model_bring_your_own/multi_model_endpoint_bring_your_own.html") – This notebook shows how
@@ -107,6 +108,7 @@ notebooks:
     SageMaker AI.
 
 - Example for multi-model endpoints using GPU backed instances:
+
   - [Run multiple deep learning models on GPUs with Amazon SageMaker AI Multi-model endpoints
     (MME)](https://github.com/aws/amazon-sagemaker-examples/blob/main/multi-model-endpoints/mme-on-gpu/cv/resnet50_mme_with_gpu.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/multi-model-endpoints/mme-on-gpu/cv/resnet50_mme_with_gpu.ipynb") – This notebook shows how to use an NVIDIA Triton Inference
     container to deploy ResNet-50 models to a multi-model endpoint.

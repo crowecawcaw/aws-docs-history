@@ -28,6 +28,7 @@ Before you start setting up your environment, make sure you have:
   `AmazonEC2FullAccess` managed policies. These policies
   provide Amazon SageMaker AI with permissions to run the examples.
 - Data in one of the following formats:
+
   - JSON
   - JSONGZ (Compressed JSON)
   - ARROW
@@ -74,6 +75,7 @@ pip3 install --upgrade sagemaker
 - - If you are running a llama 3.2 multi-modal training job, the
     `transformers` version must be `4.45.2` or
     greater.
+
     - Append `transformers==4.45.2` to
       `requirements.txt` in source_dir only when
       you're using the SageMaker AI Python SDK.
@@ -147,6 +149,7 @@ training.
 ## Launch the training job with the recipes launcher
 
 - Update `./recipes_collection/cluster/sm_jobs.yaml`
+
   - compiler_cache_url: The URL used to save the artifacts. It can be
     an Amazon S3 URL.
 

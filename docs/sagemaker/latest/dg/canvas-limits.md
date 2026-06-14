@@ -89,6 +89,7 @@ Use the following procedure to attach an AWS managed policy to your role:
 4. On the page for the user's role, under **Permissions**, choose **Add permissions**.
 5. From the dropdown menu, choose **Attach policies**.
 6. Search for and select the policy or policies that you want to attach to the user’s execution role:
+
    1. To grant the Canvas base permissions, search for and select the
       [AmazonSageMakerCanvasFullAccess](security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess "security-iam-awsmanpol-canvas.md#security-iam-awsmanpol-AmazonSageMakerCanvasFullAccess") policy.
    2. To grant the Ready-to-use models permissions, search for and select the

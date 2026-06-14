@@ -17,6 +17,7 @@ Use the following procedure to create a Data Quality and Insights report. It ass
 4. (Optional) For **Target column**, specify the target column.
 5. For **Problem type**, specify **Regression** or **Classification**.
 6. For **Data size**, specify one of the following:
+
    - **50 K** – Uses the first 50000 rows of the dataset
      that you've imported to create the report.
    - **Entire dataset** – Uses the entire dataset that you've imported to create the report.

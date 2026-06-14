@@ -75,6 +75,7 @@ Studio, or from inside Studio Classic.
 18. On the top menu, choose **File** then **Shut
     Down**.
 19. Choose one of the following options:
+
     - **Shutdown Server** – Shuts down the JupyterServer app.
       Terminal sessions, kernel sessions, SageMaker images, and instances aren't shut down.
       These resources continue to accrue charges.

@@ -2,6 +2,7 @@
 
 - **List Amazon EMR policies**: This policy allows
   performing the following actions:
+
   - `AllowPresignedUrl` allows generating pre-signed URLs for
     accessing the Spark UI from within Studio.
   - `AllowClusterDiscovery` and

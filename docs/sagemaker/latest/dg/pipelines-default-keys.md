@@ -24,6 +24,7 @@ attributes, see [Caching Configuration](https://sagemaker.readthedocs.io/en/stab
 - TrainingJobDefinition. This attribute is composed of multiple child attributes, not
   all of which cause the step to rerun. The child attributes that could incur a rerun (if
   changed) are:
+
   - AlgorithmSpecification
   - HyperParameterRanges
   - InputDataConfig
@@ -35,6 +36,7 @@ attributes, see [Caching Configuration](https://sagemaker.readthedocs.io/en/stab
 - AutoMLJobConfig. This attribute is composed of multiple child attributes, not
   all of which cause the step to rerun. The child attributes that could incur a rerun (if
   changed) are:
+
   - CompletionCriteria
   - CandidateGenerationConfig
   - DataSplitConfig

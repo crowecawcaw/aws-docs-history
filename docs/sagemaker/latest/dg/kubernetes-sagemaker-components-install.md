@@ -93,13 +93,13 @@ access the Amazon EKS cluster and KFP User Interface (UI).
 
 1. If you do not have an existing Amazon EKS cluster, run the following steps from the
    command line of your gateway node, skip this step otherwise.
+
    1. Run the following command to create an Amazon EKS cluster with version 1.17 or
       above. Replace `<clustername>` with any name for your cluster.
 
    ```
    eksctl create cluster --name `<clustername>` --region us-east-1 --auto-kubeconfig --timeout=50m --managed --nodes=1
    ```
-
    2. When the cluster creation is complete, ensure that you have access to your
       cluster by listing the cluster's nodes.
 
@@ -259,6 +259,7 @@ export CLUSTER_REGION=`us-east-1``
 ```
 
 2. Export the namespace and service account name according to your installation.
+
    - For the full Kubeflow on AWS installation, export your profile
      `namespace` (e.g., _kubeflow-user-example-com_) and _default-editor_ as the service account.
 
@@ -266,7 +267,6 @@ export CLUSTER_REGION=`us-east-1``
    `export NAMESPACE=`kubeflow-user-example-com`
    export KUBEFLOW_PIPELINE_POD_SERVICE_ACCOUNT=default-editor`
    ```
-
    - For the standalone Pipelines deployment, export _kubeflow_ as the `namespace` and _pipeline-runner_ as the service account.
 
    ```
@@ -342,16 +342,17 @@ port you are trying to use.
 Your method of accessing the KFP UI depends on your gateway node type.
 
 - Local machine as the gateway node:
+
   1.  Access the dashboard in your browser as follows:
 
   ```
   http://localhost:8080
   ```
-
   2.  Choose **Pipelines** to access the pipelines
       UI.
 
 - Amazon EC2 instance as the gateway node:
+
   1.  You need to set up an SSH tunnel on your Amazon EC2 instance to access the
       Kubeflow dashboard from your local machine's browser.
 
@@ -371,13 +372,11 @@ Your method of accessing the KFP UI depends on your gateway node type.
   or on Amazon Linux:
   ssh -i ${key} -L 9000:localhost:8080 ec2-user@${public_DNS_address}
   ```
-
   2.  Access the dashboard in your browser.
 
   ```
   http://localhost:9000
   ```
-
   3.  Choose **Pipelines** to access the KFP UI.
 
 #### (Optional) Grant SageMaker AI notebook instances access to Amazon EKS, and run KFP pipelines from your notebook.

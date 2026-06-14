@@ -45,6 +45,7 @@ stack.
 3. Choose **Create stack** and select **With new
    resources (standard)** from the drop down menu.
 4. In **Step 1**:
+
    1. In the **Prepare template** section, select
       **Choose an existing template**.
    2. In the **Specify template** section, choose

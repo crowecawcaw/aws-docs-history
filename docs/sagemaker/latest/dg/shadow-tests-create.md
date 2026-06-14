@@ -105,6 +105,7 @@ settings** page by doing the following:
    choosing **Remove**.
 5. If you do not already have a shadow variant, add a shadow variant. To add a shadow
    variant, do the following:
+
    1. Choose **Add**.
    2. Choose **Shadow variant**.
    3. In the **Add model** dialog box, choose the model you want
@@ -117,6 +118,7 @@ settings** page by doing the following:
    appears. For more information on filling out this dialog box, see [Edit a shadow test](shadow-tests-view-monitor-edit-individual.md "shadow-tests-view-monitor-edit-individual.md").
 7. In the **Schedule** section, enter the duration of the test by doing
    the following:
+
    1. Choose the box under **Duration**. A popup calender appears.
    2. Select the start and end dates from the calender, or enter the start and end
       dates in the fields for **Start date** and **End
@@ -141,6 +143,7 @@ out the **Enter shadow test settings** page by doing the following:
 2. Choose **Create a new endpoint**.
 3. Under **Name**, enter a name for the endpoint.
 4. Add one production variant and one shadow variant to the endpoint:
+
    - To add a production variant choose **Add**, and then choose
      **Production variant**. In the **Add model**
      dialog box, choose the model you want to use for your production variant, and
@@ -156,6 +159,7 @@ out the **Enter shadow test settings** page by doing the following:
    appears. For more information on filling out this dialog box, see [Edit a shadow test](shadow-tests-view-monitor-edit-individual.md "shadow-tests-view-monitor-edit-individual.md").
 6. In the **Schedule** section, enter the duration of the test by doing
    the following:
+
    1. Choose the box under **Duration**. A popup calender appears.
    2. Select the start and end dates from the calender, or enter the start and end
       dates under **Start date** and **End date**,

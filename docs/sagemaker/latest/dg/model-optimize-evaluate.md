@@ -34,6 +34,7 @@ optimized model.
 5. For **Select a model for tokenizer**, accept the default, or
    a choose a specific model to act as the tokenizer for your evaluation.
 6. For **Input datasets**, choose whether to:
+
    - Use the default sample datasets from SageMaker AI.
    - Provide an S3 URI that points to your own sample datasets.
 

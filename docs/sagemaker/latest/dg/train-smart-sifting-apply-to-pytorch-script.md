@@ -176,6 +176,7 @@ into standardized formats that it can efficiently sift.
    recommend that you use the same loss function in the model training loop. Go
    through the following substeps for creating a SageMaker smart sifting `Loss`
    implemented class.
+
    1. SageMaker smart sifting calculates a loss value for each training data sample,
       as opposed to calculating a single loss value for a batch. To ensure
       that SageMaker smart sifting uses the same loss calculation logic, create a

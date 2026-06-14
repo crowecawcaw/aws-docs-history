@@ -256,6 +256,7 @@ onboarded prior to this date must update the policy to use these templates. Use 
 following options to update the policy:
 
 - Delete role and toggle Studio (or Studio Classic) settings
+
   1.  In the IAM console, delete
       `AmazonSageMakerServiceCatalogProductsUseRole`.
   2.  In the Studio (or Studio Classic) control panel, choose **Edit

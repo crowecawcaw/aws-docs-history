@@ -59,12 +59,14 @@ All inference metrics include comprehensive labels that enable detailed filterin
 and analysis across your deployments:
 
 - **Cluster Identity:**
+
   - `cluster_id` - The unique ID of the HyperPod
     cluster
   - `cluster_name` - The name of the HyperPod
     cluster
 
 - **Resource Identity:**
+
   - `resource_name` - Deployment name (For example,
     "jumpstart-model-deployment")
   - `resource_type` - Type of deployment (jumpstart,
@@ -73,6 +75,7 @@ and analysis across your deployments:
     multi-tenancy
 
 - **Model Characteristics:**
+
   - `model_name` - Specific model identifier (For example,
     "llama-2-7b-chat")
   - `model_version` - Model version for A/B testing and
@@ -81,6 +84,7 @@ and analysis across your deployments:
     -)
 
 - **Infrastructure Context:**
+
   - `pod_name` - Individual pod identifier for
     debugging
   - `node_name` - Kubernetes node for resource
@@ -89,6 +93,7 @@ and analysis across your deployments:
     analysis
 
 - **Operational Context:**
+
   - `metric_source` - Collection point (reverse-proxy,
     model-container)
   - `task_type` - Workload classification
@@ -259,12 +264,14 @@ and monitor their basic performance.
 **What you need to do:**
 
 1. Deploy your model using your preferred method:
+
    1. Amazon SageMaker Studio UI
    2. HyperPod CLI commands
    3. Python SDK in notebooks
    4. kubectl with YAML configurations
 
 2. Access your model metrics:
+
    1. Open Amazon SageMaker Studio
    2. Navigate to HyperPod Cluster and open Grafana
       Dashboard
@@ -272,6 +279,7 @@ and monitor their basic performance.
    4. Apply filters to view your specific model deployment
 
 3. Monitor key performance indicators:
+
    1. Track model latency and throughput
    2. Monitor error rates and availability
    3. Review resource utilization trends
@@ -303,12 +311,14 @@ investigation.
 
 1. Examine the Grafana dashboard to understand the scope and severity of the
    performance issue:
+
    1. High latency alert active since 09:30
    2. P99 latency: 8.2s (normal: 2.1s)
    3. Affected time window: 09:30-10:15 (45 minutes)
 
 2. Correlate multiple metrics to understand the system behavior during the
    incident:
+
    1. Concurrent requests: Spiked to 45 (normal: 15-20)
    2. Pod scaling: KEDA scaled 2→5 pods during incident
    3. GPU utilization: Remained normal (85-90%)
@@ -316,6 +326,7 @@ investigation.
 
 3. Examine the distributed system behavior since the infrastructure metrics
    appear normal:
+
    1. Node-level view: All pods concentrated on same node (poor
       distribution)
    2. Model container metrics: TGI queue depth shows 127 requests
@@ -328,11 +339,13 @@ Available in Grafana dashboard under "Model Container Metrics" panel
 ```
 
 4. Identify interconnected configuration issues:
+
    1. KEDA scaling policy: Too slow (30s polling interval)
    2. Scaling timeline: Scaling response lagged behind traffic spike by
       45+ seconds
 
 5. Implement targeted fixes based on the analysis:
+
    1. Updated KEDA polling interval: 30s → 15s
    2. Increased maxReplicas in scaling configuration
    3. Adjusted scaling thresholds to scale earlier (15 vs 20 concurrent
@@ -435,6 +448,7 @@ If the Grafana dashboard is empty and all panels show "No data," perform the
 following steps to investigate:
 
 1. Verify Administrator has inference observability installed:
+
    1. Navigate to HyperPod Console > Select cluster > Check if
       "Observability" status shows "Enabled"
    2. Verify Grafana workspace link is accessible from cluster

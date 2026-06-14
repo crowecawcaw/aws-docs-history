@@ -53,6 +53,7 @@ data:
    `OutputFilter` parameter.
 4. Choose
    either JSON- or CSV-formatted files for input:
+
    - For JSON- or JSON Lines-formatted input files, SageMaker AI either adds
      the `SageMakerOutput` attribute to the input file or
      creates a new JSON output file with the `SageMakerInput`

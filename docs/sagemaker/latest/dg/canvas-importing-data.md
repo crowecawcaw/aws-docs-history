@@ -11,6 +11,7 @@ information about the different model types and the data they accept, see [How c
 You can import data and build custom models in SageMaker Canvas for the following data types:
 
 - **Tabular** (CSV, Parquet, or tables)
+
   - Categorical – Use categorical data to build custom categorical prediction models for 2 and 3+ category prediction.
   - Numeric – Use numeric data to build custom numeric prediction models.
   - Text – Use text data to build custom multi-category text prediction models.

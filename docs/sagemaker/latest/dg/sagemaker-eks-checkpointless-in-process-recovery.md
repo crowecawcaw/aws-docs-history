@@ -42,6 +42,7 @@ def main():
 - `CudaHealthCheck`: Ensures the CUDA context for the current process is in a healthy state by synchronizing with the GPU. Uses the device specified by the LOCAL_RANK environment variable, or defaults to the main thread's CUDA device if LOCAL_RANK is not set.
 - `HPAgentK8sAPIFactory`: This API enables checkpointless training to query the training status of other pods in the Kubernetes training cluster. It also provides an infrastructure-level barrier that ensures all ranks successfully complete abort and restart operations before proceeding.
 - `CheckpointManager`: Manages in-memory checkpoints and peer-to-peer recovery for checkpointless fault tolerance. It has the following core responsibilities:
+
   - **In-Memory Checkpoint Management**: Saves and manages NeMo model checkpoints in memory for fast recovery without disk I/O during checkpointless recovery scenarios.
   - **Recovery Feasibility Validation**: Determines if checkpointless recovery is possible by validating global step consistency, rank health, and model state integrity.
   - **Peer-to-Peer Recovery Orchestration**: Coordinates checkpoint transfer between healthy and failed ranks using distributed communication for fast recovery.
@@ -53,6 +54,7 @@ def main():
 - `CheckpointlessFinalizeCleanup`: Handles final cleanup operations in the main thread for components that cannot be safely aborted or cleaned up in the background thread.
 - `CheckpointlessMegatronStrategy`: This inherits from the `MegatronStrategy` from in Nemo. Note that checkpointless training requires `num_distributed_optimizer_instances` to be least 2 so that there will be optimizer replication. The strategy also takes care of essential attribute registration and process group initialization, e.g., rootless.
 - `CheckpointlessCallback`: Lightning callback that integrates NeMo training with checkpointless training's fault tolerance system. It has the following core responsibilities:
+
   - **Training Step Lifecycle Management**: Tracks training progress and coordinates with ParameterUpdateLock to enable/disable checkpointless recovery based on training state (first step vs subsequent steps).
   - **Checkpoint State Coordination**: Manages in-memory PEFT base model checkpoint saving/restoring.
 
@@ -118,7 +120,9 @@ The following steps outline the failure detection and checkpointless recovery pr
 2. Fault occurs
 3. Evaluate checkpointless resume feasibility
 4. Check if it is feasible to do checkpointless resume
+
    - If feasible, Attempt checkpointless reusme
+
      - If resumes fails, fallback to checkpoint loading from storage
      - If resume succeeds, training continues from recovered state
 

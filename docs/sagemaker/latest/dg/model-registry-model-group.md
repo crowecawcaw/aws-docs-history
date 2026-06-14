@@ -74,6 +74,7 @@ Studio
    **Model group**.
 6. In the **Register model group** dialog
    box, enter the following information:
+
    - The name of the new Model Group in the
      **Model group name**
      field.
@@ -108,6 +109,7 @@ Studio Classic
    **Create model group**.
 5. In the **Create model group** dialog box,
    enter the following information:
+
    - Enter the name of the new Model Group in the
      **Model group name**
      field.

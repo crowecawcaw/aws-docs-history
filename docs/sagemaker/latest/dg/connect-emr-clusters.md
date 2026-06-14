@@ -206,6 +206,7 @@ do this in two steps:
 
 1. Download the PEM file of your certificate to your local file system using
    one of the following options:
+
    - Jupyter's built-in file upload function.
    - A notebook cell.
    - (For Studio Classic users only) A lifecycle configuration (LCC)

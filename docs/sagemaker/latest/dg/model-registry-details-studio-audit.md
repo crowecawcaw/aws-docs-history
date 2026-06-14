@@ -17,6 +17,7 @@ limitations.
 
 1. On the **Audit** tab, view the approval status of the
    model card. The status can be one the following:
+
    - **Draft**: The model card is still a
      draft.
    - **Pending approval**: The model card is
@@ -29,12 +30,14 @@ limitations.
    status.
 3. To update and view details related to your model package risk,
    complete the following steps.
+
    1. Choose **Risk** in the left sidebar of the
       **Audit** tab.
    2. View the current risk rating and explanation for the risk
       rating.
    3. To update the rating or explanation, complete the following
       steps.
+
       1. Choose the vertical ellipsis at the top right corner
          of the **Audit** page, and choose
          **Edit**.
@@ -46,9 +49,11 @@ limitations.
 
 4. To update and view details related to the usage of your model package,
    complete the following steps.
+
    1. Choose **Usage** in the left sidebar of the
       **Audit** tab.
    2. View text you added in the following fields:
+
       - **Problem type**: The category of
         machine learning algorithm used to build your
         model.
@@ -70,6 +75,7 @@ limitations.
 
    3. To update any of the previously listed fields, complete the
       following steps.
+
       1. Choose the vertical ellipsis at the top right corner
          of the model version page, and choose
          **Edit**.
@@ -85,11 +91,13 @@ limitations.
 
 5. To update and view details related to the stakeholders of your model
    package, complete the following steps.
+
    1. Choose **Stakeholders** in the left sidebar
       of the **Audit** tab.
    2. View the current model owner and creator, if any.
    3. To update the model owner or creator, complete the following
       steps:
+
       1. Choose the vertical ellipsis at the top right corner
          of the model version page, and choose
          **Edit**.
@@ -100,6 +108,7 @@ limitations.
 
 6. To update and view details related to the business problem that your
    model package addresses, complete the following steps.
+
    1. Choose **Business** in the left sidebar of
       the **Audit** tab.
    2. View the current descriptions, if any, for the business
@@ -108,6 +117,7 @@ limitations.
    3. To update any of the fields in the
       **Business** tab, complete the following
       steps.
+
       1. Choose the vertical ellipsis at the top right corner
          of the model version page, and choose
          **Edit**.
@@ -118,11 +128,13 @@ limitations.
 
 7. To update and view existing documentation (represented as key-value
    pairs) for your model, complete the following steps.
+
    1. Choose **Documentation** in the left sidebar
       of the **Audit** page.
    2. View existing key-value pairs.
    3. To add any key-value pairs, complete the following
       steps.
+
       1. Choose the vertical ellipsis at the top right corner
          of the model version page, and choose
          **Edit**.
@@ -134,6 +146,7 @@ limitations.
 
    4. To remove any key-value pairs, complete the following
       steps.
+
       1. Choose the vertical ellipsis at the top right corner
          of the model version page, and choose
          **Edit**.

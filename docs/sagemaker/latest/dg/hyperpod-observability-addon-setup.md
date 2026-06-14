@@ -38,6 +38,7 @@ Amazon Managed Service for Prometheus. For information about how to configure th
   the pods that the SageMaker HyperPod observability add-on creates alongside
   any other already running pods on the cluster.
 - Add the following policies and permissions to your role.
+
   - [AWS managed policy: AmazonSageMakerHyperPodObservabilityAdminAccess](security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md "security-iam-awsmanpol-AmazonSageMakerHyperPodObservabilityAdminAccess.md")
   - [AWS managed policy:
     AWSGrafanaWorkspacePermissionManagementV2](../../../grafana/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2 "../../../grafana/latest/userguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AWSGrafanaWorkspacePermissionManagementV2")
@@ -72,7 +73,6 @@ Amazon Managed Service for Prometheus. For information about how to configure th
   }`
 
   ```
-
   - Additional permissions needed to manage IAM Identity Center users for
     Amazon Managed Grafana:
 

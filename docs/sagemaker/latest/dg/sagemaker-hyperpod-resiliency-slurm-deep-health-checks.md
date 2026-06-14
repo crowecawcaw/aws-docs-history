@@ -139,6 +139,7 @@ occurs:
          ~5-15 minutes depending on node count.
 
 4.  **Result handling**:
+
     - **Pass**: The node is removed
       from the maintenance reservation, the deep health check feature
       is cleared, and the node becomes available for jobs in its

@@ -14,6 +14,7 @@ Autopilot generates inference containers specific to the [training mode](autopil
 ### Container definitions for hyperparameter optimization (HPO) mode
 
 - **Regression**: HPO generates two containers:
+
   1.  A feature engineering container that transforms the original features into
       features that the regression algorithms can train on.
   2.  An algorithm container that transforms features and generates a regression
@@ -21,6 +22,7 @@ Autopilot generates inference containers specific to the [training mode](autopil
 
 - **Classification**: HPO generates three
   containers:
+
   1.  A feature engineering container that transforms the original features into
       features that the classification algorithms can train on.
   2.  An algorithm container that generates the `predicted_label` with
@@ -46,6 +48,7 @@ response by using four predefined keys:
 - `predicted_label`: The label with the highest probability of predicting
   the correct label, as determined by Autopilot.
 - `probability`:
+
   - **HPO models:** The probability of the
     `True` class for binary classification. The probability of the
     `predicted_label` for multiclass classification.

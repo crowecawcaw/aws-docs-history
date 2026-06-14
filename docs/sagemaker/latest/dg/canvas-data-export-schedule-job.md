@@ -112,6 +112,7 @@ expression.
    **Rate**.
 5. For **Value**, specify an integer.
 6. For **Unit**, select one of the following:
+
    - **Minutes**
    - **Hours**
    - **Days**
@@ -156,6 +157,7 @@ recurring basis.
    `23`.
 6. For **On days**, select one of the following
    options:
+
    - **Every Day**
    - **Weekends**
    - **Weekdays**
@@ -213,6 +215,7 @@ specific times.
    to the time zone where you are located.
 6. For **On days**, select one of the following
    options:
+
    - **Every Day**
    - **Weekends**
    - **Weekdays**

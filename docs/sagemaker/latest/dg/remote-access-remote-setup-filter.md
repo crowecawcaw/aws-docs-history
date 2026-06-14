@@ -29,6 +29,7 @@ User Guide for more information. The following lists the sign-in options.
   credentials**: Automated filtering **requires administrator setup** for the following IAM
   credentials. Without this setup, AWS Toolkit cannot identify which
   spaces belong to the user, so all spaces are shown by default.
+
   - **Using IAM user
     credentials**
   - **Using assumed IAM role session
@@ -49,6 +50,7 @@ this naming convention for automated filtering to work correctly.
 
 - Administrators must ensure Studio user profile names follow the
   naming convention:
+
   - For IAM users: prefix with
     ``IAM-user-name`-`
   - For assumed roles: prefix with

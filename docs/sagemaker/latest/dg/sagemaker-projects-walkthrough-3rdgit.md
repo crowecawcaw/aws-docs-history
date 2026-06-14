@@ -92,6 +92,7 @@ following parameters:
 
 8. Under **ModelDeploy CodeRepository Info**, provide the
    following parameters:
+
    - For **Branch**, enter the branch to use from your
      Git repository for pipeline activities.
    - For **Full Repository Name**, enter the Git

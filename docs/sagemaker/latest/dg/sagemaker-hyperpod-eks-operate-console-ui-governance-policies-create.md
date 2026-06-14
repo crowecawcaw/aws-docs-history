@@ -36,6 +36,7 @@ with HyperPod. If you have not already done so, see [Creating a SageMaker HyperP
    clusters**.
 4. Choose the **Policies** tab.
 5. To create your **Cluster policy**:
+
    1. Choose the corresponding **Edit** to update how
       tasks are prioritized and idle compute is allocated.
    2. After you have made your changes, choose

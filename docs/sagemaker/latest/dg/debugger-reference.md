@@ -28,6 +28,7 @@ Debugger when training a model and to manage the configuration of inputs and out
 
 - [`CreateTrainingJob`](../APIReference/API_CreateTrainingJob.md "../APIReference/API_CreateTrainingJob.md") and [`UpdateTrainingJob`](../APIReference/API_UpdateTrainingJob.md "../APIReference/API_UpdateTrainingJob.md") use the following Debugger APIs to
   configure tensor collections, rules, rule images, and profiling options:
+
   - [`CollectionConfiguration`](../APIReference/API_CollectionConfiguration.md "../APIReference/API_CollectionConfiguration.md")
   - [`DebugHookConfig`](../APIReference/API_DebugHookConfig.md "../APIReference/API_DebugHookConfig.md")
   - [`DebugRuleConfiguration`](../APIReference/API_DebugRuleConfiguration.md "../APIReference/API_DebugRuleConfiguration.md")
@@ -38,6 +39,7 @@ Debugger when training a model and to manage the configuration of inputs and out
 - [`DescribeTrainingJob`](../APIReference/API_DescribeTrainingJob.md "../APIReference/API_DescribeTrainingJob.md") provides a full description of
   a training job, including the following Debugger configurations and rule
   evaluation statuses:
+
   - [`DebugHookConfig`](../APIReference/API_DebugHookConfig.md "../APIReference/API_DebugHookConfig.md")
   - [`DebugRuleConfiguration`](../APIReference/API_DebugRuleConfiguration.md "../APIReference/API_DebugRuleConfiguration.md")
   - [`DebugRuleEvaluationStatus`](../APIReference/API_DebugRuleEvaluationStatus.md "../APIReference/API_DebugRuleEvaluationStatus.md")

@@ -21,6 +21,7 @@ Before creating a AWS Glue connection using the SQL extension UI, ensure that yo
 completed the following tasks:
 
 - Have your administrator:
+
   - Enable the network communication between your Studio domain and the
     data sources to which you want to connect. To learn about the networking
     requirements, see [Configure network access between Studio and data sources (for administrators)](sagemaker-sql-extension-networking.md "sagemaker-sql-extension-networking.md").

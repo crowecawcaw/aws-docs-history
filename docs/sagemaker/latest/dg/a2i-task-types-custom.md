@@ -23,6 +23,7 @@ learning workflow using the custom task type.
 ###### Create a human loop using a flow definition, integrate it into your application, and monitor the results
 
 1. Complete the Amazon A2I [Prerequisites to Using Augmented AI](a2i-getting-started-prerequisites.md "a2i-getting-started-prerequisites.md"). Note the following:
+
    - The path to the Amazon Simple Storage Service (Amazon S3) bucket or buckets where you store your
      input and output data.
    - The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role with required
@@ -44,6 +45,7 @@ In the next step, you create a flow definition:
 
 4. When creating your flow definition, provide the path to your S3 buckets, your
    IAM role ARN, and your worker template.
+
    - To learn how to create a flow definition using the SageMaker AI
      `CreateFlowDefinition` API, see [Create a Human Review Workflow (API)](a2i-create-flow-definition.md#a2i-create-human-review-api "a2i-create-flow-definition.md#a2i-create-human-review-api").
    - To learn how to create a flow definition using the SageMaker AI console, see [Create a Human Review Workflow (Console)](a2i-create-flow-definition.md#a2i-create-human-review-console "a2i-create-flow-definition.md#a2i-create-human-review-console").

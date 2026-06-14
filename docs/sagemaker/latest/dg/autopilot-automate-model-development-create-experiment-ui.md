@@ -53,6 +53,7 @@ Alternatively, you can use Autopilot AutoML API in [Create Regression or Classif
    **Create experiment** tab.
 5. In the **Experiment and data details** section, enter the following
    information:
+
    1. **Experiment name** – Must be unique to your account in the
       current AWS Region and contain a maximum of 63 alphanumeric characters. Can include
       hyphens (-) but not spaces.
@@ -81,6 +82,7 @@ Alternatively, you can use Autopilot AutoML API in [Create Regression or Classif
 6. Choose **Next: Target and features**. The **Target and
    features** tab opens.
 7. In the **Target and features** section:
+
    - Select a column to set as a target for model predictions.
    - Optionally, you can pass the name of a sample weights column in the **Sample
      weight** section to request your dataset rows to be weighted during training

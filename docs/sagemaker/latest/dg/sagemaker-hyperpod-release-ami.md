@@ -11,11 +11,13 @@ Key components added to HyperPod AMIs include:
   support for [building custom
   AMIs](hyperpod-custom-ami-support.md "hyperpod-custom-ami-support.md")
 - Advanced orchestration tools:
+
   - [Orchestrating SageMaker HyperPod clusters with Slurm](sagemaker-hyperpod-slurm.md "sagemaker-hyperpod-slurm.md")
   - [Orchestrating SageMaker HyperPod clusters with Amazon EKS](sagemaker-hyperpod-eks.md "sagemaker-hyperpod-eks.md")
 
 - Cluster management dependencies
 - Built-in resiliency features:
+
   - cluster health check
   - auto-resume capabilities
 

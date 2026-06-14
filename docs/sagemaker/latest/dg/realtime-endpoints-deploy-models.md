@@ -210,6 +210,7 @@ following screenshot:
    your raw model artifacts, any custom inference code you have, and your
    requirements.txt file, and SageMaker AI handles packaging the archive for you. Do
    the following:
+
    1. For **Artifacts**, select **Upload
       artifacts** to continue providing your files.
       Otherwise, if you already have a `tar.gz` archive that
@@ -235,6 +236,7 @@ following screenshot:
    artifacts, then Studio shows you the **Pre-packaged
    artifacts** option, and you must provide all of your artifacts
    already packaged as a `tar.gz` archive. Do the following:
+
    1. For **Pre-packaged artifacts**, select
       **Input S3 URI for pre-packaged model
       artifacts** if you have your `tar.gz`
@@ -374,6 +376,7 @@ following:
     name of the model or models that you're deploying. You can choose
     **Add model** to add more models to the deployment. For
     each model that you add, fill out the following fields:
+
     1.  For **Number of CPU cores**, enter the CPU cores
         that you'd like to dedicate for the model's usage.
     2.  For **Min number of copies**, enter the minimum
@@ -387,6 +390,7 @@ following:
 
 11. (Optional) For the **Advanced options**, do the
     following:
+
     1.  For **IAM role**, use either the default SageMaker AI
         IAM execution role, or specify your own role that has the
         permissions you need. Note that this IAM role must be the same as

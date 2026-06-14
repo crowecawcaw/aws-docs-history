@@ -31,6 +31,7 @@ This release includes the following updates:
 Slurm v25.11
 
 - Slurm 25.11 (ARM64):
+
   - Linux Kernel version: 6.8.0-1053-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -62,6 +63,7 @@ Slurm v25.11
   - rdma-core version: 61.0-1
 
 - Slurm 25.11 (x86_64):
+
   - Linux Kernel version: 6.8.0-1053-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -106,6 +108,7 @@ This release includes the following updates:
 Slurm v24.11
 
 - Slurm 24.11 (ARM64):
+
   - Linux Kernel version: 6.8.0-1053-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -137,6 +140,7 @@ Slurm v24.11
   - rdma-core version: 61.0-1
 
 - Slurm 24.11 (x86_64):
+
   - Linux Kernel version: 6.8.0-1053-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -181,6 +185,7 @@ This release includes the following updates:
 Slurm v24.11
 
 - Slurm 24.11 (aarch64):
+
   - Linux Kernel version: 6.8.0-1052-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -212,6 +217,7 @@ Slurm v24.11
   - rdma-core version: 61.0-1
 
 - Slurm 24.11 (x86_64):
+
   - Linux Kernel version: 6.8.0-1052-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -256,6 +262,7 @@ This release includes the following updates:
 Slurm v24.11
 
 - Slurm 24.11 (aarch64):
+
   - Linux Kernel version: 6.8.0-1050-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -287,6 +294,7 @@ Slurm v24.11
   - rdma-core version: 60.0-1
 
 - Slurm 24.11 (x86_64):
+
   - Linux Kernel version: 6.8.0-1050-aws
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -331,6 +339,7 @@ This release includes the following updates:
 Slurm v24.11
 
 - Slurm 24.11 (ARM64):
+
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -362,6 +371,7 @@ Slurm v24.11
   - rdma-core version: 60.0-1
 
 - Slurm 24.11 (x86_64):
+
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -406,6 +416,7 @@ This release includes the following updates:
 Slurm v24.11
 
 - Slurm 24.11 (ARM64):
+
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -437,6 +448,7 @@ Slurm v24.11
   - rdma-core version: 60.0-1
 
 - Slurm 24.11 (x86_64):
+
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -481,6 +493,7 @@ This release includes the following updates:
 Slurm v24.11
 
 - Slurm 24.11 (ARM64):
+
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -512,6 +525,7 @@ Slurm v24.11
   - rdma-core version: 60.0-1
 
 - Slurm 24.11 (x86_64):
+
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -556,6 +570,7 @@ This release includes the following updates:
 Slurm v24.11
 
 - Slurm 24.11 (ARM64):
+
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -587,6 +602,7 @@ Slurm v24.11
   - rdma-core version: 60.0-1
 
 - Slurm 24.11 (x86_64):
+
   - Linux Kernel version: 6.8
   - Glibc version: 2.35
   - OpenSSL version: 3.0.2
@@ -721,28 +737,34 @@ Slurm (x86_64)
 - Operating System: Ubuntu 22.04
 - Compute Architecture: ARM64
 - Latest available version is installed for the following packages:
+
   - Linux Kernel: 6.8
   - FSx Lustre
   - Docker
   - AWS CLI v2 at `/usr/bin/aws`
   - NVIDIA DCGM
   - Nvidia container toolkit:
+
     - Version command: `nvidia-container-cli
 -V`
 
   - Nvidia-docker2:
+
     - Version command: `nvidia-docker version`
 
   - Nvidia-IMEX: v570.172.08-1
 
 - NVIDIA Driver: 570.158.01
 - NVIDIA CUDA 12.4, 12.5, 12.6, 12.8 stack:
+
   - CUDA, NCCL and cuDDN installation directories:
     `/usr/local/cuda-xx.x/`
+
     - Example: `/usr/local/cuda-12.8/`,
       `/usr/local/cuda-12.8/`
 
   - Compiled NCCL Version:
+
     - For CUDA directory of 12.4, compiled NCCL Version
       2.22.3+CUDA12.4
     - For CUDA directory of 12.5, compiled NCCL Version
@@ -753,9 +775,11 @@ Slurm (x86_64)
       2.27.5+CUDA12.8
 
   - Default CUDA: 12.8
+
     - PATH `/usr/local/cuda` points to CUDA
       12.8
     - Updated below env vars:
+
       - `LD_LIBRARY_PATH` to have
         `/usr/local/cuda-12.8/lib:/usr/local/cuda-12.8/lib64:/usr/local/cuda-12.8:/usr/local/cuda-12.8/targets/sbsa-linux/lib:/usr/local/cuda-12.8/nvvm/lib64:/usr/local/cuda-12.8/extras/CUPTI/lib64`
       - `PATH` to have
@@ -766,6 +790,7 @@ Slurm (x86_64)
 - EFA installer: 1.42.0
 - Nvidia GDRCopy: 2.5.1
 - AWS OFI NCCL plugin comes with EFA installer
+
   - Paths
     `/opt/amazon/ofi-nccl/lib/aarch64-linux-gnu`
     and `/opt/amazon/ofi-nccl/efa` are added to
@@ -784,6 +809,7 @@ SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod 
 
 - Updated base AMI to `Deep Learning Base OSS Nvidia Driver GPU AMI
 (Ubuntu 22.04) 20250523` with the following key components:
+
   - NVIDIA Driver: 570.133.20
   - CUDA: 12.8 (default), with support for CUDA 12.4-12.6
   - NCCL Version: 2.26.5
@@ -791,6 +817,7 @@ SageMaker HyperPod releases the following for [Orchestrating SageMaker HyperPod 
   - AWS OFI NCCL: 1.14.2-aws
 
 - Updated Neuron SDK packages:
+
   - aws-neuronx-collectives: 2.25.65.0-9858ac9a1 (from
     2.24.59.0-838c7fc8b)
   - aws-neuronx-dkms: 2.21.37.0 (from 2.20.28.0)
@@ -946,6 +973,7 @@ Key package upgrades:
 
 - Ubuntu 22.04 LTS (from 20.04)
 - Python Version:
+
   - Python 3.10 is now the default Python version in the Slurm AMI
     Ubuntu 22.04
   - This upgrade provide access to the latest features, performance
@@ -1018,6 +1046,7 @@ Deep Learning Slurm AMI
   550.127.05
 - **EFA driver:** 2.13.0-1
 - Installed the latest version of AWS Neuron SDK
+
   - **aws-neuronx-collectives:**
     2.22.33.0
   - **aws-neuronx-dkms:**
@@ -1035,6 +1064,7 @@ Deep Learning Slurm AMI
 
 - Released in `MEL` (Melbourne) Region.
 - Updated SageMaker HyperPod base DLAMI to the following versions:
+
   - Slurm: 2024-11-22.
 
 ## SageMaker HyperPod AMI releases for Slurm: November 15, 2024
@@ -1051,6 +1081,7 @@ Deep Learning Slurm AMI
   550.127.05
 - **EFA driver:** 2.13.0-1
 - Installed the latest version of AWS Neuron SDK
+
   - **aws-neuronx-collectives:**
     v2.22.33.0-d2128d1aa
   - **aws-neuronx-dkms:**
@@ -1067,6 +1098,7 @@ Deep Learning Slurm AMI
 **AMI general updates**
 
 - Updated SageMaker HyperPod base DLAMI to the following version:
+
   - Slurm: 2024-10-23.
 
 ## SageMaker HyperPod AMI releases for Slurm: October 21, 2024
@@ -1074,6 +1106,7 @@ Deep Learning Slurm AMI
 **AMI general updates**
 
 - Updated SageMaker HyperPod base DLAMI to the following versions:
+
   - Slurm: 2024-09-27.
 
 ## SageMaker HyperPod AMI releases for Slurm: September 10, 2024
@@ -1085,6 +1118,7 @@ Deep Learning Slurm AMI
 - Installed the NVIDIA driver v550.90.07
 - Installed the EFA driver v2.10
 - Installed the latest version of AWS Neuron SDK
+
   - **aws-neuronx-collectives:**
     v2.21.46.0
   - **aws-neuronx-dkms:**
@@ -1109,6 +1143,7 @@ patch**
   2023-10-26
 - A complete list of pre-installed packages in this HyperPod DLAMI
   in addition to the base AMI
+
   - [Slurm](https://slurm.schedmd.com/documentation.html "https://slurm.schedmd.com/documentation.html"): v23.11.1
   - [OpenPMIx](https://openpmix.github.io/code/getting-the-reference-implementation "https://openpmix.github.io/code/getting-the-reference-implementation") : v4.2.6
   - Munge: v0.5.15
@@ -1155,6 +1190,7 @@ the latest HyperPod DLAMI.
   2023-10-18
 - A complete list of pre-installed packages in this HyperPod DLAMI
   in addition to the base AMI
+
   - [Slurm](https://slurm.schedmd.com/documentation.html "https://slurm.schedmd.com/documentation.html"): v23.02.3
   - Munge: v0.5.15
   - `aws-neuronx-dkms`: v2.\*

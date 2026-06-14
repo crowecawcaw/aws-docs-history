@@ -85,6 +85,7 @@ SageMaker Training Compiler acceleration works transparently for multi-GPU workl
 model is constructed and trained using Keras APIs within the scope of [`tf.distribute.Strategy.scope()`](https://www.tensorflow.org/api_docs/python/tf/distribute/Strategy "https://www.tensorflow.org/api_docs/python/tf/distribute/Strategy") call.
 
 1. Choose the right distributed training strategy.
+
    1. For single-node multi-GPU, use
       `tf.distribute.MirroredStrategy` to set the
       strategy.
@@ -92,7 +93,6 @@ model is constructed and trained using Keras APIs within the scope of [`tf.distr
    ```
    strategy = tf.distribute.MirroredStrategy()
    ```
-
    2. For multi-node multi-GPU, add the following code to properly
       set the TensorFlow distributed training configuration before
       creating the strategy.

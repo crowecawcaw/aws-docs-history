@@ -69,6 +69,7 @@ before-training stage to get a sense of what decisions you need to make.
 - **Choose an algorithm or framework:**
   Depending on how much customization you need, there are different options
   for algorithms and frameworks.
+
   - If you prefer a low-code implementation of a pre-built algorithm,
     use one of the built-in algorithms offered by SageMaker AI. For more
     information, see [Choose an
@@ -94,6 +95,7 @@ before-training stage to get a sense of what decisions you need to make.
 - **Set up access to training data:** Use
   Amazon SageMaker AI domain, a domain user profile, IAM, Amazon VPC, and AWS KMS to meet
   the requirements of the most security-sensitive organizations.
+
   - For account administration, see [Amazon SageMaker AI domain](sm-domain.md "sm-domain.md").
   - For a complete reference about IAM policies and security, see
     [Security in
@@ -216,6 +218,7 @@ frameworks such as PyTorch, TensorFlow, and Hugging Face Transformers.
   use the checkpointing functionality to back up your models in case of
   unexpected training job termination. To learn more, see the following
   topics.
+
   - [Managed Spot Training](model-managed-spot-training.md "model-managed-spot-training.md")
   - [Use
     Checkpoints](model-checkpoints.md "model-checkpoints.md")

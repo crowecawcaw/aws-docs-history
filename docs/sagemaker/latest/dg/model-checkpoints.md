@@ -111,6 +111,7 @@ Consider the following when using checkpoints in SageMaker AI.
 - If you use SageMaker AI checkpoints with SageMaker Debugger and SageMaker AI distributed and are
   facing issues, see the following pages for troubleshooting and
   considerations.
+
   - [Distributed training supported by Amazon SageMaker Debugger](debugger-reference.md#debugger-considerations "debugger-reference.md#debugger-considerations")
   - [Troubleshooting for distributed training in Amazon SageMaker AI](distributed-troubleshooting-data-parallel.md "distributed-troubleshooting-data-parallel.md")
   - [Model Parallel Troubleshooting](distributed-troubleshooting-model-parallel.md "distributed-troubleshooting-model-parallel.md")

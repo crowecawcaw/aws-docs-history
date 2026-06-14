@@ -117,6 +117,7 @@ RUN curl -fsSL -v -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Mini
    code](https://github.com/pytorch/pytorch#from-source "https://github.com/pytorch/pytorch#from-source") because we need to have control of the NCCL version to guarantee
    compatibility with the [AWS OFI NCCL
    plug-in](https://github.com/aws/aws-ofi-nccl "https://github.com/aws/aws-ofi-nccl").
+
    1. Following the steps in the [PyTorch official
       dockerfile](https://github.com/pytorch/pytorch/blob/master/Dockerfile "https://github.com/pytorch/pytorch/blob/master/Dockerfile"), install build dependencies and set up [ccache](https://ccache.dev/ "https://ccache.dev/") to speed up recompilation.
 
@@ -136,7 +137,6 @@ RUN curl -fsSL -v -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Mini
    RUN /usr/sbin/update-ccache-symlinks
    RUN mkdir /opt/ccache && ccache --set-config=cache_dir=/opt/ccache
    ```
-
    2. Install [PyTorch’s common and Linux dependencies](https://github.com/pytorch/pytorch#install-dependencies "https://github.com/pytorch/pytorch#install-dependencies").
 
    ```
@@ -146,7 +146,6 @@ RUN curl -fsSL -v -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Mini
    # Linux specific dependency for PyTorch
    RUN conda install -c pytorch magma-cuda113
    ```
-
    3. Clone the [PyTorch GitHub
       repository](https://github.com/pytorch/pytorch "https://github.com/pytorch/pytorch").
 
@@ -155,7 +154,6 @@ RUN curl -fsSL -v -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Mini
        cd / \
        && git clone --recursive https://github.com/pytorch/pytorch -b v${PYTORCH_VERSION}
    ```
-
    4. Install and build a specific [NCCL](https://developer.nvidia.com/nccl "https://developer.nvidia.com/nccl") version. To do this, replace the content in the PyTorch’s default NCCL
       folder (`/pytorch/third_party/nccl`) with the specific NCCL version from
       the NVIDIA repository. The NCCL version was set in the step 3 of this guide.
@@ -169,7 +167,6 @@ RUN curl -fsSL -v -o ~/miniconda.sh -O  https://repo.anaconda.com/miniconda/Mini
        && make pkg.txz.build \
        && tar -xvf build/pkg/txz/nccl_*.txz -C $CONDA_PREFIX --strip-components=1
    ```
-
    5. Build and install PyTorch. This process usually takes slightly more than 1 hour to
       complete. It is built using the NCCL version downloaded in a previous step.
 

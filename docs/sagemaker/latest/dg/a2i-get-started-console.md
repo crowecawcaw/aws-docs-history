@@ -17,6 +17,7 @@ To get started using Amazon A2I, complete the following prerequisites.
   Bucket](../../../AmazonS3/latest/user-guide/create-bucket.md "../../../AmazonS3/latest/user-guide/create-bucket.md") in the _Amazon Simple Storage Service Console
   User Guide_.
 - Do one of the following:
+
   - If you want to complete the tutorial using Amazon Textract, download
     the following image and place it in your Amazon S3 bucket.
 

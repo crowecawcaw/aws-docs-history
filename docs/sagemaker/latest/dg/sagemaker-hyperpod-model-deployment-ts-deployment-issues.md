@@ -105,6 +105,7 @@ kubectl describe jumpstartmodel.inference.sagemaker.aws.amazon.com/<model-name> 
 **Key status indicators to monitor:**
 
 1. Deployment Status
+
    - Look for `Status.State`: Should show
      `DeploymentComplete`
    - Check `Status.Deployment Status.Available
@@ -113,11 +114,13 @@ Replicas`
      progress
 
 2. SageMaker AI Endpoint Status
+
    - Check `Status.Endpoints.Sagemaker.State`: Should show
      `CreationCompleted`
    - Verify `Status.Endpoints.Sagemaker.Endpoint Arn`
 
 3. TLS Certificate Status
+
    - View `Status.Tls Certificate` details
    - Check certificate expiration in `Last Cert Expiry
 Time`

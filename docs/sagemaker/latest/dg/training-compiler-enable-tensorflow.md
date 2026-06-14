@@ -206,6 +206,7 @@ When using the SageMaker AI Hugging Face estimator, you must specify both
 - `compiler_config` (TrainingCompilerConfig object) –
   Required. Include this parameter to turn on SageMaker Training Compiler. The following are
   parameters for the `TrainingCompilerConfig` class.
+
   - `enabled` (bool) – Optional. Specify
     `True` or `False` to turn on or turn off
     SageMaker Training Compiler. The default value is `True`.

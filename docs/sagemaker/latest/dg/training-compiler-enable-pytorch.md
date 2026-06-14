@@ -419,6 +419,7 @@ specify your training script, as shown in the preceding code example.
 - `compiler_config` (TrainingCompilerConfig object) – Required
   to activate SageMaker Training Compiler. Include this parameter to turn on SageMaker Training Compiler. The following
   are parameters for the `TrainingCompilerConfig` class.
+
   - `enabled` (bool) – Optional. Specify
     `True` or `False` to turn on or turn off
     SageMaker Training Compiler. The default value is `True`.

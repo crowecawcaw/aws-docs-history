@@ -47,6 +47,7 @@ communication is enabled, you can:
 
 - **If you are a data scientist or data engineer**, you
   can:
+
   - [Launch an Amazon EMR cluster from Studio or Studio Classic](studio-notebooks-launch-emr-cluster-from-template.md "studio-notebooks-launch-emr-cluster-from-template.md")
   - [List Amazon EMR clusters from Studio or Studio Classic](discover-emr-clusters.md "discover-emr-clusters.md")
   - [Connect to an Amazon EMR cluster from SageMaker Studio or Studio Classic](connect-emr-clusters.md "connect-emr-clusters.md")

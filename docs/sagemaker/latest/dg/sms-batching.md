@@ -26,6 +26,7 @@ Use the following example to better understand how the number of entries in your
 2. For each entry in your input manifest file, you can use `NumberOfHumanWorkersPerDataObject` to define the number of human workers that will label an entry from your input manifest file. In this example, you set `NumberOfHumanWorkersPerDataObject` equal to 3. This will create 3 different tasks for each entry in your input manifest file. Also, to be marked as successfully labeled, at least 3 different workers must label the object. This creates a total of 1,800 tasks (600 x 3) to be completed by workers.
 3. You want workers to only see 100 tasks at a time in their queue in the worker portal UI. To do this, you set `MaxConcurrentTaskCount` equal to 100. Ground Truth will then fill the worker-portal task queue with 100 tasks per worker.
 4. What happens next depends on the type of labeling job you are creating, and if it is a streaming labeling job.
+
    - **Streaming labeling job**: As long as the total number of objects available to workers is equal to
      `MaxConcurrentTaskCount`, all remaining dataset objects in your input manifest file and that you send in real time using Amazon SNS are placed on an Amazon SQS queue. When the total number of objects available to workers falls below `MaxConcurrentTaskCount` minus
      `NumberOfHumanWorkersPerDataObject`, a new data object from the queue is used to create`NumberOfHumanWorkersPerDataObject`-tasks, which are sent to workers in real time.

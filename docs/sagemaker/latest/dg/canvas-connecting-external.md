@@ -130,6 +130,7 @@ following:
    menu and choose **DocumentDB**.
 2. Choose **Add connection**.
 3. In the dialog box, specify your Amazon DocumentDB credentials:
+
    1. Enter a **Connection name**. This is a
       name used by Canvas to identify this connection.
    2. For **Cluster**, select the cluster in
@@ -140,6 +141,7 @@ following:
    5. Enter the name of the **Database** to which you want to connect.
    6. The **Read preference** option determines which types
       of instances on your cluster Canvas reads the data from. Select one of the following:
+
       - **Secondary preferred** – Canvas
         defaults to reading from the cluster’s secondary instances, but if a secondary instance
         isn’t available, then Canvas reads from a primary instance.
@@ -196,6 +198,7 @@ Use the following procedure to import data from Amazon Redshift.
 4. For **Data Source**, open the dropdown menu and choose **Redshift**.
 5. Choose **Add connection**.
 6. In the dialog box, specify your Amazon Redshift credentials:
+
    1. For **Authentication method**,
       choose **IAM**.
    2. Enter the **Cluster identifier**
@@ -224,6 +227,7 @@ Use the following procedure to import data from Amazon Redshift.
    **Edit in SQL**.
 9. Optional: If you're using SQL to query the data, you can choose **Context** to add context to the connection by specifying values
    for the following:
+
    - **Warehouse**
    - **Database**
    - **Schema**
@@ -346,6 +350,7 @@ Use the following procedure to import data from Snowflake to Amazon SageMaker Ca
 6.  In the **Add a new Snowflake connection** dialog box,
     specify your Snowflake credentials. For the **Authentication
     method**, choose one of the following:
+
     - **Basic - username
       password** – Provide your Snowflake account ID, username, and password.
     - **ARN** –
@@ -361,7 +366,6 @@ Use the following procedure to import data from Snowflake to Amazon SageMaker Ca
     "username": "`username`",
     "password": "`password`"}
     ```
-
     - **OAuth** –
       OAuth lets you authenticate without
       providing a password but requires additional setup. For more information

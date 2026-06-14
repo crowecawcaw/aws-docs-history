@@ -66,6 +66,7 @@ HyperPod APIs or console.
 - If the policy is in `DeleteFailed` or
   `DeleteRollbackFailed` status, retry the delete with the same
   policy ARN.
+
   - If you ran into an error while trying to delete the
     **Compute prioritization**, or cluster policy,
     using the HyperPod console, try to delete the
@@ -86,6 +87,7 @@ clusters.
   you will need to update your cluster administrator minimum set of
   permissions. See the **Amazon EKS** tab in the [IAM users for cluster admin](sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin "sagemaker-hyperpod-prerequisites-iam.md#sagemaker-hyperpod-prerequisites-iam-cluster-admin")
   section.
+
   - `sagemaker:ListComputeQuotas`
   - `sagemaker:ListClusterSchedulerConfig`
   - `sagemaker:DeleteComputeQuota`

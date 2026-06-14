@@ -13,6 +13,7 @@ externally or with SageMaker AI, associated with your model.
    **Train** tab.
 3. To update and view details related to model performance, complete the
    following steps.
+
    1. Choose **Performance** in the left sidebar of
       the **Train** tab.
    2. View **Metrics** related to your training
@@ -21,6 +22,7 @@ externally or with SageMaker AI, associated with your model.
       metric.
    3. (Optional) To add notes to existing metrics, complete the
       following steps.
+
       1. Choose the vertical ellipsis in the top right corner
          of the model version page, and choose
          **Edit**.
@@ -34,6 +36,7 @@ externally or with SageMaker AI, associated with your model.
       metrics.
    5. (Optional) To add custom metrics, complete the following
       steps.
+
       1. Choose **Add**.
       2. Insert a name, value, and any optional notes for your
          new metric.
@@ -46,6 +49,7 @@ externally or with SageMaker AI, associated with your model.
       job.
    8. (Optional) To add or update observations, complete the
       following steps.
+
       1. Choose the vertical ellipsis in the top right corner
          of the model version page, and choose
          **Edit**.
@@ -57,6 +61,7 @@ externally or with SageMaker AI, associated with your model.
 
 4. To update and view details related to model artifacts, complete the
    following steps.
+
    1. Choose **Artifacts** in the left sidebar of
       the **Train** tab.
    2. In the **Location (S3 URI)** field, view the
@@ -67,6 +72,7 @@ externally or with SageMaker AI, associated with your model.
    4. To update any of the fields in the
       **Artifacts** page, complete the following
       steps.
+
       1. Choose the vertical ellipsis in the top right of the
          model version page, and choose
          **Edit**.
@@ -77,6 +83,7 @@ externally or with SageMaker AI, associated with your model.
 
 5. To update and view details related to hyperparameters, complete the
    following steps.
+
    1. Choose **Hyperparameters** in the left
       sidebar of the **Train** tab.
    2. View the SageMaker AI provided and custom hyperparameters defined.
@@ -84,6 +91,7 @@ externally or with SageMaker AI, associated with your model.
    3. View the custom hyperparameters you added.
    4. (Optional) To add an additional custom hyperparameter,
       complete the following steps.
+
       1. Above the top right corner of the **Custom
          Hyperparameters** table, choose
          **Add**. A pair of new blank fields
@@ -98,6 +106,7 @@ externally or with SageMaker AI, associated with your model.
 
 6. To update and view details related to the training job environment,
    complete the following steps.
+
    1. Choose **Environment** in the left sidebar of
       the **Train** tab.
    2. View the Amazon ECR URI locations for any training job containers
@@ -109,6 +118,7 @@ externally or with SageMaker AI, associated with your model.
 
 7. To update and view the training job name and the Amazon Resource Names
    (ARN) for the training job, complete the following steps.
+
    1. Choose **Details** in the left sidebar of the
       **Train** tab.
    2. View the training job name and ARN of the training job.

@@ -47,6 +47,7 @@ fields when you call the API:
   specify this field is 50%.
 - `ScalingPolicyObjective` – (Optional) An object
   where you specify your anticipated traffic pattern.
+
   - `MinInvocationsPerMinute` – (Optional) The
     minimum number of expected requests to your endpoint per
     minute.

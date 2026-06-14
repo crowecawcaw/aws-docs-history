@@ -12,6 +12,7 @@ The following procedure shows how to create and run a Code Editor space.
 1. Launch the updated Studio experience. For more information, see [Launch
    Amazon SageMaker Studio](studio-updated-launch.md "studio-updated-launch.md").
 2. Do one of the following:
+
    - Within the updated Amazon SageMaker Studio UI, select **Code Editor**
      from the **Applications** menu.
    - Within the updated Amazon SageMaker Studio UI, choose **View Code Editor
@@ -25,6 +26,7 @@ The following procedure shows how to create and run a Code Editor space.
 5. Choose **Create space**.
 6. After the space is created, you have some options before you choose to run the
    space:
+
    - You can edit the **Storage (GB)**, **Lifecycle
      Configuration**, or **Attach custom EFS file system**
      settings. Options for these settings are available based on administrator

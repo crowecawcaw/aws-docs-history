@@ -19,6 +19,7 @@ Studio
 6. To start an execution from the latest version, choose
    **Executions**.
 7. To start an execution from a specific version, follow these steps:
+
    - Choose the version icon in the bottom toolbar to open the version
      panel.
    - Choose the pipeline version you want to execute.
@@ -48,6 +49,7 @@ Studio Classic
 6. From the **Executions** or **Graph** tab in
    the execution list, choose **Create execution**.
 7. Enter or update the following required information:
+
    - **Name** – Must be unique to your account in the
      AWS Region.
    - **ProcessingInstanceCount** – The number of

@@ -58,6 +58,7 @@ Also note the following restrictions:
   .parquet, .parq, and .pqt for both local upload and Amazon S3 import. CSV files can use any common
   or custom delimiter, and they must not have newline characters except when denoting a new row.
 - For tabular data using Parquet files, note the following:
+
   - Parquet files can't include complex types like maps and lists.
   - The column names of Parquet files can't contain spaces.
   - If using compression, Parquet files must use either gzip or snappy compression types. For more

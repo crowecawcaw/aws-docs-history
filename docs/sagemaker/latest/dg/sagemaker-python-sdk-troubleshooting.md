@@ -44,6 +44,7 @@ parameters that you're passing to a function. Use the following list to see exam
 
 - `ValueError: either image_uri or algorithm_arn is required. None was
 provided`:
+
   - If you're using the `AlgorithmEstimator` function, provide
     the `algorithm_arn`.
   - If you're using the `Estimator` function, provide the

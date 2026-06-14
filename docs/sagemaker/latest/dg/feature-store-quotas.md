@@ -71,6 +71,7 @@ quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/lates
   event time feature with nanosecond precision. Any event time with lower than
   nanosecond precision will lead to backwards incompatibility. The feature can
   have a feature type of either String or Fractional.
+
   - A string event time is accepted in ISO-8601 format, in UTC time,
     conforming to the pattern(s): [yyyy-MM-dd'T'HH:mm:ssZ,
     yyyy-MM-dd'T'HH:mm:ss.SSSSSSSSSZ].

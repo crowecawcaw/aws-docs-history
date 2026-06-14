@@ -38,18 +38,21 @@ Studio
 9. Use the resizing and zoom controls at the top right corner of the canvas to zoom in and
    out of the graph, fit the graph to screen, or expand the graph to full screen.
 10. To view your training, validation, and test datasets, complete the following steps:
+
     1. Choose the Processing step in your pipeline graph.
     2. In the right sidebar, choose the **Overview** tab.
     3. In the **Files** section,
        find the Amazon S3 paths to the training, validation, and test datasets.
 
 11. To view your model artifacts, complete the following steps:
+
     1. Choose the Training step in your pipeline graph.
     2. In the right sidebar, choose the **Overview** tab.
     3. In the **Files** section,
        find the Amazon S3 paths to the model artifact.
 
 12. To find the model package ARN, complete the following steps:
+
     1. Choose the Register model step.
     2. In the right sidebar, choose the **Overview** tab.
     3. In the **Files** section,

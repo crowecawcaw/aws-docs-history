@@ -10,6 +10,7 @@ Before you start setting up your environment, make sure you have:
 - [Set up HyperPod training operator (v1.2+)](sagemaker-eks-operator.md "sagemaker-eks-operator.md")
 - A shared storage location. It can be an Amazon FSx file system or NFS system that's accessible from the cluster nodes.
 - Data in one of the following formats:
+
   - JSON
   - JSONGZ (Compressed JSON)
   - ARROW
@@ -38,6 +39,7 @@ aws eks update-kubeconfig --region "${CLUSTER_REGION}" --name "${CLUSTER_NAME}"
 ```
 
 5. Install dependencies using one of the following methods:
+
    - SageMaker HyperPod recipes method:
 
    ```
@@ -46,7 +48,6 @@ aws eks update-kubeconfig --region "${CLUSTER_REGION}" --name "${CLUSTER_NAME}"
    cd sagemaker-hyperpod-recipes
    pip3 install -r requirements.txt
    ```
-
    - kubectl with pre-defined job yaml method
 
    ```
@@ -129,6 +130,7 @@ The STATUS will turn to Completed when you run kubectl get pods
 Another option is to launch the training through kubectl with a pre-defined job yaml.
 
 1. update the examples/gpt_oss/launch/peft_gpt_oss_120b_checkpointless_p5.yaml
+
    - image: A Deep Learning container. To find the most recent release of the checkpointless training container, see
      [checkpointless training release notes](sagemaker-eks-checkpointless-release-notes.md "sagemaker-eks-checkpointless-release-notes.md").
    - resume.restore_config.path=<path_to_pretrained_weights>: The path to downloaded pretrained model

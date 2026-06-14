@@ -131,12 +131,12 @@ device=xm.xla_device()
 
 3. If you're using PyTorch's [Automatic Mixed
    Precision](https://pytorch.org/docs/stable/amp.html "https://pytorch.org/docs/stable/amp.html") (AMP), do the following:
+
    1. Replace `torch.cuda.amp` with the following:
 
    ```
    import torch_xla.amp
    ```
-
    2. Replace `torch.optim.SGD` and
       `torch.optim.Adam` with the following:
 
@@ -144,7 +144,6 @@ device=xm.xla_device()
    import torch_xla.amp.syncfree.Adam as adam
    import torch_xla.amp.syncfree.SGD as SGD
    ```
-
    3. Replace `torch.cuda.amp.GradScaler` with the
       following:
 

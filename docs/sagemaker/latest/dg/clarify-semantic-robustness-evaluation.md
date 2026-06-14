@@ -135,7 +135,9 @@ using the following strategies:
   the first generations into the second generation. For more information on the
   computation of WER, see the [HuggingFace article on Word
   Error Rate](https://huggingface.co/spaces/evaluate-metric/wer "https://huggingface.co/spaces/evaluate-metric/wer").
+
   - For example:
+
     - **Input 1**: “This is a cat”
     - **Input 2**: “This is a dog”
     - **Number of words that must be changed**: 1/4, or
@@ -146,8 +148,10 @@ using the following strategies:
   differences between the two generations by subtracting the BERTScore from 1. BSD may
   account for additional linguistic flexibility that isn’t included in WER because
   semantically similar sentences may be embedded closer to each other.
+
   - For example, while the WER is the same when generation 2 and generation 3 are individually
     compared to generation 1, the BSD score differs to account for the semantic meaning.
+
     - **gen1 (original input)**: `"It is pouring
 down today"`
     - **gen2 (perturbed input 1)**: `"It is my
@@ -163,8 +167,10 @@ rainy today"`
   - The following options are supported as part of the
     [GeneralSemanticRobustnessConfig](https://github.com/aws/fmeval/blob/91e675be24800a262faf8bf6e59f07522b5314ea/src/fmeval/eval_algorithms/general_semantic_robustness.py#L54C7-L54C38 "https://github.com/aws/fmeval/blob/91e675be24800a262faf8bf6e59f07522b5314ea/src/fmeval/eval_algorithms/general_semantic_robustness.py#L54C7-L54C38")
     parameter: 
+
     - `model_type_for_bertscore`: Name of the model to be used for scoring.
       BERTScore Dissimilarity currently only supports the following models:
+
       - "`microsoft/deberta-xlarge-mnli`"  (default)
       - "`roberta-large-mnli`"
 

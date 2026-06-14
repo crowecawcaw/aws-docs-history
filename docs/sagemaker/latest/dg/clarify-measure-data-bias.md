@@ -31,14 +31,17 @@ Pa(y) and Pd(y) for their respective
 facet outcomes.
 
 - labels:
+
   - y represents the n observed labels for event outcomes in a training
     dataset.
   - y' represents the predicted labels for the n observed labels in the
     dataset by a trained model.
 
 - outcomes:
+
   - A positive outcome (with value 1) for a sample, such as an application
     acceptance.
+
     - n(1) is the number of observed
       labels for positive outcomes (acceptances).
     - n'(1) is the number of predicted
@@ -46,14 +49,17 @@ facet outcomes.
 
   - A negative outcome (with value 0) for a sample, such as an application
     rejection.
+
     - n(0) is the number of observed
       labels for negative outcomes (rejections).
     - n'(0) is the number of predicted
       labels for negative outcomes (rejections).
 
 - facet values:
+
   - facet _a_ – The feature value
     that defines a demographic that bias favors.
+
     - na is the number of observed labels for
       the favored facet value: na =
       na(1) +
@@ -71,6 +77,7 @@ facet outcomes.
 
   - facet _d_ – The feature value
     that defines a demographic that bias disfavors.
+
     - nd is the number of observed labels for
       the disfavored facet value: nd =
       nd(1) +

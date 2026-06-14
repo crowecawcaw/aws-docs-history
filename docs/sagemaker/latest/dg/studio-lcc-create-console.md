@@ -178,6 +178,7 @@ domain or user profile.
 
 1. First, provide access to CloudWatch for your AWS Identity and Access Management (IAM) role. Add read
    permissions for the following log group and log stream.
+
    - Log group:`/aws/sagemaker/studio`
    - Log stream:``domain`/`user-profile`/`app-type`/`app-name`/LifecycleConfigOnStart`
 

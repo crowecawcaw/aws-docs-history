@@ -45,6 +45,7 @@ Consider the following use cases when using containers with SageMaker AI:
   container** – If you train or deploy a custom model, but
   use a framework that has a pre-built SageMaker AI container including TensorFlow and
   PyTorch, choose one of the following options:
+
   - If you don't need a custom package, and the container already
     includes all required packages: Use the pre-built Docker image
     associated with your framework. For more information, see [Pre-built SageMaker AI Docker images](docker-containers-prebuilt.md "docker-containers-prebuilt.md").
@@ -66,6 +67,7 @@ The following are use cases for extending a pre-built Docker container:
   requirements.txt** – Add all the required dependencies
   in requirements.txt. The following frameworks support using
   requirements.txt.
+
   - [TensorFlow](https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/tensorflow/using_tf.html "https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/tensorflow/using_tf.html")
   - [Chainer](https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/chainer/using_chainer.html?highlight=requirements.txt "https://sagemaker.readthedocs.io/en/v2.18.0/frameworks/chainer/using_chainer.html?highlight=requirements.txt")
   - [Sci-kit learn](https://sagemaker.readthedocs.io/en/stable/frameworks/sklearn/using_sklearn.html?highlight=requirements.txt "https://sagemaker.readthedocs.io/en/stable/frameworks/sklearn/using_sklearn.html?highlight=requirements.txt")
