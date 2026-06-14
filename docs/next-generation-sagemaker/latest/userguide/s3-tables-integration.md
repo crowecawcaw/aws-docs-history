@@ -38,6 +38,7 @@ To get started using S3 Tables in Amazon SageMaker Unified Studio you create a n
 6. In the add catalog menu, choose **S3 Tables** as the source.
 7. Enter a name for the catalog, and a database name.
 8. Choose **Create catalog**. This creates the following resources in your account:
+
    1. A new S3 Table bucket and the corresponding AWS Glue child catalog under the parent catalog `s3tablescatalog`.
    2. A new database within that AWS Glue child catalog. The database name will match the database name you provided. In S3 tables, this is the table namespace.
 
@@ -57,6 +58,7 @@ Using the Query Editor
 2. Expand the **Build** menu in the top navigation bar, then choose **Query editor**.
 3. Create a new querybook tab. A querybook is a kind of SQL notebook where you can draw from multiple engines to design and visualize data analytics solutions.
 4. Select a data source for your queries by using the menu in the upper-right corner of the querybook.
+
    1. Under **Connections**, choose **Lakehouse (Athena)** to connect to your Lakehouse resources.
    2. Under **Catalogs**, choose `s3tablescatalog/{your-table-bucket}`
    3. Under **Databases**, choose the name of the database for your S3 tables.
@@ -103,6 +105,7 @@ Using JupyterLab
 3. Create a new notebook.
 4. Select engine you want to use
 5. Select your table bucket and namespace as the data source for your queries:
+
    1. For Spark engine, execute query `USE s3tablescatalog_`example-table-bucket``
    2. For Athena or Amazon Redshift engine, use the following configure magic. For more information, see [Configure compute resources in JupyterLab](../../../sagemaker-unified-studio/latest/userguide/jupyterlab-compute-configure.md "../../../sagemaker-unified-studio/latest/userguide/jupyterlab-compute-configure.md") in the _SageMaker AI Unified Studio User Guide_.
 

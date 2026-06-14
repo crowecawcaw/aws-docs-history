@@ -40,6 +40,7 @@ approach.
 
 1. Sign in to Amazon SageMaker Unified Studio using the link that your administrator gave you.
 2. Choose a model to train by doing the following:
+
    1. From the main menu, choose **Build**.
    2. From the drop-down menu, under **Model Development**,
       choose **Jumpstart Models**.

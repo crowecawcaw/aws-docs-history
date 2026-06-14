@@ -25,6 +25,7 @@ your admin needs to enable blueprints. For more information about the blueprint 
    to an existing compute resource or create new compute resources. From there, select EMR Serverless.
 3. On the **Add Compute** screen, you'll add your compute resource's name, description, and release label. You will also be prompted to select a permission
    mode. Your options are compatibility and fine-grained.
+
    - Compatibility mode. This permission mode allows your project to be compatible with data managed using full-table access, meaning the compute engine can access all rows and columns in the data.
      Choosing this option configures your compute to work with data assets from AWS and from external systems that you connect to from your project.
    - Fine-grained mode. This option is for data managed using fine-grained access, meaning the compute engine can only access specific rows and columns from the full

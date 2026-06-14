@@ -42,12 +42,14 @@ query data across sources while administrators maintain consistent governance an
 security controls. This guide includes the following steps:
 
 1. Set up federated connections between SageMaker Lakehouse and DynamoDB.
+
    - Create connections that serve as bridges between your SageMaker Lakehouse and
      external data sources.
    - Enable seamless data access while maintaining security boundaries.
    - Learn how connections eliminate the need for data movement or duplication.
 
 2. Create federated catalogs for data discovery.
+
    - Establish catalogs that contains metadata and views about tables from your
      connected data sources.
    - Access data from the connected data source within your SageMaker Lakehouse
@@ -57,11 +59,13 @@ security controls. This guide includes the following steps:
      access.
 
 3. Implement column-level security using AWS Lake Formation
+
    - Configure fine-grained permissions for sensitive data.
    - Apply data access controls based on user roles and responsibilities.
    - Ensure consistent security policies across all data sources.
 
 4. Validate security controls through Athena queries
+
    - Test access permissions with different user personas.
    - Verify that you properly protect sensitive data.
    - Confirm that authorized users can access appropriate data.
@@ -115,7 +119,9 @@ Studio Administrator Guide_.
 - Administrator access to a data source. SageMaker Lakehouse connections support
   [several popular data sources](../../../sagemaker-unified-studio/latest/userguide/lakehouse-data-connection.md#lakehouse-data-connection-supported "../../../sagemaker-unified-studio/latest/userguide/lakehouse-data-connection.md#lakehouse-data-connection-supported"), such as Amazon DynamoDB, PostgreSQL, and [Amazon DocumentDB](https://aws.amazon.com/documentdb/ "https://aws.amazon.com/documentdb/"). In this guide, we
   use DynamoDB as the data source.
+
   - To set up data sources in DynamoDB:
+
     - You can create a new table in DynamoDB with the partition key
       `cust_id` and the sort key `zipcode` and another column
       `mobile` through [AWS CloudShell](https://aws.amazon.com/cloudshell/ "https://aws.amazon.com/cloudshell/") by using the following command:
@@ -135,7 +141,6 @@ Studio Administrator Guide_.
       --table-class STANDARD
 
     ```
-
     - You can populate the DynamoDB table with sample data by using the following
       commands:
 

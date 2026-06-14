@@ -78,6 +78,7 @@ creates playlists for a radio station and shares the dates and locations of upco
    chat agent app. The **Select or create a new project to
    continue** dialog box opens.
 2. In the **Select or create a new project to continue** dialog box, do one of the following:
+
    - If you want to use a new project, follow the instructions at
      [Step 2 - Create a new project](setting-up.md#create-new-project "setting-up.md#create-new-project"). For the **Project profile** in step 1, choose
      **Generative AI application development**.
@@ -87,6 +88,7 @@ creates playlists for a radio station and shares the dates and locations of upco
 3. On the app creation page, an untitled app will automatically be created for you. In **Untitled App - nnnn**, enter `Radio
 show` as the name for your app.
 4. In the **Configs** pane, do the following:
+
    1. For **Model**, select a model that supports
       Guardrails, Data, and Function components. The description of the
       model tells you the components that a model supports. For full
@@ -101,6 +103,7 @@ show` as the name for your app.
 chat agent app that creates 2 hour long playlists for a radio
 station that plays rock and pop music.`.
    3. In the **UI** section, update the user interface for the app by doing the following:
+
       1. In **Hint text for empty chat** enter `Hi!
 I'm your radio show playlist creator.`.
       2. In **Hint text for user input** enter
