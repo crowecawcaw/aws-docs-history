@@ -83,10 +83,12 @@ Based on the warehouse automation and optimization (WAO)
 scenario, five relevant metrics are:
 
 - Throughput efficiency:
+
   - **Primary metric:**
     Orders processed per hour compared to theoretical
     maximum
   - **Supporting metrics:**
+
     - Pick rate per automated system
     - Order fulfillment cycle time
     - Cross-dock processing speed – mainly applicable in
@@ -97,9 +99,11 @@ scenario, five relevant metrics are:
       the automated warehouse
 
 - Robotics performance:
+
   - **Primary metric:** Robot
     utilization rate and efficiency
   - **Supporting metrics:**
+
     - AGV navigation accuracy
     - Robot picking success rate
     - Mean time between robotic system failures
@@ -109,10 +113,12 @@ scenario, five relevant metrics are:
       robotics integration using AWS RoboMaker
 
 - Digital twin accuracy:
+
   - **Primary metric:**
     Percentage variance between digital twin predictions and
     actual operations
   - **Supporting metrics:**
+
     - IoT sensor data accuracy
     - Simulation model precision
     - Real-time synchronization latency
@@ -122,9 +128,11 @@ scenario, five relevant metrics are:
       implementation and simulation reliability
 
 - Edge computing performance:
+
   - **Primary metric:** Edge
     processing latency for critical operations
   - **Supporting metrics:**
+
     - AWS IoT Greengrass processing times
     - Local ML inference speed
     - Edge-to-cloud synchronization efficiency
@@ -133,9 +141,11 @@ scenario, five relevant metrics are:
       Crucial for real-time operation of automated systems
 
 - System integration health:
+
   - **Primary metric:**
     End-to-end system integration uptime
   - **Supporting metrics:**
+
     - API response times
     - Inter-system communication latency
     - Event processing success rate

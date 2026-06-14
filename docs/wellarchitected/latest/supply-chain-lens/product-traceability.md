@@ -71,9 +71,11 @@ Based on the product traceability scenario, the three relevant
 metrics are:
 
 - Data accuracy and validation:
+
   - **Primary metric:**
     Accuracy rate of extracted and validated product data
   - **Supporting metrics:**
+
     - Document extraction success rate
     - Data validation match rate
     - Certificate verification accuracy
@@ -83,9 +85,11 @@ metrics are:
       verification
 
 - Traceability response time
+
   - **Primary metric:** Time
     to trace a product's complete supply chain journey
   - **Supporting metrics:**
+
     - Data retrieval speed
     - Certificate processing time
     - Query response time for product history
@@ -95,10 +99,12 @@ metrics are:
       recalls
 
 1. Data integration completeness:
+
    - **Primary metric:**
      Percentage of supply chain events successfully captured
      and linked
    - **Supporting metrics:**
+
      - Supply chain visibility coverage
      - Partner data integration rate
      - Documentation completeness score

@@ -112,10 +112,12 @@ relevant metrics for an AWS Well-Architected Framework analysis
 are:
 
 - Incident response time:
+
   - **Primary metric**: Time
     taken to detect, respond to, and resolve supply chain
     disruptions.
   - **Supporting metrics**:
+
     - Mean Time to Detect (MTTD) supply chain anomalies
     - Mean Time to Resolve (MTTR) critical issues
     - Percentage of incidents automatically resolved
@@ -127,10 +129,12 @@ are:
       predictive maintenance and quality control
 
 - Automation rate:
+
   - **Primary metric**:
     Percentage of supply chain tasks and processes that are
     fully automated.
   - **Supporting metrics:**
+
     - Number of manual interventions required per week
     - Percentage reduction in manual data entry tasks
     - Time saved through automated processes
@@ -140,10 +144,12 @@ are:
       manual intervention
 
 - Resource utilization:
+
   - **Primary metric**:
     Percentage of available computing resources utilized
     during peak operations
   - **Supporting metrics**:
+
     - API response times under load
     - Database query performance
     - ML model inference latency
@@ -153,10 +159,12 @@ are:
       system's heavy reliance on AI/ML processing
 
 - Compliance adherence:
+
   - **Primary metric**:
     Percentage of workflows that meet regulatory and quality
     control requirements
   - **Supporting metrics:**
+
     - Number of compliance violations detected and
       prevented
     - Percentage of quality control checks automated

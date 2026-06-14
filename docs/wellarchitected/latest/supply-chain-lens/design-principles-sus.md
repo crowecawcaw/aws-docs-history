@@ -50,6 +50,7 @@ environmental impact.
   data collection like carbon emissions and greenhouse gas
   metrics by building integrations with partners like freight
   forwarders and transportation companies, where applicable:
+
   - All the time-consuming tasks to reduce the usage time of a
     required AWS resource, to collect data for peaks and
     valleys analysis to enable automatic scalability based on

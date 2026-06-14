@@ -147,6 +147,7 @@ the three recommended metrics for an AWS
 Well-Architected Framework analysis, along with their rationale are:
 
 1. Simulation accuracy:
+
    - **Metric**: Percentage
      accuracy of simulations predicting the impact of changes in
      transportation strategies.
@@ -162,6 +163,7 @@ Well-Architected Framework analysis, along with their rationale are:
      Performance efficiency and reliability.
 
 2. Route optimization savings:
+
    - **Metric**: Dollar savings
      achieved through last-mile and middle-mile route
      optimizations.
@@ -174,9 +176,11 @@ Well-Architected Framework analysis, along with their rationale are:
      Cost optimization and performance efficiency.
 
 3. Frequency of emergency responses:
+
    - **Metric**: Number of
      emergency responses or corrective actions triggered by the
      application. For Example:
+
      - Supply chain disruptions like weather, political, labor
        or other developments impacting logistics or trade
        routes.

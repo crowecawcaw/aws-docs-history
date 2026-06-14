@@ -73,6 +73,7 @@ Framework scenario, the relevant metrics that provide valuable
 insights for measuring success and performance are:
 
 - Data accuracy:
+
   - **Metric**: Percentage of
     accurate data transfers.
   - **Rationale**: Critical
@@ -83,6 +84,7 @@ insights for measuring success and performance are:
   - Aligns with the need for trusted data.
 
 - System downtime:
+
   - **Metric**: System uptime
     percentage.
   - **Rationale**: Essential
@@ -94,6 +96,7 @@ insights for measuring success and performance are:
     operations.
 
 - Response time:
+
   - **Metric**: Average
     response time.
   - **Rationale**: Crucial
@@ -104,6 +107,7 @@ insights for measuring success and performance are:
     scenario.
 
 - Security:
+
   - **Metric**: Number of
     security incidents and compliance adherence.
   - **Rationale**: Essential

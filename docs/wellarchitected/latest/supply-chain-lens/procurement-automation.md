@@ -94,6 +94,7 @@ Three recommended metrics for the procurement automation
 scenario are:
 
 - Supplier performance score:
+
   - **What**: Measures
     overall supplier effectiveness and reliability
   - **Why**: Directly tracks
@@ -103,12 +104,14 @@ scenario are:
     performance rating
   - **Calculation**: Weighted
     average of:
+
     - Delivery accuracy (30%)
     - Quality compliance (30%)
     - Response time (20%)
     - Policy compliance (20%)
 
 - SLA compliance rate:
+
   - **What**: Measures
     system's ability to meet service level agreements
   - **Why**: Critical for
@@ -116,12 +119,14 @@ scenario are:
   - **Target**: 98% or higher
     compliance
   - **Key components:**
+
     - Document processing time
     - Order accuracy
     - System availability
     - Response times
 
 - Perfect order rate:
+
   - **What**: Measures
     end-to-end procurement success
   - **Why**: Validates
@@ -129,6 +134,7 @@ scenario are:
   - **Target**: 99% or higher
     perfect orders
   - **Success criteria:**
+
     - Correct documentation
     - On-time processing
     - Accurate fulfillment

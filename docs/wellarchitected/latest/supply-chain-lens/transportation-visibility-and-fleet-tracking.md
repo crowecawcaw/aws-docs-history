@@ -115,9 +115,11 @@ Based on the transportation visibility and fleet tracking
 scenario, the four most relevant metrics are:
 
 - Real-time tracking accuracy:
+
   - **Primary metric:**
     Location data accuracy and update frequency
   - **Supporting metrics:**
+
     - GPS position accuracy
     - Location update latency
     - Geofence detection reliability
@@ -127,9 +129,11 @@ scenario, the four most relevant metrics are:
       tracking
 
 - ELD compliance performance:
+
   - **Primary metric:** Hours
     of service (HoS) compliance rate
   - **Supporting metrics:**
+
     - Driver violation incidents
     - Rest period adherence
     - Data logging reliability
@@ -138,9 +142,11 @@ scenario, the four most relevant metrics are:
       Critical for regulatory compliance and driver safety
 
 - Route optimization efficiency:
+
   - **Primary metric:**
     Delivery efficiency improvement percentage
   - **Supporting metrics:**
+
     - Fuel consumption reduction
     - On-time delivery rate
     - Route completion time
@@ -149,9 +155,11 @@ scenario, the four most relevant metrics are:
       Measures operational efficiency and cost savings
 
 - System integration reliability:
+
   - **Primary metric:**
     End-to-end system uptime and data flow reliability
   - **Supporting metrics:**
+
     - API response times
     - Device connectivity rates
     - Data synchronization success
