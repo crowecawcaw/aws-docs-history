@@ -5,10 +5,13 @@
 Before starting data onboarding, ensure you have:
 
 - Amazon Connect Decisions Instance
+
   - Your instance should already be created with an associated S3 bucket
 
 - Data Prepared
+
   - Work with your Customer Success counterpart to determine which data you need based on how you plan to use Amazon Connect Decisions. Base data requirements include:
+
     - Sales/Order History: 12+ months of transaction records
     - Product Details: Complete product catalog with specifications
     - Site/Location Information: Warehouses, distribution centers, retail locations
@@ -114,6 +117,7 @@ Navigating back to the **Sources** tab you can find:
 - The source dataset that has been created
 - Its associated S3 bucket
 - Options to:
+
   - Append more source data via another file upload
   - Manage the flow
   - Delete the flow

@@ -68,6 +68,7 @@ filter by any of the following columns:
 - **ID**: Unique identifier for the validation
   error
 - **Status**
+
   - **Open**: Error has not been
     resolved
   - **Resolved**: Error has been fixed and
@@ -76,6 +77,7 @@ filter by any of the following columns:
 - **Description**: Explanation of the data quality
   issue
 - **Issue Type**
+
   - **Missing required data**: Mandatory data
     is not provided to trigger an operation (e.g., no
     outbound_order_line source table for Supply Plan)
@@ -90,6 +92,7 @@ filter by any of the following columns:
 
 - **Capability**: The affected capability or
   resource
+
   - Supply Plan
   - Demand Plan
   - Insight (includes Exceptions, Recommendations, and RCA for Supply or
@@ -97,6 +100,7 @@ filter by any of the following columns:
 
 - **Destination**: Impacted destination flow
 - **Priority**
+
   - **Critical**: At least one capability is
     fully blocked and cannot execute
   - **High**: At least one capability is
@@ -136,6 +140,7 @@ From the error detail screen, you can:
    affected
 3. Follow the specific recommendation provided for remediation
 4. Choose an appropriate action:
+
    - **For configuration issues**: Work
      with your managers and planners to adjust the metric, rule, or plan
      configuration

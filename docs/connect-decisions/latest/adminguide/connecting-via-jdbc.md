@@ -32,34 +32,41 @@ Before connecting your database to CodeDeploy, you'll need to set up encryption 
 ### Create Your KMS Key
 
 1. **Navigate to AWS KMS Console**
+
    1. Open the AWS Management Console in your browser
    2. In the search bar at the top, type "KMS" and select "Key Management Service" from the results
    3. This opens the AWS KMS dashboard where you'll manage encryption keys
 
 2. **Initiate key creation**
+
    1. On the AWS KMS dashboard, locate and click the **Create key** button in the upper right
    2. This starts the key creation wizard that will guide you through the setup process
 
 3. **Configure key type and usage**
+
    1. On the "Configure key" page, select **Symmetric** as the key type (this is the default and recommended option)
    2. Keep "Encrypt and decrypt" selected under key usage
 
 4. **Set key identification details**
+
    1. In the "Alias" field, enter a descriptive name for your key, such as `aws-supply-chain-database-key`
    2. In the "Description" field, add context like "Encryption key for CodeDeploy database credentials"
    3. Optionally, add tags to help organize and track your AWS resources (e.g., Key: "Project", Value: "CodeDeploy")
 
 5. **Define key administrative permissions**
+
    1. Select the IAM users or roles who should be able to manage this key (create, delete, modify policies)
    2. At minimum, include your own Admin role to ensure you can modify the key later if needed
    3. These administrators can manage the key but won't automatically have permission to use it for encryption/decryption
    4. On the "Key Deletion" section, allow key administrators to delete this key (this is the default and recommended option)
 
 6. **Define key usage permissions**
+
    1. On this page, you'll see options to select IAM users and roles that can use the key
    2. Skip selecting specific users here, you'll configure service permissions in the next step
 
 7. **Configure the key policy for CodeDeploy services**
+
    1. You'll see a policy editor with default JSON
    2. In the AWS KMS key policy editor, append the following statement to your existing "Statement" array
    3. This policy grants your account full control and allows CodeDeploy's services (SageMaker AI and AWS Glue) to decrypt your database credentials
@@ -82,6 +89,7 @@ Before connecting your database to CodeDeploy, you'll need to set up encryption 
 ```
 
 8. **Review and finalize**
+
    1. Review all your configuration settings on the summary page
    2. Verify that your alias, description, and policy are correct
    3. Click **Finish** to create the key
@@ -98,10 +106,12 @@ Now that you have a AWS KMS key, you'll create a secret in to securely store you
 ### Create Your Secret
 
 1. **Navigate to**
+
    1. In the AWS Management Console search bar, type "Secrets Manager"
    2. Select "Secrets Manager" from the results to open the service dashboard
 
 2. **Start creating a new secret**
+
    1. Click the **Store a new secret** button
    2. On the "Choose secret type" page, select **Other type of secret** (this gives you flexibility to structure your credentials)
 
@@ -118,16 +128,19 @@ Key: database, Value: your database name
 ```
 
 4. **Select your encryption key**
+
    1. Under "Encryption key," select **Choose an AWS KMS key**
    2. From the dropdown, select the AWS KMS key you created in the previous step (e.g., `aws-supply-chain-database-key`)
    3. This ensures your credentials are encrypted with your customer-managed key
 
 5. **Name your secret**
+
    1. Enter a descriptive name for your secret, such as `aws-supply-chain-production-database`
    2. Optionally, add a description like "Database credentials for CodeDeploy production environment"
    3. Add tags if desired for organization (e.g., Key: "Environment", Value: "Production")
 
 6. **Add Resource Permissions**
+
    1. Click "Edit Permissions". In the policy editor, paste the following policy. This policy allows CodeDeploy's services to read your secret.
 
 ```
@@ -145,25 +158,30 @@ Key: database, Value: your database name
 ```
 
 7. **Save the policy**
+
    1. Click **Save** to apply the resource policy
    2. The policy is now active and allows CodeDeploy to retrieve your database credentials
 
 8. **Configure rotation (optional)**
+
    1. For this setup, you can skip automatic rotation by selecting **Disable automatic rotation**
    2. You can enable rotation later if your security policies require it
 
 9. **Review and create**
+
    1. Review all your secret details
    2. Click **Store** to create the secret
    3. You'll be returned to the SageMaker AI dashboard
 
 10. **Save your Secret ARN**
+
     1. Find your newly created secret in the secrets list
     2. Click on the secret name to open its details page
     3. At the top, you'll see the Secret ARN
     4. Copy and save this ARN. The ARN format looks like: `arn:aws:secretsmanager:us-east-1:123456789012:secret:aws-supply-chain-production-database-AbCdEf`
 
 11. **Edit Resource Permissions**
+
     1. Click "Edit permissions"
     2. Paste the copied Secret ARN and replace `<COPY-THE-SECRET-ARN-HERE-AFTER-CREATING>` with your copied ARN
     3. Click **Save** to attach the policy
@@ -179,6 +197,7 @@ With your AWS KMS key and secret configured, you're ready to establish the JDBC 
 ### Configure Your JDBC Connection
 
 1. **Navigate to CodeDeploy > Data Management**
+
    1. Log into your CodeDeploy instance
    2. From the main navigation, select "Data Management"
    3. Within the tab navigation, navigate to "Connections"
@@ -211,12 +230,15 @@ With your AWS KMS key and secret configured, you're ready to establish the JDBC 
     4. You can also use the chat experience to help troubleshoot connection issues by asking questions like "Why is my database connection failing?" or "Help me debug my JDBC connection"
 
 4. **Select tables to ingest**
+
    1. Once connected, you'll see the Select Tables screen showing all available tables from your database
    2. Select the checkbox next to each table you want to ingest
 
 5. **Configure table refresh schedule**
+
    1. For each selected table, click the three-dot menu in the Action column and select "Schedule refresh"
    2. In the Configure load details dialog, set:
+
       - **Cadence:** How often to refresh (Hourly, Daily, Weekly, or Custom)
       - **Start hour:** The time for refresh to begin (displayed in UTC with your timezone offset)
       - **Refresh type:** Choose Complete refresh (replace all data) or Incremental update (add new data to existing; requires selecting a Record timestamp column)

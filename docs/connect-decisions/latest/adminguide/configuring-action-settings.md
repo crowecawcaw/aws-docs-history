@@ -25,6 +25,7 @@ you accept the specific recommendation.
 2. Select the `Actions` tab
 3. Find the action type you wish to configure in the listing
 4. To enable support for the action type:
+
    - Select one of the connections listed in the dropdown menu for that
      action type
    - Note: the dropdown will display only the available connections that have
@@ -32,6 +33,7 @@ you accept the specific recommendation.
      (e.g.: `SAP S/4HANA`)
 
 5. To disable support for the action type:
+
    - Select `No connection` in the dropdown menu for that action
      type
 

@@ -13,6 +13,7 @@ connection parameters and the credentials Amazon Connect Decisions should use du
 1. Using your account, use [Secrets Manager](../../../secretsmanager.md "../../../secretsmanager.md")
    to [Create
    an Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md")
+
    - When entering the credentials in Secrets Manager, replace the placeholder
      values below (`<username>` and `<password>`)
      with the actual username and password that Amazon Connect Decisions should use
@@ -20,6 +21,7 @@ connection parameters and the credentials Amazon Connect Decisions should use du
      `Secret Type`
    - If entering the details through the `Key/value pairs` tab in the
      console, enter 2 pairs:
+
      - Key: `username`; Value: `<`username`>`
      - Key: `password`; Value: `<`password`>`
 
@@ -37,6 +39,7 @@ connection parameters and the credentials Amazon Connect Decisions should use du
    need it in subsequent steps
 3. Once your secret is created, take note of its Amazon Resource Name (ARN), as you
    will need it in subsequent steps
+
    - e.g.: `arn:aws:secretsmanager:<Region>:<AccountId>:secret:<SecretName>-<SixRandomCharacters>`
 
 ## Configure permissions on the KMS Key
@@ -45,6 +48,7 @@ You need to provide the permissions necessary for Amazon Connect Decisions to ac
 
 1. Update your KMS policy to allow Amazon Connect Decisions to access your key through the
    instance role
+
    - Note: Replace `<YourAccountNumber>` and
      `<YourInstanceID>` with your AWS account and
      Amazon Connect Decisions Instance ID.
@@ -70,6 +74,7 @@ You need to provide the permissions necessary for Amazon Connect Decisions to ac
 ```
 
 2. Update the inline policy for your instance role to grant permission on the key
+
    - Note: Replace `<YourSecretArn>`,
      `<YourAccountNumber>` and
      `<YourInstanceID>` with your Secret ARN, AWS account
@@ -101,6 +106,7 @@ You need to provide the permissions necessary for Amazon Connect Decisions to ac
 ## Update the Secrets Manager resource policy for your Secret
 
 1. Update the Secrets Manager resource Policy for your Secret
+
    - Note: Replace `<YourSecretArn>` with the ARN of your Secret
 
 ```
@@ -131,6 +137,7 @@ You need to provide the permissions necessary for Amazon Connect Decisions to ac
    on the row for `SAP S/4HANA` connector type
 5. In the `Configure SAP S/4HANA API Connector` page enter the necessary
    information:
+
    - `Connection Name`: unique connection name
    - `API Endpoint URL`: the OData API endpoint URL of your SAP
      S/4HANA instance (e.g.: `https://<hostname>:<port>`)
