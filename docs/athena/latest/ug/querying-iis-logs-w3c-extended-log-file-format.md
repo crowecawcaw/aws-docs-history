@@ -26,6 +26,7 @@ that Athena can read the log data.
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 2. Paste a DDL statement like the following into the Athena console, noting
    the following points:
+
    1. Add or remove the columns in the example to correspond to the
       fields in the logs that you want to query.
    2. Column names in the W3C extended log file format contain hyphens

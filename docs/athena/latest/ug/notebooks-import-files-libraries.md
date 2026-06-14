@@ -391,6 +391,7 @@ adding: piglatin-1.0.6.dist-info/METADATA (deflated 48%)
 
 7. (Optional) Use the following commands to test the import
    locally.
+
    1. Set the Python path to the `library.zip`
       file location and start Python.
 
@@ -406,7 +407,6 @@ adding: piglatin-1.0.6.dist-info/METADATA (deflated 48%)
    [Clang 12.0.0 (clang-1200.0.32.29)] on darwin
    Type "help", "copyright", "credits" or "license" for more information.
    ```
-
    2. Import the library and run a test command.
 
    ```
@@ -551,6 +551,7 @@ unpacked $ zip -r9 ../md2gemini *
 
 6. (Optional) Use the following commands to test that the library works
    on your local computer.
+
    1. Set the Python path to the `md2gemini.zip`
       file location and start Python.
 
@@ -558,7 +559,6 @@ unpacked $ zip -r9 ../md2gemini *
    /home $ PYTHONPATH=/tmp/testmd2gemini/md2gemini.zip
    /home python3
    ```
-
    2. Import the library and run a test.
 
    ```

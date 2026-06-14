@@ -25,11 +25,13 @@ about the OpenCSV SerDe, see [Open CSV SerDe for processing CSV](csv-serde.md "c
    **Actions**, **Edit table**.
 3. On the **Edit table** page, make the following
    changes:
+
    - For **Serialization lib**, enter
      `org.apache.hadoop.hive.serde2.OpenCSVSerde`.
    - For **Serde parameters**, enter the following values
      for the keys `escapeChar`, `quoteChar`, and
      `separatorChar`:
+
      - For `escapeChar`, enter a backslash
        (`\`).
      - For `quoteChar`, enter a double quote

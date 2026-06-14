@@ -32,6 +32,7 @@ Athena.
    settings**, fill in the required information. The minimum required
    settings include the following. For information about the remaining configurable
    options for data connectors built by Athena, see the corresponding [Available connectors](https://github.com/awslabs/aws-athena-query-federation/wiki/Available-Connectors "https://github.com/awslabs/aws-athena-query-federation/wiki/Available-Connectors") topic on GitHub.
+
    - **AthenaCatalogName** – A name for the Lambda
      function in lower case that indicates the data source that it targets,
      such as `cloudwatchlogs`.

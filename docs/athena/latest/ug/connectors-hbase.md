@@ -167,6 +167,7 @@ conventions is optional but not required.
 
 1. When you edit the table and database in the AWS Glue console, add the following
    table properties:
+
    - hbase-metadata-flag – This property indicates to the HBase connector that the connector can use the table for supplemental metadata. You can provide any value for `hbase-metadata-flag` as long as the `hbase-metadata-flag` property is present in the list of table properties.
    - hbase-native-storage-flag – Use
      this flag to toggle the two value serialization modes supported by the

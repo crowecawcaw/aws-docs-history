@@ -58,6 +58,7 @@ For information about estimating your capacity requirements, see [Determine capa
 - If your capacity is busy serving other queries, newly submitted queries are queued until capacity is available. The maximum allowed time in queue is 10 hours.
 - A workgroup can be assigned to one capacity reservation at a time. You can assign a total of 20 workgroups to a single reservation. When you assign multiple workgroups to a reservation, capacity is shared across workgroups and allocated to queries based on their submission order. There may be variation in execution order due to how Athena dynamically allocates capacity to queries.
 - Athena automatically allocates between 4 and 124 DPUs to DML queries based on their complexity. DDL queries consume 4 DPUs each. Refer to the following topics for more information:
+
   - [Determine capacity requirements](capacity-management-requirements.md "capacity-management-requirements.md")
   - [Control capacity usage](capacity-management-control-capacity-usage.md "capacity-management-control-capacity-usage.md")
 
@@ -73,6 +74,7 @@ For information about estimating your capacity requirements, see [Determine capa
   workgroup from the reservation first.
 - Workgroups configured to use Apache Spark are not supported.
 - Capacity reservations is not available in the following commercial AWS Regions:
+
   - Israel (Tel Aviv)
   - Middle East (UAE)
   - Middle East (Bahrain)

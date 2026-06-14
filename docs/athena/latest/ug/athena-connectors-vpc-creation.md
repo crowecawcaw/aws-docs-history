@@ -39,6 +39,7 @@ source connector for use with Athena.
 2. Choose **Create security group**.
 3. On the **Create security group** page, enter the following
    information:
+
    - For **Security group name**, enter a name for your
      security group.
    - For **Description**, enter a description for the security

@@ -77,6 +77,7 @@ canceled. Canceled queries are charged according to [Amazon Athena pricing](http
 4. On the **Execution controls** tab, choose
    **Edit controls**.
 5. Edit the value for **Data scanned limit**.
+
    - Specify a value between 10 MB (minimum) and 7 EB (maximum).
    - Select a unit value from the drop-down list (for example, **Kilobytes KB** or **Exabytes
      EB**).
@@ -108,6 +109,7 @@ reached.
 7. Choose **Add alert**.
 8. For **Data usage threshold configuration**, specify
    values as follows:
+
    - For **Data threshold**, specify a number, and
      then select a unit value from the drop-down list.
    - **For Time period**, choose a time period

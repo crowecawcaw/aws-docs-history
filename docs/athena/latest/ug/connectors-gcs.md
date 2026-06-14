@@ -160,6 +160,7 @@ with the GCS connector, you must specify additional metadata.
    table**.
 3. On the **Set table properties** page, enter the following
    information.
+
    - Name – A unique name for the
      table.
    - Database – Choose the AWS Glue

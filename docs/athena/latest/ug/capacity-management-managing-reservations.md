@@ -14,6 +14,7 @@ reservations.
 3. Choose **Administration**, **Capacity
    reservations**.
 4. On the capacity reservations page, you can perform the following tasks:
+
    - To create a capacity reservation, choose **Create
      capacity reservation**.
    - Use the search box to filter reservations by name or number of

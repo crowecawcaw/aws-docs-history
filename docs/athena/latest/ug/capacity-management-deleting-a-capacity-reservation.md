@@ -14,6 +14,7 @@ referenced, including by its ARN.
 3. Choose **Administration**, **Capacity
    reservations**.
 4. In the list of capacity reservations, do one of the following:
+
    - Select the button next to the cancelled reservation, and then
      choose **Actions**,
      **Delete**.

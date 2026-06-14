@@ -19,6 +19,7 @@ Maven](https://maven.apache.org/ "https://maven.apache.org/") project that has t
   need to change this package.
 - `**hms-lambda-func**` – An example Lambda
   function that has the following components.
+
   - `**HiveMetaStoreLambdaFunc**` – An
     example Lambda function that extends `MetadataHandler`.
   - `**ThriftHiveMetaStoreClient**` – A
@@ -31,6 +32,7 @@ Maven](https://maven.apache.org/ "https://maven.apache.org/") project that has t
     `getHandlerProvider()` method.
   - `hms.properties` – Configures the Lambda function. Most
     cases require updating the following two properties only.
+
     - `hive.metastore.uris` – the URI of the Hive
       metastore in the format
       `thrift://`<host_name>`:9083`.

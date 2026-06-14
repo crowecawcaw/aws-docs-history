@@ -21,6 +21,7 @@ the output of the [ListDataCatalogs](../APIReference/API_ListDataCatalogs.md "..
 ###### To edit a data source
 
 1. On the **Data sources and catalogs** page, do one of the following:
+
    - Select the button next to the catalog name, and then choose
      **Actions**, **Edit**.
    - Choose the name of the data source. Then on the details page, choose
@@ -45,6 +46,7 @@ For information about sharing data sources, visit the following links.
 ###### To delete a data source
 
 1. On the **Data sources and catalogs** page, do one of the following:
+
    - Select the button next to the catalog name, and then choose
      **Actions**, **Delete**.
    - Choose the name of the data source, and then, on the details page, choose

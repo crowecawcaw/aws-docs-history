@@ -12,6 +12,7 @@ The Windows system you use must meet the following requirements:
 
 - You have administrator rights
 - One of the following operating systems:
+
   - Windows 11, 10, or 8.1
   - Windows Server 2019, 2016, or 2012
   - Supported processor architecture: x86_64
@@ -69,6 +70,7 @@ connect to and query Amazon Athena.
 3. In the **Name** column, verify that **Amazon Athena ODBC
    (x64)** is present.
 4. Do one of the following:
+
    - To configure the driver for all users on the computer, choose the
      **System DSN** tab. Because applications that use a
      different account to load data might not be able to detect user DSNs
@@ -88,6 +90,7 @@ connect to and query Amazon Athena.
    **Finish**.
 7. In the **Amazon Athena ODBC Configuration** dialog box, enter the
    following information. For detailed information about these options, see [Main ODBC 2.x connection parameters](odbc-v2-driver-main-connection-parameters.md "odbc-v2-driver-main-connection-parameters.md").
+
    - For **Data Source Name**, enter a name that you want
      to use to identify the data source.
    - For **Description**, enter a description to help you
@@ -112,6 +115,7 @@ connect to and query Amazon Athena.
 8. To specify configuration options for IAM authentication, choose
    **Authentication Options.**
 9. Enter the following information:
+
    - For **Authentication Type**, choose **IAM
      Credentials**. This is the default. For more information
      about available authentication types, see [Authentication options](odbc-v2-driver-authentication-options.md "odbc-v2-driver-authentication-options.md").

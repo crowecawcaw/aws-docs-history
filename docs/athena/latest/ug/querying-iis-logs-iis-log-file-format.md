@@ -24,6 +24,7 @@ that Athena can read the log data.
    [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/home "https://console.aws.amazon.com/athena/home").
 2. Paste the following DDL statement into the Athena console, noting the
    following points:
+
    1. To specify the comma delimiter, use `FIELDS TERMINATED BY
 ','`.
    2. Modify the values in LOCATION

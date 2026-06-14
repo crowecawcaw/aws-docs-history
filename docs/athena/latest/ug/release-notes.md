@@ -1971,6 +1971,7 @@ Athena announces the following fixes and improvements.
 
 - Fixed an issue in the [partition indices and filtering feature](https://aws.amazon.com/blogs/big-data/improve-amazon-athena-query-performance-using-aws-glue-data-catalog-partition-indexes/ "https://aws.amazon.com/blogs/big-data/improve-amazon-athena-query-performance-using-aws-glue-data-catalog-partition-indexes/") with the partition cache
   that occurred when the following conditions were met:
+
   - The `partition_filtering.enabled` key was set to
     `true` in the AWS Glue table properties for a table.
   - The same table was used multiple times with different partition filter
@@ -2022,12 +2023,14 @@ following changes:
   driver page](connect-with-jdbc.md "connect-with-jdbc.md").
 - Updated Log4j libraries – The JDBC
   driver now uses the following Log4j libraries:
+
   - Log4j-api 2.17.1 (previously 2.17.0)
   - Log4j-core 2.17.1 (previously 2.17.0)
   - Log4j-jcl 2.17.2
 
 - Other improvements – The new driver also
   includes the following improvements and bug fixes:
+
   - The Athena prepared statements feature is now available through JDBC.
     For information about prepared statements, see [Use parameterized queries](querying-with-prepared-statements.md "querying-with-prepared-statements.md").
   - Athena JDBC SAML federation is now functional for the
@@ -2048,6 +2051,7 @@ Athena announces the following fixes and improvements.
   Asia Pacific (Hong Kong), Middle East (Bahrain), Africa (Cape Town), and
   Europe (Milan). Cross-region querying is not supported in the
   China Regions.
+
   - For a list of AWS Regions in which Athena is available, see [Amazon Athena
     endpoints and quotas](../../../general/latest/gr/athena.md "../../../general/latest/gr/athena.md").
   - For information about enabling an AWS Region that is disabled by
@@ -2066,6 +2070,7 @@ Athena announces the following fixes and improvements.
   failures when writing Iceberg Parquet files larger than 2GB.
 - Uncompressed output – [CREATE TABLE](create-table.md "create-table.md") statements now support writing uncompressed
   files. To write uncompressed files, use the following syntax:
+
   - CREATE TABLE (text file or JSON) – In
     `TBLPROPERTIES`, specify `write.compression =
 NONE`.
@@ -2187,6 +2192,7 @@ Athena announces the following engine feature enhancements.
   improvement for queries that have only disjunct values for each partition column
   on the filter.
 - Partition projection enhancements
+
   - Multiple disjunct values are now allowed on the filter condition for
     columns of the `injected` type. For more information, see
     [Injected type](partition-projection-supported-types.md#partition-projection-injected-type "partition-projection-supported-types.md#partition-projection-injected-type").
@@ -2290,6 +2296,7 @@ factor`** when you use `DISTINCT` queries, choose
   improved performance and memory usage by keeping only the count without row
   buffering.
 - Introduced the following string functions.
+
   - `translate(source, from, to)` – Returns the
     `source` string with the characters found in the
     `from` string replaced by the corresponding characters in
@@ -2472,6 +2479,7 @@ Athena announces the following new features and improvements.
 - Improved broadcast join performance by applying dynamic partition pruning
   in the worker node.
 - For federated queries:
+
   - Altered configuration to reduce the occurrence of
     `CONSTRAINT_VIOLATION` errors in federated
     queries.
@@ -3643,6 +3651,7 @@ time you reference the view in your query. For more information, see [Work with 
   added by the AWS Glue Crawler. For more information, see [Handle schema updates](handling-schema-updates-chapter.md "handling-schema-updates-chapter.md").
 - Added parsing support for `SHOW VIEWS`.
 - Made the following improvements to most common error messages:
+
   - Replaced an **`Internal Error`** message with a
     descriptive error message when a SerDe fails to parse the column in
     an Athena query. Previously, Athena issued an internal error in cases
@@ -3904,6 +3913,7 @@ with encryption support, improvements, and bug fixes.
 #### Features
 
 - Added the following encryption features:
+
   - Support for querying encrypted data in Amazon S3.
   - Support for encrypting Athena query results.
 
@@ -3980,6 +3990,7 @@ tables.
 #### Features
 
 - **Introduced support for new SerDes:**
+
   - [Avro SerDe](avro-serde.md "avro-serde.md")
   - [Open CSV SerDe for processing CSV](csv-serde.md "csv-serde.md")
 

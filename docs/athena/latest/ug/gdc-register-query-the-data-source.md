@@ -19,6 +19,7 @@ SELECT * FROM "my_catalog/my_subcatalog".my_database.my_table
 ```
 
 - You can also do this through the AWS Management Console.
+
   1.  Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/ "https://console.aws.amazon.com/athena/")
   2.  In the query editor, for **Data source**, choose
       **AwsDataCatalog**.

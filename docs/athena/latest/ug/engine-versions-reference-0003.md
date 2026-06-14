@@ -12,6 +12,7 @@ features](https://aws.amazon.com/blogs/big-data/upgrade-to-athena-engine-version
 
 - [Get started](#engine-versions-reference-0003-getting-started "#engine-versions-reference-0003-getting-started")
 - [Improvements and new features](#engine-versions-reference-0003-improvements-and-new-features "#engine-versions-reference-0003-improvements-and-new-features")
+
   - [Added Features](#engine-versions-reference-0003-added-features "#engine-versions-reference-0003-added-features")
   - [Added Functions](#engine-versions-reference-0003-added-functions "#engine-versions-reference-0003-added-functions")
   - [Performance improvements](#engine-versions-reference-0003-performance-improvements "#engine-versions-reference-0003-performance-improvements")
@@ -20,6 +21,7 @@ features](https://aws.amazon.com/blogs/big-data/upgrade-to-athena-engine-version
   - [Data format and data type enhancements](#engine-versions-reference-0003-data-format-and-data-type-enhancements "#engine-versions-reference-0003-data-format-and-data-type-enhancements")
 
 - [Breaking changes](#engine-versions-reference-0003-breaking-changes "#engine-versions-reference-0003-breaking-changes")
+
   - [Query syntax changes](#engine-versions-reference-0003-syntax-changes "#engine-versions-reference-0003-syntax-changes")
   - [Data processing changes](#engine-versions-reference-0003-data-processing-changes "#engine-versions-reference-0003-data-processing-changes")
   - [Timestamp changes](#engine-versions-reference-0003-timestamp-changes "#engine-versions-reference-0003-timestamp-changes")

@@ -51,6 +51,7 @@ Settings** section, enter the following values:
 
 8. For **Attribute Statements (optional)**, enter the following
    two name/value pairs. These are required mapping attributes.
+
    - For **Name**, enter the following URL:
 
    `https://aws.amazon.com/SAML/Attributes/Role`

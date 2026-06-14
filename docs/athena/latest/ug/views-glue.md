@@ -85,6 +85,7 @@ only reference Lake Formation managed tables`** occurs. For
   metastores.
 - Athena displays an error message when it detects stale views. A stale view is
   reported when one of the following occurs:
+
   - The view references tables or databases that do not exist.
   - A schema or metadata change is made in a referenced table.
   - A referenced table is dropped and recreated with a different schema or

@@ -78,6 +78,7 @@ only (for example, s3://amzn-s3-demo-bucket/logs/). 6. For **Data Format**, choo
 7. For **SerDe properties**, add, edit, or remove properties and
    values according to the SerDe library that you are using and your
    requirements.
+
    - To add a SerDe property, choose **Add SerDe
      property**.
    - In the **Name** field, enter the name of the property.
@@ -86,6 +87,7 @@ only (for example, s3://amzn-s3-demo-bucket/logs/). 6. For **Data Format**, choo
 
 8. For **Table properties**, choose or edit the table properties
    according to your requirements.
+
    - For **Write compression**, choose a compression option.
      The availability of the write compression option and of the compression
      options available depends on the data format. For more information, see
@@ -97,6 +99,7 @@ only (for example, s3://amzn-s3-demo-bucket/logs/). 6. For **Data Format**, choo
 
 9. For **Column details**, enter the names and data types of the
    columns that you want to add to the table.
+
    - To add more columns one at a time, choose **Add a
      column**.
    - To quickly add more columns, choose **Bulk add columns**.
@@ -114,6 +117,7 @@ only (for example, s3://amzn-s3-demo-bucket/logs/). 6. For **Data Format**, choo
     that have rows that you want to group together, and then put those rows into
     multiple buckets. This allows you to query only the bucket that you want to read
     when the bucketed columns value is specified.
+
     - For **Buckets**, select one or more columns that have a
       large number of unique values (for example, a primary key) and that are
       frequently used to filter the data in your queries.

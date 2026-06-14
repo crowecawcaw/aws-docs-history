@@ -41,6 +41,7 @@ steps.
 
 1. Launch Power BI Desktop.
 2. Do one of the following:
+
    - Choose **File**, **Get Data**
    - From the **Home** ribbon, choose **Get
      Data**.

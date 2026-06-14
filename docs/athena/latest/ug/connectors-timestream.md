@@ -108,6 +108,7 @@ AWS Glue.
 
 1. Edit the table in the AWS Glue console to add the following table
    properties:
+
    - timestream-metadata-flag – This property indicates to the Timestream connector that the connector can use the table for supplemental metadata. You can provide any value for `timestream-metadata-flag` as long as the `timestream-metadata-flag` property is present in the list of table properties.
    - \_view_template – When you use
      AWS Glue for supplemental metadata, you can use this table property and

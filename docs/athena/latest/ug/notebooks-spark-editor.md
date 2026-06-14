@@ -86,6 +86,7 @@ options:
   current notebook by interrupting the kernel.
 - Format option – Selects the cell format,
   which can be one of the following:
+
   - Code – Use for Python code (the
     default).
   - Markdown – Use for entering text

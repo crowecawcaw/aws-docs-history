@@ -94,6 +94,7 @@ reservation or increase its workload, and then observe the results.
 ###### To check for idle capacity
 
 1. Do one of the following:
+
    - Reduce the number of DPUs in your reservation (reduce the resources
      available)
    - Add workgroups to your reservation (increase the workload)
@@ -101,6 +102,7 @@ reservation or increase its workload, and then observe the results.
 2. Use [CloudWatch](query-metrics-viewing.md "query-metrics-viewing.md") to measure the query queue time.
 3. If the queue time increases beyond a desirable level, do one of the
    following
+
    - Remove workgroups
    - Add DPUs to your capacity reservation
 

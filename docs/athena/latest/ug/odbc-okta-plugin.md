@@ -84,6 +84,7 @@ https://trial-1234567.okta.com/home/amazon_aws_redshift/Abc1de2fghi3J45kL678/abc
 
 2. From your **Embed Link** URL, extract and save the following
    pieces:
+
    - The first segment after `https://`, up to and including
      `okta.com` (for example,
      **trial-1234567.okta.com**). This is your IdP
@@ -242,6 +243,7 @@ the values described.
 5. Choose **Authentication Options**.
 6. In the **Authentication Options** dialog box, choose or enter
    the following values.
+
    - For **Authentication Type**, choose
      **Okta**.
    - For **User**, enter your Okta user name.

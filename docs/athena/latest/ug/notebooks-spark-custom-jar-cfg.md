@@ -16,11 +16,13 @@ current session](notebooks-spark-getting-started.md#notebooks-spark-getting-star
 1. Expand **Spark properties**.
 2. To add your properties, use the **Edit in table** or
    **Edit in JSON** option.
+
    - For the **Edit in table** option, choose
      **Add property** to add a property, or choose
      **Remove** to remove a property. Use the
      **Key** and **Value** boxes to
      enter property names and their values.
+
      - To add a custom `.jar` file, use the
        `spark.jars` property.
      - To specify a package file, use the
@@ -29,6 +31,7 @@ current session](notebooks-spark-getting-started.md#notebooks-spark-getting-star
    - To enter and edit your configuration directly, choose the
      **Edit in JSON** option. In the JSON text editor,
      you can perform the following tasks:
+
      - Choose **Copy** to copy the JSON text to the
        clipboard.
      - Choose **Clear** to remove all text from the
@@ -45,6 +48,7 @@ current session](notebooks-spark-getting-started.md#notebooks-spark-getting-star
 - Not all Spark properties are available for custom configuration on Athena.
   If you submit a `StartSession` request that has a restricted
   configuration, the session fails to start.
+
   - You cannot use the `spark.athena.` prefix because it is
     reserved.
 

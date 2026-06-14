@@ -19,6 +19,7 @@ API.
 2. If the console navigation pane is not visible, choose the expansion menu
    on the left.
 3. Do one of the following:
+
    - In **Notebook explorer**, choose **Create
      notebook**.
    - In **Notebook editor**, choose **Create

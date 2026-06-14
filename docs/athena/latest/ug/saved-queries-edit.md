@@ -8,6 +8,7 @@
    that you want to edit.
 3. Edit the query in the query editor.
 4. Perform one of the following steps:
+
    - To run the query, choose **Run**.
    - To save the query, choose the three vertical dots on the tab for the
      query, and then choose **Save**.

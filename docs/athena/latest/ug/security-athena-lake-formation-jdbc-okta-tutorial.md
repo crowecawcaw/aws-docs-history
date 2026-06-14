@@ -18,6 +18,7 @@ This tutorial assumes that you have done the following:
 - Defined a [database](../../../glue/latest/dg/define-database.md "../../../glue/latest/dg/define-database.md") and
   [tables](../../../glue/latest/dg/tables-described.md "../../../glue/latest/dg/tables-described.md") on the [AWS Glue Data Catalog](../../../glue/latest/dg/what-is-glue.md "../../../glue/latest/dg/what-is-glue.md") that point to your
   data in Amazon S3.
+
   - If you have not yet defined a table, either [run a AWS Glue crawler](../../../glue/latest/dg/add-crawler.md "../../../glue/latest/dg/add-crawler.md") or [use Athena to
     define a database and one or more tables](work-with-data.md "work-with-data.md") for the data that you
     want to access.
@@ -247,6 +248,7 @@ perform the following tasks:
    then click **Add provider**.
 3. On the **Configure provider** screen, enter the following
    information:
+
    - For **Provider type**, choose
      **SAML**.
    - For **Provider name**, enter
@@ -439,6 +441,7 @@ attribute:
 
 6. Under **Group Attribute Statements (optional)**, add the
    following attribute:
+
    - For **Name**, enter
      `https://lakeformation.amazon.com/SAML/Attributes/Groups`.
    - For **Name format**, enter
@@ -544,13 +547,13 @@ Now you perform similar steps for the Okta group.
 2. From **Actions**, choose **Grant**.
 3. In the **Grant permissions** dialog, enter the following
    information:
+
    1. Under **SAML and Amazon Quick users and groups**, enter
       the Okta SAML group ARN in the following format:
 
    ```
    arn:aws:iam::`<account-id>`:saml-provider/AthenaLakeFormationOkta:group/lf-business-analyst
    ```
-
    2. For **Columns**, **Choose filter
       type**, choose **Include columns**.
    3. For **Choose one or more columns**, choose the first
@@ -584,6 +587,7 @@ In this section, you perform the following tasks:
   Workbench, and add the driver to Workbench. This tutorial uses SQL Workbench to
   access Athena through Okta authentication and to verify Lake Formation permissions.
 - In SQL Workbench:
+
   - Create a connection for the Athena Okta user.
   - Run test queries as the Athena Okta user.
   - Create and test a connection for the business analyst user.
@@ -725,10 +729,12 @@ columns of the table that you specified earlier in Lake Formation.
 
 1. In SQL Workbench, in the **Connection profile** dialog box,
    create another connection profile.
+
    - For the connection profile name, enter `Athena_Okta_Group_Connection`.
    - For **Driver**, choose the Simba Athena JDBC
      driver.
    - For **URL**, do one of the following:
+
      - To use a connection URL, enter a single-line connection
        string. The following example adds line breaks for
        readability.
@@ -744,9 +750,9 @@ columns of the table that you specified earlier in Lake Formation.
      SSL_Insecure=true;
      LakeFormationEnabled=true;
      ```
-
      - To use an AWS profile-based URL, perform the following
        steps:
+
        1. Configure an AWS profile that has a credentials file
           like the following example.
 
@@ -757,7 +763,6 @@ columns of the table that you specified earlier in Lake Formation.
        app_id=`okta-application-id`
        uid=`athena-ba-user`@`anycompany.com`pwd=`password`
        ```
-
        2. For **URL**, enter a single-line
           connection string like the following. The example adds
           line breaks for readability.
@@ -810,6 +815,7 @@ Now you return to the Lake Formation console to configure table permissions for 
 4. Choose **Actions**, **Grant**.
 5. In the **Grant Permissions** dialog, enter the following
    information:
+
    - For **SAML and Amazon Quick users and groups**, enter the
      Okta SAML lf-developer group ARN in the following format:
    - For **Columns**, **Choose filter

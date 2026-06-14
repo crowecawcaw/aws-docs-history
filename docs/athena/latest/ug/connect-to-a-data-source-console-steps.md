@@ -41,6 +41,7 @@ want Athena to query, considering the following guidelines:
     `system` are reserved by Athena and cannot be used for data source
     names.
 8.  If the data source you choose uses an AWS Glue connection.
+
     1. For **AWS Glue connection details**, enter
        the information required. A connection contains the
        properties that are required to connect to a particular data
@@ -62,7 +63,6 @@ want Athena to query, considering the following guidelines:
         	+ VPC configuration –
         	 `security_group_ids`,
         	 `subnet_ids`
-
     2. For **Glue Data Catalog IAM Role**, see [AWS Glue Data Catalog federated connectors without Lambda permissions](connect-to-a-data-source-permissions.md#connect-to-a-data-source-permissions-managed "connect-to-a-data-source-permissions.md#connect-to-a-data-source-permissions-managed").
 
     ###### Note
@@ -84,6 +84,7 @@ want Athena to query, considering the following guidelines:
          drop-down.
 
 9.  If the data source you choose does not use an AWS Glue connection.
+
     1. For **Lambda function**, choose **Create Lambda
        function**. The function page for the connector that you chose
        opens in the AWS Lambda console. The page includes detailed information about the
@@ -110,7 +111,6 @@ want Athena to query, considering the following guidelines:
          lifecycle policy that deletes old data from your Amazon S3 spill
          bucket. For more information, see [Managing your storage
          lifecycle](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") in the Amazon S3 User Guide.
-
     3. Select **I acknowledge that this app creates custom IAM roles and
        resource policies**. For more information, choose the
        **Info** link.

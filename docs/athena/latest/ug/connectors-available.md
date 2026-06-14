@@ -22,6 +22,7 @@ configure it and deploy it to your account.
 - For connectors that do not support pagination when you list tables, the web
   service can time out if your database has many tables and metadata. The
   following connectors provide pagination support for listing tables:
+
   - DocumentDB
   - DynamoDB
   - MySQL
@@ -84,10 +85,12 @@ Be aware of the following limitations when using case resolver modes:
 - When using `LOWER` mode, your schema name and all tables within the schema must be in lowercase.
 - When using `UPPER` mode, your schema name and all tables within the schema must be in uppercase.
 - When using `CASE_INSENSITIVE_SEARCH`:
+
   - Schema names must be unique
   - Table names within a schema must be unique (for example, you cannot have both "Apple" and "APPLE")
 
 - Glue integration limitations:
+
   - Glue only supports lowercase names
   - Only `NONE` or `LOWER` modes will work when registering your Lambda function with GlueDataCatalog/LakeFormation
 

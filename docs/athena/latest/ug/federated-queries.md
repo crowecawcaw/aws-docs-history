@@ -17,6 +17,7 @@ capabilities:
 - AWS Glue Data Catalog federated connectors
   – These connectors use an AWS Glue connection to connect to the data source. They can be used with fine-grained data governance control support through Lake Formation.
   For more information, see [Federated catalog data connections](../../../lake-formation/latest/dg/federated-catalog-data-connection.md "../../../lake-formation/latest/dg/federated-catalog-data-connection.md") in the _AWS Lake Formation Developer Guide_.
+
   - Connectors associated with a Lambda can optionally be manually registered as an AWS Glue Data Catalog to be used with Lake Formation for fine-grained data governance
   - Starting April 21, 2026, certain newly created connectors are automatically registered as Glue Data Catalogs and do not use a Lambda function in your AWS account
 

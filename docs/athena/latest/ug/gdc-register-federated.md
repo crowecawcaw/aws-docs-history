@@ -9,6 +9,7 @@ fine-grained permissions using Lake Formation. For more information, see [Regist
 - DDL operations are not supported on federated catalogs.
 - You can register the following connectors to integrate with AWS Glue for fine-grained access
   control:
+
   - [Azure Data Lake
     Storage](connectors-adls-gen2.md "connectors-adls-gen2.md")
   - [Azure

@@ -10,6 +10,7 @@ Before you query materialized views in Athena, ensure the following:
 
 - The materialized view exists in the AWS Glue Data Catalog and was created using Apache Spark (Amazon EMR release 7.12.0 or later, or AWS Glue version 5.1 or later)
 - To query materialized views in Athena, you need the following AWS Lake Formation permissions:
+
   - `SELECT` permission on the materialized view
   - `DESCRIBE` permission on the materialized view
   - Access to the underlying Amazon S3 location where the materialized view data is stored

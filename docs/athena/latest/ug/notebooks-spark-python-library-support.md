@@ -27,6 +27,7 @@ runtimes, libraries, and packages used in Amazon Athena for Apache Spark.
   package.
 - A **user library** is an external library or package that you
   explicitly add to your Athena for Spark job.
+
   - A user library is an external package that is not part of a
     convenience package. A user library requires loading and installation,
     as when you write some `.py` files, zip them up, and

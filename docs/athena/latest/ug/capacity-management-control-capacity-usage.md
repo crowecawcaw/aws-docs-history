@@ -25,6 +25,7 @@ Set DPU controls at the workgroup level to manage costs and control workload per
 3. Select a workgroup that uses a capacity reservation.
 4. On the **Execution controls** tab, choose **Edit controls**.
 5. Configure the following:
+
    - For **Min DPU per query**, enter a value between 4 and 124 in increments of 4.
    - For **Max DPU per query**, enter a value between 4 and 124 in increments of 4.
 
@@ -67,6 +68,7 @@ Set query-level DPU controls when you need fine-grained control with queries tha
 4. Choose the **Query settings** tab.
 5. In the **Execution controls** section, choose **Edit controls**.
 6. Configure the following:
+
    - For **Min DPU per query**, enter a value between 4 and 124 in increments of 4.
    - For **Max DPU per query**, enter a value between 4 and 124 in increments of 4.
 
@@ -113,6 +115,7 @@ After your queries complete, you can view its DPU usage. Athena provides DPU usa
 2. In the navigation pane, choose **Query editor**.
 3. After a query completes, view its **Consumed DPU** value in the query results container.
 4. To view DPU consumption for past queries:
+
    1. Choose **Recent queries** in the navigation pane.
    2. Select the settings icon to add the **Consumed DPU** column to the table if not already displayed.
    3. Review the DPU consumption for each completed query.
@@ -122,6 +125,7 @@ After your queries complete, you can view its DPU usage. Athena provides DPU usa
 ###### To retrieve DPU consumption using the API
 
 1. Use the following API operations to retrieve DPU consumption programmatically:
+
    - `GetQueryExecution` - Returns execution details for a specific query
    - `BatchGetQueryExecution` - Returns execution details for multiple queries
 

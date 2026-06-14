@@ -27,6 +27,7 @@ For more information, see [Identity providers and federation](../../../IAM/lates
    choose **Create role**.
 3. For **Trusted entity type**, choose **Custom
    trust policy** as following:
+
    1. For **Federated Principal**, add the ARN for
       AWS IAM identity provider that you copied during trusted
       token issuer setup.
@@ -67,6 +68,7 @@ customer managed IAM Identity Center application. 5. Copy the ARN for applicatio
    choose **Create role**.
 3. For **Trusted entity type**, choose **Custom
    trust policy** as following:
+
    1. For **Federated Principal**, add the ARN for
       AWS IAM Identity Center copied during trusted token issuer setup.
    2. For **AWS Principal**, add the ARN for
@@ -150,6 +152,7 @@ To configure a customer managed application, follow the steps in [Set up custome
 propagation](../../../singlesignon/latest/userguide/customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md "../../../singlesignon/latest/userguide/customermanagedapps-trusted-identity-propagation-set-up-your-own-app-OAuth2.md") with the following considerations for Athena.
 
 - For **Tags**, add the following key-value pair:
+
   - **Key** – _AthenaDriverOidcAppArn_
   - **Value** – _AccessRoleARN_ that was copied during
     IAM Access Role setup.
@@ -167,6 +170,7 @@ propagation](../../../singlesignon/latest/userguide/customermanagedapps-trusted-
 2. Choose a workgroup from the list and open the **Tags**
    tab.
 3. Choose **Manage tags** and enter the following:
+
    1. **Key** –
       `AthenaDriverOidcAppArn`
    2. **Value** – ARN for AWS IAM Identity Center
@@ -231,6 +235,7 @@ Trusted identity propagation with drivers is only available after version 3.6.0 
    `com.amazon.athena.jdbc.AthenaDriver`.
 6. Open **Settings** tab and provide the following
    fields
+
    1. **Driver name** – Athena JDBC trusted
       identity propagation
    2. **Class name** –
@@ -241,6 +246,7 @@ Trusted identity propagation with drivers is only available after version 3.6.0 
    trusted identity propagation. This will take you to the JDBC URL. For more
    information, see [Configuring the driver](jdbc-v3-driver-getting-started.md#jdbc-v3-driver-configuring-the-driver "jdbc-v3-driver-getting-started.md#jdbc-v3-driver-configuring-the-driver").
 8. Provide the following details
+
    1. **Workgroup** – The workgroup in which you
       want to run queries. For information about workgroups, see [WorkGroup](../APIReference/API_WorkGroup.md "../APIReference/API_WorkGroup.md").
    2. **Region** – The AWS Region where the

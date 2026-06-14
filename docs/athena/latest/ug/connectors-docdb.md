@@ -105,12 +105,14 @@ The following Lambda environment properties apply only when you use the connecto
   tables that use case sensitive column names. The
   `disable_projection_and_casing` parameter uses the following
   values to specify the behavior of casing and column mapping:
+
   - false – This is the default
     setting. Projection is enabled, and the connector expects all column
     names to be in lower case.
   - true – Disables projection and
     casing. When using the `disable_projection_and_casing`
     parameter, keep in mind the following points:
+
     - Use of the parameter can result in higher bandwidth usage.
       Additionally, if your Lambda function is not in the same
       AWS Region as your data source, you will incur higher standard

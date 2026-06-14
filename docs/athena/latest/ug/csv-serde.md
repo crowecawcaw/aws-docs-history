@@ -89,6 +89,7 @@ follows:
   `CREATE TABLE` statement, recognizes `TIMESTAMP`
   data if it is specified in the UNIX numeric format in milliseconds, such as
   `1579059880000`. For an example, see [Example: Using the TIMESTAMP type and DATE type specified in the UNIX numeric format](#csv-serde-opencsvserde-example-timestamp-unix "#csv-serde-opencsvserde-example-timestamp-unix").
+
   - The Open CSV SerDe does not support `TIMESTAMP` in the
     JDBC-compliant `java.sql.Timestamp` format, such as
     `"YYYY-MM-DD HH:MM:SS.fffffffff"` (9 decimal place
@@ -100,6 +101,7 @@ follows:
   example, the value `18276` in a column with the `date`
   data type renders as `2020-01-15` when queried. In this UNIX
   format, each day is considered to have 86,400 seconds.
+
   - The Open CSV SerDe does not support `DATE` in any other
     format directly. To process timestamp data in other formats, you can
     define the column as `string` and then use time

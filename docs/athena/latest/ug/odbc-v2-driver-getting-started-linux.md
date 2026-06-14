@@ -10,6 +10,7 @@ requirements.
 
 - You have root access.
 - Use one of the following Linux distributions:
+
   - Amazon Linux 2023
   - Red Hat Enterprise Linux (RHEL) 9 or later
 
@@ -39,6 +40,7 @@ sudo yum --nogpgcheck localinstall AmazonAthenaODBC-2.X.Y.Z-x86_64.rpm
 
 2. After the installation finishes, enter one of the following commands to verify
    that the driver is installed:
+
    - ```
      yum list | grep amazon-athena-odbc-driver
      ```

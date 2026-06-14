@@ -32,6 +32,7 @@ When you use Trusted identity propagation with Amazon Athena, consider the follo
 
 - You cannot change the authentication method for the workgroup after the
   workgroup is created.
+
   - Existing Athena SQL workgroups cannot be modified to support IAM Identity Center
     enabled workgroups. Existing Athena SQL workgroups can propagate identity
     to downstream services.
@@ -61,6 +62,7 @@ When you use Trusted identity propagation with Amazon Athena, consider the follo
   SQL editor in EMR Studio](../../../emr/latest/ManagementGuide/emr-studio-athena.md "../../../emr/latest/ManagementGuide/emr-studio-athena.md") in the
   _Amazon EMR Management Guide_.
 - Trusted identity propagation is not compatible with the following Athena features.
+
   - `aws:CalledVia` context keys for IAM Identity Center enabled
     workgroups.
   - Athena for Spark workgroups.
@@ -69,6 +71,7 @@ When you use Trusted identity propagation with Amazon Athena, consider the follo
     drivers.
 
 - You can use Trusted identity propagation with Athena only in the following AWS Regions:
+
   - `us-east-2` – US East (Ohio)
   - `us-east-1` – US East (N. Virginia)
   - `us-west-1` – US West (N. California)

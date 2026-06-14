@@ -89,6 +89,7 @@ Use the parameters in this section to configure the Athena Kafka connector.
 - auth_type – Specifies the authentication
   type of the cluster. The connector supports the following types of
   authentication:
+
   - NO_AUTH – Connect directly to
     Kafka (for example, to a Kafka cluster deployed over an EC2 instance
     that does not use authentication).
@@ -157,12 +158,14 @@ Use the parameters in this section to configure the Athena Kafka connector.
 - Subnet IDs – One or more subnet IDs that
   correspond to the subnet that the Lambda function can use to access your data
   source.
+
   - Public Kafka cluster or standard Confluent Cloud
     cluster – Associate the connector with a private
     subnet that has a NAT Gateway.
   - Confluent Cloud cluster with private
     connectivity – Associate the connector with a
     private subnet that has a route to the Confluent Cloud cluster.
+
     - For [AWS Transit Gateway](https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html "https://docs.confluent.io/cloud/current/networking/aws-transit-gateway.html"), the subnets must be in a VPC
       that is attached to the same transit gateway that Confluent
       Cloud uses.
@@ -245,6 +248,7 @@ When working with the AWS Glue Schema Registry, note the following points:
    AWS Glue Developer Guide.
 3. To use the `AVRO` or `PROTOBUF` data format when you
    define the schema in the AWS Glue Schema Registry:
+
    - For **Schema name**, enter the Kafka topic name in
      the same casing as the original.
    - For **Data format**, choose **Apache

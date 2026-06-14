@@ -112,6 +112,7 @@ When you use Athena Data Connector for External Hive Metastore, consider the fol
 - You can use INSERT INTO to insert data into an external Hive metastore.
 - DDL support for external Hive metastore is limited to the following
   statements.
+
   - ALTER DATABASE SET DBPROPERTIES
   - ALTER TABLE ADD COLUMNS
   - ALTER TABLE ADD PARTITION

@@ -38,6 +38,7 @@ limitations:
   data loss and break transactions.
 - Supported file formats – Athena engine version 3
   supports the following Iceberg file formats.
+
   - Parquet
   - ORC
   - Avro
@@ -66,6 +67,7 @@ limitations:
   compaction operations, Athena retains only millisecond precision.
 - Unsupported operations – The following
   Athena operations are not supported for Iceberg tables.
+
   - [ALTER TABLE SET LOCATION](alter-table-set-location.md "alter-table-set-location.md")
 
 - Views – Use `CREATE VIEW` to

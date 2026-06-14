@@ -50,6 +50,7 @@ console.
    want to change.
 5. On the details page for the table, in the **Schema** section,
    do one of the following:
+
    - To make the name change in JSON format, choose **Edit schema
      as JSON**.
    - To change the name directly, choose **Edit schema**.

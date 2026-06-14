@@ -43,6 +43,7 @@ SerDe](https://github.com/amazon-ion/ion-hive-serde "https://github.com/amazon-i
 - External symbol tables unsupported –
   Currently, Athena does not support external symbol tables or the following Amazon
   Ion Hive SerDe properties:
+
   - `ion.catalog.class`
   - `ion.catalog.file`
   - `ion.catalog.url`

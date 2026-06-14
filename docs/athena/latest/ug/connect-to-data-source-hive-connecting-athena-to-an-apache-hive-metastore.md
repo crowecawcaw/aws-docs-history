@@ -19,7 +19,7 @@ more information, see [Connect Athena to a Hive metastore using an existing IAM 
 2. If the console navigation pane is not visible, choose the expansion menu
    on the left.
 
-![Choose the expansion menu.](images/nav-pane-expansion.png) 3. Choose **Data sources and catalogs**. 4. On the upper right of the console, choose **Create data
+![Choose the expansion menu.](/images/athena/latest/ug/images/nav-pane-expansion.png) 3. Choose **Data sources and catalogs**. 4. On the upper right of the console, choose **Create data
 source**. 5. On the **Choose a data source** page, for **Data
 sources**, choose **S3 - Apache Hive
 metastore**. 6. Choose **Next**. 7. In the **Data source details** section, for **Data

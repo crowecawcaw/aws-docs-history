@@ -111,6 +111,7 @@ athena_user_logger.info("Hello world.")
 
 4. Run the cell.
 5. Retrieve the current session ID by doing one of the following:
+
    - View the cell output (for example, `...
 session=72c24e73-2c24-8b22-14bd-443bdcd72de4`).
    - In a new cell, run the [magic](notebooks-spark-magics.md "notebooks-spark-magics.md") command

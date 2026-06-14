@@ -239,6 +239,7 @@ information to create claim rule 3, and then choose
 
 8. Choose **Add Rule**. Enter the following information to
    create claim rule 4, and then choose **Finish**.
+
    - For **Claim rule name**, enter
      `Role`.
    - For **Rule template**, use **Send Claims

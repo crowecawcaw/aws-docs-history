@@ -10,6 +10,7 @@ create a workgroup using the Athena API, see [CreateWorkGroup](../APIReference/A
 ###### To create a workgroup in the Athena console
 
 1. Decide which workgroups to create. A few factors to consider include:
+
    - Who can run queries in each workgroup, and who owns workgroup
      configuration. Use IAM policies to enforce workgroup permissions. For more
      information, see [Use IAM policies to control workgroup access](workgroups-iam-policy.md "workgroups-iam-policy.md").

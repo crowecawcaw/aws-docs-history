@@ -12,6 +12,7 @@ limitations:
 - Unsupported statements – Unsupported
   statements include the following. For a complete list of unsupported DDL statements
   in Athena, see [Unsupported DDL](unsupported-ddl.md "unsupported-ddl.md").
+
   - `CREATE TABLE LIKE` is not supported.
   - `DESCRIBE INPUT` and `DESCRIBE OUTPUT` are not
     supported.

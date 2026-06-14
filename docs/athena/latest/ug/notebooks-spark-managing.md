@@ -16,6 +16,7 @@ the session history for a notebook.
 2. In the Athena console navigation pane, choose **Notebook editor**
    or **Notebook explorer**.
 3. Do one of the following:
+
    - In **Notebook editor**, choose a notebook in the
      **Recent notebooks** or **Saved
      notebooks** list. The notebook opens in a new session.

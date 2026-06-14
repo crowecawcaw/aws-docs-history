@@ -15,6 +15,7 @@ source available to Athena.
    policies**.
 4. In the search box, enter `Hive`. The connectors that appear
    include the following two:
+
    - **AthenaHiveMetastoreFunction** – Uber Lambda
      function `.jar` file.
    - **AthenaHiveMetastoreFunctionWithLayer** – Lambda

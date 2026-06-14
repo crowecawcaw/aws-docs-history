@@ -57,6 +57,7 @@ When using partitioning, keep in mind the following points:
   behavior is consistent with Amazon EMR and Apache Hive.
 - If you are using the AWS Glue Data Catalog with Athena, see [AWS Glue endpoints and quotas](../../../general/latest/gr/glue.md "../../../general/latest/gr/glue.md") for service
   quotas on partitions per account and per table.
+
   - Although Athena supports querying AWS Glue tables that have 10 million
     partitions, Athena cannot read more than 1 million partitions in a single
     scan. In such scenarios, partition indexing can be beneficial. For more

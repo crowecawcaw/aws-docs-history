@@ -102,8 +102,10 @@ options:
 
 10. (Optional) Choose **Encrypt query results** if you want your
     query results to be encrypted.
+
     - For **Encryption type**, choose one of the following
       options:
+
       - **SSE_S3** – This option uses
         server-side encryption (SSE) with Amazon S3-managed encryption
         keys.
@@ -181,8 +183,10 @@ the previous section.
 
 1. If you want to create or use your own IAM role or configure notebook
    encryption, expand **IAM role configuration**.
+
    - For **Service Role to authorize Athena**, choose
      one of the following:
+
      - Create and use a new service
        role – Choose this option to have Athena
        create a service role for you. To see the permissions the
@@ -197,6 +201,7 @@ the previous section.
    - For **Notebook and calculation code encryption key
      management**, choose one of the following
      options:
+
      - Encrypt using AWS owned key
        (Default) – The AWS KMS key is owned and
        managed by AWS. You are not charged an additional fee for
@@ -204,6 +209,7 @@ the previous section.
      - Encrypt using your own AWS KMS
        key – For this option, do one of the
        following:
+
        - To use an existing key, use the search box to
          choose an AWS KMS or enter a key ARN.
        - To create a key in the AWS KMS console, choose
@@ -321,10 +327,12 @@ consists of 4 vCPUs of compute capacity and 16 GB of memory.
 2. In the **Edit session details** dialog box, in the
    **Spark properties** section, choose or enter values for
    the following options:
+
    - Additional table format – Choose
      **Linux Foundation Delta Lake**, **Apache
      Hudi**, **Apache Iceberg**, or
      **Custom**.
+
      - For the **Delta**, **Hudi**,
        or **Iceberg** table options, the required
        table properties for the corresponding table format are
@@ -344,6 +352,7 @@ consists of 4 vCPUs of compute capacity and 16 GB of memory.
        boxes.
      - For the **Edit in JSON** option, use the JSON
        text editor to edit the configuration directly.
+
        - To copy the JSON text to the clipboard, choose
          **Copy**.
        - To remove all text from the JSON editor, choose
@@ -357,6 +366,7 @@ consists of 4 vCPUs of compute capacity and 16 GB of memory.
 
 3. In the **Session parameters** section, choose or enter values
    for the following options:
+
    - **Session idle timeout** - Choose or enter a value
      between 1 and 480 minutes. The default is 20.
    - **Coordinator size** - A
@@ -396,6 +406,7 @@ After you run the notebook, you can view your session and calculation details.
 
 1. From the **Session** menu on the upper right, choose
    **View details**.
+
    - The **Current session** tab shows information about
      the current session, including session ID, creation time, status, and
      workgroup.
@@ -409,6 +420,7 @@ After you run the notebook, you can view your session and calculation details.
 2. To view the details for a calculation, choose the calculation ID.
 3. On the **Calculation details** page, you can do the
    following:
+
    - To view the code for the calculation, see the
      **Code** section.
    - To see the results for the calculation, choose the
@@ -447,6 +459,7 @@ notebook.
 2. In the Athena console navigation pane, choose **Notebook
    explorer** or **Notebook editor**.
 3. Do one of the following:
+
    - In **Notebook explorer**, choose **Create
      notebook**.
    - In **Notebook editor**, choose **Create
@@ -457,10 +470,12 @@ notebook.
    name**, enter a name.
 5. (Optional) Expand **Spark properties**, and then choose or
    enter values for the following options:
+
    - Additional table format – Choose
      **Linux Foundation Delta Lake**, **Apache
      Hudi**, **Apache Iceberg**, or
      **Custom**.
+
      - For the **Delta**, **Hudi**,
        or **Iceberg** table options, the required
        table properties for the corresponding table format are
@@ -480,6 +495,7 @@ notebook.
        boxes.
      - For the **Edit in JSON** option, use the JSON
        text editor to edit the configuration directly.
+
        - To copy the JSON text to the clipboard, choose
          **Copy**.
        - To remove all text from the JSON editor, choose
@@ -493,6 +509,7 @@ notebook.
 
 6. (Optional) Expand **Session parameters**, and then choose or
    enter values for the following options:
+
    - **Session idle timeout** - choose or enter a value
      between 1 and 480 minutes. The default is 20.
    - **Coordinator size** - A

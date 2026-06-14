@@ -79,6 +79,7 @@ The following Lambda environment properties apply only when you use the connecto
   how to handle casing for schema and table names. The
   `casing_mode` parameter uses the following values to specify
   the behavior of casing:
+
   - **NONE** – Do not change case
     of the given schema and table names (run the query as is against Snowflake).
     This is the default value when **casing_mode**
@@ -121,6 +122,7 @@ specified.
   how to handle casing for schema and table names. The
   `casing_mode` parameter uses the following values to specify
   the behavior of casing:
+
   - **NONE** – Do not change case
     of the given schema and table names (run the query as is against Snowflake).
     This is the default value when **casing_mode**

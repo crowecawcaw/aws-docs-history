@@ -12,6 +12,7 @@ configuration overrides client settings.
 2. From the navigation bar, choose **Settings**.
 3. From the navigation bar, choose **Manage**.
 4. For **Manage settings**, do one of the following:
+
    - In the **Location of query result** box, enter
      the path to the bucket that you created in Amazon S3 for your query
      results. Prefix the path with `s3://`.

@@ -93,6 +93,7 @@ policy examples, see [Example workgroup policies](example-policies-workgroup.md 
    workgroup**.
 5. On the **Create workgroup** page, in the **Query
    engine version** section, do one of the following:
+
    - Choose **Automatic** to let Athena choose when to
      upgrade your workgroup. This is the default setting.
    - Choose **Manual** to manually choose a different

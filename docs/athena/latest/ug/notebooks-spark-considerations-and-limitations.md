@@ -5,6 +5,7 @@
 The following are the considerations and limitations for the release version Apache Spark version 3.5:
 
 - This release version is available in the following AWS Regions:
+
   - Asia Pacific (Mumbai)
   - Asia Pacific (Seoul)
   - Asia Pacific (Singapore)
@@ -30,6 +31,7 @@ The following are the considerations and limitations for the release version Apa
 The following are the considerations and limitations for the release version Pyspark engine version 3:
 
 - This release version is available in the following AWS Regions:
+
   - Asia Pacific (Mumbai)
   - Asia Pacific (Singapore)
   - Asia Pacific (Sydney)

@@ -596,6 +596,7 @@ including the following:
 
 - GENERIC_INTERNAL_ERROR: Null – You
   might see this exception under either of the following conditions:
+
   - You have a schema mismatch between the data type of a column in
     table definition and the actual data type of the dataset.
   - You are running a `CREATE TABLE AS SELECT` (CTAS) query
@@ -624,6 +625,7 @@ including the following:
   exception if you have inconsistent partitions on Amazon Simple Storage Service(Amazon S3) data. You
   might have inconsistent partitions under either of the following
   conditions:
+
   - Partitions on Amazon S3 have changed (example: new partitions were
     added).
   - The number of partition columns in the table do not match those in

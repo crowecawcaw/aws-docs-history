@@ -20,6 +20,7 @@ Athena supports the following compression formats:
 - LZ4 – This member of the Lempel-Ziv 77 (LZ7)
   family also focuses on compression and decompression speed rather than maximum
   compression of data. LZ4 has the following framing formats:
+
   - LZ4 Raw/Unframed – An
     unframed, standard implementation of the LZ4 block compression
     format. For more information, see the [LZ4 block format description](https://github.com/lz4/lz4/blob/dev/doc/lz4_Block_format.md "https://github.com/lz4/lz4/blob/dev/doc/lz4_Block_format.md") on GitHub.
@@ -33,6 +34,7 @@ Athena supports the following compression formats:
   Lempel–Ziv–Oberhumer algorithm, which focuses on high
   compression and decompression speed rather than the maximum compression of
   data. LZO has two implementations:
+
   - Standard LZO – For more
     information, see the LZO [abstract](http://www.oberhumer.com/opensource/lzo/#abstract "http://www.oberhumer.com/opensource/lzo/#abstract") on the Oberhumer website.
   - LZO hadoop-compatible – This

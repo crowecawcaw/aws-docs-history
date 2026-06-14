@@ -25,11 +25,13 @@ help the support team understand your use case.
 - Query error information – (Optional) If you
   have errors that involve DML or DDL queries, include the following
   information:
+
   - A full or simplified version of the failed DML or DDL query.
   - The account ID and AWS Region used, and the query execution ID.
 
 - SAML errors – (Optional) If you have an
   issue related to authentication with SAML assertion, include the following
   information:
+
   - The identity provider and authentication plugin that was used.
   - An example with the SAML token.

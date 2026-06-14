@@ -148,6 +148,7 @@ JSON
 
 4. If the `"Sid": "Allow use of the key"` statement is not present,
    perform the following steps:
+
    1. Switch to view the key policy [using the console default view](../../../kms/latest/developerguide/key-policy-modifying.md#key-policy-modifying-how-to-console-default-view "../../../kms/latest/developerguide/key-policy-modifying.md#key-policy-modifying-how-to-console-default-view").
    2. Add Account B's account ID as an external account with access to the
       key.

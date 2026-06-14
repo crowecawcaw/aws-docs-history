@@ -78,6 +78,7 @@ enable SAML-based federated access to the Amazon Athena API operation.
     see [Configuring your SAML 2.0 IdP with relying party trust](../../../IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml_relying-party.md") in the
     _IAM User Guide_. As part of this task, perform these
     steps:
+
     1. Obtain the sample SAML metadata document from this URL: [https://signin.aws.amazon.com/static/saml-metadata.xml](https://signin.aws.amazon.com/static/saml-metadata.xml "https://signin.aws.amazon.com/static/saml-metadata.xml").
     2. In your organization's IdP (ADFS), generate an equivalent metadata XML
        file that describes your IdP as an identity provider to AWS. Your metadata
@@ -88,6 +89,7 @@ enable SAML-based federated access to the Amazon Athena API operation.
 2.  In the IAM console, create a SAML identity provider entity. For more
     information, see [Creating SAML identity providers](../../../IAM/latest/UserGuide/id_roles_providers_create_saml.md "../../../IAM/latest/UserGuide/id_roles_providers_create_saml.md") in the
     _IAM User Guide_. As part of this step, do the following:
+
     1. Open the IAM console at
        [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
     2. Upload the SAML metadata document produced by the IdP (ADFS) in Step 1 in

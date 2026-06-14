@@ -95,6 +95,7 @@ JSON
   [AmazonAthenaFullAccess](../../../aws-managed-policy/latest/reference/AmazonAthenaFullAccess.md "../../../aws-managed-policy/latest/reference/AmazonAthenaFullAccess.md") managed policy. If you want to use your
   own policy, you must ensure that the users executing federated queries do
   not have access to the following resources.
+
   - `lambda:InvokeFunction` on the Lambda connector that is
     specified in Glue connection
   - Spill bucket location access in IAM

@@ -41,6 +41,7 @@ points:
 - Use the names in the flow log records for the column names in Athena. The names
   of the columns in the Athena schema should exactly match the field names in the
   Amazon VPC flow logs, with the following differences:
+
   - Replace the hyphens in the Amazon VPC log field names with underscores in
     the Athena column names. For information about acceptable characters for
     database names, table names, and column names in Athena, see [Name databases, tables, and columns](tables-databases-columns-names.md "tables-databases-columns-names.md").

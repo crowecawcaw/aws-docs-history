@@ -76,6 +76,7 @@ MSK connector.
 - auth_type – Specifies the authentication
   type of the cluster. The connector supports the following types of
   authentication:
+
   - NO_AUTH – Connect directly to
     Kafka with no authentication (for example, to a Kafka cluster deployed
     over an EC2 instance that does not use authentication).

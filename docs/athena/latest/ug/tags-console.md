@@ -60,6 +60,7 @@ actions.
 2. In the navigation pane, choose **Workgroups**.
 3. Choose the workgroup that you want to modify.
 4. Do one of the following:
+
    - Choose the **Tags** tab, and then choose
      **Manage tags**.
    - Choose **Edit**, and then scroll down to the
@@ -74,6 +75,7 @@ actions.
 2. In the navigation pane, choose **Workgroups**.
 3. Choose the workgroup that you want to modify.
 4. Do one of the following:
+
    - Choose the **Tags** tab, and then choose
      **Manage tags**.
    - Choose **Edit**, and then scroll down to the

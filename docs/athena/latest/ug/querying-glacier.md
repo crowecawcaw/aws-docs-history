@@ -39,6 +39,7 @@ In the AWS Glue console, perform the following steps to add the
 1. Sign in to the AWS Management Console and open the AWS Glue console at
    [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
 2. Do one of the following:
+
    - Choose **Go to the Data Catalog**.
    - In the navigation pane, choose **Data Catalog
      tables**.
@@ -49,6 +50,7 @@ In the AWS Glue console, perform the following steps to add the
    table**.
 5. On the **Edit table** page, in the **Table
    properties** section, add the following key-value pair.
+
    - For **Key**, add
      `read_restored_glacier_objects`.
    - For **Value**, enter `true`.

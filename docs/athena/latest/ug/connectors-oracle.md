@@ -87,6 +87,7 @@ The following Lambda environment properties apply only when you use the connecto
   how to handle casing for schema and table names. The
   `casing_mode` parameter uses the following values to specify
   the behavior of casing:
+
   - **lower** – Lower case all
     given schema and table names. This is the default for connectors
     that have an associated glue connection.
@@ -148,6 +149,7 @@ specified.
   how to handle casing for schema and table names. The
   `casing_mode` parameter uses the following values to specify
   the behavior of casing:
+
   - **lower** – Lower case all
     given schema and table names. This is the default for connectors
     that have an associated glue connection.

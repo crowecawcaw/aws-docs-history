@@ -157,6 +157,7 @@ filtering out databases in accounts with many databases. 6. Choose **Update Data
    properties** section, add the following table properties as
    required. If you use the AWS Glue DynamoDB crawler, these properties are automatically
    set.
+
    - dynamodb – String that indicates
      to the Athena DynamoDB connector that the table can be used for supplemental
      metadata. Enter the `dynamodb` string in the table properties

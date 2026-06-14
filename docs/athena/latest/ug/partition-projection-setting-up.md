@@ -95,6 +95,7 @@ per partition.
 1. Following the steps to [configure and enable
    partition projection using the AWS Glue console](#partition-projection-setting-up-procedure "#partition-projection-setting-up-procedure"), add an additional a
    key-value pair that specifies a custom template as follows:
+
    1. For **Key**, enter
       `storage.location.template`.
    2. For **Value**, specify a location that includes a

@@ -129,13 +129,13 @@ Follow these steps to configure a Snowflake user.
     ```
 
 4.  **Store private key in AWS Secrets Manager**
+
     1. Convert your private key to the format required by the connector.
 
     ```
     # Read private key content
     cat rsa_key.p8
     ```
-
     2. Create a secret in AWS Secrets Manager with the following structure.
 
     ```
@@ -193,12 +193,12 @@ CREATE SECURITY INTEGRATION `my_snowflake_oauth_integration_a`
      refresh token validity (90 days in seconds).
 
 2. **Retrieve OAuth client secrets**
+
    1. Run the following SQL command to get the client credentials.
 
    ```
    DESC SECURITY INTEGRATION '`MY_SNOWFLAKE_OAUTH_INTEGRATION_A`';
    ```
-
    2. Retrieve the OAuth client secrets.
 
    ```

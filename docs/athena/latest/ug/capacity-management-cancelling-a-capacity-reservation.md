@@ -20,6 +20,7 @@ AWS Region.
 3. Choose **Administration**, **Capacity
    reservations**.
 4. In the list of capacity reservations, do one of the following:
+
    - Select the button next to the reservation, and then choose
      **Cancel**.
    - Choose the reservation link, and then choose **Cancel

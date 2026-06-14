@@ -58,6 +58,7 @@ aws athena get-query-results --query-execution-id `<query-execution-id-from-prev
 ```
 
 2. For each CSE-KMS encrypted object in the table.
+
    1. Download the object from S3 using the S3 encryption client
       and decrypt it. Here is an example with AWS Java SDK
       V2.
@@ -92,7 +93,6 @@ aws athena get-query-results --query-execution-id `<query-execution-id-from-prev
    ResponseInputStream<GetObjectResponse> s3Object = s3EncryptionClient.getObject(getObjectRequest);
 
    ```
-
    2. Upload the object to S3 with the same name and SSE-KMS
       encryption. Here is an example with AWS Java SDK
       V2.

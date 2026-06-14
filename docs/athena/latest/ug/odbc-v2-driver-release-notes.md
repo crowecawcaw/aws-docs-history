@@ -132,6 +132,7 @@ Released 2025-11-21
   [What is trusted identity propagation?](../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md "../../../singlesignon/latest/userguide/trustedidentitypropagation-overview.md").
 - Enhanced logging framework – Significantly
   improved the driver's logging mechanism by:
+
   - Introducing more granular log levels beyond basic 0/1 options
   - Removing redundant log statements
   - Optimizing the logging framework to include diagnostically relevant information

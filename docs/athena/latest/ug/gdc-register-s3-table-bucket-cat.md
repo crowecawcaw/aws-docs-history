@@ -11,6 +11,7 @@ more information, see [Table buckets](../../../AmazonS3/latest/userguide/s3-tabl
 
 - All DDL operations supported for Iceberg tables are supported for S3
   Tables with the following exceptions:
+
   - `ALTER TABLE RENAME`, `CREATE VIEW`, and
     `ALTER DATABASE` are not supported.
   - `OPTIMIZE` and `VACUUM` – You can

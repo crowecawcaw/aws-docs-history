@@ -3,6 +3,7 @@
 ## AWS Glue Data Catalog federated connectors without Lambda permissions
 
 - **IAM principal permissions to invoke Athena API for connector management and querying**
+
   - **Amazon Athena access** – The
     AmazonAthenaFullAccess managed policy provides full access to Amazon Athena and scoped
     access to the dependencies needed to enable querying, writing results, and data
@@ -60,6 +61,7 @@
   ```
 
 - **Glue Data Catalog IAM role**
+
   - This section covers the permissions required for Athena to provision the infrastructure
     and query your data source. Amazon Athena Federated Query requires the following permissions in the role
     passed to **Glue Data Catalog IAM Role**.
@@ -116,6 +118,7 @@
 ## AWS Glue Data Catalog federated connectors with Lambda permissions
 
 - **IAM principal permissions to invoke Athena API for connector management and querying**
+
   - **Amazon Athena access** – The
     AmazonAthenaFullAccess managed policy provides full access to Amazon Athena and scoped
     access to the dependencies needed to enable querying, writing results, and data
@@ -152,6 +155,7 @@
 ## Athena data catalog federated connectors permissions
 
 - **IAM principal permissions to invoke Athena API for connector management and querying**
+
   - **Amazon Athena access** – The
     AmazonAthenaFullAccess managed policy provides full access to Amazon Athena and scoped
     access to the dependencies needed to enable querying, writing results, and data
