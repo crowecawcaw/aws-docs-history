@@ -112,6 +112,7 @@ right.
 1. Ensure that you have the `glue:ResumeWorkflowRun` IAM
    permission.
 2. Retrieve the node IDs for the nodes that you want to restart.
+
    1. Run the `get-workflow-run` command for the original
       workflow run. Supply the workflow name and run ID, and add the
       `--include-graph` option, as shown in the following
@@ -156,7 +157,6 @@ right.
        }
    }
    ```
-
    3. Get the node ID from the `UniqueId` property of the node
       object.
 

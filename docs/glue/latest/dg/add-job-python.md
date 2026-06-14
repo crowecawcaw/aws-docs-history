@@ -282,12 +282,12 @@ def query(con):
 6.  If you're not already there, change to the
     `redshift_example` directory.
 7.  Do one of the following:
+
     - To create an `.egg` file, run the following command.
 
     ```
     python setup.py bdist_egg
     ```
-
     - To create a `.whl` file, run the following command.
 
     ```

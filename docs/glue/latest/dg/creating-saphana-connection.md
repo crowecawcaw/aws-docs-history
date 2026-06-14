@@ -21,6 +21,7 @@ group rules, Network ACLs, NAT Gateways and Peering connections.
 1.  In AWS Secrets Manager, create a secret using your SAP HANA credentials.
     To create a secret in Secrets Manager, follow the tutorial available in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the AWS Secrets Manager documentation.
     After creating the secret, keep the Secret name, `secretName` for the next step.
+
     - When selecting **Key/value pairs**, create a pair for
       the key `username/USERNAME` with the value `saphanaUsername`.
     - When selecting **Key/value pairs**, create a pair for

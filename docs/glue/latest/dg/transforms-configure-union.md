@@ -26,5 +26,6 @@ You use Union to combine rows. You use Join to combine columns.
    an invalid error message is displayed: “The input schemas of this union are not the same. Consider using ApplyMapping to match the schemas.”
    To fix this, choose Use **ApplyMapping**.
 5. Choose the Union type.
+
    1. All – By default, the All Union type is selected; this will result in duplicate rows if there are any in the data combination.
    2. Distinct – Choose Distinct if you want duplicate rows to be removed from the resulting data combination.

@@ -57,12 +57,14 @@ Enter values or select from the available options to configure Apache Hudi forma
 
 - **Hudi Table Name** — this is the name of your hudi table.
 - **Hudi Storage Type** — choose from two options:
+
   - **Copy on write** — recommended for optimizing read performance. This is the default
     Hudi storage type. Each update creates a new version of files during a write.
   - **Merge on read** — recommended for minimizing write latency.
     Updates are logged to row-based delta files and are compacted as needed to create new versions of the columnar files.
 
 - **Hudi Write Operation** - choose from the following options:
+
   - **Upsert** — this is the default operation where the input records are
     first tagged as inserts or updates by looking up the index. Recommended where you are updating existing data.
   - **Insert** — this inserts records but doesn't check for existing records and may
@@ -80,6 +82,7 @@ Enter values or select from the available options to configure Apache Hudi forma
   Snappy.
 - **Amazon S3 Target Location** — choose the Amazon S3 target location by clicking **Browse S3**.
 - **Data Catalog update options** — choose from the following options:
+
   - Do not update the Data Catalog: (Default) Choose this option if you don't want the job to update the
     Data Catalog, even if the schema changes or new partitions are added.
   - Create a table in the Data Catalog and on subsequent runs, update the schema and add new partitions: I

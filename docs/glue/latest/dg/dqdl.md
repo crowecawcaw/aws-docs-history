@@ -14,20 +14,26 @@ DynamicRules are only supported in AWS Glue ETL.
 ###### Contents
 
 - [DQDL syntax](dqdl.md#dqdl-syntax "dqdl.md#dqdl-syntax")
+
   - [Rule structure](dqdl.md#dqdl-syntax-rule-structure "dqdl.md#dqdl-syntax-rule-structure")
   - [Composite rules](dqdl.md#dqdl-syntax-rule-composition "dqdl.md#dqdl-syntax-rule-composition")
+
     - [How Composite rules work](dqdl.md#dqdl-syntax-composite-rules "dqdl.md#dqdl-syntax-composite-rules")
 
   - [Expressions](dqdl.md#dqdl-syntax-rule-expressions "dqdl.md#dqdl-syntax-rule-expressions")
+
     - [Keywords for NULL, EMPTY and WHITESPACES_ONLY](dqdl.md#dqdl-keywords-null-empty-whitespaces_only "dqdl.md#dqdl-keywords-null-empty-whitespaces_only")
     - [Filtering with Where Clause](dqdl.md#dqdl-filtering-data-in-dqdl "dqdl.md#dqdl-filtering-data-in-dqdl")
 
   - [Constants](dqdl.md#dqdl-constants "dqdl.md#dqdl-constants")
   - [Labels](dqdl.md#dqdl-labels "dqdl.md#dqdl-labels")
+
     - [Syntax for DQDL labels](dqdl.md#dqdl-labels-syntax "dqdl.md#dqdl-labels-syntax")
+
       - [Label constraints](dqdl.md#dqdl-labels-constraints "dqdl.md#dqdl-labels-constraints")
 
     - [Retrieving DQDL labels](dqdl.md#dqdl-labels-retrieving "dqdl.md#dqdl-labels-retrieving")
+
       - [Rule outcomes](dqdl.md#dqdl-labels-rule-outcomes "dqdl.md#dqdl-labels-rule-outcomes")
       - [Row-level results](dqdl.md#dqdl-labels-row-level-results "dqdl.md#dqdl-labels-row-level-results")
       - [API response](dqdl.md#dqdl-labels-api-response "dqdl.md#dqdl-labels-api-response")
@@ -37,6 +43,7 @@ DynamicRules are only supported in AWS Glue ETL.
   - [Comments](dqdl.md#dqdl-syntax-comments "dqdl.md#dqdl-syntax-comments")
 
 - [DQDL rule type reference](dqdl-rule-types.md "dqdl-rule-types.md")
+
   - [AggregateMatch](dqdl-rule-types-AggregateMatch.md "dqdl-rule-types-AggregateMatch.md")
   - [ColumnCorrelation](dqdl-rule-types-ColumnCorrelation.md "dqdl-rule-types-ColumnCorrelation.md")
   - [ColumnCount](dqdl-rule-types-ColumnCount.md "dqdl-rule-types-ColumnCount.md")

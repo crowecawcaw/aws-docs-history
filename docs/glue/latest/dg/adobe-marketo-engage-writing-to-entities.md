@@ -4,6 +4,7 @@
 
 - An Adobe Marketo object you would like to write to. You will need the object name such as `leads` or `customobjects`.
 - The Adobe Marketo connector supports three write operations:
+
   - INSERT
   - UPSERT
   - UPDATE

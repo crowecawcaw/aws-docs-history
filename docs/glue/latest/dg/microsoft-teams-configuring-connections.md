@@ -21,11 +21,14 @@ Microsoft Teams supports following two types for authentication mechanism:
 
 1.  In AWS Secrets Manager, create a secret with the following details. It is required to create a secret for
     each connection in AWS Glue.
+
     1. For OAuth auth:
+
        - For customer managed connected app - Secret should contain the connected app Consumer Secret with
          USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET as key.
 
 1.  In AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
+
     1. Under Data Connections, choose **Create connection**.
     2. When selecting a **Data Source**, select Microsoft Teams.
     3. Provide your Microsoft Teams **Tenant ID**.
@@ -53,7 +56,6 @@ Microsoft Teams supports following two types for authentication mechanism:
     }`
 
     ```
-
     5. Provide User Managed Client Application ClientId of Microsoft Teams app.
     6. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
     7. Select the network options if you want to use your network.

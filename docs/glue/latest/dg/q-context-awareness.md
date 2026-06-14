@@ -127,13 +127,16 @@ FilterTransform_transform2.write.format("csv").mode("append").save(
 ## Limitations
 
 - Context carryover:
+
   - The context-awareness feature only carries over context from the previous user query within the same conversation.
     It does not retain context beyond the immediate preceding query.
 
 - Support for node configurations:
+
   - Currently, context-awareness supports only a subset of required configurations for various nodes.
   - Support for optional fields is planned in upcoming releases.
 
 - Availability:
+
   - Context-awareness and DataFrame support are available in Q Chat and SageMaker Unified Studio notebooks.
     However, these features are not yet available in AWS Glue Studio notebooks.

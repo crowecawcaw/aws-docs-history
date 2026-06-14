@@ -6,6 +6,7 @@
 2. On the **Mixpanel** home page, choose **Sign Up** at
    the upper-right corner of the page.
 3. On the **Let's get started** page, complete the following actions:
+
    - Enter your email address in the designated field.
    - Select the required checkbox to agree to the terms.
    - Choose **Get Started** to proceed.

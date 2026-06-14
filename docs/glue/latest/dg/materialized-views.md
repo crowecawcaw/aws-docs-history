@@ -51,13 +51,21 @@ Amazon Athena and Amazon Redshift.
 
 To use materialized views with AWS Glue, you need:
 
-- An account
+- An AWS account
 - AWS Glue version 5.1 or later
 - Source tables in Apache Iceberg format registered in the AWS Glue Data Catalog
-- AWS Lake Formation permissions configured for source tables and target databases
-- An S3 Tables bucket or S3 general purpose bucket registered with AWS Lake Formation for storing
-  materialized view data
+- An S3 Tables bucket or S3 general purpose bucket for storing materialized view
+  data
 - An IAM role with permissions to access AWS Glue Data Catalog and Amazon S3
+- Permissions configured using one of the following models:
+
+  - **IAM policies only** – Your IAM role needs
+    CreateTable permissions on the AWS Glue database and read access to base tables
+    (GetTables on the AWS Glue catalog and read access to underlying S3 locations). No
+    AWS Lake Formation configuration required.
+  - **AWS Lake Formation** – If you already use AWS Lake Formation to
+    govern your data lake, configure AWS Lake Formation permissions on source tables and target
+    databases, and register your S3 bucket with AWS Lake Formation.
 
 ## Configuring Spark to use materialized views
 
@@ -90,13 +98,11 @@ job = glue.create_job(
                   '--conf spark.sql.catalog.glue_catalog.warehouse=s3://amzn-s3-demo-bucket/warehouse '
                   '--conf spark.sql.catalog.glue_catalog.glue.region=us-east-1 '
                   '--conf spark.sql.catalog.glue_catalog.glue.id=111122223333 '
-                  '--conf spark.sql.catalog.glue_catalog.glue.account-id=111122223333 ',
-                  '--conf spark.sql.catalog.glue_catalog.glue.lakeformation-enabled=true ',
+                  '--conf spark.sql.catalog.glue_catalog.glue.account-id=111122223333 '
                   '--conf spark.sql.catalog.s3t_catalog=org.apache.iceberg.spark.SparkCatalog '
                   '--conf spark.sql.catalog.s3t_catalog.type=glue '
-                  '--conf spark.sql.catalog.s3t_catalog.glue.id=111122223333:s3tablescatalog/my-table-bucket ',
-                  '--conf spark.sql.catalog.s3t_catalog.glue.account-id=111122223333 ',
-                  '--conf spark.sql.catalog.s3t_catalog.glue.lakeformation-enabled=true ',
+                  '--conf spark.sql.catalog.s3t_catalog.glue.id=111122223333:s3tablescatalog/my-table-bucket '
+                  '--conf spark.sql.catalog.s3t_catalog.glue.account-id=111122223333 '
                   '--conf spark.sql.catalog.s3t_catalog.warehouse=s3://amzn-s3-demo-bucket/mv-warehouse '
                   '--conf spark.sql.catalog.s3t_catalog.glue.region=us-east-1 '
                   '--conf spark.sql.defaultCatalog=s3t_catalog '
@@ -106,6 +112,13 @@ job = glue.create_job(
     GlueVersion='5.1'
 )
 
+```
+
+If you use AWS Lake Formation to govern access to your data lake, add the following setting to
+each catalog configuration:
+
+```
+--conf spark.sql.catalog.glue_catalog.glue.lakeformation-enabled=true
 ```
 
 #### For S3 general purpose buckets
@@ -127,9 +140,8 @@ job = glue.create_job(
                   '--conf spark.sql.catalog.glue_catalog.type=glue '
                   '--conf spark.sql.catalog.glue_catalog.warehouse=s3://amzn-s3-demo-bucket/warehouse '
                   '--conf spark.sql.catalog.glue_catalog.glue.region=us-east-1 '
-                  '--conf spark.sql.catalog.glue_catalog.glue.id=111122223333 ',
-                  '--conf spark.sql.catalog.glue_catalog.glue.account-id=111122223333 ',
-                  '--conf spark.sql.catalog.glue_catalog.glue.lakeformation-enabled=true ',
+                  '--conf spark.sql.catalog.glue_catalog.glue.id=111122223333 '
+                  '--conf spark.sql.catalog.glue_catalog.glue.account-id=111122223333 '
                   '--conf spark.sql.defaultCatalog=glue_catalog '
                   '--conf spark.sql.optimizer.answerQueriesWithMVs.enabled=true '
                   '--conf spark.sql.materializedViews.metadataCache.enabled=true'
@@ -137,6 +149,13 @@ job = glue.create_job(
     GlueVersion='5.1'
 )
 
+```
+
+If you use AWS Lake Formation to govern access to your data lake, add the following setting to
+each catalog configuration:
+
+```
+--conf spark.sql.catalog.glue_catalog.glue.lakeformation-enabled=true
 ```
 
 ### Configuring AWS Glue Studio notebooks
@@ -155,12 +174,17 @@ command at the beginning of your notebook:
         "spark.sql.catalog.glue_catalog.glue.region": "us-east-1",
         "spark.sql.catalog.glue_catalog.glue.id": "111122223333",
         "spark.sql.catalog.glue_catalog.glue.account-id": "111122223333",
-        "spark.sql.catalog.glue_catalog.glue.lakeformation-enabled": "true",
         "spark.sql.defaultCatalog": "glue_catalog",
         "spark.sql.optimizer.answerQueriesWithMVs.enabled": "true",
         "spark.sql.materializedViews.metadataCache.enabled": "true"
     }
 }
+```
+
+If you use AWS Lake Formation, add the following line to the `conf` block:
+
+```
+"spark.sql.catalog.glue_catalog.glue.lakeformation-enabled": "true"
 ```
 
 ### Enabling incremental refresh
@@ -179,6 +203,10 @@ The following configuration parameters control materialized view behavior:
 
 - `spark.sql.extensions` – Enables Iceberg Spark session extensions
   required for materialized view support.
+- `spark.sql.catalog.glue_catalog.glue.lakeformation-enabled` – Optional.
+  Set to `true` only if you use AWS Lake Formation to govern access to your data lake.
+  When omitted or set to `false`, IAM policies are used for
+  authorization.
 - `spark.sql.optimizer.answerQueriesWithMVs.enabled` – Enables automatic
   query rewrite to use materialized views. Set to true to activate this
   optimization.
@@ -476,13 +504,33 @@ spark.sql("SHOW VIEWS FROM analytics").show()
 
 ## Permissions for materialized views
 
-To create and manage materialized views, you must configure AWS Lake Formation permissions. The IAM
-role creating the materialized view (the definer role) requires specific permissions on source
-tables and target databases.
+To create and manage materialized views, you must configure permissions for the IAM role
+that creates the view (the definer role). AWS Glue supports two permission models:
+
+- **IAM policies only** – If you manage your AWS Glue Data
+  Catalog tables with IAM policies, no AWS Lake Formation configuration is required.
+- **AWS Lake Formation** – If you already use AWS Lake Formation to govern
+  your data lake, you can configure AWS Lake Formation permissions for materialized views.
 
 ### Required permissions for the definer role
 
-The definer role must have the following Lake Formation permissions:
+**If using IAM policies only:**
+
+The definer role must have the following IAM permissions:
+
+- On the AWS Glue Data Catalog – GetTable, GetTables, and CreateTable API
+  permissions
+- On the target database – CreateTable permission
+- On source table S3 locations – Read access (s3:GetObject, s3:ListBucket)
+
+When you create a materialized view, the definer role's ARN is stored in the view
+definition. The AWS Glue Data Catalog assumes this role when executing automatic refresh
+operations. If the definer role loses access to source tables, refresh operations will fail
+until permissions are restored.
+
+**If using AWS Lake Formation:**
+
+The definer role must have the following AWS Lake Formation permissions:
 
 - On source tables – SELECT or ALL permissions without row, column, or cell
   filters
@@ -548,15 +596,20 @@ Your AWS Glue job's IAM role requires the following permissions:
             "Resource": [
                 "arn:aws:logs:*:*:*:/aws-glue/*"
             ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "lakeformation:GetDataAccess"
-            ],
-            "Resource": "*"
         }
     ]
+}
+```
+
+If you use AWS Lake Formation, also add the following permission:
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "lakeformation:GetDataAccess"
+    ],
+    "Resource": "*"
 }
 ```
 
@@ -581,21 +634,20 @@ The role you use for Materialized View auto-refresh must have the iam:PassRole p
 
 ```
 
-To let Glue automatically refresh the materialized view for you, the role must also have the following trust policy that enables the service to assume the role.
+To let AWS Glue automatically refresh the materialized view for you, the role must also
+have the following trust policy that enables the service to assume the role.
 
 ```
 
 {
-  "Version":"2012-10-17",
+  "Version": "2012-10-17",
   "Statement": [
     {
       "Effect": "Allow",
-      "Action": [
-        "iam:PassRole"
-      ],
-      "Resource": [
-        "arn:aws:iam::111122223333:role/materialized-view-role-name"
-      ]
+      "Principal": {
+        "Service": "glue.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
     }
   ]
 }
@@ -623,11 +675,19 @@ If the Materialized View is stored in S3 Tables Buckets, you also need to add th
 
 ### Granting access to materialized views
 
+**If using IAM policies only:**
+
+Any IAM identity with GetTable permission on the materialized view can query it. Users
+can query the materialized view without requiring direct access to the underlying source
+tables.
+
+**If using AWS Lake Formation:**
+
 To grant other users access to query a materialized view, use AWS Lake Formation to grant SELECT
 permission on the materialized view table. Users can query the materialized view without
 requiring direct access to the underlying source tables.
 
-For detailed information about configuring Lake Formation permissions, see Granting and
+For detailed information about configuring AWS Lake Formation permissions, see Granting and
 revoking permissions on Data Catalog resources in the AWS Lake Formation Developer Guide.
 
 ## Monitoring materialized view operations
@@ -740,7 +800,6 @@ job.commit()
         "spark.sql.catalog.glue_catalog.glue.region": "us-east-1",
         "spark.sql.catalog.glue_catalog.glue.id": "111122223333",
         "spark.sql.catalog.glue_catalog.glue.account-id": "111122223333",
-        "spark.sql.catalog.glue_catalog.glue.lakeformation-enabled": "true",
         "spark.sql.defaultCatalog": "glue_catalog",
         "spark.sql.optimizer.answerQueriesWithMVs.enabled": "true",
         "spark.sql.materializedViews.metadataCache.enabled": "true"
@@ -815,17 +874,17 @@ SELECT * FROM customer_summary
 Consider the following when using materialized views with AWS Glue:
 
 - Materialized views require AWS Glue version 5.1 or later.
-- Source tables must be Apache Iceberg tables registered in the AWS Glue Data Catalog.
-  Apache Hive, Apache Hudi, and Linux Foundation Delta Lake tables are not supported at
+- Source tables must be Apache Iceberg or Apache Hive tables registered in the AWS Glue
+  Data Catalog. Apache Hudi and Linux Foundation Delta Lake tables are not supported at
   launch.
 - Source tables must reside in the same Region and account as the materialized
   view.
-- All source tables must be governed by AWS Lake Formation. IAM-only permissions and hybrid access
-  are not supported.
 - Materialized views cannot reference AWS Glue Data Catalog views, multi-dialect views, or
   other materialized views as source tables.
-- The view definer role must have full read access (SELECT or ALL permission) on all
-  source tables without row, column, or cell filters applied.
+- The view definer role must have full read access on all source tables. For customers
+  using IAM policies, this means GetTables permission on the AWS Glue catalog and read access
+  to underlying S3 locations. For customers using AWS Lake Formation, this means SELECT or ALL
+  permission without row, column, or cell filters applied.
 - Materialized views are eventually consistent with source tables. During the refresh
   window, queries may return stale data. Execute manual refresh for immediate
   consistency.
@@ -854,3 +913,5 @@ Consider the following when using materialized views with AWS Glue:
   unavailable.
 - Non-deterministic functions such as rand() or current_timestamp() are not supported in
   materialized view definitions.
+- AWS Lake Formation fine-grained access control (row-level security, column-level security,
+  cell-level security) on materialized views is not currently supported.

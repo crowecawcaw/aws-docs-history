@@ -12,6 +12,7 @@ requirements:
 - Ensure you have created one of the following resources. These resources
   provide credentials that AWS Glue uses to securely access your data when making
   authenticated calls to your account:
+
   - A Developer App that supports OAuth 2.0 authentication. For more information about creating a Developer App, see [Creating a Mailchimp
     account](mailchimp-create-account.md "mailchimp-create-account.md").
 

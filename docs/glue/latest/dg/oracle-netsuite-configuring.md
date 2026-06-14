@@ -40,6 +40,7 @@ To get the Client ID and Client Secret you create a Oracle NetSuite client app:
 13. Note the CONSUMER KEY/CLIENT ID and CONSUMER SECRET/CLIENT SECRET under **Client Credentials**. These values are displayed only once.
 14. Create an ADMINISTRATOR role if needed by navigating to **User/Roles** > **Manage Roles** > **New**.
 15. While creating a custom role, add full access under the **Permissions** tab for the following entities/functionalities:
+
     - "Deposit", "Items", "Item Fulfillment", "Make Journal Entry", "Purchase Order", "Subsidiaries", "Vendors", "Bills", "Vendor Return Authorization", "Track Time", "Customer Payment", "Custom Record Entries", "Custom Record Types", "REST Web Services", "OAuth 2.0 Authorized Applications Management", "Custom Entity Fields", "Log in using OAuth 2.0 Access Tokens".
 
 For more information see [OAuth 2.0](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_157769826287.html "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_157769826287.html") in the NetSuite Applications Suite documentation.

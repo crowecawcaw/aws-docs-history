@@ -70,6 +70,7 @@ Note the following enhancements:
 Note the following changes:
 
 - Breaking changes
+
   - Drop references to Python 3.6 support in docs and Python/docs ([SPARK-36977](https://issues.apache.org/jira/browse/SPARK-36977 "https://issues.apache.org/jira/browse/SPARK-36977")).
   - Remove named tuple hack by replacing built-in pickle to cloudpickle
     ([SPARK-32079](https://issues.apache.org/jira/browse/SPARK-32079 "https://issues.apache.org/jira/browse/SPARK-32079")).
@@ -102,6 +103,7 @@ Docker](monitor-spark-ui-history.md "monitor-spark-ui-history.md").
 ## Migration checklist
 
 - Do your job's external Python libraries depend on Python 2.7/3.6?
+
   - Update the dependent libraries from Python 2.7/3.6 to Python 3.10 as
     Spark 3.3.0 completely removed Python 2.7 and 3.6 support.
 
@@ -127,6 +129,7 @@ As a result, some pymodules brought out-of-the-box by AWS Glue are
 upgraded.
 
 - Log4j has been upgraded to Log4j2.
+
   - For information on the Log4j2 migration path, see the [Log4j documentation](https://logging.apache.org/log4j/2.x/manual/migration.html#Log4j2API "https://logging.apache.org/log4j/2.x/manual/migration.html#Log4j2API").
   - You must rename any custom log4j.properties file as a
     log4j2.properties file instead, with the appropriate log4j2
@@ -163,6 +166,7 @@ For migration steps related to AWS Glue 3.0, see [Migrating from AWS Glue 3.0 to
   `false`.
 - AWS Glue 2.0 uses open-source Spark 2.4 and AWS Glue
   4.0 uses Amazon EMR-optimized Spark 3.3.0.
+
   - Several Spark changes alone may require revision of your scripts to
     ensure that removed features are not being referenced.
   - For example, Spark 3.3.0 does not enable Scala-untyped UDFs, but Spark
@@ -176,6 +180,7 @@ For migration steps related to AWS Glue 3.0, see [Migrating from AWS Glue 3.0 to
   with Scala 2.11.
 - Python 3.10 is the default version used for Python scripts, as
   AWS Glue 2.0 was only using Python 3.7 and 2.7.
+
   - Python 2.7 is not supported with Spark 3.3.0. Any job requesting
     Python 2 in the job configuration will fail with an
     IllegalArgumentException.
@@ -200,6 +205,7 @@ We recommend to set the following parameters when reading/writing parquet data t
   jobs using AWS Glue security configurations and jobs dependent on
   the AWS Encryption SDK dependency provided in runtime are affected. See these
   instructions for AWS Glue job migration:
+
   - You can safely upgrade an AWS Glue 2.0 job to an
     AWS Glue 4.0 job because AWS Glue 2.0
     already contains the AWS Encryption SDK bridge version.
@@ -218,6 +224,7 @@ Note the following changes when migrating:
 
 - AWS Glue 1.0 uses open-source Spark 2.4 and AWS Glue
   4.0 uses Amazon EMR-optimized Spark 3.3.0.
+
   - Several Spark changes alone may require revision of your scripts to
     ensure that removed features are not being referenced.
   - For example, Spark 3.3.0 does not enable Scala-untyped UDFs, but Spark
@@ -262,6 +269,7 @@ the job configuration will fail with an IllegalArgumentException.
   jobs using AWS Glue security configurations and jobs dependent on
   the AWS Encryption SDK dependency provided in runtime are affected. See these
   instructions for AWS Glue job migration.
+
   - You cannot migrate an AWS Glue 0.9/1.0 job to an
     AWS Glue 4.0 job directly. This is because when
     upgrading directly to version 2.x or later and enabling all new features
@@ -289,6 +297,7 @@ Note the following changes when migrating:
 
 - AWS Glue 0.9 uses open-source Spark 2.2.1 and AWS Glue
   4.0 uses Amazon EMR-optimized Spark 3.3.0.
+
   - Several Spark changes alone might require revision of your scripts to
     ensure that removed features are not being referenced.
   - For example, Spark 3.3.0 does not enable Scala-untyped UDFs, but Spark
@@ -306,6 +315,7 @@ Note the following changes when migrating:
   compatible with Scala 2.11.
 - Python 3.10 is also the default version used for Python scripts, as
   AWS Glue 0.9 was only using Python 2.
+
   - Python 2.7 is not supported with Spark 3.3.0. Any job requesting
     Python 2 in the job configuration will fail with an
     IllegalArgumentException.
@@ -333,6 +343,7 @@ Note the following changes when migrating:
   jobs using AWS Glue security configurations and jobs dependent on
   the AWS Encryption SDK dependency provided in runtime are affected. See these
   instructions for AWS Glue job migration.
+
   - You cannot migrate an AWS Glue 0.9/1.0 job to an
     AWS Glue 4.0 job directly. This is because when
     upgrading directly to version 2.x or later and enabling all new features
@@ -366,6 +377,7 @@ For the versions of JDBC and data lake connectors that were upgraded, see:
 ### Hudi
 
 - Spark SQL support improvements:
+
   - Through the `Call Procedure` command, there is added
     support for upgrade, downgrade, bootstrap, clean, and repair.
     `Create/Drop/Show/Refresh Index` syntax is possible
@@ -403,6 +415,7 @@ For the versions of JDBC and data lake connectors that were upgraded, see:
   information on the current options, see the [MongoDB Spark Connector blog](https://www.mongodb.com/docs/spark-connector/current/configuration/ "https://www.mongodb.com/docs/spark-connector/current/configuration/").
 - Using MongoDB 4.0 hosted by Amazon DocumentDB has some functional differences. For
   more information, see these topics:
+
   - [Functional Differences: Amazon DocumentDB and MongoDB](../../../documentdb/latest/developerguide/functional-differences.md "../../../documentdb/latest/developerguide/functional-differences.md")
   - [Supported MongoDB APIs, Operations, and Data Types](../../../documentdb/latest/developerguide/mongo-apis.md "../../../documentdb/latest/developerguide/mongo-apis.md").
 
@@ -432,6 +445,7 @@ For the versions of JDBC and data lake connectors that were upgraded, see:
   they return a DataFrame with useful metrics about the operation
   performed.
 - Optimize performance improvements:
+
   - Set the configuration option
     `spark.databricks.delta.optimize.repartition.enabled=true`
     to use `repartition(1)` instead of
@@ -442,11 +456,13 @@ For the versions of JDBC and data lake connectors that were upgraded, see:
     parallelize compaction jobs.
 
 - Other notable changes:
+
   - [Support
     for using variables](https://github.com/delta-io/delta/issues/1267 "https://github.com/delta-io/delta/issues/1267") in the VACUUM and OPTIMIZE SQL
     commands.
   - Improvements for CONVERT TO DELTA with catalog tables
     including:
+
     - [Autofill the partition schema](https://github.com/delta-io/delta/commit/18d4d12ed06f973006501f6c39c8785db51e2b1f "https://github.com/delta-io/delta/commit/18d4d12ed06f973006501f6c39c8785db51e2b1f") from the catalog
       when it's not provided.
     - [Use partition information](https://github.com/delta-io/delta/commit/ebff29904f3ababb889897343f8f8f7a010a1f71 "https://github.com/delta-io/delta/commit/ebff29904f3ababb889897343f8f8f7a010a1f71") from the catalog to

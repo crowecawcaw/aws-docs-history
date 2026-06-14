@@ -19,6 +19,7 @@ For public LinkedIn documentation on creating a connected app for
 ###### Configuring a LinkedIn connection
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    - For customer managed connected app – Secret should contain the connected app Consumer
      Secret with `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET`
      as key.
@@ -30,6 +31,7 @@ For public LinkedIn documentation on creating a connected app for
 
 2. In the AWS Glue Studio, create a connection under **Data
    Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select
       **LinkedIn**.
    2. Provide the LinkedIn environment.
@@ -58,7 +60,6 @@ For public LinkedIn documentation on creating a connected app for
    }`
 
    ```
-
    4. Select the `secretName` which you want to use for this
       connection in AWS Glue to put the tokens.
    5. Select the **Network options** if you want to use

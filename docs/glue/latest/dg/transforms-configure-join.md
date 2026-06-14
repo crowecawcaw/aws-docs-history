@@ -38,6 +38,7 @@ either:
      conflicting keys.
 
 6. Choose the type of join in the **Join type** list.
+
    - **Inner join**: Returns a row with columns from both datasets
      for every match based on the join condition. Rows that don't satisfy the join
      condition aren't returned.

@@ -6,6 +6,7 @@ and AWS Glue resource policies.
 ###### Contents
 
 - [Identity-based policy examples for AWS Glue](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md")
+
   - [Policy best practices](security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices "security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices")
   - [Resource-level permissions only apply to specific AWS Glue objects](security_iam_id-based-policy-examples.md#glue-identity-based-policy-limitations "security_iam_id-based-policy-examples.md#glue-identity-based-policy-limitations")
   - [Using the AWS Glue console](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console")
@@ -18,11 +19,13 @@ and AWS Glue resource policies.
   - [Deny access using tags](security_iam_id-based-policy-examples.md#tags-control-access-example-triggers-deny "security_iam_id-based-policy-examples.md#tags-control-access-example-triggers-deny")
   - [Use tags with list and batch API operations](security_iam_id-based-policy-examples.md#tags-control-access-example-triggers-list-batch "security_iam_id-based-policy-examples.md#tags-control-access-example-triggers-list-batch")
   - [Control settings using condition keys or context keys](security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-keys "security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-keys")
+
     - [Control policies that control settings using condition keys](security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-key-vpc "security_iam_id-based-policy-examples.md#glue-identity-based-policy-condition-key-vpc")
     - [Control policies that control settings using context keys](security_iam_id-based-policy-examples.md#glue-identity-based-policy-context-key-glue "security_iam_id-based-policy-examples.md#glue-identity-based-policy-context-key-glue")
 
   - [Deny an identity the ability to create data preview sessions](security_iam_id-based-policy-examples.md#deny-data-preview-sessions-per-identity "security_iam_id-based-policy-examples.md#deny-data-preview-sessions-per-identity")
 
 - [Resource-based policy examples for AWS Glue](security_iam_resource-based-policy-examples.md "security_iam_resource-based-policy-examples.md")
+
   - [Considerations for using resource-based policies with AWS Glue](security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-considerations "security_iam_resource-based-policy-examples.md#security_iam_resource-based-policy-examples-considerations")
   - [Use a resource policy to control access in the same account](security_iam_resource-based-policy-examples.md#glue-policy-resource-policies-example-same-account "security_iam_resource-based-policy-examples.md#glue-policy-resource-policies-example-same-account")

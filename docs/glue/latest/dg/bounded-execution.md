@@ -54,6 +54,7 @@ val source = glueContext.getSource("s3", connectionOptions, "datasource0", "")
 
 1. Set the key-value pairs in the `parameters` field of your table structure in the Data Catalog. For more information, see [Viewing and Editing Table Details](console-tables.md#console-tables-details "console-tables.md#console-tables-details").
 2. Set the upper limit for the dataset size or the number of files processed:
+
    - Set `boundedSize` to the target size of the dataset in bytes. The job run will stop after reaching the target size from the table.
    - Set `boundedFiles` to the target number of files. The job run will stop after processing the target number of files.
 

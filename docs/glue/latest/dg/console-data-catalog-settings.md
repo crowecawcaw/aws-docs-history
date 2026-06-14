@@ -9,6 +9,7 @@ The Data Catalog settings contains options to set encryption and permissions opt
 1. Sign in to the AWS Management Console and open the AWS Glue console at
    [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
 2. Choose an encryption option.
+
    - **Metadata encryption** – Select this check box to encrypt the metadata in your Data Catalog.
      Metadata is encrypted at rest using the AWS Key Management Service (AWS KMS) key that you specify. For more information, see
      [Encrypting your Data Catalog](encrypt-glue-data-catalog.md "encrypt-glue-data-catalog.md").

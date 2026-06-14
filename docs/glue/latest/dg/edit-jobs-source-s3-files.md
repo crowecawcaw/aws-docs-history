@@ -17,6 +17,7 @@ If you choose Amazon S3 as your data source, then you can choose either:
 2.  Choose a data source node in the job diagram for an Amazon S3 source.
 3.  Choose the **Data source properties** tab, and then enter the following
     information:
+
     - **S3 source type**: (For Amazon S3 data sources only)
       Choose the option **S3 location**.
     - **S3 URL**: Enter the path to the Amazon S3 bucket,
@@ -110,7 +111,6 @@ If you choose Amazon S3 as your data source, then you can choose either:
 
         There are no additional settings to configure for data stored in Excel
          format.
-
     - **Partition predicate**: To partition the data that is read
       from the data source, enter a Boolean expression based on Spark SQL that includes
       only the partitioning columns. For example: `"(year=='2020' and

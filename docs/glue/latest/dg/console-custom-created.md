@@ -10,6 +10,7 @@ this generated script, or you can provide your own custom script.
 2. Choose the **ETL Jobs** tab, and then view the **Create job**
    section. Choose a **script editor** option.
 3. Under **This job runs**, choose one of the following:
+
    - **Create a new script with boilerplate code**
    - **Upload and edit an existing script**
 

@@ -4,6 +4,7 @@
    Account](https://asana.com/create-account "https://asana.com/create-account") and choose **Sign Up**.
 2. After logging in, you will be redirected to the [Account Setup](https://app.asana.com/0/account_setup "https://app.asana.com/0/account_setup") page.
    Complete the following steps:
+
    - Review the account setup form.
    - Fill in all the relevant details to create your Asana account.
    - Double-check the information for accuracy.
@@ -21,6 +22,7 @@
 4. Select **Create new app** and enter the relevant details.
 5. Choose **Create Apps**.
 6. On the **My Apps** page:
+
    1. Select **OAuth** and in the **App
       Credentials** section, make a note of your Client ID and
       Client Secret.

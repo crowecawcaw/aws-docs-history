@@ -335,6 +335,7 @@ format:
   schema** page in the create table wizard in the
   AWS Glue console. During schema detection, unsupported types in
   the Avro schema are converted to supported types as follows:
+
   - `EnumType => StringType`
   - `FixedType => BinaryType`
   - `UnionType => StructType`
@@ -346,6 +347,7 @@ format:
   can't specify the schema using the **Define a schema** page.
   Instead you must skip that page and specify the schema either as a table
   property or within the ETL script.
+
   - To specify the schema in the table properties, complete the create
     table wizard, edit the table details, and add a new key-value pair under
     **Table properties**. Use the key
@@ -512,6 +514,7 @@ supports. For information on the available operations, see [Operations on stream
 Keep in mind the following notes and restrictions:
 
 - Auto-decompression for AWS Glue streaming ETL jobs is only available for the supported compression types. Also note the following:
+
   - Framed Snappy refers to the official [framing format](https://github.com/google/snappy/blob/main/framing_format.txt "https://github.com/google/snappy/blob/main/framing_format.txt") for Snappy.
   - Deflate is supported in Glue version 3.0, not Glue version 2.0.
 
@@ -531,6 +534,7 @@ Keep in mind the following notes and restrictions:
 - If you use a Data Catalog table created from AWS Glue Schema Registry,
   when a new schema version becomes available, to reflect the new schema, you need
   to do the following:
+
   1.  Stop the jobs associated with the table.
   2.  Update the schema for the Data Catalog table.
   3.  Restart the jobs associated with the table.

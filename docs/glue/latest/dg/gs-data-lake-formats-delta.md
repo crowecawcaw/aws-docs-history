@@ -61,6 +61,7 @@ Enter values or select from the available options to configure Delta Lake format
 - **Amazon S3 Target Location** — choose the Amazon S3 target location by clicking **Browse S3**.
 - **Data Catalog update options** — updating the Data Catalog is not supported for this
   format in the Glue Studio visual editor.
+
   - Do not update the Data Catalog: (Default) Choose this option if you don't want the job to update the
     Data Catalog, even if the schema changes or new partitions are added.
   - To update the Data Catalog after the AWS Glue job execution, run or schedule a

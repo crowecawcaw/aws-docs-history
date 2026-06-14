@@ -3,6 +3,7 @@
 The following are limitations for the Monday connector:
 
 - The dynamic metadata response has certain conflicts with the documentation as mentioned below:
+
   - Group, Column entity supports filter operations, but it is not present in the dynamic metadata endpoint, hence it's kept as non-filterable entity.
   - The dynamic endpoint consists of around 15000+ lines and returns metadata of all the entities in a single response, because of this the fields are taking an average of
     10 seconds to load hence, this would require some additional time while running a job.

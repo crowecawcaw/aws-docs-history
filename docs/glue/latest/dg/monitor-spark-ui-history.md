@@ -50,6 +50,7 @@ web UI. These templates are samples that you should modify to meet your requirem
 2.  On the **Specify template** page, choose **Next**.
 3.  On the **Specify stack details** page, enter the **Stack
     name**. Enter additional information under **Parameters**.
+
     1. ###### Spark UI configuration
 
     Provide the following information:
@@ -67,7 +68,6 @@ web UI. These templates are samples that you should modify to meet your requirem
         * **Keystore path** — SSL/TLS keystore path for HTTPS. If you want to use a custom keystore file, you can specify the S3 path `s3://path_to_your_keystore_file` here. If you leave this parameter empty, a self-signed certificate based keystore is generated and used.
         * **Keystore password** — Enter a SSL/TLS
          keystore password for HTTPS.
-
     2. ###### EC2 instance configuration
 
     Provide the following information:
@@ -83,7 +83,6 @@ web UI. These templates are samples that you should modify to meet your requirem
          instance. You can use any of the subnets in your VPC. You must be able to reach the
          network from your client to the subnet. If you want to access via the internet, you
          must use a public subnet that has the internet gateway in the route table.
-
     3. Choose **Next**.
 
 4.  On the **Configure stack options** page, to use the current user

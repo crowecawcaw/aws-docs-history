@@ -38,6 +38,7 @@ To create an app in Jira Cloud and obtain the Client ID and Client Secret from t
 3. Enter the app name, check **T&C** and choose **Create**.
 4. Navigate to the **Distribution** section in the left menu and choose **Edit**.
 5. In the **Edit distribution controls** section:
+
    1. Select **DISTRIBUTION STATUS** as **Sharing**.
    2. Enter the vendor name.
    3. Enter the URL for your **Privacy policy**. For example, https://docs.aws.amazon.com/glue/latest/dg/security-iam-awsmanpol.html

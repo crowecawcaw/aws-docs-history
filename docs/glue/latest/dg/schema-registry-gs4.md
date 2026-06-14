@@ -68,6 +68,7 @@ To add a new schema using the AWS Glue console:
 5. Choose the **Registry** where the schema will be stored from the drop-down menu. The parent registry cannot be changed post-creation.
 6. Leave the **Data format** as _Apache Avro_ or _JSON_. This format applies to all versions of this schema.
 7. Choose a **Compatibility mode**.
+
    - _Backward (recommended)_ — receiver can read both current and previous versions.
    - _Backward All_ — receiver can read current and all previous versions.
    - _Forward_ — sender can write both current and previous versions.

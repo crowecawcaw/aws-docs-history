@@ -7,6 +7,7 @@ The following are connection options for Salesforce Marketing Cloud Account Enga
 - `API_VERSION`(String) - (Required) Used for Read. Salesforce Marketing Cloud Account Engagement Rest API version you want to use.
 - `SELECTED_FIELDS`(List<String>) - Default: empty(SELECT \*). Used for Read. Columns you want to select for the object.
 - `FILTER_PREDICATE`(String) -
+
   - In Sync mode - Default: empty. Used for Read. It should be in the Spark SQL format.
   - In Async mode - Default : Current `DateTime` value (as per user’s timezone) - 1 year. Used for Read.
 

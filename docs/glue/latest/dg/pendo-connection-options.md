@@ -5,6 +5,7 @@ The following are connection options for Pendo:
 - `ENTITY_NAME`(String) – (Required) Used for Read/Write. The name of your Object in Pendo.
 - `INSTANCE_URL`(String) - (Required) A valid Pendo Instance URL with the
   following allowed values:
+
   - [Default](https://app.pendo.io/ "https://app.pendo.io/")
   - [Europe](https://app.eu.pendo.io/ "https://app.eu.pendo.io/")
   - [US1](https://us1.app.pendo.io/ "https://us1.app.pendo.io/")

@@ -200,6 +200,7 @@ avg(last(10))`)](dqdl.md#dqdl-dynamic-rules "dqdl.md#dqdl-dynamic-rules")
 ### Mar 12, 2024
 
 - DQDL improvements
+
   - [Support for Keywords like NULL, BLANKS, WHITESPACES_ONLY](dqdl.md#dqdl-keywords-null-empty-whitespaces_only "dqdl.md#dqdl-keywords-null-empty-whitespaces_only")
   - [Options to specify how AWS Glue Data Quality must handle Composite rules](dqdl.md#dqdl-syntax-rule-composition "dqdl.md#dqdl-syntax-rule-composition")
   - [ColumnValues rule type will not allow NULL values to pass during comparisons](dqdl.md#dqdl-keywords-null-empty-whitespaces_only "dqdl.md#dqdl-keywords-null-empty-whitespaces_only")
@@ -208,6 +209,7 @@ avg(last(10))`)](dqdl.md#dqdl-dynamic-rules "dqdl.md#dqdl-dynamic-rules")
 ### June 26, 2024
 
 - DQDL improvements
+
   - DQDL now supports [where clause](dqdl.md#dqdl-filtering-data-in-dqdl "dqdl.md#dqdl-filtering-data-in-dqdl")  
     so that you can filter data before applying DQ rules
 
@@ -219,6 +221,7 @@ avg(last(10))`)](dqdl.md#dqdl-dynamic-rules "dqdl.md#dqdl-dynamic-rules")
 
 - [Complex composite rules allows you to author more complex business rules with nested support](dqdl.md#dqdl-syntax-rule-composition "dqdl.md#dqdl-syntax-rule-composition")
 - New rule types for managing data quality for your files
+
   - [FileFreshness](dqdl-rule-types-FileFreshness.md "dqdl-rule-types-FileFreshness.md")
   - [FileSize](dqdl-rule-types-FileSize.md "dqdl-rule-types-FileSize.md")
   - [FileUniqueness](dqdl-rule-types-FileUniqueness.md "dqdl-rule-types-FileUniqueness.md")

@@ -20,6 +20,7 @@ Make a note of your email address, password, and workspace URL. You will need th
 3. Select **Extras** and choose **Registered apps** from the dropdown menu.
 4. Locate and choose **Register An App**.
 5. Enter the following details:
+
    - **App name** – Name of the app.
    - **Company / Organization** – Name of your Company or Organization.
    - **App website** – Website of the app.

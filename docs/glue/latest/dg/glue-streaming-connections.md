@@ -25,11 +25,13 @@ You can specify the connection options for Kafka using the following arguments f
 specified methods in the `GlueContext` class.
 
 - Scala
+
   - `connectionOptions`: Use with `getSource`, `createDataFrameFromOptions`, `getSink`
   - `additionalOptions`: Use with `getCatalogSource`, `getCatalogSink`
   - `options`: Use with `getSourceWithFormat`, `getSinkWithFormat`
 
 - Python
+
   - `connection_options`: Use with
     `create_data_frame_from_options`, `write_dynamic_frame_from_options`
   - `additional_options`: Use with
@@ -248,11 +250,13 @@ You can specify the connection options for Kinesis using the following arguments
 specified methods in the `GlueContext` class.
 
 - Scala
+
   - `connectionOptions`: Use with `getSource`, `createDataFrameFromOptions`, `getSink`
   - `additionalOptions`: Use with `getCatalogSource`, `getCatalogSink`
   - `options`: Use with `getSourceWithFormat`, `getSinkWithFormat`
 
 - Python
+
   - `connection_options`: Use with
     `create_data_frame_from_options`, `write_dynamic_frame_from_options`
   - `additional_options`: Use with

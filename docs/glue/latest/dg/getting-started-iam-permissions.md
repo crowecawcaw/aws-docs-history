@@ -43,6 +43,7 @@ to the user.
 
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. Add a new IAM policy. You can add to an existing policy or create a new IAM inline policy. To create an IAM policy:
+
    1. Choose **Policies**, and then choose **Create Policy**. If a **Get Started** button appears, choose it, and then choose **Create Policy**.
    2. Next to **Create Your Own Policy**, choose **Select**.
    3. For **Policy Name**, type any value that is easy for you to refer to later. Optionally, type descriptive text in **Description**.

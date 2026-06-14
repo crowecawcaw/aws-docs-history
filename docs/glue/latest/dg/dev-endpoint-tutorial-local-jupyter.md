@@ -69,6 +69,7 @@ the remote destination that is defined by AWS Glue (`169.254.76.1:8998`).
    you can use the BASH shell provided by [Git for
    Windows](https://git-scm.com/downloads "https://git-scm.com/downloads"), or you can install [Cygwin](https://www.cygwin.com/ "https://www.cygwin.com/").
 2. Run the following SSH command, modified as follows:
+
    - Replace `private-key-file-path` with a path
      to the `.pem` file that contains the private key corresponding to the
      public key that you used to create your development endpoint.

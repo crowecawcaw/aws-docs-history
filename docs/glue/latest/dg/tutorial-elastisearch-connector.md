@@ -79,6 +79,7 @@ The AWS Glue Connector for Elasticsearch is available for free from
 
 1. If you have not already configured your AWS account to use License Manager, do the
    following:
+
    1. Open the AWS License Manager console at [https://console.aws.amazon.com/license-manager](https://console.aws.amazon.com/license-manager "https://console.aws.amazon.com/license-manager").
    2. Choose **Create customer managed license**.
    3. In the **IAM permissions (one-time setup)** window, choose **I
@@ -176,6 +177,7 @@ more information, see [Configure a VPC for your ETL job](getting-started-vpc-con
 3.  In the visual job editor, choose the Data source node. On the right, on the
     **Data source properties - Connector** tab, configure additional information for
     the connector.
+
     1.  Choose **Add schema** and enter the schema of the data set in the data
         source. Connections do not use tables stored in the Data Catalog, which means that AWS Glue Studio doesn't
         know the schema of the data. You must manually provide this schema information. For

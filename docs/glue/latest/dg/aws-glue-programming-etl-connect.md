@@ -289,6 +289,7 @@ specified `filterPredicate`. For example:
   driver, so the behavior is specific to the driver you use. Refer to the documentation
   for your JDBC driver to understand how the driver performs the conversions.
 - The AWS Glue data types supported currently are:
+
   - DATE
   - STRING
   - TIMESTAMP

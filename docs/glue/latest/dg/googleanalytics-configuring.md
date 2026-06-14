@@ -8,6 +8,7 @@ Before you can use AWS Glue to transfer from Google Analytics 4, you must meet t
   transfer.
 - You have a Google Cloud Platform account and a Google Cloud project.
 - In your Google Cloud project, you've enabled the following APIs:
+
   - Google Analytics API
   - Google Analytics Admin API
   - Google Analytics Data API

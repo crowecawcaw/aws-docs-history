@@ -6,6 +6,7 @@ in a AWS Secrets Manager secret, then associate that secret with a Google BigQue
 ###### To configure a connection to BigQuery:
 
 1. In Google Cloud Platform, create and identify relevant resources:
+
    - Create or identify a GCP project containing BigQuery tables you would like to connect to.
    - Enable the BigQuery API. For more information, see [Use the BigQuery Storage Read API to read table data](https://cloud.google.com/bigquery/docs/reference/storage/#enabling_the_api "https://cloud.google.com/bigquery/docs/reference/storage/#enabling_the_api") .
 
@@ -47,6 +48,7 @@ You should now have downloaded a JSON file with credentials for your service acc
    After creating the secret, keep the Secret name, `secretName` for the next step.
 4. In the AWS Glue Data Catalog, create a connection by following the steps in [https://docs.aws.amazon.com/glue/latest/dg/console-connections.html](console-connections.md "console-connections.md").
    After creating the connection, keep the connection name, `connectionName`, for the next step.
+
    - When selecting a **Connection type**, select Google BigQuery.
    - When selecting an **AWS Secret**, provide `secretName`.
 

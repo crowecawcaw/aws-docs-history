@@ -380,12 +380,15 @@ If no settings are included, default values will be used.
   detection on for the entity. Use either `sourceColumns` or `sourceColumnsToExclude`. Raises
   `IllegalArgumentException` if an invalid column name is used.
 - **actionOptions** – Additional options based on the specified action:
+
   - For "DETECT" and "SHA256_HASH", no options are allowed.
   - For "REDACT":
+
     - **redactText** – (type: `String`, default: "\*\*\*\*\*") Text to replace the detected
       entity.
 
   - For "PARTIAL_REDACT":
+
     - **redactChar** – (type: `String`, default: "\*") Character to replace each
       detected character in the entity.
     - **matchPattern** – (type: `String`) Regex pattern for partial redaction. Cannot

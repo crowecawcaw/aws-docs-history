@@ -20,6 +20,7 @@ Consider the following points when you use IAM Identity Center Trusted Identity 
 - Once an application is enabled on AWS Glue side, make sure to create 5.0 sessions with IdC Credentials but don't create a 4.0
   session with IdC credentials.
 - Trusted Identity Propagation with AWS Glue is supported in the following AWS Regions:
+
   - af-south-1 – Africa (Cape Town)
   - ap-east-1 – Asia Pacific (Hong Kong)
   - ap-northeast-1 – Asia Pacific (Tokyo)

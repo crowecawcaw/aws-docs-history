@@ -93,6 +93,7 @@ To create a connection with VPC configuration while using a custom IAM role, it 
 ## Limitations
 
 - You can't edit connections through the AWS Glue console if you created a v2 connection using AWS Glue APIs:
+
   - Amazon DocumentDB
   - Amazon Aurora
   - MariaDB

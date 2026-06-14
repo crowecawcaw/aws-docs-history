@@ -19,11 +19,14 @@ To configure a Google Ads connection:
 
 1. In AWS Secrets Manager, create a secret with the following details. It is required to create a secret for
    each connection in AWS Glue.
+
    1. For AuthorizationCode grant type:
+
       - For customer managed connected app – Secret should contain the
         connected app Consumer Secret with `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
 
 2. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select Google Ads.
    2. Provide the `developer token` of the Google Ads you want to connect to.
    3. Provide the `MANAGER ID` of the Google Ads if you want to log in as manager.
@@ -51,7 +54,6 @@ To configure a Google Ads connection:
    }`
 
    ```
-
    5. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
    6. Select the network options if you want to use your network.
 

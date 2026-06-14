@@ -9,6 +9,7 @@ You can complete the following steps using the AWS Management Console or AWS CLI
 AWS Management Console
 
 1. In the account where the Amazon S3 location is registered (account B):
+
    1. Register an Amazon S3 path with Lake Formation. For more information, see [Registering Amazon S3
       location](../../../lake-formation/latest/dg/register-location.md "../../../lake-formation/latest/dg/register-location.md").
    2. Grant **Data location** permissions to the account (account A) where the crawler will be run. For more information, see
@@ -20,6 +21,7 @@ AWS Management Console
       database permissions](../../../lake-formation/latest/dg/granting-database-permissions.md "../../../lake-formation/latest/dg/granting-database-permissions.md").
 
 2. In the account where the crawler is created and will be run (account A):
+
    1. Using the AWS RAM console, accept the database that was shared from the external account (account B). For more information, see [Accepting a resource share invitation from AWS Resource Access Manager](../../../lake-formation/latest/dg/accepting-ram-invite.md "../../../lake-formation/latest/dg/accepting-ram-invite.md").
    2. Create an IAM role for the crawler. Add `lakeformation:GetDataAccess` policy to the role.
    3. In the Lake Formation console ([https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/")), grant **Data location** permissions on the target Amazon S3 location to the IAM role used for the crawler run so that the crawler can read the data from the destination in Lake Formation.

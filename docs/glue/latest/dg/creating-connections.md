@@ -11,6 +11,7 @@ specify all connection details every time you create a job.
    navigation pane. In the **Connections** section, choose **Create connection**.
 2. Choose the data source you want to create a connection for in step 1 of the **Create data connection**
    wizard. There are several ways to view the available data sources, including:
+
    - Filter the available data sources by choosing a tab. By default, **All connectors** is selected.
    - Toggle **List** to view the data sources as a list or toggle back to **Grid**
      to view the available connectors in the grid layout.

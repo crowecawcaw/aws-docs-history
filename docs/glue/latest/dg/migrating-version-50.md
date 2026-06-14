@@ -75,7 +75,9 @@ Note the following breaking changes:
   used by S3A is `us-east-2`. This can cause issues, such as S3 upload timeout errors, especially for VPC jobs. To mitigate the issues
   caused by this change, set the `fs.s3a.endpoint.region` Spark configuration when using the S3A file system in AWS Glue 5.0.
 - Lake Formation Fine-grained Access Control (FGAC)
+
   - AWS Glue 5.0 only supports the new Spark-native FGAC using Spark DataFrames. It does not support FGAC using AWS Glue DynamicFrames.
+
     - Use of FGAC in 5.0 requires migrating from AWS Glue DynamicFrames to Spark DataFrames
     - If you don't need FGAC, then it is not necessary to migrate to Spark DataFrame and GlueContext features,
       like job bookmarks and push down predicates, will continue to work.
@@ -86,13 +88,16 @@ Note the following breaking changes:
     [Using AWS Glue with AWS Lake Formation for fine-grained access control](security-lf-enable.md "security-lf-enable.md").
 
 - Lake Formation Full Table Access (FTA)
+
   - AWS Glue 5.0 supports FTA with Spark-native DataFrames (new) and GlueContext DynamicFrames (legacy, with limitations)
   - Spark-native FTA
+
     - If 4.0 script uses GlueContext, migrate to using native spark.
     - This feature is limited to hive and iceberg tables
     - For more information on configuring a 5.0 job to use Spark native FTA, see [Native Spark FTA in AWS Glue 5.0](security-access-control-fta.md#native-spark-fta "security-access-control-fta.md#native-spark-fta").
 
   - GlueContext DynamicFrame FTA
+
     - No code change necessary
     - This feature is limited to non-OTF tables - it will not work with Iceberg, Delta Lake, and Hudi.
 
@@ -333,6 +338,7 @@ Note the following changes:
 - Support for micro-batch mode with Spark Structured Streaming.
 - Support for BSON data types.
 - Added support for reading multiple collections when using micro-batch or continuous streaming modes.
+
   - If the name of a collection used in your `collection` configuration option contains a comma, the Spark Connector treats it as two different collections. To avoid this, you must escape the comma by preceding it with a backslash (\).
   - If the name of a collection used in your `collection` configuration option is "\*", the Spark Connector interprets it as a specification to scan all collections. To avoid this, you must escape the asterisk by preceding it with a backslash (\).
   - If the name of a collection used in your `collection` configuration option contains a backslash (\), the Spark Connector treats the backslash as an escape character, which might change how it interprets the value. To avoid this, you must escape the backslash by preceding it with another backslash.

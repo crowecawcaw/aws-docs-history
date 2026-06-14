@@ -21,6 +21,7 @@ To create an API key that you will use to create a connection for the Kustomer c
 3. Expand the **Security** drop down and select **API Keys**.
 4. In the API Key creation page select **Add an API Key** from the top right corner.
 5. Fill the mandatory inputs for the API key being created.
+
    - Name: any name for your API Key.
    - Roles: 'org' must be selected for the Kustomer APIs to function.
    - Expires (in days): the number of days you want the API key to be valid. You can keep it as **Never expires**, if it suits your use case.

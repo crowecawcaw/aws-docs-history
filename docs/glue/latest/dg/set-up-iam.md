@@ -22,6 +22,7 @@ AWS Glue. You will complete the following tasks:
 5. Choose **Next**.
 6. Choose the level of Amazon S3 access that your roles and users need. The options that you
    choose in this step are applied to all of the identities that you selected.
+
    1. Under **Choose S3 locations**, choose the Amazon S3 locations that you
       want to grant access to.
    2. Next, select whether your identities should have **Read only
@@ -43,11 +44,13 @@ AWS Glue. You will complete the following tasks:
 8. Choose a default AWS Glue service role for your account. A service role is an IAM
    role that AWS Glue uses to access resources in other AWS services on your behalf. For
    more information, see [Service roles for AWS Glue](security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service "security_iam_service-with-iam.md#security_iam_service-with-iam-roles-service").
+
    - When you choose the standard AWS Glue service role, AWS Glue creates a new IAM
      role in your AWS account named `AWSGlueServiceRole` with the following
      managed policies attached. If your account already has an IAM role named
      `AWSGlueServiceRole`, AWS Glue attaches these policies to the existing
      role.
+
      - [AWSGlueServiceRole](https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole "https://console.aws.amazon.com/iam/home#policies/arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole") – This managed policy is required for AWS Glue to access and manage resources on your
        behalf. It allows AWS Glue to create, update, and delete various resources such as AWS Glue jobs, crawlers, and connections.
        This policy also grants permissions for AWS Glue to access Amazon CloudWatch logs for logging purposes.

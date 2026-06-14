@@ -14,6 +14,7 @@ The following components in the Data quality tab provide useful information.
 2. Select a specific job run ID to view the Data Quality score.
 3. This pane shows three important information. You can choose each to navigate to specific tables to view
    anomalies, data statistics or rules.
+
    - Data Quality score when rules are configured.
    - Number of statistics gathered by Rules and Analyzers.
    - Total number of anomalies detected.
@@ -22,6 +23,7 @@ The following components in the Data quality tab provide useful information.
    specific time when data quality scores have deteriorated.
 5. Anomaly trends over time will show you the number of anomalies detected over time.
 6. Tabs:
+
    - Rules Tab is the default tab that shows list of all the rules and status. Evaluated Rules is useful in case of
      dynamic rules to view the actual value the rule was evaluated to.
    - Statistics Tab lists all the statistics, allowing you to view the metrics and the trends over time.

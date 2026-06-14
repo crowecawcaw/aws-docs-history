@@ -9,11 +9,13 @@ The grant type determines how AWS Glue communicates with ServiceNow to request a
   To configure a ServiceNow connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    1. For basic authentication, the Secret should contain the connected app Consumer Secret with `USERNAME` and `PASSWORD` as key.
    2. For an authorization code grant type, the Secret should contain the connected app Consumer Secret with `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
    3. Note: You must create a secret per connection in AWS Glue.
 
 2. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select ServiceNow.
    2. Provide the INSTANCE_URL of the ServiceNow instance you want to connect to.
    3. Select the AWS IAM role which AWS Glue can assume and has permissions for following actions:
@@ -40,8 +42,8 @@ The grant type determines how AWS Glue communicates with ServiceNow to request a
    }`
 
    ```
-
    4. Select the **Authentication Type** you want to use for this connection in AWS Glue.
+
       1. Basic Auth: this auth type works well for automation scenarios as it allows to use username and password up front with the permissions of a particular user in the ServiceNow instance. AWS Glue is able to use the username and password to authenticate ServiceNow APIs. Enter the following inputs only in case of Basic Auth: `Username` and `Password`.
       2. OAuth2: enter the following inputs only in case of OAuth2: `ClientId`, `ClientSecret`, `Authorization URL`, `Authorization Token URL`.
 

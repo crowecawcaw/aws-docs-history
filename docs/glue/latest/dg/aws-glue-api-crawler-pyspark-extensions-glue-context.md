@@ -141,6 +141,7 @@ Returns a sample `DynamicFrame` that is created using a Data Catalog database an
   `streamName`, `bootstrap.servers`, `security.protocol`,
   `topicName`, `classification`, and `delimiter`.
 - `sample_options` – Parameters to control sampling behavior (optional). Current available parameters for Amazon S3 sources:
+
   - `maxSamplePartitions` – The maximum number of partitions the sampling will read. Default value is 10
   - `maxSampleFilesPerPartition` – The maximum number of files the sampling will read in one partition. Default value is 10.
 
@@ -162,6 +163,7 @@ Returns a sample `DynamicFrame` created with the specified connection and format
   (optional). For more information, see [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
 - `num` – The maximum number of records in the returned sample dynamic frame.
 - `sample_options` – Parameters to control sampling behavior (optional). Current available parameters for Amazon S3 sources:
+
   - `maxSamplePartitions` – The maximum number of partitions the sampling will read. Default value is 10
   - `maxSampleFilesPerPartition` – The maximum number of files the sampling will read in one partition. Default value is 10.
 
@@ -220,6 +222,7 @@ table.
   possible options include those listed in [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md") for streaming sources, such as
   `startingPosition`, `maxFetchTimeInMs`, and
   `startingOffsets`.
+
   - `useSparkDataSource`
     – When set to true, forces AWS Glue to use the native Spark Data Source API to read
     the table. The Spark Data Source API supports the following formats: AVRO, binary,
@@ -330,6 +333,7 @@ this function only with AWS Glue streaming sources.
   Kinesis and Kafka. You can find the list of all connection options for each streaming data
   source at [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md"). Note the following differences in
   streaming connection options:
+
   - Kinesis streaming sources require `streamARN`,
     `startingPosition`, `inferSchema`, and
     `classification`.
@@ -382,6 +386,7 @@ the Streaming source.
   batch.
 - `options` – A collection of key-value pairs that holds information
   about how to process micro batches. The following options are required:
+
   - `windowSize` – The amount of time to spend processing each
     batch.
   - `checkpointLocation` – The location where checkpoints are stored
@@ -444,6 +449,7 @@ Knowledge Center.
 - `database` – The database to use.
 - `table_name` – The name of the table to use.
 - `options` – Options to filter files to be deleted and for manifest file generation.
+
   - `retentionPeriod` – Specifies a period in number of hours to retain files.
     Files newer than the retention period are retained. Set to 168 hours (7 days) by
     default.
@@ -482,6 +488,7 @@ the Support Knowledge Center.
 
 - `s3_path` – The path in Amazon S3 of the files to be deleted in the format `s3://<`bucket`>/<`prefix`>/`
 - `options` – Options to filter files to be deleted and for manifest file generation.
+
   - `retentionPeriod` – Specifies a period in number of hours to retain files.
     Files newer than the retention period are retained. Set to 168 hours (7 days) by
     default.
@@ -516,6 +523,7 @@ Classes](aws-glue-programming-etl-storage-classes.md "aws-glue-programming-etl-s
 - `table_name` – The name of the table to use.
 - `transition_to` – The [Amazon S3 storage class](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/StorageClass.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/StorageClass.md") to transition to.
 - `options` – Options to filter files to be deleted and for manifest file generation.
+
   - `retentionPeriod` – Specifies a period in number of hours to retain files.
     Files newer than the retention period are retained. Set to 168 hours (7 days) by
     default.
@@ -554,6 +562,7 @@ Classes](aws-glue-programming-etl-storage-classes.md "aws-glue-programming-etl-s
 - `s3_path` – The path in Amazon S3 of the files to be transitioned in the format `s3://<`bucket`>/<`prefix`>/`
 - `transition_to` – The [Amazon S3 storage class](../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/StorageClass.md "../../../AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/StorageClass.md") to transition to.
 - `options` – Options to filter files to be deleted and for manifest file generation.
+
   - `retentionPeriod` – Specifies a period in number of hours to retain files.
     Files newer than the retention period are retained. Set to 168 hours (7 days) by
     default.
@@ -663,6 +672,7 @@ to external sources. Check the SparkSQL `format` first to be sure to get the exp
 - `transformation_ctx` – The transformation context to use (optional).
 - `options` – A collection of name-value pairs used to specify the connection
   options. Some of the possible values are:
+
   - `user` and `password`: For authorization
   - `url`: The endpoint for the data store
   - `dbtable`: The name of the target table
@@ -793,6 +803,7 @@ Lake). For more information, see [Using data lake frameworks with AWS Glue ETL j
 - `transformation_ctx` – The transformation context to use (optional).
 - `additional_options` – A collection of optional name-value
   pairs.
+
   - `useSparkDataSink` – When set to true, forces AWS Glue to use the
     native Spark Data Sink API to write to the table. When you enable this option, you can
     add any [Spark

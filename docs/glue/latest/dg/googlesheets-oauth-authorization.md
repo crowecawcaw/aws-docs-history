@@ -17,6 +17,7 @@
    [Setting up your OAuth consent screen](https://support.google.com/cloud/answer/10311615# "https://support.google.com/cloud/answer/10311615#")
    in the Google Cloud Platform Console Help.
 3. In the OAuth consent screen, add the following scopes:
+
    - [The Google Sheets API read-only scope](https://www.googleapis.com/auth/spreadsheets.readonly "https://www.googleapis.com/auth/spreadsheets.readonly")
    - [The Google Drive API read-only scope](ttps://www.googleapis.com/auth/drive.readonly "ttps://www.googleapis.com/auth/drive.readonly")
 

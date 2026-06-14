@@ -81,9 +81,11 @@ options about how to provision IAM resources, see the [AWS Identity and Access M
 1. Create a policy that defines the previously outlined Amazon S3 permissions by following the steps in
    [Creating IAM policies (console) with the visual editor](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-visual-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-visual-editor") in the
    _IAM User Guide_.
+
    - When selecting a service, choose Amazon S3.
    - When selecting permissions for your policy, attach the following sets of actions for the
      following resources (mentioned previously):
+
      - Read access level permissions for the `nyc-tlc/*` Amazon S3
        resource.
      - Write access level permissions for the
@@ -94,9 +96,11 @@ options about how to provision IAM resources, see the [AWS Identity and Access M
 
 2. Create a role for your AWS Glue for Ray job by following the steps in [Creating a role for an AWS service (console)](../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console "../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console") in the
    _IAM User Guide_.
+
    - When selecting a trusted AWS service entity, choose `Glue`. This will
      automatically populate the necessary trust relationship for your job.
    - When selecting policies for the permissions policy, attach the following policies:
+
      - `AWSGlueServiceRole`
      - `YourPolicyName`
 

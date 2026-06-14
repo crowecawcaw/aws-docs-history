@@ -3,14 +3,17 @@
 To configure a Salesforce connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    1. For the JWT_TOKEN grant type - the secret should contain the JWT_TOKEN key with its value.
    2. For the AuthorizationCode grant type:
+
       1. For an AWS Managed connected app, an empty secret or a secret with some temporary value must be provided.
       2. For a customer managed connected app, the secret should contain the connected app `Consumer Secret` with `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as the key.
 
    3. Note: You must create a secret for your connection in AWS Glue.
 
 2. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select Salesforce.
    2. Provide the INSTANCE_URL of the Salesforce instance you want to connect to.
    3. Provide the Salesforce environment.
@@ -38,8 +41,8 @@ To configure a Salesforce connection:
    }`
 
    ```
-
    5. Select the OAuth2 grant type which you want to use for the connections. The grant type determines how AWS Glue communicates with Salesforce to request access to your data. Your choice affects the requirements that you must meet before you create the connection. You can choose either of these types:
+
       - **JWT_BEARER Grant Type**: This grant type works well for automation scenarios as it allows a JSON Web Token (JWT) to be created up front with the permissions of a particular user in the Salesforce instance. The creator has control over how long the JWT is valid for. AWS Glue is able to use the JWT to obtain an access token which is used to call Salesforce APIs.
 
       This flow requires that the user has created a connected app in their Salesforce instance which enables issuing JWT-based access tokens for users.

@@ -115,6 +115,7 @@ Tips and the considerations for fine-tuning AWS Glue Auto Scaling:
   based on the maximum number of DPU (calculated with the maximum number of workers and the worker type) configured
   on the job. In case you prefer the fixed value on those configurations, you can overwrite these parameters with the
   following job parameters:
+
   - **Key**: `--conf`
   - **Value**: `spark.sql.shuffle.partitions=200 --conf spark.default.parallelism=200`
 

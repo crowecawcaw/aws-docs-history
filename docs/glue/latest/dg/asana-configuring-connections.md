@@ -19,6 +19,7 @@ For public Asana documentation on creating a connected app for
 To configure a Asana connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    - For customer managed connected app – Secret should contain the
      connected app Consumer Secret with
      `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
@@ -27,6 +28,7 @@ To configure a Asana connection:
    You must create a secret for the connection in AWS Glue.
 
 2. In AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select
       Asana.
    2. Provide the Asana environment.
@@ -55,7 +57,6 @@ To configure a Asana connection:
    }`
 
    ```
-
    4. Select the `secretName` that you want to use for this
       connection in AWS Glue to put the tokens.
    5. Select the network options if you want to use your network.

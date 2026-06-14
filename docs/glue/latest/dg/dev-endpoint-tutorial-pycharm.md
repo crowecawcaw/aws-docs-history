@@ -52,6 +52,7 @@ if __name__ == "__main__":
 ```
 
 3. Do one of the following:
+
    - For AWS Glue version 0.9, download the AWS Glue Python library file,
      `PyGlue.zip`, from
      `https://s3.amazonaws.com/aws-glue-jes-prod-us-east-1-assets/etl/python/PyGlue.zip`
@@ -62,6 +63,7 @@ if __name__ == "__main__":
      to a convenient location on your local machine.
 
 4. Add `PyGlue.zip` as a content root for your project in PyCharm:
+
    - In PyCharm, choose **File**, **Settings** to
      open the **Settings** dialog box. (You can also press
      `Ctrl+Alt+S`.)

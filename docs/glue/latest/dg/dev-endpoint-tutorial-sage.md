@@ -11,6 +11,7 @@ learning compute instance running the Jupyter Notebook application.
    notebook**.
 3. Fill out the **Create and configure a notebook** page as
    follows:
+
    1. Enter a notebook name.
    2. Under **Attach to development endpoint**, verify the development
       endpoint.

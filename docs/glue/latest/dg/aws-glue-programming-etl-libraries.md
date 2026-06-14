@@ -3,11 +3,13 @@
 When you develop and test your AWS Glue for Spark job scripts, there are multiple available options:
 
 - AWS Glue Studio console
+
   - Visual editor
   - Script editor
   - AWS Glue Studio notebook
 
 - Interactive sessions
+
   - Jupyter notebook
 
 - Docker image

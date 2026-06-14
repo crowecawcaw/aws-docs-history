@@ -195,10 +195,12 @@ You can use the following `format_options` wherever AWS Glue libraries specify
   DynamicFrame workflows.
   For usage details, see [Glue
   Parquet Writer](#aws-glue-programming-etl-format-glue-parquet-writer "#aws-glue-programming-etl-format-glue-parquet-writer").
+
   - **Type:** Boolean, **Default:**`false`
 
 - `compression` – Specifies the compression codec used. Values are fully
   compatible with `org.apache.parquet.hadoop.metadata.CompressionCodecName`.
+
   - **Type:** Enumerated Text, **Default:**
     `"snappy"`
   - Values: `"uncompressed"`, `"snappy"`,
@@ -207,12 +209,14 @@ You can use the following `format_options` wherever AWS Glue libraries specify
 - `blockSize` – Specifies the size in bytes of a row group being buffered in
   memory. You use this for tuning performance. Size should divide exactly into a number of
   megabytes.
+
   - **Type:** Numerical, **Default:**`134217728`
   - The default value is equal to 128
     MB.
 
 - `pageSize` – Specifies the size in bytes of a page. You use this for tuning
   performance. A page is the smallest unit that must be read fully to access a single record.
+
   - **Type:** Numerical, **Default:**`1048576`
   - The default value is equal to 1
     MB.

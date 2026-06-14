@@ -24,17 +24,20 @@ Only one event is generated per job run status when the job delay notification t
 
 - Events for `"detail-type":"Glue Crawler State Change"` are generated for `Started`, `Succeeded`, and `Failed`.
 - Events for `“detail_type”:“Glue Scheduled Crawler Invocation Failure”` are generated when the scheduled crawler fails to start. In the details of the notification:
+
   - `customerId` contains the account ID of the customer.
   - `crawlerName` contains the name of the crawler that failed to start.
   - `errorMessage` contains the exception message of the invocation failure.
 
 - Events for `“detail_type”:“Glue Auto Statistics Invocation Failure“` are generated when the auto-managed column statistics task run fails to start. In the details of the notification:
+
   - `catalogId` contains the ID associated with a catalog.
   - `databaseName` contains the name of the affected database.
   - `tableName` contains the name of the affected table.
   - `errorMessage` contains the exception message of the invocation failure.
 
 - Events for `“detail_type”:“Glue Scheduled Statistics Invocation Failure”` are generated when the (cron) scheduled column statistics task run fails to start. In the details of the notification:
+
   - `catalogId` contains the ID associated with a catalog.
   - `databaseName` contains the name of the affected database.
   - `tableName` contains the name of the affected table.
@@ -47,6 +50,7 @@ Only one event is generated per job run status when the job delay notification t
   For example, if a table is created or deleted, a notification is sent to EventBridge.
   Note that you cannot write a program that depends on the order or existence of notification events, as they might be out of sequence or missing. Events are emitted on a best effort basis.
   In the details of the notification:
+
   - The `typeOfChange` contains the name of the API operation.
   - The `databaseName` contains the name of the affected database.
   - The `changedTables` contains up to 100 names of affected tables per notification. When table names are long, multiple notifications might be created.

@@ -6,6 +6,7 @@ The following are limitations or notes for Blackbaud Raiser's Edge NXT:
 - Incremental pull is only supported by the `Event` entity with daily, monthly and weekly frequencies.
 - The Constituent Fundraiser Assignment entity returns a maximum of 20 records.
 - Record-based partitioning:
+
   - Not supported by the `Action`, `Constituent Fundraiser Assignment` or `Gift Batch` entities.
   - Record-based partitioning with the filter predicate is only supported by the `Event` and `Event Participant` entities. If a filter predicate is used with any other record-based supported entities, an exception will be thrown.
 

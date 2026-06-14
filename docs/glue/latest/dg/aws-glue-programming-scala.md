@@ -11,25 +11,30 @@ in ETL scripts, and provide reference documentation for the library.
 ###### Contents
 
 - [Using Scala](glue-etl-scala-using.md "glue-etl-scala-using.md")
+
   - [Testing on a DevEndpoint notebook](glue-etl-scala-using.md#aws-glue-programming-scala-using-notebook "glue-etl-scala-using.md#aws-glue-programming-scala-using-notebook")
   - [Testing on a DevEndpoint REPL](glue-etl-scala-using.md#aws-glue-programming-scala-using-repl "glue-etl-scala-using.md#aws-glue-programming-scala-using-repl")
 
 - [Scala script example](glue-etl-scala-example.md "glue-etl-scala-example.md")
 - [Scala API list](glue-etl-scala-apis.md "glue-etl-scala-apis.md")
+
   - [com.amazonaws.services.glue](glue-etl-scala-apis.md#glue-etl-scala-apis-glue "glue-etl-scala-apis.md#glue-etl-scala-apis-glue")
   - [com.amazonaws.services.glue.ml](glue-etl-scala-apis.md#glue-etl-scala-apis-glue-ml "glue-etl-scala-apis.md#glue-etl-scala-apis-glue-ml")
   - [com.amazonaws.services.glue.dq](glue-etl-scala-apis.md#glue-etl-scala-apis-glue-dq "glue-etl-scala-apis.md#glue-etl-scala-apis-glue-dq")
   - [com.amazonaws.services.glue.types](glue-etl-scala-apis.md#glue-etl-scala-apis-glue-types "glue-etl-scala-apis.md#glue-etl-scala-apis-glue-types")
   - [com.amazonaws.services.glue.util](glue-etl-scala-apis.md#glue-etl-scala-apis-glue-util "glue-etl-scala-apis.md#glue-etl-scala-apis-glue-util")
   - [ChoiceOption](glue-etl-scala-apis-glue-choiceoption.md "glue-etl-scala-apis-glue-choiceoption.md")
+
     - [ChoiceOption trait](glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-choiceoption-trait "glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-choiceoption-trait")
     - [ChoiceOption object](glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-choiceoption-object "glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-choiceoption-object")
+
       - [Apply](glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-choiceoption-object-def-apply "glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-choiceoption-object-def-apply")
 
     - [ChoiceOptionWithResolver](glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-choiceoptionwithresolver-case-class "glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-choiceoptionwithresolver-case-class")
     - [MatchCatalogSchemaChoiceOption](glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-matchcatalogschemachoiceoption-case-class "glue-etl-scala-apis-glue-choiceoption.md#glue-etl-scala-apis-glue-matchcatalogschemachoiceoption-case-class")
 
   - [DataSink](glue-etl-scala-apis-glue-datasink-class.md "glue-etl-scala-apis-glue-datasink-class.md")
+
     - [writeDynamicFrame](glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-writeDynamicFrame "glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-writeDynamicFrame")
     - [pyWriteDynamicFrame](glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-pyWriteDynamicFrame "glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-pyWriteDynamicFrame")
     - [writeDataFrame](glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-writeDataFrame "glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-writeDataFrame")
@@ -42,11 +47,14 @@ in ETL scripts, and provide reference documentation for the library.
     - [getOutputErrorRecordsAccumulable](glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-getOutputErrorRecordsAccumulable "glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-getOutputErrorRecordsAccumulable")
     - [errorsAsDynamicFrame](glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-errorsAsDynamicFrame "glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-class-defs-errorsAsDynamicFrame")
     - [DataSink object](glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-object "glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-object")
+
       - [recordMetrics](glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-object-defs-recordMetrics "glue-etl-scala-apis-glue-datasink-class.md#glue-etl-scala-apis-glue-datasink-object-defs-recordMetrics")
 
   - [DataSource trait](glue-etl-scala-apis-glue-datasource-trait.md "glue-etl-scala-apis-glue-datasource-trait.md")
   - [DynamicFrame](glue-etl-scala-apis-glue-dynamicframe.md "glue-etl-scala-apis-glue-dynamicframe.md")
+
     - [DynamicFrame class](glue-etl-scala-apis-glue-dynamicframe-class.md "glue-etl-scala-apis-glue-dynamicframe-class.md")
+
       - [errorsCount](glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-vals-errorsCount "glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-vals-errorsCount")
       - [applyMapping](glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-applyMapping "glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-applyMapping")
       - [assertErrorThreshold](glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-assertErrorThreshold "glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-assertErrorThreshold")
@@ -88,6 +96,7 @@ in ETL scripts, and provide reference documentation for the library.
       - [withTransformationContext](glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-withTransformationContext "glue-etl-scala-apis-glue-dynamicframe-class.md#glue-etl-scala-apis-glue-dynamicframe-class-defs-withTransformationContext")
 
     - [DynamicFrame object](glue-etl-scala-apis-glue-dynamicframe-object.md "glue-etl-scala-apis-glue-dynamicframe-object.md")
+
       - [Def apply](glue-etl-scala-apis-glue-dynamicframe-object.md#glue-etl-scala-apis-glue-dynamicframe-object-defs-apply "glue-etl-scala-apis-glue-dynamicframe-object.md#glue-etl-scala-apis-glue-dynamicframe-object-defs-apply")
       - [Def emptyDynamicFrame](glue-etl-scala-apis-glue-dynamicframe-object.md#glue-etl-scala-apis-glue-dynamicframe-object-defs-emptyDynamicFrame "glue-etl-scala-apis-glue-dynamicframe-object.md#glue-etl-scala-apis-glue-dynamicframe-object-defs-emptyDynamicFrame")
       - [Def fromPythonRDD](glue-etl-scala-apis-glue-dynamicframe-object.md#glue-etl-scala-apis-glue-dynamicframe-object-defs-fromPythonRDD "glue-etl-scala-apis-glue-dynamicframe-object.md#glue-etl-scala-apis-glue-dynamicframe-object-defs-fromPythonRDD")
@@ -96,6 +105,7 @@ in ETL scripts, and provide reference documentation for the library.
       - [Def newFrameWithErrors](glue-etl-scala-apis-glue-dynamicframe-object.md#glue-etl-scala-apis-glue-dynamicframe-object-defs-newFrameWithErrors "glue-etl-scala-apis-glue-dynamicframe-object.md#glue-etl-scala-apis-glue-dynamicframe-object-defs-newFrameWithErrors")
 
   - [DynamicRecord](glue-etl-scala-apis-glue-dynamicrecord-class.md "glue-etl-scala-apis-glue-dynamicrecord-class.md")
+
     - [addField](glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-addField "glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-addField")
     - [dropField](glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-dropField "glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-dropField")
     - [setError](glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-setError "glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-setError")
@@ -113,11 +123,13 @@ in ETL scripts, and provide reference documentation for the library.
     - [hashCode](glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-hashCode "glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-hashCode")
     - [Equals](glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-equals "glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-class-defs-equals")
     - [DynamicRecord object](glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-object "glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-object")
+
       - [Apply](glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-object-defs-apply "glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-dynamicrecord-object-defs-apply")
 
     - [RecordTraverser trait](glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-recordtraverser-trait "glue-etl-scala-apis-glue-dynamicrecord-class.md#glue-etl-scala-apis-glue-recordtraverser-trait")
 
   - [GlueContext](glue-etl-scala-apis-glue-gluecontext.md "glue-etl-scala-apis-glue-gluecontext.md")
+
     - [addIngestionTimeColumns](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-addIngestionTimeColumns "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-addIngestionTimeColumns")
     - [createDataFrameFromOptions](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-createDataFrameFromOptions "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-createDataFrameFromOptions")
     - [forEachBatch](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-forEachBatch "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-forEachBatch")
@@ -137,6 +149,7 @@ in ETL scripts, and provide reference documentation for the library.
     - [this](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-this-3 "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-this-3")
 
   - [MappingSpec](glue-etl-scala-apis-glue-mappingspec.md "glue-etl-scala-apis-glue-mappingspec.md")
+
     - [MappingSpec case class](glue-etl-scala-apis-glue-mappingspec.md#glue-etl-scala-apis-glue-mappingspec-case-class "glue-etl-scala-apis-glue-mappingspec.md#glue-etl-scala-apis-glue-mappingspec-case-class")
     - [MappingSpec object](glue-etl-scala-apis-glue-mappingspec.md#glue-etl-scala-apis-glue-mappingspec-object "glue-etl-scala-apis-glue-mappingspec.md#glue-etl-scala-apis-glue-mappingspec-object")
     - [orderingByTarget](glue-etl-scala-apis-glue-mappingspec.md#glue-etl-scala-apis-glue-mappingspec-object-val-orderingbytarget "glue-etl-scala-apis-glue-mappingspec.md#glue-etl-scala-apis-glue-mappingspec-object-val-orderingbytarget")
@@ -145,127 +158,178 @@ in ETL scripts, and provide reference documentation for the library.
     - [Apply](glue-etl-scala-apis-glue-mappingspec.md#glue-etl-scala-apis-glue-mappingspec-object-defs-apply-3 "glue-etl-scala-apis-glue-mappingspec.md#glue-etl-scala-apis-glue-mappingspec-object-defs-apply-3")
 
   - [ResolveSpec](glue-etl-scala-apis-glue-resolvespec.md "glue-etl-scala-apis-glue-resolvespec.md")
+
     - [ResolveSpec object](glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-object "glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-object")
+
       - [Def](glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-object-def-apply_1 "glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-object-def-apply_1")
       - [Def](glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-object-def-apply_2 "glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-object-def-apply_2")
 
     - [ResolveSpec case class](glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-case-class "glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-case-class")
+
       - [Def methods](glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-case-class-defs "glue-etl-scala-apis-glue-resolvespec.md#glue-etl-scala-apis-glue-resolvespec-case-class-defs")
 
   - [ArrayNode](glue-etl-scala-apis-glue-types-arraynode.md "glue-etl-scala-apis-glue-types-arraynode.md")
+
     - [ArrayNode case class](glue-etl-scala-apis-glue-types-arraynode.md#glue-etl-scala-apis-glue-types-arraynode-case-class "glue-etl-scala-apis-glue-types-arraynode.md#glue-etl-scala-apis-glue-types-arraynode-case-class")
+
       - [Def methods](glue-etl-scala-apis-glue-types-arraynode.md#glue-etl-scala-apis-glue-types-arraynode-case-class-defs "glue-etl-scala-apis-glue-types-arraynode.md#glue-etl-scala-apis-glue-types-arraynode-case-class-defs")
 
   - [BinaryNode](glue-etl-scala-apis-glue-types-binarynode.md "glue-etl-scala-apis-glue-types-binarynode.md")
+
     - [BinaryNode case class](glue-etl-scala-apis-glue-types-binarynode.md#glue-etl-scala-apis-glue-types-binarynode-case-class "glue-etl-scala-apis-glue-types-binarynode.md#glue-etl-scala-apis-glue-types-binarynode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-binarynode.md#glue-etl-scala-apis-glue-types-binarynode-case-class-vals "glue-etl-scala-apis-glue-types-binarynode.md#glue-etl-scala-apis-glue-types-binarynode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-binarynode.md#glue-etl-scala-apis-glue-types-binarynode-case-class-defs "glue-etl-scala-apis-glue-types-binarynode.md#glue-etl-scala-apis-glue-types-binarynode-case-class-defs")
 
   - [BooleanNode](glue-etl-scala-apis-glue-types-booleannode.md "glue-etl-scala-apis-glue-types-booleannode.md")
+
     - [BooleanNode case class](glue-etl-scala-apis-glue-types-booleannode.md#glue-etl-scala-apis-glue-types-booleannode-case-class "glue-etl-scala-apis-glue-types-booleannode.md#glue-etl-scala-apis-glue-types-booleannode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-booleannode.md#glue-etl-scala-apis-glue-types-booleannode-case-class-vals "glue-etl-scala-apis-glue-types-booleannode.md#glue-etl-scala-apis-glue-types-booleannode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-booleannode.md#glue-etl-scala-apis-glue-types-booleannode-case-class-defs "glue-etl-scala-apis-glue-types-booleannode.md#glue-etl-scala-apis-glue-types-booleannode-case-class-defs")
 
   - [ByteNode](glue-etl-scala-apis-glue-types-bytenode.md "glue-etl-scala-apis-glue-types-bytenode.md")
+
     - [ByteNode case class](glue-etl-scala-apis-glue-types-bytenode.md#glue-etl-scala-apis-glue-types-bytenode-case-class "glue-etl-scala-apis-glue-types-bytenode.md#glue-etl-scala-apis-glue-types-bytenode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-bytenode.md#glue-etl-scala-apis-glue-types-bytenode-case-class-vals "glue-etl-scala-apis-glue-types-bytenode.md#glue-etl-scala-apis-glue-types-bytenode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-bytenode.md#glue-etl-scala-apis-glue-types-bytenode-case-class-defs "glue-etl-scala-apis-glue-types-bytenode.md#glue-etl-scala-apis-glue-types-bytenode-case-class-defs")
 
   - [DateNode](glue-etl-scala-apis-glue-types-datenode.md "glue-etl-scala-apis-glue-types-datenode.md")
+
     - [DateNode case class](glue-etl-scala-apis-glue-types-datenode.md#glue-etl-scala-apis-glue-types-datenode-case-class "glue-etl-scala-apis-glue-types-datenode.md#glue-etl-scala-apis-glue-types-datenode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-datenode.md#glue-etl-scala-apis-glue-types-datenode-case-class-vals "glue-etl-scala-apis-glue-types-datenode.md#glue-etl-scala-apis-glue-types-datenode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-datenode.md#glue-etl-scala-apis-glue-types-datenode-case-class-defs "glue-etl-scala-apis-glue-types-datenode.md#glue-etl-scala-apis-glue-types-datenode-case-class-defs")
 
   - [DecimalNode](glue-etl-scala-apis-glue-types-decimalnode.md "glue-etl-scala-apis-glue-types-decimalnode.md")
+
     - [DecimalNode case class](glue-etl-scala-apis-glue-types-decimalnode.md#glue-etl-scala-apis-glue-types-decimalnode-case-class "glue-etl-scala-apis-glue-types-decimalnode.md#glue-etl-scala-apis-glue-types-decimalnode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-decimalnode.md#glue-etl-scala-apis-glue-types-decimalnode-case-class-vals "glue-etl-scala-apis-glue-types-decimalnode.md#glue-etl-scala-apis-glue-types-decimalnode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-decimalnode.md#glue-etl-scala-apis-glue-types-decimalnode-case-class-defs "glue-etl-scala-apis-glue-types-decimalnode.md#glue-etl-scala-apis-glue-types-decimalnode-case-class-defs")
 
   - [DoubleNode](glue-etl-scala-apis-glue-types-doublenode.md "glue-etl-scala-apis-glue-types-doublenode.md")
+
     - [DoubleNode case class](glue-etl-scala-apis-glue-types-doublenode.md#glue-etl-scala-apis-glue-types-doublenode-case-class "glue-etl-scala-apis-glue-types-doublenode.md#glue-etl-scala-apis-glue-types-doublenode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-doublenode.md#glue-etl-scala-apis-glue-types-doublenode-case-class-vals "glue-etl-scala-apis-glue-types-doublenode.md#glue-etl-scala-apis-glue-types-doublenode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-doublenode.md#glue-etl-scala-apis-glue-types-doublenode-case-class-defs "glue-etl-scala-apis-glue-types-doublenode.md#glue-etl-scala-apis-glue-types-doublenode-case-class-defs")
 
   - [DynamicNode](glue-etl-scala-apis-glue-types-dynamicnode.md "glue-etl-scala-apis-glue-types-dynamicnode.md")
+
     - [DynamicNode class](glue-etl-scala-apis-glue-types-dynamicnode.md#glue-etl-scala-apis-glue-types-dynamicnode-class "glue-etl-scala-apis-glue-types-dynamicnode.md#glue-etl-scala-apis-glue-types-dynamicnode-class")
+
       - [Def methods](glue-etl-scala-apis-glue-types-dynamicnode.md#glue-etl-scala-apis-glue-types-dynamicnode-class-defs "glue-etl-scala-apis-glue-types-dynamicnode.md#glue-etl-scala-apis-glue-types-dynamicnode-class-defs")
 
     - [DynamicNode object](glue-etl-scala-apis-glue-types-dynamicnode.md#glue-etl-scala-apis-glue-types-dynamicnode-object "glue-etl-scala-apis-glue-types-dynamicnode.md#glue-etl-scala-apis-glue-types-dynamicnode-object")
+
       - [Def methods](glue-etl-scala-apis-glue-types-dynamicnode.md#glue-etl-scala-apis-glue-types-dynamicnode-object-defs "glue-etl-scala-apis-glue-types-dynamicnode.md#glue-etl-scala-apis-glue-types-dynamicnode-object-defs")
 
   - [EvaluateDataQuality](glue-etl-scala-apis-glue-dq-EvaluateDataQuality.md "glue-etl-scala-apis-glue-dq-EvaluateDataQuality.md")
+
     - [apply](glue-etl-scala-apis-glue-dq-EvaluateDataQuality.md#glue-etl-scala-apis-glue-dq-EvaluateDataQuality-defs-apply "glue-etl-scala-apis-glue-dq-EvaluateDataQuality.md#glue-etl-scala-apis-glue-dq-EvaluateDataQuality-defs-apply")
     - [Example](glue-etl-scala-apis-glue-dq-EvaluateDataQuality.md#glue-etl-scala-apis-glue-dq-EvaluateDataQuality-example "glue-etl-scala-apis-glue-dq-EvaluateDataQuality.md#glue-etl-scala-apis-glue-dq-EvaluateDataQuality-example")
 
   - [FloatNode](glue-etl-scala-apis-glue-types-floatnode.md "glue-etl-scala-apis-glue-types-floatnode.md")
+
     - [FloatNode case class](glue-etl-scala-apis-glue-types-floatnode.md#glue-etl-scala-apis-glue-types-floatnode-case-class "glue-etl-scala-apis-glue-types-floatnode.md#glue-etl-scala-apis-glue-types-floatnode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-floatnode.md#glue-etl-scala-apis-glue-types-floatnode-case-class-vals "glue-etl-scala-apis-glue-types-floatnode.md#glue-etl-scala-apis-glue-types-floatnode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-floatnode.md#glue-etl-scala-apis-glue-types-floatnode-case-class-defs "glue-etl-scala-apis-glue-types-floatnode.md#glue-etl-scala-apis-glue-types-floatnode-case-class-defs")
 
   - [FillMissingValues](glue-etl-scala-apis-glue-ml-fillmissingvalues.md "glue-etl-scala-apis-glue-ml-fillmissingvalues.md")
+
     - [Apply](glue-etl-scala-apis-glue-ml-fillmissingvalues.md#glue-etl-scala-apis-glue-ml-fillmissingvalues-defs-apply "glue-etl-scala-apis-glue-ml-fillmissingvalues.md#glue-etl-scala-apis-glue-ml-fillmissingvalues-defs-apply")
 
   - [FindMatches](glue-etl-scala-apis-glue-ml-findmatches.md "glue-etl-scala-apis-glue-ml-findmatches.md")
+
     - [Apply](glue-etl-scala-apis-glue-ml-findmatches.md#glue-etl-scala-apis-glue-ml-findmatches-defs-apply "glue-etl-scala-apis-glue-ml-findmatches.md#glue-etl-scala-apis-glue-ml-findmatches-defs-apply")
 
   - [FindIncrementalMatches](glue-etl-scala-apis-glue-ml-findincrementalmatches.md "glue-etl-scala-apis-glue-ml-findincrementalmatches.md")
+
     - [Apply](glue-etl-scala-apis-glue-ml-findincrementalmatches.md#glue-etl-scala-apis-glue-ml-findincrementalmatches-defs-apply "glue-etl-scala-apis-glue-ml-findincrementalmatches.md#glue-etl-scala-apis-glue-ml-findincrementalmatches-defs-apply")
 
   - [IntegerNode](glue-etl-scala-apis-glue-types-integernode.md "glue-etl-scala-apis-glue-types-integernode.md")
+
     - [IntegerNode case class](glue-etl-scala-apis-glue-types-integernode.md#glue-etl-scala-apis-glue-types-integernode-case-class "glue-etl-scala-apis-glue-types-integernode.md#glue-etl-scala-apis-glue-types-integernode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-integernode.md#glue-etl-scala-apis-glue-types-integernode-case-class-vals "glue-etl-scala-apis-glue-types-integernode.md#glue-etl-scala-apis-glue-types-integernode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-integernode.md#glue-etl-scala-apis-glue-types-integernode-case-class-defs "glue-etl-scala-apis-glue-types-integernode.md#glue-etl-scala-apis-glue-types-integernode-case-class-defs")
 
   - [LongNode](glue-etl-scala-apis-glue-types-longnode.md "glue-etl-scala-apis-glue-types-longnode.md")
+
     - [LongNode case class](glue-etl-scala-apis-glue-types-longnode.md#glue-etl-scala-apis-glue-types-longnode-case-class "glue-etl-scala-apis-glue-types-longnode.md#glue-etl-scala-apis-glue-types-longnode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-longnode.md#glue-etl-scala-apis-glue-types-longnode-case-class-vals "glue-etl-scala-apis-glue-types-longnode.md#glue-etl-scala-apis-glue-types-longnode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-longnode.md#glue-etl-scala-apis-glue-types-longnode-case-class-defs "glue-etl-scala-apis-glue-types-longnode.md#glue-etl-scala-apis-glue-types-longnode-case-class-defs")
 
   - [MapLikeNode](glue-etl-scala-apis-glue-types-maplikenode.md "glue-etl-scala-apis-glue-types-maplikenode.md")
+
     - [MapLikeNode class](glue-etl-scala-apis-glue-types-maplikenode.md#glue-etl-scala-apis-glue-types-maplikenode-class "glue-etl-scala-apis-glue-types-maplikenode.md#glue-etl-scala-apis-glue-types-maplikenode-class")
+
       - [Def methods](glue-etl-scala-apis-glue-types-maplikenode.md#glue-etl-scala-apis-glue-types-maplikenode-class-defs "glue-etl-scala-apis-glue-types-maplikenode.md#glue-etl-scala-apis-glue-types-maplikenode-class-defs")
 
   - [MapNode](glue-etl-scala-apis-glue-types-mapnode.md "glue-etl-scala-apis-glue-types-mapnode.md")
+
     - [MapNode case class](glue-etl-scala-apis-glue-types-mapnode.md#glue-etl-scala-apis-glue-types-mapnode-case-class "glue-etl-scala-apis-glue-types-mapnode.md#glue-etl-scala-apis-glue-types-mapnode-case-class")
+
       - [Def methods](glue-etl-scala-apis-glue-types-mapnode.md#glue-etl-scala-apis-glue-types-mapnode-case-class-defs "glue-etl-scala-apis-glue-types-mapnode.md#glue-etl-scala-apis-glue-types-mapnode-case-class-defs")
 
   - [NullNode](glue-etl-scala-apis-glue-types-nullnode.md "glue-etl-scala-apis-glue-types-nullnode.md")
+
     - [NullNode class](glue-etl-scala-apis-glue-types-nullnode.md#glue-etl-scala-apis-glue-types-nullnode-class "glue-etl-scala-apis-glue-types-nullnode.md#glue-etl-scala-apis-glue-types-nullnode-class")
     - [NullNode case object](glue-etl-scala-apis-glue-types-nullnode.md#glue-etl-scala-apis-glue-types-nullnode-case-object "glue-etl-scala-apis-glue-types-nullnode.md#glue-etl-scala-apis-glue-types-nullnode-case-object")
 
   - [ObjectNode](glue-etl-scala-apis-glue-types-objectnode.md "glue-etl-scala-apis-glue-types-objectnode.md")
+
     - [ObjectNode object](glue-etl-scala-apis-glue-types-objectnode.md#glue-etl-scala-apis-glue-types-objectnode-object "glue-etl-scala-apis-glue-types-objectnode.md#glue-etl-scala-apis-glue-types-objectnode-object")
+
       - [Def methods](glue-etl-scala-apis-glue-types-objectnode.md#glue-etl-scala-apis-glue-types-objectnode-object-defs "glue-etl-scala-apis-glue-types-objectnode.md#glue-etl-scala-apis-glue-types-objectnode-object-defs")
 
     - [ObjectNode case class](glue-etl-scala-apis-glue-types-objectnode.md#glue-etl-scala-apis-glue-types-objectnode-case-class "glue-etl-scala-apis-glue-types-objectnode.md#glue-etl-scala-apis-glue-types-objectnode-case-class")
+
       - [Def methods](glue-etl-scala-apis-glue-types-objectnode.md#glue-etl-scala-apis-glue-types-objectnode-case-class-defs "glue-etl-scala-apis-glue-types-objectnode.md#glue-etl-scala-apis-glue-types-objectnode-case-class-defs")
 
   - [ScalarNode](glue-etl-scala-apis-glue-types-scalarnode.md "glue-etl-scala-apis-glue-types-scalarnode.md")
+
     - [ScalarNode class](glue-etl-scala-apis-glue-types-scalarnode.md#glue-etl-scala-apis-glue-types-scalarnode-class "glue-etl-scala-apis-glue-types-scalarnode.md#glue-etl-scala-apis-glue-types-scalarnode-class")
+
       - [Def methods](glue-etl-scala-apis-glue-types-scalarnode.md#glue-etl-scala-apis-glue-types-scalarnode-class-defs "glue-etl-scala-apis-glue-types-scalarnode.md#glue-etl-scala-apis-glue-types-scalarnode-class-defs")
 
     - [ScalarNode object](glue-etl-scala-apis-glue-types-scalarnode.md#glue-etl-scala-apis-glue-types-scalarnode-object "glue-etl-scala-apis-glue-types-scalarnode.md#glue-etl-scala-apis-glue-types-scalarnode-object")
+
       - [Def methods](glue-etl-scala-apis-glue-types-scalarnode.md#glue-etl-scala-apis-glue-types-scalarnode-object-defs "glue-etl-scala-apis-glue-types-scalarnode.md#glue-etl-scala-apis-glue-types-scalarnode-object-defs")
 
   - [ShortNode](glue-etl-scala-apis-glue-types-shortnode.md "glue-etl-scala-apis-glue-types-shortnode.md")
+
     - [ShortNode case class](glue-etl-scala-apis-glue-types-shortnode.md#glue-etl-scala-apis-glue-types-shortnode-case-class "glue-etl-scala-apis-glue-types-shortnode.md#glue-etl-scala-apis-glue-types-shortnode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-shortnode.md#glue-etl-scala-apis-glue-types-shortnode-case-class-vals "glue-etl-scala-apis-glue-types-shortnode.md#glue-etl-scala-apis-glue-types-shortnode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-shortnode.md#glue-etl-scala-apis-glue-types-shortnode-case-class-defs "glue-etl-scala-apis-glue-types-shortnode.md#glue-etl-scala-apis-glue-types-shortnode-case-class-defs")
 
   - [StringNode](glue-etl-scala-apis-glue-types-stringnode.md "glue-etl-scala-apis-glue-types-stringnode.md")
+
     - [StringNode case class](glue-etl-scala-apis-glue-types-stringnode.md#glue-etl-scala-apis-glue-types-stringnode-case-class "glue-etl-scala-apis-glue-types-stringnode.md#glue-etl-scala-apis-glue-types-stringnode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-stringnode.md#glue-etl-scala-apis-glue-types-stringnode-case-class-vals "glue-etl-scala-apis-glue-types-stringnode.md#glue-etl-scala-apis-glue-types-stringnode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-stringnode.md#glue-etl-scala-apis-glue-types-stringnode-case-class-defs "glue-etl-scala-apis-glue-types-stringnode.md#glue-etl-scala-apis-glue-types-stringnode-case-class-defs")
 
   - [TimestampNode](glue-etl-scala-apis-glue-types-timestampnode.md "glue-etl-scala-apis-glue-types-timestampnode.md")
+
     - [TimestampNode case class](glue-etl-scala-apis-glue-types-timestampnode.md#glue-etl-scala-apis-glue-types-timestampnode-case-class "glue-etl-scala-apis-glue-types-timestampnode.md#glue-etl-scala-apis-glue-types-timestampnode-case-class")
+
       - [Val fields](glue-etl-scala-apis-glue-types-timestampnode.md#glue-etl-scala-apis-glue-types-timestampnode-case-class-vals "glue-etl-scala-apis-glue-types-timestampnode.md#glue-etl-scala-apis-glue-types-timestampnode-case-class-vals")
       - [Def methods](glue-etl-scala-apis-glue-types-timestampnode.md#glue-etl-scala-apis-glue-types-timestampnode-case-class-defs "glue-etl-scala-apis-glue-types-timestampnode.md#glue-etl-scala-apis-glue-types-timestampnode-case-class-defs")
 
   - [GlueArgParser](glue-etl-scala-apis-glue-util-glueargparser.md "glue-etl-scala-apis-glue-util-glueargparser.md")
+
     - [GlueArgParser object](glue-etl-scala-apis-glue-util-glueargparser.md#glue-etl-scala-apis-glue-util-glueargparser-object "glue-etl-scala-apis-glue-util-glueargparser.md#glue-etl-scala-apis-glue-util-glueargparser-object")
+
       - [Def methods](glue-etl-scala-apis-glue-util-glueargparser.md#glue-etl-scala-apis-glue-util-glueargparser-object-defs "glue-etl-scala-apis-glue-util-glueargparser.md#glue-etl-scala-apis-glue-util-glueargparser-object-defs")
 
   - [Job](glue-etl-scala-apis-glue-util-job.md "glue-etl-scala-apis-glue-util-job.md")
+
     - [Job object](glue-etl-scala-apis-glue-util-job.md#glue-etl-scala-apis-glue-util-job-object "glue-etl-scala-apis-glue-util-job.md#glue-etl-scala-apis-glue-util-job-object")
+
       - [Def methods](glue-etl-scala-apis-glue-util-job.md#glue-etl-scala-apis-glue-util-job-object-defs "glue-etl-scala-apis-glue-util-job.md#glue-etl-scala-apis-glue-util-job-object-defs")

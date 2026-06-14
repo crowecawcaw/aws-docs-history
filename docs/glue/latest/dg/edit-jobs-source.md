@@ -10,6 +10,7 @@ properties.
 2. Choose a data source node in the job diagram.
 3. Choose the **Node properties** tab in the node details panel, and
    then enter the following information:
+
    - **Name**: (Optional) Enter a name to associate with the node in
      the job diagram. This name should be unique among all the nodes for this job.
    - **Node type**: The node type determines the action that is
@@ -19,6 +20,7 @@ properties.
 
 4. Configure the **Data source properties** information. For more information,
    see the following sections:
+
    - [Using Data Catalog tables for the data source](edit-jobs-source-catalog-tables.md "edit-jobs-source-catalog-tables.md")
    - [Using a connector for the data source](edit-jobs-source-connectors.md "edit-jobs-source-connectors.md")
    - [Using files in Amazon S3 for the data source](edit-jobs-source-s3-files.md "edit-jobs-source-s3-files.md")

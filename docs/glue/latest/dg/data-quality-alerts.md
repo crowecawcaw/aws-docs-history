@@ -5,6 +5,7 @@ This topic describes how to set up alerts, deployments, and scheduling for AWS G
 ###### Contents
 
 - [Setting up alerts and notifications in Amazon EventBridge integration](data-quality-alerts.md#data-quality-alerts-eventbridge "data-quality-alerts.md#data-quality-alerts-eventbridge")
+
   - [Additional configuration options for the event pattern](data-quality-alerts.md#data-quality-alerts-eventbridge-config-options "data-quality-alerts.md#data-quality-alerts-eventbridge-config-options")
   - [Formatting notifications as emails](data-quality-alerts.md#data-quality-alerts-eventbridge-format-notifications "data-quality-alerts.md#data-quality-alerts-eventbridge-format-notifications")
 
@@ -90,16 +91,19 @@ To receive the emitted events and define targets, you must configure Amazon Even
 2. Choose **Rules** under the **Buses** section of the navigation bar.
 3. Choose **Create Rule**.
 4. On **Define Rule Detail**:
+
    1. For Name, enter `myDQRule`.
    2. Enter the description (optional).
    3. For event bus, select your event bus. If you don’t have one, leave it as default.
    4. For Rule type select **Rule with an event pattern** then choose **Next**.
 
 5. On **Build Event Pattern**:
+
    1. For event source select **AWS events or EventBridge partner events**.
    2. Skip the sample event section.
    3. For creation method select **Use pattern form**.
    4. For event pattern:
+
       1. Select **AWS services** for Event source.
       2. Select **Glue Data Quality** for AWS service.
       3. Select **Data Quality Evaluation Results Available** for Event type.
@@ -114,10 +118,10 @@ To receive the emitted events and define targets, you must configure Amazon Even
         }
       }
       ```
-
       5. For more configuration options see [Additional configuration options for the event pattern](#data-quality-alerts-eventbridge-config-options "#data-quality-alerts-eventbridge-config-options").
 
 6. On **Select Target(s)**:
+
    1. For **Target Types** select **AWS service**.
    2. Use the **Select a target** dropdown to choose your desired AWS service to connect to (SNS, Lambda, SQS, etc.), then choose **Next**.
 
@@ -319,6 +323,7 @@ Under the `Glue Data Quality` namespace, you can see metrics being emitted per t
 
 9.  Choose **Next**.
 10. On **Configure actions**:
+
     1. For the **Alarm state trigger** section, choose **In alarm**.
     2. For **Send a notification to the following SNS topic** section, choose **Create a new topic to send a notification via a new SNS topic**.
     3. For **Email endpoints that will receive the notification** enter your email address. Then click **Create Topic**.
@@ -501,6 +506,7 @@ You can schedule data quality rules using the following methods:
 
 - Schedule data quality rules from the Data Catalog: no code users can use this option to easily schedule their data quality scans.
   AWS Glue Data Quality will create the schedule in Amazon EventBridge. To schedule data quality rules:
+
   - Navigate to the ruleset and click **Run**.
   - In the **Run frequency**, select the desired schedule and provide a **Task Name**.
     This Task Name is the name of your schedule in EventBridge.

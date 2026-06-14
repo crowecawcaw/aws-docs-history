@@ -49,6 +49,7 @@ month, keep in mind that some months don't have 31 days. For more information ab
 ###### To run jobs according to a schedule
 
 1. Create a job schedule using one of the following methods:
+
    - On the **Jobs** page, choose the job you want to create
      a schedule for, choose **Actions**, and then choose
      **Schedule job**.
@@ -58,9 +59,11 @@ month, keep in mind that some months don't have 31 days. For more information ab
 
 2. On the **Schedule job run** page, enter the following
    information:
+
    - **Name**: Enter a name for your job schedule.
    - **Frequency**: Enter the frequency for the job schedule. You can
      choose the following:
+
      - **Hourly**: The job will run every hour, starting at a
        specific minute. You can specify the **Minute** of the hour that
        the job should run. By default, when you choose hourly, the job runs at the
@@ -201,6 +204,7 @@ the **Runs** tab includes:
     + The error returned for failed jobs
 
 - You can select a job run to view additional information about the job, including the following:
+
   - **Input arguments**
   - **Continuous logs**
   - **Metrics** – You can see visualizations of basic metrics. For more information on

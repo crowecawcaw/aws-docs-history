@@ -21,11 +21,13 @@ The following SAP OData API versions are supported:
 The following sources are supported:
 
 - ODP (Operational Data Provisioning) Sources:
+
   - BW Extractors (DataSources)
   - CDS Views
   - SLT
 
 - Non-ODP Sources, for example:
+
   - CDS View Services
   - RFC-based Services
   - Custom ABAP Services
@@ -35,6 +37,7 @@ The following sources are supported:
 The following are minimum requirements:
 
 - You must enable catalog service for service discovery.
+
   - Configure operational data provisioning (ODP) data sources for extraction in the SAP Gateway of your SAP system.
   - **OData V2.0**: Enable the OData V2.0 catalog service(s) in your SAP Gateway via transaction `/IWFND/MAINT_SERVICE`.
   - Enable OData V2.0 services in your SAP Gateway via transaction `/IWFND/MAINT_SERVICE`.
@@ -43,6 +46,7 @@ The following are minimum requirements:
 
 - If you want to use OAuth 2.0 as an authorization mechanism, you must enable OAuth 2.0 for the OData service and register the OAuth client per SAP documentation.
 - To generate an OData service based on ODP data sources, SAP Gateway Foundation must be installed locally in your ERP/BW stack or in a hub configuration.
+
   - For your ERP/BW applications, the SAP NetWeaver AS ABAP stack must be at 7.50 SP02 or above.
   - For the hub system (SAP Gateway), the SAP NetWeaver AS ABAP of the hub system must be 7.50 SP01 or above for remote hub setup.
 

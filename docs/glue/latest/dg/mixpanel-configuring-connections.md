@@ -11,6 +11,7 @@ Accounts](https://developer.mixpanel.com/reference/service-accounts "https://dev
 To configure a Mixpanel connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    - For Basic Authentication, Secret should contain the
      connected app Consumer Secret with `USERNAME` and `PASSWORD` as key.
 
@@ -20,6 +21,7 @@ To configure a Mixpanel connection:
 
 2. In the AWS Glue Studio, create a connection under **Data
    Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select
       **Mixpanel**.
    2. Provide the `INSTANCE_URL` of the Mixpanel that you want to connect to.
@@ -48,7 +50,6 @@ To configure a Mixpanel connection:
    }`
 
    ```
-
    4. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
    5. Select **Network options** if you want to use
       your network.

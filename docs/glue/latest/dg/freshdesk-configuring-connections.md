@@ -7,9 +7,11 @@ For public Freshdesk documentation on generating the required API keys for custo
 The following are the steps to configure Freshdesk connection:
 
 - In AWS Secrets Manager, create a secret with the following details:
+
   - For customer managed connected app – the secret should contain the connected app API key with `apiKey` as key. Note that you must create a secret per connection in AWS Glue.
 
 - In the AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
+
   - When selecting a **Data source**, select Freshdesk.
   - Provide the `INSTANCE_URL` of the Freshdesk instance you want to connect to.
   - Select the AWS IAM role which AWS Glue can assume and has permissions for following actions:
@@ -36,7 +38,6 @@ The following are the steps to configure Freshdesk connection:
   }`
 
   ```
-
   - Select the `secretName` that you want to use for this connection in AWS Glue to put the tokens.
   - Select the network options if you want to use your network.
 

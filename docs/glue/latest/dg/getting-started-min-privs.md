@@ -161,6 +161,7 @@ following:
 - The `CloudWatchFullAccess` policy
 - A custom policy that includes one or more of these specific
   permissions:
+
   - `cloudwatch:GetDashboard` and
     `cloudwatch:ListDashboards` to view dashboards
   - `cloudwatch:PutDashboard` to create or modify

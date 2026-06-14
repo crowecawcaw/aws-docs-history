@@ -25,6 +25,7 @@ video chats and document sharing, all designed to aid worker productivity in a u
 6. After successful sign up on Teams, navigate to [https://account.microsft.com/services](https://account.microsft.com/services "https://account.microsft.com/services").
 7. Choose **Try Microsoft 365**.
 8. Activate one of below Microsoft 365 or Microsoft Teams subscription to access all required features of Microsoft Teams connector:
+
    - Microsoft Teams Essentials
    - Microsoft 365 Business
    - Microsoft 365 Business Basic
@@ -55,6 +56,7 @@ video chats and document sharing, all designed to aid worker productivity in a u
 16. Select “Microsoft Graph“.
 17. Select “Delegated permissions”.
 18. Check all the following permissions:
+
     - User.Read
     - Offline_access
     - User.Read.All

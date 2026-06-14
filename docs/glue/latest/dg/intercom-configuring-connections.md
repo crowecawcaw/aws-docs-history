@@ -19,10 +19,12 @@ To configure an Intercom connection:
 
 1. In AWS Secrets Manager, create a secret with the following details. It is required to create a secret for
    each connection in AWS Glue.
+
    1. For customer managed connected app – Secret should contain the connected app access token,
       refresh token, client_id, and client_secret.
 
 2. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select Intercom.
    2. Provide the Intercom environment.
    3. Select the IAM role which AWS Glue can assume and has permissions for following actions:
@@ -49,7 +51,6 @@ To configure an Intercom connection:
    }`
 
    ```
-
    4. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
    5. Select the network options if you want to use your network.
 

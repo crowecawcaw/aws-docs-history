@@ -31,6 +31,7 @@ To create a client app and OAuth 2.0 credentials:
 4. On the Zendesk API page, choose the **OAuth Clients** tab.
 5. Choose **Add Oauth Client** on the right side.
 6. Complete the following fields to create a client:
+
    1. Client Name - Enter a name for your app. This is the name that users will see when asked to grant access to your application, and when they check the list of third-party apps that have access to their Zendesk.
    2. Description - Optional. A short description of your app that users will see when asked to grant access to it.
    3. Company - Optional. The company name that users will see when asked to grant access to your application. The information can help them understand who they're granting access to.

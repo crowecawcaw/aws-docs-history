@@ -398,6 +398,7 @@ When migrating from AWS Glue 4.0 GlueContext FTA to AWS Glue 5.0 native Spark FT
 ## Considerations and Limitations
 
 - If a Hive table is created using a job that doesn't have full table access enabled, and no records are inserted, subsequent reads or writes from a job with full table access will fail. This is because AWS Glue Spark without full table access adds the $folder$ suffix to the table folder name. To resolve this, you can either:
+
   - Insert at least one row into the table from a job that does not have FTA enabled.
   - Configure the job that does not have FTA enabled to not use $folder$ suffix in folder name in S3. This can be achieved by setting Spark
     configuration `spark.hadoop.fs.s3.useDirectoryHeaderAsFolderObject=true`.

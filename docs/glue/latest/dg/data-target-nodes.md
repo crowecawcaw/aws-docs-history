@@ -41,6 +41,7 @@ The data target is where the job writes the transformed data.
    **Target** in the toolbar at the top of the visual editor,
    and then choose either **S3** or **Glue Data
    Catalog**.
+
    - If you choose **S3** for the target, then the job writes the
      dataset to one or more files in the Amazon S3 location you specify.
    - If you choose **AWS Glue Data Catalog** for the target, then the job
@@ -50,6 +51,7 @@ The data target is where the job writes the transformed data.
    details panel appears on the right-side of the page.
 3. Choose the **Node properties** tab, and then enter the following
    information:
+
    - **Name**: Enter a name to associate with the node in the job
      diagram.
    - **Node type**: A value should already be selected, but you can
@@ -64,6 +66,7 @@ The data target is where the job writes the transformed data.
 
 4. Configure the **Data target properties** information. For more
    information, see the following sections:
+
    - [Using Amazon S3 for the data target](#edit-job-target-S3 "#edit-job-target-S3")
    - [Using Data Catalog tables for the data target](#edit-job-target-catalog "#edit-job-target-catalog")
    - [Using a connector for the data target](#edit-job-target-connector "#edit-job-target-connector")
@@ -178,6 +181,7 @@ table.
 2. Choose a data target node in the job diagram.
 3. Choose the **Data target properties** tab, and then enter the following
    information:
+
    - **Database**: Choose the database that contains the table you
      want to use as the target from the list. This database must already exist in the
      Data Catalog.
@@ -191,6 +195,7 @@ table.
    For more information about creating tables in the Data Catalog, see [Defining Tables
    in the Data Catalog](tables-described.md "tables-described.md") in the _AWS Glue Developer Guide_.
    - **Data catalog update options**
+
      - **Do not change table definition**: (Default) Choose this
        option if you don't want the job to update the Data Catalog, even if the schema
        changes, or new partitions are added.

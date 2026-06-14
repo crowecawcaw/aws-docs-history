@@ -14,6 +14,7 @@ in a AWS Secrets Manager secret, then associate that secret with a Google BigQue
 ###### To configure a connection to BigQuery:
 
 1. In Google Cloud Platform, create and identify relevant resources:
+
    - Create or identify a GCP project containing BigQuery tables you would like to connect to.
    - Enable the BigQuery API. For more information, see [Use the BigQuery Storage Read API to read table data](https://cloud.google.com/bigquery/docs/reference/storage/#enabling_the_api "https://cloud.google.com/bigquery/docs/reference/storage/#enabling_the_api") .
 
@@ -62,6 +63,7 @@ When creating Key/value pairs, specify keys and values as followings:
 
 5. In the AWS Glue Data Catalog, create a connection by following the steps in [Adding an AWS Glue connection](console-connections.md "console-connections.md").
    After creating the connection, keep the connection name, `connectionName`, for the next step.
+
    - When selecting a **Connection type**, select Google BigQuery.
    - When selecting an **AWS Secret**, provide `secretName`.
 
@@ -173,6 +175,7 @@ bigquery_write = glueContext.write_dynamic_frame.from_options(
   Name of a Google Cloud Storage bucket used to store an intermediate form of your data while writing to BigQuery.
 - `writeMethod` — Default: `indirect`. Valid Values: `direct`, `indirect`.
   Used for Write. Specifies the method used to write your data.
+
   - If set to `direct`, your connector will write using the BigQuery Storage Write API.
   - If set to `indirect`, you connector will write to Google Cloud Storage, then
     transfer it to BigQuery using a load operation. Your Google Cloud service account will need appropriate GCS permissions.

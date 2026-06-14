@@ -314,6 +314,7 @@ This example reads and writes an Iceberg table with Lake Formation permission co
 This example works only in AWS Glue 4.0. In AWS Glue 5.0 and later, follow the guidance in [Using AWS Glue with AWS Lake Formation for fine-grained access control](security-lf-enable.md "security-lf-enable.md").
 
 1. Create an Iceberg table and register it in Lake Formation:
+
    1. To enable Lake Formation permission control, you’ll first need to register the table Amazon S3 path on Lake Formation. For more information, see [Registering an Amazon S3 location](../../../lake-formation/latest/dg/register-location.md "../../../lake-formation/latest/dg/register-location.md"). You can register it either from the Lake Formation console or by using the AWS CLI:
 
    ```
@@ -338,10 +339,6 @@ This example works only in AWS Glue 4.0. In AWS Glue 5.0 and later, follow the g
    ```
 
    You can also create the table manually through AWS Glue `CreateTable` API. For more information, see [Creating Apache Iceberg tables](../../../lake-formation/latest/dg/creating-iceberg-tables.md "../../../lake-formation/latest/dg/creating-iceberg-tables.md").
-
-   ###### Note
-
-   The `UpdateTable` API does not currently support Iceberg table format as an input to the operation.
 
 2. Grant Lake Formation permission to the job IAM role. You can either grant permissions from the Lake Formation console, or using the AWS CLI. For more information, see: https://docs.aws.amazon.com/lake-formation/latest/dg/granting-table-permissions.html
 3. Read an Iceberg table registered with Lake Formation. The code is same as reading a non-registered Iceberg table. Note that your AWS Glue job IAM role needs to have the SELECT permission for the read to succeed.

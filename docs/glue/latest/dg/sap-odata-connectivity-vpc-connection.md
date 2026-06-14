@@ -7,11 +7,13 @@ Steps for VPC Connection:
 3. Choose VPC endpoint as Amazon S3 Gateway to create connection.
 4. Enable DNS resolution and DNS hostname to use AWS provided DNS Services.
 5. Go to created VPC and add necessary endpoints for different services like STS, AWS Glue, Secret Managers.
+
    1. Choose Create Endpoint.
    2. For Service Category, choose AWS Services.
    3. For Service Name, choose the service that you are connecting to.
    4. Choose VPC and Enable DNS Name.
    5. VCP Endpoints required for VPC connection:
+
       1. [STS](../../../IAM/latest/UserGuide/reference_sts_vpc_endpoint_create.md "../../../IAM/latest/UserGuide/reference_sts_vpc_endpoint_create.md")
       2. [AWS Glue](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
       3. [Secrets Manager](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md")

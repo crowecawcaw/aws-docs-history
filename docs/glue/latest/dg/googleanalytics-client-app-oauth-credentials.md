@@ -14,6 +14,7 @@ For more information, see [Google Analytics4 API documentation](https://develope
 4. Set up Google Analytics in your website by copying the measurement id and add to your website's configuration.
 5. Create Report from Google Analytics by navigating to **Reports** and generating the required report.
 6. Authorize your app by navigating to [console.cloud.google.com](https://console.cloud.google.com " https://console.cloud.google.com") and search for Google Analytics Data API, then enable the API.
+
    1. Navigate to the API and Services page and choose **Credentials** >
       **setup OAuth 2.0 Client IDs**.
    2. Provide redirect URL by adding the AWS Glue Redirect URL.

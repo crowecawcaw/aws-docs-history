@@ -221,6 +221,7 @@ When designing multi-level partitioning schemes, consider:
 
 - Do not use high-cardinality columns with the `identity` partition function. Using high-cardinality columns with identity partitioning
   creates many small partitions, which can significantly degrade ingestion performance. High-cardinality columns may include:
+
   - Primary keys
   - Timestamp fields (such as `LastModifiedTimestamp`, `CreatedDate`)
   - System-generated timestamps

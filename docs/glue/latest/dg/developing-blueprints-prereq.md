@@ -23,11 +23,13 @@ For the AWS Java SDK, you must add a `jar` file that includes the API for
 blueprints.
 
 1. If you haven't already done so, set up the AWS SDK for Java.
+
    - For Java 1.x, follow the instructions in [Set up the AWS SDK for Java](../../../sdk-for-java/v1/developer-guide/setup-install.md "../../../sdk-for-java/v1/developer-guide/setup-install.md") in the _AWS SDK for Java Developer Guide_.
    - For Java 2.x, follow the instructions in [Setting up the AWS SDK for Java 2.x](../../../sdk-for-java/latest/developer-guide/setup.md "../../../sdk-for-java/latest/developer-guide/setup.md") in the _AWS SDK for Java 2.x Developer Guide_.
 
 2. Download the client `jar` file that has access to the APIs for
    blueprints.
+
    - For Java 1.x: s3://awsglue-custom-blueprints-preview-artifacts/awsglue-java-sdk-preview/AWSGlueJavaClient-1.11.x.jar
    - For Java 2.x: s3://awsglue-custom-blueprints-preview-artifacts/awsglue-java-sdk-v2-preview/AwsJavaSdk-Glue-2.0.jar
 
@@ -80,13 +82,13 @@ python --version
 ```
 
 4. Depending on your Python version, enter the following commands (for Linux):
+
    - For Python 2.7 or later.
 
    ```
    python3 -m pip install --user virtualenv
    source env/bin/activate
    ```
-
    - For Python 3.9 or later.
 
    ```

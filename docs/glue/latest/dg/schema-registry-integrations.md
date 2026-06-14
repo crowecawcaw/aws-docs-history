@@ -796,6 +796,7 @@ mvn dependency:copy-dependencies
 ```
 
 2. If you plan on using Apache Kafka Connect in _Standalone_ mode, update **connect-standalone.properties** using the instructions below for this step. If you plan on using Apache Kafka Connect in _Distributed_ mode, update **connect-avro-distributed.properties** using the same instructions.
+
    1. Add these properties also to the Apache Kafka connect properties file:
 
    ```
@@ -806,7 +807,6 @@ mvn dependency:copy-dependencies
    key.converter.avroRecordType=GENERIC_RECORD
    value.converter.avroRecordType=GENERIC_RECORD
    ```
-
    2. Add the command below to the **Launch mode** section under **kafka-run-class.sh**:
 
    ```

@@ -13,6 +13,7 @@ that you pass to AWS Glue.
 1. When you create a job in the AWS Glue console, locate the role section.
 2. Choose **Create new role**.
 3. An inline role creation form opens, allowing you to:
+
    - Specify **Role name**; for example, `AWSGlueServiceRoleDefault`.
    - The managed policy `AWSGlueServiceRole` is automatically selected.
    - Review the trust policy to assume the role.

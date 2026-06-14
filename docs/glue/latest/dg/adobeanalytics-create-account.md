@@ -49,6 +49,7 @@ For redirect URI and its pattern, see the following:
      `https://ap-southeast-2\\.console\\.aws\\.amazon\\.com`
 
 7. Add the following scopes:
+
    - `openid`
    - `read_organizations`
    - `additional_info.projectedProductContext`

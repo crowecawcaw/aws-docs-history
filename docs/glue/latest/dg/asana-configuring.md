@@ -11,6 +11,7 @@ requirements:
 - You must have AWS Account created with the service access to AWS Glue.
 - Ensure you have created one of the following resources in your Asana
   account:
+
   - A Developer App that supports `OAuth 2.0` authentication. For more instuctions
     instructions, see [OAuth](https://developers.asana.com/docs/oauth "https://developers.asana.com/docs/oauth") in
     the Asana Developers documentation. Alternatively, see [Creating an Asana account](asana-create-account.md "asana-create-account.md").

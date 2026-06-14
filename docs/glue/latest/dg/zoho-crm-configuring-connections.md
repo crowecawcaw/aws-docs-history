@@ -9,6 +9,7 @@ The grant type determines how AWS Glue communicates with Zoho CRM to request acc
   To configure a Zoho CRM connection:
 
 1. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select Zoho CRM.
    2. Provide the `INSTANCE_URL` of the Zoho CRM instance you want to connect to.
    3. Provide the user client application client ID.
@@ -38,7 +39,6 @@ The grant type determines how AWS Glue communicates with Zoho CRM to request acc
    }`
 
    ```
-
    7. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
    8. Select the network options if you want to use your network.
 

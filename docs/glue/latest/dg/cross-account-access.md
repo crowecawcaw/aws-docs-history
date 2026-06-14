@@ -246,12 +246,14 @@ the following are the basic steps to set up an ETL job for cross-account access:
 
 1. Allow cross-account data access (skip this step if Amazon S3 cross-account access is
    already set up).
+
    1. Update the Amazon S3 bucket policy in Account B to allow cross-account access
       from Account A.
    2. Update the IAM policy in Account A to allow access to the bucket in
       Account B.
 
 2. Allow cross-account Data Catalog access.
+
    1. Create or update the resource policy attached to the Data Catalog in Account B
       to allow access from Account A.
    2. Update the IAM policy in Account A to allow access to the Data Catalog in

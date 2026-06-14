@@ -64,6 +64,7 @@ implications based on the complexity of your SQL query.
 To do this:
 
 - You need to select at least 1 column from your primary table.
+
   - `select count(*) from primary` is a valid query for OVERALL CustomSQL DQ rule but not for Row Level Custom SQL.
   - This rule will throw an error during evaluation: `The output from CustomSQL must contain at least one column that matches the input dataset 
 for AWS Glue Data Quality to provide row level results. The SQL query is a valid query but the columns from the SQL result are not present in the 

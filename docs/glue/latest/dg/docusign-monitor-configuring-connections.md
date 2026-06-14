@@ -9,10 +9,12 @@ Docusign Monitor supports the AUTHORIZATION_CODE grant type.
   To configure a Docusign Monitor connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    1. For the customer managed connected app, the Secret should contain the connected app API key with `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
    2. Note: you must create a secret for your connections in AWS Glue.
 
 1. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. Under **Connections**, choose **Create connection**.
    2. When selecting a **Data Source**, select Docusign Monitor.
    3. Select the AWS IAM role which AWS Glue can assume and has permissions for following actions:
@@ -39,7 +41,6 @@ Docusign Monitor supports the AUTHORIZATION_CODE grant type.
    }`
 
    ```
-
    4. Provide the **User Managed Client Application ClientId** of the Docusign Monitor app.
    5. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
    6. Select the network options if you want to use your network.

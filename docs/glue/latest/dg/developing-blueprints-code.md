@@ -7,6 +7,7 @@ files:
   defines the entities (jobs and crawlers) in a workflow, and the dependencies between
   them.
 - A configuration file, `blueprint.cfg`, which defines:
+
   - The full path of the workflow layout definition function.
   - The parameters that the blueprint accepts.
 

@@ -66,6 +66,7 @@ Returns a `DataFrame` created with the specified connection and format. Use this
   Kinesis and Kafka. You can find the list of all connection options for each streaming data
   source at [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md"). Note the following differences in
   streaming connection options:
+
   - Kinesis streaming sources require `streamARN`,
     `startingPosition`, `inferSchema`, and
     `classification`.
@@ -107,6 +108,7 @@ the Streaming source.
   batch.
 - `options` – A collection of key-value pairs that holds information
   about how to process micro batches. The following options are required:
+
   - `windowSize` – The amount of time to spend processing each
     batch.
   - `checkpointLocation` – The location where checkpoints are stored
@@ -235,6 +237,7 @@ user name, password, VPC, subnet, and security groups.
   Data Catalog that contains the JDBC URL to write to.
 - `options` — A string of JSON name-value pairs that provide
   additional information that is required to write to a JDBC data store. This includes:
+
   - _dbtable_ (required) — The name of the JDBC table. For JDBC data stores that support schemas within a database, specify `schema.table-name`.
     If a schema is not provided, then the default "public" schema is used.
     The following example shows an options parameter that points to a schema named `test` and a table named `test_table` in database `test_db`.
@@ -242,7 +245,6 @@ user name, password, VPC, subnet, and security groups.
   ```
   options = JsonOptions("""{"dbtable": "test.test_table", "database": "test_db"}""")
   ```
-
   - _database_ (required) — The name of the JDBC database.
   - Any additional options passed directly to the SparkSQL JDBC writer.
     For more information, see [Redshift data source for Spark](https://github.com/databricks/spark-redshift "https://github.com/databricks/spark-redshift").

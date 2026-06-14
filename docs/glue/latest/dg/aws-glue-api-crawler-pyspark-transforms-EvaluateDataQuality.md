@@ -80,10 +80,12 @@ root
   string format. To learn more about DQDL, see the [Data Quality Definition Language (DQDL) reference](dqdl.md "dqdl.md") guide.
 - `publishing_options` – A dictionary that specifies the following
   options for publishing evaluation results and metrics:
+
   - `dataQualityEvaluationContext` – A string that specifies the
     namespace under which AWS Glue should publish Amazon CloudWatch metrics and the
     data quality results. The aggregated metrics appear in CloudWatch, while the full results
     appear in the AWS Glue Studio interface.
+
     - Required: No
     - Default value: `default_context`
 
@@ -91,17 +93,20 @@ root
     results of the data quality evaluation should be published to CloudWatch. You specify a
     namespace for the metrics using the `dataQualityEvaluationContext`
     option.
+
     - Required: No
     - Default value: False
 
   - `enableDataQualityResultsPublishing` – Specifies whether the data
     quality results should be visible on the **Data Quality** tab in the
     AWS Glue Studio interface.
+
     - Required: No
     - Default value: True
 
   - `resultsS3Prefix` – Specifies the Amazon S3 location
     where AWS Glue can write the data quality evaluation results.
+
     - Required: No
     - Default value: "" (empty string)
 

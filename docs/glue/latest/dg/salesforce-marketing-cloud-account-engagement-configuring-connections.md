@@ -9,6 +9,7 @@ The grant type determines how AWS Glue communicates with Salesforce Marketing Cl
   To configure a Salesforce Marketing Cloud Account Engagement connection:
 
 1. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select Salesforce Marketing Cloud Account Engagement.
    2. Provide the `INSTANCE_URL` of the Salesforce Marketing Cloud Account Engagement instance you want to connect to.
    3. Provide the `PARDOT_BUSINESS_UNIT_ID` of the Salesforce Marketing Cloud Account Engagement instance you want to connect to.
@@ -38,7 +39,6 @@ The grant type determines how AWS Glue communicates with Salesforce Marketing Cl
    }`
 
    ```
-
    7. Provide the User Managed Client Application Client ID (the client ID from the connected app).
    8. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens. The selected secret needs to have a key `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` with the value being the Client Secret from the connected app.
    9. Select the network options if you want to use your network.

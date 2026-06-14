@@ -112,43 +112,51 @@ You can use the following `format_options` wherever AWS Glue libraries specify `
 
 - `rowTag` – Specifies the XML tag in the file to treat as a row. Row tags cannot
   be self-closing.
+
   - **Type:** Text, **Required**
 
 - `encoding` – Specifies the character encoding. It can be the name or alias of a
   [Charset](https://docs.oracle.com/javase/8/docs/api/java/nio/charset/Charset.html "https://docs.oracle.com/javase/8/docs/api/java/nio/charset/Charset.html")
   supported by our runtime environment. We don't make specific guarantees around encoding support, but
   major encodings should work.
+
   - **Type:** Text, **Default:**
     `"UTF-8"`
 
 - `excludeAttribute` – Specifies whether you want to exclude attributes in
   elements or not.
+
   - **Type:** Boolean, **Default:**
     `false`
 
 - `treatEmptyValuesAsNulls` – Specifies whether to treat white space as a null
   value.
+
   - **Type:** Boolean, **Default:**
     `false`
 
 - `attributePrefix` – A prefix for attributes to differentiate them from child
   element text. This prefix is used for field names.
+
   - **Type:** Text, **Default:**
     `"_"`
 
 - `valueTag` – The tag used for a value when there are attributes in the element
   that have no child.
+
   - **Type:** Text, **Default:**
     `"_VALUE"`
 
 - `ignoreSurroundingSpaces` – Specifies whether the white space that surrounds
   values should be ignored.
+
   - **Type:** Boolean, **Default:**
     `false`
 
 - `withSchema` – Contains the expected schema, in situations where you want to
   override the inferred schema. If you don't use this option, AWS Glue infers the schema
   from the XML data.
+
   - **Type:** Text, **Default:** Not
     applicable
   - The value should be a JSON object that represents a

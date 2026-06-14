@@ -649,6 +649,7 @@ public class UiWrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [CreateCrawler](../../../goto/DotNetSDKV3/glue-2017-03-31/CreateCrawler.md "../../../goto/DotNetSDKV3/glue-2017-03-31/CreateCrawler.md")
   - [CreateJob](../../../goto/DotNetSDKV3/glue-2017-03-31/CreateJob.md "../../../goto/DotNetSDKV3/glue-2017-03-31/CreateJob.md")
   - [DeleteCrawler](../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteCrawler.md "../../../goto/DotNetSDKV3/glue-2017-03-31/DeleteCrawler.md")
@@ -1408,6 +1409,7 @@ bool AwsDoc::Glue::getObjectFromBucket(const Aws::String &bucketName,
 ```
 
 - For API details, see the following topics in _AWS SDK for C++ API Reference_.
+
   - [CreateCrawler](../../../goto/SdkForCpp/glue-2017-03-31/CreateCrawler.md "../../../goto/SdkForCpp/glue-2017-03-31/CreateCrawler.md")
   - [CreateJob](../../../goto/SdkForCpp/glue-2017-03-31/CreateJob.md "../../../goto/SdkForCpp/glue-2017-03-31/CreateJob.md")
   - [DeleteCrawler](../../../goto/SdkForCpp/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForCpp/glue-2017-03-31/DeleteCrawler.md")
@@ -2104,6 +2106,7 @@ public class GlueScenario {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateCrawler](../../../goto/SdkForJavaV2/glue-2017-03-31/CreateCrawler.md "../../../goto/SdkForJavaV2/glue-2017-03-31/CreateCrawler.md")
   - [CreateJob](../../../goto/SdkForJavaV2/glue-2017-03-31/CreateJob.md "../../../goto/SdkForJavaV2/glue-2017-03-31/CreateJob.md")
   - [DeleteCrawler](../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForJavaV2/glue-2017-03-31/DeleteCrawler.md")
@@ -2687,6 +2690,7 @@ const cleanUpCrawlerStep = async (context) => {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [CreateCrawler](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/CreateCrawlerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/CreateCrawlerCommand.md")
   - [CreateJob](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/CreateJobCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/CreateJobCommand.md")
   - [DeleteCrawler](../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteCrawlerCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteCrawlerCommand.md")
@@ -2983,6 +2987,7 @@ suspend fun deleteCrawler(crawlerName: String) {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [CreateCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CreateJob](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DeleteCrawler](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -3323,6 +3328,7 @@ class GlueService extends \AwsUtilities\AWSServiceClass
 ```
 
 - For API details, see the following topics in _AWS SDK for PHP API Reference_.
+
   - [CreateCrawler](../../../goto/SdkForPHPV3/glue-2017-03-31/CreateCrawler.md "../../../goto/SdkForPHPV3/glue-2017-03-31/CreateCrawler.md")
   - [CreateJob](../../../goto/SdkForPHPV3/glue-2017-03-31/CreateJob.md "../../../goto/SdkForPHPV3/glue-2017-03-31/CreateJob.md")
   - [DeleteCrawler](../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForPHPV3/glue-2017-03-31/DeleteCrawler.md")
@@ -4087,6 +4093,7 @@ job.commit()
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateCrawler](../../../goto/boto3/glue-2017-03-31/CreateCrawler.md "../../../goto/boto3/glue-2017-03-31/CreateCrawler.md")
   - [CreateJob](../../../goto/boto3/glue-2017-03-31/CreateJob.md "../../../goto/boto3/glue-2017-03-31/CreateJob.md")
   - [DeleteCrawler](../../../goto/boto3/glue-2017-03-31/DeleteCrawler.md "../../../goto/boto3/glue-2017-03-31/DeleteCrawler.md")
@@ -4511,6 +4518,7 @@ job.commit()
 ```
 
 - For API details, see the following topics in _AWS SDK for Ruby API Reference_.
+
   - [CreateCrawler](../../../goto/SdkForRubyV3/glue-2017-03-31/CreateCrawler.md "../../../goto/SdkForRubyV3/glue-2017-03-31/CreateCrawler.md")
   - [CreateJob](../../../goto/SdkForRubyV3/glue-2017-03-31/CreateJob.md "../../../goto/SdkForRubyV3/glue-2017-03-31/CreateJob.md")
   - [DeleteCrawler](../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteCrawler.md "../../../goto/SdkForRubyV3/glue-2017-03-31/DeleteCrawler.md")
@@ -4691,6 +4699,7 @@ Delete all resources created by the demo.
 ```
 
 - For API details, see the following topics in _AWS SDK for Rust API reference_.
+
   - [CreateCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_crawler "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_crawler")
   - [CreateJob](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_job "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.create_job")
   - [DeleteCrawler](https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler "https://docs.rs/aws-sdk-glue/latest/aws_sdk_glue/client/struct.Client.html#method.delete_crawler")
@@ -5674,6 +5683,7 @@ struct Main {
 ```
 
 - For API details, see the following topics in _AWS SDK for Swift API reference_.
+
   - [CreateCrawler](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createcrawler(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createcrawler(input:)")
   - [CreateJob](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createjob(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/createjob(input:)")
   - [DeleteCrawler](<https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletecrawler(input:)> "https://sdk.amazonaws.com/swift/api/awsglue/latest/documentation/awsglue/glueclient/deletecrawler(input:)")

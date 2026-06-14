@@ -3,6 +3,7 @@
 Monday supports following two types for authentication mechanism:
 
 1.  OAuth Auth: Monday supports AUTHORIZATION_CODE grant type for OAuth2.
+
     - This grant type is considered “three-legged” OAuth as it relies on redirecting users to the third party authorization server to
       authenticate the user. It is used when creating connections via the AWS Glue Console. The user creating a connection may by default rely on a
       AWS Glue-owned connected app where they do not need to provide any OAuth related information except for the Monday instanceurl. The AWS Glue
@@ -26,15 +27,19 @@ Monday supports following two types for authentication mechanism:
 
 3.  In AWS Secrets Manager, create a secret with the following details. It is required to create a secret for
     each connection in AWS Glue.
+
     1. For OAuth auth:
+
        - For customer managed connected app - Secret should contain the connected app Consumer Secret with
          USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET as key.
 
     2. For Custom auth:
+
        - For customer managed connected app - Secret should contain the connected app Consumer Secret with
          `personalAccessToken` as key.
 
 4.  In AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
+
     1. Under Data Connections, choose **Create connection**.
     2. When selecting a **Data Source**, select Monday.
     3. Provide your Monday **instanceURL**.
@@ -62,8 +67,8 @@ Monday supports following two types for authentication mechanism:
     }`
 
     ```
-
     5. Select Authentication Type to connect to Monday
+
        - For OAuth auth: Provide the **Token URL** and **User Managed Client Application ClientId**  
          of the Monday you want to connect to.
        - For Custom auth: Select Authentication Type **CUSTOM** to connect to Monday.

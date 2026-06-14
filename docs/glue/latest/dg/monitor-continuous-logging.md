@@ -18,11 +18,13 @@ You can customize the default log group and log stream prefixes using the follow
 
 - `--custom-logGroup-prefix`: Allows you to specify a custom prefix for the `/aws-glue/jobs/error` and
   `/aws-glue/jobs/output` log groups. If you provide a custom prefix, the log group names will be in the following format:
+
   - `/aws-glue/jobs/error` will be ``<customer prefix>`/error`
   - `/aws-glue/jobs/output` will be ``<customer prefix>`/output`
 
 - `--custom-logStream-prefix`: Allows you to specify a custom prefix for the log stream names within the log groups.
   If you provide a custom prefix, the log stream names will be in the following format:
+
   - `jobrunid-driver` will be ``<customer log stream>`-driver`
   - `jobrunid-executorNum` will be ``<customer log stream>`-executorNum`
 

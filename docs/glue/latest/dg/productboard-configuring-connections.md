@@ -25,6 +25,7 @@ grant type.
   To configure a Productboard connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    - For `OAuth` auth – For customer managed connected
      app: Secret should contain the connected app Consumer Secret with
      `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.

@@ -314,6 +314,7 @@ dataFrame.write.format("hudi")
 This example reads and writes a Hudi table with Lake Formation permission control.
 
 1. Create a Hudi table and register it in Lake Formation.
+
    1. To enable Lake Formation permission control, you’ll first need to register the table Amazon S3 path on Lake Formation. For more information, see [Registering an Amazon S3 location](../../../lake-formation/latest/dg/register-location.md "../../../lake-formation/latest/dg/register-location.md"). You can register it either from the Lake Formation console or by using the AWS CLI:
 
    ```

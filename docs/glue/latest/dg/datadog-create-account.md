@@ -8,5 +8,6 @@
    available) that has an active Datadog subscription.
 6. After logging in to your Datadog account, hover over your username in the top-right
    corner to view the **Keys** details:
+
    1. To get your API key, choose **API Keys**.
    2. To get your application key, choose **Application Keys**.

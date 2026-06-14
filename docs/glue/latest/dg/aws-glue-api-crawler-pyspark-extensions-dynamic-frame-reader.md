@@ -83,6 +83,7 @@ name.
 - `push_down_predicate` – Filters partitions without having to list and read all the files in your dataset.
   For more information, see [Pre-filtering using pushdown predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns").
 - `additional_options` – Additional options provided to AWS Glue.
+
   - To use a JDBC connection that performs parallel reads, you can set the
     `hashfield`, `hashexpression`, or `hashpartitions`
     options. For example:

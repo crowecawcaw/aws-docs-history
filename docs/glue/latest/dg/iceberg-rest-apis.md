@@ -259,6 +259,7 @@ General information| Operation name | LoadTable |
   formation, see the [Namespace path parameter](connect-glu-iceberg-rest.md#ns-path-param "connect-glu-iceberg-rest.md#ns-path-param") section.
 - Only `all` mode is supported for snapshots query parameter.
 - Compared to `LoadTable` API, the `ExtendedLoadTable` API differs in the following ways:
+
   - Doesn't strictly enforce that all the fields to be available.
   - provides the following additional parameters in the config field of the
     response:

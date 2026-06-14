@@ -4,12 +4,14 @@ Consider the following limitations before you use data lake frameworks with AWS 
 
 - The following AWS Glue `GlueContext` methods for DynamicFrame don't support reading and writing data lake framework
   tables. Use the `GlueContext` methods for DataFrame or Spark DataFrame API instead.
+
   - `create_dynamic_frame.from_catalog`
   - `write_dynamic_frame.from_catalog`
   - `getDynamicFrame`
   - `writeDynamicFrame`
 
 - The following `GlueContext` methods for DataFrame are supported with Lake Formation permission control:
+
   - `create_data_frame.from_catalog`
   - `write_data_frame.from_catalog`
   - `getDataFrame`

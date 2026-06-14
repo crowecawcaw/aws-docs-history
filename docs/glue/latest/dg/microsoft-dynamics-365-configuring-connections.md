@@ -19,12 +19,14 @@ To configure a Microsoft Dynamics 365 CRM connection:
 
 1. In AWS Secrets Manager, create a secret with the following details. It is required to create a secret for
    each connection in AWS Glue.
+
    - For AuthorizationCode grant type:
 
    For customer managed connected app - Secret should contain the connected app Client Secret with
    `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
 
 2. In AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Data Source**, select Microsoft Dynamics 365 CRM.
    2. Select the **INSTANCE_URL** of the Microsoft Dynamics 365 CRM instance you want to connect to.
    3. Select the IAM role that AWS Glue can assume and has permissions for following actions:
@@ -51,7 +53,6 @@ To configure a Microsoft Dynamics 365 CRM connection:
    }`
 
    ```
-
    4. Select **Token URL** and **Authorization Code URL** to access your Microsoft Dynamics 365 CRM workspace.
    5. Provide **User Managed Client Application ClientId** of your Microsoft Dynamics 365 CRM app.
    6. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.

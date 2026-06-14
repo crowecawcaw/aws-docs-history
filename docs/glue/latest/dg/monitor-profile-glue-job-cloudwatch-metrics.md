@@ -5,6 +5,7 @@ consoles to identify and fix issues. Profiling your AWS Glue jobs requires the f
 steps:
 
 1. Enable metrics:
+
    1. Enable the **Job metrics** option in the job definition.
       You can enable profiling in the AWS Glue console or as a parameter to the job.
       For more information see [Defining job properties for Spark jobs](add-job.md#create-job "add-job.md#create-job")
@@ -50,6 +51,7 @@ job.commit()
 
 3. Run the job.
 4. Visualize the metrics:
+
    1. Visualize job metrics on the AWS Glue console and identify abnormal metrics for the
       driver or an executor.
    2. Check observability metrics in the Job run monitoring page, job run details page, or on

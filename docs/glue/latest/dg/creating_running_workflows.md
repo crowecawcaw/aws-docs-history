@@ -44,6 +44,7 @@ page.
     selected.
 2.  Choose **Add trigger**, and in the **Add
     trigger** dialog box, do one of the following:
+
     - Choose **Clone existing**, and choose a trigger to
       clone. Then choose **Add**.
 
@@ -83,7 +84,9 @@ page.
     ![A graph with two rectangular nodes: a trigger, and a placeholder node. An arrow points from the trigger node to the placeholder node.](images/graph-start-trigger.png)
 
 3.  If you added a new trigger, complete these steps:
+
     1. Do one of the following:
+
        - Choose the placeholder node (**Add
          node**).
        - Ensure that the start trigger is selected, and on the
@@ -115,6 +118,7 @@ assign actions to the trigger, the workflow is complete and saved. You can alway
 come back later and add more nodes.
 
 1. Do one of the following:
+
    - To clone an existing trigger, ensure that no node on the graph is
      selected, and on the **Action** menu, choose
      **Add trigger**.
@@ -127,6 +131,7 @@ come back later and add more nodes.
 
 2. In the **Add trigger** dialog box, do one of the
    following:
+
    - Choose **Add new**, and complete the **Add
      trigger** form. Then choose
      **Add**.
@@ -143,6 +148,7 @@ come back later and add more nodes.
    graph, and then choose **Remove**.
 
 3. If you added a new trigger, complete these steps:
+
    1. Select the new trigger.
 
    As the following graph shows, the trigger `De-dupe/fix

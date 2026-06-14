@@ -8,6 +8,7 @@ in a AWS Secrets Manager secret, then associate that secret with a Azure SQL AWS
 1.  In AWS Secrets Manager, create a secret using your Azure SQL credentials.
     To create a secret in Secrets Manager, follow the tutorial available in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the AWS Secrets Manager documentation.
     After creating the secret, keep the Secret name, `secretName` for the next step.
+
     - When selecting **Key/value pairs**, create a pair for
       the key `user` with the value `azuresqlUsername`.
     - When selecting **Key/value pairs**, create a pair for
@@ -15,6 +16,7 @@ in a AWS Secrets Manager secret, then associate that secret with a Azure SQL AWS
 
 2.  In the AWS Glue console, create a connection by following the steps in [Adding an AWS Glue connection](console-connections.md "console-connections.md").
     After creating the connection, keep the connection name, `connectionName`, for future use in AWS Glue.
+
     - When selecting a **Connection type**, select Azure SQL.
     - When providing **Azure SQL URL**, provide a JDBC endpoint URL.
 

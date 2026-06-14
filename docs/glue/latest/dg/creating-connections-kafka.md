@@ -42,6 +42,7 @@ authentication methods can be selected:
   purposes.
 - SASL/SCRAM-SHA-512 - Choose this authentication method to specify authentication
   credentials. There are two options available:
+
   - Use AWS Secrets Manager (recommended) - if you select this option, you can
     store your credentials in AWS Secrets Manager and let AWS Glue access
     the information when needed. Specify the secret that stores the SSL or SASL
@@ -57,6 +58,7 @@ authentication methods can be selected:
   For more information, see
   [MIT Kerberos Documentation: Keytab](https://web.mit.edu/kerberos/krb5-latest/doc/basic/keytab_def.html "https://web.mit.edu/kerberos/krb5-latest/doc/basic/keytab_def.html") .
 - SASL/PLAIN - Choose this authentication method to specify authentication credentials. There are two options available:
+
   - Use AWS Secrets Manager (recommended) - if you select this option, you can store your credentials in AWS Secrets Manager and let AWS Glue access the information when needed. Specify the secret that stores the SSL or SASL authentication credentials.
   - Provide username and password directly.
 

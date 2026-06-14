@@ -21,7 +21,9 @@ The following are limitations for the Google Analytics 4 connector:
 - Due to the limitation on number of fields that can be passed in a request. We are setting default dimension and metric
   fields within the designated limits. If "select all" is chosen, only the data from those predetermined fields will be
   retrieved.
+
   - Core Report
+
     - As per limitation from SAAS - requests are allowed up to 9 dimensions and up to 10 metrics only (that is,
       a request can contain a maximum of 19 fields(metrics + dimension).
     - As per the implementation - If user utilizes SELECT_ALL or selected fields more than 25, then default
@@ -33,6 +35,7 @@ The following are limitations for the Google Analytics 4 connector:
       "eventCount", "engagementRate".
 
   - Real-Time Report
+
     - As per limitation from SAAS requests are allowed up to 4 dimensions.
     - If user pass SELECT_ALL or selected fields more than 15, then default fields will be pass in the request.
     - The following fields are considered as default fields for RealTime Report -
@@ -56,14 +59,17 @@ The following are limitations for the Google Analytics 4 connector:
 | granularity | DAILY                             | granularity="WEEKLY"                                                       |
 
 - You can also pass all these filters together at once or with other filters.
+
   - Example 1 - filterPredicate: startDate between "2023-05-09" and "2023-05-10" AND startOffset=1 AND
     endOffset=2 AND granularity="WEEKLY"
   - Example 2 - filterPredicate: city=“xyz” AND startOffset=1 AND endOffset=2 AND granularity="WEEKLY"
 
 - In cohort request:
+
   - If ‘cohortNthMonth’ is passed in the request, then internally granularity value will be set as “MONTHLY”
   - Similarly, if ‘cohortNthWeek’ is passed, then granularity value will be set as “WEEKLY”
   - And, for ‘cohortNthDay’ granularity value will be set as “DAILY”. For more information, see:
+
     - [https://developers.google.com/analytics/devguides/reporting/data/v1/advanced](https://developers.google.com/analytics/devguides/reporting/data/v1/advanced "https://developers.google.com/analytics/devguides/reporting/data/v1/advanced")
     - [https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/CohortSpec](https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/CohortSpec "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/CohortSpec")
 

@@ -20,6 +20,7 @@ For the following procedure, suppose the following:
 1. Crawl the incremental dataset to the table _second_records_.
 2. On the AWS Glue console, in the navigation pane, choose **Jobs**.
 3. Choose **Add job**, and follow the steps in the wizard to create an ETL Spark job with a generated script. Choose the following property values for your transform:
+
    1. For **Name**, choose **demo-etl**.
    2. For **IAM role**, choose an IAM role with permission to the Amazon S3
       source data, labeling file, and [AWS Glue API operations](create-an-iam-role.md "create-an-iam-role.md").

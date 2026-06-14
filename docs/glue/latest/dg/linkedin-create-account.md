@@ -7,6 +7,7 @@
 2. Navigate to the **My Apps** page and choose **Create
    Application** to create a new LinkedIn App.
 3. Enter the following details into the app registration form:
+
    - **Company Name** – Select an existing company
      or create a new company.
    - **Name** – Enter the application name.

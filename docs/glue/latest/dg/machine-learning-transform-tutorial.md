@@ -60,6 +60,7 @@ table created by the crawler named `demo-crawl-dblp-acm`.
 1. On the AWS Glue console, in the navigation pane under **Data Integration and ETL**,
    choose **Data classification tools > Record Matching**, then **Add transform**. Follow the wizard to
    create a `Find matches` transform with the following properties.
+
    1. For **Transform name**, enter
       `demo-xform-dblp-acm`. This is the name of the transform that
       is used to find matches in the source data.
@@ -132,6 +133,7 @@ use**, you can use it in an ETL job.
 2. Choose **Add job**, and follow the steps in the wizard to create an
    ETL Spark job with a generated script. Choose the following property values for your
    transform:
+
    1. For **Name**, choose the example job in this tutorial,
       **demo-etl-dblp-acm**.
    2. For **IAM role**, choose an IAM role with permission to the Amazon S3
@@ -155,6 +157,7 @@ use**, you can use it in an ETL job.
       job.
    9. For **Create tables in your data target**, choose to create
       tables with the following properties:
+
       - **Data store type** — `Amazon
 S3`
       - **Format** — `CSV`

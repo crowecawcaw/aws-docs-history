@@ -3,6 +3,7 @@
 Okta supports two types of authentication mechanisms:
 
 - OAuth auth: Okta supports the `AUTHORIZATION_CODE` grant type.
+
   - This grant type is considered “three-legged” OAuth as it relies on redirecting users to the third party authorization server
     to authenticate the user. It is used when creating connections via the AWS Glue Console. The AWS Glue Console will redirect the user to Okta
     where the user must login and allow AWS Glue the requested permissions to access their Okta instance.
@@ -22,15 +23,19 @@ Okta supports two types of authentication mechanisms:
 
 1. In AWS Secrets Manager, create a secret with the following details. It is required to create a secret for
    each connection in AWS Glue.
+
    1. For OAuth auth:
+
       - For customer managed connected app – Secret should contain the
         connected app Consumer Secret with `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
 
    2. For Custom auth:
+
       - For customer managed connected app - Secret should contain the connected app Consumer Secret
         with `OktaApiToken` as key.
 
 2. In AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. Under Connections, choose **Create connection**.
    2. When selecting a **Data Source**, select Okta.
    3. Provide your Okta subdomain.
@@ -59,7 +64,6 @@ Okta supports two types of authentication mechanisms:
    }`
 
    ```
-
    6. Select Authentication Type to connect to data source.
    7. For OAuth2 authentication type, provide the **User Managed Client Application ClientId**
       of the Okta app.

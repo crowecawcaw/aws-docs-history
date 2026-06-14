@@ -10,6 +10,7 @@ table.
 2. Choose a data source node in the job diagram.
 3. Choose the **Data source properties** tab, and then enter the following
    information:
+
    - **S3 source type**: (For Amazon S3 data sources only)
      Choose the option **Select a Catalog table** to use an existing
      AWS Glue Data Catalog table.

@@ -60,6 +60,7 @@ It encapsulates details about the REST API source such as:
 - **REST configuration** - Defines HTTP request and response
   configuration to read data from REST API source. The following properties need to be configured at either the
   **Global** or **Entity** level:
+
   - **Request method** - Defines the REST HTTP Method.
   - **Response configuration** - Defines how the API response should
     be interpreted (including Records or Error locations in the body).

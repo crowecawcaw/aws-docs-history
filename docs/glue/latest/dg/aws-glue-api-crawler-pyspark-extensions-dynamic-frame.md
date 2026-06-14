@@ -1247,6 +1247,7 @@ be `None`.
   You can use this in cases where the complete list of `ChoiceTypes` is unknown
   before runtime. In addition to the actions listed previously for `specs`, this
   argument also supports the following action:
+
   - `match_catalog` – Attempts to cast each `ChoiceType` to the
     corresponding type in the specified Data Catalog table.
 
@@ -2069,6 +2070,7 @@ self-describing and can be used for data that doesn't conform to a fixed schema.
   including this transformation at which the process should error out (optional). The
   default is zero, which indicates that the process should not error out.
 - `options` – One or more of the following:
+
   - `separator` – A string that contains the separator character.
   - `escaper` – A string that contains the escape character.
   - `skipFirst` – A Boolean value that indicates whether to skip the first

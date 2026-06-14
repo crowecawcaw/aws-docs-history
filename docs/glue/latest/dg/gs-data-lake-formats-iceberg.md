@@ -19,6 +19,7 @@ Enter values or select from the available options to configure Apache Iceberg fo
   AWS Glue requires the Data Catalog to be configured as the catalog for the Iceberg table. To update
   an existing Iceberg table that has been registered in the Data Catalog, choose Data Catalog as the
   target.
+
   - **Database** – Choose the database from the Data Catalog.
   - **Table Name** – Enter the value for your table name. Apache Iceberg table names must be
     in all lower case. Use underscores if needed since spaces are not allowed. For example "data_lake_format_tables".

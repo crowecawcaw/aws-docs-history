@@ -7,6 +7,7 @@ The following are limitations or notes for the Oracle NetSuite connector:
 - You can fetch at most 1,00,000 records using the connector. For more information, refer to [Executing SuiteQL Queries Through REST Web Services](https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_157909186990.html "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_157909186990.html").
 - Partitions are created such that each partition will fetch records in multiples of 1000, except possibly the last one which will fetch the remaining records.
 - For Item, Transaction Line and Transaction Accounting Line objects, the connector will not support a few operators due to following reasons:
+
   - Applying the `EQUAL_TO`, `NOT_EQUAL_TO` filter operators to fields of type Date gives unreliable results.
   - Applying the `LESS_THAN_OR_EQUAL_TO` filter operator to fields of type Date gives unreliable results and behaves similar to the `LESS_THAN` operator.
   - Applying the `GREATER_THAN` filter operator to fields of type Date= gives unreliable results and behaves similar to `GREATER_THAN_OR_EQUAL_TO` operator.

@@ -22,6 +22,7 @@ the applied steps in the recipe are visible in the node properties tab.
   [commercial DataBrew regions](../../../general/latest/gr/databrew.md "../../../general/latest/gr/databrew.md").
 - Not all AWS Glue DataBrew recipes are supported by AWS Glue. Some recipes will not be
   able to be run in AWS Glue Studio.
+
   - Recipes with `UNION` and `JOIN` transforms are not supported, however,
     AWS Glue Studio already has "Join" and "Union" transform nodes which can be used before or after a
     **Data Preparation Recipe** node.

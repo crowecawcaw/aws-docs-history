@@ -19,9 +19,11 @@ Pipedrive supports AUTHORIZATION_CODE grant type for OAuth2.
 
 1. In AWS Secrets Manager, create a secret with the following details. It is required to create a secret for
    each connection in AWS Glue.
+
    1. For customer managed connected app - Secret should contain the connected app Consumer Secret with USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET as key.
 
 2. In AWS Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. Under Data Connections, choose **Create connection**.
    2. When selecting a **Data Source**, select Pipedrive.
    3. Provide your Pipedrive **instanceURL**.
@@ -49,7 +51,6 @@ Pipedrive supports AUTHORIZATION_CODE grant type for OAuth2.
    }`
 
    ```
-
    5. Provide the User Managed Client Application ClientId of the Pipedrive you want to connect to.
    6. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
    7. Select the network options if you want to use your network.

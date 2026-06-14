@@ -26,6 +26,7 @@
 1. Log in to **Ads Manager**. Then click the navigation in the top corner and select
    **Ad Accounts**.
 2. Choose **+ New Ad Account**. Input your advertiser details:
+
    - Select whether or not you’re an agency buying ads on behalf of an advertiser.
      If you select ‘Yes’, your ad may be rejected if it uses targeting parameters that could include age, gender,
      or postal code level targeting. Minimum age targeting may be applied to up to 21 years of age.

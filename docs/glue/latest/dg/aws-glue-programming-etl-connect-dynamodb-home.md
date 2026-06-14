@@ -412,6 +412,7 @@ calculated by the following formula:
   - `numParallelTasks = min(numPartitions, numSlots)`
 - Example 1. DPU=10, WorkerType=Standard. Input DynamicFrame has 100 RDD
   partitions.
+
   - `numPartitions = 100`
   - `numExecutors = (10 - 1) * 2 - 1 = 17`
   - `numSlots = 4 * 17 = 68`
@@ -419,6 +420,7 @@ calculated by the following formula:
 
 - Example 2. DPU=10, WorkerType=Standard. Input DynamicFrame has 20 RDD
   partitions.
+
   - `numPartitions = 20`
   - `numExecutors = (10 - 1) * 2 - 1 = 17`
   - `numSlots = 4 * 17 = 68`
@@ -445,6 +447,7 @@ using the AWS Glue DynamoDB ETL connector:
 - `"dynamodb.throughput.read.percent"`: (Optional) The percentage of read capacity
   units (RCU) to use. The default is set to "0.5". Acceptable values are from "0.1" to "1.5",
   inclusive.
+
   - `0.5` represents the default read rate, meaning that AWS Glue
     will attempt to consume half of the read capacity of the table. If you increase the
     value above `0.5`, AWS Glue increases the request rate;
@@ -476,6 +479,7 @@ AWS Glue DynamoDB export connector, which is available only for AWS Glue version
 2.0 onwards:
 
 - `"dynamodb.export"`: (Required) A string value:
+
   - If set to `ddb` enables the AWS Glue DynamoDB export connector
     where a new `ExportTableToPointInTimeRequest` will be invoked during the
     AWS Glue job. A new export will be generated with the location passed from
@@ -501,6 +505,7 @@ AWS Glue DynamoDB export connector, which is available only for AWS Glue version
 - `"dynamodb.s3.bucket"`: (Optional) Indicates the Amazon S3 bucket location in which the
   DynamoDB `ExportTableToPointInTime` process is to be conducted. The file format for the
   export is DynamoDB JSON.
+
   - `"dynamodb.s3.prefix"`: (Optional) Indicates the Amazon S3 prefix location
     inside the Amazon S3 bucket in which the DynamoDB `ExportTableToPointInTime` loads
     are to be stored. If neither `dynamodb.s3.prefix` nor
@@ -527,6 +532,7 @@ Use the following connection options with `"connectionType": "dynamodb"` as a si
 - `"dynamodb.throughput.write.percent"`: (Optional) The percentage of write capacity
   units (WCU) to use. The default is set to "0.5". Acceptable values are from "0.1" to "1.5",
   inclusive.
+
   - `0.5` represents the default write rate, meaning that AWS Glue
     will attempt to consume half of the write capacity of the table. If you increase the
     value above 0.5, AWS Glue increases the request rate; decreasing the value

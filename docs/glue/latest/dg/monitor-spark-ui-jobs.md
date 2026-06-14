@@ -30,6 +30,7 @@ enabled by default.
    configuration in the job, the encryption also applies to the Spark UI log file. For more information, see
    [Encrypting data written by AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
 7. Under **Spark UI logging and monitoring configuration**:
+
    - Select **Standard** if you are generating logs to view in the AWS Glue console.
    - Select **Legacy** if you are generating logs to view on a Spark history server.
    - You can also choose to generate both.

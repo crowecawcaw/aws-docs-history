@@ -44,6 +44,7 @@ The Memory Profile graph shows the following metrics:
 - The fraction of memory used by the JVM heap for this driver (scale: 0–1) by the driver,
   an executor identified by _executorId_, or all
   executors—
+
   - [glue.driver.jvm.heap.usage](monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.jvm.heap.usage "monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.jvm.heap.usage")
   - [glue.executorId.jvm.heap.usage](monitoring-awsglue-with-cloudwatch-metrics.md#glue.executorId.jvm.heap.usage "monitoring-awsglue-with-cloudwatch-metrics.md#glue.executorId.jvm.heap.usage")
   - [glue.ALL.jvm.heap.usage](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.jvm.heap.usage "monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.jvm.heap.usage")
@@ -66,6 +67,7 @@ The CPU Load graph shows the following metrics:
 
 - The fraction of CPU system load used (scale: 0–1) by the driver, an executor identified
   by _executorId_, or all executors—
+
   - [glue.driver.system.cpuSystemLoad](monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.system.cpuSystemLoad "monitoring-awsglue-with-cloudwatch-metrics.md#glue.driver.system.cpuSystemLoad")
   - [glue.executorId.system.cpuSystemLoad](monitoring-awsglue-with-cloudwatch-metrics.md#glue.executorId.system.cpuSystemLoad "monitoring-awsglue-with-cloudwatch-metrics.md#glue.executorId.system.cpuSystemLoad")
   - [glue.ALL.system.cpuSystemLoad](monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.system.cpuSystemLoad "monitoring-awsglue-with-cloudwatch-metrics.md#glue.ALL.system.cpuSystemLoad")

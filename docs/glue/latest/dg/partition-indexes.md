@@ -136,6 +136,7 @@ follows:
 2. Choose a table.
 3. Under **Actions**, choose **Edit table**.
 4. Under **Table properties**, add the following:
+
    - Key –`partition_filtering.enabled`
    - Value – `true`
 

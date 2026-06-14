@@ -9,10 +9,12 @@ Blackbaud Raiser's Edge NXT supports the AUTHORIZATION_CODE grant type for OAuth
   To configure a Blackbaud Raiser's Edge NXT connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    1. For the customer managed connected app, the Secret should contain the connected app API key with `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
    2. Note: you must create a secret for your connections in AWS Glue.
 
 1. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Data Source**, select Blackbaud Raiser's Edge NXT.
    2. Provide the `INSTANCE_URL` of the Blackbaud Raiser's Edge NXT account you want to connect to.
    3. Provide the user managed client application `clientId`.
@@ -41,7 +43,6 @@ Blackbaud Raiser's Edge NXT supports the AUTHORIZATION_CODE grant type for OAuth
    }`
 
    ```
-
    6. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
    7. Select the network options if you want to use your network.
 

@@ -16,6 +16,7 @@ You can specify the connection options for Kafka using the following arguments f
 specified methods in the `GlueContext` class.
 
 - Scala
+
   - `connectionOptions`: Use with `getSource`, `createDataFrameFromOptions`, `getSink`
   - `additionalOptions`: Use with `getCatalogSource`, `getCatalogSink`
   - `options`: Use with `getSourceWithFormat`, `getSinkWithFormat`

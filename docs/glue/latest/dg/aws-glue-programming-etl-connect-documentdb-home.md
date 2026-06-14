@@ -166,6 +166,7 @@ a source:
 - `"partitioner"`: (Optional): The class name of the partitioner for
   reading input data from Amazon DocumentDB. The connector provides the following
   partitioners:
+
   - `MongoDefaultPartitioner` (default) (Not supported in AWS Glue 4.0)
   - `MongoSamplePartitioner` (Not supported in AWS Glue 4.0)
   - `MongoShardedPartitioner`

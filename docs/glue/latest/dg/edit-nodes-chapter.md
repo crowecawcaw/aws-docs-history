@@ -61,6 +61,7 @@ can work from.
    [https://console.aws.amazon.com/gluestudio/](https://console.aws.amazon.com/gluestudio/ "https://console.aws.amazon.com/gluestudio/").
 2. Choose **ETL jobs** from the navigation pane.
 3. Select an option create a job from a sample job:
+
    - **Visual ETL job to join multiple sources** – Read three CSV files, combine the data, change the
      data types, then write the data to Amazon S3 and catalog it for querying later.
    - **Spark notebook using Pandas** – Explore and visualize data using the popular Pandas framework

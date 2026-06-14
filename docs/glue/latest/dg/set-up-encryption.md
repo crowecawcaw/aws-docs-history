@@ -8,6 +8,7 @@ that pertain to encryption when setting up AWS Glue.
 1. If the user of the AWS Glue console doesn't use a permissions policy that allows all
    AWS Glue API operations (for example, `"glue:*"`), confirm that the following
    actions are allowed:
+
    - `"glue:GetDataCatalogEncryptionSettings"`
    - `"glue:PutDataCatalogEncryptionSettings"`
    - `"glue:CreateSecurityConfiguration"`
@@ -104,6 +105,7 @@ JSON
 
 7. On the AWS Glue console, choose **Settings** in the navigation
    pane.
+
    1. On the **Data catalog settings** page, encrypt your Data Catalog by
       selecting **Metadata encryption**. This option encrypts all the objects
       in the Data Catalog with the AWS KMS key that you choose.
@@ -148,12 +150,14 @@ configuration, choose any of the following options:
      key.
 
 9. In the navigation pane, choose **Connections**.
+
    1. Choose **Add connection** to create a connection to the Java
       Database Connectivity (JDBC) data store that is the target of your ETL job.
    2. To enforce that Secure Sockets Layer (SSL) encryption is used, select
       **Require SSL connection**, and test your connection.
 
 10. In the navigation pane, choose **Jobs**.
+
     1. Choose **Add job** to create a job that transforms data.
     2. In the job definition, choose the security configuration that you created.
 

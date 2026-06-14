@@ -156,6 +156,7 @@ Take note of the following restrictions:
 - To create or update tables with the `parquet` classification, you must utilize the
   AWS Glue optimized parquet writer for DynamicFrames. This can be achieved with one of the
   following:
+
   - If you're updating an existing table in the catalog with `parquet` classification, the
     table must have the `"useGlueParquetWriter"` table property set to `true` before you update
     it. You can set this property via the AWS Glue APIs/SDK, via the console or via an Athena DDL statement.
@@ -175,7 +176,6 @@ Take note of the following restrictions:
       }
   )
   ```
-
   - If the table doesn't already exist within catalog, you can utilize the `getSink()` method in your
     script with `connection_type="s3"` to add the table and its partitions to the catalog, along with
     writing the data to Amazon S3. Provide the appropriate `partitionKeys` and `compression` for your workflow.
@@ -197,7 +197,6 @@ Take note of the following restrictions:
   s3sink.setFormat("parquet", useGlueParquetWriter=True)
   s3sink.writeFrame(`frameToWrite`)
   ```
-
   - The `glueparquet` format value is a legacy method of enabling the AWS Glue parquet writer.
 
 - When the `updateBehavior` is set to `LOG`, new partitions will be added only if the `DynamicFrame` schema is equivalent to or contains a subset of the columns defined in the Data Catalog table's schema.

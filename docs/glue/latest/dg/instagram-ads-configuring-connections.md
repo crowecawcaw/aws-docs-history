@@ -8,6 +8,7 @@ Instagram Ads supports the AUTHORIZATION_CODE grant type for OAuth2.
   To configure a Instagram Ads connection:
 
 1. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select Instagram Ads.
    2. Select the AWS IAM role which AWS Glue can assume and has permissions for the following actions:
 
@@ -33,7 +34,6 @@ Instagram Ads supports the AUTHORIZATION_CODE grant type for OAuth2.
    }`
 
    ```
-
    3. Provide the User Managed Client Application Client ID.
    4. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens. The selected secret needs to have a key `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` with the value being the Client Secret from the connected app.
    5. Select the network options if you want to use your network.

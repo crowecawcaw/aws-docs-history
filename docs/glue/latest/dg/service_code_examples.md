@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### AWS Glue API code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello AWS Glue](example_glue_Hello_section.md "example_glue_Hello_section.md")
   - [Learn the basics](example_glue_Scenario_GetStartedCrawlersJobs_section.md "example_glue_Scenario_GetStartedCrawlersJobs_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateCrawler](example_glue_CreateCrawler_section.md "example_glue_CreateCrawler_section.md")
     - [CreateJob](example_glue_CreateJob_section.md "example_glue_CreateJob_section.md")
     - [DeleteCrawler](example_glue_DeleteCrawler_section.md "example_glue_DeleteCrawler_section.md")
@@ -36,4 +38,5 @@ This topic also includes information about getting started and details about pre
     - [StartJobRun](example_glue_StartJobRun_section.md "example_glue_StartJobRun_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Getting started with the Glue Data Catalog](example_glue_GettingStarted_024_section.md "example_glue_GettingStarted_024_section.md")

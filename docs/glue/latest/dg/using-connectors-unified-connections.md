@@ -80,6 +80,7 @@ When you create a unified connection for data sources, consider the following di
   data sources within your Virtual Private Cloud (VPC).
 - Creating a unified connection via AWS Glue Studio requires an IAM role with permissions to access AWS Secrets Manager
   and manage VPC resources (if using a VPC):
+
   - secretsmanager:GetSecretValue
   - secretsmanager:PutSecretValue
   - secretsmanager:DescribeSecret

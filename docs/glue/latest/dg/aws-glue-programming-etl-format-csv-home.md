@@ -202,6 +202,7 @@ You can use the following `format_options` wherever AWS Glue libraries specify
 
 - `separator` –Specifies the delimiter character. The default is a comma, but any
   other character can be specified.
+
   - **Type:** Text, **Default:**
     `","`
 
@@ -210,11 +211,13 @@ You can use the following `format_options` wherever AWS Glue libraries specify
   not writing. If enabled, the character that immediately follows is used as-is, except for a small
   set of well-known escapes (`\n`, `\r`, `\t`, and
   `\0`).
+
   - **Type:** Text, **Default:**
     none
 
 - `quoteChar` – Specifies the character to use for quoting. The default is a
   double quote. Set this to `-1` to turn off quoting entirely.
+
   - **Type:** Text, **Default:**
     `'"'`
 
@@ -222,26 +225,31 @@ You can use the following `format_options` wherever AWS Glue libraries specify
   multiple lines. This can occur when a field contains a quoted new-line character. You must set this
   option to `True` if any record spans multiple lines. Enabling `multiLine`
   might decrease performance because it requires more cautious file-splitting while parsing.
+
   - **Type:** Boolean, **Default:**
     `false`
 
 - `withHeader` – Specifies whether to treat the first line as a header. This
   option can be used in the `DynamicFrameReader` class.
+
   - **Type:** Boolean, **Default:**
     `false`
 
 - `writeHeader` – Specifies whether to write the header to output. This option can
   be used in the `DynamicFrameWriter` class.
+
   - **Type:** Boolean, **Default:**
     `true`
 
 - `skipFirst` – Specifies whether to skip the first data line.
+
   - **Type:** Boolean, **Default:**
     `false`
 
 - `optimizePerformance` – Specifies whether to use the advanced SIMD CSV reader
   along with Apache Arrow–based columnar memory formats. Only available in AWS Glue
   3.0+.
+
   - **Type:** Boolean, **Default:**
     `false`
 
@@ -250,6 +258,7 @@ You can use the following `format_options` wherever AWS Glue libraries specify
   deciding what to write, Glue may quote in certain situations where quotes are not necessary.
   Enabling a strict check will perform a more intensive computation and will only quote when strictly
   necessary. Only available in AWS Glue 3.0+.
+
   - **Type:** Boolean, **Default:**
     `false`
 

@@ -10,6 +10,7 @@ To migrate from a third-party schema registry to the AWS Glue Schema Registry:
 
 1. Create a registry in the AWS Glue Schema Registry, or use the default registry.
 2. Stop the consumer. Modify it to include AWS Glue Schema Registry as the primary deserializer, and the third-party schema registry as the secondary.
+
    - Set the consumer properties. In this example, the secondary_deserializer is set to a different
      deserializer. The behavior is as follows: the consumer retrieves
      records from Amazon MSK and first tries to use the
@@ -34,6 +35,7 @@ To migrate from a third-party schema registry to the AWS Glue Schema Registry:
 
 3. Restart the consumer.
 4. Stop the producer and point the producer to the AWS Glue Schema Registry.
+
    1. Set the producer properties. In this example, the producer will use the default-registry and auto register schema versions.
 
    ```

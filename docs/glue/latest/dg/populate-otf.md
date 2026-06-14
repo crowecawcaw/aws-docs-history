@@ -96,6 +96,7 @@ Console
    [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
 2. Under Data Catalog, choose **Tables**, and use the **Create
    table** button to specify the following attributes:
+
    - **Table name** – Enter a name for the table. If you’re using
      Athena to access tables, use these [naming
      tips](../../../athena/latest/ug/tables-databases-columns-names.md "../../../athena/latest/ug/tables-databases-columns-names.md") in the Amazon Athena User Guide.

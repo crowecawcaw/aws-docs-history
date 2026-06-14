@@ -3,6 +3,7 @@
 Mailchimp supports following two types for authentication mechanism:
 
 - Mailchimp supports the `AUTHORIZATION_CODE` grant type.
+
   - This grant type is considered “three-legged” `OAuth` as it
     relies on redirecting users to the third party authorization server to
     authenticate the user. It is used when creating connections via the
@@ -26,6 +27,7 @@ Mailchimp supports following two types for authentication mechanism:
   To configure a Mailchimp connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    - `OAuth` auth – For customer managed connected app:
      Secret should contain the connected app Consumer Secret with
      `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.

@@ -79,6 +79,7 @@ converted into a formatted value.
 - `phone_number_format` – The format to convert the phone number to.
   If no format is specified, the default is `E.164`, an internationally-recognized standard phone number format.
   Valid values include the following:
+
   - E164 (omit the period after E)
 
 - `default_region` – A valid region code consisting of two or three uppercase letters

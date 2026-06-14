@@ -16,6 +16,7 @@ Additionally, any other filter or ordering on any other field is translated into
 To allow the support of ordering by 'id' in `Conversations` and `Messages`, either only order by id should be present or any other filter and/or order by on any other applicable field.
 
 - Kustomer allows a maximum of 10K records to be fetched irrespective of a filtered or a non-filtered request. Due to this limitation, there will be data loss for any entity holding more than 10K records. There are two possible workarounds that you can perform to partially mitigate this:
+
   - Apply filters to fetch a specific set of records.
   - If there are more than 10K records with an applied filter, apply a successive filter value in a new subsequent request or apply ranges in filters. For example:
 

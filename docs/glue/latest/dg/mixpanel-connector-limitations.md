@@ -8,6 +8,7 @@ Request)` error if no numeric data is found for the mandatory filters.
   failure.
 - The queryable field `limit` has been removed from the supported entities
   because:
+
   - It was causing errors due to being interpreted as the SDK's limit
     feature
   - The filter served no practical purpose

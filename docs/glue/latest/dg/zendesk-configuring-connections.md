@@ -10,10 +10,12 @@ The Zendesk connector supports the Authorization Code grant type.
 To configure a Zendesk connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    1. For the AuthorizationCode grant type: for a customer managed connected app the secret should contain the connected app Consumer Secret with `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
    2. Note: You must create a secret per connection in AWS Glue.
 
 2. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Connection type**, select Zendesk.
    2. Provide the INSTANCE_URL of the Zendesk you want to connect to.
    3. Provide the Zendesk environment.
@@ -41,7 +43,6 @@ To configure a Zendesk connection:
    }`
 
    ```
-
    5. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
    6. Select the network options if you want to use your network.
 

@@ -75,6 +75,7 @@ JSON
 
 2. Create an IAM role that the EventBridge service can assume when passing an event to
    AWS Glue.
+
    1. On the **Create role** page of the IAM console, choose **AWS
       Service**. Then choose the service **CloudWatch Events**.
    2. Complete the **Create role** wizard. The wizard automatically attaches
@@ -146,6 +147,7 @@ aws glue create-trigger --workflow-name eventtest --type EVENT --name objectArri
 ```
 
 5. Create a rule in Amazon EventBridge.
+
    1. Create the JSON object for the rule details in your preferred text editor.
 
    The following example specifies Amazon S3 as the event source, `PutObject` as
@@ -187,13 +189,11 @@ aws glue create-trigger --workflow-name eventtest --type EVENT --name objectArri
          "key" : [{ "prefix" : "`<folder1>`/`<folder2>`/*"}}]
      }
    ```
-
    2. Use your preferred tool to convert the rule JSON object to an escaped string.
 
    ```
    {\n  \"source\": [\n    \"aws.s3\"\n  ],\n  \"detail-type\": [\n    \"AWS API Call via CloudTrail\"\n  ],\n  \"detail\": {\n    \"eventSource\": [\n      \"s3.amazonaws.com\"\n    ],\n    \"eventName\": [\n      \"PutObject\"\n    ],\n    \"requestParameters\": {\n      \"bucketName\": [\n        \"`<bucket-name>`\"\n      ]\n    }\n  }\n}
    ```
-
    3. Run the following command to create a JSON parameter template that you can edit to
       specify input parameters to a subsequent `put-rule` command. Save the output in a
       file. In this example, the file is called `ruleCommand`.
@@ -224,7 +224,6 @@ aws glue create-trigger --workflow-name eventtest --type EVENT --name objectArri
        "EventBusName": ""
    }
    ```
-
    4. Edit the file to optionally remove parameters and to specify at a minimum the
       `Name`, `EventPattern`, and `State` parameters. For the
       `EventPattern` parameter, provide the escaped string for the rule details that you

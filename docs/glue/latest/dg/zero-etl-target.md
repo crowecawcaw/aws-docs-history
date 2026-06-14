@@ -457,10 +457,12 @@ To set up Amazon Redshift managed storage for your zero-ETL integration:
 - Create or use an existing Amazon Redshift cluster or Serverless workgroup. Make sure the target Amazon Redshift workgroup or cluster has the `enable_case_sensitive_identifier` parameter turned on for the integration to be successful. For more information on enabling case sensitivity, see [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md "../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md") in the Amazon Redshift management guide.
 - Register an integration from Redshift into the catalog in AWS Lake Formation. See [Registering Amazon Redshift clusters and namespaces to the Data Catalog](../../../redshift/latest/dg/iceberg-integration-register.md "../../../redshift/latest/dg/iceberg-integration-register.md").
 - Create a federated or managed catalog in AWS Lake Formation. For more information, see:
+
   - [Bringing Amazon Redshift data into the Data Catalog](../../../lake-formation/latest/dg/managing-namespaces-datacatalog.md "../../../lake-formation/latest/dg/managing-namespaces-datacatalog.md")
   - [Creating an Amazon Redshift managed catalog in the Data Catalog](../../../lake-formation/latest/dg/create-rms-catalog.md "../../../lake-formation/latest/dg/create-rms-catalog.md")
 
 - Configure IAM permissions for the target role. The role needs permissions to access both Redshift and Lake Formation resources. At minimum, the role should have:
+
   - Permissions to access the Redshift cluster or workgroup
   - Permissions to access the Lake Formation catalog
   - Permissions to create and manage tables in the catalog
@@ -486,6 +488,7 @@ To set up an Amazon Redshift data warehouse for your zero-ETL integration:
 2. If creating a new cluster, choose an appropriate cluster size and ensure your cluster is encrypted. For Serverless, configure the workgroup settings according to your requirements.
 3. Make sure the target Amazon Redshift workgroup or cluster has the `enable_case_sensitive_identifier` parameter turned on for the integration to be successful. For more information on enabling case sensitivity, see [Turn on case sensitivity for your data warehouse](../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md "../../../redshift/latest/mgmt/zero-etl-setting-up.case-sensitivity.md") in the Amazon Redshift management guide.
 4. Configure IAM permissions to allow the zero-ETL integration to access your Amazon Redshift data warehouse. You'll need to create an IAM role with the following permissions:
+
    - Permissions to access the Amazon Redshift cluster or workgroup
    - Permissions to create and manage databases and tables in Amazon Redshift
    - CloudWatch and CloudWatch Logs permissions for monitoring
@@ -511,11 +514,14 @@ After configuring the source and target resources, follow these steps to complet
 3. Select or specify the target resource (same account or cross account) configured in the previous steps.
 4. Select the target IAM role configured previously.
 5. Select the **Fix it for me** option (only available when the target is in same account).
+
    - For the regular Amazon S3 (AWS Glue Database) and S3-Table (Catalog) target, this will:
+
      - Apply an authorized service principal on the target Catalog resource policy.
      - Apply an authorized AWS Glue source Principal ARN to the target Catalog resource policy.
 
    - For the Amazon Redshift target, this will:
+
      - Apply an authorized service principal on the Amazon Redshift cluster or Serverless workgroup.
      - Apply an authorized AWS Glue source ARN to the Amazon Redshift cluster or Serverless workgroup.
      - Associate a new parameter group with `enable_case_sensitive_identifier = true`.

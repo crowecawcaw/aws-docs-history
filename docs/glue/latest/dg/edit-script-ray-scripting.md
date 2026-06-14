@@ -50,11 +50,13 @@ In the managed `Ray2.4` runtime environment, we do not support:
   CLI](https://docs.ray.io/en/releases-2.4.0/ray-core/api/cli.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/cli.html")
 - [Ray State CLI](https://docs.ray.io/en/releases-2.4.0/ray-observability/api/state/cli.html "https://docs.ray.io/en/releases-2.4.0/ray-observability/api/state/cli.html")
 - `ray.util.metrics` Prometheus metric utility methods:
+
   - [Counter](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.metrics.Counter.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.metrics.Counter.html")
   - [Gauge](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.metrics.Gauge.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.metrics.Gauge.html")
   - [Histogram](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.metrics.Histogram.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.metrics.Histogram.html")
 
 - Other debugging tools:
+
   - [ray.util.pdb.set_trace](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.pdb.set_trace.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.pdb.set_trace.html")
   - [ray.util.inspect_serializability](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.inspect_serializability.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.util.inspect_serializability.html")
   - [ray.timeline](https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.timeline.html "https://docs.ray.io/en/releases-2.4.0/ray-core/api/doc/ray.timeline.html")

@@ -39,6 +39,7 @@ a trust relationship allowing the `redshift.amazonaws.com` service to `AssumeRol
    [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md").
 4. In the IAM console, create a role and trust relationship allowing Amazon Redshift to assume the role. Follow the instructions
    in the IAM documentation [To create a role for an AWS service (console)](../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console "../../../IAM/latest/UserGuide/id_roles_create_for-service.md#roles-creatingrole-service-console")
+
    - When asked to choose an AWS service use case, choose "Redshift - Customizable".
    - When asked to attach a policy, choose the policy you previously defined.
 
@@ -120,6 +121,7 @@ information.
 1. Create a Data Catalog connection by following the steps in: [Adding an AWS Glue connection](console-connections.md "console-connections.md").
    After creating the connection, keep the connection name,
    `connectionName`, for the next step.
+
    - When selecting a **Connection type**, select **Amazon Redshift**.
    - When selecting a **Redshift cluster**, select your cluster by name.
    - Provide default connection information for a Amazon Redshift user on your cluster.

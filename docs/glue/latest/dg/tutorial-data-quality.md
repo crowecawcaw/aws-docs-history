@@ -211,6 +211,7 @@ greater than 80% complete (non-null) values.
 After creating data quality rules, you can select additional options to specify data quality node output.
 
 1.  In **Data quality transform output**, choose from the following options:
+
     - **Original data**
       –
       Choose to output original input data. When you choose this
@@ -324,6 +325,7 @@ notification](data-quality-alerts.md "data-quality-alerts.md").
   and the job
   completes
   its run even if data quality rules fail.
+
   - **None**
     –
     If you choose **None** (default), the

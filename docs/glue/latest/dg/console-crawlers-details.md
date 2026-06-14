@@ -30,6 +30,7 @@ The Crawler runs tab displays only the crawls that have occurred since the launc
 
 - To see additional information, choose a tab in the crawler details page. Each tab will display
   information related to the crawler.
+
   - **Schedule**: Any schedules created for the crawler will be visible here.
   - **Data sources**: All data sources scanned by the crawler will be visible here.
   - **Classifiers**: All classifiers assigned to the crawler will be visible here.

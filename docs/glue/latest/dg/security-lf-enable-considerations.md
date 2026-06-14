@@ -14,6 +14,7 @@ AWS Glue.
 - To enable fine-grained access control for AWS Glue jobs, pass the `--enable-lakeformation-fine-grained-access` job parameter.
 - You can configure your AWS Glue jobs to work with the AWS Glue multi-catalog hierarchy. For information on the configuration parameters to use with the AWS Glue `StartJobRun` API, see [Working with AWS Glue multi-catalog hierarchy on EMR Serverless](../../../emr/latest/EMR-Serverless-UserGuide/external-metastore-glue-multi.md "../../../emr/latest/EMR-Serverless-UserGuide/external-metastore-glue-multi.md").
 - The following aren't supported:
+
   - Resilient distributed datasets (RDD)
   - Spark streaming
   - Write with Lake Formation granted permissions
@@ -21,6 +22,7 @@ AWS Glue.
 
 - AWS Glue blocks functionalities that might undermine the complete
   isolation of system driver, including the following:
+
   - UDTs, HiveUDFs, and any user-defined function that involves custom
     classes
   - Custom data sources

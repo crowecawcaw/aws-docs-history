@@ -350,6 +350,7 @@ write to tables managed by AWS Lake Formation:
 
 - The following features are not supported in jobs that access tables with
   cell-level filters:
+
   - [Job bookmarks](monitor-continuations.md "monitor-continuations.md") and [bounded execution](bounded-execution.md "bounded-execution.md")
   - [Push-down predicates](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-pushdowns")
   - [Server-side catalog partition

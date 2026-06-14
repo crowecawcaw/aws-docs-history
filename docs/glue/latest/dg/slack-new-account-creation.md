@@ -9,6 +9,7 @@
    an existing workspace.
 4. Choose **Create a workspace** to create a new workspace. It will redirect you to answer a few
    questions as a part of the set-up process.
+
    - Name of company
    - Your name
    - To add colleagues by email

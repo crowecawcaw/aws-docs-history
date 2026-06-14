@@ -246,6 +246,7 @@ bucket you can access and write to.
 4. Choose **Run** to start the upgrade analysis. While the analysis is running, you can view the results
    on the **Upgrade analysis** tab. The analysis details window will show you information about the
    analysis as well as links to the upgrade artifacts.
+
    - **Result path** – this is where the results summary and upgrade script are stored.
    - **Upgraded script in Amazon S3** – the location of the upgrade script in Amazon S3. You can
      view the script prior to applying the upgrade.
@@ -441,6 +442,7 @@ usage of the service.
   AWS Glue versions 2.0 to version 5.0. At this time, the service handles PySpark code that doesn't rely on additional library
   dependencies. You can run automated upgrades for up to 10 jobs concurrently in an AWS account, allowing you to efficiently
   upgrade multiple jobs while maintaining system stability.
+
   - Only PySpark jobs are supported.
   - Upgrade analysis will time out after 24 hours.
   - Only one active upgrade analysis can be run at a time for one job. On the account-level, up to 10 active upgrade analysis
@@ -450,6 +452,7 @@ usage of the service.
   the upgrade plan through multiple iterations, with each iteration running as a AWS Glue job in your account, it’s essential to
   optimize the validation job run configurations for cost efficiency. To achieve this, we recommend specifying a Run Configuration
   when starting an Upgrade Analysis as follows:
+
   - Use non-production developer accounts and select sample mock datasets that represent your production data but are smaller
     in size for validation with Spark Upgrades.
   - Using right-sized compute resources, such as G.1X workers, and selecting an appropriate number of workers for processing

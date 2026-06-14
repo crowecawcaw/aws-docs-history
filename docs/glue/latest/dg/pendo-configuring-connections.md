@@ -8,6 +8,7 @@ authorization, refer [Authentication – Pendo REST API Documentation](https://e
 To configure a Pendo connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    - For customer managed connected app - Secret should contain the connected app Consumer Secret with `apiKey` as the key.
 
 ###### Note

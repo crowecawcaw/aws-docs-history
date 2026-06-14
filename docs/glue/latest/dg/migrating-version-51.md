@@ -147,6 +147,7 @@ Note the following changes:
 Note the following changes:
 
 - Support Iceberg format version 3. The following features are supported:
+
   - Multi-argument transforms for partitioning and sorting.
   - Row Lineage tracking.
   - Deletion vectors. Learn more in

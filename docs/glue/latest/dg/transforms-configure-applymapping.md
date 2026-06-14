@@ -62,6 +62,7 @@ The **Change Schema** transform is not case-sensitive.
    transform.
 3. Choose the **Transform** tab in the node properties panel.
 4. Modify the input schema:
+
    - To rename a data property key, enter the new name of the key in the
      **Target key** field.
    - To change the data type for a data property key, choose the new data type for

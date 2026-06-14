@@ -21,6 +21,7 @@ procedure to create a AWS Glue Snowflake connection:
    To create a secret in Secrets Manager, follow the tutorial available in
    [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md#create_secret_cli "../../../secretsmanager/latest/userguide/create_secret.md#create_secret_cli") in the AWS Secrets Manager documentation.
    After creating the secret, keep the Secret name, `secretName` for the next step.
+
    - When selecting **Key/value pairs**, create a pair for
      `snowflakeUser` with the key `sfUser`.
    - When selecting **Key/value pairs**, create a pair for
@@ -32,6 +33,7 @@ procedure to create a AWS Glue Snowflake connection:
 4. In the AWS Glue Data Catalog, create a connection by following the steps in [Adding an AWS Glue connection](console-connections.md "console-connections.md"). After creating
    the connection, keep the connection name, `connectionName`, for the next
    step.
+
    - When selecting a **Connection type**, select Snowflake.
    - When selecting **Snowflake URL**, provide the hostname of your Snowflake
      instance. The URL will use a hostname in the form

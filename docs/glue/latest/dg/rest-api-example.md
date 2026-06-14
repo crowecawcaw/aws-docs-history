@@ -11,6 +11,7 @@ This API has the following properties (which can be retrieved from REST API docu
 - **Pagination type**: Offset with properties “limit” and “offset”
   placed in query parameter of request.
 - **Supported entities**:
+
   - **Bar**: relative path [/bar.json].
   - **Baz**: relative path [/baz.json].
 

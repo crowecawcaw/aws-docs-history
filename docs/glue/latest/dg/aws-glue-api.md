@@ -14,6 +14,7 @@ documentation:
 ###### Contents
 
 - [Security APIs in AWS Glue](aws-glue-api-jobs-security.md "aws-glue-api-jobs-security.md")
+
   - [Data types](aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-objects "aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-objects")
   - [DataCatalogEncryptionSettings structure](aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-DataCatalogEncryptionSettings "aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-DataCatalogEncryptionSettings")
   - [EncryptionAtRest structure](aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-EncryptionAtRest "aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-EncryptionAtRest")
@@ -38,7 +39,9 @@ documentation:
   - [GetResourcePolicies action (Python: get_resource_policies)](aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-GetResourcePolicies "aws-glue-api-jobs-security.md#aws-glue-api-jobs-security-GetResourcePolicies")
 
 - [Catalog objects API](aws-glue-api-catalog.md "aws-glue-api-catalog.md")
+
   - [Catalogs API](aws-glue-api-catalog-catalogs.md "aws-glue-api-catalog-catalogs.md")
+
     - [Data types](aws-glue-api-catalog-catalogs.md#aws-glue-api-catalog-catalogs-objects "aws-glue-api-catalog-catalogs.md#aws-glue-api-catalog-catalogs-objects")
     - [Catalog structure](aws-glue-api-catalog-catalogs.md#aws-glue-api-catalog-catalogs-Catalog "aws-glue-api-catalog-catalogs.md#aws-glue-api-catalog-catalogs-Catalog")
     - [CatalogInput structure](aws-glue-api-catalog-catalogs.md#aws-glue-api-catalog-catalogs-CatalogInput "aws-glue-api-catalog-catalogs.md#aws-glue-api-catalog-catalogs-CatalogInput")
@@ -58,6 +61,7 @@ documentation:
     - [GetCatalogs action (Python: get_catalogs)](aws-glue-api-catalog-catalogs.md#aws-glue-api-catalog-catalogs-GetCatalogs "aws-glue-api-catalog-catalogs.md#aws-glue-api-catalog-catalogs-GetCatalogs")
 
   - [Database API](aws-glue-api-catalog-databases.md "aws-glue-api-catalog-databases.md")
+
     - [Data types](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-objects "aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-objects")
     - [Database structure](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-Database "aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-Database")
     - [DatabaseInput structure](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-DatabaseInput "aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-DatabaseInput")
@@ -73,6 +77,7 @@ documentation:
     - [GetDatabases action (Python: get_databases)](aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-GetDatabases "aws-glue-api-catalog-databases.md#aws-glue-api-catalog-databases-GetDatabases")
 
   - [Table API](aws-glue-api-catalog-tables.md "aws-glue-api-catalog-tables.md")
+
     - [Data types](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-objects "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-objects")
     - [Table structure](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-Table "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-Table")
     - [TableInput structure](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-TableInput "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-TableInput")
@@ -130,6 +135,7 @@ documentation:
     - [DeleteColumnStatisticsForTable action (Python: delete_column_statistics_for_table)](aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable "aws-glue-api-catalog-tables.md#aws-glue-api-catalog-tables-DeleteColumnStatisticsForTable")
 
   - [Partition API](aws-glue-api-catalog-partitions.md "aws-glue-api-catalog-partitions.md")
+
     - [Data types](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-objects "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-objects")
     - [Partition structure](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-Partition "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-Partition")
     - [PartitionInput structure](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-PartitionInput "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-PartitionInput")
@@ -160,7 +166,9 @@ documentation:
     - [DeleteColumnStatisticsForPartition action (Python: delete_column_statistics_for_partition)](aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-DeleteColumnStatisticsForPartition "aws-glue-api-catalog-partitions.md#aws-glue-api-catalog-partitions-DeleteColumnStatisticsForPartition")
 
   - [Connections API](aws-glue-api-catalog-connections.md "aws-glue-api-catalog-connections.md")
+
     - [Connection API](aws-glue-api-catalog-connections-connections.md "aws-glue-api-catalog-connections-connections.md")
+
       - [Data types](aws-glue-api-catalog-connections-connections.md#aws-glue-api-catalog-connections-connections-objects "aws-glue-api-catalog-connections-connections.md#aws-glue-api-catalog-connections-connections-objects")
       - [Connection structure](aws-glue-api-catalog-connections-connections.md#aws-glue-api-catalog-connections-connections-Connection "aws-glue-api-catalog-connections-connections.md#aws-glue-api-catalog-connections-connections-Connection")
       - [ConnectionInput structure](aws-glue-api-catalog-connections-connections.md#aws-glue-api-catalog-connections-connections-ConnectionInput "aws-glue-api-catalog-connections-connections.md#aws-glue-api-catalog-connections-connections-ConnectionInput")
@@ -185,6 +193,7 @@ documentation:
       - [BatchDeleteConnection action (Python: batch_delete_connection)](aws-glue-api-catalog-connections-connections.md#aws-glue-api-catalog-connections-connections-BatchDeleteConnection "aws-glue-api-catalog-connections-connections.md#aws-glue-api-catalog-connections-connections-BatchDeleteConnection")
 
     - [Connection Types API](aws-glue-api-catalog-connections-connections-type.md "aws-glue-api-catalog-connections-connections-type.md")
+
       - [Connection management APIs](aws-glue-api-catalog-connections-connections-type.md#aws-glue-api-catalog-connections-connections-type-connection-management "aws-glue-api-catalog-connections-connections-type.md#aws-glue-api-catalog-connections-connections-type-connection-management")
       - [DescribeConnectionType action (Python: describe_connection_type)](aws-glue-api-catalog-connections-connections-type.md#aws-glue-api-catalog-connections-connections-type-DescribeConnectionType "aws-glue-api-catalog-connections-connections-type.md#aws-glue-api-catalog-connections-connections-type-DescribeConnectionType")
       - [ListConnectionTypes action (Python: list_connection_types)](aws-glue-api-catalog-connections-connections-type.md#aws-glue-api-catalog-connections-connections-type-ListConnectionTypes "aws-glue-api-catalog-connections-connections-type.md#aws-glue-api-catalog-connections-connections-type-ListConnectionTypes")
@@ -199,6 +208,7 @@ documentation:
       - [ComputeEnvironmentConfiguration structure](aws-glue-api-catalog-connections-connections-type.md#aws-glue-api-catalog-connections-connections-type-ComputeEnvironmentConfiguration "aws-glue-api-catalog-connections-connections-type.md#aws-glue-api-catalog-connections-connections-type-ComputeEnvironmentConfiguration")
 
     - [Connection Metadata and Preview API](aws-glue-api-catalog-connections-connections-metadata.md "aws-glue-api-catalog-connections-connections-metadata.md")
+
       - [Data types](aws-glue-api-catalog-connections-connections-metadata.md#aws-glue-api-catalog-connections-connections-metadata-objects "aws-glue-api-catalog-connections-connections-metadata.md#aws-glue-api-catalog-connections-connections-metadata-objects")
       - [Entity structure](aws-glue-api-catalog-connections-connections-metadata.md#aws-glue-api-catalog-connections-connections-metadata-Entity "aws-glue-api-catalog-connections-connections-metadata.md#aws-glue-api-catalog-connections-connections-metadata-Entity")
       - [Field structure](aws-glue-api-catalog-connections-connections-metadata.md#aws-glue-api-catalog-connections-connections-metadata-Field "aws-glue-api-catalog-connections-connections-metadata.md#aws-glue-api-catalog-connections-connections-metadata-Field")
@@ -208,6 +218,7 @@ documentation:
       - [GetEntityRecords action (Python: get_entity_records)](aws-glue-api-catalog-connections-connections-metadata.md#aws-glue-api-catalog-connections-connections-metadata-GetEntityRecords "aws-glue-api-catalog-connections-connections-metadata.md#aws-glue-api-catalog-connections-connections-metadata-GetEntityRecords")
 
   - [User-defined Function API](aws-glue-api-catalog-functions.md "aws-glue-api-catalog-functions.md")
+
     - [Data types](aws-glue-api-catalog-functions.md#aws-glue-api-catalog-functions-objects "aws-glue-api-catalog-functions.md#aws-glue-api-catalog-functions-objects")
     - [UserDefinedFunction structure](aws-glue-api-catalog-functions.md#aws-glue-api-catalog-functions-UserDefinedFunction "aws-glue-api-catalog-functions.md#aws-glue-api-catalog-functions-UserDefinedFunction")
     - [UserDefinedFunctionInput structure](aws-glue-api-catalog-functions.md#aws-glue-api-catalog-functions-UserDefinedFunctionInput "aws-glue-api-catalog-functions.md#aws-glue-api-catalog-functions-UserDefinedFunctionInput")
@@ -219,6 +230,7 @@ documentation:
     - [GetUserDefinedFunctions action (Python: get_user_defined_functions)](aws-glue-api-catalog-functions.md#aws-glue-api-catalog-functions-GetUserDefinedFunctions "aws-glue-api-catalog-functions.md#aws-glue-api-catalog-functions-GetUserDefinedFunctions")
 
   - [Importing an Athena catalog to AWS Glue](aws-glue-api-catalog-migration.md "aws-glue-api-catalog-migration.md")
+
     - [Data types](aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-objects "aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-objects")
     - [CatalogImportStatus structure](aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-CatalogImportStatus "aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-CatalogImportStatus")
     - [Operations](aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-actions "aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-actions")
@@ -226,6 +238,7 @@ documentation:
     - [GetCatalogImportStatus action (Python: get_catalog_import_status)](aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-GetCatalogImportStatus "aws-glue-api-catalog-migration.md#aws-glue-api-catalog-migration-GetCatalogImportStatus")
 
 - [Table optimizer API](aws-glue-api-table-optimizers.md "aws-glue-api-table-optimizers.md")
+
   - [Data types](aws-glue-api-table-optimizers.md#aws-glue-api-table-optimizers-objects "aws-glue-api-table-optimizers.md#aws-glue-api-table-optimizers-objects")
   - [TableOptimizer structure](aws-glue-api-table-optimizers.md#aws-glue-api-table-optimizers-TableOptimizer "aws-glue-api-table-optimizers.md#aws-glue-api-table-optimizers-TableOptimizer")
   - [TableOptimizerConfiguration structure](aws-glue-api-table-optimizers.md#aws-glue-api-table-optimizers-TableOptimizerConfiguration "aws-glue-api-table-optimizers.md#aws-glue-api-table-optimizers-TableOptimizerConfiguration")
@@ -256,7 +269,9 @@ documentation:
   - [UpdateTableOptimizer action (Python: update_table_optimizer)](aws-glue-api-table-optimizers.md#aws-glue-api-table-optimizers-UpdateTableOptimizer "aws-glue-api-table-optimizers.md#aws-glue-api-table-optimizers-UpdateTableOptimizer")
 
 - [Crawlers and classifiers API](aws-glue-api-crawler.md "aws-glue-api-crawler.md")
+
   - [Classifier API](aws-glue-api-crawler-classifiers.md "aws-glue-api-crawler-classifiers.md")
+
     - [Data types](aws-glue-api-crawler-classifiers.md#aws-glue-api-crawler-classifiers-objects "aws-glue-api-crawler-classifiers.md#aws-glue-api-crawler-classifiers-objects")
     - [Classifier structure](aws-glue-api-crawler-classifiers.md#aws-glue-api-crawler-classifiers-Classifier "aws-glue-api-crawler-classifiers.md#aws-glue-api-crawler-classifiers-Classifier")
     - [GrokClassifier structure](aws-glue-api-crawler-classifiers.md#aws-glue-api-crawler-classifiers-GrokClassifier "aws-glue-api-crawler-classifiers.md#aws-glue-api-crawler-classifiers-GrokClassifier")
@@ -279,6 +294,7 @@ documentation:
     - [UpdateClassifier action (Python: update_classifier)](aws-glue-api-crawler-classifiers.md#aws-glue-api-crawler-classifiers-UpdateClassifier "aws-glue-api-crawler-classifiers.md#aws-glue-api-crawler-classifiers-UpdateClassifier")
 
   - [Crawler API](aws-glue-api-crawler-crawling.md "aws-glue-api-crawler-crawling.md")
+
     - [Data types](aws-glue-api-crawler-crawling.md#aws-glue-api-crawler-crawling-objects "aws-glue-api-crawler-crawling.md#aws-glue-api-crawler-crawling-objects")
     - [Crawler structure](aws-glue-api-crawler-crawling.md#aws-glue-api-crawler-crawling-Crawler "aws-glue-api-crawler-crawling.md#aws-glue-api-crawler-crawling-Crawler")
     - [Schedule structure](aws-glue-api-crawler-crawling.md#aws-glue-api-crawler-crawling-Schedule "aws-glue-api-crawler-crawling.md#aws-glue-api-crawler-crawling-Schedule")
@@ -315,6 +331,7 @@ documentation:
     - [ListCrawls action (Python: list_crawls)](aws-glue-api-crawler-crawling.md#aws-glue-api-crawler-crawling-ListCrawls "aws-glue-api-crawler-crawling.md#aws-glue-api-crawler-crawling-ListCrawls")
 
   - [Column statistics API](aws-glue-api-crawler-column-statistics.md "aws-glue-api-crawler-column-statistics.md")
+
     - [Data types](aws-glue-api-crawler-column-statistics.md#aws-glue-api-crawler-column-statistics-objects "aws-glue-api-crawler-column-statistics.md#aws-glue-api-crawler-column-statistics-objects")
     - [ColumnStatisticsTaskRun structure](aws-glue-api-crawler-column-statistics.md#aws-glue-api-crawler-column-statistics-ColumnStatisticsTaskRun "aws-glue-api-crawler-column-statistics.md#aws-glue-api-crawler-column-statistics-ColumnStatisticsTaskRun")
     - [ColumnStatisticsTaskSettings structure](aws-glue-api-crawler-column-statistics.md#aws-glue-api-crawler-column-statistics-ColumnStatisticsTaskSettings "aws-glue-api-crawler-column-statistics.md#aws-glue-api-crawler-column-statistics-ColumnStatisticsTaskSettings")
@@ -339,6 +356,7 @@ documentation:
     - [InvalidCatalogSettingException structure](aws-glue-api-crawler-column-statistics.md#aws-glue-api-crawler-column-statistics-InvalidCatalogSettingException "aws-glue-api-crawler-column-statistics.md#aws-glue-api-crawler-column-statistics-InvalidCatalogSettingException")
 
   - [Crawler scheduler API](aws-glue-api-crawler-scheduler.md "aws-glue-api-crawler-scheduler.md")
+
     - [Data types](aws-glue-api-crawler-scheduler.md#aws-glue-api-crawler-scheduler-objects "aws-glue-api-crawler-scheduler.md#aws-glue-api-crawler-scheduler-objects")
     - [Schedule structure](aws-glue-api-crawler-scheduler.md#aws-glue-api-crawler-scheduler-Schedule "aws-glue-api-crawler-scheduler.md#aws-glue-api-crawler-scheduler-Schedule")
     - [Operations](aws-glue-api-crawler-scheduler.md#aws-glue-api-crawler-scheduler-actions "aws-glue-api-crawler-scheduler.md#aws-glue-api-crawler-scheduler-actions")
@@ -347,6 +365,7 @@ documentation:
     - [StopCrawlerSchedule action (Python: stop_crawler_schedule)](aws-glue-api-crawler-scheduler.md#aws-glue-api-crawler-scheduler-StopCrawlerSchedule "aws-glue-api-crawler-scheduler.md#aws-glue-api-crawler-scheduler-StopCrawlerSchedule")
 
 - [Autogenerating ETL Scripts API](aws-glue-api-etl-script-generation.md "aws-glue-api-etl-script-generation.md")
+
   - [Data types](aws-glue-api-etl-script-generation.md#aws-glue-api-etl-script-generation-objects "aws-glue-api-etl-script-generation.md#aws-glue-api-etl-script-generation-objects")
   - [CodeGenNode structure](aws-glue-api-etl-script-generation.md#aws-glue-api-etl-script-generation-CodeGenNode "aws-glue-api-etl-script-generation.md#aws-glue-api-etl-script-generation-CodeGenNode")
   - [CodeGenNodeArg structure](aws-glue-api-etl-script-generation.md#aws-glue-api-etl-script-generation-CodeGenNodeArg "aws-glue-api-etl-script-generation.md#aws-glue-api-etl-script-generation-CodeGenNodeArg")
@@ -361,6 +380,7 @@ documentation:
   - [GetPlan action (Python: get_plan)](aws-glue-api-etl-script-generation.md#aws-glue-api-etl-script-generation-GetPlan "aws-glue-api-etl-script-generation.md#aws-glue-api-etl-script-generation-GetPlan")
 
 - [Visual job API](aws-glue-api-visual-job-api.md "aws-glue-api-visual-job-api.md")
+
   - [Data types](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-objects "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-objects")
   - [CodeGenConfigurationNode structure](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-CodeGenConfigurationNode")
   - [JDBCConnectorOptions structure](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-JDBCConnectorOptions "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-JDBCConnectorOptions")
@@ -480,7 +500,9 @@ documentation:
   - [AutoDataQuality structure](aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-AutoDataQuality "aws-glue-api-visual-job-api.md#aws-glue-api-visual-job-api-AutoDataQuality")
 
 - [Jobs API](aws-glue-api-jobs.md "aws-glue-api-jobs.md")
+
   - [Jobs](aws-glue-api-jobs-job.md "aws-glue-api-jobs-job.md")
+
     - [Data types](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-objects "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-objects")
     - [Job structure](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-Job "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-Job")
     - [ExecutionProperty structure](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-ExecutionProperty "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-ExecutionProperty")
@@ -499,6 +521,7 @@ documentation:
     - [BatchGetJobs action (Python: batch_get_jobs)](aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-BatchGetJobs "aws-glue-api-jobs-job.md#aws-glue-api-jobs-job-BatchGetJobs")
 
   - [Job runs](aws-glue-api-jobs-runs.md "aws-glue-api-jobs-runs.md")
+
     - [Data types](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-objects "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-objects")
     - [JobRun structure](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-JobRun "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-JobRun")
     - [Predecessor structure](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-Predecessor "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-Predecessor")
@@ -516,6 +539,7 @@ documentation:
     - [ResetJobBookmark action (Python: reset_job_bookmark)](aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-ResetJobBookmark "aws-glue-api-jobs-runs.md#aws-glue-api-jobs-runs-ResetJobBookmark")
 
   - [Triggers](aws-glue-api-jobs-trigger.md "aws-glue-api-jobs-trigger.md")
+
     - [Data types](aws-glue-api-jobs-trigger.md#aws-glue-api-jobs-trigger-objects "aws-glue-api-jobs-trigger.md#aws-glue-api-jobs-trigger-objects")
     - [Trigger structure](aws-glue-api-jobs-trigger.md#aws-glue-api-jobs-trigger-Trigger "aws-glue-api-jobs-trigger.md#aws-glue-api-jobs-trigger-Trigger")
     - [TriggerUpdate structure](aws-glue-api-jobs-trigger.md#aws-glue-api-jobs-trigger-TriggerUpdate "aws-glue-api-jobs-trigger.md#aws-glue-api-jobs-trigger-TriggerUpdate")
@@ -535,6 +559,7 @@ documentation:
     - [BatchGetTriggers action (Python: batch_get_triggers)](aws-glue-api-jobs-trigger.md#aws-glue-api-jobs-trigger-BatchGetTriggers "aws-glue-api-jobs-trigger.md#aws-glue-api-jobs-trigger-BatchGetTriggers")
 
 - [Integration APIs in AWS Glue](aws-glue-api-integrations.md "aws-glue-api-integrations.md")
+
   - [Data types](aws-glue-api-integrations.md#aws-glue-api-integrations-objects "aws-glue-api-integrations.md#aws-glue-api-integrations-objects")
   - [Integration structure](aws-glue-api-integrations.md#aws-glue-api-integrations-Integration "aws-glue-api-integrations.md#aws-glue-api-integrations-Integration")
   - [IntegrationConfig structure](aws-glue-api-integrations.md#aws-glue-api-integrations-IntegrationConfig "aws-glue-api-integrations.md#aws-glue-api-integrations-IntegrationConfig")
@@ -573,6 +598,7 @@ documentation:
   - [InvalidIntegrationStateFault structure](aws-glue-api-integrations.md#aws-glue-api-integrations-InvalidIntegrationStateFault "aws-glue-api-integrations.md#aws-glue-api-integrations-InvalidIntegrationStateFault")
 
 - [Interactive sessions API](aws-glue-api-interactive-sessions.md "aws-glue-api-interactive-sessions.md")
+
   - [Data types](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-objects "aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-objects")
   - [Session structure](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-Session "aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-Session")
   - [SessionCommand structure](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-SessionCommand "aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-SessionCommand")
@@ -596,6 +622,7 @@ documentation:
   - [DeleteGlueIdentityCenterConfiguration action (Python: delete_glue_identity_center_configuration)](aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-DeleteGlueIdentityCenterConfiguration "aws-glue-api-interactive-sessions.md#aws-glue-api-interactive-sessions-DeleteGlueIdentityCenterConfiguration")
 
 - [Development endpoints API](aws-glue-api-dev-endpoint.md "aws-glue-api-dev-endpoint.md")
+
   - [Data types](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-objects "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-objects")
   - [DevEndpoint structure](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-DevEndpoint "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-DevEndpoint")
   - [DevEndpointCustomLibraries structure](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-DevEndpointCustomLibraries "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-DevEndpointCustomLibraries")
@@ -609,6 +636,7 @@ documentation:
   - [ListDevEndpoints action (Python: list_dev_endpoints)](aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-ListDevEndpoints "aws-glue-api-dev-endpoint.md#aws-glue-api-dev-endpoint-ListDevEndpoints")
 
 - [Schema registry](aws-glue-api-schema-registry-api.md "aws-glue-api-schema-registry-api.md")
+
   - [Data types](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-objects "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-objects")
   - [RegistryId structure](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-RegistryId "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-RegistryId")
   - [RegistryListItem structure](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-RegistryListItem "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-RegistryListItem")
@@ -644,6 +672,7 @@ documentation:
   - [DeleteSchemaVersions action (Python: delete_schema_versions)](aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-DeleteSchemaVersions "aws-glue-api-schema-registry-api.md#aws-glue-api-schema-registry-api-DeleteSchemaVersions")
 
 - [Workflows](aws-glue-api-workflow.md "aws-glue-api-workflow.md")
+
   - [Data types](aws-glue-api-workflow.md#aws-glue-api-workflow-objects "aws-glue-api-workflow.md#aws-glue-api-workflow-objects")
   - [JobNodeDetails structure](aws-glue-api-workflow.md#aws-glue-api-workflow-JobNodeDetails "aws-glue-api-workflow.md#aws-glue-api-workflow-JobNodeDetails")
   - [CrawlerNodeDetails structure](aws-glue-api-workflow.md#aws-glue-api-workflow-CrawlerNodeDetails "aws-glue-api-workflow.md#aws-glue-api-workflow-CrawlerNodeDetails")
@@ -684,6 +713,7 @@ documentation:
   - [ResumeWorkflowRun action (Python: resume_workflow_run)](aws-glue-api-workflow.md#aws-glue-api-workflow-ResumeWorkflowRun "aws-glue-api-workflow.md#aws-glue-api-workflow-ResumeWorkflowRun")
 
 - [Usage profiles](aws-glue-api-usage-profiles.md "aws-glue-api-usage-profiles.md")
+
   - [Data types](aws-glue-api-usage-profiles.md#aws-glue-api-usage-profiles-objects "aws-glue-api-usage-profiles.md#aws-glue-api-usage-profiles-objects")
   - [ProfileConfiguration structure](aws-glue-api-usage-profiles.md#aws-glue-api-usage-profiles-ProfileConfiguration "aws-glue-api-usage-profiles.md#aws-glue-api-usage-profiles-ProfileConfiguration")
   - [ConfigurationObject structure](aws-glue-api-usage-profiles.md#aws-glue-api-usage-profiles-ConfigurationObject "aws-glue-api-usage-profiles.md#aws-glue-api-usage-profiles-ConfigurationObject")
@@ -696,6 +726,7 @@ documentation:
   - [ListUsageProfiles action (Python: list_usage_profiles)](aws-glue-api-usage-profiles.md#aws-glue-api-usage-profiles-ListUsageProfiles "aws-glue-api-usage-profiles.md#aws-glue-api-usage-profiles-ListUsageProfiles")
 
 - [Machine learning API](aws-glue-api-machine-learning-api.md "aws-glue-api-machine-learning-api.md")
+
   - [Data types](aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-objects "aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-objects")
   - [TransformParameters structure](aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-TransformParameters "aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-TransformParameters")
   - [EvaluationMetrics structure](aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-EvaluationMetrics "aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-EvaluationMetrics")
@@ -734,6 +765,7 @@ documentation:
   - [StartImportLabelsTaskRun action (Python: start_import_labels_task_run)](aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-StartImportLabelsTaskRun "aws-glue-api-machine-learning-api.md#aws-glue-api-machine-learning-api-StartImportLabelsTaskRun")
 
 - [Data Quality API](aws-glue-api-data-quality-api.md "aws-glue-api-data-quality-api.md")
+
   - [Data types](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-objects "aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-objects")
   - [DataSource structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataSource "aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataSource")
   - [DataQualityRulesetListDetails structure](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataQualityRulesetListDetails "aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-DataQualityRulesetListDetails")
@@ -793,6 +825,7 @@ documentation:
   - [PutDataQualityProfileAnnotation action (Python: put_data_quality_profile_annotation)](aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-PutDataQualityProfileAnnotation "aws-glue-api-data-quality-api.md#aws-glue-api-data-quality-api-PutDataQualityProfileAnnotation")
 
 - [Sensitive data detection API](aws-glue-api-sensitive-data-api.md "aws-glue-api-sensitive-data-api.md")
+
   - [Data types](aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-objects "aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-objects")
   - [CustomEntityType structure](aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-CustomEntityType "aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-CustomEntityType")
   - [Operations](aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-actions "aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-actions")
@@ -803,6 +836,7 @@ documentation:
   - [ListCustomEntityTypes action (Python: list_custom_entity_types)](aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-ListCustomEntityTypes "aws-glue-api-sensitive-data-api.md#aws-glue-api-sensitive-data-api-ListCustomEntityTypes")
 
 - [Tagging APIs in AWS Glue](aws-glue-api-tags.md "aws-glue-api-tags.md")
+
   - [Data types](aws-glue-api-tags.md#aws-glue-api-tags-objects "aws-glue-api-tags.md#aws-glue-api-tags-objects")
   - [Tag structure](aws-glue-api-tags.md#aws-glue-api-tags-Tag "aws-glue-api-tags.md#aws-glue-api-tags-Tag")
   - [Operations](aws-glue-api-tags.md#aws-glue-api-tags-actions "aws-glue-api-tags.md#aws-glue-api-tags-actions")
@@ -811,6 +845,7 @@ documentation:
   - [GetTags action (Python: get_tags)](aws-glue-api-tags.md#aws-glue-api-tags-GetTags "aws-glue-api-tags.md#aws-glue-api-tags-GetTags")
 
 - [Common data types](aws-glue-api-common.md "aws-glue-api-common.md")
+
   - [Tag structure](aws-glue-api-common.md#aws-glue-api-common-Tag "aws-glue-api-common.md#aws-glue-api-common-Tag")
   - [DecimalNumber structure](aws-glue-api-common.md#aws-glue-api-common-DecimalNumber "aws-glue-api-common.md#aws-glue-api-common-DecimalNumber")
   - [ErrorDetail structure](aws-glue-api-common.md#aws-glue-api-common-ErrorDetail "aws-glue-api-common.md#aws-glue-api-common-ErrorDetail")
@@ -830,6 +865,7 @@ documentation:
   - [String patterns](aws-glue-api-common.md#aws-glue-api-common-_string-patterns "aws-glue-api-common.md#aws-glue-api-common-_string-patterns")
 
 - [Exceptions](aws-glue-api-exceptions.md "aws-glue-api-exceptions.md")
+
   - [AccessDeniedException structure](aws-glue-api-exceptions.md#aws-glue-api-exceptions-AccessDeniedException "aws-glue-api-exceptions.md#aws-glue-api-exceptions-AccessDeniedException")
   - [AlreadyExistsException structure](aws-glue-api-exceptions.md#aws-glue-api-exceptions-AlreadyExistsException "aws-glue-api-exceptions.md#aws-glue-api-exceptions-AlreadyExistsException")
   - [ConcurrentModificationException structure](aws-glue-api-exceptions.md#aws-glue-api-exceptions-ConcurrentModificationException "aws-glue-api-exceptions.md#aws-glue-api-exceptions-ConcurrentModificationException")

@@ -17,6 +17,7 @@ The following are limitations for the Asana connector:
   `lowerBound` as `2019-09-14`, `upperBound`
   as `2019-09-16`, and `numPartition` as `2`. The
   filter part of the endpoint URL is created as follows:
+
   - partition1:
     due_on.before=2019-09-14&due_on.after=2019-09-14
   - partition2: due_on.before=2019-09-15&due_on.after=2019-09-15

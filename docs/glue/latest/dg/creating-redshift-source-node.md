@@ -20,6 +20,7 @@ The following permissions are needed in order to use an Amazon Redshift connecti
 ###### To add a **Data Source – Amazon Redshift** node:
 
 1. Choose the Amazon Redshift access type:
+
    - Direct data connection (recommended) – choose this option if you want to access your Amazon Redshift
      data directly. This is the recommended option and also the default.
    - Data Catalog tables – choose this option if you have Data Catalog tables that you want to use.

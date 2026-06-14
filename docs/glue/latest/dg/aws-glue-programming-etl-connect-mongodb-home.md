@@ -28,6 +28,7 @@ You can then proceed to configure AWS Glue for use with MongoDB.
 1. Optionally, in AWS Secrets Manager, create a secret using your MongoDB credentials.
    To create a secret in Secrets Manager, follow the tutorial available in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the AWS Secrets Manager documentation.
    After creating the secret, keep the Secret name, `secretName` for the next step.
+
    - When selecting **Key/value pairs**, create a pair for
      the key `username` with the value `mongodbUser`.
 
@@ -36,6 +37,7 @@ You can then proceed to configure AWS Glue for use with MongoDB.
 
 2. In the AWS Glue console, create a connection by following the steps in [Adding an AWS Glue connection](console-connections.md "console-connections.md").
    After creating the connection, keep the connection name, `connectionName`, for future use in AWS Glue.
+
    - When selecting a **Connection type**, select **MongoDB** or **MongoDB Atlas**.
    - When selecting **MongoDB URL** or **MongoDB Atlas URL**, provide the hostname of your MongoDB instance.
 
@@ -49,7 +51,9 @@ You can then proceed to configure AWS Glue for use with MongoDB.
      `mongodbUser` and `mongodbPass`.
 
 3. In the following situations, you may require additional configuration:
+
    - For MongoDB instances hosted on AWS in an Amazon VPC
+
      - You will need to provide Amazon VPC connection information to the AWS Glue connection that
        defines your MongoDB security credentials. When creating or updating your
        connection, set **VPC**, **Subnet** and
@@ -297,6 +301,7 @@ source:
 - `"partitioner"`: (Optional): The class name of the partitioner for
   reading input data from MongoDB. The connector provides the following
   partitioners:
+
   - `MongoDefaultPartitioner` (default) (Not supported in AWS Glue 4.0)
   - `MongoSamplePartitioner` (Requires MongoDB 3.2 or later) (Not supported in AWS Glue 4.0)
   - `MongoShardedPartitioner` (Not supported in AWS Glue 4.0)

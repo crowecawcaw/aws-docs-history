@@ -34,11 +34,13 @@ By default, the job run insights log streams are created under the same default 
 With the job run insights feature enabled, there may be two log streams created when a job run fails. When a job finishes successfully, neither of the streams are generated.
 
 1. _Exception analysis log stream_: `<job-run-id>-job-insights-rca-driver`. This stream provides the following:
+
    - Line number of your AWS Glue job script that caused the failure.
    - Spark action that executed last in the Spark query plan (DAG).
    - Concise time-ordered events from the Spark driver and executors that are related to the exception. You can find details such as complete error messages, the failed Spark task and its executors ID that help you to focus on the specific executor's log stream for a deeper investigation if needed.
 
 2. _Rule-based insights stream_:
+
    - Root cause analysis and recommendations on how to fix the errors (such as using a specific job parameter to optimize the performance).
    - Relevant Spark events serving as the basis for root cause analysis and a recommended action.
 
@@ -98,6 +100,7 @@ Without the job run insights feature, as the job fails, you only see this messag
 The message is ambiguous and limits your debugging experience. In this case, this feature provides with you additional insights in two CloudWatch log streams:
 
 1. The `job-insights-rca-driver` log stream:
+
    - _Exception events_: This log stream provides you the Spark exception events related to the failure collected from the Spark driver and different distributed workers. These events help you understand the time-ordered propagation of the exception as faulty code executes across Spark tasks, executors, and stages distributed across the AWS Glue workers.
    - _Line numbers_: This log stream identifies line 21, which made the call to import the missing Python module that caused the failure; it also identifies line 24, the call to Spark Action `collect()`, as the last executed line in your script.
 

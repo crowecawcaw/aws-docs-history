@@ -147,6 +147,7 @@ parameters for Python shell jobs on the **Job details** tab.
   supported for Python shell jobs.
 - Under **Advanced properties**, the following properties are not
   available for Python shell jobs.
+
   - **Job metrics**
   - **Continuous logging**
   - **Spark UI** and **Spark UI logs path**

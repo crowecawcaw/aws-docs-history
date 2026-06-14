@@ -3,13 +3,17 @@
 To configure a Google Sheet connection:
 
 1. In AWS Secrets Manager, create a secret with the following details:
+
    1. For AuthorizationCode grant type:
+
       - For customer managed connected app – Secret should contain the
         connected app Consumer Secret with `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET` as key.
 
 2. In AWS Glue Glue Studio, create a connection under **Data Connections** by following the steps below:
+
    1. When selecting a **Data Source**, select Google Sheets.
    2. Provide the Google Sheets environment.
+
       1. Select the `secretName` which you want to use for this connection in AWS Glue to put the tokens.
       2. Select the network options if you want to use your network.
 

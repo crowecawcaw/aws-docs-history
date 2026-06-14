@@ -1291,6 +1291,7 @@ connections for connectors](../ug/connectors-chapter.md#creating-connections "..
   testing purposes.
 - SASL/SCRAM-SHA-512 - Choosing this authentication method will allow you to
   specify authentication credentials. There are two options available:
+
   - Use AWS Secrets Manager (recommended) - if you select this
     option, you can store your user name and password in AWS Secrets
     Manager and let AWS Glue access them when needed.
@@ -1305,6 +1306,7 @@ connections for connectors](../ug/connectors-chapter.md#creating-connections "..
   SASL/GSSAPI, this option is only available for customer managed Apache Kafka
   clusters. For more information, see [MIT Kerberos Documentation: Keytab](https://web.mit.edu/kerberos/krb5-latest/doc/basic/keytab_def.html "https://web.mit.edu/kerberos/krb5-latest/doc/basic/keytab_def.html") .
 - SASL/PLAIN - choose this authentication method to specify authentication credentials. There are two options available:
+
   - Use AWS Secrets Manager (recommended) - if you select this option, you can store your credentials in AWS Secrets Manager and let AWS Glue access the information when needed. Specify the secret that stores the SSL or SASL authentication credentials.
   - Provide username and password directly.
 

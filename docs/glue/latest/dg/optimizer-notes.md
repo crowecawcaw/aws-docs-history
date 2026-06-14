@@ -54,6 +54,7 @@ When compaction operations fail four consecutive times, AWS Glue catalog table o
   You can't run compaction on Amazon S3 Express One Zone Iceberg Tables.
 - Z-order compaction strategy doesn't support the following data types
   :
+
   - Decimal
   - TimestampWithoutZone
 
@@ -99,4 +100,5 @@ For detailed instructions on setting up versioning and creating life cycle rules
 To resolve an `OversizedAllocationException` exception:
 
 - Reduce the batch size of the vectorized reader and check. The default batch size is 5000. This is controlled in the `read.parquet.vectorization.batch-size`.
+
   - If this doesn’t work even after multiple variations, turn off vectorization. This is controlled in the `read.parquet.vectorization.enabled`.

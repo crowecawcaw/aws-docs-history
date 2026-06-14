@@ -313,6 +313,7 @@ echo "Script completed at $(date)"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateDatabase](../../../goto/aws-cli/glue-2017-03-31/CreateDatabase.md "../../../goto/aws-cli/glue-2017-03-31/CreateDatabase.md")
   - [CreateTable](../../../goto/aws-cli/glue-2017-03-31/CreateTable.md "../../../goto/aws-cli/glue-2017-03-31/CreateTable.md")
   - [DeleteDatabase](../../../goto/aws-cli/glue-2017-03-31/DeleteDatabase.md "../../../goto/aws-cli/glue-2017-03-31/DeleteDatabase.md")

@@ -23,27 +23,33 @@ Optionally, you can perform the following configuration to manage your connectio
    To create a secret in Secrets Manager, follow the tutorial available in
    [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md#create_secret_cli "../../../secretsmanager/latest/userguide/create_secret.md#create_secret_cli") in the AWS Secrets Manager documentation.
    After creating the secret, keep the Secret name, `secretName` for the next step.
+
    - For OAuth authentication:
+
      - When selecting **Key/value pairs**, create a pair for `snowflakeUser` with the key `sfUser`
      - When selecting **Key/value pairs**, create a pair for `OAUTH_CLIENT_SECRET` with the key `USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET`
 
    - For Key-pair authentication:
+
      - When selecting **Key/value pairs**, create a pair for `snowflakeUser` with the key `sfUser`
      - When selecting **Key/value pairs**, create a pair for `private key` with the key `pem_private_key`
 
    - For basic authentication:
+
      - When selecting **Key/value pairs**, create a pair for `snowflakeUser` with the key `USERNAME`
      - When selecting **Key/value pairs**, create a pair for `snowflakePassword` with the key `PASSWORD`
 
    - When selecting **Key/value pairs**, you can provide your Snowflake
      warehouse with the key `sfWarehouse`.
    - When selecting **Key/value pairs**, you can provide additional Snowflake connection properties using their corresponding Spark property names as keys. Supported properties include:
+
      - `sfDatabase` - Snowflake database name
      - `sfSchema` - Snowflake schema name
      - `sfRole` - Snowflake role name
 
 2. In the AWS Glue Studio Console, create a connection by choosing **Data Connections**, then **Create connection**. Following the steps in the connection wizard
    to complete the process:
+
    - When selecting a **Data source**, select Snowflake, then choose **Next**.
    - Enter the connection details such as host and port. When entering the host **Snowflake URL**, provide the URL of your Snowflake instance.
      The URL will typically use a hostname in the form ``account_identifier`.snowflakecomputing.com`.
@@ -207,27 +213,34 @@ AWS Glue supports the following authentication methods for connecting to Snowfla
 - **OAuth authentication:** The Snowflake Connector supports the AUTHORIZATION_CODE grant type to request access to your Snowflake data.
   This grant type is referred to as “3-legged OAuth”, as it involves redirecting users to a third-party authorization server where they can authenticate and approve access.
   This method is used when creating a connection through the AWS Glue Console.
+
   - **Prerequisite:** To use this authentication method, ensure the following setup is complete:
+
     - **Configure Snowflake OAuth for a custom client** by following the official Snowflake documentation:
       [Configure Snowflake OAuth for custom clients.](https://docs.snowflake.com/en/user-guide/oauth-custom "https://docs.snowflake.com/en/user-guide/oauth-custom")
     - **Set the correct redirect URI** when creating the Snowflake security integration. For example:
       If you are creating the connection in the DUB (eu-west-1) region, your redirect URI should be: `https://eu-west-1.console.aws.amazon.com/gluestudio/oauth`
     - After creating the security integration, retain the following information for use when creating the Glue connection:
+
       - OAUTH_CLIENT_ID: This value should be provided as User Managed Client Application Client ID on the Glue connection creation page.
       - OAUTH_CLIENT_SECRET: This value should be stored in the AWS Secret used for the connection, under the key USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET.
 
   - OAuth Scopes — (Optional) Defines the specific permissions or levels of access requested from the Snowflake account. For example, a scope might limit access to a particular resource or operation.
+
     - This value can be specified in the following format: `session:role:Snowflake_Role_Name`
     - Example: `session:role:ANALYST_ROLE`
 
   - Authorization Code URL — (Required) The endpoint where the user is redirected to log in and grant authorization.
+
     - Example: `https://host/oauth/authorize`
 
   - Authorization Token URL — (Required) The endpoint used to exchange the authorization code for an access token.
+
     - Example: `https://host/oauth/token-request`
 
   - User Managed Client Application Client Id — (Required) The unique identifier for your registered OAuth client application in Snowflake
   - AWS Secret — (Required) Refers to an AWS Secrets Manager secret containing the following key-value pairs:
+
     - sfUser - The Snowflake username
     - USER_MANAGED_CLIENT_APPLICATION_CLIENT_SECRET - The client secret associated with the OAuth client application
 

@@ -28,6 +28,7 @@ Take note of the following behaviors and limitations when you use S3 Access Gran
 - Spark is the only supported job type when you use S3 Access Grants with AWS Glue.
 - Delta Lake and Hudi are the only supported open-table formats when you use S3 Access Grants with AWS Glue.
 - The following capabilities are not supported for use with S3 Access Grants:
+
   - Apache Iceberg tables
   - AWS CLI requests to Amazon S3 that use IAM roles
   - S3 access through the open-source S3A protocol

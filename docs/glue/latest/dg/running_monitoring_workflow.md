@@ -22,6 +22,7 @@ You can run and monitor a workflow by using the AWS Glue console, API, or AWS Co
    Choose the refresh button to view ongoing workflow status.
 5. While the workflow is running or after it has completed (or failed), view the run
    details by completing the following steps.
+
    1. Ensure that the workflow is selected, and choose the
       **History** tab.
    2. Choose the current or most recent workflow run, and then choose

@@ -40,6 +40,7 @@ named resource method](../../../lake-formation/latest/dg/granting-cat-perms-name
 ## Error: Insufficient Lake Formation permission(s) on s3://examplepath
 
 1. **Cross-account crawling**
+
    1. Log in to the Lake Formation console ([https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/")) using the account where Amazon S3 bucket is registred
       (account B). Grant data location permissions to the account where the crawler will be run. This will
       allow the crawler to read data from the target Amazon S3 location.

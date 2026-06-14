@@ -4,6 +4,7 @@
 
 - A HubSpot object you would like to write to. You will need the object name such as contact or ticket.
 - The HubSpot connector supports following write operations:
+
   - INSERT
   - UPDATE
 

@@ -84,6 +84,7 @@ You can view the job logs in a variety of ways:
   **View CloudWatch logs**.
 - In the visual job editor, on the **Runs** tab for a job,
   choose the hyperlinks to view the logs:
+
   - **Logs** – Links to the Apache Spark job logs written
     when continuous logging is enabled for a job run. When you choose this link, it takes
     you to the Amazon CloudWatch logs in the

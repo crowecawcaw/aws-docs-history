@@ -27,6 +27,7 @@ the following steps.
    to open the detail page for that connector or connection.
 4. On the detail page, you can choose to **Edit** or
    **Delete** the connector or connection.
+
    - For connectors, you can choose **Create connection** to create
      a new connection that uses the connector.
    - For connections, you can choose **Create job** to create a job
