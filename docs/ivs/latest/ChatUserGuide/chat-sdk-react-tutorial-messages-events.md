@@ -4,11 +4,13 @@ This second (and last) part of the tutorial is broken up into several sections:
 
 1. [Subscribe to Chat Message Events](#chat-react-messages-events-subscribe "#chat-react-messages-events-subscribe")
 2. [Show Received Messages](#chat-react-messages-events-show "#chat-react-messages-events-show")
+
    1. [Creating a Message Component](#chat-react-messages-create-component "#chat-react-messages-create-component")
    2. [Recognizing Messages Sent by the Current User](#chat-react-messages-recognize "#chat-react-messages-recognize")
    3. [Rendering a List of Chat Messages](#chat-react-messages-render-list "#chat-react-messages-render-list")
 
 3. [Perform Actions in a Chat Room](#chat-react-messages-events-room-actions "#chat-react-messages-events-room-actions")
+
    1. [Sending a Message](#chat-react-room-actions-sending-message "#chat-react-room-actions-sending-message")
    2. [Deleting a Message](#chat-react-room-actions-deleting-message "#chat-react-room-actions-deleting-message")
 

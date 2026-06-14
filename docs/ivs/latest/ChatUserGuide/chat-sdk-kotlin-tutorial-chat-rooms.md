@@ -221,6 +221,7 @@ guide](https://developer.android.com/studio/projects/create-project "https://dev
 
 - In [Configure your project](https://developer.android.com/studio/projects/create-project#configure "https://developer.android.com/studio/projects/create-project#configure"),
   choose the following values for configuration fields:
+
   - **Name**: My App
 
   - **Package name**:

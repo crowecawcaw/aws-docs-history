@@ -4,12 +4,14 @@ This second (and last) part of the tutorial is broken up into several sections:
 
 1. [Subscribe to Chat Message Events](#chat-js-messages-events-subscribe "#chat-js-messages-events-subscribe")
 2. [Show Received Messages](#chat-js-messages-events-show "#chat-js-messages-events-show")
+
    1. [Creating a Message Component](#chat-js-messages-create-component "#chat-js-messages-create-component")
    2. [Recognizing Messages Sent by the Current User](#chat-js-messages-recognize "#chat-js-messages-recognize")
    3. [Creating a Message List Component](#chat-js-messages-create-list-component "#chat-js-messages-create-list-component")
    4. [Rendering a List of Chat Messages](#chat-js-messages-render-list "#chat-js-messages-render-list")
 
 3. [Perform Actions in a Chat Room](#chat-js-messages-events-room-actions "#chat-js-messages-events-room-actions")
+
    1. [Sending a Message](#chat-js-room-actions-sending-message "#chat-js-room-actions-sending-message")
    2. [Deleting a Message](#chat-js-room-actions-deleting-message "#chat-js-room-actions-deleting-message")
 

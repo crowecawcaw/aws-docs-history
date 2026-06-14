@@ -71,6 +71,7 @@ aws ivschat create-logging-configuration \
 
 3. Note the `arn` field. You need this to attach the logging configuration to the chat
    room.
+
    1. If you are creating a new chat room, run the `create-room` command and pass the
       logging-configuration `arn`:
 
@@ -79,7 +80,6 @@ aws ivschat create-logging-configuration \
    --logging-configuration-identifiers \
    "arn:aws:ivschat:us-west-2:123456789012:logging-configuration/ABcdef34ghIJ"
    ```
-
    2. If you are updating an existing chat room, run the `update-room` command and pass
       the logging-configuration `arn`:
 

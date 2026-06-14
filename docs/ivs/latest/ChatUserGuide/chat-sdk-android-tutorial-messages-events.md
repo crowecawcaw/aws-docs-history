@@ -3,6 +3,7 @@
 This second (and last) part of the tutorial is broken up into several sections:
 
 1. [Create a UI for Sending Messages](#chat-android-messages-events-create_ui "#chat-android-messages-events-create_ui")
+
    1. [UI Main Layout](#create-ui-main-layout "#create-ui-main-layout")
    2. [UI Abstracted Text Cell to Display Text Consistently](#create-ui-text-cell "#create-ui-text-cell")
    3. [UI Left Chat Message](#create-ui-left-chat-message "#create-ui-left-chat-message")

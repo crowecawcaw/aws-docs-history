@@ -73,6 +73,7 @@ more information about permissions, see
 3. If you choose **Create logging
    configuration**, a modal window appears which allows you to
    create and customize a new logging configuration.
+
    1. Optionally specify a **Logging
       configuration name**. Logging-configuration names,
       like room names, are not unique, but they provide a way for you

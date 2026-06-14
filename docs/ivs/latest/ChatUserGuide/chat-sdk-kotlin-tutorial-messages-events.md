@@ -4,6 +4,7 @@ This second (and last) part of the tutorial is broken up into several
 sections:
 
 1. [Create a UI for Sending Messages](#chat-kotlin-messages-events-ui "#chat-kotlin-messages-events-ui")
+
    1. [UI Main Layout](#chat-kotlin-messages-events-ui-main "#chat-kotlin-messages-events-ui-main")
    2. [UI Abstracted Text Cell to Display Text Consistently](#chat-kotlin-messages-events-consistent-text "#chat-kotlin-messages-events-consistent-text")
    3. [UI Left Chat Message](#chat-kotlin-messages-events-ui-left "#chat-kotlin-messages-events-ui-left")

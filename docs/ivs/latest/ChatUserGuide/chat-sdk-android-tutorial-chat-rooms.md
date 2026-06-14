@@ -219,6 +219,7 @@ guide](https://developer.android.com/studio/projects/create-project "https://dev
   Activity** project template for our Chatterbox app.
 - In [Configure your project](https://developer.android.com/studio/projects/create-project#configure "https://developer.android.com/studio/projects/create-project#configure"), choose the following values for
   configuration fields:
+
   - **Name**: My App
   - **Package name**:
     com.chatterbox.myapp

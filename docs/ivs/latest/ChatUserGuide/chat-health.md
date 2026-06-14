@@ -37,6 +37,7 @@ For current information on data retention, search for "retention period" in [Ama
 4. At the bottom of the **Browse** tab, select the **IVSChat**
    namespace.
 5. Do one of the following:
+
    1. In the search bar, enter your resource ID (part of the ARN,
       `arn:::ivschat:room/<resource id>`).
 
