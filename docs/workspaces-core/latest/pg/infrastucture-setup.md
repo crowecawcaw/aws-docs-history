@@ -47,11 +47,13 @@ Follow these steps to enable Bring Your Own Licenses (BYOL), conﬁgure the BYOL
 Inter-Domain Routing (CIDR) block, and register the directory.
 
 1. _(Customer step)_ – Enable BYOL.
+
    1. For information on how to enable BYOL see [Bring Your Own Windows desktop
       licenses](../../../workspaces/latest/adminguide/byol-windows-images.md "../../../workspaces/latest/adminguide/byol-windows-images.md") in the _Amazon WorkSpaces Administration Guide_.
 
 2. _(Partner step)_ – List and configure the management CIDR
    ranges.
+
    1. This is the management CIDR block that is required for the WorkSpaces dedicated control
       plane. WorkSpaces desktops have two elastic network interfaces: one network interface for the
       management network and another for access to a customer's virtual private cloud (VPC).

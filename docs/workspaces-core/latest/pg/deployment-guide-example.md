@@ -21,12 +21,14 @@ Following is a suggested table of contents for an Amazon WorkSpaces Core solutio
 
 - Chapter 1: Introduction
 - Chapter 2: Getting started
+
   - Overview
   - Setting up security groups
   - Configuring the directory services security group
   - Configuring a VPC
 
 - Chapter 3: Installing <your service> in Amazon EC2
+
   - Required AWS permissions
   - Launching a connection broker instance
   - Upgrading the <your service> connection broker
@@ -35,15 +37,18 @@ Following is a suggested table of contents for an Amazon WorkSpaces Core solutio
 
 - Chapter 4: Preparing WorkSpaces Core images
 - Chapter 5: Integrating with your AWS infrastructure
+
   - Connecting to your Amazon diretory services
   - Connecting to your Amazon WorkSpaces account
   - Attaching the <your service> gateway to a connection broker
 
 - Chapter 6: Launching new workspaces
+
   - Loading users
   - Deploying new workspaces
 
 - Chapter 7: Connecting users to WorkSpaces
+
   - Amazon WorkSpaces pools
   - Protocol plans
   - Power control plans

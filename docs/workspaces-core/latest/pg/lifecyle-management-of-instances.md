@@ -6,6 +6,7 @@ partners solutions use as many of these APIs as possible so that admin customers
 access the WorkSpaces console.
 
 - Deployment and setup
+
   - [CreateTags](../../../workspaces/latest/api/API_CreateTags.md "../../../workspaces/latest/api/API_CreateTags.md")
   - [DescribeAccount](../../../workspaces/latest/api/API_DescribeAccount.md "../../../workspaces/latest/api/API_DescribeAccount.md")
   - [DescribeAccountModifications](../../../workspaces/latest/api/API_DescribeAccountModifications.md "../../../workspaces/latest/api/API_DescribeAccountModifications.md")
@@ -15,6 +16,7 @@ access the WorkSpaces console.
   - [RegisterWorkspaceDirectory](../../../workspaces/latest/api/API_RegisterWorkspaceDirectory.md "../../../workspaces/latest/api/API_RegisterWorkspaceDirectory.md")
 
 - Operations
+
   - [CopyWorkspaceImage](../../../workspaces/latest/api/API_CopyWorkspaceImage.md "../../../workspaces/latest/api/API_CopyWorkspaceImage.md") – Supports an
     `UpdateWorkspaceBundle` image process and copying from one AWS Region to
     another Region.
@@ -31,6 +33,7 @@ access the WorkSpaces console.
   - [ModifyWorkspaceCreationProperties](../../../workspaces/latest/api/API_ModifyWorkspaceCreationProperties.md "../../../workspaces/latest/api/API_ModifyWorkspaceCreationProperties.md")
   - [ModifyWorkspaceProperties](../../../workspaces/latest/api/API_ModifyWorkspaceProperties.md "../../../workspaces/latest/api/API_ModifyWorkspaceProperties.md") – Supports modification of
     the following properties:
+
     - [ComputeTypeName](../../../workspaces/latest/api/API_WorkspaceProperties.md "../../../workspaces/latest/api/API_WorkspaceProperties.md")
     - [RootVolumeSizeGib](../../../workspaces/latest/api/API_WorkspaceProperties.md "../../../workspaces/latest/api/API_WorkspaceProperties.md")
     - [RunningMode](../../../workspaces/latest/api/API_WorkspaceProperties.md "../../../workspaces/latest/api/API_WorkspaceProperties.md") – BYOP must use
@@ -47,6 +50,7 @@ access the WorkSpaces console.
   - [UpdateWorkspaceImagePermission](../../../workspaces/latest/api/API_UpdateWorkspaceImagePermission.md "../../../workspaces/latest/api/API_UpdateWorkspaceImagePermission.md")
 
 - Termination
+
   - [DeleteTags](../../../workspaces/latest/api/API_DeleteTags.md "../../../workspaces/latest/api/API_DeleteTags.md")
   - [DeleteWorkspaceBundle](../../../workspaces/latest/api/API_DeleteWorkspaceBundle.md "../../../workspaces/latest/api/API_DeleteWorkspaceBundle.md")
   - [DeleteWorkspaceImage](../../../workspaces/latest/api/API_DeleteWorkspaceImage.md "../../../workspaces/latest/api/API_DeleteWorkspaceImage.md")
