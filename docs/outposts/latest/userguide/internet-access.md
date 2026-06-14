@@ -19,6 +19,7 @@ For the route table setting on the Outposts subnet, see [Local gateway route tab
 ### Considerations
 
 - Use this option when:
+
   - You need flexibility in securing the internet traffic with multiple AWS services in
     the AWS Region.
   - You do not have an internet point of presence in your data center or co-location
@@ -47,6 +48,7 @@ For the route table setting on the Outposts subnet, see [Local gateway route tab
 ### Considerations
 
 - Use this option when:
+
   - Your workloads require low latency access to internet services.
   - You prefer to avoid incurring Data Transfer Out (DTO) charges.
   - You want to preserve the service link bandwidth for control plane traffic.

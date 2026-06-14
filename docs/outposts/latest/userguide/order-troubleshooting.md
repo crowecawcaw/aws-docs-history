@@ -141,6 +141,7 @@ To resolve this issue, use the AWS Outposts console or CLI.
 3. Choose **Rack view** for the Outpost.
 4. Verify that the requested AssetId is associated with the Outpost, and that it is not
    marked as an Isolated Host.
+
    1. If the Asset is isolated, this may be because a capacity task is running on it.
       You can navigate to the capacity tasks panel and check if there are any running
       Outpost or asset-level tasks for the OutpostId and AssetId. If there are, then wait
@@ -157,6 +158,7 @@ To resolve this issue, use the AWS Outposts console or CLI.
    find the assets associated with the OutpostID.
 2. Verify that the requested AssetId is associated with the Outpost, and that its State
    is `ACTIVE`.
+
    1. If the asset State is not ACTIVE, this may be because a capacity task is
       running on it. Use the [ListCapacityTasks](../APIReference/API_ListCapacityTasks.md "../APIReference/API_ListCapacityTasks.md") command to determine if there are running
       Outpost or asset-level tasks for the OutpostId and AssetId. If there are, then wait

@@ -134,6 +134,7 @@ gateway.
 6. For **Local gateway**, choose your local gateway.
 7. For **Mode**, choose a mode for communication with your
    on-premises network.
+
    - Choose **Direct VPC routing** to use the private IP addresses
      of your instances.
    - Choose **CoIP** to use addresses from your
@@ -351,6 +352,7 @@ you launch the instance, just as you do for instances in an Availability Zone su
    details** and scroll to **Placement group**. You can either
    select an existing placement group or create a new placement group.
 7. (Optional) You can add a [third-party data volume](outpost-third-party-block-storage.md "outpost-third-party-block-storage.md").
+
    1. Expand **Configure storage**. Next to **External storage volume**,
       choose **Edit**.
    2. For **Storage Network Protocol**, choose **iSCSI**.

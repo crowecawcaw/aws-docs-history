@@ -35,6 +35,7 @@ Outpost.
 - A VPC with multiple subnets in the Region
 - An Outpost in the on-premises network
 - Connectivity between the Outpost and local network provided:
+
   - For Outposts racks: a local gateway
   - For Outposts servers: a local network interface (LNI)
 
@@ -89,6 +90,7 @@ Region.
   gateway – You can establish communication between subnets in the same
   VPC across different Outposts with local gateways using direct VPC routing. For more
   information, see:
+
   - [Direct VPC
     routing](routing.md#direct-vpc-routing "routing.md#direct-vpc-routing")
   - [Routing to an

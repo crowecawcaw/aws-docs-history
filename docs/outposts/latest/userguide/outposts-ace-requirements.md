@@ -47,6 +47,7 @@ see [ACE rack connectivity](local-rack.md#ace-rack-connectivity "local-rack.md#a
 - Rack network requirements – Ensure that you meet the
   requirements listed in the [Network readiness checklist](outposts-requirements.md#checklist "outposts-requirements.md#checklist") and [Local network connectivity for Outposts racks](local-rack.md "local-rack.md") sections except for the following
   changes:
+
   - The ACE rack has four networking devices that connect to the upstream devices, not two
     as in the case of a single Outposts rack.
   - ACE racks do not support 1 Gbps uplinks.

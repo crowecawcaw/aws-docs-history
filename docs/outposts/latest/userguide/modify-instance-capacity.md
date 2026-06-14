@@ -70,6 +70,7 @@ Consider the following before modifying instance capacity:
    to configure.
 5. To modify capacity, specify an option for **Method of modification**:
    e steps in the console or upload a JSON file.
+
    - **Modify capacity configuration plan** to use the steps in the
      console
    - **Upload a capacity configuration plan** to upload a JSON
@@ -101,6 +102,7 @@ Console steps
    level to optimize your total available capacity.
 9. You can also request AWS Outposts to optimize the instance quantity for a specific
    instance size. To do so:
+
    1. Choose the instance size.
    2. Choose **Auto-balance** at the end of the related
       instance-type section.

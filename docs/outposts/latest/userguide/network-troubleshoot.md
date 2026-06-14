@@ -17,6 +17,7 @@ steps:
    the time of installation.
 2. If pinging is unsuccessful, check the physical connection and ensure that connectivity
    status is `UP`.
+
    1. Confirm the LACP status of the customer local network devices.
    2. Check the interface status on the device. If the status is `UP`, skip
       to step 3.
@@ -27,6 +28,7 @@ steps:
 
 3. If pinging is successful, check the customer local network devices and ensure that the
    following BGP configurations are correct.
+
    1. Confirm that the local Autonomous System Number (Customer ASN) is correctly
       configured.
    2. Confirm that the remote Autonomous System Number (Outpost ASN) is correctly
@@ -40,6 +42,7 @@ steps:
    devices.
 5. If you need to troubleshoot further, check the following on the customer local network
    devices:
+
    1. BGP and TCP debug logs
    2. BGP logs
    3. Packet capture
@@ -68,6 +71,7 @@ public virtual interface is in use for service link connectivity.
 
 1. Confirm that the devices connecting directly with the Outpost network devices are
    receiving the service link IP address ranges through BGP.
+
    1. Confirm the routes that are being received through BGP from your device.
    2. Check the route table of the service link Virtual Routing and Forwarding instance
       (VRF). It should show that it is using the IP address range.
@@ -76,6 +80,7 @@ public virtual interface is in use for service link connectivity.
    should include the AWS Public IP address ranges or the default route.
 3. If you are not receiving the AWS public IP address ranges in the service link VRF,
    check the following items.
+
    1. Check the Direct Connect link status from the edge router or the AWS Management Console.
    2. If the physical link is `UP`, check the BGP peering status from the
       edge router.
@@ -88,11 +93,13 @@ public virtual interface is in use for service link connectivity.
       plan.
 
 4. If you have an on-premises firewall, check the following items.
+
    1. Confirm that the required ports for service link connectivity are allowed in the
       network firewalls. Use traceroute on port 443 or any other network troubleshooting
       tool to confirm the connectivity through the firewalls and your network devices. The
       following ports are required to be configured in the firewall policies for the service
       link connectivity.
+
       - TCP protocol – Source port: TCP
         1025-65535, Destination port: 443.
       - UDP protocol – Source port: TCP
@@ -110,6 +117,7 @@ public virtual interface is in use for service link connectivity.
 5. If you have configured NAT in the on-premises network to translate the Outpost’s
    service link IP address ranges to your own public IP addresses, check the following
    items.
+
    1. Confirm that the NAT device is not overloaded and has free ports to allocate for
       new sessions.
    2. Confirm that the NAT device is correctly configured to perform the address
@@ -126,6 +134,7 @@ private virtual interface is in use for service link connectivity.
 
 1. If connectivity between the Outposts rack and the AWS Region is using the AWS Outposts
    private connectivity feature, check the following items.
+
    1. Ping the remote peering AWS IP address from the edge router and confirm the BGP
       peering status.
    2. Ensure that BGP peering over the Direct Connect private virtual interface between your
@@ -170,6 +179,7 @@ If the internet or public servers are not accessible through the ISP links, comp
 following steps.
 
 1. Check whether BGP peering status with the ISP routers is established.
+
    1. Confirm that the BGP is not flapping.
    2. Confirm that the BGP is receiving and advertising the required routes from the
       ISP.
@@ -190,6 +200,7 @@ following steps.
 2. If you use VRFs to separate traffic in your network, confirm that the service link VRF
    has routes or policies that direct traffic to and from the ISP (internet) and VRF. See the
    following checkpoints.
+
    1. Edge routers connecting with the ISP. Check the edge router’s ISP VRF route table
       to confirm that the service link IP address range is present.
    2. Customer local network devices connecting with the Outpost. Check the
@@ -207,6 +218,7 @@ following steps.
 4. Ensure that NAT is configured in the on-premises network to translate the Outpost’s
    service link IP address ranges to public IP addresses. In addition, confirm the following
    items.
+
    1. The NAT device is not overloaded and has free ports to allocate for new
       sessions.
    2. The NAT device is correctly configured to perform the address translation.
@@ -232,6 +244,7 @@ routing of the service link especially if it was functioning correctly before.
 - Verify if there were any recent changes or ongoing maintenance in your corporate
   network’s routing setup that might have led to asymmetric routing of the service link
   through the firewalls.
+
   - Use firewall traffic graphs to check for changes to traffic patterns that line up
     with the start of the service link issue.
   - Check for a partial firewall failure or a split-brained firewall-pair scenario
@@ -244,11 +257,13 @@ routing of the service link especially if it was functioning correctly before.
 - If you are using public Internet connectivity for the service link to the home region,
   a service provider maintenance could have given rise to asymmetric routing of the service
   link through the firewalls.
+
   - Check traffic graphs for links to your ISP(s) for changes to traffic patterns that
     line up with the start of the service link issue.
 
 - If you are using Direct Connect connectivity for the service link, it is possible that an
   AWS planned maintenance triggered asymmetric routing of the service link.
+
   - Check for notifications of planned maintenance on your Direct Connect service(s).
   - Note that if you have redundant Direct Connect services, you can proactively test the
     routing of the Outposts service link over each likely network path under maintenance
