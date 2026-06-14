@@ -9,7 +9,7 @@ Before ACM can renew your certificates automatically, the following must be
 true:
 
 - Your certificate must be associated with an AWS service that is integrated with
-  ACM. For information about the resources that ACM supports, see [Services integrated with ACM](acm-services.md "acm-services.md").
+  ACM. For information about the resources that ACM supports, see [Managed automation with integrated services](acm-services.md "acm-services.md").
 - For email-validated certificates, ACM must be able to reach you at an
   administrator email address for each domain listed in your certificate. The email
   addresses that will be tried are listed in [AWS Certificate Manager email validation](email-validation.md "email-validation.md").

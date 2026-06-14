@@ -203,6 +203,7 @@ Health events are generated in two scenarios:
   or resolving an error. One of the following event codes is included with
   each event. The codes are exposed as variables that you can use for
   filtering.
+
   - `AWS_ACM_RENEWAL_STATE_CHANGE` (the certificate has
     been renewed, has expired, or is due to expire)
   - `CAA_CHECK_FAILURE` (CAA check failed)

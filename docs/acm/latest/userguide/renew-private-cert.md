@@ -40,6 +40,7 @@ still be installed on its target device.
 
 1. Following procedures in the AWS Lambda Developer Guide, create and
    configure a Lambda function that calls ACM export API.
+
    1. [Create a Lambda function](../../../lambda/latest/dg/getting-started-create-function.md "../../../lambda/latest/dg/getting-started-create-function.md").
    2. [Create
       a Lambda execution role](../../../lambda/latest/dg/lambda-intro-execution-role.md "../../../lambda/latest/dg/lambda-intro-execution-role.md") for your function and add the

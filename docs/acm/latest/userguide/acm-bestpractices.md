@@ -58,7 +58,7 @@ JSON
 With AWS CloudFormation you can create a template that describes the AWS resources that
 you want to use. CloudFormation then provisions and configures those resources for you. CloudFormation
 can provision resources that are supported by ACM such as Elastic Load Balancing, Amazon CloudFront, and
-Amazon API Gateway. For more information, see [Services integrated with ACM](acm-services.md "acm-services.md").
+Amazon API Gateway. For more information, see [Managed automation with integrated services](acm-services.md "acm-services.md").
 
 If you use CloudFormation to quickly create and delete multiple test environments, we
 recommend that you do not create a separate ACM certificate for each environment.

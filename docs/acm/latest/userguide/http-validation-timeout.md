@@ -6,6 +6,7 @@ frame. To troubleshoot validation issues, follow these steps.
 ###### To troubleshoot validation timeout
 
 1. Do one of the following to check which domains are pending validation:
+
    1. Open the ACM console and view the certificate details page. Look for domains
       marked as **Pending validation**.
    2. Call the `DescribeCertificate` API operation to view the validation

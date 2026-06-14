@@ -58,7 +58,7 @@ private key. The process works like this:
    service. A grant is also created in AWS KMS that allows the service to use the
    KMS key to decrypt the certificate's private key. For more information
    about grants, see [Using Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS Key Management Service Developer Guide_. For more information
-   about services supported by ACM, see [Services integrated with ACM](acm-services.md "acm-services.md").
+   about services supported by ACM, see [Managed automation with integrated services](acm-services.md "acm-services.md").
 
 ###### Note
 

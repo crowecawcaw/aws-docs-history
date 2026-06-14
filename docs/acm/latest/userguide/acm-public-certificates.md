@@ -10,7 +10,7 @@ exportable public certificates.
 **Public certificates**
 
 Use ACM public certificates with integrated AWS services like Elastic Load Balancing,
-Amazon CloudFront, and Amazon API Gateway. For more information, see [Services integrated with ACM](acm-services.md "acm-services.md").
+Amazon CloudFront, and Amazon API Gateway. For more information, see [Managed automation with integrated services](acm-services.md "acm-services.md").
 
 ###### Note
 
@@ -19,7 +19,7 @@ ACM public certificates created prior to June 17, 2025 cannot be exported.
 **Exportable public certificates**
 
 Exportable public certificates work with integrated AWS services and can also be
-used outside AWS Cloud. For more information, see [AWS Certificate Manager exportable public certificates](acm-exportable-certificates.md "acm-exportable-certificates.md") and [Services integrated with ACM](acm-services.md "acm-services.md"). You must create a
+used outside AWS Cloud. For more information, see [AWS Certificate Manager exportable public certificates](acm-exportable-certificates.md "acm-exportable-certificates.md") and [Managed automation with integrated services](acm-services.md "acm-services.md"). You must create a
 new ACM public certificate and enable exportable to be able to export the
 public certificate.
 

@@ -1,8 +1,7 @@
-# Services integrated with ACM
+# Managed automation with integrated services
 
-AWS Certificate Manager supports a growing number of AWS services. You cannot install your ACM
-certificate or your private AWS Private CA certificate directly on your AWS based website or
-application.
+AWS Certificate Manager supports a growing number of AWS services that can use ACM certificates
+directly.
 
 ###### Note
 

@@ -4,7 +4,7 @@ With AWS Certificate Manager (ACM) you can provision and manage SSL/TLS certific
 AWS based websites and applications. You use ACM to create or import and then manage
 a certificate. You must use other AWS services to deploy the certificate to your
 website or application. For more information about the services integrated with ACM,
-see [Services integrated with ACM](acm-services.md "acm-services.md"). The following sections
+see [Managed automation with integrated services](acm-services.md "acm-services.md"). The following sections
 discuss the steps you need to perform before using ACM.
 
 ###### Topics

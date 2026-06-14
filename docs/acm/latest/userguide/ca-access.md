@@ -41,4 +41,4 @@ For more information, see [Using a Service Linked Role with ACM](acm-slr.md "acm
 
 Your ACM certificate must be actively associated with a supported AWS service
 before it can be automatically renewed. For information about the resources that ACM
-supports, see [Services integrated with ACM](acm-services.md "acm-services.md").
+supports, see [Managed automation with integrated services](acm-services.md "acm-services.md").

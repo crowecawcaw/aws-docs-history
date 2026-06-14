@@ -9,6 +9,7 @@ Complete the following procedure to configure a response.
 
 1. Create an Amazon EventBridge rule. For more information, see [Creating Amazon EventBridge
    rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md").
+
    1. In the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/"), navigate to the
       **Events** > **Rules**
       page and choose **Create rule**.

@@ -158,6 +158,7 @@ list, confirm that you have specified the correct Region.
     page for the certificate.
 3.  In the **Domains** section, complete one of the following
     two procedures:
+
     1. (Optional) Validate with Route 53.
 
     An active **Create records in Route 53** button

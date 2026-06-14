@@ -26,6 +26,7 @@ AWS Management Console.
    it.
 2. Choose **Import a certificate**.
 3. Do the following:
+
    1. For **Certificate body**, paste the PEM-encoded
       certificate to import. It should begin with `-----BEGIN
 CERTIFICATE-----` and end with `-----END

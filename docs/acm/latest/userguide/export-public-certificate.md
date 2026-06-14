@@ -13,6 +13,7 @@ ACM public certificates created prior to June 17, 2025 cannot be exported.
 1. Sign in to the AWS Management Console and open the ACM console at [https://console.aws.amazon.com/acm/](https://console.aws.amazon.com/acm/ "https://console.aws.amazon.com/acm/").
 2. Choose **List certificates** and select the checkbox of
    the certificate you want to export.
+
    1. Alternatively, you can select the certificate. In the certificate
       detail page, select **Export**.
 
