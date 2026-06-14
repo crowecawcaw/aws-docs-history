@@ -37,6 +37,7 @@ where
   1/2
   ​Ω(t)e−iϕ(t) S+,k​) +
   (−Δglobal​(t)nk​),
+
   - Ω(t) is the time-dependent, global driving amplitude (aka Rabi
     frequency), in units of (rad / s)
   - ϕ(t) is the time-dependent, global phase, measured in radians
@@ -51,10 +52,12 @@ where
     state of atom k (that is, n=|r⟩⟨r|)
 
 - Hlocal detuning,k(t)=-Δlocal(t)hknk
+
   - Δlocal(t) is the time-dependent factor of the local frequency shift, in units of (rad / s)
   - hk is the site-dependent factor, a dimensionless number between 0.0 and 1.0
 
 - Vvdw,k,l​=C6​/(dk,l​)6nk​nl​,
+
   - C6​ is the van der Waals coefficient, in units of
     (rad / s) \* (m)^6
   - dk,l ​is the Euclidean distance between atom k and

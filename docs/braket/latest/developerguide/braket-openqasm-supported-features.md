@@ -17,11 +17,13 @@ The following OpenQASM data types are supported by Amazon Braket.
 
 - Non-negative integers are used for (virtual and physical) qubit
   indices:
+
   - `cnot q[0], q[1];`
   - `h $0;`
 
 - Floating-point numbers or constants may be used for gate rotation
   angles:
+
   - `rx(-0.314) $0;`
   - `rx(pi/4) $0;`
 
@@ -33,6 +35,7 @@ name.
 - Arrays of complex numbers (with the OpenQASM `im` notation for
   imaginary part) are allowed in result type pragmas for defining general
   hermitian observables and in unitary pragmas:
+
   - `#pragma braket unitary [[0, -1im], [1im, 0]] q[0]`
   - `#pragma braket result expectation hermitian([[0, -1im], [1im, 0]])
 q[0]`
@@ -43,10 +46,12 @@ The following OpenQASM statements are supported by Amazon Braket.
 
 - `Header: OPENQASM 3;`
 - Classic bit declarations:
+
   - `bit b1;` (equivalently, `creg b1;`)
   - `bit[10] b2;` (equivalently, `creg b2[10];`)
 
 - Qubit declarations:
+
   - `qubit b1;` (equivalently, `qreg b1;`)
   - `qubit[10] b2;` (equivalently, `qreg
 b2[10];`)
@@ -55,6 +60,7 @@ b2[10];`)
 - Input: `input float alpha;`
 - specification of physical qubits: `$0`
 - Supported gates and operations on a device:
+
   - `h $0;`
   - `iswap q[0], q[1];`
 
@@ -76,6 +82,7 @@ box{
 
 - Measurement and measurement assignment on qubits or a whole
   qubit register.
+
   - `measure $0;`
   - `measure q;`
   - `measure q[0];`
@@ -83,6 +90,7 @@ box{
   - `measure q → b;`
 
 - Barrier statements provide explicit control over circuit compilation and execution by preventing gate reordering and optimizations across barrier boundaries. They also enforce strict temporal ordering during execution, ensuring all operations before a barrier complete before subsequent operations begin.
+
   - `barrier;`
   - `barrier q[0], q[1];`
   - `barrier $3, $6;`
@@ -92,29 +100,36 @@ box{
 The following OpenQASM pragma instructions are supported by Amazon Braket.
 
 - Noise pragmas
+
   - `#pragma braket noise bit_flip(0.2) q[0]`
   - `#pragma braket noise phase_flip(0.1) q[0]`
   - `#pragma braket noise pauli_channel`
 
 - Verbatim pragmas
+
   - `#pragma braket verbatim`
 
 - Result type pragmas
+
   - Basis invariant result types:
+
     - State vector: `#pragma braket result state_vector`
     - Density matrix: `#pragma braket result
 density_matrix`
 
   - Gradient computation pragmas:
+
     - Adjoint gradient: `#pragma braket result adjoint_gradient
 expectation(2.2 * x[0] @ x[1]) all`
 
   - Z basis result types:
+
     - Amplitude: `#pragma braket result amplitude "01"`
     - Probability: `#pragma braket result probability q[0],
 q[1]`
 
   - Basis rotated result types
+
     - Expectation: `#pragma braket result expectation x(q[0]) @
 y([q1])`
     - Variance: `#pragma braket result variance hermitian([[0,

@@ -139,29 +139,36 @@ structure are pre-declared as valid identifiers within the `OpenQASM 3.0`
 program submitted by the user. The additional properties for a port include:
 
 - Port id (portId)
+
   - The port name declared as an identifier in OpenQASM 3.0.
 
 - Direction (direction)
+
   - The direction of the port. Drive ports transmit pulses (direction “tx”),
     while measurement ports receive pulses (direction “rx”).
 
 - Port type (portType)
+
   - The type of action for which this port is responsible (for example,
     drive, capture, or ff - fast-flux).
 
 - Dt (dt)
+
   - The time in seconds that represents a single sample time step on the
     given port.
 
 - Qubit mappings (qubitMappings)
+
   - The qubits associated with the given port.
 
 - Center frequencies (centerFrequencies)
+
   - A list of the associated center frequencies for all pre-declared or
     user-defined frames on the port. For more information, refer to
     Frames.
 
 - QHP Specific Properties (qhpSpecificProperties)
+
   - An optional map detailing existing properties about the port specific to
     the QHP.
 
@@ -173,15 +180,19 @@ valid identifiers within the `OpenQASM 3.0` program submitted by the user.
 The additional properties for a frame include:
 
 - Frame Id (frameId)
+
   - The frame name declared as an identifier in OpenQASM 3.0.
 
 - Port Id (portId)
+
   - The associated hardware port for the frame.
 
 - Frequency (frequency)
+
   - The default initial frequency of the frame.
 
 - Center Frequency (centerFrequency)
+
   - The center of the frequency bandwidth for the frame. Typically, frames
     may only be adjusted to a certain bandwidth around the center frequency. As
     a result, frequency adjustments should stay within a given delta of the
@@ -189,15 +200,19 @@ The additional properties for a frame include:
     parameters.
 
 - Phase (phase)
+
   - The default initial phase of the frame.
 
 - Associated Gate (associatedGate)
+
   - The gates associated with the given frame.
 
 - Qubit Mappings (qubitMappings)
+
   - The qubits associated with the given frame.
 
 - QHP Specific Properties (qhpSpecificProperties)
+
   - An optional map detailing existing properties about the frame specific to
     the QHP.
 
@@ -217,24 +232,31 @@ functions. To see examples of using the OpenPulse functions, see the
 specification](https://openqasm.com/language/openpulse.html "https://openqasm.com/language/openpulse.html"). At this time, Braket supports:
 
 - shift_phase
+
   - Shifts the phase of a frame by a specified value
 
 - set_phase
+
   - Sets the phase of frame to the specified value
 
 - swap_phases
+
   - Swaps the phases between two frames.
 
 - shift_frequency
+
   - Shifts the frequency of a frame by a specified value
 
 - set_frequency
+
   - Sets the frequency of frame to the specified value
 
 - play
+
   - Schedules a waveform
 
 - capture_v0
+
   - Returns the value on a capture frame to a bit register
 
 **SupportedQhpTemplateWaveforms:**

@@ -183,6 +183,7 @@ SDK, and the Amazon Braket Qiskit Provider.
 3. In a single circuit, the feed-forward on a qubit can only be controlled by one qubit,
    either by itself or by another qubit. In different circuits, you can have different pairs
    of control.
+
    1. For example, if qubit 1 is controlled by qubit 2, it cannot be controlled by qubit
       3 in the same circuit. There is no constraint on how many times the control is applied
       between qubit 1 and qubit 2. Qubit 2 can be controlled by qubit 3 (or qubit 1), unless

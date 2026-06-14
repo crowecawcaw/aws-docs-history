@@ -14,6 +14,7 @@ advice** section. The following Expert advice options are available:
   options to best use Braket for your algorithm, and getting recommendations for
   how to use certain Braket features like Amazon Braket Hybrid Jobs, Braket Pulse, or
   Analog Hamiltonian Simulation.
+
   - To sign up for Braket office hours, select **Sign up** and
     fill out contact information, workload details, and your desired discussion
     topics.
@@ -29,6 +30,7 @@ new ones.
 
 - **Quantum hardware provider offerings:** IonQ, QuEra, and Rigetti
   each provide professional services offerings through AWS Marketplace.
+
   - To explore their offerings, select **Connect** and browse
     their listings.
   - To learn more about professional services offerings on the AWS Marketplace, see
@@ -37,6 +39,7 @@ new ones.
 - **Amazon Advanced Solutions Lab (ASL):** The ASL is a collaborative research
   and professional services team staffed with quantum computing experts who can help you
   effectively explore quantum computing and assess the current performance of this technology.
+
   - To contact the ASL, select **Connect**, and fill out contact
     information and use case details.
   - The ASL team will reach out to you through email with next steps.

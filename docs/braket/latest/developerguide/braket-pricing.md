@@ -92,6 +92,7 @@ Note: Remaining budget is the difference between the spending limit and the sum 
   Task is created.
 - Case 2: There is a spending limit for the target device, and the **current
   time is within the time period** of the spending limit:
+
   - If the estimated cost of the task is lower or equal than the remaining
     budget: CreateQuantumTask succeeds, the task is created.
   - If the estimated cost is greater than the remaining budget: `CreateQuantumTask` fails,

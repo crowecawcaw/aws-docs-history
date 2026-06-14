@@ -29,6 +29,7 @@ the status of a quantum task changes.
    Braket.
 2. Open the [Amazon EventBridge console](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 3. Using the following values, create an EventBridge rule:
+
    - For **Rule type**, choose **Rule with an event pattern**.
    - For **Event source**, choose **Other**.
    - In the **Event pattern** section, choose **Custom patterns (JSON editor)**, and then paste the following event pattern into the text area:
@@ -54,7 +55,6 @@ the status of a quantum task changes.
      ]
    }
    ```
-
    - For **Target types**, choose **AWS service**, and for **Select a target**, choose a target such as an Amazon SNS topic or AWS Lambda function. The target is triggered when a quantum task state change event is received from Amazon
      Braket.
 

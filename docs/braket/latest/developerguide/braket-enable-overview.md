@@ -37,6 +37,7 @@ that you create. To learn more about the permissions necessary to use Amazon Bra
 2. Open the Amazon Braket console.
 3. From the Braket landing page, click Get Started to be taken to the **Service Dashboard** page. The alert at the top of your
    service dashboard will walk you through the following three steps:
+
    1. Creating [service-linked roles (SLR)](braket-slr.md "braket-slr.md")
    2. Enabling access to third-party quantum computers
    3. Creating a new Jupyter notebook instance

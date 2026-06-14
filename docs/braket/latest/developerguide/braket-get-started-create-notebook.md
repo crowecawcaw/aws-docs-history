@@ -33,11 +33,13 @@ notebook instance for new and existing customers.
 3.  Open the [Amazon Braket
     console](https://console.aws.amazon.com/braket/home "https://console.aws.amazon.com/braket/home") and select **Notebooks** in the left pane.
 4.  Select **Create notebook instance**.
+
     1. If you have zero notebooks, select the **Standard setup** to create a default Jupyter notebook.
 
 5.  Enter a **Notebook instance name**, using only alphanumeric and hyphen characters,
     and select your preferred **Visual Mode**.
 6.  Enable or disable the **Notebook inactivity manager** for your notebook.
+
     1. If enabled, select the desired idle duration time before the notebook is reset. When a notebook is reset,
        the compute charges stop incurring, but the storage charges will continue.
     2. To check how much idle time remains for your notebook instance, navigate to the command bar, select
