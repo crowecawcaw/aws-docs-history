@@ -83,6 +83,7 @@ workflows, making it an ideal solution for feature reusability.
    requirements**. Determine whether each feature
    group needs online storage, offline storage, or both.
    Configure the appropriate storage options:
+
    - **Online store:** Set up
      for low-latency access (milliseconds) needed for
      real-time inference

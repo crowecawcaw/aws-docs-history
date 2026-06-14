@@ -73,6 +73,7 @@ than managing infrastructure.
    wrangling processes**. Establish comprehensive data
    preparation workflows that transform raw data into ML-ready
    formats. Use a combination of AWS services and tools to:
+
    - Connect to data sources including
      [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/"),
      [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"),
@@ -103,6 +104,7 @@ than managing infrastructure.
    preparation workflow, export it to
    [Amazon SageMaker AI Pipelines](https://aws.amazon.com/sagemaker/pipelines/ "https://aws.amazon.com/sagemaker/pipelines/") to automate your entire ML
    workflow. SageMaker AI Pipelines helps you:
+
    - Create end-to-end ML workflows that combine data
      preparation, model training, evaluation, and deployment
    - Automate pipeline execution on a schedule or
@@ -116,6 +118,7 @@ than managing infrastructure.
    monitoring**. Configure your pipelines to handle
    errors gracefully and provide visibility into pipeline
    performance:
+
    - Set up retry mechanisms for transient failures
    - Create notification systems for critical pipeline
      failures
@@ -127,6 +130,7 @@ than managing infrastructure.
 5. **Version and store your data
    artifacts**. Maintain traceability of your data
    processing:
+
    - Store processed datasets in Amazon S3 with appropriate
      versioning
    - Use
@@ -139,6 +143,7 @@ than managing infrastructure.
 6. **Integrate with your existing ML
    workflow**. Connect your data pipelines to other
    components of your ML environment:
+
    - Feed processed data directly into model training jobs
    - Integrate with model registries and deployment pipelines
    - Establish feedback loops from model performance back to
@@ -147,6 +152,7 @@ than managing infrastructure.
 7. **Scale your data processing as
    needed**. Configure your pipelines to handle
    growing data volumes:
+
    - Use distributed processing for large datasets with
      services like
      [Amazon EMR](https://aws.amazon.com/emr/ "https://aws.amazon.com/emr/")

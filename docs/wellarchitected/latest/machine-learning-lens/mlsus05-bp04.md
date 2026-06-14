@@ -48,6 +48,7 @@ postprocessing steps.
    characteristics.
 2. **Select the appropriate deployment method**. Choose from
    one of SageMaker AI's three approaches based on your workload requirements:
+
    - Multi-model endpoints for similar models with varied access patterns
    - Multi-container endpoints for heterogeneous models requiring different
      frameworks

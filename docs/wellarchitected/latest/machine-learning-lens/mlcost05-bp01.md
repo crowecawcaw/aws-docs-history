@@ -94,6 +94,7 @@ usage patterns or complementary resource requirements.
 3. **Select the appropriate inference
    option based on your use case**. Choose from
    several SageMaker AI inference options:
+
    - [Amazon SageMaker AI Real-time Inference](../../../sagemaker/latest/dg/realtime-endpoints.md "../../../sagemaker/latest/dg/realtime-endpoints.md") for low-latency,
      interactive applications requiring immediate responses
    - [Amazon SageMaker AI Serverless Inference](../../../sagemaker/latest/dg/serverless-endpoints.md "../../../sagemaker/latest/dg/serverless-endpoints.md") for workloads with

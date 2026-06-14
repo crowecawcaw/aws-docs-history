@@ -71,6 +71,7 @@ makes it hard to measure impact or secure stakeholder support.
    learning for the business**. Consider measures of
    how machine learning and automation will impact the
    business:
+
    - How much will machine learning reduce costs?
    - How many more users will be reached by increasing scale?
    - How much time will the business save by being able to

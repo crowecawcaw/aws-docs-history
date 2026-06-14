@@ -78,6 +78,7 @@ a maturity scale.
 2. **Document model deployment
    characteristics**. Record key metrics about your ML
    models, including:
+
    - Model size (model.tar.gz) in bytes
    - Number of models deployed per endpoint
    - Instance size (for example,
@@ -91,6 +92,7 @@ a maturity scale.
 3. **Map architectural deployment
    characteristics**. Capture information about the
    internal architecture of your ML solution:
+
    - Inference pipeline architecture (single endpoint or
      chained endpoints)
    - Neural architecture (single framework like Scikit-learn
@@ -110,6 +112,7 @@ a maturity scale.
 4. **Define traffic pattern
    characteristics**. Document how your ML model will
    be used:
+
    - Traffic pattern (steady or spiky)
    - Input size (number of bytes)
    - Latency requirements (low, medium, high, or batch)

@@ -109,6 +109,7 @@ detection of data issues that could impact model performance.
    services**. Build a high-speed analytic layer with
    purpose-built services selected based on your specific ML
    workload requirements:
+
    - Use
      [Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/") for data warehousing and complex
      analytical queries

@@ -82,6 +82,7 @@ their time allocation a critical consideration.
 3. **Calculate comprehensive cost
    implications**. Consider the aspects of
    implementing an ML solution:
+
    - Data preparation and engineering costs
    - Data storage requirements and associated costs using
      [Amazon S3](https://aws.amazon.com/s3/ "https://aws.amazon.com/s3/") or other storage services

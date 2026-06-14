@@ -82,6 +82,7 @@ move into production.
    for each team member. Gather representation from both
    technical and business domains to maintain alignment with
    business outcomes. The following roles should be considered:
+
    - **Domain expert:**
      Provides functional knowledge about the business problem
      and validates ML approaches against real-world

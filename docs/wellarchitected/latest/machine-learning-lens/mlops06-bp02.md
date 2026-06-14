@@ -87,6 +87,7 @@ cases, and potential limitations.
    statistics and constraints during model training, then
    monitor for deviations in production data. Set up the
    following types of monitoring:
+
    - Data quality monitoring to detect changes in data
      distributions
    - Model quality monitoring to track accuracy and other

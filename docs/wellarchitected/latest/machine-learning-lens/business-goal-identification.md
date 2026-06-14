@@ -26,6 +26,7 @@ correct data sources are available and accessible.
 The following work steps should be followed to establish your business goals.
 
 - Business considerations:
+
   - Understand business requirements.
   - Align affected stakeholders with this initiative.
   - Form a business question.
@@ -35,23 +36,28 @@ The following work steps should be followed to establish your business goals.
     model can assist to improve.
 
 - Frame the ML problem:
+
   - Define the machine learning task based on the business question.
   - Review proven or published works in similar domains, if available.
   - Design small, focused POCs to validate those aspects of the approach where
     inadequate confidence exists.
 
 - Determine the optimization objective:
+
   - Determine key business performance metrics for the ML use case, such as uplift in
     new business acquisition, fraud detection rate, and anomaly detection. Increase CSAT
     according to the business needs.
 
 - Review data requirements:
+
   - Review the project's ML feasibility and data requirements.
 
 - Cost and performance optimization:
+
   - Evaluate the cost of data acquisition, training, inference, and wrong predictions.
   - Evaluate whether bringing in external data sources might improve model performance.
 
 - Production considerations:
+
   - Review how to handle ML-generated errors.
   - Establish pathways to production.

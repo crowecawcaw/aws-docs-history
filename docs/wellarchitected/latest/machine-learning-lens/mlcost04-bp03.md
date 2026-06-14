@@ -117,6 +117,7 @@ pip install sagemaker
    clusters**. When moving to cloud training, select
    appropriate instance types based on your workload profiling.
    Consider factors such as:
+
    - Model architecture (CPU and GPU requirements)
    - Memory needs
    - Dataset size and I/O patterns

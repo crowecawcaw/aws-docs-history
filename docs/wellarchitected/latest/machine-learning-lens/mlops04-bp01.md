@@ -106,6 +106,7 @@ behavior or data distributions.
 4. **Choose an MLOps orchestration
    strategy**. Based on your workflow needs, select an
    appropriate orchestration mechanism:
+
    - Use
      [Amazon SageMaker AI Pipelines](https://aws.amazon.com/sagemaker/pipelines/ "https://aws.amazon.com/sagemaker/pipelines/") to create ML workflows with
      Python SDK, visualize, and manage them in Amazon SageMaker AI Studio. SageMaker AI Pipelines automatically logs

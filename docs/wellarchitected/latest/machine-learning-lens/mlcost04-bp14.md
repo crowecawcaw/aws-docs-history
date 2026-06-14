@@ -89,6 +89,7 @@ approach delivers the best value for your specific use case.
 5. **Perform comprehensive trade-off
    analysis**. When comparing algorithms, consider
    multiple dimensions beyond accuracy:
+
    - Data requirements (amount needed for training)
    - Computational resources required for training and
      inference

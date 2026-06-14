@@ -66,6 +66,7 @@ your entire ML pipeline.
    regular intervals, providing visibility into the ML training
    process. It monitors, records, and analyzes data during
    training, enabling you to:
+
    - Track model parameters, gradients, and tensor values
    - Identify training issues like vanishing gradients or
      tensor explosions
@@ -76,6 +77,7 @@ your entire ML pipeline.
    logging**. Integrate
    [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") with your SageMaker AI training jobs to
    centralize and analyze log data. Configure CloudWatch to:
+
    - Collect standard output and error logs from training
      jobs
    - Encrypt log data using an
@@ -88,6 +90,7 @@ your entire ML pipeline.
    collection**. Add instrumentation code to your ML
    training scripts to capture performance metrics and resource
    utilization data:
+
    - Track timing information for different training phases
    - Monitor memory usage during training operations
    - Record batch processing statistics and convergence
@@ -98,6 +101,7 @@ your entire ML pipeline.
 4. **Configure resource
    monitoring**. Set up monitoring for compute and
    storage resources used by your ML workflows:
+
    - Use CloudWatch metrics to track instance utilization
    - Monitor data transfer volumes between storage and
      compute resources
@@ -108,6 +112,7 @@ your entire ML pipeline.
 5. **Implement automated
    alerting**. Configure notification systems to alert
    you when resource consumption exceeds expected thresholds:
+
    - Set up CloudWatch alarms for high CPU, memory, or GPU
      utilization
    - Create alerts for extended training job durations
@@ -118,6 +123,7 @@ your entire ML pipeline.
 6. **Analyze and optimize training
    jobs**. Use the collected metrics and logs to
    identify optimization opportunities:
+
    - Review resource utilization patterns to identify
      right-sizing opportunities
    - Analyze training job logs for inefficient code paths
@@ -134,6 +140,7 @@ your entire ML pipeline.
    analyze and extract insights from ML training logs. Utilize
    Q Diagnostics integrated into the console or your preferred
    IDE for log analysis.
+
    - Implement natural language processing to summarize log
      patterns
    - Use Amazon Bedrock to build intelligent log analysis
