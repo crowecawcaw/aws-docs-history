@@ -81,6 +81,7 @@ is the gateway endpoint.
 - We use the most specific route that matches the traffic to determine how to
   route the traffic (longest prefix match). For route tables with an endpoint route,
   this means the following:
+
   - If there is a route that sends all internet traffic (0.0.0.0/0) to an
     internet gateway, the endpoint route takes precedence for traffic destined for
     the service (Amazon S3 or DynamoDB) in the current Region. Traffic destined for a
@@ -122,6 +123,7 @@ The IP address type determines which prefix list is associated with your route t
 
 - The IP address type of a gateway endpoint must be compatible with the subnets for
   the gateway endpoint, as described here:
+
   - **IPv4** – Add the service's IPv4 prefix list to your route table.
   - **IPv6** – Add the service's IPv6 prefix list to your route table.
     This option is supported only if all selected subnets are IPv6 only subnets.

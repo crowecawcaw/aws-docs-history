@@ -82,6 +82,7 @@ for the inspection system.
 7. For **Subnets**, select one subnet in which to create an
    endpoint network interface.
 8. For **IP address type**, choose from the following options:
+
    - **IPv4** – Assign IPv4 addresses to the endpoint
      network interface. This option is supported only if the selected subnet has
      an IPv4 address range.
@@ -113,6 +114,7 @@ that's destined for the application servers. For more information, see [Routing]
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. In the navigation pane, choose **Route Tables**.
 3. Select the route table for the internet gateway and do the following:
+
    1. Choose **Actions**, **Edit routes**.
    2. If you support IPv4, choose **Add route**. For
       **Destination**, enter the IPv4 CIDR block of the subnet for the
@@ -125,6 +127,7 @@ that's destined for the application servers. For more information, see [Routing]
 
 4. Select the route table for the subnet with the application servers and do the
    following:
+
    1. Choose **Actions**, **Edit routes**.
    2. If you support IPv4, choose **Add route**. For
       **Destination**, enter `0.0.0.0/0`. For
@@ -135,6 +138,7 @@ that's destined for the application servers. For more information, see [Routing]
    4. Choose **Save changes**.
 
 5. Select the route table for the subnet with the Gateway Load Balancer endpoint, and do the following:
+
    1. Choose **Actions**, **Edit routes**.
    2. If you support IPv4, choose **Add route**. For
       **Destination**, enter `0.0.0.0/0`. For

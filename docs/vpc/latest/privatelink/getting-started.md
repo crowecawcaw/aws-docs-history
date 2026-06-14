@@ -37,6 +37,7 @@ Use the following procedure to create a VPC with a public subnet and a private s
 3. For **Resources to create**, choose **VPC and more**.
 4. For **Name tag auto-generation**, enter a name for the VPC.
 5. To configure the subnets, do the following:
+
    1. For **Number of Availability Zones**, choose
       **1** or **2**, depending on your needs.
    2. For **Number of public subnets**, ensure that you have one public
@@ -71,6 +72,7 @@ subnet and the instance in the private subnet.
 4. Keep the default image and instance type.
 5. For **Key pair**, select your key pair.
 6. For **Network settings**, do the following:
+
    1. For **VPC**, choose your VPC.
    2. For **Subnet**, choose the public subnet.
    3. For **Auto-assign public IP**, choose
@@ -90,6 +92,7 @@ subnet and the instance in the private subnet.
 4. Keep the default image and instance type.
 5. For **Key pair**, select your key pair.
 6. For **Network settings**, do the following:
+
    1. For **VPC**, choose your VPC.
    2. For **Subnet**, choose the private subnet.
    3. For **Auto-assign public IP**, choose

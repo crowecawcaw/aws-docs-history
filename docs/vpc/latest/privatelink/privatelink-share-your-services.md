@@ -169,6 +169,7 @@ internet. If you describe an endpoint network interface with an IPv6 address, no
 - The endpoint service must support IPv6 requests.
 - The IP address type of an interface endpoint must be compatible with the subnets for
   the interface endpoint, as described here:
+
   - **IPv4** – Assign IPv4 addresses to your endpoint
     network interfaces. This option is supported only if all selected subnets have
     IPv4 address ranges.

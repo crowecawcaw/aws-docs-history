@@ -39,10 +39,12 @@ Subscribe to the service.
 2. In the navigation pane, choose **Endpoints**.
 3. Choose **Create endpoint**.
 4. If you purchased the service from AWS Marketplace, do the following:
+
    1. For **Type**, choose **AWS Marketplace services**.
    2. Select the service.
 
 5. If you subscribed to a service with the AWS Service Ready designation, do the following:
+
    1. For **Type**, choose **PrivateLink Ready partner services**.
    2. Enter the name of the service, and then choose **Verify service**.
 

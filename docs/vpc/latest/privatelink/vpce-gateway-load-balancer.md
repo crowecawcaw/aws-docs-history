@@ -72,6 +72,7 @@ is enabled.
 - The endpoint service must have an IP address type that includes IPv6 support.
 - The IP address type of a Gateway Load Balancer endpoint must be compatible with the subnet for
   the Gateway Load Balancer endpoint, as described here:
+
   - **IPv4** – Assign IPv4 addresses to your endpoint
     network interfaces. This option is supported only if all selected subnets have
     IPv4 address ranges.

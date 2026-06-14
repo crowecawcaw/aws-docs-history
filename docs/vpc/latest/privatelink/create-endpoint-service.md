@@ -110,6 +110,7 @@ Use the following procedure to create an endpoint service using a Network Load B
    Before service consumers can use the private DNS name, the service provider must verify
    that they own the domain. For more information, see [Manage DNS names](manage-dns-names.md "manage-dns-names.md").
 9. For **Supported IP address types**, do one of the following:
+
    - Select **IPv4** – Enable the endpoint service to accept
      IPv4 requests.
    - Select **IPv6** – Enable the endpoint service to accept
@@ -162,6 +163,7 @@ connect to your endpoint service.
 8. For **Subnets**, select the subnets in which to create endpoint network interfaces.
 9. For **IP address type**, choose from the following
    options:
+
    - **IPv4** – Assign IPv4 addresses to the endpoint
      network interfaces. This option is supported only if all selected subnets have
      IPv4 address ranges and the endpoint service accepts IPv4 requests.
@@ -174,6 +176,7 @@ connect to your endpoint service.
      both IPv4 and IPv6 requests.
 
 10. For **DNS record IP type**, choose from the following options:
+
     - **IPv4** – Create A records for the private, Regional,
       and zonal DNS names. The IP address type must be **IPv4** or
       **Dualstack**.

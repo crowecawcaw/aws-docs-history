@@ -58,6 +58,7 @@ Use the following procedure to create an endpoint service using a Gateway Load B
    endpoint service are accepted manually. Otherwise, they are accepted
    automatically.
 7. For **Supported IP address types**, do one of the following:
+
    - Select **IPv4** – Enable the endpoint service to accept
      IPv4 requests.
    - Select **IPv6** – Enable the endpoint service to accept

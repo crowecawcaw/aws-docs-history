@@ -17,6 +17,7 @@ AWS Management Console###### To create a resource configuration using the consol
 6. Choose a resource gateway that you previously created or create a one
    now.
 7. (Optional) To enter a custom domain name, do one of the following:
+
    - If you have a resource configuration of type single, you
      can enter a custom domain name. Resource consumers can use
      this domain name to access your resource configurations.

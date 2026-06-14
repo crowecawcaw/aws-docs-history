@@ -19,6 +19,7 @@ VPC Lattice does not create a resource endpoint if the following are true:
 
 - Resource gateway is in the same VPC as the resource endpoint.
 - For domain-name targets
+
   - DNS resolution is set to IN_VPC on the resource gateway.
   - The custom domain name or group domain is the same or higher-level domain of the domain-name target.
 

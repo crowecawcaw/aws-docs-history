@@ -155,6 +155,7 @@ Zone.
 4. Choose **Actions**, **Associate or disassociate load
    balancers**.
 5. Change the endpoint service configuration as needed. For example:
+
    - Select the check box for a load balancer to associate it with the endpoint service.
    - Clear the check box for a load balancer to disassociate it from the endpoint service.
      You must keep at least one load balancer selected.
@@ -193,6 +194,7 @@ they own the domain. For more information, see [Manage DNS names](manage-dns-nam
 4. Choose **Actions**, **Modify private DNS name**.
 5. Select **Associate a private DNS name with the service** and
    enter the private DNS name.
+
    - Domain names must use lowercase.
    - You can use wildcards in domain names (for example,
      `*.myexampleservice.com`).
@@ -263,6 +265,7 @@ address type](../../../elasticloadbalancing/latest/network/network-load-balancer
 3. Select the VPC endpoint service.
 4. Choose **Actions**, **Modify supported IP address types**.
 5. For **Supported IP address types**, do one of the following:
+
    - Select **IPv4** – Enable the endpoint service to accept
      IPv4 requests.
    - Select **IPv6** – Enable the endpoint service to accept

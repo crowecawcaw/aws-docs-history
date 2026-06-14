@@ -47,6 +47,7 @@ You can create, access, and manage VPC endpoints using any of the following:
   AWS resources. You use the templates to provision and manage these resources
   as a single unit. For more information, see the following AWS PrivateLink
   resources:
+
   - [AWS::EC2::VPCEndpoint](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.md")
   - [AWS::EC2::VPCEndpointConnectionNotification](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointconnectionnotification.md")
   - [AWS::EC2::VPCEndpointService](../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpointservice.md")

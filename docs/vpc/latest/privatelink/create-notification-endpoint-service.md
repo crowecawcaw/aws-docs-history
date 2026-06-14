@@ -26,6 +26,7 @@ subscribe to the topic.
 5. For **Notification ARN**, choose the ARN for the
    SNS topic that you created.
 6. To subscribe to an event, select it from **Events**.
+
    - **Connect** – The service consumer created the interface endpoint.
      This sends a connection request to the service provider.
    - **Accept** – The service provider accepted the connection request.
