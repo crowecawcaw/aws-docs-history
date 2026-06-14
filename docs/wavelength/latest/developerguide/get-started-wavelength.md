@@ -100,10 +100,12 @@ create the following resources:
 - A subnet. You can optionally assign all carrier gateway tags except the `Name`
   tag to the subnet.
 - A network ACL with the following resources:
+
   - A subnet association with the subnet in the Wavelength Zone
   - Default inbound and outbound rules for your traffic.
 
 - A route table with the following resources:
+
   - A route for local traffic
   - A route that routes non-local traffic to the carrier gateway
   - An association with the subnet
@@ -119,6 +121,7 @@ create the following resources:
 4. For **VPC**, choose the VPC.
 5. Choose **Route subnet traffic to carrier gateway**, and under
    **Subnets to route** do the following:
+
    1. Under **Existing subnets in Wavelength Zone**, select the box
       for each Wavelength subnet to route to the carrier gateway.
    2. To create a subnet in the Wavelength Zone, choose **Add new

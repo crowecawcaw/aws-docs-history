@@ -25,6 +25,7 @@ do the following:
   When you select this option, we automatically create the resources related to carrier
   gateways, such as route tables and network ACLs. If you do not choose this option, then
   you must perform the following tasks:
+
   - Select the subnets that route traffic to the carrier gateway.
   - Ensure that your subnet route tables have a route that directs traffic to the
     carrier gateway.
@@ -67,6 +68,7 @@ ranges).
 2. In the navigation pane, choose **Your VPCs**, **Create
    VPC**.
 3. Do the following and then choose **Create**.
+
    - **Name tag**: Optionally provide a name for your VPC. Doing so
      creates a tag with a key of `Name` and the value that you specify.
    - **IPv4 CIDR block**: Specify an IPv4 CIDR block for the VPC. We
@@ -94,10 +96,12 @@ create the following resources:
 - A subnet. You can optionally assign all carrier gateway tags that do not have a
   **Key** value of `Name` to the subnet.
 - A network ACL with the following resources:
+
   - A subnet associated with the subnet in the Wavelength Zone
   - Default inbound and outbound rules for all of your traffic.
 
 - A route table with the following resources:
+
   - A route for all local traffic
   - A route that routes all non-local traffic to the carrier gateway
   - An association with the subnet
@@ -113,11 +117,13 @@ create the following resources:
 4. For **VPC**, choose the VPC.
 5. Choose **Route subnet traffic to carrier gateway**, and under
    **Subnets to route** do the following.
+
    1. Under **Existing subnets in Wavelength Zone**, select the box for
       each subnet to route to the carrier gateway.
    2. To create a subnet in the Wavelength Zone, choose **Add new
       subnet**, specify the following information, and then choose
       **Add new subnet**:
+
       - **Name tag**: Optionally provide a name for
         your subnet. Doing so creates a tag with a key of `Name` and the
         value that you specify.
@@ -130,6 +136,7 @@ create the following resources:
 
 6. (Optional) To add a tag to the carrier gateway, choose **Add tag**,
    and then do the following:
+
    - For **Key**, enter the key name.
    - For **Value**, enter the key value.
 
@@ -160,6 +167,7 @@ associate the security group with instances in the subnet.
    **Create Security Group**.
 3. To create a security group, choose **Create security group**,
    specify the following information, and then choose **create**:
+
    - **Security group name**: Enter a name for the
      subnet.
    - **Description**: Enter the security group description.
@@ -269,6 +277,7 @@ Tags help you to identify your carrier gateways. You can add or remove tags.
 3. Select the carrier gateway and choose **Actions**, **Manage
    tags**.
 4. To add a tag, choose **Add tag**, and then do the following:
+
    - For **Key**, enter the key name.
    - For **Value**, enter the key value.
 
