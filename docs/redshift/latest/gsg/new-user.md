@@ -209,9 +209,11 @@ for **Cluster identifier**, **Node type**, and
 6.  For this tutorial, create an IAM role and set it as the default for
     your cluster, as described following. There can only be one default IAM role
     set for a cluster.
+
     1. Under **Cluster permissions**, for **Manage IAM roles**,
        choose **Create IAM role**.
     2. Specify an Amazon S3 bucket for the IAM role to access by one of the following methods:
+
        - Choose **No additional Amazon S3 bucket** to allow the created IAM role to access
          only the Amazon S3 buckets that are named as `redshift`.
        - Choose **Any Amazon S3 bucket** to allow the created IAM role to access all Amazon S3 buckets.
@@ -455,6 +457,7 @@ You can create the full set of TICKIT tables and load data into your cluster in 
   Amazon Redshift loads its sample dataset to your Amazon Redshift cluster `dev` database automatically during cluster
   creation.
 - To connect to an existing cluster, do the following:
+
   - In the Amazon Redshift console, choose **Clusters** from the navigation bar.
   - Choose your cluster from the **Clusters** pane.
   - Choose **Query data**, **Query in query editor v2**.

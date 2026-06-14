@@ -8,6 +8,7 @@ For more information about Amazon Redshift Serverless, we recommend that you con
 about the concepts introduced in this guide by using the following Amazon Redshift resources:
 
 - Feature videos: These videos help you learn about Amazon Redshift features.
+
   - To understand Amazon Redshift Serverless at a high-level, watch the
     following video.
   - To learn how to set up a serverless data warehouse and begin querying data, watch the following video.
@@ -19,10 +20,12 @@ about the concepts introduced in this guide by using the following Amazon Redshi
   _Amazon Redshift Getting Started Guide_. It provides in-depth information for
   database developers about designing, building, querying, and maintaining the
   databases that make up your data warehouse.
+
   - [SQL reference](../dg/cm_chap_SQLCommandRef.md "../dg/cm_chap_SQLCommandRef.md"): This topic describes SQL commands and function references for Amazon Redshift.
   - [System tables and views reference](../dg/cm_chap_system-tables.md "../dg/cm_chap_system-tables.md"): This topic describes system tables and views for Amazon Redshift.
 
 - Tutorials for Amazon Redshift: This topic shows tutorials about Amazon Redshift features.
+
   - [Loading data from Amazon S3](../dg/tutorial-loading-data.md "../dg/tutorial-loading-data.md"): This tutorial describes how to load data into your Amazon Redshift database tables from data files in an Amazon S3 bucket.
   - [Getting started with data
     sharing](../dg/getting-started-datashare.md "../dg/getting-started-datashare.md"): This section describes how to share and access data in other
