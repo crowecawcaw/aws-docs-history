@@ -4,6 +4,7 @@ With **Toolbar controls**, you can configure the toolbar presentation for
 end user sessions, including the following options:
 
 - **Features**
+
   - **Clipboard**: When enabled, allows copy/paste with granular controls
     (copy only, paste only, or both). When disabled, hides icon and prevents usage from the
     toolbar.
@@ -22,6 +23,7 @@ end user sessions, including the following options:
     disabled, hides icon.
 
 - **Settings**
+
   - **Toolbar theme**: Controls light or dark mode display. Configuration
     removes end user theme control.
   - **Toolbar state**: Sets docked or detached state of the toolbar.

@@ -25,6 +25,7 @@ The following components determine when data is redacted:
 
 - Enforce browser policy to prevent users from viewing the session without
   redaction:
+
   - [IncognitoModeAvailability](https://chromeenterprise.google/policies/#IncognitoModeAvailability "https://chromeenterprise.google/policies/#IncognitoModeAvailability") = 1
   - [DeveloperToolsAvailability](https://chromeenterprise.google/policies/#DeveloperToolsAvailability "https://chromeenterprise.google/policies/#DeveloperToolsAvailability") = 2
   - [BrowserAddPersonEnabled](https://chromeenterprise.google/policies/#BrowserAddPersonEnabled "https://chromeenterprise.google/policies/#BrowserAddPersonEnabled") = false

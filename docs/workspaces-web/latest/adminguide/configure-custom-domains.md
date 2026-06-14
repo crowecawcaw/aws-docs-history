@@ -90,6 +90,7 @@ Create a CloudFront distribution to proxy requests from your custom domain to th
 
 1. Navigate to the CloudFront console at [https://console.aws.amazon.com/cloudfront](https://console.aws.amazon.com/cloudfront "https://console.aws.amazon.com/cloudfront").
 2. Choose **Create Distribution**.
+
    - **Distribution name**: Enter a name for the distribution
    - **Distribution type**: Single website or app
 
@@ -104,6 +105,7 @@ Enter your custom domain and click "Check domain". If you have a domain from a d
     * **Origin Path**: Leave empty (default)
 
 4.  Customize origin settings:
+
     - Add custom header
 
     ###### Important
@@ -112,7 +114,6 @@ Enter your custom domain and click "Check domain". If you have a domain from a d
 
         + **Header Name**: workspacessecurebrowser-custom-domain
         + **Value**: Your custom domain (for example, `myportal.example.com`)
-
     - **Protocol**: HTTPS only
     - **HTTPS port**: 443 (keep default)
     - **Minimum Original SSL protocol**: TLSv1.2 (default)
@@ -120,6 +121,7 @@ Enter your custom domain and click "Check domain". If you have a domain from a d
       support IPv6 at the time of writing this administration guide.)
 
 5.  Customize cache settings:
+
     - **Viewer protocol policy**: Redirect HTTP to HTTPS
     - **Allowed HTTP methods**: GET, HEAD, OPTIONS, PUT, POST, PATCH, DELETE
     - **Cache Policy**: CachingDisabled
@@ -144,12 +146,14 @@ Cloudfront can update your DNS records in Route 53 to route traffic from the spe
 
 4.  Open the Amazon Route 53 console at [https://console.aws.amazon.com/route53](https://console.aws.amazon.com/route53 "https://console.aws.amazon.com/route53").
 5.  Access DNS management:
+
     - If you are new to using Route 53 with this AWS account, the Amazon Route 53 overview
       page opens. Under DNS management, choose **Get started now**.
     - If you have used Route 53 before with this AWS account, proceed to the next step.
 
 6.  In the navigation pane, choose **Hosted zones**.
 7.  Create a hosted zone if you don't already have one:
+
     - To route internet traffic to your resources, see
       [Creating
       a Public Hosted Zone](../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md "../../../Route53/latest/DeveloperGuide/CreatingHostedZone.md") in the _Amazon Route 53 Developer Guide_.

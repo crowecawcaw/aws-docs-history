@@ -9,11 +9,13 @@ Make sure you're in your desired AWS Region. You can change the region in the co
 ###### To quickly set up a VPC
 
 1. Open the VPC creation wizard: [Create VPC with resources](https://console.aws.amazon.com/vpcconsole/home#CreateVpc:createMode=vpcWithResources "https://console.aws.amazon.com/vpcconsole/home#CreateVpc:createMode=vpcWithResources"). Keep all settings as default unless specified below:
+
    - For **Resource to create**, select **VPC and more**.
    - For **Name tag**, select **auto-generate** and enter a descriptive name for your VPC (e.g., `WSB-VPC`).
    - For **IPv4 CIDR block**, by default, the VPC uses `10.0.0.0/16`. You can specify a different IPv4 CIDR block if needed.
    - For **Tenancy**, select **Default** (VPCs with dedicated tenancy are not supported).
    - For **Number of Availability Zones (AZs)**, select **2**.
+
      - Expand **Customize AZs** and select 2 different Availability Zones that are supported by WorkSpaces Secure Browser. For the list of supported AZs, see [Supported Availability Zones for Amazon WorkSpaces Secure Browser](availability-zones.md "availability-zones.md").
 
    - For **Number of public subnets**, select **2**.

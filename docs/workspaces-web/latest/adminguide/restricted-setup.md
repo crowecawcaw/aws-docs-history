@@ -4,6 +4,7 @@ To set up an HTTP outbound proxy for WorkSpaces Secure Browser, follow these ste
 
 1. To deploy an example outbound proxy to your VPC, follow the steps in [How to set up an outbound VPC proxy with domain whitelisting and content
    filtering](https://aws.amazon.com/blogs/security/how-to-set-up-an-outbound-vpc-proxy-with-domain-whitelisting-and-content-filtering/ "https://aws.amazon.com/blogs/security/how-to-set-up-an-outbound-vpc-proxy-with-domain-whitelisting-and-content-filtering/").
+
    1. Follow the steps in "Installation (one-time setup)" to deploy the CloudFormation
       template to your account. Make sure to choose the right VPC and subnets as the
       CloudFormation template parameters.
@@ -16,6 +17,7 @@ To set up an HTTP outbound proxy for WorkSpaces Secure Browser, follow these ste
 
 2. In the WorkSpaces Secure Browser, console, select your portal and then choose
    **Edit**.
+
    1. In the **Network connection details**, choose the VPC and
       private subnets that have access to the proxy.
    2. In the **Policy settings**, add the following ProxySettings

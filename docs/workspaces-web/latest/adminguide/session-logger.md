@@ -93,6 +93,7 @@ Under **Advanced**, you can configure the following fields:
 
 - **Event filter**: This is the list of events monitored by Session
   Logger.
+
   - **All**: Selecting this option means all current and future events
     will be monitored
   - **Include**: This allows you to manually select specific events to
@@ -101,6 +102,7 @@ Under **Advanced**, you can configure the following fields:
     selection.
 
 - **File format**
+
   - **JSON (default)**: This is a file format where each log file is
     presented as an array of events. We recommend this format for most use cases.
   - **JSONLines**: This is a file format that is optimized for
@@ -108,6 +110,7 @@ Under **Advanced**, you can configure the following fields:
 
 - **Folder structure**: This determines how the log files are
   stored.
+
   - **Flat (default)**: All log files are in a single folder.
   - **Nested By date**: The log files are organized into folders by date
     and time. Partitioned for Amazon Athena, and optimized for Amazon Athena queries.

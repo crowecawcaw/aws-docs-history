@@ -14,6 +14,7 @@ To secure your content, follow these guidelines:
 - Protect data end to end by providing a customer managed key, so WorkSpaces Secure Browser can encrypt your
   data at rest with the keys you supply.
 - Be careful with sharing portal domains and user credentials:
+
   - Admins are required to log into the Amazon WorkSpaces console, and users are required to
     log into the WorkSpaces Secure Browser portal.
   - Anyone on the internet can access the web portal, but they can't start a session

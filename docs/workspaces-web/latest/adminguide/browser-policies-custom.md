@@ -42,6 +42,7 @@ create a JSON file in the next step.
    sample value.
 4. From the search results, there are 3 policies that meet the business requirements if
    used together:
+
    - **ExtensionSettings** – Installs an extension at browser
      start.
    - **ExtensionInstallBlocklist** – Prevents specific extensions
@@ -50,6 +51,7 @@ create a JSON file in the next step.
      be installed.
 
 5. Additional policies satisfy the remaining requirements;
+
    - **ManagedBookmarks** – Adds bookmarks to webpages.
    - **RestoreOnStartupURLs** – Configures which webpages are
      opened whenever a new browser window is launched.
@@ -137,6 +139,7 @@ previous step.
 Add your custom policies to the template for each business requirement.
 
 1. Set up bookmark URLs.
+
    1. Under the `value` key, add pairs of `name` and `url`
       keys for each bookmark you want to add.
    2. Set `bookmark-url-1` to `https://www.amazon.com`.
@@ -164,6 +167,7 @@ Add your custom policies to the template for each business requirement.
 
 2. Set up the startup URLs. This policy allows administrators to set the webpages displayed
    when a user launches a new browser window.
+
    1. Set the `RestoreOnStartup` to `4`. This sets the
       `RestoreOnStartup` action to open a list of URLs . You can also use other
       actions on your startup URLs. For more information, see [Chrome Enterprise policy

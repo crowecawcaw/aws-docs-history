@@ -21,7 +21,9 @@ access to trusted networks. For more information, see [Managing IP access contro
     2. To create a list of URLs to block for end users, click **Add URL** to list the single URLs to block or click **Add categories** to select categories of domains that are blocked (e.g., Social Networking).
 
 9. Under **Policy settings**, you can set any browser policy using Chrome policies available for the latest stable version to the web portal. For more information, see [Managing browser policy in Amazon WorkSpaces Secure Browser](browser-policies.md "browser-policies.md"). **This is optional.**
+
    1. You can quickly select some of the most common policies in the **Visual editor**
+
       - For **Startup URL - optional**, enter a domain to use as the homepage when users launch their browser. Your VPC must have a stable connection to this URL.
       - Select or clear **Private browsing** and **History deletion** to turn these features on or off during a user's session
 

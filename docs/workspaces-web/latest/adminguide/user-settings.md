@@ -24,6 +24,7 @@ and then choose **Next**:
    unconfigured to grant end users full control over these options. For more information,
    see [Managing toolbar controls in Amazon WorkSpaces Secure Browser](toolbar-controls.md "toolbar-controls.md").
 8. For **Session timeouts**, specify the following:
+
    - For **Disconnect timeout in minutes**, choose the amount of time that
      a streaming session remains active after users disconnect. If users try to reconnect to the
      streaming session after a disconnection or network interruption within this time interval,

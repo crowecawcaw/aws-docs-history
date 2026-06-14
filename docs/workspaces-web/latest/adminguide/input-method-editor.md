@@ -23,6 +23,7 @@ The following languages are currently supported by WorkSpaces Secure Browser's I
    To select a language using keyboard shortcuts, use the following:
 
 - All Languages
+
   - To cycle the IME forward (or move to the right keyboard layout), press
     **Shift**
     **+Control**
@@ -31,11 +32,14 @@ The following languages are currently supported by WorkSpaces Secure Browser's I
   - To access language and input settings, use the language selector on the top panel bar. If not visible, enable it via **Toolbar** → **Preferences** → **General** → **Keyboard input method**.
 
 - Japanese
+
   - For macOS users: If you're using a US input source, you may experience input issues. To resolve this:
+
     1. Select a Japanese input source (e.g., Japanese - Kana or Japanese - Romaji) instead of the US input source on your macOS.
     2. In the WorkSpaces Secure Browser session, go to **Toolbar** → **Preferences** → **Keyboard** → **Option key setting** and select **Use Option (⌥) as remote Alt key (Mac)** to ensure keyboard shortcuts work properly.
 
   - Converting input characters
+
     - To convert characters to Hiragana, press **F6**.
     - To convert characters to Katakana, press **F7**.
     - To convert characters to Hankaku Katakana (Half-width Katakana), press **F8**
@@ -43,6 +47,7 @@ The following languages are currently supported by WorkSpaces Secure Browser's I
     - To convert characters to Wide Latin, press **F9**.
 
   - Switching input modes
+
     - To switch from Hiragana to Katakana, press
       **Alt/Option**
       **+K**

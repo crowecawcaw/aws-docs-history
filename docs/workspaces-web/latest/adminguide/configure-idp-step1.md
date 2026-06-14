@@ -7,6 +7,7 @@ Complete the following steps to configure your identity provider:
 2. Choose **Continue with Standard IdP**.
 3. Download the SP metadata file, and keep the tab open for individual metadata
    values.
+
    - If the SP metadata file is available, choose **Download metadata
      file** to download the service provider (SP) metadata document, and
      upload the service provider metadata file to your IdP in the next step. Without
@@ -17,11 +18,13 @@ Complete the following steps to configure your identity provider:
 4. Under **Choose SAML sign-in type**, choose between
    **SP-initiated and IdP-initiated SAML assertions**, or
    **SP-initiated SAML assertions only**.
+
    - **SP-initiated and IdP-initiated SAML assertions** allow
      your portal to support both types of sign-in flows. Portals that support
      IdP-initiated flows allow you to present SAML assertions to the service identity
      federation endpoint without requiring users to launch a session by visiting the
      portal URL.
+
      - Choose this to allow the portal to accept unsolicited IdP-initiated SAML
        assertions.
      - This option requires a **default Relay State** to be
@@ -30,6 +33,7 @@ Complete the following steps to configure your identity provider:
        in**, or you can copy it from the SP metadata file under
        `<md:IdPInitRelayState>`.
      - Note
+
        - The following is the format of the relay state:
          `redirect_uri=https%3A%2F%2Fportal-id.workspaces-web.com%2Fsso&response_type=code&client_id=1example23456789&identity_provider=Example-Identity-Provider`.
        - If you copy and paste the value from the SP metadata file, make sure

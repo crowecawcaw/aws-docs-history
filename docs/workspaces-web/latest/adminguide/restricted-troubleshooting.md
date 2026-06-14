@@ -8,6 +8,7 @@ internet, follow these steps to try to resolve your issue:
   and test the connection from the private EC2 instance to your proxy endpoint.
 - Verify that the proxy has internet access.
 - Verify that the Chrome policy is correct.
+
   - Confirm the following formatting for the `ProxyServer` field of
     the policy: `<Proxy DNS name>:<Proxy port>`. There should be no
     `http://` or `https://` in the prefix.

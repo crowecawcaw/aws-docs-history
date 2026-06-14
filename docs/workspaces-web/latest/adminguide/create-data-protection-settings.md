@@ -10,6 +10,7 @@ You can create data protection settings in WorkSpaces Secure Browser.
 3. Choose **Create Data Protection Settings**.
 4. Enter a display name (required) and description (optional) for the setting.
 5. Select the default settings for inline redaction. You can set the following:
+
    - The level of strictness of all data types
    - The domains on which redaction should be enforced
 

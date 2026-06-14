@@ -7,6 +7,7 @@ application IDs. To create your custom inline redaction pattern, follow these st
 2. Choose **Custom inline redaction** and **add**.
 3. Enter a name for the custom data type.
 4. Enter your regular expression value.
+
    - Regular expression values must match the JavaScript regular expression literal syntax.
      For more information, see [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions"). An example regular expression is
      `/ex[am]+ple/i`.
@@ -17,6 +18,7 @@ application IDs. To create your custom inline redaction pattern, follow these st
 5. Specify the replacement value.
 6. Choose **More options** for more optional customizations, including the
    following:
+
    - Add **keywords** to fine tune the redaction logic. Keywords can
      increase the accuracy of enforcement. Add keywords in the Javascript regular expression
      literal syntax. For more information, see [Regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions").

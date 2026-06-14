@@ -16,6 +16,7 @@ To control the interval for re-authenticating a SAML IdP token
 1. Set the IdP timeout duration with your SAML IdP provider. We recommend configuring your
    IdP timeout duration with the shortest amount of time necessary for a user to complete their
    tasks.
+
    - For more information about Okta, see [Enforce a limited session lifetime for all policies](https://help.okta.com/en/prod/Content/Topics/Security/healthinsight/session-lifetime.htm "https://help.okta.com/en/prod/Content/Topics/Security/healthinsight/session-lifetime.htm").
    - For more information about Azure AD, see [Configuring authentication session controls](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#configuring-authentication-session-controls "https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#configuring-authentication-session-controls").
    - For more information about Ping, see [Sessions](https://docs.pingidentity.com/bundle/pingfederate-93/page/pqn1564002990312.html "https://docs.pingidentity.com/bundle/pingfederate-93/page/pqn1564002990312.html").

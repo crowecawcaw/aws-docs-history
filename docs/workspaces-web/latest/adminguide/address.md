@@ -4,6 +4,7 @@ To access WorkSpaces Secure Browser instances, user devices require outbound acc
 ports:
 
 - Port 443 (TCP)
+
   - Port 443 is used for HTTPS communication between user devices and streaming
     instances when using the internet endpoints. Typically, when end users browse the
     web during streaming sessions, the web browser randomly selects a source port in
@@ -18,6 +19,7 @@ ports:
     command. For more information, see [Querying the Public IP Address Ranges for AWS](https://aws.amazon.com/blogs/developer/querying-the-public-ip-address-ranges-for-aws/ "https://aws.amazon.com/blogs/developer/querying-the-public-ip-address-ranges-for-aws/").
 
 - (Optional) Port 53 (UDP)
+
   - Port 53 is used for communication between user devices and your DNS servers.
   - This port is optional if you are not using DNS servers for domain name
     resolution.

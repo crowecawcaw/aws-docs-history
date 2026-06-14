@@ -19,6 +19,7 @@ To access the dashboard, follow these steps.
 In the sessions panel, you can filter sessions by the following properties or values:
 
 - **Status**
+
   - **Active** – Indicates a session is currently running. To
     terminate the session, see below.
   - **Terminated** – Indicates a session is no longer

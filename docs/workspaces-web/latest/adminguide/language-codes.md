@@ -5,6 +5,7 @@ local browser is set to use a language code that isn't supported, the session de
 English (en-US).
 
 - German
+
   - de – German
   - de-AT – German (Austria)
   - de-DE – German (Germany)
@@ -12,6 +13,7 @@ English (en-US).
   - de-LI – German (Liechtenstein)
 
 - English
+
   - en – English
   - en-AU – English (Australia)
   - en-CA – English (Canada)
@@ -22,6 +24,7 @@ English (en-US).
   - en-US – English (United States)
 
 - Spanish
+
   - es – Spanish
   - es-AR – Spanish (Argentina)
   - es-CL – Spanish (Chile)
@@ -37,34 +40,41 @@ English (en-US).
   - es-VE – Spanish (Venezuela)
 
 - French
+
   - fr – French
   - fr-CA – French (Canada)
   - fr-FR – French (France)
   - fr-CH – French (Switzerland)
 
 - Indonesian
+
   - id – Indonesian
   - id-ID – Indonesian (Indonesia)
 
 - Italian
+
   - it – Italian
   - it-IT – Italian (Italy)
   - it-CH – Italian (Switzerland)
 
 - Japanese
+
   - ja – Japanese
   - ja-JP – Japanese (Japan)
 
 - Korean
+
   - ko – Korean
   - ko-KR – Korean (Korea)
 
 - Portuguese
+
   - pt – Portuguese
   - pt-BR – Portuguese (Brazil)
   - pt-PT – Portuguese (Portugal)
 
 - Chinese
+
   - zh – Chinese
   - zh-CN – Chinese (China)
   - zh-HK – Chinese (Hong Kong)
