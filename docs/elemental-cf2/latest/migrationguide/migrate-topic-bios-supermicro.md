@@ -40,10 +40,12 @@ You can use these keys to work on the screen:
 4. On the main menu, choose **Advanced**.
 5. In **sSATA Configuration**, change the following line
    to **Legacy**:
+
    - **sSATA RAID Option ROM/UEFI Driver**
 
 6. In **PCIe/PCI/PnP Configuration**, change the
    following lines to **Legacy**:
+
    - **AOC-URN2-14GXS-SLOT1 PCI-E 3.0 X8
      OPROM**
    - **RSC-RIUW-EBR SLOT1 PCI-E X8 OPROM**
@@ -56,6 +58,7 @@ You can use these keys to work on the screen:
 
 7. Still in **PCIe/PCI/PnP Configuration**, change the
    following lines to **Disabled:**
+
    - **Onboard LAN NVMe1 OPROM**
    - **Onboard LAN NVMe2 OPROM**
 

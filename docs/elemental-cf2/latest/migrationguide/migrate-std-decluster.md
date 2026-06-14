@@ -5,6 +5,7 @@ nodes from the cluster.
 
 1. Remove every worker node from the cluster. You perform this action from the
    primary Conductor node.
+
    1. On the primary Conductor web interface, choose **Nodes**.
    2. On the **Nodes** screen, scroll down to
       the list of nodes.
@@ -15,8 +16,10 @@ nodes from the cluster.
 
 2. If you have a secondary conductor in the cluster, you need to remove the
    secondary conductor node from the cluster.
+
    1. If HA mode is enabled, you need to disable HA mode on the **secondary** conductor.
    2. Remove the secondary conductor node from the cluster
+
       1. From the Linux prompt, log in to the conductor node with the
          _elemental_ user
          credentials.
@@ -26,7 +29,6 @@ nodes from the cluster.
       [elemental@hostname ~]$ cd /opt/elemental_se
       [elemental@hostname ~]$ sudo ./configure -s -c -t -n -z -xeula
       ```
-
       3. You will see the following prompts:
 
       ```

@@ -4,6 +4,7 @@
    install Conductor File software. Use the _elemental_ user
    credentials.
 2. Run the installer:
+
    - For the **primary** (or only) Conductor File, enter this
      command:
 

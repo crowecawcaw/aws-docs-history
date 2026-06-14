@@ -5,6 +5,7 @@
    database on secondary conductor file node.
 3. If you have a secondary conductor in the cluster, you need to add the
    secondary conductor to the cluster.
+
    1. From the Linux prompt, log in to the secondary conductor node with the
       _elemental_ user
       credentials.
@@ -14,7 +15,6 @@
    [elemental@hostname ~]$ cd /opt/elemental_se
    [elemental@hostname ~]$ sudo ./configure -s -c -t -n -z -xeula
    ```
-
    3. You will see the following prompts:
 
    ```
@@ -35,6 +35,7 @@
 4. If HA mode is enabled before, you need to re-enable it again.
 5. Restore the database on all the worker nodes.
 6. Add all the worker nodes back to the cluster
+
    1. From the Linux prompt, log in to the worker node with the _elemental_ user credentials.
    2. Run the following commands:
 
@@ -42,7 +43,6 @@
    [elemental@hostname ~]$ cd /opt/elemental_se
    [elemental@hostname ~]$ sudo ./configure -s -c -t -n -z -xeula
    ```
-
    3. After being prompted to add the worker node to the Conductor File
       cluster, you are asked to trust the public key from the conductor
       node(s). You must accept this for the Conductor File node to control the
