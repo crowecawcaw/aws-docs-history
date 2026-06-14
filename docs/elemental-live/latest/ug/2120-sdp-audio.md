@@ -37,6 +37,7 @@ it creates.
 
 - **a=rtpmap** provides information about the audio
   format:
+
   - An example for PCM:
 
   `a=rtpmap:97 L24/48000/2`

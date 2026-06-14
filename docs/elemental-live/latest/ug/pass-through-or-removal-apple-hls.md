@@ -7,6 +7,7 @@ be applied differently for different outputs in the same group.
 2. In the Profile or Event screen, go to the Output Groups section at the bottom
    of the screen and display the tab for **Apple HLS Output
    Group**.
+
    1. In each output, open the PID Control section. You
       will note that the SCTE-35 field is automatically
       selected
@@ -15,6 +16,7 @@ be applied differently for different outputs in the same group.
       clear
       it .
    2. Complete the following field:
+
       - SCTE-35 PID field: Enter the ID of the PID where you want the
         SCTE-35 messages to go.
 

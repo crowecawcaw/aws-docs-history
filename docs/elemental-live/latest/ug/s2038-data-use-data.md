@@ -12,6 +12,7 @@ with the general steps for creating an event.
 - For timecode, set the **Timecode Source** (in
   **Video Selector**) using one of the
   following options:
+
   - If the SMPTE 2038 contains a timecode and you want to
     use it – Set the source to **Embedded**.
     Elemental Live will extract the timecode from the SMPTE
@@ -23,6 +24,7 @@ with the general steps for creating an event.
 - For captions, in **Input** >
   **Caption Selector**, set up the captions in
   the usual way.
+
   - If you don't want to use the captions from the SMPTE
     2038 – Don't create any caption selectors that specify the
     captions of that type.
@@ -40,6 +42,7 @@ with the general steps for creating an event.
 
 - For AFD signals, you can choose to use the AFD signals to
   modify the video:
+
   - If you don't want to use the signals – Set
     **Respond to AFD** and **Insert
     AFD signaling** to
@@ -56,6 +59,7 @@ with the general steps for creating an event.
 
 - For SCTE 104 messages, Elemental Live automatically converts
   the messages to SCTE 35 messages.
+
   - If you don't want to include the SCTE 35 messages in the
     output – There is nothing you need to do because omitting
     the messages is the default behavior.

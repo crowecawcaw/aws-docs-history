@@ -8,6 +8,7 @@ Use case 1 is described [here](typical-use-cases.md#use-case-1 "typical-use-case
    input.
 2. Once the event starts, create a dynamic playlist
    that consists of the following:
+
    - Second input – ad content – from
      file.
    - Third input – live input (identical to
@@ -34,9 +35,11 @@ Use case 2 is described [here](typical-use-cases.md#use-case-2 "typical-use-case
 
 1. Create an event that has the live feed as the
    input.
+
    - Once the event starts, create a dynamic
      playlist that consists of the
      following:
+
      - Second input – ad content – from
        file.
      - Fourth input and others – file
@@ -68,6 +71,7 @@ Use case 3 is described [here](typical-use-cases.md#use-case-3 "typical-use-case
    input.
 2. Once the event starts, create a dynamic playlist
    that consists of the following:
+
    - Second input – a file that displays the
      desired content. Include the loop_source tag
      for this input in order to play the content
@@ -94,10 +98,12 @@ Use case 4 is described [here](typical-use-cases.md#use-case-4 "typical-use-case
 1. Create an event that has the live feed as the input.
 2. Once the event starts, create a dynamic playlist that
    consists of the following:
+
    - Second input – a live input from a different
      live source.
 
 3. Follow the desired action:
+
    - Optionally set an activate time to return to
      the live feed. Or omit an activate time and let
      the live feed resume when the last file has
@@ -117,6 +123,7 @@ Use case 5 is described [here](typical-use-cases.md#use-case-5 "typical-use-case
     true.
 2.  Once the event starts, create a dynamic playlist
     that consists of the following:
+
     - Second input – a file input.
 
 3.  Once the second input has become Active:
@@ -133,6 +140,7 @@ Use case 5 is described [here](typical-use-cases.md#use-case-5 "typical-use-case
 
 4.  Once the first input has become Active
     again:
+
     - Modify the second input to point to a
       different file source. Change other tags as
       required (for example, the audio
@@ -150,6 +158,7 @@ Use case 6 is described [here](typical-use-cases.md#use-case-6 "typical-use-case
    input.
 2. Once the event starts, create a dynamic playlist
    that consists of the following:
+
    - Second input – a file input such as a
      movie. Include the input_clipper tags to
      clip content. For example, clip it to run
@@ -170,6 +179,7 @@ Use case 6 is described [here](typical-use-cases.md#use-case-6 "typical-use-case
 3. Let each input complete. The next input in the XML
    will automatically start.
 4. When the last file input becomes Active:
+
    - Optionally set an activate time to return
      to the live feed. Or omit an activate time
      and let the live feed resume when the last

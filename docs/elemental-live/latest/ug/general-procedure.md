@@ -181,6 +181,7 @@ of an unanticipated interruption.
 
 - If necessary, add input B to the dynamic playlist.
   There are two ways to add:
+
   - Rebuild the entire playlist, with input B
     inserted at the top, using the Replace
     Dynamic Playlist command. The currently

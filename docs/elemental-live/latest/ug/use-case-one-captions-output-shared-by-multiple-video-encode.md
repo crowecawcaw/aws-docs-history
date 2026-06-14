@@ -26,6 +26,7 @@ associate them with all three video encodes.
 2. Create an HLS output group.
 3. Create one output and set up the video and audio for low-resolution video.
 4. In that same output, create one captions asset with the following:
+
    - **Captions selector name**: Captions Selector 1.
    - **Captions settings**: One of the Embedded formats.
    - **Language code** and **Language
@@ -35,6 +36,7 @@ associate them with all three video encodes.
 5. Create a second output and set up the video and audio for medium-resolution
    video.
 6. In that same output, create one captions asset with the following:
+
    - **Captions selector name**: Captions Selector 1.
    - **Captions settings**: One of the Embedded formats.
    - **Language code** and **Language
@@ -44,6 +46,7 @@ associate them with all three video encodes.
 7. Create a third output and set up the video and audio for high-resolution
    video.
 8. In that same output, create one captions asset with the following:
+
    - **Captions selector name**: Captions Selector 1.
    - **Captions settings**: One of the Embedded formats.
    - **Language code** and **Language
@@ -67,6 +70,7 @@ TTML captions, one for English and one for Spanish.
 1. On the web interface, on the **Event** screen, for
    **Input Settings**, choose **Add captions
    selector** twice, to create the following captions selectors:
+
    - Captions selector 1: for Embedded English.
    - Captions Selector 2: for Embedded Spanish.
 
@@ -80,6 +84,7 @@ TTML captions, one for English and one for Spanish.
 6. Create a fourth output that contains one audio encode and no video encode.
 7. Create a fifth output that contains one captions encode and no video or audio
    encodes and with the following settings for the captions encode:
+
    - **Captions selector name**: Captions Selector 1.
    - **Captions settings**: TTML.
    - **Language code** and **Language
@@ -87,6 +92,7 @@ TTML captions, one for English and one for Spanish.
 
 8. Create a sixth output that contains one captions encode and no video or audio
    encodes, and with the following settings for the captions encode:
+
    - **Captions selector name**: Captions Selector 2.
    - **Captions settings**: TTML.
    - **Language code** and **Language

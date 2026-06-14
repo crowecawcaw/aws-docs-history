@@ -41,6 +41,7 @@ contains:
 - Various general tags.
 - One or more input elements that each
   contain:
+
   - A unique ID tag.
   - A unique input_label tag
     (optional).

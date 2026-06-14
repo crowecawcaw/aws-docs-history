@@ -63,6 +63,7 @@ You now have four inputs in the order A, B, C, D.
      **Failback Rule** fields.
 
 6. Make these changes in input B:
+
    - **Error Clear Time**: Enter a time. After all the
      failover conditions are no longer applicable Elemental Live waits for the
      specified time before it fails back to input A.

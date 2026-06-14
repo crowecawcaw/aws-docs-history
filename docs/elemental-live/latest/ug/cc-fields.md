@@ -2,6 +2,7 @@
 
 - **CC Channel number**: This field specifies the language to
   extract. Complete as follows:
+
   - If you are setting up embedded passthrough only (you are creating only one
     captions selector for the input embedded captions), this field is ignored, so keep
     the default.

@@ -60,6 +60,7 @@ codec.
    section.
 3. Choose **Video** and set up the video
    fields, including:
+
    - **Video Codec** –
      Choose **Frame Capture to
      JPEG**.

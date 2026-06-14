@@ -17,6 +17,7 @@ Elemental Live must have permissions on MediaConnect. Follow this procedure to s
 1. Log into the AWS console and go to the IAM console.
 2. On the left menu, choose Policies. Use the filters to determine if there is already a policy with a name similar to "ElementalAccessToMediaConnect".
 3. If the policy does not exist, choose Create policy. Click the Visual editor tab and create the policy using the IAM policy generator. This generator lets you choose the service from a list and then choose operations from a list:
+
    - Service: MediaConnect.
    - Actions: Under List, click DescribeFlow and ListFlows.
    - Resources: If your organization does not have strict rules about accessing containers on MediaConnect, you can ignore this section; you will have access to all flows. Otherwise, follow your internal policies to identify specific flows.
@@ -32,6 +33,7 @@ If you plan to encrypt the output from Elemental Live when you send it to MediaC
 
 1. Log into the AWS console and go to the IAM console. Choose Policies and look for a policy that gives MediaConnect the permissions for Secrets Manager. If you or someone else previously followed the procedure in [Step 2: Create an IAM Policy to Allow AWS Elemental MediaConnect to Access Your Secret](../../../mediaconnect/latest/ug/encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-policy "../../../mediaconnect/latest/ug/encryption-static-key-set-up.md#encryption-static-key-set-up-create-iam-policy"), then this policy will be called `SecretsManagerForMediaConnect`.
 2. If this policy exists, make sure it contains the following actions:
+
    - DescribeSecret
    - GetResourcePolicy
    - GetSecretValue
@@ -46,6 +48,7 @@ If you plan to encrypt the output from Elemental Live when you send it to MediaC
 
 1. Log into the AWS console and go to the IAM console.
 2. If the user does not exist or it does exist but you want to create separate users for each Elemental product, choose Add User. (Note that you may want separate users for separate products, but there is probably no need to create a separate user for each Elemental node.) Follow the prompts to add the user with this information:
+
    - Give the user a name such as `ElementalUser`.
    - For Access type, choose Programmatic access. Do not choose Console access.
    - In permissions, choose Attach existing policies directly. Attach the policies you created above. For example, `ElementalAccessToMediaConnect` and `SecretsManagerReadSecrets`.
@@ -87,11 +90,13 @@ You must follow this procedure before you create the Elemental Live outputs beca
    _AWS Elemental MediaConnect User Guide_.
 3. Complete Availability Zone and Name as appropriate. These fields do not relate to using Elemental Live as the source.
 4. In the Source section, follow the steps for setting up a standard source. Specifically:
+
    - Protocol: Zixi push.
    - Whitelist CIDR block: This is the IP address (in CIDR format) of the Elemental node that will be delivering to this flow. It must be a public facing IP address. Speak to your organization's administrator for a value to enter here.
    - Stream ID: You must enter a value when Elemental Live is the source.
 
 5. If you are encrypting the video, check Enable in the Decryption section and complete the fields as described in the MediaConnect documentation. Specifically:
+
    - Decryption type: Always Static key.
    - Role ARN: The role that has been set up for MediaConnect to be a trusted entity with Secrets Manager. See [Step 3: Create an IAM Role with a Trusted Relationship](../../../mediaconnect/latest/ug/encryption-speke-set-up.md#encryption-speke-set-up-create-iam-role "../../../mediaconnect/latest/ug/encryption-speke-set-up.md#encryption-speke-set-up-create-iam-role") in the
      _AWS Elemental MediaConnect User Guide_. You must specify this role ARN here so that MediaConnect can obtain the encryption key.
@@ -118,12 +123,14 @@ You must create one output group of type "Reliable TS". Inside that group, you m
 1. In the Elemental Live event, go to Output Groups > Reliable TS.
 2. Click Add Output to create an output in this Reliable TS output group.
 3. Complete the fields in each output as follows:
+
    - Delivery Protocol: Choose AWS Elemental MediaConnect.
    - Destination/Amazon Resource Name: Enter the ARN for the flow. Following from the example above, enter the following in the first output:
 
    `arn:aws:mediaconnect:us-west-1:111122223333:flow:1bgf67:curling_finals_A`
    - Interface: Optional; see the tooltip.
    - Lock icon: Click this icon. Two more fields appear:
+
      - Username/Access Key ID: The Access key ID for the user you created in AWS IAM. For example, AKIAIOSFODNN7EXAMPLE
      - Password/Secret Access Key: The Secret access key for this user. For example, wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 

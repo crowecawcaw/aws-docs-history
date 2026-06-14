@@ -65,6 +65,7 @@ Follow this procedure to create a user:
    for separate _products_, but there is probably no
    need to create a separate user for each Elemental _node_.) Follow the prompts to add the user with this
    information:
+
    - Give the user a name such as `ElementalUser`.
    - For **Access type**, choose **Programmatic access**. Do not choose **Console access**.
    - In permissions, choose **Attach existing policies directly**. Attach the policy
@@ -73,6 +74,7 @@ Follow this procedure to create a user:
 
 4. Create the user and choose **Close**.
 5. On the left menu, choose **Users** again:
+
    - Choose the user name, for example, `ElementalUser`.
    - Choose the **Security** tab.
    - Choose **Create Access Key**.

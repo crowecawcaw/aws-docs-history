@@ -15,6 +15,7 @@ the general steps for creating an event.
 1. On the web interface, got to the **Inputs** section
    of the event.
 2. Complete the **Input** section as follows:
+
    - **Input Type**: Choose Network Input.
    - **Input Name**: Enter the label for the input,
      obtained from the POIS operator.
@@ -23,6 +24,7 @@ the general steps for creating an event.
 
 3. Open the **Advanced** section of this input and
    complete the following fields (on the first line of fields)
+
    - **Virtual Input**: Choose this field to set up the
      input as a virtual input. Elemental Live notifies the POIS only about
      inputs that are configured as virtual inputs.
@@ -34,6 +36,7 @@ the general steps for creating an event.
 
 4. Go to the **Video Selector** section of this input
    and complete the following fields:
+
    - **Program**, in **Video
      Selector**: Enter the program number of the individual program
      in the mpts.
@@ -41,6 +44,7 @@ the general steps for creating an event.
 5. Set up the audio and captions for this MPTS in the usual way.
 6. Set up more inputs, for other programs in the MPTS. For all the
    inputs, these rules apply:
+
    - The URLs must be identical, because the programs must all be in the
      same MPTS.
    - The Input names must each be different.
@@ -59,6 +63,7 @@ the general steps for creating an event.
 1. On the web interface, got to the **Inputs** section
    of the event.
 2. Complete the **Input** section as follows:
+
    - **Input Type**: Choose File Input or HLS File
      Input.
    - **Input Name**: Enter the label for the input,
@@ -68,6 +73,7 @@ the general steps for creating an event.
 
 3. Open the **Advanced** section of this input and
    complete the fields as follows:
+
    - **Virtual Input**: Choose this field to set up the
      input as a virtual input. Elemental Live notifies the POIS only about
      inputs that are configured as virtual inputs.

@@ -3,6 +3,7 @@
 1. Create a file – Use a third-party process to convert
    an animation asset to a series of PNG files.
 2. Take care with these aspects of the conversion:
+
    - File count: When you insert the files into the video,
      you will specify the frame rate for the motion overlay.
      Therefore, make sure that the conversion results in a
@@ -33,6 +34,7 @@
    - Position: The motion overlay cannot be positioned so
      that part of the motion overlay runs beyond the right
      edge or bottom edge of the underlying video.
+
      - If you set up a motion overlay so that it is
        too big or it overruns and Elemental Live can
        identify this error at event creation time, then

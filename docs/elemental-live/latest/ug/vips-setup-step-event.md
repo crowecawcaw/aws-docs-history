@@ -14,6 +14,7 @@ general steps for creating an event.
 1. On the web interface, open the **Ad Avail Controls**
    section of the event.
 2. Complete the fields as follows:
+
    - **Ad Avail Trigger**: ESAM.
    - **Acquisition Point Identifier**: The value that
      you [obtained from the POIS
@@ -31,4 +32,5 @@ general steps for creating an event.
 
 3. Complete this field only if you want to enable asynchronous input
    switching:
+
    - **Unsolicited ESAM Server**.

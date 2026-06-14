@@ -24,6 +24,7 @@ two copies must be completely identical.
 
 - Decide if you want to encrypt the content. If you do, discuss
   the following with the downstream destination:
+
   - Discuss the encryption level with the administrator of
     the downstream system. Both sides must use the same level.
     You can use AES 128, AES 192, or AES 256. You should
@@ -37,6 +38,7 @@ two copies must be completely identical.
 
 - Discuss the following with the administrator of the downstream
   destination:
+
   - Obtain the IP address and port for each destination for
     the output. For example, `198.51.100.0:2088`.
   - Make sure that the administrator of the downstream

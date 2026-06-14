@@ -1,6 +1,7 @@
 # Step A: Prepare the overlay asset
 
 1.  Create a file with the following characteristics:
+
     - File type: A BMP, PNG, or TGA file.
     - Aspect ratio: The overlay can have any aspect ratio. It does not have
       to match the aspect ratio of the underlying video.
@@ -8,6 +9,7 @@
       the underlying video. The overlay cannot be positioned so that part of
       the overlay runs beyond the right edge or bottom edge of the underlying
       video.
+
       - If you set up an overlay so that it is too big or it overruns an
         edge, if Elemental Live can identify this error at event creation time,
         an error message will appear then.

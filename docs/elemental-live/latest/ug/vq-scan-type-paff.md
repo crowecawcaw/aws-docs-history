@@ -16,6 +16,7 @@ following are the settings and internal algorithms tied to the scan type:
 - **Force Field Pictures**: This field
   appears only if the codec is H.264 and only affects GPU-enabled versions
   of Elemental Live.
+
   - **Enabled**: All outputs are forced to
     use PAFF field picture encoding.
   - **Disabled**: Elemental Live switches

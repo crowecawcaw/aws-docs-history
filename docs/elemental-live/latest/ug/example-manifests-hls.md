@@ -18,6 +18,7 @@ the end of the avail.
 **Tag contents**
 
 - CUE:DURATION containing:
+
   - duration: Duration in fractional seconds.
   - id: An identifier, unique among all ad avails CUE tags.
   - type: SpliceOut
@@ -86,6 +87,7 @@ The following is the tag for an ad avail lasting 414.171 PTS.
   message.
 - 1 CUE-OUT per ad avail.
 - CUE-OUT-CONT containing:
+
   - The elapsed time of the avail.
   - The duration declared in the original SCTE35 message.
   - SCTE35 containing the base-64-encoded raw bytes of the original SCTE-35

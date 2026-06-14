@@ -5,6 +5,7 @@ This section assumes the following:
 - We assume that you know how to use the AWS console, AWS Identity and Access Management, and
   AWS Elemental MediaConnect, and that you have access to the user guides for the
   AWS services:
+
   - [What Is
     AWS Elemental MediaConnect?](../../../mediaconnect/latest/ug/what-is.md "../../../mediaconnect/latest/ug/what-is.md") in the
     _AWS Elemental MediaConnect User Guide_

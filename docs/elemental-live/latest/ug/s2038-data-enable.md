@@ -15,6 +15,7 @@ and passthrough.
 
 1.  Speak to the content provider to obtain information about the
     SMPTE 2038 ancillary data in the source:
+
     - Find out which of the four types of ancillary data are
       in the SMPTE 2038. If the ancillary data includes captions,
       find out which format of captions is present.
@@ -47,6 +48,7 @@ and passthrough.
 
 4.  In **Input** > **Advanced**,
     set **Prefer SMPTE 2038**:
+
     - **Checked** – You should choose this
       option if the source content contains SMPTE 2038 ancillary
       data. If the content provider has included SMPTE-2038, they

@@ -30,6 +30,7 @@ Or
 
 - One prepare_input element that
   contains:
+
   - One input_id tag that contains the ID
     of the input to prepare or one
     input_label tag that contains the

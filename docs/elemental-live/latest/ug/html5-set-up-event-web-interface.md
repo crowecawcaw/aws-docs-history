@@ -9,6 +9,7 @@
    go to the **Image Inserter** field and
    choose **On**. More fields appear.
 3. Complete these fields:
+
    - **Insertion Mode**: Choose
      **HTML**.
    - **Input**: Enter the location of

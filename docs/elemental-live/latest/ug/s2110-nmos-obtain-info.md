@@ -34,6 +34,7 @@ You and the NMOS operator might agree to this setup:
 
 - SDP 1: Video stream
 - SDP 2: Audio stream containing three audio descriptions, in this order:
+
   - English Dolby Digital
   - French Dolby Digital
   - Spanish Dolby Digital

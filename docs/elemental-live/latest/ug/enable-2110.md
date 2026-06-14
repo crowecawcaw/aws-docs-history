@@ -33,6 +33,7 @@ After you reserve the cores, AWS Elemental Live uses these cores only for proces
 7. Choose **Save**.
 8. Stop and restart the service for your changes to take effect. You can do this in
    the web interface or in the command line interface (CLI).
+
    - In the web interface, go to the **Settings** tab, select
      **Stop Service** and then **Start
      Service**.

@@ -70,6 +70,7 @@ For detailed information about the tags, see [Fields for a MOV asset](mov-set-up
    `<ID>` tags for many elements including
    IDs for the following motion image inserter
    elements:
+
    - `motion_image_inserter`
    - `motion_image_inserter_input`
 

@@ -17,6 +17,7 @@ steps for creating a Elemental Live event or Conductor Live channel.
 4.  Click **Advanced** to show more fields for this input. Scroll
     down to the selectors section of this input. Complete the selectors as
     follows:
+
     - **Video Selector**: Leave the single selector that
       appears by default. Ignore the **Program** and
       **PID** fields, which don't apply to SMPTE 2110 NMOS

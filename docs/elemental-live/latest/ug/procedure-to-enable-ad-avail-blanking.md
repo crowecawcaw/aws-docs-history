@@ -8,6 +8,7 @@
    or
    clear
    the two restriction fields:
+
    - **Cleared**
      (default): Observe the restriction and blank the content
      for the ad avail event.
@@ -17,6 +18,7 @@
 
 3. Go down to the Global Processors section and complete the following
    fields:
+
    - **Ad Avail Blanking**: Click to turn on.
      The **Blanking Image** field appears.
    - **Blanking Image**: Specify a

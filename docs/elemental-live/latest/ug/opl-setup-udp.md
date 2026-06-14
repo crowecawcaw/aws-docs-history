@@ -5,6 +5,7 @@ output locking.
 
 1. Go to the **UDP/TS Output Group** section of
    the event. Set the fields as follows.
+
    - **Custom Group Name**: Enter the same name
      across all events in the pool.
    - Set other fields to suit your workflow.

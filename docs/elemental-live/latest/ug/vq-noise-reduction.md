@@ -7,6 +7,7 @@ quality.
 
 - The **Filter** parameter has four
   options:
+
   - **Mean / Gaussian / Lanczos**: All of these
     algorithms allow for varying blur strengths. **Mean**
     is the strongest filter; it operates on a smaller group of pixels.

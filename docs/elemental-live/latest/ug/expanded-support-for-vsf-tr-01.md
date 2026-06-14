@@ -58,6 +58,7 @@ Perform the following steps to set up a new event.
 1. In Input, set the Input type to Network Input. In Network Location, specify an
    IP address.
 2. In Input > Advanced, set the Prefer SMPTE-2038 field as appropriate:
+
    - If you do not want Elemental Live to look at the SMPTE-2038, uncheck this field.
      When the Prefer SMPTE-2038 field is unchecked (default), then Elemental Live follows
      the legacy behavior. It looks for ancillary data in the native TS. Even if a

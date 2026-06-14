@@ -25,6 +25,7 @@ need:
    output only when the associated stream contains only one video stream.
 7. Change the **Audio Rendition Sets** field to specify the
    rendition group or groups to associate with this video:
+
    - To associate the video with one rendition group, enter the name of the rendition
      group.
    - To associate the video with several rendition groups, enter a comma-separated list of
@@ -40,6 +41,7 @@ Follow these steps for each audio-only output you need:
 4. In that stream, delete the default **Video** and **Captions** tabs.This stream is now an audio stream.
 5. Complete the following fields in the **Advanced**
    section:
+
    - **Stream Name**: The wording for the NAME parameter in
      the manifest, as described in [Audio information for an HLS output group with audio rendition group event](hls-rendition-groups-sample-manifest.md#hls-rendition-groups-sample-manifest-audio-information "hls-rendition-groups-sample-manifest.md#hls-rendition-groups-sample-manifest-audio-information"). This is the
      audio description that the client player user interface displays. If the description is a

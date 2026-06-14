@@ -29,6 +29,7 @@ specify the languages and the order in which they appear.
    group.
 3. Create one output and set up the video and audio.
 4. In that same output, create one captions asset with the following:
+
    - **Captions selector name**: Captions selector 1.
    - **Captions settings**: One of the Embedded formats.
    - **Language code** and **Language

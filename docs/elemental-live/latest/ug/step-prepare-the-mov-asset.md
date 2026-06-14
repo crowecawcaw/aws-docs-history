@@ -4,6 +4,7 @@
    a MOV file encoded with Apple QuickTime Run Length Encoding.
    Other codecs in the MOV container are not supported. Take care
    with the following settings:
+
    - Aspect ratio: The motion overlay can have any aspect
      ratio. It does not have to match the aspect ratio of the
      video output.
@@ -17,6 +18,7 @@
    - Position: The motion overlay cannot be positioned so
      that part of the motion overlay runs beyond the right
      edge or bottom edge of the underlying video.
+
      - If you set up a motion overlay so that it is
        too big or it overruns and Elemental Live can
        identify this error at event creation time, then

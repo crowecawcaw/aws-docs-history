@@ -40,5 +40,6 @@ inserted.
 - **Force 608 to 708 Upconvert**: SCC source captions are EIA-608
   format and are contained in an external file. The options for converting the caption
   are the following:
+
   - Check: To convert the captions to CEA-708 format.
   - Unchecked: To leave the captions unconverted.

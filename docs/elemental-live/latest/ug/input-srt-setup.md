@@ -9,6 +9,7 @@ stream is the sender and is set up as an SRT listener.
 1. From the **Input** menu in your event, select
    **Secure Reliable Transport**.
 2. Complete the following fields:
+
    - **Network Location**: The IP address
      and host that you obtained from the upstream, with the
      protocol. For example:
@@ -24,6 +25,7 @@ stream is the sender and is set up as an SRT listener.
      upstream system provided it.
 
 3. Complete the encryption fields, if applicable:
+
    - **Encryption**: Choose
      **None**, or choose the encryption
      level that you obtained from the upstream system.

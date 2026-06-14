@@ -19,6 +19,7 @@ set up the audio encodes (outputs) that will contain the watermarks.
 3. Set **Nielsen Watermarking** to
    **On**. More fields appear.
 4. Set the following fields to suit your requirements. For information about a field, hover on the upper-right corner of the field and choose the **?** icon.
+
    - Process Type
    - Distribution Type
 

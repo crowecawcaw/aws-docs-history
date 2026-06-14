@@ -21,6 +21,7 @@ PUT http://<Live IP Address>/live_events/<live event id>
 2. In the body of the request, include one
    `motion_image_inserter` element inside the
    `live_event` tag. Complete these tags:
+
    - `insertion_mode`: Set to HTML.
    - `motion_image_inserter_input`: Enter
      the location and file name of the HTML5 asset.
@@ -58,6 +59,7 @@ For detailed information about the tags, see [Fields for an HTML5 asset](html5-s
    `<ID>` tags for many elements, including
    IDs for the following motion image inserter
    elements:
+
    - `motion_image_inserter`
    - `motion_image_inserter_input`
 

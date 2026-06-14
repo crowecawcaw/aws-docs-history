@@ -7,6 +7,7 @@ outputs that have an MPEG-2 TS container.
    of the screen and display the tab for Archive Output Group.
 2. In the output that has the MPEG-2 TS container, open the PID Control section.
    Complete the following fields:
+
    - SCTE-35: Click to
      select.
    - SCTE-35 PID: Enter the ID of the PID where you want the SCTE-35 messages

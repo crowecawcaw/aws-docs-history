@@ -4,9 +4,11 @@ We strongly recommend that you perform this performance testing before you deplo
 appliance into production.
 
 1. Design the lab tests as follows:
+
    - Set up all of the workflows that you expect to run on the appliance.
    - Obtain input that is a good example of the most complex source that you expect to
      handle. A complex source is one that has video that includes the following:
+
      - A lot of movement and change of scene.
      - Possibly a ticker tape or other strip of text.
      - Broad areas of the same color, like a grassy area, because high video quality of these
@@ -18,6 +20,7 @@ appliance into production.
    - Run the events for several days.
 
 2. Monitor the events as described in this section:
+
    - Frequently measure the CPU usage, RAM usage, I/O bandwidth, and
      system bandwidth. See [Assessing performance by measuring](performance-measures.md "performance-measures.md").
    - Continually monitor the logs that Elemental Live produces. See [Assessing performance with logging messages](performance-via-logs.md "performance-via-logs.md").

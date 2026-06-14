@@ -52,6 +52,7 @@ already set up the output groups that will contain the ID3 tags.
     appears.
 5.  In the **Outputs** section, take the appropriate
     action:
+
     - For an Archive output group, in **Container**,
       choose **MPEG-2 Transport Stream**. This is the
       only type of container that supports ID3 tags.

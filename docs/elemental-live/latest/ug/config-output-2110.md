@@ -100,6 +100,7 @@ Follow this procedure to set up the video stream.
 ###### To set up the video stream
 
 1.  Complete the **Outputs** section:
+
     - **RTP Payload Type** – Enter a
       number for the type. For example, `96` for a
       video stream. If you aren't sure what number to enter,
@@ -127,6 +128,7 @@ Follow this procedure to set up the video stream.
     This information will appear in the SDP file.
     - **Interface** – complete these two fields in one of
       these ways:
+
       - If you are not implementing seamless protection switching, complete
         only **Interface**.
       - If you are implementing seamless protection switching, complete
@@ -268,6 +270,7 @@ the source and/or might be ad avails that you insert using the API.
    ancillary data output is stream 3, and the video in the video output is stream 1.
 3. If you want to pass through ad avails, complete these fields in the
    **Outputs** section:
+
    - **Enable SCTE 35 Passthrough** – Set the check box to
      checked.
    - **SCTE 104 messages line number** – Enter the line
@@ -276,6 +279,7 @@ the source and/or might be ad avails that you insert using the API.
 
 4. If you want include embedded captions in the output, follow this
    procedure:
+
    - Make sure that you have set up the event so that the captions in the
      input are converted to embedded captions in the output (or that the embedded
      source captions are passed through). For information about setting up

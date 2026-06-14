@@ -41,6 +41,7 @@ in terms of processing power.
   live input several inputs ahead of time, if you
   want.
 - Timing of the manual prepare is important:
+
   - You should probably prepare a live input
     only when it is the Next-in-line.
   - You must prepare enough time in advance to

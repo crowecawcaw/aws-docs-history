@@ -18,6 +18,7 @@ XML body as described in the following sections.
 - Create as many stream_assembly elements as you require, one for each unique video
   stream, one for each unique audio stream, and one for each caption stream.
 - Each stream_assembly element must contain only of these:
+
   - One video_description element (plus an optional preset_id tag and name tag), or
   - One audio_description element (plus an optional preset_id tag and name tag),
     or
@@ -35,12 +36,14 @@ XML body as described in the following sections.
   video stream (plus captions), one for each audio stream, and one for each captions
   stream.
 - Each **video** output element must contain:
+
   - container: m3u8
   - extension: m3u8
   - stream_assembly_name: The name of the one stream_assembly to associate with this
     output.This value matches the value of the name tag in the corresponding
     stream_assembly_name element.
   - apple_live_settings element that contains:
+
     - audio_rendition_sets tag: A comma-separated list of the names of the audio rendition
       groups to associate with this video output to create a set. This value matches the value
       of the audio_group_id tag in each of the associated audio outputs. For example, “audio_1”
@@ -49,12 +52,14 @@ XML body as described in the following sections.
     - Other tags as you require.
 
 - Each **audio** output element must contain:
+
   - container: m3u8
   - extension: m3u8
   - stream_assembly_name: The name of the one stream_assembly to associate with this
     output.This value matches the value of the name tag in the corresponding
     stream_assembly_name element.
   - apple_live_settings element that contains:
+
     - audio_group_id: The name of the audio rendition group this audio output belongs to.
       Specifying a value here creates the rendition group and puts this audio output into that
       rendition group.
@@ -64,6 +69,7 @@ XML body as described in the following sections.
     - Other tags as you require.
 
 - Each **captions** output element must contain:
+
   - container: m3u8
   - extension: m3u8
   - stream_assembly_name: The name of the one stream_assembly to associate with this

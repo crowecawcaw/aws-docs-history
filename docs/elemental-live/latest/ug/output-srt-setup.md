@@ -15,6 +15,7 @@ Mode**
    Elemental Live—**Caller** or
    **Listener**.
 5. Complete the fields for the primary destination:
+
    - **Primary Destination/Amazon Resource
      Name**: The IP address and port on the
      downstream system. For example:

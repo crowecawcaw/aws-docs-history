@@ -18,6 +18,7 @@ POST http://<Live IP address>/live_events/<event ID>/inputs
 XML content consisting of one:
 
 - One inputs element that contains:
+
   - One or more input elements that each
     contains one or more of the regular
     input tags. See [Elements and tags in an event input XML](elements-and-tags.md "elements-and-tags.md").

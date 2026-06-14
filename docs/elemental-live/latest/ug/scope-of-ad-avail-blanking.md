@@ -51,6 +51,7 @@ flags. These flags provide additional information as guidance for blanking in sp
 situations:
 
 - **web_delivery_allowed_flag**.
+
   - "True" means that there is no restriction on including the ad avail
     event’s content in a stream intended for web delivery: you do not need to
     blank out content in streams intended for web delivery.

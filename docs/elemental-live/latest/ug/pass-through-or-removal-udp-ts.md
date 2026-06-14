@@ -10,6 +10,7 @@ the same group.
    of the screen and display the tab for UDP/TS Output Group.
 2. In the output where you want to pass through SCTE-35 messages, open the PID
    Control section. Complete the following fields:
+
    - SCTE-35: Click to
      select.
    - SCTE-35 PID: Enter the ID of the PID where you want the SCTE-35 messages

@@ -20,6 +20,7 @@ The source must have these characteristics:
 
 - To convert to Dolby Digital Plus with Atmos, the audio input
   can be any source that has these characteristics:
+
   - Up to 16 channels in the following order:
 
   `L R C LFE Ls Rs Lb Rb Tfl Tfr Tsl Tsr Tbl Tbr Lw

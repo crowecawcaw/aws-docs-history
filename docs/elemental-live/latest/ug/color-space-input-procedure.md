@@ -53,6 +53,7 @@ Follow this procedure for each input.
     input, stop reading this section and go to [Configuring color space handling in each output](hdr-output.md "hdr-output.md").
 
 2.  Make a note of the information:
+
     - The names of the color spaces.
     - If applicable, the values for the HDR10 display metadata.
     - If applicable, whether the source video is full range or video

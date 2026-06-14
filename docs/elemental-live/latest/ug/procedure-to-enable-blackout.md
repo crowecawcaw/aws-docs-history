@@ -4,6 +4,7 @@
 
 1. In the Profile or Event screen, go down to the Global Processors section and
    complete the following fields:
+
    - **Blackout Image Insertion**: Click to turn
      on. The Blanking Image field appears.
    - **Blanking Image**: Specify a
@@ -13,6 +14,7 @@
 2. If you want to enable network end blackout (in other words, blank content when
    network transmission has ended and remove blanking only when network transmission
    resumes), complete these fields:
+
    - **Enable Network End
      Blackout**:
      Selected.

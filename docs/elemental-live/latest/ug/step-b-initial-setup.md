@@ -66,6 +66,7 @@ comparing the specified start to the appropriate timecode.
   given input). The source for the input timecode is specified separately for
   each input (Input > Timecode Source field). The input timecode is calculated
   as follows:
+
   - If Timecode Source is Embedded: The timecode associated with each
     frame is extracted from the timecode carried with the input media.
     Note that each input will have its own timecode and the timecode may
@@ -82,6 +83,7 @@ comparing the specified start to the appropriate timecode.
   The source for the output timecode is specified for the entire event, in the
   Timecode Config > Source field. The output timecode is calculated as
   follows:
+
   - If Source is Embedded: The timecode is extracted from the timecode
     carried with the input media. That timecode becomes the output
     timecode for the first transcoded frame. Then the output timecode

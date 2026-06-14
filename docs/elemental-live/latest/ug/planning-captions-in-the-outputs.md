@@ -13,6 +13,7 @@ You must now plan the captions information for the outputs.
 2. Identify the streams (the combinations of video and audio) that you plan to create
    for each output media.
 3. Map each output to the stream it uses. For example:
+
    - HLS (Output 1) uses video/audio Stream 1.
    - DASH (Output 2) also uses video/audio Stream 1. (Or it might need its own stream
      if the video requirements are different.)

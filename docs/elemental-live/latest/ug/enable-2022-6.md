@@ -22,6 +22,7 @@ Ensure that no events are running before you follow these steps.
    then choose **Save**.
 6. Stop and restart the service for your changes to take effect. You can do this in
    the web interface or in the command line interface (CLI).
+
    - In the web interface, go to the **Settings** tab, select
      **Stop Service** and then select **Start
      Service**.

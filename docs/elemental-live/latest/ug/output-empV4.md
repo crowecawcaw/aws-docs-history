@@ -8,6 +8,7 @@ The information in this section assumes that you are familiar with the
 general steps for creating an event.
 
 1. Obtain the following information from the MediaPackage operator:
+
    - The URL for each destination for the output group. For
      delivery to MediaPackage v2, the URL will always include the string
      `mediapackagev2`.

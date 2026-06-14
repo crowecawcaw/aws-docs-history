@@ -43,6 +43,7 @@ You can insert an animation in one of the following ways:
   continually publishing to a location outside of Elemental Live,
   and insert the asset into the video as an overlay. Use one of the
   following methods to control when the image appears:
+
   - You can let the authoring system control everything.
   - You can enter REST API commands to show or hide the
     image.

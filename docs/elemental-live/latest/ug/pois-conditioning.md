@@ -94,6 +94,7 @@ even though passthrough is enabled in Elemental Live.
 2. In **Ad Avail Trigger**, choose
    **ESAM**. More fields appear.
 3. Complete the fields as follows:
+
    - Complete the first 6 fields to identify the endpoints on the POIS.
    - For **Response Signal Preroll**, change the
      value as desired to set the distance (in milliseconds) between the time that

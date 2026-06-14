@@ -22,6 +22,7 @@ reasons:
 - When each event starts, the event uses its own source timecode to
   determine the sequence number and timecode to assign to the first
   segment and to every following segment:
+
   - The first sequence number is the number that would be assigned
     if the event had been running since the start of epoch time. For
     example, if the event output has segment lengths of 2.02 seconds,
@@ -32,6 +33,7 @@ reasons:
 
 - The event can now predict the sequence numbers and timecodes for
   each segment:
+
   - The expected sequence numbers are predictable. They always
     increment by 1.
   - The expected timecode is predictable. It should increment by

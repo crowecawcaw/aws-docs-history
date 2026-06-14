@@ -18,6 +18,7 @@ Do the following to set the rate control mode and bitrate for the output:
   **Codec settings**, select the desired option. For information about choosing the best option,
   see the sections below.
 - Complete other fields, as appropriate:
+
   - If you select **QVBR**, complete **Max bitrate**, **Quality level**, **Buffer size**, and
     **Buffer fill percentage**.
   - If you select **VBR**, complete **Bitrate (average bitrate)**, **Max bitrate**, **Buffer size**, and **Buffer fill percentage**.
