@@ -6,9 +6,20 @@ Previous platform versions remain accessible to accounts with active or terminat
 See the [Supported platforms](platforms-supported.md "platforms-supported.md") page for information on the latest version of each platform
 supported by Elastic Beanstalk. Detailed release notes are available for recent releases at [AWS Elastic Beanstalk Release Notes](../relnotes.md "../relnotes.md").
 
-## May 28, 2026 – present
+## June 12, 2026 – present
 
-The following Elastic Beanstalk platform versions for Ruby have been current since May 28, 2026:
+The following Elastic Beanstalk platform versions for Ruby have been current since June 12, 2026:
+
+| Platform Version and _Solution Stack Name_                                               | AMI              | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| ---------------------------------------------------------------------------------------- | ---------------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 4.0 AL2023 version 4.14.2**<br>_64bit Amazon Linux 2023 v4.14.2 running Ruby 4.0_ | 2023.12.20260608 | Ruby 4.0.5-p0    | RubyGems 4.0.10 | Puma 8.0.2         | 3.6.5     | nginx 1.30.2 |
+| **Ruby 3.4 AL2023 version 4.14.2**<br>_64bit Amazon Linux 2023 v4.14.2 running Ruby 3.4_ | 2023.12.20260608 | Ruby 3.4.9-p82   | RubyGems 3.6.9  | Puma 8.0.2         | 3.6.5     | nginx 1.30.2 |
+| **Ruby 3.3 AL2023 version 4.14.2**<br>_64bit Amazon Linux 2023 v4.14.2 running Ruby 3.3_ | 2023.12.20260608 | Ruby 3.3.11-p205 | RubyGems 3.5.22 | Puma 8.0.2         | 3.6.5     | nginx 1.30.2 |
+| **Ruby 3.2 AL2023 version 4.14.2**<br>_64bit Amazon Linux 2023 v4.14.2 running Ruby 3.2_ | 2023.12.20260608 | Ruby 3.2.8       | RubyGems 3.4.19 | Puma 8.0.2         | 3.6.5     | nginx 1.30.2 |
+
+## May 28, 2026 – June 11, 2026
+
+The following Elastic Beanstalk platform versions for Ruby were current between May 28, 2026 and June 11, 2026:
 
 | Platform Version and _Solution Stack Name_                                               | AMI              | Language         | Package Manager | Application Server | AWS X-Ray | Proxy Server |
 | ---------------------------------------------------------------------------------------- | ---------------- | ---------------- | --------------- | ------------------ | --------- | ------------ |
