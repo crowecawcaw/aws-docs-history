@@ -26,6 +26,7 @@ you have already created an index following step 1 of [Getting started with the 
     **Create database.**
 6.  Use the following parameters to create the database. Leave all of the other
     parameters at their defaults.
+
     - **Engine options**—MySQL
     - **Templates**—Free tier
     - **Credential Settings**—Enter and confirm a
@@ -33,6 +34,7 @@ you have already created an index following step 1 of [Getting started with the 
     - Under **Connectivity**, choose **Additional
       connectivity configuration**. Make the following
       choices.
+
       - **Subnet group**—Choose the subnet group
         that you created in step 4.
       - **VPC security group**—Choose the group
@@ -76,6 +78,7 @@ you have already created an index following step 1 of [Getting started with the 
 5. Choose **MySQL**.
 6. Under **Connection access**, enter the following
    information:
+
    - **Endpoint**—The endpoint of the database that you
      created earlier.
    - **Port**—The port number for the database. For
@@ -98,6 +101,7 @@ you have already created an index following step 1 of [Getting started with the 
      role**, and then type a name for the role.
 
 7. In **Column configuration** enter the following:
+
    - **Document ID column
      name**—`ID`
    - **Document title column
@@ -106,11 +110,13 @@ you have already created an index following step 1 of [Getting started with the 
      name**—`Body`
 
 8. In **Column change detection** enter the following:
+
    - **Change detecting
      columns**—`LastUpdate`
 
 9. In **Configure VPC & security group** provide the
    following:
+
    - In **Virtual Private Cloud (VPC)**, choose your
      VPC.
    - In **Subnets**, choose the private subnets that you

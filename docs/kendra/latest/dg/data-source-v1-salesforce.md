@@ -133,6 +133,7 @@ information:
 
 6. On the **Define access and security** page, enter the following
    information:
+
    1. **Salesforce URL**—Enter the instance URL for the
       Salesforce site that you want to index.
    2. For **Type of authentication**, choose between
@@ -140,8 +141,10 @@ information:
       Salesforce authentication credentials. If you choose to create a new secret an
       AWS
       Secrets Manager secret window opens.
+
       1. Enter following information in the **Create an AWS
          Secrets Manager secret window**:
+
          1. **Secret name**—A name for your secret. The prefix
             ‘AmazonKendra-Salesforce-’ is automatically added to your secret
             name.
@@ -163,6 +166,7 @@ information:
 
 7. On the **Configure sync settings** page, enter the following
    information:
+
    1. For **Crawl attachments**—Select to crawl all attached
       objects, articles, and feeds.
    2. For **Standard objects**, **Knowledge articles**,
@@ -182,6 +186,7 @@ information:
 
 8. On the **Set field mappings** page, enter the following
    information:
+
    1. For **Standard knowledge article**, **Standard object
       attachments**, and **Additional suggested field mappings**
       —Select from the Amazon Kendra generated default data source fields you want
@@ -233,6 +238,7 @@ You must specify the following the [SalesforceConfiguration](../APIReference/API
   data sources](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds").
 - You must provide configuration information for indexing at least one of standard
   objects, knowledge articles, or chatter feeds.
+
   - **Standard objects**—If you choose to crawl
     **Standard objects**, you must specify the name of the standard object
     and the name of the field in the standard object table that contains the document

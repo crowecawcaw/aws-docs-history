@@ -76,6 +76,7 @@ account.
   scopes to your service account using a super admin role. These API scopes
   are needed to crawl all documents, and access control (ACL) information for
   all users in a Google Workspace domain:
+
   - https://www.googleapis.com/auth/drive.readonly—View and
     download all your Google Drive files
   - https://www.googleapis.com/auth/drive.metadata.readonly—View
@@ -160,6 +161,7 @@ If using version 2 (if applicable), choose **Google Drive connector** with the "
 
 6.  On the **Define access and security**
     page, enter the following information:
+
     1. **Authorization**—Turn on or off access control list (ACL) information for your
        documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
        and groups can access. The ACL information is used to filter search results based on the user or
@@ -175,6 +177,7 @@ If using version 2 (if applicable), choose **Google Drive connector** with the "
        authentication credentials. If you choose to create
        a new secret an AWS
        Secrets Manager secret window opens.
+
        1. If you chose **Google service
           account**, enter a name for your secret,
           the email ID of the admin user or "Service Account
@@ -220,6 +223,7 @@ If using version 2 (if applicable), choose **Google Drive connector** with the "
 
 7.  On the **Configure sync settings** page,
     enter the following information:
+
     1.  **Sync contents**—Select
         which options or the content that you want to crawl.
         You can choose to crawl My Drive (personal folders),
@@ -228,6 +232,7 @@ If using version 2 (if applicable), choose **Google Drive connector** with the "
     2.  In **Additional configuration -
         optional** You can also enter the
         following optional information:
+
         1. **Maximum file
            size**—Set the maximum size limit
            in MBs of files to crawl.
@@ -273,6 +278,7 @@ If using version 2 (if applicable), choose **Google Drive connector** with the "
         full sync of your data if your initial sync failed,
         even if you don't choose full sync as your sync mode
         option.
+
         - Full sync: Freshly index all content,
           replacing existing content each time your data
           source syncs with your index.
@@ -305,6 +311,7 @@ If using version 2 (if applicable), choose **Google Drive connector** with the "
 
 8.  On the **Set field mappings** page, enter
     the following information:
+
     1. For **Files**—Select from
        the Amazon Kendra generated default data source
        fields that you want to map to your index.
@@ -347,6 +354,7 @@ following information:
   your data if your initial sync failed, even if you don't
   choose full sync as your sync mode option. You can choose
   between:
+
   - `FORCED_FULL_CRAWL` to freshly index
     all content, replacing existing content each time
     your data source syncs with your index.

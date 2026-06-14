@@ -56,6 +56,7 @@ make these changes in your Drupal and AWS accounts.
   Amazon Kendra.
 - Added the following permissions in your Drupal account using an
   administrator role:
+
   - administer blocks
   - administer block_content display
   - administer block_content fields
@@ -139,6 +140,7 @@ If using version 2 (if applicable), choose **Drupal connector** with the "V2.0" 
 
 6.  On the **Define access and security** page,
     enter the following information:
+
     1. In **Source**, for **Host
        URL**—The host URL of your
        Drupal site. For example,
@@ -159,10 +161,12 @@ If using version 2 (if applicable), choose **Drupal connector** with the "V2.0" 
        Secrets Manager secret to store your Drupal authentication
        credentials. If you choose to create a new secret an AWS Secrets Manager
        secret window opens.
+
        1. Enter following information in the
           **Create an AWS
           Secrets Manager secret
           window**:
+
           1. If you chose **Basic
              authentication**, enter a
              **Secret Name**, the
@@ -208,6 +212,7 @@ If using version 2 (if applicable), choose **Drupal connector** with the "V2.0" 
 
 7.  On the **Configure sync settings** page,
     enter the following information:
+
     1. For **Sync scope**, choose from the
        following options:
 
@@ -244,9 +249,9 @@ If using version 2 (if applicable), choose **Drupal connector** with the "V2.0" 
         	* You can also choose to add **Custom
         	 content types** and **Custom
         	 Blocks**.
-
     2. For **Additional configuration –
        optional**:
+
        - For **Regex
          pattern**—Add regular expression
          patterns to include or exclude specific entity
@@ -259,6 +264,7 @@ If using version 2 (if applicable), choose **Drupal connector** with the "V2.0" 
        is crawled and indexed by default. You must run a full sync of your
        data if your initial sync failed, even if you don't choose full sync
        as your sync mode option.
+
        - Full sync: Freshly index all content, replacing existing
          content each time your data source syncs with your index.
        - New, modified, deleted sync: Index only new, modified,
@@ -275,6 +281,7 @@ If using version 2 (if applicable), choose **Drupal connector** with the "V2.0" 
 
 8.  On the **Set field mappings** page, enter the
     following information:
+
     1. For **Contents**,
        **Comments**, and
        **Attachments**—Select from
@@ -312,6 +319,7 @@ provide the following information:
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

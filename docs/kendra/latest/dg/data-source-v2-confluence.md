@@ -133,6 +133,7 @@ If using version 2 (if applicable), choose **Confluence connector** with the "V2
 
 6.  On the **Define access and security** page, enter the following
     information:
+
     1. In **Source**, choose either **Confluence Cloud** or
        **Confluence Server/Data Center**.
     2. **Confluence URL**—Enter the Confluence host URL. For example,
@@ -159,6 +160,7 @@ If using version 2 (if applicable), choose **Confluence connector** with the "V2
        choose to create a new secret an AWS
        Secrets Manager secret window opens. Enter the following information in the
        window:
+
        1. **Secret name**—A name for your secret. The prefix
           ‘AmazonKendra-Confluence-’ is automatically added to your secret name.
        2. If using **Basic Authentication**—Enter the secret name,
@@ -197,6 +199,7 @@ If using version 2 (if applicable), choose **Confluence connector** with the "V2
 
 7.  On the **Configure sync settings** page, enter the following
     information:
+
     1. In **Sync scope**, for **Sync
        contents**—Choose to sync from the following content types: Pages, page
        comments, page attachments, blogs, blog comments, blog attachments, personal spaces, and
@@ -249,7 +252,6 @@ If using version 2 (if applicable), choose **Confluence connector** with the "V2
          time your data source syncs with your index. Amazon Kendra can use your data
          source's mechanism for tracking content changes and index content that changed since
          the last sync.
-
     4. In **Sync run schedule**, for
        **Frequency**—Choose how often to sync your data source content
        and update your index.
@@ -257,6 +259,7 @@ If using version 2 (if applicable), choose **Confluence connector** with the "V2
 
 8.  On the **Set field mappings** page, enter the following
     information:
+
     1. Select from the Amazon Kendra generated default data source fields you want to
        map to your index. To add custom data source fields, create an index field name to map
        to and the field data type.
@@ -285,6 +288,7 @@ using the [TemplateConfiguration](API_TemplateConfiguration.md "API_TemplateConf
   source with Amazon Kendra for the first time, all content is crawled and indexed by
   default. You must run a full sync of your data if your initial sync failed, even if you
   don't choose full sync as your sync mode option. You can choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content, replacing existing
     content each time your data source syncs with your index.
   - `FULL_CRAWL` to index only new, modified, and deleted content each time

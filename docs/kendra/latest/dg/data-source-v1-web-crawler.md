@@ -115,6 +115,7 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
 
 6.  On the **Define access and security**
     page, enter the following information:
+
     1. For **Source**, choose between
        **Source URLs** and
        **Source sitemaps** depending on
@@ -164,7 +165,6 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
         	 basic authentication credentials for your
         	 websites.
         	3. Choose **Save**.
-
     3. (Optional) **Hosts with
        authentication**—Select to add
        additional hosts with authentication.
@@ -179,6 +179,7 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
 
 7.  On the **Configure sync settings** page,
     enter the following information:
+
     1. **Crawl range**—Choose the
        kind of web pages you want to crawl.
     2. **Crawl depth**—Select
@@ -186,6 +187,7 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
     3. **Advanced crawl settings** and
        **Additional configuration**enter
        the following information:
+
        1. **Maximum file
           size**—The maximum web page or
           attachment size to crawl. Minimum 0.000001 MB (1

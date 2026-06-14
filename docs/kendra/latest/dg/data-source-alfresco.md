@@ -127,6 +127,7 @@ If using version 2 (if applicable), choose **Alfresco connector** with the "V2.0
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Alfresco
       type**—Choose whether you use
       Alfresco On-Premises/server or
@@ -191,6 +192,7 @@ If using version 2 (if applicable), choose **Alfresco connector** with the "V2.0
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Sync scope**—Set limits for
       crawling certain content and filter content using regex
       expression patterns.
@@ -202,6 +204,7 @@ If using version 2 (if applicable), choose **Alfresco connector** with the "V2.0
       2. (Optional)**Additional
          configuration**—Set the following
          settings:
+
          - **Include
            comments**—Choose to include
            comments in Alfresco Document
@@ -217,6 +220,7 @@ If using version 2 (if applicable), choose **Alfresco connector** with the "V2.0
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified, deleted sync: Index only new, modified,
@@ -232,6 +236,7 @@ If using version 2 (if applicable), choose **Alfresco connector** with the "V2.0
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. Select from the Amazon Kendra generated default
       data source fields that you want to map to your
       index.
@@ -350,6 +355,7 @@ match the inclusion filter.
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

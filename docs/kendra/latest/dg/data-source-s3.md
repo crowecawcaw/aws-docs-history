@@ -118,6 +118,7 @@ If using version 2 (if applicable), choose **S3 connector** with the "V2.0" tag.
 
 6. On the **Define access and security** page,
    enter the following optional information:
+
    1. **IAM role**—Choose an existing IAM
       role or create a new IAM role to access your repository credentials and index content.
 
@@ -130,6 +131,7 @@ If using version 2 (if applicable), choose **S3 connector** with the "V2.0" tag.
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. For **Data
       source location**—Specify the path to the
       Amazon S3 bucket where your data is stored.
@@ -162,6 +164,7 @@ If using version 2 (if applicable), choose **S3 connector** with the "V2.0" tag.
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified, deleted sync: Index only new, modified,
@@ -177,6 +180,7 @@ If using version 2 (if applicable), choose **S3 connector** with the "V2.0" tag.
 
 8. On the **Set field mappings** page, enter the
    following optional information:
+
    1. **Default field mappings**—Select
       from the Amazon Kendra generated default data
       source fields you want to map to your index.
@@ -213,6 +217,7 @@ information:
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

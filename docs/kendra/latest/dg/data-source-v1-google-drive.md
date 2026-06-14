@@ -56,6 +56,7 @@ credentials and secrets across data sources, and connector versions 1.0 and
 - Added Admin SDK API and Google Drive API in your account.
 - Added (or asked a user with a super admin role to add) the following
   permissions to your service account using a super admin role:
+
   - https://www.googleapis.com/auth/drive.readonly
   - https://www.googleapis.com/auth/drive.metadata.readonly
   - https://www.googleapis.com/auth/admin.directory.user.readonly
@@ -131,6 +132,7 @@ and then choose **Add connector**. 5. On the **Specify data source details** pag
 
 6. On the **Define access and security**
    page, enter the following information:
+
    1. For **Type of
       authentication**—Choose between
       **Existing** and
@@ -139,10 +141,12 @@ and then choose **Add connector**. 5. On the **Specify data source details** pag
       secret** to choose your secret.
    2. If you choose to create a new secret an AWS
       Secrets Manager secret option opens.
+
       1. Enter following information in the
          **Create an AWS
          Secrets Manager secret
          window**:
+
          1. **Secret name**—A
             name for your secret. The prefix
             ‘AmazonKendra-Google Drive-’ is
@@ -167,6 +171,7 @@ and then choose **Add connector**. 5. On the **Specify data source details** pag
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Exclude user
       accounts**—The Google Drive
       users you want to exclude from the index. You can
@@ -190,6 +195,7 @@ and then choose **Add connector**. 5. On the **Specify data source details** pag
 
 8. On the **Set field mappings** page, enter
    the following information:
+
    1. For **GoogleDrive field name**
       and **Additional suggested field
       mappings**—Select from the Amazon Kendra generated default data source fields

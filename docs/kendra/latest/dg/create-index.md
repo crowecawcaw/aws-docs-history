@@ -76,6 +76,7 @@ Python
 
 - Provide values for the following variables in the code example that
   follows:
+
   - `description`—A description of the index
     that you're creating. This is optional.
   - `index_name`—The name of the index that
@@ -139,6 +140,7 @@ Java
 
 - Provide values for the following variables in the code example that
   follows:
+
   - `description`—A description of the index
     that you're creating. This is optional.
   - `index_name`—The name of the index that

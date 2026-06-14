@@ -37,6 +37,7 @@ in your Confluence and AWS accounts.
 
 - Granted Amazon Kendra permissions to view all content within your Confluence instance
   by:
+
   - Making Amazon Kendra a member of `confluence-administrators`
     group.
   - Granting site-admin permissions for all existing spaces, blogs, and pages.
@@ -46,6 +47,7 @@ in your Confluence and AWS accounts.
   **Show on login page** for the user name and password when you configure
   Confluence **Authentication methods** in Confluence Data Center.
 - **For Confluence Server**
+
   - Noted your basic authentication credentials containing your Confluence administrative
     account user name and password to connect to Amazon Kendra.
 
@@ -60,6 +62,7 @@ in your Confluence and AWS accounts.
     Confluence account to connect to Amazon Kendra. For more information, see [Confluence documentation on generating personal access tokens](https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html "https://confluence.atlassian.com/enterprise/using-personal-access-tokens-1026032365.html").
 
 - **For Confluence Cloud**
+
   - Noted your basic authentication credentials containing your Confluence administrative
     account user name and password to connect to Amazon Kendra.
 
@@ -128,17 +131,21 @@ V1.0**, and then choose **Add data source**. 5. On the **Specify data source det
 
 6. On the **Define access and security** page, enter the following
    information:
+
    1. Choose between **Confluence Cloud** and **Confluence
       Server**.
    2. If you choose **Confluence Cloud**, enter the following
       information:
+
       1. **Confluence URL**—Your Confluence URL.
       2. **AWS Secrets Manager secret**—Choose an existing secret or create a new
          Secrets Manager secret to store your Confluence authentication
          credentials. If you choose to create a new secret an AWS Secrets Manager
          secret window opens.
+
          1. Enter following information in the **Create an AWS
             Secrets Manager secret window**:
+
             1. **Secret name**—A name for your secret. The prefix
                ‘AmazonKendra-Confluence-’ is automatically added to your secret name.
             2. For **User name** and
@@ -148,10 +155,12 @@ V1.0**, and then choose **Add data source**. 5. On the **Specify data source det
 
    3. If you choose **Confluence Server**, enter the following
       information:
+
       1. **Confluence URL**—Your Confluence user name and
          password.
       2. (Optional) For **Web proxy** enter the following
          information:
+
          1. **Host name**—Host name for your Confluence account.
          2. **Port number**—Port used by the host URL transport
             protocol.
@@ -163,8 +172,10 @@ V1.0**, and then choose **Add data source**. 5. On the **Specify data source det
          Secrets Manager secret to store your Confluence authentication
          credentials. If you choose to create a new secret an AWS Secrets Manager
          secret window opens.
+
          1. Enter following information in the **Create an AWS
             Secrets Manager secret window**:
+
             1. **Secret name**—A name for your secret. The prefix
                ‘AmazonKendra-Confluence-’ is automatically added to your secret name.
             2. For **User name** and
@@ -186,6 +197,7 @@ V1.0**, and then choose **Add data source**. 5. On the **Specify data source det
 
 7. On the **Configure sync settings** page, enter the following
    information:
+
    1. For **Include personal spaces** and **Include archived
       spaces**—Choose the optional space types to include in this data
       source.
@@ -200,6 +212,7 @@ V1.0**, and then choose **Add data source**. 5. On the **Specify data source det
 
 8. On the **Set field mappings** page, enter the following
    information:
+
    1. For **Space**, **Page**,
       **Blog**—Select from the Amazon Kendra generated default
       data source fields or **Additional suggested field mappings** to add

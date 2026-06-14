@@ -116,6 +116,7 @@ If using version 2 (if applicable), choose **Quip connector** with the "V2.0" ta
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Quip domain
       name**—Enter the Quip you
       copied from your Quip account.
@@ -123,10 +124,12 @@ If using version 2 (if applicable), choose **Quip connector** with the "V2.0" ta
       Secrets Manager secret to store your Quip authentication
       credentials. If you choose to create a new secret an AWS Secrets Manager
       secret window opens.
+
       1. Enter following information in the
          **Create an AWS
          Secrets Manager secret
          window**:
+
          1. **Secret name**—A
             name for your secret. The prefix
             ‘AmazonKendra-Quip-’ is
@@ -151,6 +154,7 @@ If using version 2 (if applicable), choose **Quip connector** with the "V2.0" ta
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Add Quip folder IDs to
       crawl**—The Quip
       folder IDs you want to crawl.
@@ -171,6 +175,7 @@ If using version 2 (if applicable), choose **Quip connector** with the "V2.0" ta
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. Select from the generated default data source fields
       you want to map to Amazon Kendra index.
    2. **Add field**—To add custom data

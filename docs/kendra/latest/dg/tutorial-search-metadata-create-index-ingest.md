@@ -56,6 +56,7 @@ details** page, do the following:
     **Create**.
 6.  To create and attach an IAM role for Amazon Kendra that recognizes it as a trusted
     entity, do the following:
+
     1. Save the following trust policy as a JSON file called
        `kendra-trust-policy.json` in a text editor on your local
        device.
@@ -75,7 +76,6 @@ details** page, do the following:
     }`
 
     ```
-
     2. To create an IAM role called `kendra-role` and attach your
        saved `kendra-trust-policy.json` file to it, use the [create-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html") command:
 
@@ -120,7 +120,6 @@ details** page, do the following:
         * `path/` is the filepath to
          `kendra-trust-policy.json` on your local
          device.
-
     3. Copy the Amazon Resource Name (ARN) to your text editor and save it locally
        as `kendra-role-arn`.
 
@@ -133,6 +132,7 @@ details** page, do the following:
 
 7.  Before you create an index, you must provide your `kendra-role` the
     permission to write to CloudWatch Logs. To do this, complete the following steps:
+
     1. Save the following trust policy as a JSON file called
        `kendra-cloudwatch-policy.json` in a text editor on your
        local device.
@@ -182,7 +182,6 @@ details** page, do the following:
         * `path/` is the filepath to
          `kendra-cloudwatch-policy.json` on your local
          device.
-
     3. Copy the Amazon Resource Name (ARN) to your text editor and save it locally
        as `kendra-cloudwatch-arn`.
 
@@ -705,6 +704,7 @@ Before you can sync your index, you must connect your S3 data source to it.
    connector**.
 5. In the **Specify data source details** page, do the
    following:
+
    1. Under **Name and description**, for **Data source
       name**, enter `S3-data-source`.
    2. Keep the **Description** section blank.
@@ -713,6 +713,7 @@ Before you can sync your index, you must connect your S3 data source to it.
 
 6. On the **Configure sync settings** page, in the **Sync
    scope** section, do the following:
+
    1. In **Enter the data source location**, choose
       **Browse S3**.
    2. In **Choose resources**, select your S3 bucket and then

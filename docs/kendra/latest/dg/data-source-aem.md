@@ -142,6 +142,7 @@ If using version 2 (if applicable), choose **Adobe Experience Manager connector*
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Source**—Choose either
       **AEM On-Premise** or
       **AEM as a Cloud Service**.
@@ -203,16 +204,19 @@ If using version 2 (if applicable), choose **Adobe Experience Manager connector*
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Sync scope**—Set limits for
       crawling certain content types, page components, and
       roots paths, and filter content using regex expression
       patterns.
+
       1. **Content
          types**—Choose whether to crawl
          only pages or assets, or both.
       2. (Optional) **Additional
          configuration**—Configure the
          following settings:
+
          - **Page
            components**—The specific
            names of page components. The Page Component is
@@ -240,6 +244,7 @@ If using version 2 (if applicable), choose **Adobe Experience Manager connector*
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified sync: Index only new and modified content
@@ -267,6 +272,7 @@ If using version 2 (if applicable), choose **Adobe Experience Manager connector*
 
 8. On the **Set field mappings** page,
    enter the following information:
+
    1. Select from the Amazon Kendra generated default
       data source fields you want to map to your index. To add
       custom data source fields, create an index field name to
@@ -306,6 +312,7 @@ provide the following information:
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

@@ -52,6 +52,7 @@ credentials and secrets across data sources, and connector versions 1.0 and
   can identify Amazon Kendra using a user name, password, and a generated client ID, and a
   client secret. See [ServiceNow documentation on OAuth 2.0 authentication](https://www.servicenow.com/docs/bundle/utah-platform-security/page/integrate/single-sign-on/concept/c_Authentication.html "https://www.servicenow.com/docs/bundle/utah-platform-security/page/integrate/single-sign-on/concept/c_Authentication.html") for more information.
 - Added the following permissions:
+
   - kb_category
   - kb_knowledge
   - kb_knowledge_base
@@ -126,6 +127,7 @@ If using version 2 (if applicable), choose **ServiceNow connector** with the "V2
 
 6. On the **Define access and security** page, enter the following
    information:
+
    1. **ServiceNow host**—Enter the ServiceNow
       host URL. The format for the host URL you enter is
       `your-domain.service-now.com`.
@@ -144,6 +146,7 @@ If using version 2 (if applicable), choose **ServiceNow connector** with the "V2
       If you choose to create a new secret an AWS
       Secrets Manager secret window opens. Enter the following information in the
       window:
+
       1. **Secret name**—A name for your secret. The prefix
          ‘AmazonKendra-ServiceNow-’ is automatically added to your secret name.
       2. If using Basic Authentication—Enter the **Secret name**,
@@ -179,8 +182,10 @@ If using version 2 (if applicable), choose **ServiceNow connector** with the "V2
 
 7. On the **Configure sync settings** page, enter the following
    information:
+
    1. For **Knowledge articles**, choose from the following options
       :
+
       - **Knowledge articles**—Choose to index knowledge
         articles.
       - **Knowledge article attachments**—Choose to index
@@ -205,6 +210,7 @@ ISNOTEMPTY^EQ`,
         specific articles.
 
    2. For **Service catalog items**:
+
       - **Service catalog items**—Choose to index service catalog
         items.
       - **Service catalog item attachments**—Choose to index
@@ -223,6 +229,7 @@ ISNOTEMPTY^EQ`,
         items.
 
    3. For **Incidents**:
+
       - **Incidents**—Choose to index service incidents.
       - **Incident attachments**—Choose to index incident
         attachments.
@@ -242,6 +249,7 @@ ISNOTEMPTY^EQ`,
         filter**—Specify a regex pattern to include specific incidents.
 
    4. For **Additional configuration**:
+
       - **ACL information**—Access control lists for entities you
         have selected are included by default. Deselecting an access control list will make
         all files in that category public. ACL options are automatically deactivated for
@@ -259,6 +267,7 @@ ISNOTEMPTY^EQ`,
       for the first time, all content is crawled and indexed by default. You must run a full
       sync of your data if your initial sync failed, even if you don't choose full sync as
       your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing content each time your
         data source syncs with your index.
       - New, modified, deleted sync: Index only new, modified, and deleted content each
@@ -273,6 +282,7 @@ ISNOTEMPTY^EQ`,
 
 8. On the **Set field mappings** page, enter the following
    information:
+
    1. **Default field mappings**—Select from the Amazon Kendra generated default data source fields that you want to map to your index.
    2. **Add field**—To add custom data source fields to create an
       index field name to map to and the field data type.
@@ -308,6 +318,7 @@ You must specify a JSON of the [data source schema](ds-schemas.md "ds-schemas.md
   source with Amazon Kendra for the first time, all content is crawled and indexed by
   default. You must run a full sync of your data if your initial sync failed, even if you
   don't choose full sync as your sync mode option. You can choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content, replacing existing
     content each time your data source syncs with your index.
   - `FULL_CRAWL` to index only new, modified, and deleted content each time
@@ -377,6 +388,7 @@ match the inclusion filter.
   documents to index with a query](servicenow-query.md "servicenow-query.md").
 - **Indexing parameters**—You can also choose to
   specify whether to:
+
   - Index knowledge articles, service catalogs, and incidents or all of these. If you
     choose to index knowledge articles, service catalog items and incidents, you must
     provide the name of the ServiceNow field that is mapped to the index document

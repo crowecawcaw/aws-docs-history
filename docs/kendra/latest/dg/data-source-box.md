@@ -44,6 +44,7 @@ make these changes in your Box and AWS accounts.
   as-user header**.
 - Used the admin user to add the following **Application
   Scopes** in your Box app:
+
   - Write all files and folders stored in a Box
   - Manage users
   - Manage groups
@@ -128,6 +129,7 @@ If using version 2 (if applicable), choose **Box connector** with the "V2.0" tag
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Box enterprise
       ID**—Enter your Box
       Enterprise ID. For example,
@@ -140,6 +142,7 @@ If using version 2 (if applicable), choose **Box connector** with the "V2.0" tag
       Secrets Manager secret to store your Box authentication
       credentials. If you choose to create a new secret an AWS Secrets Manager
       secret window opens.
+
       1. **Secret name**—A name
          for your secret. The prefix
          ‘AmazonKendra-Box-’ is
@@ -177,6 +180,7 @@ If using version 2 (if applicable), choose **Box connector** with the "V2.0" tag
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Box files**—Choose whether
       to crawl web links, comments, and tasks.
    2. For **Additional
@@ -188,6 +192,7 @@ If using version 2 (if applicable), choose **Box connector** with the "V2.0" tag
       crawled and indexed by default. You must run a full sync
       of your data if your initial sync failed, even if you
       don't choose full sync as your sync mode option.
+
       - Full sync: Freshly index all content,
         replacing existing content each time your data
         source syncs with your index.
@@ -212,6 +217,7 @@ If using version 2 (if applicable), choose **Box connector** with the "V2.0" tag
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. **Default data source
       fields**—Select from the Amazon Kendra generated default data source fields you
       want to map to your index.

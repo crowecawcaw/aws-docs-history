@@ -145,6 +145,7 @@ If using version 2 (if applicable), choose **Slack connector** with the "V2.0" t
 
 6.  On the **Define access and security** page,
     enter the following information:
+
     1. For **Slack workspace team ID**—The
        team ID of your Slack workspace. You can find your
        team ID in your Slack
@@ -159,10 +160,12 @@ If using version 2 (if applicable), choose **Slack connector** with the "V2.0" t
        Secrets Manager secret to store your Slack authentication
        credentials. If you choose to create a new secret an AWS Secrets Manager
        secret window opens.
+
        1. Enter following information in the
           **Create an AWS
           Secrets Manager secret
           window**:
+
           1. **Secret name**—A
              name for your secret. The prefix
              ‘AmazonKendra-Slack-’ is
@@ -198,6 +201,7 @@ If using version 2 (if applicable), choose **Slack connector** with the "V2.0" t
 
 7.  On the **Configure sync settings** page,
     enter the following information:
+
     1. **Select type of content**—Select
        the Slack entities
        or content types you want to crawl. You can choose from
@@ -233,7 +237,6 @@ If using version 2 (if applicable), choose **Slack connector** with the "V2.0" t
          your index. Amazon Kendra can use your data source's
          mechanism for tracking content changes and index content
          that changed since the last sync.
-
     5. In **Sync run schedule**, for
        **Frequency**—Choose how often to sync your
        data source content and update your index.
@@ -241,6 +244,7 @@ If using version 2 (if applicable), choose **Slack connector** with the "V2.0" t
 
 8.  On the **Set field mappings** page, enter the
     following information:
+
     1. **Default data source
        fields**—Select from the Amazon Kendra generated
        default data source fields you want to map to your index.
@@ -282,6 +286,7 @@ provide the following information:
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

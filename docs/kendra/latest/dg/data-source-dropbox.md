@@ -45,6 +45,7 @@ make these changes in your Dropbox and AWS accounts.
   activated **Scoped Access**. See [Dropbox documentation on creating an app](https://www.dropbox.com/developers/reference/getting-started#app%20console "https://www.dropbox.com/developers/reference/getting-started#app%20console").
 - Activated **Full Dropbox** permissions on the
   Dropbox console and added the following permissions:
+
   - files.content.read
   - files.metadata.read
   - sharing.read
@@ -145,6 +146,7 @@ If using version 2 (if applicable), choose **Dropbox connector** with the "V2.0"
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Authorization**—Turn on or off access control list (ACL) information for your
       documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
       and groups can access. The ACL information is used to filter search results based on the user or
@@ -157,10 +159,12 @@ If using version 2 (if applicable), choose **Dropbox connector** with the "V2.0"
       Secrets Manager secret to store your Dropbox authentication
       credentials. If you choose to create a new secret an AWS Secrets Manager
       secret window opens.
+
       1. Enter following information in the
          **Create an AWS
          Secrets Manager secret
          window**:
+
          1. **Secret name**—A
             name for your secret. The prefix
             ‘AmazonKendra-Dropbox-’ is
@@ -197,6 +201,7 @@ If using version 2 (if applicable), choose **Dropbox connector** with the "V2.0"
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. For **Select entities or content
       types**—Choose Dropbox entities or
       content types you want to crawl.
@@ -210,6 +215,7 @@ If using version 2 (if applicable), choose **Dropbox connector** with the "V2.0"
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified sync: Index only new and modified content
@@ -230,6 +236,7 @@ If using version 2 (if applicable), choose **Dropbox connector** with the "V2.0"
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. **Files**, **Dropbox
       Paper**, and **Dropbox Paper
       templates**—Select from the Amazon Kendra generated default data source fields you
@@ -265,6 +272,7 @@ information:
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

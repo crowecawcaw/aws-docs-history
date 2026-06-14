@@ -75,6 +75,7 @@ information.
 
 - **For websites that require basic, NTLM, or Kerberos
   authentication**:
+
   - Noted your website authentication credentials, which include a
     user name and password.
 
@@ -87,6 +88,7 @@ information.
 
 - **For websites that require SAML or login form
   authentication**:
+
   - Noted your website authentication credentials, which include a
     user name and password.
   - Copied the XPaths (XML Path Language) of the user name field (and
@@ -174,6 +176,7 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
 
 6.  On the **Define access and security**
     page, enter the following information:
+
     1. **Source**—Choose either
        **Source URLs**, **Source
        sitemaps**, **Source URLs
@@ -246,7 +249,6 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
          developer tools. XPaths usually follow this
          format:
          `//tagname[@Attribute='Value']`.
-
     2. (Optional) **Web
        proxy**—Enter the host name and the
        port number of the proxy sever you want to use to
@@ -270,10 +272,12 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
 
 7.  On the **Configure sync settings** page,
     enter the following information:
+
     1. **Sync scope**—Set limits
        for crawling web pages including their domains, file
        sizes and links; and filter URLs using regex
        patterns.
+
        1. (Optional) **Crawl domain
           range**—Choose whether to crawl
           website domains only, domains with subdomains, or
@@ -283,6 +287,7 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
        2. (Optional) **Additional
           configuration**—Set the following
           settings:
+
           - **Crawl depth**—The
             'depth' or number of levels from the seed level to
             crawl. For example, the seed URL page is depth 1
@@ -311,6 +316,7 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
        is crawled and indexed by default. You must run a full sync of your
        data if your initial sync failed, even if you don't choose full sync
        as your sync mode option.
+
        - Full sync: Freshly index all content, replacing existing
          content each time your data source syncs with your index.
        - New, modified, deleted sync: Index only new, modified,
@@ -327,6 +333,7 @@ If using version 2 (if applicable), choose **web crawler connector** with the "V
 
 8.  On the **Set field mappings** page, enter
     the following information:
+
     1. Select from the Amazon Kendra generated
        default fields of web pages and files that you want
        to map to your index.
@@ -378,6 +385,7 @@ base URL "https://example.com/".
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

@@ -42,6 +42,7 @@ these steps:
 
 8. (_Optional_) Under **Advanced
    configuration**:
+
    1. Specify a **Username** to use in the ACL check.
    2. Specify one or more **Groups** to use in the ACL check.
    3. Specify the **Issuer** that will validate the token issuer.

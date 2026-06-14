@@ -196,6 +196,7 @@ test your Amazon Kendra index.
    *https://kendra.<region>.amazonaws.com*.
 3. Select the **Authorization** tab and enter the following
    information.
+
    - **Type**—Select **AWS signature**.
    - **AccessKey**—Enter the access key
      generated when you create an IAM user.
@@ -220,6 +221,7 @@ test your Amazon Kendra index.
 
 4. Select the **Headers** tab and enter the following key
    and value information.
+
    - Key: _X-Amz-Target_
 
    Value:
@@ -229,6 +231,7 @@ test your Amazon Kendra index.
    Value: _amz-1.0_
 
 5. Select the **Body** tab and do the following.
+
    - Choose the **raw** JSON type for the body of the
      request.
    - Enter a JSON that includes your index ID and query text.

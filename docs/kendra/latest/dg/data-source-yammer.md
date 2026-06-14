@@ -118,6 +118,7 @@ If using version 2 (if applicable), choose **Microsoft Yammer connector** with t
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Authorization**—Turn on or off access control list (ACL) information for your
       documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
       and groups can access. The ACL information is used to filter search results based on the user or
@@ -126,9 +127,11 @@ If using version 2 (if applicable), choose **Microsoft Yammer connector** with t
       Secrets Manager secret to store your Microsoft Yammer authentication
       credentials. If you choose to create a new secret an AWS Secrets Manager
       secret window opens.
+
       1. Enter following information in the
          **Create an AWS Secrets Manager
          secret window**:
+
          1. **Secret name**—A
             name for your secret. The prefix
             ‘AmazonKendra-Microsoft Yammer-’ is
@@ -167,6 +170,7 @@ If using version 2 (if applicable), choose **Microsoft Yammer connector** with t
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Since date**—Specify the date
       to begin crawling your data in Microsoft Yammer.
    2. **Sync contents**—Select the type of
@@ -182,6 +186,7 @@ If using version 2 (if applicable), choose **Microsoft Yammer connector** with t
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified sync: Index only new and modified content
@@ -202,6 +207,7 @@ If using version 2 (if applicable), choose **Microsoft Yammer connector** with t
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. **Default data source
       fields**—Select from the Amazon Kendra generated default data source fields you
       want to map to your index.
@@ -237,6 +243,7 @@ information:
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

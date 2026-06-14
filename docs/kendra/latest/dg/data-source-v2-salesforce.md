@@ -127,6 +127,7 @@ If using version 2 (if applicable), choose **Salesforce connector** with the "V2
 
 6.  On the **Define access and security** page, enter the following
     information:
+
     1. **Salesforce URL**—Enter The instance URL for the
        Salesforce site that you want to index.
     2. **Authorization**—Turn on or off access control list (ACL) information for your
@@ -135,9 +136,11 @@ If using version 2 (if applicable), choose **Salesforce connector** with the "V2
        their group access to documents. For more information, see [User context filtering](user-context-filter.md#context-filter-user-incl-datasources "user-context-filter.md#context-filter-user-incl-datasources").
     3. Enter an existing secret or if you create a new secret, an AWS
        Secrets Manager secret window opens.
+
        1. **Authentication**—Enter following information in the
           **Create an AWS
           Secrets Manager secret window**:
+
           1. **Secret name**—A name for your secret. The prefix
              ‘AmazonKendra-Salesforce-’ is automatically added to your secret
              name.
@@ -181,6 +184,7 @@ If using version 2 (if applicable), choose **Salesforce connector** with the "V2
 
 7.  On the **Configure sync settings** page, enter the following
     information:
+
     1. For **Crawl attachments**—Select to crawl all attached
        Salesforce objects.
     2. For **Standard objects**, **Standard objects with
@@ -222,6 +226,7 @@ If using version 2 (if applicable), choose **Salesforce connector** with the "V2
 9.  Choose **Next**.
 10. On the **Set field mappings** page, enter the following
     information:
+
     1. For **Standard knowledge article**, **Standard object
        attachments**, and **Additional suggested field mappings**
        —Select from the Amazon Kendra generated default data source fields you want
@@ -261,6 +266,7 @@ You must specify a JSON of the [data source schema](ds-schemas.md "ds-schemas.md
   source with Amazon Kendra for the first time, all content is crawled and indexed by
   default. You must run a full sync of your data if your initial sync failed, even if you
   don't choose full sync as your sync mode option. You can choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content, replacing existing
     content each time your data source syncs with your index.
   - `FULL_CRAWL` to index only new, modified, and deleted content each time

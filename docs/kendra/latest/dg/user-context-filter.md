@@ -937,6 +937,7 @@ are used as follows:
 - `_user_id`—The user name of the Salesforce
   user.
 - `_group_ids`—
+
   - Name of the Salesforce `Profile`
   - Name of the Salesforce `Group`
   - Name of the Salesforce `UserRole`
@@ -950,6 +951,7 @@ used as follows:
 - `_group_ids`—Group IDs are used as follows. Only
   available if the feed item is posted in a chatter or collaboration
   group.
+
   - The name of the chatter or collaboration group.
   - If the group is public, `PUBLIC:ALL`.
 

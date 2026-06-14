@@ -126,8 +126,10 @@ If using version 2 (if applicable), choose **Amazon FSx (NetApp ONTAP) connector
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Source**—Provide your file
       system information.
+
       - **File system
         protocol**—Choose the protocol of
         your Amazon FSx (NetApp ONTAP) file system. You can
@@ -186,6 +188,7 @@ If using version 2 (if applicable), choose **Amazon FSx (NetApp ONTAP) connector
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Sync scope, Regex patterns**—Add regular
       expression patterns to include or exclude certain files.
    2. **Sync mode**—Choose how you want to update
@@ -194,6 +197,7 @@ If using version 2 (if applicable), choose **Amazon FSx (NetApp ONTAP) connector
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified, deleted sync: Index only new, modified,
@@ -209,6 +213,7 @@ If using version 2 (if applicable), choose **Amazon FSx (NetApp ONTAP) connector
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. Select from the Amazon Kendra generated default
       fields of your files that you want to map to your index.
       To add custom data source fields, create an index field
@@ -304,6 +309,7 @@ You can also add the following optional features:
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

@@ -109,6 +109,7 @@ If using version 2 (if applicable), choose **Amazon RDS (MySQL) connector** with
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. In **Source**, enter the following
       information:
    2. **Host** – Enter the database
@@ -124,14 +125,17 @@ If using version 2 (if applicable), choose **Amazon RDS (MySQL) connector** with
       location**—Choose to enter the Amazon S3 path to your SSL certificate file.
    6. In **Authentication**—enter
       the following information:
+
       1. **AWS Secrets Manager secret**—Choose an existing secret or create a new
          Secrets Manager secret to store your Amazon RDS (MySQL) authentication
          credentials. If you choose to create a new secret an AWS Secrets Manager
          secret window opens.
+
          1. Enter following information in the
             **Create an AWS
             Secrets Manager secret
             window**:
+
             1. **Secret name**—A
                name for your secret. The prefix
                ‘AmazonKendra-Amazon RDS (MySQL)-’ is
@@ -156,8 +160,10 @@ If using version 2 (if applicable), choose **Amazon RDS (MySQL) connector** with
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. In **Sync scope**, choose from the
       following options :
+
       - **SQL query**—Enter
         SQL query statements like SELECT and JOIN
         operations. SQL queries must be less than 32KB SQL
@@ -181,6 +187,7 @@ If using version 2 (if applicable), choose **Amazon RDS (MySQL) connector** with
       _optional_**, choose
       from the following options to sync specific content
       instead of syncing all files:
+
       - **Change-detecting
         columns**—Enter the names of the
         columns that Amazon Kendra will use to detect
@@ -220,6 +227,7 @@ If using version 2 (if applicable), choose **Amazon RDS (MySQL) connector** with
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified sync: Index only new and modified content
@@ -240,6 +248,7 @@ If using version 2 (if applicable), choose **Amazon RDS (MySQL) connector** with
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. Select from the generated default data source
       fields—**Document IDs**,
       **Document titles**, and
@@ -282,6 +291,7 @@ You must specify the following using the [TemplateConfiguration](API_TemplateCon
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

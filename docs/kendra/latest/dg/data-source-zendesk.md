@@ -56,6 +56,7 @@ later change your endpoint information, you must create a new secret to sync thi
 information.
 
 - Set up OAuth 2.0 Authentication using the authorization code grant flow:
+
   1.  In Admin Center, navigate to Apps and integrations > APIs > Zendesk API.
   2.  Select the OAuth Clients tab and click "Add OAuth client".
   3.  Configure the OAuth client details: Set Client Name and Description, Set Client
@@ -63,6 +64,7 @@ information.
       generated Client ID and Client Secret.
   4.  Ensure the OAuth client has the required "read" scope (or "read write" if you need write access).
   5.  Generate an Access Token using the authorization code grant flow:
+
       - In a browser, navigate to:
         `https://{subdomain}.zendesk.com/oauth/authorizations/new?response_type=code&client_id={your_client_id}&redirect_uri={your_redirect_uri}&scope=read`
       - Authenticate and authorize the application when prompted.
@@ -74,7 +76,6 @@ information.
         -H "Content-Type: application/x-www-form-urlencoded" \
         -d "grant_type=authorization_code&code={authorization_code}&client_id={your_client_id}&client_secret={your_client_secret}&redirect_uri={your_redirect_uri}&scope=read"
       ```
-
       - Zendesk responds with a JSON object containing the access_token. Extract and securely store this access token.
 
   6.  Store the generated access token securely. This access token will be used for Kendra integration.
@@ -153,6 +154,7 @@ If using version 2 (if applicable), choose **Zendesk connector** with the "V2.0"
 
 6. On the **Define access and security** page, enter the
    following information:
+
    1. **Zendesk URL**—Enter your Zendesk URL.
       For example, `https://{sub-domain}.zendesk.com/`.
    2. **Authorization**—Turn on or off access control list (ACL) information for your
@@ -163,6 +165,7 @@ If using version 2 (if applicable), choose **Zendesk connector** with the "V2.0"
       Secrets Manager secret to store your Zendesk authentication
       credentials. If you choose to create a new secret an AWS Secrets Manager
       secret window opens.
+
       1. Create a new secret with the following structure:
 
       ```
@@ -200,6 +203,7 @@ If using version 2 (if applicable), choose **Zendesk connector** with the "V2.0"
 
 7. On the **Configure sync settings** page, enter the following
    information:
+
    1. **Select contents**—Select the types of content
       you want to crawl from tickets, to help center articles, community topics,
       and more.
@@ -215,6 +219,7 @@ If using version 2 (if applicable), choose **Zendesk connector** with the "V2.0"
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified sync: Index only new and modified content
@@ -234,6 +239,7 @@ If using version 2 (if applicable), choose **Zendesk connector** with the "V2.0"
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. **Default data source
       fields**—Select from the Amazon Kendra generated
       default data source fields you want to map to your index.
@@ -309,6 +315,7 @@ You can also add the following optional features:
   For more information, see [Configuring Amazon Kendra to use an Amazon VPC](vpc-configuration.md "vpc-configuration.md").
 - **Document/content types**—Specify
   whether to crawl:
+
   - Support tickets, ticket comments, and/or ticket comment attachments
   - Help center articles, article attachments, and article comments
   - Guide community topics, posts, or post comments

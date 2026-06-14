@@ -56,6 +56,7 @@ credentials and secrets across data sources, and connector versions 1.0 and
   secret. The user name and password must provide access to the ServiceNow knowledge
   base and service catalog. See [ServiceNow documentation on OAuth 2.0 authentication](https://www.servicenow.com/docs/bundle/utah-platform-security/page/integrate/single-sign-on/concept/c_Authentication.html "https://www.servicenow.com/docs/bundle/utah-platform-security/page/integrate/single-sign-on/concept/c_Authentication.html") for more information.
 - Added the following permissions:
+
   - kb_category
   - kb_knowledge
   - kb_knowledge_base
@@ -133,6 +134,7 @@ connector V1.0**, and then choose **Add data source**. 5. On the **Specify data 
 
 6. On the **Define access and security** page, enter the following
    information:
+
    1. **ServiceNow host**—Enter the ServiceNow
       host URL.
    2. **ServiceNow version**—Select your
@@ -143,6 +145,7 @@ connector V1.0**, and then choose **Add data source**. 5. On the **Specify data 
       Secrets Manager secret to store your ServiceNow authentication
       credentials. If you choose to create a new secret an AWS Secrets Manager
       secret window opens.
+
       1. **Secret name**—A name for your secret. The prefix
          ‘AmazonKendra-ServiceNow-’ is automatically added to your secret name.
       2. If using Basic Authentication—Enter the **Secret name**,
@@ -165,6 +168,7 @@ connector V1.0**, and then choose **Add data source**. 5. On the **Specify data 
 
 7. On the **Configure sync settings** page, enter the following
    information:
+
    1. **Include knowledge articles**—Choose to index knowledge
       articles.
    2. **Type of knowledge articles**—Choose between
@@ -185,6 +189,7 @@ connector V1.0**, and then choose **Add data source**. 5. On the **Specify data 
 
 8. On the **Set field mappings** page, enter the following
    information:
+
    1. **Knowledge articles** and **Service catalog**
       —Select from the Amazon Kendra generated default data source fields and
       additional suggested field mappings that you want to map to your index.
@@ -274,6 +279,7 @@ match the inclusion filter.
 
 - **Indexing parameters**—You can also choose to
   specify whether to:
+
   - Index knowledge articles and service catalogs, or both of these. If you choose to
     index knowledge articles and service catalog items, you must provide the name of the
     ServiceNow field that is mapped to the index document contents field in the

@@ -39,6 +39,7 @@ source.
 2.  Select **Launch an instance**.
 3.  Choose **Network settings**, and then choose
     **Edit**, and then do the following:
+
     1. Choose the same VPC and **Subnet** that you
        assigned to Amazon Kendra.
     2. For **Firewall (security groups)**, choose
@@ -60,7 +61,6 @@ source.
          access to an Amazon S3 bucket?](https://repost.aws/knowledge-center/ec2-instance-access-s3-bucket "https://repost.aws/knowledge-center/ec2-instance-access-s3-bucket") in
          AWS re:Post.
         * Leave all other settings as default.
-
     5. Review and launch the Amazon EC2 instance.
 
 ## Step 2: Connect to Amazon EC2 instance

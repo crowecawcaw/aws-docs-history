@@ -44,6 +44,7 @@ result.
 - **Date fields or attributes**—There are three
   specific criteria for date fields, `Duration`, `Freshness` and
   `RankOrder`.
+
   - `Duration` sets the time period that the boost applies to. For
     example, if you set the time period to 86400 seconds (i.e. one day), the
     boost begins to lessen after one day. The higher the importance, the faster

@@ -54,6 +54,7 @@ credentials and secrets across data sources, and connector versions 1.0 and
 
 - Added the following Oauth scopes (using an admin role) for your user and the
   shared directories you want to index:
+
   - https://www.googleapis.com/auth/admin.directory.user.readonly
   - https://www.googleapis.com/auth/gmail.readonly
 
@@ -121,6 +122,7 @@ If using version 2 (if applicable), choose **Gmail connector** with the "V2.0" t
 
 6.  On the **Define access and security** page,
     enter the following information:
+
     1. **Authorization**—Turn on or off access control list (ACL) information for your
        documents, if you have an ACL and want to use it for access control. The ACL specifies which documents that users
        and groups can access. The ACL information is used to filter search results based on the user or
@@ -133,10 +135,12 @@ If using version 2 (if applicable), choose **Gmail connector** with the "V2.0" t
        credentials. If you choose to create a new secret an
        AWS
        Secrets Manager secret window opens.
+
        1. Enter following information in the
           **Create an AWS
           Secrets Manager secret
           window**:
+
           1. **Secret Name**—A
              name for your secret.
           2. **Client email**—The
@@ -163,11 +167,13 @@ If using version 2 (if applicable), choose **Gmail connector** with the "V2.0" t
 
 7.  On the **Configure sync settings** page,
     enter the following information:
+
     1. For**Entity types**—Choose to
        sync message attachments.
     2. (Optional) For **Additional
        configuration**, enter the following
        information:
+
        1. **Date range**—Enter a
           date range to specify the start and end date of
           emails you want to crawl.
@@ -195,6 +201,7 @@ If using version 2 (if applicable), choose **Gmail connector** with the "V2.0" t
        is crawled and indexed by default. You must run a full sync of your
        data if your initial sync failed, even if you don't choose full sync
        as your sync mode option.
+
        - Full sync: Freshly index all content, replacing existing
          content each time your data source syncs with your index.
        - New, modified, deleted sync: Index only new, modified,
@@ -224,6 +231,7 @@ If using version 2 (if applicable), choose **Gmail connector** with the "V2.0" t
 
 8.  On the **Set field mappings** page, enter the
     following information:
+
     1. **Default data source
        fields**—Select from the Amazon Kendra generated
        default data source fields you want to map to your index.
@@ -261,6 +269,7 @@ provide the following information:
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

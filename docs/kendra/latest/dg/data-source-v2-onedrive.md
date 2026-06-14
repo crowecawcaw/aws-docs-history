@@ -68,6 +68,7 @@ credentials and secrets across data sources, and connector versions 1.0 and
 - Copied the AD domain of the organization.
 - Added the following permissions to your AD application on the Microsoft Graph
   option:
+
   - Read files in all site collections (File.Read.All)
   - Read all users' full profiles(User.Read.All)
   - Read all groups (Group.Read.All)
@@ -75,6 +76,7 @@ credentials and secrets across data sources, and connector versions 1.0 and
 
 - Copied the list of users whose documents must be indexed. You can choose to provide a
   list of user names, or you can provide the user names in a file stored in an Amazon S3. After you create the data source, you can:
+
   - Modify the list of users.
   - Change from a list of users to a list stored in an Amazon S3 bucket.
   - Change the Amazon S3 bucket location of a list of users. If you change the
@@ -132,6 +134,7 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
 
 6. On the **Define access and security** page, enter the following
    information:
+
    1. **OneDrive tenant ID**—Enter the OneDrive tenant ID without
       the protocol.
    2. **Authorization**—Turn on or off access control list (ACL) information for your
@@ -145,6 +148,7 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
       2. If you choose **New**, enter following information in the
          **New AWS
          Secrets Manager secret** section:
+
          1. **Secret name**—A name for your secret. The prefix
             ‘AmazonKendra-OneDrive-’ is automatically added to your secret
             name.
@@ -185,6 +189,7 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified sync: Index only new and modified content
@@ -204,6 +209,7 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
 
 9. On the **Set field mappings** page, enter the following
    information:
+
    1. **Default data source fields**—Select from
       the Amazon Kendra generated default data source
       fields that you want to map to your index.
@@ -238,6 +244,7 @@ the [TemplateConfiguration](../APIReference/API_TemplateConfiguration.md "../API
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

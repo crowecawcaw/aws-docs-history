@@ -37,6 +37,7 @@ have:**
 - Copied the AD domain of the organization.
 - Added the following application permissions to your AD application on the Microsoft Graph
   option:
+
   - Read files in all site collections (File.Read.All)
   - Read all users' full profile (User.Read.All)
   - Read directory data (Directory.Read.All)
@@ -45,6 +46,7 @@ have:**
 
 - Copied the list of users whose documents must be indexed. You can choose to provide a
   list of user names, or you can provide the user names in a file stored in an Amazon S3. After you create the data source, you can:
+
   - Modify the list of users.
   - Change from a list of users to a list stored in an Amazon S3 bucket.
   - Change the Amazon S3 bucket location of a list of users. If you change the
@@ -118,6 +120,7 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
 
 6. On the **Define access and security** page, enter the following
    information:
+
    1. **OneDrive tenant ID**—Enter the OneDrive tenant ID without
       the protocol.
    2. **Type of authentication**—Choose between
@@ -127,6 +130,7 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
       2. If you choose **New**, enter following information in the
          **New AWS
          Secrets Manager secret** section:
+
          1. **Secret name**—A name for your secret. The prefix
             ‘AmazonKendra-OneDrive-’ is automatically added to your secret
             name.
@@ -145,10 +149,13 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
 
 7. On the **Configure sync settings** page, enter the following
    information:
+
    1. Choose between **List file** and **Names list**
       based on your use case.
+
       1. If you choose **List file**, enter the following
          information:
+
          1. **Select location**—Enter the path to your Amazon S3
             bucket.
 
@@ -160,6 +167,7 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
 
       2. If you choose **Names list**, enter the following
          information:
+
          1. **User name**—Enter up to 10 user drives to index. To add
             more than 10 users, create a file that contains the names.
 
@@ -177,6 +185,7 @@ If using version 2 (if applicable), choose **OneDrive connector** with the "V2.0
 
 8. On the **Set field mappings** page, enter the following
    information:
+
    1. For **Default data source fields** and **Additional
       suggested field mappings**—Select from the Amazon Kendra generated
       default data source fields you want to map to your index.

@@ -230,6 +230,7 @@ If using version 2 (if applicable), choose **GitHub connector** with the "V2.0" 
 
 6.  On the **Define access and security** page,
     enter the following information:
+
     1. **GitHub
        source**—Choose between
        **GitHub Enterprise
@@ -273,7 +274,6 @@ If using version 2 (if applicable), choose **GitHub connector** with the "V2.0" 
         	 credential value configured in
         	 GitHub.
         2. Save and add your secret.
-
     6. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
        so, you must add **Subnets** and **VPC security groups**.
     7. **Identity crawler**—Specify whether to turn on
@@ -298,6 +298,7 @@ If using version 2 (if applicable), choose **GitHub connector** with the "V2.0" 
 
 7.  On the **Configure sync settings** page,
     enter the following information:
+
     1. **Select repositories**—Choose
        to crawl all repositories or select.
 
@@ -329,7 +330,6 @@ If using version 2 (if applicable), choose **GitHub connector** with the "V2.0" 
          can use your data source's mechanism for tracking
          content changes and index content that changed
          since the last sync.
-
     5. In **Sync run schedule** for
        **Frequency**—Choose how
        often to sync your data source content and update your
@@ -338,6 +338,7 @@ If using version 2 (if applicable), choose **GitHub connector** with the "V2.0" 
 
 8.  On the **Set field mappings** page, enter the
     following information:
+
     1. **Default data source
        fields**—Select from the Amazon Kendra generated default data source fields you
        want to map to your index.
@@ -388,6 +389,7 @@ provide the following information:
   You must run a full sync of your data if your initial sync failed,
   even if you don’t choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

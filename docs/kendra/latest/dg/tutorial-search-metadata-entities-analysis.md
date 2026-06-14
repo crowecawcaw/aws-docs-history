@@ -43,6 +43,7 @@ bar. 2. Choose **Launch Amazon Comprehend**. 3. In the left navigation pane, cho
     4. Keep **Job encryption** turned off.
 
 6.  In the **Input data** section, do the following:
+
     1. For **Data source**, choose **My
        documents**.
     2. For **S3 location**, choose **Browse
@@ -55,12 +56,14 @@ bar. 2. Choose **Launch Amazon Comprehend**. 3. In the left navigation pane, cho
        file**.
 
 7.  In the **Output data** section, do the following:
+
     1. For **S3 location**, choose **Browse S3**
        and then select the option box for your bucket from the list of buckets and
        choose **Choose**.
     2. Keep **Encryption** turned off.
 
 8.  In the **Access permissions** section, do the following:
+
     1. For **IAM role**, choose **Create an IAM
        role**.
     2. For **Permissions to access**, choose **Input and
@@ -73,6 +76,7 @@ bar. 2. Choose **Launch Amazon Comprehend**. 3. In the left navigation pane, cho
 10. Choose **Create job**.
 11. To create and attach an IAM role for Amazon Comprehend that recognizes it as a trusted
     entity, do the following:
+
     1. Save the following trust policy as a JSON file called
        `comprehend-trust-policy.json` in a text editor on your
        local device.
@@ -94,7 +98,6 @@ bar. 2. Choose **Launch Amazon Comprehend**. 3. In the left navigation pane, cho
     }`
 
     ```
-
     2. To create an IAM role called `comprehend-role` and attach your
        saved `comprehend-trust-policy.json` file to it, use the
        [create-role](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-role.html") command:
@@ -140,7 +143,6 @@ bar. 2. Choose **Launch Amazon Comprehend**. 3. In the left navigation pane, cho
         * `path/` is the filepath to
          `comprehend-trust-policy.json` on your local
          device.
-
     3. Copy the Amazon Resource Name (ARN) to your text editor and save it locally
        as `comprehend-role-arn`.
 
@@ -153,6 +155,7 @@ bar. 2. Choose **Launch Amazon Comprehend**. 3. In the left navigation pane, cho
 
 12. To create and attach an IAM policy to your IAM role that grants it
     permissions to access your S3 bucket, do the following:
+
     1. Save the following trust policy as a JSON file called
        `comprehend-S3-access-policy.json` in a text editor on your
        local device.
@@ -194,7 +197,6 @@ bar. 2. Choose **Launch Amazon Comprehend**. 3. In the left navigation pane, cho
     }`
 
     ```
-
     2. To create an IAM policy called `comprehend-S3-access-policy` to
        access your S3 bucket, use the [create-policy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/create-policy.html") command:
 
@@ -239,7 +241,6 @@ bar. 2. Choose **Launch Amazon Comprehend**. 3. In the left navigation pane, cho
         * `path/` is the filepath to
          `comprehend-S3-access-policy.json` on your local
          device.
-
     3. Copy the Amazon Resource Name (ARN) to your text editor and save it locally
        as `comprehend-S3-access-arn`.
 

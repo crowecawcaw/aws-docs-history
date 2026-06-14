@@ -145,6 +145,7 @@ If using version 2 (if applicable), choose **database connector** with the "V2.0
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Endpoint**—A DNS host name,
       an IPv4 address, or an IPv6 address.
    2. **Port**—A port number.
@@ -158,10 +159,12 @@ If using version 2 (if applicable), choose **database connector** with the "V2.0
       database authentication credentials. If you
       choose to create a new secret an AWS
       Secrets Manager secret window opens.
+
       1. Enter following information in the
          **Create an AWS
          Secrets Manager secret
          window**:
+
          1. **Secret name**—A
             name for your secret. The prefix
             ‘AmazonKendra-database-’ is
@@ -195,6 +198,7 @@ If using version 2 (if applicable), choose **database connector** with the "V2.0
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. Select between **Aurora MySQL**,
       **MySQL**, **Aurora
       PostgreSQL**, and
@@ -217,6 +221,7 @@ If using version 2 (if applicable), choose **database connector** with the "V2.0
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. **Amazon Kendra default field
       mappings**—Select from the Amazon Kendra generated default data source fields you
       want to map to your index. You must add the

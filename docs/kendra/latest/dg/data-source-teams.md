@@ -139,6 +139,7 @@ If using version 2 (if applicable), choose **Microsoft Teams connector** with th
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Tenant ID**—Enter your
       Microsoft 365 tenant ID. You can find your tenant ID in
       the Properties of your Azure Active Directory
@@ -151,10 +152,12 @@ If using version 2 (if applicable), choose **Microsoft Teams connector** with th
       Secrets Manager secret to store your Microsoft Teams authentication
       credentials. If you choose to create a new secret an AWS Secrets Manager
       secret window opens.
+
       1. Enter following information in the
          **Create an AWS
          Secrets Manager secret
          window**:
+
          1. **Secret name**—A
             name for your secret. The prefix
             ‘AmazonKendra-Microsoft Teams-’ is
@@ -197,6 +200,7 @@ If using version 2 (if applicable), choose **Microsoft Teams connector** with th
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Sync contents**—Select
       the types of content to crawl. You can
       choose to crawl chat, teams, and calendar content.
@@ -209,6 +213,7 @@ If using version 2 (if applicable), choose **Microsoft Teams connector** with th
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified sync: Index only new and modified content
@@ -229,6 +234,7 @@ If using version 2 (if applicable), choose **Microsoft Teams connector** with th
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. **Default data source
       fields**—Select from the Amazon Kendra generated default data source fields you
       want to map to your index.
@@ -267,6 +273,7 @@ information:
   You must run a full sync of your data if your initial sync failed,
   even if you don't choose full sync as your sync mode option. You can
   choose between:
+
   - `FORCED_FULL_CRAWL` to freshly index all content,
     replacing existing content each time your data source syncs with
     your index.

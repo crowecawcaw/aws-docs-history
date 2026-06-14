@@ -78,6 +78,7 @@ have:**
   password you use to connect to SharePoint Online and the client ID
   and client secret generated after registering SharePoint with Azure
   AD.
+
   - **If you're not using ACL**, added
     the following permissions:
 
@@ -122,6 +123,7 @@ have:**
 - **For Azure AD App-Only authentication:**
   Private key and the Client ID you generated after registering
   SharePoint with Azure AD. Also note the X.509 certificate.
+
   - **If you're not using ACL**, added
     the following permissions:
 
@@ -229,11 +231,13 @@ supported for SharePoint 2013 version.
 
 - If using **Email ID with Custom Domain** for access
   control:
+
   - Noted your custom email domain value—for example:
     "`amazon.com`".
 
 - If using **Email ID with Domain from IDP** authorization,
   copied your:
+
   - LDAP Server Endpoint (endpoint of LDAP server including protocol
     and port number). For example:
     `ldap://example.com:389`.
@@ -303,6 +307,7 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
 
 6.  On the **Define access and security**
     page, enter the following information:
+
     1. **Hosting Method**—Choose
        **SharePoint
        Online**.
@@ -382,7 +387,6 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
          SharePoint to Azure AD, refresh token
          generated to connect Amazon Kendra to
          SharePoint.
-
     6. **Virtual Private Cloud (VPC)**—You can choose to use a VPC. If
        so, you must add **Subnets** and **VPC security groups**.
     7. **Identity crawler**—Specify whether to turn on
@@ -415,8 +419,10 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
 
 7.  On the **Configure sync settings** page,
     enter the following information:
+
     1. In **Sync scope**, choose from
        the following options :
+
        1. **Select
           entities**—Choose the entities you
           want to crawl. You can select to crawl
@@ -458,6 +464,7 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
        content changes. When you sync your data source with
        Amazon Kendra for the first time, all content
        is synced by default.
+
        - **Full sync**—Sync
          all content regardless of the previous sync
          status.
@@ -476,6 +483,7 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
 
 8.  On the **Set field mappings** page, enter
     the following information:
+
     1. **Default data source
        fields**—Select from the Amazon Kendra generated default data source fields
        that you want to map to your index.
@@ -511,6 +519,7 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
 
 6.  On the **Define access and security**
     page, enter the following information:
+
     1. **Hosting Method**—Choose
        **SharePoint
        Server**.
@@ -571,13 +580,13 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
          a valid domain name. For example:
          `"sharepoint2019"` to
          construct access control.
-
     8.  For **Authentication**, choose
         either SharePoint App-Only authentication,
         NTLM authentication, or Kerberos authentication. You
         either choose an existing AWS Secrets Manager
         secret to store your authentication credentials, or
         create a secret.
+
         1. If using **NTLM
            authentication** or **Kerberos
            authentication**, you secret must include
@@ -602,7 +611,6 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
             * **LDAP
              Password**—Your LDAP
              password.
-
         2. If using **SharePoint
            App-Only authentication**, your secret
            must include a secret name, SharePoint
@@ -673,8 +681,10 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
 
 7.  On the **Configure sync settings** page,
     enter the following information:
+
     1. In **Sync scope**, choose from
        the following options :
+
        1. **Select
           entities**—Choose the entities you
           want to crawl. You can select to crawl
@@ -717,6 +727,7 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
        full sync of your data if your initial sync failed,
        even if you don't choose full sync as your sync mode
        option.
+
        - Full sync: Freshly index all content,
          replacing existing content each time your data
          source syncs with your index.
@@ -741,6 +752,7 @@ If using version 2 (if applicable), choose **SharePoint connector** with the "V2
 
 8.  On the **Set field mappings** page, enter
     the following information:
+
     1. **Default data source
        fields**—Select from the Amazon Kendra generated default data source fields
        that you want to map to your index.
@@ -783,6 +795,7 @@ following information:
   your data if your initial sync failed, even if you don't
   choose full sync as your sync mode option. You can choose
   between:
+
   - `FORCED_FULL_CRAWL` to freshly index
     all content, replacing existing content each time
     your data source syncs with your index.
@@ -818,6 +831,7 @@ Identity crawler is available only when you set
 
 - **Repository Additional
   Properties**—Specify the:
+
   - (For Azure AD) `s3bucketName` and
     `s3certificateName` you use to store
     your Azure AD self-signed X.509 certificate.

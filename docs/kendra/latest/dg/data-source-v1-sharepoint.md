@@ -48,6 +48,7 @@ credentials and secrets across data sources, and connector versions 1.0 and
 
 - Noted the URL of the SharePoint sites you want to index.
 - **For SharePoint Online:**
+
   - Noted your basic authentication credentials containing a user name
     and password with site admin permissions.
   - **Optional:** Generated OAuth 2.0
@@ -59,6 +60,7 @@ credentials and secrets across data sources, and connector versions 1.0 and
     defaults](https://learn.microsoft.com/en-us/microsoft-365/business-premium/m365bp-conditional-access?view=o365-worldwide&tabs=secdefaults#security-defaults-1 "https://learn.microsoft.com/en-us/microsoft-365/business-premium/m365bp-conditional-access?view=o365-worldwide&tabs=secdefaults#security-defaults-1").
 
 - **For SharePoint Server:**
+
   - Noted your SharePoint Server domain name (the NetBIOS name
     in your Active Directory). You use this, along with your
     SharePoint basic authentication user name and password, to
@@ -178,11 +180,13 @@ and then choose **Add data source**. 5. On the **Specify data source details** p
 
 6. On the **Define access and security**
    page, enter the following information:
+
    1. For **Hosting
       method**—Choose between
       **SharePoint Online** and
       **SharePoint
       Server**.
+
       1. For **SharePoint
          Online**—Enter the **Site
          URLs specific to your SharePoint
@@ -206,6 +210,7 @@ and then choose **Add data source**. 5. On the **Specify data source details** p
       **Authentication**—Choose
       between the following options based on your use
       case:
+
       1. For SharePoint Online—Choose
          between **Basic authentication**
          and **OAuth 2.0
@@ -228,9 +233,11 @@ and then choose **Add data source**. 5. On the **Specify data source details** p
       **Create an AWS
       Secrets Manager secret
       window**:
+
       1. Choose from the following SharePoint
          Cloud authentication options, based on your use
          case:
+
          1. **Basic
             authentication**—Enter your
             SharePoint account user name as
@@ -251,6 +258,7 @@ and then choose **Add data source**. 5. On the **Specify data source details** p
       2. Choose from the following SharePoint
          Server authentication options, based on your use
          case:
+
          1. **None**—Enter your
             SharePoint account user name as
             **User name**, your
@@ -298,6 +306,7 @@ dc=com`).
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Use Change log**—Select
       to update your index instead of syncing all your
       files.
@@ -319,6 +328,7 @@ dc=com`).
 
 8. On the **Set field mappings** page, enter
    the following information:
+
    1. **Amazon Kendra default field
       mappings**—Select from the Amazon Kendra generated default data source fields
       you want to map to your index.

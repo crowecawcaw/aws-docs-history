@@ -115,6 +115,7 @@ If using version 2 (if applicable), choose **Jira connector** with the "V2.0" ta
 
 6. On the **Define access and security** page,
    enter the following information:
+
    1. **Jira account URL**—Enter
       your Jira Account URL. For example:
       `https://company.atlassian.net/`.
@@ -126,10 +127,12 @@ If using version 2 (if applicable), choose **Jira connector** with the "V2.0" ta
       Secrets Manager secret to store your Jira authentication
       credentials. If you choose to create a new secret an AWS Secrets Manager
       secret window opens.
+
       1. Enter following information in the
          **Create an AWS
          Secrets Manager secret
          window**:
+
          1. **Secret name**—A
             name for your secret. The prefix
             ‘AmazonKendra-Jira-’ is
@@ -168,6 +171,7 @@ If using version 2 (if applicable), choose **Jira connector** with the "V2.0" ta
 
 7. On the **Configure sync settings** page,
    enter the following information:
+
    1. **Select which Jira projects to
       index**—Choose to crawl all project
       or specific projects.
@@ -181,6 +185,7 @@ If using version 2 (if applicable), choose **Jira connector** with the "V2.0" ta
       is crawled and indexed by default. You must run a full sync of your
       data if your initial sync failed, even if you don't choose full sync
       as your sync mode option.
+
       - Full sync: Freshly index all content, replacing existing
         content each time your data source syncs with your index.
       - New, modified sync: Index only new and modified content
@@ -200,6 +205,7 @@ If using version 2 (if applicable), choose **Jira connector** with the "V2.0" ta
 
 8. On the **Set field mappings** page, enter the
    following information:
+
    1. **Default data source
       fields**—Select from the Amazon Kendra generated default data source fields you
       want to map to your index.
