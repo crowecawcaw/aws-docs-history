@@ -46,6 +46,7 @@ A workflow type is a set of activity types that carry out an objective and conta
    **[Default
    task list](../apireference/API_RegisterWorkflowType.md#SWF-RegisterWorkflowType-request-defaultTaskList "../apireference/API_RegisterWorkflowType.md#SWF-RegisterWorkflowType-request-defaultTaskList")** that will be used to schedule decision tasks for executions of this workflow.
 4. (Optional) Choose **Advanced options** to specify the following details for your workflow:
+
    - **[Default Task
      priority](../apireference/API_RegisterWorkflowType.md#SWF-RegisterWorkflowType-request-defaultTaskPriority "../apireference/API_RegisterWorkflowType.md#SWF-RegisterWorkflowType-request-defaultTaskPriority")** – The default task priority to assign to the workflow.
    - **[Default Execution start
@@ -78,6 +79,7 @@ You can register activity types after at least one domain is registered.
    **[Default
    task list](../apireference/API_RegisterActivityType.md#SWF-RegisterActivityType-request-defaultTaskList "../apireference/API_RegisterActivityType.md#SWF-RegisterActivityType-request-defaultTaskList")** that will be used to schedule tasks of this activity.
 4. (Optional) Choose **Advanced options** to specify the following details for your activity:
+
    - **[Default Task
      priority](../apireference/API_RegisterActivityType.md#SWF-RegisterActivityType-request-defaultTaskPriority "../apireference/API_RegisterActivityType.md#SWF-RegisterActivityType-request-defaultTaskPriority")** – The default task priority to assign to the activity.
    - **[Default task schedule to start timeout](../apireference/API_RegisterActivityType.md#SWF-RegisterActivityType-request-defaultTaskScheduleToStartTimeout "../apireference/API_RegisterActivityType.md#SWF-RegisterActivityType-request-defaultTaskScheduleToStartTimeout")** – The default maximum duration that a task of this activity can wait before being assigned to a worker.
@@ -105,6 +107,7 @@ You can start a workflow execution from the Amazon SWF console. You cannot start
    **[Task
    list](../apireference/API_StartWorkflowExecution.md#SWF-StartWorkflowExecution-request-taskList "../apireference/API_StartWorkflowExecution.md#SWF-StartWorkflowExecution-request-taskList")** that will be used for the decision tasks generated for this workflow execution.
 6. (Optional) Choose **Advanced options** to specify the following details for your workflow execution:
+
    - **[Task
      priority](../apireference/API_StartWorkflowExecution.md#SWF-StartWorkflowExecution-request-taskPriority "../apireference/API_StartWorkflowExecution.md#SWF-StartWorkflowExecution-request-taskPriority")** – The task priority to use for this workflow execution.
    - **[Execution start to close timeout](../apireference/API_StartWorkflowExecution.md#SWF-StartWorkflowExecution-request-executionStartToCloseTimeout "../apireference/API_StartWorkflowExecution.md#SWF-StartWorkflowExecution-request-executionStartToCloseTimeout")** – The total duration for this workflow execution.
@@ -135,24 +138,29 @@ In the console, you can manage the workflow executions that are currently runnin
 | **Tag**          | Choose this filter to list executions with a specific tag. For example, to view executions with the status `purchaseOrder`, do the<br>following:<br>1. Choose **Tag**.<br>2. Under **Operators**, choose **Equals**.<br>3. Under **Tag**, choose **purchaseOrder**.<br>4. (Optional) Choose \*_Clear filters_<br>• to remove the filter and start a new search for executions.                                                     |
 
 4. (Optional) After applying the required filter to list workflow executions, you can perform the following operations to an **Active** execution:
+
    - **Signal** – Use this option to send a running workflow execution additional data. To do this:
+
      1. Choose the execution to which you want to send additional data.
      2. Choose **Signal**, and then specify the data in the **Signal execution** dialog box.
      3. Choose **Signal**.
 
    - **Try-cancel** – Use this option to try to cancel a workflow execution. It is preferable to cancel a workflow execution rather than terminate it.
      Canceling provides the workflow execution an opportunity to perform any clean-up tasks and then close properly.
+
      1. Choose the execution which you want to cancel.
      2. Choose **Try-cancel**.
 
    - **Terminate** – Use this option to terminate a workflow execution. Note that it is preferable to cancel a workflow execution rather than
      terminate it.
+
      1. Choose the execution which you want to terminate.
      2. For **Child policy**, make sure **Terminate** is selected.
      3. (Optional) Specify the **Reason** and **Details** for terminating the execution.
      4. Choose **Terminate**.
 
 5. (Optional) **Re-run** – Use this option to re-run a closed workflow execution.
+
    1. In the list of workflow executions, select the closed execution to re-run. When you select a closed execution, the **Re-run** button becomes enabled.
       Choose **Re-run**.
    2. On the **Re-run execution** page, specify the details for workflow execution as mentioned in

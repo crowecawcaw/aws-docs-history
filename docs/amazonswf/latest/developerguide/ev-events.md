@@ -21,6 +21,7 @@ section of each event contains at least the following parameters:
 - `workflowExecutionDetail`: the state of the workflow when the event was
   emitted.
 - `eventType`: the history event type, one of the following:
+
   - `ActivityTaskCanceled`
   - `ActivityTaskFailed`
   - `ActivityTaskTimedOut`

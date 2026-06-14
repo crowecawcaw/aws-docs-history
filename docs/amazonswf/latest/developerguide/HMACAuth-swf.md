@@ -60,6 +60,7 @@ match the value of the `Algorithm` name in the HTTP header.
          name.
 
 2.  Create a string-to-sign value that includes the following items:
+
     - Line `1`: The HTTP method (`POST`),
       followed by a newline.
     - Line `2`: The request URI (`/`), followed
