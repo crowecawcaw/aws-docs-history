@@ -43,9 +43,11 @@ When you configure a schema registry, Lambda performs the following steps for ea
 
 1. Lambda polls the Kafka record from your cluster.
 2. Lambda validates selected message attributes in the record against a specific schema in your schema registry.
+
    - If the schema associated with the message is not found in the registry, Lambda sends the message to a DLQ with reason code `SCHEMA_NOT_FOUND`.
 
 3. Lambda deserializes the message according to the schema registry configuration to validate the message. If event filtering is configured, Lambda then performs filtering based on the configured filter criteria.
+
    - If deserialization fails, Lambda sends the message to a DLQ with reason code `DESERIALIZATION_ERROR`. If no DLQ is configured, Lambda drops the message.
 
 4. If the message is validated by the schema registry, and isn't filtered out by your filter criteria, Lambda invokes your function with the message.
@@ -65,11 +67,13 @@ The following console steps add a Kafka schema registry configuration to your ev
 5. Under **Event poller configuration**, choose **Configure schema registry**. Your event source mapping must be in provisioned mode to see this option.
 6. For **Schema registry URI**, enter the ARN of your AWS Glue schema registry, or the HTTPS URL of your Confluent Cloud schema registry or Self-Managed Confluent Schema Registry.
 7. The following configuration steps tell Lambda how to access your schema registry. For more information, see [Authentication methods for your schema registry](#services-consume-kafka-events-auth "#services-consume-kafka-events-auth").
+
    - For **Access configuration type**, choose the type of authentication Lambda uses to access your schema registry.
    - For **Access configuration URI**, enter the ARN of the Secrets Manager secret to authenticate with your schema registry, if applicable. Ensure that your function's [execution role](with-msk-permissions.md "with-msk-permissions.md") contains the correct permissions.
 
 8. The **Encryption** field applies only if your schema registry is signed by a private Certificate Authority (CA) or a certificate authority (CA) that's not in the Lambda trust store.. If applicable, provide the secret key containing the private CA certificate used by your schema registry for TLS encryption.
 9. For **Event record format**, choose how you want Lambda to deliver the records your function after schema validation. For more information, see [Payload format examples](#services-consume-kafka-events-payload "#services-consume-kafka-events-payload").
+
    - If you choose **JSON**, Lambda delivers the attributes that you select in the Schema validation attribute below in standard JSON format. For the attributes that you don't select, Lambda delivers them as-is.
    - If you choose **SOURCE**, Lambda delivers the attributes that you select in the Schema validation attribute below in its original source format.
 

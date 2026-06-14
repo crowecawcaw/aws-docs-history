@@ -17,9 +17,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Lambda](example_lambda_Hello_section.md "example_lambda_Hello_section.md")
   - [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateAlias](example_lambda_CreateAlias_section.md "example_lambda_CreateAlias_section.md")
     - [CreateFunction](example_lambda_CreateFunction_section.md "example_lambda_CreateFunction_section.md")
     - [DeleteAlias](example_lambda_DeleteAlias_section.md "example_lambda_DeleteAlias_section.md")
@@ -49,6 +51,7 @@ This topic also includes information about getting started and details about pre
     - [UpdateFunctionConfiguration](example_lambda_UpdateFunctionConfiguration_section.md "example_lambda_UpdateFunctionConfiguration_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Automatically confirm known users with a Lambda function](example_cross_CognitoAutoConfirmUser_section.md "example_cross_CognitoAutoConfirmUser_section.md")
   - [Automatically migrate known users with a Lambda function](example_cross_CognitoAutoMigrateUser_section.md "example_cross_CognitoAutoMigrateUser_section.md")
   - [Create a REST API to track COVID-19 data](example_cross_ApiGatewayDataTracker_section.md "example_cross_ApiGatewayDataTracker_section.md")
@@ -70,6 +73,7 @@ This topic also includes information about getting started and details about pre
   - [Write custom activity data with a Lambda function after Amazon Cognito user authentication](example_cross_CognitoCustomActivityLog_section.md "example_cross_CognitoCustomActivityLog_section.md")
 
 - [Serverless examples](service_code_examples_serverless_examples.md "service_code_examples_serverless_examples.md")
+
   - [Connecting to an Amazon RDS database in a Lambda function](example_serverless_connect_RDS_Lambda_section.md "example_serverless_connect_RDS_Lambda_section.md")
   - [Invoke a Lambda function from a Kinesis trigger](example_serverless_Kinesis_Lambda_section.md "example_serverless_Kinesis_Lambda_section.md")
   - [Invoke a Lambda function from a DynamoDB trigger](example_serverless_DynamoDB_Lambda_section.md "example_serverless_DynamoDB_Lambda_section.md")
@@ -83,4 +87,5 @@ This topic also includes information about getting started and details about pre
   - [Reporting batch item failures for Lambda functions with an Amazon SQS trigger](example_serverless_SQS_Lambda_batch_item_failures_section.md "example_serverless_SQS_Lambda_batch_item_failures_section.md")
 
 - [AWS community contributions](service_code_examples_aws_community_contributions.md "service_code_examples_aws_community_contributions.md")
+
   - [Build and test a serverless application](example_tributary-lite_serverless-application_section.md "example_tributary-lite_serverless-application_section.md")

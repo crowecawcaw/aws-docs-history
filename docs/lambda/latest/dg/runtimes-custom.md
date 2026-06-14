@@ -103,6 +103,7 @@ see the following:
 - `/runtime/invocation/AwsRequestId/response` – Propagates the
   `Content-Type` header from the runtime to send to the client. Lambda returns
   the response payload in chunks via HTTP/1.1 chunked transfer encoding. To stream the response to Lambda, the runtime must:
+
   - Set the `Lambda-Runtime-Function-Response-Mode` HTTP header to
     `streaming`.
   - Set the `Transfer-Encoding` header to `chunked`.
@@ -168,6 +169,7 @@ to handle concurrent invocations:
 2. **Create worker pool** – Initialize a pool of workers (threads, processes, or
    async tasks) equal to the concurrency limit.
 3. **Worker processing loop** – Each worker independently:
+
    - Calls `/runtime/invocation/next` to get an invocation event
    - Invokes the function handler with the event data
    - Posts the response to `/runtime/invocation/AwsRequestId/response`

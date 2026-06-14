@@ -152,6 +152,7 @@ docker kill `3766c4ab331c`
 ###### To upload the image to Amazon ECR and create the Lambda function
 
 1. Run the [get-login-password](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-login-password.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-login-password.html") command to authenticate the Docker CLI to your Amazon ECR registry.
+
    - Set the `--region` value to the AWS Region where you want to create the Amazon ECR repository.
    - Replace `111122223333` with your AWS account ID.
 
@@ -192,6 +193,7 @@ If successful, you see a response like this:
 
 3. Copy the `repositoryUri` from the output in the previous step.
 4. Run the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/ "https://docs.docker.com/engine/reference/commandline/tag/") command to tag your local image into your Amazon ECR repository as the latest version. In this command:
+
    - `docker-image:test` is the name and [tag](https://docs.docker.com/engine/reference/commandline/build/#tag "https://docs.docker.com/engine/reference/commandline/build/#tag") of your Docker image. This is the image name and tag that you specified in the `docker build` command.
    - Replace `<ECRrepositoryUri>` with the `repositoryUri` that you copied. Make sure to include `:latest` at the end of the URI.
 

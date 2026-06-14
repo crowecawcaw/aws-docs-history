@@ -94,6 +94,7 @@ You can configure provisioned mode for your Amazon SQS event source mapping usin
 3. Choose **Configuration**, then choose **Triggers**.
 4. Choose the Amazon SQS event source mapping that you want to configure provisioned mode for, then choose **Edit**.
 5. Under **Event source mapping configuration**, choose **Configure provisioned mode**.
+
    - For **Minimum event pollers**, enter a value between 2 and 200. If you don't specify a value, Lambda chooses a default value of 2.
    - For **Maximum event pollers**, enter a value between 2 and 2,000. This value must be greater than or equal to your value for **Minimum event pollers**. If you don't specify a value, Lambda chooses a default value of 200.
 

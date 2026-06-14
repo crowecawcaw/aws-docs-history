@@ -64,6 +64,7 @@ or the Lambda API.
 4. Choose the event source mapping that you want to configure provisioned mode for,
    then choose **Edit**.
 5. Under **Provisioned mode**, select **Configure**.
+
    - For **Minimum event pollers**, enter a value between 1 and 200.
      If you don't specify a value, Lambda chooses a default value of 1.
    - For **Maximum event pollers**, enter a value between 1 and 2,000.

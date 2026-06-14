@@ -29,6 +29,7 @@ In the Lambda console, you can send function logs directly to Firehose after cre
 5. In the "Logging configuration" section, choose **Edit**.
 6. In the "Log content" section, select a log format.
 7. In the "Log destination" section, complete the following steps:
+
    1. Select a destination service.
    2. Choose to **Create a new log group** or use an **Existing log group**.
 

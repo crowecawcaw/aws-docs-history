@@ -27,10 +27,12 @@ architectures can provide an effective way to meet these demands.
 Lambda supports two methods of invocation in event-driven architectures:
 
 1. Direct invocation (push method): AWS services trigger Lambda functions directly. For example:
+
    - Amazon S3 triggers a function when a file is uploaded
    - API Gateway triggers a function when it receives an HTTP request
 
 2. Event source mapping (pull method): Lambda retrieves events and invokes functions. For example:
+
    - Lambda retrieves messages from an Amazon SQS queue and invokes a function
    - Lambda reads records from a DynamoDB stream and invokes a function
 

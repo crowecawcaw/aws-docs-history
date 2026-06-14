@@ -88,6 +88,7 @@ The following table summarizes the credential setup process you will complete in
 Complete the following steps authenticate to your AWS account:
 
 1. Open the Sign In panel in VS Code:
+
    1. To start the authentication process, select the AWS icon in the left navigation pane or open the Command Palette (Cmd+Shift+P on Mac or Ctrl+Shift+P on Windows/Linux) and search for and select **AWS Add a New Connection**.
 
 2. In the sign in panel, choose **IAM Credentials** and select **Continue**.

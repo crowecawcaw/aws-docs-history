@@ -63,6 +63,7 @@ Lambda uses the [LastUpdateStatus](../api/API_FunctionConfiguration.md#lambda-Ty
 - The function's [State](../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State "../api/API_GetFunctionConfiguration.md#lambda-GetFunctionConfiguration-response-State") remains `Active`.
 - Invocations continue to use the function's previous code and configuration until the update completes.
 - The following operations fail:
+
   - [UpdateFunctionCode](../api/API_UpdateFunctionCode.md "../api/API_UpdateFunctionCode.md")
   - [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md")
   - [PublishVersion](../api/API_PublishVersion.md "../api/API_PublishVersion.md")

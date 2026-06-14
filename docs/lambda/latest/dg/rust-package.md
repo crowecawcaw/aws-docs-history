@@ -75,6 +75,7 @@ cargo lambda build --release --output-format zip
 ```
 
 2. To deploy the .zip package to Lambda, run the [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html") command.
+
    - For `--runtime`, specify `provided.al2023`. This is an [OS-only runtime](runtimes-provided.md "runtimes-provided.md"). OS-only runtimes are used to deploy compiled binaries and custom runtimes to Lambda.
    - For `--role`, specify the ARN of the [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
 

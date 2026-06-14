@@ -266,6 +266,7 @@ resumes after the wait period. You can view the execution progress in the **Dura
 1. Choose the **Durable executions** tab.
 2. Find your execution in the list. The execution shows the current status (Running, Succeeded, or Failed).
 3. Choose the execution ID to view details, including:
+
    - Execution timeline showing when each step completed
    - Checkpoint history
    - Wait periods

@@ -9,6 +9,7 @@ and sort function metrics by function name, alias, version, or event source mapp
    (`AWS/Lambda` namespace) of the CloudWatch console.
 2. On the **Browse** tab, under **Metrics**, choose
    any of the following dimensions:
+
    - **By Function Name** (`FunctionName`) – View aggregate metrics
      for all versions and aliases of a function.
    - **By Resource** (`Resource`) – View metrics for a version or

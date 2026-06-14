@@ -138,6 +138,7 @@ The **cli-binary-format** option is required if you're using AWS CLI version 2. 
 ###### To activate SnapStart
 
 1. Do one of the following:
+
    - Create a new function with SnapStart activated by using the [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") API action
      with the [SnapStart](../api/API_SnapStart.md "../api/API_SnapStart.md") parameter.
    - Activate SnapStart for an existing function by using the [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md")

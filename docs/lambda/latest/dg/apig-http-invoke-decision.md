@@ -111,6 +111,7 @@ API Gateway
 - Follow the tutorial [Using Lambda with API Gateway](services-apigateway-tutorial.md "services-apigateway-tutorial.md") to create a REST API integrated with a backend
   Lambda function.
 - Learn more about the different kinds of API offered by API Gateway in the following sections of the _Amazon API Gateway Developer Guide_:
+
   - [API Gateway REST APIs](../../../apigateway/latest/developerguide/apigateway-rest-api.md "../../../apigateway/latest/developerguide/apigateway-rest-api.md")
   - [API Gateway HTTP APIs](../../../apigateway/latest/developerguide/http-api.md "../../../apigateway/latest/developerguide/http-api.md")
   - [API Gateway WebSocket APIs](../../../apigateway/latest/developerguide/apigateway-websocket-api.md "../../../apigateway/latest/developerguide/apigateway-websocket-api.md")

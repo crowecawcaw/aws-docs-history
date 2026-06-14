@@ -193,6 +193,7 @@ Console
    select **Lambda**.
 4. Choose **Next**.
 5. Add the `AmazonS3FullAccess` managed policy by doing the following:
+
    1. In **Permissions policies**, enter `AmazonS3FullAccess` into the search bar.
    2. Select the checkbox next to the policy.
    3. Choose **Next**.
@@ -292,6 +293,7 @@ function's invocation status from CloudWatch Logs to confirm successful invocati
     3. For **Architecture**, choose **x86\_64**.
 
 6. Attach the execution role you created in the previous step by doing the following:
+
    1. Expand the **Change default execution role** section.
    2. Select **Use an existing role**.
    3. Under **Existing role**, select your role (`LambdaS3Role`).
@@ -420,6 +422,7 @@ in the _AWS CLI Command Reference_.
 Before you begin, make sure that [Docker](https://docs.docker.com/get-docker/ "https://docs.docker.com/get-docker/") and [the latest version of the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/install-sam-cli.md "../../../serverless-application-model/latest/developerguide/install-sam-cli.md") are installed on your build machine.
 
 1. In your project directory, copy and paste the following code into a file named `template.yaml`. Replace the placeholder bucket names:
+
    - For the source bucket, replace `amzn-s3-demo-bucket` with any name that complies with the [S3 bucket naming rules](../../../AmazonS3/latest/userguide/bucketnamingrules.md "../../../AmazonS3/latest/userguide/bucketnamingrules.md").
    - For the destination bucket, replace `amzn-s3-demo-bucket-encrypted` with `<source-bucket-name>-encrypted`, where `<source-bucket>` is the name you chose for your source bucket.
 
@@ -529,12 +532,14 @@ Console
 ###### To test your app by uploading a file (console)
 
 1. To upload a PDF file to your S3 bucket, do the following:
+
    1. Open the [Buckets](https://console.aws.amazon.com/s3/buckets "https://console.aws.amazon.com/s3/buckets") page of the Amazon S3 console and choose your source bucket.
    2. Choose **Upload**.
    3. Choose **Add files** and use the file selector to choose the PDF file you want to upload.
    4. Choose **Open**, then choose **Upload**.
 
 2. Verify that Lambda has saved an encrypted version of your PDF file in your target bucket by doing the following:
+
    1. Navigate back to the [Buckets](https://console.aws.amazon.com/s3/buckets "https://console.aws.amazon.com/s3/buckets") page of the Amazon S3 console and choose your destination bucket.
    2. In the **Objects** pane, you should now see a file with name format `filename_encrypted.pdf` (where
       `filename.pdf` was the name of the file you uploaded to your source bucket).

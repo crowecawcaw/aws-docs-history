@@ -13,6 +13,7 @@ Console
 2. Choose a function.
 3. Choose **Aliases** and then choose **Create alias**.
 4. On the **Create alias** page, do the following:
+
    1. Enter a **Name** for the alias.
    2. (Optional) Enter a **Description** for the alias.
    3. For **Version**, choose a function version that you want the alias to point to.

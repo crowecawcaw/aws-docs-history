@@ -292,6 +292,7 @@ environment variables are _reserved_ and cannot be set in your function configur
 - `_HANDLER` – The handler location configured on the function.
 - `_X_AMZN_TRACE_ID` – The [X-Ray tracing
   header](services-xray.md "services-xray.md"). This environment variable changes with each invocation.
+
   - This environment variable is not defined for OS-only runtimes (the `provided` runtime family).
     You can set `_X_AMZN_TRACE_ID` for custom runtimes using the
     `Lambda-Runtime-Trace-Id` response header from the
@@ -302,6 +303,7 @@ environment variables are _reserved_ and cannot be set in your function configur
 
 - `AWS_DEFAULT_REGION` – The default AWS Region where the Lambda function is executed.
 - `AWS_REGION` – The AWS Region where the Lambda function is executed. If defined, this value overrides the `AWS_DEFAULT_REGION`.
+
   - For more information about using the AWS Region environment variables with AWS SDKs, see [AWS Region](../../../sdkref/latest/guide/feature-region.md#feature-region-sdk-compat "../../../sdkref/latest/guide/feature-region.md#feature-region-sdk-compat")
     in the _AWS SDKs and Tools Reference Guide_.
 

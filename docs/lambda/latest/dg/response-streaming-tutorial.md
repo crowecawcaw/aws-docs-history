@@ -42,6 +42,7 @@ resources.
    AWS Identity and Access Management (IAM) console.
 2. Choose **Create role**.
 3. Create a role with the following properties:
+
    - **Trusted entity type** – **AWS service**
    - **Use case** – **Lambda**
    - **Permissions** –

@@ -129,6 +129,46 @@ Use `com.amazonaws.services.lambda.runtime.Context.getRemainingTimeInMillis()` t
 
 If you use virtual threads in your program or create threads during initialization, you will need to pass any required request context to these threads.
 
+**Example: Timeout handling**
+
+Check remaining time before each unit of work and stop processing before the timeout fires. Configure `BUFFER_MS` based on the expected duration of your next chunk of work.
+
+```
+private static final int BUFFER_MS = 2000; // Configure based on your next chunk of work
+
+public Map<String, Object> handleRequest(Map<String, Object> event, Context context) {
+    for (Object item : (List<Object>) event.get("items")) {
+        if (context.getRemainingTimeInMillis() < BUFFER_MS)
+            return Map.of("statusCode", 206, "body", "Timeout approaching, stopping early");
+        processItem(item);
+    }
+    return Map.of("statusCode", 200, "body", "Done");
+}
+```
+
+**Example: Propagating deadlines to downstream calls**
+
+When making calls to downstream services, propagate the remaining time as a timeout to avoid hanging on network calls that would outlive your invocation. Use a per-request override on a shared client rather than creating a new client per invocation:
+
+```
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.GetObjectRequest;
+import java.time.Duration;
+
+private static final S3Client s3 = S3Client.create();
+
+public String handleRequest(Map<String, Object> event, Context context) {
+    Duration timeout = Duration.ofMillis(Math.max(1000, context.getRemainingTimeInMillis() - 500));
+
+    GetObjectRequest req = GetObjectRequest.builder()
+        .bucket("my-bucket").key("my-key")
+        .overrideConfiguration(cfg -> cfg.apiCallTimeout(timeout))
+        .build();
+    s3.getObject(req);
+    return "Done";
+}
+```
+
 ## Initialization and shutdown
 
 Function initialization occurs once per execution environment. Objects created during initialization are shared across threads.

@@ -24,6 +24,7 @@ permission to access AWS resources.
 1. Open the [roles page](https://console.aws.amazon.com/iam/home#/roles "https://console.aws.amazon.com/iam/home#/roles") in the IAM console.
 2. Choose **Create role**.
 3. Create a role with the following properties.
+
    - **Trusted entity** – Lambda.
    - **Permissions** – **AWSLambdaDynamoDBExecutionRole**.
    - **Role name** – `lambda-dynamodb-role`.
@@ -563,6 +564,7 @@ Create an Amazon DynamoDB table with a stream enabled.
 1. Open the [DynamoDB console](https://console.aws.amazon.com/dynamodb "https://console.aws.amazon.com/dynamodb").
 2. Choose **Create table**.
 3. Create a table with the following settings.
+
    - **Table name** – `lambda-dynamodb-stream`
    - **Primary key** – `id` (string)
 

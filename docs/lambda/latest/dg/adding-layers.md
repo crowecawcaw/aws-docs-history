@@ -32,6 +32,7 @@ is revoked. However, you cannot create a new function that uses a deleted layer 
 2. Choose the function.
 3. Scroll down to the **Layers** section, and then choose **Add a layer**.
 4. Under **Choose a layer**, choose a layer source:
+
    1. **AWS layers**: Choose from the list of [AWS-managed extensions](extensions-api-partners.md#aws-managed-extensions "extensions-api-partners.md#aws-managed-extensions").
    2. **Custom layers**: Choose a layer created in your AWS account.
    3. **Specify an ARN**: To use a layer [from a different AWS account](permissions-layer-cross-account.md "permissions-layer-cross-account.md"), such as a [third-party extension](extensions-api-partners.md "extensions-api-partners.md"), enter the Amazon Resource Name (ARN).

@@ -18,6 +18,7 @@ For more information on how the context object is passed to the function handler
 - `log_group_name` – The log group for the function.
 - `log_stream_name` – The log stream for the function instance.
 - `identity` – (mobile apps) Information about the Amazon Cognito identity that authorized the request.
+
   - `cognito_identity_id` – The authenticated Amazon Cognito identity.
   - `cognito_identity_pool_id` – The Amazon Cognito identity pool that authorized the invocation.
 

@@ -86,6 +86,7 @@ For more information, see [Create AWS Lambda proxy integrations for HTTP APIs in
 3. Under **Function overview**, choose **Add trigger**.
 4. Select **API Gateway**.
 5. Choose **Create an API** or **Use an existing API**.
+
    1. **New API:** For **API type**, choose **HTTP API**. For more information, see [Choosing an API type](#services-apigateway-apitypes "#services-apigateway-apitypes").
    2. **Existing API:** Select the API from the dropdown list or enter the API ID (for example, r3pmxmplak).
 

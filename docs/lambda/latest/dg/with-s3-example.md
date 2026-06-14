@@ -128,6 +128,7 @@ Create a Lambda function in the console using the Python 3.14 runtime.
     3. For **Architecture**, choose **x86\_64**.
 
 6. In the **Change default execution role** tab, do the following:
+
    1. Expand the tab, then choose **Use an existing role**.
    2. Select the `lambda-s3-trigger-role` you created earlier.
 

@@ -90,6 +90,7 @@ Follow these steps to create a function URL using the console.
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
 2. Choose **Create function**.
 3. Under **Basic information**, do the following:
+
    1. For **Function name**, enter a name for your function, such as
       `my-function`.
    2. For **Runtime**, choose the language runtime that you prefer, such as
@@ -203,6 +204,7 @@ Properties:
 - (Optional) `Qualifier` – The alias name.
 - (Required) `TargetFunctionArn` – The name or Amazon Resource Name (ARN) of the Lambda function.
   Valid name formats include the following:
+
   - **Function name** – `my-function`
   - **Function ARN** –
     `arn:aws:lambda:us-west-2:123456789012:function:my-function`

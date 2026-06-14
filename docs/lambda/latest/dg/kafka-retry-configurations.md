@@ -20,10 +20,12 @@ You can configure retry behavior when creating or updating a Kafka event source 
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
 2. Choose your function name.
 3. Do one of the following:
+
    - To add a new Kafka trigger, under **Function overview**, choose **Add trigger**.
    - To modify an existing Kafka trigger, choose the trigger and then choose **Edit**.
 
 4. Under **Event poller configuration**, select provisioned mode to configure error handling controls:
+
    1. For **Retry attempts**, enter the maximum number of retry attempts (0-10000, or -1 for infinite).
    2. For **Maximum record age**, enter the maximum age in seconds (60-604800, or -1 for infinite).
    3. To enable batch splitting when errors occur, select **Split batch on error**.

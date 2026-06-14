@@ -36,6 +36,7 @@ and the execution role for the function. You add your function code after Lambda
 3. Choose **Author from scratch** or **Use a blueprint** to create your
    function.
 4. Under **Basic information**, do the following:
+
    1. For **Function name**, enter the function name. Function names are limited to 64 characters in length.
    2. For **Runtime**, choose the language version to use for your function.
    3. (Optional) For **Architecture**, choose the instruction set architecture to use for
@@ -105,10 +106,12 @@ machine. If the file is larger than 50 MB, upload the file to the function from 
 2. Choose the function to update and choose the **Code** tab.
 3. Under **Code source**, choose **Upload from**.
 4. Choose **.zip file**, and then choose **Upload**.
+
    1. In the file chooser, select the new image version, choose **Open**, and then choose
       **Save**.
 
 5. (Alternative to step 4) Choose **Amazon S3 location**.
+
    1. In the text box, enter the S3 link URL of the .zip file archive, then choose **Save**.
 
 ## Changing the runtime
@@ -128,6 +131,7 @@ Compute Blog.
 2. Choose the function to update and choose the **Code** tab.
 3. Scroll down to the **Runtime settings** section, which is under the code editor.
 4. Choose **Edit**.
+
    1. For **Runtime**, select the runtime identifier.
    2. For **Handler**, specify file name and handler for your function.
    3. For **Architecture**, choose the instruction set architecture to use for your
@@ -182,6 +186,7 @@ via the Lambda console. To do this, first ensure that you have the following IAM
 2. Choose the function you want to download the function code .zip for.
 3. In the **Function overview**, choose the **Download**
    button, then choose **Download function code .zip**.
+
    1. Alternatively, choose **Download AWS SAM file** to generate and
       download a SAM template based on your function's configuration. You can also choose
       **Download both** to download both the .zip and the SAM template.
@@ -197,6 +202,7 @@ In the `AWS::Lambda::Function` resource, set the following properties to create 
 as a .zip file archive:
 
 - AWS::Lambda::Function
+
   - PackageType – Set to `Zip`.
   - Code – Enter the Amazon S3 bucket name and .zip file name in the `S3Bucket` and
     `S3Key`fields. For Node.js or Python, you can provide inline source code of your Lambda

@@ -100,6 +100,7 @@ must:
   setting up the event source, provide the [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") key that contains the authentication
   details (username and password) required to access your cluster. To provide this key during setup, do either
   of the following:
+
   - If you're using the Lambda console for setup, then provide the key in the **Secrets manager
     key** field.
   - If you're using the AWS Command Line Interface (AWS CLI) for setup, then provide this key in the
@@ -114,6 +115,7 @@ must:
 
 - **Grant Lambda permissions to manage resources related to your Amazon DocumentDB
   stream.** Manually add the following permissions to your function's [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md"):
+
   - [rds:DescribeDBClusters](../../../AmazonRDS/latest/APIReference/API_DescribeDBClusters.md "../../../AmazonRDS/latest/APIReference/API_DescribeDBClusters.md")
   - [rds:DescribeDBClusterParameters](../../../AmazonRDS/latest/APIReference/API_DescribeDBClusterParameters.md "../../../AmazonRDS/latest/APIReference/API_DescribeDBClusterParameters.md")
   - [rds:DescribeDBSubnetGroups](../../../AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.md "../../../AmazonRDS/latest/APIReference/API_DescribeDBSubnetGroups.md")
@@ -284,6 +286,7 @@ Lambda supports the following options for Amazon DocumentDB event sources:
   up to 10,000. The default batch size is 100.
 - **Starting position** – Choose the position in the stream to start reading records
   from.
+
   - **Latest** – Process only new records that are added to the stream. Your
     function starts processing records only after Lambda finishes creating your event source. This means that
     some records may be dropped until your event source is created successfully.
@@ -296,6 +299,7 @@ Lambda supports the following options for Amazon DocumentDB event sources:
 
 - **Authentication** – Choose the authentication method for accessing the brokers in
   your cluster.
+
   - **BASIC_AUTH** – With basic authentication, you must provide the Secrets Manager key
     that contains the credentials to access your cluster.
 
@@ -307,6 +311,7 @@ Lambda supports the following options for Amazon DocumentDB event sources:
   choose what you want to send to the stream. The default value is `Default`, which means that for
   each change stream event, Amazon DocumentDB sends only a delta describing the changes made. For more information about
   this field, see [FullDocument](https://mongodb.github.io/mongo-java-driver/3.9/javadoc/com/mongodb/client/model/changestream/FullDocument.html#DEFAULT "https://mongodb.github.io/mongo-java-driver/3.9/javadoc/com/mongodb/client/model/changestream/FullDocument.html#DEFAULT") in the MongoDB Javadoc API documentation.
+
   - **Default** – Lambda sends only a partial document describing the changes
     made.
   - **UpdateLookup** – Lambda sends a delta describing the changes, along with a

@@ -435,6 +435,7 @@ Console
 1. Open the [Tables](https://console.aws.amazon.com/dynamodbv2/home#tables "https://console.aws.amazon.com/dynamodbv2/home#tables") page of the DynamoDB console.
 2. Choose **Create table**.
 3. Create the table by doing the following:
+
    1. Under **Table details**, for **Table name**, enter `MyOrderTable`.
    2. For **Partition key**, enter `Order_number` and leave the type as **String**.
    3. For **Sort key**, enter `Date` and leave the type as **String**.
@@ -442,6 +443,7 @@ Console
 
 4. When your table has finished creating and its **Status** shows as **Active**, create a global secondary index (GSI) by doing the
    following. Your app will use this GSI to search for items directly by date to determine what to delete.
+
    1. Choose **MyOrderTable** from the list of tables.
    2. Choose the **Indexes** tab.
    3. Under **Global secondary indexes**, choose **Create index**.
@@ -522,6 +524,7 @@ If the script runs successfully, it should print each item to the console as it 
 ```
 
 7. You can verify that the data has been loaded to your DynamoDB table by doing the following:
+
    1. Open the [Explore items](https://console.aws.amazon.com/dynamodbv2/home#item-explorer "https://console.aws.amazon.com/dynamodbv2/home#item-explorer") page of the DynamoDB console and select your table (`MyOrderTable`).
    2. In the **Items returned** pane, you should see the 25 items from the CSV file that the script added to the table.
 
@@ -545,12 +548,14 @@ as a `.zip` package. For this task, we recommend copying and pasting the code.
 2. Choose **Create function**.
 3. Choose **Author from scratch**.
 4. Under **Basic information**, do the following:
+
    1. For **Function name**, enter `ScheduledDBMaintenance`.
    2. For **Runtime** choose the latest Python version.
    3. For **Architecture**, choose **x86_64**.
 
 5. Choose **Create function**.
 6. After your function is created, you can configure your function with the provided function code.
+
    1. In the **Code source** pane, replace the Hello world code that Lambda created with the Python function code from
       the `lambda_function.py` file that you saved earlier.
    2. In the **DEPLOY** section, choose **Deploy** to update your function's code:
@@ -617,6 +622,7 @@ To give your function the permissions it needs to read and delete DynamoDB items
     **Scheduler** section.
 3.  Choose **Create schedule**.
 4.  Configure the schedule by doing the following:
+
     1.  Under **Schedule name**, enter a name for your schedule (for example, `DynamoDBCleanupSchedule`).
     2.  Under **Schedule pattern**, choose **Recurring schedule**.
     3.  For **Schedule type** leave the default as **Cron-based schedule**,
@@ -635,6 +641,7 @@ To give your function the permissions it needs to read and delete DynamoDB items
 
 5.  Choose **Next**.
 6.  Configure the trigger for your Lambda function by doing the following:
+
     1. In the **Target detail** pane, leave **Target API** set to **Templated targets**,
        then select **AWS Lambda Invoke**.
     2. Under **Invoke**, select your Lambda function (`ScheduledDBMaintenance`) from the dropdown list.

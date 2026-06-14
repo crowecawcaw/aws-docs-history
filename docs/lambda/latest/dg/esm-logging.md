@@ -38,6 +38,7 @@ You can set the logging configure when creating or updating a Kafka event source
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
 2. Choose your function name.
 3. Do one of the following:
+
    - To add a new Kafka trigger, under **Function overview**, choose **Add trigger**.
    - To modify an existing Kafka trigger, choose the trigger and then choose **Edit**.
 

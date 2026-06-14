@@ -14,7 +14,7 @@ The following diagram shows how the Extensions API and Telemetry API link extens
 from within the execution environment. Additionally, the Runtime API connects your runtime and
 function to Lambda.
 
-![The Extensions, Telemetry, and Runtime APIs connecting to processes in the execution environment.](/images/lambda/latest/dg/images/telemetry-api-concept-diagram.png)
+![The Extensions, Telemetry, and Runtime APIs connecting to processes in the execution environment.](images/telemetry-api-concept-diagram.png)
 
 ###### Important
 

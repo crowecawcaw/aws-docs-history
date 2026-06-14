@@ -28,6 +28,7 @@ that gives your function permission to access the required AWS resources.
    console.
 2. Choose **Create role**.
 3. Create a role with the following properties.
+
    - **Trusted entity** –
      **AWS Lambda**
    - **Permissions** –
@@ -134,11 +135,13 @@ A** can use as an event source. The Lambda function and the Amazon SQS queue mus
 1. Open the [Amazon SQS console](https://console.aws.amazon.com/sqs "https://console.aws.amazon.com/sqs").
 2. Choose **Create queue**.
 3. Create a queue with the following properties.
+
    - **Type** – **Standard**
    - **Name** – **LambdaCrossAccountQueue**
    - **Configuration** – Keep the default settings.
    - **Access policy** – Choose **Advanced**. Paste in the
      following JSON policy. Replace the following values:
+
      - `111122223333`: AWS account ID for **Account A**
      - `444455556666`: AWS account ID for **Account B**
 

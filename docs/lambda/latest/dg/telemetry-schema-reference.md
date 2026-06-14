@@ -37,6 +37,7 @@ For the OpenAPI Specification (OAS) definition of the subscription responses ver
 ###### Contents
 
 - [Telemetry API Event object types](telemetry-schema-reference.md#telemetry-api-events "telemetry-schema-reference.md#telemetry-api-events")
+
   - [platform.initStart](telemetry-schema-reference.md#platform-initStart "telemetry-schema-reference.md#platform-initStart")
   - [platform.initRuntimeDone](telemetry-schema-reference.md#platform-initRuntimeDone "telemetry-schema-reference.md#platform-initRuntimeDone")
   - [platform.initReport](telemetry-schema-reference.md#platform-initReport "telemetry-schema-reference.md#platform-initReport")
@@ -53,6 +54,7 @@ For the OpenAPI Specification (OAS) definition of the subscription responses ver
   - [extension](telemetry-schema-reference.md#telemetry-api-extension "telemetry-schema-reference.md#telemetry-api-extension")
 
 - [Shared object types](telemetry-schema-reference.md#telemetry-api-objects "telemetry-schema-reference.md#telemetry-api-objects")
+
   - [InitPhase](telemetry-schema-reference.md#InitPhase "telemetry-schema-reference.md#InitPhase")
   - [InitReportMetrics](telemetry-schema-reference.md#InitReportMetrics "telemetry-schema-reference.md#InitReportMetrics")
   - [InitType](telemetry-schema-reference.md#InitType "telemetry-schema-reference.md#InitType")

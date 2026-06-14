@@ -32,6 +32,37 @@ With Python runtimes, you can use the `_X_AMZN_TRACE_ID` environment variable to
 
 Use `context.get_remaining_time_in_millis()` to detect timeouts. See [Error handling and recovery](lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling "lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling") for more information.
 
+**Example: Timeout handling**
+
+Check remaining time before each unit of work and stop processing before the timeout fires. Configure `BUFFER_MS` based on the expected duration of your next chunk of work.
+
+```
+BUFFER_MS = 2000  # Configure based on your next chunk of work
+
+def handler(event, context):
+    for item in event["items"]:
+        if context.get_remaining_time_in_millis() < BUFFER_MS:
+            return {"statusCode": 206, "body": "Timeout approaching, stopping early"}
+        process_item(item)
+    return {"statusCode": 200, "body": "Done"}
+```
+
+**Example: Propagating deadlines to downstream calls**
+
+When making calls to downstream services, propagate the remaining time as a timeout to avoid hanging on network calls that would outlive your invocation. The boto3 SDK does not support per-request timeouts on an existing client, so you must create a client with the desired timeout. For high-throughput functions, evaluate whether a fixed timeout configured at initialization is more appropriate than per-request client creation.
+
+```
+import boto3
+from botocore.config import Config
+
+def handler(event, context):
+    remaining = context.get_remaining_time_in_millis() / 1000
+    timeout = max(1, remaining - 0.5)
+    s3 = boto3.client("s3", config=Config(read_timeout=timeout, connect_timeout=timeout))
+    response = s3.get_object(Bucket="my-bucket", Key="my-key")
+    return {"statusCode": 200, "body": "Done"}
+```
+
 ## Initialization and shutdown
 
 Function initialization occurs once per process. You may see repeat log entries if your function emits logs during initialization.

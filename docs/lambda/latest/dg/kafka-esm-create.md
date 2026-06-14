@@ -23,6 +23,7 @@ Follow these steps to add your self-managed Apache Kafka cluster and a Kafka top
 2.  Choose the name of your Lambda function.
 3.  Under **Function overview**, choose **Add trigger**.
 4.  Under **Trigger configuration**, do the following:
+
     1. Choose the **Apache Kafka** trigger type.
     2. For **Bootstrap servers**, enter the host and port pair address of a Kafka broker
        in your cluster, and then choose **Add**. Repeat for each Kafka broker in the
@@ -57,7 +58,6 @@ Follow these steps to add your self-managed Apache Kafka cluster and a Kafka top
         	 **CLIENT\_CERTIFICATE\_TLS\_AUTH** protocol.
         2. For SASL/SCRAM or mTLS authentication, choose the Secrets Manager secret key that contains the
          credentials for your Kafka cluster.
-
     11. (Optional) For **Encryption**, choose the Secrets Manager secret containing the root CA
         certificate that your Kafka brokers use for TLS encryption, if your Kafka brokers use certificates
         signed by a private CA.

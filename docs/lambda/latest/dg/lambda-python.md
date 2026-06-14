@@ -19,6 +19,7 @@ Lambda supports the following Python runtimes.
 1. Open the [Lambda console](https://console.aws.amazon.com/lambda "https://console.aws.amazon.com/lambda").
 2. Choose **Create function**.
 3. Configure the following settings:
+
    - **Function name**: Enter a name for the function.
    - **Runtime**: Choose **Python 3.14**.
 

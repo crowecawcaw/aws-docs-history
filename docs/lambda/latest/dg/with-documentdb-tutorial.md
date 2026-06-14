@@ -12,9 +12,11 @@ To complete this tutorial, you will go through the following stages:
 1. Open the [Amazon DocumentDB console](https://console.aws.amazon.com/docdb/home# "https://console.aws.amazon.com/docdb/home#").
    Under **Clusters**, choose **Create**.
 2. Create a cluster with the following configuration:
+
    - For **Cluster type**, choose **Instance-based cluster**. This is the default option.
    - Under **Cluster configuration**, make sure that **Engine version** 5.0.0 is selected. This is the default option.
    - Under **Instance configuration**:
+
      - For **DB instance class**, select **Memory optimized classes**. This is the default option.
      - For **Number of regular replica instances**, choose 1.
      - For **Instance class**, use the default selection.
@@ -33,13 +35,16 @@ While Amazon DocumentDB is creating your cluster, create an AWS Secrets Manager 
 1. Open the [Secrets Manager](https://console.aws.amazon.com/secretsmanager/home# "https://console.aws.amazon.com/secretsmanager/home#") console and choose
    **Store a new secret**.
 2. For **Choose secret type**, choose the following options:
+
    - Under **Basic details**:
+
      - **Secret type**: Credentials for your Amazon DocumentDB database
      - Under **Credentials**, enter the same username and password that you used to create your Amazon DocumentDB cluster.
      - **Database**: Choose your Amazon DocumentDB cluster.
      - Choose **Next**.
 
 3. For **Configure secret**, choose the following options:
+
    - **Secret name**: `DocumentDBSecret`
    - Choose **Next**.
 
@@ -111,6 +116,7 @@ Next, create [interface VPC endpoints](../../../vpc/latest/privatelink/create-in
 1. Open the [VPC console](https://console.aws.amazon.com/vpc/home# "https://console.aws.amazon.com/vpc/home#"). In the left menu, under **Virtual private cloud**,
    choose **Endpoints**.
 2. Choose **Create endpoint**. Create an endpoint with the following configuration:
+
    - For **Name tag**, enter `lambda-default-vpc`.
    - For **Service category**, choose AWS services.
    - For **Services**, enter `lambda` in the search box. Choose the service with format `com.amazonaws.<region>.lambda`.
@@ -122,6 +128,7 @@ Next, create [interface VPC endpoints](../../../vpc/latest/privatelink/create-in
    - Choose **Create endpoint**.
 
 3. Again, choose **Create endpoint**. Create an endpoint with the following configuration:
+
    - For **Name tag**, enter `secretsmanager-default-vpc`.
    - For **Service category**, choose AWS services.
    - For **Services**, enter `secretsmanager` in the search box. Choose the service with format `com.amazonaws.<region>.secretsmanager`.
@@ -199,6 +206,7 @@ JSON
 1. Open the [Roles page](https://console.aws.amazon.com/iam/home#/roles "https://console.aws.amazon.com/iam/home#/roles") in the IAM console and choose
    **Create role**.
 2. For **Select trusted entity**, choose the following options:
+
    - **Trusted entity type**: AWS service
    - **Service or use case**: Lambda
    - Choose **Next**.
@@ -222,11 +230,13 @@ The code receives an Amazon DocumentDB event input and processes the message tha
 2. Choose **Create function**.
 3. Choose **Author from scratch**
 4. Under **Basic information**, do the following:
+
    1. For **Function name**, enter `ProcessDocumentDBRecords`
    2. For **Runtime**, choose **Python 3.14**.
    3. For **Architecture**, choose **x86_64**.
 
 5. In the **Change default execution role** tab, do the following:
+
    1. Expand the tab, then choose **Use an existing role**.
    2. Select the `AWSDocumentDBLambdaExecutionRole` you created earlier.
 
@@ -775,6 +785,7 @@ After you create this event source mapping, AWS Lambda immediately starts pollin
 4. Choose **Add trigger**.
 5. Under **Trigger configuration**, for the source, select **Amazon DocumentDB**.
 6. Create the event source mapping with the following configuration:
+
    - **Amazon DocumentDB cluster**: Choose the cluster you created earlier.
    - **Database name**: docdbdemo
    - **Collection name**: products
@@ -835,6 +846,7 @@ If you don't see any database events in your function's CloudWatch logs, check t
 
 - Make sure that the Lambda event source mapping (also known as a trigger) is in the **Enabled** state. Event source mappings can take several minutes to create.
 - If the event source mapping is **Enabled** but you still don't see database events in CloudWatch:
+
   - Make sure that the **Database name** in the event source mapping is set to `docdbdemo`.
 
   ![Lambda event source mapping details](images/documentdb-trigger.png)

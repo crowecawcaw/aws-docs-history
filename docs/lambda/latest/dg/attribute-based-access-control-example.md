@@ -171,6 +171,7 @@ JSON
 1. Sign in to the AWS console as `abac-test-user`. For more information, see [Sign in as an IAM user](../../../IAM/latest/UserGuide/console.md#user-sign-in-page "../../../IAM/latest/UserGuide/console.md#user-sign-in-page").
 2. Switch to the `abac-project-role` role. For more information, see [Switching to a role (console)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-console.md").
 3. [Create a Lambda function](configuration-tags.md#using-tags-with-the-console "configuration-tags.md#using-tags-with-the-console"):
+
    - Under **Permissions**, choose **Change default execution role**, and then for **Execution role**, choose **Use an existing role**. Choose the same execution role that you used in [Step 4: Grant IAM permissions](#abac-iam-permissions "#abac-iam-permissions").
    - Under **Advanced settings**, choose **Enable tags** and then choose **Add new tag**. For **Key**, enter `project`. Don't enter a **Value**.
 

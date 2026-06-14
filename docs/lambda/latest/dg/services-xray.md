@@ -46,7 +46,7 @@ In X-Ray, a _trace_ records information about a request that is processed by one
 _services_. Lambda records 2 segments per trace, which creates
 two nodes on the service graph. The following image highlights these two nodes:
 
-![An X-Ray service map with a single function.](/images/lambda/latest/dg/images/xray-servicemap-function.png)
+![An X-Ray service map with a single function.](images/xray-servicemap-function.png)
 
 The first node on the left represents the Lambda service, which receives the invocation request. The second
 node represents your specific Lambda function.
@@ -101,7 +101,7 @@ For more information about Lambda execution environment phases, see [Understandi
 
 An example trace using the old-style X-Ray structure is shown in the following diagram.
 
-![Diagram showing an example old-style X-Ray trace containing invocation segment](images/V2_sandbox_images/my-function-2-v1.png)
+![Diagram showing an example old-style X-Ray trace containing invocation segment](/images/lambda/latest/dg/images/V2_sandbox_images/my-function-2-v1.png)
 
 Note the two segments in the example. Both are named **my-function**, but one has an origin of `AWS::Lambda`
 and the other has an origin of `AWS::Lambda::Function`. If the `AWS::Lambda` segment shows an error, the Lambda service

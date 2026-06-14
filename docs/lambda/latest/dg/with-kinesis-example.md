@@ -30,6 +30,7 @@ permission to access AWS resources.
 1. Open the [roles page](https://console.aws.amazon.com/iam/home#/roles "https://console.aws.amazon.com/iam/home#/roles") in the IAM console.
 2. Choose **Create role**.
 3. Create a role with the following properties.
+
    - **Trusted entity** – **AWS Lambda**.
    - **Permissions** – **AWSLambdaKinesisExecutionRole**.
    - **Role name** – `lambda-kinesis-role`.

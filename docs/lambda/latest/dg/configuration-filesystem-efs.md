@@ -91,6 +91,7 @@ If your function is not already connected to a VPC, see [Giving Lambda functions
 4. Under **File system**, choose **Add file system**.
 5. Select **EFS**.
 6. Configure the following properties:
+
    - **EFS file system** – The access point for a file system in the same VPC.
    - **Local mount path** – The location where the file system is mounted on the
      Lambda function, starting with `/mnt/`.

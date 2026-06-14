@@ -122,6 +122,7 @@ If your function is not already connected to a VPC, see [Giving Lambda functions
    configuration).
 5. Select **S3 Files**.
 6. Configure the following properties:
+
    - **S3 file system** – Choose a file system from the dropdown.
    - **Access point** (optional) – Choose an access point. If the file system
      has no access points, Lambda automatically creates one when you save (UID/GID 1000:1000, root directory

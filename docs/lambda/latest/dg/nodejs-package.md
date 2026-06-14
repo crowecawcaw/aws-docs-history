@@ -216,6 +216,7 @@ You cannot change the [deployment package type](../api/API_CreateFunction.md#lam
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console and choose **Create Function**.
 2. Choose **Author from scratch**.
 3. Under **Basic information**, do the following:
+
    1. For **Function name**, enter the name for your function.
    2. For **Runtime**, select the runtime you want to use.
    3. (Optional) For **Architecture**, choose the instruction set architecture for your function. The default architecture is x86_64. Ensure that the .zip deployment package for your function is compatible with the instruction set architecture you select.
@@ -230,6 +231,7 @@ You cannot change the [deployment package type](../api/API_CreateFunction.md#lam
 3. In the **Code source** pane, choose **Upload from**.
 4. Choose **.zip file**.
 5. To upload the .zip file, do the following:
+
    1. Select **Upload**, then select your .zip file in the file chooser.
    2. Choose **Open**.
    3. Choose **Save**.

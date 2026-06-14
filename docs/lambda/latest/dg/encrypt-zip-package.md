@@ -105,6 +105,7 @@ Lambda console
 2. Choose **Create function**.
 3. Choose **Author from scratch** or **Container image**.
 4. Under **Basic information**, do the following:
+
    1. For **Function name**, enter the function name.
    2. For **Runtime**, choose the language version to use for your function.
 

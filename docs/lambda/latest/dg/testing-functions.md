@@ -43,6 +43,7 @@ additional permissions to use. You can create and save up to 10 private test eve
 2. Choose the name of the function that you want to test.
 3. Choose the **Test** tab.
 4. Under **Test event**, do the following:
+
    1. Choose a **Template**.
    2. Enter a **Name** for the test.
    3. In the text entry box, enter the JSON test event.
@@ -90,6 +91,7 @@ access to the EventBridge (CloudWatch Events) registry.
 2. Choose the name of the function that you want to test.
 3. Choose the **Test** tab.
 4. Under **Test event**, do the following:
+
    1. Choose a **Template**.
    2. Enter a **Name** for the test.
    3. In the text entry box, enter the JSON test event.

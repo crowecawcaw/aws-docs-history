@@ -76,6 +76,21 @@ The operator role needs permissions to manage capacity providers and the underly
           "ec2:Owner": "amazon"
         }
       }
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup"
+      ],
+      "Resource": "arn:aws:logs:*:*:log-group:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:log-group:*:log-stream:*"
     }
   ]
 }

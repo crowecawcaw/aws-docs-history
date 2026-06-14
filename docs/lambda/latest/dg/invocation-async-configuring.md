@@ -16,6 +16,7 @@ Console
    invocation**.
 4. Under **Asynchronous invocation**, choose **Edit**.
 5. Configure the following settings.
+
    - **Maximum age of event** – The maximum amount of time Lambda retains an event
      in the asynchronous event queue, up to 6 hours.
    - **Retry attempts** – The number of times Lambda retries when the function

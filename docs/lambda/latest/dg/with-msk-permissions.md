@@ -58,6 +58,7 @@ Your Lambda function might also need permissions to:
 - Describe your Secrets Manager secret, if you're using SASL/SCRAM or [mTLS authentication](msk-cluster-auth.md#msk-mtls "msk-cluster-auth.md#msk-mtls"). This allows your function to retrieve the credentials or certificates needed for secure connections.
 - Access your AWS KMS customer managed key, if your AWS Secrets Manager secret is encrypted with an AWS KMS customer managed key.
 - Access your schema registry secrets, if you're using a schema registry with authentication:
+
   - For AWS Glue Schema Registry: Your function needs `glue:GetRegistry` and `glue:GetSchemaVersion` permissions. These allow your function to look up and use the message format rules stored in AWS Glue.
   - For [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/security/index.html "https://docs.confluent.io/platform/current/schema-registry/security/index.html") with `BASIC_AUTH` or `CLIENT_CERTIFICATE_TLS_AUTH`: Your function needs
     `secretsmanager:GetSecretValue` permission for the secret containing the authentication credentials. This lets your function retrieve the username/password or certificates needed to access the Confluent Schema Registry.

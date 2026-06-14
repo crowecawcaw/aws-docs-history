@@ -137,6 +137,7 @@ Console
 3. In the **Configuration** tab, select **Permissions**.
 4. In the **Execution role** tab, select your function's **Role name** to open the role's IAM console page.
 5. Add a permissions policy to the role by doing the following:
+
    1. In the **Permissions policies** pane, choose **Add permissions** and select **Create inline policy**.
    2. In **Policy editor**, select **JSON**.
    3. Paste the policy you want to add into the editor (replacing the existing JSON), and then choose **Next**.

@@ -13,6 +13,7 @@ for SnapStart functions:
 
 - Initialization logs – When a new execution environment is created, the `REPORT` doesn't include the `Init Duration` field. That's because Lambda initializes SnapStart functions when you create a version instead of during function invocation. For SnapStart functions, the `Init Duration` field is in the `INIT_REPORT` record. This record shows duration details for the [Init phase](lambda-runtime-environment.md#runtimes-lifecycle-ib "lambda-runtime-environment.md#runtimes-lifecycle-ib"), including the duration of any `beforeCheckpoint` [runtime hooks](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md").
 - Invocation logs – When a new execution environment is created, the `REPORT` includes the `Restore Duration` and `Billed Restore Duration` fields:
+
   - `Restore Duration`: The time it takes for Lambda to restore a snapshot, load the runtime, and run any after-restore [runtime hooks](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md"). The process of restoring snapshots can include time spent on activities outside the MicroVM. This time is reported in `Restore Duration`.
   - `Billed Restore Duration`: The time it takes for Lambda to load the runtime and run any after-restore [runtime hooks](snapstart-runtime-hooks.md "snapstart-runtime-hooks.md").
 

@@ -131,6 +131,41 @@ Use `context.xRayTraceId` to access the X-Ray trace ID. This provides concurrenc
 
 Use `context.getRemainingTimeInMillis()` to detect timeouts. See [Error handling and recovery](lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling "lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling") for more information.
 
+**Example: Timeout handling**
+
+Check remaining time before each unit of work and stop processing before the timeout fires. Configure `BUFFER_MS` based on the expected duration of your next chunk of work.
+
+```
+const BUFFER_MS = 2000; // Configure based on your next chunk of work
+
+exports.handler = async (event, context) => {
+    for (const item of event.items) {
+        if (context.getRemainingTimeInMillis() < BUFFER_MS)
+            return { statusCode: 206, body: "Timeout approaching, stopping early" };
+        await processItem(item);
+    }
+    return { statusCode: 200, body: "Done" };
+};
+```
+
+**Example: Propagating deadlines to downstream calls**
+
+When making calls to downstream services, propagate the remaining time as a timeout to avoid hanging on network calls that would outlive your invocation:
+
+```
+const { S3Client, GetObjectCommand } = require("@aws-sdk/client-s3");
+const client = new S3Client({});
+
+exports.handler = async (event, context) => {
+    const timeout = Math.max(1000, context.getRemainingTimeInMillis() - 500);
+    const response = await client.send(
+        new GetObjectCommand({ Bucket: "my-bucket", Key: "my-key" }),
+        { abortSignal: AbortSignal.timeout(timeout) }
+    );
+    return { statusCode: 200, body: "Done" };
+};
+```
+
 ## Initialization and shutdown
 
 Function initialization occurs once per worker thread. You may see repeat log entries if your function emits logs during initialization.

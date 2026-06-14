@@ -109,6 +109,7 @@ necessary for each Availability Zone (AZ).
 ###### To configure a NAT gateway and proper routing (console)
 
 1. Follow the steps in [Create a NAT gateway](../../../vpc/latest/userguide/nat-gateway-working-with.md "../../../vpc/latest/userguide/nat-gateway-working-with.md"), noting the following:
+
    - NAT gateways should always reside in a public subnet. Create NAT gateways with
      [public connectivity](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md").
    - If your MSK cluster is replicated across multiple AZs, create one NAT gateway per AZ. For example,
@@ -124,10 +125,12 @@ necessary for each Availability Zone (AZ).
 5. Choose **Create route table**.
 6. Choose the route table you just created.
 7. Under the **Subnet associations** tab, choose **Edit subnet associations**.
+
    - Associate this route table with the private subnet that contains your MSK cluster.
 
 8. Choose **Edit routes**.
 9. Choose **Add route**:
+
    1. For **Destination**, choose `0.0.0.0/0`.
    2. For **Target**, choose **NAT gateway**.
    3. In the search box, choose the NAT gateway you created in step 1. This should be the NAT gateway
@@ -175,6 +178,7 @@ these steps as necessary for each endpoint (Lambda, STS, Secrets Manager).
    Select this service.
 7. Under **Network settings**, select the VPC that contains your MSK cluster.
 8. Under **Subnets**, select the AZs that your MSK cluster is in.
+
    - For each AZ, under **Subnet ID**, choose the private subnet that
      contains your MSK cluster.
 

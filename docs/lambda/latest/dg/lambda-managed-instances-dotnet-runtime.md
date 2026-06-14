@@ -117,6 +117,46 @@ Use the `context.TraceId` property to access the X-Ray trace ID. This provides c
 
 Use `ILambdaContext.RemainingTime` to detect timeouts. See [Error handling and recovery](lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling "lambda-managed-instances-execution-environment.md#lambda-managed-instances-error-handling") for more information.
 
+**Example: Timeout handling**
+
+Check remaining time before each unit of work and stop processing before the timeout fires. Configure the buffer based on the expected duration of your next chunk of work.
+
+```
+private static readonly TimeSpan Buffer = TimeSpan.FromMilliseconds(2000);
+
+public APIGatewayProxyResponse FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
+{
+    var items = JsonSerializer.Deserialize<List<string>>(request.Body);
+    foreach (var item in items)
+    {
+        if (context.RemainingTime < Buffer)
+            return new APIGatewayProxyResponse { StatusCode = 206, Body = "Timeout approaching, stopping early" };
+        ProcessItem(item);
+    }
+    return new APIGatewayProxyResponse { StatusCode = 200, Body = "Done" };
+}
+```
+
+**Example: Propagating deadlines to downstream calls**
+
+When making calls to downstream services, propagate the remaining time as a timeout to avoid hanging on network calls that would outlive your invocation. Use a `CancellationToken` with a shared client rather than creating a new client per invocation:
+
+```
+using Amazon.S3;
+
+private static readonly IAmazonS3 s3 = new AmazonS3Client();
+
+public async Task<string> FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
+{
+    var timeout = context.RemainingTime - TimeSpan.FromMilliseconds(500);
+    if (timeout < TimeSpan.FromSeconds(1)) timeout = TimeSpan.FromSeconds(1);
+
+    using var cts = new CancellationTokenSource(timeout);
+    await s3.GetObjectAsync("my-bucket", "my-key", cts.Token);
+    return "Done";
+}
+```
+
 ## Initialization and shutdown
 
 Function initialization occurs once per execution environment. Objects created during initialization are shared across requests.

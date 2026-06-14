@@ -37,6 +37,7 @@ Python
 
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
 2. Create a basic 'Hello world' function by doing the following:
+
    1. Choose **Create function**.
    2. Select **Author from scratch**.
    3. For **Function name**, enter `myLambdaWebhook`.
@@ -148,6 +149,7 @@ Node.js
 
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
 2. Create a basic 'Hello world' function by doing the following:
+
    1. Choose **Create function**.
    2. Select **Author from scratch**.
    3. For **Function name**, enter `myLambdaWebhook`.
@@ -293,6 +295,7 @@ console.log(webhookSecret)
 ```
 
 2. Store your generated string as an environment variable for your function by doing the following:
+
    1. In the **Configuration** tab for your function, select **Environment variables**.
    2. Choose **Edit**.
    3. Choose **Add environment variable**.
@@ -475,6 +478,7 @@ You should see the following output:
 ```
 
 2. Inspect the CloudWatch logs for your function to confirm it parsed the payload correctly by doing the following:
+
    1. Open the [Logs group](https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups "https://console.aws.amazon.com/cloudwatch/home#logsV2:log-groups") page in the Amazon CloudWatch console.
    2. Select your function's log group (`/aws/lambda/myLambdaWebhook`).
    3. Select the most recent log stream.

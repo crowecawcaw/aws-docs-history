@@ -239,6 +239,7 @@ AWS Management Console
    select **Lambda**.
 4. Choose **Next**.
 5. Add the permissions policy you created in the previous step by doing the following:
+
    1. In the policy search box, enter `LambdaS3Policy`.
    2. In the search results, select the check box for `LambdaS3Policy`.
    3. Choose **Next**.
@@ -535,6 +536,7 @@ replace this code with your own function code by uploading the.zip or JAR file y
     3. For **Architecture**, choose **x86\_64**.
 
 6. In the **Change default execution role** tab, do the following:
+
    1. Expand the tab, then choose **Use an existing role**.
    2. Select the `LambdaS3Role` you created earlier.
 
@@ -555,6 +557,7 @@ AWS CLI
 - Run the CLI command for the language you chose. For the `role` parameter, make sure to replace `123456789012`
   with your own AWS account ID. For the `region` parameter, replace `us-east-1` with the region you created your
   Amazon S3 buckets in.
+
   - For **Node.js**, run the following command from the directory containing your `function.zip`
     file.
 
@@ -564,7 +567,6 @@ AWS CLI
   --timeout 10 --memory-size 1024 \
   --role arn:aws:iam::`123456789012`:role/LambdaS3Role --region `us-east-1``
   ```
-
   - For **Python**, run the following command from the directory containing your `lambda_function.zip`
     file.
 
@@ -675,10 +677,12 @@ AWS Management Console
    function (`CreateThumbnail`).
 2. Choose the **Test** tab.
 3. To create your test event, in the **Test event** pane, do the following:
+
    1. Under **Test event action**, select **Create new event**.
    2. For **Event name**, enter `myTestEvent`.
    3. For **Template**, select **S3 Put**.
    4. Replace the values for the following parameters with your own values.
+
       - For `awsRegion`, replace `us-east-1` with the AWS Region you created your Amazon S3 buckets in.
       - For `name`, replace `amzn-s3-demo-bucket` with the name of your own Amazon S3 source bucket.
       - For `key`, replace `test%2Fkey` with the filename of the test object you uploaded to your source
@@ -724,11 +728,11 @@ AWS Management Console
      ]
    }
    ```
-
    5. Choose **Save**.
 
 4. In the **Test event** pane, choose **Test**.
 5. To check the your function has created a resized verison of your image and stored it in your target Amazon S3 bucket, do the following:
+
    1. Open the [Buckets page](https://console.aws.amazon.com/s3/buckets "https://console.aws.amazon.com/s3/buckets") of the Amazon S3 console.
    2. Choose your target bucket and confirm that your resized file is listed in the **Objects** pane.
 
@@ -738,6 +742,7 @@ AWS CLI
 
 1. Save the following JSON in a file named `dummyS3Event.json`. Replace the values for the following parameters
    with your own values:
+
    - For `awsRegion`, replace `us-east-1` with the AWS Region you created your Amazon S3 buckets in.
    - For `name`, replace `amzn-s3-demo-bucket` with the name of your own Amazon S3 source bucket.
    - For `key`, replace `test%2Fkey` with the filename of the test object you uploaded to your source
@@ -831,6 +836,7 @@ AWS Management Console
 ###### To test your Lambda function using the Amazon S3 trigger (console)
 
 1. To upload an image to your Amazon S3 bucket, do the following:
+
    1. Open the [Buckets](https://console.aws.amazon.com/s3/buckets "https://console.aws.amazon.com/s3/buckets") page of the Amazon S3 console and choose your source bucket.
    2. Choose **Upload**.
    3. Choose **Add files** and use the file selector to choose the image file you want to upload. Your image
@@ -838,6 +844,7 @@ AWS Management Console
    4. Choose **Open**, then choose **Upload**.
 
 2. Verify that Lambda has saved a resized version of your image file in your target bucket by doing the following:
+
    1. Navigate back to the [Buckets](https://console.aws.amazon.com/s3/buckets "https://console.aws.amazon.com/s3/buckets") page of the Amazon S3 console and choose your destination bucket.
    2. In the **Objects** pane, you should now see two resized image files, one from each test of your Lambda function.
       To download your resized image, select the file, then choose **Download**.

@@ -330,6 +330,7 @@ permitted to register for the `Shutdown` event.
 - `Lambda-Extension-Accept-Feature` – Use this to specify optional
   Extensions features during registration. Required: no. Type: comma separated string.
   Features available to specify using this setting:
+
   - `accountId` – If specified, the Extension registration
     response will contain the account ID associated with the Lambda function that
     you're registering the Extension for.
@@ -438,6 +439,7 @@ Lambda.
 - `Lambda-Extension-Function-Error-Type` – Error type that the extension encountered.
   Required: yes. This header consists of a string value. Lambda accepts any string, but we recommend a format of
   <category.reason>. For example:
+
   - Extension.NoSuchHandler
   - Extension.APIKeyNotFound
   - Extension.ConfigInvalid
@@ -497,6 +499,7 @@ succeed. The extension should exit after it receives the response from Lambda.
 - `Lambda-Extension-Function-Error-Type` – Error type that the extension encountered.
   Required: yes. This header consists of a string value. Lambda accepts any string, but we recommend a format of
   <category.reason>. For example:
+
   - Extension.NoSuchHandler
   - Extension.APIKeyNotFound
   - Extension.ConfigInvalid

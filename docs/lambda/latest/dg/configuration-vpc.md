@@ -76,6 +76,7 @@ Lambda console
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console and choose **Create function**.
 2. Under **Basic information**, for **Function name**, enter a name for your function.
 3. Configure VPC settings for the function by doing the following:
+
    1. Expand **Advanced settings**.
    2. Select **Enable VPC**, and then select the VPC you want to attach the function to.
    3. (Optional) To allow [outbound IPv6 traffic](#configuration-vpc-ipv6 "#configuration-vpc-ipv6"), select **Allow IPv6 traffic for dual-stack subnets**.

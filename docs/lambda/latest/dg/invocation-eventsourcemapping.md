@@ -46,6 +46,7 @@ following three criteria is met:
 
 - **The batching window reaches its maximum value.** Default batching window behavior
   varies depending on the specific event source.
+
   - **For Kinesis, DynamoDB, and Amazon SQS event sources:** The default batching
     window is 0 seconds. This means that Lambda invokes your function as soon as records are available. To set a batching window, configure `MaximumBatchingWindowInSeconds`. You can
     set this parameter to any value from 0 to 300 seconds in increments of 1 second. If you configure a batching window, the

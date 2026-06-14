@@ -27,10 +27,13 @@ To subscribe to a telemetry stream, a Lambda extension can send a Subscribe API 
 - **Path** – `/telemetry`
 - **Method** – `PUT`
 - **Headers**
+
   - `Content-Type`: `application/json`
 
 - **Request body parameters**
+
   - **schemaVersion**
+
     - Required: Yes
     - Type: String
     - Valid values: `"2025-01-29"`, `"2022-12-13"`, or `"2022-07-01"`
@@ -38,6 +41,7 @@ To subscribe to a telemetry stream, a Lambda extension can send a Subscribe API 
 
   - **destination** – The configuration settings that define the
     telemetry event destination and the protocol for event delivery.
+
     - Required: Yes
     - Type: Object
 
@@ -47,14 +51,15 @@ To subscribe to a telemetry stream, a Lambda extension can send a Subscribe API 
         "URI": "http://sandbox.localdomain:8080"
     }
     ```
-
     - **protocol** – The protocol that Lambda uses
       to send telemetry data.
+
       - Required: Yes
       - Type: String
       - Valid values: `"HTTP"`|`"TCP"`
 
     - **URI** – The URI to send telemetry data to.
+
       - Required: Yes
       - Type: String
 
@@ -62,12 +67,14 @@ To subscribe to a telemetry stream, a Lambda extension can send a Subscribe API 
 
   - **types** – The types of telemetry that you want the extension to
     subscribe to.
+
     - Required: Yes
     - Type: Array of strings
     - Valid values: `"platform"`|`"function"`|`"extension"`
 
   - **buffering** – The configuration settings for event
     buffering.
+
     - Required: No
     - Type: Object
 
@@ -80,8 +87,8 @@ To subscribe to a telemetry stream, a Lambda extension can send a Subscribe API 
        }
     }
     ```
-
     - **maxItems** – The maximum number of events to buffer in memory.
+
       - Required: No
       - Type: Integer
       - Default: 1,000
@@ -90,6 +97,7 @@ To subscribe to a telemetry stream, a Lambda extension can send a Subscribe API 
 
     - **maxBytes** – The maximum volume of telemetry (in bytes) to
       buffer in memory.
+
       - Required: No
       - Type: Integer
       - Default: 262,144
@@ -98,6 +106,7 @@ To subscribe to a telemetry stream, a Lambda extension can send a Subscribe API 
 
     - **timeoutMs** – The maximum time (in milliseconds) to buffer
       a batch.
+
       - Required: No
       - Type: Integer
       - Default: 1,000

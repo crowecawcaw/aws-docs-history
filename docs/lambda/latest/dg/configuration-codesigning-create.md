@@ -33,6 +33,7 @@ policy.
 2. Choose **Create configuration**.
 3. For **Description**, enter a descriptive name for the configuration.
 4. Under **Signing profiles**, add up to 20 signing profiles to the configuration.
+
    1. For **Signing profile version ARN**, choose a profile version's Amazon Resource Name
       (ARN), or enter the ARN.
    2. To add an additional signing profile, choose **Add signing profiles**.

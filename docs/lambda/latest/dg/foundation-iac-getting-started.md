@@ -156,6 +156,7 @@ can now drag and drop additional AWS resources onto the Infrastructure Composer 
 simple queue as a trigger for your Lambda function and a DynamoDB table for the function to write data to.
 
 1. Add an Amazon SQS trigger to your Lambda function by doing the following:
+
    1. In the search field in the **Resources** palette, enter `SQS`.
    2. Drag the **SQS Queue** resource onto your canvas and position it to the left of your Lambda function.
    3. Choose **Details**, and for **Logical ID** enter `LambdaIaCQueue`.
@@ -166,6 +167,7 @@ simple queue as a trigger for your Lambda function and a DynamoDB table for the 
       are successfully connected.
 
 2. Add an Amazon DynamoDB table for your Lambda function to write data to by doing the following:
+
    1. In the search field in the **Resources** palette, enter `DynamoDB`.
    2. Drag the **DynamoDB Table** resource onto your canvas and position it to the right of your Lambda function.
    3. Choose **Details**, and for **Logical ID** enter `LambdaIaCTable`.

@@ -311,6 +311,7 @@ Create an empty DynamoDB table that your Lambda function will perform CRUD opera
 1. Open the [Tables page](https://console.aws.amazon.com/dynamodbv2#tables "https://console.aws.amazon.com/dynamodbv2#tables") of the DynamoDB console.
 2. Choose **Create table**.
 3. Under **Table details**, do the following:
+
    1. For **Table name**, enter `lambda-apigateway`.
    2. For **Partition key**, enter `id`, and keep the data type set as
       **String**.
@@ -417,6 +418,7 @@ new item in your DynamoDB table and then perform read, update, and delete operat
 ###### To create an item in your DynamoDB table using curl
 
 1. Open a terminal or command prompt on your local machine and run the following `curl` command using the invoke URL you copied in the previous step. This command uses the following options:
+
    - `-H`: Adds a custom header to the request. Here, it specifies the content type as JSON.
    - `-d`: Sends data in the request body. This option uses an HTTP POST method by default.
 

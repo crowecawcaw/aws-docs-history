@@ -31,6 +31,7 @@ feature that requires explicit permissions and actions:
 
 - **IoT Secure Tunnel Creation**: The AWS Toolkit must create an IoT secure tunnel, which only occurs with the user's explicit permission using `iot:OpenTunnel`.
 - **Debug Layer Attachment and Token Management**: The debugging process maintains security through these controls:
+
   - The debugging layer must be attached to the Lambda function and this process requires the following permissions: `lambda:UpdateFunctionConfiguration` and `lambda:GetLayerVersion`.
 
   - A security token (generated via `iot:OpenTunnel`) must be updated in the function environment variable before each debug session, which also requires `lambda:UpdateFunctionConfiguration`.
@@ -83,6 +84,7 @@ There are three ways to disable this feature:
 - **Deny Function Updates**: Set `lambda:UpdateFunctionConfiguration` to `deny`.
 - **Restrict IoT Permissions**: Deny IoT-related permissions
 - **Block Debug Layers**: Deny `lambda:GetLayerVersion` for the following ARNs:
+
   - `arn:aws:lambda:*:*:layer:LDKLayerX86:*`
 
   - `arn:aws:lambda:*:*:layer:LDKLayerArm64:*`

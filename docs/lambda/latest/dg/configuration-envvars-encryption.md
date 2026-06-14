@@ -33,6 +33,7 @@ environment variables are encrypted client-side for protection in transit.
    encryption. For more information, see [Creating keys](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md") in the
    _AWS Key Management Service Developer Guide_.
 2. Using the Lambda console, navigate to the **Edit environment variables** page.
+
    1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
    2. Choose a function.
    3. Choose **Configuration**, then choose **Environment variables** from
@@ -42,6 +43,7 @@ environment variables are encrypted client-side for protection in transit.
 
 3. (Optional) Enable console encryption helpers to use client-side encryption to protect your data in
    transit.
+
    1. Under **Encryption in transit**, choose **Enable helpers for encryption in
       transit**.
    2. For each environment variable that you want to enable console encryption helpers for, choose
@@ -55,6 +57,7 @@ environment variables are encrypted client-side for protection in transit.
    **Decrypt secrets snippet**.
 
 4. (Optional) Specify your customer managed key for encryption at rest.
+
    1. Choose **Use a customer master key**.
    2. Choose a customer managed key that you created at the beginning of this procedure.
 

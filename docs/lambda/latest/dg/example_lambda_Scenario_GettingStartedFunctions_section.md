@@ -766,6 +766,7 @@ public class Function
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [CreateFunction](../../../goto/DotNetSDKV3/lambda-2015-03-31/CreateFunction.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/CreateFunction.md")
   - [DeleteFunction](../../../goto/DotNetSDKV3/lambda-2015-03-31/DeleteFunction.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/DeleteFunction.md")
   - [GetFunction](../../../goto/DotNetSDKV3/lambda-2015-03-31/GetFunction.md "../../../goto/DotNetSDKV3/lambda-2015-03-31/GetFunction.md")
@@ -1203,6 +1204,7 @@ AwsDoc::Lambda::invokeLambdaFunction(const Aws::Utils::Json::JsonValue &jsonPayl
 ```
 
 - For API details, see the following topics in _AWS SDK for C++ API Reference_.
+
   - [CreateFunction](../../../goto/SdkForCpp/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForCpp/lambda-2015-03-31/CreateFunction.md")
   - [DeleteFunction](../../../goto/SdkForCpp/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForCpp/lambda-2015-03-31/DeleteFunction.md")
   - [GetFunction](../../../goto/SdkForCpp/lambda-2015-03-31/GetFunction.md "../../../goto/SdkForCpp/lambda-2015-03-31/GetFunction.md")
@@ -1849,6 +1851,7 @@ def lambda_handler(event, context):
 ```
 
 - For API details, see the following topics in _AWS SDK for Go API Reference_.
+
   - [CreateFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.CreateFunction "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.CreateFunction")
   - [DeleteFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.DeleteFunction "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.DeleteFunction")
   - [GetFunction](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.GetFunction "https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/lambda#Client.GetFunction")
@@ -2183,6 +2186,7 @@ public class LambdaScenario {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateFunction](../../../goto/SdkForJavaV2/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/CreateFunction.md")
   - [DeleteFunction](../../../goto/SdkForJavaV2/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/DeleteFunction.md")
   - [GetFunction](../../../goto/SdkForJavaV2/lambda-2015-03-31/GetFunction.md "../../../goto/SdkForJavaV2/lambda-2015-03-31/GetFunction.md")
@@ -2346,6 +2350,7 @@ const deleteFunction = (funcName) => {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [CreateFunction](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/CreateFunctionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/CreateFunctionCommand.md")
   - [DeleteFunction](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/DeleteFunctionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/DeleteFunctionCommand.md")
   - [GetFunction](../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/GetFunctionCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/lambda/command/GetFunctionCommand.md")
@@ -2552,6 +2557,7 @@ suspend fun delFunction(myFunctionName: String) {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [CreateFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DeleteFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [GetFunction](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -2747,6 +2753,7 @@ class GettingStartedWithLambda
 ```
 
 - For API details, see the following topics in _AWS SDK for PHP API Reference_.
+
   - [CreateFunction](../../../goto/SdkForPHPV3/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/CreateFunction.md")
   - [DeleteFunction](../../../goto/SdkForPHPV3/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/DeleteFunction.md")
   - [GetFunction](../../../goto/SdkForPHPV3/lambda-2015-03-31/GetFunction.md "../../../goto/SdkForPHPV3/lambda-2015-03-31/GetFunction.md")
@@ -3278,6 +3285,7 @@ if __name__ == "__main__":
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateFunction](../../../goto/boto3/lambda-2015-03-31/CreateFunction.md "../../../goto/boto3/lambda-2015-03-31/CreateFunction.md")
   - [DeleteFunction](../../../goto/boto3/lambda-2015-03-31/DeleteFunction.md "../../../goto/boto3/lambda-2015-03-31/DeleteFunction.md")
   - [GetFunction](../../../goto/boto3/lambda-2015-03-31/GetFunction.md "../../../goto/boto3/lambda-2015-03-31/GetFunction.md")
@@ -3577,6 +3585,7 @@ Delete a specific Lambda function.
 ```
 
 - For API details, see the following topics in _AWS SDK for Ruby API Reference_.
+
   - [CreateFunction](../../../goto/SdkForRubyV3/lambda-2015-03-31/CreateFunction.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/CreateFunction.md")
   - [DeleteFunction](../../../goto/SdkForRubyV3/lambda-2015-03-31/DeleteFunction.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/DeleteFunction.md")
   - [GetFunction](../../../goto/SdkForRubyV3/lambda-2015-03-31/GetFunction.md "../../../goto/SdkForRubyV3/lambda-2015-03-31/GetFunction.md")
@@ -4418,6 +4427,7 @@ async fn main() {
 ```
 
 - For API details, see the following topics in _AWS SDK for Rust API reference_.
+
   - [CreateFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.create_function "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.create_function")
   - [DeleteFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.delete_function "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.delete_function")
   - [GetFunction](https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.get_function "https://docs.rs/aws-sdk-lambda/latest/aws_sdk_lambda/client/struct.Client.html#method.get_function")
@@ -4655,6 +4665,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/s
 ```
 
 - For API details, see the following topics in _AWS SDK for SAP ABAP API reference_.
+
   - [CreateFunction](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
   - [DeleteFunction](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
   - [GetFunction](../../../sdk-for-sap-abap/v1/api/latest/index.md "../../../sdk-for-sap-abap/v1/api/latest/index.md")
@@ -5580,6 +5591,7 @@ enum ExampleError: Error {
 ```
 
 - For API details, see the following topics in _AWS SDK for Swift API reference_.
+
   - [CreateFunction](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/createfunction(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/createfunction(input:)")
   - [DeleteFunction](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/deletefunction(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/deletefunction(input:)")
   - [GetFunction](<https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/getfunction(input:)> "https://sdk.amazonaws.com/swift/api/awslambda/latest/documentation/awslambda/lambdaclient/getfunction(input:)")

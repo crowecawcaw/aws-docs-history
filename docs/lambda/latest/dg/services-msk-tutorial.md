@@ -37,6 +37,7 @@ documentation.**
 
 - An Amazon MSK cluster. See [Create an Amazon MSK cluster](../../../msk/latest/developerguide/create-cluster.md "../../../msk/latest/developerguide/create-cluster.md") in _Getting started using Amazon MSK_.
 - The following configuration:
+
   - Ensure **IAM role-based authentication** is **Enabled**
     in your cluster security settings. This improves your security by limiting your Lambda
     function to only access the Amazon MSK resources needed. This is enabled by default on new Amazon MSK
@@ -318,6 +319,7 @@ Now that you have appropriate IAM policies, create a role and attach them to it.
 4. Under **Use case**, choose **Lambda**.
 5. Choose **Next**.
 6. Select the following policies:
+
    - `clusterAuthPolicy`
    - `AWSLambdaMSKExecutionRole`
 

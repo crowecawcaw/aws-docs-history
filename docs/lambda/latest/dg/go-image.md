@@ -102,6 +102,7 @@ func main() {
 ```
 
 5. Use a text editor to create a Dockerfile in your project directory.
+
    - The following example Dockerfile uses a [multi-stage build](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds "https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#use-multi-stage-builds"). This allows you to use a different base image in each step. You can use one image, such as a [Go base image](https://hub.docker.com/_/golang "https://hub.docker.com/_/golang"), to compile your code and build the executable binary. You can then use a different image, such as `provided.al2023`, in the final `FROM` statement to define the image that you deploy to Lambda. The build process is separated from the final deployment image, so the final image only contains the files needed to run the application.
    - You can use the optional `lambda.norpc` tag to exclude the Remote Procedure Call (RPC) component of the [lambda](https://github.com/aws/aws-lambda-go/tree/master/lambda "https://github.com/aws/aws-lambda-go/tree/master/lambda")
      library. The RPC component is only required if you are using the deprecated Go 1.x runtime. Excluding the RPC reduces the size of the deployment package.
@@ -145,6 +146,7 @@ Use the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-i
 ###### To run the runtime interface emulator on your local machine
 
 1. Start the Docker image with the **docker run** command. Note the following:
+
    - `docker-image` is the image name and `test` is the tag.
    - `./main` is the `ENTRYPOINT` from your Dockerfile.
 
@@ -183,6 +185,7 @@ docker kill `3766c4ab331c`
 ###### To upload the image to Amazon ECR and create the Lambda function
 
 1. Run the [get-login-password](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-login-password.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-login-password.html") command to authenticate the Docker CLI to your Amazon ECR registry.
+
    - Set the `--region` value to the AWS Region where you want to create the Amazon ECR repository.
    - Replace `111122223333` with your AWS account ID.
 
@@ -223,6 +226,7 @@ If successful, you see a response like this:
 
 3. Copy the `repositoryUri` from the output in the previous step.
 4. Run the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/ "https://docs.docker.com/engine/reference/commandline/tag/") command to tag your local image into your Amazon ECR repository as the latest version. In this command:
+
    - `docker-image:test` is the name and [tag](https://docs.docker.com/engine/reference/commandline/build/#tag "https://docs.docker.com/engine/reference/commandline/build/#tag") of your Docker image. This is the image name and tag that you specified in the `docker build` command.
    - Replace `<ECRrepositoryUri>` with the `repositoryUri` that you copied. Make sure to include `:latest` at the end of the URI.
 
@@ -420,6 +424,7 @@ https://github.com/aws/aws-lambda-runtime-interface-emulator/releases/latest/dow
 ```
 
 2. Start the Docker image with the **docker run** command. Note the following:
+
    - `docker-image` is the image name and `test` is the tag.
    - `/main` is the `ENTRYPOINT` from your Dockerfile.
 
@@ -489,6 +494,7 @@ docker kill `3766c4ab331c`
 ###### To upload the image to Amazon ECR and create the Lambda function
 
 1. Run the [get-login-password](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-login-password.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-login-password.html") command to authenticate the Docker CLI to your Amazon ECR registry.
+
    - Set the `--region` value to the AWS Region where you want to create the Amazon ECR repository.
    - Replace `111122223333` with your AWS account ID.
 
@@ -529,6 +535,7 @@ If successful, you see a response like this:
 
 3. Copy the `repositoryUri` from the output in the previous step.
 4. Run the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/ "https://docs.docker.com/engine/reference/commandline/tag/") command to tag your local image into your Amazon ECR repository as the latest version. In this command:
+
    - `docker-image:test` is the name and [tag](https://docs.docker.com/engine/reference/commandline/build/#tag "https://docs.docker.com/engine/reference/commandline/build/#tag") of your Docker image. This is the image name and tag that you specified in the `docker build` command.
    - Replace `<ECRrepositoryUri>` with the `repositoryUri` that you copied. Make sure to include `:latest` at the end of the URI.
 

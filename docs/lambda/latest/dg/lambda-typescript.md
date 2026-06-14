@@ -61,6 +61,7 @@ When using esbuild, consider the following:
 The [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda "https://www.npmjs.com/package/@types/aws-lambda") package provides type definitions for Lambda functions. Install this package when your function uses any of the following:
 
 - Common AWS event sources, such as:
+
   - `APIGatewayProxyEvent`: For [Amazon API Gateway proxy integrations](../../../apigateway/latest/developerguide/set-up-lambda-proxy-integrations.md "../../../apigateway/latest/developerguide/set-up-lambda-proxy-integrations.md")
   - `SNSEvent`: For [Amazon Simple Notification Service notifications](with-sns.md "with-sns.md")
   - `SQSEvent`: For [Amazon Simple Queue Service messages](with-sqs.md "with-sqs.md")

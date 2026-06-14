@@ -8,6 +8,7 @@ SDKs.
 - [Hello Lambda](example_lambda_Hello_section.md "example_lambda_Hello_section.md")
 - [Learn the basics](example_lambda_Scenario_GettingStartedFunctions_section.md "example_lambda_Scenario_GettingStartedFunctions_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [CreateAlias](example_lambda_CreateAlias_section.md "example_lambda_CreateAlias_section.md")
   - [CreateFunction](example_lambda_CreateFunction_section.md "example_lambda_CreateFunction_section.md")
   - [DeleteAlias](example_lambda_DeleteAlias_section.md "example_lambda_DeleteAlias_section.md")

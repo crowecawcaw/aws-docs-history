@@ -78,6 +78,12 @@ Specify a AWS KMS key for EBS encryption. Defaults to AWS managed key if not spe
 
 Add tags to organize and manage your capacity providers.
 
+**PropagateTags**
+
+Configure tag propagation to automatically apply tags to managed resources (Amazon EC2 instances, Amazon EBS volumes,
+and ENIs) launched by the capacity provider. Use tag propagation to enforce cost allocation, SCPs, and
+compliance requirements. For more information, see [Tag propagation](lambda-managed-instances-tag-propagation.md "lambda-managed-instances-tag-propagation.md").
+
 ## Managing capacity providers
 
 ### Updating a capacity provider

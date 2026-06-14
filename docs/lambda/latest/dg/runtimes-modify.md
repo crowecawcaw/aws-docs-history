@@ -101,6 +101,7 @@ python-wrapper-layer.zip
 
 6. [Create a layer](creating-deleting-layers.md#layers-create "creating-deleting-layers.md#layers-create") using the .zip package.
 7. Create a function using the Lambda console.
+
    1. Open the [Lambda console](https://console.aws.amazon.com/lambda "https://console.aws.amazon.com/lambda").
    2. Choose **Create function**.
    3. Enter a **Function name**.
@@ -108,6 +109,7 @@ python-wrapper-layer.zip
    5. Choose **Create function**.
 
 8. Add the layer to your function.
+
    1. Choose your function, and then choose the **Code** tab if it's not already selected.
    2. Scroll down to the **Layers** section, and then choose **Add a layer**.
    3. For **Layer source**, select **Custom layers**, and then choose your layer from the **Custom layers** dropdown list.
@@ -115,6 +117,7 @@ python-wrapper-layer.zip
    5. Choose **Add**.
 
 9. Add the wrapper environment variable.
+
    1. Choose the **Configuration** tab, then choose **Environment variables**.
    2. Under **Environment variables**, choose **Edit**.
    3. Choose **Add environment variable**.
@@ -123,6 +126,7 @@ python-wrapper-layer.zip
    6. Choose **Save**.
 
 10. Test the wrapper script.
+
     1. Choose the **Test** tab.
     2. Under **Test event**, choose **Test**. You don't need to create a test event—the default event will work.
     3. Scroll down to **Log output**. Because your wrapper script started the Python interpreter with the `-X importtime` option,

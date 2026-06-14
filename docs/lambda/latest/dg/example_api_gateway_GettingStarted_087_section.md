@@ -314,6 +314,7 @@ echo "Cleanup completed!"
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [AddPermission](../../../goto/aws-cli/lambda-2015-03-31/AddPermission.md "../../../goto/aws-cli/lambda-2015-03-31/AddPermission.md")
   - [AttachRolePolicy](../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md "../../../goto/aws-cli/iam-2010-05-08/AttachRolePolicy.md")
   - [CreateDeployment](../../../goto/aws-cli/apigateway-2015-07-09/CreateDeployment.md "../../../goto/aws-cli/apigateway-2015-07-09/CreateDeployment.md")

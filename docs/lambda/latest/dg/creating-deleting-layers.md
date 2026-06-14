@@ -40,6 +40,7 @@ other configuration changes, you must create a new version of the layer.
 4. (Optional) For **Description**, enter a description for
    your layer.
 5. To upload your layer code, do one of the following:
+
    - To upload a .zip file from your computer, choose **Upload a
      .zip file**. Then, choose **Upload** to select
      your local .zip file.

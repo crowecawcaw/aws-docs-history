@@ -67,6 +67,7 @@ Lambda Managed Instances metrics are published at 5-minute intervals and retaine
 2. In the navigation pane, choose **Metrics**.
 3. In the **All metrics** tab, choose **AWS/Lambda**.
 4. Choose the metric dimension you want to view:
+
    - For capacity provider level metrics, filter by **CapacityProviderName** and **InstanceType**
    - For execution environment level metrics, filter by **CapacityProviderName**, **FunctionName**, and **Resource**
 

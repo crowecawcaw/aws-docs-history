@@ -70,6 +70,7 @@ migrate a function to arm64 architecture, note the following points about the cu
 To migrate a Lambda function to the arm64 architecture, we recommend following these steps:
 
 1. Build the list of dependencies for your application or workload. Common dependencies include:
+
    - All the libraries and packages that the function uses.
    - The tools that you use to build, deploy, and test the function, such as compilers, test suites,
      continuous integration and continuous delivery (CI/CD) pipelines, provisioning tools, and scripts.

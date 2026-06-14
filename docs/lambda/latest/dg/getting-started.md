@@ -373,6 +373,7 @@ C#
 
 - To learn how to invoke a Lambda function using another AWS service, see [Tutorial: Using an Amazon S3 trigger to invoke a Lambda function](with-s3-example.md "with-s3-example.md").
 - Choose one of the following tutorials for more complex examples of using Lambda with other AWS services.
+
   - [Tutorial: Using Lambda with API Gateway](services-apigateway-tutorial.md "services-apigateway-tutorial.md"): Create an Amazon API Gateway REST
     API that invokes a Lambda function.
   - [Using a Lambda function to

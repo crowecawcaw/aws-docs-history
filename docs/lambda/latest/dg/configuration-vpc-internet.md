@@ -16,6 +16,7 @@ NAT gateway, internet gateway, and route table entries.
 3. For **Resources to create**, choose **VPC
    and more**.
 4. **Configure the VPC**
+
    1. For **Name tag auto-generation**, enter a name for the VPC.
    2. For **IPv4 CIDR block**, you can keep the default suggestion, or
       alternatively you can enter the CIDR block required by your application or
@@ -24,6 +25,7 @@ NAT gateway, internet gateway, and route table entries.
       CIDR block**, **Amazon-provided IPv6 CIDR block**.
 
 5. **Configure the subnets**
+
    1. For **Number of Availability Zones**, choose
       **2**. We recommend at least two AZs for high availability.
    2. For **Number of public subnets**, choose

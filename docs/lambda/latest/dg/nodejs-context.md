@@ -19,10 +19,12 @@ environment.
 - `logGroupName` – The log group for the function.
 - `logStreamName` – The log stream for the function instance.
 - `identity` – (mobile apps) Information about the Amazon Cognito identity that authorized the request.
+
   - `cognitoIdentityId` – The authenticated Amazon Cognito identity.
   - `cognitoIdentityPoolId` – The Amazon Cognito identity pool that authorized the invocation.
 
 - `clientContext` – (mobile apps) Client context that's provided to Lambda by the client application.
+
   - `client.installation_id`
   - `client.app_title`
   - `client.app_version_name`

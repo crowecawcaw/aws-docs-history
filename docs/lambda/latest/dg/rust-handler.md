@@ -194,6 +194,7 @@ For this handler:
 
 - The name of this handler is `function_handler`.
 - The singular input to the handler is event, and is of type `LambdaEvent<T>`.
+
   - `LambdaEvent` is a wrapper that comes from the `lambda_runtime`
     crate. Using this wrapper gives you access to the context object, which includes
     Lambda-specific metadata such as the request ID of the invocation.
@@ -203,6 +204,7 @@ For this handler:
     expects a specific, pre-defined input type.
 
 - The return type of the handler is `Result<U, Error>`.
+
   - `U` is the deserialized output type. `U` must implement the
     `serde::Serialize` trait so Lambda can convert the return value to JSON. For
     example, `U` can be a simple type like `String`,

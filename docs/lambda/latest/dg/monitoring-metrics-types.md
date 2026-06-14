@@ -295,6 +295,7 @@ metrics, which are timestamped at the start of the function invocation.
   configured, the number of events sent to that destination. Use this metric to monitor for
   function errors related to invocations from this event source. If delivery to the
   destination fails, Lambda handles metrics as follows:
+
   - Lambda doesn't emit the `OnFailureDestinationDeliveredEventCount`
     metric.
   - For the `DestinationDeliveryFailures` metric, Lambda emits a 1.

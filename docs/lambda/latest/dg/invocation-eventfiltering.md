@@ -375,6 +375,7 @@ If you use your own KMS key, the following API operations must be permitted in t
 - `kms:Decrypt` – Must be granted to the regional Lambda service
   principal (`lambda.`AWS_region`.amazonaws.com`).
   This allows Lambda to decrypt data with this KMS key.
+
   - To prevent a
     [cross-service confused deputy problem](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md"), the key policy uses the
     [`aws:SourceArn`](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-sourcearn") global condition key. The correct value

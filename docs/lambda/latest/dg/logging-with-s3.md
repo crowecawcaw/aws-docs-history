@@ -46,6 +46,7 @@ The following is example output:
 
 2. Create the IAM role that grants CloudWatch Logs permission to put data into your Amazon S3 bucket. This policy includes a aws:SourceArn global condition context key to help prevent
    the confused deputy security issue. For more information, see [Confused deputy prevention](../../../AmazonCloudWatch/latest/logs/Subscriptions-confused-deputy.md "../../../AmazonCloudWatch/latest/logs/Subscriptions-confused-deputy.md").
+
    1. Use a text editor to create a trust policy in a file `~/TrustPolicyForCWL.json` as follows:
 
    ```
@@ -62,7 +63,6 @@ The following is example output:
        }
    }
    ```
-
    2. Use the create-role command to create the IAM role, specifying the trust policy file. Note of the returned Role.Arn value, as you will need it in a later step:
 
    ```
@@ -143,6 +143,7 @@ In the Lambda console, you can send function logs directly to Amazon S3 after cr
 5. In the "Logging configuration" section, choose **Edit**.
 6. In the "Log content" section, select a log format.
 7. In the "Log destination" section, complete the following steps:
+
    1. Select a destination service.
    2. Choose to **Create a new log group** or use an **Existing log group**.
 

@@ -39,10 +39,39 @@ The Invoke phase for Lambda Managed Instances functions has several unique chara
 
 Error handling in Lambda Managed Instances function execution environments differs from Lambda (default):
 
-**Invoke timeouts.** When an individual invocation times out, Lambda returns a timeout error for that invocation. However, Lambda Managed Instances does not enforce the timeout—your code will keep running. As a function developer, you are responsible for detecting and handling the timeout. The context object exposes the remaining time for the invocation, with a zero or negative value indicating a timeout. Other concurrent invocations in the execution environment continue processing normally.
-
 **Runtime worker failures.** If a runtime worker process crashes, the execution environment continues operating with the remaining healthy workers.
 
 **Extension crashes.** If an extension process crashes during initialization or operation, the entire execution environment is marked as unhealthy and is terminated. Lambda creates a new execution environment to replace it.
 
 **No reset/repair.** Unlike Lambda (default), Managed Instances do not attempt to reset and reinitialize the execution environment after errors. Instead, unhealthy containers are terminated and replaced with new ones.
+
+### Invoke timeouts
+
+When an individual invocation times out, Lambda returns a `Task timed out after <timeout> seconds` error with a status of function error to the caller. However, Lambda Managed Instances does not forcibly terminate your code—it continues running in the execution environment. As a function developer, you are responsible for detecting and handling the timeout. The context object exposes the remaining time for the invocation. A zero or negative value indicates the invocation has timed out. Other concurrent invocations in the execution environment continue processing normally.
+
+#### Retry behavior
+
+When an invocation times out:
+
+- **Synchronous invocations:** The caller receives the timeout error and is responsible for retrying.
+- **Asynchronous invocations:** Lambda retries based on your function's retry policy (default: 2 retries). After all retries are exhausted, the event is sent to the configured dead-letter queue or on-failure destination, if any.
+- **Event source mappings:** Retry behavior depends on the event source configuration (for example, batch size, bisect on error, maximum retry attempts). The batch may be retried or sent to an on-failure destination based on your retry policies.
+
+#### What happens if you don't handle the timeout
+
+If your code does not check the remaining time and stop execution:
+
+- **The invocation is already marked as failed.** Lambda has already returned a timeout error to the caller—any work your code completes after the timeout is effectively lost from the caller's perspective.
+- **Resources remain consumed.** Your code continues occupying a runtime worker slot, reducing the concurrency available for new invocations on that instance.
+- **Nondeterministic behavior.** Your code does not stop when the timeout fires—it keeps running in the background. This means side effects can still happen after Lambda has already told the caller the invocation failed. For example, your handler writes a record to DynamoDB, then the timeout fires and Lambda returns a timeout error to the caller, but your code is still running and proceeds to send an SNS notification. The caller retries the invocation, which writes the record again and sends the notification again. You now have duplicate data and duplicate notifications—and no easy way to tell which ones came from the "failed" invocation that was still running in the background.
+
+#### Handling timeouts in your code
+
+Use the context object to check remaining time and stop processing before the timeout. Configure a buffer based on the expected duration of your next unit of work—for example, if each item takes approximately 500 ms to process, set the buffer to at least 500 ms plus margin.
+
+For language-specific examples of timeout handling, see the request context section of each runtime page:
+
+- [Node.js request context](lambda-managed-instances-nodejs-runtime.md#lambda-managed-instances-nodejs-request-context "lambda-managed-instances-nodejs-runtime.md#lambda-managed-instances-nodejs-request-context")
+- [Python request context](lambda-managed-instances-python-runtime.md#lambda-managed-instances-python-request-context "lambda-managed-instances-python-runtime.md#lambda-managed-instances-python-request-context")
+- [Java request context](lambda-managed-instances-java-runtime.md#lambda-managed-instances-java-request-context "lambda-managed-instances-java-runtime.md#lambda-managed-instances-java-request-context")
+- [.NET request context](lambda-managed-instances-dotnet-runtime.md#lambda-managed-instances-dotnet-request-context "lambda-managed-instances-dotnet-runtime.md#lambda-managed-instances-dotnet-request-context")

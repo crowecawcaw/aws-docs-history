@@ -181,6 +181,7 @@ dotnet new lambda.CustomRuntimeFunction --name `MyFunction` --region `us-east-1`
 ```
 
 3. Navigate to the ``MyFunction`/src/`MyFunction`` directory. This is where the project files are stored. Examine the following files:
+
    - **aws-lambda-tools-defaults.json** – This file is where you
      specify the command line options when deploying your Lambda function.
    - **Function.cs** – The code contains a class with a `Main` method that initializes the `Amazon.Lambda.RuntimeSupport` library as the bootstrap. The `Main` method is the entry point for the function's process. The `Main` method wraps the function handler in a wrapper that the bootstrap can work with. For more information, see [Using Amazon.Lambda.RuntimeSupport as a class library](https://github.com/aws/aws-lambda-dotnet/blob/master/Libraries/src/Amazon.Lambda.RuntimeSupport/README.md#using-amazonlambdaruntimesupport-as-a-class-library "https://github.com/aws/aws-lambda-dotnet/blob/master/Libraries/src/Amazon.Lambda.RuntimeSupport/README.md#using-amazonlambdaruntimesupport-as-a-class-library") in the GitHub repository.

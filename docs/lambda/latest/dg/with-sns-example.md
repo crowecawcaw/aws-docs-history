@@ -75,10 +75,12 @@ CloudWatch Logs. We’ll add the permissions to read from your Amazon SNS topic 
 4. For **Use case**, choose **Lambda**.
 5. Choose **Next**.
 6. Add a basic permissions policy to the role by doing the following:
+
    1. In the **Permissions policies** search box, enter `AWSLambdaBasicExecutionRole`.
    2. Choose **Next**.
 
 7. Finalize the role creation by doing the following:
+
    1. Under **Role details**, enter `lambda-sns-role` for **Role name**.
    2. Choose **Create role**.
 
