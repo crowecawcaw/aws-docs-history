@@ -28,6 +28,7 @@ can perform one or more of the following tasks directly from their WorkSpaces cl
 4. Scroll down to Self-service permissions and choose **Edit**. Enable or disable the
    following options as required to determine the WorkSpace management tasks that users
    can perform from their client:
+
    - **Remember me** — Users can choose whether to cache
      their credentials on their client by selecting the **Remember Me**
      or **Keep me logged in** check box on the login screen. The credentials

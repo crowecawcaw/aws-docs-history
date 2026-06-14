@@ -48,6 +48,7 @@ Linux client application](../userguide/amazon-workspaces-linux-client.md "../use
   or allow your users to disable these features themselves.
 - To access the diagnostic log uploads feature, you need to install the
   following versions of the WorkSpaces clients:
+
   - 5.4.0 or later of the Windows client
   - 5.8.0 or later of the macOS client
   - 2023.1 of the Ubuntu 22.04 client

@@ -43,6 +43,7 @@ Before you begin, verify the following:
   environment.
 - For non-GPU-enabled bundles, a minimum of 50 WorkSpaces per Region per month is required.
   This minimum ensures workloads run on dedicated hardware in compliance with Microsoft licensing requirements.
+
   - The 50-instance minimum can be fulfilled by any combination of WorkSpaces Applications
     unique users streaming sessions (AlwaysOn or On-Demand) and WorkSpaces Personal instances within the same Region.
     The dedicated hardware is provisioned and managed by AWS — your VPC can remain on default tenancy.
@@ -69,6 +70,7 @@ Consider the following when importing BYOL images:
   information, see [Network interfaces](workspaces-port-requirements.md#network-interfaces "workspaces-port-requirements.md#network-interfaces"). You must reserve a /16 netmask from at
   least one of the following IP address ranges for this purpose and ensure that your
   chosen IP address range does not conflict in your network:
+
   - 10.0.0.0/8
   - 100.64.0.0/10
   - 172.16.0.0/12
@@ -141,14 +143,6 @@ Your VM must run one of the following Windows versions:
 
 You will need a Windows virtual machine image or Windows ISO image file that uses a supported Windows OS version:
 
-###### Important
-
-Software-level disk encryption such as Microsoft BitLocker must be
-disabled on the source image before importing. Images with BitLocker
-or other full-disk encryption software enabled will fail the import
-process. Ensure BitLocker is turned off and the volume is fully
-decrypted before exporting your VM for import.
-
 - Download an Enterprise edition ISO image by signing into the [Microsoft 365 admin center](https://admin.microsoft.com/adminportal/home#/subscriptions/vlnew "https://admin.microsoft.com/adminportal/home#/subscriptions/vlnew").
   Sign in to your subscription on the [Visual Studio Subscriptions portal](https://my.visualstudio.com/downloads "https://my.visualstudio.com/downloads") for available downloads.
   Do not use an ISO file downloaded from the [public Windows 11 download website](https://www.microsoft.com/en-us/software-download/windows11 "https://www.microsoft.com/en-us/software-download/windows11") which does not provide an Enterprise edition ISO.
@@ -157,6 +151,15 @@ decrypted before exporting your VM for import.
   Encryption can be enabled after the final WorkSpaces is provisioned.
 - Default EBS encryption is not supported. Prior to importing an image,
   [disable default encryption in EC2 console](../../../ebs/latest/userguide/encryption-by-default.md "../../../ebs/latest/userguide/encryption-by-default.md").
+
+###### Important
+
+Software-level disk encryption such as Microsoft BitLocker must be
+disabled on the source image before importing. Images with BitLocker
+or other full-disk encryption software enabled will fail the import
+process. Ensure BitLocker is turned off and the volume is fully
+decrypted before exporting your VM for import.
+
 - For Windows 11 images, WorkSpaces requires UEFI boot mode be enabled. For more information on how EC2 Image Builder detects the boot mode,
   see [Volume types and file systems supported by VM Import/Export](../../../vm-import/latest/userguide/prerequisites.md#vmimport-volume-types:~:text=Linux/Unix-,Windows,-GUID%20Partition%20Table "../../../vm-import/latest/userguide/prerequisites.md#vmimport-volume-types:~:text=Linux/Unix-,Windows,-GUID%20Partition%20Table") in the _VM Import/Export User Guide_.
 - All supported OS versions support all of the compute types available in the AWS Region
@@ -252,6 +255,7 @@ manage-bde -Status  `DriveLetter`:
 ###### To run the Image Compatibility Checker script
 
 1. Open Powershell as administrator.
+
    1. Select the Windows Start button.
    2. Right-click **Windows PowerShell**.
    3. Choose **Run as administrator**.
@@ -312,11 +316,13 @@ Perform these steps to import your image and create a WorkSpaces BYOL image:
 
 1. Go to the navigation pane and choose **Images**, then **Import Image**.
 2. Follow the steps on the **Import Image** page based on the base image option and type of image you want to import:
+
    - **VM import** – Imports a virtual machine image that has already been customized. You can import a `VHDX`, `VMDK`, or `OVF` file.
    - **ISO import** – Imports a Windows ISO image that you downloaded from Microsoft and has not been customized.
    - **AMI import** – Imports an existing Amazon EC2 AMI to use as your WorkSpaces BYOL image.
 
 3. Do one of the following:
+
    - For **VM import** option, upload your file to Amazon S3 then specify the location of the file to import. Note that the S3 bucket you use needs to be in the same region that you intend to deploy BYOL WorkSpaces.
    - For **ISO import**, import a Windows ISO image that you downloaded from Microsoft and has not been customized. Note that the S3 bucket you use needs to be in the same region that you intend to deploy BYOL WorkSpaces.
    - For **AMI import**, specify the AMI ID.
@@ -330,10 +336,12 @@ WorkSpaces automatically creates an Amazon EC2 Image Builder pipeline to build y
      see [Create an infrastructure configuration](../../../imagebuilder/latest/userguide/create-infra-config.md "../../../imagebuilder/latest/userguide/create-infra-config.md") in the *EC2 Image Builder User Guide*.
 
 5. Go to **Advanced settings** and select if you want to terminate the EC2 build instance if your image encounters import errors.
+
    - If you choose to terminate the instance on failure, you will not be able to access the instance to debug errors during the image import workflow.
    - If you choose to not terminate the instance, the instance can be used to debug errors but you may incur additional costs for running the EC2 instance.
 
 6. Go to **Image details** to specify the properties of your image: including an image name.
+
    - **Image Name** – Unique identifier for your image.
    - **Compute type** – Specify if this image should use non-graphics/base hardware or Graphics hardware
    - **OS version** – Choose the Windows operating system version of the image
@@ -445,6 +453,7 @@ Add the following folders to the exclusion list in Windows Defender:
 
 5. Disable Windows update on startup by entering the following command.
 6. Open Powershell as administrator.
+
    1. Select the Windows Start button.
    2. Right-click **Windows PowerShell**.
    3. Choose **Run as administrator**.

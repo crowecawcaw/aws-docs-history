@@ -33,6 +33,7 @@ Before you set up VPC endpoints for WorkSpaces, be aware of the following prereq
   for authentication traffic. Additionally, you must add the required domains and IP addresses to your allow
   list based on your chosen authentication method. For a complete list of domains for each category, refer to
   [Domains and IP addresses to add to your allow list](workspaces-port-requirements.md#allowlisted_ports "workspaces-port-requirements.md#allowlisted_ports").
+
   - CAPTCHA
   - Directory Settings
   - Pre-session Smart Card Authentication Endpoints, if you are using Smart Card
@@ -63,12 +64,14 @@ In this step, you create a security group that lets WorkSpaces clients communica
 1. In the navigation pane of the Amazon EC2 console, go to **Network & Security**, then **Security Groups**.
 2. Select **Create security group**.
 3. Under **Basic details**, enter the following:
+
    - For **Security group name** – Enter a unique name that identifies the security group.
    - For **Description** – Enter some text that describes the purpose of the security group.
    - For **VPC** – Choose the VPC that your VPC endpoint is in.
 
 4. Go to **Inbound rules** and select **Add rule** to create inbound rules for TCP traffic.
 5. Enter the following:
+
    - For **Type** – Choose Custom TCP.
    - For **Port range** – Enter the following port numbers: `443`, `4195`.
    - For **Source type** – Choose Custom.
@@ -78,6 +81,7 @@ In this step, you create a security group that lets WorkSpaces clients communica
 6. Repeat steps 4 and 5 for each CIDR range or Security Group.
 7. Go to **Inbound rules**, select **Add rule** to create inbound rules for UDP traffic.
 8. Enter the following:
+
    - For **Type** – Choose **Custom UDP**.
    - For **Port range** – Enter the following port numbers: 443, 4195.
    - For **Source type** – Choose **Custom**.
@@ -96,6 +100,7 @@ you configure Amazon VPC so that your WorkSpaces users can stream from WorkSpace
 2. In the navigation pane, go to **Endpoints**, then **Create Endpoint**.
 3. Select **Create Endpoint**.
 4. Ensure the following:
+
    - **Service category** – Make sure that **AWS services** is selected.
    - **Service Name** – Choose **com.amazonaws.`Region`.highlander**.
    - **VPC** – Choose a VPC in which to create the interface endpoint. You can choose a different VPC than the VPC with WorkSpaces

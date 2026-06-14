@@ -82,16 +82,20 @@ For more information about enabling or disabling audio-in redirection, see
 - [Manage Group Policy settings for PCoIP](group_policy.md#gp_configurations_pcoip "group_policy.md#gp_configurations_pcoip")
 - [Set the maximum lifetime for a Kerberos ticket](group_policy.md#gp_kerberos_ticket "group_policy.md#gp_kerberos_ticket")
 - [Configure device proxy server settings for internet access](group_policy.md#gp_device_proxy "group_policy.md#gp_device_proxy")
+
   - [Proxying desktop traffic](group_policy.md#w2aac11c31c11c27c15 "group_policy.md#w2aac11c31c11c27c15")
   - [Recommendation on the use of proxy servers](group_policy.md#w2aac11c31c11c27c17 "group_policy.md#w2aac11c31c11c27c17")
 
 - [Enable Zoom Meeting Media Plugin support](group_policy.md#zoom-integration "group_policy.md#zoom-integration")
+
   - [Enable Zoom Meeting Media Plugin for DCV](group_policy.md#zoom-wsp "group_policy.md#zoom-wsp")
+
     - [Prerequisites](group_policy.md#zoom-integ-prerequisites-wsp "group_policy.md#zoom-integ-prerequisites-wsp")
     - [Before you begin](group_policy.md#zoom-begin-wsp "group_policy.md#zoom-begin-wsp")
     - [Installing the Zoom components](group_policy.md#installing-zoom-wsp "group_policy.md#installing-zoom-wsp")
 
   - [Enable Zoom Meeting Media Plugin for PCoIP](group_policy.md#zoom-pcoip "group_policy.md#zoom-pcoip")
+
     - [Prerequisites](group_policy.md#zoom-integ-prerequisites-pcoip "group_policy.md#zoom-integ-prerequisites-pcoip")
     - [Create the registry key on a Windows WorkSpaces host](group_policy.md#zoom-integ-create-registry-key "group_policy.md#zoom-integ-create-registry-key")
     - [Troubleshooting](group_policy.md#zoom-integ-troubleshoot "group_policy.md#zoom-integ-troubleshoot")
@@ -224,6 +228,7 @@ You can use Group Policy settings to configure printer support as needed.
    setting.
 3. In the **Configure remote printing** dialog box, do
    one of the following:
+
    - **For Basic Printing:** choose
      **Enabled**. To automatically
      use the client computer's current default printer, select
@@ -243,6 +248,7 @@ You can use Group Policy settings to configure printer support as needed.
    Policy update for the WorkSpace and after the WorkSpace session is
    restarted. To apply the Group Policy changes, do one of the
    following:
+
    - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
@@ -341,6 +347,7 @@ redirection options** will become available:
    Policy update for the WorkSpace and after the WorkSpace session is
    restarted. To apply the Group Policy changes, do one of the
    following:
+
    - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
@@ -491,6 +498,7 @@ domain's Group Policy settings.
    Policy update for the WorkSpace and after the WorkSpace session is
    restarted. To apply the Group Policy changes, do one of the
    following:
+
    - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
@@ -626,6 +634,7 @@ Standard WebAuthn redirection requires a browser extension to facilitate the red
 
 - **Windows WorkSpaces**: DCV host agent version 2.0.0.1425 or higher
 - **Client versions:**
+
   - Windows client: 5.19.0 or above
   - Mac client: 5.19.0 or above
   - Linux client: 2024.0 or above
@@ -643,6 +652,7 @@ Enhanced WebAuthn redirection eliminates the need for a browser extension and pr
 
 - **Windows WorkSpaces**: DCV host agent version 2.1.0.2000 or higher
 - **Client versions:**
+
   - Windows client: 5.29.0 or above
   - Mac client: 5.29.0 or above
 
@@ -701,6 +711,7 @@ By default, the following processes are enabled for WebAuthn redirection:
 2. Open the **Configure WebAuthn Redirection** setting.
 3. Choose **Enabled**.
 4. In the **WebAuthn process compatibility list** field, specify the list of process names that are compatible with WebAuthn redirection.
+
    - Use the default list as a starting point
    - Add additional process names as needed for your environment
 
@@ -876,10 +887,12 @@ WebRTC redirection for DCV requires the following:
 
 - DCV host agent version 2.0.0.1622 or higher
 - WorkSpaces clients:
+
   - Windows 5.21.0 or higher
   - Web client
 
 - Web browsers installed on your WorkSpaces running the Amazon DCV WebRTC Redirection Extension:
+
   - Google Chrome 116+
   - Microsoft Edge 116+
 
@@ -1060,6 +1073,7 @@ Screen capture protection for DCV requires the following:
 
 - DCV host agent version 2.2.0.2116 or higher
 - WorkSpaces clients:
+
   - Windows 5.30.2 or higher
   - MacOS 5.30.2 or higher
 
@@ -1307,6 +1321,7 @@ you can use Group Policy settings to configure this feature.
    `c:/session-storage`). If not specified, the default folder
    for session storage will be the home folder.
 5. You can configure your WorkSpaces with one of the following file transfer options:
+
    - Choose `Download and Upload` to allow two-way file transfer.
    - Choose `Upload Only` to only allow file uploads from a local computer
      to your WorkSpaces session.
@@ -1318,6 +1333,7 @@ you can use Group Policy settings to configure this feature.
    Policy update for the WorkSpace and after you restart the WorkSpace
    session. To apply the Group Policy changes, do one of the
    following:
+
    - Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**.
@@ -1456,6 +1472,7 @@ This feature is supported in the Amazon WorkSpaces Windows client version 5.29.2
    Policy update for the WorkSpace and after you restart the WorkSpace
    session. To apply the Group Policy changes, do one of the
    following:
+
    - Reboot the WorkSpace. In the Amazon WorkSpaces console, select the
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**.
@@ -1683,6 +1700,7 @@ support as needed.
     setting.
 4.  In the **Configure remote printing** dialog box, do
     one of the following:
+
     - To enable Advanced remote printing, choose
       **Enabled**, and then under
       **Options,**
@@ -1731,6 +1749,7 @@ Local printer redirection is not available for Amazon Linux WorkSpaces.
 4.  Choose **Enabled**, and then under
     **Options**, **Configure remote
     printing**, choose one of the following:
+
     - **Basic and Advanced printing for Windows
       clients**
     - **Basic printing**
@@ -1767,6 +1786,7 @@ Local printer redirection is not available for Amazon Linux WorkSpaces.
    following settings to determine the direction in which clipboard
    redirection is allowed. When you're done, choose
    **OK**.
+
    - Disabled in both directions
    - Enabled agent to client only (WorkSpace to local
      computer)
@@ -1778,6 +1798,7 @@ Local printer redirection is not available for Amazon Linux WorkSpaces.
    Policy update for the WorkSpace and after the WorkSpace session is
    restarted. To apply the Group Policy changes, do one of the
    following:
+
    - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
@@ -1893,6 +1914,7 @@ WorkSpace. For more information about this Group Policy setting, see [Allow logo
    Policy update for the WorkSpace and after the WorkSpace session is
    restarted. To apply the Group Policy changes, do one of the
    following:
+
    - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
@@ -1942,6 +1964,7 @@ Settings** Group Policy dialog box.
    Policy update for the WorkSpace and after the WorkSpace session is
    restarted. To apply the Group Policy changes, do one of the
    following:
+
    - Reboot the WorkSpace (in the Amazon WorkSpaces console, select the
      WorkSpace, then choose **Actions**,
      **Reboot WorkSpaces**).
@@ -1972,6 +1995,7 @@ might not work properly.
 6. Choose **Enabled**, and under **Enter the USB
    authorization table (maximum ten rules)**, configure your
    USB device allow list rules.
+
    1. Authorization rule - 110500407. This value is a combination of
       a Vendor ID (VID) and a Product ID (PID). The format for a
       VID/PID combination is 1xxxxyyyy, where xxxx is the VID in
@@ -1981,6 +2005,7 @@ might not work properly.
 
 7. Under **Enter the USB authorization table (maximum ten
    rules)**, configure your USB device block list rules.
+
    1. For **Unauthorization Rule**, set an empty
       string. This means that only USB devices in the authorization
       list are allowed.###### Note

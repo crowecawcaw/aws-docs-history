@@ -33,6 +33,7 @@ that use the other options, see [Create a directory for WorkSpaces Personal](lau
    page on the AWS Directory Service
 6. Choose **Simple AD**, and then **Next**.
 7. Configure the directory as follows:
+
    1. For **Organization name**, enter a unique organization name for your
       directory (for example, my-example-directory). This name must be at
       least four characters in length, consist of only alphanumeric characters

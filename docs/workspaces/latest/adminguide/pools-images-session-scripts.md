@@ -55,6 +55,7 @@ occurs:
 1. Your users connect to a WorkSpace in a WorkSpaces Pool that is not
    domain-joined. They connect by using SAML 2.0.
 2. One of the following occurs:
+
    - If application settings persistence is enabled for your users, the
      application settings Virtual Hard Disk (VHD) file that stores your
      users' customizations and Windows settings is downloaded and
@@ -92,6 +93,7 @@ streaming sessions end, the following process occurs:
 3. The session termination scripts complete or time out.
 4. Windows user logout occurs.
 5. One or both of the following occur in parallel, if applicable:
+
    - If application settings persistence is enabled for your users, the
      application settings VHD file that stores your users' customizations
      and Windows settings is unmounted and uploaded to an Amazon S3 bucket in
@@ -320,6 +322,7 @@ The registry key values are as follows:
 
 - Provided user name — The user ID provided through the access mode.
   The access modes and value for each mode are as follows:
+
   - User Pool — The email address for the user
   - Streaming URL — The UserID
   - SAML — The NameID. If the user name includes a slash (for
@@ -329,6 +332,7 @@ The registry key values are as follows:
 - Storage connector — The connector for the persistent storage option
   that is enabled for the user. The storage connector values are as
   follows:
+
   - HomeFolder
 
 Each storage connector registry key contains a **MountStatus**

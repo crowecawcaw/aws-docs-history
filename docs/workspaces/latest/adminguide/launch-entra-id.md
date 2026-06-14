@@ -43,6 +43,7 @@ diagram illustrates the Autopilot process.
   on the application permissions.
 - Assign Windows 10/11 VDA E3 or E5 user subscription licenses to your WorkSpaces users.
 - Entra ID directories only support Windows 10 or 11 Bring Your Own License personal WorkSpaces. The following are supported versions.
+
   - Windows 10 Version 21H2 (December 2021 Update)
   - Windows 10 Version 22H2 (November 2022 Update)
   - Windows 11 Enterprise 23H2 (October 2023 release)
@@ -125,6 +126,7 @@ see [Quickstart: Register an application with the Microsoft identity platform](h
 We recommend providing the following API permissions in your Entra ID application.
 
 - To create a new personal WorkSpace that needs to be joined to Entra ID, following API permission is required.
+
   - `DeviceManagementServiceConfig.ReadWrite.All`
 
 - When you terminate a personal WorkSpace or rebuild it, the following permissions are used.
@@ -155,6 +157,7 @@ Ensure you are familiar with the [Step by step tutorial for Windows Autopilot us
 1. Sign into the Microsoft Intune admin center
 2. Create a new Autopilot device group for personal WorkSpaces. For more information, see
    [Create device groups for Windows Autopilot](https://learn.microsoft.com/en-us/autopilot/enrollment-autopilot "https://learn.microsoft.com/en-us/autopilot/enrollment-autopilot").
+
    1. Choose **Groups**, **New group**
    2. For **Group type**, choose **Security**.
    3. For **Membership type**, choose **Dynamic Device**.
@@ -176,6 +179,7 @@ Ensure you are familiar with the [Step by step tutorial for Windows Autopilot us
    select **All**.
 4. Create an Autopilot deployment profile. For more information, see
    [Create an Autopilot deployment profile](https://learn.microsoft.com/en-us/autopilot/profiles#create-an-autopilot-deployment-profile "https://learn.microsoft.com/en-us/autopilot/profiles#create-an-autopilot-deployment-profile").
+
    1. For **Windows Autopilot**, choose **Deployment profiles**,
       **Create profile**.
    2. In the **Windows Autopilot deployment profiles** screen, select the
@@ -199,6 +203,7 @@ This is a one-time setup.
 1. Create a customer managed key on [AWS Key Management Service](https://aws.amazon.com/kms/ "https://aws.amazon.com/kms/"). The key will later
    be used to encrypt the AWS Secrets Manager secret. Don't use the default key to encrypt your secret as the default key
    cannot be accessed by the WorkSpaces service. Follow the steps below to create the key.
+
    1. Open the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
    2. To change the AWS Region, use the Region selector in the upper-right corner of the page.
    3. Choose **Create key**.
@@ -224,6 +229,7 @@ This is a one-time setup.
    ```
 
 2. Create the secret on AWS Secrets Manager, using the AWS KMS key created in previous step.
+
    1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
    2. Choose **Store a new secret**.
    3. On the **Choose secret type** page, for **Secret type**,

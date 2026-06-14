@@ -82,6 +82,7 @@ image of a WorkSpace.
 - The following components are required in an image. Without these
   components, the WorkSpaces that you launch from the image will not function
   correctly. For more information, see [Required configuration and service components for WorkSpaces Personal](required-service-components.md "required-service-components.md").
+
   - Windows PowerShell version 3.0 or later
   - Remote Desktop Services
   - AWS PV drivers
@@ -103,6 +104,7 @@ image of a WorkSpace.
 - The following components are required in an image. Without these
   components, the WorkSpaces that you launch from the image will not function
   correctly:
+
   - Cloud-init
   - Teradici PCoIP or DCV agents and drivers
   - AmazonWorkSpaces agent
@@ -543,6 +545,7 @@ profiles on it:
 
 1. To access the advanced system properties, do one of the
    following:
+
    - Press the **Windows key+Pause
      Break**, and then choose **Advanced
      system settings** in the left pane of the
@@ -665,6 +668,7 @@ Get-WmiObject -Class Win32_Service | Where-Object { $_.StartName -like "*$env:US
 - For Windows 7 WorkSpaces only: If problems occur while the user
   profile is being copied during image creation, check for the
   following issues:
+
   - Long profile paths can cause image creation errors. Make
     sure that the paths of all folders within the user profile
     are less than 261 characters.
@@ -682,6 +686,7 @@ Get-WmiObject -Class Win32_Service | Where-Object { $_.StartName -like "*$env:US
   applied.
 - Make sure that the Windows Remote Management (WinRM) service is
   configured to start automatically. Do the following:
+
   1.  In the Windows search box, enter
       `services.msc` to open the Windows
       Services Manager.

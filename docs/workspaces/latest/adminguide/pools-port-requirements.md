@@ -69,6 +69,7 @@ WorkSpaces Pools.
   destinations. If you are using a modified or custom security group, you need
   to add the required rules manually. For more information, see
   [Security Group Rules](../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules "../../../vpc/latest/userguide/VPC_SecurityGroups.md#SecurityGroupRules") in the _Amazon VPC User Guide_.
+
   - TCP 80 (HTTP)
   - TCP 443 (HTTPS)
   - UDP 4195

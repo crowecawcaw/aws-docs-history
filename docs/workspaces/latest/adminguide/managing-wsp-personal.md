@@ -308,6 +308,7 @@ Review and understand the following concepts before you proceed:
 1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
 2. Choose one of the following directory types, and then choose
    **Next**:
+
    - AWS Managed Microsoft AD
    - Simple AD
    - AD Connector

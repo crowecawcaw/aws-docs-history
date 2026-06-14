@@ -69,6 +69,7 @@ one private subnet.
    then choose **Select**.
 5. In **Step 2: VPC with Public and Private
    Subnets**, configure the VPC as follows:
+
    - For **IPv4 CIDR block**, specify an IPv4
      CIDR block for the VPC.
    - For **IPv6 CIDR block**, keep the default
@@ -77,6 +78,7 @@ one private subnet.
      the VPC.
 
 6. Configure the public subnet as follows:
+
    - For **Public subnet's IPv4 CIDR**,
      specify the CIDR block for the subnet.
    - For **Availability Zone**, keep the
@@ -86,6 +88,7 @@ one private subnet.
 Subnet`.
 
 7. Configure the first private subnet as follows:
+
    - For **Private subnet's IPv4 CIDR**,
      specify the CIDR block for the subnet. Make a note of the
      value that you specify.
@@ -179,6 +182,7 @@ to specify a name for your route tables, and to verify that:
 1. In the navigation pane, choose **Subnets**, and
    select the public subnet that you created; for example, `WorkSpaces
 Public Subnet`.
+
    1. On the **Route Table** tab, choose the ID
       of the route table; for example,
       `rtb-12345678`.
@@ -200,6 +204,7 @@ Public Subnet`.
 2. In the navigation pane, choose **Subnets**, and
    select the first private subnet that you created (for example,
    `WorkSpaces Private Subnet1`).
+
    1. On the **Route Table** tab, choose the ID
       of the route table.
    2. Select the route table. Under **Name**,

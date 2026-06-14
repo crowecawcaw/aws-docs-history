@@ -47,6 +47,7 @@ gateway in the public subnet.
 3. Under **Resources to create**, choose **VPC and more**.
 4. For **Name tag auto-generation**, enter a name for the VPC.
 5. To configure the subnets, do the following:
+
    1. For **Number of Availability Zones**, choose **1**
       or **2**, depending on your needs.
    2. Expand **Customize AZs** and choose your Availability Zones.
@@ -90,6 +91,7 @@ Create a VPC with one public subnet as follows.
 3. Under **Resources to create**, choose **VPC and more**.
 4. For **Name tag auto-generation**, enter a name for the VPC.
 5. To configure the subnets, do the following:
+
    1. For **Number of Availability Zones**, choose **2**.
    2. Expand **Customize AZs** and choose your Availability Zones.
       Otherwise, AWS selects them for you. To make an appropriate selection, see

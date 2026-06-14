@@ -37,6 +37,7 @@ service: [Check IP](https://checkip.amazonaws.com/ "https://checkip.amazonaws.co
 
 - Connecting to a WorkSpace — The following information is required to
   initiate an SSH connection from a device to a Linux WorkSpace.
+
   - The NetBIOS name of the Active Directory domain that you are connected
     to.
   - Your WorkSpace user name.
@@ -61,6 +62,7 @@ service: [Check IP](https://checkip.amazonaws.com/ "https://checkip.amazonaws.co
    status is **Available**.
 5. Click the arrow to the left of the WorkSpace name to display the inline
    summary, and note the following information:
+
    - The **WorkSpace IP**. This is the private IP address of
      the WorkSpace.
 
@@ -106,6 +108,7 @@ following.
    you want to enable SSH connections to.
 6. On the **Inbound** tab, choose **Add Rule**,
    and do the following:
+
    - For **Type**, choose **SSH**.
    - For **Protocol**, TCP is automatically specified when
      you choose **SSH**.
@@ -185,6 +188,7 @@ To enable SSH connections to a specific Linux WorkSpace, do the following.
 5. On the **Inbound** tab, choose
    **Edit**.
 6. Choose **Add Rule**, and then do the following:
+
    - For **Type**, choose **SSH**.
    - For **Protocol**, TCP is automatically specified when
      you choose **SSH**.

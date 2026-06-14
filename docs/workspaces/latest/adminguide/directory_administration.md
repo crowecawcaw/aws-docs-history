@@ -13,6 +13,7 @@ more robust solution.
 
 1. Launch an Amazon EC2 Windows instance and join it to your WorkSpaces directory by using one of the
    following options:
+
    - If you don't already have an existing Amazon EC2 Windows instance, you can join the instance to
      your directory domain when you launch the instance. For more information, see
      [Seamlessly join a Windows EC2 instance](../../../directoryservice/latest/admin-guide/launching_instance.md "../../../directoryservice/latest/admin-guide/launching_instance.md")
@@ -63,6 +64,7 @@ _AWS Directory Service Administration Guide_.
 4. In the **`username` Properties** dialog box,
    choose **Member Of**.
 5. Add the user to the following groups and choose **OK**.
+
    - **Administrators**
    - **Domain Admins**
    - **Enterprise Admins**

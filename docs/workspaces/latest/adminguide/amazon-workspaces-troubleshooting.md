@@ -506,6 +506,7 @@ connecting from allows access to the WorkSpace.
   device or your device doesn’t have the proper certificates installed when using the
   **Trusted devices** option. Add your device type as a trusted device
   by doing the following:
+
   1.  Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
   2.  In the navigation pane, choose **Directories**.
   3.  Choose the directory you're using.
@@ -524,12 +525,14 @@ connecting from allows access to the WorkSpace.
 
 - Your device types are not granted access to WorkSpaces. Grant access to your device type by
   doing the following:
+
   1.  Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
   2.  In the navigation pane, choose **Directories**.
   3.  Choose the directory you're using.
   4.  Scroll down to **Other platforms** and choose
       **Edit**.
   5.  Check from one of the following device types you want to grant WorkSpaces access.
+
       - ChromeOS
       - iOS
       - Linux
@@ -770,6 +773,7 @@ Policy object.
    to **Enabled**, and then set **Disable Windows Installer** to **Never**.
 6. Choose **OK**.
 7. To apply the group policy changes, do one of the following:
+
    - Reboot the WorkSpace (in the WorkSpaces console, select the WorkSpace, then choose
      **Actions**, **Reboot WorkSpaces**).
    - From an administrative command prompt, enter **gpupdate /force**.
@@ -864,6 +868,7 @@ To resolve this issue, connect to the WorkSpace and change the power plan to
 3. In the **Choose or customize a power plan** pane, choose
    the **High performance** power plan, and then choose
    **Change plan settings**.
+
    - If the option to choose the **High performance**
      power plan is disabled, choose **Change settings that are
      currently unavailable**, and then choose the
@@ -924,6 +929,7 @@ You can attempt to correct the situation using the following methods:
 - Reboot the WorkSpace from the WorkSpaces console.
 - Connect to the unhealthy WorkSpace using the following procedure, which
   should be used only for troubleshooting purposes:
+
   1.  Connect to an operational WorkSpace in the same directory as the
       unhealthy WorkSpace.
   2.  From the operational WorkSpace, use Remote Desktop Protocol (RDP)

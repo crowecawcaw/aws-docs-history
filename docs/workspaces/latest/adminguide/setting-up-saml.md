@@ -22,6 +22,7 @@ directory endpoint to which users are forwarded after successfully signing in to
 ## Requirements
 
 - SAML 2.0 authentication is available in the following Regions:
+
   - US East (N. Virginia) Region
   - US West (Oregon) Region
   - Africa (Cape Town) Region
@@ -75,6 +76,7 @@ provider (IdP) connection to a WorkSpaces directory.
    to WorkSpaces using the IdP. For more information about integrating Active Directory
    with your IdP, consult your IdP documentation.
 2. Configure your IdP to establish a trust relationship with AWS.
+
    - See [Integrating third-party SAML solution providers with AWS](../../../IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.md "../../../IAM/latest/UserGuide/id_roles_providers_saml_3rd-party.md") for
      more information on configuring AWS federation. Relevant examples include
      IdP integration with AWS IAM to access the AWS management
@@ -87,6 +89,7 @@ provider (IdP) connection to a WorkSpaces directory.
 3. Create or register a directory for WorkSpaces by using the WorkSpaces management console.
    For more information, see [Manage directories for WorkSpaces](manage-workspaces-directory.md "manage-workspaces-directory.md"). SAML 2.0 authentication for WorkSpaces is
    supported for the following directory types:
+
    - AD Connector
    - AWS Managed Microsoft AD
 

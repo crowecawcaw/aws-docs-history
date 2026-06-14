@@ -45,10 +45,10 @@ migration target. Amazon Linux 2 has reached end-of-life and new WorkSpaces cann
 AL2 bundles.
 
 All migration paths between Ubuntu, RHEL, and Rocky Linux are supported in both
-directions. You can upgrade (for example, RHEL 8 → RHEL 9), downgrade (for
-example, Ubuntu 24.04 → Ubuntu 22.04), and migrate across distribution families
-(for example, Rocky 9 → Ubuntu 24.04 or RHEL 9 → Rocky 8). The only
-restriction is that you cannot migrate a WorkSpace to the same bundle it is already
+directions. You can upgrade (for example, RHEL 8 → RHEL 9) or downgrade (for
+example, Ubuntu 24.04 → Ubuntu 22.04). You can also migrate across distribution
+families (for example, Rocky 9 → Ubuntu 24.04 or RHEL 9 → Rocky 8). The
+only restriction is that you cannot migrate a WorkSpace to the same bundle it is already
 using.
 
 Migrations from Amazon Linux 2 require automatic user ID ownership correction and desktop
@@ -291,7 +291,7 @@ SELinux-enabled distribution, including:
   SELinux labels entirely.
 - Migrations between SELinux-enabled distributions (for example,
   RHEL 8 → RHEL 9, Rocky 8 → Rocky 9, or RHEL 9 →
-  Rocky 9), because SELinux policy versions and file context definitions can
+  Rocky 9). SELinux policy versions and file context definitions can
   change between major releases.
 
 In all cases, context restoration ensures that files have the correct security
@@ -313,10 +313,10 @@ directory path (`unixHomeDirectory`). SSSD respects this attribute, while
 Winbind on AL2 ignored it and always used
 `/home/`username``.
 
-When migrating from AL2 to an SSSD-based distribution, if the AD user object has
-`unixHomeDirectory` set to a different path (for example,
-`/home/CORP/jsmith`), SSSD resolves the user's home directory to
-that AD-specified path. Since the user's actual data lives at
+When migrating from AL2 to an SSSD-based distribution, the AD user object might
+have `unixHomeDirectory` set to a different path (for example,
+`/home/CORP/jsmith`). In that case, SSSD resolves the user's
+home directory to that AD-specified path. Since the user's actual data lives at
 `/home/`username`` from the AL2 era, the
 AD-specified path does not exist on the volume.
 
@@ -409,6 +409,7 @@ informed:
 1.  **Phase 2 systemd service notifications**
     — If the user is connected to the desktop when Phase 2 starts or
     completes, they see notifications directly from the service:
+
     - **At Phase 2 start:**
       "Completing file migration in background. You can continue working
       normally. Some files may remain inaccessible until migration is

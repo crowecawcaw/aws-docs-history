@@ -101,11 +101,13 @@ before allowing a user to log in to a WorkSpace.
 5. Under **For each device type, specify which devices can access
    WorkSpaces**, choose **Trusted Devices**.
 6. Import up to two root certificates. For each root certificate, do the following:
+
    1. Choose **Import**.
    2. Copy the body of the certificate to the form.
    3. Choose **Import**.
 
 7. Specify whether other types of devices have access to WorkSpaces.
+
    1. Scroll down to the **Other Platforms** section. By default,
       WorkSpaces Linux clients are disabled, and users can access their WorkSpaces from their
       iOS devices, Android devices, Web Access, Chromebooks, and PCoIP zero client devices.

@@ -150,6 +150,7 @@ To receive email notifications, create an Amazon Simple Notification Service top
    pattern**.
 5. Choose **Next**.
 6. For **Event pattern**, do the following:
+
    1. For **Event source**, choose
       **AWS services**.
    2. For **AWS service**, choose
@@ -162,6 +163,7 @@ To receive email notifications, create an Amazon Simple Notification Service top
 
 7. Choose **Next**.
 8. Specify a target as follows:
+
    1. For **Target types**, choose
       **AWS service**.
    2. For **Select a target**, choose **SNS

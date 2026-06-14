@@ -35,6 +35,7 @@ the following:
   FedRAMP authorization or is DoD SRG-compliant](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
 - Users must access their WorkSpaces from one of the following WorkSpaces client
   applications:
+
   - macOS: 5.20.0 or later
   - Windows: 5.20.0 or later
   - Web Access

@@ -35,6 +35,7 @@ solution that supports Amazon Linux. Any changes take effect when the agent star
 - If you make incorrect or unsupported changes to the `wsp.conf` file,
   policy changes may not be applied to the newly established connections on your WorkSpace.
 - Amazon Linux WorkSpaces on DCV bundles have the following limitations:
+
   - Video-in is not supported.
   - Disconnect session on screen lock is not supported.
 

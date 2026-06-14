@@ -11,6 +11,7 @@ support web browser access, see "Which Amazon WorkSpaces bundles support Web Acc
   Regions where DCV WorkSpaces are available.
 - We strongly recommend using Web Access with DCV WorkSpaces for best streaming quality and user experience.
   The following are limitations when using Web Access with PCoIP WorkSpaces:
+
   - Web Access with PCoIP is not supported in the AWS GovCloud (US) Regions, Asia Pacific (Mumbai),
     Africa (Cape Town), Europe (Frankfurt), and Israel (Tel Aviv)
   - Web Access with PCoIP is only supported for Windows WorkSpaces.
@@ -110,6 +111,7 @@ or **Interactive logon: Do not display last user name** (depending on which vers
 3. In the Group Policy Management Editor, choose **Computer Configuration**, **Windows Settings**,
    **Security Settings**, **Local Policies**, and **Security Options**.
 4. Open one of the following settings:
+
    - For Windows 7 — **Interactive logon: Don't display last signed-in**
    - For Windows 10 — **Interactive logon: Do not display last user name**
 

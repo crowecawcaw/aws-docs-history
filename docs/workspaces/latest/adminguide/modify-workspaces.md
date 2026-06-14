@@ -203,6 +203,7 @@ re-creating existing PCoIP WorkSpaces during the migration process.
 - You can only modify your protocol if your WorkSpace was created with PCoIP bundles.
 - Before you modify the protocol to DCV, ensure that your WorkSpace meets the
   following requirements for a DCV WorkSpace.
+
   - Your WorkSpaces client supports DCV
   - The region where your WorkSpace is deployed supports DCV
   - The IP address and port requirements for DCV are open. For more information,

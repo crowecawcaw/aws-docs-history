@@ -77,6 +77,7 @@ or **Interactive logon: Do not display last user name** (depending on which vers
 3. In the Group Policy Management Editor, choose **Computer Configuration**, **Windows Settings**,
    **Security Settings**, **Local Policies**, and **Security Options**.
 4. Open one of the following settings:
+
    - For Windows 7 — **Interactive logon: Don't display last signed-in**
    - For Windows 10 — **Interactive logon: Do not display last user name**
 

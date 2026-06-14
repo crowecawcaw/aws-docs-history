@@ -48,6 +48,7 @@ directory.
 - SAML 2.0 authentication is supported only on the following WorkSpaces clients.
   For the latest WorkSpaces clients, see the [Amazon WorkSpaces Client Download
   page](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/").
+
   - Windows client application version 5.20.0 or later
   - macOS client version 5.20.0 or later
   - Web Access
@@ -88,6 +89,7 @@ Complete the following procedure to create a WorkSpaces Pool directory.
 3. Choose **Create directory**.
 4. For **WorkSpace type**, choose **Pool**.
 5. In the **User identity source** section of the page:
+
    1. Enter a placeholder value into the **User access
       URL** text box. For example, enter `placeholder`
       into the text box. You will edit this later after setting up the
@@ -103,6 +105,7 @@ Complete the following procedure to create a WorkSpaces Pool directory.
    directory name and description cannot start with a special character.
 7. In the **Networking and security** section of the
    page:
+
    1. Choose a VPC and 2 subnets that have access to the network resources
       that your application needs. For increased fault tolerance, you should
       choose two subnets in different Availability Zones.

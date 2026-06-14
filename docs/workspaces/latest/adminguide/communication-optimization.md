@@ -319,27 +319,34 @@ UC applications.
 ![Diagram showing the Direct RTC configuration.](images/direct-rtc.png)
 
 - Microsoft Teams:
+
   - [Plan for SIP Gateway](https://learn.microsoft.com/en-us/microsoftteams/sip-gateway-plan "https://learn.microsoft.com/en-us/microsoftteams/sip-gateway-plan")
   - [Audio Conferencing in Microsoft 365](https://learn.microsoft.com/en-us/microsoftteams/audio-conferencing-in-office-365 "https://learn.microsoft.com/en-us/microsoftteams/audio-conferencing-in-office-365")
   - [Plan your Teams voice solution](https://learn.microsoft.com/en-us/microsoftteams/cloud-voice-landing-page "https://learn.microsoft.com/en-us/microsoftteams/cloud-voice-landing-page")
 
 - Zoom Meetings:
+
   - [Enabling or disabling toll call dial-in numbers](https://support.zoom.us/hc/en-us/articles/360060920371-Enabling-or-disabling-toll-call-dial-in-numbers "https://support.zoom.us/hc/en-us/articles/360060920371-Enabling-or-disabling-toll-call-dial-in-numbers")
   - [Using desk phone call control](https://support.zoom.us/hc/en-us/articles/4912628206477-Using-desk-phone-call-control "https://support.zoom.us/hc/en-us/articles/4912628206477-Using-desk-phone-call-control")
   - [Desk phone companion mode](https://support.zoom.us/hc/en-us/articles/360049007912-Desk-phone-companion-mode "https://support.zoom.us/hc/en-us/articles/360049007912-Desk-phone-companion-mode")
 
 - Webex:
+
   - [Webex App | Make calls with your desk phone](https://help.webex.com/en-us/article/5mgmmb/Webex-App-%7C-Make-calls-with-your-desk-phone "https://help.webex.com/en-us/article/5mgmmb/Webex-App-%7C-Make-calls-with-your-desk-phone")
   - [Webex App | Supported calling options](https://help.webex.com/en-us/article/xga73p/Webex-App-%7C-Supported-calling-options "https://help.webex.com/en-us/article/xga73p/Webex-App-%7C-Supported-calling-options")
 
 - BlueJeans:
+
   - [Dialing into a Meeting from a Desk Telephone](https://support.bluejeans.com/s/article/Dialing-into-a-meeting-from-a-Desk-Telephone "https://support.bluejeans.com/s/article/Dialing-into-a-meeting-from-a-Desk-Telephone")
 
 - Genesys:
+
   - [Genesys Cloud WebRTC media helper](https://help.mypurecloud.com/articles/about-webrtc-media-helper/ "https://help.mypurecloud.com/articles/about-webrtc-media-helper/")
 
 - Amazon Connect Customer:
+
   - [Connect Customer Optimization for Amazon WorkSpaces](../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md "../../../whitepapers/latest/best-practices-deploying-amazon-workspaces/connect-optimization.md")
 
 - Google Meet:
+
   - [Use a phone for audio in a video meeting](https://support.google.com/meet/answer/9518557?hl=en "https://support.google.com/meet/answer/9518557?hl=en")

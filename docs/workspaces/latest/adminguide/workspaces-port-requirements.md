@@ -456,6 +456,7 @@ the primary network interface of all WorkSpaces:
   all destinations and inbound from the WorkSpaces VPC. You need to add these
   manually to the security group for your WorkSpaces if you want them to have
   internet access.
+
   - TCP 80 (HTTP)
   - TCP 443 (HTTPS)
 

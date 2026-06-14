@@ -102,6 +102,7 @@ The Legacy BIOS BootMode must be used for Windows 10.For more information, see
 1. Install all Windows updates and reboot the operating system.
 2. Make sure there are no new updates.
 3. Run either of the following command in Powershell as an administrator.
+
    - ```
      Set-WindowsReservedStorageState -State Disabled
      ```

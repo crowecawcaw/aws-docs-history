@@ -85,6 +85,7 @@ following:
 - **Migrate a WorkSpace** – You can migrate a
   WorkSpace from one bundle to another while retaining the data on the user
   volume.
+
   - Migrate your WorkSpaces to a bundle with an image that doesn’t have a Microsoft Office
     subscription. After the migration is complete, you can install
     Microsoft 365 Apps for enterprise on your WorkSpaces.

@@ -76,6 +76,7 @@ authentication use cases:
 7. Certificate-based authentication uses virtual smart cards to log on. For
    more information, see [Guidelines for enabling smart card logon with third-party certification
    authorities](https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities "https://learn.microsoft.com/en-us/troubleshoot/windows-server/windows-security/enabling-smart-card-logon-third-party-certification-authorities"). Follow these steps:
+
    1. Configure domain controllers with a domain controller certificate
       to authenticate smart card users. If you have an Active Directory
       Certificate Services enterprise CA configured in your Active

@@ -82,8 +82,11 @@ local device.
 3. Choose the directory you want to configure.
 4. Go to Streaming properties and choose **Edit**.
 5. Configure the following streaming properties:
+
    - Clipboard permissions
+
      - From the drop down list, choose one of the following:
+
        - **Allow copy and paste** - Allows copying to
          local device and pasting to remote session.
        - **Allow paste to remote session** - Allows

@@ -51,6 +51,7 @@ were activated and onward. No historical data is available at this time.
    Access Controls**.
 3. Select the resource to open its details page.
 4. Do one or more of the following:
+
    - To update a tag, edit the values of **Key** and
      **Value**.
    - To add a tag, choose **Add Tag** and then edit the values
@@ -67,6 +68,7 @@ were activated and onward. No historical data is available at this time.
 3. Choose the resource to open its details page.
 4. Under **Tags**, choose **Manage tags**.
 5. Do one or more of the following:
+
    - To update a tag, edit the values of **Key** and
      **Value**.
    - To add a tag, choose **Add new tag** and then edit the

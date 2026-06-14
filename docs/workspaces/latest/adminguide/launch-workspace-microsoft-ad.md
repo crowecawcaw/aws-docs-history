@@ -28,6 +28,7 @@ will add a user in the next step when you launch the WorkSpace.
    page on the AWS Directory Service
 6. Choose **AWS Managed Microsoft AD**, and then **Next**.
 7. Configure the directory as follows:
+
    1. For **Organization name**, enter a unique organization name
       for your directory (for example, my-demo-directory). This name must be at least
       four characters in length, consist of only alphanumeric characters and hyphens

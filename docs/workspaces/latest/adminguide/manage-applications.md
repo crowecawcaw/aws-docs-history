@@ -109,12 +109,14 @@ The following table shows the list of supported and unsupported application and 
 4. Under **Current applications** you will see a list of application bundles that are already installed on this WorkSpace
    and under **Choose applications** you have a list of application bundles that are available to install on this WorkSpace.
 5. To install application bundles on this WorkSpace:
+
    1. Select an application bundle that you want to install on this WorkSpace, and choose **Associate**.
    2. Repeat the previous step to install other application bundles.
    3. While the application bundles are installing, you will see them under **Current applications**
       with the `Pending install deployment` status.
 
 6. To uninstall application bundles from this WorkSpace:
+
    1. Under **Choose applications**, select an application bundle that you want to uninstall and
       choose **Disassociate**.
    2. Repeat the previous step to uninstall other application bundles.
@@ -122,6 +124,7 @@ The following table shows the list of supported and unsupported application and 
       with the `Pending uninstall deployment` status.
 
 7. To revert the bundles installation or installation state, do one of the following.
+
    - If you want to revert the bundles from the `Pending uninstall deployment` state, select the application you want to
      revert, then choose **Associate**.
    - If you want to revert the bundles from the `Pending install deployment` state, select the application you want to
@@ -177,6 +180,7 @@ After installing or uninstalling application bundles on your WorkSpaces, the fol
   based on the most recent snapshots of these volumes that were created when the WorkSpace was healthy. Full WorkSpace snapshots are
   taken every 12 hours. For more information, see [Restore a WorkSpace](restore-workspace.md "restore-workspace.md"). Ensure you wait for at least 12 hours before restoring your WorkSpaces that were modified using Manage applications.
   Restoring your WorkSpaces before the next full snapshot, which were modified using Manage applications, will result in the following:
+
   - The application bundles that were installed on your WorkSpaces using the Manage applications workflow will be
     removed from your WorkSpaces but the license will still be activated and your WorkSpaces will be billed for those applications.
     To get those application bundles back on your WorkSpaces you need to run the Manage application workflow again,
@@ -188,6 +192,7 @@ After installing or uninstalling application bundles on your WorkSpaces, the fol
 - **Rebuild a WorkSpace** - Rebuilding a WorkSpace recreates the root volume. For more information, see
   [Rebuild a WorkSpace](rebuild-workspace.md "rebuild-workspace.md").
   Rebuilding your WorkSpaces that were modified using Manage applications will result in the following:
+
   - The application bundles that were installed on your WorkSpaces using the Manage applications workflow will be removed and
     deactivated from your WorkSpaces. In order to get those applications back on your WorkSpaces you need to run the Manage applications workflow again.
   - The application bundles that were removed from your WorkSpaces via Manage applications workflow will be installed and activated on your WorkSpaces.
@@ -198,6 +203,7 @@ After installing or uninstalling application bundles on your WorkSpaces, the fol
   A new WorkSpace with a new WorkSpace ID is created. For more information, see
   [Migrate a WorkSpace](migrate-workspaces.md "migrate-workspaces.md")
   Migrating your WorkSpaces that were modified using Manage applications will result in the following:
+
   - All the application bundle from the source WorkSpaces will be removed and deactivated. The new destination WorkSpaces will inherit
     applications from the destination WorkSpaces bundle. Source WorkSpaces application bundles will be billed for the full month but application
     bundles on destination bundle will have a pro-rated bill.

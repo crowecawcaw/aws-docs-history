@@ -40,6 +40,7 @@ your WorkSpaces resources and helps you identify performance issues.
 2. Add customized dashboard view to the CloudWatch custom dashboards.
 3. Monitor the overall health and utilization status of your WorkSpaces by doing
    the following:
+
    1. View the total number of provisioned WorkSpaces, number of users
       connected, number of unhealthy and healthy WorkSpace
       instances.

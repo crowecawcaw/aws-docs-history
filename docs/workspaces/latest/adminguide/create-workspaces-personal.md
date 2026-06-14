@@ -41,7 +41,9 @@ Now that you have created a directory, you are ready to create a personal WorkSp
    You can skip this step if you know that you want to use personal WorkSpaces.
 6. Choose **Next**. WorkSpaces registers your AD Connector.
 7. Under **Configure WorkSpaces**, enter the following details:
+
    - For **Bundle**, choose from the following the bundle type that you want to use for your WorkSpaces.
+
      - **Use a base WorkSpaces bundle** - Choose one of the bundles from the
        drop down. For more information about the bundle type you selected, choose **Bundle details**.
        To compare bundles offered for pools, choose **Compare all bundles**.
@@ -54,6 +56,7 @@ Now that you have created a directory, you are ready to create a personal WorkSp
    Bundles](https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles "https://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles"). For more information about bundle specifications, recommended uses, and pricing, see [Amazon WorkSpaces pricing](https://aws.amazon.com/workspaces/pricing/ "https://aws.amazon.com/workspaces/pricing/").
    - For **Running mode**, choose from the following to configure your
      personal WorkSpace’s immediate availability and how you pay for it (monthly or hourly):
+
      - **AlwaysOn** — Bills monthly fee for unlimited usage of your WorkSpaces.
        This mode is best for users who use their WorkSpace full time as their primary desktop.
      - **AutoStop** — Bills by the hour. With this mode,
@@ -64,10 +67,12 @@ Now that you have created a directory, you are ready to create a personal WorkSp
      A key can be a general category, such as "project," "owner," or "environment," with specific associated values.
 
 8. Under **Select directory**, enter the following details:
+
    - Choose the directory that you created. To create a directory, choose
      **Create directory**. For more information about creating personal directories, see
      [Register an existing Directory Service directory with WorkSpaces Personal](register-deregister-directory.md "register-deregister-directory.md").
    - Choose the users from that directory you want to provision personal WorkSpaces for by doing the following.
+
      1. Choose **Create users**.
      2. Enter the user’s **Username**, **First name**,
         **Last name**, and **Email**. To add additional users,
@@ -110,6 +115,7 @@ displays the WorkSpace desktop.
 2. Review [WorkSpaces Clients](../userguide/amazon-workspaces-clients.md "../userguide/amazon-workspaces-clients.md")
    in the _Amazon WorkSpaces User Guide_ for more information about the requirements
    for each client, and then do one of the following:
+
    - When prompted, download one of the client applications or launch Web Access.
    - If you aren't prompted and you haven't installed a client application already,
      open [https://clients.amazonworkspaces.com/](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/")

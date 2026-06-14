@@ -389,6 +389,7 @@ JSON
 2. Choose **Launch WorkSpaces** and complete the first three
    steps.
 3. For the **WorkSpaces Configuration** step, do the following:
+
    1. Select the volumes to encrypt: **Root Volume**,
       **User Volume**, or both volumes.
    2. For **Encryption Key**, select an AWS KMS Key, either the

@@ -41,10 +41,12 @@ For more information about security groups, see [Security Groups for Your VPC](.
 ###### To add a security group to an existing WorkSpace
 
 1. Find the IP address for each WorkSpace that needs to be updated.
+
    1. Open the WorkSpaces console at [https://console.aws.amazon.com/workspaces/v2/home](https://console.aws.amazon.com/workspaces/v2/home "https://console.aws.amazon.com/workspaces/v2/home").
    2. Expand each WorkSpace and record its WorkSpace IP address.
 
 2. Find the ENI for each WorkSpace and update its security group assignment.
+
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. Under **Network & Security**, choose **Network Interfaces**.

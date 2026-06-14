@@ -90,6 +90,7 @@ secondary WorkSpace.
   work to external drives, such as your network drive, so that you can access your data from
   the primary WorkSpace.
 - WorkSpaces Multi-Region Resilience is currently available in the following Regions:
+
   - US East (N. Virginia) Region
   - US East (Ohio) Region
   - US West (Oregon) Region

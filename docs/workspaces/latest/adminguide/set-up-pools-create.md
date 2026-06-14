@@ -18,12 +18,14 @@ You should create a directory before you create a WorkSpaces Pool. For more info
     recommendations on the type of WorkSpace you want to use. You can skip this step if
     you know that you want to use WorkSpaces Pools.
 5.  Under **Configure WorkSpaces**, enter the following details:
+
     - For **Name**, enter a unique name identifier for the
       pool. Special characters aren't allowed.
     - For **Description**, enter a description for the pool
       (maximum of 256 characters).
     - For **Bundle**, choose from the following the bundle type
       that you want to use for your WorkSpaces.
+
       - **Use a base WorkSpaces bundle** - Choose one of the
         bundles from the drop down. For more information about the bundle
         type you selected, choose **Bundle details**. To
@@ -34,6 +36,7 @@ You should create a directory before you create a WorkSpaces Pool. For more info
 
     - For **Running mode**, choose from the following to
       configure the pool’s immediate availability and how you pay for it:
+
       - **AutoStop** — Pools instances are billed an
         hourly usage fee, based on the bundle chosen, only for the instances
         that are connected to users. Instances within the pool that are not
@@ -107,7 +110,6 @@ You should create a directory before you create a WorkSpaces Pool. For more info
         + Choose **Add new scale in policies**
          and enter the values for removing specified instances if the
          specified capacity utilization is less or more than the specified threshold value.
-
     - For **Tags**, specify the key pair value that you want to
       use. A key can be a general category, such as "project," "owner," or
       "environment," with specific associated values.

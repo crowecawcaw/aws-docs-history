@@ -76,6 +76,7 @@ certificate_verification = no_ocsp
 - In-session authentication is available in all Regions where DCV is
   supported. Pre-session authentication is available in the following
   Regions:
+
   - Asia Pacific (Sydney) Region
   - Asia Pacific (Tokyo) Region
   - Europe (Ireland) Region
@@ -208,6 +209,7 @@ Some common issues that can cause problems:
 - Incorrect mapping of the slots to the certificates.
 - Having multiple certificates on the smart card that can match the user. Certificates are matched using
   the following criteria:
+
   - The root CA for the certificate.
   - The `<KU>` and `<EKU>` fields of the certificate.
   - The UPN in the certificate subject.
@@ -241,6 +243,7 @@ for all CAs issuing smart cards, and for all CAs issuing domain controller certi
 - You can use the following procedure to export the CA certificate from a CA server
   that is running Active Directory Certificate Services (AD CS). For information about installing AD CS, see
   [Install the Certification Authority](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority "https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority") in the Microsoft documentation.
+
   1.  Log into the CA server using an administrator account.
   2.  From the Windows **Start** menu, open a command prompt window (**Start**
       > **Windows System** > **Command Prompt**).
@@ -406,6 +409,7 @@ certificate file in the PEM format in the WorkSpace image.
 - You can use the following procedure to export the root CA certificate from a root CA certification server
   that is running Active Directory Certificate Services (AD CS). For information about installing AD CS, see
   [Install the Certification Authority](https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority "https://docs.microsoft.com/windows-server/networking/core-network-guide/cncg/server-certs/install-the-certification-authority") in the Microsoft documentation.
+
   1.  Log into the root CA server using an administrator account.
   2.  From the Windows **Start** menu, open a command prompt window (**Start**
       > **Windows System** > **Command Prompt**).
@@ -504,6 +508,7 @@ Some common issues that can cause problems:
 - Incorrect mapping of the slots to the certificates.
 - Having multiple certificates on the smart card that can match the user. Certificates are matched using
   the following criteria:
+
   - The root CA for the certificate.
   - The `<KU>` and `<EKU>` fields of the certificate.
   - The UPN in the certificate subject.

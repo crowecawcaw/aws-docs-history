@@ -131,6 +131,7 @@ script, see [Update your WorkSpace registry using a PowerShell script](#update-w
    **Enabled** from **0** to
    **1**. These registry changes enable in-place upgrades for the
    WorkSpace.
+
    - **HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\enable-inplace-upgrade.ps1**
    - **HKEY_LOCAL_MACHINE\SOFTWARE\Amazon\WorkSpacesConfig\update-pvdrivers.ps1**
 
