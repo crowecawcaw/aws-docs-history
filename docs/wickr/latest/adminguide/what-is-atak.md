@@ -52,6 +52,7 @@ Dashboard.
 8. Enter the package name in the **Packages** text
    box. You can enter one of the following values depending on the
    version of the ATAK that your users will install and use:
+
    - `com.atakmap.app.civ` — Enter this value
      into the **Packages** text box if your
      Wickr end users are going to install and use the civilian

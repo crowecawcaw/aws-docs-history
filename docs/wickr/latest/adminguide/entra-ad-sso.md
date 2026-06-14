@@ -152,11 +152,13 @@ users](getting-started.md#getting-started-step3 "getting-started.md#getting-star
 Following are common issues you might encounter and suggestions for resolving them.
 
 - SSO Connection test fails or is unresponsive:
+
   - Make sure the **SSO Issuer** is configured as expected.
   - Make sure the required fields in the **SSO Configured** are set as
     expected.
 
 - Connection test is successful, but the user is unable to login:
+
   - Make sure the user is added to the Wickr application you registered in Microsoft
     Entra.
   - Make sure the user is using the correct company ID, including the prefix.

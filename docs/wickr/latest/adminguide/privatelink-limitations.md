@@ -9,17 +9,21 @@ connectivity:
 
 - Wickr Open Access (WOA)
 - Client Application Updates
+
   - Mobile Apps (iOS/Android)
+
     - **Source**: App Store/Google Play Store
     - **Requirement**: Internet access required
 
   - Desktop Applications
+
     - **Windows/Mac**: Uses global S3 endpoints (not
       AWS PrivateLink compatible)
     - **Linux**: Uses Snap Store (requires internet
       access)
 
 - Debugging and Telemetry
+
   - Crash reports
   - Debug metrics
   - Client-side analytics links

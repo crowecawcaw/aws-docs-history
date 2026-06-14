@@ -17,6 +17,7 @@ network.
    tags**.
 4. On the **Manage tags** page, you can complete one of the
    following options:
+
    - **Add new tags** — Enter new tags in the
      form of a key and a value pair. Choose **Add new
      tag** to add multiple key value pairs. Tags are
