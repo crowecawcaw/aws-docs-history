@@ -141,6 +141,7 @@ a response like this.
 ```
 
 3. In the terminal window:
+
    1. Open a text editor, such as `nano`.
    2. Copy this JSON document and paste it into your open
       text editor.
@@ -189,7 +190,6 @@ a response like this.
    }`
 
    ```
-
    3. In the editor, in each `Resource` section
       of the policy document, replace
       `us-west-2:57EXAMPLE833`
@@ -256,6 +256,7 @@ This procedure creates a config file to test the AWS IoT Device Client.
 
 1. In the terminal window on your local host computer that's connected to
    your Raspberry Pi:
+
    1. Open a text editor, such as `nano`.
    2. Copy this JSON document and paste it into your open text
       editor.
@@ -311,7 +312,6 @@ This procedure creates a config file to test the AWS IoT Device Client.
     }
    }`
    ```
-
    3. Replace the `endpoint` value with device
       data endpoint for your AWS account that you found in [Provision your device in AWS IoT Core](iot-dc-install-provision.md#iot-dc-install-dc-provision "iot-dc-install-provision.md#iot-dc-install-dc-provision").
    4. Save the file in your text editor as
@@ -325,6 +325,7 @@ This procedure creates a config file to test the AWS IoT Device Client.
 
 2. To prepare the **MQTT test client** to subscribe to all
    MQTT messages:
+
    1. On your local host computer, in the [AWS IoT console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test"), choose
       **MQTT test client**.
    2. In the **Subscribe to a topic** tab, in

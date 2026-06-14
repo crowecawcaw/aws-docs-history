@@ -19,11 +19,13 @@ With device connectivity query support, you can:
 1. Query the current connectivity state (connected or disconnected) for a given device
    using its `thingName`.
 2. Retrieve additional connectivity metadata, including:
+
    1. Disconnect reason
    2. Timestamps for the most recent connect or disconnect event.
    3. Session information including the keep-alive duration
    4. Socket level session information including IP address, port, and VPC endpoint ID. This information
       is available only when the following conditions are met:
+
       1. You enable this option in fleet indexing configuration settings.
       2. You have the corresponding permission in the IAM policy when invoking the API.
 

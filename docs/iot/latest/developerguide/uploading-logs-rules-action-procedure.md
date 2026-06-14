@@ -92,6 +92,7 @@ AWS Management Console
 ###### To create a topic rule by using the AWS Management Console
 
 1.  Open the Rule hub.
+
     1. Open the AWS Management Console
        and navigate to [AWS IoT](https://console.aws.amazon.com/iot "https://console.aws.amazon.com/iot") .
     2. On the navigation bar, choose **Message routing**
@@ -99,12 +100,14 @@ AWS Management Console
     3. Choose **Create rule**.
 
 2.  Enter the rule properties.
+
     1. Enter an alphanumeric **Rule name**.
     2. (Optional) Enter a **Rule description** and
        **Tags**.
     3. Choose **Next**.
 
 3.  Enter a SQL statement.
+
     1. Enter a SQL statement using the MQTT topic that you defined for
        ingestion.
 
@@ -112,6 +115,7 @@ AWS Management Console
  '`$aws/rules/things/thing_name/logs`'` 2. Choose **Next**.
 
 4.  Enter rule actions.
+
     1. On the **Action 1** menu, choose **CloudWatch
        logs**.
     2. Choose the **Log group name** and then choose the log
@@ -131,10 +135,10 @@ AWS Management Console
         **Create**.
         3. Confirm that the IAM role name is correct in the **IAM
          role** field.
-
     5. Choose **Next**.
 
 5.  Review the template configuration.
+
     1. Review the settings for the Job template to verify they're
        correct.
     2. When you're done, choose **Create**.
@@ -144,6 +148,7 @@ AWS CLI
 ###### To create an IAM role and a topic rule by using the AWS CLI
 
 1. Create an IAM role that grants rights to the AWS IoT rule.
+
    1. Create an IAM policy.
 
    To create an IAM policy, run the following command. Make sure you
@@ -178,7 +183,6 @@ AWS CLI
    }'
 
    ```
-
    2. Copy the policy ARN from your output into a text editor.
 
    Sample output:
@@ -200,7 +204,6 @@ AWS CLI
    }
 
    ```
-
    3. Create an IAM role and trust policy.
 
    To create an IAM policy, run the following command. Make sure you
@@ -227,7 +230,6 @@ AWS CLI
    }'
 
    ```
-
    4. Attach the IAM policy to the rule.
 
    To create an IAM policy, run the following command. Make sure you
@@ -241,7 +243,6 @@ AWS CLI
    --policy-arn `arn:aws:iam::111122223333:policy/uploadLogsPolicy`
 
    ```
-
    5. Review the role.
 
    To confirm that the IAM role was created correctly, run the following
@@ -284,6 +285,7 @@ AWS CLI
    ```
 
 2. Create an AWS IoT topic rule in the AWS CLI.
+
    1. To create an AWS IoT topic rule, run the following command. Make sure you
       update the `--rule-name`,`sql` statement,
       `description`,`roleARN` , and
@@ -309,7 +311,6 @@ AWS CLI
    }'
 
    ```
-
    2. To confirm that the rule was created correctly, run the following
       command. Make sure you update the `role-name` parameter value.
       For more information, see [get-topic-rule](https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/iot/get-topic-rule.html "https://awscli.amazonaws.com/v2/documentation/api/2.0.34/reference/iot/get-topic-rule.html") in the AWS CLI v2 Command Reference.
@@ -350,6 +351,7 @@ AWS CLI
 
 1. To send historical logs to AWS IoT, communicate with your devices to ensure the
    following.
+
    - The log information is sent to the correct topic namespace as specified within
      the _Prerequisites_ section of this procedure.
 
@@ -360,6 +362,7 @@ AWS CLI
      .
 
 2. Confirm that the MQTT messages are received within the AWS IoT MQTT client.
+
    1. Open the AWS Management Console and navigate to [AWS IoT](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
    2. To view the **MQTT test client**, on the navigation bar,
       choose **Test**,**MQTT test client**.

@@ -62,6 +62,7 @@ python3 shadow.py --ca_file ~/certs/Amazon-root-CA-1.pem --cert ~/certs/device.p
 ```
 
 3. Observe that the sample app:
+
    1. Connects to the AWS IoT service for your account.
    2. Subscribes to `Delta` events and `Update` and
       `Get` responses.

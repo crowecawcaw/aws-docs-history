@@ -109,6 +109,7 @@ The Lambda function does the following:
 2. Choose **Create function**.
 3. Confirm **Author from scratch** is selected.
 4. Under **Basic information**:
+
    1. In **Function name**, enter
       `custom-auth-function`.
    2. In **Runtime**, confirm **Node.js
@@ -222,12 +223,14 @@ var generateAuthResponse = function(effect,ACCOUNT_ID,REGION) {
 
 8. Choose **Deploy**.
 9. After **Changes deployed** appears above the editor:
+
    1. Scroll to the **Function overview** section above the
       editor.
    2. Copy the **Function ARN** and save it to use later in
       this tutorial.
 
 10. Test your function.
+
     1. Choose the **Test** tab.
     2. Using the default test settings, choose
        **Invoke**.
@@ -301,6 +304,7 @@ authorizer resources created by either method.
    authorizer page of the AWS IoT console](https://console.aws.amazon.com//iot/home#/authorizerhub "https://console.aws.amazon.com//iot/home#/authorizerhub"), and choose
    **Create Authorizer**.
 2. In **Create Authorizer**:
+
    1. In **Authorizer name**, enter
       `my-new-authorizer`.
    2. In **Authorizer status**, check
@@ -308,6 +312,7 @@ authorizer resources created by either method.
    3. In **Authorizer function**, choose the Lambda function
       you created earlier.
    4. In **Token validation - optional**:
+
       1. Toggle on **Token validation**.
       2. In **Token key name**, enter
          `tokenKeyName`.
@@ -542,6 +547,7 @@ step. 2. Open a new Postman window and create a new HTTP POST request.
     	 `collection_name`**.
 
 3.  Create the POST request to test your custom authorizer.
+
     1. In the request method selector next to the URL field, choose
        **POST**.
     2. In the URL field, create the URL for your request by using the
@@ -580,8 +586,8 @@ step. 2. Open a new Postman window and create a new HTTP POST request.
         | `Host` | `device_data_endpoint_address` |
         | `tokenKeyName` | `tokenKeyValue` |
         | `x-amz-customauthorizer-signature` | `dBwykzlb+fo+JmSGdwoGr8dyC2qB/IyLefJJr+rbCvmu9Jl4KHAA9DG+V+MMWu09YSA86+64Y3Gt4tOykpZqn9mnVB1wyxp+0bDZh8hmqUAUH3fwi3fPjBvCa4cwNuLQNqBZzbCvsluv7i2IMjEg+CPY0zrWt1jr9BikgGPDxWkjaeehbQHHTo357TegKs9pP30Uf4TrxypNmFswA5k7QIc01n4bIyRTm90OyZ94R4bdJsHNig1JePgnuOBvMGCEFE09jGjjszEHfgAUAQIWXiVGQj16BU1xKpTGSiTAwheLKUjITOEXAMPLECK3aHKYKY+d1vTvdthKtYHBq8MjhzJ0kggbt29VQJCb8RilN/P5+vcVniSXWPplyB5jkYs9UvG08REoy64AtizfUhvSul/r/F3VV8ITtQp3aXiUtcspACi6ca+tsDuXf3LzCwQQF/YSUy02u5XkWn+sto6KCkpNlkD0wU8gl3+kOzxrthnQ8gEajd5Iylx230iqcXo3osjPha7JDyWM5o+KEWckTe91I1mokDr5sJ4JXixvnJTVSx1li49IalW4en1DAkc1a0s2U2UNm236EXAMPLELotyh7h+flFeloZlAWQFHxRlXsPqiVKS1ZIUClaZWprh/orDJplpiWfBgBIOgokJIDGP9gwhXIIk7zWrGmWpMK9o=` |
-
     5. In the Body tab:
+
        1. In the data format option box, choose
           **Raw**.
        2. In the data type list, choose

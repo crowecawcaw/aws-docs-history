@@ -17,6 +17,7 @@ This procedure creates the config file to test the AWS IoT Device Client.
 
 - In the terminal window on your local host computer that's connected to
   your Raspberry Pi:
+
   1.  Enter these commands to create a directory for the config files
       and set the permission on the directory:
 
@@ -24,7 +25,6 @@ This procedure creates the config file to test the AWS IoT Device Client.
   mkdir ~/dc-configs
   chmod 745 ~/dc-configs
   ```
-
   2.  Open a text editor, such as `nano`.
   3.  Copy this JSON document and paste it into your open text editor.
 
@@ -79,7 +79,6 @@ This procedure creates the config file to test the AWS IoT Device Client.
    }
   }`
   ```
-
   4.  Replace the `endpoint` value with device data endpoint
       for your AWS account that you found in [Provision your device in AWS IoT Core](iot-dc-install-provision.md#iot-dc-install-dc-provision "iot-dc-install-provision.md#iot-dc-install-dc-provision").
   5.  Save the file in your text editor as

@@ -76,6 +76,7 @@ this tutorial, however, is the same one that you used in the tutorial about how 
 ###### To create an AWS Lambda function that sends a text message
 
 1.  Create a new AWS Lambda function.
+
     1. In the [AWS Lambda console](https://console.aws.amazon.com//lambda/home "https://console.aws.amazon.com//lambda/home"),
        choose **Create function**.
     2. In **Create function**, select **Use a
@@ -95,6 +96,7 @@ this tutorial, however, is the same one that you used in the tutorial about how 
         5. Choose **Create function**.
 
 2.  Modify the blueprint code to format and send an Amazon SNS notification.
+
     1. After you created your function, you should see the
        **format-high-temp-notification** details page. If you don't,
        open it from the [Lambda
@@ -148,11 +150,11 @@ this tutorial, however, is the same one that you used in the tutorial about how 
 
         return response
     ```
-
     5. Choose **Deploy**.
 
 3.  In a new window, look up the Amazon Resource Name (ARN) of your Amazon SNS topic from the
     tutorial about how to [Tutorial: Sending an Amazon SNS notification](iot-sns-rule.md "iot-sns-rule.md").
+
     1. In a new window, open the [Topics page of the Amazon SNS console](https://console.aws.amazon.com//sns/v3/home#/topics "https://console.aws.amazon.com//sns/v3/home#/topics").
     2. In the **Topics** page, find the
        **high_temp_notice** notification topic in the list of Amazon SNS
@@ -161,6 +163,7 @@ this tutorial, however, is the same one that you used in the tutorial about how 
        notification topic to use in the next step.
 
 4.  Create a test case for your Lambda function.
+
     1. In the [Lambda
        **Functions**](https://console.aws.amazon.com//lambda/home#/functions "https://console.aws.amazon.com//lambda/home#/functions") page of the console, on the
        **format-high-temp-notification** details page, choose
@@ -183,7 +186,6 @@ this tutorial, however, is the same one that you used in the tutorial about how 
       "notify_topic_arn": "`arn:aws:sns:us-east-1:57EXAMPLE833:high_temp_notice`"
     }
     ```
-
     5. Refer to the window that has the **ARN** of the
        **high_temp_notice** notification topic and copy the ARN
        value.
@@ -194,6 +196,7 @@ this tutorial, however, is the same one that you used in the tutorial about how 
     AWS IoT rule. 7. Choose **Create**.
 
 5.  Test the function with sample data.
+
     1. In the **format-high-temp-notification** details page, in the
        upper-right corner of the page, confirm that **SampleRuleOutput**
        appears next to the **Test** button. If it doesn't, choose it
@@ -250,6 +253,7 @@ correct text message.
 2.  To start creating your new rule in **Rules**, choose
     **Create**.
 3.  In the top part of **Create a rule**:
+
     1. In **Name**, enter the rule's name,
        `wx_friendly_text`.
 
@@ -263,6 +267,7 @@ correct text message.
 
 4.  In **Rule query statement** of **Create a
     rule**:
+
     1. In **Using SQL version**, select
        `2016-03-23`.
     2. In the **Rule query statement** edit box, enter the statement:
@@ -288,7 +293,6 @@ correct text message.
         * Creates a constant value, `30`, to represent the limit value and
          assigns it to the `max_temperature` field.
         * Creates a constant value for the `notify_topic_arn` field.
-
     3. Refer to the window that has the **ARN** of the
        **high_temp_notice** notification topic and copy the ARN
        value.
@@ -297,6 +301,7 @@ correct text message.
        in the rule query statement editor with the ARN of your notification topic.
 
 5.  In **Set one or more actions**:
+
     1. To open up the list of rule actions for this rule, choose **Add
        action**.
     2. In **Select an action**, choose **Send a message to a
@@ -305,6 +310,7 @@ correct text message.
        list, choose **Configure action**.
 
 6.  In **Configure action**:
+
     1. In **Function name**, choose
        **Select**.
     2. Choose **format-high-temp-notification**.
@@ -328,6 +334,7 @@ console, you'll lose your subscriptions or message logs.
 1. In the [MQTT client in the AWS IoT
    console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test"), subscribe to the input topics, in this case,
    `device/+/data`.
+
    1. In the MQTT client, under **Subscriptions**, choose
       **Subscribe to a topic**.
    2. In **Subscription topic**, enter the topic of the input topic
@@ -341,6 +348,7 @@ console, you'll lose your subscriptions or message logs.
 2. Publish a message to the input topic with a specific device ID,
    `device/32/data`. You can't publish to MQTT topics that contain
    wildcard characters.
+
    1. In the MQTT client, under **Subscriptions**, choose
       **Publish to topic**.
    2. In the **Publish** field, enter the input topic name,
@@ -359,11 +367,11 @@ console, you'll lose your subscriptions or message logs.
      }
    }
    ```
-
    4. To publish your MQTT message, choose **Publish to
       topic**.
 
 3. Confirm that the text message was sent.
+
    1. In the MQTT client, under **Subscriptions**, there is a green
       dot next to the topic to which you subscribed earlier.
 
@@ -383,7 +391,6 @@ console, you'll lose your subscriptions or message logs.
      }
    }
    ```
-
    3. Check the phone that you used to subscribe to the SNS topic and confirm the
       contents of the message payload look like this:
 
@@ -397,6 +404,7 @@ console, you'll lose your subscriptions or message logs.
 
 4. Try sending an MQTT message in which the temperature does not exceed the
    limit.
+
    1. In the MQTT client, under **Subscriptions**, choose
       **Publish to topic**.
    2. In the **Publish** field, enter the input topic name,
@@ -415,7 +423,6 @@ console, you'll lose your subscriptions or message logs.
      }
    }
    ```
-
    4. To send your MQTT message, choose **Publish to
       topic**.You should see the message that you sent in the
       `device/+/data` subscription; however, because the

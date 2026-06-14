@@ -60,6 +60,7 @@ When running the local proxy, follow these best practices:
   the access token for the local proxy.
 - Run the local proxy executable with least privileges in the operating
   system or environment.
+
   - Avoid running the local proxy as an administrator on
     Windows.
   - Avoid running the local proxy as root on Linux and

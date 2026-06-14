@@ -14,6 +14,7 @@ Amazon EC2 User Guide.
 
 - If you're using a self-managed Apache Kafka cluster that will be
   accessed using a public endpoint across the internet:
+
   - Create a NAT gateway for instances in your subnets. The
     NAT gateway has a public IP address that can connect to the
     internet, which allows the rules engine to forward your
@@ -34,6 +35,7 @@ Amazon EC2 User Guide.
 - If any resources used by the Apache Kafka Virtual Private Cloud (VPC) destination change, the
   destination will be disabled and unable to be used.
 - Some changes that can disable a Apache Kafka Virtual Private Cloud (VPC) destination include:
+
   - Deleting the VPC, subnets, security groups, or the role used.
   - Modifying the
     role to no longer have the necessary permissions.
@@ -64,6 +66,10 @@ subnetIds
 A list of subnets in which the rules engine creates elastic
 network interfaces. The rules engine allocates a single network
 interface for each subnet in the list.
+
+###### Note
+
+You cannot use subnets in the use1-az3 availability zone when creating a destination.
 
 securityGroups (optional)
 
@@ -158,6 +164,7 @@ the AWS IoT Core console.
    **Act** tab, choose
    **Destinations**.
 2. Enter values for the following fields.
+
    - **VPC ID**
    - **Subnet IDs**
    - **Security Group**

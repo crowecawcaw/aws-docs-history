@@ -221,12 +221,12 @@ Batched action failures also generate larger error action payloads which can inc
 ### Creating or updating a rule action with batching
 
 1. Use the appropriate AWS CLI command to create or update a rule:
+
    - To create a new rule, use the [create-topic-rule](../../../cli/latest/reference/iot/create-topic-rule.md "../../../cli/latest/reference/iot/create-topic-rule.md") command:
 
    ```
    `aws iot create-topic-rule --rule-name `myrule` --topic-rule-payload file://`myrule`.json`
    ```
-
    - To update an existing rule, use the [replace-topic-rule](../../../cli/latest/reference/iot/replace-topic-rule.md "../../../cli/latest/reference/iot/replace-topic-rule.md") command:
 
    ```

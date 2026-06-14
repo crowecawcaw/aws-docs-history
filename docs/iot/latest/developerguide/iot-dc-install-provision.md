@@ -23,12 +23,12 @@ necessary software for the exercises and tutorials in this learning path.
 4. On your local host computer, in the terminal window, and with the
    **Access Key ID** and **Secret Access
    Key** credentials for your Raspberry Pi:
+
    1. Run the AWS configure app with this command:
 
    ```
    `aws configure`
    ```
-
    2. Enter your AWS account credentials and configuration information
       when prompted:
 
@@ -168,6 +168,7 @@ response like this.
 ```
 
 3. In the terminal window:
+
    1. Open a text editor, such as `nano`.
    2. Copy this JSON policy document and paste it into your open
       text editor.

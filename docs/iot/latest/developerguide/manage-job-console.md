@@ -28,6 +28,7 @@ Actions** section. Then, perform the following steps.
 3. On the **Custom job properties** page, in the **Job
    properties** dialog box, enter your information for the following
    fields:
+
    - **Name**: Enter a unique, alphanumeric job
      name.
    - **Description - optional**: Enter an optional
@@ -97,6 +98,7 @@ following options:
 5.  On the **Job configuration** page in the **Job
     configuration** dialog box, select one of the following job
     types:
+
     - **Snapshot job**: A snapshot job is complete when
       it's finished its run on the target devices and groups.
     - **Continuous job**: A continuous job applies to thing

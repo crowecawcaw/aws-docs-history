@@ -112,6 +112,7 @@ There are several categories of APIs used in fleet provisioning:
 
 - These control plane functions create and manage the fleet provisioning
   templates and configure trusted user policies.
+
   - [CreateProvisioningTemplate](../apireference/API_CreateProvisioningTemplate.md "../apireference/API_CreateProvisioningTemplate.md")
   - [CreateProvisioningTemplateVersion](../apireference/API_CreateProvisioningTemplateVersion.md "../apireference/API_CreateProvisioningTemplateVersion.md")
   - [DeleteProvisioningTemplate](../apireference/API_DeleteProvisioningTemplate.md "../apireference/API_DeleteProvisioningTemplate.md")
@@ -125,11 +126,13 @@ There are several categories of APIs used in fleet provisioning:
 - Trusted users can use this control plane function to generate a temporary
   onboarding claim. This temporary claim is passed to the device during Wi-Fi
   configuration or a similar method.
+
   - [CreateProvisioningClaim](../apireference/API_CreateProvisioningClaim.md "../apireference/API_CreateProvisioningClaim.md")
 
 - The MQTT API used during the provisioning process by devices with a
   provisioning claim certificate embedded in a device, or passed to it by a
   trusted user.
+
   - [CreateCertificateFromCsr](fleet-provision-api.md#create-cert-csr "fleet-provision-api.md#create-cert-csr")
   - [CreateKeysAndCertificate](fleet-provision-api.md#create-keys-cert "fleet-provision-api.md#create-keys-cert")
   - [RegisterThing](fleet-provision-api.md#register-thing "fleet-provision-api.md#register-thing")

@@ -130,6 +130,7 @@ cases, there will only be one certificate in the list.
 ```
 
 2. For each certificate listed by the previous command:
+
    1. Replace `certificate_ID`
       with the certificate ID from the previous command. The certificate
       ID is the alphanumeric characters that follow `cert/` in
@@ -164,8 +165,8 @@ cases, there will only be one certificate in the list.
        ]
    }
    ```
-
    3. For each policy attached to the certificate:
+
       1. Replace
          `policy_name` with
          the `policyName` value from the previous command,
@@ -200,7 +201,6 @@ cases, there will only be one certificate in the list.
           "targets": []
       }
       ```
-
       3. Replace
          `policy_name` with
          the `policyName` value, and then run this command
@@ -322,6 +322,7 @@ created while completing the tutorials in this learning path.
 ###### To delete the AWS resources created in this learning path
 
 1. To delete the jobs created in this learning path
+
    1. Run this command to list the jobs in your AWS account.
 
    ```
@@ -355,7 +356,6 @@ created while completing the tutorials in this learning path.
        ]
    }
    ```
-
    2. For each job that you recognize from the list as a job you created
       in this learning path, replace
       `jobId` with the
@@ -369,6 +369,7 @@ created while completing the tutorials in this learning path.
    If the command is successful, it returns nothing.
 
 2. To delete the job documents you stored in an Amazon S3 bucket in this learning path.
+
    1. Replace `bucket` with the
       name of the bucket you used, and then run this command to list the
       objects in the Amazon S3 bucket that you used.
@@ -418,7 +419,6 @@ created while completing the tutorials in this learning path.
        ]
    }
    ```
-
    2. For each object that you recognize from the list as an object you
       created in this learning path, replace
       `bucket` with the

@@ -162,6 +162,7 @@ The following lists the end behaviors that you can select from when
 creating the job or job template:
 
 - `STOP_ROLLOUT`
+
   - `STOP_ROLLOUT` stops the rollout of the job
     document to all remaining devices in the target group
     for the job. Additionally, all `QUEUED` and
@@ -172,6 +173,7 @@ creating the job or job template:
     `FORCE_CANCEL`.
 
 - `CANCEL`
+
   - `CANCEL` stops the rollout of the job
     document to all remaining devices in the target group
     for the job. Additionally, all `QUEUED` job
@@ -180,6 +182,7 @@ creating the job or job template:
     continue until they reach a terminal state.
 
 - `FORCE_CANCEL`
+
   - `FORCE_CANCEL` stops the rollout of the job
     document to all remaining devices in the target group
     for the job. Additionally, all `QUEUED` and

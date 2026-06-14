@@ -21,6 +21,7 @@ This job document displays "Hello world!" on the job target.
    one. For information about how to create Amazon S3 buckets, see the topics in
    [Getting started with Amazon S3](../../../AmazonS3/latest/userguide/GetStartedWithS3.md "../../../AmazonS3/latest/userguide/GetStartedWithS3.md").
 2. Create and save the job document for this job
+
    1. On your local host computer, open a text editor.
    2. Copy and paste this text into the editor.
 
@@ -30,7 +31,6 @@ This job document displays "Hello world!" on the job target.
        "args": ["Hello world!"]
    }
    ```
-
    3. On the local host computer, save the contents of the editor to
       a file named `hello-world-job.json`.
    4. Confirm the file was saved correctly. Some text editors automatically append `.txt`
@@ -127,6 +127,7 @@ cd ~/aws-iot-device-client/build
 ###### To create an AWS IoT job resource
 
 1. On your local host computer:
+
    1. Replace `job_document_url` with the job
       document URL from [Create and store the job document for the IoT job](#iot-dc-runjobs-prepare-define-jobdoc "#iot-dc-runjobs-prepare-define-jobdoc").
    2. Replace `thing_arn` with the ARN of the

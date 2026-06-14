@@ -1019,12 +1019,14 @@ String: The secret type. Valid values: `SecretString` | `SecretBinary`.
 SecretString
 
 - For secrets that you create as JSON objects by using the APIs, the AWS CLI, or the AWS Secrets Manager console:
+
   - If you specify a value for the `key` parameter, this function
     returns the value of the specified key.
   - If you don't specify a value for the `key` parameter, this function
     returns the entire JSON object.
 
 - For secrets that you create as non-JSON objects by using the APIs or the AWS CLI:
+
   - If you specify a value for the `key` parameter, this function
     fails with an exception.
   - If you don't specify a value for the `key` parameter, this function

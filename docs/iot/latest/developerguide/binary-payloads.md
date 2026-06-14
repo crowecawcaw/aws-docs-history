@@ -17,6 +17,7 @@ have data added using the rule. The following shows examples of supported
 
 - You can use the following `SELECT` clauses with only a \* for
   binary payloads.
+
   - ```
     SELECT * FROM 'topic/subtopic'
     ```
@@ -28,6 +29,7 @@ have data added using the rule. The following shows examples of supported
 
 - You can also add data and use the following `SELECT`
   clauses.
+
   - ```
     SELECT *, principal() as principal, timestamp() as time FROM 'topic/subtopic'
     ```
@@ -39,12 +41,12 @@ have data added using the rule. The following shows examples of supported
 
 - You can also use these `SELECT` clauses with binary
   payloads.
+
   - The following refers to `device_type` in the WHERE clause.
 
   ```
   SELECT * FROM 'topic/subtopic' WHERE device_type = 'thermostat'
   ```
-
   - The following is also supported.
 
   ```

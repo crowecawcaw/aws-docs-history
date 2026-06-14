@@ -587,6 +587,7 @@ that. 3. Here are a couple of messages that your device might receive.
 
 4.  Using the MQTT test client in the AWS IoT console, send the messages
     described in the previous step to your device.
+
     1.  Open the [MQTT test
         client](https://console.aws.amazon.com/iot/home#/test "https://console.aws.amazon.com/iot/home#/test") in the AWS IoT console.
     2.  In **Subscribe to a topic**, in the
@@ -764,6 +765,7 @@ In this exercise, the following message will be sent with the
    `pubsub3.py`.
 2. Edit `pubsub3.py` to change how it formats the messages it
    publishes.
+
    1. Open `pubsub3.py` in a text editor.
    2. Locate this line of code:
 

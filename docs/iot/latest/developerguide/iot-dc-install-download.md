@@ -99,12 +99,12 @@ In the terminal window on your local host computer that's connected to your
 Raspberry Pi:
 
 1. Confirm that your AWS account credentials have not been stored.
+
    1. Run the AWS configure app with this command:
 
    ```
    `aws configure`
    ```
-
    2. If your credentials have been stored (if they are displayed in the
       prompt), then enter the `XYXYXYXYX` string when
       prompted as shown here. Leave **Default region name**
@@ -126,6 +126,7 @@ Raspberry Pi:
 3. After the Raspberry Pi shuts down completely, remove its power connector.
 4. Remove the microSD card from your device.
 5. On your local host computer:
+
    1. Insert the microSD card.
    2. Using your SD card imaging tool, save the microSD card’s image to a
       file.

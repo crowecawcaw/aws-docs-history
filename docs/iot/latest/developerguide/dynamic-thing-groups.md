@@ -284,10 +284,12 @@ When a thing becomes eligible to be added to a dynamic thing group, consider
 the following:
 
 - Is the thing already in as many groups as it can be? (See [limits](../../../general/latest/gr/iot_device_management.md#thing-limits "../../../general/latest/gr/iot_device_management.md#thing-limits"))
+
   - **NO:** The thing is added to the
     dynamic thing group.
   - **YES:** Is the thing a member of
     any dynamic thing groups?
+
     - **NO:** The thing can't
       be added to the dynamic thing group, an error is logged,
       and an [AddThingToDynamicThingGroupsFailed
@@ -295,6 +297,7 @@ the following:
     - **YES:** Is the dynamic
       thing group to join older than any dynamic thing group
       that the thing is already a member of?
+
       - **NO:** The thing
         can't be added to the dynamic thing group, an
         error is logged, and an [AddThingToDynamicThingGroupsFailed
@@ -322,16 +325,19 @@ groups priority over dynamic thing groups.
 When you add a thing to a static thing group, consider the following:
 
 - Does the thing already belong to the maximum number of groups?
+
   - **NO:** The thing is added to the
     static thing group.
   - **YES:** Is the thing in any
     dynamic groups?
+
     - **NO:** The thing can't
       be added to the thing group. The command raises an
       exception.
     - **YES:** Was
       **--overrideDynamicGroups**
       enabled?
+
       - **NO:** The thing
         can't be added to the thing group. The command
         raises an exception.

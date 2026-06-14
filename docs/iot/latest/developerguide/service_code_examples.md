@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello AWS IoT](example_iot_Hello_section.md "example_iot_Hello_section.md")
   - [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [AttachThingPrincipal](example_iot_AttachThingPrincipal_section.md "example_iot_AttachThingPrincipal_section.md")
     - [CreateKeysAndCertificate](example_iot_CreateKeysAndCertificate_section.md "example_iot_CreateKeysAndCertificate_section.md")
     - [CreateThing](example_iot_CreateThing_section.md "example_iot_CreateThing_section.md")
@@ -35,5 +37,6 @@ This topic also includes information about getting started and details about pre
     - [UpdateThing](example_iot_UpdateThing_section.md "example_iot_UpdateThing_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Getting Started with IoT Device Defender](example_iot_GettingStarted_079_section.md "example_iot_GettingStarted_079_section.md")
   - [Getting started with IoT Core](example_iot_GettingStarted_063_section.md "example_iot_GettingStarted_063_section.md")

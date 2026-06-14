@@ -180,6 +180,7 @@ git --version`
 
 3. Confirm that these versions of the application software are
    installed:
+
    - `gcc`: 9.3.0 or later
    - `cmake`: 3.10.x or later
    - `OpenSSL`: 1.1.1 or later
@@ -217,6 +218,7 @@ to install and update the software from scratch.
 2. After the Raspberry Pi shuts down completely, remove its power.
 3. Remove the microSD card from the Raspberry Pi.
 4. On your local host computer:
+
    1. Insert the microSD card.
    2. Using your SD card imaging tool, save the microSD card’s image to
       a file.

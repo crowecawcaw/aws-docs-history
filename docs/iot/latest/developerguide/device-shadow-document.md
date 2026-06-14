@@ -54,6 +54,7 @@ A request state document has the following format:
   Typically, you'll use either the `desired` or the
   `reported` property, but not both in the same
   request.
+
   - `desired` — The state properties and values
     requested to be updated in the device.
   - `reported` — The state properties and values
@@ -232,6 +233,7 @@ type.
 - `current` — After a successful update, contains
   the `state` of the object after the update.
 - `state`
+
   - `reported` — Present only if a thing
     reported any data in the `reported` section and
     contains only fields that were in the request state

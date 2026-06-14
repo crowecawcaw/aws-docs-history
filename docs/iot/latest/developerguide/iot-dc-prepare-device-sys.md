@@ -122,6 +122,7 @@ your Raspberry Pi and change its default password.
 ###### To connect your local host computer to your device
 
 1. On your local host computer, open the SSH terminal program:
+
    - Windows: `PuTTY`
    - Linux/macOS: `Terminal`
 

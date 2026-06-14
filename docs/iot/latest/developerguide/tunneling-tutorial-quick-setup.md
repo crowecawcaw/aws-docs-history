@@ -120,6 +120,7 @@ console or configure the local proxy.
    authentication, you can use your device's private key. If you're
    authenticating using the private key, note that only PEM formatted (256
    and 512) RSA keys work with AWS IoT Secure Tunneling SSH console.
+
    - To connect using your username and password, choose **Use
      password**. You can then enter your username and
      password and start using the in-browser CLI.

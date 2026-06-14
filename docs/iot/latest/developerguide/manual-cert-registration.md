@@ -34,11 +34,13 @@ signed by a CA that you have [registered with AWS IoT](manage-your-CA-certs.md#r
 4. On the **Register certificate** page in the
    **Certificates to upload** dialog box, do
    the following:
+
    - Choose **CA is registered with
      AWS IoT**.
    - From **Choose a CA certificate**,
      select your **Certification
      authority**.
+
      - Choose **Register a new CA**
        to register a new **Certification
        authority** that's not registered with
@@ -50,6 +52,7 @@ signed by a CA that you have [registered with AWS IoT](manage-your-CA-certs.md#r
 
    - Select up to 10 certificates to upload and register
      with AWS IoT.
+
      - Use the certificate files you created in [Create AWS IoT client certificates](device-certs-create.md "device-certs-create.md") and [Create a client certificate using your CA certificate](create-device-cert.md "create-device-cert.md").
 
    - Choose **Activate** or

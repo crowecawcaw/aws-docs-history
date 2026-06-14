@@ -33,8 +33,10 @@ AWS IoT Device Management Jobs to perform your remote operations:
 
 - **Seamless integration with other
   AWS services**
+
   - AWS IoT Device Management Jobs integrates closely with the following value-added
     AWS services and features:
+
     - **Amazon S3**: Store your remote
       operation instructions in a secure Amazon S3 bucket where you
       control the access permissions for that content. Using an
@@ -56,15 +58,18 @@ AWS IoT Device Management Jobs to perform your remote operations:
       connectivity. For more information, see [AWS IoT Device Shadow service](iot-device-shadows.md "iot-device-shadows.md").
 
 - **Security best practices**
+
   - **Permission control**: Control the
     access permissions to your remote operating instructions using Amazon S3
     and determine which IAM users can deploy your remote operating
     instructions to your device fleet using AWS IoT policies and
     IAM user roles.
+
     - For more information on AWS IoT policies, see [Create an AWS IoT policy](create-iot-resources.md#create-iot-policy "create-iot-resources.md#create-iot-policy").
     - For more information on IAM user roles, see [Identity and access management for AWS IoT](security-iam.md "security-iam.md").
 
 - **Scalability**
+
   - **Targeted job deployment**: Control
     which devices receive the job document from a job with a targeted
     job deployment using specific device grouping criteria entered in
@@ -90,12 +95,14 @@ AWS IoT Device Management Jobs to perform your remote operations:
     completed.
 
 - **Flexibility**
+
   - **Job configurations**: Customize
     your job and job document with the optional job configurations
     rollout, scheduling, abort, timeout, and retry to meet your specific
     needs. For more information, see [Job configurations](jobs-configurations.md "jobs-configurations.md").
 
 - **Cost effective**
+
   - Introduce a more efficient cost structure for maintaining your
     device fleet by leveraging AWS IoT Device Management Jobs to deploy critical updates
     and perform routine maintenance tasks. A do-it-yourself (DIY)

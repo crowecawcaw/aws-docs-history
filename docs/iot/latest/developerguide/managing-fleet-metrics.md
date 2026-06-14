@@ -29,6 +29,7 @@ If you haven't enabled fleet indexing, follow these instructions.
    indexing** section, select **Manage indexing**.
 5. On the **Manage fleet indexing** page, update your fleet indexing
    settings based on your needs.
+
    - **Configuration**
 
    To turn on thing indexing, toggle **Thing indexing** on, and
@@ -56,6 +57,7 @@ If you haven't enabled fleet indexing, follow these instructions.
 3. On the **Fleet metrics** page, choose **Create fleet
    metric** and complete the creation steps.
 4. In step 1 **Configure fleet metrics**
+
    - In **Query** section, enter a query string to specify the
      things or thing groups you want to perform the aggregate search. The query string
      consists of an attribute and a value. For **Properties**, choose
@@ -74,6 +76,7 @@ If you haven't enabled fleet indexing, follow these instructions.
    - Choose **Next**.
 
 5. In step 2 **Specify fleet metric properties**
+
    - In **Fleet metric name** field, enter a name for the fleet
      metric you're creating.
    - In **Description - _optional_** field, enter a description for the fleet metric
@@ -83,6 +86,7 @@ If you haven't enabled fleet indexing, follow these instructions.
    - Choose **Next**.
 
 6. In step 3 **Review and create**
+
    - Review the settings of step 1 and step 2. To edit the settings, choose
      **Edit**.
    - Choose **Create fleet metric**.

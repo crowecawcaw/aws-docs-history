@@ -420,6 +420,7 @@ python3 pubsub.py --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert 
 ```
 
 3. Observe that the sample app:
+
    1. Connects to the AWS IoT service for your
       account.
    2. Subscribes to the message topic, **topic_1**, and displays the
@@ -494,6 +495,7 @@ node dist/index.js --topic topic_1 --ca_file ~/certs/Amazon-root-CA-1.pem --cert
 ```
 
 3. Observe that the sample app:
+
    1. Connects to the AWS IoT service for your
       account.
    2. Subscribes to the message topic, **topic_1**, and displays the

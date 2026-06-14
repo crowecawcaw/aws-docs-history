@@ -51,6 +51,7 @@ message of the temperature limit that was exceeded.
 ###### To create an Amazon SNS topic that sends an SMS text message
 
 1. **Create an Amazon SNS topic.**
+
    1. Sign in to the [Amazon SNS
       console](https://console.aws.amazon.com//sns/home "https://console.aws.amazon.com//sns/home").
    2. In the left navigation pane, choose **Topics**.
@@ -84,6 +85,7 @@ charges from the messages you will send in this tutorial.
     4. Choose **Create subscription**.
 
 3. **Test the Amazon SNS notification.**
+
    1. In the [Amazon SNS console](https://console.aws.amazon.com//sns/home "https://console.aws.amazon.com//sns/home"), in the left
       navigation pane, choose **Topics**.
    2. To open the topic's details page, in **Topics**, in the list of
@@ -153,6 +155,7 @@ looks like this to the Amazon SNS topic:
 2.  If this is your first rule, choose **Create**, or
     **Create a rule**.
 3.  In **Create a rule**:
+
     1. In **Name**, enter
        `temp_limit_notify`.
 
@@ -166,6 +169,7 @@ looks like this to the Amazon SNS topic:
 
 4.  In **Rule query statement** of **Create a
     rule**:
+
     1. In **Using SQL version**, select
        **2016-03-23**.
     2. In the **Rule query statement** edit box, enter the statement:
@@ -197,6 +201,7 @@ looks like this to the Amazon SNS topic:
 7.  To open the selected action's configuration page, at the bottom of the action list,
     choose **Configure action**.
 8.  In **Configure action**:
+
     1. In **SNS target**, choose **Select**, find
        your SNS topic named **high_temp_notice**, and choose
        **Select**.
@@ -235,6 +240,7 @@ console, it won't retain any subscriptions or message logs.
 1. In the [MQTT client in the AWS IoT
    console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test"), subscribe to the input topics, in this case,
    `device/+/data`.
+
    1. In the MQTT client, under **Subscriptions**, choose
       **Subscribe to a topic**.
    2. In **Subscription topic**, enter the topic of the input topic
@@ -248,6 +254,7 @@ console, it won't retain any subscriptions or message logs.
 2. Publish a message to the input topic with a specific device ID,
    `device/32/data`. You can't publish to MQTT topics that contain
    wildcard characters.
+
    1. In the MQTT client, under **Subscriptions**, choose
       **Publish to topic**.
    2. In the **Publish** field, enter the input topic name,
@@ -266,11 +273,11 @@ console, it won't retain any subscriptions or message logs.
      }
    }
    ```
-
    4. Choose **Publish to topic** to publish your MQTT
       message.
 
 3. Confirm that the text message was sent.
+
    1. In the MQTT client, under **Subscriptions**, there is a green
       dot next to the topic to which you subscribed earlier.
 
@@ -290,7 +297,6 @@ console, it won't retain any subscriptions or message logs.
      }
    }
    ```
-
    3. Check the phone that you used to subscribe to the SNS topic and confirm the
       contents of the message payload look like this:
 
@@ -316,6 +322,7 @@ console, it won't retain any subscriptions or message logs.
 
 4. Try sending an MQTT message in which the temperature does not exceed the
    limit.
+
    1. In the MQTT client, under **Subscriptions**, choose
       **Publish to topic**.
    2. In the **Publish** field, enter the input topic name,
@@ -334,7 +341,6 @@ console, it won't retain any subscriptions or message logs.
      }
    }
    ```
-
    4. To send your MQTT message, choose **Publish to
       topic**.You should see the message that you sent in the `device/+/data`
       subscription. However, because the temperature value is below the max temperature in the

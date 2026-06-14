@@ -170,6 +170,7 @@ for use later when you create the job to run on this device.
 ```
 
 3. In the terminal window:
+
    1. Open a text editor, such as `nano`.
    2. Copy this JSON document and paste it into your open text
       editor.
@@ -236,7 +237,6 @@ for use later when you create the job to run on this device.
    }`
 
    ```
-
    3. In the editor, in the `Resource` section of every
       policy statement, replace
       `us-west-2:57EXAMPLE833` with your
@@ -316,6 +316,7 @@ on each device.
 
 1. In the terminal window on your local host computer that's connected to
    your Raspberry Pi:
+
    1. Open a text editor, such as `nano`.
    2. Copy this JSON document and paste it into your open text
       editor.
@@ -371,7 +372,6 @@ on each device.
     }
    }`
    ```
-
    3. Replace the `endpoint` value with device
       data endpoint value for your AWS account that you found in [Provision your device in AWS IoT Core](iot-dc-install-provision.md#iot-dc-install-dc-provision "iot-dc-install-provision.md#iot-dc-install-dc-provision").
    4. Replace `uniqueThingName` with the thing

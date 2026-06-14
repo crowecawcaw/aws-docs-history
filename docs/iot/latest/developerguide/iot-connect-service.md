@@ -165,6 +165,7 @@ These instructions describe how to:
 
 2. Create and run a sample app to get started with the SDK as the
    getting started option for your environment describes.
+
    - Get started with the [AWS SDK for JavaScript in the Browser](../../../sdk-for-javascript/v2/developer-guide/getting-started-browser.md "../../../sdk-for-javascript/v2/developer-guide/getting-started-browser.md"),
      or
    - Get started with the [AWS SDK for JavaScript in Node.js](../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md "../../../sdk-for-javascript/v2/developer-guide/getting-started-nodejs.md")

@@ -34,6 +34,7 @@ deploying](preparing-jobs-for-service-package-catalog.md#naming-package-versions
     * **Continuous job:** A continuous job applies to thing groups and runs on any device that you later add to a specified target group.
 
 15. In the **Additional configurations - optional** dialog box, review the following optional job configurations and make your selections accordingly. For more information, see [Job rollout, scheduling, and abort configurations](jobs-configurations-details.md#job-rollout-abort-scheduling "jobs-configurations-details.md#job-rollout-abort-scheduling") and [Job execution timeout and retry configurations](jobs-configurations-details.md#job-timeout-retry "jobs-configurations-details.md#job-timeout-retry").
+
     - Rollout configuration
     - Scheduling configuration
     - Job executions timeout configuration

@@ -68,6 +68,7 @@ When you call `GetStatistics` with a Boolean aggregation field:
 
 - AVERAGE is the percentage of devices that match the query.
 - MINIMUM is 0 or 1 according to the following rules:
+
   - If all the values for the aggregation field are `false`, MINIMUM is
   0.
   - If all the values for the aggregation field are `true`, MINIMUM is
@@ -76,6 +77,7 @@ When you call `GetStatistics` with a Boolean aggregation field:
     and `true`, MINIMUM is 0.
 
 - MAXIMUM is 0 or 1 according to the following rules:
+
   - If all the values for the aggregation field are `false`, MAXIMUM is
   0.
   - If all the values for the aggregation field are `true`, MAXIMUM is

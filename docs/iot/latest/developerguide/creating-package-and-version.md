@@ -20,6 +20,7 @@ You can use the following steps to create a package and an initial version thing
    under **Select role**, choose **Create role**.
    If you don't want AWS IoT jobs to make this update, this role is not required.
 7. Create or select a role.
+
    1. If you **don’t have a role** for this purpose: When the **Create role** dialog box appears, enter a **Role name**, and
       then choose **Create**.
    2. If you **do have a role** for this purpose: For **Select role**,

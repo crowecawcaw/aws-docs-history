@@ -56,6 +56,7 @@ from the imaginary weather sensor devices:
 1. Open the [DynamoDB console](https://console.aws.amazon.com//dynamodb/home "https://console.aws.amazon.com//dynamodb/home"), and then
    choose **Create table**.
 2. In **Create table**:
+
    1. In **Table name**, enter the table name:
       `wx_data`.
    2. In **Partition key**,
@@ -112,6 +113,7 @@ let you insert dynamic values from functions and message data.
 2.  To start creating your new rule in **Rules**, choose
     **Create rule**.
 3.  In **Rule properties**:
+
     1. In **Rule name**, enter `wx_data_ddb`.
 
     Remember that a rule name must be unique within your AWS account and Region, and
@@ -124,6 +126,7 @@ let you insert dynamic values from functions and message data.
 
 4.  Choose **Next** to continue.
 5.  In **SQL statement**:
+
     1. In **SQL version**, select
        `2016-03-23`.
     2. In the **SQL statement** edit box, enter the statement:
@@ -146,6 +149,7 @@ let you insert dynamic values from functions and message data.
 
 6.  Choose **Next** to continue.
 7.  In **Rule actions**:
+
     1. To open the list of rule actions for this rule, in **Action
        1**, choose `DynamoDB`.
 
@@ -201,6 +205,7 @@ sends.
 
 1. In the [MQTT client in the AWS IoT
    console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test"), subscribe to the input topic, `device/+/data`.
+
    1. In the MQTT client, choose
       **Subscribe to a topic**.
    2. For **Topic filter**, enter the topic of the input topic
@@ -210,6 +215,7 @@ sends.
 2. Now, publish a message to the input topic with a specific device ID,
    `device/22/data`. You can't publish to MQTT topics that contain
    wildcard characters.
+
    1. In the MQTT client, choose **Publish to a topic**.
    2. For **Topic name**, enter the input topic name,
       `device/22/data`.
@@ -227,12 +233,12 @@ sends.
      }
    }
    ```
-
    4. To publish the MQTT message, choose **Publish**.
    5. Now, in the MQTT client, choose **Subscribe to a topic**. In the **Subscribe**
       column, choose the `device/+/data` subscription. Confirm that the sample data from the previous step appears there.
 
 3. Check to see the row in the DynamoDB table that your rule created.
+
    1. In the [DynamoDB Tables hub in
       the AWS IoT console](https://console.aws.amazon.com//dynamodb/home#tables: "https://console.aws.amazon.com//dynamodb/home#tables:"), choose **wx_data**, and then choose
       the **Items** tab.

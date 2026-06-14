@@ -16,6 +16,7 @@ since this topic was originally published.
 
 - [Prerequisites](iot-moisture-tutorial.md#iot-moisture-prereqs "iot-moisture-tutorial.md#iot-moisture-prereqs")
 - [Setting up AWS IoT](iot-moisture-setup.md "iot-moisture-setup.md")
+
   - [Step 1: Create the AWS IoT policy](iot-moisture-policy.md "iot-moisture-policy.md")
   - [Step 2: Create the AWS IoT thing, certificate, and private key](iot-moisture-create-thing.md "iot-moisture-create-thing.md")
   - [Step 3: Create an Amazon SNS topic and subscription](iot-moisture-create-sns-topic.md "iot-moisture-create-sns-topic.md")

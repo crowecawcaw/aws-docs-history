@@ -113,6 +113,7 @@ Certificate resources are declared using the following properties:
 - `ThingPrincipalType`: Optional. String that specifies the
   type of relationship between the thing and the principal (the
   certificate).
+
   - `EXCLUSIVE_THING`: Establishes an exclusive
     relationship. The principal can only be attached to this
     specific Thing and no others.

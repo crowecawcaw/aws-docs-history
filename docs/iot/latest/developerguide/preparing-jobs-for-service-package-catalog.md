@@ -14,6 +14,7 @@ The substitution parameters should be formatted in the job document as follows:
 
 - **Software Package Name and Package
   Version**
+
   - The empty string between `package::version` represents
     the software package name substitution parameter. The empty string
     between `version::attribute` represents the software
@@ -31,6 +32,7 @@ The substitution parameters should be formatted in the job document as follows:
 
 - **All Attributes for a Software Package
   Version**
+
   - Refer to the following example for using the all attributes of a
     software package version substitution parameter in a job document:
     `${aws:iot:package:`<packageName>`:version:`<versionName>`:attributes}`
@@ -47,9 +49,11 @@ and it has a package version named `2.1.5` that has the following
 attributes:
 
 - name: `s3URL`, value: `https://EXAMPIEBUCKET.s3.us-west-2.amazonaws.com/exampleCodeFile`
+
   - This attribute identifies the location of the code file that’s stored within Amazon S3.
 
 - name: `signature`, value: `aaaaabbbbbcccccdddddeeeeefffffggggghhhhhiiiiijjjj`
+
   - This attribute provides a code signature value that the device requires as a security measure. For more information, see [Code Signing for jobs](create-manage-jobs.md#create-manage-jobs-code-signing "create-manage-jobs.md#create-manage-jobs-code-signing"). **Note:** This attribute is an example and not required as part of Software Package Catalog or jobs.
 
 For `s3URL`, the job document parameter is written as follows:
@@ -127,6 +131,7 @@ the substitution parameters are removed. Refer to the following examples with th
 `DescribeJob` and `GetJobDocument` APIs:
 
 - `DescribeJob`
+
   - Default view
 
   ```
@@ -136,7 +141,6 @@ the substitution parameters are removed. Refer to the following examples with th
       "destinationPackageVersions": ["arn:aws:iot:us-west-2:123456789012:package/TestPackage/version/1.0.2"]
   }
   ```
-
   - Before substituion view
 
   ```
@@ -148,6 +152,7 @@ the substitution parameters are removed. Refer to the following examples with th
   ```
 
 - `GetJobDocument`
+
   - Default view
 
   ```
@@ -160,7 +165,6 @@ the substitution parameters are removed. Refer to the following examples with th
       },
   }
   ```
-
   - Before substituion view
 
   ```

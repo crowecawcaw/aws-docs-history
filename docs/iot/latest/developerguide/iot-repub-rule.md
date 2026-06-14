@@ -121,6 +121,7 @@ information.
 2.  In **Rules**, choose **Create** and start
     creating your new rule.
 3.  In the top part of **Create a rule**:
+
     1. In **Name**, enter the rule's name. For this tutorial, name it
        `republish_temp`.
 
@@ -133,6 +134,7 @@ information.
 
 4.  In **Rule query statement** of **Create a
     rule**:
+
     1. In **Using SQL version**, select
        `2016-03-23`.
     2. In the **Rule query statement** edit box, enter the statement:
@@ -151,6 +153,7 @@ information.
          and assigns it to the `temperature` field.
 
 5.  In **Set one or more actions**:
+
     1. To open up the list of rule actions for this rule, choose **Add
        action**.
     2. In **Select an action**, choose **Republish a message
@@ -159,12 +162,14 @@ information.
        to open the selected action's configuration page.
 
 6.  In **Configure action**:
+
     1. In **Topic**, enter `device/data/temp`.
        This is the MQTT topic of the message that this rule will publish.
     2. In **Quality of Service**, choose **0 - The message is
        delivered zero or more times**.
     3. In **Choose or create a role to grant AWS IoT access to perform this
        action**:
+
        1. Choose **Create Role**. The **Create a new
           role** dialog box opens.
        2. Enter a name that describes the new role. In this tutorial, use
@@ -205,6 +210,7 @@ message logs if you leave it to go to another page in the console.
 1. In the [MQTT client in the AWS IoT
    console](https://console.aws.amazon.com//iot/home#/test "https://console.aws.amazon.com//iot/home#/test"), subscribe to the input topics, in this case,
    `device/+/data`.
+
    1. In the MQTT client, under **Subscriptions**, choose
       **Subscribe to a topic**.
    2. In **Subscription topic**, enter the topic of the input topic
@@ -217,6 +223,7 @@ message logs if you leave it to go to another page in the console.
 
 2. Subscribe to the topic that your rule will publish:
    `device/data/temp`.
+
    1. Under **Subscriptions**, choose **Subscribe to a
       topic** again, and in **Subscription topic**, enter the
       topic of the republished message, `device/data/temp`.
@@ -229,6 +236,7 @@ message logs if you leave it to go to another page in the console.
 3. Publish a message to the input topic with a specific device ID,
    `device/22/data`. You can't publish to MQTT topics that contain
    wildcard characters.
+
    1. In the MQTT client, under **Subscriptions**, choose
       **Publish to topic**.
    2. In the **Publish** field, enter the input topic name,
@@ -247,11 +255,11 @@ message logs if you leave it to go to another page in the console.
      }
    }
    ```
-
    4. To send your MQTT message, choose **Publish to
       topic**.
 
 4. Review the messages that were sent.
+
    1. In the MQTT client, under **Subscriptions**, there is a green
       dot next to the two topics to which you subscribed earlier.
 
@@ -271,7 +279,6 @@ message logs if you leave it to go to another page in the console.
      }
    }
    ```
-
    3. Under **Subscriptions**, choose
       **device/data/temp** to check that your republished message
       payload looks like this:

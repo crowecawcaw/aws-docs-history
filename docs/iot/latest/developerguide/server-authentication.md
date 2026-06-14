@@ -135,6 +135,7 @@ following these guidelines:
   Root CA certificate to your trust store. You might need to right click these
   links and select **Save link as...** to save these
   certificates as files.
+
   - [Cross-signed Amazon Root CA 1](https://www.amazontrust.com/repository/G2-RootCA1.pem "https://www.amazontrust.com/repository/G2-RootCA1.pem")
   - [Cross-signed Amazon Root CA 2](https://www.amazontrust.com/repository/G2-RootCA2.pem "https://www.amazontrust.com/repository/G2-RootCA2.pem") - Reserved
     for future use.

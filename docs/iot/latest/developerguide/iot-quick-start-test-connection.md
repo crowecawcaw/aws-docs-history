@@ -125,12 +125,12 @@ software on the computer.
 1. In a terminal or command line window on your device, enter
    the command that corresponds to the version of Linux it's
    running.
+
    1. Debian or Ubuntu:
 
    ```
    `sudo apt install nmap`
    ```
-
    2. CentOS or RHEL:
 
    ```

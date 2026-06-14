@@ -8,6 +8,7 @@ SDKs.
 - [Hello AWS IoT](example_iot_Hello_section.md "example_iot_Hello_section.md")
 - [Learn the basics](example_iot_Scenario_section.md "example_iot_Scenario_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [AttachThingPrincipal](example_iot_AttachThingPrincipal_section.md "example_iot_AttachThingPrincipal_section.md")
   - [CreateKeysAndCertificate](example_iot_CreateKeysAndCertificate_section.md "example_iot_CreateKeysAndCertificate_section.md")
   - [CreateThing](example_iot_CreateThing_section.md "example_iot_CreateThing_section.md")

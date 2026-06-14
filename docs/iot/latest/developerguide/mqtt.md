@@ -1515,6 +1515,7 @@ This procedure shows you how to view the topic subscriptions for a specific MQTT
 5. Select the client ID to view its details page.
 6. In the client details page, locate the **Subscribed topics** table. This table displays all topic filters that the client is currently subscribed to, along with their corresponding Quality of Service (QoS) levels.
 7. The **Subscribed topics** table shows:
+
    - **Topic filter**: The MQTT topic pattern the client is subscribed to, which may include wildcards (+, #)
    - **QoS**: The Quality of Service level for the subscription (0 or 1)
 
@@ -1532,6 +1533,7 @@ This procedure shows you how to disconnect a specific MQTT device using the AWS 
 2. Select the device by choosing the radio button next to the client ID.
 3. Choose **Actions**, and then choose **Disconnect client**.
 4. In the **Disconnect client** dialog box, configure the disconnect options:
+
    1. For **Clean session**, you can choose to either preserve or clear the session state. Selecting **Preserve session state** keeps the device's session information, including subscriptions and queued messages, allowing the device to resume its previous session upon reconnection. Alternatively, choosing **Clear session state** removes all session information when disconnecting the device, forcing it to establish a completely new session when it reconnects.
    2. For **Last Will and Testament message**, you can control whether the device's LWT message is published upon disconnection. Choosing **Allow LWT message** publishes the device's Last Will and Testament message upon disconnection, which notifies other devices about the unexpected disconnection. Selecting **Prevent LWT message** prevents the Last Will and Testament message from being published, which is useful during planned maintenance or controlled disconnections.
 

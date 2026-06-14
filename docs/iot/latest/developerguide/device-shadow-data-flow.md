@@ -66,6 +66,7 @@ specified in the request.
    identify the properties to change. See the /get action for how to obtain
    the current shadow document.
 2. The client subscribes to these MQTT topics:
+
    - `$aws/things/`thingName`/shadow/name/`shadowName`/update/accepted`
    - `$aws/things/`thingName`/shadow/name/`shadowName`/update/rejected`
    - `$aws/things/`thingName`/shadow/name/`shadowName`/update/delta`
@@ -133,6 +134,7 @@ current state to the shadow.
 
 1. The device should subscribe to these MQTT topics before updating the
    shadow:
+
    - `$aws/things/`thingName`/shadow/name/`shadowName`/update/accepted`
    - `$aws/things/`thingName`/shadow/name/`shadowName`/update/rejected`
    - `$aws/things/`thingName`/shadow/name/`shadowName`/update/delta`
@@ -273,6 +275,7 @@ task is the same whether the device or a client is making the request.
 
 1. The device or client should subscribe to these MQTT topics before updating
    the shadow:
+
    - `$aws/things/`thingName`/shadow/name/`shadowName`/get/accepted`
    - `$aws/things/`thingName`/shadow/name/`shadowName`/get/rejected`
 
@@ -324,6 +327,7 @@ to zero after 48 hours.
    can identify the properties to change. See [Retrieving a shadow document](#retrieving-device-shadow "#retrieving-device-shadow") for information on how to
    obtain the current shadow document.
 2. The device or client subscribes to these MQTT topics:
+
    - `$aws/things/`thingName`/shadow/name/`shadowName`/update/accepted`
    - `$aws/things/`thingName`/shadow/name/`shadowName`/update/rejected`
 
@@ -393,6 +397,7 @@ Following are some considerations when deleting a device's shadow.
 ###### To delete a shadow by using the MQTT protocol
 
 1. The device or client subscribes to these MQTT topics:
+
    - `$aws/things/`thingName`/shadow/name/`shadowName`/delete/accepted`
    - `$aws/things/`thingName`/shadow/name/`shadowName`/delete/rejected`
 

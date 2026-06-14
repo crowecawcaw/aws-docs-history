@@ -165,6 +165,7 @@ set-up account-level, event-level and resource-specific logging.
    under Settings).
 3. Configure account-level logging: account level logging applies to all your AWS IoT fleet
    (devices or endpoints), unless overridden by event-level or resource-specific settings.
+
    1. Under Account-level logging, select **Manage account-level logging** to
       make updates.
    2. Select the "Enable logging" checkbox to start sending logs to CloudWatch. When “Enable logging”
@@ -206,6 +207,7 @@ Account-Level Logging.
    overrides both account-level and event-level settings. When enabled, it generates logs for all event types at the
    configured logging level for the specified resources. For example, you can set debug-level logging for a specific
    Thing while keeping info-level logging for all other Things.
+
    1. Select **Add resource-specific overrides** in the Resource-specific overrides section.
    2. Choose a log target: Thing group, Source IP, Client ID or Principal ID.
    3. Enter the corresponding log target value for your selected target type.

@@ -19,15 +19,18 @@ to set up your device role with the Device Advisor console, see [Getting started
 2.  In the left navigation pane, chose **Policies**.
 3.  Choose **Create policy**.
 4.  Under **Create policy**, do the following:
+
     1.  For **Service**, choose
         **IoT**.
     2.  Under **Actions**, do one of the
         following:
+
         - (Recommended) Select actions based on the policy attached
           to the IoT thing or certificate you created in the previous
           section.
         - Search for the following actions in the **Filter
           action** box and select them:
+
           - `Connect`
           - `Publish`
           - `Subscribe`
@@ -37,6 +40,7 @@ to set up your device role with the Device Advisor console, see [Getting started
     3.  Under **Resources**, restrict the client, topic,
         and topic resources. Restricting these resources is a security best
         practice. To restrict resources, do the following:
+
         1. Choose **Specify client resource ARN for the
            Connect action**.
         2. Choose **Add ARN**, then do either of the
@@ -55,7 +59,6 @@ to set up your device role with the Device Advisor console, see [Getting started
             * Manually enter the Amazon Resource Names (ARNs) of
              the IoT topics you want to run your test cases
              with.
-
         3. Choose **Add**.
         4. Choose **Specify topic resource ARN for the
            Receive and one more action**.
@@ -73,7 +76,6 @@ to set up your device role with the Device Advisor console, see [Getting started
              editor.
             * Manually enter the ARNs of the IoT topics you want
              to run your test cases with.
-
         6. Choose **Add**.
         7. Choose **Specify topicFilter resource ARN for the
            Subscribe action**.
@@ -91,7 +93,6 @@ to set up your device role with the Device Advisor console, see [Getting started
              editor.
             * Manually enter the ARNs of the IoT topics you want
              to run your test cases with.
-
         9. Choose **Add**.
 
 5.  Choose **Next: Tags**.
@@ -193,6 +194,7 @@ To grant users programmatic access, choose one of the following options.
 
 6. Choose **Next: Permissions**.
 7. To provide access, add permissions to your users, groups, or roles:
+
    - Users and groups in AWS IAM Identity Center:
 
    Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the _AWS IAM Identity Center User Guide_.
@@ -201,6 +203,7 @@ To grant users programmatic access, choose one of the following options.
    Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md")
    in the _IAM User Guide_.
    - IAM users:
+
      - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
      - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 

@@ -44,6 +44,7 @@ following before you continue:
   AWS
   Command Line Interface over the public internet.
 - The following AWS Regions support VPC endpoints for AWS IoT Core Device Advisor:
+
   - US East (N. Virginia)
   - US West (Oregon)
   - Asia Pacific (Tokyo)

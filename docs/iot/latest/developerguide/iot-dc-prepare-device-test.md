@@ -186,12 +186,12 @@ application software loaded.
 
 1. In the terminal window on your local host computer, clear your AWS
    credentials.
+
    1. Run the AWS configure app with this command:
 
    ```
    `aws configure`
    ```
-
    2. Replace your credentials when prompted. You can leave
       **Default region name** and **Default
       output format** as they are by pressing
@@ -214,6 +214,7 @@ application software loaded.
    connector.
 4. Remove the microSD card from your device.
 5. On your local host computer:
+
    1. Insert the microSD card.
    2. Using your SD card imaging tool, save the microSD card’s image to
       a file.

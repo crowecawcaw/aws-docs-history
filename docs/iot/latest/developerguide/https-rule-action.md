@@ -222,6 +222,7 @@ rules:
 - The rules engine retries at most twice. The maximum number of tries is
   three.
 - The rules engine does not attempt a retry if:
+
   - The previous try provided a response larger than 16,384
     bytes.
   - The downstream web service or application closes the TCP

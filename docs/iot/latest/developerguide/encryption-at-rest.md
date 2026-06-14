@@ -400,6 +400,7 @@ aws iot describe-encryption-configuration --region us-west-2
 ```
 
 4. **Investigate UNHEALTHY status** by examining the `errorCode` field:
+
    - `KMS_KEY_VALIDATION_ERROR` – Issue with the AWS KMS key (disabled, deleted, or policy problems)
    - `ROLE_VALIDATION_ERROR` – Issue with the IAM role (deleted, policy problems, or trust issues)
 

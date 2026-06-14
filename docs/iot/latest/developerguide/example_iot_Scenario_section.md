@@ -1508,6 +1508,7 @@ public class IoTWrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [AttachThingPrincipal](../../../goto/DotNetSDKV4/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/DotNetSDKV4/iot-2015-05-28/AttachThingPrincipal.md")
   - [CreateKeysAndCertificate](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateKeysAndCertificate.md")
   - [CreateThing](../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md "../../../goto/DotNetSDKV4/iot-2015-05-28/CreateThing.md")
@@ -2345,6 +2346,7 @@ bool AwsDoc::IoT::deleteThing(const Aws::String &thingName,
 ```
 
 - For API details, see the following topics in _AWS SDK for C++ API Reference_.
+
   - [AttachThingPrincipal](../../../goto/SdkForCpp/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/SdkForCpp/iot-2015-05-28/AttachThingPrincipal.md")
   - [CreateKeysAndCertificate](../../../goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateKeysAndCertificate.md")
   - [CreateThing](../../../goto/SdkForCpp/iot-2015-05-28/CreateThing.md "../../../goto/SdkForCpp/iot-2015-05-28/CreateThing.md")
@@ -3258,6 +3260,7 @@ public class IotActions {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [AttachThingPrincipal](../../../goto/SdkForJavaV2/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/SdkForJavaV2/iot-2015-05-28/AttachThingPrincipal.md")
   - [CreateKeysAndCertificate](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateKeysAndCertificate.md")
   - [CreateThing](../../../goto/SdkForJavaV2/iot-2015-05-28/CreateThing.md "../../../goto/SdkForJavaV2/iot-2015-05-28/CreateThing.md")
@@ -3794,6 +3797,7 @@ suspend fun createIoTThing(thingNameVal: String) {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [AttachThingPrincipal](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CreateKeysAndCertificate](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [CreateThing](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -4492,6 +4496,7 @@ class IoTScenario:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [AttachThingPrincipal](../../../goto/boto3/iot-2015-05-28/AttachThingPrincipal.md "../../../goto/boto3/iot-2015-05-28/AttachThingPrincipal.md")
   - [CreateKeysAndCertificate](../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md "../../../goto/boto3/iot-2015-05-28/CreateKeysAndCertificate.md")
   - [CreateThing](../../../goto/boto3/iot-2015-05-28/CreateThing.md "../../../goto/boto3/iot-2015-05-28/CreateThing.md")

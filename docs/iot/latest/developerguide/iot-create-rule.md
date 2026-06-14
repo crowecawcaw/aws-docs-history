@@ -56,6 +56,7 @@ to create a rule:
    reference](iot-sql-reference.md "iot-sql-reference.md").
 6. On the **Attach rule actions** page, add rule actions to
    route data to other AWS services.
+
    1. In **Rule actions**, select a rule action from
       the drop down list. For example, you can choose **Kinesis
       Stream**. For more information about rule actions, see

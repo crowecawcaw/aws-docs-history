@@ -73,6 +73,7 @@ All of these tutorials create AWS IoT rules.
 For an AWS IoT rule to send the data from a device to another AWS service, it uses:
 
 - A rule query statement that consists of:
+
   - A SQL SELECT clause that selects and formats the data from the message
     payload
   - A topic filter (the FROM object in the rule query statement) that identifies the

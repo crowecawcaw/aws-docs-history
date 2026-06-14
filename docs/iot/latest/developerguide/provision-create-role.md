@@ -41,6 +41,7 @@ complete this procedure.
    policy. You can skip this step if you don't have any tags to add.
 10. To continue, choose **Next: Review**.
 11. On the **Review policy** page, do the following:
+
     1. For **Name\***, enter a name for the policy that
        will help you remember the policy's purpose.
 
@@ -76,6 +77,7 @@ will install a device using a provisioning template.
    procedure, and then choose **Next**.
 7. In the **Name, review, and create** section, do the
    following:
+
    1. For **Role name**, enter a role name that will
       help you remember the role's purpose.
    2. For **Description**, you can choose to enter an

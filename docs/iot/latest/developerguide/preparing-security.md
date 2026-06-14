@@ -250,6 +250,7 @@ The following policies are required to perform this update:
   relationship with the authorized principal assuming the IAM role so it can
   locate the updated software bill of materials from your versioned bucket in
   Amazon S3 and update the package version in AWS IoT Core.
+
   - ```
     `{
      "Version":"2012-10-17",
@@ -285,6 +286,7 @@ The following policies are required to perform this update:
 - **Permissions policy**: Policy to access the
   Amazon S3 versioned bucket where the software bill of materials are stored for a
   package version and update the package version in AWS IoT Core.
+
   - ```
     `{
      "Version":"2012-10-17",
@@ -325,6 +327,7 @@ The following policies are required to perform this update:
   permission to pass the IAM role to Amazon S3 and AWS IoT Core when you call the
   `UpdatePackageVersion` API
   operation.
+
   - ```
     `{
      "Version":"2012-10-17",

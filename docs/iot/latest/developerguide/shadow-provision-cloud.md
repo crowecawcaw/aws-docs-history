@@ -27,6 +27,7 @@ and then attach it to the device certificate that you'll create later.
    **Create**, otherwise, on the **You don’t have a policy
    yet** page, choose **Create a policy**.
 2. On the **Create a policy** page:
+
    1. Enter a name for the policy in the **Name** field (for example,
       `My_Device_Shadow_policy`). Do not use personally
       identifiable information in your policy names.

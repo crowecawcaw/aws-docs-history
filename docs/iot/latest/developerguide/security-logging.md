@@ -47,6 +47,7 @@ console dashboards provide an at-a-glance view of the state of your AWS environm
 recommend that you also check the log files on AWS IoT.
 
 - AWS IoT dashboard shows:
+
   - CA certificates
   - Certificates
   - Polices

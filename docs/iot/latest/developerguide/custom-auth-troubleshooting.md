@@ -47,6 +47,7 @@ following steps to do this.
    invoke your Lambda function. If you see invocations, skip to the next
    step. Perform the following steps to verify that your Lambda function has
    the required permissions.
+
    1. Choose the **Permissions** tab
       for your function in the AWS Lambda console.
    2. Find the **Resource-based
@@ -80,7 +81,6 @@ following steps to do this.
    }`
 
    ```
-
    3. This policy grants the `InvokeFunction` permission
       on your function to the AWS IoT Core principal. If you don't see
       it, you'll have to add it by using the [AddPermission](../../../lambda/latest/dg/API_AddPermission.md "../../../lambda/latest/dg/API_AddPermission.md") API. The following example shows you
@@ -143,6 +143,7 @@ layers.
   the value passed must match one of your account’s AWS IoT Core data
   endpoints. These are the endpoints that are returned when you perform
   the following CLI commands.
+
   - `aws iot describe-endpoint --endpoint-type
 iot:Data-ATS`
   - `aws iot describe-endpoint --endpoint-type
@@ -157,6 +158,7 @@ iot:Data` (for legacy VeriSign endpoints)
 
 - If signing is enabled (the `signingDisabled` field is false
   in your authorizer), look for the following signature issues.
+
   - Make sure that you're passing the token signature in either
     the `x-amz-customauthorizer-signature`header or in a
     query string parameter.

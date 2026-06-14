@@ -110,6 +110,7 @@ from a client or device to send a message to AWS IoT.
 ###### To use curl to send a message from an AWS IoT client device
 
 1. Check the **curl** version.
+
    1. On your client, run this command at a command
       prompt.
 

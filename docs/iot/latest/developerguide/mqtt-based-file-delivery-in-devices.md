@@ -90,6 +90,7 @@ A `DescribeStream` response in JSON looks like the following example.
 - "`s`" is the stream version as an integer. You can use this version to perform
   a consistency check with your `GetStream` requests.
 - "`r`" contains a list of the files in the stream.
+
   - "`f`" is the stream file ID as an integer.
   - "`z`" is the stream file size in number of bytes.
 

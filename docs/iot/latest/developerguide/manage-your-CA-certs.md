@@ -394,6 +394,7 @@ want to create. For example,
 6. After the OpenSSL command completes, you should have these
    files ready to use for when you return to the
    console.
+
    - Your CA certificate file
      (`root_CA_cert_filename.pem`
      used in the previous command)

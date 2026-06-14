@@ -500,6 +500,7 @@ about these statuses, see [Command execution status](iot-remote-command-concepts
   `REJECTED`.
 - `TIMED_OUT`: The command execution status can change to
   `TIMED_OUT` due to any of the following reasons.
+
   - The result of the command execution wasn't received. This can
     happen because the execution wasn't completed within the
     specified duration, or if the device failed to publish the

@@ -92,6 +92,7 @@ transfer.
 ```
 
 2. Detach all policies.
+
    1. Use the [**list-attached-policies**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-attached-policies.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-attached-policies.html")
       command to list the policies attached to the
       certificate.
@@ -99,7 +100,6 @@ transfer.
    ```
    `aws iot list-attached-policies --target `certificateArn``
    ```
-
    2. For each attached policy, use the [**detach-policy**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/detach-policy.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/detach-policy.html") command
       to detach the policy.
 
@@ -108,6 +108,7 @@ transfer.
    ```
 
 3. Detach all things.
+
    1. Use the [**list-principal-things**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-principal-things.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/list-principal-things.html")
       command to list the things attached to the
       certificate.
@@ -115,7 +116,6 @@ transfer.
    ```
    `aws iot list-principal-things --principal `certificateArn``
    ```
-
    2. For each attached thing, use the [**detach-thing-principal**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/detach-thing-principal.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/detach-thing-principal.html")
       command to detach the thing.
 

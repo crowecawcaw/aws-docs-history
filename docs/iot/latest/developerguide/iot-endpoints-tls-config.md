@@ -48,6 +48,7 @@ the AWS CLI.
    console](https://console.aws.amazon.com/iot/home "https://console.aws.amazon.com/iot/home").
 2. To configure TLS settings when you create a new domain configuration,
    follow these steps.
+
    1. In the left navigation pane, choose
       **Domain configurations**, and then choose
       **Create domain configuration**.
@@ -61,6 +62,7 @@ the AWS CLI.
 
 3. To update TLS settings in an existing domain configuration, follow
    these steps.
+
    1. In the left navigation pane, choose
       **Domain configurations**, and then choose a domain
       configuration.

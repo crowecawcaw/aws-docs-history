@@ -30,6 +30,7 @@ protocols. Verify you have connected to the correct data plane endpoint using th
 HTTPS or MQTT protocol.
 
 - HTTPS protocol
+
   - Use the following [**describe-endpoint**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html") CLI command shown below or
     the [`DescribeEndpoint`](../apireference/API_DescribeEndpoint.md "../apireference/API_DescribeEndpoint.md") REST API. For
     the endpoint type, use `iot:Jobs`.
@@ -39,6 +40,7 @@ HTTPS or MQTT protocol.
   ```
 
 - MQTT protocol
+
   - Use the following [**describe-endpoint**](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iot/describe-endpoint.html") CLI command shown below or
     the [`DescribeEndpoint`](../apireference/API_DescribeEndpoint.md "../apireference/API_DescribeEndpoint.md") REST API. For
     the endpoint type, use `iot:Data-ATS`.
@@ -116,6 +118,7 @@ not created for one of the target devices, refer to the following guidance:
 
 - The `thing` is _not directly_ targeted by the
   job.
+
   - If the `Thing` was added to a `ThingGroup` and the
     job targeted the `ThingGroup`, then verify the `Thing`
     is part of the `ThingGroup`.

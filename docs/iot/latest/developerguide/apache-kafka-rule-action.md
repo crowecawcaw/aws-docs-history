@@ -454,6 +454,7 @@ setup**
 - Network interface security groups and instance-level security groups
   in the VPC destination must allow traffic from within your VPC on the
   following ports.
+
   - TCP traffic on the bootstrap broker listener port (often 9092,
     but must be within the 9000–9100 range)
   - TCP and UDP traffic on port 88 for the KDC

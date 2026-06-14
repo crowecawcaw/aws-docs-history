@@ -144,6 +144,7 @@ changes to make the connection work.
    then **Create Endpoint**.
 2. In the **Create endpoint** page, specify the following
    information.
+
    - Choose **AWS services** for **Service
      category**.
    - For **Service Name**, search by entering the keyword
@@ -252,6 +253,7 @@ console**
    hosted zone**.
 2. In the **Create hosted zone** page, specify the following
    information.
+
    - For **Domain name**, enter the endpoint address
      for your `iot:Data-ATS` or
      `iot:CredentialProvider` endpoint. The following
@@ -294,6 +296,7 @@ the DNS how you want traffic to be routed to that domain.
 4. In the **Configure records** page, choose **Define
    simple record**.
 5. In the **Define simple record** page:
+
    - For **Record name**, enter `iot:Data-ATS`
      endpoint or `iot:CredentialProvider` endpoint. This must
      be the same as the private hosted zone name.
