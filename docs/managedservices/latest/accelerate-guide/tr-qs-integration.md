@@ -15,6 +15,7 @@ To add a dataset to Quick for the Remediation item log, follow these steps:
 2. Choose **Datasets**.
 3. Choose **S3**.
 4. In the **New S3 data source**, enter the following values:
+
    - **Data source name:** `trusted-remediator-`delegated_administrator_account_id`-`account_region`-remediation-items`.
    - **Upload a manifest file:** Create a JSON file with the following content, and use it. When creating the file, replace `logging_bucket_name` in the URIPrefixes key.
 
@@ -36,7 +37,6 @@ To add a dataset to Quick for the Remediation item log, follow these steps:
    }
 
    ```
-
    - Choose **Connect**.
    - From the **Finish dataset creation** window, choose **Visualize**.
    - Quick opens the new analysis sheet page. You are now ready to create a new analysis using the Remediation item log.
@@ -52,6 +52,7 @@ The following is a sample analysis:
 2. Choose **Datasets**.
 3. Choose **S3**.
 4. In the **New S3 data source**, enter the following values:
+
    - **Data source name:** `trusted-remediator-`delegated_administrator_account_id`-`account_region`-remediation-executions`.
    - **Upload a manifest file:** Create a JSON file with the following content, and then use this file. When creating the file, replace `logging_bucket_name` in the URIPrefixes key.
 
@@ -73,7 +74,6 @@ The following is a sample analysis:
    }
 
    ```
-
    - Choose **Connect**.
    - From the **Finish dataset creation** window, choose **Visualize**.
    - Quick opens the new analysis sheet page. You are now ready to create a new analysis using the Remediation item log.

@@ -67,12 +67,14 @@ AMS patch hook parameters:
 - **PostPatchHook**: The name of the SSM document with type "Command" that you want to run after patching. Leave this blank or type "AWS-Noop" (case-sensitive)
   if you aren’t running a command after patching.
 - **ExecutePatchBasedOnPreHookStatus**: Run patching based on the success or failure of the PrePatchHook run, choose one:
+
   - **OnPreHookSuccess**: Only run AMS patch automation when the PrePatchHook is successful.
   - **Always**: Run AMS patch automation when the PrePatchHook is successful and when it fails.
   - **OnPreHookFailure** - Run AMS patch automation only when the PrePatchHook fails.
   - **Never**: Do not run AMS patch automation. This may be useful when testing your PrePatchHook.
 
 - **ExecutePostHookBasedOnPatchStatus**: Run the post-patch hook based on success or failure of the AMS patch automation, choose one:
+
   - **OnPatchSuccess**: Only run the PostPatchHook when AMS patch automation runs successfully.
   - **Always**: Run the PostPatchHook when AMS patch automation is successful and when it fails.
   - **OnPatchFailure** - Run the PostPatchHook only when AMS patch automation fails.

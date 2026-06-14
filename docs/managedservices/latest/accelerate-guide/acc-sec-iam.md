@@ -118,6 +118,7 @@ The AWS Security Token Service (AWS STS) session name of the canary is
 
 - Cloud Formation API Calls: `describe_stacks()`
 - IAM API Calls:
+
   - `get_role()`
   - `list_attached_role_policies()`
   - `list_role_policies()`

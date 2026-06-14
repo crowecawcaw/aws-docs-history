@@ -66,6 +66,7 @@ While preparing to offboard from Accelerate, keep the following considerations i
   After offboarding, you keep your Amazon GuardDuty detector and findings, and any AWS Config rules that you created. AWS Config rules deployed by Accelerate are removed. Accelerate no longer
   monitors, remediates, or reports on the findings from these tools.
 - **Service termination date**: The service termination date is the last day of the calendar month following the end of the 30 days requisite termination notice period. If the end of the requisite termination notice period falls after the 20th day of the calendar month, then the service termination date is the last day of the following calendar month. The following are example scenarios for termination dates.
+
   - If the termination notice is provided on April 12, then the 30 days notice ends on May 12. The service termination date is May 31.
   - If a termination notice is provided on April 29, then the 30 days notice ends on May 29. The service termination date is June 30.
 

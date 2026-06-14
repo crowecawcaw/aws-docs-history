@@ -9,9 +9,11 @@ within your managed accounts are tagged.
 - [What is Resource Tagger?](acc-resource-tagger.md#acc-rt-what-is "acc-resource-tagger.md#acc-rt-what-is")
 - [How Resource Tagger works](acc-resource-tagger.md#acc-rt-how-works "acc-resource-tagger.md#acc-rt-how-works")
 - [Resource Tagger Configuration Profiles in AMS Accelerate](acc-tag-tools-profiles.md "acc-tag-tools-profiles.md")
+
   - [Syntax and structure](acc-tag-tools-profiles.md#acc-rt-config-doc-format "acc-tag-tools-profiles.md#acc-rt-config-doc-format")
 
 - [Resource Tagger use cases in AMS Accelerate](acc-rt-using.md "acc-rt-using.md")
+
   - [Viewing the tags applied by Resource Tagger](acc-rt-using.md#acc-rt-using-view-tags "acc-rt-using.md#acc-rt-using-view-tags")
   - [Using Resource Tagger to create tags](acc-rt-using.md#acc-tag-how-works-rt "acc-rt-using.md#acc-tag-how-works-rt")
   - [Preventing Resource Tagger from modifying resources](acc-rt-using.md#acc-rt-preventing-rt-changes "acc-rt-using.md#acc-rt-preventing-rt-changes")

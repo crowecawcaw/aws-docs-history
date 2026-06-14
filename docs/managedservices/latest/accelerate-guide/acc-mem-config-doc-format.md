@@ -51,10 +51,12 @@ AWS::EC2::VPNConnection
 
 - **ConfigurationID**: This key must be unique in the profile, and uniquely names the following block of configuration. If you specify a **ConfigurationID** in your customization profile that is the same as one specified in the default profile, the
   configuration block defined in the customization profile takes effect.
+
   - **Enabled**: (optional, default=true) Specify if the configuration block will take effect. Set this to false to disable a
     configuration block. A disabled configuration block behaves as if it's not present in the profile.
   - **Tag**: Specify the tag that this alarm definition applies to. Any resource (of the appropriate resource type) that has
     this tag key and value will have a CloudWatch alarm created with the given definition. This field is a JSON object with the following fields:
+
     - **Key**: The key of the tag to match. Keep in mind that if you're using Resource Tagger to apply the tags to the resource,
       the key for the tag will always begin with **ams:rt:**.
     - **Value**: The value of the tag to match.

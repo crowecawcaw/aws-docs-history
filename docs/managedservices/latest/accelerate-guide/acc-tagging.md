@@ -16,9 +16,11 @@ For information about tags that can be defined customers, see [Customer-provided
 ###### Contents
 
 - [Tags](acc-tag-intro.md "acc-tag-intro.md")
+
   - [What are tags?](acc-tag-intro.md#acc-tag-what-is "acc-tag-intro.md#acc-tag-what-is")
   - [How tagging works](acc-tag-intro.md#acc-tag-how-works "acc-tag-intro.md#acc-tag-how-works")
   - [Customer-managed tags](acc-tag-req.md "acc-tag-req.md")
+
     - [Monitoring](acc-tag-req-mon.md "acc-tag-req-mon.md")
     - [Configuring EC2 instances](acc-tag-req-ins-config.md "acc-tag-req-ins-config.md")
     - [Backups](acc-tag-req-backup.md "acc-tag-req-backup.md")
@@ -27,13 +29,17 @@ For information about tags that can be defined customers, see [Customer-provided
   - [Customer-provided tags](acc-tag-cust-provided.md "acc-tag-cust-provided.md")
 
 - [Tag management tools](acc-tag-tools.md "acc-tag-tools.md")
+
   - [Resource Tagger](acc-resource-tagger.md "acc-resource-tagger.md")
+
     - [What is Resource Tagger?](acc-resource-tagger.md#acc-rt-what-is "acc-resource-tagger.md#acc-rt-what-is")
     - [How Resource Tagger works](acc-resource-tagger.md#acc-rt-how-works "acc-resource-tagger.md#acc-rt-how-works")
     - [Configuration Profiles](acc-tag-tools-profiles.md "acc-tag-tools-profiles.md")
+
       - [Syntax and structure](acc-tag-tools-profiles.md#acc-rt-config-doc-format "acc-tag-tools-profiles.md#acc-rt-config-doc-format")
 
     - [Use cases](acc-rt-using.md "acc-rt-using.md")
+
       - [Viewing the tags applied by Resource Tagger](acc-rt-using.md#acc-rt-using-view-tags "acc-rt-using.md#acc-rt-using-view-tags")
       - [Using Resource Tagger to create tags](acc-rt-using.md#acc-tag-how-works-rt "acc-rt-using.md#acc-tag-how-works-rt")
       - [Preventing Resource Tagger from modifying resources](acc-rt-using.md#acc-rt-preventing-rt-changes "acc-rt-using.md#acc-rt-preventing-rt-changes")
@@ -47,7 +53,9 @@ For information about tags that can be defined customers, see [Customer-provided
       - [Viewing the number of resources managed by Resource Tagger](acc-rt-using.md#acc-rt-number-of-resources "acc-rt-using.md#acc-rt-number-of-resources")
 
   - [CloudFormation](acc-tag-how-works-cfn.md "acc-tag-how-works-cfn.md")
+
     - [Use cases](acc-tag-tools-cf-ex.md "acc-tag-tools-cf-ex.md")
+
       - [Tag EC2](acc-tag-cf-ex-tag-ec2.md "acc-tag-cf-ex-tag-ec2.md")
       - [Tag ASG](acc-tag-cf-ex-tag-asg.md "acc-tag-cf-ex-tag-asg.md")
       - [Deploy config profile](acc-tag-cf-ex-deploy-config.md "acc-tag-cf-ex-deploy-config.md")

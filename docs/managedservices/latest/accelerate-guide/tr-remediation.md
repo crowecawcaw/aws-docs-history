@@ -28,6 +28,7 @@ To manually remediate the OpsItem, complete the following steps:
 3. (Optional) Filter the list by **Source=Trusted Remediator** to include only Trusted Remediator OpsItems in the list.
 4. Choose the OpsItem that you want to review.
 5. Review the operational data of the OpsItem. The operational data includes the following items:
+
    - **trustedAdvisorCheckCategory:** The category of the Trusted Advisor check ID. For example, Fault tolerance
    - **trustedAdvisorCheckId:** The unique Trusted Advisor check ID.
    - **trustedAdvisorCheckMetadata:** The resource metadata, including the resource ID.
@@ -35,6 +36,7 @@ To manually remediate the OpsItem, complete the following steps:
    - **trustedAdvisorCheckStatus:** The status of the Trusted Advisor check detected for the resource.
 
 6. To manually remediate the OpsItem, complete the following steps:
+
    1. From **Runbooks**, choose one of associated runbooks (SSM documents).
    2. Choose **Execute**.
    3. For **AutomationAssumeRole** , choose `arn:aws:iam::`AWS accountID`:role/ams_ssm_automation_role`.

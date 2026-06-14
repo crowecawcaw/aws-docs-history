@@ -7,6 +7,7 @@ To create a service request, follow these steps:
 3. Choose a **Category**.
 4. Choose **Severity** (Plus or Premium tiers only).
 5. Enter information for:
+
    - **Subject**: A descriptive title for the service request.
    - **Description**: A comprehensive description of the service request,
      the systems impacted, and the expected outcome of a resolution.
@@ -15,6 +16,7 @@ To create a service request, follow these steps:
    want, and choose **Open**. To delete the attachment, choose the delete icon
    ![Blue circular icon with a white X symbol in the center.](images/icon-delete-attachment.png)
 7. **Contact us**: The default contact AMS through the web. To select other options:
+
    - **Preferred contact language**: English is the supported
      language for AMS Accelerate service requests.
    - **Web**: Your service request is submitted through the web

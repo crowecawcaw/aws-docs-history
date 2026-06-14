@@ -3,6 +3,7 @@
 In either of the configuration profiles, you can specify pseudoparameters that are substituted in place as follows:
 
 - Global - anywhere in the profile:
+
   - ${AWS::AccountId}: Replaced with your AWS account ID
   - ${AWS::Partition}: Replaced with the partition of the AWS Region the resource is in (this is 'aws' for most AWS Regions); for more information, see the
     entry for partition in the
@@ -10,10 +11,12 @@ In either of the configuration profiles, you can specify pseudoparameters that a
   - ${AWS::Region}: Replaced with the Region name of the Region that your resource is deployed to (for example us-east-1)
 
 - In an **AWS::EC2::Instance** resource type block:
+
   - ${EC2::InstanceId}: (**identifier**) replaced by the instance ID of your Amazon EC2 instance.
   - ${EC2::InstanceName}: replaced by the name of your Amazon EC2 instance. If the instance name is not defined, replaced by the instance ID of your Amazon EC2 instance.
 
 - In an **AWS::EC2::Instance::Disk** resource type block:
+
   - ${EC2::InstanceId}: (**identifier**) Replaced by the instance ID of your Amazon EC2 instance.
   - ${EC2::InstanceName}: Replaced by the name of your Amazon EC2 instance. If the instance name is not defined, replaced by the instance ID of your Amazon EC2 instance.
   - ${EC2::Disk::Device}: Replaced by the name of the disk. (Linux only, on instances managed by the
@@ -27,50 +30,63 @@ In either of the configuration profiles, you can specify pseudoparameters that a
 	 ${EC2::Disk::UUID} maintains uniqueness of alarm names.
 
 - In an **AWS::OpenSearch::Domain** resource type block:
+
   - ${OpenSearch::DomainName}: (**identifier**) replaced by the name of your OpenSearch domain.
 
 - In an **AWS::Elasticsearch::Domain** resource type block:
+
   - ${Elasticsearch::DomainName}: (**identifier**) replaced by the name of your Elasticsearch domain.
 
 - In an **AWS::ElasticLoadBalancing::LoadBalancer** resource type block:
+
   - ${ElasticLoadBalancing::LoadBalancer::Name}: (**identifier**) replaced by the name of your V1 Load Balancer.
 
 - In an **AWS::ElasticLoadBalancingV2::LoadBalancer** resource type block:
+
   - ${ElasticLoadBalancingV2::LoadBalancer::Arn}: replaced by the ARN of your V2 Load Balancer.
   - ${ElasticLoadBalancingV2::LoadBalancer}: replaced by the ARN of your V2 Load Balancer.
   - ${ElasticLoadBalancingV2::LoadBalancer::Name}: (**identifier**) replaced by the name of your V2 Load Balancer.
   - ${ElasticLoadBalancingV2::LoadBalancer::FullName}: replaced by the full name of your V2 Load Balancer.
 
 - In an **AWS::ElasticLoadBalancingV2::LoadBalancer::TargetGroup** resource type block:
+
   - ${ElasticLoadBalancingV2::TargetGroup::FullName}: (**identifier**) replaced by the target group name of your V2 Load Balancer.
   - ${ElasticLoadBalancingV2::TargetGroup::UUID}: (**identifier**) replaced by a generated UUID for your V2 Load Balancer.
   - ${ElasticLoadBalancingV2::LoadBalancer::FullName}: Replaced by the full name of your V2 Load Balancer.
 
 - In an **AWS::EC2::NatGateway** resource type block:
+
   - ${NatGateway::NatGatewayId}: (**identifier**) replaced by the NAT Gateway ID.
 
 - In an **AWS::RDS::DBInstance** resource type block:
+
   - ${RDS::DBInstanceIdentifier}: (**identifier**) replaced by your RDS DB instance identifier.
 
 - In an **AWS::Redshift::Cluster** resource type block:
+
   - ${Redshift::ClusterIdentifier}: (**identifier**) replaced by your Redshift cluster identifier.
 
 - In an **AWS::EC2::VPNConnection** resource type block:
+
   - ${AWS::EC2::VpnConnectionId}: (**identifier**) replaced by your VPN ID.
 
 - In an **AWS::EFS::FileSystem** resource type block:
+
   - ${EFS::FileSystemId}: (**identifier**) Replaced by the file system ID of your EFS file system.
 
 - In an **AWS::FSx::FileSystem::ONTAP** resource type block:
+
   - ${FSx::FileSystemId}: (**identifier**) Replaced by the file system ID of your FSX filesystem.
   - ${FSx::FileSystem::Throughput}: Replaced by the throughput of your FSX file system.
   - ${FSx::FileSystem::Iops}: Replaced by the IOPS of the FSX file system.
 
 - In an **AWS::FSx::FileSystem::ONTAP::Volume** resource type block:
+
   - ${FSx::FileSystemId}: (**identifier**) Replaced by the file system ID of your FSX file system.
   - ${FSx::ONTAP::VolumeId}: (**identifier**) Replaced by the volume ID.
 
 - In an **AWS::FSx::FileSystem::Windows** resource type block:
+
   - ${FSx::FileSystemId}: (**identifier**) Replaced by the file system ID of your FSX file system.
   - ${FSx::FileSystem::Throughput}: Replaced by the throughput of your FSX file system.
 

@@ -592,6 +592,7 @@ InsightsQueryString: |-
 The following permissions are needed to run change record queries:
 
 - **Athena**
+
   - athena:GetWorkGroup
   - athena:StartQueryExecution
   - athena:ListDataCatalogs
@@ -605,17 +606,21 @@ The following permissions are needed to run change record queries:
   - athena:ListNamedQueries
 
 - **AWS KMS**
+
   - kms:Decrypt
   - AWS KMS key ID of AMSCloudTrailLogManagement, or your AWS KMS key ID(s), if Accelerate is using your CloudTrail trail events Amazon S3 bucket data store using [SSE-KMS](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md") encryption.
 
 - **AWS Glue**
+
   - glue:GetDatabase
   - glue:GetTables
   - glue:GetDatabases
   - glue:GetTable
 
 - **Amazon S3 read access**
+
   - Amazon S3 bucket CloudTrail datastore: ams-a`AccountId`-cloudtrail-`primary region`, or your Amazon S3 bucket name, CloudTrail trail events Amazon S3 bucket data store.
 
 - **Amazon S3 write access**
+
   - Athena events query results Amazon S3 bucket: ams-a`AccountId`athena-results-`primary region`

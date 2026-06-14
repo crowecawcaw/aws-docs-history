@@ -19,6 +19,7 @@ depending on your preference. You can change this configuration at any time by w
 
 - Processing: AMS analyzes the alerts and processes them based on their potential for impact. Alerts are
   processed as described next.
+
   - Alerts with known customer impact: These lead to the creation of a new incident report and
     AMS follows the incident management process.
 
@@ -41,16 +42,19 @@ You can configure AMS monitoring to group together alerts from the same EC2 inst
 There are four parameters you can configure for each AMS-managed account.
 
 1. **Scope**: Choose either **account-wide** or **tag-based**.
+
    - To specify a configuration that applies to every EC2 instance in that account, choose scope = **account-wide**.
    - To specify a configuration that applies only to EC2 instances in that account with a specific tag, choose scope = **tag-based**.
 
 2. **Grouping rule**: Choose either **classic** or **instance**.
+
    - To configure instance-level grouping for every resource in your account, choose scope = **account-wide** and grouping rule = **instance**.
    - To configure specific resources in your account to use instance level grouping, tag those instances and then choose scope = **tag-based** and grouping rule =
      **instance** level.
    - To not use instance grouping for alerts in your account, choose grouping rule = **classic**.
 
 3. **Engagement** option: Choose either **none**, **report only**, or **default**.
+
    - For AMS to not create incidents or run automations for alarms from those resources while the configuration is active, choose **none**.
    - For AMS to not create incidents or run automations for alarms from those resources while the configuration is active,
      and not run automated healing Systems Manager documents but to include records of these events in your reporting, choose **report only**.

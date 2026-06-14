@@ -58,6 +58,7 @@ How AWS Managed Services (AMS) auto-remediation works with Amazon RDS low storag
   properties are not modified. For more information, see [Settings
   for DB instances](../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.Settings.md "../../../AmazonRDS/latest/UserGuide/USER_ModifyInstance.Settings.md").
 - The remediation action does not run in the following scenarios:
+
   - The Amazon RDS instance status is not "available" or "storage-full".
   - The Amazon RDS instance storage is not currently modifiable (such as when the storage has been modified in the last six hours).
   - The Amazon RDS instance has auto-scaling storage enabled.

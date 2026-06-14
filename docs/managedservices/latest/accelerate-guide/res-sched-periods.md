@@ -169,10 +169,12 @@ In order to describe (view a details on) a Resource Scheduler period or schedule
 
 - View the document at
   [AWSManagedServices-DescribeScheduleOrPeriods](https://console.aws.amazon.com/systems-manager/automation/execute/AWSManagedServices-DescribeScheduleOrPeriods "https://console.aws.amazon.com/systems-manager/automation/execute/AWSManagedServices-DescribeScheduleOrPeriods") (you might have to choose your onboarded Region):
+
   1.  Specify requirements in the **Input parameters** section and then choose **Execute**.
   2.  After the operation completes, view results in the **Output** tab.
 
 - AWS CLI:
+
   1.  Run the following command to start an automation. Replace `placeholders` with your own information.
 
   ```

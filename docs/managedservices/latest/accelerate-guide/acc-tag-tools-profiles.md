@@ -79,13 +79,16 @@ block. A disabled configuration block has no effect.
 object can have any one (but only one) of the following fields:
 
 - **AWS::AutoScaling::AutoScalingGroup**:
+
   - **AutoScalingGroupName**: The Autoscaling Group name.
     This field supports wildcard matching.
 
 - **AWS::DynamoDB::Table**:
+
   - **TableName**: The name of the DynamoDB table. This field supports wildcard matching.
 
 - **AWS::EC2::Instance**:
+
   - **AvailabilityZone**: The filter matches an EC2 instance in the specified
     availability zone. This field supports wildcard matching, so **\*a**
     matches us-east-1a, ap-northeast-1a, and so on.
@@ -99,6 +102,7 @@ object can have any one (but only one) of the following fields:
     platform).
 
 - **AWS::EC2::NatGateway**:
+
   - **NatGatewayId**: The ID of the NAT Gateway. This field supports wildcard matching.
   - **State**: The state of the NAT gateway (pending | failed | available | deleting | deleted or wildcard "\*")
   - **VpcId**: The ID of the VPC in which the NAT Gateway resides. This field supports wildcard matching.
@@ -106,15 +110,19 @@ object can have any one (but only one) of the following fields:
     matching
 
 - **AWS::EC2::VPNConnection**:
+
   - **VpnConnectionId**: The ID of the connection. This field supports wildcard matching.
 
 - **AWS::EFS::FileSystem**:
+
   - **FileSystemId**: The ID of the EFS file system. This field supports wildcard matching.
 
 - **AWS::EKS::Cluster**:
+
   - **ClusterName**: The name of the cluster. This field supports wildcard matching.
 
 - **AWS::ElasticLoadBalancing::LoadBalancer (Classic Load Balancer)**:
+
   - **LoadBalancerName**: The LoadBalancer Name. This field supports wildcard
     matching.
   - **Scheme**: Can be either "internet-facing", "internal" or
@@ -124,6 +132,7 @@ object can have any one (but only one) of the following fields:
 
 - **AWS::ElasticLoadBalancingV2::LoadBalancer (Application Load Balancer
   (ALB))**:
+
   - **LoadBalancerArn**: The LoadBalancer Amazon Resource Name (ARN).
   - **DNSName**: The DNSName of the LoadBalancer. This field supports wildcard
     matching.
@@ -131,15 +140,18 @@ object can have any one (but only one) of the following fields:
     matching.
 
 - **AWS::Elasticsearch::Domain**:
+
   - **DomainId**: The DomainId of the ElasticSearch resource. This field supports wildcard matching.
   - **DomainName**: The DomainName of the ElasticSearch resource. This field supports wildcard matching.
   - **HasMasterNode**: Boolean value of true or false. Matches if the Domain has a dedicated master node.
   - **HasKmsKey**Boolean value of true or false. Matches if the Domain has a KMS key for encryption at rest.
 
 - **AWS::FSx::FileSystem**:
+
   - **FileSystemId**: The ID of the FSx filesystem. This field supports wildcard matching.
 
 - **AWS::OpenSearch::Domain**:
+
   - **DomainId**: The DomainId of the OpenSearch resource. This field supports
     wildcard matching.
   - **DomainName**: The DomainName of the OpenSearch resource. This field supports
@@ -150,6 +162,7 @@ object can have any one (but only one) of the following fields:
     to true.
 
 - **AWS::RDS::DBCluster**:
+
   - **DBClusterIdentifier**: The filter matches an RDS cluster identifier with the
     specified identifier. This field does not support wildcard matching, so a cluster identifier must be specified.
   - **Engine**: The engine in use by the RDS Instance. This field supports wildcard
@@ -157,6 +170,7 @@ object can have any one (but only one) of the following fields:
   - **EngineVersion**: The engine version. This field supports wildcard matching.
 
 - **AWS::RDS::DBInstance**:
+
   - **DBInstanceIdentifier**: The filter matches an RDS instance with the specified
     instance ID. This field does not support wildcard matching, so an instance identifier must be specified.
   - **Engine**: The engine in use by the RDS Instance. This field supports wildcard
@@ -165,19 +179,23 @@ object can have any one (but only one) of the following fields:
     matching.
 
 - **AWS::Redshift::Cluster**:
+
   - **ClusterIdentifier**: The Cluster Identifier. This field supports wildcard
     matching.
 
 - **AWS::S3::Bucket**:
+
   - **BucketName**: The name of the S3 bucket. This field supports wildcard matching.
 
 - **AWS::Synthetics::Canary**:
+
   - **CanaryName**: The name of the Synthetics canary.
 
 **Other Filter properties:**
 
 - **Tag**: The filter applies to any resource that already has the
   given tag applied. The value for this property must be a JSON object with the following fields:
+
   - **Key**: Must be an exact string, and specifies that the resources must
     have a tag with that exact key.
   - **Value**: Specifies the matching value for the tag. Supports wildcards,

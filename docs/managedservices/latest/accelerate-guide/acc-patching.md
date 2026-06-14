@@ -132,6 +132,7 @@ For more information, see [Patching solution design for mutable EC2 instances](.
 - One Maintenance Window per AZ.
 - One Set of Maintenance Windows per Environment.
 - One Patch Baseline per Environment:
+
   - Dev: Approve all severity and classification after 0 days.
   - Test: Approve critical security update patches after 0 days and all other severity and classifications after 7 days.
   - Prod: Approve critical security update patches after 0 days and all other severity and classifications after 14 days.

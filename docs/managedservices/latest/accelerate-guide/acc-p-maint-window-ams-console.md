@@ -13,6 +13,7 @@ the first or second weekends after Patch Tuesday, visit the AMS console and foll
 6. Enter a patch tag key and value for the target. For information, see
    [What are tags?](acc-tag-intro.md#acc-tag-what-is "acc-tag-intro.md#acc-tag-what-is").
 7. [optional] Expand the optional parameters to adjust concurrency, error rate, and maintenance window cut-off.
+
    1. Concurrency controls how many target instances are patching at the same time. For example, a 50% concurrency for 10 target
       instances will patch no more that 5 instances at a time, while 100% concurrency will patch all 10 at once.
    2. Error rate controls the tolerance for errors before patching is suspended. For example, an error rate of 100% for 10 target

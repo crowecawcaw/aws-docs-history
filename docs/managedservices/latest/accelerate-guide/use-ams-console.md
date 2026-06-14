@@ -24,8 +24,10 @@ When using the AMS consoles, be aware of the following caveats:
 - Opening page: The opening page has information boxes and links to facilitate your access
   to your incidents, service request, and reports.
 - Feature pages, links in the left-hand navigation pane:
+
   - **Dashboard**: Provides an overview of the current status of your
     account including:
+
     - **Incidents on your resources**: A button for opening an incident case
       in AWS Support Center, plus how many incident cases are **Awaiting approval**
       and require your attention and how many are **Open**
@@ -45,6 +47,7 @@ When using the AMS consoles, be aware of the following caveats:
     **Monthly Billling**
   - **Configuration**: Ensure your resources are being managed successfully and
     according to your specifications.
+
     - **Install SSM agent**: The SSM agent is required
     - **Configure tagging rules**: Opens AMS Resource Tagger
     - **Configure alarms**: Opens AMS CloudWatch alarm configuration

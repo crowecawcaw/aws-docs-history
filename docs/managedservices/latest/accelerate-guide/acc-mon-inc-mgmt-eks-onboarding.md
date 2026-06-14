@@ -15,6 +15,7 @@ Perform the following steps to onboard to monitoring and incident management for
    These updates include mapping the AMS IAM role to a Kubernetes user, creating a new Kubernetes cluster role for AMS, and binding the AMS Kubernetes cluster role to the
    user.
 5. **Deploy cluster components:** AMS deploys the following components in an AMS-managed namespace on your cluster:
+
    - Prometheus server
    - Prometheus node exporter (not applicable for AWS Fargate)
    - kube-state-metrics

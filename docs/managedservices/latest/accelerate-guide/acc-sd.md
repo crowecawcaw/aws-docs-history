@@ -158,6 +158,7 @@ in the _Amazon Elastic Compute Cloud User Guide_.
   [Systems Manager](../../../systems-manager/latest/userguide/prereqs-operating-systems.md "../../../systems-manager/latest/userguide/prereqs-operating-systems.md") and
   [CloudWatch](../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md "../../../AmazonCloudWatch/latest/monitoring/Install-CloudWatch-Agent.md").
 - Supported operating systems:
+
   - AlmaLinux 8.3-8.9, 9.x (AlmaLinux is only supported with x86 architecture)
   - Amazon Linux 2023
   - Amazon Linux 2 (**expected AMS support end date June 30, 2026**)
@@ -493,6 +494,7 @@ AMS Accelerate deploys or updates AWS resources only in the following situations
   (making noncompliant resources conform to security best practices).
 - During remediation and restoration as part of an incident response.
 - When responding to customer requests to configure AMS features, such as the following:
+
   - Alarm manager
   - Resource tagger
   - Patch baselines and maintenance windows

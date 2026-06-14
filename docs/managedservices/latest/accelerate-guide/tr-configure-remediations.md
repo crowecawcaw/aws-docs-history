@@ -23,6 +23,7 @@ Compute Optimizer -> EC2 instances feature flag has extra parameters:
 The configurations for individual Trusted Advisor checks are stored as AWS AppConfig flags. The flag name matches the check name. Each check configuration contains the following attributes:
 
 - **execution-mode:** Determines how Trusted Remediator performs default remediation:
+
   - **Automated:** Trusted Remediator automatically remediates resources by creating an OpsItem, running the SSM document, and then resolving the OpsItem
     after successful execution.
   - **Manual:** An OpsItem is created, but the SSM document isn't executed automatically. You review and manually run the SSM
@@ -101,10 +102,12 @@ To override the execution mode for a resource, complete the following steps:
 2. Determine the Trusted Advisor check ID for the check that you want to override. You can find the check IDs for supported Trusted Advisor checks in
    [Trusted Advisor checks supported by Trusted Remediator](tr-supported-checks.md "tr-supported-checks.md").
 3. Add a tag to the resources with the following key and value:
+
    - **Tag key:** `TR-`Trusted Advisor check ID`-Execution-Mode` (case-sensitive)
 
    In the preceding tag key example, replace `Trusted Advisor check ID` with the unique identified of the Trusted Advisor check that you want to override.
    - **Tag value:** Use one of the following values for the tag value:
+
      - **Automated:** Trusted Remediator automatically remediates the resource for this Trusted Advisor check.
      - **Manual:** An OpsItem is created for the resource, but remediation isn't performed automatically. You review and run the
        remediation manually from the OpsItem.

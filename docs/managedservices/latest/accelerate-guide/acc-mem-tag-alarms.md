@@ -14,6 +14,7 @@ The two configuration profiles are named **AMSManagedAlarms** (the default confi
 (the customization configuration profile).
 
 - Default configuration profile:
+
   - The configuration found in this profile contains the default configuration that AMS Accelerate deploys in all customer accounts. This configuration
     contains the default AMS Accelerate monitoring policy.
 
@@ -25,6 +26,7 @@ The two configuration profiles are named **AMSManagedAlarms** (the default confi
     [Disabling the default Accelerate alarm configuration](acc-mem-disable-default-config.md "acc-mem-disable-default-config.md").
 
 - Customization configuration profile:
+
   - Any configuration in this profile is entirely managed by you; AMS Accelerate does not overwrite this profile, unless you explicitly request it.
   - You can specify any custom alarm definitions you want in this profile, and you can also specify modifications to the AMS Accelerate-managed default
     configuration. For more information, see [Modifying the Accelerate alarm default configuration](acc-mem-modify-default.md "acc-mem-modify-default.md") and
