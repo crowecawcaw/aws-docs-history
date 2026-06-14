@@ -339,6 +339,7 @@ use the following options:
    event data stream.
 2. Customers can export the KPIs for past 3 months using the following
    commands:
+
    - [get-application-date-range-kpi](../../../cli/latest/reference/pinpoint/get-application-date-range-kpi.md "../../../cli/latest/reference/pinpoint/get-application-date-range-kpi.md")
    - [get-journey-date-range-kpi](../../../cli/latest/reference/pinpoint/get-journey-date-range-kpi.md "../../../cli/latest/reference/pinpoint/get-journey-date-range-kpi.md")
    - [get-campaign-date-range-kpi](../../../cli/latest/reference/pinpoint/get-campaign-date-range-kpi.md "../../../cli/latest/reference/pinpoint/get-campaign-date-range-kpi.md")

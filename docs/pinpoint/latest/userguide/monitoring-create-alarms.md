@@ -35,6 +35,7 @@ Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatS
    conditions** page appears, showing a graph and other information about
    the metric.
 7. Under **Conditions**, complete the following steps:
+
    - For **Threshold type**, choose
      **Static**.
    - For **Whenever `metric` is**,
@@ -45,6 +46,7 @@ Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatS
 
 8. Under **Additional configuration**, complete the following
    steps:
+
    - For **Datapoints to alarm**, enter the number of
      evaluation periods (datapoints) during which the metric value must meet the
      threshold conditions to trigger the alarm.
@@ -53,6 +55,7 @@ Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatS
 
 9. Choose **Next**.
 10. Under **Notification**, complete the following steps:
+
     - For **Whenever this alarm state is**, choose **in
       Alarm**.
     - For **Select an SNS topic**, choose or create an

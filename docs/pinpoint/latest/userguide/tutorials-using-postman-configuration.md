@@ -48,6 +48,7 @@ environment from the **Environment** menu in Postman.
 `Region Name``. Replace
 `Region Name` with one of the following
    values:
+
    - US East (N. Virginia)
    - US West (Oregon)
    - Asia Pacific (Mumbai)

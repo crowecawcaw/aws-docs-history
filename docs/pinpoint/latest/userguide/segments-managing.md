@@ -24,6 +24,7 @@ segments](../developerguide/segments.md "../developerguide/segments.md") in the 
 4. In the list of segments, select the segment that you want to manage.
 5. On the **Actions** menu, choose one of the following
    options:
+
    - **View details** – Choose this option to show
      information about the segment, including the date and time when the segment
      was created, and the date and time when the segment was last updated.

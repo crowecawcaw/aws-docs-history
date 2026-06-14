@@ -28,6 +28,7 @@ entire AWS account, but some apply to specific projects.
    **Edit**.
 5. Change the SMS settings for your project as needed. You can change the
    following settings:
+
    - **Enable the SMS channel for this
      project**
 
@@ -39,6 +40,7 @@ entire AWS account, but some apply to specific projects.
      Amazon Pinpoint account and to all AWS services that you can use to send SMS
      messages, such as Amazon Simple Notification Service (Amazon SNS). You can change the following
      settings:
+
      - **Default message type** – Choose the category of SMS
        messages that you plan to send from this account. If you send
        account-related messages or time-sensitive messages such as

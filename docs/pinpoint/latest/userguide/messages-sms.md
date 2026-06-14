@@ -23,6 +23,7 @@ project, see [Managing the Amazon Pinpoint SMS channel](channels-sms-manage.md "
    **Channel**, choose **SMS**.
 5. For **Destination type**, choose one of the following
    destinations for your message:
+
    - **Phone numbers** – Each destination is a
      recipient's phone number.
    - **Endpoint IDs** – Each destination is a unique ID

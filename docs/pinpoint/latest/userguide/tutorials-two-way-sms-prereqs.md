@@ -12,6 +12,7 @@ Before you begin this tutorial, you have to complete the following prerequisites
 
 - The account that you use to sign in to the AWS Management Console has to be able to perform the
   following tasks:
+
   - Create new IAM policies and roles
   - Create new Amazon Pinpoint projects
   - Create new Lambda functions

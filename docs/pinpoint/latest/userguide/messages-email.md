@@ -23,6 +23,7 @@ enable the email channel for an existing project, see [Managing the Amazon Pinpo
    **Channel**, choose **Email**.
 5. For **Destination type**, choose one of the following
    destinations for your message:
+
    - **Email addresses** – Each destination is a
      recipient's email address.
    - **Endpoint IDs** – Each destination is a unique ID

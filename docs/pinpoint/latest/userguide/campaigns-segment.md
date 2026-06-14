@@ -21,6 +21,7 @@ Before you begin, complete [Create a campaign](campaigns-begin.md "campaigns-beg
 
 1. On the **Choose a segment** page, choose one of the following
    options:
+
    - **Use an existing segment** – Choose this option if
      you've already created a segment and you're ready to send your campaign to
      it.

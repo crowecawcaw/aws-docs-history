@@ -28,6 +28,7 @@ or journey, those settings override the settings that you choose on the
 4. Choose **Edit**.
 5. On the **Edit general settings** page, change any of the
    following settings:
+
    1. _Campaign settings_
 
    **Quiet time hours**

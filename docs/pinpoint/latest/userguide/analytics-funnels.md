@@ -65,6 +65,7 @@ creating new funnels.
 5. For **Funnel name**, enter a name for the funnel.
 6. Choose the events that you want to add to the funnel chart. For each event,
    specify the following:
+
    - **Series name** – A name for the event
      chart.
    - **Event** – The type of event that's reported

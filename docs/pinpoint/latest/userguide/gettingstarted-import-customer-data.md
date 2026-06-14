@@ -100,6 +100,7 @@ the segment so that you're the only member of the segment.
    segment**.
 3. For **Name**, enter a name for the segment.
 4. Under **Segment group 1**, do the following:
+
    1. Next to **Include endpoints that are in any of the following
       segments**, choose the
       **Pinpoint_Sample_Import** segment that you created

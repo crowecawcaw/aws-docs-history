@@ -54,6 +54,7 @@ procedure in [Creating a push notification template with raw message data](#mess
    description of the template. The description can contain up to 500
    characters.
 7. Under **Push notification details**, do the following:
+
    - For **Notification type**, choose **Standard
      message**.
    - For **Title**, enter the title that you want to
@@ -80,6 +81,7 @@ procedure in [Creating a push notification template with raw message data](#mess
      of an audio file on a recipient's device.
    - For **Action**, choose what you want a recipient's
      device to do if the recipient taps the push notification:
+
      - **Open your app** – Open your app or
        bring it to the foreground if it was sent to the
        background.

@@ -35,6 +35,7 @@ Verify that logging is turned on to assist in identifying the cause of failure. 
   handles soft bounces by attempting to redeliver the soft bounced emails for a
   specified period of time.
 - A soft bounce can occur in the following scenarios:
+
   - The recipient mailbox is full.
   - The recipient mailbox is temporarily unavailable.
   - The server limits are exceeded.
@@ -51,6 +52,7 @@ Verify that logging is turned on to assist in identifying the cause of failure. 
   appears under the **\_email.hardbounce** event type in the
   logs. These failures aren't retried.
 - A hard bounce can occur in the following scenarios:
+
   - The email address doesn’t exist.
   - The domain name doesn’t exist.
   - The recipient’s email server has blocked the emails.

@@ -15,6 +15,7 @@ Verify that logging is turned on to assist in identifying the cause of failure. 
 ###### **Issues and solutions**
 
 - Verify that the configured **Journey limits** are not being exceeded:
+
   - **Maximum
     daily messages per endpoint**
   - **Maximum number of messages
@@ -67,6 +68,7 @@ file://PutEvents.json
 - This error can occur when no wait time is configured. Send events are
   evaluated immediately, which results in moving all participants to the 'No'
   branch.
+
   - To resolve this issue, verify that some wait time is configured after
     the condition evaluation.
 

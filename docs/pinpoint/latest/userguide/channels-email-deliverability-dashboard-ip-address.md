@@ -52,6 +52,7 @@ notifications when your dedicated IPs are added to major denylists.
 3.  On the **Alarms** tab, choose **Create
     alarm**.
 4.  On the **Create alarm** page, do the following:
+
     1. For **Alarm name**, enter a name to help you identify
        the alarm.
     2. Configure the values that cause the alarm to be triggered. For
@@ -85,7 +86,6 @@ notifications when your dedicated IPs are added to major denylists.
         When you create a new topic, you must subscribe one or
          more endpoints to it. For more information, see [Subscribing an Amazon SNS topic](../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md "../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md")
          in the *Amazon Simple Notification Service Developer Guide*.
-
     5. (Optional) You can choose or create more than one Amazon SNS topic. To add
        a topic, choose **Notify an additional SNS
        topic**.

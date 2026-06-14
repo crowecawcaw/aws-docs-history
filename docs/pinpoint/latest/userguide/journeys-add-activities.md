@@ -176,8 +176,10 @@ about verifying destination numbers, see [SMS sandbox](../../../sms-voice/latest
    settings** section to configure optional SMS-related settings.
    The **Additional settings** section contains two
    tabs:
+
    - On the **SMS Settings** tab you can configure the
      following settings:
+
      - **Origination phone number** – The
        phone number that messages will be sent from. This list
        contains all of the dedicated phone numbers that are present
@@ -201,6 +203,7 @@ about verifying destination numbers, see [SMS sandbox](../../../sms-voice/latest
      recipients in India. If you send messages to recipients in India,
      you must specify a Sender ID and both of the following
      values:
+
      - **Entity ID** – The ID that's
        associated with your company or brand, provided by TRAI
        during the Sender ID registration process.
@@ -348,6 +351,7 @@ Amazon Pinpoint:
    campaign**, which directs you to Connect Customer.
 6. For **IAM role**, complete one of the following
    steps:
+
    1. If you want to have Amazon Pinpoint create a role that allows it to
       pass phone numbers to Connect Customer, select **Automatically
       create a role**. Then, for IAM role, enter a
@@ -395,6 +399,7 @@ _Amazon Pinpoint Developer Guide_.
    applies to. By default, only the **Custom** endpoint type
    is selected. To add additional endpoint types, select **Choose
    endpoint types**.
+
    1. The Lambda function can be used to evaluate which endpoints to
       include in the segment. For more information, see [Customizing segments with AWS Lambda](../developerguide/segments-dynamic.md "../developerguide/segments-dynamic.md").
    2. The **Custom Data** is for when endpoints are
@@ -454,6 +459,7 @@ that you sent earlier in the journey.
 2. For **Add an activity**, choose
    **Wait**.
 3. Choose one of the following options:
+
    - **For a period of time** – Choose this
      option if you want journey participants to remain on this activity
      for a certain amount of time. Then, enter the amount of time that
@@ -507,6 +513,7 @@ down the ‘Yes’ branch of a Yes/No split activity.
     split**.
 3.  For **Select a condition type**, choose one of the
     following options:
+
     - **Segment** – Choose this option to send
       all members of the chosen segment down the "Yes" path. Then, for
       **Segments**, choose a segment.
@@ -514,6 +521,7 @@ down the ‘Yes’ branch of a Yes/No split activity.
       users down the "Yes" path based on their interactions with a
       previous step in this journey. Then, complete the following
       steps:
+
       1. For **Events**, select the messaging
          activity you want to split on:
       2. For **Choose an activity**, choose the
@@ -521,8 +529,10 @@ down the ‘Yes’ branch of a Yes/No split activity.
          Depending on the channel type of messaging activity you
          select you will have the following options on split
          on:
+
          - For **Email** here are the events
            you can select.
+
            - **Send** – Amazon Pinpoint accepted the
              message and will attempt to deliver it.
            - **Delivered** – The message
@@ -572,6 +582,7 @@ down the ‘Yes’ branch of a Yes/No split activity.
 
          - For **SMS**, here are the events
            you can select.
+
            - **Send** – Amazon Pinpoint
              attempted to send the message.
            - **Delivered** – Amazon Pinpoint
@@ -586,6 +597,7 @@ down the ‘Yes’ branch of a Yes/No split activity.
 
          - For **Push**, here are the events
            you can select.
+
            - **Send** – Amazon Pinpoint
              attempted to send the message.
            - **Opened notification**
@@ -602,6 +614,7 @@ down the ‘Yes’ branch of a Yes/No split activity.
 
          - For **Contact Center**, here are
            the events you can select.
+
            - **Connected** – Amazon Pinpoint
              received a confirmation that the call was
              connected to an agent.
@@ -645,6 +658,7 @@ down the ‘Yes’ branch of a Yes/No split activity.
 
 4.  For **Condition evaluation**, choose when Amazon Pinpoint should
     evaluate the condition. You can choose from the following options:
+
     - **Evaluate immediately** – If you choose
       this option, Amazon Pinpoint checks to see if the event condition that you
       specified has been met the moment when the journey participant
@@ -874,6 +888,7 @@ down the ‘Yes’ branch of a Yes/No split activity.
 
 5.  For **Condition evaluation**, choose when Amazon Pinpoint should
     evaluate the condition. You can choose from the following options:
+
     - **Evaluate immediately** – If you choose
       this option, Amazon Pinpoint checks to see if the event condition that you
       specified has been met at the moment the journey participant arrives

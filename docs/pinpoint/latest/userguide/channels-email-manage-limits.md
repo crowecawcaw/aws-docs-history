@@ -113,6 +113,7 @@ using the following instructions.
 5. For **Limit type**, choose **Pinpoint
    Email**.
 6. (Optional) Complete the following information:
+
    - For **Mail Type**, choose the type of email that
      you send. If multiple values apply, choose the option that applies
      to the majority of the emails that you send.
@@ -131,9 +132,11 @@ using the following instructions.
      choose the option that applies to your use case.
 
 7. Under **Requests** complete the following:
+
    - For **Region**, choose the AWS Region that your
      request applies to.
    - For **Limit**, choose one of the following options:
+
      - To increase the number of messages that you can send per day, choose
        **Desired Daily Email Sending
        Quota**.

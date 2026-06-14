@@ -67,10 +67,12 @@ section.
 3.  On the **Alarms** tab, choose **Create
     alarm**.
 4.  On the **Create alarm** page, do the following:
+
     1. For **Alarm name**, enter a name that helps you
        easily identify the alarm.
     2. For **Send notification when the**, choose one of
        the following options:
+
        - **Inbox placement rate** – When you
          choose this option, the alarm considers the inbox placement
          rate across all email providers.
@@ -114,7 +116,6 @@ section.
          more endpoints to it. For more information, see [Subscribing an Amazon SNS
          topic](../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md "../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md") in the
          *Amazon Simple Notification Service Developer Guide*.
-
     6. (Optional) You can choose or create more than one Amazon SNS topic. To
        add a topic, choose **Notify an additional SNS
        topic**.

@@ -26,6 +26,7 @@ campaign.
    later.
 6. For **Campaign type**, choose one of the following
    options:
+
    - **Standard campaign** – Sends a message to a
      segment on a schedule that you define.
    - **A/B test campaign** – Behaves like a standard

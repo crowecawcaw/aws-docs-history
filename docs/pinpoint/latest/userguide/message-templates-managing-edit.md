@@ -36,6 +36,7 @@ configured the messages that use the template. For more information, see [Managi
    except the name of the template. To change the name of the template, you can [create a copy of the template](message-templates-managing-copy.md "message-templates-managing-copy.md"), save the copy
    with the name that you want, and then optionally delete the original template.
 7. When you finish making changes, do one of the following:
+
    - To save your changes as a new version of the template, choose **Save as new
      version**. To help make sure that your changes don't affect any existing messages,
      we recommend that you choose this option.

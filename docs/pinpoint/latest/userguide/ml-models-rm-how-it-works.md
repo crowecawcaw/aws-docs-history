@@ -34,6 +34,7 @@ recommender model with Amazon Pinpoint. In general, those activities are:
 9. Connects to the Amazon Personalize campaign that you specified in the configuration settings for the
    recommender model.
 10. For each message recipient:
+
     1. Retrieves recommendations from the Amazon Personalize campaign.
     2. Adds the recommendations to the recommended attributes that you created for the
        recommender model.

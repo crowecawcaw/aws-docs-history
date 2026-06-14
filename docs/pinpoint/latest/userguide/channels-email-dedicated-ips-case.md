@@ -46,6 +46,7 @@ addresses as you need.
    increase**.
 5. Under **Case classification**, complete the following
    sections:
+
    - For **Quota type**, choose **Pinpoint
      Email**.
    - For **Mail Type**, choose the type of email that you
@@ -68,6 +69,7 @@ addresses as you need.
      case.
 
 6. Under **Requests**, complete the following sections:
+
    - For **Region**, choose the AWS Region that your
      request applies to.
    - For **Quota**, choose **Desired Maximum Email
@@ -128,6 +130,7 @@ month.
    increase**.
 5. Under **Case classification**, complete the following
    sections:
+
    - For **Quota type**, choose **Pinpoint
      Email**.
    - For **Mail Type**, choose any value.
@@ -136,6 +139,7 @@ month.
      case.
 
 6. Under **Requests**, complete the following sections:
+
    - For **Region**, choose the AWS Region that your
      request applies to.
 

@@ -39,6 +39,7 @@ with the content and settings that you defined in the template.
    of the template. The description can contain up to 500 characters.
 7. Under **Email details**, use the following options to specify the
    content for messages that use the template:
+
    - For **Subject**, enter the text that you want to display
      in the subject line of the message.
    - For **Message**, enter the content that you want to

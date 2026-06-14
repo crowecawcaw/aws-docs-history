@@ -177,6 +177,7 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
    two-way message**.
 6. For **Destination type** choose
    **Amazon SNS**.
+
    - **New Amazon SNS topic** – AWS End User Messaging SMS creates a
      topic in your account. The topic is automatically created with
      all of the required permissions. For more information on Amazon SNS
@@ -201,6 +202,7 @@ To enable two-way SMS using the AWS End User Messaging SMS console, follow these
    keyword** button.
 5. In the **Custom Keyword** pane add the
    following:
+
    - **Keyword** – The new keyword to add (such as
      `Yes` or
      `Confirm`).

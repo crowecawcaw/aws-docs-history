@@ -25,6 +25,7 @@ I set up logging for Amazon Pinpoint voice messages for Amazon Pinpoint SMS and 
   issues. Verify that the number(s) can receive SMS outside of Amazon Pinpoint at the time
   of the failure.
 - Turn on SMS event logging to assist in identifying the cause of the failure.
+
   - Review the [message status](../developerguide/event-streams-data-sms.md#event-streams-data-sms-attributes-attrs "../developerguide/event-streams-data-sms.md#event-streams-data-sms-attributes-attrs").
   - Review how to resolve [Unknown error attempting to reach phone](https://repost.aws/knowledge-center/sns-unknown-error-phone-sms "https://repost.aws/knowledge-center/sns-unknown-error-phone-sms").
 
@@ -50,15 +51,18 @@ Two-way SMS responses are not received on either the SNS topic, subscribers, or 
   `NumberOfNotificationsDelivered`, and
   `NumberOfNotificationsFailed` to verify if the Amazon SNS topic is
   able to receive the inbound SMS.
+
   - If there are data points for `NumberOfMessagesPublished` at the time of the
     inbound SMS timestamps, then the recipient response was successfully
     received from downstream. Enable logging on
     the Amazon SNS topic for the delivery protocol being used. See [Amazon SNS message delivery status](../../../sns/latest/dg/sns-topic-attributes.md "../../../sns/latest/dg/sns-topic-attributes.md").
   - If there are no data points for the `NumberOfMessagesPublished` metric at the
     time of the inbound SMS timestamps:
+
     - Review the Amazon SNS topic policy to confirm that it allows the Amazon Pinpoint service to publish
       to the Amazon SNS topic. For an example policy, see [Two-way SMS messaging](../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md "../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md") in the _AWS End User Messaging SMS User Guide_.
     - If the Amazon SNS topic linked to the two-way SMS number is
       encrypted:
+
       - Verify that the key used is symmetric.
       - Verify that the key policy is modified to allow Amazon Pinpoint to use the key, see [Amazon SNS topic policies for Amazon SNS topics](../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md#phone-number-two-way-sms-iam-policy-auto "../../../sms-voice/latest/userguide/phone-numbers-two-way-sms.md#phone-number-two-way-sms-iam-policy-auto") in the _AWS End User Messaging SMS User Guide_.

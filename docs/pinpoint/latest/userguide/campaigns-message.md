@@ -47,6 +47,7 @@ see [Configuring a custom channel message](#campaigns-message-custom "#campaigns
 
 1. Choose the priority level for the **Create your
    message** page, do one of the following:
+
    - To design and write a new message for the campaign, select
      **Create a new email message**.
 
@@ -56,6 +57,7 @@ see [Configuring a custom channel message](#campaigns-message-custom "#campaigns
    message** is 200 KB. You can use email templates
    to send larger email messages.
    - To create a message that's based on an email template:
+
      1. Select **Choose an existing email
         template**, and then select
         **Choose a template**.
@@ -143,11 +145,13 @@ different treatments.
 
 1.  On the **Create your message** page, do one of the
     following:
+
     - To create a new message for the campaign, select
       **Create a new in-app message**, and then
       proceed to step 2.
     - To create a message that's based on an existing in-app
       template, do the following:
+
       1. Select **Choose an existing in-app messaging
          template**, and then select
          **Choose a template**.
@@ -170,6 +174,7 @@ different treatments.
 2.  In the **In-app message details** section, under
     **Layout**, choose the type of layout for the
     message. You can choose from the following options:
+
     - **Top banner** – a message that appears
       as a banner at the top of the page.
     - **Bottom banner** – a message that
@@ -187,6 +192,7 @@ different treatments.
     the beginning of the message. If you created a Carousel message, you
     must create the first message for the Carousel, which includes the
     header.
+
     1. For **Header text** to display in the banner.
        You can enter up to 64 characters.
     2. For **Header text color**, choose the text
@@ -199,6 +205,7 @@ different treatments.
 
 4.  Under **Message**, configure the body of the
     message.
+
     1. For **Message**, enter the body text for the
        message. The message can contain up to 150 characters.
     2. For **Text color**, choose the text color for
@@ -216,6 +223,7 @@ different treatments.
     URL**, enter the URL of the image that you want to appear
     in the message. Only .jpg and .png files are accepted. The dimensions of
     the image depend on the message type:
+
     - For a **Banner**, the image should be 100
       pixels by 100 pixels, or a 1:1 aspect ratio.
     - For a **Carousel**, the image should be 300
@@ -226,6 +234,7 @@ different treatments.
 
 7.  (Optional) Add a button to the message. Under **Primary
     button**, do the following:
+
     1.  Choose **Add primary button**.
     2.  For **Button text**, enter the text to
         display on the button. You can enter up to 64 characters.
@@ -266,6 +275,7 @@ different treatments.
     promotional code along with your message. If you're sending a carousel
     message, you can add custom data to each of the carousel messages. To
     add custom data, do the following:
+
     1. Under **Custom data**, choose **Add
        new item**.
     2. Enter a **Key**. For example, this might be
@@ -309,11 +319,13 @@ process](../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md
 
 1. On the **Create your message** page, do one of the
    following:
+
    - To design and write a new message for the campaign, select
      **Create a new SMS message**, and then
      proceed to step 2.
    - To create a message that's based on an SMS template, do the
      following:
+
      1. Select **Choose an existing SMS
         template**, and then select
         **Choose a template**.
@@ -336,6 +348,7 @@ process](../../../sms-voice/latest/userguide/registrations-sms-senderid-india.md
 2. In the **SMS settings** section, for
    **Message type**, choose one of the
    following:
+
    - **Promotional** – Non-critical
      messages, such as marketing messages.
    - **Transactional** – Critical messages
@@ -381,10 +394,12 @@ the top of the **SMS details** section. 7. Choose **Next**.
 
 1. On the **Create your message** page, do one of the
    following:
+
    - To design and write a new message for the campaign, select
      **Create a new push notification**.
    - To create a message that's based on a push notification
      template:
+
      1. Select **Choose an existing push notification
         template**, and then select
         **Choose a template**.
@@ -413,6 +428,7 @@ the top of the **SMS details** section. 7. Choose **Next**.
 
 2. For **Notification type**, specify the type of
    message that you want to send:
+
    - **Standard notification** – A push
      notification that has a title, a message body, and other content
      and settings. Recipients are alerted by their mobile devices
@@ -452,6 +468,7 @@ the top of the **SMS details** section. 7. Choose **Next**.
    characters to the message.
 3. For **Action**, select the action that you
    want to occur when a recipient taps the notification:
+
    - **Open your app** – Your app
      launches, or it becomes the foreground app if it was
      sent to the background.

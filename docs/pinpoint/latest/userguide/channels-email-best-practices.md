@@ -33,6 +33,7 @@ audience.
 - Some industries have a reputation for poor quality or even malicious email
   practices. If you're involved in the following industries, you must monitor your
   reputation very closely and resolve issues immediately:
+
   - Home mortgage
   - Credit
   - Pharmaceuticals and supplements

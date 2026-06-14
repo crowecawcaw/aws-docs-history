@@ -107,6 +107,7 @@ This section contains the following information:
   time** – Displays the current quiet time hours set for
   the journey, and the number of messages that weren't sent for the following
   reasons.
+
   - If **Resume sending after quiet times** is not
     turned on and sending is blocked due to encountering the quiet time
     window.
@@ -207,6 +208,7 @@ through a contact center** activities.
   time** – Displays the current quiet time hours set for
   the journey, and the number of messages that weren't sent for the following
   reasons.
+
   - If **Resume sending after quiet times** isn't
     turned on and sending is blocked due to encountering the quiet time
     window.

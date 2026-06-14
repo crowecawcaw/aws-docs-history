@@ -74,6 +74,7 @@ group.
 
 - Under **Segment group 1**, for **Base segments**,
   choose one of the following options:
+
   - **Include any audiences** – If you use more than one segment as
     a base segment, your new segment contains endpoints that are in at
     least one of the segments you choose. For example, you might have
@@ -123,6 +124,7 @@ attributes, operators, and values to those segments.
 ###### To choose and configure the segment criteria
 
 1. For **Attribute**, you can choose from the following types:
+
    - **Standard attributes** – Filter the audience based
      on one of its default attributes.
    - **Channel Types** – Filter the audience based on the recipient's
@@ -240,6 +242,7 @@ relationship between this group of criteria and the group before it.
 1. Choose **Add criteria**.
 2. Create the relationship between this group and the group previous to it by choosing one
    of the following:
+
    - **AND** – The segment contains only that audiences who meet the
      criteria for both criteria groups.
    - **OR** – The segment contains audiences who meet the criteria in

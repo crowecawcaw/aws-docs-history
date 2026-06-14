@@ -82,6 +82,7 @@ information, see [Managing versions of message templates](message-templates-vers
    [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
 2. In the navigation pane, choose **Message templates**.
 3. On the **Message templates** page, do one of the following:
+
    - To create a new template and add recommendations to it, choose **Create
      template**. Then, on the template page, enter a name for the template and,
      optionally, a description of the template.

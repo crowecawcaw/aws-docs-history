@@ -78,6 +78,7 @@ choose to use that role in step 6.
 5. Choose **Enable campaigns and journeys for this email
    channel**.
 6. For **IAM role** choose either:
+
    - **Create a new role** (Recommended) – To have Amazon Pinpoint
      create the IAM role and configure the IAM roles permissions. Enter a
      name for the IAM role in **IAM role name**.

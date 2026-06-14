@@ -41,6 +41,7 @@ list.
    configurations in your collection and a list of those configurations.
 3. To customize the list or find a specific configuration quickly, choose any of the
    following options:
+
    - To sort the list by a specific type of value, click the column heading for that value.
      To change the sort order from ascending to descending or vice versa, click the column heading
      again.

@@ -87,6 +87,7 @@ In-app messaging templates don't support the use of message variables.
    [https://console.aws.amazon.com/pinpoint/](https://console.aws.amazon.com/pinpoint/ "https://console.aws.amazon.com/pinpoint/").
 2. In the navigation pane, choose **Message templates**.
 3. On the **Message templates** page, do one of the following:
+
    - To create a new template and add a message variable to it, choose
      **Create template**. Then, on the template page,
      enter a name for the template and, optionally, a description of the

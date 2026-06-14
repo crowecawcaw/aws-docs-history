@@ -40,6 +40,7 @@ users can scroll through.
 7.  In the **In-app message details** section, under
     **Layout**, choose the type of layout for the message template.
     You can choose from the following options:
+
     - **Top banner** – a message that appears as a banner
       at the top of the page.
     - **Bottom banner** – a message that appears as a
@@ -56,6 +57,7 @@ users can scroll through.
 8.  Under **Header**, configure the title that appears at the
     beginning of the message. If you created a Carousel message, you must create the
     first message for the Carousel, which includes the header.
+
     1. For **Header text** to display in the banner. You can
        enter up to 64 characters.
     2. For **Header text color**, choose the text color for the
@@ -65,6 +67,7 @@ users can scroll through.
        **Right** justified.
 
 9.  Under **Message**, configure the body of the message.
+
     1. For **Message**, enter the body text for the message. The
        message can contain up to 150 characters.
     2. For **Text color**, choose the text color for the message
@@ -79,6 +82,7 @@ users can scroll through.
     enter the URL of the image that you want to appear in the message. Only .jpg and
     .png files are accepted. The dimensions of the image depend on the message
     type:
+
     - For a **Banner**, the image should be 100 pixels by 100
       pixels, or a 1:1 aspect ratio.
     - For a **Carousel**, the image should be 300 pixels by 200
@@ -88,6 +92,7 @@ users can scroll through.
 
 12. (Optional) Add a button to the message. Under **Primary button**,
     do the following:
+
     1.  Choose **Add primary button**.
     2.  For **Button text**, enter the text to display on the
         button. You can enter up to 64 characters.
@@ -123,6 +128,7 @@ users can scroll through.
     delivered with your message. For example, you might want to pass a promotional code
     along with your message. If you're sending a carousel message, you can add custom
     data to each of the carousel messages. To add custom data, do the following:
+
     1. Under **Custom data**, choose **Add new
        item**.
     2. Enter a **Key**. For example, this might be

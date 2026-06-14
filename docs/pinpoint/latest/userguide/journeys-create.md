@@ -137,6 +137,7 @@ dialog box is shown in the following image.
    processing. For example, this might be changing the number of journey messages per
    second or changing the number of entries per endpoint. Endpoints will only re-enter
    a journey if allowed by limits.
+
    - **Maximum daily messages per endpoint** – Choose
      **Override default setting** to override the maximum
      daily message setting for the project that contains this journey. If you

@@ -29,6 +29,7 @@ push notification through any of those channels.
    notifications**.
 5. For **Destination type**, choose one of the following
    destinations for your message:
+
    - **Endpoint IDs** – Each destination is a unique ID
      that's assigned to an endpoint for the project.
    - **Device tokens** – Each destination is a token

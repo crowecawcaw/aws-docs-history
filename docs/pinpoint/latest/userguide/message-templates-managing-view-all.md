@@ -22,6 +22,7 @@ display settings for the list.
    collection and a list of those templates.
 3. To customize the list or find a specific template quickly, choose any of the following
    options:
+
    - To sort the list by a specific type of value, select the column heading for that value.
      To change the sort order from ascending to descending or the other way around, select the
      column heading again.

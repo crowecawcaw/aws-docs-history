@@ -108,6 +108,7 @@ Verify you have the permissions to setup and send to the stream. For more inform
    **Edit**.
 5. Choose **Stream to Amazon Kinesis**.
 6. Under **Choose a stream type**, choose one of the following options:
+
    - **Send events to an Amazon Kinesis Data Stream** – Choose this
      option if you want to send Amazon Pinpoint event data to an external application for
      analysis.

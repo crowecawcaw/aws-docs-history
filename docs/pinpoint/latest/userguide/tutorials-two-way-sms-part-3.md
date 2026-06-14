@@ -215,6 +215,7 @@ appropriate permissions.
 
 1. Choose the **Test** tab.
 2. Choose **Create new event**, do the following:
+
    - For **Event name**, enter a name for the test
      event, such as `MyPhoneNumber`.
    - Erase the example code in the code editor. Paste the following
@@ -228,7 +229,6 @@ appropriate permissions.
      "source": "Registration form test"
    }
    ```
-
    - In the preceding code example, replace the values of the
      `destinationNumber`, `firstName`, and
      `lastName` attributes with the values that you want
@@ -398,6 +398,7 @@ appropriate permissions.
 1. Choose **Test**.
 2. On the **Configure test event** window, do the
    following:
+
    1. Choose **Create new test event**.
    2. For **Event name**, enter a name for the test
       event, such as `MyResponse`.
