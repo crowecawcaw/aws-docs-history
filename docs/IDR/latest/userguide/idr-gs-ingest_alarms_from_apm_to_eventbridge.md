@@ -57,10 +57,12 @@ template:**
 1. Open the EventBridge Console. Under the
    **Integration** menu, select
    **Partner event sources**.
+
    - Search for your APM in the Amazon EventBridge partners
      box.
    - Choose **Setup**, then follow
      the instructions provided.
+
      - **Note:** the
        last step is to choose **Associate with
        Event Bus** in the console for
@@ -74,6 +76,7 @@ template:**
      parameter, named
      `PartnerEventBusNameParameter`, when
      deploying the CloudFormation template.
+
      - **Example** for
        New Relic:
        `aws.partner/newrelic.com/1234567/source_name`
@@ -82,10 +85,12 @@ template:**
      or source to input into the
      `PartnerEventBusPrefixParameter` when
      deploying the CloudFormation template.
+
      - Example for New Relic is
        `aws.partner/newrelic.com`
 
 2. Download and edit the [CloudFormation template](https://dcl74d3hc5lj1.cloudfront.net/apms/ThirdPartyApmSaasEventBridgeIntegration.json "https://dcl74d3hc5lj1.cloudfront.net/apms/ThirdPartyApmSaasEventBridgeIntegration.json").
+
    - Locate the
      `TransformLambdaFunction` in the
      template
@@ -96,6 +101,7 @@ context)` set
      JSON payload of the APM alarm. Every APM will have
      a different path. Some examples can be seen below,
      however your specific payloads may differ.
+
      - **New Relic
        Example:**
        `event["detail"]["incident-detection-response-identifier"]
@@ -119,6 +125,7 @@ Template:**
    Region.
 2. Choose Create stack, With new resources
    (standard)
+
    - Select **Choose an existing
      template**, **Upload a template
      file**, **Choose file**,
@@ -126,12 +133,14 @@ Template:**
      locally.
 
 3. Specify stack details:
+
    - Enter a stack name
      (_Example:_
      `NewRelicIntegrationForIDR`).
    - Specify the **Parameter
      values** obtained during **Prerequisite
      completion**.
+
      - APMNameParameter
        (_Example_:
        `NewRelic`)
@@ -145,11 +154,13 @@ Template:**
    - Choose **Next**.
 
 4. Configure stack options:
+
    - Scroll to the bottom of the page and check the
      box to allow CloudFormation to create IAM resources with
      custom names.
 
 5. Review and create:
+
    - Validate the parameter values are configured
      correctly and choose
      **Submit**.
@@ -162,6 +173,7 @@ Template:**
    assuming the example values were input into the
    parameters for New Relic and was run in the US-EAST-1
    Region.
+
    - CustomEventBus:
      NewRelic-AWSIncidentDetectionResponse-EventBus
    - EventBridgeRule:
@@ -197,6 +209,7 @@ AWS Incident Detection and Response**
    bus** created as part of the CloudFormation stack,
    (_example:
    `arn:aws:events:us-east-1:123456789123:event-bus/NewRelic-AWSIncidentDetectionResponse-EventBus`_.)
+
    - Add this ARN to the "EventBridge Event Bus
      ARN" field in the "Third-Party APM Alarms" section
      of your [Alarm ingestion questionnaire - Overview](idr-gs-questionnaire.md#idr-gs-alarm-questionnaire "idr-gs-questionnaire.md#idr-gs-alarm-questionnaire").
@@ -247,6 +260,7 @@ from.
     to transform your partner event bus events. The
     transformed events will match the managed rule
     `AWSHealthEventProcessorEventSource-DO-NOT-DELETE`.
+
     - Transformed events include a unique AWS Incident Detection and Response
       identifier, and sets the source and detail type of
       the event to the required values. This allows the

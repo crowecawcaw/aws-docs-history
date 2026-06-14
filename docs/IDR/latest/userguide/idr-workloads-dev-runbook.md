@@ -183,14 +183,19 @@ This plan is initiated when an alarm recovers before Incident Detection and Resp
 This section provides an overview of the application/workload architecture for Incident Management Engineer and Operations Engineer awareness.
 
 - **AWS Accounts and Regions with key services** - list of AWS accounts with Regions supporting this application. Assists Engineers in assessing underlying infrastructure supporting the application.
+
   - 123456789012
+
     - US-EAST-1 - brief desc as appropriate
+
       - Amazon EC2 - brief desc as appropriate
       - DynamoDB - brief desc as appropriate
       - etc.
 
     - US-WEST-1 - brief desc as appropriate
+
       - etc.
 
   - another-account
+
     - etc.

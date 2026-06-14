@@ -46,8 +46,10 @@ The Alarm Ingestion Questionnaire is divided into the following sections:
 
 - **Contact section:** First, specify the primary contact(s) to be included on the Support Case created with AWS Incident Detection and Response when an alarm triggers, as well as your preferred conferencing application for incident bridges. If no bridge preference is provided, AWS Incident Detection and Response will create an incident bridge during incidents. Next, specify escalation contacts and time intervals to engage them when primary contacts are unreachable. Finally, list any contacts who should receive regular incident status updates through the support case for the duration of an incident.
 - **Alarm matrix:** List the set of alarms that will engage AWS Incident Detection and Response when triggered. See the "Critical Alarm Criteria" defined by AWS Incident Detection and Response when selecting alarms for onboarding. For more information, see [Alarm definition](idr-gs-alarm-definition.md "idr-gs-alarm-definition.md").
+
   - **Amazon CloudWatch Alarms** (leave this section blank if you don't have Amazon CloudWatch alarms)
   - **Third party APM alarms** (leave this section blank if you don't have Third party APM alarms)
+
     - **EventBridge EventBus ARN:** This is the ARN of the custom EventBus ARN that you created in [Ingest Alarms from APMs with direct EventBridge integration](idr-gs-ingest_alarms_from_apm_to_eventbridge.md "idr-gs-ingest_alarms_from_apm_to_eventbridge.md") or [Ingest alarms from APMs without direct integration with EventBridge](idr-gs-ingest-apm-webhooks.md "idr-gs-ingest-apm-webhooks.md").
     - **Alarm Identifiers:** Share the account number, region, and name of the APM alarm.
 

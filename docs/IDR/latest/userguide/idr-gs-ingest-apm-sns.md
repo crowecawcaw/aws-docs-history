@@ -48,17 +48,21 @@ template:**
 1. Open the Amazon SNS Console, then select Topics. Copy the ARN
    of the **Standard** Amazon SNS topic created to receive alarm events from your
    APM.
+
    - Example:
      `arn:aws:sns:eu-west-1:012345678912:<your-apm-name>-sns`
 
 2. Download and open the [CloudFormation template](https://dcl74d3hc5lj1.cloudfront.net/apms/ThirdPartyApmSnsIntegration.json "https://dcl74d3hc5lj1.cloudfront.net/apms/ThirdPartyApmSnsIntegration.json")
+
    - Locate the `TransformLambdaFunction` in
      the template
+
      - Under `def lambda_handler(event,
 context)` set
        `event["detail"]["incident-detection-response-identifier"]`
        to the json path where the alarm name appears in
        the JSON payload of the SNS record.
+
        - Any event sent to the
          `TransformLambdaFunction` via SNS has a
          parent payload structure as
@@ -75,18 +79,22 @@ Template:**
 1. Navigate to the CloudFormation console in the account and Region
    you need to set up the integration in.
 2. Navigate to CloudFormation.
+
    - Choose Create stack, With new resources
      (standard)
+
      - Select Choose an existing template, Upload a
        template file, Choose file, then upload the CloudFormation
        template you saved locally.
 
 3. Specify stack details:
+
    - Enter a stack name _Example:_
      `<your-apm-name>IntegrationForIDR`
    - Specify the Parameter values obtained during
      **Prerequisite
      completion**
+
      - APMNameParameter
        _Example:_
        `Grafana`
@@ -97,11 +105,13 @@ Template:**
    - Choose Next.
 
 4. Configure stack options:
+
    - Scroll to the bottom of the page and acknowledge
      the checkbox to allow CloudFormation to create IAM
      resources with custom names.
 
 5. Review and create:
+
    - Validate the parameter values are configured
      correctly, then choose Submit.
 
@@ -111,6 +121,7 @@ Template:**
 7. The CloudFormation stack creates the below resources assuming the
    example values were input into the parameters for Grafana
    and was executed in the EU-WEST-1 Region.
+
    - CustomEventBus:
      Grafana-AWSIncidentDetectionResponse-EventBus
    - SNSSubscription:
@@ -147,6 +158,7 @@ AWS Incident Detection and Response**
    bus** deployed as part of the CloudFormation stack, for
    example:
    `arn:aws:events:eu-west-1:012345678912:event-bus/Grafana-AWSIncidentDetectionResponse-EventBus`.
+
    - Provide the ARN of this Custom event bus to
      AWS Incident Detection and Response in the "EventBridge Event Bus ARN" field
      of the "Third-Party APM Alarms" section of the [Alarm ingestion questionnaire - Overview](idr-gs-questionnaire.md#idr-gs-alarm-questionnaire "idr-gs-questionnaire.md#idr-gs-alarm-questionnaire").
@@ -157,7 +169,7 @@ AWS Incident Detection and Response**
 
 ## Option 2: Manual integration
 
-![Diagram showing an example of integration using Amazon SNS.](images/example-int-sns.png)
+![Diagram showing an example of integration using Amazon SNS.](/images/IDR/latest/userguide/images/example-int-sns.png)
 
 1.  Open the Amazon SNS Console and create a **Standard** Amazon SNS topic
     named `[apm_name]-sns` to receive alarm events
@@ -182,6 +194,7 @@ AWS Incident Detection and Response**
     function named
     `$YourApmName-AWSIncidentDetectionResponse-LambdaFunction`
     to transform your SNS payloads.
+
     - Transformed events must meet the payload
       requirements as set out in [Payload Requirements For Ingesting APM Alerts with EventBridge](idr-gs-apm-payload-requirements.md "idr-gs-apm-payload-requirements.md")
     - Set the target of the Lambda function to either the
@@ -190,6 +203,7 @@ AWS Incident Detection and Response**
 
 4.  Set the SNS topic as a trigger for your Lambda function
     `$YourApmName-AWSIncidentDetectionResponse-LambdaFunction`.
+
     - In the "Add Triggers" page, search for
       "SNS".
     - Add the ARN of your dedicated SNS Topic created in

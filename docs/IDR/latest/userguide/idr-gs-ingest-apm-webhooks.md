@@ -96,6 +96,7 @@ template:**
    AWS Region.
 2. Choose **Create stack, With new resources
    (standard)**.
+
    - Select **Choose an existing
      template**, **Upload a template
      file**, **Choose file**,
@@ -103,6 +104,7 @@ template:**
      locally.
 
 3. Specify stack details:
+
    - Enter a stack name (_example,
      `DynatraceIntegrationForIDR`_.)
    - APMNameParameter (_example,
@@ -110,11 +112,13 @@ template:**
    - Choose **Next**.
 
 4. Configure stack options:
+
    - Scroll to the bottom of the page and check the box
      to allow CloudFormation to create IAM resources with custom
      names.
 
 5. Review and create:
+
    - Validate the parameter values are configured
      correctly and choose Submit.
 
@@ -124,10 +128,12 @@ template:**
 7. The CloudFormation stack creates the below resources assuming the
    example value `Dynatrace` was input into the
    parameters and was executed in the US-EAST-1 Region.
+
    - Secret name: DynatraceMySecretTokenName (a random
      Secret value will be created against Secret key
      APMSecureToken)
    - API Gateway resources:
+
      - API Name:
        Dynatrace-AWSIncidentDetectionResponse-APIGW
      - Stage Name: Dynatrace-Stage-Prod
@@ -136,6 +142,7 @@ template:**
      - Usage plan: APIGW_Throttling_Plan
 
    - Lambda functions:
+
      - Function for authorization:
        Dynatrace-AWSIncidentDetectionResponse-Lambda-Authorizer
      - Function for transformation:
@@ -144,12 +151,14 @@ template:**
    - Custom EventBus Name:
      Dynatrace-AWSIncidentDetectionResponse-EventBus
    - IAM Role:
+
      - TransformLambdaExecutionRole:
        IDR-TransformLambdaExecutionRole-us-east-1
      - AuthorizerLambdaExecutionRole:
        IDR-AuthorizerLambdaExecutionRole-us-east-1
 
 8. Record the Webhook URL and Token value:
+
    - Open the API Gateway console and choose your API Name
      created as part of the CloudFormation stack.
    - Choose Stages from the left-hand navigation,
@@ -162,6 +171,7 @@ template:**
      name created as part of the CloudFormation stack.
      (_Example:
      DynatraceMySecretTokenName._)
+
      - In the Secret value tab, choose **Retrieve secret value**. You
        will see the Secret key as APMSecureToken. Record
        the Secret value. Do not share this secret value
@@ -189,6 +199,7 @@ AWS Incident Detection and Response**
    bus** created as part of the CloudFormation stack,
    _example:
    `arn:aws:events:us-east-1:123456789123:event-bus/Dynatrace-AWSIncidentDetectionResponse-EventBus`_.
+
    - Add this ARN to the "EventBridge Event Bus ARN"
      field in the "Third-Party APM Alarms" section of
      your [Alarm ingestion questionnaire - Overview](idr-gs-questionnaire.md#idr-gs-alarm-questionnaire "idr-gs-questionnaire.md#idr-gs-alarm-questionnaire").
@@ -209,6 +220,7 @@ AWS Incident Detection and Response.
 2. Define an Lambda function for authorization using an
    authentication token.
 3. Perform one of the following:
+
    - (Recommended) Create an EventBridge custom event
      bus named
      `$YourApmName-AWSIncidentDetectionResponse-EventBus`.
@@ -219,6 +231,7 @@ AWS Incident Detection and Response.
    identifier to your payload. You can also use this function
    to filter for the events that you want to send to
    AWS Incident Detection and Response.
+
    - The API Gateway must invoke the Transform Lambda function
      which will transform the payload passed by the
      API Gateway.

@@ -5,5 +5,6 @@ AWS Incident Detection and Response enables monitoring and critical incident man
 ###### Contents
 
 - [Onboard to Incident Detection and Response with the IDR CLI](idr-gs-idrcli.md "idr-gs-idrcli.md")
+
   - [Language support for the IDR CLI](idr-gs-idrcli.md#idr-gs-idrcli-languages "idr-gs-idrcli.md#idr-gs-idrcli-languages")
   - [Alternative options for onboarding workloads](idr-gs-idrcli.md#idr-gs-idrcli-alternatives-onboarding "idr-gs-idrcli.md#idr-gs-idrcli-alternatives-onboarding")

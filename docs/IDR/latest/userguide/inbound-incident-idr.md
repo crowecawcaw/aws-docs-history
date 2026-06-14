@@ -23,6 +23,7 @@ To request an incident response, complete the following steps:
 2. For **Subject**, enter a brief summary of the incident.
    For example, `AWS Incident Detection and Response - Active Incident - workload_name`.
 3. For **Description**, enter the details of the incident. We recommend that you include the following details in your support case:
+
    - Affected AWS resource ARN(s), workload name and its function
    - Description of impact to the business
    - (Optional) Your preferred conference bridge URL. If you don't provide
@@ -31,6 +32,7 @@ To request an incident response, complete the following steps:
 
 4. (Optional) Attach files that can help describe the incident, such as screenshots or log excerpts.
 5. Configure the following case classification fields:
+
    - **Case type**: **Technical**
    - **Service**: **Incident Detection and Response**
    - **Category**: **Active Incident**
