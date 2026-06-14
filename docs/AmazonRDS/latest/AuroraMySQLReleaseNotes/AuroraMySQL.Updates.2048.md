@@ -34,6 +34,7 @@ _Amazon Aurora User Guide_.
 **New features:**
 
 - **Read replica improvements:**
+
   - Reduced network traffic from the writer instance by efficiently
     transmitting data to reader instances within the Aurora DB
     cluster. This improvement is enabled by default, because it helps

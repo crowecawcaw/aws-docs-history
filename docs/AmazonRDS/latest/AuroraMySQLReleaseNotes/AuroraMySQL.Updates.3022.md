@@ -86,6 +86,7 @@ This release includes all community bug fixes up to and including 8.0.23, in add
 - Fixed an issue which, in certain conditions, may return incorrect results due to an inaccurate calculation of the nullability
   property when executing a query with an OR condition. (Bug #34060289)
 - Fixed an issue which, in certain conditions, may return incorrect results when the following two conditions are met:
+
   - A derived table is merged into the outer query block.
   - The query includes a left join and an IN subquery. (Bug #34060289)
 

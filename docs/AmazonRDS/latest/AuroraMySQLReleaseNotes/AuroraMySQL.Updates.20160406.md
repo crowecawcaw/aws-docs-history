@@ -84,6 +84,7 @@ Latency`, and `Disk Queue Depth`.
 - Improved concurrency in the data dictionary regarding synchronization
   mechanisms and cache eviction.
 - Stability and performance improvements for Aurora Replicas:
+
   - Fixed a stability issue for Aurora Replicas during heavy or burst
     write workloads for the primary instance.
   - Improved replica lag for db.r3.4xlarge and db.r3.8xlarge

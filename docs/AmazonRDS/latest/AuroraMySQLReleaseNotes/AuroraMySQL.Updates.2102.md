@@ -56,6 +56,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   Performance Insights may query such tables.
 - Fixed an issue where the value of a TIMESTAMP column of an existing row is updated to the latest timestamp
   when all of the following conditions are satisfied:
+
   1.  A trigger exists for the table.
   2.  An INSERT is performed on the table that has an ON DUPLICATE KEY UPDATE clause.
   3.  The inserted row causes a duplicate value violation in a UNIQUE index or PRIMARY KEY.
@@ -76,6 +77,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   performing LOAD FROM S3 or SELECT INTO S3.
 - Fixed an issue which can cause wrong query results when querying a table with a foreign key and both of the
   following conditions are met:
+
   1.  Query cache is enabled
   2.  A transaction with a cascading delete or update on that table is rolled back
 

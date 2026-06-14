@@ -13,6 +13,7 @@ This update includes the following improvements:
 - Stability improvements in the areas of read ahead, recursive foreign-key
   relationships, and Aurora replication.
 - Integration of MySQL bug fixes.
+
   - InnoDB databases with names beginning with a digit cause a full-text
     search (FTS) parser error. (Bug #17607956)
   - InnoDB full-text searches fail in databases whose names began with a

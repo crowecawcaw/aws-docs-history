@@ -113,6 +113,7 @@ an Aurora DB cluster are patched at the same time.
 - Disabled the following two improvements to InnoDB Full-Text Search that
   were introduced in version 1.10 because they introduce stability issues for
   some demanding workloads:
+
   - Updating the cache only after a read request to an Aurora Replica
     in order to improve full-text search index cache replication speed.
   - Offloading the cache sync task to a separate thread as soon as the

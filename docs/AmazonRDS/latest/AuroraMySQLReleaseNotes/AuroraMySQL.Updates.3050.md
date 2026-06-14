@@ -69,6 +69,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   restart or failover may occur because of increased write latency due to increased bytes transmitted over the network.
 - With the addition of the `malloc_stats` and `malloc_stats_totals` tables in the `performance_schema`, three advanced system variables were added
   to control the behavior of Jemalloc, an internal memory allocator:
+
   - `aurora_jemalloc_background_thread`.
   - `aurora_jemalloc_dirty_decay_ms`.
   - `aurora_jemalloc_tcache_enabled`.

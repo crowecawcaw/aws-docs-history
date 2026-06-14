@@ -23,6 +23,7 @@ If you have any questions or concerns, AWS Support is available on the community
 ## Improvements
 
 - Replication improvements:
+
   - Reduced network traffic by not transmitting binlog records to cluster
     replicas. This improvement is enabled by default.
   - Reduced network traffic by compressing replication messages. This improvement
@@ -37,6 +38,7 @@ If you have any questions or concerns, AWS Support is available on the community
   cause problems on Aurora replicas, including instability or missing tables.
 - Fixed an issue where sockets are left in a half-open state when storage nodes are restarted.
 - The following new DB cluster parameters are available:
+
   - `aurora_enable_zdr` – Allow connections opened on an Aurora Replica to stay active on replica restart.
   - `aurora_enable_replica_log_compression` – Enable compression of replication payloads to improve network bandwidth
     utilization between the master and Aurora Replicas.

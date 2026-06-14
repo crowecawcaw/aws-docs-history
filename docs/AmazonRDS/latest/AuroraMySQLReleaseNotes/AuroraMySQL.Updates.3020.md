@@ -50,6 +50,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   turned on and has at least one Binary Log consumer attached that results in resource contention between the application
   and the consumer(s).
 - Freeable memory is indicated by the `FreeableMemory` CloudWatch metric. For more information, see [Amazon CloudWatch metrics for Amazon Aurora](../AuroraUserGuide/Aurora.AuroraMySQL.Monitoring.Metrics.md "../AuroraUserGuide/Aurora.AuroraMySQL.Monitoring.Metrics.md").
+
   - Fixed an issue that can cause a DB instance restart or a failover due to a decrease in freeable memory when binary log
     replication is enabled.
   - Fixed an issue that can cause a DB instance restart or a failover due to a decrease in freeable memory when setting session

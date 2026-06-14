@@ -66,8 +66,8 @@ Amazon RDS Extended Support charges apply only to certain minor versions after a
 | \*_3.12_<br>• (Compatible with Community MySQL 8.0.44)                | February 17, 2026         | February 17, 2027                         |
 | \*_3.11_<br>• (Compatible with Community MySQL 8.0.43)                | November 13, 2025         | November 13, 2026                         |
 | \*_3.10_<br>• (Compatible with Community MySQL 8.0.42) (LTS)          | July 31, 2025             | April 30, 2028                            |
-| \*_3.09_<br>• (Compatible with Community MySQL 8.0.40)                | May 14, 2025              | May 31, 2026                              |
-| \*_3.08_<br>• (Compatible with Community MySQL 8.0.39)                | November 18, 2024         | May 31, 2026                              |
+| \*_3.09_<br>• (Compatible with Community MySQL 8.0.40)                | May 14, 2025              | August 31, 2026                           |
+| \*_3.08_<br>• (Compatible with Community MySQL 8.0.39)                | November 18, 2024         | August 31, 2026                           |
 | \*_3.04_<br>• (Compatible with Community MySQL 8.0.28) (LTS)          | July 31, 2023             | October 31, 2026                          |
 | \*_2.121_<br>• (Compatible with Community MySQL 5.7.40 or<br>5.7.442) | July 25, 2023             | October 31, 2024                          |
 | \*_2.111_<br>• (Compatible with Community MySQL 5.7.12)               | October 25, 2022          | October 31, 2024                          |

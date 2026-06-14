@@ -43,6 +43,7 @@ patch. For more information about ZDP, see
 - Fixed a stability issue in an Aurora Read Replica in the presence of
   logical/parallel read ahead.
 - Improved `LOAD FROM S3` in two ways:
+
   1.  Better handling of Amazon S3 timeout errors by using the SDK retry in
       addition to the existing retry.
   2.  Performance optimization when loading very big files or large
@@ -50,6 +51,7 @@ patch. For more information about ZDP, see
 
 - Fixed the following stability issues with Fast DDL for `ALTER
 TABLE` operations:
+
   1.  When the `ALTER TABLE` statement has multiple
       `ADD COLUMN` commands and the column names are not in
       ascending order.

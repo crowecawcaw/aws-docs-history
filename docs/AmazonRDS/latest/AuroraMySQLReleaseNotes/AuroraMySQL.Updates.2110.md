@@ -76,6 +76,7 @@ The following CVE fixes are included in this release:
   [MySQL Miscellaneous function](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html "https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html").
 - Added support for optimizer hints allowing the user to enable or
   disable Aurora MySQL parallel query on a per-table or per-query basis.
+
   - [Working with parallel query for Amazon Aurora MySQL](../AuroraUserGuide/aurora-mysql-parallel-query.md "../AuroraUserGuide/aurora-mysql-parallel-query.md")
   - [Aurora MySQL hints](../AuroraUserGuide/AuroraMySQL.Reference.md#AuroraMySQL.Reference.Hints "../AuroraUserGuide/AuroraMySQL.Reference.md#AuroraMySQL.Reference.Hints")
 
@@ -106,6 +107,7 @@ The following CVE fixes are included in this release:
 **General improvements:**
 
 - Fixed an issue which can cause the database server to restart when all of the following conditions are true:
+
   - ALLOW_INVALID_DATES is disabled in SQL MODE.
   - The database server is processing an INSERT, UPDATE, DELETE or SELECT statement with an invalid value of DATETIME type
     such that the month is not between 1 and 12.

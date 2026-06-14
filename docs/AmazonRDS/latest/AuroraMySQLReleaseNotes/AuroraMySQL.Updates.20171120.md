@@ -36,6 +36,7 @@ patch. For more information about ZDP, see
   outstanding connection count.
 - Fixed an issue with table locks that caused long semaphore waits during insert workloads.
 - Reverted the following MySQL bug fixes included in Aurora MySQL 1.15:
+
   - MySQL instance stalling "doing SYNC index" (Bug #73816)
   - Assert RBT_EMPTY(INDEX_CACHE->WORDS) in ALTER TABLE CHANGE COLUMN (Bug #17536995)
   - InnoDB Fulltext search doesn't find records when savepoints are involved (Bug #70333)

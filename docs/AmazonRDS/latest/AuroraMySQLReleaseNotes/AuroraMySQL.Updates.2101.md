@@ -48,6 +48,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
   of informational messages in internal diagnostic log files.
 - Fixed an issue where the value of a TIMESTAMP column of an existing row is updated to the latest timestamp
   when all of the following conditions are satisfied:
+
   1.  A trigger exists for the table.
   2.  An INSERT is performed on the table that has an ON DUPLICATE KEY UPDATE clause.
   3.  The inserted row causes a duplicate value violation in a UNIQUE index or PRIMARY KEY.

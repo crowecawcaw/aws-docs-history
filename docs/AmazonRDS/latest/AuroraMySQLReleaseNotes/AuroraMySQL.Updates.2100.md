@@ -46,6 +46,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
 
 - The `db.t3.large` instance class is now supported for Aurora MySQL.
 - _Binary log replication:_
+
   - Introduced the binlog I/O cache to improve binlog performance by reducing contention between writer
     threads and dump threads. For more information, see
     [Optimizing binary log replication](../AuroraUserGuide/AuroraMySQL.Replication.md#binlog-optimization "../AuroraUserGuide/AuroraMySQL.Replication.md#binlog-optimization") in the _Amazon Aurora User Guide_.
@@ -55,6 +56,7 @@ Fixes and other enhancements to fine-tune handling in a managed environment. Add
     that have GTID enabled.
 
 - _Improved reader instance availability:_
+
   - Previously, when a writer instance restarted, all reader instances in an Aurora MySQL cluster restarted
     as well. With today's launch, in-Region reader instances continue to serve read requests during a
     writer instance restart, improving read availability in the cluster. For more information, see
@@ -74,6 +76,7 @@ a result, the queries that use the LRA
 optimization execute up to 3x faster.
 
 - _Zero-downtime restarts and patching:_
+
   - Improved zero-downtime restart (ZDR) and zero-downtime patching (ZDP) to enable ZDR and ZDP in a
     wider range of scenarios, including the added support for cases when binary logging is enabled. Also,
     improved visibility into ZDR and ZDP events. See documentation for details:
@@ -232,6 +235,7 @@ SLAVE` is issued, the set of received GTIDs is cleared before the new relay log 
   #25800025)
 - _Replication:_ When a negative or fractional timeout parameter was supplied to
   `WAIT_UNTIL_SQL_THREAD_AFTER_GTIDS()`, the server behaved in unexpected ways. With this fix:
+
   - A fractional timeout value is read as-is, with no round-off.
   - A negative timeout value is rejected with an error if the server is on a strict SQL mode; if the
     server is not on a strict SQL mode, the value makes the function return `NULL` immediately
