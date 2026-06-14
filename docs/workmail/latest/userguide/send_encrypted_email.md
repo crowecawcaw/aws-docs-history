@@ -26,6 +26,7 @@ AWS Certificate Manager does not currently provide certificates to sign and encr
    store** is selected and choose **Next**.
 6. Choose **Finish**.
 7. Perform the following steps in Windows Outlook:
+
    1. Choose **File**, **Options**,
       **Trust Center**, **Trust Center
       Settings**, **Email Security**, and
@@ -85,6 +86,7 @@ email message, and then choose **Allow**.
 ###### To configure S/MIME in Outlook 2016 for Mac
 
 1. Install the certificate on macOS:
+
    1. Get the certificate (`*.p12`) file from your administrator or
       third-party certificate authority, and save the file to a folder.
    2. Double-click the certificate file to open **Keychain
@@ -98,6 +100,7 @@ email message, and then choose **Allow**.
    **Advanced**, **Security**.
 3. In **Digital signing and Encryption**, choose the newly installed
    certificate from the list and choose from the following options:
+
    - To sign all outgoing messages by default, choose
      **Sign outgoing messages**.
    - To encrypt all outgoing messages by default, choose

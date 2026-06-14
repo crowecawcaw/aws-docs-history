@@ -21,6 +21,7 @@ Mail, Calendar, Contacts, Reminders, and Notes.
 2. Choose **Internet Accounts**.
 3. Choose **Microsoft Exchange**.
 4. Do one of the following:
+
    - **If using macOS Mojave or later**
      – Enter your full name and email address, choose **Sign
      In**, and then choose **Configure

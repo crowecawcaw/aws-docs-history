@@ -81,6 +81,7 @@ Email settings have the following defaults, which can be modified.
    select or clear the field.
 6. Press **Tab** to move to **Compose
    email**.
+
    - For **Format**, use
      **Alt+Down** and the
      **Up/Down** arrows to toggle between

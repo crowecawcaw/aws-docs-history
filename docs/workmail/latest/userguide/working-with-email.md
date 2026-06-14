@@ -17,6 +17,7 @@ the priority, and add flags to indicate importance.
    Press **Enter**.
 2. The message opens with the cursor in the **To** field. Add a
    contact using one of the following methods:
+
    - **Add a contact from the Address Book**.
      Hold down **Shift+Tab** to highlight the
      **To** field, then press

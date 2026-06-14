@@ -32,6 +32,7 @@ the appointment's start date and time.
    icon.
 2. On the menu bar, choose **New appointment**.
 3. Enter the following:
+
    - For **Subject**, enter a subject for the
      appointment.
    - For **Start** and **End**, specify
@@ -66,6 +67,7 @@ reminder to remind you before the meeting starts.
    select one or more users from the address book and add them to the appropriate
    fields.
 4. Enter the following:
+
    - For **Subject**, enter a subject for the
      meeting.
    - For **Start** and **End**, specify
@@ -89,6 +91,7 @@ You can edit a meeting or an appointment to make changes.
 2. On the calendar, open the meeting or appointment and edit the meeting as
    appropriate.
 3. If you are the organizer of a meeting, do one of the following:
+
    - To save your changes and send an update to the other participants,
      choose **Send invitation**.
    - To save your changes to the meeting without sending an update to the
@@ -104,6 +107,7 @@ day or time. You can also edit the meeting or appointment to move it.
 1. In the Amazon WorkMail web application, on the shortcut bar, select the calendar
    icon.
 2. On the calendar, do one of the following:
+
    - Drag the meeting or appointment to a different day and time.
    - Open the meeting or appointment and change the date and time.
 
@@ -119,12 +123,14 @@ You can cancel or decline a scheduled meeting.
 1. In the Amazon WorkMail web application, on the shortcut bar, choose the calendar
    icon.
 2. In the calendar, double-click the meeting, and then do one of the following:
+
    - If you are the meeting organizer, choose **Cancel
      invitation**.
    - If you are not the organizer, choose
      **Decline**.
 
 3. In the **Send meeting request cancellation** dialog box, do one of the following:
+
    - To send a message along with your response, choose **Edit the
      cancellation before sending**,
      **OK**.

@@ -75,8 +75,10 @@ To connect Microsoft Outlook 2016 or 2019 to your Amazon WorkMail account.
 
 1. In Outlook 2016 for Mac or Outlook 2019 for Mac, do one of the
    following:
+
    - If this is the first account you're creating in Outlook 2016
      or later for Mac:
+
      1. On the **Welcome** screen, choose
         **Add Email Account**.
      2. Enter your email address, and then choose
@@ -86,6 +88,7 @@ To connect Microsoft Outlook 2016 or 2019 to your Amazon WorkMail account.
 
    - If you already have an email account for a different email
      address:
+
      1. In the **Tools** menu, choose
         **Accounts**.
      2. In the **Accounts** dialog box,
@@ -235,6 +238,7 @@ for Mac.
    Account**, type your **Email Address**,
    choose **Continue**, and under **Choose the
    provider**, choose **Exchange**.
+
    - If you’re using Outlook for Mac 2011, uncheck
      **Configure automatically** in the
      **Enter your Exchange account information**
@@ -246,6 +250,7 @@ for Mac.
    where indicated. Make sure to type your full password.
 3. For **Server**, type the endpoint matching the
    AWS Region where your mailbox is located.
+
    - US West (Oregon)
 
    https://ews.mail.us-west-2.awsapps.com/EWS/Exchange.asmx

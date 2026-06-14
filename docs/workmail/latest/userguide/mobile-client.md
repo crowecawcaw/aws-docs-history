@@ -63,6 +63,7 @@ to set a password when you connect your device.
 3. Choose **Accounts**, **Add Account**,
    and then choose **Microsoft Exchange**.
 4. Do one of the following:
+
    - In iOS 11 and later, enter your Amazon WorkMail email address and a
      description for the account. Choose **Next**,
      **Sign in**, and then enter the password

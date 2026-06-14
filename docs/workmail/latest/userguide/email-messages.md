@@ -138,6 +138,7 @@ You can copy or move a message from one folder to another.
 1. In the Amazon WorkMail web application, choose the mail icon on the shortcut
    bar.
 2. Do one of the following:
+
    - To copy an item, select the message in the contents pane and choose
      **Copy/Move**.
    - To copy more than one message, press the **Ctrl** key
@@ -186,6 +187,7 @@ also helps you to free up space in your inbox.
 1. In the Amazon WorkMail web application, choose the mail icon on the shortcut
    bar.
 2. Do one of the following:
+
    - In the contents pane, select a message and press the
      **Delete** key.
    - In the contents pane, open the message and choose
