@@ -36,6 +36,7 @@ the workflow task list. The workflow worker polls the task list and when it rece
 replay episode, as follows:
 
 1. The framework runs the workflow's entry point method again and:
+
    - Executes all workflow tasks that don't depend on activity completion, including calling all
      activity client methods. However, the framework checks the execution history and doesn't schedule
      duplicate activity tasks.
@@ -44,6 +45,7 @@ replay episode, as follows:
 
 2. When all workflow tasks that can be executed have completed, the framework reports
    back to Amazon SWF:
+
    - It gives Amazon SWF a list of any activities whose input `Promise<T>` objects have
      become ready since the last episode and can be scheduled for execution.
    - If the episode generated no additional activity tasks but there are still uncompleted

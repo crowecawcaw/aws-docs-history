@@ -110,6 +110,7 @@ The workflow works as follows:
     ready, which occurs after `TryCatch` completes.
 7.  When `retryActivity` is ready, `restartRunUnreliableActivityTillSuccess` extracts
     the value.
+
     - If the value is `false`, the retry succeeded.
       `restartRunUnreliableActivityTillSuccess` doesn'thing and the retry sequence
       terminates.
@@ -283,6 +284,7 @@ public class DecoratorRetryWorkflowImpl implements RetryWorkflow {
 The workflow works as follows:
 
 1. `process` creates and configures an `ExponentialRetryPolicy` object by:
+
    - Passing the initial retry interval to the constructor.
    - Calling the object's `withMaximumAttempts` method to set the maximum number of attempts
      to 5. `ExponentialRetryPolicy` exposes other `with` objects that you can use
@@ -472,6 +474,7 @@ The workflow works as follows:
    which indicates that the activity failed and puts the object in a ready state.
 6. `doFinally` checks whether `failure` is ready, which will be true only if
    `failure` was set by `doCatch`.
+
    - If `failure` is ready, `doFinally` does nothing.
    - If `failure` isn't ready, the activity completed and
      `doFinally` sets failure to `null`.
@@ -480,6 +483,7 @@ The workflow works as follows:
    it failure. Because failure is a `Settable<T>` type, `callActivityWithRetry`
    defers execution until failure is ready, which occurs after `TryCatchFinally` completes.
 8. `retryOnFailure` gets the value from failure.
+
    - If failure is set to null, the retry attempt was successful. `retryOnFailure` does
      nothing, which terminates the retry process.
    - If failure is set to an exception object and `shouldRetry` returns true,

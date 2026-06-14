@@ -124,6 +124,7 @@ your own IAM policy.
    needs.
 4. In the _Resource_ field of the **Policy Document**, add the ARN of
    your Lambda function(s). For example:
+
    - **Resource** :
      `arn:aws:lambda:us-east-1:111122223333:function:hello_lambda_function`
 

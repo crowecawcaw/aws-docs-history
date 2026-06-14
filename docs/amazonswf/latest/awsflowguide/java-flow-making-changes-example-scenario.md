@@ -20,6 +20,7 @@ scenario is to migrate to a system that schedules only one timer but doesn't
 cause failures in executions started before the migration.
 
 1. The Initial Decider Version
+
    1. Write the decider.
    2. Start the decider.
    3. The decider schedules two timers.
@@ -27,6 +28,7 @@ cause failures in executions started before the migration.
    5. Stop the decider.
 
 2. A Backwards-Incompatible Decider Change
+
    1. Modify the decider.
    2. Start the decider.
    3. The decider schedules one timer.
