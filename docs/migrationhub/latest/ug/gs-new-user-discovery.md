@@ -222,6 +222,7 @@ _Application Discovery Service API Reference_.
 1. In the navigation pane, choose **Servers**.
 2. In the servers list, select the check box for each of the servers that you
    want to group into a new or existing application.
+
    1. You can also search and filter on any of the criteria specified in
       the headers of the server list. In the search box choose an item
       from the dropdown, then choose an operator from the next dropdown,
@@ -237,6 +238,7 @@ _Application Discovery Service API Reference_.
 4. In the **Group as application** dialog box, choose either
    **Group as a new application** or **Add to an
    existing application**.
+
    1. If you chose **Group as a new application**, type
       a name in the **Application name** field.
       Optionally, you can type a description in the **Application
@@ -284,6 +286,7 @@ it, and how to add identifying tags.
 4.  In the **Group as application** dialog box, choose either
     **Group as a new application** or **Add to an
     existing application**.
+
     1. If you chose **Group as a new application**, type
        a name in the **Application name** field. The
        servers that are members of the group are labeled on the diagram

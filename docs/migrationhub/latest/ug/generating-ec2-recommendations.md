@@ -15,6 +15,7 @@ following procedure to generate your Amazon EC2 instance recommendations.
    **Amazon EC2 instance recommendations**.
 3. Choose your Amazon EC2 instance sizing preference for your discovered servers. You
    can choose one of the following options.
+
    - **Maximum utilization** – This
      option sizes your instance recommendations based off of the maximum
      (peak) CPU and RAM utilization data that was collected by the discovery
@@ -22,6 +23,7 @@ following procedure to generate your Amazon EC2 instance recommendations.
    - **Current server specification** –
      You have the two options of **Direct match** or
      **Custom match**.
+
      - **Custom match** – Scales
        the CPU and RAM specifications for your instances relative to
        the collected specification data. For example setting CPU to 50%
@@ -52,11 +54,13 @@ following procedure to generate your Amazon EC2 instance recommendations.
 
 4. Choose your Amazon EC2 instance type preferences, including AWS Region, tenancy,
    and pricing model.
+
    - **Region** – Your AWS Region
      selection affects Amazon EC2 instance availability and pricing.
    - **Tenancy** – This defines how EC2
      instances are distributed across physical hardware and affects
      pricing.
+
      - **Shared** – Multiple
        customers may share the same physical hardware.
      - **Dedicated** – Only your
@@ -65,6 +69,7 @@ following procedure to generate your Amazon EC2 instance recommendations.
    - **Pricing Model** – This defines
      the kind of billing and commitment you intend to use for your
      instances.
+
      - **On-Demand** – Requires no
        long-term commitment.
      - **Reserved** – requires 1-3

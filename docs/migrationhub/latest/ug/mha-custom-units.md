@@ -25,6 +25,7 @@ run an automation unit, see [Automation runs in AWS Migration Hub](mha-runs.md "
 3. Choose **Create custom unit**.
 4. Enter a unique name for the unit.
 5. For the runtime target, specify the ARN of one of the following:
+
    - An AWS-owned Systems Manager automation document. For information, see [Systems Manager Automation runbook reference](../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md "../../../systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.md").
    - Your own Systems Manager automation. For information, see [Authoring
      Automation runbooks](../../../systems-manager/latest/userguide/automation-authoring-runbooks.md "../../../systems-manager/latest/userguide/automation-authoring-runbooks.md").
@@ -39,6 +40,7 @@ run an automation unit, see [Automation runs in AWS Migration Hub](mha-runs.md "
    page.
 7. Choose **Next**.
 8. To add an input to the automation unit, choose **Add input**.
+
    1. Specify a name and a type for this input. Optionally, you can also enter a
       description and a format in the form of a regular expression.
    2. The default is for the new input to be required. To make this input optional, clear

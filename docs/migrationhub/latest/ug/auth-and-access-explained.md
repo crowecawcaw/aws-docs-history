@@ -105,6 +105,7 @@ following:
   A can create a role to grant cross-account permissions to another
   AWS account (for example, Account B) or an AWS service as
   follows:
+
   1.  Account A administrator creates an IAM role and attaches a
       permissions policy to the role that grants permissions on
       resources in Account A.

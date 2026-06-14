@@ -88,6 +88,7 @@ You can interact with the diagram in the following ways:
 - To highlight all the connections to and from a server on the diagram, hover over a
   server icon.
 - To see a server's details in the server detail pane, choose a server icon.
+
   - Inbound ports only shows ports that are being opened on the server.
   - Outbound ports aren't displayed.
   - Hovering over a port highlights all the connections that open that port on the

@@ -103,6 +103,7 @@ tags.
    choose **Servers**.
 2. In the severs list, select each of the servers that you want to group into a
    new or existing application.
+
    1. You can also search and filter on any of the criteria specified in the
       headers of the server list. Click inside the search bar and choose an
       item from the dropdown, then choose an operator from the next dropdown,
@@ -118,6 +119,7 @@ tags.
 4. In the **Group as application** dialog box, select either
    **Group as a new application** or **Add to an
    existing application**.
+
    1. If you chose **Group as a new application**, type a
       name for **Application name**. Optionally, you can type
       a description for **Application description**.

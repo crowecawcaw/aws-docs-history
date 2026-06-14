@@ -58,6 +58,7 @@ performs the following actions:
    details, see [Installation requirements](../../../mgn/latest/ug/installation-requirements.md "../../../mgn/latest/ug/installation-requirements.md") .
 2. **Prepare MGN import file and import it to
    MGN**:
+
    - Create an import file in the CSV format that contains the information about the
      servers that you want to migrate.
    - The import file must include the following fields: `mgn:account-id`,
@@ -72,6 +73,7 @@ performs the following actions:
      SDK.
 
 3. **Set up the MGN connector**:
+
    - Navigate to the MGN service in the AWS Management Console.
    - Follow the instructions to download and install the MGN connector on a dedicated
      Linux server.
@@ -79,6 +81,7 @@ performs the following actions:
 
 4. **Store source servers credentials in an AWS Secrets Manager
    secret**:
+
    - Follow the instructions described in [Register server
      credentials](../../../mgn/latest/ug/connector-register-server-credentials.md "../../../mgn/latest/ug/connector-register-server-credentials.md") to create a new secret in AWS Secrets Manager that stores the credentials
      for the source servers.

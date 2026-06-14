@@ -13,6 +13,7 @@ tool at key points during the migration.
 2. Under **Most recently updated applications**, choose the name of
    your migrating application. Doing this displays the application's detail
    screen.
+
    1. If you do not see all of your application's servers listed in the
       application's details page, it could be because you have not grouped those
       servers into this application yet.

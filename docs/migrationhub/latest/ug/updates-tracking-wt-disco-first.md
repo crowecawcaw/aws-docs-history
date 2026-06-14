@@ -24,6 +24,7 @@ correct mappings after performing discovery, contact [AWS Support](https://aws.a
    **Updates**.
 2. Verify if the **Mapped servers** column is populated for
    every row of migration updates.
+
    1. If the **Mapped servers** column is populated for
       every row of migration updates, this means auto-mapping was supported by
       the migration tool and manual mapping is not required. To edit the

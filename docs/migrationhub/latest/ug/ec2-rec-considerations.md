@@ -12,6 +12,7 @@ recommendations.
   overall recommendation.
 - Only current generation instances are recommended. The following types of
   instances are excluded from recommendations:
+
   - Previous generation instances (C3, for example)
   - Bare Metal instances
   - ARM instances (A1, for example)
