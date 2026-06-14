@@ -17,6 +17,9 @@ Consider the following rules of step behavior when you submit steps to a cluster
 - With Amazon EMR versions 5.28.0 and later, you can cancel both pending and running
   steps. You can also choose to run multiple steps in parallel to improve cluster
   utilization and save cost. For more information, see [Considerations for running multiple steps in parallel when you submit work to Amazon EMR](emr-concurrent-steps.md "emr-concurrent-steps.md").
+- With Amazon EMR releases 7.14.0 and later, the maximum number of steps you can
+  add or cancel per request is 100. With earlier releases, the maximum is 256
+  steps per request.
 
 ###### Note
 

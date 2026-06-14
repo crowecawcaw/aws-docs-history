@@ -28,6 +28,7 @@ TABLE`, `SHOW COLUMN`, and `SHOW
 PARTITION`.
 - Amazon EMR doesn't support access control to the following Lake Formation based
   operations:
+
   - Writes to governed tables
   - Amazon EMR doesn't support `CREATE TABLE`. Amazon EMR 6.10.0
     and higher supports `ALTER TABLE`.
@@ -67,6 +68,7 @@ versions.
 - Amazon EMR with Lake Formation only supports cross-account table queries shared
   through resource links.
 - The following aren't supported:
+
   - Resilient distributed datasets (RDD)
   - Spark streaming
   - Write with Lake Formation granted permissions
@@ -74,6 +76,7 @@ versions.
 
 - Amazon EMR blocks functionalities that might undermine the complete
   isolation of system driver, including the following:
+
   - UDTs, HiveUDFs, and any user-defined function that involves
     custom classes
   - Custom data sources
@@ -143,12 +146,14 @@ Review the following limitations when using Lake Formation with Amazon EMR .
 - Amazon EMR with Lake Formation only supports cross-account table queries shared
   through resource links.
 - The following aren't supported:
+
   - Resilient distributed datasets (RDD)
   - Spark streaming
   - Access control for nested columns
 
 - Amazon EMR blocks functionalities that might undermine the complete
   isolation of system driver, including the following:
+
   - UDTs, HiveUDFs, and any user-defined function that involves
     custom classes
   - Custom data sources
@@ -185,7 +190,9 @@ Review the following limitations when using Lake Formation with Amazon EMR .
 - The following limitations apply when using views or cached tables as
   source data (these limitations do not apply to AWS Glue Data Catalog
   views):
+
   - For MERGE, DELETE, and UPDATE operations
+
     - Supported: Using views and cached tables as source
       tables.
     - Not supported: Using views and cached tables in
@@ -193,6 +200,7 @@ Review the following limitations when using Lake Formation with Amazon EMR .
 
   - For CREATE OR REPLACE and REPLACE TABLE AS SELECT
     operations:
+
     - Not supported: Using views and cached tables as source
       tables.
 

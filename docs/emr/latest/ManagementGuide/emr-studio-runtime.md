@@ -126,6 +126,7 @@ If you have already launched a new cluster with a runtime role, you can skip to 
 2. Then, launch a cluster with the following settings to use runtime roles with
    Amazon EMR Studio Workspaces. For instructions on how to launch your cluster, see
    [Specify a security configuration for an Amazon EMR cluster](emr-specify-security-configuration.md "emr-specify-security-configuration.md").
+
    - Choose release label emr-6.11.0 or later.
    - Select Spark, Livy, and Jupyter Enterprise Gateway as your cluster
      applications.

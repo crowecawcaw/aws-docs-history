@@ -55,6 +55,7 @@ Consider the following when you work with EMR Studio:
 - There are additional considerations when you use trusted identity propagation with Amazon EMR that also apply to
   EMR Studio. For more information, see [Considerations and limitations for Amazon EMR with the Identity Center integration](emr-idc-considerations.md "emr-idc-considerations.md").
 - EMR Studio doesn't support the following Python magic commands:
+
   - `%alias`
   - `%alias_magic`
   - `%automagic`

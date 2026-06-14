@@ -31,6 +31,7 @@ policy:
 
 - In the following AWS Regions, Amazon EMR auto-termination is available with
   Amazon EMR 6.14.0 and higher:
+
   - Asia Pacific (Taipei) (ap-east-2)
   - Asia Pacific (Melbourne) (ap-southeast-4)
   - Asia Pacific (Malaysia) (ap-southeast-5)
@@ -42,6 +43,7 @@ policy:
 
 - In the following AWS Regions, Amazon EMR auto-termination is available with
   Amazon EMR 5.30.0 and 6.1.0 and higher:
+
   - US East (N. Virginia) (us-east-1)
   - US East (Ohio) (us-east-2)
   - US West (Oregon) (us-west-2)
@@ -87,6 +89,7 @@ policy:
   a private DNS name with Amazon Virtual Private Cloud, auto-termination won't function
   properly. To ensure that auto-termination works, we recommend that you take
   one of the following actions:
+
   - Remove the API Gateway interface VPC endpoint from your Amazon VPC.
   - Follow the instructions in [Why do I get an HTTP 403 Forbidden error when connecting to my
     API Gateway APIs from a VPC?](https://aws.amazon.com/premiumsupport/knowledge-center/api-gateway-vpc-connections/ "https://aws.amazon.com/premiumsupport/knowledge-center/api-gateway-vpc-connections/") to disable the private DNS name

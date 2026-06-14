@@ -91,6 +91,7 @@ EMR Studio supports using the following identity providers for IAM Identity Cent
 ###### To set up IAM Identity Center for EMR Studio
 
 1. To set up IAM Identity Center for EMR Studio, you need the following:
+
    - A management account in your AWS organization if you use multiple accounts
      in your organization.
 

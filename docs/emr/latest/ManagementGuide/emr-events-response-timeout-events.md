@@ -23,6 +23,7 @@ following ways:
   lower values for the timeout duration for the jobs that require stricter
   SLAs.
 - Alternatively, you can either:
+
   - Launch a new cluster with diversified instance types based on the
     [best practices for instance and Availability
     Zone flexibility](emr-flexibility.md#emr-flexibility-types "emr-flexibility.md#emr-flexibility-types") or

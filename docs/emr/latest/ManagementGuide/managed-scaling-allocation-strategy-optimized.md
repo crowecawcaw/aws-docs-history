@@ -141,6 +141,7 @@ The following image shows these metrics for a sample cluster:
   vary, based on the nature of the workload and the cluster's topology. To ensure optimal results for your use case, we strongly recommend testing the scaling
   strategies with your workloads to determine the most suitable setting.
 - The **PerformanceUtilizationIndex** accepts only the following values:
+
   - **1**
   - **25**
   - **50**

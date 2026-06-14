@@ -66,3 +66,6 @@ canceling steps.
   `TERMINATE_PROCESS StepCancellationOption` sends a
   `SIGKILL` signal to the step child process and all of its
   descendant processes; however, asynchronous processes are not affected.
+- With Amazon EMR releases 7.14.0 and later, the maximum number of steps you
+  can cancel per request is 100. With earlier releases, the maximum is 256
+  steps per request.

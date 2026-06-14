@@ -31,6 +31,7 @@ configuration.
 - The IAM role used to create or update EMR Security Configuration requires the `sso:PutApplicationSessionConfiguration`
   permission. This permission enables user background sessions for Amazon EMR managed IAM Identity Center application.
 - Create an IAM role for IAM Identity Center
+
   - To integrate Amazon EMR with IAM Identity Center, create an IAM role that
     authenticates with IAM Identity Center from the EMR cluster.
     Amazon EMR uses SigV4 credentials to relay the IAM Identity

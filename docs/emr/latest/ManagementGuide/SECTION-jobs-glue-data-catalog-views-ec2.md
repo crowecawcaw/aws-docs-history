@@ -181,6 +181,7 @@ Available syntax:
     ```
 
 - **SHOW CREATE VIEW**
+
   - `SHOW CREATE VIEW view_name` – Shows the SQL statement that creates the specified view. The following is a sample that shows creating a data-catalog view:
 
   ```

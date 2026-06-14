@@ -71,6 +71,7 @@ must have the following:
 1. Create a configuration file using the provided template. Include the
    following values for each Git server that you want to specify in your
    configuration:
+
    - **`DnsServerIpV4`**-
      The IPv4 address of your DNS server. If you provide values for
      both `DnsServerIpV4` and

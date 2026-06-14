@@ -246,6 +246,7 @@ Operations not listed above will continue to use IAM permissions to access table
 
 - If a Hive table is created using a job that doesn’t have full table access enabled, and no records are inserted, subsequent reads or writes from a job with full table access will
   fail. This is because EMR Spark without full table access adds the `$folder$` suffix to the table folder name. To resolve this, you can either:
+
   - Insert at least one row into the table from a job that does not have FTA enabled.
   - Configure the job that does not have FTA enabled to not use `$folder$` suffix in folder name in S3. This can be achieved
     by setting Spark configuration `spark.hadoop.fs.s3.useDirectoryHeaderAsFolderObject=true`.
@@ -255,6 +256,7 @@ Operations not listed above will continue to use IAM permissions to access table
   in Amazon EMR release 7.10.0.
 - Full Table Access is supported for Hive, Iceberg, Delta, and Hudi tables.
 - **Hudi FTA Write Support considerations:**
+
   - Hudi FTA writes require using HoodieCredentialedHadoopStorage for credential vending during job execution. Set the following configuration when running Hudi jobs: `hoodie.storage.class=org.apache.spark.sql.hudi.storage.HoodieCredentialedHadoopStorage`
   - Full Table Access (FTA) write support for Hudi is available starting from Amazon EMR release 7.12.
   - Hudi FTA write support currently works only with the default Hudi configurations. Custom or non-default Hudi settings may not be fully supported and could result in unexpected behavior.

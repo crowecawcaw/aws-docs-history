@@ -43,6 +43,7 @@ enabled Athena workgroups](../../../athena/latest/ug/workgroups-identity-center.
 - Integration with Athena is available in all commercial Regions where EMR Studio
   and Athena are available.
 - The following Athena features are not available in EMR Studio:
+
   - Admin features like creating or updating Athena workgroups, data sources, or
     capacity reservations
   - Athena for Spark or Spark notebooks

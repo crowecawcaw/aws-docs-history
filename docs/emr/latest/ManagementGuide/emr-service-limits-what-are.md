@@ -6,10 +6,12 @@ The EMR service has two types of limits:
 - _Limits on resources_ - You can use EMR to create EC2 resources. However,
   these EC2 resources are subject to service quotas. The resource limitations
   in this category are:
+
   - The maximum number of active clusters that can be run at the same time.
   - The maximum number of active instances per instance group.
 
 - _Limits on APIs_ - When using EMR APIs, the two types of limitations are:
+
   - _Burst limit_ – This is the maximum number of API calls you can make
     at once. For example, the maximum number of AddInstanceFleet API
     requests that you can make per second is set at 5 calls/second as a

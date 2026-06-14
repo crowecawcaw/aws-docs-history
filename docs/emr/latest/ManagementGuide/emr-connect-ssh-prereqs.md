@@ -33,6 +33,7 @@ the _IAM User Guide_.
 5. Check for an inbound rule that allows public access with the
    following settings. If it exists, choose **Delete**
    to remove it.
+
    - **Type**
 
    SSH

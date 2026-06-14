@@ -58,6 +58,7 @@ create a Studio.
 
 1. Create a configuration file using the following template. Include the following
    values for each Git server that you want to specify in your configuration:
+
    - **`DnsServerIpV4`** - The IPv4 address
      of your DNS server. If you provide values for both `DnsServerIpV4` and
      `GitServerIpV4List`, the value for `DnsServerIpV4` takes

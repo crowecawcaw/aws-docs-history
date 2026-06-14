@@ -169,6 +169,7 @@ aws emr create-security-configuration --name "IdentityCenterConfiguration-with-l
 - `AuthorizationConfiguration` /
   `LakeFormationConfiguration` –
   Optionally, configure authorization:
+
   - `IAMConfiguration`
     – Enables EMR Runtimes Roles feature to be used in addition to your TIP identity. If you enable this configuration, then you (or the caller AWS Service) will be
     required to specify an IAM Runtime Role in each call to the EMR Steps or EMR `GetClusterSessionCredentials` APIs. If the EMR cluster is being

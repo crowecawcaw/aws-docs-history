@@ -11,6 +11,7 @@ should choose depends on whether you use the instance groups configuration
 or the instance fleets configuration for the cluster.
 
 - **Instance Groups**
+
   - Manually add instances of the same type to existing core
     and task instance groups.
   - Manually add a task instance group, which can use a
@@ -21,6 +22,7 @@ or the instance fleets configuration for the cluster.
     information, see [Use Amazon EMR cluster scaling to adjust for changing workloads](emr-scale-on-demand.md "emr-scale-on-demand.md").
 
 - **Instance Fleets**
+
   - Add a single task instance fleet.
   - Change the target capacity for On-Demand and Spot
     Instances for existing core and task instance fleets. For
@@ -115,6 +117,7 @@ YARN node labels feature by configuring following properties:
 
 - **yarn-site (yarn-site.xml) On All
   Nodes**
+
   - `yarn.node-labels.enabled: true`
   - `yarn.node-labels.am.default-node-label-expression:
 'CORE'`
@@ -125,6 +128,7 @@ YARN node labels feature by configuring following properties:
 
 - **yarn-site (yarn-site.xml) On Primary And
   Core Nodes**
+
   - `yarn.nodemanager.node-labels.provider:
 'config'`
   - `yarn.nodemanager.node-labels.provider.configured-node-partition:
@@ -132,6 +136,7 @@ YARN node labels feature by configuring following properties:
 
 - **capacity-scheduler
   (capacity-scheduler.xml) On All Nodes**
+
   - `yarn.scheduler.capacity.root.accessible-node-labels:
 '*'`
   - `yarn.scheduler.capacity.root.accessible-node-labels.CORE.capacity:

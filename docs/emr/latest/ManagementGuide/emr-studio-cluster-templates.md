@@ -157,6 +157,7 @@ Outputs:
 
 2. Create a portfolio for your cluster templates in the same AWS account as your
    Studio.
+
    1. Open the AWS Service Catalog console at
       [https://console.aws.amazon.com/servicecatalog/](https://console.aws.amazon.com/servicecatalog/ "https://console.aws.amazon.com/servicecatalog/").
    2. Choose **Portfolios** in the left navigation menu.
@@ -167,6 +168,7 @@ Outputs:
 
 3. Use the following steps to add your cluster templates as
    AWS Service Catalog products.
+
    1. Navigate to the **Products** page under
       **Administration** in the AWS Service Catalog
       management console.
@@ -177,6 +179,7 @@ Outputs:
       **Create product**.
 
 4. Complete the following steps to add your products to your portfolio.
+
    1. Navigate to the **Products** page in the
       AWS Service Catalog management console.
    2. Choose your product, choose **Actions**, then choose
@@ -190,6 +193,7 @@ Outputs:
    AWS Service Catalog. For more information and instructions, see [Service Catalog launch constraints](../../../servicecatalog/latest/adminguide/constraints-launch.md "../../../servicecatalog/latest/adminguide/constraints-launch.md").
 6. Apply your launch constraint to each product in your portfolio. You must apply the
    launch constraint to each product individually.
+
    1. Select your portfolio from the **Portfolios** page in the
       AWS Service Catalog management console.
    2. Choose the **Constraints** tab and choose **Create
@@ -200,6 +204,7 @@ Outputs:
       section, then choose **Create**.
 
 7. Grant access to your portfolio.
+
    1. Select your portfolio from the **Portfolios** page in the
       AWS Service Catalog management console.
    2. Expand the **Groups, roles, and users** tab and choose

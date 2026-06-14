@@ -3,6 +3,7 @@
 Use the following steps to launch an EMR cluster with LDAP or Active Directory.
 
 1. Set up your environment:
+
    - Make sure that the nodes on your EMR cluster can communicate
      with Amazon S3 and AWS Secrets Manager. For more information on how to modify your
      EC2 instance profile role to communicate with these services, see
@@ -25,6 +26,7 @@ Use the following steps to launch an EMR cluster with LDAP or Active Directory.
    information, see [Create the Amazon EMR security configuration for LDAP integration](ldap-setup-security.md "ldap-setup-security.md").
 3. Now that you're set up, use the steps in [Launch an Amazon EMR cluster](emr-gs.md#emr-getting-started-launch-sample-cluster "emr-gs.md#emr-getting-started-launch-sample-cluster") to launch
    your cluster with the following configurations:
+
    - Select Amazon EMR release 6.12 or higher. We recommend that you use the
      latest Amazon EMR release.
    - Only specify or select applications for your cluster that support

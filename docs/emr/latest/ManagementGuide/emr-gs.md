@@ -317,6 +317,7 @@ Console
    **Add step**.
 4. Configure the step according to the following
    guidelines:
+
    - For **Type**, choose **Spark
      application**. You should see additional
      fields for **Deploy mode**,
@@ -388,6 +389,7 @@ aws emr list-clusters --cluster-states WAITING
 2. Submit `health_violations.py` as a step with the
    `add-steps` command and your
    `ClusterId`.
+
    - You can specify a name for your step by replacing
      `"My Spark Application"`.
      In the `Args` array, replace
@@ -491,6 +493,7 @@ output folder.
    `amzn-s3-demo-bucket` and then
    `myOutputFolder`.
 3. Verify that the following items appear in your output folder:
+
    - A small-sized object called `_SUCCESS`.
    - A CSV file starting with the prefix `part-`
      that contains your results.
@@ -581,6 +584,7 @@ _IAM User Guide_.
 5. Check for an inbound rule that allows public access
    with the following settings. If it exists, choose
    **Delete** to remove it.
+
    - **Type**
 
    SSH

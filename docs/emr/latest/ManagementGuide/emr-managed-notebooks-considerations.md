@@ -17,6 +17,7 @@ using EMR notebook.
   [Using Amazon EMR block public access](emr-block-public-access.md "emr-block-public-access.md") and [Control network traffic with security groups for your Amazon EMR cluster](emr-security-groups.md "emr-security-groups.md").
 - **Use a Compatible Cluster** – A
   cluster attached to a notebook must meet the following requirements:
+
   - Only clusters created using Amazon EMR are supported. You can create a
     cluster independently within Amazon EMR and then attach an
     EMR notebook, or you can create a compatible cluster when

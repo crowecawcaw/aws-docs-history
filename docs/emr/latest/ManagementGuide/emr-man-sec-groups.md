@@ -86,6 +86,7 @@ To edit your security groups, you must have permission to manage security groups
 4. Under **Primary node**, choose your security group.
 5. Choose **Edit inbound rules**.
 6. Check for an inbound rule that allows public access with the following settings. If it exists, choose **Delete** to remove it.
+
    - **Type**
 
    SSH

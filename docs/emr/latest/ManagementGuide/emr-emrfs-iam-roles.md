@@ -157,6 +157,7 @@ cluster. For more information, see [Customize IAM roles with Amazon EMR](emr-iam
 ###### To specify IAM roles for EMRFS requests to Amazon S3 using the console
 
 1. Create a security configuration that specifies role mappings:
+
    1. In the Amazon EMR console, select **Security
       configurations**, **Create**.
    2. Type a **Name** for the security configuration.

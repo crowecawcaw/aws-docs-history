@@ -150,6 +150,7 @@ use case and requirements.
   `m4.16xlarge`.
 - Family and variant
   flexibility
+
   - Capacity –
     To optimize for capacity, we recommend instance
     flexibility across instance families. Common

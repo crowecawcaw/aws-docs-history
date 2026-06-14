@@ -104,19 +104,23 @@ label 7.4 or higher. Add the following flags to the cluster configuration to ena
   When **Graceful Decommissioning for Shuffle Data** is enabled in YARN, nodes selected for scale-down that have shuffle data will
   enter the **Decommissioning** state and continue to serve shuffle files. The YARN ResourceManager waits until nodes report no shuffle files
   present before removing the nodes from the cluster.
+
   - Amazon EMR version 6.11.0 and higher support Yarn-based graceful decommissioning for **Hive** shuffle data for both the Tez
     and MapReduce Shuffle Handlers.
+
     - Enable Graceful Decommissioning for Shuffle Data by setting `yarn.resourcemanager.decommissioning-nodes-watcher.wait-for-shuffle-data`
       to `true`.
 
   - Amazon EMR version 7.4.0 and higher support Yarn-based graceful decommissioning for Spark shuffle data when the external shuffle service is
     enabled (enabled by default in EMR on EC2).
+
     - The default behavior of the Spark external shuffle service, when running Spark on Yarn, is for the Yarn NodeManager to remove application
       shuffle files at time of application termination. This may have an impact on the speed of node decommissioning and compute utilization. For long running
       applications, consider setting `spark.shuffle.service.removeShuffle` to `true` to remove shuffle files no longer in use to enable faster
       decommissioning of nodes with no active shuffle data.
 
   - To minimize Spark shuffle data loss in Amazon EMR version 7.4.0 and higher, consider setting the following flags.
+
     - If either the `yarn.nodemanager.shuffledata-monitor.interval-ms` flag (default 30000 ms) or the `spark.dynamicAllocation.executorIdleTimeout` (default 60 sec) has been
       changed from the default values, ensure that the condition `spark.dynamicAllocation.executorIdleTimeout > yarn.nodemanager.shuffledata-monitor.interval-ms` remains `true` by
       updating the necessary flag.

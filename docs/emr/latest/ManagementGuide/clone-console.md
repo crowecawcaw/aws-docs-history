@@ -12,6 +12,7 @@ Console
 2. Under **EMR on EC2** in the left navigation pane,
    choose **Clusters**.
 3. _To clone a cluster from the cluster list_
+
    1. Use the search and filter options to find the cluster that
       you want to clone in the list view.
    2. Select the check box to the left of the row for the
@@ -31,6 +32,7 @@ Console
 
 4. _To clone a cluster from a cluster detail
    page_
+
    1. To navigate to the detail page of the cluster that you
       want to clone, select its **Cluster ID**
       from the cluster list view.

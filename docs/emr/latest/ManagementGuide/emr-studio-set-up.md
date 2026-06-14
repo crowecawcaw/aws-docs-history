@@ -25,6 +25,7 @@ Before you set up an EMR Studio, make sure you have the following items:
 
 1. [Choose an authentication mode for Amazon EMR Studio](emr-studio-authentication.md "emr-studio-authentication.md")
 2. Create the following Studio resources.
+
    - [Create an EMR Studio service role](emr-studio-service-role.md "emr-studio-service-role.md")
    - [Configure EMR Studio user permissions for Amazon EC2 or Amazon EKS](emr-studio-user-permissions.md "emr-studio-user-permissions.md")
    - (Optional) [Define security groups to control EMR Studio network traffic](emr-studio-security-groups.md "emr-studio-security-groups.md").

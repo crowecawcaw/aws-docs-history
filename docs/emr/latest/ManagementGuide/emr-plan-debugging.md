@@ -162,6 +162,7 @@ and your Amazon EMR role must meet the following prerequisites:
 - The Amazon EC2 instance profile and Amazon EMR role must be added to the list of key
   users for the specified AWS KMS customer managed key, as the following
   steps demonstrate:
+
   1.  Open the AWS Key Management Service (AWS KMS) console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms").
   2.  To change the AWS Region, use the Region selector in the
       upper-right corner of the page.

@@ -39,6 +39,7 @@ Perform the following steps to identify and fix the error:
 2. Modify your subnet configurations. You can use one of the following
    methods to find all available public and private subnets in a
    VPC.
+
    - Navigate to the Amazon VPC Console. Choose
      **Subnets** and list all of the subnets
      that reside within the AWS Region for your cluster. To find

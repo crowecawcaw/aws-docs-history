@@ -23,10 +23,12 @@ is Kerberized.
 - **HCatalog**
 - **HDFS**
 - **Hive**
+
   - Do not enable Hive with LDAP authentication. This may cause issues
     communicating with Kerberized YARN.
 
 - **Hue**
+
   - Hue user authentication isn't set automatically and can be
     configured using the configuration API.
   - Hue server is Kerberized. The Hue front-end (UI) is not configured
@@ -34,12 +36,14 @@ is Kerberized.
     Hue UI.
 
 - **Livy**
+
   - Livy impersonation with Kerberized clusters is supported in Amazon EMR
     releases 5.22.0 and higher.
 
 - **Oozie**
 - **Phoenix**
 - **Presto**
+
   - Presto supports Kerberos authentication in Amazon EMR releases 6.9.0
     and higher.
   - To use Kerberos authentication for Presto, you must enable
@@ -48,6 +52,7 @@ is Kerberized.
 - **Spark**
 - **Tez**
 - **Trino**
+
   - Trino supports Kerberos authentication in Amazon EMR releases 6.11.0
     and higher.
   - To use Kerberos authentication for Trino, you must enable
@@ -55,10 +60,12 @@ is Kerberized.
 
 - **YARN**
 - **Zeppelin**
+
   - Zeppelin is only configured to use Kerberos with the Spark
     interpreter. It is not configured for other interpreters.
   - User impersonation is not supported for Kerberized Zeppelin
     interpreters other than Spark.
 
 - **Zookeeper**
+
   - Zookeeper client is not supported.

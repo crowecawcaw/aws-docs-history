@@ -241,6 +241,7 @@ following limitations.
 200.
 
 - In the following AWS Regions, you can access application UIs from the console with Amazon EMR 6.14.0 and higher:
+
   - Asia Pacific (Jakarta) (ap-southeast-3)
   - Europe (Spain) (eu-south-2)
   - Asia Pacific (Melbourne) (ap-southeast-4)
@@ -248,6 +249,7 @@ following limitations.
   - Middle East (UAE) (me-central-1)
 
 - In the following AWS Regions, you can access application UIs from the console with Amazon EMR 5.25.0 and higher:
+
   - US East (N. Virginia) (us-east-1)
   - US West (Oregon) (us-west-2)
   - Asia Pacific (Mumbai) (ap-south-1)

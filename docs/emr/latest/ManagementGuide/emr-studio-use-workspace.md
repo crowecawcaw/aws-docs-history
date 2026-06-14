@@ -23,6 +23,7 @@ it in the console. For more information about the transition, see [Amazon EMR No
    **Idle**. Alternatively, select the row for the Workspace and then
    select **Launch Workspace**. You can choose from the following launch
    options:
+
    - Quick launch – Quickly launch your
      Workspace with default options. Choose **Quick launch** if
      you want to attach clusters to the Workspace in JupyterLab.

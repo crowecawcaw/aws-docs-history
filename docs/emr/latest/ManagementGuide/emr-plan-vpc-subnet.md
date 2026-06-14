@@ -59,6 +59,7 @@ For more information about Amazon VPC, see the [Amazon VPC User Guide](../../../
 Use the following topics to learn more about VPCs and subnets.
 
 - Private Subnets in a VPC
+
   - [Scenario 2: VPC
     with Public and Private Subnets (NAT)](../../../vpc/latest/userguide/VPC_Scenario2.md "../../../vpc/latest/userguide/VPC_Scenario2.md")
   - [NAT
@@ -68,10 +69,12 @@ Use the following topics to learn more about VPCs and subnets.
     Example](https://aws.amazon.com/articles/2781451301784570 "https://aws.amazon.com/articles/2781451301784570")
 
 - Public Subnets in a VPC
+
   - [Scenario 1: VPC
     with a Single Public Subnet](../../../vpc/latest/userguide/VPC_Scenario1.md "../../../vpc/latest/userguide/VPC_Scenario1.md")
 
 - General VPC Information
+
   - [Amazon VPC User Guide](../../../vpc/latest/userguide.md "../../../vpc/latest/userguide.md")
   - [VPC
     Peering](../../../vpc/latest/userguide/vpc-peering.md "../../../vpc/latest/userguide/vpc-peering.md")

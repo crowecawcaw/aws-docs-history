@@ -333,6 +333,7 @@ Amazon EMR.
 - SageMaker AI Studio supports Spark, Hive, and Presto queries with runtime roles when
   you use release `emr-6.9.0` or later.
 - The following notebook kernels in SageMaker AI support runtime roles:
+
   - DataScience – Python 3 kernel
   - DataScience 2.0 – Python 3 kernel
   - DataScience 3.0 – Python 3 kernel

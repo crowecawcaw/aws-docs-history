@@ -53,6 +53,7 @@ Amazon EMR.
   S3 Access Grants with Amazon EMR.
 - The following Amazon EMR capabilities are not supported for use with
   S3 Access Grants:
+
   - Apache Iceberg tables
   - LDAP native authentication
   - Apache Ranger native authentication

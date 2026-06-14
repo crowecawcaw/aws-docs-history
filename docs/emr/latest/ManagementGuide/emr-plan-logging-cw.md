@@ -88,6 +88,7 @@ the console:
    in your selections.
 5. Under **Cluster logs**, select the option to **Publish cluster-specific logs to Amazon CloudWatch**.
 6. (Optional) Configure the following settings:
+
    - **Log group name** - Custom log group name. The default is `/aws/emr/{cluster_id}`.
    - **Log stream prefix** - Prefix for log stream names The default is `empty`.
    - **CloudWatch KMS key** - KMS key ARN for log encryption (optional).
@@ -233,16 +234,20 @@ CloudWatch organizes logs into log groups and log streams:
 
 - **Log Group:** A collection of log streams that share the same retention, monitoring, and
   access control settings.
+
   - **Default name:** `/aws/emr/{cluster_id}`
   - **Custom name:** Any valid CloudWatch log group name
     you specify.
 
 - **Log Stream:** A sequence of log events from a single source:
+
   - Naming patterns:
+
     - **Step logs:** `{prefix}/steps/{step_id}/{file_name}`.
     - **Spark driver and executor logs:** `{prefix}/applications/{application_id}/{container_id}/{file_name}`
 
   - Examples:
+
     - `/steps/s-ABCDEFG123456/stdout`
     - `cluster-prod/steps/s-ABCDEFG123456/stderr`
     - `/applications/application_1234567890_0001/container_1234567890_0001_01_000001/stdout`

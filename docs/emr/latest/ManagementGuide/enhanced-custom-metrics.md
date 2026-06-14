@@ -316,6 +316,7 @@ available in CloudWatch Logs. Follow these steps to access and analyze them:
 1. Navigate to the CloudWatch console in AWS Management Console.
 2. Select **Log groups** from the left navigation pane.
 3. Look for the log groups created by your configuration, such as:
+
    - /emr/yarn/resourcemnger for YARN ResourceManager logs.
    - /emr/hdfs/namenode for HDFS NameNode logs.
    - Any additional log groups specified in your configuration file.
@@ -349,6 +350,7 @@ After your EMR cluster is running with the CloudWatch agent and custom metrics c
 2. Select the **Monitoring** tab in the cluster details page.
 3. Locate the **Filter metric classification** dropdown near the top of the monitoring dashboards.
 4. Use this filter to select specific metric categories:
+
    - Choose **HDFS** to view NameNode and DataNode metrics.
    - Select **YARN** to see ResourceManager and container metrics.
    - Pick **HBase** for HBase-specific performance data.

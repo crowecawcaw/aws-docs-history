@@ -20,6 +20,7 @@ Consider the following points when you use IAM Identity Center with Amazon EMR:
   granted Lake Formation permissions on default database. More
   details: [Configure Lake Formation for an IAM Identity Center enabled EMR cluster](emr-idc-lf.md "emr-idc-lf.md").
 - Trusted Identity Propagation with Amazon EMR is supported in the following AWS Regions:
+
   - `af-south-1` – Africa (Cape Town)
   - `ap-east-1` – Asia Pacific (Hong Kong)
   - `ap-northeast-1` – Asia Pacific (Tokyo)

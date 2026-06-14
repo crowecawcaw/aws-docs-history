@@ -53,6 +53,7 @@ Amazon EMR.
   range, Amazon EMR provisions capacity in the Availability Zone that is the best
   fit.
 - When you specify a target capacity for Spot Instances:
+
   - For each instance type, specify a maximum Spot price.
     Amazon EMR provisions Spot Instances if the Spot price is below
     the maximum Spot price. You pay the Spot price, not
@@ -75,6 +76,7 @@ Amazon EMR.
 - For each fleet with On-Demand Instances, you can choose to apply capacity
   reservation options.
 - If you use allocation strategy for instance fleets, the following considerations apply when you choose subnets for your EMR cluster:
+
   - When Amazon EMR provisions a cluster with a task fleet, it filters out subnets that lack enough available IP addresses to
     provision all instances of the requested EMR cluster. This includes IP addresses required for the primary, core, and task instance fleets
     during cluster launch. Amazon EMR then leverages its allocation strategy to determine the instance pool, based on instance type and remaining

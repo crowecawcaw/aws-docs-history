@@ -77,6 +77,7 @@ needed for Amazon EMR with trusted-identity propagation.
 
 1. Lake Formation starts with the **Use only IAM access control** settings enabled for compatibility with existing AWS Glue Data Catalog behavior. Follow these steps to disable those settings
    to enable fine-grained access control with Lake Formation permissions.
+
    - In the navigation pane, under **Administration**, choose **Data Catalog Settings**.
    - Clear both check boxes under **Default permissions for newly created databases and table** and proceed with the default for **Cross account version setting**,
      uncheck **Enhanced auditing** and click on **Save**.
@@ -169,6 +170,7 @@ for Lake Formation](../../../lake-formation/latest/dg/service-linked-roles.md#se
   bucket. For example, you can name it `s3://tip-blog-s3-lf-` followed by your AWS account ID.
 - Navigate to the [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")AWS Identity and Access Management console and create an IAM Role for Lake Formation Location Registration
   say `LFRole-data-access-permissions-check`. To create an IAM Role:
+
   1.  Go to **Roles** → **Create role**
   2.  Select **Custom trust policy** and paste the following trust
       relationship:
@@ -189,8 +191,8 @@ for Lake Formation](../../../lake-formation/latest/dg/service-linked-roles.md#se
       ]
   }
   ```
-
   3.  Attach below policies to your newly created role:
+
       - The following custom Amazon S3 policy (Replace the demo bucket names with your Amazon S3 bucket names that contain underlying data
         say `s3://tip-blog-s3-lf-<your_account_id>/`):
 
@@ -216,6 +218,7 @@ for Lake Formation](../../../lake-formation/latest/dg/service-linked-roles.md#se
       ```
 
   4.  Open the [AWS Lake Formation console](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
+
       - From the left menu open Data lake locations under **Administration** section
         then **Register location**.
 

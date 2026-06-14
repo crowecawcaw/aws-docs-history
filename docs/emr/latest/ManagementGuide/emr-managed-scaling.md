@@ -21,6 +21,7 @@ either instance groups or instance fleets.
 ## Managed scaling availability
 
 - In the following AWS Regions, Amazon EMR managed scaling is available with Amazon EMR 6.14.0 and higher:
+
   - Asia Pacific (Taipei) (ap-east-2)
   - Asia Pacific (Melbourne) (ap-southeast-4)
   - Asia Pacific (Malaysia) (ap-southeast-5)
@@ -32,6 +33,7 @@ either instance groups or instance fleets.
 
 - In the following AWS Regions, Amazon EMR managed scaling is available with
   Amazon EMR 5.30.0 and 6.1.0 and higher:
+
   - US East (N. Virginia) (us-east-1)
   - US East (Ohio) (us-east-2)
   - US West (Oregon) (us-west-2)
@@ -85,6 +87,7 @@ initial configuration.
   upper boundary of allowed EC2 capacity for On-Demand market type in a
   cluster. If this parameter is not specified, it defaults to the value of
   `MaximumCapacityUnits`.
+
   - This parameter is used to split capacity allocation between
     On-Demand and Spot Instances. For example, if you set the minimum
     parameter as 2 instances, the maximum parameter as 100 instances,
@@ -96,6 +99,7 @@ initial configuration.
   The upper boundary of allowed EC2 capacity for core node type in a cluster.
   If this parameter is not specified, it defaults to the value of
   `MaximumCapacityUnits`.
+
   - This parameter is used to split capacity allocation between core
     and task nodes. For example, if you set the minimum parameter as 2
     instances, the maximum as 100 instances, the maximum core node as 17
@@ -116,6 +120,7 @@ For more information about managed scaling parameters, see [`ComputeLimits`](../
   a private DNS name with Amazon Virtual Private Cloud, managed scaling won't function
   properly. To ensure that managed scaling works, we recommend that you take
   one of the following actions:
+
   - Remove the API Gateway interface VPC endpoint from your Amazon VPC.
   - Follow the instructions in [Why do I get an HTTP 403 Forbidden error when connecting to my
     API Gateway APIs from a VPC?](https://aws.amazon.com/premiumsupport/knowledge-center/api-gateway-vpc-connections/ "https://aws.amazon.com/premiumsupport/knowledge-center/api-gateway-vpc-connections/") to disable the private DNS name

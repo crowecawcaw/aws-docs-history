@@ -24,6 +24,7 @@ features, see the following topics:
 
 - Use the `create-security-configuration` command as shown in the
   following example.
+
   - For `SecConfigName`, specify the name of the
     security configuration. This is the name you specify when you create a
     cluster that uses this security configuration.
@@ -103,6 +104,7 @@ What you do next depends on the encryption mode you chose:
 
 - Under **Local disk encryption**, choose a value for
   **Key provider type**.
+
   - **AWS KMS key**
 
   Select this option to specify an AWS KMS key. For
@@ -133,6 +135,7 @@ What you do next depends on the encryption mode you chose:
   open-source TLS encryption features for in-transit data. Choose a
   **Certificate provider type** according to the
   following guidelines:
+
   - **EMR-managed**
 
   Select this option to have Amazon EMR create and store private
@@ -765,6 +768,7 @@ Amazon EMR console.
    later.
 2. For the **Minimum Instance Metadata Service Version**
    option, select either:
+
    - **Turn off IMDSv1 and only allow IMDSv2**, if
      you want to allow only IMDSv2 on this cluster. See [Transition to using instance metadata service version
      2](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md#instance-metadata-transition-to-version-2 "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-service.md#instance-metadata-transition-to-version-2") in the

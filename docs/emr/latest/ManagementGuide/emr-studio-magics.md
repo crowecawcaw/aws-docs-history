@@ -40,6 +40,7 @@ spark.conf.set("spark.driver.maxResultSize", '6g')
 ```
 
 - The following magic commands and actions are prohibited by AWS:
+
   - `%alias`
   - `%alias_magic`
   - `%automagic`

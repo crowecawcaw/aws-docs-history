@@ -10,6 +10,7 @@ the cluster.
 - Your cluster should have cluster logging enabled. For more information,
   see [Configure Amazon EMR cluster logging and debugging](emr-plan-debugging.md "emr-plan-debugging.md").
 - EC2 instance profile:
+
   - Your cluster's EC2 instance profile should be allowed to access the S3 bucket which will be used in the
     step's logging configuration.
   - Your cluster's EC2 instance profile should be allowed to access the KMS key which will be used in the step's logging

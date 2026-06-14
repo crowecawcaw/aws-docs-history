@@ -21,6 +21,7 @@ hosting Amazon EMR clusters.
    address space for your VPC to ensure proper DNS hostname resolution;
    otherwise, you may experience Amazon EMR cluster failures. This includes the
    following IP address ranges:
+
    - 10.0.0.0 - 10.255.255.255
    - 172.16.0.0 - 172.31.255.255
    - 192.168.0.0 - 192.168.255.255

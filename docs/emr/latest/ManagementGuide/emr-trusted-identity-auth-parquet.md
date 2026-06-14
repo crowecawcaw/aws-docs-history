@@ -174,6 +174,7 @@ Assign grant.
 4. Select **Add** to choose the users and groups to grant permissions. Choose users and
    groups and click on **Assign**
 5. Next, choose **Named Data Catalog resources** to grant permissions and choose:
+
    - Your account default catalog under **Catalogs**
    - emr_tip_tutorial under **Databases**
    - customer_parquet table under **Tables**

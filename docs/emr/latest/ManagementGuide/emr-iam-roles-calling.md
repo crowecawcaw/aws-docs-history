@@ -20,6 +20,7 @@ calls the EC2 instance metadata to obtain the temporary credentials.
   temporary credentials using IAM roles. Each topic starts with a version of an
   application that does not use IAM roles and then walks you through the process
   of converting that application to use IAM roles.
+
   - [Using IAM roles for
     Amazon EC2 instances with the SDK for Java](../../../sdk-for-java/latest/developer-guide/java-dg-roles.md "../../../sdk-for-java/latest/developer-guide/java-dg-roles.md") in the
     _AWS SDK for Java Developer Guide_
