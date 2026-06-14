@@ -22,6 +22,7 @@ Spark
 4. If your script location is a JAR file, enter the class name that is the entry
    point for the job in the **Main class** field.
 5. (Optional) Enter values for the remaining fields.
+
    - **Script arguments** — Enter any arguments that
      you want to pass to your main JAR or Python script. Your code reads these
      parameters. Separate each argument in the array by a comma.
@@ -59,7 +60,6 @@ Spark
        ]
    }
    ```
-
    - **Additional settings** — Activate or deactivate the
      AWS Glue Data Catalog as a metastore and modify application log settings. To learn more
      about metastore configurations, refer to [Metastore configuration for EMR Serverless](metastore-config.md "metastore-config.md"). To learn more about application logging
@@ -78,6 +78,7 @@ Hive
    the script or JAR that you want to run. For Hive jobs, the script must be a Hive
    (`.sql`) file.
 4. (Optional) Enter values for the remaining fields.
+
    - **Initialization script location** – Enter the
      location of the script that initializes tables before the Hive script
      runs.
@@ -105,7 +106,6 @@ Hive
        "monitoringConfiguration": {}
    }
    ```
-
    - **Additional settings** — Activate or deactivate
      the AWS Glue Data Catalog as a metastore and modify application log settings. To learn
      more about metastore configurations, refer to [Metastore configuration for EMR Serverless](metastore-config.md "metastore-config.md"). To learn more about application logging

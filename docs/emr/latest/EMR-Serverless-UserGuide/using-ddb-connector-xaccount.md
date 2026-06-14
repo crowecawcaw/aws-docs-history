@@ -9,6 +9,7 @@ Amazon DynamoDB is located.
    [Step 1: Create a table](../../../amazondynamodb/latest/developerguide/getting-started-step-1.md "../../../amazondynamodb/latest/developerguide/getting-started-step-1.md").
 2. Create a `Cross-Account-Role-B` IAM role in
    `AccountB` that can access the DynamoDB table.
+
    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Choose **Roles**, and create a new role called
       `Cross-Account-Role-B`. For more information on how
@@ -50,7 +51,6 @@ Amazon DynamoDB is located.
    }`
 
    ```
-
    5. Grant `Job-Execution-Role-A` in `AccountA`
       with `- STS Assume role` permissions to assume
       `Cross-Account-Role-B`.
@@ -81,7 +81,6 @@ Amazon DynamoDB is located.
    }`
 
    ```
-
    6. Set the `dynamodb.customAWSCredentialsProvider`
       property with value as
       `com.amazonaws.emr.AssumeRoleAWSCredentialsProvider`

@@ -11,6 +11,7 @@ Consider the following when you use IAM Identity Center Trusted-Identity-Propaga
   for [interactive workloads with EMR Serverless through
   an Apache Livy endpoint](interactive-workloads-livy-endpoints.md "interactive-workloads-livy-endpoints.md").
 - Trusted Identity Propagation with Amazon EMR is supported in the following AWS Regions:
+
   - af-south-1 – Africa (Cape Town)
   - ap-east-1 – Asia Pacific (Hong Kong)
   - ap-northeast-1 – Asia Pacific (Tokyo)

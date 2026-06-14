@@ -125,6 +125,7 @@ Console
    EMR Studio with the instructions in [Getting started from the console](getting-started.md#gs-console "getting-started.md#gs-console").
 2. To access engine-specific application UIs and logs for a
    running job:
+
    1. Choose a job with a `RUNNING`
       status.
    2. Select the job on the **Application
@@ -144,6 +145,7 @@ Console
 
 3. To access engine-specific application UIs and logs for a
    completed job:
+
    1. Choose a job with a `SUCCESS`
       status.
    2. Select the job on your application's

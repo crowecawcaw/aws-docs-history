@@ -153,10 +153,12 @@ The following application-specific encryption features are available with
 Amazon EMR Serverless:
 
 - Spark
+
   - By default, communication between Spark drivers and executors is authenticated and
     internal. RPC communication between drivers and executors is encrypted.
 
 - Hive
+
   - Communication between the AWS Glue metastore and EMR Serverless applications happens
     via TLS.
 

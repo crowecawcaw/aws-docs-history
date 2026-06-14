@@ -15,6 +15,7 @@ signed in to two AWS accounts:
 - `AccountA` – This is the AWS
   account where you have created an Amazon EMR Serverless application. Before you set up
   cross-account access, have the following ready in this account:
+
   - An Amazon EMR Serverless application where you want to run jobs.
   - A job execution role that has the required permissions to run jobs in the
     application. For more information, refer to [Job runtime roles for Amazon EMR Serverless](security-iam-runtime-role.md "security-iam-runtime-role.md").
@@ -89,6 +90,7 @@ data from EMR Serverless:
    DynamoDB table](../../../amazondynamodb/latest/developerguide/getting-started-step-1.md "../../../amazondynamodb/latest/developerguide/getting-started-step-1.md") in the _Amazon DynamoDB Developer Guide_.
 2. Create a `Cross-Account-Role-B` IAM role in `AccountB` that
    can access the `cross-account-bucket`.
+
    1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
    2. Choose **Roles** and create a new role:
       `Cross-Account-Role-B`. For more information about how to create IAM
@@ -151,6 +153,7 @@ JSON
 ```
 
 3. Edit the trust relationship for the `Cross-Account-Role-B` role.
+
    1. To configure the trust relationship for the role, choose the **Trust
       Relationships** tab in the IAM console for the role
       `Cross-Account-Role-B` that you created in Step 2.
@@ -180,6 +183,7 @@ JSON
 
 4. Grant `Job-Execution-Role-A` in `AccountA` the AWS STS
    `AssumeRole` permission to assume `Cross-Account-Role-B`.
+
    1. In the IAM console for AWS account `AccountA`, select
       `Job-Execution-Role-A`.
    2. Add the following policy statement to the `Job-Execution-Role-A` to

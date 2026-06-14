@@ -26,12 +26,14 @@ estimate the costs associated with your EMR Serverless with Lake Formation job, 
 - EMR Serverless with Lake Formation only supports cross-account table queries shared
   through resource links.
 - The following aren't supported:
+
   - Resilient distributed datasets (RDD)
   - Spark streaming
   - Access control for nested columns
 
 - EMR Serverless blocks functionalities that might undermine the complete
   isolation of system driver, including the following:
+
   - UDTs, HiveUDFs, and any user-defined function that involves custom
     classes
   - Custom data sources
@@ -66,13 +68,16 @@ estimate the costs associated with your EMR Serverless with Lake Formation job, 
   role credentials to modify table data.
 - The following limitations apply when using views or cached tables as source
   data (these limitations do not apply to AWS Glue Data Catalog views):
+
   - For MERGE, DELETE, and UPDATE operations
+
     - Supported: Using views and cached tables as source
       tables.
     - Not supported: Using views and cached tables in assignment and
       condition clauses.
 
   - For CREATE OR REPLACE and REPLACE TABLE AS SELECT operations:
+
     - Not supported: Using views and cached tables as source
       tables.
 

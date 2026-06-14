@@ -17,6 +17,7 @@ application by following these steps.
    number.
 4. In the **Architecture** options, choose the instruction set
    architecture to use. For more information, refer to [Amazon EMR Serverless architecture options](architecture.md "architecture.md").
+
    - **arm64** — 64-bit ARM architecture; to use
      Graviton processors
    - **x86_64** — 64-bit x86 architecture; to use

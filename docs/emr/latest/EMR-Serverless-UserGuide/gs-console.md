@@ -19,6 +19,7 @@ Create a new application with EMR Serverless as follows.
    to the EMR Serverless landing page.
 3. To create or manage EMR Serverless applications, you need the EMR Studio
    UI.
+
    - If you already have an EMR Studio in the AWS Region where you want to
      create an application, then select **Manage applications** to
      navigate to your EMR Studio, or select the studio that you want to use.
@@ -59,6 +60,7 @@ aws s3 cp s3://us-east-1.elasticmapreduce/emr-containers/samples/wordcount/scrip
    details** page in EMR Studio. There, choose the **Submit
    job** option.
 3. On the **Submit job** page, complete the following.
+
    - In the **Name** field, enter the name that you want to
      call your job run.
    - In the **Runtime role** field, enter the name of the role
@@ -111,6 +113,7 @@ aws s3 cp hive-query.ql s3://`amzn-s3-demo-bucket`/emr-serverless-hive/query/hiv
    details** page in EMR Studio. There, choose the **Submit
    job** option.
 4. On the **Submit job** page, complete the following.
+
    - In the **Name** field, enter the name that you want to
      call your job run.
    - In the **Runtime role** field, enter the name of the role
@@ -124,7 +127,6 @@ aws s3 cp hive-query.ql s3://`amzn-s3-demo-bucket`/emr-serverless-hive/query/hiv
    ```
    --hiveconf hive.log.explain.output=false
    ```
-
    - In the **Job configuration** section, choose
      **Edit as JSON**, and enter the following JSON.
 

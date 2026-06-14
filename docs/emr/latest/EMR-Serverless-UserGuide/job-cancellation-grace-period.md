@@ -173,6 +173,7 @@ To optimize costs and ensure graceful shutdown:
 - Grace period shutdown is only available for jobs in RUNNING state.
 - Subsequent cancel requests during the CANCELLING state are ignored.
 - If EMR Serverless fails to initiate grace period shutdown due to internal service errors:
+
   - The service will retry for up to 2 minutes.
   - If retries are unsuccessful, the job will be forcefully terminated.
 

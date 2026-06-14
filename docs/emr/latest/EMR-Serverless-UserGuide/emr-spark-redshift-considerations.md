@@ -14,6 +14,7 @@
   directory isn't cleaned up automatically and therefore could add additional
   cost.
 - Consider the following recommendations for Amazon Redshift:
+
   - We suggest that you block public access to the Amazon Redshift
     cluster.
   - We suggest that you turn on [Amazon Redshift audit
