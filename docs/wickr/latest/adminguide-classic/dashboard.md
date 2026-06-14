@@ -26,6 +26,7 @@ The time selected is in UTC (Universal Time Coordinated).
 The following tabs are available:
 
 - **Overview** displays:
+
   - **Registered —** The total number of registered users, including
     active and suspended users on the network in the selected time. It does not include
     pending or invited users.
@@ -39,9 +40,11 @@ The following tabs are available:
     their client versions.
 
 - **Members** displays:
+
   - **Status —** Active users on the network within the time period
     selected.
   - **Active users —**
+
     - The graph displays the count of active users over time and can be aggregated by
       daily, weekly or monthly (within the above selected time range).
     - The active user count can be broken down by **Platform**,
@@ -50,6 +53,7 @@ The following tabs are available:
       **Deleted#**.
 
 - **Messages** displays:
+
   - **Messages sent —** The count of unique messages sent by all users
     and bots on the network in the selected time period.
   - **Calls —** Number of unique calls made by all users in the

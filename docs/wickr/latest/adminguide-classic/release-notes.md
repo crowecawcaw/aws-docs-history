@@ -19,6 +19,7 @@ release notices that describe recent changes.
 ## August 2024
 
 - Enhancements
+
   - Wickr is now available in the Europe (Zurich)
     AWS Region.
 
@@ -48,6 +49,7 @@ release notices that describe recent changes.
 
 - AWS Wickr is now offering a three-month free trial of its Premium plan for
   up to 30 users. Changes and limitations include:
+
   - All Standard and Premium plan features such as unlimited admin
     controls and data retention are now available in the Premium free trial.
     The guest user feature is not available during the Premium free
@@ -62,6 +64,7 @@ release notices that describe recent changes.
 
 - Guest users feature is now generally available. Changes and additions
   include:
+
   - Ability to report abuse by other Wickr users.
   - Administrators can view a list of guest users a network has interacted
     with, and monthly usage counts.
@@ -70,6 +73,7 @@ release notices that describe recent changes.
   - Add-on pricing for guest users.
 
 - Admin control enhancements
+
   - Ability to bulk delete/suspend users.
   - Additional SSO setting to configure a grace period for token
     refresh.
@@ -77,12 +81,14 @@ release notices that describe recent changes.
 ## October 2023
 
 - Enhancements
+
   - Wickr is now available in the Europe (Frankfurt)
     AWS Region.
 
 ## September 2023
 
 - Enhancements
+
   - Wickr networks now have the ability to federate across
     AWS Regions. For more information, see [Security
     groups](../adminguide/security-groups.md "../adminguide/security-groups.md").
@@ -90,18 +96,21 @@ release notices that describe recent changes.
 ## August 2023
 
 - Enhancements
+
   - Wickr is now available in the Europe (London)
     AWS Region.
 
 ## July 2023
 
 - Enhancements
+
   - Wickr is now available in the Canada (Central)
     AWS Region.
 
 ## May 2023
 
 - Enhancements
+
   - Added support for guest users. For more information, see [Guest users in AWS Wickr network](guest-users.md "guest-users.md").
 
 ## March 2023

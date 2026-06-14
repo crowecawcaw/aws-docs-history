@@ -34,6 +34,7 @@ Complete the following procedure to create an AWS account.
 
 1. If your organization does not have an existing AWS Account ID you can start by creating a
    standalone AWS account ID. A few key things you will need for this:
+
    - A credit/debit card for billing
    - An email address that can be accessed by a group (Recommended, not required)
    - Select an Support plan. For more information, see [Changing Support

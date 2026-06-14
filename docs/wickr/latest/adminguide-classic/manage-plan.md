@@ -14,6 +14,7 @@ To manage your network plan, complete the following procedure.
 3. On the **My Plan** page, choose your desired network plan.
    You can modify your current network plan by choosing one of the
    following:
+
    - **Standard —** For small and large business teams
      that need administrative controls and flexibility.
    - **Premium** or **Premium Free Trial
