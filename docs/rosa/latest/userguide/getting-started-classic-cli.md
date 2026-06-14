@@ -35,6 +35,7 @@ Complete the prerequisite actions listed in [Set up to use ROSA](set-up.md "set-
 You can create a ROSA classic cluster using the ROSA CLI and AWS STS.
 
 1. Create the required IAM account roles and policies using `--mode auto` or `--mode manual`.
+
    - ```
      rosa create account-roles --classic --mode auto
      ```
@@ -49,6 +50,7 @@ You can create a ROSA classic cluster using the ROSA CLI and AWS STS.
    If your offline access token has expired, the ROSA CLI outputs an error message stating that your authorization token needs updated. For steps to troubleshoot, see [Troubleshoot ROSA CLI expired offline access tokens](troubleshooting-rosa.md#rosa-cli-expired-token "troubleshooting-rosa.md#rosa-cli-expired-token").
 
 2. Create a cluster using `--mode auto` or `--mode manual`. `auto` mode allows you to create a cluster more quickly. `manual` mode prompts you to specify custom settings for your cluster.
+
    - ```
      rosa create cluster --cluster-name <CLUSTER_NAME> --sts --mode auto
      ```
@@ -213,6 +215,7 @@ rosa describe cluster -c <CLUSTER_NAME> | grep Console
 ```
 
 2. Navigate to the console URL in the output and log in.
+
    - If you created a `cluster-admin` user, log in using the provided credentials.
    - If you configured an identity provider for your cluster, choose the identity provider name in the **Log in with…​** dialog and complete any authorization requests presented by your provider.
 
@@ -246,6 +249,7 @@ Welcome to your Node.js application on OpenShift
 ```
 
 14. (Optional) Delete the application and clean up resources:
+
     1.  In the **Administrator** perspective, choose **Home** > **Projects**.
     2.  Open the action menu for your project and choose **Delete Project**.
 
@@ -333,6 +337,7 @@ rosa delete account-roles --prefix <PREFIX> --mode auto
 ```
 
 5. Delete the IAM policies created by ROSA.
+
    1. Log in to the [IAM console](https://console.aws.amazon.com/iamv2/home#/home "https://console.aws.amazon.com/iamv2/home#/home").
    2. On the left menu under **Access management**, choose **Policies**.
    3. Select the policy that you want to delete and choose **Actions** > **Delete**.

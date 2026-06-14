@@ -359,12 +359,12 @@ The following procedure uses the `rosa create cluster --hosted-cp` command to cr
 To create a Multi-AZ cluster, specify `multi-az` in the command and the private subnet IDs for each private subnet you want you to deploy to.
 
 1. Create a ROSA with HCP cluster with one of the following commands.
+
    - Create a ROSA with HCP cluster with a public API and Ingress, specifying the cluster name, operator role prefix, OIDC config ID, and public and private subnet IDs.
 
    ```
    rosa create cluster --cluster-name=<CLUSTER_NAME> --sts --mode=auto --hosted-cp --operator-roles-prefix <OPERATOR_ROLE_PREFIX> --oidc-config-id <OIDC_CONFIG_ID> --subnet-ids=<PUBLIC_SUBNET_ID>,<PRIVATE_SUBNET_ID>
    ```
-
    - Create a ROSA with HCP cluster with a private API and Ingress, specifying the cluster name, operator role prefix, OIDC config ID, and private subnet IDs.
 
    ```
@@ -542,6 +542,7 @@ Welcome to your Node.js application on OpenShift
 ```
 
 14. (Optional) Delete the application and clean up resources:
+
     1.  In the **Administrator** perspective, choose **Home** > **Projects**.
     2.  Open the action menu for your project and choose **Delete Project**.
 
@@ -624,6 +625,7 @@ rosa delete account-roles --prefix <PREFIX> --mode auto
 ```
 
 5. Delete the IAM policies created by ROSA.
+
    1. Log in to the [IAM console](https://console.aws.amazon.com/iamv2/home#/home "https://console.aws.amazon.com/iamv2/home#/home").
    2. On the left menu under **Access management**, choose **Policies**.
    3. Select the policy that you want to delete and choose **Actions** > **Delete**.

@@ -237,6 +237,7 @@ If you use a firewall, you must configure it so that ROSA can access the sites t
 For more information, see [Requirements for using AWS PrivateLink clusters](https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/install_rosa_classic_clusters/rosa-aws-privatelink-creating-cluster#osd-aws-privatelink-required-resources_rosa-aws-privatelink-creating-cluster "https://docs.redhat.com/en/documentation/red_hat_openshift_service_on_aws/4/html/install_rosa_classic_clusters/rosa-aws-privatelink-creating-cluster#osd-aws-privatelink-required-resources_rosa-aws-privatelink-creating-cluster") in the Red Hat documentation.
 
 1. Create the required IAM account roles and policies using `--mode auto` or `--mode manual`.
+
    - ```
      rosa create account-roles --classic --mode auto
      ```
@@ -252,12 +253,12 @@ For more information, see [Requirements for using AWS PrivateLink clusters](http
    For steps to troubleshoot, see [Troubleshoot ROSA CLI expired offline access tokens](troubleshooting-rosa.md#rosa-cli-expired-token "troubleshooting-rosa.md#rosa-cli-expired-token").
 
 2. Create a cluster by running one of the following commands.
+
    - Single-AZ
 
    ```
    rosa create cluster --private-link --cluster-name=<CLUSTER_NAME> --machine-cidr=10.0.0.0/16 --subnet-ids=<PRIVATE_SUBNET_ID>
    ```
-
    - Multi-AZ
 
    ```
@@ -447,6 +448,7 @@ rosa describe cluster -c <CLUSTER_NAME> | grep Console
 ```
 
 2. Navigate to the console URL in the output and log in.
+
    - If you created a `cluster-admin` user, log in using the provided credentials.
    - If you configured an identity provider for your cluster, choose the identity provider name in the **Log in with…​** dialog and complete any authorization requests presented by your provider.
 
@@ -479,6 +481,7 @@ Welcome to your Node.js application on OpenShift
 ```
 
 14. (Optional) Delete the application and clean up resources.
+
     1.  In the **Administrator** perspective, choose **Home** > **Projects**.
     2.  Open the action menu for your project and choose **Delete Project**.
 
@@ -564,6 +567,7 @@ rosa delete account-roles --prefix <PREFIX> --mode auto
 ```
 
 5. Delete the IAM policies created by ROSA.
+
    1. Log in to the [IAM console](https://console.aws.amazon.com/iamv2/home#/home "https://console.aws.amazon.com/iamv2/home#/home").
    2. On the left menu under **Access management**, choose **Policies**.
    3. Select the policy that you want to delete and choose **Actions** > **Delete**.
