@@ -304,6 +304,7 @@ URL in your `requirements.txt`.
 3. Use the Amazon MWAA local runner CLI tool to build the Docker image and run Apache Airflow locally. For more information, see the local runner
    [README](https://github.com/aws/aws-mwaa-local-runner/tree/v1.10.15#readme "https://github.com/aws/aws-mwaa-local-runner/tree/v1.10.15#readme") in the GitHub repository.
 4. Using Apache Airflow running locally, follow the steps described in [Upgrading from 1.10 to 2](https://airflow.apache.org/docs/apache-airflow/stable/upgrading-from-1-10/index.html "https://airflow.apache.org/docs/apache-airflow/stable/upgrading-from-1-10/index.html") in the Apache Airflow documentation website.
+
    1. To update your `requirements.txt`, follow the best practices we recommend in
       [Managing Python dependencies](../userguide/best-practices-dependencies.md "../userguide/best-practices-dependencies.md"), in the _Amazon MWAA User Guide_.
    2. If you have bundled your custom operators and sensors with your plugins for your existing Apache Airflow v1.10.12 environment, move them to your DAG folder. For more information on module management best practices for Apache Airflow v2+,
@@ -394,6 +395,7 @@ S3_BUCKET = 'mwaa-migration-`{UUID}`'
 ###### To import the metadata to your new environment
 
 1. In `import_data.py`, replace the string values for the following with your information.
+
    - For migration from an existing Amazon MWAA environment:
 
    ```

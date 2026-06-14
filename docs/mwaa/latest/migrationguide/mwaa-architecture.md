@@ -37,7 +37,7 @@ The service Amazon VPC is not a shared VPC. Amazon MWAA creates an AWS owned VPC
   information about creating the bucket as part of environment creation, and uploading your Amazon MWAA resources, refer to
   [Create an Amazon S3 bucket for Amazon MWAA](../userguide/mwaa-s3-bucket.md "../userguide/mwaa-s3-bucket.md") in the _Amazon MWAA User Guide_.
 - **Amazon SQS** — Amazon MWAA uses Amazon SQS for queueing your workflow tasks with a
-  [Celery executor](https://airflow.apache.org/docs/apache-airflow/stable/executor/celery.html "https://airflow.apache.org/docs/apache-airflow/stable/executor/celery.html").
+  [Celery executor](https://airflow.apache.org/docs/apache-airflow-providers-celery/stable/celery_executor.html "https://airflow.apache.org/docs/apache-airflow-providers-celery/stable/celery_executor.html").
 - **Amazon ECR** — Amazon ECR hosts all Apache Airflow images. Amazon MWAA only supports AWS-managed Apache Airflow images.
 - **AWS KMS** — Amazon MWAA uses AWS KMS to ensure your data is secure at rest. By default, Amazon MWAA uses
   [AWS-managed AWS KMS keys](../../../kms/latest/developerguide/concepts.md#aws-managed-cmk "../../../kms/latest/developerguide/concepts.md#aws-managed-cmk"),
