@@ -17,6 +17,7 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
    page](https://console.aws.amazon.com/iam/home?#/roles "https://console.aws.amazon.com/iam/home?#/roles") in the IAM console.
 2. Choose **Create role**.
 3. Create a role with the following properties.
+
    - Trusted entity: Lambda
    - Permissions: AWSLambdaKinesisExecutionRole (and
      AWSKeyManagementServicePowerUser if the Kinesis stream is
@@ -44,6 +45,7 @@ Monitron, see our [blog post](https://aws.amazon.com/blogs/machine-learning/main
 2. Choose the role created in the first step as the **Execution
    role**.
 3. Configure Kinesis trigger.
+
    1. Choose your Kinesis stream.
    2. Click **Create function**.
 

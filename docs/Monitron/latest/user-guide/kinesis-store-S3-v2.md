@@ -30,6 +30,7 @@ procedure.
    This option is appropriate if you want to partition streaming
    measurement data based on source information and timestamp. For
    example:
+
    - Choose **Enabled** for **Dynamic
      partitioning**.
    - Choose **Enabled** for **New line

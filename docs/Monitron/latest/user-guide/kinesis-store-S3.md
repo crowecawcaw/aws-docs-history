@@ -55,6 +55,7 @@ https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/crea
    This option is appropriate if you want to partition streaming
    measurement data based on source information and timestamp. For
    example:
+
    - Choose **Enabled** for **Dynamic
      partitioning**.
    - Choose **Enabled** for **New line

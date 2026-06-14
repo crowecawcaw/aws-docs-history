@@ -78,6 +78,7 @@ Before you can set up IAM Identity Center, you must:
   this store. Alternatively, you can choose to [Connect to your external identity provider](../../../singlesignon/latest/userguide/manage-your-identity-source-ad.md "../../../singlesignon/latest/userguide/manage-your-identity-source-ad.md") using Azure
   Active Directory. If you choose to connect to an existing Active
   Directory for your user store, you must have the following:
+
   - An existing AD Connector or AWS Managed Microsoft AD directory set
     up in AWS Directory Service, and it must reside within your
     organization's management account. You can connect only one

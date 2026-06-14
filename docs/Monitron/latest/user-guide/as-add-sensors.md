@@ -52,6 +52,7 @@ how to do so:
     * [Models that support NFC Tag Reader (iPhone)](https://support.apple.com/guide/iphone/aside/asd-nfc-reader/14.0/ios/14.0 "https://support.apple.com/guide/iphone/aside/asd-nfc-reader/14.0/ios/14.0")
 
 2. From the **Assets** list, choose the asset.
+
    - If you just created the asset:
 
    Choose **Add position**.
@@ -59,6 +60,7 @@ how to do so:
    ![Asset name 1 screen with No sensor status and Pair sensor button highlighted.](images/pair_sensors.png)
    - If you created the asset earlier, and have already paired more
      than one sensor to it:
+
      1. After you choose the asset, you will see a dropdown list
         of sensors associated with that asset.
 

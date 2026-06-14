@@ -11,6 +11,7 @@ Invite the users you've added to your Amazon Monitron project.
 3. On the **Projects** page, choose your project name to
    open its details page.
 4. Repeat the following steps for each user that you want to invite.
+
    1. Under **How it works**, choose **Email
       instructions**.
 

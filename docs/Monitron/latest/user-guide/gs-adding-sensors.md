@@ -35,11 +35,13 @@ its normal state so that it can later determine abnormalities.
 6. On your **Asset** page, choose **Add
    position**.
 7. On the **Add position** page, do the following:
+
    1. For **Name**, add a name for your
       position.
    2. For **Type**, choose the **Type of
       position** that best fits the location that you're
       going to monitor:
+
       - Bearing
       - Compressor
       - Fan

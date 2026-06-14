@@ -11,9 +11,11 @@ allow the following with regard to your local network traffic:
 - Protocol UDP, ports 67 and 68 - standard DHCP ports
 - TCP ports 443 and 8883
 - For Amazon Monitron gateways commissioned before 19th January, 2024:
+
   - Domains ending in `*.amazonaws.com`
 
 - For Amazon Monitron gateways commissioned after 19th January, 2024:
+
   - Asia Pacific (Sydney) (ap-southeast-2) – 54.79.215.104 and
     54.79.23.89
   - Europe (Ireland) (eu-west-1) – 54.72.131.46, 34.251.27.192,

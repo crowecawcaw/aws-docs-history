@@ -36,6 +36,7 @@ users.
 2. In the IAM Identity Center console, choose **Users**.
 3. Repeat the following steps for each user that will access your project
    in the Amazon Monitron mobile app.
+
    1. On the **Users** page choose **Add
       user**.
    2. In the **User details** section, provide the

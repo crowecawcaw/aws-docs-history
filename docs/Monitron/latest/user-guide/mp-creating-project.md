@@ -13,6 +13,7 @@ typically you have one per account. The project name must be unique in your AWS 
 2. Choose **Create Project**.
 3. Under **Project Details**, for **Project
    name**, enter a name that:
+
    - Is unique in the current account
    - Consists of uppercase and lowercase letters, numbers, punctuation
      marks, and spaces
@@ -22,6 +23,7 @@ typically you have one per account. The project name must be unique in your AWS 
    through the AWS Key Management Service (AWS KMS). If you want to use a different AWS KMS key, choose
    **Custom encryption settings (advanced)** under
    **Data encryption** and do one of the following:
+
    - If you already have a AWS KMS key that you want to use, under
      **Choose an AWS AWS KMS key**, choose
      the key or enter the key's Amazon Resource Name (ARN).

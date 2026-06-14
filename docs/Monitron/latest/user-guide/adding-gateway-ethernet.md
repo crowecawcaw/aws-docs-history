@@ -73,4 +73,4 @@ helpful to reset it. For more information, see [Resetting the Ethernet gateway t
      alternate DNS server (optional) information. Then choose
      **connect**.
 
-![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](images/ethernet-IP-DNS-settings.png)
+![Configure network dialog with fields for IP Address, Subnet mask, Router, and DNS servers.](/images/Monitron/latest/user-guide/images/ethernet-IP-DNS-settings.png)

@@ -285,9 +285,11 @@ following:
 
 4. In **Additional information** do the
    following:
+
    1. Under **Subject**, enter **Amazon Monitron data
       export request**.
    2. In the **Description** field, enter:
+
       1. your account ID
       2. the region of the bucket you created
       3. the ARN of the bucket you created (for example:
@@ -300,6 +302,7 @@ following:
 
 5. In **Solve now or contact us** do the
    following:
+
    1. In **Solve now**, select
       **Next**.
 

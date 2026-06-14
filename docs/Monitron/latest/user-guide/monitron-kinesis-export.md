@@ -30,6 +30,7 @@ Kinesis.
    choose **Start live data export**.
 2. Under **Select Amazon Kinesis data stream**, do one of
    the following:
+
    - Enter the name of an existing stream in the search box. Then skip
      to Step 5.
    - Choose **Create a new data stream**.
@@ -37,6 +38,7 @@ Kinesis.
 3. On the **Create data stream** page, under **Data
    stream configuration**, enter your data stream name.
 4. Under Data stream capacity, choose your capacity mode:
+
    - If your data stream’s throughput requirements are unpredictable
      and variable, choose **On-demand**.
    - If you can reliably estimate the throughput requirements of your

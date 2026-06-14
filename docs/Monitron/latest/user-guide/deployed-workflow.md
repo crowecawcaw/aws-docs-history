@@ -14,6 +14,7 @@ The following diagram shows the basic workflow of Amazon Monitron.
    Cloud using the factory's internet connection.
 3. The Amazon Monitron ML-based service in the AWS Cloud
    analyzes the sensor data.
+
    1. Amazon Monitron looks for abnormalities in the data that could
       indicate developing faults.
    2. If Amazon Monitron finds potential failures, it notifies

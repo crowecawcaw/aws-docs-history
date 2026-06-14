@@ -40,6 +40,7 @@ If the gateway has no power, check the following:
   working.** The gateway connects to your smartphone using
   Bluetooth, so it's a potential source of interruption. Check the
   following:
+
   - Is you smartphone's Bluetooth on and working? Try switching it off
     and on. If that doesn't help, restart your phone and check
     again.

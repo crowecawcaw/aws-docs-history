@@ -27,7 +27,7 @@ list of users:
 
 ![Dropdown menu showing Project name 1 expanded with options including Site name 1, 2, and 3.](images/site-to-project.png) 3. Choose the menu icon (☰).
 
-![Navigation bar with menu icon, back arrow, AnyCompany logo, and notification bell.](images/navigation.png) 4. Choose **Users**.
+![Navigation bar with menu icon, back arrow, AnyCompany logo, and notification bell.](/images/Monitron/latest/user-guide/images/navigation.png) 4. Choose **Users**.
 
 A list of all users associated with the project or site is displayed.
 

@@ -157,6 +157,7 @@ See [Commissioning a Wi-Fi gateway](adding-gateway-Wi-Fi.md "adding-gateway-Wi-F
 
 - Make sure your smartphone's Bluetooth is
   working.
+
   - Try switching it off and on. If that doesn't help, restart your
     phone and check again.
   - Are you within your smartphone's Bluetooth range? Bluetooth range
@@ -198,6 +199,7 @@ to the network. In such cases, try the following:
   for amazonaws.com subdomains in order to provide firewall access to Amazon Monitron gateways.
 - Confirm that the issue is not network congestion. There are two ways in
   which Amazon Monitron may notify you that a gateway is offline:
+
   - When looking at information about your gateways in the mobile or
     web app, you may notice that a gateway is listed as offline.
 

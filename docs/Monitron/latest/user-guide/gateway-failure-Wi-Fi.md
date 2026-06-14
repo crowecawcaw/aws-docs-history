@@ -15,6 +15,7 @@ tips.
   Check the LED lights—the two small orange and blue lights next to the
   Amazon symbol on the top of the gateway. If they're on, the gateway has
   power. If the gateway has no power, check the following:
+
   - Is the power cord firmly attached to both the back of the gateway
     and the power outlet?
   - Is the power outlet functioning properly?
@@ -40,6 +41,7 @@ tips.
 - **Make sure your smartphone's Bluetooth is
   working.** The gateway connects to your smartphone using
   Bluetooth.
+
   - Is you smartphone's Bluetooth on and working? Try switching it off
     and on. If that doesn't help, restart your phone and check
     again.
