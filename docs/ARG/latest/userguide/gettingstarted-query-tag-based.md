@@ -36,6 +36,7 @@ Console
    specified tag key or keys.
 7. After you have the results that you want, create a group based on
    this query.
+
    1. Under **Group details**, for
       **Group name**, type a name for your
       resource group.
@@ -103,6 +104,7 @@ resource types.
 ```
 
 2. The following are returned in the response to the command.
+
    - A full description of the group you have created.
    - The resource query that you used to create the
      group.

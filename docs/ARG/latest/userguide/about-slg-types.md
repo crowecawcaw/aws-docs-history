@@ -310,12 +310,14 @@ items with the following values:
 
 - An `AWS::ResourceGroups::Generic` type with one
   parameter:
+
   - The parameter `allowed-resource-types` and a single
     value of `AWS::EC2::CapacityReservation`. This ensures
     that only Amazon EC2 capacity reservations can be members of the resource
     group.
 
 - A `AWS::EC2::CapacityReservationPool` type with two parameters:
+
   - `reservation-type`— Only required when you configure a Capacity Reservation Group
     for Amazon EC2 UltraServer Capacity Blocks. The only allowed value in this field is `capacity-block`.
   - `instance-type`— Only required when you configure a Capacity Reservation Group for Amazon EC2
