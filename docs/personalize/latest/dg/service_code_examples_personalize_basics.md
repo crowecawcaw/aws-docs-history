@@ -6,6 +6,7 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_personalize_actions.md "service_code_examples_personalize_actions.md")
+
   - [CreateBatchInferenceJob](personalize_example_personalize_CreateBatchInferenceJob_section.md "personalize_example_personalize_CreateBatchInferenceJob_section.md")
   - [CreateBatchSegmentJob](personalize_example_personalize_CreateBatchSegmentJob_section.md "personalize_example_personalize_CreateBatchSegmentJob_section.md")
   - [CreateCampaign](personalize_example_personalize_CreateCampaign_section.md "personalize_example_personalize_CreateCampaign_section.md")

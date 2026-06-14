@@ -37,6 +37,7 @@ Domain dataset group and you are already on the **Overview** page, skip to step 
 5. Choose **Next**.
 6. On the **Advanced configuration** page, configure each recommender depending on your business
    needs:
+
    - For each dataset used by the recommender's use case, you can choose the columns Amazon Personalize considers when training
      the models backing your recommender. By default, Amazon Personalize uses all columns that can be used when training. For more
      information, see [Configuring columns used when creating an Amazon Personalize domain recommender](create-recommender-configure-columns.md "create-recommender-configure-columns.md").
@@ -52,6 +53,7 @@ Domain dataset group and you are already on the **Overview** page, skip to step 
    - For `Top picks for your` or `Recommended for you` use cases, optionally make changes to
      exploration configuration. Exploration involves testing different item recommendations to learn how users respond
      to items with very little interaction data. Use the following fields to configure exploration:
+
      - Emphasis on exploring less relevant items (exploration weight) – Configure how
        much to explore. Specify a decimal value between 0 to 1. The default is 0.3. The closer the value is to 1, the more exploration. With more exploration,
        recommendations include more items with less item interactions data or relevance based on previous behavior. At zero, no

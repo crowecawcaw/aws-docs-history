@@ -146,6 +146,7 @@ and get recommendations as follows:
 
 1. On either the solution details page or the **Campaigns** page, choose **Create new campaign**.
 2. On the **Create new campaign** page, for **Campaign details**, provide the following information:
+
    - **Campaign name:** Enter the name of the
      campaign. The text you enter here appears on the Campaign dashboard and
      details page.
@@ -160,6 +161,7 @@ and get recommendations as follows:
 
 3. For **Campaign configuration**, provide the following
    information:
+
    - **Exploration weight:** Configure how
      much to explore, where recommendations include items with less
      item interaction data or relevance more frequently the more exploration you

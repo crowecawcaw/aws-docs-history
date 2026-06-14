@@ -33,6 +33,7 @@ This procedure assumes that you have already created a solution and a solution v
 3. From the navigation pane, under **Custom resources**, choose **Batch inference jobs**.
 4. Choose **Create batch inference job**.
 5. Choose the batch inference job type.
+
    - To generate item recommendations without themes, choose **Item recommendations**.
    - If you use the Similar-Items recipe and want to add descriptive themes to groups of similar items, choose **Themed recommendations with Content Generator**.
      To generate themes, you must have an Items dataset with item name data and textual data. For more information, see

@@ -36,6 +36,7 @@ requirements:
 - Any new fields must support `null` data. For information about adding a null type to a field, see [Schema data types](how-it-works-dataset-schema.md#personalize-datatypes "how-it-works-dataset-schema.md#personalize-datatypes").
 - After you replace a dataset's schema, Amazon Personalize automatically excludes any new columns from training for any existing
   recommenders or custom solutions. Using the modified dataset involves the following actions:
+
   - To use any new columns in training, import data that aligns with the new schema. Then update any recommenders to
     use any new columns, or create a new custom solution and configure the columns that it uses when training.
 
@@ -58,6 +59,7 @@ and choose to replace with a new schema or use an existing one.
 4. Choose **Actions**, and choose **Replace schema**.
 5. In **Schema details**, choose to replace with a new schema or a previously created one.
 6. Specify the new schema to use. If you have chosen to:
+
    - Replace with a new schema, then give the schema a name, and in **Schema definition**, make your
      changes to the schema JSON.
    - Use a previously created schema, then for **Previously created schema**, choose the schema that you

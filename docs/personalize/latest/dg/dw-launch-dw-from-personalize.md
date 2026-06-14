@@ -15,6 +15,7 @@ To launch Data Wrangler from Amazon Personalize, you use the Amazon Personalize 
 6. To use an existing domain, choose a **SageMaker AI domain** and **User profile** to
    configure the domain.
 7. To create a new domain:
+
    - Give the new domain a name.
    - Choose a **User profile name**.
    - For **Execution role**, choose the role you created in [Setting up permissions](dw-data-prep-minimum-permissions.md "dw-data-prep-minimum-permissions.md"). Or, if you have

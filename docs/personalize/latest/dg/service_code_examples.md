@@ -9,8 +9,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Amazon Personalize](service_code_examples_personalize.md "service_code_examples_personalize.md")
+
   - [Basics](service_code_examples_personalize_basics.md "service_code_examples_personalize_basics.md")
+
     - [Actions](service_code_examples_personalize_actions.md "service_code_examples_personalize_actions.md")
+
       - [CreateBatchInferenceJob](personalize_example_personalize_CreateBatchInferenceJob_section.md "personalize_example_personalize_CreateBatchInferenceJob_section.md")
       - [CreateBatchSegmentJob](personalize_example_personalize_CreateBatchSegmentJob_section.md "personalize_example_personalize_CreateBatchSegmentJob_section.md")
       - [CreateCampaign](personalize_example_personalize_CreateCampaign_section.md "personalize_example_personalize_CreateCampaign_section.md")
@@ -37,14 +40,20 @@ This topic also includes information about getting started and details about pre
       - [UpdateCampaign](personalize_example_personalize_UpdateCampaign_section.md "personalize_example_personalize_UpdateCampaign_section.md")
 
 - [Amazon Personalize Events](service_code_examples_personalize-events.md "service_code_examples_personalize-events.md")
+
   - [Basics](service_code_examples_personalize-events_basics.md "service_code_examples_personalize-events_basics.md")
+
     - [Actions](service_code_examples_personalize-events_actions.md "service_code_examples_personalize-events_actions.md")
+
       - [PutEvents](personalize-events_example_personalize-events_PutEvents_section.md "personalize-events_example_personalize-events_PutEvents_section.md")
       - [PutItems](personalize-events_example_personalize-events_PutItems_section.md "personalize-events_example_personalize-events_PutItems_section.md")
       - [PutUsers](personalize-events_example_personalize-events_PutUsers_section.md "personalize-events_example_personalize-events_PutUsers_section.md")
 
 - [Amazon Personalize Runtime](service_code_examples_personalize-runtime.md "service_code_examples_personalize-runtime.md")
+
   - [Basics](service_code_examples_personalize-runtime_basics.md "service_code_examples_personalize-runtime_basics.md")
+
     - [Actions](service_code_examples_personalize-runtime_actions.md "service_code_examples_personalize-runtime_actions.md")
+
       - [GetPersonalizedRanking](personalize-runtime_example_personalize-runtime_GetPersonalizedRanking_section.md "personalize-runtime_example_personalize-runtime_GetPersonalizedRanking_section.md")
       - [GetRecommendations](personalize-runtime_example_personalize-runtime_GetRecommendations_section.md "personalize-runtime_example_personalize-runtime_GetRecommendations_section.md")

@@ -43,6 +43,7 @@ sections:
 
 - **Summary:** The report summary includes dataset statistics and high priority
   warnings:
+
   - **Dataset statistics:** These include Amazon Personalize specific statistics, such as the
     number of unique users in your interactions data, and general statistics, such as the number of missing values
     or outliers.

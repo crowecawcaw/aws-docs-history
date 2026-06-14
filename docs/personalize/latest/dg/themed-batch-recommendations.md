@@ -44,6 +44,7 @@ The following are guidelines and requirements for generating recommendations wit
   recommendations, see [Preparing input data for batch recommendations](batch-data-upload.md "batch-data-upload.md").
 - Your solution must use the [Similar-Items recipe](native-recipe-similar-items.md "native-recipe-similar-items.md").
 - You must have an Items dataset with the following data. This data can help generate more relevant themes.
+
   - It must have a textual field, such as a DESCRIPTION field. For information about textual data, see [Unstructured text metadata](items-datasets.md#text-data "items-datasets.md#text-data").
   - It must have a string column with item name data, such as a TITLE field.
     If your Items dataset doesn't have this data, you can add it.

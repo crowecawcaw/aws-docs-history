@@ -19,6 +19,7 @@ To update a metric attribution with the Amazon Personalize console, you make you
 2. Choose your dataset group.
 3. In the navigation pane, choose **Metric attribution**.
 4. In the bottom section, choose the **Metric attributes** tab or **Metric attribution configuration** tab to start making changes.
+
    - To add or remove metrics, choose the **Metric attributes** tab and choose **Edit attributes**.
      Make your changes on the **Edit metric attributes** page and choose **Update** to save your changes.
    - To make changes to the Amazon S3 output bucket or IAM service role, choose the **Edit metric attribution configuration** tab and make changes on the

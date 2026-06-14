@@ -72,6 +72,7 @@ consider the user's historical data. To consider this data, you must import the 
 `itemId`: Required
 
 - **Datasets used when training:**
+
   - Interactions (required)
   - Items (required)
 
@@ -145,6 +146,7 @@ to consider new items for recommendations.
 `itemId`: Not used
 
 - **Datasets used when training:**
+
   - Interactions (required)
   - Items (optional)
   - Users (optional)
@@ -156,6 +158,7 @@ to consider new items for recommendations.
   `Click` and `Watch` events.
 - **Exploration configuration parameters:** When you create a recommender,
   you can configure exploration with the following.
+
   - Emphasis on exploring less relevant items (exploration weight) – Configure how
     much to explore. Specify a decimal value between 0 to 1. The default is 0.3. The closer the value is to 1, the more exploration. With more exploration,
     recommendations include more items with less item interactions data or relevance based on previous behavior. At zero, no

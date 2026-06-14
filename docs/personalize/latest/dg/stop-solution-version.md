@@ -37,6 +37,7 @@ If your solution version has a status of CREATE_PENDING or CREATE_IN_PROGRESS, y
 6. On the solution version details page, choose **Stop creation**.
    Depending on the original state of the solution version, the solution version
    state changes as follows:
+
    - CREATE_PENDING changes to CREATE_STOPPED.
    - CREATE_IN_PROGRESS changes to CREATE_STOPPING and then
      CREATE_STOPPED.

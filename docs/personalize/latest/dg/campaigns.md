@@ -132,6 +132,7 @@ After your solution version status is Active, you are ready to deploy it with an
 3. In the navigation pane, under **Custom resources**, choose **Campaigns**.
 4. On the **Campaigns** page, choose **Create campaign**.
 5. On the **Create new campaign** page, for **Campaign details**, provide the following information:
+
    - **Campaign name** – Enter the name of the
      campaign. The text you enter here appears on the Campaign dashboard and
      details page.

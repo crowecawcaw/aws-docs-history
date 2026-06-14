@@ -78,6 +78,7 @@ the expression to filter recommendations.
 1. Open the Amazon Personalize console at [https://console.aws.amazon.com/personalize/home](https://console.aws.amazon.com/personalize/home "https://console.aws.amazon.com/personalize/home") and sign into your account.
 2. Choose the dataset group that contains the campaign or recommender that you want to use to get filtered recommendations.
 3. Depending on your dataset group type or resource type, do either of the following:
+
    1. For a Domain dataset group, in the navigation pane choose **Recommenders**.
    2. For a Custom dataset group or custom resources, in the navigation pane choose **Custom resources** then **Campaigns**.
 

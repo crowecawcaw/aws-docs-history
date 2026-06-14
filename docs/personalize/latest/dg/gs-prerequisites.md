@@ -6,6 +6,7 @@ The following steps are prerequisites for the getting started exercises.
    and granting it access to Amazon Personalize resources with an IAM policy.
    For more information, see [Giving Amazon Personalize permission to access your resources](set-up-required-permissions.md "set-up-required-permissions.md").
 2. Prepare your training data and upload the data to your Amazon S3 bucket:
+
    - For Domain dataset group tutorials, see [Creating the training data (Domain dataset group)](#gs-data-prep-domain "#gs-data-prep-domain").
    - For Custom dataset group tutorials, see [Creating the training data (Custom dataset group)](#gs-upload-to-bucket "#gs-upload-to-bucket").
 
@@ -22,6 +23,7 @@ To create training data, download, modify, and save the movie ratings data to an
    development_ (F. Maxwell Harper and Joseph A. Konstan. 2015. The MovieLens Datasets: History and Context.
    ACM Transactions on Interactive Intelligent Systems (TiiS) 5, 4: 19:1–19:19. https://doi.org/10.1145/2827872).
 2. Open the `ratings.csv` file. This file contains the interactions data for this tutorial.
+
    1. Delete the _rating_ column.
    2. Rename the `userId` and `movieId` columns to `USER_ID` and `ITEM_ID` respectively.
    3. Add an EVENT_TYPE column and set the value for every record to `watch`. If you're using Microsoft Excel, you can set the EVENT_TYPE for
@@ -60,6 +62,7 @@ To create training data, download, modify, and save the movie ratings data to an
    development_ (F. Maxwell Harper and Joseph A. Konstan. 2015. The MovieLens Datasets: History and Context.
    ACM Transactions on Interactive Intelligent Systems (TiiS) 5, 4: 19:1–19:19. https://doi.org/10.1145/2827872).
 2. Open the `ratings.csv` file. This file contains the interactions data for this tutorial.
+
    1. Delete the _rating_ column.
    2. Replace the header row with the following:
 

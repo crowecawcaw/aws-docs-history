@@ -117,6 +117,7 @@ details in the recommendation request. For information on other fields, see [Get
 8. If you use contextual metadata, provide data for each context. For each context, for the **Key** enter the metadata field. For the **Value**, enter the context data. For
    more information, see [Increasing recommendation relevance with contextual metadata](contextual-metadata.md "contextual-metadata.md").
 9. For **Promotion** specify the following:
+
    - **Percent promoted items**: Enter the percentage of recommended items to apply the promotion to.
    - **Filter**: Choose a filter that specifies the promotion criteria. This filter applies to the
      promoted items instead of any request filter that you may have specified in step 7.

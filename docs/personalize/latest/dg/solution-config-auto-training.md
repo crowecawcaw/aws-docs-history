@@ -51,6 +51,7 @@ The following are guidelines and requirements for automatic training:
   7:00 pm, and you use weekly training, the next solution version will start training a week later at 7:00 pm.
 - For all recipes, we recommend at least a weekly training frequency. You can specify a training frequency between 1
   and 30 days. The default is every 7 days.
+
   - If you use User-Personalization-v2, User-Personalization, or Next-Best-Action, the solution automatically updates to consider new items or actions for
     recommendations. Automatic updates aren't the same as automatic training. An automatic update doesn't create a
     completely new solution version, and the model doesn't learn from your most recent data. To maintain your solution,

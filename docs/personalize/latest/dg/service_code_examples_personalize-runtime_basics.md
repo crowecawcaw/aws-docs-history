@@ -6,5 +6,6 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_personalize-runtime_actions.md "service_code_examples_personalize-runtime_actions.md")
+
   - [GetPersonalizedRanking](personalize-runtime_example_personalize-runtime_GetPersonalizedRanking_section.md "personalize-runtime_example_personalize-runtime_GetPersonalizedRanking_section.md")
   - [GetRecommendations](personalize-runtime_example_personalize-runtime_GetRecommendations_section.md "personalize-runtime_example_personalize-runtime_GetRecommendations_section.md")

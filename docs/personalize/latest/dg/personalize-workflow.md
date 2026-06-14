@@ -24,6 +24,7 @@ data guidance, see the [Readiness checklist](readiness-checklist.md "readiness-c
    You can import records in bulk or individually.
 7. **Train and deploy a model** – To train and deploy a model for at the VIDEO_ON_DEMAND or ECOMMERCE domains, you create domain recommenders.
    For custom resources, you create a custom solution and a solution version. For real-time recommendations, you deploy the solution version in a campaign.
+
    - For information about creating a domain recommenders, see [Domain recommenders](creating-recommenders.md "creating-recommenders.md").
    - For information about creating and deploying custom resources, see [Custom resources](create-custom-resources.md "create-custom-resources.md").
 

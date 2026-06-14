@@ -37,6 +37,7 @@ Use the following best practices to help you design and maintain A/B tests for A
   the modification that you make for your experiment group.
 - Define relevant key performance indicators (KPIs) related to your hypothesis. You use KPIs to measure the outcome of
   your experiments. These might be the following:
+
   - Click-through rate
   - Watch time
   - Total price

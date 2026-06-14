@@ -12,6 +12,7 @@ To personalize results open source OpenSearch, you do the following:
    from your OpenSearch cluster. For more information, see [Setting up permissions](opensearch-granting-access.md "opensearch-granting-access.md").
 4. **Install the Amazon Personalize Search Ranking plugin** – The Amazon Personalize Search Ranking plugin handles communication with Amazon Personalize and
    re-ranking results.
+
    - If you already have an OpenSearch cluster running, you can manually install the plugin. For more information, see
      [Manually installing the plugin on an existing OpenSearch cluster](opensearch-manual-install.md "opensearch-manual-install.md").
    - If you haven't created an OpenSearch cluster, you can use a quickstart bash script to create one. For more

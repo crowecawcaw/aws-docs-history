@@ -3,6 +3,7 @@
 After you create a solution, you can change its automatic training configuration and its events configuration:
 
 - You can turn automatic training on or off, and you can change the training frequency.
+
   - If you turn on automatic training, the first automatic training starts within one hour after
     the solution update completes. If you manually create a solution version within the hour, the
     solution skips the first automatic training.

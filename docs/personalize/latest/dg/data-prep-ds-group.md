@@ -46,6 +46,7 @@ Create a dataset group by specifying the dataset group name in the Amazon Person
 4. In **Dataset group details**, for **Dataset group name**, specify a name for your
    dataset group.
 5. Choose your **Domain**:
+
    - Choose **E-commerce** to create an ECOMMERCE Domain dataset group.
    - Choose **Video on demand** to create a VIDEO_ON_DEMAND Domain dataset group.
    - Choose **Custom** to create a Custom dataset group with only custom resources, such as

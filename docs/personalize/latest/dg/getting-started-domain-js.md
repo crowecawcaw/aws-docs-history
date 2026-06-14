@@ -227,6 +227,7 @@ run();
 ```
 
 5. Import your data with the following `createDatasetImportJob.js` code. Update the `datasetImportJobParam` to specify the following:
+
    - Specify a name for the job and specify your Interactions
      dataset's ARN.
    - For `dataLocation`, specify the Amazon S3 bucket path (`s3://`https://amzn-s3-demo-bucket.s3.region-code.amazonaws.com`/`folder

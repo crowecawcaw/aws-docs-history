@@ -26,6 +26,7 @@ and map your columns to the required and optional fields for Amazon Personalize.
 2. Choose **Add step**.
 3. Choose **Transforms for Amazon Personalize**. The **Map columns for Amazon Personalize** transform is selected by default.
 4. Use the transform fields to map your data to required Amazon Personalize attributes.
+
    1. Choose the dataset type that matches your data (Interactions, Items, or Users).
    2. Choose your domain (ECOMMERCE, VIDEO_ON_DEMAND, or custom). The domain you choose must match the
       domain you specified when you created your dataset group.

@@ -6,6 +6,7 @@ If you use Amazon OpenSearch Service, you must be able to access your Amazon Per
 
 1. Depending on if your resources are in the same or different accounts, create one or more IAM service roles with
    permission to access your resources.
+
    - If your OpenSearch Service and Amazon Personalize resources are in the same account, you create an IAM service role for OpenSearch Service and
      grant it permission to get a personalized ranking from your Amazon Personalize campaign. For more information, see [Configuring permissions when resources are in the same account](service-role-managed.md "service-role-managed.md").
    - If your OpenSearch Service and Amazon Personalize resources are in separate accounts, you create two IAM service roles. You create

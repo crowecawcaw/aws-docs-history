@@ -26,6 +26,7 @@ a solution name, recipe, and optional training configuration.
 1. Open the Amazon Personalize console at [https://console.aws.amazon.com/personalize/home](https://console.aws.amazon.com/personalize/home "https://console.aws.amazon.com/personalize/home"), and sign in to your account.
 2. On the **Dataset groups** page, choose your dataset group.
 3. On the **Overview** page, for **Step 3**, do one of the following:
+
    - If you created a Domain dataset group, choose **Use custom resources**, and choose
      **Create solutions**.
    - If you created a Custom dataset group, choose **Create solutions**.
@@ -33,6 +34,7 @@ a solution name, recipe, and optional training configuration.
 4. For **Solution name**, specify a name for your solution.
 5. For **Solution type**, choose the type of solution that you want to create. The type you choose
    determines what recipes are available.
+
    - Choose **Item recommendation** to get item recommendations for your users. For example,
      personalized movie recommendations.
    - Choose **Action recommendation** to get action recommendations for your users. For example,
@@ -45,6 +47,7 @@ a solution name, recipe, and optional training configuration.
    [Tagging Amazon Personalize resources](tagging-resources.md "tagging-resources.md").
 8. Choose **Next**.
 9. On the **Training configuration** page, customize the solution to meet your business requirements.
+
    - In **Automatic training**, choose whether the solution uses automatic training. If you use
      automatic training, you can change the `Automatic training frequency`. The default training frequency is
      every 7 days.

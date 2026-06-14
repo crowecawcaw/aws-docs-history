@@ -75,12 +75,14 @@ You must first import data before Amazon Personalize can analyze it. For more in
 4. At the top right, choose **Run analysis**. Amazon Personalize starts analyzing your data. This can take up to
    15 minutes. If successful, the results appear on this page.
 5. In **Insights**, use the following to filter the insights that appear.
+
    - To find insights that include specific language, enter your criteria in **Find insight**.
      As you enter text, the list updates to include only insights with the exact string in the insight or recommended action.
    - To filter the insights by dataset type, change **All datasets** to the specific dataset type.
      The list updates to include only insights related to this dataset.
 
 6. To view dataset statistics for a dataset, do the following.
+
    - To view general details and statistics about a dataset, such as the number of rows, unique users and unique items in an Interactions dataset, expand the section for the dataset.
    - To view detailed statistics for a column, expand the dataset section, choose **Column level statistics** and
      choose the radio button for the column.

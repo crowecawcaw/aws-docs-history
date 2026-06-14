@@ -13,6 +13,7 @@ in a `filterValues` object in your input JSON. For more information, see [Provid
 
 1. Format your batch input data depending on the recipe your solution uses. Separate input data element with a new
    line. Your input data is either a list of itemIds (Item-Affinity) or item attributes (Item-Attribute-Affinity).
+
    - For item attributes, input data can include logical expressions with the `AND` operator to get users
      for multiple items or attributes per query. For more information, see [Specifying item attributes for the Item-Attribute-Affinity recipe](#specifying-item-attributes "#specifying-item-attributes").
    - For item attributes, use the `\` character to escape any special characters and single or double quotes in your input data.

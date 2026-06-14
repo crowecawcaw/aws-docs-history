@@ -84,6 +84,7 @@ There is no cost for automatic updates. For a list of use cases and recipes with
 Automatic updates work as follows:
 
 - When Amazon Personalize automatically updates your solution version or recommender depends on how you get recommendations:
+
   - For real-time recommendations,
     Amazon Personalize updates the solution version or recommender every two hours.
   - For batch item recommendations, when you create a batch inference job and specify the latest fully trained solution

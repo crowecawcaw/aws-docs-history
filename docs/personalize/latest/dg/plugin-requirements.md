@@ -8,6 +8,7 @@ Amazon Personalize Search Ranking plugin:
 - If you haven't already, complete the instructions in [Setting up permissions](aws-personalize-set-up-permissions.md "aws-personalize-set-up-permissions.md") to grant your users permission to access Amazon Personalize and give Amazon Personalize
   permission to access your resources in Amazon Personalize.
 - You must be able to access your Amazon Personalize resources from your OpenSearch Service domain or open source OpenSearch cluster.
+
   - For information about granting access for an OpenSearch Service domain, see [Setting up Amazon OpenSearch Service permissions](opensearch-granting-access-managed.md "opensearch-granting-access-managed.md").
   - For information about granting access for an OpenSearch cluster, see [Setting up open source OpenSearch permissions](opensearch-granting-access.md "opensearch-granting-access.md").
 

@@ -28,6 +28,7 @@ For a checklist that provides lists of Amazon Personalize features, requirements
 3. **[Getting started tutorials](getting-started.md "getting-started.md")** – In this
    section you get started using Amazon Personalize with a simple movie dataset. Complete these tutorials to get hands-on experience
    with Amazon Personalize. You can choose to either get started with a Domain dataset group or a Custom dataset group:
+
    - To get started creating a Domain dataset group, complete the [Getting started prerequisites](gs-prerequisites.md "gs-prerequisites.md") and then start the
      tutorials in [Getting started with a Domain dataset group](getting-started-domain.md "getting-started-domain.md").
    - To get started with a Custom dataset group, complete the [Getting started prerequisites](gs-prerequisites.md "gs-prerequisites.md") and then start the
