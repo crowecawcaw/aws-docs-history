@@ -37,12 +37,14 @@ configurations over time.
 ### Implementation steps
 
 - Collaborate with network function vendors:
+
   - Engage with the network function vendors to understand their default health
     monitoring and failure recovery mechanisms.
   - Work with the vendors to customize and optimize the monitoring and recovery
     timers based on the cloud solutions and NF failure modes.
 
 - Implement multi-layered health monitoring:
+
   - Leverage Amazon CloudWatch to set up comprehensive monitoring of the network function
     instances, including resource utilization, network performance, and
     application-level metrics.
@@ -53,6 +55,7 @@ configurations over time.
     network functions.
 
 - Optimize failure detection timers:
+
   - Work with the network function vendors to fine-tune the health check intervals,
     failure detection thresholds, and recovery timeouts.
   - Balance the need for prompt failure detection with resilience against transient
@@ -61,6 +64,7 @@ configurations over time.
     observed patterns and cloud infrastructure conditions.
 
 - Enhance failure recovery mechanisms:
+
   - Integrate the network function vendor-provided recovery procedures with
     AWS-native capabilities, such as Amazon EC2 Auto Scaling, Amazon EKS, and AWS Lambda.
   - Develop automated recovery workflows using AWS Step Functions or AWS Lambda to handle
@@ -69,6 +73,7 @@ configurations over time.
     functions can recover to a known good state.
 
 - Validate and test the failure recovery:
+
   - Use AWS Fault Injection Service to inject various types of failures and network issues into
     the environment.
   - Monitor the health monitoring and failure recovery mechanisms, and fine-tune

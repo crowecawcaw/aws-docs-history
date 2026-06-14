@@ -35,6 +35,7 @@ continuous service availability and meet regulatory requirements for reliability
 ### Implementation steps
 
 - Define test scenarios for both network function and infrastructure failures:
+
   - For the network function connectivity failures, Amazon CloudWatch can be used to
     monitor connectivity, latency, and error rates for your network interfaces and
     connections.
@@ -43,29 +44,34 @@ continuous service availability and meet regulatory requirements for reliability
     network interfaces.
 
 - Create inventory of critical components:
+
   - Use AWS Config to maintain a comprehensive inventory of your AWS resources and
     their dependencies.
   - Document interconnections and potential failure impacts using AWS CloudFormation
     templates or other standard infrastructure as code (IaC) configuration files.
 
 - Design individual component failure tests:
+
   - Automate failure simulations using AWS Lambda functions or AWS Fault Injection Service to test
     hardware, software, and network issues.
   - Define expected behavior and recovery procedures using Amazon CloudWatch alarms, and
     AWS CloudFormation stacks.
 
 - Develop complex failure scenarios:
+
   - Use auto scaling to model cascading failures, regional outages, and
     multi-component disruptions.
   - Test resilience by injecting faults across your AWS infrastructure using the
     AWS Fault Injection Service.
 
 - Establish success criteria:
+
   - Measure downtime, recovery time, and service quality metrics using Amazon CloudWatch
     dashboards and alarms.
   - Use Amazon CloudWatch alarms to set thresholds.
 
 - Document and analyze results:
+
   - Define templates and formats for recording
     test results, observations, and findings. Include detailed information about test
     conditions, system behavior, and performance metrics.

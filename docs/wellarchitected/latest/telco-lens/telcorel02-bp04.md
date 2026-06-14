@@ -34,12 +34,14 @@ infrastructure.
 ### Implementation steps
 
 - Select an SCTP load balancer:
+
   - Research and evaluate available SCTP load balancer solutions that offer the
     required features, such as multi-homing, stream management, and association
     tracking. Verify the selected product can scale to handle the throughput and latency
     requirements of telco control plane workloads.
 
 - Implement high availability and fault tolerance:
+
   - Deploy the SCTP load balancer across multiple AWS Availability Zones for
     redundancy.
   - Configure health checks and automated failover mechanisms to verify continuous
@@ -48,10 +50,12 @@ infrastructure.
     traffic patterns.
 
 - Optimize for carrier-grade performance:
+
   - Configure the SCTP load balancer to optimize for the specific requirements of
     telco control plane workloads.
 
 - Implement comprehensive monitoring and observability:
+
   - Use Amazon CloudWatch to monitor the SCTP load balancer's performance, availability,
     and error metrics.
   - Configure Amazon CloudWatch alarms and Amazon SNS notifications for proactive alerting and

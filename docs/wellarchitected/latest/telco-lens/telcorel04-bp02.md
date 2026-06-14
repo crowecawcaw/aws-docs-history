@@ -32,12 +32,14 @@ alerting thresholds, and regularly review the monitoring strategy for continuous
 ### Implementation steps
 
 - Design separate signaling planes:
+
   - Use AWS Transit Gateway and AWS Network Firewall to implement a
     vendor-neutral strategy for logical and physical separation between control and user
     plane traffic. Configure AWS Network ACLs and security groups to enforce network
     zoning, traffic classification, and security controls.
 
 - Verify physical separation:
+
   - Use AWS Config to specify and enforce the
     technical requirements for network isolation, including network segments,
     addressing, and security controls. Use AWS Config Rules to monitor and enforce requirements
@@ -51,6 +53,7 @@ alerting thresholds, and regularly review the monitoring strategy for continuous
     Policies.
 
 - Configure failover mechanisms:
+
   - Use Amazon CloudWatch alarms and AWS Lambda functions to
     establish the conditions and thresholds for automated failover.
   - Deploy Amazon CloudWatch and AWS Lambda to monitor the health of
@@ -62,6 +65,7 @@ alerting thresholds, and regularly review the monitoring strategy for continuous
     failure scenarios. Include troubleshooting guides and contact information.
 
 - Monitor plane status:
+
   - Use Amazon CloudWatch to monitor the performance,
     availability, and security metrics for both planes.
   - Establish key performance indicators using Amazon CloudWatch

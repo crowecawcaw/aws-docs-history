@@ -37,6 +37,7 @@ consistency.
 ### Implementation steps
 
 - Design a stateful load balancing architecture:
+
   - Use AWS application load balancing services, such as Application Load Balancer (ALB) and
     Network Load Balancer (NLB), to handle the traffic routing and load distribution.
   - Implement session stickiness and connection tracking mechanisms to maintain
@@ -45,6 +46,7 @@ consistency.
     replicate session data across the load balancing instances.
 
 - Integrate with Kubernetes-based CNFs:
+
   - Develop a Kubernetes Ingress Controller or Gateway API implementation to
     provide a standardized interface for telco CNFs to leverage the stateful load
     balancing solution.
@@ -55,6 +57,7 @@ consistency.
     instances through Kubernetes service discovery mechanisms.
 
 - Optimize for carrier-grade performance:
+
   - Configure the load balancing instances to leverage high-performance AWS
     instance types, such as C5 or M5 families, to handle the throughput and latency
     requirements of telco workloads.
@@ -64,6 +67,7 @@ consistency.
     and Regional load distribution.
 
 - Implement high availability and fault tolerance:
+
   - Deploy the load balancing solution across multiple AWS Availability Zones for
     redundancy and resilience.
   - Configure health checks, automated failover, and connection draining to verify
@@ -72,6 +76,7 @@ consistency.
     traffic patterns and resource utilization.
 
 - Enhance observability and monitoring:
+
   - Integrate the load balancing solution with Amazon CloudWatch for comprehensive
     monitoring of performance metrics, error rates, and health status.
   - Implement Amazon CloudWatch dashboards and alarms to provide visibility into load
@@ -80,6 +85,7 @@ consistency.
     audit trail of load balancing activities.
 
 - Automate deployment and lifecycle management:
+
   - Package the load balancing solution as an AWS CloudFormation template or Terraform
     configuration for consistent and repeatable deployment.
   - Integrate the solution with AWS CodePipeline and AWS CodeBuild for automated CI/CD

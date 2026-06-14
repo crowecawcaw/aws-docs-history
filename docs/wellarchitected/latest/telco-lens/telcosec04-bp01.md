@@ -51,6 +51,7 @@ regulations and customer privacy requirements.
 ### Implementation steps
 
 - Encrypt CPNI and PII data at rest:
+
   - Use AWS Key Management Service (KMS) to generate and manage customer-controlled encryption
     keys for protecting data at rest.
   - Configure AWS services handling CPNI and PII data, such as Amazon S3, Amazon RDS, and
@@ -59,6 +60,7 @@ regulations and customer privacy requirements.
     encryption keys is maintained over time.
 
 - Encrypt CPNI and PII data in transit:
+
   - Require the use of secure communication protocols, such as TLS 1.2 or 1.3, for
     data transfers involving CPNI and PII information.
   - Utilize AWS Certificate Manager to provision, manage, and renew the SSL/TLS certificates used
@@ -68,6 +70,7 @@ regulations and customer privacy requirements.
     interfaces.
 
 - Implement access controls and least privilege:
+
   - Define granular IAM policies to restrict access to CPNI and PII data based on
     the principle of least privilege.
   - Leverage AWS Identity and Access Management to create roles and policies that limit access to CPNI
@@ -76,6 +79,7 @@ regulations and customer privacy requirements.
     and PII data, adding an extra layer of security.
 
 - Enable comprehensive logging and monitoring:
+
   - Configure AWS CloudTrail to create detailed audit trails of access and usage activities
     related to CPNI and PII data.
   - Integrate the CloudTrail logs with Amazon CloudWatch and Amazon OpenSearch Service for centralized security
@@ -84,6 +88,7 @@ regulations and customer privacy requirements.
     attempts to CPNI and PII data.
 
 - Establish data governance processes:
+
   - Develop and enforce data handling policies and procedures aligned with industry
     regulations and customer data privacy requirements.
   - Integrate the encryption, access control, and logging mechanisms into the

@@ -33,6 +33,7 @@ identification and mitigation of potential issues.
 ### Implementation steps
 
 - Design mesh topology:
+
   - Use AWS Transit Gateway to enable connectivity between your control and user plane
     network functions in a star topology, enabling each control plane node to be able to
     manage the user plane node, when needed.
@@ -40,6 +41,7 @@ identification and mitigation of potential issues.
     AWS Auto Scaling.
 
 - Implement connectivity paths:
+
   - Deploy control plane and user plane instances across multiple AWS
     Availability Zones and Regions where possible.
   - Configure diverse routing paths using AWS VPC routing tables and AWS Transit Gateway
@@ -48,15 +50,18 @@ identification and mitigation of potential issues.
     connectivity with the on-premises systems including Access Network (RAN) functions.
 
 - Configure routing policies:
+
   - Implement routing policies using AWS Transit Gateway route tables and AWS Lambda-based
     custom routing logic to recover services in case of a control plane node failure.
 
 - Define failover triggers:
+
   - Use Amazon CloudWatch alarms and metrics to define the conditions and thresholds for
     triggering automated failover processes.
   - Provide manual override capabilities through AWS Lambda functions or Amazon API Gateway.
 
 - Document procedures:
+
   - Store the detailed failover and recovery procedures in AWS Systems Manager for secure
     access and versioning.
   - Integrate the documentation with your incident management processes and provide

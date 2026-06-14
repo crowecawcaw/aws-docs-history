@@ -28,16 +28,19 @@ cached usage data to verify revenue is not lost despite the temporary bypass of 
 ### Implementation steps
 
 - Define bypass triggers and thresholds:
+
   - Use monitoring tools to detect failures or unresponsiveness in the billing
     and charging systems
   - Establish clear criteria and thresholds for triggering the bypass mode, such as
     connection timeouts, error rates, or system availability metrics
 
 - Implement bypass configuration:
+
   - Configure network functions with a default method to continue call setup or
     session setup in case the charging system is unresponsive.
 
 - Use data records and call records for offline charging/billing:
+
   - Once the billing or charging systems are back online, the cached usage data can
     be processed and the end user is billed accordingly, verifying that revenue is not
     lost despite the temporary bypass of these systems.

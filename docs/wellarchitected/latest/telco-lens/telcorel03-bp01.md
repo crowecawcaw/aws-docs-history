@@ -32,30 +32,35 @@ validate the effectiveness of the recovery mechanisms.
 ### Implementation steps
 
 - Disable automatic updates in production:
+
   - Use AWS Systems Manager Patch Manager to manage and control operating system
     and application updates across your AWS environment.
   - Use AWS Config to monitor and audit the configuration of your systems,
     including the update settings.
 
 - Configure update policies:
+
   - Use AWS Config to define and enforce specific configurations for
     disabling automatic updates while maintaining security.
   - Use AWS Systems Manager Parameter Store to centrally manage and store your
     updated policies and configurations.
 
 - Establish change controls:
+
   - Use AWS Config Rules to implement comprehensive change management processes,
     including approval workflows, testing requirements, and documentation standards.
   - Use AWS CloudTrail to track and audit update-related activities across your
     AWS environment.
 
 - Create a tracking system:
+
   - Use AWS Config to track and monitor update-related changes, including
     pending updates, approved changes, and implementation status.
   - Use Amazon DynamoDB to store update-related data and provide an audit trail
     of activities.
 
 - Maintain rollback procedures:
+
   - Use AWS Systems Manager Automation to design and implement the rollback
     mechanisms, including both automated and manual rollback capabilities.
   - Use Amazon CloudWatch to establish the clear criteria for determining when

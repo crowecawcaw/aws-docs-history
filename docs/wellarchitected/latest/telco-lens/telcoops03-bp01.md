@@ -39,6 +39,7 @@ maintaining operational excellence today.
 ### Implementation steps
 
 - Solution evaluation:
+
   - Document requirements for IP management including scale, performance, and
     support needs.
   - Evaluate enterprise-supported solutions from solution providers.
@@ -47,12 +48,14 @@ maintaining operational excellence today.
   - Review upgrade and patch processes.
 
 - Integration design:
+
   - Design integration architecture with AWS networking services.
   - Plan monitoring and observability integration.
   - Create automation workflows for IP management.
   - Document operational procedures and support processes.
 
 - Implementation and testing:
+
   - Deploy solution in test environment.
   - Validate integration with AWS services.
   - Perform scale and performance testing.
@@ -60,12 +63,14 @@ maintaining operational excellence today.
   - Test upgrade and patch procedures.
 
 - Operational readiness:
+
   - Create operational runbooks .
   - Establish support procedures and escalation paths.
   - Document backup and recovery processes.
   - Implement change management procedures.
 
 - Continuous improvement:
+
   - Regular review of solution performance.
   - Monitor for new native cloud capabilities.
   - Maintain upgrade and patch adherence.

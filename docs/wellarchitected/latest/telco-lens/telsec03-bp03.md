@@ -29,24 +29,28 @@ them, leveraging automated patch management and security update deployment proce
 ### Implementation steps
 
 - Signaling layer protocol inventory:
+
   - Identify the signaling layer protocols implemented within the telco network,
     such as Diameter, SS7, SIP, and GTP.
   - Maintain a comprehensive inventory of the signaling protocols, including their
     versions and implementation details.
 
 - Penetration testing scoping and planning:
+
   - Define the scope and objectives of the penetration testing exercise, focusing
     on the identified signaling layer protocols.
   - Verify the penetration testing activities are aligned with the organization's
     security policies and regulatory requirements.
 
 - Use AWS security services for penetration testing:
+
   - Utilize AWS Security Hub CSPM to centralize the findings and recommendations from the
     penetration testing activities.
   - Leverage AWS Systems Manager for efficient and secure deployment of the penetration
     testing tools and environments.
 
 - Comprehensive signaling protocol testing:
+
   - Conduct thorough testing of the identified signaling layer protocols, including
     fuzzing, protocol-specific vulnerability scanning, and exploitation attempts.
   - Verify the proper implementation of security controls, such as encryption,
@@ -55,6 +59,7 @@ them, leveraging automated patch management and security update deployment proce
     exploited to compromise the signaling layer.
 
 - Remediation and vulnerability management:
+
   - Prioritize the identified vulnerabilities based on their risk and potential
     impact on the telco network.
   - Develop and execute remediation plans to address the discovered

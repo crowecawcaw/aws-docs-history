@@ -30,6 +30,7 @@ automated maintenance and validation processes.
 ### Implementation steps
 
 - Identify roaming and interconnection interfaces:
+
   - Catalog the roaming and interconnection interfaces within the
     telco network, including the protocols and signaling traffic
     exchanged.
@@ -37,12 +38,14 @@ automated maintenance and validation processes.
     across the identified interfaces.
 
 - Deploy signaling firewall solution:
+
   - Select a signaling firewall solution that is compatible with the
     identified protocols and interfaces within the telco network.
   - Configure the signaling firewall to align with the organization's
     security policies and best practices.
 
 - Integrate signaling firewall with AWS services:
+
   - Integrate the signaling firewall with Amazon CloudWatch for comprehensive
     logging and monitoring of signaling traffic and security events.
   - Utilize AWS Security Hub CSPM to centralize the security findings from the
@@ -50,6 +53,7 @@ automated maintenance and validation processes.
     security analysis and incident response.
 
 - Signaling traffic inspection and filtering:
+
   - Configure the signaling firewall to inspect incoming and outgoing
     signaling traffic, validating the integrity and authenticity of the
     signaling messages.
@@ -61,6 +65,7 @@ automated maintenance and validation processes.
     to address evolving signaling-based threats and vulnerabilities.
 
 - Signaling firewall monitoring and incident response:
+
   - Establish robust monitoring and alerting mechanisms to detect and
     respond to anomalies or security incidents related to the signaling
     traffic.
@@ -70,6 +75,7 @@ automated maintenance and validation processes.
     impact of signaling-based attacks or network disruptions.
 
 - Signaling firewall maintenance and updates:
+
   - Regularly review and update the signaling firewall's
     configuration, rulesets, and software versions to verify it remains
     effective against the latest security threats.

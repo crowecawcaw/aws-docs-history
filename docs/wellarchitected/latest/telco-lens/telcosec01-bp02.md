@@ -42,6 +42,7 @@ key management activities to maintain adherence and provide detailed reporting.
 ### Implementation steps
 
 - Implement VPN-based encryption for control and data plane traffic:
+
   - Configure AWS managed VPN solutions, such as Site-to-Site VPN, to establish secure IPsec
     tunnels for control and data plane communications.
   - Use the built-in features of these services for automatic key management,
@@ -50,6 +51,7 @@ key management activities to maintain adherence and provide detailed reporting.
     for secure network communications.
 
 - Encrypt data in-transit using custom keys:
+
   - Use AWS Key Management Service to generate and manage the encryption keys used to
     secure data in-transit.
   - Integrate KMS with other AWS services, such as Amazon S3, Amazon EBS, and Amazon RDS, to
@@ -58,6 +60,7 @@ key management activities to maintain adherence and provide detailed reporting.
     encryption keys over time.
 
 - Encrypt data at rest using custom keys:
+
   - Configure AWS services handling telco data, such as Amazon S3, Amazon EBS, and Amazon RDS,
     to use customer-managed encryption keys from KMS.
   - Verify that sensitive telco data, including logs, metrics, and configuration
@@ -66,6 +69,7 @@ key management activities to maintain adherence and provide detailed reporting.
     aligned with the principle of least privilege.
 
 - Implement key management and rotation:
+
   - Establish key management processes and procedures for the creation,
     distribution, and rotation of the customer-managed encryption keys.
   - Automate key rotation using AWS Lambda functions or AWS Systems Manager, verifying that
@@ -74,6 +78,7 @@ key management activities to maintain adherence and provide detailed reporting.
     incident response procedures.
 
 - Maintain audit trails:
+
   - Use AWS CloudTrail to create comprehensive audit trails of key management and
     data encryption activities.
   - Configure AWS Config to continuously monitor the configuration of the encryption

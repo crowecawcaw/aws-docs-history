@@ -33,27 +33,32 @@ service to end users.
 ### Implementation steps
 
 - Deploy redundant instances across multiple Availability Zones:
+
   - Deploy your 5G network architecture across multiple AWS Regions, Availability
     Zones, and Outposts where possible.
   - Use AWS Auto Scaling and Amazon CloudWatch to monitor and scale your network function
     instances based on real-time and projected traffic patterns.
 
 - Implement redundancy patterns:
+
   - Deploy your user plane functions as Auto Scaling groups with Amazon EC2 instances in
     an active-active or active-standby configuration.
   - Use Amazon CloudWatch for automated instance health monitoring and failover.
 
 - Establish monitoring:
+
   - Deploy Amazon CloudWatch to capture and analyze performance and availability metrics
     across your distributed instances.
 
 - Implement geographical distribution:
+
   - Choose AWS Regions and Availability Zones based on user distribution,
     regulatory requirements, and disaster recovery needs.
   - Evaluate AWS network connectivity options, such as AWS Direct Connect and Site-to-Site VPN,
     to optimize inter-region communication.
 
 - Configure automatic failover:
+
   - Use Amazon CloudWatch alarms and metrics to define infrastructure and application-level
     thresholds for initiating automated failover.
   - Integrate with your 5G network management systems to correlate failures and

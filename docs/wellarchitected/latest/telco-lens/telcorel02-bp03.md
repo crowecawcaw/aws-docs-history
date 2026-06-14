@@ -37,12 +37,14 @@ reliability.
 ### Implementation steps
 
 - Design a modular and containerized network function architecture:
+
   - Use a microservices-based approach to decompose network functions into smaller,
     independently scalable components.
   - Package each network function component as a container image to enable
     flexibility in deployment and scaling.
 
 - Implement Kubernetes-based orchestration for network functions:
+
   - Deploy the network function components on Amazon EKS.
   - Integrate the Karpenter open-source Kubernetes cluster autoscaler with your EKS
     cluster.
@@ -50,16 +52,19 @@ reliability.
     based on the resource requirements of the network function components.
 
 - Monitor resource utilization and scaling events:
+
   - Use Amazon CloudWatch to monitor the performance and resource utilization of the network
     function components.
   - Analyze scaling events, instance provisioning, and capacity fluctuations to
     optimize the scaling policies and Karpenter configurations.
 
 - Implement failover and self-healing mechanisms:
+
   - Configure Kubernetes health checks and readiness probes to detect and replace
     unhealthy network function instances.
 
 - Document scaling procedures and best practices:
+
   - Maintain comprehensive documentation on the flexible network function
     architecture, scaling policies, and Karpenter configuration.
   - Establish guidelines for updating the scaling policies and Karpenter
