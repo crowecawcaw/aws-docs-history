@@ -87,6 +87,7 @@ integration:
    catalog, select the `s3tablescatalog` catalog from the catalogs list, and
    choose **Delete** from **Actions**.
 2. Next, deregister the data location for the `s3tablescatalog`.
+
    1. On the Lake Formation console, under the **Administrations** section,
       choose **Data Locations**.
    2. Select a location, and from the **Actions** menu, choose

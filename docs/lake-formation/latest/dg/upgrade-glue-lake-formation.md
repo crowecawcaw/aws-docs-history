@@ -45,6 +45,7 @@ and tables, you must do the following:
 1. Determine your users’ existing IAM permissions for each database and table.
 2. Replicate these permissions in Lake Formation.
 3. For each Amazon S3 location that contains data:
+
    1. Revoke the `Super` permission from the
       `IAMAllowedPrincipals` group on each Data Catalog resource that references
       that location.

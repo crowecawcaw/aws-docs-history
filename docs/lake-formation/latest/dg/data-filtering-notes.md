@@ -94,6 +94,7 @@ filtering.
   permissions on a subset of rows, the principal's effective row permissions are the union
   of the principal's permissions and the group's permissions.
 - The following column names are restricted in a table for row-level and cell-level filtering:
+
   - ctid
   - oid
   - xmin

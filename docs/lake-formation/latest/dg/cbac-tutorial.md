@@ -55,6 +55,7 @@ This tutorial includes an CloudFormation template for a quick setup. You can rev
 The CloudFormation template generates the following resources:
 
 - Users and policies for:
+
   - DataLakeAdmin
   - DataAnalystUS
   - DataAnalystJP
@@ -123,6 +124,7 @@ for the Japanese marketplace. Then, grant the analysts their respective permissi
 ###### Create data filters and grant permissions
 
 1. Create a filter to restrict access to the `US` `marketplace` data.
+
    1. Sign into the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") in US East (N. Virginia) region as the
       `DatalakeAdmin` user.
    2. Choose **Data filters**.
@@ -135,6 +137,7 @@ for the Japanese marketplace. Then, grant the analysts their respective permissi
    9. Choose **Create filter**.
 
 2. Create a filter to restrict access to the Japanese `marketplace` data.
+
    1. On the **Data filters** page, choose **Create new filter**.
    2. For **Data filter name**, enter `amazon_reviews_JP`.
    3. For **Target database**, choose the database `lakeformation_tutorial_row_security`.
@@ -144,6 +147,7 @@ for the Japanese marketplace. Then, grant the analysts their respective permissi
    7. Choose **Create filter**.
 
 3. Next, grant permissions to the data analysts using these data filters. Follow these steps to grant permissions to the US data analyst (`DataAnalystUS`):
+
    1. Under **Permissions**, choose **Data lake permissions**.
    2. Under **Data permission**, choose **Grant**.
    3. For **Principals**, choose **IAM users and roles**, and select the role `DataAnalystUS`.
@@ -155,6 +159,7 @@ for the Japanese marketplace. Then, grant the analysts their respective permissi
    9. Choose **Grant**.
 
 4. Follow these steps to grant permissions to the Japanese data analyst (`DataAnalystJP`):
+
    1. Under **Permissions**, choose **Data lake permissions**.
    2. Under **Data permission**, choose **Grant**.
    3. For **Principals**, choose **IAM users and roles**, and select the role `DataAnalystJP`.

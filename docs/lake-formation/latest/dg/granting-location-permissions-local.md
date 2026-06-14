@@ -15,6 +15,7 @@ AWS Management Console###### To grant data location permissions (same account)
 4. In the **Grant permissions** dialog box, ensure that the
    **My account** tile is selected. Then provide the following
    information:
+
    - For **IAM users and roles**, choose one or more principals.
    - For **SAML and Amazon Quick users and groups**, enter
      one or more Amazon Resource Names (ARNs) for users or groups federated through SAML or ARNs for

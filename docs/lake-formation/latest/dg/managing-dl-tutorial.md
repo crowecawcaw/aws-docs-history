@@ -100,6 +100,7 @@ the ability to attach newly created LF-Tags to resources.
 ###### Register a data location and define LF-Tag ontology
 
 1. Perform the first step as the data steward user (`lf-data-steward`) to verify the data in Amazon S3 and the Data Catalog in Lake Formation.
+
    1. Sign in to the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") as `lf-data-steward` with the
       password used while deploying the CloudFormation stack.
    2. In the navigation pane, under **Permissions**¸ choose **Administrative roles and tasks**.
@@ -108,12 +109,14 @@ the ability to attach newly created LF-Tags to resources.
    5. Choose **Save** to add `lf-data-steward` as a Lake Formation administrator.
 
 2. Next, update the Data Catalog settings to use Lake Formation permission to control catalog resources instead of IAM based access control.
+
    1. In the navigation pane, under **Administration**, choose **Data Catalog settings**.
    2. Uncheck **Use only IAM access control for new databases**.
    3. Uncheck **Use only IAM access control for new tables in new databases**.
    4. Click **Save**.
 
 3. Next, register the data location for the data lake.
+
    1. In the navigation pane, under **Administration**, choose **Data lake locations**.
    2. Choose **Register location**.
    3. On the **Register location** page, for **Amazon S3 path**, enter `s3://lf-tagbased-demo-`Account-ID``.
@@ -122,6 +125,7 @@ the ability to attach newly created LF-Tags to resources.
    6. Choose **Register location**.
 
 4. Next, create the ontology by defining an LF-tag.
+
    1. Under **Permissions** in the navigation pane, choose **LF-Tags and permissions.**.
    2. Choose **Add LF-Tag**.
    3. For **Key**, enter `Confidential`.
@@ -132,6 +136,7 @@ the ability to attach newly created LF-Tags to resources.
 ###### Grant permissions to IAM users
 
 1. Next, give specific IAM principals the ability to attach newly created LF-tags to resources.
+
    1. Under **Permissions** in the navigation pane, choose **LF-Tags and permissions**.
    2. In the **LF-Tag permissions** section, choose **Grant permissions**.
    3. For **Permission type**, choose **LF-Tag key-value pair permissions**.
@@ -142,6 +147,7 @@ the ability to attach newly created LF-Tags to resources.
    8. Choose **Grant**.
 
 2. Next, grant permissions to `lf-data-engineer` to create databases in our Data Catalog and on the underlying Amazon S3 bucket created by AWS CloudFormation.
+
    1. Under **Administration** in the navigation pane, choose **Administrative roles and tasks**.
    2. In the **Database creators** section, choose **Grant**.
    3. For **IAM users and roles**, choose the `lf-data-engineer` role.
@@ -149,6 +155,7 @@ the ability to attach newly created LF-Tags to resources.
    5. Choose **Grant**.
 
 3. Next, grant permissions on the Amazon S3 bucket `(s3://lf-tagbased-demo-`Account-ID`)` to the `lf-data-engineer` user.
+
    1. In the navigation pane, under **Permissions**, choose **Data locations**.
    2. Choose **Grant**.
    3. Select **My account**.
@@ -157,6 +164,7 @@ the ability to attach newly created LF-Tags to resources.
    6. Choose **Grant**.
 
 4. Next, grant `lf-data-engineer` grantable permissions on resources associated with the **LF-Tag** expression `Confidential=True`.
+
    1. In the navigation pane, under **Permissions**, choose **Data lake permissions**.
    2. Choose **Grant**.
    3. Select **IAM users and roles**.
@@ -169,6 +177,7 @@ the ability to attach newly created LF-Tags to resources.
    10. Choose **Grant**.
 
 5. Next, grant `lf-data-engineer` grantable permissions on resources associated with the LF-Tag expression `Confidential=False`.
+
    1. In the navigation pane, under **Permissions**, choose **Data lake permissions**.
    2. Choose **Grant**.
    3. Select **IAM users and roles**.
@@ -181,6 +190,7 @@ the ability to attach newly created LF-Tags to resources.
    10. Choose **Grant**.
 
 6. Next, we grant `lf-data-engineer` grantable permissions on resources associated with the **LF-Tag** key-value pairs `Confidential=False` and `Sensitive=True`.
+
    1. In the navigation pane, under **Permissions**, choose **Data permissions**.
    2. Choose **Grant**.
    3. Select **IAM users and roles**.
@@ -203,6 +213,7 @@ columns for testing purposes.
 
 1. First, create the database `tag_database`, the table
    `source_data`, and attach appropriate LF-Tags.
+
    1. On the Lake Formation console ([https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/")), under **Data Catalog**, choose **Databases**.
    2. Choose **Create database**.
    3. For **Name**, enter `tag_database`.
@@ -211,6 +222,7 @@ columns for testing purposes.
    6. Choose **Create database**.
 
 2. Next, create a new table within `tag_database`.
+
    1. On the **Databases** page, select the database `tag_database`.
    2. Choose**View Tables** and click **Create table**.
    3. For **Name**, enter `source_data`.
@@ -312,13 +324,13 @@ columns for testing purposes.
                   }
     ]
    ```
-
    10. Choose **Upload**. After uploading the schema, the table schema should look
        like the following screenshot:
 
    ![Table schema with 18 columns including vendorid, pickup and dropoff datetime, location IDs, and fare details, all string data type.](images/tutorial-manage-dl-tbac1.jpg) 11. Choose **Submit**.
 
 3. Next, attach LF-Tags at the database level.
+
    1. On the **Databases** page, find and select `tag_database`.
    2. On the **Actions** menu, choose **Edit LF-Tags**.
    3. Choose **Assign new LF-tag**.
@@ -471,6 +483,7 @@ Repeat the following steps to create the database `col_tag_database` and table `
     6. Choose **Save**.
 
 18. Next, associate the `Confidential=False` LF-Tag to `col_tag_database`. This is required for `lf-data-analyst` to be able to describe the database `col_tag_database` when logged in from Amazon Athena.
+
     1.  On the **Databases** page, find and select `col_tag_database`.
     2.  On the **Actions** menu, choose **Edit LF-Tags**.
     3.  Choose **Assign new LF-Tag**.
@@ -485,6 +498,7 @@ and the table `col_tag_database` using LF-tags `Confidential` and `Sensitive`.
 
 1. Follow these steps to grant permissions to the `lf-data-analyst` user on the objects associated with the LF-Tag
    `Confidential=True` (Database:tag_database) to have `Describe` the database and `Select` permission on tables.
+
    1. Sign in to the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") as `lf-data-engineer`.
    2. Under **Permissions**, select **Data lake permissions**.
    3. Choose **Grant**.
@@ -500,6 +514,7 @@ and the table `col_tag_database` using LF-tags `Confidential` and `Sensitive`.
 
 2. Next, repeat the steps to grant permissions to data analysts for LF-Tag expression for `Confidential=False`.
    This **LF-tag** is used for describing the `col_tag_database` and the table `source_data_col_lvl` when logged in as `lf-data-analyst` from Amazon Athena.
+
    1. Sign in to the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") as `lf-data-engineer`.
    2. On the **Databases** page, select the database `col_tag_database`.
    3. Choose **Action** and **Grant**.
@@ -515,6 +530,7 @@ and the table `col_tag_database` using LF-tags `Confidential` and `Sensitive`.
 
 3. Next, repeat the steps to grant permissions to data analysts for LF-Tag expression for `Confidential=False` and `Sensitive=True`.
    This LF-tag is used for describing the `col_tag_database` and the table `source_data_col_lvl` (column-level) when logged in as `lf-data-analyst` from Amazon Athena.
+
    1. Sign into the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") as `lf-data-engineer`.
    2. On the Databases page, select the database `col_tag_database`.
    3. Choose **Action** and **Grant**.
@@ -559,6 +575,7 @@ To prevent unwanted charges to your AWS account, you can delete the AWS resource
    **Data Permissions** and **Data Location Permissions** that were granted above that were granted `lf-data-engineer` and `lf-data-analyst.`.
 3. Sign into the Amazon S3 console as the account owner using the IAM credentials you used to deploy the CloudFormation stack.
 4. Delete the following buckets:
+
    - lf-tagbased-demo-accesslogs-`acct-id`
    - lf-tagbased-demo-`acct-id`
 

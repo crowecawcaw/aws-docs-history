@@ -20,6 +20,7 @@ The following are the status fields:
 
 - Status: a generic status, which is agnostic to different types of
   jobs:
+
   - QUEUED
   - IN_PROGRESS
   - SUCCESS
@@ -48,6 +49,7 @@ before attempting to query a table.
   modification.
 - Error – This field only appears when the state is **FAILED**. This is a parent level exception message.
   There may be different errors for each dialect.
+
   - ErrorCode – The type of exception.
   - ErrorMessage – a brief description of the exception.
 

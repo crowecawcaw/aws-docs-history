@@ -64,6 +64,7 @@ This user has the minimum set of permissions to query the data lake.
 1. Open the IAM console at [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam"). Sign in
    as a user with the `AdministratorAccess` AWS managed policy.
 2. Create a user named `datalake_user` with the following settings:
+
    - Enable AWS Management Console access.
    - Set a password and do not require password reset.
    - Attach the `AmazonAthenaFullAccess` AWS managed policy.
@@ -162,6 +163,7 @@ destination.
    locations**.
 2. Choose **Grant**, and in the **Grant permissions**
    dialog box, make these selections:
+
    1. For **IAM user and roles**, choose
       `LakeFormationWorkflowRole`.
    2. For **Storage locations**, choose your
@@ -194,6 +196,7 @@ to the role.
    heading Permissions.
 3. In the **Grant data permissions** dialog box, make these
    selections:
+
    1. Under **Principals**, for **IAM user and roles**,
       choose `LakeFormationWorkflowRole`.
    2. Under **LF-Tags or catalog resources**, choose **Named Data
@@ -306,6 +309,7 @@ grant `SELECT` to the data analyst.
    heading Permissions.
 3. In the **Grant data permissions** dialog box, make these
    selections:
+
    1. Under **Principals**, for **IAM user and roles**,
       choose `datalake_user`.
    2. Under **LF-Tags or catalog resources**, choose **Named data

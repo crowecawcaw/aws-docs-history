@@ -10,6 +10,7 @@ AWS Lake Formation is built on AWS Glue, and the services interact in the follow
 
 - Lake Formation and AWS Glue share the same Data Catalog.
 - The following Lake Formation console features invoke the AWS Glue console:
+
   - Jobs – For more information, see [Adding
     Jobs](../../../glue/latest/dg/add-job.md "../../../glue/latest/dg/add-job.md") in the _AWS Glue Developer Guide_.
   - Crawlers – For more information, see [Cataloging Tables with a Crawler](../../../glue/latest/dg/add-crawler.md "../../../glue/latest/dg/add-crawler.md") in the

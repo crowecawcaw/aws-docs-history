@@ -56,7 +56,6 @@ external data sources, and create the federated catalogs.
     }`
 
     ```
-
     - Add the following trust policy to the IAM role that is used in registering the connection:
 
     JSON
@@ -78,7 +77,6 @@ external data sources, and create the federated catalogs.
     }`
 
     ```
-
     - The data lake administrator who registers the connection must have the
       `iam:PassRole` permission on the role.
 
@@ -107,7 +105,6 @@ external data sources, and create the federated catalogs.
     }`
 
     ```
-
     - To create federated catalogs in Data Catalog, make sure the IAM role you’re using is a Lake Formation data lake administrator by checking the data lake settings (`aws lakeformation get-data-lake-settings`).
 
     If you're not a data lake administrator, you need the Lake Formation `CREATE_CATALOG` permission to create a catalog.

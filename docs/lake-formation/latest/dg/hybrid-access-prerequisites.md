@@ -40,6 +40,7 @@ aws lakeformation put-data-lake-settings --region us-east-1 --data-lake-settings
 3. To grant cross-account permissions in hybrid access mode, the grantor must have the required IAM permissions for AWS Glue and AWS RAM services. The AWS managed policy `AWSLakeFormationCrossAccountManager`
    grants the required permissions. 
    To enable cross-account data sharing in hybrid access mode, we’ve updated the `AWSLakeFormationCrossAccountManager` managed policy by adding two new IAM permissions:
+
    - ram:ListResourceSharePermissions
    - ram:AssociateResourceSharePermission
 

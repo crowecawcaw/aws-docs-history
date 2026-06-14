@@ -6,6 +6,7 @@ The following steps explain how to grant cross-account permissions by using LF-T
 ###### Set up required on the producer/grantor account
 
 1. Add LF-Tags.
+
    1. Sign in to Lake Formation console as a data lake administrator or a LF-Tag creator.
    2. In the left navigation bar, choose **Permissions**, and **LF-Tags and permissions**.
    3. Choose **Add LF-Tag**.
@@ -73,6 +74,7 @@ tagged with the same key(s) and value(s).
 
 1.  Sign in to Lake Formation console as a data lake administrator of the consumer account.
 2.  Next, receive the resource share in the consumer account.
+
     1. Open the AWS RAM console.
     2. In the navigation pane, under **Shared with me**, choose **Resource shares**.
     3. Select the resource shares, choose **Accept resource share**.
@@ -107,6 +109,7 @@ tagged with the same key(s) and value(s).
     Similarly, you can create a resource link to a shared table.
 
 4.  Now grant **Describe** permission on the resource link to the IAM principals that you are sharing the resource.
+
     1. On the **Databases/Tables** page, select the resource link, and
        on the **Actions** menu, choose **Grant**.
     2. In the **Grant permissions** section, select **IAM users and roles**.

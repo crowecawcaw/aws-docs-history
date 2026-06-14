@@ -119,6 +119,7 @@ JSON
 ```
 
 5. In AWS KMS, add the role as a user of the KMS key.
+
    1. Open the AWS KMS console at [https://console.aws.amazon.com/kms](https://console.aws.amazon.com/kms "https://console.aws.amazon.com/kms"). Then, sign in as an administrator user or
       as a user who can modify the key policy of the KMS key used to encrypt the
       location.

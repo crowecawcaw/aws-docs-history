@@ -6,6 +6,7 @@ third-party application (query engine) with Lake Formation.
 ![Lake Formation workflow showing admin setup, service credential requests, and user access via AWS services.](images/credential-vending-new.png)
 
 1. The Lake Formation administrator performs the following activities:
+
    - Registers an Amazon S3 location with Lake Formation by providing an IAM role (used for
      vending credentials) that has appropriate permissions to access data within the Amazon S3
      location

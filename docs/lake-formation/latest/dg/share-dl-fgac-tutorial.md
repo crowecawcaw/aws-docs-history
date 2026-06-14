@@ -43,6 +43,7 @@ The tutorial assumes that you are familiar with IAM. For information about IAM, 
 ###### You need the following resources for this tutorial:
 
 - Two organizational units:
+
   - OU1 – Contains Account A
   - OU2 – Contains Account B
 
@@ -52,6 +53,7 @@ The tutorial assumes that you are familiar with IAM. For information about IAM, 
   the Lake Formation API.
 - Lake Formation configured in Account A, and the Amazon S3 data lake location registered with Lake Formation in Account A.
 - Two users in Account B with the following IAM managed policies:
+
   - testuser1 – has the AWS managed policies `AWSLakeFormationDataAdmin` attached.
   - testuser2 – Has the AWS managed policy `AmazonAthenaFullAccess` attached.
 

@@ -28,6 +28,7 @@ You must be a Lake Formation data lake administrator or have `CREATE_CATALOG` pe
 7. In **catalog details** container, provide a unique name to your AWS Glue federated catalog and enter the name of the existing Databricks catalog.
 8. In **connections details** container, you can either choose from an existing connection that you have access or provide configuration to create a new connector.
 9. New connection configurations include:
+
    - Connection Name – A unique name of the AWS Glue connection object.
    - Workspace URL – The endpoint URL of your existing Databricksworkspace.
    - Authentication – Specify the authentication configuration that AWS Glue uses to connect to remote catalog server. AWS Glue supports both OAuth2 and Custom authentication.

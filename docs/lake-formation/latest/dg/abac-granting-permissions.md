@@ -7,6 +7,7 @@ You can use the Lake Formation console or the AWS Command Line Interface (AWS CL
    and sign in as a data lake administrator, the resource creator, or an IAM user
    who has **Grantable permissions** on the resource.
 2. Do one of the following:
+
    - In the navigation pane, under **Permissions**,
      choose **Data lake permissions**. Then choose **Grant**.
    - In the navigation pane, choose **Catalogs** under

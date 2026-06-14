@@ -30,6 +30,7 @@ The following considerations and limitations apply to hybrid access mode.
   mode – We do not recommend converting a Amazon S3 data location that is already
   registered with Lake Formation to hybrid access mode though it can be done.
 - API behaviors when a data location is registered in hybrid access mode
+
   - CreateTable – The location is considered as registered with Lake Formation
     regardless of the hybrid access mode flag and opt in status. Thus, the user requires
     the data location permission to create a table.

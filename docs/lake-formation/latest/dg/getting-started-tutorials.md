@@ -18,6 +18,7 @@ Before you begin, make sure that you have completed the steps in [Getting starte
     Create a data lake by using one of your JDBC-accessible data stores, such as a relational database, as the data source.
 
 2. **Securing data lakes:** Learn to use tag-based and row-level access controls to effectively secure and manage access to your data lakes.
+
    - [Setting up permissions for open table storage formats in Lake Formation](otf-tutorial.md "otf-tutorial.md")
 
    This tutorial demonstrates how to set up permissions for open source transactional table formats (Apache Iceberg, Apache Hudi, and Linux Foundation Delta Lake tables) in Lake Formation.
@@ -30,6 +31,7 @@ Before you begin, make sure that you have completed the steps in [Getting starte
 
 3. **Sharing data:** Learn to securely share your data across
    AWS accounts using tag-based access control (TBAC) and manage granular permissions on datasets shared between AWS accounts.
+
    - [Sharing a data lake using Lake Formation tag-based access control and named resources](share-dl-tbac-tutorial.md "share-dl-tbac-tutorial.md")
 
    In this tutorial, you learn how to securely share your data across AWS accounts

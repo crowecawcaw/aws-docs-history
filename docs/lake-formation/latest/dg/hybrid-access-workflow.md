@@ -16,6 +16,7 @@ mode.
 1. Submits a query - A principal submits a query or an ETL script using an integrated service such as Amazon Athena, AWS Glue, Amazon EMR, or Amazon Redshift Spectrum.
 2. Requests data - The integrated analytical engine identifies the table that is being requested and sends the metadata request to the Data Catalog (`GetTable`, `GetDatabase`).
 3. Checks permissions - The Data Catalog verifies the querying principal’s access permissions with Lake Formation.
+
    1. If the table doesn't have `IAMAllowedPrincipals` group permissions
       attached, Lake Formation permissions are enforced.
    2. If the principal has opted in to use Lake Formation permissions in the hybrid access mode,

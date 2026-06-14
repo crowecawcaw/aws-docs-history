@@ -18,6 +18,7 @@ into the following sections:
    data lake administrator, the database creator, or an IAM user who has **Grantable permissions**
    on the database.
 2. Do one of the following:
+
    - In the navigation pane, under **Permissions**, choose
      **Data permissions**. Then choose
      **Grant**.

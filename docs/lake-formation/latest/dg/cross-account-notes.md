@@ -10,6 +10,7 @@ Consider the following best practices when using Lake Formation cross-account da
   grants that your account can make with the named resource method. To
   maximize the AWS RAM capacity, follow these best practices for the named resource
   method:
+
   - Use the new cross-account grant mode (**Version 3** and above under
     **Cross account version settings**) to share a resource with an
     external AWS account. For more information, see [Updating cross-account data sharing version settings](optimize-ram.md "optimize-ram.md").

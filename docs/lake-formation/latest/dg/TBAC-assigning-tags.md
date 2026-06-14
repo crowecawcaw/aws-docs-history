@@ -28,6 +28,7 @@ To assign a LF-Tag to a Data Catalog resource, you must:
 - Be the resource owner (creator), have the `Super` Lake Formation permission on the
   resource with the `GRANT` option, or have the following permissions with the
   `GRANT` option:
+
   - For databases in the same AWS account: `DESCRIBE`, `CREATE_TABLE`,
     `ALTER`, and `DROP`
   - For databases in an external account: `DESCRIBE`, `CREATE_TABLE` and

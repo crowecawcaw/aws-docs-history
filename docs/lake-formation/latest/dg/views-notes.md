@@ -25,6 +25,7 @@ be revealed to consumers through AWS Glue IAM permissions.
 - Granting data lake permissions to `All tables` within a database will result
   in the grantee having permissions on all tables and views within the database.
 - You can't create views:
+
   - That reference other views.
   - When the reference table is a resource link.
   - When the reference table is in another account.

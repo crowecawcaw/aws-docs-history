@@ -199,6 +199,7 @@ JSON
    started**.
 7. If you do not see a **Welcome to Lake Formation** window, then
    perform the following steps to configure a Lake Formation Administrator.
+
    1. In the navigation pane, under **Administration**, choose
       **Administrative roles and tasks**. In the
       **Data lake administrators** section of the console
@@ -238,6 +239,7 @@ about Lake Formation permissions, see [Lake Formation permissions reference](lf-
 1. Continue in the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/").
    Ensure that you are signed in as a user with the `AdministratorAccess` AWS managed policy.
 2. Modify the Data Catalog settings:
+
    1. In the navigation pane, under **Administration**, choose
       **Data Catalog settings**.
    2. Clear both check boxes and choose **Save**.
@@ -245,6 +247,7 @@ about Lake Formation permissions, see [Lake Formation permissions reference](lf-
    ![The Data Catalog settings dialog box has the subtitle "Default permissions for newly created databases and tables," and has two check boxes, which are described in the text.](images/settings-page.png)
 
 3. Revoke `IAMAllowedPrincipals` permission for database creators.
+
    1. In the navigation pane, under **Administration**, choose **Administrative roles and tasks**.
    2. In the **Administrative roles and tasks** console page, in the **Database creators** section, select the `IAMAllowedPrincipals` group, and
       choose **Revoke**.
@@ -361,6 +364,7 @@ It's the responsibility of third-party administrators to properly handle permiss
    **Application integration settings**.
 3. On the **Application integration settings** page, do the
    following:
+
    1. Check the box **Allow external engines to filter data in Amazon S3 locations registered with Lake Formation**.
    2. Enter **Session tag values** defined for third-party engines.
    3. For **AWS account IDs**, enter the account IDs from where third-party engines are allowed to access locations registered with Lake Formation. Press

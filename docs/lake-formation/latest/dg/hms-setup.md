@@ -22,6 +22,7 @@ the Lambda function to retrieve the metadata of the Hive tables.
    6. Choose the **GlueDataCatalogFederation-HiveMetastore** application.
    7. Under **Application Settings**, enter the following
       minimum required settings for your Lambda function:
+
       - **Application name** - A name for your AWS SAM application.
       - **GlueConnectionName** - A name for the connection.
       - **HiveMetastoreURIs** - The URI of your Hive metastore host.

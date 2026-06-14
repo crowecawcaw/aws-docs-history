@@ -17,6 +17,7 @@ the catalog type as `Managed` and `Catalog source` as **Redshift.** This step do
    Catalog**.
 3. Select the option **Create catalog**.
 4. On the **Set Catalog** details page, enter the following information:
+
    - **Name** – A unique name for your managed catalog. The name can't be changed, and must be in lower case. The name can
      consist of a maximum of 255 characters maximum.
      account.

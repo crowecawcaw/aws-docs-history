@@ -58,6 +58,7 @@ You need to set up the following AWS resources to complete this tutorial:
 ###### To enable data lake settings
 
 1. Open the Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/"). In the navigation pane, under **Data catalog**, choose **Settings**. Uncheck the following:
+
    - Use only IAM access control for new databases.
    - Use only IAM access control for new tables in new databases.
 
@@ -151,6 +152,7 @@ Next, register the Amazon S3 path as the location of your data lake.
 2. In the navigation pane, under **Register and ingest**, choose **Data location**.
 3. On the upper right of the console, choose **Register location**.
 4. On the **Register location** page, enter the following:
+
    - **Amazon S3 path** – Choose **Browse** and select `lf-otf-datalake-123456789012`.
      Click on the right arrow (>) next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-iceberg` location.
    - **IAM role** – Choose `LF-OTF-RegisterRole` as the IAM role.
@@ -230,6 +232,7 @@ Next, register an Amazon S3 path as the root location of your data lake.
 2. In the navigation pane, under **Register and ingest**, choose **Data location**.
 3. On the upper right of the console, choose **Register location**.
 4. On the **Register location** page, enter the following:
+
    - **Amazon S3 path** – Choose **Browse** and select `lf-otf-datalake-123456789012`.
      Click on the right arrow (>) next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-hudi` location.
    - **IAM role** – Choose `LF-OTF-RegisterRole` as the IAM role.
@@ -246,6 +249,7 @@ In this step, we'll grant data lake permissions to the business analyst user.
 5. For **Databases** choose `lfhudidb`.
 6. For **Tables**, choose `product`.
 7. Next, you can grant column-based access by specifying columns.
+
    1. Under **Table permissions**, choose **Select**.
    2. Under **Data permissions**, choose **Column-based access**, choose **Include columns**.
    3. Choose `product_name`, `price`, and `category` columns.
@@ -297,6 +301,7 @@ Next, register the Amazon S3 path as the root location of your data lake.
 2. In the navigation pane, under **Register and ingest**, choose **Data location**.
 3. On the upper right of the console, choose **Register location**.
 4. On the **Register location** page, enter the following:
+
    - **Amazon S3 path** – Choose **Browse** and select `lf-otf-datalake-123456789012`.
      Click on the right arrow (>) next to the Amazon S3 root location to navigate to the `s3/buckets/lf-otf-datalake-123456789012/transactionaldata/native-delta` location.
    - **IAM role** – Choose `LF-OTF-RegisterRole` as the IAM role.
@@ -313,6 +318,7 @@ In this step, we'll grant data lake permissions to the business analyst user.
 5. For **Databases** choose `lfdeltadb`.
 6. For **Tables**, choose `product`.
 7. Next, you can grant column-based access by specifying columns.
+
    1. Under **Table permissions**, choose **Select**.
    2. Under **Data permissions**, choose **Column-based access**, choose **Include columns**.
    3. Choose `product_name`, `price`, and `category` columns.

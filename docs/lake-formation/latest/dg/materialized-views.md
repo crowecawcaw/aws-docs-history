@@ -480,6 +480,7 @@ CloudWatch:
 Available Metrics:
 
 - AWS/Glue namespace with dimensions:
+
   - CatalogId: Your catalog identifier
   - DatabaseName: Database containing the materialized view
   - TableName: Materialized view name

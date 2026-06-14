@@ -42,6 +42,7 @@ AWS CLI
 
 - Enter an `update-lf-tag` command. Provide one or both of the
   following arguments:
+
   - `--tag-values-to-add`
   - `--tag-values-to-delete`
 

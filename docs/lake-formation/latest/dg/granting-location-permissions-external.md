@@ -22,6 +22,7 @@ AWS Management Console
 3. In the **Grant permissions** dialog box, choose the
    **External account** tile.
 4. Provide the following information:
+
    - For **AWS account ID or AWS organization ID**, enter valid
      AWS account numbers, organization IDs, or organizational unit IDs.
 

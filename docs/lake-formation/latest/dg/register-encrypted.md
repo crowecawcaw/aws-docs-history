@@ -55,6 +55,7 @@ the instructions in [Registering an encrypted Amazon S3 location across AWS acco
 3. On the KMS key details page, choose the **Key policy** tab, and then do
    one of the following to add your custom role or the Lake Formation service-linked role as a KMS key
    user:
+
    - **If the default view is showing** (with
      **Key administrators**, **Key deletion**,
      **Key users**, and **Other AWS accounts**

@@ -50,6 +50,7 @@ the LF-Tag expression.
 ###### To grant permissions on a shared table (named resource method, AWS CLI)
 
 - Enter a command similar to the following. In this example:
+
   - Your AWS account ID is 1111-2222-3333.
   - The account that owns the table and that granted it to your account is
     1234-5678-9012.

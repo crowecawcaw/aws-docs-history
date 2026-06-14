@@ -51,6 +51,7 @@ The simplest LF-Tag expression consists of just one LF-Tag, such as
   and the LF-Tag creator implicitly receive this permission. A principal that has the
   `Grant with LFTag expressions` permission can grant data permissions on the
   resources using:
+
   - the named resource method
   - the LF-TBAC method, but only using the same LF-Tag expression
 
@@ -87,6 +88,7 @@ For more information, see [Cross-account data sharing in Lake Formation](cross-a
 - LF-Tag keys and LF-Tag values can't exceed 50 characters in length.
 - The maximum number of LF-Tags that can be assigned to a Data Catalog resource is 50.
 - The following limits are soft limits:
+
   - The maximum number of LF-Tags that can be created is 10000.
   - The maximum number of values that can be defined for a LF-Tag is 1000.
 

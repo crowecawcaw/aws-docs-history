@@ -64,6 +64,7 @@ This user has the minimum set of permissions to query the data lake.
 1. Open the IAM console at [https://console.aws.amazon.com/iam](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam"). Sign in
    as a user with the `AdministratorAccess` AWS managed policy.
 2. Create a user named `datalake_user` with the following settings:
+
    - Enable AWS Management Console access.
    - Set a password and do not require password reset.
    - Attach the `AmazonAthenaFullAccess` AWS managed policy.
@@ -163,6 +164,7 @@ the data ingestion destination.
    **Data locations**.
 2. Choose **Grant**, and in the **Grant permissions**
    dialog box, do the following:
+
    1. For **IAM user and roles**, choose
       `LakeFormationWorkflowRole`.
    2. For **Storage locations**, choose your
@@ -194,6 +196,7 @@ the role.
    **Data lake permissions**.
 2. Choose **Grant**, and in the **Grant data
    permissions** dialog box, do the following:
+
    1. Under **Principals**, for **IAM user and
       roles**, choose `LakeFormationWorkflowRole`.
    2. Under **LF-Tags or catalog resources**, choose **Named
@@ -325,6 +328,7 @@ must grant `SELECT` to the data analyst.
    permissions**.
 2. Choose **Grant**, and in the **Grant data
    permissions** dialog box, do the following:
+
    1. Under **Principals**, for **IAM user and
       roles**, choose `datalake_user`.
    2. Under **LF-Tags or catalog resources**, choose **Named
@@ -440,6 +444,7 @@ If this is your first time choosing **Policies**, the
 2. In the navigation pane, under **Permissions**, choose **Data
    lake permissions**, and then choose **Grant**.
 3. Provide the following information:
+
    - For **IAM users and roles**, choose the IAM role you created,
      `RedshiftLakeFormationRole`. When you run the Amazon Redshift Query Editor, it uses
      this IAM role for permission to the data.
@@ -464,6 +469,7 @@ If this is your first time choosing **Policies**, the
 4. For the **Node type**, select **dc2.large**.
 5. Scroll down, and under **Database configurations**, enter or accept
    these parameters:
+
    - **Admin user name**: `awsuser`
    - **Admin user password**: `(`Choose a
      password`)`

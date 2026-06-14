@@ -16,6 +16,7 @@ The following is the work flow for application integration API operations:
    features, and a policy exists on the table for the feature, then a _PermissionTypeMismatchException_ is thrown and the query
    fails. This is to avoid data leakage.
 5. The returned response contains the following:
+
    - The entire schema for the table so that query engines can use it to parse the
      data from storage.
    - A list of authorized columns that the user has access. If the authorized column list is empty, it

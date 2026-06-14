@@ -9,6 +9,7 @@ page is divided into the following sections:
 
 - **Principal type** – You can grant permissions to specific
   principals or use attribute tags.
+
   - Principals – The IAM users, roles, IAM Identity Center users and groups, SAML users and groups, AWS
     accounts, organizations, or organizational units to grant permissions.
 

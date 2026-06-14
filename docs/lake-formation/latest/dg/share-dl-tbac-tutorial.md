@@ -92,6 +92,7 @@ resources:
 - A Lambda function (for Lambda-backed CloudFormation custom resources). We use the function to copy sample data files from the public Amazon S3 bucket to your Amazon S3 bucket.
 - IAM users and policies: DataLakeAdminProducer.
 - The appropriate Lake Formation settings and permissions including:
+
   - Defining the Lake Formation data lake administrator in the producer account
   - Registering an Amazon S3 bucket as the Lake Formation data lake location (producer account)
 
@@ -101,6 +102,7 @@ The CloudFormation template for the consumer account generates the following
 resources:
 
 - IAM users and policies:
+
   - DataLakeAdminConsumer
   - DataAnalyst
 
@@ -498,6 +500,7 @@ If not, confirm if the following are properly configured:
 To prevent unwanted charges to your AWS account, you can delete the AWS resources that you used for this tutorial.
 
 1. Sign into Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") using the producer account and delete or change the following:
+
    - AWS Resource Access Manager resource share
    - Lake Formation tags
    - CloudFormation stack
@@ -505,5 +508,6 @@ To prevent unwanted charges to your AWS account, you can delete the AWS resource
    - AWS Glue Data Catalog
 
 2. Sign into Lake Formation console at [https://console.aws.amazon.com/lakeformation/](https://console.aws.amazon.com/lakeformation/ "https://console.aws.amazon.com/lakeformation/") using the consumer account and delete or change the following:
+
    - Lake Formation tags
    - CloudFormation stack

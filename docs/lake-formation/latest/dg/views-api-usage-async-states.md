@@ -25,6 +25,7 @@ be performed on this view. Below are the possible values that these attributes c
 take on.
 
 1.  `Status.Action`
+
     1. CREATE
     2. UPDATE
 
@@ -74,10 +75,12 @@ status information:
    requirements.
 
 6. It has been successfully created for the first time.
+
    1. Action == CREATE and State == SUCCESS
 
 7. It has reached a terminal state after an asynchronous update
    operation.
+
    1. Action == UPDATE and State == SUCCESS
    2. Action == UPDATE and State == FAILED
 

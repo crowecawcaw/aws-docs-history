@@ -7,6 +7,7 @@
   Data Catalog views.
 - The IAM role that defines the view must have the following
   permissions:
+
   - Lake Formation `SELECT` permission with the `Grantable`
     option on all reference tables, all columns included.
   - Lake Formation `CREATE_TABLE` permission on the target database where
@@ -34,7 +35,6 @@
   }`
 
   ```
-
   - The iam:PassRole permission for AWS Glue and Lake Formation.
 
   JSON
@@ -63,7 +63,6 @@
   }`
 
   ```
-
   - AWS Glue and Lake Formation permissions.
 
   JSON
