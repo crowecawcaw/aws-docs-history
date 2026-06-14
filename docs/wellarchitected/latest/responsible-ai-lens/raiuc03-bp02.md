@@ -20,6 +20,7 @@ is not established:** High
    conditions, and potentially pre-processed). Consider
    variations across different user segments, geographic regions,
    and time periods.
+
    1. _Intrinsic variation_ refers to
       differences in input data to which AI system should attend
       to succeed.

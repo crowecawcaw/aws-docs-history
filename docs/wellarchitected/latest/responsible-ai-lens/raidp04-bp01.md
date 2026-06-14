@@ -47,6 +47,7 @@ is not established:** High
 - [Access
   your existing data and Resources through Amazon SageMaker AI
   Unified Studio, Part 1: AWSAWS Glue Data Catalog and Amazon Redshift](https://aws.amazon.com/blogs/big-data/access-your-existing-data-and-resources-through-amazon-sagemaker-unified-studio-part-1-aws-glue-data-catalog-and-amazon-redshift/ "https://aws.amazon.com/blogs/big-data/access-your-existing-data-and-resources-through-amazon-sagemaker-unified-studio-part-1-aws-glue-data-catalog-and-amazon-redshift/")
+
   - [Automate
     data lineage in Amazon SageMaker AI using AWS Glue Crawlers
     supported data sources](https://aws.amazon.com/blogs/big-data/automate-data-lineage-in-amazon-sagemaker-using-aws-glue-crawlers-supported-data-sources/ "https://aws.amazon.com/blogs/big-data/automate-data-lineage-in-amazon-sagemaker-using-aws-glue-crawlers-supported-data-sources/")
