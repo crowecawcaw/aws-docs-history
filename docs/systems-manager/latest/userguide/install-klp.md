@@ -17,6 +17,7 @@ _Amazon EC2 User Guide_.
    document `AWS-RunPatchBaseline`.
 5. In the **Command parameters** section, do one of the
    following:
+
    - If you're checking whether new kernel live patches are available,
      for **Operation**, choose `Scan`. For
      **Reboot Option**, if don't want your managed

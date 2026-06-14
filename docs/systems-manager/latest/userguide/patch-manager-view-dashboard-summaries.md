@@ -22,6 +22,7 @@ consolidated view. Patch Manager is a tool in AWS Systems Manager. On the
 3. Choose the **Dashboard** tab.
 4. Scroll to the section containing summary data that you want to
    view:
+
    - **Amazon EC2 instance management**
    - **Compliance summary**
    - **Noncompliance counts**

@@ -81,6 +81,7 @@ If you don't see a managed node in the list, see [Troubleshooting managed node a
      system to wait before failing the overall command execution.
 
 12. For **Rate Control**:
+
     - For **Concurrency**, specify either a number
       or a percentage of targets on which to run the command at the
       same time.

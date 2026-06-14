@@ -158,8 +158,10 @@ AWS Systems Manager, and Patch Manager is as follows:
 2. **Patch baseline determination**:
    SSM Agent verifies the patch group tags applied to the EC2 instance and
    queries Patch Manager for the corresponding patch baseline.
+
    - **Matching patch group value associated
      with patch baseline:**
+
      1. SSM Agent, which is installed on EC2 instances in group
         one, receives the command issued in Step 1 to begin a
         patching operation. SSM Agent validates that the EC2
@@ -177,6 +179,7 @@ AWS Systems Manager, and Patch Manager is as follows:
 
    - **No patch group tag added to
      instance:**
+
      1. SSM Agent, which is installed on EC2 instances in group
         two, receives the command issued in Step 1 to begin a
         patching operation. SSM Agent validates that the EC2
@@ -195,6 +198,7 @@ AWS Systems Manager, and Patch Manager is as follows:
 
    - **No matching patch group value associated
      with a patch baseline:**
+
      1. SSM Agent, which is installed on EC2 instances in group
         three, receives the command issued in Step 1 to begin a
         patching operation. SSM Agent validates that the EC2

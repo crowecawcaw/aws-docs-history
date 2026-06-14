@@ -187,6 +187,7 @@ patch names and IDs.
    identify the report later.
 7. For **Reporting frequency**, choose one of the
    following:
+
    - **On demand** – Create a one-time
      report. Skip to Step 9.
    - **On a schedule** – Specify a
@@ -238,6 +239,7 @@ this topic.
    identify the report later.
 6. For **Reporting frequency**, choose one of the
    following:
+
    - **On demand** – Create a one-time
      report. Skip to Step 8.
    - **On a schedule** – Specify a

@@ -42,6 +42,7 @@ completed successfully in the past 24 hours, do the following:
      change request to review results for.
 
 4. View information about the change request on the following tabs:
+
    - **Request details** – View basic details
      about the change request, including the requester, the
      change template, and the Automation runbooks selected for the

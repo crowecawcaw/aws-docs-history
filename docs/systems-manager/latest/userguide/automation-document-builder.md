@@ -258,6 +258,7 @@ following.
 8. Choose **Add a parameter** to create the second
    parameter, `tagValue`, and enter the
    following.
+
    1. For **Parameter name**, enter
       `tagValue`.
    2. For **Type**, choose
@@ -277,6 +278,7 @@ following.
 9. Choose **Add a parameter** to create the third
    parameter, `instanceType`, and enter the following
    information.
+
    1. For **Parameter name**, enter
       `instanceType`.
    2. For **Type**, choose
@@ -300,6 +302,7 @@ following.
     `LaunchInstanceAndCheckState`.
 12. In the **Step 1** section, complete the following
     steps.
+
     1. For **Step name**, enter this descriptive
        step name for the first step of the automation:
        `LaunchEc2Instance`.
@@ -314,7 +317,6 @@ following.
 
         This step first launches an EC2 instance using the ```aws:executeScript``` action and the provided script.
     ````
-
     4. Expand **Inputs**.
     5. For **Runtime**, choose the runtime language
        to use to run the provided script.
@@ -380,7 +382,6 @@ following.
 
         return @{'InstanceId'=$res.Instances.InstanceId}
     ```
-
     8. Expand **Additional inputs**.
     9. For **Input name**, choose
        **InputPayload**. For **Input
@@ -393,6 +394,7 @@ following.
     ```
 
 13. Expand **Outputs** and do the following:
+
     - For **Name**, enter
       `payload`.
     - For **Selector**, enter
@@ -404,6 +406,7 @@ following.
     runbook. The second step queries the status of the instance launched in
     Step 1 and waits until the status returned is `ok`.
 15. In the **Step 2** section, do the following.
+
     1. For **Step name**, enter this descriptive
        name for the second step of the automation:
        `WaitForInstanceStatusOk`.
@@ -418,7 +421,6 @@ following.
 
         The script continuously polls the instance status check value for the instance launched in Step 1 until the ```ok``` status is returned.
     ````
-
     4. For **Runtime**, choose the runtime language
        to be used for executing the provided script.
     5. For **Handler**, enter
@@ -488,7 +490,6 @@ following.
 
         return @{Status = $status.Status.Status; InstanceId = $instanceId}
     ```
-
     7. Expand **Additional inputs**.
     8. For **Input name**, choose
        **InputPayload**. For **Input

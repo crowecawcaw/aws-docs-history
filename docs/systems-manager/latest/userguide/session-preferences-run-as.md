@@ -62,6 +62,7 @@ preferences, session connection attempts will fail.
 4. Select the check box next to **Enable Run As support for
    Linux instances**.
 5. Do one of the following:
+
    - **Option 1**: In the **Operating
      system user name** field, enter the name of the OS
      user account that you want to use to start sessions. Using this

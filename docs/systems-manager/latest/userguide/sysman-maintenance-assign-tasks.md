@@ -25,6 +25,7 @@ function name is `MyLambdaFunction`, change it to
 3. In the list of maintenance windows, choose a maintenance window.
 4. Choose **Actions**, and then choose the option for the
    type of task you want to register with the maintenance window.
+
    - **Register Run command task**
    - **Register Automation task**
    - **Register Lambda task**
@@ -130,6 +131,7 @@ Step Functions
 
 9. In the **Targets** area, choose one of the
    following:
+
    - **Selecting registered target groups**: Select
      one or more maintenance window targets you have registered with the
      current maintenance window.

@@ -27,6 +27,7 @@ information, see [Setting up managed nodes for AWS Systems Manager](systems-mana
 5. In the **Document** list, choose
    `AWS-ConfigureAWSPackage`.
 6. In the **Parameters** area, do the following:
+
    - For **Action**, choose
      **Install**.
    - For **Installation type**, choose **Uninstall

@@ -319,6 +319,7 @@ JSON
 5. Create the required IAM roles for CloudFormation StackSets to use. You must
    create an _execution_ role and an
    _administration_ role.
+
    1. Create the execution role. The execution role should have at least
       one of the `AWSQuickSetupDeploymentRolePolicy` or
       `AWSQuickSetupPatchPolicyDeploymentRolePolicy`
@@ -349,7 +350,6 @@ JSON
    }`
 
    ```
-
    2. Create the administration role. The permissions policy must match
       the following. Replace each `account ID`
       and `execution role name` with your

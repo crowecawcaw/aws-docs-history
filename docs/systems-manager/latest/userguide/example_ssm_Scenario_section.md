@@ -839,6 +839,7 @@ public class SSMActions {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateDocument](../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateDocument.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateDocument.md")
   - [CreateMaintenanceWindow](../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateMaintenanceWindow.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateMaintenanceWindow.md")
   - [CreateOpsItem](../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateOpsItem.md "../../../goto/SdkForJavaV2/ssm-2014-11-06/CreateOpsItem.md")
@@ -1378,6 +1379,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [CreateDocument](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateDocumentCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateDocumentCommand.md")
   - [CreateMaintenanceWindow](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateMaintenanceWindowCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateMaintenanceWindowCommand.md")
   - [CreateOpsItem](../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateOpsItemCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/ssm/command/CreateOpsItemCommand.md")
@@ -2060,6 +2062,7 @@ class MaintenanceWindowWrapper:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateDocument](../../../goto/boto3/ssm-2014-11-06/CreateDocument.md "../../../goto/boto3/ssm-2014-11-06/CreateDocument.md")
   - [CreateMaintenanceWindow](../../../goto/boto3/ssm-2014-11-06/CreateMaintenanceWindow.md "../../../goto/boto3/ssm-2014-11-06/CreateMaintenanceWindow.md")
   - [CreateOpsItem](../../../goto/boto3/ssm-2014-11-06/CreateOpsItem.md "../../../goto/boto3/ssm-2014-11-06/CreateOpsItem.md")

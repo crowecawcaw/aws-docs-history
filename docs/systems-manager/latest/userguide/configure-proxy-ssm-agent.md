@@ -85,6 +85,7 @@ Ubuntu Server instances where SSM Agent was installed using Snap.
 1. Connect to the instance where you installed SSM Agent.
 2. Run one of the follow commands, depending on the operating system
    type.
+
    - On Ubuntu Server instances where SSM Agent is installed by using
      a snap:
 
@@ -142,6 +143,7 @@ proxy service (if IMDSv1 fallback is enabled) or calls to Systems Manager fail
 
 4. Save your changes. The system automatically creates one of the
    following files, depending on the operating system type.
+
    - On Ubuntu Server instances where SSM Agent is installed by using
      a snap:
 
@@ -155,12 +157,12 @@ proxy service (if IMDSv1 fallback is enabled) or calls to Systems Manager fail
 
 5. Restart SSM Agent by using one of the following commands, depending on
    the operating system type.
+
    - On Ubuntu Server instances installed by using a snap:
 
    ```
    sudo systemctl daemon-reload && sudo systemctl restart snap.amazon-ssm-agent.amazon-ssm-agent
    ```
-
    - On other operating systems:
 
    ```

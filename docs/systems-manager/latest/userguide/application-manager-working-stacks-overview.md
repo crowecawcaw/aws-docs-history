@@ -53,6 +53,7 @@ the AWS Management Console.
 6. On the **Specify template details** page,
    verify the details of the template to ensure the process creates
    the resources you want.
+
    - (Optional) In the **Tags** section,
      apply one or more tag key name/value pairs to the
      template.
@@ -66,6 +67,7 @@ the AWS Management Console.
    **Stack name**, enter a name that helps you
    identify the resources created by the stack or its
    purpose.
+
    - The **Parameters** section includes
      all optional and required parameters specified in the
      template. Enter one or more parameters in each
@@ -177,6 +179,7 @@ _AWS CloudFormation User Guide_.
 4. On the **Specify template source** page, choose
    one of the following options, and then choose
    **Next**.
+
    - Choose **Use the template code currently
      provisioned in the stack** to view a template.
      Choose a template version in the

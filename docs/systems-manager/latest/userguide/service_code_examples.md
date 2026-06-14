@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Systems Manager](example_ssm_Hello_section.md "example_ssm_Hello_section.md")
   - [Learn the basics](example_ssm_Scenario_section.md "example_ssm_Scenario_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [AddTagsToResource](example_ssm_AddTagsToResource_section.md "example_ssm_AddTagsToResource_section.md")
     - [CancelCommand](example_ssm_CancelCommand_section.md "example_ssm_CancelCommand_section.md")
     - [CreateActivation](example_ssm_CreateActivation_section.md "example_ssm_CreateActivation_section.md")
@@ -115,6 +117,7 @@ This topic also includes information about getting started and details about pre
     - [UpdatePatchBaseline](example_ssm_UpdatePatchBaseline_section.md "example_ssm_UpdatePatchBaseline_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Creating an Amazon ECS service for the EC2 launch type](example_ecs_GettingStarted_018_section.md "example_ecs_GettingStarted_018_section.md")
   - [Getting started with Amazon EC2](example_ec2_GettingStarted_013_section.md "example_ec2_GettingStarted_013_section.md")
   - [Setting up Systems Manager](example_iam_GettingStarted_046_section.md "example_iam_GettingStarted_046_section.md")

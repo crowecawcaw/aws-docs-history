@@ -96,6 +96,7 @@ following key name/value pair:
     choose the maintenance window target you created earlier in this
     procedure.
 25. For **Rate control**:
+
     - For **Concurrency**, specify either a number or a percentage of
       managed nodes on which to run the command at the same time.
 

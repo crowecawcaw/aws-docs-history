@@ -57,12 +57,14 @@ the following version options:
    controls.
 7. In the **Targets** section, choose how you want to target the AWS
    resources where you want to run the Automation. These options are required.
+
    1. Use the **Parameter** list to choose a parameter. The items in
       the **Parameter** list are determined by the parameters in the
       Automation runbook that you selected at the start of this procedure. By choosing a
       parameter you define the type of resource on which the Automation workflow runs.
    2. Use the **Targets** list to choose how you want to target
       resources.
+
       1. If you chose to target resources by using parameter values, then enter the
          parameter value for the parameter you chose in the **Input
          parameters** section.
@@ -97,6 +99,7 @@ In the **Concurrency** section, choose an option:
      that can run the Automation workflow simultaneously.
 
 10. In the **Error threshold** section, choose an option:
+
     - Choose **errors** to enter an absolute number of errors
       allowed before Automation stops sending the workflow to other resources.
     - Choose **percentage** to enter a percentage of errors allowed

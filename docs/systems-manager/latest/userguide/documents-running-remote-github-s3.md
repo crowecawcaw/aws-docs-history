@@ -78,6 +78,7 @@ tasks.
    **`AWS-RunDocument`**.
 5. In **Command parameters**, for **Source
    Type**, choose an option.
+
    - If you choose **GitHub**,
      specify **Source Info** information in the
      following format:
@@ -122,7 +123,6 @@ tasks.
    ```
    "getOptions": "commitID:bbc1ddb94...b76d3bEXAMPLE",
    ```
-
    - If you choose **S3**, specify
      **Source Info** information in the
      following format:
@@ -136,7 +136,6 @@ tasks.
    ```
    {"path":"https://s3.amazonaws.com/amzn-s3-demo-bucket/scripts/ruby/mySSMdoc.json"}
    ```
-
    - If you choose **SSMDocument**, specify
      **Source Info** information in the
      following format:
@@ -183,6 +182,7 @@ tips. 8. For **Other parameters**:
      system to wait before failing the overall command execution.
 
 9. For **Rate control**:
+
    - For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
 

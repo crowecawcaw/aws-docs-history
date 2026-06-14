@@ -53,6 +53,7 @@ follows:
    account.
 2. Use the [Setting up management account permissions for multi-Region and multi-account automation](#setup-management-account-iam-roles "#setup-management-account-iam-roles") procedure in this topic
    to create the following IAM roles:
+
    - `**AWS-SystemsManager-AutomationAdministrationRole**`
    * This role gives the user permission to run automations in multiple
      accounts and OUs.
@@ -208,6 +209,7 @@ the following version options:
    field to specify the different AWS accounts or AWS organizational units
    (OUs) where you want to run the automation. Separate multiple accounts or
    OUs with a comma.
+
    1. (Optional) Select the **Include child OUs**
       checkbox to include all child organizational units within the
       specified OUs.
@@ -222,6 +224,7 @@ the following version options:
    to restrict the automation to a limited number of accounts running in a
    limited number of Regions. These options don't restrict the number of AWS
    resources that can run the automations.
+
    1. In the **Location (account-Region pair)
       concurrency** section, choose an option to restrict the
       number of automations that can run in multiple accounts and Regions
@@ -235,6 +238,7 @@ the following version options:
       same time. For example, with 20 account-Region pairs, if you specify
       20%, then the automation simultaneously runs in a maximum of five
       (5) account-Region pairs.
+
       - Choose **targets** to enter an absolute
         number of account-Region pairs that can run the automation
         simultaneously.
@@ -244,6 +248,7 @@ the following version options:
 
    2. In the **Error threshold** section, choose an
       option:
+
       - Choose **errors** to enter an absolute
         number of errors allowed before Automation stops sending the
         automation to other resources.
@@ -253,12 +258,14 @@ the following version options:
 
 10. In the **Targets** section, choose how you want to target the AWS
     resources where you want to run the Automation. These options are required.
+
     1. Use the **Parameter** list to choose a parameter. The items in
        the **Parameter** list are determined by the parameters in the
        Automation runbook that you selected at the start of this procedure. By choosing a
        parameter you define the type of resource on which the Automation workflow runs.
     2. Use the **Targets** list to choose how you want to target
        resources.
+
        1. If you chose to target resources by using parameter values, then enter the
           parameter value for the parameter you chose in the **Input
           parameters** section.
@@ -303,6 +310,7 @@ In the **Concurrency** section, choose an option:
      that can run the Automation workflow simultaneously.
 
 14. In the **Error threshold** section, choose an option:
+
     - Choose **errors** to enter an absolute number of errors
       allowed before Automation stops sending the workflow to other resources.
     - Choose **percentage** to enter a percentage of errors allowed

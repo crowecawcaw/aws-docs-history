@@ -114,6 +114,7 @@ the FIPS endpoints in supported Regions.
 1. Connect to your managed node.
 2. Navigate to the directory that contains the
    `amazon-ssm-agent.json` file:
+
    - Linux: `/etc/amazon/ssm/`
    - macOS: `/opt/aws/ssm/`
    - Windows Server: `C:\Program Files\Amazon\SSM\`

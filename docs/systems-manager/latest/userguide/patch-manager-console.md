@@ -10,6 +10,7 @@ described in more detail in this section.
 2. Organize managed nodes into patch groups by using Amazon Elastic Compute Cloud (Amazon EC2) tags
    (optional, but recommended).
 3. Do one of the following:
+
    - (Recommended) Configure a patch policy in Quick Setup, a tool in Systems Manager,
      that lets you install missing patches on a schedule for an entire
      organization, a subset of organizational units, or a single

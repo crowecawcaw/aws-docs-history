@@ -137,6 +137,7 @@ service role, for Change Manager.
    choose **Create role**.
 3. For **Select trusted entity**, make the following
    choices:
+
    1. For **Trusted entity type**, choose
       **AWS service**
    2. For **Use cases for other AWS services**,
@@ -334,6 +335,7 @@ Create a role for identity federation. Follow the instructions in [Create a role
 in the _IAM User Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 

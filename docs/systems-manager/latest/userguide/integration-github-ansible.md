@@ -25,6 +25,7 @@ a `SecureString` parameter, see [Creating Parameter Store parameters in Systems 
    **`AWS-RunRemoteScript`**.
 5. In **Command parameters**, do the
    following:
+
    - In **Source Type**, select
      **GitHub**.
    - In the **Source Info** box, enter the
@@ -95,6 +96,7 @@ tips. 7. For **Other parameters**:
      system to wait before failing the overall command execution.
 
 8. For **Rate control**:
+
    - For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
 

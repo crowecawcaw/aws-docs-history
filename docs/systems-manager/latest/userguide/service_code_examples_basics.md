@@ -8,6 +8,7 @@ SDKs.
 - [Hello Systems Manager](example_ssm_Hello_section.md "example_ssm_Hello_section.md")
 - [Learn the basics](example_ssm_Scenario_section.md "example_ssm_Scenario_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [AddTagsToResource](example_ssm_AddTagsToResource_section.md "example_ssm_AddTagsToResource_section.md")
   - [CancelCommand](example_ssm_CancelCommand_section.md "example_ssm_CancelCommand_section.md")
   - [CreateActivation](example_ssm_CreateActivation_section.md "example_ssm_CreateActivation_section.md")

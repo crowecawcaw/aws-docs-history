@@ -37,6 +37,7 @@ the automation must have permissions for the following operations:
 6. For **CloudWatch Logs log group**, to specify the existing CloudWatch Logs log
    group in your AWS account that you want to send action output to, select one
    of the following:
+
    - **Send output to the default log group** – If
      the default log group doesn't exist
      (`/aws/ssm/automation/executeScript`), Automation creates

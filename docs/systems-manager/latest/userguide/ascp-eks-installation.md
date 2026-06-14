@@ -7,6 +7,7 @@ Amazon EKS Pods.
 ## Prerequisites
 
 - An Amazon EKS cluster
+
   - Version 1.24 or later for Pod Identity
   - Version 1.17 or later for IRSA
 

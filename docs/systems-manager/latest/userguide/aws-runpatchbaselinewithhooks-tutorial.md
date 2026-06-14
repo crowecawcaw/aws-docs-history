@@ -106,6 +106,7 @@ iptables -D INPUT -j DROP -p tcp --syn --destination-port
 
 4. Create an association in State Manager, a tool in AWS Systems Manager, to issue the
    operation by performing the following steps:
+
    1. Open the AWS Systems Manager console at [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/").
    2. In the navigation pane, choose **State Manager**, and
       then choose **Create association**.

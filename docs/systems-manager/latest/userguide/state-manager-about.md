@@ -143,6 +143,7 @@ following situations:
   association after a user edits and saves changes to the SSM document that
   defines the association's configuration state. Specifically, the association
   runs after the following edits to the document:
+
   - A user specifies a new `$DEFAULT` document version and
     the association was created using the `$DEFAULT` version.
   - A user updates a document and the association was created using
@@ -156,6 +157,7 @@ following situations:
 - **Target changes** – State Manager runs the
   association after any of the following activity occurs on a target
   node:
+
   - A managed node comes online for the first time.
   - A managed node comes online after missing a scheduled association
     run.

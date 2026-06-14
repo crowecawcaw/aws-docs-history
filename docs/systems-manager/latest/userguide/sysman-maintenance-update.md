@@ -29,6 +29,7 @@ targets.
 2. In the navigation pane, choose **Maintenance Windows**.
 3. Select the button next to the maintenance window that you want to
    update or delete, and then do one of the following:
+
    - Choose **Delete**. The system prompts you to
      confirm your actions.
    - Choose **Edit**. On the **Edit
@@ -52,6 +53,7 @@ description, and owner. You can also choose different targets.
 3. Choose the name of the maintenance window that you want to update,
    choose the **Targets** tab, and then do one of the
    following:
+
    - To update targets, select the button next to the target to
      update, and then choose **Edit**.
    - To deregister targets, select the button next to the target to
@@ -77,6 +79,7 @@ an Automation task, you can't edit that task and change it to a Run Command task
 4. Choose the **Tasks** tab, and then select the button
    next to the task to update.
 5. Do one of the following:
+
    - To deregister a task, choose **Deregister
      task**.
    - To edit the task, choose **Edit**. Change the

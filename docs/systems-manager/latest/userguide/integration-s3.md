@@ -43,6 +43,7 @@ substituted.
    **`AWS-RunRemoteScript`**.
 5. In **Command parameters**, do the
    following:
+
    - In **Source Type**, select **S3**.
    - In the **Source Info** text box, enter
      the required information to access the source in the
@@ -65,7 +66,6 @@ placeholder` with your own
    ```
    {"path":"https://amzn-s3-demo-bucket.s3.us-east-2.amazonaws.com/scripts/shell/helloWorld.sh"}
    ```
-
    - In the **Command Line** field, enter
      parameters for the script execution. Here is an
      example.
@@ -73,7 +73,6 @@ placeholder` with your own
    ```
    helloWorld.sh argument-1 argument-2
    ```
-
    - (Optional) In the **Working Directory**
      field, enter the name of a directory on the node where you
      want to download and run the script.
@@ -95,6 +94,7 @@ tips. 7. For **Other parameters**:
      system to wait before failing the overall command execution.
 
 8. For **Rate control**:
+
    - For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
 

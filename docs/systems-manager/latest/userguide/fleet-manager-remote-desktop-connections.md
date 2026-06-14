@@ -579,6 +579,7 @@ not supported.
     password for a Windows user account on the node that you're
     connecting to. If you choose **Key pair**, you can provide
     authentication using one of the following methods:
+
     1. Choose **Browse local machine** if you want to
        select the PEM key associated with your instance from your local
        file system.
@@ -618,6 +619,7 @@ all past connections.
 3. Choose **Account management, Connect with Remote
    Desktop**.
 4. Choose one of the following tabs:
+
    - **Active connections**
    - **Connection history**
 

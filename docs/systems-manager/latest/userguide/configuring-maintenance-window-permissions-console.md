@@ -186,6 +186,7 @@ created in the previous task to the custom service role you create.
    choose **Create role**.
 3. For **Select trusted entity**, make the following
    choices:
+
    1. For **Trusted entity type**, choose
       **AWS service**.
    2. For **Use case**, choose

@@ -113,11 +113,13 @@ are performed:
 2.  **Verify local patch states** - A script
     is run to determine what steps will be performed based on the selected
     operation and `Scan` result from Step 1.
+
     1. If the selected operation is `Scan`, the operation
        is marked complete. The operation concludes.
     2. If the selected operation is `Install`, Patch Manager
        evaluates the `Scan` result from Step 1 to determine
        what to run next:
+
        1. If no missing patches are detected, and no pending
           reboots required, the operation proceeds directly to the
           final step (Step 8), which includes a hook you have
@@ -145,6 +147,7 @@ are performed:
 6.  **Verify reboot** - A script runs to
     determine whether a reboot is needed for the managed node and what steps
     to run:
+
     1.  If the selected reboot option is `NoReboot`, the
         operation proceeds directly to the final step (Step 8), which
         includes a hook you have provided. Any steps in between are
@@ -378,10 +381,12 @@ This tracking file is stored in the following locations on your managed
 nodes:
 
 - Linux operating systems:
+
   - `/var/log/amazon/ssm/patch-configuration/patch-states-configuration.json`
   - `/var/log/amazon/ssm/patch-configuration/patch-inventory-from-last-operation.json`
 
 - Windows Server operating system:
+
   - `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchStatesConfiguration.json`
   - `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchInventoryFromLastOperation.json`
 

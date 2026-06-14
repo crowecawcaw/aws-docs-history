@@ -20,6 +20,7 @@ search for parameters.
    example, `Type` or `Name`.
 4. Provide information for the search type you selected. For
    example:
+
    - If you're searching by `Type`, choose from
      `String`, `StringList`, or
      `SecureString`.

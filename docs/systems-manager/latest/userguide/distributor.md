@@ -125,6 +125,7 @@ includes the following.
 
 - A .zip file of software per target operating system platform. Each .zip file
   must include the following.
+
   - An **install** and an **uninstall**
     script. Windows Server-based managed nodes require PowerShell scripts (scripts
     named `install.ps1` and

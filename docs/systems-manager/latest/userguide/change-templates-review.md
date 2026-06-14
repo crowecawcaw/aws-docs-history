@@ -33,6 +33,7 @@ to the AWS Management Console, and follow the steps in this procedure.
    the name of change template to review.
 5. In the summary page, review the proposed content of the
    change template and do one of the following:
+
    - To approve the change template, which allows it to be used in
      change requests, choose **Approve**.
    - To reject the change template, which prevents it from being

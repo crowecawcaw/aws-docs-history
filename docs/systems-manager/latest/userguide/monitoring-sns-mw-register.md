@@ -42,6 +42,7 @@ console.
 9. In the **Targets** section, select a registered
    target group or select unregistered targets.
 10. For **Rate control**:
+
     - For **Concurrency**, specify either a number or a percentage of
       managed nodes on which to run the command at the same time.
 

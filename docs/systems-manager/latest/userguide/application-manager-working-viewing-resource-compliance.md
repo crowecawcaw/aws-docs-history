@@ -18,6 +18,7 @@ You can perform the following actions on this page:
   where you can view compliance information about a selected resource.
 - In the **Config rules compliance** section, you can do
   the following:
+
   - Choose a rule name to open the AWS Config console where you can view
     information about that rule.
   - Choose **Add rules** to open the AWS Config console
@@ -33,6 +34,7 @@ You can perform the following actions on this page:
 
 - In the **Association compliance** section, you can do the
   following:
+
   - Choose an association name to open the
     **Associations** page where you can view
     information about that association.

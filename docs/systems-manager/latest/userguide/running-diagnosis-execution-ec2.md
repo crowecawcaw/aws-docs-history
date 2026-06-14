@@ -50,6 +50,7 @@ monitor the current state of the execution. For more information, see
     recommendations**.
 7.  In the **Recommendations** pane that opens, choose from
     the available mitigations:
+
     - **Learn more** – Open a topic with
       information about how to resolve an issue manually.
     - **View runbook** – Open a pane with
@@ -59,12 +60,14 @@ monitor the current state of the execution. For more information, see
       take. Continue with the next step.
 
 8.  In the runbook pane, do the following:
+
     1. For **Document description**, review the content,
        which provides an overview of the actions the runbook can take to
        remediate your unmanaged EC2 instance issues. Choose **View
        steps** to preview the individual actions the runbook
        would take.
     2. For **Targets**, do the following:
+
        - If you are managing remediations for an organization, for
          **Accounts**, specify whether this
          runbook would target all accounts, or only a subset of
@@ -118,7 +121,6 @@ monitor the current state of the execution. For more information, see
         	 orchestration processes or third-party API
         	 executions, so the results of the steps are
         	 undetermined.
-
     4.  At this point, you can choose one of the following actions:
 
             * Stop and do not execute the runbook.

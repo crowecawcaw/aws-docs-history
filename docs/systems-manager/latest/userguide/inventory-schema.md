@@ -278,6 +278,7 @@ AWS Systems Manager Inventory plugin.
 - Some metadata is not available from Linux instances. Specifically, for
   "typeName": "AWS:Network", the following metadata types are not yet
   supported for Linux instances. They ARE supported for Windows.
+
   - { "name": "SubnetMask", "dataType": "STRING"},
   - { "name": "DHCPServer", "dataType": "STRING"},
   - { "name": "DNSServer", "dataType": "STRING"},

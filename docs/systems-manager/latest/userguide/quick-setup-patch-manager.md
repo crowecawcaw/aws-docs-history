@@ -273,6 +273,7 @@ targets daily at 1:00 AM UTC.
    patches to the specified targets. If you choose **Use
    recommended defaults**, Patch Manager will install weekly
    patches at 2:00 AM UTC on Sunday.
+
    - If you choose **Custom install schedule**,
      select the **Installation Frequency**.
    - If you choose **Daily**, enter the time, in
@@ -380,6 +381,7 @@ configuration.
 
 12. For **Choose how you want to target instances**,
     choose one of the following to identify the nodes to patch:
+
     - **All managed nodes** – All managed
       nodes in the selected OUs and Regions.
     - **Specify the resource group** –
@@ -406,6 +408,7 @@ configuration.
 
 13. In the **Rate control** section, do the
     following:
+
     - For **Concurrency**, enter a number or
       percentage of nodes to run the patch policy on at the same
       time.

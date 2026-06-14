@@ -13,12 +13,14 @@ By default, the page displays all available widgets.
 2. In the left navigation, choose **Review node
    insights**.
 3. To remove a widget from the display, do the following:
+
    1. Choose the More options menu (
       ![The More options menu](images/more-options-menu-widgets.png)
       ) for the widget.
    2. Choose **Remove widget**.
 
 4. To add a widget to the display, do the following:
+
    1. Choose **Add widgets**.
    2. In the **Add widgets** pane, click and hold the drag
       handle (

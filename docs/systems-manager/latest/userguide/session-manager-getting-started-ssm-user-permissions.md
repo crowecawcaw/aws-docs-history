@@ -29,6 +29,7 @@ nodes.
 
 - Use the procedure in [Running commands from the console](running-commands-console.md "running-commands-console.md") with the following
   values:
+
   - For **Command document**, choose
     `AWS-RunShellScript`.
   - To remove sudo access, in the **Command
@@ -142,6 +143,7 @@ net localgroup "Administrators" "ssm-user" /add
    **ssm-user**.
 4. On the **Member Of** tab, do one of the
    following:
+
    - To remove administrative access, select
      **Administrators**, and then choose
      **Remove**.

@@ -1205,6 +1205,7 @@ Before you contact Support, collect the following items:
 - Run Command command ID, maintenance window ID, or Automation execution
   ID
 - For Windows Server managed nodes, also collect the following:
+
   - `%PROGRAMDATA%\Amazon\PatchBaselineOperations\Logs` as
     described on the **Windows** tab of [How patches are installed](patch-manager-installing-patches.md "patch-manager-installing-patches.md")
   - Windows update logs: For Windows Server 2012 R2 and older, use
@@ -1213,5 +1214,6 @@ Before you contact Support, collect the following items:
     `%windir%/WindowsUpdate.log`
 
 - For Linux managed nodes, also collect the following:
+
   - The contents of the directory
     `/var/lib/amazon/ssm/`instance-id`/document/orchestration/`Run-Command-execution-id`/awsrunShellScript/PatchLinux`

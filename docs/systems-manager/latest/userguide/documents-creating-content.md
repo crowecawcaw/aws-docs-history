@@ -166,6 +166,7 @@ fi
 
 - Before implementing your SSM document, verify the following security
   considerations:
+
   - All string parameters that accept user input use environment
     variable interpolation when appropriate.
   - Input validation is implemented using

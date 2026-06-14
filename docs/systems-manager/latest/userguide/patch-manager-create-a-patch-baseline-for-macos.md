@@ -95,6 +95,7 @@ exceptions** section:
 10. If you want to explicitly reject any patches that otherwise meet
     your approval rules, do the following in the **Patch
     exceptions** section:
+
     - For **Rejected patches**, enter a
       comma-separated list of the patches you want to
       reject.
@@ -104,6 +105,7 @@ exceptions** section:
     - For **Rejected patches action**, select
       the action for Patch Manager to take on patches included in the
       **Rejected patches** list.
+
       - **Allow as
         dependency**: A package in the
         **Rejected patches** list is

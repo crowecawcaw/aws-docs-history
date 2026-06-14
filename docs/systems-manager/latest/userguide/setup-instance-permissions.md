@@ -183,6 +183,7 @@ procedures.
    **EC2**, and then choose
    **Next**.
 5. On the **Add permissions** page, do the following:
+
    - Use the **Search** field to locate the
      **AmazonSSMManagedInstanceCore** policy.
      Select the check box next to its name, as shown in the following
@@ -230,6 +231,7 @@ the **Roles** page.
    permissions, Attach policies**.
 4. On the **Attach policy** page, do the
    following:
+
    - Use the **Search** field to locate the
      **AmazonSSMManagedInstanceCore** policy.
      Select the check box next to its name.

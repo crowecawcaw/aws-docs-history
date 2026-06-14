@@ -29,6 +29,7 @@ quickly, so it doesn't cover all possible options.
    descriptive name for your instance.
 4. For **Application and OS Images (Amazon Machine Image)**, do
    the following:
+
    1. Choose the **Quick Start** tab, and then choose Amazon Linux.
       This is the operating system (OS) for your instance.
    2. For **Amazon Machine Image (AMI)**, choose an HVM
@@ -48,6 +49,7 @@ quickly, so it doesn't cover all possible options.
    selected a security group for you. You can use this security group, or
    alternatively you can select a security group that you created previously using
    the following steps:
+
    1. Choose **Select existing security group**.
    2. From **Common security groups**, choose your security
       group from the list of existing security groups.

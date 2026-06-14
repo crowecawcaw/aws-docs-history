@@ -23,6 +23,7 @@ run runbook workflows.
    `UpdateEC2LinuxAMI`.
 5. In the **Change template details** section, do
    the following:
+
    - For **Description**, provide a brief
      explanation of how and when the change template you're
      creating is to be used.

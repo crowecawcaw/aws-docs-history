@@ -15,6 +15,7 @@ lists and reports and change how the list is displayed in the console.
    ![The preferences gear icon](images/preferences-icon.png)
    ).
 4. In the **Preferences** dialog box, do the following:
+
    1. For **Page size**, choose how many rows are included
       in each console view display, **10**,
       **25**, or **50**.
@@ -24,6 +25,7 @@ lists and reports and change how the list is displayed in the console.
       alternating rows of clear and shaded backgrounds.
    4. For **Select visible content**, do the
       following:
+
       - Turn on or off individual columns for your list display and
         reports.
       - To change the order of columns, click and hold the drag handle (

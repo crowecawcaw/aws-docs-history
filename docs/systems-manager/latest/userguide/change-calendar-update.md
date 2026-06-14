@@ -27,6 +27,7 @@ created when you created the entry. Change Calendar is a tool in AWS Systems Man
    change the calendar type, you should verify with other Change Calendar users that
    changing the calendar type doesn't allow unwanted changes during events that
    they have created.
+
    - **Open by default** – The calendar is open
      (Automation actions can run until an event starts) then closed for
      the duration of an associated event.

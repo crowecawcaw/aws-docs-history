@@ -212,10 +212,12 @@ nodes have the following prerequisites installed:
     **`AWS-ApplyDSCMofs`**.
 6.  In the **Parameters** section, specify your choices for
     the required and optional input parameters.
+
     1. **Mofs To Apply**: Specify one or more MOF files
        to run when this association runs. Use commas to separate a list of
        MOF files. Systems Manager iterates through the list of MOF files and runs
        them in the order specified by the comma separated list.
+
        - An Amazon S3 bucket name. Bucket names must use lowercase
          letters. Specify this information by using the following
          format.
@@ -230,7 +232,6 @@ nodes have the following prerequisites installed:
        ```
        s3:`bucket_Region`:`amzn-s3-demo-bucket`:`MOF_file_name`.mof
        ```
-
        - A secure website. Specify this information by using the
          following format.
 
@@ -243,7 +244,6 @@ nodes have the following prerequisites installed:
        ```
        https://www.example.com/TestMOF.mof
        ```
-
        - A file system on a local share. Specify this information
          by using the following format.
 
@@ -289,7 +289,6 @@ nodes have the following prerequisites installed:
         * **ReportOnly**: Don't correct node
          configurations, but instead log all compliance data and
          report nodes that aren't compliant.
-
     5. **Status Bucket Name**: (Optional) Enter the name
        of an Amazon S3 bucket where you want to write MOF execution status
        information. These status reports are singleton summaries of the
@@ -337,7 +336,6 @@ nodes have the following prerequisites installed:
          multiple times.
         * **Never**: Nodes aren't rebooted, even if
          the MOF execution explicitly requests a reboot.
-
     10. **Use Computer Name For Reporting**: (Optional)
         Turn on this option to use the name of the computer when reporting
         compliance information. The default value is
@@ -392,6 +390,7 @@ nodes have the following prerequisites installed:
     you choose **On Schedule**, then use the buttons provided
     to create a cron or rate schedule for the association.
 9.  In the **Advanced options** section:
+
     - In **Compliance severity**, choose a severity
       level for the association. Compliance reporting indicates whether
       the association state is compliant or noncompliant, along with the
@@ -489,6 +488,7 @@ understand the root cause of the issue. Also, verify the following:
 
 - The node has the required access permissions to all MOF-related Amazon S3
   buckets. Specifically:
+
   - **s3:GetObject permissions**: This is required
     for MOF files in private Amazon S3 buckets and custom modules in Amazon S3
     buckets.
@@ -541,6 +541,7 @@ Here is an example: `us-west-1:amzn-s3-demo-bucket;`
 
 - If Region-specific syntax doesn't fix the problem, then make sure that the
   targeted nodes can access Amazon S3 in the desired Region. To verify this:
+
   1.  Find the endpoint name for Amazon S3 in the appropriate Amazon S3 Region.
       For information, see [Amazon S3 Service Endpoints](../../../general/latest/gr/s3.md#s3_region "../../../general/latest/gr/s3.md#s3_region") in the
       _Amazon Web Services General Reference_.

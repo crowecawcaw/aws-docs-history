@@ -32,6 +32,7 @@ hierarchies in parameter names. For example:
   character (/) . When you reference a parameter that is part of a
   hierarchy, specify the entire hierarchy path including the initial slash
   (/).
+
   - Fully qualified parameter names:
     `MyParameter1`,
     `/MyParameter2`,
@@ -48,6 +49,7 @@ hierarchies in parameter names. For example:
   prefixed with "`aws`" or "`ssm`"
   (case-insensitive). For example, attempts to create parameters with the
   following names fail with an exception:
+
   - `awsTestParameter`
   - `SSM-testparameter`
   - `/aws/testparam1`

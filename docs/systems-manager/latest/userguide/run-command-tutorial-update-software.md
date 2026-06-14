@@ -34,6 +34,7 @@ To be notified about SSM Agent updates, subscribe to the [SSM Agent Release Note
    **`AWS-UpdateSSMAgent`**.
 5. In the **Command parameters** section, specify values
    for the following parameters, if you want:
+
    1. (Optional) For **Version**, enter the version
       of SSM Agent to install. You can install [older versions](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md "https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTES.md") of the agent. If you don't specify a
       version, the service installs the latest version.
@@ -57,6 +58,7 @@ tips. 7. For **Other parameters**:
      system to wait before failing the overall command execution.
 
 8. For **Rate control**:
+
    - For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
 
@@ -143,6 +145,7 @@ tips. 7. For **Other parameters**:
      system to wait before failing the overall command execution.
 
 8. For **Rate control**:
+
    - For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
 

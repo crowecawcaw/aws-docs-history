@@ -130,6 +130,7 @@ To define the branching logic, do the following:
 8. Drag a **Change an instance state** action to the empty
    **Drag action here** box under the **{{
    GetInstanceState.InstanceState }} == "stopped"** condition.
+
    1. For the **Step name**, enter
       `StartInstance`.
    2. In the **Inputs** tab, under **Instance IDs**,
@@ -143,6 +144,7 @@ To define the branching logic, do the following:
    GetInstanceState.InstanceState }} == "stopping"** condition.
 10. For **Step name**, enter a value. For this tutorial, use the name
     `WaitForInstanceStop`.
+
     1. For the **Service** field, choose
        **Amazon EC2**.
     2. For the **API** field, choose
@@ -161,6 +163,7 @@ To define the branching logic, do the following:
     GetInstanceState.InstanceState }} == "running"** condition.
 12. For the **Step name**, enter
     `SayHello`.
+
     1. In the **Inputs** tab, enter
        `AWS-RunShellScript` for the **Document
        name** parameter.

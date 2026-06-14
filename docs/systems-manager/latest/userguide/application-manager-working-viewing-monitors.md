@@ -45,6 +45,7 @@ You can perform the following actions on this page:
 - Choose the **Actions** menu to view alarm data
   **Override** options, which include the
   following:
+
   - Choose whether your widget displays live data. Live data is data
     published within the last minute that hasn't been fully aggregated.
     If live data is turned off, only data points with an aggregation

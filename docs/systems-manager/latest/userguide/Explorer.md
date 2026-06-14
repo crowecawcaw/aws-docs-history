@@ -31,6 +31,7 @@ Explorer includes the following features:
   information**: Explorer includes drag-and-drop widgets that
   automatically display actionable information about your AWS resources.
   Explorer displays information in two types of widgets.
+
   - **Informational widgets**: These widgets
     summarize data from Amazon EC2, Patch Manager, State Manager, and supporting
     AWS services like AWS Trusted Advisor, AWS Compute Optimizer, and Support. These widgets
@@ -68,6 +69,7 @@ Explorer includes the following features:
 - **Three modes of AWS account and AWS Region
   display**: Explorer includes the following display modes for
   OpsData and OpsItems in AWS accounts and AWS Regions:
+
   - _Single-account/single-Region_: This is the default
     view. This mode allows users to view data and OpsItems from their own
     account and the current Region.

@@ -25,6 +25,7 @@ Integrated Setup performs the following tasks:
   becoming unavailable.
 - Activates OpsData sources: Integrated Setup activates the following data
   sources that populate Explorer widgets.
+
   - Support Center (You must have either a Business or Enterprise Support
     plan to activate this source.)
   - AWS Compute Optimizer (You must have either a Business or Enterprise Support plan

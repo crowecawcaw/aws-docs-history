@@ -303,6 +303,7 @@ the _Amazon EC2 User Guide_.
    **3 (default)**.
 8. In the **Input parameters** section, specify the
    following parameters:
+
    1. For **InstanceID**, specify the ID of the
       unreachable instance.
    2. For **SubnetId**, specify a subnet in an

@@ -626,10 +626,12 @@ This tracking file is stored in the following locations on your managed
 nodes:
 
 - Linux operating systems:
+
   - `/var/log/amazon/ssm/patch-configuration/patch-states-configuration.json`
   - `/var/log/amazon/ssm/patch-configuration/patch-inventory-from-last-operation.json`
 
 - Windows Server operating system:
+
   - `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchStatesConfiguration.json`
   - `C:\ProgramData\Amazon\PatchBaselineOperations\State\PatchInventoryFromLastOperation.json`
 

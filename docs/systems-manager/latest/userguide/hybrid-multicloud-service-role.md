@@ -28,6 +28,7 @@ Amazon Simple Storage Service (Amazon S3) buckets, Patch Manager patching operat
    **Create role**.
 3. For **Select trusted entity**, make the following
    choices:
+
    1. For **Trusted entity type**, choose
       **AWS service**.
    2. For **Use cases for other AWS services**,
@@ -41,6 +42,7 @@ Amazon Simple Storage Service (Amazon S3) buckets, Patch Manager patching operat
 
 4. Choose **Next**.
 5. On the **Add permissions** page, do the following:
+
    - Use the **Search** field to locate the
      **AmazonSSMManagedInstanceCore** policy. Select
      the check box next to its name, as shown in the following

@@ -562,6 +562,7 @@ JSON
 2. Open the AWS CLI.
 3. Depending on whether you're assigning the permission to an IAM
    entity (user or group), run one of the following commands.
+
    - **For a user:**
 
    Linux & macOS

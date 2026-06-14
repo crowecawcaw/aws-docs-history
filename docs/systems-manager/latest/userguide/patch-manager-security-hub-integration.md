@@ -25,6 +25,7 @@ configuration you are using for your patching operations:
 ###### Contents
 
 - [How Patch Manager sends findings to Security Hub CSPM](patch-manager-security-hub-integration.md#securityhub-integration-sending-findings "patch-manager-security-hub-integration.md#securityhub-integration-sending-findings")
+
   - [Types of findings that Patch Manager sends](patch-manager-security-hub-integration.md#securityhub-integration-finding-types "patch-manager-security-hub-integration.md#securityhub-integration-finding-types")
   - [Latency for sending findings](patch-manager-security-hub-integration.md#securityhub-integration-finding-latency "patch-manager-security-hub-integration.md#securityhub-integration-finding-latency")
   - [Retrying when Security Hub CSPM isn't available](patch-manager-security-hub-integration.md#securityhub-integration-retry-send "patch-manager-security-hub-integration.md#securityhub-integration-retry-send")

@@ -157,8 +157,10 @@ one of the following:
 
 10. In the **Change request approvals** section, do
     the following:
+
     1.  If **Approval type** options are
         presented, choose one of the following:
+
         - **Automatic approval** –
           The change template you selected is configured to
           allow change requests to run automatically without
@@ -291,7 +293,9 @@ specify a deployment location.
 
 14. In the **Deployment targets** section, do the
     following:
+
     1.  Choose one of the following:
+
         - **Single resource** – The
           change is to be made for just one resource. For
           example, a single node or a single Amazon Machine Image

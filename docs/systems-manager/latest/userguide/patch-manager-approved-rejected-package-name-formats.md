@@ -71,6 +71,7 @@ you can specify any of the following:
 
 - We also support package name components with a single wild card in
   the above formats, such as the following:
+
   - `dbus*`
   - `dbus-1.12.2*`
   - `dbus-*:1.12.28-1.amzn2023.0.1.x86_64`
@@ -117,6 +118,7 @@ you can specify any of the following:
 
 - We also support package name components with a single wild card in
   the above formats, such as the following:
+
   - `dbus*`
   - `dbus-1.12.2*`
   - `dbus-*:1.12.28-1.amzn2023.0.1.x86_64`
@@ -151,10 +153,12 @@ include all the following in a patch list:
 patch lists, you can specify any of the following:
 
 - Full package names, in formats such as:
+
   - `SUSE-SLE-Example-Package-15-2023-123`
   - `example-pkg-2023.15.4-46.17.1.x86_64.rpm`
 
 - Package names with a single wildcard, such as:
+
   - `SUSE-SLE-Example-Package-15-2023-*`
   - `example-pkg-2023.15.4-46.17.1.*.rpm`
 

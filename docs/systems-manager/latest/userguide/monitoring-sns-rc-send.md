@@ -32,6 +32,7 @@ tips. 7. For **Other parameters**:
      system to wait before failing the overall command execution.
 
 8. For **Rate control**:
+
    - For **Concurrency**, specify either a number or a percentage of
      managed nodes on which to run the command at the same time.
 

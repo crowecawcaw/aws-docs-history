@@ -175,6 +175,7 @@ and 11.
     of letting patches be selected according to approval rules, do the
     following in the **Patch exceptions**
     section:
+
     - For **Approved patches**, enter a
       comma-separated list of the patches you want to
       approve.
@@ -188,6 +189,7 @@ and 11.
 12. If you want to explicitly reject any patches that otherwise meet
     your approval rules, do the following in the **Patch
     exceptions** section:
+
     - For **Rejected patches**, enter a
       comma-separated list of the patches you want to
       reject.

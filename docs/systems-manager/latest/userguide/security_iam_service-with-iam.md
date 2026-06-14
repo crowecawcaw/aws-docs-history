@@ -150,6 +150,7 @@ Note the following exceptions to ARN formats.
 
 - The following tools in AWS Systems Manager use different prefixes before
   actions.
+
   - AWS AppConfig uses the prefix `appconfig:` before
     actions.
   - Incident Manager uses the prefix

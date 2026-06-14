@@ -37,6 +37,7 @@ node.
 
 1.  On the managed node to which you want to allow SSH connections, do the
     following:
+
     - Ensure that SSH is running on the managed node. (You can close
       inbound ports on the node.)
     - Ensure that SSM Agent version 2.3.672.0 or later is installed
@@ -60,6 +61,7 @@ node.
 
 2.  On the local machine from which you want to connect to a managed node
     using SSH, do the following:
+
     - Ensure that version 1.1.23.0 or later of the Session Manager plugin is
       installed.
 
@@ -101,7 +103,6 @@ node.
     Host i-* mi-*
         ProxyCommand C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters portNumber=%p"
     ```
-
     - Create or verify that you have a Privacy Enhanced Mail
       certificate (a PEM file), or at minimum a public key, to use
       when establishing connections to managed nodes. This must be a
@@ -130,6 +131,7 @@ SSH connections through Session Manager.
 ###### To use an IAM policy to allow SSH connections through Session Manager
 
 - Use one of the following options:
+
   - **Option 1**: Open the IAM
     console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 
@@ -165,7 +167,6 @@ SSH connections through Session Manager.
   }`
 
   ```
-
   - **Option 2**: Attach an inline
     policy to a user policy by using the AWS Management Console, the AWS CLI, or
     the AWS API.
@@ -180,6 +181,7 @@ SSH connections through Session Manager.
 ###### To use an IAM policy to deny SSH connections through Session Manager
 
 - Use one of the following options:
+
   - **Option 1**: Open the IAM
     console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). In the navigation pane,
     choose **Policies**, and then update the
@@ -209,7 +211,6 @@ SSH connections through Session Manager.
   }`
 
   ```
-
   - **Option 2**: Attach an inline
     policy to a user policy by using the AWS Management Console, the AWS CLI, or
     the AWS API.

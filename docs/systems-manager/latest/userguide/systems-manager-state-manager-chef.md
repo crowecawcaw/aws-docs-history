@@ -249,6 +249,7 @@ State Manager association that runs Chef cookbooks by using the
    using the appropriate format for the **Source
    Type** that you selected in step 6. For more information, see
    the following topics:
+
    - [Use Git as a cookbook source](#state-manager-chef-git "#state-manager-chef-git")
    - [Use GitHub as a cookbook source](#state-manager-chef-github "#state-manager-chef-github")
    - [Use HTTP as a cookbook source](#state-manager-chef-http "#state-manager-chef-http")
@@ -266,6 +267,7 @@ recipe[`cookbook-name1`::`recipe-name`],recipe[`cookbook-name2`::`recipe-name`]
 
 9. (Optional) Specify custom JSON attributes that you want the
    Chef client to pass to your target nodes.
+
    1. In **JSON attributes content**, add any
       attributes that you want the Chef client to pass to
       your target nodes.

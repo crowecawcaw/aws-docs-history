@@ -32,6 +32,7 @@ session data is sent to. For information, see [Update Session Manager preference
 7. For **CloudWatch logs**, to specify the existing CloudWatch Logs log
    group in your AWS account to upload session logs to, select one of the
    following:
+
    - **Choose a log group from the list**: Select a
      log group that has already been created in your account to store
      session log data.

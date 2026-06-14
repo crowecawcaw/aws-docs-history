@@ -124,6 +124,7 @@ to it, and the new instance will be inventoried.
 3. Choose **Setup Inventory**.
 4. In the **Targets** section, identify the nodes where
    you want to run this operation by choosing one of the following.
+
    - **Selecting all managed instances in this
      account** - This option selects all managed nodes
      for which there is no existing inventory association. If you

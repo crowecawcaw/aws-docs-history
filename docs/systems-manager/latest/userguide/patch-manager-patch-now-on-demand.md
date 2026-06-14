@@ -108,6 +108,7 @@ Use the following procedure to patch your managed nodes on demand.
 3. Choose **Patch now**.
 4. For **Patching operation**, choose one of the
    following:
+
    - **Scan**: Patch Manager finds which patches are
      missing from your managed nodes but doesn't install them. You
      can view the results in the **Compliance**
@@ -120,6 +121,7 @@ Use the following procedure to patch your managed nodes on demand.
 5. Use this step only if you chose **Scan and install**
    in the previous step. For **Reboot option**, choose one
    of the following:
+
    - **Reboot if needed**: After installation,
      Patch Manager reboots managed nodes only if needed to complete a
      patch installation.
@@ -149,6 +151,7 @@ Use the following procedure to patch your managed nodes on demand.
 
 6. For **Instances to patch**, choose one of the
    following:
+
    - **Patch all instances**: Patch Manager runs the
      specified operation on all managed nodes in your AWS account
      in the current AWS Region.

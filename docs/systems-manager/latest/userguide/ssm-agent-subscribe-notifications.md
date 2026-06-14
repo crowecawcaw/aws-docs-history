@@ -19,6 +19,7 @@ Release Notes](https://github.com/aws/amazon-ssm-agent/blob/mainline/RELEASENOTE
 3. In the navigation pane, choose **Subscriptions**.
 4. Choose **Create subscription**.
 5. For **Create subscription**, do the following:
+
    1. For **Topic ARN**, use the following Amazon Resource
       Name (ARN):
 

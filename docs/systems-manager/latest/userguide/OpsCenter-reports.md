@@ -17,12 +17,14 @@ information:
    the **Summary** tab.
 3. In the **OpsItems by source and age** section, do the
    following:
+
    1. (Optional) In the filter field, choose **Source**,
       select `Equal`, `Begin With`, or
       `Not Equal`, and then enter a search
       parameter.
    2. In the adjacent list, select one of the following status
       values:
+
       - `Open`
       - `In progress`
       - `Resolved`

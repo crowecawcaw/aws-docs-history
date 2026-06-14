@@ -42,6 +42,7 @@ data.
 7. For **CloudWatch logs**, to specify the existing CloudWatch Logs log
    group in your AWS account to upload session logs to, select one of the
    following:
+
    - Enter the name of a log group in the text box that has already
      been created in your account to store session log data.
    - **Browse log groups**: Select a log group that

@@ -33,6 +33,7 @@ your CMK.
    **Edit**.
 5. Choose **Add tag**.
 6. Do the following:
+
    1. For **Tag key**, enter
       `SystemsManagerManaged`.
    2. For **Tag value**, enter

@@ -262,6 +262,7 @@ if no Elastic IP is associated.
    **3 (default)**.
 8. In the **Input parameters** section, specify the
    following parameters:
+
    1. For **UnreachableInstanceId**, specify
       the ID of the unreachable instance.
    2. (Optional) For **EC2RescueInstanceType**,

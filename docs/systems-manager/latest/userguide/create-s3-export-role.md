@@ -13,6 +13,7 @@ required policy yourself.
 
 1. Follow the steps in [Creating policies using the JSON editor](../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor "../../../IAM/latest/UserGuide/access_policies_create-console.md#access_policies_create-json-editor") in the
    _IAM User Guide_.
+
    - Use the following for the policy content, making sure to replace
      the `placeholder values` with your own
      information.
@@ -62,13 +63,13 @@ required policy yourself.
    }`
 
    ```
-
    - Give the policy a name to help you recognize it easily in the next
      step.
 
 2. Follow the steps in [Creating an
    IAM role using a custom trust policy (console)](../../../IAM/latest/UserGuide/id_roles_create_for-custom.md "../../../IAM/latest/UserGuide/id_roles_create_for-custom.md") in the
    _IAM User Guide_.
+
    - For step 4, enter the following trust policy, making sure to
      replace the `placeholder values` with your
      own information.

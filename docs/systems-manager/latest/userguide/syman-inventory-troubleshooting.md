@@ -124,6 +124,7 @@ Systems Manager applies inventory associations in the following priority order:
    all managed nodes.
 2. **Explicit inventory associations** -
    Associations that target specific managed nodes using:
+
    - Instance IDs
    - Tag key-value pairs
    - AWS resource groups
@@ -166,6 +167,7 @@ instead of Quick Setup:**
    the Systems Manager console, go to State Manager and look for associations with names
    starting with `AWS-QuickSetup-SSM-CollectInventory-`.
 2. **Remove Quick Setup configuration**:
+
    - Go to Quick Setup in the Systems Manager console.
    - Find your inventory collection configuration.
    - Delete the Quick Setup configuration (this removes the associated

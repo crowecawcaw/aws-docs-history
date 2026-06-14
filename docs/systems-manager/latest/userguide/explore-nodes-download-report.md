@@ -21,6 +21,7 @@ local machine or export it to an Amazon S3 bucket. Reports are saved to S3 bucke
    ).
 5. If the **Download report** dialog box is displayed, do the
    following:
+
    1. For **File name**, enter a name for the file. We
       recommend specifying a name that represents the scope of the report,
       such as `all-organization-nodes` or
@@ -41,6 +42,7 @@ local machine or export it to an Amazon S3 bucket. Reports are saved to S3 bucke
 
 6. If the **Export to Amazon S3** dialog box is displayed, do the
    following:
+
    1. For **S3 URI**, enter the URI for the bucket to
       export the report to.
 

@@ -1161,6 +1161,7 @@ This policy includes the following permissions.
   remediation-related documents.
 - `ec2` – Allows principals to describe and modify Amazon VPC
   networking resources to remediate connectivity issues. This includes:
+
   - Describing Amazon VPC attributes, subnets, Amazon VPC endpoints, and security
     groups.
   - Creating Amazon VPC endpoints for Systems Manager services (`ssm`,

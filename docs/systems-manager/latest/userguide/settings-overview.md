@@ -83,6 +83,7 @@ for and remediates configuration drift.
 4. To enable DHMC, turn on the toggle switch.
 5. For **Drift remediation frequency**, choose how often
    you want Systems Manager to check for and remediate configuration drift:
+
    - **Daily** - Checks and remediates drift once
      per day
    - **Weekly** - Checks and remediates drift once
@@ -149,6 +150,7 @@ may increase AWS service usage.
 4. To enable inventory collection, turn on the toggle switch.
 5. For **Collection frequency**, choose how often you
    want Systems Manager to collect inventory data:
+
    - **Daily** - Collects inventory data once per
      day
    - **Weekly** - Collects inventory data once per
@@ -197,6 +199,7 @@ and security.
 4. To enable automatic updates, turn on the toggle switch.
 5. For **Update frequency**, choose how often you want
    Systems Manager to check for and install agent updates:
+
    - **Daily** - Checks for updates once per
      day
    - **Weekly** - Checks for updates once per

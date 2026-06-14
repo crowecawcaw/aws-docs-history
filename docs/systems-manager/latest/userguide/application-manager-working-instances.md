@@ -11,6 +11,7 @@ information for each instance in your application:
 - Status and name of the most recent Systems Manager Automation runbook processed on
   the instance
 - A count of Amazon CloudWatch Logs alarms per state.
+
   - `ALARM` – The metric or expression is outside of
     the defined threshold.
   - `OK` – The metric or expression is within the

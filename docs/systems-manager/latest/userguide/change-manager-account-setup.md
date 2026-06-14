@@ -51,6 +51,7 @@ of the following:
 
 5. For **User identity management**, choose one of the
    following.
+
    - **AWS Identity and Access Management (IAM)** – Identify the
      users who make and approve requests and perform other actions in
      Change Manager by using your existing user, groups, and roles.
@@ -158,6 +159,7 @@ following:
 4. In the **Best practices** section near the bottom of
    the page, turn on the best practices you want to enforce for each of the
    following options.
+
    - Option: **Check Change Calendar for restricted change
      events**
 
@@ -170,6 +172,7 @@ following:
    For more information about Change Calendar, see [AWS Systems Manager Change Calendar](systems-manager-change-calendar.md "systems-manager-change-calendar.md").
    - Option: **SNS topic for approvers for closed
      events**
+
      1. Choose one of the following to specify the Amazon Simple Notification Service
         (Amazon SNS) topic in your account to use for sending
         notifications to approvers during change freeze events.
@@ -177,6 +180,7 @@ following:
         **Approvers for change freeze
         events** section above **Best
         practices**.)
+
         - **Enter an SNS Amazon Resource Name
           (ARN)** – For **Topic
           ARN**, enter the ARN of an existing Amazon SNS

@@ -45,6 +45,7 @@ is stared.
     [Checking the SSM Agent version number](ssm-agent-get-version.md "ssm-agent-get-version.md"). For information about how to
     manually install the agent, locate the procedure for your operating system
     in the following sections:
+
     - [Manually installing and uninstalling SSM Agent on EC2 instances for Linux](manually-install-ssm-agent-linux.md "manually-install-ssm-agent-linux.md")
     - [Manually installing and uninstalling SSM Agent on EC2 instances for macOS](manually-install-ssm-agent-macos.md "manually-install-ssm-agent-macos.md")
     - [Manually installing and uninstalling SSM Agent on EC2 instances for Windows Server](manually-install-ssm-agent-windows.md "manually-install-ssm-agent-windows.md")
