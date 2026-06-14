@@ -77,6 +77,7 @@ entities tables from Amazon Athena.
    visualizations.
 8. Return to the Quick console and choose **Datasets**. Repeat
    steps 1-7 to create an entities dataset, but make the following changes:
+
    1. For **Data source name**, enter
       `reviews-entities-analysis`.
    2. For **Tables**, choose the entities table

@@ -36,6 +36,7 @@ the following additional fields:
 
 6.  Under **Input data**, specify where the input documents are
     located in Amazon S3:
+
     - To analyze your own documents, choose **My
       documents**, and choose **Browse S3** to
       provide the path to the bucket or folder that contains your
@@ -47,6 +48,7 @@ the following additional fields:
 
 7.  (Optional) For **Input format**, specify one of the following
     formats for your input files:
+
     - **One document per file** – Each file contains
       one input document. This is best for collections of large
       documents.
@@ -63,6 +65,7 @@ the following additional fields:
 9.  (Optional) To encrypt the output result from your job, choose
     **Encryption**. Then, choose whether to use a KMS key
     associated with the current account or one from another account:
+
     - If you are using a key associated with the current account, choose the
       key alias or ID for **KMS key ID**.
     - If you are using a key associated with a different account, enter the

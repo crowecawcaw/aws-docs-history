@@ -223,6 +223,7 @@ You can use Amazon Comprehend in the AWS Management Console.
 1. Sign in to the AWS Management Console and open the Amazon Comprehend console at [https://console.aws.amazon.com/comprehend/](https://console.aws.amazon.com/comprehend/ "https://console.aws.amazon.com/comprehend/")
 2. In the navigation menu on the left, under **Customization**,
    choose the page that contains your custom model:
+
    1. If you are sharing a custom document classifier, choose **Custom
       classification**.
    2. If you are sharing a custom entity recognizer, choose **Custom entity
@@ -237,6 +238,7 @@ You can use Amazon Comprehend in the AWS Management Console.
    **Edit**.
 7. On the **Edit resource-based policy page**, do the
    following:
+
    1. For **Policy name**, enter a name that will help you
       recognize the policy after you create it.
    2. Under **Authorize**, specify one or more of the following

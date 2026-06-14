@@ -13,7 +13,9 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateDocumentClassifier](example_comprehend_CreateDocumentClassifier_section.md "example_comprehend_CreateDocumentClassifier_section.md")
     - [DeleteDocumentClassifier](example_comprehend_DeleteDocumentClassifier_section.md "example_comprehend_DeleteDocumentClassifier_section.md")
     - [DescribeDocumentClassificationJob](example_comprehend_DescribeDocumentClassificationJob_section.md "example_comprehend_DescribeDocumentClassificationJob_section.md")
@@ -32,6 +34,7 @@ This topic also includes information about getting started and details about pre
     - [StartTopicsDetectionJob](example_comprehend_StartTopicsDetectionJob_section.md "example_comprehend_StartTopicsDetectionJob_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Build an Amazon Transcribe streaming app](example_cross_TranscriptionStreamingApp_section.md "example_cross_TranscriptionStreamingApp_section.md")
   - [Building an Amazon Lex chatbot](example_cross_LexChatbotLanguages_section.md "example_cross_LexChatbotLanguages_section.md")
   - [Create a messaging application](example_cross_SQSMessageApp_section.md "example_cross_SQSMessageApp_section.md")

@@ -52,7 +52,9 @@ run real-time analysis from the console. You can input text or upload a file, as
 5.  For **Endpoint**, choose the endpoint that you want to use. This endpoint links to a
     specific custom model.
 6.  To specify the input data for analysis, you can input text or upload a file.
+
     - To enter text:
+
       1. Choose **Input text**.
       2. Enter the text that you want to analyze.
 

@@ -25,6 +25,7 @@ details:
 
 - **Mentions**: Details for each occurrence of the
   same entity in the input text.
+
   - **BeginOffset**: A character offset in the
     input text that shows where the mention begins (the first character is at
     position 0).
@@ -51,6 +52,7 @@ returns with the following related details:
   entity that is related to the detected event. The argument's role describes the
   relationship, such as _who_ did _what_,
   _where_ and _when_.
+
   - **EntityIndex**: An index value that
     identifies an entity from the list of entities that Amazon Comprehend returned for this
     analysis.
@@ -63,6 +65,7 @@ returns with the following related details:
 - **Triggers**: A list of triggers for the detected
   event. A _trigger_ is a single word or phrase that indicates
   the occurrence of the event.
+
   - **BeginOffset**: A character offset in the
     input text that shows where the trigger begins (the first character is at
     position 0).

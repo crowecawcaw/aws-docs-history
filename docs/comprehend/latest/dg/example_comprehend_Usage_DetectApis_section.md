@@ -230,6 +230,7 @@ def usage_demo():
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [DetectDominantLanguage](../../../goto/boto3/comprehend-2017-11-27/DetectDominantLanguage.md "../../../goto/boto3/comprehend-2017-11-27/DetectDominantLanguage.md")
   - [DetectEntities](../../../goto/boto3/comprehend-2017-11-27/DetectEntities.md "../../../goto/boto3/comprehend-2017-11-27/DetectEntities.md")
   - [DetectKeyPhrases](../../../goto/boto3/comprehend-2017-11-27/DetectKeyPhrases.md "../../../goto/boto3/comprehend-2017-11-27/DetectKeyPhrases.md")

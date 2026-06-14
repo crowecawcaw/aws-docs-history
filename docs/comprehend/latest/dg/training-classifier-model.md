@@ -19,6 +19,7 @@ Plain-text models have the following characteristics:
   Native document models have the following characteristics:
 
 - You train the model using semi-structured documents, which includes the following document types:
+
   - Digital and scanned PDF documents.
   - Word documents (DOCX).
   - Images: JPG files, PNG files, and single-page TIFF files.

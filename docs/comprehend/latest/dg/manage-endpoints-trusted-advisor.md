@@ -30,6 +30,7 @@ console.
 2. In the navigation pane, choose the **CostOptimization**
    check category.
 3. On the category page, you can view the summary for each check category:
+
    - **Action recommended (red)** – Trusted Advisor recommends an
      action for the check.
    - **Investigation recommended (yellow)** – Trusted Advisor
@@ -41,6 +42,7 @@ console.
 
 4. Choose **Amazon Comprehend Underutilized Endpoints check** to view
    the check description and the following details:
+
    - **Alert Criteria** – Describes the threshold when a
      check will change status.
    - **Recommended Action** – Describes the recommended
@@ -51,6 +53,7 @@ console.
 5. In the Resource table, if an endpoint is flagged with a **Investigation Recommended** because of a **Not used in
    last 30 days** warning, you can navigate to the Endpoint Details page on the
    Amazon Comprehend console.
+
    - If you do not want to use this endpoint anymore, choose **Delete**.
    - Choose **Delete** again to confirm the deletion. The
      custom model details page is displayed. Confirm that the endpoint you deleted shows
@@ -61,6 +64,7 @@ console.
    **Investigation Recommended** status because it hasn't been
    used in the last 15 days, and if it has AutoScaling disabled, you can navigate to the
    Endpoint Details page on the Amazon Comprehend console to adjust the endpoint.
+
    - If you want to reduce the throughput configured for this endpoint, click **Edit**. Enter the updated number of inference units to assign
      to the endpoint, then select the checkbox to acknowledge and then choose **Edit Endpoint.** When the update is complete, the status will
      show as **Ready**.
@@ -95,6 +99,7 @@ Trusted Advisor console.
 2. In the navigation pane, choose the **FaultTolerance**
    check category.
 3. On the category page, you can view the summary for each check category:
+
    - **Action recommended (red)** – Trusted Advisor recommends an
      action for the check.
    - **Investigation recommended (yellow)**– Trusted Advisor
@@ -106,6 +111,7 @@ Trusted Advisor console.
 
 4. Choose Amazon Comprehend Endpoint Access Risk Check and you can view the check description and the
    following details:
+
    - **Alert Criteria**– Describes the threshold when a
      check will change status.
    - **Recommended Action** – Describes the recommended
@@ -117,6 +123,7 @@ Trusted Advisor console.
 5. In the Resource table, if an endpoint is flagged with an **Action
    Recommended** status, select the link in the KMS KeyId column and you will be
    redirected to the corresponding AWS KMS key page.
+
    - To enable a disabled AWS KMS key, choose **Key
      Actions**, and select **Enable**.
    - If the Key Status is listed as **Enabled**, update

@@ -26,11 +26,13 @@ Set to `FORCE_DOCUMENT_READ_ACTION` to use Amazon Textract to parse digital PDF 
   The following examples show how to configure `DocumentReaderConfig` for specific use cases:
 
 1.  Use Amazon Textract for all PDF files.
+
     1. **DocumentReadMode** – Set to `FORCE_DOCUMENT_READ_ACTION`.
     2. **DocumentReadAction** – Set to `TEXTRACT_DETECT_DOCUMENT_TEXT`.
     3. **FeatureTypes** – Not required.
 
 2.  Use Amazon Textract `AnalyzeDocument` API for all PDF and image files.
+
     1. **DocumentReadMode** – Set to `FORCE_DOCUMENT_READ_ACTION`.
     2. **DocumentReadAction** – Set to `TEXTRACT_ANALYZE_DOCUMENT`.
     3. **FeatureTypes** – Set to `TABLES`, `FORMS` or both features.

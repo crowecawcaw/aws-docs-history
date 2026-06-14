@@ -28,12 +28,14 @@ existing custom model or a new model.
 4.  Under **Flywheel name**, enter a name for the flywheel.
 5.  (Optional) To create a flywheel for an existing model, configure the fields under
     **Active model version**.
+
     1. From the **Model** drop-down list, select a model
     2. From the **Version** drop-down list, select the model version.
 
 6.  (Optional) To create a new classifier model for the flywheel,
     under **Custom model type**, choose a **Custom classification** and configure
     the parameters in following steps.
+
     1. Under **Language**, select the language for the model.
     2. Under **Classifier mode**, choose single-label mode or multi-label mode.
     3. Under **Custom labels**, enter one or more custom labels to use for training the model.
@@ -42,6 +44,7 @@ existing custom model or a new model.
 7.  (Optional) To create a new entity recognition model for the flywheel,
     under **Custom model type**, choose a **Custom entity recognition** and configure
     the parameters in following steps.
+
     1. Under **Language**, select the language for the model.
     2. Under **Custom entity type**, enter up to 25 custom entities to use for training the model.
        Each label must match one of the entity types in your input training data.
@@ -73,6 +76,7 @@ existing custom model or a new model.
     Amazon Comprehend uses this key to encrypt all files in the data lake.
 11. (Optional) Configure **VPC settings**. Enter the VPC ID under **VPC** or choose
     the ID from the drop-down list.
+
     1. Choose the subnet under **Subnets(s)**. After you select the first subnet,
        you can choose additional ones.
     2. Under **Security Group(s)**, choose the security group to use if you
@@ -80,6 +84,7 @@ existing custom model or a new model.
        ones.
 
 12. Configure the **Service access** permissions.
+
     1. If you select **Use an existing IAM role**,
        select the role name in the drop-down list.
     2. If you select **Create an IAM role**, Amazon Comprehend creates a new role.

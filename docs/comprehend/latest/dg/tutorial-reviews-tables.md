@@ -272,6 +272,7 @@ role while setting up the crawler.
 5. For **Crawler source type**, choose **Data
    stores** and then choose **Next**.
 6. For **Add a data store**, do the following:
+
    1. For **Choose a data store**, choose
       **S3**.
    2. Leave **Connection** blank.
@@ -291,6 +292,7 @@ role while setting up the crawler.
    **Next**.
 9. For **Choose an IAM role**, do the
    following:
+
    1. Choose **Create an IAM role**.
    2. For **IAM role**, enter
       `glue-access-role` and then choose
@@ -301,6 +303,7 @@ role while setting up the crawler.
     **Next**.
 11. For **Configure the crawler's output**, do the
     following:
+
     1. For **Database**, choose **Add
        database**.
     2. For **Database name**, enter
@@ -322,6 +325,7 @@ role while setting up the crawler.
 ###### To load the data into an AWS Glue Data Catalog (AWS CLI)
 
 1. To create an IAM role for AWS Glue, do the following:
+
    1. Save the following trust policy as a JSON document called
       `glue-trust-policy.json` on your computer.
 
@@ -342,7 +346,6 @@ role while setting up the crawler.
    }`
 
    ```
-
    2. To create an IAM role, run the following command. Replace
       `path/` with your
       local computer's path to the JSON document.
@@ -351,7 +354,6 @@ role while setting up the crawler.
    aws iam create-role --role-name glue-access-role
    --assume-role-policy-document file://`path/`glue-trust-policy.json
    ```
-
    3. When the AWS CLI lists the Amazon Resource Number (ARN) for the
       new role, copy and save it to a text editor.
    4. Save the following IAM policy as a JSON document called
@@ -380,7 +382,6 @@ role while setting up the crawler.
    }`
 
    ```
-
    5. To create the IAM policy, run the following command. Replace
       `path/` with your
       local computer's path to the JSON document.
@@ -389,7 +390,6 @@ role while setting up the crawler.
    aws iam create-policy --policy-name glue-access-policy
    --policy-document file://`path/`glue-access-policy.json
    ```
-
    6. When the AWS CLI lists the access policy's ARN, copy and save it
       to a text editor.
    7. Attach the new policy to the IAM role by running the
@@ -401,7 +401,6 @@ role while setting up the crawler.
    aws iam attach-role-policy --policy-arn `policy-arn`
    --role-name glue-access-role
    ```
-
    8. Attach the AWS managed policy `AWSGlueServiceRole`
       to your IAM role by running the following command.
 

@@ -37,6 +37,7 @@ use.
 
 8.  Choose the **Data format** of your training data. For information about the data formats,
     see [Classifier training file formats](prep-class-data-format.md "prep-class-data-format.md").
+
     - **CSV file:** Choose this option if your training data
       uses the CSV file format.
     - **Augmented manifest:** Choose this option if you used Ground Truth to create augmented
@@ -44,6 +45,7 @@ use.
       text documents** as the training model type.
 
 9.  Choose the **Classifier mode** to use.
+
     - **Single-label mode:** Choose this mode if the categories you're assigning to
       documents are mutually exclusive and you're training your classifier to assign one label to each document.
       In the Amazon Comprehend API, single-label mode is known as multi-class mode.
@@ -58,6 +60,7 @@ use.
     augmented manifest files. Each augmented manifest file contains either a training dataset or a test dataset. You
     must provide at least one training dataset. Test datasets are optional. Use the following steps to configure the
     augmented manifest files:
+
     1. Under **Training and test dataset**, expand the **Input location**
        panel.
     2. In **Dataset type**, choose **Training data** or **Test
@@ -73,6 +76,7 @@ use.
 
 12. (Optional) If you chose **CSV file** as the data format, use the following steps to
     configure the training dataset and optional test dataset:
+
     1. Under **Training dataset**, enter the location of the Amazon S3 bucket that contains
        your training data CSV file or navigate to it by choosing **Browse S3**. The IAM role that you're
        using for access permissions for the training job must have read permissions for the S3 bucket.

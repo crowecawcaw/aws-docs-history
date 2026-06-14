@@ -14,6 +14,7 @@ For more information about PII entity types, see [Detecting PII entities](how-pi
     (PII)**.
 5.  For **Language**, choose one of the supported languages (English or Spanish).
 6.  From **Output mode**, select one of the following choices:
+
     - **Offsets** – The job output returns the location of each PII entity.
     - **Redactions** – The job output returns a copy of the input text with each PII entry redacted.
 
@@ -21,6 +22,7 @@ For more information about PII entity types, see [Detecting PII entities](how-pi
     select the PII entity types to redact.
 8.  Under **Input data**, specify where the input documents are
     located in Amazon S3:
+
     - To analyze your own documents, choose **My
       documents**, and choose **Browse S3** to
       provide the path to the bucket or folder that contains your
@@ -32,6 +34,7 @@ For more information about PII entity types, see [Detecting PII entities](how-pi
 
 9.  (Optional) For **Input format**, specify one of the following
     formats for your input files:
+
     - **One document per file** – Each file contains
       one input document. This is best for collections of large
       documents.
@@ -48,6 +51,7 @@ For more information about PII entity types, see [Detecting PII entities](how-pi
 11. (Optional) To encrypt the output result from your job, choose
     **Encryption**. Then, choose whether to use a KMS key
     associated with the current account or one from another account:
+
     - If you are using a key associated with the current account, choose the
       key alias or ID for **KMS key ID**.
     - If you are using a key associated with a different account, enter the

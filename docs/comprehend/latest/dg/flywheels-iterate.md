@@ -21,6 +21,7 @@ The flywheel iteration workflow includes the following steps:
 1. You create datasets for the new labeled data.
 2. You run the flywheel to create a new iteration. The iteration follows these steps to train and evaluate a new
    model version:
+
    1. Evaluates the active model version using the new data.
    2. Trains a new model version using the new data.
    3. Stores the evaluation and training results in the data lake.

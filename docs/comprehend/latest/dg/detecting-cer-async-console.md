@@ -14,6 +14,7 @@ You can use the console to start and monitor an async analysis job for custom en
 7. (Optional) If you choose to encrypt the data that Amazon Comprehend uses while processing your job, choose **Job
    encryption**. Then choose whether to use a KMS key associated with the current account, or one from
    another account.
+
    - If you are using a key associated with the current account, choose the key ID for **KMS key
      ID**.
    - If you are using a key associated with a different account, enter the ARN for the key ID under
@@ -41,6 +42,7 @@ Then choose whether to use a KMS key associated with the current account, or one
 
 13. (Optional) To launch your resources into Amazon Comprehend from a VPC, enter the VPC ID under **VPC**
     or choose the ID from the drop-down list.
+
     1.  Choose the subnet under **Subnet(s)**. After you select the first subnet, you can
         choose additional ones.
     2.  Under **Security Group(s)**, choose the security group to use if you specified one.

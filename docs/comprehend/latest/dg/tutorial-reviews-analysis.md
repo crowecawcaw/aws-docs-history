@@ -51,6 +51,7 @@ as you use the same S3 bucket and folders.
 5.  Choose **Create job**.
 6.  In the **Job settings** section, do the
     following:
+
     1. For **Name**, enter
        `reviews-sentiment-analysis`.
     2. For **Analysis type**, choose
@@ -61,6 +62,7 @@ as you use the same S3 bucket and folders.
 
 7.  In the **Input data** section, do the
     following:
+
     1. For **Data source**, choose **My
        documents**.
     2. For **S3 location**, choose **Browse
@@ -76,6 +78,7 @@ as you use the same S3 bucket and folders.
 
 8.  In the **Output data** section, do the
     following:
+
     1. For **S3 location**, choose **Browse
        S3** and then choose your bucket from the list of
        buckets.
@@ -86,6 +89,7 @@ as you use the same S3 bucket and folders.
 
 9.  In the **Access permissions** section, do the
     following:
+
     1. For **IAM role**, choose **Create
        an IAM role**.
     2. For **Permissions to access**, choose

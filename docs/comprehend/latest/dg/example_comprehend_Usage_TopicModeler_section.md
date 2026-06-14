@@ -189,6 +189,7 @@ def usage_demo():
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [DescribeTopicsDetectionJob](../../../goto/boto3/comprehend-2017-11-27/DescribeTopicsDetectionJob.md "../../../goto/boto3/comprehend-2017-11-27/DescribeTopicsDetectionJob.md")
   - [ListTopicsDetectionJobs](../../../goto/boto3/comprehend-2017-11-27/ListTopicsDetectionJobs.md "../../../goto/boto3/comprehend-2017-11-27/ListTopicsDetectionJobs.md")
   - [StartTopicsDetectionJob](../../../goto/boto3/comprehend-2017-11-27/StartTopicsDetectionJob.md "../../../goto/boto3/comprehend-2017-11-27/StartTopicsDetectionJob.md")

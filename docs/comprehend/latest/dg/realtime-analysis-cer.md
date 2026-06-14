@@ -72,6 +72,7 @@ training types.
     located and choose **Select folder**.
 15. In the **Choose an IAM role** section, either select an existing IAM
     role or create a new one.
+
     - **Choose an existing IAM role** – Select this option if you
       already have an IAM role with permissions to access the input and output Amazon S3
       buckets.
@@ -87,6 +88,7 @@ training types.
 16. (Optional) To
     launch your resources into Amazon Comprehend from a VPC, enter the VPC ID under **VPC** or
     choose the ID from the drop-down list.
+
     1.  Choose the subnet under **Subnet(s)**. After you select the first subnet,
 
     you can choose additional ones. 2. Under **Security Group(s)**, choose the security group to use if you
@@ -180,6 +182,7 @@ one.
 
 19. (Optional) To launch your resources into Amazon Comprehend from a VPC, enter the VPC ID under
     **VPC** or choose the ID from the drop-down list.
+
     1.  Choose the subnet under **Subnet(s)**. After you select the first
         subnet, you can choose additional ones.
     2.  Under **Security Group(s)**, choose the security group to use if you

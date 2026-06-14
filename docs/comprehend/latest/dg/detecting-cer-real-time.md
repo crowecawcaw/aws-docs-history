@@ -54,11 +54,14 @@ console.
 4. For **Select endpoint**, choose the endpoint that is associated with
    the entity-detection model that you want to use.
 5. To specify the input data for analysis, you can input text or upload a file.
+
    - To enter text:
+
      1. Choose **Input text**.
      2. Enter the text that you want to analyze.
 
    - To upload a file:
+
      1. Choose **Upload file** and enter the filename to
         upload.
      2. (Optional) Under **Advanced read actions**, you can override the default actions

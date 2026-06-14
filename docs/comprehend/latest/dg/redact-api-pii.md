@@ -44,6 +44,7 @@ In your request, include the following required parameters:
   configuration parameters for the redaction. Specify the types of PII to redact, and
   specify whether each PII entity is replaced with the name of its type or a character of
   your choice:
+
   - Specify the PII entity types to redact in the `PiiEntityTypes` array.
     To redact all entity types, set the array value to `["ALL"]`.
   - To replace each PII entity with its type, set the `MaskMode` parameter
