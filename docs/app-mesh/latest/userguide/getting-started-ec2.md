@@ -207,6 +207,7 @@ AWS Management Console
 AWS CLI
 
 1. Create a virtual router.
+
    1. Create a file named
       `create-virtual-router.json` with the
       following contents:
@@ -227,7 +228,6 @@ AWS CLI
        "virtualRouterName": "serviceB"
    }
    ```
-
    2. Create the virtual router with the [create-virtual-router](../../../cli/latest/reference/appmesh/create-virtual-router.md "../../../cli/latest/reference/appmesh/create-virtual-router.md") command using the JSON
       file as input.
 
@@ -236,6 +236,7 @@ AWS CLI
    ```
 
 2. Create a route.
+
    1. Create a file named `create-route.json` with
       the following contents:
 
@@ -261,7 +262,6 @@ AWS CLI
        "virtualRouterName" : "serviceB"
    }
    ```
-
    2. Create the route with the [create-route](../../../cli/latest/reference/appmesh/create-route.md "../../../cli/latest/reference/appmesh/create-route.md") command using the JSON file as
       input.
 
@@ -400,6 +400,7 @@ AWS Management Console
 AWS CLI
 
 1. Create the `serviceBv2` virtual node.
+
    1. Create a file named
       `create-virtual-node-servicebv2.json` with
       the following contents:
@@ -425,7 +426,6 @@ AWS CLI
        "virtualNodeName": "serviceBv2"
    }
    ```
-
    2. Create the virtual node.
 
    ```
@@ -433,6 +433,7 @@ AWS CLI
    ```
 
 2. Create the `serviceA` virtual node.
+
    1. Create a file named
       `create-virtual-node-servicea.json` with the
       following contents:
@@ -466,7 +467,6 @@ AWS CLI
    }
 
    ```
-
    2. Create the virtual node.
 
    ```
@@ -479,6 +479,7 @@ AWS CLI
    was originally created, it did not send traffic anywhere, since the
    `serviceB` virtual router had not been created
    yet.
+
    1. Create a file named
       `update-virtual-service.json` with the
       following contents:
@@ -496,7 +497,6 @@ AWS CLI
       "virtualServiceName" : "serviceb.apps.local"
    }
    ```
-
    2. Update the virtual service with the [update-virtual-service](../../../cli/latest/reference/appmesh/update-virtual-service.md "../../../cli/latest/reference/appmesh/update-virtual-service.md") command.
 
    ```
@@ -505,6 +505,7 @@ AWS CLI
 
 4. Update the `serviceB` route that you created in a
    previous step.
+
    1. Create a file named `update-route.json` with
       the following contents:
 
@@ -534,7 +535,6 @@ AWS CLI
       "virtualRouterName" : "serviceB"
    }
    ```
-
    2. Update the route with the [update-route](../../../cli/latest/reference/appmesh/update-route.md "../../../cli/latest/reference/appmesh/update-route.md") command.
 
    ```
@@ -542,6 +542,7 @@ AWS CLI
    ```
 
 5. Create the `serviceA` virtual service.
+
    1. Create a file named
       `create-virtual-servicea.json` with the
       following contents:
@@ -559,7 +560,6 @@ AWS CLI
       "virtualServiceName" : "servicea.apps.local"
    }
    ```
-
    2. Create the virtual service.
 
    ```
@@ -597,6 +597,7 @@ After creating your mesh, you need to complete the following tasks:
 ###### To configure an Amazon EC2 instance as a virtual node member
 
 1. Create an IAM role.
+
    1. Create a file named `ec2-trust-relationship.json` with the
       following contents.
 
@@ -617,7 +618,6 @@ After creating your mesh, you need to complete the following tasks:
    }`
 
    ```
-
    2. Create an IAM role with the following command.
 
    ```
@@ -626,6 +626,7 @@ After creating your mesh, you need to complete the following tasks:
 
 2. Attach IAM policies to the role that allow it to read from Amazon ECR and only
    the configuration of a specific App Mesh virtual node.
+
    1. Create a file named `virtual-node-policy.json` with the
       following contents. `apps` is the name of the mesh you
       created in [Step 1: Create a mesh and virtual service](#create-mesh-and-virtual-service "#create-mesh-and-virtual-service") and
@@ -652,13 +653,11 @@ After creating your mesh, you need to complete the following tasks:
    }`
 
    ```
-
    2. Create the policy with the following command.
 
    ```
    `aws iam create-policy --policy-name `virtual-node-policy` --policy-document file://virtual-node-policy.json`
    ```
-
    3. Attach the policy that you created in the previous step to the role so
       the role can read the configuration for only the `serviceB`
       virtual node from App Mesh.
@@ -666,7 +665,6 @@ After creating your mesh, you need to complete the following tasks:
    ```
    `aws iam attach-role-policy --policy-arn arn:aws:iam::`111122223333`:policy/virtual-node-policy --role-name `mesh-virtual-node-service-b``
    ```
-
    4. Attach the `AmazonEC2ContainerRegistryReadOnly` managed
       policy to the role so that it can pull the Envoy container image from
       Amazon ECR.
@@ -681,6 +679,7 @@ After creating your mesh, you need to complete the following tasks:
    system documentation.
 6. Authenticate to the Envoy Amazon ECR repository in the Region that you want your
    Docker client to pull the image from.
+
    - All Regions except `me-south-1`, `ap-east-1`, `ap-southeast-3`, `eu-south-1`, `il-central-1`, and `af-south-1`. You can replace
      `us-west-2` with any [supported
      Region](../../../general/latest/gr/appmesh.md "../../../general/latest/gr/appmesh.md") except `me-south-1`, `ap-east-1`, `ap-southeast-3`, `eu-south-1`, `il-central-1`, and `af-south-1`.
@@ -692,7 +691,6 @@ After creating your mesh, you need to complete the following tasks:
     --username AWS \
     --password-stdin 840364872350.dkr.ecr.`us-west-2`.amazonaws.com`
    ```
-
    - `me-south-1` Region
 
    ```
@@ -702,7 +700,6 @@ After creating your mesh, you need to complete the following tasks:
     --username AWS \
     --password-stdin 772975370895.dkr.ecr.me-south-1.amazonaws.com`
    ```
-
    - `ap-east-1` Region
 
    ```
@@ -722,6 +719,7 @@ After creating your mesh, you need to complete the following tasks:
    Amazon EC2 instances that host the services represented by the
    `serviceBv2` and `serviceA` virtual nodes. For your
    own application, replace these values with your own.
+
    - All Regions except `me-south-1`, `ap-east-1`, `ap-southeast-3`, `eu-south-1`, `il-central-1`, and `af-south-1`. You can replace
      `Region-code` with any [supported
      Region](../../../general/latest/gr/appmesh.md "../../../general/latest/gr/appmesh.md") except the `me-south-1`, `ap-east-1`, `ap-southeast-3`, `eu-south-1`, `il-central-1`, and `af-south-1` Regions.
@@ -732,7 +730,6 @@ After creating your mesh, you need to complete the following tasks:
    `sudo docker run --detach --env APPMESH_RESOURCE_ARN=`mesh/`apps`/virtualNode/`serviceB`` \
    -u `1337` --network host 840364872350.dkr.ecr.`region-code`.amazonaws.com/aws-appmesh-envoy:v1.34.13.1-prod`
    ```
-
    - `me-south-1` Region. You can replace
      `1337` with any value
      between `0` and `2147483647`.
@@ -741,7 +738,6 @@ After creating your mesh, you need to complete the following tasks:
    `sudo docker run --detach --env APPMESH_RESOURCE_ARN=`mesh/`apps`/virtualNode/`serviceB`` \
    -u `1337` --network host 772975370895.dkr.ecr.me-south-1.amazonaws.com/aws-appmesh-envoy:v1.34.13.1-prod`
    ```
-
    - `ap-east-1` Region. You can replace
      `1337` with any value
      between `0` and `2147483647`.

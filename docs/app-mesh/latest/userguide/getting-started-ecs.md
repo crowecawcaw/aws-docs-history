@@ -214,6 +214,7 @@ AWS Management Console
 AWS CLI
 
 1. Create a virtual router.
+
    1. Create a file named
       `create-virtual-router.json` with the
       following contents:
@@ -234,7 +235,6 @@ AWS CLI
        "virtualRouterName": "serviceB"
    }
    ```
-
    2. Create the virtual router with the [create-virtual-router](../../../cli/latest/reference/appmesh/create-virtual-router.md "../../../cli/latest/reference/appmesh/create-virtual-router.md") command using the JSON
       file as input.
 
@@ -243,6 +243,7 @@ AWS CLI
    ```
 
 2. Create a route.
+
    1. Create a file named `create-route.json` with
       the following contents:
 
@@ -268,7 +269,6 @@ AWS CLI
        "virtualRouterName" : "serviceB"
    }
    ```
-
    2. Create the route with the [create-route](../../../cli/latest/reference/appmesh/create-route.md "../../../cli/latest/reference/appmesh/create-route.md") command using the JSON file as
       input.
 
@@ -407,6 +407,7 @@ AWS Management Console
 AWS CLI
 
 1. Create the `serviceBv2` virtual node.
+
    1. Create a file named
       `create-virtual-node-servicebv2.json` with
       the following contents:
@@ -432,7 +433,6 @@ AWS CLI
        "virtualNodeName": "serviceBv2"
    }
    ```
-
    2. Create the virtual node.
 
    ```
@@ -440,6 +440,7 @@ AWS CLI
    ```
 
 2. Create the `serviceA` virtual node.
+
    1. Create a file named
       `create-virtual-node-servicea.json` with the
       following contents:
@@ -473,7 +474,6 @@ AWS CLI
    }
 
    ```
-
    2. Create the virtual node.
 
    ```
@@ -486,6 +486,7 @@ AWS CLI
    was originally created, it did not send traffic anywhere, since the
    `serviceB` virtual router had not been created
    yet.
+
    1. Create a file named
       `update-virtual-service.json` with the
       following contents:
@@ -503,7 +504,6 @@ AWS CLI
       "virtualServiceName" : "serviceb.apps.local"
    }
    ```
-
    2. Update the virtual service with the [update-virtual-service](../../../cli/latest/reference/appmesh/update-virtual-service.md "../../../cli/latest/reference/appmesh/update-virtual-service.md") command.
 
    ```
@@ -512,6 +512,7 @@ AWS CLI
 
 4. Update the `serviceB` route that you created in a
    previous step.
+
    1. Create a file named `update-route.json` with
       the following contents:
 
@@ -541,7 +542,6 @@ AWS CLI
       "virtualRouterName" : "serviceB"
    }
    ```
-
    2. Update the route with the [update-route](../../../cli/latest/reference/appmesh/update-route.md "../../../cli/latest/reference/appmesh/update-route.md") command.
 
    ```
@@ -549,6 +549,7 @@ AWS CLI
    ```
 
 5. Create the `serviceA` virtual service.
+
    1. Create a file named
       `create-virtual-servicea.json` with the
       following contents:
@@ -566,7 +567,6 @@ AWS CLI
       "virtualServiceName" : "servicea.apps.local"
    }
    ```
-
    2. Create the virtual service.
 
    ```

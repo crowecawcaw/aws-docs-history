@@ -317,6 +317,7 @@ ten hours, by default. You can configure this duration to be less. For more info
 ###### To deploy App Mesh resources
 
 1. Create a Kubernetes namespace to deploy App Mesh resources to.
+
    1. Save the following contents to a file named `namespace.yaml` on your
       computer.
 
@@ -328,7 +329,6 @@ ten hours, by default. You can configure this duration to be less. For more info
        mesh: `my-mesh`
        appmesh.k8s.aws/sidecarInjectorWebhook: enabled
    ```
-
    2. Create the namespace.
 
    ```
@@ -336,6 +336,7 @@ ten hours, by default. You can configure this duration to be less. For more info
    ```
 
 2. Create an App Mesh service mesh.
+
    1. Save the following contents to a file named `mesh.yaml` on your computer.
       The file is used to create a mesh resource named
       `my-mesh`. A service mesh is a logical
@@ -351,13 +352,11 @@ ten hours, by default. You can configure this duration to be less. For more info
        matchLabels:
          mesh: `my-mesh`
    ```
-
    2. Create the mesh.
 
    ```
    `kubectl apply -f mesh.yaml`
    ```
-
    3. View the details of the Kubernetes mesh resource that was created.
 
    ```
@@ -397,7 +396,6 @@ ten hours, by default. You can configure this duration to be less. For more info
      Observed Generation:     1
    Events:                    <none>
    ```
-
    4. View the details about the App Mesh service mesh that the controller created.
 
    ```
@@ -429,6 +427,7 @@ ten hours, by default. You can configure this duration to be less. For more info
 
 3. Create an App Mesh virtual node. A virtual node acts as a logical pointer to a Kubernetes
    deployment.
+
    1. Save the following contents to a file named `virtual-node.yaml` on your
       computer. The file is used to create an App Mesh virtual node named
       `my-service-a` in the
@@ -463,13 +462,11 @@ ten hours, by default. You can configure this duration to be less. For more info
    ```
    `aws appmesh create-virtual-node --generate-cli-skeleton yaml-input`
    ```
-
    2. Deploy the virtual node.
 
    ```
    `kubectl apply -f virtual-node.yaml`
    ```
-
    3. View the details of the Kubernetes virtual node resource that was created.
 
    ```
@@ -518,7 +515,6 @@ ten hours, by default. You can configure this duration to be less. For more info
      Virtual Node ARN:        arn:aws:appmesh:us-west-2:111122223333:mesh/my-mesh/virtualNode/my-service-a_my-apps
    Events:                    <none>
    ```
-
    4. View the details of the virtual node that the controller created in App Mesh.
 
    ###### Note
@@ -577,6 +573,7 @@ ten hours, by default. You can configure this duration to be less. For more info
 
 4. Create an App Mesh virtual router. Virtual routers handle traffic for one or more virtual
    services within your mesh.
+
    1. Save the following contents to a file named `virtual-router.yaml` on your
       computer. The file is used to create a virtual router to route traffic to the virtual
       node named `my-service-a` that was created in the previous step. The
@@ -621,13 +618,11 @@ ten hours, by default. You can configure this duration to be less. For more info
    ```
    `aws appmesh create-route --generate-cli-skeleton yaml-input`
    ```
-
    2. Deploy the virtual router.
 
    ```
    `kubectl apply -f virtual-router.yaml`
    ```
-
    3. View the Kubernetes virtual router resource that was created.
 
    ```
@@ -675,7 +670,6 @@ ten hours, by default. You can configure this duration to be less. For more info
      Virtual Router ARN:          arn:aws:appmesh:us-west-2:111122223333:mesh/my-mesh/virtualRouter/my-service-a-virtual-router_my-apps
    Events:                        <none>
    ```
-
    4. View the virtual router resource that the controller created in App Mesh. You specify
       `my-service-a-virtual-router_my-apps` for `name`, because
       when the controller created the virtual router in App Mesh, it appended the Kubernetes
@@ -717,7 +711,6 @@ ten hours, by default. You can configure this duration to be less. For more info
        }
    }
    ```
-
    5. View the route resource that the controller created in App Mesh. A route resource was
       not created in Kubernetes because the route is part of the virtual router configuration
       in Kubernetes. The route information was shown in the Kubernetes resource detail in
@@ -779,6 +772,7 @@ ten hours, by default. You can configure this duration to be less. For more info
    change your application code to reference a different name. The requests are routed to the
    virtual node or virtual router that is specified as the provider for the virtual
    service.
+
    1. Save the following contents to a file named `virtual-service.yaml` on your
       computer. The file is used to create a virtual service that uses a virtual router
       provider to route traffic to the virtual node named `my-service-a` that was
@@ -806,13 +800,11 @@ ten hours, by default. You can configure this duration to be less. For more info
    ```
    `aws appmesh create-virtual-service --generate-cli-skeleton yaml-input`
    ```
-
    2. Create the virtual service.
 
    ```
    `kubectl apply -f virtual-service.yaml`
    ```
-
    3. View the details of the Kubernetes virtual service resource that was created.
 
    ```
@@ -855,7 +847,6 @@ ten hours, by default. You can configure this duration to be less. For more info
      Virtual Service ARN:     arn:aws:appmesh:us-west-2:111122223333:mesh/my-mesh/virtualService/my-service-a.my-apps.svc.cluster.local
    Events:                    <none>
    ```
-
    4. View the details of the virtual service resource that the controller created in
       App Mesh. The Kubernetes controller did not append the Kubernetes namespace name to the
       App Mesh virtual service name when it created the virtual service in App Mesh because the
@@ -906,6 +897,7 @@ specify.
 
 1. Enable proxy authorization. We recommend that you enable each Kubernetes deployment to stream
    only the configuration for its own App Mesh virtual node.
+
    1. Save the following contents to a file named `proxy-auth.json` on your
       computer. Make sure to replace the `alternate-colored values`
       with your own.
@@ -927,13 +919,11 @@ specify.
    }`
 
    ```
-
    2. Create the policy.
 
    ```
    `aws iam create-policy --policy-name `my-policy` --policy-document file://proxy-auth.json`
    ```
-
    3. Create an IAM role, attach the policy you created in the previous step to it, create
       a Kubernetes service account, and bind the policy to the Kubernetes service account.
       The role enables the controller to add, remove, and change App Mesh resources.
@@ -969,6 +959,7 @@ specify.
    `3` of [Step 2: Deploy App Mesh resources](#configure-app-mesh "#configure-app-mesh"). Update your deployment to make sure
    that its label matches the label that you set on the virtual node, so that the sidecar
    containers are automatically added to the pods and the pods are redeployed.
+
    1. Save the following contents to a file named `example-service.yaml` on your
       computer. If you change the namespace name and are using Fargate pods, make sure that
       the namespace name matches the namespace name that you defined in your Fargate
@@ -1029,7 +1020,6 @@ specify.
    ```
    `kubectl apply -f `example-service.yaml``
    ```
-
    3. View the service and deployment.
 
    ```
@@ -1044,7 +1034,6 @@ specify.
    my-service-a-54776556f6-w26kf   2/2     Running   0          18s
    my-service-a-54776556f6-zw5kt   2/2     Running   0          26s
    ```
-
    4. View the details for one of the pods that was deployed.
 
    ```

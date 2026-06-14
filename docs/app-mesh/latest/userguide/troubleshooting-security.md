@@ -92,6 +92,7 @@ statistics. For help configuring these, see [Enable the Envoy proxy administrati
 use the administration interface for simplicity.
 
 - For the Envoy proxy performing TLS termination:
+
   - Make sure that the TLS certificate has been bootstrapped in the Envoy
     configuration with the following command.
 
@@ -118,6 +119,7 @@ use the administration interface for simplicity.
   ```
 
 - For the Envoy proxy performing TLS origination:
+
   - Make sure that the TLS trust store has been bootstrapped in the Envoy
     configuration with the following command.
 
@@ -164,6 +166,7 @@ In order to determine the root cause of the issue, you need to check the followi
   misconfiguration. Follow the steps provided above in the [Unable to connect to a backend virtual service with a TLS client policy](#ts-security-tls-client-policy "#ts-security-tls-client-policy").
 - For the load balancer, you need to look at the configuration of the
   `TargetGroup:`
+
   - Make sure that the `TargetGroup` port matches the virtual node’s
     defined listener port.
   - For Application Load Balancers that are originating TLS connections over HTTP to

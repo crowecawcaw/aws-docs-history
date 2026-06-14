@@ -45,6 +45,7 @@ If the application fails to connect at all (no `HTTP 503` response code returned
 then do the following:
 
 - Make sure that your compute environment has been set up to work with App Mesh.
+
   - For Amazon ECS, make sure that you have the appropriate [proxy configuration](proxy-authorization.md "proxy-authorization.md") enabled. For an
     end-to-end walkthrough, see [Getting
     Started with App Mesh and Amazon ECS](../../../AmazonECS/latest/developerguide/appmesh-getting-started.md "../../../AmazonECS/latest/developerguide/appmesh-getting-started.md").
@@ -81,6 +82,7 @@ try the following:
 For more information, see [virtual services](virtual_services.md "virtual_services.md").
 
 - Inspect the Envoy proxy logs for any of the following error messages:
+
   - `No healthy upstream` – The virtual node that the Envoy proxy
     is attempting to route to does not have any resolved endpoints, or it does not have
     any healthy endpoints. Make sure that the target virtual node has the correct

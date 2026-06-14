@@ -41,6 +41,7 @@ AWS Management Console
    node.
 6. For **Service discovery method**, choose one of the following
    options:
+
    - **DNS** – Specify the **DNS
      hostname** of the actual service that the virtual node
      represents. The Envoy proxy is deployed in an Amazon VPC. The proxy sends name

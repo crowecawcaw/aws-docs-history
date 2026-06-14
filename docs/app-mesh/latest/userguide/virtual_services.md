@@ -37,6 +37,7 @@ AWS Management Console
    Mesh, not through IP addresses to which the names resolve.
 6. For **Provider**, choose the provider type for
    your virtual service:
+
    - If you want the virtual service to spread traffic across
      multiple virtual nodes, select **Virtual
      router** and then choose the virtual router to

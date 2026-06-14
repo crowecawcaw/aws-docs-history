@@ -52,6 +52,7 @@ AWS Management Console
    your virtual gateway.
 6. (Optional, but recommended) Configure **Client policy
    defaults**.
+
    1. (Optional) Select **Enforce TLS** if you
       want the gateway to only communicate with virtual services
       using Transport Layer Security (TLS).
@@ -62,6 +63,7 @@ AWS Management Console
       the following options. The certificate that you specify must
       already exist and meet specific requirements. For more
       information, see [Certificate requirements](tls.md#virtual-node-tls-prerequisites "tls.md#virtual-node-tls-prerequisites").
+
       - **AWS Private Certificate Authority** hosting
         – Select one or more existing
         **Certificates**.
@@ -84,6 +86,7 @@ AWS Management Console
       enable mutual TLS authentication. To learn more about mutual
       TLS, see the App Mesh [Mutual
       TLS Authentication](mutual-tls.md "mutual-tls.md") docs.
+
       - **Envoy Secret Discovery
         Service (SDS)** hosting – Enter
         the name of the secret that Envoy fetches using the

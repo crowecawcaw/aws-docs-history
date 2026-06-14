@@ -41,8 +41,10 @@ AWS Management Console
 10. (Optional) For **Priority**, specify the priority
     for this gateway route.
 11. For **Match** configuration, specify:
+
     - If **http/http2** is the selected
       type:
+
       - (Optional) **Method** ‐
         Specifies the method header to be matched in the
         incoming **http**/**http2** requests.
@@ -57,6 +59,7 @@ AWS Management Console
       - (Optional) **Prefix/Exact/Regex
         path** ‐ The method of matching the
         path of the URL.
+
         - **Prefix match** ‐ A
           matched request by a gateway route is rewritten to
           the target virtual service's name and the matched
@@ -112,6 +115,7 @@ AWS Management Console
 
     - If **grpc** is the selected
       type:
+
       - **Hostname match type** and
         (optional) **Exact/Suffix match**
         ‐ Specifies the hostname that should be matched
@@ -135,10 +139,13 @@ AWS Management Console
         service.
 
 12. (Optional) For **Rewrite** configuration:
+
     - If **http/http2** is the selected
       type:
+
       - If **Prefix** is the selected
         match type:
+
         - **Override automatic rewrite of
           hostname** ‐ By default the hostname
           is rewritten to the target virtual service's
@@ -150,6 +157,7 @@ AWS Management Console
 
       - If **Exact Path** is the
         selected match type:
+
         - **Override automatic rewrite of
           hostname** ‐ by default the hostname
           is rewritten to the target virtual service's
@@ -160,6 +168,7 @@ AWS Management Console
 
       - If **Regex Path** is the
         selected match type:
+
         - **Override automatic rewrite of
           hostname** ‐ by default the hostname
           is rewritten to the target virtual service's
@@ -170,6 +179,7 @@ AWS Management Console
 
     - If **grpc** is the selected
       type:
+
       - **Override automatic rewrite of
         hostname** ‐ By default the hostname
         is rewritten to the target virtual service's

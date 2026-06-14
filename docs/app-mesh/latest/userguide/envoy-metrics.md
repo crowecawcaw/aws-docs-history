@@ -106,6 +106,7 @@ mesh.
   name>`_amazonaws`.
 - Cluster used to perform routing for virtual gateways. This can generally be
   safely ignored: .
+
   - For single listeners: `cds_ingress_`<mesh
     name>`_`<virtual gateway
     name>`_self_redirect_`<protocol>`_`<port>``
@@ -143,14 +144,17 @@ filtering metrics using the names of resources in your mesh.
 The website virtual node’s proxy has the following resources:
 
 - Two listeners for ingress and egress traffic:
+
   - `lds_ingress_0.0.0.0_15000`
   - `lds_egress_0.0.0.0_15001`
 
 - Two egress clusters, representing the two virtual node back ends:
+
   - `cds_egress_online-store_product-details_http_8080`
   - `cds_egress_online-store_cart_http_8080`
 
 - An ingress cluster for the website service container:
+
   - `cds_ingress_online-store_website_http_8080`
 
 **Example listener metrics**
@@ -209,6 +213,7 @@ App Mesh, including mesh changes made via App Mesh APIs.
   misconfiguration. For example, if you configure App Mesh to read a TLS
   certificate from a file that cannot be read by Envoy, the update containing
   the path to that certificate is rejected.
+
   - For Listener updated rejected, the stats will be
     `listener_manager.lds.update_rejected`.
   - For Cluster updated rejected, the stats will be
@@ -217,6 +222,7 @@ App Mesh, including mesh changes made via App Mesh APIs.
 - `*.update_success`—Number of successful configuration
   updates made by App Mesh to your proxy. These include the initial
   configuration payload sent when a new Envoy container is started.
+
   - For Listener updated success, the stats will be
     `listener_manager.lds.update_success`.
   - For Cluster updated success, the stats will be
