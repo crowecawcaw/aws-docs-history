@@ -27,6 +27,7 @@ varying levels. For information about the AWS managed policies for Amazon ECR, s
    your image from. Authentication tokens must be obtained for each registry used, and the
    tokens are valid for 12 hours. For more information, see [Private registry authentication in Amazon ECR](registry_auth.md "registry_auth.md").
 2. (Optional) Identify the image to pull.
+
    - You can list the repositories in a registry with the **aws ecr
      describe-repositories** command:
 

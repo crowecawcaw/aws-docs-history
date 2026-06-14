@@ -18,6 +18,7 @@ Consider the following before enabling Amazon ECR enhanced scanning.
 - There is no additional cost from Amazon ECR to use this feature, however there
   is a cost from Amazon Inspector to scan your images. This feature is available in
   Regions where Amazon Inspector is supported. For more information, see:
+
   - Amazon Inspector pricing – [Amazon Inspector pricing](https://aws.amazon.com/inspector/pricing/ "https://aws.amazon.com/inspector/pricing/").
   - Amazon Inspector supported Regions – [Regions and
     endpoints](../../../inspector/latest/user/inspector_regions.md "../../../inspector/latest/user/inspector_regions.md").

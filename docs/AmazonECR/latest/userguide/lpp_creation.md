@@ -26,6 +26,7 @@ are replicating your repositories to.
 5. On the lifecycle policy rules page for the repository, choose **Edit
    test rules**, **Create rule**.
 6. Specify the following details for each test lifecycle policy rule.
+
    1. For **Rule priority**, type a number for the rule
       priority. The rule priority determines in what order the lifecycle
       policy rules are applied. A lower number means higher priority. For

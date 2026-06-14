@@ -17,11 +17,13 @@ Docker Hub
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the
    following.
+
    1. For **Secret type**, choose
       **Other type of secret**.
    2. In **Key/value pairs**, create two
       rows for your Docker Hub credentials. You can store up
       to 65536 bytes in the secret.
+
       1. For the first key/value pair, specify
          `username` as the key and your Docker
          Hub username as the value.
@@ -47,6 +49,7 @@ Docker Hub
 
 4. On the **Configure secret** page, do the
    following.
+
    1. Enter a descriptive **Secret name**
       and **Description**. Secret names must
       contain 1-512 Unicode characters and be prefixed with
@@ -94,11 +97,13 @@ GitHub Container Registry
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the
    following.
+
    1. For **Secret type**, choose
       **Other type of secret**.
    2. In **Key/value pairs**, create two
       rows for your GitHub credentials. You can store up to
       65536 bytes in the secret.
+
       1. For the first key/value pair, specify
          `username` as the key and your GitHub
          username as the value.
@@ -125,6 +130,7 @@ GitHub Container Registry
 
 4. On the **Configure secret** page, do the
    following:
+
    1. Enter a descriptive **Secret name**
       and **Description**. Secret names must
       contain 1-512 Unicode characters and be prefixed with
@@ -172,11 +178,13 @@ Microsoft Azure Container Registry
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the
    following.
+
    1. For **Secret type**, choose
       **Other type of secret**.
    2. In **Key/value pairs**, create two
       rows for your Microsoft Azure credentials. You can store up to
       65536 bytes in the secret.
+
       1. For the first key/value pair, specify
          `username` as the key and your Microsoft Azure Container Registry
          username as the value.
@@ -202,6 +210,7 @@ Microsoft Azure Container Registry
 
 4. On the **Configure secret** page, do the
    following:
+
    1. Enter a descriptive **Secret name**
       and **Description**. Secret names must
       contain 1-512 Unicode characters and be prefixed with
@@ -249,11 +258,13 @@ GitLab Container Registry
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the
    following.
+
    1. For **Secret type**, choose
       **Other type of secret**.
    2. In **Key/value pairs**, create two
       rows for your GitLab credentials. You can store up to
       65536 bytes in the secret.
+
       1. For the first key/value pair, specify
          `username` as the key and your GitLab Container Registry
          username as the value.
@@ -281,6 +292,7 @@ GitLab Container Registry
 
 4. On the **Configure secret** page, do the
    following:
+
    1. Enter a descriptive **Secret name**
       and **Description**. Secret names must
       contain 1-512 Unicode characters and be prefixed with
@@ -328,11 +340,13 @@ Chainguard Registry
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the
    following.
+
    1. For **Secret type**, choose
       **Other type of secret**.
    2. In **Key/value pairs**, create two
       rows for your Chainguard credentials. You can store up to
       65536 bytes in the secret.
+
       1. For the first key/value pair, specify
          `username` as the key and your Chainguard Registry
          username as the value.
@@ -358,6 +372,7 @@ Chainguard Registry
 
 4. On the **Configure secret** page, do the
    following:
+
    1. Enter a descriptive **Secret name**
       and **Description**. Secret names must
       contain 1-512 Unicode characters and be prefixed with

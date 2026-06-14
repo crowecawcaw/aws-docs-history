@@ -32,6 +32,7 @@ The graph displays your current usage of that AWS resource. 5. To add your servi
    expression, use `m1/60/SERVICE_QUOTA(m1)*100`.
 7. (Optional) To set an alarm that notifies you if you approach the service
    quota, do the following:
+
    1. On the `m1/60/SERVICE_QUOTA(m1)*100` row, under
       **Actions**, choose the alarm icon. It looks like a
       bell.

@@ -15,6 +15,7 @@ create a Secrets Manager secret using the Secrets Manager console instead of the
 - For upstream registries that require authentication with secrets: If you want to use an
   existing secret, verify that the Secrets Manager secret meets the following
   requirements:
+
   - The name of the secret begins with `ecr-pullthroughcache/`. The AWS Management Console
     only displays Secrets Manager secrets with the `ecr-pullthroughcache/` prefix.
   - The account and Region that the secret is in must match the account and Region that the
@@ -68,6 +69,7 @@ secret using the Amazon ECR console. To create a secret using the Secrets Manage
     store your authentication credentials for Docker Hub in an AWS Secrets Manager
     secret. You can specify an existing secret or use the Amazon ECR
     console to create a new secret.
+
     1. To use an existing secret, choose **Use an
        existing AWS secret**. For **Secret name** use the drop down
        to select your existing secret, and then choose **Next**.
@@ -123,6 +125,7 @@ for each Region.
     store your authentication credentials for GitHub Container Registry in an AWS Secrets Manager
     secret. You can specify an existing secret or use the Amazon ECR
     console to create a new secret.
+
     1. To use an existing secret, choose **Use an
        existing AWS secret**. For **Secret name** use the drop down
        to select your existing secret, and then choose **Next**.
@@ -173,6 +176,7 @@ for each Region.
     page, choose **Add rule**.
 5.  On the **Step 1: Specify a source** page, do
     the following.
+
     1. For **Registry**, choose
        **Microsoft Azure Container Registry**
     2. For **Source registry URL**, specify
@@ -190,6 +194,7 @@ for each Region.
     store your authentication credentials for Microsoft Azure Container Registry in an AWS Secrets Manager
     secret. You can specify an existing secret or use the Amazon ECR
     console to create a new secret.
+
     1. To use an existing secret, choose **Use an
        existing AWS secret**. For **Secret name** use the drop down
        to select your existing secret, and then choose **Next**.
@@ -244,6 +249,7 @@ for each Region.
     store your authentication credentials for GitLab Container Registry in an AWS Secrets Manager
     secret. You can specify an existing secret or use the Amazon ECR
     console to create a new secret.
+
     1. To use an existing secret, choose **Use an
        existing AWS secret**. For
        **Secret name** use the drop down
@@ -382,6 +388,7 @@ Region.
     store your authentication credentials for Chainguard Registry in an AWS Secrets Manager
     secret. You can specify an existing secret or use the Amazon ECR
     console to create a new secret.
+
     1. To use an existing secret, choose **Use an
        existing AWS secret**. For
        **Secret name** use the drop down

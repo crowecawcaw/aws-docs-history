@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Amazon ECR](example_ecr_Hello_section.md "example_ecr_Hello_section.md")
   - [Learn the basics](example_ecr_Scenario_RepositoryManagement_section.md "example_ecr_Scenario_RepositoryManagement_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CreateRepository](example_ecr_CreateRepository_section.md "example_ecr_CreateRepository_section.md")
     - [DeleteRepository](example_ecr_DeleteRepository_section.md "example_ecr_DeleteRepository_section.md")
     - [DescribeImages](example_ecr_DescribeImages_section.md "example_ecr_DescribeImages_section.md")
@@ -31,4 +33,5 @@ This topic also includes information about getting started and details about pre
     - [StartLifecyclePolicyPreview](example_ecr_StartLifecyclePolicyPreview_section.md "example_ecr_StartLifecyclePolicyPreview_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Getting started with Amazon ECR](example_ecr_GettingStarted_078_section.md "example_ecr_GettingStarted_078_section.md")

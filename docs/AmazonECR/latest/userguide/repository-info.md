@@ -31,6 +31,7 @@ AWS Management Console.
 5. On the repository detail page, the console defaults to the
    **Images** view. Use the navigation menu to view other
    information about the repository.
+
    - Choose **Summary** to view the repository details and
      pull count data for the repository.
    - Choose **Images** to view information about the image

@@ -21,6 +21,7 @@ scanned. For more information about archiving and restoring images, see [Archivi
   vulnerabilities. As new vulnerabilities appear, the scan results are updated and
   Amazon Inspector emits an event to EventBridge to notify you. Enhanced scanning provides the
   following:
+
   - OS and programming languages package vulnerabilities
   - Two scanning frequencies: Scan on push and continuous scan
 

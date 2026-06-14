@@ -32,6 +32,7 @@ requirements:
 
 - Your client and network must support IPv6.
 - Amazon ECR supports the following request types over IPv6:
+
   - OCI and Docker client requests:
 
   ``<registry-id>`.dkr-ecr.`<aws-region>`.on.aws`

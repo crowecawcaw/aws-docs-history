@@ -895,6 +895,7 @@ public class ECRActions {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateRepository](../../../goto/SdkForJavaV2/ecr-2015-09-21/CreateRepository.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/CreateRepository.md")
   - [DeleteRepository](../../../goto/SdkForJavaV2/ecr-2015-09-21/DeleteRepository.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/DeleteRepository.md")
   - [DescribeImages](../../../goto/SdkForJavaV2/ecr-2015-09-21/DescribeImages.md "../../../goto/SdkForJavaV2/ecr-2015-09-21/DescribeImages.md")
@@ -1580,6 +1581,7 @@ class ECRActions {
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [CreateRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DeleteRepository](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DescribeImages](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
@@ -2162,6 +2164,7 @@ class ECRWrapper:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateRepository](../../../goto/boto3/ecr-2015-09-21/CreateRepository.md "../../../goto/boto3/ecr-2015-09-21/CreateRepository.md")
   - [DeleteRepository](../../../goto/boto3/ecr-2015-09-21/DeleteRepository.md "../../../goto/boto3/ecr-2015-09-21/DeleteRepository.md")
   - [DescribeImages](../../../goto/boto3/ecr-2015-09-21/DescribeImages.md "../../../goto/boto3/ecr-2015-09-21/DescribeImages.md")

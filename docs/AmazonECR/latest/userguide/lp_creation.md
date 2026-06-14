@@ -30,6 +30,7 @@ instructions, see [Creating a lifecycle policy preview in Amazon ECR](lpp_creati
 5. On the lifecycle policy rules page for the repository, choose
    **Create rule**.
 6. Enter the following details for your lifecycle policy rule.
+
    1. For **Rule priority**, type a number for the
       rule priority. The rule priority determines in what order the
       lifecycle policy rules are applied. A lower rule priority number

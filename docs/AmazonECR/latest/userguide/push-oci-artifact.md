@@ -16,6 +16,7 @@ For information about using your Amazon ECR hosted Helm charts with Amazon EKS, 
 2. Use the following steps to create a test Helm chart. For more information,
    see [Helm
    Docs - Getting Started](https://helm.sh/docs/chart_template_guide/getting_started/ "https://helm.sh/docs/chart_template_guide/getting_started/").
+
    1. Create a Helm chart named `helm-test-chart` and clear
       the contents of the `templates` directory.
 
@@ -23,7 +24,6 @@ For information about using your Amazon ECR hosted Helm charts with Amazon EKS, 
    `helm create `helm-test-chart`
    rm -rf ./`helm-test-chart`/templates/*`
    ```
-
    2. Create a `ConfigMap` in the `templates`
       folder.
 

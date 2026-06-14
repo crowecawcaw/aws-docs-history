@@ -17,6 +17,7 @@ granting, the IAM policy takes precedence.
    statement**.
 5. For each pull through cache permissions policy statement you want to
    create, do the following.
+
    1. For **Policy type**, choose **Pull
       through cache policy**.
    2. For **Statement id**, provide a name for the pull

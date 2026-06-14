@@ -68,6 +68,7 @@ AWS Management Console
    prefix in your ECR registry** to apply the template
    to all repositories that don't match any other template in the
    Region.
+
    1. If you choose **A specific prefix**,
       for **Prefix** specify the repository
       namespace prefix to apply the template to. There is
@@ -92,9 +93,11 @@ AWS Management Console
    configuration** page, specify the repository
    setting configuration to apply to repositories created using the
    template.
+
    1. For **Image tag mutability**, choose
       the tag mutability setting to use. For more information,
       see [Preventing image tags from being overwritten in Amazon ECR](image-tag-mutability.md "image-tag-mutability.md").
+
       - **Mutable** – Choose
         this option if you want image tags to be
         overwritten. Recommended for repositories using
