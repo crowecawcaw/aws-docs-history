@@ -13,6 +13,7 @@ Security Blog_.
   credentials and set up individual users with AWS IAM Identity Center or AWS Identity and Access Management (IAM). That
   way, each user is given only the permissions necessary to fulfill their job duties.
 - We recommend that you secure your data in the following ways:
+
   - Use multi-factor authentication (MFA) with each account.
   - Use SSL/TLS to communicate with AWS resources. We require TLS
     1.2.

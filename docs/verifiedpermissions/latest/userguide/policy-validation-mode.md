@@ -20,6 +20,7 @@ AWS Management Console
 3. In the **Policy validation mode** section, choose
    **Modify**.
 4. Do one of the following:
+
    - To activate policy validation and enforce that all policy
      changes must be validated against your schema, choose the
      **Strict (recommended)** radio button.

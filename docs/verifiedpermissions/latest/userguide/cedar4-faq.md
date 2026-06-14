@@ -103,6 +103,7 @@ No. If you experience issues after your policy store is upgraded to Cedar 4, ope
 Some features of Amazon Verified Permissions rely on the new features in Cedar 4. If your policy store does not use Cedar 4, then you can’t use the following API fields:
 
 - In the IsAuthorized, BatchIsAuthorized, IsAuthorizedWithToken and BatchIsAuthorizedWithToken operations:
+
   - `datetime`, `decimal` or `duration` values in the `attributes` or `context` fields
 
 You can’t use syntax or data types in policies, policy templates or schemas introduced after Cedar 2 until your policy store is upgraded.

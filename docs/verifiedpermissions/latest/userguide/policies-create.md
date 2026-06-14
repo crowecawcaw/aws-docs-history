@@ -40,6 +40,7 @@ of the principals that the policy will apply to.
 
 6. In the **Resources scope** field, choose the scope of
    the resources that the policy will apply to.
+
    - Choose **Specific resources** to apply the
      policy to a specific resource. Specify the entity type and
      identifier for the resource that the policy should apply
@@ -52,6 +53,7 @@ of the principals that the policy will apply to.
 
 7. In the **Actions scope** section, choose the scope of
    the resources that the policy will apply to.
+
    - Choose **Specific set of actions** to apply
      the policy to a set of actions. Select the check boxes next to
      the actions to apply the policy.

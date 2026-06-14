@@ -39,6 +39,7 @@ AWS Management Console
    a parent of the principal type.
 7. In **Client application validation**, choose
    whether to validate client application IDs.
+
    - To validate client application IDs, choose **Only
      accept tokens with matching client application
      IDs**. Choose **Add new client

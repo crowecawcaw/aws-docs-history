@@ -25,6 +25,7 @@ Test bench
    details replicate the conditions in **Example 4**
    that references the **DigitalPetStore**
    sample.
+
    1. Set Alice as the principal. For **Principal taking
       action**, choose
       `DigitalPetStore::User` and enter

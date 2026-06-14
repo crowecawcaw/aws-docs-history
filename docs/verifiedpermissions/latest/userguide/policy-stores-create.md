@@ -69,6 +69,7 @@ templates.
 10. Choose **Next**.
 11. On the **Principal type** window, choose the identity
     source for your principal type.
+
     - Choose **Custom** if the principal's ID and
       attributes will be provided directly by your Verified Permissions application.
       Choose **Add an attribute** to add principal
@@ -96,6 +97,7 @@ templates.
     policy.
 14. In the **Principals scope** field, choose the
     principals that will be granted permissions from the policy.
+
     - Choose **Specific principal** to apply the
       policy to a specific principal. Choose the principal in the
       **Principal that will be permitted to take
@@ -115,6 +117,7 @@ templates.
 15. In the **Resources scope** field, choose which
     resources that the specified principals will be authorized to act
     on.
+
     - Choose **Specific resource** to apply the
       policy to a specific resource. Choose the resource in the
       **Resource this policy should apply to**
@@ -127,6 +130,7 @@ templates.
 
 16. In the **Actions scope** field, choose which actions
     that the specified principals will be authorized to perform.
+
     - Choose **Specific set of actions** to apply
       the policy to specific actions. Select the check boxes next to
       the actions in the **Action(s) this policy should apply
@@ -161,6 +165,7 @@ Lambda function, and an API Lambda authorizer. You must assign the Lambda
 3. In the **Import resources and actions** step, under
    **API**, choose an API that will function as the
    model to your policy store resources and actions.
+
    1. Choose a **Deployment stage** from the stages
       configured in your API and select **Import
       API**. For more information about API stages, see
@@ -178,6 +183,7 @@ Lambda function, and an API Lambda authorizer. You must assign the Lambda
    provider type**. You can choose an Amazon Cognito user pool or an
    OpenID Connect (OIDC) IdP type.
 5. If you chose **Amazon Cognito**:
+
    1. Choose a user pool in the same AWS Region and AWS account
       as your policy store.
    2. Choose the **Token type to pass to API** that
@@ -195,6 +201,7 @@ Lambda function, and an API Lambda authorizer. You must assign the Lambda
    4. Choose **Next**.
 
 6. If you chose **External OIDC provider:**
+
    1. In **Issuer URL**, enter the URL of your OIDC
       issuer. This is the service endpoint that provides the
       authorization server, signing keys, and other information about
@@ -210,6 +217,7 @@ Lambda function, and an API Lambda authorizer. You must assign the Lambda
       the token, and select a value type.
    4. In **User and group token claims**, do the
       following:
+
       1. Enter a **User claim name in token**
          for the identity source. This is a claim, typically
          `sub`, from your ID or access token that
@@ -232,6 +240,7 @@ value` and add a value that you want your policy store
    for groups. For OIDC providers, enter group names manually. The
    **Assign actions to groups** step creates policies
    for your policy store that permit group members to perform actions.
+
    1. Choose or add the groups that you want to include in your
       policies.
    2. Assign actions to each of the groups that you selected.
@@ -284,6 +293,7 @@ Sample policy store
    **Sample policy store**.
 2. In the **Sample project** section, choose the type of
    sample Verified Permissions application to use.
+
    - **PhotoFlash** is a sample customer-facing
      web application that enables users to share individual photos
      and albums with friends. Users can set fine-grained permissions

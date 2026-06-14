@@ -101,6 +101,7 @@ test bench.
    bench**.
 3. Choose **Visual mode**.
 4. For **Principal**, do the following:
+
    1. For **Principal taking action** choose
       **PhotoFlash::User** and for **Specify
       entity identifier**, enter

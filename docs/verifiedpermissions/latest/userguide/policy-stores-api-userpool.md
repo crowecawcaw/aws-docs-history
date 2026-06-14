@@ -96,6 +96,7 @@ take the actions. Verified Permissions also creates the Lambda function and [aut
 6. The Lambda function sends an authorization request to a Verified Permissions policy store with the
    [IsAuthorizedWithToken](../apireference/API_IsAuthorizedWithToken.md "../apireference/API_IsAuthorizedWithToken.md") API. The Lambda function passes the elements
    of an authorization decision:
+
    1. The user's token as the principal.
    2. The API method combined with the API path, for example
       `GetPhoto`, as the action.
