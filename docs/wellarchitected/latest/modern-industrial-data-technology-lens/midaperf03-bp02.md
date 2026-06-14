@@ -50,6 +50,7 @@ established:** High
    CloudWatch Custom Metrics specific to industrial data processing needs alongside
    standard system metrics through AWS Systems Manager and Amazon Kinesis Data Streams.
 2. Key metrics to consider:
+
    1. Message throughput rates (messages per second) by device type and production area
       using AWS IoT Device Management groupings
    2. Data storage utilization trends with forecasted growth patterns via Amazon S3

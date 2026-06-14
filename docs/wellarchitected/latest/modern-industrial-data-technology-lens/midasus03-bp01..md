@@ -35,16 +35,19 @@ established:** Medium
 ### Implementation steps
 
 1. **Edge processing implementation:**
+
    - Deploy AWS IoT Greengrass to process sensor data locally at the edge
    - Configure data filtering rules to send only aggregated results to the cloud
    - Set up Lambda functions for edge-based data processing and reduction
 
 2. **Efficient data transfer configuration:**
+
    - Implement Amazon S3 Transfer Acceleration and AWS Global Accelerator for
      cross-region data movement
    - Use Amazon CloudFront to cache frequently accessed data closer to end users
 
 3. **Geographic data optimization:**
+
    - Store data in AWS Regions closest to production facilities
    - Configure Amazon S3 lifecycle policies for efficient data management
    - Monitor data access patterns using CloudWatch to identify optimization

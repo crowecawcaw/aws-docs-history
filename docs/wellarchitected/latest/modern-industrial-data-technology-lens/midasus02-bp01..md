@@ -40,25 +40,30 @@ established:** Medium
 ### Implementation steps
 
 1. **Assessment and classification:**
+
    - Conduct workload assessment of manufacturing applications using AWS Well-Architected Tool
    - Document peak usage patterns using Amazon CloudWatch
    - Classify applications into real time and batch processing categories
 
 2. **Demand pattern mapping:**
+
    - Create demand heat maps using Amazon CloudWatch metrics
    - Identify off-peak windows for non-time-critical workloads
 
 3. **Resource optimization configuration:**
+
    - Configure AWS Auto Scaling policies with appropriate thresholds
    - Implement scaling plans that align with production schedules
    - Define resource constraints to help prevent over-provisioning
 
 4. **Workload scheduling implementation:**
+
    - Create AWS Batch job configurations for non-critical processing tasks
    - Configure AWS ParallelCluster for engineering simulations during off-hours
    - Implement prioritization logic for computing resources
 
 5. **Monitoring and continuous improvement:**
+
    - Deploy CloudWatch dashboards to track resource utilization efficiency
    - Establish KPIs using AWS Cost and Usage Reports
    - Create sustainability improvement reporting and quarterly review process

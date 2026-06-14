@@ -37,6 +37,7 @@ To reduce network traffic and overhead to allow faster processing:
 
 1. Configure small data processing applications to summarize data on your gateway
    devices using AWS IoT Greengrass components
+
    1. **Manufacturing example:** Deploy AWS IoT Greengrass on factory floor gateways to
       run edge analytics components that process real-time data from CNC machines,
       conveyor belt sensors, and quality control cameras, summarizing production metrics
@@ -45,6 +46,7 @@ To reduce network traffic and overhead to allow faster processing:
 
 2. Subscribe to direct topics through MQTT of machine data, then use components to
    summarize and re-publish data on a new topic that is routed to AWS IoT Core or SiteWise.
+
    1. **Industrial example:** Use AWS IoT Greengrass components to subscribe to MQTT
       topics from industrial equipment like turbines, pumps, and generators, then
       aggregate temperature, vibration, and pressure readings into health score summaries
@@ -52,6 +54,7 @@ To reduce network traffic and overhead to allow faster processing:
 
 3. Alternatively, locally compress summarized data into Apache Parquet format and
    transfer directly to Amazon S3.
+
    1. **Manufacturing example:** Configure edge devices in automotive plants to compress
       daily production data (part counts, cycle times, energy consumption) from assembly
       line robots and quality inspection systems into Parquet files, then batch upload to

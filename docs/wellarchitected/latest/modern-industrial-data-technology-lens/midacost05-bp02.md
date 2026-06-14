@@ -52,11 +52,13 @@ for critical production systems and consideration for startup times and warm poo
 ### Implementation steps
 
 1. Define scaling metrics:
+
    - Production demand indicators
    - Resource utilization thresholds
    - Cost constraints
 
 2. Configure auto scaling policies:
+
    - Scale-out conditions
    - Scale-in conditions
    - Cool-down periods

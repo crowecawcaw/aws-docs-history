@@ -38,6 +38,7 @@ established:** Medium
 ### Implementation steps
 
 1. **Carbon footprint assessment:**
+
    - Conduct an environmental impact assessment of your current manufacturing
      workload deployment using the AWS Customer Carbon Footprint Tool
    - Map manufacturing compliance and technical requirements against available
@@ -46,12 +47,14 @@ established:** Medium
      regions, prioritizing non-critical applications first
 
 2. **Deploy energy-efficient computing:**
+
    - Deploy EC2 Graviton instances with Auto Scaling configurations that align
      with production schedules and peak processing times
    - Configure Amazon EC2 Auto Scaling groups based on manufacturing production
      patterns
 
 3. **Optimize edge processing:**
+
    - Implement AWS IoT Greengrass at manufacturing facilities to optimize edge
      processing and reduce unnecessary data transfers
    - Configure IoT rules to filter and aggregate manufacturing data at the edge
@@ -59,6 +62,7 @@ established:** Medium
      between regions
 
 4. **Implement hybrid solutions:**
+
    - Deploy AWS Outposts or AWS Local Zones for manufacturing workloads requiring
      low-latency access to production facilities
    - Configure AWS Direct Connect for high-throughput, low-latency connectivity
@@ -67,6 +71,7 @@ established:** Medium
      movement when required
 
 5. **Establish monitoring and governance:**
+
    - Create Amazon CloudWatch dashboards to track resource utilization and carbon
      metrics across regions
    - Establish sustainability KPIs and monitoring dashboards to track carbon
@@ -75,6 +80,7 @@ established:** Medium
      on sustainability performance metrics
 
 6. **Continuous optimization:**
+
    - Use AWS Cost Explorer and Sustainability reports to identify further
      optimization opportunities
    - Regularly review and update regional deployment strategy as cloud provider

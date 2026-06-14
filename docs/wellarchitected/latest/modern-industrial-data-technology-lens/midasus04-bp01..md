@@ -33,18 +33,21 @@ established:** Medium
 ### Implementation steps
 
 1. **Data classification and assessment:**
+
    - Conduct comprehensive data audits across Amazon EBS volumes, Amazon EFS file
      systems, and on-premises data connected through AWS Storage Gateway
    - Document recovery time objectives (RTOs) and recovery point objectives (RPOs)
      for each data category in AWS Backup
 
 2. **Tiered backup strategy design:**
+
    - Configure AWS Backup plans with different frequencies for critical EBS
      volumes, EFS file systems, and Storage Gateway volumes
    - Implement lifecycle policies in Amazon S3 to automatically transition
      infrequently accessed backups to cold storage classes
 
 3. **Storage optimization configuration:**
+
    - Enable compression and deduplication features in AWS Backup for EBS snapshots
      and EFS backups
    - Configure Amazon EFS Infrequent Access storage class for rarely accessed file
@@ -53,11 +56,13 @@ established:** Medium
      data footprint
 
 4. **Geographic distribution setup:**
+
    - Deploy EBS and EFS backups to AWS Regions closest to primary usage locations
    - Configure AWS Storage Gateway to cache frequently accessed data locally while
      storing backups in energy-efficient regions
 
 5. **Performance monitoring:**
+
    - Create CloudWatch dashboards to track backup storage utilization across EBS,
      EFS, and Storage Gateway
    - Establish quarterly review processes using AWS Trusted Advisor storage

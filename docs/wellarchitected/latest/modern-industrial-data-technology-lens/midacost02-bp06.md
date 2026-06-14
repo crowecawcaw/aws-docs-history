@@ -43,6 +43,7 @@ workloads while verifying that critical operational systems maintain necessary r
 ### Implementation steps
 
 1. Define cost control mechanisms:
+
    - Budget thresholds
    - Resource limits
    - Approval workflows

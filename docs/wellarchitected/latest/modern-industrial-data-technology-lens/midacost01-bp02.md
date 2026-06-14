@@ -58,12 +58,14 @@ Then, implement monitoring systems that:
 1. Define cost thresholds or budgets for different manufacturing workload
    components.
 2. Configure automated alerts for:
+
    - Budget overruns
    - Unusual usage patterns
    - Idle resources
    - Storage growth rates
 
 3. Create automated reports for:
+
    - Daily, weekly, or monthly cost trends
    - Resource utilization and production output
    - Cost per manufacturing line, cell, or product

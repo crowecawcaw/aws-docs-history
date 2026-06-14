@@ -40,6 +40,7 @@ and managing dependencies.
 ### Implementation steps
 
 1. Create decommissioning criteria based on:
+
    - Resource utilization thresholds
    - Business value assessment
    - Data retention requirements
@@ -49,6 +50,7 @@ and managing dependencies.
 4. Create backup and archival procedures.
 5. Implement verification steps post-decommissioning.
 6. Consider manufacturing-specific decommissioning criteria:
+
    - Production line changeovers
    - End of product lifecycle
    - Equipment replacement cycles

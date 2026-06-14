@@ -151,16 +151,19 @@ A comprehensive data architecture for computer vision quality inspection on AWS
 includes:
 
 1. **Image acquisition and edge processing**
+
    - Use AWS IoT Greengrass to capture and preprocess images at the edge.
    - Implement edge-based inference for immediate quality decisions.
    - Buffer images locally with selective cloud uploading to manage bandwidth.
 
 2. **Secure data transfer and storage**
+
    - Encrypt and transfer images securely to Amazon S3.
    - Organize raw images in data lake architecture with appropriate partitioning.
    - Implement lifecycle policies for cost-effective long-term storage.
 
 3. **Image processing and labeling**
+
    - Use Amazon SageMaker Ground Truth for human labeling workflows.
    - Use Amazon Bedrock foundation models for automatic segmentation and labeling
      assistance.
@@ -168,28 +171,33 @@ includes:
      capabilities.
 
 4. **Model development**
+
    - Use Amazon SageMaker AI AI for training and hyperparameter optimization.
    - Implement transfer learning from AWS computer vision model zoo.
    - Establish experiment tracking for model versioning and comparison.
 
 5. **MLOps pipeline**
+
    - Create automated CI/CD pipelines for model deployment using AWS CodePipeline.
    - Compile models for edge deployment with SageMaker AI Neo.
    - Package models as AWS IoT Greengrass components.
 
 6. **Production monitoring and feedback**
+
    - Track inference metrics and model performance using Amazon CloudWatch.
    - Detect data drift with SageMaker AI Model Monitor.
    - Implement automated retraining workflows initiated by performance
      degradation.
 
 7. **Integration with manufacturing systems**
+
    - Connect inference results to AWS IoT Core MQTT topics.
    - Initiate control systems and quality workflows based on detection results.
    - Integrate with AWS IoT SiteWise for holistic process monitoring.
    - Calculate quality KPIs and OEE metrics based on vision system outputs.
 
 8. **Analytics and continuous improvement**
+
    - Store historical inspection data in Amazon S3 for long-term analysis.
    - Use Quick for quality trend visualization.
    - Employ Amazon SageMaker AI for root cause analysis of quality issues.

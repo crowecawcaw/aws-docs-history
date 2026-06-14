@@ -40,6 +40,7 @@ prevent disruption to manufacturing operations.
 
 1. Define automation rules for resource identification.
 2. Create automated workflows for:
+
    - Resource tagging
    - Notification of stakeholders
    - Backup creation
@@ -48,6 +49,7 @@ prevent disruption to manufacturing operations.
 3. Implement safety checks and rollback procedures.
 4. Monitor automation effectiveness.
 5. Include manufacturing-specific automation rules:
+
    - Production schedule-aware decommissioning
    - Product lifecycle milestones
    - Equipment maintenance windows

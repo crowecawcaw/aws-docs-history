@@ -62,32 +62,38 @@ production patterns and business needs.
 ### Implementation steps
 
 - Identify and categorize manufacturing workloads:
+
   - Critical real-time processes (for example, process control, safety systems)
   - Time-sensitive operations (for example, quality inspections, inventory
     updates)
   - Deferrable tasks (for example, long-term analytics, reporting)
 
 - Design resource allocation strategies:
+
   - Priority-based access for critical systems
   - Queueing mechanisms for non-critical operations
   - Load balancing across production lines or facilities
 
 - Implement OT-aware monitoring:
+
   - Set up real-time monitoring for critical production KPIs
   - Configure alerts based on manufacturing thresholds
   - Integrate with SCADA or MES for comprehensive visibility
 
 - Establish OT-IT integrated scaling mechanisms:
+
   - Automatic scaling triggered by production volumes
   - Resource reservation for planned production increases
   - Gradual scale-down aligned with shift changes or maintenance windows
 
 - Conduct regular performance and cost reviews:
+
   - Analyze resource utilization against production output
   - Identify opportunities for optimization without impacting OT
   - Adjust strategies based on changing manufacturing requirements
 
 - Implement feedback loops with shop floor:
+
   - Gather input from operators on system performance
   - Align IT resource adjustments with production schedules
   - Continuously refine based on real-world manufacturing impact

@@ -56,12 +56,14 @@ continuity.
 ### Implementation steps
 
 1. Conduct comprehensive workload assessment:
+
    - Current infrastructure costs
    - Application dependencies
    - Performance requirements
    - Data transfer patterns
 
 2. Evaluate migration options:
+
    - Rehost (lift and shift)
    - Replatform
    - Refactor or modernize

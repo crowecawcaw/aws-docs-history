@@ -53,12 +53,14 @@ considering both IT and OT systems for comprehensive resource planning.
 ### Implementation steps
 
 1. Collect historical data on:
+
    - Resource utilization
    - Production cycles
    - Seasonal variations
    - Peak usage periods
 
 2. Analyze patterns and trends:
+
    - Daily/weekly/monthly patterns
    - Production correlation
    - Seasonal impacts

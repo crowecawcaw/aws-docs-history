@@ -32,6 +32,7 @@ posture of your manufacturing data workloads:
   rely on runbooks and checklists can lead to delays and inaccurate results. Automated
   governance provides a fast, definitive governance check for application deployments at
   scale. Governance at scale typically encompasses several key components:
+
   - Automating account provisioning to maintain strong security across numerous
     users and business units requesting cloud resources.
   - Enforcing and monitoring budgets across multiple accounts, workloads, and users

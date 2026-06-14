@@ -53,6 +53,7 @@ To systematically analyze and optimize costs:
 2. Create cost allocation tags aligned with manufacturing processes.
 3. Establish a system to collect and analyze production schedule data.
 4. Implement forecasting models that consider:
+
    - Seasonal production variations
    - Planned maintenance windows
    - New product launches
