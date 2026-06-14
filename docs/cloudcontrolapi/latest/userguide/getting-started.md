@@ -20,6 +20,7 @@ and set the retention policy on it to 90 days.
 
 1. In the AWS Command Line Interface (AWS CLI), run the `create-resource` command with
    the following parameters:
+
    - Specify the `type-name` as
      `AWS::Logs::LogGroup`.
    - Specify the `desired-state` as a string containing JSON
@@ -52,6 +53,7 @@ about the status of your resource operation request.
 2. To track the status of your resource operation request, run the
    `get-resource-request-status` command with the following
    parameter:
+
    - Specify the `request-token` parameter as the
      `RequestToken` property value returned in the
      `ProgressEvent` object.
@@ -84,6 +86,7 @@ Next, read the current state of the resource you just created.
 
 - In the AWS CLI, run the `get-resource` command with the following
   parameter:
+
   - Specify `identifier` as the `identifier`
     property value returned in the `ProgressEvent` object when
     you created the resource. In this case, it's
@@ -115,6 +118,7 @@ Next, update your log group to double the retention policy to 180 days.
 
 1. In the AWS CLI, run the `update-resource` command with the following
    parameter:
+
    - Specify the `type-name` as
      `AWS::Logs::LogGroup`.
    - Specify `identifier` as the `identifier`
@@ -157,6 +161,7 @@ about the status of your resource operation request.
 2. To track the status of your resource operation request, run the
    `get-resource-request-status` command with the following
    parameter:
+
    - Specify the `request-token` parameter as the
      `RequestToken` property value returned in the
      `ProgressEvent` object.
@@ -189,6 +194,7 @@ Next, use Cloud Control API to discover resources in your AWS account.
 
 - In the AWS CLI, run the `list-resources` command with the following
   parameter:
+
   - Specify the `type-name` as
     `AWS::Logs::LogGroup`.
 
@@ -226,6 +232,7 @@ Finally, delete your log group to clean up from this tutorial.
 
 1. In the AWS CLI, run the `delete-resource` command with the following
    parameter:
+
    - Specify the `type-name` as
      `AWS::Logs::LogGroup`.
    - Specify `identifier` as the `identifier`
@@ -257,6 +264,7 @@ about the status of your resource operation request.
 2. To track the status of your resource operation request, run the
    `get-resource-request-status` command with the following
    parameter:
+
    - Specify the `request-token` parameter as the
      `RequestToken` property value returned in the
      `ProgressEvent` object.
