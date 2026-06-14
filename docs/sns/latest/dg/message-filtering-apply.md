@@ -355,6 +355,7 @@ _AWS CloudFormation User Guide_ and the [example CloudFormation template](https:
    template to Amazon S3**, choose the file, and choose
    **Next**.
 4. On the **Specify Details** page, do the following:
+
    1. For **Stack Name**, type
       `MyFilterPolicyStack`.
    2. For **myHttpEndpoint**, type the HTTP endpoint to be

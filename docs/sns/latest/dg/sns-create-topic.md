@@ -32,6 +32,7 @@ operational requirements.
 
 1.  Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2.  Do one of the following:
+
     - If no topics have ever been created under your AWS account before,
       read the description of Amazon SNS on the home page.
 
@@ -42,6 +43,7 @@ operational requirements.
     topic**.
 4.  On the **Create topic** page, in the
     **Details** section, do the following:
+
     1. For **Type**, choose a topic type
        (**Standard** or **FIFO**).
     2. Enter a **Name** for the topic. For a [FIFO topic](sns-fifo-topics.md "sns-fifo-topics.md"), add
@@ -69,6 +71,7 @@ operational requirements.
 
 5.  (Optional) Expand the **Encryption** section and do the
     following. For more information, see [Securing Amazon SNS data with server-side encryption](sns-server-side-encryption.md "sns-server-side-encryption.md").
+
     1. Choose **Enable encryption**.
     2. Specify the AWS KMS key. For more information, see [Key terms](sns-server-side-encryption.md#sse-key-terms "sns-server-side-encryption.md#sse-key-terms").
 

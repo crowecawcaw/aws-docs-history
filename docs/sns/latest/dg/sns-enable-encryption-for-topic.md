@@ -9,6 +9,7 @@ CDK.
 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
 2. Navigate to the **Topics** page, select your **topic**, and choose **Edit**.
 3. Expand the **Encryption** section and do the following:
+
    - Toggle encryption to **Enable**.
    - Select the **AWS managed SNS Key**
      (alias/aws/sns) as the encryption key. This is

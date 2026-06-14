@@ -34,6 +34,7 @@ show you how to access the metrics using the AWS Management Console.
 3. On the **All metrics** tab, choose
    **SNS**, and then choose one of the following
    dimensions:
+
    - **Country, SMS Type**
    - **PhoneNumber**
    - **Topic Metrics**

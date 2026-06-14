@@ -33,6 +33,7 @@ The recommended Lambda-based architecture works as follows:
    content.
 3. The Lambda function leverages Amazon Bedrock Guardrails to detect sensitive data in
    the message and apply your policies:
+
    - **LOG** – Log sensitive detection and
      publish the original message.
    - **BLOCK** – Drop the message

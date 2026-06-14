@@ -129,6 +129,7 @@ The stack for this process includes the following resources:
    **Next**.
 5. On the **Specify Details** page, specify stack and key
    names:
+
    1. For **Stack name**, type
       `VPCE-Tutorial-Stack`.
    2. For **KeyName**, choose
@@ -310,6 +311,7 @@ the topic.
 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. In the navigation menu on the left, choose **Logs**.
 3. Check the logs that were written by the Lambda functions:
+
    1. Choose the **/aws/lambda/VPCE-Tutorial-Lambda-1/**
       log group.
    2. Choose the log stream.

@@ -116,12 +116,14 @@ Amazon SNS.
    you want to edit, and then choose **Edit**.
 4. In the **Firebase Cloud Messaging Credentials** section, choose one of the
    following options:
+
    - **Token-based authentication**
      (recommended method) – Upload the **private
      key file** (JSON) that you downloaded from the Firebase
      Console. This file contains the credentials needed to generate
      short-lived access tokens for FCM notifications. To get this
      file:
+
      1. Go to your [Firebase application console](https://firebase.google.com/?gad=1&gclid=CjwKCAiA0syqBhBxEiwAeNx9N27M7zxHjlS74_gp4mAS4QTMQH5J35sTO29od-yauuq259zzX_I2DRoCrbsQAvD_BwE&gclsrc=aw.ds "https://firebase.google.com/?gad=1&gclid=CjwKCAiA0syqBhBxEiwAeNx9N27M7zxHjlS74_gp4mAS4QTMQH5J35sTO29od-yauuq259zzX_I2DRoCrbsQAvD_BwE&gclsrc=aw.ds").
      2. In the **Project Settings**,
         select **Cloud Messaging**.
@@ -132,6 +134,7 @@ Amazon SNS.
      you prefer to use the older API key authentication method, enter the
      **Google API key** in the provided
      field. To get this file:
+
      1. Go to your [Firebase application console](https://firebase.google.com/?gad=1&gclid=CjwKCAiA0syqBhBxEiwAeNx9N27M7zxHjlS74_gp4mAS4QTMQH5J35sTO29od-yauuq259zzX_I2DRoCrbsQAvD_BwE&gclsrc=aw.ds "https://firebase.google.com/?gad=1&gclid=CjwKCAiA0syqBhBxEiwAeNx9N27M7zxHjlS74_gp4mAS4QTMQH5J35sTO29od-yauuq259zzX_I2DRoCrbsQAvD_BwE&gclsrc=aw.ds").
      2. In **Project Settings**, select
         **Cloud Messaging**.

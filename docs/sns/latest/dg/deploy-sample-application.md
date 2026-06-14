@@ -5,6 +5,7 @@
 2.  On the navigation panel, choose **Functions** and then choose
     **Create function**.
 3.  On the **Create function** page, do the following:
+
     1. Choose **Browse serverless app repository**,
        **Public applications**, **Show apps that
        create custom IAM roles or resource policies**.
@@ -13,6 +14,7 @@
 
 4.  On the **fork-example-ecommerce-checkout-api** page, do the
     following:
+
     1. In the **Application settings** section, enter an
        **Application name** (for example,
        `fork-example-ecommerce-my-app`).
@@ -25,9 +27,9 @@
          If you reuse an application name, the deployment will update
          only the previously deployed CloudFormation stack (rather than create
          a new one).
-
     2. (Optional) Enter one of the following **LogLevel**
        settings for the execution of your application's Lambda function:
+
        - `DEBUG`
        - `ERROR`
        - `INFO` (default)

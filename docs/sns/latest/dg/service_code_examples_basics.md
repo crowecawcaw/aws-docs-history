@@ -7,6 +7,7 @@ SDKs.
 
 - [Hello Amazon SNS](example_sns_Hello_section.md "example_sns_Hello_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [CheckIfPhoneNumberIsOptedOut](example_sns_CheckIfPhoneNumberIsOptedOut_section.md "example_sns_CheckIfPhoneNumberIsOptedOut_section.md")
   - [ConfirmSubscription](example_sns_ConfirmSubscription_section.md "example_sns_ConfirmSubscription_section.md")
   - [CreateTopic](example_sns_CreateTopic_section.md "example_sns_CreateTopic_section.md")

@@ -13,8 +13,10 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello Amazon SNS](example_sns_Hello_section.md "example_sns_Hello_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [CheckIfPhoneNumberIsOptedOut](example_sns_CheckIfPhoneNumberIsOptedOut_section.md "example_sns_CheckIfPhoneNumberIsOptedOut_section.md")
     - [ConfirmSubscription](example_sns_ConfirmSubscription_section.md "example_sns_ConfirmSubscription_section.md")
     - [CreateTopic](example_sns_CreateTopic_section.md "example_sns_CreateTopic_section.md")
@@ -34,6 +36,7 @@ This topic also includes information about getting started and details about pre
     - [Unsubscribe](example_sns_Unsubscribe_section.md "example_sns_Unsubscribe_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Build an app to submit data to a DynamoDB table](example_cross_SubmitDataApp_section.md "example_cross_SubmitDataApp_section.md")
   - [Building an Amazon SNS application](example_cross_SnsPublishSubscription_section.md "example_cross_SnsPublishSubscription_section.md")
   - [Create a platform endpoint for push notifications](example_sns_CreatePlatformEndpoint_section.md "example_sns_CreatePlatformEndpoint_section.md")
@@ -52,4 +55,5 @@ This topic also includes information about getting started and details about pre
   - [Use scheduled events to invoke a Lambda function](example_cross_LambdaScheduledEvents_section.md "example_cross_LambdaScheduledEvents_section.md")
 
 - [Serverless examples](service_code_examples_serverless_examples.md "service_code_examples_serverless_examples.md")
+
   - [Invoke a Lambda function from an Amazon SNS trigger](example_serverless_SNS_Lambda_section.md "example_serverless_SNS_Lambda_section.md")

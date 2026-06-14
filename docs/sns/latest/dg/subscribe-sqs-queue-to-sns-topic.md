@@ -124,6 +124,7 @@ start, make sure you have the ARN for the queue that you want to subscribe.
    subscription**.
 5. On the **Create subscription** page, in the
    **Details** section, do the following:
+
    1. Verify the **Topic ARN**.
    2. For **Protocol**, choose **Amazon SQS**.
    3. For **Endpoint**, enter the ARN of an Amazon SQS queue.

@@ -13,6 +13,7 @@ your setup.
    confirmation message arrives, extract the **`SubscribeURL`** from the message.
 3. Once you have the `SubscribeURL`, you can confirm the subscription in one
    of two ways:
+
    - **Automatic confirmation** – Your endpoint can
      automatically confirm the subscription by sending an **HTTP GET
      request** to the `SubscribeURL`.
@@ -26,8 +27,10 @@ your setup.
 
 4. You can also verify the **subscription status** using the
    Amazon SNS console:
+
    1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
    2. In the navigation pane, choose **Subscriptions**.
    3. Find your **subscription** in the list.
+
       - If confirmed, the `SubscriptionArn` will be displayed.
       - If still unconfirmed, it will show as `PendingConfirmation`.

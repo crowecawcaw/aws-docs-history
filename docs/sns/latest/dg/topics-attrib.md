@@ -15,6 +15,7 @@ capture delivery logs for monitoring and troubleshooting.
    successful messages for which you want to receive CloudWatch Logs.
 7. In the **IAM roles** section, you must configure roles for
    both **success** and **failure** logging:
+
    - **Use an existing service role** –
      Select an existing IAM role that has the required permissions for
      Amazon SNS to write logs to CloudWatch.

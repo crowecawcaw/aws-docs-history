@@ -6,6 +6,7 @@
    `serverlessrepo-fork-example-ecommerce-`my-app``
    and then choose the application.
 3. In the **Resources** section, do the following:
+
    1. To find the resource whose type is **ApiGateway
       RestApi**, sort the resources by **Type**,
       for example `ServerlessRestApi`, and then expand the

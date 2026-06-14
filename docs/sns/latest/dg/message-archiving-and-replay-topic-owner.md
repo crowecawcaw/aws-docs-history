@@ -34,6 +34,7 @@ policy**
   the number of days for which it is set. Select the **Archive
   policy** tab to view the following message archive
   details:
+
   - **Status** – The archive and replay status
     appears as **active** when an archive policy is
     applied. The archive and replay status appears as

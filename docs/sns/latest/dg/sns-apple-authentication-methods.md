@@ -41,6 +41,7 @@ Developer website.
    application.
 5. In the**Authentication type** section, choose one of the
    following options:
+
    - **Token-based authentication** (recommended for modern
      APNs integrations)
    - **Certificate-based authentication** (older
@@ -48,7 +49,9 @@ Developer website.
 
 6. Configure your **credentials** based on the
    authentication type:
+
    - **For token-based authentication:**
+
      - Upload the **.p8 file**, which is the
        authentication token signing key you downloaded from your Apple
        Developer account.
@@ -64,6 +67,7 @@ Developer website.
 
    - **For certificate-based
      authentication:**
+
      - Upload the **.p12 file** for your TLS
        certificate. This file can be exported from Keychain Access on macOS
        after downloading the certificate from your Apple Developer

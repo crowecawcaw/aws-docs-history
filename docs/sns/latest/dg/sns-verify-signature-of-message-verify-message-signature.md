@@ -56,6 +56,7 @@ openssl x509 -pubkey -noout -in signing_cert.pem > public_key.pem
    Identify the **message type** (`Type` field in the
    Amazon SNS message) to determine which **key-value pairs** to
    include:
+
    - **Notification message** – Includes
      `Message`, `MessageId`, `Subject` (if present),
      `Timestamp`, `TopicArn`, and `Type`.
@@ -138,6 +139,7 @@ echo "$SIGNATURE" | base64 -d > signature.bin
 ```
 
 11. Use the `SignatureVersion` field to select the hash algorithm:
+
     - For `SignatureVersion`**1**, use **SHA1** (for example, `-sha1`).
     - For `SignatureVersion`**2**, use **SHA256** (for example, `-sha256`).
 

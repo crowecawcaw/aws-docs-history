@@ -246,6 +246,7 @@ snsClient.setTopicAttributes(SetTopicAttributesRequest.builder()
   `SourceAccount`.** The `SourceAccount` condition is
   supported by the following services. It’s crucial to use this condition when you want to
   restrict access to your Amazon SNS topic based on the originating account.
+
   - Amazon API Gateway
   - Amazon CloudWatch
   - Amazon DevOps Guru

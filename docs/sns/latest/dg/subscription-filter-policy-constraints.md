@@ -25,6 +25,7 @@ they work effectively while maintaining system performance and compatibility:
 ###### **Additional considerations**
 
 - The JSON of the filter policy can contain the following:
+
   - Strings enclosed in quotation marks
   - Numbers
   - The keywords `true`, `false`, and
@@ -56,6 +57,7 @@ Attribute-based filtering is the default option. [`FilterPolicyScope`](../api/AP
   filtering.
 - Amazon SNS compares policy properties only to message attributes that have the
   following data types:
+
   - `String`
   - `String.Array`
 

@@ -23,6 +23,7 @@ phone numbers are properly verified.
    **Add phone number**.
 5. Under **Destination details**, provide the following information,
    and then select **Add phone number**:
+
    - **Country code** and **phone number** of
      the destination.
    - The **language** you want the verification message to be
@@ -32,6 +33,7 @@ phone numbers are properly verified.
    phone number. This OTP is required for verification.
 7. You will receive the OTP as a standard SMS message on the **destination
    phone number** you provided.
+
    - If you don’t receive the OTP within 15 minutes, select **Resend
      verification** code in the Amazon SNS console.
    - You can resend the OTP up to five times in a 24-hour period.
@@ -39,6 +41,7 @@ phone numbers are properly verified.
 8. Once you receive the OTP, enter it in the **Verification code**
    box and select **Verify phone number**.
 9. Check the **verification status**.
+
    - After successfully verifying the phone number, the phone number and its
      verification status will appear in the **Sandbox destination phone
      numbers** section.

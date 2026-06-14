@@ -9,6 +9,7 @@ With X-Ray, you get an end-to-end view of each request, allowing you to:
 - Identify what is calling your Amazon SNS topic and what services are downstream of its
   subscriptions.
 - Analyze latencies, such as:
+
   - Time spent in the Amazon SNS topic before processing.
   - Delivery times for each subscribed endpoint.
 
@@ -52,6 +53,7 @@ services.
 3. On the **Create topic** page, in the
    **Details** section, choose a topic type:
    **FIFO** or **Standard**.
+
    1. Enter a **Name** for the topic.
    2. (Optional) Enter a **Display name** for the
       topic.

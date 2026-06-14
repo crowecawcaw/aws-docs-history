@@ -27,6 +27,7 @@ to send SMS messages.
    topic**.
 5. On the **Create topic** page, under
    **Details**, do the following:
+
    1. For **Type**, choose
       **Standard**.
    2. For **Name**, enter a topic name.
@@ -65,6 +66,7 @@ phone numbers. For more information, see [Using the Amazon SNS SMS sandbox](sns-
    subscription**.
 4. On the **Create subscription** page, under
    **Details**, do the following:
+
    1. For **Topic ARN**, enter or choose the Amazon
       Resource Name (ARN) of the topic to which you want to send SMS
       messages.
@@ -90,6 +92,7 @@ every phone number that is subscribed to the topic.
 2. On the topic details page, choose **Publish message**.
 3. On the **Publish message to topic** page, under
    **Message details**, do the following:
+
    1. For **Subject**, keep the field blank unless your
       topic contains email subscriptions and you want to publish to both email
       and SMS subscriptions. Amazon SNS uses the **Subject** that
@@ -99,6 +102,7 @@ every phone number that is subscribed to the topic.
       application endpoint subscribers.
 
 4. Under **Message body**, do the following:
+
    1. For **Message structure**, choose **Identical
       payload for all delivery protocols** to send the same
       message to all protocol types subscribed to your topic. Or, choose
@@ -434,6 +438,7 @@ that follow this format can have a maximum of 15 digits along with the prefix of
    **Publish text message**.
 5. On the **Publish SMS message** page, for **Message
    type**, choose one of the following:
+
    - **Promotional** – Non-critical messages, such
      as marketing messages.
    - **Transactional** – Critical messages that

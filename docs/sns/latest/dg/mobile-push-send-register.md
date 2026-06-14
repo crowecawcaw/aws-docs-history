@@ -14,6 +14,7 @@ endpoint allows Amazon SNS to send messages to the device.
 4. Choose your **AWS Region**. For a list of AWS
    Regions where you can create mobile applications, see [Amazon SNS mobile application supported Regions](sns-mobile-push-supported-regions.md "sns-mobile-push-supported-regions.md").
 5. Enter the following **application details**:
+
    - **Application name** – Provide a
      **name** for your platform application. The
      name must be between 1 and 256 characters and can contain uppercase and
@@ -25,8 +26,10 @@ endpoint allows Amazon SNS to send messages to the device.
 
 6. Depending on the platform you selected, you’ll need to provide specific
    credentials:
+
    - For **APNs** (Apple Push Notification Service) – Choose
      between **token-based** or **certificate-based** authentication.
+
      - For token-based authentication, upload a **.p8
        file** (generated via Keychain Access).
      - For certificate-based authentication, upload a **.p12 file** (also exported from Keychain

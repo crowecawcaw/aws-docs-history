@@ -19,11 +19,13 @@ topic.
 2.  Choose a topic or create a new one. For more details on creating topics, see [Creating an Amazon SNS topic](sns-create-topic.md "sns-create-topic.md").
 3.  On the **Create topic** page, in the **Details**
     section, choose **Standard**.
+
     1. Enter a **Name** for the topic.
     2. (Optional) Enter a **Display name** for the topic.
 
 4.  Expand **Data protection policy**.
 5.  Choose a **Configuration mode**:
+
     - **Basic** – Define a data protection policy using
       a simple menu.
 
@@ -33,6 +35,7 @@ topic.
 6.  (Optional) To create your own **custom data
     identifier**, expand the **Custom data identifier configuration
     section** do the following:
+
     1. Enter a unique **name** for the custom data
        identifier. Custom data identifier names support alphanumeric, underscore
        (\_), and hyphen (-) characters. Up to 128 character are supported. This name
@@ -52,6 +55,7 @@ topic.
     can add **audit**, **de-identify** (mask or
     redact), and **deny** (block) statement types to the same data
     protection policy.
+
     1. **Add audit statement** – Configure which
        sensitive data to audit, what percentage of messages you want to audit for
        that data, and where to send audit logs.
@@ -90,11 +94,11 @@ topic.
         	 you can put logs into Amazon S3 to save costs. For information
         	 about Amazon Simple Storage Service, see the [Amazon Simple Storage Service
         	 User Guide](../../../AmazonS3/latest/userguide/Welcome.md "../../../AmazonS3/latest/userguide/Welcome.md").
-
     2.  **Add a de-identify statement** – Configure the
         sensitive data you want to de-identify in the message, whether you want to
         mask or redact that data, and the accounts to stop delivery of that
         data.
+
         1. For **Data identifiers**, select the sensitive
            data that you want to de-identify.
         2. For **Define this de-identify statement for**,
@@ -117,10 +121,10 @@ topic.
             * **IAM user principals** – For
              example,
              `arn:aws:iam::AWS-account-ID:user/user-name`.
-
         3. For **De-identify Option**, select how you want
            to de-identify the sensitive data. The following options are
            supported:
+
            - **Redact** – Completely removes
              data. For example, email: `classified@amazon.com`
              becomes email: .
@@ -135,8 +139,10 @@ topic.
     3.  **Add deny statement** – Configure which sensitive
         data to prevent from moving through your topic, and which principals to
         prevent from delivering that data.
+
         1. For **data direction** , choose the direction of
            the messages for the deny statement:
+
            - **Inbound messages** – Apply this
              deny statement to messages that are sent to the
              topic.
@@ -150,6 +156,7 @@ topic.
            apply to this deny statement. You can apply it to **all AWS accounts**, to **specific AWS accounts**, or **IAM entities** (for example, account roots,
            roles, or users) that use account IDs or IAM entity ARNs. Separate
            multiple IDs or ARNs using a comma ( , ). The following [IAM](../../../IAM/latest/UserGuide/reference_identifiers.md "../../../IAM/latest/UserGuide/reference_identifiers.md") principals are supported:
+
            - **IAM account principals**
              – For example,
              `arn:aws:iam::AWS-account-ID:root`.

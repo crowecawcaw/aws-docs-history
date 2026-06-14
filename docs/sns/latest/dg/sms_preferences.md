@@ -20,6 +20,7 @@ you can override some of them when you send an individual message. For more info
     **Edit**.
 5.  On the **Edit text messaging preferences** page, in the
     **Details** section, do the following:
+
     1.  For **Default message type**, choose one of the
         following:
 

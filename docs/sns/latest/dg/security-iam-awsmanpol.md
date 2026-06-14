@@ -124,6 +124,7 @@ The following permissions apply only when using the Amazon SNS APIs:
 - `sns:List*` – Allows you to perform any operation that begins with
   `List` for Amazon SNS resources. This includes permissions to list various
   elements related to Amazon SNS, such as:
+
   - `sns:ListTopics` – Allows you to retrieve a list of all Amazon SNS
     topics in the AWS account.
   - `sns:ListSubscriptions` – Allows you to retrieve a list of all

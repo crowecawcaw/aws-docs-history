@@ -44,6 +44,7 @@ information.
     deliveries.
 
 7.  To provide the required permissions, do one of the following:
+
     - To create a new service role, choose **Create new service
       role** and then **Create new roles**. On
       the next page, choose **Allow** to give Amazon SNS write

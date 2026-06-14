@@ -11,6 +11,7 @@ case](firehose-example-use-case.md "firehose-example-use-case.md"):
 ###### To create the initial resources
 
 1.  Create the Amazon S3 bucket:
+
     1. Open the [Amazon S3 console](https://console.aws.amazon.com/s3/home "https://console.aws.amazon.com/s3/home").
     2. Choose **Create bucket**.
     3. For **Bucket name**, enter a globally unique name. Keep the other
@@ -20,6 +21,7 @@ case](firehose-example-use-case.md "firehose-example-use-case.md"):
        with Amazon S3 Buckets](../../../AmazonS3/latest/userguide/UsingBucket.md "../../../AmazonS3/latest/userguide/UsingBucket.md") in the _Amazon Simple Storage Service User Guide_.
 
 2.  Create the two Amazon SQS queues:
+
     1. Open the [Amazon SQS console](https://console.aws.amazon.com/sqs/home "https://console.aws.amazon.com/sqs/home").
     2. Choose **Create queue**.
     3. For **Type**, choose **Standard**.
@@ -60,6 +62,7 @@ case](firehose-example-use-case.md "firehose-example-use-case.md"):
     (console)](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-create-queue.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-create-queue.md") in the _Amazon Simple Queue Service Developer Guide_.
 
 3.  Create the SNS topic:
+
     1. Open the [Topics page](https://console.aws.amazon.com/sns/home#/topics "https://console.aws.amazon.com/sns/home#/topics") of
        the Amazon SNS console.
     2. Choose **Create topic**.

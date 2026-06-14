@@ -225,6 +225,7 @@ echo "=============================================="
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [CreateTopic](../../../goto/aws-cli/sns-2010-03-31/CreateTopic.md "../../../goto/aws-cli/sns-2010-03-31/CreateTopic.md")
   - [DeleteTopic](../../../goto/aws-cli/sns-2010-03-31/DeleteTopic.md "../../../goto/aws-cli/sns-2010-03-31/DeleteTopic.md")
   - [ListSubscriptionsByTopic](../../../goto/aws-cli/sns-2010-03-31/ListSubscriptionsByTopic.md "../../../goto/aws-cli/sns-2010-03-31/ListSubscriptionsByTopic.md")

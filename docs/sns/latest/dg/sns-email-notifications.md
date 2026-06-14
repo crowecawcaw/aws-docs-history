@@ -35,6 +35,7 @@ Amazon SNS topic using the AWS Management Console, AWS SDK for Java, or AWS SDK 
    subscription**.
 4. On the **Create subscription** page, in the
    **Details** section, do the following:
+
    1. For **Topic ARN**, choose the Amazon Resource Name
       (ARN) of a topic.
    2. For **Protocol**, choose

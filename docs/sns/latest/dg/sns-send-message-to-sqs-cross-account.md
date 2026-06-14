@@ -117,6 +117,7 @@ messages to the queue](subscribe-sqs-queue-to-sns-topic.md#SendMessageToSQS.sqs.
     subscription**.
 4.  On the **Create subscription** page, in the
     **Details** section, do the following:
+
     1. For **Topic ARN**, enter the ARN of the topic.
     2. For **Protocol**, choose **Amazon SQS**.
     3. For **Endpoint**, enter the ARN of the queue.

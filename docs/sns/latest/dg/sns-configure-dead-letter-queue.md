@@ -75,6 +75,7 @@ arn:aws:sqs:`us-east-2`:`123456789012`:`MyDeadLetterQueue`
 6. On the **Edit `1234a567-bc89-012d-3e45-6fg7h890123i`**
    page, expand the **Redrive policy (dead-letter queue)**
    section, and then do the following:
+
    1. Choose **Enabled**.
    2. Specify the ARN of an Amazon SQS queue.
 

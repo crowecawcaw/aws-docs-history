@@ -12,6 +12,7 @@ and quotas](../../../general/latest/gr/fh.md "../../../general/latest/gr/fh.md")
    subscription**.
 4. On the **Create subscription** page, in the
    **Details** section, do the following:
+
    1. For **Topic ARN**, choose the Amazon Resource Name (ARN) of a
       standard topic.
    2. For **Protocol**, choose **Firehose**.

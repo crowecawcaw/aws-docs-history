@@ -24,11 +24,13 @@ for seamless communication across systems.
    subscription**.
 4. On the **Create subscription** page, in the
    **Details** section, do the following:
+
    1. For **Topic ARN**, choose the Amazon Resource Name
       (ARN) of a topic. This value is the AWS ARN that was
       generated when you created the Amazon SNS topic, for example
       `arn:aws:sns:us-east-2:123456789012:your_topic`.
    2. For **Protocol**, choose an endpoint type. The available endpoint types are:
+
       - [HTTP/HTTPS](sns-http-https-endpoint-as-subscriber.md "sns-http-https-endpoint-as-subscriber.md")
       - [Email/Email-JSON](sns-email-notifications.md "sns-email-notifications.md")
       -

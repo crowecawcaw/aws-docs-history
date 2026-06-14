@@ -30,6 +30,7 @@ For more information about filtering events, see [Amazon SNS subscription filter
 2.  On the navigation panel, choose **Functions** and then choose
     **Create function**.
 3.  On the **Create function** page, do the following:
+
     1. Choose **Browse serverless app repository**,
        **Public applications**, **Show apps that
        create custom IAM roles or resource policies**.

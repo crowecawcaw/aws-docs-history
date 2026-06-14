@@ -121,6 +121,7 @@ headers, although the `apns-push-type` header can be set to other
 values.
 
 - `apns-push-type` is set to `alert`
+
   - If the `aps` dictionary contains
     `content-available` set to `1` and
     _one or more keys_ that trigger user
@@ -133,6 +134,7 @@ values.
     integer or a Boolean.
 
 - `apns-push-type` is set to `background`
+
   - If the `aps` dictionary _only_
     contains `content-available` set to `1` and
     _no other keys_ that trigger user

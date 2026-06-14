@@ -48,6 +48,7 @@ experience delays in processing your request.
     case**.
 4.  Choose the **Looking for service limit increases?** link,
     then complete the following:
+
     - For **Limit type**, choose
       **SNS Text Messaging**.
     - (Optional) For **Provide a link to the site or app which will
@@ -56,6 +57,7 @@ experience delays in processing your request.
     - (Optional) For **What type of messages do you plan to
       send**, choose the type of message that you plan to send
       using your long code:
+
       - **One Time Password** – Messages that
         provide passwords that your customers use to authenticate with
         your website or application.
@@ -81,6 +83,7 @@ experience delays in processing your request.
       include the template that you will be using.
 
 5.  Under **Requests**, complete the following sections:
+
     - For the **Region**, choose the Region from which
       you'll be sending messages.
 
@@ -89,6 +92,7 @@ experience delays in processing your request.
     The Region is required in the **Requests**
     section. Even if you provided this information in the **Case
     details** section you must also include it here.
+
     - For **Resource Type**, choose **General
       Limits**.
     - For **Limit**, choose **Account Spend

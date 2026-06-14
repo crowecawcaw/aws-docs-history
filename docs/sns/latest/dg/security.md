@@ -26,6 +26,7 @@ in the following ways:
   available FIPS endpoints, see [Federal
   Information Processing Standard (FIPS) 140-2](https://aws.amazon.com/compliance/fips/ "https://aws.amazon.com/compliance/fips/").
 - Message data protection
+
   - Message data protection is a new major feature of Amazon SNS
   - Use MDP to scan message for confidential or sensitive information
   - Provide message auditing to all content flowing through the topic

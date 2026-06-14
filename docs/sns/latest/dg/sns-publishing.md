@@ -34,6 +34,7 @@ page. 4. In the **Message details** section, do the following:
 
 5. In the **Message body** section, do one of the
    following:
+
    1. Choose **Identical payload for all delivery
       protocols**, and then enter a message.
    2. Choose **Custom payload for each delivery protocol**,
@@ -46,6 +47,7 @@ page. 4. In the **Message details** section, do the following:
    that you want Amazon SNS to match with the subscription attribute
    `FilterPolicy` to decide whether the subscribed endpoint is
    interested in the published message.
+
    1. For **Type**, choose an attribute type, such as
       **String.Array**.
 

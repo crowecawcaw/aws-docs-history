@@ -58,6 +58,7 @@ You can send application event notifications using the Amazon SNS console, the A
 5. Choose **Actions**, **Configure
    events**.
 6. Enter the ARNs for topics to be used for the following events:
+
    - Endpoint Created
    - Endpoint Deleted
    - Endpoint Updated

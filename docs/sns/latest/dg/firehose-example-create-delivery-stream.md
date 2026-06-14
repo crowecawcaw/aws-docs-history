@@ -15,6 +15,7 @@ case](firehose-example-use-case.md "firehose-example-use-case.md").
 4.  On the **Process records** page, choose
     **Next**.
 5.  On the **Choose a destination** page, do the following:
+
     1. For **Destination**, choose **Amazon S3**.
     2. Under **S3 destination**, for **S3 bucket**,
        choose the S3 bucket that you [created

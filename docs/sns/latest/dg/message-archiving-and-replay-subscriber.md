@@ -23,6 +23,7 @@ Use this option to create a new replay policy using the AWS Management Console.
    drop-down and choose **Start replay**.
 4. From the **Replay timeframe** modal, make the following
    selections:
+
    1. **Choose replay start date and time** –
       Choose the **date** (YYYY/MM/DD format) and
       **time** (24-hour hh:mm:ss format) from which
@@ -49,6 +50,7 @@ details** page:
 - To **view** the message replay status, the
   **Replay status** field displays the following
   values:
+
   - **Completed** – The replay has
     successfully redelivered all messages, and is now delivering newly
     published messages.

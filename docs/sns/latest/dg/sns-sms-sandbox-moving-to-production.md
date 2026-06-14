@@ -7,6 +7,7 @@ create a case with AWS Support.
 ###### To request that your AWS account is moved out of the SMS sandbox
 
 1.  **Verify phone numbers**
+
     1. While your AWS account is in the SMS sandbox, open the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
     2. In the navigation pane, under Mobile, choose **Text messaging
        (SMS)**.
@@ -15,19 +16,23 @@ create a case with AWS Support.
        successfully send and receive messages.
 
 2.  **Test SMS publishing**
+
     1. Confirm that you are able to send and receive messages to at least one
        verified phone number. For more detailed instructions on how to publish SMS
        messages, see [Publishing SMS messages to a mobile phone using Amazon SNS](sms_sending-overview.md#sms_publish-to-phone "sms_sending-overview.md#sms_publish-to-phone").
 
 3.  **Initiate sandbox edit**
+
     1. On the Amazon SNS console's **Mobile text messaging (SMS)**
        page, under **Account information**, choose **Exit
        SMS sandbox**. This action redirects you to the [Amazon Support Center](https://support.console.aws.amazon.com/support/home?#/case/create?issueType=service-limit-increase "https://support.console.aws.amazon.com/support/home?#/case/create?issueType=service-limit-increase") and automatically creates a support case
        with the **Service quota increase** option selected.
 
 4.  **Fill out the form**
+
     1. In the support form under **Service quota increase**, do
        the following:
+
        1. Choose choose **SNS Text Messaging** as the
           service.
        2. Provide the **website URL** or **app
@@ -47,7 +52,9 @@ create a case with AWS Support.
           use.
 
 5.  **Specify quota and Region**
+
     1. Under **Requests**, do the following:
+
        1. Choose the **AWS Region** where you want to
           move your AWS account.
        2. Choose **General Limits** for **Resource
@@ -61,6 +68,7 @@ create a case with AWS Support.
           **limit** in USD you are requesting.
 
 6.  **Additional details**
+
     1. In the **Case description**, provide any additional
        details relevant to your request.
     2. Under **Contact options**, choose your

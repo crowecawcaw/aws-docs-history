@@ -118,6 +118,7 @@ Your new customer managed key appears in the list of keys.
    `MyEncryptedTopic`) and then choose **Create
    topic**.
 5. Expand the **Encryption** section and do the following:
+
    1. Choose **Enable server-side encryption**.
    2. Specify the customer managed key. For more information, see [Key terms](sns-server-side-encryption.md#sse-key-terms "sns-server-side-encryption.md#sse-key-terms").
 
@@ -159,6 +160,7 @@ Your new encrypted topic appears in the list of topics.
    console](https://console.aws.amazon.com/sqs/ "https://console.aws.amazon.com/sqs/").
 2. Choose **Create New Queue**.
 3. On the **Create New Queue** page, do the following:
+
    1. Enter a **Queue Name** (for example,
       `MyEncryptedQueue1`).
    2. Choose **Standard Queue**, and then choose
@@ -190,6 +192,7 @@ the **Topic Subscription Result** dialog box. 7. Choose **OK**.
 3. From the list of topics, choose **MyEncryptedTopic** and then
    choose **Publish message**.
 4. On the **Publish a message** page, do the following:
+
    1. (Optional) In the **Message details** section, enter
       the **Subject** (for example, `Testing message
 publishing`).
