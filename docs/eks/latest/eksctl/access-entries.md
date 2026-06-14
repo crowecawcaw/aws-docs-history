@@ -44,6 +44,7 @@ eksctl utils update-authentication-mode --cluster my-cluster --authentication-mo
 Access entries have a type, such as `STANDARD` or `EC2_LINUX`. The type depends on how you are using the access entry.
 
 - The `standard` type is for granting Kubernetes permissions to IAM Users and IAM Roles.
+
   - For example, you can view Kubernetes resources in the AWS console by attaching an access policy to the Role or User you use to access the console.
 
 - The `EC2_LINUX` and `EC2_WINDOWS` types are for granting Kubernetes permissions to EC2 instances. Instances use these permissions to join the cluster.

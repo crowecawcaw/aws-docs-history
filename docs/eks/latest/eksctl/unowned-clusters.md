@@ -15,18 +15,21 @@ The commands, flags and config file options can be used in exactly the same way.
 If we have missed some functionality, please [let us know](https://github.com/eksctl-io/eksctl/issues "https://github.com/eksctl-io/eksctl/issues").
 
 - ✓ Create:
+
   - ✓ `eksctl create nodegroup` ([see note below](#create-nodegroup "#create-nodegroup"))
   - ✓ `eksctl create fargateprofile`
   - ✓ `eksctl create iamserviceaccount`
   - ✓ `eksctl create iamidentitymapping`
 
 - ✓ Get:
+
   - ✓ `eksctl get clusters/cluster`
   - ✓ `eksctl get fargateprofile`
   - ✓ `eksctl get nodegroup`
   - ✓ `eksctl get labels`
 
 - ✓ Delete:
+
   - ✓ `eksctl delete cluster`
   - ✓ `eksctl delete nodegroup`
   - ✓ `eksctl delete fargateprofile`
@@ -34,24 +37,30 @@ If we have missed some functionality, please [let us know](https://github.com/ek
   - ✓ `eksctl delete iamidentitymapping`
 
 - ✓ Upgrade:
+
   - ✓ `eksctl upgrade cluster`
   - ✓ `eksctl upgrade nodegroup`
 
 - ✓ Set/Unset:
+
   - ✓ `eksctl set labels`
   - ✓ `eksctl unset labels`
 
 - ✓ Scale:
+
   - ✓ `eksctl scale nodegroup`
 
 - ✓ Drain:
+
   - ✓ `eksctl drain nodegroup`
 
 - ✓ Enable:
+
   - ✓ `eksctl enable profile`
   - ✓ `eksctl enable repo`
 
 - ✓ Utils:
+
   - ✓ `eksctl utils associate-iam-oidc-provider`
   - ✓ `eksctl utils describe-stacks`
   - ✓ `eksctl utils install-vpc-controllers`

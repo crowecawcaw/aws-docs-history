@@ -24,6 +24,7 @@ brew install aws/tap/eksctl
 Before using eksctl, complete these configuration steps:
 
 1. Install prerequisites:
+
    - [Install AWS CLI version](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") 2.x or later.
    - Install [kubectl](https://formulae.brew.sh/formula/kubernetes-cli "https://formulae.brew.sh/formula/kubernetes-cli") using Homebrew:
 
@@ -74,6 +75,7 @@ nodeGroups:
 ```
 
 3. Customize the configuration:
+
    - Update the `region` to match your desired AWS region.
    - Modify the `instanceType` based on your workload requirements.
    - Adjust the `desiredCapacity`, `minSize`, and `maxSize` according to your needs.

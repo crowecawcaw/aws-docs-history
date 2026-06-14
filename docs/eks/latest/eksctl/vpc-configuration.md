@@ -7,6 +7,7 @@ This is done in order to avoid interference with existing resources for a
 variety of reasons, including security, but also because it is challenging to detect all settings in an existing VPC.
 
 - The default VPC CIDR used by `eksctl` is `192.168.0.0/16`.
+
   - It is divided into 8 (`/19`) subnets (3 private, 3 public & 2 reserved).
 
 - The initial nodegroup is created in public subnets.
@@ -65,6 +66,7 @@ Standard requirements:
 - a sufficient number IP addresses are available, based on needs
 - sufficient number of subnets (minimum 2), based on needs
 - subnets are tagged with at least the following:
+
   - `kubernetes.io/cluster/<name>` tag set to either `shared` or `owned`
   - `kubernetes.io/role/internal-elb` tag set to `1` for _private_ subnets
   - `kubernetes.io/role/elb` tag set to `1` for _public_ subnets
