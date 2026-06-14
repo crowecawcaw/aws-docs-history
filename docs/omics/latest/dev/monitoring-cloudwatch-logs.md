@@ -117,6 +117,7 @@ page in HealthOmics console.
 2. If required, open the left navigation pane (≡). Choose **Runs**.
 3. Select the run from the Runs table.
 4. In the run details page, you can choose any of these actions:
+
    1. From **Run summary**, choose **View run logs**.
       The console opens the run logs in the CloudWatch console.
    2. From **Run summary**, choose **View logs in Amazon S3**.

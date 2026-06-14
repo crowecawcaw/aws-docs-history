@@ -33,6 +33,7 @@ System tags created by HealthOmics are propagated by default.
 2. If required, open the left navigation pane (≡). Choose **Sequence stores**.
 3. On the **Create sequence store** page, provide the
    following information
+
    - **Sequence store name** - A unique name for
      this store.
    - **Description** (optional) - A description of
@@ -157,6 +158,7 @@ To update a sequence store, follow these steps:
 4. In the **Details** panel, choose **Edit**.
 5. On the **Edit details** page, you can update the
    following fields:
+
    - **Sequence store name** - A unique name for
      this store.
    - **Description** - A description of
@@ -201,6 +203,7 @@ To import genomic files to a sequence store, follow these steps:
    genomic files**.
 5. On the **Specify import details** page, provide the
    following information
+
    - **IAM role** - The IAM role that can access
      the genomic files on Amazon S3.
    - **Reference genome** - The reference genome

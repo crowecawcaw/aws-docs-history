@@ -20,6 +20,7 @@ Workflow versions provide the following benefits:
   continue to use the previous version). Subscribers can access all workflow versions. If you create a new
   version, you don't need to reshare the workflow.
 - When you start a workflow run, you can specify the workflow version.
+
   - Users can choose to remain on a stable version for production runs, and try out the latest version for a
     test run.
   - Users can revert to the previous version of a workflow, if they encounter problems with the new

@@ -5,6 +5,7 @@ The HealthOmics workflow definition files must meet the following requirements:
 - Tasks must define input/output parameters, Amazon ECR container repositories, and runtime
   specifications such as memory or CPU allocation.
 - Verify that your IAM roles have the required permissions.
+
   - Your workflow has access to input data from AWS resources, such as Amazon S3.
   - Your workflow has access to external repository services when needed.
 
@@ -16,6 +17,7 @@ The HealthOmics workflow definition files must meet the following requirements:
   [HealthOmics run inputs](workflows-run-inputs.md "workflows-run-inputs.md").
 - A **main** location of the workflow is optional if your ZIP archive contains either a
   single workflow definition or a file named 'main'.
+
   - Example path: `workflow-definition/main-file.wdl`
 
 - Before you create a workflow from Amazon S3 or your local drive, create a zip archive of the workflow

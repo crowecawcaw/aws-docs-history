@@ -47,6 +47,7 @@ can use for provenance.
     new version**.
 5.  On the **Create version** page, provide the
     following information:
+
     1. **Version name**: Enter a name for the workflow version that is unique across the
        workflow.
     2. **Version description** (optional): You can use the description field to add notes
@@ -54,10 +55,12 @@ can use for provenance.
 
 6.  In the **Workflow definition** panel, provide the
     following information:
+
     1.  **Workflow language** (optional): Select the specification language for the
         workflow version. Otherwise, HealthOmics determines the language from the workflow definition.
     2.  For **Workflow definition source**, choose to import the definition folder from a
         Git-based repository, an Amazon S3 location, or from a local drive.
+
         1. For **Import from a repository service**:
 
         ###### Note
@@ -88,14 +91,15 @@ can use for provenance.
             	1. `tests/`
             	2. `*.jpeg`
             	3. `large_data.zip`
-
         2. For **Select definition folder from S3**:
+
            1. Enter the Amazon S3 location that contains the zipped workflow definition folder. The Amazon S3 bucket
               must be in the same region as the workflow.
            2. If your account doesn't own the Amazon S3 bucket, enter the bucket owner's AWS account ID in the **S3
               bucket owner's account ID**. This information is required so that HealthOmics can verify the bucket ownership.
 
         3. For **Select definition folder from a local source**:
+
            1. Enter the local drive location of the zipped workflow definition folder.
 
     3.  **Main workflow definition file path** (optional): Enter the file path from the
@@ -104,6 +108,7 @@ can use for provenance.
 
 7.  In the **README file** (optional) panel,
     select the **Source of the README file** and provide the following information:
+
     - For **Import from a repository service**, in **README file path**,
       enter the path to the README file within the repository.
     - For **Select file from S3**, in **README file in S3**, enter
@@ -114,6 +119,7 @@ can use for provenance.
 
 8.  In the **Default run storage configuration** panel, provide the default run storage type
     and capacity for runs that use this workflow:
+
     1. **Run storage type**: Choose whether to use static or dynamic storage as
        the default for the temporary run storage. The default is static storage.
     2. **Run storage capacity** (optional): For static run storage type, you can enter the
@@ -123,6 +129,7 @@ can use for provenance.
 9.  **Tags** (optional): You can associate up to 50 tags with this workflow version.
 10. Choose **Next**.
 11. On the **Add workflow parameters** (optional) page, select the **Parameter source**:
+
     1. For **Parse from workflow definition file**, HealthOmics will automatically parse the
        workflow parameters from the workflow definition file.
     2. For **Provide parameter template from Git repository**, use the path to the
@@ -147,6 +154,7 @@ For **Source of mapping file**, select one of the following options:
 
 14. The console displays the **Mappings** panel. If you chose a mapping source file,
     the console displays the values from the file.
+
     1.  In **Registry mappings**, you can edit the mappings or add mappings (maximum of
         20 registry mappings).
 
@@ -159,7 +167,6 @@ For **Source of mapping file**, select one of the following options:
          The prefix of the repository in the upstream registry.
         * (Optional) **ECR account ID** –
          Account ID of the account that owns the upstream container image.
-
     2.  In **Image mappings**, you can edit the image mappings or add mappings (maximum of
         100 image mappings).
 

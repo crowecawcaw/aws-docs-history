@@ -50,6 +50,7 @@ With batch runs, you can:
   created from which input configuration.
 - **Batch status** — The overall state of the batch operation.
   Possible values:
+
   - `CREATING` — Batch is being created.
   - `PENDING` — Batch has been created; run configurations are being validated
     asynchronously.
@@ -70,6 +71,7 @@ With batch runs, you can:
 
 - **Submission status** — The submission outcome for an individual
   run within the batch. Possible values:
+
   - `SUCCESS` — Run was successfully submitted.
   - `FAILED` — Run submission failed (for example, due to a validation
     error).
@@ -299,11 +301,15 @@ includes:
 
 - `defaultRunSetting` — Shared configuration for all runs in the
   batch. This includes fields such as `workflowId`, `roleArn`,
-  `outputUri`, and `parameters`.
+  `outputUri`, `parameters`, and `engineSettings`. For Nextflow workflows,
+  use `engineSettings` to specify profiles that apply to all runs in the batch. For more information, see
+  [Specify engine settings](starting-a-run.md#start-run-api-engine-settings "starting-a-run.md#start-run-api-engine-settings").
 - `batchRunSettings` — The individual run configurations, provided as one
   of:
+
   - `inlineSettings` — An array of up to 100 run-specific configurations provided
-    directly in the request body.
+    directly in the request body. Each inline setting can include `engineSettings` to override the
+    default profile for individual runs.
   - `s3UriSettings` — An Amazon S3 URI pointing to a JSON file containing the run
     configurations. Required for batches with more than 100 runs, and supports up to 100,000
     runs.

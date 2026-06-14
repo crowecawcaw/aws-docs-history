@@ -21,12 +21,14 @@ CloudWatch logs.
 2. If required, open the left navigation pane (≡). Choose **Private workflows**.
 3. On the **Private workflows** page, choose the workflow to update.
 4. On the **Workflow** page:
+
    - If the workflow has versions, make sure that you select the **Default
      version**.
    - Choose **Edit selected** from the **Actions** list.
 
 5. On the **Edit workflow** page, you can change any of the
    following values:
+
    - **Workflow name**.
    - **Workflow description**.
    - The default **Run storage type** for the workflow.

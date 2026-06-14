@@ -8,6 +8,7 @@ creating the workflow:
   for runs that use the workflow. It also includes specifications for the runs and run tasks for your workflow,
   including compute and memory requirements. The workflow definition file must be in `.zip` format.
   For more information, see [Workflow definition files](workflow-definition-files.md "workflow-definition-files.md").
+
   - You can use [Kiro CLI](../../../kiro/latest/userguide/what-is.md "../../../kiro/latest/userguide/what-is.md")
     to build and validate your workflow definition files in WDL, Nextflow, and CWL. For more information, see
     [Example prompts for Kiro CLI](getting-started.md#omics-kiro-prompts "getting-started.md#omics-kiro-prompts")

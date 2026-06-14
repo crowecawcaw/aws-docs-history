@@ -58,6 +58,7 @@ in the following sections.
   ensuring processes have sufficient resources to complete.
   Include at least 5% headroom in allocated memory and CPU, to account for
   background operating system processes.
+
   - Additionally, increase the instance bandwidth size if the instance requires a higher
     throughput. Amazon EC2 instances with fewer than 16 vCPUs (size 4xl and smaller) can experience throughput bursting. For more information
     on Amazon EC2 instance throughput, see
@@ -102,6 +103,7 @@ in the following sections.
   successfully completed runs. This can help identify any differences that may have
   caused the unresponsive behavior.
 - If you are unable to determine the root cause, raise a [support case](../../../awssupport/latest/user/case-management.md#creating-a-support-case "../../../awssupport/latest/user/case-management.md#creating-a-support-case") and include the following:
+
   - ARN of the stuck run and ARN of an identical run that completed successfully.
   - Engine logs (available once the run has been cancelled or fails)
   - Task logs for the unresponsive task. We don't require task logs for all tasks in the workflow to troubleshoot.

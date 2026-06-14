@@ -30,9 +30,11 @@ The following rules apply to new S3 access policies. For existing policies, the 
 update the policy:
 
 - The S3 access policies support the following [policy elements](../../../IAM/latest/UserGuide/reference_policies_elements.md "../../../IAM/latest/UserGuide/reference_policies_elements.md")
+
   - Version, Id, Statement, Sid, Effect, Principal, Action, Resource, Condition
 
 - The S3 access policies support the following [condition keys](../../../service-authorization/latest/reference/list_amazons3.md#amazons3-policy-keys "../../../service-authorization/latest/reference/list_amazons3.md#amazons3-policy-keys"):
+
   - s3:ExistingObjectTag/<key>, s3:prefix, s3:signatureversion,
     s3:TlsVersion
   - Policies also support aws:PrincipalArn with the following condition operators: ArnEquals and ArnLike

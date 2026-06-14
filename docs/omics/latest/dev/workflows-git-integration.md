@@ -99,6 +99,7 @@ To set up a PAT in a GitLab self managed repository, see [Personal access tokens
     6. Enter the Personal Access Token (PAT) of an Admin user, then choose **Continue**.
 
 3. Create the connection
+
    1. Choose **Create Connections** on the **Connections** tab.
    2. For provider type, select **GitLab self-managed**.
    3. Under **Connection Settings>Enter Connection Name**, enter the Host URL that you

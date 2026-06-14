@@ -22,6 +22,7 @@ You can create a variant store using the HealthOmics console.
 2. If required, open the left navigation pane (≡). Choose **Variant stores**.
 3. On the **Create variant store** page, provide the
    following information
+
    - **Variant store name** - A unique name for
      this store.
    - **Description** (optional) - A description of

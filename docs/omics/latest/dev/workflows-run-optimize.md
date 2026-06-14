@@ -50,6 +50,7 @@ The following sections include specific suggestions for using Run Analyzer to op
 You can use the following methods and guidelines to determine run costs:
 
 - To view the total run costs for a billing period, follow these steps:
+
   1.  Open the [Billing and Cost Management](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/") console
       and choose **Bills**.
   2.  In **Charges by service**, expand **Omics**.
@@ -57,6 +58,7 @@ You can use the following methods and guidelines to determine run costs:
       omics instance type, run storage type, and Ready2Run workflow.
 
 - To generate a cost report that includes information for each run, follow these steps:
+
   1.  Open the [Billing and Cost Management](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/") console
       and choose **Data Exports**.
   2.  Choose **Create** to create a new data export.
@@ -64,6 +66,7 @@ You can use the following methods and guidelines to determine run costs:
       values to create a CUR (cost and usage) report.
   4.  For **Time granularity**, select hourly or daily.
   5.  Under **Data export storage settings**, perform these configuration steps:
+
       1. Configure an Amazon S3 bucket for the data export.
       2. For **File versioning**, select whether to overwrite the existing export file or create a
          new file each time.The system generates the first report within the next 24 hours and generates
@@ -73,6 +76,7 @@ You can use the following methods and guidelines to determine run costs:
 
 - You can tag your runs to monitor and optimize costs by category, such as by team or by project. If you use
   tags, follow these steps to view run costs by tag category:
+
   1.  Open the [Billing and Cost Management](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/") console
       and choose **Cost Explorer**.
   2.  In **Report parameters > Group by**, chose **Tag** as the dimension. and select
@@ -88,6 +92,7 @@ You can use the following methods to help you investigate run time usage:
 
 - From the **Runs** page of the console, you can view the total run time for a run.
 - From the **Run details** page, you can view the following items:
+
   - View the total run time for a run.
   - View the run time for each task in the run.
   - Choose one of the links to view the logs in Amazon S3, or to view the run logs or run manifest logs in

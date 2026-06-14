@@ -40,6 +40,7 @@ VPC Flow Logs can incur significant costs, especially at the VPC level. To minim
 Enable flow logs on your VPC to automatically capture traffic from all HealthOmics workflow runs. This is best when you have many workflow runs and want comprehensive visibility without tracking individual ENIs.
 
 1. **Enable VPC Flow Logs.** In the Amazon VPC console:
+
    1. Choose **Your VPCs** and select the VPC used in your HealthOmics
       configuration
    2. Choose the **Flow logs** tab
@@ -58,12 +59,14 @@ Query flow logs using CloudWatch Logs Insights by time window, destination IP, o
 Enable flow logs on specific ENIs when you have only a few HealthOmics ENIs in your account. This is the most cost-effective approach and makes it easy to isolate traffic for specific workflow runs.
 
 1. **Find the customer ENI.** In the Amazon EC2 console:
+
    1. Choose **Network Interfaces**
    2. Filter by tag `Service: HealthOmics` to show only ENIs created by HealthOmics
    3. Optionally, further filter by the subnet ID from your HealthOmics configuration
    4. Note the ENI ID and private IP address
 
 2. **Enable flow logs on the ENI.**
+
    1. Select the ENI and choose the **Flow logs** tab
    2. Choose **Create flow log**
    3. Configure the flow log to capture **All** traffic

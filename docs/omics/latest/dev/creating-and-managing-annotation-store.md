@@ -29,6 +29,7 @@ Use the following procedure to create annotation stores with the HealthOmics con
    **Create annotation store**.
 4. On the **Create annotation store** page, provide the
    following information
+
    - **Annotation store name** - A unique name for
      this store.
    - **Description** (optional) - A description of

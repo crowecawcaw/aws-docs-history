@@ -25,6 +25,7 @@ You can create a reference store using the console or CLI.
    choose either the **Quick create** or **Manual
    create** option to create a reference store, and then
    provide the following information.
+
    - **Reference genome name** - A unique name for
      this store.
    - **Description** (optional) - A description of

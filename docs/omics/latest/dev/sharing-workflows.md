@@ -29,10 +29,12 @@ versions.
 To subscribe to a shared workflow, you follow these overall steps to accept and use the workflow:
 
 1. Use the console or API to accept the share. Set your current region to the same region as the share request.
+
    - To find the share request in the console, navigate to the **All Resource
      shares** page, then choose the **Shared with me** tab.
 
 2. Use the console or API to create a run for the shared workflow.
+
    - To find the workflow details page in the console, navigate to **Shared with me**
      (see step 1), then choose the **Resource link** for the shared workflow.
 
@@ -44,11 +46,13 @@ actions:
 
 - Exporting a shared workflow
 - Re-running the shared workflow
+
   - You create a new run for the shared workflow.
 
 - Re-sharing the workflow.
 - Assigning a tag to the workflow.
 - Deleting the workflow.
+
   - When you no longer need the workflow, you delete the workflow share.
 
 See [Cross-account resource sharing in AWS HealthOmics](resource-sharing.md "resource-sharing.md") for additional information

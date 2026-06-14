@@ -12,7 +12,9 @@ If your private workflow uses Sentieon software, you need a Senieon license.
 Follow these steps to request and set up a license for the Sentieon software:
 
 - Request a Sentieon license
+
   - Send an email to the Sentieon support group (support@sentieon.com) to request a software license.
+
     - Provide your AWS Canonical User ID in the email.
     - Find your AWS Canonical User ID by following [these
       instructions](../../../accounts/latest/reference/manage-acct-identifiers.md#FindCanonicalId "../../../accounts/latest/reference/manage-acct-identifiers.md#FindCanonicalId").
@@ -43,11 +45,13 @@ JSON
 ```
 
 - Generate an AWS support case to get access to the Sentieon license server proxy.
+
   - To create a support case, navigate to [support.console.aws.amazon.com.](https://support.console.aws.amazon.com "https://support.console.aws.amazon.com")
   - Provide your AWS account and Region in the support case. Your account is added to the allowlist for
     the licensing server proxy.
 
 - Build your private workflow using the Sentieon container and the Sentieon license script.
+
   - For additional instructions on using Sentieon tools inside private workflows, see [Sentieon-Amazon-Omics](https://github.com/Sentieon/sentieon-amazon-omics "https://github.com/Sentieon/sentieon-amazon-omics") in GitHub.
 
 - Sentieon software version 202112.07 and higher support the HealthOmics licensing server proxy. To use

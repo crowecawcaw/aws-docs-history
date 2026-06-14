@@ -114,11 +114,13 @@ HealthOmics processes the Nextflow version information as follows:
   supported, HealthOmics raises an exception and fails the run. Consider using this option if you want to be strict
   with version requests and fail quickly if the request includes unsupported versions.
 - If you specify a range of versions, HealthOmics uses the highest-preference version in that range. The preference order from highest to lowest is v23.10.0, v22.04.0, v24.10.8, v25.10.0, and v26.04.0. For example:
+
   - If the range covers v25.10.0 and v26.04.0, HealthOmics chooses v25.10.0.
   - If the range covers v24.10.8 and v25.10.0, HealthOmics chooses v24.10.8.
 
 - If there is no requested version, or if the requested versions aren't valid or can’t be parsed for
   any reason:
+
   - If you specified DSL 1, HealthOmics runs Nextflow v22.04.
   - Otherwise, HealthOmics runs Nextflow v23.10.0.
 

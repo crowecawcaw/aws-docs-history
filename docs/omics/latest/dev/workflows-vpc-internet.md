@@ -73,6 +73,7 @@ that your subnets are in one or more of these Availability Zones.
 2. Select **VPC and more** to automatically create a VPC with public and private
    subnets.
 3. Configure the following settings:
+
    - **Number of Availability Zones**: 2 or more
    - **Number of public subnets**: One per AZ. In this example,
      2

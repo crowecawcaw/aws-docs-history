@@ -47,6 +47,7 @@ The following procedure shows how to create a simple rule. For more information 
 3. Choose **Create rule**. The console opens the **Create rule**
    form.
 4. In **Define rule detail**, provide a name for the rule.
+
    - For **Name**, enter a name for the bus.
    - For **Event bus**, select the bus for this rule.
    - Choose **Next**.
@@ -54,6 +55,7 @@ The following procedure shows how to create a simple rule. For more information 
 5. In **Build event pattern**, under **Event source** select
    **AWS events or EventBridge partner events**.
 6. Scroll down to **Event pattern**.
+
    1. For **Event source**, select **AWS services**.
    2. For **AWS service**, enter
       **omics** in the text filter and select **AWS HealthOmics** as the service.

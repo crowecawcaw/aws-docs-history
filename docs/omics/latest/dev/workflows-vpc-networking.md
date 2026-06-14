@@ -246,6 +246,7 @@ aws omics create-configuration \
   configuration.
 - **run-configurations** (optional) — VPC configuration
   settings:
+
   - `vpcConfig.securityGroupIds` — A list of 1–5 security group
     IDs.
   - `vpcConfig.subnetIds` — A list of 1–16 subnet

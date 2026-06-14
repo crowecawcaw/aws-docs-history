@@ -24,6 +24,7 @@ the workflow without creating your own data.
 11. Choose **Next**.
 12. From the **Add parameters** page, choose one of the options to add the run parameter
     values:
+
     - Select a parameter file (in JSON format) from an Amazon S3 location.
     - Select a parameter file (in JSON format) from your local drive.
     - Manually enter the parameter values.

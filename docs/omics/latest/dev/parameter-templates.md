@@ -90,6 +90,7 @@ In the WDL workflow engine, the parsing logic makes the following assumptions:
 
 - Any nullable supported types are marked as optional input parameters.
 - For non-nullable supported types:
+
   - Any input variable with assignment of literals or expression are marked as optional parameters.
     For example:
 
@@ -97,7 +98,6 @@ In the WDL workflow engine, the parsing logic makes the following assumptions:
    Int x = 2
   Float f0 = 1.0 + f1
   ```
-
   - If no values or expressions have been been assigned to the input parameters, they will be marked
     as required parameters.
 
@@ -155,6 +155,7 @@ For parsing to work correctly, make sure the schema file meets the following req
 - The schema file is named `nextflow_schema.json` and is located in the same directory
   as the main workflow file.
 - The schema file is valid JSON as defined in either of the following schemas:
+
   - [json-schema.org/draft/2020-12/schema](https://json-schema.org/draft/2020-12/schema "https://json-schema.org/draft/2020-12/schema").
   - [json-schema.org/draft-07/schema](https://json-schema.org/draft-07/schema "https://json-schema.org/draft-07/schema").
 
