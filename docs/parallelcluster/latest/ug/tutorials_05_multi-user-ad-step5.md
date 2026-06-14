@@ -59,7 +59,6 @@ After the cluster is successfully deleted, proceed to the next step.
      ]
    }
    ```
-
    2. Submit the recordset change to the hosted zone using the hosted zone ID.
 
    ```
@@ -72,7 +71,6 @@ After the cluster is successfully deleted, proceed to the next step.
     }
    }`
    ```
-
    3. Delete the hosted zone.
 
    ````
@@ -133,6 +131,7 @@ After the cluster is successfully deleted, proceed to the next step.
 
 9. ###### Delete the Active Directory (AD) resources.
    1. Get the following resource IDs from the output of the python script `ad.py`:
+
       - AD ID
       - AD subnet IDs
       - AD VPC ID
@@ -144,19 +143,16 @@ After the cluster is successfully deleted, proceed to the next step.
     "DirectoryId": "d-abcdef0123456789"
    }`
    ````
-
    3. List the security groups in the VPC.
 
    ```
    ``$` aws ec2 describe-security-groups --filters '[{"Name":"vpc-id","Values":["vpc-07614ade95ebad1bc"]}]' --region `region-id``
    ```
-
    4. Delete the custom security group.
 
    ```
    ``$` aws ec2 delete-security-group --group-id `sg-021345abcdef6789` --region `region-id``
    ```
-
    5. Delete the subnets.
 
    ```
@@ -166,7 +162,6 @@ After the cluster is successfully deleted, proceed to the next step.
    ```
    ``$` aws ec2 delete-subnet --subnet-id `subnet-021345abcdef6789` --region `region-id``
    ```
-
    6. Describe internet gateway.
 
    ````
@@ -188,7 +183,6 @@ After the cluster is successfully deleted, proceed to the next step.
     ]
    }`
    ````
-
    7. Detach the internet gateway.
 
    ```
@@ -197,7 +191,6 @@ After the cluster is successfully deleted, proceed to the next step.
     --vpc-id `vpc-021345abcdef6789` \
     --region `region-id``
    ```
-
    8. Delete the internet gateway.
 
    ```
@@ -205,7 +198,6 @@ After the cluster is successfully deleted, proceed to the next step.
     --internet-gateway-id `igw-1234567890abcdef` \
     --region `region-id``
    ```
-
    9. Delete the VPC.
 
    ```
@@ -213,7 +205,6 @@ After the cluster is successfully deleted, proceed to the next step.
     --vpc-id `vpc-021345abcdef6789` \
     --region `region-id``
    ```
-
    10. Delete the secret that contains the `ReadOnlyUser` password.
 
    ```

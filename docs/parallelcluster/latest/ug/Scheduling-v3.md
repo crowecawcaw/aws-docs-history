@@ -874,6 +874,7 @@ restores these services and resources to their initial state.
   `/var/log/parallelcluster/slurm_health_check.log` file.
   The file is available in Amazon CloudWatch, in the cluster CloudWatch log group, where you
   can find:
+
   - Details on the action run by the `Gpu` health check,
     including enabling and disabling services and persistence mode.
   - The GPU identifier, serial ID, and the UUID.
@@ -1624,6 +1625,7 @@ restores these services and resources to their initial state.
   `/var/log/parallelcluster/slurm_health_check.log`
   file. This file is available in Amazon CloudWatch, in the cluster CloudWatch log group,
   where you can find:
+
   - Details on the action run by the `Gpu` health check,
     including enabling and disabling services and persistence
     mode.

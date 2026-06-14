@@ -6,6 +6,7 @@ Choose the _Manual_ tab to manually create the AD infrastructure.
 
 1.  Sign in to the AWS Management Console.
 2.  Open [CloudFormation Quick Create (region us-east-1)](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=pcluster-ad&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/templates/1-click/ad-integration.yaml "https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=pcluster-ad&templateURL=https://us-east-1-aws-parallelcluster.s3.amazonaws.com/templates/1-click/ad-integration.yaml") to create the following resources in the CloudFormation console:
+
     - A VPC with two subnets and routing for public access, if no VPC is specified.
     - An AWS Managed Microsoft AD.
     - An Amazon EC2 instance that's joined to the AD that you can use to manage the directory.
@@ -142,6 +143,7 @@ ResetUserPassword
 ```
 
 4. Create an IAM role with the following policies attached.
+
    - AWS managed policy [AmazonSSMManagedInstanceCore](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
    - AWS managed policy [AmazonSSMDirectoryServiceAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess")
    - ResetUserPassword policy
@@ -185,6 +187,7 @@ ResetUserPassword
 ```
 
 4. Create an IAM role with the following policies attached.
+
    - AWS managed policy [AmazonSSMManagedInstanceCore](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
    - AWS managed policy [AmazonSSMDirectoryServiceAccess](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess")
    - ResetUserPassword policy

@@ -4,12 +4,14 @@ AWS ParallelCluster uses only one type of dynamic node allocation strategy to sc
 cluster:
 
 - Allocation based on available requested node information:
+
   - **All-nodes resume** or **node-list** scaling: ParallelCluster scales up the cluster based only on
     Slurm's requested node list names when Slurm's`ResumeProgram` runs.
     It allocates compute resources to nodes only by node name. The list of node names
     can span multiple jobs.
 
 - Allocation with an Amazon EC2 launch strategy:
+
   - **Best-effort** scaling: ParallelCluster scales up the
     cluster by using an Amazon EC2 launch instance API call with the minimum target capacity
     equal to 1, to launch some, but not necessarily all of instances needed to support

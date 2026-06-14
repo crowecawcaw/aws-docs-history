@@ -12,6 +12,7 @@ To install the PCUI and get started, see [Installing the PCUI](install-pcui-v3.m
 ###### The PCUI supports the following features:
 
 - Displays the following:
+
   - The list of clusters you've created in your AWS account with AWS ParallelCluster.
   - The available status and details for your listed clusters.
   - CloudFormation stack event and AWS ParallelCluster logs that you can use for monitoring.

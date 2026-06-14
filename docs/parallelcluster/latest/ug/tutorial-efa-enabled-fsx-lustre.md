@@ -119,10 +119,12 @@ tutorial, replace `fs-id` with this file system id.
 
 1. Create the cluster with the following configurations set in the AWS ParallelCluster
    YAML configuration file:
+
    1. AMI based on a supported OS, such as Ubuntu 22.04.
    2. Compute nodes must use an [EFA supported instance
       type](../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types "../../../AWSEC2/latest/UserGuide/efa.md#efa-instance-types") having [Nitro v4+](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md"), such as
       g6.16xlarge.
+
       - Compute nodes must be in the same AZ where the file system is.
       - Compute nodes must have [Efa/Enabled](Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa-Enabled "Scheduling-v3.md#yaml-Scheduling-SlurmQueues-ComputeResources-Efa-Enabled")
         set to true.

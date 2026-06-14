@@ -5,7 +5,7 @@ Updates an existing cluster to match the settings of a specified configuration f
 ###### Note
 
 The cluster update succeeds only if all cluster nodes have successfully applied the update.
-If the update fails, refer to the [Seeing clusterStatus is UPDATE_FAILED with pcluster describe-cluster command](troubleshooting-fc-v3-update-cluster.md#update-cluster-failure-v3 "troubleshooting-fc-v3-update-cluster.md#update-cluster-failure-v3") section for troubleshooting guidance.
+If the update fails, refer to the [clusterStatus is UPDATE_FAILED](troubleshooting-fc-v3-update-cluster.md#update-cluster-failure-v3 "troubleshooting-fc-v3-update-cluster.md#update-cluster-failure-v3") section for troubleshooting guidance.
 
 ```
 pcluster update-cluster [-h]

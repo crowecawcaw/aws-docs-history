@@ -108,9 +108,11 @@ Moreover, you can attach either of these systems to a new cluster before you del
   your instances rather than using a custom AMI. If instead, you use a custom AMI, then you need to delete and recreate that AMI for each new
   version release.
 - We recommend that you apply the preceding recommendations in the following sequence:
+
   1.  Update the existing cluster configuration to use existing file system definitions.
   2.  Verify the `pcluster` version and update it if needed.
   3.  Create and test the new cluster. When you test the new cluster, check the following:
+
       - Make sure that your data is available in the new cluster.
       - Make sure that your application works in the new cluster.
 

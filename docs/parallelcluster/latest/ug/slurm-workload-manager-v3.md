@@ -153,6 +153,7 @@ greater than `MinCount` (mixed static and dynamic capacity).
 
 * N>...<old_MinCount>]` and the system will terminate the
   corresponding Amazon EC2 instances.
+
   - Initial state `MinCount = MaxCount = 100`
   - ```
 

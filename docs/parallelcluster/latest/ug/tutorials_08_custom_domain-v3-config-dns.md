@@ -7,6 +7,7 @@ This example assumes that you want to deploy PCUI with custom domain `xyz.exampl
 and the Amazon Cognito interface with custom domain `auth-xyz.example.com`.
 
 1. Deploy the PCUI stack with the following parameters:
+
    - **CustomDomainEndpoint:** Create an A record
      in your DNS for `xyz.example.com` that points to
      the alias specified in the output.

@@ -210,8 +210,7 @@ specified in the [HeadNode section](HeadNode-v3.md "HeadNode-v3.md").
 ###### Important
 
 Deprecated – The configuration parameter `LoginNodes/Pools/Ssh/KeyName`
-has been deprecated, and it will be removed in future releases. The CLI now returns a warning
-message when it is used in the cluster configuration. See [https://github.com/aws/aws-parallelcluster/issues/6811](https://github.com/aws/aws-parallelcluster/issues/6811 "https://github.com/aws/aws-parallelcluster/issues/6811") for details.
+has been removed in AWS ParallelCluster version 3.15.0. See [https://github.com/aws/aws-parallelcluster/issues/6811](https://github.com/aws/aws-parallelcluster/issues/6811 "https://github.com/aws/aws-parallelcluster/issues/6811") for details.
 
 `AllowedIps` (**Optional** `String`)
 

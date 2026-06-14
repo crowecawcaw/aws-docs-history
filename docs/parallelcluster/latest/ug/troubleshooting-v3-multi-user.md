@@ -124,6 +124,7 @@ If you reset the password for the [DirectoryService](DirectoryService-v3.md "Dir
 
 1. Be sure to update the [DirectoryService](DirectoryService-v3.md "DirectoryService-v3.md") / [PasswordSecretArn](DirectoryService-v3.md#yaml-DirectoryService-PasswordSecretArn "DirectoryService-v3.md#yaml-DirectoryService-PasswordSecretArn") secret with the new password.
 2. Update the cluster for the new secret value:
+
    1. Stop the compute fleet with the `pcluster update-compute-fleet` command.
    2. Run the following command from within the cluster head node.
 

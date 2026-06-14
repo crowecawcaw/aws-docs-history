@@ -417,6 +417,7 @@ the command:
 - **`ResumeTimeout` (the default is 30
   minutes)**: `ResumeTimeout` controls the time
   Slurm waits before transitioning the node to the down state.
+
   - It might be useful to extend `ResumeTimeout` if
     your pre/post installation process takes nearly that
     long.
@@ -430,6 +431,7 @@ the command:
   seconds (2 minutes))**: `SuspendTimeout`
   controls how quickly nodes get placed back into the system and are ready
   for use again.
+
   - A shorter `SuspendTimeout` means that nodes are
     reset more quickly, and Slurm can try to launch instances more
     frequently.
@@ -479,6 +481,7 @@ where `logIdentifier` follows the log names.
 cluster**
 
 - Dynamic nodes:
+
   - Check the `ResumeProgram` log to see if
     `ResumeProgram` was called with the node. If not,
     check the `slurmctld` log to determine if Slurm
@@ -496,6 +499,7 @@ cluster**
     instance in CloudWatch Logs.
 
 - Static nodes:
+
   - Check the `clustermgtd` log to see if instances
     were launched for the node. If instances didn't launch, there
     should be clear errors on why the instances failed to
@@ -510,6 +514,7 @@ cluster**
 failures**
 
 - Nodes replaced/terminated unexpectedly:
+
   - In most cases, `clustermgtd` handles all node
     maintenance actions. To check if `clustermgtd`
     replaced or terminated a node, check the
@@ -528,6 +533,7 @@ failures**
     terminated the instance to reclaim a Spot Instance.
 
 - Node failures:
+
   - In most cases, jobs are automatically requeued if a node
     failed. Look in the `slurmctld` log to see why a job
     or a node failed and assess the situation from there.

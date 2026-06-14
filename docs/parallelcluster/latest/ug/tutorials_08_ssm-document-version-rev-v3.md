@@ -24,6 +24,7 @@ see [AWS services used by AWS ParallelCluster](aws-services-v3.md "aws-services-
 2. Revert an SSM document to a previous version. In this example, we revert to a previous version of the
    `SessionManagerRunShell` document. You can use the SSM `SessionManagerRunShell` document to customize
    every SSM shell session that you initiate.
+
    1. Find the `DocumentVersion` parameter for `SessionManagerRunShell` by running the following command:
 
    ````

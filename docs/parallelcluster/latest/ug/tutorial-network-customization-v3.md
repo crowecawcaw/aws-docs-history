@@ -50,10 +50,12 @@ Create the following two security groups:
 
 - **Head node additional security group**
   (`sg-1234abcd`):
+
   - Ingress: all traffic from compute security group
 
 - **Compute security group**
   (`sg-abcd1234`):
+
   - Ingress: all traffic from head node security group
   - Ingress: all traffic from self (compute-to-compute)
   - Egress: default allow-all

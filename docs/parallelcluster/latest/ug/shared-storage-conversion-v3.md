@@ -51,14 +51,15 @@ pcluster update-cluster -n `cluster-name` -c `cluster-config.yaml`
 
 5. Your shared storage is now external and detached from the cluster.
 6. To attach your external file system to the original cluster or another cluster, follow these steps.
+
    1. Get the FSx for Lustre file system ID.
+
       1. To use the AWS CLI run the following command and find the file system with a name that includes
          the name of your original cluster and note the file system ID.
 
       ```
       aws fsx describe-file-systems
       ```
-
       2. To use the AWS Management Console, log in and navigate to the [https://console.aws.amazon.com/fsx/](https://console.aws.amazon.com/fsx/ "https://console.aws.amazon.com/fsx/"). In the list of file systems,
          find the file system with a name that includes the name of your original cluster and note the file system ID.
 
@@ -81,7 +82,6 @@ pcluster update-cluster -n `cluster-name` -c `cluster-config.yaml`
           FileSystemId: fs-02e5b4b4abd62d51c
    ...
    ```
-
    4. To add the external shared storage to the cluster, run the following command.
 
    ```

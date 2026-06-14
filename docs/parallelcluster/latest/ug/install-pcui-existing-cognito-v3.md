@@ -9,6 +9,7 @@ Complete the following steps to use an existing Amazon Cognito user pool with a 
 2. Navigate to the nested stack that created the Amazon Cognito userpool.
 3. Select the **Outputs** tab.
 4. Copy the values of the following parameters:
+
    - `UserPoolId`
    - `UserPoolAuthDomain`
    - `SNSRole`

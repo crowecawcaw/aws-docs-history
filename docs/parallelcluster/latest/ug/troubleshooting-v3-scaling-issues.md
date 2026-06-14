@@ -134,6 +134,7 @@ the type of compute notes you use, to troubleshoot this type of issue:
 ### Compute nodes
 
 - Applicable logs:
+
   - `/var/log/cloud-init-output.log`
   - `/var/log/slurmd.log`
 
@@ -191,6 +192,7 @@ This section continues to explore how you can troubleshoot node related issues, 
 unexpectedly.
 
 - **Applicable logs:**
+
   - `/var/log/parallelcluster/clustermgtd` (head node)
   - `/var/log/slurmctld.log` (head node)
   - `/var/log/parallelcluster/computemgtd` (compute node)
@@ -217,6 +219,7 @@ unexpectedly.
   instance in Amazon EC2 for that node, the node might fail during setup. To retrieve the log
   from a compute (`/var/log/cloud-init-output.log`), do the following
   steps:
+
   - Submit a job to let Slurm spin up a new node.
   - Wait for the compute node to start.
   - Modify the instance initiated shutdown behavior so that a failing compute node will be stopped rather than terminated.
@@ -226,7 +229,6 @@ unexpectedly.
    --instance-id `i-1234567890abcdef0` \
    --instance-initiated-shutdown-behavior "{\"Value\": \"stop\"}"`
   ```
-
   - Enable termination protection.
 
   ```
@@ -234,7 +236,6 @@ unexpectedly.
    --instance-id `i-1234567890abcdef0` \
    --disable-api-termination`
   ```
-
   - Tag the node to be easily identifiable.
 
   ```
@@ -242,7 +243,6 @@ unexpectedly.
    --resources `i-1234567890abcdef0` \
    --tags Key=Name,Value=QUARANTINED-Compute`
   ```
-
   - Detach the node from the cluster by changing the `parallelcluster:cluster-name` tag.
 
   ```
@@ -250,7 +250,6 @@ unexpectedly.
    --resources `i-1234567890abcdef0` \
    --tags Key=parallelcluster:clustername,Value=QUARANTINED-ClusterName`
   ```
-
   - Retrieve the console output from the node with this command.
 
   ```
@@ -260,6 +259,7 @@ unexpectedly.
 ## **Replacing, terminating, or powering down problematic instances and nodes**
 
 - **Applicable logs:**
+
   - `/var/log/parallelcluster/clustermgtd` (head node)
   - `/var/log/parallelcluster/slurm_suspend.log` (head node)
 
