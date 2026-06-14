@@ -12,6 +12,7 @@ The following are the service endpoints and service quotas for this service.
 ###### Contents
 
 - [Service endpoints](chime-sdk.md#chime_sdk_region "chime-sdk.md#chime_sdk_region")
+
   - [Identity](chime-sdk.md#identity_endpoints "chime-sdk.md#identity_endpoints")
   - [Media pipeline regional endpoints](chime-sdk.md#media_pipelines_endpoints "chime-sdk.md#media_pipelines_endpoints")
   - [Messaging](chime-sdk.md#messaging_endpoints "chime-sdk.md#messaging_endpoints")
@@ -20,6 +21,7 @@ The following are the service endpoints and service quotas for this service.
   - [Legacy](chime-sdk.md#legacy_endpoints "chime-sdk.md#legacy_endpoints")
 
 - [Service quotas](chime-sdk.md#limits_chime_sdk "chime-sdk.md#limits_chime_sdk")
+
   - [Amazon Chime SDK call analytics quotas](chime-sdk.md#analytics-quotas "chime-sdk.md#analytics-quotas")
   - [Amazon Chime SDK Identity quotas](chime-sdk.md#chm-sdk-ident-quotas "chime-sdk.md#chm-sdk-ident-quotas")
   - [Amazon Chime SDK Media Pipeline quotas](chime-sdk.md#media-pipeline-quotas "chime-sdk.md#media-pipeline-quotas")

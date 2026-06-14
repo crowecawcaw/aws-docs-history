@@ -53,6 +53,7 @@ Amazon MWAA uses prefixes for service endpoints, where each prefix corresponds t
 of API operations:
 
 - Environment management – `**api**.airflow.`region`.amazonaws.com` (use `**api**.airflow.`region`.api.aws` for IPv6)
+
   - [CreateEnvironment](../../../mwaa/latest/API/API_CreateEnvironment.md "../../../mwaa/latest/API/API_CreateEnvironment.md")
   - [DeleteEnvironment](../../../mwaa/latest/API/API_DeleteEnvironment.md "../../../mwaa/latest/API/API_DeleteEnvironment.md")
   - [GetEnvironment](../../../mwaa/latest/API/API_GetEnvironment.md "../../../mwaa/latest/API/API_GetEnvironment.md")
@@ -63,6 +64,7 @@ of API operations:
   - [UpdateEnvironment](../../../mwaa/latest/API/API_UpdateEnvironment.md "../../../mwaa/latest/API/API_UpdateEnvironment.md")
 
 - Airflow environment – `**env**.airflow.`region`.amazonaws.com` (use `**env**.airflow.`region`.api.aws` for IPv6)
+
   - [CreateCliToken](../../../mwaa/latest/API/API_CreateCliToken.md "../../../mwaa/latest/API/API_CreateCliToken.md")
   - [CreateWebLoginToken](../../../mwaa/latest/API/API_CreateWebLoginToken.md "../../../mwaa/latest/API/API_CreateWebLoginToken.md")
 
