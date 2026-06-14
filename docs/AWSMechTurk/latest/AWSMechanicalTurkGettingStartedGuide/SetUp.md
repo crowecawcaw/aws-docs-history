@@ -59,6 +59,7 @@ that Mechanical Turk does not currently support the use of IAM role credentials.
 
 1. Sign in to the Amazon Web Services website at [http://aws.amazon.com/security-credentials](http://aws.amazon.com/security-credentials "http://aws.amazon.com/security-credentials").
 2. Do one of the following:
+
    - If you signed in using your root credentials, choose
      **Continue to Security
      Credentials**.
