@@ -27,12 +27,14 @@ mailing addresses aren't supported.
 ###### Topics
 
 - [Options and requirements for lists of predefined text](allow-lists-options.md#allow-lists-options-s3list "allow-lists-options.md#allow-lists-options-s3list")
+
   - [Syntax requirements](allow-lists-options.md#allow-lists-options-s3list-syntax "allow-lists-options.md#allow-lists-options-s3list-syntax")
   - [Storage requirements](allow-lists-options.md#allow-lists-options-s3list-storage "allow-lists-options.md#allow-lists-options-s3list-storage")
   - [Encryption/Decryption requirements](allow-lists-options.md#allow-lists-options-s3list-encryption "allow-lists-options.md#allow-lists-options-s3list-encryption")
   - [Design considerations and recommendations](allow-lists-options.md#allow-lists-options-s3list-notes "allow-lists-options.md#allow-lists-options-s3list-notes")
 
 - [Options and requirements for regular expressions](allow-lists-options.md#allow-lists-options-regex "allow-lists-options.md#allow-lists-options-regex")
+
   - [Syntax support and recommendations](allow-lists-options.md#allow-lists-options-regex-syntax "allow-lists-options.md#allow-lists-options-regex-syntax")
   - [Examples](allow-lists-options.md#allow-lists-options-regex-examples "allow-lists-options.md#allow-lists-options-regex-examples")
 

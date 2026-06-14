@@ -80,6 +80,7 @@ Amazon Macie console.
 4. In the navigation pane, choose **Accounts**.
 5. Under **Administrator account**, do one of the
    following:
+
    - To accept the invitation, turn on
      **Accept** (
      ![A toggle switch with a gray background and the toggle positioned to the left.](images/tgl-gray-off.png)

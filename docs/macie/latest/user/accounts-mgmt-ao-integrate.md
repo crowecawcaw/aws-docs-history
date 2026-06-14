@@ -150,6 +150,7 @@ Amazon Macie console.
 3. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").
 4. Do one of the following, depending on whether Macie is enabled for your
    management account in the current Region:
+
    - If Macie isn’t enabled, choose **Get started** on
      the welcome page.
    - If Macie is enabled, choose **Settings** in the

@@ -173,6 +173,7 @@ individual conditions in the criteria. To learn more about these options, see
     **Specify bucket criteria**.
 5.  Under **Specify bucket criteria**, do the following
     to add a condition to the criteria:
+
     1. Place your cursor in the filter box, and then choose the bucket property to use for
        the condition.
     2. In the first box, choose an operator for the condition,
@@ -256,6 +257,7 @@ the job's analysis. To learn about these options, see [Scope options for jobs](d
 
 1. On the **Refine the scope** page, specify how often you want the job to
    run:
+
    - To run the job only once, immediately after you finish creating it,
      choose **One-time job**.
    - To run the job periodically on a recurring basis, choose
@@ -263,6 +265,7 @@ the job's analysis. To learn about these options, see [Scope options for jobs](d
      frequency**, choose whether to run the job daily, weekly,
      or monthly. Then use the **Include existing objects**
      option to define the scope of the job's first run:
+
      - Select this checkbox to analyze all existing objects immediately after you finish
        creating the job. Each subsequent run analyzes only those
        objects that are created or changed after the preceding
@@ -343,6 +346,7 @@ or type.
 1. On the **Select managed data identifiers** page, under
    **Managed data identifier options**, do one of the
    following:
+
    - To use the set of managed data identifiers that we recommend for jobs,
      choose **Recommended**.
 

@@ -154,6 +154,7 @@ to retrieve the details of the findings.
     statistics and results you want to review. The details panel displays
     statistics, settings, and other information about the job.
 4.  In the details panel, do any of the following:
+
     - To review processing statistics for the job, refer to the
       **Statistics** section of the panel. This section
       displays statistics such as the number of times that the job has run,
@@ -190,7 +191,6 @@ to retrieve the details of the findings.
         + If the finding applies to another type of file, the link
          displays the file that contains the discovery results for
          the file.
-
     - To review all the sensitive data discovery results that the job produced, choose **Show
       results** at the top of the panel, and then choose
       **Show classifications**. Macie opens the Amazon S3

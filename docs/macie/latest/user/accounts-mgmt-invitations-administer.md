@@ -79,6 +79,7 @@ steps to add one or more accounts by using the console.
 5. In the **Enter account details** section,
    choose **Add account**. Then do the
    following:
+
    - For **Account ID**, enter the
      12-digit account ID for the AWS account to add.
    - For **Email address**, enter the
@@ -95,6 +96,7 @@ repeat the preceding steps in each additional Region.
 ###### To add multiple accounts
 
 1. By using a text editor, create a CSV file as follows:
+
    1. Add the following header as the first line of the
       file: `Account ID,Email`
    2. For each account, create a new line that has the
@@ -114,7 +116,6 @@ repeat the preceding steps in each additional Region.
    222222222222,jorgesouza@example.com
    333333333333,lijuan@example.com
    ```
-
    4. Save the file on your computer.
 
 2. Open the Amazon Macie console at [https://console.aws.amazon.com/macie/](https://console.aws.amazon.com/macie/ "https://console.aws.amazon.com/macie/").

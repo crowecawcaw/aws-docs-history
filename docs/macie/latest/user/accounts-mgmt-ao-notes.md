@@ -131,6 +131,7 @@ administrator account.
   the management account must first enable Macie for the account. The Macie administrator
   isn’t allowed to enable Macie for the management account.
 - If the Macie administrator removes a Macie member account:
+
   - Macie continues to be enabled for the account. The account becomes a standalone Macie
     account. To pause or stop using Macie, a user of the account must
     suspend (pause) or disable (stop) Macie for the account.

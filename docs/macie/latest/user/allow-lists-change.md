@@ -36,11 +36,13 @@ console.
 5. To change other settings for the allow list, choose **Edit** in
    the **List settings** section. Then change the settings that you
    want:
+
    - **Name** – Enter a new name for the list. The name
      can contain as many as 128 characters.
    - **Description** – Enter a new description of the
      list. The description can contain as many as 512 characters.
    - If the allow list specifies predefined text:
+
      - **S3 bucket name** – Enter the name of the bucket that
        stores the list.
 

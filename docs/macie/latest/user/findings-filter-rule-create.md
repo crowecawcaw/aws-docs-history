@@ -109,6 +109,7 @@ Where:
 - `my_filter_rule` is the custom name for the
   rule.
 - `criterion` is a map of filter conditions for the rule:
+
   - `classificationDetails.result.sensitiveData.category`
     is the JSON name of the **Sensitive data category**
     field.

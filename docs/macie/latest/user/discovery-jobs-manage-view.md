@@ -26,6 +26,7 @@ operation of the Amazon Macie API.
    the current status of each job.
 4. In the **Jobs** table, review summary information for your
    jobs:
+
    - **Job name** – The name of the job.
    - **Resources** – Whether the job is configured
      to analyze objects in specific S3 buckets or buckets that match runtime
@@ -44,6 +45,7 @@ operation of the Amazon Macie API.
 
 5. To analyze your inventory or find a specific job more quickly, do any of the
    following:
+
    - To sort the table by a specific field, choose the column heading for
      the field. To change the sort order, choose the column heading
      again.

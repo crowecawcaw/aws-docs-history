@@ -52,6 +52,7 @@ organization.
 5. (Optional) To filter the table and show only those accounts that are currently member
    accounts in the organization, use the filter box above the table to add the
    following filter conditions:
+
    - **Type** = **Invitation**
    - **Status** = **Enabled**
    - **Status** = **Paused**

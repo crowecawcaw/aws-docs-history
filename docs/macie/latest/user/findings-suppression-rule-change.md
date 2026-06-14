@@ -37,6 +37,7 @@ the Amazon Macie console.
    ) next to the suppression rule that you
    want to change or assign tags to.
 4. Do any of the following:
+
    - To change the criteria of the rule, use the
      **Filter criteria** box. In the box,
      enter conditions that specify attributes of the findings

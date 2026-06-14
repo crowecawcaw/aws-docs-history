@@ -29,6 +29,7 @@ the Amazon Macie console.
    ) next to the filter rule that you want to change or
    assign tags to.
 4. Do any of the following:
+
    - To change the filter criteria of the rule, use the **Filter
      criteria** box. In the box, enter conditions for the criteria that
      you want. To learn how, see [Creating and applying filters to Macie findings](findings-filter-procedure.md "findings-filter-procedure.md").

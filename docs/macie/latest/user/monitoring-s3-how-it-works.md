@@ -312,6 +312,7 @@ suspicious activity. For more information, see [GuardDuty S3 Protection](../../.
 the _Amazon GuardDuty User Guide_.
 
 - If you manually refresh object metadata for a specific bucket:
+
   - Macie temporarily reports _Unknown_ for encryption
     statistics that apply to the objects. The next time Macie performs the
     daily data refresh (within 24 hours), Macie re-evaluates the encryption

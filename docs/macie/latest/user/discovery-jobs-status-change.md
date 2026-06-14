@@ -53,6 +53,7 @@ operation of the Amazon Macie API.
    filter the table by using the filter options above the table. You can also sort
    the table in ascending or descending order by certain fields.
 5. On the **Actions** menu, do one of the following:
+
    - To pause the job temporarily, choose **Pause**. This
      option is available only if the job's current status is **Active
      (Idle)**, **Active (Running)**, or

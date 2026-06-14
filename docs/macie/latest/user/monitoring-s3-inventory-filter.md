@@ -82,7 +82,7 @@ organization, it also doesn't display data for accounts that automated discovery
 disabled for. To display this data, choose **X** in the
 **Is monitored by automated discovery** filter token below
 the filter box. 3. At the top of the page, optionally choose refresh (
-![The refresh button, which is a button that displays an empty blue circle with an arrow.](/images/macie/latest/user/images/btn-refresh-data.png)
+![The refresh button, which is a button that displays an empty blue circle with an arrow.](images/btn-refresh-data.png)
 ) to retrieve
 the latest bucket metadata from Amazon S3. 4. Place your cursor in the filter box, and then choose the field to use for the
 condition. 5. Choose or enter the appropriate type of value for the field, keeping the
@@ -582,6 +582,7 @@ Where:
 - `publicAccess.effectivePermission` specifies the
   JSON name of the **Effective permission** field,
   and:
+
   - `eq` specifies the _equals_ operator.
   - `PUBLIC` is an enumerated value for the
     **Effective permission** field.
@@ -589,6 +590,7 @@ Where:
 - `objectCountByEncryptionType.unencrypted`
   specifies the JSON name of the **No encryption** field,
   and:
+
   - `gte` specifies the _greater than or equal to_
     operator.
   - `1` is the lowest value in an inclusive,
@@ -598,6 +600,7 @@ Where:
 - `jobDetails.isMonitoredByJob` specifies the JSON
   name of the **Actively monitored by job** field,
   and:
+
   - `eq` specifies the _equals_ operator.
   - `FALSE` is an enumerated value for the
     **Actively monitored by job** field.

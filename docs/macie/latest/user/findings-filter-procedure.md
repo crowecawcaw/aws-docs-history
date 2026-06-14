@@ -100,6 +100,7 @@ which criteria you've applied. To remove a condition, choose the remove conditio
     unsuppressed findings. To hide suppressed findings, choose
     **Current**.
 5.  To add a filter condition:
+
     1. Place your cursor in the **Filter criteria** box, and then choose
        the field to use for the condition. For information about the fields that you can use,
        see [Fields for filtering Macie findings](findings-filter-fields.md "findings-filter-fields.md").
@@ -390,6 +391,7 @@ Where:
 
 - `createdAt` specifies the JSON name of the
   **Created at** field, and:
+
   - `gt` specifies the _greater than
     or equal to_ operator.
   - `1601881200000` is the first date and time (as a Unix
@@ -402,11 +404,13 @@ Where:
 - `classificationDetails.result.sensitiveData.category`
   specifies the JSON name of the **Sensitive data category** field,
   and:
+
   - `eqExactMatch` specifies the _equals exact match_ operator.
   - `FINANCIAL_INFORMATION` is an enumerated value for the
     field.
 
 - `archived` specifies the JSON name of the
   **Archived** field, and:
+
   - `eq` specifies the _equals_ operator.
   - `false` is a Boolean value for the field.

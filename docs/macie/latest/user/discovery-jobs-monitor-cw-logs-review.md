@@ -37,6 +37,7 @@ API](../../../AmazonCloudWatchLogs/latest/APIReference/Welcome.md "../../../Amaz
    for each job. The name of each stream correlates to the unique identifier for a
    job.
 5. On the **Log streams** tab, do one of the following:
+
    - To review the log events for a particular job, choose the log stream for the job. To
      find the stream more easily, enter the job's unique identifier in the
      filter box above the table. After you choose the log stream, CloudWatch

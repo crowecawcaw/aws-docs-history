@@ -86,6 +86,7 @@ Amazon Macie console.
    text**.
 5. Under **List settings**, use the following options to enter
    additional settings for the allow list:
+
    - For **Name**, enter a name for the list. The name can
      contain as many as 128 characters.
    - For **Description**, optionally enter a brief description
@@ -201,6 +202,7 @@ Follow these steps to create an allow list by using the Amazon Macie console.
    expression**.
 5. Under **List settings**, use the following options to enter
    additional settings for the allow list:
+
    - For **Name**, enter a name for the list. The name can
      contain as many as 128 characters.
    - For **Description**, optionally enter a brief description

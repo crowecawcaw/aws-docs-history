@@ -234,6 +234,7 @@ following in mind:
   To perform automated discovery and access the resulting data in additional Regions, enable and configure
   automated discovery in each additional Region.
 - If you're the Macie administrator for an organization:
+
   - You can perform automated discovery for a member account only if Macie is enabled for the account in
     the current Region. In addition, you must enable automated discovery for the account in that Region.
     Members can't enable or disable automated discovery for their own accounts.

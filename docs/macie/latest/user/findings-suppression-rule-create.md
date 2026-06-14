@@ -142,6 +142,7 @@ Where:
   for the rule.
 - `criterion` is a map of filter conditions for the
   rule:
+
   - `classificationDetails.result.sensitiveData.detections.type`
     is the JSON name of the **Sensitive data detection
     type** field.

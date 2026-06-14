@@ -121,6 +121,7 @@ the following in mind when you respond to and manage invitations that you receiv
 - You can disassociate your account from a Macie administrator account at any time.
   Similarly, your Macie administrator can remove your account from their organization at
   any time. If either happens:
+
   - Macie continues to be enabled for your account. Your account becomes a
     standalone Macie account.
   - Automated sensitive data discovery is disabled for your account, if it was enabled. This

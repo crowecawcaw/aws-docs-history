@@ -95,6 +95,7 @@ console.
 2. In the navigation pane, choose **Findings**.
 3. On the **Findings** page, do any of the
    following:
+
    - In the **Finding type** column, locate findings whose type begins
      with **[SAMPLE]**, as shown in the following
      image.

@@ -29,6 +29,7 @@ Guide](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../A
   for jobs](discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-schema "discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-schema")
 - [Types of
   log events for jobs](discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index "discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index")
+
   - [Job status events](discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-status "discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-status")
   - [Account-level error events](discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-account-errors "discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-account-errors")
   - [Bucket-level error events](discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-bucket-errors "discovery-jobs-monitor-cw-logs-ref.md#discovery-jobs-monitor-cw-logs-event-index-bucket-errors")

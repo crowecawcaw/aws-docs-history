@@ -103,6 +103,7 @@ Where:
 
 - `classificationDetails.originType` specifies the JSON name of the
   **Origin type** field, and:
+
   - `eq` specifies the _equals_
     operator.
   - `AUTOMATED_SENSITIVE_DATA_DISCOVERY` is an enumerated value for the
@@ -110,6 +111,7 @@ Where:
 
 - `severity.description` specifies the JSON name of
   the **Severity** field, and:
+
   - `eq` specifies the _equals_ operator.
   - `High` is an enumerated value for the
     field.

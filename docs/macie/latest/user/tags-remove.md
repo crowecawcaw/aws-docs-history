@@ -66,6 +66,7 @@ Amazon Macie console.
 3.  In the **Manage tags** window, choose
     **Edit tags**.
 4.  Do any of the following:
+
     - To remove only the tag value for a tag, choose
       **X** in the **Value**
       box that contains the value to remove.

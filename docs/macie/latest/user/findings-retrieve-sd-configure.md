@@ -213,6 +213,7 @@ console.
 5. For **Status**, choose **Enable**.
 6. Under **Access**, specify the access method and settings that you want
    to use when retrieving sensitive data samples from affected S3 objects:
+
    - To use an IAM role that delegates access to Macie, choose **Assume an IAM
      role**. If you choose this option, Macie retrieves the samples by assuming the
      IAM role that you created and configured in your AWS account. In the **Role
@@ -223,6 +224,7 @@ console.
 
 7. Under **Encryption**, specify the AWS KMS key that you want to use
    to encrypt sensitive data samples that are retrieved:
+
    - To use a KMS key from your own account, choose **Select a key from your
      account**. Then, in the **AWS KMS key** list, choose the key
      to use. The list displays existing, symmetric encryption KMS keys for your
@@ -260,6 +262,7 @@ the appropriate values for the supported parameters:
 - For the `retrievalConfiguration` parameters, specify the access method and
   settings that you want to use when retrieving sensitive data samples from affected S3
   objects:
+
   - To assume an IAM role that delegates access to Macie, specify
     `ASSUME_ROLE` for the `retrievalMode` parameter and specify the
     name of the role for the `roleName` parameter. If you specify these settings,
@@ -283,6 +286,7 @@ operation or, if you're using the AWS Command Line Interface (AWS CLI), run the 
 
 - For the `kmsKeyId` parameter, specify the AWS KMS key that you want to
   use to encrypt sensitive data samples that are retrieved:
+
   - To use a KMS key from your own account, specify the Amazon Resource Name (ARN), ID,
     or alias for the key. If you specify an alias, include the `alias/`
     prefix—for example, `alias/ExampleAlias`.

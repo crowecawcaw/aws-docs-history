@@ -108,6 +108,7 @@ inventory, including buckets that don't store any objects.
 
 - **Objects** – These statistics provide information about the
   number of objects in your bucket inventory:
+
   - **Classifiable** – The total number of objects that Macie can
     analyze in the buckets.
   - **Total** – The total number of objects in the buckets,

@@ -48,6 +48,7 @@ Follow these steps to disable automated sensitive data discovery by using the Am
 4. If you're the Macie administrator for an organization, choose an option in the
    **Status** section to specify the accounts to disable automated sensitive data discovery
    for:
+
    - To disable it for only particular member accounts, choose **Manage
      accounts**. Then, in the table on the **Accounts** page, select
      the checkbox for each account to disable it for. When you finish, choose **Disable

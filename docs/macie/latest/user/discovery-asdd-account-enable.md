@@ -40,6 +40,7 @@ Follow these steps to enable automated sensitive data discovery by using the Ama
 5. If you're the Macie administrator for an organization, choose an option in the
    **Status** section to specify the accounts to enable automated sensitive data discovery
    for:
+
    - To enable it for all the accounts in your organization, choose
      **Enable**. In the dialog box that appears, choose **My
      organization**. For an organization in AWS Organizations, select **Enable

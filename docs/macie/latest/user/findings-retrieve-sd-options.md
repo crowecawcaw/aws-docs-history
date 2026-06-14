@@ -101,6 +101,7 @@ following:
 - To retrieve sensitive data samples from an object for another account, you
   must currently be the delegated Macie administrator for the account in the applicable
   AWS Region. In addition:
+
   - Macie must currently be enabled for the member account in the
     applicable Region.
   - The member account must have an IAM role that delegates
@@ -194,6 +195,7 @@ have a member account in an organization, work with your Macie administrator to 
 whether and how to configure the settings and resources for your account.
 
 1. Define the following:
+
    - The name of the IAM role that you want Macie to assume. If your
      account is part of an organization, this name must be same for the
      delegated Macie administrator account and each applicable member account in the
@@ -213,6 +215,7 @@ whether and how to configure the settings and resources for your account.
    in Macie.
 5. If you're the delegated Macie administrator for an organization or you have a
    standalone Macie account:
+
    1. Create and configure the IAM role for your account. Ensure that the
       trust and permissions policies for the role meet all requirements for
       Macie to assume the role. For details about these requirements, see the
@@ -223,6 +226,7 @@ whether and how to configure the settings and resources for your account.
       of your applicable member accounts must specify this ID.
 
 6. If you have a member account in an organization:
+
    1. Ask your Macie administrator for the external ID to specify in the trust
       policy for the IAM role in your account. Also verify the name of the
       IAM role and permissions policy to create.
@@ -733,6 +737,7 @@ In the preceding example:
 - The `Condition` block uses [condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md") and the following condition keys to filter
   access to the action that the role owner is allowed to perform on the
   KMS key:
+
   - [kms:GranteePrincipal](../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-grantee-principal "../../../kms/latest/developerguide/conditions-kms.md#conditions-kms-grantee-principal") – This condition allows the
     role owner to create a grant only for the specified grantee
     principal, which is the ARN of the IAM role in their account. In

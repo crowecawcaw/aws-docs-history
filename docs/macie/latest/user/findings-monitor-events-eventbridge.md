@@ -110,6 +110,7 @@ this function as the target for the rule.
    rule**.
 4. On the **Define rule detail** page, do the
    following:
+
    - For **Name**, enter a name for the
      rule.
    - (Optional) For **Description**, enter a
@@ -124,6 +125,7 @@ this function as the target for the rule.
 5. When you finish, choose **Next**.
 6. On the **Build event pattern** page, do the
    following:
+
    - For **Event source**, choose
      **AWS events or EventBridge partner
      events**.
@@ -137,6 +139,7 @@ this function as the target for the rule.
      **Use pattern form**.
    - For **Event pattern**, enter the
      following settings:
+
      - For **Event source**, choose
        **AWS services**.
      - For **AWS service**, choose
@@ -147,6 +150,7 @@ this function as the target for the rule.
 7. When you finish, choose **Next**.
 8. On the **Select targets** page, do the
    following:
+
    - For **Target types**, choose
      **AWS service**.
    - For **Select a target**, choose

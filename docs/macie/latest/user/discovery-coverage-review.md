@@ -43,6 +43,7 @@ Follow these steps to review coverage data by using the Amazon Macie console.
 2. In the navigation pane, choose **Resource coverage**.
 3. On the **Resource coverage** page, choose the tab for the type of
    coverage data that you want to review:
+
    - **All** – Lists all the buckets for your account. For each
      bucket, the **Issues** field indicates whether issues prevented Macie
      from analyzing objects in the bucket. If the value for this field is

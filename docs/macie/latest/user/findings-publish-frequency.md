@@ -59,6 +59,7 @@ API.
 2. In the navigation pane, choose **Settings**.
 3. In the **Publication of findings** section, under
    **Destinations**, choose from the following options:
+
    - **Publish policy findings to Security Hub CSPM** – Select this checkbox to
      start publishing new and updated policy findings to Security Hub CSPM automatically.
      To stop publishing new and updated policy findings to Security Hub CSPM, clear this
