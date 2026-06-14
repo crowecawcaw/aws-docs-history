@@ -13,6 +13,7 @@ with the new name and the same value.
    [https://console.aws.amazon.com/codeguru/reviewer/](https://console.aws.amazon.com/codeguru/reviewer/ "https://console.aws.amazon.com/codeguru/reviewer/").
 2. In the navigation pane, choose **Repositories**.
 3. Do one of the following:
+
    - Choose the association ID of the associated repository where you
      want to view tags, then choose **Manage
      tags**.

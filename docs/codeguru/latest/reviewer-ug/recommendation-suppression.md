@@ -164,9 +164,11 @@ a repository, see [Working with repository associations](working-with-repositori
    information, see [Create code reviews](create-code-reviews.md "create-code-reviews.md").
 5. To confirm that CodeGuru Reviewer used your file for the code review, check the CodeGuru Reviewer
    console.
+
    1. Choose **Code reviews**. This page lists all code
       reviews performed.
    2. Choose the code review that CodeGuru Reviewer just performed.
+
       - If CodeGuru Reviewer used your file in the code review, then **Success** appears
         under **Analysis configuration file**.
 

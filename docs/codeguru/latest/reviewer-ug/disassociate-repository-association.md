@@ -36,6 +36,7 @@ Charges are not incurred for disassociated repositories.
    [https://console.aws.amazon.com/codeguru/reviewer/](https://console.aws.amazon.com/codeguru/reviewer/ "https://console.aws.amazon.com/codeguru/reviewer/").
 2. In the navigation pane, choose **Repositories**.
 3. Do one of the following:
+
    - Choose the radio button next to the repository you want to
      disassociate, then choose **Disassociate repository**.
    - Choose the association ID of the repository you want to disassociate.

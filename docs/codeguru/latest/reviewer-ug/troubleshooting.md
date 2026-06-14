@@ -183,6 +183,7 @@ repository analysis code review or an incremental code review.
 1. In the CodeGuru Reviewer console, choose **Code reviews**. This page lists all
    code reviews performed.
 2. Choose a code review in the list.
+
    - If CodeGuru Reviewer used your file in the code review, then **Success** appears
      under **Analysis configuration file**.
 

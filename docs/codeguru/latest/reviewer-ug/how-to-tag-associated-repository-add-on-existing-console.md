@@ -12,6 +12,7 @@ CodeGuru Reviewer associated repository.
 2. In the navigation pane, choose
    **Repositories**.
 3. Do one of the following:
+
    - Choose the association ID of the associated repository where
      you want to view tags, then choose **Manage
      tags**.
@@ -20,6 +21,7 @@ CodeGuru Reviewer associated repository.
      tags**.
 
 4. In **Manage tags**, for each tag you want to add:
+
    1. Choose **Add new tag**.
    2. In **key**, enter a name for the tag.
    3. (Optional) In **value**, enter a value for

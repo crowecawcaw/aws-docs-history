@@ -9,6 +9,7 @@ Amazon CodeGuru Reviewer associated repository.
 
 1. Follow the steps in one of the following topics to create an association with your
    repository type:
+
    - [Create an
      AWS CodeCommit repository association (console)](create-codecommit-association.md#create-codecommit-association-console "create-codecommit-association.md#create-codecommit-association-console")
    - [Create a

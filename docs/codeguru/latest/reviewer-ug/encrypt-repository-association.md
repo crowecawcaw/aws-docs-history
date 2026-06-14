@@ -49,6 +49,7 @@ encrypted by default using a key that is owned and managed by AWS.
 
 1. Follow the steps in one of the following topics to create an association with your
    repository type:
+
    - [Create an
      AWS CodeCommit repository association (console)](create-codecommit-association.md#create-codecommit-association-console "create-codecommit-association.md#create-codecommit-association-console")
    - [Create a
@@ -61,6 +62,7 @@ encrypted by default using a key that is owned and managed by AWS.
 2. Expand **Additional configuration**.
 3. Select **Customize encryption settings (advanced)**.
 4. Do one of the following:
+
    - If you already have a KMS key that you manage, enter its Amazon Resource Name (ARN). For information
      about finding the ARN of your key using the console, see
      [Finding the
@@ -85,6 +87,7 @@ your data is encrypted by a key that is managed by AWS.
 2. Follow the steps in one of the following topics to create an association with
    your repository type. Specify the KMS key you want to use or don't specify any
    KMS key if you want to encrypt your data using an AWS owned and managed key.
+
    - [Create an
      AWS CodeCommit repository association (console)](create-codecommit-association.md#create-codecommit-association-console "create-codecommit-association.md#create-codecommit-association-console")
    - [Create a

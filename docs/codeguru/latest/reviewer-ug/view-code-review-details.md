@@ -29,6 +29,7 @@ There are three possible code review statuses:
 - Failed – The code review has failed to finish
   reviewing the source code. This could be because of a problem with source code access
   permissions or a transient exception that occurred:
+
   - If the problem is due to source code access permissions, the easiest way to fix
     it is to disassociate the repository and then associate the repository again. If the
     error persists, contact AWS Support.
