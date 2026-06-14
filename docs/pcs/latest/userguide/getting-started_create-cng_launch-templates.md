@@ -26,10 +26,13 @@ Use the following procedure to complete the CloudFormation template in the
 CloudFormation console
 
 - Under **Provide a stack name**:
+
   - Under **Stack name**, enter `getstarted-lt`.
 
 - Under **Parameters**:
+
   - Under **Security**
+
     - For **VpcSecurityGroupId**, select the security group named
       `default` in your cluster VPC.
     - For **ClusterSecurityGroupId**, select the group named
@@ -39,6 +42,7 @@ CloudFormation console
     - For **SshKeyName**, select your preferred SSH key pair.
 
   - Under **File systems**
+
     - For **EfsFilesystemId**, enter the file system ID from the EFS
       file system you created earlier in the tutorial.
     - For **FSxLustreFilesystemId**, enter the file system ID from the

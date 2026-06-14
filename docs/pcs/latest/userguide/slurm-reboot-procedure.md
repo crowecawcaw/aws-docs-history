@@ -11,6 +11,7 @@ recover from degraded states without loss of EC2 instance capacity.
 ## Procedure
 
 1. Connect to a login node through the EC2 console.
+
    1. In the EC2 console, choose **Instances**.
    2. Select your login node instance.
    3. Choose **Connect**.

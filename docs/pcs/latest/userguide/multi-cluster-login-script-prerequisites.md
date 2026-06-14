@@ -28,6 +28,7 @@
 - AWS credentials configured (through an IAM role, credentials file, or environment
   variables)
 - Permissions for:
+
   - `pcs:GetCluster`
   - `secretsmanager:GetSecretValue` (if you use an alternate secret)
 

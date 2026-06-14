@@ -35,6 +35,7 @@ AWS CLI
 ###### To delete a queue
 
 - Use the following command to delete a queue, with these replacements:
+
   - Replace `region-code` with the AWS Region your cluster is
     in.
   - Replace `my-queue` with the name or ID of your queue.

@@ -15,6 +15,7 @@ communication, even when you use AWS PCS in an IPv6-only network.
 3. Select the temporary instance that you created. Choose **Actions**,
    **Image**, **Create image**.
 4. For **Create image**, do the following:
+
    1. For **Image name**, enter a descriptive name for the AMI.
    2. (Optional) For **Image description**, enter a brief description of the
       purpose of the AMI.

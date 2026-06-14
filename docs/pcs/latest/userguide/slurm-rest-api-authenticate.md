@@ -59,12 +59,14 @@ aws secretsmanager get-secret-value --secret-id `arn:aws:secretsmanager:region:a
 ###### To generate a JWT token
 
 1. Create a JWT with the following required claims:
+
    - `exp` – Expiration time in seconds since 1970 for the JWT
    - `iat` – Current time in seconds since 1970
    - `sun` – The username for authentication
    - `uid` – The POSIX user ID
    - `gid` – The POSIX group ID
    - `id` – Additional POSIX identity properties
+
      - `gecos` – User comment field, often used to store a human-readable name
      - `dir` – User's home directory
      - `shell` – User's default shell
@@ -84,6 +86,7 @@ As an alternative to the `sun` claim, you can provide any of the following:
 ###### To authenticate API requests
 
 1. Include the JWT token in your HTTP requests using one of these methods:
+
    - **Bearer token** – Add `Authorization: Bearer `<jwt>`` header
    - **Slurm header** – Add `X-SLURM-USER-TOKEN: `<jwt>`` header
 

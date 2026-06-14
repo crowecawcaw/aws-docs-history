@@ -21,6 +21,7 @@ Replace `example-role` in the following examples with the name of your IAM role.
 
 1. Create IAM role with `/aws-pcs/` as the path attribute
    or a name that starts with `AWSPCS`.
+
    1. Copy and paste the following content to a new text file named `trust_policy.json`.
 
    ```
@@ -42,7 +43,6 @@ Replace `example-role` in the following examples with the name of your IAM role.
    }`
 
    ```
-
    2. Use 1 of the following commands to create the IAM role.
 
    ```
@@ -56,6 +56,7 @@ Replace `example-role` in the following examples with the name of your IAM role.
    ```
 
 2. **Attach permissions.**
+
    1. Copy and paste the following content to a new text file named `policy_document.json`.
 
    ```
@@ -73,7 +74,6 @@ Replace `example-role` in the following examples with the name of your IAM role.
    }`
 
    ```
-
    2. Attach the policy document to the role. This command attaches the policy as an inline policy.
 
    ```

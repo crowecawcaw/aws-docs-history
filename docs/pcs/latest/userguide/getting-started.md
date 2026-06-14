@@ -12,6 +12,7 @@ The tutorial cluster design has the following key components:
   directory.
 - An AWS PCS cluster, which provides a Slurm controller.
 - 2 AWS PCS compute node groups.
+
   - The `login` node group, which provides shell-based interactive access to the system.
   - The `compute-1` node group provides elastically-scaling instances to run jobs.
 

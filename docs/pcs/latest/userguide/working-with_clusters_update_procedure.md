@@ -17,6 +17,7 @@ AWS Management Console
 3. Select the cluster to update.
 4. Choose **Edit**.
 5. On the Edit cluster page, modify the desired settings:
+
    - Under **Scheduler configuration**, update **Scale-down idle time** to control how long dynamic instances remain idle before automatic termination.
    - Modify **Prolog**, **Epilog**, and **Select-type parameters** settings as needed.
    - Enable, disable, or configure retention time for **managed accounting**.
@@ -36,13 +37,13 @@ aws pcs get-cluster --cluster-identifier `my-cluster`
 ```
 
 3. Submit an update request using one of the following examples:
+
    - To enable managed accounting:
 
    ```
    aws pcs update-cluster --cluster-identifier `my-cluster` \
    --slurm-configuration 'accounting={mode=STANDARD}'
    ```
-
    - To update a Slurm Prolog setting:
 
    ```
@@ -50,7 +51,6 @@ aws pcs get-cluster --cluster-identifier `my-cluster`
    --slurm-configuration \
    'SlurmCustomSettings=[{parameterName=Prolog,parameterValue="/path/to/prolog.sh"}]'
    ```
-
    - To update scale-down idle time:
 
    ```

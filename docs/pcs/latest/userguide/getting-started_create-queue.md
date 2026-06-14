@@ -20,8 +20,10 @@ you proceed to the next step.
 
 - Navigate to **Queues** and choose **Create
   queue**.
+
   - In the **Queue configuration** section, provide the following
     values:
+
     - **Queue name** – Enter the following: `demo`
     - **Compute node groups** – Select the compute node group named
       `compute-1`.

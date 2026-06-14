@@ -15,12 +15,15 @@ in the same VPC as your cluster.
 1. Go to the [Amazon FSx console](https://console.aws.amazon.com/fsx "https://console.aws.amazon.com/fsx").
 2. Make sure the console is set to use the same AWS Region as your cluster.
 3. Choose **Create file system**.
+
    - For **Select file system type**, choose
      **Amazon FSx for Lustre**, then choose **Next**.
 
 4. On the **Specify file system details** page, set the following
    parameters:
+
    - Under **File system details**
+
      - For **Name**, enter `getstarted-fsx`
      - For **Deployment and storage type**, choose **Persistent, SSD**
      - For **Throughput per unit of storage**, choose **125 MB/s/TiB**
@@ -29,6 +32,7 @@ in the same VPC as your cluster.
      - For **Data compression type**, choose **LZ4**
 
    - Under **Network & security**
+
      - For **Virtual Private Cloud (VPC)**, choose the VPC named
        `hpc-networking:Large-Scale-HPC`
      - For **VPC Security Groups**, leave the security group named `default`

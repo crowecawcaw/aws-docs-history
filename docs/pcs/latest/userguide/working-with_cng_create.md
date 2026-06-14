@@ -58,6 +58,7 @@ AWS Management Console
    must be unique within the cluster.
 4. Under **Computing configuration**, enter or select these
    values:
+
    1. **EC2 launch template** – Select a custom launch template to
       use for this node group. Launch templates can be used to customize network settings such
       as subnet, and security groups, monitoring configuration, and instance-level storage. If
@@ -94,6 +95,7 @@ AWS Management Console
 
 5. (Optional) Under **Additional settings**, specify the
    following:
+
    1. **Purchase option** – select On-Demand Instances,
       Spot Instances, an Interruptible Capacity Reservation, or an existing Capacity Block.
       Choose **On-Demand**
@@ -112,6 +114,7 @@ AWS Management Console
 
 6. (Optional) In the **Scheduler configuration** section, you can
    specify the following:
+
    1. **Scale-down idle time** – (Optional) The time in seconds
       before an idle node in this node group is scaled down. If not set, the cluster-level value
       is used. This setting requires Slurm version 25.11 or later.
@@ -224,6 +227,7 @@ There are several optional configuration settings you can add to the
   AWS. For more information on this topic, see [Amazon Machine Images (AMIs) for AWS PCS](working-with_ami.md "working-with_ami.md").
 - Use `--purchase-option` to choose the way AWS PCS purchases EC2 instances
   for your compute node group. On-Demand is the default.
+
   - `ONDEMAND` – Use On-Demand Instances. Also choose this option
     if you plan to use an On-Demand Capacity Reservation (ODCR).
     For more information, see [Using ODCRs with AWS PCS](capacity-reservations-odcr.md "capacity-reservations-odcr.md").

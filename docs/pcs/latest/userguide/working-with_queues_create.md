@@ -27,6 +27,7 @@ AWS Management Console
    **Queues** and choose **Create queue**.
 3. In the **Queue configuration** section, provide the following
    values:
+
    1. **Queue name** – A name for your queue. The name can contain
       only alphanumeric characters (case-sensitive) and hyphens. It must start with an
       alphabetic character and can't be longer than 25 characters. The name must be unique

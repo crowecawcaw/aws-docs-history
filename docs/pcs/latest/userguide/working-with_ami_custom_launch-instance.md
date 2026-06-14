@@ -17,6 +17,7 @@ software and Slurm scheduler. You use this instance to create an AMI compatible 
 6. In the **Key pair** section, select the key pair to use for the
    instance.
 7. In the **Network settings** section:
+
    1. For **Firewall (security groups)**, choose **Select existing
       security group**, then select a security group that allows inbound SSH access to
       your instance.

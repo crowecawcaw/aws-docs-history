@@ -13,6 +13,7 @@ it to a launch template. Here are the steps to do so:
 1. Create a targeted On-Demand Capacity Reservation (ODCR) using the
    [Amazon EC2 Create a Capacity Reservation User Guide](../../../AWSEC2/latest/UserGuide/capacity-reservations-create.md "../../../AWSEC2/latest/UserGuide/capacity-reservations-create.md") .
 2. Associate the ODCR with a launch template. There are two ways to do that:
+
    1. **Direct ODCR association:**
       Reference the ODCR ID directly in the launch template.
       This approach provides strict capacity control and does not support instance backfilling
@@ -26,6 +27,7 @@ it to a launch template. Here are the steps to do so:
 
 3. Create or update an AWS PCS compute node group to use the launch template.
    For more information, see [AWS PCS Compute Node Groups User Guide](working-with_cng.md "working-with_cng.md").
+
    1. Set the `purchaseOption` of the compute node group
       to `ONDEMAND`.
 

@@ -33,6 +33,7 @@ AWS Management Console
 1. Open the AWS PCS console at [https://console.aws.amazon.com/pcs/home#/clusters](https://console.aws.amazon.com/pcs/home#/clusters "https://console.aws.amazon.com/pcs/home#/clusters") and choose **Create
    cluster**.
 2. In the **Cluster setup** section, enter the following fields:
+
    - Cluster name – A name for your cluster. The name can
      contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an
      alphabetic character and can't be longer than 40 characters. The name must be unique
@@ -46,6 +47,7 @@ AWS Management Console
 
 3. In the **Networking** section, select values for the following
    fields:
+
    - Network type – Choose the IP address type for your
      cluster. Your cluster can use either IPv4 or IPv6, but not both. The VPC and subnets must
      use the same network address type. The IP address block you use for each subnet
@@ -98,6 +100,7 @@ AWS CLI
 
 1. Create your cluster with the command that follows. Before running the command, make
    the following replacements:
+
    - Replace `region` with the ID of the AWS Region that you want to
      create your cluster in, such as `us-east-1`.
    - Replace `my-cluster` with a name for your cluster. The name

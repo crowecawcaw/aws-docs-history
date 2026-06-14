@@ -9,12 +9,12 @@ Slurm. For more information about the AWS PCS agent, see [AWS PCS agent versions
    instance.
 2. (Optional) To ensure that all of your software packages are up to date, perform a quick
    software update on your instance. This process may take a few minutes.
+
    - Amazon Linux 2, Amazon Linux 2023, RHEL 9, RHEL 8, Rocky Linux 9, and Rocky Linux 8
 
    ```
    sudo yum update -y
    ```
-
    - Ubuntu 22.04 and Ubuntu 24.04
 
    ```

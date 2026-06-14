@@ -17,6 +17,7 @@ AWS Management Console
    groups)**, choose security groups to attach to the network interface. All
    security groups in the launch template must be from your AWS PCS cluster VPC. At
    minimum, choose:
+
    - A security group that allows communication with the AWS PCS cluster
    - A security group that allows communication between EC2 instances launched by
      AWS PCS
@@ -43,6 +44,7 @@ AWS CLI
 Create your launch template with the command that follows.
 
 - Before running the command, make the following replacements:
+
   1.  Replace `region-code` with the AWS Region where you
       are working with AWS PCS
   2.  Replace `my-launch-template-name` with a name for

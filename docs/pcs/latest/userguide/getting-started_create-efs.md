@@ -14,6 +14,7 @@ between the cluster nodes. Create an EFS file system in the same VPC as your clu
 2. Make sure it's set to the same AWS Region where you will try AWS PCS.
 3. Choose **Create file system**.
 4. On the **Create file system** page, set the following parameters:
+
    - For **Name**, enter `getstarted-efs`
    - Under **Virtual Private Cloud (VPC)**, choose the VPC named
      `hpc-networking:Large-Scale-HPC`

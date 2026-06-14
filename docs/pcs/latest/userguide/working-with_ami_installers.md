@@ -33,6 +33,7 @@ The AWS-provided software installs the following:
 
 - [Slurm](https://slurm.schedmd.com/ "https://slurm.schedmd.com/") at the requested major and maintenance
   version (currently version 25.11.x) - [License GPL 2](https://github.com/SchedMD/slurm?tab=License-1-ov-file "https://github.com/SchedMD/slurm?tab=License-1-ov-file")
+
   - Slurm is built with `--sysconfdir` set to `/etc/slurm`
   - Slurm is built with the option `--enable-pam` and
     `--without-munge`
@@ -41,11 +42,13 @@ The AWS-provided software installs the following:
   - Slurm is installed at `/opt/aws/pcs/schedulers/slurm-25.11`
 
 - [OpenPMIX](https://openpmix.github.io/ "https://openpmix.github.io/") (version 4.2.6) – [License](https://github.com/openpmix/openpmix?tab=License-1-ov-file "https://github.com/openpmix/openpmix?tab=License-1-ov-file")
+
   - OpenPMIX is installed as a subdirectory of `/opt/aws/pcs/scheduler/`
 
 - [libjwt](https://benmcollins.github.io/libjwt/ "https://benmcollins.github.io/libjwt/") (version 1.17.0) –
   [License
   MPL-2.0](https://github.com/benmcollins/libjwt?tab=MPL-2.0-1-ov-file#readme "https://github.com/benmcollins/libjwt?tab=MPL-2.0-1-ov-file#readme")
+
   - libjwt is installed as a subdirectory of `/opt/aws/pcs/scheduler/`
 
 The AWS-provided software changes the system configuration as follows:

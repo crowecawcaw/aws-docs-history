@@ -150,6 +150,7 @@ The path and name for AWS PCS scheduler audit logs depend on the destination
 type.
 
 - **CloudWatch Logs**
+
   - A CloudWatch Logs stream follows this naming convention.
 
   ```
@@ -167,6 +168,7 @@ type.
   ```
 
 - **S3 bucket**
+
   - An S3 bucket output path follows this naming convention:
 
   ```

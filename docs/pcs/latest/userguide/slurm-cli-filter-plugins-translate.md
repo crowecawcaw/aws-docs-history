@@ -17,12 +17,14 @@ Before you translate your script, complete these tasks:
 1. Review your existing Job Submit Plugin script functions (`slurm_job_submit`,
    `slurm_job_modify`).
 2. Identify equivalent CLI Filter Plugin functions:
+
    - `slurm_job_submit` becomes `slurm_cli_pre_submit`
    - Add `slurm_cli_setup_defaults` for default parameter setting
    - Add `slurm_cli_post_submit` for post-submission actions
 
 3. Translate job validation logic from `job_desc` fields to `options`
    array access:
+
    - `job_desc.account` becomes `options["account"]`
    - `job_desc.partition` becomes `options["partition"]`
    - `job_desc.features` becomes `options["constraint"]`

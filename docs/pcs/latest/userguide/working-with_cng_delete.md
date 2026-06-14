@@ -35,6 +35,7 @@ AWS CLI
 ###### To delete a compute node group
 
 - Use the following command to delete a compute node group, with these replacements:
+
   - Replace `region-code` with the AWS Region your cluster is
     in.
   - Replace `my-node-group` with the name or ID of your compute node group.

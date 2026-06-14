@@ -39,6 +39,7 @@ Wait until the cluster has been deleted before proceeding with subsequent steps.
 ###### To delete other AWS resources you created for this tutorial
 
 - Open the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
+
   - Choose **Roles**.
   - Select the role named **AWSPCS-getstarted-role** then choose
     **Delete**.
@@ -47,6 +48,7 @@ Wait until the cluster has been deleted before proceeding with subsequent steps.
     **Delete**.
 
 - Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+
   - Select the stack named **getstarted-lt**.
   - Choose **Delete**.
 
@@ -55,6 +57,7 @@ Wait until the cluster has been deleted before proceeding with subsequent steps.
   Wait for the stack to delete before proceeding.
 
 - Open the [Amazon EFS console](https://console.aws.amazon.com/efs "https://console.aws.amazon.com/efs").
+
   - Choose **File systems**.
   - Select the file system named **getstarted-efs**.
   - Choose **Delete**.
@@ -64,6 +67,7 @@ Wait until the cluster has been deleted before proceeding with subsequent steps.
   Wait for the file system to delete before proceeding.
 
 - Open the [Amazon FSx console](https://console.aws.amazon.com/fsx "https://console.aws.amazon.com/fsx").
+
   - Choose **File systems**.
   - Select the file system named **getstarted-fsx**.
   - Choose **Delete**.
@@ -73,9 +77,11 @@ Wait until the cluster has been deleted before proceeding with subsequent steps.
   Wait for the file system to delete before proceeding.
 
 - Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+
   - Select the stack named **getstarted-sg**.
   - Choose **Delete**.
 
 - Open the [CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+
   - Select the stack named **hpc-networking**.
   - Choose **Delete**.

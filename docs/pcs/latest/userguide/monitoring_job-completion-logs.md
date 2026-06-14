@@ -23,6 +23,7 @@ following.
 - [Prerequisites](monitoring_job-completion-logs.md#monitoring_job-completion-logs_prereqs "monitoring_job-completion-logs.md#monitoring_job-completion-logs_prereqs")
 - [Set up job completion logs](monitoring_job-completion-logs.md#monitoring_job-completion-logs_setup "monitoring_job-completion-logs.md#monitoring_job-completion-logs_setup")
 - [How to find job completion logs](monitoring_job-completion-logs.md#monitoring_job-completion-logs_access "monitoring_job-completion-logs.md#monitoring_job-completion-logs_access")
+
   - [CloudWatch Logs](monitoring_job-completion-logs.md#monitoring_job-completion-logs_access_cloudwatch "monitoring_job-completion-logs.md#monitoring_job-completion-logs_access_cloudwatch")
   - [Amazon S3](monitoring_job-completion-logs.md#monitoring_job-completion-logs_access_s3 "monitoring_job-completion-logs.md#monitoring_job-completion-logs_access_s3")
 

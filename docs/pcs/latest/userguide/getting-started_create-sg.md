@@ -26,6 +26,7 @@ that some options will be pre-populated in the template — you can simply leave
 default values.
 
 - Under **Provide a stack name**
+
   - Under **Stack name**, enter:
 
   ```
@@ -33,6 +34,7 @@ default values.
   ```
 
 - Under **Parameters**
+
   - Under **VpcId**, choose the VPC where the name starts with
     `hpc-networking`.
   - (Optional) Under **ClientIpCidr**, enter a more restrictive IP range

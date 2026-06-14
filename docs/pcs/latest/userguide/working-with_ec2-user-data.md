@@ -25,6 +25,7 @@ A MIME multi-part file consists of the following components:
 boundary="==BOUNDARY=="`
 - The MIME version declaration: `MIME-Version: 1.0`
 - One or more user data blocks that contain the following components:
+
   - The opening boundary that signals the beginning of a user data block:
     `--==BOUNDARY==`. You must keep the line before this boundary blank.
   - The content type declaration for the block: `Content-Type: text/cloud-config;

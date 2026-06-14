@@ -21,12 +21,12 @@ you configure an AWS PCS compute node group to use Elastic Fabric Adapter (EFA).
 
 1. Create a placement group with the type **cluster** for the
    compute node group.
+
    - Use the following AWS CLI command:
 
    ```
    aws ec2 create-placement-group --strategy cluster --group-name `PLACEMENT-GROUP-NAME`
    ```
-
    - You can also use a CloudFormation template to create a placement group. For more
      information, see [Working with CloudFormation
      templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the _AWS CloudFormation User Guide_. Download the template

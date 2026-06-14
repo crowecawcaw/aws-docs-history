@@ -53,6 +53,7 @@ it to a launch template. Here are the steps:
 - **Create or update an AWS PCS compute node group**
   to use the launch template. For more information, see
   [AWS PCS compute node groups](working-with_cng.md "working-with_cng.md").
+
   - Set the `purchaseOption` of the compute node group
     to `INTERRUPTIBLE_CAPACITY_RESERVATION`.
 

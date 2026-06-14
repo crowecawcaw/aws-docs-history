@@ -77,6 +77,7 @@ AWS PCS console
 3. Select the cluster to update.
 4. Choose **Edit** action.
 5. On the Edit cluster page, under **Additional scheduler settings**:
+
    - To enable CLI Filter Plugins: Add a new Slurm custom setting with **Parameter name** set to `CliFilterPlugins` and **Parameter value** set to `cli_filter/lua`.
    - To disable CLI Filter Plugins: Remove the existing `CliFilterPlugins` setting.
 

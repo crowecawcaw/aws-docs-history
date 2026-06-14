@@ -17,11 +17,13 @@ template will provide some default parameter values—you can leave them as
 their default values.
 
 - Under **Provide a stack name**
+
   - Under **Stack name**, enter a descriptive name. We recommend
     incorporating the name you will choose for your AWS PCS compute node group, such as
     ``NODEGROUPNAME`-efa-lt`.
 
 - Under **Parameters**
+
   - Under **NumberOfNetworkCards**, choose the number of network cards in
     the instances that will be in your node group.
   - Under **VpcId**, choose the VPC where your AWS PCS cluster is
@@ -43,6 +45,7 @@ their default values.
     be unique to your AWS account in the AWS Region where you will use AWS PCS.
 
 - Under **Capabilities**
+
   - Check the box for **I acknowledge that AWS CloudFormation might create IAM
     resources**.
     Monitor the status of the CloudFormation stack. When it reaches

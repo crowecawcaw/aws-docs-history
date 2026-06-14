@@ -11,6 +11,7 @@ After the status of the `login` compute node group becomes
 - Navigate to the compute node group named `login`.
 - Find the **Compute node group ID**.
 - In another browser window or tab, open the [Amazon EC2 console](https://console.aws.amazon.com/ec2 "https://console.aws.amazon.com/ec2").
+
   - Choose **Instances**.
   - Search for EC2 instances with the following tag. Replace `node-group-id` with the value of
     the **Compute node group ID** from the previous step. There should be 1 instance.
@@ -18,7 +19,6 @@ After the status of the `login` compute node group becomes
   ```
   aws:pcs:compute-node-group-id=`node-group-id`
   ```
-
   - Connect to the EC2 instance. You can use Session Manager or SSH.
 
   Session Manager

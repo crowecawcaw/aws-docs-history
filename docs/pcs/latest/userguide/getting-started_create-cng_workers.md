@@ -11,10 +11,12 @@ submitted to the cluster.
 - Navigate to **Compute node groups** and choose
   **Create**.
 - In the **Compute node group setup** section, provide the following:
+
   - **Compute node group name** – Enter
     `compute-1`.
 
 - Under **Computing configuration**, enter or select these values:
+
   - **EC2 launch template** – Choose the launch template where the
     name is `compute-getstarted-lt`
   - **IAM instance profile** – Choose the instance profile named
@@ -27,6 +29,7 @@ submitted to the cluster.
     `4`.
 
 - Under **Additional settings**, specify the following:
+
   - **AMI ID** – Select an AMI you want to use, that has a name in the following format:
 
   ```

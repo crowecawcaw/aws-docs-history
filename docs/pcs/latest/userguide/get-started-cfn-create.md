@@ -10,6 +10,7 @@ reference](../../../AWSCloudFormation/latest/UserGuide/AWS_PCS.md "../../../AWSC
 ###### To create the sample cluster
 
 1. Choose the AWS Region to create the cluster in (the link opens the CloudFormation console with the template):
+
    - [US East (N. Virginia) (us-east-1)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=get-started-cfn&templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/pcs/getting_started/assets/cluster.yaml&param_ClientIpCidr=0.0.0.0%2F0 "https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=get-started-cfn&templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/pcs/getting_started/assets/cluster.yaml¶m_ClientIpCidr=0.0.0.0%2F0")
    - [US East (Ohio) (us-east-2)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?stackName=get-started-cfn&templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/pcs/getting_started/assets/cluster.yaml&param_ClientIpCidr=0.0.0.0%2F0 "https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/review?stackName=get-started-cfn&templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/pcs/getting_started/assets/cluster.yaml¶m_ClientIpCidr=0.0.0.0%2F0")
    - [US West (Oregon) (us-west-2)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=get-started-cfn&templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/pcs/getting_started/assets/cluster.yaml&param_ClientIpCidr=0.0.0.0%2F0 "https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=get-started-cfn&templateURL=https://s3.amazonaws.com/aws-hpc-recipes/main/recipes/pcs/getting_started/assets/cluster.yaml¶m_ClientIpCidr=0.0.0.0%2F0")
@@ -33,6 +34,7 @@ reference](../../../AWSCloudFormation/latest/UserGuide/AWS_PCS.md "../../../AWSC
    This is the name for your CloudFormation stack. The template uses this value
    as the name for your AWS PCS cluster.
 3. Under **Parameters**:
+
    1. Under **SlurmVersion**, choose the version of
       Slurm you want your cluster to use.
    2. Under **NodeArchitecture**, choose
@@ -54,6 +56,7 @@ reference](../../../AWSCloudFormation/latest/UserGuide/AWS_PCS.md "../../../AWSC
    their default values.
 
 4. Under **Capabilities and transforms**:
+
    1. Select the checkbox to acknowledge that CloudFormation
       will create IAM resources.
    2. Select the checkbox to acknowledge that CloudFormation

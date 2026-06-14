@@ -48,10 +48,12 @@ https://aws-hpc-recipes.s3.amazonaws.com/main/recipes/pcs/enable_efa/assets/efa-
 With the template open in the AWS CloudFormation console, enter the following options.
 
 - Under **Provide a stack name**
+
   - Under **Stack name**, enter a name such as
     `efa-sg-stack`.
 
 - Under **Parameters**
+
   - Under **SecurityGroupName**, enter a name such as
     `efa-sg`.
   - Under **VPC**, select the VPC where you will use AWS PCS.

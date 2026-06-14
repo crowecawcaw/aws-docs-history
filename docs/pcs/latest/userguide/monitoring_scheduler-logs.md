@@ -134,6 +134,7 @@ The `${log_name}` value in the paths below is `slurmctld`,
 produced the log.
 
 - **CloudWatch Logs**
+
   - A CloudWatch Logs stream follows this naming convention.
 
   ```
@@ -149,6 +150,7 @@ produced the log.
   ```
 
 - **S3 bucket**
+
   - An S3 bucket output path follows this naming convention:
 
   ```
@@ -162,7 +164,6 @@ produced the log.
   AWSLogs/111111111111/PCS/us-east-2/abcdef0123/slurmdbd/24.11/2024/09/01/00/
   AWSLogs/111111111111/PCS/us-east-2/abcdef0123/slurmrestd/25.05/2024/09/01/00/
   ```
-
   - An S3 object name follows this convention:
 
   ```

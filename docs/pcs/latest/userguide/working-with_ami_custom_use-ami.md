@@ -22,6 +22,7 @@ New compute node group
 5. (Optional) Confirm the AMI supports instance launches. Launch an instance in the
    compute node group. You can do this by configuring the compute node group to have a single
    static instance, or you can submit a job to a queue that uses the compute node group.
+
    1. Check the Amazon EC2 console until an instance appears tagged with the new compute node
       group ID. For more information on this, see [Finding compute node group instances in AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md")..
    2. When you see an instance launch and complete its bootstrap process, confirm it is
@@ -48,6 +49,7 @@ Existing compute node group
 5. (Optional) Confirm the AMI supports instance launches. Launch an instance in the
    compute node group. You can do this by configuring the compute node group to have a single
    static instance, or you can submit a job to a queue that uses the compute node group.
+
    1. Check the Amazon EC2 console until an instance appears tagged with the new compute node
       group ID. For more information on this, see [Finding compute node group instances in AWS PCS](working-with_compute-instances.md "working-with_compute-instances.md")..
    2. When you see an instance launch and complete its bootstrap process, confirm it is

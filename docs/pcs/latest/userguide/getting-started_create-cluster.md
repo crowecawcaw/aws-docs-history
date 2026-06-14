@@ -10,11 +10,13 @@ new or existing VPC. The cluster accepts and schedules jobs, and also launches t
 1. Open the [AWS PCS console](https://console.aws.amazon.com/pcs/home#/clusters "https://console.aws.amazon.com/pcs/home#/clusters") and
    choose **Create cluster**.
 2. In the **Cluster details** section, enter the following fields:
+
    - **Cluster name** – Enter `get-started`
    - **Scheduler** – Select **Slurm Version 25.11**
    - **Controller size** – Select **Small**
 
 3. In the **Networking** section, select values for the following fields:
+
    - **VPC** – Choose the VPC named
      `hpc-networking:Large-Scale-HPC`
    - **Subnet** – Select the subnet where the name starts with

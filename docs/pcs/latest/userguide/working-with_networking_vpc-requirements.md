@@ -17,6 +17,7 @@ considerations:
   addressing for your VPCs and subnets](../../../eks/latest/userguide/network_reqs.md#network-requirements-vpc "../../../eks/latest/userguide/network_reqs.md#network-requirements-vpc") in the
   _Amazon VPC User Guide_.
 - If your cluster uses IPv6:
+
   - Associate an IPv6 CIDR block with your VPC. For more information, see
     [Create a VPC](../../../vpc/latest/userguide/create-vpc.md "../../../vpc/latest/userguide/create-vpc.md") in the _Amazon VPC User Guide_.
 
@@ -25,6 +26,7 @@ considerations:
   Although you can configure your VPC with both IPv4 and IPv6, you can only choose 1 network type for your cluster.
   - Enable **auto-assign IPv6 address** for your subnets.
   - For more information, see:
+
     - [IPv6 on AWS](../../../whitepapers/latest/ipv6-on-aws/IPv6-on-AWS.md "../../../whitepapers/latest/ipv6-on-aws/IPv6-on-AWS.md")
     - [Understanding
       IPv6 addressing on AWS and designing a scalable addressing plan](https://aws.amazon.com/blogs/networking-and-content-delivery/understanding-ipv6-addressing-on-aws-and-designing-a-scalable-addressing-plan "https://aws.amazon.com/blogs/networking-and-content-delivery/understanding-ipv6-addressing-on-aws-and-designing-a-scalable-addressing-plan")

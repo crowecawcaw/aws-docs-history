@@ -18,9 +18,11 @@ shell commands and manage Slurm jobs.
 - Navigate to **Compute node groups** and choose
   **Create**.
 - In the **Compute node group setup** section, provide the following:
+
   - **Compute node group name** – Enter `login`.
 
 - Under **Computing configuration**, enter or select these values:
+
   - **EC2 launch template** – Choose the launch template where the
     name is `login-getstarted-lt`
   - **IAM instance profile** – Choose the instance profile named
@@ -33,6 +35,7 @@ shell commands and manage Slurm jobs.
     `1`.
 
 - Under **Additional settings**, specify the following:
+
   - **AMI ID** – Select an AMI you want to use, that has a name in the following format:
 
   ```

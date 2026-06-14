@@ -13,6 +13,7 @@ With the template open in the CloudFormation console, enter the following option
 use the default values provided in the template.
 
 - Under **Provide a stack name**:
+
   - Under **Stack name**, enter:
 
   ```
@@ -20,7 +21,9 @@ use the default values provided in the template.
   ```
 
 - Under **Parameters**:
+
   - Under **VPC**:
+
     - Under **CidrBlock**, enter:
 
     ```
@@ -28,12 +31,12 @@ use the default values provided in the template.
     ```
 
   - Under **Subnets A**:
+
     - Under **CidrPublicSubnetA**, enter:
 
     ```
     10.3.0.0/20
     ```
-
     - Under **CidrPrivateSubnetA**, enter:
 
     ```
@@ -41,12 +44,12 @@ use the default values provided in the template.
     ```
 
   - Under **Subnets B**:
+
     - Under **CidrPublicSubnetB**, enter:
 
     ```
     10.3.16.0/20
     ```
-
     - Under **CidrPrivateSubnetB**, enter:
 
     ```
@@ -54,13 +57,13 @@ use the default values provided in the template.
     ```
 
   - Under **Subnets C**:
+
     - For **ProvisionSubnetsC**, select **True**
     - Under **CidrPublicSubnetC**, enter:
 
     ```
     10.3.32.0/20
     ```
-
     - Under **CidrPrivateSubnetC**, enter:
 
     ```
@@ -82,6 +85,7 @@ To find the ID for the default security group in the new VPC, follow this proced
 
 - Navigate to the [Amazon VPC console](https://console.aws.amazon.com/vpc "https://console.aws.amazon.com/vpc").
 - Under the **VPC Dashboard**, select **Filter by VPC**.
+
   - Choose the VPC where the name starts with `hpc-networking`.
   - Under **Security**, choose **Security groups**.
 

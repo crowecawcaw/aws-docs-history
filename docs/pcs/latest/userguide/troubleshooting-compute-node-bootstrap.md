@@ -19,26 +19,33 @@ process of joining the AWS PCS cluster. The bootstrap process includes two main 
 - **Node registration** – The EC2 instance calls the
   [RegisterComputeNodeGroupInstance](../APIReference/API_RegisterComputeNodeGroupInstance.md "../APIReference/API_RegisterComputeNodeGroupInstance.md") AWS PCS API action to register with the AWS PCS service.
   Failures can occur due to problems in the following:
+
   - Permissions
+
     - [Wrong instance profile](#troubleshooting-compute-node-bootstrap-wrong-instance-profile "#troubleshooting-compute-node-bootstrap-wrong-instance-profile")
 
   - Networking
+
     - [Can't connect to AWS PCS endpoints](#troubleshooting-compute-node-bootstrap-connect-to-endpoints "#troubleshooting-compute-node-bootstrap-connect-to-endpoints")
     - [Misconfigured AWS PCS endpoint](#troubleshooting-compute-node-bootstrap-misconfigured-pcs-endpoint "#troubleshooting-compute-node-bootstrap-misconfigured-pcs-endpoint")
     - [Instance in a public subnet without public IP](#troubleshooting-compute-node-bootstrap-public-subnet-no-public-ip "#troubleshooting-compute-node-bootstrap-public-subnet-no-public-ip")
     - [Multi-NIC instance in a public subnet](#troubleshooting-compute-node-bootstrap-multi-nic-public-subnet "#troubleshooting-compute-node-bootstrap-multi-nic-public-subnet")
 
   - Cluster secret
+
     - [Cluster secret has been deleted or marked for deletion](#troubleshooting-compute-node-bootstrap-cluster-secret-deleted "#troubleshooting-compute-node-bootstrap-cluster-secret-deleted")
 
 - **Slurm integration** – The instance runs
   `slurmd` and joins the Slurm cluster. Failures can occur due to problems in the
   following:
+
   - Permissions
+
     - [Security group configuration](#troubleshooting-compute-node-bootstrap-security-groups "#troubleshooting-compute-node-bootstrap-security-groups")
     - [Slurmctld unable to ping compute node](#troubleshooting-compute-node-bootstrap-slurmctld-ping-issue "#troubleshooting-compute-node-bootstrap-slurmctld-ping-issue")
 
   - Custom AMI setup
+
     - [Missing NVIDIA drivers](#troubleshooting-compute-node-bootstrap-missing-nvidia-drivers "#troubleshooting-compute-node-bootstrap-missing-nvidia-drivers")
     - [ResumeTimeout reached](#troubleshooting-compute-node-bootstrap-resume-timeout "#troubleshooting-compute-node-bootstrap-resume-timeout")
 
@@ -63,6 +70,7 @@ The following steps occur in AWS PCS job processing:
 2. **When additional capacity is needed, AWS PCS uses the launch template
    for the compute node group to launch new EC2 instances.**
 3. **New instances bootstrap into the cluster:**
+
    1. **Instances register with AWS PCS.**
    2. **Instances join the Slurm cluster.**
 

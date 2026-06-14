@@ -93,6 +93,7 @@ AWS CLI
 
 1. Update your compute node group with the command that follows. Before running the
    command, make the following replacements:
+
    1. Replace `region-code` with the AWS Region that you want to
       create your cluster in.
    2. Replace `my-node-group` with the name or

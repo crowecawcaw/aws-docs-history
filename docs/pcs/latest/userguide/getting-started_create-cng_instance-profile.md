@@ -12,6 +12,7 @@ Amazon EC2, which also creates the instance profile for your compute node groups
 
 - Navigate to the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam").
 - Under **Access management**, choose **Policies**.
+
   - Choose **Create policy**.
   - Under **Specify permissions**, for **Policy editor**,
     choose **JSON**.
@@ -34,7 +35,6 @@ Amazon EC2, which also creates the instance profile for your compute node groups
   }`
 
   ```
-
   - Choose **Next**.
   - Under **Review and create**, for **Policy name**, enter
     `AWSPCS-getstarted-policy`.
@@ -43,15 +43,18 @@ Amazon EC2, which also creates the instance profile for your compute node groups
 - Under **Access management**, choose **Roles**.
 - Choose **Create role**.
 - Under **Select trusted entity**:
+
   - For **Trusted entity type**, select **AWS
     service**
   - Under **Use case**, select **EC2**.
+
     - Then, under **Choose a use case** for the specified service, choose
       **EC2**.
 
   - Choose **Next**.
 
 - Under **Add permissions**:
+
   - In **Permissions policies**, search for **AWSPCS-getstarted-policy**.
   - Check the box beside **AWSPCS-getstarted-policy** to add it to the role.
   - In **Permissions policies**, search for **AmazonSSMManagedInstanceCore**.
@@ -59,7 +62,9 @@ Amazon EC2, which also creates the instance profile for your compute node groups
   - Choose **Next**.
 
 - Under **Name, review, and create**:
+
   - Under **Role details**:
+
     - For **Role name**, enter `AWSPCS-getstarted-role`.
 
   - Choose **Create role**.

@@ -15,6 +15,7 @@ in the _AWS General Reference_.
 
 - [Service endpoints](service-endpoints-quotas.md#service-endpoints-quotas_endpoints "service-endpoints-quotas.md#service-endpoints-quotas_endpoints")
 - [Service quotas](service-endpoints-quotas.md#service-endpoints-quotas_quotas "service-endpoints-quotas.md#service-endpoints-quotas_quotas")
+
   - [Internal quotas](service-endpoints-quotas.md#service-endpoints-quotas_internal "service-endpoints-quotas.md#service-endpoints-quotas_internal")
   - [Relevant quotas for other AWS services](service-endpoints-quotas.md#service-endpoints-quotas_other "service-endpoints-quotas.md#service-endpoints-quotas_other")
 
