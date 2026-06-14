@@ -132,6 +132,7 @@ The following fields are optional for segments.
 ###### Optional Segment Fields
 
 - `service` – An object with information about your application.
+
   - `version` – A string that identifies the version of your application that served the
     request.
 
@@ -366,6 +367,7 @@ information found in an HTTP request and response.
 All fields are optional.
 
 - `request` – Information about a request.
+
   - `method` – The request method. For example, `GET`.
   - `url` – The full URL of the request, compiled from the protocol, hostname, and path
     of the request.
@@ -383,6 +385,7 @@ All fields are optional.
     block.
 
 - `response` – Information about a response.
+
   - `status` – **integer** indicating the HTTP status of
     the response.
   - `content_length` – **integer** indicating the length of
@@ -579,21 +582,25 @@ All fields are optional.
 - `account_id` – If your application sends segments to a different AWS account, record the
   ID of the account running your application.
 - `cloudwatch_logs` – Array of objects that describe a single CloudWatch log group.
+
   - `log_group` – The CloudWatch Log Group name.
   - `arn` – The CloudWatch Log Group ARN.
 
 - `ec2` – Information about an Amazon EC2 instance.
+
   - `instance_id` – The instance ID of the EC2 instance.
   - `instance_size` – The type of EC2 instance.
   - `ami_id` – The Amazon Machine Image ID.
   - `availability_zone` – The Availability Zone in which the instance is running.
 
 - `ecs` – Information about an Amazon ECS container.
+
   - `container` – The hostname of your container.
   - `container_id` – The full container ID of your container.
   - `container_arn` – The ARN of your container instance.
 
 - `eks` – Information about an Amazon EKS cluster.
+
   - `pod` – The hostname of your EKS pod.
   - `cluster_name` – The EKS cluster name.
   - `container_id` – The full container ID of your container.
@@ -601,6 +608,7 @@ All fields are optional.
 - `elastic_beanstalk` – Information about an Elastic Beanstalk environment. You can find this
   information in a file named `/var/elasticbeanstalk/xray/environment.conf` on the latest
   Elastic Beanstalk platforms.
+
   - `environment_name` – The name of the environment.
   - `version_label` – The name of the application version that is currently deployed to
     the instance that served the request.
@@ -608,6 +616,7 @@ All fields are optional.
     last successful deployment to the instance that served the request.
 
 - `xray` – Metadata about the type and version of instrumentation used.
+
   - `auto_instrumentation` – Boolean indicating whether auto-instrumentation was used (for example, the Java Agent).
   - `sdk_version` – The version of SDK or agent being used.
   - `sdk` – The type of SDK.

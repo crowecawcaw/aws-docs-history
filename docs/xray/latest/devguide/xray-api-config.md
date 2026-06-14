@@ -23,6 +23,7 @@ based on the state of the `XrayEncryptionConfig` resource.
 2. Choose **Blueprints**, and then filter the blueprints library for the
    **config-rule-change-triggered** blueprint. Either click the link in the blueprint's name or choose **Configure** to continue.
 3. Define the following fields to configure the blueprint:
+
    - For **Name**, type a name.
    - For **Role**, choose **Create new role from template(s)**.
    - For **Role name**, type a name.
@@ -82,6 +83,7 @@ When the Lambda function is created, note the function's ARN, and go to the AWS 
 3. In **AWS Lambda Function ARN**, insert the ARN associated with the Lambda function you want
    to use.
 4. Choose the type of trigger to set:
+
    - **Configuration changes** – AWS Config triggers the evaluation when any
      resource that matches the rule's scope changes in configuration. The evaluation runs after AWS Config sends a
      configuration item change notification.

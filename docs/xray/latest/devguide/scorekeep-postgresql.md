@@ -30,7 +30,7 @@ it generates. Navigate to the `/#/xray` path in the running application or choos
 **Powered by AWS X-Ray** in the navigation bar to see the demo
 page.
 
-![](images/scorekeep-demo.png)
+![AWS X-Ray integration demo page showing game session tracing and SQL query tracing options.](images/scorekeep-demo.png)
 Choose **Trace SQL queries** to simulate game sessions and store the
 results in the attached database. Then, choose **View traces in AWS X-Ray**
 to see a filtered list of traces that hit the API's `/api/history` route.
@@ -38,4 +38,4 @@ to see a filtered list of traces that hit the API's `/api/history` route.
 Choose one of the traces from the list to see the timeline, including the SQL
 query.
 
-![](images/scorekeep-trace-sql.png)
+![Timeline view of a trace showing method, response, duration, and age for a GET request.](images/scorekeep-trace-sql.png)

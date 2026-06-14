@@ -196,11 +196,6 @@ spawns a new thread.
   `127.0.0.1:2000`. Use this variable if you have configured the daemon to
   [listen on a different port](xray-daemon-configuration.md "xray-daemon-configuration.md") or if it is running on
   a different host.
-- `AWS_XRAY_CONTEXT_MISSING` – Set the value to determine how the SDK handles missing
-  context errors. Errors related to missing segments or subsegments can occur when you attempt to use an
-  instrumented client in the startup code when no request is open, or in code that spawns a new thread.
-  - `RUNTIME_ERROR` – By default, the SDK is set to throw a runtime exception.
-  - `LOG_ERROR` – Set to log an error and continue.
 
 Environment variables override equivalent values set in code.
 

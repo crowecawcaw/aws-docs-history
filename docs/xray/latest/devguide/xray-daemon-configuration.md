@@ -136,11 +136,13 @@ using the `-c` option.
   documents.
 - `Region` – Send segments to AWS X-Ray service in a specific region.
 - `Socket` – Configure the daemon's binding.
+
   - `UDPAddress` – Change the port on which the daemon listens.
   - `TCPAddress` – Listen for [calls to the X-Ray
     service](xray-api-sampling.md "xray-api-sampling.md") on a different TCP port.
 
 - `Logging` – Configure logging behavior.
+
   - `LogRotation` – Set to `false` to disable log rotation.
   - `LogLevel` – Change the log level, from most verbose to least: `dev`,
     `debug`, `info` or `prod`, `warn`, `error`, `prod`. The

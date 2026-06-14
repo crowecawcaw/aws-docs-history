@@ -183,10 +183,12 @@ Field definitions are below:
 
 - `version` – Schema version for the configuration file
 - `anomalyConditions` – Defines the conditions under which anomalies are detected and how they are used
+
   - `errorCodeRegex` – Regular expression defining which HTTP status codes are considered anomalies
   - `operations` – List of operations or endpoints to which the condition applies
   - `highLatencyMs` – Latency threshold (in milliseconds) above which spans are treated as anomalies
   - `usage` – Defines which feature the condition applies to:
+
     - `both` – Applies to **sampling boost** and **anomaly span capture** (Default if usage is not specified)
     - `sampling-boost` – Used only for triggering sampling boosts
     - `anomaly-span-capture` – Used only for anomaly span capture
@@ -200,11 +202,13 @@ Field definitions are below:
 - `AnomalyConditions` **overrides** the default anomaly condition for sampling boost (HTTP 5xx). If you want to retain the default condition while using local configuration, you must explicitly include it in any item
   of `AnomalyConditions`.
 - For each `anomalyConditions` item:
+
   - When the `operations` field is **omitted**, the condition applies to **all operations** (service level)
   - When the `operations` field is present but set to an **empty list**, the condition applies to **no operations**, making that item a no-op
   - When both `errorCodeRegex` and `highLatencyMs` are omitted, the condition has no anomaly criteria to evaluate, making that item a no-op
 
 - Logical relationships:
+
   - Between items in `anomalyConditions`, the relationship is **OR**.
   - Within a single item, multiple fields (for example, `errorCodeRegex` and `highLatencyMs`) are combined with **AND**.
 

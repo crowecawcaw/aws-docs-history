@@ -72,6 +72,7 @@ page.
 4. Choose **Event pattern**, and then choose **Custom pattern**.
    Provide a pattern containing `"source": [ "aws.xray" ]` and `"detail-type": [ "AWS X-Ray
 Insight Update" ]`. The following are some examples of possible patterns.
+
    - Event pattern to match all incoming events from X-Ray insights:
 
    ```
@@ -80,7 +81,6 @@ Insight Update" ]`. The following are some examples of possible patterns.
    "detail-type": [ "AWS X-Ray Insight Update" ]
    }
    ```
-
    - Event pattern to match a specified `state` and
      `category`:
 

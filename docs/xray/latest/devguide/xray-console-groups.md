@@ -99,6 +99,7 @@ CloudWatch console
 1. Sign in to the AWS Management Console and open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. Open one of the following pages from the navigation pane under **X-Ray traces**:
+
    - **Trace Map**
    - **Traces**
 
@@ -110,6 +111,7 @@ X-Ray console
 1. Sign in to the AWS Management Console and open the X-Ray console at
    [https://console.aws.amazon.com/xray/home](https://console.aws.amazon.com/xray/home "https://console.aws.amazon.com/xray/home").
 2. Open one of the following pages from the navigation pane:
+
    - **Trace Map**
    - **Traces**
    - **Analytics**
@@ -150,10 +152,12 @@ X-Ray console
 1. Sign in to the AWS Management Console and open the X-Ray console at
    [https://console.aws.amazon.com/xray/home](https://console.aws.amazon.com/xray/home "https://console.aws.amazon.com/xray/home").
 2. Do one of the following to open the **Edit group** page.
+
    1. On the **Groups** page, choose the name of a group to edit
       it.
    2. On the group menu on one of the following pages, point to a group, and then choose
       **Edit**.
+
       - **Trace Map**
       - **Traces**
       - **Analytics**

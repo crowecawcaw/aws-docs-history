@@ -59,11 +59,11 @@ var document = AWSXRay.getSegment();
 document.addAnnotation("mykey", "my value");
 ```
 
-The following example shows how to call `putAnnotation` with a String key
+The following example shows how to call `addAnnotation` with a String key
 that includes a dot, and a Boolean, Number, or String value.
 
 ```
-document.putAnnotation("testkey.test", "my value");
+document.addAnnotation("testkey.test", "my value");
 ```
 
 The SDK records annotations as key-value pairs in an `annotations` object in the segment document.

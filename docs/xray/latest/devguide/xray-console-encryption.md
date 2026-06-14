@@ -38,6 +38,7 @@ CloudWatch console
 4. Choose **Edit** in the **Encryption configuration** section.
 5. Choose **Use a KMS key**.
 6. Choose a key from the dropdown menu:
+
    - **aws/xray** – Use the AWS managed key.
    - _key alias_ – Use a customer managed key in your account.
    - **Manually enter a key ARN** – Use a customer managed key in a different
@@ -53,6 +54,7 @@ X-Ray console
 2. Choose **Encryption**.
 3. Choose **Use a KMS key**.
 4. Choose a key from the dropdown menu:
+
    - **aws/xray** – Use the AWS managed key.
    - _key alias_ – Use a customer managed key in your account.
    - **Manually enter a key ARN** – Use a customer managed key in a different

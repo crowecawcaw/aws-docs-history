@@ -63,6 +63,7 @@ console contains the following features for instrumented applications:
   for response time distribution.
 - Configuration – Create customized traces to change the default
   configurations for the following:
+
   - Sampling – Create a rule that defines how often to sample
     your application for trace information. For more information, see
     **Configure sampling rules** in

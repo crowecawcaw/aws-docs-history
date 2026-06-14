@@ -29,8 +29,8 @@ segment objects, convert them to JSON documents, and send them to the daemon ove
 Gradle build fails, you can find the error message by clicking on the
 **scorekeep-build** node in the X-Ray console trace map.
 
-![](images/scorekeep-servicemap-builderror.png)
+![Scorekeep-build node showing average duration of 14.8 seconds and 0.07 transactions per minute.](images/scorekeep-servicemap-builderror.png)
 
-![](images/scorekeep-timeline-builderror.png)
+![Trace details showing a 14.6 second duration request with timeline visualization.](images/scorekeep-timeline-builderror.png)
 
-![](images/scorekeep-exception-builderror.png)
+![Exceptions tab showing build failure with error about missing ElasticBeanstalkPlugin symbol.](images/scorekeep-exception-builderror.png)

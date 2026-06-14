@@ -8,6 +8,7 @@ This guide shows you how to interact with X-Ray with the following guidelines:
 
 - Use an AWS Management Console if you want to get started quickly or can use pre-built
   visualizations to perform basic tasks.
+
   - Choose the Amazon CloudWatch console for the most updated user experience that
     contains all of the X-Ray console’s functionality.
   - Use the X-Ray console if you want a simpler interface or don’t want to
@@ -15,6 +16,7 @@ This guide shows you how to interact with X-Ray with the following guidelines:
 
 - Use an SDK if you need more custom tracing, monitoring or logging capabilities
   than an AWS Management Console can provide.
+
   - Choose the ADOT SDK if you want a vendor-agnostic SDK based
     on the open source OpenTelemetry SDK with added layers of
     AWS security and optimization.

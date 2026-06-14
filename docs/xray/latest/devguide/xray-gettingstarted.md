@@ -9,6 +9,7 @@ To use X-Ray, take the following steps:
 
 1. Instrument your application, which allows X-Ray to track how your application processes
    a request.
+
    - Use the X-Ray SDKs, X-Ray APIs, ADOT or CloudWatch Application Signals to
      send trace data to X-Ray. For more information about which interface to use, see [Choosing an interface](aws-xray-interface.md "aws-xray-interface.md").
      For more information about instrumentation, see [Instrumenting your application for AWS X-Ray](xray-instrumenting-your-app.md "xray-instrumenting-your-app.md").
@@ -19,6 +20,7 @@ To use X-Ray, take the following steps:
 3. Deploy your instrumented application. As your application receives requests, the X-Ray SDK will
    record trace, segment and subsegment data. In this step, you might also have to set up an
    IAM policy and deploy an agent or collector.
+
    - For example scripts to deploy an application using the AWS Distro for OpenTelemetry (ADOT) SDK and the CloudWatch agent on different
      platforms, see [Application Signals Demo Scripts](https://github.com/aws-observability/application-signals-demo/tree/main/scripts "https://github.com/aws-observability/application-signals-demo/tree/main/scripts").
    - For an example script to deploy an application using the X-Ray SDK and the X-Ray daemon, see [AWS X-Ray sample application](xray-scorekeep.md "xray-scorekeep.md").

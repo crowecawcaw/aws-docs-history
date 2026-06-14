@@ -279,6 +279,7 @@ public class WebConfig {
 
 3. Deploy the CloudWatch agent to collect metrics using Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service (Amazon ECS), or
    Amazon Elastic Kubernetes Service (Amazon EKS):
+
    - To configure Amazon EC2, see [Installing the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md").
    - To configure Amazon ECS, see [Monitor Amazon ECS
      containers using Container Insights](../../../AmazonECS/latest/developerguide/cloudwatch-container-insights.md "../../../AmazonECS/latest/developerguide/cloudwatch-container-insights.md").

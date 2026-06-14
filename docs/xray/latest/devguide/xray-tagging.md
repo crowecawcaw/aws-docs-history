@@ -20,6 +20,7 @@ You can apply tags to resources by using the X-Ray console, API, AWS CLI, SDKs, 
 AWS Tools for Windows PowerShell. For more information, see the following documentation:
 
 - X-Ray API – See the following operations in the _AWS X-Ray API Reference_:
+
   - [ListTagsForResource](../api/API_ListTagsForResource.md "../api/API_ListTagsForResource.md")
   - [CreateSamplingRule](../api/API_CreateSamplingRule.md "../api/API_CreateSamplingRule.md")
   - [CreateGroup](../api/API_CreateGroup.md "../api/API_CreateGroup.md")

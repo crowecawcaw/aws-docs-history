@@ -334,6 +334,7 @@ Code changes vary by language and library. Refer to the language-specific migrat
 To use OpenTelemetry in your Lambda functions, choose one of these setup options:
 
 1. Use an auto-instrumentation Lambda Layer:
+
    - (Recommended) [AWS Lambda Layer for OpenTelemetry](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md")
 
    ###### Note
@@ -342,6 +343,7 @@ To use OpenTelemetry in your Lambda functions, choose one of these setup options
    - [AWS managed Lambda Layer for ADOT](https://aws-otel.github.io/docs/getting-started/lambda "https://aws-otel.github.io/docs/getting-started/lambda")
 
 2. Manually set up OpenTelemetry for your Lambda function:
+
    - Configure a Simple Span Processor with an X-Ray UDP Span Exporter
    - Set up an X-Ray Lambda propagator
 
@@ -459,6 +461,7 @@ For installation instructions, see [Installing the CloudWatch agent on an on-pre
 
 1. Create a configuration file to enable trace collection. For more information, see [Creating the CloudWatch agent configuration file](AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file.md "AmazonCloudWatch/latest/monitoring/create-cloudwatch-agent-configuration-file.md").
 2. Set up IAM permissions:
+
    - Attach an IAM role or specify credentials for the agent. For more information, see [Setting up IAM roles](AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-commandline-fleet.md#install-CloudWatch-Agent-iam_permissions-first "AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-commandline-fleet.md#install-CloudWatch-Agent-iam_permissions-first").
    - Make sure the role or credentials include the `xray:PutTraceSegments` permission.
 
@@ -563,9 +566,11 @@ Stop any existing X-Ray Daemon container before running the CloudWatch agent or 
 ```
 
 3. Store the configuration in Systems Manager Parameter Store:
+
    1. Open the [https://console.aws.amazon.com/systems-manager/](https://console.aws.amazon.com/systems-manager/ "https://console.aws.amazon.com/systems-manager/")
    2. Choose **Create parameter**
    3. Enter the following values:
+
       - Name: `/ecs/cwagent/otel-config`
       - Tier: Standard
       - Type: String
@@ -633,6 +638,7 @@ For more information, see [Deploying the CloudWatch agent to collect Amazon EC2 
 2. Create a configuration file called `otel-collector-config.yaml` using the same content as shown in the **Amazon EC2 configuring the collector** section, but update the endpoints to use `0.0.0.0` instead of `127.0.0.1`.
 3. To use this configuration in Amazon ECS, you can store the configuration in Systems Manager Parameter Store. First, go to Systems Manager Parameter Store console, and choose **Create new parameter** .
    Create a new parameter with the following information:
+
    - Name: /ecs/otel/config (this name will be referenced in the Task Definition for the Collector)
    - Tier: Standard
    - Type: String

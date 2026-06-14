@@ -55,6 +55,7 @@ When configuring sampling rules, it is critical to understand that X-Ray samplin
 If a downstream service receives a request that already has a sampling decision from an upstream parent, it will honor that decision regardless of any of its own matching sampling rules.
 
 - When Rules Apply: Your custom sampling rules only take effect on services where a sampling decision has not yet been made. This usually applies to:
+
   - The entry point of your application (e.g., an API Gateway, a Load Balancer, or the first instrumented Microservice).
   - Asynchronous processes or workers that start a brand new trace.
 
@@ -97,11 +98,13 @@ The following options are available for each rule. String values can use wildcar
   percentage between 0 and 100. When configuring a sampling rule in a client SDK using a JSON document, provide
   a percentage value between 0 and 1.
 - **Service name** (string) – The name of the instrumented service, as it appears in the trace map.
+
   - X-Ray SDK – The service name that you configure on the recorder.
   - Amazon API Gateway – ``api-name`/`stage``.
 
 - **Service type** (string) – The service type, as it appears in the trace map.
   For the X-Ray SDK, set the service type by applying the appropriate plugin:
+
   - `AWS::ElasticBeanstalk::Environment` – An AWS Elastic Beanstalk environment (plugin).
   - `AWS::EC2::Instance` – An Amazon EC2 instance (plugin).
   - `AWS::ECS::Container` – An Amazon ECS container (plugin).
@@ -113,19 +116,23 @@ The following options are available for each rule. String values can use wildcar
 - **Host** (string) – The hostname from the HTTP host header.
 - **HTTP method** (string) – The method of the HTTP request.
 - **URL path** (string) – The URL path of the request.
+
   - X-Ray SDK – The path portion of the HTTP request URL.
 
 - **Resource ARN** (string) – The ARN of the AWS resource running the
   service.
+
   - X-Ray SDK – Not supported. The SDK can only use rules with **Resource ARN** set to `*`.
   - Amazon API Gateway – The stage ARN.
 
 - (Optional) **Attributes** (key and value) – Segment attributes that are known when
   the sampling decision is made.
+
   - X-Ray SDK – Not supported. The SDK ignores rules that specify attributes.
   - Amazon API Gateway – Headers from the original HTTP request.
 
 - (Optional) **SamplingRateBoost** (object) – Controls anomaly-driven sampling boost behavior.
+
   - MaxRate (integer between 0 and 100) – Maximum sampling rate (0.0–1.0) X-Ray may increase to during anomalies
   - CooldownWindowMinutes (integer greater than 0) – Time window (minutes) in which only one boost can be triggered, preventing continuous boosts
 

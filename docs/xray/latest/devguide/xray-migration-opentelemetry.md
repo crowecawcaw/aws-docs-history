@@ -472,6 +472,7 @@ To manually instrument your Lambda handler and the Amazon S3 client, do the foll
 
 1. Replace your function classes that implement `RequestHandler` (or RequestStreamHandler) with those that extend `TracingRequestHandler` (or TracingRequestStreamHandler).
 2. Instantiate a TracerProvider and globally register an OpenTelemetrySdk object. The TracerProvider is recommended to be configured with:
+
    1. A Simple Span Processor with an X-Ray UDP span exporter to send Traces to Lambda’s UDP X-Ray endpoint
    2. A ParentBased always on sampler (Default if not configured)
    3. A Resource with service.name set to the Lambda function name

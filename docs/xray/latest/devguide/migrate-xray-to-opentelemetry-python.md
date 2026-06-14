@@ -382,6 +382,7 @@ see [Enable your applications on Lambda](../../../AmazonCloudWatch/latest/monito
 
 - Find the required Lambda layer ARN for your function from [AWS Lambda Layer for OpenTelemetry ARNs](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md#Enable-Lambda-Layers "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Application-Signals-Enable-LambdaMain.md#Enable-Lambda-Layers") and add it.
 - Set the following environment variables for your function.
+
   - `AWS_LAMBDA_EXEC_WRAPPER=/opt/otel-instrument` – This loads the auto-instrumentation for the function
   - `OTEL_AWS_APPLICATION_SIGNALS_ENABLED=false` – This will disable Application Signals monitoring
 

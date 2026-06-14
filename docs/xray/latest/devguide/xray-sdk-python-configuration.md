@@ -220,6 +220,7 @@ You can use environment variables to configure the X-Ray SDK for Python. The SDK
 - `AWS_XRAY_TRACING_NAME` – Set a service name that the SDK uses for segments. Overrides the service name that you set programmatically.
 - `AWS_XRAY_SDK_ENABLED` – When set to `false`, disables the SDK. By default,
   the SDK is enabled unless the environment variable is set to false.
+
   - When disabled, the global recorder automatically generates dummy segments and subsegments that are not
     sent to the daemon, and automatic patching is disabled. Middlewares are written as a wrapper over the
     global recorder. All segment and subsegment generation through the middleware also become dummy segment

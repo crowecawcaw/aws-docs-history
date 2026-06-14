@@ -357,6 +357,7 @@ gem 'opentelemetry-propagator-xray', '~> 0.24.0' # Requires version v0.24.0 or h
 ```
 
 2. Initialize OpenTelemetry SDK outside your Lambda Handler. The OpenTelemetry SDK is recommended to be configured with:
+
    1. A simple span processor with an X-Ray UDP span exporter to send Traces to Lambda's UDP X-Ray endpoint
    2. An X-Ray Lambda propagator
    3. `service_name` configuration to be set to the Lambda function name

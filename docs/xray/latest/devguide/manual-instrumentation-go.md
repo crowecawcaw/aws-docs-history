@@ -389,6 +389,7 @@ func main() {
 To manually instrument your Lambda handler and the Amazon S3 client, do the following:
 
 1. In _main()_, instantiate a TracerProvider (tp) and register it as the global tracer provider. The TracerProvider is recommended to be configured with:
+
    1. Simple Span Processor with an X-Ray UDP span exporter to send Traces to Lambda's UDP X-Ray endpoint
    2. Resource with _service.name_ set to the Lambda function name
 

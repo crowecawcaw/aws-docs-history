@@ -34,6 +34,7 @@ through the tutorial:
 
 1. If you use an IAM user with limited permissions, add the following user policies in
    the [IAM console](https://console.aws.amazon.com/iam "https://console.aws.amazon.com/iam"):
+
    - `AWSCloudFormationFullAccess` – to access and use
      CloudFormation
    - `AmazonS3FullAccess` – to upload a template file to CloudFormation
