@@ -8,13 +8,16 @@ instructions.
 1. Create a `CreateJob` request of type
    `EXPORT_ASSETS_TO_S3`.
 2. Include the following in the request:
+
    - `AssetDestinations`
+
      - `AssetID`
      - `Bucket`
      - `Key`
 
    - `DataSetID`
    - `Encryption`
+
      - `KmsKeyArn`
      - `Type`
 

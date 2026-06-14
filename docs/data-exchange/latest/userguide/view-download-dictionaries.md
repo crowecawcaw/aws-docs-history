@@ -15,6 +15,7 @@ For more information about data dictionaries and samples, see [Data dictionaries
    set.
 4. On the data set details page, choose the **Data dictionary**
    tab.
+
    - View the data dictionary on the **Data dictionary** tab.
    - Download the data dictionary by choosing **Download** and then
      saving the file to your computer.

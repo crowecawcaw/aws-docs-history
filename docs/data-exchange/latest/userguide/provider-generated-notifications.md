@@ -18,6 +18,7 @@ Using provider-generated notifications, you do the following to help your subscr
 2. From the left navigation pane, choose **Send notification**.
 3. Select your **Notification type** from the dropdown menu. Notification
    types include:
+
    - **Data update** – the data source has been updated.
    - **Data delay** – the data source hasn’t updated as
      expected.

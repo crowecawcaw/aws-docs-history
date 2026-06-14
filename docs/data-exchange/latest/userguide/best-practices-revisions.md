@@ -7,6 +7,7 @@ revisions.
 - _Historical revision options_ – Historical revisions are
   revisions that you published prior to the subscription start date. You have three options
   for historical revisions:
+
   - **All pre-existing revisions published prior to subscription**
     – Give your subscribers access to all historical revisions.
   - **A fixed number of trailing revisions published prior to
@@ -20,6 +21,7 @@ revisions.
 - _Future revision options_ – Future revisions are revisions
   that you publish after subscription start. You have two options for future
   revisions:
+
   - **All future revisions published during subscription duration**
     – Give your subscribers access to all revisions that you publish until their
     subscription expires.

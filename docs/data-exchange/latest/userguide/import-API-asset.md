@@ -20,6 +20,7 @@ SDKs:
 1. Create a `CreateJob` request of type
    `IMPORT_ASSET_FROM_API_GATEWAY_API`.
 2. Include the following in the request:
+
    - `ApiID`
    - `DataSetID`
    - `ProtocolType`
@@ -43,6 +44,7 @@ SDKs:
    you want to update.
 4. On the **Revisions** tab, choose **Create
    revision** to open the **Create revision** page.
+
    1. For **Revision settings**, provide an optional comment for
       your revision that describes the purpose of the revision.
    2. For **Add tags – optional**, add tags associated with the
@@ -57,6 +59,7 @@ SDKs:
    API** and the **Stage name** from your AWS account or
    another account.
 7. For **Document API for subscribers**:
+
    1. Update the **API name** to a clear and concise name that
       subscribers can understand.
    2. Document the OpenAPI 3.0 specification by entering the specification in the

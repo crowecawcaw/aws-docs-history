@@ -29,6 +29,7 @@ revision using the console or the AWS Data Exchange API. For more information, s
    associated with a published product.
 5. From the **Revisions** tab, choose **Create
    revision** to open the **Create revision** page.
+
    1. (Optional) Under **Revision settings**, provide an optional
       comment for your revision that describes the purpose of the revision.
    2. (Optional) Under **Add tags – optional**, add tags associated
@@ -41,6 +42,7 @@ revision using the console or the AWS Data Exchange API. For more information, s
    Amazon S3** or **Upload** (to upload from your computer),
    depending on if the assets you want to include are stored in an Amazon S3 bucket you own or on
    your local computer.
+
    1. Follow the prompts, depending on your selection. A job is started to import your
       asset into your data set.
    2. After the job is finished, the **State** field in the

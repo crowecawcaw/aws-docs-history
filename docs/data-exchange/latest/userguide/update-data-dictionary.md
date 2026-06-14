@@ -11,6 +11,7 @@ and then uploading a new one.
 4. Choose the **Data sets and details** tab.
 5. In the **Data dictionaries and samples** table, select the
    **Manage attachments** action button.
+
    1. In the **Data dictionaries** table, choose **Remove**, and then choose **Remove** again in the confirmation modal.
 
    The data dictionary is removed. 2. In the **Data dictionaries** table, choose **Add**. 3. Choose **Upload data dictionary**. 4. Select a new data dictionary and then click **Open**. 5. Choose **Confirm**.

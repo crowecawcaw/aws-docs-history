@@ -53,6 +53,7 @@ AWS Data Exchange console. For more information, see [Revisions](data-sets.md#re
 
 1. On the **Data set overview** section of the data set details
    page:
+
    1. (Optional) Choose **Edit name** to edit information about your
       data set.
    2. (Optional) Choose **Delete** to delete the data set.

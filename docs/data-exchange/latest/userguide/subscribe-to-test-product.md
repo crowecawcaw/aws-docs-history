@@ -13,6 +13,7 @@ Worldwide Event Attendance (Test Product).
 Product)` and press **Enter**.
 4. Choose the **Worldwide Event Attendance (Test Product)** to
    view its details page.
+
    1. (Optional) To view the data dictionary, scroll down to the product
       **Overview** section to see the data dictionary
       under **Data dictionaries**.

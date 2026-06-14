@@ -15,6 +15,7 @@ assume the role:
   to complete the following actions on the specified resources:
 
 - Actions:
+
   - `organizations:DescribeOrganization`
   - `organizations:DescribeAccount`
   - `organizations:ListAccounts`

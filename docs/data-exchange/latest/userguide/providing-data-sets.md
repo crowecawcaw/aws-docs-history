@@ -16,6 +16,7 @@ At a high level, this is how to list AWS Data Exchange data products on AWS Mark
 4. **Provider creates a product and its offer** –
    To create a product, you must provide product details, include one or more data
    sets, and optionally provide public offer details. For more information, see [Publishing a new product in AWS Data Exchange](publishing-products.md "publishing-products.md").
+
    - **Products containing Files (Amazon S3 Objects)**
      – When an owned data set containing Amazon S3 objects is published in a
      product, AWS Data Exchange creates a copy of the data set. Subscribers can access that

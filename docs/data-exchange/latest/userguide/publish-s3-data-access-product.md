@@ -422,6 +422,7 @@ options:
    the selected Amazon S3 locations. Your shared Amazon S3 bucket needs a bucket policy
    in place to create an Amazon S3 data access data set successfully and can’t have
    ACLs enabled.
+
    1. To disable ACLs, navigate to your bucket permissions and set
       **Object Ownership** to **Bucket owner
       enforced**.
@@ -436,6 +437,7 @@ options:
    must share all such KMS keys with AWS Data Exchange. For information about required
    prerequisites when using KMS keys to encrypt objects in your
    Amazon S3 bucket, see [Publishing a product in AWS Data Exchange containing Amazon S3 data access](publish-s3-data-access-product.md "publish-s3-data-access-product.md"). To share these KMS keys with AWS Data Exchange, do the following:
+
    1. From the **Configure Amazon S3 data access** page, in
       **Customer managed KMS keys**, select
       **Choose from your AWS KMS keys** or

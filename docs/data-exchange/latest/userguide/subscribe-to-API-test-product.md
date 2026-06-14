@@ -13,6 +13,7 @@ AWS Data Exchange for APIs (Test Product).
    **Enter**.
 4. Choose the **AWS Data Exchange for APIs (Test Product)** and view its
    details page.
+
    1. (Optional) To download the sample, choose the **Data
       dictionary and samples** tab, choose the option button next
       to the sample name (**ADX for APIs sample.json**), and

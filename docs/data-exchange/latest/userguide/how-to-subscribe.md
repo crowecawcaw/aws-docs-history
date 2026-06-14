@@ -13,6 +13,7 @@ AWS Data Exchange Heartbeat.
    **Enter**.
 4. Choose the **AWS Data Exchange Heartbeat** product to view its details
    page.
+
    1. (Optional) To view the data dictionary, scroll down to the product
       **Overview** section to see the data dictionary
       under **Data dictionaries**.

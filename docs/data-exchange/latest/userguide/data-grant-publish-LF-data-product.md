@@ -59,6 +59,7 @@ the data you want to share to grant recipients permissions to the data.
    **Values**.
 3. Choose **Preview resource(s)** to view how your LF-Tags are
    interpreted.
+
    1. From **Preview resource(s)**, select your **Associated data
       catalog resource(s)**.
 
@@ -170,6 +171,7 @@ sets (Preview).
 - We recommend that you don’t revoke granted AWS Lake Formation data permissions from IAM roles
   passed to AWS Data Exchange in data grants containing AWS Lake Formation data sets. If you revoke granted
   data permissions from such IAM roles, the following issues occur:
+
   - AWS accounts that have access to the Lake Formation data permissions might retain access
     indefinitely.
   - AWS accounts that subscribe to your product but have not yet received access to the

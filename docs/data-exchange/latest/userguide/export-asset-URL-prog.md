@@ -8,6 +8,7 @@ buckets.
 1. Create a `CreateJob` request of type
    `EXPORT_ASSET_TO_SIGNED_URL`.
 2. Include the following in the request:
+
    - `AssetID`
    - `DataSetID`
    - `RevisionID`

@@ -22,6 +22,7 @@ AWS Data Exchange console:
    grant and to view all data sets shared with your account.
 7. Next, use the included data sets. You can take any of the following actions depending on
    the type of data set you have access to:
+
    1. Export the associated files to your Amazon Simple Storage Service (Amazon S3) or locally through a signed
       URL.
    2. Call the Amazon API Gateway API.

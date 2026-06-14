@@ -139,6 +139,7 @@ You can call a single endpoint in the AWS Data Exchange console.
 4. Under the **Revisions** tab, choose a revision.
 5. Under **API assets**, choose the API.
 6. For **Integration notes**:
+
    1. Choose **Copy** to use the **Base
       URL**.
    2. Choose **Copy** to use the **Code

@@ -10,6 +10,7 @@ After you publish a product, you can update the samples in AWS Marketplace Manag
 4. Choose the **Data sets and details** tab.
 5. In the **Data dictionaries and samples** table, select the
    **Manage attachments** action button.
+
    1. In the **Data samples** table, choose **Add sample**.
    2. Select **Upload data sample** and select a data set a sample from your computer, and then choose **Open**.
    3. (Optional) Enter a description for each sample that will be visible on the product detail page.

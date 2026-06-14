@@ -13,6 +13,7 @@ AWS Data Exchange for Lake Formation (Test Product). (Preview)
    choose **Enter**.
 4. Choose **AWS Data Exchange for Lake Formation (Test Product)** to view its details
    page.
+
    1. (Optional) To view the data dictionary, scroll down to the product
       **Overview** section to see the data dictionary under
       **Data dictionaries**.

@@ -12,12 +12,14 @@ To create a private offer for a data product:
 2. Go to the **Data Products** page and select your product.
 3. On the **Getting started** tab, select **Create offer** and **Private offer**.
 4. On the **Offer details** page, do the following:
+
    1. Enter the offer name and description.
    2. Select the renewal option.
    3. Set the offer expiration date. Offers expire at 23:59:59 UTC on the set date.
 
 5. Choose **Next** twice.
 6. On the **Configure offer pricing and duration** page, specify the following:
+
    1. Pricing option
    2. Contract duration
    3. Offer currency

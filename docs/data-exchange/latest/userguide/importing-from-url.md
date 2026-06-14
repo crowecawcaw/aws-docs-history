@@ -14,6 +14,7 @@ You can use signed URLs to import assets that are not stored in Amazon S3.
 1. Create a `CreateJob` request of type
    `IMPORT_ASSET_FROM_SIGNED_URL`.
 2. Include the following in the request:
+
    - `AssetName`
    - `DataSetID`
    - `Md5Hash`
@@ -42,6 +43,7 @@ after it's created.
    you want to update.
 4. On the **Revisions** tab, choose **Create
    revision** to open the **Create revision** page.
+
    1. For **Revision settings**, provide an optional comment for
       your revision that describes the purpose of the revision.
    2. For **Add tags – optional**, add tags associated with the

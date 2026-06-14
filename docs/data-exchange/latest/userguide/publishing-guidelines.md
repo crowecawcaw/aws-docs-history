@@ -65,6 +65,7 @@ information.
    way, the prohibited product is removed from AWS Data Exchange and you might be suspended from the
    service.
 9. If you're listing an API data set in a product:
+
    - You must first integrate your API with Amazon API Gateway. For more information about how to
      integrate your REST API with API Gateway, see [Working with REST APIs](../../../apigateway/latest/developerguide/apigateway-rest-api.md "../../../apigateway/latest/developerguide/apigateway-rest-api.md") in the _API Gateway Developer Guide_.
    - You must respond to support-related questions from subscribers about the data

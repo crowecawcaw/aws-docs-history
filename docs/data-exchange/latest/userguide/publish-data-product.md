@@ -57,6 +57,7 @@ in the AWS Data Exchange console. For more information, see [Revisions](data-set
 
 1. On the **Data set overview** section of the data set
    details page:
+
    1. (Optional) Choose **Edit name** to edit
       information about your data set.
    2. (Optional) Choose **Delete** to delete the data
@@ -157,16 +158,19 @@ When listing your data product in AWS Marketplace, providing comprehensive and a
 
 1. Choose the AWS Region in which the data sets are located.
 2. In the **Owned data sets** section, select the check boxes next to the data sets you want to add. The data sets you choose must have a finalized revision. Data sets without finalized revisions can't be added.
+
    1. Go to **Added data sets** to review your selections.
    2. You can review the **Name** of the data set, the **Type** of data set, and the timestamp of when the data set was **Last updated**.
    3. Go to **Revision access rule settings**, choose the revision access rules that you want to set for data sets included in this product. For more details, see [Revision access rules in AWS Data Exchange](best-practices-revisions.md "best-practices-revisions.md").
 
 3. (Optional) In the **Data dictionaries** section, select a data set and choose **Add dictionary**.
+
    1. Choose **Upload data dictionary** to upload a new data dictionary.
 
    You can choose one data dictionary, in .csv format, with a maximum size of 1 MB. 2. Choose a saved data dictionary from your computer, and then choose **Open**. Your data dictionary must conform to the AWS Data Exchange data dictionary template. If you don't have a saved data dictionary to upload, you can choose either the **blank data dictionary template** link or the **example data dictionary** link in the AWS Data Exchange console. For more details, see [Data dictionaries in AWS Data Exchange](data-dictionaries-pro.md "data-dictionaries-pro.md").
 
 4. (Optional) Under **Data samples**, choose **Add sample** and select the data set to which you want to provide samples.
+
    1. Select **Upload data sample** and select a data set a sample from your computer, and then choose **Open**.
    2. (Optional) Enter a description for each sample that will be visible on the product detail page.
    3. Choose **Add sample**. You can upload up to 10 samples with a maximum size of 50 MB. Samples in .csv format can be previewed. For more details, see [Sample data in AWS Data Exchange](samples-pro.md "samples-pro.md").

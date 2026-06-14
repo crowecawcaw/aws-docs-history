@@ -11,6 +11,7 @@ assume the role:
   to complete the following actions on the specified resources:
 
 - Actions:
+
   - `organizations:DescribeOrganization`
   - `license-manager:ListDistributedGrants`
   - `license-manager:GetGrant`

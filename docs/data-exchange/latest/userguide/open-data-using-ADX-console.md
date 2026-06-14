@@ -19,8 +19,10 @@ The process has the following steps:
 2. In the left navigation pane, for **Subscribed with AWS Marketplace**, choose
    **Browse catalog**.
 3. For **Refine results**, do one of the following:
+
    1. For the **Affiliated programs** filter, select one or both of the
       following options:
+
       - **AWS Open Data Sponsorship Program**
       - **Amazon Sustainability Data Initiative**
 

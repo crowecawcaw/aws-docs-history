@@ -33,6 +33,7 @@ Jobs have the following properties:
   created that uniquely identifies the job.
 - **Job type** – The following job types are
   supported:
+
   - Import from Amazon S3
   - Import an AWS Lake Formation
     data

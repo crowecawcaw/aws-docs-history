@@ -8,10 +8,12 @@ To create a new public offer:
 4. Choose **Generate offer ID**.
 5. Choose **Continue to wizard**.
 6. On the **Provide offer information** page, add an offer name.
+
    1. (Optional) Add an offer description
    2. Acknowledge and agree to enable **Subscription verification**, which enables you to control who can subscribe to this product. Choose **Next**. For more information, see Subscription verification for providers in AWS Data Exchange.
 
 7. On the **Configure offer pricing and duration** page, specify the following:
+
    1. Pricing option
    2. Contract duration
    3. Offer currency

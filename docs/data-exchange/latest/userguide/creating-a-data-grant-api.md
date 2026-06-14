@@ -54,6 +54,7 @@ AWS Data Exchange doesn't support Amazon Cognito, No-Auth, and AWS Lambda author
   and include subscriber information such as account ID.
 - Your API Gateway REST API is responsible for integrating with your backend. To do this, do one
   of the following:
+
   - Attach a long-lived authentication token to every request that comes through your
     API Gateway REST API that the backend can verify.
   - Use API Gateway to invoke a Lambda function that can generate credentials and invoke your
@@ -226,6 +227,7 @@ You use either the AWS Data Exchange console or the AWS Command Line Interface t
 
 1. On the **Data set overview** section of the data set details
    page:
+
    1. (Optional) Choose **Edit name** to edit information about your data
       set.
    2. (Optional) Choose **Delete** to delete the data set.
@@ -291,6 +293,7 @@ You use either the AWS Data Exchange console or the AWS CLI to add assets to a r
    **Add API stage**.
 2. Under **Select API stage**, for **Amazon API Gateway API**,
    enter an API in the input box or choose one of the following from the drop-down list:
+
    - **API in another AWS account** – this is a cross account API
      that you have been given permission to access.
    - **In this AWS account** – this is an API in your

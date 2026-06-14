@@ -25,6 +25,7 @@ As a subscriber, you can accept a private offer as follows.
    page to choose between **All products**, **Private
    products**, or **Public products**.
 4. Select the offer to which you want to subscribe.
+
    1. Under **Custom offers**, view the **API metered
       costs** (if included).
    2. (Optional) In the **Metered cost calculator**, choose

@@ -10,7 +10,9 @@ analyzing, and operationalizing third-party Amazon Redshift tables after subscri
 1. Create a `CreateJob` request of type
    `IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES`.
 2. Include the following in the request:
+
    - `AssetSources`
+
      - `DataShareArn`
 
    - `DataSetID`
@@ -33,6 +35,7 @@ analyzing, and operationalizing third-party Amazon Redshift tables after subscri
    you want to update.
 4. On the **Revisions** tab, choose **Create
    revision** to open the **Create revision** page.
+
    1. For **Revision settings**, provide an optional comment for
       your revision that describes the purpose of the revision.
    2. For **Add tags – optional**, add tags associated with the

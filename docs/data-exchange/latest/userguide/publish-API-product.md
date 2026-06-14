@@ -84,6 +84,7 @@ authorizers.
   account ID.
 - Your API Gateway REST API is responsible for integrating with your backend. To
   do this, do one of the following:
+
   - Attach a long-lived authentication token to every request that
     comes through your API Gateway REST API that the backend can
     verify.
@@ -271,6 +272,7 @@ revision:
 
 1. On the **Data set overview** section of the data set
    details page:
+
    1. (Optional) Choose **Edit name** to edit
       information about your data set.
    2. (Optional) Choose **Delete** to delete the
@@ -341,6 +343,7 @@ You use either the AWS Data Exchange console or the AWS CLI to add assets to a r
 2. Under **Select API stage**, for **Amazon API Gateway
    API**, enter an API in the input box or choose one of the
    following from the drop-down list:
+
    - **API in another AWS account** – this
      is a cross account API that you have been given permission to
      access.
@@ -571,6 +574,7 @@ AWS Marketplace Catalog API, see [Using AWS Data Exchange with the AWS Marketpla
     product** to open the **Publish new
     product** wizard.
 3.  In **Product visibility**:
+
     1. Choose your product's **Product visibility
        options** as either **Public** or
        **Private**.
@@ -584,6 +588,7 @@ AWS Marketplace Catalog API, see [Using AWS Data Exchange with the AWS Marketpla
     For more information, see [Sensitive categories of information in AWS Data Exchange](sensitive-information.md "sensitive-information.md"). 3. Choose **Next**.
 
 4.  In **Add data**:
+
     1. Under **Owned data sets**, select the check
        boxes next to the data sets you want to add, and then choose
        **Add selected**.
@@ -603,6 +608,7 @@ AWS Marketplace Catalog API, see [Using AWS Data Exchange with the AWS Marketpla
     For more information, see [Revision access rules in AWS Data Exchange](best-practices-revisions.md "best-practices-revisions.md"). 4. Choose **Next**.
 
 5.  In **Define product**:
+
     1. Under **Product overview**, enter information
        about your product, including the **Product
        name**, **Product logo**,
@@ -773,6 +779,7 @@ All AWS Data Exchange products with visibility set to **Public** require a publi
 
 9. In the **Review & publish** section, review your
    product information.
+
    1. Expand the **Product page preview** to see
       how the product page will look after publication.
    2. (Optional) Choose the **Edit** button in any

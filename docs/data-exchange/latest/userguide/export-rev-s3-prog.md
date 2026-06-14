@@ -7,12 +7,15 @@ following instructions.
 
 1. Create a `CreateJob` request of type `EXPORT_REVISIONS_TO_S3`.
 2. Include the following in the request:
+
    - `DataSetId`
    - `Encryption`
+
      - `KmsKeyArn`
      - `Type`
 
    - `RevisionDestinations`
+
      - `Bucket`
      - `KeyPattern`
      - `RevisionId`

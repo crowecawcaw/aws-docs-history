@@ -19,7 +19,9 @@ You can import up to 100 assets in a single job.
 1. Create a `CreateJob` request of type
    `IMPORT_ASSETS_FROM_S3`.
 2. Include the following in the request:
+
    - `AssetSources`
+
      - `Bucket`
      - `Key`
 
@@ -41,6 +43,7 @@ You can import up to 100 assets in a single job.
    you want to update.
 4. On the **Revisions** tab, choose **Create
    revision** to open the **Create revision** page.
+
    1. For **Revision settings**, provide an optional comment for
       your revision that describes the purpose of the revision.
    2. For **Add tags – optional**, add tags associated with the

@@ -60,6 +60,7 @@ A data product has the following parts:
 - **Product details** – This information
   includes name, descriptions (both short and long), data samples, a logo image,
   and support contact information. Providers complete the product details.
+
   - For more information as a subscriber, see [Product subscriptions in AWS Data Exchange](product-subscriptions.md "product-subscriptions.md").
   - For more information as a provider, see [Product best practices in AWS Data Exchange](product-details.md "product-details.md").
 
@@ -68,6 +69,7 @@ A data product has the following parts:
   product available in the public AWS Marketplace Catalog, providers must define a public
   offer. This offer includes prices and durations, data subscription agreement,
   refund policy, and the option to create custom offers.
+
   - For more information as a subscriber, see [Accepting private products and offers in AWS Data Exchange](subscribe-to-private-offer.md "subscribe-to-private-offer.md") and [Accepting Bring Your Own Subscription (BYOS) offers in AWS Data Exchange](subscribe-to-byos-offer.md "subscribe-to-byos-offer.md")
   - For more information as a provider, see [Creating an offer for AWS Data Exchange products](prepare-offers.md "prepare-offers.md").
 
@@ -76,6 +78,7 @@ A data product has the following parts:
   provider and contains the data assets a receiver will gain access to after
   accepting a data grant. AWS Data Exchange supports five types of data sets: Files, API,
   Amazon Redshift, Amazon S3, and AWS Lake Formation (Preview).
+
   - For more information as a subscriber, see [Data sets and revisions](product-subscriptions.md#product-sub-revisions "product-subscriptions.md#product-sub-revisions").
   - For more information as a provider, see [Data in AWS Data Exchange](data-sets.md "data-sets.md").
 
@@ -116,6 +119,7 @@ options:
   console](https://console.aws.amazon.com/dataexchange "https://console.aws.amazon.com/dataexchange") (**Publish data**)
 - Data providers with data products available in AWS Marketplace can access
   programmatically using the following APIs:
+
   - **AWS Data Exchange API** – Use the API
     operations to create, view, update, and delete data sets and
     revisions. You can also use these API operations to import and

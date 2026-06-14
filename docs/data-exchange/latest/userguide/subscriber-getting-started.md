@@ -44,6 +44,7 @@ If the provider has issued a private oﬀer to your account, the product is avai
    **Categories** to browse specific data products.
 6. (Optional) Under **Refine results**, use the **Data set
    type** filter and select from the following options to find products:
+
    - **Files (Amazon S3 Objects)** – Products containing file-based
      data
    - **Amazon Redshift** – Products containing Amazon Redshift datashares
@@ -72,6 +73,7 @@ recommendations from the [AWS Data Exchange Data Discovery Team](https://aws.ama
    **Details**, enter a **Data description**.
 4. (Optional) Expand **Additional details - optional** and complete the
    fields as directed.
+
    1. Select one or more **Product categories**.
    2. Enter an **Example data product URL**.
    3. For **Data set type**, choose from **Files (Amazon S3
@@ -119,6 +121,7 @@ A provider can add one data dictionary per data set that you can view.
 1. On the product detail page, choose the **Data dictionary and
    samples** tab.
 2. View the data dictionary in one of the following ways:
+
    - Scroll down to the product **Overview** section to see the data
      dictionary under **View data dictionaries**.
    - Choose the **Data dictionaries and samples** tab, expand a data
@@ -170,6 +173,7 @@ The .csv file is downloaded to your computer. 4. Choose **Close** to close the d
    set name)
 3. Choose the option button next to a sample name.
 4. Choose **Preview sample (CSV only)** to preview the sample.
+
    1. (Optional) In the preview dialog box, choose **Download** to
       download the .csv file.
 

@@ -11,6 +11,7 @@ provider-generated notifications:
 
 1. Create a target for the Amazon EventBridge rule. For a simple Lambda function in Python do the
    following:
+
    1. Navigate to the AWS Lambda console.
    2. Choose **Create function** and select **Author from
       scratch**.
@@ -36,6 +37,7 @@ provider-generated notifications:
    optional **Description**. Make sure the **Rule** type is
    **Rule with an event pattern**.
 5. Choose **Next**.
+
    1. Make sure the **Event source** is **AWS events** or
       **EventBridge partner events**. Under **Creation method**,
       select **Custom pattern** (JSON editor). Under **Event
@@ -49,6 +51,7 @@ provider-generated notifications:
    ```
 
 6. Choose **Next**.
+
    1. For **Target 1**, select **AWS service** and choose
       **Lambda function**.
    2. For the **function**, select the function created in Step 1. Complete

@@ -16,17 +16,23 @@ include the following abilities:
 1. Create a `CreateJob` request of type
    `Import_Assets_From_Lake_Formation_Tag_Policy`.
 2. Include the following in the request:
+
    - `AssetSources`
+
      - `CatalogId`
      - `Database`
+
        - `Expression`
+
          - `TagKey`
          - `TagValues`
 
        - `Permissions`
 
      - `Table`
+
        - `Expression`
+
          - `TagKey`
          - `TagValues`
 
@@ -53,6 +59,7 @@ include the following abilities:
    you want to update.
 4. On the **Revisions** tab, choose **Create
    revision** to open the **Create revision** page.
+
    1. For **Revision settings**, provide an optional comment for
       your revision that describes the purpose of the revision.
    2. For **Add tags – optional**, add tags associated with the
@@ -65,6 +72,7 @@ include the following abilities:
    LF-Tag**.
 6. Choose the **Key** and **Values** that you want
    to add and choose **Add LF-Tag**.
+
    1. (Optional) Choose **Preview Resource(s)** to view the
       associated data catalog resources that you are granting permission.
 

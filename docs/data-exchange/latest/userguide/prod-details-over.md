@@ -98,6 +98,7 @@ websites in your AWS Data Exchange product description.
 6. From **Product Description**, use the following Markdown formats to
    link to relevant files (using the URL link you copied previously) or to another URL,
    like your website.
+
    - To link to a file stored in an S3 bucket:
 
    \*\*\_[`File name`](`Object URL from

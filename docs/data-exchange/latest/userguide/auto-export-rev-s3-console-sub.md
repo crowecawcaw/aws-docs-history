@@ -149,6 +149,7 @@ For more information, see [Prerequisites for S3 bucket policy permissions](#auto
 6. In **Add auto-export job destination**, choose either the
    **Simple** or **Advanced** destination
    option.
+
    1. If you choose the **Simple** option, select the Amazon S3 bucket
       folder destination from the dropdown list and the encryption options, and then
       choose **Add bucket destination**.
@@ -196,18 +197,25 @@ For more information, see [Prerequisites for S3 bucket policy permissions](#auto
 
 1. Create a `Create_Event_Action` request.
 2. Include the following in the request:
+
    - `Action`
+
      - `ExportRevisionToS3`
+
        - `Encryption`
+
          - `KmsKeyArn`
          - `Type`
 
      - `RevisionDestination`
+
        - `Bucket`
        - `KeyPattern`
 
    - `Event`
+
      - `RevisionPublished`
+
        - `DataSetId`
 
    - `Tags`
