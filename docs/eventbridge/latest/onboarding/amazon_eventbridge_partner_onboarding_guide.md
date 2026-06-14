@@ -102,14 +102,17 @@ arn:aws:events:us-east-2:000000000101:event-bus/aws.partner/partner_x/acct1/repo
 Event sources can be in one of the following states. From the partner side, this state can be found on the event source account rather than the event source itself.
 
 - Nonexistent (∅)
+
   - The event source either has never been created, has been deleted, or has expired.
   - Rejects events.
 
 - PENDING
+
   - The event source was recently created.
   - Accepts events.
 
 - ACTIVE
+
   - The AWS customer has created the corresponding partner event bus.
   - Accepts events.
 
@@ -120,20 +123,24 @@ The following diagram shows the relationship between these states.
 From the AWS customer side, event sources can be in one of the following states.
 
 - Non-existent (∅), event bus does not exist
+
   - The event source either has never been created, has been deleted, or has expired
   - Rejects events sent by partner
 
 - PENDING, event bus does not exist
+
   - The event source was recently created
   - Visible to both the partner and the AWS customer
   - Accepts events sent by partner, but does not deliver them to customer
 
 - ACTIVE, event bus exists
+
   - The AWS customer created the corresponding partner event bus
   - Accepts events sent by the partner and delivers them to customer-defined
     rules
 
 - DELETED, event bus exists
+
   - After the event source became ACTIVE, the partner deleted it
   - Informs the AWS customer that the partner is no longer set up to send
     events
@@ -143,6 +150,7 @@ From the AWS customer side, event sources can be in one of the following states.
   - Rejects events sent by partner
 
 - PENDING, event bus exists
+
   - After the event source became DELETED, the partner re-created it
   - Allows the partner to recreate the corresponding event source without
     unexpectedly resurrecting a partner event bus along with any

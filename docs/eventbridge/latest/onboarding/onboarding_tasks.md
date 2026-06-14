@@ -6,11 +6,13 @@ As a one-time registration step, the partner must provide AWS with the following
 
 - DNS fully qualified domain that the partner owns. AWS will append .test at the end of the domain for testing purposes.
 - Development/testing:
+
   - A list of Regions to support
   - A list of accounts to publish events
   - A list of accounts to consume events
 
 - Production:
+
   - A list of Regions to support
   - A list of accounts to publish events
 
@@ -23,6 +25,7 @@ The partner updates their user experience to enable the SaaS administrator to cr
 - User specifies an event generator, an AWS account ID, and a Region in which they want the event source to be created.
 - Perform any required authentication checks to ensure that the SaaS administrator has appropriate permissions on the event generator, as determined by the partner.
 - Call the [`CreatePartnerEventSource`](../APIReference/API_CreatePartnerEventSource.md "../APIReference/API_CreatePartnerEventSource.md") API using the Region supplied by the customer. Specify the event generator and the AWS account ID, using the partner’s AWS credentials.
+
   - To avoid incorrect delivery of events, the event generator name must be unique within the SaaS system. For example, if two SaaS customers set up an event bus for an event generator named "my-channel", then the event generator name should include additional disambiguating information, such as an account ID: “1234.my-channel”.
 
 ### Best practices
@@ -38,6 +41,7 @@ The partner updates their backend system to push events to AWS.
 - When an event is generated, check the persistent data store to determine whether a partner event source exists for the resource that generated this event. If not, do nothing.
 - Call the [`PutPartnerEvents`](../APIReference/API_PutPartnerEvents.md "../APIReference/API_PutPartnerEvents.md") API, specifying the event source name, using the partner’s AWS credentials.
 - Inspect the results to see if there are any failures.
+
   - For retry-able failures, call the API again (for example, "Internal Service Error").
   - For non-retry-able failures, delete the record from the data store (for example, "Event Bus Not Found").
 
