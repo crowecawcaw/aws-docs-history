@@ -40,7 +40,7 @@ Amazon VPC CNI allocates a warm pool of ENIs and secondary IP addresses from the
 
 Amazon VPC CNI natively integrates with AWS VPC and allows users to apply existing AWS VPC networking and security best practices for building Kubernetes clusters. This includes the ability to use VPC flow logs, VPC routing policies, and security groups for network traffic isolation. By default, the Amazon VPC CNI applies security group associated with the primary ENI on the node to the Pods. Consider enabling [security groups for Pods](sgpp.md "sgpp.md") when you would like to assign different network rules for a Pod.
 
-By default, VPC CNI assigns IP addresses to Pods from the subnet assigned to the primary ENI of a node. It is common to experience a shortage of IPv4 addresses when running large clusters with thousands of workloads. AWS VPC allows you to extend available IPs by [assigning a secondary CIDRs](../../../vpc/latest/userguide/configure-your-vpc.md#add-cidr-block-restrictions "../../../vpc/latest/userguide/configure-your-vpc.md#add-cidr-block-restrictions") to work around exhaustion of IPv4 CIDR blocks. AWS VPC CNI allows you to use a different subnet CIDR range for Pods. This feature of VPC CNI is called [custom networking](custom-networking.md "custom-networking.md"). You might consider using custom networking to use `100.64.0.0/10` and `198.19.0.0/16` CIDRs (CG-NAT) with EKS. This effectively allows you to create an environment where Pods no longer consume any RFC1918 IP addresses from your VPC.
+By default, VPC CNI assigns IP addresses to Pods from the subnet assigned to the primary ENI of a node. It is common to experience a shortage of IPv4 addresses when running large clusters with thousands of workloads. AWS VPC allows you to extend available IPs by [assigning a secondary CIDRs](../../../vpc/latest/userguide/configure-your-vpc.md#add-cidr-block-restrictions "../../../vpc/latest/userguide/configure-your-vpc.md#add-cidr-block-restrictions") to work around exhaustion of IPv4 CIDR blocks. AWS VPC CNI allows you to use a different subnet CIDR range for Pods. This feature of VPC CNI is called [custom networking](custom-networking.md "custom-networking.md"). You might consider using custom networking with a CIDR from the `100.64.0.0/10` range (shared address space, RFC 6598) for EKS. This effectively allows you to create an environment where Pods no longer consume any RFC1918 IP addresses from your VPC.
 
 Custom networking is one option to address the IPv4 address exhaustion problem, but it requires operational overhead. We recommend IPv6 clusters over custom networking to resolve this problem. Specifically, we recommend migrating to [IPv6 clusters](ipv6.md "ipv6.md") if you have completely exhausted all available IPv4 address space for your VPC. Evaluate your organization’s plans to support IPv6, and consider if investing in IPv6 may have more long-term value.
 
@@ -55,6 +55,7 @@ Inputs:
 - Subnet CIDR Size
 - Warm ENI Target _or_ Warm IP Target
 - List of instances
+
   - type, number, and number of workload pods scheduled per instance
 
 Outputs:
@@ -63,5 +64,6 @@ Outputs:
 - Number of Subnet IPs consumed
 - Number of Subnet IPs remaining
 - Instance Level Details
+
   - Number of Warm IPs/ENIs per instance
   - Number of Active IPs/ENIs per instance

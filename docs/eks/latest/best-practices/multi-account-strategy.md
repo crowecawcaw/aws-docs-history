@@ -225,12 +225,14 @@ Both IRSA and EKS Pod Identities are valid options for delivering temporary AWS 
 Consider the following when deciding which to use:
 
 - **Choose EKS Pod Identities when:**
+
   - You are designing new workloads and want to avoid creating and managing IAM OIDC identity providers.
   - You want native support for cross account access using a target IAM role without adding custom credential scripts or AWS configuration files to your pods.
   - You prefer that cluster administrators manage which Kubernetes service accounts may assume which roles, while IAM administrators manage the permissions of those roles.
   - You want credential vending to scale efficiently and avoid reaching the IAM Quota limits.
 
 - **Choose IRSA when:**
+
   - You already use IRSA successfully and have a standard pattern for OIDC providers and IAM roles.
   - Your workloads run on environments where EKS Pod Identities are not supported, such as AWS Fargate, Windows nodes, or applications using un-supported AWS SDKs.
   - You require a direct OIDC-based federation model to roles in your workload accounts, and your security controls are already built around OIDC providers.

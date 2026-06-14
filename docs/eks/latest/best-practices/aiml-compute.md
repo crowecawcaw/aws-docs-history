@@ -1642,13 +1642,16 @@ p4de-half-balanced:
 From your `nvidia-smi -L` output, here’s what the GPU Operator created:
 
 - MIG-enabled GPUs (0-3): hardware partitioned
+
   - GPU 0: NVIDIA A100-SXM4-80GB
+
     - MIG 3g.40gb Device 0 – Large workloads (40GB memory, 42 SMs)
     - MIG 2g.20gb Device 1 – Medium workloads (20GB memory, 28 SMs)
     - MIG 1g.10gb Device 2 – Small workloads (10GB memory, 14 SMs)
     - MIG 1g.10gb Device 3 – Small workloads (10GB memory, 14 SMs)
 
   - GPU 1: NVIDIA A100-SXM4-80GB
+
     - MIG 3g.40gb Device 0 – Identical partition layout
     - MIG 2g.20gb Device 1
     - MIG 1g.10gb Device 2
@@ -1657,6 +1660,7 @@ From your `nvidia-smi -L` output, here’s what the GPU Operator created:
   - GPU 2 and GPU 3 – Same pattern as GPU 0 and GPU 1
 
 - Full GPUs (4-7): No MIG partitioning
+
   - GPU 4: NVIDIA A100-SXM4-80GB – Full 80GB GPU
   - GPU 5: NVIDIA A100-SXM4-80GB – Full 80GB GPU
   - GPU 6: NVIDIA A100-SXM4-80GB – Full 80GB GPU

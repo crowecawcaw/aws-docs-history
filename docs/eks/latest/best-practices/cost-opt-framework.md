@@ -11,9 +11,11 @@ The See pillar is a foundational set of activities and technologies that define 
 Here is a brief overview of our best practices for the See pillar:
 
 - Define and maintain a tagging strategy for your workloads.
+
   - Use [Instance Tagging](../userguide/eks-using-tags.md#tag-resources-for-billing "../userguide/eks-using-tags.md#tag-resources-for-billing"), tagging EKS clusters allows you to see individual cluster costs and allocate them in your Cost & Usage Reports.
 
 - Establish reporting and monitoring of EKS usage by using technologies like [Kubecost](https://www.ibm.com/docs/en/kubecost/self-hosted/2.x?topic=installations-amazon-eks-integration "https://www.ibm.com/docs/en/kubecost/self-hosted/2.x?topic=installations-amazon-eks-integration").
+
   - [Enable Cloud Intelligence Dashboards](https://wellarchitectedlabs.com/cost/200_labs/200_enterprise_dashboards/ "https://wellarchitectedlabs.com/cost/200_labs/200_enterprise_dashboards/"), by having resources properly tagged and using visualizations, you can measure and estimate costs.
 
 - Allocate cloud costs to applications, Lines of Business (LoBs), and revenue streams.

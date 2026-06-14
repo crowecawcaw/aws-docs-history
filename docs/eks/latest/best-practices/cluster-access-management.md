@@ -22,6 +22,7 @@ ConfigMap-based access management (aws-auth ConfigMap) is deprecated and replace
 2. Next, an EKS access entry maps this IAM principal to a Kubernetes RBAC principal(user or group) by defining appropriate access policy, which contains Kubernetes permissions only.
 3. When a Kubernetes end user tries to access a cluster, its authentication request is processed by aws-iam-authenticator or AWS EKS CLI and validated against the cluster context in kubeconfig file.
 4. Finally, the EKS authorizer verifies the permissions associated with the authenticated user’s access entry and grants or denies access accordingly.
+
    - The API uses Amazon EKS-specific Access Policies to define the level of authorization for each Access Entry. These policies can be mapped to roles and permissions set up in IAM Identity Center, ensuring consistent access control across AWS services and EKS clusters.
 
 ### Benefits over ConfigMap-based access management:

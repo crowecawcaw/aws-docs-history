@@ -240,6 +240,7 @@ number of groups.
 Ensure that:
 
 - Pod isolation is done using Namespaces rather than Node Groups.
+
   - This may not be possible in low-trust multi-tenant clusters.
   - Pod ResourceRequests and ResourceLimits are properly set to avoid
     resource contention.

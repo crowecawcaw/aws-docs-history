@@ -253,18 +253,21 @@ Amazon GuardDuty provides essential runtime security monitoring for EKS Auto Mod
 ##### Key GuardDuty Features for EKS Auto Mode
 
 - **Runtime Monitoring**:
+
   - Continuous monitoring of runtime behavior
   - Detection of malicious or suspicious activities
   - Identification of potential container escape attempts
   - Monitoring of unusual process execution or network connections
 
 - **Kubernetes-Specific Threat Detection**:
+
   - Identification of suspicious pod deployment attempts
   - Detection of compromised containers
   - Monitoring of privileged container launches
   - Identification of suspicious service account usage
 
 - **Comprehensive Finding Types**:
+
   - Policy:Kubernetes/\* - Detects violations of security best practices
   - Impact:Kubernetes/\* - Identifies potentially impacted resources
   - Discovery:Kubernetes/\* - Detects reconnaissance activities
@@ -318,20 +321,24 @@ aws securityhub enable-security-hub \
 ##### Best Practices for GuardDuty with EKS Auto Mode
 
 1. **Enable All Finding Types**:
+
    - Enable both Kubernetes audit log monitoring and runtime monitoring
    - Configure findings for all severity levels
 
 2. **Implement Automated Response**:
+
    - Create EventBridge rules for high-severity findings
    - Integrate with AWS Security Hub for centralized security management
    - Set up automated remediation actions where appropriate
 
 3. **Regular Review and Tuning**:
+
    - Regularly review GuardDuty findings
    - Tune detection thresholds based on your environment
    - Update response procedures based on new finding types
 
 4. **Cross-Account Management**:
+
    - Consider using GuardDuty administrator account for centralized management
    - Enable findings aggregation across multiple accounts
 

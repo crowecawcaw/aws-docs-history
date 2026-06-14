@@ -5,10 +5,12 @@ Anyone can contribute to the best practices guide. The EKS Best Practices Guide 
 ## Summary for existing contributors
 
 - Open the [`bpg-docs.code-workspace`](https://github.com/aws/aws-eks-best-practices/blob/master/bpg-docs.code-workspace "https://github.com/aws/aws-eks-best-practices/blob/master/bpg-docs.code-workspace") with VS Code to automatically install the AsciiDoc extension.
+
   - Learn more about the [AsciiDoc Extension](https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode "https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode") on the Visual Studio Marketplace.
 
 - The source files for the AWS Docs website are stored in [`latest/bpg`](https://github.com/aws/aws-eks-best-practices/tree/master/latest/bpg "https://github.com/aws/aws-eks-best-practices/tree/master/latest/bpg")
 - The syntax is highly similar to markdown.
+
   - Review the [Syntax Reference](https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/ "https://docs.asciidoctor.org/asciidoc/latest/syntax-quick-reference/") in the AsciiDoctor docs.
 
 - The docs platform only deploys `latest/bpg/images`. Each of the guide sections has a symbolic link back to this directory. For example, `latest/bpg/networking/images` points to `latest/bpg/images`.
@@ -37,10 +39,12 @@ AWS recommends using Visual Studio Code from Microsoft to edit the guide. For mo
 ### Edit a file
 
 1. Open a file in the editor.
+
    - View the AsciiDoc Syntax to learn how to create headings, links, and lists.
    - You can use Markdown syntax to format text, create lists, and headings. You cannot use Markdown syntax to create links.
 
 2. Open a live preview of the page.
+
    - First, press `ctrl-k` or `cmd-k` (depending on keyboard). Second, press `v`. This opens a preview in split view.
 
 AWS suggests using feature branches to organize your changes. Learn how to create branches with git.
@@ -173,14 +177,17 @@ image::eks-data-plane-connectivity.jpeg[Network diagram]
 ## Build a local preview
 
 1. Install the `asciidoctor` tool using `brew` on Linux or MacOS
+
    - Learn how to [install asciidoctor cli](https://docs.asciidoctor.org/asciidoctor/latest/install/ "https://docs.asciidoctor.org/asciidoctor/latest/install/") in the AsciiDoctor docs.
    - Learn how [install the brew package manager](https://brew.sh/index.html "https://brew.sh/index.html").
 
 2. Open a terminal, and navigate to `latest/bpg/`
 3. Run `asciidoctor book.adoc`
+
    - Review any syntax warnings and errors
 
 4. Open the `book.html` output file.
+
    - On MacOS, you can run `open book.html` to open the preview in your default browser.
 
 ## AsciiDoc Cheat Sheet

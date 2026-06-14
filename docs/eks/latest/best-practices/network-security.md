@@ -156,11 +156,13 @@ spec:
 ### Monitoring network policy enforcement
 
 - **Use Network Policy editor**
+
   - [Network policy editor](https://networkpolicy.io/ "https://networkpolicy.io/") helps with
     visualizations, security score, autogenerates from network flow logs
   - Build network policies in an interactive way
 
 - **Audit Logs**
+
   - Regularly review audit logs of your EKS cluster
   - Audit logs provide wealth of information about what actions have been
     performed on your cluster including changes to network policies
@@ -168,16 +170,19 @@ spec:
     time and detect any unauthorized or unexpected changes
 
 - **Automated testing**
+
   - Implement automated testing by creating a test environment that
     mirrors your production environment and periodically deploy workloads
     that attempt to violate your network policies.
 
 - **Monitoring metrics**
+
   - Configure your observability agents to scrape the prometheus metrics
     from the VPC CNI node agents, that allows to monitor the agent health,
     and sdk errors.
 
 - **Audit Network Policies regularly**
+
   - Periodically audit your Network Policies to make sure that they meet
     your current application requirements. As your application evolves, an
     audit gives you the opportunity to remove redundant ingress, egress
@@ -185,6 +190,7 @@ spec:
     permissions.
 
 - **Ensure Network Policies exists using Open Policy Agent (OPA)**
+
   - Use OPA Policy like shown below to ensure Network Policy always
     exists before onboarding application pods. This policy denies onboarding
     k8s pods with a label `k8s-app: sample-app` if corresponding network
@@ -332,6 +338,7 @@ traffic control in Istio](https://istio.io/blog/2019/egress-traffic-control-in-i
 ### When to use Kubernetes network policy
 
 - **Controlling pod-to-pod traffic**
+
   - Suitable for controlling network traffic between pods inside a
     cluster (east-west traffic)
 
@@ -340,17 +347,20 @@ traffic control in Istio](https://istio.io/blog/2019/egress-traffic-control-in-i
 ### When to use AWS Security groups for pods (SGP)
 
 - **Leverage existing AWS configurations**
+
   - If you already have complex set of EC2 security groups that manage
     access to AWS services and you are migrating applications from EC2
     instances to EKS, SGPs can be a very good choice allowing you to reuse
     security group resources and apply them to your pods.
 
 - **Control access to AWS services**
+
   - Your applications running within an EKS cluster wants to communicate
     with other AWS services (RDS database), use SGPs as an efficient
     mechanism to control the traffic from the pods to AWS services.
 
 - **Isolation of Pod & Node traffic**
+
   - If you want to completely separate pod traffic from the rest of the
     node traffic, use SGP in `POD_SECURITY_GROUP_ENFORCING_MODE=strict`
     mode.
@@ -358,6 +368,7 @@ traffic control in Istio](https://istio.io/blog/2019/egress-traffic-control-in-i
 ### Best practices using Security groups for pods and Network Policy
 
 - **Layered security**
+
   - Use a combination of SGP and kubernetes network policy for a layered
     security approach
   - Use SGPs to limit network level access to AWS services that are not
@@ -365,18 +376,22 @@ traffic control in Istio](https://istio.io/blog/2019/egress-traffic-control-in-i
     network traffic between pods inside the cluster
 
 - **Principle of least privilege**
+
   - Only allow necessary traffic between pods or namespaces
 
 - **Segment your applications**
+
   - Wherever possible, segment applications by the network policy to
     reduce the blast radius if an application is compromised
 
 - **Keep policies simple and clear**
+
   - Kubernetes network policies can be quite granular and complex, its
     best to keep them as simple as possible to reduce the risk of
     misconfiguration and ease the management overhead
 
 - **Reduce the attack surface**
+
   - Minimize the attack surface by limiting the exposure of your
     applications
 

@@ -57,7 +57,7 @@ You can use the [sample EKS Subnet Calculator](https://github.com/aws/aws-eks-be
 #### Custom Networking
 
 If you are about to exhaust the RFC1918 IP space, you can use the [Custom Networking](custom-networking.md "custom-networking.md") pattern to conserve routable IPs by scheduling Pods inside dedicated additional subnets.
-While custom networking will accept valid VPC range for secondary CIDR range, we recommend that you use CIDRs (/16) from the CG-NAT space, i.e. `100.64.0.0/10` or `198.19.0.0/16` as those are less likely to be used in a corporate setting than RFC1918 ranges.
+While custom networking will accept valid VPC range for secondary CIDR range, we recommend that you use CIDRs from the `100.64.0.0/10` shared address space (RFC 6598) as those are less likely to be used in a corporate setting than RFC1918 ranges. For example, you can use `100.64.0.0/16` as a secondary CIDR for your VPC. See [IPv4 CIDR block association restrictions](../../../vpc/latest/userguide/configure-your-vpc.md#add-cidr-block-restrictions "../../../vpc/latest/userguide/configure-your-vpc.md#add-cidr-block-restrictions") for allowed secondary CIDR ranges.
 
 For detailed information please see the dedicated section for [Custom Networking](custom-networking.md "custom-networking.md").
 
