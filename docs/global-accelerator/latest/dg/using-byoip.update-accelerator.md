@@ -28,11 +28,13 @@ The following topics provide procedures for updating accelerators.
 
 - **Use Global Accelerator console to update an accelerator.** For more information,
   see the following:
+
   - [Update accelerator](about-accelerators.editing.md "about-accelerators.editing.md")
   - [Edit a custom routing accelerator in Global Accelerator](about-custom-routing-accelerators.editing.md "about-custom-routing-accelerators.editing.md")
 
 - **Use the Global Accelerator API to update an accelerator.** For more information,
   including examples of using the CLI, see the following in the AWS Global Accelerator API Reference:
+
   - [UpdateAccelerator](../api/API_UpdateAccelerator.md "../api/API_UpdateAccelerator.md")
   - [UpdateCustomRoutingAccelerator](../api/API_UpdateCustomRoutingAccelerator.md "../api/API_UpdateCustomRoutingAccelerator.md")
 
@@ -47,6 +49,7 @@ keep in mind the following:
 - If you have an accelerator with two BYOIP static IP addresses, you can change only one of them to use a static IP
   address assigned by Global Accelerator. Note the following about changing a BYOIP static IP address for an accelerator to a Global Accelerator-assigned static
   IP address:
+
   - You can only change the address back to one of your original Global Accelerator static IP addresses if you
     make the change _within 10 days_ of when you changed it to a BYOIP address.
     After 10 days, the original static IP address is returned to the Global Accelerator IP address pool and reused. After that,

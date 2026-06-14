@@ -51,6 +51,7 @@ Be aware of the following:
 - When you use the AWS CLI or an API action to create a new accelerator and
   you don't specify the option for client IP address preservation, the following is the
   default setting for client IP address preservation:
+
   - Internet-facing Application Load Balancer endpoints have client IP address preservation enabled by default.
   - Network Load Balancer with security group endpoints do _not_ have client IP address
     preservation enabled by default.

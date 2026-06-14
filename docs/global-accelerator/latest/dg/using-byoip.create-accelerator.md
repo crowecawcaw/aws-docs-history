@@ -17,6 +17,7 @@ You have several options for creating an accelerator using your own IP addresses
 
 - **Use Global Accelerator console to create an accelerator.** For more information,
   see the following:
+
   - [Create accelerator](about-accelerators.creating-editing.md "about-accelerators.creating-editing.md")
   - [Create a custom routing accelerator in Global Accelerator](about-custom-routing-accelerators.creating-editing.md "about-custom-routing-accelerators.creating-editing.md")
   - [Add cross-account endpoints in AWS Global Accelerator](cross-account-resources.add-endpoints.md "cross-account-resources.add-endpoints.md")
@@ -24,5 +25,6 @@ You have several options for creating an accelerator using your own IP addresses
 - **Use the Global Accelerator API to create an accelerator.** For more information,
   including examples of using the CLI,
   see the following in the AWS Global Accelerator API Reference:
+
   - [CreateAccelerator](../api/API_CreateAccelerator.md "../api/API_CreateAccelerator.md")
   - [CreateCustomRoutingAccelerator](../api/API_CreateCustomRoutingAccelerator.md "../api/API_CreateCustomRoutingAccelerator.md")

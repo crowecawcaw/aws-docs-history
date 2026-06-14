@@ -48,6 +48,7 @@ access to health checks that is described in the preceding section,
 The following guidelines apply to each specified endpoint type:
 
 - For Network Load Balancer or Application Load Balancer endpoints, be aware of the following:
+
   - The [health check options](#GAX-HCsetoptions "#GAX-HCsetoptions")
     that you choose in Global Accelerator do not affect Network Load Balancers or Application Load Balancers that you've added as endpoints.
     That is, health check options that you specify in Global Accelerator are used for Amazon EC2 and
@@ -68,6 +69,7 @@ The following guidelines apply to each specified endpoint type:
   targets meets the Network Load Balancer minimum healthy target count setting, `minimum_healthy_targets`.
 
 - For EC2 instance or Elastic IP address endpoints, be aware of the following:
+
   - When you add EC2 instance or Elastic IP address endpoints to a listener
     configured with TCP, you can specify the port to use for health checks. By default, if you don't
     specify a port for health checks, Global Accelerator uses the listener port that you specified for your accelerator.

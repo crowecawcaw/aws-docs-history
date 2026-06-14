@@ -35,6 +35,7 @@ add.
 - Client IP address preservation is supported for Network Load Balancers with TCP and UDP listeners, but not with
   TLS termination.
 - Dual-stack Network Load Balancers can be added as endpoints for IPv4 or dual-stack accelerators, but there are a few restrictions:
+
   - For IPv4 accelerators, when you add a dual-stack Network Load Balancer, you cannot enable client
     IP address preservation for the endpoint in Global Accelerator.
   - The Network Load Balancer must support security groups.

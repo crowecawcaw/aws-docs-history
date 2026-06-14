@@ -11,6 +11,7 @@ programmatically, see the [AWS Global Accelerator API Reference](../api/Welcome.
 4. For **Accelerator type**, select **Custom routing**.
 5. Optionally, if you have brought your own IP address range to AWS (BYOIP), you can specify static IP addresses
    for your accelerator from that address pool. Make this choice for each of the two static IP addresses for your accelerator.
+
    - For each static IP address, choose the IP address pool to use.
    - If you chose your own IP address pool, also choose a specific IP address from the pool. If you
      chose the default Amazon IP address pool, Global Accelerator assigns a specific IP address to your accelerator.

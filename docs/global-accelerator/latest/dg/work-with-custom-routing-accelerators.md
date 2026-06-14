@@ -33,6 +33,7 @@ To set up custom routing accelerator, you do the following:
    [Guidelines and restrictions for custom routing accelerators](about-custom-routing-guidelines.md "about-custom-routing-guidelines.md").
 5. Add one or more endpoint groups for AWS Regions in which you have VPC subnets. You specify
    the following for each endpoint group:
+
    - An endpoint port range, which represents the ports on your destination EC2 instances that will be able to
      receive traffic.
    - The protocol for each destination port range: UDP, TCP, or both UDP and TCP.

@@ -8,6 +8,7 @@ programmatically, see the [AWS Global Accelerator API Reference](../api/Welcome.
 1. Open the Global Accelerator console at [https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:](https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome: "https://us-west-2.console.aws.amazon.com/globalaccelerator/home#GlobalAcceleratorHome:").
 2. In the list of accelerators, choose one, and then choose **Edit**.
 3. On the **Edit accelerator** page, make changes, such as the following:
+
    - Change the name of the accelerator.
    - Disable the accelerator so that it no longer accepts or routes traffic,
      or so that you can delete it.
