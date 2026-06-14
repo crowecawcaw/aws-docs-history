@@ -11,6 +11,7 @@ This release updates all of the Amazon Linux 2 Ruby platforms to AWS Ruby platfo
 
 - Updated Ruby 3.0 to release [3.0.4](https://www.ruby-lang.org/en/news/2022/04/12/ruby-3-0-4-released/ "https://www.ruby-lang.org/en/news/2022/04/12/ruby-3-0-4-released/").
 - Applied the following security updates.
+
   - [ALAS-2022-1580](https://alas.aws.amazon.com/ALAS-2022-1580.html "https://alas.aws.amazon.com/ALAS-2022-1580.html"): [CVE-2022-0070](https://alas.aws.amazon.com/cve/html/CVE-2022-0070.html "https://alas.aws.amazon.com/cve/html/CVE-2022-0070.html")
   - [ALAS-2022-1581](https://alas.aws.amazon.com/ALAS-2022-1581.html "https://alas.aws.amazon.com/ALAS-2022-1581.html"): [CVE-2022-26490](https://alas.aws.amazon.com/cve/html/CVE-2022-26490.html "https://alas.aws.amazon.com/cve/html/CVE-2022-26490.html")
     [CVE-2022-27666](https://alas.aws.amazon.com/cve/html/CVE-2022-27666.html "https://alas.aws.amazon.com/cve/html/CVE-2022-27666.html")
