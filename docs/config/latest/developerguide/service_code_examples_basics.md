@@ -6,6 +6,7 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [DeleteConfigRule](example_config-service_DeleteConfigRule_section.md "example_config-service_DeleteConfigRule_section.md")
   - [DescribeComplianceByConfigRule](example_config-service_DescribeComplianceByConfigRule_section.md "example_config-service_DescribeComplianceByConfigRule_section.md")
   - [DescribeComplianceByResource](example_config-service_DescribeComplianceByResource_section.md "example_config-service_DescribeComplianceByResource_section.md")

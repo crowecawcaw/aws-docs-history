@@ -137,6 +137,7 @@ Complete the following steps to disable indirect relationship:
 5. Select appropriate severity level.
 6. Enter **Disable Indirect Relationship** in the subject line.
 7. In the description:
+
    - Confirm you have read this FAQ and want to proceed.
    - List the regions where you want to disable indirect relationship.
    - If submitting from a management account, include account IDs and their

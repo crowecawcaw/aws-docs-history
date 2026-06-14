@@ -1145,6 +1145,7 @@ go to [Step 3: Creating an IAM Role](#gs-cli-create-iamrole "#gs-cli-create-iamr
 1.  Open the Amazon SNS console at
     [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
 2.  Do one of the following:
+
     - If no topics have ever been created under your AWS account before, read the
       description of Amazon SNS on the home page.
 
@@ -1155,6 +1156,7 @@ go to [Step 3: Creating an IAM Role](#gs-cli-create-iamrole "#gs-cli-create-iamr
     topic**.
 4.  On the **Create topic** page, in the **Details**
     section, do the following:
+
     1. For **Type**, choose a topic type
        (**Standard** or **FIFO**).
     2. Enter a **Name** for the topic. For a [FIFO topic](../../../sns/latest/dg/sns-fifo-topics.md "../../../sns/latest/dg/sns-fifo-topics.md"), add
@@ -1167,6 +1169,7 @@ go to [Step 3: Creating an IAM Role](#gs-cli-create-iamrole "#gs-cli-create-iamr
 
 5.  (Optional) Expand the **Encryption** section and do the
     following. For more information, see [Encryption at rest](../../../sns/latest/dg/sns-server-side-encryption.md "../../../sns/latest/dg/sns-server-side-encryption.md").
+
     1. Choose **Enable encryption**.
     2. Specify the customer master key (CMK). For more information, see [Key
        terms](../../../sns/latest/dg/sns-server-side-encryption.md#sse-key-terms "../../../sns/latest/dg/sns-server-side-encryption.md#sse-key-terms").

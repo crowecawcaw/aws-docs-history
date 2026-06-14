@@ -20,6 +20,7 @@ Additionally, rules directly evaluate the configuration of a resource and rules 
 ###### Contents
 
 - [Creating IAM Role Policies](iamrole-permissions.md#iam-role-policies "iamrole-permissions.md#iam-role-policies")
+
   - [Adding an IAM Trust Policy to your Role](iamrole-permissions.md#iam-trust-policy "iamrole-permissions.md#iam-trust-policy")
   - [IAM Role Policy for your S3 Bucket](iamrole-permissions.md#iam-role-policies-S3-bucket "iamrole-permissions.md#iam-role-policies-S3-bucket")
   - [IAM Role Policy for KMS Key](iamrole-permissions.md#iam-role-policies-S3-kms-key "iamrole-permissions.md#iam-role-policies-S3-kms-key")

@@ -25,6 +25,7 @@ To update the IAM role (Console)
 2. Choose **Settings** in the navigation pane.
 3. On the **Customer managed recorder** tab, choose **Edit** on the Settings page.
 4. In the **Data governance**, section, choose the IAM role for AWS Config:
+
    - **Use an existing AWS Config service-linked role** – AWS Config creates a role that has the
      required permissions.
    - **Choose a role from your account** – For **Existing roles**, choose an IAM role in your account.

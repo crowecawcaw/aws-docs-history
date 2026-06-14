@@ -12,6 +12,7 @@ console.
    [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home").
 2. On the **Resource inventory** page, specify the search options for the
    resources that you want to look up:
+
    - **Resource category** – Choose all resource
      categories or narrow results to only AWS Resources.
    - **Resource type** – Choose all resource types
@@ -21,6 +22,7 @@ console.
 
 3. AWS Config lists the resources that match your search options. You can see the
    following information about the resources:
+
    - **Resource identifier** – The resource
      identifier might be a resource ID or a resource name, if applicable.
      Choose the resource identifier link to view the resource details page.

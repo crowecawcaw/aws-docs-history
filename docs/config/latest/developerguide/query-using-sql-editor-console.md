@@ -44,6 +44,7 @@ statement to view that information in the results.
    fit your needs.
 4. To save this query to a new query, choose **Save
    As**.
+
    - In the **Query Name** field, update the name of
      the query.
    - In the **Description** field, update the

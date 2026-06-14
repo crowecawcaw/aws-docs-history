@@ -117,6 +117,7 @@ JSON
 ```
 
 7. Substitute the following values in the bucket policy:
+
    - `amzn-s3-demo-bucket` – Name of the Amazon S3 bucket
      where AWS Config will deliver configuration history and snapshots.
    - `[optional] prefix` – An optional addition to the

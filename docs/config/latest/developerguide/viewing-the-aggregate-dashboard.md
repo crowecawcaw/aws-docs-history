@@ -21,6 +21,7 @@ display.
    [https://console.aws.amazon.com/config/home](https://console.aws.amazon.com/config/home "https://console.aws.amazon.com/config/home").
 2. Navigate to the **Aggregators** page.
    You can view:
+
    - Your rules and their compliance states.
    - Your conformance packs and their compliance states.
    - Your AWS resources and their configuration
@@ -28,6 +29,7 @@ display.
 
 3. Choose an aggregator from the dashboard. Filter through your aggregators
    by aggregator name. You can view the following widgets:
+
    - **Resource inventory**
 
    View the top 10
@@ -78,6 +80,7 @@ display.
 
 4. In the left navigation pane, choose one of the following options from the
    dropdown menu:
+
    - **Compliance dashboard**
 
    View automated compliance dashboards by using the widgets that

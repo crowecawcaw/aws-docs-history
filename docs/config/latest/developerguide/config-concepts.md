@@ -5,23 +5,27 @@ To help you understand AWS Config, this topic explains some of the key concepts.
 ###### Contents
 
 - [AWS Config Interfaces](config-concepts.md#config-concepts-manage "config-concepts.md#config-concepts-manage")
+
   - [AWS Config Console](config-concepts.md#config-concepts-console "config-concepts.md#config-concepts-console")
   - [AWS Config CLI](config-concepts.md#config-concepts-cli "config-concepts.md#config-concepts-cli")
   - [AWS Config APIs](config-concepts.md#config-concepts-api "config-concepts.md#config-concepts-api")
   - [AWS Config SDKs](config-concepts.md#config-concepts-sdk "config-concepts.md#config-concepts-sdk")
 
 - [Resource Management](config-concepts.md#config-platform-concept "config-concepts.md#config-platform-concept")
+
   - [AWS Resources](config-concepts.md#aws-resources "config-concepts.md#aws-resources")
   - [Resource Relationship](config-concepts.md#resource-relationship "config-concepts.md#resource-relationship")
 
 - [Configuration Recorder](config-concepts.md#config-recorder "config-concepts.md#config-recorder")
 - [Delivery Channel](config-concepts.md#delivery-channel "config-concepts.md#delivery-channel")
+
   - [Configuration Items](config-concepts.md#config-items "config-concepts.md#config-items")
   - [Configuration History](config-concepts.md#config-history "config-concepts.md#config-history")
   - [Configuration Snapshot](config-concepts.md#config-snapshot "config-concepts.md#config-snapshot")
   - [Configuration Stream](config-concepts.md#config-stream "config-concepts.md#config-stream")
 
 - [AWS Config Rules](config-concepts.md#aws-config-rules "config-concepts.md#aws-config-rules")
+
   - [Evaluation Results](config-concepts.md#aws-config-managed-rules-evaluation-results "config-concepts.md#aws-config-managed-rules-evaluation-results")
   - [Rule Types](config-concepts.md#aws-config-managed-rules-type "config-concepts.md#aws-config-managed-rules-type")
   - [Trigger Types](config-concepts.md#aws-config-rules-trigger "config-concepts.md#aws-config-rules-trigger")
@@ -29,6 +33,7 @@ To help you understand AWS Config, this topic explains some of the key concepts.
 
 - [Conformance Packs](config-concepts.md#aws-config-conformance-packs "config-concepts.md#aws-config-conformance-packs")
 - [Multi-Account Multi-Region Data Aggregation](config-concepts.md#multi-account-multi-region-data-aggregation "config-concepts.md#multi-account-multi-region-data-aggregation")
+
   - [Source Account](config-concepts.md#source-accounts "config-concepts.md#source-accounts")
   - [Source Region](config-concepts.md#source-region "config-concepts.md#source-region")
   - [Aggregator](config-concepts.md#aggregator "config-concepts.md#aggregator")

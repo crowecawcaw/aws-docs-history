@@ -13,7 +13,9 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [DeleteConfigRule](example_config-service_DeleteConfigRule_section.md "example_config-service_DeleteConfigRule_section.md")
     - [DescribeComplianceByConfigRule](example_config-service_DescribeComplianceByConfigRule_section.md "example_config-service_DescribeComplianceByConfigRule_section.md")
     - [DescribeComplianceByResource](example_config-service_DescribeComplianceByResource_section.md "example_config-service_DescribeComplianceByResource_section.md")
@@ -30,4 +32,5 @@ This topic also includes information about getting started and details about pre
     - [PutDeliveryChannel](example_config-service_PutDeliveryChannel_section.md "example_config-service_PutDeliveryChannel_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Getting started with Config](example_config_service_GettingStarted_053_section.md "example_config_service_GettingStarted_053_section.md")

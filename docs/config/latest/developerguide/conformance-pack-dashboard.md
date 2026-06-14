@@ -19,6 +19,7 @@ conformance pack.
 2. Navigate to the **Conformance packs** page. Review your
    conformance packs and their compliance score. You can also do the
    following:
+
    - To add and configure a new conformance pack, choose **Deploy
      conformance pack**.
    - To delete a conformance pack and its data, change the configuration

@@ -71,6 +71,7 @@ AWS Config Rules.
 1. The first line in the parameter section after `Parameters:` is a
    concatenated string of `NameOfRule` + Param +
    `NameOfRuleParameter`.
+
    1. Replace `NameOfRule` with a
       consistent name that you create for the rule. For example, that could be
       **IamPasswordPolicy** for the **iam-password-policy** rule.

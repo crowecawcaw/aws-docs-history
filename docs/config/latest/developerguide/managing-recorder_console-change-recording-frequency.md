@@ -69,6 +69,7 @@ override the recording frequency for specific resource types.
   occurs. Daily recording allows you to receive a configuration item (CI) representing
   the most recent state of your resources over the last 24-hour period, only if it’s
   different from the previous CI recorded.
+
   - `recordingFrequency` – The default recording frequency
     that AWS Config uses to record configuration changes.
 
@@ -82,6 +83,7 @@ override the recording frequency for specific resource types.
     `recordingModeOverride` objects. Each
     `recordingModeOverride` object in the
     `recordingModeOverrides` array consists of three fields:
+
     - `description` – A description that you provide for the
       override.
     - `recordingFrequency` – The recording frequency that

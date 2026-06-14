@@ -18,6 +18,7 @@ Pack](custom-conformance-pack.md "custom-conformance-pack.md").
 3. On the **Specify template** page, either choose a sample
    template or use an existing template. For more information, see [Conformance Pack
    Sample Templates.](conformancepack-sample-templates.md "conformancepack-sample-templates.md")
+
    - If you choose **Use sample template**, select a
      **Sample template** from the dropdown list of
      sample templates.

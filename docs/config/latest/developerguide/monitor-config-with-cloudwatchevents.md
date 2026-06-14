@@ -148,6 +148,7 @@ triggers the rule:
     **Config**.
 11. For **Event type**, choose the event type that triggers the
     rule:
+
     - Choose **All Events** to make a rule that applies to
       all AWS services. If you choose this option, you cannot choose
       specific message types, rule names, resource types, or resource
@@ -181,6 +182,7 @@ triggers the rule:
 12. Choose **Any message type** to receive notifications of any
     type. Choose **Specific message type(s)** to receive the
     following types of notifications:
+
     - If you choose
       **ConfigurationItemChangeNotification**, you receive
       messages when the configuration of a resource that AWS Config evaluates has changed.

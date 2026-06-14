@@ -40,6 +40,7 @@ noncompliant. For more information, see [Recording AWS Resources with AWS Config
 4. The **Rules** page shows
    all the rule that are currently in your AWS account. It lists the name,
    associated remediation action, and compliance status of each rule.
+
    - Choose **Add rule** to get started with creating a
      rule.
    - Choose a rule to see its settings, or choose a rule and **View

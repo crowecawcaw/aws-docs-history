@@ -88,6 +88,7 @@ limitations:
   `resourceName`, `resourceType`, and
   `version`.
 - Wildcard limitations:
+
   - Wildcards are supported only for property values and not for property
     keys (for example, `...WHERE someKey LIKE 'someValue%'` is
     supported but `...WHERE 'someKey%' LIKE 'someValue%'` is not
@@ -107,6 +108,7 @@ The "`_`" (single underscore) is also treated as a
 wildcard.
 
 - Aggregation limitations:
+
   - Aggregate functions can accept only a single argument or
     property.
   - Aggregate functions cannot take other functions as arguments.

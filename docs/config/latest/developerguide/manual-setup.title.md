@@ -193,6 +193,7 @@ period.
 
 - For **IAM role for AWS Config**, choose either an existing
   AWS Config service-linked role or an IAM role from your account.
+
   - Service-linked roles are predefined by AWS Config and include all the
     permissions that the service requires to call other AWS
     services.
@@ -240,6 +241,7 @@ period.
 
 - For **Delivery method**, choose the S3 bucket to which
   AWS Config sends configuration history and configuration snapshot files:
+
   - **Create a bucket** – For **S3
     bucket name**, type a name for your S3 bucket.
 
@@ -271,6 +273,7 @@ period.
   configuration snapshot delivery, and compliance.
 - If you chose to have AWS Config stream to an Amazon SNS topic, choose the target
   topic:
+
   - **Create a topic** – For
     **Topic Name**, type a name for your SNS topic.
   - **Choose a topic from your account** – For

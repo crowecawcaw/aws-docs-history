@@ -25,6 +25,7 @@ _AWS CloudFormation User Guide_.
 1. Go to the [CloudFormation
    console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation") and create a new stack.
 2. For **Specify template**:
+
    - If you downloaded the template, choose **Upload a template
      file**, and then **Choose file** to upload the
      template.

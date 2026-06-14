@@ -43,6 +43,7 @@ For more information, see [Recording AWS Resources with AWS Config](select-resou
 4.  On the **Rules** page, choose **Add rule**.
 5.  On the **Specify rule type** page, specify the rule type by
     completing the following steps:
+
     1. Type in the search field to filter the list of managed rules by rule name, description,
        and label. For example, type **EC2** to return rules
        that evaluate EC2 resource types or type **periodic**
@@ -53,10 +54,12 @@ For more information, see [Recording AWS Resources with AWS Config](select-resou
 
 6.  On the **Configure rule** page, configure your rule by
     completing the following steps:
+
     1.  For **Name**, type a unique name for the rule.
     2.  For **Description**, type a description for the rule.
     3.  For **Evaluation mode**, choose when in the resource creation and management process you want AWS Config to evaluate your resources.
         Depending on the rule, AWS Config can evaluate your resource configurations before a resource has been deployed, after a resource has been deployed, or both.
+
         1. Choose **Turn on proactive evaluation** to allow you to run evaluations on the configuration settings of your resources before they are deployed.
 
         After you have turned on proactive evaluation,
@@ -97,6 +100,7 @@ For more information, see [Recording AWS Resources with AWS Config](select-resou
 7.  On the **Review and create** page, review all your selections before adding the rule to your AWS account.
     If your rule is not working as expected, you might see one of the
     following for **Compliance**:
+
     - **No results reported** - AWS Config evaluated your resources
       against the rule. The rule did not apply to the AWS resources in its
       scope, the specified resources were deleted, or the evaluation results
