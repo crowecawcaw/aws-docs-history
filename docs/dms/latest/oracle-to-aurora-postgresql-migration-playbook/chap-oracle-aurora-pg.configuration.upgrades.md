@@ -125,18 +125,19 @@ When enabled, the instance will be automatically upgraded during the scheduled m
 For major upgrades, this is the recommended process:
 
 - Have a version-compatible parameter group ready. If you are using a custom DB instance or DB cluster parameter group, you have two options:
+
   - Specify the default DB instance, DB cluster parameter group, or both for the new DB engine version.
   - Create your own custom parameter group for the new DB engine version.
 
   If you associate a new DB instance or DB cluster parameter group as a part of the upgrade request, make sure to reboot the database after the upgrade completes to apply the parameters. If a DB instance needs to be rebooted to apply the parameter group changes, the instance’s parameter group status shows pending-reboot. You can view an instance’s parameter group status in the console or by using a CLI command such as `describe-db-instances` or `describe-db-clusters`.
 
 - Check for unsupported usage.
+
   - Commit or roll back all open prepared transactions before attempting an upgrade. You can use the following query to verify that there are no open prepared transactions on your instance
 
   ```
   SELECT count(*) FROM pg_catalog.pg_prepared_xacts;
   ```
-
   - Remove all uses of the `reg*` data types before attempting an upgrade. Except for `regtype` and `regclass`, you can’t upgrade the `reg*` data types. The `pg_upgrade` utility can’t persist this data type, which is used by Amazon Aurora to do the upgrade. To verify that there are no uses of unsupported `reg*` data types, use the following query for each database.
 
   ```

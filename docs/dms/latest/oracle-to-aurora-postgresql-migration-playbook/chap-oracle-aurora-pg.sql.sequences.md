@@ -17,6 +17,7 @@ Oracle 18c introduces scalable sequences: a special class of sequences that are 
 This introduces the following new options when creating a new sequence:
 
 - `SCALE` — enable the sequence scalability feature.
+
   - `EXTEND` — extend in additional 6 digits offset (as default) and the maximum number of digits in the sequence (maxvalue/minvalue).
   - `NOEXTEND` (default when using the `SCALE` option) — sequence value will be padded to the max value.
 

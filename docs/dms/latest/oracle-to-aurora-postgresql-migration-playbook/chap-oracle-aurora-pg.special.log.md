@@ -90,6 +90,7 @@ Extension module for tracking query run details with statistical information. Th
 2. Choose **Parameter groups** and choose the parameter to edit.
 3. On the **Parameter group actions**, choose **Edit**.
 4. Set the following parameters:
+
    - shared_preload_libraries = 'pg_stat_statements'
    - pg_stat_statements.max = 10000
    - pg_stat_statements.track = all
@@ -155,6 +156,7 @@ DML and DML operations can be tracked inside the PostgreSQL log file (postgres.l
 2. Choose **Parameter groups** and choose the parameter to edit.
 3. On the **Parameter group actions**, choose **Edit**.
 4. Set the following parameters:
+
    - log_statement = 'ALL'
    - log_min_duration_statement = 1
 

@@ -21,6 +21,7 @@ Triggers can be run after:
 - **DML** triggers can be created on tables or views and fire when inserting, updating, or deleting data. Triggers can fire before or after DML command run.
 - **INSTEAD OF** triggers can be created on a non-editable view. `INSTEAD OF` triggers provide an application-transparent method for modifying views that can’t be modified by DML statements.
 - **SYSTEM Event** triggers are defined at the database or schema level including triggers that fire after specific events:
+
   - User log-on and log-off.
   - Database events (startup/shutdown), DataGuard events, server errors.
 
@@ -115,6 +116,7 @@ There are some cases that can fire multiple triggers numerous times. This includ
 PostgreSQL triggers can run `BEFORE` or `AFTER` a DML operation.
 
 - Fire before the operation is attempted on a row.
+
   - Before constraints are checked and the `INSERT`, `UPDATE`, or `DELETE` is attempted.
   - If the trigger fires before or instead of the event, the trigger can skip the operation for the current row or change the row being inserted (for `INSERT` and `UPDATE` operations only).
 

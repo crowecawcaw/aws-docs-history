@@ -91,10 +91,12 @@ With composite partitioning, a table can be partitioned by one data distribution
 Oracle provides additional partitioning strategies that enhance the capabilities of basic partitioning. These partitioning strategies include:
 
 - Manageability extensions.
+
   - Interval partitioning.
   - Partition advisor.
 
 - Partitioning key extensions.
+
   - Reference partitioning.
   - Virtual column-based partitioning.
 

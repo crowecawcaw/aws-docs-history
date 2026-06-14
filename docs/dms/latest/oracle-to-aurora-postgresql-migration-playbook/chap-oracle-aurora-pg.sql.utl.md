@@ -16,6 +16,7 @@ Run an anonymous PL/SQL block that reads a single line from file1 and writes it 
 
 - Use `UTL_FILE.FILE_TYPE` to create a handle for the file.
 - Use `UTL_FILE.FOPEN` to open streamable access to the file and specify:
+
   - The logical Oracle directory object pointing to the O/S folder where the file resides.
   - The file name.
   - The file access mode: 'A'=append mode, 'W'=write mode
