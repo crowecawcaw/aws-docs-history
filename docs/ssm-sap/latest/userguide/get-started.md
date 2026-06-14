@@ -142,6 +142,7 @@ To backup and restore your SAP HANA databases running on Amazon EC2 instance, at
 
 - `AWSBackupDataTransferAccess` – this Amazon managed policy must be attached to the IAM role of Amazon EC2 instance where AWS Backint Agent for SAP HANA is located. AWS Backint Agent uses this IAM role to transfer data for backup and restore. For more information about the policy, see [Managed policies for AWS Backup](../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#aws-managed-policies "../../../aws-backup/latest/devguide/security-iam-awsmanpol.md#aws-managed-policies").
 - `AWSBackupRestoreAccessForSAPHANA` – this Amazon managed policy enables access to restore your SAP HANA database using AWS Backup.
+
   - If you are going to use AWS Backup console for the restore process, attach this policy to the IAM role using the console.
   - If you are going to use AWS API for the restore process, attach this policy to the IAM role performing the API call.
   - Follow the recommended best practice of granting least privilege necessary for each role by attaching the `AWSBackupRestoreAccessForSAPHANA` policy only to the SAP HANA resource owner.

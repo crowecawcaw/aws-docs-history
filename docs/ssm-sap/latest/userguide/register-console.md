@@ -16,6 +16,7 @@ Follow these steps to register an SAP HANA database as a Systems Manager for SAP
 3. For Application type, select **SAP HANA**.
 4. In **Application details**, enter a name for the application that you want to register.
 5. In **SAP HANA workload**, provide details of your workload.
+
    1. **Instance ID** – This is the Amazon EC2 instance ID where your workload is currently running. Choose **Browse instances**, and select the instance ID for your primary SAP HANA workload.
    2. **SAP System Identifier (SID)** – This is the SAP System Identifier (`sapsid`) of your SAP HANA instance.
    3. **SAP system number** – This is the system number of your SAP HANA instance.
@@ -45,13 +46,16 @@ Follow these steps to register either a single node or a multi node (distributed
 3. For Application type, select **SAP ABAP**.
 4. In **Application details**, enter a name for the application that you want to register.
 5. Provide the following details of your workload.
+
    1. **Instance ID** – This is the Amazon EC2 instance ID where your workload is currently running. Choose **Browse instances**, and select the instance ID for your primary SAP ABAP workload.
    2. **SAP System Identifier (SID)** – This is the SAP System Identifier (`sapsid`) of your SAP ABAP instance.
    3. **SAP HANA database Amazon Resource Name (ARN)** – This is the Amazon Resource Name (ARN) of the SAP HANA database you want to connect to your SAP ABAP application.
+
       - Select **Browse databases** to choose the database.
       - Select **Register a new application** to register an SAP HANA database to connect to the SAP ABAP application. You can refresh the database list on successful completion of the SAP HANA application.
 
 6. (_Optional_). In **Connected Web Dispatcher components** you can provide the following details of up to 5 of your SAP Web Dispatcher resources that your application is using. SAP Web Dispatcher resources are only discoverable by Systems Manager for SAP after you input these details:
+
    1. **SAP System Identifier (SID)** is the SAP System Identifier (`sapsid`) of your SAP Web Dispatcher resource.
    2. **Instance ID** is the Amazon EC2 instance ID on which your SAP Web Dispatcher is currently running. Select **Browse instances** to find the instance ID.
 

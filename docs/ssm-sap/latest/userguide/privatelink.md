@@ -18,6 +18,7 @@ To create a VPC endpoint:
 6. For **VPC**, select the VPC where you want to create the endpoint.
 7. For **Subnets**, select the subnets (Availability Zones) where you want to create the endpoint network interfaces.
 8. For **Security group**, select one or more security groups to associate with the endpoint network interfaces.
+
    - Ensure the security group allows inbound HTTPS traffic (port 443) from the resources in your VPC that need to communicate with Systems Manager for SAP.
 
 9. (Optional) Under **Policy**, you can keep the default setting **Full access** or customize the policy to restrict access.

@@ -55,6 +55,7 @@ Follow these steps to stop a Systems Manager for SAP application.
 1. Open the [AWS Console for SAP applications](https://console.aws.amazon.com/awsforsap/home "https://console.aws.amazon.com/awsforsap/home").
 2. Choose **Applications**, then choose the application that you want to stop.
 3. Choose **Actions**, then choose **Stop application**.
+
    1. When stopping an SAP HANA application, you can also stop the associated EC2 instance where the SAP HANA application is running.
    2. When stopping an SAP ABAP application, you can also stop the connected SAP HANA application, and/or stop the associated EC2 instance where the SAP ABAP and SAP HANA applications are running.
 

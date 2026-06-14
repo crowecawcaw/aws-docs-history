@@ -18,6 +18,7 @@ This policy includes the following permissions.
 
 - `cloudwatch` – Allows publication of Systems Manager for SAP metric data to Amazon CloudWatch.
 - `ec2` – Allows
+
   - Description, start and stop of instances
   - Creation, deletion, and description of tags on EC2 instances that are with `SSMForSAPManaged:True`.
   - Creation and deletion of tags on EBS volumes attached to the EC2 instances tagged with `SSMForSAPManaged:True`.
