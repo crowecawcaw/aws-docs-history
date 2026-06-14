@@ -96,6 +96,7 @@ for example: `Redshift_abcde03_dev`
   the user name, and the password.
 - `PhysicalConnectionRequirements` (dict) – Physical connection
   requirements, which include the following:
+
   - `SubnetId` (UTF-8 string) – The ID of the subnet used by the
     connection.
   - `SecurityGroupIdList` (list) – The security group ID list used by the

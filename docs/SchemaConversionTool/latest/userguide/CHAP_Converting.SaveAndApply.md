@@ -28,6 +28,7 @@ apply your converted schema to your target database.
 2. Choose **Save as SQL**.
 3. Enter the name of the file and choose **Save**.
 4. Save your converted schema using one of the following options:
+
    - **Single file**
    - **Single file per stage**
    - **Single file per statement**
@@ -49,7 +50,7 @@ choose the schema element from the right panel of your project. Open the context
 (right-click) menu for the schema element, and then choose **Apply to
 database**, as shown following.
 
-![Apply to database](images/write_to_database.png)
+![Apply to database](/images/SchemaConversionTool/latest/userguide/images/write_to_database.png)
 
 ## The extension pack schema
 

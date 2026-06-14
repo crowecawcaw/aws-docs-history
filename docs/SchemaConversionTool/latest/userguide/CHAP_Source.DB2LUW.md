@@ -16,24 +16,29 @@ The privileges needed to connect to a Db2 LUW database, to check available
 privileges and read schema metadata for a source are as follows:
 
 - Privilege needed to establish a connection:
+
   - CONNECT ON DATABASE
 
 - Privilege needed to run SQL statements:
+
   - EXECUTE ON PACKAGE NULLID.SYSSH200
 
 - Privileges needed to get instance-level information:
+
   - EXECUTE ON FUNCTION SYSPROC.ENV_GET_INST_INFO
   - SELECT ON SYSIBMADM.ENV_INST_INFO
   - SELECT ON SYSIBMADM.ENV_SYS_INFO
 
 - Privileges needed to check privileges granted through roles, groups, and
   authorities:
+
   - EXECUTE ON FUNCTION SYSPROC.AUTH_LIST_AUTHORITIES_FOR_AUTHID
   - EXECUTE ON FUNCTION SYSPROC.AUTH_LIST_GROUPS_FOR_AUTHID
   - EXECUTE ON FUNCTION SYSPROC.AUTH_LIST_ROLES_FOR_AUTHID
   - SELECT ON SYSIBMADM.PRIVILEGES
 
 - Privileges needed on system catalogs and tables:
+
   - SELECT ON SYSCAT.ATTRIBUTES
   - SELECT ON SYSCAT.CHECKS
   - SELECT ON SYSCAT.COLIDENTATTRIBUTES
@@ -69,6 +74,7 @@ privileges and read schema metadata for a source are as follows:
   workloads enabled in the database. If none of the workloads are assigned to
   the user, ensure that the default user workload is accessible to the
   user:
+
   - USAGE ON WORKLOAD SYSDEFAULTUSERWORKLOAD
 
 To run queries, you need to create system temporary tablespaces with page size

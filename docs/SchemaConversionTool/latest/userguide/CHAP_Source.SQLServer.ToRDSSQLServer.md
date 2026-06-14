@@ -16,6 +16,7 @@ SQL Server:
 - Always on is used.
 - The AWS SCT assessment report provides server metrics for the conversion.
   These metrics about your SQL Server instance include the following:
+
   - Data mirroring is used.
   - SQL Server Log Shipping is configured.
   - Failover cluster is used.

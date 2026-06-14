@@ -115,6 +115,7 @@ to Amazon Redshift RSQL using AWS SCT.
 2. Configure the substitution variables. For more information, see [Configuring substitution variables in FastLoad job scripts](#CHAP-converting-fastload-rsql-variables "#CHAP-converting-fastload-rsql-variables").
 3. In the left panel, expand the **Scripts** node.
 4. Do one of the following:
+
    - To convert a single FastLoad job script, expand the **FastLoad**
      node, choose the script to convert, and then
      choose **Convert script** from the context (right-click) menu.
@@ -122,6 +123,7 @@ to Amazon Redshift RSQL using AWS SCT.
      **FastLoad**, open the context (right-click)
      menu, and then choose **Convert script**. Then do
      one of the following:
+
      - If you store your source data file on Amazon S3, choose **S3
        object path** for **Source data file
        location**.

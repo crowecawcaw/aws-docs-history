@@ -10,6 +10,7 @@ target destinations and choose the optimal migration path.
 ###### To run the new project wizard
 
 1.  Choose your source database.
+
     1. Start the AWS Schema Conversion Tool.
     2. On the **File** menu, choose **New project wizard**. The
        **Create a new database migration project** dialog
@@ -28,6 +29,7 @@ target destinations and choose the optimal migration path.
        page opens.
 
 2.  Connect to your source database.
+
     1. Provide your connection information for the source database. The connection
        parameters depend on your source database engine. Make sure the user that you
        use for the analysis of your source database has the applicable permissions. For
@@ -36,6 +38,7 @@ target destinations and choose the optimal migration path.
        page opens.
 
 3.  Choose your database schema.
+
     1. Select the check box for the name of schemas that you want to assess and then
        choose the schema itself. The schema name is highlighted in blue when selected
        and the **Next** button is available.
@@ -54,6 +57,7 @@ target destinations and choose the optimal migration path.
     assessment** page opens.
 
 4.  Run the database migration assessment.
+
     1. You can review and compare the assessment reports for different migration
        targets or save a local copy of the assessment report files for the further
        analysis.

@@ -150,6 +150,7 @@ in the input file.
   [Privileges for BigQuery as a source](CHAP_Source.BigQuery.md#CHAP_Source.BigQuery.Permissions "CHAP_Source.BigQuery.md#CHAP_Source.BigQuery.Permissions").
 - **Source Engine** – The type of your source database.
   Use one of the following values:
+
   - **AZURE_MSSQL** for an Azure SQL Database.
   - **AZURE_SYNAPSE** for an Azure Synapse Analytics database.
   - **GOOGLE_BIGQUERY** for a BigQuery database.

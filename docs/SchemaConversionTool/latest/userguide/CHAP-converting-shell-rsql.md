@@ -91,6 +91,7 @@ scripts with embedded Amazon Redshift RSQL commands using AWS SCT.
    variables in shell scripts](#CHAP-converting-shell-rsql-variables "#CHAP-converting-shell-rsql-variables").
 3. In the left panel, expand the **Scripts** node.
 4. Do one of the following:
+
    - To convert BTEQ commands from a single shell script, expand the
      **Shell** node, choose the script to convert, and then
      choose **Convert script** from the context (right-click)
@@ -147,6 +148,7 @@ action items for BTEQ commands and SQL statements that AWS SCT can't convert.
    your source scripts.
 4. (Optional) Save a local copy of the shell script conversion assessment report as either a
    PDF file or a comma-separated values (CSV) file:
+
    - To save the shell script conversion assessment report as a PDF file, choose
      **Save to PDF** at upper right.
 

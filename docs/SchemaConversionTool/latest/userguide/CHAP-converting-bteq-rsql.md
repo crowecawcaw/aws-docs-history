@@ -144,6 +144,7 @@ commands and SQL statements that AWS SCT can't convert.
    your BTEQ scripts.
 5. (Optional) Save a local copy of the BTEQ script conversion assessment report as either a
    PDF file or a comma-separated values (CSV) file:
+
    - To save the BTEQ script conversion assessment report as a PDF file,
      choose **Save to PDF** at upper right.
 

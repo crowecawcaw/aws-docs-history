@@ -12,6 +12,7 @@ You can install AWS SCT on the following operating systems:
    link for your operating system. All compressed files have a .zip extension. When
    you extract the AWS SCT installer file, it will be in the appropriate format
    for your operating system.
+
    - [Microsoft Windows](https://s3.amazonaws.com/publicsctdownload/Windows/aws-schema-conversion-tool-1.0.latest.zip "https://s3.amazonaws.com/publicsctdownload/Windows/aws-schema-conversion-tool-1.0.latest.zip")
    - [Ubuntu Linux (.deb)](https://s3.amazonaws.com/publicsctdownload/Ubuntu/aws-schema-conversion-tool-1.0.latest.zip "https://s3.amazonaws.com/publicsctdownload/Ubuntu/aws-schema-conversion-tool-1.0.latest.zip")
    - [Fedora Linux (.rpm)](https://s3.amazonaws.com/publicsctdownload/Fedora/aws-schema-conversion-tool-1.0.latest.zip "https://s3.amazonaws.com/publicsctdownload/Fedora/aws-schema-conversion-tool-1.0.latest.zip")

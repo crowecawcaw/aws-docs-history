@@ -59,6 +59,7 @@ manually create a project.
 
 5.  Choose a level of logging for any message level types that you want to
     change:
+
     - Trace (most detailed logging)
     - Debug
     - Info

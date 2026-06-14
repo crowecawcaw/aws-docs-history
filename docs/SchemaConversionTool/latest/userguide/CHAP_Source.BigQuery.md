@@ -73,6 +73,7 @@ The following limitations apply when using BigQuery as a source for AWS SCT:
 - You can't use AWS SCT to convert BigQuery `SELECT AS STRUCT`
   and `SELECT AS VALUE` statements.
 - AWS SCT doesn't support the conversion of the following types of functions:
+
   - Approximate aggregate
   - Bit
   - Debugging

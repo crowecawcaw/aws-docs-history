@@ -68,6 +68,7 @@ Make sure that you replace `<host>`, `<port>`,
 1. Sign in to the AWS Management Console and open the AWS Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the following:
+
    1. For **Secret type**, choose the **Other type of secret**.
    2. For **Key/value pairs**, enter the following keys:
       `host`, `port`,
@@ -236,6 +237,7 @@ items show which components AWS SCT can't automatically convert.
    results for all components of your SSIS packages.
 4. (Optional) Save a local copy of the ETL migration assessment report as either a
    PDF file or a comma-separated values (CSV) file:
+
    - To save the ETL migration assessment report as a PDF file,
      choose **Save to PDF** at upper right.
 

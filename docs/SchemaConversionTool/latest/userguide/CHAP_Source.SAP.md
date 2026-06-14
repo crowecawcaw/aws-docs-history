@@ -231,6 +231,7 @@ converted code, choose **All messages**.
 
 - To define the template to use for the schema names in the converted code. For
   **Schema name generation template**, choose one of the following options:
+
   - **<source_db>** – Uses the SAP ASE database name
     as a schema name in PostgreSQL.
   - **<source_schema>** – Uses the SAP ASE schema name

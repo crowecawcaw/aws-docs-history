@@ -33,6 +33,7 @@ Oracle:
 - AWS SCT supports converting Oracle jobs into jobs that can run on Amazon RDS
   for Oracle. There are a few limitations to the conversion, including the
   following:
+
   - Executable jobs are not supported.
   - Schedule jobs that use the ANYDATA data type as an argument are not
     supported.
@@ -116,6 +117,7 @@ For more information about using database links with Amazon RDS, see the
 - The AWS SCT assessment report provides server metrics for the
   conversion. These metrics about your Oracle instance include the
   following:
+
   - Computation and memory capacity of the target DB instance.
   - Unsupported Oracle features such as Real
     Application Clusters that Amazon RDS doesn't support.

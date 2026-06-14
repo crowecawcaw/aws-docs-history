@@ -49,6 +49,7 @@ embedded in your Pro\*C application in the AWS Schema Conversion Tool.
 1. Expand the **Pro\*C** node under **Applications**
    in the left panel.
 2. Choose the application to convert and then choose **Settings**.
+
    1. For **Global header file path**, enter the path to the
       header files that your application project uses.
    2. Choose **Interpret all unresolved host variables as** to see

@@ -116,6 +116,7 @@ you can adjust your rules or change your strategy to get the results you want.
     The optimization strategies appear in the right pane with the defaults selected.
 3.  For **Strategy Sector**, choose the optimization strategy you want to use.
     You can choose from the following:
+
     - **Use metadata, ignore statistical information** –
       In this strategy, only information from the metadata
       is used for optimization decisions.
@@ -226,6 +227,7 @@ With your project open, use the following procedure to create migration rules.
 4. Choose **Add new rule**.
    A new row is added to the list of rules.
 5. Configure your rule:
+
    1. For **Name**, enter a name for your rule.
    2. For **For**,
       choose the type of object that the rule applies to.
@@ -585,6 +587,7 @@ apply your converted schema to your target database.
 2. Choose **Save as SQL**.
 3. Enter the name of the file and choose **Save**.
 4. Save your converted schema using one of the following options:
+
    - **Single file**
    - **Single file per stage**
    - **Single file per statement**

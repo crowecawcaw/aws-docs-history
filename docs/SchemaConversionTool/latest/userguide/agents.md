@@ -563,6 +563,7 @@ With your project open, use the following procedure to create data migration rul
 2. Choose **Data migration rules**,
    and then choose **Add new rule**.
 3. Configure your data migration rule:
+
    1. For **Name**,
       enter a name for your data migration rule.
    2. For **Where schema name is like**, enter a filter to
@@ -657,6 +658,7 @@ from extraction, so if AWS SCT can work without it, it does.
    and then choose **Create Local task**.
 3. Choose the **Advanced** tab, and for **Sorting strategy**,
    choose an option:
+
    - **Never use sorting** – The extraction agent
      doesn't use the DENSE_RANK analytic function and restarts from the beginning if a
      failure occurs.
@@ -697,6 +699,7 @@ dialog box opens. 3. For **Task name**, enter a name for the task. 4. For **Migr
      and copy it into your Amazon Redshift data warehouse.
 
 5. For **Encryption type**, choose one of the following:
+
    - **NONE** –
      Turn off data encryption for the entire data migration process.
    - **CSE_SK** –
@@ -1191,6 +1194,7 @@ Amazon Redshift.
    make sure that the converted tables exist there.
 3. For **Actions**, choose **Create local task**.
 4. For **Migration mode**, choose one of the following:
+
    - **Extract and upload** to
      extract your data, and upload your data to Amazon S3.
    - **Extract, upload and copy** to extract your data,

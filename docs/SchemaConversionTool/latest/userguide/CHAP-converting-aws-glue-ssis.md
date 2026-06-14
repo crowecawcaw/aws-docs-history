@@ -32,6 +32,7 @@ files.
 4.  Choose **Add target**
     from the menu to add a new target platform to convert your source SSIS packages.
 5.  Choose **AWS Glue** and complete the following:
+
     - **Connection name** – Enter the name for your connection.
       AWS SCT displays this name in the metadata tree.
     - **Copy from AWS profile** – Choose the profile to use.
@@ -59,6 +60,7 @@ created.
      the appropriate AWS Glue connection.
 
 10. Configure the package connection manager:
+
     1.  Under **Connections**, choose your package.
     2.  For **Glue catalog connection**,
         choose the appropriate AWS Glue connection.
@@ -76,7 +78,9 @@ created.
     find **Package scripts**. Open the context (right-click) menu
     for your converted script, then choose **Configure AWS Glue job**.
 15. Complete the three configuration sections:
+
     1.  Complete the **Design data flow** section:
+
         - **Execution strategy** – Choose how your job
           will run ETL scripts. Choose **SEQUENTIAL** to run
           the scripts in the order that is specified in the wizard.
@@ -86,6 +90,7 @@ created.
         - Choose **Next**.
 
     2.  Complete the **Job properties** section:
+
         - **Name** –
           Enter the name of your AWS Glue job.
         - **IAM Role** – Choose the IAM role that is used for authorization
@@ -125,6 +130,7 @@ created.
         - Choose **Next**.
 
     3.  Configure the required connections:
+
         1. From **All connections**, choose the required AWS Glue connections
            and add them to the list of **Selected connections**.
         2. Choose **Finish**.
@@ -133,6 +139,7 @@ created.
     Jobs**. Open the context (right-click) menu for ETL job that you
     configured, and then choose **Create AWS Glue Job**.
 17. Run the AWS Glue job:
+
     1.  Open the AWS Glue console at
         [https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/").
     2.  In the navigation pane, choose **Jobs**.

@@ -278,6 +278,7 @@ and then choose **Next**. 3. On the **AWS profile settings** page, do the follow
 
 4. On the **Email Sending Service** page,
    do the following:
+
    - If you are reinstalling the extension pack schema only, choose
      **Skip this step for now**, and then choose
      **Next**.
@@ -287,6 +288,7 @@ and then choose **Next**. 3. On the **AWS profile settings** page, do the follow
 
 5. On the **Job Emulation Service** page,
    do the following:
+
    - If you are reinstalling the extension pack schema only, choose
      **Skip this step for now**, and then choose
      **Next**.

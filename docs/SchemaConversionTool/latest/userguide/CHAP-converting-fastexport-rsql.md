@@ -161,6 +161,7 @@ and SQL statements that AWS SCT can't convert.
    statements from your source scripts.
 4. You can save a local copy of the FastExport job script conversion assessment report as either a
    PDF file or a comma-separated values (CSV) file.
+
    1. To save the FastExport job script conversion assessment report as a PDF file,
       choose **Save to PDF** at upper right.
 

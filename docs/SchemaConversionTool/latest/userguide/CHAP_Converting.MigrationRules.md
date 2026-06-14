@@ -43,6 +43,7 @@ With your project open, use the following procedure to create migration rules.
 4. Choose **Add new rule**.
    A new row is added to the list of rules.
 5. Configure your rule:
+
    1. For **Name**, enter a name for your rule.
    2. For **For**,
       choose the type of object that the rule applies to.

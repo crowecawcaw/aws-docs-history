@@ -138,6 +138,7 @@ makes it easier to set this up:
    the scripts so that they run in the correct order.
 2. On the second tab, you can name your job, and directly configure settings for AWS Glue. On
    this screen, you can configure the following settings:
+
    - AWS Identity and Access Management (IAM) role
    - Script file names and file paths
    - Encrypt the script using server-side encryption with Amazon S3–managed keys (SSE-S3)

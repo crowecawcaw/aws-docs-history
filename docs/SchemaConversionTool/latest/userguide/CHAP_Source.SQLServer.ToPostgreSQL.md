@@ -83,6 +83,7 @@ datasets**.
 
 - To define the template to use for the schema names in the converted code. For
   **Schema name generation template**, choose one of the following options:
+
   - **<source_db>** – Uses the SQL Server database name
     as a schema name in PostgreSQL.
   - **<source_schema>** – Uses the SQL Server schema name
@@ -164,6 +165,7 @@ statements in the table following.
 
 - PostgreSQL doesn't support a MERGE statement. AWS SCT emulates the behavior of
   a MERGE statement in the following ways:
+
   - By INSERT ON CONFLICT construction.
   - By using the UPDATE FROM DML statement, such as MERGE without a
     WHEN NOT MATCHED clause.
@@ -178,6 +180,7 @@ statements in the table following.
 - AWS SCT can add linked servers to the object tree when Amazon RDS is the target.
 - When migrating from Microsoft SQL Server to PostgreSQL, the built-in SUSER_SNAME function is
   converted as follows:
+
   - SUSER_SNAME – Returns the login name associated with a security identification number
     (SID).
   - SUSER_SNAME(<server_user_sid>) – Not supported.

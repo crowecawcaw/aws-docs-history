@@ -96,6 +96,7 @@ to Amazon Redshift RSQL using AWS SCT.
    For more information, see [Configuring substitution variables in MultiLoad job scripts](#CHAP-converting-multiload-rsql-variables "#CHAP-converting-multiload-rsql-variables").
 3. In the left panel, expand the **Scripts** node.
 4. Do one of the following:
+
    - To convert a single MultiLoad job script, expand the **MultiLoad**
      node, choose the script to convert, and then
      choose **Convert script** from the context (right-click) menu.
@@ -104,6 +105,7 @@ to Amazon Redshift RSQL using AWS SCT.
      menu, and then choose **Convert script**.
 
 5. Do one of the following:
+
    - If you store your source data file on Amazon S3, choose **S3
      object path** for **Source data file
      location**.
@@ -169,6 +171,7 @@ statements that AWS SCT can't convert.
    statements from your source scripts.
 4. (Optional) Save a local copy of the MultiLoad job script conversion assessment report as
    either a PDF file or comma-separated value (CSV) files:
+
    - To save the MultiLoad job script conversion assessment report as a PDF file,
      choose **Save to PDF** at upper right.
 

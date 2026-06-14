@@ -183,6 +183,7 @@ with the `character varying` data type.
    and then choose **Oracle – PostgreSQL**.
    AWS SCT displays all available settings for Oracle to PostgreSQL conversion.
 4. For **Generate row ID**, do one of the following:
+
    - Choose **Generate as identity** to create a
      numeric data column.
    - Choose **Generate as character domain type** to
