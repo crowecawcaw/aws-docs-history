@@ -17,6 +17,7 @@ The following procedure assumes that you have already completed the [Creating a 
 4. From the **Add** dropdown, choose
    **New services**.
 5. On the **Add new service** page, you can do the following:
+
    - Choose an account.
    - Choose a location type.
    - Choose a location.

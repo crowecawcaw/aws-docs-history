@@ -15,6 +15,7 @@ resource share in AWS RAM](../../../ram/latest/userguide/working-with-sharing-up
    Preferences**.
 3. Choose the **Billing View** tab.
 4. To access the sharing page, do one of the following:
+
    - Select the custom billing view whose sharing you want to update, choose
      **Actions**, and then choose **Edit shared
      accounts** from the dropdown list.

@@ -16,6 +16,7 @@ The following procedure assumes that you have already completed the [Setting you
 3. In the **Workload estimate** tab, choose
    **Create workload estimate**.
 4. In the **Create workload estimate** prompt, you can do the following:
+
    - Give your estimate a title.
    - Add key and value tag to your estimate.
    - Select the rate type for your estimate.

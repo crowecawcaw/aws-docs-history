@@ -127,10 +127,12 @@ for Cost Optimization Hub.
 ###### Examples
 
 - Exceptions
+
   - [Throttling Exception](#example-throttling-exception "#example-throttling-exception")
   - [Access denied exception](#example-access-denied "#example-access-denied")
 
 - API actions
+
   - [ListEnrollmentStatus](#example-listenrollmentstatus "#example-listenrollmentstatus")
   - [ListRecommendations](#example-listrecommendations "#example-listrecommendations")
   - [ListRecommendationSummaries](#example-listrecommendationsummaries "#example-listrecommendationsummaries")

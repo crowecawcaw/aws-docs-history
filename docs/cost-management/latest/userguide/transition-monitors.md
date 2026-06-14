@@ -8,12 +8,14 @@ management and automatic coverage.
 
 1.  **Create your AWS managed monitor alongside existing
     customer managed monitors**
+
     - Choose the dimension that matches your primary cost organization
       method
     - The AWS managed monitor will begin tracking all values
       automatically
 
 2.  **Verify detection coverage**
+
     - Allow the AWS managed monitor to run for at least 24-48 hours
     - Compare detected anomalies with your existing customer managed
       monitors
@@ -21,6 +23,7 @@ management and automatic coverage.
       expected
 
 3.  **Configure alert subscriptions**
+
     - Set appropriate thresholds for your AWS managed monitor
     - Note that alert subscriptions attached to AWS managed monitors
       use the same threshold across all tracked values

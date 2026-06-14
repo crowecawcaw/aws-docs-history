@@ -26,6 +26,7 @@ Use this procedure to create a budget that's based on your usage.
    group is a collection of usage types that have the same unit of measure. For
    example, resources that measure usage by the hour is one usage type
    group.
+
    - For **Usage type groups**, choose the unit of
      measurement and the applicable service usage that you want the
      budget to monitor.
@@ -34,6 +35,7 @@ Use this procedure to create a budget that's based on your usage.
 
 8. Under **Set budget amount**, for **Period**, choose how
    often you want the budget to reset the actual and forecasted usage.
+
    - **Daily** for every day
    - **Monthly** for every month
    - **Quarterly** for every three months

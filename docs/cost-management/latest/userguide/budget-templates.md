@@ -13,6 +13,7 @@ workflow, unlike the 5-step workflow that is required for [Customizing a budget 
    (simplified)**.
 5. Under **Templates**, choose a template that best matches your
    use case:
+
    - **Zero spend budget**: A budget that notifies you
      after your spending exceeds AWS Free Tier limits.
    - **Monthly cost budget**: A monthly budget that

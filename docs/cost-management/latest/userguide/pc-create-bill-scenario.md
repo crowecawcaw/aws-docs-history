@@ -12,6 +12,7 @@ This section outlines how to generate a bill scenario.
 3. In the **Bill scenarios** of the **Bill estimate** tab, choose
    **Create bill scenario**.
 4. In the **Create bill scenario** prompt, you can do the following:
+
    - Give your bill scenario a name.
    - Add key and value tag to your scenario.
 

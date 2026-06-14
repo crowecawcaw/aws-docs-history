@@ -24,6 +24,7 @@ data-driven financial decisions.
 3. Create a new dashboard or choose an existing dashboard.
 4. Choose **Add widget**, and then choose one of the
    following:
+
    - **Custom widget** - Create a new visualization.
    - **Predefined widget** - These widgets are preconfigured for the
      most common use cases and can be further customized to serve your reporting
@@ -42,6 +43,7 @@ following:
     * Cost aggregation and other data settings
 
 7. To change the visualization type:
+
    - Choose the vertical three dots in the upper right corner of the widget.
    - Choose **Change visualization type**.
    - Choose **Line chart**, **Bar chart**,

@@ -54,17 +54,23 @@ Cost Optimization Hub generates recommendations for the following resources:
 - Amazon Elastic Container Service (Amazon ECS) tasks on AWS Fargate
 - Compute Savings Plans
 - EC2 Instance Savings Plans
-- SageMaker Savings Plans
 - EC2 Reserved Instances
-- Amazon RDS Reserved Instances
-- OpenSearch Reserved Instances
-- Amazon Redshift reserved nodes
-- ElastiCache reserved nodes
 - Amazon RDS DB instances
 - Amazon RDS DB instance storage
-- MemoryDB reserved instances
-- DynamoDB reserved capacity
+- Amazon RDS Reserved Instances
 - Amazon Aurora DB cluster storage
+- ElastiCache cluster
+- ElastiCache reserved nodes
+- MemoryDB cluster
+- MemoryDB reserved instances
+- DynamoDB table
+- DynamoDB reserved capacity
+- DocumentDB cluster
+- OpenSearch Reserved Instances
+- Amazon Redshift reserved nodes
+- SageMaker endpoint
+- SageMaker Savings Plans
+- WorkSpaces
 - NAT Gateway
 
 Resource rightsizing and idle resource recommendations are provided by AWS Compute Optimizer. To see what type of recommendations are supported for each resource, see

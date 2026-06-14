@@ -16,6 +16,7 @@ information, see [Permissions](ce-cost-comparison.md#ce-cost-comparison-permissi
 3. In the **Report parameters** panel, choose
    **Compare**.
 4. For **Date range**, choose between:
+
    - **Relative (Month over month)**: Compare current
      month to previous month.
    - **Absolute (Custom)**: Compare any two months within

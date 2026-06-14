@@ -56,7 +56,7 @@ billing for AWS Organizations](../../../awsaccountbilling/latest/aboutv2/consoli
 
 ## Understanding your forecasts with AI explanations
 
-Cost Explorer provides AI-powered explanations that help you understand the key drivers behind your forecast predictions. These natural language explanations are available through the Cost Explorer console and detail the primary factors influencing your predicted costs, such as seasonal patterns, usage trends, or service-specific changes. The AI explanations can help you identify optimization opportunities, communicate forecast rationale to stakeholders, and build confidence in your cost projections. To access these explanations, generate a forecast in the Cost Explorer console and select the "Generate forecast explanation" option.
+Cost Explorer provides AI-powered explanations that help you understand the key drivers behind your forecast predictions. You can access forecast explanations by configuring a future date range in Cost Explorer and clicking **Analyze with Amazon Q**. Amazon Q Developer delivers detailed forecast explanations covering projected spending trajectories, service-level breakdowns, and the factors influencing your projections. You can ask follow-up questions to understand why specific services are projected to increase or decrease. For more information, see [Using Analyze with Amazon Q](ce-nlq.md#ce-nlq-analyze-with-q "ce-nlq.md#ce-nlq-analyze-with-q").
 
 ###### Note
 

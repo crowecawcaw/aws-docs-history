@@ -33,22 +33,26 @@ requirements:
 
 - For cross-account billing views, the source account administrator must
   grant:
+
   - `budgets:ModifyBudget` permission on the billing view to
     allow target accounts/users to create budgets
   - `billing:GetBillingViewData` permission to access the
     billing view data
 
 - Target accounts/users also need:
+
   - `iam:CreateServiceLinkedRole` permission for the Budgets service principal
     (budgets.amazonaws.com):
 
 - The service-linked role monitors the health status of your billing view
   access:
+
   - `HEALTHY`: Indicates the budget has proper access to the
     billing view data
   - `UNHEALTHY`: Indicates the budget cannot access the billing
     view data, which might occur if permissions have been revoked or the
     view has been deleted. Reasons for unhealthy status can be:
+
     - `BILLING_VIEW_NO_ACCESS`: Indicates that access to
       the billing view associated with the budget has been removed
       (unshared) or the view was deleted.

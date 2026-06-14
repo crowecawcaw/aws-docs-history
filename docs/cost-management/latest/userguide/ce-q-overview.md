@@ -164,6 +164,7 @@ To take advantage of the full range of cost management capabilities, you can als
 1. Sign in to the AWS Management Console at [https://console.aws.amazon.com](https://console.aws.amazon.com "https://console.aws.amazon.com").
 2. Choose the Amazon Q icon on the right side of the console navigation bar.
 3. Ask a question about your costs, such as:
+
    - "What were my costs last month?"
    - "What are my top cost optimization opportunities?"
    - "How much does a c8g.2xlarge instance running Linux cost in us-east-1?"

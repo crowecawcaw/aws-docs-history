@@ -155,6 +155,7 @@ To access Cost Optimization Hub, you must first enable the feature.
 2. In the navigation pane, choose **Cost Optimization Hub**.
 3. On the **Cost Optimization Hub** page, choose your relevant organization and member
    account settings:
+
    - **Enable Cost Optimization Hub for this account and all member accounts**:
      Recommendations in this account and all member accounts will be imported into
      Cost Optimization Hub.

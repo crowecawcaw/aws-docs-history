@@ -48,12 +48,15 @@ To access Billing View
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. Choose either of the following methods to begin creating your custom billing
    view:
+
    - From the console navigation pane:
+
      1. In the navigation pane, select the **Choose billing view**
         menu.
      2. Choose **Create new view** from the dropdown list.
 
    - From Cost Management preferences:
+
      1. In the navigation pane, choose **Cost Management
         Preferences**.
      2. Choose the **Billing View** tab.

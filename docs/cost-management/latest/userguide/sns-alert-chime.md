@@ -69,6 +69,7 @@ follows:
 
 16. Set up the SNS topics that will send notifications to the Amazon Chime
     webhook.
+
     1.  For **SNS Region**, choose the AWS Region
         that hosts the SNS topics for this Amazon Q Developer
         subscription.

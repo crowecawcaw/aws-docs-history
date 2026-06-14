@@ -9,6 +9,7 @@ options** to include or exclude specific types of data.
 2. In the navigation pane, choose **Cost Explorer**.
 3. In the right pane, under **Advanced options**, under
    **Aggregate costs by**, choose between the following:
+
    - **Unblended costs**: This cost metric
      reflects the cost of the usage. When grouped by **Charge
      type**, unblended costs separate discounts into their own line
@@ -49,6 +50,7 @@ options** to include or exclude specific types of data.
 
 4. Under **Additional data settings**, select from the
    following:
+
    - **Show forecasted values**: Cost Explorer
      displays a forecast for how much AWS predicts you will spend over the
      forecast time period that you select, based on your past costs.

@@ -92,6 +92,7 @@ Choose your monitor method based on your needs:
    about tags, see [Tagging AWS
    resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
    guide_.
+
    1. Enter the key value for the tag.
    2. Choose **Add new tag** to add
       additional tags. The maximum number of tags that you can
@@ -237,6 +238,7 @@ create additional subscriptions, follow these steps.
    “Leadership report.”
 4. Under **Alerting frequency**, choose your
    preferred notification frequency.
+
    - **Individual alerts** - The alert
      notifies you as soon as an anomaly is detected. You
      might receive multiple alerts throughout a day. These

@@ -20,6 +20,7 @@ For more information, see [Prerequisites](billing-view-getting-started.md#billin
 3. Choose the **Billing View** tab.
 4. Choose **Create view**.
 5. Choose a single dimension to filter and specify the values to include in the custom billing view.
+
    - **Cost allocation tags**: This filter is recommended if you use
      cost allocation tags to organize and manage your spend. This field is restricted to one
      key, but allows multiple values within that key. For example, you can create a custom
@@ -45,6 +46,7 @@ For more information, see [Prerequisites](billing-view-getting-started.md#billin
    [Tagging AWS
    resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
    guide_.
+
    1. Choose **Add new tag**.
    2. Enter the key and value for the tag.
    3. Choose **Add new tag** to add additional tags. The maximum number
@@ -63,6 +65,7 @@ For more information, see [Prerequisites](billing-view-getting-started.md#billin
 5. Choose up to 20 source views. Your new view will include the cost management data from each selected source view.
 6. Choose **Next**.
 7. Choose a single dimension to filter and specify the values to include in the custom billing view.
+
    - **Cost allocation tags**: This filter is recommended if you use
      cost allocation tags to organize and manage your spend. This field is restricted to one
      key, but allows multiple values within that key. For example, you can create a custom
@@ -88,6 +91,7 @@ For more information, see [Prerequisites](billing-view-getting-started.md#billin
     [Tagging AWS
     resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md") in the _AWS General Reference
     guide_.
+
     1. Choose **Add new tag**.
     2. Enter the key and value for the tag.
     3. Choose **Add new tag** to add additional tags. The maximum number

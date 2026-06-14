@@ -17,6 +17,7 @@ The following procedure assumes that you have already completed the [Creating a 
    you want to generate a bill estimate from.
 4. Choose **Create**.
 5. In the **Create a bill estimate** prompt, you can do the following:
+
    - Give your bill estimate a name.
    - Add key and value tag to your estimate.
 

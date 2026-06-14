@@ -7,6 +7,7 @@
    Preferences**.
 3. Choose the **Billing View** tab.
 4. To access the edit filters page, do one of the following:
+
    - Select the custom billing view you want to edit. Choose **Actions**, and then choose **Edit view** from
      the dropdown list.
    - Choose the billing view you want to edit. Choose the **Configuration details** tab, and then choose **Edit** next to **Data filtered by**.

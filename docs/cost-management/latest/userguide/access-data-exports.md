@@ -11,6 +11,7 @@ You can customize your exports by choosing specific data dimensions, time period
    selection is the **Primary view**, which represents cost management data
    for the account you're currently logged in to.
 3. From the dropdown list, choose the billing view you want to use:
+
    - **Primary view**: Shows cost management data for your current
      account.
    - **Billing Group views**: Shows cost management data for accounts included in billing groups via .

@@ -22,6 +22,7 @@ Use this procedure to create a budget that's based on your costs.
 
 7. Under **Set budget amount**, for **Period**, choose how
    often you want the budget to reset the actual and forecasted spend.
+
    - **Daily** for every day
    - **Monthly** for every month
    - **Quarterly** for every three months

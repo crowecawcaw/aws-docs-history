@@ -21,6 +21,7 @@ The following procedure assumes that you have already completed the [Creating a 
 4. In the **Reserved Instances and Savings Plans sharing group preferences** section, choose
    **Edit**.
 5. Select the group preference you want and choose **Save changes**.
+
    - If you select Prioritized sharing group or Restricted sharing group, select a Cost Category from the drop down.
      For Open sharing, you do not need to choose a Cost Category.
 

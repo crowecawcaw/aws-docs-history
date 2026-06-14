@@ -18,6 +18,7 @@ The following procedure assumes that you have already completed the [Adding new 
 5. Choose **Configure**.
 6. On the **Configure service** page, you can select
    **Guided configuration** or **Condensed configuration**.
+
    - In the **Guided configuration**, you can select a template for that specific
      service. For more information, see [Guided configuration](#pc-create-workload-guided "#pc-create-workload-guided").
    - In the **Condensed configuration**, you can select the usage type and operation

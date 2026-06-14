@@ -26,6 +26,7 @@ Cost monitors
 3. Choose the **Cost monitors** tab.
 4. Select the monitor that you want to edit.
 5. Choose **Edit**.
+
    - (Alternative) Choose the individual monitor name.
    - Choose **Edit monitor**.
 
@@ -45,6 +46,7 @@ Alert subscriptions
 3. Choose the **Alert subscriptions** tab.
 4. Select the subscription that you want to edit.
 5. Choose **Edit**.
+
    - (Alternative) Choose the individual monitor name.
    - Choose **Edit**.
 

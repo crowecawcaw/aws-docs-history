@@ -9,6 +9,7 @@ spend patterns for anomalies. You also won’t receive any further notifications
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. In the navigation pane, choose **Cost Anomaly Detection**.
 3. To delete any existing cost monitors:
+
    1. Choose the **Cost monitors** tab.
    2. Select the cost monitor that you want to delete.
    3. Choose **Delete**.
@@ -17,6 +18,7 @@ spend patterns for anomalies. You also won’t receive any further notifications
    5. Repeat the steps for any additional cost monitors.
 
 4. To delete any existing alert subscriptions:
+
    1. Choose the **Alert subscriptions** tab.
    2. Select the alert subscription that you want to delete.
    3. Choose **Delete**.

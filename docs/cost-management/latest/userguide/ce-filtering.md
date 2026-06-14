@@ -60,6 +60,7 @@ three months.
 - AWS Cost and Usage Reports in Cost Explorer can use a maximum of 1024 filters.
 - You can filter RI Utilization reports by only one service at a time. You can do
   this only for the following services:
+
   - Amazon EC2
   - Amazon Redshift
   - Amazon RDS

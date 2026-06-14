@@ -15,6 +15,7 @@ following data:
   forecasted
   costs or usage compared to your budgeted amount
 - The billing view associated with the budget and its health status:
+
   - `HEALTHY`: Indicates the budget has proper access to the
     billing view data
   - `UNHEALTHY`: Indicates the budget cannot access the billing
@@ -56,6 +57,7 @@ You can view detailed information about your budgets in two ways.
   hidden.
 - Choose your budget's name to see the budget details page. This page includes
   the following information:
+
   - **Current vs. budgeted** – Your current
     incurred costs compared to your budgeted costs.
   - **Forecasted vs. budgeted** – Your forecasted
@@ -82,15 +84,18 @@ You can view detailed information about your budgets in two ways.
 
 - For budgets using **custom** time periods, you can view the following
   information:
+
   - **Current vs. budgeted costs** - Compare your current incurred costs
     against your total budget for the time period.
   - **Time remaining** - View the remaining duration in your custom budget
     period.
   - **Historical data** - View historical budget data based on the following
     time frames:
+
     - For Reserved Instance (RI) and Savings Plans(SP) budgets: Up
       to 14 months of historical data
     - For cost and usage budgets:
+
       - Multi-year data enabled - up to 38 months of
         historical data
       - Multi-year data disabled - up to 14 months of

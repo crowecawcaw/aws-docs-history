@@ -20,12 +20,14 @@ rightsizing recommendations:
 3. On the **Rightsizing recommendations** page, under
    **Recommendation parameters**, filter your recommendations
    by selecting any or all of the following check boxes:
+
    - Idle instances
    - Underutilized instances
    - Include Savings Plans and Reserved Instances
 
 4. Under **Findings**, use the search bar to filter by the
    following parameters:
+
    - Account ID (option available from the management account)
    - Region
    - Cost allocation tag

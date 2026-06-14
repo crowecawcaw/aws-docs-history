@@ -22,10 +22,12 @@ part of the dashboard configuration.
 3. Select the dashboard you want to share.
 4. Choose **Share**.
 5. Select the accounts you want to share the dashboard with:
+
    - Share with accounts in your AWS Organization
    - Share with external AWS accounts
 
 6. Set permissions:
+
    - Read-only access ("Can view") Recipients can view the dashboard but cannot make
      changes
    - Edit access ("Can edit") Recipients can view and modify the dashboard

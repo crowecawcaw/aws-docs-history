@@ -33,6 +33,7 @@ trends** widget or Cost Explorer.
 
 1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
 2. Do either of the following:
+
    - On the console home page, view the **Top trends**
      widget, which shows the top 10 cost variations between the previous two
      months.

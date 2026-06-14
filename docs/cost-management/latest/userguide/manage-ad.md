@@ -56,3 +56,4 @@ specifically. For more information, see [Creating a budget](budgets-create.md "b
 - [Using EventBridge with Cost Anomaly Detection](cad-eventbridge.md "cad-eventbridge.md")
 - [Using AWS User Notifications with Cost Anomaly Detection](cad-user-notifications.md "cad-user-notifications.md")
 - [Opting out of Cost Anomaly Detection](opting-out-cad.md "opting-out-cad.md")
+- [Investigating anomaly root causes with Amazon Q Developer](investigating-ad.md "investigating-ad.md")

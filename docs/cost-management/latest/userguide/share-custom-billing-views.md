@@ -17,6 +17,7 @@ Account Refunds and Credits, and Linked Account Discounts. For more information,
 2. In the navigation pane, choose **Cost Management Preferences**.
 3. Choose the **Billing View** tab.
 4. To access the sharing page, do one of the following:
+
    - Select the custom billing view you want to share, and choose **Share
      view**.
    - Choose the name of the custom billing view you want to share and, on the view
@@ -25,6 +26,7 @@ Account Refunds and Credits, and Linked Account Discounts. For more information,
 5. Choose **Share**.
 6. You can share custom billing views with accounts within and outside of your
    organization. From **Select**:
+
    - Choose **Within AWS organization** to share with accounts within your
      organization.
    - Choose **With any account** to manually enter an account ID to
@@ -34,6 +36,7 @@ Account Refunds and Credits, and Linked Account Discounts. For more information,
    recipient accounts can interact with the shared resource. For more information about managed
    permissions, see [Managing permissions in AWS RAM](../../../ram/latest/userguide/security-ram-permissions.md "../../../ram/latest/userguide/security-ram-permissions.md").
 8. Select which accounts you want to share the custom billing view.
+
    - If sharing **Within AWS organization**, select member
      accounts to share with.
    - If sharing **With any account**, manually enter the

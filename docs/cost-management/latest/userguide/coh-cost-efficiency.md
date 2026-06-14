@@ -51,6 +51,7 @@ For a list of supported resources for these services, see [Supported resources](
 2. In the navigation pane, choose **Cost Optimization Hub**.
 3. Your current Cost efficiency appears at the top of the page.
 4. By default, you will see the **Overall** scores for your account on the Cost efficiency card on the right. You can perform the following actions on this card:
+
    - To view the 5 most efficient accounts, under “View efficiency by”, choose **Most efficient accounts**
    - To view the 5 least efficient accounts, under “View efficiency by”, choose **Least efficient accounts**
    - To view the 5 most efficient regions, under “View efficiency by”, choose **Most efficient regions**

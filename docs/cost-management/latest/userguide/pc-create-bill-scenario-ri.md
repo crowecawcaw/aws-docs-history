@@ -22,6 +22,7 @@ The following procedure assumes that you have already completed the [Creating a 
 7. If you need to configure the Reserved Instances, select the checkbox of the Reserved Instances you need to configure.
 8. Choose **Edit**.
 9. On the Add new service page, do the following:
+
    - Choose a Region.
    - Choose a instance type.
    - Choose a platform.
