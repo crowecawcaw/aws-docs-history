@@ -31,6 +31,7 @@ When you are finished with a tag, you can remove it from your Gateway Load Balan
 3. Select the Gateway Load Balancer.
 4. Choose **Tags**, **Add/Edit Tags**, and then
    do one or more of the following:
+
    1. To update a tag, edit the values of **Key** and
       **Value**.
    2. To add a new tag, choose **Create Tag**. For

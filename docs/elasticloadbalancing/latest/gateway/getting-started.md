@@ -113,17 +113,20 @@ Use the following procedure to create your load balancer, listener, and target g
 3. Choose **Create load balancer**.
 4. Under **Gateway Load Balancer**, choose **Create**.
 5. **Basic configuration**
+
    1. For **Load balancer name**, enter a name for your load balancer.
    2. For **IP address type**, choose **IPv4** to support
       IPv4 addresses only or **Dualstack** to support both IPv4 and IPv6
       addresses.
 
 6. **Network mapping**
+
    1. For **VPC**, select the service provider VPC.
    2. For **Mappings**, select all of the Availability Zones in which you
       launched security appliance instances, and one subnet per Availability Zone.
 
 7. **IP listener routing**
+
    1. For **Default action**, select an existing target group to receive
       traffic. This target group must use the GENEVE protocol.
 
@@ -149,12 +152,14 @@ Use the following procedure to create an endpoint service using your Gateway Loa
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. In the navigation pane, choose **Endpoint services**.
 3. Choose **Create endpoint service** and do the following:
+
    1. For **Load balancer type**, choose **Gateway**.
    2. For **Available load balancers**, select your Gateway Load Balancer.
    3. For **Require acceptance for endpoint**, select **Acceptance
       required** to accept connection requests to your service manually. Otherwise,
       they are automatically accepted.
    4. For **Supported IP address types**, do one of the following:
+
       - Select **IPv4** – Enable the endpoint service to accept
         IPv4 requests.
       - Select **IPv6** – Enable the endpoint service to accept
@@ -185,6 +190,7 @@ through AWS PrivateLink](../../../vpc/latest/privatelink/vpce-gateway-load-balan
     [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2.  In the navigation pane, choose **Endpoints**.
 3.  Choose **Create endpoint** and do the following:
+
     1. For **Service category**, choose **Other endpoint services**.
     2. For **Service name**, enter the service name that you noted earlier,
        and then choose **Verify service**.
@@ -204,7 +210,6 @@ through AWS PrivateLink](../../../vpc/latest/privatelink/vpce-gateway-load-balan
         * **Dualstack** – Assign both IPv4 and IPv6 addresses to
          your endpoint network interfaces. This option is supported only if all selected
          subnets have both IPv4 and IPv6 address ranges.
-
     6. (Optional) To add a tag, choose **Add new tag** and enter the tag key
        and tag value.
     7. Choose **Create endpoint**. The initial status is `pending
@@ -230,6 +235,7 @@ servers.
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. In the navigation pane, choose **Route tables**.
 3. Select the route table for the internet gateway and do the following:
+
    1. Choose **Actions**, **Edit routes**.
    2. Choose **Add route**. For **Destination**, enter the
       IPv4 CIDR block of the subnet for the application servers. For **Target**,
@@ -241,6 +247,7 @@ servers.
 
 4. Select the route table for the subnet with the application servers and do the
    following:
+
    1. Choose **Actions**, **Edit routes**.
    2. Choose **Add route**. For **Destination**, enter
       `0.0.0.0/0`. For **Target**, select the VPC
@@ -251,6 +258,7 @@ servers.
    4. Choose **Save changes**.
 
 5. Select the route table for the subnet with the Gateway Load Balancer endpoint, and do the following:
+
    1. Choose **Actions**, **Edit routes**.
    2. Choose **Add route**. For **Destination**, enter
       `0.0.0.0/0`. For **Target**, select the internet

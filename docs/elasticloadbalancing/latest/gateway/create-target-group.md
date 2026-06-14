@@ -17,6 +17,7 @@ health check settings for your target group. For more information, see [Modify h
    choose **Target Groups**.
 3. Choose **Create target group**.
 4. **Basic configuration**
+
    1. For **Choose a target type**, select
       **Instances** to specify targets by instance
       ID, or select **IP addresses** to specify targets
@@ -41,6 +42,7 @@ health check settings for your target group. For more information, see [Modify h
 6. (Optional) Expand **Tags** and add the tags that you need.
 7. Choose **Next**.
 8. For **Register targets** add one or more targets as follows:
+
    - If the target type is **Instances**,
      select one or more instances, enter one or more ports, and
      then choose **Include as pending

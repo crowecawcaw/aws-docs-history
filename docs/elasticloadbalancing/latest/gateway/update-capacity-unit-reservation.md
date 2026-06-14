@@ -14,6 +14,7 @@ load balancer.
 3. Select the load balancer name.
 4. On the **Capacity** tab, confirm the status
    of reservation is Provisioned.
+
    1. To update the LCU reservation choose **Edit LCU Reservation**.
    2. To terminate the LCU reservation, choose **Cancel Capacity**.
 

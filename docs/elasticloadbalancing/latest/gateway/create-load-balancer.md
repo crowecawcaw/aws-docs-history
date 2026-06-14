@@ -34,6 +34,7 @@ target groups. Gateway Load Balancers require target groups that use the GENEVE 
 4. Under **Gateway Load Balancer**, choose
    **Create**.
 5. **Basic configuration**
+
    1. For **Load balancer name**, enter a name for your
       load balancer. For example, `my-glb`. The name
       of your Gateway Load Balancer must be unique within your set of load balancers for
@@ -46,6 +47,7 @@ target groups. Gateway Load Balancers require target groups that use the GENEVE 
       addresses.
 
 6. **Network mapping**
+
    1. For **VPC**, select the service provider
       VPC.
    2. For **Mappings**, select all of the Availability
@@ -53,6 +55,7 @@ target groups. Gateway Load Balancers require target groups that use the GENEVE 
       corresponding public subnets.
 
 7. **IP listener routing**
+
    1. For **Default action**, select the target group
       to receive traffic. If you don't have a target group, choose
       **Create target group**. For more information,

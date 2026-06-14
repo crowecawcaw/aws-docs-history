@@ -32,6 +32,7 @@ When you are finished with a tag, you can remove it.
    page.
 4. On the **Tags** tab, choose **Manage
    tags** and do one or more of the following:
+
    1. To update a tag, enter new values for
       **Key** and
       **Value**.

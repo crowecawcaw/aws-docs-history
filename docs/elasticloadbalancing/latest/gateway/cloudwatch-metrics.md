@@ -69,6 +69,7 @@ Alternatively, you can view metrics for your Gateway Load Balancer using the Clo
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. To view metrics filtered by target group, do the following:
+
    1. In the navigation pane, choose **Target
       Groups**.
    2. Select your target group and choose
@@ -78,6 +79,7 @@ Alternatively, you can view metrics for your Gateway Load Balancer using the Clo
    4. To get a larger view of a single metric, select its graph.
 
 3. To view metrics filtered by Gateway Load Balancer, do the following:
+
    1. In the navigation pane, choose **Load
       Balancers**.
    2. Select your Gateway Load Balancer and choose
