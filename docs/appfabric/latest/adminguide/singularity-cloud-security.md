@@ -24,6 +24,7 @@ Singularity Cloud supports receiving Audit Logs from following
 AppFabric Output locations.
 
 - Amazon Simple Storage Service (Amazon S3)
+
   - To configure Singularity Cloud to receive data from
     the Amazon S3 bucket that contains your audit logs, follow the
     instructions in Singularity Cloud’s

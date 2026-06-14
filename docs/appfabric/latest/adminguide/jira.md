@@ -93,9 +93,11 @@ You must add the following scopes to your Jira OAuth application’s
 **Permissions** page:
 
 - Under Classic Scopes:
+
   - Jira API > `read:jira-user`
 
 - Under Granular Scopes:
+
   - Jira API > `read:audit-log:jira`
   - Jira API > `read:user:jira`
 

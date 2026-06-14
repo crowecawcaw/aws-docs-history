@@ -76,6 +76,7 @@ buckets:
 - AppFabric for security requires that your Amazon S3 bucket be in the same AWS Region
   as your Amazon S3 resources.
 - Your can encrypt your bucket using one of the following:
+
   - Server-side encryption with Amazon S3 managed keys (SSE-S3)
   - Server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) using
     the default AWS managed key (`aws/s3`).

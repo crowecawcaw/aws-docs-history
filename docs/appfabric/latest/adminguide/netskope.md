@@ -22,10 +22,12 @@ Netskope supports the following AppFabric output schema and
 formats:
 
 - Raw - JSON
+
   - AppFabric outputs data in the original schema used by the source
     application in the JSON format.
 
 - OCSF - JSON
+
   - AppFabric normalizes the data using the Open Cybersecurity Schema
     Framework (OCSF) and outputs the data in the JSON format.
 
@@ -34,6 +36,7 @@ formats:
 Netskope supports the following AppFabric output location:
 
 - Amazon Simple Storage Service (Amazon S3)
+
   - To configure Netskope to receive data from the Amazon S3
     bucket that contains your audit logs, follow the instructions in
     [Data Protection for Amazon Web Services S3](https://docs.netskope.com/en/data-protection-for-amazon-web-services-s3.html "https://docs.netskope.com/en/data-protection-for-amazon-web-services-s3.html") on the

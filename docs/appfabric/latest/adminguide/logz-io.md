@@ -28,10 +28,12 @@ Logz.io supports the following AppFabric output schema and
 formats:
 
 - Raw - JSON
+
   - AppFabric outputs data in the original schema used by the source
     application in the JSON format.
 
 - OCSF - JSON
+
   - AppFabric normalizes the data using the Open Cybersecurity Schema
     Framework (OCSF) and outputs the data in the JSON format.
 
@@ -40,11 +42,13 @@ formats:
 Logz.io supports the following AppFabric output locations:
 
 - Amazon Data Firehose
+
   - To configure your Firehose delivery stream so that it sends data to
     Logz.io, follow the instructions in [Choose Logz.io for Your Destination](../../../firehose/latest/dev/create-destination.md#create-destination-logz "../../../firehose/latest/dev/create-destination.md#create-destination-logz") in
     the _Amazon Data Firehose Developer Guide_.
 
 - Amazon Simple Storage Service (Amazon S3)
+
   - To configure Logz.io to receive data from the Amazon S3
     bucket that contains your audit logs, follow the instructions in
     [Configure an Amazon S3 bucket](https://docs.logz.io/shipping/log-sources/s3-bucket.html "https://docs.logz.io/shipping/log-sources/s3-bucket.html") on the Logz.io

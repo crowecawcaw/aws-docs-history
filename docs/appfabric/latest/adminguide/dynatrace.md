@@ -25,6 +25,7 @@ The Dynatrace Platform supports receiving Audit Logs from following
 AppFabric Output locations.
 
 - Amazon Simple Storage Service (Amazon S3)
+
   - To configure the Dynatrace Platform to receive data
     from the Amazon S3 bucket that contains your audit logs, follow the
     instructions in [Dynatrace’s S3 Log Forwarder project](https://github.com/dynatrace-oss/dynatrace-aws-s3-log-forwarder "https://github.com/dynatrace-oss/dynatrace-aws-s3-log-forwarder") on

@@ -19,10 +19,12 @@ Rapid7 supports the following AppFabric output schema and
 formats:
 
 - Raw - JSON
+
   - AppFabric outputs data in the original schema used by the source
     application in the JSON format.
 
 - OCSF - JSON
+
   - AppFabric normalizes the data using the Open Cybersecurity Schema
     Framework (OCSF) and outputs the data in the JSON format.
 
@@ -31,6 +33,7 @@ formats:
 Rapid7 supports the following AppFabric output location:
 
 - Amazon Simple Storage Service (Amazon S3)
+
   - To configure Rapid7 to receive data from the Amazon S3 bucket that
     contains your audit logs, follow the instructions in the [How to Monitor Your Amazon S3 Activity with InsightIDR](https://www.rapid7.com/blog/post/2019/08/07/how-to-monitor-your-aws-s3-activity-with-insightidr/ "https://www.rapid7.com/blog/post/2019/08/07/how-to-monitor-your-aws-s3-activity-with-insightidr/") blog
     post on the Rapid7 Blog website.

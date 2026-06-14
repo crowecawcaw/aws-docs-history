@@ -67,6 +67,7 @@ Complete the following steps to generate a personal access token.
    Secure)
 6. Choose **Add Integration**, then complete the following
    steps in the **Set up token** page.
+
    1. Provide the token name to be used in the AppFabric secure
       environment.
    2. We recommend that you choose **Never** in the
@@ -80,6 +81,7 @@ Complete the following steps to generate a personal access token.
 7. Choose **Issue Token** to create the token.
 8. Choose **Save in 1Password** and complete
    the following steps.
+
    1. The title will be auto-populated based on your system and token
       names.
    2. Choose **Private** under **Select A

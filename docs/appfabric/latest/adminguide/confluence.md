@@ -98,9 +98,11 @@ Atlassian Developer website. Use the classic scope where
 available.
 
 - Classic Scopes:
+
   - `read:confluence-user`
 
 - Granular Scopes:
+
   - `read:audit-log:confluence`
 
 ### App authorizations

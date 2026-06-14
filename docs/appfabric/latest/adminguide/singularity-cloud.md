@@ -77,6 +77,7 @@ after a service user API token expires.
 5. Choose **Next**.
 6. In the **Select Scope of Access** section, select the
    scope.
+
    - Select **Account** for the access level.
    - Select the account for which you want to get audit logs.
 

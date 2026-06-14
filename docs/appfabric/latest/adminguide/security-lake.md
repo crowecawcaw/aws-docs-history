@@ -19,6 +19,7 @@ output schema, output format, and output destinations to use with Security Lake.
 Security Lake supports the following AppFabric output schema and format:
 
 - OCSF - JSON
+
   - AppFabric normalizes the data using the Open Cybersecurity Schema
     Framework (OCSF) and outputs the data in JSON format.
 
@@ -862,6 +863,7 @@ Amazon Data Firehose delivery stream.
    **Enabled**.
 9. For **Inline parsing for JSON**, choose
    **Enabled**.
+
    - For **Keyname**, enter
      `eventDayValue`.
    - For **JQ Expression**, enter

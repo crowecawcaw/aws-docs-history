@@ -63,6 +63,7 @@ public clients to generate an access token.
 1. Register your OAuth application. This requires the following three steps.
    For more information on completing these steps, see the [Register your application with ServiceNow](https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0725643 "https://support.servicenow.com/kb?id=kb_article_view&sysparm_article=KB0725643") on the
    _ServiceNow website_.
+
    1. Register the app and make sure the **Auth Scope**
       has access to the **Table API**, with a
       **REST API PATH** of

@@ -96,6 +96,7 @@ OAuth application in Salesforce, use the following steps:
 5. Enter the required information into the form fields.
 6. Choose **Enable OAuth settings**.
 7. Be sure to **turn off** the following options:
+
    - Require Proof Key for Code Exchange (PKCE) Extension For Supported
      Authorization Flows
    - Require secret for Web Server Flow
@@ -129,6 +130,7 @@ new OAuth app:
 
 12. Complete the following steps to verify that audit logs are being
     generated:
+
     1.  On the **Setup page**, enter **Event Log
         File** into the Quick Find text box, and then choose
         **Event Log File Browser**.

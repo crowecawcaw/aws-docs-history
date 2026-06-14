@@ -76,6 +76,7 @@ AppFabric for productivity offers two APIs focused on the following use cases to
 productive:
 
 - Prioritize your day
+
   - The actionable insights API helps users best manage their day by surfacing timely
     insights from across their applications including emails, calendar, messages, tasks, and
     more. Additionally, users can execute cross-app actions such as creating emails, scheduling
@@ -87,6 +88,7 @@ productive:
     before executing the action.
 
 - Prepare for upcoming meetings
+
   - The meeting preparation API helps users best prepare for meetings by summarizing the
     meeting purpose and surfacing relevant cross-app artifacts such as emails, messages, and
     more. Users can quickly prepare for meetings now and don’t waste time switching between apps
@@ -101,7 +103,9 @@ _AWS General Reference_.
 In each Region, you can access AppFabric for productivity in any of the following ways:
 
 - As an app developer
+
   - [Get started with AppFabric for productivity (preview) for application developers](getting-started-appdeveloper-productivity.md "getting-started-appdeveloper-productivity.md")
 
 - As an end user
+
   - [Get started with AppFabric for productivity (preview) for end users](getting-started-users-productivity.md "getting-started-users-productivity.md")

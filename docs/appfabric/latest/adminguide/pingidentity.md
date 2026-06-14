@@ -67,6 +67,7 @@ application in Ping Identity, use the following steps:
    _PingOne for Developers_ guide on
    the Ping Identity website.
 2. After you create the application, customize the grant types.
+
    1. When signed in to the application, choose the
       **Configuration** tab and click the pencil icon
       to make changes in the existing configuration.

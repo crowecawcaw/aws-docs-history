@@ -70,6 +70,7 @@ website_.
    choose **Add**.
 4. Select the following options. These are required for reading audit log and
    user details.
+
    - Read reports
    - Read users and groups
 

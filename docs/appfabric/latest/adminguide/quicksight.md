@@ -16,10 +16,12 @@ destinations to use with Quick.
 Quick supports the following AppFabric output schema and formats:
 
 - Raw - JSON
+
   - AppFabric outputs data in the original schema used by the source
     application in the JSON format.
 
 - OCSF - JSON
+
   - AppFabric normalizes the data using the Open Cybersecurity Schema
     Framework (OCSF) and outputs the data in the JSON format.
 
@@ -28,6 +30,7 @@ Quick supports the following AppFabric output schema and formats:
 Quick supports the following AppFabric output locations:
 
 - Amazon S3
+
   - You can ingest data from Amazon S3 directly into Quick by [Creating
     a dataset using Amazon S3 files](../../../quicksight/latest/user/create-a-data-set-s3.md "../../../quicksight/latest/user/create-a-data-set-s3.md"). To verify that your target
     file set doesn't exceed Quick data source quotas, see [Data source

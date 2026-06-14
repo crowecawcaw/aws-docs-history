@@ -15,11 +15,13 @@ For details about actions and resource types defined by AppFabric, including the
 - [Policy best practices](security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices "security_iam_id-based-policy-examples.md#security_iam_service-with-iam-policy-best-practices")
 - [Using the AppFabric console](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-console")
 - [AppFabric for security IAM policy examples](security_iam_id-based-policy-examples.md#appfabric-for-security-policy-examples "security_iam_id-based-policy-examples.md#appfabric-for-security-policy-examples")
+
   - [Allow access to app bundles](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-allow-app-bundle-access "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-allow-app-bundle-access")
   - [Restrict access to app bundles](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-restrict-app-bundle-access "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-restrict-app-bundle-access")
   - [Restrict deleting or stopping ingestions](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-restrict-delete-stop-ingestion "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-restrict-delete-stop-ingestion")
 
 - [AppFabric for productivity IAM policy examples](security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples "security_iam_id-based-policy-examples.md#appfabric-for-productivity-policy-examples")
+
   - [Allow access read-only access to productivity features](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-read-only "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-read-only")
   - [Allow full access to productivity features](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-full-access "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-full-access")
   - [Allow access to create AppClients](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-create-appclient "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-create-appclient")
@@ -30,6 +32,7 @@ For details about actions and resource types defined by AppFabric, including the
   - [Allow access to authorize applications](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-token "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-productivity-token")
 
 - [Other IAM policy examples](security_iam_id-based-policy-examples.md#other-iam-policy-examples "security_iam_id-based-policy-examples.md#other-iam-policy-examples")
+
   - [Allow users to view their own permissions](security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions "security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-view-own-permissions")
 
 ## Policy best practices

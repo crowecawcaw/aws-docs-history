@@ -29,10 +29,12 @@ You can use AppFabric for security to do the following:
 You can use AppFabric for security to:
 
 - Connect your SaaS applications quickly
+
   - AppFabric for security natively connects top SaaS productivity and security applications to
     each other, providing a fully managed SaaS interoperability solution.
 
 - Elevate your security posture
+
   - Application data is automatically normalized, enabling administrators to set common
     policies, standardize security alerts, and easily manage user access across multiple
     applications.

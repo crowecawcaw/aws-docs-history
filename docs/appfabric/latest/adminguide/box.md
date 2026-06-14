@@ -66,6 +66,7 @@ to create an OAuth application in Box, For more information, see
 4. Enter an app name and description.
 5. Choose **Integration** from the
    **Purpose** dropdown list.
+
    1. Choose **Security & Compliance** from the
       **Categories** dropdown list.
    2. Enter **AWS AppFabric Secure** in the

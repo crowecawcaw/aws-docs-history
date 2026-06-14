@@ -34,6 +34,7 @@ To get details of an AppClient, you must have, at minimum, the
   access to receive the insights until the application is verified. Only one email
   address is allowed. For example, `anyuser@example.com`.
 - `verificationStatus` - The AppClient verification status.
+
   - `pending_verification` - The verification of the AppClient
     is still in progress with AppFabric. Until the AppClient is verified, only
     one user (specified in `starterUserEmails`) can use the
@@ -98,6 +99,7 @@ policy permissions. For more information, see [Allow access to list AppClients](
   AppClient ID. For example, the AppClient ID is
   `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
 - `verificationStatus` - The AppClient verification status.
+
   - `pending_verification` - The verification of the AppClient
     is still in progress with AppFabric. Until the AppClient is verified, only
     one user (specified in `starterUserEmails`) can use the
@@ -165,6 +167,7 @@ IAM policy permissions. For more information, see [Allow access to update AppCli
   access to receive the insights until the application is verified. Only one email
   address is allowed. For example, `anyuser@example.com`.
 - `verificationStatus` - The AppClient verification status.
+
   - `pending_verification` - The verification of the AppClient
     is still in progress with AppFabric. Until the AppClient is verified, only
     one user (specified in `starterUserEmails`) can use the

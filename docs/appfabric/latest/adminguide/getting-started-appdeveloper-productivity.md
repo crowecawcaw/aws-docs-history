@@ -101,6 +101,7 @@ requests](../../../IAM/latest/UserGuide/reference_aws-signing.md "../../../IAM/l
   AppClient ID. For example, the AppClient ID is
   `a1b2c3d4-5678-90ab-cdef-EXAMPLE11111`.
 - `verificationStatus` - The AppClient verification status.
+
   - `pending_verification` - The verification of the AppClient
     is still in progress with AppFabric. Until the AppClient is verified, only
     one user (specified in `starterUserEmails`) can use the
@@ -351,6 +352,7 @@ Below is a summary of the supported cross-app actions and in which apps:
 - `createdAt` - When the insight was generated.
 - `actions` - A list of actions recommend for the generated
   insight. Action object:
+
   - `actionId` - The unique id for the generated
     action.
   - `actionIconUrl` - The icon URL for the app that the
@@ -448,6 +450,7 @@ Token` value.
 - `createdAt` - When the insight was generated.
 - `calendarEvent` - The important calendar event or meeting that
   the user should focus on. Calendar Event object:
+
   - `startTime` - The start time of the event.
   - `endTime` - The end time of the event.
   - `eventUrl` - The URL for the calendar event on the ISV
@@ -455,6 +458,7 @@ Token` value.
 
 - `resources` - The list containing the other resources related
   to the generate the insight. Resource object:
+
   - `appName` - The app name to which the resource
     belongs.
   - `resourceTitle` - The resource title.
