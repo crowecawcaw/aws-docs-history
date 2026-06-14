@@ -59,9 +59,11 @@ Text Format
 
 - The value n represents the maximum number of letters allowed
 - For single letter patterns:
+
   - Output uses minimum digits without padding
 
 - For multiple letter patterns:
+
   - Output is padded with zeros to match the letter count width
 
 - When parsing, input must contain the exact number of digits
@@ -73,9 +75,11 @@ Text Format
 
 - Use 1-9 'S' characters (for example, SSSSSS)
 - For parsing:
+
   - Accept fractions between 1 and the number of S characters
 
 - For formatting:
+
   - Pad with zeros to match the number of S characters
 
 - Supports up to 6 digits for microsecond precision
@@ -84,10 +88,12 @@ Text Format
 
 - The letter count sets the minimum field width for padding
 - For two letters:
+
   - Prints the last two digits
   - Parses years between 2000-2099
 
 - For less than four letters (except two):
+
   - Shows the sign only for negative years
 
 - Don't use 7 or more letters - this will cause an error
@@ -95,20 +101,25 @@ Text Format
 
 - Use 'M' for standard form or 'L' for standalone form
 - Single 'M' or 'L':
+
   - Shows month numbers 1-12 without padding
 
 - 'MM' or 'LL':
+
   - Shows month numbers 01-12 with padding
 
 - 'MMM':
+
   - Shows abbreviated month name in standard form
   - Must be part of a full date pattern
 
 - 'LLL':
+
   - Shows abbreviated month name in standalone form
   - Use for month-only formatting
 
 - 'MMMM':
+
   - Shows full month name in standard form
   - Use for dates and timestamps
 
@@ -130,6 +141,7 @@ Text Format
   Offset Formats
 
 - X and x:
+
   - 1 letter: Shows hour (+01) or hour-minute (+0130)
   - 2 letters: Shows hour-minute without colon (+0130)
   - 3 letters: Shows hour-minute with colon (+01:30)
@@ -139,6 +151,7 @@ Text Format
   - x uses '+00', '+0000', or '+00:00' for zero offset
 
 - O:
+
   - 1 letter: Shows short form (GMT+8)
   - 4 letters: Shows full form (GMT+08:00)
 

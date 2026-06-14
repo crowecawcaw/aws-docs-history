@@ -17,6 +17,7 @@ column names, and aliases:
 
 - They must use only alphanumeric, underscore (\_), or hyphen (-) characters but
   can't start or end with a hyphen.
+
   - (_Custom analysis rule only_) They can use
     the dollar sign ($) but can't use a pattern that follows a dollar-quoted string
     constant.
@@ -53,6 +54,7 @@ column names, and aliases:
   (" ").
 - The following column names are reserved can't be used in AWS Clean Rooms (even with
   quotes):
+
   - oid
   - tableoid
   - xmin

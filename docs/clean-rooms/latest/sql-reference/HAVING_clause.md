@@ -25,6 +25,7 @@ The condition itself takes the same form as any WHERE clause condition.
 - Any column that is referenced in a HAVING clause condition must be either a grouping
   column or a column that refers to the result of an aggregate function.
 - In a HAVING clause, you can't specify:
+
   - An ordinal number that refers to a select list item. Only the GROUP BY and ORDER BY
     clauses accept ordinal numbers.
 

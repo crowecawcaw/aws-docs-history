@@ -36,6 +36,7 @@ An example is the following: `["first", {"one":1}, "second", 3, null]`
 - JSON arrays use a zero-based index; the first element in an array is at position 0.
   In a JSON key:value pair, the key is a string in double quotation marks.
 - A JSON value can be any of the following:
+
   - JSON object
   - JSON array
   - String in double quotation marks
