@@ -522,88 +522,105 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-ConfigureS3ReplicationSameAndCrossAccount`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-ConfigureS3ReplicationSameAndCrossAccount/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-ConfigureS3ReplicationSameAndCrossAccount/description") in Systems Manager under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Required):**
+
      - Description: (Required) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
      - Type: `AWS::IAM::Role::Arn`
 
    - **SourceBucket (Required):**
+
      - Description: (Required) The name of the source Amazon S3 bucket where replication rules will be created or updated.
      - Type: `AWS::S3::Bucket::Name`
 
    - **DestinationBucket (Required):**
+
      - Description: (Required) The name of the destination Amazon S3 bucket where objects will be replicated to.
      - Type: `String`
      - Allowed Pattern: `^[0-9a-z][a-z0-9\\-\\.]{3,63}$`
 
    - **SourceAccountId (Required):**
+
      - Description: (Required) The AWS Account ID where the source bucket is located.
      - Type: `String`
      - Allowed Pattern: `^[0-9]{12,13}$`
 
    - **DestinationAccountId (Required):**
+
      - Description: (Required) The AWS Account ID where the destination bucket is located.
      - Type: `String`
      - Allowed Pattern: `^[0-9]{12,13}$`
 
    - **SnsNotificationArn (Required):**
+
      - Description: (Required) The ARN of an Amazon Simple Notification Service (Amazon SNS) topic for Automation approvals.
      - Type: `String`
      - Allowed Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):sns:[a-z]{2}(-gov)?(-iso[a-z]?)?-[a-z]{2,10}-[0-9]{1,2}:\\d{12}:[0-9a-zA-Z-_]{1,256}(.fifo)?$`
 
    - **Approvers (Required):**
+
      - Description: (Required) The list of IAM user/role ARNs authorized to approve the automation execution.
      - Type: `StringList`
      - Allowed Pattern: `^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::\\d{12}:(user|role)/[\\w+=,.@\\-/]+$`
 
    - **S3ReplicationRole (Optional):**
+
      - Description: (Optional) The ARN of an existing IAM role to use for Amazon S3 replication operations. This role must have permissions to read from the source bucket and write to the destination bucket, including KMS permissions if buckets use SSE-KMS encryption. If not provided, the automation will create a new role with appropriate permissions.
      - Type: `String`
      - Allowed Pattern: `^$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::\\d{12}:role/[\\w+=,.@\\-/]+$`
      - Default: `""`
 
    - **CrossAccountReplicationRole (Optional):**
+
      - Description: (Optional) The ARN of an IAM role in the destination account that the automation can assume. This is required for cross-account replication. For same-account replication, leave this empty.
      - Type: `String`
      - Allowed Pattern: `^$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::\\d{12}:role/[\\w+=,.@\\-/]+$`
      - Default: `""`
 
    - **ReplicateEntireBucket (Optional):**
+
      - Description: (Optional) If set to `true`, the entire bucket will be replicated and both Prefix and Tags must be empty. If false, replication will be based on specified prefix or tags.
      - Type: `Boolean`
      - Allowed Values: `[true, false]`
      - Default: `true`
 
    - **ReplicationRuleStatus (Optional):**
+
      - Description: (Optional) If set to `true`, replication rules created will be enabled. If set to `false`, replication rules created will be set to **Disabled**.
      - Type: `Boolean`
      - Allowed Values: `[true, false]`
      - Default: `true`
 
    - **DeleteMarkerReplicationStatus (Optional):**
+
      - Description: (Optional) If set to `true`, the automation enables delete marker replication.
      - Type: `Boolean`
      - Allowed Values: `[true, false]`
      - Default: `false`
 
    - **ReplicationTimeControl (Optional):**
+
      - Description: (Optional) If set to `true`, enables Amazon S3 Replication Time Control (Amazon S3 RTC) with 15-minute SLA for predictable replication times.
      - Type: `Boolean`
      - Allowed Values: `[true, false]`
      - Default: `false`
 
    - **ReplicaModifications (Optional):**
+
      - Description: (Optional) If set to `true`, enables replication of metadata changes made to replica objects, allowing modifications to replicated objects to be synchronized back to the source.
      - Type: `Boolean`
      - Allowed Values: `[true, false]`
      - Default: `false`
 
    - **Prefix (Optional):**
+
      - Description: (Optional) Prefix filter for selective replication of objects with specific key prefixes. Prefix must end with a trailing slash (/) for proper Amazon S3 prefix filtering.
      - Type: `String`
      - Allowed Pattern: `^$|^[a-zA-Z0-9!_'()\\-]*/+$`
      - Default: `""`
 
    - **Tags (Optional):**
+
      - Description: (Optional) JSON array of tags for filtering objects to replicate. Format for single tag: [{"Key":"TagKey","Value":"TagValue"}] and for multiple tags: [{"Key":"TagKey1","Value":"TagValue1"},{"Key":"TagKey2","Value":"TagValue2"}].
      - Type: `String`
      - Allowed Pattern: `^\\[((\\{\"Key\":\"[a-zA-Z0-9+\\-=.:/ @\\s]{1,128}\",\"Value\":\"[a-zA-Z0-9+\\-=.:/@\\s]{0,256}\"\\})(,\\{\"Key\":\"[a-zA-Z0-9+\\-=.:/ @\\s]{1,128}\",\"Value\":\"[a-zA-Z0-9+\\-=.:/@\\s]{0,256}\"\\})*)?\\]$`
@@ -612,6 +629,7 @@ Follow these steps to configure the automation:
 4. Select **Execute.**
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **ValidateInputParameters**:
 
    Validates all input parameters for correctness and compatibility to ensure proper replication configuration.

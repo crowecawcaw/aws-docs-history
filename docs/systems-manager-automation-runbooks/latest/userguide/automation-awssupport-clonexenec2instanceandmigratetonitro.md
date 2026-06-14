@@ -127,15 +127,19 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-CloneXenEC2InstanceAndMigrateToNitro`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-CloneXenEC2InstanceAndMigrateToNitro/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-CloneXenEC2InstanceAndMigrateToNitro/description") in Systems Manager under Documents.
 2. Select **`Execute automation`**.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The ARN of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
      - Type: `AWS::IAM::Role::Arn`
 
    - **TargetInstanceId (Required):**
+
      - Description: (Required) Instance ID of the target Amazon EC2 instance you want to migrate to Nitro platform.
      - Type: `AWS::EC2::Instance::Id`
 
    - **NitroInstanceType (Optional):**
+
      - Description: (Optional) Enter the destination Nitro instance type. Only Nitro M5, M6, C5, C6, R5, R6 and T3 instances are supported (e.g. t3.small). Default: m5.xlarge.
      - Type: `String`
      - Allowed Pattern:
@@ -143,23 +147,27 @@ Follow these steps to configure the automation:
      - Default: `m5.xlarge`
 
    - **SNSTopicArn (Required):**
+
      - Description: (Required) Provide the ARN of the Amazon SNS Topic for approval notification. This Amazon SNS topic is used to send approval notifications during the automation execution.
      - Type: `String`
      - Allowed Pattern:
        `^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):sns:(us(-gov|-isob?)?|ap|ca|af|me|cn|eu|sa)-(central|(north|south)?(east|west)?)-\\d:\\d{12}:[a-zA-Z0-9_.-]{1,256}$`
 
    - **ApproverIAM (Required):**
+
      - Description: (Required) Provide a list of AWS authenticated principals who are able to either approve or reject the action. The maximum number of approvers is 10.
      - Type: `StringList`
      - Allowed Pattern:
        `^[a-zA-Z0-9_+=,.@\\-\/]{1,128}$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):(sts|iam)::[0-9]{12}:[a-zA-Z0-9_+=,.@\\-\/]{1,256}$`
 
    - **MinimumRequiredApprovals (Optional):**
+
      - Description: (Optional) The minimum number of approvals required to resume the automation. Default: 1.
      - Type: Integer
      - Default: 1
 
    - **DeleteResourcesOnFailure (Optional):**
+
      - Description: (Optional) Whether to terminate the cloned Amazon EC2 instance and AMI if the automation fails.
      - Type: `Boolean`
      - Allowed Values:
@@ -167,12 +175,14 @@ Follow these steps to configure the automation:
      - Default: `true`
 
    - **Acknowledgement (Required):**
+
      - Description: (Required) Please read the complete details of the actions performed by this automation runbook and write 'Yes, I understand and acknowledge' if you acknowledge the steps.
      - Type: `String`
      - Allowed Pattern:
        `^Yes, I understand and acknowledge$`
 
    - **AllowInstanceStoreInstances (Optional):**
+
      - Description: (Optional) If you specify `yes`, the runbook runs on instances that have instance store volumes attached. **Warning:** data in the instance store volumes is lost when the instance is stopped. This parameter helps avoid accidental data loss.
      - Type: `Boolean`
      - Allowed Values:
@@ -182,6 +192,7 @@ Follow these steps to configure the automation:
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **`checkConcurrency`**:
 
    Ensures there is only one execution of this runbook targeting the current Amazon EC2 instance.

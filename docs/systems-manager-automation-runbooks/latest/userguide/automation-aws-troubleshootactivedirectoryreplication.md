@@ -92,21 +92,26 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-TroubleshootActiveDirectoryReplication`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootActiveDirectoryReplication/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootActiveDirectoryReplication/description") in Systems Manager under Documents.
 2. Select **Execute automation**.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
      - Type: `AWS::IAM::Role::Arn`
 
    - **InstanceId (Required):**
+
      - Description: (Required) The ID of the Amazon EC2 domain controller instance that you want to troubleshoot Active Directory replication issues. Note that the provided instance has to be a domain controller.
      - Type: `AWS::EC2::Instance::Id`
 
    - **SecretsManagerArn (Required):**
+
      - Description: (Required) The ARN of your AWS Secrets Manager secret containing an Active Directory username and password with Enterprise Admin or equivalent permissions to access your Active Directory domain and forest configuration. Make sure that the username and password are stored using a key/value pair in the format `{"username":"EXAMPLE-USER","password":"EXAMPLE-PASSWORD"}`. Make sure to attach the `secretsmanager:GetSecretValue` permission on the secret ARN to your target domain controller IAM instance profile role.
      - Type: `String`
      - Allowed Pattern:
        `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):secretsmanager:[a-z0-9-]{2,20}:[0-9]{12}:secret:[a-zA-Z0-9]{1}[a-zA-Z0-9\\/_+=.@-]{1,256}$`
 
    - **TimeSync (Optional):**
+
      - Description: (Optional) Select `Check` or `Sync`. If you select `Check`, the runbook prints out the current system time sync status. If `Sync` is selected, the runbook will attempt a force time resync by running `w32tm /resync /force` on the target instance.
      - Type: `String`
      - Allowed Values:
@@ -114,6 +119,7 @@ Follow these steps to configure the automation:
      - Default: `Check`
 
    - **ServiceAction (Optional):**
+
      - Description: (Optional) Select `Check` or `Fix`. If you select `Check`, the runbook prints out the current status of the `Netlogon`, `Windows Time service (W32Time)`, `Remote Procedure Call (RPC) Service`, and `Key Distribution Center (KDC)` services. If `Fix` is selected the runbook will attempt to start these services if any is stopped.
      - Type: `String`
      - Allowed Values:
@@ -121,12 +127,14 @@ Follow these steps to configure the automation:
      - Default: `Check`
 
    - **LogDestination (Required):**
+
      - Description: (Required) The Amazon Amazon S3 bucket in your AWS account to upload the command outputs.
      - Type: `String`
 
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **assertIfOperatingSystemIsWindows**:
 
    Checks if the operating system of the provided target Amazon EC2 instance is Windows.

@@ -136,6 +136,7 @@ use the runbook successfully.
 1. `aws:assertAwsResourceProperty`: Confirms the status of the target Amazon EC2 instance is `running`, `pending`, `stopped`, or `stopping`. Otherwise, the automation ends.
 2. `aws:executeAwsApi`: Gathers properties from the target Amazon EC2 instance.
 3. `aws:branch`: Branches the automation based on the state of the Amazon EC2 instance.
+
    1. If `stopped` or `stopping`, the automation runs `aws:waitForAwsResourceProperty` until the Amazon EC2 instance is fully stopped.
    2. If `running` or `pending`, the automation runs `aws:waitForAwsResourceProperty` until the Amazon EC2 instance passes status checks.
 
@@ -143,6 +144,7 @@ use the runbook successfully.
 5. `aws:executeAwsApi`: Gathers the current instance type properties to find the equivalent AMD instance type.
 6. `aws:assertAwsResourceProperty`: Confirms a AWS Marketplace product code is not associated with the Amazon EC2 instance. Some products are not available on all instance types.
 7. `aws:branch`: Branches the automation depending on whether you want the automation to check if the Amazon EC2 instance is part of a CloudFormation stack
+
    1. If the `aws:cloudformation:stack-name` tag is applied to the instance, the automation runs `aws:assertAwsResourceProperty` to confirm the instance is not part of a CloudFormation stack.
 
 8. `aws:branch`: Branches the automation based on whether the instance root volume type is Amazon Elastic Block Store (Amazon EBS).
@@ -159,8 +161,10 @@ use the runbook successfully.
 19. `aws:executeAwsApi`: Changes the instance type to the target AMD instance type.
 20. `aws:sleep`: Waits 3 seconds after changing the instance type for eventual consistency.
 21. `aws:branch`: Branches the automation based on the previous instance state. If it was `running`, the instance is started.
+
     1. `aws:changeInstanceState`: Starts the Amazon EC2 instance if it was running before changing the instance type.
     2. `aws:waitForAwsResourceProperty`: Waits for the Amazon EC2 instance to pass status checks. If the instance doesn't pass status checks, the instance is changed back to its original instance type.
+
        1. `aws:changeInstanceState`: Stops the Amazon EC2 instance before changing it to its original instance type.
        2. `aws:changeInstanceState`: Forces the Amazon EC2 instance to stop before changing it to its original instance type in case it gets stuck in a stopping state.
        3. `aws:executeAwsApi`: Changes Amazon EC2 instance to its original type.

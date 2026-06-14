@@ -88,7 +88,9 @@ Follow these steps to configure the automation:
    Documents.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Type: `String`
      - Description: (Optional) The Amazon Resource Name (ARN) of the
        AWS AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform
@@ -98,6 +100,7 @@ Follow these steps to configure the automation:
 
    - **CloudWatchMetricAlarmName
      (Required):**
+
      - Type: `String`
      - Description: (Required) The name of the Amazon CloudWatch (CloudWatch) metric
        Alarm to troubleshoot.
@@ -105,6 +108,7 @@ Follow these steps to configure the automation:
 ]{1,255}$`
 
    - **AlarmTriggerTimestamp (Required):**
+
      - Type: `String`
      - Description: (Required) The UTC timestamp when the Alarm issue
        occurred. This information is crucial for troubleshooting the issue
@@ -118,6 +122,7 @@ Follow these steps to configure the automation:
 4. Select Execute.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **`VerifyRunbookInputs`**
 
    Verifies the Amazon CloudWatch (CloudWatch) alarm details and the value of the
@@ -219,6 +224,7 @@ Follow these steps to configure the automation:
 
 7. After the execution completes, review the Outputs section for the detailed results
    of the execution:
+
    - **GenerateReport.Report**
 
    A report of the provided Amazon CloudWatch (CloudWatch) metric Alarm.

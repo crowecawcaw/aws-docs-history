@@ -101,7 +101,9 @@ Follow these steps to configure the automation:
    Documents.
 3. Select **Execute automation.**
 4. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
        (IAM) role that allows SSM Automation to perform the actions on
        your behalf. If no role is specified, Systems Manager Automation uses the
@@ -109,6 +111,7 @@ Follow these steps to configure the automation:
      - Type: `AWS::IAM::Role::Arn`
 
    - **InputFileS3URI (Required):**
+
      - Description: (Required) Amazon Simple Storage Service (Amazon S3) URI of SAML Response txt
        file (e.g., s3://bucket-name/path/to/file.txt).
      - Type: String
@@ -116,6 +119,7 @@ Follow these steps to configure the automation:
        `^s3://[a-z0-9][a-z0-9.-][a-z0-9](/.)?$`
 
    - **S3OutputPrefix (Optional):**
+
      - Description: (Optional) The analysis output files are stored in
        the input bucket under the name 'saml_analysis\_<executionID of
        the runbook>.json'. You can use this parameter if you want to
@@ -127,6 +131,7 @@ Follow these steps to configure the automation:
      - Allow Pattern: `^[a-zA-Z0-9+=,.@\\-_/]*/$`
 
    - **ExpectedAudience (Optional):**
+
      - Description: (Optional) Expected audience value in the SAML
        response. If not specified, we use
        `urn:amazon:webservices`. If you have configured a
@@ -137,6 +142,7 @@ Follow these steps to configure the automation:
      - Default: urn:amazon:webservices
 
    - **IamIdProviderArn (Optional):**
+
      - Description: (Optional) If you are using an IAM ID Provider
        entity to directly link your IdP with AWS IAM, please provide
        its ARN (e.g.,
@@ -146,6 +152,7 @@ Follow these steps to configure the automation:
        `^$|^arn:aws:iam::[0-9]{12}:saml-provider/[a-zA-Z0-9_-]+$`
 
    - **SAMLAuthenticationTime (Optional):**
+
      - Description: (Optional) The date and time when SAML authentication
        was performed. Timezone must be UTC. Must be in YYYY-MM-DDThh:mm:ss
        format (e.g., 2025-02-01T10:00:00). If this parameter is not
@@ -156,6 +163,7 @@ Follow these steps to configure the automation:
        `^$|^\\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\\d|3[01])T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d$`
 
    - **S3BucketOwnerRoleArn (Optional):**
+
      - Description: (Optional) IAM Role ARN to access the Amazon S3 buckets.
        The ARN of the IAM role with permissions to get the Amazon S3 bucket
        and account block public access settings, bucket encryption
@@ -169,6 +177,7 @@ Follow these steps to configure the automation:
 5. Select **Execute**.
 6. The automation initiates.
 7. The document performs the following steps:
+
    - **ValidateIAMIDProvider**
 
    Validates the provided IAM ID Provider ARN by checking if it exists and
@@ -193,13 +202,16 @@ Follow these steps to configure the automation:
 
 8. After completed, review the **Outputs** section for
    the detailed results of the execution:
+
    - **Outputs** section contains information
      about the Amazon S3 object where the analysis results are described.
 
 9. The Amazon S3 object in the analysis results is a Json file containing the following
    information:
+
    - **validation_result**: contains basic
      validation results of the SAML response.
+
      - **saml_info**: key SAML information
        including issuer, signatures, and assertions.
      - **schema_validation**: results of
@@ -207,6 +219,7 @@ Follow these steps to configure the automation:
 
    - **verification_result**: provides more
      detailed diagnostic results.
+
      - **signature**: results of signature
        verification.
      - **audience**: results of audience

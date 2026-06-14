@@ -189,6 +189,7 @@ Follow these steps to configure the automation:
     in Systems Manager under Documents.
 2.  Select Execute automation.
 3.  For the input parameters, enter the following:
+
     - **AutomationAssumeRole (Optional)**
 
     The Amazon Resource Name (ARN) of the AWS AWS Identity and Access Management (IAM) role that
@@ -238,6 +239,7 @@ Follow these steps to configure the automation:
 4.  Select Execute.
 5.  The automation initiates.
 6.  The document performs the following steps:
+
     - **CheckConnectInstanceExistance**
 
     Checks if the Connect Customer instance provided in `ConnectInstanceId`

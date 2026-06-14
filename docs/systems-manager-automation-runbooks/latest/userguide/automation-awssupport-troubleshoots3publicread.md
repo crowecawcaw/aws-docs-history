@@ -226,6 +226,7 @@ JSON
   runbook input parameters, evaluates whether any of the S3 bucket settings
   gathered during the automation are preventing objects from being accessed by
   the public. This script performs the following functions:
+
   - Evaluates public access block settings
   - Returns objects from your S3 bucket based on the values you
     specify in the `MaxObjects` , `S3PrefixName` ,

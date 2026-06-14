@@ -88,8 +88,10 @@ automation output. For more information about the required permissions, see [AWS
 
 1. `aws:assertAwsResourceProperty` - Assert if the provided
    instance is Windows.
+
    1. (EC2Rescue for Windows) If the provided instance is
       Windows:
+
       1. `aws:executeAutomation` - Invoke
          `AWSSupport-StartEC2RescueWorkflow` with the
          EC2Rescue for Windows offline password reset script
@@ -101,6 +103,7 @@ automation output. For more information about the required permissions, see [AWS
          summary from the nested automation
 
    2. (EC2Rescue for Linux) If the provided instance is Linux:
+
       1. `aws:executeAutomation` - Invoke
          `AWSSupport-StartEC2RescueWorkflow` with the
          EC2Rescue for Linux offline SSH key injection script

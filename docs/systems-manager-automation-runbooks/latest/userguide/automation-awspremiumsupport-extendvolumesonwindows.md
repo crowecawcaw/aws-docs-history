@@ -75,21 +75,26 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSPremiumSupport-ExtendVolumesOnWindows`](https://console.aws.amazon.com/systems-manager/documents/AWSPremiumSupport-ExtendVolumesOnWindows/description "https://console.aws.amazon.com/systems-manager/documents/AWSPremiumSupport-ExtendVolumesOnWindows/description") in Systems Manager under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
      - Type: `AWS::IAM::Role::Arn`
 
    - **InstanceId (Required):**
+
      - Description: (Required) The ID of the Amazon EC2 instance.
      - Type: `String`
      - Allow Pattern: `^i-[0-9a-f]{8,17}$`
 
    - **VolumeExpansionCapSize (Required):**
+
      - Description: (Required) Maximum size (in GiB) that the Amazon EBS volumes will be increased.
      - Type: `String`
      - Allow Pattern: `^[0-9]{1,4}$`
 
    - **DiagnosticResults (Required):**
+
      - Description: (Required) The results of the prechecks script from the `DiagnoseDiskUsage` document, formatted as a one-line CSV. The string starts with `EXTEND;` followed by comma-separated volume information for each volume, with volumes separated by semicolons. Each volume's information includes: Volume ID, Drive letter, Extend flag (1 to extend, 0 to skip), New size in GB, AWS region, and Reason/Action.
      - Type: `String`
      - Allow Pattern: `^EXTEND;[0-9a-zA-Z\\.;_%:\\-\/,\\s]{7,5400}$`
@@ -97,6 +102,7 @@ Follow these steps to configure the automation:
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **AssertInstanceIsManagedInstance**:
 
    Verifies that the target instance is managed by Systems Manager.

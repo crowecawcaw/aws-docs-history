@@ -44,6 +44,7 @@ To run this automation, you must meet the following prerequisites:
   an inline policy attached with the permissions outlined in
   [Required IAM permissions](#sql-server-db-restore-policy "#sql-server-db-restore-policy").
 - If you provide your own EC2 instance:
+
   - The EC2 instance that you provide must be a Linux instance
     running Microsoft SQL Server 2017.
   - The EC2 instance that you provide must be configured with an

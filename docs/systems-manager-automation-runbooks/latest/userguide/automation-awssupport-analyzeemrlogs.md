@@ -168,8 +168,10 @@ use the runbook successfully.
 - `aws:executeAwsApi` - Gathers information about the Amazon EMR cluster
   specified in the `ClusterID` parameter.
 - `aws:branch` - Branches based on input.
+
   - If the provided operation is `Run Once` or
     `Schedule` :
+
     - `aws:assertAwsResourceProperty` - Verifies the
       cluster is available.
     - `aws:executeAwsApi` - Gathers the IDs of all
@@ -178,13 +180,17 @@ use the runbook successfully.
       SSM Agent is running on all instances in the cluster.
     - `aws:branch` - Branches based on whether you
       specified to run the automation once or on a schedule.
+
       - If the provided operation is `Run
 Once` :
+
         - `aws:branch` - Branches based on the
           value specified in the
           `LogToCloudWatchLogs` parameter.
+
           - If `LogToCloudWatchLogs` value
             is `yes` :
+
             - `aws:executeScript` - Checks if a CloudWatch Logs
               log group with the name specified in parameter
               `CloudWatchLogGroup` already exists. If
@@ -192,15 +198,19 @@ Once` :
             - `aws:branch` - Branches based on the
               value specified in the
               `CreateMetricFilters` parameter.
+
               - If `CreateMetricFilters` value
                 is `yes` :
+
                 - `aws:executeAwsApi` - 12 steps are ran
                   for each metric filter
                 - `aws:branch` - Branches based on the
                   value specified in the
                   `CreateLogInsightsDashboard` parameter.
+
                   - If `CreateLogInsightsDashboard`
                     value is `yes` :
+
                     - `aws:executeAwsApi` - Creates a CloudWatch
                       dashboard with the same name specified in the
                       `CloudWatchLogGroup` parameter, if it
@@ -208,17 +218,21 @@ Once` :
 
                   - If `CreateLogInsightsDashboard`
                     value is `no` :
+
                     - `aws:runCommand` - Runs a shell script
                       to find log patterns on each instance in the
                       cluster.
 
               - If `CreateMetricFilters` value
                 is `no` :
+
                 - `aws:branch` - Branches based on the
                   value specified in
                   `CreateLogInsightsDashboard` parameter.
+
                   - If `CreateLogInsightsDashboard`
                     value is `yes` :
+
                     - `aws:executeAwsApi` - Creates a CloudWatch
                       dashboard with the same name specified in the
                       `CloudWatchLogGroup` parameter, if it
@@ -226,22 +240,26 @@ Once` :
 
                   - If `CreateLogInsightsDashboard`
                     value is `no` :
+
                     - `aws:runCommand` - Runs a shell script
                       to find log patterns on each instance in the
                       cluster.
 
           - If `LogToCloudWatchLogs` value
             is `no` :
+
             - `aws:executeAwsApi` - Runs a shell
               script to find log patterns on each instance in
               the cluster.
 
       - If the provided operation is
         `Schedule` :
+
         - `aws:createStack` - Creates an Amazon EventBridge
           event that targets this runbook.
 
   - If the provided operation is `Remove Schedule` :
+
     - `aws:executeAwsApi` - Verifies a schedule exists
       for the cluster.
     - `aws:deleteStack` - Deletes the schedule.

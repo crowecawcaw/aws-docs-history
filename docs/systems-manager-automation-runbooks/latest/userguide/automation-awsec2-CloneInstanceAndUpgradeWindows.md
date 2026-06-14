@@ -72,6 +72,7 @@ Windows Server 2008 R2, 2012 R2, 2016, 2019, or 2022 Standard and Datacenter edi
 - If the instance does not use an AWS-provided Windows license, then
   specify an Amazon EBS snapshot ID that includes Windows Server 2012 R2 installation
   media. To do this:
+
   - Verify that the EC2 instance is running Windows Server 2012 or
     later.
   - Create a 6 GB EBS volume in the same Availability Zone where the

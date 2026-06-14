@@ -152,7 +152,9 @@ Follow these steps to configure the automation:
    under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
        (IAM) role that allows SSM Automation to perform the actions on
        your behalf. The role needs to be added to your Amazon EKS cluster access
@@ -160,6 +162,7 @@ Follow these steps to configure the automation:
      - Type: `AWS::IAM::Role::Arn`
 
    - **RequesterARN (Required):**
+
      - Description: (Required) The ARN of the IAM user or role for
        which you want to investigate the access permissions on a specific
        AWS resource.
@@ -168,6 +171,7 @@ Follow these steps to configure the automation:
        `^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::[0-9]{12}:(role|user)\\/[\\w+\\/=,.@-]+$`
 
    - **ResourceARN (Optional):**
+
      - Description: (Optional) The ARN of AWS the resource for which
        the access denied is evaluated. The AWS target resource should
        exist in the same region where the automation runbook is
@@ -177,6 +181,7 @@ Follow these steps to configure the automation:
        `^$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):([a-zA-Z0-9\\-]{1,63}):([a-z0-9\\-]{0,63})?:(\\d{12})?:([a-zA-Z0-9\\-_/:.]{1,1024})$`
 
    - **EventSource (Required):**
+
      - Description: (Required) The Amazon API endpoint where the CloudTrail
        event originated. For example: `s3.amazonaws.com`.
      - Type: `String`
@@ -184,12 +189,14 @@ Follow these steps to configure the automation:
        `^([a-zA-Z0-9.-]+)\\.amazonaws\\.com$`
 
    - **EventName (Optional):**
+
      - Description: (Optional) The Amazon API action name associated with
        the CloudTrail event. For example: `s3:CreateBucket`.
      - Type: `String`
      - Allow Pattern: `^$|^[a-z0-9]+:[A-Za-z0-9]+$`
 
    - **LookBackHours (Optional):**
+
      - Description: (Optional) The number of hours to look back in the
        CloudTrail events when searching for `Access Denied` events.
        Valid range: `1` to `24` hours.
@@ -198,6 +205,7 @@ Follow these steps to configure the automation:
      - Default: 12
 
    - **MaxEvents (Optional):**
+
      - Description: (Optional) The maximum number of CloudTrail `Access
 Denied` events returned when searching for events. Valid
        range: `1` to `5` events.
@@ -206,6 +214,7 @@ Denied` events returned when searching for events. Valid
      - Default: 3
 
    - **UseContextEntries (Optional):**
+
      - Description: (Optional) If you specify `true`, the
        automation extracts details about the context of the API request
        from the CloudTrail event and include them for the IAM policy
@@ -217,6 +226,7 @@ Denied` events returned when searching for events. Valid
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **ValidateRequesterArn**
 
    Validates and deconstructs the `RequesterArn` ARN, retrieving
@@ -237,6 +247,7 @@ Denied` events returned when searching for events. Valid
 
 7. After completed, review the **Outputs** section for
    the detailed results of the execution:
+
    - **PermissionEvaluationResults**
 
    Outputs a report that helps to identify the specific actions that were

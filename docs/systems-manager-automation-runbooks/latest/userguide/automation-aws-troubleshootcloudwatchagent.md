@@ -106,39 +106,47 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-TroubleshootCloudWatchAgent`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootCloudWatchAgent/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootCloudWatchAgent/description") in Systems Manager under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The ARN of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
      - Type: `AWS::IAM::Role::Arn`
 
    - **InstanceId (Required):**
+
      - Description: (Required) The ID of the Amazon EC2 instance you want to troubleshoot the Amazon CloudWatch Agent on.
      - Type: `AWS::EC2::Instance::Id`
      - Allow Pattern: `^i-[0-9a-f]{8,17}$`
 
    - **S3UploadBucket (Optional):**
+
      - Description: (Optional) The name of an Amazon S3 bucket to upload the collected Amazon CloudWatch Agent logs. The Amazon EC2 instance profile must have correct permissions to upload files to this bucket. This also requires the target Amazon EC2 instance to be an Systems Manager managed instance.
      - Type: `AWS::S3::Bucket::Name`
      - Allow Pattern: `^$|^[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]$`
      - Default: `""`
 
    - **S3BucketOwnerAccountId (Optional):**
+
      - Description: (Optional) The AWS Account Number that owns the Amazon S3 bucket where you want to upload the Amazon CloudWatch Agent logs. If you do not modify this parameter, the runbooks uses the AWS account ID of the user or role in which the Automation runs.
      - Type: `String`
      - Allow Pattern: `^\\{\\{ global:ACCOUNT_ID \\}\\}$|^[0-9]{12}$`
      - Default: `{{ global:ACCOUNT_ID }}`
 
    - **CheckEC2Endpoint (Optional):**
+
      - Description: (Optional) Specify `true` if your agent configuration uses the option `append_dimensions` to append Amazon EC2 metric dimensions to the metrics collected by the agent. When `append_dimensions` is used, the Amazon CloudWatch Agent requires connectivity to the Amazon EC2 API endpoint, so an additional connectivity tests will be performed via the extended checks.
      - Type: `String`
      - Allowed Values: `[true, false]`
      - Default: `false`
 
    - **RunVpcReachabilityAnalyzer (Optional):**
+
      - Description: (Optional) Specify `true` to run the `AWSSupport-AnalyzeAWSEndpointReachabilityFromEC2` child automation if a network issue is determined by the extended checks, or if the instance ID specified is not a managed instance.
      - Type: `Boolean`
      - Default: `false`
 
    - **RetainVpcReachabilityAnalysis (Optional):**
+
      - Description: (Optional) Only relevant if `RunVpcReachabilityAnalyzer` is `true`. Specify `true` to retain the network insight path and related analyses created by VPC Reachability Analyzer. By default, those resources are deleted after successful analysis.
      - Type: `Boolean`
      - Default: `false`
@@ -146,6 +154,7 @@ Follow these steps to configure the automation:
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **getInstanceProfile**:
 
    Verifies if the provided Amazon EC2 instance has an IAM instance profile attached.

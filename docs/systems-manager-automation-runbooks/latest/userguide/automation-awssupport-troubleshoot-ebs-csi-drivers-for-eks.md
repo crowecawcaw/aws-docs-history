@@ -122,10 +122,12 @@ JSON
 
 2. Attach the policy below to the IAM role to grant the required permissions to
    perform the specified actions on the specified resources.
+
    - If you are expecting to upload execution and resources logs to Amazon S3 bucket
      in same AWS region, replace
      `arn:{partition}:s3:::BUCKET_NAME/*` as yours in
      `OptionalRestrictPutObjects`.
+
      - The Amazon S3 bucket should point to the correct Amazon S3 bucket if you
        will select `S3BucketName` in SSM execution.
      - This permission is optional if you don't specify

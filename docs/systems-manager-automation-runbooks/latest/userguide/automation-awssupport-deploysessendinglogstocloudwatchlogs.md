@@ -15,6 +15,7 @@ This runbook performs the following actions:
   When the `ApproveDeployAnalyticEnvironment` parameter is set to `approve`, the runbook creates the following resources:
 
 - An CloudFormation stack named `AWSSupport-SESSendingLogsToCloudWatchLogs` that includes:
+
   - Amazon SNS topic with AWS Key Management Service (AWS KMS) encryption
   - Amazon Simple Queue Service (Amazon SQS) queue
   - AWS Lambda function for processing email sending events
@@ -112,46 +113,55 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-DeploySESSendingLogsToCloudWatchLogs`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-DeploySESSendingLogsToCloudWatchLogs/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-DeploySESSendingLogsToCloudWatchLogs/description") in Systems Manager under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
      - Type: `AWS::IAM::Role::Arn`
 
    - **ApproveDeployAnalyticEnvironment (Optional):**
+
      - Description: (Optional) Approval to deploy the Amazon SES event publishing infrastructure. Enter `approve` to create the CloudFormation stack and related resources. If left empty, the runbook only displays existing configuration sets with or Amazon SNS event destinations in the current region.
      - Type: `String`
      - Allow Pattern: `^$|^approve$`
      - Default: `""`
 
    - **SesIdentity (Optional):**
+
      - Description: (Optional) Amazon SES identity (email address or domain) to associate with the newly created configuration set as the default configuration set. This will overwrite any existing default configuration set for the specified identity.
      - Type: `String`
      - Default: `""`
 
    - **CloudWatchLogGroupName (Optional):**
+
      - Description: (Optional) Name of the CloudWatch Logs log group to create for storing Amazon SES email sending events.
      - Type: `String`
      - Allow Pattern: `^[0-9a-zA-Z_.#/\\-]{1,512}$`
      - Default: `/ses/sending_event_logs`
 
    - **MaskPIIData (Optional):**
+
      - Description: (Optional) Specify whether to mask personally identifiable information (PII) data such as destination email addresses and email subjects in CloudWatch Logs. Set to `False` to include this information in the logs.
      - Type: `String`
      - Allowed Values: `[True, False]`
      - Default: `True`
 
    - **SleepTime (Optional):**
+
      - Description: (Optional) Number of minutes to wait before automatically deleting the CloudFormation stack. The default is 24 hours (1,440 minutes), maximum is 7 days (10,080 minutes). Set to `0` to prevent automatic deletion.
      - Type: `String`
      - Allow Pattern: `^(?:[0-9]|[1-9]\\d{1,3}|100[0-7][0-9])$`
      - Default: `1440`
 
    - **RetainCloudWatchLogsOnDeletion (Optional):**
+
      - Description: (Optional) Specify whether to retain the CloudWatch Logs log group when the CloudFormation stack is deleted. Set to `False` to delete the log group along with the stack.
      - Type: `String`
      - Allowed Values: `[True, False]`
      - Default: `True`
 
    - **UniqueId (Optional):**
+
      - Description: (Optional) A unique identifier for the workflow.
      - Type: `String`
      - Allow Pattern: `\\{\\{ automation:EXECUTION_ID \\}\\}|[a-zA-Z0-9-]+`
@@ -161,6 +171,7 @@ Follow these steps to configure the automation:
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **BranchOnValueOfParameterApproveDeployAnalyticEnvironment**
 
    Determines whether to deploy the Amazon SES event publishing infrastructure based on the `ApproveDeployAnalyticEnvironment` parameter value.

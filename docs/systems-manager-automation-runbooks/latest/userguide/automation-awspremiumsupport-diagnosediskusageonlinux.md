@@ -63,31 +63,38 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSPremiumSupport-DiagnoseDiskUsageOnLinux`](https://console.aws.amazon.com/systems-manager/documents/AWSPremiumSupport-DiagnoseDiskUsageOnLinux/description "https://console.aws.amazon.com/systems-manager/documents/AWSPremiumSupport-DiagnoseDiskUsageOnLinux/description") in Systems Manager under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
      - Type: `AWS::IAM::Role::Arn`
 
    - **InstanceId (Required):**
+
      - Description: (Required) ID of your Amazon EC2 instance.
      - Type: `String`
      - Allow Pattern: `^i-[0-9a-f]{8,17}$`
 
    - **VolumeExpansionUsageTrigger (Required):**
+
      - Description: (Required) Minimum usage of partition space required to trigger extension (in percentage).
      - Type: `String`
      - Allow Pattern: `^[0-9]{1,2}$`
 
    - **VolumeExpansionCapSize (Required):**
+
      - Description: (Required) Maximum size that the Amazon EBS Volume will be increased to (in GiB).
      - Type: `String`
      - Allow Pattern: `^[0-9]{1,4}$`
 
    - **VolumeExpansionGibIncrease (Required):**
+
      - Description: (Required) Increase in GiB of the volume. The biggest net increase between `VolumeExpansionGibIncrease` and `VolumeExpansionPercentageIncrease` will be used.
      - Type: `String`
      - Allow Pattern: `^[0-9]{1,4}$`
 
    - **VolumeExpansionPercentageIncrease (Required):**
+
      - Description: (Required) Increase in percentage of the volume. The biggest net increase between `VolumeExpansionGibIncrease` and `VolumeExpansionPercentageIncrease` will be used.
      - Type: `String`
      - Allow Pattern: `^[0-9]{1,2}$`
@@ -95,6 +102,7 @@ Follow these steps to configure the automation:
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **AssertInstanceIsManagedInstance**:
 
    Checks if the target instance is managed by Systems Manager.

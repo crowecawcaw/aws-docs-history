@@ -55,6 +55,7 @@ Follow these steps to configure the automation:
    AWS Systems Manager console.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **InstanceId (Required):**
 
    Use the interactive instance picker to choose the ID of the Linux Based

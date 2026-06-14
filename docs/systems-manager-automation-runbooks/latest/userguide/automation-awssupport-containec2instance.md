@@ -199,7 +199,9 @@ Follow these steps to configure the automation:
    Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the
        AWS AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform
        the actions on your behalf. If no role is specified, Systems Manager
@@ -208,6 +210,7 @@ Follow these steps to configure the automation:
      - Type: `AWS::IAM::Role::Arn`
 
    - **Action (Required):**
+
      - Description: (Required) Select `Contain` to isolate the
        Amazon EC2 instance or `Restore` to try to restore the Amazon EC2
        instance configuration original configuration from a previous
@@ -216,6 +219,7 @@ Follow these steps to configure the automation:
      - Allowed Pattern: `Contain|Restore`
 
    - **DryRun (Optional):**
+
      - Description: (Optional) When set to `true`, the
        automation will not execute any of the commands, instead it will
        report on what it would have attempted to do, detailing out each
@@ -224,6 +228,7 @@ Follow these steps to configure the automation:
      - Allowed Values: `true|false`
 
    - **CreateAMIBackup (Optional):**
+
      - Description: (Optional) When set to `true`, an AMI of
        the Amazon EC2 Instance will be created before performing the containment
        actions.
@@ -231,6 +236,7 @@ Follow these steps to configure the automation:
      - Allowed Values: `true|false`
 
    - **KmsKey (Optional):**
+
      - Description: (Optional) The ID of the AWS KMS key that will be used
        to create an encrypted AMI of target Amazon EC2 instance. Default is
        set to `alias/aws/ebs`.
@@ -239,6 +245,7 @@ Follow these steps to configure the automation:
        `^(((arn:(aws|aws-cn|aws-us-gov):kms:([a-z]{2}|[a-z]{2}-gov)-[a-z]+-[0-9]{1}:[0-9]{12}:key/)?([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|mrk-[a-f0-9]{32}))|(arn:(aws|aws-cn|aws-us-gov):kms:([a-z]{2}|[a-z]{2}-gov)-[a-z]+-[0-9]{1}:[0-9]{12}:)?alias/.{1,})$`
 
    - **BackupS3BucketName (Conditional):**
+
      - Description: (Conditional) Amazon Amazon S3 bucket to upload the
        configuration when `Action` is `Contain` or to
        restore the configuration when `Action` is
@@ -248,6 +255,7 @@ Follow these steps to configure the automation:
      - Type: `AWS::S3::Bucket::Name`
 
    - **TagIdentifier (Optional):**
+
      - Description: (Optional) A tag in the format
        `Key=BatchId,Value=78925` that will be added to the
        AWS resources created or modified by this runbook during the
@@ -262,6 +270,7 @@ Follow these steps to configure the automation:
 
    - **BackupS3BucketAccess
      (Conditional):**
+
      - Description: (Conditional) The ARN of the IAM users or roles
        that will be allowed access to the backup Amazon S3 bucket after running
        the containment actions. This parameter is required when
@@ -274,6 +283,7 @@ Follow these steps to configure the automation:
        `^$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::[0-9]{12}:(role|user)\\/[\\w+\\/=,.@-]+$`
 
    - **IngressTrafficRules (Optional):**
+
      - Description: (Optional) A comma separated map of security group
        ingress rules with Cidr, IpProtocol, FromPort and ToPort in the
        format `[{"Cidr": "1.2.3.4/32", "IpProtocol": "tcp",
@@ -286,6 +296,7 @@ Follow these steps to configure the automation:
        `^\\{\\}$|^\\{\"Cidr\":\"[\\x00-\\x7F+]{1,128}\",\"IpProtocol\":\"[\\x00-\\x7F+]{1,128}\",\"FromPort\":\"[\\x00-\\x7F+]{1,128}\",\"ToPort\":\"[\\x00-\\x7F+]{0,255}\"\\}`
 
    - **EgressTrafficRules (Optional):**
+
      - Description: (Optional) A comma separated map of security group
        egress rules with Cidr, IpProtocol, FromPort and ToPort in the
        format `[{"Cidr": "1.2.3.4/32", "IpProtocol": "tcp",
@@ -298,6 +309,7 @@ Follow these steps to configure the automation:
        `^\\{\\}$|^\\{\"Cidr\":\"[\\x00-\\x7F+]{1,128}\",\"IpProtocol\":\"[\\x00-\\x7F+]{1,128}\",\"FromPort\":\"[\\x00-\\x7F+]{1,128}\",\"ToPort\":\"[\\x00-\\x7F+]{0,255}\"\\}`
 
    - **BackupS3KeyName (Optional):**
+
      - Description: (Optional) If `Action` is set to
        `Restore`, this specifies the Amazon S3 key the automation
        will use to try to restore the target Amazon EC2 instance configuration.
@@ -312,6 +324,7 @@ Follow these steps to configure the automation:
 4. Select Execute.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **ValidateRequiredInputs**
 
    Validates that all required inputs are provided.
@@ -391,6 +404,7 @@ Follow these steps to configure the automation:
 
 7. After the execution completes, review the Outputs section for the detailed results
    of the execution:
+
    - **FinalOutput.Output**
 
    Outputs the details of the containment actions performed by this runbook

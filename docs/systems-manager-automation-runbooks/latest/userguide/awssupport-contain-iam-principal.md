@@ -45,6 +45,7 @@ successful operations and failure scenarios.
   `AutomationAssumeRole` parameter and ensure they are appropriate
   for the intended use case. You can refer to the following AWS documentation
   for more information on IAM permissions:
+
   - [Identity and
     Access Management (IAM) Permissions](../../../IAM/latest/UserGuide/access_permissions.md "../../../IAM/latest/UserGuide/access_permissions.md")
   - [AWS Systems Manager Automation Permissions](../../../systems-manager/latest/userguide/automation-permissions.md "../../../systems-manager/latest/userguide/automation-permissions.md")
@@ -279,7 +280,9 @@ Follow these steps to configure the automation:
 1. Navigate to the [AWSSupport-ContainIAMPrincipal](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-ContainIAMPrincipal/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-ContainIAMPrincipal/description") in the AWS Systems Manager console.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the
        AWS Identity and Access Management (IAM) role that allows Systems Manager
        Automation to perform the actions on your behalf. If no role is
@@ -288,6 +291,7 @@ Follow these steps to configure the automation:
      - Type: `AWS::IAM::Role::Arn`
 
    - **PrincipalType (Required):**
+
      - Description: (Required) The AWS IAM principal type: IAM
        user, IAM role, or Identity Center user.
      - Type: String
@@ -295,6 +299,7 @@ Follow these steps to configure the automation:
 user`
 
    - **PrincipalName (Required):**
+
      - Description: (Required) The name of the IAM principal. For
        Identity Center users, provide the username.
      - Type: String
@@ -302,6 +307,7 @@ user`
        `^[a-zA-Z0-9\\.\\-_\\\\!*'()/+=,@]{1,1024}$`
 
    - **Action (Required):**
+
      - Description: (Required) Select `Contain` to isolate the
        target IAM principal or `Restore` to try to restore the
        IAM principal to its original configuration from a previous
@@ -310,6 +316,7 @@ user`
      - Allowed Values: `Contain|Restore`
 
    - **DryRun (Optional):**
+
      - Description: (Optional) When set to `true`, the
        automation will not make any changes to the target IAM principal,
        instead it will output on what it would have attempted to change,
@@ -319,6 +326,7 @@ user`
 
    - **ActivateDisabledKeys
      (Conditional):**
+
      - Description: (Conditional) If the input parameter Action is set to
        `Restore` and the PrincipalType is set to IAM user,
        this option determines if this automation should try to activate the
@@ -331,6 +339,7 @@ user`
      - Allowed Values: `true|false`
 
    - **BackupS3BucketName (Conditional):**
+
      - Description: (Conditional) The Amazon Amazon S3 bucket to backup the
        IAM principal configuration when the Action is set to
        `Contain` or to restore the configuration from when
@@ -344,6 +353,7 @@ user`
      - Type: `AWS::S3::Bucket::Name`
 
    - **BackupS3KeyName (Conditional):**
+
      - Description: (Conditional) If Action is set to
        `Restore`, this specifies the Amazon Amazon S3 key the
        automation will use to try to restore the IAM principal
@@ -357,6 +367,7 @@ user`
 
    - **BackupS3BucketAccess
      (Conditional):**
+
      - Description: (Conditional) The ARN of the IAM users or roles
        that will be allowed access to the backup Amazon Amazon S3 bucket after
        running the containment actions. This parameter is required when
@@ -368,6 +379,7 @@ user`
        `^$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::[0-9]{12}:(role|user)\\/[\\w+\\/=,.@-]+$`
 
    - **TagIdentifier (Optional):**
+
      - Description: (Optional) Tag the IAM principal with a tag of your
        choice using the following format:
        `Key=<EXAMPLE_KEY>,Value=<EXAMPLE_VALUE>`.
@@ -381,6 +393,7 @@ user`
 4. Select Execute.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **ValidateRequiredInputs**
 
    Validates the required automation input parameters based on the
@@ -516,6 +529,7 @@ user`
 
 7. After the execution completes, review the Outputs section for the detailed results
    of the execution:
+
    - **ContainIAMPrincipal.Output**
 
    Provides detailed information about the containment actions performed when

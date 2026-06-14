@@ -132,6 +132,7 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-CollectEKSLinuxNodeStatistics`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-CollectEKSLinuxNodeStatistics/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-CollectEKSLinuxNodeStatistics/description") in Systems Manager under Documents.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
 
    The Amazon Resource Name (ARN) of the IAM role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
@@ -160,6 +161,7 @@ Follow these steps to configure the automation:
 4. Select Execute.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **`CheckBucketAccess`**:
 
    Checks if the target Amazon S3 bucket potentially grants read and/or write public access to its objects.

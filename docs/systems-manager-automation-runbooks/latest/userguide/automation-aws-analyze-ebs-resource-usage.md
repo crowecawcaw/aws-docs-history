@@ -177,6 +177,7 @@ Follow these steps to configure the automation:
 
 1. Navigate to the [AWSSupport-AnalyzeEBSResourceUsage](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-AnalyzeEBSResourceUsage/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-AnalyzeEBSResourceUsage/description") in the AWS Systems Manager console.
 2. For the input parameters enter the following:
+
    - **AutomationAssumeRole (Optional):**
 
    The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager

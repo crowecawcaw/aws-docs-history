@@ -83,6 +83,7 @@ The runbook performs the following steps:
   meaningful work on its own.
 - Checks for existing CloudFormation stack for the proxy Lambda function for the specified
   cluster.
+
   - If the stack exists, the existing infrastructure is re-used instead of
     re-creating it.
   - A reference counter is maintained using tags to ensure a runbook does not
@@ -91,6 +92,7 @@ The runbook performs the following steps:
 
 - Perform the operation type (`Setup`/`Cleanup`) specified for
   the invocation:
+
   - **Setup:** Creates or describes existing
     resources.
 
@@ -377,25 +379,30 @@ Example of input parameters:
 **Automation Steps**
 
 1. **ValidateExecution**
+
    - Verifies that the automation is not running as a standalone
      execution.
 
 2. **CheckForExistingStack**
+
    - Checks if a CloudFormation stack was already provisioned for the specified cluster
      name.
    - Returns stack existence status and whether it's safe to delete.
 
 3. **BranchOnIsStackExists**
+
    - Decision step that branches based on stack existence.
    - Routes to either update existing stack name or proceed with operation
      branching.
 
 4. **UpdateStackName**
+
    - Updates the `StackName` variable with the existing stack's
      name.
    - Only executed if stack already exists.
 
 5. **BranchOnOperation**
+
    - Routes the automation based on the `Operation` parameter
      (`Setup` /`Cleanup`).
    - For `Setup`: Routes to either create new stack or describe
@@ -404,32 +411,39 @@ Example of input parameters:
      delete.
 
 6. **GetClusterNetworkConfig**
+
    - Describes the Amazon EKS cluster to obtain VPC configuration.
    - Retrieves endpoint, VPC ID, subnet IDs, security group ID, and CA
      data.
 
 7. **ProvisionResources**
+
    - Creates a CloudFormation stack with required resources.
    - Provisions Lambda function with necessary networking configuration.
    - Tags all resources for tracking and management.
 
 8. **DescribeStackResources**
+
    - Retrieves information about the created/existing stack.
    - Gets the ARN of the provisioned Lambda function.
 
 9. **BranchOnIsLambdaDeploymentRequired**
+
    - Determines if Lambda code deployment is needed.
    - Only proceeds to deployment for newly created stacks.
 
 10. **DeployLambdaFunctionCode**
+
     - Deploys the Lambda function code using the deployment package.
     - Updates the function with the proxy implementation.
 
 11. **AssertLambdaAvailable**
+
     - Verifies that the Lambda function code update was successful.
     - Waits for the function to be in `Successful` state.
 
 12. **PerformStackCleanup**
+
     - Deletes the CloudFormation stack and associated resources.
     - Executed during `Cleanup` operation or on failure of `Setup` operation.
 

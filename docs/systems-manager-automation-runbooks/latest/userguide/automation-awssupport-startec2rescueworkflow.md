@@ -297,6 +297,7 @@ JSON
 4. `aws:assertAwsResourceProperty` - Check the root volume is not
    encrypted
 5. `aws:assertAwsResourceProperty` - Check the provide subnet ID
+
    1. (Use current instance subnet) - If \*SubnetId = SelectedInstanceSubnet\*
       then run `aws:createStack` to deploy the EC2Rescue CloudFormation
       stack
@@ -323,6 +324,7 @@ JSON
 13. `aws:changeInstanceState` - Force stop the provided instance
 14. `aws:assertAwsResourceProperty` - Check the CreatePreEC2RescueBackup
     input value
+
     1. (Create pre-EC2Rescue backup) - If \*CreatePreEC2RescueBackup =
        true\*
     2. `aws:executeAwsApi` - Create an AMI backup of the provided
@@ -335,6 +337,7 @@ JSON
     instance
 17. `aws:assertAwsResourceProperty` - Check the provided instance
     platform
+
     1. (Instance is Windows):
 
     `aws:executeAwsApi` - Attach the root volume to the EC2Rescue
@@ -362,6 +365,7 @@ JSON
     instance
 22. `aws:assertAwsResourceProperty` - Check the CreatePostEC2RescueBackup
     input value
+
     1. (Create post-EC2Rescue backup) - If \*CreatePostEC2RescueBackup =
        true\*
     2. `aws:executeAwsApi` - Create an AMI backup of the provided

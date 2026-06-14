@@ -74,6 +74,7 @@ Follow these steps to configure the automation:
     Documents.
 2.  Select Execute automation.
 3.  For the input parameters, enter the following:
+
     - **AutomationAssumeRole (Optional):**
 
     The Amazon Resource Name (ARN) of the AWS AWS Identity and Access Management (IAM) role that
@@ -110,7 +111,6 @@ Follow these steps to configure the automation:
 
         + Default: `1`
         + Maximum Value: `365`
-
     - **ExpirationDays (Optional):**
 
     Specify the expiration for the lifecycle of the object in the form
@@ -118,7 +118,6 @@ Follow these steps to configure the automation:
 
         + Default: `1`
         + Maximum Value: `365`
-
     - **AbortIncompleteMultipartUpload
       (Optional):**
 
@@ -128,7 +127,6 @@ Follow these steps to configure the automation:
 
         + Default: `1`
         + Maximum Value: `365`
-
     - **Acknowledgement:**
 
     Please read the complete details of the actions performed by this

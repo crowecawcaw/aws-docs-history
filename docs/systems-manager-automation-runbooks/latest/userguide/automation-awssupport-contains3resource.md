@@ -187,11 +187,14 @@ Follow these steps to configure the automation:
     Documents.
 2.  Select Execute automation.
 3.  For the input parameters, enter the following:
+
     - **BucketName (Required):**
+
       - Description: (Required) The name of the Amazon S3 bucket.
       - Type: `AWS::S3::Bucket::Name`
 
     - **Action (Required):**
+
       - Description: (Required) Select `Contain` to isolate the
         Amazon S3 resource or `Restore` to try to restore the resource
         configuration to its original state from a previous backup.
@@ -199,6 +202,7 @@ Follow these steps to configure the automation:
       - Allowed Values: `Contain|Restore`
 
     - **DryRun (Optional):**
+
       - Description: (Optional) When set to true, the automation will not
         make any changes to the target Amazon S3 resource, instead it will output
         what it would have attempted to change. Default value: true.
@@ -206,6 +210,7 @@ Follow these steps to configure the automation:
       - Allowed Values: `true|false`
 
     - **BucketKeyName (Optional):**
+
       - Description: (Optional) The key of the Amazon S3 object you want to
         contain or restore. Used during object level containment.
       - Type: String
@@ -214,6 +219,7 @@ Follow these steps to configure the automation:
 
     - **BucketRestrictAccess
       (Conditional):**
+
       - Description: (Conditional) The ARN of the IAM users or roles
         that will be allowed access to the target Amazon S3 resource after
         running the containment actions. This parameter is required when
@@ -223,6 +229,7 @@ Follow these steps to configure the automation:
         `^$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::[0-9]{12}:(role|user)\\/[\\w+\\/=,.@-]+$`
 
     - **TagIdentifier (Optional):**
+
       - Description: (Optional) A tag in the format
         Key=BatchId,Value=78925 that will be added to the resources created
         or modified by this runbook during the containment workflow.
@@ -231,6 +238,7 @@ Follow these steps to configure the automation:
         `^$|^[Kk][Ee][Yy]=[\\+\\-\\=\\.\\_\\:\\/@a-zA-Z0-9]{1,128},[Vv][Aa][Ll][Uu][Ee]=[\\+\\-\\=\\.\\_\\:\\/@a-zA-Z0-9]{0,128}$`
 
     - **BackupS3BucketName (Conditional):**
+
       - Description: (Conditional) The Amazon S3 bucket to backup the target
         resource configuration when the `Action` is set to
         `Contain` or to restore the configuration from when
@@ -238,6 +246,7 @@ Follow these steps to configure the automation:
       - Type: `AWS::S3::Bucket::Name`
 
     - **BackupS3KeyName (Conditional):**
+
       - Description: (Conditional) If `Action` is set to
         `Restore`, this specifies the Amazon S3 key the automation
         will use to try to restore the target resource configuration.
@@ -247,6 +256,7 @@ Follow these steps to configure the automation:
 
     - **BackupS3BucketAccess
       (Conditional):**
+
       - Description: (Conditional) The ARN of the IAM users or roles
         that will be allowed access to the backup Amazon S3 bucket after running
         the containment actions. This parameter is required when
@@ -256,6 +266,7 @@ Follow these steps to configure the automation:
         `^$|^arn:(aws|aws-cn|aws-us-gov|aws-iso(-[a-z])?):iam::[0-9]{12}:(role|user)\\/[\\w+\\/=,.@-]+$`
 
     - **AutomationAssumeRole (Optional):**
+
       - Description: (Optional) The Amazon Resource Name (ARN) of the
         IAM role that allows Systems Manager Automation to perform the actions on
         your behalf.
@@ -264,6 +275,7 @@ Follow these steps to configure the automation:
 4.  Select Execute.
 5.  The automation initiates.
 6.  The document performs the following steps:
+
     - **validateRequiredInputs**
 
     Validates the required automation input parameters based on the Action

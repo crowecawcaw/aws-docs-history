@@ -119,7 +119,9 @@ you can run the automation successfully.
 
 1. `aws:assertAwsResourceProperty` - Check if the instance is a
    managed instance
+
    1. (Online remediation) If the instance is a managed instance, then:
+
       1. `aws:configurePackage` - Install EC2Rescue for
          Linux via `AWS-ConfigureAWSPackage`.
       2. `aws:runCommand` - Run the bash script to run
@@ -127,6 +129,7 @@ you can run the automation successfully.
 
    2. (Offline remediation) If the instance is not a managed instance
       then:
+
       1. `aws:assertAwsResourceProperty` - Assert
          **AllowOffline = true**
       2. `aws:assertAwsResourceProperty` - Assert

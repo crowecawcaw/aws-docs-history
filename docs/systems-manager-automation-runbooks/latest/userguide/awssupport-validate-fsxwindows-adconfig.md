@@ -353,6 +353,7 @@ Follow these steps to configure the automation:
 2. Select **Execute automation.**
 3. To validate self-managed AD with an existing failed or misconfigured Amazon FSx, enter
    the following parameters:
+
    - **AutomationAssumeRole (Optional):**
 
    The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows

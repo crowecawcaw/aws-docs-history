@@ -111,11 +111,13 @@ by `AWSSupport-StartEC2RescueWorkflow`.
    platform is Windows.
 2. `aws:assertAwsResourceProperty` - Confirm the provided instance
    is a managed instance:
+
    1. (Online activation fix) If the input instance is a managed
       instance, then run `aws:runCommand` to run the PowerShell
       script to attempt to fix Windows activation.
    2. (Offline activation fix) If the input instance is not a managed
       instance:
+
       1. `aws:assertAwsResourceProperty` - Verifies the
          `AllowOffline` flag is set to
          `true`. If so, the offline fix starts;

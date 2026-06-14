@@ -192,6 +192,7 @@ you can run the automation successfully.
    managed instance
 3. (Online troubleshooting) If the instance is a managed instance,
    then:
+
    1. `aws:assertAwsResourceProperty` - Check the provided
       Action value
    2. (Online check) If the **Action = CheckAll**,
@@ -234,6 +235,7 @@ you can run the automation successfully.
 
 4. (Offline remediation) If the instance is not a managed instance
    then:
+
    1. `aws:assertAwsResourceProperty` - Assert
       **AllowOffline = true**
    2. `aws:assertAwsResourceProperty` - Assert

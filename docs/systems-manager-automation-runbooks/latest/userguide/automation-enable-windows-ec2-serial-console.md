@@ -183,6 +183,7 @@ Follow these steps to configure the automation:
    AWS Systems Manager console.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **InstanceId: (Required)**
 
    The ID of the Amazon EC2 instance that you want to enable Amazon EC2 serial console,
@@ -232,6 +233,7 @@ Follow these steps to configure the automation:
 4. Select Execute.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **CheckIfEc2SerialConsoleAccessEnabled:**
 
    Checks if Amazon EC2 Serial Console access is enabled at the account level.
@@ -302,6 +304,7 @@ Follow these steps to configure the automation:
 
 7. After completed, review the Outputs section for the detailed results of the
    execution:
+
    - **EnableSACAndBootMenu.Output:**
 
    Output of the command execution in the `EnableSACAndBootMenu`

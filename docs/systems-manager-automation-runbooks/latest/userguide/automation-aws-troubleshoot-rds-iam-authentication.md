@@ -175,6 +175,7 @@ use the runbook successfully.
    AWS Systems Manager Console.
 2. Select **Execute Automation**
 3. For input parameters, enter the following:
+
    - **AutomationAssumeRole
      (Optional):**
 
@@ -303,6 +304,7 @@ use the runbook successfully.
      credentials.
 
 7. When the automation is complete, review the **Outputs** section for the detailed results:
+
    - **Checking the IAM User/Role
      permission to connect to
      Database:**

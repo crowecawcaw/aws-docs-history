@@ -125,7 +125,9 @@ If you are performing an offline upgrade, see the permissions required by [AWSSu
 2. `aws:assertAwsResourceProperty` - Verifies the input instance is a
    managed instance. If so, the online upgrade starts, otherwise the offline upgrade is
    evaluated.
+
    1. (Online upgrade) If the input instance is a managed instance:
+
       1. `aws:createImage` - Creates an AMI backup.
       2. `aws:createTags` - Tags the AMI backup.
       3. `aws:runCommand` - Installs ENA network driver.
@@ -133,6 +135,7 @@ If you are performing an offline upgrade, see the permissions required by [AWSSu
       5. `aws:runCommand` - Installs AWS PV driver.
 
    2. (Offline upgrade) If the input instance is not a managed instance:
+
       1. `aws:assertAwsResourceProperty` - Verifies the
          AllowOffline flag is set to `true`. If so, the offline
          upgrade starts, otherwise the automation ends.

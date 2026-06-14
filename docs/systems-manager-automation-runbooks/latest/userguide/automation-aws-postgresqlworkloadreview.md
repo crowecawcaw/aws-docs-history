@@ -54,6 +54,7 @@ preserved. You can override this option by setting the
   create in your account and Region where you use this runbook. If you need to
   request a limit increase, see the [Service limit increase form](https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase/ "https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase/").
 - **Database configuration**
+
   1.  The database you specify in the `DatabaseName`
       parameter should have the `pg_stat_statements` extension
       configured. If you have not configured
@@ -606,6 +607,7 @@ use the runbook successfully.
 11. `aws:waitForAwsResourceProperty` - Waits until the temporary
     Amazon EC2 instance is managed by Systems Manager. If this step times out or fails, then
     the runbook reboots the instance.
+
     1. `aws:executeAwsApi` - Reboots the temporary Amazon EC2
        instance if the previous step failed or timed out.
     2. `aws:waitForAwsResourceProperty` - Waits until the
@@ -631,12 +633,14 @@ use the runbook successfully.
     window to finish the last task before continuing.
 21. `aws:branch` - Branches the workflow based on whether you
     provided a value for the `SupportCase` parameter.
+
     1. `aws:changeInstanceState` - Starts the temporary Amazon EC2
        instance and waits for status checks to pass before uploading the
        report.
     2. `aws:waitForAwsResourceProperty` - Waits until the
        temporary Amazon EC2 instance is managed by Systems Manager. If this step timeouts
        or fail, then the runbook reboots the instance.
+
        1. `aws:executeAwsApi` - Reboots the temporary
           Amazon EC2 instance if the previous step failed or timed
           out.

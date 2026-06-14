@@ -100,84 +100,100 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSPremiumSupport-OnboardWorkloadToIDR`](https://console.aws.amazon.com/systems-manager/documents/AWSPremiumSupport-OnboardWorkloadToIDR/description "https://console.aws.amazon.com/systems-manager/documents/AWSPremiumSupport-OnboardWorkloadToIDR/description") in Systems Manager under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
      - Type: `AWS::IAM::Role::Arn`
 
    - **WorkloadName (Required):**
+
      - Description: (Required) The name of the workload. If `ResourceGroupName` is not provided, the workload name is used to setup a new AWS Resource Group with the name `IDR-AWS-<WorkloadName>`.
      - Type: `String`
      - Allow Pattern: `^[a-zA-Z0-9_-]{1,128}$`
 
    - **WorkloadDescription (Required):**
+
      - Description: (Required) The workload description. Enter a brief description to detail the use cases of this workload. Please include the primary end user and the function of this workload.
      - Type: `String`
      - Allow Pattern: `^[a-zA-Z0-9.:;,-_&() ]{1,1024}$`
 
    - **AppRegistryApplication (Optional):**
+
      - Description: (Optional) The name or ID of the AWS Service Catalog AppRegistry application. If not provided, you must provide an input for `ResourceGroupName`.
      - Type: `String`
      - Allow Pattern: `^$|^[a-zA-Z0-9.-_]{1,128}$`
      - Default: `""`
 
    - **ResourceGroupName (Optional):**
+
      - Description: (Optional) The name of an existing AWS Resource Group if `AppRegistryApplication` is not provided. If you want to create a Resource Group, you must provide an input for `TagFilters` and optionally `ResourceTypeFilters` to create a new AWS Resource Group.
      - Type: `String`
      - Allow Pattern: `^$|^[a-zA-Z0-9_.-]{1,128}$`
      - Default: `""`
 
    - **TagFilters (Conditional):**
+
      - Description: (Conditional) The list of key/values (string/list of strings) pairs that are compared to the tags attached to your AWS resources. This parameter is used to create a new AWS Resource Group if you do not specify an existing `ResourceGroupName` or `AppRegistryApplication`.
      - Type: `StringMap`
 
    - **ResourceTypeFilters (Conditional):**
+
      - Description: (Conditional) The list of resource types supported by Resource Groups.
      - Type: `StringList`
      - Max Items: `10`
      - Default: `AWS::AllSupported`
 
    - **InstallServiceLinkedRole (Optional):**
+
      - Description: (Optional) Select `Yes` to install the `AWSServiceRoleForHealth_EventProcessor` service-linked role (SLR).
      - Type: `String`
      - Allowed Values: `[Yes,No]`
      - Default: `No`
 
    - **CreateApplicationInsights (Optional):**
+
      - Description: (Optional) Select `Yes` to create an Amazon CloudWatch Application Insights Resource group-based application.
      - Type: `String`
      - Allowed Values: `[Yes,No]`
      - Default: `No`
 
    - **ComplianceAndRegulatoryRequirements (Required):**
+
      - Description: (Required) Applicable compliance and/or regulatory requirements for this workload and any actions required from AWS after an incident.
      - Type: `String`
      - Allow Pattern: `^[a-zA-Z0-9.:;,\\-_&() ]{1,1024}$`
 
    - **NonAWSComponents (Optional):**
+
      - Description: (Optional) Detail any on-premise or non-AWS components for this workload? If so, what are they and what functions do they perform.
      - Type: `String`
      - Allow Pattern: `^$|^[a-zA-Z0-9.:;,\\-_&() ]{1,1024}$`
      - Default: `""`
 
    - **UpstreamDownstreamDependencies (Optional):**
+
      - Description: (Optional) Details of any upstream/downstream components not being onboarded, that could affect this workload if experiencing an outage.
      - Type: `String`
      - Allow Pattern: `^$|^[a-zA-Z0-9.:;,\\-_&() ]{1,1024}$`
      - Default: `""`
 
    - **FailoverDisasterRecoveryPlan (Optional):**
+
      - Description: (Optional) Provide details of any manual or automated failover/disaster recovery plans at the AZ and regional level.
      - Type: `String`
      - Allow Pattern: `^$|^[a-zA-Z0-9.:;,\\-_&() ]{1,1024}$`
      - Default: `""`
 
    - **BridgeDetails (Optional):**
+
      - Description: (Optional) The static incident/crisis management bridge established by your company. If you utilize a non-static bridge, specify your preferred application and AWS will request these details during an incident.
      - Type: `String`
      - Allowed Values: `[Amazon Chime bridge, Non-Static bridge, Static bridge]`
      - Default: `Amazon Chime bridge`
 
    - **SubscriptionStartDate (Required):**
+
      - Description: (Required) The date in `YYYY-MM-DD` format that you want to start your AWS Incident Detection and Response subscription.
      - Type: `String`
      - Allow Pattern: `^(202[4-9]|20[3-9][0-9])-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$`
@@ -185,6 +201,7 @@ Follow these steps to configure the automation:
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **CheckAWSSupportPlan**:
 
    Checks if the current AWS Account Support Plan is Enterprise; otherwise the automation ends.

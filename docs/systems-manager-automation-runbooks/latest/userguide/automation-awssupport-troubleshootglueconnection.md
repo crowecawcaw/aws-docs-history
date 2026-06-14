@@ -249,6 +249,7 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-TroubleshootGlueConnection`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootGlueConnection/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootGlueConnection/description") in Systems Manager under Documents.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
 
    The Amazon Resource Name (ARN) of the AWS AWS Identity and Access Management (IAM) role that
@@ -403,6 +404,7 @@ Follow these steps to configure the automation:
 
 7. After completed, review the Outputs section for the detailed results of the
    execution:
+
    - **Automation Results**
 
    In this section, you will find scenarios describing possible causes for

@@ -58,8 +58,10 @@ instance.
    instance profile attached to the EC2 instance.
 2. `aws:branch` - CheckInstanceProfileAssociations - Check the IAM
    instance profile attached to the EC2 instance.
+
    1. If an IAM instance profile is attached and
       `ForceReplace` is set to `true` :
+
       1. `aws:executeAwsApi` -
          DisassociateIamInstanceProfile - Disassociate the IAM
          instance profile from the EC2 instance.
@@ -68,14 +70,17 @@ instance.
       instance profiles for the IAM role provided.
    3. `aws:branch` - CheckInstanceProfileCreated - Check if the
       IAM role provided has an associated instance profile.
+
       1. If the IAM role has an associated instance
          profile:
+
          1. `aws:executeAwsApi` -
             AttachIAMProfileToInstance - Attach the IAM
             instance profile role to the EC2 instance.
 
       1. If the IAM role does not have an associated instance
          profile:
+
          1. `aws:executeAwsApi` -
             CreateInstanceProfileForRole - Create an instance
             profile role for the specified IAM role.

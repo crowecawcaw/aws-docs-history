@@ -54,6 +54,7 @@ Follow these steps to configure the automation:
    under Documents.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
 
    The Amazon Resource Name (ARN) of the AWS AWS Identity and Access Management (IAM) role that

@@ -226,6 +226,7 @@ In the Amazon EKS console, navigate to your cluster and follow these steps:
     * Verify the details and choose **Create**.
 
 4.  Create an IAM role for the Lambda function (referenced as `LambdaRoleArn` in the input parameters):
+
     - Create a new IAM role with the following trust policy:
 
     ```
@@ -242,8 +243,8 @@ In the Amazon EKS console, navigate to your cluster and follow these steps:
                 ]
             }
     ```
-
     - Attach the following AWS managed policies to this role:
+
       - `AWSLambdaBasicExecutionRole`
       - `AWSLambdaVPCAccessExecutionRole`
 
@@ -252,6 +253,7 @@ In the Amazon EKS console, navigate to your cluster and follow these steps:
 1.  Navigate to [AWSSupport-TroubleshootEKSALBControllerIssues](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEKSALBControllerIssues/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootEKSALBControllerIssues/description") in the AWS Systems Manager console.
 1.  Choose **Execute automation**.
 1.  For the input parameters enter the following:
+
     - **AutomationAssumeRole (Optional):**
 
     Type: AWS::IAM::Role::Arn
@@ -349,6 +351,7 @@ In the Amazon EKS console, navigate to your cluster and follow these steps:
 1.  Choose **Execute**.
 1.  The automation initiates.
 1.  The document performs the following steps:
+
     1. **ValidateAccessEntryAndOIDCProvider:**
 
     Validates Amazon EKS cluster IAM setup by checking access entry permissions and OIDC provider configuration. 2. **SetupK8sAuthenticationClient:**

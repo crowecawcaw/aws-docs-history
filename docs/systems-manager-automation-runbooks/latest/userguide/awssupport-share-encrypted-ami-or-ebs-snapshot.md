@@ -59,6 +59,7 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-ShareEncryptedAMIOrEBSSnapshot`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-ShareEncryptedAMIOrEBSSnapshot/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-ShareEncryptedAMIOrEBSSnapshot/description") in Systems Manager under Documents.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
 
    The Amazon Resource Name of the AWS AWS Identity and Access Management role that allows Systems Manager Automation to perform the actions on your behalf. If no role is specified, Systems Manager Automation uses the permissions of the user that starts this runbook.
@@ -81,6 +82,7 @@ Follow these steps to configure the automation:
 4. Select Execute.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **`ValidateResources`**:
 
    Validates input resource existence, state, encryption configuration, and determines required changes for sharing.

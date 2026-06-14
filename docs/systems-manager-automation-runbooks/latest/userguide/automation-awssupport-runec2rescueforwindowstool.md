@@ -88,14 +88,18 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-RunEC2RescueForWindowsTool`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-RunEC2RescueForWindowsTool/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-RunEC2RescueForWindowsTool/description") in Systems Manager under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **Command (Required):**
+
      - Description: (Required) The action to perform.
      - Type: `String`
      - Allow Values: `[ResetAccess, CollectLogs, FixAll]`
      - Default: `ResetAccess`
 
    - **Parameters (Required):**
+
      - Description: (Required) Parameters for the command:
+
        - For `ResetAccess`: The AWS AWS KMS key ID or alias (default: `alias/aws/ssm`)
        - For `CollectLogs`: The Amazon S3 bucket name to upload the logs to
        - For `FixAll`: The device name for the offline remediation (for example, `xvdf`)
@@ -106,6 +110,7 @@ Follow these steps to configure the automation:
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **installEC2Rescue**:
 
    Installs the Amazon EC2 Rescue for Windows Server troubleshooting tool using the Systems Manager Distributor package `AWSSupport-EC2Rescue`.

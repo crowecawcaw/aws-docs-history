@@ -176,7 +176,9 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-TroubleshootDMSEndpointConnection`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootDMSEndpointConnection/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootDMSEndpointConnection/description") in Systems Manager under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
        (IAM) role that allows SSM Automation to perform the actions on
        your behalf. If no role is specified, SSM Automation uses
@@ -184,18 +186,21 @@ Follow these steps to configure the automation:
      - Type: `AWS::IAM::Role::Arn`
 
    - **DmsEndpointArn (Required)**
+
      - Description: (Required) The Amazon Resource Name (ARN) of the AWS Database Migration Service Endpoint.
      - Type: `String`
      - Allowed Pattern:
        `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):dms:[a-z0-9-]+:\\d{12}:endpoint:[A-Z0-9]{1,48}$`
 
    - **DmsReplicationInstanceArn (Required)**
+
      - Description: (Required) The Amazon Resource Name (ARN) of the AWS Database Migration Service Replication instance.
      - Type: `String`
      - Allowed Pattern:
        `^arn:(aws|aws-cn|aws-us-gov|aws-iso|aws-iso-b):dms:[a-z0-9-]+:\\d{12}:rep:[A-Z0-9]+$`
 
    - **PersistReachabilityAnalyzerResults (Optional)**
+
      - Description: (Optional) The flag informing if the results of the Network Insights Analysis execution should be kept or not.
      - Type: `Boolean`
      - Allowed Values:
@@ -203,11 +208,13 @@ Follow these steps to configure the automation:
      - Default: `false`
 
    - **LambdaRoleArn (Optional)**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the AWS AWS Identity and Access Management (IAM) role that allows the AWS Lambda function to access the required AWS services and resources. If no role is specified, this Systems Manager Automation will create one IAM role for Lambda in your account.
      - Type: `AWS::IAM::Role::Arn`
      - Default: `""`
 
    - **Acknowledge (Required)**
+
      - Description: (Required) Enter `yes` to acknowledge that this runbook will create a Lambda function in your account and will create an IAM role if no `LambdaRoleArn` is provided.
      - Type: `String`
      - Allowed Pattern:
@@ -216,6 +223,7 @@ Follow these steps to configure the automation:
 4. Select **Execute.**
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **DescribeEndpointAndCheckEngine:**
 
    Retrieves the AWS DMS endpoint configuration and validates if the database engine type is supported for troubleshooting. Extracts server name, port, and engine type from the endpoint configuration.
@@ -266,6 +274,7 @@ Follow these steps to configure the automation:
    Deletes the CloudFormation stack containing the DNS resolver Lambda function and associated resources (unless `PersistReachabilityAnalyzerResults` is set to `true`), ensuring no residual resources remain after automation completion.
 
 7. After completed, review the **Outputs** section for the detailed results of the execution:
+
    - **GetTestConnectionStatus.status**
 
    The current connection test status between the AWS DMS replication instance and endpoint (e.g., successful, failed, testing).

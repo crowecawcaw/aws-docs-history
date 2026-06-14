@@ -87,7 +87,9 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-TroubleshootAPIGatewayHttpErrors`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootAPIGatewayHttpErrors/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootAPIGatewayHttpErrors/description") in Systems Manager under Documents.
 2. Select **Execute automation.**
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
        (IAM) role that allows SSM Automation to perform the actions on
        your behalf. If no role is specified, SSM Automation uses
@@ -95,23 +97,27 @@ Follow these steps to configure the automation:
      - Type: `AWS::IAM::Role::Arn`
 
    - **RestApiId (Required):**
+
      - Description: (Required) The API ID for the API that requires troubleshooting. Must be a 10-character alphanumeric string.
      - Type: `String`
      - Allowed Pattern:
        `^[a-zA-Z0-9]{10}$`
 
    - **StageName (Required):**
+
      - Description: (Required) The name of the deployed stage. Must be 1-128 characters containing letters, numbers, underscores, or hyphens.
      - Type: `String`
      - Allowed Pattern:
        `^[a-zA-Z0-9_\\-]{1,128}$`
 
    - **ResourcePath (Optional):**
+
      - Description: (Optional) The resource path for which method is configured. Examples: `/`, `/store/items`, `/{resource}`.
      - Type: `String`
      - Default: `/`
 
    - **HttpMethod (Optional):**
+
      - Description: (Optional) The method for the configured resource path.
      - Type: `String`
      - Allowed Values:
@@ -119,6 +125,7 @@ Follow these steps to configure the automation:
      - Default: `GET`
 
    - **StartTime (Optional):**
+
      - Description: (Optional) The start date and time for querying the CloudWatch Logs. Format: `yyyy-MM-ddTHH:mm:ss` in UTC timezone. If not specified, defaults to 3 days before current time.
      - Type: `String`
      - Allowed Pattern:
@@ -126,6 +133,7 @@ Follow these steps to configure the automation:
      - Default: `""`
 
    - **EndTime (Optional):**
+
      - Description: (Optional) The end date and time for querying the CloudWatch Logs. Format: `yyyy-MM-ddTHH:mm:ss` in UTC timezone. If not specified, defaults to current time.
      - Type: `String`
      - Allowed Pattern:
@@ -133,6 +141,7 @@ Follow these steps to configure the automation:
      - Default: `""`
 
    - **AccessLogs (Optional):**
+
      - Description: (Optional) Whether access logs should be analyzed.
      - Type: `Boolean`
      - Allowed Values:
@@ -140,6 +149,7 @@ Follow these steps to configure the automation:
      - Default: `false`
 
    - **RequestId (Optional):**
+
      - Description: (Optional) The request ID for request where error was observed. Must be a valid UUID format.
      - Type: `String`
      - Allowed Pattern:
@@ -149,6 +159,7 @@ Follow these steps to configure the automation:
 4. Select **Execute.**
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **CheckApiExists**:
 
    Validates that the provided REST API exists and you have the necessary permissions to access it.

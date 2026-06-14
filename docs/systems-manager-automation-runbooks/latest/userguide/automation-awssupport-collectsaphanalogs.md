@@ -182,6 +182,7 @@ Follow these steps to configure the automation:
    Documents.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
 
    The ARN of the IAM role that allows Systems Manager Automation to perform
@@ -210,6 +211,7 @@ Follow these steps to configure the automation:
 4. Select Execute.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **`AssertInstanceIsSSMManaged`**
 
    Verifies that the target Amazon EC2 instance is managed by Systems Manager and has

@@ -88,6 +88,7 @@ JSON
    AWS Systems Manager Console.
 2. Select **Execute Automation**
 3. For input parameters, enter the following:
+
    - **AutomationAssumeRole
      (Optional):**
 

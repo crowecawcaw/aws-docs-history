@@ -152,6 +152,7 @@ Follow these steps to configure the automation:
    Documents.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
 
    The Amazon Resource Name (ARN) of the AWS AWS Identity and Access Management (IAM) role that
@@ -177,6 +178,7 @@ Follow these steps to configure the automation:
    page.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **validateDMSInputTypeAndGatherDetails**
 
    Validates the given AWS DMS ARN input and gather the basic details of the
@@ -212,6 +214,7 @@ Follow these steps to configure the automation:
 
 7. After the execution completes, review the Outputs section for the detailed results
    of the execution.
+
    - **Output of No Table errors found**
 
    If there are no table errors found in the provided Database migration task

@@ -101,6 +101,7 @@ Follow these steps to configure the automation:
    under Documents.
 2. Select Execute automation.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
 
    The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows
@@ -200,6 +201,7 @@ Follow these steps to configure the automation:
 
 7. After completed, review the Outputs section for the detailed results of the
    execution:
+
    - **GenerateReport.OutputPayload**
 
    Output that tells you the runbook successfully retrieved contact flow logs

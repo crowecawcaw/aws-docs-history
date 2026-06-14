@@ -77,6 +77,7 @@ Follow these steps to configure the automation:
     AWS Systems Manager console.
 2.  Select Execute automation.
 3.  For the input parameters, enter the following:
+
     - **InstanceId (Required):**
 
     The ID of the target Amazon EC2 instance that you could not connect to using
@@ -112,7 +113,6 @@ Follow these steps to configure the automation:
          your local computer).
         + **Private:** You connect through the
          instance's private IP address.
-
     - **SourceIpCIDR (Optional):**
 
     The source CIDR that includes the IP address of the device (such as your

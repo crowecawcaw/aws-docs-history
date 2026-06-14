@@ -92,8 +92,10 @@ more information about the required permissions, see [AWSSupport-StartEC2RescueW
 
 1. `aws:assertAwsResourceProperty` - Asserts if the provided instance is
    Windows Server:
+
    1. (EC2Rescue for Windows Server) If the provided instance is a
       Windows Server instance:
+
       1. `aws:executeAutomation` - Invokes
          `AWSSupport-StartEC2RescueWorkflow` with the
          EC2Rescue for Windows Server offline script.
@@ -104,6 +106,7 @@ more information about the required permissions, see [AWSSupport-StartEC2RescueW
 
    2. (EC2Rescue for Linux) If the provided instance is a Linux
       instance:
+
       1. `aws:executeAutomation` - Invokes
          `AWSSupport-StartEC2RescueWorkflow` with the
          EC2Rescue for Linux offline scripts

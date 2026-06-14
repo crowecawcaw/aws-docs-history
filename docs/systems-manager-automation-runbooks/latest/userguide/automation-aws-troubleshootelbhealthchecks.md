@@ -93,7 +93,9 @@ Follow these steps to configure the automation:
 1. Navigate to [`AWSSupport-TroubleshootELBHealthChecks`](https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootELBHealthChecks/description "https://console.aws.amazon.com/systems-manager/documents/AWSSupport-TroubleshootELBHealthChecks/description") in Systems Manager under Documents.
 2. Select **Execute automation**.
 3. For the input parameters, enter the following:
+
    - **AutomationAssumeRole (Optional):**
+
      - Description: (Optional) The Amazon Resource Name (ARN) of the AWS Identity and Access Management
        (IAM) role that allows SSM Automation to perform the actions on
        your behalf. If no role is specified, SSM Automation uses
@@ -101,18 +103,21 @@ Follow these steps to configure the automation:
      - Type: `AWS::IAM::Role::Arn`
 
    - **LoadBalancerOrTargetGroupName (Required):**
+
      - Description: (Required) The name of a Classic Load Balancer, or the name of the target group associated with an Application Load Balancer or Network Load Balancer.
      - Type: `String`
      - Allowed Pattern:
        `^[a-zA-Z0-9-]+$`
 
    - **ExecutionMode (Required):**
+
      - Description: (Required) Controls the automation execution mode. `Complete` runs all steps including runCommands on Amazon EC2 instances. `SkipRunCommands` executes all steps except running commands on instances.
      - Type: `String`
      - Allowed Values:
        `[Complete, SkipRunCommands]`
 
    - **S3BucketName (Optional):**
+
      - Description: (Optional) The name of the Amazon S3 bucket in your account where you want to upload the troubleshooting logs.
      - Type: `String`
      - Default: `""`
@@ -120,6 +125,7 @@ Follow these steps to configure the automation:
 4. Select **Execute**.
 5. The automation initiates.
 6. The document performs the following steps:
+
    - **getBucketPublicStatus**:
 
    Checks if the target Amazon S3 bucket potentially grants read or write public access to its objects.

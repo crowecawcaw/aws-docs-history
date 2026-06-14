@@ -132,6 +132,7 @@ Follow these steps to configure the automation:
    console.
 2. Select Execute automation.
 3. For the input parameters enter the following:
+
    - **AutomationAssumeRole (Optional):**
 
    The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that allows Systems Manager
@@ -192,6 +193,7 @@ control](../../../opensearch-service/latest/developerguide/fgac.md "../../../ope
 
 8. After completed, review the Outputs section for the detailed results of the
    execution.
+
    - **RootCause:**
 
    Provides an overview of the identified cause for cluster health to be in

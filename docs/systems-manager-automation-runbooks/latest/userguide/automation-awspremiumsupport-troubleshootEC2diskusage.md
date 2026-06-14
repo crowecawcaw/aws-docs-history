@@ -149,7 +149,9 @@ use the runbook successfully.
    platform.
 3. `aws:branch` - Branches automation based on the instance's
    platform.
+
    1. If the instance is Windows:
+
       1. `aws:executeAutomation` - Run the
          `AWSPremiumSupport-DiagnoseDiskUsageOnWindows`
          runbook in order to diagnose disk usage issues on the
@@ -159,9 +161,11 @@ use the runbook successfully.
       3. `aws:branch` - Branches based on the output of
          the diagnostics, and if there are volumes that can be
          expanded to mitigate the alert.
+
          1. There are no volumes that need to be expanded: End
             the automation.
          2. There are volumes that need to be expanded:
+
             1. `aws:executeAwsApi` - Create an
                Amazon Machine Image (AMI) of the instance.
             2. `aws:waitForAwsResourceProperty`
@@ -176,6 +180,7 @@ use the runbook successfully.
 
    2. (Platform is not windows) If the input instance is not
       Windows:
+
       1. `aws:executeAutomation` - Run the
          `AWSPremiumSupport-DiagnoseDiskUsageOnLinux`
          runbook in order to diagnose disk usage issues on the
@@ -185,9 +190,11 @@ use the runbook successfully.
       3. `aws:branch` - Branches based on the output of
          the diagnostics, and if there are volumes that can be
          expanded to mitigate the alert.
+
          1. There are no volumes that need to be expanded: End
             the automation.
          2. There are volumes that need to be expanded:
+
             1. `aws:executeAwsApi` - Create an
                AMI of the instance.
             2. `aws:waitForAwsResourceProperty`
