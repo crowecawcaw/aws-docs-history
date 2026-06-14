@@ -46,6 +46,7 @@ association route table and the default propagation route table.
     transit gateway.
 7.  In **Configure the transit gateway** section, do the
     following:
+
     1. For **Amazon side Autonomous System Number (ASN)**, enter the
        private ASN for your transit gateway. This should be the ASN for the AWS side of a Border
        Gateway Protocol (BGP) session.

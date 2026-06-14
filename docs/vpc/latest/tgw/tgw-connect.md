@@ -129,6 +129,7 @@ The following are the requirements and considerations for a Connect attachment.
 - The third-party appliance must be configured to use BGP for dynamic route
   updates and health checks.
 - The following types of BGP are supported:
+
   - Exterior BGP (eBGP): Used for connecting to routers that are in a
     different autonomous system than the transit gateway. If you use eBGP, you must
     configure ebgp-multihop with a time-to-live (TTL) value of 2.

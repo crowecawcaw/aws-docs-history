@@ -5,6 +5,7 @@ The following are best practices for your transit gateway design:
 - Use a separate subnet for each transit gateway VPC attachment. For each subnet, use a small CIDR, for
   example `/28`, so that you have more addresses for EC2 resources. When
   you use a separate subnet, you can configure the following:
+
   - Keep the inbound and outbound network ACLs associated with the transit gateway subnets open.
   - Depending on your traffic flow, you can apply network ACLs to your workload
     subnets.

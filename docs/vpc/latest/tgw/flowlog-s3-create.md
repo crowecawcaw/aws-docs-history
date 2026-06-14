@@ -42,6 +42,7 @@ flow log record.
 
 4. For **Log file format**, specify the format for the log
    file.
+
    - **Text** – Plain text. This is the default
      format.
    - **Parquet** – Apache Parquet is a columnar

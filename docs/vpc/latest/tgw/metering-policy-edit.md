@@ -12,6 +12,7 @@ Use the console to modify existing metering policy settings for your transit gat
 2. In the navigation pane, choose **Metering policies**.
 3. Select the metering policy you want to modify by choosing its policy ID
 4. Modify the available policy settings under **Actions**. Console only allow add and remove of Middle box attachments.
+
    1. **Middlebox attachments** - Add or remove transit gateway attachments that should be treated as middleboxes for specialized billing.
 
 ## Edit a metering policy using the AWS CLI

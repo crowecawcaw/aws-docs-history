@@ -11,6 +11,7 @@
    can choose a transit gateway that you own.
 5. For **Attachment type**, choose **VPN**.
 6. For **Customer Gateway**, do one of the following:
+
    - To use an existing customer gateway, choose **Existing**, and
      then select the gateway to use.
 

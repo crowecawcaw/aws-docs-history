@@ -4,7 +4,7 @@ By default, all flows are metered to the source attachment owner. To meter speci
 
 Metering policy entries function as conditional rules that are evaluated in sequential order based on their rule numbers when traffic flows through your transit gateway. Each entry acts as an "if-then" statement: if the traffic matches the specified criteria (such as source attachment type, destination CIDR block, or protocol), then charge the designated account. The system evaluates entries from lowest to highest rule number, and the first matching entry determines the billing account for that traffic flow.
 
-Entries support a wide range of matching criteria including attachment types (VPC, VPN, Direct Connect Gateway), specific attachment IDs, source and destination CIDR blocks, protocol types, and port ranges. You can combine multiple criteria within a single entry to create precise targeting rules. For example, you might create an entry that matches all HTTPS traffic (port 443) from VPC attachments to a specific destination CIDR range and charges those flows to a security team's account. If no entries match a particular traffic flow, the default metered account specified in the parent metering policy is charged, ensuring all traffic is properly billed. Creating an entry takes 2 billing hours to take effect.
+Entries support a wide range of matching criteria including attachment types (VPC, VPN, Client VPN, Direct Connect Gateway, Peering, Network Function, and VPN Concentrator), specific attachment IDs, source and destination CIDR blocks, protocol types, and port ranges. You can combine multiple criteria within a single entry to create precise targeting rules. For example, you might create an entry that matches all HTTPS traffic (port 443) from VPC attachments to a specific destination CIDR range and charges those flows to a security team's account. If no entries match a particular traffic flow, the default metered account specified in the parent metering policy is charged, ensuring all traffic is properly billed. Creating an entry takes 2 billing hours to take effect.
 
 ###### Important
 
@@ -25,12 +25,14 @@ A metering policy defines the default cost allocation behavior and global settin
 5. Choose **Create metering policy entry**.
 6. **Policy rule number** -This should be a unique number (1- 32,766) that determines evaluation order. Lower numbers have higher priority.
 7. **Metered account** - Choose one of the following account types to be charged for matching traffic flows:
+
    1. **Source Attachment Owner**
    2. **Destination Attachment Owner**
    3. **Transit Gateway Attachment Owner**
 
 8. (Optional) Choose **Rule conditions** - These optional conditions define criteria to match specific traffic:
-   - **Source attachment type or ID** - Filter by attachment type (VPC, VPN, Direct Connect Gateway, Peering) or ID.
+
+   - **Source attachment type or ID** - Filter by attachment type (VPC, VPN, Client VPN, Direct Connect Gateway, Peering, Network Function, and VPN Concentrator) or ID.
    - **Destination attachment type or ID** - Filter by destination attachment type or ID
    - **Source CIDR block** - Match traffic from specific IP ranges
    - **Destination CIDR block** - Match traffic to specific IP ranges

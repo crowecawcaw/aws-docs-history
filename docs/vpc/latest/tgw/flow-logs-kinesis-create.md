@@ -19,6 +19,7 @@ cross-account delivery and that you've created the Firehose delivery stream. See
    delivery stream you created where the flow log is to be published.
 7. For **Log record format**, specify the format for the flow
    log record.
+
    - To use the default flow log record format, choose **AWS
      default format**.
    - To create a custom format, choose **Custom format**.

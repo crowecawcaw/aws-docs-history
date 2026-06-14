@@ -19,6 +19,7 @@ accept or reject the attachment request.
    Connection**.
 6. Optionally enter a name tag for the attachment.
 7. For **Account**, do one of the following:
+
    - If the transit gateway is in your account, choose **My
      account**.
    - If the transit gateway is in different AWS account, choose **Other

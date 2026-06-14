@@ -9,6 +9,7 @@
 3. Select the VPC attachment, and then choose **Actions**,
    **Modify transit gateway attachment**.
 4. Enable or disable any of the following:
+
    - **DNS support**
    - **IPv6 support**
    - **Appliance mode support**

@@ -211,6 +211,7 @@ Transit gateway routes are evaluated in the following order:
 - The most specific route for the destination address.
 - For routes with the same CIDR, but from different attachment types, the
   route priority is as follows:
+
   - Static routes (for example, Site-to-Site VPN static routes)
   - Prefix list referenced routes
   - VPC-propagated routes
@@ -710,6 +711,7 @@ Create the following resources for this scenario:
   in the _Amazon VPC User Guide_.
 - VPC A and VPC B each have private subnets with EC2 instances.
 - VPC C has the following:
+
   - An internet gateway attached to the VPC. For more information, see [Create and attach an internet gateway](../userguide/VPC_Internet_Gateway.md#Add_IGW_Attach_Gateway "../userguide/VPC_Internet_Gateway.md#Add_IGW_Attach_Gateway") in the _Amazon VPC User Guide_.
   - A public subnet with a NAT gateway. For more information, see [Create
     a NAT gateway](../userguide/vpc-nat-gateway.md#nat-gateway-creating "../userguide/vpc-nat-gateway.md#nat-gateway-creating") in the

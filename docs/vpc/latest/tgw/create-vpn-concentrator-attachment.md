@@ -29,6 +29,7 @@ Use the [create-vpn-concentrator](../../../cli/latest/reference/ec2/create-vpn-c
 4. For **Target Gateway Type**, choose **Site-to-Site VPN Concentrator**.
 5. For **Site-to-Site VPN Concentrator**, choose the VPN Concentrator where you want to create the VPN connection.
 6. For **Customer Gateway**, do one of the following:
+
    - To use an existing customer gateway, choose **Existing**, and then select the gateway to use. Ensure that the customer gateway supports BGP routing.
    - To create a customer gateway, choose **New**. For **IP Address**, enter the static public IP address for your customer gateway device. For **BGP ASN**, enter the Border Gateway Protocol (BGP) Autonomous System Number (ASN) for your customer gateway.
 

@@ -13,6 +13,7 @@ The following are the key concepts for transit gateways:
 
 - Attachments — You can attach the
   following:
+
   - One or more VPCs
   - A Connect SD-WAN/third-party network appliance
   - An AWS Direct Connect gateway

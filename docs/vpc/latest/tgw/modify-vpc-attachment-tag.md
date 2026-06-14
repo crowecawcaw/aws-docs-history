@@ -9,6 +9,7 @@
 3. Select the VPC attachment, and then choose **Actions**,
    **Manage tags**.
 4. [Add a tag] Choose **Add new tag** and do the following:
+
    - For **Key**, enter the key name.
    - For **Value**, enter the key value.
 

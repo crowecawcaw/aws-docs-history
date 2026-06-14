@@ -39,7 +39,7 @@ You can allocate metering usage to any of the following:
 
 By default, transit gateway uses a sender-based cost allocation model where data processing charges are metered to the account that owns the source attachment. With metering policies, you can create custom rules to flexibly meter usage based on the following traffic flow properties:
 
-- Source and destination attachment types (VPC, VPN, Direct Connect Gateway, Peering, Network Function and VPN Concentrator)
+- Source and destination attachment types (VPC, VPN, Client VPN, Direct Connect Gateway, Peering, Network Function, and VPN Concentrator)
 - Source and destination attachment IDs
 - Source and destination IP addresses, Port ranges and protocols
 
@@ -59,7 +59,8 @@ Transit gateway metering policies support Middlebox attachments allowing you to 
 
 Flexible cost allocation via metering policies applies to following data usage types:
 
-- Transit gateway Data Processing Usage on VPC, VPN, VPN Concentrator and Direct Connect attachments
+- Transit gateway Data Processing Usage on VPC, VPN, Client VPN, VPN Concentrator, and Direct Connect attachments
+- Client VPN Data Transfer Out usage on Client VPN attachments
 - Site-to-site VPN Data Transfer Out usage on VPN attachments
 - Direct Connect Data Transfer Out usage on Direct Connect attachments.
 - Data transfer usage on TGW peering attachments

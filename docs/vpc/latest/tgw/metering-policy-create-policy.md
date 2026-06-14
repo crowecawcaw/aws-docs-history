@@ -18,6 +18,7 @@ Create a policy to define flexible cost allocation rules for transit gateway dat
 4. For **Transit gateway ID** choose the transit gateway you'd like to create metering policy for.
 5. (Optional) For **Middlebox attachment IDs**, choose one or more middlebox attachment. By default, data usage is metered to the middlebox owner. Middlebox attachment support enables metering policy to be applied for traffic traversing middlebox attachments. Additional attachments can be added later.
 6. (Optional) In the **Tags** section, add tags to help you identify and organize your metering policy:
+
    1. Choose **Add new tag**.
    2. Enter a tag **Key** and optionally a tag **Value**.
    3. Choose **Add new tag** to add additional tags, or skip to the next step. You can add up to 50 tags.

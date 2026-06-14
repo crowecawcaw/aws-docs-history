@@ -40,6 +40,7 @@ Take the following into consideration when you use transit gateway peering in th
   peering attachment has opted into that Region.
 - Regardless of the Region opt-in status, AWS shares the following account data
   with the account that accepts the peering attachment:
+
   - AWS account ID
   - Transit gateway ID
   - Region code
