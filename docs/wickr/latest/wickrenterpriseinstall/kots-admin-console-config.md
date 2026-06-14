@@ -47,6 +47,7 @@ on the Wickr server to determine this value: `ip route get 1.1.1.1|awk '{print
 - If you want an all in one solution that does not utilize an external Database or S3
   Compatible storage for file sharing, select the **Internal** options for the
   following settings:
+
   - Database
   - S3 Storage Location
 

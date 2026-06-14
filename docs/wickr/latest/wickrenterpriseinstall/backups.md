@@ -19,6 +19,7 @@ for Minio in Low Resource Mode.
 - Install the Velero CLI. For more information, see [Installing the
   Velero CLI](https://docs.replicated.com/enterprise/snapshots-velero-cli-installing "https://docs.replicated.com/enterprise/snapshots-velero-cli-installing").
 - Install Velero on your cluster and configure storage based on your provider:
+
   - [AWS](https://velero.io/docs/v1.0.0/aws-config/ "https://velero.io/docs/v1.0.0/aws-config/").
   - [GCP](https://velero.io/docs/v1.0.0/gcp-config/ "https://velero.io/docs/v1.0.0/gcp-config/").
   - [Azure](https://velero.io/docs/v1.0.0/azure-config/ "https://velero.io/docs/v1.0.0/azure-config/").

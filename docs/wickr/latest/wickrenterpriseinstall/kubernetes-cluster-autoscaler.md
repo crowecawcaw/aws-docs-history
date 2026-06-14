@@ -21,6 +21,7 @@ you will need to take some additional steps to enable the Cluster Autoscaler.
 
 1. Add the following tags to your Node Groups. This allows the Cluster Autoscaler to
    autodiscover the appropriate nodes.
+
    1. `k8s.io/cluster-autoscaler/**clusterName** = owned` where
       **clusterName** is the name of your Kubernetes Cluster
    2. `k8s.io/cluster-autoscaler-enabled = true`
@@ -30,6 +31,7 @@ you will need to take some additional steps to enable the Cluster Autoscaler.
    instructions, see [Configuring a Kubernetes
    service account to assume an IAM role](../../../eks/latest/userguide/associate-service-account-role.md "../../../eks/latest/userguide/associate-service-account-role.md") in the _Amazon EKS User
    Guide_.
+
    1. You’ll need to use the ‘kube-system’ namespace when setting up the Service
       Account
    2. The following policy can be used for the Service Account:

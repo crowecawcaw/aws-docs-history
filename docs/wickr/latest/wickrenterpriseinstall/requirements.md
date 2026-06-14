@@ -98,10 +98,12 @@ storage however for general production use it is recommended you provide these s
 from the Kubernetes cluster.
 
 - MySQL 5.7 Database
+
   - Amazon RDS MySQL 5.7 or MySQL 5.7 database (External)
   - Mysql Bitnami Helm Chart (Internal)
 
   - File Storage
+
     - Amazon S3 or S3 compatible storage provider (External)
     - Minio Operator Helm Chart (Internal)
 

@@ -56,6 +56,7 @@ following actions must be performed to increase the size of volumes used by MySQ
 
 1. Edit the Persistent Volume Claims for `data-mysql-primary-0` and
    `data-mysql-secondary-0`.
+
    1. `kubectl -n wickr edit pvc data-mysql-primary-0. Set
 spec.resources.requests.storage` to the desired storage size.
    2. `kubectl -n wickr edit pvc data-mysql-secondary-0. Set

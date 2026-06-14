@@ -10,6 +10,7 @@ User Guide](../userguide/what-is-wickr.md "../userguide/what-is-wickr.md").
 Wickr Enterprise supports four ingress controller types:
 
 - LoadBalancer (Default)
+
   - The loadbalancer object may require explicit configuration in fully on-prem
     installations, even though it is often provided by cloud providers.
   - Deploys the ingress controller (ingress-nginx) service with the LoadBalancer service
@@ -17,14 +18,17 @@ Wickr Enterprise supports four ingress controller types:
     external load balancers.
 
 - Existing ALB
+
   - Attaches the ingress controller to an existing ALB.
   - You will need to supply the existing Application Load Balancer Target Group ARN.
 
 - Existing NLB
+
   - Attaches the ingress controller to an existing NLB.
   - You will need to supply the existing Network Load Balancer Target Group ARN.
 
 - NodePort
+
   - The ingress controller (ingress-nginx) will be configured to use the NodePort service
     type, which opens a port on all nodes in the Kubernetes cluster and forwards traffic to the
     ingress. Client traffic can then be directed to these nodes either through DNS or some

@@ -10,22 +10,26 @@ within the cluster and have the call route to the correct calling server. Wickr 
 calling ingress types:
 
 - LoadBalancer (default)
+
   - The LoadBalancer will be provisioned by the cloud provider (fully on-premise
     installations will require additional configuration). After the LoadBalancer has been
     provisioned, the KOTS config must be updated again to provide the load balancer's hostname or
     IP addresses.
 
 - NodePort
+
   - Exposes a NodePort service on each calling node that will serve as the entry point for
     calling traffic. A hostname resolving to one or more nodes or an IP address of one or more
     nodes must be provided. You can choose a port range from 30000-32767 for UDP and optionally
     TCP traffic.
 
 - Existing NLB
+
   - Attaches the calling ingress service to an existing NLB. You will need to supply the
     target group ARN for UDP and optionally, TCP traffic.
 
 - No Service
+
   - Select this if you don't need an additional Kubernetes service to allow ingress traffic.
     This will typically be used with the host network setting to route calling ingress traffic
     directly to your calling nodes.
