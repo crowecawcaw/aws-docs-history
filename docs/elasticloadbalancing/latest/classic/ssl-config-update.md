@@ -43,6 +43,7 @@ predefined security policy or create a custom policy.
 3. Choose the name of the load balancer to open its detail page.
 4. On the **Listeners** tab, choose **Manage listeners**.
 5. On the **Manage listeners** page, locate the listener to be updated, choose **Edit** under **Security policy** select a security policy using one of the following options:
+
    - Keep the default policy,
      **ELBSecurityPolicy-2016-08**, and then choose
      **Save changes**.
@@ -50,6 +51,7 @@ predefined security policy or create a custom policy.
      **Save changes**.
    - Select **Custom** and enable at
      least one protocol and one cipher as follows:
+
      1. For **SSL Protocols**, select one or more
         protocols to enable.
      2. For **SSL Options**, select

@@ -33,6 +33,7 @@ about your network, and the listener that routes traffic to your instances..
 4. Choose **Create Load Balancer**.
 5. Expand the **Classic Load Balancer** section, then choose **Create**.
 6. **Basic configuration**
+
    1. For **Load balancer name**, type a name for your load
       balancer.
 
@@ -41,6 +42,7 @@ about your network, and the listener that routes traffic to your instances..
    characters and hyphens, and must not begin or end with a hyphen. 2. For **Scheme**, select **Internal**.
 
 7. **Network mapping**
+
    1. For **VPC**, select the same VPC that you selected for your
       instances.
    2. For **Mappings**, first select an Availability Zone, then choose a
@@ -51,18 +53,21 @@ about your network, and the listener that routes traffic to your instances..
    configured to allow the required HTTP traffic on port 80. Or you can create a new security group if your application
    uses different protocols and ports.
 9. **Listeners and routing**
+
    1. For **Listener**, ensure the protocol is `HTTP` and the port
       is `80`.
    2. For **Instance**, ensure the protocol is `HTTP` and the port
       is `80`.
 
 10. **Health checks**
+
     1. For **Ping Protocol**, the default is `HTTP`.
     2. For **Ping Port**, the default is `80`.
     3. For **Ping Path**, the default is `/`.
     4. For **Advanced health check settings**, use the default values or enter values specific to your application.
 
 11. **Instances**
+
     1. Select **Add instances**, to bring up the instance selection screen.
     2. Under **Available instances**, you can select from the current instances
        that are available to the load balancer, based on the network settings selected before.
@@ -70,11 +75,13 @@ about your network, and the listener that routes traffic to your instances..
        instances to be registered to the load balancer.
 
 12. **Attributes**
+
     1. For **Enable cross-zone load balancing**, **Enable
        connection draining**, and **Timeout (draining interval)**
        keep the default values.
 
 13. **Load balancer tags (optional)**
+
     1. The **Key** field is required.
     2. The **Value** field is optional.
     3. To add another tag, select **Add new tag** then input your values into the
@@ -83,6 +90,7 @@ about your network, and the listener that routes traffic to your instances..
     4. To remove an existing tag, select **Remove** next to the tag you want to remove.
 
 14. **Summary and creation**
+
     1. If you need to change any settings, select **Edit** next to the setting
        needing to be changed.
     2. After you're satisfied with all the settings shown in the summary, select **Create
@@ -90,6 +98,7 @@ about your network, and the listener that routes traffic to your instances..
     3. On the final creation page, select **View load balancer** to view your load balancer in the Amazon EC2 console.
 
 15. **Verify**
+
     1. Select your new load balancer.
     2. On the **Target instances** tab, check the **Health status** column. After
        at least one of your EC2 instances is **In-service**, you can test your load balancer.
@@ -100,6 +109,7 @@ about your network, and the listener that routes traffic to your instances..
        of your server.
 
 16. **Delete (optional)**
+
     1. If you have a CNAME record for your domain that points to your load balancer, point it to a new location
        and wait for the DNS change to take effect before deleting your load balancer.
     2. Open the Amazon EC2 console at

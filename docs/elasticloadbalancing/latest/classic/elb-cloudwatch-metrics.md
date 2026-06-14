@@ -116,6 +116,7 @@ Alternatively, you can view metrics for your load balancer using the CloudWatch 
 4. Choose the **Monitoring** tab.
 5. To get a larger view of a single metric, hover over its graph then choose the `Maximize` icon.
    The following metrics are available:
+
    - Healthy Hosts — `HealthyHostCount`
    - Unhealthy Hosts — `UnHealthyHostCount`
    - Average Latency — `Latency`
@@ -141,6 +142,7 @@ Alternatively, you can view metrics for your load balancer using the CloudWatch 
 2. In the navigation pane, choose **Metrics**.
 3. Select the **ELB** namespace.
 4. Do one of the following:
+
    - Select a metric dimension to view metrics by load balancer, by Availability Zone, or
      across all load balancers.
    - To view a metric across all dimensions, type its name in the search field.

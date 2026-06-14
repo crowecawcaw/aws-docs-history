@@ -69,6 +69,7 @@ listener configurations supported by Elastic Load Balancing, see [Listeners for 
 4. Choose **Create Load Balancer**.
 5. Expand the **Classic Load Balancer** section, then choose **Create**.
 6. **Basic configuration**
+
    1. For **Load balancer name**, type a name for your load
       balancer.
 
@@ -77,6 +78,7 @@ listener configurations supported by Elastic Load Balancing, see [Listeners for 
    characters and hyphens, and must not begin or end with a hyphen. 2. For **Scheme**, select **Internet-facing**.
 
 7. **Network mapping**
+
    1. For **VPC**, select the same VPC that you selected for your
       instances.
    2. For **Mappings**, first select an Availability Zone, then choose a
@@ -84,12 +86,14 @@ listener configurations supported by Elastic Load Balancing, see [Listeners for 
       To improve the availability of your load balancer, select more than one Availability Zone and subnet.
 
 8. **Security groups**
+
    1. For **Security groups**, select an existing security group that is
       configured to allow the required HTTP traffic on port 80 and HTTPS traffic on port 443.
 
    If one doesn't exist, you can create a new security group with the necessary rules.
 
 9. **Listeners and routing**
+
    1. Leave the default listener with the default settings, and select **Add listener**.
    2. For **Listener** on the new listener, select `HTTPS` as the protocol
       and the port will update to `443`. By default, **Instance** uses the
@@ -143,6 +147,7 @@ If you configured HTTPS/SSL on the back-end connection, you can enable authentic
     	 backend certificate**. The limit is five.
 
 11. **Health checks**
+
     1.  In the **Ping target** section, select a **Ping Protocol** and
         **Ping Port**. Your EC2 instances must accept traffic on the specified ping port.
     2.  For **Ping Port**, ensure the port is `80`.
@@ -152,6 +157,7 @@ If you configured HTTPS/SSL on the back-end connection, you can enable authentic
     4.  For **Advanced health check settings**, use the default values.
 
 12. **Instances**
+
     1.  Select **Add instances**, to bring up the instance selection screen.
     2.  Under **Available instances**, you can select from the current instances
         that are available to the load balancer, based on the network settings selected before.
@@ -159,11 +165,13 @@ If you configured HTTPS/SSL on the back-end connection, you can enable authentic
         instances to be registered to the load balancer.
 
 13. **Attributes**
+
     1.  For **Enable cross-zone load balancing**, **Enable
         connection draining**, and **Timeout (draining interval)**
         keep the default values.
 
 14. **Load balancer tags (optional)**
+
     1.  The **Key** field is required.
     2.  The **Value** field is optional.
     3.  To add another tag, select **Add new tag** then input your values into the
@@ -172,6 +180,7 @@ If you configured HTTPS/SSL on the back-end connection, you can enable authentic
     4.  To remove an existing tag, select **Remove** next to the tag you want to remove.
 
 15. **Summary and creation**
+
     1.  If you need to change any settings, select **Edit** next to the setting
         needing to be changed.
     2.  After you're satisfied with all the settings shown in the summary, select **Create
@@ -179,6 +188,7 @@ If you configured HTTPS/SSL on the back-end connection, you can enable authentic
     3.  On the final creation page, select **View load balancer** to view your load balancer in the Amazon EC2 console.
 
 16. **Verify**
+
     1.  Select your new load balancer.
     2.  On the **Target instances** tab, check the **Health status** column. After
         at least one of your EC2 instances is **In-service**, you can test your load balancer.
@@ -189,6 +199,7 @@ If you configured HTTPS/SSL on the back-end connection, you can enable authentic
         of your server.
 
 17. **Delete (optional)**
+
     1.  If you have a CNAME record for your domain that points to your load balancer, point it to a new location
         and wait for the DNS change to take effect before deleting your load balancer.
     2.  Open the Amazon EC2 console at

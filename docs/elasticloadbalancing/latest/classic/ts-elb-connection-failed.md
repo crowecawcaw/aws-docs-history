@@ -24,6 +24,7 @@ If the load balancer is not receiving requests sent to a custom domain, check fo
 **The custom domain name does not resolve to the load balancer IP address**
 
 - Confirm what IP address the custom domain name resolves to using a command line interface.
+
   - Linux, macOS, or Unix – You can use the `dig` command within Terminal. Ex.`dig example.com`
   - Windows – You can use the `nslookup` command within Command Prompt. Ex.`nslookup example.com`
 

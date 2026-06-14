@@ -44,6 +44,7 @@ provided by ACM or a certificate uploaded to IAM.
 4. On the **Listeners** tab, choose **Manage listeners**.
 5. On the **Manage listeners** page, locate the listener to be updated, choose **Edit** under **Default SSL cert** and do one of the
    following:
+
    - If you created or imported a certificate using AWS Certificate Manager, choose
      **From ACM**, select the certificate from
      the list, and then choose

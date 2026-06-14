@@ -30,6 +30,7 @@ The bucket must meet the following requirements.
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose **Create bucket**.
 3. On the **Create bucket** page, do the following:
+
    1. For **Bucket name**, enter a name for your bucket. This name must be
       unique across all existing bucket names in Amazon S3. In some
       Regions, there might be additional restrictions on bucket names.
@@ -196,9 +197,11 @@ If you specify a prefix, it must not include the string "AWSLogs".
 3. Select the name of your load balancer to open its details page.
 4. On the **Attributes** tab, choose **Edit**.
 5. On the **Edit load balancer attributes** page, in the **Monitoring** section, do the following:
+
    1. Enable **Access logs**.
    2. For **S3 URI**, enter the S3 URI for your log files. The URI
       that you specify depends on whether you're using a prefix.
+
       - URI with a prefix: `s3://`amzn-s3-demo-logging-bucket`/`logging-prefix``
       - URI without a prefix: `s3://`amzn-s3-demo-logging-bucket``
 
@@ -265,6 +268,7 @@ records.
 2. Select the name of the S3 bucket that you specified for access logs.
 3. Navigate to the test file, `ELBAccessLogTestFile`.
    The location depends on whether you're using a prefix.
+
    - Location with a prefix: `amzn-s3-demo-loadbalancer-logs`/`logging-prefix`/AWSLogs/`123456789012`/ELBAccessLogTestFile
    - Location without a prefix: `amzn-s3-demo-loadbalancer-logs`/AWSLogs/`123456789012`/ELBAccessLogTestFile
 
