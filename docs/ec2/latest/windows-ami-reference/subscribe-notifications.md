@@ -20,6 +20,7 @@ made private, subscribe to notifications using Amazon SNS.
 4.  Choose **Create subscription**.
 5.  For the **Create subscription** dialog box, do the
     following:
+
     1.  For **Topic ARN**, copy and paste one of the following Amazon Resource
         Names (ARNs):
 

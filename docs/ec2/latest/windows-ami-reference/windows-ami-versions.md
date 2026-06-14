@@ -31,6 +31,7 @@ Windows Server AMIs and update them:
   EC2WinUtil utility for troubleshooting, as well as GPU
   drivers in selected AMIs.
 - Include the following AWS launch agent software by default:
+
   - [EC2Launch v2](../../../AWSEC2/latest/UserGuide/ec2launch-v2.md "../../../AWSEC2/latest/UserGuide/ec2launch-v2.md") for Windows Server 2022 and 2025, and optionally
     for Windows Server 2019 and 2016 with specific AMIs.
   - [EC2Launch v1](../../../AWSEC2/latest/UserGuide/ec2launch.md "../../../AWSEC2/latest/UserGuide/ec2launch.md") for
