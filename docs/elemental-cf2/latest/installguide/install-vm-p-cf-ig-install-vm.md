@@ -15,6 +15,7 @@ Perform these steps from your workstation.
    OVF Deploy wizard to create the VM guest.
 3. Complete the fields in the wizard. Pay special attention to the following
    settings:
+
    - For the _source_, enter the location
      where you saved the OVA file.
    - Ensure that the _hostname_ that you
@@ -42,6 +43,7 @@ been created, follow these steps:
    access the AWS Elemental Conductor File VM. The screen shows a progress bar.
 2. Press Esc on your keyboard to switch the display to showing text.
 3. Watch for the following:
+
    - Early in the installation process, the display pauses on the line
      `Starting: ATD`. This indicates that the installation is
      in progress.

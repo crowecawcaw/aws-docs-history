@@ -25,5 +25,6 @@ You are logged in at the home directory (/elemental). 2. Enter this command.
     Use the _elemental_ user credentials and copy and paste the file from the network share.
 
 5.  Repeat these steps for each AWS Elemental Conductor File hardware unit.
+
     - Make sure to log in to each hardware unit for each activation key file that you want to generate: each activation key file that you create must contain the hostname of the individual hardware unit.
     - Make sure to use a different activation code on each unit.
