@@ -23,7 +23,9 @@ instance depend on where you install Task Runner.
    appropriate **Connection Type** and
    **Details**. These fields depend on where
    Task Runner is running, as described here:
+
    - `Ec2Resource`
+
      - **Connection Type**: `EC2
 Security Group`
 
@@ -33,6 +35,7 @@ Security Group`
      instance)
 
    - `EmrResource`
+
      - **Connection Type**: `EC2
 Security Group`
 
@@ -45,6 +48,7 @@ Security Group`
      `ElasticMapReduce-slave`
 
    - Your local environment (on-premises)
+
      - **Connection Type**:
        `CIDR/IP`:
 
@@ -68,12 +72,15 @@ Security Group`
    **Add Rule**. Specify the database port that you used
    when you launched the DB instance. The source depends on where
    Task Runner is running, as described here:
+
    - `Ec2Resource`
+
      - `my-security-group-id` (the ID
        of the security group you created for the EC2
        instance)
 
    - `EmrResource`
+
      - `master-security-group-id`
        (the ID of the `ElasticMapReduce-master` security
        group)
@@ -82,6 +89,7 @@ Security Group`
        group)
 
    - Your local environment (on-premises)
+
      - `ip-address` (the IP address
        of your computer or the IP address range of your network, if
        your computer is behind a firewall)

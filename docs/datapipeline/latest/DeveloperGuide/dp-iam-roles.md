@@ -103,6 +103,7 @@ When you create roles for AWS Data Pipeline using the console as described below
 2. In the navigation pane, choose **Roles**, and then choose **Create Role**.
 3. Under **Choose a use case**, choose **Data Pipeline**.
 4. Under **Select your use case**, do one of the following:
+
    - Choose `Data Pipeline` to create a pipeline role.
    - Choose `EC2 Role for Data Pipeline` to create a resource role.
 
@@ -118,6 +119,7 @@ When you create roles for AWS Data Pipeline using the console as described below
 2. In the navigation pane, choose **Roles**
 3. In the search box, begin typing the name of the role you want to edit—for example, **DataPipelineDefaultRole** or **MyDataPipelineRole**—and then choose the **Role name** from the list.
 4. On the **Permissions** tab, do the following:
+
    - To detach a permissions policy, under **Permissions policies**, choose the remove button on the far right of the policy entry. Choose **Detach** when prompted to confirm.
    - To attach a policy that you created earlier, choose **Attach policies**. In the search box, begin typing the name of the policy you want to edit, select it from the list, and then choose **Attach policy**.
 

@@ -20,6 +20,7 @@ successfully for Task Runner:
   types require an HVM AMI and the T1, C1, M1, and M2 instance types
   require a PV AMI. For more information, see [Linux AMI Virtualization Types](../../../AWSEC2/latest/UserGuide/virtualization_types.md "../../../AWSEC2/latest/UserGuide/virtualization_types.md") in the _Amazon EC2 User Guide_.
 - Install the following software:
+
   - Linux
   - Bash
   - wget

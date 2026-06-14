@@ -65,6 +65,7 @@ The quickest way to get started with AWS Data Pipeline is to use a pipeline defi
    regardless of your location. Many AWS resources are specific to a region, but AWS Data Pipeline enables
    you to use resources that are in a different region than the pipeline.
 3. The first screen that you see depends on whether you've created a pipeline in the current region.
+
    1. If you haven't created a pipeline in this region, the console displays
       an introductory screen. Choose **Get started now**.
    2. If you've already created a pipeline in this region, the console

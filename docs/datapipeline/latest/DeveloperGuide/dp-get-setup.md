@@ -69,6 +69,7 @@ The following procedure demonstrates how to create an IAM group, attach the **AW
 4. Enter `AWSDataPipeline_FullAccess` for **Filter** and then select it from the list.
 5. Choose **Next Step** and then choose **Create Group**.
 6. To add users to the group:
+
    1. Select the group you created from the list of groups.
    2. Choose **Group Actions**, **Add Users to Group**.
    3. Select the users you want to add from the list and then choose **Add Users to Group**.

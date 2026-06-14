@@ -6,6 +6,7 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 1. Complete the tasks in [Setting up for AWS Data Pipeline](dp-get-setup.md "dp-get-setup.md").
 2. Create a security group.
+
    1. Open the Amazon EC2 console.
    2. In the navigation pane, click **Security Groups**.
    3. Click **Create Security Group**.
@@ -15,6 +16,7 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
    7. Click **Create**.
 
 3. [EC2-Classic] Create an Amazon Redshift cluster security group and specify the Amazon EC2 security group.
+
    1. Open the Amazon Redshift console.
    2. In the navigation pane, click **Security Groups**.
    3. Click **Create Cluster Security Group**.
@@ -28,6 +30,7 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
       and then click **Authorize**.
 
 4. [EC2-VPC] Create an Amazon Redshift cluster security group and specify the VPC security group.
+
    1. Open the Amazon EC2 console.
    2. In the navigation pane, click **Security Groups**.
    3. Click **Create Security Group**.
