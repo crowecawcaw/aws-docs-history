@@ -37,8 +37,10 @@ first loaded.
 
 - **View** sets the center for the map when the panel
   first loads.
+
   - **Fit to data** fits the map view based on the
     data extents of Map layers and updates when data changes.
+
     - **Data** option allows selection of
       extent based on data from _All layers_,
       a single _Layer_, or the _Last
@@ -54,10 +56,12 @@ first loaded.
 
   - **Coordinates** sets the map view based
     on:
+
     - **Latitude**
     - **Longitude**
 
   - Default views are also available including:
+
     - **(0°, 0°)**
     - **North America**
     - **South America**
@@ -113,6 +117,7 @@ delete layers.
   configuration.
 - The layer controls allow you to rename, delete, and reorder the layers
   of the panel.
+
   - **Edit layer name** (pencil icon) renames the
     layer.
   - **Trash Bin** deletes the layer.
@@ -132,6 +137,7 @@ query, and there are four mapping options for your data.
 - **Auto** automatically searches for location data. Use
   this option when your query is based on one of the following names for data
   fields.
+
   - _geohash_: `geohash`
   - _latitude_: `latitude`,
     `lat`
@@ -234,6 +240,7 @@ filesystem.
   of GeoJSON files that ship with Grafana.
 - **Default Style** controls which
   styles to apply when no rules above match.
+
   - **Color** configures
     the color of the default style
   - **Opacity** configures
@@ -241,6 +248,7 @@ filesystem.
 
 - **Style Rules** apply styles
   based on feature properties
+
   - **Rule** allows you to
     select a _feature_,
     _condition_, and
@@ -305,6 +313,7 @@ made generally available.
   each route.
 - **Arrow** configures the arrow styling to
   display along the route, in order of data.
+
   - **None**
   - **Forward**
   - **Reverse**
@@ -333,6 +342,7 @@ made generally available.
   (`data:image/png;base64,...`).
 - **Kind** sets the frame style around the
   images. Choose from:
+
   - **Square**
   - **Circle**
   - **Anchored**
@@ -381,6 +391,7 @@ made generally available.
 - **Arrow** sets the arrow direction to
   display for each edge, with forward meaning source to target. Choose
   from:
+
   - **None**
   - **Forward**
   - **Reverse**

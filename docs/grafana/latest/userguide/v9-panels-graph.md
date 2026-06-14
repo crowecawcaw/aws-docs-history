@@ -56,6 +56,7 @@ To refine your visualization, use the following settings:
 - Null value – Specify how null
   values are displayed. _This is an important setting._
   See the note below.
+
   - connected – If there is a
     gap in the series, meaning one or more null values, the line
     will skip the gap and connect to the next non-null value.
@@ -82,6 +83,7 @@ you pause over the graph visualization.
 
 - Mode – Determines how many series
   the hover tooltip shows.
+
   - All series – The hover
     tooltip shows all series in the graph. In the series list in the
     tooltip, the Grafana workspace highlights the series that you
@@ -96,6 +98,7 @@ you pause over the graph visualization.
   displays the values associated with the lines. Generally, users are most
   interested in the highest or lowest values. Sorting these values can
   make it much easier to find the data that you want.
+
   - None – The order of the
     series in the tooltip is determined by the sort order in your
     query. For example, you can sort the series alphabetically by
@@ -206,12 +209,14 @@ Options are identical for both y-axes.
   one. The main mode is the time series mode with time on the x-axis. The
   other two modes are a basic bar chart mode with series on the x-axis
   instead of time and a histogram mode.
+
   - Time (default) – The x-axis
     represents time and the data is grouped by time (for example, by
     hour, or by minute).
   - Series – The data is
     grouped by series, and not by time. The y-axis still represents
     the value.
+
     - Value – This is the
       aggregation type to use for the values. The default is
       **total** (summing the values

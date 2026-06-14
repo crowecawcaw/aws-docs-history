@@ -36,6 +36,7 @@ started, complete the following prerequisites.
    visualization type. Grafana displays a preview of your query results with
    the visualization applied. For more information, see [Visualizations options](v9-panels-viz.md "v9-panels-viz.md").
 6. Adjust panel settings in the following ways.
+
    - [Configure
      value mappings](v9-panels-configure-value-mappings.md "v9-panels-configure-value-mappings.md")
    - [Visualization-specific

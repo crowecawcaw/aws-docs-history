@@ -34,6 +34,7 @@ by choosing a function name.
 
 - Enter the alias into the "Alias by" field.
 - Use scoped variables:
+
   - `$__metric` = replaced with metric name
   - `$__display_name` = replaced with metric name
   - `$__expression` = replaced with full metric
@@ -44,6 +45,7 @@ by choosing a function name.
     example, region, site, env, host)
 
 - Use regular expressions:
+
   - Enter your regular expression into "Alias
     RegExp" field in `/you regexp
 here/flags` format.

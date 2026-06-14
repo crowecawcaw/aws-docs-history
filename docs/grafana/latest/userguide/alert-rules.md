@@ -53,6 +53,7 @@ sources.
   rules.
 - For Cortex and Loki data sources, enable the ruler API by configuring
   their respective services.
+
   - **Loki** – The
     `local` rule storage type, default for the Loki data
     source, supports only viewing of rules. To edit rules, configure one
@@ -78,6 +79,7 @@ via Alerting UI** checkbox.
 2. Choose **New alert rule**.
 3. In **Step 1**, add the rule name, type and storage
    location, as follows:
+
    - In **Rule name**, add a descriptive name. This
      name is displayed in the alert rules list. It is also the
      `alertname` label for every alert instance that is
@@ -166,6 +168,7 @@ via Alerting UI** check box.
 2. Choose **New alert rule**.
 3. In **Step 1**, add the rule name, type and storage
    location, as follows.
+
    - In **Rule name**, add a descriptive name. This
      name is displayed in the alert rules list. It is also the
      `alertname` label for every alert instance that is
@@ -223,6 +226,7 @@ notifications.
 2. Choose **New alert rule**.
 3. In **Step 1**, add the rule name, type and storage
    location, as follows:
+
    - In **Rule name**, add a descriptive name. This
      name is displayed in the alert rules list. It is also the
      `alertname` label for every alert instance that is
@@ -236,6 +240,7 @@ notifications.
 
 4. In **Step 2**, add the queries and expressions to
    evaluate.
+
    - Keep the default name or hover over and choose the edit icon to
      change the name.
    - For queries, select a data source from the dropdown.
@@ -251,6 +256,7 @@ notifications.
      is successful.
 
 5. In **Step 3**, add conditions.
+
    - From the **Condition** dropdown, select the query
      or expression to initiate the alert rule.
    - For **Evaluate every**, specify the frequency of
@@ -276,6 +282,7 @@ notifications.
 
 6. In **Step 4**, add additional metadata associated with
    the rule.
+
    - Add a description and summary to customize alert messages. Use the
      guidelines in [Annotations and labels for alerting rules](#alert-rule-labels "#alert-rule-labels").
    - Add Runbook URL, panel, dashboard, and alert IDs.

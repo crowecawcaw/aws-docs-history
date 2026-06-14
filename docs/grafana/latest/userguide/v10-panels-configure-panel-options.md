@@ -78,6 +78,7 @@ Explore and export panel, panel data, and data frame JSON models.
    JSON**.
 4. In the **Select source** field, choose one of
    the following options:
+
    - **Panel JSON** – Displays a JSON object
      representing the panel.
    - **Panel data** – Displays a JSON object
@@ -112,6 +113,7 @@ _Prequisites_
 2. On the display options pane, choose **Panel options >
    Repeat options**.
 3. Select a **direction**.
+
    - Choose **horizontal** to arrange panels
      side-by-side. Grafana adjusts the width of a repeated panel.
      You cannot mix other panels on a row with a repeated panel.

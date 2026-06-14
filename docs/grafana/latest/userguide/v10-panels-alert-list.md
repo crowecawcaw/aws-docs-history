@@ -28,12 +28,14 @@ Use these settings to refine your visualization.
   alerts to list.
 - **Sort order** – Select how to order the
   alerts displayed.
+
   - **Alphabetical (asc)** –
     Alphabetical order
   - **Alphabetical (desc)** – Reverse
     alphabetical order
   - **Importance** – By importance
     according to the following values, with 1 being the highest:
+
     - `alerting` or `firing`: 1
     - `no_data`: 2
     - `pending`: 3

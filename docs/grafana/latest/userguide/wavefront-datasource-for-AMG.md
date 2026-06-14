@@ -71,6 +71,7 @@ There are only two fields required to complete the configuration: `API
   `https://myenvironment.wavefront.com`.
 - `Token` must be generated from a user account or service
   account.
+
   1.  To create a user account based token, log into your
       Wavefront environment, choose the cog on the top right
       corner of the page, choose your username (for example,

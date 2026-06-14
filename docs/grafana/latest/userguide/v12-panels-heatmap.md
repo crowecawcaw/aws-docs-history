@@ -90,16 +90,20 @@ You can also change the color mode to Opacity. In this case, the color will not
 change but the amount of opacity will change with the bucket count
 
 - **Mode**
+
   - **Scheme** – Bucket value
     represented by cell color.
+
     - **Scheme** – If the mode is
       **Scheme**, then select a color scheme.
 
   - **opacity** – Bucket value represented by
     cell opacity. Opaque cell means maximum value.
+
     - **Color** – Cell base color.
     - **Scale** – Scale for mapping
       bucket values to the opacity.
+
       - **linear** – Linear
         scale. Bucket value maps linearly to the opacity.
       - **sqrt** – Power scale.

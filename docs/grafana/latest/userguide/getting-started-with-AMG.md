@@ -144,6 +144,7 @@ of the following:
      using IAM Identity Center.You might need to refresh your browser to see the current status.
 
 14. If you are using IAM Identity Center, do the following:
+
     1.  In the **Authentication** tab, choose
         **Assign new user or group**.
     2.  Select the check box next to the user that you want to grant workspace
@@ -158,11 +159,13 @@ of the following:
     workspace.
 
 15. If you are using SAML, do the following:
+
     1.  In the **Authentication** tab, under
         **Security Assertion Markup Language (SAML)**,
         choose **Complete setup**.
     2.  For **Import method**, do one of the
         following:
+
         - Choose **URL** and enter the URL of the IdP
           metadata.
         - Choose **Upload or copy/paste**. If you are
@@ -226,6 +229,7 @@ of the following:
     **Grafana workspace URL**.
 17. Choosing the workspace URL takes you to the landing page for the Grafana
     workspace console. Do one of the following:
+
     - Choose **Sign in with SAML**, and enter the name and
       password.
     - Choose **Sign in with AWS IAM Identity Center**, and enter the

@@ -68,6 +68,7 @@ queries.
 - Variables preselect the topmost value in the dropdown list by default. If
   you want to choose an empty value instead, change the variable settings, as
   follows:
+
   1.  Select the **Include All Option** checkbox.
   2.  In the **Custom all value** field, enter the
       value `+`.

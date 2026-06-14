@@ -15,15 +15,18 @@ require you to install the appropriate plugin. For more information, see [Extend
 ## Features
 
 - Template variables
+
   - Metric names
   - Metric values
 
 - Annotations
 - Aliasing
+
   - Metric names
   - Metric values
 
 - Ad-hoc filters
+
   - Not currently supported
 
 - Alerting

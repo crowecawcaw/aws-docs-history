@@ -120,12 +120,15 @@ the top of your screen.
 2. Next to the playlist that you want to start, choose **Start
    playlist**.
 3. In the dropdown list, choose one of the following display modes:
+
    - Normal mode
+
      - The side menu remains visible.
      - The navbar, row, and panel controls appear at the top of
        the screen.
 
    - TV mode
+
      - The side menu is hidden or removed.
      - The navbar, row, and panel controls appear at the top of
        the screen.
@@ -138,6 +141,7 @@ the top of your screen.
        keyboard action.
 
    - TV mode (with auto fit panels)
+
      - The side menu is hidden or removed.
      - The navbar, row, and panel controls appear at the top of
        the screen.
@@ -145,6 +149,7 @@ the top of your screen.
        on screen.
 
    - Kiosk mode
+
      - The side menu, navbar, row, and panel controls are
        completely hidden or removed from view.
      - You can turn Kiosk mode on manually by using the
@@ -154,6 +159,7 @@ the top of your screen.
        shortcut.
 
    - Kiosk mode (with auto fit panels):
+
      - The side menu, navbar, row, and panel controls are
        completely hidden or removed from view.
      - Dashboard panels automatically adjust to optimize space

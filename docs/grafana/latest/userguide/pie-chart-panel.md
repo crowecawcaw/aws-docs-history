@@ -40,6 +40,7 @@ You can use the following options to refine your visualization.
   from a single series, this limits the number of values displayed.
 - Fields – Select which fields to display
   in the visualization.
+
   - **Numeric fields** – All fields
     with numeric values.
   - **All fields** – All fields

@@ -24,6 +24,7 @@ Complete the following steps in Azure Active Directory.
 9. Choose **Next** to get to the SAML configuration
    page.
 10. Specify your SAML settings:
+
     - For **Identifier (Entity ID)**, paste in your
       **Service provider identifier** URL from
       the Amazon Managed Grafana workspace.
@@ -36,6 +37,7 @@ Complete the following steps in Azure Active Directory.
 
 11. In the **User Attributes & Claims** section, make
     sure that these attributes are mapped. They are case sensitive.
+
     - **mail** is set with
       **user.userprincipalname**.
     - **displayName** is set with
@@ -66,6 +68,7 @@ Complete the following steps in the Amazon Managed Grafana console.
    Directory URL that you copied from **SAML Metadata
    URL** in the previous section.
 7. Under **Assertion mapping**, do the following:
+
    - Make sure that **I want to opt-out of assigning admins
      to my workspace** is not selected.
 

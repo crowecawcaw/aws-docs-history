@@ -77,6 +77,7 @@ Add links to other dashboards at the top of your current dashboard.
    Link** or **New**.
 3. In **Type**, select **dashboards**.
 4. Select link options from the following.
+
    - **With tags** – Enter tags to limit
      the linked dashboards to only the ones with the tags you enter.
      Otherwise, Grafana includes links to all other dashboards.
@@ -114,6 +115,7 @@ the time range to ensure the user is zoomed in on the right data in Grafana.
    Link** or **New**.
 3. In **Type**, select **Link**.
 4. Select link options from the following.
+
    - **URL** – Enter the URL you want to
      link to. Depending on the target, you might want to include field
      values.
@@ -127,6 +129,7 @@ the time range to ensure the user is zoomed in on the right data in Grafana.
      include the dashboard time range in the link. When the user clicks
      the link, the linked dashboard will open with the indicated time
      range set.
+
      - `from` – Defines lower limit of the time range,
        specified in ms epoch.
      - `to` – Defines upper limit of the time range,
@@ -150,7 +153,6 @@ the time range to ensure the user is zoomed in on the right data in Grafana.
    ```
    https://${you-domain}/path/to/your/dashboard?var-${template-varable1}=value1&var-{template-variable2}=value2
    ```
-
    - **Open in a new tab** – Select this
      option if you want the dashboard link to open in a new tab or
      window
@@ -191,6 +193,7 @@ To see available panel links, select the icon to the right of the panel title.
   sites. You can even control the time range to ensure the user is zoomed in
   on the right data in Grafana. Click the icon on the top left corner of a
   panel to see available panel links.
+
   1.  Hover your cursor over the panel to which you want to add a link.
   2.  Select the menu, and choose **Edit**, or you
       can use the keyboard shortcut, `e`.
@@ -220,6 +223,7 @@ To see available panel links, select the icon to the right of the panel title.
        1500000005000.
 
 - **Updating a panel link**
+
   1.  Select a panel (or place the cursor over the panel) to display
       an actions menu at the top right of the panel.
   2.  From the menu, select the **Edit**.
@@ -231,6 +235,7 @@ To see available panel links, select the icon to the right of the panel title.
   **Save** in the upper right.
 
 - **Deleting a panel link**
+
   1.  Select a panel (or place the cursor over the panel) to display
       an actions menu at the top right of the panel.
   2.  From the menu, select the **Edit**.

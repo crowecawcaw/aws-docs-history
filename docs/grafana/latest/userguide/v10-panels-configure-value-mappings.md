@@ -79,6 +79,7 @@ You can add value mappings to your panels.
    **Add value mappings**.
 5. Choose **Add a new mapping**, and then select one of
    the following:
+
    - **Value** – Enter a single value to
      match.
    - **Range** – Enter the beginning and

@@ -100,6 +100,7 @@ Use this transformation to add a new field calculated from two other fields. Eac
 transformation allows you to add one new field.
 
 - **Mode** - Select a mode:
+
   - **Reduce row** – Apply
     selected calculation on each row of selected fields
     independently.
@@ -178,12 +179,14 @@ This transformation changes the field type of the specified field.
   fields
 - **as** – Select the FieldType to
   convert to
+
   - **Numeric** – attempts to make
     the values numbers
   - **String** – will make the
     values strings
   - **Time** – attempts to parse
     the values as time
+
     - Will show an option to specify a DateFormat as input by a
       string like yyyy-mm-dd or DD MM YYYY hh:mm:ss
 

@@ -28,6 +28,7 @@ sources.
   rules.
 - For Grafana Mimir and Loki data sources, enable the ruler API by configuring
   their respective services.
+
   - **Loki** – The
     `local` rule storage type, default for the Loki data
     source, supports only viewing of rules. To edit rules, configure one
@@ -53,6 +54,7 @@ alerts via Alerting UI** checkbox.
 2. Choose **Create alert rule**.
 3. In **Step 1**, choose the rule type, and details,
    as follows:
+
    - Choose **Mimir or Loki alert**.
    - In **Rule name**, add a descriptive name. This
      name is displayed in the alert rules list. It is also the

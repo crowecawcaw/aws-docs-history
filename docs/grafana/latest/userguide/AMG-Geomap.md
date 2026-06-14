@@ -32,6 +32,7 @@ your data.
 - Auto automatically searches for
   location data. Use this option when your query is based on one of the
   following names for data fields.
+
   - geohash: “geohash”
   - latitude: “latitude”, “lat”
   - longitude: “longitude”, “lng”, “lon”
@@ -66,6 +67,7 @@ different marker shapes such as circle, squares, triangles, stars, and more.
   layer can scale within these ranges.
 - Marker Shape provides you with the
   flexibility to visualize the data points differently.
+
   - Circle
   - Square
   - Triangle

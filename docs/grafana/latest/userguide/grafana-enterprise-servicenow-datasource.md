@@ -14,8 +14,10 @@ require you to install the appropriate plugin. For more information, see [Extend
 ## Features
 
 - Queries
+
   - Stat API Queries
   - Table API Queries
+
     - Incidents, Changes, and any other table
 
 - Alerts
@@ -359,6 +361,7 @@ Administrator access is required to perform the following actions.
 
 1. The logged in administrator needs to elevate access to
    security_admin.
+
    1. In the top right navigation pane, choose the profile
       icon. The profile icon has dropdown caret indicator.
    2. From the dropdown list, choose **Elevate
@@ -368,6 +371,7 @@ Administrator access is required to perform the following actions.
    4. Choose OK.
 
 2. Create a new role with whatever naming convention you want.
+
    1. Navigate to the roles section in the left hand navigation
       System Security => Users and Groups => Roles
    2. Choose **New** at the top.
@@ -376,6 +380,7 @@ Administrator access is required to perform the following actions.
 
 3. Create a new user or modify an existing user with the needed
    roles.
+
    1. The role you create in Step 2
    2. personalize_dictionary
    3. personalize_choices
@@ -383,7 +388,9 @@ Administrator access is required to perform the following actions.
       tables)
 
 4. Create Table ACLs for the required tables and fields.
+
    1. Create an ACL for the sys_db_object table.
+
       1. In the second search header column
          **Name**, enter
          `sys_db_object`, and press
@@ -415,6 +422,7 @@ Administrator access is required to perform the following actions.
 5. Create ACLs for specific sys_db_object fields. The following
    steps must be repeated for each of the following fields: Name,
    Label, Display Name, and Extends table.
+
    1. While still on the table record view for sys_db_object,
       select the **Columns** tab in the tab group
       closest to the top of the screen.

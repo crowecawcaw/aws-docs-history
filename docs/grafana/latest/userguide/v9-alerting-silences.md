@@ -61,6 +61,7 @@ to be suppressed. The matching labels consist of three parts:
 - **Operator** – The operator used to
   compare the label value with the matching label value. The available operators
   are:
+
   - `=` Select labels whose value exactly matches the provided
     string.
   - `!=` Select labels whose value does not match the provided

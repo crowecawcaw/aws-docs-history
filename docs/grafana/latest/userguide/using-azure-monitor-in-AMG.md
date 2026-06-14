@@ -38,6 +38,7 @@ Monitor - 3`. If you are configuring multiple data sources,
 3. If you are using Azure Monitor, you need four pieces of information
    from the Azure portal (for detailed instructions, see the link provided
    earlier):
+
    - **Tenant Id** (Azure Entra ID, Properties, Directory ID)
    - **Client Id** (Azure Entra ID, App Registrations, Choose your app, Application ID)
    - **Client Secret** (Azure Entra ID, App Registrations, Choose your app, Keys)
@@ -46,6 +47,7 @@ Monitor - 3`. If you are configuring multiple data sources,
 
 4. Paste these four items into the fields in the Azure Monitor API
    Details section.
+
    - The Subscription Id can be changed per query. Save the data
      source and refresh the page to see the list of subscriptions
      available for the specified Client Id.
@@ -53,6 +55,7 @@ Monitor - 3`. If you are configuring multiple data sources,
 5. If you are also using the Azure Log Analytics service, you must
    specify these two configuration values or reuse the Client Id and Secret
    from the previous step.
+
    - Client Id (Azure Entra ID, App Registrations, Choose
      your app, Application ID)
    - Client Secret (Azure Entra ID, App Registrations,
@@ -61,6 +64,7 @@ Monitor - 3`. If you are configuring multiple data sources,
 6. If you are using Application Insights, you need two pieces of
    information from the Azure Portal (for detailed instructions, see the
    link provided earlier):
+
    - Application ID
    - API Key
 

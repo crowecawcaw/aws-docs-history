@@ -28,6 +28,7 @@ suggestions based on the panel query. When you select a visualization, Grafana w
 show a preview with that visualization applied.
 
 - Graphs & charts
+
   - [Time series](v10-panels-time-series.md "v10-panels-time-series.md") is the
     default and main Graph visualization.
   - [State timeline](v10-panels-state-timeline.md "v10-panels-state-timeline.md") for state
@@ -52,12 +53,14 @@ show a preview with that visualization applied.
     visualize arbitrary x and y values in a graph.
 
 - Stats & numbers
+
   - [Stat](v10-panels-stat.md "v10-panels-stat.md") for big stats and optional
     sparkline.
   - [Bar gauge](v10-panels-bar-gauge.md "v10-panels-bar-gauge.md") is a horizontal or
     vertical bar gauge.
 
 - Misc
+
   - [Table](v10-panels-table.md "v10-panels-table.md") is the main and only
     table visualization.
   - [Logs](v10-panels-logs.md "v10-panels-logs.md") is the main visualization
@@ -74,6 +77,7 @@ show a preview with that visualization applied.
     and manipulate data, and acts as a data source for other panels.
 
 - Widgets
+
   - [Dashboard list](v10-panels-dashboard-list.md "v10-panels-dashboard-list.md") can list
     dashboards.
   - [Alert list](v10-panels-alert-list.md "v10-panels-alert-list.md") can list

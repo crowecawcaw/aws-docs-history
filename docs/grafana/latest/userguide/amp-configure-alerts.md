@@ -27,6 +27,7 @@ following pre-requisites complete:
 - Amazon Managed Grafana must have the following permissions for your Prometheus
   resources. You must add them to either the service-managed or
   customer-managed policies described in [Amazon Managed Grafana permissions and policies for AWS data sources](AMG-manage-permissions.md "AMG-manage-permissions.md").
+
   - `aps:ListRules`
   - `aps:ListAlertManagerSilences`
   - `aps:ListAlertManagerAlerts`
@@ -44,6 +45,7 @@ following pre-requisites complete:
    **Alertmanager** from the list of data source
    types.
 3. Provide the following information for your new data source.
+
    - For **Implementation**, choose
      **Prometheus**.
    - Under **HTTP**, for **URL**,

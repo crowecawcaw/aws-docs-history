@@ -50,6 +50,7 @@ Complete the following steps in the Amazon Managed Grafana console.
    **Upload or copy/paste** and paste the Okta URL
    that you copied in the previous procedure.
 7. Under **Assertion mapping**, do the following:
+
    - Make sure that **I want to opt-out of assigning admins
      to my workspace** is not selected.
 

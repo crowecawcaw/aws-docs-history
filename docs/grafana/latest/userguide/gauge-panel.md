@@ -30,6 +30,7 @@ To refine your visualization, use the following options:
 
 - Show – Choose how Amazon Managed Grafana displays
   your data.
+
   - Calculate – Show a calculated
     **Value** based on all rows. For a list of
     available calculations, see [Calculations list](list-of-calculations.md "list-of-calculations.md").
@@ -40,6 +41,7 @@ To refine your visualization, use the following options:
 
 - Orientation – Choose a stacking
   direction.
+
   - Auto – Amazon Managed Grafana selects what
     it thinks is the best orientation.
   - Horizontal – Bars stretch

@@ -17,6 +17,7 @@ This section describes the areas of the Grafana panel editor.
 
 - Panel header: The header section lists the dashboard in which the panel appears
   and the following controls:
+
   - **Dashboard settings (gear) icon:** Click to
     access the dashboard settings.
   - **Discard:** Discards changes you have made to
@@ -28,6 +29,7 @@ This section describes the areas of the Grafana panel editor.
 
 - Visualization preview: The visualization preview section contains the following
   options:
+
   - **Table view:** Convert any visualization to a
     table so you can see the data. Table views are helpful for troubleshooting.
     This view only contains the raw data. It does not include transformations
@@ -45,6 +47,7 @@ This section describes the areas of the Grafana panel editor.
 
 - Data section: The data section contains tabs where you enter queries, transform
   your data, and create alert rules (if applicable).
+
   - **Query tab:** Select your data source and
     enter queries here.
   - **Transform tab:** Apply data transformations.

@@ -68,6 +68,7 @@ you delete a threshold, the system removes the threshold from all visualizations
 include the threshold.
 
 1. To add a threshold:
+
    1. Edit the panel to which you want to add a threshold.
    2. In the options side pane, locate the **Thresholds** section and click **+
       Add threshold**.
@@ -88,8 +89,10 @@ graph to make it easier to recognize when the graph crosses a threshold.
 2. On the **Panel** tab, click **Thresholds**.
 3. Click **Add threshold**.
 4. Complete the following fields:
+
    - **T1 -** Both values are required to
      display a threshold.
+
      - **lt** or **gt** - Select **lt** for less than or **gt** for greater than to indicate what the
        threshold applies to.
      - **Value -** Enter a threshold
@@ -98,6 +101,7 @@ graph to make it easier to recognize when the graph crosses a threshold.
 
    - **Color -** Choose a condition that
      corresponds to a color, or define your own color.
+
      - **custom -** You define the fill
        color and line color.
      - **critical -** Fill and line

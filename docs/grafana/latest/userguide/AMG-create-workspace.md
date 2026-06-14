@@ -224,11 +224,13 @@ status. 19. If you are using IAM Identity Center, do the following:
      to manage the workspace.
 
 20. If you are using SAML, do the following:
+
     1.  In the **Authentication** tab, under
         **Security Assertion Markup Language (SAML)**,
         choose **Complete setup**.
     2.  For **Import method**, do one of the
         following:
+
         - Choose **URL** and enter the URL of the
           IdP metadata.
         - Choose **Upload or copy/paste**. If you
@@ -284,13 +286,13 @@ status. 19. If you are using IAM Identity Center, do the following:
          user roles from your IdP who should all be granted the
          `Editor` role in the Amazon Managed Grafana workspace.
          Enter one or more roles, separated by commas.
-
     6.  Choose **Save SAML configuration**.
 
 21. In the workspace details page, choose the URL displayed under
     **Grafana workspace URL**.
 22. Choosing the workspace URL takes you to the landing page for the Grafana
     workspace console. Do one of the following:
+
     - Choose **Sign in with SAML**, and enter the name
       and password.
     - Choose **Sign in with AWS IAM Identity Center**, and enter the

@@ -45,6 +45,7 @@ Before you apply transformations, all of the following must be true:
   information about queries, see [Queries](panel-queries.md "panel-queries.md").
 - You have applied a visualization that supports queries, such as one of the
   following visualizations:
+
   - Bar gauge
   - Gauge
   - Graph
@@ -196,6 +197,7 @@ Use this transformation to add a new field calculated from two other fields.
 Each transformation allows you to add one new field.
 
 - Mode – Select a mode:
+
   - Reduce row – Apply selected
     calculation on each row of selected fields independently.
   - Binary option – Apply a

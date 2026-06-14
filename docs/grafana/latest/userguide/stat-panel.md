@@ -43,14 +43,17 @@ Use the following options to refine your visualization:
 
 - Show – Choose how Amazon Managed Grafana displays
   your data.
+
   - Calculate – Show a calculated
     value based on all rows.
+
     - Calculation – Select a
       calculation to apply. For information about available
       calculations, see [Calculations list](list-of-calculations.md "list-of-calculations.md").
 
   - All values – Show a separate
     stat for each row.
+
     - Limit – Specify the
       maximum number of rows to display.
 
@@ -62,6 +65,7 @@ Use the following options to refine your visualization:
   **Value** list to see functions and brief descriptions.
 - Orientation – Choose a stacking
   direction.
+
   - Auto – Amazon Managed Grafana selects what
     it thinks is the best orientation.
   - Horizontal – Bars stretch
@@ -74,6 +78,7 @@ Use the following options to refine your visualization:
   displays. If only the name and color are important, and the value is not,
   change the **Text mode** to **Name**. The
   value is still used to determine color and is displayed in a tooltip.
+
   - Auto – If the data contains
     multiple series or fields, show both the name and the value.
   - Value – Show only the value,
@@ -86,12 +91,14 @@ Use the following options to refine your visualization:
     The name and the value are displayed in the tooltip.
 
 - Color mode – Choose a color mode.
+
   - Value – Colors only the value
     and graph area.
   - Background – Colors the
     background as well.
 
 - Graph mode – Choose a graph mode.
+
   - None – Hides the graph and
     shows only the value.
   - Area – Shows the area graph
@@ -100,6 +107,7 @@ Use the following options to refine your visualization:
 
 - Alignment mode – Choose an alignment
   mode.
+
   - Auto – If only a single value
     is shown (no repeat), the value is centered. If multiple series or
     rows are shown, the value is left-aligned.

@@ -23,15 +23,18 @@ Only v2 metric APIs are supported.
 ### Core features
 
 - Template Variables
+
   - Metric Names
   - Single selection only (**no
     multi-select**)
   - Ad-Hoc Filters
 
 - Annotations
+
   - Not currently supported
 
 - Aliasing
+
   - Metric Names
   - Aggregation
   - Display Name
@@ -39,6 +42,7 @@ Only v2 metric APIs are supported.
   - Description
 
 - Alerting
+
   - Full alerting support
 
 ### Dynatrace specific features

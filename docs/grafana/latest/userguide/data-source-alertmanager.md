@@ -40,6 +40,7 @@ complete:
    **Alertmanager** from the list of data source
    types.
 3. Provide the following information for your new data source.
+
    - For **Name**, provide a name of your choosing
      for your data source.
    - For **Implementation**, choose your

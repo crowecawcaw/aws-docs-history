@@ -52,6 +52,7 @@ policies.
    effectively disables grouping).
 7. In **Timing options**, select from the following
    options.
+
    - **Group wait** – Time to wait to buffer
      alerts of the same group before sending an initial notification. The
      default is 30 seconds.

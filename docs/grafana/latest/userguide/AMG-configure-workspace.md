@@ -34,6 +34,7 @@ The same options are available to you when you first create your workspace.
 6.  Select **Edit** next to either **Grafana
     alerting**, **Plugin management**, or **IP
     Address Type**.
+
     - **Grafana alerting**
 
     You can enable [Grafana alerting](v10-alerts.md "v10-alerts.md"). To

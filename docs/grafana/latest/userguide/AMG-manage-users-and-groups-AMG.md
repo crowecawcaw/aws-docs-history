@@ -29,6 +29,7 @@ or `Admin` permissions.
 5. Choose the **Authentication** tab.
 6. If you are using IAM Identity Center in this workspace, choose **Configure users
    and user groups** and do one or more of the following:
+
    - To give a user access to the Amazon Managed Grafana workspace, select the check
      box next to the user, and choose **Assign
      user**.
@@ -39,6 +40,7 @@ or `Admin` permissions.
    - To add groups of users such as an LDAP group, choose the
      **Assigned user groups** tab. Then, do one of
      the following:
+
      - To give all members of a group access to the Amazon Managed Grafana
        workspace, select the check box next to the group, and
        choose **Assign group**.
@@ -129,6 +131,7 @@ configuration** and do one or more of the following:
 
 8. Alternatively, to add groups of users such as an LDAP group, choose the
    **User Group** tab. Then, do one of the following:
+
    - To give all members of a group access to the Amazon Managed Grafana workspace,
      select the check box next to the group, and choose **Assign
      group**.

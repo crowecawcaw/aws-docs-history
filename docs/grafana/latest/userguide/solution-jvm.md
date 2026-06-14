@@ -309,6 +309,7 @@ check the following.
 - Amazon EKS pods installation timed out. This can happen if there is not enough
   node capacity available. There are multiple causes of these issues,
   including:
+
   - The Amazon EKS cluster was initialized with Fargate instead of Amazon EC2. This
     project requires Amazon EC2.
   - The nodes are [tainted](../../../eks/latest/userguide/node-taints-managed-node-groups.md "../../../eks/latest/userguide/node-taints-managed-node-groups.md")

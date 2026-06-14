@@ -31,6 +31,7 @@ Recording rules are run as instance rules, and run every 10 seconds.
   source.
 - For Grafana Mimir and Loki data sources, enable the ruler API by
   configuring their respective services.
+
   - **Loki** – The `local` rule
     storage type, default for the Loki data source, supports only viewing of
     rules. To edit rules, configure one of the other storage types.
@@ -61,6 +62,7 @@ whitespace. 4. Define query
     * Enter a query.
 
 5. Add namespace and group.
+
    - From the **Namespace** dropdown, select an
      existing rule namespace or add a new one. Namespaces can
      contain one or more rule groups and only have an organizational
@@ -72,6 +74,7 @@ whitespace. 4. Define query
      evaluation time.
 
 6. Add labels.
+
    - Add custom labels selecting existing key-value pairs from the
      dropdown, or add new labels by entering the new key or value.
 

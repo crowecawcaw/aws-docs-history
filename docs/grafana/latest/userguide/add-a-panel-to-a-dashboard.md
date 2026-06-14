@@ -38,6 +38,7 @@ field, but not global variables. For more information, see [Templates and variab
 5. Write a query for the panel. To display a visualization, each panel needs at
    least one query. You write queries on the **Query** tab of the
    panel editor. For more information, see [Queries](panel-queries.md "panel-queries.md").
+
    1. Choose a data source. In the first line of the
       **Query** tab, choose the dropdown list to see all
       available data sources. This list includes all data sources that you

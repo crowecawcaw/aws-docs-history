@@ -101,6 +101,7 @@ information, refer to the documentation for your [data source](AMG-data-sources.
    source for the query.
 3. In the **Refresh** list, select when the variable
    should update options.
+
    - **On Dashboard Load** – Queries the data
      source every time the dashboard loads. This slows down dashboard
      loading, because the variable query needs to be completed before
@@ -111,6 +112,7 @@ information, refer to the documentation for your [data source](AMG-data-sources.
      filter or is dependent on the dashboard time range.
 
 4. In the **Query** field, enter a query.
+
    - The query field varies according to your data source. Some
      data sources have custom query editors.
    - The query must return values named `__text` and
@@ -260,6 +262,7 @@ function parameter (for Graphite).
    specify how many times the current time range should be divided to
    calculate the current `auto` time span. If you turn it on,
    then two more options appear:
+
    - **Step count** – Select the number of times
      the current time range will be divided to calculate the value,
      similar to the **Max data points** query

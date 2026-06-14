@@ -43,6 +43,7 @@ use the workspace.
 Amazon Managed Grafana supports the following SAML 2.0 bindings:
 
 - From the service provider (SP) to the identity provider (IdP):
+
   - HTTP-POST binding
   - HTTP-Redirect binding
 

@@ -56,6 +56,7 @@ history by date or by data source name in ascending or descending order.
 1. Select the **Sort queries by**
    field.
 2. Select one of the following options:
+
    - **Newest first**
    - **Oldest first**
 

@@ -41,6 +41,7 @@ local browser time, and specify auto-refresh time intervals.
      local time zone of the service or system that you are monitoring.
      This can be helpful when monitoring a system or service that
      operates across several time zones.
+
      - **Default** – Grafana uses
        the default selected time zone
        for the user profile, team, or organization. If no time zone is

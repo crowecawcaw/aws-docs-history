@@ -97,6 +97,7 @@ time interval between dashboards.
    the playlist using the **Add by title** and
    **Add by tag** dropdown options.
 7. Optionally:
+
    - Search for a dashboard by its name, a regular expression, or a
      tag.
    - Filter your results by starred status or tags.

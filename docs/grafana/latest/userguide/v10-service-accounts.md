@@ -85,6 +85,7 @@ accounts. For more information about permissions, see [Using permissions](Grafan
 4. Enter a **Display name**.
 5. The display name must be unique as it determines the ID
    associated with the service account.
+
    - We recommend that you use a consistent naming
      convention when you name service accounts. A
      consistent naming convention can help you scale and
@@ -123,6 +124,7 @@ accounts. For more information about permissions, see [Using permissions](Grafan
 6. Enter a name for the token.
 7. Select **Set expiration date** and
    enter an expiration date for the token.
+
    - The expiration date specifies how long you want the
      key to be valid.
    - You can set an expiration date up to 30 days in the

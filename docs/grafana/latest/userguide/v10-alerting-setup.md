@@ -28,11 +28,13 @@ Before you set up alerting, you must do the following.
 ###### To set up alerting
 
 1.  Configure [alert rules](v10-alerting-configure.md "v10-alerting-configure.md").
+
     - Create Grafana-managed or data-source managed alert rules and
       recording rules.
 
 2.  Configure [contact
     points](v10-alerting-configure-contactpoints.md "v10-alerting-configure-contactpoints.md").
+
     - Check the default contact point, and update the contact for your
       system.
     - Optionally, add new contact points and integrations.

@@ -32,6 +32,7 @@ Add links to other dashboards at the top of your current dashboard.
    Dashboard Link** or **New**.
 3. In **Type**, select **dashboards**.
 4. Select link options:
+
    - With tags – Enter tags to limit
      the linked dashboards to only the ones with the tags you enter.
      Otherwise, the Grafana workspace includes links to all other
@@ -69,6 +70,7 @@ workspace.
    Dashboard Link** or **New**.
 3. In **Type**, select **link**.
 4. Select link options:
+
    - Url – Enter the URL that you
      want to link to. Depending on the target, you might want to include
      field values.
@@ -82,6 +84,7 @@ workspace.
      to include the dashboard time range in the link. When the user
      chooses the link, the linked dashboard opens with the indicated time
      range already set.
+
      - `from` defines the lower limit of the time range,
        specified in ms epoch.
      - `to` defines the upper limit of the time range,

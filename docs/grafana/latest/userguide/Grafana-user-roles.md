@@ -6,6 +6,7 @@ console.
 
 - **Admin role**— Users with the Admin role
   can do the following:
+
   - Can add, edit, and delete data sources.
   - Can add and edit users and teams.
   - Can add, edit, and delete folders containing dashboards.
@@ -13,6 +14,7 @@ console.
 
 - **Editor role**— Users with the Editor
   role can do the following:
+
   - Can view, add, and edit dashboards, panels, and alert rules in
     dashboards they have access to. This can be disabled on specific folders
     and dashboards.

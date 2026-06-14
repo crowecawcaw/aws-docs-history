@@ -58,6 +58,7 @@ stories, support tickets, or other tasks in Jira
 1. Choose **Fields** choose the dropdown and use
    type-ahead to select from any of the fields in your Jira instance,
    including custom fields. Some fields to try:
+
    - **Summary**— The name of the
      issue
    - **Epic Name**— The epis that an issue
@@ -177,6 +178,7 @@ results into answers for complex questions.
 2. Add a JQL filter: `project = "Your Project" AND type != epic
 AND status = done order by created ASC`
 3. Add a **Group By** transformation:
+
    - Sprint Name | Group By
    - Story Point Estimate | Calculate | Total
 
@@ -218,21 +220,26 @@ calculation**
 
 3. Add a transformation: **Add field from
    calculation**
+
    - Mode = Binary Operation
    - Operation = Difference / 86000000
    - Alias = Days
 
 4. Add a transformation: **Organize fields**
+
    - Hide Different field
 
 5. Add a transformation: **Filter data by
    values**
+
    - Filter Type = Include
    - conditions = Match any
+
      - Field = Days | Match = Is Greater | Value =
        1
 
 6. Add a transformation: **Reduce**
+
    - Mode = Series to Rows
    - Calculations = mean
 

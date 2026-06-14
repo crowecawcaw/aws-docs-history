@@ -80,6 +80,7 @@ policies.
    group alerts by.
 7. In **Timing options**, select from the following
    options.
+
    - **Group wait** – Time to wait to buffer
      alerts of the same group before sending an initial notification. The
      default is 30 seconds.
@@ -164,6 +165,7 @@ A policy matches an alert if the alert's labels match all the _Matching Labels_ 
 - **Operator** – The operator used to
   compare the label value with the matching label value. The available
   operators are:
+
   - `=` Select labels whose value exactly matches the
     provided string.
   - `!=` Select labels whose value does not match the

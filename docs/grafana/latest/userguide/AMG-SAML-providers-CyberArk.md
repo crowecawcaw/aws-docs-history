@@ -25,6 +25,7 @@ Complete the following steps in CyberArk.
 8. Under **Service Provider Configuration**, choose
    **Manual Configuration**.
 9. Specify your SAML settings:
+
    - For **SP Entity ID**, paste in your
      **Service provider identifier** URL from
      the Amazon Managed Grafana workspace.
@@ -42,6 +43,7 @@ Complete the following steps in CyberArk.
     the CyberArk attribute is in **Attribute Value**. Then
     make sure that the following attributes are mapped. They are case
     sensitive.
+
     - **displayName** is set with
       **LoginUser.DisplayName**.
     - **mail** is set with
@@ -71,6 +73,7 @@ Complete the following steps in the Amazon Managed Grafana console.
    **Upload or copy/paste** and paste the CyberArk URL
    that you copied in the previous procedure.
 7. Under **Assertion mapping**, do the following:
+
    - Make sure that **I want to opt-out of assigning admins
      to my workspace** is not selected.
 

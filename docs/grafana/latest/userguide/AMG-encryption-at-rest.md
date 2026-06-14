@@ -76,6 +76,7 @@ Key policies control access to your customer managed key. Every customer managed
 To use your customer managed key with your Amazon Managed Grafana workspaces, the following API operations must be permitted in the key policy:
 
 - [kms:CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Amazon Managed Grafana requires. For more information, see [Using Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") in the _AWS KMS Developer Guide_. This allows Amazon Managed Grafana to do the following:
+
   - Call `GenerateDataKey` to generate an encrypted data key and store it.
   - Call `Decrypt` to use the stored encrypted data key to access encrypted data.
 

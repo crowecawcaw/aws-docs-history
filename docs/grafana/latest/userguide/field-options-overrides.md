@@ -74,6 +74,7 @@ You can change as many options as you want to.
 2. Choose the **Field** tab.
 3. Find the option that you want to change. You can define the
    following:
+
    - [Standard field options](#standard-field-options "#standard-field-options"), which apply to
      all panel visualizations that allow transformations.
    - [Table field options](table-panel.md#table-field-options "table-panel.md#table-field-options"), which only apply
@@ -141,6 +142,7 @@ You can override as many field options as you want to.
 2. Choose the **Overrides** tab.
 3. Choose **Add an override for**.
 4. Select the fields to which you want to apply an override rule.
+
    - Fields with name – Use
      this to select a field from the list of all available
      fields. Properties that you add to a rule with this selector
@@ -354,6 +356,7 @@ range of values into explicit text. You can add more than one value mapping.
 
 - Mapping type – Choose an
   option.
+
   - Value – Enter a value.
     If the field value is greater than or equal to the value,
     the **Text** is displayed.

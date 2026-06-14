@@ -323,6 +323,7 @@ _Fields:_
   sample. See the reduction operation for behavior details.
 - **Upsample** – The method to use
   to fill a window sample that has no data points.
+
   - **pad** fills with the last knowm
     value
   - **backfill** with next known

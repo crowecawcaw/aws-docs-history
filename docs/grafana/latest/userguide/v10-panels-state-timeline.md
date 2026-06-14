@@ -19,7 +19,7 @@ without values. This panel works well with string or boolean states but
 can also be used with time series. When used with time series, the thresholds are used
 to turn the numerical values into discrete state regions.
 
-![An image showing an example of a state timeline visualizations in Grafana.](/images/grafana/latest/userguide/images/viz/state_timeline_example.png)
+![An image showing an example of a state timeline visualizations in Grafana.](images/viz/state_timeline_example.png)
 
 ## State timeline options
 

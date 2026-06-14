@@ -75,6 +75,7 @@ Add links to other dashboards at the top of your current dashboard.
 2. Click **Links** and then click **Add Dashboard Link** or **New**.
 3. In **Type**, select **dashboards**.
 4. Select link options from the following.
+
    - **With tags**: Enter tags to limit
      the linked dashboards to only the ones with the tags you enter.
      Otherwise, Grafana includes links to all other dashboards.
@@ -111,6 +112,7 @@ the time range to ensure the user is zoomed in on the right data in Grafana.
    **Add Dashboard Link** or **New**.
 3. In Type, select **Link**.
 4. Select link options from the following.
+
    - **URL**: Enter the URL you want to
      link to. Depending on the target, you might want to include field
      values. For more information, see this [Github example](https://github.com/grafana/grafana/issues/new?title=Dashboard%3A%20HTTP%20Requests "https://github.com/grafana/grafana/issues/new?title=Dashboard%3A%20HTTP%20Requests").
@@ -124,6 +126,7 @@ the time range to ensure the user is zoomed in on the right data in Grafana.
      include the dashboard time range in the link. When the user clicks
      the link, the linked dashboard will open with the indicated time
      range set.
+
      - `from` defines lower limit of the time
        range, specified in ms epoch.
      - `to` defines upper limit of the time
@@ -184,6 +187,7 @@ panel.
   sites. You can even control the time range to ensure the user is zoomed in
   on the right data in Grafana. Click the icon on the top left corner of a
   panel to see available panel links.
+
   1.  Hover your cursor over the panel that you want to add a link to
       and then press `e`. Or click the dropdown arrow next to
       the panel title and then click **Edit**.
@@ -215,6 +219,7 @@ panel.
        1500000005000.
 
 - **Updating a panel link**
+
   1.  On the **Panel** tab, find the link
       you want to make changes to.
   2.  Click the **Edit** (pencil) icon to
@@ -226,6 +231,7 @@ panel.
       save your changes to the dashboard.
 
 - **Deleting a panel link**
+
   1.  On the **Panel** tab, find the link
       that you want to make changes to.
   2.  Click the **X** icon next to the link

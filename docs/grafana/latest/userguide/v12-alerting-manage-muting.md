@@ -108,6 +108,7 @@ of the month, for March, June, September, and December, between the hours of 12:
 and 24:00 UTC, your time interval specification could be:
 
 - Time range:
+
   - Start time: `12:00`
   - End time: `24:00`
 

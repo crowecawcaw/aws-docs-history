@@ -28,9 +28,11 @@ first loaded.
 
 - **View** sets the center for the map
   when the panel first loads.
+
   - **Fit to data** fits the map
     view based on the data extents of Map
     layers and updates when data changes.
+
     - **Data**
       option allows selection of extent based on
       data from “All layers”, a single “Layer”, or the
@@ -49,10 +51,12 @@ first loaded.
 
   - **Coordinates**
     sets the map view based on:
+
     - **Latitude**
     - **Longitude**
 
   - Default Views are also available including:
+
     - **(0°, 0°)**
     - **North America**
     - **South America**
@@ -106,6 +110,7 @@ delete layers.
   section above for details on each layer type.
 - The layer controls allow you to rename, delete, and reorder the
   layers of the panel.
+
   - **Edit layer name** (pencil
     icon) renames the layer.
   - **Trash Bin** deletes the layer.
@@ -127,6 +132,7 @@ database query, and there are four mapping options for your data.
   location data. Use this option when
   your query is based on one of the following names for data
   fields.
+
   - geohash: “geohash”
   - latitude: “latitude”, “lat”
   - longitude: “longitude”, “lng”, “lon”
@@ -207,6 +213,7 @@ filesystem.
   of GeoJSON files that ship with Grafana.
 - **Default Style** controls which
   styles to apply when no rules above match.
+
   - **Color** configures
     the color of the default style
   - **Opacity** configures
@@ -214,6 +221,7 @@ filesystem.
 
 - **Style Rules** apply styles
   based on feature properties
+
   - **Rule** allows you to
     select a _feature_,
     _condition_, and
@@ -288,6 +296,7 @@ ArcGIS MapServer.
 
 - **Server Instance** to select from the
   following map types.
+
   - World Street Map
   - World Imagery
   - World Physical
@@ -295,6 +304,7 @@ ArcGIS MapServer.
   - USA Topographic
   - World Ocean
   - Custom MapServer (see [XYZ](#v9-panels-geomap-xyz "#v9-panels-geomap-xyz") for formatting)
+
     - URL template
     - Attribution
 

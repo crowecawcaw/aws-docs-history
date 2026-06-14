@@ -37,6 +37,7 @@ Choose the icon in the top-left corner of a panel to see available panel links.
    field to see the available variables. When you add template variables to
    your panel link, the link sends the user to the right context, with the
    relevant variables already set. You can also use time variables
+
    - `from` defines the lower limit of the time range,
      specified in ms epoch.
    - `to` defines the upper limit of the time range, specified

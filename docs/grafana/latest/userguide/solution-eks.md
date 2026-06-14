@@ -36,6 +36,7 @@ level, including detailed monitoring of resource usage.
 The solution provides both anticipatory and corrective capabilities:
 
 - **Anticipatory** capabilities include:
+
   - Manage resource efficiency by driving scheduling decisions. For
     example, to provide performance and reliability SLAs to your internal
     users of the Amazon EKS cluster you can allocate enough CPU and memory
@@ -49,6 +50,7 @@ The solution provides both anticipatory and corrective capabilities:
     the seasonality of the workload’s usage.
 
 - **Corrective** capabilities include:
+
   - Decrease the mean time to detection (MTTD) of issues on the
     infrastructure and the Kubernetes workload level. For example, by
     looking at the troubleshooting dashboard, you can quickly test
@@ -650,6 +652,7 @@ check the following.
 - Amazon EKS pods installation timed out. This can happen if there is not enough
   node capacity available. There are multiple causes of these issues,
   including:
+
   - The Amazon EKS cluster was initialized with Fargate instead of Amazon EC2. This
     project requires Amazon EC2.
   - The nodes are [tainted](../../../eks/latest/userguide/node-taints-managed-node-groups.md "../../../eks/latest/userguide/node-taints-managed-node-groups.md")

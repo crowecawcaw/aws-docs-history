@@ -21,6 +21,7 @@ Use this transformation to add a new field calculated from two other fields.
 Each transformation allows you to add one new field.
 
 - **Mode** - Select a mode:
+
   - **Reduce row** – Apply
     selected calculation on each row of selected fields
     independently.
@@ -30,6 +31,7 @@ Each transformation allows you to add one new field.
   - **Unary operation** –
     Apply basic unary operations on values in a single row from a
     selected field. The available operations are:
+
     - **Absolute value (abs)**
       – Returns the absolute value of a given
       expression. It represents the distance from zero as a
@@ -51,6 +53,7 @@ Each transformation allows you to add one new field.
   - **Cumulative functions** –
     Apply functions on teh current row and all preceding
     rows.
+
     - **Total** –
       Calculates the cumulative total up to and including the
       current row.
@@ -66,6 +69,7 @@ Each transformation allows you to add one new field.
     window, the window will be centered on the current row. For even
     windows sizes, the window will be centered between the current
     row and the previous row.
+
     - **Mean** –
       Calculates the moving mean or running average.
     - – Calculates the moving
@@ -240,12 +244,14 @@ This transformation has the following options:
   fields.
 - **as** – Select the FieldType to convert
   to.
+
   - **Numeric** – attempts to make the
     values numbers.
   - **String** – will make the values
     strings.
   - **Time** – attempts to parse the
     values as time.
+
     - Will show an option to specify a DateFormat as input
       by a string, like `yyyy-mm-dd` or `DD MM
 YYYY hh:mm:ss`.
@@ -254,6 +260,7 @@ YYYY hh:mm:ss`.
     Boolean.
   - **Enum** – will make the values
     enums.
+
     - Will show a table to manage the enums.
 
   - **Other** – attempts to parse the
@@ -290,6 +297,7 @@ it in different formats. This transformation has the following fields:
 - **Source** – Select the field for the
   source of data.
 - **Format** – Choose one of the following:
+
   - **JSON** – Parse JSON content
     from the source.
   - **Key+value pairs** – Parse
@@ -320,6 +328,7 @@ series panel](v10-panels-time-series.md "v10-panels-time-series.md") with this c
 
 - Source: json_data
 - Format: JSON
+
   - Field: value
   - Alias: my_value
 
@@ -1503,12 +1512,15 @@ valuable insights from the organized and visually coherent presentation.
 Use this transformation to apply spatial operations to query results.
 
 - **Action** – Select an action:
+
   - **Prepare spatial field** – Set a
     geometry field based on the results of other fields.
+
     - **Location mode** –
       Select a location mode (these options are shared by the
       **Calculate value**
       and **Transform** modes):
+
       - **Auto** –
         Automatically identify location data based on
         default field names.
@@ -1521,8 +1533,10 @@ Use this transformation to apply spatial operations to query results.
 
   - **Calculate value** – Use the
     geometry to define a new field (heading/distance/area).
+
     - **Function** – Choose a
       mathematical operation to apply to the geometry:
+
       - **Heading** –
         Calculate the heading (direction) between two
         points.
@@ -1534,8 +1548,10 @@ Use this transformation to apply spatial operations to query results.
 
   - **Transform** – Apply spatial
     operations to the geometry.
+
     - **Operation** – Choose an
       operation to apply to the geometry:
+
       - **As line** –
         Create a single line feature with a vertex at each
         row.

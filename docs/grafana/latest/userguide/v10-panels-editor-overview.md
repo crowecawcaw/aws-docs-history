@@ -39,6 +39,7 @@ The panel menu also gives you access to the following actions:
 - **Inspect** – Open the
   **Inspect** drawer, where you can review the panel
   data, stats, metadata, JSON, and query.
+
   - **Data** – Open the
     **Inspect** drawer in the
     **Data** tab.
@@ -54,6 +55,7 @@ The panel menu also gives you access to the following actions:
   appears if you have app plugins installed which contribute an extension to
   the panel menu.
 - **More** – Access other panel actions.
+
   - **Duplicate** – Make a copy of the panel.
     Duplicated panels query data separately from the original panel. If
     you want to use the same query results, you can use the
@@ -79,6 +81,7 @@ This section describes the areas of the Grafana panel editor.
 
 - Panel header – The header section lists the dashboard in which the
   panel appears and the following controls:
+
   - **Discard** – Discards changes you have
     made to the panel since you last saved the dashboard.
   - **Save** – Saves changes you made to the
@@ -89,6 +92,7 @@ This section describes the areas of the Grafana panel editor.
 
 - Visualization preview – The visualization preview section contains
   the following options:
+
   - **Table view** – Convert any visualization
     to a table so you can see the data. Table views are helpful for
     troubleshooting. This view only contains the raw data. It does not
@@ -108,6 +112,7 @@ This section describes the areas of the Grafana panel editor.
 
 - Data section – The data section contains tabs where you enter
   queries, transform your data, and create alert rules (if applicable).
+
   - **Query tab** – Select your data source
     and enter queries here. For more information, see [Query and transform data](v10-panels-query-xform.md "v10-panels-query-xform.md"). When you initially
     create a dashboard, you are prompted to select a data source. You

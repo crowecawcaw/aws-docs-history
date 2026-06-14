@@ -18,6 +18,7 @@ Your profile includes your name, user name, and email address.
    choose **Preferences**.
 2. In the **Edit Profile** section, you can edit any of the
    following:
+
    - **Name** – Edit this field to change
      the display name associated with your profile.
    - **Email** – Edit this field to change
@@ -42,6 +43,7 @@ at the instance or team level.
 1. Pause on your user icon in the lower left corner of the screen, and then
    choose **Preferences**.
 2. In the Preferences section, you can edit any of the following:
+
    - **UI Theme** – To set a theme, choose **Dark** or **Light**. **Default** is
      either the dark theme or the theme selected by your Grafana
      administrator.
@@ -64,6 +66,7 @@ misused your Amazon Managed Grafana credentials you can review this section.
    choose **Preferences.**
 2. Scroll down to the **Sessions** section. Grafana displays
    the following:
+
    - **Last seen** – How long ago you
      logged on.
    - **Logged on** – The date you logged

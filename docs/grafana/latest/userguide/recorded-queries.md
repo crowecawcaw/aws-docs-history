@@ -54,6 +54,7 @@ To create a recorded query, complete the following steps:
    editor.
 3. Enter recorded query information. All fields are required unless otherwise
    indicated.
+
    - Name - Name of the recorded query.
    - Description - (optional) Describe the recorded query as you want it to
      appear in the recorded query list.

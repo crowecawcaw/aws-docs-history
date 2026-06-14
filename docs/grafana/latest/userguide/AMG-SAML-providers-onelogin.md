@@ -68,6 +68,7 @@ Complete the following steps in the Amazon Managed Grafana console.
    Issuer URL that you copied from the OneLogin console in the previous
    procedure.
 7. Under **Assertion mapping**, do the following:
+
    - Make sure that **I want to opt-out of assigning admins
      to my workspace** is not selected.
 

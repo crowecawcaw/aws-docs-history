@@ -9,6 +9,11 @@ source. Alternatively, you can manually set up the data source and the necessary
 authentication credentials using the same method that you would on a self-managed
 Grafana server.
 
+###### Tip
+
+You can also query CloudWatch metrics using PromQL through the Amazon Managed Service for Prometheus data source.
+For more information, see [Query Amazon CloudWatch metrics using PromQL](cloudwatch-promql.md "cloudwatch-promql.md").
+
 ###### Topics
 
 - [Use AWS data source configuration to add CloudWatch as a data source](adding-CloudWatch-AWS-config.md "adding-CloudWatch-AWS-config.md")

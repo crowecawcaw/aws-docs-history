@@ -80,6 +80,7 @@ workspace, three special data sources are available.
   multiple data sources in the same panel. When this data source is
   selected, you can select a data source for every new query that you
   add.
+
   - The first query will use the data source that was selected
     before you selected **Mixed**.
   - You cannot change an existing query to use the Mixed data

@@ -151,6 +151,7 @@ Refer to the list of examples in [Variables](v10-dash-variables.md "v10-dash-var
   information.
 - Expressive charts with meaningful use of color and normalizing axes
   where you can.
+
   - Example of meaningful color: Blue means it’s good, red means
     it’s bad. [Thresholds](v10-panels-configure-thresholds.md "v10-panels-configure-thresholds.md") can help with that.
   - Example of normalizing axes: When comparing CPU usage,
@@ -161,6 +162,7 @@ Refer to the list of examples in [Variables](v10-dash-variables.md "v10-dash-var
     to know the number of CPUs.
 
 - Directed browsing cuts down on guessing.
+
   - Template variables make it harder to browse randomly or
     aimlessly.
   - Most dashboards should be linked to by alerts.
@@ -176,6 +178,7 @@ consistent and thoughtful strategy. It requires maintenance, but the results
 are worth it.
 
 - Actively reducing sprawl.
+
   - Regularly review existing dashboards to make sure they are
     still relevant.
   - Only approved dashboards added to master dashboard
@@ -187,6 +190,7 @@ are worth it.
 - Consistency by design.
 - Use scripting libraries to generate dashboards, ensure consistency in
   pattern and style.
+
   - grafonnet (Jsonnet)
   - grafanalib (Python)
 
@@ -254,6 +258,7 @@ maintain consistency over time.
 **Best practices to follow**
 
 - When creating a new dashboard, make sure it has a meaningful name.
+
   - If you are creating a dashboard to play or experiment, then
     put the word `TEST` or `TMP`
     in the name.
@@ -276,6 +281,7 @@ maintain consistency over time.
 - Use the left and right Y-axes when displaying time series with
   different units or ranges.
 - Add documentation to dashboards and panels.
+
   - To add documentation to a dashboard, add a [Text panel visualization](v10-panels-text.md "v10-panels-text.md") to the
     dashboard. Record things like the purpose of the dashboard,
     useful resource links, and any instructions users might need to
@@ -321,6 +327,7 @@ how to get to where you want to be.
   dashboards. Dashboard sprawl negatively affects time to find the right
   dashboard. Duplicating dashboards and changing "one thing"
   (worse: keeping original tags) is the easiest kind of sprawl.
+
   - Periodically review the dashboards and remove unnecessary
     ones.
   - If you create a temporary dashboard, perhaps to test
@@ -328,6 +335,7 @@ how to get to where you want to be.
     the dashboard when you are finished.
 
 - Copying dashboards with no significant changes is not a good idea.
+
   - You miss out on updates to the original dashboard, such as
     documentation changes, bug fixes, or additions to
     metrics.
@@ -343,6 +351,7 @@ how to get to where you want to be.
   false matches.
 - Maintain a dashboard of dashboards or cross-reference dashboards.
   This can be done in several ways:
+
   - Create dashboard links, panel, or data links. Links can go to
     other dashboards or to external systems. For more information,
     refer to [Manage

@@ -23,3 +23,4 @@ by [Configuring an Alertmanager data source](data-source-alertmanager.md#data-so
 - [Use AWS data source configuration to add Amazon Managed Service for Prometheus as a data source](amazon-AMP-adding-AWS-config.md "amazon-AMP-adding-AWS-config.md")
 - [Using the Prometheus data source](amazon-using-prometheus-datasource.md "amazon-using-prometheus-datasource.md")
 - [Visualize alerts from Amazon Managed Service for Prometheus](amazon-amp-configure-alerts.md "amazon-amp-configure-alerts.md")
+- [Query Amazon CloudWatch metrics using PromQL](cloudwatch-promql.md "cloudwatch-promql.md")

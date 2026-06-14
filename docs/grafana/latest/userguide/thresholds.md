@@ -74,8 +74,10 @@ particular threshold.
 2. On the **Panel** tab, choose **Thresholds**.
 3. Choose **Add threshold**.
 4. Fill in as many fields as you want. Only the **T1** fields are required.
+
    - T1 – Both values are required
      to display a threshold.
+
      - lt or gt – Select **lt** for
        less than or **gt** for greater than to
        indicate what the threshold applies to.
@@ -85,6 +87,7 @@ particular threshold.
 
    - Color – Choose a condition that
      corresponds to a color, or define your own color.
+
      - custom – You define the
        fill color and line color.
      - critical – Fill and

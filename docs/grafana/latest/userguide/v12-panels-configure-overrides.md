@@ -95,6 +95,7 @@ field or series.
 2. In the panel options side pane, choose **Add field
    override** at the bottom of the pane.
 3. Select which fields an override rule will be applied to:
+
    - **Fields with name** – Select a field from
      the list of all available fields. Properties you add to a rule with this
      selector are only applied to this single field.
@@ -161,6 +162,7 @@ change you make takes effect immediately.
 2. In panel options side pane, scroll down until you see the overrides.
 3. Locate the override that you want to change.
 4. Perform any of the following:
+
    - Edit settings on existing overrides or field selection
      parameters.
    - Delete existing override properties by choosing the

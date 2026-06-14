@@ -26,6 +26,7 @@ Use these settings to adjust how axes are displayed in your visualization.
   y-axis value
 - Scale – The scale to use for the
   y-axis value
+
   - linear – Linear scale
   - log (base 2) – Logarithmic
     scale with base 2
@@ -116,13 +117,16 @@ case, the color will not change, but the amount of opacity will change with the
 bucket count.
 
 - **Mode**
+
   - Opacity – Bucket value
     represented by cell opacity. An opaque cell means the maximum
     value.
+
     - Color – Cell base
       color.
     - Scale – Scale for
       mapping bucket values to the opacity.
+
       - linear –
         Linear scale. Bucket value maps linearly to the
         opacity.
@@ -141,6 +145,7 @@ k`, where `k` is a configured
 
   - spectrum – Bucket value
     represented by cell color.
+
     - Scheme – If the
       mode is **spectrum**,
       select a color scheme.

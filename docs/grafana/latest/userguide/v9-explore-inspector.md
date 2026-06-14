@@ -106,6 +106,7 @@ You can explore and export data as well as data frame JSON models.
 1. In the Inspector panel, click the **JSON** tab.
 2. From the **Select source** dropdown, choose one
    of the following options:
+
    - **Data** – Displays a
      JSON object representing the data that was returned to
      Explore.

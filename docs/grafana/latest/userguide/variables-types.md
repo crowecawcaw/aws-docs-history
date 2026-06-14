@@ -57,6 +57,7 @@ see the documentation for your data source at [Connect to data sources](AMG-data
    display name of the variable dropdown list. If you don’t enter a display
    name, the dropdown label will be the variable name.
 6. Choose a **Hide** option:
+
    - **No selection (blank)** –
      The variable dropdown list displays the variable **Name** or **Label** value. This is the default.
    - **Label** – The variable
@@ -74,6 +75,7 @@ see the documentation for your data source at [Connect to data sources](AMG-data
    sources, see [Connect to data sources](AMG-data-sources.md "AMG-data-sources.md").
 2. In the **Refresh** list, select when the
    variable should update options.
+
    - **Never** - Caches variable
      queries, and values are not updated. This is fine if the values
      never change, but problematic if they are dynamic and change a
@@ -88,6 +90,7 @@ see the documentation for your data source at [Connect to data sources](AMG-data
      filter or is dependent on the dashboard time range.
 
 3. In the **Query** field, enter a query.
+
    - The query field varies according to your data source. Some
      data sources have custom query editors.
    - If you need more room in a single input field query editor,
@@ -135,6 +138,7 @@ updated. For more information about chained variables, see [Chained variables](#
    the variable dropdown list. If you don’t enter a display name, the
    dropdown label will be the variable name.
 6. Choose a **Hide** option:
+
    - **No selection (blank)** –
      The variable dropdown list displays the variable **Name** or **Label** value. This is the default.
    - **Label** ‐ The variable list
@@ -180,6 +184,7 @@ to update multiple panels in a dashboard at the same time.
    display name of the variable dropdown list. If you don’t enter a display
    name, then the dropdown label will be the variable name.
 6. Choose a **Hide** option:
+
    - **No selection (blank)** –
      The variable dropdown list displays the variable **Name** or **Label** value. This is the default.
    - **Label** – The variable
@@ -230,6 +235,7 @@ variable called `$path_gg`.
    display name of the variable dropdown list. If you don’t enter a display
    name, then the dropdown label will be the variable name.
 6. Choose a **Hide** option:
+
    - **Variable** – No variable
      dropdown list is displayed on the dashboard. This is the
      default.
@@ -273,6 +279,7 @@ instances of a data source, perhaps in different environments.
    display name of the variable dropdown list. If you don’t enter a display
    name, the dropdown label will be the variable name.
 6. Choose a **Hide** option:
+
    - **No selection (blank)** –
      The variable dropdown list displays the variable **Name** or **Label** value. This is the default.
    - **Label** – The variable
@@ -326,6 +333,7 @@ Graphite).
    display name of the variable dropdownlist . If you don’t enter a display
    name, the dropdown label will be the variable name.
 6. Choose a **Hide** option:
+
    - **No selection (blank)** –
      The variable dropdown list displays the variable **Name** or **Label** value. This is the default.
    - **Label** – The variable
@@ -350,6 +358,7 @@ Graphite).
    specify how many times the current time range should be divided to
    calculate the current `auto` time span. If you turn it on,
    then two more options appear:
+
    - **Step count** – Select the
      number of times that the current time range will be divided to
      calculate the value, similar to the **Max
@@ -414,6 +423,7 @@ work only with InfluxDB, Prometheus, and OpenSearch data sources.
    display name of the variable dropdown list. If you don’t enter a display
    name, the dropdown label will be the variable name.
 6. Choose a **Hide** option:
+
    - **No selection (blank)** –
      The variable dropdown list displays the variable **Name** or **Label** value. This is the default.
    - **Label** – The variable

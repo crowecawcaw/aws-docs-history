@@ -34,16 +34,20 @@ columns field in the query editor to see only specified columns.
 In Trace Analytics, you can visualize the following tables.
 
 - Root Cause
+
   - Response Time
+
     - Root Cause Service (Last service in path)
     - Path (multiple paths)
 
   - Error
+
     - Root Cause Service (Last service in path)
     - Path
     - Error Message
 
   - Fault
+
     - Root Cause Service (Last service in path)
     - Path
     - Error Message

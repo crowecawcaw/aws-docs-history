@@ -32,6 +32,7 @@ create your alerting resources using Terraform, or the Alerting API.
   rules.
 - For Grafana Mimir and Loki data sources, enable the Ruler API by configuring
   their respective services.
+
   - **Loki** - The `local` rule
     storage type, default for the Loki data source, supports only viewing of
     rules. To edit rules, configure one of the other rule storage

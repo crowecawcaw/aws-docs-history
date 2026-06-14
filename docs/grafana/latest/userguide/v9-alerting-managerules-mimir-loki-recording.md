@@ -49,6 +49,7 @@ via Alerting UI** check box.
 2. Choose **Create alert rule**.
 3. In **Step 1**, add the rule type, rule name, and storage
    location, as follows.
+
    - Select the **Mimir or Loki recording rule**
      option.
    - In **Rule name**, add a descriptive name. This

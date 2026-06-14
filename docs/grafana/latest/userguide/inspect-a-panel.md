@@ -125,6 +125,7 @@ Explore and export panel, panel data, and data frame JSON models.
    **Inspect**, **Panel JSON**.
 2. In **Select source**, choose one of the following
    options:
+
    - Panel JSON – Displays a
      JSON object representing the panel.
    - Panel data – Displays a

@@ -137,6 +137,7 @@ tab.
 - Timezone – The local time zone of the
   service or system that you are monitoring. This can be helpful when you
   monitor a system or service that operates across several time zones.
+
   - Default – The default selected
     time zone for the user profile, team, or organization. If no time
     zone is specified for the user profile, a team that the user is a

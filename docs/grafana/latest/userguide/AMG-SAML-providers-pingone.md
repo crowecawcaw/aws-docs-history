@@ -20,6 +20,7 @@ Complete the following steps in Ping Identity.
 5. In the Ping Identity application, choose **Next** to
    get to the SAML configuration page. Then make the following SAML
    settings:
+
    - For **Assertion Consumer Service**, paste in
      your **Service provider reply URL** from the
      Amazon Managed Grafana workspace.
@@ -35,6 +36,7 @@ Complete the following steps in Ping Identity.
    Amazon Managed Grafana attribute is in **Application Attribute** and
    that the Ping Identity attribute is in the **Identity Bridge
    Attribute**. Then make the following settings:
+
    - **mail** must be **Email
      (Work)**.
    - **displayName** must be **Display
@@ -75,6 +77,7 @@ Complete the following steps in the Amazon Managed Grafana console.
    **Upload or copy/paste** and paste the Ping URL
    that you copied in the previous procedure.
 7. Under **Assertion mapping**, do the following:
+
    - Make sure that **I want to opt-out of assigning admins
      to my workspace** is not selected.
 

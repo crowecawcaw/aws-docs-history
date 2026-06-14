@@ -23,6 +23,7 @@ You can import preconfigured dashboards into your Amazon Managed Grafana workspa
    in the drop down menu.
 4. Next you need to choose the dashboard JSON definition to import. You
    have three choices for how to import JSON:
+
    - Upload a file containing dashboard JSON.
    - Directly copy JSON text into the text area.
    - Paste a Grafana Labs dashboard URL or ID into the field. For
