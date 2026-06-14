@@ -27,6 +27,7 @@ Before you start the tutorial, be sure to take the following actions:
 
 1. Complete the setup steps in [Setting up for App Runner](setting-up.md "setting-up.md").
 2. Decide if you'd like to work with either a GitHub repository or a Bitbucket repository.
+
    - To work with a Bitbucket, first create a [Bitbucket](https://bitbucket.org/ "https://bitbucket.org/") account, if you don't already have one. If you're new
      to Bitbucket, see [Getting started with
      Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-cloud/ "https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-cloud/") in the _Bitbucket Cloud Documentation_.
@@ -91,6 +92,7 @@ The following diagram outlines the steps for creating an App Runner service:
 ###### To create an App Runner service based on a source code repository
 
 1.  Configure your source code.
+
     1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
     2. If the AWS account doesn't have any App Runner services yet, the console home page is displayed. Choose **Create an App Runner service**.
 
@@ -220,6 +222,7 @@ service.
 3. In the expression assigned to the variable `message`, change the text `Hello` to `Good morning`.
 4. Save and commit your changes to the repository.
 5. The following steps illustrate changing the service code in a GitHub repository.
+
    1. Navigate to your example GitHub repository.
    2. Choose the file name `server.py` to navigate to that file.
    3. Choose **Edit this file** (the pencil icon).

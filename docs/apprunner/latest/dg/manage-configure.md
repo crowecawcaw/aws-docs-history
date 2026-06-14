@@ -24,6 +24,7 @@ limitations.
 
 - [UpdateService](../api/API_UpdateService.md "../api/API_UpdateService.md") action – Can be called after creation to update some configuration
   settings.
+
   - _Can be updated_ – You can update settings in the `SourceConfiguration`,
     `InstanceConfiguration`, and `HealthCheckConfiguration` parameters. However, in `SourceConfiguration`, you
     can't switch your source type from code to image or the other way around. You must provide the same repositoryparameter as you provided when you
@@ -33,7 +34,6 @@ limitations.
 
       - `AutoScalingConfigurationArn`
       - `VpcConnectorArn`
-
   - _Cannot be updated_ – You can't change the `ServiceName` and `EncryptionConfiguration`
     parameters that are available in the [CreateService](../api/API_CreateService.md "../api/API_CreateService.md") action. They can't be changed after
     they're created. The [UpdateService](../api/API_UpdateService.md "../api/API_UpdateService.md") action doesn't include these parameters.

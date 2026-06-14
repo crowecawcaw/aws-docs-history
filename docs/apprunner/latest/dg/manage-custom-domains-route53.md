@@ -31,6 +31,7 @@ Amazon Route 53 console
 3. Choose the name of the hosted zone that you want to use to route traffic to your App Runner service.
 4. Choose **Create record**.
 5. Specify the following values:
+
    - **Routing policy**: Choose the applicable routing policy. For more information, see [Choosing a routing policy](../../../Route53/latest/DeveloperGuide/routing-policy.md "../../../Route53/latest/DeveloperGuide/routing-policy.md").
    - **Record name**: Enter the domain name that you want to use to route traffic to your App Runner service. The default value is
      the name of the hosted zone. For example, if the name of the hosted zone is `example.com` and you want to use

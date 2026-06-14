@@ -61,6 +61,7 @@ resources. Moreover, because you're already authenticated within the shell, you 
 ###### Example Retrieving App Runner service information using AWS CloudShell
 
 1. From the AWS Management Console, you can launch CloudShell by choosing the following options available on the navigation bar:
+
    - Choose the CloudShell icon.
    - Start typing `cloudshell` in the search box, and then choose the **CloudShell** option when you see
      it in the search results.

@@ -20,6 +20,7 @@ can add environment variables.
 
 1.  Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
 2.  Based on whether you're creating or updating a service, perform one of the following steps:
+
     - If you're creating a new service, choose **Create an App Runner service** and go to **Configure
       Service**.
     - If you're updating an existing service, select the service that you want to update and go to the **Configuration** tab of
@@ -27,6 +28,7 @@ can add environment variables.
 
 3.  Go to **Environment variables - optional** under **Service settings**.
 4.  Choose any of the following options based on your requirement:
+
     - Choose **Plain Text** from the **Environment variable source** and enter its key-value pairs under
       **Environment variable name** and **Environment variable value**, respectively.
 

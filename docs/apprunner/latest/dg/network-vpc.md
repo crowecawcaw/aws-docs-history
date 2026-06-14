@@ -75,6 +75,7 @@ see [Considerations when selecting a subnet](#network-vpc.considerations-subnet 
   VPC that your service is connected to. All networking rules for the VPC apply to the
   outbound traffic of your application. This means that your services can't access the
   public internet and AWS APIs. To gain access, do one of the following:
+
   - Connect the subnets to the internet through a [NAT Gateway.](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md")
   - Set up [VPC
     endpoints](../../../vpc/latest/privatelink/create-interface-endpoint.md "../../../vpc/latest/privatelink/create-interface-endpoint.md") for the AWS services that you want to access. Your service

@@ -26,6 +26,7 @@ When an AWS WAF web ACL is associated with an App Runner service, incoming web r
 1. App Runner forwards the contents of the origin request to AWS WAF.
 2. AWS WAF inspects the request and compares its contents to the rules that you specified in your web ACL.
 3. Based on its inspection, AWS WAF returns an `allow` or `block` response to App Runner.
+
    - If an `allow` response is returned, App Runner forwards the request to your application.
    - If a `block` response is returned, App Runner blocks the request from reaching your web application. It forwards the `block`
      response from AWS WAF to your application.
@@ -50,6 +51,7 @@ The following is the high-level process to associate an AWS WAF web ACL with you
    _AWS WAF Developer Guide_.
 2. Update your AWS Identity and Access Management (IAM) permissions for AWS WAF. For more information, see [Permissions](#waf.permissions "#waf.permissions").
 3. Associate the web ACL with the App Runner service using one of the following methods:
+
    - **App Runner console**: Associate an existing web ACL using App Runner console when you [create](manage-create.md "manage-create.md") or
      [update](manage-configure.md "manage-configure.md") an App Runner service. For instructions, see [Managing AWS WAF web ACLs](waf-manage.md "waf-manage.md").
    - **AWS WAF console**: Associate the web ACL using the AWS WAF console for an existing App Runner service. For more information, see

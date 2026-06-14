@@ -35,6 +35,7 @@ For more information, see [App Runner service based on source code](service-sour
 
 - _Deployment_ – An action that applies a version of your source repository (code or image) to an App Runner service. The first
   deployment to the service occurs as part of service creation. Later deployments can occur in one of two ways:
+
   - _Automatic deployment_ – A CI/CD capability. You can configure an App Runner service to automatically build (for source
     code) and deploy each version of your application as it appears in the repository. This can be a new commit in a source code repository or a new
     image version in a source image repository.

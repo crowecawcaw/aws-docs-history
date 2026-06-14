@@ -45,7 +45,7 @@ repository provider connections.
 
 The console then displays a list of repository provider connections in your account.
 
-![App Runner Connected accounts page](/images/apprunner/latest/dg/images/console-connections-github.png) 3. You can now do one of the following actions with any connection on the list:
+![App Runner Connected accounts page](images/console-connections-github.png) 3. You can now do one of the following actions with any connection on the list:
 
     * *Open GitHub/Bitbucket account or organization* – Choose the name of the connection.
     * *Complete authentication handshake* – Select the connection, and then from the **Actions** menu choose **Complete handshake**. The console takes you through the authentication handshake

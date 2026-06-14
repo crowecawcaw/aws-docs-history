@@ -47,6 +47,7 @@ a container instance of this image.
 ###### To create an App Runner service using the console
 
 1.  Configure your source code.
+
     1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
     2. If the AWS account doesn't have any App Runner services yet, the console home page is displayed. Choose **Create an App Runner service**.
 

@@ -312,6 +312,7 @@ following:
 1.  Build stage — Start a docker build process
     that executes `pre-build` and `build` commands
     on top of the App Runner build images.
+
     1. Copy the application source code to the `/app`
        directory.
 
@@ -330,6 +331,7 @@ following:
 
 2.  Packaging stage — Generates the final
     customer container image, which is also based on the App Runner run image.
+
     1. Copy the `/app` directory from the prior **Build stage** to the new Run image. This includes your
        application source code and the build artifacts from the prior stage.
     2. Run the `pre-run` commands. If you need to modify the runtime image
@@ -355,6 +357,7 @@ following:
 3.  Post-build stage — This stage resumes from
     the _Build stage_ and runs `post-build`
     commands.
+
     1. Run the `post-build` commands inside the
        `/app` directory.
 

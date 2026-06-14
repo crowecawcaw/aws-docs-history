@@ -33,6 +33,7 @@ ACLs.
 
 1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
 2. Based on whether you're creating or updating a service, perform one of the following steps:
+
    - If you're creating a new service, choose **Create an App Runner service** and go to **Configure
      Service**.
    - If you're updating an existing service, choose the **Configuration** tab, and then choose **Edit** under

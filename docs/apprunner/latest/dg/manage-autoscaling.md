@@ -208,7 +208,9 @@ You can do any of the following from the **Auto scaling revisions** page:
     Select the actual name, rather than the radio button. This will navigate you to a list of all the revisions for that configuration on the
     **Auto scaling revisions** page.
 4.  You can now do any of the following.
+
     - **To create a new revision for an existing auto scaling configuration**, follow these steps.
+
       1. On the **Auto scaling revisions** page, select **Create revision**.
 
       The **Create revision** page displays. 2. Enter values for **Concurrency**, **Minimum size**, and **Maximum
@@ -217,6 +219,7 @@ You can do any of the following from the **Auto scaling revisions** page:
 
     - **To delete the whole auto scaling configuration, including all of the associated revisions**, follow
       these steps.
+
       1. Select **Delete configuration** on the top right of the page.
       2. To proceed with the deletion, select **Delete** on the confirmation dialogue. Otherwise, select
          **Cancel**.
@@ -226,6 +229,7 @@ You can do any of the following from the **Auto scaling revisions** page:
       App Runner validates that your deletion choice is not set as a default or is currently in use by any active services.
 
     - **To set an auto scaling revision as the default**, follow these steps.
+
       1. Select the radio button next to the revision that you need to set as the default.
       2. Select **Set as default** from the **Actions** menu.
 
@@ -236,12 +240,14 @@ You can do any of the following from the **Auto scaling revisions** page:
           + The new default designation doesn't affect the associations that were previously set for existing services.
 
     - **To view the configuration details for a revision**, follow these steps.
+
       1. Select the radio button next to the revision.
 
       The configuration details for the revision, including the ARN, displays in the lower split panel. Refer to the screen image
       at the end of this procedure.
 
     - **To view a list of the services associated to a revision**, follow these steps.
+
       1. Select the radio button next to the revision.
 
       The **Services** panel, displays in the lower split panel, beneath the revision configuration details. The

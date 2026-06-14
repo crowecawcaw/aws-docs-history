@@ -41,6 +41,7 @@ correct this configuration:
    is trying to connect.
 4. To confirm that there isn’t some other type of network setup issue outside of your App Runner configurations, try connecting to the RDS or downstream
    service outside of App Runner:
+
    1. From an Amazon EC2 instance in the same VPC, try connecting to the RDS instance or
       service.
    2. If you’re trying to connect to a service VPC endpoint, verify connectivity by

@@ -43,6 +43,7 @@ data as environment variables:
 3. Securely reference the secrets and parameters as environment variables by assigning a name and providing their Amazon Resource Name (ARN). You can
    add environment variables when you [create a service](manage-create.md "manage-create.md") or [update a service's
    configuration](manage-configure.md "manage-configure.md"). You can use one of the following options to add environment variables:
+
    - App Runner console
    - App Runner API
    - `apprunner.yaml` configuration file
@@ -71,6 +72,7 @@ application logs.
 - You also have the option to directly call AWS Secrets Manager and AWS Systems Manager Parameter Store through the SDK in your App Runner service.
 - To avoid errors make sure of the following when referencing them as the
   environment variables:
+
   - You specify the right ARN of the secret.
   - You specify the right name or ARN of the parameter.
 

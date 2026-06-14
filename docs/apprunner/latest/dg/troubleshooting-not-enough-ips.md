@@ -117,6 +117,7 @@ Once you have updated your service. You can use the following to perform verific
 1. **Monitor event logs :** Monitor your App Runner service event [logs](monitor-cwl.md "monitor-cwl.md")
    to validate no new IP or ENI unavailability errors show up
 2. **Check Service Scaling:**
+
    1. Fully scale up service by changing the min instance count in your autoscaling configuration
    2. Verify that all new instances are launched without any IP-related errors
    3. Monitor through several scaling events to ensure consistent performance
@@ -124,6 +125,7 @@ Once you have updated your service. You can use the following to perform verific
 3. **Console Banner:** If you're using the AWS Management Console, confirm that
    App Runner no longer displays a banner warning about insufficient IPs.
 4. **VPC and Subnet IP Utilization:**
+
    1. Use the VPC Dashboard or CLI commands to check IP address utilization in your new subnets.
    2. Confirm that there's still a healthy margin of available IPs after your service has scaled up
 

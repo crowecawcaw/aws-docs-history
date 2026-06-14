@@ -52,6 +52,7 @@ For instructions on how to resolve CAA errors, see the following:
 
 - Check if you skipped an important step in the custom domain setup. Additionally check if you incorrectly configured a DNS record using a DNS
   lookup tool such as _DiG_. In particular, check for the following mistakes:
+
   - Any missed steps.
   - Unsupported characters such as double quotations in the DNS records.
 
