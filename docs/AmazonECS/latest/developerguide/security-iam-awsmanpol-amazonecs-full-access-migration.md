@@ -33,6 +33,7 @@ policy. Then, update them to detach the earlier policy and attach the
    `AmazonEC2ContainerServiceFullAccess` policy, select the role and
    use the following steps to detach the phased out policy and attach the
    `AmazonECS_FullAccess` policy.
+
    1. On the **Permissions** tab, choose the
       **X** next to the
       **AmazonEC2ContainerServiceFullAccess**
@@ -78,12 +79,14 @@ Example output:
 3. Use one of the following commands to detach the
    `AmazonEC2ContainerServiceFullAccess` policy from a group, user,
    or role.
+
    - [detach-group-policy](../../../cli/latest/reference/iam/detach-group-policy.md "../../../cli/latest/reference/iam/detach-group-policy.md")
    - [detach-role-policy](../../../cli/latest/reference/iam/detach-role-policy.md "../../../cli/latest/reference/iam/detach-role-policy.md")
    - [detach-user-policy](../../../cli/latest/reference/iam/detach-user-policy.md "../../../cli/latest/reference/iam/detach-user-policy.md")
 
 4. Use one of the following commands to attach the
    `AmazonECS_FullAccess` policy to a group, user, or role.
+
    - [attach-group-policy](../../../cli/latest/reference/iam/attach-group-policy.md "../../../cli/latest/reference/iam/attach-group-policy.md")
    - [attach-role-policy](../../../cli/latest/reference/iam/attach-role-policy.md "../../../cli/latest/reference/iam/attach-role-policy.md")
    - [attach-user-policy](../../../cli/latest/reference/iam/attach-user-policy.md "../../../cli/latest/reference/iam/attach-user-policy.md")

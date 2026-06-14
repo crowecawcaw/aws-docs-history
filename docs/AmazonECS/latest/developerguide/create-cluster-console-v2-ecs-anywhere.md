@@ -33,6 +33,7 @@ other services in the namespace without additional configuration. For more infor
 4. On the **Clusters** page, choose **Create
    cluster**.
 5. Under **Cluster configuration**, configure the following:
+
    - For **Cluster name**, enter a unique name.
 
    The name can contain up to 255 letters (uppercase and lowercase), numbers,
@@ -43,14 +44,17 @@ other services in the namespace without additional configuration. For more infor
 
 6. (Optional) Use Container Insights, expand **Monitoring**, and then choose one
    of the following options:
+
    - To use the recommended Container Insights with enhanced observability, choose
      **Container Insights with enhanced observability**.
    - To use Container Insights, choose **Container Insights**.
 
 7. (Optional) To use ECS Exec to debug tasks in the cluster, expand **Troubleshooting configuration**, and then configure the following:
+
    - Select **Turn on ECS Exec**.
    - (Optional) For **AWS KMS key for ECS Exec**, enter the ARN of the AWS KMS key you want to use to encrypt the ECS Exec session data.
    - (Optional) For **ECS Exec logging**, choose the log destination:
+
      - To send logs to CloudWatch Logs, choose **Amazon CloudWatch**.
      - To send logs to Amazon S3, choose **Amazon S3**.
      - To disable logging, choose **None**.

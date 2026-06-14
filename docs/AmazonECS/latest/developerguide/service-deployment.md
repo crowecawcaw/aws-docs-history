@@ -54,12 +54,15 @@ independent of the service deployment, those tasks are not included in the
 running task count for the service revision.
 
 - Circuit breaker failure detection:
+
   - The number of tasks that have failed to start
 
 - CloudWatch alarm failure detection
+
   - The alarms that are active
 
 - Rollback information:
+
   - The start time
   - The reason for the rollback
   - The ARN of the service revision used for the rollback

@@ -10,6 +10,7 @@ one of the following features:
 
 - Your service uses an Application Load Balancer, Network Load Balancer, or Service Connect. Configure the appropriate
   resources.
+
   - Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
   - Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md "nlb-resources-for-blue-green.md").
   - Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md "service-connect-blue-green.md").
@@ -18,6 +19,7 @@ one of the following features:
 - Configure the deployment strategy as `linear` in your service
   definition.
 - Optionally, configure additional parameters such as:
+
   - Bake time for the new deployment
   - The percentage of traffic to shift in each increment.
   - The duration in minutes to wait between each traffic shift increment.

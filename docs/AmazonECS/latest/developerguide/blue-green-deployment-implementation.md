@@ -26,6 +26,7 @@ For managed traffic shifting, configure one of the following:
 - Set the service deployment controller to `ECS`.
 - Configure the deployment strategy as `blue/green` in your service definition.
 - Optionally, configure additional parameters such as:
+
   - Bake time for the new deployment
   - CloudWatch alarms for automatic rollback
   - Deployment lifecycle hooks (Lambda functions or pause hooks that run at specified deployment stages)

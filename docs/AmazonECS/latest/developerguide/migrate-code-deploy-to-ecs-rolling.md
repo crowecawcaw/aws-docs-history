@@ -52,6 +52,7 @@ following parameters.
 
 6. Expand **Load Balancing**, and then configure the
    following:
+
    1. For **Role**, choose the role that you created in the
       prerequisites with the blue/green permissions.
 

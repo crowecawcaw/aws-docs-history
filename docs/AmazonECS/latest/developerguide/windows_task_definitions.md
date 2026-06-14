@@ -8,6 +8,7 @@ The following task definition parameters aren't supported for Amazon EC2 Windows
 definitions:
 
 - `containerDefinitions`
+
   - `disableNetworking`
   - `dnsServers`
   - `dnsSearchDomains`
@@ -20,6 +21,7 @@ definitions:
   - `ulimits`
 
 - `volumes`
+
   - `dockerVolumeConfiguration`
 
 - `cpu`

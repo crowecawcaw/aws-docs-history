@@ -102,6 +102,7 @@ systemctl enable --now --no-block "${UNIT}"
 
 3. Verify that your container instances launch into the correct cluster and that your
    tasks have started.
+
    1. Open the console at
       [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
    2. From the navigation bar, choose the Region that your cluster is in.

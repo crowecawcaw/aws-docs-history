@@ -143,6 +143,7 @@ tags:
   cluster name. A tag with a _Key_ as
   `aws:ecs:serviceName` and a _Value_ set to the
   service name. Tags from one of the following resources:
+
   - Task definitions – All task definition tags that were added by
     users.
   - Services – All service tags that were added by users.

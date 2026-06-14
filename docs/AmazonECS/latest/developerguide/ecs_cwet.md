@@ -19,6 +19,7 @@ event stream messages.
 2. Choose **Create function**.
 3. On the **Author from scratch** screen, do the
    following:
+
    1. For **Name**, enter a value.
    2. For **Runtime**, choose your version of Python, for
       example, **Python 3.9**.

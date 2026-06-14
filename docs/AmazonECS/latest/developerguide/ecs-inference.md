@@ -37,6 +37,7 @@ Applications that use other frameworks might not have improved
 performance on Trn1, Trn2, Inf1, and Inf2 instances.
 
 - Amazon ECS supports two approaches for configuring Neuron device access:
+
   - **Managed Neuron device allocation** –
     Use the `resourceRequirements` parameter with type
     `NeuronDevice` in your container definition. Amazon ECS

@@ -202,12 +202,12 @@ ecs stop/waiting
 ```
 
 5. Restart the `ecs` service.
+
    - For the Amazon ECS-optimized Amazon Linux 2 AMI:
 
    ```
    `sudo systemctl restart ecs`
    ```
-
    - For the Amazon ECS-optimized Amazon Linux AMI:
 
    ```

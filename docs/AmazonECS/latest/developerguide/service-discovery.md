@@ -65,6 +65,7 @@ create-private-dns-namespace` command or in the Amazon ECS console. You can
   within the service discovery namespace and consists of the service name and
   DNS configuration for the namespace. It provides the following core
   component:
+
   - **Service registry**: Allows you to look
     up a service via DNS or AWS Cloud Map API actions and get back one or more
     available endpoints that can be used to connect to the service.
@@ -72,9 +73,11 @@ create-private-dns-namespace` command or in the Amazon ECS console. You can
 - **Service discovery instance**: Exists
   within the service discovery service and consists of the attributes associated
   with each Amazon ECS service in the service directory.
+
   - **Instance attributes**: The following
     metadata is added as custom attributes for each Amazon ECS service that is
     configured to use service discovery:
+
     - **`AWS_INSTANCE_IPV4`** – For an
       `A` record, the IPv4 address that Route 53 returns
       in response to DNS queries and AWS Cloud Map returns when discovering
@@ -166,6 +169,7 @@ The following should be considered when using service discovery:
 - Service discovery doesn't support the use of Classic Load Balancers.
 - We recommend you use container-level health checks managed by Amazon ECS for your
   service discovery service.
+
   - **HealthCheckCustomConfig**—Amazon ECS
     manages health checks on your behalf. Amazon ECS uses information from
     container and health checks, and your task state, to update the health

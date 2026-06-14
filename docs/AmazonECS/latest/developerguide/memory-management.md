@@ -24,6 +24,7 @@ using the following priority order:
 2. **Container-level memory sum (fallback)** - If
    task-level memory is not specified (or is 0), the agent sums the memory requirements
    from all containers in the task. For each container, it uses:
+
    1. _Memory reservation (soft limit)_ - If a container
       specifies `memoryReservation` in its configuration, the agent
       uses this value.

@@ -27,6 +27,7 @@ launch in two stages.
 
 - Stage 1 - The scheduler monitors the tasks to see if they transition into the
   RUNNING state.
+
   - Success - The deployment has a chance of transitioning to the
     COMPLETED state because there is more than one task that transitioned to
     the RUNNING state. The failure criteria is skipped and the circuit

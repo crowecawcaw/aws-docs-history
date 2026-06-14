@@ -14,10 +14,12 @@ Before migrating your service from rolling to blue/green deployments, ensure you
   might need to manually update your service to use a single revision before
   migrating.
 - Configure the appropriate permissions.
+
   - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
   - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
 
 - Depending on configuration, you need to perform one of the following:
+
   - If your service uses Elastic Load Balancing, update your service with the new
     `advancedConfiguration` and start a rolling deployment.
   - If your service uses Service Connect, update your service and start a rolling
@@ -29,6 +31,7 @@ Before migrating your service from rolling to blue/green deployments, ensure you
 
 - Amazon ECS blue/green deployments require that your service uses one of the
   following features. Configure the appropriate resources.
+
   - Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
   - Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md "nlb-resources-for-blue-green.md").
   - Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md "service-connect-blue-green.md").
@@ -90,6 +93,7 @@ following: 7. For **Deployment strategy**, choose
     	 hook.
 
 9. Configure the load balancer settings:
+
    1. Under **Load balancing**, verify that your service is
       configured to use a load balancer.
    2. For **Target group**, choose the primary target group
@@ -110,6 +114,7 @@ following: 7. For **Deployment strategy**, choose
 
 - Update the service to start the deployment. For more information, see [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md").
 - Monitor the deployment process to ensure it follows the blue/green pattern:
+
   - The green service revision is created and scaled up
   - Test traffic is routed to the green revision (if configured)
   - Production traffic is shifted to the green revision

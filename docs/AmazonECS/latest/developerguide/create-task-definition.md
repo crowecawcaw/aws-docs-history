@@ -120,6 +120,7 @@ configure the AWS Identity and Access Management (IAM) roles for the task:
     responds to certain impairment scenarios.
 12. For each container to define in your task definition, complete the
     following steps.
+
     1.  For **Name**, enter a name for the
         container.
     2.  For **Image URI**, enter the image to use
@@ -169,6 +170,7 @@ configure the AWS Identity and Access Management (IAM) roles for the task:
         memory limits that are different from task-level values,
         under **Resource allocation limits**, do
         the following:
+
         - For **CPU**, enter the number of
           CPU units that the Amazon ECS container agent reserves
           for the container.
@@ -266,7 +268,6 @@ configure the AWS Identity and Access Management (IAM) roles for the task:
          bucket. The default log driver options are provided,
          but you must specify a valid Amazon S3 bucket
          name.
-
     10. (Optional) Configure additional container
         parameters.
 
@@ -286,6 +287,7 @@ configure the AWS Identity and Access Management (IAM) roles for the task:
 13. (Optional) The **Storage** section is used to expand the amount of
     ephemeral storage for tasks hosted on Fargate. You can also use this
     section to add a data volume configuration for the task.
+
     1.  To expand the available ephemeral storage beyond the default value of 20
         gibibytes (GiB) for your Fargate tasks, for
         **Amount**, enter a value up to 200
@@ -294,6 +296,7 @@ configure the AWS Identity and Access Management (IAM) roles for the task:
 14. (Optional) To add a data volume configuration for the task definition,
     choose **Add volume**, and then follow these
     steps.
+
     1.  For **Volume name**, enter a name for the
         data volume. The data volume name is used when creating a
         container mount point.
@@ -321,6 +324,7 @@ configure the AWS Identity and Access Management (IAM) roles for the task:
 
 15. To add a volume from another container, choose **Add
     volume from**, and then configure the following:
+
     - For **Container**, choose the
       container.
     - For **Source**, choose the container
@@ -337,6 +341,7 @@ configure the AWS Identity and Access Management (IAM) roles for the task:
     selected, Amazon ECS creates an AWS Distro for
     OpenTelemetry container sidecar that is preconfigured to
     send the application metrics. For more information, see [Correlate Amazon ECS application performance using application metrics](metrics-data.md "metrics-data.md").
+
     1.  When **Amazon CloudWatch** is selected, your
         custom application metrics are routed to CloudWatch as custom
         metrics. For more information, see [Exporting application metrics to Amazon CloudWatch](application-metrics-cloudwatch.md "application-metrics-cloudwatch.md").
@@ -378,8 +383,10 @@ configure the AWS Identity and Access Management (IAM) roles for the task:
 
 17. (Optional) Expand the **Tags** section to add
     tags, as key-value pairs, to the task definition.
+
     - [Add a tag] Choose **Add tag**, and then
       do the following:
+
       - For **Key**, enter the key
         name.
       - For **Value**, enter the key

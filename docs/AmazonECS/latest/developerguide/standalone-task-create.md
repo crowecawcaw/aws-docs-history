@@ -33,6 +33,7 @@ If you want to run your workloads on Amazon ECS Managed Instances, you must use 
 | Launch type                | 1. In the **Compute options\*<br>• section,<br>select **Launch type**.<br>2. For **Launch type**, choose a launch<br>type.<br>3. (Optional) When you use Fargate,<br>for **Platform version\*\*,<br>specify the platform version to use. If a platform<br>version isn't specified, the `LATEST`<br>platform version is used.                                                                                                                                                                                                                                                                                                                        |
 
 5. Under **Deployment configuration**, do the following:
+
    1. For **Task definition**, enter the task
       definition.
 
@@ -46,6 +47,7 @@ If you want to run your workloads on Amazon ECS Managed Instances, you must use 
 6. If your task definition uses the `awsvpc` network mode, expand
    **Networking**. Use the following steps to specify a custom
    configuration.
+
    1. For **VPC**, select the VPC to use.
    2. For **Subnets**, select one or more subnets in the VPC
       that the task scheduler considers when placing your tasks.
@@ -112,6 +114,7 @@ If you chose **Custom**, define the algorithm for placing tasks and the rules th
 9. (Optional) To override the task IAM role, or task execution role that is defined
    in your task definition, expand **Task overrides**, and then
    complete the following steps:
+
    1. For **Task role**, choose an IAM role for this task.
       For more information, see [Amazon ECS task IAM role](task-iam-roles.md "task-iam-roles.md").
 
@@ -121,6 +124,7 @@ If you chose **Custom**, define the algorithm for placing tasks and the rules th
    role. For more information, see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md").
 
 10. (Optional) To override the container commands and environment variables, expand **Container Overrides**, and then expand the container.
+
     - To send a command to the container other than the task definition command, for **Command
       override**, enter the Docker command.
     - To add an environment variable, choose **Add

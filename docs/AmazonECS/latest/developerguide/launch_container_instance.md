@@ -63,6 +63,7 @@ published by AWS.
 
 1. Enter one of the following terms in the **Search**
    bar.
+
    - `ami-ecs`
    - The **Value** of an Amazon ECS-optimized AMI.
 
@@ -162,6 +163,7 @@ guide.
   define firewall rules for your container instance. These rules specify which
   incoming network traffic is delivered to your container instance. All other
   traffic is ignored.
+
   - To select an existing security group, choose **Select existing
     security group**, and select the security group that you
     created in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md").

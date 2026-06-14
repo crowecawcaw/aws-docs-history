@@ -55,6 +55,7 @@ The linear traffic shift phase follows these steps:
 
 - Initial - The deployment begins with 100% of traffic routed to the blue (current) service revision. The green (new) service revision receives test traffic but no production traffic initially.
 - Incremental traffic shifting - Traffic is gradually shifted from blue to green in equal percentage increments. For example, with a 10.0% step configuration, traffic shifts occur as follows:
+
   - Step 1: 10.0% to green, 90.0% to blue
   - Step 2: 20.0% to green, 80.0% to blue
   - Step 3: 30.0% to green, 70.0% to blue

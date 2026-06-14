@@ -8,6 +8,7 @@ value.
    services, you need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
 2. Determine the metrics to use for the policy. The following metrics
    are available:
+
    - **ECSServiceAverageCPUUtilization** – The average CPU
      utilization the service should use.
    - **ECSServiceAverageMemoryUtilization** – Average

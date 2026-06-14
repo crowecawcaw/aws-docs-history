@@ -12,10 +12,12 @@ migrate the tasks.
   through that ENI within your VPC. The traffic is visible to you through your VPC
   flow logs. For more information see [Amazon ECS task networking options for Fargate](fargate-task-networking.md "fargate-task-networking.md").
 - If you use interface VPC endpoints, consider the following.
+
   - For container images hosted with Amazon ECR, you need the following
     endpoints. For more information, see [Amazon ECR interface
     VPC endpoints (AWS PrivateLink)](../../../AmazonECR/latest/userguide/vpc-endpoints.md "../../../AmazonECR/latest/userguide/vpc-endpoints.md") in the
     _Amazon Elastic Container Registry User Guide_.
+
     - **com.amazonaws.`region`.ecr.dkr**
       Amazon ECR VPC endpoint
     - **com.amazonaws.`region`.ecr.api**

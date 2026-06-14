@@ -47,9 +47,11 @@ part of the CloudFormation stack.
 4. Under **Infrastructure**, clear AWS Fargate (serverless), and
    then select **Amazon EC2 instances**. Next, configure the Auto Scaling group
    which acts as the capacity provider.
+
    1. Under **Auto Scaling group (ASG)** . Select **Create
       new ASG**, and then provide the following details about the
       group:
+
       - For **Operating system/Architecture**, choose
         **Amazon Linux 2**.
       - For **EC2 instance type**, choose
@@ -215,6 +217,7 @@ resources.
 8. In the confirmation box, enter **delete
    **ConsoleTutorial-cluster\***\* and choose **Delete\*\*.
 9. Delete the Auto Scaling groups using the following steps.
+
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. On the navigation bar at the top of the screen, select the

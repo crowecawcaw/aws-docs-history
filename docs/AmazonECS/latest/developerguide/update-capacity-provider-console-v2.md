@@ -14,8 +14,10 @@ policy.
    **Update**.
 5. On the **Create capacity providers** page, configure the
    following options.
+
    1. Under **Auto Scaling group**, under **Scaling
       policies**, configure the following options.
+
       - To have Amazon ECS manage the scale-in and scale-out actions, select
         **Turn on managed scaling**.
       - To prevent EC2 instances with running Amazon ECS tasks from being

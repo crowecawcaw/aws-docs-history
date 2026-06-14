@@ -10,6 +10,7 @@ provider:
 - Amazon ECS automatically adds the reserved tags `AmazonECSCreated` and
   `AmazonECSManaged` to Amazon ECS Managed Instances.
 - Amazon ECS adds the following system tags to each instance:
+
   - A tag with a _Key_ as
     `aws:ecs:clusterName` and a _Value_
     set to the name of the cluster.

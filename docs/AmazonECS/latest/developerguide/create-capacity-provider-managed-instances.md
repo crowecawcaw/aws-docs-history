@@ -24,6 +24,7 @@ Before you begin, ensure that you have completed the following:
   [Creating a cluster for Amazon ECS Managed Instances](create-cluster-managed-instances.md "create-cluster-managed-instances.md").
 - You have the required IAM roles for Amazon ECS Managed Instances. This
   includes:
+
   - **Infrastructure role** - Allows Amazon ECS to
     make calls to AWS services on your behalf to manage Amazon ECS Managed Instances
     infrastructure.
@@ -52,6 +53,7 @@ Understand how to choose your instances. For more information, see [Instance sel
    **Create capacity provider**.
 7. Under **Capacity provider configuration**, configure the
    following:
+
    - For **Capacity provider name**, enter a unique name
      for your capacity provider.
    - For **Capacity provider type**, choose
@@ -59,6 +61,7 @@ Understand how to choose your instances. For more information, see [Instance sel
 
 8. Under **Instance configuration**, configure the
    following:
+
    - For **Instance profile**, choose the instance profile
      role created for Amazon ECS Managed Instances.
    - For **Infrastructure role**, choose the
@@ -66,6 +69,7 @@ Understand how to choose your instances. For more information, see [Instance sel
 
 9. Under **Instance requirements**, specify the attributes for
    your instances. You can configure any combination of the following:
+
    - **vCPU count** - Specify the number of vCPUs (for
      example, `4` or `8-16` for a range).
    - **Memory (MiB)** - Specify the amount of memory in
@@ -85,6 +89,7 @@ Understand how to choose your instances. For more information, see [Instance sel
 
 10. Under **Advanced configuration**, choose one of the following
     monitoring options:
+
     - To have CloudWatch send status-check metrics, choose
       **Basic**.
     - To have CloudWatch send all metrics metrics, choose

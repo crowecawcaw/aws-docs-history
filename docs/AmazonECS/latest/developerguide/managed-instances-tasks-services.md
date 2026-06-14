@@ -40,6 +40,7 @@ have limitations that should be noted:
   `awsvpc` or `host` network mode.
 - `placementConstraints` - The following constraint attributes are
   supported.
+
   - `ecs.subnet-id`
   - `ecs.availability-zone`
   - `ecs.instance-type`

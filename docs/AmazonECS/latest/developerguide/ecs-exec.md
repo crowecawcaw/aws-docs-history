@@ -28,6 +28,7 @@ Consider the following when using ECS Exec:
   [Operating system types](../../../systems-manager/latest/userguide/operating-systems-and-machine-types.md#prereqs-os-linux "../../../systems-manager/latest/userguide/operating-systems-and-machine-types.md#prereqs-os-linux") in the _AWS Systems Manager
   User Guide_.
 - ECS Exec is supported for tasks that run on the following infrastructure:
+
   - Linux containers on Amazon EC2 on any Amazon ECS-optimized AMI, including
     Bottlerocket
   - Linux and Windows containers on external instances (Amazon ECS
@@ -36,6 +37,7 @@ Consider the following when using ECS Exec:
   - Windows containers on Amazon EC2 on the following Windows Amazon ECS-optimized
     AMIs (with the container agent version `1.56` or
     later):
+
     - Amazon ECS-optimized Windows Server 2022 Full AMI
     - Amazon ECS-optimized Windows Server 2022 Core AMI
     - Amazon ECS-optimized Windows Server 2019 Full AMI
@@ -52,6 +54,7 @@ Consider the following when using ECS Exec:
   that requests to `169.254.169.254 and 169.254.170.2` do not go
   through the `HTTP` proxy.
 - ECS Exec and Amazon VPC
+
   - If you are using interface Amazon VPC endpoints with Amazon ECS, you must create
     the interface Amazon VPC endpoints for the Systems Manager Session Manager
     (`ssmmessages`). For more information about Systems Manager VPC
@@ -74,6 +77,7 @@ Consider the following when using ECS Exec:
   For more information about running tasks in an IPv6-only configuration, see
   [Amazon ECS task networking options for Fargate](fargate-task-networking.md "fargate-task-networking.md") and [Amazon ECS task networking options for EC2](task-networking.md "task-networking.md").
 - ECS Exec and SSM
+
   - Your task requires a task IAM role with the required
     permissions for SSM Session Manager. For tasks on Amazon EC2, if no
     task role is configured, the instance role of the underlying Amazon EC2
@@ -96,6 +100,7 @@ Consider the following when using ECS Exec:
 
 - The following features run as a sidecar container. Therefore, you must specify
   the container name to run the command on.
+
   - Runtime Monitoring
   - Service Connect
 

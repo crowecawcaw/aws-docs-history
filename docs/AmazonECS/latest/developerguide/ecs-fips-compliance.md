@@ -20,6 +20,7 @@ Consider the following when using FIPS-140 compliance on Fargate:
 - Amazon CloudWatch doesn't support a dualstack FIPS endpoint that can be used to monitor
   Amazon ECS tasks in IPv6-only configuration that use FIPS-140 compliance.
 - Your tasks must use the following configuration for FIPS-140 compliance:
+
   - The `operatingSystemFamily` must be
     `LINUX`.
   - The `cpuArchitecture` must be `X86_64`.

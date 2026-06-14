@@ -67,6 +67,7 @@ For more information, see [Amazon ECS Managed Instances instance profile](manage
 4. On the **Clusters** page, choose **Create
    cluster**.
 5. Under **Cluster configuration**, configure the following:
+
    - For **Cluster name**, enter a unique name.
 
    The name can contain up to 255 letters (uppercase and lowercase), numbers,
@@ -76,6 +77,7 @@ For more information, see [Amazon ECS Managed Instances instance profile](manage
      name.
 
 6. For **Custom Capacity Provider**, do the following:
+
    - For **Select a method of obtaining EC2 capacity**,
      choose **Amazon ECS Managed Instances**.
    - For Instance profile, choose the instance profile role.
@@ -87,6 +89,7 @@ For more information, see [Amazon ECS Managed Instances instance profile](manage
 
 7. (Optional) Use Container Insights, expand **Monitoring**, and then choose one
    of the following options:
+
    - To use the recommended Container Insights with enhanced observability, choose
      **Container Insights with enhanced observability**.
    - To use Container Insights, choose **Container Insights**.

@@ -10,11 +10,13 @@ functionality with minimal risk before full deployment.
 Perform the following operations before you start a canary deployment.
 
 1. Configure the appropriate permissions.
+
    - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
    - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
 
 2. Amazon ECS canary deployments require that your service to use one of the
    following features: Configure the appropriate resources.
+
    - Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
    - Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md "nlb-resources-for-blue-green.md").
    - Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md "service-connect-blue-green.md").
@@ -54,6 +56,7 @@ The **Create service** page displays. 3. Under **Service details**, do the follo
 | Launch type                | 1. In the **Compute options**<br>section, select **Launch<br>type**.<br>2. For **Launch type**, choose a<br>launch type.<br>3. (Optional) When the Fargate is<br>specified, for **Platform<br>version**, specify the platform version to<br>use. If a platform version isn't specified, the<br>`LATEST` platform version is<br>used.                                                                                                                                                                                                                                                                                                   |
 
 6.  Under **Deployment configuration**, do the following:
+
     1. For **Service type**, choose
        **Replica**.
     2. For **Desired
@@ -70,6 +73,7 @@ The **Create service** page displays. 3. Under **Service details**, do the follo
        health check grace period value, the default value of 0 is used.
 
 7.  Under **Deployment configuration**, configure the canary deployment settings:
+
     1. For **Deployment strategy**, choose **Canary**.
     2. For **Canary percentage**, enter the percentage of traffic to shift to the green service revision in the first stage (for example, 10% for the initial canary traffic).
     3. For **Canary bake time**, enter the time
@@ -105,6 +109,7 @@ The **Create service** page displays. 3. Under **Service details**, do the follo
 8.  To configure how Amazon ECS detects and handles deployment failures, expand
     **Deployment failure detection**, and then choose
     your options.
+
     1. To stop a deployment when the tasks cannot start, select **Use the Amazon ECS
        deployment circuit breaker**.
 
@@ -123,9 +128,11 @@ The **Create service** page displays. 3. Under **Service details**, do the follo
 9.  (Optional) To interconnect your service using Service Connect, expand
     **Service Connect**, and then specify the
     following:
+
     1.  Select **Turn on Service Connect**.
     2.  Under **Service Connect configuration**, specify the
         client mode.
+
         - If your service runs a network client application that only
           needs to connect to other services in the namespace, choose
           **Client side only**.
@@ -141,6 +148,7 @@ The **Create service** page displays. 3. Under **Service details**, do the follo
         account using AWS Resource Access Manager (AWS RAM). For more information about shared AWS Cloud Map namespaces, see [Cross-account AWS Cloud Map namespace
         sharing](../../../cloud-map/latest/dg/sharing-namespaces.md "../../../cloud-map/latest/dg/sharing-namespaces.md") in the _AWS Cloud Map Developer Guide_.
     4.  (Optional) Configure test traffic header rules for canary deployments. Under **Test traffic routing**, specify the following:
+
         1.  Select **Enable test traffic header rules** to route specific requests to the green service revision during testing.
         2.  For **Header matching rules**, configure the criteria for routing test traffic:
 
@@ -298,6 +306,7 @@ After configuring your canary deployment, complete these steps:
 
 - Update the service to start the deployment. For more information, see [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md").
 - Monitor the deployment process to ensure it follows the canary pattern:
+
   - The green service revision is created and scaled up
   - A small percentage of traffic (canary) is shifted to the green revision
   - The system waits for the specified canary interval

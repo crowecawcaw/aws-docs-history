@@ -1,11 +1,13 @@
 # Specifying GPUs in an Amazon ECS task definition
 
 To use the GPUs on a container instance and the Docker GPU runtime, make sure that you
-designate the number of GPUs your container requires in the task definition. As
-containers that support GPUs are placed, the Amazon ECS container agent pins the desired
-number of physical GPUs to the appropriate container. The number of GPUs reserved for
-all containers in a task cannot exceed the number of available GPUs on the container
-instance the task is launched on. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
+designate the number of GPUs your container requires in the task definition. You can
+specify a numeric value or `ALL`. When you specify `ALL`, all
+GPUs on the container instance are allocated to the container. As containers that
+support GPUs are placed, the Amazon ECS container agent pins the desired number of physical
+GPUs to the appropriate container. The number of GPUs reserved for all containers in a
+task cannot exceed the number of available GPUs on the container instance the task is
+launched on. For more information, see [Creating an Amazon ECS task definition using the console](create-task-definition.md "create-task-definition.md").
 
 ###### Important
 
@@ -30,6 +32,9 @@ definition:
 ...
 }
 ```
+
+You can also specify `ALL` as the value instead of a number to allocate all
+GPUs on the container instance to the container.
 
 The following example demonstrates the syntax for a Docker container that specifies a
 GPU requirement. This container uses two GPUs, runs the `nvidia-smi` utility,

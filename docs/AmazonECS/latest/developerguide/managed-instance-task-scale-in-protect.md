@@ -84,6 +84,7 @@ Consider the following points before using task scale-in protection:
   protection expiration longer than necessary, then you will incur costs and face
   delays in the deployment of new tasks.
 - Deployment considerations:
+
   - If the service uses a rolling update, new tasks will be created but
     tasks running older version will not be terminated until
     `protectionEnabled` is cleared or expires. You can adjust
@@ -108,6 +109,7 @@ Consider the following points before using task scale-in protection:
     means the service has more protected tasks than the desired count of
     tasks for the service. To resolve this error, do one the
     following:
+
     - Wait for the current task protection to expire. Then set task
       protection.
     - Determine which tasks can be stopped. Then use

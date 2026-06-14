@@ -10,10 +10,13 @@ To learn more about what Express Mode creates and how it works, see [Resources c
    [https://console.aws.amazon.com/ecs/v2](https://console.aws.amazon.com/ecs/v2 "https://console.aws.amazon.com/ecs/v2").
 2. In the navigation pane, choose **Express mode**.
 3. Under **Let's set up your app**:
+
    1. Specify the image to use for your application. For **Image URI**, enter the URI for your image. To browse your Amazon ECR images, choose **Browse ECR images**, and then do the following:
+
       1. For **Private repository**, choose the Amazon ECR private repository.
       2. For **Image**, choose your image.
       3. Choose how to identify the image. For **Select image by**, choose one of the following options:
+
          - AWS recommends that you choose **Image digest**.
          - To use the tag, choose **Image tag** and then choose the tag.
 
@@ -57,6 +60,7 @@ _optional_**.
 2. Enter a **Name** for the service. If no name is specified, Express Mode will generate one from the container image name. This service name
    will be used across several resources, including the Application URL, Amazon ECS Service, Amazon ECS Task Definition, certificate, scaling target, and scaling policy.
 3. Optionally specify details about your **Container**:
+
    1. For **Container port**, enter the port your application listens on (default is 80).
    2. For **Health check path**, enter the path for health checks (for example, `"/health"`). The default is `"/".`
    3. Under **Environment variables**, add key-value pairs for environment variables your application needs. For **Key**,
@@ -67,6 +71,7 @@ _optional_**.
    5. For **Task role**, choose an IAM role that grants permissions to your application. No default is provided.
 
 4. Optionally specify details about your **Compute** and **Auto scaling**:
+
    1. For **CPU**, choose the vCPU allocation for your tasks (the default is 1 vCPU).
    2. For **Memory**, choose the Memory allocation for your tasks (the default is 2 GB).
    3. For **ECS service metric**, choose the metric to scale on (the default is **Average CPU Utilization**).
@@ -75,11 +80,13 @@ _optional_**.
       and **20**)
 
 5. Check the box to **Customize networking configurations**. If you do not customize these configurations, Express Mode will use the Default VPC.
+
    1. Select a **VPC** to help quickly navigate to the **Subnets** where your services will run. Optionally, leave the Amazon ECS
       Console to create a new VPC, and come back to refresh and find that VPC in the drop down.
    2. For **Security groups**, choose or create security groups to allow additional inbound network access to your service.
 
 6. Under **Logs**:
+
    1. For **Amazon CloudWatch log group**, enter the preferred log group name for your application logs. The default log group is named according to your cluster and service names.
    2. For **Amazon CloudWatch log stream prefix**, enter a preferred prefix for log streams. The default stream prefix is `ecs/Main/.`
 

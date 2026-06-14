@@ -86,6 +86,7 @@ Follow these steps to update the Amazon ECS agent.
 
 3. (Optional) Verify the validity of the `ecs-init` package file using
    the PGP signature.
+
    1. Download and install GnuPG. For more information about GNUpg, see the
       [GnuPG website](https://www.gnupg.org "https://www.gnupg.org"). For Linux
       systems, install `gpg` using the package manager on your
@@ -95,7 +96,6 @@ Follow these steps to update the Amazon ECS agent.
    ```
    `gpg --keyserver hkp://keys.gnupg.net:80 --recv BCE9D9A42D51784F`
    ```
-
    3. Download the `ecs-init` package signature. The signature is
       an ASCII detached PGP signature that's stored in a file with the
       `.asc` extension. Amazon ECS provides the signature file in an
@@ -127,7 +127,6 @@ Follow these steps to update the Amazon ECS agent.
    ```
    `curl -o amazon-ecs-init.deb.asc https://s3.`<region>`.amazonaws.com/amazon-ecs-agent-`<region>`/amazon-ecs-init-latest.arm64.deb.asc`
    ```
-
    4. Verify the `ecs-init` package file using the key.
 
    **For the `rpm`

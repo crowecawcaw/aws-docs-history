@@ -244,6 +244,7 @@ system:
   configurations.
 - The following are not supported when you use `awsvpc` network
   mode in an EC2 Windows configuration:
+
   - Dual-stack configuration
   - IPv6
   - ENI trunking

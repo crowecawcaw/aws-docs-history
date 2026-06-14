@@ -81,6 +81,7 @@ JSON
 
 3. Depending on your use case, attach the managed policy to the
    `ecsInfrastructureRole` role.
+
    - To attach Amazon EBS volumes to your Fargate or EC2 launch
      type Amazon ECS tasks, attach the
      `AmazonECSInfrastructureRolePolicyForVolumes` managed

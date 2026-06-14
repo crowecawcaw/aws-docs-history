@@ -507,6 +507,7 @@ The following rules apply when you specify a
 - You don't specify a `hostPortRange`.
   The value of the `hostPortRange` is set
   as follows:
+
   - For containers in a task with the
     `awsvpc` network mode, the
     `hostPort` is set to the same value as

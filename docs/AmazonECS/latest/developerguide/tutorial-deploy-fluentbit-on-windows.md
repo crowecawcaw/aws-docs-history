@@ -18,6 +18,7 @@ This tutorial uses the following approach:
 - Fluent Bit runs as a service with the Daemon scheduling strategy. This strategy
   ensures that a single instance of Fluent Bit always runs on the container instances
   in the cluster.
+
   - Listens on port 24224 using the forward input plug-in.
   - Expose port 24224 to the host so that the docker runtime can send logs to
     Fluent Bit using this exposed port.
@@ -27,6 +28,7 @@ This tutorial uses the following approach:
 - Launch all other Amazon ECS task containers using the fluentd logging driver. For more
   information, see [Fluentd logging
   driver](https://docs.docker.com/engine/logging/drivers/fluentd/ "https://docs.docker.com/engine/logging/drivers/fluentd/") on the Docker documentation website.
+
   - Docker connects to the TCP socket 24224 on localhost inside the host
     namespace.
   - The Amazon ECS agent adds labels to the containers which includes the cluster
@@ -109,6 +111,7 @@ This tutorial assumes that the following prerequisites have been completed:
   latest version of the AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
 - The `aws-for-fluent-bit` container image is available for the
   following Windows operating systems:
+
   - Windows Server 2019 Core
   - Windows Server 2019 Full
   - Windows Server 2022 Core
@@ -160,6 +163,7 @@ JSON
 ```
 
 3. Attach the policy to the role.
+
    1. Save the above content in a file named
       `fluent-bit-policy.json`.
    2. Run the following command to attach the inline policy to
@@ -178,6 +182,7 @@ Create an Amazon ECS Windows container instance.
 1. Use the `aws ssm get-parameters` command to retrieve the AMI ID for
    the Region that hosts your VPC. For more information, see [Retrieving Amazon ECS-Optimized AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
 2. Use the Amazon EC2 console to launch the instance.
+
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. From the navigation bar, select the Region to
@@ -211,7 +216,6 @@ Create an Amazon ECS Windows container instance.
    Initialize-ECSAgent -Cluster `cluster-name` -EnableTaskENI -EnableTaskIAMRole -LoggingDrivers '["awslogs","fluentd"]'
    </powershell>
    ```
-
    12. When you are ready, select the acknowledgment field, and then choose
        **Launch Instances**.
    13. A confirmation page lets you know that your instance is launching.

@@ -202,6 +202,7 @@ format hasn't been enabled for the specific IAM principal that originally create
 service.
 
 1. Identify the principal that created the service.
+
    1. In the console, the information is available in the **Created by** field in
       the **Configuration and networking** tab on the Service
       details page in the Amazon ECS console.
@@ -216,6 +217,7 @@ service.
 
 2. Enable the required account settings for that specific principal. You can do
    this in one of the following ways:
+
    1. Assume the IAM user or role for that principal. Then run
       `put-account-setting`.
    2. Use the root user to run the command while specifying the creating

@@ -74,6 +74,7 @@ you also check the log files on your container instances and the containers in y
 tasks.
 
 - Amazon ECS console:
+
   - Cluster metrics for EC2
   - Service metrics
   - Service health status

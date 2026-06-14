@@ -8,6 +8,7 @@ adjustments, known as step adjustments, that vary based on the size of the alarm
    services, you need additional permissions. For more information, see [IAM permissions required for Amazon ECS service auto scaling](auto-scaling-IAM.md "auto-scaling-IAM.md").
 2. Determine the metrics to use for the policy. The following metrics
    are available:
+
    - **ECSServiceAverageCPUUtilization** – The average CPU
      utilization the service should use.
    - **ECSServiceAverageMemoryUtilization** – Average
@@ -59,6 +60,7 @@ tasks** do the following:
 
 12. Configure the scaling-in properties. Under **Steps to remove
     tasks**, do the following:
+
     1.  For **Policy name**, enter the name of the
         policy.
     2.  For **CloudWatch alarm name**, choose the CloudWatch

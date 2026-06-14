@@ -41,6 +41,7 @@ managed by Express Mode, it will not be deleted.
 5. Select the services to delete.
 6. Choose **Delete**.
 7. In the **Delete confirmation** dialog box:
+
    1. Enter `delete` to confirm the deletion.
 
 8. Choose **Delete** to confirm.

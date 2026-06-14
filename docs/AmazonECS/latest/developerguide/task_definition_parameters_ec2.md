@@ -550,6 +550,7 @@ The following rules apply when you specify a
 - You don't specify a `hostPortRange`.
   The value of the `hostPortRange` is set
   as follows:
+
   - For containers in a task with the
     `awsvpc` network mode, the
     `hostPort` is set to the same value as
@@ -981,10 +982,12 @@ Type: [ResourceRequirement](../APIReference/API_ResourceRequirement.md "../APIRe
 Required: No
 
 The number of physical `GPUs` that the Amazon ECS container
-agent reserves for the container. The number of GPUs reserved for all
-containers in a task must not exceed the number of available GPUs on the
-container instance the task is launched on. For more information, see
-[Amazon ECS task definitions for GPU workloads](ecs-gpu.md "ecs-gpu.md").
+agent reserves for the container. You can specify a numeric value or
+`ALL`. When you specify `ALL`, all GPUs on the
+container instance are allocated to the container. The number of GPUs
+reserved for all containers in a task must not exceed the number of
+available GPUs on the container instance the task is launched on. For
+more information, see [Amazon ECS task definitions for GPU workloads](ecs-gpu.md "ecs-gpu.md").
 
 ###### Note
 

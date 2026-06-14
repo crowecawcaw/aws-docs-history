@@ -16,6 +16,7 @@ For more information about monitoring options, see [Monitoring Amazon ECS Manage
 5. On the cluster page, choose the **Infrastructure** tab.
 6. Under **Advanced configuration**, choose one of the following monitoring
    options:
+
    - To have CloudWatch send status-check metrics, choose
      **Basic**.
    - To have CloudWatch send all metrics metrics, choose

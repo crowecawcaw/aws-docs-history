@@ -125,6 +125,7 @@ Create a service using the task definition.
    **Create**.
 3. Under **Service details**, specify how your
    application is deployed.
+
    1. For **Task definition family**, choose the task definition
       you created in [Step 2: Create a task definition](#get-started-fargate-task-def "#get-started-fargate-task-def").
    2. For **Service name**, enter a name for your

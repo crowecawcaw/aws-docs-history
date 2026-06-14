@@ -39,6 +39,7 @@ other services in the namespace without additional configuration. For more infor
 4. On the **Clusters** page, choose **Create
    cluster**.
 5. Under **Cluster configuration**, configure the following:
+
    - For **Cluster name**, enter a unique name.
 
    The name can contain up to 255 letters (uppercase and lowercase), numbers,
@@ -49,6 +50,7 @@ other services in the namespace without additional configuration. For more infor
 
 6. (Optional) Use Container Insights, expand **Monitoring**, and then choose
    one of the following options:
+
    - To use the recommended Container Insights with enhanced observability, choose
      **Container Insights with enhanced observability**.
    - To use Container Insights, choose **Container Insights**.
@@ -68,6 +70,7 @@ When you enable task events, Amazon ECS sends task state change events to EventB
     	+ To disable logging, choose **None**.
 
 9. (Optional), Under **Encryption**, you can configure the following:
+
    - Encrypt your data on Fargate ephemeral storage. Under **Encryption**, for
      **Fargate ephemeral storage**, enter the ARN of the AWS KMS key you
      want to use to encrypt the Fargate ephemeral storage data.

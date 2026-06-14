@@ -132,7 +132,7 @@ The following are key features of Amazon ECS Managed Instances:
   tasks to new instances.
 - Enable advanced networking and system administration functions within
   containers using privileged Linux capabilities, including CAP_NET_ADMIN,
-  CAP_SYS_ADMIN, and CAP_BPF.
+  CAP_SYS_ADMIN, CAP_BPF, and CAP_PERFMON.
 
 ## IAM roles
 
@@ -142,6 +142,7 @@ Amazon ECS Managed Instances requires two IAM roles:
   Amazon ECS Managed Instances on your behalf.
 - _Instance profile_: An instance profile is a way to pass an
   IAM role to Amazon ECS Managed Instances. This profile is used to:
+
   - Define the IAM permissions for the Amazon ECS Managed Instances that run your
     container workloads.
   - Allow AWS to manage these instances on your behalf.

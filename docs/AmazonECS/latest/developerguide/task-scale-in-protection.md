@@ -88,6 +88,7 @@ Consider the following points before using task scale-in protection:
   using older versions of the Amazon ECS container agent by updating the agent to
   the latest version. For more information, see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md").
 - Deployment considerations:
+
   - If the service uses a rolling update, new tasks will be created but
     tasks running older version will not be terminated until
     `protectionEnabled` is cleared or expires. You can adjust
@@ -119,6 +120,7 @@ Consider the following points before using task scale-in protection:
     means the service has more protected tasks than the desired count of
     tasks for the service. To resolve this error, do one the
     following:
+
     - Wait for the current task protection to expire. Then set task
       protection.
     - Determine which tasks can be stopped. Then use

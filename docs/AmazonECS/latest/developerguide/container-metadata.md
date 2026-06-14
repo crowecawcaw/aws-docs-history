@@ -24,6 +24,7 @@ By default, the container metadata file is written to the following host and con
 paths.
 
 - **For Linux instances:**
+
   - Host path:
     `/var/lib/ecs/data/metadata/`cluster_name`/`task_id`/`container_name`/ecs-container-metadata.json`
 
@@ -40,6 +41,7 @@ paths.
     `/opt/ecs/metadata/`random_ID`/ecs-container-metadata.json`
 
 - **For Windows instances:**
+
   - Host path:
     `C:\ProgramData\Amazon\ECS\data\metadata\`task_id`\`container_name`\ecs-container-metadata.json`
   - Container path:

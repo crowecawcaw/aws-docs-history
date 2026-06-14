@@ -27,6 +27,7 @@ AWS Management Console
    page, choose the **Infrastructure** tab.
 6. On the **Register external instances** page, complete
    the following steps.
+
    1. For **Activation key duration (in days)**,
       enter the number of days that the activation key remains active
       for. After the number of days you entered pass, the key no
@@ -71,6 +72,7 @@ AWS CLI for Linux operating systems
 3. (Optional) On your on-premises server or virtual machine (VM), use the
    following steps to verify the installation script using the script
    signature file.
+
    1. Download and install GnuPG. For more information about GNUpg,
       see the [GnuPG
       website](https://www.gnupg.org "https://www.gnupg.org"). For Linux systems, install `gpg`
@@ -80,7 +82,6 @@ AWS CLI for Linux operating systems
    ```
    `gpg --keyserver hkp://keys.gnupg.net:80 --recv BCE9D9A42D51784F`
    ```
-
    3. Download the installation script signature. The signature is
       an ascii detached PGP signature stored in a file with the
       `.asc` extension.
@@ -88,7 +89,6 @@ AWS CLI for Linux operating systems
    ```
    `curl --proto "https" -o "/tmp/ecs-anywhere-install.sh.asc" "https://amazon-ecs-agent.s3.amazonaws.com/ecs-anywhere-install-latest.sh.asc"`
    ```
-
    4. Verify the installation script file using the key.
 
    ```

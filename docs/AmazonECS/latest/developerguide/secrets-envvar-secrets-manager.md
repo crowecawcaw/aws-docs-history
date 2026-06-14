@@ -18,6 +18,7 @@ secret into a container.
 - Applications that run on the container and container logs and debugging tools
   have access to the environment variables.
 - For Amazon ECS tasks on AWS Fargate, consider the following:
+
   - To inject the full content of a secret as an
     environment variable or in a log configuration, you must
     use platform version `1.3.0` or later. For
@@ -30,6 +31,7 @@ secret into a container.
 
 - For Amazon ECS tasks on EC2, the following should be
   considered:
+
   - To inject a secret using a specific JSON key or
     version of a secret, your container instance must have
     version `1.37.0` or later of the container

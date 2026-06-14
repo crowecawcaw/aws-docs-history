@@ -42,6 +42,7 @@ Amazon ECS service itself:
    that includes two target groups with weights of 1 and 0.
 2. You need to specify the following resources, or update the service
    resources:
+
    - The ARN of this listener rule
    - The two target groups
    - An IAM role to grant Amazon ECS permission to call the Elastic Load Balancing

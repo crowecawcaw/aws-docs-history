@@ -34,6 +34,7 @@ Before migrating to Amazon ECS Managed Instances, ensure you have:
 
 - Existing Fargate tasks running on platform version 1.4.0 or later
 - You have the required IAM roles for Amazon ECS Managed Instances. This includes:
+
   - **Infrastructure role** - Allows Amazon ECS to make
     calls to AWS services on your behalf to manage Amazon ECS Managed Instances
     infrastructure.

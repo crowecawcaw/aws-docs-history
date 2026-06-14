@@ -16,11 +16,13 @@ Amazon ECS sets the following environment variables for your tasks:
 
 - `ECS_AGENT_URI` - The base address for different endpoints supported by
   Fargate. For more information, see:
+
   - [Amazon ECS task scale-in protection endpoint](task-scale-in-protection-endpoint.md "task-scale-in-protection-endpoint.md")
   - [Amazon ECS fault injection endpoints](fault-injection-endpoints.md "fault-injection-endpoints.md")
 
 - `AWS_EXECUTION_ENV` - The information about the compute option the task
   runs on.
+
   - For Fargate, Amazon ECS sets this to `AWS_ECS_FARGATE`.
   - For EC2, Amazon ECS sets this to `AWS_ECS_EC2`.
 

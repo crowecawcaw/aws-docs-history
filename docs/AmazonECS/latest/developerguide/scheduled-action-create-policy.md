@@ -59,6 +59,7 @@ options.
     * To scale only once, choose **Once**.
 
 11. Under **Task adjustments**, do the following:
+
     - For **Minimum**, enter the minumum number of
       tasks the service should run.
     - For **Maximum**, enter the maximum number of

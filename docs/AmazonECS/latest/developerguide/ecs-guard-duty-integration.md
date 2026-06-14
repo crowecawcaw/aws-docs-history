@@ -45,6 +45,7 @@ findings, see [Managing
 Amazon GuardDuty findings](../../../guardduty/latest/ug/findings_management.md "../../../guardduty/latest/ug/findings_management.md") in the _Amazon GuardDuty User Guide_.
 
 - Responses from the following Amazon ECS API calls:
+
   - [DescribeClusters](../APIReference/API_DescribeClusters.md "../APIReference/API_DescribeClusters.md")
 
   The response parameters include the Runtime Monitoring tag (when the tag is
@@ -60,6 +61,7 @@ Amazon GuardDuty findings](../../../guardduty/latest/ug/findings_management.md "
 
 - The container agent introspection data. For more information, see [Amazon ECS container introspection](ecs-agent-introspection.md "ecs-agent-introspection.md").
 - The task metadata endpoint for the compute option:
+
   - [Amazon ECS task metadata endpoint version 4](task-metadata-endpoint-v4.md "task-metadata-endpoint-v4.md")
   - [Amazon ECS task metadata endpoint version 4 for tasks on Fargate](task-metadata-endpoint-v4-fargate.md "task-metadata-endpoint-v4-fargate.md")
 

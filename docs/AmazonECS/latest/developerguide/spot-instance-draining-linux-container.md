@@ -46,6 +46,7 @@ ECS_ENABLE_SPOT_INSTANCE_DRAINING=true
 ```
 
 3. Restart the `ecs` service.
+
    - For the Amazon ECS-optimized Amazon Linux 2 AMI:
 
    ```

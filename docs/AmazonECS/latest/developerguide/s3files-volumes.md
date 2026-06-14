@@ -48,6 +48,7 @@ following prerequisites are met:
 - **A Task IAM Role** — Your task
   definition must include a Task IAM Role with the following
   permissions:
+
   - Permissions to connect to and interact with S3 file systems from your application code (running in the container).
   - Permissions to read S3 objects from your application code (running in the container).
 

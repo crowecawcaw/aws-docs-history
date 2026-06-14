@@ -52,6 +52,7 @@ When updating a cluster for Amazon ECS Managed Instances, consider the following
 5. Choose **Update cluster**.
 6. (Optional) To modify capacity provider settings, under **Custom Capacity Provider**,
    update the following as needed:
+
    - For **Instance profile**, choose a different instance profile role if needed.
    - For **Infrastructure role**, choose a different infrastructure role if needed.
    - To use a custom capacity provider, for **Instance

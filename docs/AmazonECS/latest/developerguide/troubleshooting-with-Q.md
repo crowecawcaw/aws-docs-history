@@ -7,6 +7,7 @@ You can use [Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/what-is.m
 - Permissions to view the Amazon ECS resources you want to troubleshoot, such as clusters, services, tasks, and task definitions.
 - [Permissions to use Amazon Q Developer](../../../amazonq/latest/qdeveloper-ug/security_iam_permissions.md "../../../amazonq/latest/qdeveloper-ug/security_iam_permissions.md") in the console.
 - (Recommended) Permissions to view related logs and metrics, such as:
+
   - CloudWatch Logs
   - CloudWatch
 

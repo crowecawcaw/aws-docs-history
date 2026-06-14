@@ -44,10 +44,12 @@ Follow these steps to migrate your Amazon ECS service from blue/green to rolling
 6. On the **Update service** page, navigate to the **Deployment options** section and expand it if necessary.
 7. For **Deployment strategy**, choose **Rolling update**.
 8. Configure the rolling deployment settings:
+
    1. For **Minimum healthy percent**, enter the minimum percentage of tasks that must remain in the `RUNNING` state during a deployment. This value is specified as a percentage of the desired number of tasks for the service.
    2. For **Maximum percent**, enter the maximum percentage of tasks that are allowed in the `RUNNING` or `PENDING` state during a deployment. This value is specified as a percentage of the desired number of tasks for the service.
 
 9. Optional: Under **Deployment failure detection**, configure how Amazon ECS detects and handles deployment failures:
+
    1. To enable the deployment circuit breaker, choose **Use the deployment circuit breaker**.
    2. To automatically roll back failed deployments, choose **Rollback on failure**.
 

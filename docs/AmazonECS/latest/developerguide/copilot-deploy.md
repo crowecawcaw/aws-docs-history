@@ -46,44 +46,39 @@ copilot init --app `demo` \
 2. After the deployment is complete, the AWS Copilot CLI will return a URL that you
    can use to verify the deployment. You can also use the following commands to
    verify the app's status.
+
    - List all of your AWS Copilot applications.
 
    ```
    `copilot app ls`
    ```
-
    - Show information about the environments and services in your
      application.
 
    ```
    `copilot app show`
    ```
-
    - Show information about your environments.
 
    ```
    `copilot env ls`
    ```
-
    - Show information about the service, including endpoints, capacity
      and related resources.
 
    ```
    `copilot svc show`
    ```
-
    - List of all the services in an application.
 
    ```
    `copilot svc ls`
    ```
-
    - Show logs of a deployed service.
 
    ```
    `copilot svc logs`
    ```
-
    - Show service status.
 
    ```

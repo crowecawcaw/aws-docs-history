@@ -54,6 +54,7 @@ The service scheduler uses the following logic:
   instance from the remaining candidates.
 - When there's no defined placement strategy, use the following logic to
   balance tasks across the Availability Zones in your cluster:
+
   - Sorts the valid container instances. Gives priority to instances
     that have the fewest number of running tasks for this service in
     their respective Availability Zone. For example, if zone A has one
@@ -138,6 +139,7 @@ logic:
   with the best spread.
 - If no placement strategy is defined, use the following logic to maintain
   balance across the Availability Zones in your cluster:
+
   - Sort the valid container instances. Give priority to instances
     that have the largest number of running tasks for this service in
     their respective Availability Zone. For example, if zone A has one

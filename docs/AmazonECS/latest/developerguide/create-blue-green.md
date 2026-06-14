@@ -341,6 +341,7 @@ Use the following steps to create and upload an application specification file
 ###### To create and monitor an CodeDeploy deployment
 
 1. Create and upload an AppSpec file using the following steps.
+
    1. Create a file named `appspec.yaml` with the contents of the
       CodeDeploy deployment group. This example uses the resources that you created
       earlier in the tutorial.
@@ -357,14 +358,12 @@ Use the following steps to create and upload an application specification file
              ContainerPort: 80
            PlatformVersion: "LATEST"
    ```
-
    2. Use the [s3 mb](../../../cli/latest/reference/s3/mb.md "../../../cli/latest/reference/s3/mb.md") command to
       create an Amazon S3 bucket for the AppSpec file.
 
    ```
    `aws s3 mb s3://`tutorial-bluegreen-bucket``
    ```
-
    3. Use the [s3 cp](../../../cli/latest/reference/s3/cp.md "../../../cli/latest/reference/s3/cp.md") command to
       upload the AppSpec file to the Amazon S3 bucket.
 
@@ -373,6 +372,7 @@ Use the following steps to create and upload an application specification file
    ```
 
 2. Create the CodeDeploy deployment using the following steps.
+
    1. Create a file named `create-deployment.json` with the
       contents of the CodeDeploy deployment. This example uses the resources that
       you created earlier in the tutorial.
@@ -391,7 +391,6 @@ Use the following steps to create and upload an application specification file
        }
    }
    ```
-
    2. Use the [create-deployment](../../../cli/latest/reference/deploy/create-deployment.md "../../../cli/latest/reference/deploy/create-deployment.md") command to create the deployment.
 
    ```
@@ -408,7 +407,6 @@ Use the following steps to create and upload an application specification file
        "deploymentId": "d-RPCR1U3TW"
    }
    ```
-
    3. Use the [get-deployment-target](../../../cli/latest/reference/deploy/get-deployment-target.md "../../../cli/latest/reference/deploy/get-deployment-target.md") command to get the details of the
       deployment, specifying the `deploymentId` from the previous
       output.

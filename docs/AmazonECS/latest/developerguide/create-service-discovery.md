@@ -127,6 +127,7 @@ Follow these steps to create your Amazon ECS cluster, task definition, and servi
 
 2. Register a task definition that's compatible with Fargate and
    uses the `awsvpc` network mode. Follow these steps:
+
    1. Create a file that's named `fargate-task.json` with the
       contents of the following task definition.
 
@@ -162,7 +163,6 @@ Follow these steps to create your Amazon ECS cluster, task definition, and servi
            "memory": "512"
    }
    ```
-
    2. Register the task definition using
       `fargate-task.json`.
 
@@ -172,6 +172,7 @@ Follow these steps to create your Amazon ECS cluster, task definition, and servi
    ```
 
 3. Create an ECS service by following these steps:
+
    1. Create a file that's named `ecs-service-discovery.json`
       with the contents of the ECS service that you're creating. This example
       uses the task definition that was created in the previous step. An
@@ -208,7 +209,6 @@ Follow these steps to create your Amazon ECS cluster, task definition, and servi
        "desiredCount": `1`
    }
    ```
-
    2. Create your ECS service using
       `ecs-service-discovery.json`.
 
@@ -267,6 +267,7 @@ The output is as follows.
 3. The DNS records that are created in the Route 53 hosted zone for the
    service discovery service can be queried with the following AWS CLI
    commands:
+
    1. Using the namespace ID, get information about the namespace, which
       includes the Route 53 hosted zone ID.
 
@@ -294,7 +295,6 @@ The output is as follows.
        }
    }
    ```
-
    2. Using the Route 53 hosted zone ID from the previous step (see the text in
       bold), get the resource record set for the hosted zone.
 

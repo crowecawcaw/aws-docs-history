@@ -65,7 +65,7 @@ Amazon ECS Managed Instances helps improve the security posture of your workload
 
 Amazon ECS Managed Instances supports software that requires elevated Linux privileges, enabling advanced monitoring and security solutions:
 
-- **Supported capabilities** - You can opt-in to all privileged Linux capabilities, including `CAP_NET_ADMIN`, `CAP_SYS_ADMIN`, and `CAP_BPF`.
+- **Supported capabilities** - You can opt-in to all privileged Linux capabilities, including `CAP_NET_ADMIN`, `CAP_SYS_ADMIN`, `CAP_BPF`, and `CAP_PERFMON`.
 - **Popular solutions** - This enables you to run popular network monitoring and observability solutions such as Wireshark and Datadog.
 - **Explicit configuration required** - You must explicitly configure your Amazon ECS Managed Instances capacity provider to enable privileged Linux capabilities, as it may pose additional security risks to your applications.
 

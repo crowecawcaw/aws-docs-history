@@ -50,6 +50,7 @@ echo ECS_ENABLE_GPU_SUPPORT=true >> /etc/ecs/ecs.config
 
 3. Run the following command to launch the GPU instance. Remember to replace
    the following parameters:
+
    - Replace `subnet` with the ID of the
      private or public subnet that your instance will launch in.
    - Replace `gpu_ami` with the AMI ID from
@@ -73,6 +74,7 @@ aws ec2 run-instances --key-name ecs-gpu-example \
 4. Run the following command to verify that the container instance is
    registered to the cluster. When you run this command, remember to replace
    the following parameters:
+
    - Replace `cluster` with your cluster
      name.
    - Replace `region` with your

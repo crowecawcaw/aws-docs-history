@@ -27,6 +27,7 @@ You can create a daemon task definition by using the AWS Management Console or t
    to reserve for your daemon. For example, `0.25 vCPU` and
    `512 MB` memory.
 7. Configure your container details:
+
    - **Container name** - Enter a name
      for your container. The name can contain up to 255 alphanumeric
      characters, hyphens, and underscores.
@@ -101,6 +102,10 @@ definition.
   storage.
 - `tags` - An array of key-value pairs to tag your daemon task
   definition.
+- `pidMode` - Controls the PID namespace mode for the
+  daemon.
+- `ipcMode` - Controls the IPC namespace mode for the
+  daemon.
 
 ## Network mode
 
@@ -142,8 +147,8 @@ the container. Use this when your agent requires broad system access:
 **Individual capabilities** grant only the permissions
 your daemon needs, following the principle of least privilege. Use the
 `linuxParameters.capabilities` field to add individual capabilities such
-as `SYS_ADMIN`, `NET_ADMIN`, `SYS_PTRACE`, and
-`BPF`:
+as `SYS_ADMIN`, `NET_ADMIN`, `SYS_PTRACE`,
+`BPF`, and `PERFMON`:
 
 ```
 {
@@ -158,6 +163,74 @@ as `SYS_ADMIN`, `NET_ADMIN`, `SYS_PTRACE`, and
     }]
 }
 ```
+
+## PID and IPC namespace sharing
+
+On Amazon ECS Managed Instances, daemons support PID and IPC namespace sharing to enable use
+cases such as security agents, monitoring tools, and observability daemons that need
+visibility into application task processes or IPC resources.
+
+`pidMode`
+
+Type: String
+
+Required: No
+
+Valid values: `none` | `shared`
+
+Default: `none`
+
+The PID namespace mode for the daemon. If `none` is specified
+or no value is provided, the daemon runs with its own PID namespace,
+isolated from other tasks. If `shared` is specified, the daemon
+joins the host PID namespace, making it accessible to non-daemon tasks that
+use `pidMode: "host"` or other daemons that use
+`pidMode: "shared"`.
+
+`ipcMode`
+
+Type: String
+
+Required: No
+
+Valid values: `none` | `shared`
+
+Default: `none`
+
+The IPC namespace mode for the daemon. If `none` is specified
+or no value is provided, the daemon runs with its own IPC namespace,
+isolated from other tasks. If `shared` is specified, the daemon
+joins the host IPC namespace, making it accessible to non-daemon tasks that
+use `ipcMode: "host"` or other daemons that use
+`ipcMode: "shared"`.
+
+The following example shows a daemon task definition with both PID and IPC namespace
+sharing enabled:
+
+```
+{
+    "family": "my-monitoring-daemon",
+    "pidMode": "shared",
+    "ipcMode": "shared",
+    "containerDefinitions": [
+        {
+            "name": "monitoring-agent",
+            "image": "public.ecr.aws/my-company/monitoring-agent:latest",
+            "essential": true
+        }
+    ]
+}
+```
+
+To share the PID namespace with a daemon that has `pidMode` set to
+`shared`, a non-daemon task must specify `pidMode: "host"` in its
+task definition. This allows the task's containers to see the daemon's processes
+and enables use cases such as process monitoring and signal delivery.
+
+To share the IPC namespace with a daemon that has `ipcMode` set to
+`shared`, a non-daemon task must specify `ipcMode: "host"` in its
+task definition. This allows the task's containers to access the daemon's IPC
+resources such as shared memory segments and message queues.
 
 ## Volumes
 

@@ -18,6 +18,7 @@ accounts.
    services across all participating accounts.
 4. For **Namespace type**, choose the appropriate type for
    your use case:
+
    - **API calls** ‐ HTTP namespaces for service
      discovery without DNS functionality.
    - **API calls and DNS queries in VPCs** ‐
@@ -41,6 +42,7 @@ AWS accounts.
 3. For **Name**, enter a descriptive name for the resource
    share.
 4. In the **Resources** section:
+
    1. For **Resource type**, choose **Cloud Map
       Namespaces**.
    2. Select the namespace you created in the previous step.

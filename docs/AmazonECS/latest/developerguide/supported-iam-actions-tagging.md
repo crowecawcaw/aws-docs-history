@@ -76,6 +76,7 @@ section:
 - `aws:RequestTag`: To indicate that a particular tag key or tag key
   and value must be present in a request. Other tags can also be specified in the
   request.
+
   - Use with the `StringEquals` condition operator to enforce a
     specific tag key and value combination, for example, to enforce the tag
     `cost-center`=`cc123`:
@@ -83,7 +84,6 @@ section:
   ```
   "StringEquals": { "aws:RequestTag/cost-center": "cc123" }
   ```
-
   - Use with the `StringLike` condition operator to enforce a
     specific tag key in the request; for example, to enforce the tag key
     `purpose`:
@@ -94,6 +94,7 @@ section:
 
 - `aws:TagKeys`: To enforce the tag keys that are used in the
   request.
+
   - Use with the `ForAllValues` modifier to enforce specific
     tag keys if they are provided in the request (if tags are specified in
     the request, only specific tag keys are allowed; no other tags are
@@ -103,7 +104,6 @@ section:
   ```
   "ForAllValues:StringEquals": { "aws:TagKeys": ["environment","cost-center"] }
   ```
-
   - Use with the `ForAnyValue` modifier to enforce the presence
     of at least one of the specified tag keys in the request. For example,
     at least one of the tag keys `environment` or

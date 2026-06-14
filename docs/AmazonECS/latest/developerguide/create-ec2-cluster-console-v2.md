@@ -111,6 +111,7 @@ Before you begin, assign the appropriate IAM permission. For more information, s
 4. On the **Clusters** page, choose **Create
    cluster**.
 5. Under **Cluster configuration**, configure the following:
+
    - For **Cluster name**, enter a unique name.
 
    The name can contain up to 255 letters (uppercase and lowercase), numbers,
@@ -169,6 +170,7 @@ Next, configure the Auto Scaling group which acts as the capacity provider:
 
 7. (Optional) To change the VPC and subnets, under **Networking for Amazon EC2
    instances**, perform any of the following operations:
+
    - To remove a subnet, under **Subnets**, choose
      **X** for each subnet that you want to remove.
    - To change to a VPC other than the **default** VPC, under
@@ -178,6 +180,7 @@ Next, configure the Auto Scaling group which acts as the capacity provider:
      subnets that have only an IPv6 CIDR block.
    - Choose the security groups. Under **Security group**,
      choose one of the following options:
+
      - To use an existing security group, choose **Use an
        existing security group**, and then choose the security
        group.
@@ -190,6 +193,7 @@ Next, configure the Auto Scaling group which acts as the capacity provider:
    - To automatically assign public IP addresses to your Amazon EC2 container
      instances, for **Auto-assign public IP**, choose one of the
      following options:
+
      - **Use subnet setting** – Assign a public IP
        address to the instances when the subnet that the instances launch
        in are a public subnet.
@@ -198,6 +202,7 @@ Next, configure the Auto Scaling group which acts as the capacity provider:
 
 8. (Optional) Use Container Insights, expand **Monitoring**, and then choose one
    of the following options:
+
    - To use the recommended Container Insights with enhanced observability, choose
      **Container Insights with enhanced observability**.
    - To use Container Insights, choose **Container Insights**.

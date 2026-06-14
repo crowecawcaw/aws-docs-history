@@ -55,6 +55,7 @@ Auto Scaling group. For other parameters, you can use placement constraints
 - Amazon ECS publishes the `CapacityProviderReservation` metric to CloudWatch
   with respect to the `minimumScalingStepSize` if either of the
   following is the case.
+
   - The maximum calculated instance count is less than the minimum
     scaling step size.
   - The lower value of either the `maximumScalingStepSize`
@@ -156,6 +157,7 @@ CapacityProviderReservation = (number of instances needed) / (number of running 
 3. The `CapacityProviderReservation` metric generates a CloudWatch alarm.
    This alarm updates the `DesiredCapacity` value for the Auto Scaling group. Then,
    one of the following actions occurs:
+
    - If you don't use capacity provider managed termination, the Auto Scaling group
      selects EC2 instances using the Auto Scaling group termination policy and terminates
      the instances until the number of EC2 instances reaches the

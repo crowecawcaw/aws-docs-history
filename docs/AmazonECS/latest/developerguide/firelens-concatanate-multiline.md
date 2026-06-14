@@ -118,6 +118,7 @@ expression and a configuration file that references the parser file.
 2. Within the folder, create a parser file that contains the rules to
    parse the log and concatenate lines that belong in the same
    message.
+
    1. Paste the following contents in the parser file:
 
    ```
@@ -175,6 +176,7 @@ _Amazon Elastic Container Service Developer Guide_
 4. Within the `FluentBitDockerImage` folder, create the
    Dockerfile with the Fluent Bit image and the parser and configuration
    files that you created.
+
    1. Paste the following contents in the file:
 
    ```
@@ -183,7 +185,6 @@ _Amazon Elastic Container Service Developer Guide_
    ADD parsers_multiline.conf /parsers_multiline.conf
    ADD extra.conf /extra.conf
    ```
-
    2. Save the file as `Dockerfile`.
 
 5. Using the Dockerfile, build a custom Fluent Bit image with the parser
@@ -210,6 +211,7 @@ as this file path is used by FireLens.
      `latest` tag.
 
 6. Upload the custom Fluent Bit image to Amazon Elastic Container Registry.
+
    1. Create an Amazon ECR repository to store the image: `aws ecr
 create-repository --repository-name
 fluent-bit-multiline-repo --region us-east-1`
@@ -260,6 +262,7 @@ creates a stack trace.
 1. Create a folder named `multiline-app`: `mkdir
 multiline-app`
 2. Create a Python script file.
+
    1. Within the `multiline-app` folder, create a file
       and name it `main.py`.
    2. Paste the following contents in the file:
@@ -284,10 +287,10 @@ multiline-app`
    print("app terminated.")
 
    ```
-
    3. Save the `main.py` file.
 
 3. Create a sample log file.
+
    1. Within the `multiline-app` folder, create a file
       and name it `test.log`.
    2. Paste the following contents in the file:
@@ -303,11 +306,11 @@ multiline-app`
    another line...
 
    ```
-
    3. Save the `test.log` file.
 
 4. Within the `multiline-app` folder, create the
    Dockerfile.
+
    1. Paste the following contents in the file:
 
    ```
@@ -322,10 +325,10 @@ multiline-app`
 
    CMD ["python3", "main.py"]
    ```
-
    2. Save the `Dockerfile` file.
 
 5. Using the Dockerfile, build an image.
+
    1. Build the image: `docker build -t multiline-app-image`
 
    Where: `multiline-app-image` is the name for the
@@ -336,6 +339,7 @@ multiline-app`
    `latest` tag.
 
 6. Upload the image to Amazon Elastic Container Registry.
+
    1. Create an Amazon ECR repository to store the image: `aws ecr
 create-repository --repository-name multiline-app-repo
 --region us-east-1`
@@ -545,13 +549,13 @@ _Amazon Elastic Container Service Developer Guide_
 3. Within the `FluentBitDockerImage` folder, create the
    Dockerfile with the Fluent Bit image and the parser and configuration
    files that you created.
+
    1. Paste the following contents in the file:
 
    ```
    FROM public.ecr.aws/aws-observability/aws-for-fluent-bit:latest
    ADD extra.conf /extra.conf
    ```
-
    2. Save the file as `Dockerfile`.
 
 4. Using the Dockerfile, build a custom Fluent Bit image with the custom
@@ -578,6 +582,7 @@ path is used by FireLens.
      `latest` tag.
 
 5. Upload the custom Fluent Bit image to Amazon Elastic Container Registry.
+
    1. Create an Amazon ECR repository to store the image: `aws ecr
 create-repository --repository-name
 fluent-bit-multiline-repo --region us-east-1`
@@ -625,6 +630,7 @@ a sample log file.
 1. Create a folder named `multiline-app`: `mkdir
 multiline-app`
 2. Create a Python script file.
+
    1. Within the `multiline-app` folder, create a file
       and name it `main.py`.
    2. Paste the following contents in the file:
@@ -649,10 +655,10 @@ multiline-app`
    print("app terminated.")
 
    ```
-
    3. Save the `main.py` file.
 
 3. Create a sample log file.
+
    1. Within the `multiline-app` folder, create a file
       and name it `test.log`.
    2. Paste the following contents in the file:
@@ -711,11 +717,11 @@ multiline-app`
      /usr/local/go/src/runtime/mgc.go:216 +0x58
    one more line, no multiline
    ```
-
    3. Save the `test.log` file.
 
 4. Within the `multiline-app` folder, create the
    Dockerfile.
+
    1. Paste the following contents in the file:
 
    ```
@@ -730,10 +736,10 @@ multiline-app`
 
    CMD ["python3", "main.py"]
    ```
-
    2. Save the `Dockerfile` file.
 
 5. Using the Dockerfile, build an image.
+
    1. Build the image: `docker build -t multiline-app-image`
 
    Where: `multiline-app-image` is the name for the
@@ -744,6 +750,7 @@ multiline-app`
    `latest` tag.
 
 6. Upload the image to Amazon Elastic Container Registry.
+
    1. Create an Amazon ECR repository to store the image: `aws ecr
 create-repository --repository-name multiline-app-repo
 --region us-east-1`

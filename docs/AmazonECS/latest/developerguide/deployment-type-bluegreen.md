@@ -95,6 +95,7 @@ Consider the following when using the blue/green deployment type:
   initially created, an Amazon ECS task set is created.
 - You must configure the service to use either an Application Load Balancer or Network Load Balancer. The
   following are the load balancer requirements:
+
   - You must add a production listener to the load balancer, which
     is used to route production traffic.
   - An optional test listener can be added to the load balancer,
@@ -114,6 +115,7 @@ Consider the following when using the blue/green deployment type:
   deployment type, auto scaling is not blocked during a deployment but the
   deployment may fail under some circumstances. The following describes
   this behavior in more detail.
+
   - If a service is scaling and a deployment starts, the green
     task set is created and CodeDeploy will wait up to an hour for the
     green task set to reach steady state and won't shift any traffic
@@ -129,6 +131,7 @@ Consider the following when using the blue/green deployment type:
   the `DAEMON` scheduling strategy.
 - When you initially create a CodeDeploy application and deployment group,
   you must specify the following:
+
   - You must define two target groups for the load balancer. One
     target group should be the initial target group defined for the
     load balancer when the Amazon ECS service was created. The second

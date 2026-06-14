@@ -240,11 +240,6 @@ AWS Fargate. For more information, see [Use bind mounts with Amazon ECS](bind-mo
 
 `ipcMode`
 
-###### Note
-
-This parameter isn't supported for tasks running on
-Amazon ECS Managed Instances.
-
 Type: String
 
 Required: No
@@ -815,6 +810,7 @@ The following rules apply when you specify a
 - You don't specify a `hostPortRange`.
   The value of the `hostPortRange` is set
   as follows:
+
   - For containers in a task with the
     `awsvpc` network mode, the
     `hostPort` is set to the same value as
@@ -1258,10 +1254,12 @@ Type: [ResourceRequirement](../APIReference/API_ResourceRequirement.md "../APIRe
 Required: No
 
 The number of physical `GPUs` that the Amazon ECS container
-agent reserves for the container. The number of GPUs reserved for all
-containers in a task must not exceed the number of available GPUs on the
-container instance the task is launched on. For more information, see
-[Amazon ECS task definitions for GPU workloads](ecs-gpu.md "ecs-gpu.md").
+agent reserves for the container. You can specify a numeric value or
+`ALL`. When you specify `ALL`, all GPUs on the
+container instance are allocated to the container. The number of GPUs
+reserved for all containers in a task must not exceed the number of
+available GPUs on the container instance the task is launched on. For
+more information, see [Amazon ECS task definitions for GPU workloads](ecs-gpu.md "ecs-gpu.md").
 
 `Neuron device`
 
@@ -2271,9 +2269,11 @@ The value for the specified resource type.
 
 If the `GPU` type is used, the value is the number of
 physical `GPUs` the Amazon ECS container agent reserves for
-the container. The number of GPUs that's reserved for all
-containers in a task can't exceed the number of available GPUs on
-the container instance the task is launched on.
+the container. You can also specify `ALL` to allocate
+all GPUs on the container instance to the container. The number of
+GPUs that's reserved for all containers in a task can't exceed the
+number of available GPUs on the container instance the task is
+launched on.
 
 GPUs aren't available for tasks that are running on Fargate.
 

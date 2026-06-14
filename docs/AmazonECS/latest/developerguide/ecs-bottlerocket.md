@@ -75,6 +75,7 @@ about the security features and guidance, see [Security Features](https://github
   Bottlerocket AMI version `1.19.0` or later.
 - The Bottlerocket AMIs also don't support the following services
   and features:
+
   - ECS Anywhere
   - Service Connect
   - Amazon EFS in encrypted mode

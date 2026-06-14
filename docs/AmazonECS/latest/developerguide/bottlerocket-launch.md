@@ -19,6 +19,7 @@ cluster = "`cluster-name`"
    step.
 3. Run the following command to launch the Bottlerocket instance. Remember to
    replace the following parameters:
+
    - Replace `subnet` with the ID of the private
      or public subnet that your instance will launch in.
    - Replace `bottlerocket_ami` with the AMI ID
@@ -42,6 +43,7 @@ aws ec2 run-instances --key-name ecs-bottlerocket-example \
 4. Run the following command to verify that the container instance is registered
    to the cluster. When you run this command, remember to replace the following
    parameters:
+
    - Replace `cluster` with your cluster
      name.
    - Replace `region` with your

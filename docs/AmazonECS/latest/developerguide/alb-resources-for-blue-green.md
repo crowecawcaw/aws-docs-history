@@ -83,10 +83,12 @@ aws elbv2 create-load-balancer \
 For blue/green deployments, you need to configure listeners on your Application Load Balancer:
 
 - Production listener: Handles production traffic (typically on port 80 or 443)
+
   - Initially forwards traffic to the primary target group (blue service revision)
   - After deployment, forwards traffic to the alternate target group (green service revision)
 
 - Test listener (optional): Handles test traffic to validate the green service revision before shifting production traffic
+
   - Can be configured on a different port (for example, 8080 or
   8443.
   - Forwards traffic to the alternate target group (green service revision) during testing

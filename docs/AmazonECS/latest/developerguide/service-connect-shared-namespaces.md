@@ -47,6 +47,7 @@ Service Connect:
   namespaces, see [Troubleshooting Amazon ECS Service Connect with shared AWS Cloud Map namespaces](service-connect-shared-namespaces-troubleshooting.md "service-connect-shared-namespaces-troubleshooting.md").
 - For service discovery using DNS queries in a shared private DNS
   namespace:
+
   - The namespace owner will need to call
     `create-vpc-association-authorization` with the ID of the
     private hosted zone associated with the namespace, and the consumer's
@@ -55,7 +56,6 @@ Service Connect:
   ```
   aws route53 create-vpc-association-authorization --hosted-zone-id `Z1234567890ABC` --vpc VPCRegion=`us-east-1`,VPCId=`vpc-12345678`
   ```
-
   - The namespace consumer will need to call
     `associate-vpc-with-hosted-zone` with the ID of the
     private hosted zone.

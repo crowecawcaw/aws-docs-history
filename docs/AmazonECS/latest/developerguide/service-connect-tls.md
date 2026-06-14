@@ -36,6 +36,7 @@ Configure the Application Load Balancer with the following settings:
 - Configure a TLS listener with a TLS 1.3 security policy (such as
   `ELBSecurityPolicy-TLS13-1-2-2021-06`). For more information, see [Security policies for your Application Load Balancer](../../../elasticloadbalancing/latest/application/describe-ssl-policies.md "../../../elasticloadbalancing/latest/application/describe-ssl-policies.md").
 - Create a target group with the following settings:
+
   - Set the protocol to HTTPS
   - Attach the target group to the TLS listener
   - Configure the health check port to match your Service Connect
@@ -50,6 +51,7 @@ Configure a service with the following settings:
 - Enable Service Connect for the service.
 - Set up the load balancer configuration with the following
   settings:
+
   - Specify the target group you configured for your Application Load Balancer
   - Set the container port to match the Service Connect TLS
     service's container port

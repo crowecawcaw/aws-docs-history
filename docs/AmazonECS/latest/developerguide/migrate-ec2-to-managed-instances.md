@@ -33,6 +33,7 @@ Configure maintenance windows using Amazon EC2 event windows to control when Ama
 Before migrating to Amazon ECS Managed Instances, ensure you have:
 
 - You have the required IAM roles for Amazon ECS Managed Instances. This includes:
+
   - **Infrastructure role** - Allows Amazon ECS to make
     calls to AWS services on your behalf to manage Amazon ECS Managed Instances
     infrastructure.

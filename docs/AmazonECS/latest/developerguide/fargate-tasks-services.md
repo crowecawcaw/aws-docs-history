@@ -267,6 +267,7 @@ task, consider the following:
 - Tasks that run on X86_64 or ARM64 CPU architecture are supported.
 - Container images in the task definition must be stored in a
   compatible image registry. The following lists the compatible registries:
+
   - Amazon ECR private registries.
 
 - Only container images that use gzip compression, or are not

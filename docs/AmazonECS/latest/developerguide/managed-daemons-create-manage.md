@@ -32,6 +32,7 @@ Before you create a daemon, verify that you have the following:
    Amazon ECS Managed Instances capacity providers. These determine which instances run
    your daemon tasks.
 7. (Optional) Configure deployment settings:
+
    - **Drain percentage** - Percentage of
      instances to drain simultaneously during updates. Default:
      `25`.

@@ -10,6 +10,7 @@ You must create new lifecycle hooks for your Amazon ECS blue/green deployment.
 Perform the following operations before you start a blue/green deployment.
 
 1.  Replace the Amazon ECS CodeDeploy IAM role with the following permissions.
+
     - For information about Elastic Load Balancing permissions, see [Amazon ECS infrastructure IAM role for load balancers](AmazonECSInfrastructureRolePolicyForLoadBalancers.md "AmazonECSInfrastructureRolePolicyForLoadBalancers.md").
     - For information about Lambda permissions, see [Permissions required for Lambda functions in Amazon ECS blue/green deployments](blue-green-permissions.md "blue-green-permissions.md").
 
@@ -18,6 +19,7 @@ Perform the following operations before you start a blue/green deployment.
     Guide_.
 3.  Make sure that you have the following information from your CodeDeploy blue/green
     deployment. You can reuse this information for the Amazon ECS blue/green deployment:
+
     - The production target group
     - The production listener
     - The production rule
@@ -36,6 +38,7 @@ Perform the following operations before you start a blue/green deployment.
     information, see [View service history using Amazon ECS service deployments](service-deployment.md "service-deployment.md").
 6.  Amazon ECS blue/green deployments require your service to use one of the
     following features: Configure the appropriate resources.
+
     - Application Load Balancer - For more information, see [Application Load Balancer resources for blue/green, linear, and canary deployments](alb-resources-for-blue-green.md "alb-resources-for-blue-green.md").
     - Network Load Balancer - For more information, see [Network Load Balancer resources for Amazon ECS blue/green, linear and canary deployments](nlb-resources-for-blue-green.md "nlb-resources-for-blue-green.md").
     - Service Connect - For more information, see [Service Connect resources for Amazon ECS blue/green, linear, and canary deployments](service-connect-blue-green.md "service-connect-blue-green.md").
@@ -99,6 +102,7 @@ parameters.
 
 6. Expand **Load Balancing**, and the configure the
    following:
+
    1. For **Role**, choose the role that you created in the
       prerequisites with the blue/green permissions.
 
@@ -116,6 +120,7 @@ parameters.
 - Update the service to start the deployment. For more information, see [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md").
 - Monitor the deployment process to ensure it follows the blue/green
   pattern:
+
   - The green service revision is created and scaled up
   - Test traffic is routed to the green revision (if configured)
   - Production traffic is shifted to the green revision

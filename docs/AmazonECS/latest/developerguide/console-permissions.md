@@ -27,6 +27,7 @@ The following additional permissions are required:
 
 - `iam`– Allows principals to create and list IAM roles and
   their attached policies.
+
   - iam:AttachRolePolicy
   - iam:CreateRole
   - am:CreateInstanceProfile
@@ -81,6 +82,7 @@ The following additional permissions are required:
 
 - `iam`– Allows principals to create and list IAM roles and
   their attached policies.
+
   - iam:AttachRolePolicy
   - iam:CreateRole
   - iam:GetRole

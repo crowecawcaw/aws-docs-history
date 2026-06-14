@@ -37,6 +37,7 @@ Amazon ECS complete the following tasks:
 - Amazon ECS can describe and delete launch template versions.
 - Amazon ECS can terminate instances.
 - Amazon ECS can describe the following instance data parameters:
+
   - Instance
   - Instance network interfaces: Amazon ECS can describe the the to manage the EC2
     instance lifecycle.

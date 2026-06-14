@@ -82,6 +82,7 @@ aws ec2 create-instance-event-window \
 ```
 
 - You can then associate the event window with specific services, clusters or all tasks in your account using EC2 `associate-instance-event-window` API.
+
   - For ECS service tasks
 
   ```
@@ -90,7 +91,6 @@ aws ec2 create-instance-event-window \
   --association-target "InstanceTags=[{Key=aws:ecs:serviceArn,Value=`your-service-arn`}]"
 
   ```
-
   - For ECS clusters
 
   ```
@@ -99,7 +99,6 @@ aws ec2 create-instance-event-window \
   --association-target "InstanceTags=[{Key=aws:ecs:clusterArn,Value=`your-cluster-arn`}]"
 
   ```
-
   - To associate an event window with all tasks in the account
 
   ```

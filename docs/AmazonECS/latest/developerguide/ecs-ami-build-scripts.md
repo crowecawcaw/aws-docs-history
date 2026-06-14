@@ -35,48 +35,42 @@ export REGION=`us-west-2`
 3. A Makefile is provided to build the AMI. From the root directory of the
    cloned repository, use one of the following commands, corresponding to the Linux
    variant of the Amazon ECS-optimized AMI you want to build.
+
    - Amazon ECS-optimized Amazon Linux 2 AMI
 
    ```
    make al2
    ```
-
    - Amazon ECS-optimized Amazon Linux 2 (arm64) AMI
 
    ```
    make al2arm
    ```
-
    - Amazon ECS GPU-optimized AMI
 
    ```
    make al2gpu
    ```
-
    - Amazon ECS optimized Amazon Linux 2 (Neuron) AMI
 
    ```
    make al2inf
    ```
-
    - Amazon ECS-optimized Amazon Linux 2023 AMI
 
    ```
    make al2023
    ```
-
    - Amazon ECS-optimized Amazon Linux 2023 (arm64) AMI
 
    ```
    make al2023arm
    ```
-
    - Amazon ECS-optimized Amazon Linux 2023 GPU AMI
 
    ```
    make al2023gpu
    ```
-
    - Amazon ECS optimized Amazon Linux 2023 (Neuron) AMI
 
    ```

@@ -91,6 +91,7 @@ options.
 11. To configure how Amazon ECS detects and handles deployment failures, expand
     **Deployment failure detection**, and then choose
     your options.
+
     1.  To stop a deployment when the tasks cannot start, select **Use the Amazon ECS
         deployment circuit breaker**.
 
@@ -108,6 +109,7 @@ options.
 
 12. To change the compute options, expand **Compute
     configuration**, and then do the following:
+
     1.  For services on AWS Fargate, for **Platform
         version**, choose the new version.
     2.  For services that use a capacity provider strategy, for
@@ -129,6 +131,7 @@ options.
 
 13. (Optional) To configure service Auto Scaling, expand **Service auto
     scaling**, and then specify the following parameters.To use predicte auto scaling, which looks at past load data from traffic flows, configure it after you create the service. For more information, see [Use historical patterns to scale Amazon ECS services with predictive scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
+
     1.  To use service auto scaling, select **Service auto
         scaling**.
     2.  For **Minimum number of tasks**, enter the lower limit of
@@ -146,8 +149,10 @@ options.
 14. (Optional) To use Service Connect, select **Turn on
     Service Connect**, and then specify the
     following:
+
     1.  Under **Service Connect configuration**,
         specify the client mode.
+
         - If your service runs a network client application
           that only needs to connect to other services in the
           namespace, choose **Client side
@@ -193,8 +198,8 @@ options.
          container logs to an Amazon S3 bucket. The default log driver options
          are provided, but you must specify a valid Amazon S3 bucket
          name.
-
     4.  To enable access logs, follow these steps:
+
         1. Expand **Access log configuration**. For **Format**, choose either **JSON** or `TEXT`.
         2. To include query parameters in access logs, select **Include query parameters**.###### Note
 
@@ -217,8 +222,10 @@ revision.
 16. (Optional) To help identify your service, expand the
     **Tags** section, and then configure your
     tags.
+
     - [Add a tag] Choose **Add tag**, and do
       the following:
+
       - For **Key**, enter the key
         name.
       - For **Value**, enter the key

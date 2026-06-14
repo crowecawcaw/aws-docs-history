@@ -46,6 +46,7 @@ If you need an immediate workaround:
 Implement these practices to prevent future class loading issues:
 
 1. **Make class loading deterministic:**
+
    - Use explicit dependency declarations in your build files
    - Avoid relying on classpath scanning order
    - Use dependency management tools to resolve version conflicts
@@ -54,16 +55,19 @@ Implement these practices to prevent future class loading issues:
      loaded by JVM.
 
 2. **Spring Boot applications:**
+
    - Use `@ComponentScan` with explicit base packages
    - Avoid auto-configuration conflicts by explicitly configuring beans
    - Use `@DependsOn` annotations to control bean initialization order
 
 3. **Build configuration:**
+
    - Use dependency management sections in Maven or Gradle
    - Exclude transitive dependencies that cause conflicts
    - Use tools like Maven Enforcer Plugin to detect dependency issues
 
 4. **Testing:**
+
    - Test your application with different JVM implementations
    - Run integration tests that simulate different deployment environments
    - Use tools to analyze classpath conflicts during development

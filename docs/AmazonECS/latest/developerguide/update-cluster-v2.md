@@ -29,6 +29,7 @@ resolve them quickly. For more information, see [Monitor Amazon ECS containers u
    **Update cluster**.
 5. To set the default capacity provider, under **Default capacity provider
    strategy**, choose **Add more**.
+
    1. For **Capacity provider**, choose the capacity
       provider.
    2. (Optional) For **Base**, enter the minimum number of

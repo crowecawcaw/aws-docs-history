@@ -34,13 +34,16 @@ To resolve throttling, you can:
 Common causes of task failures that trigger throttling include:
 
 - Insufficient cluster resources (ports, memory, or CPU)
+
   - Indicated by an [insufficient resource service event message](service-event-messages-list.md#service-event-messages-1 "service-event-messages-list.md#service-event-messages-1")
 
 - Container image pull failures
+
   - Can be caused by invalid image names, tags, or insufficient permissions
   - Results in `CannotPullContainerError` in [Viewing Amazon ECS stopped task errors](stopped-task-errors.md "stopped-task-errors.md")
 
 - Insufficient disk space
+
   - Results in `CannotCreateContainerError` in [stopped task errors](stopped-task-errors.md "stopped-task-errors.md")
   - For resolution steps, see [Troubleshoot the Docker API error (500): devmapper in Amazon ECS](CannotCreateContainerError.md "CannotCreateContainerError.md")
 

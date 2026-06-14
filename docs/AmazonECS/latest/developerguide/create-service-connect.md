@@ -168,6 +168,7 @@ create:
 
 1. Register a task definition that's compatible with Fargate and uses the
    `awsvpc` network mode. Follow these steps:
+
    1. Create a file that's named `service-connect-nginx.json` with the contents
       of the following task definition.
 
@@ -228,7 +229,6 @@ create:
    }
 
    ```
-
    2. Register the task definition using the `service-connect-nginx.json`
       file:
 
@@ -237,6 +237,7 @@ create:
    ```
 
 2. Create a service:
+
    1. Create a file that's named `service-connect-nginx-service.json` with the
       contents of the Amazon ECS service that you're creating. This example uses the task
       definition that was created in the previous step. An `awsvpcConfiguration`
@@ -332,7 +333,6 @@ create:
    }
 
    ```
-
    2. Create a service using the
       `service-connect-nginx-service.json` file:
 

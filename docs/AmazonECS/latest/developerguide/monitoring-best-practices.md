@@ -5,6 +5,7 @@ Use the following best practices for monitoring Amazon ECS.
 - Make monitoring a priority to head off small problems before they become big ones
 - Create a monitoring plan that includes
   answers to the following question
+
   - What are your monitoring goals?
   - What resources will you monitor?
   - How often will you monitor these resources?

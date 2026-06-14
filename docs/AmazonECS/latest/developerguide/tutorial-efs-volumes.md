@@ -23,6 +23,7 @@ Before you begin, assign the appropriate IAM permission. For more information, s
 6. (Optional) To change the VPC and subnets where your tasks and services launch,
    under **Networking**, perform any of the following
    operations:
+
    - To remove a subnet, under **Subnets**, choose
      **X** for each subnet that you want to
      remove.
@@ -35,9 +36,11 @@ Before you begin, assign the appropriate IAM permission. For more information, s
    **Infrastructure**, and then select **Amazon EC2
    instances**. Next, configure the Auto Scaling group which acts as the
    capacity provider:
+
    1. To create a Auto Scaling group, from **Auto Scaling group
       (ASG)**, select **Create new group**, and
       then provide the following details about the group:
+
       - For **Operating system/Architecture**, choose
         Amazon Linux 2.
       - For **EC2 instance type**, choose
@@ -63,6 +66,7 @@ Create a security group for your Amazon EC2 instances with the following options
 - **VPC** - the VPC that you identified earlier for your
   cluster.
 - **Inbound rule**
+
   - **Type** - **HTTP**
   - **Source** - **0.0.0.0/0**.
 
@@ -74,6 +78,7 @@ Create a security group for your Amazon EFS file system with the following optio
 - **VPC** - the VPC that you identified earlier for your
   cluster.
 - **Inbound rule**
+
   - **Type** - **NFS**
   - **Source** - **Custom** with the ID
     of the security group you created for your instances.

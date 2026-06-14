@@ -42,6 +42,7 @@ You can use dual-stack service endpoints to interact with Amazon ECS from the AW
 
 - You set up an Active Directory domain with the resources that you want your containers
   to access. Amazon ECS supports the following setups:
+
   - An Directory Service Active Directory. Directory Service is an AWS managed Active Directory that's
     hosted on Amazon EC2. For more information, see [Getting Started
     with AWS Managed Microsoft AD](../../../directoryservice/latest/admin-guide/ms_ad_getting_started.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started.md") in the
@@ -689,6 +690,7 @@ PowerShell. You must modify the command to use it with PowerShell.
 5. Deregister and delete the task definition. By deregistering the task definition, you
    mark it as inactive so it can't be used to start new tasks. Then, you can delete the task
    definition.
+
    1. Deregister the task definition by specifying the version. ECS automatically makes
       versions of task definitions, that are numbered starting from 1. You refer to the
       versions in the same format as the labels on container images, such as
@@ -697,7 +699,6 @@ PowerShell. You must modify the command to use it with PowerShell.
    ```
    `$` `aws ecs deregister-task-definition --task-definition `windows-gmsa-domainless-task:1``
    ```
-
    2. Delete the task definition.
 
    ```

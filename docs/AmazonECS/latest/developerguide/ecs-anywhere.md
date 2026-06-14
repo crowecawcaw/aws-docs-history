@@ -57,6 +57,7 @@ considerations.
 - ECS Exec is supported on external instances. For more information, see [Monitor Amazon ECS containers with ECS Exec](ecs-exec.md "ecs-exec.md").
 - The following are additional considerations that are specific to networking
   with your external instances. For more information, see [Networking](#ecs-anywhere-networking "#ecs-anywhere-networking").
+
   - Service load balancing isn't supported.
   - Service discovery isn't supported.
   - Tasks that run on external instances must use the `bridge`,

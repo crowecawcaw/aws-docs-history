@@ -35,6 +35,7 @@ Complete the following before you start the tutorial:
   the _AWS Command Line Interface User Guide_.
 - The steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") have been completed.
 - You have the required IAM roles for Amazon ECS Managed Instances. This includes:
+
   - Infrastructure role - Allows Amazon ECS to make calls
     to AWS services on your behalf to manage Amazon ECS Managed Instances infrastructure.
 

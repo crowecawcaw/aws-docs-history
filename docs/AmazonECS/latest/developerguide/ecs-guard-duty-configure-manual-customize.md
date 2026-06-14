@@ -15,6 +15,7 @@ Perform the following operations to add Runtime Monitoring to a cluster.
 1. Create a VPC endpoint for GuardDuty for each cluster VPC. For more information,
    see [Creating Amazon VPC endpoint manually](../../../guardduty/latest/ug/managing-gdu-agent-ec2-manually.md#creating-vpc-endpoint-ec2-agent-manually "../../../guardduty/latest/ug/managing-gdu-agent-ec2-manually.md#creating-vpc-endpoint-ec2-agent-manually") in the _GuardDuty User Guide_.
 2. Configure the EC2 container instances.
+
    1. Update the Amazon ECS agent to version `1.77` or later on the EC2 container instances in the cluster.
       For more information see [Updating the Amazon ECS container agent](ecs-agent-update.md "ecs-agent-update.md").
    2. Install the GuardDuty security agent on the EC2 container instances in the

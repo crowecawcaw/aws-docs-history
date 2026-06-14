@@ -32,7 +32,7 @@ You are responsible for managing the following resources:
   no task isolation on Amazon ECS Managed Instances. Containers can potentially access
   credentials, environment variables, and temporary files from other tasks on the
   same instance, including data left behind by previously running tasks.
-- Privileged container configurations and enhanced Linux capabilities (CAP_NET_ADMIN, CAP_BPF, etc.) when enabled
+- Privileged container configurations and enhanced Linux capabilities (CAP_NET_ADMIN, CAP_BPF, CAP_PERFMON, etc.) when enabled
 - Management operations through Amazon ECS API (direct instance access via SSH or SSM is not available)
 
 For information about AWS and customer responsibilities for Amazon ECS Managed Instances

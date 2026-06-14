@@ -62,6 +62,7 @@ considerations:
   interface VPC endpoints for Amazon ECS, but you might need interface VPC
   endpoints for Amazon ECR, Secrets Manager, or Amazon CloudWatch Logs described in the following
   points.
+
   - To allow your tasks to pull private images from Amazon ECR, you must
     create the interface VPC endpoints for Amazon ECR. For more information,
     see [Interface VPC
@@ -80,7 +81,6 @@ considerations:
        more information, see [Getting started with making requests over
        IPv6](../../../AmazonECR/latest/userguide/ecr-requests.md#ipv6-access-getting-started "../../../AmazonECR/latest/userguide/ecr-requests.md#ipv6-access-getting-started") in the
        *Amazon Elastic Container Registry User Guide*.
-
   - To allow your tasks to pull sensitive data from Secrets Manager, you must
     create the interface VPC endpoints for Secrets Manager. For more information,
     see [Using Secrets Manager with VPC Endpoints](../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md "../../../secretsmanager/latest/userguide/vpc-endpoint-overview.md") in the

@@ -85,6 +85,7 @@ policies.
    information, see [Get started
    with Secrets Manager](../../../secretsmanager/latest/userguide/intro.md#get-started "../../../secretsmanager/latest/userguide/intro.md#get-started") in the AWS _Secrets Manager
    User Guide_.
+
    1. Open the [Secrets Manager
       console](https://console.aws.amazon.com//secretsmanager/ "https://console.aws.amazon.com//secretsmanager/").
    2. Click **Store a new secret**.
@@ -225,9 +226,11 @@ instance while the FSx for Windows File Server file system is being created.
    name**, enter **windows-fsx-cluster**.
 6. Expand **Infrastructure**, clear AWS Fargate (serverless)
    and then select **Amazon EC2 instances**.
+
    1. To create a Auto Scaling group, from **Auto Scaling group
       (ASG)**, select **Create new group**, and
       then provide the following details about the group:
+
       - For **Operating system/Architecture**, choose
         **Windows Server 2019 Core**.
       - For **EC2 instance type**, choose t2.medium
@@ -245,6 +248,7 @@ Create an Amazon ECS Windows container instance.
    for the Region that hosts your VPC. For more information, see
    [Retrieving Amazon ECS-Optimized AMI metadata](retrieve-ecs-optimized_windows_AMI.md "retrieve-ecs-optimized_windows_AMI.md").
 2. Use the Amazon EC2 console to launch the instance.
+
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. From the navigation bar, select the Region to
@@ -286,7 +290,6 @@ Create an Amazon ECS Windows container instance.
    Initialize-ECSAgent -Cluster `windows-fsx-cluster` -EnableTaskIAMRole
    </powershell>
    ```
-
    14. When you are ready, select the acknowledgment field, and then choose
        **Launch Instances**.
    15. A confirmation page lets you know that your instance is launching.

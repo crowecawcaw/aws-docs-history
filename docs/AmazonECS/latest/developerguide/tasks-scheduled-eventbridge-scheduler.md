@@ -35,6 +35,7 @@ Complete the following steps before you schedule a task:
 1. Open the Amazon EventBridge Scheduler console at [https://console.aws.amazon.com/scheduler/home](https://console.aws.amazon.com/scheduler/home/ "https://console.aws.amazon.com/scheduler/home/").
 2. On the **Schedules** page, choose **Create schedule**.
 3. On the **Specify schedule detail** page, in the **Schedule name and description** section, do the following:
+
    1. For **Schedule name**, enter a name for your
       schedule. For example, `MyTestSchedule`.
    2. (Optional) For **Description**, enter a
@@ -54,6 +55,7 @@ Complete the following steps before you schedule a task:
 
 5.  (Optional) If you chose **Recurring schedule** in the previous step,
     in the **Timeframe** section, do the following:
+
     1. For **Timezone**,
        choose a timezone.
     2. For **Start date and time**, enter a valid date in
@@ -65,6 +67,7 @@ Complete the following steps before you schedule a task:
 
 6.  Choose **Next**.
 7.  On the **Select target** page, do the following:
+
     1. Choose **All APIs**, and then in the search box
        enter **ECS**.
     2. Select **Amazon ECS**.
@@ -92,6 +95,7 @@ Complete the following steps before you schedule a task:
 
 8.  Choose **Next**.
 9.  On the **Settings** page, do the following:
+
     1.  To turn on the schedule, under **Schedule
         state**, toggle **Enable schedule**.
     2.  To configure a retry policy for your schedule, under

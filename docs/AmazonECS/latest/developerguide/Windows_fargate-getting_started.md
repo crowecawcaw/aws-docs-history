@@ -125,6 +125,7 @@ one task in your cluster.
    **Create**.
 3. Under **Deployment configuration**, specify how your
    application is deployed.
+
    1. For **Task definition**, choose the task definition
       you created in [Step 2: Register a Windows task definition](#register_fargate_windows_task_def_console "#register_fargate_windows_task_def_console").
    2. For **Service name**, enter a name for your

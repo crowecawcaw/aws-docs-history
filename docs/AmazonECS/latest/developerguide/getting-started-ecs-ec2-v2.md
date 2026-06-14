@@ -71,11 +71,13 @@ operations:
    **Infrastructure**, and then select **Amazon EC2
    instances**. Next, configure the Auto Scaling group which acts as the capacity
    provider:
+
    1. To using an existing Auto Scaling group, from **Auto Scaling group
       (ASG)**, select the group.
    2. To create a Auto Scaling group, from **Auto Scaling group
       (ASG)**, select **Create new group**, and then
       provide the following details about the group:
+
       - For **Operating system/Architecture**, choose the
         Amazon ECS-optimized AMI for the Auto Scaling group instances.
       - For **EC2 instance type**, choose the instance
@@ -164,12 +166,14 @@ service. For more information on services, see [Amazon ECS services](ecs_service
 3. On the **Services** tab, choose
    **Create**.
 4. In the **Environment** section, do the following:
+
    1. For **Compute options**, choose Launch type.
    2. For **Launch type**, select
       **EC2**
 
 5. In the **Deployment configuration** section, do the
    following:
+
    1. For **Family**, choose the task definition you
       created in [Step 2: Register a task definition](#getting-started-ec2-task-def-v2 "#getting-started-ec2-task-def-v2").
    2. For **Service name**, enter a name for your

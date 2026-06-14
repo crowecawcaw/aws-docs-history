@@ -52,6 +52,7 @@ The canary traffic shift phase follows these steps:
 
 - Initial - The deployment begins with 100% of traffic routed to the blue (current) service revision. The green (new) service revision receives test traffic but no production traffic initially.
 - Canary traffic shifting - This is a two step traffic shift strategy.
+
   - Step 1: 10.0% to green, 90.0% to blue
   - Step 2: 100.0% to green, 0.0% to blue
 

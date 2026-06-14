@@ -29,6 +29,7 @@ The following is an overview of the Availability Zone rebalancing process:
    the number of tasks running in each Availability Zone.
 2. Amazon ECS performs the following operations when it detects an imbalance in the number
    of tasks running in each Availability Zone:
+
    - Sends a service event indicating that Availability Zone rebalancing is
      starting.
    - Starts tasks in Availability Zones with the fewest number of running
@@ -79,12 +80,14 @@ Consider the following when you want to configure Availability Zone rebalancing:
   as part of the rebalancing process, limiting the rebalancing to existing container
   instances.
 - Availability Zone rebalancing works in the following configurations:
+
   - Services that use the `Replica` strategy
   - Services that specify Availability Zone spread as the first task placement
     strategy, or do not specify a placement strategy.
 
 - You can't use Availability Zone rebalancing with services that meet any of the following
   criteria:
+
   - Uses the `Daemon` strategy
   - Uses the `EXTERNAL` launch type (ECS Anywhere)
   - Uses 100% for the `maximumPercent` value

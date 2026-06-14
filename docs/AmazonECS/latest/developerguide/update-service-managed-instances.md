@@ -20,6 +20,7 @@ Console
 4. Select **Force new deployment**.
 5. Under **Compute configuration**, choose the Capacity
    provider strategy. Then, choose one of the following:
+
    - When your Amazon ECS Managed Instances capacity provider is the
      default capacity provider, choose **Use cluster
      default**.

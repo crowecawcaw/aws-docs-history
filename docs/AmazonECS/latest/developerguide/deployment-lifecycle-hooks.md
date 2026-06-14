@@ -47,6 +47,7 @@ Lifecycle stages fall into two categories:
 
 1. **Single invocation stages** - Amazon ECS invokes these
    stages only once during a service deployment:
+
    - `RECONCILE_SERVICE`
    - `PRE_SCALE_UP`
    - `POST_SCALE_UP`
@@ -57,6 +58,7 @@ Lifecycle stages fall into two categories:
 2. **Recurring invocation stages** - Amazon ECS can invoke
    these stages multiple times during a service deployment. For linear and canary
    deployments, these stages are invoked at each traffic shift step:
+
    - `PRE_PRODUCTION_TRAFFIC_SHIFT`
    - `PRODUCTION_TRAFFIC_SHIFT`
 

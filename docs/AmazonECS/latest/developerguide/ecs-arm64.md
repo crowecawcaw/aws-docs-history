@@ -20,6 +20,7 @@ consider the following:
   monitoring.
 - For the Fargate, the following AWS Regions do not support
   64-bit ARM workloads:
+
   - US East (N. Virginia), the `use1-az3` Availability Zone
 
 - For the EC2, see the following to verify that the Region that

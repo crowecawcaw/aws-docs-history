@@ -8,6 +8,7 @@ maintain your desired number of tasks in the service.
 Decide on the following configuration parameters before you create a service:
 
 - There are two compute options that distribute your tasks.
+
   - A **capacity provider strategy** causes Amazon ECS to
     distribute your tasks in one or across multiple capacity providers.
 
@@ -33,6 +34,7 @@ for your service. For more information, see [Balancing an Amazon ECS service acr
 - For the **capacity provider strategy**, the console selects a
   compute option by default. The following describes the order that the console uses
   to select a default:
+
   - If your cluster has a default capacity provider strategy defined, it is
     selected.
   - If your cluster doesn't have a default capacity provider strategy defined
@@ -98,6 +100,7 @@ The **Create service** page appears. 5. Under **Service details**, do the follow
 
 6. To use ECS Exec to debug the service, under **Troubleshooting configuration**, select **Turn on ECS Exec**.
 7. Under **Deployment configuration**, do the following:
+
    1. For **Desired tasks**, enter the number of tasks to
       launch and maintain in the service.
 
@@ -162,8 +165,10 @@ Under **Compute configuration**, choose your option.
 
 6.  To use ECS Exec to debug the service, under **Troubleshooting configuration**, select **Turn on ECS Exec**.
 7.  Under **Deployment configuration**, do the following:
+
     1. For **Service type**, choose the service scheduling
        strategy.
+
        - To have the scheduler deploy exactly one task on each active
          container instance that meets all of the task placement
          constraints, choose **Daemon**.
@@ -194,6 +199,7 @@ Under **Compute configuration**, choose your option.
     6. To configure how Amazon ECS detects and handles deployment failures, expand
        **Deployment failure detection**, and then choose
        your options.
+
        1. To stop a deployment when the tasks cannot start, select **Use the Amazon ECS
           deployment circuit breaker**.
 
@@ -212,6 +218,7 @@ Under **Compute configuration**, choose your option.
 8.  If your task definition uses the `awsvpc` network mode, you can
     specify a custom network configuration expand **Networking**,
     and then do the following:
+
     1. For **VPC**, select the VPC to use.
     2. For **Subnets**, select one or more subnets in the
        VPC that the task scheduler considers when placing your tasks.
@@ -235,9 +242,11 @@ Under **Compute configuration**, choose your option.
 9.  (Optional) To interconnect your service using Service Connect, expand
     **Service Connect**, and then specify the
     following:
+
     1. Select **Turn on Service Connect**.
     2. Under **Service Connect configuration**, specify the
        client mode.
+
        - If your service runs a network client application that only
          needs to connect to other services in the namespace, choose
          **Client side only**.
@@ -281,13 +290,14 @@ Under **Compute configuration**, choose your option.
          container logs to an Amazon S3 bucket. The default log driver options
          are provided, but you must specify a valid Amazon S3 bucket
          name.
-
     5. (Optional) To enable access logs, follow these steps:
+
        1. Expand **Access log configuration**. For **Format**, choose either **JSON** or `TEXT`.
        2. To include query parameters in access logs, select **Include query parameters**.
 
 10. (Optional) To interconnect your service using Service Discovery, expand
     **Service discovery**, and then do the following.
+
     1.  Select **Use service discovery**.
     2.  To use a new namespace, choose **Create a new
         namespace** under **Configure namespace**,
@@ -323,6 +333,7 @@ Under **Compute configuration**, choose your option.
 
 11. (Optional) To interconnect your service using VPC Lattice, xxpand
     **VPC Lattice**, and then do the following:
+
     1. Select **Turn on VPC Lattice**
     2. For **Infrastructure role**, choose the
        infrastructure role.
@@ -344,7 +355,6 @@ Under **Compute configuration**, choose your option.
          using the AWS CLI, see [register-targets](../../../cli/latest/reference/vpc-lattice/register-targets.md "../../../cli/latest/reference/vpc-lattice/register-targets.md")  in the *AWS Command Line Interface Reference*.
         * While a VPC Lattice service can have multiple target groups,
          each target group can only be added to one service.
-
     4. To complete the VPC Lattice configuration, by including your new target
        groups in the listener default action or in the rules of an existing
        VPC Lattice service in the VPC Lattice console. For more information, see
@@ -363,6 +373,7 @@ Choose the load balancer.
 
 13. (Optional) To configure service Auto Scaling, expand **Service auto
     scaling**, and then specify the following parameters.To use predicte auto scaling, which looks at past load data from traffic flows, configure it after you create the service. For more information, see [Use historical patterns to scale Amazon ECS services with predictive scaling](predictive-auto-scaling.md "predictive-auto-scaling.md").
+
     1.  To use service auto scaling, select **Service auto
         scaling**.
     2.  For **Minimum number of tasks**, enter the lower limit of

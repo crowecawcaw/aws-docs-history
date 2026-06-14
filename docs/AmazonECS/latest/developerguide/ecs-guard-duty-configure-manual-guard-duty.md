@@ -8,6 +8,7 @@ The following are prerequisites for using Runtime Monitoring:
 - The Fargate platform version must be `1.4.0` or later for
   Linux.
 - IAM roles and permissions for Amazon ECS:
+
   - Fargate tasks must use a task execution role. This role grants the tasks
     permission to retrieve, update, and manage the GuardDuty security agent on your
     behalf. For more information see [Amazon ECS task execution IAM role](task_execution_IAM_role.md "task_execution_IAM_role.md").

@@ -21,6 +21,7 @@ Before you start using ECS Exec, make sure that you have completed these actions
 - **Verify version requirements**. ECS Exec has
   version requirements depending on whether your tasks are hosted on Amazon EC2 or
   AWS Fargate:
+
   - If you're using Amazon EC2, you must use an Amazon ECS optimized AMI that was
     released after January 20th, 2021, with an agent version of
     1.50.2 or greater. For more information, see

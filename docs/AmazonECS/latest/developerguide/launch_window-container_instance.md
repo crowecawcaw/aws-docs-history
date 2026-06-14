@@ -54,6 +54,7 @@ published by AWS.
 1. Based on your requirements, enter one of the following AMIs in the
    **Search** bar and press
    **Enter**.
+
    - Windows_Server-2022-English-Full-ECS_Optimized
    - Windows_Server-2022-English-Core-ECS_Optimized
    - Windows_Server-2019-English-Full-ECS_Optimized
@@ -138,6 +139,7 @@ this guide.
   define firewall rules for your container instance. These rules specify which
   incoming network traffic is delivered to your container instance. All other
   traffic is ignored.
+
   - To select an existing security group, choose **Select
     existing security group**, and select the security
     group that you created in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md")
@@ -191,6 +193,7 @@ information, see [Amazon ECS container instance IAM role](instance_IAM_role.md "
   user data scripts are executed only one time, when the instance is first
   launched. The following are common examples of what user data is used
   for:
+
   - By default, your container instance launches into your default
     cluster. To launch into a non-default cluster, choose the
     **Advanced Details** list. Then, paste the

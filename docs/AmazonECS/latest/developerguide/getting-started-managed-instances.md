@@ -11,6 +11,7 @@ Complete the following before you start the tutorial:
   to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md").
 - The steps in [Set up to use Amazon ECS](get-set-up-for-amazon-ecs.md "get-set-up-for-amazon-ecs.md") have been completed.
 - You have the required IAM roles for Amazon ECS Managed Instances. This includes:
+
   - Infrastructure role - Allows Amazon ECS to make calls
     to AWS services on your behalf to manage Amazon ECS Managed Instances infrastructure.
 
@@ -45,12 +46,14 @@ For information about security groups and rules, see [Default security groups fo
 6. Under **Infrastructure**, choose **Fargate and Managed
    EC2**.
 7. Configure the Managed Instances settings:
+
    1. For **Infrastructure role**, select the IAM role you created for Managed Instances infrastructure management.
    2. For **Instance profile**, select the `ecsInstanceRole` you created.
    3. For **Instance attributes**, choose **Use ECS
       defaults**.
 
 8. Under **Networking**, configure the VPC and subnets for your Managed Instances:
+
    1. For **VPC**, select the VPC that hosts the Managed
       Instances.
    2. For **Subnets**, select one or more subnets where your Managed Instances will be launched.
@@ -117,6 +120,7 @@ An Amazon ECS service allows you to run and maintain a specified number of insta
 4. For **Service name**, enter `managed-instance-tutorial-service`.
 5. Under **Environment**, Choose **Capacity provider strategy**.
 6. Under **Networking**, configure the following:
+
    1. Choose an existing VPC or create a new one.
    2. For **Subnets**, choose the subnets to use.
    3. For **Security groups**, either choose an existing security group or create a new one that allows inbound traffic on port 80.

@@ -10,6 +10,7 @@ The following is the changelog for platform version `1.4.0`.
 - Beginning on November 5, 2020, any new Amazon ECS task launched on
   Fargate using platform version `1.4.0` will be able
   to use the following features:
+
   - When using Secrets Manager to store sensitive data, you can inject a
     specific JSON key or a specific version of a secret as an
     environment variable or in a log configuration. For more

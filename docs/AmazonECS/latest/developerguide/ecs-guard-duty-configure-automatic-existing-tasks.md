@@ -15,6 +15,7 @@ constraint, existing tasks are not affected.
 
 - To immediately protect a task, you need
   to perform one of the following actions:
+
   - For standalone tasks, stop the tasks, and then start them. For more information, see [Stopping an Amazon ECS task](standalone-task-stop.md "standalone-task-stop.md") and [Running an application as an Amazon ECS task](standalone-task-create.md "standalone-task-create.md")
   - For tasks that are part of a service, update the service with the
     "force new deployment" option. For more information, see [Updating an Amazon ECS service](update-service-console-v2.md "update-service-console-v2.md").

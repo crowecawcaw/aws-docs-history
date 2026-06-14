@@ -37,6 +37,7 @@ When using scaling policies, consider the following:
   cannot create CloudWatch alarms for metrics that do not exist.
 - The scaling policies support a cooldown period. This is the number of
   seconds to wait for a previous scaling activity to take effect.
+
   - For scale-out events, the intention is to continuously (but not
     excessively) scale out. After Service Auto Scaling successfully scales out
     using a scaling policy, it starts to calculate the cooldown time.

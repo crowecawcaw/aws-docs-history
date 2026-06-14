@@ -30,12 +30,12 @@ Consider the following when using Docker volumes:
   the container instance before the container agent is started. If the
   third-party driver isn't active before the agent is started, you can restart
   the container agent using one of the following commands:
+
   - For the Amazon ECS-optimized Amazon Linux 2 AMI:
 
   ```
   `sudo systemctl restart ecs`
   ```
-
   - For the Amazon ECS-optimized Amazon Linux AMI:
 
   ```

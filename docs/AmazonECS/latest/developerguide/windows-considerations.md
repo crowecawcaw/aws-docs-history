@@ -25,6 +25,7 @@ The following features are not supported on Windows containers on Fargate:
 - EFS volumes
 - EBS volumes
 - The following task definition parameters:
+
   - `maxSwap`
   - `swappiness`
   - `environmentFiles`

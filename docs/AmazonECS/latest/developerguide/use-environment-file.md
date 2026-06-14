@@ -69,6 +69,7 @@ ENVIRONMENT=PRODUCTION
   Moreover, any other environment files that are specified in the container
   definition is ignored.
 - The following rules apply to the Fargate:
+
   - The file is handled similar to a native Docker env-file.
   - Container definitions that reference environment variables that are blank
     and stored in Amazon S3 do not appear in the container.

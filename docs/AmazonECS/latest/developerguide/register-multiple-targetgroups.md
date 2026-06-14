@@ -38,6 +38,7 @@ service definition.
   service.
 - Specifying multiple target groups in a service definition is only
   supported under the following conditions:
+
   - The service must use either an Application Load Balancer or Network Load Balancer.
   - The service must use the (`ECS`) deployment controller type. This can be either the Amazon ECS native/blue green deployment, or the rolling update deployment.
 

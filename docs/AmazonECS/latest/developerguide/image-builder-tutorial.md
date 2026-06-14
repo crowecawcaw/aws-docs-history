@@ -21,6 +21,7 @@ We recommend that you use one of the following Amazon ECS-optimized AMIs as your
 in EC2 Image Builder:
 
 - Linux
+
   - Amazon ECS-optimized AL2023 x86
   - Amazon ECS-optimized Amazon Linux 2023 (arm64) AMI
   - Amazon ECS-optimized Amazon Linux 2 kernel 5 AMI

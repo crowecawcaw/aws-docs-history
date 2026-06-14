@@ -16,6 +16,7 @@ The following are common use cases for a task execution IAM role:
 
 - Your task is hosted on AWS Fargate, Amazon ECS Managed Instances, or an external
   instance and:
+
   - pulls a container image from an Amazon ECR private repository.
   - pulls a container image from an Amazon ECR private repository in a different
     account from the account that runs the task.
@@ -23,6 +24,7 @@ The following are common use cases for a task execution IAM role:
     For more information, see [Send Amazon ECS logs to CloudWatch](using_awslogs.md "using_awslogs.md").
 
 - Your tasks are hosted on either AWS Fargate or Amazon EC2 instances and:
+
   - uses private registry authentication. For more information, see [Private registry authentication permissions](#task-execution-private-auth "#task-execution-private-auth").
   - uses Runtime Monitoring.
   - the task definition references sensitive data using Secrets Manager secrets or AWS

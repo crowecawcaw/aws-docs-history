@@ -24,6 +24,7 @@ or changed using the AWS CLI.
 6. (Optional) To use, or stop using CloudWatch Container Insights by default for clusters, under
    **CloudWatch Container Insights observability**, choose one of the following
    options:
+
    - To use Container Insights with enhanced observability, choose
      **Container Insights with enhanced
      observability**.
@@ -38,6 +39,7 @@ or changed using the AWS CLI.
 8. (Optional) To configure a default log driver mode for when a log delivery
    mode isn't defined in a container's `logConfiguration`, under **Default log driver mode**, choose one of
    the following options:
+
    - To set the default log driver mode as `blocking`, choose
      **Blocking**.
    - To set the default log driver mode as `non-blocking`,

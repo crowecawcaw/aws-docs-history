@@ -65,11 +65,13 @@ The Amazon ECS MCP server exposes the following [MCP tools](https://modelcontext
 The tool checks your Amazon ECS deployment status for a particular Amazon ECS cluster and service.
 
 - Required IAM actions:
+
   - `ecs:DescribeServices`
   - `elasticloadbalancing:DescribeTargetGroups`
   - `elasticloadbalancing:DescribeLoadBalancers`
 
 - Required parameters:
+
   - `cluster_name` (string): Amazon ECS cluster name
   - `service_name` (string): Amazon ECS service name
 
@@ -80,13 +82,16 @@ The tool checks your Amazon ECS deployment status for a particular Amazon ECS cl
 This tool retrieves Amazon ECS service events for diagnostics with customizable time windows.
 
 - Required IAM actions:
+
   - `ecs:DescribeServices`
 
 - Required parameters:
+
   - `cluster_name` (string): Amazon ECS cluster name
   - `service_name` (string): Amazon ECS service name
 
 - Optional parameters:
+
   - `time_window` (integer): You can mention a time window in seconds (default is 1 hour or 3600 seconds)
   - `start_time` (string): Custom start time in ISO format
   - `end_time` (string): Custom end time in ISO format
@@ -98,13 +103,16 @@ This tool retrieves Amazon ECS service events for diagnostics with customizable 
 This tool helps you retrieve and analyze Amazon ECS task failures with summaries. Using this tool, you can identify any patterns in task failures.
 
 - Required IAM actions:
+
   - `ecs:ListTasks`
   - `ecs:DescribeTasks`
 
 - Required parameters:
+
   - `cluster_name` (string): Amazon ECS cluster name where your task resides
 
 - Optional parameters:
+
   - `service_name` (string): You can filter by specific service
   - `time_window` (integer): You can mention a time window in seconds (default is 1 hour or 3600 seconds)
   - `start_time` (string): Custom start time in ISO format
@@ -117,15 +125,18 @@ This tool helps you retrieve and analyze Amazon ECS task failures with summaries
 This tool retrieves CloudWatch logs for Amazon ECS tasks with flexible time range options. You use this tool to troubleshoot runtime issues.
 
 - Required IAM actions:
+
   - `ecs:DescribeServices`
   - `ecs:DescribeTaskDefinition`
   - `logs:FilterLogEvents`
 
 - Required parameters:
+
   - `cluster_name` (string): Amazon ECS cluster name
   - `service_name` (string): Amazon ECS service name
 
 - Optional parameters:
+
   - `time_window` (integer): You can mention a time window in seconds (default is 1 hour or 3600 seconds)
   - `start_time` (string): Custom start time in ISO format
   - `end_time` (string): Custom end time in ISO format
@@ -138,6 +149,7 @@ This tool retrieves CloudWatch logs for Amazon ECS tasks with flexible time rang
 This tool identifies dependencies that can prevent task definition deletion. The tool is appropriate when you are running cleanup operations and understand what is preventing Amazon ECS resource deletion.
 
 - Required IAM actions:
+
   - `ecs:ListClusters`
   - `ecs:ListServices`
   - `ecs:DescribeServices`
@@ -145,6 +157,7 @@ This tool identifies dependencies that can prevent task definition deletion. The
   - `ecs:DescribeTasks`
 
 - Required parameters:
+
   - `task_definition_arn` (string): Task definition Amazon Resource Name (ARN) to analyze
 
 - Response: The tool returns the blockers and deletion status
@@ -154,13 +167,16 @@ This tool identifies dependencies that can prevent task definition deletion. The
 This tool helps you to detect and categorize container image pull failures.
 
 - Required IAM actions:
+
   - `ecs:ListTasks`
   - `ecs:DescribeTasks`
 
 - Required parameters:
+
   - `cluster_name` (string): Amazon ECS cluster name
 
 - Optional parameters:
+
   - `service_name` (string): You can filter by specific service
   - `time_window` (integer): You can mention a time window in seconds (default is 1 hour or 3600 seconds)
   - `start_time` (string): Custom start time in ISO format
@@ -173,11 +189,13 @@ This tool helps you to detect and categorize container image pull failures.
 This tool retrieves Amazon ECS service network configuration details. You can use this tool to understand the Amazon VPC, subnet, security group configuration of your Amazon ECS setup.
 
 - Required IAM actions:
+
   - `ecs:DescribeServices`
   - `ec2:DescribeSecurityGroups`
   - `ec2:DescribeSubnets`
 
 - Required parameters:
+
   - `cluster_name` (string): Amazon ECS cluster name
   - `service_name` (string): Amazon ECS service name
 
@@ -188,6 +206,7 @@ This tool retrieves Amazon ECS service network configuration details. You can us
 This tool collects Amazon ECS cluster security configuration data for AI-powered security analysis. It gathers IAM roles and policies, network settings (security groups, subnets, public IP), task definition container settings, and cluster-level configuration. Your AI assistant compares this data against AWS security best practices and generates a prioritized findings report with remediation steps.
 
 - Required IAM actions:
+
   - `ecs:DescribeClusters`
   - `ecs:ListServices`
   - `ecs:DescribeServices`
@@ -202,9 +221,11 @@ This tool collects Amazon ECS cluster security configuration data for AI-powered
   - `iam:GetRolePolicy`
 
 - Required parameters:
+
   - `cluster_name` (string): Amazon ECS cluster name to analyze
 
 - Optional parameters:
+
   - `service_name` (string): Scope analysis to a single service. If omitted, all services in the cluster are analyzed.
   - `max_services` (integer): Maximum number of services to analyze (default 25, capped at 50)
 
@@ -220,9 +241,11 @@ This tool searches AWS documentation for relevant pages matching a query.
 
 - Required IAM actions: None
 - Required parameters:
+
   - `search_phrase` (string): Search query for AWS documentation
 
 - Optional parameters:
+
   - `topics` (array): Up to 3 topic areas to search across (default `["general"]`)
   - `limit` (integer): Maximum number of results per topic (default 5)
 
@@ -234,7 +257,9 @@ This tool reads the content of AWS documentation pages and returns them in markd
 
 - Required IAM actions: None
 - Required parameters:
+
   - `requests` (array): Array of request objects. Each object contains:
+
     - `url` (string, required): URL of the documentation page to read
     - `max_length` (integer, optional): Maximum characters to return (default 10000)
     - `start_index` (integer, optional): Character position to start reading from (default 0)
@@ -247,6 +272,7 @@ This tool returns related documentation pages for a given AWS documentation URL.
 
 - Required IAM actions: None
 - Required parameters:
+
   - `url` (string): An AWS documentation URL (must be a docs.aws.amazon.com page)
 
 - Response: The tool provides recommendations for related AWS documentation pages across four categories: popular, new, similar, and commonly read next.
