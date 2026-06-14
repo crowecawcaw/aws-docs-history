@@ -31,6 +31,7 @@ existing archive. This includes:
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. Navigate to the archive directly, or from the source event bus:
+
    - In the navigation pane, choose **Event buses**.
 
    On the events bus details page, choose the **Archives**

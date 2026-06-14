@@ -58,6 +58,7 @@ Process](../../../general/latest/gr/signature-version-4.md "../../../general/lat
   person. Using an IAM role, you can obtain temporary access keys to access
   AWS services and resources. IAM roles with temporary credentials are useful
   in the following situations:
+
   - **Federated user access** – Instead
     of creating a user, you can use identities from Directory Service, your
     enterprise user directory, or a web identity provider (IdP). These are

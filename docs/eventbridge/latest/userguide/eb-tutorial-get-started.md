@@ -127,6 +127,7 @@ sam deploy --guided
 ```
 
 6. In the terminal, do the following:
+
    1. For `**Stack Name**`, enter a name for the stack. For example, name
       the stack `Test`.
    2. For `**AWS Region**`, enter the Region. For example,

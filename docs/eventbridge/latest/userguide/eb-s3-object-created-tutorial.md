@@ -74,6 +74,7 @@ Create a rule to send events to your topic when an Amazon S3 object is created.
 9. For **Creation method**, choose
    **Use pattern form**.
 10. For **Event pattern**, do the following:
+
     1. For **Event source**, select **AWS services** from the drop-down list.
     2. For **AWS service**, select **Simple Storage Service (S3)** from the drop-down list.
     3. For **Event type**, choose **Amazon S3

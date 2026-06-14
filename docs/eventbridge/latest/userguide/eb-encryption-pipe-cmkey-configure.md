@@ -42,6 +42,7 @@ key.
     **Encryption** tab.
 5.  Choose the KMS key for EventBridge to use when
     encrypting the data stored on pipe:
+
     - Choose **Use AWS owned key**
       for EventBridge to encrypt the data using an AWS owned key.
 

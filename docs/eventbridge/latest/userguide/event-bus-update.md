@@ -10,6 +10,7 @@ automatically.
 2. In the navigation pane, choose **Event buses**.
 3. Choose the event bus you want to update.
 4. Do one or more of the following:
+
    - To create, edit, or delete an archive, see the following procedures:
 
    [Creating archives](eb-archive-event.md "eb-archive-event.md")

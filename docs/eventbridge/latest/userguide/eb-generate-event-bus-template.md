@@ -28,6 +28,7 @@ EventBridge displays the template, generated in the selected format. By default,
     1. To generate the template without including rules, deselect **Include rules on this EventBus**.
 
 5. EventBridge gives you the option of downloading the template file, or copying the template to the clipboard.
+
    - To download the template file, choose **Download**.
    - To copy the template to the clipboard, choose **Copy**.
 

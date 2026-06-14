@@ -42,6 +42,7 @@ policy](encryption-connections.md#encryption-connections-key-policy "encryption-
 3.  Choose the connection you want to update.
 4.  On the connection details page, under **Encryption**, choose the KMS key for EventBridge to use when encrypting
     the connection's secret:
+
     - Choose **Use AWS owned key** for
       EventBridge to encrypt the secret using an AWS owned key.
 

@@ -452,6 +452,7 @@ permissions of the pipe, set up pipe logging, and add tags.
    **Active**.
 3. Under **Permissions**, for **Execution
    role**, do one of the following:
+
    1. To have EventBridge create a new execution role for this pipe, choose
       **Create a new role for this specific resource.**
       Under **Role name**, you can optionally edit the role

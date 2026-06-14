@@ -86,6 +86,7 @@ Consider the following when configuring a DLQ for EventBridge.
   Rule ARN, Retry Attempts, and the Target ARN. You can use these values to
   identify an event and the cause of the failure.
 - Permissions for DLQs in the same account:
+
   - If you add a target to a rule using the console, and you choose an
     Amazon SQS queue in the same account, a [resource-based policy](eb-use-resource-based.md "eb-use-resource-based.md") that grants
     EventBridge access to the queue is attached to the queue for you.
@@ -95,6 +96,7 @@ Consider the following when configuring a DLQ for EventBridge.
     queue selected. To learn more, see [Granting permissions to the dead-letter queue](#eb-dlq-perms "#eb-dlq-perms").
 
 - Permissions for using Amazon SQS queues from a different AWS account.
+
   - If you create a rule from the console, queues from other accounts
     aren't displayed for you to select. You must provide the ARN for
     the queue in the other account, and then manually attach a

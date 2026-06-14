@@ -58,6 +58,7 @@ either:
 - An [event pattern](eb-event-patterns.md "eb-event-patterns.md"), which contains
   one or more filters to match events. Event patterns can include filters that
   match on:
+
   - Event metadata – Data
     _about_ the event, such as the event source,
     or the account or Region in which the event originated.

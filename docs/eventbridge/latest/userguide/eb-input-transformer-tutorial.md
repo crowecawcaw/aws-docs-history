@@ -100,6 +100,7 @@ goes to a target.
 12. For **Select a target**, choose **SNS topic** from the drop-down list.
 13. For **Topic**, select the Amazon SNS topic that you created in step 1. For this tutorial, choose **eventbridge-IT-test**.
 14. For **Additional settings**, do the following:
+
     1.  For **Configure target input**, choose **Input transformer** from the drop-down list.
     2.  Choose **Configure input transformer**
     3.  for **Sample events**, enter the following:
@@ -109,14 +110,13 @@ goes to a target.
      "detail-type": "customerCreated"
     }`
     ```
-
     4.  For **Target input transformer** do the following:
+
         1. For **Input Path**, enter the following:
 
         ```
         `{"detail-type":"$.detail-type"}`
         ```
-
         2. For **Input Template**, enter the following:
 
         ```

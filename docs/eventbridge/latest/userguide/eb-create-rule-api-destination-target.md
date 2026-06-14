@@ -10,8 +10,10 @@ Selecting an API destination as a target is part of creating the rule.
 1. Follow the steps in the [Creating rules using the Enhanced Builder](eb-create-rule-visual.md "eb-create-rule-visual.md") procedure.
 2. In the [Select targets](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") step, when prompted to choose
    an API destination as the target type:
+
    1. Select **EventBridge API destination**.
    2. Do one of the following:
+
       - Choose **Use an existing API destination**
         and select an existing API destination
       - Choose **Create a new API destination** and

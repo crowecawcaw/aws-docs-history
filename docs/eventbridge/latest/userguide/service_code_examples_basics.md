@@ -8,6 +8,7 @@ SDKs.
 - [Hello EventBridge](example_eventbridge_Hello_section.md "example_eventbridge_Hello_section.md")
 - [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md "example_eventbridge_Scenario_GettingStarted_section.md")
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [DeleteRule](example_eventbridge_DeleteRule_section.md "example_eventbridge_DeleteRule_section.md")
   - [DescribeRule](example_eventbridge_DescribeRule_section.md "example_eventbridge_DescribeRule_section.md")
   - [DisableRule](example_eventbridge_DisableRule_section.md "example_eventbridge_DisableRule_section.md")

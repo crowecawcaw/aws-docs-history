@@ -82,6 +82,7 @@ destinations, do the following:
     4. Configure each log destination you selected.
 
 7.  Configure optional event bus features:
+
     - Specify a resource-based policy by doing one of the following:
 
           + Enter the policy that includes the permissions to grant for the event bus.
@@ -112,7 +113,6 @@ destinations, do the following:
         When creating an archive as part of creating a new event bus, you can't set the event retention period or an event pattern for the archive.
          You can specify these for the archive once it has been created. For more information, see [Updating
          archives](event-bus-update-archive.md "event-bus-update-archive.md").
-
     - Enable schema discovery (optional)
 
     Enable schema discovery to have EventBridge

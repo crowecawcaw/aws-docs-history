@@ -80,6 +80,7 @@ When using an AWS SDK to work with global endpoints, keep the following in mind:
 
 - You'll need to have the AWS Common Runtime (CRT) library installed for your specific SDK. If you don't have the CRT installed,
   you'll get an exception message indicating what needs to be installed. For more information, see the following:
+
   - [AWS
     Common Runtime (CRT) libraries](../../../sdkref/latest/guide/common-runtime.md "../../../sdkref/latest/guide/common-runtime.md")
   - [awslabs/aws-crt-java](https://github.com/awslabs/aws-crt-java "https://github.com/awslabs/aws-crt-java")

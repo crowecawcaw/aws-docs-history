@@ -14,6 +14,7 @@ A tag has two parts:
 
 - A _tag key_, for example, `CostCenter`,
   `Environment`, or `Project`.
+
   - Tag keys are case sensitive.
   - The maximum tag key length is 128 Unicode characters in UTF-8.
   - For each resource, each tag key must be unique.
@@ -26,6 +27,7 @@ A tag has two parts:
 
 - An optional _tag value_ field, for example,
   `111122223333` or `Production`.
+
   - Each tag key can have only one value.
   - Tag values are case sensitive.
   - Omitting the tag value is the same as using an empty string.
@@ -56,12 +58,15 @@ You can add or remove tags on event buses.
 4. On the events bus details page, choose the **Tags** tab,
    and then choose **Manage tags**.
 5. Do one of the following:
+
    - To add a tag:
+
      1. Choose **Add new tag**.
      2. Specify the key and value for the tag
      3. Choose **Update**.
 
    - To remove a tag:
+
      1. For the tag you want to remove, choose
         **Remove**.
      2. Choose **Update**.

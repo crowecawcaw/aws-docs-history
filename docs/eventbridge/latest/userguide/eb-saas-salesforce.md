@@ -104,6 +104,7 @@ source.
 6. In the **Connection name** field, enter a unique name for the
    connection, and then choose **Continue**.
 7. In the Salesforce dialog box, do the following:
+
    1. Enter your Salesforce sign-in credentials to log in to
       Salesforce.
    2. Select Salesforce events for the types of data for Amazon AppFlow to

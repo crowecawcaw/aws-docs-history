@@ -72,6 +72,7 @@ In the **Triggering events** pane, you can build the event pattern two ways:
 
 1. Choose the **Tree** tab of the **Schema** pane.
 2. Add and edit filters to build out the event pattern.
+
    1. Choose the filter icon next to the attribute you want to add as a filter to the event pattern.
    2. Choose a comparison operator from the drop-down list.
 
@@ -86,11 +87,14 @@ After you construct an event pattern that matches all the event attributes you w
 #### Test the event pattern (optional)
 
 1.  Choose a sample event for testing, or use your own.
+
     - **Use sample events provided**
+
       1. Choose **Use sample events provided**.
       2. Under **Sample triggering event**, select the event to use for testing from the drop-down list.
 
     - **Use your own event**
+
       1. Choose **Use your own event**.
 
       EventBridge displays a generic event with an empty `details` element. 2. Edit the event JSON to create the event against which you want to test your event pattern.

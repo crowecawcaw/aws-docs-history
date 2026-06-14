@@ -67,6 +67,7 @@ Create a rule to send events to your stream when you stop an Amazon EC2 instance
 9.  For **Creation method**, choose
     **Use schema**.
 10. For **Event pattern**, do the following:
+
     1. For **Schema type**, choose **Select schema from Schema registry**.
     2. For **Schema registry**, choose **aws.events** from the drop-down list.
     3. For **Schema**, choose **aws.ec2@EC2InstanceStateChangeNotification** from the drop-down list.
@@ -87,7 +88,6 @@ Create a rule to send events to your stream when you stop an Amazon EC2 instance
 
 
         Leave **Relationship** empty. For **Value**, enter `EC2 Instance State-change Notification`. Choose **Set**.
-
     5. To view the event pattern you've constructed, choose **Generate event pattern in JSON**
 
     EventBridge displays the event pattern in JSON:

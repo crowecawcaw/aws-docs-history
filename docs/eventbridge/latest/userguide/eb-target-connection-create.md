@@ -213,6 +213,7 @@ connections](encryption-connections.md "encryption-connections.md").
 
 1.  Choose the KMS key for EventBridge to use when encrypting
     the connection secret.
+
     - Choose **Use AWS owned key** for EventBridge to encrypt the secret using an AWS owned key.
 
     This AWS owned key is a KMS key that EventBridge owns and manages for use in multiple AWS

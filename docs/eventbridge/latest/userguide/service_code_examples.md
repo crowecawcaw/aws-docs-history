@@ -15,9 +15,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello EventBridge](example_eventbridge_Hello_section.md "example_eventbridge_Hello_section.md")
   - [Learn the basics](example_eventbridge_Scenario_GettingStarted_section.md "example_eventbridge_Scenario_GettingStarted_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [DeleteRule](example_eventbridge_DeleteRule_section.md "example_eventbridge_DeleteRule_section.md")
     - [DescribeRule](example_eventbridge_DescribeRule_section.md "example_eventbridge_DescribeRule_section.md")
     - [DisableRule](example_eventbridge_DisableRule_section.md "example_eventbridge_DisableRule_section.md")
@@ -31,6 +33,7 @@ This topic also includes information about getting started and details about pre
     - [RemoveTargets](example_eventbridge_RemoveTargets_section.md "example_eventbridge_RemoveTargets_section.md")
 
 - [Scenarios](service_code_examples_scenarios.md "service_code_examples_scenarios.md")
+
   - [Create and trigger a rule](example_eventbridge_Scenario_createAndTriggerARule_section.md "example_eventbridge_Scenario_createAndTriggerARule_section.md")
   - [Send event notifications to EventBridge](example_s3_Scenario_PutBucketNotificationConfiguration_section.md "example_s3_Scenario_PutBucketNotificationConfiguration_section.md")
   - [Use scheduled events to invoke a Lambda function](example_cross_LambdaScheduledEvents_section.md "example_cross_LambdaScheduledEvents_section.md")

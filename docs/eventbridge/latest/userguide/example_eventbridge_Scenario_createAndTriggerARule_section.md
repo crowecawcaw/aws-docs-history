@@ -806,6 +806,7 @@ end
 ```
 
 - For API details, see the following topics in _AWS SDK for Ruby API Reference_.
+
   - [PutEvents](../../../goto/SdkForRubyV3/eventbridge-2015-10-07/PutEvents.md "../../../goto/SdkForRubyV3/eventbridge-2015-10-07/PutEvents.md")
   - [PutRule](../../../goto/SdkForRubyV3/eventbridge-2015-10-07/PutRule.md "../../../goto/SdkForRubyV3/eventbridge-2015-10-07/PutRule.md")
 

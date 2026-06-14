@@ -16,6 +16,7 @@ event metadata, see [AWS service event metadata](../ref/events-structure.md "../
 in the _Events Reference_.
 
 - For each [rule](eb-rules.md "eb-rules.md") on the bus:
+
   - The rule [event pattern](eb-event-patterns.md "eb-event-patterns.md").
   - [Target](eb-targets.md "eb-targets.md") information, including target input, [input transformers](eb-transform-target-input.md "eb-transform-target-input.md"), and [configuration parameters](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target").
 

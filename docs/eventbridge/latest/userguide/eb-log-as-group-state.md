@@ -75,6 +75,7 @@ Auto Scaling group starts or stops an instance.
 8. For **Event source**, choose
    **AWS services**.
 9. For **Event pattern**, do the following:
+
    1. For **Event source**, select **Auto Scaling** from the drop-down list.
    2. For **Event type**, select **Instance Launch and Terminate** from the drop-down list.
    3. Choose **Any instance event** and **Any group name**.
@@ -98,6 +99,7 @@ Lambda function was invoked.
 ###### To test your rule using an Auto Scaling group
 
 1. To increase the size of your Auto Scaling group, do the following:
+
    1. Open the Amazon EC2 console at
       [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
    2. In the navigation pane, choose **Auto Scaling**,
@@ -113,6 +115,7 @@ Lambda function was invoked.
       When you're finished, choose **Save**.
 
 2. To view the output from your Lambda function, do the following:
+
    1. Open the CloudWatch console at
       [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
    2. In the navigation pane, choose **Logs**.

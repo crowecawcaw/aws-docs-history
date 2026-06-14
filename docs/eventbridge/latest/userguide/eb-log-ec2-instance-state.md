@@ -64,6 +64,7 @@ launch an Amazon EC2 instance.
 8. For **Event source**, choose
    **AWS services**.
 9. For **Event pattern**, do the following:
+
    1. For **Event source**, select **EC2** from the drop-down list.
    2. For **Event type**, choose **EC2 Instance
       State-change Notification** from the drop-down list.
@@ -95,6 +96,7 @@ console to verify that your function ran.
 3. Stop the instance. For more information, see [Stop and Start Your Instance](../../../AWSEC2/latest/UserGuide/Stop_Start.md "../../../AWSEC2/latest/UserGuide/Stop_Start.md") in
    the _Amazon EC2 User Guide_.
 4. To view the output from your Lambda function, do the following:
+
    1. Open the CloudWatch console at
       [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
    2. In the navigation pane, choose **Logs**.

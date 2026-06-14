@@ -6,6 +6,7 @@ When you start a new replay, you specify a time period for the event you want Ev
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. Navigate to the replays directly, or from the archive you want to replay:
+
    - In the navigation pane, choose **Archives**.
 
    On the **Archives** page, choose the archive and then choose**Replay**.
@@ -19,6 +20,7 @@ When you start a new replay, you specify a time period for the event you want Ev
 5. For destination, you can replay events only to the same event bus that emitted the
    events.
 6. For **Specify rules**, do one of the following:
+
    - Choose **All rules** to replay events to all
      rules.
    - Choose **Specify rules**, and then select the rule or

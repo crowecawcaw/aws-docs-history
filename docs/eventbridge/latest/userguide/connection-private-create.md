@@ -46,12 +46,14 @@ EventBridge supports basic, OAuth client credentials, and API key authentication
 2.  For **Authorization type**, select the authorization method for the
     connection to use.
 3.  Specify the authorization configuration details for the authorization method you chose:
+
     - **Basic**
 
     Enter the **Username**
     and **Password** to use to
     authorize with the HTTPS endpoint.
     - **OAuth Client Credentials**
+
       1. For **OAuth authorization endpoint**,
          choose whether the endpoint to use for connection authorization is
          a public or private (VPC) endpoint.
@@ -67,8 +69,8 @@ EventBridge supports basic, OAuth client credentials, and API key authentication
 
           You are taken to the Amazon VPC Lattice service console, where you can create a new configuration. for more information, see
            [Create a resource configuration](../../../vpc-lattice/latest/ug/create-resource-configuration.md "../../../vpc-lattice/latest/ug/create-resource-configuration.md") in the *Amazon VPC Lattice User Guide*.
-
       2. Specify the following authorization information:
+
          - Authorization endpoint
          - HTTPS method
          - Client ID

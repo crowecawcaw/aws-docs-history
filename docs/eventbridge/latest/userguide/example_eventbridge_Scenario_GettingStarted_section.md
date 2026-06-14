@@ -1036,6 +1036,7 @@ public class EventBridgeWrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [DeleteRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DeleteRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DeleteRule.md")
   - [DescribeRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DescribeRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DescribeRule.md")
   - [DisableRule](../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DisableRule.md "../../../goto/DotNetSDKV3/eventbridge-2015-10-07/DisableRule.md")
@@ -1782,6 +1783,7 @@ public class EventbridgeMVP {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [DeleteRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DeleteRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DeleteRule.md")
   - [DescribeRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DescribeRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DescribeRule.md")
   - [DisableRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DisableRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/DisableRule.md")
@@ -2535,6 +2537,7 @@ suspend fun createIAMRole(
 ```
 
 - For API details, see the following topics in _AWS SDK for Kotlin API reference_.
+
   - [DeleteRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DescribeRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")
   - [DisableRule](https://sdk.amazonaws.com/kotlin/api/latest/index.html "https://sdk.amazonaws.com/kotlin/api/latest/index.html")

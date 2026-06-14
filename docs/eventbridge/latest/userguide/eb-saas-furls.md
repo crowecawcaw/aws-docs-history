@@ -64,6 +64,7 @@ First, use the Amazon EventBridge console to create a CloudFormation stack:
    a secure token for the **GitHubWebhookSecret**. For more information on creating a secure token, see [Setting your secret token](https://docs.github.com/en/developers/webhooks-and-events/webhooks/securing-your-webhooks#setting-your-secret-token "https://docs.github.com/en/developers/webhooks-and-events/webhooks/securing-your-webhooks#setting-your-secret-token") in the GitHub documentation.
 10. Under **Capabilities and transforms**, select each of the
     following:
+
     - **I acknowledge that CloudFormation might create IAM
       resources.**
     - **I acknowledge that CloudFormation might create IAM resources
@@ -112,6 +113,7 @@ documentation.
    in Step 1.
 10. Under **Capabilities and transforms**, select each of the
     following:
+
     - **I acknowledge that CloudFormation might create IAM
       resources.**
     - **I acknowledge that CloudFormation might create IAM resources
@@ -210,6 +212,7 @@ Now that you've accessed the Lambda function, use the Lambda console to update t
 4. In the Lambda console, choose the **Code** tab.
 5. Under **Code source**, choose **Upload from**.
 6. Choose **.zip file**, and then choose **Upload**.
+
    1. In the file chooser, select the file you updated, choose **Open**, and then choose
       **Save**.
 

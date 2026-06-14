@@ -99,6 +99,7 @@ Zendesk when S3 objects are created` for the description.
 13.
 14. For **Execution role**, choose **Create a new for role for this specific resource**.
 15. For **Additional settings**, do the following:
+
     1.  For **Configure target input**, choose **Input transformer** from the drop-down list.
     2.  Choose **Configure input transformer**
     3.  for **Sample events**, enter the following:
@@ -108,14 +109,13 @@ Zendesk when S3 objects are created` for the description.
      "detail":[]
     }`
     ```
-
     4.  For **Target input transformer** do the following:
+
         1. For **Input Path**, enter the following:
 
         ```
         `{"detail":"$.detail"}`
         ```
-
         2. For **Input Template**, enter the following:
 
         ```

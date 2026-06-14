@@ -43,6 +43,7 @@ API.
 Connection` as a description.
 5. For **Destination type**, choose **Partners** and for **Partner Destinations**, select Salesforce from the drop-down list.
 6. For **Authorization endpoint**, enter one of these:
+
    - If you're using a production org, enter `https://`MyDomainName`.my.salesforce.com./services/oauth2/token`
    - If you're using a sandbox without enhanced domains, enter `https://`MyDomainName`--`SandboxName`.my.
 salesforce.com/services
@@ -119,6 +120,7 @@ Salesforce for S3 object creation` for the description.
 13.
 14. For **Execution role**, choose **Create a new for role for this specific resource**.
 15. For **Additional settings**, do the following:
+
     1.  For **Configure target input**, choose **Input transformer** from the drop-down list.
     2.  Choose **Configure input transformer**
     3.  for **Sample events**, enter the following:
@@ -128,14 +130,13 @@ Salesforce for S3 object creation` for the description.
      "detail":[]
     }`
     ```
-
     4.  For **Target input transformer** do the following:
+
         1. For **Input Path**, enter the following:
 
         ```
         `{"detail":"$.detail"}`
         ```
-
         2. For **Input Template**, enter the following:
 
         ```

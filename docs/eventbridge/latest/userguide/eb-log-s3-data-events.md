@@ -38,6 +38,7 @@ For more information, see [Data Events](../../../awscloudtrail/latest/userguide/
 6. Choose **Next**.
 7. For **Event type**, choose **Data events**
 8. For **Data events,** do one of the following:
+
    - To log data events for all Amazon S3 objects in a bucket, specify an S3
      bucket and an empty prefix. When an event occurs on an object in that
      bucket, the trail processes and logs the event.
@@ -101,6 +102,7 @@ response to an Amazon S3 data event.
 8. For **Event source**, choose
    **AWS services**.
 9. For **Event pattern**, do the following:
+
    1. For **Event source**, select **Simple
       Storage Service (S3)** from the drop-down list.
    2. For **Event type**, select **Object-Level

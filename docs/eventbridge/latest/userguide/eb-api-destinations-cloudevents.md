@@ -21,14 +21,17 @@ To transform events to the CloudEvents format prior to delivery to a target, you
 1. Follow the steps in the [Creating rules using the Enhanced Builder](eb-create-rule-visual.md "eb-create-rule-visual.md") procedure.
 2. In the [Select targets](eb-create-rule-wizard.md#eb-create-rule-target "eb-create-rule-wizard.md#eb-create-rule-target") step, when prompted to choose an API
    destination as the target type:
+
    1. Select **EventBridge API destination**.
    2. Do one of the following:
+
       - Choose **Use an existing API destination** and select an existing API destination
       - Choose **Create a new API destination** and specify the necessary setting to define your new API destination.
 
       For more information on specifying the required settings, see [Create an API destination in Amazon EventBridge](eb-api-destination-create.md "eb-api-destination-create.md").
 
    3. Specify the necessary Content-Type header parameters for the CloudEvents events:
+
       - Under **Header Parameters** choose **Add header parameter**.
       - For **key**, specify `Content-Type`.
 
@@ -36,6 +39,7 @@ To transform events to the CloudEvents format prior to delivery to a target, you
 
 3. Specify an execution role for your target.
 4. Define an input transformer to transform the source event data into the CloudEvents format:
+
    1. Under **Additional settings**, for **Configure target input**, choose **Input transformer**.
 
    Then choose **Configure input transformer**. 2. Under **Target input transformer**, specify the **Input
@@ -58,7 +62,6 @@ To transform events to the CloudEvents format prior to delivery to a target, you
      "time": "$.time"
    }
    ```
-
    3. For **Template**, enter the template to transform the source event
       data to the CloudEvents format.
 

@@ -20,6 +20,7 @@ when setting up a pipe in EventBridge:
 - Amazon SQS queue
 - [Step Functions state
   machine](#pipes-targets-specifics-lambda-stepfunctions "#pipes-targets-specifics-lambda-stepfunctions")
+
   - Express workflows (SYNC or ASYNC)
   - Standard workflows (ASYNC)
 

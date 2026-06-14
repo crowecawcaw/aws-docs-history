@@ -85,6 +85,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [PutBucketNotificationConfiguration](../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketNotificationConfiguration.md "../../../goto/SdkForJavaV2/s3-2006-03-01/PutBucketNotificationConfiguration.md")
   - [PutRule](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutRule.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutRule.md")
   - [PutTargets](../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutTargets.md "../../../goto/SdkForJavaV2/eventbridge-2015-10-07/PutTargets.md")

@@ -42,17 +42,20 @@ First, create the CloudFormation template.
 4. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 5. On the **Stacks** page, from the **Create stack** menu, choose **with new resources (standard)**.
 6. Specify the template:
+
    1. Under **Prerequisite**, choose **Choose an existing template**.
    2. Under **Specify template**, choose **Upload a template file**.
    3. Choose **Choose file**, navigate to the template file, and choose it.
    4. Choose **Next**.
 
 7. Specify the stack details:
+
    1. Enter a stack name.
    2. For parameters, accept the default values or enter your own.
    3. Choose **Next**.
 
 8. Configure the stack options:
+
    1. Under **Stack failure options**, choose **Delete all newly created resources**.
 
    ###### Note
@@ -147,6 +150,7 @@ This opens the DynamoDB console in a separate window, with the source table deta
     3. Choose **Create item**.
 
 5. Generate a `DELETE` and an `INSERT` event by editing the item:
+
    1. Choose the item from the list, and from the **Actions** menu, choose **Edit item**.
    2. Enter a new value for the **Album** or **Artist** attribute.
    3. Tick the box that confirms you are changing the value of the item keys, and then choose **Recreate item**.
@@ -154,6 +158,7 @@ This opens the DynamoDB console in a separate window, with the source table deta
    This results in the item being deleted and then recreated, generating a `DELETE` event, and then a new `INSERT` event.
 
 6. Generate a `MODIFY` event by adding an attribute to the item:
+
    1. Choose the item from the list, and from the **Actions** menu, choose **Edit item**.
    2. From the **Add new attribute** menu, choose **Number**.
    3. For the attribute name, enter **Year**, and then enter a value for the attribute. Choose **Save and close**.

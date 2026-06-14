@@ -50,12 +50,14 @@ First, create the CloudFormation template.
 1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation/](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
 2. On the **Stacks** page, from the **Create stack** menu, choose **with new resources (standard)**.
 3. Specify the template:
+
    1. Under **Prerequisite**, choose **Choose an existing template**.
    2. Under **Specify template**, choose **Upload a template file**.
    3. Choose **Choose file**, navigate to the template file, and choose it.
    4. Choose **Next**.
 
 4. Specify the stack details:
+
    1. Enter a stack name.
    2. For **BucketName**, enter a globally unique bucket name. Amazon S3 bucket names must be unique across all AWS accounts.
    3. For **SNSTopicDisplayName**, **SNSTopicName**, and **RuleName**, accept the default values or enter your own.
@@ -63,6 +65,7 @@ First, create the CloudFormation template.
    5. Choose **Next**.
 
 5. Configure the stack options:
+
    1. Under **Stack failure options**, choose **Delete all newly created resources**.
 
    ###### Note
@@ -134,6 +137,7 @@ an object is created in our specific bucket.
 
 - On the rule detail page, under **Event pattern**, you can see the event
   pattern selects only events where:
+
   - The source is the Amazon S3 service (`aws.s3`)
   - The detail-type is `Object Created`
   - The bucket name matches the name of the bucket we created
@@ -158,6 +162,7 @@ Next, we'll generate events in the event source to test that the rule matching a
 2. In the **Buckets** list, choose the bucket you created with the template.
 3. Choose **Upload**.
 4. Upload a test file to generate an `Object Created` event:
+
    1. Choose **Add files** and select a file from your computer.
    2. Choose **Upload**.
 
@@ -171,6 +176,7 @@ You can view metrics for your rule to confirm that events are being processed co
 1. In the [EventBridge console](https://console.aws.amazon.com/events/home?#/rules "https://console.aws.amazon.com/events/home?#/rules"), choose your rule.
 2. Choose the **Metrics** tab.
 3. You can view metrics such as:
+
    - **Invocations**: the number of times the rule was triggered.
    - **TriggeredRules**: the number of rules that were triggered by matching events.
 

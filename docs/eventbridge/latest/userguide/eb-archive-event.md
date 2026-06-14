@@ -20,6 +20,7 @@ First, enter a name and description for archive, and specify the event bus from 
 
 1. Open the Amazon EventBridge console at [https://console.aws.amazon.com/events/](https://console.aws.amazon.com/events/ "https://console.aws.amazon.com/events/").
 2. Navigate to the source event bus, or create the archive directly:
+
    - In the navigation pane, choose **Event buses**.
 
    On the events bus details page, choose the **Archives**

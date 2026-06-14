@@ -29,6 +29,7 @@ event bus, choose to use an AWS owned key. For more information, see [KMS key op
 3. Select the event bus on which you want to start or stop schema
    discovery.
 4. Do one of the following:
+
    - To start schema discovery, choose **Start
      discovery**.
    - To stop schema discovery, choose **Delete

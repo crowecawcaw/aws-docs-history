@@ -17,12 +17,14 @@ routing of events between event-driven services. For more information, see [Even
 At a high level, here's how EventBridge Pipes works:
 
 1. You create a pipe in your account. This includes:
+
    - Specifying one of the supported [event sources](eb-pipes-event-source.md "eb-pipes-event-source.md") from which you want your pipe to receive events.
    - Optionally, configuring a filter so that the pipe only processes a subset of the events it receives from the source.
    - Optionally, configuring an enrichment step that enhances the event data before sending it to the target.
    - Specifying one of the supported [targets](eb-pipes-event-target.md "eb-pipes-event-target.md") to which you want your pipe to send events.
 
 2. The event source begins sending events to the pipe, and the pipe processes the event before sending it to the target.
+
    - If you have configured a filter, the pipe evaluates the event and only sends it to the target if it matches that filter.
 
    You are only charged for those events that match the filter.
@@ -36,6 +38,7 @@ For example, a pipe could be used to create an e-commerce system. Suppose you ha
 that contains customer information, such as shipping addresses.
 
 1. You then create a pipe with the following:
+
    - An Amazon SQS
      order received message queue as the event source.
    - An EventBridge API Destination as an enrichment

@@ -9,6 +9,7 @@ Deleting an event bus deletes the rules associated with that event bus.
 2. In the navigation pane, choose **Event buses**.
 3. Choose the event bus you want to delete.
 4. Do one of the following:
+
    - Choose **Delete**.
    - Choose the name of the event bus.
 

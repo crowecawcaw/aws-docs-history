@@ -45,6 +45,7 @@ key.
     tab.
 5.  Choose the KMS key for EventBridge to use when
     encrypting the event data stored on the event bus:
+
     - Choose **Use AWS owned key** for
       EventBridge to encrypt the data using an AWS owned key.
 
