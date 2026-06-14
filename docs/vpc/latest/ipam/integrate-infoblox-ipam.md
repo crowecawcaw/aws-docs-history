@@ -57,6 +57,7 @@ Infoblox integration is available only for private scopes, not public scopes.
 2. In the navigation pane, choose **IPAM**, and then choose **Scopes**.
 3. Choose **Create scope**.
 4. For **Scope settings**, do the following:
+
    - **IPAM ID** is automatically populated.
    - (Optional) For **Name tag**, enter a name for the scope.
    - (Optional) For **Description**, enter a description for the scope.

@@ -9,6 +9,7 @@ block. IPAM manages some resources, but only monitors other resources, so it's i
   allocated from an IPAM pool. IPAM monitors the CIDR for potential IP address overlap
   with other CIDRs in the pool, and monitors the CIDR’s compliance with a pool’s
   allocation rules. IPAM supports managing the following type of resources:
+
   - Elastic IP addresses
   - Public IPv4 pools
 
@@ -24,6 +25,7 @@ block. IPAM manages some resources, but only monitors other resources, so it's i
   resource’s CIDR when you use `get-ipam-resource-cidrs` with the AWS CLI, or
   when you view **Resources** in the navigation pane. IPAM supports
   monitoring the following resources:
+
   - Elastic IP addresses
   - Public IPv4 pools
   - VPCs
@@ -60,12 +62,14 @@ AWS Management Console
     blocks.
 
 6.  In the table, you can view the following details about resources in the scope:
+
     - **Name (Resource ID)**: The name
       and resource ID of the resource.
     - **CIDR**: The CIDR associated
       with the resource.
     - **Management state**: The state
       of the resource.
+
       - **Managed**: The resource
         has a CIDR allocated from an IPAM pool and is being
         monitored by IPAM for potential CIDR overlap and
@@ -89,6 +93,7 @@ AWS Management Console
 
     - **Compliance status**: The
       compliance status of the CIDR.
+
       - **Compliant**: A managed
         resource complies with the allocation rules of the IPAM
         pool.
@@ -121,6 +126,7 @@ AWS Management Console
 
     - **Overlap status**: The overlap
       status of CIDR.
+
       - **Nonoverlapping**: The
         resource CIDR does not overlap with another CIDR in the
         same scope.

@@ -15,6 +15,7 @@ able to monitor the existing allocations. For more information, see [Monitor CID
 
 - This tutorial assumes you have already completed the steps in [Create an IPAM](create-ipam.md "create-ipam.md").
 - Each step of this tutorial must be done by one of two AWS accounts:
+
   - The account for the IPAM administrator. In this tutorial, this account will be called the IPAM account.
   - The account in your organization which owns the BYOIP CIDR. In this tutorial, this account will be called the BYOIP CIDR owner account.
 

@@ -31,10 +31,12 @@ AWS Management Console
    dropdown menu at the top of the content pane, choose the scope you want
    to use. For more information about scopes, see [How IPAM works](how-it-works-ipam.md "how-it-works-ipam.md").
 4. The dashboard presents an overview of your IPAM pools and CIDRs within a scope. You can add, remove, resize, and move widgets to customize the dashboard.
+
    - **Scope**: The details for this
      scope. A scope is the highest-level container within IPAM.
      An IPAM contains two default scopes, one private and one public. Each scope represents the IP
      space for a single network. You may have multiple private scopes, but you can only have one public scope.
+
      - **Scope ID**: The ID for
        this scope.
      - **Scope type**: The type
@@ -53,6 +55,7 @@ AWS Management Console
 
    - **Resource CIDR types**: The
      types of resource CIDRs in the scope.
+
      - **Subnet**: The number of
        CIDRs for subnets.
      - **VPC**: The number of
@@ -64,6 +67,7 @@ AWS Management Console
 
    - **Management state**: The
      management state of the CIDRs.
+
      - **Unmanaged CIDRs**: The number
        of resource CIDRs for unmanaged resources in this scope.
      - **Ignored CIDRs**: The number of
@@ -82,6 +86,7 @@ AWS Management Console
    - **Overlapping resource CIDRs**:
      The number of overlapping and nonoverlapping CIDRs. Overlapping
      CIDRs can lead to incorrect routing in your VPCs.
+
      - **Overlapping CIDRs**:
        The number of CIDRs that currently overlap within the
        IPAM pools in this scope. Overlapping CIDRs can lead to
@@ -92,6 +97,7 @@ AWS Management Console
 
    - **Compliant resource CIDRs**: The
      number of compliant resource CIDRs.
+
      - **Compliant CIDRs**: The number
        of resource CIDRs that comply with the allocation rules for IPAM
        pools in the scope.
@@ -101,6 +107,7 @@ AWS Management Console
 
    - **Overlap status**: The number of
      CIDRs that overlap over time.
+
      - **OverlappingResourceCidrs**: The number of
        CIDRs that overlap within the IPAM pools in this scope.
        Overlapping CIDRs can lead to incorrect routing in your
@@ -109,6 +116,7 @@ AWS Management Console
    - **Compliance status**: The number
      of CIDRs that comply versus do not comply with the allocation
      rules for IPAM pools in the scope over time.
+
      - **CompliantResourceCidrs**: The number of
        resource CIDRs that comply with the allocation
        rules.

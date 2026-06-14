@@ -19,6 +19,7 @@ their IPAM. For more information about the roles involved in this process, see [
 - When you create a resource share using AWS RAM to share a resource discovery, you must create the resource share in the home Region of the Primary Org IPAM.
 - The account that creates and deletes a resource share for a resource discovery must have the
   following permissions in their IAM policy:
+
   - ec2:PutResourcePolicy
   - ec2:DeleteResourcePolicy
 
@@ -46,8 +47,10 @@ AWS Management Console
 9. Under **Select resource type**, select **IPAM Resource Discovery**, and choose the resource discovery.
 10. Choose **Next**.
 11. Under **Associate permissions**, you can view the default permission that will be enabled for principals that are granted access to this resource share:
+
     - AWSRAMPermissionIpamResourceDiscovery
     - Actions allowed by this permission:
+
       - ec2:AssociateIpamResourceDiscovery
       - ec2:GetIpamDiscoveredAccounts
       - ec2:GetIpamDiscoveredPublicAddresses

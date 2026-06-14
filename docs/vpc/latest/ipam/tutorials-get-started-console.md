@@ -323,6 +323,7 @@ _Amazon VPC User Guide_.
    account.
 2. Choose **Create VPC**.
 3. Do the following:
+
    1. Enter a name, such as **Example VPC.**
    2. Choose **IPAM-allocated IPv4 CIDR block.**
    3. Under **IPv4 IPAM pool**, choose the ID of the

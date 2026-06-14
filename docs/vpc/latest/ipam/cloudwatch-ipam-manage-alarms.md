@@ -13,6 +13,7 @@ The **Alarms** tab provides a detailed summary of the CloudWatch alarms in the `
 
 - **Alarm name**: User-defined name of the CloudWatch alarm.
 - **State**: Current state of the CloudWatch alarm:
+
   - **ALARM**: Metric is outside defined threshold.
   - **OK**: Metric is within defined threshold.
   - **INSUFFICIENT_DATA**: Not enough data to determine alarm

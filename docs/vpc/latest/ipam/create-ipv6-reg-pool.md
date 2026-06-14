@@ -155,6 +155,7 @@ To provision a CIDR, do one of the following:
     	 **Input private IPv6 CIDR**.
 
 13. Choose optional allocation rules for this pool:
+
     - **Minimum netmask length**: The minimum netmask length required
       for CIDR allocations in this IPAM pool to be compliant and the
       largest size CIDR block that can be allocated from the pool. The

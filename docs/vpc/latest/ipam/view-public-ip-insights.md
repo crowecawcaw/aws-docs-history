@@ -35,6 +35,7 @@ You can view insights into the following public IPv4 address types:
   Public IP insights shows you all public IPv4 addresses used by services across Regions. You can use these insights to identify public IPv4 address usage and view recommendations to release unused Elastic IP addresses.
 
 - **Public IP types**: The number of public IPv4 addresses organized by type.
+
   - **Amazon-owned EIPs**: Elastic IP addresses that you have provisioned or assigned to resources in your AWS account.
   - **EC2 public IPs**: Public IPv4 addresses assigned to EC2 instances when the instances were launched into a default subnet or into a subnet that’s been configured to automatically assign a public IPv4 address.
   - **BYOIP**: Public IPv4 addresses that you have brought to AWS using Bring your own IP addresses (BYOIP).
@@ -43,6 +44,7 @@ You can view insights into the following public IPv4 address types:
   - **Amazon-owned contiguous EIPs**: Elastic IP addresses allocated from an Amazon-provided contiguous public IPv4 IPAM pool.
 
 - **EIP usage**: The number of Elastic IP addresses organized by how they are used.
+
   - **Associated Amazon-owned EIPs**: Elastic IP addresses that you have provisioned in your AWS account and that you have associated with an EC2 instance, network interface, or AWS resource.
   - **Associated BYOIP**: Public IPv4 addresses you have brought to AWS using BYOIP that you have associated with a network interface.
   - **Unassociated Amazon-owned EIPs**: Elastic IP addresses that you have provisioned in your AWS account but you have not associated with a network interface.
@@ -110,6 +112,7 @@ AWS Management Console
 2. In the navigation pane, choose **Public IP insights**.
 3. To view details for a public IP address, select an IP address by clicking on it.
 4. View the following information about the IP address:
+
    - **Details**: The same information visible in the columns of the main Public IP insights pane, such as the **Address type** and **Service**.
    - **Inbound security group rules**: If this IP address is associated with an EC2 instance, these are the security group rules that control the inbound traffic to the instance.
    - **Outbound security group rules**: If this IP address is associated with an EC2 instance, these are the security group rules that control the outbound traffic from the instance.

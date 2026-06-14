@@ -25,12 +25,14 @@ AWS Management Console
 5. Choose **Actions** > **Provision
    CIDRs**.
 6. Do one of the following:
+
    - If you are provisioning a CIDR to a pool in the public scope,
      enter the **Netmask**.
    - If you are provisioning a CIDR to an IPv4 pool in the private
      scope, enter the **CIDR**.
    - If you are provisioning a CIDR to an IPv6 pool in the private scope, note the
      following:
+
      - For important details about private IPv6 addressing,
        see [Private IPv6 addresses](../userguide/vpc-ip-addressing.md#vpc-ipv6-addresses-private "../userguide/vpc-ip-addressing.md#vpc-ipv6-addresses-private") in the
        _Amazon VPC User Guide_.

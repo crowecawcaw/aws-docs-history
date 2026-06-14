@@ -85,6 +85,7 @@ is when the VPC was deleted.
 - **Name:** The name of the resource (if applicable).
 - **Compliance status**: The
   compliance status of the CIDR.
+
   - **Compliant**: A managed
     resource complies with the allocation rules of the IPAM
     pool.
@@ -118,6 +119,7 @@ is when the VPC was deleted.
 
 - **Overlap status**: The overlap
   status of CIDR.
+
   - **Nonoverlapping**: The
     resource CIDR does not overlap with another CIDR in the
     same scope.
@@ -138,6 +140,7 @@ is when the VPC was deleted.
     IPAM can monitor or manage.
 
 - **Resource type**
+
   - **vpc**: The CIDR is associated with a
     VPC.
   - **subnet**: The CIDR is associated with a VPC

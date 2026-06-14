@@ -18,10 +18,12 @@ AWS Management Console
 3.  Choose a resource discovery.
 4.  Under **Resource discovery details**, view details related to the resource discovery, such as Default, which indicates whether the resource discovery is the default. The default resource discovery is the resource discovery automatically created when you create an IPAM.
 5.  In the tabs, view the details of a resource discovery:
+
     - **Discovered resources** - Resources monitored under a resource
       discovery. IPAM monitors CIDRs from the following resource
       types VPCs, Public IPv4 pools, VPC subnets, and Elastic IP
       addresses.
+
       - **Name (Resource ID)** – Resource discovery ID.
       - **IPs allocated** – The percentage of IP address space in use. To convert the
         decimal to a percentage, multiply the decimal by
@@ -33,7 +35,6 @@ AWS Management Console
           - For resources that are public IPv4 pools, this is the percentage of IP address space in the
            pool that's been allocated to Elastic IP addresses
            (EIPs).
-
       - **CIDR** – Resource CIDR.
       - **Region** – Resource Region.
       - **Owner ID** – Resource owner ID.
@@ -41,6 +42,7 @@ AWS Management Console
         time.
 
     - **Discovered accounts**: AWS accounts being monitored under a resource discovery. If you have integrated IPAM with AWS Organizations, all accounts in the organization are discovered accounts.
+
       - **Account ID** – The account ID.
       - **Region** – The AWS Region that the account information is
         returned from.
@@ -54,9 +56,11 @@ AWS Management Console
       discovery.
     - **Resource sharing** – If the resource discovery has been shared,
       the resource share ARN is listed.
+
       - **Resource share ARN** – Resource share ARN.
       - **Status** – The current status of the resource share. Possible
         values are:
+
         - **Active** – Resource share is active and available for
           use.
         - **Deleted** – Resource share is deleted and is no longer

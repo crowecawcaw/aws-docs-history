@@ -21,8 +21,10 @@ AWS Management Console
 4. Choose **Actions** > **Delete
    IPAM**.
 5. Do one of the following:
+
    - Choose **Cascade delete** to delete the IPAM, private scopes, pools in private scopes, and
      any allocations in the pools in private scopes. You cannot delete the IPAM with this option if there is a pool in your public scope. If you use this option, IPAM does the following:
+
      - Deallocates any CIDRs allocated to VPC resources (such as VPCs) in pools in private scopes.
 
      ###### Note
@@ -34,6 +36,7 @@ AWS Management Console
      - Deletes the default public and private scopes and the IPAM.
 
    - If you don't choose the **Cascade delete** checkbox, before you can delete an IPAM, you must do the following:
+
      - Release allocations within the IPAM pools. For more information, see
        [Release an allocation](release-alloc-ipam.md "release-alloc-ipam.md").
      - Deprovision CIDRs provisioned to pools within the IPAM. For more information, see

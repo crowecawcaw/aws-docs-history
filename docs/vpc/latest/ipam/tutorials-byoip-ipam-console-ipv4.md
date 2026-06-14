@@ -6,10 +6,12 @@ Management Console and the AWS CLI.
 ###### Important
 
 - This tutorial assumes you have already completed the steps in the following sections:
+
   - [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md "enable-integ-ipam.md").
   - [Create an IPAM](create-ipam.md "create-ipam.md").
 
 - Each step of this tutorial must be done by one of three AWS Organizations accounts:
+
   - The management account.
   - The member account configured to be your IPAM administrator in [Integrate IPAM with accounts in an AWS Organization](enable-integ-ipam.md "enable-integ-ipam.md"). In this tutorial, this account will be called the IPAM account.
   - The member account in your organization which will allocate CIDRs from an IPAM pool. In this tutorial, this account will be called the member account.

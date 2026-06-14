@@ -36,6 +36,7 @@ You will need the following to complete this tutorial:
   `-----END CERTIFICATE-----` strings before and after the encoded
   portion. All of this content must be on a single, long line. The procedure for
   updating RDAP depends on your RIR:
+
   - For ARIN, use the [Account
     Manager portal](https://account.arin.net/public/secure/dashboard "https://account.arin.net/public/secure/dashboard") to add the certificate in the "Public
     Comments" section for the "Network Information" object representing your
@@ -69,6 +70,7 @@ AWS Management Console
 3. Choose your IPAM.
 4. Choose the **BYOASNs** tab and choose **Provision BYOASNs**.
 5. Enter the **ASN**. As a result, the **Message** field is automatically populated with the message you will need to sign in the next step.
+
    - The format of the message is as follows, where ACCOUNT is your AWS account number, ASN is the ASN you are bringing to IPAM, and YYYYMMDD is the expiry date of the message (which defaults to the last day of the next month). Example:
 
    ```
@@ -108,10 +110,12 @@ The tutorial is complete.
 ###### Cleanup
 
 1. Disassociate the ASN from the BYOIP CIDR
+
    - To withdraw the BYOIP CIDR from advertising, in your pool in the public scope, choose the BYOIP CIDR and choose **Actions** > **Withdraw from advertising**.
    - To disassociate the ASN from the CIDR, choose **Actions** > **Manage BYOASN associations**.
 
 2. Deprovision the ASN
+
    - To deprovision the ASN, in the BYOASNs tab, choose the ASN and choose **Deprovision
      ASN**. As a result, the ASN is deprovisioned.
      BYOASNs in a _Deprovisioned_
@@ -164,12 +168,12 @@ The tutorial is complete.
 ###### Cleanup
 
 1. Do one of the following:
+
    - To withdraw just your ASN advertisement and go back to using the Amazon ASNs while keeping the CIDR advertised you must call advertise-byoip-cidr with the special AWS value for the asn parameter. You can swap back to the Amazon ASN at any time, but you can only change to a custom ASN once every hour.
 
    ```
    aws ec2 advertise-byoip-cidr --asn AWS --cidr xxx.xxx.xxx.xxx/n
    ```
-
    - To withdraw your CIDR and ASN advertisement simultaneously, you can call withdraw-byoip-cidr.
 
    ```

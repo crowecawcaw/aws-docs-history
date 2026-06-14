@@ -33,16 +33,19 @@ the _AWS General Reference_.
 Let’s say that your IPAM monitors 2,500 VPCs and 10,000 subnets, all with IPv4 and IPv6 CIDRs. IPAM publishes the following IP utilization metrics:
 
 - Up to 150 metrics for VPC IPv4 IP utilization, including:
+
   - The 50 VPCs with the highest IPv4 IP utilization
   - The 50 VPCs with the lowest IPv4 utilization
   - Up to 50 VPCs containing an IPv4 CIDR allocated from an IPAM pool
 
 - Up to 150 metrics for VPC IPv6 utilization, including:
+
   - The 50 VPCs with the highest IPv6 IP utilization
   - The 50 VPCs with the lowest IPv6 utilization
   - Up to 50 VPCs containing an IPv6 CIDR allocated from an IPAM pool
 
 - Up to 150 metrics for subnet IPv4 utilization, including:
+
   - The 50 subnets with the highest IPv4 IP utilization
   - The 50 subnets with the lowest IPv4 IP utilization
   - Up to 50 subnets whose VPC contains an IPv4 CIDR allocated from an IPAM pool

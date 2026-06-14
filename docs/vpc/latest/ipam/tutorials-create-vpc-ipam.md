@@ -7,10 +7,15 @@ The following is an example hierarchy of the pool structure that you will create
 following the steps in this section:
 
 - IPAM operating in AWS Region 1, AWS Region 2
+
   - Private scope
+
     - Top-level pool
+
       - Regional pool in AWS Region 2
+
         - Development pool
+
           - Allocation for a VPC
 
 ###### Note

@@ -48,6 +48,7 @@ AWS Management Console
 2. In the navigation pane, choose **Prefix list resolvers**.
 3. Choose **Create prefix list resolver**.
 4. In **Step 1: Configure resolver details**, choose the following:
+
    - **IPAM**: An IPAM instance
    - **Address family**: IPv4 or IPv6
    - **Name tag - optional**: A descriptive name
@@ -138,10 +139,12 @@ AWS Management Console
 3. On the resolver details page, choose the **Targets** tab.
 4. Choose **Create target**.
 5. Configure the target:
+
    - **Region**: Select the Region where the existing managed prefix list exists or where you will create one.
    - **Prefix list**: Choose an existing managed prefix list or create a new one
 
 6. Under **Desired version**, select one of the following:
+
    - **Always track latest
      version**: Choose this for automatic updates when you want your prefix lists to stay current with infrastructure changes without manual intervention.
    - **Track specific version**: Choose this for stability when you need predictable, controlled updates and want to manually approve changes to your prefix lists.
@@ -201,6 +204,7 @@ AWS Management Console
 2. Choose the resolver you created in Step 1.
 3. On the resolver details page, choose the **Versions** tab. Here you'll see any versions that have been created by the resolver along with any CIDRs in the version.
 4. On the resolver details page, choose the **Monitoring** tab. In this view, [IPAM prefix list resolver metrics](cloudwatch-ipam-ip-address-usage.md#cloudwatch-ipam-prefix-list-resolver-metrics "cloudwatch-ipam-ip-address-usage.md#cloudwatch-ipam-prefix-list-resolver-metrics") are presented in graph form:
+
    - Prefix list resolver version creation success
    - Prefix list resolver version creation failure
 

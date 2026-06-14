@@ -20,11 +20,15 @@ Planning VPC IP address space for subnets enables you to do the following:
   The following example shows the hierarchy of the pool and resource structure that you will create with this tutorial:
 
 - Private scope
+
   - Resource planning pool (10.0.0.0/20)
+
     - Dev subnet pool (10.0.0.0/24)
+
       - Dev subnet (10.0.0.0/28)
 
     - Prod subnet pool (10.0.0.1/24)
+
       - Prod subnet (10.0.0.16/28)
 
 ###### Important

@@ -49,6 +49,7 @@ AWS Management Console
 5. Choose the **Allocations** tab.
 6. Select one or more allocations. You can identify allocations by their
    **Resource type**:
+
    - **custom**: A custom allocation.
    - **vpc**: A VPC allocation.
    - **ipam-pool**: An IPAM pool allocation.

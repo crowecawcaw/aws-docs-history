@@ -81,10 +81,12 @@ Follow these steps to add allocation rules using the AWS Console:
 3. In your policy details page, choose the **Allocation rules** tab.
 4. Choose **Create allocation rules**.
 5. Configure the **Service configuration**:
+
    - **Locale**: Choose the AWS Region (us-east-1) or Local Zone where you want this policy to apply.
    - **Resource type**: Select the AWS service or resource type for this policy (Elastic IP addresses, RDS database instances, Application Load Balancers, or NAT gateways in regional availability mode).
 
 6. Configure **Rules configuration**:
+
    - **IPAM pool**: Select the IPAM pool that will provide IP addresses.
    - Review the pool details (locale, public IP source, space available, and CIDR ranges available).
 
@@ -106,8 +108,10 @@ Follow these steps to enable the policy using the AWS Console:
 1. In your policy details page, choose the **Targets** tab.
 2. Choose **Manage policy targets**.
 3. Do one of the following:
+
    - For single account usage (IPAM not integrated with AWS Organizations), choose **Enable for your account**.
    - For IPAM integrated with AWS Organizations (when you're the delegated admin):
+
      - In the **Organizational structure** section, select the accounts or organizational units where you want to apply this policy.
      - Check the **Enabled** checkbox for each target.
      - Choose **Save Changes**.

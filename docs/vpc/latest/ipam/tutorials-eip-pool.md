@@ -407,6 +407,7 @@ AWS Management Console
   console. Any Elastic IP addresses allocated from the IPAM pool have a **Resource
   Type** of **EIP**.
 - Use [Public IP insights](view-public-ip-insights.md "view-public-ip-insights.md"):
+
   - Under **Public IP types**, filter by
     **Amazon-owned EIPs**. This shows the total number
     of public IPv4 addresses allocated to Amazon-owned Elastic IP addresses. If you filter

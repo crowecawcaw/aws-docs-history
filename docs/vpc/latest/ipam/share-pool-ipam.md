@@ -19,6 +19,7 @@ Guide_.
   the AWS Region that the IPAM is in, not in the Region of the IPAM pool.
 - The account that creates and deletes IPAM pool resource shares must have the
   following permissions in the IAM policy attached to their IAM role:
+
   - `ec2:PutResourcePolicy`
   - `ec2:DeleteResourcePolicy`
 
@@ -42,6 +43,7 @@ AWS Management Console
    one or more IPAM pools.
 9. Choose **Next**.
 10. Choose one of the permissions for the resource share:
+
     - **AWSRAMDefaultPermissionsIpamPool**: Choose this permission to
       allow principals to view the CIDRs and allocations in the shared
       IPAM pool and allocate/release CIDRs in the pool.

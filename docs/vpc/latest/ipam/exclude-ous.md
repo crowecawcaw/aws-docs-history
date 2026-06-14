@@ -63,20 +63,25 @@ AWS Management Console
 3. Choose your default resource discovery.
 4. Choose **Edit**.
 5. Under **Organizational unit exclusions**, do the following:
+
    - **To add an OU exclusion**:
+
      - If you want to exclude the OU and all its child
        OUs:
+
        - Find the OU in the table and select the
          checkbox. All child OUs are automatically
          selected.
 
      - If you want to exclude only parent OU accounts:
+
        - Find the OU in the table and select the
          checkbox. All child OUs are automatically
          selected. Deselect all child OUs.
 
      - Alternatively, you can use the **Actions** column to select
        only a parent OU or parent and child OUs:
+
        - **Select all child OUs**:
          Include any child OUs in the exclusion. As a
          result of choosing an OU, the OU is added on
@@ -91,13 +96,16 @@ AWS Management Console
 
      - If you know the AWS Organizations entity path
        already or you want to build it:
+
        - Choose **Input organizational unit
          exclusion** and enter the [entity path](../../../IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path "../../../IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.md#access_policies_last-accessed-viewing-orgs-entity-path") of the OU exclusion. Build
          the path for the OU(s) using AWS
          Organizations IDs separated by a `/`.
          Include all child OUs by ending the path with
          `/*`.
+
          - Example 1
+
            - Path to a child OU:
              `o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/ou-jkl0-awsddddd/`
            - In this example, `o-a1b2c3d4e5`
@@ -110,6 +118,7 @@ AWS Management Console
              accounts in the child OU.
 
          - Example 2
+
            - Path where all child OUs will be part of the
              exclusion:
              `o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/*`
@@ -120,6 +129,7 @@ AWS Management Console
 
    - **To remove an OU
      exclusion**:
+
      - Choose the **X** next to an OU
        that's already been added. The `/*` after
        the OU ID indicates that it's a parent OU and that
@@ -179,12 +189,15 @@ Output:
    IDs separated by a `/`. Include all child OUs by ending
    the path with `/*`. You can't include the same entity
    path more than once in the add or remove parameters.
+
    - Example 1
+
      - Path to a child OU: `o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/ou-jkl0-awsddddd/`
      - In this example, `o-a1b2c3d4e5` is the organization ID, `r-f6g7h8i9j0example` is the root ID, `ou-ghi0-awsccccc` is an OU ID, and `ou-jkl0-awsddddd` is a child OU ID.
      - IPAM will not manage the IP addresses in accounts in the child OU.
 
    - Example 2
+
      - Path where all child OUs will be part of the exclusion: `o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-ghi0-awsccccc/*`
      - In this example, IPAM will not manage the IP addresses in accounts in the OU (`ou-ghi0-awsccccc`) or in accounts in any OUs that are children of the OU.
 

@@ -191,12 +191,15 @@ records are of the record type TXT and must be placed into the reverse zone
 of the prefix itself or its parent prefix.
 
 - For IPv4, authentication records need to align to ranges at an octet boundary that make up the prefix.
+
   - **Examples**
   - For 198.18.123.0/24, which is already aligned at an octet boundary, you would need to create a single authentication record at:
+
     - `*token-name*.123.18.198.in-addr.arpa. IN TXT
 “*token-value*”`
 
   - For 198.18.12.0/22, which itself is not aligned to octet boundary, you would need to create four authentication records. These records must cover the subnets 198.18.12.0/24, 198.18.13.0/24, 198.18.14.0/24, and 198.18.15.0/24 which are aligned at an octet boundary. The corresponding DNS entries must be:
+
     - `*token-name*.12.18.198.in-addr.arpa.
 IN TXT
 “*token-value*”`
@@ -211,6 +214,7 @@ IN TXT
 “*token-value*”`
 
   - For 198.18.0.0/16, which is already aligned at an octet boundary, you need to create a single authentication record:
+
     - `*token-name*.18.198.in-addr.arpa. IN TXT “*token-value*”`
 
 - For IPv6, authentication records need to align to
@@ -218,9 +222,11 @@ IN TXT
   nibble values are e.g. 32, 36, 40, 44, 48, 52, 56, and
 
 60. - **Examples**
+
       - For 2001:0db8::/40, which is already aligned at
         nibble boundary, you need to create a single
         authentication record:
+
         - `*token-name*.0.0.8.b.d.0.1.0.0.2.ip6.arpa
 TXT
 “*token-value*”`
@@ -232,6 +238,7 @@ TXT
         2001:db8:a0::/44, and 2001:db8:b0::/44 which are
         aligned at a nibble boundary. The corresponding DNS
         entries must be:
+
         - `*token-name*.8.0.0.8.b.d.0.1.0.0.2.ip6.arpa
 TXT
 “*token-value*”`
@@ -250,6 +257,7 @@ IN TXT “*token-value*”`
         2001:db8:0:1200::/56, and 2001:db8:0:1300::/56 which
         are aligned at a nibble boundary. The corresponding
         DNS entries must be:
+
         - `*token-name*.0.1.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa
 IN TXT “*token-value*”`
         - `*token-name*.1.1.0.0.0.0.8.b.d.0.1.0.0.2.ip6.arpa
