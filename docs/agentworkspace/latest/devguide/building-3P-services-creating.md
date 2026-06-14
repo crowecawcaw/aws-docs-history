@@ -34,6 +34,7 @@ When building a third-party service:
 1. Use AmazonConnectService from @amazon-connect/app to initialize your
    service
 2. Complete all initialization within the timeout period (30 seconds)
+
    1. This is a separate timeout from the initializationTimeout
       configured for the service
    2. initializationTimeout is the time the agent workspace will wait for a
@@ -112,6 +113,7 @@ Create a new third-party service by creating a third-party application with the
 following settings either via APIs or in the AWS Console:
 
 - `isService` set to true
+
   - An app that is configured as a service will be started when the
     agent workspace is loaded and will run hidden for the lifetime of
     the agent workspace. An application that runs as a service in the
@@ -121,6 +123,7 @@ following settings either via APIs or in the AWS Console:
 
 - Set a `InitializationTimeout` in milliseconds up to 10000 (10
   seconds)
+
   - The InitializationTimeout parameter controls the maximum time
     allowed for the initial handshake/connection between the service and
     the agent workspace. This is required to be set for applications

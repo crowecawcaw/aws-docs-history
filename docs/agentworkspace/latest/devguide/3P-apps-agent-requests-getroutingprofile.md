@@ -10,6 +10,7 @@ The routing profile contains the following fields:
 - `name`: The name of the routing profile.
 - `queues`: The queues contained in the routing profile. Each queue
   object has the following properties:
+
   - `name`: The name of the queue.
   - `queueARN`: The ARN of the queue.
   - `queueId`: Alias for queueARN.

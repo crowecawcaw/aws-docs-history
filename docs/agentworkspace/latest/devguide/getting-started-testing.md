@@ -20,6 +20,7 @@ apps) in the agent workspace (Preview)](../../../connect/latest/adminguide/3P-ap
    panel.
 3. Choose **Add application**.
 4. Fill out the necessary required information:
+
    1. **Name**: The name of the application
       is what will show up to agents in the app launcher in the
       agent workspace.
@@ -41,6 +42,7 @@ apps) in the agent workspace (Preview)](../../../connect/latest/adminguide/3P-ap
 8. Navigate to **Security profiles** and select the `Admin` security profile.
 9. Under **Agent applications** find your application and
    make sure the `View` permission is selected.
+
    1. Open the agent application `/agent-app-v2`
 
 10. Open your app by choosing the app launcher and selecting your application.

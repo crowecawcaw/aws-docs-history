@@ -8,6 +8,7 @@ agent workspace:
 1. **Agent workspace startup**: When an agent logs in and the
    agent workspace starts loading, all configured services will begin their startup
    process.
+
    1. The configured InitializationTimeout will be in effect until the third-party service has officially connected to the agent workspace.
 
 2. **Agent workspace loading**: The agent workspace will not fully load and
