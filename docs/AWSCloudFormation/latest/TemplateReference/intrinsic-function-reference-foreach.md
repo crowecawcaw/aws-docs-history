@@ -99,6 +99,7 @@ collection.
 You can use the following functions within `Fn::ForEach`.
 
 - Condition functions:
+
   - [Fn::And](intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-and "intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-and")
   - [Fn::Equals](intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-equals "intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-equals")
   - [Fn::If](intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-if "intrinsic-function-reference-conditions.md#intrinsic-function-reference-conditions-if")

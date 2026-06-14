@@ -30,6 +30,7 @@ resources are updated, as described here:
 - [AWS::AutoScaling::AutoScalingGroup](aws-resource-autoscaling-autoscalinggroup.md "aws-resource-autoscaling-autoscalinggroup.md") – With
   Auto Scaling groups, you can use one or more update policies to control how CloudFormation handles
   certain updates. These policies include:
+
   - `AutoScalingReplacingUpdate` and
     `AutoScalingRollingUpdate` policies – CloudFormation can
     either replace the Auto Scaling group and its instances with an
