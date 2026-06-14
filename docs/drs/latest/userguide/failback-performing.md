@@ -114,6 +114,7 @@ Replication from the source instance to the source server (in the target AWS Reg
 3. Download the AWS Elastic Disaster Recovery Failback Client ISO
    (aws-failback-livecd-64bit.iso) from the S3 bucket that corresponds to the AWS Region in
    which your recovery instances are located.
+
    1. Direct download link: Failback Client ISO:
       `https://aws-elastic-disaster-recovery-{REGION}.s3.{REGION}.amazonaws.com/latest/failback_livecd/aws-failback-livecd-64bit.iso`
    2. Failback Client ISO hash link:

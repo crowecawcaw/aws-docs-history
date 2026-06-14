@@ -60,6 +60,7 @@ DRS Console
 2. Select one or more source servers, then select **Initiate Recovery Job**.
 3. Select **Initiate recovery drill**
 4. Select a Point in Time to recover to:
+
    - Select "Use most recent data" to attempt to create a sub-second RPO snapshot from the source server(s).
    - Select a specific time to use snapshots created at that timestamp, or slightly
      before if a snapshot was unavailable for a particular source server(s).
@@ -74,12 +75,12 @@ Command Line
 Recovery Drills can be started via command line.
 
 1. (optional) Obtain Recovery (PIT) Snapshot to recover to:
+
    - [describe-recovery-snapshots](../../../cli/latest/reference/drs/describe-recovery-snapshots.md "../../../cli/latest/reference/drs/describe-recovery-snapshots.md") (AWS CLI)
 
    ```
    aws drs describe-recovery-snapshots --source-server-id `s-123456789abcdefgh`
    ```
-
    - [Get-EDRSRecoverySnapshot](../../../powershell/latest/reference/items/Get-EDRSRecoverySnapshot.md "../../../powershell/latest/reference/items/Get-EDRSRecoverySnapshot.md") (DRS Tools for Windows PowerShell)
 
    ```
@@ -87,6 +88,7 @@ Recovery Drills can be started via command line.
    ```
 
 2. Perform a Recovery Drill, specifying IsDrill:
+
    - [start-recovery](../../../cli/latest/reference/drs/start-recovery.md "../../../cli/latest/reference/drs/start-recovery.md") (AWS CLI)
 
    With Recovery Snapshot
@@ -100,7 +102,6 @@ Recovery Drills can be started via command line.
    ```
    aws drs start-recovery --source-servers sourceServerID=`s-123456789abcdefgh` --is-drill
    ```
-
    - [Start-EDRSRecovery](../../../powershell/latest/reference/items/Start-EDRSRecovery.md "../../../powershell/latest/reference/items/Start-EDRSRecovery.md") (DRS Tools for Windows PowerShell)
 
    With Recovery Snapshot
@@ -142,12 +143,12 @@ Command Line
 Cleaning up Drills can be started via command line.
 
 1. Identify any Recovery Instances.
+
    - [describe-recovery-instances](../../../cli/latest/reference/drs/describe-recovery-instances.md "../../../cli/latest/reference/drs/describe-recovery-instances.md") (AWS CLI)
 
    ```
    aws drs describe-recovery-instances
    ```
-
    - [Get-EDRSRecoveryInstance](../../../powershell/latest/reference/items/Get-EDRSRecoveryInstance.md "../../../powershell/latest/reference/items/Get-EDRSRecoveryInstance.md") (DRS Tools for Windows PowerShell)
 
    ```
@@ -155,12 +156,12 @@ Cleaning up Drills can be started via command line.
    ```
 
 2. Terminate the Recovery Instances.
+
    - [terminate-recovery-instances](../../../cli/latest/reference/drs/terminate-recovery-instances.md "../../../cli/latest/reference/drs/terminate-recovery-instances.md") (AWS CLI)
 
    ```
    aws drs terminate-recovery-instances --recovery-instance-ids `i-123456789abcdefgh`
    ```
-
    - [Stop-EDRSRecoveryInstance](../../../powershell/latest/reference/items/Stop-EDRSRecoveryInstance.md "../../../powershell/latest/reference/items/Stop-EDRSRecoveryInstance.md") (DRS Tools for Windows PowerShell)
 
    ```

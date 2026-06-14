@@ -130,6 +130,7 @@ Learn more about EC2 launch template settings and configuration options in
    of I/O operations per second that the volume can support via the
    Amazon EC2 console. You can select any number as long as it matches the
    Amazon EBS guidelines.
+
    - Provisioned IOPS SSD (io1): 50 IOPS per GiB of storage
    - Provisioned IOPS SSD (io2): 500 IOPS per GiB of storage
    - General Purpose SSD (gp3): 500 IOPS per GiB of storage

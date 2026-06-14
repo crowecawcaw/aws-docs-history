@@ -4,6 +4,7 @@ The **Server info** tab shows general server information,
 hardware, and network information:
 
 - **General information**
+
   - **Last updated**: when was the data in this tab
     updated.
   - **Date added**: when was this server added to the

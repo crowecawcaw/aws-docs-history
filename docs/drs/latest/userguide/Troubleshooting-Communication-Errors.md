@@ -266,13 +266,13 @@ aws ec2 describe-security-groups \
 ```
 
 4. Check the source server firewall:
+
    - **Linux:**
 
    ```
    sudo iptables -L -n | grep 1500
    sudo firewall-cmd --list-all 2>/dev/null
    ```
-
    - **Windows (PowerShell):**
 
    ```

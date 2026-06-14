@@ -139,6 +139,7 @@ the role](../../../IAM/latest/UserGuide/id_roles_use.md "../../../IAM/latest/Use
    instances on AWS for a real event, you may wish to go on using them
    permanently, instead of your original servers. The primary additional steps
    you need to do are:
+
    1. Set up cross region replication, so that these recovery instances become new source
       servers;
    2. Wait for these new source servers to have to full number of daily PITs that you need

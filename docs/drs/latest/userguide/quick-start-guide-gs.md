@@ -50,6 +50,7 @@ with the default replication server settings or you can configure your own setti
 settings.](individual-replication-settings.md#replication-server-settings "individual-replication-settings.md#replication-server-settings")
 
 - Configurable replication server settings include:
+
   - The subnet within which the replication server will be launched
   - Replication server instance type
 

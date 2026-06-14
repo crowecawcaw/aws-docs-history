@@ -92,6 +92,7 @@ CLI
 
 1. From a test instance in the staging area subnet, test
    connectivity to the required endpoints:
+
    - **Linux:**
 
    ```
@@ -104,7 +105,6 @@ CLI
    # EC2 endpoint
    curl -v https://ec2.`region`.amazonaws.com 2>&1 | head -20
    ```
-
    - **Windows (PowerShell):**
 
    ```

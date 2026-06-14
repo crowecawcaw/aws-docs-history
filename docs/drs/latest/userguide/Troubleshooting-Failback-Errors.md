@@ -46,6 +46,7 @@ Console
    endpoint.
 3. Connect to the recovery instance and check the agent logs for
    connectivity errors:
+
    - **Linux:**
      `/var/lib/aws-replication-agent/agent.log.0`
    - **Windows:**
@@ -84,12 +85,12 @@ DRS endpoint:
     ```
 
 3. Check the agent logs on the recovery instance for errors:
+
    - **Linux:**
 
    ```
    tail -100 /var/lib/aws-replication-agent/agent.log.0 | grep -i "error\|fail\|connect"
    ```
-
    - **Windows (PowerShell):**
 
    ```

@@ -43,6 +43,7 @@ during and after the recovery process, including:
 3. Hardening of OS packages and other software deployed in the recovery instances
    is completely under the customer’s responsibility and we recommend the
    following:
+
    1. Packages should be up to date and free of known vulnerabilities.
    2. Only necessary OS/application services should be up and running.
 

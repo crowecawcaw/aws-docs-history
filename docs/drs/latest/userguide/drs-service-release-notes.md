@@ -26,6 +26,7 @@
 - AWS Elastic Disaster Recovery now supports [Flexible Instance Types](flexible-instance-types.md "flexible-instance-types.md").
 - [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
   Created managed policy revisions to support FlexibleInstances feature for DRS. The following managed policies were updated:
+
   - AWSElasticDisasterRecoveryConsoleFullAccess_v2
   - AWSElasticDisasterRecoveryReadOnlyAccess
 
@@ -61,6 +62,7 @@
 - [AWS managed policy updates](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
   Created new revisions to support DRS in AWS GovCloud and added Statement ID (SID) to managed policy
   statements. The following managed policies were updated:
+
   - AWSElasticDisasterRecoveryAgentPolicy
   - AWSElasticDisasterRecoveryAgentInstallationPolicy
   - AWSElasticDisasterRecoveryEc2InstancePolicy
@@ -204,6 +206,7 @@
 
 - [New AWS managed policy](security-iam-awsmanpol.md "security-iam-awsmanpol.md") –
   Added several policies:
+
   - AWSElasticDisasterRecoveryStagingAccountPolicy
 
   - AWSElasticDisasterRecoveryAgentPolicy

@@ -41,6 +41,7 @@ Console
    **Data replication status** field.
 3. If the status shows **Disconnected**,
    verify that the agent is running on the source server:
+
    - **Linux:** Run
      `sudo systemctl status aws-replication-agent`
    - **Windows:** Open
@@ -87,12 +88,12 @@ with the service. 2. Verify the agent is running on the source server:
     ```
 
 3. Test connectivity to the DRS endpoint:
+
    - **Linux:**
 
    ```
    curl -v https://drs.`region`.amazonaws.com 2>&1 | head -20
    ```
-
    - **Windows (PowerShell):**
 
    ```
@@ -256,12 +257,12 @@ aws drs get-replication-configuration \
 
 2. Test connectivity from a machine in the staging area
    subnet:
+
    - **Linux:**
 
    ```
    curl -v https://drs.`region`.amazonaws.com 2>&1 | head -20
    ```
-
    - **Windows (PowerShell):**
 
    ```
@@ -383,12 +384,12 @@ aws ec2 describe-security-groups \
 ```
 
 3. Test port 1500 from the source server:
+
    - **Linux:**
 
    ```
    nc -zv `replication-server-ip` 1500
    ```
-
    - **Windows:**
 
    ```

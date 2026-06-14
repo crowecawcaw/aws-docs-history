@@ -10,6 +10,7 @@
   Linux.
 - Hard reboots, disk changes, and crashes trigger a rescan. Graceful reboots do not trigger a
   rescan in the following versions:
+
   - RHEL/CentOS/Oracle Linux 6+ (kernel versions 2.6.32–431 and
     above)
   - SUSE 12+
@@ -23,19 +24,24 @@
 **Support deprecation notes**
 
 - **CentOS versions 6.x**:
+
   - Effective August 28, 2026, this operating system will no longer be supported.
 
 - **SLES versions 11.x**:
+
   - Effective August 28, 2026, this operating system will no longer be supported.
 
 - **Oracle versions 6.x**:
+
   - Effective August 28, 2026, this operating system will no longer be supported.
 
 - **Ubuntu 12.04**:
+
   - Effective August 20, 2026, this operating system will no longer be supported.
 
 - **Red Hat Enterprise Linux (RHEL) version 5.x and CentOS
   version 5.x**:
+
   - Effective December 30, 2025, this operating system is no longer supported.
 
 - **Debian 6.x-9.x**:

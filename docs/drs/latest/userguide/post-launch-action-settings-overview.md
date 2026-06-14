@@ -26,6 +26,7 @@ role for that action execution.
   These policies contain the permissions needed to run SSM Command and Automation documents that are owned by Amazon or by the account as post-launch actions.
 - Installation of the SSM Agent requires a minimum of 200 MB of free disk space and 200 KB of free disk space in the `/var` directory.
 - Installation of the SSM Agent is not supported on these operating systems:
+
   - CentOS 5.x
   - CentOS 6.x
   - RHEL 6.x

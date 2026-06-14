@@ -48,6 +48,7 @@ assuming DRS has been initialized in the source account and region.
 ## Performing cross-account failback
 
 1. **Start reversed replication.**
+
    1. Log in to the recovery account and select the recovery region (the account and region where the recovery instances were launched in).
    2. Open the **AWS Elastic Disaster Recovery** service console.
    3. Navigate to the **Recovery

@@ -17,6 +17,7 @@ fixes the issue. Choose:
   group** option. Then, select
   the drop-down menu to choose from the list of available security groups.
   The list of available security groups changes according to the **Staging area subnet** that you selected.
+
   - To search for a specific security group, use the search box.
   - If you add security groups via the AWS Console, they appear on the
     Security group drop-down list in the AWS Elastic Disaster Recovery Console. Learn more about

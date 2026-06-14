@@ -13,6 +13,7 @@ the following requirements:
 ## General requirements
 
 - Ensure that the source server operating system is supported by AWS.
+
   - [Supported Windows operating systems.](Supported-Operating-Systems-Windows.md "Supported-Operating-Systems-Windows.md")
   - [Supported Linux operating systems.](Supported-Operating-Systems-Linux.md "Supported-Operating-Systems-Linux.md")
 
@@ -46,6 +47,7 @@ to installing the AWS Replication Agent:
 
 - Python 2 (2.4 or above) or Python 3 (3.0 or above) is installed on the server.
 - Verify that you meet these disk space requirements:
+
   - At least 4 GB of free disk space on the
     root directory (/) of your source server for the installation. To check the available
     disk space on the root directory, run the `df -h /` command.
@@ -85,6 +87,7 @@ To fix and remove the noexec option from the mounted /tmp directory, run the `su
 - Ensure that the dhclient package is installed. The DHCP client is required
   because AWS Elastic Disaster Recovery configures recovered instances to use DHCP networking. If the
   package is not installed, use the appropriate command for your distribution:
+
   - On RHEL/CentOS/Oracle/Amazon Linux: `sudo yum install dhclient`
     or `sudo yum install dhcp-client`
   - On Debian/Ubuntu: `sudo apt install isc-dhcp-client`

@@ -61,12 +61,12 @@ Command Line
 ###### Updating the Staging area subnet
 
 - Updating the Staging area subnet via command line
+
   - [describe-recovery-instances](../../../cli/latest/reference/drs/describe-recovery-instances.md "../../../cli/latest/reference/drs/describe-recovery-instances.md") (AWS CLI)
 
   ```
   aws drs describe-recovery-instances --source-server-id `s-123456789abcdefgh` --staging-area-subnet-id `subnet-123456789abcd`
   ```
-
   - [Update-EDRSReplicationConfiguration](../../../powershell/latest/reference/items/Update-EDRSReplicationConfiguration.md "../../../powershell/latest/reference/items/Update-EDRSReplicationConfiguration.md") (DRS Tools for Windows PowerShell)
 
   ```
@@ -108,12 +108,12 @@ Command Line
 ###### Modifying Dedicated instance for replication server
 
 - Updating the Replication server instance type via command line
+
   - [update-replication-configuration](../../../cli/latest/reference/drs/update-replication-configuration.md "../../../cli/latest/reference/drs/update-replication-configuration.md") (AWS CLI)
 
   ```
   aws drs update-replication-configuration --source-server-id `s-123456789abcdefgh` --replication-server-instance-type `m5.large`
   ```
-
   - [Update-EDRSReplicationConfiguration](../../../powershell/latest/reference/items/Update-EDRSReplicationConfiguration.md "../../../powershell/latest/reference/items/Update-EDRSReplicationConfiguration.md") (DRS Tools for Windows PowerShell)
 
   ```
@@ -153,12 +153,12 @@ Command Line
 ###### Modifying Dedicated instance for replication server
 
 1. Enabling Dedicated instance for replication server via command line
+
    - [update-replication-configuration](../../../cli/latest/reference/drs/update-replication-configuration.md "../../../cli/latest/reference/drs/update-replication-configuration.md") (AWS CLI)
 
    ```
    aws drs update-replication-configuration --source-server-id `s-123456789abcdefgh` --use-dedicated-replication-server
    ```
-
    - [Update-EDRSReplicationConfiguration](../../../powershell/latest/reference/items/Update-EDRSReplicationConfiguration.md "../../../powershell/latest/reference/items/Update-EDRSReplicationConfiguration.md") (DRS Tools for Windows PowerShell)
 
    ```
@@ -166,12 +166,12 @@ Command Line
    ```
 
 2. Disabling Dedicated instance for replication server via commandline
+
    - [update-replication-configuration](../../../cli/latest/reference/drs/update-replication-configuration.md "../../../cli/latest/reference/drs/update-replication-configuration.md") (AWS CLI)
 
    ```
    aws drs update-replication-configuration --source-server-id `s-123456789abcdefgh` --no-use-dedicated-replication-server
    ```
-
    - [Update-EDRSReplicationConfiguration](../../../powershell/latest/reference/items/Update-EDRSReplicationConfiguration.md "../../../powershell/latest/reference/items/Update-EDRSReplicationConfiguration.md") (DRS Tools for Windows PowerShell)
 
    ```

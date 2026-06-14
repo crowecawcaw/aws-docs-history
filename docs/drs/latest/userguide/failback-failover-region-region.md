@@ -56,6 +56,7 @@ assuming DRS has been initialized in the source region.
 ## Performing cross-region failback
 
 1. **Start reversed replication.**
+
    1. Go to the recovery AWS Region (in this example, us-east-2).
    2. Choose the **AWS Elastic Disaster Recovery** service.
    3. Navigate to the **Recovery

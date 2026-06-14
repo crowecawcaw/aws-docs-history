@@ -31,6 +31,7 @@ The columns include:
     launch if there was an error reading their license information.
 - **Data replication status** – This column shows the current
   status of data replication for the server:
+
   - **Initiating** – The server has just been added to AWS Elastic Disaster Recovery and replication is being initiated.
   - **Initial sync** – The server is undergoing the initial
     sync process. The console displays the percentage of the server data that has been synced
@@ -52,6 +53,7 @@ The columns include:
 - **Last recovery result** – This column shows the result of
   the last recovery job launch. The column is empty if no recovery job has ever been
   launched for the server:
+
   - **Successful** - Recovery launch job was completed
     successfully. The console indicates how long ago the job was completed.
   - **Failed** – Recovery launch job failed. The console
@@ -63,6 +65,7 @@ The columns include:
 - **Pending actions** – This column shows any pending actions
   that need to be performed on the server. This column appears empty unless there is an
   actionable pending action. Actions include:
+
   - **Initiate drill** – The source server is healthy, but no
     drill instances have been launched for the source server. Initiate a drill by
     launching a drill instance.
