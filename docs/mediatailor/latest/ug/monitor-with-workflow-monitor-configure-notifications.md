@@ -33,6 +33,7 @@ You can send notifications based on event templates you create.
    name** and optional
    **Description**.
 3. In the **Rule settings** section:
+
    1. Select an **Event type**. When selecting
       an event type, you can choose between several events
       created by AWS or select **Signal map active

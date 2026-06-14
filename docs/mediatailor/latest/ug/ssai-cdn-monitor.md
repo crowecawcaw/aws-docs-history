@@ -114,11 +114,13 @@ Follow these steps to implement a comprehensive monitoring strategy for your SSA
 CDN implementation:
 
 1. **Set up basic monitoring**
+
    - Enable CloudWatch metrics for MediaTailor
    - Configure CDN logging and metrics collection
    - Implement client-side tracking in your video player
 
 2. **Create custom dashboards**
+
    - Build a CloudWatch dashboard that combines key metrics
    - Include visualizations for ad fill rate, CDN performance, and viewer
      experience
@@ -126,12 +128,14 @@ CDN implementation:
      broadcasts)
 
 3. **Configure alerts**
+
    - Set up CloudWatch alarms for critical metrics
    - Create composite alarms that trigger on multiple related
      conditions
    - Configure notification channels (email, SMS, Amazon SNS)
 
 4. **Implement automated responses**
+
    - Use CloudWatch Events to trigger automated responses to common issues
    - Create runbooks for manual intervention when needed
    - Document troubleshooting procedures for different alert

@@ -78,6 +78,7 @@ forwarding:
 4. Add `aws.manifestfilter` to the list of allowed query
    strings.
 5. If you're also using other MediaPackage features, add their query parameters:
+
    - `start` and `end` - For time-shifted
      viewing
    - `time_delay` - For time delay functionality

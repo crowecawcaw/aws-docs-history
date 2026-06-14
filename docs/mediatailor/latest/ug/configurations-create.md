@@ -23,6 +23,7 @@ Amazon CloudWatch Events.
    configuration**.
 3. Complete the configuration and additional configuration fields as
    described in the following topics:
+
    - [Required settings](#configurations-create-main "#configurations-create-main")
    - [Optional configuration settings](#configurations-create-addl "#configurations-create-addl")
 

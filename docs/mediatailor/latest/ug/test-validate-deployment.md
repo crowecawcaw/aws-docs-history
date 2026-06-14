@@ -13,6 +13,7 @@ working correctly:
 2. Check that the MediaTailor playback configuration is active in the [MediaTailor console](https://console.aws.amazon.com/mediatailor/home "https://console.aws.amazon.com/mediatailor/home").
 3. Verify that the CloudFront distribution is deployed and enabled in the [CloudFront console](https://console.aws.amazon.com/CloudFront/home "https://console.aws.amazon.com/CloudFront/home").
 4. Test playback using a sample manifest:
+
    1. Construct the full playback URL as described in [Construct playback URLs](use-deployed-resources.md#construct-playback-urls "use-deployed-resources.md#construct-playback-urls").
    2. Use a video player that supports HLS or DASH (like VLC, JW Player, or
       the AWS console player).

@@ -5,6 +5,7 @@ and playback interruptions. If players can't load segments or experience
 buffering:
 
 1.  Check CDN routing rules:
+
     - Verify content segments are being routed to the correct origin
     - Confirm ad segments are being routed to the correct MediaTailor ad storage
       location
@@ -16,6 +17,7 @@ buffering:
       patterns, see [Set up CDN routing behaviors for MediaTailor](cdn-routing-behaviors.md "cdn-routing-behaviors.md")
 
 2.  Verify CORS configuration:
+
     - For web players, ensure your CDN is passing through or properly
       setting CORS headers
     - Test with browser developer tools to identify CORS-related
@@ -23,6 +25,7 @@ buffering:
     - Verify that preflight OPTIONS requests are handled correctly
 
 3.  Test segment accessibility and performance:
+
     - Test individual segment URLs directly to verify they're
       accessible
     - Check segment response times and identify performance
@@ -32,6 +35,7 @@ buffering:
     - Test segment loading from different geographic locations
 
 4.  Validate CDN caching behavior for segments:
+
     - Verify content segments have appropriate TTL settings (typically
       longer than manifests)
     - Check that ad segments are cached appropriately based on
@@ -41,6 +45,7 @@ buffering:
       cache efficiency
 
 5.  Check origin server connectivity and health:
+
     - Verify origin servers are responding correctly to segment
       requests
     - Check origin server capacity and response times under load
@@ -50,6 +55,7 @@ buffering:
       configured
 
 6.  Troubleshoot ad segment specific issues:
+
     - Verify ad segments are properly transcoded and available in
       MediaTailor
     - Check that ad segment URLs are correctly generated in manifests

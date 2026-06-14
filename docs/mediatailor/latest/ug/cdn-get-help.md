@@ -51,22 +51,26 @@ your support case will significantly reduce resolution time and help support eng
 understand your specific configuration.
 
 - **MediaTailor configuration details:**
+
   - Configuration name and AWS Region
   - Playback configuration ARN
   - ADS URL and integration type
 
 - **CDN configuration details:**
+
   - CDN distribution ID or configuration name
   - Cache behavior configurations for manifests and segments
   - Origin configuration and routing rules
 
 - **Error information:**
+
   - Specific error messages and HTTP status codes
   - Timestamps when issues occur
   - Sample URLs that demonstrate the problem
   - CDN and MediaTailor log entries related to the issue
 
 - **Testing information:**
+
   - Steps you've already taken to troubleshoot
   - Devices and players where the issue occurs
   - Whether the issue affects all content or specific streams

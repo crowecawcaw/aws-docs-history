@@ -11,6 +11,7 @@ following integration types:
 - **Server-side integration**: MediaTailor automatically
   secures server-side ad requests and impression tracking requests to Google's ad
   platforms. This includes:
+
   - **Google Ad Manager (GAM)**: Ad requests to
     Google's ad server for publishers are automatically secured, which is
     required for access to Authorized Buyers—Google's real-time ad sales

@@ -5,6 +5,7 @@ synchronized with content markers. If ads appear at incorrect times or ad break 
 is inconsistent:
 
 1.  Verify ad break markers in content:
+
     - Check that SCTE-35 markers are properly placed in your origin
       content
     - Verify ad break duration matches actual ad content length
@@ -15,6 +16,7 @@ is inconsistent:
       VOD)
 
 2.  Check CDN caching impact on timing:
+
     - Ensure manifest TTL is set to 0 to prevent timing drift
     - Verify that time-sensitive parameters are not being cached
     - Check for clock synchronization issues between the content source,
@@ -23,6 +25,7 @@ is inconsistent:
     - Verify CDN edge server time synchronization with NTP
 
 3.  Validate SCTE-35 marker implementation:
+
     - Verify EXT-X-DATERANGE tags include proper SCTE35-OUT and DURATION
       specifications
     - Check for paired SCTE35-OUT and SCTE35-IN markers when using explicit
@@ -32,6 +35,7 @@ is inconsistent:
       markers)
 
 4.  Test ad break timing across different scenarios:
+
     - Compare ad break timing with direct MediaTailor requests vs CDN
       requests
     - Test timing consistency across different CDN edge locations

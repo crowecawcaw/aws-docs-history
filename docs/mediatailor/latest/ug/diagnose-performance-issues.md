@@ -10,6 +10,7 @@ Before troubleshooting performance issues, establish baseline measurements and
 ongoing monitoring:
 
 1. Measure key performance metrics:
+
    - **Response times:** Manifest requests
      should complete within 200ms, segment requests within 100ms
    - **Cache hit ratios:** Content
@@ -20,6 +21,7 @@ ongoing monitoring:
      playback should start within 2-3 seconds
 
 2. Use performance measurement tools:
+
    - **CDN analytics dashboards:** Monitor
      cache performance, response times, and error rates
    - **CloudWatch metrics:** Track MediaTailor
@@ -30,6 +32,7 @@ ongoing monitoring:
      timing options to measure specific requests
 
 3. Implement continuous monitoring:
+
    - Set up automated performance alerts for response time
      degradation
    - Monitor performance across different geographic regions
@@ -86,6 +89,7 @@ increased latency, higher bandwidth costs, poor viewer experience
     strategies, see [Caching optimization for CDN and MediaTailor integrations](cdn-optimize-caching.md "cdn-optimize-caching.md").
 
 2.  Optimize cache key configuration:
+
     - Remove unnecessary query parameters from cache
       keys
     - Ensure only content-affecting parameters are
@@ -243,6 +247,7 @@ malformed request errors, parameter validation failures
 - Contact AWS Support if issues persist
 
 1.  Measure baseline performance:
+
     - Test manifest request response times directly to MediaTailor (target:
       <200ms)
     - Measure CDN response times for manifest requests (target: <100ms

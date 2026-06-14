@@ -27,6 +27,7 @@ user agent.
 5. Under **Function type**, select the **Custom output** tile.
 6. Under **Function details**, enter the
    following:
+
    - **Function ID**:
      `myFirstFunction`
    - **Description**: `Classify device
@@ -34,6 +35,7 @@ type from user agent`
 
 7. Under **Custom output configuration**, in the
    **Output** section, add one row:
+
    - **Key**:
      `player_params.deviceType`
    - **Value**: `{%

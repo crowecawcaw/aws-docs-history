@@ -83,11 +83,13 @@ components affect caching
 The template creates a CloudFront distribution with the following components:
 
 - Three origins:
+
   - Content origin (MediaPackage, Amazon S3, or custom)
   - MediaTailor manifests origin
   - MediaTailor segments origin
 
 - Cache behaviors with appropriate patterns:
+
   - Default behavior for content segments
   - Behavior for MediaTailor ad segments (/tm/\*)
   - Behavior for MediaTailor interstitial media (/v1/i-media/\*)
@@ -95,6 +97,7 @@ The template creates a CloudFront distribution with the following components:
   - Behavior for segment redirect requests (/segment/\*)
 
 - Optimized cache policies for each behavior:
+
   - `CachingOptimized` for cacheable content
   - `CachingDisabled` for personalized manifests
 

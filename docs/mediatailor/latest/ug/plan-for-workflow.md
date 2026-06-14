@@ -13,6 +13,7 @@ Adjust your capacity plan based on your specific MediaTailor workflow:
     their profile and viewing context.
 2.  Size your ad decision server (ADS) to handle peak request volumes. For
     guidance on ADS configuration, see [Ad insertion with MediaTailor](ad-insertion.md "ad-insertion.md"). Consider:
+
     - Response time requirements for your use case
     - Expected concurrent viewer capacity
     - Redundancy and failover requirements
@@ -35,6 +36,7 @@ Adjust your capacity plan based on your specific MediaTailor workflow:
 
 1.  Calculate capacity requirements based on the number of channels and their
     bitrates. For guidance on channel assembly capacity planning, see [Channel assembly in MediaTailor](channel-assembly.md "channel-assembly.md"). Consider:
+
     - Total number of channels
     - Bitrate requirements per channel
     - Expected concurrent viewer load
@@ -43,6 +45,7 @@ Adjust your capacity plan based on your specific MediaTailor workflow:
 2.  Configure your CDN to handle predictable traffic patterns based on
     published schedules. Channel assembly typically has more predictable
     patterns than ad insertion because:
+
     - Programming schedules are known in advance
     - Viewer behavior follows established patterns
     - Content doesn't change dynamically per viewer
@@ -62,6 +65,7 @@ Adjust your capacity plan based on your specific MediaTailor workflow:
 1.  Size your infrastructure to handle the combined traffic patterns of both
     services. For guidance on combined workflows, see [Using AWS Elemental MediaTailor to insert ads](configurations.md "configurations.md").
     Consider:
+
     - Channel assembly baseline requirements
     - Ad insertion overhead requirements
     - Peak traffic patterns
@@ -69,6 +73,7 @@ Adjust your capacity plan based on your specific MediaTailor workflow:
 
 2.  Configure separate CDN behaviors for linear content delivery and dynamic
     ad insertion. This separation allows you to:
+
     - Optimize caching policies for each content type
       independently
     - Route requests to appropriate origins based on content type

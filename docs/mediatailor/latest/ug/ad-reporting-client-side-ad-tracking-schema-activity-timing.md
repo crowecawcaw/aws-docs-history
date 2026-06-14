@@ -22,6 +22,7 @@ activities, such as tracking events, with playback position:
   ad or tracking event falls on also corresponds to the `adId` or
   `eventId` in the client-side tracking response.
 - DASH:
+
   - Live/dynamic manifests - The `startTime` values are relative to the
     `MPD@availabilityStartTime` of the DASH manifest. The
     `MPD@avaibilityStartTime` is a timing anchor for all MediaTailor sessions that

@@ -5,6 +5,7 @@ personalization and tracking. If you encounter session-related errors or inconsi
 behavior across requests:
 
 1.  Check for session ID consistency:
+
     - Verify that your player maintains the same session ID across all
       requests for a single playback session
     - Check CDN logs to confirm session IDs are being forwarded
@@ -14,6 +15,7 @@ behavior across requests:
       validation steps below)
 
 2.  Validate session initialization:
+
     - Confirm that the first manifest request successfully creates a
       session
     - Check for proper session parameter forwarding (for example,
@@ -22,13 +24,13 @@ behavior across requests:
       below)
 
 3.  Enable debug logging for detailed session troubleshooting:
+
     - **For server-side reporting:** Add
       `?aws.logMode=DEBUG` to your playback request:
 
     ```
     GET <mediatailorURL>/v1/master/<hashed-account-id>/<origin-id>/<asset-id>?aws.logMode=DEBUG
     ```
-
     - **For client-side reporting:** Include
       `"logMode": "DEBUG"` in your session initialization
       request body
@@ -37,6 +39,7 @@ behavior across requests:
     - Maximum of 10 active debug sessions allowed simultaneously
 
 4.  Use CloudWatch Logs queries to validate session behavior:
+
     - **Verify debug session is
       active:**
 
@@ -47,7 +50,6 @@ behavior across requests:
     or mediaTailorPath like "/v1/master" # server-side reporting HLS
     or mediaTailorPath like "/v1/dash" # server-side reporting DASH
     ```
-
     - **View all events for a session:**
 
     ```
@@ -55,7 +57,6 @@ behavior across requests:
     | filter sessionId = "your-session-id-here"
     | sort @timestamp asc
     ```
-
     - **Check manifest generation for a
       session:**
 

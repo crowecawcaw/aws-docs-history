@@ -18,6 +18,7 @@ For additional information, see the following links:
   types of manifests:
 
 - **HLS manifests**:
+
   - _Multivariant playlist_: The top-level manifest that
     contains links to media playlists
   - _Media playlist_: The second-level manifest with links

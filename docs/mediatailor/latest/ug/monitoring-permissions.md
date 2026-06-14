@@ -20,6 +20,7 @@ publishes metrics for your account.
 7. Add a permissions policy that specifies what actions this role can complete.
    Select from one of the following options, and then choose **Next:
    Review**:
+
    - **CloudWatchLogsFullAccess** to provide full access to
      Amazon CloudWatch Logs
    - **CloudWatchFullAccess** to provide full access to
@@ -30,6 +31,7 @@ publishes metrics for your account.
    role**.
 9. On the **Roles** page, choose the role that you just created.
 10. To update the principal, edit the trust relationship:
+
     1. On the role's **Summary** page, choose the
        **Trust relationship** tab.
     2. Choose **Edit trust relationship**.

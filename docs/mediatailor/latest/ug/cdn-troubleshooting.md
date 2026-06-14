@@ -37,6 +37,7 @@ Detailed logs are essential for diagnosing CDN integration issues. Configure
 logging to capture the information you'll need during troubleshooting.
 
 1. Enable detailed CDN access logs:
+
    - Configure logging for all cache behaviors that handle MediaTailor
      requests
    - Include query strings and custom headers in log entries
@@ -48,11 +49,13 @@ logging to capture the information you'll need during troubleshooting.
      troubleshooting data
 
 2. Configure MediaTailor logging:
+
    - Enable access logs for your MediaTailor configurations
    - Set up CloudWatch log groups for centralized log management
    - Configure log filters to identify error patterns
 
 3. Set up origin server logging:
+
    - Enable detailed access logs on your content origin servers
    - Include request headers and response codes in logs
    - Monitor origin server performance metrics
@@ -63,6 +66,7 @@ Custom headers help track requests through your CDN and identify routing
 issues.
 
 1. Configure CDN diagnostic headers:
+
    - Add a unique identifier to each request (for example,
      `X-Request-ID`)
    - Include CDN-specific information in request headers
@@ -72,6 +76,7 @@ issues.
      behavior analysis
 
 2. Add response headers for debugging:
+
    - Include server identification headers
    - Add timing information for performance analysis
    - Include cache control headers for manifest requests
@@ -82,12 +87,14 @@ Document normal performance ranges to quickly identify anomalies during
 troubleshooting:
 
 1. **Record baseline metrics**:
+
    - Cache hit ratios for different content types
    - Response time percentiles (P50, P95, P99)
    - Error rates by status code
    - Request volume patterns by time of day
 
 2. **Document performance expectations**:
+
    - Target cache hit ratios (95%+ for content, 90%+ for ads)
    - Acceptable response times (<100ms cached, <500ms
      origin)
@@ -103,6 +110,7 @@ troubleshooting:
 Set up tools and access permissions needed for effective troubleshooting:
 
 1. **Command-line tools**:
+
    - `curl` for testing HTTP requests and responses
    - `dig` or `nslookup` for DNS
      troubleshooting
@@ -111,12 +119,14 @@ Set up tools and access permissions needed for effective troubleshooting:
      analyzers)
 
 2. **Access permissions**:
+
    - CDN management console access for configuration review
    - MediaTailor console access for configuration verification
    - CloudWatch access for metrics and log analysis
    - Origin server access for backend troubleshooting
 
 3. **Documentation**:
+
    - Network architecture diagrams
    - CDN and MediaTailor configuration documentation
    - Contact information for escalation procedures

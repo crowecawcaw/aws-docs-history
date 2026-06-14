@@ -67,6 +67,7 @@ The following are the ad suppression configuration parameters:
   suppression mode. By default, ad suppression is off. **Accepted values**: `OFF`,
   `BEHIND_LIVE_EDGE`, or
   `AFTER_LIVE_EDGE`.
+
   - `OFF`: There is no ad suppression and MediaTailor
     personalizes all ad breaks.
   - `BEHIND_LIVE_EDGE`: MediaTailor doesn't
@@ -87,6 +88,7 @@ The following are the ad suppression configuration parameters:
   – Defines the policy that MediaTailor applies to the **Avail suppression mode**. **Accepted
   values**: `PARTIAL_AVAIL`,
   `FULL_AVAIL_ONLY`.
+
   - `BEHIND_LIVE_EDGE` mode always uses the
     `FULL_AVAIL_ONLY` suppression policy.
   - `AFTER_LIVE_EDGE` mode can be used to invoke

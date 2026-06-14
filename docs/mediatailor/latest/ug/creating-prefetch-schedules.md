@@ -34,6 +34,7 @@ variables are mapped in the ADS template URL.
 3.  On the **Prefetch schedules** tab, choose **Add prefetch
     schedule**.
 4.  Under the **Prefetch schedule details** pane, do the following:
+
     - For **Name**, enter an identifier for your prefetch schedule, such as
       **my-prefetch-schedule**.
     - For **Stream ID**, optionally enter a unique ID. If your origin
@@ -87,6 +88,7 @@ variables are mapped in the ADS template URL.
 6.  On the **Retrieval** pane, specify the retrieval settings you want to
     use. These settings determine when MediaTailor prefetches ads from the ADS. They also determine
     which dynamic session variables to include in the request to the ADS, if any.
+
     - For **Start time**, enter the time when MediaTailor can start prefetch
       retrievals for this ad break. MediaTailor will attempt to prefetch ads for manifest requests made
       by your client on or after this time. The default value is the current time. If you don't
@@ -112,6 +114,7 @@ variables are mapped in the ADS template URL.
       session variables, MediaTailor makes a best effort attempt to interpolate the values for the
       dynamic variables contained in your [ADS](configurations-create.md#configurations-create-main "configurations-create.md#configurations-create-main")
       URL.
+
       - Select **Add dynamic variable**.
       - For **Key**, enter a dynamic session variable key, such as
         `scte.event_id`. You can use any dynamic variable that MediaTailor supports. For
@@ -124,6 +127,7 @@ variables are mapped in the ADS template URL.
 7.  On the **Consumption** pane, specify the settings that you want to use
     for the consumption window. These settings determine when MediaTailor places the ads into the ad
     break. They also determine any avail matching criteria that you want to use.
+
     - For **Start time**, enter the time when you want MediaTailor to begin to
       place prefetched ads into the ad break. the default value is the current time. If you don't
       specify a time, the service starts prefetch consumption as soon as possible.
@@ -166,6 +170,7 @@ To create a schedule that prefetches ads before each ad avail in an event.
    want to use. These settings determine when MediaTailor prefetches ads from the ADS. They also
    determine which dynamic session variables to include in the request to the ADS, if
    any.
+
    - For **Recurring prefetch window**, enter the time when MediaTailor can
      start prefetch retrievals for this ad break. MediaTailor will attempt to prefetch ads for
      manifest requests made by your client on or after this time. The default value is the
@@ -190,6 +195,7 @@ To create a schedule that prefetches ads before each ad avail in an event.
      session variables, MediaTailor makes a best effort attempt to interpolate the values for the
      dynamic variables contained in your [ADS](configurations-create.md#configurations-create-main "configurations-create.md#configurations-create-main")
      URL.
+
      - Select **Add dynamic variable**.
      - For **Key**, enter a dynamic session variable key, such as
        `scte.event_id`. You can use any dynamic variable that MediaTailor supports. For
@@ -202,6 +208,7 @@ To create a schedule that prefetches ads before each ad avail in an event.
 2. On the **Consumption** pane, specify the settings that you want to use
    for the consumption window. These settings determine when MediaTailor places the ads into the ad
    break. They also determine any avail matching criteria that you want to use.
+
    - For **Retrieved ad expiration**, indicate how long after retrieval
      ads are available for insertion.
    - In the [Avail matching criteria](variables.md "variables.md")

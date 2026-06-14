@@ -20,6 +20,7 @@ configuration, each source has the same number of child streams.
    source**.
 5. Under **live source details**, enter a name for your live
    source:
+
    - **Name**: An identifier for your live source,
      such as **my-example-video**.
 

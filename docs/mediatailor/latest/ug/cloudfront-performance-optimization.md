@@ -45,6 +45,7 @@ Here's how to implement them for your MediaTailor integration:
 
 1. In the CloudFront console, navigate to **Functions**.
 2. Create a new function and select the appropriate purpose:
+
    - **URL manipulation** - To modify
      multivariant playlist, media playlist, and MPD request URLs before they
      reach MediaTailor
@@ -95,6 +96,7 @@ integration:
 
 1. Create a Lambda function in the US East (N. Virginia) Region.
 2. Write your function code for one of these use cases:
+
    - **URL manipulation** - To modify
      multivariant playlist, media playlist, and MPD request URLs before they
      reach MediaTailor

@@ -26,6 +26,7 @@ each viewer. 2. Create separate cache behaviors for different request types:
     * Ad segments (longer TTL)
 
 3. Configure proper error handling:
+
    - Set up negative caching (temporarily storing error responses) to
      avoid overwhelming your origin with repeated requests during service
      disruptions. Negative caching means the CDN will temporarily store

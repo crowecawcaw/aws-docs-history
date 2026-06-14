@@ -28,6 +28,7 @@ The automated workflow for setting up MediaTailor with CloudFront follows these 
 1. Deploy the CloudFormation template with your content origin and ad server
    parameters
 2. CloudFormation creates and configures all necessary resources:
+
    - MediaTailor playback configuration for ad insertion
    - CloudFront distribution with appropriate cache behaviors
    - Security configurations for content protection

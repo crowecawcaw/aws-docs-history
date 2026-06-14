@@ -16,12 +16,14 @@ described in [Optional configuration settings](configurations-create.md#configur
 1. When MediaTailor receives a playback request, it sends a request to the ADS
    for pre-roll ads based on the following fields in the MediaTailor playback
    configuration:
+
    - **Live pre-roll ad decision server** is the ad
      decision server (ADS) URL where MediaTailor sends the request for
      pre-roll ads.
    - **Live pre-roll maximum allowed duration** is the
      total maximum length of time for the pre-roll ads. MediaTailor takes
      the following action based on the maximum allowed duration:
+
      - If the total duration of the ads in the ADS response is
        _less_ than the value you
        gave in **Live pre-roll maximum allowed
@@ -40,6 +42,7 @@ described in [Optional configuration settings](configurations-create.md#configur
 2. When MediaTailor receives the pre-roll response from the ADS, it manipulates
    the manifest to add links to the pre-roll ads. MediaTailor calculates the
    start time of the pre-roll ad break as follows:
+
    - For DASH, the formula is `(publishTime - availabilityStartTime) -
 max(suggestedPresentationDelay, minBufferTime)`.
    - For HLS, the formula is `max(2*EXT-X-TARGETDURATION,

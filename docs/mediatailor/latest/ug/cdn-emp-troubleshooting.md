@@ -129,6 +129,7 @@ Ensure your CDN forwards only the required query parameters:
 
 1. Review your CDN cache policy to confirm it includes only AWS recommended
    parameters:
+
    - `aws.manifestfilter` - for manifest filtering
    - `aws.manifestsettings` - for time-shifted
      viewing

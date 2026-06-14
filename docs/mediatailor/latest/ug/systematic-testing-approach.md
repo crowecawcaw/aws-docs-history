@@ -14,6 +14,7 @@ Start by testing MediaTailor functionality without CDN involvement to establish 
 baseline.
 
 1. Test manifest requests directly to MediaTailor endpoints:
+
    - Test HLS multivariant playlist requests: `curl -v
 "https://your-emt-endpoint.mediatailor.region.amazonaws.com/v1/master/hls/config-name/master.m3u8"`
    - Test DASH MPD requests: `curl -v
@@ -22,12 +23,14 @@ baseline.
    - Check that segment URLs point to correct origins
 
 2. Verify ad insertion works correctly:
+
    - Test with different ad targeting parameters
    - Verify ad segments are properly transcoded and available
    - Check ad break timing and duration
    - Test fallback behavior when ads are unavailable
 
 3. Measure baseline performance:
+
    - Record manifest request response times
    - Measure ad decision server response times
    - Test session creation and management
@@ -41,17 +44,20 @@ content.
 Add CDN to the request path and test basic functionality.
 
 1. Test manifest requests through CDN:
+
    - Configure CDN with simple routing rules
    - Test manifest requests through CDN endpoints
    - Verify CDN correctly forwards requests to MediaTailor
    - Check that manifest responses are not cached (TTL = 0)
 
 2. Test segment routing:
+
    - Verify content segments route to origin server
    - Verify ad segments route to MediaTailor ad storage
    - Test segment caching behavior
 
 3. Compare CDN vs direct performance:
+
    - Measure response time differences
    - Check for any content differences in responses
    - Verify error handling works correctly
@@ -64,17 +70,20 @@ requests to MediaTailor and origin servers with minimal performance impact.
 Add query parameter forwarding and test ad personalization.
 
 1. Configure query parameter forwarding at the CDN:
+
    - Enable forwarding of all query parameters to MediaTailor
    - Test session initialization (session ID is automatically generated
      by MediaTailor upon first request)
    - Test with custom targeting parameters
 
 2. Test ad personalization:
+
    - Verify different parameters produce different ad responses
    - Test parameter encoding and special characters
    - Check that parameters are correctly passed to ADS
 
 3. Validate session management:
+
    - Test session creation and persistence
    - Verify session ID consistency across requests
    - Test session expiration handling
@@ -89,12 +98,14 @@ Add header forwarding in the CDN and test device-specific targeting.
 1. Configure header forwarding for all headers. For minimum requirements, see
    [Required headers for MediaTailor CDN integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers").
 2. Test device targeting:
+
    - Test with different User-Agent strings (mobile, desktop,
      TV)
    - Verify device-specific ad responses
    - Test geographic targeting with different IP addresses
 
 3. Validate CORS handling:
+
    - Test CORS headers for web player compatibility
    - Verify preflight OPTIONS requests work correctly
    - Test from different domains
@@ -107,24 +118,28 @@ should work correctly, and web players should not encounter CORS errors.
 Test across multiple scenarios to ensure robust operation.
 
 1. Test with different player types:
+
    - HLS.js players in web browsers
    - Video.js players with HLS and DASH support
    - Native players on mobile devices
    - Smart TV and set-top box players
 
 2. Test on different devices and platforms:
+
    - Mobile devices (iOS, Android)
    - Desktop browsers (Chrome, Firefox, Safari, Edge)
    - Smart TVs and streaming devices
    - Different operating system versions
 
 3. Test different content types:
+
    - Live streaming content
    - Video on demand (VOD) content
    - Different video formats and bitrates
    - Content with different ad break patterns
 
 4. Test ad targeting scenarios:
+
    - Different demographic targeting parameters
    - Geographic targeting across different regions
    - Time-based targeting (different times of day)
@@ -151,12 +166,14 @@ to notify the MediaTailor service team of your planned testing. This ensures:
   geographic regions, and any specific scenarios you plan to test.
 
 1. Test concurrent user scenarios:
+
    - Simulate multiple concurrent viewers
    - Test CDN scaling and cache performance
    - Monitor origin server performance under load
    - Verify MediaTailor can handle concurrent sessions
 
 2. Measure performance metrics:
+
    - Monitor response times under load
    - Check cache hit ratios meet expectations (>80% for popular
      content)
@@ -164,6 +181,7 @@ to notify the MediaTailor service team of your planned testing. This ensures:
    - Track error rates during peak load
 
 3. Test failover scenarios:
+
    - Test behavior when ADS is unavailable
    - Test origin server failover
    - Verify error handling and recovery

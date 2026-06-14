@@ -17,6 +17,7 @@ To deploy the CloudFormation template and set up your automated ad insertion wor
 4. Under **Specify template**, choose **Upload a
    template file** and upload the template.
 5. Enter a stack name and provide values for the required parameters:
+
    - **AdServerUrl**: URL of your VAST ad server (e.g.,
      https://`your-ad-server.com`/vast)
    - **ContentOriginDomainName**: Domain name of your
@@ -24,6 +25,7 @@ To deploy the CloudFormation template and set up your automated ad insertion wor
      `mediapackage-domain.mediapackagev2.us-west-2.amazonaws.com`)
    - **ContentOriginType**: Select the type of content
      origin:
+
      - _mediapackagev2_: For AWS Elemental MediaPackage
        origins
      - _s3_: For Amazon S3 bucket origins

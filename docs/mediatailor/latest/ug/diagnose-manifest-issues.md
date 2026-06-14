@@ -5,6 +5,7 @@ ad insertion and playback. If viewers receive incorrect or inconsistent ads in
 multivariant playlists, media playlists, or MPDs:
 
 1.  Check for cached manifests:
+
     - Verify TTL settings are set to 0 for all multivariant playlist, media
       playlist, and MPD paths
     - Confirm that your CDN isn't caching multivariant playlists, media
@@ -14,6 +15,7 @@ multivariant playlists, media playlists, or MPDs:
       `Hit`
 
 2.  Verify CDN routing configuration:
+
     - Confirm manifest requests are being routed to MediaTailor endpoints, not
       cached or served from origin
     - Check that CDN behavior patterns correctly match manifest paths
@@ -24,6 +26,7 @@ multivariant playlists, media playlists, or MPDs:
       issues
 
 3.  Check header forwarding configuration:
+
     - Verify required headers are being forwarded (see [Required headers for MediaTailor CDN integration](cdn-configuration.md#cdn-required-headers "cdn-configuration.md#cdn-required-headers"))
     - Confirm User-Agent header is forwarded for device-specific ad
       targeting
@@ -33,6 +36,7 @@ multivariant playlists, media playlists, or MPDs:
       support
 
 4.  Validate manifest content and structure:
+
     - Check that manifests contain expected ad insertion markers
       (EXT-X-CUE-OUT/IN for HLS)
     - Verify segment URLs in manifests use your CDN domain, not origin

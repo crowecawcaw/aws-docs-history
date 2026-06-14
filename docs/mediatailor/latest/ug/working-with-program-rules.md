@@ -37,6 +37,7 @@ To define alternate media on a new program:
 3.  Select the channel name to which you want to add alternate media.
 4.  Create a program. For more information, see [Creating a program within a channel schedule using the MediaTailor console](channel-assembly-adding-programs.md "channel-assembly-adding-programs.md").
 5.  Configure alternate media:
+
     - Select **Add** in the **Audiences** box to
       select the audience for which you are defining alternate media.
     - Select an audience defined on the channel from the **Audience** menu.
@@ -46,6 +47,7 @@ To define alternate media on a new program:
       1** box. This is the first content that MediaTailor plays as alternate media on
       the program.
     - Within the **Alternate media 1** box:
+
       - Select a **Source Location**.
       - Select either a **VOD** or **Live**
         Source Type:

@@ -13,6 +13,7 @@ console. For information about how to create source locations using the MediaTai
    location**.
 4. Under **Source location configuration**, enter a name and the
    base URL of your origin server:
+
    - **Name**: An identifier for your source location,
      such as **my-origin**.
    - **Base URL**: The protocol and base URL of the origin
@@ -27,8 +28,10 @@ console. For information about how to create source locations using the MediaTai
 
 5. Under **Access configuration**, optionally configure
    authentication for your source location:
+
    - **Access type**: Select the authentication type that
      MediaTailor uses to access the content stored on the source location's origin.
+
      - **SigV4 for Amazon S3** - MediaTailor uses
        Amazon Signature Version 4 (SigV4) to authorize request to your
        origin. For more information, see [Authenticating requests to Amazon S3 with SigV4](channel-assembly-access-configuration-sigv4.md "channel-assembly-access-configuration-sigv4.md").
@@ -38,6 +41,7 @@ console. For information about how to create source locations using the MediaTai
        your origin. For information about how to configure
        **Secrets Manager access token authentication**, see
        [Working with AWS Secrets Manager access token authentication](channel-assembly-access-configuration-access-token.md "channel-assembly-access-configuration-access-token.md").
+
        - **Header name** - Specify a HTTP
          header name. MediaTailor uses the HTTP header to send the
          access token to your origin in content manifest
@@ -62,6 +66,7 @@ console. For information about how to create source locations using the MediaTai
 
 6. Under **Segment delivery server configuration**, optionally
    configure a server to deliver your content segments:
+
    - **Use a default segment delivery server**: Enter the
      base URL of the server that is used to deliver your content segments,
      such as a CDN. Configure **Default segment host name**

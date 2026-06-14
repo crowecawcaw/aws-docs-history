@@ -90,12 +90,14 @@ between the content origin and MediaTailor:
 When implementing a hybrid approach, consider these specific configurations:
 
 - For the CDN between content origin and MediaTailor:
+
   - Configure compression passthrough for manifest files to preserve the
     original compression state from your origin
   - Include all query parameters in the cache key
   - Set short TTL values for live content manifests
 
 - For the CDN between MediaTailor and viewers:
+
   - Configure longer cache times for ad segments
   - Set appropriate TTLs for personalized manifests
   - Implement proper origin routing for content vs. ad segments

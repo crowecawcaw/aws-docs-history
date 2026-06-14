@@ -61,6 +61,7 @@ Set up your MediaPackage channels and endpoints with these configurations:
 2. Use CMAF as the channel input type.
 3. For the primary MediaPackage origin, enable **Force endpoint error**
    configuration with these settings:
+
    - Stale multivariant playlists, media playlists, or MPDs
    - Incomplete multivariant playlist, media playlist, or MPD
    - Slate input

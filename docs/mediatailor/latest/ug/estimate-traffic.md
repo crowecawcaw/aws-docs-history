@@ -8,6 +8,7 @@ To accurately size your content delivery network (CDN) integration with AWS Elem
    team. You can also see [Quotas in AWS Elemental MediaTailor](quotas.md "quotas.md").
 2. Identify peak traffic patterns and potential spikes in your content schedule.
    Consider factors like:
+
    - Live sports events or season premieres
    - Marketing campaigns or promotional events
    - Time zone differences for global audiences

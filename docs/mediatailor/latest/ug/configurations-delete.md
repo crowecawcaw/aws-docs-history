@@ -8,6 +8,7 @@ AWS Elemental MediaTailor.
 1. Open the MediaTailor console at [https://console.aws.amazon.com/mediatailor/](https://console.aws.amazon.com/mediatailor/ "https://console.aws.amazon.com/mediatailor/").
 2. On the **Configurations** page, do one of the
    following:
+
    - Choose the name of the configuration that you want to delete.
    - In the **Configuration name** column, choose the
      option next to the name, and then choose

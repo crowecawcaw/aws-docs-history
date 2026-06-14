@@ -9,12 +9,12 @@ level.
 
 - From the player, initialize a new MediaTailor playback session using a request in
   one of the following formats, according to your protocol:
+
   - Example: HLS format
 
   ```
   GET `mediatailorURL`/v1/master/`hashed-account-id`/`origin-id`/`asset-id`?aws.overlayAvails=off
   ```
-
   - Example: DASH format
 
   ```
@@ -25,6 +25,7 @@ level.
 
 - On the player, construct a JSON message body for the session initialization
   request to MediaTailor:
+
   - To disable ad-overlay support, add an `overlays` object as
     a top-level key with a value of `off`. The default `overlays`
     value is `on`.

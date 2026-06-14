@@ -6,14 +6,17 @@ experiencing:
 
 1. **Is the issue affecting all viewers or specific
    viewers?**
+
    - All viewers → Likely CDN or MediaTailor configuration issue
    - Specific viewers → Likely personalization or targeting issue
 
 2. **Are manifests loading correctly?**
+
    - No → CDN routing or MediaTailor connectivity issue
    - Yes, but wrong content → Caching or personalization issue
 
 3. **Are segments loading correctly?**
+
    - Content segments fail → Origin connectivity issue
    - Ad segments fail → Ad delivery or transcoding issue
 

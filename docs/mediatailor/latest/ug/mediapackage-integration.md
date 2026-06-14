@@ -102,6 +102,7 @@ To ensure your CDN forwards the required query parameters to MediaPackage:
 2. Under "Cache key settings," select "Include specified query
    strings."
 3. Add the following essential query parameters:
+
    - `start` and `end` - For time-shifted viewing
      functionality. These parameters are passed through to MediaPackage to
      define specific content windows for startover and catch-up

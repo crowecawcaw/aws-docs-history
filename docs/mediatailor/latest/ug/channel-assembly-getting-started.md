@@ -61,6 +61,7 @@ To create a source location, perform the following procedure.
 3. On the navigation bar, choose **Create source location**.
 4. Under **Source location configuration**, enter an identifier and the
    location of your source content:
+
    - **Name**: An identifier for your source location, such as
      **my-origin**.
    - **Base URL**: The base URL of the origin server where your content is hosted, such as
@@ -131,6 +132,7 @@ First you create a channel, then you add your VOD sources to the channel's sched
    **Channels**.
 3. On the navigation bar, choose **Create channel**.
 4. Under **Channel details**, enter details about your channel:
+
    - **Name**: Enter a name for your channel.
    - **Playback mode**: Determines what kind of program transitions
      are allowed and what happens to a program after it finishes. Use the default loop
@@ -138,6 +140,7 @@ First you create a channel, then you add your VOD sources to the channel's sched
 
 5. Choose **Next**.
 6. Under **Output details**, define the settings for this output:
+
    - **Manifest name**: Enter a manifest name, such as
      **`index`**. MediaTailor will append the format
      extension, such as .m3u8 for HLS.
@@ -153,6 +156,7 @@ First you create a channel, then you add your VOD sources to the channel's sched
 
 7. Under **Manifest settings**, enter additional information about your
    manifest settings:
+
    - **Manifest window (sec)**: The time window (in seconds) contained
      in each manifest. The minimum value is 30 seconds, and the maximum value is 3600 seconds.
 
@@ -187,6 +191,7 @@ insertion, to personalize your ad breaks.
 3. In the **Channels** pane, choose the channel that you created in the
    [Step 3: Create a channel](#ca-getting-started-create-channel "#ca-getting-started-create-channel") procedure.
 4. Under **Program details**, enter details about your program:
+
    - **Name**: This is the name of the program to add to your
      channel's schedule.
    - **Source location name**: Choose **Select an existing source location**, and select the
@@ -197,6 +202,7 @@ insertion, to personalize your ad breaks.
 
 5. Under **Playback configuration**, define how and when a program is
    inserted in a channel's schedule:
+
    - **Transition type**: This value is fixed at
      **Relative**. The relative transition type indicates that this
      program occurs relative to other programs within the program list.
@@ -207,6 +213,7 @@ insertion, to personalize your ad breaks.
      created in [To add programs to your channel's schedule](#ca-getting-started-add-programs "#ca-getting-started-add-programs").
 
 6. Select **Add ad break**. Under **Ad breaks**, configure the settings for the ad break:
+
    - **Slate source location name**: Choose **Select an existing source location** and choose the source location where your slate is stored that you created earlier in this tutorial.
    - **VOD source name**: Choose **Select an existing VOD source** and choose the VOD source you're using for slate that you added earlier in this tutorial. The duration of the slate determines the duration of the ad break.
    - For **Offset in milliseconds**: This value determines the ad
@@ -242,6 +249,7 @@ Before you proceed, you must meet the following requirements:
 2. In the navigation pane, choose **Configurations**.
 3. Under **Required settings**, enter the basic required information
    about your configuration:
+
    - **Name**: The name of your configuration.
    - **Content source**: Enter the playback URL from your
      channel's output, minus the file name and extension. For advanced information about

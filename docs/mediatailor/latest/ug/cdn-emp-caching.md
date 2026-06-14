@@ -60,12 +60,14 @@ To properly honor MediaPackage cache-control headers and optimize caching:
 
 1. Open your CloudFront distribution settings in the CloudFront console.
 2. Create separate cache behaviors for different content types:
+
    - Manifest requests (\*.m3u8, \*.mpd)
    - Media segments (\*.ts, \*.mp4, \*.m4s)
    - Initialization segments
 
 3. For each cache behavior, create or select a cache policy with these
    settings:
+
    - Enable "Origin Cache-Control Headers" option
    - Set "Origin request policy" to forward necessary headers
    - Configure query string forwarding based on content type

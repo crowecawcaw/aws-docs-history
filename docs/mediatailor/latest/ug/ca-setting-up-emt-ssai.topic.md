@@ -8,6 +8,7 @@ content source for AWS Elemental MediaTailor. This guide shows how to set up Med
 Before you begin, make sure that you meet the following requirements:
 
 - Prepare your HLS and DASH streams for MediaTailor ad insertion.
+
   - If you haven't prepared content streams already, see [Step 2: Prepare a stream](getting-started-ad-insertion.md#getting-started-prep-stream "getting-started-ad-insertion.md#getting-started-prep-stream")
     in the _Getting started with MediaTailor ad insertion_
     topic.
@@ -34,6 +35,7 @@ personalized ads into your channel's stream.
 2. In the navigation pane, choose **Configurations**.
 3. Under **Required settings**, enter the basic required information
    about your configuration:
+
    - **Name**: The name of your configuration.
    - **Content source**: Enter the playback URL from your channel's
      output, minus the file name and extension. For advanced information about MediaTailor

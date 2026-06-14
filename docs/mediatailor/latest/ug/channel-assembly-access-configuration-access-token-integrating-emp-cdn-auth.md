@@ -13,6 +13,7 @@ following procedure.
 2. Complete the procedure in [Step 1: Create an AWS KMS symmetric customer managed key](channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-how-to-create-kms "channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-how-to-create-kms").
 3. Modify the secret that you created when you set up MediaPackage CDN
    authorization. Modify the secret with the following values:
+
    - Update the `KmsKeyId` with the customer managed key ARN that
      you created in [Step 1: Create an AWS KMS symmetric customer managed key](channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-how-to-create-kms "channel-assembly-access-configuration-access-configuring.md#channel-assembly-access-configuration-access-token-how-to-create-kms").
    - (Optional) For the `SecretString`, you can either

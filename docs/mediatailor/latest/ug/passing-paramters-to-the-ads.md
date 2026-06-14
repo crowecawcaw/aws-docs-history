@@ -138,12 +138,12 @@ https://my.ads.server.com/path?correlation=896976764&deviceType=ipad
 
 - MediaTailor calls the origin server with the player's authorization
   token.
+
   - HLS example:
 
   ```
   https://my.origin.server.com/master.m3u8?auth_token=kjhdsaf7gh
   ```
-
   - DASH example:
 
   ```

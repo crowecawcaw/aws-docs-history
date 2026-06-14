@@ -34,6 +34,7 @@ function.
 4. In the **Function mapping** section, choose
    **Edit**.
 5. For each lifecycle hook, select the function to attach:
+
    - **Session initialization hook**
      — Choose a function to run once at session start.
    - **Ad request hook** — Choose a

@@ -378,6 +378,7 @@ AWS Identity and Access Management (IAM) role to allow communication between the
 7. Add a permissions policy that specifies what actions this role can
    complete. Select from one of the following options, and then choose
    **Next: Review**:
+
    - **CloudWatchLogsFullAccess** to provide full
      access to Amazon CloudWatch Logs
    - **CloudWatchFullAccess** to provide full access
@@ -389,6 +390,7 @@ AWS Identity and Access Management (IAM) role to allow communication between the
 9. On the **Roles** page, select the role that you just
    created.
 10. Edit the trust relationship to update the principal:
+
     1. On the role's **Summary** page, choose the
        **Trust relationship** tab.
     2. Choose **Edit trust relationship**.
@@ -411,6 +413,7 @@ To avoid extraneous charges, delete all unnecessary configurations.
 
 1. On the AWS Elemental MediaTailor **Configurations**
    page, do one of the following:
+
    - Choose the **Configuration name** for the
      configuration that you want to delete.
    - In the **Configuration name** column, choose the

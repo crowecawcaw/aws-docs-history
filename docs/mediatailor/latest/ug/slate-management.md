@@ -48,23 +48,28 @@ The personalization threshold defines the maximum duration of underfilled ad tim
 The behavior varies based on three scenarios:
 
 1. **When personalization is disabled:**
+
    1. Slate will be inserted for the full duration of unfilled time
    2. Start/End bumpers will be inserted when configured (for more information, see [MediaTailor bumper ad insertion](bumpers.md "bumpers.md"))
    3. Ads will be inserted as normal
 
 2. **When personalization is enabled and threshold less
    than break duration:**
+
    1. If the unfilled time exceeds the personalization threshold:
+
       1. MediaTailor abandons personalization of the ad break
       2. The underlying content is shown
       3. No ads, slate, or bumpers are inserted
 
    2. If the unfilled time is less than the personalization threshold:
+
       1. Ads and slate are inserted
       2. Bumpers are inserted if configured
 
 3. **When personalization is enabled and threshold
    greater than break duration:**
+
    1. Ads will be inserted
    2. Slate will be inserted for any remaining time in the ad break
    3. Bumpers will be inserted if configured

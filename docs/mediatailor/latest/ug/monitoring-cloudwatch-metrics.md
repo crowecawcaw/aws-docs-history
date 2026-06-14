@@ -163,12 +163,14 @@ average provided by
 Assume the time period that you specified has the following two ad avails:
 
 - The first ad avail has 90 seconds duration:
+
   - The ADS response for the avail provides 45 seconds of ads (50%
     filled).
   - MediaTailor fills 45 seconds worth of the ad time available (50%
     filled).
 
 - The second ad avail has 120 seconds duration:
+
   - The ADS response for the avail provides 120 seconds of ads (100%
     filled).
   - MediaTailor fills 90 seconds worth of the ad time available (75%

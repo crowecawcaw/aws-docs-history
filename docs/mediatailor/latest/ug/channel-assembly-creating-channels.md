@@ -9,11 +9,13 @@ The following procedure describes how to create a channel using the MediaTailor 
     **Channels**.
 3.  On the navigation bar, choose **Create channel**.
 4.  Under **Channel details**, enter details about your channel:
+
     - **Name**: Enter a name for your channel.
     - **Tier**: The tier determines what features the channel supports
       and how much it costs to run the channel. For more information about pricing, see the
       [Channel
       Assembly pricing page](https://aws.amazon.com/mediatailor/pricing/#Channel_Assembly_Pricing "https://aws.amazon.com/mediatailor/pricing/#Channel_Assembly_Pricing"). MediaTailor supports the following tiers:
+
       - **Basic** - The Basic tier supports both the Linear and Loop
         playback modes, and does not support live sources.
       - **Standard** - The Standard tier supports live sources, and
@@ -29,6 +31,7 @@ The following procedure describes how to create a channel using the MediaTailor 
 
     - **Playback mode**: The playback mode sets the channel's playback
       behavior. MediaTailor supports the following playback modes:
+
       - **Loop** - The programs in the schedule play back-to-back in
         an endless loop. After the last program plays in a schedule, playback loops back
         to the first program. Playback continues looping until you stop the
@@ -46,6 +49,7 @@ The following procedure describes how to create a channel using the MediaTailor 
 6.  Choose **Next**.
 7.  Specify audience details under program rules.
 8.  When you select **Standard** in **Channel details**, you can define the audiences under **Audiences** details. These audiences will be used for **programRules** when you are going to create **audienceMedia** for your default program:
+
     - Select **Add**, and then add an Audience in the text box, then select **Confirm**.
 
     ###### Note
@@ -59,6 +63,7 @@ The following procedure describes how to create a channel using the MediaTailor 
 9.  Select **Next**.
 10. Under **Manifest settings**, enter additional information about your
     manifest settings:
+
     - **Manifest window (sec)**: The time window,in seconds, contained
       in each manifest. The minimum value is 30 seconds, and the maximum value is 3600
       seconds.
@@ -77,6 +82,7 @@ Enhanced` to have MediaTailor insert ad breaks into VOD programs using
 12. Choose **Next**.
 13. Under **Channel policy**, choose your channel's IAM policy
     settings:
+
     - **Do not attach channel policy**: Restrict playback to only those
       who have access to this account's credentials.
     - **Attach custom policy**: Define your own policy and restrict

@@ -30,6 +30,7 @@ and routing:
 
 - _HLS manifests_ - When you work with HLS streams, you
   handle:
+
   - _Multivariant playlist_: Configure your CDN to route
     these top-level manifests to MediaTailor for personalization.
   - _Media playlist_: Set appropriate caching rules for

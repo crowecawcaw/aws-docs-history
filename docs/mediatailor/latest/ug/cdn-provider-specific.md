@@ -44,6 +44,7 @@ integration](cloudfront-specific-recommendations.md "cloudfront-specific-recomme
 To understand CDN configuration requirements, you need to know these manifest types:
 
 - **HLS manifests**:
+
   - _Multivariant playlist_: The top-level manifest that contains links to media playlists
   - _Media playlist_: The second-level manifest with links to content segments
 
@@ -127,6 +128,7 @@ and so on):
    **Yes**
 3. Configure default time-to-live (TTL) settings for when origin
    headers are missing:
+
    - Default TTL: 86400 seconds (24 hours)
    - Maximum TTL: 604800 seconds (7 days)
 
@@ -199,16 +201,19 @@ After setting up your CDN, perform these checks to verify it's working
 correctly:
 
 1. Test manifest personalization:
+
    1. Request the same content URL with different ad parameters
    2. Verify that each request returns different ad insertions
 
 2. Test segment caching:
+
    1. Check CDN metrics for segment cache hit ratio (should be greater than
       90%)
    2. Monitor origin traffic to confirm it's lower than direct
       delivery
 
 3. Test playback performance:
+
    1. Play content through your CDN from different locations
    2. Verify smooth playback with no buffering issues
 

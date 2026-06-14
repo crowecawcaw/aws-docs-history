@@ -5,12 +5,14 @@ delivery across all devices and platforms. If ads behave differently across
 devices:
 
 1.  Ensure consistent header forwarding across all CDN behaviors.
+
     - Verify that User-Agent, X-Forwarded-For, and custom targeting headers
       are forwarded consistently
     - Check that header forwarding rules apply to all relevant cache
       behaviors
 
 2.  Verify player compatibility with your CDN configuration.
+
     - Test with multiple player types (HLS.js, Video.js, native players) to
       identify player-specific issues
     - Check for player-specific header requirements or URL handling

@@ -10,6 +10,7 @@ Perform these fundamental tests to verify your CDN integration is working
 correctly:
 
 1. **Test manifest delivery**:
+
    - Request a manifest through your CDN and verify it returns a valid
      response
    - Verify the manifest contains expected content and ad insertion
@@ -19,12 +20,14 @@ correctly:
    - Validate manifest syntax using HLS or DASH validation tools
 
 2. **Verify URL rewriting**:
+
    - Check that content segment URLs in manifests point to your CDN
      domain
    - Verify ad segment URLs point to your CDN domain
    - Ensure all relative URLs are properly resolved
 
 3. **Test content playback**:
+
    - Play content through a video player and verify smooth
      playback
    - Verify both content and ads play without interruption
@@ -32,6 +35,7 @@ correctly:
    - Test seeking and scrubbing functionality
 
 4. **Validate CDN routing**:
+
    - Monitor CDN access logs to ensure requests are routed
      correctly
    - Verify cache hit/miss patterns are as expected
@@ -43,6 +47,7 @@ Perform these additional tests for comprehensive validation:
 
 1. **Cross-platform compatibility
    testing**:
+
    - Test on multiple devices (desktop, mobile, tablet, smart
      TV)
    - Verify compatibility across different browsers
@@ -51,6 +56,7 @@ Perform these additional tests for comprehensive validation:
    - Validate on different operating systems
 
 2. **Performance testing**:
+
    - Measure manifest request response times (target: <100ms for
      cached)
    - Test segment loading performance across different bitrates
@@ -58,12 +64,14 @@ Perform these additional tests for comprehensive validation:
    - Test under various network conditions
 
 3. **Ad tracking validation**:
+
    - Verify ad tracking beacons fire correctly
    - Check ad analytics data for accuracy
    - Test impression and completion tracking
    - Validate click-through functionality
 
 4. **Error condition testing**:
+
    - Test behavior when origin is temporarily unavailable
    - Verify graceful handling of malformed requests
    - Test CDN failover scenarios
@@ -75,6 +83,7 @@ Set up a test environment that mirrors your production configuration for
 comprehensive validation:
 
 1. Set up separate CDN distributions for testing:
+
    - Create test CDN distributions with the same cache behaviors as
      production
    - Configure test origins that mirror your production setup
@@ -82,12 +91,14 @@ comprehensive validation:
      traffic
 
 2. Create test MediaTailor configurations:
+
    - Set up test playback configurations with the same settings as
      production
    - Configure test ad decision server endpoints
    - Use test ad content that matches your production ad formats
 
 3. Implement systematic testing processes:
+
    - Create testing checklists for configuration changes
    - Document test procedures for your team
    - Set up automated testing where possible
@@ -98,17 +109,20 @@ Validate your integration across different scenarios and conditions to ensure
 comprehensive coverage:
 
 1. Test with multiple player types and devices:
+
    - Test with different video players (web, mobile, connected
      TV)
    - Validate across different operating systems and browsers
    - Test on various network conditions and connection speeds
 
 2. Create automated testing scripts:
+
    - Automate manifest request validation
    - Create scripts to test ad insertion scenarios
    - Implement performance testing for high-traffic scenarios
 
 3. Validate ad targeting and personalization:
+
    - Test with different user profiles and targeting parameters
    - Validate ad decision server integration
    - Test fallback scenarios when ads are unavailable

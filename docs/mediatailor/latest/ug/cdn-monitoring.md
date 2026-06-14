@@ -162,6 +162,7 @@ performance:
    implementation type (SSAI, channel assembly, or combined workflows).
 3. **Include key performance
    indicators**:
+
    - Cache hit ratio trends over time
    - Response latency percentiles (P50, P95, P99)
    - Error rate trends and spikes
@@ -199,20 +200,24 @@ Configure early warning alerts for performance degradation:
 Use this checklist to ensure comprehensive monitoring coverage:
 
 1. **Metrics collection**:
+
    - ✓ MediaTailor metrics enabled in CloudWatch
    - ✓ CDN detailed monitoring enabled
 
 2. **Dashboard setup**:
+
    - ✓ Unified CloudWatch dashboard created
    - ✓ Key metrics visualized with appropriate time ranges
    - ✓ Dashboard shared with relevant teams
 
 3. **Alert configuration**:
+
    - ✓ Critical alerts configured with immediate notification
    - ✓ Warning alerts set up for early detection
    - ✓ Alert escalation procedures documented
 
 4. **Operational procedures**:
+
    - ✓ Incident response procedures documented
    - ✓ Regular review schedule established
    - ✓ Team training completed

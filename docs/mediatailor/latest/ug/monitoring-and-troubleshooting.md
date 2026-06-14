@@ -12,6 +12,7 @@ integration:
 ###### To set up monitoring for your CloudFront and MediaTailor integration
 
 1. Enable CloudFront standard logging:
+
    1. In the CloudFront console, select your distribution.
    2. Choose the **Logs** tab.
    3. Under **Standard logs**, choose
@@ -21,6 +22,7 @@ integration:
    5. Choose **Save changes**.
 
 2. Set up CloudFront real-time logs:
+
    1. In the CloudFront console, select your distribution.
    2. Choose the **Logs** tab.
    3. Under **Real-time logs**, choose
@@ -28,6 +30,7 @@ integration:
    4. Select **On** and configure an Amazon Kinesis Data Streams or Amazon Data Firehose
       delivery stream.
    5. Include these fields in your log configuration:
+
       - `time-to-first-byte` - Response time
       - `sc-status` - HTTP status code
       - `c-ip` - Viewer IP address
@@ -39,9 +42,11 @@ integration:
    6. Choose **Save changes**.
 
 3. Create CloudWatch dashboards:
+
    1. In the CloudWatch console, choose **Dashboards**.
    2. Choose **Create dashboard**.
    3. Add widgets for these CloudFront metrics:
+
       - Requests
       - BytesDownloaded
       - 4xxErrorRate
@@ -50,9 +55,11 @@ integration:
       - CacheHitRate
 
 4. Set up CloudWatch alarms:
+
    1. In the CloudWatch console, choose **Alarms**.
    2. Choose **Create alarm**.
    3. Create alarms for these conditions:
+
       - 5xxErrorRate > 1% for 5 minutes
       - 4xxErrorRate greater than 5% for 5 minutes
       - CacheHitRate less than 80% for 30 minutes
@@ -67,6 +74,7 @@ they happen.
 
 1. Enable real-time logs for your CloudFront distribution.
 2. Include these fields in your log configuration:
+
    - `r-host` - The hostname of the selected origin
    - `sr-reason` - The reason for origin selection
    - `x-edge-mqcs` - The media quality confidence score
@@ -153,27 +161,32 @@ integration:
 ###### To troubleshoot CloudFront and MediaTailor integration issues
 
 1. Identify the specific issue:
+
    1. Determine if the issue affects all viewers or only some
    2. Identify which content types are affected (manifests, segments, or
       both)
    3. Note any error messages or symptoms
 
 2. Check CloudFront logs:
+
    1. Look for error status codes (4xx or 5xx)
    2. Check cache hit/miss patterns
    3. Verify that requests are being routed to the correct origin
 
 3. Verify configuration:
+
    1. Check cache behaviors for correct path patterns
    2. Verify cache policies are correctly applied
    3. Confirm that origin request policies are forwarding necessary
       headers
 
 4. Test direct access:
+
    1. Try accessing content directly from MediaTailor (bypassing CloudFront)
    2. Compare responses between direct access and CloudFront access
 
 5. Implement solution:
+
    1. Apply the appropriate fix based on your findings
    2. Test to verify the issue is resolved
    3. Document the issue and solution for future reference

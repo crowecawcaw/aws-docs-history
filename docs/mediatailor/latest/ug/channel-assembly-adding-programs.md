@@ -14,22 +14,28 @@ _AWS Elemental MediaTailor API Reference_.
     [To create a channel](channel-assembly-creating-channels.md#create-channel-procedure "channel-assembly-creating-channels.md#create-channel-procedure")
     procedure.
 4.  In the **Program details** enter details about your program:
+
     - **Name**: This is the name of the program that you add to your channel.
     - **Source type**: Determines what type of source video the program plays. This option is only available for Standard channels.
+
       - **VOD** - The program plays a video-on-demand source, such as a pre-recorded TV episode.
       - **Live** - The program plays a live source, such as a live news broadcast.
 
     - **Source location name**: The source location that MediaTailor associates with the program.
+
       - If you choose **Select an existing source location**, choose a sourcelocation name from the **Select a source location** menu. Alternatively, search for your source location by name. This is helpful if you have a large number of source locations.
       - If you choose **Enter the source location name**, search for your source location by name.
       - **VOD source name**: The name of the VOD source that MediaTailor associates with the program:
+
         - If you choose **Select an existing VOD source**, select a VOD source name from the list of VOD sources that are associated with your account. Alternatively, search for your VOD source by name. This is helpful if you have a large number of VOD sources.
         - If you choose **Search by name**, search for your live source by name.
 
       - **Live source name**: The name of the live source to be associated with the program. This option is only available if you selected **Live** as the source type.
+
         - If you choose **Select an existing source location**, choose a sourcelocation name from the **Select a source location** menu. Alternatively, search for your source location by name. This is helpful if you have a large number of source locations.
         - If you choose **Enter the source location name**, search for your source location by name.
         - **VOD source name**: The name of the VOD source that MediaTailor associates with the program:
+
           - If you choose **Select an existing live source**,select a live source name from the list of live sources that are associated with your account. You can alternatively search for your live source by name. This is helpful if you have a large number of live sources.
           - If you choose **Search by name**, search for your live source by name.
 
@@ -57,6 +63,7 @@ _AWS Elemental MediaTailor API Reference_.
 
 7.  Select **Next** to go to **Add ad breaks**.
 8.  Select **Add ad break**. Under **Ad breaks**, configure the settings for the ad break:
+
     - **Slate source location name**: Choose **Select an existing source location** and choose the source location where your slate is stored that you created earlier in this task.
     - **VOD source name**: Choose **Select an existing VOD source** and choose the VOD source you're using for slate that you added earlier in this task. The duration of the slate determines the duration of the ad break.
     - **Offset in milliseconds**: This value determines the ad break start time in milliseconds, as an offset relative to the beginning of the program. Enter any value that's less than the duration of the VOD source, and that aligns with a segment boundary on all tracks within the program's VOD source (all audio, video and closed caption tracks), otherwise the ad break will be skipped. For example, if you enter **0**, this creates a pre-roll ad break that plays before the program begins.
@@ -195,6 +202,7 @@ Under **Program details**, enter details about your program:
 
 14. Select **Add ad break**. Under **Ad breaks**,
     configure the settings for the ad break:
+
     - **Slate source location name**: Choose **Select an
       existing source location** and choose the source location where your slate
       is stored that you created earlier in this tutorial.

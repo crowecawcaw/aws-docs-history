@@ -34,6 +34,7 @@ Follow these steps to create and configure a CloudFront distribution for MediaTa
 5. For **Name**, enter a name that helps you identify this
    origin (for example, `mediatailor-origin`).
 6. Configure the default cache behavior settings:
+
    1. For **Path pattern**, use the default value
       (`*`).
    2. For **Compress objects automatically**, select
@@ -56,6 +57,7 @@ Follow these steps to create and configure a CloudFront distribution for MediaTa
    appropriate policies.
 
 7. Configure the distribution settings:
+
    1. For **Price class**, select the option that best
       matches your audience locations.
    2. For **AWS WAF web ACL**, select an existing web ACL
@@ -154,6 +156,7 @@ Configure separate behaviors for different segment formats:
 9. Choose **Create**.
 10. Repeat these steps for other content segment formats using appropriate
     path patterns:
+
     - `*.mp4` for MP4 segments
     - `*.m4s` for DASH segments
     - `*.cmfv` and `*.cmfa` for CMAF

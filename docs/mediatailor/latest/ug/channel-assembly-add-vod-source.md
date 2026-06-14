@@ -29,6 +29,7 @@ length to ensure that your encoded sources meet these requirements.
 4. Choose **Add VOD source**.
 5. Under **VOD source details**, enter a name for your VOD
    source:
+
    - **Name**: An identifier for your VOD source, such
      as **my-example-video**.
 

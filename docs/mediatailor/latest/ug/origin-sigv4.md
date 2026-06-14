@@ -73,6 +73,7 @@ MediaTailor to access the manifest:
   and does not allow HTTP connections. If HTTPS is not enabled at the origin, MediaTailor will
   not sign the request.
 - Your channel must have an origin access policy that includes the following:
+
   - Principal access for MediaTailor to access your bucket. Grant access to
     **mediatailor.amazonaws.com.**
 
@@ -125,6 +126,7 @@ for MediaTailor to access the manifest:
   and does not allow HTTP connections. If HTTPS is not enabled at the origin, MediaTailor will
   not sign the request.
 - Your channel must have an origin access policy that includes the following:
+
   - Principal access for MediaTailor to access your endpoint. Grant access to
     **mediatailor.amazonaws.com.**
   - IAM permissions **mediapackagev2:GetObject** to read all
