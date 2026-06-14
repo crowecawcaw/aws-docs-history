@@ -150,6 +150,7 @@ discovery.
 
 - [Import operations don't allow new resource creations](../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md "../../../AWSCloudFormation/latest/UserGuide/resource-import-existing-stack.md"). You
   cannot mix imports and creates in the same operation.
+
   - If the template contains other new resources beyond index/view,
     they must be created separately. See [Important constraint for mixed-resource templates](#troubleshooting-cfn-mixed-resource-constraint "#troubleshooting-cfn-mixed-resource-constraint")
     for more info.

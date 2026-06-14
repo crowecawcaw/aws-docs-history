@@ -156,6 +156,7 @@ AWS Management Console
    permissions to access.
 2. (Optional) Choose a [Query
    template](#query_templates "#query_templates").
+
    1. For templates that require a specified resource type or
       application, **choose a value**.
    2. Choose **Apply**.

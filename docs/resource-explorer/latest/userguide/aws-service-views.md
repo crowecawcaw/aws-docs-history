@@ -39,6 +39,7 @@ setup as a global resource.
 Service views support two primary use cases:
 
 - **Search and discovery**:
+
   - **Resource Explorer-defined service views**:
     Customers can use this view to discover resources in the default search
     functionality.
@@ -88,6 +89,7 @@ Service views maintain strong security controls:
 
 - **Customer control:** Customers retain control
   over which services can access their resources (resource streaming only)
+
   - **Service-linked role-based access
     limitations:** When AWS services use SLRs with Resource Explorer
     permissions, customers must accept the predefined permissions or choose

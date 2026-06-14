@@ -80,6 +80,7 @@ these topics as needed:
 Resource Explorer provides the following features:
 
 - Automatic features (available immediately):
+
   - Resource Explorer is automatically enabled when you first access the service or
     search in Unified Search, providing immediate search functionality.
     Depending on your IAM permissions, you can view either partial results

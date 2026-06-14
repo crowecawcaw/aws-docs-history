@@ -27,6 +27,7 @@ AWS Management Console
    you see a **Complete setup and enable cross-Region
    search** banner or banner notification, you can use the
    guided workflow:
+
    1. For automatic setup across all regions, choose
       **Enable cross-Region search in all
       Regions**, or
@@ -36,6 +37,7 @@ AWS Management Console
 
 2. **Alternative method:** The
    **Settings** page.
+
    1. Open the Resource Explorer **[Settings](https://console.aws.amazon.com/resource-explorer/home#/settings "https://console.aws.amazon.com/resource-explorer/home#/settings")** page.
    2. In the **Indexes** section, select the check
       box next to the index that you want to promote, and then choose

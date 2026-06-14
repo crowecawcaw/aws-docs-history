@@ -29,6 +29,7 @@ resource-explorer-2.amazonaws.com`.
   information, see [Delegated administrator for AWS services that work with
   Organizations](../../../organizations/latest/userguide/orgs_integrate_delegated_admin.md "../../../organizations/latest/userguide/orgs_integrate_delegated_admin.md") in the _AWS Organizations User
   Guide_.
+
   - Resource Explorer supports only 1 delegated administrator who performs similar
     actions to the management account.
   - Removing or changing the delegated administrator for your organization

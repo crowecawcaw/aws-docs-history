@@ -85,6 +85,7 @@ AWS Management Console
    If you see a **Complete setup and enable cross-Region
    search** banner, you can use these guided
    workflows:
+
    1. For cross-Region setup, choose **Enable
       cross-Region search in all Regions** in the
       banner
@@ -98,6 +99,7 @@ AWS Management Console
 2. **Alternative method - Settings
    page:** If banner workflows are not available or you
    need manual control:
+
    1. On the Resource Explorer **[Settings](https://console.aws.amazon.com/resource-explorer/home#/settings "https://console.aws.amazon.com/resource-explorer/home#/settings")** page.
    2. In the **Indexes** section, choose
       **Create indexes**.
