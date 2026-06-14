@@ -7,15 +7,18 @@ For more information about the MCP Inspector, see the [MCP Inspector documentati
 **To connect your gateway to the inspector**
 
 1. Open a terminal and run `npx @modelcontextprotocol/inspector` to do the following:
+
    1. Install the inspector
    2. Start the inspector on localhost.
    3. Generate a session token for authentication.
    4. Open your browser to the inspector interfacee.
 
 2. In the inspector interface, configure the following fields:
+
    - **Transport Type** – Select **Streamable HTTP**
    - **URL** – Enter the gateway endpoint URL returned when you created your gateway.
    - Expand **Authentication** . The **Custom Headers** section should be pre-populated with one key-value pair.
+
      - The key’s name should be `Authorization`.
      - Replace the value with your gateway’s [inbound authorization credentials](gateway-inbound-auth.md "gateway-inbound-auth.md").
 

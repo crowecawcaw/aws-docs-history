@@ -14,14 +14,17 @@ The `CreateEvaluator` API creates a new custom evaluator that defines how to ass
 **LLM-as-a-judge instructions:** For LLM-as-a-judge evaluators, the instruction must include at least one placeholder, which is replaced with actual trace information before being sent to the judge model. Each evaluator level supports only a fixed set of placeholder values:
 
 - **Session-level evaluators:**
+
   - `context` – A list of user prompts, assistant responses, and tool calls across all turns in the session.
   - `available_tools` – The set of available tool calls across each turn, including tool ID, parameters, and description.
 
 - **Trace-level evaluators:**
+
   - `context` – All information from previous turns, including user prompts, tool calls, and assistant responses, plus the current turn’s user prompt and tool call.
   - `assistant_turn` – The assistant response for the current turn.
 
 - **Tool-level evaluators:**
+
   - `available_tools` – The set of available tool calls, including tool ID, parameters, and description.
   - `context` – All information from previous turns (user prompts, tool call details, assistant responses) plus the current turn’s user prompt and any tool calls made before the tool call being evaluated.
   - `tool_turn` – The tool call under evaluation.
@@ -29,11 +32,13 @@ The `CreateEvaluator` API creates a new custom evaluator that defines how to ass
 **Ground truth placeholders:** In addition to the standard placeholders, custom evaluators can reference ground truth placeholders that are populated from the `evaluationReferenceInputs` provided at evaluation time. This enables you to build evaluators that compare agent behavior against known-correct answers.
 
 - **Session-level evaluators:**
+
   - `actual_tool_trajectory` — The actual sequence of tool names the agent called during the session.
   - `expected_tool_trajectory` — The expected sequence of tool names, provided via `expectedTrajectory` in the evaluation reference inputs.
   - `assertions` — The list of natural language assertions, provided via `assertions` in the evaluation reference inputs.
 
 - **Trace-level evaluators:**
+
   - `expected_response` — The expected agent response, provided via `expectedResponse` in the evaluation reference inputs.
 
 ###### Important
@@ -342,13 +347,16 @@ You can create custom evaluators using the Amazon Bedrock AgentCore console’s 
 
 1. Open the Amazon Bedrock AgentCore console.
 2. In the left navigation pane, choose **Evaluation** . Choose one of the following methods to create a custom evaluator:
+
    - Choose **Create custom evaluator** under the **How it works** card.
    - Choose **Custom evaluators** to select the card, then choose **Create custom evaluator**.
 
 3. For **Evaluator name** , enter a name for the custom evaluator.
+
    1. (Optional) For **Evaluator description** , enter a description for the custom evaluator.
 
 4. For **Evaluator type** , choose one of the following:
+
    - **LLM-as-a-judge** – Uses a foundation model to evaluate agent performance. Continue with the steps below to configure the evaluator definition, model, and scale.
    - **Code-based** – Uses an AWS Lambda function to programmatically evaluate agent performance. For **Lambda function ARN** , enter the ARN of your Lambda function. Optionally, set the **Lambda timeout** (1–300 seconds, default 60). Then skip to the evaluation level step.
 
@@ -368,6 +376,7 @@ If you load another template, any changes to your existing custom evaluator defi
 7. For **Evaluator scale type** , choose either **Define scale as numeric values** or **Define scale as string values**.
 8. For **Evaluator scale definitions** , you can have a total of 20 definitions.
 9. For **Evaluator evaluation level** , choose one of the following:
+
    - **Session** – Evaluate the entire conversation sessions.
    - **Trace** – Evaluate each individual trace.
    - **Tool call** – Evaluate every tool call.

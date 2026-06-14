@@ -45,6 +45,7 @@ The principal type depends on the authentication method configured for your Agen
 - Contains the tool’s input parameters as defined in the MCP manifest
 - Each tool has a typed input structure (e.g., RefundTool\_\_\_process_refundInput)
 - Parameter types are automatically mapped from JSON Schema to Cedar types:
+
   - string → String
   - integer → Long
   - boolean → Bool

@@ -7,12 +7,14 @@ Amazon Bedrock AgentCore stores data at rest using Amazon DynamoDB and Amazon Si
 **Key considerations**
 
 - The following data is not encrypted by default:
+
   - Gateway names
   - Gateway target names
   - Gateway tool names
   - Gateway CloudWatch logs
 
 - Customers can encrypt the following resources with a customer-managed KMS key:
+
   - Gateways – For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md").
 
 ## Encryption in transit
@@ -25,6 +27,7 @@ Encryption in transit is configured by default for the following services:
 
 - All outbound traffic for AgentCore Gateway is protected using TLS.
 - When invoking a gateway, note the following about the data that is transferred:
+
   - During a _call tool_ request, the service transforms the data in the request and makes a call to the customer-configured web service. The response from the web service is transformed and returned as a _call tool_ response to the invoker.
   - During a _list tools_ request, the request is a standard MCP list/tools operation request and the response contains a list of tools configured on the gateway by the customer during control plane operations.
 
@@ -36,6 +39,7 @@ You can use AWS KMS customer managed keys for the following Amazon Bedrock Agent
 
 - Memories. For more information, see [Create an AgentCore Memory](memory-create-a-memory-store.md "memory-create-a-memory-store.md").
 - Gateways. For more information, see [Encrypt your AgentCore gateway with a customer-managed KMS key](gateway-encryption.md "gateway-encryption.md") . Note the following:
+
   - For AgentCore Gateway resources, AWS managed keys are single-tenant use and different for each region.
   - If a key encrypting your gateway is compromised, you should rotate the key or delete the gateway and create a new one with a new key.
   - AgentCore Gateway integrates with AWS Certificate Manager. For more information, see [AWS Certificate Manager User Guide](../../../acm/latest/userguide.md "../../../acm/latest/userguide.md")

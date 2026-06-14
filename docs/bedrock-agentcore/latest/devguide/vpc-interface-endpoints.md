@@ -55,6 +55,7 @@ An endpoint policy is an IAM resource that you can attach to an interface endpoi
 An endpoint policy specifies the following information:
 
 - The principals that can perform actions (AWS accounts, IAM users, and IAM roles).
+
   - For AgentCore Gateway, if your gateway ingress isn’t [AWS Signature Version 4 (SigV4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md") -based (for example, if you use OAuth instead), you must specify the `Principal` field as the wildcard \* . SigV4 -based authentication allows you to define the `Principal` as a specific AWS identity. This also applies to AgentCore Runtime.
 
 - The actions that can be performed.

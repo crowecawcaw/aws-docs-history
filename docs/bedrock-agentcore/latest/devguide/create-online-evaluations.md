@@ -190,12 +190,14 @@ You can create online evaluation configurations using the Amazon Bedrock AgentCo
 1. Open the Amazon Bedrock AgentCore console.
 2. In the left navigation pane, choose **Evaluation**.
 3. Choose **Create evaluation configuration**.
+
    1. (Optional) For **Evaluation name** , enter a name for the online evaluation configuration.
    2. (Optional) To enable the evaluation configuration after it’s created, select the checkbox under the evaluation name.
    3. (Optional) For **Evaluation configuration description** , enter a description for the AgentCore evaluation configuration.
    4. (Optional) For **Session idle timeout** , enter a duration between 1 and 60 minutes. The default is 15 minutes.
 
 4. For **Data source** , choose one of the following:
+
    1. **Define with an agent endpoint** – Choose an agent that you previously created on AgentCore Runtime, or create a new agent by choosing **Agents** . Then, choose an endpoint from the agent.
    2. **Select a CloudWatch log group** – Select up to 5 log groups. Enter the service name used by your agent for observability. For agents hosted on AgentCore Runtime, service name follows the format <agent-runtime-name>.<agent-runtime-endpoint-name>. For agents running outside AgentCore Runtime, service name is configured in OTEL_RESOURCE_ATTRIBUTES environment variable.
 
@@ -203,6 +205,7 @@ You can create online evaluation configurations using the Amazon Bedrock AgentCo
 6. (Optional) For **Filters** , add up to 5 filters to identify which sessions to evaluate.
 7. (Optional) For **Sampling** , choose a percentage between 0.01% and 100% to control the percentage of sessions that are evaluated. The default is 10%.
 8. For **Amazon Bedrock IAM role** , choose one of the following:
+
    1. **Use an existing role** – Select an IAM service role that already has the required permissions.
    2. **Create a new role** – Create a new IAM service role.
 

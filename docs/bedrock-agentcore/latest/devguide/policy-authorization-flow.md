@@ -127,6 +127,7 @@ Cedar evaluates:
 2. **Action check:** Is the action RefundTool\_\_\_process_refund? ✓ (matches)
 3. **Resource check:** Is the resource the refund gateway? ✓ (matches)
 4. **Condition checks:**
+
    - Does principal have username tag? ✓ (yes, from JWT)
    - Is username = "refund-agent"? ✓ (yes)
    - Is context.input.amount < 500? ✓ (450 < 500)

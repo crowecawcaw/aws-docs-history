@@ -10,12 +10,16 @@ Built-in providers offer streamlined setup for popular services including Google
 4. For **Provider**, choose **Included provider**.
 5. Choose your identity provider from the available options (Google, GitHub, Microsoft, Salesforce, or Slack).
 6. In the **Provider configurations** section, enter your client credentials:
+
    1. For **Client ID**, enter the unique identifier you received when registering your application with the identity provider.
    2. For **Client secret selection method**, choose one of the following options:
+
       1. **Provide Client secret** – Enter the client secret value directly.
+
          1. For **Client secret**, enter the confidential key associated with your client ID. AgentCore Identity securely stores this value for authentication.
 
       2. **Provide Client secret via Secrets Manager** – Reference a secret stored in AWS Secrets Manager instead of entering the value directly.
+
          1. For **Secrets Manager**, enter or select the ARN of the Secrets Manager secret that contains your client secret.
          2. For **JSON key**, enter the JSON key in your Secrets Manager secret that contains the client secret value for your OAuth client.
 

@@ -11,9 +11,11 @@ You can configure your agent runtime (see [CreateAgentRuntime](../../../bedrock-
 - **Allowed clients** : A list of permitted client identifiers that AgentCore Identity will validate against the `client_id` claim in the JWT token. A `client_id` in OAuth 2.0 is a public, unique identifier for an application that is requesting access tokens to access AgentCore Runtime or AgentCore Gateway. It acts like a username for the application, distinguishing it from other clients (applications) registered with the authorizer.
 - **Allowed scopes** : A list of permitted permissions, defined as scopes, allowed to invoke the runtime or gateway. If configured, at least one scope value in the incoming token must match one of the configured values. An OAuth 2.0 scope is a string that defines a specific level of access that is defined in the JWT. Scopes act as permissions to limit what an application can do.
 - **Required custom claims (see CustomClaimValidationType)** : A set of rules to match specific claims in the incoming token against predefined values for validating JWT tokens. You can create a rule by specifying the following:
+
   - **InboundTokenClaimName** : Name of the custom claim.
   - **InboundTokenClaimValueType** : Either `STRING` or `STRING_ARRAY`.
   - **AuthorizingClaimMatchValue** : Required value and comparison operator of the custom claim.
+
     - **ClaimMatchValue** : Required value of the custom claim.
     - **ClaimMatchOperator** : If `InboundTokenClaimValueType` equals `STRING` , this must be `EQUALS` . If `InboundTokenClaimValueType` equals `STRING_ARRAY` , this can be `CONTAINS` or `CONTAINS_ANY`.
     - **Example** : You can define a rule that enforces: `Group must equal Developer`.

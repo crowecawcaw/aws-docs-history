@@ -46,6 +46,9 @@ if status == "COMPLETED":
         sys_result = rec_result["systemPromptRecommendationResult"]
         print(f"Recommended prompt:\n{sys_result['recommendedSystemPrompt']}")
 
+        if "explanation" in sys_result:
+            print(f"Explanation:\n{sys_result['explanation']}")
+
         if "configurationBundle" in sys_result:
             bundle = sys_result["configurationBundle"]
             print(f"New bundle version: {bundle['versionId']}")
@@ -54,6 +57,8 @@ if status == "COMPLETED":
         tool_result = rec_result["toolDescriptionRecommendationResult"]
         for tool in tool_result.get("tools", []):
             print(f"{tool['toolName']}: {tool['recommendedToolDescription']}")
+            if "explanation" in tool:
+                print(f"  Explanation: {tool['explanation']}")
 
 elif status == "FAILED":
     rec_result = result.get("recommendationResult", {})
@@ -104,6 +109,7 @@ Present in `recommendationResult.systemPromptRecommendationResult` when type is 
 | ------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
 | `recommendedSystemPrompt` | String | The optimized system prompt text.                                                                                   |
 | `configurationBundle`     | Object | Present when the input was a configuration bundle. Contains `bundleArn` and `versionId` for the new bundle version. |
+| `explanation`             | String | An explanation of why the recommendation was generated and the reasoning behind the suggested changes.              |
 | `errorCode`               | String | Present on failure. Error code.                                                                                     |
 | `errorMessage`            | String | Present on failure. Human-readable description.                                                                     |
 
@@ -113,7 +119,7 @@ Present in `recommendationResult.toolDescriptionRecommendationResult` when type 
 
 | Field                 | Type   | Description                                                                                                         |
 | --------------------- | ------ | ------------------------------------------------------------------------------------------------------------------- |
-| `tools`               | List   | Per-tool results. Each entry contains `toolName` (string) and `recommendedToolDescription` (string).                |
+| `tools`               | List   | Per-tool results. Each entry contains `toolName`, `recommendedToolDescription`, and `explanation`.                  |
 | `configurationBundle` | Object | Present when the input was a configuration bundle. Contains `bundleArn` and `versionId` for the new bundle version. |
 | `errorCode`           | String | Present on failure. Error code.                                                                                     |
 | `errorMessage`        | String | Present on failure. Human-readable description.                                                                     |
@@ -132,7 +138,8 @@ Completed system prompt recommendation (inline input):
     "recommendationConfig": { ... },
     "recommendationResult": {
         "systemPromptRecommendationResult": {
-            "recommendedSystemPrompt": "<optimized system prompt text>"
+            "recommendedSystemPrompt": "<optimized system prompt text>",
+            "explanation": "<explanation of why the recommendation was generated>"
         }
     },
     "createdAt": "2025-03-15T10:00:00Z",
@@ -156,7 +163,8 @@ Completed system prompt recommendation (configuration bundle input):
             "configurationBundle": {
                 "bundleArn": "arn:aws:bedrock-agentcore:us-west-2:123456789012:configuration-bundle/myBundle-Ab1Cd2Ef3G",
                 "versionId": "12345678-1234-1234-1234-123456789012"
-            }
+            },
+            "explanation": "<explanation of why the recommendation was generated>"
         }
     },
     "createdAt": "2025-03-15T10:00:00Z",
@@ -179,11 +187,13 @@ Completed tool description recommendation:
             "tools": [
                 {
                     "toolName": "<tool-name-1>",
-                    "recommendedToolDescription": "<optimized description for tool 1>"
+                    "recommendedToolDescription": "<optimized description for tool 1>",
+                    "explanation": "<explanation of why this tool description was changed>"
                 },
                 {
                     "toolName": "<tool-name-2>",
-                    "recommendedToolDescription": "<optimized description for tool 2>"
+                    "recommendedToolDescription": "<optimized description for tool 2>",
+                    "explanation": "<explanation of why this tool description was changed>"
                 }
             ]
         }

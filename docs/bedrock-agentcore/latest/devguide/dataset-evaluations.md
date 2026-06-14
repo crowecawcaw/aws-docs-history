@@ -29,6 +29,7 @@ Both runners require:
 
 - Python 3.10+
 - An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability-configure.md#observability-configure-3p "observability-configure.md#observability-configure-3p"). Supported frameworks:
+
   - Strands Agents
   - LangGraph with `opentelemetry-instrumentation-langchain` or `openinference-instrumentation-langchain`
 

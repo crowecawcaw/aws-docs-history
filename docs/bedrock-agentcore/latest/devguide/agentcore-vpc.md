@@ -101,18 +101,22 @@ This permission is already included in the AWS managed policy [BedrockAgentCoreF
 For optimal performance and security with VPC-connected Amazon Bedrock AgentCore Runtime and built-in tools:
 
 - **High Availability** :
+
   - Configure at least two private subnets in different Availability Zones. For a list of supported Availability Zones, see [Supported Availability Zones](#agentcore-supported-azs "#agentcore-supported-azs").
   - Deploy dependent resources (such as databases or caches) with multi-AZ support to avoid single points of failure.
 
 - **Network Performance** :
+
   - Place Amazon Bedrock AgentCore Runtime or built-in tools subnets in the same Availability Zones as the resources they connect to. This reduces cross-AZ latency and data transfer costs.
   - Use VPC endpoints for AWS services whenever possible. Endpoints provide lower latency, higher reliability, and avoid NAT gateway charges for supported services.
 
 - **Security** :
+
   - Apply the principle of least privilege when creating security group rules.
   - Enable VPC Flow Logs for auditing and monitoring. Review logs regularly to identify unexpected traffic patterns.
 
 - **Internet Access** :
+
   - To provide internet access from Amazon Bedrock AgentCore Runtime or built-in tools inside a VPC, configure a NAT gateway in a public subnet. Update the route table for private subnets to send outbound traffic (0.0.0.0/0) to the NAT gateway.
   - We recommend using VPC endpoints for AWS services instead of internet routing to improve security and reduce costs.
 
@@ -403,10 +407,12 @@ When running Amazon Bedrock AgentCore Runtime in a VPC, we strongly recommend co
 ### Required VPC endpoints
 
 - **Amazon ECR Requirements** :
+
   - Docker endpoint: `com.amazonaws.region.ecr.dkr`
   - ECR API endpoint: `com.amazonaws.region.ecr.api`
 
 - **Amazon S3 Requirements** :
+
   - Gateway endpoint for ECR docker layer storage: `com.amazonaws.region.s3`
 
   ###### Important
@@ -462,6 +468,7 @@ When running Amazon Bedrock AgentCore Runtime in a VPC, we strongly recommend co
   If you are also using [persistent file systems](runtime-filesystem-configurations.md "runtime-filesystem-configurations.md"), add the session storage bucket (`acr-storage-*-region-an`) to this policy. See [Networking requirements](runtime-filesystem-configurations.md#session-storage-networking "runtime-filesystem-configurations.md#session-storage-networking") for the required permissions.
 
 - **CloudWatch Requirements** :
+
   - Logs endpoint: `com.amazonaws.region.logs`
 
 ###### Note
@@ -510,32 +517,39 @@ Enable CloudWatch Logs for your Amazon Bedrock AgentCore Runtime to identify any
 ### Common issues and solutions
 
 - **Connection timeouts** :
+
   - Verify security group rules are correct
   - Ensure route tables are properly configured
   - Check that the target resource is running and accepting connections
 
 - **DNS resolution failures** :
+
   - Ensure that DNS resolution is enabled in your VPC
   - Verify that your DHCP options are configured correctly
 
 - **Missing ENIs** :
+
   - Check the IAM permissions to ensure the service-linked role has appropriate permissions
   - Look for any service quotas that may have been reached
 
 ### Code Interpreter issues
 
 - **Code Interpreter invoke call timeouts when trying to call a public endpoint** :
+
   - Verify that VPC is configured with NAT gateway for internet access
 
 - **Invoke calls for a Code Interpreter with private VPC endpoints throw "AccessDenied" errors** :
+
   - Make sure the execution role passed during Code Interpreter creation has the right permissions for AWS service for which VPC endpoint was configured
 
 - **Invoke calls for a Code Interpreter with some private VPC endpoints show "Unable to locate Credentials" error** :
+
   - Check that the execution role has been provided while creating the code interpreter
 
 ### Browser Tool issues
 
 - **Live-View/Connection Stream is unable to load webpages and fails with connection timeouts** :
+
   - Check if the browser was created with Private Subnet with NAT Gateway
 
 ### Testing VPC connectivity

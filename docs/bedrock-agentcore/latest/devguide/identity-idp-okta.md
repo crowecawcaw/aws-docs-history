@@ -22,6 +22,7 @@ To add Okta as an identity provider and authorization server for accessing Agent
 9. Adjust the **Assignments** section as necessary depending on your needs.
 10. Choose **Save**.
 11. Create an Okta API to represent your application:
+
     - In the left navigation bar, choose **Security**.
     - Go to **API** and choose **Add Authorization Server**.
     - Follow the flow to create an authorization server dedicated to your Okta tenant.
@@ -35,6 +36,7 @@ https://your-tenant.okta.com/oauth2/your-authorization-server
 ```
 
 13. Configure Inbound Auth with the following values:
+
     - **Discovery URL:** The URL constructed in the previous step
     - **Allowed Audiences:** The audience value you provided when creating the API in step 11
 

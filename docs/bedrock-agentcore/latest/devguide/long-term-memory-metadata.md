@@ -29,6 +29,7 @@ With metadata filtering, you can:
 Setting up metadata filtering involves five steps:
 
 1. **Create your memory with indexed keys and a metadata schema** —
+
    - **Indexed keys** — Use `CreateMemory` (or `UpdateMemory`) to declare the metadata keys you want to filter on (for example, `priority`, `channel`, `tags`). You can declare up to 10 indexed keys per memory. Indexed keys define which attributes are queryable in filter expressions. Once an indexed key is added, it cannot be removed.
    - **Metadata schema** — Define a `metadataSchema` on a strategy to control how the LLM extracts values from conversations. The schema specifies which keys to extract, how to resolve conflicts across events, and what validation constraints to apply. A metadata schema is optional — strategies without one do not perform metadata extraction.
 
@@ -107,6 +108,127 @@ Validation options by type:
 | `STRINGLIST` | `stringListValidation.maxItems`      | Max items in the list (1–5)                                                                                         |
 | `NUMBER`     | `numberValidation.minValue`          | Minimum allowed value                                                                                               |
 | `NUMBER`     | `numberValidation.maxValue`          | Maximum allowed value                                                                                               |
+
+### Deterministic metadata (STRICTLY_CONSISTENT extraction type)
+
+Deterministic metadata keys contain values that your application already knows when creating an event. These values are copied exactly to the resulting memory records without modification. Organizational classifiers like `department`, `compliance_level`, or `agent_id` should not be inferred by the LLM. LLM inference introduces variability. For example, the same conversation can produce `"eng"` on one record and `"Engineering"` on another.
+
+For these keys, set `extractionType` to `STRICTLY_CONSISTENT` in the metadata schema entry. The value supplied on the event propagates unchanged through extraction and consolidation. The LLM is not consulted for that key.
+
+The following JSON shows a metadata schema with both `STRICTLY_CONSISTENT` and `LLM_INFERRED` extraction types:
+
+```
+{
+  "metadataSchema": [
+    {
+      "key": "department",
+      "type": "STRING",
+      "extractionType": "STRICTLY_CONSISTENT"
+    },
+    {
+      "key": "compliance_level",
+      "type": "STRING",
+      "extractionType": "STRICTLY_CONSISTENT"
+    },
+    {
+      "key": "topic",
+      "type": "STRING",
+      "extractionType": "LLM_INFERRED",
+      "extractionConfig": {
+        "llmExtractionConfig": {
+          "definition": "Primary topic of the conversation",
+          "llmExtractionInstruction": "Identify the main topic discussed"
+        }
+      }
+    }
+  ]
+}
+```
+
+When you omit `extractionType`, the default is `LLM_INFERRED`.
+
+#### Extraction and consolidation isolation
+
+`STRICTLY_CONSISTENT` keys do more than skip LLM inference. They group events by their deterministic values during extraction. Events with different values are processed separately. Consolidation follows the same rule. Records from one value group never merge with records from another group.
+
+The following Python example shows a support session with two deterministic keys (`department` and `priority`):
+
+```
+# Event 1: high-priority billing inquiry
+agentcore_client.create_event(
+    memoryId="mem-support-abc123",
+    actorId="customer-123",
+    sessionId="session-escalation-001",
+    payload=[{"conversational": {"role": "USER",
+        "content": {"text": "I'm seeing duplicate charges on my invoice and it's blocking our deployment."}}}],
+    metadata={
+        "department": {"stringValue": "billing"},
+        "priority": {"stringValue": "high"}
+    }
+)
+
+# Event 2: also high-priority billing (same deterministic values as Event 1)
+agentcore_client.create_event(
+    memoryId="mem-support-abc123",
+    actorId="customer-123",
+    sessionId="session-escalation-001",
+    payload=[{"conversational": {"role": "USER",
+        "content": {"text": "The charges appeared after we upgraded from standard to enterprise tier last week."}}}],
+    metadata={
+        "department": {"stringValue": "billing"},
+        "priority": {"stringValue": "high"}
+    }
+)
+
+# Event 3: high-priority engineering (same priority, different department)
+agentcore_client.create_event(
+    memoryId="mem-support-abc123",
+    actorId="customer-123",
+    sessionId="session-escalation-001",
+    payload=[{"conversational": {"role": "USER",
+        "content": {"text": "Your team found a provisioning bug that triggered the duplicate charge."}}}],
+    metadata={
+        "department": {"stringValue": "engineering"},
+        "priority": {"stringValue": "high"}
+    }
+)
+
+# Event 4: low-priority billing (same department as Events 1-2, different priority)
+agentcore_client.create_event(
+    memoryId="mem-support-abc123",
+    actorId="customer-123",
+    sessionId="session-escalation-001",
+    payload=[{"conversational": {"role": "USER",
+        "content": {"text": "Also, can you update the billing contact email on file when you get a chance?"}}}],
+    metadata={
+        "department": {"stringValue": "billing"},
+        "priority": {"stringValue": "low"}
+    }
+)
+```
+
+The system groups events by the exact combination of all deterministic key values:
+
+- Events 1 and 2 share `department=billing, priority=high`. They are extracted together.
+- Event 3 differs in `department`. It is extracted separately, despite sharing `priority=high`.
+- Event 4 differs in `priority`. It is extracted separately, despite sharing `department=billing`.
+
+All deterministic key values must match for events to be grouped. A query with `department=billing` AND `priority=high` returns only the urgent duplicate charge facts. The other events are in separate partitions. Records from different value combinations never merge during consolidation.
+
+#### Constraints
+
+| Constraint                              | Detail                                                                                                                                               |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Maximum deterministic keys per strategy | 3                                                                                                                                                    |
+| Key type                                | Must be `STRING`                                                                                                                                     |
+| Must be indexed                         | The key must also be declared in the memory’s `indexedKeys`                                                                                          |
+| No `extractionConfig`                   | `STRICTLY_CONSISTENT` keys cannot have an `extractionConfig`. The value comes from the event, not the LLM.                                           |
+| Supported strategies                    | Semantic, user preference, and episodic strategies (including custom overrides). Not supported on summary strategies.                                |
+| Missing values                          | If an event arrives without a value for a deterministic key, the key is omitted from the grouping for that event and absent on the resulting record. |
+
+###### Important
+
+Changing which keys are configured as `STRICTLY_CONSISTENT` changes the grouping used for extraction and consolidation. Records created under the previous configuration become isolated from records created under the new configuration. Plan your deterministic key configuration before ingesting events.
 
 ### How indexed keys and schema keys interact
 
@@ -289,6 +411,22 @@ For example, consider a support session where the first event has `priority: "lo
 
 Another example: for `agent_type` with the instruction _"Prefer the most specialized agent type. Hierarchy: specialist > tier3 > tier2 > tier1 > bot"_, if a session starts with a bot and escalates to a tier2 agent, the memory record gets `agent_type: "tier2"`.
 
+### Deterministic metadata ingestion
+
+Keys configured as `STRICTLY_CONSISTENT` follow a different ingestion path. The value you supply on the event is the value that lands on the resulting record. There is no LLM inference and no conflict resolution.
+
+AgentCore Memory groups events by their deterministic key values before extraction. For example, events tagged `department: "engineering"` are processed separately from events tagged `department: "finance"`.
+
+Consolidation operates within these groups. A record with `compliance_level: "hipaa"` never merges with a record labeled `compliance_level: "standard"`. This makes deterministic keys ideal for:
+
+- **Compliance isolation** - Records with different compliance levels never co-mingle.
+- **Organizational routing** - Department-scoped retrieval without cross-contamination.
+- **Multi-tenant sub-filtering** - Tenant-specific attributes preserved exactly as supplied.
+
+If an event has no value for a deterministic key, the key is absent on the resulting record.
+
+The direct-write paths (`BatchCreateMemoryRecords` and `BatchUpdateMemoryRecords`) bypass extraction. The `STRICTLY_CONSISTENT` extraction type has no effect on them. Supply metadata directly as you already do for those APIs.
+
 ### Direct record creation with Batch APIs
 
 For knowledge-base imports, self-managed strategies, or pre-processed content, use `BatchCreateMemoryRecords` (or `BatchUpdateMemoryRecords`) to supply metadata explicitly. This bypasses LLM extraction entirely — the caller controls the metadata values.
@@ -377,18 +515,18 @@ Up to **5 filters** can be combined per query. Multiple filters are applied with
 
 ### Supported operators
 
-| Operator                 | Right value required  | Works with                 | Description                                                                                                                                                                                                    |
-| ------------------------ | --------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EQUALS_TO`              | Yes                   | STRING, STRINGLIST, NUMBER | Exact match. For STRINGLIST, returns records where the list contains an element that exactly equals the given value.                                                                                           |
-| `CONTAINS`               | Yes                   | STRING, STRINGLIST         | Substring match. For STRING, returns records where the value contains the given string as a substring. For STRINGLIST, returns records where any element in the list contains the given string as a substring. |
-| `EXISTS`                 | No                    | All types                  | Key is present on the record                                                                                                                                                                                   |
-| `NOT_EXISTS`             | No                    | All types                  | Key is absent from the record                                                                                                                                                                                  |
-| `GREATER_THAN`           | Yes (`numberValue`)   | NUMBER                     | Numeric greater-than comparison                                                                                                                                                                                |
-| `GREATER_THAN_OR_EQUALS` | Yes (`numberValue`)   | NUMBER                     | Numeric greater-than-or-equal comparison                                                                                                                                                                       |
-| `LESS_THAN`              | Yes (`numberValue`)   | NUMBER                     | Numeric less-than comparison                                                                                                                                                                                   |
-| `LESS_THAN_OR_EQUALS`    | Yes (`numberValue`)   | NUMBER                     | Numeric less-than-or-equal comparison                                                                                                                                                                          |
-| `BEFORE`                 | Yes (`dateTimeValue`) | dateTimeValue              | Timestamp is before the given value                                                                                                                                                                            |
-| `AFTER`                  | Yes (`dateTimeValue`) | dateTimeValue              | Timestamp is after the given value                                                                                                                                                                             |
+| Operator                 | Right value required  | Works with     | Description                                                                                      |
+| ------------------------ | --------------------- | -------------- | ------------------------------------------------------------------------------------------------ |
+| `EQUALS_TO`              | Yes                   | STRING, NUMBER | Exact match.                                                                                     |
+| `CONTAINS`               | Yes                   | STRINGLIST     | Returns records where any element in the STRINGLIST contains the given string as an exact match. |
+| `EXISTS`                 | No                    | All types      | Key is present on the record                                                                     |
+| `NOT_EXISTS`             | No                    | All types      | Key is absent from the record                                                                    |
+| `GREATER_THAN`           | Yes (`numberValue`)   | NUMBER         | Numeric greater-than comparison                                                                  |
+| `GREATER_THAN_OR_EQUALS` | Yes (`numberValue`)   | NUMBER         | Numeric greater-than-or-equal comparison                                                         |
+| `LESS_THAN`              | Yes (`numberValue`)   | NUMBER         | Numeric less-than comparison                                                                     |
+| `LESS_THAN_OR_EQUALS`    | Yes (`numberValue`)   | NUMBER         | Numeric less-than-or-equal comparison                                                            |
+| `BEFORE`                 | Yes (`dateTimeValue`) | dateTimeValue  | Timestamp is before the given value                                                              |
+| `AFTER`                  | Yes (`dateTimeValue`) | dateTimeValue  | Timestamp is after the given value                                                               |
 
 Note: Event metadata filters on `ListEvents` support only `EXISTS`, `NOT_EXISTS`, and `EQUALS_TO`, and only `stringValue`.
 
@@ -537,6 +675,7 @@ Existing memory records do not retroactively receive new LLM-extracted fields. H
 | Resource                                         | Limit                |
 | ------------------------------------------------ | -------------------- |
 | Indexed keys per memory                          | 10                   |
+| STRICTLY_CONSISTENT keys per strategy            | 3                    |
 | Metadata schema entries per strategy             | 20                   |
 | Memory record metadata entries (user-supplied)   | 20                   |
 | Filters per query                                | 5                    |
@@ -558,10 +697,12 @@ Existing memory records do not retroactively receive new LLM-extracted fields. H
 - **Plan schemas at the strategy level.** Each strategy can have its own `metadataSchema`, allowing different strategies to extract and handle the same keys differently. A semantic strategy might use custom extraction instructions to classify priority from conversation context, while a summary strategy might use a different definition tuned for summarization-specific metadata.
 - **Be intentional with `memoryStrategyId` on batch-created records.** When you include `memoryStrategyId`, the service filters input metadata to only keys in that strategy’s schema — all other keys are silently dropped. When you omit it, all metadata in the payload is stored as-is. Choose based on your use case: schema-enforced consistency for records that should match extraction-produced records, or full control for bulk imports where you manage metadata externally.
 - **Use non-indexed schema keys for context enrichment.** Not every metadata key needs to be filterable. Schema keys that are not declared as indexed keys are still populated on extracted records and visible in get/list responses — they just cannot be used in filter expressions. This is useful for metadata like `sentiment` or `summary_notes` that enriches the record for downstream consumption without consuming your indexed key budget.
+- **Use deterministic extraction for values you already know.** Some keys represent fixed organizational attributes like `department`, `tenant_tier`, or `compliance_scope`. If the application has these values at event creation time, configure them as `STRICTLY_CONSISTENT`. Supply the value on every event. This guarantees exact values on records and removes inconsistent representations (such as `"eng"` vs. `"Engineering"`) that LLM extraction can introduce. Reserve `LLM_INFERRED` for dimensions that must be inferred from conversation content, like sentiment or topic.
+- **Plan deterministic key slots early.** Each `STRICTLY_CONSISTENT` key uses one of the 10 indexed-key slots. Indexed keys cannot be removed once added. Reserve slots if you plan to use deterministic metadata.
 
 ### Anti-patterns to avoid
 
 - **Don’t index high-cardinality free-text fields** like descriptions or full names — they bloat the index without providing useful filter boundaries.
 - **Don’t use metadata for values that change on every interaction** — metadata is most effective for stable or slowly-changing attributes.
 - **Don’t rely on metadata alone for tenant isolation.** A `tenant_id` metadata field without namespace isolation is a security-through-convention model that breaks on any missed filter. Use namespaces for the `who`, and metadata for the `what`, `when`, and `how urgent`.
-- **Don’t rely on LLM-extracted metadata for deterministic use cases.** LLM extraction is probabilistic. For fields requiring exact, guaranteed values (like `ticket_id` or `account_number`), supply them via the Batch APIs (`BatchCreateMemoryRecords` or `BatchUpdateMemoryRecords`) where you control the metadata values directly.
+- **Don’t use LLM extraction for values that must be exact.** If a key must carry a specific, known value (like `department` or `ticket_id`), use `STRICTLY_CONSISTENT` extraction or supply it via the Batch APIs. LLM extraction may produce variations of the same concept.

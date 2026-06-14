@@ -31,12 +31,14 @@ Web Bot Auth uses the IETF HTTP Message Signatures standard to cryptographically
 1. **Agent Registration** : Amazon Bedrock AgentCore registers with bot control vendors (Cloudflare, reCAPTCHA, etc.) and provides public keys for verification
 2. **Request Signing** : When enabled, the Browser Tool automatically signs each HTTP request using a private key
 3. **Signature Headers** : Three headers are added to each request:
+
    - `Signature` : The cryptographic signature
    - `Signature-Agent` : Points to the public key directory for verification
    - `Signature-Input` : Specifies which components were signed
 
 4. **Verification** : The website’s bot control system fetches the public key and verifies the signature to confirm the request comes from Amazon Bedrock AgentCore
 5. **Policy Application** : Based on the verified identity, the website can apply appropriate policies. Domain owners can configure their bot control systems to:
+
    - **Block all traffic** : Reject all automated requests regardless of authentication
    - **Allow only signed bots** : Accept requests only from verified agents with valid Web Bot Auth signatures
    - **Allow signed bots from specific directories** : Permit authenticated agents to access only certain paths or resources on the website

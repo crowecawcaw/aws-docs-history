@@ -81,6 +81,7 @@ The following list provides key information for this template
 Replace `{region}` with an actual value. Look up supported Regions at [Agents for Amazon Bedrock runtime APIs](../../../general/latest/gr/bedrock.md#bra-rt "../../../general/latest/gr/bedrock.md#bra-rt").
 
 - Outbound authentication types accepted:
+
   - IAM credentials of gateway service role
 
 To learn more about the Amazon Bedrock Agents Runtime API, see the [Agents for Amazon Bedrock API reference](../../../bedrock/latest/APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.md "../../../bedrock/latest/APIReference/API_Operations_Agents_for_Amazon_Bedrock_Runtime.md")
@@ -117,6 +118,7 @@ The following list provides key information for this template
 Replace `{region}` with an actual value. look up supported Regions at [Amazon Bedrock runtime APIs](../../../general/latest/gr/bedrock.md#br-rt "../../../general/latest/gr/bedrock.md#br-rt") ).
 
 - Outbound authentication types accepted:
+
   - IAM credentials of gateway service role
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -136,6 +138,7 @@ The following list provides key information for this template
 Replace `{region}` with an actual value. Look up supported Regions at [Amazon CloudWatch endpoints and quotas](../../../general/latest/gr/cw_region.md "../../../general/latest/gr/cw_region.md").
 
 - Outbound authentication types accepted:
+
   - IAM credentials of gateway service role
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -170,6 +173,7 @@ The following list provides key information for this template
 Replace `{region}` with an actual value. Look up supported Regions at [Amazon DynamoDB endpoints and quotas](../../../general/latest/gr/ddb.md "../../../general/latest/gr/ddb.md").
 
 - Outbound authentication types accepted:
+
   - IAM credentials of gateway service role
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -214,6 +218,7 @@ The following list provides key information for this template
 
 - Server URL – https://app.asana.com/api/1.0
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -229,6 +234,7 @@ The following list provides key information for this template
 
 - Server URL – https://api.bamboohr.com/api/gateway.php/ `{companyDomain}`
 - Outbound authentication types accepted:
+
   - OAuth2
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -261,6 +267,7 @@ The following list provides key information for this template
 
 - Server URL – https://api.search.brave.com/res/v1
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -277,6 +284,7 @@ The following list provides key information for this template:
 
 - Server URL — `https://api.cdp.coinbase.com/platform/v2/x402/discovery/mcp`
 - Outbound authentication types accepted:
+
   - No Authorization (selected by default)
 
 For detailed setup instructions (console, CLI, SDK, and Strands), see [Coinbase Bazaar via AgentCore Gateway](payments-connect-bazaar.md "payments-connect-bazaar.md") in the payments guide. To set up the Payment Manager and Connector required for processing payments, see [Create a Payment Manager and Connector](payments-create-manager.md "payments-create-manager.md").
@@ -287,6 +295,7 @@ The following list provides key information for this template
 
 - Server URL – https:// `{sub-domain}` .atlassian.net
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -306,6 +315,7 @@ The following list provides key information for this template
 
 - Server URL – https://api.atlassian.com/ex/jira/ `{customerInstanceId}`
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -353,6 +363,7 @@ The following list provides key information for this template
 
 - Server URL – https://graph.microsoft.com/v1.0
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -387,6 +398,7 @@ The following list provides key information for this template
 
 - Server URL – https://graph.microsoft.com/v1.0
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -423,6 +435,7 @@ The following list provides key information for this template
 
 - Server URL – https://graph.microsoft.com/v1.0
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -458,6 +471,7 @@ The following list provides key information for this template
 
 - Server URL – https://graph.microsoft.com/v1.0
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -493,6 +507,7 @@ The following list provides key information for this template
 
 - Server URL – https://api.pagerduty.com
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -511,6 +526,7 @@ The following list provides key information for this template
 
 - Server URL – https:// `{domainName}` .develop.my.salesforce.com/services/data/v60.0
 - Outbound authentication types accepted:
+
   - OAUTH2
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -567,6 +583,7 @@ The following list provides key information for this template
 
 - Server URL – https:// `{instance}` .service-now.com
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -605,6 +622,7 @@ The following list provides key information for this template
 
 - Server URL – https://slack.com/api
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -642,6 +660,7 @@ The following list provides key information for this template
 
 - Server URL – https://api.smartsheet.com/2.0
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -659,6 +678,7 @@ The following list provides key information for this template
 
 - Server URL – https://api.tavily.com
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -674,6 +694,7 @@ The following list provides key information for this template
 
 - Server URL – https:// `{customerInstanceId}` .zendesk.com
 - Outbound authentication types accepted:
+
   - OAUTH2
 
 The following table shows the APIs that you can call if you add this target type to your gateway:
@@ -696,6 +717,7 @@ The following list provides key information for this template
 
 - Server URL – https://api.zoom.us/v2
 - Outbound authentication types accepted:
+
   - API key
 
 The following table shows the APIs that you can call if you add this target type to your gateway:

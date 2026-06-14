@@ -662,14 +662,18 @@ This will output the token’s payload, which looks similar to:
 When troubleshooting token issues, check the following:
 
 - Issuer url pointed to by the discovery url in the agent authorizer should match the issuer claim in the token. Do the following to confirm they match:
+
   - Select the discovery url you provided in the authorizer configuration when you created the agent, for example: `https://cognito-idp.us-east-1.amazonaws.com/us-east-1_nnnnnnnnn/.well-known/openid-configuration`
+
     - Check the issuer url - `"issuer": "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_12345566"` . This should match the iss claim value in the token.
 
 - `client_id` claim in the token must match one of the authorizer allowedClients entries if provided
+
   - Note the client id you provided when you created the agent
   - Confirm this matches the client_id claim in the decoded token
 
 - `aud` claim in the token must match one of the authorizer `allowedAudience` entries, if provided
+
   - Note the audience list you provided when you created the agent
   - Confirm this matches the `aud` claim in the decoded token
 

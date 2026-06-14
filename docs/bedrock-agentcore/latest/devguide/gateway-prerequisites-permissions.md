@@ -189,6 +189,7 @@ Console
 2. Follow the steps in the **Console** tab at [Viewing resource-based IAM policies in Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md").
 3. In the **Resource-based policy statements** section, choose **Add permissions**.
 4. Select **AWS account** and fill out the following fields:
+
    - **Statement ID** – A unique identifier for the statement providing permissions for the gateway service role to access the function.
    - **Principal** – Specify the ARN of your gateway service role.
    - **Action** – Select `lambda:InvokeFunction`.

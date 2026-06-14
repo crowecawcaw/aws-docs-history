@@ -21,6 +21,7 @@ Create a registry with IAM authorization and manual approval.
 5. (Optional) Choose **Additional details** to expand the section, and then for **Description** , enter a description to help identify this registry.
 6. In the **Search API Authorization** section, for **Auth type** , choose **Use IAM Authorization** . Note - This is Inbound Authorization
 7. In the **Record approval** section, turn on or turn off **Auto-approval** :
+
    - When **Auto-approval** is on, when you submit a record for approval, the record moves directly to **Approved** status and becomes visible in search results shortly after.
    - When **Auto-approval** is off, when you submit a record for approval, the record moves to **Pending approval** status and requires a curator to review and approve it before it’s published.
 
@@ -35,13 +36,16 @@ Create a registry with IAM authorization and manual approval.
 5. (Optional) Choose **Additional details** to expand the section, and then for **Description** , enter a description to help identify this registry.
 6. In the **Search API Authorization** section, for **Auth type** , choose **Use JSON Web Tokens (JWT)** . Note - This is Inbound Authorization
 7. For **JWT schema configuration** , choose one of the following options:
+
    1. **Quick create configurations with Cognito (recommended)** – AWS Agent Registry creates the authorization configurations on your behalf using Amazon Cognito as the identity provider. No additional configuration is required.
    2. **Use existing Identity provider configurations** – Bring your own identity provider to enable OAuth 2.0. If you choose this option, complete the following steps:
+
       1. For **Discovery URL** , enter the discovery URL from your identity provider. AWS Agent Registry uses this URL to automatically fetch the login, token, and verification settings for your provider. You can find this URL in your identity provider’s dashboard or documentation (for example, `https://cognito-identity.amazonaws.com/.well-known/openid-configuration` ).
 
       Note: Discovery URL cannot be changed after the Registry is created 2. (Optional) Under **JWT authorization configuration** , select **Allowed audiences** to provide a list of permitted audiences that AWS Agent Registry validates against the `aud` claim in the JWT token. An audience claim ( `aud` ) in OAuth 2.0 specifies which resource server (API) the token is intended for. This ensures the token is the correct recipient before processing the request, preventing a token from being reused at a different API it was not issued for. 3. (Optional) Select **Allowed clients** to provide a list of permitted client identifiers that AWS Agent Registry validates against the `client_id` claim in the JWT token. A `client_id` is a public, unique identifier for an application that is requesting access tokens to access the registry’s search API. If you enable this option, enter one or more client IDs in the **Clients** field, and then choose **Add client** to add additional clients. 4. (Optional) Select **Allowed scopes** to provide a list of permitted permissions, defined as scopes. If configured, at least one scope value in the incoming token must match one of the configured values. Scopes act as permissions to limit what an application can do. 5. (Optional) Select **Custom claims** to provide a set of rules that match specific claims in the incoming token against predefined values. For each rule, specify the claim name, the value type ( **STRING** or **STRING_ARRAY** ), and the required match value.
 
 8. In the **Record approval** section, turn on or turn off **Auto-approval** :
+
    1. When **Auto-approval** is on, when you submit a record for approval, the record moves directly to **Approved** status and becomes immediately visible in search results.
    2. When **Auto-approval** is off, when you submit a record for approval, the record moves to **Pending approval** status and requires a registry admin to review and approve it before it’s published.
 
@@ -90,6 +94,7 @@ A registry record represents an agent, tool, skill, or custom resource.
 2. In the navigation pane, choose **Registry** , and then choose the name of the registry where you want to add a record.
 3. In the **Registry records** section, choose **Create record**.
 4. Choose a source type:
+
    1. **Synchronize from endpoint** — Provide an endpoint URL and optional credentials to fetch metadata from an MCP server or Agent (A2A) endpoint. See [Synchronize records from external sources](registry-sync-records.md "registry-sync-records.md") for details.
    2. **Manual** — Manually configure the record details and protocol configuration. Continue with the steps below.
 
@@ -97,12 +102,15 @@ A registry record represents an agent, tool, skill, or custom resource.
 6. (Optional) For **Description** , enter a description for the record. The description can be 1 to 4,096 characters.
 7. For **Record version** , enter a version identifier for the record (for example, `1.0.0` or `v2.1` ).
 8. In the **Record type** section, choose the type that matches your resource:
+
    1. **MCP** – Protocol designed for AI tool and agent communications. Handles context management and structured message formats. If you choose this type, complete the following steps:
+
       1. In the **MCP server definition** section, select a schema version from the **Schema version** dropdown (for example, `2025-12-11` ), and then enter [MCP registry](https://registry.modelcontextprotocol.io/ "https://registry.modelcontextprotocol.io/") server.json in the **Your MCP server definition** editor. The definition must comply with the official MCP server schema for the selected version. To view the official schema as a reference, turn on **Show official schema**.
       2. (Optional) Select **Add tool definition** to add specific tools available on this server with their input parameters, outputs, and usage examples to enhance discoverability. If you select this option, select a schema version from the **Schema version** dropdown (for example, `2025-11-25` ), and then enter your tool definition in the **Your Tool definition** editor. To view the official tool schema as a reference, turn on **Show official schema**.
 
    2. **Agent** – Protocol designed for secure agent-to-agent interactions. Enables distributed workflows and information exchange. If you choose this type, the schema version is `0.3` . Enter your agent card definition in the editor. To view the official schema as a reference, turn on **Show official schema**.
    3. **Agent Skills** – Register agent skills with markdown documentation and an optional structured definition. If you choose this type, complete the following steps:
+
       1. For **Skill documentation** , enter the markdown documentation that describes this skill.
       2. (Optional) Select **Include skill definition** to add a structured definition. If you select this option, select a schema version from the **Schema version** dropdown, and then enter the skill definition as a JSON object in the editor.
 

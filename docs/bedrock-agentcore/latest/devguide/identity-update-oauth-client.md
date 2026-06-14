@@ -8,10 +8,13 @@ You can modify the configuration settings for your existing OAuth client. For ex
 2. In the **Outbound Auth** section, select the OAuth client you want to update.
 3. Choose **Edit**.
 4. On the **Update OAuth Client** page, update the information as needed. For **Client secret selection method**, choose one of the following options:
+
    1. **Provide Client secret** – Enter the client secret value directly.
+
       1. For **Client secret**, enter the updated confidential key associated with your client ID. AgentCore Identity securely stores this value for authentication.
 
    2. **Provide Client secret via Secrets Manager** – Reference a secret stored in AWS Secrets Manager instead of entering the value directly.
+
       1. For **Secrets Manager**, enter or select the ARN of the Secrets Manager secret that contains your client secret.
       2. For **JSON key**, enter the JSON key in your Secrets Manager secret that contains the client secret value for your OAuth client.
 

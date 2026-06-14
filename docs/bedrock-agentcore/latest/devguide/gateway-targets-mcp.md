@@ -12,4 +12,5 @@ The following topics describe the MCP target types that you can add to your gate
 - [Smithy model targets](gateway-building-smithy-targets.md "gateway-building-smithy-targets.md")
 - [MCP servers targets](gateway-target-MCPservers.md "gateway-target-MCPservers.md")
 - [Built-in templates from integration providers as targets](gateway-target-integrations.md "gateway-target-integrations.md")
+- [Built-in connectors as targets](gateway-target-connectors.md "gateway-target-connectors.md")
 - [Understand how AgentCore Gateway tools are named](gateway-tool-naming.md "gateway-tool-naming.md")

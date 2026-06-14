@@ -21,10 +21,12 @@ Use the following procedure to set up a Zoom OAuth2 application and obtain the n
 1. Sign in to the Zoom App Marketplace.
 2. Choose **Develop** > **Build App**.
 3. For a user federation app, select **General app** and choose **Create**.
+
    - On the app details page, add a name for your application and select how your application will be managed.
    - In the **OAuth Information** section, leave the OAuth Redirect URL and OAuth Allow Lists empty for now — you will add the unique callback URL in Step 3.
 
 4. For a M2M app, select **Server to Server OAuth App** and choose **Create**.
+
    - Add a name for your application.
    - On the app details page, choose **Scopes** and add the necessary scopes for your application.
    - Open **Information** and provide a company name, and developer contact information.

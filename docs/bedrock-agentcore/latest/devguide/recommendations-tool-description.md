@@ -279,7 +279,7 @@ When the recommendation reaches `COMPLETED` status (retrieved via [Get a recomme
 
 | Field                 | Type   | Description                                                                                                                                                       |
 | --------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tools`               | List   | Per-tool results. Each entry contains `toolName` and `recommendedToolDescription`.                                                                                |
+| `tools`               | List   | Per-tool results. Each entry contains `toolName`, `recommendedToolDescription`, and `explanation`.                                                                |
 | `configurationBundle` | Object | Present when the input was a configuration bundle. Contains `bundleArn` and `versionId` pointing to a new bundle version with the optimized descriptions applied. |
 | `errorCode`           | String | Present if the recommendation failed. Error code describing the failure.                                                                                          |
 | `errorMessage`        | String | Present if the recommendation failed. Human-readable error description.                                                                                           |

@@ -121,12 +121,15 @@ Console
 5. For **Memory name** enter a name for the AgentCore Memory.
 6. (Optional) For **Short-term memory (raw event) expiration** set the duration (days), for which the AgentCore Memory will store events.
 7. (Optional) In **Additional configurations** set the following:
+
    1. For **Memory description** , enter a description for the AgentCore Memory.
    2. If you want to use your own AWS KMS key to encrypt your data, do the following:
+
       1. In **KMS key** , choose **Customize encryption settings (advanced)**.
       2. In **Choose an AWS KMS key** choose or enter the ARN of an existing AWS KMS key. Alternatively, choose **Create an AWS KMS** to create a new AWS KMS key.
 
 8. (Optional) For **Long-term memory extraction strategies** choose one or more [memory strategies](memory-strategies.md "memory-strategies.md") . For more information:
+
    - [Built-in strategies](built-in-strategies.md "built-in-strategies.md")
    - [Customize a built-in strategy or create your own strategy](memory-custom-strategy.md "memory-custom-strategy.md")
    - [Self-managed strategy](memory-self-managed-strategies.md "memory-self-managed-strategies.md")

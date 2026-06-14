@@ -12,6 +12,7 @@ Select a topic to see examples of adding a target type:
 - [Add a Smithy target](#gateway-add-target-api-smithy "#gateway-add-target-api-smithy")
 - [Add an HTTP runtime target](#gateway-add-target-api-http-runtime "#gateway-add-target-api-http-runtime")
 - [Add an MCP server target](#gateway-add-target-api-MCPserver "#gateway-add-target-api-MCPserver")
+- [Add a Connector target with Web Search Tool](#gateway-add-target-api-connector-web-search "#gateway-add-target-api-connector-web-search")
 
 ## Add a Lambda target
 
@@ -722,3 +723,173 @@ target = agentcore_client.create_gateway_target(
     ]
 )
 ````
+
+## Add a Connector target with Web Search Tool
+
+You can add a built-in connector as a target to your gateway. The Web Search Tool connector provides managed web search capabilities without requiring custom infrastructure or API keys.
+
+For more information about the Web Search Tool connector, see [Web Search Tool](gateway-target-connector-web-search-tool.md "gateway-target-connector-web-search-tool.md").
+
+### Set up Web Search Tool
+
+###### Example
+
+Boto3
+
+1. The following Python code shows how to create a Gateway Target with the Web Search Tool connector configuration using the AWS Python SDK (Boto3):
+
+```
+import boto3
+
+gateway_client = boto3.client("bedrock-agentcore-control", region_name="<REGION>")
+
+gateway_client.create_gateway_target(
+    name="web-search-tool",
+    gatewayIdentifier="<GATEWAY_ID>",
+    targetConfiguration={
+        "mcp": {
+            "connector": {
+                "source": {"connectorId": "web-search"},
+                "configurations": [{"name": "WebSearch", "parameterValues": {}}],
+            }
+        }
+    },
+    credentialProviderConfigurations=[
+        {"credentialProviderType": "GATEWAY_IAM_ROLE"}
+    ],
+)
+```
+
+AWS CLI
+
+1. The following command creates a Gateway Target with the Web Search Tool connector configuration using the AWS CLI:
+
+```
+aws bedrock-agentcore-control create-gateway-target \
+  --gateway-identifier "<GATEWAY_ID>" \
+  --name "web-search-tool" \
+  --target-configuration '{
+    "mcp": {
+      "connector": {
+        "source": {
+          "connectorId": "web-search"
+        },
+        "configurations": [
+          {
+            "name": "WebSearch",
+            "parameterValues": {}
+          }
+        ]
+      }
+    }
+  }' \
+  --credential-provider-configurations '[{"credentialProviderType": "GATEWAY_IAM_ROLE"}]' \
+  --region "<REGION>"
+```
+
+### Configure domain filtering
+
+You can restrict which domains the Web Search Tool is allowed to query by configuring a domain denylist. This is useful for administrators who want to prevent agents from returning results from specific websites.
+
+Domain filtering is configured at the tool level using the `parameterValues.domainFilter.exclude` field when creating or updating a Gateway Target. The denylist is enforced server-side and is hidden from the LLM — the agent is unaware of the restriction and simply receives no results from excluded domains.
+
+The following examples create a Web Search Tool target with domain filtering that excludes results from `blocked-website-1.com` and `blocked-website-2.com`:
+
+###### Example
+
+Boto3
+
+1. The following Python code shows how to create a Web Search Tool target with domain filtering using the AWS Python SDK (Boto3):
+
+```
+import boto3
+
+gateway_client = boto3.client("bedrock-agentcore-control", region_name="<REGION>")
+
+gateway_client.create_gateway_target(
+    name="web-search-tool",
+    gatewayIdentifier="<GATEWAY_ID>",
+    targetConfiguration={
+        "mcp": {
+            "connector": {
+                "source": {"connectorId": "web-search"},
+                "configurations": [
+                    {
+                        "name": "WebSearch",
+                        "parameterValues": {
+                            "domainFilter": {
+                                "exclude": ["blocked-website-1.com", "blocked-website-2.com"]
+                            }
+                        },
+                    }
+                ],
+            }
+        }
+    },
+    credentialProviderConfigurations=[
+        {"credentialProviderType": "GATEWAY_IAM_ROLE"}
+    ],
+)
+```
+
+AWS CLI
+
+1. The following command creates a Web Search Tool target with domain filtering using the AWS CLI:
+
+```
+aws bedrock-agentcore-control create-gateway-target \
+  --gateway-identifier "<GATEWAY_ID>" \
+  --name "web-search-tool" \
+  --target-configuration '{
+    "mcp": {
+      "connector": {
+        "source": {
+          "connectorId": "web-search"
+        },
+        "configurations": [
+          {
+            "name": "WebSearch",
+            "parameterValues": {
+              "domainFilter": {
+                "exclude": ["blocked-website-1.com", "blocked-website-2.com"]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }' \
+  --credential-provider-configurations '[{"credentialProviderType": "GATEWAY_IAM_ROLE"}]' \
+  --region "<REGION>"
+```
+
+You can also update an existing target to add or modify domain filtering using `UpdateGatewayTarget`.
+
+### Configure the Gateway Service Role
+
+The Gateway needs a service role that allows the AgentCore service to perform actions on your behalf. For the Web Search Tool, the role needs the following permissions:
+
+- `bedrock-agentcore:InvokeGateway` — to invoke the Gateway
+- `bedrock-agentcore:InvokeWebSearch` — to authorize web search invocations, checked per-request against the service-owned ARN `arn:aws:bedrock-agentcore:<region>:aws:tool/web-search.v1`
+
+Add a policy with the following content to the service role attached to the Gateway:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "InvokeGateway",
+      "Effect": "Allow",
+      "Action": "bedrock-agentcore:InvokeGateway",
+      "Resource": "arn:aws:bedrock-agentcore:<REGION>:<ACCOUNT_ID>:gateway/*"
+    },
+    {
+      "Sid": "InvokeWebSearch",
+      "Effect": "Allow",
+      "Action": "bedrock-agentcore:InvokeWebSearch",
+      "Resource": "arn:aws:bedrock-agentcore:<REGION>:aws:tool/web-search.v1"
+    }
+  ]
+}
+```

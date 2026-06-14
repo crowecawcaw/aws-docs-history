@@ -75,11 +75,13 @@ Because reflections can span multiple actors within the same memory resource, co
 There are multiple ways to utilize episodic memory:
 
 - Within your agent code
+
   - When starting a new task, configure your agent to perform a query asking for the most similar episodes and reflections. Also query for relevant episodes and reflection subsequently based on some logic.
   - When creating short-term memories with [CreateEvent](../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvent.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateEvent.md") , including `TOOL` results will yield optimal results.
   - For similar successful episodes, linearize the turns within the episode and feed only this to the agent so it focuses on the main steps
 
 - Manually
+
   - Look at your reflections or unsuccessful episodes, and consider whether some issues could be solved with updates to your agent code
 
 When performing retrievals, note that memory records are indexed based on "intent" for episodes and "use case" for reflection.

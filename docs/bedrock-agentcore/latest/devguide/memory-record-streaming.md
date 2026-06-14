@@ -119,7 +119,12 @@ Trust policy:
       "Principal": {
         "Service": "bedrock-agentcore.amazonaws.com"
       },
-      "Action": "sts:AssumeRole"
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "ArnLike": {
+          "aws:SourceArn": "arn:aws:bedrock-agentcore:<region>:<account-id>:memory/*"
+        }
+      }
     }
   ]
 }

@@ -4,6 +4,10 @@ We recommend subscribing to the RSS feed so updates to these notes are delivered
 
 ## June 2026
 
+### Identity: Reference Existing Secrets in AWS Secrets Manager
+
+Amazon Bedrock AgentCore Identity now allows you to reference existing AWS Secrets Manager secret ARNs directly in AgentCore Identity Credential Providers. You can create and manage your secrets in AWS Secrets Manager using your own governance and compliance policies. These policies include custom CMKs, tagging strategies, automatic rotation, and resource policies. You can then reference the existing secret ARN when you configure a Credential Provider in AgentCore Identity. This gives you full ownership of how your secrets are created, classified, and governed, without changing how AgentCore Identity uses them at runtime.
+
 ### Runtime: Interactive Shells (Terminals)
 
 AgentCore Runtime now supports interactive shell sessions, giving agents persistent terminal access to their sandboxed environment. Unlike one-shot command execution, interactive shells maintain state across commands — environment variables, working directories, and running processes persist for the lifetime of the session. Each runtime session supports up to 10 concurrent shell sessions. See [Interactive Shells (Terminals)](runtime-get-started-command-shell.md "runtime-get-started-command-shell.md").

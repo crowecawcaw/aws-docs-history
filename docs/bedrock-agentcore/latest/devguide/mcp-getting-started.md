@@ -21,6 +21,7 @@ Before you begin, verify that you have the following:
 - **Node.js 20+** installed (required for the AgentCore CLI)
 - AWS CLI installed and configured with appropriate credentials. For setup instructions, see [Installing or updating to the latest version of the AWS CLI](../../../amazonq/latest/qdeveloper-ug/command-line-installing.md "../../../amazonq/latest/qdeveloper-ug/command-line-installing.md").
 - One of the supported MCP clients:
+
   - Kiro
   - Cursor
   - Claude Code

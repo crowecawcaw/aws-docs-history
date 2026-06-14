@@ -10,6 +10,7 @@ IAM-based authorization uses the caller’s AWS IAM credentials (SigV4 signing) 
 
 1. Create or use an existing IAM identity for your registry consumers.
 2. Create an identity-based IAM policy with the following permissions:
+
    1. `bedrock-agentcore:SearchRegistryRecords`
    2. `bedrock-agentcore:InvokeRegistryMcp`
    3. You can optionally scope the IAM Permissions to the specific Registry Resource if you want to limit which registry a particular consumer can search in

@@ -215,6 +215,7 @@ Your agent runtime invocation fails even though the container starts successfull
 Follow these steps to resolve payload format issues:
 
 1. **Verify Payload Structure** : Ensure your payload structure matches what your agent expects. Pay special attention to:
+
    - If your agent code expects `input` keyword in the payload, make sure to include it:
 
    ```
@@ -224,7 +225,6 @@ Follow these steps to resolve payload format issues:
        }
    }
    ```
-
    - Not just:
 
    ```
@@ -460,14 +460,17 @@ Omit `s3files:ClientWrite` or `elasticfilesystem:ClientWrite` if your agent only
 **Solution:**
 
 - Verify the filesystem exists:
+
   - S3 Files: `aws s3files list-file-systems --region <region>`
   - EFS: `aws efs describe-file-systems --region <region>`
 
 - Verify the access point exists:
+
   - S3 Files: `aws s3files list-access-points --file-system-id <fs-id> --region <region>`
   - EFS: `aws efs describe-access-points --file-system-id <fs-id> --region <region>`
 
 - Verify mount targets exist in all required availability zones:
+
   - S3 Files: `aws s3files list-mount-targets --file-system-id <fs-id> --region <region>`
   - EFS: `aws efs describe-mount-targets --file-system-id <fs-id> --region <region>`
   - Ensure each mount target shows Available status and is in the same VPC as the agent runtime.
@@ -485,6 +488,7 @@ Omit `s3files:ClientWrite` or `elasticfilesystem:ClientWrite` if your agent only
 - **Check security groups on mount targets:** Verify the security group attached to your mount targets allows **inbound TCP on port 2049** from the security group used by your agent runtime
 - **Check security groups on agent runtime:** Verify the security group used by your agent runtime allows **outbound TCP on port 2049** to the mount target security group
 - **Verify mount targets exist in the correct availability zones:** Mount targets must exist in the same availability zones as the subnets configured on your agent runtime:
+
   - S3 Files: `aws s3files list-mount-targets --file-system-id <fs-id> --region <region>`
   - EFS: `aws efs describe-mount-targets --file-system-id <fs-id> --region <region>`
 
@@ -500,6 +504,7 @@ Omit `s3files:ClientWrite` or `elasticfilesystem:ClientWrite` if your agent only
 
 - **Check IAM permissions:** Ensure your execution role includes `s3files:ClientWrite` (S3 Files) or `elasticfilesystem:ClientWrite` (EFS). Without write permissions, the mount is read-only. For more information, see [permissions for Amazon Bedrock AgentCore Runtime execution role](runtime-permissions.md "runtime-permissions.md").
 - **Check POSIX permissions:** If the directory is owned by a different user than your container process, writes will be denied. Either:
+
   - Set your access point’s posixUser to match the uid/gid your container runs as, so all operations are performed as that user.
   - Set directory permissions to 777 to allow all users to write.
 

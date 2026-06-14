@@ -5,14 +5,17 @@ Each prompt template contains at least one placeholder, which is replaced with a
 Details on the placeholder values used by our current evaluators:
 
 - **Session-level evaluators:**
+
   - `context` – A list of user prompts, assistant responses, and tool calls across all turns in the session.
   - `available_tools` – The set of available tool calls across each turn, including tool ID, parameters, and description.
 
 - **Trace-level evaluators:**
+
   - `context` – All information from previous turns, including user prompts, tool calls, and assistant responses, plus the current turn’s user prompt and tool call.
   - `assistant_turn` – The assistant response for the current turn.
 
 - **Tool-level evaluators:**
+
   - `available_tools` – The set of available tool calls, including tool ID, parameters, and description.
   - `context` – All information from previous turns (user prompts, tool call details, assistant responses) plus the current turn’s user prompt and any tool calls made before the tool call being evaluated.
   - `tool_turn` – The tool call under evaluation.

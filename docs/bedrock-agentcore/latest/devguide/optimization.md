@@ -1,12 +1,4 @@
-# AgentCore optimization: improve agent quality loop with recommendations and A/B tests
-
-###### Note
-
-AgentCore optimization is in public preview. Features and APIs may change before general availability. There is no separate charge for AgentCore optimization. You pay only for the underlying AgentCore capabilities you use. For details, see the [AgentCore pricing page](https://aws.amazon.com/bedrock/agentcore/pricing/ "https://aws.amazon.com/bedrock/agentcore/pricing/").
-
-###### Important
-
-Amazon Bedrock AgentCore optimization is in preview release and does not support AWS CloudTrail. API calls to these features do not appear in your CloudTrail event history or configured trails; support will be added shortly. Other AWS service events in your account are not affected. Do not use these features for workloads that require a CloudTrail audit trail until support is added.
+# AgentCore optimization: Improve agent quality loop with recommendations and A/B tests
 
 Amazon Bedrock AgentCore optimization provides tools to continuously improve your agent’s performance through data-driven configuration changes. Instead of manually rewriting prompts and testing by hand, you use agent traces to generate improvements and validate them with controlled experiments.
 

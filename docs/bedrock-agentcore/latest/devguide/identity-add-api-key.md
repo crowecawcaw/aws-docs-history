@@ -8,10 +8,13 @@ API keys provide key-based authentication for services that require direct key a
 2. In the **Outbound Auth** section, choose **Add OAuth client / API key**, then choose **Add API key**.
 3. For **Name**, you can either use the auto-generated name or enter your own descriptive name to help you identify this API key in your account. Use alphanumeric characters, hyphens, and underscores only, with a maximum length of 50 characters.
 4. For **API key selection method**, choose one of the following options:
+
    1. **Provide API key** – Enter the API key value directly.
+
       1. For **API key**, enter the key value provided by your external service. AgentCore Identity securely stores this value and makes it available to your agent at runtime.
 
    2. **Provide API key via Secrets Manager** – Reference a secret stored in AWS Secrets Manager instead of entering the value directly.
+
       1. For **Secrets Manager**, enter or select the ARN of the Secrets Manager secret that contains your API key.
       2. For **JSON key**, enter the JSON key in your Secrets Manager secret that contains the API key value.
 

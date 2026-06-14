@@ -958,6 +958,7 @@ npx @modelcontextprotocol/inspector
 ```
 
 2. In the web interface:
+
    - Select "Streamable HTTP" as the transport
    - Enter your agent’s endpoint URL using the encoded ARN. Make sure to use the same region as your agent’s ARN:
 
@@ -970,7 +971,6 @@ npx @modelcontextprotocol/inspector
    ```
    https://bedrock-agentcore.us-west-2.amazonaws.com/runtimes/arn%3Aaws%3Abedrock-agentcore%3Aus-west-2%3A123456789012%3Aruntime%2Fmy_mcp_server-xyz123/invocations?qualifier=DEFAULT
    ```
-
    - Add your Bearer token in the Authentication section with header name `Authorization` and value `Bearer YOUR_TOKEN`
    - Click "Connect"
 

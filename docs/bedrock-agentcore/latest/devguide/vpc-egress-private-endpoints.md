@@ -92,6 +92,7 @@ Before creating a gateway target with a managed private endpoint, ensure the fol
 - Your security groups allow inbound traffic on the port used by your private resource (typically port 443 for HTTPS).
 - Your IAM principal has the `iam:CreateServiceLinkedRole` permission for `bedrock-agentcore.amazonaws.com` , so that AgentCore can create the service-linked role on your behalf if it does not already exist. For the required IAM policy, see [Gateway service-linked role](service-linked-roles.md#gateway-service-linked-role "service-linked-roles.md#gateway-service-linked-role").
 - Your IAM principal has the following Amazon EC2 permissions, which are required for AgentCore to set up the VPC Lattice resource gateway in your VPC:
+
   - `ec2:CreateNetworkInterface`
   - `ec2:DescribeVpcs`
   - `ec2:DescribeSecurityGroups`

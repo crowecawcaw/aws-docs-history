@@ -68,14 +68,19 @@ Use the following trust policy:
 
 ```
 {
-    "Version": "2012-10-17 ",
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
             "Principal": {
                 "Service": "bedrock-agentcore.amazonaws.com"
             },
-            "Action": "sts:AssumeRole"
+            "Action": "sts:AssumeRole",
+            "Condition": {
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:bedrock-agentcore:<region>:<account-id>:memory/*"
+                }
+            }
         }
     ]
 }
@@ -87,7 +92,7 @@ Use the following permissions policy:
 
 ```
 {
-    "Version": "2012-10-17 ",
+    "Version": "2012-10-17",
     "Statement": [
         {
             "Sid": "S3PayloadDelivery",

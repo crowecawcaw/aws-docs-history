@@ -19,7 +19,7 @@ The Amazon Bedrock AgentCore SDK version 1.8 or later is required. The SDK inclu
 
 ###### Note
 
-Code-based evaluators are not supported for A/B testing at this time. Use built-in evaluators or custom LLM-as-judge evaluators.
+A/B testing supports built-in, custom LLM-as-judge, and code-based evaluators, but requires each evaluator to return a numerical value for statistical significance computation. For custom LLM-as-judge evaluators, configure the `ratingScale` with a `numerical` scale (not `categorical`). For code-based evaluators, include the `value` field in the [response schema](code-based-evaluators.md#code-based-response-schema "code-based-evaluators.md#code-based-response-schema").
 
 ## IAM permissions
 

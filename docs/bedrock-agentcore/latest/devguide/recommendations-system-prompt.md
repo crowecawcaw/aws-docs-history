@@ -250,6 +250,10 @@ You can use a [built-in evaluator](built-in-evaluators-overview.md "built-in-eva
 - If your agent is more open-ended and you care about the quality of the interaction itself, `Builtin.Helpfulness` is a better fit.
 - If the quality you care about is domain-specific or not captured by a built-in evaluator, use a custom evaluator to best represent the measurement.
 
+###### Note
+
+Recommendations support built-in, custom LLM-as-judge, and code-based evaluators, but require the evaluator to return a numerical value as the optimization signal. For custom LLM-as-judge evaluators, configure the `ratingScale` with a `numerical` scale (not `categorical`). For code-based evaluators, include the `value` field in the [response schema](code-based-evaluators.md#code-based-response-schema "code-based-evaluators.md#code-based-response-schema").
+
 In the API, specify the evaluator in the `evaluationConfig.evaluators` list with exactly one evaluator reference:
 
 ```
@@ -295,6 +299,7 @@ When the recommendation reaches `COMPLETED` status (retrieved via [Get a recomme
 | ------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `recommendedSystemPrompt` | String | The optimized system prompt text.                                                                                                                           |
 | `configurationBundle`     | Object | Present when the input was a configuration bundle. Contains `bundleArn` and `versionId` pointing to a new bundle version with the optimized prompt applied. |
+| `explanation`             | String | An explanation of why the recommendation was generated and the reasoning behind the suggested changes.                                                      |
 | `errorCode`               | String | Present if the recommendation failed. Error code describing the failure.                                                                                    |
 | `errorMessage`            | String | Present if the recommendation failed. Human-readable error description.                                                                                     |
 

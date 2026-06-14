@@ -223,6 +223,7 @@ To create your agent: 2. From the Agents home page, choose **Host Agent** 3. Cho
     * **Templates** - Use pre-built agent templates
 
 4. Configure your agent settings:
+
    - Agent name
    - Runtime version (Python 3.13 recommended)
    - Entry point (e.g., `main.py` )

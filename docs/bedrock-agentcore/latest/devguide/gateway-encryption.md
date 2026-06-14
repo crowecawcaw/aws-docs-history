@@ -22,7 +22,9 @@ Before encrypting your gateway, ensure that you have fulfilled the following pre
 
 - You have access to a KMS key. For information about creating a KMS key, see [Create a KMS key](../../../kms/latest/developerguide/create-keys.md "../../../kms/latest/developerguide/create-keys.md").
 - The KMS key has a key policy attached to it that allows the following permissions:
+
   - Permissions that allow the gateway service role to perform the following actions:
+
     - kms:CreateGrant
     - kms:DescribeKey
     - kms:Decrypt
@@ -130,18 +132,23 @@ The following example policy provides the necessary permissions to encrypt a gat
 The policy contains the following statements:
 
 - **AllowServiceRoleDescribeKKey** – Allows the specified principal to describe the key if the request is made through the AgentCore service. Replace values in the following fields:
+
   - `Principal` – Replace the `AWS` value with the actual ARN of your gateway service role.
   - `Condition` – In the `kms:ViaService` array, replace `us-east-1` with the actual AWS Region for which you want to allow the key to be described.
 
 - **AllowServiceRoleDecryptKey** – Allows the specified principal to decrypt the key if the request is made through the AgentCore service and if the ARN of the gateway to which the request is made matches the one in the `kmsEncryptionContext:aws:bedrock-agentcore-gateway-arn` field. Replace the following values:
+
   - `Principal` – Replace the `AWS` value with the actual ARN of your gateway service role.
   - `Condition` – Do the following:
+
     - In the `kms:ViaService` array, replace `us-east-1` with the actual AWS Region for which you want to allow the key to be decrypted.
     - Replace the `kmsEncryptionContext:aws:bedrock-agentcore-gateway-arn` value with the actual ARN of your gateway.
 
 - **AllowServiceRoleCreateGrant** – Allows the specified principal to create a grant for a key if the request is made through the AgentCore service and if the ARN of the gateway to which the request is made matches the one in the `kmsEncryptionContext:aws:bedrock-agentcore-gateway-arn` field. Replace the following values:
+
   - `Principal` – Replace the `AWS` value with the actual ARN of your gateway service role.
   - `Condition` – Do the following:
+
     - In the `kms:ViaService` array, replace `us-east-1` with the actual AWS Region for which you want to allow the key to be decrypted.
     - Replace the `kmsEncryptionContext:aws:bedrock-agentcore-gateway-arn` value with the actual ARN of your gateway (if you want to allow).
 
@@ -163,6 +170,7 @@ If you don’t see your KMS key, go over the Prerequisites for encrypting your A
 CLI
 
 1. To encrypt your gateway using the AWS CLI, include the `kms-key-arn` when sending either of the following requests through an [AgentCore control plane](../../../cli/latest/reference/bedrock-agentcore-control.md "../../../cli/latest/reference/bedrock-agentcore-control.md") client.:
+
    - [create-gateway](../../../cli/latest/reference/bedrock-agentcore-control/create-gateway.md "../../../cli/latest/reference/bedrock-agentcore-control/create-gateway.md")
    - [update-gateway](../../../cli/latest/reference/bedrock-agentcore-control/update-gateway.md "../../../cli/latest/reference/bedrock-agentcore-control/update-gateway.md")
 
@@ -186,6 +194,7 @@ CLI
 Python (Boto3)
 
 1. To encrypt your gateway using the AWS Python SDK (Boto3), include the `kms-key-arn` when sending either of the following requests through an [AgentCore control plane](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html") client.:
+
    - [create_gateway](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control/client/create_gateway.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control/client/create_gateway.html")
    - [update_gateway](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control/client/update_gateway.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control/client/update_gateway.html")
 

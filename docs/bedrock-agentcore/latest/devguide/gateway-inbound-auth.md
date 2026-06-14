@@ -31,6 +31,7 @@ IAM-based inbound authorization lets you use the gateway caller’s IAM credenti
 
 1. Create or use an existing IAM identity for your gateway callers.
 2. Create an identity-based IAM policy that contains the following permissions:
+
    - `bedrock-agentcore:InvokeGateway` – After you create the gateway, you should modify this policy such that the `Resource` field is scoped to the gateway that you create as a security best practice.
 
 3. Attach the policy to the gateway caller identity.

@@ -83,6 +83,7 @@ print(response['registryArn'])
 1. Open the [Amazon Bedrock AgentCore console](https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1# "https://console.aws.amazon.com/bedrock-agentcore/home?region=us-east-1#").
 2. In the navigation pane, under **Discover** , choose **Registry**.
 3. The **Registries** table displays all registries in your account with the following columns:
+
    1. **Name** — The registry name (linked to the detail page).
    2. **Description** — The registry description, if provided.
    3. **Authorization type** — The inbound authorization method (AWS_IAM or CUSTOM_JWT).
@@ -121,6 +122,7 @@ for registry in response['registries']:
 2. In the navigation pane, under **Discover** , choose **Registry**.
 3. Choose the registry name from the **Registries** table.
 4. The registry detail page has two tabs:
+
    1. **Manage records** — View and manage registry records.
    2. **Search records** — Search for approved records in the registry.
 
@@ -159,6 +161,7 @@ print(f"ARN: {response['registryArn']}")
 2. In the navigation pane, under **Discover** , choose **Registry**.
 3. Select the radio button next to the registry you want to edit, then choose **Edit** . Alternatively, choose the registry name and then choose **Edit**.
 4. On the **Edit registry** page, update any of the following:
+
    1. **Name** — Change the registry name (same naming rules as creation).
    2. **Description** — Under **Additional details** , update or add a description.
    3. **Record approval** — Toggle **Auto-approval** on or off. Changes only affect records submitted after the update.

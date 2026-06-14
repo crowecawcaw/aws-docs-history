@@ -89,6 +89,7 @@ Permanently remove an online evaluation configuration using the console interfac
 2. In the navigation pane, choose **Evaluation**.
 3. In the **Evaluation configurations** card, view the table that lists the evaluation configurations you have created.
 4. Choose one of the following methods to delete the configuration:
+
    - Choose the evaluation configuration name to view its details, then choose **Delete** in the upper right of the details page.
    - Select the evaluation configuration so that it is highlighted, then choose **Delete** at the top of the **Evaluation configurations** card.
 

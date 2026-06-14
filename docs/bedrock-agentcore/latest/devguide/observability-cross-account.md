@@ -20,6 +20,7 @@ Before you can monitor AgentCore resources across accounts, you must complete th
 - In the left navigation pane, choose **Settings**.
 - In the **Monitoring account configuration** section, choose **Configure**.
 - Select the telemetry types to share:
+
   - At minimum, select **Metrics** and **Logs** to enable AgentCore cross-account observability.
 
 - Complete the monitoring account setup wizard.

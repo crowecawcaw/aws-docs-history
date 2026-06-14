@@ -21,6 +21,7 @@ The runner processes each simulated scenario through a conversation loop:
 1. **Start:** The runner sends the scenario’s `input` field to your agent as the first turn.
 2. **Agent responds:** Your agent processes the input and returns a response.
 3. **Actor evaluates:** The LLM-backed actor receives the agent’s response and decides what to do next based on its profile and goal. The actor produces a structured response containing:
+
    - **Reasoning:** The actor’s internal reasoning for its response (for example, "The agent provided flight options but did not ask for my preferred time. I should specify that I prefer morning flights."). This is useful for debugging why the actor behaved a certain way.
    - **Message:** The next message to send to the agent.
    - **Stop signal:** A boolean indicating whether the actor considers its goal achieved.

@@ -177,6 +177,7 @@ Tool Configuration
 To set up your API Gateway target, AgentCore Gateway calls the [GetExport](../../../apigateway/latest/api/API_GetExport.md "../../../apigateway/latest/api/API_GetExport.md") operation for API Gateway on your behalf to get an OpenAPI 3.0 formatted export of your API definition. This helps the gateway properly translate incoming MCP requests into HTTP requests and handle the response. The following are considerations for when AgentCore Gateway calls the GetExport operation:
 
 - The GetExport request is made with using a [Forward Access Session](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md") and uses the caller’s credentials.
+
   - The caller creating the target must have permissions to call [GetExport](../../../apigateway/latest/api/API_GetExport.md "../../../apigateway/latest/api/API_GetExport.md") on the API in API Gateway.
   - The `GetExport` request will be logged in CloudTrail.
 

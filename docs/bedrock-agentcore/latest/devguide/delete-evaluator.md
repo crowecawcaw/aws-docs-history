@@ -92,6 +92,7 @@ Permanently remove a custom evaluator using the console interface, which include
 3. Choose **Custom evaluators** next to Evaluation configurations.
 4. In the **Custom evaluators** card, view the table that lists the custom evaluators you have created.
 5. Choose one of the following methods to delete the evaluator:
+
    - Choose the custom evaluator name to view its details, then choose **Delete** in the upper right of the details page.
    - Select the custom evaluator so that it is highlighted, then choose **Delete** at the top of the Custom evaluators card.
 

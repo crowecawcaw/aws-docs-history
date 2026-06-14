@@ -564,6 +564,7 @@ If results still do not appear after this window:
 - **Verify the online eval log group.** The online evaluation configuration must point to the runtime agent’s output log group. If the online eval config references a different log group (or one that does not receive spans from your runtime), sessions will not be scored and the A/B test will never produce results.
 - **Check the log group name.** For target-based routing, each endpoint has its own log group (the log group name ends with the endpoint name). Ensure each online eval config references the correct endpoint’s log group.
 - **Confirm the runtime is emitting spans.** Check CloudWatch Logs for the expected log group. The key attributes you’re looking for on each span:
+
   - `aws.agentcore.gateway.routing_experiment_arn`
   - `aws.agentcore.gateway.routing_experiment_variant_name` (values: `C` or `T1`)
   - `session.id`

@@ -86,6 +86,7 @@ To maintain the reliability of the memory pipeline, please adhere to the followi
 - **Do not modify schemas in prompts:** You should only add or modify instructions that guide _how_ memories are extracted or consolidated. Do not attempt to alter the conversation or memory schema definitions within the prompt itself, as this can cause unexpected failures.
 - **Do not rename consolidation operations:** When customizing a consolidation prompt, do not change the operation names (e.g., `AddMemory` , `UpdateMemory` ). Altering these names will cause the long-term memory pipeline to fail.
 - **Output schema is not editable:** built-in with overrides strategies do not let you change the final output schema of the extracted or consolidated memory. The output schema that will be added to the system prompt for the built-in with overrides strategy will be same as the built-in strategies. For information about the output schemas, see the following:
+
   - [System prompt for semantic memory strategy](memory-system-prompt.md "memory-system-prompt.md")
   - [System prompt for user preference memory strategy](memory-user-prompt.md "memory-user-prompt.md")
   - [System prompt for summary strategy](memory-summary-prompt.md "memory-summary-prompt.md")

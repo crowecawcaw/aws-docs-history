@@ -146,6 +146,7 @@ https://cognito-idp.us-west-2.amazonaws.com/<UserPoolId>/.well-known/openid-conf
 ```
 
 7. Configure the Gateway Inbound Auth with the following values:
+
    1. **Discovery URL** : The URL constructed in the previous step
    2. **Allowed clients** : The client ID obtained when creating the user pool client
 

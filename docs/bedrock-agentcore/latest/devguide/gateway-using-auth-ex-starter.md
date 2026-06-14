@@ -26,16 +26,20 @@ For programmatic access, you’ll authorize with the following:
 Console
 
 1. Get the **token endpoint** :
+
    1. Open the AgentCore console at [https://console.aws.amazon.com/bedrock-agentcore/home#](https://console.aws.amazon.com/bedrock-agentcore/home# "https://console.aws.amazon.com/bedrock-agentcore/home#").
    2. From the left navigation pane, choose **Gateways**.
    3. In the **Gateways** section, select your gateway.
    4. In the **Inbound Identity** section, note the following values:
+
       - **Allowed clients** – The client IDs that can access the gateway.
       - **Discovery URL** – The format should be `https://cognito-idp.${Region}.amazonaws.com/${UserPoolId}/.well-known/openid-configuration` . Store the following values:
+
         - `${UserPoolId}` – Extract from the Discovery URL.
         - **Token endpoint** – Select the Discovery URL link and find the value in the `token_endpoint` field.
 
 2. Get the **client ID** and **client secret** :
+
    1. Open the Amazon Cognito console at [https://console.aws.amazon.com/cognito](https://console.aws.amazon.com/cognito "https://console.aws.amazon.com/cognito").
    2. From the left navigation pane, select **User pools**.
    3. Select the user pool ID associated with your gateway.
@@ -52,6 +56,7 @@ aws bedrock-agentcore-control get-gateway --gateway-identifier my-gateway-id
 ```
 
 2. From the response, note the `discoveryUrl` from the `authorizerConfiguration` field:
+
    - Store the `${UserPoolId}` from the URL. The format should be `https://cognito-idp.${Region}.amazonaws.com/${UserPoolId}/.well-known/openid-configuration`.
    - Store the `allowedClients` values. These are the client IDs that can access the token endpoint.
    - Navigate to the `discoveryUrl` in a browser and store the `token_endpoint` value.

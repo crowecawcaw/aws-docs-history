@@ -7,6 +7,7 @@ The KMS key configuration determines how your token vault encrypts data at rest.
 - Open the [AgentCore Identity](https://console.aws.amazon.com/bedrock-agentcore/identity "https://console.aws.amazon.com/bedrock-agentcore/identity") console.
 - In the **KMS key (Token vault)** section, choose **Edit**.
 - In the KMS key selection section, your token vault is encrypted by default with a key that AWS owns and manages for you at a token vault level. To choose a different key, customize your encryption settings:
+
   - **AWS owned key (default)** : Leave the checkbox unselected. The KMS key is owned and managed by AWS.
   - **Customer managed key** : Select the checkbox and provide the KMS key ARN. The key is stored in your account and is managed by AWS Key Management Service (AWS KMS).
 

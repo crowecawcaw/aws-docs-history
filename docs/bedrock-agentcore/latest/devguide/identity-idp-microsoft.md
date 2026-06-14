@@ -18,6 +18,7 @@ We support Microsoft Entra ID for v1.0 and v2.0 Access and ID tokens that do not
 For all token types, in your custom authorizer:
 
 - **Discovery URL** : Discovery URL should be one of the following:
+
   - For v1.0 tokens use: `https://login.microsoftonline.com/tenantId/.well-known/openid-configuration`
   - For v2.0 tokens use: `https://login.microsoftonline.com/tenantId/v2.0/.well-known/openid-configuration`
 

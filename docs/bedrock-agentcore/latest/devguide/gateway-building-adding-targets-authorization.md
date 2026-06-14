@@ -14,7 +14,7 @@ To learn more about a credential provider configuration, select a topic:
 
 If you’re using IAM authorization through an AgentCore Gateway service role for your target, specify the `credentialProviderType` as `GATEWAY_IAM_ROLE` . The configuration depends on your target type.
 
-**For Lambda, API Gateway, and Smithy targets**
+**For Lambda, API Gateway, Smithy and Connector targets**
 
 The `iamCredentialProvider` configuration is not needed because the target service name is already known to the AgentCore Gateway service. Use only the `credentialProviderType` configuration, as shown in the following example:
 

@@ -20,6 +20,7 @@ Minimally, you must specify the following fields:
 - `exceptionLevel` – To turn on debugging messages when invoking the gateway, set this value to `DEBUG` . For more information, see [Turn on debugging messages](gateway-debug-messages.md "gateway-debug-messages.md") . For examples of creating a gateway with this setting, see [Create a gateway with debugging messages](#gateway-create-ex-debug "#gateway-create-ex-debug").
 - `interceptorConfigurations` – To turn on custom code that is run when invoking your gateway, include this field. For more information, see [Using interceptors with Gateway](gateway-interceptors.md "gateway-interceptors.md") . For examples of creating a gateway with interceptors, see [Create a gateway with interceptor configurations](#gateway-create-ex-basic-interceptors "#gateway-create-ex-basic-interceptors").
 - `protocolConfiguration` – To include customizations for the gateway protocol, configure the settings in this field. For options in this configuration, see [GatewayProtocolConfiguration](../../../bedrock-agentcore-control/latest/APIReference/API_GatewayProtocolConfiguration.md "../../../bedrock-agentcore-control/latest/APIReference/API_GatewayProtocolConfiguration.md").
+
   - One example option is the addition of a tool search tool in your gateway. For more information, see [Search for tools in your AgentCore gateway with a natural language query](gateway-using-mcp-semantic-search.md "gateway-using-mcp-semantic-search.md") . For examples of creating a gateway with this search tool, see [Create a gateway with semantic search](#gateway-create-ex-semantic "#gateway-create-ex-semantic").
 
 ## The authorizer configuration
@@ -44,12 +45,16 @@ You must provide the discovery URL for the authentication token. The remaining f
 - `allowedClients` – The clients that are allowed to create a JWT.
 - `allowedScopes` – The scopes of that limit the set of claims.
 - `customClaims` – An array of objects that allows you to define custom fields and values that limit the claims to be authenticated. Each object is a `CustomClaimValidationsType` object contains the following fields:
+
   - `inboundTokenClaimName` – The name of the custom claim field to check.
   - `inboundTokenClaimValueType` – The data type of the claim value to check for.
   - `authorizingClaimMatchValue` – Defines the value to match the claim value to. Contains the following fields:
+
     - `claimMatchOperator` – Defines the relationship to look for between the match value and claim value.
     - `claimMatchValue` – An object that contains only one of the following fields:
+
       - matchValueString – Used in the following situations:
+
         - If the `inboundTokenClaimValueType` is `STRING` and the `claimMatchOperator` is `EQUALS` , specify a string that you want the claim value to match with for authentication.
         - If the `inboundTokenClaimValueType` is `STRING_ARRAY` and the `claimMatchOperator` is `CONTAINS` , specify a string that you want the claim value array to contain for authentication.
 

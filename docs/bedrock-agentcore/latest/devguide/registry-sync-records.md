@@ -75,6 +75,7 @@ When the MCP server is protected by OAuth, you will need to create an M2M client
 6. Under **Credential type**, choose **OAuth**.
 7. For **Credential provider**, select or enter the credential provider ARN from AgentCore Identity.
 8. (Optional) Expand **Additional configuration** to configure:
+
    1. **Scopes** — OAuth scopes to request when obtaining an access token.
    2. **Custom parameters** — Additional key-value parameters for the OAuth token request.
 
@@ -245,6 +246,7 @@ Provide the agent card URL or the agent’s base URL where `.well-known/agent-ca
 4. Under **Record details**, choose **Agent** as the record type.
 5. For **Endpoint**, enter the agent card URL (e.g., `https://agent.example.com/.well-known/agent-card.json`). Must be a valid HTTPS URL.
 6. Under **Credential type**, choose the appropriate authorization method:
+
    1. **None** — For publicly accessible agent cards.
    2. **IAM** — For agents hosted on AgentCore Runtime or Gateway. Provide the **Role ARN** and **Service** name.
    3. **OAuth** — For OAuth-protected agents. Select or enter the **Credential provider** ARN.

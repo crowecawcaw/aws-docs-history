@@ -8,6 +8,7 @@ AgentCore Gateway supports the following types of outbound authorization:
 - **IAM-based outbound authorization** – Use the [gateway service role](gateway-prerequisites-permissions.md#gateway-service-role-permissions "gateway-prerequisites-permissions.md#gateway-service-role-permissions") to authenticate access to the gateway target with [AWS Signature Version 4 (Sig V4)](../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md "../../../AmazonS3/latest/API/sig-v4-authenticating-requests.md").
 - **Caller IAM credentials** – The gateway uses the caller’s IAM credentials to sign requests to the target. The gateway assumes a role on behalf of the caller using the Federated Access Service (FAS) and signs the outbound request with the caller’s identity. This is useful when the target service needs to authorize based on the original caller’s identity rather than the gateway service role.
 - **OAuth** – An open authorization framework that allows a client application to access resources. You can use OAuth with a [built-in identity provider](identity-idps.md "identity-idps.md") or with a custom one. For more information, see [OAuth 2.0](https://oauth.net/2/ "https://oauth.net/2/") . You can use the following types of OAuth authorization grants:
+
   - **Client credentials grant** – Machine-to-machine authentication (also known as 2-legged OAuth). The client application accesses resources on the application’s behalf, rather than on behalf of the user.
   - **Authorization code grant** – User-delegated access (also known as 3-legged OAuth). The user provides consent for the client application to access resources on behalf of the user.
   - **Token exchange grant (On-behalf-of)** – The gateway exchanges the inbound user’s access token for a new, scoped access token that targets a downstream resource. The exchanged token carries both the user’s identity and the agent’s identity, enabling downstream services to enforce fine-grained authorization at every hop without triggering additional consent flows. For more information, see [On-behalf-of token exchange](on-behalf-of-token-exchange.md "on-behalf-of-token-exchange.md").
@@ -67,6 +68,7 @@ To set up outbound authorization with an OAuth client, you use the AgentCore Ide
 1. Register your client application with a supported third-party provider.
 2. You’ll receive a client ID, client secret, and possibly other values that you’ll reference when you set up the outbound authorization.
 3. Follow one of the steps below, depending on your requirements:
+
    - To configure outbound authorization in the console using a built-in identity provider, follow the steps at [Add OAuth client using included provider](identity-add-oauth-client-included.md "identity-add-oauth-client-included.md").
    - To configure outbound authorization in the console using a custom identity provider, follow the steps at [Add OAuth client using custom provider](identity-add-oauth-client-custom.md "identity-add-oauth-client-custom.md").
    - To configure outbound authorization using the API, send a [CreateOauth2CredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateOauth2CredentialProvider.md") with one of the [AgentCore control plane endpoints](../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp "../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp") . For examples, see [Examples for setting OAuth client authorization](#gateway-outbound-auth-oauth-examples "#gateway-outbound-auth-oauth-examples").
@@ -191,14 +193,17 @@ To set up outbound authorization with an API key, you use the AgentCore Identity
 
 1. Register your client application with a supported third-party provider.
 2. Set up an API key for the provider’s service. Take note of the following values, which you’ll specify when you add the gateway target:
+
    - **Credential location** – Whether the API key should be placed in the header or as a query parameter.
    - **Credential prefix** – The prefix for the credential (ex. Bearer).
 
 3. Follow one of the steps below, depending on your requirements:
+
    - To create an API key in the AgentCore console, follow the steps at [Add API key](identity-add-api-key.md "identity-add-api-key.md") and specify the value of the API key.
    - To create an API key using the AgentCore API, send a [CreateApiKeyCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreateApiKeyCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateApiKeyCredentialProvider.md") request with one of the [AgentCore control plane endpoints](../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp "../../../general/latest/gr/bedrock_agentcore.md#bedrock_agentcore_cp") and specify the value of the API key in the `apiKey` field. For examples, see [Examples for setting an API key](#gateway-outbound-auth-api-key-examples "#gateway-outbound-auth-api-key-examples").
 
 4. Take note of the following values, which you’ll specify when you add the gateway target:
+
    - **Credential provider ARN** – An Amazon Resource Name (ARN) generated for the credential provider.
    - **Name** – The name you gave to the API key.
    - **Secret ARN** – An AWS Secrets Manager secret ARN generated for the API key.

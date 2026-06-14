@@ -14,6 +14,7 @@ Use the following procedure to set up Auth0 and obtain the necessary configurati
 **To configure Auth0 for inbound authentication**
 
 1. Create an API in Auth0:
+
    1. Sign in to your Auth0 dashboard.
    2. Open **APIs** and choose **Create API**.
    3. Enter a name and identifier for your API (e.g., "gateway-api").
@@ -21,10 +22,12 @@ Use the following procedure to set up Auth0 and obtain the necessary configurati
    5. Choose **Create**.
 
 2. Configure API scopes:
+
    1. In the API settings, go to the **Scopes** tab.
    2. Add scopes such as "invoke:gateway" and "read:gateway".
 
 3. Create an application:
+
    1. Open **Applications** and choose **Create Application**.
    2. Select **Machine to Machine Application**.
    3. Select the API you created in step 1.

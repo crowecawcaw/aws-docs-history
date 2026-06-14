@@ -31,6 +31,10 @@ The following AgentCore resources support tagging:
 - Custom Evaluator
 - Online Evaluation Config
 - Policy Engine
+- Configuration Bundle
+- Batch Evaluation
+- Recommendation
+- AB Test
 
 ## Tag restrictions
 
@@ -55,6 +59,7 @@ You can add, edit, or delete tags for AgentCore resources using the console, API
 Console
 
 1. You can add tags when you create the following AgentCore resources:
+
    - Agent runtime
    - Agent runtime endpoint
    - Code interpreter
@@ -67,6 +72,10 @@ Console
    - Custom Evaluator
    - Online Evaluation Config
    - Policy Engine
+   - Configuration Bundle
+   - Batch Evaluation
+   - Recommendation
+   - AB Test
 
    **To add tags when creating a resource**
 
@@ -101,6 +110,10 @@ You can add tags when you create resources using the following API operations:
     * [CreatePolicyEngine](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePolicyEngine.md") – Include tags in the `tags` parameter.
     * [CreatePaymentCredentialProvider](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentCredentialProvider.md") - Include tags in the `tags` parameter.
     * [CreatePaymentManager](../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreatePaymentManager.md") - Include tags in the `tags` parameter.
+    * [CreateConfigurationBundle](../../../bedrock-agentcore-control/latest/APIReference/API_CreateConfigurationBundle.md "../../../bedrock-agentcore-control/latest/APIReference/API_CreateConfigurationBundle.md") – Include tags in the `tags` parameter.
+    * [StartBatchEvaluation](../APIReference/API_StartBatchEvaluation.md "../APIReference/API_StartBatchEvaluation.md") – Include tags in the `tags` parameter.
+    * [StartRecommendation](../APIReference/API_StartRecommendation.md "../APIReference/API_StartRecommendation.md") – Include tags in the `tags` parameter.
+    * [CreateABTest](../APIReference/API_CreateABTest.md "../APIReference/API_CreateABTest.md") – Include tags in the `tags` parameter.
 
 
 

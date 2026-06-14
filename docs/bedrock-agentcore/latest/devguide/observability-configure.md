@@ -256,6 +256,7 @@ Runtime
 3. In the **Runtime agents** pane, select the runtime agent for which you want to configure a log destination.
 4. Scroll down to the **Log delivery** pane and from the **Add** drop-down, choose the **Logging destination** - either Amazon CloudWatch Logs, Amazon S3, or Amazon Data Firehose.
 5. Configure the following log delivery details and then choose **Add** :
+
    - For **Log type** , choose **APPLICATION_LOGS**.
    - If using Amazon CloudWatch Logs as the logging destination, specify the destination log group.
    - If using Amazon S3 as the logging destination, specify the destination Amazon S3 bucket.
@@ -270,6 +271,7 @@ Built-in tools
 3. In the **Built-in tools** pane, either in the **Code interpreter tools** or the **Browser tools** tab, select the code interpreter tool or browser tool for which you want to configure a log destination.
 4. Scroll down to the **Log delivery** pane and from the **Add** drop-down, choose the **Logging destination** - either Amazon CloudWatch Logs, Amazon S3, or Amazon Data Firehose.
 5. Configure the following log delivery details and then choose **Add** :
+
    - For **Log type** , choose **APPLICATION_LOGS**.
    - If using Amazon CloudWatch Logs as the logging destination, specify the destination log group.
    - If using Amazon S3 as the logging destination, specify the destination Amazon S3 bucket.

@@ -14,6 +14,7 @@ The following table summarizes the default data provided for each resource type,
 | Policy        | Metrics, Spans\*\*       | Yes                                          | Yes                                       |
 
 - memory spans and logs require enablement. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more.
+
   - Policy related observability is displayed under the AgentCore Gateway tab in CloudWatch gen AI observability.
 
 ###### Note

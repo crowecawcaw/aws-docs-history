@@ -12,6 +12,7 @@ Console
 4. Choose **Create Code Interpreter tool**.
 5. Provide a unique **Tool name** and optional **Description**.
 6. Under **Network settings** , choose one of the following options:
+
    - **Sandbox** - Environment with limited external network access
    - **Public network** - Allows access to public internet resources
 

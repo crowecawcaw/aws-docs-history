@@ -19,6 +19,7 @@ The skill covers the most common evaluation issues:
 ## Prerequisites
 
 - AWS CLI configured with credentials for the account where the agent runs. The credentials need the following permissions:
+
   - `logs:DescribeLogGroups`, `logs:DescribeLogStreams`, `logs:StartQuery`, `logs:GetQueryResults` — to query CloudWatch Logs
   - `bedrock-agentcore:GetOnlineEvaluationConfig`, `bedrock-agentcore:ListOnlineEvaluationConfigs` — to read evaluation configurations (online evaluation only)
 

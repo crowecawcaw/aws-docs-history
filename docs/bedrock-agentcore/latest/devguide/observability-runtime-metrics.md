@@ -44,11 +44,11 @@ The total number of system and user errors. In the Amazon Bedrock AgentCore cons
 
 Session Count
 
-Shows the total number of agent sessions. Useful for monitoring overall platform usage, capacity planning, and understanding user engagement patterns.
+Shows the number of new agent sessions created within the reporting period. Each session is counted once at creation time; subsequent invocations to the same session do not increment this metric. This is a cumulative counter, not a gauge of currently active sessions. Useful for monitoring overall platform usage, trending session creation rates, and understanding user engagement patterns.
 
 Sessions (aggregated)
 
-Shows the total number of sessions across all resources.
+Shows the total number of new sessions created across all resources within the reporting period.
 
 ActiveStreamingConnections
 

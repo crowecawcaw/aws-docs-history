@@ -7,6 +7,7 @@ Before using AgentCore optimization features, make sure the following are in pla
 Recommendations and A/B testing have the same agent requirements as AgentCore Evaluations:
 
 - An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md "observability.md"). Supported frameworks:
+
   - Strands Agents
   - LangGraph with `opentelemetry-instrumentation-langchain` or `openinference-instrumentation-langchain`
 

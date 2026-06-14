@@ -277,6 +277,7 @@ After implementing observability, you can view the collected data in CloudWatch:
 1. Open the [CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/")
 2. In the left navigation pane, expand **Logs** and select **Log groups**
 3. Search for your agent’s log group:
+
    - Standard logs (stdout/stderr) Location: `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>/[runtime-logs] <UUID>`
    - OTEL structured logs: `/aws/bedrock-agentcore/runtimes/<agent_id>-<endpoint_name>/runtime-logs`
 

@@ -26,7 +26,7 @@ Gateway supports two categories of targets:
 
 **MCP target**
 
-MCP targets operate in aggregation mode. The gateway combines the capabilities of all MCP targets into a single unified virtual MCP server. Clients see one consolidated `tools/list` response that includes tools from all attached MCP targets. MCP targets support capability synchronization, semantic tool search, and three-legged OAuth (3LO) at the target level. MCP target types include Lambda functions, API Gateway REST APIs, OpenAPI specifications, Smithy models, MCP servers, and built-in integration provider templates.
+MCP targets operate in aggregation mode. The gateway combines the capabilities of all MCP targets into a single unified virtual MCP server. Clients see one consolidated `tools/list` response that includes tools from all attached MCP targets. MCP targets support capability synchronization, semantic tool search, and three-legged OAuth (3LO) at the target level. MCP target types include Lambda functions, API Gateway REST APIs, OpenAPI specifications, Smithy models, MCP servers, built-in integration provider templates and built-in connectors to tools.
 
 **HTTP target**
 
@@ -51,3 +51,11 @@ Use Smithy models to define your API interfaces and generate MCP-compatible tool
 **MCP servers**
 
 Use remote MCP servers to connect tools, prompts, and resources to your agent runtime. Gateway supports MCP tools, prompts, and resources capabilities. Tools are required; prompts and resources are optional. Prompts provide reusable prompt templates with arguments. Resources provide contextual data identified by URIs. During synchronization, the gateway discovers all capabilities that the MCP server advertises.
+
+**Integrations**
+
+Use pre-configured templates from integration providers.
+
+**Connectors**
+
+Use built-in connectors to tools.

@@ -13,6 +13,7 @@ AgentCore Evaluations currently supports the following agentic frameworks and in
 
 - Strands Agent
 - LangGraph configured with one of the following instrumentation libraries
+
   - `opentelemetry-instrumentation-langchain`
   - `openinference-instrumentation-langchain`
 

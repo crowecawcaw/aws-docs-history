@@ -45,6 +45,7 @@ aws bedrock-agentcore-control update-workload-identity --name GoogleCalendarAgen
 ```
 
 3. **Create OAuth 2.0 credential provider in AgentCore Identity** – To register the OAuth 2.0 credential provider fully, you need permissions to call `CreateOauth2CredentialProvider` and `UpdateOauth2CredentialProvider` . Follow these steps:
+
    - Call `CreateOauth2CredentialProvider` with placeholders for client ID and client secret.
    - API response will contain an OAuth callback (redirect) URL like: `https://bedrock-agentcore.amazonaws.com/identities/callback/123-456-7890`
 

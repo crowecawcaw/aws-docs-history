@@ -27,6 +27,7 @@ AgentCore Evaluations currently supports the following agentic frameworks and in
 
 - Strands Agents
 - LangGraph configured with one of the following instrumentation libraries:
+
   - `opentelemetry-instrumentation-langchain`
   - `openinference-instrumentation-langchain`
 
@@ -86,6 +87,7 @@ Once you have made a few invocations to your agent, you are ready to evaluate it
 
 - `EvaluatorId` : this can be the id for either a builtin evaluator or a custom created one
 - `SessionSpans` : spans are the telemetry blocks emitted when you interact with an application. The application in our example is an agent hosted on AgentCore Runtime.
+
   - For on-demand evaluation, we need to download the spans from CloudWatch log groups and use them for evaluation.
   - **AgentCore CLI** does this for you automatically and is the easiest to get started with.
   - If you are not using the AgentCore CLI, we will show how to download logs using session-id and use them for evaluation using the AWS SDK.

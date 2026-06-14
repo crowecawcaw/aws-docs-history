@@ -25,6 +25,7 @@ Requirements you need before integrating AgentCore Memory with LangChain and Lan
 2. Configured AWS credentials (boto3)
 3. An AgentCore Memory
 4. Required IAM permissions:
+
    - `bedrock-agentcore:CreateEvent`
    - `bedrock-agentcore:ListEvents`
    - `bedrock-agentcore:RetrieveMemories`

@@ -5,6 +5,7 @@ Before you can run batch evaluations, make sure the following are in place.
 ## Agent requirements
 
 - An agent deployed on AgentCore Runtime with observability enabled, or an agent built with a supported framework configured with [AgentCore Observability](observability.md "observability.md"). Supported frameworks:
+
   - Strands Agents
   - LangGraph with `opentelemetry-instrumentation-langchain` or `openinference-instrumentation-langchain`
 
