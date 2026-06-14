@@ -130,6 +130,7 @@ Otherwise, add your users to IAM Identity Center by completing the following ste
 2. In the IAM Identity Center console, choose **Users**.
 3. Repeat the following steps for each user that will access your project in the
    Amazon Monitron mobile app.
+
    1. On the **Users** page choose **Add
       user**.
    2. In the **User details** section, provide the username
@@ -183,6 +184,7 @@ Invite the users you've added to your Amazon Monitron project.
 3. On the **Projects** page, choose your project name to open
    its details page.
 4. Repeat the following steps for each user that you want to invite.
+
    1. Under **How it works**, choose **Email
       instructions**.
 

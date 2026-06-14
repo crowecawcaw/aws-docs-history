@@ -212,6 +212,7 @@ can later determine abnormalities.
 5. For **Position name**, provide a name for the sensor position.
 6. Choose the **Type of position** that best fits the location that you're
    going to monitor:
+
    - Bearing
    - Compressor
    - Fan
