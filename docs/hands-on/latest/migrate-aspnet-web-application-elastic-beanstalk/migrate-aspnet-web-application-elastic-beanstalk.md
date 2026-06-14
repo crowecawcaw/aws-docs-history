@@ -38,6 +38,7 @@ Already have an account? [Sign in](https://console.aws.amazon.com/console/home "
 
 - Use CloudFormation to launch the EC2 instance that will host the sample website. Then,
   set up the required IAM permissions.
+
   1.  Launch an EC2 instance
 
   Use CloudFormation to launch an EC2 instance in the US-East-1 Region.
