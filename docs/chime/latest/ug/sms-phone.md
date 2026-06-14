@@ -7,6 +7,7 @@ message to a phone number in your contacts.
 
 1. From the Amazon Chime client, choose **Message**.
 2. Do one of the following:
+
    - For a new contact, enter the country code and phone number to call, without any dashes. For
      example, `+12065550100`. Choose **Create a new
      contact**.
@@ -22,6 +23,7 @@ Text messaging to and from short codes is not supported.
 ###### To send an SMS message to a phone number from your history
 
 1. Do one of the following:
+
    - From the Amazon Chime desktop client or web app, under **Meetings and Calls**, choose **Call history**.
    - From the Amazon Chime mobile app, choose **Calls**.
 

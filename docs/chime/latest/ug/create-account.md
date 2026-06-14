@@ -59,11 +59,13 @@ period, you or your administrator must create an AWS account, and then an Amazon
 2. In the **Email address** field, enter the email address that you use to
    receive meeting invitations and attend meetings.
 3. Choose **Sign in / Sign up**, and do one of the following:
+
    - If your company has already setup Amazon Chime for your email domain, you may be prompted to use your work credentials to sign in. Enter them,
      and the system signs you in.
    - If you use an email address to access an Amazon.com retail account, enter that email address and password and skip to
      step 4.
    - If your company isn't set up for Amazon Chime and you aren't using an email address associated with an Amazon.com retail account, do the following:
+
      1. Choose **Create a new Amazon account**.
      2. Enter your name and email address, set a strong password
      3. Choose **Create your Amazon account**.

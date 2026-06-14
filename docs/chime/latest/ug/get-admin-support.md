@@ -14,6 +14,7 @@ If you can, provide your Amazon Chime administrator with the following informati
 - A detailed description of your issue.
 - The time the issue occurred, including your time zone.
 - Your Amazon Chime version. To find your version number:
+
   - In Windows, choose **Help**, **About
     Amazon Chime**.
   - In OS X, choose **Amazon Chime**, **About
@@ -27,6 +28,7 @@ If you can, provide your Amazon Chime administrator with the following informati
   ) and choose **About Amazon Chime**.
 
 - The Log Reference ID. To find this ID:
+
   - In Windows and OS X, choose **Help**, **Send
     Diagnostic Logs**.
   - In iOS and Android, choose **Settings**, **Send

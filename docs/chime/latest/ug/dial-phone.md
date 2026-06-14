@@ -27,6 +27,7 @@ meeting controls. For more information, see [Hosting meetings](chime-organizer-c
 ###### To call a phone number from your history
 
 1. Do one of the following:
+
    - From the Amazon Chime desktop client or web app, under **Meetings and Calls**, choose **Call history**.
    - From the Amazon Chime mobile app, choose **Calls**.
 

@@ -3,6 +3,7 @@
 ###### To start a call from your history
 
 1. Do one of the following:
+
    - From the Amazon Chime desktop client or web app, under **Meetings and Calls**, choose **History**.
    - From the Amazon Chime mobile app, choose **Calls**.
 

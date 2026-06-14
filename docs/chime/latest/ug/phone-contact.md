@@ -14,6 +14,7 @@ You can add phone numbers to your
 ###### To add a phone number from your history to your contacts
 
 1. Do one of the following:
+
    - From the Amazon Chime desktop client or web app, under **Meetings and Calls**, choose **Call history**.
    - From the Amazon Chime mobile app, choose **Calls**.
 

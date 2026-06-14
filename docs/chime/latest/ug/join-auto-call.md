@@ -15,6 +15,7 @@ join or decline the meeting.
    settings** to change your video and audio sources. For more
    information choosing video and audio settings, see [Setting video and audio sources](set-video-audio.md "set-video-audio.md").
 3. Choose an option for joining the meeting:
+
    - **Join** – Adds you to the
      meeting with just audio.
    - **Join with video** – Adds you to the meeting with

@@ -5,6 +5,7 @@ The steps in this section explain how to call a contact. The steps assume that y
 ###### To call a contact
 
 1. Do one of the following:
+
    - Follow the steps in [Chatting with another user](direct-chat.md "direct-chat.md").
    - Follow the steps in [Chatting with a group](group-chat.md "group-chat.md").
 

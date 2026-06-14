@@ -6,6 +6,7 @@ features. The following steps menu item.
 1. Choose **Audio menu** menu, the caret (**^**) next to the microphone icon.
 2. Choose the feature or features that you want to turn on or off. A checkmark appears next
    to features that you turn on. Available features:
+
    - **Voice Focus (noise suppression)** – Reduces unwanted background noises. For more
      information about using it, see [Using Amazon Voice Focus](voice-focus.md "voice-focus.md").
    - **Auto-adjust audio levels** – Automatically adjusts audio

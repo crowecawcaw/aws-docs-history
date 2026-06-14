@@ -79,6 +79,7 @@ browser.
 - To connect to audio calls from a supported browser, you must have a
   microphone and speakers.
 - Browsers supported for chat:
+
   - Google Chrome (latest three versions)
   - Mozilla Firefox (latest three versions)
   - Apple Safari (latest three versions)
@@ -86,16 +87,19 @@ browser.
     versions)
 
 - Browsers supported for meetings, video, and screen sharing:
+
   - Google Chrome (latest three versions)
   - Mozilla Firefox (latest three versions)
   - Microsoft Chromium Edge (latest three versions)
 
 - Browsers supported for screen sharing:
+
   - Google Chrome (latest three versions)
   - Mozilla Firefox (latest three versions)
   - Chromium Edge (version 84 and later)
 
 - Browsers with limited meeting support:
+
   - Apple Safari (latest three versions)
 
   ###### Note

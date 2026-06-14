@@ -62,6 +62,7 @@ Before the host begins this procedure, ask them to ensure that you're their dele
 3. Choose **Next**.
 4. For **Select your calendar app:**, choose **Other**.
 5. Do the following:
+
    - Choose **Copy addresses**, and paste the addresses into the
      body of a new email message.
    - Choose **Copy attendee invitation**, and paste this information into the same email.

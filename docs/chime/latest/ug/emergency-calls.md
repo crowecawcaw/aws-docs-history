@@ -5,6 +5,7 @@ If you have an Amazon Chime Business Calling phone number and have outbound call
 Outbound calling enables you to initiate a call from the desktop client and web app.
 
 - Windows, macOS, and the web app:
+
   - On the **Home** tab, choose **Dial a phone number** from the **Quick actions** list.
   - Choose **Meetings**, then choose **Dial a phone number**.
   - In the navigation pane, choose the **Meeting and call actions** icon, located to the right of **MEETINGS AND CALLS**,

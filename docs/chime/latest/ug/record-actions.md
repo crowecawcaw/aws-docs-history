@@ -19,6 +19,7 @@ chat message once the meeting ends.
 ###### To start or stop meeting recording
 
 1.  To start recording, do one of the following:
+
     - In the left control bar, choose the **Record meeting** icon
       (
 

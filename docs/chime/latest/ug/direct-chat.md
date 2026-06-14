@@ -12,6 +12,7 @@ section.
 ###### To chat directly with another user
 
 1. In the desktop client or web app, do one of the following:
+
    - In the sidebar, choose the contact.
    - If the sidebar doesn't show the contact, go to the navigation bar, choose **Contacts**, then
      scroll to and select the contact.

@@ -8,6 +8,7 @@ You must set up the Amazon Chime Assistant before you can use it.
    app.
 2. Invite `assistant_no_reply@chime.aws` as a
    contact:
+
    - On the desktop client choose **Contacts**,
      **Invite contact**.
    - On the mobile app, on the **Contacts** tab,

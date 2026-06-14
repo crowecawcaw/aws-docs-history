@@ -10,6 +10,7 @@ system to connect to Amazon Chime..
    and then choose **Keyboard**.
 2. Enter one of the following as instructed by your Amazon Chime meeting
    invitation:
+
    - SIP –
      ``10-digit meeting
 ID`@meet.chime.in`,

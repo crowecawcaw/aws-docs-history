@@ -12,6 +12,7 @@ When you turn on Event Mode, the meeting changes in the following ways:
 - Only presenters can share their screens, turn on their video, or mute other
   presenters.
 - Notifications don't appear for the following roster changes:
+
   - Attendees who join the meeting.
   - Attendees who leave the meeting.
   - Attendees who drop from the meeting.
