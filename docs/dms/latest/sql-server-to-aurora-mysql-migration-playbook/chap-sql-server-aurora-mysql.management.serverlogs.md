@@ -57,6 +57,7 @@ You can turn on and configure the Aurora MySQL Slow Query and general logs to wr
 - `long_query_time` — Specify a value in seconds for the shortest query run time to be logged. The default is 10 seconds; the minimum is 0.
 - `log_queries_not_using_indexes` — Set to 1 to log all queries not using indexes to the slow query log. The default is 0. Queries using indexes are logged even if their run time is less than the value of the `long_query_time` parameter.
 - `log_output` — Specify one of the following options:
+
   - **TABLE** — Write general queries to the `mysql.general_log` table and slow queries to the `mysql.slow_log` table. This option is set by default.
   - **FILE** — Write both general and slow query logs to the file system. Log files are rotated hourly.
   - **NONE** — Disable logging.

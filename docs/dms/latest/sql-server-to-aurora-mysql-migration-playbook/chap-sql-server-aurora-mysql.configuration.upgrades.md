@@ -31,12 +31,14 @@ In general, these will be the steps to perform the upgrade:
 **Steps for upgrade**
 
 - Install new software.
+
   - Fix issues raised.
   - Set if you prefer to have automatic updates or not.
   - Select products install to upgrade, this is the new binaries installation.
   - Monitor the progress of downloading, extracting, and installing the Setup files.
 
 - Specify the instance of SQL Server to upgrade.
+
   - On the Select Features page, the features to upgrade will be preselected. The prerequisites for the selected features are displayed on the right-hand pane. SQL Server Setup will install the prerequisite that aren’t already installed during the installation step described later in this procedure.
 
 - Review upgrade plan before the actual upgrade.

@@ -44,6 +44,7 @@ This section provides migration tips that can help save time as you transition f
 - Aurora MySQL doesn’t support aliasing in the select list using the `'String Alias' = Expression`. Aurora MySQL treats it as a logical predicate, returns 0 or FALSE, and will alias the column with the full expression. Use the `AS` syntax instead. Also note that this syntax has been deprecated as of SQL Server 2008 R2.
 - Aurora MySQL doesn’t support using the `DEFAULT` keyword for `INSERT` statements. Use explicit `NULL` instead. Also note that this syntax has been deprecated as of SQL Server 2008 R2.
 - Aurora MySQL has a large set of string functions that is much more diverse than SQL Server. Some of the more useful string functions are:
+
   - `TRIM` isn’t limited to full trim or spaces. The syntax is `TRIM([{BOTH | LEADING | TRAILING} [<remove string>] FROM] <source string>))`.
   - `LENGTH` in MySQL is equivalent to `DATALENGTH` in T-SQL. `CHAR_LENGTH` is the equivalent of `LENGTH` in T-SQL.
   - `SUBSTRING_INDEX` returns a substring from a string before the specified number of occurrences of the delimiter.
@@ -54,6 +55,7 @@ This section provides migration tips that can help save time as you transition f
   - For more information, see [String Functions and Operators](https://dev.mysql.com/doc/refman/5.7/en/string-functions.html "https://dev.mysql.com/doc/refman/5.7/en/string-functions.html").
 
 - Aurora MySQL Date and Time functions differ from SQL Server functions and can cause confusion during migration. Consider the following example:
+
   - `DATEADD` is supported, but is only used to add dates. Use `TIMESTAMPADD`, `DATE_ADD`, or `DATE_SUB`. There is similar behavior for `DATEDIFF`.
   - Do not use `CAST` and `CONVERT` for date formatting styles. In Aurora MySQL, use `DATE_FORMAT` and `TIME_FORMAT`.
   - If your application uses the `ANSI CURRENT_TIMESTAMP` syntax, conversion isn’t required. Use `NOW` in place of `GETDATE`.
