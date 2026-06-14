@@ -73,6 +73,7 @@ Console
 1.  Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/"). Choose the same AWS Region as the Amazon S3 bucket where you uploaded your set of files. For more information, refer to [Choosing a Region](../../../awsconsolehelpdocs/latest/gsg/select-region.md "../../../awsconsolehelpdocs/latest/gsg/select-region.md") in the _AWS Management Console Getting Started Guide_.
 2.  In the navigation bar, choose **Applications** and then choose **Create application**.
 3.  In **Runtime settings**, enter the following:
+
     1. **Runtime environment**
 
     This is the runtime environment to run your application on. Amazon GameLift Streams can run on either Windows, Ubuntu 22.04 LTS, or [Proton](<https://en.wikipedia.org/wiki/Proton_(software)> "https://en.wikipedia.org/wiki/Proton_(software)").
@@ -103,6 +104,7 @@ Console
     Review the descriptions and use the comparison checklist to help you select the optimal runtime environment for your application.
 
 4.  In **General settings**, enter the following:
+
     1. **Description**
 
     This is a human-readable label for your application. This value does not have to be unique. For best practice, use a meaningful description, name, or label for the application.
@@ -122,6 +124,7 @@ Console
     **You cannot edit this field after the creation workflow.**
 
 5.  (Optional) In **Application log path**, enter the following:
+
     1. **Application log path**
 
     Specify the paths to log files or folders that you want Amazon GameLift Streams to save.

@@ -199,6 +199,7 @@ Console
 1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/"). Choose the AWS Region where you want to create your stream group. This Region must be the same as that of the application that you want to stream with the stream group. For more information, refer to [Choosing a Region](../../../awsconsolehelpdocs/latest/gsg/select-region.md "../../../awsconsolehelpdocs/latest/gsg/select-region.md") in the _AWS Management Console Getting Started Guide_.
 2. To open the creation workflow, in the navigation pane, choose **Stream groups**, and then choose **Create stream group**.
 3. In **Define stream group**, enter the following:
+
    1. **Description**
 
    A human-readable label for your stream group. This value doesn't have to be unique. As a best practice, use a meaningful description, name, or label for the stream group.
@@ -207,6 +208,7 @@ Console
    Tags are labels that can help you organize your AWS resources. For more information, refer to [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
 
 4. In **Select stream class**, choose a stream class for the stream group.
+
    1. **Stream class options**
 
    The

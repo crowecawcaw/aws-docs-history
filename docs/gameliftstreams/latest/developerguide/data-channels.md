@@ -84,6 +84,7 @@ information.
 
 - **Header**: A 4-byte header in the form
   `abcc`
+
   - `a` : Client id byte. This identifies a specific client
     connection, in the case of multiple connections (due to
     disconnection and reconnection).
@@ -117,6 +118,7 @@ The application should transmit messages with the same four-byte header format u
 ###### To transmit a message to the client
 
 1. Write the header with the following properties:
+
    1. `a` : Client id byte. If your message is in
       response to a client message, it should reuse the same client id as the
       incoming client message, to avoid race conditions such as delivering a

@@ -79,6 +79,7 @@ streaming over IPv4.
 1. Open a web browser and navigate to `http://localhost:`port`/`. The port number is set
    by the backend server; by default, this is HTTP port 8000.
 2. Play the game or use the software.
+
    1. To attach input, such as your mouse, choose **Attach input**.
    2. To exit the game, choose the **Esc** key.
    3. To stop the server process, choose **Ctrl+C** key.

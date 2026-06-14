@@ -41,6 +41,7 @@ Following are known issues with browsers and input:
   creating the game using another runtime environment. For a list of other runtime environments, refer to [Runtime environments](configuration-options.md#configuration-options-runtime "configuration-options.md#configuration-options-runtime").
 - The PlayStation 5 and Luna game controllers are not supported in Firefox.
 - Haptic feedback support:
+
   - Haptic feedback on the PlayStation 4 and Xbox Series S/X controllers are supported in Chrome, Edge, and
     Safari.
   - Haptics on the PlayStation 5 DualSense controller is only supported in the Safari browser.

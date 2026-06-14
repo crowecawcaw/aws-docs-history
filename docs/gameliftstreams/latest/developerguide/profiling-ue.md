@@ -23,8 +23,10 @@ Here are some tips for using the console:
 
 1. Start by running the `stat fps` and `stat unit` commands. This will give you an overview of where your game
    struggles with performance.
+
    - `stat fps`: Shows the current frames per second.
    - `stat unit`: Breaks down the frame into several subsections.
+
      - **Frame**: Total wall-clock time starting from when the simulation of the frame starts to
        when the presentation of the frame is on the screen.
      - **Game**: Total CPU time taken by the game simulation thread per frame.
@@ -38,6 +40,7 @@ Here are some tips for using the console:
 3. Run `stat game` to see how time is spent for the various gameplay groups.
 4. Refine the stats for specific gameplay factors like AI, animation, physics, gameplay, scripting, and so on. Here are a few
    examples:
+
    - `stat ai`: Time to compute AI behavior.
    - `stat anim`: Time to compute skinned meshes.
    - `stat physics`: Time to compute physics simulations.
@@ -47,6 +50,7 @@ Here are some tips for using the console:
 6. Run `stat gpu` to see which render types consume the most GPU time.
 7. Refine the rendering types into broad groups, such as lights, shadows, lumen (lighting), hair, post processing, and so on. Here are
    a few common examples:
+
    - `stat lightrendering`: GPU time to render lights and shadows.
    - `stat shadowrendering`: GPU time to update the various shadows.
    - `stat scenerendering`: GPU time to render the scene.

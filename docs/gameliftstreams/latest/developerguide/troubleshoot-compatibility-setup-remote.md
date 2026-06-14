@@ -123,6 +123,7 @@ sudo apt install -y vulkan-tools
 
 2. Run `vkcube`.
 3. Review the output.
+
    - If your system is properly using the correct GPU, you will
      see output similar to the following, with the name of your
      GPU: `Selected GPU 0: AMD Radeon Pro V520 (RADV NAVI12), type: 2`
@@ -144,6 +145,7 @@ sudo apt install podman
 ```
 
 2. In the files `/etc/subgid` and `/etc/subgid`
+
    1. Verify that the files list your Linux machine user name and ID. You can either open the files or use the
       `cat` command to see what's in the files. Format example: `test:165536:65536`, where
       `test` corresponds to your user name.

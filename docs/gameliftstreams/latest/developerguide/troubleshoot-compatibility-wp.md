@@ -9,6 +9,7 @@ application and the runtime environment.
 
 1. Acquire an Ubuntu 22.04 LTS machine. You can use either a local machine or an Amazon EC2 cloud-based desktop. Choose from
    the following topics for instructions:
+
    - [Set up a local machine](troubleshoot-compatibility-setup-local.md "troubleshoot-compatibility-setup-local.md")
    - [Set up a remote machine](troubleshoot-compatibility-setup-remote.md "troubleshoot-compatibility-setup-remote.md")
 

@@ -98,6 +98,7 @@ BuildApp
   `ensure` macros. They can prevent the application from creating crash dumps. For more
   information, see [Asserts in
   Unreal Engine documentation](https://dev.epicgames.com/documentation/en-us/unreal-engine/asserts-in-unreal-engine "https://dev.epicgames.com/documentation/en-us/unreal-engine/asserts-in-unreal-engine").
+
   - Define `USE_CHECKS_IN_SHIPPING=0` in your build to disable `check` and `verify`
     macros.
   - Use `-handleensurepercent=0` command-line argument to disable `ensure` macros.
@@ -113,6 +114,7 @@ If your game runs well on your own machine but experiences performance issues wh
 
 - Your machine might have more powerful hardware than Amazon GameLift Streams. Make sure to test the application on a machine with similar
   performance to the hardware that Amazon GameLift Streams uses:
+
   - gen4n: comparable to NVIDIA RTX 2060 GPU
   - gen5n: comparable to NVIDIA RTX 3080 GPU
   - gen6n: comparable to NVIDIA RTX 4060 GPU
@@ -215,6 +217,7 @@ download link on the Amazon GameLift Streams console on the **Sessions** page. 6
      file
 
 7. Upload the generated shader files to your application's Amazon S3 bucket:
+
    1. Copy the `GLCache` folder into the root directory of your application.
    2. If available, copy the `.dxvk-cache` or `vkd3d-proton.cache.write` cache file to the folder
       containing the application executable.
@@ -241,6 +244,7 @@ can reduce hitches during loading and rendering. This requires advanced knowledg
 cover all the engine-specific details here. For additional instructions, refer to the guidance from Unreal Engine in [Creating a Bundled PSO Cache](https://dev.epicgames.com/documentation/en-us/unreal-engine/manually-creating-bundled-pso-caches-in-unreal-engine "https://dev.epicgames.com/documentation/en-us/unreal-engine/manually-creating-bundled-pso-caches-in-unreal-engine"), "Collection Flow" section.
 
 1. Generate shaders for your application that has PSO logging enabled.
+
    1. Create a new Amazon GameLift Streams application using the packaged build with the PSO-enabled application.
    2. Start a stream with `-logPSO` command in your PSO logging app. You can use the command-line arguments
       option on the **Test stream** configuration page in the Amazon GameLift Streams console.
@@ -252,6 +256,7 @@ cover all the engine-specific details here. For additional instructions, refer t
    download link on the Amazon GameLift Streams console on the **Sessions** page.
 
 2. Package the Unreal shaders pipeline file into your Amazon GameLift Streams application.
+
    1. Locate the recorded PSO files (`rec.pipelinecache`) in the stream session export under
       `Saved/CollectedPSOs`. Unpack the PSO files using Unreal commands.
    2. Package a new Unreal build with the generated output from the unpacking. Follow the Unreal guidance, sections [Converting PSO caches](https://dev.epicgames.com/documentation/en-us/unreal-engine/manually-creating-bundled-pso-caches-in-unreal-engine#convertingpsocaches "https://dev.epicgames.com/documentation/en-us/unreal-engine/manually-creating-bundled-pso-caches-in-unreal-engine#convertingpsocaches") and [Including PSO caches in your Application](https://dev.epicgames.com/documentation/en-us/unreal-engine/manually-creating-bundled-pso-caches-in-unreal-engine#includingpsocachesinyourapplication "https://dev.epicgames.com/documentation/en-us/unreal-engine/manually-creating-bundled-pso-caches-in-unreal-engine#includingpsocachesinyourapplication").
@@ -384,6 +389,7 @@ Potential causes:
   or that you have on-demand capacity that's not in use (allocated capacity is less than always-on capacity plus on-demand
   capacity). In the console, you can find these values in the list of stream groups or on the stream group detail page. Using
   the service API, you can find these values using [GetStreamGroup](../apireference/API_GetStreamGroup.md "../apireference/API_GetStreamGroup.md"). A few scenarios where available capacity is temporarily at zero include the following:
+
   - If you just increased always-on capacity in the streaming location, wait a few minutes for the capacity to be
     allocated.
   - If you only have 1 available capacity in the streaming location and your client unexpectedly disconnected, the

@@ -25,6 +25,7 @@ of the compute resources that your stream group allocates. So, you must have ava
 1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/").
 2. You can test a stream in several ways. Start from the **Stream groups** page or **Test stream** page and
    follow these steps:
+
    1. Select a stream group that you want to use to stream.
    2. If you're starting from the **Stream groups** page, choose **Test stream**.
       If you're starting from the **Test stream** page, select **Choose**.
@@ -35,6 +36,7 @@ of the compute resources that your stream group allocates. So, you must have ava
    6. Confirm your selection, and choose **Test stream**.
 
 3. After your stream loads, you can do the following actions in your stream:
+
    1. To connect input, such as your mouse, keyboard, and gamepad (except microphones, which are not supported in **Test stream**), choose **Attach
       input**. You automatically attach your mouse when you move the cursor into the stream window.
    2. To have files that were created during the streaming session exported to an Amazon S3 bucket at the end of the session, choose **Export files** and specify the bucket details.
@@ -86,6 +88,7 @@ varies based on the capacity type used to fulfill your stream request:
 
 - Always-on capacity: 75 seconds
 - On-demand capacity:
+
   - Linux/Proton runtimes: 90 seconds
   - Windows runtime: 10 minutes
 

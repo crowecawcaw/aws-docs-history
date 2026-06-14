@@ -95,6 +95,7 @@ executable or script file. Complete this step in the Amazon GameLift Streams con
 1.  Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/"). Choose the same AWS Region as the Amazon S3 bucket where you uploaded your set of files. For more information, refer to [Choosing a Region](../../../awsconsolehelpdocs/latest/gsg/select-region.md "../../../awsconsolehelpdocs/latest/gsg/select-region.md") in the _AWS Management Console Getting Started Guide_.
 2.  In the navigation bar, choose **Applications** and then choose **Create application**.
 3.  In **Runtime settings**, enter the following:
+
     1. **Runtime environment**
 
     This is the runtime environment to run your application on. Amazon GameLift Streams can run on either Windows, Ubuntu 22.04 LTS, or [Proton](<https://en.wikipedia.org/wiki/Proton_(software)> "https://en.wikipedia.org/wiki/Proton_(software)").
@@ -125,6 +126,7 @@ executable or script file. Complete this step in the Amazon GameLift Streams con
     Review the descriptions and use the comparison checklist to help you select the optimal runtime environment for your application.
 
 4.  In **General settings**, enter the following:
+
     1. **Description**
 
     This is a human-readable label for your application. This value does not have to be unique. For best practice, use a meaningful description, name, or label for the application.
@@ -144,6 +146,7 @@ executable or script file. Complete this step in the Amazon GameLift Streams con
     **You cannot edit this field after the creation workflow.**
 
 5.  (Optional) In **Application log path**, enter the following:
+
     1. **Application log path**
 
     Specify the paths to log files or folders that you want Amazon GameLift Streams to save.
@@ -250,6 +253,7 @@ With your application ready, the next thing you need is compute resources for Am
 1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/"). Choose the AWS Region where you want to create your stream group. This Region must be the same as that of the application that you want to stream with the stream group. For more information, refer to [Choosing a Region](../../../awsconsolehelpdocs/latest/gsg/select-region.md "../../../awsconsolehelpdocs/latest/gsg/select-region.md") in the _AWS Management Console Getting Started Guide_.
 2. To open the creation workflow, in the navigation pane, choose **Stream groups**, and then choose **Create stream group**.
 3. In **Define stream group**, enter the following:
+
    1. **Description**
 
    A human-readable label for your stream group. This value doesn't have to be unique. As a best practice, use a meaningful description, name, or label for the stream group.
@@ -258,6 +262,7 @@ With your application ready, the next thing you need is compute resources for Am
    Tags are labels that can help you organize your AWS resources. For more information, refer to [Tagging your AWS resources](../../../tag-editor/latest/userguide/tagging.md "../../../tag-editor/latest/userguide/tagging.md").
 
 4. In **Select stream class**, choose a stream class for the stream group.
+
    1. **Stream class options**
 
    The
@@ -344,6 +349,7 @@ You can see how your application streams by running it directly in the Amazon Ga
 1. Sign in to the AWS Management Console and open the [Amazon GameLift Streams console](https://console.aws.amazon.com/gameliftstreams/ "https://console.aws.amazon.com/gameliftstreams/").
 2. You can test a stream in several ways. Start from the **Stream groups** page or **Test stream** page and
    follow these steps:
+
    1. Select a stream group that you want to use to stream.
    2. If you're starting from the **Stream groups** page, choose **Test stream**.
       If you're starting from the **Test stream** page, select **Choose**.
@@ -354,6 +360,7 @@ You can see how your application streams by running it directly in the Amazon Ga
    6. Confirm your selection, and choose **Test stream**.
 
 3. After your stream loads, you can do the following actions in your stream:
+
    1. To connect input, such as your mouse, keyboard, and gamepad (except microphones, which are not supported in **Test stream**), choose **Attach
       input**. You automatically attach your mouse when you move the cursor into the stream window.
    2. To have files that were created during the streaming session exported to an Amazon S3 bucket at the end of the session, choose **Export files** and specify the bucket details.
