@@ -75,11 +75,14 @@ problematic areas.
 3.  In the **Full account
     overview** panel, choose a date range to be used for all metrics in
     the cards, time series graphs, and drill-down tables.
+
     1. In the **Date range** field, choose
        **Relative range** (default) or **Absolute
        range**.
+
        - **Relative range** – Select the radio
          button that corresponds with the number of days desired.
+
          - _Custom range_ – Enter a
            range in either days (up to 60), weeks (up to 8), or
            months (up to 2).
@@ -114,6 +117,7 @@ problematic areas.
     sets_, display metric totals calculated from the date range
     entered, and use the metric math described in [How dashboard metrics are
     calculated](#vdm-dashboard-rates "#vdm-dashboard-rates").
+
     - To create a local `.csv` file of the data you’re currently
       viewing in either the _ISP_, _Sending
       identities_, or _Configuration sets_
@@ -127,6 +131,7 @@ problematic areas.
     want to see using the _Select metrics_ dropdown.
 6.  Choose the **Accounts** tab to display the **Accounts
     statistics** table.
+
     - This table gives an overview of your deliverability and reputation
       metrics, showing the total **Volume**, **%
       Rate**, and **% Difference** for
@@ -699,6 +704,7 @@ How the difference rate and volume totals are calculated for all metrics:
   _Last 7 days_ is the specified date range,
   _Metric rate of last 7 days - Metric rate of previous 7
   days_.
+
   - The difference % for _Total send volume_ is
     calculated differently. For example, _(Send volume of last 7
     days - Send volume of previous 7 days) / Send volume of previous 7
@@ -715,6 +721,7 @@ How the difference rate and volume totals are calculated for all metrics:
 - Virtual Deliverability Manager only tracks metrics from emails that have one
   recipient—emails with multiple recipients are not counted in any of
   the Virtual Deliverability Manager dashboard metrics.
+
   - In these cases, your Virtual Deliverability Manager metric counts will be lower than your
     Amazon CloudWatch metric counts because CloudWatch metrics include emails with
     multiple recipients.

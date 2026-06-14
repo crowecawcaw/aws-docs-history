@@ -42,6 +42,7 @@ you send email:
   each ISP individually. Additionally, the dedicated IPs (managed) feature provides information
   about your reputation at an effective daily rate with top ISPs in the form of
   Amazon CloudWatch metrics and built-in dashboards.
+
   - Warmup per
     ISP – SES tracks the reputation for each IP in
     the managed IP pool for each ISP individually. For example, if you've
@@ -91,6 +92,7 @@ you send email:
   charged a fee based on the volume of messages that you send. When you delete an
   IP pool that's created by dedicated IPs (managed) or opt out of dedicated IPs (managed), your allocated IP
   addresses are automatically relinquished and charges cease immediately.
+
   - Getting your first
     dedicated IP address – The dedicated IPs (managed) feature will
     automatically allocate your first dedicated IP address once your sending

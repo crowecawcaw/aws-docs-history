@@ -31,6 +31,7 @@ role that can execute the `UpdateAccountSendingEnabled` API operation.
    choose **Next**.
 6. On the **Add permissions** page, choose the following
    policies:
+
    - **AWSLambdaBasicExecutionRole**
    - **AmazonSESFullAccess**
 
@@ -174,12 +175,14 @@ create an Amazon SNS topic and subscribe the Lambda function to it.
    [https://console.aws.amazon.com/sns/v3/home](https://console.aws.amazon.com/sns/v3/home "https://console.aws.amazon.com/sns/v3/home").
 2. [Create a topic](../../../sns/latest/dg/sns-create-topic.md "../../../sns/latest/dg/sns-create-topic.md") by
    following the steps in the _Amazon Simple Notification Service Developer Guide_.
+
    1. The **Type** must be **Standard**
       (not **FIFO**).
 
 3. [Subscribe
    to the topic](../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md "../../../sns/latest/dg/sns-create-subscribe-endpoint-to-topic.md") by following the steps in the
    _Amazon Simple Notification Service Developer Guide_.
+
    1. For **Protocol** choose
       **AWS Lambda**.
    2. For **Endpoint**, choose the Lambda function you

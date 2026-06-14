@@ -74,6 +74,7 @@ manage the ones you've already created.
    want to add more conditions to this policy statement. _To learn more
    about a condition property and its operators and valid values, see the [Policy statement conditions](#filter-conditions "#filter-conditions")
    reference._
+
    - If you're subscribed to an [Email Add On](eb-addons.md "eb-addons.md"), you'll be able to select it here as an email
      property.
    - Traffic policies associated with IPv6 or dual-stack ingress endpoints

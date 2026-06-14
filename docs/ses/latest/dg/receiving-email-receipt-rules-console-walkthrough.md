@@ -121,6 +121,7 @@ maximum of 100 recipient conditions per receipt rule.
 
 12. On the **Add actions** page, use the following procedure to
     add one or more actions to the receipt rule.
+
     1.  Open the **Add new action** menu, and then choose one
         of the following types of actions:
 
@@ -171,6 +172,7 @@ receipt rules:
 
 - **Rule set** is listed with its name, status and creation
   date. Modification options for the rule set are:
+
   - **Set as active/inactive** toggle button will
     toggle between setting the status.
   - **Duplicate** button will copy the rule set. You
@@ -180,6 +182,7 @@ receipt rules:
 
 - **Receipt rules** are listed with their name, status,
   security, and order. Modification options for the receipt rules are:
+
   - **Up/down arrows** to reorder rule execution
     within the rule set.
   - **Duplicate** button will create a copy of the

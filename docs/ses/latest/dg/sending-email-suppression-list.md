@@ -51,6 +51,7 @@ list:
   SES accepts the message, but doesn't send it—however, if they
   don't match, then SES _will_ send it. To help clarify
   this, the following examples are provided:
+
   - You've set your account-level suppression settings with the
     suppression reason of _Bounces only_, SES will
     not attempt delivery for addresses in your account-level suppression
@@ -195,11 +196,13 @@ list.
    set-level suppression logic map](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md") will help you understand the effects
    of the override combinations. These multitiered selections of overrides can be
    combined to implement three different levels of suppression:
+
    1. **Use account-level suppression:** Do not override
       your account-level suppression and do not implement any configuration
       set-level suppression - basically, any email sent using this
       configuration set will just use your account-level suppression. To do
       this:
+
       1. In **Suppression list settings**, uncheck the
          **Override account level settings**
          box.
@@ -209,6 +212,7 @@ list.
       suppression - this means any email sent using this configuration set
       will not use any of your account-level suppression; in other words, all
       suppression is cancelled. To do this:
+
       1. In **Suppression list settings**, check the
          **Override account level settings**
          box.
@@ -220,6 +224,7 @@ list.
       defined in this configuration set - this means any email sent using this
       configuration set will only use its own suppression settings and ignore
       any account-level suppression settings. To do this:
+
       1. In **Suppression list settings**, check the
          **Override account level settings** box.
       2. In **Suppression list**, check
@@ -377,11 +382,14 @@ aws sesv2 create-import-job --import-destination SuppressionListDestination={Sup
 4. In **Bulk action specifications**, select either
    (a)**Choose file from S3 bucket** or (b)**Import
    from file** - procedures are given for each import method:
+
    1. **Choose file from S3 bucket** - _if your
       source file is already stored in an Amazon S3 bucket_:
+
       1. If you know the URI of the Amazon S3 bucket you want to use, enter
          it in the **Amazon S3 URI** field; otherwise,
          choose **Browse S3**:
+
          1. In **Buckets**, select the name of
             the S3 bucket.
          2. In **Objects**, select the name of
@@ -401,6 +409,7 @@ aws sesv2 create-import-job --import-destination SuppressionListDestination={Sup
    2. **Import from file** - _if you have a local
       source file to upload to a new or existing Amazon S3
       bucket_:
+
       1. In **Import source file**, select
          **Choose file**.
       2. Select the JSON or CSV file in the file browser and choose
@@ -409,6 +418,7 @@ aws sesv2 create-import-job --import-destination SuppressionListDestination={Sup
          file** button.
       3. Expand **Amazon S3 bucket** and select the
          S3 bucket.
+
          1. To upload your file to a new bucket, choose
             **Create S3 bucket**, enter
             a name in the **Bucket name** field,
@@ -424,6 +434,7 @@ aws sesv2 create-import-job --import-destination SuppressionListDestination={Sup
 6. Select the **Suppression list** tab and all the successfully
    imported email addresses are displayed with their suppression reason and date
    added - the following options are available:
+
    1. Select an email address, or select its corresponding checkbox and
       choose **View report** to view its details. (If it's an
       address that was automatically added to your suppression list because of
@@ -541,6 +552,7 @@ for.
 3. In the **Suppression list** pane, all the email addresses on
    your account-level suppression list are displayed with their suppression reason
    and date added - the following options are available:
+
    1. Select an email address, or select its corresponding checkbox and
       choose **View report** to view its details. (If it's an
       address that was automatically added to your suppression list because of
@@ -587,10 +599,12 @@ you want to remove from your account-level suppression list.
    **Suppression list**.
 3. Remove individual email addresses either by _(a)_ table
    selection or _(b)_ typed entry:
+
    1. _Select from table_: In the **Suppression
       list** table, select the corresponding checkbox of one or
       more email addresses and choose **Remove**.
    2. _Type in field_:
+
       1. In the **Suppression list** table, choose
          **Remove email address**.
       2. Type an email address in the **Email
@@ -697,11 +711,14 @@ aws sesv2 create-import-job --import-destination SuppressionListDestination={Sup
 4. In **Bulk action specifications**, select either (a)
    **Choose file from S3 bucket** or (b) **Import from
    file** - procedures are given for each import method:
+
    1. **Choose file from S3 bucket** - _if your
       source file is already stored in an Amazon S3 bucket_:
+
       1. If you know the URI of the Amazon S3 bucket you want to use, enter
          it in the **Amazon S3 URI** field; otherwise,
          choose **Browse S3**:
+
          1. In **Buckets**, select the name of
             the S3 bucket.
          2. In **Objects**, select the name of
@@ -721,6 +738,7 @@ aws sesv2 create-import-job --import-destination SuppressionListDestination={Sup
    2. **Import from file** - _if you have a local
       source file to upload to a new or existing Amazon S3
       bucket_:
+
       1. In **Import source file**, select
          **Choose file**.
       2. Select the JSON or CSV file in the file browser and choose
@@ -729,6 +747,7 @@ aws sesv2 create-import-job --import-destination SuppressionListDestination={Sup
          file** button.
       3. Expand **Amazon S3 bucket** and select the
          S3 bucket.
+
          1. To upload your file to a new bucket, choose
             **Create S3 bucket**, enter
             a name in the **Bucket name** field,
@@ -809,6 +828,7 @@ resembles the following example:
    table along with import type, status, and date.
 5. To view job details, select the job ID and the following panes are
    displayed:
+
    1. **Bulk action status**: shows the jobs overall
       status, the time and date it completed, how many records where imported,
       and the count of any records that failed to import successfully.
@@ -866,6 +886,7 @@ output resembles the following example:
    table along with import type, status, and date.
 5. To view job details, select the job ID and the following panes are
    displayed:
+
    1. **Bulk action status**: shows the jobs overall
       status, the time and date it completed, how many records where imported,
       and the count of any records that failed to import successfully.

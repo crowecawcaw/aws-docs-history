@@ -106,6 +106,7 @@ volume to 0% and restart the warmup process.
 4. In the **All Standard dedicated IPs** panel, select an IP
    address and choose **Edit warm up** and select one of the
    following options:
+
    1. Edit percentage—enter a value in
       the **Warm-up percentage** field to increase or
       decrease your IP's current sending volume by editing its warmup

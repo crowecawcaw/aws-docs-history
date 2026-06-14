@@ -52,6 +52,7 @@ operation.
    Permissions**.
 6. On the **Attach permissions policies** page, choose the
    following policies:
+
    - **AWS LambdaBasicExecutionRole**
    - **AmazonSESFullAccess** (We recommend you use a
      custom role tailored to your needs that includes permissions to call

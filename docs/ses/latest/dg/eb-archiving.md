@@ -66,6 +66,7 @@ bulk to an S3 bucket.
    following steps.
 3. Select the **Date range** field
    to expand date range options for your search:
+
    - **Relative range** (default) –
      Select the radio button that corresponds with the number of
      days desired, or choose a **Custom range**
@@ -108,6 +109,7 @@ attachments_—the following properties apply:
 5. Choose **Search** and the archived email matching
    your search criteria will be populated in the **Search
    results** table.
+
    - The **Message ID**
 
    column is hidden by default, but can be displayed by
@@ -126,6 +128,7 @@ attachments_—the following properties apply:
    message**.
 8. Your filtered search can be saved to an Amazon S3 bucket by selecting
    **Export to S3**.
+
    1. If you know the URI of the S3 bucket you want to
       use, enter it in the **S3 URI**
       field; otherwise, choose **Browse S3** and
@@ -224,6 +227,7 @@ archive, or delete an archive.
    in the **Archive name** column.
 4. To create an archive, select **Create
    archive**.
+
    1. Enter a unique name in the **Archive
       name** field.
    2. (Optional) Select a retention period in the
@@ -239,6 +243,7 @@ archive, or delete an archive.
    archive sent (outbound) email.
 6. To edit an archive, select its radio button followed by
    **Edit**.
+
    1. Edit or change the name in the **Archive
       name** field.
    2. Change the retention period in the **Retention
@@ -246,6 +251,7 @@ archive, or delete an archive.
 
 7. To delete an archive, select its radio button followed by
    **Delete**.
+
    1. Type `delete` in the
       **Confirm** field followed by
       **Delete**.

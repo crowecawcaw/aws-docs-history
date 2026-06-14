@@ -9,8 +9,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Amazon SES](service_code_examples_ses.md "service_code_examples_ses.md")
+
   - [Basics](service_code_examples_ses_basics.md "service_code_examples_ses_basics.md")
+
     - [Actions](service_code_examples_ses_actions.md "service_code_examples_ses_actions.md")
+
       - [CreateReceiptFilter](ses_example_ses_CreateReceiptFilter_section.md "ses_example_ses_CreateReceiptFilter_section.md")
       - [CreateReceiptRule](ses_example_ses_CreateReceiptRule_section.md "ses_example_ses_CreateReceiptRule_section.md")
       - [CreateReceiptRuleSet](ses_example_ses_CreateReceiptRuleSet_section.md "ses_example_ses_CreateReceiptRuleSet_section.md")
@@ -37,6 +40,7 @@ This topic also includes information about getting started and details about pre
       - [VerifyEmailIdentity](ses_example_ses_VerifyEmailIdentity_section.md "ses_example_ses_VerifyEmailIdentity_section.md")
 
   - [Scenarios](service_code_examples_ses_scenarios.md "service_code_examples_ses_scenarios.md")
+
     - [Build an Amazon Transcribe streaming app](ses_example_cross_TranscriptionStreamingApp_section.md "ses_example_cross_TranscriptionStreamingApp_section.md")
     - [Copy email and domain identities across Regions](ses_example_ses_Scenario_ReplicateIdentities_section.md "ses_example_ses_Scenario_ReplicateIdentities_section.md")
     - [Create a web application to track DynamoDB data](ses_example_cross_DynamoDBDataTracker_section.md "ses_example_cross_DynamoDBDataTracker_section.md")
@@ -51,9 +55,12 @@ This topic also includes information about getting started and details about pre
     - [Verify an email identity and send messages](ses_example_ses_Scenario_SendEmail_section.md "ses_example_ses_Scenario_SendEmail_section.md")
 
 - [Amazon SES API v2](service_code_examples_sesv2.md "service_code_examples_sesv2.md")
+
   - [Basics](service_code_examples_sesv2_basics.md "service_code_examples_sesv2_basics.md")
+
     - [Hello Amazon SES API v2](sesv2_example_sesv2_Hello_section.md "sesv2_example_sesv2_Hello_section.md")
     - [Actions](service_code_examples_sesv2_actions.md "service_code_examples_sesv2_actions.md")
+
       - [CreateContact](sesv2_example_sesv2_CreateContact_section.md "sesv2_example_sesv2_CreateContact_section.md")
       - [CreateContactList](sesv2_example_sesv2_CreateContactList_section.md "sesv2_example_sesv2_CreateContactList_section.md")
       - [CreateEmailIdentity](sesv2_example_sesv2_CreateEmailIdentity_section.md "sesv2_example_sesv2_CreateEmailIdentity_section.md")
@@ -68,5 +75,6 @@ This topic also includes information about getting started and details about pre
       - [SendEmail](sesv2_example_sesv2_SendEmail_section.md "sesv2_example_sesv2_SendEmail_section.md")
 
   - [Scenarios](service_code_examples_sesv2_scenarios.md "service_code_examples_sesv2_scenarios.md")
+
     - [Email Attachments Scenario](sesv2_example_sesv2_Scenario_EmailAttachments_section.md "sesv2_example_sesv2_Scenario_EmailAttachments_section.md")
     - [Newsletter scenario](sesv2_example_sesv2_NewsletterWorkflow_section.md "sesv2_example_sesv2_NewsletterWorkflow_section.md")

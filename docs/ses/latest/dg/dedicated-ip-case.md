@@ -23,13 +23,16 @@ case in the AWS Support Center.
 1.  Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2.  In the left navigation pane, choose **Dedicated IPs**.
 3.  Do one of the following:
+
     1. If you _don't_ have existing dedicated IPs in your
        account:
+
        1. The **Dedicated IPs** onboarding page is
           displayed. In the **Dedicated IPs (standard) overview** panel,
           choose **Request dedicated IPs**.
 
     2. If you have existing dedicated IPs in your account:
+
        1. Select the **Standard IP pools** tab on the
           **Dedicated IPs** page.
        2. In the **Standard overview** panel, choose
@@ -54,6 +57,7 @@ case in the AWS Support Center.
 
 5.  Under **Additional information**, complete the following
     selections:
+
     - For **Region**, select the AWS Region that your
       request applies to.
     - For **Quota Title**, select **Desired

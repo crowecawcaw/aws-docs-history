@@ -75,6 +75,7 @@ APIs:**
 - If you want to restrict the identities that a user is allowed to send
   from, you need to create two policies (or two statements within one
   policy):
+
   - One with `Action` set to an explicit list of the
     permitted non-email-sending APIs and `Resource` set to \*
   - One with `Action` set to one of the email-sending APIs

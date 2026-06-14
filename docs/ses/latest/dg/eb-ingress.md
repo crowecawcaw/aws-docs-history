@@ -52,6 +52,7 @@ of endpoint you created and your use case:
 - Open endpoint –
   Mail sent to your domain will resolve directly
   to your ingress endpoint—no authentication required.
+
   - Copy and paste the value of the "A" record either directly into
     the SMTP configuration of an on-premise SMTP client or into an MX
     record for your domain in your DNS configuration.
@@ -61,6 +62,7 @@ of endpoint you created and your use case:
 - Authenticated endpoint – Mail sent to
   your domain has to come from authorized senders whom you’ve shared your SMTP
   credentials with, such as your on-premise email servers.
+
   - Copy and paste the value of the "A" record directly into the SMTP
     configuration of an on-premise SMTP client as well as your user name
     and password.
@@ -72,6 +74,7 @@ of endpoint you created and your use case:
   domain must come from clients that present a TLS client certificate signed
   by one of the certificate authorities (CAs) in the ingress endpoint's trust store.
   See [Mutual TLS (mTLS) authentication for ingress endpoints](#eb-ingress-mtls "#eb-ingress-mtls").
+
   - Copy and paste the value of the "A" record directly into the SMTP
     configuration of an on-premise SMTP client.
   - Supported port: 25
@@ -203,6 +206,7 @@ must be met:
   (cross-account access is not supported).
 - The VPC endpoint must be created for the appropriate service name based on
   the type of ingress endpoint:
+
   - Open ingress endpoint –
     `com.amazonaws.`region`.mail-manager-smtp.open`
   - Authenticated ingress endpoint –
@@ -425,6 +429,7 @@ created.
 5. Choose whether it will be an **Open**,
    **Authenticated**, or **mTLS**
    endpoint.
+
    - If you choose **Authenticated**, select either
      **SMTP password** and enter a password (to be
      shared with authorized senders), or **Secret** and
@@ -484,6 +489,7 @@ created.
 7. Select a traffic policy to determine the email you want to block or allow.
 8. Choose whether it will be a **Public** or
    **Private** network.
+
    - For a public network, choose either **IPv4** only or
      **Dualstack** (IPv4 and IPv6) addressing.
    - For a private network, select or enter a VPC endpoint that you've
@@ -513,6 +519,7 @@ created.
     **Ingress endpoints** page. If there's an ingress endpoint you want to
     remove, select it's radio button followed by **Delete**.
 14. To edit an ingress endpoint, select its name to open its summary page:
+
     - You can change the endpoint's active status or TLS policy (for
       supported configurations) by choosing **Edit** in
       **General details** followed by **Save

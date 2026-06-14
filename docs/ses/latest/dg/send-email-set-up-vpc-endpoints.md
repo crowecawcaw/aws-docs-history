@@ -73,6 +73,7 @@ interface endpoint you'll be creating.
    Groups**.
 2. Choose **Create security group**.
 3. Under **Basic details**, do the following:
+
    - For **Security group name**, enter a unique
      name that identifies the security group.
    - For **Description**, enter some text that
@@ -84,6 +85,7 @@ interface endpoint you'll be creating.
    rule**.
 5. For the new **Inbound rule**, do the
    following:
+
    - For **Type**, choose **Custom
      TCP**.
    - For **Port range**, enter the port number

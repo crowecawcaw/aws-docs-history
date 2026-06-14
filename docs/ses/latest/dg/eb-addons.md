@@ -40,6 +40,7 @@ your traffic policies or rule sets.
    Add On card to open its overview page where you can learn more about what it
    does, its key benefits, and pricing information. If you'd like to use this
    Add On, choose **Subscribe**.
+
    - Read the **Terms and Conditions** presented and check
      the **I accept** box followed by
      **Subscribe**.
@@ -83,6 +84,7 @@ overview page:
      Support.
 
 6. To unsubscribe from an Add On:
+
    1. You must first remove it from any of your traffic policies or rule
       sets where you have it defined in a condition; otherwise, the following
       unsubscribe steps will fail.

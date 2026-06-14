@@ -14,6 +14,7 @@ only, and are subject to change without notice.
 
 1. First, set up Microsoft Windows Server 2022 using the following
    instructions.
+
    1. From the [Amazon EC2 management
       console](https://console.aws.amazon.com/ec2/home "https://console.aws.amazon.com/ec2/home"), launch a new Microsoft Windows Server 2022 Base Amazon EC2
       instance.
@@ -26,6 +27,7 @@ only, and are subject to change without notice.
    5. Install the **SMTP Server** feature.
 
 2. Next, configure the IIS SMTP service using the following instructions.
+
    1. Return
       to the Server Manager Dashboard.
    2. From the **Tools** menu, choose **Internet
@@ -58,6 +60,7 @@ only, and are subject to change without notice.
 
 3. Finally, configure the server to send email through Amazon SES using the following
    instructions.
+
    1. Return to the **SMTP Virtual Server #1 Properties**
       dialog box and then choose the **Delivery** tab.
    2. On the **Delivery** tab, choose **Outbound

@@ -82,6 +82,7 @@ domain for handling click tracking events.
 3. Add a new CNAME record to your subdomain’s DNS settings that redirects
    requests to the SES tracking domain. The address that you redirect to
    must be the in the same AWS Region as your custom subdomain.
+
    - Use the [Tracking domains table](../../../general/latest/gr/ses.md#ses_tracking_domains "../../../general/latest/gr/ses.md#ses_tracking_domains") in the AWS General Reference to select
      the tracking domain that's in the same region as your custom
      domain.
@@ -115,6 +116,7 @@ domain](#configure-custom-open-click-domain-http "#configure-custom-open-click-d
    to the AWS tracking domain that's in the same region as your custom
    domain. The CDN must pass the `Host` header supplied by the
    requester to the origin, see this [AWS re:Post article](https://repost.aws/knowledge-center/configure-cloudfront-to-forward-headers "https://repost.aws/knowledge-center/configure-cloudfront-to-forward-headers") for more information.
+
    - Use the [Tracking domains table](../../../general/latest/gr/ses.md#ses_tracking_domains "../../../general/latest/gr/ses.md#ses_tracking_domains") in the AWS General Reference to select
      the tracking domain that's in the same region as your custom
      domain.

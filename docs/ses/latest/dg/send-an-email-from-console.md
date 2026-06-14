@@ -37,6 +37,7 @@ Before you follow these steps, complete the tasks in [Setting up Amazon Simple E
 4. On the selected email identity's detail page, choose **Send test
    email**.
 5. For **Message details**, choose the **Email Format**. The two choices are as follows:
+
    - **Formatted**—This is the simplest option.
      Choose this option if you simply want to type the text of your message
      into the **Body** text box. When you send
@@ -69,6 +70,7 @@ Before you follow these steps, complete the tasks in [Setting up Amazon Simple E
 
 6. Choose the type of simulated email scenario you want to test by expanding the
    **Scenario** list box.
+
    1. If you choose **Custom** and you're still in the
       Amazon SES sandbox, make sure that the address in the
       **Custom recipient** field is a verified email

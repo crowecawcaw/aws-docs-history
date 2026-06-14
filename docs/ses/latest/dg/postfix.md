@@ -104,13 +104,13 @@ sudo postmap hash:/etc/postfix/sasl_passwd
    previous steps aren't encrypted. Because these files contain your SMTP
    credentials, we recommend that you modify the files' ownership and permissions
    in order to restrict access to them. To restrict access to these files:
+
    1. At a command prompt, type the following command to change the
       ownership of the files:
 
    ```
    sudo chown root:root /etc/postfix/sasl_passwd /etc/postfix/sasl_passwd.db
    ```
-
    2. At a command prompt, type the following command to change the
       permissions of the files so that only the root user can
       read or write to them:
@@ -122,20 +122,19 @@ sudo postmap hash:/etc/postfix/sasl_passwd
 7. Tell Postfix where to find the CA certificate (needed to verify the Amazon SES
    server certificate). The command you use in this step varies based on your
    operating system.
+
    - If you use Amazon Linux, Red Hat Enterprise Linux, or a related distribution,
      type the following command:
 
    ```
    sudo postconf -e 'smtp_tls_CAfile = /etc/ssl/certs/ca-bundle.crt'
    ```
-
    - If you use Ubuntu or a related distribution, type the following
      command:
 
    ```
    sudo postconf -e 'smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt'
    ```
-
    - If you use macOS, you can generate the certificate from your system
      keychain. To generate the certificate, type the following command at the
      command line:

@@ -94,6 +94,7 @@ domain will use the this custom MAIL FROM domain.
    where the **Identity type** is
    **Domain** and **Status** is
    _Verified_.
+
    1. If the **Status** is
       _Unverified_, complete the procedures at
       [Verifying a DKIM domain identity with your DNS provider](creating-identities.md#just-verify-domain-proc "creating-identities.md#just-verify-domain-proc") to verify the
@@ -104,12 +105,14 @@ domain will use the this custom MAIL FROM domain.
    .
 5. In the **General details** pane, do the
    following:
+
    1. Select the **Use a custom MAIL FROM domain**
       checkbox.
    2. For **MAIL FROM domain**, enter the subdomain
       that you want to use as the MAIL FROM domain.
    3. For **Behavior on MX failure**, choose one of
       the following options:
+
       - **Use
         default MAIL FROM domain** – If the
         custom MAIL FROM domain's MX record is not set up
@@ -231,6 +234,7 @@ add the necessary DNS records to the domain).
    where the **Identity type** is **Email
    address** and **Status** is
    _Verified_.
+
    1. If the **Status** is
       _Unverified_, complete the procedures at
       [Verifying an email address identity](creating-identities.md#just-verify-email-proc "creating-identities.md#just-verify-email-proc") to verify the email
@@ -241,12 +245,14 @@ add the necessary DNS records to the domain).
    MAIL FROM domain** pane.
 5. In the **General details** pane, do the
    following:
+
    1. Select the **Use a custom MAIL FROM domain**
       checkbox.
    2. For **MAIL FROM domain**, enter the subdomain
       that you want to use as the MAIL FROM domain.
    3. For **Behavior on MX failure**, choose one of
       the following options:
+
       - **Use
         default MAIL FROM domain** – If the
         custom MAIL FROM domain's MX record is not set up

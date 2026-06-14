@@ -78,11 +78,13 @@ get added to your account-level suppression list.
    set-level suppression logic map](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md") will help you understand the effects
    of the override combinations. These multitiered selections of overrides can be
    combined to implement three different levels of suppression:
+
    1. **Use account-level suppression:** Do not override
       your account-level suppression and do not implement any configuration
       set-level suppression - basically, any email sent using this
       configuration set will just use your account-level suppression. To do
       this:
+
       1. In **Suppression list settings**, uncheck the
          **Override account level settings**
          box.
@@ -92,6 +94,7 @@ get added to your account-level suppression list.
       suppression - this means any email sent using this configuration set
       will not use any of your account-level suppression; in other words, all
       suppression is cancelled. To do this:
+
       1. In **Suppression list settings**, check the
          **Override account level settings**
          box.
@@ -103,6 +106,7 @@ get added to your account-level suppression list.
       defined in this configuration set - this means any email sent using this
       configuration set will only use its own suppression settings and ignore
       any account-level suppression settings. To do this:
+
       1. In **Suppression list settings**, check the
          **Override account level settings** box.
       2. In **Suppression list**, check

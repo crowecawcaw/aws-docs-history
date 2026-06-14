@@ -84,6 +84,7 @@ message:
   the `SendBulkEmail` operation, you cannot set custom header content for
   headers that are set by SES; therefore, the following headers are disallowed
   as custom headers:
+
   - `BCC`, `CC`, `Content-Disposition`,
     `Content-Type`, `Date`, `From`,
     `Message-ID`, `MIME-Version`,

@@ -52,6 +52,7 @@ event destination's summary page from the previous step, choose
 - this will take you to the **Topics** list in the Amazon Simple Notification Service
   console - _perform the following steps from the Amazon SNS
   console:_
+
   1.  Select the name of the SNS topic you created or modified in the
       previous step.
   2.  On the topic's detail screen, choose **Edit**.
@@ -97,5 +98,4 @@ event destination's summary page from the previous step, choose
       * Replace `configuration-set-name` with the
        name of your configuration set associated with the SNS event
        destination.
-
   4.  Choose **Save changes**.

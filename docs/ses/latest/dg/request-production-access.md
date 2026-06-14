@@ -33,6 +33,7 @@ sandbox and placed into production.
   account](setting-up.md#quick-start-verify-email-addresses "setting-up.md#quick-start-verify-email-addresses") for instructions on how to access the wizard.
 - If you’ve already created one or more identities, you’ll see the **Get
   set up** page instead of the account set up wizard.
+
   - If one of your identities is a verified domain, you’ll be able to
     request production access directly from the **Get set
     up** page as well. This is because verifying your domain
@@ -59,6 +60,7 @@ sandbox and placed into production.
 4. In the account details modal, select either the **Marketing** or
    **Transactional** radio button that best describes the majority
    of mail you'll be sending.
+
    - _Marketing email_ - Sent on a one-to-many basis to a
      targeted list of prospects or customers containing marketing and promotional
      content such as to make a purchase, download information, etc.

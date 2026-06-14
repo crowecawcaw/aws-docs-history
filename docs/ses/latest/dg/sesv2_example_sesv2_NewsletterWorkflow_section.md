@@ -925,6 +925,7 @@ public class SESv2Wrapper
 ```
 
 - For API details, see the following topics in _AWS SDK for .NET API Reference_.
+
   - [CreateContact](../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateContact.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateContact.md")
   - [CreateContactList](../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateContactList.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateContactList.md")
   - [CreateEmailIdentity](../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateEmailIdentity.md "../../../goto/DotNetSDKV3/sesv2-2019-09-27/CreateEmailIdentity.md")
@@ -1152,6 +1153,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [CreateContact](../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateContact.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateContact.md")
   - [CreateContactList](../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateContactList.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateContactList.md")
   - [CreateEmailIdentity](../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateEmailIdentity.md "../../../goto/SdkForJavaV2/sesv2-2019-09-27/CreateEmailIdentity.md")
@@ -1347,6 +1349,7 @@ class SESv2Workflow:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateContact](../../../goto/boto3/sesv2-2019-09-27/CreateContact.md "../../../goto/boto3/sesv2-2019-09-27/CreateContact.md")
   - [CreateContactList](../../../goto/boto3/sesv2-2019-09-27/CreateContactList.md "../../../goto/boto3/sesv2-2019-09-27/CreateContactList.md")
   - [CreateEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md")
@@ -1559,6 +1562,7 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/r
 ```
 
 - For API details, see the following topics in _AWS SDK for Rust API reference_.
+
   - [CreateContact](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact")
   - [CreateContactList](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact_list "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_contact_list")
   - [CreateEmailIdentity](https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_identity "https://docs.rs/aws-sdk-sesv2/latest/aws_sdk_sesv2/client/struct.Client.html#method.create_email_identity")

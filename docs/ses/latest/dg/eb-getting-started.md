@@ -32,6 +32,7 @@ console.
 3. On the _Get set up_ page, select **Create
    traffic policy** on the _Create a traffic policy_
    card.
+
    1. Complete the workflow on the _Create a traffic policy_
       page. If you need additional information, see [Creating traffic policies and policy statements in the SES console](eb-filters.md#eb-filters-create-console "eb-filters.md#eb-filters-create-console").
    2. After creating your first traffic policy and policy statements, use your
@@ -41,6 +42,7 @@ console.
 
 4. On the _Get set up_ page, select **Create rule
    set** on the _Create a rule set_ card.
+
    1. Complete the workflow on the _Create a rule set_
       page. If you need additional information, see [Creating rule sets and rules in the SES console](eb-rules.md#eb-rules-create-console "eb-rules.md#eb-rules-create-console").
    2. After creating your first rule set and rules, use your browser's back
@@ -52,6 +54,7 @@ console.
    create your first ingress endpoint. On the _Get set up_ page, select
    **Create ingress endpoint** on the _Create an
    ingress endpoint_ card.
+
    1. Part of the workflow on the _Email ingress endpoint_ page
       will be to assign the traffic policy and rule set you just created to the
       ingress endpoint. If you need additional information, see [Creating an ingress endpoint in the SES console](eb-ingress.md#eb-ingress-create-console "eb-ingress.md#eb-ingress-create-console").

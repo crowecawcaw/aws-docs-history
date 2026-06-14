@@ -13,7 +13,9 @@ This topic also includes information about getting started and details about pre
 ###### Amazon SES
 
 - [Basics](service_code_examples_ses_basics.md "service_code_examples_ses_basics.md")
+
   - [Actions](service_code_examples_ses_actions.md "service_code_examples_ses_actions.md")
+
     - [CreateReceiptFilter](ses_example_ses_CreateReceiptFilter_section.md "ses_example_ses_CreateReceiptFilter_section.md")
     - [CreateReceiptRule](ses_example_ses_CreateReceiptRule_section.md "ses_example_ses_CreateReceiptRule_section.md")
     - [CreateReceiptRuleSet](ses_example_ses_CreateReceiptRuleSet_section.md "ses_example_ses_CreateReceiptRuleSet_section.md")
@@ -40,6 +42,7 @@ This topic also includes information about getting started and details about pre
     - [VerifyEmailIdentity](ses_example_ses_VerifyEmailIdentity_section.md "ses_example_ses_VerifyEmailIdentity_section.md")
 
 - [Scenarios](service_code_examples_ses_scenarios.md "service_code_examples_ses_scenarios.md")
+
   - [Build an Amazon Transcribe streaming app](ses_example_cross_TranscriptionStreamingApp_section.md "ses_example_cross_TranscriptionStreamingApp_section.md")
   - [Copy email and domain identities across Regions](ses_example_ses_Scenario_ReplicateIdentities_section.md "ses_example_ses_Scenario_ReplicateIdentities_section.md")
   - [Create a web application to track DynamoDB data](ses_example_cross_DynamoDBDataTracker_section.md "ses_example_cross_DynamoDBDataTracker_section.md")

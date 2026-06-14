@@ -20,6 +20,7 @@ operations or the Amazon SES SMTP interface.
 - If the identity you've been authorized to use is duplicated in a secondary
   region as part of the [Global endpoints](global-endpoints.md "global-endpoints.md")
   feature:
+
   - The identity owner should have supplied you with an identity ARN that
     had the region parameter, such as, `us-east-1`, replaced with
     an asterisk `*` as in the following example,

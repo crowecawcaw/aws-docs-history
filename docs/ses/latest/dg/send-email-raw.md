@@ -231,6 +231,7 @@ which include the following headers:
 - Content-Type – The file type of
   the attachment. The following are examples of common MIME Content-Type
   declarations:
+
   - Plain text file –
     `Content-Type: text/plain;
 name="sample.txt"`

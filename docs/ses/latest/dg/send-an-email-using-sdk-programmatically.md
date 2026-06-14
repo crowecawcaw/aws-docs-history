@@ -59,6 +59,7 @@ This solution was tested using the following components:
 ###### To send an email using the AWS SDK for .NET
 
 1. Create a new project by performing the following steps:
+
    1. Start Visual Studio.
    2. On the **File** menu, choose
       **New**, **Project**.
@@ -72,6 +73,7 @@ This solution was tested using the following components:
 
 2. Use NuGet to include the Amazon SES packages in your solution by
    completing the following steps:
+
    1. In the **Solution Explorer** pane,
       right-click your project, and then choose **Manage
       NuGet Packages**.
@@ -210,6 +212,7 @@ namespace AmazonSESSample
 
 5.  Build and run the application by completing the following
     steps:
+
     1. On the **Build** menu, choose
        **Build Solution**.
     2. On the **Debug** menu, choose
@@ -243,6 +246,7 @@ code to send an email through Amazon SES.
 
 1. Create an AWS Java Project in Eclipse by performing the
    following steps:
+
    1. Start Eclipse.
    2. On the **File** menu, choose
       **New**, and then choose
@@ -251,6 +255,7 @@ code to send an email through Amazon SES.
       Project**.
    3. In the **New AWS Java
       Project** dialog box, do the following:
+
       1. For **Project name**,
          type a project name.
       2. Under **AWS SDK for Java
@@ -482,6 +487,7 @@ try {
 
 2. In `amazon-ses-sample.php`, replace the
    following with your own values:
+
    - `path_to_sdk_inclusion`—Replace
      with the path required to include the AWS SDK for PHP in the
      program. For more information, see the [AWS SDK for PHP documentation](../../../aws-sdk-php/v3/guide/getting-started/basic-usage.md "../../../aws-sdk-php/v3/guide/getting-started/basic-usage.md").
@@ -649,6 +655,7 @@ end
 
 2. In `amazon-ses-sample.rb`, replace the
    following with your own values:
+
    - `sender@example.com`—Replace
      with an email address that you have verified with Amazon SES. For
      more information, see [Verified identities](verify-addresses-and-domains.md "verify-addresses-and-domains.md").
@@ -800,6 +807,7 @@ else:
 
 2. In `amazon-ses-sample.py`, replace the
    following with your own values:
+
    - `sender@example.com`—Replace
      with an email address that you have verified with Amazon SES. For
      more information, see [Verified identities](verify-addresses-and-domains.md "verify-addresses-and-domains.md").

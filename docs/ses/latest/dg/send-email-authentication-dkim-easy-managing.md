@@ -198,6 +198,7 @@ domain's DKIM signing properties based on these key facts:
 - If you already set up DKIM for the domain that an email address belongs
   to, you do not need to enable DKIM signing for the email address identity as
   well.
+
   - When you set up DKIM for a domain, Amazon SES automatically
     authenticates every email from every address on that domain through
     the inherited DKIM properties from the parent domain.

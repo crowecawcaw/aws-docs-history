@@ -185,6 +185,7 @@ sudo su service sendmail restart
 ```
 
 11. Complete the following steps to send a test email:
+
     1.  At the command line, enter the following command.
 
     ```

@@ -90,6 +90,7 @@ which can take time to propagate to other DNS servers.
 ###### To verify that your domain verification CNAME records are published to your DNS server
 
 1. Find the name servers for your domain by taking the following steps.
+
    1. Go to the command line. To get to the command line on Windows 7,
       choose **Start** and then type
       **cmd**. On Linux-based operating systems, open a
@@ -116,6 +117,7 @@ which can take time to propagate to other DNS servers.
    steps. _Keep in mind that Amazon SES generates three CNAME records for Easy
    DKIM authentication, so repeat the following procedures for each of the
    three._
+
    1. At the command prompt, type the following, where _<random
       string>_ is the SES generated CNAME name,
       _<domain>_ is your domain, and
@@ -136,7 +138,6 @@ which can take time to propagate to other DNS servers.
    ```
    nslookup -type=CNAME 4hzwn5lmznmmjyl2pqf2agr3uzzzzxyz_domainkey.ses-example.com ns1.name-server.net
    ```
-
    2. In the output of the command, verify that the string that follows
       `canonical name =` matches the CNAME value you see when
       you choose the domain in the Identities list of the Amazon SES
@@ -158,6 +159,7 @@ which can take time to propagate to other DNS servers.
 - The verification email didn't arrive – If
   you complete the procedures in [Verifying an email address identity](creating-identities.md#just-verify-email-proc "creating-identities.md#just-verify-email-proc") but you don't receive the
   verification email within a few minutes, complete the following steps:
+
   - Check the spam or junk mail folder for the email address you're
     attempting to verify.
   - Confirm that the address that you're trying to verify is able to

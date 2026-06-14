@@ -516,6 +516,7 @@ class SesMailSender:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateTemplate](../../../goto/boto3/email-2010-12-01/CreateTemplate.md "../../../goto/boto3/email-2010-12-01/CreateTemplate.md")
   - [DeleteIdentity](../../../goto/boto3/email-2010-12-01/DeleteIdentity.md "../../../goto/boto3/email-2010-12-01/DeleteIdentity.md")
   - [DeleteTemplate](../../../goto/boto3/email-2010-12-01/DeleteTemplate.md "../../../goto/boto3/email-2010-12-01/DeleteTemplate.md")

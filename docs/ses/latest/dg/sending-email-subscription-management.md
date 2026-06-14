@@ -36,6 +36,7 @@ You should consider the following factors when you use subscription management:
   link at the top of the email _if they support it_ - not all
   email service providers support these headers.
 - `List-Unsubscribe` headers follow the following behavior:
+
   - If a contact clicks the unsubscribe link in an email which has both
     the contact list and topic specified, then the contact will be
     unsubscribed only from that specific topic.

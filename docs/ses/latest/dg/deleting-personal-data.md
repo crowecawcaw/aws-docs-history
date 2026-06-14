@@ -120,6 +120,7 @@ identifiable data.
 1. Open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. Under **Identity Management**, do one of the
    following:
+
    - Choose **Domains** if you want to delete a
      domain.
    - Choose **Email Addresses** if you want to delete an
@@ -160,6 +161,7 @@ delete these policies.
 1. Open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
 2. Under **Identity Management**, do one of the
    following:
+
    - Choose **Domains** if the sender authentication
      policy you want to delete is associated with a domain.
    - Choose **Email Addresses** if the sender

@@ -283,6 +283,7 @@ recipient is in the specified Address List.
    **Allow** for the action to be taken when the
    statement's conditions are met.
 3. Build the statement's condition as follows:
+
    - Select **Recipient address** for the
      **Protocol** field.
    - Select **Is in address list** for the
@@ -332,6 +333,7 @@ Address List.
    (console)](eb-rules.md#eb-rules-create-console "eb-rules.md#eb-rules-create-console")
 2. In the **Rule conditions** container, build the rule's
    condition as follows.
+
    - Select **Recipient address** for the
      **Select property** field.
    - Select **Is in address list** for the

@@ -33,6 +33,7 @@ every time email is sent from the identity.
 4. At the top of each configuration set's details page, visible from either the
    **Overview** or **Events destination**
    tab, are the following options:
+
    - Delete – this button will delete
      your configuration set.
    - Disable sending – this button
@@ -117,6 +118,7 @@ identity.
 - How to specify an existing configuration set to be used as the identity's
   default configuration set is actually a function of verified identities, so
   instructions are given in the identity workflows accordingly:
+
   - Specify a default configuration set during
     identity creation – follow the instructions given in
     the optional Step 6 for either [Domain
@@ -127,6 +129,7 @@ identity.
     existing identity – follow the steps in [Edit an identity using the
     console](edit-verified-domain.md "edit-verified-domain.md") along with these
     details for Step 5:
+
     1. Choose the **Configuration set** tab.
     2. Choose **Edit** in the **Default
        configuration set** container.

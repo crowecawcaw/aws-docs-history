@@ -29,6 +29,7 @@ these steps.
    action you would like to authorize for your principals.
 9. (Optional) Expand **Specify conditions** if you wish to add a
    qualifying statement to the permission.
+
    1. Select an operator from the **Operator**
       dropdown.
    2. Select a type from the **Key** dropdown.

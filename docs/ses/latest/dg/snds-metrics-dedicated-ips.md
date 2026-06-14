@@ -50,6 +50,7 @@ metrics also have a corresponding timestamp, which reflects a 24-hour period.
 - **SNDS.SpamRate** - Displays the aggregate results of the spam
   filtering applied to all messages sent by the IP address during the given activity
   period.
+
   - A SpamRate of 0 means the IP address has less than 10% spam.
   - A SpamRate of 0.5 means that between 10% and 90% spam is generated from
     the IP address.
@@ -59,6 +60,7 @@ metrics also have a corresponding timestamp, which reflects a 24-hour period.
 - **SNDS.ComplaintRate** - This is the fraction of the time that a
   message received from the IP is complained about by an Outlook user during the
   activity period.
+
   - A ComplaintRate of 1 means a 100% complaint rate.
   - A ComplaintRate of 0.05 would mean a 5% complaint rate, for
     example.

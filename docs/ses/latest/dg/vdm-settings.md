@@ -19,6 +19,7 @@ defaults.
    **Virtual Deliverability Manager**.
 3. To change **Engagement tracking** or **Optimized shared delivery**
    settings:
+
    1. In the **Additional settings** panel, choose
       **Edit**.
    2. Select the corresponding radio button to turn either feature on or
@@ -39,6 +40,7 @@ defaults.
    and optimized shared delivery by overriding how they're defined in Virtual Deliverability Manager, reference [Virtual Deliverability Manager options](creating-configuration-sets.md#vdm-create-config-overrides "creating-configuration-sets.md#vdm-create-config-overrides") while
    creating or editing a configuration set.
 5. To disable Virtual Deliverability Manager:
+
    1. In the **Subscription overview** panel, choose
       **Disable Virtual Deliverability Manager**.
    2. In the **Disable Virtual Deliverability Manager?** pop-up window, enter
@@ -131,6 +133,7 @@ page.
 2. In the left navigation pane, choose **Settings** under
    **Virtual Deliverability Manager**.
 3. In the **Global deliverability** panel, you can:
+
    - Enable or disable global deliverability for the current region.
    - Choose **Edit domains** to select which of your
      verified sending domains to monitor.

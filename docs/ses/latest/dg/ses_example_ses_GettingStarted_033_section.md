@@ -314,6 +314,7 @@ echo "============================================="
 ```
 
 - For API details, see the following topics in _AWS CLI Command Reference_.
+
   - [DeleteIdentity](../../../goto/aws-cli/email-2010-12-01/DeleteIdentity.md "../../../goto/aws-cli/email-2010-12-01/DeleteIdentity.md")
   - [GetIdentityVerificationAttributes](../../../goto/aws-cli/email-2010-12-01/GetIdentityVerificationAttributes.md "../../../goto/aws-cli/email-2010-12-01/GetIdentityVerificationAttributes.md")
   - [GetSendQuota](../../../goto/aws-cli/email-2010-12-01/GetSendQuota.md "../../../goto/aws-cli/email-2010-12-01/GetSendQuota.md")

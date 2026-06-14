@@ -25,6 +25,7 @@ whenever there is a change in the status of a software issue.
 5. Choose **Configure new SMTP mail server**.
 6. On the **Add SMTP Mail Server** form, fill in the following
    fields:
+
    1. Name—A descriptive name for this
       server.
    2. From address—The address from which

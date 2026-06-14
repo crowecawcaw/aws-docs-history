@@ -64,8 +64,10 @@ When you use DKIM to authenticate your email, the following rules apply:
   those Regions to ensure that all of your email is DKIM-signed.
 - Because DKIM properties are inherited from the parent domain, when you verify
   a domain with DKIM authentication:
+
   - DKIM authentication will also apply to all subdomains of that
     domain.
+
     - DKIM settings for a subdomain can override the settings for
       the parent domain by disabling the inheritance if you don't want
       the subdomain to use DKIM authentication, as well as the ability
@@ -73,6 +75,7 @@ When you use DKIM to authenticate your email, the following rules apply:
 
   - DKIM authentication will also apply to all email sent from an email
     identity that references the DKIM verified domain in its address.
+
     - DKIM settings for an email address can override the settings
       for the subdomain (if applicable) and the parent domain by
       disabling the inheritance if you want to send mail without DKIM
@@ -90,6 +93,7 @@ signing properties based on these key facts:
 - If you already set up DKIM for the domain that an email address belongs to,
   you do not need to enable DKIM signing for the email address identity as
   well.
+
   - When you set up DKIM for a domain, Amazon SES automatically authenticates
     every email from every address on that domain through the inherited DKIM
     properties from the parent domain.

@@ -114,12 +114,14 @@ When Amazon SES receives an email for your domain, the following events occur:
 
 1.  Amazon SES first looks at the IP address of the sender. Amazon SES allows the mail to
     pass this stage unless:
+
     - The IP address is in your block list.
     - The IP address is in the Amazon SES block list, but not on your allow
       list.
 
 2.  Amazon SES examines your active rule set to determine whether any of your receipt
     rules contain a recipient condition:
+
     - If there's a recipient condition and it matches any of the incoming
       email's recipients, Amazon SES accepts the email. Otherwise, if there aren't
       any matches, Amazon SES blocks the email.

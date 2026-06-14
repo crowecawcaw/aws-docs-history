@@ -36,6 +36,7 @@ modified).
   FROM address (not seen by your recipient). DKIM only checks the domain specified in
   the DKIM signature (also, not seen by your recipient). DMARC addresses these two
   issues by requiring domain alignment to be correct on either SPF or DKIM:
+
   - For SPF to pass DMARC alignment the domain in the From address must match
     the domain in the MAIL FROM address (also referred to as Return-Path and
     Envelope-from address). This is rarely possible with forwarded mail because
@@ -98,6 +99,7 @@ following:
   specified by the policy parameter, `p=quarantine`. Other options
   include doing nothing by using `p=none`, or reject the message
   outright by using `p=reject`.
+
   - The next section discusses how and when to use these three policy
     settings—_using the wrong one at the wrong time can
     cause your email to not be delivered,_ see [Best practices for implementing DMARC](#send-email-authentication-dmarc-implement "#send-email-authentication-dmarc-implement").
@@ -124,6 +126,7 @@ sub-domains, and finally with the top-level domain in your organization before m
 to the next step.
 
 1. Monitor the impact of implementing DMARC (p=none).
+
    - Start with a simple monitoring-mode record for a sub-domain or domain
      that requests that mail receiving organizations send you statistics
      about messages that they see using that domain. A monitoring-mode record
@@ -143,6 +146,7 @@ to the next step.
 
 2. Request that external mail systems quarantine mail that fails DMARC
    (p=quarantine).
+
    - When you believe that all or most of your legitimate traffic is
      sending domain-aligned with either SPF
      or DKIM, and you understand the impact of implementing DMARC, you can
@@ -156,6 +160,7 @@ to the next step.
 
 3. Request that external mail systems not accept messages that fail DMARC
    (p=reject).
+
    - Implementing a reject policy is usually the final step. A reject
      policy is a DMARC TXT record that has its policy set to reject
      `p=reject`. When you do this, you're asking DMARC

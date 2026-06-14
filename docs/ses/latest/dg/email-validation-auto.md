@@ -75,6 +75,7 @@ email campaigns.
 6. Select the **Auto Validation enabled** checkbox to enable
    Auto Validation for this configuration set.
 7. For **Validation threshold**, select either:
+
    - **SES managed** – Amazon SES automatically manages
      the threshold.
    - **High** – Only addresses with high

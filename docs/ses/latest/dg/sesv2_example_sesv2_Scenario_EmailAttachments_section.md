@@ -705,6 +705,7 @@ class SESv2Wrapper:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [CreateEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/CreateEmailIdentity.md")
   - [CreateEmailTemplate](../../../goto/boto3/sesv2-2019-09-27/CreateEmailTemplate.md "../../../goto/boto3/sesv2-2019-09-27/CreateEmailTemplate.md")
   - [DeleteEmailIdentity](../../../goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity.md "../../../goto/boto3/sesv2-2019-09-27/DeleteEmailIdentity.md")

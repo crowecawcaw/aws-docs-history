@@ -224,6 +224,7 @@ addresses are exactly the same as the ones you verified.
 
 9. In **AmazonSESSample.java** replace the following
    with your own values:
+
    - `smtp_username` – Replace
      with your SMTP user name credential. Note that your SMTP
      user name credential is a 20-character string of letters and
@@ -380,6 +381,7 @@ function fetchSMTPPasswordFromSecureStorage() {
 
 2. In **amazon-ses-smtp-sample.php**, replace the
    following with your own values:
+
    - `sender@example.com` –
      Replace with an email address that you have verified with
      Amazon SES. For more information, see [Verified identities](verify-addresses-and-domains.md "verify-addresses-and-domains.md").

@@ -11,6 +11,7 @@ options:
   select an existing dedicated IP pool, emails that use the configuration set are sent
   using only the dedicated IP addresses that belong to that pool. For procedures on
   how to create:
+
   - new _standard_ IP pools, see [Creating standard dedicated IP pools for dedicated IPs (standard)](dedicated-ip-pools.md "dedicated-ip-pools.md").
   - new _managed_ IP pools, see [Creating a managed IP pool to enable dedicated IPs (managed)](managed-dedicated-sending.md#dedicated-ip-pools-mds "managed-dedicated-sending.md#dedicated-ip-pools-mds").
 
@@ -32,6 +33,7 @@ configuration set using the Amazon SES console.
 
 - To assign an IP pool to a configuration set using the
   console...
+
   - while creating a new configuration set
     – see [Sending IP
     pool](creating-configuration-sets.md#create-config-set-step-4 "creating-configuration-sets.md#create-config-set-step-4") in Step 4 of [Create configuration

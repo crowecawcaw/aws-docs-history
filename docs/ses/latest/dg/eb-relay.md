@@ -253,6 +253,7 @@ with a Mail Manager inbound (non-authenticated) SMTP relay.
 
 - **Add Mail Manager IP addresses to the Inbound gateway
   configuration**
+
   1.  In the [Google administrator
       console](https://admin.google.com/ "https://admin.google.com/"), go to **Apps > Google Workspace >
       Gmail**.
@@ -291,6 +292,7 @@ with a Mail Manager inbound (non-authenticated) SMTP relay.
 ###### To setup Microsoft Office 365 to work with an inbound SMTP relay
 
 1. **Add Mail Manager IP addresses to the Allow list**
+
    1. In the [Microsoft
       Security admin center](https://security.microsoft.com/homepage "https://security.microsoft.com/homepage"), go to **Email &
       collaboration > Policies & Rules > Threat
@@ -299,6 +301,7 @@ with a Mail Manager inbound (non-authenticated) SMTP relay.
       **Polices**.
    3. Select **Connection filter policy** followed by
       **Edit connection filter policy**.
+
       - In the **Always allow messages from the following IP
         addresses or address range** dialog, add the
         ingress endpoint IPs specific to your region from the [SMTP
@@ -307,6 +310,7 @@ with a Mail Manager inbound (non-authenticated) SMTP relay.
 
    4. Return to the **Anti-spam** option and choose
       **Anti-spam inbound policy**.
+
       - At the bottom of the dialog, select **Edit spam
         threshold and properties**:
 

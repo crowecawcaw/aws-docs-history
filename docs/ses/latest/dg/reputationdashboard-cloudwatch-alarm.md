@@ -72,6 +72,7 @@ field.
 
 6. On the **Configure actions** pane, choose **In
    Alarm** in the **Alarm state trigger** field.
+
    1. Choose **Select an existing SNS topic** in the
       **Select an SNS topic** field.
    2. Choose the topic that you created and subscribed to in the prerequisites

@@ -15,6 +15,7 @@ To create a configuration set using the SES console, follow these steps:
 3.  Choose **Create set**.
 4.  **General details** – This section provides options to
     customize your configuration set:
+
     - **Configuration set name** – The name for your
       configuration set. The name can contain up to 64 alphanumeric
       characters, including letters, numbers, hyphens (-) and underscores (\_)
@@ -29,6 +30,7 @@ To create a configuration set using the SES console, follow these steps:
     contains dedicated IP addresses that haven't been assigned to any
     other pool. To learn more about managing IP pools, see [Assign IP pools](managing-ip-pools.md "managing-ip-pools.md").
     - **Tracking options**
+
       - **Use a custom redirect domain** –
         Select the check box to use a custom redirect domain to handle
         open and click tracking for email sent with this configuration
@@ -75,10 +77,10 @@ To create a configuration set using the SES console, follow these steps:
            explained in [Configuring custom domains to handle open and click tracking](configure-custom-open-click-domains.md "configure-custom-open-click-domains.md"), or you can do this first, and use the CNAME
            record values from here to use in your CDN
            setup.
-
       - **HTTPS policy** – Select an HTTPS
         policy option for the protocol of the open and click tracking
         links for your custom redirect domain:
+
         - Optional –
           (Default behavior) Open tracking links will be wrapped
           using HTTP. Click tracking links will be wrapped using
@@ -94,6 +96,7 @@ To create a configuration set using the SES console, follow these steps:
     - **Advanced delivery options** – Choose the
       arrow on the left to expand the advanced delivery options
       section.
+
       - **Transport Layer Security (TLS)** –
         To require SES to establish a secure connection with the
         receiving mail server, and send emails using the TLS protocol,
@@ -127,10 +130,12 @@ To create a configuration set using the SES console, follow these steps:
 
 5.  **Reputation options** – This section provides for
     setting up reputation metrics:
+
     - **Reputation metrics** – Used to track bounce
       and complaint metrics in CloudWatch for emails sent using this configuration
       set. _(Additional charges apply, see [Price per metric for
       CloudWatch](event-publishing-add-event-destination-cloudwatch.md#cw-add-pricing "event-publishing-add-event-destination-cloudwatch.md#cw-add-pricing").)_
+
       - **Enabled** – Select this check box to
         enable reputation metrics for the configuration set.
 
@@ -140,11 +145,13 @@ To create a configuration set using the SES console, follow these steps:
     set-level suppression logic map](sending-email-suppression-list-config-level.md "sending-email-suppression-list-config-level.md") will help you understand the effects
     of the override combinations. These multitiered selections of overrides can be
     combined to implement three different levels of suppression:
+
     1. **Use account-level suppression:** Do not override
        your account-level suppression and do not implement any configuration
        set-level suppression - basically, any email sent using this
        configuration set will just use your account-level suppression. To do
        this:
+
        1. In **Suppression list settings**, uncheck the
           **Override account level settings**
           box.
@@ -154,6 +161,7 @@ To create a configuration set using the SES console, follow these steps:
        suppression - this means any email sent using this configuration set
        will not use any of your account-level suppression; in other words, all
        suppression is cancelled. To do this:
+
        1. In **Suppression list settings**, check the
           **Override account level settings**
           box.
@@ -165,6 +173,7 @@ To create a configuration set using the SES console, follow these steps:
        defined in this configuration set - this means any email sent using this
        configuration set will only use its own suppression settings and ignore
        any account-level suppression settings. To do this:
+
        1. In **Suppression list settings**, check the
           **Override account level settings** box.
        2. In **Suppression list**, check
@@ -177,7 +186,9 @@ To create a configuration set using the SES console, follow these steps:
     if you have Virtual Deliverability Manager features enabled. Here, you can define custom settings for how
     this configuration set will use engagement tracking and optimized shared delivery by overriding how they’ve been
     defined in your Virtual Deliverability Manager settings at the account level:
+
     1. To disable both engagement tracking and optimized shared delivery for this configuration set:
+
        1. Check the **Override account level settings**
           box.
        2. Ensure **Enabled** is unchecked for both
@@ -186,6 +197,7 @@ To create a configuration set using the SES console, follow these steps:
 
     2. To enable or disable either, or both, engagement tracking and optimized shared delivery for this
        configuration set:
+
        1. Check the **Override account level settings**
           box.
        2. Check or uncheck **Enabled** for either or
@@ -194,12 +206,14 @@ To create a configuration set using the SES console, follow these steps:
 
     3. To revert back to your Virtual Deliverability Manager account level settings for engagement tracking and optimized shared delivery
        for this configuration set:
+
        1. Uncheck the **Override account level
           settings** box, then choose **Save
           changes**.
 
 8.  **Archiving options** – This section provides the
     option to archive email sent from this configuration set:
+
     1. Select the **Enabled** check box.
     2. Click inside the **Archive** field and select an
        archive from the list followed by **Save changes**, or
@@ -217,6 +231,7 @@ To create a configuration set using the SES console, follow these steps:
 
 9.  **Tags** – In this section, you can optionally add one
     or more tags to your configuration set:
+
     1. Choose **Add new tag**.
     2. Enter the tag **Key**.
     3. Enter the tag **Value** (optional).To remove a tag you've entered, choose **Remove** for that

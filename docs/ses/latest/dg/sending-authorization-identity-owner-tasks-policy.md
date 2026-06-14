@@ -69,6 +69,7 @@ these steps.
    type you would like to authorize for your delegate sender.
 9. (Optional) Expand **Specify conditions** if you wish to add a
    qualifying statement to the delegate sender permission.
+
    1. Select an operator from the **Operator**
       dropdown.
    2. Select a type from the **Key** dropdown.
@@ -102,6 +103,7 @@ these steps.
     topic ARN.) Select the **Notifications** tab
     and select **Edit** in the **Feedback
     notifications** container:
+
     1. On the **Configure SNS topics** pane, in any of the
        feedback fields, (Bounce, Complaint, or Delivery), select **SNS
        topic you don’t own** and enter the **SNS topic
@@ -169,6 +171,7 @@ identity, you have the following options:
    topic ARN.) Select the **Notifications** tab
    and select **Edit** in the **Feedback
    notifications** container:
+
    1. On the **Configure SNS topics** pane, in any of the
       feedback fields, (Bounce, Complaint, or Delivery), select **SNS
       topic you don’t own** and enter the **SNS topic

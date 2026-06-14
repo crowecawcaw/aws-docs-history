@@ -55,6 +55,7 @@ following:**
 - If you verify a domain, subdomain, or email address that shares a root domain, the
   identity settings (such as feedback notifications) apply at the most granular level
   you verified.
+
   - Verified email address identity settings override verified domain identity
     settings.
   - Verified subdomain identity settings override verified domain identity
@@ -160,6 +161,7 @@ select the check box.
 7.  (Optional) If you want to **Use a custom MAIL FROM domain**,
     select the check box and complete the following steps. For more information, see
     [Using a custom MAIL FROM domain](mail-from.md "mail-from.md").
+
     1. For **MAIL FROM domain**, enter the subdomain that you
        want to use as the MAIL FROM domain. This must be a subdomain of the domain
        identity that you’re verifying. The MAIL FROM domain shouldn't be a domain
@@ -167,6 +169,7 @@ select the check box.
     2. For **Behavior on MX failure**, indicate which action
        Amazon SES should take if it can’t find the required MX record at the time of
        sending. Choose one of the following options:
+
        - **Use default MAIL FROM domain** - If the custom
          MAIL FROM domain's MX record is not set up correctly, Amazon SES will use
          a subdomain of amazonses.com. The subdomain varies based on the
@@ -258,6 +261,7 @@ select the check box.
     signatures** field.
 10. (Optional) Add one or more **Tags** to your domain identity by
     including a tag key and an optional value for the key:
+
     1. Choose **Add new tag** and enter the
        **Key**. You can optionally add a
        **Value** for the tag.
@@ -530,6 +534,7 @@ console.
    have access to.
 6. (Optional) If you want to **Assign a default configuration set**,
    select the check box.
+
    1. For **Default configuration set**, select the existing
       configuration set that you want to assign to your identity. If you haven’t
       created any configuration sets yet, see [Using configuration sets in Amazon SES](using-configuration-sets.md "using-configuration-sets.md").
@@ -543,6 +548,7 @@ console.
 
 7. (Optional) Add one or more **Tags** to your domain identity by
    including a tag key and an optional value for the key:
+
    1. Choose **Add new tag** and enter the
       **Key**. You can optionally add a
       **Value** for the tag.

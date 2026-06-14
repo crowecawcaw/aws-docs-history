@@ -88,6 +88,7 @@ you've already created.
    to add more conditions or exceptions to this rule. _To learn more about
    a condition property and its operators and valid values, see the [Rule conditions](#rule-conditions "#rule-conditions")
    reference._
+
    - If you're subscribed to an [Email Add On](eb-addons.md "eb-addons.md"), you'll be able to select it here as an email
      property.
 
@@ -133,6 +134,7 @@ account; otherwise, the rule action will fail. 9. Apply the permission policy fo
     rule, you save it to its rule set by choosing **Save rule set**
     located in the **Edit rule set** panel on the left.
 11. If you want add more rules to the rule set, repeat steps 4 - 9 above.
+
     - When you create two or more rules, up/down arrows are displayed in the
       rule set's **Reorder** column so that you can set the
       order of execution.

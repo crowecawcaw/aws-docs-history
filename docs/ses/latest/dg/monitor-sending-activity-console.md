@@ -37,6 +37,7 @@ factors related to your email sending in the following panes:
 
 - Sending limits – contains the following
   quotas applicable to sending mail through SES:
+
   - _Daily sending quota_ - maximum number of emails
     that you can send in a 24-hour period.
   - _Maximum send rate_ - maximum number of emails that
@@ -44,6 +45,7 @@ factors related to your email sending in the following panes:
 
 - Account health – the status of your SES
   account:
+
   - `Healthy` - there are no reputation-related issues that
     currently impact your account.
   - `Under review` - potential issues have been identified with
@@ -56,6 +58,7 @@ factors related to your email sending in the following panes:
 
 - Daily email usage – to check your daily
   usage to ensure you aren’t approaching your sending limits:
+
   - _Emails sent_ - total number of emails sent in a
     24-hour period.
   - _Remaining sends_ - total number of remaining
@@ -70,6 +73,7 @@ factors related to your email sending in the following panes:
   _1 hour_. You can select a data range with start values
   from `Last 1 day` to `Last 14 days` to filter the charts
   below:
+
   - _Sends_ - sum of successful email send requests for
     the date range selected.
   - _Rejects_ - average rate of rejected send requests
@@ -95,8 +99,10 @@ reputation consisting of the following panes:
 
 - Summary – provides an overview of your
   reputation health.
+
   - _Status_ - overall reputation health based on
     historic bounce and complaint rates:
+
     - `Healthy` - both metrics are within normal
       levels.
     - `Under review` - one or both metrics have
@@ -114,7 +120,9 @@ reputation consisting of the following panes:
     sending quota used.
 
 - Account-level tab contents:
+
   - Bounce rate
+
     - _Status_ - indicates the health of your
       bounce rate using the same values as described for the Summary
       pane.
@@ -125,6 +133,7 @@ reputation consisting of the following panes:
       practices.
 
   - Complaint rate
+
     - _Status_ - Indicates the health of your
       complaint rate using the same values as described for the
       Summary pane.
@@ -135,7 +144,9 @@ reputation consisting of the following panes:
       typical sending practices.
 
 - Configuration set tab contents:
+
   - Reputation by configuration set
+
     - _Configuration set_ - lets you type or
       select a configuration set that have reputation metrics enabled
       so you can see summary, bounce, and complaint data based on the
@@ -155,6 +166,7 @@ and managing your SMTP credentials:
 - SMTP settings – if you want to use an
   SMTP-enabled programming language, email server, or application to connect to
   the Amazon SES SMTP interface, the following information is provided:
+
   - SMTP endpoint
   - STARTTLS Port
   - Transport Layer Security (TLS)

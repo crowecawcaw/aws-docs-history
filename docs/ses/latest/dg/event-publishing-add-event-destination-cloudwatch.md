@@ -44,6 +44,7 @@ create and modify event destinations.
    _(Additional charges apply, see [Price per metric for CloudWatch](#cw-add-pricing "#cw-add-pricing").)_
 2. For **Value Source**, specify how Amazon SES will obtain the data
    that it passes to CloudWatch. The following value sources are available:
+
    - **Message Tag** – Amazon SES retrieves the dimension
      name and value from a tag that you specify by using the
      `X-SES-MESSAGE-TAGS` header or the `EmailTags`

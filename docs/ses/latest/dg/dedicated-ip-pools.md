@@ -68,6 +68,7 @@ The **Create IP Pool** page opens. 5. In the **Pool details** panel,
 
 7. (Optional) You can add one or more **Tags** to this
    IP pool by including a tag key and an optional value for the key.
+
    1. Choose **Add new tag** and enter the **Key**. You can also add an optional **Value** for the tag.
    2. To add the tag, choose **Save changes**.
 

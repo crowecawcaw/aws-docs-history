@@ -23,6 +23,7 @@ corresponding section to show you "how to" perform the action you
 selected.
 
 - Learn how to...
+
   - [Add an SPF Record as part of
     setting up a custom MAIL FROM domain](mail-from.md#mail-from-set "mail-from.md#mail-from-set")
   - [Assign IP
@@ -175,6 +176,7 @@ the corresponding chapter and sections to explain the concept you
 selected.
 
 - Find information about...
+
   - [Abuse of AWS resources, report](https://aws.amazon.com/premiumsupport/knowledge-center/report-aws-abuse/ "https://aws.amazon.com/premiumsupport/knowledge-center/report-aws-abuse/")
   - [Account
     dashboard](monitor-sending-activity-console.md#account-dashboard "monitor-sending-activity-console.md#account-dashboard")

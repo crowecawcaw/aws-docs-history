@@ -20,6 +20,7 @@ identity by using the Amazon SES console.
 5. Select the policy you want to manage by choosing its checkbox.
 6. Depending on the desired management task, choose the respective button as
    follows:
+
    1. To view the policy, choose **View policy**. If you
       need a copy of it, choose the **Copy** button and it
       will be copied to your clipboard.

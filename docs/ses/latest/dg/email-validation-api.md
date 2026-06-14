@@ -138,6 +138,7 @@ about email addresses:
   verdict of HIGH, MEDIUM, or LOW. HIGH validity confidence indicates high delivery likelihood for the email address, MEDIUM indicates moderate delivery likelihood and LOW indicates low delivery likelihood.
 - `Evaluations` – Individual evaluation results, each with a
   confidence verdict:
+
   - `HIGH` – Strong indication of the specific check
     (e.g., HIGH for IsRandomInput means the email is very likely randomly generated).
   - `MEDIUM` – Moderate indication of the specific check

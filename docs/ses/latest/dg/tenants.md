@@ -183,6 +183,7 @@ following steps if you want to change to another policy.
    Optionally, you can scroll down to the tabbed section and use the
    **Reputation policy** tab to do the same.
 4. Select one of the following policies:
+
    - **Standard (recommended)** – Pause sending
      when high-severity findings are detected.
    - **Strict** – Pause sending when any

@@ -404,6 +404,7 @@ if __name__ == "__main__":
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [ListIdentities](../../../goto/boto3/email-2010-12-01/ListIdentities.md "../../../goto/boto3/email-2010-12-01/ListIdentities.md")
   - [SetIdentityNotificationTopic](../../../goto/boto3/email-2010-12-01/SetIdentityNotificationTopic.md "../../../goto/boto3/email-2010-12-01/SetIdentityNotificationTopic.md")
   - [VerifyDomainDkim](../../../goto/boto3/email-2010-12-01/VerifyDomainDkim.md "../../../goto/boto3/email-2010-12-01/VerifyDomainDkim.md")

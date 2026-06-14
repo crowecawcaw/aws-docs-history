@@ -10,6 +10,7 @@ examples](receiving-email-notifications-examples.md "receiving-email-notificatio
 
 - [Top-level JSON object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-top-level-json-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-top-level-json-object")
 - [receipt object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-receipt-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-receipt-object")
+
   - [action object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-action-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-action-object")
   - [dkimVerdict object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-dkimverdict-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-dkimverdict-object")
   - [dmarcVerdict object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-dmarcverdict-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-dmarcverdict-object")
@@ -18,6 +19,7 @@ examples](receiving-email-notifications-examples.md "receiving-email-notificatio
   - [virusVerdict object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-virusverdict-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-virusverdict-object")
 
 - [mail object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-mail-object "receiving-email-notifications-contents.md#receiving-email-notifications-contents-mail-object")
+
   - [commonHeaders object](receiving-email-notifications-contents.md#receiving-email-notifications-contents-mail-object-commonHeaders "receiving-email-notifications-contents.md#receiving-email-notifications-contents-mail-object-commonHeaders")
 
 ## Top-level JSON object

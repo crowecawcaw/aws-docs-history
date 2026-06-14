@@ -7,6 +7,7 @@ possible causes and solutions below.
   know which recipients the notifications correspond to**—In the
   future, to associate a bounce notification with a given recipient, you have the
   following options:
+
   - Since Amazon SES doesn't retain any custom message IDs that you have added,
     store a mapping between an identifier and the Amazon SES message ID that Amazon SES
     passes back to you when it accepts the email.
