@@ -6,6 +6,7 @@ inputs. To confirm that this feature is enabled, do the following:
 1. On the Elemental Live web interface, choose **Settings** and then
    select the **Advanced** tab.
 2. Locate the RTMP fields and verify that they have the following values:
+
    - **Enable RTMP input**: Checked.
    - **RTMP input port**: Specifies the desired port. The default port
      (1935) is already enabled on the node. If you specify a different port, you have to open

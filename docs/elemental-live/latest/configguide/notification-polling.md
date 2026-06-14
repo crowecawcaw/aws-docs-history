@@ -12,6 +12,7 @@ document are given using net-snmp commands.
 ###### To set up SNMP polling
 
 1. Either disable the node firewall, or enable external access to SNMP interface.
+
    - For help disabling the firewall, see [Open ports on the firewall for Elemental Live nodes](config-wrkr-cf-cg-firewall.md "config-wrkr-cf-cg-firewall.md").
    - External access to the SNMP interface is enabled by default. To check the
      setting, access the **Settings** page on the Elemental Live web interface

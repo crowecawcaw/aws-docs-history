@@ -16,6 +16,7 @@ four inputs on the bottom SDI card have a path to the router.
    screen, as described in [Step C: Complete the input mappings](sdi-rou-input.md "sdi-rou-input.md"). Choose **Map
    Outputs**.
 2. Complete the first line as follows:
+
    - **Output**: Select an output that is one of the cabled router
      outputs that you plan to use.
    - **Connected to**: Select the card and node that the router output

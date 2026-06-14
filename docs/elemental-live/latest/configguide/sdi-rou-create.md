@@ -8,6 +8,7 @@ Create the router on the Elemental Live node.
    **Settings**, and choose **Routers**.
 2. On the **Routers** screen, choose **New Router** and
    select the type of router protocol. These are the available options:
+
    - Videohub Ethernet Protocol (previously BlackMagic VideoHub)
    - XY Terminal Protocol (previously Harris Panacea)
    - NV9000 Protocol (previously Miranda nVision)

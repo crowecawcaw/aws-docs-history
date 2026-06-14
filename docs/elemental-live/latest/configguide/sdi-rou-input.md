@@ -10,6 +10,7 @@ need to assign an ID to the inputs that you are using (the ones that are cabled)
 3. Complete the fields to identify the inputs that you're using. You must know the
    identification of each input on your router. Elemental Live can't detect information
    about the state of the input IDs. You can add inputs with the following options:
+
    - **Add**: Adds one input. Select the ID of the input according to
      the router.
    - **Add inputs starting at**: Adds a range of inputs. Select the

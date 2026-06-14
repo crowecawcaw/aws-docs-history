@@ -57,6 +57,7 @@ deployment, without needing to upgrade the AWS Elemental Live software.
 
 1. Contact your AWS Elemental sales person and provide the
    following information:
+
    - The names of the add-on packages you want. For a
      list of add-on packages, see [Purchasing an add-on package](../ug/ref-licenses.md "../ug/ref-licenses.md") in Elemental Live
      User Guide.
@@ -72,6 +73,7 @@ deployment, without needing to upgrade the AWS Elemental Live software.
 
 1.  Contact your AWS Elemental sales person and provide the
     following information:
+
     - The names of the add-on packages you want. For a
       list of add-on packages, see [Purchasing an add-on package](../ug/ref-licenses.md "../ug/ref-licenses.md") in Elemental Live
       User Guide.
@@ -106,6 +108,7 @@ Following are detailed instructions.
 
 1. AWS Elemental provides you with a new version of the license. You
    receive this license in one of these ways:
+
    - Via email
    - Via your Salesforce account
 

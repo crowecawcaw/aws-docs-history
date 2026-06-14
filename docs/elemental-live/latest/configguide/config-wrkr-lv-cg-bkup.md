@@ -22,6 +22,7 @@ For steps to restore a database backup, see [Database backups for Elemental Live
    choose **General**.
 2. In the **Cluster Tasks** section, the following fields configure the
    database backups:
+
    - **Minutes between management database backups** indicates how often
      Elemental Live creates backups.
    - **Management database backups to keep** indicates how many backups
