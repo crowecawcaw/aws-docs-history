@@ -8,8 +8,10 @@ AWS Elemental Conductor Live to create the Elemental Live encoding workflow.
 
 1. Obtain the following information from the person who configured the
    Conductor Live cluster:
+
    - IP address of the Conductor Live node. The correct address depends on
      your high-availability redundancy setup:
+
      - If the cluster is set up with Conductor Live high-availability
        redundancy, the address is the address of the VIP. This VIP is set up
        when you configured for high-availability redundancy, as described in
@@ -56,6 +58,7 @@ information:
 
 - If redundancy is enabled on the cluster, the information includes the
   following:
+
   - The term **High Availability Enabled**.
   - The hostname beside the **Globe** icon shows the
     hostname of the Conductor Live that is currently the primary

@@ -13,6 +13,7 @@ that you have already read [Working with channel parameters in a profile](creati
 
 1. When you create the profile, complete the following fields in this
    way:
+
    - **Input Type**: Choose **SDI Direct
      Input**.
 
@@ -26,11 +27,13 @@ that you have already read [Working with channel parameters in a profile](creati
    In the **Parameters** panel, leave the validation
    value empty. A validation value is not required for the **Device
    ID** field.
+
    - **Device Settings**: Always leave this field
      empty.
 
 2. When you create the channel, complete the following fields in this
    way:
+
    - **Node**: Choose a node that has an SDI direct
      input attached to it.
    - **SDI Direct Input Device
@@ -40,5 +43,6 @@ that you have already read [Working with channel parameters in a profile](creati
 
    From the list, choose one of the SDI interfaces that is attached to
    the node that you chose.
+
    - **Device Settings**: Choose a value, if one is
      applicable to this input.

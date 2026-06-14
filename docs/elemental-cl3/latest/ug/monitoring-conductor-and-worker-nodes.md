@@ -95,6 +95,7 @@ Backup tab.
      available.
 
 3. To investigate the failed node (either now or later):
+
    - Go to the **Status** -
      **Nodes** page. The node should
      have an orange icon in the
@@ -112,6 +113,7 @@ Backup tab.
 ### How worker node failover occurs
 
 1. Conductor Live determines the action to attempt:
+
    - If the node was online/idle before it failed,
      Conductor Live takes no fail over action. The node simply
      goes to the failed status.

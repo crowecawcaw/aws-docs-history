@@ -12,6 +12,7 @@ with at least one minute between scheduled runs.
 3. Select the **Schedules** tab on the left.
    Then choose the **New Schedule** button.
    Complete the **New Schedule** dialog:
+
    - **Duration**: Enter a duration. The
      minimum duration is 60 seconds. Or leave the duration empty
      to create a schedule without an end time.

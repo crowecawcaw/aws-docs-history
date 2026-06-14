@@ -73,6 +73,7 @@ is set up in this way:
 - When you chose **Cluster**, then
   **Nodes** on the Conductor Live main menu, you
   would see the following:
+
   - **CL_1**, with the following
     information:
 
@@ -118,6 +119,7 @@ is set up in this way:
 - When you chose **Cluster**, then
   **Redundancy** on the Conductor Live
   main menu, you would see the following:
+
   - In the **CL_pair** redundancy
     group, you would see **HA**.
   - In the **SM_1-to-1_hot**
@@ -236,6 +238,7 @@ Therefore, you can choose either node.
 - Choose one of the nodes where the MPTS will run.
 - Complete the other fields. Pay particular attention to
   these fields:
+
   - **Name**. Give the node a name.
     For example, `MyMPTS`.
 

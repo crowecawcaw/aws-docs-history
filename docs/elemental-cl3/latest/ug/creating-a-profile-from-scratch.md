@@ -54,6 +54,7 @@ encodes, you must create two profiles.
     appears.
 3.  Complete the profile. You can accept all the defaults, but you must
     at least complete the following:
+
     - **Name**: Enter a profile name.
     - **Restart on Failure**: Check to restart the
       channel automatically if it fails (recommended).
@@ -71,7 +72,6 @@ encodes, you must create two profiles.
          important information.
         + If your input is an SDI Router Input, see [Use case: Using SDI router input in a profile and channel](using-sdi-router-input-in-a-profile-and-channel.md "using-sdi-router-input-in-a-profile-and-channel.md") for
          important information.
-
     - **Output Group**: A channel must always contain at
       least one output group. Set up the output group with all its contents
       and features.

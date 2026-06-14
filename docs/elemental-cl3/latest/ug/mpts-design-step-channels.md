@@ -30,6 +30,7 @@ You perform these steps in Conductor Live. You don't perform them on
 Elemental Live.
 
 1.  Design the profile for each SPTS channel.
+
     - Identify the input or inputs. The SPTS channel
       can use any Elemental Live inputs.
     - Identify the features you want to enable. For
@@ -40,6 +41,7 @@ Elemental Live.
       Live event.
     - Identify the outputs you want to
       create:
+
       - You must always include one UDP/TS
         output that you configure for the MPTS.
         This output is called an _MPTS

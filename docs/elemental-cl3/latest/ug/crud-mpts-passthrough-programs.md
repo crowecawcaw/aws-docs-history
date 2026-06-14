@@ -38,6 +38,7 @@ source MPTS:
 4. Select the **Add Passthrough Program**
    button. The **Add Passthrough Program** dialog
    appears. Complete the fields:
+
    - **Name**: Give the program a nickname
      for your internal use. This name doesn't appear in the
      outputs MPTS.
@@ -50,6 +51,7 @@ source MPTS:
    information over three tabs.
 6. Select the **Basic** tab. On this tab, you
    must identify the following:
+
    - The program that you want to extract from the source
      MPTS. Complete the Incoming Program Number.
    - The PID for this program in the output MPTS. Complete
@@ -65,6 +67,7 @@ source MPTS:
    Program Selector button on the far right. Complete the fields.
 8. Select the **Stream Endpoints** tab. This tab
    shows the location of the source MPTS:
+
    - If you completed the location fields the dialog, this
      tab shows the information you entered. You can change any
      of the fields.
@@ -86,6 +89,7 @@ Review the information:
 
 - Select the **Stream Endpoints** tab. This tab
   shows the location of the source MPTS:
+
   - If you completed the location fields the dialog, this
     tab shows the information you entered.
   - If you left those fields empty, Elemental Statmux has automatically

@@ -12,6 +12,7 @@ You can monitor the status of channels as they run.
 
 1. In the AWS Elemental Conductor Live main menu, choose **Channels** . Information
    is color-coded as follows:
+
    - Yellow background shading indicates that there are
      active alerts on the channel that you have not yet read
      and suppressed.
@@ -19,6 +20,7 @@ You can monitor the status of channels as they run.
      the channel is Error.
 
 2. Display more information if you want:
+
    - Choose any red icon to go to the **Status –
      Messages** page. This page shows all
      messages for this channel. The error message is shaded

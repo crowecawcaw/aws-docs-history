@@ -7,6 +7,7 @@
 3. On the **Channels** page, choose **New Channel**. The
    **New Channel** page appears.
 4. Complete the fields. Take note of the following:
+
    - **Profile**: Choose the profile to base this channel on. When you
      choose a profile, the page changes to show all the profile parameters for that
      profile.
@@ -16,6 +17,7 @@
 
    The pages doesn't show fields that you did set in the profile. For those fields, the
    value from the profile applies. You can't change the value locally in the channel.
+
    - **Node**: You can choose a node now, or you can leave this field empty
      and assign a node later. Make sure that the node is appropriate for the density of the
      channel. Make sure that the node has all the licenses required for the channel. For example,

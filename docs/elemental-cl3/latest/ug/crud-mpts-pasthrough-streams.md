@@ -36,6 +36,7 @@ source MPTS:
 2. Select the **Add Passthrough Stream** button.
    The **Add Passthrough Stream** dialog appears.
    Complete the fields:
+
    - **Name**: Give the program a nickname
      for your internal use. This name doesn't appear in the
      outputs MPTS.
@@ -65,6 +66,7 @@ source MPTS:
 
 - Select the **Stream Endpoints** tab. This tab
   shows the location of the source MPTS:
+
   - If you completed the location fields the dialog, this
     tab shows the information you entered.
   - If you left the location fields empty on the dialog,

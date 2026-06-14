@@ -7,6 +7,7 @@ and values.
 
 1. If you haven’t already done so, download the existing profile and
    save it.
+
    - On the Conductor Live main menu, choose **Profiles**.
    - In the list of profiles, find the profile that you want to
      duplicate. Choose the **Download** icon. Conductor Live copies

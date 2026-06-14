@@ -20,6 +20,7 @@ output groups.
 5. For **MPTS membership**, choose
    **Remote**. This output section changes to display
    different fields. Complete the fields as follows:
+
    - Note that the destination fields are removed because you set the
      destination in the MPTS, not in the channel profile.
    - Note that the **PAT** and **PMT**

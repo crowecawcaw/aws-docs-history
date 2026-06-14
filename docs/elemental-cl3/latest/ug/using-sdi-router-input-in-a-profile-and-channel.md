@@ -14,6 +14,7 @@ that you have already read [Working with channel parameters in a profile](creati
 
 1. When you create the profile, complete the following fields in this
    way:
+
    - **Input Type**: Choose **SDI Router
      Input**.
 
@@ -29,6 +30,7 @@ that you have already read [Working with channel parameters in a profile](creati
 
 2. When you create the channel, complete the following fields in this
    way:
+
    - **Node**: Choose a node that has an SDI router
      attached to it.
    - **SDI Router Input Router Input ID**: Note that

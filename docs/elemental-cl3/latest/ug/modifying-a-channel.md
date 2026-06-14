@@ -5,6 +5,7 @@ actively running).
 
 1. On the Conductor Live main menu, choose **Channels**.
 2. On the Edit Channel page, make any changes:
+
    - **Name**: You can change the name.
    - **Profile**: You can associate the channel with a different profile.
      Complete any new channel parameter that is associated with a required field.

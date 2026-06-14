@@ -3,6 +3,7 @@
 ###### To delete a profile
 
 1. Verify that the profile is not being used:
+
    - On the AWS Elemental Conductor Live main menu, choose **Profiles**. Look at the
      **Channels** column for this profile.
    - If it specifies a number, display the **Channels**
