@@ -142,13 +142,13 @@ the AWS CodeBuild agent are released.
 3. In the navigation pane, choose **Subscriptions**.
 4. Choose **Create subscription**.
 5. In **Create subscription**, do the following:
+
    1. For **Topic ARN**, use the following Amazon Resource
       Name (ARN):
 
    ```
    arn:aws:sns:us-east-1:850632864840:AWS-CodeBuild-Local-Agent-Updates
    ```
-
    2. For **Protocol**, choose **Email**
       or **SMS**.
    3. For **Endpoint**, choose where (email or SMS) to

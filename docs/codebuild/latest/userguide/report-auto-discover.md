@@ -55,6 +55,7 @@ Use the following procedure to configure report auto-discovery using project env
 
 1. Create a build project or choose a build project to edit. For information, see [Create a build project in AWS CodeBuild](create-project.md "create-project.md") or [Change build project settings in AWS CodeBuild](change-project.md "change-project.md").
 2. In **Environment variables**, do the following:
+
    1. To disable report auto-discover, for **Name**, enter `CODEBUILD_CONFIG_AUTO_DISCOVER`
       and for **Value**, enter `false`. This disables report auto-discover.
    2. (Optional) For **Name**, enter `CODEBUILD_CONFIG_AUTO_DISCOVER_DIR`

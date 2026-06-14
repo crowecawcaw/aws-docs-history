@@ -54,10 +54,12 @@ http_access allow localnet download_src
 
 - If you want your build to upload logs and artifacts, do one of the
   following:
+
   1.  Before the `http_access deny all` statement, insert the
       following statements. They allow CodeBuild to access CloudWatch and Amazon S3. Access to
       CloudWatch is required so that CodeBuild can create CloudWatch logs. Access to Amazon S3 is
       required for uploading artifacts and Amazon S3 caching.
+
       - ```
         https_port 3130 cert=/etc/squid/ssl/squid.pem ssl-bump intercept
         acl SSL_port port 443

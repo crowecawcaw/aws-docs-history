@@ -29,12 +29,14 @@ In **Runner**:
      pipeline uses **Checkout using HTTPS**.
 
 4. - In **Environment**:
+
      - Choose a supported **Environment image** and
        **Compute**. Note that you have the option to
        override the image and instance settings by using a label in your
        GitHub Actions workflow YAML. For more information, see [Step 2: Update your GitHub Actions workflow YAML](action-runner.md#sample-github-action-runners-update-yaml "action-runner.md#sample-github-action-runners-update-yaml")
 
    - In **Buildspec**:
+
      - Note that your buildspec will be ignored unless
        `buildspec-override:true` is added as a label.
        Instead, CodeBuild will override it to use commands that will setup the

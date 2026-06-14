@@ -14,6 +14,7 @@ managed by CodeBuild.
 
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Do one of the following:
+
    - In the navigation pane, choose **Build history**. In
      the list of builds, in the **Build run** column, choose
      the link for the build.
@@ -47,6 +48,7 @@ Replace the following placeholder:
   details about. To specify more than one build ID, separate each build ID with a
   space. You can specify up to 100 build IDs. To get a list of build IDs, see the
   following topics:
+
   - [View a list of build IDs (AWS CLI)](view-build-list.md#view-build-list-cli "view-build-list.md#view-build-list-cli")
   - [View a list of build IDs for a build project (AWS CLI)](view-builds-for-project.md#view-builds-for-project-cli "view-builds-for-project.md#view-builds-for-project-cli")
 

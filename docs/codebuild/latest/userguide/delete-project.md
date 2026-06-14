@@ -20,6 +20,7 @@ its builds.
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. In the navigation pane, choose **Build projects**.
 3. Do one of the following:
+
    - Choose the radio button next to the build project you want to delete,
      and then choose **Delete**.
    - Choose the link for the build project you want to delete, and then

@@ -44,6 +44,7 @@ To grant CodeBuild project IAM role access to Secrets Manager or CodeConnections
 
 1. Create an IAM role for your CodeBuild project by following the instructions to [Allow CodeBuild to interact with other AWS services](setting-up-service-role.md "setting-up-service-role.md") for your CodeBuild project.
 2. Do one of the following:
+
    - Add the following IAM policy to your CodeBuild project role to grant access to your secret.
 
    JSON
@@ -90,7 +91,6 @@ To grant CodeBuild project IAM role access to Secrets Manager or CodeConnections
    }`
 
    ```
-
    - Add the following IAM policy to your CodeBuild project role to grant access to your connection.
 
    JSON
@@ -129,8 +129,10 @@ AWS Management Console
 1.  For **Source provider**, choose **Bitbucket**,
     **GitHub**, or **GitHub Enterprise**.
 2.  For **Credential**, do one of the following:
+
     - Choose **Default source credential** to use
       your account's default source credential to apply to all projects.
+
       1. If you aren't connected to your source provider, choose **Manage default source credential**.
       2. For **Credential type**, choose a credential type.
       3. If you chose **CodeConnections**, choose to use an existing connection or create a new connection.
@@ -144,6 +146,7 @@ AWS Management Console
 
     - Choose **Custom source credential** to use
       a custom source credential to override your account's default settings.
+
       1. For **Credential type**, choose a credential type.
       2. In **Connection**, choose to use an existing connection or create a new connection.
 
@@ -192,14 +195,17 @@ AWS Management Console
 1. For **Source provider**, choose
    **GitHub**.
 2. For **Credential**, do one of the following:
+
    - Choose **Default source credential** to use
      your account's default source credential to apply to all projects.
+
      1. If you aren't connected to GitHub, choose **Manage default source credential**.
      2. For **Credential type**, choose **GitHub App**.
      3. In **Connection**, choose to use an existing connection or create a new connection.
 
    - Choose **Custom source credential** to use
      a custom source credential to override your account's default settings.
+
      1. For **Credential type**, choose **GitHub App**.
      2. In **Connection**, choose to use an existing connection or create a new connection.
 

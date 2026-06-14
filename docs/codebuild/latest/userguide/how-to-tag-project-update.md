@@ -25,6 +25,7 @@ You can use the CodeBuild console to edit the tags associated with a CodeBuild p
    **Build project tags**.
 4. Choose **Edit**.
 5. Do one of the following:
+
    - To change the tag, enter a new name in **Key**.
      Changing the name of the tag is the equivalent of removing a tag and
      adding a new tag with the new key name.

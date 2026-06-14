@@ -119,6 +119,7 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
 ######
 
 1. Access your fastlane session cookie as follows.
+
    1. Secret key - `FASTLANE_SESSION`
    2. Secret value - session cookie generated from running the following
       command on your local machine.
@@ -136,6 +137,7 @@ secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secr
    certificates and profiles stored in the Git repository, it is necessary to add
    the encryption passphrase that you configured in the Match setup step to the
    CodeBuild project’s environment variables.
+
    1. Secret key - `MATCH_PASSWORD`
    2. Secret value - `<match passphrase to decrypt
 certificates>`. The passphrase is set while generating the
@@ -143,6 +145,7 @@ certificates>`. The passphrase is set while generating the
 
 3. Fastlane `MATCH_GIT_BASIC_AUTHORIZATION` - set a basic
    authorization for _match_:
+
    1. Secret key:
 
    `MATCH_GIT_BASIC_AUTHORIZATION` 2. Secret value - The value should be a base64 encoded string of your
@@ -186,11 +189,13 @@ Create your project in CodeBuild.
 3. Set up your source provider (such as GitHub, CodeCommit). This is iOS project
    source repository and not certificates repository.
 4. In **Environment**:
+
    - Choose **Reserved Capacity**.
    - For **Fleet**, select the fleet created above.
    - Provide the name of the service role that CodeBuild will create for
      you.
    - Provide the below environment variables.
+
      - Name: `MATCH_PASSWORD`, Value:
        `<secrets arn>`, Type: Secrets
        Manager (Secrets ARN created in step 5 for

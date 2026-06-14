@@ -12,7 +12,9 @@ Use the following procedure to create a GitHub manual webhook.
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Create a build project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console") and
    [Run a build (console)](run-build-console.md "run-build-console.md").
+
    - In **Source**:
+
      - For **Source provider**, choose
        **GitHub**.
      - For **Repository**, choose **Repository in my GitHub account**.
@@ -20,6 +22,7 @@ Use the following procedure to create a GitHub manual webhook.
        `https://github.com/`user-name`/`repository-name``.
 
    - In **Primary source webhook events**:
+
      - For **Webhook - optional**, choose
        **Rebuild every time a code change is pushed to this repository**.
      - Choose **Additional configuration** and for **Manual creation - optional**,

@@ -37,6 +37,7 @@ In the preceding command, replace the following placeholders:
 
 - `sort-by`: Optional string used to indicate the
   criterion to be used to list build project names. Valid values include:
+
   - `CREATED_TIME`: List the build project names based on when
     each build project was created.
   - `LAST_MODIFIED_TIME`: List the build project names based on

@@ -645,6 +645,7 @@ build error such as `Unable to locate credentials`.
 
 - Make sure your build environment has the following version or higher of the
   AWS CLI, AWS SDK, or component.
+
   - AWS CLI: 1.10.47
   - AWS SDK for C++: 0.2.19
   - AWS SDK for Go: 1.2.5
@@ -673,6 +674,7 @@ docker run -e AWS_DEFAULT_REGION -e AWS_CONTAINER_CREDENTIALS_RELATIVE_URI `your
   (for example, to download a file from Amazon S3), you must pass through the
   credentials from the build environment to the Docker build process as
   follows.
+
   1.  In your source code's Dockerfile for the Docker image, specify the
       following `ARG` instructions.
 
@@ -680,7 +682,6 @@ docker run -e AWS_DEFAULT_REGION -e AWS_CONTAINER_CREDENTIALS_RELATIVE_URI `your
   ARG AWS_DEFAULT_REGION
   ARG AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
   ```
-
   2.  In your buildspec file, include a Docker `build` command
       such as the following. The `--build-arg` options sets the
       environment variables required for your Docker build process to access
@@ -715,6 +716,7 @@ connect: connection refused` from Amazon S3.
 - Make sure `ssl-bump` is configured properly. If you use Squid for
   your proxy server, see [Configure Squid as an explicit proxy server](run-codebuild-in-explicit-proxy-server.md#use-proxy-server-explicit-squid-configure "run-codebuild-in-explicit-proxy-server.md#use-proxy-server-explicit-squid-configure").
 - Follow these steps to use private endpoints for Amazon S3 and CloudWatch Logs:
+
   1.  In your private subnet routing table, remove the rule you added that
       routes traffic destined for the internet to your proxy server. For
       information, see [Creating a

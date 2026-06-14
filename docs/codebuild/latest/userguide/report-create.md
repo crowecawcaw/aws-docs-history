@@ -9,6 +9,7 @@ test report is generated for each subsequent build that uses the same buildspec 
 
 1. Create a build project. For information, see [Create a build project in AWS CodeBuild](create-project.md "create-project.md").
 2. Configure the buildspec file of your project with test report informaton:
+
    1. Add a `reports:` section and specify either the ARN of an
       existing report group, or the name of a report group.
 

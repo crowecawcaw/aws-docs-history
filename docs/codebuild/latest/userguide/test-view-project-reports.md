@@ -5,6 +5,7 @@
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Locate the build you want to view. If you know the project that ran the
    build that created the test report:
+
    1. In the navigation pane, choose **Build
       projects**, and then choose the project with the build
       that ran the test report you want to view.

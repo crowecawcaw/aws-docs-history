@@ -15,6 +15,7 @@ buildspec file, do the following:
 
 1. Set your build project to override the artifact name with a name in the buildspec
    file.
+
    - If you use the console to create your build project, select
      **Enable semantic versioning**. For more information,
      see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console").

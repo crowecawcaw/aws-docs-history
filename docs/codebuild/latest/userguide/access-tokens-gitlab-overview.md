@@ -75,6 +75,7 @@ For more information, see [Share connections with AWS accounts](../../../dtconso
 
 1. Sign in to the CodeBuild console.
 2. Choose one of the following.
+
    - Choose to create a build project. Follow the steps in [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console") to complete the first
      screen and in the **Source** section,
      under **Source Provider**, choose
@@ -86,6 +87,7 @@ For more information, see [Share connections with AWS accounts](../../../dtconso
      provider**, choose **GitLab**.
 
 3. Choose one of the following:
+
    - Under **Connection**, choose **Default
      connection**. Default connection applies a default
      GitLab connection across all projects.
@@ -94,6 +96,7 @@ For more information, see [Share connections with AWS accounts](../../../dtconso
      connection that overrides your account's default settings.
 
 4. Do one of the following:
+
    - Under **Default connection** or **Custom
      connection**, if you have not already created a
      connection to your provider, choose **Create a new GitLab

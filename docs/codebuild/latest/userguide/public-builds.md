@@ -37,6 +37,7 @@ The following should be kept in mind when making your project's build results pu
   code, and other sensitive information may have been output to the build logs and artifacts.
   You must be careful about what information is output to the build logs. Some best practices
   are:
+
   - Do not store sensitive values, especially AWS access key IDs and secret access
     keys, in environment variables. We recommend that you use an Amazon EC2 Systems Manager Parameter Store
     or AWS Secrets Manager to store sensitive values.

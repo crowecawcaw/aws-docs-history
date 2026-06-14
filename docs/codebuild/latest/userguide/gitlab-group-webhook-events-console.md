@@ -7,7 +7,9 @@ about group GitLab webhooks, see [GitLab group webhooks](gitlab-group-webhook.md
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Create a build project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console")
    and [Run a build (console)](run-build-console.md "run-build-console.md").
+
    - In **Source**:
+
      - For **Source provider**, choose
        **GitLab** or **GitLab
        Self Managed**.
@@ -28,6 +30,7 @@ about group GitLab webhooks, see [GitLab group webhooks](gitlab-group-webhook.md
 
    ![The configuration of GitLab scoped webhook.](images/gitlab-group-source.png)
    - In **Primary source webhook events**:
+
      - For **Group name**, enter the
        group name.
 

@@ -9,6 +9,7 @@ To complete this tutorial, you must first:
   use the CodeBuild console to do so. If you'd like to create a personal access token, you can either use the CodeBuild console or use the [ImportSourceCredentials API](../APIReference/API_ImportSourceCredentials.md "../APIReference/API_ImportSourceCredentials.md"). For more instructions, see
   [GitHub and GitHub Enterprise Server access in CodeBuild](access-tokens-github-overview.md "access-tokens-github-overview.md").
 - Connect CodeBuild to your GitHub account. To do so, you can do one of the following:
+
   - You can add GitHub as a source provider in the console. You
     can connect with either a personal access token,
     a Secrets Manager secret, OAuth app, or GitHub App. For

@@ -19,6 +19,7 @@ To change the settings for a build project, perform the following procedure:
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. In the navigation pane, choose **Build projects**.
 3. Do one of the following:
+
    - Choose the link for the build project you want to change, and then choose
      **Build details**.
    - Choose the button next to the build project you want to change, choose
@@ -115,6 +116,7 @@ The following should be kept in mind when making your project's build results pu
   code, and other sensitive information may have been output to the build logs and artifacts.
   You must be careful about what information is output to the build logs. Some best practices
   are:
+
   - Do not store sensitive values, especially AWS access key IDs and secret access
     keys, in environment variables. We recommend that you use an Amazon EC2 Systems Manager Parameter Store
     or AWS Secrets Manager to store sensitive values.
@@ -925,6 +927,7 @@ Do one of the following:
   to an Amazon ECR repository.
 - To store the build output in an S3 bucket, choose
   **Amazon S3**, and then do the following:
+
   - If you want to use your project name for the build output
     ZIP file or folder, leave **Name** blank.
     Otherwise, enter the name. (If you want to output a ZIP
@@ -983,6 +986,7 @@ For **Cache type**, choose one of the following:
   cache**.
 - If you want to use an Amazon S3 cache, choose **Amazon
   S3**, and then do the following:
+
   - For **Bucket**, choose the name of the S3
     bucket where the cache is stored.
   - (Optional) For **Cache path prefix**, enter

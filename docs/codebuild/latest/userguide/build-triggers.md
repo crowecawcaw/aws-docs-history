@@ -64,6 +64,7 @@ has a start hour of zero and a start minute of zero. A daily trigger that starts
 8. Select **Enable this trigger**.
 9. (Optional) Expand **Advanced section**. In **Source
    version**, type a version of your source.
+
    - For Amazon S3, enter the version ID that corresponds to the version of the input artifact
      you want to build. If **Source version** is left blank, the latest version is used.
    - For AWS CodeCommit, type a commit ID. If **Source version** is left blank,

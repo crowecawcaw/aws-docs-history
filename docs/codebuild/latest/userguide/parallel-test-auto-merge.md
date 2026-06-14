@@ -27,11 +27,13 @@ The following key fields in the **Report** tab are specific to batch-build repor
 The status of batch build reports follows specific rules depending on the report type:
 
 - Test reports:
+
   - Succeeded: Status is set to succeeded when all individual build reports have succeeded.
   - Failed: Status is set to failed if any individual build report has failed.
   - Incomplete: Status is marked as incomplete if any individual build report is missing or has an incomplete status.
 
 - Code coverage reports:
+
   - Complete: Status is set to complete when all individual build reports are complete.
   - Failed: Status is set to failed if any individual build report has failed.
   - Incomplete: Status is marked as incomplete if any individual build report is missing or has an incomplete status.

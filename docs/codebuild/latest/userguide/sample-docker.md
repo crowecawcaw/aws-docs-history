@@ -190,6 +190,7 @@ the `create-project` command might look similar to this.
 
 6. Confirm that CodeBuild successfully pushed the Docker image to the
    repository:
+
    1. Open the Amazon ECR console at
       [https://console.aws.amazon.com/ecr/](https://console.aws.amazon.com/ecr/ "https://console.aws.amazon.com/ecr/").
    2. Choose the repository name. The image should be listed in the

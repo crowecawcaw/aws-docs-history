@@ -59,8 +59,10 @@ Use the following instructions to create a reserved capacity fleet.
    **Major version** and **Minor version**.
 7. (Optional) In **Additional
    configuration** do the following:
+
    - Select **Configure VPC - optional** to
      connect your fleet to a VPC to access private resources during usage.
+
      - From the **VPC** drop-down menu, select a
        VPC that your CodeBuild fleet will access.
      - From the **Subnets** drop-down menu, select the
@@ -79,6 +81,7 @@ Use the following instructions to create a reserved capacity fleet.
 
    - Select **Configure custom AMI - optional** to
      use a custom Amazon Machine Image (AMI).
+
      - From the **AMI** drop-down menu, select a
        an Amazon Machine Image (AMI) for your fleet.
      - In the **Fleet Service Role** field, choose an existing service role.
@@ -90,19 +93,23 @@ Use the following instructions to create a reserved capacity fleet.
 
 8. In **Capacity configuration**, from
    **Compute selection mode**, choose one of the following:
+
    - If you choose **Guided selection**, do the following:
+
      - For **Compute**, choose the type of
        instances included in this fleet.
      - In the **Capacity** text field, enter the minimum number of
        instances in the fleet.
      - (Optional) In **Additional
        configuration** do the following:
+
        - Select **Configure scaling - optional** to
          automatically scale your fleet based on this configuration. From the
          **Scaling mode - optional** drop-down menu,
          choose the behavior when demand exceeds the fleet capacity.
 
    - If you choose **Custom instance**, do the following:
+
      - From the **Compute instance type** drop-down menu, select the type of
        instances included in this fleet.
      - In the **Additional EBS volume size - optional** text field,
@@ -111,6 +118,7 @@ Use the following instructions to create a reserved capacity fleet.
        instances in the fleet.
      - (Optional) In **Additional
        configuration** do the following:
+
        - Select **Configure scaling - optional** to
          automatically scale your fleet based on this configuration. From the
          **Scaling mode - optional** drop-down menu,
@@ -194,6 +202,7 @@ and Europe (Frankfurt). Reserved capacity macOS Large fleets are supported in th
 7. (Optional) To use a custom image for your fleet, see [How do I configure a custom Amazon Machine Image (AMI) for a reserved capacity fleet?](#fleets.custom-ami "#fleets.custom-ami") to ensure that your Amazon Machine Image (AMI) has the required prerequisites.
 8. (Optional) To configure a VPC with your fleet, in **Additional configuration** do the
    following:
+
    - From the **VPC - optional** drop-down menu, select a VPC that your CodeBuild fleet will access.
    - From the **Subnets** drop-down menu, select the subnets that CodeBuild should use to set up your VPC configuration.
    - From the **Security groups** drop-down menu, select the security groups that CodeBuild should use to work with your VPC.
@@ -221,6 +230,7 @@ and Europe (Frankfurt). Reserved capacity macOS Large fleets are supported in th
 3. In the **Compute fleet name** text field, enter a
    name for your fleet.
 4. Choose **Custom image** for your fleet and ensure that your Amazon Machine Image (AMI) has the following prerequisites:
+
    - If your environment type is `MAC_ARM`, make sure that your AMI **Architecture** is 64-bit `Mac-Arm`.
    - If your environment type is `LINUX_EC2`, make sure that your AMI **Architecture** is 64-bit `x86`.
    - If your environment type is `ARM_EC2`, make sure that your AMI **Architecture** is 64-bit `Arm`.
@@ -256,7 +266,6 @@ and Europe (Frankfurt). Reserved capacity macOS Large fleets are supported in th
        }
    }
    ```
-
    - In the **Fleet service role** field, grant the following Amazon EC2 permissions:
 
    JSON

@@ -7,7 +7,9 @@ about global and organization GitHub webhooks, see [GitHub global and organizati
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Create a build project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console")
    and [Run a build (console)](run-build-console.md "run-build-console.md").
+
    - In **Source**:
+
      - For **Source provider**, choose
        **GitHub** or **GitHub
        Enterprise**.
@@ -35,6 +37,7 @@ about global and organization GitHub webhooks, see [GitHub global and organizati
 
    ![The configuration of GitHub scoped webhook.](images/github-organization-webhook-source.png)
    - In **Primary source webhook events**:
+
      - For **Scope type**, choose
        **Organization level** if you're creating
        an organization webhook or **Enterprise level**

@@ -65,6 +65,7 @@ placeholders with your own values.)
    ``windows-build-output-artifact`.zip` file
    to your local computer or instance. Extract the contents to get to the runtime and other
    files.
+
    - The runtime file for the F# sample using the .NET Framework,
      `FSharpHelloWorld.exe`, can be found in the
      `FSharpHelloWorld\bin\Debug` directory.

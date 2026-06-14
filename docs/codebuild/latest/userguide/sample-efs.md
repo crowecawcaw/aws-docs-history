@@ -29,6 +29,7 @@ are:
 2. Create a file system that uses this VPC.
 3. Create and build a CodeBuild project that uses the VPC. The CodeBuild project uses the
    following to identify the file system:
+
    - A unique file system identifier. You choose the identifier when you
      specify the file system in your build project.
    - The file system ID. The ID is displayed when you view your file system

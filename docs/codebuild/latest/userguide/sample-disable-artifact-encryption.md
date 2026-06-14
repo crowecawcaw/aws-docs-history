@@ -43,6 +43,7 @@ For **Environment image**, do one of the following:
      AWS Secrets Manager?](../../../secretsmanager/latest/userguide.md "../../../secretsmanager/latest/userguide.md") in the *AWS Secrets Manager User Guide*.
 
 7. In **Service role**, do one of the following:
+
    - If you do not have a CodeBuild service role, choose **New service role**. In **Role
      name**, enter a name for the new role.
    - If you have a CodeBuild service role, choose **Existing service role**. In **Role

@@ -23,6 +23,7 @@ Use the following instructions to run the Amazon ECR sample for CodeBuild.
     complete the steps in the [Run the 'Publish Docker image to Amazon ECR' sample](sample-docker.md#sample-docker-running "sample-docker.md#sample-docker-running") section of the ['Publish Docker image to Amazon ECR'
     sample](sample-docker.md "sample-docker.md").
 2.  Create a Go project:
+
     1. Create the files as described in the [Go project structure](#ecr-sample-go-project-file-structure "#ecr-sample-go-project-file-structure") and [Go project files](#sample-ecr-go-project-files "#sample-ecr-go-project-files") sections of this topic, and
        then upload them to an S3 input bucket or an AWS CodeCommit, GitHub, or
        Bitbucket repository.
@@ -68,7 +69,6 @@ Use the following instructions to run the Amazon ECR sample for CodeBuild.
       "encryptionKey": "arn:aws:kms:`region-ID`:`account-ID`:key/`key-ID`"
     }
     ```
-
     3. To get the build output artifact, open your S3 output bucket.
     4. Download the
        ``GoOutputArtifact`.zip`file to your local computer or instance, and then extract the contents
@@ -77,6 +77,7 @@ of the file. In the extracted contents, get the`hello` file.
 3.  If one of the following is true, you must add permissions to your image
     repository in Amazon ECR so that AWS CodeBuild can pull its Docker image into the build
     environment.
+
     - Your project uses CodeBuild credentials to pull Amazon ECR images. This is
       denoted by a value of `CODEBUILD` in the
       `imagePullCredentialsType` attribute of your
@@ -98,6 +99,7 @@ of the file. In the extracted contents, get the`hello` file.
        selected. This indicates that you want to allow access to another AWS
        account.
     6. For **Principal**, do one of the following:
+
        - If your project uses CodeBuild credentials to pull an Amazon ECR image,
          in **Service principal**, enter
          `codebuild.amazonaws.com`.
@@ -121,7 +123,6 @@ of the file. In the extracted contents, get the`hello` file.
     }
 
     ```
-
     10. Choose **Save**.
 
     This policy is displayed in **Permissions**. The

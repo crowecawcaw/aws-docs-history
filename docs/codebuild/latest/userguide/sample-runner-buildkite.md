@@ -39,8 +39,10 @@ Tokens](https://buildkite.com/docs/agent/v3/tokens "https://buildkite.com/docs/a
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Create a self-hosted build project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console")
    and [Run a build (console)](run-build-console.md "run-build-console.md").
+
    - In **Project configuration**, select
      **Runner project**. In **Runner**:
+
      - For **Runner provider**, choose
        **Buildkite**.
      - For **Buildkite agent token**, choose
@@ -61,6 +63,7 @@ Tokens](https://buildkite.com/docs/agent/v3/tokens "https://buildkite.com/docs/a
    in order to pull your job’s source. See [Authenticating Buildkite to a Private Repository](#sample-runner-buildkite-config "#sample-runner-buildkite-config") for available
    source credential options.
    - (Optional) In **Environment**:
+
      - Choose a supported **Environment image** and
        **Compute**.
 
@@ -69,6 +72,7 @@ Tokens](https://buildkite.com/docs/agent/v3/tokens "https://buildkite.com/docs/a
      For more information, see [Step 4: Update your Buildkite pipeline steps](#sample-runner-buildkite-update-pipeline "#sample-runner-buildkite-update-pipeline").
 
    - (Optional) In **Buildspec**:
+
      - Your buildspec will be ignored by default unless
        `buildspec-override: "true"` is added as a label.
        Instead, CodeBuild will override it to use commands that will set up
@@ -104,6 +108,7 @@ Buildkite job starts.
 3. Choose **Add** next to the **Webhook** box.
    In the **Add Webhook Notification** page, use the following
    configuration:
+
    1. Under **Webhook URL**, add the saved
       **Payload URL** value.
    2. Under **Token**, verify that **Send the token
@@ -279,6 +284,7 @@ following steps:
    a new CodeBuild project using the steps in [Step 2: Create a CodeBuild project with a webhook](#sample-runner-buildkite-create-project "#sample-runner-buildkite-create-project").
 2. Under **Buildkite source credential options**, select your
    job’s source repository provider.
+
    1. If you would like to use account-level CodeBuild credentials, verify that
       they are configured correctly. Additionally, if your project has an
       inline buildspec configured, verify that [git-credential-helper](build-spec-ref.md#build-spec.env.git-credential-helper "build-spec-ref.md#build-spec.env.git-credential-helper") is enabled.

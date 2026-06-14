@@ -105,6 +105,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.
 1.  **INSTALLATION AND USE RIGHTS**. You may install and use any number of copies of
     the software.
 2.  **TERMS FOR SPECIFIC COMPONENTS**.
+
     1.  **Utilities**. The software may contain
         some items on the Utilities List at [https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs](https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs "https://docs.microsoft.com/en-us/visualstudio/productinfo/2015-redistribution-vs").
         You may copy and install those items, if included with the software, on
@@ -170,6 +171,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.
     despite this limitation, you may use the software only as expressly permitted in
     this agreement. In doing so, you must comply with any technical limitations in
     the software that only allow you to use it in certain ways. You may not
+
     - work around any technical limitations in the software;
     - reverse engineer, decompile or disassemble the software, or attempt to
       do so, except and only to the extent required by third party licensing
@@ -205,6 +207,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.
     so. For example, if you acquired the software in one of the below regions, or
     mandatory country law applies, then the following provisions apply to
     you:
+
     1. **Australia**. You have
        statutory guarantees under the Australian Consumer Law and nothing in
        this agreement is intended to affect those rights.
@@ -216,6 +219,7 @@ IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.
        product documentation, if any, may also specify how to turn off updates
        for your specific device or software.
     3. **Germany and Austria**.
+
        1. **Warranty**. The properly
           licensed software will perform substantially as described in any
           Microsoft materials that accompany the software. However,
@@ -300,7 +304,9 @@ below.**
 1. **DISTRIBUTABLE CODE.** The supplement is
    comprised of Distributable Code. "Distributable Code" is code that you are
    permitted to distribute in programs you develop if you comply with the terms below.
+
    1. **Right to Use and Distribute**.
+
       - You may copy and distribute the object code form
         of the supplement.
       - Third Party
@@ -311,6 +317,7 @@ below.**
 
    2. **Distribution Requirements. For any
       Distributable Code you distribute, you must**
+
       - add significant primary functionality to it in your
         programs;
       - for any Distributable Code having a filename extension of
@@ -330,6 +337,7 @@ below.**
 
    3. **Distribution Restrictions. You may
       not**
+
       - alter any copyright, trademark or patent notice in the
         Distributable Code;
       - use Microsoft's trademarks in your programs' names or in a
@@ -343,6 +351,7 @@ below.**
         Code so that any part of it becomes subject to an Excluded
         License. An Excluded License is one that requires, as a
         condition of use, modification or distribution, that
+
         - the code be disclosed or distributed in source code form; or
         - others have the right to modify it.
 
@@ -400,13 +409,16 @@ RIGHTS BELOW.**
    programs.
 2. **ADDITIONAL LICENSING REQUIREMENTS AND/OR USE
    RIGHTS**.
+
    1. **Distributable Code**. You may
       distribute the software in developer tool programs you develop, to
       enable customers of your programs to develop portable libraries for use
       with any device or operating system, if you comply with the terms
       below.
+
       1. **Right to Use and Distribute. The
          software is "Distributable Code."**
+
          - Distributable
            Code. You may copy and distribute the
            object code form of the software.
@@ -418,6 +430,7 @@ RIGHTS BELOW.**
       2. **Distribution Requirements. For any
          Distributable Code you distribute, you
          must**
+
          - add significant primary functionality to it in your
            programs;
          - require distributors and your customers to agree to
@@ -431,6 +444,7 @@ RIGHTS BELOW.**
 
       3. **Distribution Restrictions. You may
          not**
+
          - alter any copyright, trademark or patent notice in the
            Distributable Code;
          - use Microsoft's trademarks in your programs' names or
@@ -442,6 +456,7 @@ RIGHTS BELOW.**
            any part of it becomes subject to an Excluded License.
            An Excluded License is one that requires, as a condition
            of use, modification or distribution, that
+
            - the code be disclosed or distributed in source
              code form; or
            - others have the right to modify it.
@@ -452,6 +467,7 @@ RIGHTS BELOW.**
    despite this limitation, you may use the software only as expressly permitted in
    this agreement. In doing so, you must comply with any technical limitations in
    the software that only allow you to use it in certain ways. You may not
+
    - work around any technical limitations in the software;
    - reverse engineer, decompile or disassemble the software, except
      and only to the extent that applicable law expressly permits,
@@ -487,6 +503,7 @@ RIGHTS BELOW.**
    that you use, are the entire agreement for the software and any support services
    we provide.
 9. **APPLICABLE LAW**.
+
    1. **United States**. If you acquired
       the software in the United States, Washington state law governs the
       interpretation of this agreement and applies to claims for breach of
@@ -555,6 +572,7 @@ extent those have different terms.
 BELOW.**
 
 1. **INSTALLATION AND USE RIGHTS**.
+
    1. One user may use copies of the software to develop and test their
       applications.
 
@@ -571,6 +589,7 @@ BELOW.**
    the privacy statement at [http://go.microsoft.com/fwlink/?LinkID=528096](http://go.microsoft.com/fwlink/?LinkID=528096 "http://go.microsoft.com/fwlink/?LinkID=528096"). Your use of the
    software operates as your consent to these practices.
 3. **TERMS FOR SPECIFIC COMPONENTS**.
+
    1. **Build Server**. The software may
       contain some Build Server components listed in BuildServer.TXT
       files, and/or any files listed on the BuildeServer list located
@@ -609,6 +628,7 @@ BELOW.**
    technical limitations in the software that only allow you to use it in
    certain ways. For more information, see [https://docs.microsoft.com/en-us/legal/information-protection/software-license-terms#1-installation-and-use-rights](https://docs.microsoft.com/en-us/legal/information-protection/software-license-terms#1-installation-and-use-rights "https://docs.microsoft.com/en-us/legal/information-protection/software-license-terms#1-installation-and-use-rights"). You may
    not
+
    - work around any technical limitations in the software;
    - reverse engineer, decompile or disassemble the software, or
      attempt to do so, except and only to the extent required by third
@@ -645,6 +665,7 @@ BELOW.**
    country do not permit it to do so. For example, if you acquired the software
    in one of the below regions, or mandatory country law applies, then the
    following provisions apply to you:
+
    - **Australia**. You have statutory
      guarantees under the Australian Consumer Law and nothing in this
      agreement is intended to affect those rights.
@@ -657,6 +678,7 @@ BELOW.**
      also specify how to turn off updates for your specific device or
      software.
    - **Germany and Austria**.
+
      - **Warranty**. The properly
        licensed software will perform substantially as described in
        any Microsoft materials that accompany the software.

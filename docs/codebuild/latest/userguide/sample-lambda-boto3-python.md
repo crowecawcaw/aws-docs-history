@@ -65,6 +65,7 @@ Create a CodeBuild Lambda Python project.
 4. In **Source**, select the source repository
    where your AWS SAM project is located.
 5. In **Environment**:
+
    - For **Compute**, select **Lambda**.
    - For **Runtime(s)**, select **Python**.
    - For **Image**, select **aws/codebuild/amazonlinux-x86_64-lambda-standard:python3.12**.

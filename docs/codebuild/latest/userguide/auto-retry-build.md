@@ -19,7 +19,9 @@ CodeBuild does not support auto-retry for CodePipeline.
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Choose **Create project**. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console")
    and [Run a build (console)](run-build-console.md "run-build-console.md").
+
    - In **Environment**:
+
      - For **Auto-retry limit**, enter the maximum number of
        auto-retries desired after a failed build.
 

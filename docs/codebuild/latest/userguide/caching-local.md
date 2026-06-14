@@ -34,6 +34,7 @@ If you choose local caching, you must choose one or more of the following cache 
 - Custom cache mode caches directories you specify in the buildspec file. This
   mode is a good choice if your build scenario is not suited to one of the other
   two local cache modes. If you use a custom cache:
+
   - Only directories can be specified for caching. You cannot specify
     individual files.
   - Symlinks are used to reference cached directories.

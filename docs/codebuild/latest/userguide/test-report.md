@@ -9,6 +9,7 @@ The status of a test report can be one of the following:
   an S3 bucket are not deleted.
 - `INCOMPLETE`: The test report was not completed. This status might
   be returned for one of the following reasons:
+
   - A problem with the configuration of the report group that specifies
     this report's test cases. For example, the path to the test cases under
     the report group in the buildspec file might be incorrect.

@@ -74,6 +74,7 @@ Region, the bucket must be in the US East (Ohio) Region.
    a name for this build project. Build project names must be unique across each AWS account. You can also include an optional description of the build project to
    help other users understand what this project is used for.
 4. In **Source**, in **Source provider**, choose **GitHub Enterprise Server**.
+
    - Choose **Manage account credentials**, and then choose **Personal access token**. For **Service**, choose **Secrets
      Manager (recommended)**, and configure your secret. Then in **,GitHub Enterprise personal access token**, enter your personal access token and choose **Save**.
    - In **Repository URL**, enter the path to your repository, including the name of the repository.
@@ -111,6 +112,7 @@ For **Environment image**, do one of the following:
      AWS Secrets Manager?](../../../secretsmanager/latest/userguide.md "../../../secretsmanager/latest/userguide.md") in the *AWS Secrets Manager User Guide*.
 
 6. In **Service role**, do one of the following:
+
    - If you do not have a CodeBuild service role, choose **New service role**. In **Role
      name**, enter a name for the new role.
    - If you have a CodeBuild service role, choose **Existing service role**. In **Role

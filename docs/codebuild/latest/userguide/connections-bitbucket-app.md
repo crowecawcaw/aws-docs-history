@@ -70,14 +70,17 @@ AWS Management Console
 1. For **Source provider**, choose
    **Bitbucket**.
 2. For **Credential**, do one of the following:
+
    - Choose **Default source credential** to use
      your account's default source credential to apply to all projects.
+
      1. If you aren't connected to Bitbucket, choose **Manage default source credential**.
      2. For **Credential type**, choose **CodeConnections**.
      3. In **Connection**, choose to use an existing connection or create a new connection.
 
    - Choose **Custom source credential** to use
      a custom source credential to override your account's default settings.
+
      1. For **Credential type**, choose **CodeConnections**.
      2. In **Connection**, choose to use an existing connection or create a new connection.
 

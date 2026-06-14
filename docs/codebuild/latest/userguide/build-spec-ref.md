@@ -1250,6 +1250,7 @@ login` (to sign in to Docker with the password that corresponds to the
 - `reports` represents two
   report groups that generate reports
   during the build:
+
   - `arn:aws:codebuild:your-region:your-aws-account-id:report-group/report-group-name-1`
     specifies the ARN of a report group.
     Test

@@ -18,6 +18,7 @@ in-progress Lambda build cannot be stopped.
 
 1. Open the AWS CodeBuild console at [https://console.aws.amazon.com/codesuite/codebuild/home](https://console.aws.amazon.com/codesuite/codebuild/home "https://console.aws.amazon.com/codesuite/codebuild/home").
 2. Do one of the following:
+
    - If the
      **`build-project-name`:`build-ID`**
      page is displayed, choose **Stop build**.

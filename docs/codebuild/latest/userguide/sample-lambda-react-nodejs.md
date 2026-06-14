@@ -27,11 +27,13 @@ Create an AWS CodeBuild Lambda Node.js project.
 4. In **Source**, select the source repository
    where your AWS SAM project is located.
 5. In **Environment**:
+
    - For **Compute**, select **Lambda**.
    - For **Runtime(s)**, select **Node.js**.
    - For **Image**, select **aws/codebuild/amazonlinux-x86_64-lambda-standard:nodejs20**.
 
 6. In **Artifacts**:
+
    - For **Type**, select **Amazon S3**.
    - For **Bucket name**, select the project artifacts bucket you created earlier.
    - For **Artifacts packaging**, select **Zip**.

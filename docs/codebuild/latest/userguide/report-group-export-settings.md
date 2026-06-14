@@ -38,6 +38,7 @@ Use the following procedure to update a report group using the AWS Management Co
 4. Choose **Edit**.
 5. Select or clear **Backup to Amazon S3**. If you selected
    this option, specify your export settings:
+
    1. For **S3 bucket name**, enter the name of the
       S3 bucket.
    2. For **Path prefix**, enter the path in your
@@ -46,6 +47,7 @@ Use the following procedure to update a report group using the AWS Management Co
       file** to compress your raw test result data files.
    4. Expand **Additional configuration** to
       display encryption options. Choose one of the following:
+
       - **Default AWS managed key** to use a AWS managed key for Amazon S3. For
         more information, see [Customer managed
         CMKs](../../../kms/latest/developerguide/concepts.md#customer-cmk "../../../kms/latest/developerguide/concepts.md#customer-cmk") in the _AWS Key Management Service User Guide_. This is the default
@@ -98,6 +100,7 @@ Use the following procedure to update a report group using the AWS CLI.
    `"arn":"arn:aws:codebuild:`region`:`123456789012`:report-group/`report-group-1`")`.
 4. Update `UpdateReportGroupInput.json` with the
    updates you want to apply to your report group.
+
    - If you want to update your report group to export raw test
      result files to an S3 bucket, update the
      `exportConfig` section. Replace
@@ -120,7 +123,6 @@ Use the following procedure to update a report group using the AWS CLI.
      }
    }
    ```
-
    - If you want to update the report group's tags, update the
      `tags` section. You can change, add, or remove
      tags. If you want to remove all tags, update it with the

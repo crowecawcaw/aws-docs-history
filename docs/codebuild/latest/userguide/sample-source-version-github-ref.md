@@ -16,6 +16,7 @@ you do this, CodeBuild downloads only the specified branch to find the version.
    ``refs`/`heads`/`branchname`^{`full-commit-SHA`}`.
 5. Choose **Start build**.
 6. When the build is complete, you should see the following:
+
    - On the **Build logs** tab, which version of the
      project source was used. Here is an example.
 
@@ -25,7 +26,6 @@ you do this, CodeBuild downloads only the specified branch to find the version.
 
    [Container] Date Time Phase complete: BUILD State: SUCCEEDED
    ```
-
    - On the **Environment variables** tab, the
      **Resolved source version** matches the commit ID
      used to create the build.

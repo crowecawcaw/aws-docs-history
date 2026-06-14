@@ -47,6 +47,7 @@ Create an AWS CodeBuild Lambda Java project and set up the IAM permissions neede
 4. In **Source**, select the source repository
    where your AWS SAM project is located.
 5. In **Environment**:
+
    - For **Compute**, select **Lambda**.
    - For **Runtime(s)**, select **Java**.
    - For **Image**, select **aws/codebuild/amazonlinux-x86_64-lambda-standard:corretto21**.

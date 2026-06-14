@@ -8,6 +8,7 @@ the following ways:
   build input ZIP file.
 - For CodeCommit, Bitbucket, GitHub, and GitHub Enterprise Server, use one of the
   following:
+
   - Pull request as a pull request reference (for example,
     `refs/pull/1/head`).
   - Branch as a branch name.
@@ -15,6 +16,7 @@ the following ways:
   - Tag.
   - Reference and a commit ID. The reference can be one of the
     following:
+
     - A tag (for example,
       `refs/tags/mytagv1.0^{full-commit-SHA}`).
     - A branch (for example,
@@ -23,6 +25,7 @@ the following ways:
       `refs/pull/1/head^{full-commit-SHA}`).
 
 - For GitLab and GitLab Self Managed, use one of the following:
+
   - Branch as a branch name.
   - Commit ID.
   - Tag.

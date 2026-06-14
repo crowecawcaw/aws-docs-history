@@ -39,6 +39,7 @@ is generated for each subsequent build that uses the same buildspec file.
 1. Create a build project. For information, see [Create a build project in AWS CodeBuild](create-project.md "create-project.md").
 2. Configure the buildspec file of your project with test report
    information:
+
    1. Add a `reports:` section and specify the name for your
       report group. CodeBuild creates a report group for you using your project
       name and the name you specified in the format
@@ -64,7 +65,6 @@ is generated for each subsequent build that uses the same buildspec file.
        file-format: 'JACOCOXML'
 
    ```
-
    3. In the `commands` section of the `build` or
       `post_build` sequence, specify the commands that run the
       code coverage analysis. For more information, see [Specify test commands](report-group-test-case-commands.md "report-group-test-case-commands.md").

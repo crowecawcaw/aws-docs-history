@@ -678,6 +678,7 @@ Some environment and compute types have Region availability limitations:
 
 - The compute type Linux GPU Small (`LINUX_GPU_CONTAINER`) is only available in these
   Regions:
+
   - US East (N. Virginia)
   - US West (Oregon)
   - Asia Pacific (Tokyo)
@@ -688,6 +689,7 @@ Some environment and compute types have Region availability limitations:
 
 - The compute type Linux GPU Large (`LINUX_GPU_CONTAINER`) is only available in these
   Regions:
+
   - US East (Ohio)
   - US East (N. Virginia)
   - US West (Oregon)
@@ -703,6 +705,7 @@ Some environment and compute types have Region availability limitations:
 
 - The compute type `BUILD_GENERAL1_2XLARGE` is only available in these
   Regions:
+
   - US East (Ohio)
   - US East (N. Virginia)
   - US West (N. California)
@@ -733,6 +736,7 @@ Some environment and compute types have Region availability limitations:
 
 - The environment type `ARM_CONTAINER` is only available in these
   Regions:
+
   - US East (Ohio)
   - US East (N. Virginia)
   - US West (N. California)
@@ -766,6 +770,7 @@ Some environment and compute types have Region availability limitations:
 
 - The environment type `WINDOWS_SERVER_2022_CONTAINER` is only available in these
   Regions:
+
   - US East (Ohio)
   - US East (N. Virginia)
   - US West (Oregon)
@@ -778,6 +783,7 @@ Some environment and compute types have Region availability limitations:
 - The environment type `LINUX_EC2` (`BUILD_GENERAL1_SMALL`,
   `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`) is only available in these
   Regions:
+
   - US East (Ohio)
   - US East (N. Virginia)
   - US West (N. California)
@@ -817,6 +823,7 @@ Some environment and compute types have Region availability limitations:
 - The environment type `ARM_EC2` (`BUILD_GENERAL1_SMALL`,
   `BUILD_GENERAL1_MEDIUM`, `BUILD_GENERAL1_LARGE`) is only available in these
   Regions:
+
   - US East (Ohio)
   - US East (N. Virginia)
   - US West (N. California)
@@ -853,6 +860,7 @@ Some environment and compute types have Region availability limitations:
 - The environment type `WINDOWS_EC2` (`BUILD_GENERAL1_MEDIUM`,
   `BUILD_GENERAL1_LARGE`) is only available in these
   Regions:
+
   - US East (Ohio)
   - US East (N. Virginia)
   - US West (Oregon)
@@ -864,6 +872,7 @@ Some environment and compute types have Region availability limitations:
 
 - The compute mode AWS Lambda (`ARM_LAMBDA_CONTAINER` and `LINUX_LAMBDA_CONTAINER`) is only available in these
   Regions:
+
   - US East (N. Virginia)
   - US East (Ohio)
   - US West (N. California)
@@ -878,6 +887,7 @@ Some environment and compute types have Region availability limitations:
 
 - The compute mode `MAC_ARM` is only available in these
   Regions:
+
   - US East (N. Virginia)
   - US East (Ohio)
   - US West (Oregon)

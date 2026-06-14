@@ -14,6 +14,7 @@ docker push `your-username`/`repository-name`
 
 2. Follow the steps in [Create an AWS Secrets Manager secret](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") in the _AWS Secrets Manager User
    Guide_.
+
    1. In step 3, in **Choose secret type**, choose **Other type of secret**.
    2. In **Key/value pairs**, create one key-value pair
       for your Docker Hub user name and one key-value pair for your Docker Hub

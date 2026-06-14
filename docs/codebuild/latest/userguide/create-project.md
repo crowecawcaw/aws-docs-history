@@ -861,6 +861,7 @@ Do one of the following:
   to an Amazon ECR repository.
 - To store the build output in an S3 bucket, choose
   **Amazon S3**, and then do the following:
+
   - If you want to use your project name for the build output
     ZIP file or folder, leave **Name** blank.
     Otherwise, enter the name. (If you want to output a ZIP
@@ -919,6 +920,7 @@ For **Cache type**, choose one of the following:
   cache**.
 - If you want to use an Amazon S3 cache, choose **Amazon
   S3**, and then do the following:
+
   - For **Bucket**, choose the name of the S3
     bucket where the cache is stored.
   - (Optional) For **Cache path prefix**, enter
@@ -1213,6 +1215,7 @@ specified repository type.
 - For Amazon S3, the build input bucket name, followed by the path
   and name of the ZIP file that contains the source code and the
   buildspec. For example:
+
   - For a ZIP file located at the root of the input
     bucket:
     ``<bucket-name>`/`<object-name>`.zip`.
@@ -1225,6 +1228,7 @@ specified repository type.
   contain github.com. You must connect your AWS account to your
   GitHub account. To do this, use the CodeBuild console to create a
   build project.
+
   - Choose **Authorize application**.
     (After you have connected to your GitHub account, you do
     not need to finish creating the build project. You can
@@ -1235,6 +1239,7 @@ specified repository type.
   file. You must also connect your AWS account to your GitHub
   Enterprise Server account. To do this, use the CodeBuild console to
   create a build project.
+
   1.  Create a personal access token in GitHub Enterprise
       Server.
   2.  Copy this token to your clipboard so you can use it
@@ -1258,6 +1263,7 @@ specified repository type.
   gitlab.com. You must connect your AWS account to your GitLab
   or GitLab self-managed account. To do this, use the CodeBuild
   console to create a build project.
+
   - In the Developer Tools navigation pane, choose
     **Settings**,
     **Connections**, and then
@@ -1271,6 +1277,7 @@ specified repository type.
   contain bitbucket.org. You must also connect your AWS account
   to your Bitbucket account. To do this, use the CodeBuild console to
   create a build project.
+
   1.  When you use the console to connect (or reconnect)
       with Bitbucket, on the Bitbucket **Confirm
       access to your account** page, choose

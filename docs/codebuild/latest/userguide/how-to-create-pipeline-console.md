@@ -15,6 +15,7 @@ To create a pipeline that only tests your source code:
 ###### To use the create pipeline wizard in CodePipeline to create a pipeline that uses CodeBuild
 
 1. Sign in to the AWS Management Console by using:
+
    - Your AWS root account. This is not recommended. For more information,
      see [The account root
      user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md") in the _user Guide_.

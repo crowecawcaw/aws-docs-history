@@ -10,7 +10,9 @@ download the entire repository to find the version.
 2. Create a build project. For information, see [Create a build project (console)](create-project.md#create-project-console "create-project.md#create-project-console")
    and [Run a build (console)](run-build-console.md "run-build-console.md"). Leave
    all settings at their default values, except for these settings:
+
    - In **Source**:
+
      - For **Source provider**, choose
        **GitHub**. If you are not connected to
        GitHub, follow the instructions to connect.
@@ -20,6 +22,7 @@ download the entire repository to find the version.
        `https://github.com/aws/aws-sdk-ruby.git`.
 
    - In **Environment**:
+
      - For **Environment image**, choose
        **Managed image**.
      - For **Operating system**, choose

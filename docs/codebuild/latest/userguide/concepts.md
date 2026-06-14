@@ -15,6 +15,7 @@ The following diagram shows what happens when you run a build with CodeBuild:
 
 1. As input, you must provide CodeBuild with a build project.
    A _build project_ includes information about how to run a build, including where to get the source code, which build environment to use, which build commands to run, and where to store the build output. A _build environment_ represents a combination of operating system, programming language runtime, and tools that CodeBuild uses to run a build. For more information, see:
+
    - [Create a build project](create-project.md "create-project.md")
    - [Build environment reference](build-env-ref.md "build-env-ref.md")
 

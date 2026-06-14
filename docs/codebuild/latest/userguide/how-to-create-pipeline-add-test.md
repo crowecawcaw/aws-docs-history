@@ -1,6 +1,7 @@
 # Add a CodeBuild test action to a pipeline (CodePipeline console)
 
 1. Sign in to the AWS Management Console by using:
+
    - Your AWS root account. This is not recommended. For more information,
      see [The account root
      user](../../../IAM/latest/UserGuide/id_root-user.md "../../../IAM/latest/UserGuide/id_root-user.md") in the _user Guide_.

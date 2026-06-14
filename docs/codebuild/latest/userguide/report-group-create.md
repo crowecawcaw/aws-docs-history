@@ -75,6 +75,7 @@ Use the following procedure to create a report group using the AWS Management Co
     you want supporting AWS services to use. Use **Add row** to add a
     tag. You can add up to 50 tags.
 6.  If you want to upload the raw data of your test report results to an Amazon S3 bucket:
+
     1.  Select **Export to Amazon S3**.
     2.  For **S3 bucket name**, enter the name of the
         S3 bucket.
@@ -117,6 +118,7 @@ Use the following procedure to create a report group using the AWS CLI.
     `CreateReportGroup.json`.
 2.  Depending on your requirements, copy one of the following JSON code snippets into
     `CreateReportGroup.json`:
+
     - Use the following JSON to specify that your test report group
       exports raw test result files to an Amazon S3 bucket.
 
@@ -157,7 +159,6 @@ Use the following procedure to create a report group using the AWS CLI.
         + Use `encryptionDisabled` to specify whether to encrypt
          the exported files. If you encrypt the exported files, enter your
          customer managed key. For more information, see [Update a report group](report-group-export-settings.md "report-group-export-settings.md").
-
     - Use the following JSON to specify that your test report does
       not export raw test files:
 
