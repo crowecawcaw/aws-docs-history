@@ -62,6 +62,7 @@ needs.**
   ability to perform a capability. Each indicator contains a prescriptive improvement plan
   that contains high-level guidance for performing it. Indicators can fall into one of three
   categories, which represent importance:
+
   - **Foundational:** Requirements to achieve minimum
     viability of the capability when practicing DevOps. Indicators in this category are
     considered essential for organizations to meet to achieve basic proficiency of the
