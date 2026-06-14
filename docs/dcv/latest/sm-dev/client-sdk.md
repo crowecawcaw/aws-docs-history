@@ -17,12 +17,12 @@ https://`broker_host_ip`:`port`/dcv-session-manager-api.yaml
 ```
 
 2. Install Swagger Codegen.
+
    - macOS
 
    ```
    `$` brew install swagger-codegen
    ```
-
    - Other platforms
 
    ```
@@ -34,12 +34,12 @@ https://`broker_host_ip`:`port`/dcv-session-manager-api.yaml
    ```
 
 3. Generate the API client.
+
    - macOS
 
    ```
    `$` swagger-codegen generate -i `/path_to/yaml_file` -l `language` -o $`output_folder`
    ```
-
    - Other platforms
 
    ```
