@@ -9,6 +9,7 @@ feed.
 2. In the left navigation bar, choose **Feeds**. On the
    **Feeds** page, choose **Create**.
 3. Complete the fields:
+
    - Enter a friendly name for the feed. You might want to specify a
      name that helps you to identify the source media that you plan to
      use with this feed. For example,

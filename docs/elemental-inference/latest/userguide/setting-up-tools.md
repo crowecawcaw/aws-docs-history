@@ -5,6 +5,7 @@ programmatically, see the following:
 
 - The API guides document the operations that the services support and provide
   links to the related SDK and CLI documentation:
+
   - [AWS Elemental MediaPackage API Reference](../../../mediapackage/latest/apireference.md "../../../mediapackage/latest/apireference.md")
 
 - To call an API without having to handle low-level details like assembling raw

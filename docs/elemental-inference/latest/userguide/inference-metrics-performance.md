@@ -8,6 +8,7 @@ The number of GetMetadata API requests made to retrieve metadata.
 
 - Name: GetMetadataRequestCount
 - Supported dimension sets:
+
   - Feed
   - Feed, StatusCode: to monitor API requests that result in a specific category
     HTTP response codes.

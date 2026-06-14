@@ -25,6 +25,7 @@ for the smart subtitles output:
 - **Language** (required) – The
   language of the audio in the source media. Elemental Inference uses this setting to
   optimize transcription accuracy. Supported values:
+
   - `deu` – German
   - `eng` – English
   - `eng-au` – English (Australia)
@@ -46,6 +47,7 @@ for the smart subtitles output:
 - **Profanity filter** (optional) –
   Controls how profanity is handled in the generated subtitles. Supported
   values:
+
   - `DISABLED` – No filtering (default). All
     words appear as transcribed.
   - `CENSOR` – Replace profanity with
@@ -103,6 +105,7 @@ When creating or updating a dictionary, the following validation rules
 apply:
 
 - **Name**
+
   - 1–128 characters
   - Must start and end with an alphanumeric character
   - Allowed characters: letters, digits, hyphen (-), underscore
@@ -119,6 +122,7 @@ dictionaries. Use the base language code (for example,
 `eng`) instead.
 
 - **Entries** (JSON payload)
+
   - Must be a valid JSON array. A top-level object or scalar is
     rejected.
   - Maximum 40 KB serialized payload size.
