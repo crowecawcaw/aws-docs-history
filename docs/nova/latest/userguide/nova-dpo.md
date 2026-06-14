@@ -207,6 +207,7 @@ We recommend using DPO in the following scenarios:
   The Amazon Nova parameters that are available for full-rank DPO are as follows:
 
 - **Run configuration**
+
   - `name`: A descriptive name for your training job. This helps
     identify your job in the AWS Management Console.
   - `model_type`: The Nova model variant to use. The available options
@@ -231,6 +232,7 @@ id>/outputs/checkpoints`).
     account and Region.
 
 - **Training configuration**
+
   - `max_length`: The maximum sequence length in tokens. This
     determines the context window size for training. The maximum supported value are
     32,768 tokens for DPO.
@@ -240,6 +242,7 @@ id>/outputs/checkpoints`).
   parameter to your data distribution.
 
 - **Trainer settings**
+
   - `max_epochs`: The number of complete passes through your training
     dataset.
 
@@ -248,6 +251,7 @@ id>/outputs/checkpoints`).
   of epochs based on the size of your data.
 
 - **Model settings**
+
   - `hidden_dropout`: The probability of dropping hidden state outputs.
     Increase this value by approximately 0.0-0.2 to reduce overfitting on smaller
     datasets. Valid values are between 0-1, inclusive.
@@ -258,6 +262,7 @@ id>/outputs/checkpoints`).
     outputs. Valid values are between 0-1, inclusive.
 
 - **Optimizer configuration**
+
   - `lr`: The learning rate, which controls the step size during
     optimization. We recommend values between 1e-6-1e-4 for good performance. Valid
     values are between 0-1, inclusive.
@@ -272,6 +277,7 @@ id>/outputs/checkpoints`).
     values are between 0-1, inclusive, but must be less than learning rate.
 
 - **DPO configuration**
+
   - `beta`: Determines how closely the model should fit the training
     data or the original model. Valid values are between 0.001-0.5, inclusive.
 
@@ -333,6 +339,7 @@ The Amazon Nova parameters that are available for low-rank adapter DPO are as
 follows:
 
 - **Run configuration**
+
   - `name`: A descriptive name for your training job. This helps
     identify your job in the AWS Management Console.
   - `model_type`: The Nova model variant to use. The available options
@@ -350,6 +357,7 @@ id>/outputs/checkpoints`).
     6, 12, or 24 replicas.
 
 - **Training configuration**
+
   - `max_length`: The maximum sequence length in tokens. This
     determines the context window size for training. The maximum supported value are
     32,768 tokens for DPO.
@@ -359,6 +367,7 @@ id>/outputs/checkpoints`).
   parameter to your data distribution.
 
 - **Trainer settings**
+
   - `max_epochs`: The number of complete passes through your training
     dataset.
 
@@ -367,6 +376,7 @@ id>/outputs/checkpoints`).
   of epochs based on the size of your data.
 
 - **Model settings**
+
   - `hidden_dropout`: The probability of dropping hidden state outputs.
     Increase this value by approximately 0.0-0.2 to reduce overfitting on smaller
     datasets. Valid values are between 0-1, inclusive.
@@ -377,6 +387,7 @@ id>/outputs/checkpoints`).
     outputs. Valid values are between 0-1, inclusive.
 
 - **Optimizer configuration**
+
   - `lr`: The learning rate, which controls the step size during
     optimization. We recommend values between 1e-6-1e-4 for good performance. Valid
     values are between 0-1, inclusive.
@@ -391,6 +402,7 @@ id>/outputs/checkpoints`).
     values are between 0-1, inclusive, but must be less than learning rate.
 
 - **DPO configuration**
+
   - `beta`: Determines how closely the model should fit the training
     data or the original model. Valid values are between 0.001-0.5, inclusive.
 
@@ -400,9 +412,11 @@ id>/outputs/checkpoints`).
   diverging from the reference model behavior.
 
 - **LoRA configuration parameters**
+
   - `peft_scheme`: Set to `lora` to enable Low-Rank
     Adaptation, which generates a more efficient, smaller output model. These
     LoRA-specific properties are also available:
+
     - `alpha`: The scaling factor for LoRA weights. This is typically
       set to same value as `adapter_dim`.
     - `adapter_dropout`: The regularization parameter for the LoRA

@@ -32,6 +32,7 @@ on-demand** page with the same fields. To find this page, in
    **Deploy for on-demand**.
 5. In **Deployment details**, provide the following
    information:
+
    - **Deployment Name** (required)
      – Enter a unique name for your deployment.
    - **Description** (optional) –

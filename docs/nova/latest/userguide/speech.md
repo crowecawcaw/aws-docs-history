@@ -37,11 +37,13 @@ Key capabilities and features
 Amazon Nova Sonic implements an event-driven architecture through the bidirectional stream API, enabling real-time conversational experiences. Here are the key architectural components of the API:
 
 1. **Bidirectional event streaming**: Amazon Nova Sonic uses a persistent bidirectional connection that allows simultaneous event streaming in both directions. Unlike traditional request-response patterns, this approach permits the following:
+
    - Continuous audio streaming from the user to the model
    - Concurrent speech processing and generation
    - Real-time model responses without waiting for complete utterances
 
 2. **Event-driven communication flow**: The entire interaction follows an event-based protocol where
+
    - The client and model exchange structured JSON events
    - The events control session lifecycle, audio streaming, text responses, and tool interactions
    - Each event has specific roles in the conversation flow
@@ -51,6 +53,7 @@ The bidirectional stream API consists of these three main components:
 1. **Session initialization**: The client establishes a bidirectional stream and sends the configuration events.
 2. **Audio streaming**: User audio is continuously captured, encoded, and streamed as events to the model, which continuously processes the speech.
 3. **Response streaming**: As audio arrives, the model simultaneously sends event responses:
+
    - Text transcriptions of user speech (ASR)
    - Tool use events for function calling
    - Text response of the model

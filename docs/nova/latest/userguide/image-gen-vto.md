@@ -67,14 +67,17 @@ Conversely, you might want to regenerate the pose, hands, or face in the followi
 The `garmentStyling` parameter allows you to preserve or alter specific garment styling cues that you might find in a photo shoot. For example, Amazon Nova Canvas can modify the styling of a shirt so that its sleeves are either rolled up or down or it can modify the shirt so that it is tucked in or not. The following options are available:
 
 - `"longSleeveStyle"` - Controls whether the sleeves of a long-sleeve shirt are rolled up or down.
+
   - `"SLEEVE_DOWN"` - Can be applied when the source image is wearing a long-sleeve shirt (sleeves up or down), short-sleeve shirt, or no-sleeve shirt.
   - `"SLEEVE_UP"` - Can be applied when the source image is wearing a long-sleeve shirt with the sleeves up, short-sleeve shirt, or no-sleeve shirt.
 
 - `"tuckingStyle"` - Controls whether an upper body garment appears tucked in or loose.
+
   - `"UNTUCKED"` - Can be applied regardless of whether the source image has the shirt tucked or untucked.
   - `"TUCKED"` - Can be applied when the source image has the shirt tucked in.
 
 - `"outerLayerStyle"` - Controls whether an upper body garment is styled open or closed. This defaults to `"CLOSED"` which is appropriate for most garments (such as shirts and sweaters). For outer garments, like jackets, setting this value to `"OPEN"` guarantees that the original upper body garment from the source image will be retained with the new outer garment being layered over it. Using a value of `"CLOSED"` with an outer garment might not always render the garment as closed. This is because a value of `"CLOSED"` only guarantees that every upper body garment in the source image will be replaced and can sometimes result in an open outer layer with a new under layer visible beneath.
+
   - `"CLOSED"`
   - `"OPEN"`
 

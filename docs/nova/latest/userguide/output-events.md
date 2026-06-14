@@ -113,6 +113,7 @@ The structure of the output event flow is described in this section.
 ```
 
 3. `TextOutputContent`
+
    - `ContentStart`
 
    ```
@@ -131,7 +132,6 @@ The structure of the output event flow is described in this section.
            }
        }
    ```
-
    - `TextOutput`
 
    ```
@@ -145,7 +145,6 @@ The structure of the output event flow is described in this section.
            }
        }
    ```
-
    - `ContentEnd`
 
    ```
@@ -162,6 +161,7 @@ The structure of the output event flow is described in this section.
    ```
 
 4. `ToolUse`
+
    1. `ContentStart`
 
    ```
@@ -179,7 +179,6 @@ The structure of the output event flow is described in this section.
        }
      }
    ```
-
    2. `ToolUse`
 
    ```
@@ -195,7 +194,6 @@ The structure of the output event flow is described in this section.
        }
      }
    ```
-
    3. `ContentEnd`
 
    ```
@@ -212,6 +210,7 @@ The structure of the output event flow is described in this section.
    ```
 
 5. `AudioOutputContent`
+
    1. `ContentStart`
 
    ```
@@ -233,7 +232,6 @@ The structure of the output event flow is described in this section.
          }
      }
    ```
-
    2. `AudioOutput`
 
    ```
@@ -247,7 +245,6 @@ The structure of the output event flow is described in this section.
            }
        }
    ```
-
    3. `ContentEnd`
 
    ```

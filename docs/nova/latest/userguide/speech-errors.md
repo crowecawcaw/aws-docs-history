@@ -11,6 +11,7 @@ When handling long conversations or recovering from errors, you can implement co
 
 1.  Set up chat history storage to preserve conversation context from previous interactions. You can find chat history example in our [Amazon Nova samples Github repo](https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/chat-history-logger "https://github.com/aws-samples/amazon-nova-samples/tree/main/speech-to-speech/repeatable-patterns/chat-history-logger").
 2.  Handle conversation timeouts proactively:
+
     - When approaching the maximum connection duration, end the current request and start a new one.
     - Include the saved chat history in the new request to maintain conversation continuity.
 

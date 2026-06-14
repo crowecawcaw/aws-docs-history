@@ -9,6 +9,7 @@ The SFT training process consists of two main stages:
 - **Training Configuration**: Define how the model will be
   trained. When using , this configuration is written in a YAML recipe file that
   includes:
+
   - Data source paths (training and validation datasets)
   - Key hyperparameters (epochs, learning rate, batch size)
   - Optional components (distributed training parameters, etc)

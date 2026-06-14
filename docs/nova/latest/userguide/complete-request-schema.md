@@ -140,13 +140,17 @@ A system prompt is a way of providing context and instructions to Amazon Nova, s
 specifying a particular goal or role.
 
 - `messages` – (Required) The input messages.
+
   - `role` – The role of the conversation turn. Valid values are
     `user` and `assistant`.
   - `content` – (required) A list of [ContentBlock](../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md "../../../bedrock/latest/APIReference/API_runtime_ContentBlock.md") objects that contain content for the conversation. Each object contains a key that specifies the type of content (`text`, `image`, `video`, or `audio`). The value of the object depends on the key type. The following types are supported for the key:
+
     - `text` – Maps to an object containing a single field, `text`, whose value is the textual prompt for the conversational turn. If the conversational turn also includes an `image` or `video` object, the `text` object is interpreted as a text prompt accompanying the image or video.
     - `image` – (Not supported for Amazon Nova Micro) Maps to an object representing image content and containing the following fields:
+
       - `format` – (required) The image format. You can specify the
         following image formats:
+
         - `jpeg`
         - `png`
         - `webp`
@@ -160,8 +164,10 @@ specifying a particular goal or role.
         must be a byte array.
 
     - `video` – (Not supported for Amazon Nova Micro) Maps to an object representing video content and containing the following fields:
+
       - `format` – (required) The video format. You can specify the
         following values:
+
         - `mkv`
         - `mov`
         - `mp4`
@@ -174,6 +180,7 @@ specifying a particular goal or role.
 
       - `source` – (required) The source of the video data. You can
         specify an Amazon S3 URI or the video file bytes in the request.
+
         - `uri` – (required) The Amazon S3 URI of the video file. For
           example, `“s3://my-bucket/object-key”`
         - `bucketOwner` – (optional) The Account ID that owns the
@@ -184,8 +191,10 @@ specifying a particular goal or role.
           this must be a byte array.
 
     - `audio` – ( only) Maps to an object representing audio content and containing the following fields:
+
       - `format` – (required) The audio format. You can specify the
         following values:
+
         - `aac`
         - `flac`
         - `mkv`
@@ -197,6 +206,7 @@ specifying a particular goal or role.
 
       - `source` – (required) The source of the audio data. You can
         specify an Amazon S3 URI or the audio file bytes in the request.
+
         - `uri` – (required) The Amazon S3 URI of the audio file. For
           example, `"s3://my-bucket/object-key"`
         - `bucketOwner` – (optional) The Account ID that owns the
@@ -208,6 +218,7 @@ specifying a particular goal or role.
 
 - `inferenceConfig:` These are inference config values that can be passed in
   inference.
+
   - `maxTokens` – (Optional) The maximum number of tokens to generate before stopping.
 
   Note that Amazon Nova models might stop generating tokens before reaching the value
@@ -237,6 +248,7 @@ specifying a particular goal or role.
     sequences. If the model generates any of those strings, generation will stop and
     response is returned up until that point.
   - `reasoningConfig` – (Amazon Nova Pro and Amazon Nova Lite only) The reasoning configuration values that can be passed in inference.
+
     - `type` – (Optional) Whether to enable or disable the reasoning. Valid options are `enabled` or `disabled`. The default value is `disabled`.
     - `maxReasoningEffort` – The computational effort used in the reasoning process. Valid options are `low`, `medium`, or `high`. In streaming, when using `low` and `medium` settings, reasoning content will be streamed as each token is generated when using `ConverseStream`, however, the `high` works differently, applying different approaches to improve quality resulting in outputting all the reasoning content in a final chunk.
 
@@ -254,7 +266,9 @@ specifying a particular goal or role.
 - `toolConfig` – (Optional) JSON object following [ToolConfig schema](../../../bedrock/latest/APIReference/API_runtime_ToolConfiguration.md "../../../bedrock/latest/APIReference/API_runtime_ToolConfiguration.md"), containing the tool specification and tool choice. This
   schema is the same followed [by the
   Converse API](../../../bedrock/latest/userguide/tool-use.md "../../../bedrock/latest/userguide/tool-use.md")
+
   - `toolChoice` – (Optional) Specifies which tools the model can use. You can select one of three options:
+
     - `auto` – The model automatically decides whether to use tools and which tools to use.
     - `any` – The model must use at least one of the provided tools.
     - `tool` – The model must use the specific tool identified by name.

@@ -120,6 +120,7 @@ in your request:
 - **format** (Required) - Must match the format of
   the input image. Either "png" or "jpeg".
 - **source** (Required)
+
   - **bytes** (Required) - The input image
     encoded as a base64 string. The image must have a resolution of 1280 x
   720.
@@ -303,12 +304,14 @@ The schema of this JSON file is provided below.
 
 - **schemaVersion** - The version of the JSON schema.
 - **shots** - Provides information about each shot in the video.
+
   - **status** - The completion state (SUCCESS or FAILURE) of the shot.
   - **location** - The file name and Amazon S3 location where the shot is stored. The location will be available only when all shots are successfully generated and the complete video is uploaded to its Amazon S3 location.
   - **failureType** - Provides the reason for failure.
   - **failureMessage** - Provides more information about the failure reason.
 
 - **fullVideo** - Provides information about the full video.
+
   - **status** - The completion state (SUCCESS or FAILURE) of the full video.
   - **location** - The file name and Amazon S3 location where the full video is stored.
   - **failureType** - Provides the reason for failure.

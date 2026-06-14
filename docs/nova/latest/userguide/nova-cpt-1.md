@@ -66,6 +66,7 @@ conversation with the required fields and structure.
 The Amazon Nova parameters that are available for tuning with CPT include:
 
 - **Run configuration**
+
   - `name`: A descriptive name for your training job. This helps identify
     your job in the AWS Management Console.
   - `model_type`: The Amazon Nova model variant to use. The available options
@@ -94,6 +95,7 @@ The Amazon Nova parameters that are available for tuning with CPT include:
     and AWS Region.
 
 - **Training configuration**
+
   - `max_length`: The maximum sequence length in tokens. This determines
     the context window size for training. The maximum supported value are 8192 tokens
     for CPT.
@@ -103,6 +105,7 @@ The Amazon Nova parameters that are available for tuning with CPT include:
   parameter to your data distribution.
 
 - **Trainer settings**
+
   - `global_batch_size`: The total number of training samples processed
     together in one forward or backward pass across all devices and workers.
 
@@ -118,6 +121,7 @@ The Amazon Nova parameters that are available for tuning with CPT include:
   epochs based on the size of your data to prevent over-fitting.
 
 - **Model settings**
+
   - `hidden_dropout`: The probability of dropping hidden state outputs.
     Increase this value by approximately 0.0-0.2 to reduce overfitting on smaller
     datasets. Valid values are between 0-1, inclusive.
@@ -128,6 +132,7 @@ The Amazon Nova parameters that are available for tuning with CPT include:
     outputs. Valid values are between 0-1, inclusive.
 
 - **Optimizer configuration**
+
   - `lr`: The learning rate, which controls the step size during
     optimization. We recommend values between 1e-6-1e-4 for good performance. Valid
     values are between 0-1, inclusive.

@@ -10,6 +10,7 @@ To create a multimodal RAG system:
 
 1. Create a database of multimodal content.
 2. Run Inference in multimodal RAG systems for Amazon Nova.
+
    1. Enable users to query the content
    2. Return the content back to Amazon Nova
    3. Enable Amazon Nova to respond to the original user query.

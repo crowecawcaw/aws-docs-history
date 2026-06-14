@@ -14,6 +14,7 @@ in the format `xxx_bring_your_own_dataset_eval.yaml`.
 The following are the bring your own dataset requirements:
 
 - File format requirements
+
   - You must include a single `gen_qa.jsonl` file containing
     evaluation examples.
   - Your dataset must be uploaded to an S3 location where SageMaker training job can
@@ -81,6 +82,7 @@ The recipes are provided in the format `xxx_llm_judge_eval.yaml`.
 The following are the LLM as a Judge requirements:
 
 - File format requirements
+
   - Include a single `llm_judge.jsonl` file containing evaluation
     examples. The file name must be `llm_judge.jsonl`.
   - Your dataset must be uploaded to an S3 location that [SageMaker AI
@@ -446,6 +448,7 @@ Weighted scores are computed through the following process:
 - **Extract criterion data**: Parse the judge's YAML
   output to extract criterion scores and weights
 - **Normalize scores**:
+
   - Scale-type criteria (1-5): Normalize to 0-1 by calculating `(score - 1) /
 4`
   - Binary criteria (true/false): Convert to 1.0/0.0

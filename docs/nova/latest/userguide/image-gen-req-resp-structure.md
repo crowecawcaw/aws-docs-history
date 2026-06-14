@@ -82,6 +82,7 @@ The following `textToImageParams` fields are used in this request:
   string. See [Input images for image generation](image-gen-access.md#image-gen-input-images "image-gen-access.md#image-gen-input-images") for additional requirements.
 - `controlMode` (Optional) – Specifies what conditioning mode is be used.
   The default value is "CANNY_EDGE".
+
   - `CANNY_EDGE` – Elements of the generated image will follow the
     prominent contours, or "edges", of the condition image closely.
   - `SEGMENTATION` – The condition image will be automatically analyzed
@@ -415,17 +416,20 @@ shaded pure black and areas to ignore are shaded pure white. No other colors are
 allowed in the mask image.
 
 - `garmentBasedMask` – Required when `maskType` is `"GARMENT"`.
+
   - `maskShape` (Optional) – Defines the shape of the mask bounding box. The shape and size of the bounding box can have an affect on how the reference image is transferred to the source image.
   - `garmentClass` (Required) – Defines the article of clothing that is being transferred. This parameter allows the model focus on specific parts of the reference image that you want to transfer.
   - `garmentStyling` (Optional) – Provides styling cues to the model for certain articles of clothing. The `longSleeveStyle` and `tuckingStyle` parameters apply only to upper body garments. The `outerLayerStyle` parameter applies only to outer layer, upper body garments.
 
 - `promptBasedMask` (Required) – Required when `maskType` is `"PROMPT"`.
+
   - `maskShape` (Optional) – Defines the shape of the mask bounding box. The shape and size of the bounding box can have an affect on how the reference image is transferred to source image.
   - `maskPrompt` (Required) – A natural language text prompt that describes the
     regions of the image to edit.
 
 - `maskExclusions` (Optional) – When a person is detected in the source image, these parameters determine whether their body pose, hands, and face should be kept in the output image or regenerated.
 - `mergeStyle` (Optional) – Determines how the source and reference images are stitched together. Each merge style takes a different approach to how it stitches the elements together to create the final image, each with its own benefits and tradeoffs.
+
   - `"BALANCED"` - Protects any non-masked pixels in the original image, ensuring they remain 100% accurate to the original. In some cases, there will be a slight perceptible color or texture mismatch in the output image that presents as a kind of “ghost” image of the mask shape. This is most likely to occur when the image features a person standing against a solid color or uniformly textured background. To avoid this, you can use the `"SEAMLESS"` merge style instead.
   - `"SEAMLESS"` - Ensures that there will never be a noticeable seam between the masked and non-masked images areas in the final image. The tradeoff is that this mode results in all pixels in the image changing slightly and can sometimes diminish fine-grained details in the non-masked areas of the image.
   - `"DETAILED"` - Can greatly improve fine-grained details like logos and text, especially when the masked area is relatively small compared to the overall image. The model achieves this by performing inpainting on a tightly cropped, higher resolution version of the original image that only includes the masked area. It then merges the result back into the original image. As with using `"BALANCED"` mode, this mode can sometimes result in a visible seam.
@@ -471,6 +475,7 @@ see [Supported image resolutions](image-gen-access.md#image-gen-resolutions "ima
 
 - `cfgScale` (Optional) – Specifies how strictly the model should
   adhere to the prompt. Values range from 1.1-10, inclusive, and the default value is 6.5.
+
   - Low values (1.1-3) - More creative freedom for the AI, potentially more aesthetic, but low contrast and less prompt-adherent results
   - Medium values (4-7) - Balanced approach, typically recommended for most generations
   - High values (8-10) - Strict prompt adherence, which can produce more precise results but sometimes at the cost of natural aesthetics and increased color saturation

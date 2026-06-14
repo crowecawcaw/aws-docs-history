@@ -25,6 +25,7 @@ identify any potential issues before you submit your fine-tuning job.
 The Amazon Nova parameters that are available for tuning with SFT are as follows:
 
 - **Run configuration**
+
   - `name`: A descriptive name for your training job. This helps
     identify your job in the AWS Management Console.
   - `model_type`: The Amazon Nova model variant to use. The available
@@ -53,6 +54,7 @@ id>/outputs/checkpoints`).
     must be in the same account and region.
 
 - **Training configuration**
+
   - `max_length`: The maximum sequence length in tokens. This
     determines the context window size for training. The maximum supported value are
     65,536 tokens for SFT.
@@ -62,6 +64,7 @@ id>/outputs/checkpoints`).
   parameter to your data distribution.
 
 - **Trainer settings**
+
   - `max_epochs`: The number of complete passes through your training
     dataset.
 
@@ -70,6 +73,7 @@ id>/outputs/checkpoints`).
   of epochs based on the size of your data.
 
 - **Model settings**
+
   - `hidden_dropout`: The probability of dropping hidden state outputs.
     Increase this value by approximately 0.0-0.2 to reduce over-fitting on smaller
     datasets. Valid values are between 0-1, inclusive.
@@ -80,6 +84,7 @@ id>/outputs/checkpoints`).
     outputs. Valid values are between 0-1, inclusive.
 
 - **Optimizer configuration**
+
   - `lr`: The learning rate, which controls the step size during
     optimization. Valid values are between 1e-6-1e-3, inclusive. We recommend values
     between 1e-6-1e-4 for good performance.
@@ -278,6 +283,7 @@ You should use LoRA PEFT in the following scenarios:
 The Amazon Nova parameters that are available for with LoRA PEFT include:
 
 - **Run configuration**
+
   - `name`: A descriptive name for your training job. This helps
     identify your job in the AWS Management Console.
   - `model_type`: The Nova model variant to use. The available options
@@ -299,6 +305,7 @@ id>/outputs/checkpoints`).
     must be in the same account and region.
 
 - **Training configuration**
+
   - `max_length`: The maximum sequence length in tokens. This
     determines the context window size for training. The maximum supported value are
     65,536 tokens for LoRA PEFT.
@@ -308,6 +315,7 @@ id>/outputs/checkpoints`).
   parameter to your data distribution.
 
 - **Trainer settings**
+
   - `max_epochs`: The number of complete passes through your training
     dataset. You can set either `max_steps` or `max_epochs`, but
     we do not recommend setting both. The maximum value is 5.
@@ -317,6 +325,7 @@ id>/outputs/checkpoints`).
   of epochs based on the size of your data.
 
 - **Model settings**
+
   - `hidden_dropout`: The probability of dropping hidden state outputs.
     Increase this value by approximately 0.0-0.2 to reduce overfitting on smaller
     datasets. Valid values are between 0-1, inclusive.
@@ -327,6 +336,7 @@ id>/outputs/checkpoints`).
     outputs. Valid values are between 0-1, inclusive.
 
 - **Optimizer configuration**
+
   - `lr`: The learning rate, which controls the step size during
     optimization. We recommend values between 1e-6-1e-4 for good performance. Valid
     values are between 0-1, inclusive.
@@ -341,6 +351,7 @@ id>/outputs/checkpoints`).
     values are between 0-1, inclusive, but must be less than learning rate.
 
 - **LoRA configuration parameters**
+
   - `peft_scheme`: Set to `lora` to enable low-rank
     adaptation.
   - `alpha`: The scaling factor for LoRA weights. This is typically set

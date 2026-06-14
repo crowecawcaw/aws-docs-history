@@ -38,21 +38,28 @@
 The following list includes all of the parameters for the request:
 
 - `schemaVersion` (Optional) - The schema version for the multimodal embedding model request
+
   - Type: string
   - Allowed values: "nova-multimodal-embed-v1"
   - Default: "nova-multimodal-embed-v1"
 
 - `taskType` (Required) - Specifies the type of embedding operation to perform on the input content. `single_embedding` refers to generating one embedding per model input. `segmented_embedding` refers to first segmenting the model input per user specification and then generating a single embedding per segment.
+
   - Type: string
   - Allowed values: Must be "SINGLE_EMBEDDING" for synchronous calls.
 
 - `singleEmbeddingParams` (Required)
+
   - `embeddingPurpose` (Required) - Nova Multimodal Embeddings enables you to optimize your embeddings depending on the intended application. Examples include MM-RAG, Digital Asset Management for image and video search, similarity comparison for multimodal content, or document classification for Intelligent Document Processing. `embeddingPurpose` enables you to specify the embedding use-case. Select the correct value depending on the use-case below.
+
     - **Search and Retrieval:** Embedding use cases like RAG and search involve two main steps: first, creating an index by generating embeddings for the content, and second, retrieving the most relevant content from the index during search. Use the following values when working with search and retrieval use-cases:
+
       - Indexing:
+
         - "GENERIC_INDEX" - Creates embeddings optimized for use as indexes in a vector data store. This value should be used irrespective of the modality you are indexing.
 
       - Search/retrieval: Optimize your embeddings depending on the type of content you are retrieving:
+
         - "TEXT_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only text embeddings.
         - "IMAGE_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only image embeddings created with the "STANDARD_IMAGE" detailLevel.
         - "VIDEO_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only video embeddings or embeddings created with the "AUDIO_VIDEO_COMBINED" embedding mode.
@@ -66,59 +73,77 @@ The following list includes all of the parameters for the request:
     - "CLUSTERING" - Creates embeddings optimized for clustering.
 
   - `embeddingDimension` (Optional) - The size of the vector to generate.
+
     - Type: int
     - Allowed values: 256 | 384 | 1024 | 3072
     - Default: 3072
 
   - `text` (Optional) - Represents text content. Exactly one of text, image, video, audio must be present.
+
     - `truncationMode` (Required) - Specifies which part of the text will be truncated in cases where the tokenized version of the text exceeds the maximum supported by the model.
+
       - Type: string
       - Allowed values:
+
         - "START" - Omit characters from the start of the text when necessary.
         - "END" - Omit characters from the end of the text when necessary.
         - "NONE" - Fail if text length exceeds the model's maximum token limit.
 
     - `value` (Optional; Either value or source must be provided) - The text value for which to create the embedding.
+
       - Type: string
       - Max length: 8192 characters
 
     - `source` (Optional; Either value or source must be provided) - Reference to a text file stored in S3. Note that the bytes option of the SourceObject is not applicable for text inputs. To pass text inline as part of the request, use the value parameter instead.
+
       - Type: SourceObject (see "Common Objects" section)
 
   - `image` (Optional) - Represents image content. Exactly one of text, image, video, audio must be present.
+
     - `detailLevel` (Optional) - Dictates the resolution at which the image will be processed with "STANDARD_IMAGE" using a lower image resolution and "DOCUMENT_IMAGE" using a higher resolution image to better interpret text.
+
       - Type: string
       - Allowed values: "STANDARD_IMAGE" | "DOCUMENT_IMAGE"
       - Default: "STANDARD_IMAGE"
 
     - `format` (Required)
+
       - Type: string
       - Allowed values: "png" | "jpeg" | "gif" | "webp"
 
     - `source` (Required) - An image content source.
+
       - Type: SourceObject (see "Common Objects" section)
 
   - `audio` (Optional) - Represents audio content. Exactly one of text, image, video, audio must be present.
+
     - `format` (Required)
+
       - Type: string
       - Allowed values: "mp3" | "wav" | "ogg"
 
     - `source` (Required) - An audio content source.
+
       - Type: SourceObject (see "Common Objects" section)
       - Maximum audio duration: 30 seconds
 
   - `video` (Optional) - Represents video content. Exactly one of text, image, video, audio must be present.
+
     - `format` (Required)
+
       - Type: string
       - Allowed values: "mp4" | "mov" | "mkv" | "webm" | "flv" | "mpeg" | "mpg" | "wmv" | "3gp"
 
     - `source` (Required) - A video content source.
+
       - Type: SourceObject (see "Common Objects" section)
       - Maximum video duration: 30 seconds
 
     - `embeddingMode` (Required)
+
       - Type: string
       - Values: "AUDIO_VIDEO_COMBINED" | "AUDIO_VIDEO_SEPARATE"
+
         - "AUDIO_VIDEO_COMBINED" - Will produce a single embedding combining both audible and visual content.
         - "AUDIO_VIDEO_SEPARATE" - Will produce two embeddings, one for the audible content and one for the visual content.
 
@@ -146,18 +171,23 @@ The following list includes all of the parameters for the response:
 - `embeddings` (Required) - For most requests, this array will contain a single embedding. For video requests where the
   "AUDIO_VIDEO_SEPARATE" embeddingMode mode was selected, this array will contain two embeddings - one embedding for the video content
   and one for the the audio content.
+
   - Type: array of embeddings with the following properties
+
     - `embeddingType` (Required) - Reports the type of embedding that was created.
+
       - Type: string
       - Allowed values: "TEXT" | "IMAGE" | "VIDEO" | "AUDIO" | "AUDIO_VIDEO_COMBINED"
 
     - `embedding` (Required) - The embedding vector.
+
       - Type: number[]
 
     - `truncatedCharLength` (Optional) - Only applies to text embedding requests.
       Returned if the tokenized version of the input text exceeded the model's limitations. The
       value indicates the character after which the text was truncated before generating the
       embedding.
+
       - Type: int
 
 ## Complete asynchronous schema
@@ -247,21 +277,28 @@ The following structure is used for the `modelInput` parameter.
 The following list includes all of the parameters for the request:
 
 - `schemaVersion` (Optional) - The schema version for the multimodal embedding model request
+
   - Type: string
   - Allowed values: "nova-multimodal-embed-v1"
   - Default: "nova-multimodal-embed-v1"
 
 - `taskType` (Required) - Specifies the type of embedding operation to perform on the input content. `single_embedding` refers to generating one embedding per model input. `segmented_embedding` refers to first segmenting the model input per user specification and then generating a single embedding per segment.
+
   - Type: string
   - Allowed values: Must be "SEGMENTED_EMBEDDING" for asynchronous calls.
 
 - `segmentedEmbeddingParams` (Required)
+
   - `embeddingPurpose` (Required) - Nova Multimodal Embeddings enables you to optimize your embeddings depending on the intended application. Examples include MM-RAG, Digital Asset Management for image and video search, similarity comparison for multimodal content, or document classification for Intelligent Document Processing. `embeddingPurpose` enables you to specify the embedding use-case. Select the correct value depending on the use-case below.
+
     - **Search and Retrieval:** Embedding use cases like RAG and search involve two main steps: first, creating an index by generating embeddings for the content, and second, retrieving the most relevant content from the index during search. Use the following values when working with search and retrieval use-cases:
+
       - Indexing:
+
         - "GENERIC_INDEX" - Creates embeddings optimized for use as indexes in a vector data store. This value should be used irrespective of the modality you are indexing.
 
       - Search/retrieval: Optimize your embeddings depending on the type of content you are retrieving:
+
         - "TEXT_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only text embeddings.
         - "IMAGE_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only image embeddings created with the "STANDARD_IMAGE" detailLevel.
         - "VIDEO_RETRIEVAL" - Creates embeddings optimized for searching a repository containing only video embeddings or embeddings created with the "AUDIO_VIDEO_COMBINED" embedding mode.
@@ -275,72 +312,95 @@ The following list includes all of the parameters for the request:
     - "CLUSTERING" - Creates embeddings optimized for clustering.
 
   - `embeddingDimension` (Optional) - The size of the vector to generate.
+
     - Type: int
     - Allowed values: 256 | 384 | 1024 | 3072
     - Default: 3072
 
   - `text` (Optional) - Represents text content. Exactly one of text, image, video, audio must be present.
+
     - `truncationMode` (Required) - Specifies which part of the text will be truncated in cases where the tokenized version of the text exceeds the maximum supported by the model.
+
       - Type: string
       - Allowed values:
+
         - "START" - Omit characters from the start of the text when necessary.
         - "END" - Omit characters from the end of the text when necessary.
         - "NONE" - Fail if text length exceeds the model's maximum token limit.
 
     - `value` (Optional; Either value or source must be provided) - The text value for which to create the embedding.
+
       - Type: string
       - Max length: 8192 characters
 
     - `source` (Optional; Either value or source must be provided) - Reference to a text file stored in S3. Note that the bytes option of the SourceObject is not applicable for text inputs. To pass text inline as part of the request, use the value parameter instead.
     - `segmentationConfig` (Required) - Controls how text content should be segmented into multiple embeddings.
+
       - `maxLengthChars` (Optional) - The maximum length to allow for each segment. The model will attempt to segment only at word boundaries.
+
         - Type: int
         - Valid range: 800-50,000
         - Default: 32,000
 
   - `image` (Optional) - Represents image content. Exactly one of text, image, video, audio must be present.
+
     - `format` (Required)
+
       - Type: string
       - Allowed values: "png" | "jpeg" | "gif" | "webp"
 
     - `source` (Required) - An image content source.
+
       - Type: SourceObject (see "Common Objects" section)
 
     - `detailLevel` (Optional) - Dictates the resolution at which the image will be processed with "STANDARD_IMAGE" using a lower image resolution and "DOCUMENT_IMAGE" using a higher resolution image to better interpret text.
+
       - Type: string
       - Allowed values: "STANDARD_IMAGE" | "DOCUMENT_IMAGE"
       - Default: "STANDARD_IMAGE"
 
   - `audio` (Optional) - Represents audio content. Exactly one of text, image, video, audio must be present.
+
     - `format` (Required)
+
       - Type: string
       - Allowed values: "mp3" | "wav" | "ogg"
 
     - `source` (Required) - An audio content source.
+
       - Type: SourceObject (see "Common Objects" section)
 
     - `segmentationConfig` (Required) - Controls how audio content should be segmented into multiple embeddings.
+
       - `durationSeconds` (Optional) - The maximum duration of audio (in seconds) to use for each segment.
+
         - Type: int
         - Valid range: 1-30
         - Default: 5
 
   - `video` (Optional) - Represents video content. Exactly one of text, image, video, audio must be present.
+
     - `format` (Required)
+
       - Type: string
       - Allowed values: "mp4" | "mov" | "mkv" | "webm" | "flv" | "mpeg" | "mpg" | "wmv" | "3gp"
 
     - `source` (Required) - A video content source.
+
       - Type: SourceObject (see "Common Objects" section)
 
     - `embeddingMode` (Required)
+
       - Type: string
       - Values: "AUDIO_VIDEO_COMBINED" | "AUDIO_VIDEO_SEPARATE"
+
         - "AUDIO_VIDEO_COMBINED" - Will produce a single embedding for each segment combining both audible and visual content.
         - "AUDIO_VIDEO_SEPARATE" - Will produce two embeddings for each segment, one for the audio content and one for the video content.
 
     - `segmentationConfig` (Required) - Controls how video content should be segmented into multiple embeddings.
+
       - `durationSeconds` (Optional) - The maximum duration of video (in seconds) to use for each segment.
+
         - Type: int
         - Valid range: 1-30
         - Default: 5
@@ -428,9 +488,11 @@ audio/video times, all starting and ending times are zero-based. Additionally, a
 positions or audio/video time values are inclusive.
 
 - `embedding` (Required) — The embedding vector.
+
   - Type: number
 
 - `segmentMetadata` — The metadata for the segment.
+
   - `segmentIndex` — The index of the segment within the array provided
     in the request.
   - `segmentStartCharPosition` — For text only. The starting (inclusive) character
@@ -440,6 +502,7 @@ positions or audio/video time values are inclusive.
   - `truncatedCharLength` (Optional) — Returned if the tokenized version
     of the input text exceeded the model’s limitations. The value indicates the character after
     which the text was truncated before generating the embedding.
+
     - Type: integer
 
   - `segmentStartSeconds` — For audio/video only. The starting time
@@ -449,6 +512,7 @@ positions or audio/video time values are inclusive.
 
 - `status` — The status for the segment.
 - `failureReason` — The detailed reasons on the failure for the segment.
+
   - `RAI_VIOLATION_INPUT_TEXT_DEFLECTION` — Input text violates RAI policy.
   - `RAI_VIOLATION_INPUT_IMAGE_DEFLECTION` — input image violates RAI policy.
   - `INVALID_CONTENT` — Invalid input.

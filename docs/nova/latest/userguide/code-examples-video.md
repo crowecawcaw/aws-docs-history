@@ -141,6 +141,7 @@ if __name__ == "__main__":
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [GetAsyncInvoke](../../../goto/boto3/bedrock-runtime-2023-09-30/GetAsyncInvoke.md "../../../goto/boto3/bedrock-runtime-2023-09-30/GetAsyncInvoke.md")
   - [StartAsyncInvoke](../../../goto/boto3/bedrock-runtime-2023-09-30/StartAsyncInvoke.md "../../../goto/boto3/bedrock-runtime-2023-09-30/StartAsyncInvoke.md")
 
@@ -269,5 +270,6 @@ do {
 ```
 
 - For API details, see the following topics in _AWS SDK for Swift API reference_.
+
   - [GetAsyncInvoke](<https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/getasyncinvoke(input:)> "https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/getasyncinvoke(input:)")
   - [StartAsyncInvoke](<https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/startasyncinvoke(input:)> "https://sdk.amazonaws.com/swift/api/awsbedrockruntime/latest/documentation/awsbedrockruntime/bedrockruntimeclient/startasyncinvoke(input:)")

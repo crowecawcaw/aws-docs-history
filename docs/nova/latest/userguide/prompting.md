@@ -25,6 +25,7 @@ place, so you can iteratively develop the most optimal prompt for your use case:
 
 1. **Define your use case:** Define your use case you want to
    achieve on 4 dimensions
+
    1. **What is the Task** - Define the task you want to
       accomplish from the model
    2. **Whats the Role** - Define the role that the model should assume to accomplish that task

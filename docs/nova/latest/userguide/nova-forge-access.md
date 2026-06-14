@@ -24,6 +24,7 @@ pip install -e .
 2. Navigate to the SageMaker AI console and request access to Nova Forge.
 3. Wait for the Nova team to email a confirmation after your subscription request is approved.
 4. Tag your execution role with the `forge-subscription` tag. This tag is required to access Nova Forge features and checkpoints. Add the following tag to your execution role:
+
    - Key: `forge-subscription`
    - Value: `true`
 

@@ -86,6 +86,7 @@ The structure of the input event flow is provided in this section.
 ```
 
 3. `InputContentStartEvent`
+
    - `Text`
 
    ```
@@ -104,7 +105,6 @@ The structure of the input event flow is provided in this section.
        }
    }
    ```
-
    - `Audio`
 
    ```
@@ -128,7 +128,6 @@ The structure of the input event flow is provided in this section.
        }
    }
    ```
-
    - `Tool`
 
    ```

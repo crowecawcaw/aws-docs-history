@@ -22,6 +22,7 @@ run:
   identify your job in the AWS console.
 - `model_type`: (Required) Specifies the Amazon Nova model variant to use. Do
   not manually modify this field. Options include:
+
   - `amazon.nova-micro-v1:0:128k`
   - `amazon.nova-lite-v1:0:300k`
   - `amazon.nova-pro-v1:0:300k`
@@ -29,6 +30,7 @@ run:
 
 - `model_name_or_path`: (Required) The path to the base model or S3 path
   for the post-trained checkpoint. Options include:
+
   - `nova-micro/prod`
   - `nova-lite/prod`
   - `nova-pro/prod`
@@ -82,6 +84,7 @@ Supported task list:
     + humaneval
 
 - `strategy`: (Required) Defines the evaluation approach:
+
   - zs_cot: Zero-shot Chain-of-Thought - An approach to prompt large language models
     that encourages step-by-step reasoning without requiring explicit examples.
   - zs: Zero-shot - An approach to solve a problem without any prior training
@@ -93,6 +96,7 @@ Supported task list:
   certain evaluation tasks. Remove this from your recipe if your task does not have any
   subtasks.
 - `metric`: (Required) The evaluation metric to use.
+
   - accuracy: Percentage of correct answers
   - exact_match: (For `math` benchmark), returns the rate at which the
     input predicted strings exactly match their references.
@@ -102,8 +106,10 @@ Supported task list:
     percentage of cases where the model's highest confidence prediction matches the
     correct answer.
   - `all`: Returns the following metrics:
+
     - For `gen_qa` and bring your own dataset benchmark, return
       following metrics:
+
       - `rouge1`: Measures the overlap of unigrams (single words)
         between generated and reference text.
       - `rouge2`: Measures the overlap of bigrams (two consecutive
@@ -126,6 +132,7 @@ Supported task list:
 
     - For `llm_judge` and `mm_llm_judge`, bring your own
       dataset benchmark, return following metrics:
+
       - `a_scores`: Number of wins for `response_A` across
         forward and backward evaluation passes.
       - `a_scores_stderr`: Standard error of `response_A

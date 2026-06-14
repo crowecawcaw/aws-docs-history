@@ -278,6 +278,7 @@ ppo_actor_train:
 The Amazon Nova parameters that are available for tuning with PPO include:
 
 - **Run configuration**
+
   - `actor_train_replicas`: The number of compute instances to be used for
     the actor train model. Available values vary based on the model chosen. Amazon Nova Micro
     supports 1 or 2 replicas. Amazon Nova Lite supports 1, 2, or 4 replicas. Amazon Nova Pro supports
@@ -294,6 +295,7 @@ The Amazon Nova parameters that are available for tuning with PPO include:
     model. We recommend that you use one replica for any model size.
 
 - **Actor train configuration (policy config)**
+
   - `max_steps`: The maximum number of steps to fine-tune or train the
     actor train model. Here, one step is defined as rollout, followed by training the
     actor train model with `global_batch_size` number of samples. One epoch is
@@ -342,6 +344,7 @@ The Amazon Nova parameters that are available for tuning with PPO include:
     same actions with high confidence).
 
 - **Reward model configuration**
+
   - `global_batch_size`: The batch size for scoring the completions using
     the reward model. If `ppo_actor_train.model.global_batch_size` is greater
     than `ppo_reward.model.global_batch_size`, they are processed in multiple
@@ -351,6 +354,7 @@ ppo_reward.model.global_batch_size` must equal 0.
     should be same as `ppo_actor_train.model.max_length`.
 
 - **Critic model configuration**
+
   - `global_batch_size`: The batch size of the critic model value. The
     critic model will provide value estimates for each token in the responses provided by
     the actor model. The batch size is used for both inference and training.
@@ -366,6 +370,7 @@ ppo_reward.model.global_batch_size` must equal 0.
     training in the actor model.
 
 - **Anchor model configuration**
+
   - `global_batch_size`: The batch size for generating the logp of the
     frozen SFT or anchor model. Note that `ppo_actor_train.model.global_batch_size %
 ppo_anchor.model.global_batch_size` must equal 0.
@@ -373,6 +378,7 @@ ppo_anchor.model.global_batch_size` must equal 0.
     should be same as `ppo_actor_train.model.max_length`.
 
 - **Actor generation model configuration**
+
   - `actor_model_max_length`: The maximum context length of the actor model
     generation component. This should be the same as
     `ppo_actor_train.model.max_length`.
