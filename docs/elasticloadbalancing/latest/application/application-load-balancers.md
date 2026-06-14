@@ -111,6 +111,7 @@ You can specify a single Outpost subnet. The following restrictions apply:
 - You can register targets by instance ID or IP address. If you register targets
   in the AWS Region for the Outpost, they are not used.
 - The following features are not supported:
+
   - AWS Global Accelerator integration
   - Lambda functions as targets
   - Mutual TLS authentication

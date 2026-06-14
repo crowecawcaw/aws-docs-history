@@ -22,11 +22,13 @@ Listener attributes are organized into groups. You'll choose which features to e
      For more information, see [Rename mTLS/TLS headers](header-modification.md#rename-header "header-modification.md#rename-header").
 
 7. **Add response headers**
+
    1. Expand **Add response headers**.
    2. Enable the response headers to add and provide values for them.
       For more information, see [Add response headers](header-modification.md#insert-header "header-modification.md#insert-header").
 
 8. **ALB server response header**
+
    1. Enable or disable **Server header**.
 
 9. Choose **Save changes**.

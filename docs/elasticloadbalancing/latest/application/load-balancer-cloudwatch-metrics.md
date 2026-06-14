@@ -217,6 +217,7 @@ console.
 1. Open the Amazon EC2 console at
    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
 2. To view metrics filtered by target group, do the following:
+
    1. In the navigation pane, choose **Target
       Groups**.
    2. Select your target group, and then choose the
@@ -226,6 +227,7 @@ console.
    4. To get a larger view of a single metric, select its graph.
 
 3. To view metrics filtered by load balancer, do the following:
+
    1. In the navigation pane, choose **Load
       Balancers**.
    2. Select your load balancer, and then choose the
@@ -243,6 +245,7 @@ console.
 4. (Optional) To view a metric across all dimensions, enter its name in the
    search field.
 5. (Optional) To filter by dimension, select one of the following:
+
    - To display only the metrics reported for your load balancers,
      choose **Per AppELB Metrics**. To view the metrics
      for a single load balancer, enter its name in the search

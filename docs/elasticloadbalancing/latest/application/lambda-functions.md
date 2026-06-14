@@ -418,7 +418,7 @@ Resources:
 ## Enable health checks
 
 By default, health checks are disabled for target groups of type
-`lambda`. You can enable health checks in order to implement DNS
+`lambda`. You can enable health checks to implement DNS
 failover with Amazon Route 53. The Lambda function can check the health of a downstream
 service before responding to the health check request. If the response from the
 Lambda function indicates a health check failure, the health check failure is passed

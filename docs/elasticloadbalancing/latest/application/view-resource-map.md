@@ -44,6 +44,7 @@ that specific resource.
 - Selecting a resource tile highlights the
   relationships between it and other resources,
   and displays additional details about that resource.
+
   - **rule conditions:** The conditions for each rule.
   - **target group health summary:** The number of registered targets for each health status.
   - **target health status** The targets current health status and description.
@@ -55,6 +56,7 @@ details within the resource map.
 
 - Each resource tile contains a link that, when selected, navigates to
   that resource's details page.
+
   - **Listeners** ‐ Select the listeners protocol:port. For example, `HTTP:80`
   - **Rules** ‐ Select the rules action. For example, `Forward to target group`
   - **Target groups** ‐ Select the target group name. For example, `my-target-group`

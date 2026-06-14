@@ -6,7 +6,7 @@ can register instance IDs, IP addresses, or Lambda functions. For more informati
 [Target groups for your Application Load Balancers](load-balancer-target-groups.md "load-balancer-target-groups.md").
 
 If demand on your currently registered targets increases, you can register additional
-targets in order to handle the demand. When your target is ready to handle requests,
+targets to handle the demand. When your target is ready to handle requests,
 register it with your target group. The load balancer starts routing requests to the
 target as soon as the registration process completes and the target passes the initial
 health checks.
@@ -154,6 +154,7 @@ target group. For more information, see [Target type](load-balancer-target-group
   must have an assigned primary IPv6 address. To learn more, see [IPv6 addresses](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#ipv6-addressing "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#ipv6-addressing") in the _Amazon EC2 User Guide_
 - When registering targets by IP address for an IPv4 target group, the IP
   addresses that you register must be from one of the following CIDR blocks:
+
   - The subnets of the target group VPC
   - 10.0.0.0/8 (RFC 1918)
   - 100.64.0.0/10 (RFC 6598)

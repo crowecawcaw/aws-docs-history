@@ -37,6 +37,7 @@ Console
    Keep the default port or enter a different port.
 6. For **Default action**, select one of the following routing
    actions and provide the required information:
+
    - **Forward to target groups** –
      Choose a target group. To add another target group,
      choose **Add target group**, choose a

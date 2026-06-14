@@ -69,6 +69,7 @@ that you install on targets. For more information, see
 
 14. Choose **Next**.
 15. (Optional) Add one or more targets as follows:
+
     - If the target type is **Instances**,
       select one or more instances, enter one or more ports, and
       then choose **Include as pending
@@ -78,6 +79,7 @@ that you install on targets. For more information, see
     primary IPv6 address to be registered with a IPv6 target group.
     - If the target type is **IP addresses**,
       do the following:
+
       1. Select a network **VPC** from the
          list, or choose **Other private IP
          addresses**.

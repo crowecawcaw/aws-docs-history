@@ -31,6 +31,7 @@ The bucket must meet the following requirements.
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose **Create bucket**.
 3. On the **Create bucket** page, do the following:
+
    1. For **Bucket name**, enter a name for your bucket. This name must be
       unique across all existing bucket names in Amazon S3. In some
       Regions, there might be additional restrictions on bucket names.
@@ -259,6 +260,7 @@ Console
    logs**.
 6. For **S3 URI**, enter the S3 URI for your log files. The URI
    that you specify depends on whether you're using a prefix.
+
    - URI with a prefix: `s3://`bucket-name`/`prefix``
    - URI without a prefix: `s3://`bucket-name``
 
@@ -324,6 +326,7 @@ example records.
 2. Select the name of the bucket that you specified for connection logs.
 3. Navigate to the test file, `ELBConnectionLogTestFile`.
    The location depends on whether you're using a prefix.
+
    - Location with a prefix: `amzn-s3-demo-logging-bucket`/`prefix`/AWSLogs/`123456789012`/ELBConnectionLogTestFile
    - Location without a prefix: `amzn-s3-demo-logging-bucket`/AWSLogs/`123456789012`/ELBConnectionLogTestFile
 

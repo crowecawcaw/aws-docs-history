@@ -207,7 +207,7 @@ incoming traffic across its healthy registered targets. You can register each ta
 with one or more target groups.
 
 If demand on your application increases, you can register additional targets with one
-or more target groups in order to handle the demand. The load balancer starts routing
+or more target groups to handle the demand. The load balancer starts routing
 traffic to a newly registered target as soon as the registration process completes and
 the target passes the first initial health check, irrespective of the configured threshold.
 
@@ -449,6 +449,7 @@ The following example demonstrates how target group health settings are applied.
 - A load balancer that supports two Availability Zones, A and B
 - Each Availability Zone contains 10 registered targets
 - The target group has the following target group health settings:
+
   - DNS failover - 50%
   - Routing failover - 50%
 
@@ -467,6 +468,7 @@ The following example demonstrates how target group health settings are applied.
   the targets for the load balancer node in Availability Zone B. Because this
   is less than the required percentage of healthy targets, the load balancer
   takes the following actions:
+
   - DNS failover - Availability Zone B is marked as unhealthy in DNS.
     Because clients can't resolve the load balancer name to the load
     balancer node in Availability Zone B, and Availability Zone A

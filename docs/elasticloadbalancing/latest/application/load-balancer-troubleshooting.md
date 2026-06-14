@@ -107,6 +107,7 @@ If the load balancer is not receiving requests sent to a custom domain, check fo
 **The custom domain name does not resolve to the load balancer IP address**
 
 - Confirm what IP address the custom domain name resolves to using a command line interface.
+
   - Linux, macOS, or Unix – You can use the `dig` command within Terminal. Ex.`dig example.com`
   - Windows – You can use the `nslookup` command within Command Prompt. Ex.`nslookup example.com`
 
@@ -197,8 +198,10 @@ true:
 - You don't complete the login process before the client login timeout
   expires. For more information see, [Client login timeout](listener-authenticate-users.md#client-login-timeout "listener-authenticate-users.md#client-login-timeout").
 - The JWT authentication failed due to one of the following reasons:
+
   - The request is missing the Authorization header. (JWTHeaderNotPresent)
   - The token format in the request is invalid. This can occur when:
+
     - Token is malformed or missing mandatory parts (header, payload, or signature)
     - Header lacks the "Bearer" prefix
     - Header contains a different authentication type (e.g., "Basic")
@@ -206,6 +209,7 @@ true:
     - Multiple tokens are present in the request (JWTRequestFormatInvalid)
 
   - The token signature validation failed. This can occur when:
+
     - Signature doesn't match
     - Public key is invalid or cannot be converted to a decoding key
     - Public key size is not 2K
@@ -280,6 +284,7 @@ Possible causes:
   was an error executing the web ACL rules.
 - The load balancer is unable to communicate with the IdP token endpoint or
   the IdP user info endpoint.
+
   - Verify that the IdP's DNS is publicly resolvable.
   - Verify that the security groups for your load balancer and the network
     ACLs for your VPC allow outbound access to these endpoints.
@@ -446,12 +451,14 @@ Verify that your instance is failing health checks and then based on the failure
 reason code check for the following issues:
 
 - **Unhealthy: HTTP Response Mismatch**
+
   - Verify the application running on the target is sending the correct HTTP response to
     the Application Load Balancer's health check requests.
   - Alternatively, you can update the Application Load Balancer's health check request to match the response
     from the application running on the target.
 
 - **Unhealthy: Request timed out**
+
   - Verify the security groups and network access control lists (ACL) associated
     with your targets and Application Load Balancer are not blocking connectivity.
   - Verify the target has sufficient resources available to accept connections
@@ -462,6 +469,7 @@ reason code check for the following issues:
     [Health check reason codes](target-group-health-checks.md#target-health-reason-codes "target-group-health-checks.md#target-health-reason-codes").
 
 - **Unhealthy: FailedHealthChecks**
+
   - Verify the status of any applications running on the target.
   - Verify the target is listening for traffic on the health check port.
 

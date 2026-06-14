@@ -223,6 +223,7 @@ Console
    tags**.
 7. On the **Manage tags** page, do one or more
    of the following:
+
    1. To add a tag, choose **Add new tag**
       and enter values for **Key** and
       **Value**.

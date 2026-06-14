@@ -53,6 +53,7 @@ Console
    Keep the default port or enter a different port.
 6. (Optional) For **Pre-routing action**,
    select one of the following actions:
+
    - **Authenticate user** – Choose
      an identity provider and provide the required information.
      For more information, see [Authenticate users using an Application Load Balancer](listener-authenticate-users.md "listener-authenticate-users.md").
@@ -62,6 +63,7 @@ Console
 
 7. For **Routing action**, select one of the
    following actions:
+
    - **Forward to target groups** –
      Choose a target group. To add another target group, choose
      **Add target group**, choose a target group,
@@ -87,6 +89,7 @@ Console
 9. For **Default SSL/TLS certificate**, choose the default
    certificate. We also add the default certificate to the SNI list. You can
    select a certificate using one of the following options:
+
    - **From ACM** – Choose a certificate from
      **Certificate (from ACM)**, which displays the
      certificates available from AWS Certificate Manager.

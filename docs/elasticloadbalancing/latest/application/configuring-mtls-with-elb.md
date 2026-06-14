@@ -9,7 +9,7 @@ corresponding authentication and authorization logic in your application. For mo
 When you use mutual TLS in verify mode, the Application Load Balancer performs X.509 client certificate authentication
 for clients when a load balancer negotiates TLS connections.
 
-To utilize mutual TLS verify mode, perform the following:
+To use mutual TLS verify mode, perform the following:
 
 - Create a new trust store resource.
 - Upload your certificate authority (CA) bundle and, optionally, revocation lists.
@@ -47,12 +47,14 @@ an HTTP listener.
 2. On the navigation pane, choose **Trust Stores**.
 3. Choose **Create trust store**.
 4. **Trust store configuration**
+
    1. For **Trust store name**, enter a name for your trust store.
    2. For **Certificate authority bundle**, enter the Amazon S3 path to the ca certificate bundle to use.
    3. (Optional) Use **Object version** to select a previous version of the
       ca certificate bundle. Otherwise, the current version is used.
 
 5. (Optional) For **Revocations**, you can add a certificate revocation list to your trust store.
+
    1. Choose **Add new CRL** and enter the location of the certificate revocation list in Amazon S3.
    2. (Optional) Use **Object version** to select a previous version of the certificate revocation list.
       Otherwise, the current version is used.

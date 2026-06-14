@@ -29,6 +29,7 @@ Console
 7. For each condition, choose **Add condition**,
    choose the condition type, and provide the required condition
    values:
+
    - **Host header** – Select the match
      pattern type and enter the host header.
 
@@ -68,6 +69,7 @@ Console
    - **HTTP header** – Select the match
      pattern type and enter the name of the header and the
      comparison strings.
+
      - **HTTP header name** –
        Rule will assess requests containing this header to
        confirm matching values.
@@ -103,6 +105,7 @@ Console
    replacement string.
 9. (Optional, HTTPS listeners only) For **Pre-routing action**,
    select one of the following actions:
+
    - **Authenticate user** – Choose
      an identity provider and provide the required information.
      For more information, see [Authenticate users using an Application Load Balancer](listener-authenticate-users.md "listener-authenticate-users.md").
@@ -112,6 +115,7 @@ Console
 
 10. For **Routing action**, select one of the
     following actions:
+
     - **Forward to target groups** –
       Choose a target group. To add another target group, choose
       **Add target group**, choose a target

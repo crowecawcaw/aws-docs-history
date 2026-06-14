@@ -42,6 +42,7 @@ Console
 3.  Choose **Create load balancer**.
 4.  Under **Application Load Balancer**, choose **Create**.
 5.  **Basic configuration**
+
     1. For **Load balancer name**, enter a name for your
        load balancer. The name must be unique within your set of load
        balancers for the Region. Names can have a maximum of 32 characters,
@@ -63,6 +64,7 @@ Console
        communicate with the load balancer.
 
 6.  **Network mapping**
+
     1.  For **VPC**, select the VPC that you prepared for
         your load balancer. With an internet-facing load balancer, only VPCs
         with an internet gateway are available for selection.
@@ -264,6 +266,7 @@ traffic to your EC2 instance. To delete the load balancer, see [Delete an Applic
 
 8.  If the web page does not display, refer to the following documents for additional
     configuration help and troubleshooting steps.
+
     - For DNS related issues, see [Routing traffic to an ELB load balancer](../../../Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.md "../../../Route53/latest/DeveloperGuide/routing-to-elb-load-balancer.md") in the _Amazon Route 53 Developer Guide_.
     - For Load Balancer related issues, see [Troubleshoot your Application Load Balancers](load-balancer-troubleshooting.md "load-balancer-troubleshooting.md").
 

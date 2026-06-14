@@ -29,6 +29,7 @@ Do the following if you are using an OIDC-compliant IdP with your Application Lo
 - Allow one of the following redirect URLs in your IdP app, whichever your
   users will use, where DNS is the domain name of your load balancer and CNAME
   is the DNS alias for your application:
+
   - https://`DNS`/oauth2/idpresponse
   - https://`CNAME`/oauth2/idpresponse
 
@@ -87,11 +88,13 @@ Do the following if you are using Amazon Cognito user pools with your Applicatio
 - Allow the following redirect URLs in the callback URL field for Amazon Cognito,
   where DNS is the domain name of your load balancer, and CNAME is the DNS
   alias for your application (if you are using one):
+
   - https://`DNS`/oauth2/idpresponse
   - https://`CNAME`/oauth2/idpresponse
 
 - Allow your user pool domain on your IdP app's callback URL. Use the format
   for your IdP. For example:
+
   - https://`domain-prefix`.auth.`region`.amazoncognito.com/saml2/idpresponse
   - https://`user-pool-domain`/saml2/idpresponse
 
@@ -410,6 +413,7 @@ The refresh token and the session timeout work together as follows:
   the load balancer honors the session timeout. If the user has an active
   session with the IdP, the user might not be prompted to log in again.
   Otherwise, the user is redirected to log in.
+
   - If the IdP session timeout is longer than the Application Load Balancer session
     timeout, the user does not have to supply credentials to log in
     again. Instead, the IdP redirects back to the Application Load Balancer with a new
@@ -462,6 +466,7 @@ cannot be behind an Application Load Balancer rule that requires authentication.
 - When a request is sent to the target, the application must set the expiry
   to -1 for all authentication cookies. Application Load Balancers support cookies up to 16K in
   size and can therefore create up to 4 shards to send to the client.
+
   - If the IdP has a logout endpoint, it should issue a redirect to
     the IdP logout endpoint, for example, the [LOGOUT Endpoint](../../../cognito/latest/developerguide/logout-endpoint.md "../../../cognito/latest/developerguide/logout-endpoint.md")
     documented in the _Amazon Cognito Developer Guide_.

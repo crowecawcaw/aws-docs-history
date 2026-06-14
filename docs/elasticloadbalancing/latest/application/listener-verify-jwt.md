@@ -49,11 +49,14 @@ If your identity provider's JWKS endpoint exceeds these limits, consider impleme
 7. Under **Conditions**, define 1-5 condition values
 8. (Optional) To add a transform, choose **Add transform**, choose the transform type, and enter a regular expression to match and a replacement string.
 9. For **Actions, Pre-routing** action, choose **Validate token.**
+
    1. For **JWKS endpoint**, enter the URL of your JSON Web Key Set endpoint. This endpoint must be publicly accessible and return the public keys used to verify JWT signatures.
    2. For **Issuer**, enter the expected value of the iss claim in your JWT tokens.
    3. (Optional) To validate additional claims, choose **Additional claim.**
+
       1. For **Claim name**, enter the name of the claim to validate.
       2. For **Format**, choose how the claim values should be interpreted:
+
          1. **Single string**: The claim must match exactly one specified value.
          2. **String array**: The claim must match one of the values in an array.
          3. **Space separated values**: The claim contains space-separated values that must include the specified values.

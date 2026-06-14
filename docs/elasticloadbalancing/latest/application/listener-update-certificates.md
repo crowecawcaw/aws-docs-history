@@ -89,6 +89,7 @@ Console
 5. Choose the **Certificates** tab.
 6. To add the default certificate to the list, choose **Add default to list**.
 7. To add nondefault certificates to the list, do the following:
+
    1. Choose **Add certificate**.
    2. To add certificates that are already managed by ACM or IAM, select the
       check boxes for the certificates and choose **Include as pending
@@ -186,6 +187,7 @@ balancer to help handle the traffic or request an LCU reservation.
   To migrate all secure listeners for a load balancer to security policies that are not compatible
   with the ones that are currently in use, remove all but one of the secure listeners, change the
   security policy of the secure listener, and then create additional secure listeners.
+
   - FIPS post-quantum TLS policies and FIPS policies - **Compatible**
   - Post-quantum TLS policies and FIPS or FIPS post-quantum TLS polices - **Compatible**
   - TLS polices (non-FIPS, non-post-quantum) and FIPS or FIPS post-quantum TLS policies - **Not Compatible**
