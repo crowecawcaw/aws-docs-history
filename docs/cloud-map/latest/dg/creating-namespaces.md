@@ -72,6 +72,7 @@ AWS CLI
 
 - Create a namespace with the command for the instance discovery type you would prefer
   (replace the `red` values with your own).
+
   - Create an HTTP namespace using `create-http-namespace`. Service instances registered using an HTTP
     namespace can be discovered using a `DiscoverInstances` request, but they can't
     be discovered using DNS.
@@ -79,7 +80,6 @@ AWS CLI
   ```
   `aws servicediscovery create-http-namespace --name `name-of-namespace``
   ```
-
   - Create a private namespace based on DNS and only visible inside a specified Amazon VPC
     using `create-private-dns-namespace`. You can discover instances that were
     registered with a private DNS namespace by using either a `DiscoverInstances`
@@ -88,7 +88,6 @@ AWS CLI
   ```
   `aws servicediscovery create-private-dns-namespace --name `name-of-namespace` --vpc `vpc-xxxxxxxxx``
   ```
-
   - Create a public namespace based on DNS that is visible on the internet using
     `create-public-dns-namespace`. You can discover instances that were
     registered with a public DNS namespace by using either a `DiscoverInstances`
@@ -112,6 +111,7 @@ client = boto3.client('servicediscovery')
 
 3. Create a namespace with the command for the instance discovery type you would prefer
    (replace the `red` values with your own):
+
    - Create an HTTP namespace using `create_http_namespace()`. Service instances
      registered using an HTTP namespace can be discovered using
      `discover_instances()`, but they can't be discovered using DNS.
@@ -123,7 +123,6 @@ client = boto3.client('servicediscovery')
    # If you want to see the response
    print(response)
    ```
-
    - Create a private namespace based on DNS and only visible inside a specified Amazon VPC
      using `create_private_dns_namespace()`. You can discover instances that were
      registered with a private DNS namespace by using either `discover_instances()`
@@ -137,7 +136,6 @@ client = boto3.client('servicediscovery')
    # If you want to see the response
    print(response)
    ```
-
    - Create a public namespace based on DNS that is visible on the internet using
      `create_public_dns_namespace()`. You can discover instances that were
      registered with a public DNS namespace by using either `discover_instances()` or
@@ -150,7 +148,6 @@ client = boto3.client('servicediscovery')
    # If you want to see the response
    print(response)
    ```
-
    - Example response output
 
    ```

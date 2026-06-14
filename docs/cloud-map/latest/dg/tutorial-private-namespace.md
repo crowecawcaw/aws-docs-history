@@ -64,6 +64,7 @@ DNS and API calls. The second service will be discoverable using API calls only.
    choose **View details**.
 4. In the **Services** section, choose **Create service**
    and do the following to create the first service.
+
    1. For **Service name**, enter `public-service`. The service
       name will be applied to the DNS records that AWS Cloud Map creates. The format that is used is
       ``<service-name>`.`<namespace-name>``.
@@ -81,6 +82,7 @@ DNS and API calls. The second service will be discoverable using API calls only.
 
 5. In the **Services** section, choose **Create service**
    and do the following to create the second service.
+
    1. For **Service name**, enter `backend-service`.
    2. For **Service Discovery Configuration**, select **API
       only**.
@@ -99,6 +101,7 @@ namespace.
    `public-service` service and choose **View details**.
 4. In the **Service instances** section, choose **Register service
    instance** and do the following to create the first service instance.
+
    1. For **Service instance ID**, specify `first`.
    2. For **IPv4 address**, specify `192.168.2.1`.
    3. Leave the rest of the default values and choose **Register service
@@ -112,6 +115,7 @@ namespace.
    details**.
 7. In the **Service instances** section, choose **Register service
    instance** and do the following to create the second service instance.
+
    1. For **Service instance ID**, specify `second` to indicate
       that this is the second service instance.
    2. For **Instance type**, select **Identifying information for

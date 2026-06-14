@@ -61,6 +61,7 @@ last step as a service instance.
    choose **View details**.
 3. In the **Services** section, choose **Create service**
    and do the following.
+
    1. For **Service name**, enter `data-service`.
    2. Leave the rest of the default values and choose **Create
       service**.
@@ -70,6 +71,7 @@ last step as a service instance.
 5. In the **Service instances** section, choose **Register service
    instance**.
 6. On the **Register service instance** page, do the following.
+
    1. For **Instance type**, select **Identifying information for
       another resource**.
    2. For **Service instance id**, specify `data-instance`.
@@ -164,6 +166,7 @@ service instance.
    choose **View details**.
 4. In the **Services** section, choose **Create service**
    and do the following.
+
    1. For **Service name**, enter `app-service`.
    2. Leave the rest of the default values and choose **Create
       service**.
@@ -173,12 +176,14 @@ service instance.
 6. In the **Service instances** section, choose **Register service
    instance**.
 7. On the **Register service instance** page, do the following.
+
    1. For **Instance type**, select **Identifying information for
       another resource**.
    2. For **Service instance id**, specify
       `write-instance`.
    3. In the **Custom attributes** section, specify the following key-value
       pairs.
+
       - **key** = `action`, **value** =
         `write`
       - **key** = `functionname`, **value** =
@@ -246,11 +251,13 @@ In this step, you register the Lambda read function as a service instance in the
 5. In the **Service instances** section, choose **Register service
    instance**.
 6. On the **Register service instance** page, do the following.
+
    1. For **Instance type**, select **Identifying information for
       another resource**.
    2. For **Service instance id**, specify `read-instance`.
    3. In the **Custom attributes** section, specify the following key-value
       pairs.
+
       - **key** = `action`, **value** =
         `read`
       - **key** = `functionname`, **value** =
@@ -306,12 +313,12 @@ b'{"statusCode": 200, "body": "{\\"ResponseMetadata\\": {\\"RequestId\\": \\"Q0M
 ```
 
 6. To verify the write was successful in the previous step, create a read client.
+
    1. Use the following command to create a file called `readfunction.py`.
 
    ```
    `vim readclient.py`
    ```
-
    2. In the `readclient.py` file, press the `i` button to enter insert
       mode. Then, copy and paste the following code. This code scans the table and will return the
       value that you wrote to the table in the previous step.
@@ -331,7 +338,6 @@ b'{"statusCode": 200, "body": "{\\"ResponseMetadata\\": {\\"RequestId\\": \\"Q0M
 
    print(resp["Payload"].read())
    ```
-
    3. Press the escape key, type `:wq`, and press the enter key to save the file
       and exit.
    4. Use the following command to run the Python code.
