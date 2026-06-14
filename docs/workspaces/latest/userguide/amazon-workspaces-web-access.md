@@ -17,10 +17,12 @@ The following information will help you get started with WorkSpaces web access.
 - Your administrator must enable web access on your WorkSpace. For more information, check with your administrator or
   see [Enable and Configure WorkSpaces Web Access](../adminguide/web-access.md "../adminguide/web-access.md") in the Amazon WorkSpaces Administration Guide.
 - Web access is supported with DCV-based WorkSpaces where the WorkSpace is running Windows or Linux.
+
   - On Windows, macOS, and Linux devices: Web access for Amazon DCV is supported on Google Chrome, Microsoft Edge, Apple Safari and Mozilla Firefox browsers when running on the latest three browser versions.
   - On Android tablets, Chromebooks, and iPads: Web access for Amazon DCV is supported on Google Chrome and Apple Safari browsers when running on the latest three browser versions.
 
 - Web access for PCoIP-based WorkSpaces has the following limitations:
+
   - Web access for PCoIP is not supported in the AWS GovCloud (US), Asia Pacific (Mumbai), Africa (Cape Town), Israel (Tel Aviv), or Europe (Paris) regions.
   - Web access for PCoIP is only supported for Windows-based WorkSpaces.
   - Web access for PCoIP is only supported on Google Chrome and Mozilla Firefox browsers on Windows, macOS and Linux devices when running on the latest three browser versions.
@@ -37,6 +39,7 @@ YUV444 encoding is not supported with WorkSpaces web access. If your administrat
 - [Proxy servers](#web-access-proxy "#web-access-proxy")
 - [Supported features for DCV-based WorkSpaces](#wsp-for-wsp-client "#wsp-for-wsp-client")
 - [Supported features and gestures on Android tablets and iPads](#supported-features-tablets "#supported-features-tablets")
+- [Installing WorkSpaces Web Access as a Progressive Web Application](#web-access-pwa "#web-access-pwa")
 - [Enabling diagnostic log uploads](#enable-diagnostic-logging "#enable-diagnostic-logging")
 
 ## Display support
@@ -123,6 +126,7 @@ Android tablets are supported on Google Chrome, and iPads are supported on Apple
 - To enable track pad mode, choose the drop-down with your **WorkSpace Name** on the top right of
   your WorkSpaces session, and then choose **Enable trackpad mode**.
 - Once trackpad mode is enabled:
+
   - Use a short one-finger tap to trigger a mouse left click.
   - Use a longer one-finger tap to trigger a mouse right click.
 
@@ -131,6 +135,82 @@ Android tablets are supported on Google Chrome, and iPads are supported on Apple
 - Your screen resolution may be automatically adjusted to fit the tablet screen size.
 - If you rotate the tablet device, the screen will automatically resize itself.
 - Full screen is not supported on Apple Safari on iPads.
+
+## Installing WorkSpaces Web Access as a Progressive Web Application
+
+You can install WorkSpaces Web Access as a Progressive Web Application (PWA) on your device. A PWA
+lets you access your WorkSpace in a dedicated, full-screen window without browser UI elements such
+as the toolbar or address bar. After you install it, you can launch WorkSpaces Web Access directly from
+your device home screen or taskbar. The PWA uses the same connection and authentication method as
+WorkSpaces Web Access. The PWA automatically stays current without requiring updates. When a web client update is released, it is applied the next time you fully close and reopen the PWA.
+
+###### Requirements
+
+- Your administrator must enable web access on your WorkSpace.
+- PWA is supported with Amazon DCV-based WorkSpaces on the following platforms and browsers:
+
+  - Windows – Chrome and Edge
+  - macOS – Chrome and Safari
+  - Android and Chromebook – Chrome
+  - iPad and iOS – Chrome and Safari
+
+###### To install on Windows, macOS, or Android/Chromebook devices using Chrome or Edge
+
+1. Navigate to your organization's WorkSpaces Web Access sign-in page URL in a supported browser.
+2. In the browser address bar, choose the **Install** icon (usually a monitor
+   with a down arrow) to the right of the URL. Alternatively, choose the browser menu (three
+   vertical dots), choose **Cast, Save, and Share**, and then choose
+   **Install page as app**.
+3. In the dialog box, confirm or edit the website details, and then choose
+   **Install**.
+
+###### To install on macOS devices using Safari
+
+1. Navigate to your organization's WorkSpaces Web Access sign-in page URL in a supported browser.
+2. On the top toolbar, choose **File**, then
+   **Add to dock**.
+3. In the dialog box, confirm or edit the website details, and then choose
+   **Add**.
+
+###### To install on iOS or iPadOS devices using Safari or Chrome
+
+1. Navigate to your organization's WorkSpaces Web Access sign-in page URL in a supported browser.
+2. To the right of the address bar, choose **Share**, and then choose
+   **Add to Home Screen**.
+3. Confirm or edit the website details, and then choose **Add**.
+
+###### To uninstall on Windows, macOS, or Android/Chromebook devices using Chrome or Edge
+
+1. Open the app, and then choose the three-dot menu in the title bar.
+2. Choose **Uninstall**.
+
+###### To uninstall on macOS devices using Safari
+
+1. Open the context (right-click) menu on the app icon in the Dock.
+2. Choose **Options**, and then choose
+   **Remove from Dock**.
+
+###### To uninstall on Android, iOS, or iPadOS devices using Safari or Chrome
+
+1. Press and hold the app icon on your home screen.
+2. Choose **Remove** or **Uninstall**.
+
+###### Note
+
+You must install the PWA from the same Regional endpoint as the WorkSpaces Region. You can't
+install the PWA from one Region (for example, `us-east-1`) and use it to access a WorkSpace in a
+different Region (for example, `us-west-2`). To make sure that you are on the correct Regional
+endpoint, enter the registration code on the WorkSpaces sign-in page in a regular browser tab and allow
+the browser to redirect you to the correct Regional endpoint. Then, install the PWA from that
+page.
+
+###### Note
+
+On Android, iOS, and iPadOS devices, minimizing the PWA window might temporarily disconnect
+your session because mobile browsers restrict network connections for background applications. When
+you return to the PWA window, wait a few seconds for the connection to re-establish. If the
+disconnection exceeds the timeout period set by your administrator, you must sign in
+again.
 
 ## Enabling diagnostic log uploads
 

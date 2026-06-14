@@ -15,6 +15,7 @@ Your WorkSpaces administrator can enable and disable WebAuthn. Your browser will
 
 1.  Sign into your WorkSpace.
 2.  In your browser, open one of the following links, depending on the browser you're using:
+
     - For **Microsoft Edge**:
       https://microsoftedge.microsoft.com/addons/detail/dcv-webauthn-redirection-/ihejeaahjpbegmaaegiikmlphghlfmeh
     - For **Google Chrome**:

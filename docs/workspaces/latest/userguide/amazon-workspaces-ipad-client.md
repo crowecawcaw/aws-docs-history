@@ -180,7 +180,7 @@ button icon.
 
 Simulate a right mouse button click by tapping the right mouse button icon.
 
-![Right mouse button icon](images/mouse-icon-right.png)
+![Right mouse button icon](/images/workspaces/latest/userguide/images/mouse-icon-right.png)
 
 ## Swiftpoint GT, ProPoint, or PadPoint mouse
 
@@ -212,6 +212,7 @@ disconnects the client.
 ###### To quit the WorkSpaces iPad client application
 
 1. Open the App Switcher by doing one of the following:
+
    - Swipe up from the bottom edge and pause in the center of the screen.
    - Double-click the **Home** button (on an iPad with a
      **Home** button).

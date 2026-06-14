@@ -246,6 +246,7 @@ following steps:
    **Disconnect WorkSpace**).
 2. Unplug your headset, and then plug it back in. Verify that it works on your local computer or tablet.
    For a USB headset, make sure that it shows up as a playback device locally on your computer or tablet:
+
    - For Windows, check the devices listed in the **Control Panel** under
      **Hardware and Sound** > **Sound**. In the
      **Sound** dialog box, choose the **Playback** tab.

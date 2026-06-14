@@ -27,6 +27,7 @@ Linux WorkSpace, you can use smart cards to authenticate yourself when running
 - In-session authentication is available in all Regions where DCV is supported.
   Pre-session authentication is available in the following
   Regions:
+
   - Asia Pacific (Sydney) Region
   - Asia Pacific (Tokyo) Region
   - Europe (Ireland) Region

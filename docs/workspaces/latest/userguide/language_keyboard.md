@@ -29,6 +29,7 @@ To see which Region your WorkSpace is in, log in to the WorkSpaces client applic
 
 - **Method 3** — Install the appropriate language or keyboard settings
   on your WorkSpace. For a Windows WorkSpace, use the following steps:
+
   1.  Log in to the WorkSpace.
   2.  On the Windows **Start** menu, choose **Settings**.
   3.  Choose **Time & Language**, and then choose **Language**.
@@ -101,6 +102,7 @@ procedure specific to the Japanese 106/109 layout.
 If you're using a non-IME language (for example, French), use the following procedure.
 
 1. Set the local client device to the language-specific keyboard that you want.
+
    1. On the Windows **Start** menu, choose **Settings**.
    2. Choose **Time & language**.
    3. Choose **Language**.
@@ -127,6 +129,7 @@ use the following procedure.
 
 1. Set the local client device's keyboard layout to the IME language that you
    want.
+
    1. On the Windows **Start** menu, choose **Settings**.
    2. Choose **Time & language**.
    3. Choose **Language**.
@@ -147,6 +150,7 @@ use the following procedure.
 3. Start your WorkSpaces client application and log into your WSP WorkSpace.
 4. Inside the WorkSpace, set the input language to the IME language that you
    want.
+
    1. On the Windows **Start** menu, choose **Settings**.
    2. Choose **Time & language**.
    3. Choose **Region & language**.
@@ -174,6 +178,7 @@ If you're using the Japanese 106/109 keyboard layout, use the following procedur
 
 1. Set the local client device’s display language to Japanese, and set the keyboard to use the Japanese
    106/109 keyboard layout.
+
    1. On the Windows **Start** menu, choose **Settings**.
    2. Choose **Time & language**.
    3. Choose **Language**.
@@ -197,6 +202,7 @@ If you're using the Japanese 106/109 keyboard layout, use the following procedur
 3. Start your WorkSpaces client application and log into your WSP WorkSpace.
 4. Inside the WorkSpace, set Japanese as the default display language and set the keyboard layout
    to Japanese 106/109.
+
    1. On the Windows **Start** menu, choose **Settings**.
    2. Choose **Time & language**.
    3. Choose **Region & language**.

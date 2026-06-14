@@ -286,6 +286,7 @@ Alternatively, organizations may also configure this setting using macOS Default
 
 - Namespace: `com.amazon.workspaces`
 - Key: `WSUseDualStackIPv6`
+
   - Set its value to `1` to enable IPv6 preferred.
   - Set its value to `0` to disable IPv6 preferred (meaning it
     will use IPv4 exclusively).

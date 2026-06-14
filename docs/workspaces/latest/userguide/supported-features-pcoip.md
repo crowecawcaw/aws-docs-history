@@ -2,7 +2,9 @@
 
 ###### Note
 
-Starting November 7, 2025, Amazon WorkSpaces PCoIP Web Access will no longer be open to new customers. After this date, the feature will only receive critical functional and security updates. For more information, see [WorkSpaces Web Access](amazon-workspaces-web-access.md "amazon-workspaces-web-access.md").
+Starting November 7, 2025, Amazon WorkSpaces PCoIP Web Access will no longer be open to new customers. After this date, the feature will only receive critical functional and security updates.
+
+For more information, see [WorkSpaces Web Access](amazon-workspaces-web-access.md "amazon-workspaces-web-access.md").
 
 The following table compares the features that are supported by the PCoIP WorkSpaces clients.
 

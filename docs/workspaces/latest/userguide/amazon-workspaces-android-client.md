@@ -67,8 +67,10 @@ To download and install the client application, complete the following procedure
 1. Determine whether your Chromebook supports Android applications by checking its status on the list
    of [Chrome OS Systems Supporting Android Apps](https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps "https://sites.google.com/a/chromium.org/dev/chromium-os/chrome-os-systems-supporting-android-apps").
 2. Depending on your Chromebook's status, do one of the following:
+
    - If your Chromebook's status is marked as **Stable Channel**, do the
      following:
+
      1. Follow the instructions in [Install Android apps on your Chromebook](https://support.google.com/chromebook/answer/7021273 "https://support.google.com/chromebook/answer/7021273") to enable your Chromebook to install Android
         applications.
 
@@ -83,8 +85,10 @@ To download and install the client application, complete the following procedure
 
    - If your Chromebook's status is marked as **Planned** or if your
      Chromebook does not appear on the list, do the following:
+
      1. Determine whether your Chromebook meets the requirements of the Amazon WorkSpaces
         Chromebook client application:
+
         - The WorkSpaces Chromebook client application requires a Chromebook with Chrome
           OS version 45 or later. The client application works on most Chromebooks
           with version 45 or later, but some devices might not be compatible. If you
