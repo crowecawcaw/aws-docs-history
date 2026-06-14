@@ -22,6 +22,7 @@ You can use the AWS CLI or SDK to work with generic packages. For a full list of
 - Like all packages in CodeArtifact, there are limits to asset size and the number of assets per
   package. For more information about limits and quotas in CodeArtifact, see [Quotas in AWS CodeArtifact](service-limits.md "service-limits.md").
 - The asset names that they contain must follow these rules:
+
   - Asset names can use Unicode letters and numbers. Specifically, these Unicode character
     categories are allowed: Lowercase Letter (`Ll`), Modifier Letter (`Lm`),
     Other Letter (`Lo`), Titlecase Letter (`Lt`),

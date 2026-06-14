@@ -151,6 +151,7 @@ To add or edit package origin controls for a package in a CodeArtifact repositor
 5. In **Edit origin controls**, choose the package origin controls
    you want to set for this package. Both package origin control settings, Publish and Upstream,
    must be set at the same time.
+
    - To allow publishing package versions directly, in
      **Publish**, choose **Allow**. To block
      publishing of package versions, choose **Block**.
@@ -164,6 +165,7 @@ To add or edit package origin controls for a package in a CodeArtifact repositor
 1. If you haven't, configure the AWS CLI by following the steps in [Setting up with AWS CodeArtifact](get-set-up-for-codeartifact.md "get-set-up-for-codeartifact.md").
 2. Use the `put-package-origin-configuration` command to add
    or edit package origin controls. Replace the following fields:
+
    - Replace `my_domain` with the CodeArtifact domain that contains the package you want to update.
    - Replace `my_repo` with the CodeArtifact repository that contains the package you want to update.
    - Replace `npm` with the package format of the package you want to update.

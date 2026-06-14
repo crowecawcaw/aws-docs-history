@@ -113,6 +113,7 @@ replace-with = "`my_registry`"
 2. To publish Cargo packages to your repository with Windows, you must use the
    CodeArtifact `get-authorization-token` command and Cargo `login` command to
    fetch an authorization token and your credentials.
+
    - Replace `my_registry` with your registry name as defined in `[registries.`my_registry`]`.
    - Replace `my_domain` with your CodeArtifact domain name.
    - Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include

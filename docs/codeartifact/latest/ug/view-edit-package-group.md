@@ -18,6 +18,7 @@ details or configuration using the CodeArtifact console or the AWS Command Line 
    definition. In the **Strength** column, you can see the strength of the package association. For more
    information, see [Package group hierarchy and pattern specificity](package-group-definition-syntax-matching-behavior.md#package-group-hierarchy-pattern-specificity "package-group-definition-syntax-matching-behavior.md#package-group-hierarchy-pattern-specificity").
 7. To edit package group information, choose **Edit package group**.
+
    1. In **Information**, update the package group's description or contact information. You cannot edit
       a package group's definition.
    2. In **Package group origin controls**, update the package group's origin control settings, which determine how associated packages

@@ -54,6 +54,7 @@ https://vpce-0dc4daf7fca331ed6-et36qa1d.d.codeartifact.us-west-2.vpce.amazonaws.
 
 3. Configure your package manager to use the updated VPC endpoint from the previous step. You must configure the package manager without
    using the CodeArtifact `login` command. For configuration instructions for each package format, see the following documentation.
+
    - npm: [Configuring npm without using the login command](npm-auth.md#configuring-npm-without-using-the-login-command "npm-auth.md#configuring-npm-without-using-the-login-command")
    - nuget: [Configure nuget or dotnet without the login command](nuget-cli.md#nuget-configure-without-login "nuget-cli.md#nuget-configure-without-login")
    - pip: [Configure pip without the login command](python-configure-pip.md#python-configure-without-pip "python-configure-pip.md#python-configure-without-pip")

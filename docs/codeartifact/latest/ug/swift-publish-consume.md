@@ -202,6 +202,7 @@ cd `repoName`
 ```
 
 4. Create the package and publish it to CodeArtifact.
+
    1. **Recommended:** If you are using Swift 5.9 or later, you can use the
       following `swift package-registry publish` command to create the package and publish it to your configured CodeArtifact repository.
 
@@ -214,9 +215,9 @@ cd `repoName`
    ```
    swift package-registry publish `myScope`.`myPackage` `1.0.0`
    ```
-
    2. If you're using a Swift version that is older than 5.9, you must use the `swift archive-source`
       command to create the package and then use a Curl command to publish it.
+
       1. If you haven't configured the `CODEARTIFACT_AUTH_TOKEN` and
          `CODEARTIFACT_REPO` environment variables, or it's been over 12 hours since you have, follow the steps in
          [Configure Swift without the login command](configure-swift.md#configure-swift-without-login-command "configure-swift.md#configure-swift-without-login-command").

@@ -6,6 +6,7 @@ package group hierarchy.
 ###### Contents
 
 - [Package group definition syntax and examples](package-group-definition-syntax-matching-behavior.md#package-group-definition-syntax-examples "package-group-definition-syntax-matching-behavior.md#package-group-definition-syntax-examples")
+
   - [Package group definition and normalization](package-group-definition-syntax-matching-behavior.md#package-group-definition-syntax-examples-normalization "package-group-definition-syntax-matching-behavior.md#package-group-definition-syntax-examples-normalization")
   - [Namespaces in package group definitions](package-group-definition-syntax-matching-behavior.md#package-group-definition-syntax-examples-namespaces "package-group-definition-syntax-matching-behavior.md#package-group-definition-syntax-examples-namespaces")
 

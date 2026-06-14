@@ -68,6 +68,7 @@ In the following procedure, you will use the AWS CLI to do the following:
 
 1. Fetch an authentication token from CodeArtifact and store it in your environment. How the credentials are stored
    depends on the operating system of the environment:
+
    1. **macOS:** An entry is created in the macOS Keychain application.
    2. **Linux and Windows:** An entry is created in the `~/.netrc` file.
 
@@ -78,6 +79,7 @@ In the following procedure, you will use the AWS CLI to do the following:
 ###### To configure the Swift without the login command
 
 1. In a command line, use the following command to fetch a CodeArtifact authorization token and store it in an environment variable.
+
    - Replace `my_domain` with your CodeArtifact domain name.
    - Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
      `--domain-owner`. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").
@@ -107,6 +109,7 @@ Windows
 
 2. Get your CodeArtifact repository's endpoint by running the following command. Your repository endpoint is used to point the Swift
    Package Manager to your repository to consume or publish packages.
+
    - Replace `my_domain` with your CodeArtifact domain name.
    - Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
      `--domain-owner`. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").

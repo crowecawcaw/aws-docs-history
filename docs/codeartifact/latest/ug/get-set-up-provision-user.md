@@ -10,6 +10,7 @@ Follow these instructions to prepare an IAM user to use CodeArtifact.
    of AWS IAM policies](../../../IAM/latest/UserGuide/PoliciesOverview.md "../../../IAM/latest/UserGuide/PoliciesOverview.md") in the
    _IAM User Guide_.
 2. Grant the IAM user access to CodeArtifact.
+
    - **Option 1:** Create a custom IAM policy. With a custom IAM
      policy, you can provide the minimum required permissions and change how long
      authentication tokens last. For more information and example policies, see

@@ -28,6 +28,7 @@ With `Yarn 1.X`, `yarn` commands use the configuration information from the ~/.n
    documentation_ for installation instructions.
 3. Use the `aws codeartifact login` command to fetch CodeArtifact credentials and configure
    your ~/.npmrc file.
+
    - Replace `my_domain` with your CodeArtifact domain name.
    - Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
      `--domain-owner`. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").
@@ -78,6 +79,7 @@ The following procedure details how to configure `Yarn 2.X` by updating your `.y
 1. If you haven't done so already, configure your AWS credentials for use with the AWS CLI, as
    described in [Getting started with CodeArtifact](getting-started.md "getting-started.md").
 2. Use the `aws codeartifact get-repository-endpoint` command to get your CodeArtifact repository's endpoint.
+
    - Replace `my_domain` with your CodeArtifact domain name.
    - Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
      `--domain-owner`. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").

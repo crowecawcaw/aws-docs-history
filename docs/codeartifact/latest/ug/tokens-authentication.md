@@ -19,6 +19,7 @@ Root users cannot call `GetAuthorizationToken`.
   configure common package managers to use CodeArtifact in a single step. Calling `login` fetches a
   token with `GetAuthorizationToken` and configures your package manager with the token
   and correct CodeArtifact repository endpoint. The support package managers are as follows:
+
   - dotnet
   - npm
   - nuget

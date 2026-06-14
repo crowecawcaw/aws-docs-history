@@ -21,6 +21,7 @@ managing CodeArtifact domains with CloudFormation, see [Creating CodeArtifact re
 5. Use an AWS KMS key (KMS key) to encrypt all assets in your domain. You can use an
    AWS managed KMS key or a KMS key that you manage. For more information about the supported
    types of KMS keys in CodeArtifact, see [Types of AWS KMS keys supported in CodeArtifact](domain-overview.md#domain-overview-supported-kms-keys "domain-overview.md#domain-overview-supported-kms-keys").
+
    - Choose **AWS managed key** if you want to use the default
      AWS managed key.
    - Choose **Customer managed key** if you want to use a

@@ -13,9 +13,11 @@ managing CodeArtifact package groups with CloudFormation, see [Creating CodeArti
    package group definition determines which packages are associated with the group. You can enter the package group
    definition manually with text, or you can use the visual mode to make selections and the package group definition will be created automatically.
 5. To use the visual mode to create the package group definition:
+
    1. Choose **Visual** to switch to the visual mode..
    2. In **Package format**, choose the format of the packages to be associated with this group.
    3. In **Namespace (Scope)**, choose the namespace criteria to match on.
+
       - **Equals**: Match the specified namespace exactly. If chosen, enter the namespace to match on.
       - **Blank**: Match packages with no namespace.
       - **Starts with word**: Match namespaces that begin with a specified word. If chosen, enter the
@@ -25,6 +27,7 @@ managing CodeArtifact package groups with CloudFormation, see [Creating CodeArti
 
    4. If **Equals**, **Blank**, or **Starts with word** is selected, in
       **Package name**, choose the package name criteria to match on.
+
       - **Exactly equals**: Match the specified package name exactly. If chosen, enter the package name to match on.
       - **Starts with prefix**: Match packages that start with the specified prefix.
       - **Starts with word**: Match packages that begin with a specified word. If chosen, enter the
@@ -35,6 +38,7 @@ managing CodeArtifact package groups with CloudFormation, see [Creating CodeArti
    5. Choose **Next** to review the definition.
 
 6. To enter the package group definition with text:
+
    1. Choose **Text** to switch to the text mode.
    2. In **Package group definition**, enter the package group definition. For more information about package group definition syntax, see
       [Package group definition syntax and matching behavior](package-group-definition-syntax-matching-behavior.md "package-group-definition-syntax-matching-behavior.md").

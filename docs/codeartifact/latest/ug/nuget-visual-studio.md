@@ -29,6 +29,7 @@ been added manually or by running `aws codeartifact login` to configure NuGet pr
 ###### Use CodeArtifact in Visual Studio with the AWS Toolkit for Visual Studio
 
 1. Install the AWS Toolkit for Visual Studio using the following steps. The toolkit is compatible with Visual Studio 2017 and 2019 using these steps. AWS CodeArtifact does not support Visual Studio 2015 and earlier.
+
    1. The Toolkit for Visual Studio for Visual Studio 2017 and Visual Studio 2019 is distributed in the
       [Visual Studio
       Marketplace](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2017 "https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.AWSToolkitforVisualStudio2017").
@@ -44,6 +45,7 @@ been added manually or by running `aws codeartifact login` to configure NuGet pr
 3. (Optional) Set the AWS profile you want to use with CodeArtifact. If not set, CodeArtifact will use the default profile.
    To set the profile, go to **Tools > NuGet Package Manager > Select CodeArtifact AWS Profile**.
 4. Add your CodeArtifact repository as a package source in Visual Studio.
+
    1. Navigate to your repository in the **AWS Explorer** window, right click and select
       `Copy NuGet Source Endpoint`.
    2. Use the **Tools > Options** command and scroll to

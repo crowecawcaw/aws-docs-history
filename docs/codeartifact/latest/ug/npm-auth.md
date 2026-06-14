@@ -66,6 +66,7 @@ CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain `my_d
 
 2. Get your CodeArtifact repository's endpoint by running the following command. Your repository endpoint is used to point npm to
    your repository to install or publish packages.
+
    - Replace `my_domain` with your CodeArtifact domain name.
    - Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
      `--domain-owner`. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").

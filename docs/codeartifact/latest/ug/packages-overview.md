@@ -10,6 +10,7 @@ set of package versions, and package-level metadata such as npm tags.
 
 - [Supported package formats](packages-overview.md#supported-package-formats "packages-overview.md#supported-package-formats")
 - [Package publishing](packages-overview.md#package-publishing "packages-overview.md#package-publishing")
+
   - [Publishing permissions](packages-overview.md#package-publishing-permissions "packages-overview.md#package-publishing-permissions")
   - [Overwriting package assets](packages-overview.md#package-publishing-overwrite-assets "packages-overview.md#package-publishing-overwrite-assets")
   - [Private packages and public repositories](packages-overview.md#package-publishing-upstreams-direct "packages-overview.md#package-publishing-upstreams-direct")

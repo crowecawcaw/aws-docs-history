@@ -29,6 +29,7 @@ If you cannot or do not want to use the configuration instructions from the cons
 connect to your Ruby package managers to your CodeArtifact repository manually.
 
 1. In a command line, use the following command to fetch a CodeArtifact authorization token and store it in an environment variable.
+
    - Replace `my_domain` with your CodeArtifact domain name.
    - Replace `111122223333` with the AWS account ID of the owner of the domain. If you are accessing a repository in a domain that you own, you don't need to include
      `--domain-owner`. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").

@@ -81,6 +81,7 @@ package group origin control settings, see
 1. If you haven't, configure the AWS CLI by following the steps in [Setting up with AWS CodeArtifact](get-set-up-for-codeartifact.md "get-set-up-for-codeartifact.md").
 2. Use the `update-package-group-origin-configuration` command to add
    or edit package origin controls.
+
    - For `--domain`, enter the CodeArtifact domain that contains the package group you want to update.
    - For `--domain-owner`, enter the account number of the owner of the domain.
    - For `--package-group`, enter the package group you want to update.

@@ -21,6 +21,7 @@ You can view details about and update your repository using the CodeArtifact con
 2. In the navigation pane, choose **Repositories**, and then
    choose the repository name that you want to view or modify.
 3. Expand **Details** to see the following:
+
    - The repository's domain. Choose the domain name to learn more about
      it.
    - The repository's resource policy. Choose **Apply a repository policy** to add one.
