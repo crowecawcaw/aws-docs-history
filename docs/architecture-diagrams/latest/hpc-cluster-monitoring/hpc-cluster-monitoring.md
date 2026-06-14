@@ -24,6 +24,7 @@ The following two use cases might use this architecture:
 ![Reference architecture diagram showing how to build a mechanism to monitor Amazon EC2 state changes for HPC clusters across multiple AWS accounts. It includes a dashboard to help monitor the cluster status as well as each individual Amazon EC2 instance's status.](images/hpc-cluster-monitoring.png)
 
 1. In this diagram, there are two types of AWS accounts:
+
    - **HPC cluster account(s)** - These accounts are where the **Amazon EC2** instance-based HPC compute clusters are deployed.
    - **Centralized monitoring account** - This is a centralized account where one or more HPC cluster accounts sends cluster notification statuses.
 
