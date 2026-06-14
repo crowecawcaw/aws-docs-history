@@ -1,3 +1,3 @@
 # Welcome
 
-This document was last published on June 5, 2026.
+This document was last published on June 12, 2026.
