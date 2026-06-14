@@ -22,6 +22,7 @@ AWS Management Console
 4. In the lower pane, choose the **Route server endpoints** tab.
 5. Choose **Create route server endpoint**.
 6. On the **Create route server endpoint** page, configure the following settings:
+
    - For **Name**, enter a descriptive name for your endpoint.
    - For **Route server**, confirm that the correct route server is selected.
    - For **Subnet**, select the subnet in which you want to create the endpoint.

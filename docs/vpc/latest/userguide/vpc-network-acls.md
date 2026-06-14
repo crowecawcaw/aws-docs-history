@@ -76,6 +76,7 @@ The following are the basic things to know about network ACLs before you begin.
 - Network ACLs can't block traffic to the Instance Metadata Service (IMDS). To manage
   access to IMDS, see [Configure the instance metadata options](../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md "../../../AWSEC2/latest/UserGuide/configuring-instance-metadata-options.md") in the _Amazon EC2 User Guide_.
 - Network ACLs do not filter traffic destined to and from the following:
+
   - Amazon Domain Name Services (DNS)
   - Amazon Dynamic Host Configuration Protocol (DHCP)
   - Amazon EC2 instance metadata

@@ -24,6 +24,7 @@ Before you begin, ensure that you have the required permissions. For more inform
 
 - With the console, you can specify the following as sources for inbound rules or
   destinations for outbound rules:
+
   - **Custom** – An IPv4 CIDR block, an IPv6 CIDR block,
     a security group, or a prefix list.
   - **Anywhere-IPv4** – The 0.0.0.0/0 IPv4 CIDR block.
@@ -50,6 +51,7 @@ ranges that need access to your resources.
 3. Select the security group.
 4. To edit the inbound rules, choose **Edit inbound rules** from
    **Actions** or the **Inbound rules** tab.
+
    1. To add a rule, choose **Add rule** and enter the
       type, protocol, port, and source for the rule.
 
@@ -64,6 +66,7 @@ ranges that need access to your resources.
 
 5. To edit the outbound rules, choose **Edit outbound rules** from
    **Actions** or the **Outbound rules** tab.
+
    1. To add a rule, choose **Add rule** and enter the
       type, protocol, port, and destination for the rule. You can also enter
       an optional description.

@@ -82,6 +82,7 @@ this role when you create the flow log.
 2. In the navigation pane, choose **Policies**.
 3. Choose **Create policy**.
 4. On the **Create policy** page, do the following:
+
    1. Choose **JSON**.
    2. Replace the contents of this window with the permissions policy
       at the start of this section.

@@ -54,6 +54,7 @@ To view NAU metrics in CloudWatch, you must first enable monitoring on each VPC 
 3. Select the check box for the VPC.
 4. Select **Actions**, **Edit VPC settings**.
 5. Do one of the following:
+
    - To enable monitoring, select **Network mapping units metrics settings**,
      **Enable network address usage metrics**.
    - To disable monitoring, clear **Network mapping units metrics settings**,

@@ -30,6 +30,7 @@ To use flow logs, you need to be aware of the following limitations:
   resources in the same VPC and flows going through an Outpost local gateway.
 - Some flow log records may be skipped during the aggregation interval (see _log-status_ in [Available fields](flow-log-records.md#flow-logs-fields "flow-log-records.md#flow-logs-fields")). This may be caused by an internal AWS capacity constraint or internal error. If you are using AWS Cost Explorer to view VPC flow log charges and some flow logs are skipped during the flow log aggregation interval, the number of flow logs reported in AWS Cost Explorer will be higher than the number of flow logs published by Amazon VPC.
 - If you are using [VPC Block Public Access (BPA)](security-vpc-bpa-assess-impact-main.md#security-vpc-bpa-fl "security-vpc-bpa-assess-impact-main.md#security-vpc-bpa-fl"):
+
   - Flow logs for VPC BPA do not include [skipped records](flow-logs-records-examples.md#flow-log-example-no-data "flow-logs-records-examples.md#flow-log-example-no-data").
   - Flow logs for VPC BPA do not include [bytes](flow-log-records.md#flow-logs-fields "flow-log-records.md#flow-logs-fields") even if you include the
     `bytes` field in your flow log.
@@ -97,8 +98,44 @@ To use flow logs, you need to be aware of the following limitations:
 
 - The encryption status may be '-'(not available) in some flows, due to limitation of some network appliance to report the encryption status. Users can ignore these flows in the analysis.
 - Showing as encrypted in monitor mode does not mean the flow will be allowed in enforce mode. Vice versa.
-  - If a flow is encrypted in monitor mode, it may not be compliant in enforce mode:
-    - If the flow involves an ENI created by an AWS service, then the service needs to support Encryption Controls.
-    - If the flow goes through VPC peering, the peered VPC may not force Encryption Controls.
 
-  - If a flow is not encrypted in monitor mode, it may still be compliant in enforce mode, given the service related to the flow is added as an exclusion.
+      + If a flow is encrypted in monitor mode, it may not be compliant in enforce mode:
+
+
+
+
+      	- If the flow involves an ENI created by an AWS service, then the service needs to support Encryption Controls.
+      	- If the flow goes through VPC peering, the peered VPC may not force Encryption Controls.
+      + If a flow is not encrypted in monitor mode, it may still be compliant in enforce mode, given the service related to the flow is added as an exclusion.
+
+  Limitations specific to Flow Logs Amazon EC2 Tags fields available in version 11:
+
+- Tag fields are not computed if the tags on a resource are not owned by the owner of the flow
+  log subscription. For example, if you share a subnet (`SubnetA`) with
+  another account (`AccountB`), and then you create a flow log
+  subscription for `SubnetA` with a tag field on network-interfaces, if `AccountB` launches a tagged network-interface with the key you configured,
+  your subscription will receive traffic logs for the network-interface launched by `AccountB` but the tag fields configured by your subscription will
+  not be computed due to security concerns. You can choose to tag that network-interface launched by `AccountB` to display tags if desired.
+- If you create flow log subscriptions with Tag fields at the VPC/Subnet resource level, any
+  traffic generated for non-tagged network interfaces will also be delivered for your
+  subscriptions. The values for Tag fields will be '-' for non-tagged resources.
+- Auto Scaling groups will not be able to display any tags if they are named '-' since this is a reserved character to indicate missing/no value.
+- Creation of any Flow Logs subscription with Tags fields will result in the creation of a few resources on the customer's behalf.
+  To consume updates to your tag values, EventBridge Managed Rules will be created to send tag changes to the Flow Logs service.
+  These EventBridge Managed Rules will be automatically cleaned up if all subscriptions with Tag fields are deleted.
+  Do not manually delete these EventBridge Managed Rules. Doing so will result in large delays updating tag values.
+  To control this creation/cleanup and provide access to tag values, a Service Linked Role will be created in your account.
+  See [Using service-linked roles for VPC Flow Logs](flow-logs-slr.md "flow-logs-slr.md") for more details.
+- Due to Amazon CloudWatch Logs parsing and Athena parsing constraints, all special characters in tag values will be encoded using UTF-8 percent encoding.
+  This can be decoded natively in Athena using `url_decode` or can be decoded by any URL or URI decoder.
+- For the first hour after a new subscription is created, tag values may be missing or inaccurate.
+  After this first hour, tag values will be able to accurately reflect the values of your tagged resources with 1 minute granularity.
+- If multiple tag changes are made on the same resource within the same second, there is potential for updates to be lost, resulting in up to one hour of stale tag values.
+- For Auto Scaling group tag fields, you must have at least one enabled CloudTrail trail in your account. Without an enabled trail, Auto Scaling group tag values may be stale or inaccurate.
+  Limitations specific to `next-hop-` fields:
+
+- The next hop fields are not computed if the next hop network interface is not owned by the owner of the flow log subscription, except for `next-hop-az-id`.
+- The next hop fields are not available if the next hop doesn't have a network interface(For example, traffic to internet gateway).
+- The next hop fields are not available for cross-region traffic.
+- The next hop fields are not available for ingress traffic from some network services(for example, transit gateway and Network Load Balancer).
+- If the traffic go through a middle-box(for example transit gateway, Network Load Balancer), the next hop network interface is the network interface associated with the middle box(such as the transit gateway attachment), not the final destination of the traffic

@@ -35,6 +35,7 @@ JSON
 ###### To create a flow log that publishes to Amazon Data Firehose
 
 1. Do one of the following:
+
    - Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
      In the navigation pane, choose **Network Interfaces**.
      Select the checkbox for the network interface.
@@ -47,6 +48,7 @@ JSON
 
 2. Choose **Actions**, **Create flow log**.
 3. For **Filter**, specify the type of traffic to log.
+
    - **Accept** – Log only accepted traffic
    - **Reject** – Log only rejected traffic
    - **All** – Log accepted and rejected traffic
@@ -55,6 +57,7 @@ JSON
    period of time during which a flow is captured and aggregated into one flow
    log record.
 5. For **Destination**, choose either of the following options:
+
    - **Send to Amazon Data Firehose in the same account** –
      The delivery stream and the resource to monitor are in the same
      account.
@@ -68,6 +71,7 @@ JSON
    choose an existing [IAM service role for cross account delivery](firehose-cross-account-delivery.md "firehose-cross-account-delivery.md") that has permissions to publish logs or choose **Set up permissions** to open the IAM console and create a service role.
 8. For **Log record format**, specify the format for the
    flow log record.
+
    - To use the default flow log record format, choose **AWS
      default format**.
    - To create a custom format, choose **Custom format**.

@@ -34,6 +34,7 @@ AWS Management Console
 3. Select the route server you want to associate with a VPC.
 4. On the **Association tab**, choose **Associate route server**.
 5. In the Associate route server dialog box:
+
    - The **Route server ID** field is automatically populated with your selected route server
    - For **VPC ID**, choose the VPC you want to associate from the dropdown list
 

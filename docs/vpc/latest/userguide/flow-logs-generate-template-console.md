@@ -13,6 +13,7 @@ by generating a CloudFormation template and using the template to create a stack
 ###### To generate the template using the console
 
 1. Do one of the following:
+
    - Open the Amazon VPC console. In the navigation pane, choose **Your VPCs**
      and then select your VPC.
    - Open the Amazon VPC console. In the navigation pane, choose **Subnets**

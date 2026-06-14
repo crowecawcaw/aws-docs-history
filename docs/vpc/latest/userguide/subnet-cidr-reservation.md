@@ -50,6 +50,7 @@ You can create and manage subnet CIDR reservations as follows.
    any existing subnet CIDR reservations.
 5. To add or remove subnet CIDR reservations, choose **Actions**,
    **Edit CIDR reservations** and then do the following:
+
    - To add an IPv4 CIDR reservation, choose **IPv4**, **Add IPv4 CIDR reservation**.
      Choose the reservation type, enter the CIDR range, and choose **Add**.
    - To add an IPv6 CIDR reservation, choose **IPv6**, **Add IPv6 CIDR reservation**.

@@ -31,6 +31,7 @@ You can audit the encryption status of traffic flows inside the VPC using the `e
 - `0` = not encrypted
 - `1` = nitro-encrypted (managed by VPC Encryption Controls)
 - `2` = application-encrypted
+
   - flows on TCP port 443 for interface endpoint to AWS service \*
   - flows on TCP port 443 for gateway endpoint \*
   - flows to encrypted Redshift cluster via VPC endpoint \*\*

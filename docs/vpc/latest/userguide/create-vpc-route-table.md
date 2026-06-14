@@ -56,6 +56,7 @@ Use the [create-route-table](../../../cli/latest/reference/ec2/create-route-tabl
 3. Choose **Actions**, **Edit routes**.
 4. Choose **Add route**.
 5. For **Destination** enter one of the following:
+
    - An IP address range - For example, 192.168.0.0/16
    - A single IP address - For example, 192.168.10.1/32
    - The ID of a prefix list - For example, pl-0abcdef1234567890

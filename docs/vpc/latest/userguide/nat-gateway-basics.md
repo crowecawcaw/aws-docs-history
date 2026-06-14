@@ -63,6 +63,7 @@ Client → NAT → Peering → Destination
   you use a transit gateway instead of a virtual private gateway.
 - NAT gateways support traffic with a maximum transmission unit (MTU) of 8500,
   but it's important to note the following:
+
   - The MTU of a network connection is the size, in bytes, of the largest permissible
     packet that can be passed over the connection. The larger the MTU of a connection, the
     more data that can be passed in a single packet.

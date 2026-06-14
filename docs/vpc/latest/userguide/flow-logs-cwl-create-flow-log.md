@@ -30,6 +30,7 @@ JSON
 ###### To create a flow log using the console
 
 1. Do one of the following:
+
    - Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
      In the navigation pane, choose **Network Interfaces**.
      Select the checkbox for the network interface.
@@ -57,6 +58,7 @@ JSON
    role](../../../IAM/latest/UserGuide/access.md "../../../IAM/latest/UserGuide/access.md") that has permissions to publish logs to CloudWatch Logs or choose to create a new service role.
 8. For **Log record format**, select the format for the
    flow log record.
+
    - To use the default format, choose **AWS
      default format**.
    - To use a custom format, choose **Custom format**

@@ -33,6 +33,7 @@ This section only talks about flow logs for VPCs. For information about flow log
 - [Publish flow logs to Amazon S3](flow-logs-s3.md "flow-logs-s3.md")
 - [Publish flow logs to Amazon Data Firehose](flow-logs-firehose.md "flow-logs-firehose.md")
 - [Query flow logs using Amazon Athena](flow-logs-athena.md "flow-logs-athena.md")
+- [Identity and access management in VPC Flow Logs](flow-logs-iam.md "flow-logs-iam.md")
 - [Troubleshoot VPC Flow Logs](flow-logs-troubleshooting.md "flow-logs-troubleshooting.md")
 
 ## Pricing

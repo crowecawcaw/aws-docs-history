@@ -52,13 +52,13 @@ You can subscribe to receive notifications as follows.
 4. Choose **Create subscription**.
 5. In the **Create subscription** dialog box, do the
    following:
+
    1. For **Topic ARN**, copy the following Amazon Resource
       Name (ARN):
 
    ```
    arn:aws:sns:us-east-1:806199016981:AmazonIpSpaceChanged
    ```
-
    2. For **Protocol**, choose the protocol to use (for
       example, `Email`).
    3. For **Endpoint**, type the endpoint to receive the

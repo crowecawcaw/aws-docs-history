@@ -85,6 +85,7 @@ using the Amazon VPC console.
     VPC. Doing so creates a tag with a key of `Name` and the
     value that you specify.
 5.  For **IPv4 CIDR block**, do one of the following:
+
     - Choose **IPv4 CIDR manual input** and enter
       an IPv4 address range for your VPC.
     - Choose **IPAM-allocated IPv4 CIDR block**, select your Amazon VPC IP
@@ -100,6 +101,7 @@ using the Amazon VPC console.
 6.  (Optional) To create a dual stack VPC, specify an IPv6 address range
     for your VPC. For **IPv6 CIDR block**, do one of the
     following:
+
     - Choose **IPAM-allocated IPv6 CIDR block** if you are using Amazon VPC IP Address Manager and
       you want to provision a IPv6 CIDR from an IPAM pool. If you use the
       IPAM-allocated IPv6 CIDR block to provision IPv6 CIDRs to VPCs, you get
@@ -142,7 +144,6 @@ using the Amazon VPC console.
          VPC. Possible IPv6 netmask lengths are between
          **/44** and **/60** in
          increments of /4.
-
     - Choose **Amazon-provided IPv6 CIDR block** to
       request an IPv6 CIDR block from an Amazon pool of IPv6 addresses.
       For **Network Border Group**, select the group
@@ -154,6 +155,7 @@ using the Amazon VPC console.
       (BYOIP)](../../../AWSEC2/latest/UserGuide/ec2-byoip.md "../../../AWSEC2/latest/UserGuide/ec2-byoip.md") in the _Amazon EC2 User Guide_. You can
       provision an IP address range for the VPC using the following options
       for **CIDR block**:
+
       - **No preference**: Choose this option to use netmask length of
         **/56**.
       - **Select a CIDR**: Choose this option to manually enter an IPv6
@@ -250,13 +252,13 @@ The following is example output.
 3. Create one or more subnets, depending on your use case. In production, we recommend that
    you launch resources in at least two Availability Zones. Use one of the
    following commands to create each subnet.
+
    - IPv4-only subnet – To create a subnet with a specific IPv4 CIDR block, use the following
      [create-subnet](../../../cli/latest/reference/ec2/create-subnet.md "../../../cli/latest/reference/ec2/create-subnet.md") command.
 
    ```
    aws ec2 create-subnet --vpc-id vpc-`1a2b3c4d5e6f1a2b3` --cidr-block `10.0.1.0/20` --availability-zone `us-east-2a` --query Subnet.SubnetId --output text
    ```
-
    - Dual stack subnet – If you created a dual stack VPC, you can use the
      `--ipv6-cidr-block` option to create a dual stack subnet, as shown
      in the following command.
@@ -264,7 +266,6 @@ The following is example output.
    ```
    aws ec2 create-subnet --vpc-id vpc-`1a2b3c4d5e6f1a2b3` --cidr-block `10.0.1.0/20` --ipv6-cidr-block `2600:1f13:cfe:3600::/64` --availability-zone `us-east-2a` --query Subnet.SubnetId --output text
    ```
-
    - IPv6-only subnet – If you created a dual stack VPC,
      you can use the `--ipv6-native` option to create an IPv6-only
      subnet, as shown in the following command.
@@ -279,27 +280,25 @@ subnet-`1a2b3c4d5e6f1a2b3`
 ```
 
 4. If you need a public subnet for your web servers, or for a NAT gateway, do the following:
+
    1. Create an internet gateway by using the following [create-internet-gateway](../../../cli/latest/reference/ec2/create-internet-gateway.md "../../../cli/latest/reference/ec2/create-internet-gateway.md") command. The command returns the ID
       of the new internet gateway.
 
    ```
    aws ec2 create-internet-gateway --query InternetGateway.InternetGatewayId --output text
    ```
-
    2. Attach the internet gateway to your VPC by using the following [attach-internet-gateway](../../../cli/latest/reference/ec2/attach-internet-gateway.md "../../../cli/latest/reference/ec2/attach-internet-gateway.md") command. Use the internet gateway
       ID returned from the previous step.
 
    ```
    aws ec2 attach-internet-gateway --vpc-id vpc-`1a2b3c4d5e6f1a2b3` --internet-gateway-id `igw-id`
    ```
-
    3. Create a custom route table for your public subnet by using the following [create-route-table](../../../cli/latest/reference/ec2/create-route-table.md "../../../cli/latest/reference/ec2/create-route-table.md") command. The command returns the ID of
       the new route table.
 
    ```
    aws ec2 create-route-table --vpc-id vpc-`1a2b3c4d5e6f1a2b3` --query RouteTable.RouteTableId --output text
    ```
-
    4. Create a route in the route table that sends all IPv4 traffic to the internet gateway by
       using the following [create-route](../../../cli/latest/reference/ec2/create-route.md "../../../cli/latest/reference/ec2/create-route.md") command. Use the ID of the route table for the
       public subnet.
@@ -307,7 +306,6 @@ subnet-`1a2b3c4d5e6f1a2b3`
    ```
    aws ec2 create-route --route-table-id `rtb-id-public` --destination-cidr-block 0.0.0.0/0 --gateway-id `igw-id`
    ```
-
    5. Associate the route table with the public subnet by using the following [associate-route-table](../../../cli/latest/reference/ec2/associate-route-table.md "../../../cli/latest/reference/ec2/associate-route-table.md") command. Use the ID of the route
       table for the public subnet and the ID of the public subnet.
 
@@ -318,20 +316,19 @@ subnet-`1a2b3c4d5e6f1a2b3`
 5. [IPv6] You can add an egress-only internet gateway so that instances in a private subnet
    can access the internet over IPv6 (for example, to get software updates), but
    hosts on the internet can't access your instances.
+
    1. Create an egress-only internet gateway by using the following [create-egress-only-internet-gateway](../../../cli/latest/reference/ec2/create-egress-only-internet-gateway.md "../../../cli/latest/reference/ec2/create-egress-only-internet-gateway.md") command. The command
       returns the ID of the new internet gateway.
 
    ```
    aws ec2 create-egress-only-internet-gateway --vpc-id vpc-`1a2b3c4d5e6f1a2b3` --query EgressOnlyInternetGateway.EgressOnlyInternetGatewayId --output text
    ```
-
    2. Create a custom route table for your private subnet by using the following [create-route-table](../../../cli/latest/reference/ec2/create-route-table.md "../../../cli/latest/reference/ec2/create-route-table.md") command. The command returns the ID of
       the new route table.
 
    ```
    aws ec2 create-route-table --vpc-id vpc-`1a2b3c4d5e6f1a2b3` --query RouteTable.RouteTableId --output text
    ```
-
    3. Create a route in the route table for the private subnet that sends all IPv6 traffic to
       the egress-only internet gateway by using the following [create-route](../../../cli/latest/reference/ec2/create-route.md "../../../cli/latest/reference/ec2/create-route.md")
       command. Use the ID of the route table returned in the previous
@@ -340,7 +337,6 @@ subnet-`1a2b3c4d5e6f1a2b3`
    ```
    aws ec2 create-route --route-table-id `rtb-id-private` --destination-cidr-block `::/0` --egress-only-internet-gateway `eigw-id`
    ```
-
    4. Associate the route table with the private subnet by using the following [associate-route-table](../../../cli/latest/reference/ec2/associate-route-table.md "../../../cli/latest/reference/ec2/associate-route-table.md") command.
 
    ```
@@ -348,19 +344,18 @@ subnet-`1a2b3c4d5e6f1a2b3`
    ```
 
 6. If you need a NAT gateway for your resources in a private subnet, do the following:
+
    1. Create an elastic IP address for the NAT gateway by using the following [allocate-address](../../../cli/latest/reference/ec2/allocate-address.md "../../../cli/latest/reference/ec2/allocate-address.md") command.
 
    ```
    aws ec2 allocate-address --domain vpc --query AllocationId --output text
    ```
-
    2. Create the NAT gateway in the public subnet by using the following [create-nat-gateway](../../../cli/latest/reference/ec2/create-nat-gateway.md "../../../cli/latest/reference/ec2/create-nat-gateway.md") command. Use the allocation ID returned
       from the previous step.
 
    ```
    aws ec2 create-nat-gateway --subnet-id `subnet-id-public-subnet` --allocation-id `eipalloc-id`
    ```
-
    3. (Optional) If you already created a route table for the private subnet in step 5, skip
       this step. Otherwise, use the following [create-route-table](../../../cli/latest/reference/ec2/create-route-table.md "../../../cli/latest/reference/ec2/create-route-table.md") command to create a route table for your
       private subnet. The command returns the ID of the new route
@@ -369,7 +364,6 @@ subnet-`1a2b3c4d5e6f1a2b3`
    ```
    aws ec2 create-route-table --vpc-id vpc-`1a2b3c4d5e6f1a2b3` --query RouteTable.RouteTableId --output text
    ```
-
    4. Create a route in the route table for the private subnet that sends all IPv4 traffic to
       the NAT gateway by using the following [create-route](../../../cli/latest/reference/ec2/create-route.md "../../../cli/latest/reference/ec2/create-route.md")
       command. Use the ID of the route table for the private subnet, which you
@@ -378,7 +372,6 @@ subnet-`1a2b3c4d5e6f1a2b3`
    ```
    aws ec2 create-route --route-table-id `rtb-id-private` --destination-cidr-block `0.0.0.0/0` --gateway-id `nat-id`
    ```
-
    5. (Optional) If you already associated a route table with the private subnet in step 5,
       skip this step. Otherwise, use the following [associate-route-table](../../../cli/latest/reference/ec2/associate-route-table.md "../../../cli/latest/reference/ec2/associate-route-table.md") command to associate the route table
       with the private subnet. Use the ID of the route table for the private

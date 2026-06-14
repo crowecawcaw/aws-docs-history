@@ -15,6 +15,7 @@ AWS Management Console
 3. On the **Route servers** page, choose **Create route
    server**.
 4. On the **Create route server** page, configure the following settings:
+
    - For **Name**, enter a name for your route server (e.g.,
      "my-route-server-01"). The name must be 255
      characters or less in length.
@@ -27,6 +28,7 @@ AWS Management Console
      routes**, choose either **Enable** or **Disable**. This option determines whether routes should
      be maintained after all BGP sessions are
      terminated:
+
      - If enabled: Routes will be preserved in the
        route server's routing database even if all BGP
        sessions end

@@ -40,6 +40,7 @@ There is no additional charge for using security groups.
 - You can assign a security group to resources created in the same VPC as the security group or to resources in other VPCs if using the [Security Group VPC Association feature](security-group-assoc.md "security-group-assoc.md") to associate the security group to other VPCs in the same Region. You can also assign multiple security groups to a single resource.
 - When you create a security group, you must provide it with a name and a
   description. The following rules apply:
+
   - A security group name must be unique within the VPC.
   - Security group names are not case-sensitive.
   - Names and descriptions can be up to 255 characters in length.
@@ -57,6 +58,7 @@ There is no additional charge for using security groups.
   the outbound rules.
 - Security groups do not filter traffic destined to and from the
   following:
+
   - Amazon Domain Name Services (DNS)
   - Amazon Dynamic Host Configuration Protocol (DHCP)
   - Amazon EC2 instance metadata

@@ -76,6 +76,7 @@ Example to demonstrate how the quota is affected by this feature:
   associate up to 4 groups. In this case, the quota for such an ENI is the minimum
   of owner and participant's quotas. Possible valid configurations will look like
   this:
+
   - SG-O1, SG-P1, SG-P2, SG-P3
   - SG-O1, SG-O2, SG-O3, SG-O4
 
@@ -101,6 +102,7 @@ AWS Management Console
 11. Review the actions that principals will be allowed to perform and choose **Next**.
 12. Under **Principals - optional**, choose **Allow sharing only within your organization**.
 13. Under **Principals**, select one of the following principal types and enter the appropriate numbers:
+
     - **AWS account**: The account number of an account in your Organization.
     - **Organization**: The AWS Organizations ID.
     - **Organizational unit (OU)**: The ID of an OU in the Organization.

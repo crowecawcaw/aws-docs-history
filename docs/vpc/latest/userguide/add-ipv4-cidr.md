@@ -33,6 +33,7 @@ This section describes how to add or remove IPv4 and IPv6 CIDR blocks from a VPC
 5. To add a CIDR, choose **Add new IPv4 CIDR** or **Add new IPv6
    CIDR**.
 6. To add a CIDR for **IPv4 CIDR block**, do one of the following:
+
    - Choose **IPv4 CIDR manual input** and enter an IPv4
      CIDR block.
    - Choose **IPAM-allocated IPv4 CIDR** and select a CIDR
@@ -40,10 +41,13 @@ This section describes how to add or remove IPv4 and IPv6 CIDR blocks from a VPC
    - Choose **Save**.
 
 7. To add a CIDR for **IPv6 CIDR block**, do the following:
+
    - Choose **IPAM-allocated IPv6 CIDR block** if you are using Amazon VPC IP Address Manager and you want to provision a IPv6 CIDR from an IPAM pool. You have two options for provisioning an IP address
      range to the VPC under **CIDR block**:
+
      - **Netmask length**: Choose this option to select a netmask length for
        the CIDR. Do one of the following:
+
        - If there is a default netmask length selected for the IPAM pool, you can choose
          **Default to IPAM netmask length** to use
          the default netmask length set for the IPAM pool by the IPAM
@@ -79,6 +83,7 @@ This section describes how to add or remove IPv4 and IPv6 CIDR blocks from a VPC
      (BYOIP) to Amazon EC2](../../../AWSEC2/latest/UserGuide/ec2-byoip.md "../../../AWSEC2/latest/UserGuide/ec2-byoip.md") in the _Amazon EC2 User Guide_.
      You have two options for provisioning an IP address range to the VPC under
      **CIDR block**:
+
      - **No preference**: Choose this option to use netmask length of
        **/56**.
      - **Select a CIDR**: Choose this option to manually enter an IPv6

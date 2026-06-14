@@ -24,6 +24,7 @@ notification when the number of bytes reaches a threshold of 5,000,000 during a
    the **BytesOutToDestination** metric for the NAT gateway, and
    then choose **Select metric**.
 6. Configure the alarm as follows, and then choose **Next**:
+
    - For **Statistic**, choose **Sum**.
    - For **Period**, choose **15 minutes**.
    - For **Whenever**, choose **Greater/Equal**
@@ -52,6 +53,7 @@ notification when the number of bytes reaches a threshold of 5,000,000 during a
    to the **ErrorPortAllocation** metric for the NAT gateway,
    and then choose **Select metric**.
 6. Configure the alarm as follows, and then choose **Next**:
+
    - For **Statistic**, choose **Maximum**.
    - For **Period**, choose **5 minutes**.
    - For **Whenever**, choose **Greater**

@@ -58,6 +58,7 @@ You can add or remove tags for a flow log at any time.
 ###### To manage tags for a flow log
 
 1. Do one of the following:
+
    - Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
      In the navigation pane, choose **Network Interfaces**.
      Select the checkbox for the network interface.
@@ -87,6 +88,7 @@ destination service.
 ###### To delete a flow log
 
 1. Do one of the following:
+
    - Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
      In the navigation pane, choose **Network Interfaces**.
      Select the checkbox for the network interface.

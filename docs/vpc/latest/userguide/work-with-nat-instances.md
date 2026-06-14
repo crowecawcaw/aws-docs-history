@@ -25,6 +25,7 @@ Use the following procedure to create a VPC with a public subnet and a private s
 3. For **Resources to create**, choose **VPC and more**.
 4. For **Name tag auto-generation**, enter a name for the VPC.
 5. To configure the subnets, do the following:
+
    1. For **Number of Availability Zones**, choose
       **1** or **2**, depending on your needs.
    2. For **Number of public subnets**, ensure that you have one public
@@ -65,6 +66,7 @@ The following are the recommended outbound rules.
 4. Enter a name and description for the security group.
 5. For **VPC**, select the ID of the VPC for your NAT instance.
 6. Add rules for inbound traffic under **Inbound rules** as follows:
+
    1. Choose **Add rule**. Choose **HTTP** for
       **Type** and enter the IP address range of your private subnet
       for **Source**.
@@ -76,6 +78,7 @@ The following are the recommended outbound rules.
       **Source**.
 
 7. Add rules for outbound traffic under **Outbound rules** as follows:
+
    1. Choose **Add rule**. Choose **HTTP** for
       **Type** and enter 0.0.0.0/0 for **Destination**.
    2. Choose **Add rule**. Choose **HTTPS** for
@@ -109,6 +112,7 @@ sudo systemctl start iptables
 
 3. Do the following on the instance to enable IP forwarding such that it persists
    after reboot:
+
    1. Using a text editor, such as **nano** or **vim**, create the
       following configuration file:
       `/etc/sysctl.d/custom-ip-forwarding.conf`.
@@ -117,7 +121,6 @@ sudo systemctl start iptables
    ```
    net.ipv4.ip_forward=1
    ```
-
    3. Save the configuration file and exit the text editor.
    4. Run the following command to apply the configuration file.
 
@@ -188,6 +191,7 @@ and NAT AMI that you created.
    memory, and storage resources that your NAT instance needs.
 6. For **Key pair**, select an existing key pair or choose **Create new key pair**.
 7. For **Network settings**, do the following:
+
    1. Choose **Edit**.
    2. For **VPC**, choose the VPC that you created.
    3. For **Subnet**, choose the public subnet that you created.

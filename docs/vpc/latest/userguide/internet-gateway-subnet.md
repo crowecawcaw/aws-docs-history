@@ -10,6 +10,7 @@ traffic between subnet B and the internet gateway.
 The middlebox routing wizard, automatically performs the following operations:
 
 - Creates the following route tables:
+
   - A route table for the internet gateway
   - A route table for the destination subnet
   - A route table for the middlebox subnet

@@ -111,6 +111,7 @@ To check whether these attributes are enabled for your VPC, see [View and update
 ###### Rules and considerations
 
 - If both attributes are set to `true`, the following occurs:
+
   - Instances with public IP addresses receive corresponding public DNS
     hostnames.
   - The Route 53 Resolver server can resolve Amazon-provided
@@ -118,6 +119,7 @@ To check whether these attributes are enabled for your VPC, see [View and update
 
 - If at least one of the attributes is set to `false`, the
   following occurs:
+
   - Instances with public IP addresses do not receive corresponding public
     DNS hostnames.
   - The Route 53 Resolver cannot resolve Amazon-provided private DNS hostnames.

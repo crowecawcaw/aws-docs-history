@@ -192,6 +192,7 @@ AWS Management Console
 3. In the **Block public access** tab, under
    **Exclusions**, do one of the
    following:
+
    - To delete an exclusion, select the exclusion and then choose
      **Actions** > **Delete
      exclusions**.
@@ -199,6 +200,7 @@ AWS Management Console
      next steps.
 
 4. Choose a block direction:
+
    - **Bidirectional**: Allows all internet traffic to
      and from the excluded VPCs and subnets.
    - **Egress-only**: Allows

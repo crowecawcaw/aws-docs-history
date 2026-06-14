@@ -56,6 +56,7 @@ number, and then delete the original rule.
 2. In the navigation pane, choose **Network ACLs**.
 3. Select the network ACL.
 4. To add an inbound rule, do the following:
+
    1. Choose the **Inbound rules** tab.
    2. Choose **Edit inbound rules**, **Add new rule**.
    3. Enter a rule number that is not already in use, a type, protocol, port range, source,
@@ -69,6 +70,7 @@ number, and then delete the original rule.
    Protocol Numbers](http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml "http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml"). 4. Choose **Save changes**.
 
 5. To add an outbound rule, do the following:
+
    1. Choose the **Outbound rules** tab.
    2. Choose **Edit outbound rules**, **Add new rule**.
    3. Enter a rule number that is not already in use, a type, protocol, port range, source,

@@ -81,6 +81,7 @@ in two Availability Zones, and a NAT gateway in each Availability Zone.
 3. For **Resources to create**, choose **VPC
    and more**.
 4. **Configure the VPC**
+
    1. For **Name tag auto-generation**, enter a name for the VPC.
    2. For **IPv4 CIDR block**, you can keep the default suggestion, or
       alternatively you can enter the CIDR block required by your application or
@@ -89,6 +90,7 @@ in two Availability Zones, and a NAT gateway in each Availability Zone.
       CIDR block**, **Amazon-provided IPv6 CIDR block**.
 
 5. **Configure the subnets**
+
    1. For **Number of Availability Zones**, choose
       **2**, so that you can launch instances in multiple
       Availability Zones to improve resiliency.

@@ -15,15 +15,40 @@ your VPC because the following VPC quotas limit the size of a VPC:
   The maximum number of NAU units for a VPC and all of its peered VPCs. If a
   VPC is peered with other VPCs in the same Region, the VPCs combined can have
   up to 128,000 NAU units by default. You can request a quota increase up to
-  512,000. VPCs that are peered across different Regions do not contribute to
-  this limit.
+  512,000. This quota applies to peerings between VPCs in the same Region,
+  including peerings between VPCs in different AWS accounts. VPCs that are
+  peered across different Regions do not contribute to this quota.
   You can use the NAU in the following ways:
 
 - Before you create your virtual network, calculate the NAU units to help
   you decide if you should spread workloads across multiple VPCs.
 - After you’ve created your VPC, use Amazon CloudWatch to monitor the NAU usage of
-  the VPC so that it doesn't grow beyond the NAU quota limits. For more information,
+  the VPC so that it doesn't grow beyond your NAU quotas. We recommend that
+  you create Amazon CloudWatch alarms to monitor NAU quotas. For more information,
   see [CloudWatch metrics for your VPCs](vpc-cloudwatch.md "vpc-cloudwatch.md").
+
+## Exceeding NAU Quotas
+
+If you exceed the NAU quotas for your VPC, the following API calls fail with a
+client-side exception:
+
+- `RunInstances`
+- `AttachNetworkInterface`
+- `AssignPrivateIpAddresses`
+- `AssignIpv6Addresses`
+- `AcceptVpcPeeringConnection`
+
+The specific exception depends on which quota you exceed:
+
+- `NetworkAddressUsageLimitExceeded` – The VPC exceeds its
+  NAU quota.
+- `NetworkAddressUsagePeeredLimitExceeded` – The VPC exceeds
+  its peered-VPC NAU quota.
+
+These failures affect your ability to launch instances, attach network interfaces,
+assign new addresses, accept VPC peering connections, and scale or manage workloads in
+the affected VPCs. To avoid disruption, monitor NAU usage with Amazon CloudWatch and request
+an increase before you reach the quota.
 
 ## How NAU is calculated
 
@@ -59,6 +84,7 @@ The following examples show how to calculate NAU.
 Peered VPCs in the same Region contribute to a combined NAU quota.
 
 - VPC 1
+
   - 50 Network Load Balancers in 2 subnets in separate Availability Zones - 600 NAU units
   - 5,000 instances (each with an IPv4 address and IPv6 address) in one
     subnet and 5,000 instances (each with an IPv4 address and IPv6 address)
@@ -66,6 +92,7 @@ Peered VPCs in the same Region contribute to a combined NAU quota.
   - 100 Lambda functions - 600 NAU units
 
 - VPC 2
+
   - 50 Network Load Balancers in 2 subnets in separate Availability Zones - 600 NAU units
   - 5,000 instances (each with an IPv4 address and IPv6 address) in one
     subnet and 5,000 instances (each with an IPv4 address and IPv6 address)
@@ -81,6 +108,7 @@ VPCs that are connected using a transit gateway do not contribute to a combined 
 as they do for peered VPCs.
 
 - VPC 1
+
   - 50 Network Load Balancers in 2 subnets in separate Availability Zones - 600 NAU units
   - 5,000 instances (each with an IPv4 address and IPv6 address) in one
     subnet and 5,000 instances (each with an IPv4 address and IPv6 address)
@@ -88,6 +116,7 @@ as they do for peered VPCs.
   - 100 Lambda functions - 600 NAU units
 
 - VPC 2
+
   - 50 Network Load Balancers in 2 subnets in separate Availability Zones - 600 NAU units
   - 5,000 instances (each with an IPv4 address and IPv6 address) in one
     subnet and 5,000 instances (each with an IPv4 address and IPv6 address)
@@ -96,3 +125,34 @@ as they do for peered VPCs.
 
 - Total NAU count per VPC: 21,200 units
 - Default NAU quota per VPC: 64,000 units
+
+###### Example 3 - Two VPCs connected using cross-Region VPC peering
+
+VPCs that are peered across different Regions do not contribute to a combined
+NAU quota. AWS evaluates each VPC against its own per-VPC NAU quota, and the
+cross-Region peer's resources do not count toward either VPC's peered NAU. This
+example assumes each VPC's only peering is the cross-Region peering shown (no
+additional intra-Region peers).
+
+- VPC 1 (Region A)
+
+  - 50 Network Load Balancers in 2 subnets in separate Availability Zones - 600 NAU units
+  - 5,000 instances (each with an IPv4 address and IPv6 address) in one
+    subnet and 5,000 instances (each with an IPv4 address and IPv6 address)
+    in another subnet - 20,000 units
+  - 100 Lambda functions - 600 NAU units
+
+- VPC 2 (Region B)
+
+  - 50 Network Load Balancers in 2 subnets in separate Availability Zones - 600 NAU units
+  - 5,000 instances (each with an IPv4 address and IPv6 address) in one
+    subnet and 5,000 instances (each with an IPv4 address and IPv6 address)
+    in another subnet - 20,000 units
+  - 100 Lambda functions - 600 NAU units
+
+- Total NAU count per VPC: 21,200 units
+- Default NAU quota per VPC: 64,000 units
+- Peered NAU count per VPC: 21,200 units (only the VPC's own resources count;
+  the cross-Region peer contributes 0)
+- Default peered NAU quota per VPC: 128,000 units (the cross-Region peer does
+  not count toward this quota)

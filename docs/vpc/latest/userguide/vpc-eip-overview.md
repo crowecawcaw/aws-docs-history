@@ -36,6 +36,7 @@ The following rules apply:
   information, see [Security groups](vpc-security-groups.md "vpc-security-groups.md")
   and [Network ACLs](vpc-network-acls.md "vpc-network-acls.md").
 - You can use any of the following options for the Elastic IP addresses:
+
   - Have Amazon provide the Elastic IP addresses. When you select this
     option, you can associate the Elastic IP addresses with a network border
     group. This is the location from which we advertise the CIDR block.

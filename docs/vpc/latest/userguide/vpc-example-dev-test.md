@@ -71,6 +71,7 @@ Zone. This configuration is suitable for a development or testing environment.
 3. For **Resources to create**, choose **VPC
    and more**.
 4. **Configure the VPC**
+
    1. For **Name tag auto-generation**, enter a name for the VPC.
    2. For **IPv4 CIDR block**, you can keep the default suggestion, or
       alternatively you can enter the CIDR block required by your application or
@@ -80,6 +81,7 @@ Zone. This configuration is suitable for a development or testing environment.
       block**.
 
 5. **Configure the subnets**
+
    1. For **Number of Availability Zones**, choose
       **1**. You can keep the default Availability Zone, or alternatively
       you can expand **Customize AZs** and select an Availability

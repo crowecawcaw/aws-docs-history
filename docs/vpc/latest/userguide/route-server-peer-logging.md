@@ -55,13 +55,16 @@ Where:
 - The `event_timestamp` is the timestamp of the event.
 - The `type` of log events we produce (`RouteStatus`, `BGPStatus`, `BFDStatus`).
 - The `status` field is the status update.
+
   - For `RouteStatus` type messages
+
     - `ADVERTISED` (route was advertised by the
       peer)
     - `UPDATED` (existing route was updated by the peer)
     - `WITHDRAWN` (route was withdrawn by peer)
 
   - For `BFDStatus` and `BGPStatus` updates
+
     - `UP`, `DOWN`.
 
 - The `message` field is currently only used for route attributes for the RouteStatus message type but may be populated with relevant information for any type.
@@ -76,7 +79,9 @@ To create route server peer logs:
 4. Choose the **Log delivery** tab.
 5. Choose **Add log delivery**.
 6. Choose a destination and configure the settings:
+
    - Amazon CloudWatch Logs
+
      - **Log type**: Types of logs to deliver. The only supported log
        type is EVENT_LOGS.
      - **Destination log group**: The CloudWatch log group where logs will be sent. You can pick an existing log group or create a new one (example: /aws/vpc/route-server-peers).
@@ -84,13 +89,16 @@ To create route server peer logs:
        logs.
      - **Output format**: How logs
        are formatted:
+
        - JSON: Structured format for computer processing
        - Text: Plain text format
 
      - **Field delimiter**: When using Text format, this is the character that separates fields (example: comma, tab, space).
 
    - Amazon S3
+
      - Cross account - Sending logs to different AWS accounts
+
        - **Log type**: Types of logs to deliver. The only supported log
          type is EVENT_LOGS.
        - **Delivery destination ARN**: The Amazon Resource Name of the S3 bucket in another AWS account where logs will be sent.
@@ -101,6 +109,7 @@ To create route server peer logs:
        - **Field delimiter**: When using Text format, this is the character that separates fields.
 
      - In current account
+
        - **Log type**: Types of logs to deliver. The only supported log
          type is EVENT_LOGS.
        - **Destination S3 bucket**: The S3 bucket in your account where logs will be sent. You can specify a subfolder path.
@@ -111,7 +120,9 @@ To create route server peer logs:
        - **Field delimiter**: When using Text format, this is the character that separates fields.
 
    - Amazon Data Firehose
+
      - Cross account
+
        - **Log type**: Types of logs to deliver. The only supported log
          type is EVENT_LOGS.
        - **Delivery destination ARN**: The Amazon Resource Name of the Firehose delivery stream in another AWS account.
@@ -120,6 +131,7 @@ To create route server peer logs:
        - **Field delimiter**: When using Text format, this is the character that separates fields.
 
      - In current account
+
        - **Log type**: Types of logs to deliver. The only supported log
          type is EVENT_LOGS.
        - **Delivery destination stream**: The Firehose delivery stream in your account where logs will be sent. The stream must use the "Direct Put" source type.
@@ -127,6 +139,7 @@ To create route server peer logs:
          logs.
        - **Output format**:
          How logs are formatted:
+
          - JSON: Structured format for computer processing
          - Text: Plain text format
 
@@ -140,12 +153,12 @@ when you run the commands.
 To create route server peer logs:
 
 1. Use the [put-delivery-source](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-source.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-source.html") command.
+
    - Example request
 
    ```
    aws logs put-delivery-source --name "source-rsp-1234567890abcdef0" --resource-arn "arn:aws:ec2:us-east-1:111122223333:route-server-peer/rsp-1234567890abcdef0" --log-type "EVENT_LOGS"
    ```
-
    - Example response
 
    ```
@@ -163,13 +176,13 @@ To create route server peer logs:
    ```
 
 2. Use the [put-delivery-destination](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-destination.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-destination.html") command.
+
    - The following AWS CLI example creates a route server log. The logs are delivered to the specified log group.
    - Example request
 
    ```
    aws logs put-delivery-destination --name "destination-rsp-abcdef01234567890" --destination-resource-arn "arn:aws:logs:us-east-1:111122223333:log-group:/aws/vendedlogs/ec2/route-server-peer/EVENT_LOGS/rsp-abcdef01234567890"
    ```
-
    - Example response
 
    ```
@@ -186,12 +199,12 @@ To create route server peer logs:
    ```
 
 3. Use the [create-delivery](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-delivery.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/create-delivery.html") command.
+
    - Example request
 
    ```
    aws logs create-delivery --delivery-source-name "source-rsp-1234567890abcdef0" --delivery-destination-arn "arn:aws:logs:us-east-1:111122223333:delivery-destination:destination-rsp-abcdef01234567890"
    ```
-
    - Example response
 
    ```

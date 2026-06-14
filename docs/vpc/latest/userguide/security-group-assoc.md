@@ -34,6 +34,7 @@ workloads in the VPC B subnet.
 - AWS PrivateLink
 - Amazon Route 53
 - Elastic Load Balancing
+
   - Application Load Balancer
   - Network Load Balancer
 

@@ -18,11 +18,13 @@ AWS Management Console
    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 2. In the navigation path, choose **VPC** > **Route server peers** > **Create route server peer**.
 3. Under **Details**, configure the following:
+
    - **Name**: Enter a name for your route server peer (up to 255 characters). Example: my-route-server-peer-01
    - **Route server endpoint ID**: Choose a route server endpoint from the dropdown. Optionally, choose **Create a route server endpoint** to create a new one.
    - **Peer address**: Enter the IPv4 address of the peer. Must be a valid IP address. The peer address must be reachable from the route server endpoint.
    - **Peer ASN**: Enter the ASN (Autonomous System Number) for the BGP peer. Value must be in range of 1-4294967295. The ASN should typically use private ranges (64512-65534 for 16-bit or 4200000000-4294967294 for 32-bit)
    - **Peer liveness detection**:
+
      - **BGP keepalive** (default): Standard BGP keep alive mechanism
      - **BFD**: Bidirectional Forwarding Detection for faster failover
 

@@ -30,6 +30,7 @@ VPC, you must create a new DHCP option set and then associate it with your VPC.
    set. If you enter a value, it automatically creates a Name tag for the DHCP option
    set.
 5. For **DHCP options**, provide the configuration settings that you need.
+
    - **Domain name** (optional): Enter the domain name that a client
      should use when resolving hostnames using DNS. If you are not using AmazonProvidedDNS, your custom domain name servers must resolve the
      hostname as appropriate. If you use an Amazon Route 53 private hosted zone, you can use

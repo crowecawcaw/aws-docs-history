@@ -62,6 +62,7 @@ The following are the components of inbound and outbound security group rules:
 - **Source or destination**: The source (inbound rules) or
   destination (outbound rules) for the traffic to allow. Specify one of the
   following:
+
   - A single IPv4 address. You must use the `/32` prefix length. For example,
     `203.0.113.1/32`.
   - A single IPv6 address. You must use the `/128` prefix length. For example,
@@ -101,6 +102,7 @@ When referencing a security group in a security group rule, note the following:
 
 - You can reference a security group in the inbound rule of another security group if any
   of the following is true:
+
   - The security groups are associated with the same VPC.
   - There is a peering connection between the VPCs that the security groups are associated
     with.
@@ -109,6 +111,7 @@ When referencing a security group in a security group rule, note the following:
 
 - You can reference a security group in the outbound rule if any of the following is
   true:
+
   - The security groups are associated with the same VPC.
   - There is a peering connection between the VPCs that the security groups are associated
     with.
@@ -127,6 +130,7 @@ When referencing a security group in a security group rule, note the following:
   `RevokeSecurityGroupIngress`, and
   `RevokeSecurityGroupEgress`. We only check whether
   the security group exists. This results in the following:
+
   - Specifying the referenced security group in IAM policies for
     these actions has no effect.
   - When a referenced security group is owned by another account, the

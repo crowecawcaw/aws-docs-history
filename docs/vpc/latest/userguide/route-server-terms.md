@@ -10,6 +10,7 @@ The following terms are used in this guide:
   A route server endpoint is an AWS-managed component inside a subnet that facilitates [BGP (Border Gateway Protocol)](https://en.wikipedia.org/wiki/Border_Gateway_Protocol "https://en.wikipedia.org/wiki/Border_Gateway_Protocol") connections between your route server and your BGP peers.
 - **Route server peer**:
   A route server peer is a session between a route server endpoint and the device deployed in AWS (such as a firewall appliance or other network security function running on an EC2 instance). The device must meet these requirements:
+
   - Have an elastic network interface in the VPC
   - Support BGP (Border Gateway Protocol)
   - Can initiate BGP sessions

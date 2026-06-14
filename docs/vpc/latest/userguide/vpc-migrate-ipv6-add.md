@@ -30,6 +30,7 @@ You can associate an IPv6 CIDR block with your VPC, and then associate a
 4. Choose **Actions**, **Edit CIDRs** and then choose
    **Add new IPv6 CIDR**.
 5. Select one of the following options, and then choose **Select CIDR**:
+
    - **Amazon-provided IPv6 CIDR block** – Use an IPv6
      CIDR block from Amazon's pool of IPv6 addresses. For **Network
      Border Group**, choose the group from which AWS advertises

@@ -10,6 +10,7 @@ The following list shows a route priority summary with links to sections below w
 2. [Static routes](#route-table-priority-propagated-routes "#route-table-priority-propagated-routes") (like VPC peering and internet gateway connections)
 3. [Prefix list routes](#route-priority-managed-prefix-list "#route-priority-managed-prefix-list")
 4. [Propagated routes](#route-table-priority-propagated-routes "#route-table-priority-propagated-routes")
+
    1. Direct Connect BGP routes (dynamic routes)
    2. VPN static routes
    3. VPN BGP routes (dynamic routes) (like virtual private gateways)

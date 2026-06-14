@@ -19,6 +19,7 @@ The middlebox routing wizard is available in the Amazon VPC console.
    **Manage middlebox routes**.
 4. Choose **Create routes**.
 5. On the **Specify routes** page, do the following:
+
    - For **Source**, choose the source for your traffic.
      If you choose a virtual private gateway, for **Destination
      IPv4 CIDR**, enter the CIDR for the on-premises traffic
@@ -31,6 +32,7 @@ The middlebox routing wizard is available in the Amazon VPC console.
 
 6. (Optional) To add another destination subnet, choose **Add additional
    subnet**, and then do the following:
+
    - For **Middlebox**, choose the network interface ID
      that is associated with your middlebox appliance, or when you use a
      Gateway Load Balancer endpoint, choose the VPC endpoint ID.
@@ -75,6 +77,7 @@ following operations:
    destination subnet CIDR.
 6. To add another destination subnet, choose **Add additional
    subnet**, and then do the following:
+
    - For **Middlebox**, choose the network interface
      ID that is associated with your middlebox appliance, or when you use
      a Gateway Load Balancer endpoint, choose the VPC endpoint ID.

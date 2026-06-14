@@ -31,6 +31,7 @@ address ranges as specified in [RFC 1918](http://www.faqs.org/rfcs/rfc1918.html 
 ###### Considerations
 
 - You can't specify the following CIDR blocks for your VPCs:
+
   - 0.0.0.0/8
   - 127.0.0.0/8 (internal host loopback address range)
   - 169.254.0.0/16 ([link-local address range](../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#link-local-addresses "../../../AWSEC2/latest/UserGuide/using-instance-addressing.md#link-local-addresses"))
@@ -94,6 +95,7 @@ To add a CIDR block to your VPC, the following rules apply:
   `10.0.0.0/25` or smaller.
 - The following rules apply when you add IPv4 CIDR blocks to a VPC that's part of a VPC
   peering connection:
+
   - If the VPC peering connection is `active`, you can add CIDR blocks to a VPC
     provided they do not overlap with a CIDR block of the peer
     VPC.

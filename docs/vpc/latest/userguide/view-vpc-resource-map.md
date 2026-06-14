@@ -6,6 +6,7 @@ resource map:
 
 - VPC
 - Subnets
+
   - The Availability Zone is represented with a letter.
   - Public subnets are green.
   - Private subnets are blue.
@@ -37,6 +38,7 @@ as route tables, and edit the configurations for those resources.
 4. Choose the **Resource map** tab to display a visualization of the resources.
 5. Choose **Show details** to view details in addition to the
    resource IDs and zones displayed by default.
+
    - **VPC**: The IPv4 and IPv6 CIDR ranges assigned to
      the VPC.
    - **Subnets**: The IPv4 and IPv6 CIDR ranges assigned
@@ -45,6 +47,7 @@ as route tables, and edit the configurations for those resources.
      the route table.
    - **Network connections**: The details related to each
      type of connection:
+
      - If there are public subnets in the VPC, there is an internet gateway resource with the
        number of routes and the source and destination subnets for
        traffic using the internet gateway.

@@ -207,6 +207,7 @@ Complete this step to create a security group that will control network access t
 4. For **Description**, enter `Security group for IGW ingress routing target instance`.
 5. For **VPC**, select your VPC.
 6. To add inbound rules, choose **Inbound rules**. For each rule, choose **Add rule** and specify the following:
+
    - **Type**: All ICMP - IPv4, **Source**: 0.0.0.0/0 (for ping testing).
    - **Type**: SSH, **Port**: 22, **Source**: 0.0.0.0/0 (for EC2 Instance Connect).
 
@@ -253,6 +254,7 @@ Complete this step to launch the EC2 instance that will receive traffic from you
 5. For **Instance type**, choose **t2.micro** (eligible for free tier).
 6. For **Key pair (login)**, select an existing key pair or create a new one.
 7. For **Network settings**, choose **Edit** and configure:
+
    - **VPC**: Select your VPC
    - **Subnet**: Select your subnet
    - **Auto-assign public IP**: Enable
@@ -387,6 +389,7 @@ Complete this step to configure your target instance to properly handle traffic 
 **AWS console**
 
 1. Connect to your target instance using EC2 Instance Connect:
+
    - In the EC2 console, select your instance.
    - Choose **Actions** > **Connect**.
    - Select **EC2 Instance Connect** tab.
@@ -428,6 +431,7 @@ Complete this step to add BYOIP addresses to your instance and disable source/de
 **AWS console**
 
 1. Connect to your target instance using EC2 Instance Connect:
+
    - In the EC2 console, select your instance.
    - Choose **Actions** > **Connect**.
    - Select **EC2 Instance Connect** tab.
@@ -480,6 +484,7 @@ ping 203.0.113.10
 ```
 
 3. Expected results:
+
    - Ping should succeed and show responses from your BYOIP IP address.
    - tcpdump should show incoming packets for the BYOIP address, similar to:
 
@@ -487,7 +492,6 @@ ping 203.0.113.10
    12:34:56.789012 IP 203.0.113.100 > 203.0.113.10: ICMP echo request, id 1234, seq 1, length 64
    12:34:56.789123 IP 203.0.113.10 > 203.0.113.100: ICMP echo reply, id 1234, seq 1, length 64
    ```
-
    - Traffic should appear to come from external IP addresses, proving the internet gateway ingress routing is delivering internet traffic to your instance.
 
 ## Troubleshooting

@@ -31,6 +31,7 @@ JSON
 ###### To create a flow log using the console
 
 1. Do one of the following:
+
    - Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
      In the navigation pane, choose **Network Interfaces**.
      Select the checkbox for the network interface.
@@ -44,6 +45,7 @@ JSON
 2. Choose **Actions**, **Create flow log**.
 3. For **Filter**, specify the type of IP traffic data to
    log.
+
    - **Accept** – Log only accepted
      traffic.
    - **Reject** – Log only rejected
@@ -78,6 +80,7 @@ flow log record.
 8. For **Additional metadata**, select if you want to include metadata from Amazon ECS in the log format.
 9. For **Log file format**, specify the format for the
    log file.
+
    - **Text** – Plain text. This is the default
      format.
    - **Parquet** – Apache Parquet is a columnar

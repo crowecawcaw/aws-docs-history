@@ -43,6 +43,7 @@ metric filter.
 10. Select the metric name that you created and then choose
     **Select metric**.
 11. Configure the alarm as follows, and then choose **Next**:
+
     - For **Statistic**, choose **Sum**. This
       ensure that you capture the total number of data points for the specified
       time period.

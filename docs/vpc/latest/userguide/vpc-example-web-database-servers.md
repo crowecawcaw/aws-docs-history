@@ -116,6 +116,7 @@ in two Availability Zones.
 3. For **Resources to create**, choose **VPC
    and more**.
 4. Configure the VPC:
+
    1. Keep **Name tag auto-generation** selected to create Name tags for
       the VPC resources or clear it to provide your own Name tags for the VPC resources.
    2. For **IPv4 CIDR block**, you can keep the default suggestion, or
@@ -136,6 +137,7 @@ in two Availability Zones.
       Instances](../../../AWSEC2/latest/UserGuide/dedicated-instance.md "../../../AWSEC2/latest/UserGuide/dedicated-instance.md") on hardware that's dedicated for your use.
 
 5. Configure the subnets:
+
    1. For **Number of Availability Zones**, choose
       **2**, so that you can launch instances in two Availability Zones
       to improve resiliency.

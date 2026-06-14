@@ -12,17 +12,20 @@ FIB.
 Key aspects of route server propagation:
 
 - Configuration
+
   - Links a route server to specific route tables
   - Determines which route tables will receive dynamic route updates
   - Can be enabled or disabled per route table
 
 - Functionality
+
   - Automatically updates route tables with routes learned from BGP peers
   - Propagates the best available routes based on BGP attributes
   - Maintains route consistency across specified route tables
   - Updates routes dynamically when network conditions change
 
 - States
+
   - Can be enabled (routes are being propagated)
   - Can be disabled (routes are not being propagated)
 
@@ -36,6 +39,7 @@ AWS Management Console
 3. Choose the **Propagations** tab in the route server details panel.
 4. Choose **Enable propagation**.
 5. In the **Enable propagation** dialog:
+
    - The **Route server ID** will be pre-populated.
    - Under **Route table**, select the destination route table from the dropdown menu for newly propagated routes.
 

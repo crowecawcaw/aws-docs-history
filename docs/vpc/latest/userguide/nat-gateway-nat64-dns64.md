@@ -47,6 +47,7 @@ After you enable DNS64, if your IPv6-only service sends network packets to a
 synthesized IPv6 address through the NAT gateway, the following happens:
 
 - From the `64:ff9b::/96` prefix, the NAT gateway recognizes that the original destination is IPv4 and translates the IPv6 packets to IPv4 by replacing:
+
   - Source IPv6 with its own private IP which is translated to Elastic IP address by
     the internet gateway.
   - Destination IPv6 to IPv4 by truncating the `64:ff9b::/96`
@@ -147,6 +148,7 @@ How DNS64 works for IPv4-only destinations in on-premises networks:
    endpoint to Route 53 Resolver.
 5. Assuming the query was made from a DNS64-enabled subnet, Route 53 Resolver does two
    things:
+
    1. Checks the content of the response packet. If there’s an IPv6 address in the
       record, it keeps the content as is, but if it contains only an IPv4 record. It
       synthesizes an IPv6 record as well by prepending `64:ff9b::/96` to the IPv4

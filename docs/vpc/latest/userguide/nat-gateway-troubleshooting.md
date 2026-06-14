@@ -183,6 +183,7 @@ Check the following information:
   information in the details pane. If the NAT gateway is in a failed state, there may
   have been an error when it was created. For more information, see [NAT gateway creation fails](#nat-gateway-troubleshooting-failed "#nat-gateway-troubleshooting-failed").
 - Check that you've configured your route tables correctly:
+
   - The NAT gateway must be in a public subnet with a route table that routes
     internet traffic to an internet gateway.
   - Your instance must be in a private subnet with a route table that routes

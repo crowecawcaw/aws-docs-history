@@ -45,6 +45,7 @@ Use the following procedure to create a NAT gateway.
    **Private** to create a private NAT gateway. For more information about the difference between a public and private NAT gateway, see [NAT gateways](vpc-nat-gateway.md "vpc-nat-gateway.md").
 7. If you chose **Public**, do the following; otherwise, skip to step
    8:
+
    1. Choose an **Elastic IP allocation ID** to assign an
       Elastic IP address to the NAT gateway or choose **Allocate Elastic
       IP** to automatically allocate one for the public NAT gateway. You are
@@ -65,6 +66,7 @@ Use the following procedure to create a NAT gateway.
 
 8. If you chose **Private**, for **Additional settings**, **Private IPv4 address assigning
    method**, choose one of the following:
+
    - **Auto-assign**: AWS chooses the primary private IPv4 address
      for the NAT gateway. For **Number of auto-assigned private IPv4
      addresses**, you can optionally specify the number of secondary private
@@ -148,6 +150,7 @@ to your NAT gateway.
     addresses**. If you are editing the secondary IPv4 address associations of a
     public NAT gateway, under **Action**, choose **Associate new IPv4 addresses** or **Disassociate existing IPv4 addresses**.
 6.  Do one of the following:
+
     - If you chose to assign or associate new IPv4 addresses, do the following:
 
           1. This step is required. You must select a private IPv4 address. Choose the
@@ -185,6 +188,7 @@ to your NAT gateway.
       Region. For more information, see [Elastic IP addresses](amazon-vpc-limits.md#vpc-limits-eips "amazon-vpc-limits.md#vpc-limits-eips").
 
     - If you chose to unassign or disassociate new IPv4 addresses, complete the following:
+
       1. Under **Existing secondary IP address to unassign**, select the
          secondary IP addresses that you want to unassign.
       2. (optional) Under **Connection drain duration**, enter the maximum
