@@ -1264,7 +1264,7 @@ FunctionUrl:
 #
 # Description:
 #   This control checks whether an AWS Lambda function URL is configured to use authentication that's
-based on AWS IAM.
+#   based on AWS IAM.
 #
 # Reports on:
 #   AWS::Lambda::Url

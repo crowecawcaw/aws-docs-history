@@ -2195,7 +2195,7 @@ ClusterParameterGroup:
 #
 # Description:
 #   This control checks whether an Amazon Redshift cluster parameter group is configured to require
-encryption by means of Secure Sockets Layer (SSL), for data in transit.
+#   encryption by means of Secure Sockets Layer (SSL), for data in transit.
 #
 # Reports on:
 #   AWS::Redshift::ClusterParameterGroup

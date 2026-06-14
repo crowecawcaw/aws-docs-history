@@ -305,7 +305,7 @@ Endpoint:
 #
 # Description:
 #   This control checks whether an AWS Database Migration Service (AWS DMS) Endpoint is configured to encrypt connections for source and target endpoints by using
-Secure Sockets Layer (SSL).
+#   Secure Sockets Layer (SSL).
 #
 # Reports on:
 #   AWS::DMS::Endpoint

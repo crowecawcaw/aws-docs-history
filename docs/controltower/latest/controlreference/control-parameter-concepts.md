@@ -32,6 +32,7 @@ shown in the example that follows. The example shows the
 
 - **ExemptedPrincipalArns**: A list of AWS IAM principal ARNs
   that are exempted from this control.
+
   - This parameter allows you to exempt IAM Principals from this control by way of
     an **ArnNotLikeIfExists** condition key operator and
     **aws:PrincipalArn** condition key that is applied to the

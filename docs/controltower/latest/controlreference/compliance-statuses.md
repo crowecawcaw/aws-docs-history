@@ -26,6 +26,7 @@ available in the AWS Control Tower console. Enabled controls can be viewed throu
   are properly in place. No violations have been detected for any resources.
   Controls are applied at the OU level, for all enrolled accounts in the OU, and
   their resources.
+
   - **Reported for:** Detective controls
     (AWS Config Rules)
   - ###### What it checks:

@@ -56,4 +56,4 @@ Find all related controls, response:
 }
 ```
 
-For more information, see [ListControlMappings](../../../index.md "../../../index.md").
+For more information, see [ListControlMappings](../../../controlcatalog/latest/APIReference/API_ListControlMappings.md "../../../controlcatalog/latest/APIReference/API_ListControlMappings.md").

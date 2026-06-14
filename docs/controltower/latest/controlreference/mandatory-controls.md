@@ -19,23 +19,27 @@ changes to the mandatory controls.
 - AWS Control Tower will no longer deploy the below controls from landing zone 4.0 because these protect the account trails which were deployed
   in landing zone 2.9 and below. These controls would still be applied for landing zone versions below 4.0 and would be deleted once customers
   upgrade to versions 4.0 and above.
+
   - [Disallow Configuration Changes to CloudTrail](#cloudtrail-configuration-changes "#cloudtrail-configuration-changes")Disallow Configuration Changes to CloudTrail
   - [Integrate CloudTrail Events with Amazon CloudWatch Logs](#cloudtrail-integrate-events-logs "#cloudtrail-integrate-events-logs")Integrate CloudTrail Events with Amazon CloudWatch Logs
   - [Enable CloudTrail in All Available Regions](#cloudtrail-enable-region "#cloudtrail-enable-region")Enable CloudTrail in All Available Regions
   - [Enable Integrity Validation for CloudTrail Log File](#cloudtrail-enable-validation "#cloudtrail-enable-validation")Enable Integrity Validation for CloudTrail Log File
 
 - The following detective mandatory control will be removed:
+
   - [Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled](#ensure-cloudtrail-enabled-mandatory "#ensure-cloudtrail-enabled-mandatory")Detect whether shared accounts under the Security organizational unit have AWS CloudTrail or CloudTrail Lake enabled
 
 - The following controls will be removed if the customer has AWS Config integration enabled and are upgrading to landing zone 4.0 and above
   (Note: Customers on landing zone versions below 4.0 have AWS Config integration enabled by default). These controls are related to legacy
   AWS Config aggregators and are no longer required for Service-Linked Config Aggregator. Read more on the Service-linked Config aggregator
   [here](../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md "../../../prescriptive-guidance/latest/designing-control-tower-landing-zone/config-mgmt.md").
+
   - [Disallow Changes to Tags Created by AWS Control Tower for AWS Config Resources](#cloudwatch-disallow-config-changes "#cloudwatch-disallow-config-changes")
   - [Disallow Deletion of AWS Config Aggregation Authorizations Created by AWS Control Tower](#config-aggregation-authorization-policy "#config-aggregation-authorization-policy")
 
 - The AWS CloudTrail integration tied to the manifest `centralizedLogging` configuration has two new controls
   starting landing zone 4.0
+
   - Disallow changes to Amazon SNS subscriptions and topics managed by AWS Control Tower
 
   ```
@@ -70,7 +74,6 @@ changes to the mandatory controls.
   }
 
   ```
-
   - Disallow modifications to Amazon S3 buckets managed by AWS Control Tower
 
   ```
@@ -117,6 +120,7 @@ changes to the mandatory controls.
   ```
 
 - The AWS Config integration has a new control starting landing zone 4.0
+
   - Disallow modifications to AWS Config recorder Amazon S3 buckets managed by AWS Control Tower
 
   ```
@@ -161,6 +165,7 @@ changes to the mandatory controls.
 - On landing zone 4.0, AWS Control Tower will disable the following controls as they are replaced with a single unified
   preventive control for AWS Config integration. The security governance boundary remains the same,
   but with reduced SCP space.
+
   - [Disallow Changes to Encryption Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-changes-s3-buckets-created "#disallow-changes-s3-buckets-created")
   - [Disallow Changes to Logging Configuration for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-logging-changes-s3-buckets-created "#disallow-logging-changes-s3-buckets-created")
   - [Disallow Changes to Bucket Policy for AWS Control Tower Created Amazon S3 Buckets in Log Archive](#disallow-policy-changes-s3-buckets-created "#disallow-policy-changes-s3-buckets-created")
@@ -171,6 +176,7 @@ changes to the mandatory controls.
 
 - AWS Control Tower is updating the following controls for all landing zone versions, this change will take place when customers
   update/reset their existing setup.
+
   - [Disallow Changes to Amazon SNS Set Up by AWS Control Tower](#sns-disallow-changes "#sns-disallow-changes")
 
   The change is to specify three explicit SNS topic ARNs in the Resource section instead
