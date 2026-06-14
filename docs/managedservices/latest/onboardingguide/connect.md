@@ -50,6 +50,7 @@ There are no restrictions. Full functionality of Connect Customer is available i
   integration between AMS-hosted Connect Customer instances and your on-premises directory services. AD Connector
   can be configured in your account by requesting a 'Management | Other | Other' RFC.
 - You can enable the following optional self-provisioned services based on your contact flow requirements.
+
   - **AWS Lambda**: You can use Lambda functions to extend the contact flows to
     leverage existing on-premises data stores or APIs. You can use the Lambda self-provisioned service to create the Lambda functions.
   - **Amazon Kinesis Data Streams**: You can create data streams

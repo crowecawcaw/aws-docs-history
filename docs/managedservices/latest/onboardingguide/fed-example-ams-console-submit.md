@@ -35,6 +35,7 @@ In the service request, provide the details necessary to add the identity provid
 2. From the same account where you created the service request, create a new RFC
    using CT-ID ct-1e1xtak34nx76 (Management | Other | Other | Create) with the following
    information.
+
    - Title: "Onboard SAML IDP <Name> for Account <AccountId>".
    - AccountId of the account where the identity provider will be created.
    - Identity provider name.

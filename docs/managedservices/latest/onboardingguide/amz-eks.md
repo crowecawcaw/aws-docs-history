@@ -38,6 +38,7 @@ This RFC provisions the following IAM role to your account.
 After it's provisioned in your account, you must onboard the role in your federation solution.
 
 - These service roles give Amazon EKS on Fargate permission to call other AWS services on your behalf:
+
   - `customer_eks_pod_execution_role`
   - `customer_eks_cluster_service_role`
 
@@ -73,16 +74,19 @@ In order to use the service, the following dependencies must be configured:
   [Managing cluster authentication](../../../eks/latest/userguide/managing-auth.md "../../../eks/latest/userguide/managing-auth.md").
 - Kubernetes rely on a concept called "service accounts." In order to utilize the service accounts functionality inside of
   a kubernetes cluster on EKS, a Management | Other | Other | Update RFC is required with the following inputs:
+
   - [Required] Amazon EKS Cluster name
   - [Required] Amazon EKS Cluster namespace where service account (SA) will be deployed.
   - [Required] Amazon EKS Cluster SA name.
   - [Required] IAM Policy name and permissions/document to be associated.
   - [Required] IAM Role name being requested.
   - [Optional] OpenID Connect provider URL. For more information, see
+
     - [Enabling IAM roles for service accounts on your cluster](../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md "../../../eks/latest/userguide/enable-iam-roles-for-service-accounts.md")
     - [Introducing fine-grained IAM roles for service accounts](https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/ "https://aws.amazon.com/blogs/opensource/introducing-fine-grained-iam-roles-service-accounts/")
 
 - We recommend that Config rules be configured and monitored for
+
   - Public cluster endpoints
   - Disabled API loggingIt is your responsibility to monitor and remediate these Config rules.
 

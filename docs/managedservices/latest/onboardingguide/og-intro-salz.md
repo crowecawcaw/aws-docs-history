@@ -18,6 +18,7 @@ To onboard AMS single-account landing zone (SALZ) accounts, you'll need to take 
    where we have found that the firewall throughput is 350Mbps. AMS can increase the size to a c4.8xLarge instance
    where the expected throughput is 1.25 Gbps.
 5. Set up networking between AMS and your private network. This involves several tasks:
+
    1. Allocate IP space
    2. Establish private network connectivity to AWS
    3. Set up your firewall

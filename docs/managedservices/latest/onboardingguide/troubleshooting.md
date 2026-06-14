@@ -9,5 +9,6 @@ Some things to try if you run into trouble:
 - Make sure your Domain Controller can communicate with AWS Directory Services.
 - Make sure the conditional forwarders resolve and are validated.
 - If you do not see **Forest Trust** in the New Trust wizard, then your conditional forwarders may not be working correctly:
+
   - Use nslookup to test resolution
   - Try rebooting the Domain Controller

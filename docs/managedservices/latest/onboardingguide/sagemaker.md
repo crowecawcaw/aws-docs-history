@@ -20,6 +20,7 @@ The service role cannot be accessed by you directly; the SageMaker AI service us
 **Q: What are the restrictions to using SageMaker AI in my AMS account?**
 
 - The following use cases are not supported by the AMS Amazon SageMaker AI IAM role:
+
   - SageMaker AI Studio is not supported at this time.
   - SageMaker AI Ground Truth to manage private workforces is not supported since this feature requires
     overly permissive access to Amazon Cognito resources. If managing a private workforce is required, you can request a
@@ -40,6 +41,7 @@ The service role cannot be accessed by you directly; the SageMaker AI service us
 account?**
 
 - The following use cases require special configuration prior to use:
+
   - If an S3 bucket will be used to store model artifacts and data,
     then you must request an S3 bucket named with the required keywords
     ("SageMaker", "Sagemaker", "sagemaker" or "aws-glue")
@@ -48,6 +50,7 @@ account?**
     subnet, and allowed by security groups.
   - If other resources require direct access to SageMaker AI services (notebooks, API, runtime, and so
     on), then configuration must be requested by:
+
     - Submitting an RFC to create a security group for the
       endpoint (Deployment | Advanced stack components | Security group | Create
       (auto)).
@@ -60,11 +63,13 @@ additional supported naming conventions for your resources, reach
 out to an AMS Cloud Architect for consultation.)
 
 - Resource: Passing `AmazonSageMaker-ExecutionRole-*` role
+
   - Permissions: The SageMaker AI self-provisioned service role supports your use of the SageMaker AI service role
     (`AmazonSageMaker-ExecutionRole-*`)
     with AWS Glue, AWS RoboMaker, and AWS Step Functions.
 
 - Resource: Secrets on AWS Secrets Manager
+
   - Permissions: Describe, Create, Get, Update secrets with a
     `AmazonSageMaker-*`
     prefix.
@@ -73,6 +78,7 @@ out to an AMS Cloud Architect for consultation.)
     `true`.
 
 - Resource: Repositories on AWS CodeCommit
+
   - Permissions: Create/ delete repositories with a `AmazonSageMaker-*` prefix.
   - Permissions: Git Pull/Push on repositories with following prefixes,
     `*sagemaker*`,
@@ -80,12 +86,14 @@ out to an AMS Cloud Architect for consultation.)
     `*Sagemaker*`.
 
 - Resource: Amazon ECR (Amazon Elastic Container Registry) Repositories
+
   - Permissions: Permissions: Set, delete repository policies, and upload
     container images, when
     the following resource naming convention is used,
     `*sagemaker*`.
 
 - Resource: Amazon S3 buckets
+
   - Permissions: Get, Put, Delete object, abort multipart upload S3 objects when
     resources have the following prefixes: `*SageMaker*`,
     `*Sagemaker*`, `*sagemaker*`
@@ -94,11 +102,13 @@ out to an AMS Cloud Architect for consultation.)
     `true`.
 
 - Resource: Amazon CloudWatch Log Group
+
   - Permissions: Create Log Group or Stream, Put Log Event, List, Update, Create , Delete log
     delivery with following prefix:
     `/aws/sagemaker/*`.
 
 - Resource: Amazon CloudWatch Metric
+
   - Permissions: Put metric data when the following prefixes are used:
     `AWS/SageMaker`,
     `AWS/SageMaker/`,
@@ -109,10 +119,12 @@ out to an AMS Cloud Architect for consultation.)
     `/aws/sagemaker/.`.
 
 - Resource: Amazon CloudWatch Dashboard
+
   - Permissions: Create/Delete dashboards when the following prefixes are used:
     `customer_*`.
 
 - Resource: Amazon SNS (Simple Notification Service) topic
+
   - Permissions: Subscribe/Create topic when following prefixes are used:
     `*sagemaker*`, `*SageMaker*`,
     and `*Sagemaker*`.

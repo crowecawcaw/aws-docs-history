@@ -4,6 +4,7 @@
 2. Create a project in CloudEndure.
 3. Enter the AWS credentials shared when you performed the prerequisites, though secrets manager.
 4. In **Replication settings**:
+
    1. Select both AMS "Sentinel" security groups (Private Only and EgressAll) for the
       **Choose the Security Groups to apply to the Replication Servers** option.
    2. Define cutover options for the machines (instances). For information, see
@@ -11,8 +12,10 @@
    3. **Subnet**: Private subnet.
 
 5. **Security Group**:
+
    1. Select both AMS "Sentinel" security groups (Private Only and EgressAll).
    2. Cutover instances have to communicate to the AMS-managed Active Directory (MAD) and to AWS public endpoints:
+
       1. **Elastic IP**: None
       2. **Public IP**: no
       3. **IAM role**: customer-mc-ec2-instance-profile

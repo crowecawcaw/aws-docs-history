@@ -12,6 +12,7 @@ How it works:
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
    **Choose by category** view.
+
    - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
      **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 
@@ -159,6 +160,7 @@ How it works:
 1. Navigate to the **Create RFC** page: In the left navigation pane of the AMS console click **RFCs** to open the RFCs list page, and then click **Create RFC**.
 2. Choose a popular change type (CT) in the default **Browse change types** view, or select a CT in the
    **Choose by category** view.
+
    - **Browse by change type**: You can click on a popular CT in the **Quick create** area to immediately open the
      **Run RFC** page. Note that you cannot choose an older CT version with quick create.
 

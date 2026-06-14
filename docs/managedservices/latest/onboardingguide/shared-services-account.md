@@ -22,6 +22,7 @@ The AMS team recommends the range of /23.
   for user/resource management, authentication/authorization, and DNS, across all of your AMS multi-account landing zone accounts.
   AMS AD is also configured with a one-way trust to your Active Directory for trust-based authentication. The following input is
   required to create the AD:
+
   - Domain Fully Qualified Domain Name (FQDN): The fully qualified domain name for the
     AWS Managed Microsoft AD directory.
     The domain should not be an existing domain or child domain of an existing domain in your network.
@@ -50,7 +51,9 @@ The following default inputs are required to create EPS (if you want to change f
   network, goes through DX/VPN to the transit gateway (TGW), and then is routed to the Shared Services VPC.
   Once you are able to access the bastion, you can jump to other hosts in the
   AMS environment, provided that the access request has been granted.
+
   - The following inputs are required for SSH bastions.
+
     - SSH Bastion Desired Instance Capacity: Default Value - 2.
     - SSH Bastion Maximum Instances: Default Value - 4.
     - SSH Bastion Minimum Instances: Default Value -2.
@@ -60,10 +63,12 @@ The following default inputs are required to create EPS (if you want to change f
       access SSH Bastions.
 
   - The following inputs are required for Windows RDP bastions.
+
     - RDP Bastion Instance Type: Default Value - t3.medium.
     - RDP Bastion Desired Minimum Sessions: Default Value - 2.
     - RDP Maximum Sessions: Default Value -10.
     - RDP Bastion Configuration Type: You can choose one of the below configuration
+
       - SecureStandard = A user receives one bastion and only one user can connect to
         the bastion.
       - SecureHA = A user receives two bastions in two different AZ's to connect to and only one user can connect to the

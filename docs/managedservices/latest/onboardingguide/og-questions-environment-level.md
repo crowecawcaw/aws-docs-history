@@ -3,6 +3,7 @@
 Consider the following criteria in deciding how to configure your environment and architecture.
 
 - Will your virtual data center connect back to your corporate network?
+
   - Do you have an existing AWS DirectConnect service or do you require a new DirectConnect service?
   - Do you have an existing VPN connection or do you require a new VPN service?
 
@@ -11,6 +12,7 @@ Consider the following criteria in deciding how to configure your environment an
 - Which Region(s) do you intend to use? (Sydney/N. Virginia/Dublin)
 - Will you require a Shared Services subnet to host applications that have connectivity to all other subnets?
 - What are your organizational divisions that you would like to be hosted as separate subnets. For each:
+
   - What connectivity to other subnets do you need?
   - Does the subnet require Internet access?
   - Are there any application deployment restrictions to that subnet?

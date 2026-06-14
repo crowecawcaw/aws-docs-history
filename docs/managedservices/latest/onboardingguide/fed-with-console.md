@@ -26,6 +26,7 @@ After creating the relying party trust as per the blog post, configure the claim
 
 - **NameId**: Follow the blog post.
 - **RoleSessionName**: Use the following values:
+
   - **Claim rule name**: RoleSessionName
   - **Attribute store**: Active Directory
   - **LDAP Attribute**: SAM-Account-Name

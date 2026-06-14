@@ -5,6 +5,7 @@ Recent changes to AMS endpoint security (EPS) require you to subscribe to TrendM
 TrendMicro offers two license models: Per Protected Instance Hour and Bring your own License (BYOL).
 
 - **BYOL**:
+
   1.  You use your own license that you have purchased through external channels.
   2.  You must provide all the license keys to AMS to build the EPS infrastructure. You can provide an activation code that licenses all modules, or individual
       activation codes that license a certain set of modules. AMS creates only the license files that correspond with the activation codes you provide. Since the license

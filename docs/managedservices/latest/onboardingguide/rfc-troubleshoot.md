@@ -145,12 +145,14 @@ For concerns regarding any RFC rejection, reach out to AMS Operations via a serv
 
 - Privilege escalation, such as permissions that allow you to modify your own permissions,
   or to modify the permissions of other resources inside the account. Examples:
+
   - The use of `iam:PassRole` with another, more privileged role.
   - Permission to attach/detach IAM policies from a role or user.
   - The modification of IAM policies in the account.
   - The ability to make API calls in the context of management infrastructure.
 
 - Permissions to modify resources or applications that are required to provide AMS services to you. Examples:
+
   - Modification of AMS infrastructure like the bastions, management host, or
     EPS infrastructure.
   - Deletion of log management AWS Lambda functions, or log streams.
@@ -162,6 +164,7 @@ For concerns regarding any RFC rejection, reach out to AMS Operations via a serv
 
 - Deployment of infrastructure outside of best practices, such as permissions that allow
   the creation of infrastructure in a state that endangers your information security. Examples:
+
   - The creation of public, or unencrypted, S3 buckets or public sharing of EBS volumes.
   - The provisioning of public IP addresses.
   - The modification of security groups to allow broad access.
@@ -169,6 +172,7 @@ For concerns regarding any RFC rejection, reach out to AMS Operations via a serv
 - Overly broad permissions capable of causing application impact, such as permissions that
   can result in data loss, integrity loss, inappropriate configuration, or interruptions of service
   for your infrastructure and the applications inside the account. Examples:
+
   - Disabling, or redirecting, network traffic through APIs like
     `ModifyNetworkInterfaceAttribute` or `UpdateRouteTable`.
   - The disabling of managed infrastructure by detaching volumes from managed hosts.
@@ -180,6 +184,7 @@ To request support for a feature or service, please reach out to your CSDM.
 
 - Permissions that do not meet your stated goal as they are either too generous, or too
   conservative, or are applied to the wrong resources. Examples:
+
   - A request for `s3:PutObject` permissions to an S3 bucket that has
     mandatory KMS encryption, without `KMS:Encrypt` permissions to the relevant key.
   - Permissions that pertain to resources that don’t exist in the account.
@@ -347,6 +352,7 @@ AMS provides several avenues for you to ask for help.
   For details, see [Reporting an Incident](../userguide/gui-ex-report-incident.md "../userguide/gui-ex-report-incident.md"). For general information about AMS
   incident management, see [Incident response](../userguide/sec-incident-response.md "../userguide/sec-incident-response.md").
 - For specific questions about how you or your resources or applications are working with AMS, or to escalate an incident, email one or more of the following:
+
   1.  First, if you are unsatisfied with the service request or incident report response, email your CSDM: ams-csdm@amazon.com
   2.  Next, if escalation is required, you can email the AMS Operations Manager (but your CSDM will probably do this): ams-opsmanager@amazon.com
   3.  Further escalation would be to the AMS Director: ams-director@amazon.com

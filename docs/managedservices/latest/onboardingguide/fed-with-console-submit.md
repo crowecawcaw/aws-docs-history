@@ -8,6 +8,7 @@ management account or the desired application account, follow these steps.
 
 1. Create a service request from the AMS console, provide the details necessary to
    add the identity provider:
+
    - AccountId of the account where the new identity provider will be created.
    - Desired identity provider name, if not provided, the default will be
      **customer-saml**; typically, this must match the settings configured in your
@@ -20,6 +21,7 @@ management account or the desired application account, follow these steps.
 
 2. From the same account where you created the service request, create a new RFC using CT-ID
    ct-1e1xtak34nx76 (Management | Other | Other | Create) with the following information.
+
    - Title: "Onboard SAML IDP <Name> for Account <AccountId>".
    - AccountId of the account where the identity provider will be created.
    - Identity provider name.

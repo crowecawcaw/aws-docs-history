@@ -37,6 +37,7 @@ for AWS Audit Manager is provided.
    administrator account: In the description field for RFC (Management | AWS service |
    Compatible Service| Add), mention that you want to use the delegated administrator account
    as part of Audit Manager Setup and provide the below details:
+
    - KMS CMK ARN (used to set up Audit Manager, initially)
    - Delegated administrator account ID for Audit Manager to use as part of this multi-account landing zone (can be a
      MALZ application account)

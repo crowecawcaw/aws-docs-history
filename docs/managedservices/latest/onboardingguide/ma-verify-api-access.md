@@ -26,6 +26,7 @@ The AWS CLI is a prerequisite for using the AMS CLIs (Change Management and SKMS
 4. Open either the **Managed Cloud Distributables -> CLI -> Windows** or the
    **Managed Cloud Distributables -> CLI -> Linux / MacOS** directory, depending on your operating system, and:
 5. For **Windows**, execute the appropriate installer (this method only works on Windows 32 or 64 bits systems):
+
    - 32 Bits: ManagedCloudAPI_x86.msi
    - 64 Bits: ManagedCloudAPI_x64.msi
 

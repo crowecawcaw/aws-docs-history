@@ -20,6 +20,7 @@ on an RFC during its lifecycle.
 
 - RFC **ActionState** changes during the review, approval,
   and start of a manual change type with deferred scheduling:
+
   - After you submit a manual, scheduled, RFC, the
     **ActionState** automatically changes to
     **AwsActionPending** to indicate that an operator needs to review

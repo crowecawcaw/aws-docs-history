@@ -9,6 +9,7 @@ The AWS account ID that you created for AMS multi-account landing zone. Should n
 The primary Region in which the AMS multi-account landing zone environment will be deployed.
 
 - The core account emails for notifications. (these should all be in the same domain). Provide an email address for each:
+
   - Shared Services account
   - Networking account
   - Logging account

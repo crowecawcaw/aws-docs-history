@@ -81,6 +81,7 @@ You can also add these services separately; for information, see
   specific resources and the `iam:PassRole` permission is controlled.
 - CodeDeploy: Currently CodeDeploy supports deployments on Amazon EC2/On-premises only. Deployments on ECS and Lambda through CodeDeploy is not supported.
 - CodePipeline: CodePipeline features, stages, and providers are limited to the following:
+
   - Deploy Stage: Amazon S3 and AWS CodeDeploy
   - Source Stage: Amazon S3, AWS CodeCommit, Bit Bucket, and GitHub
   - Build Stage: AWS CodeBuild and Jenkins

@@ -5,6 +5,7 @@ You need an instance IP address to log into the instance.
 - To request access to an instance, to log in to an instance, or to create an AMI, you must have
   the instance ID. For an EC2 instance (either a standalone instance or a part of a
   stack), or a database instance, you can find the ID in a few different ways:
+
   - The AMS Console for an instance in an ASG stack: Look on the RFC detail page for the RFC that created the stack. In the Execution Output section,
     you will find the stack ID for the ASG stack and you can then go to the EC2 Console **Auto Scaling Groups** page and search for that
     stack ID and find instances for it. When you find the instance, select it and an area opens at the bottom of the page with details, including the IP address.
@@ -12,10 +13,12 @@ You need an instance IP address to log into the instance.
     for the RFC that created the EC2 stack or DB instance. In the Execution Output
     section, you will find the Instance ID and IP address.
   - AWS EC2 Console:
+
     1. In the navigation pane, select **Instances**. The **Instances** page opens.
     2. Click the instance that you want the ID for. The instance details page opens and displays the ID and IP address.
 
   - AWS Database Console:
+
     1. On the Home page, select **DB Instances**. The **Instances** page opens.
     2. Filter for the DB instance that you want the ID for. The instance details page opens and displays the ID.
 

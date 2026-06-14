@@ -84,6 +84,7 @@ Create routes in the TGW route tables to connect to this VPC:
 2. Decide with your solutions architect what VPCs you want this Accelerate VPC to communicate with.
 3. Submit a
    [Deployment | Managed landing zone | Networking account | Add static route](../ctref/deployment-managed-networking-account-add-static-route.md "../ctref/deployment-managed-networking-account-add-static-route.md") (ct-3r2ckznmt0a59) change type, include this information:
+
    - **Blackhole**: True to indicate that the route's target isn't available. Do this when the traffic for the static route is to
      be dropped by the Transit Gateway. False to route the traffic to the specified TGW attachment ID. Default value is false.
    - **DestinationCidrBlock**: The IPV4 CIDR range used for destination matches. Routing decisions are based on the most specific
@@ -101,6 +102,7 @@ Zone network (creating a TGW VPC attachment)**:
 3. In your Accelerate account, open the
    [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
 4. In the navigation pane, choose **Transit Gateway Attachments** > **Create Transit Gateway Attachment**. Make these choices:
+
    - For the **Transit Gateway ID**, choose the transit gateway ID you recorded in Step 2.
    - For **Attachment type**, choose **VPC**.
    - Under **VPC Attachment**, optionally type a name for **Attachment name tag**.
