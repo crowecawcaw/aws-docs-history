@@ -49,12 +49,15 @@ Follow these directions to create an application and enable any of the push chan
 3. For **Application name** enter the name for your application.
 4. (Optional) Follow this optional step to enable the **Apple Push Notification service
    (APNs)**.
+
    1. For **Apple Push Notification service (APNs)** select
       **Enable**.
    2. For **Default authentication type** choose either:
+
       1. If you choose **Key credentials**, provide the
          following information from your Apple developer account. AWS End User Messaging Push requires
          this information to construct authentication tokens.
+
          - **Key ID** – The ID that's assigned to
            your signing key.
          - **Bundle identifier** – The ID that's
@@ -67,6 +70,7 @@ Follow these directions to create an application and enable any of the push chan
 
       2. If you choose **Certificate credentials**, provide
          the following information:
+
          - **SSL certificate** – The .p12 file
            for your TLS certificate.
          - **Certificate password** – If you
@@ -75,19 +79,23 @@ Follow these directions to create an application and enable any of the push chan
            of certificate to use.
 
 5. (Optional) Follow this optional step to enable the **Firebase Cloud Messaging (FCM)**.
+
    1. For **Firebase Cloud Messaging (FCM)** select
       **Enable**.
    2. For **Default authentication type** choose either:
+
       1. For **Token credentials (recommended)** choose **Choose files** and then choose your service JSON file.
       2. For **Key credentials** enter your key in **API key**.
 
 6. (Optional) Follow this optional step to enable the **Baidu Cloud Push**.
+
    1. For **Baidu Cloud Push** select
       **Enable**.
    2. For **API key** enter your API key.
    3. For **Secret key** enter your secret key.
 
 7. (Optional) Follow this optional step to enable the **Amazon Device Messaging**.
+
    1. For **Amazon Device Messaging** select
       **Enable**.
    2. For **Client ID** enter your client ID.
