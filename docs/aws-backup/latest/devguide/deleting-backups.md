@@ -58,6 +58,7 @@ receive the most recent information.
 3. Choose recovery points, then choose **Actions**, **Delete**.
 4. 1. If your list contains a continuous backup, choose one of following options. Each
       continuous backup has a single recovery point.
+
       - **Permanently delete my backup data** or **Delete
         recovery point**. By selecting one of these options, you stop future
         continuous backups and also delete your existing continuous backup data.
@@ -81,6 +82,7 @@ receive the most recent information.
       submission process.
    4. At the end of the submission process, AWS Backup presents you a status in the banner.
       The status can be:
+
       - **Successfully submitted**. You can choose to
         **View progress** about each recovery point’s deletion
         status.

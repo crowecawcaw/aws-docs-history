@@ -4,6 +4,7 @@
 
 - During the PITR restore process, the AWS Backup console displays a **Restore
   time** section. In this section, do one of the following:
+
   - Choose to restore to the **Latest restorable time**.
   - Choose **Specify date and time** to enter your own date and
     time within your retention period.

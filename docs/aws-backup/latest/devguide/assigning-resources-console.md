@@ -86,6 +86,7 @@ plan.
 1. Under **Refine selection using tags**, choose a
    **Key** from the list.
 2. Choose a **Condition for value** from the list.
+
    - _Value_ refers to the next input, the value of your key-value
      pair.
    - **Condition** can be `Equals`,

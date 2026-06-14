@@ -32,9 +32,11 @@ Guide_.
    resource. In the upper-right corner of the pane, choose
    **Restore**.
 4. Restore Options
+
    1. Restore cluster from snapshot, or
    2. Restore single table within a snapshot to new cluster. If you choose this
       options, then you must configure the following:
+
       1. Toggle on or off case-sensitive names.
       2. Input the source table values, including the database, the schema, and the
          table. The source table information can be found in the [Amazon Redshift console](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
@@ -42,6 +44,7 @@ Guide_.
          new table name.
 
 5. Specify your new cluster configuration settings.
+
    1. For cluster restore: choose Cluster identifier, Node type, and number of
       nodes.
    2. Specify availability zone and maintenance windows.
@@ -49,6 +52,7 @@ Guide_.
       roles**.
 
 6. _Optional:_ Additional configurations:
+
    1. **Use defaults** is toggled on by default.
    2. Use the dropdown menus to select settings for Networking and security, VPC
       security groups, Cluster subnet group, and Availability zone.
@@ -59,15 +63,18 @@ Guide_.
       input the elastic IP address.
 
 7. _Optional:_ Database configuration. You may choose to input
+
    1. Database port (by typing into the text field)
    2. Parameter groups
 
 8. Maintenance: You can choose the
+
    1. Maintenance window
    2. Maintenance track, from among current, trailing, or preview. This controls
       which cluster version is applied during a maintenance window.
 
 9. Automated snapshot is set to default.
+
    1. Automated snapshot retention period. Retention period must be 0 to 35 days.
       Choose 0 to not create automated snapshots.
    2. The manual snapshot retention period is 1 to 3653 days.

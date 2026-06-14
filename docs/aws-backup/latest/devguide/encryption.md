@@ -167,11 +167,13 @@ these permissions are already included in the key policy by AWS and cannot be mo
 by the customer.
 
 1. Ensure required permissions are part of KMS key policy
+
    1. Run KMS CLI `get-key-policy` ([`kms:GetKeyPolicy`](../../../kms/latest/APIReference/API_GetKeyPolicy.md "../../../kms/latest/APIReference/API_GetKeyPolicy.md")) to view the key policy attached to the
       specified KMS key.
    2. Review the returned permissions.
 
 2. Ensure there are no Deny statements that affect operations
+
    1. Run (or re-run) CLI `get-key-policy` ([`kms:GetKeyPolicy`](../../../kms/latest/APIReference/API_GetKeyPolicy.md "../../../kms/latest/APIReference/API_GetKeyPolicy.md")) to view the key policy attached to the
       specified KMS key.
    2. Review the policy.

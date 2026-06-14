@@ -24,7 +24,7 @@ following requirements:
   at minimum.
   The policy [AWSServiceRolePolicyForBackupReports](https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports "https://console.aws.amazon.com/iam/home#/policies/arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports") has these permissions.
 
-For single-account, single-Region reports, use the following syntax to call [CreateReportPlan](API_CreateReportPlan.md "API_CreateReportPlan.md").
+For single-account, single-Region reports, use the following syntax to call [CreateReportPlan](../APIReference/API_CreateReportPlan.md "../APIReference/API_CreateReportPlan.md").
 
 ```
 {
@@ -44,7 +44,7 @@ For single-account, single-Region reports, use the following syntax to call [Cre
 }
 ```
 
-When you call [DescribeReportPlan](API_DescribeReportPlan.md "API_DescribeReportPlan.md") with the unique name of a report plan, the AWS Backup
+When you call [DescribeReportPlan](../APIReference/API_DescribeReportPlan.md "../APIReference/API_DescribeReportPlan.md") with the unique name of a report plan, the AWS Backup
 API responds with the following information.
 
 ```
@@ -67,7 +67,7 @@ API responds with the following information.
 }
 ```
 
-For multi-account, multi-Region reports, use the following syntax to call [CreateReportPlan](API_CreateReportPlan.md "API_CreateReportPlan.md").
+For multi-account, multi-Region reports, use the following syntax to call [CreateReportPlan](../APIReference/API_CreateReportPlan.md "../APIReference/API_CreateReportPlan.md").
 
 ```
 {
@@ -93,7 +93,7 @@ For multi-account, multi-Region reports, use the following syntax to call [Creat
 }
 ```
 
-When you call [DescribeReportPlan](API_DescribeReportPlan.md "API_DescribeReportPlan.md") with the unique name of a report plan, the AWS Backup
+When you call [DescribeReportPlan](../APIReference/API_DescribeReportPlan.md "../APIReference/API_DescribeReportPlan.md") with the unique name of a report plan, the AWS Backup
 API responds with the following information for multi-account, multi-Region plans:
 
 ```

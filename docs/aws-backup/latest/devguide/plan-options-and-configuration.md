@@ -17,6 +17,7 @@ plan, or to edit existing rules in a backup plan:
    plans**.
 2. Under **Backup plan name**, select a backup plan.
 3. Under the **Backup rules** section:
+
    - To add a backup rule, choose **Add backup rule**.
    - To edit an existing backup rule, select a rule, then choose
      **Edit**.
@@ -312,11 +313,13 @@ To configure malware scanning for your backup plan:
 2. Attach the AWS managed policy `AWSBackupServiceRolePolicyForScans` to your
    backup selection's IAM role.
 3. In your backup plan configuration, add scanning settings that specify:
+
    - The scan service (GuardDuty)
    - The resource types to scan (Amazon EC2, Amazon EBS, Amazon S3)
    - The IAM role ARN for GuardDuty to assume
 
 4. Configure scan actions in your backup rules to specify:
+
    - The scan service (GuardDuty)
    - The scan type (incremental or full scan)
 

@@ -9,11 +9,13 @@ Backup gateway requires certain ports to be allowed for its operation. Allow the
 following ports:
 
 1. **TCP 443 Outbound**
+
    - Source: Backup gateway
    - Destination: AWS
    - Use: Allows Backup gateway to communicate with AWS.
 
 2. **TCP 80 Inbound**
+
    - Source: The host you use to connect to the AWS Management Console
    - Destination: Backup gateway
    - Use: By local systems to obtain the Backup gateway activation key. Port 80
@@ -24,11 +26,13 @@ following ports:
      port 80.
 
 3. **UDP 53 Outbound**
+
    - Source: Backup gateway
    - Destination: Domain Name Service (DNS) server
    - Use: Allows Backup gateway to communicate with the DNS.
 
 4. **TCP 22 Outbound**
+
    - Source: Backup gateway
    - Destination: Support
    - Use: Allows Support to access your gateway to help you with issues. You don't
@@ -36,22 +40,26 @@ following ports:
      open it for troubleshooting.
 
 5. **UDP 123 Outbound**
+
    - Source: NTP client
    - Destination: NTP server
    - Use: Used by local systems to synchronize virtual machine time to the host
      time.
 
 6. **TCP 443 Outbound**
+
    - Source: Backup gateway
    - Destination: VMware vCenter
    - Use: Allows Backup gateway to communicate with VMware vCenter.
 
 7. **TCP 443 Outbound**
+
    - Source: Backup gateway
    - Destination: ESXi hosts
    - Use: Allows Backup gateway to communicate with ESXi hosts.
 
 8. **TCP 902 Outbound**
+
    - Source: Backup gateway
    - Destination: VMware ESXi hosts
    - Use: Used for data transfer via Backup gateway.
@@ -157,11 +165,13 @@ To do these:
 
 1. In the VMware vSphere client, select your gateway virtual machine and
    **Launch Web Console** to access the Backup gateway local console.
+
    1. For more information on accessing a local console, see
       [Accessing the Gateway Local Console with VMware ESXi](../../../storagegateway/latest/tgw/accessing-local-console.md#MaintenanceConsoleWindowVMware-common "../../../storagegateway/latest/tgw/accessing-local-console.md#MaintenanceConsoleWindowVMware-common")
 
 2. Exit Command Prompt and go to Network Configuration > Configure Static IP
    and follow the setup instructions to update the routing table.
+
    1. Assign a static IP within the network adapter’s subnet.
    2. Set up a network mask.
    3. Enter the IP address of the default gateway. This is the network
@@ -209,6 +219,7 @@ create a dedicated user with the permissions listed below.
 ###### Host
 
 - Configuration
+
   - Advanced settings
   - Storage partition configuration
 
@@ -232,6 +243,7 @@ create a dedicated user with the permissions listed below.
 ###### Virtual Machine
 
 - Change Configuration
+
   - Acquire disk lease
   - Add existing disk
   - Add new disk
@@ -244,6 +256,7 @@ create a dedicated user with the permissions listed below.
   - Toggle disk change tracking
 
 - Edit Inventory
+
   - Create from existing
   - Create new
   - Register
@@ -251,15 +264,18 @@ create a dedicated user with the permissions listed below.
   - Unregister
 
 - Interaction
+
   - Power Off
   - Power On
 
 - Provisioning
+
   - Allow disk access
   - Allow read-only disk access
   - Allow virtual machine download
 
 - Snapshot Management
+
   - Create snapshot
   - Remove Snapshot
   - Revert to snapshot

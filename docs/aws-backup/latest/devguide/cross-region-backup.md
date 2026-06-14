@@ -11,9 +11,10 @@ in full. In general, if a service supports incremental backups, subsequent copie
 backup in the same AWS Region will be incremental. AWS Backup will re-encrypt your copy using
 the customer managed key of your destination vault.
 
-An exception is Amazon EBS, where changing the encryption status of a snapshot during a copy
-operation [results in
-a full (not incremental) copy](../../../ebs/latest/userguide/ebs-copy-snapshot.md#creating-encrypted-snapshots "../../../ebs/latest/userguide/ebs-copy-snapshot.md#creating-encrypted-snapshots").
+An exception is Amazon EBS, where copying a snapshot to a vault that uses a different AWS KMS
+encryption key [results in
+a full (not incremental) copy](../../../ebs/latest/userguide/ebs-copy-snapshot.md#creating-encrypted-snapshots "../../../ebs/latest/userguide/ebs-copy-snapshot.md#creating-encrypted-snapshots"). If you consistently copy to the same vault with
+the same encryption key, subsequent copies remain incremental.
 
 ###### Requirements
 
@@ -108,6 +109,7 @@ You can use a scheduled backup plan to copy backups across AWS Regions.
 5. In the **Backup rule configuration** section, add a backup rule
    that defines a backup schedule, backup window, and lifecycle rules. You can add more
    backup rules later.
+
    1. For **Backup rule name**, enter a name for your rule.
    2. For **Backup vault**, choose a vault from the list. Recovery
       points for this backup will be saved in this vault. You can create a new backup

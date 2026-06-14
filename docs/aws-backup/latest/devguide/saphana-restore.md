@@ -58,6 +58,7 @@ aws ssm-sap put-resource-permission \
 7. The target location will be overwritten during restore (**"destructive
    restore"**), so you must provide confirmation that you permit this in the
    next pop-up dialog box.
+
    1. To proceed, you must understand that the existing database will be overwritten
       by the one you are restoring.
    2. Once this is understood, you must acknowledge the existing data will be

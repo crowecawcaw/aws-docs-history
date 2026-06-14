@@ -59,12 +59,14 @@ Legal holds can be added by users who have the required IAM permissions.
 3. Choose **Add legal hold**.
 4. Three panels are shown: **Legal hold details**,
    **Legal hold scope**, and **Legal hold tags**.
+
    1. Under **Legal hold details**, enter a legal hold
       title and a description for the hold in the text boxes provided.
    2. In the panel **Legal hold scope**, choose how
       you wish to select the resource to include in the hold. When you create
       a hold, you choose the method used to select the resources that are
       within the legal hold. You can choose to include one of the following:
+
       - Specific resource types and IDs
       - Select backup vaults
       - All resources types or all backup vaults within your account
@@ -98,8 +100,8 @@ To view all legal holds within an account using the Backup console,
    description, ID, and creation date of existing holds. Click on the carat (down arrow)
    next to the table header to filter the table by the selected column.
    To view all legal holds programmatically, you can use the following API calls:
-   [ListLegalHolds](API_ListLegalHolds.md "API_ListLegalHolds.md") and
-   [GetLegalHold](API_GetLegalHold.md "API_GetLegalHold.md").
+   [ListLegalHolds](../APIReference/API_ListLegalHolds.md "../APIReference/API_ListLegalHolds.md") and
+   [GetLegalHold](../APIReference/API_GetLegalHold.md "../APIReference/API_GetLegalHold.md").
 
 The following JSON template can be used for `GetLegalHold`.
 
@@ -196,7 +198,7 @@ You can see recovery points in legal holds in the AWS Backup console or programm
    **Recovery points on hold**, and
    **Tags** for this hold.
    To view recovery points in a legal hold programmatically, you can use the
-   [ListRecoveryPointsByLegalHold](API_ListRecoveryPointsByLegalHold.md "API_ListRecoveryPointsByLegalHold.md") API call.
+   [ListRecoveryPointsByLegalHold](../APIReference/API_ListRecoveryPointsByLegalHold.md "../APIReference/API_ListRecoveryPointsByLegalHold.md") API call.
 
 The following is an example request and response for `ListRecoveryPointsByLegalHold`.
 
@@ -243,7 +245,7 @@ during the legal hold are deleted within 24 hours after the legal hold is remove
     release was successful, the status of that hold will be shown as `Released`.
 
 To remove a hold programmatically, use the API call
-[CancelLegalHold](API_CancelLegalHold.md "API_CancelLegalHold.md").
+[CancelLegalHold](../APIReference/API_CancelLegalHold.md "../APIReference/API_CancelLegalHold.md").
 
 Use the following JSON template.
 

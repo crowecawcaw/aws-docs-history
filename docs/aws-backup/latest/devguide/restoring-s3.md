@@ -24,6 +24,7 @@ For more information, see the following entries on policies:
 - Restores of objects are skipped if the destination bucket has an object with the same
   name or version ID.
 - When you restore to the original S3 bucket,
+
   - AWS Backup does not perform a destructive restore, which means AWS Backup will not put
     an object into a bucket in place of an object that already exists, regardless of
     version.
@@ -34,6 +35,7 @@ For more information, see the following entries on policies:
     backup will remain).
 
 - **Restoring cross-Region copies**
+
   - While S3 backups can be copied cross-Region, restore jobs only occur in the
     same Region in which the original backup or copy is located.
 
@@ -91,6 +93,7 @@ include when restoring programmatically.
    select the Amazon S3 resource ID that you want to restore.
 3. On the **Resource details** page, you will see a list of recovery
    points for the selected resource ID. To restore a resource:
+
    1. In the **Backups** pane, choose the recovery point ID of the
       resource.
    2. In the upper-right corner of the pane, choose
@@ -102,12 +105,14 @@ include when restoring programmatically.
 
 4. If you are restoring a continuous backup, in the **Restore time**
    pane, select either option:
+
    1. Accept the default to restore to the **Latest restorable
       time**.
    2. **Specify date and time** to restore.
 
 5. In the **Settings** pane, specify whether to **Restore
    entire bucket** or perform **Item level restore**.
+
    1. If you choose **Item level restore**, you restore up to 5
       items (objects or folders in a bucket) per restore job by specifying each item's
       [S3 URI](../../../AmazonS3/latest/userguide/access-bucket-intro.md "../../../AmazonS3/latest/userguide/access-bucket-intro.md") that

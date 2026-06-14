@@ -95,6 +95,15 @@ For more information, see [Data events](../../../awscloudtrail/latest/userguide/
   save these logs in the bucket that they log, there is an infinite loop. For more
   information, see [Enabling
   Amazon S3 server access logging](../../../AmazonS3/latest/userguide/enable-server-access-logging.md "../../../AmazonS3/latest/userguide/enable-server-access-logging.md").
+- KMS encryption behavior during backups –
+  When backing up S3 objects encrypted with AWS KMS keys (SSE-KMS), AWS Backup calls
+  `kms:Decrypt` against the source KMS key. This is because AWS Backup uses an
+  independent encryption model for S3 backups. To achieve this, AWS Backup must first
+  decrypt the data using the source KMS key, then re-encrypt it using the backup
+  vault's KMS key. As a result, you will see `kms:Decrypt` calls against
+  your source KMS key in CloudTrail logs during backup operations. For more information, see
+  [Encryption for backups in
+  AWS Backup](encryption.md "encryption.md").
 
 ## Supported bucket types, quantities, and object sizes
 
@@ -463,6 +472,7 @@ For buckets with more than 300 million objects:
   object delete markers**. When this feature is left off, delete markers,
   sometimes in the millions, expire with no cleanup plan. When buckets without this
   feature are backed up, two issues impact time and cost:
+
   - Delete markers are backed up, just like objects. Backup time and restore time
     can be impacted depending on the ratio of objects to delete markers.
   - Each object and marker that is backed up has a minimum charge. Each delete
@@ -482,14 +492,17 @@ in S3-IA and S3 One Zone-IA storage classes.
 - Using features of AWS KMS, CloudTrail, Amazon CloudWatch, and Amazon GuardDuty as part of your backup strategy can
   result in additional costs beyond S3 bucket data storage. See the following for
   information on adjusting these features:
+
   - [Reducing the cost of SSE-KMS with Amazon S3 Bucket keys](../../../AmazonS3/latest/userguide/bucket-key.md "../../../AmazonS3/latest/userguide/bucket-key.md") in the
     _Amazon S3 User Guide_.
   - You can reduce CloudTrail costs by excluding AWS KMS events and by disabling S3
     data events:
+
     - **Exclude AWS KMS events:** In the _CloudTrail User
       Guide_, [Creating a trail in the console (basic event selectors)](../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console "../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console") allows the
       option to exclude AWS KMS events to filter these events out of your trail
       (default setting includes all KMS events):
+
       - The option to log or exclude KMS events is available only if you log
         management events on your trail. If you choose not to log management events,
         KMS events are not logged, and you cannot change KMS event logging
@@ -549,6 +562,7 @@ Console
 3. In your backup plan settings, expand **Advanced backup
    settings**.
 4. For Amazon S3 resources, configure the following options:
+
    - **Back up ACLs**: Select the check box to include ACLs
      or leave it unselected to exclude them.
 

@@ -67,6 +67,7 @@ backups.
   about requesting a quota increase, see [AWS
   Service Quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
 - When creating **Amazon Relational Database Service (RDS) backups**, consider the following:
+
   - If you do not use AWS Backup to manage both Amazon RDS snapshots and continuous
     backups with point-in-time recovery, your backups will fail if initiated
     if scheduled or made on-demand during the daily, user-configurable
@@ -114,10 +115,10 @@ For more information about access control using IAM with AWS Backup, see [Access
 
 **Restoring using API**
 
-To restore a backup programmatically, use the [StartRestoreJob](API_StartRestoreJob.md "API_StartRestoreJob.md") API operation.
+To restore a backup programmatically, use the [StartRestoreJob](../APIReference/API_StartRestoreJob.md "../APIReference/API_StartRestoreJob.md") API operation.
 
 To get the configuration metadata
-that your backup was created with, you can call [GetRecoveryPointRestoreMetadata](API_GetRecoveryPointRestoreMetadata.md "API_GetRecoveryPointRestoreMetadata.md").
+that your backup was created with, you can call [GetRecoveryPointRestoreMetadata](../APIReference/API_GetRecoveryPointRestoreMetadata.md "../APIReference/API_GetRecoveryPointRestoreMetadata.md").
 
 See [Restoring a backup](restoring-a-backup.md "restoring-a-backup.md") for more information.
 

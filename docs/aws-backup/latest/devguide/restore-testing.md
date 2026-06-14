@@ -143,6 +143,7 @@ Console
    select it.
 3. Choose **create restore testing plan**.
 4. **General**
+
    1. **Name:** Type in a name for your new restore testing
       plan. The name cannot be changed after creation. The name must consist of only
       alphanumeric characters and underscores.
@@ -159,6 +160,7 @@ Console
 5. **Recovery point selection:** Here you set the source vaults,
    the recovery point range, and selection criteria for which recovery points
    (backups) you want to be part of the plan.
+
    1. **Source vaults:** Choose whether to include all
       available vaults or just specific vaults to help filter which recovery points
       can be in your plan. If you choose **specific vaults**,
@@ -198,6 +200,7 @@ console](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/b
 preferred testing plan and select it.
 
 1. **General**
+
    1. **Resource assignment name:** Input a name for this
       resource assignment using a string of alphanumeric characters and underscores,
       with no white spaces.
@@ -218,6 +221,7 @@ preferred testing plan and select it.
    console.
 
 2. **Protected resources:**
+
    1. **Select resource type:** Select which resource types and
       the scope of which backups of those types to include in the resource testing
       plan. Each plan can contain multiple resource types, but each type of resource

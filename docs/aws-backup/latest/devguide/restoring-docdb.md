@@ -19,6 +19,7 @@ _Amazon DocumentDB Developer Guide_.
 4. Ensure you are on the console page **Restore Amazon DocumentDB cluster
    snapshots**.
 5. For **Restore options**, you can configure the following:
+
    - **Engine version** - Select the DocumentDB engine version for the restored cluster.
 
 ###### Note

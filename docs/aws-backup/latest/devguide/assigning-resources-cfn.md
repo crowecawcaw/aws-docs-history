@@ -10,12 +10,14 @@ destination backup vault:
   UTC and retain them for 210 days.
 - A resource selection named `BackupSelectionName`.
 - - The resource assignment backs up the following resources:
+
     - Any resource tagged with the key-value pair
       `backupplan:dsi-sandbox-daily`.
     - Any resource tagged with the value `prod` or values beginning
       with `prod/`.
 
   - The resource assignment does not back up the following resources:
+
     - Any RDS, Aurora, Neptune, or DocumentDB cluster.
     - Any resource tagged with the value `test` or values beginning
       with `test/`.

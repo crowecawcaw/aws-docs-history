@@ -44,6 +44,7 @@ section, you will set the backup schedule, window, and lifecycle. 4. **Schedule:
      backup.
 
 5. **Backup window:**
+
    1. **Start time** defaults to 12:30 AM (00:30 in 24hr time) in your system’s local
       timezone.
    2. **Start within** defaults to 8 hours. You can change this to
@@ -55,6 +56,7 @@ section, you will set the backup schedule, window, and lifecycle. 4. **Schedule:
    continuous backups for point-in-time recovery (PITR)**. To verify which
    resources are supported for this type of backup, see the [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") matrix.
 7. **Lifecycle**
+
    1. **Cold storage:** Select this box to let eligible resource
       types transition to cold storage in accordance with the timetable you specify in the
       total retention period. To use cold storage, you must have a total retention period

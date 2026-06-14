@@ -97,10 +97,12 @@ Console
 5. Choose **S3 resources in a specific vault**.
 6. For vault selection, select a specific backup vault from the dropdown.
 7. For resource selection, choose either:
+
    1. **All S3 resources in this vault** to apply to all S3 resources in the vault
    2. **Specific S3 resources in this vault** to select individual S3 buckets
 
 8. If selecting specific resources:
+
    1. Choose individual S3 resources (up to 100 total across resource groups in a configuration)
    2. Set tiering down settings in days for each resource group
    3. Choose **Add tiering setting** to create additional rules (up to 5 total)

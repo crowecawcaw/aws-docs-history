@@ -77,15 +77,18 @@ Once the VMWare software is downloaded, complete the following steps:
 
 1. In the **Gateway connection** section, type in the **IP
    address** of the gateway.
+
    1. To find this IP address, go to the vSphere Client.
    2. Select your gateway under the **Summary** tab.
    3. Copy the **IP address** and paste it in the AWS Backup console
       text bar.
 
 2. In the **Gateway settings** section,
+
    1. Type in a **Gateway name**.
    2. Verify the AWS Region.
    3. Choose whether the endpoint is publicly accessible or hosted with your virtual private cloud (VPC).
+
       - If **publicly accessible** is selected, choose the IP version (IPv4 or IPv6) for gateway connectivity.
       - If **VPC** is selected, enter the VPC endpoint DNS Name. For more information, see [Create a VPC endpoint](backup-network.md#backup-privatelink "backup-network.md#backup-privatelink").
 
@@ -146,6 +149,7 @@ The following examples show you how to get an activation key using gateway host'
 4. Enter the AWS Region where you want to activate your gateway
 5. For network type, enter `1` for Public or `2` for VPC endpoint
 6. For endpoint type, enter `1` for standard endpoint or `2` for dual-stack endpoint
+
    1. For dual-stack endpoint, select `1` for IPv4 or `2` for IPv6
 
 7. Activation key will be populated automatically

@@ -35,15 +35,19 @@ The following terms are used throughout the Amazon EKS backup documentation. For
 **EKS backup setup and prerequisites ("Before you backup")**
 
 - **EKS Cluster Settings:**
+
   - EKS Cluster [authorization mode](../../../eks/latest/userguide/setting-up-access-entries.md "../../../eks/latest/userguide/setting-up-access-entries.md") set to API or API_AND_CONFIG_MAP for AWS Backup to create [Access Entries](../../../eks/latest/userguide/access-entries.md "../../../eks/latest/userguide/access-entries.md") to access the EKS cluster.
 
 - **Permissions:**
+
   - AWS Backup's managed policy [AWSBackupServiceRolePolicyForBackup](security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup "security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForBackup") contains the required permissions to backup your Amazon EKS cluster and EBS and EFS persistent storage
   - If your EKS Cluster contains an S3 bucket you will need to ensure the following policies and prerequisites for your S3 bucket are added and enabled as documented:
+
     - [AWSBackupServiceRolePolicyForS3Backup](security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForS3Backup "security-iam-awsmanpol.md#AWSBackupServiceRolePolicyForS3Backup")
     - [Prerequisites for S3 Backups](s3-backups.md#s3-backup-prerequisites "s3-backups.md#s3-backup-prerequisites")
 
 - **Encryption:**
+
   - Amazon EKS child recovery points will be encrypted with the Amazon KMS key set of the target Backup Vault
   - Persistent Storage recovery points will be encrypted as per the current support for each storage class: EBS Snapshots, S3 Backups, EFS Backups. [See Encryption for backups in AWS Backup](encryption.md "encryption.md")
 

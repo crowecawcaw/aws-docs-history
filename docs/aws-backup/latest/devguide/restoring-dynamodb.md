@@ -17,6 +17,7 @@
 5.  For **Restore role**, choose the IAM role that AWS Backup will
     assume for this restore.
 6.  For **Encryption settings**:
+
     1. If your backup is managed by DynamoDB (its ARN begins with
        `arn:aws:dynamodb`), AWS Backup encrypts your restored table using an
        AWS-owned key.

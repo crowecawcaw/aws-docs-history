@@ -131,6 +131,7 @@ No copy to your logically air-gapped vault is attempted. The backup job complete
 - This feature does not incur new charges. You only pay for the storage in your vaults.
 - For resources supporting full AWS Backup management, maintaining backups only in your logically air-gapped vault can result in significant cost savings compared to maintaining two backup copies in both a backup vault and a logically air-gapped vault.
 - For resources not supporting full AWS Backup management, you are charged for both the temporary recovery point in your backup vault and the recovery points in your logically air-gapped vault.
+
   - You can still achieve significant cost savings from retention of just a single backup copy, but these savings can vary based on your backup frequency and change rate.
   - Lower backup frequencies generally produce greater savings because temporary recovery points occupy storage for a shorter percentage of your billing period.
   - Some resources have minimum billing durations, which increase costs for temporary recovery points.
@@ -279,14 +280,17 @@ Logically air-gapped vault backups are inherently stored in separate service acc
 If you need cross-Region backups, continue using the logically air-gapped vault as a copy destination. Before migrating to this feature, ensure you meet the following requirements:
 
 - **Region and account requirements**
+
   - Your logically air-gapped vault must be in the same AWS account and Region as your resources
 
 - **Resource compatibility**
+
   - Verify that your resources are supported by logically air-gapped vaults in [Feature availability by resource](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource").
   - Check if your resources support [full AWS Backup management](backup-feature-availability.md#features-by-resource "backup-feature-availability.md#features-by-resource") or not.
     The experience of creating air-gapped backups differs between these two types of resources, even though the outcome is similar for both.
 
 - **Encryption requirements**
+
   - Resources that do not support full AWS Backup management must be either unencrypted or encrypted with Customer Managed Keys (CMKs). AWS Managed Key (AMK) encrypted resources are not supported by logically air-gapped vault.
 
 ###### Best Practices
@@ -300,10 +304,12 @@ If you need cross-Region backups, continue using the logically air-gapped vault 
 
 - Review existing backup plans and policies.
 - Identify which resources support full AWS Backup management and which do not.
+
   - Resources supporting full AWS Backup management (e.g., EFS, S3) - can backup directly to logically air-gapped vault
   - Resources not supporting full AWS Backup management (e.g., EC2, EBS, FSx) - require temporary backup in backup vault before being copied to Logically air-gapped vault
 
 - Review your current backup volume and frequency and ensure your configuration aligns with concurrent copy limits for all resources not supporting full AWS Backup management.
+
   - Skip this step If you already copy to a logically air-gapped vault at the same frequency as your standard vault backups.
   - Consider adjusting backup frequency, if needed, to prevent copy job queuing.
   - If copy job queuing occurs, you will still have a usable recovery point in your standard backup vault while awaiting completion of the copy to your logically air-gapped vault.
@@ -344,6 +350,7 @@ To migrate your Amazon S3 continuous recovery point to your logically air-gapped
    Skip this step if you are already copying to your local logically air-gapped vault.
 2. Verify that at least one snapshot copy completes successfully in your logically air-gapped vault before proceeding. Ensure the copied snapshot has a retention period long enough to remain available until you complete all the steps.
 3. Add the logically air-gapped vault as a primary target and remove any copy action.
+
    1. This step is required because locked vaults do not support disassociation of continuous recovery points.
    2. Your existing continuous recovery point in the locked backup vault will continue accumulating data until it expires according to its lifecycle.
    3. New continuous backup jobs will fail because only one active continuous recovery point can exist per resource. Since these jobs are failing, no copy actions will execute.

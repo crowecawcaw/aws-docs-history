@@ -121,6 +121,7 @@ file system. Or, you can restore specific files and directories using
     	 system.
 
 6.  For **Restore location**
+
     - Choose **Restore to directory in source file system** if you
       want to restore to the source file system.
     - Choose **Restore to a new file system** if you want to
@@ -138,6 +139,7 @@ file system. Or, you can restore specific files and directories using
     the _Amazon EFS User Guide._
 
 8.  For **Performance**
+
     - If you chose to perform a **Regional** restore, choose either
       **(Recommended) General purpose** or **Max
       I/O**.
@@ -146,6 +148,7 @@ file system. Or, you can restore specific files and directories using
       not support **Max I/O**.
 
 9.  For **Enable encryption**
+
     - Choose **Enable encryption**, if you want to encrypt your
       file system. KMS key IDs and aliases appear in the list after they have been
       created using the AWS Key Management Service (AWS KMS) console.

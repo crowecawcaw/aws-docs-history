@@ -26,6 +26,7 @@ controls and remediation](controls-and-remediation.md "controls-and-remediation.
 
 - **Framework status** refers to whether you have turned on resource
   tracking for all of your resources. The possible statuses are:
+
   - `Active` when recording is turned on for all resources the framework
     evaluates.
   - `Partially active` when recording is turned off for at least one
@@ -49,6 +50,7 @@ the controls you included in your frameworks, see the resource component of [AWS
   This status should most often be `Completed`, but can also be `Create in
 progress`, `Update in progress`, `Delete in progress`, and
   `Failed`.
+
   - A status of `Failed` means the framework didn't deploy correctly.
     [Delete the framework](deleting-frameworks.md "deleting-frameworks.md"),
     then recreate the framework through the [AWS Backup console](creating-frameworks-console.md "creating-frameworks-console.md") or through [AWS Backup API](creating-frameworks-api.md "creating-frameworks-api.md").

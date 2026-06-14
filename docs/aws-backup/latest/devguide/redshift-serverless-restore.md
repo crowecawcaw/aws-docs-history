@@ -63,6 +63,7 @@ Console
    entire data warehouse or a single table.
 5. Select the destination target in the **Target data warehouse
    configuration** pane.
+
    - For a full data warehouse restore, choose between Amazon Redshift provisioned
      cluster or Redshift Serverless namespace.
    - For a single table restore, specify the source snapshot, database,

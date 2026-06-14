@@ -21,6 +21,7 @@ stack, and then restore them using the AWS Backup console.
 2. Go to **Backup vaults**, select the backup vault containing your
    desired recovery point, then click on **Recovery points**.
 3. Restore the CloudFormation template recovery point.
+
    1. Click the composite recovery point containing the nested recovery points you
       want to restore to bring up the Details page for the composite recovery
       point.

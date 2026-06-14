@@ -4,6 +4,7 @@ AWS Backup works with other AWS tools to empower you to monitor its workloads. T
 include the following:
 
 - [AWS Backup console dashboards](backup-dashboards.md "backup-dashboards.md")
+
   - The jobs dashboard brings job health monitoring, where you can view metrics showing
     job successes and failures, filtered by reasons, accounts, Region, and resource
     type.
@@ -13,6 +14,7 @@ include the following:
 
 - **Amazon CloudWatch** and **Amazon EventBridge**
   to monitor AWS Backup processes.
+
   - You can use CloudWatch to track metrics, create alarms, and view dashboards. For more information, see [AWS Backup metrics with Amazon CloudWatch](cloudwatch.md "cloudwatch.md").
   - You can use EventBridge to view and monitor AWS Backup events. For more information, see [Monitoring AWS Backup events using Amazon EventBridge](eventbridge.md "eventbridge.md").
 

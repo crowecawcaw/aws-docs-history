@@ -37,6 +37,7 @@ Ensure your hypervisor is configured with the [necessary permissions for AWS Bac
     [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to maintain logs of your hypervisor (standard
     [CloudWatch Logs pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/")
     will apply based on usage). Each hypervisor can belong to one log group.
+
     1. If you have not yet created a log group, select the **Create a new log group**
        radio button. The hypervisor you are editing will be associated with this log group.
     2. If you have previously created a log group for a different hypervisor, you can use that log
@@ -102,6 +103,7 @@ the following procedure:
    **Hypervisor name** to go to its detail page.
 3. Choose **Edit**.
 4. The top panel is named **Hypervisor settings**.
+
    1. Under **vCenter server host**, you can also edit the FQDN
       (Fully-Qualified Domain Name) or the IP address.
    2. _Optionally,_ enter the hypervisor’s **Username** and
@@ -111,6 +113,7 @@ the following procedure:
    [Amazon CloudWatch](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to maintain logs of your hypervisor (standard
    [CloudWatch pricing](https://aws.amazon.com/cloudwatch/pricing/ "https://aws.amazon.com/cloudwatch/pricing/")
    will apply based on usage). Each hypervisor can belong to one log group.
+
    1. If you have not yet created a log group, select the **Create a new log group**
       radio button. The hypervisor you are editing will be associated with this log group.
    2. If you have previously created a log group for a different hypervisor, you can use that log

@@ -30,16 +30,19 @@ After you enable AWS Backup's advanced features in your AWS Region, you unlock t
 features for all new for DynamoDB table backups you create:
 
 - Cost savings and optimization:
+
   - [Tiering backups to cold storage](API_Lifecycle.md "API_Lifecycle.md") to reduce storage costs
   - [Cost allocation tagging for use with Cost Explorer](metering-and-billing.md#cost-allocation-tags "metering-and-billing.md#cost-allocation-tags")
 
 - Additional copy options:
+
   - [Cross-Region
     copy](cross-region-backup.md "cross-region-backup.md")
   - [Cross-account
     copy](create-cross-account-backup.md#prereq-cab "create-cross-account-backup.md#prereq-cab")
 
 - Security:
+
   - Backups inherit tags from their source DynamoDB tables, allowing you to use those
     tags to set permissions and [service
     control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md").

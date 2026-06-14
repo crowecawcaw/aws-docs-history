@@ -25,6 +25,12 @@ If it is turned on, ensure you are using up-to-date VMware features. The host mu
 4.0 or later and the virtual machine owning the disks to be tracked must be hardware version
 7 or later.
 
+###### Note
+
+The ESXi and hardware version requirements above are VMware's minimum requirements
+for the CBT feature to function. They do not represent the vSphere versions supported
+by AWS Backup. For the list of vSphere versions supported by AWS Backup, see [Supported VMs](vm-backups.md#supported-vms "vm-backups.md#supported-vms").
+
 If CBT is turned on (enabled) and the software and hardware are up to date, turn off the virtual
 machine and then turn it back on again. Ensure that CBT is turned on. Then, perform the backup again.
 

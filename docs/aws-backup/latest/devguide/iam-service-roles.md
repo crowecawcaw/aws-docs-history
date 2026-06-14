@@ -73,6 +73,7 @@ Specific actions you take in the AWS Backup Console create the AWS Backup defaul
 1.  Open the AWS Backup console at [https://console.aws.amazon.com/backup](https://console.aws.amazon.com/backup "https://console.aws.amazon.com/backup").
 2.  To create the role for your account, either assign resources to a backup plan or
     create an on-demand backup.
+
     1. Create a backup plan and assign resources to the backup. See [Create a backup
        plan](creating-a-backup-plan.md "creating-a-backup-plan.md").
     2. Alternatively, create an on-demand backup. See [Create an
@@ -80,6 +81,7 @@ Specific actions you take in the AWS Backup Console create the AWS Backup defaul
 
 3.  Verify that you have created the `AWSBackupDefaultServiceRole` in your
     account by following these steps:
+
     1. Wait a few minutes. For more information, see [Changes that I make are not always immediately visible](../../../IAM/latest/UserGuide/troubleshoot_general.md#troubleshoot_general_eventual-consistency "../../../IAM/latest/UserGuide/troubleshoot_general.md#troubleshoot_general_eventual-consistency") in the
        _AWS Identity and Access Management User Guide._
     2. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").

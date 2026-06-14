@@ -84,14 +84,17 @@ plan](creating-a-backup-plan.md "creating-a-backup-plan.md") just for SAP HANA r
 If you choose to create a new backup plan, you will have three options:
 
 1.  **Option 1: Start with a template**
+
     1. Choose a backup plan template.
     2. Specify a backup plan name.
     3. Click **Create plan**.
 
 2.  **Option 2: Build a new plan**
+
     1. Specify a backup plan name.
     2. Optionally specify tags to add to backup plan.
     3. Specify the backup rule configuration.
+
        1. Specify a backup rule name.
        2. Select an existing vault or create a new backup vault. This is where
           your backups are stored.

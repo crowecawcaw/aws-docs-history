@@ -46,11 +46,11 @@ _Amazon Simple Notification Service Developer Guide_.
 After creating your topics using the Amazon SNS console or AWS Command Line Interface (AWS CLI), you can use
 the following AWS Backup API operations to manage your backup notifications.
 
-- [DeleteBackupVaultNotifications](API_DeleteBackupVaultNotifications.md "API_DeleteBackupVaultNotifications.md") — Deletes event
+- [DeleteBackupVaultNotifications](../APIReference/API_DeleteBackupVaultNotifications.md "../APIReference/API_DeleteBackupVaultNotifications.md") — Deletes event
   notifications for the specified backup vault.
-- [GetBackupVaultNotifications](API_GetBackupVaultNotifications.md "API_GetBackupVaultNotifications.md") — Lists all event
+- [GetBackupVaultNotifications](../APIReference/API_GetBackupVaultNotifications.md "../APIReference/API_GetBackupVaultNotifications.md") — Lists all event
   notifications for the specified backup vault.
-- [PutBackupVaultNotifications](API_PutBackupVaultNotifications.md "API_PutBackupVaultNotifications.md") — Turns on notifications
+- [PutBackupVaultNotifications](../APIReference/API_PutBackupVaultNotifications.md "../APIReference/API_PutBackupVaultNotifications.md") — Turns on notifications
   for the specified topic and events.
 
 AWS Backup supports the following events:

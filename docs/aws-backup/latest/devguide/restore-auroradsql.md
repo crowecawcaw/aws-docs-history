@@ -36,6 +36,7 @@ Console
    restore.
 3. Configure the settings for the new cluster to which your recovery point will
    be restored.
+
    1. By default, the AMK (AWS managed key) will be used to encrypt the
       restored data. You may alternatively specify a different key.
    2. [Deletion protection](../../../AmazonRDS/latest/AuroraUserGuide/USER_DeleteCluster.md#USER_DeletionProtection "../../../AmazonRDS/latest/AuroraUserGuide/USER_DeleteCluster.md#USER_DeletionProtection") for your Aurora clusters is enabled by
@@ -126,13 +127,16 @@ For more information about multi-Region clusters, see [Configuring multi-Region 
    Region must also be within the same triplet.
 8. Configure the **Cluster settings** for both the primary and
    peer Region clusters:
+
    1. For the primary cluster, configure:
+
       - **Cluster encryption** (optional): Select a KMS key
         for encryption.
       - **Deletion protection**: Enable or disable deletion
         protection.
 
    2. For the peer Region cluster, configure:
+
       - **Peer Region cluster encryption** (optional):
         Select a KMS key for encryption.
       - **Peer Region cluster deletion protection**:

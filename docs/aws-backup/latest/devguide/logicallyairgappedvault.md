@@ -336,6 +336,7 @@ Console
 4. Select **Actions**, and then select **Copy**
    from the drop-down menu.
 5. On the next screen, input the details of the destination.
+
    1. Specify the destination Region.
    2. Destination backup vault drop-down menu displays eligible destination
       vaults. Select one with the type `logically air-gapped
@@ -371,9 +372,10 @@ You can use AWS Resource Access Manager (RAM) to share a logically air-gapped va
 you designate. When sharing vaults, the encryption key type information (AWS-owned or
 customer-managed KMS key) is preserved and visible to accounts with which the vault is shared.
 
-A vault can be shared with an account in its organization or with an account in another
-organization. The vault cannot be shared with an entire organization, only with accounts within the
-organization.
+A vault can be shared with individual AWS account IDs only. You can share with an
+account in your organization or with an account in another organization. The vault cannot be
+shared with an entire organization or with organizational units (OUs) — only individual
+account IDs are supported as share principals.
 
 Only accounts with specific IAM privileges can share and manage the sharing of vaults.
 
@@ -384,6 +386,7 @@ To share using AWS RAM, ensure you have the following:
   `ram:CreateResourceShare` is necessary for this procedure. The policy
   `AWSResourceAccessManagerFullAccess` contains all needed RAM-related
   permissions:
+
   - `backup:DescribeBackupVault`
   - `backup:DescribeRecoveryPoint`
   - `backup:GetRecoveryPointRestoreMetadata`
@@ -430,17 +433,20 @@ logically air-gapped vault will be shared.
 
 1. Log into the owning account OR request a user at your organization with
    sufficient credentials for accessing the source account completes these steps.
+
    1. If a resource share was previously created and you wish to add an
       additional resource to it, use CLI `associate-resource-share`
       instead with the ARN of the new vault.
 
 2. Fetch credentials of a role with sufficient permissions to share via RAM.
    [Input these into the CLI](../../../cli/latest/userguide/getting-started-quickstart.md#getting-started-quickstart-new "../../../cli/latest/userguide/getting-started-quickstart.md#getting-started-quickstart-new").
+
    1. The permission `ram:CreateResourceShare` is necessary for this
       procedure. The policy [AWSResourceAccessManagerFullAccess](https://console.aws.amazon.com/iamv2/home?region=us-east-1#/policies/details/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAWSResourceAccessManagerFullAccess "https://console.aws.amazon.com/iamv2/home?region=us-east-1#/policies/details/arn%3Aaws%3Aiam%3A%3Aaws%3Apolicy%2FAWSResourceAccessManagerFullAccess") contains all RAM-related
       permissions.
 
 3. Use [create-resource-share](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ram/create-resource-share.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ram/create-resource-share.html").
+
    1. Include the ARN of the logically air-gapped vault.
    2. Example input:
 
@@ -451,7 +457,6 @@ logically air-gapped vault will be shared.
    --principals `123456789012`
    --region us-east-1
    ```
-
    3. Example output:
 
    ```
@@ -472,6 +477,7 @@ logically air-gapped vault will be shared.
    steps). Give the ARN to the operator of account you are inviting to receive the
    share.
 5. Obtain the resource share ARN
+
    1. If you did not perform steps 1 through 4, obtain the resourceShareArn from
       whomever did.
    2. Example:
@@ -483,6 +489,7 @@ logically air-gapped vault will be shared.
    rejecting invitations](../../../ram/latest/userguide/working-with-shared-invitations.md "../../../ram/latest/userguide/working-with-shared-invitations.md") in the _AWS RAM User
    Guide_.
 8. Accept the invitation in destination (recovery) account.
+
    1. Use [`accept-resource-share-invitation`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ram/accept-resource-share-invitation.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ram/accept-resource-share-invitation.html") (can also [`reject-resource-share-invitation`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ram/reject-resource-share-invitation.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ram/reject-resource-share-invitation.html")).
 
 You can use AWS RAM CLI commands to view shared items:

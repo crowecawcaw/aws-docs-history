@@ -71,6 +71,12 @@ restore failures.
     during restore, AWS Backup introduces a 15-minute buffer after the EKS cluster reaches an available state
     but before creating any additional EKS resources. This buffer ensures that all underlying EKS
     components are fully initialized before dependent resources are created.
+11. **User data in launch template**: When creating a node group using a launch
+    template, do not specify `spec.cluster` in the user data section of the launch template.
+    Amazon EKS automatically injects the cluster identity parameters
+    (`apiServerEndpoint`, `certificateAuthority`, and
+    `serviceIpv4Cidr`) and merges them with any additional configurations
+    defined in the user data.
     **EKS Configurations**
 
 When you restore the composite Amazon AWS Backup, you choose the restore type and target destination.
@@ -133,10 +139,12 @@ Console
 3. Choose the backup vault that contains your Amazon EKS backup, then select the recovery point for your Amazon EKS backup.
 4. Choose **Restore**.
 5. In the **Restore options** pane, choose your restore type:
+
    - **Restore full EKS cluster** - Restores the entire Amazon EKS composite recovery point
    - **Select namespaces to restore** - Restores up to five specific namespaces
 
 6. Configure the target destination:
+
    - For cluster restore, choose to create a new cluster or use an existing cluster
    - For new clusters, specify cluster name, Kubernetes version, VPC configuration, IAM roles, subnets, Additional security groups, node group settings, fargate profiles and Pod identity IAM roles
    - For existing clusters, select the target cluster from the dropdown
@@ -162,6 +170,7 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
 **Optional metadata:**
 
 - `newCluster` - (true/false) If we should create a new EKS cluster during restore. If newCluster is "true", the following metadata fields apply:
+
   - `eksClusterVersion` - Desired K8s version of cluster if wanting to increase cluster version during restore
   - `clusterRole` - The IAM Role ARN to attach to the created EKS cluster
   - `encryptionConfigProviderKeyArn` - Specify the KMS key ARN to encrypt the destination cluster.
@@ -169,11 +178,13 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
     A different KMS key must be provided when performing cross-region or cross-account restore.
     Omit this metadata entirely if the source cluster is not encrypted.
   - `clusterVpcConfig` - VPC/Networking configuration for the created EKS cluster. This field has the following nested fields:
+
     - `vpcId` - The VPC associated with your cluster
     - `subnetIds [Required]` - The subnets associated with your cluster
     - `securityGroupIds [Required]` - The additional security groups associated with your cluster
 
   - `nodeGroups` - The Managed Node Groups to be created on the EKS Cluster. The NodeGroups for restore must have all of the same node groups from backup time and have matching nodeGroupId.
+
     - `nodeGroupId [Required]` - The ID of the node group
     - `subnetIds [Required]` - The subnets that were specified for the Auto Scaling group that is associated with your node group
     - `instanceTypes` - If the node group wasn't deployed with a launch template, then this is the instance type that is associated with the node group
@@ -187,11 +198,13 @@ Use StartRestoreJob. You can specify the following metadata during Amazon EKS re
     - `launchTemplateVersion` - Launch template version associated with the specified launch template ID.
 
   - `fargateProfiles` - The Fargate Profiles to be created on the EKS Cluster. The Fargate Profiles for restore must have all the same Fargate Profiles from backup time and have matching name.
+
     - `name [Required]` - The name of the Fargate profile
     - `subnetIds` - The IDs of subnets to launch a Pod into
     - `podExecutionRoleArn [Required]` - The IAM Role ARN of the Pod execution role to use for a Pod that matches the selectors in the Fargate profile
 
   - `podIdentityAssociations` - The Pod Identity Associations to be created on the EKS Cluster
+
     - `associationId` - The ID of the Pod Identity Association
     - `roleArn` - The IAM Role ARN for the Pod Identity Association
 

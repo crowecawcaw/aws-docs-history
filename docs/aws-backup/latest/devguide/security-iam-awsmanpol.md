@@ -683,6 +683,7 @@ Start with the `GatewayRestorePermissions` statement from [AWSBackupServiceRoleP
 
 - Add your role to the allowlist for the AWS KMS key policy
 - Add the following statements from [AWSBackupServiceRolePolicyForRestores](../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForRestores.md "../../../aws-managed-policy/latest/reference/AWSBackupServiceRolePolicyForRestores.md") to your IAM role for restores:
+
   - `KMSDescribePermissions`
   - `KMSPermissions`
   - `KMSCreateGrantPermissions`

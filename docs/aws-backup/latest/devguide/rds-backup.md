@@ -44,7 +44,9 @@ AWS Backup](https://aws.amazon.com/blogs/database/restore-an-amazon-rds-custom-f
 
 RDS Custom for Oracle is not currently supported by AWS Backup.
 
-AWS Backup does not support backup and restore of RDS on Outposts.
+AWS Backup does not support backup and restore of RDS on Outposts or in Local Zones,
+including Dedicated Local Zones. AWS Backup requires RDS instances to have
+`BackupTarget` set to `region` (the default).
 
 ## Understanding backup overlap and costs
 

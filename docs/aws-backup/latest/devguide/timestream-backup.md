@@ -113,6 +113,7 @@ To view and modify your Timestream table backups within the console:
 2. Choose **Backup vaults**. Then, click on the backup vault name that contains your
    Timestream tables.
 3. The backup vault will display a summary and a list of backups.
+
    1. You can click on the link in the column **Recovery point ID**, or
    2. You can check the box to the left of the recovery point ID and click **Actions**
       to delete the recovery points that are no longer needed.

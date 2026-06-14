@@ -5,11 +5,11 @@
 For console restore instructions and links to documentation for each AWS Backup-supported
 resource type, see the links at the bottom of this page.
 
-To restore a backup programmatically, use the [StartRestoreJob](API_StartRestoreJob.md "API_StartRestoreJob.md") API operation.
+To restore a backup programmatically, use the [StartRestoreJob](../APIReference/API_StartRestoreJob.md "../APIReference/API_StartRestoreJob.md") API operation.
 
 The configuration values ("restore metadata") that you need to restore your resource
 varies depending on the resource that you want to restore. To get the configuration metadata
-that your backup was created with, you can call [GetRecoveryPointRestoreMetadata](API_GetRecoveryPointRestoreMetadata.md "API_GetRecoveryPointRestoreMetadata.md"). Restore metadata examples are also
+that your backup was created with, you can call [GetRecoveryPointRestoreMetadata](../APIReference/API_GetRecoveryPointRestoreMetadata.md "../APIReference/API_GetRecoveryPointRestoreMetadata.md"). Restore metadata examples are also
 available in the links at the bottom of this page.
 
 Restoring from cold storage typically takes 4 hours more than restoring from warm
@@ -98,6 +98,7 @@ wish to _include_ tags from the original source, set this to
   on restore.
 
 - **Amazon EC2**
+
   - Tags applied to restored **Amazon EC2** instances are also
     applied to the attached restored **Amazon EBS** volumes.
   - Tags applied to the EBS volumes attached to source instances are not copied
@@ -110,6 +111,7 @@ wish to _include_ tags from the original source, set this to
   new file system. Restorations to an existing file system cannot have tags copied to
   it.
 - **Amazon RDS**
+
   - If the RDS cluster that was backed up is still active, tags from this
     cluster will be copied.
   - If the original cluster is no longer active, tags from the snapshot of the
@@ -130,6 +132,7 @@ wish to _include_ tags from the original source, set this to
    select the Amazon S3 resource ID that you want to restore.
 3. On the **Resource details** page, you will see a list of recovery
    points for the selected resource ID. To restore a resource:
+
    1. In the **Backup** pane, choose the recovery point ID of the
       resource.
    2. In the upper-right corner of the pane, choose **Restore**

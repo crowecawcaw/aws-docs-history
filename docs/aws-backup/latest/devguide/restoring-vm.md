@@ -80,6 +80,7 @@ resources** to locate your recovery point.
    restore.
 3. Choose **Restore**.
 4. Choose the **Restore type**.
+
    1. **Full restore** restores all the virtual machine's
       disks.
    2. **Disk-level restore** restores a user-defined selection of
@@ -95,6 +96,7 @@ resources** to locate your recovery point.
    restored virtual machine
 8. For the restored virtual machine, use your organization’s virtual machine best
    practices to specify its:
+
    1. **Name**
    2. **Path** (such as `/datacenter/vm`)
    3. **Compute resource name** (such as VMHost or Cluster)
@@ -120,6 +122,7 @@ resources** to locate your recovery point.
    restore.
 3. Choose **Restore**.
 4. Choose the **Restore type**.
+
    1. **Disk restore** restores a user-defined selection of one
       disk. Use the drop-down menu to select which disk to restore.
 
@@ -152,6 +155,7 @@ resources** to locate your recovery point.
    restore.
 3. Choose **Restore**.
 4. Choose the **Restore type**.
+
    1. **Full restore** restores the file system completely,
       including the root-level folder and files.
 

@@ -43,6 +43,7 @@ You can restore Timestream tables in the AWS Backup console that were created by
    point ID of the resource. In the upper-right corner of the pane, choose
    **Restore**.
 4. Specify your new table configuration settings, including:
+
    1. **New table name**, consisting of 2 to 256 characters
       (letters, numbers, dashes, periods, and underscores).
    2. **Destination database**, chosen from the drop down

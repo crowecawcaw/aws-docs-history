@@ -58,6 +58,13 @@ For CBT to function correctly, the following must be true:
 - The VM owning the disks must have hardware version 7 or later
 - CBT must be enabled for the virtual machine (it is enabled by default)
 
+###### Note
+
+The ESXi and hardware version requirements listed above are VMware's minimum
+requirements for the CBT feature to function. They do not represent the vSphere
+versions supported by AWS Backup. For the list of vSphere versions supported by AWS Backup,
+see [Supported VMs](vm-backups.md#supported-vms "vm-backups.md#supported-vms").
+
 To verify if a virtual disk has CBT enabled:
 
 1. Open the vSphere Client and select a powered-off virtual machine.
@@ -387,6 +394,7 @@ assignment** feature.
 5. In the **Resource group** section, select the **Group
    type** dropdown menu. Your options are **Folder** or
    **Hypervisor**.
+
    1. Choose **Folder** to assign all the virtual machines in a
       folder on a hypervisor. Select a folder **Group name**, such as
       `datacenter/vm`, using the dropdown menu. You can also choose to

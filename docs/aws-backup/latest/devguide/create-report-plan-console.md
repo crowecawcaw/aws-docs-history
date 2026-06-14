@@ -29,6 +29,7 @@ first S3 bucket](../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating
 7. _Compliance report templates for one account only_. Choose one or
    more frameworks on which to report. You can add a maximum 1,000 frameworks to a report
    plan.
+
    1. Choose your AWS Region.
    2. Choose a framework from that Region.
    3. Choose **Add framework**.
@@ -45,6 +46,7 @@ first S3 bucket](../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating
     step_). You can select which Regions to include in your report. Click the
     drop down menu to show Regions available to you. Select _All available
     Regions_ or the Regions you prefer.
+
     1. The **Include new Regions when they are incorporated into Backup Audit
        Manager** check box will trigger new Regions to be included in your
        reports when they become available.
@@ -131,3 +133,64 @@ include the following action in your policy:
         "*"
       ],
 ```
+
+## Using an S3 bucket encrypted with a cross-account KMS key
+
+If your S3 bucket (in Account A) is encrypted with a customer managed KMS key from a
+different account (Account B), complete the following additional steps to allow AWS Backup to
+deliver reports to the bucket.
+
+###### To configure a cross-account KMS key for Backup reports
+
+1. Add the S3 bucket policy as described in the preceding section.
+2. Update the KMS key policy in Account B to grant permissions to the
+   `AWSServiceRoleForBackupReports` service-linked role in Account A and to
+   the IAM entity that creates the report plan:
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Allow Backup Reports service-linked role to use the key",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::`AccountA-ID`:role/aws-service-role/reports.backup.amazonaws.com/AWSServiceRoleForBackupReports"
+            },
+            "Action": [
+                "kms:GenerateDataKey",
+                "kms:Encrypt"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "Allow IAM entity to create grants on the key",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::`AccountA-ID`:role/`IAM-role-name`"
+            },
+            "Action": "kms:CreateGrant",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+Replace `AccountA-ID` with the AWS account ID where
+the S3 bucket and AWS Backup report plan reside. Replace
+`IAM-role-name` with the IAM role you use to create the
+report plan. 3. From Account A, create a KMS grant for the service-linked role by running the
+following AWS CLI command with an IAM entity that has `kms:CreateGrant`
+permission on the key:
+
+```
+aws kms create-grant \
+    --key-id arn:aws:kms:`region`:`AccountB-ID`:key/`key-id` \
+    --grantee-principal arn:aws:iam::`AccountA-ID`:role/aws-service-role/reports.backup.amazonaws.com/AWSServiceRoleForBackupReports \
+    --operations GenerateDataKey
+```
+
+Replace `region`,
+`AccountB-ID`, `key-id`, and
+`AccountA-ID` with your values. 4. Create your on-demand or scheduled report plan. Reports will be delivered to the
+S3 bucket encrypted with the cross-account KMS key.

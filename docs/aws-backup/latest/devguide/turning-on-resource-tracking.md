@@ -29,6 +29,7 @@ billing](metering-and-billing.md "metering-and-billing.md").
 6. Choose **Enable** recording for all of the following resource
    types, or choose to enable recording for some resource types. Refer to [AWS Backup Audit Manager controls and remediation](controls-and-remediation.md "controls-and-remediation.md") for which resource types are
    required for your controls.
+
    - `AWS Backup: backup plans`
    - `AWS Backup: backup vaults`
    - `AWS Backup: recovery points`

@@ -17,6 +17,7 @@ This page lists each control with the following information:
 - The **parameters** of the control.
 - Occasion when running of control **occurs**.
 - The **scope** of the control, as follows:
+
   - You can specify **Resources by type** by choosing one or more
     AWS Backup-supported services.
   - You specify a **Tagged resources** scope with a single tag key
