@@ -76,6 +76,7 @@ For more information about tagging your resources for billing, see [Monitoring c
 The following rules apply to tagging as part of request operations:
 
 - **CreateReplicationGroup**:
+
   - If the `--primary-cluster-id` and `--tags` parameters are included in the request,
     the request tags will be added to the replication group and propagate to all clusters in the replication group.
     If the primary cluster has existing tags, these will be overwritten with the request tags to have consistent tags across all nodes.
@@ -90,6 +91,7 @@ The following rules apply to tagging as part of request operations:
   If tags are included in the request, the request tags will be added to the replication group and propagate to all clusters.
 
 - **CreateCacheCluster** :
+
   - If the `--replication-group-id` is supplied:
 
   If tags are included in the request, the cluster will be tagged only with those tags. If no tags are included in the request,
@@ -100,9 +102,11 @@ The following rules apply to tagging as part of request operations:
   the snapshot tags will be added to the cluster.
 
 - **CreateServerlessCache** :
+
   - If tags are included in the request, only the request tags will be added to the serverless cache.
 
 - **CreateSnapshot** :
+
   - If the `--replication-group-id` is supplied:
 
   If tags are included in the request, only the request tags will be added to the snapshot. If no tags are included in the request,
@@ -116,17 +120,21 @@ The following rules apply to tagging as part of request operations:
   Tags will propagate from the replication group tags.
 
 - **CreateServerlessCacheSnapshot** :
+
   - If tags are included in the request, only the request tags will be added to the serverless cache snapshot.
 
 - **CopySnapshot** :
+
   - If tags are included in the request, only the request tags will be added to the snapshot.
     If no tags are included in the request,
     the source snapshot tags will be added to the copied snapshot.
 
 - **CopyServerlessCacheSnapshot** :
+
   - If tags are included in the request, only the request tags will be added to the serverless cache snapshot.
 
 - **AddTagsToResource** and **RemoveTagsFromResource** :
+
   - Tags will be added/removed from the replication group and the action will be propagated to all clusters in the replication group.
 
 ###### Note

@@ -28,6 +28,7 @@ To set up a strong token, we recommend that you follow a strict password policy,
 following:
 
 - Tokens or passwords must include at least three of the following character types:
+
   - Uppercase characters
   - Lowercase characters
   - Digits

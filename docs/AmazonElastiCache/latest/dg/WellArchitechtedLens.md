@@ -7,8 +7,10 @@ principles and guidance for designing well-architected ElastiCache workloads.
   Framework](../../../wellarchitected/latest/framework/welcome.md "../../../wellarchitected/latest/framework/welcome.md").
 - Each Pillar has a set of questions to help start the discussion around an ElastiCache
   Architecture.
+
   - Each question has a number of leading practices along with their scores
     for reporting.
+
     - _Required_ - Necessary before going to prod
       (absent being a high risk)
     - _Best_ - Best possible state a customer could
@@ -17,6 +19,7 @@ principles and guidance for designing well-architected ElastiCache workloads.
       (absent being a medium risk)
 
 - Well-Architected terminology
+
   - [Component](../../../wellarchitected/latest/framework/definitions.md "../../../wellarchitected/latest/framework/definitions.md")
     – Code, configuration and AWS Resources that
     together deliver against a requirement. Components interact with other

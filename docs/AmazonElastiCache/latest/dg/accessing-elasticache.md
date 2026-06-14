@@ -39,6 +39,7 @@ By doing so, your VPC is extended to that Local Zone and your VPC will treat the
    this security group will be named _default_.
 4. Choose the **Inbound** tab, and then do
    the following:
+
    1. Choose **Edit**.
    2. Choose **Add rule**.
    3. In the **Type** column, choose **Custom TCP
@@ -132,11 +133,13 @@ You also need to enable IP forwarding, which is disabled by default:
 sudo sysctl --system`
 
 - You are accessing a Memcached cluster with:
+
   - IP address – _10.0.1.230_
   - Default Memcached port – _11211_
   - Security group – \*\*10\.0\.0\.55\*\*
 
 - You are accessing a Valkey or Redis OSS cluster with:
+
   - IP address – _10.0.1.230_
   - Default port – _6379_
   - Security group – _sg-bd56b7da_
@@ -219,6 +222,7 @@ The NAT instance security group and the cluster instance should have the followi
     | Custom TCP Rule | TCP | 6379 | sg-ce56b7a9 (NAT Security Group) |
 
 3. Validate the rules.
+
    - Confirm that the trusted client is able to SSH to the NAT instance.
    - Confirm that the trusted client is able to connect to the cluster from the NAT instance.
 

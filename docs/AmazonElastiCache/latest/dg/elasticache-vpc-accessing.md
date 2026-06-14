@@ -6,13 +6,17 @@ Amazon ElastiCache supports the following scenarios for accessing a cache in an 
 
 - [Accessing an ElastiCache Cache when it and the Amazon EC2 Instance are in the Same Amazon VPC](elasticache-vpc-accessing.md#elasticache-vpc-accessing-same-vpc "elasticache-vpc-accessing.md#elasticache-vpc-accessing-same-vpc")
 - [Accessing an ElastiCache Cache when it and the Amazon EC2 Instance are in Different Amazon VPCs](elasticache-vpc-accessing.md#elasticache-vpc-accessing-different-vpc "elasticache-vpc-accessing.md#elasticache-vpc-accessing-different-vpc")
+
   - [In Different Amazon VPCs in the Same Region](elasticache-vpc-accessing.md#elasticache-vpc-accessing-different-vpc-same-region "elasticache-vpc-accessing.md#elasticache-vpc-accessing-different-vpc-same-region")
+
     - [Using Transit Gateway](elasticache-vpc-accessing.md#elasticache-vpc-accessing-using-transit-gateway "elasticache-vpc-accessing.md#elasticache-vpc-accessing-using-transit-gateway")
 
   - [In Different Amazon VPCs in Different Regions](elasticache-vpc-accessing.md#elasticache-vpc-accessing-different-vpc-different-region "elasticache-vpc-accessing.md#elasticache-vpc-accessing-different-vpc-different-region")
+
     - [Using Transit VPC](elasticache-vpc-accessing.md#elasticache-vpc-accessing-different-vpc-different-region-using-transit-vpc "elasticache-vpc-accessing.md#elasticache-vpc-accessing-different-vpc-different-region-using-transit-vpc")
 
 - [Accessing an ElastiCache Cache from an Application Running in a Customer's Data Center](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center "elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center")
+
   - [Using VPN Connectivity](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center-vpn "elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center-vpn")
   - [Using Direct Connect](elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center-direct-connect "elasticache-vpc-accessing.md#elasticache-vpc-accessing-data-center-direct-connect")
 
@@ -53,6 +57,7 @@ If you are planning to use [Local Zones](Local_zones.md "Local_zones.md"), ensur
    select **Add Rule**. This security group will allow access to
    members of another security group.
 4. From **Type** choose **Custom TCP Rule**.
+
    1. For **Port Range**, specify the port you used when you created your
       cache.
 

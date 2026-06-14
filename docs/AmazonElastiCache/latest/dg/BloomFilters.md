@@ -20,15 +20,18 @@ Bloom filters are a space efficient probabilistic data structure that allows add
 The main source of documentation for bloom filters can be found on the valkey.io documentation page. This contains the following information:
 
 - [Common use cases for bloom filters](https://valkey.io/topics/bloomfilters/#common-use-cases-for-bloom-filters "https://valkey.io/topics/bloomfilters/#common-use-cases-for-bloom-filters")
+
   - Advertisement / Event deduplication
   - Fraud detection
   - Filtering harmful content / spam
   - Unique user detection
 
 - [Differences between scaling and non scaling bloom filters](https://valkey.io/topics/bloomfilters/#scaling-and-non-scaling-bloom-filters "https://valkey.io/topics/bloomfilters/#scaling-and-non-scaling-bloom-filters")
+
   - How to decide between scaling and non scaling bloom filters
 
 - [Bloom properties](https://valkey.io/topics/bloomfilters/#bloom-properties "https://valkey.io/topics/bloomfilters/#bloom-properties")
+
   - Learn about the tunable properties of Bloom filters. This includes the false positive rate, capacity, scaling and non scaling properties, and more.
 
 - [Performance of bloom commands](https://valkey.io/topics/bloomfilters/#performance "https://valkey.io/topics/bloomfilters/#performance")
@@ -36,6 +39,7 @@ The main source of documentation for bloom filters can be found on the valkey.io
   stats](https://valkey.io/topics/bloomfilters/#monitoring "https://valkey.io/topics/bloomfilters/#monitoring")
 - [Handling
   large bloom filters](https://valkey.io/topics/bloomfilters/#handling-large-bloom-filters "https://valkey.io/topics/bloomfilters/#handling-large-bloom-filters")
+
   - Recommendations and details on how to check if a bloom filter is reaching its memory usage limit, and if it can scale to reach the desired capacity.
   - You can specifically check the amount of memory consumed by a bloom filter document through using the [BF.INFO](https://valkey.io/commands/bf.info/ "https://valkey.io/commands/bf.info/") command.
 

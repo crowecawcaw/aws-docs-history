@@ -3,6 +3,7 @@
 Before getting started with global datastores, be aware of the following:
 
 - Global datastores are supported in the following AWS Regions:
+
   - **Africa** - Cape Town
   - **Asia Pacific** - Hong Kong, Hyderabad, Jakarta,
     Malaysia, Melbourne, Mumbai, Osaka, Seoul, Singapore, Sydney, Thailand, and Tokyo
@@ -79,6 +80,7 @@ Global datastores support [pub/sub messaging](../red-ug/elasticache-use-cases.md
   primary cluster of the primary AWS Region are propagated to secondary AWS
   Regions.
 - For cluster mode enabled, the following applies:
+
   - For published events that aren't in a keyspace, only subscribers in the
     same AWS Region receive the events.
   - For published keyspace events, subscribers in all AWS Regions receive

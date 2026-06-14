@@ -41,6 +41,7 @@ You can select either an available Outpost to add your cluster or, if there are 
 ###### Under **On-Premises options**:
 
 1. Under **Valkey settings**, **Redis OSS settings**, or **Memcached settings**, depending on your preferred engine:
+
    1. **Name**:
       Enter a name for the cluster
    2. **Description**:
@@ -66,7 +67,9 @@ You can select either an available Outpost to add your cluster or, if there are 
    `MyGroup-004`, `MyGroup-005`, `MyGroup-006`.
 
 2. Under **Connectivity**:
+
    1. **Subnet Group**: From the list, select **Create new**.
+
       - **Name**: Enter a name for the subnet group
       - **Description**: Enter a description for the subnet group
       - **VPC ID**: The VPC ID should match the Outpost VPC. If you select a VPC that has no subnet IDs

@@ -24,6 +24,7 @@ Valkey or Redis OSS (cluster mode enabled) replication group.
 3. Choose the box for each shard that you want to add replicas to.
 4. Choose **Add replicas**.
 5. Complete the **Add Replicas to Shards** page:
+
    - For **New number of replicas/shard**, enter the
      number of replicas that you want all of your selected shards to have.
      This value must be greater than or equal to **Current Number of

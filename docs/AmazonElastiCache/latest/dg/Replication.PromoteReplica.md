@@ -35,6 +35,7 @@ The following procedure uses the console to promote a replica node to primary.
    then for **Actions**, choose **Promote**.
 5. In the **Promote Read Replica** dialog box, do the
    following:
+
    1. For **Apply Immediately**, choose
       **Yes** to promote the read replica immediately, or
       **No** to promote it at the cluster's next maintenance

@@ -52,12 +52,14 @@ parameter.
 
 1. Create the canonicalized query string that you need later in this
    procedure:
+
    1. Sort the UTF-8 query string components by parameter name with
       natural byte ordering. The parameters can come from the GET URI or
       from the POST body (when Content-Type is
       application/x-www-form-urlencoded).
    2. URL encode the parameter name and values according to the
       following rules:
+
       1. Do not URL encode any of the unreserved characters that
          RFC 3986 defines. These unreserved characters are A-Z, a-z,
          0-9, hyphen ( - ), underscore ( \_ ), period ( . ), and tilde

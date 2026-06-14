@@ -379,6 +379,7 @@ ElastiCache version 4.0.10 for Redis OSS brings support for the following improv
 
 - Both online cluster resizing and encryption in a single ElastiCache version.
   For more information, see the following:
+
   - [Scaling Valkey or Redis OSS (Cluster Mode Enabled) clusters](scaling-redis-cluster-mode-enabled.md "scaling-redis-cluster-mode-enabled.md")
   - [Online resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online")
   - [Data security in Amazon ElastiCache](encryption.md "encryption.md")
@@ -527,6 +528,7 @@ Redis OSS improvements added since version 2.8.21 include the following:
   whenever possible. Additionally, both the primary and replicas no longer
   use the disk during syncs, providing further speed gains.
 - Support for two new CloudWatch metrics.
+
   - `ReplicationBytes` – The number of bytes a
     replication group's primary cluster is sending to the read
     replicas.

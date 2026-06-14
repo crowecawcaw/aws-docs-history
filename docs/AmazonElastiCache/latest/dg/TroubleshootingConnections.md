@@ -120,7 +120,9 @@ A good analysis commonly starts with the following items:
   `EngineCPUUtilization` provides the CPU utilization dedicated to the Valkey or Redis OSS process, and `CPUUtilization` the usage across all vCPUs.
   Nodes with more than one vCPU usually have different values for `CPUUtilization` and `EngineCPUUtilization`, the second being commonly higher.
   High `EngineCPUUtilization` can be caused by an elevated number of requests or complex operations that take a significant amount of CPU time to complete. You can identify both with the following:
+
   - Elevated number of requests: Check for increases on other metrics matching the `EngineCPUUtilization` pattern. Useful metrics are:
+
     - `CacheHits` and `CacheMisses`: the number of successful requests or requests that didn’t find a valid item in the cache. If the ratio of misses compared to hits is high,
       the application is wasting time and resources with unfruitful requests.
     - `SetTypeCmds` and `GetTypeCmds`: These metrics correlated with `EngineCPUUtilization` can help to understand if the load is significantly higher for write requests,
@@ -131,6 +133,7 @@ A good analysis commonly starts with the following items:
       In cluster mode-enabled, it is advisable to use a library that supports read replicas natively. With the right flags, the library will be able to automatically discover the cluster topology, the replica nodes, enable the read operations through the [READONLY](https://valkey.io/commands/readonly "https://valkey.io/commands/readonly") Valkey or Redis OSS command, and submit the read requests to the replicas.
 
   - Elevated number of connections:
+
     - `CurrConnections` and `NewConnections`: `CurrConnection` is the number of established connections at the moment of the datapoint collection, while `NewConnections` shows how many connections were created in the period.
 
     Creating and handling connections implies significant CPU overhead. Additionally, the TCP three-way handshake required to create new connections will negatively affect the overall response times.
@@ -291,6 +294,7 @@ For the tests below you will need the ENI ID (Elastic Network Interface Identifi
 3. Write down or otherwise save the ENI ID. If multiple interfaces are shown, review the description to confirm that they belong to the right ElastiCache cluster and choose one of them.
 4. Proceed to the next step.
 5. Create an analyze path at [https://console.aws.amazon.com/vpc/home?#ReachabilityAnalyzer](https://console.aws.amazon.com/vpc/home?#ReachabilityAnalyzer "https://console.aws.amazon.com/vpc/home?#ReachabilityAnalyzer") and choose the following options:
+
    - **Source Type**: Choose **instance** if your ElastiCache client runs on an Amazon EC2 instance or **Network Interface** if it uses another service, such as AWS Fargate Amazon ECS with awsvpc network, AWS Lambda, etc), and the respective resource ID (EC2 instance or ENI ID);
    - **Destination Type**: Choose **Network Interface** and select the **Elasticache ENI** from the list.
    - **Destination port**: specify 6379 for ElastiCache for Redis OSS or 11211 for ElastiCache for Memcached. Those are the ports defined with the default configuration and this example assumes that they are not changed.
@@ -359,13 +363,13 @@ Whenever possible, configure the connection pool to limit the maximum number of 
 - Network traffic limits: Check the following [CloudWatch metrics for Redis OSS](CacheMetrics.Redis.md "CacheMetrics.Redis.md") to identify possible network limits
   being hit on the ElastiCache node:
 
-      + `NetworkBandwidthInAllowanceExceeded` / `NetworkBandwidthOutAllowanceExceeded`: Network packets shaped because the
+      + `NetworkBandwidthInAllowanceExceeded` / `NetworkBandwidthOutAllowanceExceeded`: Network packets queued or dropped because the
        throughput exceeded the aggregated bandwidth limit.
 
 
       It is important to note that every byte written to the primary node will be replicated to N replicas, N being the number of replicas. Clusters with small node types, multiple replicas,
        and intensive write requests may not be able to cope with the replication backlog. For such cases, it's a best practice to scale-up (change node type), scale-out (add shards in cluster-mode enabled clusters), reduce the number of replicas, or minimize the number of writes.
-      + `NetworkConntrackAllowanceExceeded`: Packets shaped because the maximum number of connections tracked across all security groups assigned to the node has been exceeded. New connections will likely fail during this period.
+      + `NetworkConntrackAllowanceExceeded`: Packets queued or dropped because the maximum number of connections tracked across all security groups assigned to the node has been exceeded. New connections will likely fail during this period.
       + `NetworkPackets PerSecondAllowanceExceeded`: Maximum number of packets per second exceeded. Workloads based on a high rate of very small requests may hit this limit before the maximum bandwidth.
 
   The metrics above are the ideal way to confirm nodes hitting their network limits. However, limits are also identifiable by plateaus on network metrics.
@@ -448,6 +452,7 @@ If commands with O(1) time complexity are frequently reported, check the other f
   It is important to understand that latency metric results are an aggregate of multiple commands. A single command can cause unexpected results, like timeouts, without significant impact on the metrics.
   For such cases, the slowlog events would be a more accurate source of information.
   The following list contains the latency metrics available and the respective commands that affect them.
+
   - EvalBasedCmdsLatency: related to Lua Script commands, `eval`, `evalsha`;
   - GeoSpatialBasedCmdsLatency: `geodist`, `geohash`, `geopos`, `georadius`, `georadiusbymember`, `geoadd`;
   - GetTypeCmdsLatency: Read commands, regardless of data type;
@@ -482,6 +487,7 @@ If commands with O(1) time complexity are frequently reported, check the other f
     `xadd`, `xgroup`, `readgroup`, `xack`, `xclaim`, `xdel`, `xtrim`, `xsetid`;
 
 - Redis OSS runtime commands:
+
   - info commandstats: Provides a list of commands executed since the engine started, their cumulative executions number, total execution time, and average execution time per command;
   - client list: Provides a list of currently connected clients and relevant information like buffers usage, last command executed, etc;
 
@@ -534,6 +540,7 @@ The load and responsiveness on the client side can also affect the requests to E
 EC2 instance and operating system limits need to be carefully reviewed while troubleshooting intermittent connectivity or timeout issues. Some key points to observe:
 
 - CPU:
+
   - EC2 instance CPU usage: Make sure the CPU hasn’t been saturated or near to 100 percent. Historical analysis can be done via CloudWatch, however keep in mind that data points granularity is either 1 minute (with detailed monitoring enabled) or 5 minutes;
   - If using [burstable EC2 instances](../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md "../../../AWSEC2/latest/UserGuide/burstable-performance-instances.md"),
     make sure that their CPU credit balance hasn’t been depleted. This information is available on the `CPUCreditBalance` CloudWatch metric.
@@ -541,11 +548,13 @@ EC2 instance and operating system limits need to be carefully reviewed while tro
     Such cases require real-time monitoring with operating-system tools like `top`, `ps` and `mpstat`.
 
 - Network
+
   - Check if the Network throughput is under acceptable values according to the instance capabilities. For more information, see
     [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/")
   - On instances with the `ena` Enhanced Network driver, check the [ena statistics](../../../AWSEC2/latest/UserGuide/troubleshooting-ena.md#statistics-ena "../../../AWSEC2/latest/UserGuide/troubleshooting-ena.md#statistics-ena") for timeouts or exceeded limits.
     The following statistics are useful to confirm network limits saturation:
-    - `bw_in_allowance_exceeded` / `bw_out_allowance_exceeded`: number of packets shaped due to excessive inbound or outbound throughput;
+
+    - `bw_in_allowance_exceeded` / `bw_out_allowance_exceeded`: number of packets queued or dropped due to excessive inbound or outbound throughput;
     - `conntrack_allowance_exceeded`: number of packets dropped due to security groups [connection tracking limits](../../../AWSEC2/latest/UserGuide/security-group-connection-tracking.md#connection-tracking-throttling "../../../AWSEC2/latest/UserGuide/security-group-connection-tracking.md#connection-tracking-throttling").
       New connections will fail when this limit is saturated;
     - `linklocal_allowance_exceeded`: number of packets dropped due to excessive requests to instance meta-data, NTP via VPC DNS. The limit is 1024 packets per second for all the services;

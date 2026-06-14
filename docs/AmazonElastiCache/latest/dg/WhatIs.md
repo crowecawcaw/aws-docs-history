@@ -27,7 +27,7 @@ underlying cache infrastructure and cluster design. ElastiCache manages hardware
 node replacements, and software patching automatically and transparently, so that you can focus on
 application development, rather than operating the cache.
 
-ElastiCache Serverless is compatible with Valkey 7.2, Memcached 1.6.22 and above, and Redis OSS 7.1 and above.
+ElastiCache Serverless is compatible with Valkey 7.2 and higher, Memcached 1.6.22 and above, and Redis OSS 7.1.
 
 ## Creating a node-based cluster
 

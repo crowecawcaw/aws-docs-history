@@ -72,24 +72,30 @@ For more information, see [Choosing your node size](CacheNodes.SelectSize.md "Ca
 
 - [Offline resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-offline "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-offline")
 - [Online resharding for Valkey or Redis OSS (cluster mode enabled)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online")
+
   - [Adding shards with online resharding](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-add "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-add")
   - [Removing shards with online resharding](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove")
+
     - [Removing shards (Console)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-console "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-console")
     - [Removing shards (AWS CLI)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-cli "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-cli")
     - [Removing shards (ElastiCache API)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-api "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-remove-api")
 
   - [Online shard rebalancing](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance")
+
     - [Online Shard Rebalancing (Console)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance-console "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance-console")
     - [Online shard rebalancing (AWS CLI)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance-cli "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance-cli")
     - [Online shard rebalancing (ElastiCache API)](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance-api "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online-rebalance-api")
 
 - [Online vertical scaling by modifying node type](redis-cluster-vertical-scaling.md "redis-cluster-vertical-scaling.md")
+
   - [Online scaling up](redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-up "redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-up")
+
     - [Scaling up Valkey or Redis OSS clusters (Console)](redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-console "redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-console")
     - [Scaling up Valkey or Redis OSS clusters (AWS CLI)](redis-cluster-vertical-scaling.md#Scaling.RedisStandalone.ScaleUp.CLI "redis-cluster-vertical-scaling.md#Scaling.RedisStandalone.ScaleUp.CLI")
     - [Scaling up Valkey or Redis OSS clusters (ElastiCache API)](redis-cluster-vertical-scaling.md#VeticalScaling.RedisReplGrps.ScaleUp.API "redis-cluster-vertical-scaling.md#VeticalScaling.RedisReplGrps.ScaleUp.API")
 
   - [Online scaling down](redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-down "redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-down")
+
     - [Scaling down Valkey or Redis OSS clusters (Console)](redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-down-console "redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-down-console")
     - [Scaling down Valkey or Redis OSS clusters (AWS CLI)](redis-cluster-vertical-scaling.md#Scaling.RedisStandalone.ScaleDown.CLI "redis-cluster-vertical-scaling.md#Scaling.RedisStandalone.ScaleDown.CLI")
     - [Scaling down Valkey or Redis OSS clusters (ElastiCache API)](redis-cluster-vertical-scaling.md#Scaling.Vertical.ScaleDown.API "redis-cluster-vertical-scaling.md#Scaling.Vertical.ScaleDown.API")

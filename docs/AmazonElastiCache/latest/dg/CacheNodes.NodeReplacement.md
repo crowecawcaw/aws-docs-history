@@ -29,6 +29,7 @@ situation, choose from the following menu.
 - [Change your maintenance window](#ChangeWindow "#ChangeWindow") – Change your maintenance window to a
   better time.
 - Valkey or Redis OSS (cluster mode enabled) Configurations
+
   - [Replace the only node in any Valkey or Redis OSS cluster](#ReplaceStandalone "#ReplaceStandalone") – A procedure to replace a
     node in a Valkey or Redis OSS cluster using backup and restore.
   - [Replace a replica node in any Valkey or Redis OSS cluster](#ReplaceReplica "#ReplaceReplica") – A procedure to replace a
@@ -39,6 +40,7 @@ situation, choose from the following menu.
     scaling out and scaling in.
 
 - Valkey or Redis OSS (cluster mode disabled) Configurations
+
   - [Replace the only node in any Valkey or Redis OSS cluster](#ReplaceStandalone "#ReplaceStandalone") – Procedure to replace any
     node in a Valkey or Redis OSS cluster using backup and restore.
   - [Replace a replica node in any Valkey or Redis OSS cluster](#ReplaceReplica "#ReplaceReplica") – A procedure to replace a
@@ -89,6 +91,7 @@ your data during this operation.
   notification event from ElastiCache. In these cases, if you change your maintenance
   window before the scheduled replacement time, your node now is replaced at the
   new time. For more information, see the following:
+
   - [Modifying an ElastiCache cluster](Clusters.Modify.md "Clusters.Modify.md")
   - [Modifying a replication group](Replication.Modify.md "Replication.Modify.md")
 

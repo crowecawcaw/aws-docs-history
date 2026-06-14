@@ -7,6 +7,7 @@ You can use the AWS Management Console to migrate your data from your cluster to
 1. Sign in to the console and open the ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/home/home "https://console.aws.amazon.com/elasticache/home/home").
 2. Either create a new Valkey or Redis OSS cluster or choose an existing cluster. Make sure
    that the cluster meets the following requirements:
+
    - Your engine version should be Valkey 7.2 and higher, or Redis OSS 5.0.6 or higher.
    - Your cluster should not have AUTH enabled.
    - The config `protected-mode` should be set to

@@ -35,11 +35,13 @@ For best practices on memory management, see [Managing reserved memory for Valke
 ###### Contents
 
 - [Online scaling up](redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-up "redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-up")
+
   - [Scaling up Valkey or Redis OSS clusters (Console)](redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-console "redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-console")
   - [Scaling up Valkey or Redis OSS clusters (AWS CLI)](redis-cluster-vertical-scaling.md#Scaling.RedisStandalone.ScaleUp.CLI "redis-cluster-vertical-scaling.md#Scaling.RedisStandalone.ScaleUp.CLI")
   - [Scaling up Valkey or Redis OSS clusters (ElastiCache API)](redis-cluster-vertical-scaling.md#VeticalScaling.RedisReplGrps.ScaleUp.API "redis-cluster-vertical-scaling.md#VeticalScaling.RedisReplGrps.ScaleUp.API")
 
 - [Online scaling down](redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-down "redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-down")
+
   - [Scaling down Valkey or Redis OSS clusters (Console)](redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-down-console "redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-down-console")
   - [Scaling down Valkey or Redis OSS clusters (AWS CLI)](redis-cluster-vertical-scaling.md#Scaling.RedisStandalone.ScaleDown.CLI "redis-cluster-vertical-scaling.md#Scaling.RedisStandalone.ScaleDown.CLI")
   - [Scaling down Valkey or Redis OSS clusters (ElastiCache API)](redis-cluster-vertical-scaling.md#Scaling.Vertical.ScaleDown.API "redis-cluster-vertical-scaling.md#Scaling.Vertical.ScaleDown.API")
@@ -64,6 +66,7 @@ The following procedure describes how to scale up a Valkey or Redis OSS cluster 
 3. From the list of clusters, choose the cluster.
 4. Choose **Modify**.
 5. In the **Modify Cluster** wizard:
+
    1. Choose the node type you want to scale to from the **Node type** list. To scale up, select a node type larger than your existing node.
 
 6. If you want to perform the scale-up process right away, choose the **Apply immediately**
@@ -231,6 +234,7 @@ depending upon your node type and the amount of data in your current cluster.
 
 1. Determine which node types you can scale up to using the ElastiCache API
    `ListAllowedNodeTypeModifications` action with the following parameter.
+
    - `ReplicationGroupId` – the name of the replication group.
      Use this parameter to describe a specific replication group rather than all replication
      groups.
@@ -333,6 +337,7 @@ continue to serve requests with minimal downtime.
 3. From the list of clusters, choose your preferred cluster.
 4. Choose **Modify**.
 5. In the **Modify Cluster** wizard:
+
    1. Choose the node type you want to scale to from the **Node type** list.
       To scale down, select a node type smaller than your existing node. Note that not all node types are available to scale down to.
 
@@ -503,6 +508,7 @@ depending upon your node type and the amount of data in your current cluster.
 
 1. Determine which node types you can scale down to using the ElastiCache API
    `ListAllowedNodeTypeModifications` action with the following parameter.
+
    - `ReplicationGroupId` – the name of the replication group.
      Use this parameter to describe a specific replication group rather than all replication
      groups.

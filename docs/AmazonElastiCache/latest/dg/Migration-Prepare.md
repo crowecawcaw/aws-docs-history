@@ -56,6 +56,7 @@ compatible with your Valkey or Redis OSS configuration for replication:
 
 3. Make sure that your instances can connect with ElastiCache by doing the
    following:
+
    - Ensure that each instance's IP address is private.
    - Assign or create the ElastiCache deployment in the same virtual private
      cloud (VPC) as your Valkey or Redis OSS on your instance (recommended).

@@ -30,6 +30,7 @@ Valkey or Redis OSS (cluster mode enabled) replication group.
 3. Choose the box for each shard you want to remove a replica node from.
 4. Choose **Delete replicas**.
 5. Complete the **Delete Replicas from Shards** page:
+
    1. For **New number of replicas/shard**, enter the
       number of replicas that you want the selected shards to have. This number
       must be greater than or equal to 1. We recommend at least two replicas

@@ -271,6 +271,7 @@ cluster ID and a list of nodes to remove, as shown:
   applied.
 - `CacheNodeIdsToRemove.member.n`
   The list of node IDs to remove from the cluster.
+
   - `CacheNodeIdsToRemove.member.1=0004`
   - `CacheNodeIdsToRemove.member.1=0005`
 

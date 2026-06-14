@@ -150,6 +150,7 @@ data tiering is enabled.
 5. Complete the **Restore Cluster** dialog box.
    Be sure to complete all the **Required** fields and any of the others you want to change
    from the defaults.
+
    1. **Cluster ID** –
       Required.
       The name of the new cluster.

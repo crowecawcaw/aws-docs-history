@@ -318,13 +318,13 @@ output.txt
 ```
 
 2. Verify that the Lambda function executed successfully as follows:
+
    - Review the output.txt file.
    - Verify the results in CloudWatch Logs by opening the CloudWatch console and choosing the log group for your function (/aws/lambda/AccessValkey). The log stream should contain output similar to the following:
 
    ```
    Success: Inserted 826e70c5f4d2478c8c18027125a3e01e. Fetched 826e70c5f4d2478c8c18027125a3e01e from Valkey.
    ```
-
    - Review the results in the AWS Lambda console.
 
 ## Step 4: Clean up (Optional)

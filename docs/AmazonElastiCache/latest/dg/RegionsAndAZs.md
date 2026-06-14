@@ -62,6 +62,7 @@ cache nodes. We recommend this approach.
 
 1. Modify your cluster by creating new cache nodes in the Availability Zones where you want them.
    In your request, do the following:
+
    - Set `AZMode` (CLI: `- -az-mode`) to `cross-az`.
    - Set `NumCacheNodes` (CLI: `- -num-cache-nodes`) to the number of currently active cache nodes plus the number
      of new cache nodes you want to create.

@@ -39,6 +39,7 @@ Valkey or Redis OSS (cluster mode disabled) and Valkey or Redis OSS (cluster mod
    [Creating a Virtual Private Cloud (VPC)](VPCs.CreatingVPC.md "VPCs.CreatingVPC.md").
 5. On the ElastiCache dashboard page, choose **Create cluster** and then choose **Create Valkey cluster** or **Create Redis OSS cluster**.
 6. Under **Cluster settings**, do the following:
+
    1. Choose **Configure and create a new cluster**.
    2. For **Cluster mode**, choose **Enabled**.
    3. For **Cluster info** enter a value for **Name**.

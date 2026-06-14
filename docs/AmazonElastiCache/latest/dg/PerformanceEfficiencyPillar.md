@@ -28,6 +28,7 @@ reduced latency and increased throughput.
 
 - **[Required]** Baseline performance testing
   using a subset of your workload.
+
   - You should monitor performance of the actual workload using
     mechanisms such as load testing.
   - Monitor the CloudWatch metrics while running these tests to gain
@@ -38,6 +39,7 @@ reduced latency and increased throughput.
   workloads, rename computationally expensive commands, such as
   `KEYS`, to limit the ability of users to run blocking
   commands on production clusters.
+
   - ElastiCache workloads running engine 6.x for Redis OSS can leverage
     role-based access control to restrict certain commands. Access to
     the commands can be controlled by creating Users and User Groups
@@ -50,6 +52,7 @@ reduced latency and increased throughput.
 
 - **[Better]** Analyze slow queries and look
   for optimization techniques.
+
   - For ElastiCache for Valkey and Redis OSS workloads, learn more about your queries
     by analyzing the Slow Log. For example, you can use the following
     command, `valkey-cli slowlog get 10` to show last 10
@@ -70,6 +73,7 @@ reduced latency and increased throughput.
     key space to serve client queries.
 
 - **[Resources]:**
+
   - [Monitoring use with CloudWatch Metrics](CacheMetrics.md "CacheMetrics.md")
   - [Using Amazon CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md")
   - [Valkey and Redis OSS specific parameters](ParameterGroups.Engine.md#ParameterGroups.Redis "ParameterGroups.Engine.md#ParameterGroups.Redis")
@@ -89,6 +93,7 @@ well.
 
 - **[Required]** Have clients connect to the
   proper ElastiCache endpoint.
+
   - ElastiCache for Valkey and Redis OSS implements different endpoints based on the
     cluster mode in use. For cluster mode enabled, ElastiCache will
     provide a configuration endpoint. For cluster mode disabled,
@@ -108,6 +113,7 @@ well.
     [here](BestPractices.LoadBalancing.md "BestPractices.LoadBalancing.md").
 
 - **[Better]** Take advantage of ElastiCache for Valkey and Redis OSS cluster mode enabled clusters to improve scalability.
+
   - ElastiCache for Valkey and Redis OSS (cluster mode enabled) clusters support
     [online scaling operations](scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online "scaling-redis-cluster-mode-enabled.md#redis-cluster-resharding-online") (out/in and up/down) to help
     distribute data dynamically across shards. Using the Configuration
@@ -120,6 +126,7 @@ well.
 
 - **[Better]** Implement a strategy for
   identifying and remediating hot keys in your workload.
+
   - Consider the impact of multi-dimensional Valkey or Redis OSS data structures
     such a lists, streams, sets, etc. These data structures are stored
     in single Keys, which reside on a single node. A very large
@@ -141,6 +148,7 @@ well.
     ElastiCache.
 
 - **[Resources]:**
+
   - [Configure ElastiCache for Valkey and Redis OSS for higher availability](https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/ "https://aws.amazon.com/blogs/database/configuring-amazon-elasticache-for-redis-for-higher-availability/")
   - [Finding connection endpoints in ElastiCache](Endpoints.md "Endpoints.md")
   - [Load balancing best practices](BestPractices.LoadBalancing.md "BestPractices.LoadBalancing.md")
@@ -219,6 +227,7 @@ and throughput.
 
 - **[Required]** Proactively manage connections
   to your ElastiCache cluster.
+
   - Connection pooling in the application reduces the amount of
     overhead on the cluster created by opening and closing connections.
     Monitor connection behavior in Amazon CloudWatch using
@@ -234,6 +243,7 @@ and throughput.
 
 - **[Better]** Compress large objects to reduce
   memory, and improve network throughput.
+
   - Data compression can reduce the amount of network throughput
     required (Gbps), but increases the amount of work on the application
     to compress and decompress data.
@@ -243,6 +253,7 @@ and throughput.
     compression ratio and compression speed.
 
 - **[Resources]:**
+
   - [ElastiCache - Global Datastore](https://aws.amazon.com/elasticache/redis/global-datastore/ "https://aws.amazon.com/elasticache/redis/global-datastore/")
   - [Memcached specific parameters](ParameterGroups.Engine.md#ParameterGroups.Memcached "ParameterGroups.Engine.md#ParameterGroups.Memcached")
   - [ElastiCache version 5.0.3 for Redis OSS enhances I/O handling to boost
@@ -265,6 +276,7 @@ of cluster behavior when instance memory limits are exceeded.
 - **[Required]** Instrument the data access to
   evaluate which policy to apply. Identify an appropriate max-memory policy to
   control if and how evictions are performed on the cluster.
+
   - Eviction occurs when the max-memory on the cluster is consumed and
     a policy is in place to allow eviction. The behavior of the cluster
     in this situation depends on the eviction policy specified. This
@@ -282,6 +294,7 @@ of cluster behavior when instance memory limits are exceeded.
 - **[Better]** Standardize delete behavior to
   control performance impact on your cluster to avoid unexpected performance
   bottlenecks.
+
   - For ElastiCache for Valkey and Redis OSS workloads, when explicitly removing keys
     from the cluster, `UNLINK` is like `DEL`: it
     removes the specified keys. However, the command performs the actual
@@ -293,6 +306,7 @@ of cluster behavior when instance memory limits are exceeded.
     using `lazyfree-lazy-user-del` parameter.
 
 - **[Resources]:**
+
   - [Configuring engine parameters using ElastiCache parameter groups](ParameterGroups.md "ParameterGroups.md")
   - [UNLINK](https://valkey.io/commands/unlink/ "https://valkey.io/commands/unlink/")
   - [Cloud Financial Management with AWS](https://aws.amazon.com/aws-cost-management/ "https://aws.amazon.com/aws-cost-management/")
@@ -361,6 +375,7 @@ detailed performance analysis and can be used to trigger automated events.
 - **[Required]** ElastiCache running a Valkey engine 7.2 or newer, or running a
   Redis OSS engine version 6.0 or newer, properly configured parameter group and SLOWLOG
   logging enabled on the cluster.
+
   - The required parameters are only available when engine version
     compatibility is set to Valkey 7.2 and higher, or Redis OSS version 6.0 or higher.
   - SLOWLOG logging occurs when the server execution time of a command
@@ -372,6 +387,7 @@ detailed performance analysis and can be used to trigger automated events.
 
 - **[Best]** Take advantage of CloudWatch or
   Kinesis Data Firehose capabilities.
+
   - Use the filtering and alarm capabilities of CloudWatch, CloudWatch
     Logs Insights and Amazon Simple Notification Services to achieve
     performance monitoring and event notification.
@@ -386,6 +402,7 @@ detailed performance analysis and can be used to trigger automated events.
 - **[Better]** Configure
   `slowlog-log-slower-than` to a value other than the
   default.
+
   - This parameter determines how long a command may execute for
     within the Valkey or Redis OSS engine before it is logged as a slow running
     command. The default value is 10,000 microseconds (10 milliseconds).
@@ -396,6 +413,7 @@ detailed performance analysis and can be used to trigger automated events.
 
 - **[Better]** Leave
   `slowlog-max-len` at the default value.
+
   - This parameter determines the upper limit for how many
     slow-running commands are captured in Valkey or Redis OSS memory at any given
     time. A value of 0 effectively disables the capture. The higher the
@@ -413,6 +431,7 @@ detailed performance analysis and can be used to trigger automated events.
   store large numbers of slow running commands in Valkey or Redis OSS memory.
 
 - **[Resources]:**
+
   - [How do I turn on Slow log in a cluster?](https://repost.aws/knowledge-center/elasticache-turn-on-slow-log "https://repost.aws/knowledge-center/elasticache-turn-on-slow-log")
   - [Log
     delivery](Log_Delivery.md "Log_Delivery.md")

@@ -32,6 +32,7 @@ The following procedure shows how to create a subnet group (console).
 4. In the **Create Subnet Group** wizard,
    do the following.
    When all the settings are as you want them, choose **Yes, Create**.
+
    1. In the **Name** box,
       type a name for your subnet group.
    2. In the **Description** box,
@@ -117,6 +118,7 @@ Your cluster is launched in a virtual private cloud (VPC) based on the Amazon VP
    [Creating a Virtual Private Cloud (VPC)](VPCs.CreatingVPC.md "VPCs.CreatingVPC.md").
 5. On the ElastiCache dashboard page, choose **Valkey cache** or **Redis OSS cache** and then choose **Create Valkey cache** or **Create Redis OSS cache**.
 6. Under **Cluster settings**, do the following:
+
    1. Choose **Configure and create a new cluster**.
    2. For **Cluster mode**, choose **Disabled**.
    3. For **Cluster info** enter a value for **Name**.
@@ -366,6 +368,7 @@ If you are planning to use [Local Zones](Local_zones.md "Local_zones.md"), ensur
    select **Add Rule**. This security group will allow access to
    members of another security group.
 4. From **Type** choose **Custom TCP Rule**.
+
    1. For **Port Range**, specify the port you used when you created your
       cluster.
 

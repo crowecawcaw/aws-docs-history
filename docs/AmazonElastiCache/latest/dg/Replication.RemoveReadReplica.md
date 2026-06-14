@@ -9,6 +9,7 @@ same as just deleting a cluster, though there are restrictions:
 
 - You cannot remove the primary from a replication group. If you want to delete
   the primary, do the following:
+
   1.  Promote a read replica to primary.
       For more information on promoting a read replica to primary,
       see [Promoting a read replica to primary, for Valkey or Redis OSS (cluster mode disabled) replication groups](Replication.PromoteReplica.md "Replication.PromoteReplica.md").

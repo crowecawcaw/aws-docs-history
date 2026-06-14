@@ -60,12 +60,14 @@ To view the list of available service updates, along with other information, go 
 1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
 2. On the navigation pane, choose **Service Updates**.
 3. Under **Service updates** you can view the following:
+
    - **Service update name**: The unique name of the service update
    - **Update type**: The type of the service update,
      which is one of **security-update**, **engine-update** or
      **engine-major-version-update**
    - **Update severity**: The priority of
      applying the update:
+
      - **critical:** We recommend
        that you apply this update immediately (within 14 days or
        less).
@@ -86,6 +88,7 @@ To view the list of available service updates, along with other information, go 
      guidance date to apply the updates by.
    - **Status**: The status of the update,
      which is one of the following:
+
      - **available:** The update is
        available for requisite clusters.
      - **complete:** The update has

@@ -581,6 +581,7 @@ the failed primary node.
 - When you manually promote read replicas to primary on Valkey or Redis OSS clusters with cluster mode disabled, you can
   do so only when Multi-AZ and automatic failover are disabled. To promote a read
   replica to primary, take the following steps:
+
   1.  Disable Multi-AZ on the
       cluster.
   2.  Disable automatic failover on the cluster. You can do this through the

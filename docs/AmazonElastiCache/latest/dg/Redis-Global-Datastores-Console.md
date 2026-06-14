@@ -38,6 +38,7 @@ The existing cluster must use an engine that is Valkey 7.2 or later or Redis OSS
    choose **Create global datastore**.
 3. On the **Primary cluster settings** page, do the
    following:
+
    - In the **Global Datastore info** field, enter a name for the new global datastore.
    - (Optional) Enter a **Description** value.
 
@@ -45,6 +46,7 @@ The existing cluster must use an engine that is Valkey 7.2 or later or Redis OSS
 5. Under **Existing cluster**, select the existing cluster you want to use.
 6. Keep the following options as they are. They're prepopulated to match the
    primary cluster configuration, you can't change them.
+
    - Engine version
    - Node type
    - Parameter group
@@ -69,6 +71,7 @@ The existing cluster must use an engine that is Valkey 7.2 or later or Redis OSS
      For more information, see [Encryption in transit](in-transit-encryption.md "in-transit-encryption.md"). For Valkey 7.2 and onwards and Redis OSS 6.0 onwards, if
      you enable encryption in-transit you are prompted to specify one of the
      following **Access Control** options:
+
      - **No Access Control** – This is
        the default setting. This indicates no restrictions.
      - **User Group Access Control List**
@@ -81,6 +84,7 @@ The existing cluster must use an engine that is Valkey 7.2 or later or Redis OSS
 7. (Optional) As needed, update the remaining secondary cluster settings. These
    are prepopulated with the same values as the primary cluster, but you can update
    them to meet specific requirements for that cluster.
+
    - Port
    - Number of replicas
    - Subnet group
@@ -126,6 +130,7 @@ procedure.
 2.  On the navigation pane, choose **Global Datastores** and then
     choose **Create global datastore**.
 3.  Under **Primary cluster settings**, do the following:
+
     1. For **Cluster mode**, choose
        **Enabled** or **Disabled**.
     2. For **Global Datastore info** enter a value for
@@ -136,6 +141,7 @@ procedure.
        Description**.
 
 4.  Under **Regional cluster**:
+
     1. For **Region**, choose an available AWS Region.
     2. Choose **Create new regional cluster** or **Use
        existing regional cluster**
@@ -147,6 +153,7 @@ procedure.
        **Auto-failover**.
 
 5.  Under **Cluster settings**
+
     1. For **Engine version**, choose an available version,
        which is 5.0.6 or later.
     2. For **Port**, use the default port, 6379. If you have a
@@ -163,7 +170,7 @@ procedure.
     datastore. On the **Parameter Groups** page, the yes/no
     **Global** attribute indicates whether a parameter
     group is part of a global datastore. 4. For **Node type**, choose the down arrow (
-    ![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](/images/AmazonElastiCache/latest/dg/images/ElastiCache-DnArrow.png)
+    ![Downward-pointing triangle icon, typically used to indicate a dropdown menu.](images/ElastiCache-DnArrow.png)
     ). In the **Change node type** dialog
     box, choose a value for **Instance family** for the node
     type that you want. Then choose the node type that you want to use for this
@@ -341,6 +348,7 @@ For more information, see [Managing ElastiCache cluster maintenance](maintenance
     of the cluster.
 18. The following options are prepopulated to match the primary cluster
     configuration and cannot be changed:
+
     - Location
     - Engine version
     - Instance type
@@ -367,6 +375,7 @@ For more information, see [Managing ElastiCache cluster maintenance](maintenance
       For more information, see [Encryption in transit](in-transit-encryption.md "in-transit-encryption.md"). For Valkey 7.2 and above and Redis OSS 6.4 and above,
       if you enable encryption in-transit you are prompted to specify one of the
       following **Access Control** options:
+
       - **No Access Control** – This is
         the default setting. This indicates no restrictions on user access to
         the cluster.
@@ -436,6 +445,7 @@ You can then examine the following global datastore properties:
 - **Description:** A description of the global
   datastore
 - **Status:** Options include:
+
   - Creating
   - Modifying
   - Available
@@ -471,6 +481,7 @@ datastore and the following properties for each:
 - **Role** - Either primary or secondary
 - **Cluster name** - The name of the cluster
 - **Status** - Options include:
+
   - **Associating** - The cluster is in the process of being
     associated to the global datastore
   - **Associated** - The cluster is associated to the global
@@ -508,6 +519,7 @@ receives automatic and asynchronous updates from the primary cluster.
    for the cluster.
 5. Keep the following options as they are. They're prepopulated to match the
    primary cluster configuration, and you can't change them.
+
    - Engine version
    - Instance type
    - Node type
@@ -534,6 +546,7 @@ receives automatic and asynchronous updates from the primary cluster.
 6. (Optional) Update the remaining secondary cluster settings. These are
    prepopulated with the same values as the primary cluster, but you can update them
    to meet specific requirements for that cluster:
+
    - Port
    - Number of replicas
    - Subnet group

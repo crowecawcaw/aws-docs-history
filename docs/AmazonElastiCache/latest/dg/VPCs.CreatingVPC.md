@@ -32,6 +32,7 @@ instance.
 
 8.  Define a network ingress rule for your security group. This rule will allow you to connect to
     your Amazon EC2 instance using Secure Shell (SSH).
+
     1.  In the navigation list, choose **Security Groups**.
     2.  Find your security group in the list, and then choose it.
     3.  Under **Security Group**, choose the **Inbound** tab.

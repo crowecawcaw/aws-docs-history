@@ -22,6 +22,7 @@ If you are unable to connect to your ElastiCache cache, consider one of the foll
    [Learn more about connecting to a TLS enabled cache](connect-tls.md "connect-tls.md").
 2. **VPC:** ElastiCache caches are accessible only from within a VPC. Ensure that the EC2 instance from which you are accessing the cache and the ElastiCache cache are created in the same VPC. Alternatively, you must enable [VPC peering](../../../vpc/latest/peering/what-is-vpc-peering.md "../../../vpc/latest/peering/what-is-vpc-peering.md") between the VPC where your EC2 instance resides and the VPC where you are creating your cache.
 3. **Security groups:** ElastiCache uses security groups to control access to your cache. Consider the following:
+
    1. Make sure that the security group used by your ElastiCache cache allows inbound access to it from your EC2 instance. See [here](../../../vpc/latest/userguide/security-group-rules.md "../../../vpc/latest/userguide/security-group-rules.md") to learn how to setup inbound rules in your security group correctly.
    2. Make sure that the security group used by your ElastiCache cache allows access to your cache’s ports ( 6379 and 6380 for serverless, and 6379 by default for node-based clusters). ElastiCache uses these ports to accept Valkey or Redis OSS commands. Learn more about how to setup port access [here](set-up.md#elasticache-install-grant-access-VPN "set-up.md#elasticache-install-grant-access-VPN").
 

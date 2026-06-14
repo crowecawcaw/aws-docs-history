@@ -23,6 +23,7 @@ For information about using Amazon EC2, see the [Amazon EC2 Getting Started Guid
    choose **3. Configure Instance**.
 5. On the **Configure Instance Details** page,
    make the following selections:
+
    1. In the **Network** list, choose your Amazon VPC.
    2. In the **Subnet** list, choose your public
       subnet.

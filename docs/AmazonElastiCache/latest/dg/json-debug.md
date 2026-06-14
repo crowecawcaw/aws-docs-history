@@ -21,6 +21,7 @@ Depends on the subcommand:
 MEMORY
 
 - If the path is enhanced syntax:
+
   - Returns an array of integers that represent memory size (in bytes) of JSON value at each
     path.
   - Returns an empty array if the Valkey or Redis OSS key does not exist.
@@ -33,6 +34,7 @@ MEMORY
   FIELDS
 
 - If the path is enhanced syntax:
+
   - Returns an array of integers that represent the number of fields of JSON value at each
     path.
   - Returns an empty array if the Valkey or Redis OSS key does not exist.

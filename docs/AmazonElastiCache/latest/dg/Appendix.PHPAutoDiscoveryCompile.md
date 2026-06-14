@@ -17,12 +17,12 @@ and [aws-elasticache-cluster-client-memcached-for-php](https://github.com/awslab
 
 1. Launch an Amazon EC2 instance.
 2. Install the library dependencies.
+
    - On Amazon Linux 201509 AMI
 
    ```
    sudo yum install gcc gcc-c++ autoconf libevent-devel
    ```
-
    - On Ubuntu 14.04 AMI
 
    ```
@@ -48,7 +48,7 @@ The following sections describe how to compile the ElastiCache Memcached Auto Di
 
 ### Compiling the ElastiCache Memcached client for PHP 7
 
-Run the following set of commands under the code directory.
+Run the following set of commands under the code directory. In these commands, replace `<libmemcached-install-directory>` with the path where you installed the `aws-elasticache-cluster-client-libmemcached` library in the previous step. If you compiled and installed with the default prefix, this path is typically `/usr/local`.
 
 ```
 git clone https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php.git
@@ -72,9 +72,7 @@ sed -i "s#-lmemcached#`<libmemcached-install-directory>`/lib/libmemcached.a -lcr
 
 ### Compiling the ElastiCache Memcached client for PHP 5
 
-Compile the `aws-elasticache-cluster-client-memcached-for-php` by
-running the following commands under the `aws-elasticache-cluster-client-memcached-for-php/`
-folder.
+Compile the `aws-elasticache-cluster-client-memcached-for-php` by running the following commands under the `aws-elasticache-cluster-client-memcached-for-php/` folder. In these commands, replace `<libmemcached-install-directory>` with the path where you installed the `aws-elasticache-cluster-client-libmemcached` library. If you compiled and installed with the default prefix, this path is typically `/usr/local`.
 
 ```
 git clone https://github.com/awslabs/aws-elasticache-cluster-client-memcached-for-php.git

@@ -14,6 +14,7 @@ You can add a scaling policy using the AWS Management Console.
 7.  For **Scalable Dimension** choose
     **shards**.
 8.  For the target metric, choose one of the following:
+
     - **Primary CPU Utilization** to create a policy
       based on the average CPU utilization.
     - **Memory** to create a policy based on the

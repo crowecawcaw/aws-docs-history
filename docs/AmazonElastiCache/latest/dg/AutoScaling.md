@@ -217,6 +217,7 @@ After registering to AutoScaling, note the following:
 - There are limitations on Auto scaling Supported Configurations, so we
   recommend you not change configuration of a replication group that is registered
   for Auto scaling. The following are examples:
+
   - Manually modifying instance type to unsupported types.
   - Associating the replication group to a Global datastore.
   - Changing `ReservedMemoryPercent` parameter.

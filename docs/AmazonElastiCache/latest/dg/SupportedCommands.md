@@ -1758,6 +1758,7 @@ the following:
 - Delayed `flush_all` command will be rejected with `CLIENT_ERROR`.
 - Commands that configure the engine or reveal internal information about engine state or logs
   are not supported, such as:
+
   - For `STATS` command, only `stats` and `stats reset` are supported. Other variations will return `ERROR`
   - `lru / lru_crawler` - modification for LRU and LRU crawler settings
   - `watch` - watches memcached server logs

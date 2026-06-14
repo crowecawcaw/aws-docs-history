@@ -259,6 +259,7 @@ Use the following procedure to manage users on the console.
 1. Sign in to the AWS Management Console and open the Amazon ElastiCache console at [https://console.aws.amazon.com/elasticache/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/").
 2. On the Amazon ElastiCache dashboard, choose **User management**. The following
    options are available:
+
    - **Create user** – When creating a user, you enter a user ID, user
      name, authentication mode, and access string. The access string sets the
      permission level for what keys and commands the user is allowed.

@@ -18,12 +18,15 @@ the read/write primary node with 0 to 5 read-only replica nodes.
 ###### Contents
 
 - [Scaling for Valkey or Redis OSS (Cluster Mode Disabled) clusters](scaling-redis-classic.md#Scaling.RedisStandalone "scaling-redis-classic.md#Scaling.RedisStandalone")
+
   - [Scaling up single-node Valkey or Redis OSS clusters](scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUp "scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUp")
+
     - [Scaling up single-node Valkey or Redis OSS (Cluster Mode Disabled) (Console) clusters](scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUp.CON "scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUp.CON")
     - [Scaling up single-node Valkey or Redis OSS clusters (AWS CLI)](scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUp.CLI "scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUp.CLI")
     - [Scaling up single-node Valkey or Redis OSS clusters (ElastiCache API)](scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUp.API "scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUp.API")
 
   - [Scaling down single-node Valkey or Redis OSS clusters](scaling-redis-classic.md#Scaling.RedisStandalone.ScaleDown "scaling-redis-classic.md#Scaling.RedisStandalone.ScaleDown")
+
     - [Scaling down a single-node Valkey or Redis OSS cluster (Console)](scaling-redis-classic.md#Scaling.RedisStandalone.ScaleDown.CON "scaling-redis-classic.md#Scaling.RedisStandalone.ScaleDown.CON")
     - [Scaling down single-node Valkey or Redis OSS clusters (AWS CLI)](scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUpDown-Modify.CLI "scaling-redis-classic.md#Scaling.RedisStandalone.ScaleUpDown-Modify.CLI")
     - [Scaling down single-node Valkey or Redis OSS clusters (ElastiCache API)](scaling-redis-classic.md#Scaling.RedisStandalone.ScaleDown.API "scaling-redis-classic.md#Scaling.RedisStandalone.ScaleDown.API")
@@ -135,6 +138,7 @@ continue to serve requests with minimal downtime.
    running the Valkey or Redis OSS engine, not the clustered Valkey or Redis OSS engine).
 4. Choose **Modify**.
 5. In the **Modify Cluster** wizard:
+
    1. Choose the node type you want to scale to from the **Node type** list.
    2. If you're using `reserved-memory` to manage your memory,
       from the **Parameter Group** list, choose the custom parameter
@@ -303,6 +307,7 @@ continue to serve requests with minimal downtime.
 
 1. Determine the node types you can scale up to by running the ElastiCache API
    `ListAllowedNodeTypeModifications` action with the following parameter.
+
    - `CacheClusterId` –
      The name of the single-node Valkey or Redis OSS cluster you want to scale up.
 
@@ -585,6 +590,7 @@ The following procedure describes how to scale updown a single-node Valkey or Re
 
 1. Determine the node types you can scale down to by running the ElastiCache API
    `ListAllowedNodeTypeModifications` action with the following parameter.
+
    - `CacheClusterId` –
      The name of the single-node Valkey or Redis OSS cluster you want to scale down.
 

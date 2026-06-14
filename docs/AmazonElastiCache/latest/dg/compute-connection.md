@@ -26,6 +26,7 @@ then the console provides
 a link to create one.
 
 - The user who sets up connectivity must have permissions to perform the following Amazon EC2 operations. These permissiosn are generally added to EC2 accounts when they're created. For more information on EC2 permissions, see [Granting required permissions for Amazon EC2 resources](../../../AWSEC2/latest/APIReference/ec2-api-permissions.md "../../../AWSEC2/latest/APIReference/ec2-api-permissions.md").
+
   - `ec2:AuthorizeSecurityGroupEgress`
   - `ec2:AuthorizeSecurityGroupIngress`
   - `ec2:CreateSecurityGroup`

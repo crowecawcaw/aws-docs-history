@@ -165,6 +165,7 @@ you have a pending scale up operation.
 ###### To resolve a blocked Valkey or Redis OSS engine upgrade
 
 - Do one of the following:
+
   - Schedule your Redis OSS or Valkey engine upgrade operation for the next maintenance window by clearing the **Apply immediately** check box.
 
   With the CLI, use `--no-apply-immediately`. With the API, use `ApplyImmediately=false`.

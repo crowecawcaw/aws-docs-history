@@ -21,6 +21,7 @@ You can choose to either enable/disable log delivery or change either the destin
 5. To enable/disable slow logs, choose either **Enable slow logs** or **Disable slow logs**.
 6. To enable/disable engine logs, choose either **Enable engine logs** or **Disable engine logs**.
 7. To change your configuration, choose either **Modify slow logs** or **Modify engine logs**:
+
    - Under **Destination Type**, choose either **CloudWatch Logs** or **Kinesis Firehose**.
    - Under **Log destination**, choose either **Create new** and enter either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name. Or
      choose **Select existing** and then choose either your CloudWatchLogs log group name or your Kinesis Data Firehose stream name.

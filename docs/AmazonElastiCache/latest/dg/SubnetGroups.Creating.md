@@ -34,6 +34,7 @@ The following procedure shows how to create a subnet group (console).
 4. In the **Create subnet group** wizard,
    do the following.
    When all the settings are as you want them, choose **Create**.
+
    1. In the **Name** box,
       type a name for your subnet group.
    2. In the **Description** box,

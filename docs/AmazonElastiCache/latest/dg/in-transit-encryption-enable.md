@@ -125,12 +125,14 @@ in-transit encryption disabled.
 
 1. Set transit-encryption-mode to `preferred`, using the
    following parameters
+
    - `--transit-encryption-enabled`—Required.
    - `--transit-encryption-mode`—Must
      be set to `preferred`.
 
 2. Set transit-encryption-mode to `required`, using the
    following parameters:
+
    - `--transit-encryption-enabled`—Required.
    - `--transit-encryption-mode`—Must
      be set to `required`.

@@ -113,6 +113,7 @@ your budget.
 - **[Good]** Maintain up-to-date architectural
   and operational visibility on metrics and costs across the entire workload
   that uses ElastiCache.
+
   1.  Understand your entire solution ecosystem, ElastiCache tends to be part
       of a full ecosystem of AWS services in their technology set, from
       clients to API Gateway, Redshift, and QuickSight for reporting tools
@@ -196,6 +197,7 @@ long periods of time.
   that depends upon the node type and the length of reservation—one or three
   years. This charge is much less than the hourly usage charge that you incur
   with On-Demand nodes.
+
   1.  You may need to operate your ElastiCache clusters using on-demand nodes
       until you have gathered sufficient data to estimate the reserved
       instance requirements. Plan and document the resources needed to
@@ -242,6 +244,7 @@ instance capability.
 
 - **[Required]** Understand what percentage of
   your database is regularly accessed by your workload.
+
   1.  Data tiering instances are ideal for workloads that often access a
       small portion of your overall dataset but still requires fast access
       to the remaining data. In other words, the ratio of hot to warm

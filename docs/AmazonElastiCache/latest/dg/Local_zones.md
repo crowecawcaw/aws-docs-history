@@ -25,6 +25,7 @@ The following limitations apply to ElastiCache for Local Zones:
 - Global datastores aren't supported.
 - Online migration isn't supported.
 - The following node types are supported by Local Zones at this time:
+
   - Current generation:
 
   **M5 node types:**

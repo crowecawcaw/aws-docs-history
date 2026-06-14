@@ -35,6 +35,7 @@ export and store your ElastiCache backup.
     [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2.  Choose **Create Bucket**.
 3.  In **Create a Bucket - Select a Bucket Name and Region**, do the following:
+
     1. In **Bucket Name**,
        type a name for your Amazon S3 bucket.
 
@@ -51,7 +52,6 @@ export and store your ElastiCache backup.
         	+ Ends with a lowercase letter or a number.
         	+ Contains only lowercase letters, numbers, and dashes.
         * Names can't be formatted as an IP address (for example, 192.0.2.0).
-
     2. From the **Region** list, choose an AWS Region for your Amazon S3 bucket.
        This AWS Region must be the same AWS Region as the ElastiCache backup you want to export.
     3. Choose **Create**.
@@ -142,8 +142,9 @@ The Amazon S3 bucket must be in the same AWS Region as the ElastiCache backup.
 2.  To see a list of your backups,
     from the left navigation pane choose **Backups**.
 3.  From the list of backups, choose the box to the left of the name of the backup you want to export.
-4.  Choose **Copy**.
-5.  In **Create a Copy of the Backup?**, do the following:
+4.  Choose **Export**.
+5.  In **Export Backup**, do the following:
+
     1. In **New backup name** box,
        type a name for your new backup.
 

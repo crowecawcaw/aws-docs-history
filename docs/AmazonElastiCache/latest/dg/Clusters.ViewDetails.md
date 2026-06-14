@@ -36,6 +36,7 @@ The following procedure details how to view the details of a Valkey or Redis OSS
    Redis OSS. Doing this displays details about the cluster, including the
    cluster's primary endpoint.
 4. To view node information:
+
    1. Choose the cluster's name.
    2. Choose the **Shards and nodes** tab.
       Doing this displays details about each node, including the node's endpoint which

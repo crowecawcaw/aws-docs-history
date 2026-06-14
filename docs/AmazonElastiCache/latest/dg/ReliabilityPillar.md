@@ -97,6 +97,7 @@ kept indefinitely.
 
 - **[Required]** Understand and document the
   RPO of your ElastiCache deployments.
+
   - Be aware that Memcached does not offer any backup
     processes.
   - Review the capabilities of ElastiCache Backup and Restore
@@ -104,6 +105,7 @@ kept indefinitely.
 
 - **[Best]** Have a well-communicated process
   in place for backing up your cluster.
+
   - Initiate manual backups on an as-needed basis.
   - Review retention policies for automatic backups.
   - Note that manual backups will be retained indefinitely.
@@ -115,9 +117,11 @@ kept indefinitely.
 - **[Good]** Leverage the scheduled backup
   feature of ElastiCache to regularly back up your data during a defined
   window.
+
   - Periodically test restores from your backups.
 
 - **[Resources]:**
+
   - [Redis OSS](https://aws.amazon.com/elasticache/faqs/#Redis "https://aws.amazon.com/elasticache/faqs/#Redis")
   - [Backup and
     restore for ElastiCache](backups.md "backups.md")
@@ -159,6 +163,7 @@ level.
 
 - **[Best]** Enable Global Datastore for
   workloads that require region level resiliency.
+
   - Have a plan to failover to secondary region in case of primary
     degradation.
   - Test multi-region failover process prior to a failover over in
@@ -167,6 +172,7 @@ level.
     impact of data loss during failover events.
 
 - **[Resources]:**
+
   - [Mitigating Failures](disaster-recovery-resiliency.md#FaultTolerance "disaster-recovery-resiliency.md#FaultTolerance")
   - [Replication across AWS Regions using global
     datastores](Redis-Global-Datastore.md "Redis-Global-Datastore.md")
@@ -246,6 +252,7 @@ the impact of failures.
   replicas.
 - **[Required]** Understand when and how to
   scale.
+
   - For more READIOPS: add replicas
   - For more WRITEOPS: add shards (scale out)
   - For more network IO – use network optimized instances, scale
@@ -262,6 +269,7 @@ the impact of failures.
   support for up to 5 read replicas in cluster-mode disabled, as well as
   vertical scaling.
 - **[Resources]:**
+
   - [Scaling
     ElastiCache clusters](Scaling.md "Scaling.md")
   - [Online scaling up](redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-up "redis-cluster-vertical-scaling.md#redis-cluster-vertical-scaling-scaling-up")

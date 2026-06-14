@@ -63,12 +63,12 @@ path of the directory that contains a subdirectory named
 **To set the Java Home variable**
 
 1. Set the Java Home variable.
+
    - On Linux and UNIX, enter the following command:
 
    ```
    `$` `export JAVA_HOME=`<PATH>``
    ```
-
    - On Windows, enter the following command:
 
    ```
@@ -77,6 +77,7 @@ path of the directory that contains a subdirectory named
 
 2. Confirm the path setting by running `$JAVA_HOME/bin/java
 -version` and checking the output.
+
    - On Linux/UNIX, you will see output similar to the
      following:
 
@@ -88,7 +89,6 @@ path of the directory that contains a subdirectory named
    Java HotSpot(TM) Client VM (build 19.0-b09, mixed mode, sharing)
 
    ```
-
    - On Windows, you will see output similar to the
      following:
 
@@ -120,12 +120,12 @@ numbers), and contains subdirectories named bin and lib.
 
 - Open a command line window and enter one of the following commands to set
   the AWS_ELASTICACHE_HOME environment variable.
+
   - On Linux and UNIX, enter the following command:
 
   ```
   $ export &AWS;_ELASTICACHE_HOME=<path-to-tools>
   ```
-
   - On Windows, enter the following command:
 
   ```
@@ -140,12 +140,12 @@ path.
 
 - Enter the following commands to add the tools' BIN directory to your system
   PATH.
+
   - On Linux and UNIX, enter the following command:
 
   ```
   $ export PATH=$PATH:$&AWS;_ELASTICACHE_HOME/bin
   ```
-
   - On Windows, enter the following command:
 
   ```
@@ -197,13 +197,13 @@ information.
 **To set the AWS_CREDENTIAL_FILE environment variable**
 
 1. Set the environment variable:
+
    - On Linux and UNIX, update the variable using the following
      command:
 
    ```
    $ export &AWS;_CREDENTIAL_FILE=<the file created above>
    ```
-
    - On Windows, set the variable using the following command:
 
    ```

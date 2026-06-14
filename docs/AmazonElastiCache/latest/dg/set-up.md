@@ -30,6 +30,7 @@ Create a role for identity federation. Follow the instructions in [Create a role
 in the _IAM User Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 
@@ -79,6 +80,7 @@ execute Memcached commands from your EC2 instance, your security group must allo
 3. From the list of security groups, choose the security group for your Amazon VPC. Unless you created a security group for ElastiCache use,
    this security group will be named _default_.
 4. Choose the Inbound tab, and then:
+
    1. Choose **Edit**.
    2. Choose **Add rule**.
    3. In the Type column, choose **Custom TCP rule**.

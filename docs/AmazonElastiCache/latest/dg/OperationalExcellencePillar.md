@@ -34,6 +34,7 @@ appropriately.
   cluster events using Amazon Simple Notification Service (Amazon SNS). Using
   Amazon SNS with your clusters allows you to programmatically take actions
   upon ElastiCache events.
+
   - There are two large categories of events: current and scheduled
     events. The list of current events includes: resource creation and
     deletion, scaling operations, failover, node reboot, snapshot
@@ -44,6 +45,7 @@ appropriately.
     maintenance window and node replacement rescheduled.
   - Although you may not need to react immediately to some of these
     events, it is critical to first look at all failure events:
+
     - ElastiCache:AddCacheNodeFailed
     - ElastiCache:CacheClusterProvisioningFailed
     - ElastiCache:CacheClusterScalingFailed
@@ -51,6 +53,7 @@ appropriately.
     - ElastiCache:SnapshotFailed (Valkey or Redis OSS only)
 
   - **[Resources]:**
+
     - [Managing ElastiCache Amazon SNS notifications](ECEvents.SNS.md "ECEvents.SNS.md")
     - [Event Notifications and Amazon SNS](ElastiCacheSNS.md "ElastiCacheSNS.md")
 
@@ -303,6 +306,7 @@ balance between Operational Excellence and Cost Optimization
 
 - **[Required]** For all workloads determine
   the level of cluster isolation needed.
+
   - **[Best]:** High Isolation – a 1:1
     workload to cluster mapping. Allows for finest grained control over
     access, sizing, scaling, and management of ElastiCache resources on

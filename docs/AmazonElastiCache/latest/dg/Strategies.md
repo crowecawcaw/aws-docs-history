@@ -69,6 +69,7 @@ retrieved from the cache.
 The disadvantages of lazy loading are as follows:
 
 - There is a cache miss penalty. Each cache miss results in three trips:
+
   1.  Initial request for data from the cache
   2.  Query of the database for the data
   3.  Writing the data to the cache These misses can cause a noticeable delay in data getting to the application.

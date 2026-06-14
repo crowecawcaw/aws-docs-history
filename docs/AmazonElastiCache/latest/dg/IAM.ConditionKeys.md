@@ -547,6 +547,7 @@ JSON
 ```
 
 11. **elasticache:TransitEncryptionEnabled**
+
     1.  Set the `elasticache:TransitEncryptionEnabled` condition key
         to `false` for the [CreateReplicationGroup](../APIReference/API_CreateReplicationGroup.md "../APIReference/API_CreateReplicationGroup.md") action to specify that replication groups
         can only be created when TLS is not being used:

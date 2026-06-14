@@ -128,12 +128,14 @@ You will see a response similar to the following:
 ```
 
 3. **Configure a Lambda function to rotate your password**
+
    1. Sign in to the AWS Management Console and open the Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/elasticache/ "https://console.aws.amazon.com/elasticache/")
    2. Choose **Functions** on the navigation pane and then choose the function you created. Choose the function name, not the checkbox to its left.
    3. Choose the **Configuration** tab.
    4. In **General configuration**, choose **Edit** and then set **Timeout** to at least 12 minutes.
    5. Choose **Save**.
    6. Choose **Environment variables** and then set the following:
+
       1. SECRETS_MANAGER_ENDPOINT – https://secretsmanager.`REGION`.amazonaws.com
       2. SECRET_ARN – The Amazon Resource Name (ARN) of the secret you created in Step 2.
       3. USER_NAME – Username of the ElastiCache user,
@@ -193,6 +195,7 @@ You will see a response similar to the following:
    ```
 
 4. Set up Secrets Manager secret rotation
+
    1. **Using the AWS Management Console, see [Set up automatic rotation for AWS Secrets Manager secrets using the console](../../../secretsmanager/latest/userguide/rotate-secrets_turn-on-for-other.md "../../../secretsmanager/latest/userguide/rotate-secrets_turn-on-for-other.md")**
 
    For more information on setting up a rotation schedule, see [Schedule expressions in Secrets Manager rotation](../../../secretsmanager/latest/userguide/rotate-secrets_schedule.md "../../../secretsmanager/latest/userguide/rotate-secrets_schedule.md"). 2. **Using the AWS CLI, see [Set up automatic rotation for AWS Secrets Manager using the AWS Command Line Interface](../../../secretsmanager/latest/userguide/rotate-secrets-cli.md "../../../secretsmanager/latest/userguide/rotate-secrets-cli.md")**

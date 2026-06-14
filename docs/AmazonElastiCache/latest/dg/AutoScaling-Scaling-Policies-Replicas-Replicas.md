@@ -81,6 +81,7 @@ Keep the following considerations in mind:
 - These CloudWatch alarms managed by Auto Scaling are defined over the AVG
   metric across all the shards in the cluster. So, having hot shards
   can result in either scenario of:
+
   - scaling when not required due to load on a few hot shards
     triggering a CloudWatch alarm
   - not scaling when required due to aggregated AVG across all

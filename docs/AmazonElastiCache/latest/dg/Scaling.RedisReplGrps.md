@@ -111,6 +111,7 @@ you might see less than 1 second downtime for nodes running on 5.0.6 versions an
    This cluster must be running the Valkey or Redis OSS engine and not the clustered Valkey or Redis OSS engine.
 4. Choose **Modify**.
 5. In the **Modify Cluster** wizard:
+
    1. Choose the node type you want to scale to from the **Node type** list. Note that not all node types are available to scale down to.
    2. If you're using `reserved-memory` to manage your memory,
       from the **Parameter Group** list, choose the custom parameter
@@ -308,6 +309,7 @@ depending upon your node type and the amount of data in your current cluster.
 
 1. Determine which node types you can scale up to using the ElastiCache API
    `ListAllowedNodeTypeModifications` action with the following parameter.
+
    - `ReplicationGroupId` – the name of the replication group.
      Use this parameter to describe a specific replication group rather than all replication
      groups.
@@ -631,6 +633,7 @@ depending upon your node type and the amount of data in your current cluster.
 
 1. Determine which node types you can scale down to using the ElastiCache API
    `ListAllowedNodeTypeModifications` action with the following parameter.
+
    - `ReplicationGroupId` – the name of the replication group.
      Use this parameter to describe a specific replication group rather than all replication
      groups.

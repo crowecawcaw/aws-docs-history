@@ -21,19 +21,23 @@ service-linked role documentation for that service.
 ###### Contents
 
 - [Service-Linked Role Permissions](using-service-linked-roles.md#service-linked-role-permissions "using-service-linked-roles.md#service-linked-role-permissions")
+
   - [Permissions to create service-linked role](using-service-linked-roles.md#service-linked-role-permissions "using-service-linked-roles.md#service-linked-role-permissions")
 
 - [Creating a Service-Linked Role (IAM)](using-service-linked-roles.md#create-service-linked-role-iam "using-service-linked-roles.md#create-service-linked-role-iam")
+
   - [Using the IAM Console](using-service-linked-roles.md#create-service-linked-role-iam-console "using-service-linked-roles.md#create-service-linked-role-iam-console")
   - [Using the IAM CLI](using-service-linked-roles.md#create-service-linked-role-iam-cli "using-service-linked-roles.md#create-service-linked-role-iam-cli")
   - [Using the IAM API](using-service-linked-roles.md#create-service-linked-role-iam-api "using-service-linked-roles.md#create-service-linked-role-iam-api")
 
 - [Editing a Service-Linked Role Description](using-service-linked-roles.md#edit-service-linked-role "using-service-linked-roles.md#edit-service-linked-role")
+
   - [Using the IAM Console](using-service-linked-roles.md#edit-service-linked-role-iam-console "using-service-linked-roles.md#edit-service-linked-role-iam-console")
   - [Using the IAM CLI](using-service-linked-roles.md#edit-service-linked-role-iam-cli "using-service-linked-roles.md#edit-service-linked-role-iam-cli")
   - [Using the IAM API](using-service-linked-roles.md#edit-service-linked-role-iam-api "using-service-linked-roles.md#edit-service-linked-role-iam-api")
 
 - [Deleting a Service-Linked Role for Amazon ElastiCache](using-service-linked-roles.md#delete-service-linked-role "using-service-linked-roles.md#delete-service-linked-role")
+
   - [Cleaning Up a Service-Linked Role](using-service-linked-roles.md#service-linked-role-review-before-delete "using-service-linked-roles.md#service-linked-role-review-before-delete")
   - [Deleting a Service-Linked Role (IAM Console)](using-service-linked-roles.md#delete-service-linked-role-iam-console "using-service-linked-roles.md#delete-service-linked-role-iam-console")
   - [Deleting a Service-Linked Role (IAM CLI)](using-service-linked-roles.md#delete-service-linked-role-iam-cli "using-service-linked-roles.md#delete-service-linked-role-iam-cli")
@@ -238,11 +242,13 @@ it.
 ###### To delete Amazon ElastiCache resources that require AWSServiceRoleForElastiCache
 
 - To delete a cluster, see the following:
+
   - [Using the AWS Management Console](Clusters.Delete.md#Clusters.Delete.CON "Clusters.Delete.md#Clusters.Delete.CON")
   - [Using the AWS CLI to delete an ElastiCache cluster](Clusters.Delete.md#Clusters.Delete.CLI "Clusters.Delete.md#Clusters.Delete.CLI")
   - [Using the ElastiCache API](Clusters.Delete.md#Clusters.Delete.API "Clusters.Delete.md#Clusters.Delete.API")
 
 - To delete a replication group, see the following:
+
   - [Deleting a Replication Group (Console)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON "Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CON")
   - [Deleting a Replication Group (AWS CLI)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CLI "Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.CLI")
   - [Deleting a replication group (ElastiCache API)](Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.API "Replication.DeletingRepGroup.md#Replication.DeletingRepGroup.API")
