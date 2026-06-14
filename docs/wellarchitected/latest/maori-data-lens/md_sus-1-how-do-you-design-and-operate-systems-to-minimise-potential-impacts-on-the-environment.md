@@ -34,6 +34,7 @@
 - **MD_SUS01-BP04: Measure and report on carbon footprint.**
   AWS offers customers free use of the [Customer Carbon Footprint
   Tool](https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/ "https://aws.amazon.com/aws-cost-management/aws-customer-carbon-footprint-tool/") (CCFT). The CCFT provides the following features:
+
   1.  Simple data visualisations to report on the emissions from your AWS usage
       following Greenhouse Gas (GHG) Protocol standards;
   2.  Analysis of the changes in your emissions over time as you migrate workloads to

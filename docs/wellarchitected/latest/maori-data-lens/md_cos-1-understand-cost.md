@@ -9,6 +9,7 @@
   the organisation. Within the public sector, for example, value-for-money in terms of
   social, environmental, and public benefits is important. For some Māori customers,
   security, resilience, and sustainability may be key considerations.
+
   - An example may be an organisation wanting to store data close to the source for
     latency reasons. An AWS Outpost can help meet those requirements. An AWS Outpost
     is a managed service that extends AWS infrastructure, services, APIs, and tools to

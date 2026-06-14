@@ -67,6 +67,7 @@ solution.
    content. This metadata can be used when searching for items in the archive. Extracted
    metadata is stored in the MySQL database. The type of metadata extraction depends on the
    type of item uploaded, but could include the following.
+
    - **Text extraction:** Text is extracted from documents
      using Amazon Textract.
    - **Document comprehension:** Key entities, such as people,

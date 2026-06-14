@@ -54,6 +54,7 @@ data protection and resilience controls.
   as to the location where the infrastructure can be placed. There are also costs and budget
   considerations to take into account. Some other considerations related to the location of
   data include:
+
   - Do you need to make a distinction between where data is processed and where it is
     stored? For example, the data could be stored in a database in New Zealand but
     processed on an EC2 instance in another region (of your choice) as part of an analytics job.

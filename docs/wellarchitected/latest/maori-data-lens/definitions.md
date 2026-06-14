@@ -24,6 +24,7 @@ Māori).
   definition on _Māori owned_ or a _Māori business_. The following combines a few suggestions for how your
   organisation can determine and define Māori owned-businesses for the purposes of partnership
   and understanding your Māori customers:
+
   - **Ownership:** Some define this as having at least 50% of
     each class of partnership interest owned by Māori people but this can be limited to
     certain situations. Alternatively, you can determine Māori ownership if it is owned or
