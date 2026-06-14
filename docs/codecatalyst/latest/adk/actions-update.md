@@ -27,6 +27,7 @@ be structured. For more information, see [Conventional Commits](https://www.conv
    You can also create a new feature branch from your default branch and make changes in the new
    branch.
 2. Build the package locally and push the source code and bundle:
+
    1. Run the following npm commands to build your action:
 
    ```
@@ -36,7 +37,6 @@ be structured. For more information, see [Conventional Commits](https://www.conv
    ```
    npm run all
    ```
-
    2. Run the following commands to commit the changes to your remote repository:
 
    ###### Important

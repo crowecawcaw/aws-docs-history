@@ -168,6 +168,7 @@ drwxrwxr-x   2 mde-user mde-user   4096 Sep 25 02:41 dist
 
 7. Continue with [Step 5: Build the package locally](getting-started.md#build-action-code "getting-started.md#build-action-code"). The following steps
    provide examples of possible outputs.
+
    1. Run the following npm command to install all the dependencies. These are the necessary
       packages your project depends on to run:
 
@@ -189,7 +190,6 @@ drwxrwxr-x   2 mde-user mde-user   4096 Sep 25 02:41 dist
 
    found 0 vulnerabilities
    ```
-
    2. Run the following command to catch action errors in your action definition YAML
       file:
 
@@ -204,7 +204,6 @@ drwxrwxr-x   2 mde-user mde-user   4096 Sep 25 02:41 dist
    Starting action validation
    Command exit code 0
    ```
-
    3. Run the following npm command to run npm scripts:
 
    ```
@@ -286,7 +285,6 @@ drwxrwxr-x   2 mde-user mde-user   4096 Sep 25 02:41 dist
    211kB  dist/index.js
    212kB  [2403ms] - ncc 0.36.1
    ```
-
    4. After the action is built, run the following commands to commit the changes to your remote
       repository:
 
@@ -424,6 +422,7 @@ logs](../userguide/deploy-consumption-deployment-logs.md "../userguide/deploy-co
    before committing.
 10. Choose **Commit**, and on the **Commit workflow**
     dialog box, do the following:
+
     1. For **Workflow file name**, leave the default name or enter your
        own.
     2. For **Commit message**, leave the default message or enter your

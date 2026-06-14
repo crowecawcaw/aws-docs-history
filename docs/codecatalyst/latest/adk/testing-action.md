@@ -175,6 +175,7 @@ workflow's name is ``ActionName`-CI-Validation`.
    before committing.
 10. Choose **Commit**, and on the **Commit workflow**
     dialog box, do the following:
+
     1. For **Workflow file name**, leave the default name or enter your
        own.
     2. For **Commit message**, leave the default message or enter your

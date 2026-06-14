@@ -62,6 +62,7 @@ following details can be edited:
 3.  In the navigation pane, choose **CI/CD**, choose
     **Actions**, and then choose the action you want to publish.
 4.  Choose **Edit details** to edit the details for your action:
+
     1. (Optional) In the **Action display name** field, change the action
        display
        name.

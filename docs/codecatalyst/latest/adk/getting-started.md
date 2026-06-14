@@ -86,6 +86,7 @@ be developed in a CodeCatalyst repository.
      but you can't change or delete the default branch.
 
 3. Create a new feature branch.
+
    1. In the navigation pane, choose **Code**, choose **Source
       repositories**, and then choose the empty repository you created.
    2. Choose **Actions**, and then choose **Create
@@ -97,7 +98,9 @@ be developed in a CodeCatalyst repository.
       selected, and then choose **Create**.
 
 4. Create a Dev Environment to work on code with a supported integrated development environment (IDE).
+
    1. In the navigation pane, do one of the following:
+
       1. Choose **Overview**, and then navigate to the **My Dev Environments** section.
       2. Choose **Code**, and then choose **Dev Environments**.
       3. Choose **Code**, choose **Source repositories** and choose the repository for which you
@@ -142,6 +145,7 @@ Open a working terminal in your Dev Environment to install the necessary tools a
 
 1. In the navigation pane, choose **Code**, and then choose **Dev Environments**.
 2. From the **IDE** column, choose **Resume in (IDE)** for the Dev Environment.
+
    - For JetBrains IDEs, choose **Open Link** to confirm when prompted to **Allow this site to
      open the JetBrains-gateway link with JetBrains Gateway?**.
    - For the VS Code IDE, choose **Open Link** to confirm when prompted to **Allow this site to
@@ -611,6 +615,7 @@ actions catalog. Before publishing, you can also edit the metadata details of th
 2. In the navigation pane, choose **CI/CD**, choose **Actions**,
    and then choose the action you want to publish.
 3. Choose **Edit details** to edit the details for your action:
+
    1. (Optional) In the **Action display name** field, change the
       action display name. This is the name that appears in the **Actions** list before
       the action is published, as well as in the CodeCatalyst actions catalog after the
@@ -631,6 +636,7 @@ actions catalog. Before publishing, you can also edit the metadata details of th
 
 4. (Optional) Edit the license file. This file is created when the action is bootstrapped and is stored at the root
    of action's source repository.
+
    1. Choose **View license file** to open the file.
    2. Choose **Edit** and make your changes.
    3. Choose **Commit**, add a message in the **Commit
