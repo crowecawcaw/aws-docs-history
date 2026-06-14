@@ -64,6 +64,7 @@ JSON
 
 4. Add the following permissions (policies) to the user
    **SCEndUser**:
+
    - **AWServiceCatalogEndUserFullAccess** - (AWS managed policy)
    - **StackSet** - (inline
      policy)

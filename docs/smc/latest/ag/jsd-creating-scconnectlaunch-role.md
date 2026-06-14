@@ -110,6 +110,7 @@ JSON
 4. Attach the relevant policies to the
    **SCConnectLaunch** role. Attach the following
    baseline IAM policies:
+
    - **AmazonEC2FullAccess** (AWS managed
      policy)
    - **AmazonS3FullAccess** (AWS managed

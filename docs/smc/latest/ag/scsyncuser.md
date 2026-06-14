@@ -26,6 +26,7 @@ supported integrations.
 2. Set permissions for your sync user (SMSyncUser). Choose
    **Attach existing policies directly** and
    select:
+
    - **`AWSServiceCatalogAdminReadOnlyAccess`**
      (AWS managed policy)
    - **`AmazonSSMReadOnlyAccess`**

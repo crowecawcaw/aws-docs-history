@@ -27,6 +27,7 @@ the Connector.
    _end user_ IAM configurations.
 4. Choose the visible AWS service integrations for this AWS
    account. The choices include:
+
    - Integrate with Service Catalog (including AppRegistry)
    - Integrate with AWS Config
 

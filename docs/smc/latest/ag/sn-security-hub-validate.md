@@ -55,6 +55,7 @@ Incidents or Problems.
 and Problems in ServiceNow**
 
 - Finding severity label → Problem/Incident urgency
+
   - INFORMATIONAL or LOW → LOW
   - MEDIUM → MEDIUM
   - HIGH or CRITICAL → HIGH

@@ -32,6 +32,7 @@ Support in order to validate integration.
 3. To show a list of all synched Support Cases, choose **Incidents** under **Support**.
 4. Choose **New** from list header.
 5. Complete the mandatory fields on the form.
+
    - **Subject**- Brief summary of the
      question or issue
    - **Description** – Detailed account of
@@ -58,6 +59,7 @@ The **AWS Case Id** and **AWS Case Status** displays.
 3. To show a list of all synched Support Cases, choose **Incidents** under **Support**.
 4. Choose **New** from list header.
 5. Complete the mandatory fields on the form.
+
    - **Subject**- Brief summary of the
      question or issue
    - **Description** – Detailed account of
@@ -85,6 +87,7 @@ The **AWS Case Id** and **AWS Case Status** displays.
 3. To show a list of all synched Support Cases, choose **Incidents** under **Support**.
 4. Choose **New** from list header.
 5. Complete the mandatory fields on the form.
+
    - **Subject**- Brief summary of the
      question or issue
    - **Description** – Detailed account of

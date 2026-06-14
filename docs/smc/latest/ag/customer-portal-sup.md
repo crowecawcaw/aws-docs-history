@@ -29,6 +29,7 @@ Requests`. Then, choose **Add request
      the available options.
 6. (Optional) Add a **CC email address** to the
    case.
+
    1. Navigate to the **Project Settings** page and
       then choose the **Request types** tab.
    2. Choose the **Unassigned** tab and then choose

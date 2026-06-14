@@ -14,10 +14,12 @@ ServiceNow.
    view, enter `AWS Service Management Connector`.
 2. Choose **System Properties**, then **AWS Security Hub CSPM**.
 3. Set these configuration items:
+
    - Choose the types of AWS Security Hub CSPM Findings to sync in ServiceNow:
      **CRITICAL**, **HIGH**, **MEDIUM**, **LOW**, and **INFORMATIONAL**.
    - Choose an action for a newly synced Finding to the Connector in
      ServiceNow:
+
      - **Do Nothing**. This action only
        imports Security Finding types for the scoped app. Users with
        scoped app permissions can view and choose to create an Incident

@@ -31,7 +31,9 @@ a ServiceNow support case and provides a new release if needed.
   releases.
 - Create a check list of all your transition action items that include, but
   are not limited to:
+
   - Transition plan
+
     - Decision point on Service Catalog provisioned products
     - Steps to update or install the Connector in ServiceNow
       development to production environments

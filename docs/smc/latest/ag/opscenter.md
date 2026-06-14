@@ -26,6 +26,7 @@ To validate AWS Systems Manager OpsCenter integration, view or create OpsItems.
    Agent** view, choose **Create**.
 3. In the **Create Issue** field input
    the following details:
+
    - **Project**:
      Auto-populated.
    - **Issue Type**: Choose

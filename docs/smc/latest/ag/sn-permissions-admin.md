@@ -78,6 +78,7 @@ closed change records in the Connector AWS Service Catalog system properties.
 4. Open (right-click) the context menu for **Type** and then
    choose **Show Choice List**.
 5. Choose **New** and complete these fields:
+
    - **Table**: `Change
 Request`
    - **Label**: `AWS Provisioned Product
@@ -99,6 +100,7 @@ templates in ServiceNow Change Management. For more information, see [IT Service
    List**.
 3. Choose **New** and complete these
    ﬁelds:
+
    - Table: `Change Request`
    - Label: `AWS Change Request`
    - Value: `AWSChangeRequest`

@@ -132,6 +132,7 @@ JSON
 
 7. Choose **Attach existing policies directly**
    and then select the following policies:
+
    - **AmazonSSMReadOnlyAccess** (AWS
      managed policy)
    - **AWSSupportAccess** (AWS managed

@@ -25,6 +25,7 @@ Support.
 4. Choose **Create** from the list header and then select the **Support Case**
    Issue Type.
 5. Complete the following mandatory fields in the form:
+
    - **Summary**— A brief summary of the question or issue
    - **Description**— A detailed summary of the question or issue
    - **Priority**— The severity of the Support case
@@ -44,6 +45,7 @@ Support.
 3. Choose **Create** from the list header and then select the **Support Case**
    Issue Type.
 4. Complete the following mandatory fields in the form:
+
    - **Summary**— A brief summary of the question or issue
    - **Description**— A detailed summary of the question or issue
    - **Priority**— The severity of the Support case
@@ -63,6 +65,7 @@ Support.
 3. Choose **Create** from the list header and then select the **Support Case**
    Issue Type.
 4. Complete the following mandatory fields in the form:
+
    - **Summary**— A brief summary of the question or issue
    - **Description**— A detailed summary of the question or issue
    - **Priority**— The severity of the Support case

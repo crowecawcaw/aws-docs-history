@@ -12,6 +12,7 @@ specialist team directly from the connector using an Support case.
 
 1. In the console, choose **Technical Support**.
 2. Complete the form's required fields:
+
    - Service - `Service Catalog`
    - Category - `Service Management Connectors`
    - Severity - `General Guidence` or `System

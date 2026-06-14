@@ -23,6 +23,7 @@ Connector.
    cases.
 4. Choose **New** from the list header.
 5. Complete the mandatory fields on the form.
+
    - **Subject**- Brief summary of the
      question or issue
    - **Description** – Detailed account of
@@ -48,6 +49,7 @@ Alternatively, you can create the support case from Support console.
 1. In the console, choose **Technical
    Support**.
 2. Complete the required fields on the form:
+
    - Service – `Service Catalog`
    - Category – `Service Management
 Connectors`

@@ -21,6 +21,7 @@ CMDB**
    **Choice Lists**.
 2. Choose **New**.
 3. Create a new entry with these details:
+
    - **Table:**
      `Configuration Item [cmdb_ci]`
    - **Element:**
