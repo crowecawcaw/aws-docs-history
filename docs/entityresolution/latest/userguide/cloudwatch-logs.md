@@ -106,6 +106,7 @@ new workflow in AWS Entity Resolution using the console.
 2. Under **Workflows**, select either **Matching**
    workflows or **ID mapping** workflows.
 3. Follow the steps to create one of the following workflows:
+
    - [Rule-based matching
      workflow](creating-matching-workflow-rule-based.md "creating-matching-workflow-rule-based.md")
    - [Machine learning-based matching
@@ -120,7 +121,9 @@ new workflow in AWS Entity Resolution using the console.
 4. For **Step 1 Specify Matching workflow details**, for
    **Log deliveries – EntityResolution Workflow Logs**, choose
    **Add**.
+
    1. Choose one of the following logging destinations.
+
       - **To Amazon CloudWatch Logs**
       - **To Amazon S3**
       - **To Amazon Data Firehose**
@@ -140,6 +143,7 @@ new workflow in AWS Entity Resolution using the console.
    with log groups and log streams](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md") in the _Amazon CloudWatch Logs
    User Guide_.
 6. For **More settings - optional**, choose the following:
+
    1. For **Field selection**, select the log fields to include in
       each log record.
    2. (CloudWatch Logs) For **Output format**, choose the output format for
@@ -265,12 +269,15 @@ console.
 3. On the **Log deliveries** tab, under **Log
    delivery**, select **Add**, and then choose one of the
    following logging destinations.
+
    - To Amazon CloudWatch Logs
    - To Amazon S3
+
      - Cross account
      - In current account
 
    - To Amazon Data Firehose
+
      - Cross account
      - In current account
 
@@ -311,6 +318,7 @@ User Guide_. 4. In the modal, do the following, depending on the type of Log del
      a delivery destination ARN.
 
 5. For **More settings - optional**, choose the following:
+
    1. For **Field selection**, select the log fields to include in
       each log record.
    2. (CloudWatch Logs) For **Output format**, choose the output format for

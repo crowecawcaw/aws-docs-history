@@ -12,6 +12,7 @@ first-party data from a source to a target during an ID mapping workflow.
 3. On the **ID namespaces** page, in the upper right corner, choose
    **Create ID namespace**.
 4. For **Details**, do the following:
+
    1. For **ID namespace name**, enter a unique name.
    2. (Optional) For **Description**, enter an optional
       description.
@@ -22,6 +23,7 @@ first-party data from a source to a target during an ID mapping workflow.
    **Rule-based**.
 6. For **Data input**, under **Matching workflow**,
    do the following.
+
    1. Choose the account that’s associated with the ID namespace: either
       **Your AWS account** or **Another
       AWS account**.
@@ -29,6 +31,7 @@ first-party data from a source to a target during an ID mapping workflow.
       name** or enter the **Matching workflow ARN**.
 
 7. For **Rule parameters**, do the following.
+
    1. Specify the **Rule controls** by choosing one of the following
       options based on your goal.
 
@@ -45,6 +48,7 @@ first-party data from a source to a target during an ID mapping workflow.
 
 8. For **Comparison and matching parameters**, do the
    following.
+
    1. Specify the **Comparison type** by choosing one of the
       following options based on your goal.
 

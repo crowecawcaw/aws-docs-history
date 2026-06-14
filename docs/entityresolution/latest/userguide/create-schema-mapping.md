@@ -28,6 +28,7 @@ Import from AWS Glue
 3.  On the **Schema mappings** page, in the upper right corner,
     choose **Create schema mapping**.
 4.  For **Step 1: Specify schema details**, do the following:
+
     1. For **Name and creation method**, enter a **Schema
        mapping name** and an optional
        **Description**.
@@ -85,8 +86,10 @@ Import from AWS Glue
 
 5.  For **Step 2: Map input fields**, define the input fields you
     want to use for matching and for optional pass through.
+
     1. For **Input fields for matching**, for each **Input
        field**,
+
        - Specify the **Attribute type** to classify the
          data.
        - Specify the **Match key name** to enable input field
@@ -259,6 +262,7 @@ You can also add more groups if you have more types of data.
     4. Choose **Next**.
 
 7. For **Step 4: Review and create**, do the following:
+
    1. Review the selections that you made for the previous steps and edit if
       necessary.
    2. Choose **Create schema mapping**.
@@ -282,6 +286,7 @@ Build custom schema
 3. On the **Schema mappings** page, in the upper right corner,
    choose **Create schema mapping**.
 4. For **Step 1: Specify schema details**, do the following:
+
    1. For name and creation method, enter a **Schema mapping
       name** and an optional **Description**.
    2. For **Creation method**, choose **Build custom
@@ -489,6 +494,7 @@ You can also add more groups if you have more types of data.
     4. Choose **Next**.
 
 7. For **Step 4: Review and create**, do the following:
+
    1. Review the selections that you made for the previous steps and edit if
       necessary.
    2. Choose **Create schema mapping**.
@@ -512,6 +518,7 @@ Use JSON editor
 3. On the **Schema mappings** page, in the upper right corner,
    choose **Create schema mapping**.
 4. For **Step 1: Specify schema details**, do the following:
+
    1. For name and creation method, enter a **Schema mapping
       name** and an optional **Description**.
    2. For **Creation method**, choose **Use JSON
@@ -522,6 +529,7 @@ Use JSON editor
    4. Choose **Next**.
 
 5. For **Step 2: Specify mapping**:
+
    1. Start building the schema in the JSON editor or choose one of the following
       options based on your goal:
 
@@ -554,6 +562,7 @@ Use JSON editor
    `PHONE_COUNTRYCODE`. 2. Choose **Next**.
 
 6. For **Step 3: Review and create**:
+
    1. Review the selections that you made for the previous steps and edit if
       necessary.
    2. Choose **Create schema mapping**.

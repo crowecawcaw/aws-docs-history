@@ -13,6 +13,7 @@ RampIDs to another set using either maintained or derived RampIDs.
     choose **Create ID mapping workflow**.
 4.  For **Step 1: Specify ID mapping workflow details**, do the
     following.
+
     1. Enter an **ID mapping workflow name** and an optional
        **Description**.
 
@@ -37,11 +38,12 @@ RampIDs to another set using either maintained or derived RampIDs.
         * **Client ID manager ARN**
         * **Client secret manager ARN**
 
-    ![The LiveRamp configuration fields on the Specify ID mapping workflow page](/images/entityresolution/latest/userguide/images/liveramp-configuration.PNG) 4. (Optional) To enable **Tags** for the resource, choose
+    ![The LiveRamp configuration fields on the Specify ID mapping workflow page](images/liveramp-configuration.PNG) 4. (Optional) To enable **Tags** for the resource, choose
     **Add new tag**, and then enter the **Key** and
     **Value** pair. 5. Choose **Next**.
 
 5.  For **Step 2: Specify source and target**, do the following.
+
     1. For **Source**, choose the scenario that applies to you and
        then take the recommended action.
 
@@ -72,7 +74,9 @@ RampIDs to another set using either maintained or derived RampIDs.
 
 6.  Choose **Next**.
 7.  For **Step 3: Specify data output location – _optional_**, do the following.
+
     1. For **Data output destination**, do the following:
+
        1. Choose the **Amazon S3 location** for the data output.
        2. For **Encryption**, if you choose to **Customize
           encryption settings**, then enter the **AWS KMS key**
@@ -84,6 +88,7 @@ RampIDs to another set using either maintained or derived RampIDs.
     ![The Data output destination fields on the Specify data output location page](images/specify-data-ouput-IDM.PNG)
 
 8.  For **Step 4: Review and create**, do the following.
+
     1. Review the selections that you made for the previous steps and edit them if
        necessary.
     2. Choose **Create**.

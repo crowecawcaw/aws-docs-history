@@ -22,6 +22,7 @@ Console
     corner, choose **Create matching workflow**.
 4.  For **Step 1: Specify matching workflow details**, do the
     following:
+
     1. Enter a **Matching workflow name** and an optional
        **Description**.
     2. For **Data input**, choose an
@@ -65,7 +66,6 @@ Console
         3. If your data table has a DELETE column, the schema mapping's type
          must be `String` and you can't have a `matchKey`
          and `groupName`.
-
     3. The **Normalize data** option is selected by default, so
        that data inputs are normalized before matching. If you don't want to
        normalize data, deselect the **Normalize data**
@@ -87,7 +87,6 @@ Console
         * If the following **Phone** sub-types are grouped:
          **Phone number**, **Phone country
          code**.
-
     4. To specify the **Service access** permissions, choose an
        option and take the recommended action.
 
@@ -101,6 +100,7 @@ Console
     6. Choose **Next**.
 
 5.  For **Step 2: Choose matching technique**:
+
     1. For **Matching method**, choose **Rule-based
        matching**.
     2. For **Rule type**, choose
@@ -227,10 +227,10 @@ Console
     ```
     Exact(FullName) AND Exact(DOB) AND Exact(Address) and Levenshtein(InternalID, 1)
     ```
-
     5. Choose **Next**.
 
 6.  For **Step 3: Specify data output and format**:
+
     1. For **Data output destination and format**, choose the
        **Amazon S3 location** for the data output and whether the
        **Data format** will be **Normalized
@@ -252,6 +252,7 @@ Console
     5. Choose **Next**.
 
 7.  For **Step 4: Review and create**:
+
     1. Review the selections that you made for the previous steps and edit if
        necessary.
     2. Choose **Create and run**.
@@ -424,6 +425,7 @@ Optional parameters include:
 ```
 
 8. If the call is unsuccessful, you might receive one of these errors:
+
    - 400 – ConflictException if the workflow name already exists
    - 400 – ValidationException if the input fails validation
    - 402 – ExceedsLimitException if account limits are exceeded

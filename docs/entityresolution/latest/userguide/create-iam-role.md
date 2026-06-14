@@ -44,6 +44,7 @@ A new tab opens.
 
 7. For **Name, review, and create**, enter the **Role
    name** and **Description**.
+
    1. Review **Select trusted entities**, enter the
       AWS account for the person or persons who will assume the role (if
       necessary).

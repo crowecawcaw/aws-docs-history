@@ -17,6 +17,7 @@ AWS Glue database.
 3. On the **ID namespaces** page, in the upper right corner, choose
    **Create ID namespace**.
 4. For **Details**, do the following:
+
    1. For **ID namespace name**, enter a unique name.
    2. (Optional) For **Description**, enter an optional
       description.
@@ -34,6 +35,7 @@ AWS Glue database.
 | An existing matching workflow | 1. Choose the **Matching workflow**.<br>2. Choose the account that’s associated with the ID namespace: either<br>**Your AWS account\*<br>• or **Another<br>AWS account**.<br>3. Depending on the type of account, select the **Matching<br>workflow name\*<br>• or enter the **Matching workflow<br>ARN**.                                                        |
 
 7. For **Rule parameters**, do the following.
+
    1. Specify the **Rule controls** by choosing one of the following
       options based on your goal.
 
@@ -55,6 +57,7 @@ AWS Glue database.
 
 8. For **Comparison and matching parameters**, do the
    following.
+
    1. Specify the **Comparison type** by choosing one of the
       following options based on your goal.
 

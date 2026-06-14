@@ -22,6 +22,7 @@ Console
     corner, choose **Create matching workflow**.
 4.  For **Step 1: Specify matching workflow details**, do the
     following:
+
     1. Enter a **Matching workflow name** and an optional
        **Description**.
     2. For **Data input**, choose an
@@ -50,7 +51,6 @@ Console
         * If the following **Phone** sub-types are grouped:
          **Phone number**, **Phone country
          code**.
-
     4. To specify the **Service access** permissions, choose an
        option and take the recommended action.
 
@@ -64,6 +64,7 @@ Console
     6. Choose **Next**.
 
 5.  For **Step 2: Choose matching technique**:
+
     1. For **Matching method**, choose **Rule-based
        matching**.
     2. For **Rule type**, choose
@@ -104,6 +105,7 @@ Console
     ![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](images/comparison-type.PNG) 7. Choose **Next**.
 
 6.  For **Step 3: Specify data output and format**:
+
     1. For **Data output destination and format**, choose the
        **Amazon S3 location** for the data output and whether the
        **Data format** will be **Normalized
@@ -125,6 +127,7 @@ Console
     5. Choose **Next**.
 
 7.  For **Step 4: Review and create**:
+
     1. Review the selections that you made for the previous steps and edit if
        necessary.
     2. Choose **Create and run**.
@@ -288,6 +291,7 @@ Optional parameters include:
 ```
 
 8. If the call is unsuccessful, you might receive one of these errors:
+
    - 400 – ConflictException if the workflow name already exists
    - 400 – ValidationException if the input fails validation
    - 402 – ExceedsLimitException if account limits are exceeded

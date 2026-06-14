@@ -13,6 +13,7 @@ target.
     choose **Create ID mapping workflow**.
 4.  For **Step 1: Specify ID mapping workflow details**, do the
     following.
+
     1. Enter an **ID mapping workflow name** and an optional
        **Description**.
 
@@ -39,6 +40,7 @@ target.
     **Value** pair. 5. Choose **Next**.
 
 5.  For **Step 2: Specify source and target**, do the following.
+
     1. For **Source**, choose the scenario that applies to you and
        then take the recommended action.
 
@@ -49,6 +51,7 @@ target.
     2. For **Target**, select an existing **Matching
        workflow** from the dropdown list.
     3. For **Rule parameters**, do the following.
+
        1. Specify the **Rule controls** by choosing one of the
           following options based on your source type.
 
@@ -85,7 +88,9 @@ target.
 
 6.  Choose **Next**.
 7.  For **Step 3: Specify data output location – _optional_**, do the following.
+
     1. For **Data output destination**, do the following:
+
        1. Choose the **Amazon S3 location** for the data output.
        2. For **Encryption**, if you choose to **Customize
           encryption settings**, then enter the **AWS KMS key**

@@ -66,6 +66,7 @@ default. 7. Choose the **Processing type**.
      records only.
 
 8. For **Record attributes**,
+
    1. Enter the **Value** for the **Unique
       ID**.
    2. Enter a **Value** for each **Match key**

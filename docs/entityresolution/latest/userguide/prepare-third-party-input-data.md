@@ -32,19 +32,24 @@ provider.
 To subscribe to a provider service on AWS Data Exchange
 
 1. View the provider listing on AWS Data Exchange. The following provider listings are available:
+
    - LiveRamp
+
      - [LiveRamp
        Identity Resolution](https://aws.amazon.com/marketplace/pp/prodview-v4557zxjo6ykq "https://aws.amazon.com/marketplace/pp/prodview-v4557zxjo6ykq")
      - [LiveRamp
        Transcoding](https://aws.amazon.com/marketplace/pp/prodview-bpp2fvfcxk2kg "https://aws.amazon.com/marketplace/pp/prodview-bpp2fvfcxk2kg")
 
    - TransUnion
+
      - TruAudience Identity Resolution & Enrichment
 
    - Unified ID 2.0
+
      - [Unified ID 2.0 Identity Resolution](https://aws.amazon.com/marketplace/pp/prodview-66zqls7iqsm6o?sr=0-4&ref_=beagle&applicationId=AWSMPContessa#offers "https://aws.amazon.com/marketplace/pp/prodview-66zqls7iqsm6o?sr=0-4&ref_=beagle&applicationId=AWSMPContessa#offers")
 
 2. Complete one of the following steps, depending on your offer type.
+
    - **Private offer** – If you have an existing relationship with a
      provider, follow the [Private products and offers](../../../data-exchange/latest/userguide/subscribe-to-private-offer.md "../../../data-exchange/latest/userguide/subscribe-to-private-offer.md") procedure in the _AWS Data Exchange User
      Guide_ to accept a private offer on AWS Data Exchange.

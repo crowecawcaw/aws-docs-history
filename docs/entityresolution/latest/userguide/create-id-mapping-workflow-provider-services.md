@@ -13,10 +13,11 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
     choose **Create ID mapping workflow**.
 4.  For **Step 1: Specify ID mapping workflow details**, do the
     following.
+
     1. Enter an **ID mapping workflow name** and an optional
        **Description**.
 
-    ![The Name and Description fields on the Specify ID mapping workflow details page](/images/entityresolution/latest/userguide/images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose **Provider
+    ![The Name and Description fields on the Specify ID mapping workflow details page](images/specify-ID-mapping-details-name.png) 2. For the **ID mapping method**, choose **Provider
     services**.
 
     AWS Entity Resolution currently offers the LiveRamp provider service as an ID mapping method. If
@@ -42,6 +43,7 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
     **Value** pair. 5. Choose **Next**.
 
 5.  For **Step 2: Specify source and target**, do the following.
+
     1. Turn on **Advanced options**.
     2. For **Source**, choose **ID
        namespace**.
@@ -59,7 +61,7 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
     ![The Target field on the Specify source and target page](images/specify-target-id-namespace.PNG) 5. To specify the **Service access** permissions, choose an option
     and take the recommended action.
 
-    ![The Service access options on the Specify source and target page](images/specify-source-target-service-access.PNG)
+    ![The Service access options on the Specify source and target page](/images/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
 
     | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
     | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -68,7 +70,9 @@ set of source RampIDs to another set using either maintained or derived RampIDs.
 
 6.  Choose **Next**.
 7.  For **Step 3: Specify data output location – _optional_**, do the following.
+
     1. For **Data output destination**, do the following.
+
        1. Choose the **Amazon S3 location** for the data output.
        2. For **Encryption**, if you choose to **Customize
           encryption settings**, then enter the **AWS KMS key**

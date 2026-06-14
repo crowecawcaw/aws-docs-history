@@ -13,6 +13,7 @@ ID mapping workflow.
 3. On the **ID namespaces** page, in the upper right corner, choose
    **Create ID namespace**.
 4. For **Details**, do the following:
+
    1. For **ID namespace name**, enter a unique name.
    2. (Optional) For **Description**, enter an optional
       description.

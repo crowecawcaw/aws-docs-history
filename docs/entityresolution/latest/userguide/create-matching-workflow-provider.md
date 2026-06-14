@@ -109,6 +109,7 @@ information.
     choose **Create matching workflow**.
 4.  For **Step 1: Specify matching workflow details**, do the
     following:
+
     1. Enter a **Matching workflow name** and an optional
        **Description**.
     2. For **Data input**, choose an
@@ -151,6 +152,7 @@ information.
     6. Choose **Next**.
 
 5.  For **Step 2: Choose matching technique**:
+
     1. For **Matching method**, choose **Provider
        services**.
     2. For **Provider services**, choose
@@ -182,6 +184,7 @@ information.
     For more information, see [Creating a workflow job role for AWS Entity Resolution](create-workflow-job-role.md "create-workflow-job-role.md"). 6. Choose **Next**.
 
 6.  For **Step 3: Specify data output**:
+
     1. For **Data output destination and format**, choose the
        **Amazon S3 location** for the data output and whether the
        **Data format** will be **Normalized data** or
@@ -211,6 +214,7 @@ information.
     ![AWS Entity Resolution ID mapping workflow creation interface with options to specify data output location.](images/specify-data-output.PNG) 5. Choose **Next**.
 
 7.  For **Step 4: Review and create**:
+
     1. Review the selections that you made for the previous steps and edit if
        necessary.
     2. Choose **Create and run**.
@@ -323,6 +327,7 @@ information.
     choose **Create matching workflow**.
 4.  For **Step 1: Specify matching workflow details**, do the
     following:
+
     1. Enter a **Matching workflow name** and an optional
        **Description**.
     2. For **Data input**, choose an
@@ -350,7 +355,6 @@ information.
         * If the following **Phone** sub-types are grouped:
          **Phone number**, **Phone country
          code**.
-
     4. To specify the **Service access** permissions, choose an option
        and take the recommended action.
 
@@ -364,6 +368,7 @@ information.
     6. Choose **Next**.
 
 5.  For **Step 2: Choose matching technique**:
+
     1. For **Matching method**, choose **Provider
        services**.
     2. For **Provider services**, choose
@@ -382,6 +387,7 @@ information.
 
 6.  Choose **Next**.
 7.  For **Step 3: Specify data output**:
+
     1. For **Data output destination and format**, choose the
        **Amazon S3 location** for the data output and whether the
        **Data format** will be **Normalized data** or
@@ -405,6 +411,7 @@ information.
     6. Choose **Next**.
 
 8.  For **Step 4: Review and create**:
+
     1. Review the selections that you made for the previous steps and edit if
        necessary.
     2. Choose **Create and run**.
@@ -471,6 +478,7 @@ Before you create a matching workflow with UID 2.0, you must:
     choose **Create matching workflow**.
 4.  For **Step 1: Specify matching workflow details**, do the
     following:
+
     1. Enter a **Matching workflow name** and an optional
        **Description**.
     2. For **Data input**, choose an
@@ -499,6 +507,7 @@ Before you create a matching workflow with UID 2.0, you must:
     6. Choose **Next**.
 
 5.  For **Step 2: Choose matching technique**:
+
     1. For **Matching method**, choose **Provider
        services**.
     2. For **Provider services**, choose **Unified ID
@@ -507,6 +516,7 @@ Before you create a matching workflow with UID 2.0, you must:
     ![Provider services options with the Unified ID provider service selected.](images/choose-matching-method-uid.PNG) 3. Choose **Next**.
 
 6.  For **Step 3: Specify data output**:
+
     1. For **Data output destination and format**, choose the
        **Amazon S3 location** for the data output and whether the
        **Data format** will be **Normalized data** or
@@ -530,6 +540,7 @@ Before you create a matching workflow with UID 2.0, you must:
     6. Choose **Next**.
 
 7.  For **Step 4: Review and create**:
+
     1. Review the selections that you made for the previous steps and edit if
        necessary.
     2. Choose **Create and run**.

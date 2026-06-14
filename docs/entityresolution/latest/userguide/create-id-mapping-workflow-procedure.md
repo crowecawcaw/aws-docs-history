@@ -13,6 +13,7 @@ source to a target.
     choose **Create ID mapping workflow**.
 4.  For **Step 1: Specify ID mapping workflow details**, do the
     following.
+
     1. Enter an **ID mapping workflow name** and an optional
        **Description**.
 
@@ -20,7 +21,7 @@ source to a target.
     **Rule-based**. 3. (Optional) To process only new, updated, or deleted records in the workflow,
     select **Enable incremental processing**.
 
-    ![The ID mapping section of the Specify ID mapping workflow page with the Enable incremental process checkbox selected.](/images/entityresolution/latest/userguide/images/id-mapping-method-enable-inc-proc.png)
+    ![The ID mapping section of the Specify ID mapping workflow page with the Enable incremental process checkbox selected.](images/id-mapping-method-enable-inc-proc.png)
 
     AWS Entity Resolution processes only new, updated, or deleted records in either the Source or
     Target ID namespace, rather than recreating the entire ID mapping table.
@@ -39,6 +40,7 @@ source to a target.
     **Value** pair. 5. Choose **Next**.
 
 5.  For **Step 2: Specify source and target**, do the following.
+
     1. Turn on **Advanced options**.
     2. For **Source**, choose **Matching workflow**,
        and then select the existing **Matching workflow** from the
@@ -82,11 +84,10 @@ source to a target.
 
         You must specify compatible limitations for the source and target ID
          namespaces.
-
     6. To specify the **Service access** permissions, choose an option
        and take the recommended action.
 
-    ![The Service access options on the Specify source and target page](images/specify-source-target-service-access.PNG)
+    ![The Service access options on the Specify source and target page](/images/entityresolution/latest/userguide/images/specify-source-target-service-access.PNG)
 
     | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
     | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -95,7 +96,9 @@ source to a target.
 
 6.  Choose **Next**.
 7.  For **Step 3: Specify data output location – _optional_**, do the following.
+
     1. For **Data output destination**, do the following.
+
        1. Choose the **Amazon S3 location** for the data output.
        2. For **Encryption**, if you choose to **Customize
           encryption settings**, then enter the **AWS KMS key**

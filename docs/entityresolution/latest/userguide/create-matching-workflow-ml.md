@@ -36,6 +36,7 @@ Before you create an ML-based matching workflow, you must:
 3.  On the **Matching workflows** page, in the upper right corner, choose
     **Create matching workflow**.
 4.  For **Step 1: Specify matching workflow details**, do the following:
+
     1. Enter a **Matching workflow name** and an optional
        **Description**.
     2. For **Data input**, choose an **AWS Region**,
@@ -60,6 +61,7 @@ Before you create an ML-based matching workflow, you must:
     6. Choose **Next**.
 
 5.  For **Step 2: Choose matching technique**:
+
     1. For **Matching method**, choose **Machine learning-based
        matching**.
 
@@ -74,6 +76,7 @@ Before you create an ML-based matching workflow, you must:
     matching workflows. 3. Choose **Next**.
 
 6.  For **Step 3: Specify data output and format**:
+
     1. For **Data output destination and format**, choose the
        **Amazon S3 location** for the data output and whether the
        **Data format** will be **Normalized data** or
@@ -93,6 +96,7 @@ Before you create an ML-based matching workflow, you must:
     5. Choose **Next**.
 
 7.  For **Step 4: Review and create**:
+
     1. Review the selections that you made for the previous steps and edit if
        necessary.
     2. Choose **Create and run**.

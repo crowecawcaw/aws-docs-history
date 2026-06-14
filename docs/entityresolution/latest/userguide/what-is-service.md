@@ -180,9 +180,11 @@ You can access AWS Entity Resolution through the following options:
 
 - Directly through the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
 - Programmatically through the AWS Entity Resolution API. For more information, see the [_AWS Entity Resolution API Reference_](../apireference/Welcome.md "../apireference/Welcome.md").
+
   - If you plan to call the AWS Entity Resolution API in AWS Lambda Runtime, create your own deployment
     package and include the desired version of the AWS SDK library. For more information, see
     the following examples in the _AWS Lambda Developer Guide_:
+
     - [Deploy Java Lambda
       functions with .zip or JAR file archives](../../../lambda/latest/dg/java-package.md "../../../lambda/latest/dg/java-package.md")
     - [Working with

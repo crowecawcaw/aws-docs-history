@@ -21,7 +21,9 @@ only** (processes only deletion requests).
 4. On the ID mapping workflow details page, choose **Run workflow**, and
    then choose **Run with new output destination**.
 5. For **Data output destination**, configure the following.
+
    1. For **Run type**, select one of the following options.
+
       - **Batch** – Processes the entire ID mapping table.
 
       Recommended for initial setup, periodic full refreshes, or when significant
@@ -38,6 +40,7 @@ only** (processes only deletion requests).
 
    2. Choose the **Amazon S3 location** for the data output.
    3. For **Encryption**, do one of the following:
+
       - Keep the default encryption settings
       - Choose **Customize encryption settings**, and either enter
         the **AWS KMS key** ARN or choose **Create an AWS KMS

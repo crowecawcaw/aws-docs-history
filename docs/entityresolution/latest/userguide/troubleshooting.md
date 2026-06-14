@@ -19,6 +19,7 @@ multiple fields, with each containing a subset of the error records.
 The error file can be created for the following reasons:
 
 - The [Unique ID](glossary.md#unique-id-defn "glossary.md#unique-id-defn") is:
+
   - null
   - missing in a row of data
   - missing in a record in the data table
@@ -31,6 +32,7 @@ The error file can be created for the following reasons:
 
 - One of the fields in the [schema mapping](glossary.md#schema-mapping-definition "glossary.md#schema-mapping-definition")
   includes a reserved name:
+
   - EmailAddress
   - InputSourceARN
   - MatchRule
