@@ -8,6 +8,7 @@ From the simulation panel in the Fleet Manager UI, operators can:
 
 - **Select telemetry mode** — Choose between "MQTT Direct" (JSON telemetry published directly to IoT Core) and "FleetWise Edge" (CAN signals collected by FWE agent, encoded as protobuf). The FWE mode description notes that Docker is required.
 - **Start an agent** — The simulation service calls the `/api/agent/start` endpoint with the vehicle ID. The service:
+
   1.  Resolves the vehicle’s VIN from DynamoDB
   2.  Retrieves the vehicle’s IoT certificate
   3.  Generates FWE persistency files (static config, decoder manifest, collection schemes)

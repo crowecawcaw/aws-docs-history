@@ -28,6 +28,7 @@ The campaign lifecycle:
 2. **Store campaign** — The campaign is written to the `cms-{stage}-campaigns` DynamoDB table with status `RUNNING`.
 3. **Agent checkin** — The FWE agent periodically publishes a checkin message to `cms/fleetwise/vehicles/{vin}/checkins`. This message contains the agent’s current decoder manifest version and collection scheme version.
 4. **CampaignSyncProcessor** (Flink) — Reads checkin messages from the `fw-checkin` Kafka topic. For each checkin, it queries DynamoDB for active campaigns targeting that vehicle, resolves the decoder manifest and collection scheme, and publishes them to IoT Core topics that the FWE agent subscribes to:
+
    - `cms/fleetwise/vehicles/{vin}/decoder_manifests` — The binary decoder manifest defining how to decode CAN frames
    - `cms/fleetwise/vehicles/{vin}/collection_schemes` — The collection scheme specifying which signals to collect and when
 
@@ -52,6 +53,7 @@ The remote commands system enables bidirectional communication with vehicles. Co
 1. Fleet Manager UI → API Gateway → Commands Lambda
 2. Lambda validates the command against the signal catalog (only signals with `actuator` attribute)
 3. Lambda publishes to two MQTT topics simultaneously:
+
    - FWE protobuf: `cms/commands/things/{vin}/executions/{commandId}/request/protobuf` — Binary `CommandRequest` protobuf with signal ID, typed value, and timeout
    - JSON: `cms/commands/{vehicleId}/request` — JSON payload for MQTT Direct simulators
 
@@ -61,6 +63,7 @@ The remote commands system enables bidirectional communication with vehicles. Co
 
 1. Vehicle executes the command and publishes a response
 2. Two IoT Rules route responses to the Command Response Handler Lambda:
+
    - `cms/commands/things/+/executions/+/response/protobuf` — FWE protobuf responses (base64-encoded by the IoT Rule SQL)
    - `cms/commands/+/response` — JSON responses from simulators
 

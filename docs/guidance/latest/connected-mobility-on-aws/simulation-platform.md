@@ -12,6 +12,7 @@ The local simulation service is a Python Flask application (`services/simulation
 2. The Fleet Manager UI (or a direct API call) sends a POST to `/api/simulation/start` with configuration: number of vehicles, trips per vehicle, city, safety event rate, telemetry mode (MQTT Direct or FWE), and driver selection.
 3. The service spawns a background thread running `realtime_telemetry_simulator.py`.
 4. For each vehicle, the simulator:
+
    1. Retrieves the vehicle’s IoT certificate from DynamoDB (if using real vehicles).
    2. Generates a realistic GPS route for the selected city using waypoints and interpolation.
    3. Simulates an ignition ON event (trip start).
@@ -23,6 +24,7 @@ The local simulation service is a Python Flask application (`services/simulation
 
 5. In **MQTT Direct** mode, the simulator compresses each telemetry JSON with gzip, base64-encodes it, and publishes to `cms/telemetry/{vehicleId}` via IoT Core MQTT.
 6. In **FleetWise Edge** mode, the simulator:
+
    1. Starts a per-vehicle FWE agent Docker container (`fwe-{vin}`).
    2. Creates virtual CAN bus interfaces (`vcan0`, `vcan1`, etc.) — one per vehicle for isolation.
    3. Writes CAN frames to the virtual bus using the DBC signal definitions.
@@ -45,6 +47,7 @@ The cloud simulation service runs on AWS infrastructure, eliminating the need fo
 1. The Fleet Manager UI sends a POST to `/api/simulation/start` (routed to the Lambda via API Gateway).
 2. The Lambda builds the simulator command-line arguments from the request configuration.
 3. The Lambda calls `ecs:RunTask` to launch ECS tasks:
+
    1. In **MQTT Direct** mode: a single Fargate task (`sim-worker`) runs the simulator with network access to IoT Core.
    2. In **FleetWise Edge** mode: two separate EC2-backed tasks — `fwe-agent` (long-lived, runs the FleetWise Edge Agent binary) and `fwe-simulator` (per-trip, generates CAN signals on the assigned vcan interface). The Lambda retrieves the vehicle’s IoT certificate from DynamoDB and passes it to the FWE agent container. Each vehicle gets a unique vcan interface (vcan0, vcan1, vcan2…​) to prevent cross-contamination.
 
