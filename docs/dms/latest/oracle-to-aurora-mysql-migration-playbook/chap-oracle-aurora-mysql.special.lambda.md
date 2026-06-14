@@ -13,15 +13,18 @@ The Oracle Advanced Queuing (AQ) feature enables database-integrated message que
 Oracle provides the `oracle.jdbc.aq` Java package as an interface to AQ. It contains the following items:
 
 - Classes:
+
   - `AQDequeueOptions` — Specifies the options for the dequeue operation.
   - `AQEnqueueOptions` — Specifies the options for the enqueue operation.
   - `AQFactory` — A factory class for AQ, which creates components such as agent or message properties.
   - `AQNotificationEvent` — New message notifications.
 
 - Interfaces:
+
   - `AQAgent` — An identity of a user, producer, or consumer of a message.
   - `AQMessage` — An enqueued or dequeued message.
   - `AQMessageProperties` — Message properties such as:
+
     - Correlation
     - Sender
     - Delay

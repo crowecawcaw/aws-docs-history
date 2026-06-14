@@ -62,6 +62,7 @@ Each Aurora cluster can have one or more instances serving different purposes:
 
 - At any given time, a single instance functions as the primary that handles both writes and reads from your applications.
 - You can create up to 15 read replicas in addition to the primary, which are used for two purposes:
+
   - **Performance and Read Scalability** — Replicas can be used as read-only nodes for queries and report workloads.
   - **High Availability** — Replicas can be used as failover nodes in the event the master fails. Each read replica can be located in one of the three Availability Zones hosting the Aurora cluster. A single Availability Zone can host more than one read replica.
 

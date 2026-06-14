@@ -295,6 +295,7 @@ Constraint states can be defined using the `CREATE TABLE` or `ALTER TABLE` state
 - `INITIALLY DEFERRED` — Checks the constraint at the end of subsequent transactions.
 - `VALIDATE` or `NO VALIDATE` — These parameters depend on whether the constraint is `ENABLED` or `DISABLED`.
 - `ENABLE` or `DISABLE` — Specifies if the constraint should be enforced after creation (`ENABLE` by default). Several options are available when using `ENABLE` or `DISABLE`:
+
   - `ENABLE VALIDATE` — Enforces that the constraint applies to all existing and new data.
   - `ENABLE NOVALIDATE` — Only new data complies with the constraint.
   - `DISABLE VALIDATE` — A valid constraint is created in disabled mode with no index.

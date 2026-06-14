@@ -58,11 +58,13 @@ The main purpose of a DDL lock is to protect the definition of a schema object w
 Users have the ability to explicitly create locks to achieve transaction-level read consistency for when an application requires transactional exclusive access to a resource without waiting for other transactions to complete. Explicit data locking can be performed at the transaction level or the session level:
 
 - Transaction level
+
   - `SET TRANSACTION ISOLATION LEVEL`
   - `LOCK TABLE`
   - `SELECT … FOR UPDATE`
 
 - Session level
+
   - `ALTER SESSION SET ISOLATION LEVEL`
 
 ### System locks

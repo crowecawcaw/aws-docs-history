@@ -47,6 +47,7 @@ The following limitations apply to backtracking:
 - You can’t backtrack a database clone to a time before that database clone was created. However, you can use the original database to backtrack to a time before the clone was created. For more information about database cloning, see Cloning an Aurora DB cluster volume.
 - Backtracking causes a brief DB instance disruption. You must stop or pause your applications before starting a backtrack operation to ensure that there are no new read or write requests. During the backtrack operation, Aurora pauses the database, closes any open connections, and drops any uncommitted reads and writes. It then waits for the backtrack operation to complete.
 - Backtracking isn’t supported for the following AWS Regions:
+
   - Africa (Cape Town)
   - China (Ningxia)
   - Asia Pacific (Hong Kong)
