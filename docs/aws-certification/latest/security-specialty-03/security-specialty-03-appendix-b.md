@@ -92,6 +92,7 @@ The following major content reorganizations have occurred in the transition from
 SCS-C03 Domains 1 and 2 have been restructured:
 
 - "Threat Detection and Incident Response" and "Security Logging and Monitoring" are now:
+
   - Domain 1: Detection
   - Domain 2: Incident Response
 

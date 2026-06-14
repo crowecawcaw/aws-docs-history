@@ -74,6 +74,7 @@ The following list contains AWS services and features that are in scope for the 
 
 - Amazon Application Recovery Controller
 - Amazon VPC
+
   - Network Access Analyzer
   - Network ACLs
   - Security groups
