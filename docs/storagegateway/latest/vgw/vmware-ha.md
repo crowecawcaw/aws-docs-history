@@ -62,6 +62,7 @@ Next, configure your VMware cluster to work with Storage Gateway.
 1.  On the **Edit Cluster Settings** page in VMware vSphere, make
     sure that VM monitoring is configured for VM and application monitoring. To do
     so, set the following values for each option:
+
     - **Host Failure Response**: **Restart
       VMs**
     - **Response for Host Isolation**: **Shut down
@@ -182,6 +183,7 @@ about how are different for each gateway type.
 ###### To activate your gateway
 
 - Follow the procedures outlined in the following topics:
+
   1.  [Connect your Volume Gateway to AWS](create-volume-gateway.md#connect-to-amazon-volume "create-volume-gateway.md#connect-to-amazon-volume")
   2.  [Review settings and activate your Volume Gateway](create-volume-gateway.md#review-and-activate-volume "create-volume-gateway.md#review-and-activate-volume")
   3.  [Configure your Volume Gateway](create-volume-gateway.md#configure-gateway-volume "create-volume-gateway.md#configure-gateway-volume")

@@ -45,6 +45,7 @@ for Storage Gateway, you can use it to activate your gateway.
 7. For **Security group**, choose the security group that you
    want to use for your VPC. You can accept the default security group. Verify that
    all of the following TCP ports are allowed in your security group:
+
    - TCP 443
    - TCP 1026
    - TCP 1027

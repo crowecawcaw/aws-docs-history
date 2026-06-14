@@ -6,6 +6,7 @@
    Volume Gateway.
 2. Use the following steps to create a snapshot of your volume, and then wait for
    the snapshot to complete.
+
    1. Open the Storage Gateway console at
       [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
    2. In the navigation pane, choose **Volumes**, and then
@@ -22,6 +23,7 @@
    that none are pending, select the snapshot links on the volumes.
 
 3. Use the following steps to stop the old stored Volume Gateway:
+
    1. In the navigation pane, choose **Gateways**, and then
       choose the old stored Volume Gateway that you want to stop. The status
       of the gateway is **Running**.
@@ -43,6 +45,7 @@
    Volume Gateway VM in step 5.
 7. To preserve existing data on the disk, use the following steps to create
    stored volumes.
+
    1. On the Storage Gateway console, choose **Create
       volume**.
    2. In the **Create volume** dialog box, select the

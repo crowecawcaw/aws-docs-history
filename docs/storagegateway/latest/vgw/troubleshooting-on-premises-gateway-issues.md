@@ -30,6 +30,7 @@ Gateway's console, and then connect to the support server.
 ###### To allow Support access to your gateway
 
 1. Log in to your host's local console.
+
    - VMware ESXi – for more information, see [Accessing the Gateway Local Console with VMware ESXi](accessing-local-console.md#MaintenanceConsoleWindowVMware-common "accessing-local-console.md#MaintenanceConsoleWindowVMware-common").
    - Microsoft Hyper-V – for more information, see [Access the Gateway Local Console with Microsoft Hyper-V](accessing-local-console.md#MaintenanceConsoleWindowHyperV-common "accessing-local-console.md#MaintenanceConsoleWindowHyperV-common").
 
@@ -38,6 +39,7 @@ Gateway's console, and then connect to the support server.
 3. Enter `h` to open the list of available
    commands.
 4. Do one of the following:
+
    - If your gateway is using a public endpoint, in the
      **AVAILABLE COMMANDS** window, enter
      `open-support-channel` to connect to

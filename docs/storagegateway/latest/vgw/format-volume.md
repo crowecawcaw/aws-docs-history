@@ -28,6 +28,7 @@ Use the following procedure to initialize and format your volume on Windows.
 | **GPT (GUID Partition Table)** | If your gateway's storage volume is 2 TiB or greater<br>in size.                                                                                                                          |
 
 3. Create a simple volume:
+
    1. Bring the volume online to initialize it. All the available volumes
       are displayed in the disk management console.
    2. Open the context (right-click) menu for the disk, and then choose

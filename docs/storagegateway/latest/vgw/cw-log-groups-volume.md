@@ -32,6 +32,7 @@ activated.
    `CustomerGatewayName`** dialog box.
 4. For **Gateway health log group**, choose one of the
    following:
+
    - **Disable logging** if you don't want to monitor
      your gateway using CloudWatch log groups.
    - **Create a new log group** to create a new CloudWatch log
@@ -42,6 +43,7 @@ activated.
 
 5. Choose **Save changes**.
 6. To see the health logs for your gateway, do the following:
+
    1. In the left navigation pane, choose **Gateways**, and
       then choose the gateway that you configured the CloudWatch log group for.
    2. Choose the **Details** tab, and under **Health

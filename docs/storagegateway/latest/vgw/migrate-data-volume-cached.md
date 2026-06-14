@@ -5,6 +5,7 @@
 1. Stop any applications that are writing to the old cached
    Volume Gateway.
 2. Use the following steps to update the gateway to the latest version
+
    1. Open the Storage Gateway console at
       [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
    2. In the navigation pane, choose **Gateways**, and then choose the old cached Volume Gateway that you want to migrate.
@@ -17,6 +18,7 @@
    or adding data to those volumes.
 5. Use the following steps to create a snapshot of your volume, and then wait for
    the snapshot to complete.
+
    1. Open the Storage Gateway console at
       [https://console.aws.amazon.com/storagegateway/home](https://console.aws.amazon.com/storagegateway/ "https://console.aws.amazon.com/storagegateway/").
    2. In the navigation pane, choose **Volumes**, and then
@@ -37,6 +39,7 @@
    cached volume status, see [Understanding Cached Volume Status Transitions](StorageVolumeStatuses.md#CachedVolumeStatusTransition "StorageVolumeStatuses.md#CachedVolumeStatusTransition").
 
 6. Use the following steps to stop the old cached Volume Gateway:
+
    1. In the navigation pane, choose **Gateways**, and then
       choose the old cached Volume Gateway that you want to stop.
    2. For **Actions**, choose **Stop

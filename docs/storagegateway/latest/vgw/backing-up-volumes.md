@@ -113,6 +113,7 @@ the _AWS Backup User Guide_.
    restore requirements.
 2. For **Restore type**, choose to restore a stored or
    cached Storage Gateway volume and provide the required information:
+
    - For a stored volume, provide the information for **Gateway
      name**, **Disk ID**, and
      **iSCSI target name**.

@@ -18,6 +18,7 @@ initiator.
 
 1. Configure CHAP on the Storage Gateway console, as discussed in [To configure CHAP for a volume target on the Storage Gateway console](#ConfiguringiSCSIClientInitiatorCHAPConsole "#ConfiguringiSCSIClientInitiatorCHAPConsole").
 2. In your client initiator software, complete the CHAP configuration:
+
    - To configure mutual CHAP on a Windows client, see [To configure mutual CHAP on a Windows client](#ConfiguringiSCSIClientInitiatorCHAPWindows "#ConfiguringiSCSIClientInitiatorCHAPWindows").
    - To configure mutual CHAP on a Red Hat Linux client, see [To configure mutual CHAP on a Red Hat Linux client](#ConfiguringiSCSIClientInitiatorCHAPLinux "#ConfiguringiSCSIClientInitiatorCHAPLinux").
 
@@ -33,6 +34,7 @@ initiator.
    Authentication**.
 3. Provide the requested information in the **Configure CHAP
    Authentication** dialog box.
+
    1. For **Initiator Name**, enter the name of your iSCSI
       initiator. This name is an Amazon iSCSI qualified name (IQN) that is
       prepended by `iqn.1997-05.com.amazon:` followed by the target
@@ -81,6 +83,7 @@ same keys that you used to configure CHAP for the volume on the console.
    then choose **OK** to run the program.
 2. Configure mutual CHAP configuration for the initiator (that is, the Windows
    client):
+
    1. Choose the **Configuration** tab.
 
    ###### Note
@@ -108,6 +111,7 @@ same keys that you used to configure CHAP for the volume on the console.
 
 3. Configure the target with the initiator's secret to complete the mutual CHAP
    configuration.
+
    1. Choose the **Targets** tab.
    2. If the target that you want to configure for CHAP is currently
       connected, disconnect the target by selecting it and choosing
@@ -118,6 +122,7 @@ same keys that you used to configure CHAP for the volume on the console.
       **Advanced**.
    5. In the **Advanced Settings** dialog box, configure
       CHAP.
+
       1. Select **Activate CHAP log on**.
       2. Enter the secret that is required to authenticate the
          initiator. This secret is the same as the secret entered into
@@ -143,13 +148,13 @@ keys that you used to configure CHAP for the volume on the Storage Gateway conso
    a target. If you have not completed these two tasks, see [Connecting to a Red Hat Enterprise Linux Client](GettingStarted-use-volumes.md#issci-rhel "GettingStarted-use-volumes.md#issci-rhel").
 2. Disconnect and remove any existing configuration for the target for which you
    are about to configure CHAP.
+
    1. To find the target name and ensure it is a defined configuration, list
       the saved configurations using the following command.
 
    ```
    sudo /sbin/iscsiadm --mode node
    ```
-
    2. Disconnect from the target.
 
    The following command disconnects from the target named
@@ -160,7 +165,6 @@ keys that you used to configure CHAP for the volume on the Storage Gateway conso
    ```
    sudo /sbin/iscsiadm --mode node --logout `GATEWAY_IP`:3260,1 iqn.1997-05.com.amazon:myvolume
    ```
-
    3. Remove the configuration for the target.
 
    The following command removes the configuration for the
@@ -171,6 +175,7 @@ keys that you used to configure CHAP for the volume on the Storage Gateway conso
    ```
 
 3. Edit the iSCSI configuration file to activate CHAP.
+
    1. Get the name of the initiator (that is, the client you are
       using).
 
