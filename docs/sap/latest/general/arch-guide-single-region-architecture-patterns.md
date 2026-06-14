@@ -5,6 +5,7 @@ Select a single Region pattern if:
 - You require the data to reside only in a specific geographical Region (AWS Region) at all times
 - You want to avoid the [potential network latency](arch-guide-architecture-guidelines-and-decisions.md#arch-guide-multi-region-considerations "arch-guide-architecture-guidelines-and-decisions.md#arch-guide-multi-region-considerations") considerations associated with a Multi-Region approach
 - You want to avoid the cost implications or differences associated with a Multi-Region approach including:
+
   - [AWS service pricing in different AWS Regions](arch-guide-architecture-guidelines-and-decisions.md#arch-guide-selecting-the-aws-regions "arch-guide-architecture-guidelines-and-decisions.md#arch-guide-selecting-the-aws-regions")
   - [Cross-Region data transfer costs](arch-guide-architecture-guidelines-and-decisions.md#arch-guide-cross-regional-data-transfer "arch-guide-architecture-guidelines-and-decisions.md#arch-guide-cross-regional-data-transfer")
 

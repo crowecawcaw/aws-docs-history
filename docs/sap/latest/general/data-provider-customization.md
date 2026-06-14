@@ -6,6 +6,7 @@ The AWS Data Provider for SAP creates a database by reading the configuration in
 
 - The JAR (Java Archive) file of the data provider application.
 - The installation directory. This file is required only if you want to override or extend the current configuration. The default directories are as follows:
+
   - Linux – `/usr/local/ec2/aws-dataprovider/config.properties`
   - Windows – `C:\Program Files\Amazon\DataProvider\config.properties`
 

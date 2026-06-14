@@ -38,10 +38,12 @@ The reference architecture below outlines the components needed for this approac
 2.  Domain Delegation: refer to Common Infrastructure Requirements
 3.  Create Route 53 resolver endpoints (Inbound and Outbound) in your central Networking VPC to handle DNS queries between your AWS accounts and RISE with SAP account. Please follow [the best practices for operating Resolver endpoints](../../../Route53/latest/DeveloperGuide/best-practices-resolver.md "../../../Route53/latest/DeveloperGuide/best-practices-resolver.md"). We recommend deploying multiple endpoints across all availability zones and monitoring their utilization in CloudWatch to allow for proactive scaling. Provide SAP with details of your on-premises DNS server and the IP addresses of your Route 53 Resolver endpoints (needed for forwarding and firewall configuration).
 4.  Configure the Route 53 Resolver rules in your workload VPCs to forward DNS queries as follows:
+
     1. SAP-bound DNS queries: Forward to Outbound endpoint to resolve queries through SAP DNS servers
     2. Corporate data center-bound DNS queries: Forward to Outbound endpoint to resolve queries through on-premises DNS servers
 
 5.  Configure your on-premises DNS server to forward DNS queries as follows:
+
     1. SAP-bound queries: Forward to the SAP DNS server (alternatively, zone transfer of sap.<customer>.<domain> from SAP DNS server)
     2. AWS-bound queries: Forward to the Inbound endpoint
 
@@ -68,14 +70,17 @@ The following diagram shows a reference architecture for integrating the RISE en
 2. Domain Delegation: refer to Common Infrastructure Requirements
 3. Setup a central DNS server in your Networking VPC (e.g. BIND on EC2) or decentralized in each Workload VPC by [modifying VPC DHCP options sets accordingly](../../../vpc/latest/userguide/VPC_DHCP_Options.md "../../../vpc/latest/userguide/VPC_DHCP_Options.md"). Please provide SAP with the details of your on-premises DNS Server and the AWS-hosted DNS servers (needed for zone transfer and firewall configuration).
 4. Configure your AWS-hosted DNS server as follows:
+
    1. SAP-bound queries: Zone transfer of sap.<customer>.<domain> from SAP DNS server
    2. Data center-bound queries: Zone transfer of dc.<customer>.<domain> from on-premises DNS server
 
 5. Configure the on-premises DNS server as follows:
+
    1. SAP-bound DNS queries: Zone transfer of sap.<customer>.<domain> from SAP DNS server
    2. AWS-bound DNS queries: Zone transfer of aws.<customer>.<domain> from AWS-hosted DNS server
 
 6. SAP DNS servers are configured as follows:
+
    1. Customer data center-bound DNS queries: Zone transfer of dc.<customer>.<domain> from on-premises DNS server
    2. AWS-bound DNS queries: Zone transfer of aws.<customer>.<domain> from AWS-hosed DNS server
 

@@ -18,6 +18,7 @@ Key Characteristics
 
 - ETL Tools: Automate data extraction from sources, transformation (cleaning and standardizing), and loading into the warehouse.
 - Storage Layer:
+
   - Relational databases for structured data
   - OLAP (Online Analytical Processing) cubes for multidimensional analysis
 

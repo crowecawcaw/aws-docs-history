@@ -24,6 +24,7 @@ You can refer to the detailed EIC architecture, SAP pre-requisites, AWS pre-requ
 Key Components
 
 - **Edge Integration Cell** is a unified runtime pipeline consisting of the following key components:
+
   - **Worker** is a Camel-based runtime of Integration Suite that executes integration flows.
   - **Policy Engine** is an Envoy-based runtime with SAP-built extensions for enforcing policies like security or traffic management on API proxies.
 

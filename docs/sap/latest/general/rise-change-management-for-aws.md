@@ -14,6 +14,7 @@ How the Services Work Together
   Multi-Environment Design
 
 - Separate pipelines or stages can be configured for dev, pre-prd, and prd. Typically:
+
   - A new commit triggers a pipeline that builds in dev, runs automatic tests, and deploys to the dev landscape.
   - Upon successful tests, a manual or automated approval can promote the artifact to pre-prd for further integration or user acceptance testing.
   - After all checks in pre-prd, another approval or trigger deploys the artifact to prd, leveraging deployment strategies to minimize risk.

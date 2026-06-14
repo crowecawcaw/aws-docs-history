@@ -79,6 +79,7 @@
 
 - Bug fixes: Security and stability fixes in versions 2.2-2.4.
 - New: Support for new Amazon EBS volume types:
+
   - Throughput Optimized HDD (st1)
   - Cold HDD (sc1)
 
@@ -105,6 +106,7 @@
 - Security fix: Upgraded Linux and Windows versions to JRE 8u31.
 - Bug fix: Relative performance of c3.8xlarge instances is now reported correctly.
 - New: CloudWatch and Amazon EC2 metrics access points:
+
   - Support for the EU (Frankfurt) Region was added.
   - Access points are user configurable. You can add information about new AWS Regions without having to install a new product version.
   - Access points are now updated from an internet-based database file. You can add new AWS Regions by updating a web-based configuration file and then restarting the daemon/service.
@@ -129,13 +131,16 @@
 
 - New: Support for the T2, R3, and C3 instance families.
 - New: Support for post-ECU (EC2 Compute Unit) instance types:
+
   - New instance types no longer have ECU values.
   - The reference compute power for these instance types is a hardware thread of the given processor. The total CPU power is equal to the number of the vCPUs of a given instance type.
 
 - New: Support for the new EBS GP2 volume type.
+
   - Every volume is now tagged with the EBS volume type.
 
 - New: Report of EBS one-minute volume statistics.
+
   - EBS volumes now report their individual sample interval in a separate attribute.
 
 - Bug fix: EBS volume mapping for Windows devices now reports the correct name.

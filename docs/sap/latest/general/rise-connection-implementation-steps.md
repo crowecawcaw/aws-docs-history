@@ -52,6 +52,7 @@ After you submit the completed questionnaire, SAP will handle the following task
 - Create a virtual interface (depending on your DX type: hosted or dedicated)
 - Create the Direct Connect Gateway
 - If you need SAP to provision Transit Gateway in RISE VPC,
+
   - Setup the Transit Gateway (including the ASN you provided)
   - Create the Transit Gateway attachment for your VPC
   - Update the route tables to allow the Transit Gateway to communicate with the RISE with SAP network VPC

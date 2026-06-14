@@ -9,10 +9,12 @@ All current and previous generation Amazon EC2 instance types for SAP HANA can b
 ###### Contents
 
 - [Current generation certified instances](sap-hana-aws-ec2.md#current-gen-hana-ec2 "sap-hana-aws-ec2.md#current-gen-hana-ec2")
+
   - [SAP HANA OLTP and OLAP Scale-up](sap-hana-aws-ec2.md#scale-up-current "sap-hana-aws-ec2.md#scale-up-current")
   - [SAP HANA OLTP and OLAP Scale-out](sap-hana-aws-ec2.md#scale-out-current "sap-hana-aws-ec2.md#scale-out-current")
 
 - [Previous generation certified instances](sap-hana-aws-ec2.md#previous-gen-hana-ec2 "sap-hana-aws-ec2.md#previous-gen-hana-ec2")
+
   - [SAP HANA OLTP and OLAP Scale-up](sap-hana-aws-ec2.md#scale-up-previous "sap-hana-aws-ec2.md#scale-up-previous")
   - [SAP HANA OLTP and OLAP Scale-out](sap-hana-aws-ec2.md#scale-out-previous "sap-hana-aws-ec2.md#scale-out-previous")
 

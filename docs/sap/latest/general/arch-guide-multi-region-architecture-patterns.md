@@ -6,6 +6,7 @@ You should select a multi-Region architecture if you require the following:
 - You can accept the potential network latency considerations associated with a multi-Region approach.
 - You can accept the increased complexity associated with multi-Region approach.
 - You can accept the cost implications / differences associated with a multi-Region approach including:
+
   - [AWS service pricing (e.g. Amazon EC2)](arch-guide-architecture-guidelines-and-decisions.md#arch-guide-selecting-the-aws-regions "arch-guide-architecture-guidelines-and-decisions.md#arch-guide-selecting-the-aws-regions") in different AWS Regions
   - [Cross-Region data transfer costs](arch-guide-architecture-guidelines-and-decisions.md#arch-guide-cross-regional-data-transfer "arch-guide-architecture-guidelines-and-decisions.md#arch-guide-cross-regional-data-transfer")
 

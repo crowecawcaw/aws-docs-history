@@ -264,16 +264,19 @@ yum -y install aws-sap-dataprovider-rhel.x86_64.rpm
 On Windows, the installer is delivered in the form of an NSIS (Nullsoft Scriptable Install System) executable.
 
 1. Open a web browser and download the installer:
+
    - **Default:**
      [aws-data-provider-installer-win-x64.exe](https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/win/aws-data-provider-installer-win-x64-Standalone.exe "https://aws-sap-dataprovider-us-east-1.s3.us-east-1.amazonaws.com/v4/installers/win/aws-data-provider-installer-win-x64-Standalone.exe")
 
 2. Run the downloaded **exe** file.
 3. Verify the installation.
+
    - Once the installation is complete, you can see the file in `C:\Program Files\Amazon\DataProvider` directory.
    - The installation also creates and starts a Windows service called **AWS Data Provider for SAP**.
    - Verify that the service is running by entering http://localhost:8888/vhostmd in a web browser. The page returns metrics from AWS Data Provider for SAP if your installation is successful.
 
 4. You can configure AWS Data Provider to use proxies if you do not have transparent HTTP/HTTPS access to the internet.
+
    1. Stop AWS Data Provider for SAP.
    2. Enter proxy information in the file (as seen below) located at `C:\Program Files\Amazon\DataProvider\proxy.properties`.
 
@@ -289,7 +292,6 @@ On Windows, the installer is delivered in the form of an NSIS (Nullsoft Scriptab
    https.proxyUsername=
    https.proxyPassword=
    ```
-
    3. Start AWS Data Provider for SAP.
 
 5. Verify that the service is running by calling `netstat -ant` from a command window or from a Windows PowerShell script to determine if the listener is running on localhost port 8888.
@@ -340,6 +342,7 @@ Amazon Simple Notification Service can notify you when new versions of AWS Data 
 | China (Beijing) Region and China (Ningxia) Region | `arn:aws-cn:sns:cn-north-1:001645243879:AWS-DataProvider-SAP-Update`        |
 
 5. **Protocol** – choose Email or SMS.
+
    - **Email** – enter an email address where you would like to receive the notification in the **Endpoint** field.
 
    ###### Note
