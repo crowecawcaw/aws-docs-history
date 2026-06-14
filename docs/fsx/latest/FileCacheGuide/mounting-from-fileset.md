@@ -17,6 +17,7 @@ team2/dataset2/
 2. You mount only the `team1/dataset1` fileset, making only this part of the
    cache locally visible on the client. Use these commands and replace the following
    items:
+
    - Replace `cache_dns_name` with the actual
      cache's DNS name.
    - Replace `mountname` with the cache's mount name.

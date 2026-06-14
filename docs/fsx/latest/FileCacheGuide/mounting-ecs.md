@@ -44,6 +44,7 @@ Linux distribution, see [Installing the Lustre client](install-lustre-client.md 
 1. When launching Amazon ECS instances, either manually or using an Auto Scaling group, add
    the lines in the following code example to the end of the **User data**
    field. Replace the following items in the example:
+
    - Replace `cache_dns_name` with the actual
      cache's DNS name.
    - Replace `mountname` with the cache's mount
@@ -99,6 +100,7 @@ distributions.
 
 1. On your Docker container, install the `lustre-client` package and mount
    your cache with the `command` property. Replace the following items in the example:
+
    - Replace `cache_dns_name` with the actual
      file cache's DNS name.
    - Replace `mountname` with the cache's mount

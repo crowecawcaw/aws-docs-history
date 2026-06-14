@@ -20,6 +20,7 @@ uname -r
 ```
 
 3.  Do one of the following:
+
     - Kernel requirements:
 
           + 5.10 kernel minimum requirement - 5.10.155-138.670.amzn2
@@ -31,7 +32,6 @@ uname -r
     ```
     sudo amazon-linux-extras install -y lustre
     ```
-
     - If the command returns a result less than the kernel minimum requirement, update
       the kernel and reboot your Amazon EC2 instance by running the following command.
 
@@ -121,6 +121,7 @@ to edit the repository configuration, and how to edit the configuration file.
 ```
 
 2. Do one of the following:
+
    - If the command returns `4.18.0-477*`, you don't need to modify the
      repository configuration. Continue to the **To install the Lustre client** procedure.
    - If the command returns `4.18.0-425*`, you must edit the repository configuration
@@ -352,6 +353,7 @@ installed on your system.
 
 1.  Open a terminal on your client.
 2.  Follow these steps to add the AWS Lustre client repository:
+
     1. If you haven’t previously registered an AWS Lustre client Ubuntu
        repository on your client instance, download and install the required public
        key. Use the following command.
@@ -359,7 +361,6 @@ installed on your system.
     ```
     wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
     ```
-
     2. Add the AWS Lustre package repository to your local package manager using the
        following command.
 
@@ -431,6 +432,7 @@ installed on your system.
 
 1.  Open a terminal on your client.
 2.  Follow these steps to add the AWS Lustre client Ubuntu repository:
+
     1. If you haven't previously registered an AWS Lustre Ubuntu repository on
        your client instance, download and install the required public key. Use the
        following command.
@@ -438,7 +440,6 @@ installed on your system.
     ```
     wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
     ```
-
     2. Add the AWS Lustre package repository to your local package manager using the
        following command.
 
@@ -509,13 +510,13 @@ GPG key installed on your system.
 
 1. Open a terminal on your client.
 2. Follow these steps to add the AWS Lustre Ubuntu repository:
+
    1. If you haven't previously registered an AWS Lustre Ubuntu repository on your client instance,
       download and install the required public key. Use the following command.
 
    ```
    wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
    ```
-
    2. Add the AWS Lustre package repository to your local package manager using the
       following command.
 
@@ -527,12 +528,12 @@ GPG key installed on your system.
    as needed. The Lustre client on Ubuntu 18.04 requires kernel `15.4.0.1085-aws`
    or later for both x86-based EC2 instances and Arm-based EC2 instances powered by AWS
    Graviton processors.
+
    1. Run the following command to determine which kernel is running.
 
    ```
    uname -r
    ```
-
    2. Run the following command to update to the latest Ubuntu kernel and Lustre version and then
       reboot.
 
@@ -557,7 +558,6 @@ GPG key installed on your system.
    ```
    sudo apt-cache search ^lustre
    ```
-
    4. (Optional) If you want your system upgrade to also always upgrade Lustre
       client modules, make sure that the `lustre-client-modules-aws` package
       is installed using the following command.

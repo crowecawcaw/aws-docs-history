@@ -8,6 +8,7 @@ resources and protect your AWS account.
 1. On the Amazon EC2 console, terminate your instance. For more information, see [Terminate your instance](../../../AWSEC2/latest/UserGuide/terminating-instances.md "../../../AWSEC2/latest/UserGuide/terminating-instances.md") in the
    _Amazon EC2 User Guide._
 2. On the AWS Management Console, delete your cache with the following procedure:
+
    1. In the navigation pane, choose **Caches**.
    2. Choose the cache that you want to delete from list of caches on the
       dashboard.

@@ -13,6 +13,7 @@ $ sudo mkdir -p /mnt
 
 3. Mount the cache to the directory that you created. Use the following
    command and replace the following items:
+
    - Replace `cache_dns_name` with the actual file
      cache's DNS name.
    - Replace `mountname` with the cache's mount name.

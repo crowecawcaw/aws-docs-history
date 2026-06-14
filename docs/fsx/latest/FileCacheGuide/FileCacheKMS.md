@@ -10,6 +10,7 @@ File Cache uses AWS KMS keys to encrypt your cache in the following way:
   for Amazon File Cache, `aws/fsx`, or a customer managed key.
   You can enable, disable, or revoke grants on this KMS key. This KMS key can be one of
   the two following types:
+
   - **AWS managed key for
     Amazon File Cache** – This is the default
     KMS key, `aws/fsx`. You're not charged to create and store a KMS key, but

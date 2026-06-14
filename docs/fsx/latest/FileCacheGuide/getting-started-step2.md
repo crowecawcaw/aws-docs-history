@@ -11,6 +11,7 @@ unless you have the correct public GPG key installed on your system.
 
 1.  Open a terminal on your client.
 2.  Follow these steps to add the Lustre client Ubuntu repository:
+
     1. If you have not previously registered an AWS Lustre client Ubuntu repository
        on your client instance, download and install the required
        public key. Use the following command.
@@ -18,7 +19,6 @@ unless you have the correct public GPG key installed on your system.
     ```
     wget -O - https://fsx-lustre-client-repo-public-keys.s3.amazonaws.com/fsx-ubuntu-public-key.asc | gpg --dearmor | sudo tee /usr/share/keyrings/fsx-ubuntu-public-key.gpg >/dev/null
     ```
-
     2. Add the AWS Lustre package repository to your local package manager using the following command.
 
     ```
@@ -87,6 +87,7 @@ sudo mkdir -p /mnt
 
 2. Mount the Amazon File Cache to the directory that you created. Use the following command
    and replace these items:
+
    - Replace `cache_dns_name` with the actual
      file cache's Domain Name System (DNS) name.
    - Replace `mountname` with the cache's mount
