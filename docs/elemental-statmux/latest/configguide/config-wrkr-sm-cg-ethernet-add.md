@@ -17,6 +17,7 @@ devices, use these instructions to do so.
 3. On the **Network Devices** page, choose **Add Network Device**.
 4. In the **Add a New Network Device** dialog, select **eth (ethN)**.
 5. Complete the fields as follows:
+
    - **Device Name**: Select the eth device that you're setting up.
    - **Address Mode**: Select the type of IP addresses this device uses, either
      **dhcp**, **static**, or

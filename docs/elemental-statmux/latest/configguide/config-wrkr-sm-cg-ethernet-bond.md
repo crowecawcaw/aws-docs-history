@@ -39,6 +39,7 @@ sudo vim /etc/sysconfig/network-scripts/`ifcfg-bond0`
 ```
 
 2. Insert the following settings in the file:
+
    - _`DEVICE`_ – Type `bond0`.
    - _`TYPE`_ – Type `Bond`.
    - _`NAME`_ – Provide a name for the bond that's unique

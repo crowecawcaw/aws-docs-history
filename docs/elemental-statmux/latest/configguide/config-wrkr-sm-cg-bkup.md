@@ -27,6 +27,7 @@ For steps to restore a database backup, see [Database Backups for AWS Elemental 
    choose **General**.
 2. In the **Cluster Tasks** section, the following fields configure the
    database backups:
+
    - **Minutes between management database backups** indicates how often
      AWS Elemental Statmux creates backups.
    - **Management database backups to keep** indicates how many backups
