@@ -25,7 +25,9 @@ details page. You can also create a service by choosing **Create service** under
 4. (Optional) Enter a description for the service.
 5. Select one of the service endpoint types, **VPC** or
    **Lambda**.
+
    - Select **VPC** if the service is a URL endpoint in a VPC.
+
      1. Select a VPC to be added to the environment network bridge.
      2. Enter the service URL endpoint.
 
@@ -38,6 +40,7 @@ details page. You can also create a service by choosing **Create service** under
      private IP addresses that are in the service’s VPC. 3. (Optional) Enter a health check endpoint URL.
 
    - Select **Lambda** if the service is a Lambda function.
+
      1. Choose a Lambda function from your account.
      2. (Optional) You can choose a Lambda function alias for the selected Lambda function, if
         one is available.
