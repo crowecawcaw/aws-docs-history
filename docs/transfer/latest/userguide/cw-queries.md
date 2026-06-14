@@ -6,6 +6,7 @@ contains some examples.
 1. Sign in to the AWS Management Console and open the CloudWatch console at
    [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
 2. You can create queries or rules.
+
    - To create a **Logs Insights** query, choose
      **Logs Insights** from the left navigation panel,
      and then enter the details for your query.

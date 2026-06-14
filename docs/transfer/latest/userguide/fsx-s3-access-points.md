@@ -4,33 +4,41 @@
 
 - [Overview](fsx-s3-access-points.md#fsx-overview "fsx-s3-access-points.md#fsx-overview")
 - [Prerequisites](fsx-s3-access-points.md#fsx-prerequisites "fsx-s3-access-points.md#fsx-prerequisites")
+
   - [FSx for NetApp ONTAP requirements](fsx-s3-access-points.md#fsx-ontap-requirements "fsx-s3-access-points.md#fsx-ontap-requirements")
   - [Required IAM permissions](fsx-s3-access-points.md#required-iam-permissions "fsx-s3-access-points.md#required-iam-permissions")
 
 - [How FSx storage works with Transfer Family](fsx-s3-access-points.md#how-fsx-storage-works "fsx-s3-access-points.md#how-fsx-storage-works")
+
   - [File system user identity](fsx-s3-access-points.md#file-system-user-identity "fsx-s3-access-points.md#file-system-user-identity")
 
 - [Creating an S3 access point for FSx](fsx-s3-access-points.md#creating-s3-access-point "fsx-s3-access-points.md#creating-s3-access-point")
+
   - [Access point naming](fsx-s3-access-points.md#access-point-naming "fsx-s3-access-points.md#access-point-naming")
   - [Creating an access point for FSx for NetApp ONTAP](fsx-s3-access-points.md#creating-access-point-ontap "fsx-s3-access-points.md#creating-access-point-ontap")
   - [Configuring file system permissions](fsx-s3-access-points.md#configuring-file-system-permissions "fsx-s3-access-points.md#configuring-file-system-permissions")
 
 - [Using S3 access point aliases with FSx](fsx-s3-access-points.md#using-s3-access-point-aliases "fsx-s3-access-points.md#using-s3-access-point-aliases")
+
   - [About access point aliases](fsx-s3-access-points.md#about-access-point-aliases "fsx-s3-access-points.md#about-access-point-aliases")
   - [Finding your access point alias](fsx-s3-access-points.md#finding-access-point-alias "fsx-s3-access-points.md#finding-access-point-alias")
 
 - [Configuring Transfer Family for FSx storage](fsx-s3-access-points.md#configuring-transfer-family-fsx "fsx-s3-access-points.md#configuring-transfer-family-fsx")
+
   - [Creating an IAM role](fsx-s3-access-points.md#creating-iam-role-fsx "fsx-s3-access-points.md#creating-iam-role-fsx")
 
 - [Managing users for FSx storage](fsx-s3-access-points.md#managing-users-fsx "fsx-s3-access-points.md#managing-users-fsx")
+
   - [Creating a user](fsx-s3-access-points.md#creating-user-fsx "fsx-s3-access-points.md#creating-user-fsx")
   - [Configuring multiple directory mappings](fsx-s3-access-points.md#multiple-directory-mappings "fsx-s3-access-points.md#multiple-directory-mappings")
 
 - [Configuring file transfer clients](fsx-s3-access-points.md#configuring-file-transfer-clients "fsx-s3-access-points.md#configuring-file-transfer-clients")
+
   - [WinSCP configuration](fsx-s3-access-points.md#winscp-configuration "fsx-s3-access-points.md#winscp-configuration")
   - [Other SFTP clients](fsx-s3-access-points.md#other-sftp-clients "fsx-s3-access-points.md#other-sftp-clients")
 
 - [Troubleshooting FSx storage](fsx-s3-access-points.md#troubleshooting-fsx-storage "fsx-s3-access-points.md#troubleshooting-fsx-storage")
+
   - [File operation issues](fsx-s3-access-points.md#file-operation-issues "fsx-s3-access-points.md#file-operation-issues")
 
 ## Overview
@@ -125,6 +133,7 @@ Use the following procedure to create an S3 access point for an FSx for NetApp O
 6. For **Actions**, choose **Create S3 access point**.
 7. For **Access point name**, enter a descriptive name (for example, `transfer-family-ap`).
 8. For **File system user identity type**, choose one of the following:
+
    - **UNIX identity** - For volumes with UNIX security style
    - **Windows identity** - For volumes with NTFS security style
 

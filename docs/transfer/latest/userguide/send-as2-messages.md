@@ -129,6 +129,7 @@ Load Balancer (NLB) in your VPC.
     **Create**.
 4.  In the **Basic configuration** section,
     enter the following information:
+
     - For **Name**, enter a descriptive
       name for the load balancer.
     - For **Scheme**, choose
@@ -138,6 +139,7 @@ Load Balancer (NLB) in your VPC.
 
 5.  In the **Network mapping** section, enter
     the following information:
+
     - For **VPC**, choose the virtual
       private cloud (VPC) that you created.
     - Under **Mappings**, choose the
@@ -195,6 +197,7 @@ Balancer (ALB) in your VPC.
 5. (Optional). If you want to set up mutual authentication
    (mTLS), configure security settings and a trust
    store.
+
    1. Attach your SSL/TLS certificate to the
       listener.
    2. Under **Client certificate
@@ -227,12 +230,14 @@ server over port 5080.
    details** page for a new target group.
 2. In the **Basic configuration** section, enter the
    following information.
+
    - For **Choose a target type**, choose
      **IP addresses**.
    - For **Target group name**, enter a name for
      the target group.
    - For **Protocol**, your selection is dependent
      upon whether you are using an ALB or an NLB.
+
      - For a Network Load Balancer (NLB), choose
        **TCP**
      - For an Application Load Balancer (ALB), choose
@@ -247,12 +252,14 @@ server over port 5080.
 
 3. In the **Health checks** section, choose the
    **Health check protocol**.
+
    - For an ALB, choose **HTTP**
    - For an NLB, choose **TCP**
 
 4. Choose **Next**.
 5. On the **Register targets** page, enter the following
    information:
+
    - For **Network**, confirm that the VPC that
      you created for your Transfer Family AS2 server is specified.
    - For **IPv4 address**, enter the private IPv4
@@ -423,6 +430,7 @@ In addition to the message ID being added, the string
 - If there is an inbound file named
   `ExampleFileInS3Payload.dat`, the following files are
   created:
+
   - **File** –
     `ExampleFileInS3Payload.c4d6b6c7-23ea-4b8c-9ada-0cb811dc8b35@44313c54b0a46a36.dat`
   - **JSON** –
@@ -462,6 +470,7 @@ unsuccessful transfers).
 - If there is an outbound file named
   `ExampleFileOutTestOutboundSyncMdn.dat`, the
   following files are created:
+
   - **JSON** –
     `ExampleFileOutTestOutboundSyncMdn.dedf4601-4e90-4043-b16b-579af35e0d83.fbe18db8-7361-42ff-8ab6-49ec1e435f34@c9c705f0baaaabaa.dat.json`
   - **MDN** –

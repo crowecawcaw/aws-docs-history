@@ -22,6 +22,7 @@ role.
 ###### To specify storage and create a user role
 
 1. Depending on which storage you are using, see the following documentation:
+
    - To create an Amazon S3 bucket, see [How do I create
      an S3 bucket?](../../../AmazonS3/latest/user-guide/create-bucket-overview.md "../../../AmazonS3/latest/user-guide/create-bucket-overview.md") in the
      _Amazon Simple Storage Service User Guide_.
@@ -46,6 +47,7 @@ stack in the next section.
 5. Click **Next**.
 6. Specify parameters, including a name for your stack. Be sure to do the
    following:
+
    - Replace the default values for **UserName** and
      **UserPassword**.
    - For **UserHomeDirectory**, enter the details for the
@@ -172,6 +174,7 @@ role that you are using for your API.
 1. On a Linux or macOS device, open a command terminal.
 2. Enter one of the following commands, depending on whether you are
    using a password or a key pair for authentication.
+
    - If you are using a password, enter this command:
 
    `sftp -o PubkeyAuthentication=no

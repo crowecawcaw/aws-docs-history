@@ -29,6 +29,7 @@ setup, you can skip this topic and go to [Create a Transfer Family web app](weba
 1. Sign in to the AWS Management Console and open the AWS IAM Identity Center console at [https://console.aws.amazon.com/singlesignon/](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/").
 2. You can create and use either an account instance or an organization instance
    of AWS IAM Identity Center.
+
    - For details about account instances, see [Create an account
      instance of AWS IAM Identity Center](../../../singlesignon/latest/userguide/create-account-instance.md "../../../singlesignon/latest/userguide/create-account-instance.md"). With an account instance of IAM Identity Center,
      you can deploy supported AWS managed applications and OpenID Connect

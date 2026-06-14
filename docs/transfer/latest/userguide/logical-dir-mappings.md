@@ -90,6 +90,7 @@ directories.
   Amazon Elastic File System (Amazon EFS) as your Transfer Family storage option.
 - If you're specifying logical directory values for your user, the parameter
   that you use depends on the type of user:
+
   - For service-managed users, provide logical directory values in `HomeDirectoryMappings`.
   - For custom identity provider users, provide logical directory values in `HomeDirectoryDetails`.
 
@@ -97,6 +98,7 @@ directories.
 
 - The parameter for specifying logical directory values depends on your user
   type:
+
   - For service-managed users, provide logical directory values in `HomeDirectoryMappings`.
   - For custom identity provider users, provide logical directory values in `HomeDirectoryDetails`.
 

@@ -92,6 +92,7 @@ following tasks:
 1. _Configure IAM Identity Center to act as your federated identity
    provider_. Perform the following tasks in IAM Identity Center. For more details
    about configuring IAM Identity Center, see [Configure your identity provider for Transfer Family web apps](webapp-identity-center.md "webapp-identity-center.md").
+
    1. Create an IAM Identity Center instance, if you don't already have one.
    2. Determine your identity source. It can be the default IAM Identity Center directory
       or a third-party provider (for example Okta).
@@ -103,12 +104,14 @@ following tasks:
 
 2. _In Amazon S3, configure Amazon S3 Access Grants._ For more
    information about S3 Access Grants, see [Configure Amazon S3 Access Grants for Transfer Family web apps](webapp-access-grant.md "webapp-access-grant.md").
+
    - Create an S3 Access Grants instance if you don't already have one in
      that AWS Region.
    - Register your location using the IAM role.
    - Create the access grant.
 
 3. _In Transfer Family, perform the following tasks._
+
    1. Create the Transfer Family web app. For more information about how to create the
       Transfer Family web app, see [Configure a Transfer Family web app](webapp-configure.md "webapp-configure.md").
 

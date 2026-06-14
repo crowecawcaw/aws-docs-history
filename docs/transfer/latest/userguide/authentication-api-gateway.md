@@ -427,13 +427,13 @@ RequestParameters:
 3. From the details panel, choose the **Template**
    tab.
 4. Look for the following:
+
    - Search for `RequestTemplates`, and make sure you have
      this line:
 
    ```
    "password": "$util.escapeJavaScript($util.base64Decode($input.params('PasswordBase64'))).replaceAll("\\'","'")",
    ```
-
    - Search for `RequestParameters`, and make sure you have
      this line:
 

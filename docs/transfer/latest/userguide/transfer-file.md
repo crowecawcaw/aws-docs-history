@@ -25,6 +25,7 @@ File Transfer Protocol (SFTP).
 - For idle connections, the timeout value is 1800 seconds (30 minutes) for all
   protocols (SFTP/FTP/FTPS). If there is no activity after this period, the client may
   be disconnected. For unresponsive connections:
+
   - SFTP has a 300 seconds (5 minutes) timeout when a client is completely
     unresponsive.
   - FTPS and FTP have an approximately 10 minute unresponsive timeout that is

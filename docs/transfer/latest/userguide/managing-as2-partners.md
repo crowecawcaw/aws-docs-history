@@ -28,6 +28,7 @@ The following points detail how AS2 certificates are used during the
 process.
 
 - Inbound AS2
+
   - The trading partner sends their public key for the signing
     certificate, and this key is imported to the partner profile.
   - The local party sends the public key for their encryption and
@@ -37,6 +38,7 @@ process.
     purposes.
 
 - Outbound AS2
+
   - The partner sends the public key for their encryption certificate,
     and this key is imported to the partner profile.
   - The local party sends the public key for the certificate for

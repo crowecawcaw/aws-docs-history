@@ -158,8 +158,10 @@ about working with custom identity providers, see [Working with custom identity 
     7. Choose **Next**.
 
 6.  In **Configure additional details**, do the following:
+
     1. For **CloudWatch logging**, choose one of the following to
        enable Amazon CloudWatch logging of your user activity:
+
        - **Create a new role** to allow Transfer Family to
          automatically create the IAM role, as long as you have the
          right permissions to create a new role. The IAM role that is
@@ -179,7 +181,6 @@ about working with custom identity providers, see [Working with custom identity 
         * If you don't want to set up a CloudWatch logging role,
          select **Choose an existing role**, but
          don't select a logging role.
-
     2. For **Cryptographic algorithm options**, choose a
        security policy that contains the cryptographic algorithms enabled for
        use by your server.
@@ -198,6 +199,7 @@ about working with custom identity providers, see [Working with custom identity 
     pairs, and then choose **Add tag**. 5. Choose **Next**.
 
 7.  In **Review and create**, review your choices. If you:
+
     - Want to edit any of them, choose **Edit** next to the
       step.
 
@@ -366,8 +368,10 @@ about working with custom identity providers, see [Working with custom identity 
     8. Choose **Next**.
 
 6.  In **Configure additional details**, do the following:
+
     1. For **CloudWatch logging**, choose one of the following to
        enable Amazon CloudWatch logging of your user activity:
+
        - **Create a new role** to allow Transfer Family to
          automatically create the IAM role, as long as you have the
          right permissions to create a new role. The IAM role that is
@@ -387,7 +391,6 @@ about working with custom identity providers, see [Working with custom identity 
         * If you don't want to set up a CloudWatch logging role,
          select **Choose an existing role**, but
          don't select a logging role.
-
     2. For **Cryptographic algorithm options**, choose a
        security policy that contains the cryptographic algorithms enabled for
        use by your server.
@@ -410,6 +413,7 @@ about working with custom identity providers, see [Working with custom identity 
     ![The Managed workflows console section.](images/workflows-addtoserver.png)
 
 7.  In **Review and create**, review your choices. If you:
+
     - Want to edit any of them, choose **Edit** next to the
       step.
 

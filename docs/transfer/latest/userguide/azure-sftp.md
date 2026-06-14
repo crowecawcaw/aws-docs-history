@@ -119,6 +119,7 @@ After you verify the connection is active, you can continue below.
 4. Select a directory size, select **Next**, then select your
    VPC and Subnets.
 5. Select **Next**, then fill in the fields as follows:
+
    - **Directory DNS name**: enter the domain name you are
      using for your Entra DS.
    - **DNS IP addresses**: enter your Entra DS IP

@@ -26,10 +26,12 @@ Solution
 ###### To resolve issues with missing or incomplete CloudWatch metrics:
 
 1. Ensure that logging is properly configured for your Transfer Familyserver:
+
    - In the Transfer Family console, check that logging is enabled under **Server details > Additional details > Logging role**.
    - Very that the logging role has the necessary permissions and trust relationships.
 
 2. When viewing metrics in the CloudWatch console:
+
    - Use the correct dimensions, for example **ServerId** for server-level metrics
    - Adjust the time range to ensure it covers periods of activity
    - Check that you're in the correct AWS Region
@@ -70,6 +72,7 @@ To troubleshoot missing EventBridge events:
 ```
 
 2. Check that your event target has the necessary permissions:
+
    - For Lambda targets, ensure the Lambda function's resource policy
      allows EventBridge to invoke it
    - For SQS targets, verify the queue policy allows EventBridge to send
@@ -78,6 +81,7 @@ To troubleshoot missing EventBridge events:
      to it
 
 3. Test your rule by generating sample events:
+
    - Use the EventBridge console to create a test event that matches your
      pattern
    - Perform actions on your Transfer Family server that should generate

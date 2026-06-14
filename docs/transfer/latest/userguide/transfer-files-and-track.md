@@ -22,12 +22,14 @@ To enable concurrent connections for any connector, you can edit the **Maximum c
 For details, see [Create an SFTP connector with service-managed egress](create-sftp-connector-procedure.md "create-sftp-connector-procedure.md").
 
 - **Outbound transfers**
+
   - `send-file-paths` contains from one to ten source file
     paths, for files to transfer to the partner's SFTP server.
   - `remote-directory-path` is the remote path to send a
     file to on the customer's SFTP server.
 
 - **Inbound transfers**
+
   - `retrieve-file-paths` contains from one to ten remote
     paths. Each path specifies a location for transferring files from
     the partner's SFTP server to your Transfer Family server.

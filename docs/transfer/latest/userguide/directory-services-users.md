@@ -166,6 +166,7 @@ This section describes how to set up an AWS Directory using an AD Connector
 4. Select a directory size, select **Next**, then select your
    VPC and Subnets.
 5. Select **Next**, then fill in the fields as follows:
+
    - **Directory DNS name**: enter the domain name you are
      using for your Microsoft Active Directory.
    - **DNS IP addresses**: enter you Microsoft Active
@@ -324,6 +325,7 @@ Directory:
 - One-way forest trust (outgoing from AWS Managed Microsoft AD and incoming for on-premises
   Active Directory) works only for the root domain.
 - For child domains, you can use either of the following:
+
   - Use two-way trust between AWS Managed Microsoft AD and on-premises Active
     Directory
   - Use one-way external trust to each child domain.

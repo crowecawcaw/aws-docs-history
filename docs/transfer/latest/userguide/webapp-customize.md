@@ -28,9 +28,11 @@ these guidelines:
 
 1. Create a CloudFront distribution by using the Transfer Family supplied AWS CloudFormation template,
    [CloudFormation stack template](https://s3.amazonaws.com/aws-transfer-resources/custom-domain-templates/aws-transfer-web-app-custom-domain-distribution.template.yml "https://s3.amazonaws.com/aws-transfer-resources/custom-domain-templates/aws-transfer-web-app-custom-domain-distribution.template.yml").
+
    1. Open the CloudFormation console at [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Choose **Create stack** and specify the
       following.
+
       - In the **Prerequisite - Prepare template**
         section, choose **Choose an existing
         template**.
@@ -41,6 +43,7 @@ these guidelines:
 
    3. Choose **Next** and provide the following
       information.
+
       - **WebAppEndpoint**: copy the value from your
         web app
       - **AccessEndpoint**: provide the custom domain

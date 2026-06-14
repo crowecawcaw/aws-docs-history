@@ -154,6 +154,7 @@ run this command instead of the two previous commands:
 
 5. Next, you must create a `signing-cert.conf` file and an
    `encryption-cert.conf` file.
+
    - Use a text editor to create the
      `signing-cert.conf` file with the following
      contents:
@@ -162,7 +163,6 @@ run this command instead of the two previous commands:
    authorityKeyIdentifier=keyid,issuer
    keyUsage = digitalSignature, nonRepudiation
    ```
-
    - Use a text editor to create the
      `encryption-cert.conf` file with the
      following contents:

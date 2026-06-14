@@ -35,6 +35,7 @@ To resolve false positive issues:
    traffic](../../../waf/latest/developerguide/logging.md "../../../waf/latest/developerguide/logging.md").
 2. Review your logs to identify patterns in the blocked requests.
 3. Adjust your rules by:
+
    - Adding IP addresses or ranges to an allowlist
    - Increasing rate limits for rate-based rules
    - Setting specific rules to Count mode instead of Block mode to

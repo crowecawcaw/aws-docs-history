@@ -122,6 +122,7 @@ Console
      different account](../../../secretsmanager/latest/userguide/auth-and-access_examples_cross.md "../../../secretsmanager/latest/userguide/auth-and-access_examples_cross.md").
 
 5. Complete the connector configuration:
+
    - (Optional) For the **Logging role**, choose
      the IAM role for the connector to use to push events to your
      CloudWatch logs. The following example policy lists the necessary
@@ -249,6 +250,7 @@ information.
 for example `sftp://AnyCompany.com`.
 - The access role. Choose the Amazon Resource Name (ARN) of the
   AWS Identity and Access Management (IAM) role to use.
+
   - **Make sure that this role provides
     read and write access** to the parent directory of the file location
     that's used in the `StartFileTransfer` request.
@@ -263,7 +265,6 @@ for example `sftp://AnyCompany.com`.
   ```
   arn:aws:secretsmanager:`region`:`account-id`:secret:aws/transfer/`SecretName-6RandomCharacters`
   ```
-
   - **Make sure this role contains a trust relationship** that allows the connector to
     access your resources when servicing your users' transfer requests. For
     details on establishing a trust relationship, see [To establish a trust relationship](requirements-roles.md#establish-trust-transfer "requirements-roles.md#establish-trust-transfer").

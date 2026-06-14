@@ -41,6 +41,7 @@ To enable Amazon S3 data events for your Transfer Family web app:
    **Edit**.
 4. Choose **Add advanced event selector**.
 5. For the first field selector:
+
    - Set **Field** to `eventCategory`
    - Set **Operator** to
      **Equals**
@@ -48,6 +49,7 @@ To enable Amazon S3 data events for your Transfer Family web app:
 
 6. Choose **Add field** and for the second field
    selector:
+
    - Set **Field** to `resources.type`
    - Set **Operator** to
      **Equals**
@@ -55,6 +57,7 @@ To enable Amazon S3 data events for your Transfer Family web app:
 
 7. (Optional) To log events for specific buckets only, choose **Add
    field** and add:
+
    - Set **Field** to `resources.ARN`
    - Set **Operator** to **Starts
      with**
@@ -92,6 +95,7 @@ The fastest way to view recent events:
 1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
 2. Choose **Event history**.
 3. Filter events by:
+
    - **Event source**:
      `signin.amazonaws.com` for web app events
    - **Event source**:
@@ -455,6 +459,7 @@ entries:
 1. Open the CloudTrail console at [https://console.aws.amazon.com/cloudtrail/](https://console.aws.amazon.com/cloudtrail/ "https://console.aws.amazon.com/cloudtrail/").
 2. In the navigation pane, choose **Event history**.
 3. Use the filter options to narrow down the events:
+
    - Set **Event source** to
      `transfer.amazonaws.com` to view only Transfer Family
      events.

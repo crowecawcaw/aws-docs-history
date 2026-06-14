@@ -29,6 +29,7 @@ managed" and "VPC Lattice".
 - **VPC Lattice**: The connector routes traffic
   through your VPC environment using Amazon VPC Lattice. Use VPC connectivity for
   SFTP connectors in these scenarios:
+
   - **Private SFTP servers**: Connect to
     SFTP servers that are only accessible from your VPC
   - **On-premises connectivity**: Connect

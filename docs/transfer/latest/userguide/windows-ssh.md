@@ -13,18 +13,17 @@ section:
 1. Open Windows PowerShell or Command Prompt.
 2. Run one of the following commands based on the type of key you want to
    generate:
+
    - To generate an RSA 4096-bit key pair:
 
    ```
    ssh-keygen -t rsa -b 4096 -f `key_name`
    ```
-
    - To generate an ECDSA 521-bit key-pair:
 
    ```
    ssh-keygen -t ecdsa -b 521 -f `key_name`
    ```
-
    - To generate an ED25519 key pair:
 
    ```

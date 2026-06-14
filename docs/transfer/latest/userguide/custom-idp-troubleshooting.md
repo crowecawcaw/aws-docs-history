@@ -39,6 +39,7 @@ Solution
 To troubleshoot API Gateway integration errors:
 
 1. Check your Lambda function logs for detailed error information:
+
    - In the CloudWatch console, navigate to **Log groups** >
      **/aws/lambda/your-function-name**
    - Look for error messages or stack traces that indicate the root
@@ -55,6 +56,7 @@ To troubleshoot API Gateway integration errors:
 ```
 
 3. Enable detailed CloudWatch logging for API Gateway:
+
    - In the API Gateway console, select your API and choose
      **Stages**
    - Select your stage and under **Logs/Tracing**,
@@ -71,6 +73,7 @@ curl -X POST https://your-api-id.execute-api.region.amazonaws.com/prod/servers/y
 ```
 
 5. Verify permissions between API Gateway and Lambda:
+
    - Ensure API Gateway has permission to invoke your Lambda
      function
    - Check that the execution role for your Lambda function has
@@ -96,6 +99,7 @@ Solution
 To resolve Lambda timeout issues:
 
 1. Increase the Lambda function timeout:
+
    - In the Lambda console, navigate to your function and select the
      **Configuration** tab
    - Under **General configuration**, click
@@ -104,6 +108,7 @@ To resolve Lambda timeout issues:
      authentication functions)
 
 2. Optimize your Lambda function code:
+
    - Use connection pooling for database queries
    - Implement caching for frequently accessed data
    - Minimize external API calls during authentication

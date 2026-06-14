@@ -77,7 +77,7 @@ You can change the server's properties on this page by choosing
 
 ![The server details console page for the server, showing the Endpoint details parameter.](images/edit-server-details-top.png)
 ![The server details console page for a server, showing the list of service-managed users.](images/edit-server-details-endpoints.png)
-![The server details console page for a server, showing the Agreements details.](images/edit-server-details-users.png)
+![The server details console page for a server, showing the Agreements details.](/images/transfer/latest/userguide/images/edit-server-details-users.png)
 ![The server details console page, showing the Server host keys for a server.](images/edit-server-details-agreements.png)
 ![The server details console page, showing the Server host keys for a server.](images/edit-server-details-hostkeys.png)
 
@@ -116,6 +116,7 @@ transfer protocol connects the client to your server's endpoint.
 2. On the **Edit protocols** page, select or clear the
    protocol check box or check boxes to add or remove the following file
    transfer protocols:
+
    - Secure Shell (SSH) File Transfer Protocol (SFTP) – file
      transfer over SSH
 
@@ -184,6 +185,7 @@ information.
     stop the server. Then, on the **Edit endpoint
     configuration** page, for **Endpoint type**,
     you can choose either of the following values:
+
     - **Public** – This option makes your server
       accessible over the internet.
     - **VPC** – This option makes your server

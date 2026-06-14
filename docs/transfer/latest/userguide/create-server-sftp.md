@@ -31,6 +31,7 @@ See also
 3.  In **Choose an identity provider**, choose the identity
     provider that you want to use to manage user access. You have the following
     options:
+
     - **Service managed** – You store user
       identities and keys in AWS Transfer Family.
     - **AWS Directory Service for Microsoft Active Directory** – You provide an
@@ -44,9 +45,9 @@ See also
         + Cross-Account and Shared directories are not supported for AWS Managed Microsoft AD.
         + To set up a server with Directory Service as your identity provider, you need to add some Directory Service permissions.
          For details, see [Before you start using AWS Directory Service for Microsoft Active Directory](directory-services-users.md#managed-ad-prereq "directory-services-users.md#managed-ad-prereq").
-
     - **Custom identity provider** – Choose
       either of the following options:
+
       - **Use AWS Lambda to connect your identity provider** – You can use an existing identity provider, backed by a Lambda function. You provide
         the name of the Lambda function. For more information, see [Using AWS Lambda to integrate your identity provider](custom-lambda-idp.md "custom-lambda-idp.md").
       - **Use Amazon API Gateway to connect your identity provider** – You can create an API Gateway method backed by a Lambda function for use as an identity provider.
@@ -56,6 +57,7 @@ See also
 
 4.  Choose **Next**.
 5.  In **Choose an endpoint**, do the following:
+
     1. For **Endpoint type**, choose the
        **Publicly accessible** endpoint type. For a
        **VPC hosted** endpoint, see [Create a server in a virtual private cloud](create-server-in-vpc.md "create-server-in-vpc.md").
@@ -104,6 +106,7 @@ See also
 
 7.  In **Configure additional details**, do the
     following:
+
     1. For logging, specify an existing log group or create a new one
        (the default option). If you choose an existing log group, you must
        select one that is associated with your AWS account.

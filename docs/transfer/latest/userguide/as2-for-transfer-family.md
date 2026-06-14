@@ -89,6 +89,7 @@ requirements:
 
 1. Download the template from the S3 URL.
 2. Modify the YAML code to adjust configurations such as:
+
    - Security settings and certificate configurations
    - Network architecture and VPC settings
    - Storage options and file handling

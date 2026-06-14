@@ -34,6 +34,7 @@ or group ID ready, as you need them to complete setting up your access grant.
    Grants**.
 4. Choose **Create S3 Access Grants instance** and provide the
    following information.
+
    - Select **Add IAM Identity Center instance in
      `your-Region`** where
      `your-Region` is your AWS Region. Keep

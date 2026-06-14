@@ -6,14 +6,18 @@ either Amazon S3 or Amazon EFS as storage for your Transfer Family servers.
 ###### Contents
 
 - [Configure an Amazon S3 bucket](configure-storage.md#requirements-S3 "configure-storage.md#requirements-S3")
+
   - [Amazon S3 access points](configure-storage.md#access-points "configure-storage.md#access-points")
   - [Amazon S3 HeadObject behavior](configure-storage.md#head-object-behavior "configure-storage.md#head-object-behavior")
+
     - [Grant ability to only write and list files](configure-storage.md#headobject-access-denied "configure-storage.md#headobject-access-denied")
     - [Large number of zero-byte objects causing latency issues](configure-storage.md#headobject-latency "configure-storage.md#headobject-latency")
 
 - [Configure an Amazon EFS file system](configure-storage.md#requirements-efs "configure-storage.md#requirements-efs")
+
   - [Amazon EFS file ownership](configure-storage.md#efs-file-ownership "configure-storage.md#efs-file-ownership")
   - [Set up Amazon EFS users for Transfer Family](configure-storage.md#configure-efs-users-permissions "configure-storage.md#configure-efs-users-permissions")
+
     - [Configure Transfer Family users on Amazon EFS](configure-storage.md#set-up-efs-home-folders "configure-storage.md#set-up-efs-home-folders")
     - [Create an Amazon EFS root user](configure-storage.md#create-root-user-efs "configure-storage.md#create-root-user-efs")
 

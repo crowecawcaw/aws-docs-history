@@ -36,6 +36,7 @@ To resolve Terraform deployment issues:
 
 - Ensure your Terraform configuration uses compatible parameter
   combinations:
+
   - For public endpoints, ensure you're using Amazon S3 for storage.
   - For VPC endpoints, verify proper VPC and security group
     configuration.

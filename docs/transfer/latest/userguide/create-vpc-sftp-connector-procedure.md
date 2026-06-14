@@ -56,6 +56,7 @@ service network.
    Configuration that represents the target SFTP server using the VPC Lattice
    `create-resource-configuration` command. You can specify
    either:
+
    - A private IP address for private endpoints
    - A public DNS name for public endpoints (IP addresses are not supported
      for public endpoints)
@@ -235,6 +236,7 @@ User Guide. 4. Complete the connector configuration:
 
 5. In the **SFTP Configuration** section, provide
    the following information:
+
    - For **Connector credentials**, choose the
      name of a secret in AWS Secrets Manager that contains the SFTP user's
      private key or password.

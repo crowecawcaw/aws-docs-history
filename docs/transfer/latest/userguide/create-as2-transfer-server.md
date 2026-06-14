@@ -169,6 +169,7 @@ Before using this template, note the following:
 6. Choose **Next**.
 7. On the **Specify stack details** page, name your stack, and
    then specify the following parameters:
+
    - Under **AS2**, enter values for **Local AS2
      ID** and **Partner AS2 ID**, or accept the
      defaults, `local` and `partner`, respectively.

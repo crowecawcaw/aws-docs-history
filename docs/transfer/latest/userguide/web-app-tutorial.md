@@ -201,6 +201,7 @@ Guide_.
 4. Select the **Locations** tab, then choose **Register
    location**.
 5. Provide the following information.
+
    - For the **Scope**, browse for a bucket or enter the
      name of your bucket, and optionally a prefix. Note that the scope begins
      with the string `s3://`.

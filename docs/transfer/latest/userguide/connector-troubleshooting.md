@@ -90,10 +90,12 @@ To address SFTP connector issues, try the following solutions:
    example, create a function that automatically retries failed operations with
    increasing wait times between attempts.
 2. Implement rate limiting in your application:
+
    - Limit the number of concurrent transfers.
    - Add delays between batches of transfers.
 
 3. Monitor your usage against service quotas:
+
    - Use CloudWatch metrics to track API usage.
    - Set up alarms to notify you when approaching quota limits.
 
@@ -119,6 +121,7 @@ Solution
 To optimize SFTP connector performance:
 
 - Configure your remote SFTP server for optimal performance:
+
   - Increase maximum sessions and transfers per session
   - Optimize TCP window sizes for high-latency connections
   - Use compression if supported by both ends
@@ -126,6 +129,7 @@ To optimize SFTP connector performance:
 - Consider network optimization, by placing your Transfer Family connector in a region
   close to your remote SFTP server.
 - Implement a monitoring strategy to identify performance bottlenecks:
+
   - Monitor network throughput and latency
   - Analyze logs for patterns in slow transfers
 

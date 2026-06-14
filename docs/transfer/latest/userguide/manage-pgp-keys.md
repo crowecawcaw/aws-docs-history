@@ -30,6 +30,7 @@ You can store a maximum of 3 PGP private keys, per Transfer Family server, per u
 
 1. Depending on the version of GPG that you are using, run one of the following
    commands to generate a PGP key pair.
+
    - If you are using `GnuPG` version 2.3.0 or newer,
      run the following command:
 

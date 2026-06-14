@@ -198,6 +198,7 @@ procedure (in step 6).
    type**, choose **Other type of secret**.
 5. In the **Key/value pairs** section, choose the
    **Key/value** tab.
+
    - **Key** — Enter
      `Username`.
    - **value** — Enter the name of our user,
@@ -205,6 +206,7 @@ procedure (in step 6).
 
 6. To enter the key, we recommend that you use the
    **Plaintext** tab.
+
    1. Choose **Add row**, then enter
       `PrivateKey`.
    2. Choose the **Plaintext** tab. The field now
@@ -213,7 +215,6 @@ procedure (in step 6).
    ```
    {"Username":"sftp-testuser","PrivateKey":""}
    ```
-
    3. Paste in the text for your private key (saved earlier) between the
       empty double quotes ("").
 
@@ -302,6 +303,7 @@ created earlier. For more details, see [Creating SFTP connectors](configure-sftp
 2. In the left navigation pane, choose **SFTP Connectors**, then
    choose **Create SFTP connector**.
 3. For **Egress type**, choose one of the following:
+
    - **Service managed** (default): Uses AWS Transfer
      Family managed infrastructure with static IP addresses for outbound
      connections.
@@ -634,6 +636,7 @@ Follow the procedure described in [Create an SFTP-enabled server](create-server-
 user. These are the user details that we are using for the tutorial:
 
 - Create your service-managed user, `sftp-testuser`.
+
   - Set the home directory to
     `/sftp-server-storage-east/sftp-testuser`
   - When you create the user, you store a public key. Later, when you

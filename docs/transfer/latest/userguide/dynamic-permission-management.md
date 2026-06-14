@@ -217,8 +217,10 @@ actual Amazon S3 bucket):
 ```
 
 3. Configure each user with:
+
    - The shared IAM role
    - The session policy applied as follows:
+
      - _Service-managed users_: Use the API or
        CLI to apply the JSON via the Policy parameter when creating
        or modifying users (the console only offers predefined

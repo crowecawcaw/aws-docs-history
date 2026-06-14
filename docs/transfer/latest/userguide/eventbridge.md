@@ -156,6 +156,7 @@ your desired Transfer Family events.
     pattern form**.
 7.  In the **Event pattern** section, provide the following
     information.
+
     1. For **Event source**, choose **AWS
        services**.
     2. For **AWS service**, choose

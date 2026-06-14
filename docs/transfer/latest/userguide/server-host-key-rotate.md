@@ -11,6 +11,7 @@ one newer key.
 
 - An SFTP client has no prior public host key for the server. The first time
   the client connects to the server, either of the following occurs:
+
   - The client fails the connection, if it is configured to do
     so.
   - Or, the client chooses the first key that matches the possible

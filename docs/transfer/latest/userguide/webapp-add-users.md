@@ -51,6 +51,7 @@ users, skip ahead to step 4.
 
 4. To create a new user, select **Add and assign new
    users**.
+
    1. An information screen appears. Choose **Get
       started** to continue.
    2. Choose **Add new users**.

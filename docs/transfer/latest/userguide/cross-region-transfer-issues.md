@@ -113,6 +113,7 @@ aws s3 cp --source-region us-east-1 --region us-west-2 \
 ```
 
 - For multiple small files, batch them together before transfer:
+
   - Use compression to combine multiple files
   - Use Amazon S3 batch operations for large-scale transfers
 

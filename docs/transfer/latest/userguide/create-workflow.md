@@ -23,6 +23,7 @@ A workflow has two kinds of steps:
    description appears on the **Workflows** page.
 5. In the **Nominal steps** section, choose **Add
    step**. Add one or more steps.
+
    1. Choose a step type from the available options. For more information
       about the various step types, see [Use predefined steps](nominal-steps-workflow.md "nominal-steps-workflow.md").
    2. Choose **Next**, then configure parameters for the
@@ -63,6 +64,7 @@ Before you can run a workflow, you need to associate it with a Transfer Family s
 
 1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
 2. In the left navigation pane, choose **Servers**.
+
    - To add the workflow to an existing server, choose the server that
      you want to use for your workflow.
    - Alternatively, create a new server and add the workflow to it. For

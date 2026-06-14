@@ -139,6 +139,7 @@ JSON
 ```
 
 3. Replace the following items with your actual values.
+
    - Replace
      `workflow-execution-role-arn`
      with the ARN for an actual workflow execution role. For example,

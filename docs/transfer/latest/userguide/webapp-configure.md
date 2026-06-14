@@ -40,6 +40,7 @@ For authentication access, the pane is populated as follows.
 4. For **Endpoint type**, choose the **Publicly accessible** endpoint type. For a **VPC hosted** endpoint, see [Create a Transfer Family web app in a VPC](create-webapp-in-vpc.md "create-webapp-in-vpc.md").
 5. In the **Permission type** pane, you can use a previously
    created role, or have the service create one for you.
+
    - If you have already created an identity bearer role, choose
      **Use an existing role** and choose your role
      from the **Select an existing role** menu.

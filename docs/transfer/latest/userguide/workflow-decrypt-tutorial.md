@@ -89,6 +89,7 @@ Now you need to create a workflow that contains a decrypt step.
 2.  In the left navigation pane, choose **Workflows**, and then
     choose **Create workflow**.
 3.  Enter the following details:
+
     - Enter a description, for example `Decrypt workflow
 example`.
     - In the **Nominal steps** section, choose
@@ -154,6 +155,7 @@ the server and trigger the workflow to run.
 4. On the **Edit additional details** page, in the
    **Managed workflows** section, choose your workflow, and
    choose a corresponding execution role.
+
    - For **Workflow for complete file uploads**, choose
      the workflow that you created in [Step 2: Create a managed workflow](#create-example-workflow "#create-example-workflow"), for example,
      `w-1234abcd5678efghi`.
@@ -174,6 +176,7 @@ you use to store your PGP keys is based in part on the server ID.
 3. On the server details page, scroll down to the **Users**
    section, and choose **Add user**.
 4. For your new user, enter the following details:
+
    - For **Username**, enter
      `decrypt-user`.
    - For **Role**, choose a user role that can access your
@@ -246,6 +249,7 @@ pricing, see [AWS Secrets Manager Pricing](https://aws.amazon.com/secrets-manage
    type**, choose **Other type of secret**.
 5. In the **Key/value pairs** section, choose the
    **Key/value** tab.
+
    - **Key** – Enter
      `PGPPrivateKey`.
    - **value** – Paste the text of your private key
@@ -254,6 +258,7 @@ pricing, see [AWS Secrets Manager Pricing](https://aws.amazon.com/secrets-manage
 6. Choose **Add row**, and in the **Key/value
    pairs** section, choose the **Key/value**
    tab.
+
    - **Key** – Enter
      `PGPPassphrase`.
    - **value** – Enter the passphrase that you used
@@ -265,6 +270,7 @@ pricing, see [AWS Secrets Manager Pricing](https://aws.amazon.com/secrets-manage
    that can be used by all users. If your server ID is
    `s-11112222333344445`, you name
    the secret as follows.
+
    - To create a default secret for all users, name the secret
      `aws/transfer/`s-11112222333344445`/@pgp-default`.
    - To create a secret only for the user that you created earlier, name

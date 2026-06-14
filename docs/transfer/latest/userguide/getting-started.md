@@ -80,6 +80,7 @@ such as financial services, healthcare, retail, and advertising.
    **Service managed** to store user identities and keys
    in Transfer Family, and then choose **Next**.
 4. In **Choose an endpoint**, do the following:
+
    1. For **Endpoint type**, choose the
       **Publicly accessible** endpoint type.
    2. For **Custom hostname**, choose

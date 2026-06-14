@@ -177,6 +177,7 @@ Resources:
 ###### To update the endpoint type of Transfer Family servers deployed using CloudFormation
 
 1. Stop the server that you want to update using the following steps.
+
    1. Open the AWS Transfer Family console at [https://console.aws.amazon.com/transfer/](https://console.aws.amazon.com/transfer/ "https://console.aws.amazon.com/transfer/").
    2. In the navigation pane, choose
       **Servers**.
@@ -201,6 +202,7 @@ Resources:
    change.
 
 2. Update the CloudFormation stack
+
    1. Open the CloudFormation console at
       [https://console.aws.amazon.com/cloudformation](https://console.aws.amazon.com/cloudformation/ "https://console.aws.amazon.com/cloudformation/").
    2. Choose the stack used to create the Transfer Family server.

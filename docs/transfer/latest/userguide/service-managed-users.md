@@ -133,6 +133,7 @@ to represent file ownership.
     user** page.
 4.  In the **User configuration** section, use the following
     settings.
+
     1.  The **Username**, must be a minimum of 3 and a
         maximum of 100 characters. You can use the following characters in
         the username: a–z, A-Z, 0–9, underscore '\_', hyphen
@@ -140,6 +141,7 @@ to represent file ownership.
         a hyphen '-', period '.', or at sign "@".
     2.  For **User ID** and **Group
         ID**, note the following:
+
         - For the first user that you create, we recommend that you
           enter a value of `0` for both
           **Group ID** and **User
@@ -175,12 +177,14 @@ to represent file ownership.
         For more information, see the blog post [AWS Transfer Family support for Amazon Elastic File System](https://aws.amazon.com/blogs/aws/new-aws-transfer-family-support-for-amazon-elastic-file-system/ "https://aws.amazon.com/blogs/aws/new-aws-transfer-family-support-for-amazon-elastic-file-system/").
 
     5.  For **Home directory**, do the following:
+
         - Choose the Amazon EFS file system that you want to use for
           storing the data to transfer using AWS Transfer Family.
         - Decide whether to set the home directory to
           **Restricted**. Setting the home
           directory to **Restricted** has the
           following effects:
+
           - Amazon EFS users can't access any files or directories
             outside of that folder.
           - Amazon EFS users can't see the Amazon EFS file system name

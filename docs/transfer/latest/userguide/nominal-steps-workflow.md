@@ -233,6 +233,7 @@ the workflow.
 - **Destination for decrypted files** – Choose
   an Amazon S3 bucket or an Amazon EFS file system as the destination for the
   decrypted file.
+
   - If you choose Amazon S3, you must provide a destination bucket name
     and a destination key prefix. To parameterize the destination
     key prefix by username, enter
@@ -254,6 +255,7 @@ run this workflow.
 - **Overwrite existing** – If you upload a file,
   and a file with the same filename already exists at the destination, the
   behavior depends on the setting for this parameter:
+
   - If **Overwrite existing** is selected, the existing file is replaced with the file being processed.
   - If **Overwrite existing** is not selected,
     nothing happens, and the workflow processing stops.
@@ -405,6 +407,7 @@ Console
    description. This description appears on the
    **Workflows** page.
 5. Add the first step (copy).
+
    1. In the **Nominal steps** section,
       choose **Add step**.
    2. Choose **Copy file**, then choose
@@ -417,6 +420,7 @@ Console
    step and continue.
 
 6. Add the second step (tag).
+
    1. In the **Nominal steps** section,
       choose **Add step**.
    2. Choose **Tag file**, then choose
@@ -433,6 +437,7 @@ Console
    step and continue.
 
 7. Add the third step (delete).
+
    1. In the **Nominal steps** section,
       choose **Add step**.
    2. Choose **Delete file**, then choose

@@ -19,8 +19,10 @@ pricing, see [AWS Secrets Manager Pricing](https://aws.amazon.com/secrets-manage
     type**, choose **Other type of secret**.
 5.  Provide the key/value information for your secret: you need to provide the
     username, and either a private key or a password.
+
     1.  In the **Key/value pairs** section, choose the
         **Key/value** tab.
+
         - **Key** – Enter
           `Username`.
         - **value** – Enter the name of the

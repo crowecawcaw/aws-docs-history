@@ -33,10 +33,12 @@ Cryptography](https://aws.amazon.com/security/post-quantum-cryptography/ "https:
 
 - [About post-quantum hybrid key exchange in SSH](post-quantum-security-policies.md#pq-about-key-exchange "post-quantum-security-policies.md#pq-about-key-exchange")
 - [How post-quantum hybrid key establishment works in Transfer Family](post-quantum-security-policies.md#pqtls-details "post-quantum-security-policies.md#pqtls-details")
+
   - [Why ML-KEM?](post-quantum-security-policies.md#why-mlkem "post-quantum-security-policies.md#why-mlkem")
   - [Post-quantum hybrid SSH key exchange and cryptographic requirements (FIPS 140)](post-quantum-security-policies.md#pq-alignment "post-quantum-security-policies.md#pq-alignment")
 
 - [Testing post-quantum hybrid key exchange in Transfer Family](post-quantum-security-policies.md#pq-policy-testing "post-quantum-security-policies.md#pq-policy-testing")
+
   - [Enable post-quantum hybrid key exchange on your SFTP endpoint](post-quantum-security-policies.md#pq-enable-policy "post-quantum-security-policies.md#pq-enable-policy")
   - [Set up an SFTP client that supports post-quantum hybrid key exchange](post-quantum-security-policies.md#pq-client-openssh "post-quantum-security-policies.md#pq-client-openssh")
   - [Confirm post-quantum hybrid key exchange in SFTP](post-quantum-security-policies.md#pq-verify-exchange "post-quantum-security-policies.md#pq-verify-exchange")

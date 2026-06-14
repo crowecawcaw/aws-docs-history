@@ -18,11 +18,13 @@ AWS WAF to protect your APIs](../../../apigateway/latest/developerguide/apigatew
 5. In the **Stage Editor** pane, choose the
    **Settings** tab.
 6. Do one of the following:
+
    - Under **Web Application Firewall (WAF)**, for
      **Web ACL**, choose the web ACL that you want
      to associate with this stage.
    - If the web ACL you need doesn't exist, you will need to create one
      by doing the following:
+
      1. Choose **Create Web ACL**.
      2. On the AWS WAF service homepage, choose **Create
         web ACL**.

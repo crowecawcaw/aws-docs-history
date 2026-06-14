@@ -38,6 +38,7 @@ console. If you want to use the AWS CLI instead, see [Step 6: Create a connector
    menu, and then choose **Create AS2 connector**.
 3. In the **Connector configuration** section, specify the
    following information:
+
    - **URL** – Enter the URL for outbound
      connections.
    - **IP addressing mode** – Choose
@@ -74,6 +75,7 @@ console. If you want to use the AWS CLI instead, see [Step 6: Create a connector
 4. In the **AS2 configuration** section, choose the local
    and partner profiles, the encryption and signing algorithms, and whether to
    compress the transferred information. Note the following:
+
    - The **Preserve S3 Content-Type** parameter is
      enabled by default.
 
@@ -96,12 +98,14 @@ console. If you want to use the AWS CLI instead, see [Step 6: Create a connector
 
 5. In the **Basic authentication** section, specify the
    following information.
+
    - To send sign-on credentials along with outbound messages, select
      **Enable Basic authentication**. If you
      don't want to send any credentials with outbound messages, keep
      **Enable Basic authentication** cleared.
    - If you're using authentication, choose or create a
      secret.
+
      - To create a new secret, choose **Create a new
        secret** and then enter a username and
        password. These credentials must match the user that
@@ -117,6 +121,7 @@ console. If you want to use the AWS CLI instead, see [Step 6: Create a connector
 
 6. In the **MDN configuration** section, specify the
    following information:
+
    - **Request MDN** – You have the option to
      require your trading partner to send you an MDN after they have
      successfully received your message over AS2.
@@ -230,6 +235,7 @@ Basic authentication is available only if you're using HTTPS.
    type**, choose **Other type of secret**.
 5. In the **Key/value pairs** section, choose the
    **Key/value** tab.
+
    - **Key** – Enter
      `Username`.
    - **value** – Enter the name of the user that is
@@ -251,6 +257,7 @@ tab.
 7. If you want to provide a private key, choose **Add row**, and
    in the **Key/value pairs** section, choose the
    **Key/value** tab.
+
    - **Key** – Enter
      `PrivateKey`.
    - **value** – Enter a private key for the user.

@@ -66,17 +66,20 @@ partners to connect to your AS2 server using either IPv4 or IPv6.
 To set up a dual-stack Application Load Balancer for your AS2 server
 
 1. Create a VPC with the following settings:
+
    - VPC only
    - Manual IPv4 CIDR input
    - Amazon-provided IPv6 CIDR block
 
 2. Create at least two subnets in different Availability Zones:
+
    - Add IPv6 CIDRs to the subnets
    - When creating subnets, allocate only a subset of the VPC's IPv4/IPv6
      addresses to leave addresses available for additional subnets
 
 3. Create an internet gateway for the VPC.
 4. Edit the route table and add two routes:
+
    - One route with _Destination_
      `0.0.0.0/0`
    - One route with _Destination_
@@ -110,12 +113,14 @@ For details on how to create a Transfer Family server that uses the AS2 protocol
     	+ Choose *Include as pending below*
 
 7. Create an Application Load Balancer:
+
    - Enter a name
    - For _Scheme_, choose
      _Internet-facing_
    - For _IP address type_, choose
      _Dualstack_
    - For _Network mapping_:
+
      - Select the VPC you created
      - Select the Availability Zones where you created subnets
 
@@ -123,6 +128,7 @@ For details on how to create a Transfer Family server that uses the AS2 protocol
      allows inbound IPv4 and IPv6 traffic from any IP address on port
      80
    - For _Listeners and routing_:
+
      - Protocol: HTTP
      - Port: 80
      - Default action: Forward to the target group you created
