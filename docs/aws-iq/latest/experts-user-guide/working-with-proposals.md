@@ -36,6 +36,7 @@ up a call to discuss the details.
 5. Choose your **Payment Type** by selecting **Milestone**,
    **Upfront**, or **Schedule**. For more information about
    payment types, see [Working with payment types in AWS IQ](payment-types.md "payment-types.md").
+
    1. If you select **Schedule**, choose a date and amount to charge the
       customer. Choose **Add payment** to enter a new scheduled payment. The total
       amount of this proposal is the sum of all payments.

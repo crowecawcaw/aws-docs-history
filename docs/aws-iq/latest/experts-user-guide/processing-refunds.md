@@ -12,6 +12,7 @@ the refund, or not, at your sole discretion.
 To initiate a refund request, open a ticket with AWS Marketplace Customer Service:
 
 1. Gather the following information:
+
    - The customer's AWS account ID for the account used to post the AWS IQ
      request. You can get this directly from the customer.
    - Accepted
@@ -25,6 +26,7 @@ To initiate a refund request, open a ticket with AWS Marketplace Customer Servic
      amount.
 
 2. Navigate to the Support Console:
+
    1. Choose **Account and billing support**.
    2. From the **Type** dropdown, choose
       **IQ**.
@@ -33,6 +35,7 @@ To initiate a refund request, open a ticket with AWS Marketplace Customer Servic
 
 3. In the subject line, enter **AWS IQ Refund Request**
 4. Provide the following case details:
+
    - Customer AWS account ID
    - Payment Approved Date
    - Payment Request ID

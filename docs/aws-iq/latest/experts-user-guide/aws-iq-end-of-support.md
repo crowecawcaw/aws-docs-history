@@ -16,6 +16,7 @@ You will be able to use AWS IQ until May 28, 2026, with features gradually phasi
 - As of May 20, 2025, AWS IQ is no longer accepting new expert registrations.
 - From May 20, 2025 to August 20, 2025, customers and existing experts will be able to use AWS IQ as normal.
 - From August 20, 2025 to May 28, 2026:
+
   - Experts will be able to create payment and permission requests if there is an ongoing proposal with a customer, however they will not be able to create new proposals.
   - Customers will be able to accept payment and permission requests if there is an ongoing proposal with an expert. Experts and customers will be able to access existing conversations and send messages.
   - Customers will not be able to post new projects, accept new proposals, or connect with new AWS IQ experts through AWS IQ.
@@ -48,6 +49,7 @@ through the AWS Partner Network and other talent marketplaces such as [NerdRabbi
 To create a private offer in AWS Marketplace, complete the following steps.
 
 1. [Create your public profile.](../../../marketplace/latest/userguide/seller-registration-process.md#seller-public-profile "../../../marketplace/latest/userguide/seller-registration-process.md#seller-public-profile") You might need to create a public profile, which is required to sell in AWS Marketplace.
+
    1. To verify that you have a public profile, sign in to the [AWS Marketplace Management Portal](https://aws.amazon.com/marketplace/management/tour/ "https://aws.amazon.com/marketplace/management/tour/"), choose the **Settings** tab, and review the **Public profile** section.
    2. If you don't see a public profile, choose **Add public profile** to provide your company name, website, description, and logo.
 

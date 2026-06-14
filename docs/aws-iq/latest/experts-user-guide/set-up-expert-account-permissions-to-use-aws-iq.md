@@ -44,6 +44,7 @@ Guide_.
    policies directly**.
 5. Choose **`AWSIQFullAccess`** from the list of policy names,
    and then choose **Next: Tags**.
+
    1. _(Optional)_ Add tags and then choose **Next:
       Review**.
 
@@ -115,6 +116,7 @@ JSON
 
 3. To restrict a user from requesting payments and proposals, create a deny policy for the
    following permissions:
+
    - `CreatePaymentRequest` – grants permission to create a payment
      request.
    - `CreateMilestoneProposal` – grants permission to create a milestone
@@ -147,6 +149,7 @@ JSON
 
 4. To restrict a user from sending chat messages, create a deny policy on all resources for
    the following permissions:
+
    - `SendIndividualChatMessage` – grants permission to chat messages as an
      individual.
    - `SendCompanyChatMessage` – grants permission to send chat messages as
