@@ -20,6 +20,7 @@ create a method, see [Set up an API integration request using the API Gateway co
 2. In the **Method request settings** section, choose **Edit**.
 3. For **Authorization**, select an
    available authorizer.
+
    1. To enable open access to the method for any user, select
       **None**. This step can be skipped if the default
       setting has not been changed.
@@ -78,6 +79,7 @@ create a method, see [Set up an API integration request using the API Gateway co
    name as `getPetById`, the SDK operation name becomes
    `GetPetById`.
 7. To add a query string parameter to the method, do the following:
+
    1. Choose **URL Query string
       parameters**, and then choose **Add query
       string**.
@@ -91,6 +93,7 @@ create a method, see [Set up an API integration request using the API Gateway co
       information about caching, see [Use method or integration parameters as cache keys to index cached responses](api-gateway-caching.md#enable-api-gateway-cache-keys "api-gateway-caching.md#enable-api-gateway-cache-keys").To remove the query string parameter, choose **Remove**.
 
 8. To add a header parameter to the method, do the following:
+
    1. Choose **HTTP request headers**, and then choose **Add header**.
    2. For **Name**, enter the name of the header.
    3. Select **Required** if the newly created header is to be used for
@@ -103,6 +106,7 @@ create a method, see [Set up an API integration request using the API Gateway co
 9. To declare the payload format of a method request with the
    `POST`, `PUT`, or `PATCH` HTTP verb,
    choose **Request body**, and do the following:
+
    1. Choose **Add model**.
    2. For **Content-type**, enter a MIME-type (for example, `application/json`).
    3. For **Model**, select a model from the dropdown menu. The currently available

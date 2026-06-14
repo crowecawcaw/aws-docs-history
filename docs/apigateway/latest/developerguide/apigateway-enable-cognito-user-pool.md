@@ -23,6 +23,7 @@ see [Deploy REST APIs in API Gateway](how-to-deploy-api.md "how-to-deploy-api.md
 2. In the main navigation pane, choose **Authorizers**.
 3. Choose **Create authorizer**.
 4. To configure the new authorizer to use a user pool, do the following:
+
    1. For **Authorizer name**, enter a name.
    2. For **Authorizer type**, select **Cognito**.
    3. For **Cognito user pool**, choose the AWS Region where you created your Amazon Cognito
@@ -61,6 +62,7 @@ the integrated user pool.
 3. For **Authorizer**, from the dropdown menu, select the **Amazon Cognito user pool
    authorizers** you just created.
 4. To use an identity token, do the following:
+
    1. Keep **Authorization Scopes** empty.
    2. If needed, in the **Integration request**, add the
       `$context.authorizer.claims['`property-name`']`
@@ -109,6 +111,7 @@ example, the following mapping expressions pass the claim's [standard fields](ht
    ```
 
 5. To use an access token, do the following:
+
    1. For **Authorization Scopes**, enter one or more full names of a
       scope
       that has been configured when the Amazon Cognito user pool was created. For

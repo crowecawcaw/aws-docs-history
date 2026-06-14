@@ -42,6 +42,7 @@ API execution.
 
 - API Gateway dashboard shows the following statistics for a given API
   stage during a specified period of time:
+
   - **API Calls**
   - **Cache Hit**, only when API caching is
     enabled.

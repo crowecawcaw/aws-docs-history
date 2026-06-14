@@ -82,6 +82,7 @@ openssl pkcs8 -topk8 -inform pem -in `MyEncryptedKey.pem` -outform pem -nocrypt 
 ```
 
 2. Upload the certificate to AWS Certificate Manager:
+
    1. Sign in to the [AWS Certificate Manager
       console](https://console.aws.amazon.com/acm "https://console.aws.amazon.com/acm").
    2. Choose **Import a certificate**.
@@ -96,7 +97,6 @@ openssl pkcs8 -topk8 -inform pem -in `MyEncryptedKey.pem` -outform pem -nocrypt 
    az8Cg1aicxLBQ7EaWIhhgEXAMPLE
    -----END CERTIFICATE-----
    ```
-
    4. For **Certificate private key**, enter your
       PEM-formatted certificate's private key. The following shows an
       abbreviated example of such a key.
@@ -109,7 +109,6 @@ openssl pkcs8 -topk8 -inform pem -in `MyEncryptedKey.pem` -outform pem -nocrypt 
    -----END RSA PRIVATE KEY-----
 
    ```
-
    5. For **Certificate chain**, enter the
       PEM-formatted intermediate certificates and, optionally, the root
       certificate, one after the other without any blank lines. If you include
@@ -140,7 +139,6 @@ openssl pkcs8 -topk8 -inform pem -in `MyEncryptedKey.pem` -outform pem -nocrypt 
    `Optional: Root certificate`
    -----END CERTIFICATE-----
    ```
-
    6. Choose **Next**, and then choose **Next**.
 
 After the certificate is successfully created or imported, make note of the

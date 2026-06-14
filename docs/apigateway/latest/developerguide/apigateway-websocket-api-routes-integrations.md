@@ -154,6 +154,7 @@ unique ID of the integration to be associated with the route.
   expression to be evaluated by API Gateway to choose the right item. All of them
   will fall back to the `$default` template if a matching template
   is not found.
+
   - In integration requests, the template selection expression
     supports
     `$request.body.`<json_path_expression>``

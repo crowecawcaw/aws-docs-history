@@ -105,6 +105,7 @@ PetStore website in the backend.
 
 1. On the **Integration request** tab, under **Integration request settings**, choose **Edit**.
 2. Choose **URL query string parameters**, and then do the following:
+
    1. Choose **Add query string parameter**.
    2. For **Name**, enter `type`.
    3. For **Mapped from**, enter `method.request.querystring.type`

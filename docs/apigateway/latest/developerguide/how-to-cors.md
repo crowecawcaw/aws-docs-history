@@ -59,6 +59,7 @@ To create a preflight response:
 
 1. Create an `OPTIONS` method with a mock integration.
 2. Add the following response headers to the 200 method response:
+
    - `Access-Control-Allow-Headers`
    - `Access-Control-Allow-Methods`
    - `Access-Control-Allow-Origin`
@@ -67,6 +68,7 @@ To create a preflight response:
    unmapped content type will be rejected with an HTTP 415 Unsupported Media Type response. For more information, see
    [Method request behavior for payloads without mapping templates for REST APIs in API Gateway](integration-passthrough-behaviors.md "integration-passthrough-behaviors.md").
 4. Enter values for the response headers. To allow all origins, all methods, and common headers, use the following header values:
+
    - `Access-Control-Allow-Headers: 'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'`
    - `Access-Control-Allow-Methods: 'DELETE,GET,HEAD,OPTIONS,PUT,POST,PATCH'`
    - `Access-Control-Allow-Origin: '*'`

@@ -77,6 +77,7 @@ and then returns the function's response to clients.
 
 1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
 2. Do one of the following:
+
    - To create your first API, for **HTTP API**, choose **Build**.
    - If you've created an API before, choose **Create API**, and then choose
      **Build** for **HTTP API**.
@@ -165,6 +166,7 @@ The following are next steps as you continue to work with API Gateway.
 
 - [Configure additional types of API integrations,](http-api-develop-integrations.md "http-api-develop-integrations.md")
   including:
+
   - [HTTP endpoints](http-api-develop-integrations-http.md "http-api-develop-integrations-http.md")
   - [Private resources in a VPC, such as Amazon ECS
     services](http-api-develop-integrations-private.md "http-api-develop-integrations-private.md")

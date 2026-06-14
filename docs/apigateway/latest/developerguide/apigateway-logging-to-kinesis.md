@@ -38,6 +38,7 @@ created a Firehose stream.
 
 1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
 2. Do one of the following:
+
    1. Choose an existing API, and then choose a stage.
    2. Create an API and deploy it to a stage.
 
@@ -45,6 +46,7 @@ created a Firehose stream.
 4. In the **Logs and tracing** section, choose
    **Edit**.
 5. To enable access logging to a Firehose stream:
+
    1. Turn on
       **Custom access logging**.
    2. For **Access log destination ARN**, enter the ARN of a Firehose stream. The ARN

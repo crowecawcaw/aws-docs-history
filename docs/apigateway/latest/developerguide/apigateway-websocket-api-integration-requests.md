@@ -29,6 +29,7 @@ Setting up an integration request involves the following:
    **Integration request** tab, and then in the **Integration request settings** section, choose **Edit**.
 4. For **Integration type**, select one of the
    following:
+
    - Choose **Lambda function** only if your API will
      be integrated with an AWS Lambda function that you have already
      created in this account or in another account.
@@ -49,11 +50,13 @@ Setting up an integration request involves the following:
      information, see [Set up a private integration](set-up-private-integration.md "set-up-private-integration.md").
 
 5. If you chose **Lambda function**, do the following:
+
    1. For **Use Lambda proxy integration**, choose the
       check box if you intend to use [Lambda proxy
       integration](set-up-lambda-proxy-integrations.md#api-gateway-create-api-as-simple-proxy "set-up-lambda-proxy-integrations.md#api-gateway-create-api-as-simple-proxy") or [cross-account Lambda proxy integration](apigateway-cross-account-lambda-integrations.md "apigateway-cross-account-lambda-integrations.md").
    2. For **Lambda function**, specify the function in
       one of the following ways:
+
       - If your Lambda function is in the same account, enter
         the function name and then select the function from
         the dropdown list.
@@ -79,6 +82,7 @@ Setting up an integration request involves the following:
 8. If you chose **AWS service**, follow the instructions
    in step 6 of [Set up an API integration request using the API Gateway console](how-to-method-settings-console.md "how-to-method-settings-console.md").
 9. If you chose **VPC link**, do the following:
+
    1. For **VPC proxy integration**, choose the check
       box if you want your requests to be proxied to your
       `VPCLink`'s endpoint.
@@ -99,6 +103,7 @@ Setting up an integration request involves the following:
 
 10. Choose **Save changes**.
 11. Under **Request templates**, do the following:
+
     1. To enter a **Template selection expression**, under **Request templates**, choose **Edit**.
     2. Enter a **Template selection expression**. Use an expression that API Gateway
        looks for in the message payload. If it is found, it is evaluated,

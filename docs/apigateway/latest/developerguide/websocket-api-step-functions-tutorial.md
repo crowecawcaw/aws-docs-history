@@ -93,6 +93,7 @@ connect to Step Functions after you create your API. 8. Choose **Next**. 9. For 
      `websocket-step`.
 
 10. For **Integration for $disconnect**, do the following:
+
     1.  For **Integration type**, choose **Lambda**.
     2.  For **Lambda function**, choose the corresponding **$disconnect** Lambda
         function that you created with CloudFormation in Step 1. The Lambda function name should start with

@@ -32,6 +32,7 @@ configured to use a JWT authorizer.
    for two hours. As a best practice, when you rotate keys, allow a grace period during which both the old and
    new keys are valid.
 4. Validate claims. API Gateway evaluates the following token claims:
+
    - [`kid`](https://datatracker.ietf.org/doc/html/rfc7517#section-4.5 "https://datatracker.ietf.org/doc/html/rfc7517#section-4.5") – The token must have a header claim that
      matches the key in the `jwks_uri` that signed the token.
    - [`iss`](https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.1 "https://datatracker.ietf.org/doc/html/rfc7519#section-4.1.1") – Must match the [`issuer`](../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers-authorizerid.md#apis-apiid-authorizers-authorizerid-model-jwtconfiguration "../../../apigatewayv2/latest/api-reference/apis-apiid-authorizers-authorizerid.md#apis-apiid-authorizers-authorizerid-model-jwtconfiguration") that is configured for the

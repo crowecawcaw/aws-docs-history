@@ -11,6 +11,7 @@ The following procedure shows how to generate the Android SDK of an API in API G
 5. Open the **Stage actions** menu, and then choose **Generate SDK**.
 6. For
    **Platform**, choose the Android platform and do the following:
+
    1. For **Group ID**, enter the unique identifier
       for the corresponding project. This is used in the
       `pom.xml` file (for example,

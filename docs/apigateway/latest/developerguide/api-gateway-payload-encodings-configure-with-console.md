@@ -8,6 +8,7 @@ information on how to create an API integrated with Amazon S3, see [Tutorial: Cr
 ###### To enable binary support by using the API Gateway console
 
 1. Set binary media types for the API:
+
    1. Create a new API or choose an existing API. For this example, we name
       the API `FileMan`.
    2. Under the selected API in the primary navigation panel, choose
@@ -21,6 +22,7 @@ information on how to create an API integrated with Amazon S3, see [Tutorial: Cr
    6. Choose **Save changes**.
 
 2. Set how message payloads are handled for the API method:
+
    1. Create a new or choose an existing resource in the API. For this
       example, we use the `/{folder}/{item}`
       resource.

@@ -12,6 +12,7 @@ The following procedure shows how to generate the iOS SDK of an API in API Gatew
 6. For
    **Platform**, choose the **iOS (Objective-C) or
    iOS (Swift)** platform and do the following:
+
    1. Type a unique prefix in the **Prefix**
       box.
 

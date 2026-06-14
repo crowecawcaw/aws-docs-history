@@ -53,11 +53,13 @@ The following procedure shows how to create a portal. First, you define your por
 4. Under portal details, for **Portal name**, enter a name.
 5. For **Portal description**, enter a description.
 6. For **Portal authorization**, select how to authorize your portal.
+
    - If this is your first time creating a portal, we recommend that you choose
      **None**. If you plan on adding any production APIs to your portal, use
      **Require authorization**.
    - To require portal consumers to authenticate to use your portal, choose **Require
      authorization**, and do the following:
+
      1. For **Amazon Cognito user pool**, select your user pool.
 
      The user pool must be in the same Region as your portal. 2. For **Application client ID**, choose the app client ID.
@@ -67,11 +69,13 @@ The following procedure shows how to create a portal. First, you define your por
      [Configuring a user pool domain](../../../cognito/latest/developerguide/cognito-user-pools-assign-domain.md "../../../cognito/latest/developerguide/cognito-user-pools-assign-domain.md").
 
 7. For **Domain configuration**, select the domain name for your portal.
+
    - If this is your first time creating a portal, we recommend that you choose
      **Default domain**. Once you publish your portal, it will be
      available at
      `https://p-`portalId`.apigw-portal.`us-east-1`.on.aws`.
    - To provide a custom domain name that you own, select **Custom domain name** and do the following:
+
      1. For **Domain name**, enter a fully qualified domain name.
      2. For **ACM certificate**, choose an ACM certificate that covers the domain name.
 

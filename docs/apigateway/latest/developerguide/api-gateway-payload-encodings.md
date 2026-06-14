@@ -54,6 +54,7 @@ You must configure the API as follows to support binary payloads for your API in
 - Address the `contentHandling` property of the
   [Integration](../api/API_Integration.md "../api/API_Integration.md")
   resource.
+
   - To have the request payload converted from a base64-encoded string to
     its binary blob, set the property to
     `CONVERT_TO_BINARY`.

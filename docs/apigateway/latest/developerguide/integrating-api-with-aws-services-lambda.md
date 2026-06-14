@@ -133,6 +133,7 @@ window, do the following:
 
 8. In the original **Create Role** console window, do the
    following:
+
    1. Under **Attach permissions policies**, choose your
       `lambda_execute` policy from the dropdown
       list.
@@ -686,6 +687,7 @@ properly set up to invoke the Lambda function and pass the original output throu
 
 1. Choose the **Test** tab. You might need to choose the right arrow button to show the tab.
 2. For the **Path**, do the following:
+
    1. For **operand1**, enter `1`.
    2. For **operand2**, enter `1`.
    3. For **operator**, enter `+`.
@@ -747,6 +749,7 @@ template.
 
 1. Choose the **Test** tab. You might need to choose the right arrow button to show the tab.
 2. For the **Path**, do the following:
+
    1. For **operand1**, enter `1`.
    2. For **operand2**, enter `2`.
    3. For **operator**, enter `+`.

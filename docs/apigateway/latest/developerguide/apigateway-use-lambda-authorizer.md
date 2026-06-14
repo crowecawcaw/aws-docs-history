@@ -20,6 +20,7 @@ The following diagram shows the authorization workflow for a Lambda authorizer.
 2. API Gateway checks if the method request is configured with a Lambda authorizer. If it is, API Gateway calls the Lambda
    function.
 3. The Lambda function authenticates the caller. The function can authenticate in the following ways:
+
    - By calling out to an OAuth provider to get an OAuth access token.
    - By calling out to a SAML provider to get a SAML assertion.
    - By generating an IAM policy based on the request parameter values.
@@ -28,6 +29,7 @@ The following diagram shows the authorization workflow for a Lambda authorizer.
 4. The Lambda function returns an IAM policy and a principal identifier. If the Lambda function does not
    return that information, the call fails.
 5. API Gateway evaluates the IAM policy.
+
    - If access is denied, API Gateway returns a suitable HTTP status code, such as `403
 ACCESS_DENIED`.
    - If access is allowed, API Gateway invokes the method.

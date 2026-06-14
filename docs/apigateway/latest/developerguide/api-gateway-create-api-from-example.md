@@ -43,6 +43,7 @@ example using the API Gateway Console.
 
 1. Sign in to the API Gateway console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
 2. Do one of the following:
+
    - To create your first API, for **REST API**, choose **Build**.
    - If you've created an API before, choose **Create API**, and then choose
      **Build** for **REST API**.

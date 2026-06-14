@@ -107,6 +107,7 @@ For more information about the model, see [Data models for REST APIs](models-map
 2. On the **Method request** tab, under **Method request settings**, choose **Edit**.
 3. For **Request validator**, select **Validate query string parameters and headers**.
 4. Under **URL query string parameters**, do the following:
+
    1. Choose **Add query string**.
    2. For **Name**, enter `petType`.
    3. Turn on **Required**.
@@ -115,6 +116,7 @@ For more information about the model, see [Data models for REST APIs](models-map
 5. Choose **Save**.
 6. On the **Integration request** tab, under **Integration request settings**, choose **Edit**.
 7. Under **URL query string parameters**, do the following:
+
    1. Choose **Add query string**.
    2. For **Name**, enter `petType`.
    3. For **Mapped from**, enter `method.request.querystring.petType`. This maps the

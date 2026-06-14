@@ -11,6 +11,7 @@ The following procedure shows how to generate the Ruby SDK of an API in API Gate
 5. Open the **Stage actions** menu, and then choose **Generate SDK**.
 6. For
    **Platform**, choose the **Ruby** platform and do the following:
+
    1. For **Service Name**, specify the name of your
       SDK. For example, `SimpleCalc`. This
       is used to generate the Ruby Gem namespace of your API. The name

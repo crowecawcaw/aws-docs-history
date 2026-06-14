@@ -121,6 +121,7 @@ The following table shows examples for how API Gateway evaluates the strip base 
   supported.
 - The maximum priority number is 1,000,000.
 - Header restrictions:
+
   - Each `anyOf` condition can only contain one header value.
   - The only allowed characters for header names and header glob values are specified by [RFC 7230](https://datatracker.ietf.org/doc/html/rfc7230 "https://datatracker.ietf.org/doc/html/rfc7230"), which are `a-z`,
     `A-Z`, `0-9`, and the following special characters:
@@ -134,6 +135,7 @@ The following table shows examples for how API Gateway evaluates the strip base 
   - The header glob value must be less than 128 characters.
   - The header glob value for an infix match must be less than 40 characters.
   - The following headers aren't supported as conditions:
+
     - `access-control-*`
     - `apigw-*`
     - `Authorization`
@@ -160,6 +162,7 @@ The following table shows examples for how API Gateway evaluates the strip base 
     - `Via`
 
 - Base path restrictions:
+
   - The base path length must be less than 128 characters.
   - The base path must contain only letters, numbers, and the following characters:
     `$-_.+!*'()/`.

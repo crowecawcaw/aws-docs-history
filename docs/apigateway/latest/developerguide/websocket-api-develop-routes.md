@@ -140,6 +140,7 @@ information, see [The $connect route](apigateway-websocket-api-route-keys-connec
 
 - **Authorization**: If no authorization is needed, you can
   specify `NONE`. Otherwise, you can specify:
+
   - `AWS_IAM` to use standard AWS IAM policies to control
     access to your API.
   - `CUSTOM` to implement authorization for an API by

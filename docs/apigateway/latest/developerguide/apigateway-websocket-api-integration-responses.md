@@ -57,6 +57,7 @@ For non-proxy HTTP integrations:
   the integration response.
 - The template selection expression, as described above, functions
   identically. For example:
+
   - `/2\d\d/`: Receive and transform successful
     responses
   - `/4\d\d/`: Receive and transform bad request

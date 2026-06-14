@@ -7,6 +7,7 @@ The following procedure describes how to publish a documentation version.
 1. In the main navigation pane, choose **Documentation**.
 2. Choose **Publish documentation**.
 3. Set up the publication:
+
    1. For **Stage**, select a stage.
    2. For **Version**, enter a version identifier, e.g., `1.0.0`.
    3. (Optional) For **Description**, enter a description.

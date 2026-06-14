@@ -102,6 +102,7 @@ declared in **Method Request**:
 
 1. In the **Method request** section for the `GET` method on the root (`/`) resource, choose **Edit**.
 2. Choose **URL query string parameters** and do the following:
+
    1. Choose **Add query string**.
    2. For **Name**, enter `a`.
    3. Keep **Required** and **Caching** turned off.

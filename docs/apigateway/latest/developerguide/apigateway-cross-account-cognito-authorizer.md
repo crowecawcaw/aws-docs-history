@@ -20,6 +20,7 @@ Log in to the Amazon API Gateway console in the account that has your API in it,
 2. In the main navigation pane, choose **Authorizers**.
 3. Choose **Create authorizer**.
 4. To configure the new authorizer to use a user pool, do the following:
+
    1. For **Authorizer name**, enter a name.
    2. For **Authorizer type**, select **Cognito**.
    3. For **Cognito user pool**, enter the full ARN for

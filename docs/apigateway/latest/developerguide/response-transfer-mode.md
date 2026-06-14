@@ -35,6 +35,7 @@ The following considerations might impact your use of response payload streaming
 - When the response transfer mode is set to `STREAM`, API Gateway can’t support features that require
   buffering the entire integration response. Because of this, the following features aren't supported with
   response streaming:
+
   - Endpoint caching
   - Content encoding. If you want to compress your integration response, do this in your
     integration.

@@ -161,6 +161,7 @@ Now, create the `GetStartedLambdaIntegration` Lambda function.
 1. Open the AWS Lambda console at
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
 2. Do one of the following:
+
    - If the welcome page appears, choose **Get Started
      Now** and then choose **Create
      function**.
@@ -169,6 +170,7 @@ Now, create the `GetStartedLambdaIntegration` Lambda function.
 
 3. Choose **Author from scratch**.
 4. In the **Author from scratch** pane, do the following:
+
    1. For **Name**, enter
       `GetStartedLambdaIntegration` as the Lambda
       function name.
@@ -185,12 +187,14 @@ Now, create the `GetStartedLambdaIntegration` Lambda function.
 
 5. In the **Configure function** pane, under **Function
    code** do the following:
+
    1. Copy the Lambda function code listed in the beginning of this section
       and paste it in the inline code editor.
    2. Leave the default choices for all other fields in this section.
    3. Choose **Deploy**.
 
 6. To test the newly created function, choose the **Test** tab.
+
    1. For **Event name**, enter `HelloWorldTest`.
    2. For **Event JSON**, replace the default code
       with the following.
@@ -203,7 +207,6 @@ Now, create the `GetStartedLambdaIntegration` Lambda function.
      "day": "Wednesday"
    }
    ```
-
    3. Choose **Test** to invoke the function. The
       **Execution result: succeeded** section is shown.
       Expand **Details** and you see the following
@@ -338,6 +341,7 @@ ensure that all of the required data is defined. For this example, you create a
     4. Keep **Caching** turned off.
 
 9. Choose **HTTP request headers** and do the following:
+
    1. Choose **Add header**.
    2. For **Name**, enter `day`.
    3. Turn on **Required**.

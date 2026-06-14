@@ -28,6 +28,7 @@ The API Gateway console lets you deploy an API by creating a deployment and asso
 2. In the **APIs** navigation pane, choose the API you want to deploy.
 3. In the **Resources** pane, choose **Deploy API**.
 4. For **Stage**, select from the following:
+
    1. To create a new stage, select **New stage**, and then enter a name in
       **Stage name**. Optionally, you can provide a description for the
       deployment in **Deployment description**.

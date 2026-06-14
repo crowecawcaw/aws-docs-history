@@ -72,11 +72,13 @@ The following section details notes that might impact your use of API Gateway.
   references `VpcLink` through a stage variable.
 - The following backends may not support SSL client authentication in a way
   that's compatible with API Gateway:
+
   - [NGINX](https://nginx.org/en/ "https://nginx.org/en/")
   - [Heroku](https://www.heroku.com/ "https://www.heroku.com/")
 
 - API Gateway supports most of the [OpenAPI 2.0 specification](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md "https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0.md") and the [OpenAPI 3.0 specification](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.1.md "https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.1.md"), with the following
   exceptions:
+
   - Path segments can only contain alphanumeric characters, underscores, hyphens,
     periods, commas, colons, and curly braces. Path parameters must be separate
     path segments. For example, "resource/{path_parameter_name}" is
@@ -124,7 +126,6 @@ The following section details notes that might impact your use of API Gateway.
       "type": "number"
   }
   ```
-
   - Decimal number format type (`"format": "decimal"`) is
     not supported in a schema definition.
   - In method responses, schema definition must be of an object type
@@ -143,7 +144,6 @@ The following section details notes that might impact your use of API Gateway.
       }
     }
   ```
-
   - API Gateway doesn't use root level security defined in the OpenAPI
     specification. Hence security needs to be defined at an operation
     level to be appropriately applied.
@@ -151,11 +151,13 @@ The following section details notes that might impact your use of API Gateway.
 
 - API Gateway enacts the following restrictions and limitations when handling
   methods with either Lambda integration or HTTP integration.
+
   - Header names and query parameters are processed in a
     case-sensitive way.
   - The following table lists the headers that may be dropped,
     remapped, or otherwise modified when sent to your integration
     endpoint or sent back by your integration endpoint. In this table:
+
     - `Remapped` means that the header name is changed from
       `<string>` to
       `X-Amzn-Remapped-`<string>``.

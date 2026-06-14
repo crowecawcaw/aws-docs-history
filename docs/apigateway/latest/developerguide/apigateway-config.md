@@ -8,6 +8,7 @@ for operational troubleshooting, audit, and compliance use cases.
 AWS Config can track changes to:
 
 - **API stage configuration**, such as:
+
   - cache cluster settings
   - throttle settings
   - access log settings

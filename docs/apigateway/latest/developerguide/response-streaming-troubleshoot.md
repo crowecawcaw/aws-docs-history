@@ -9,6 +9,7 @@ might impact your use of test invoke for response streaming:
 
 - When you test your method, API Gateway buffers your streamed response payload. Once any of the following
   conditions have been met, API Gateway returns a one-time response containing the buffered payload:
+
   - The request is complete
   - 35 seconds have elapsed
   - More than 1 MB of response payload has been buffered

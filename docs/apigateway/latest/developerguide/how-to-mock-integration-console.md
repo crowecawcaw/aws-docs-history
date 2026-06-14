@@ -16,11 +16,13 @@ To create the method, do the following:
 
 2. On the **Method
    response** tab, choose **Create response**, and then do the following:
+
    1. For **HTTP Status**, enter `500`.
    2. Choose **Save**.
 
 3. On the **Integration request** tab, for **Integration request settings**, choose **Edit**.
 4. Choose **Mapping templates**, and then do the following:
+
    1. Choose **Add mapping template**.
    2. For **Content type**, enter `application/json`.
    3. For **Template body**, enter the following:
@@ -34,11 +36,11 @@ To create the method, do the following:
      #end
    }
    ```
-
    4. Choose **Save**.
 
 5. On the **Integration response** tab, for the **Default - Response** choose **Edit**.
 6. Choose **Mapping templates**, and then do the following:
+
    1. For **Content type**, enter `application/json`.
    2. For **Template body**, enter the following:
 
@@ -48,7 +50,6 @@ To create the method, do the following:
        "message": "Go ahead without me"
    }
    ```
-
    3. Choose **Save**.
 
 7. Choose **Create response**.

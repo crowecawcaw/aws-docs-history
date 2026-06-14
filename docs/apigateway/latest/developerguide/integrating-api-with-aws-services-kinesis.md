@@ -154,6 +154,7 @@ The following procedure describes how to list Kinesis streams by using the API G
 3. Keep **CORS (Cross Origin Resource Sharing)** turned off.
 4. Choose **Create resource**.
 5. Choose the `/streams` resource, and then choose **Create method**, and then do the following:
+
    1. For **Method type**, select **GET**.
 
    ###### Note
@@ -175,6 +176,7 @@ The following procedure describes how to list Kinesis streams by using the API G
 6. On the **Integration request** tab, under **Integration request settings**, choose **Edit**.
 7. For **Request body passthrough**, select **When there are no templates defined (recommended)**.
 8. Choose **URL request headers parameters**, and then do the following:
+
    1. Choose **Add request headers parameter**.
    2. For **Name**, enter
       `Content-Type`.
@@ -184,6 +186,7 @@ The following procedure describes how to list Kinesis streams by using the API G
       inform Kinesis that the input is of a specific version of JSON.
 
 9. Choose **Mapping templates**, and then choose **Add mapping template**, and do the following:
+
    1. For **Content-Type**, enter
       `application/json`.
    2. For **Template body**, enter `{}`.

@@ -25,10 +25,12 @@ same AWS account.
    group, and add the target group to a listener of the Network Load Balancer. For
    details, follow the instructions in [Getting Started with Network Load Balancers](../../../elasticloadbalancing/latest/network/network-load-balancer-getting-started.md "../../../elasticloadbalancing/latest/network/network-load-balancer-getting-started.md").
 4. After the Network Load Balancer is created, do the following:
+
    1. Note the ARN of the Network Load Balancer. You will need it to
       create a VPC link in API Gateway for integrating the API with the VPC resources behind
       the Network Load Balancer.
    2. Turn off security group evaluation for PrivateLink.
+
       - To turn off security group evaluation for PrivateLink traffic using the console, you can choose the
         **Security** tab, and then **Edit**. In the **Security
         settings**, clear **Enforce inbound rules on PrivateLink traffic**.

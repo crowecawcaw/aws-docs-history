@@ -24,6 +24,7 @@ API](../../../apigatewayv2/latest/api-reference.md "../../../apigatewayv2/latest
 - If a tag is set on a `RestApi` resource, that tag is inherited by
   the following child resources of that `RestApi` for [Attribute-based access
   control](../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md "../../../IAM/latest/UserGuide/introduction_attribute-based-access-control.md"):
+
   - `Authorizer`
   - `Deployment`
   - `Documentation`

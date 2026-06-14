@@ -122,6 +122,7 @@ backend responses of the status code not declared here will be returned to the c
 
 1. On the **Method response** tab, under **Response 200**, choose **Edit**.
 2. Choose **Add header** and do the following:
+
    1. For **Header name**, enter `Content-Type`.
    2. Choose **Add header**.Repeat these steps to create a `Timestamp` header and a `Content-Length` header.
 
@@ -267,6 +268,7 @@ content, additional API settings are necessary. This is outlined as follows:
 
 1. Register the media types of the affected file to the API's binaryMediaTypes. You can do this in the
    console:
+
    1. Choose **API settings** for the API.
    2. Under **Binary media types**, choose **Manage media types**.
    3. Choose **Add binary media type**, and then enter the required media type, for

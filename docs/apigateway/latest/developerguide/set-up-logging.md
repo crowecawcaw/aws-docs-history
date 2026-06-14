@@ -117,6 +117,7 @@ role](#set-up-access-logging-permissions "#set-up-access-logging-permissions") A
 3. For **CloudWatch log role ARN**, enter an ARN of an IAM role with appropriate
    permissions. You need to do this once for each AWS account that creates APIs using API Gateway.
 4. In the main navigation pane, choose **APIs**, and then do one of the following:
+
    1. Choose an existing API, and then choose a stage.
    2. Create an API, and then deploy it to a stage.
 
@@ -124,7 +125,9 @@ role](#set-up-access-logging-permissions "#set-up-access-logging-permissions") A
 6. In the **Logs and tracing** section, choose
    **Edit**.
 7. To enable execution logging:
+
    1. Select a logging level from the **CloudWatch Logs** dropdown menu. The logging levels are the following:
+
       - Off – Logging is not turned on for this stage.
       - Errors only – Logging is enabled for errors only.
       - Errors and info logs – Logging is enabled for all events.
@@ -139,6 +142,7 @@ role](#set-up-access-logging-permissions "#set-up-access-logging-permissions") A
    metrics** to turn on detailed CloudWatch metrics.For more information about CloudWatch metrics, see [Monitor REST API execution with Amazon CloudWatch metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
 8. To enable access logging:
+
    1. Turn on
       **Custom access logging**.
    2. For **Access log destination ARN**, enter the ARN of a log group. The ARN format is

@@ -12,6 +12,7 @@ The following procedure shows how to generate the Java SDK of an API in API Gate
 6. For
    **Platform**, choose the **Java** platform and do
    the following:
+
    1. For **Service Name**, specify the name of your
       SDK. For example, `SimpleCalcSdk`.
       This becomes the name of your SDK client class. The name corresponds

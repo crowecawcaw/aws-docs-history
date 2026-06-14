@@ -33,6 +33,7 @@ created the example API.
 2. Choose **Create function**.
 3. Choose **Author from scratch**.
 4. Under **Author from scratch**, do the following:
+
    1. For **Function name**, enter a name.
    2. From the **Runtime** drop-down list, choose a supported Node.js runtime.
    3. For **Architecture**, keep the default setting.

@@ -241,6 +241,7 @@ must be referenced without quotes (as in `${stageVariables.function}`). 6. Choos
     ```
 
 9. To use the **Test** feature to pass stage-specific metadata, do the following:
+
    1. In the **Resources** navigation pane, choose the **Test** tab. You might need to choose the right arrow button to show the tab.
    2. For **function**, enter `HelloWorld`.
    3. For **stageName**, enter `beta`.
@@ -251,7 +252,6 @@ must be referenced without quotes (as in `${stageVariables.function}`). 6. Choos
    ```
    "Hello, World! I'm calling from the beta stage."
    ```
-
    5. You can repeat the previous steps to test the **Prod** stage. For **stageName**, enter `Prod`.
 
    You get the following response.
