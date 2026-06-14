@@ -16,6 +16,7 @@ group header (GS) values that your trading partner expects to receive.
 1. In the AWS B2B Data Interchange console, choose **Partnerships**.
 2. Choose **Create partnership**.
 3. In the **Partnership details** section, enter:
+
    - **Partnership name**:
      `SupplierXYZ-Outbound-Partnership`
    - **Email**:
@@ -30,8 +31,10 @@ group header (GS) values that your trading partner expects to receive.
    processing).
 5. In the **Outbound EDI configuration** section, configure the
    EDI headers:
+
    1. **Interchange control header (ISA
       segment):**
+
       - **Interchange ID qualifier (ISA05)**:
         `ZZ`
       - **Interchange sender ID (ISA06)**:
@@ -49,6 +52,7 @@ group header (GS) values that your trading partner expects to receive.
 
    2. **Functional group header (GS
       segment):**
+
       - **Application sender's code (GS02)**:
         `ACMECORP`
       - **Application receiver's code (GS03)**:
@@ -71,6 +75,7 @@ group header (GS) values that your trading partner expects to receive.
       (recommended).
 
 6. Optionally, add tags:
+
    - Key: `Partner`, Value:
      `SupplierXYZ`
    - Key: `DocumentType`, Value:

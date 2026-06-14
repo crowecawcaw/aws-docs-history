@@ -17,6 +17,7 @@ preserving any configurations you want to keep.
 ###### To remove outbound AWS B2B Data Interchange resources
 
 1. **Delete Partnership:**
+
    1. Go to **Partnerships** in the AWS B2B Data Interchange
       console.
    2. Select
@@ -24,17 +25,20 @@ preserving any configurations you want to keep.
    3. Choose **Delete** and confirm.
 
 2. **Delete Trading Capability:**
+
    1. Go to **Trading capabilities**.
    2. Select **Outbound-850-Generation**.
    3. Choose **Delete** and confirm.
 
 3. **Delete Transformer:**
+
    1. Go to **Transformers**.
    2. Select **JSON-to-X12-850-Transformer**.
    3. Set status to **Inactive** first, then choose
       **Delete**.
 
 4. **Delete Profile:**
+
    1. Go to **Profiles**.
    2. Select **AcmeCorpOutboundProfile**.
    3. Choose **Delete** and confirm.

@@ -11,6 +11,7 @@ document processing.
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose **Create bucket**.
 3. For the input bucket:
+
    - For **Bucket name**, enter
      `my-b2bi-outbound-input-`account-id``.
    - Choose your Region (must match where you'll use B2B Data Interchange).

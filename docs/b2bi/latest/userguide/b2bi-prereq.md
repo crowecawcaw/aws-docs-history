@@ -37,6 +37,7 @@ policy examples, see [Example policies](#bucket-policy-examples "#bucket-policy-
 3. In the **Bucket policy** section, choose
    **Edit**.
 4. Do one of the following:
+
    - Copy an example policy from [Example policies](#bucket-policy-examples "#bucket-policy-examples")
      and paste it into the policy editor.
    - Choose **Copy policy** when creating a trading

@@ -84,22 +84,26 @@ transforms it into a more accessible JSON structure for your applications.
    navigation pane.
 2. Choose **Create transformer**.
 3. In the **Transformer details** section, enter:
+
    - **Transformer name**:
      `X12-850-to-JSON-Transformer`
    - **EDI direction**: Select
      **Inbound**
 
 4. In the **Input details** section:
+
    - **X12 version**: Select
      **4010**
    - **X12 transaction set**: Select **850 -
      Purchase Order**
 
 5. In the **Output details** section:
+
    - **Data format**: Select
      **JSON**
 
 6. In the **Sample documents** section:
+
    - **Input sample**: Choose **Browse
      S3** and select the
      `sample-850-input.edi` file you created in

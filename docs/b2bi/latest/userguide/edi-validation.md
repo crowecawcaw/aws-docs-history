@@ -138,6 +138,7 @@ Custom validation rules have the following limitations and constraints.
 - _Adding codes_: Codes to add must not already exist
   in the code list
 - _Removing codes_:
+
   - codes to remove must exist in the current code list
   - you can't remove from empty code lists
   - you can't remove **all** codes
@@ -183,6 +184,7 @@ AWS B2B Data Interchange console:
 3. Choose _Create transformer_.
 4. Choose _Add rule_ and select the rule type you want to
    create:
+
    - For _Element Length Rules_, select the element ID,
      then specify minimum and maximum length constraints.
    - For _Code List Rules_, select the element ID, then

@@ -113,6 +113,7 @@ document that you can send to your trading partners.
 1. Open the AWS B2B Data Interchange console at [https://console.aws.amazon.com/b2bi/](https://console.aws.amazon.com/b2bi/ "https://console.aws.amazon.com/b2bi/") and select **Transformers** from the
    navigation pane, then choose **Create transformer**.
 2. On the Transformer configuration page, enter the following information.
+
    1. Enter a name (no spaces).
    2. In **Transfer settings**, choose **Outbound
       EDI**, and select an EDI document number and X12 version
@@ -184,6 +185,7 @@ Based on the EDI direction selected and the transformer attached to the trading 
    capability**.
 2. In the **Trading capability settings** section, enter the
    following information.
+
    - Enter a descriptive, unique name for the trading capability.
    - For **EDI direction**, select
      **Outbound**.
@@ -195,6 +197,7 @@ Based on the EDI direction selected and the transformer attached to the trading 
 
 3. In the **Configure directories** section, you provide full S3
    path to both the input and output directories.
+
    - You can use **Browse S3** to navigate to your
      available Amazon S3 buckets, where you can select a bucket (and optionally a
      prefix) to specify your preferred directories.
@@ -235,6 +238,7 @@ details in the **Outbound EDI configuration** section.
    pane, then choose **Create partnership**.
 2. In the **Partnership details** section, provide the following
    information.
+
    1. Enter a descriptive name for the partnership.
    2. Enter an email address to associate with the partnership. Provide the
       trading partner's email address.
@@ -243,6 +247,7 @@ details in the **Outbound EDI configuration** section.
       capabilities** list.
 
 3. In the **Inbound EDI configuration** section. choose which acknowledgments, if any, to generate.
+
    1. For **TA1 Technical Acknowledgments**, choose whether or not to generate.
    2. For **Functional (997 and 999) Acknowledgments**, choose whether or not to generate,
       and whether or not to include AK2 loop.For more information about EDI acknowledgements, see [EDI acknowledgements](edi-ack.md "edi-ack.md").
@@ -251,6 +256,7 @@ details in the **Outbound EDI configuration** section.
    The system uses the outbound EDI header information to format the outbound EDI
    document according to the needs of the partner to whom you are sending these
    documents.
+
    1. Provide **Interchange control header** information
       (also known as the ISA segment).
    2. Provide **Functional group header** information (also
@@ -264,6 +270,7 @@ details in the **Outbound EDI configuration** section.
       information, see [Delimiters for outbound EDI](#outbound-delimiters "#outbound-delimiters").
    5. In the New Lines Formatting section, specify the behavior that you
       require.
+
       - Select a new line formatting configuration option. Choose
         **New line on character count** only when
         your trading partner specifically requires it, as trading

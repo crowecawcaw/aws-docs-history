@@ -11,6 +11,7 @@ output directory.
    capabilities**.
 2. Choose **Create trading capability**.
 3. In the **Trading capability settings** section, enter:
+
    - **Trading capability name**:
      `Outbound-850-Generation`
    - **EDI direction**: Select
@@ -23,6 +24,7 @@ output directory.
      **JSON-to-X12-850-Transformer**
 
 4. In the **Configure directories** section:
+
    1. **Input directory**: Choose **Browse
       S3** and select
       `my-b2bi-outbound-input-bucket-`your-account-id``.

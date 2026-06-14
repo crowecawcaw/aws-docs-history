@@ -23,6 +23,7 @@ bucket, follow these troubleshooting steps:
    `.../`trading-capability-id`/`trading-partner-id`/`
    prefix.
 3. Check that the input bucket is configured to emit EventBridge events.
+
    1. Go to the Amazon S3 console and select your bucket.
    2. Choose **Properties**.
    3. Scroll down to the **Event Notifications** section
@@ -54,6 +55,7 @@ If your output file is created successfully but cannot be accessed, follow these
 troubleshooting steps:
 
 - Ensure that the output S3 bucket does not have ACL enabled.
+
   1.  Go to the Amazon S3 console and select your bucket.
   2.  Choose **Permissions**.
   3.  Scroll down to the **Object Ownership** section and

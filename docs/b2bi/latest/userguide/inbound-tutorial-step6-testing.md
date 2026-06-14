@@ -25,6 +25,7 @@ IEA*1*000000001~
 ```
 
 2. Upload the test file to your input bucket:
+
    1. Navigate to
       `my-b2bi-input-bucket-`your-account-id``
       in the Amazon S3 console.
@@ -33,6 +34,7 @@ IEA*1*000000001~
    4. Choose **Upload**.
 
 3. Monitor the transformation:
+
    - Wait 2-3 minutes for processing
    - Check your output bucket for the transformed JSON file
    - The output will be in a directory structure like:

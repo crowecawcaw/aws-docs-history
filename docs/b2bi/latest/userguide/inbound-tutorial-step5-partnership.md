@@ -9,6 +9,7 @@ documents, including acknowledgment generation settings.
 1. In the AWS B2B Data Interchange console, choose **Partnerships**.
 2. Choose **Create partnership**.
 3. In the **Partnership details** section, enter:
+
    - **Partnership name**:
      `SupplierABC-Partnership`
    - **Email**:
@@ -19,6 +20,7 @@ documents, including acknowledgment generation settings.
      **Inbound-850-Processing**
 
 4. In the **Inbound EDI configuration** section:
+
    - **TA1 Technical Acknowledgments**: Select
      **Do not generate**
    - **Functional (997 and 999) Acknowledgments**: Select
@@ -26,6 +28,7 @@ documents, including acknowledgment generation settings.
    - **Include AK2 loop**: Leave unchecked
 
 5. Optionally, add tags:
+
    - Key: `Partner`, Value:
      `SupplierABC`
    - Key: `DocumentType`, Value:

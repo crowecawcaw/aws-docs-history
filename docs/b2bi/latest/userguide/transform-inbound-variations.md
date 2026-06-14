@@ -111,7 +111,7 @@ The latter are described as part of the partnership resource.
    `/aws/vendedlogs/b2bi/p-ABCDE111122223333`.
 4. Optionally, add tags as needed.
 
-![The AWS B2B Data Interchange console Profiles page, showing an example profile.](images/profile-configure.png)
+![The AWS B2B Data Interchange console Profiles page, showing an example profile.](/images/b2bi/latest/userguide/images/profile-configure.png)
 
 ## Create an inbound transformer
 
@@ -133,6 +133,7 @@ cannot parse the file.
    direction, the EDI doc number, and version. Then, provide a sample document by
    selecting a document from Amazon S3. The sample document can preview how your EDI
    documents get converted.
+
    1. Enter a name (no spaces).
    2. Ensure that **Inbound EDI** is selected.
    3. For **Input Details**, select an EDI document number
@@ -204,6 +205,7 @@ Based on the EDI direction selected and the transformer attached to the trading 
    capability**.
 2. In the **Trading capability settings** section, enter the
    following information.
+
    - Enter a descriptive, unique name for the trading capability.
    - For **EDI direction**, select
      **Inbound**.
@@ -215,6 +217,7 @@ Based on the EDI direction selected and the transformer attached to the trading 
 
 3. In the **Configure directories** section, you provide full S3
    path to both the input and output directories.
+
    - You can use **Browse S3** to navigate to your
      available Amazon S3 buckets, where you can select a bucket (and optionally a
      prefix) to specify your preferred directories.
@@ -252,6 +255,7 @@ It is also where you define the interchange control header and functional group 
    pane, then choose **Create partnership**.
 2. In the **Partnership details** section, provide the following
    information.
+
    1. Enter a descriptive name for the partnership.
    2. Enter an email address to associate with the partnership. Provide the
       trading partner's email address.
@@ -260,6 +264,7 @@ It is also where you define the interchange control header and functional group 
       capabilities** list.
 
 3. In the **Inbound EDI configuration** section. choose which acknowledgments, if any, to generate.
+
    1. For **TA1 Technical Acknowledgments**, choose whether or not to generate.
    2. For **Functional (997 and 999) Acknowledgments**, choose whether or not to generate,
       and whether or not to include AK2 loop.For more information about EDI acknowledgements, see [EDI acknowledgements](edi-ack.md "edi-ack.md").

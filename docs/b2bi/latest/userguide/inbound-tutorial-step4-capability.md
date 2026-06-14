@@ -11,6 +11,7 @@ directory.
    capabilities**.
 2. Choose **Create trading capability**.
 3. In the **Trading capability settings** section, enter:
+
    - **Trading capability name**:
      `Inbound-850-Processing`
    - **EDI direction**: Select
@@ -23,6 +24,7 @@ directory.
      **X12-850-to-JSON-Transformer**
 
 4. In the **Configure directories** section:
+
    1. **Input directory**: Choose **Browse
       S3** and select
       `my-b2bi-input-bucket-`your-account-id``.

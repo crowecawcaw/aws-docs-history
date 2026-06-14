@@ -45,11 +45,13 @@ JSON data is properly transformed into valid X12 EDI documents.
 ```
 
 2. Upload the test file to your input bucket:
+
    1. Navigate to
       `my-b2bi-outbound-input-bucket-`your-account-id``
       in the Amazon S3 console.
    2. Create the required folder structure for your trading capability and
       partner:
+
       1. Choose **Create folder**.
       2. Enter the capability ID folder name (for example:
          `ca-a1b2c3d4e5f6g7h8i`).

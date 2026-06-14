@@ -12,6 +12,7 @@ created earlier.
 
 1.  Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2.  Create the input sample file:
+
     1. Save the following JSON code to a file named
        `sample-purchase-order.json`:
 
@@ -57,7 +58,6 @@ created earlier.
       }
     }
     ```
-
     2. Upload this file to your input bucket:
        `s3://my-b2bi-outbound-input-`account-id``.
 
@@ -99,6 +99,7 @@ created earlier.
    navigation pane.
 2. Choose **Create transformer**.
 3. In **Transformer details**, enter:
+
    - **Transformer name**:
      `JSON-to-X12-850-Transformer`
    - **EDI direction**: Choose **Outbound
@@ -107,11 +108,13 @@ created earlier.
 4. In **Input details**, for **Data format**,
    choose **JSON**.
 5. In **Output details**, select:
+
    - **X12 version**: **4010**
    - **X12 transaction set**: **850**
      (Purchase Order)
 
 6. In **Sample documents**:
+
    - **Input sample**: Choose **Browse
      S3**, navigate to your input bucket
      (`s3://my-b2bi-outbound-input-`account-id``),

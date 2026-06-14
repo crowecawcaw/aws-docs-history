@@ -12,6 +12,7 @@ We provide a basic stack that you can use to quickly configure all the resources
 4. Choose **Create stack**, and then choose **With new
    resources (standard)**.
 5. On the **Create stack** page, do the following.
+
    1. In the **Prerequisite - Prepare template** section, select
       **Choose an existing template**.
    2. In the **Specify template** section, choose **Upload a template file**.

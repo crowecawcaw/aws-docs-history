@@ -17,23 +17,27 @@ preserving any configurations you want to keep.
 ###### To remove AWS B2B Data Interchange resources
 
 1. **Delete Partnership:**
+
    1. Go to **Partnerships** in the AWS B2B Data Interchange
       console.
    2. Select **SupplierABC-Partnership**.
    3. Choose **Delete** and confirm.
 
 2. **Delete Trading Capability:**
+
    1. Go to **Trading capabilities**.
    2. Select **Inbound-850-Processing**.
    3. Choose **Delete** and confirm.
 
 3. **Delete Transformer:**
+
    1. Go to **Transformers**.
    2. Select **X12-850-to-JSON-Transformer**.
    3. Set status to **Inactive** first, then choose
       **Delete**.
 
 4. **Delete Profile:**
+
    1. Go to **Profiles**.
    2. Select **AcmeCorpProfile**.
    3. Choose **Delete** and confirm.
