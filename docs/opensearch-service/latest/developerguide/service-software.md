@@ -358,6 +358,7 @@ available:
   Rollback is only available when the software update was explicitly initiated by you or
   automatically scheduled by OpenSearch Service as part of a mandatory or optional update. Rollback is
   not available when:
+
   - The software update was applied during a blue/green deployment triggered by a
     configuration change. This includes cases where the
     `UseLatestServiceSoftwareForBlueGreen` setting is enabled, which

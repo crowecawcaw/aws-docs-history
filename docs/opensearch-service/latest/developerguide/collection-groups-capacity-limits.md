@@ -17,6 +17,7 @@ resources for collections in the group:
 - **Minimum OCU** – The minimum number of OCUs
   that OpenSearch Serverless maintains for the collection group, ensuring consistent baseline
   performance.
+
   - If the workload requires fewer OCUs than the specified minimum value, OpenSearch Serverless still maintains the specified minimum number of OCUs, and billing reflects that minimum.
   - If the workload requires more OCUs than the specified minimum value, OpenSearch Serverless maintains the number of OCUs that the workload requires, and billing reflects the higher OCU utilization.
 

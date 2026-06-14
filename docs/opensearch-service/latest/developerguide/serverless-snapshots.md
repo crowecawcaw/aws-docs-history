@@ -98,6 +98,7 @@ Console
 4. Choose the **Snapshots** tab to display all generated
    snapshots.
 5. Review the snapshot information including:
+
    - **Snapshot ID** - Unique identifier for the
      snapshot
    - **Status** - Current state (Available, In
@@ -227,9 +228,11 @@ Console
 5. Choose the snapshot you want to restore from, then choose **Restore from
    snapshot**.
 6. In the **Restore from snapshot** dialog:
+
    - For **Snapshot name**, verify the selected snapshot
      ID.
    - For **Snapshot scope**, choose either:
+
      - **All indexes in collection** - Restore all indexes
        from the snapshot
      - **Specific indexes** - Select individual indexes to
@@ -239,6 +242,7 @@ Console
      to.
    - (Optional) Configure **Rename settings** to rename restored
      indexes:
+
      - **Do not rename** - Keep original index names
      - **Add prefix to restored index names** - Add a prefix
        to avoid conflicts

@@ -67,6 +67,7 @@ authentication and authorization in the Amazon OpenSearch Service console:
    **Security Configuration**, choose Edit and
    navigate to IAM Identity Center Authentication section and select **Enable API access authenticated with IAM Identity Center**.
 2. Select the SubjectKey and Roles key as follows.
+
    - **Subject key** - choose one of UserId
      (default), UserName and Email to use corresponding attribute as
      principal accessing the domain.

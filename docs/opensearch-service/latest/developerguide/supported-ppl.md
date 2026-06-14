@@ -369,6 +369,7 @@ Here's what each part of the command does:
 3. `correlate exact fields(traceId, ip)` - This tells the
    system to correlate data based on exact matches of the following
    fields:
+
    - The `ip` field has an explicit filter
      condition, so it will be used in the correlation for all
      data sources.

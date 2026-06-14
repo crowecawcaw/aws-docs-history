@@ -479,7 +479,6 @@ version: "2"
    }`
 
    ```
-
    2. ###### Trust Policy
 
    In order to ingest data from the stream account, you will need to

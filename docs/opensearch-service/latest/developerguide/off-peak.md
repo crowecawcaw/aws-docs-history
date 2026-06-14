@@ -202,6 +202,7 @@ choose to apply an update at 5 P.M., it can be applied between 5 and 6 P.M.
 4. Under **Scheduled actions**, select the action and choose
    **Reschedule**.
 5. Choose one of the following options:
+
    - **Apply update now** - Immediately schedules the action to
      happen in the current hour _if there's capacity available_. If
      capacity isn't available, we provide other available time slots to choose

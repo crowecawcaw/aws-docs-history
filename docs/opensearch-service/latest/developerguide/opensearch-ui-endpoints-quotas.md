@@ -39,6 +39,8 @@ OpenSearch UI is available in the following Regions:
 | US West (N. California)   | us-west-1      | opensearch.us-west-1.amazonaws.com<br>es.us-west-1.amazonaws.com           | HTTPS<br>HTTPS |
 | Europe (Zurich)           | eu-central-2   | opensearch.eu-central-2.amazonaws.com<br>es.eu-central-2.amazonaws.com     | HTTPS<br>HTTPS |
 | Europe (Milan)            | eu-south-1     | opensearch.eu-south-1.amazonaws.com<br>es.eu-south-1.amazonaws.com         | HTTPS<br>HTTPS |
+| AWS GovCloud (US-East)    | us-gov-east-1  | es.us-gov-east-1.amazonaws.com                                             | HTTPS          |
+| AWS GovCloud (US-West)    | us-gov-west-1  | es.us-gov-west-1.amazonaws.com                                             | HTTPS          |
 
 ## OpenSearch UI service quotas
 

@@ -9,6 +9,7 @@ Before you can use auto-optimize in the console, you must have the following:
 - An active AWS account with access to the OpenSearch console.
 - An existing OpenSearch Serverless collection of type _vector search_ or a Managed OpenSearch domain.
 - IAM permissions for the following actions:
+
   - `opensearch:SubmitAutoOptimizeJob`
   - `opensearch:GetAutoOptimizeJob`
   - `opensearch:DeleteAutoOptimizeJob`
@@ -32,6 +33,7 @@ A vector ingestion job analyzes your vector data and provides optimization recom
 3. Choose **Create vector ingestion job**.
 4. Under **Job details**, enter a name for your vector ingestion job. This name helps you identify the job in the console.
 5. Under **Data source**, configure the following:
+
    1. For **Amazon S3 URI**, enter the Amazon S3 URI of the folder containing your data files (Parquet or JSONL). The URI must point to the enclosing folder, not individual files. For example, if your file is at `s3://my-bucket/my-folder/file1.parquet` or `s3://my-bucket/my-folder/data.jsonl`, enter `s3://my-bucket/my-folder/`.
 
    ###### Note
@@ -50,8 +52,10 @@ You can specify either an OpenSearch Managed domain or an OpenSearch Serverless 
 
 8. Choose **Next**.
 9. Under **Configure index**, specify the following:
+
    1. For **Field name**, enter the field name from your dataset that contains the vector data.
    2. For **Space type**, select the distance metric used to calculate the distance between vectors:
+
       - **l2** - Euclidean distance
       - **cosinesimil** - Cosine similarity
       - **innerproduct** - Inner product
@@ -59,7 +63,9 @@ You can specify either an OpenSearch Managed domain or an OpenSearch Serverless 
    3. For **Dimension**, enter the number of floating point values in each vector.
 
 10. Under **Performance requirements**, configure the following:
+
     1. For **Recall**, specify your desired search quality as a decimal value between 0 and 1. Higher recall values return more relevant results. For example:
+
        - 0.95 indicates that on average 19 of the 20 true nearest document vectors to a query vector are returned
        - 0.9 indicates 9 in 10
        - 0.8 indicates 8 in 10
@@ -121,6 +127,7 @@ You can view detailed information about a specific optimization job, including i
 2. In the navigation pane, choose **Auto-Optimize**.
 3. In the **Vector Ingestion Jobs** table, choose the job name.
 4. The job details page displays the following information:
+
    - Job name and status
    - Data source configuration (Amazon S3 URI and Region)
    - OpenSearch domain or collection
@@ -138,8 +145,10 @@ After a job completes successfully, you can view the optimization recommendation
 2. In the navigation pane, choose **Auto-Optimize**.
 3. In the **Vector Ingestion Jobs** table, choose a job with **Completed** status.
 4. The results page displays the following sections:
+
    - **Results overview** - Shows the estimated search quality recall compared to your requirement and the index memory footprint compared to the top recommended configuration.
    - **Recommendations** - Lists up to three optimization recommendations, ordered with the top recommendation as the best match for your configuration. Each recommendation includes:
+
      - Index configuration parameters
      - Search configuration parameters
      - Expected performance metrics

@@ -269,6 +269,7 @@ Elasticsearch 6.7 or later.
    security configuration**.
 2. Select **Enable fine-grained access control**.
 3. Choose how to create the master user:
+
    - If you want to use IAM for user management, choose **Set IAM ARN as
      master user** and specify the ARN for an IAM role.
    - If you want to use the internal user database, choose **Create master
@@ -602,6 +603,7 @@ AWS CLI, or configuration API.
    configuration**.
 3. Choose either **Set IAM ARN as master user** or **Create
    master user**.
+
    - If you previously used an IAM master user, fine-grained access control re-maps
      the `all_access` role to the new IAM ARN that you specify.
    - If you previously used the internal user database, fine-grained access control

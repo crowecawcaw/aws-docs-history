@@ -168,6 +168,7 @@ cross-cluster replication.
    connection.
 3. Choose between connecting to a domain in your AWS account and
    Region or in another account or Region.
+
    - To connect to a domain in your AWS account and
      Region, select the domain and choose
      **Request**.

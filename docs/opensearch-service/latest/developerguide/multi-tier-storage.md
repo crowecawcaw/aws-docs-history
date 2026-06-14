@@ -5,6 +5,7 @@ Multi-tier storage for Amazon OpenSearch Service is an intelligent data manageme
 Amazon OpenSearch Service offers two architecture options for hot/warm storage tier:
 
 - **OpenSearch Multi-tier Storage Architecture**
+
   - Combines Amazon S3 with local instance storage
   - Powered by OpenSearch Optimized Instances
   - Supports write operations in warm tier
@@ -13,6 +14,7 @@ Amazon OpenSearch Service offers two architecture options for hot/warm storage t
   - Does not support Cold Tier
 
 - **UltraWarm-based Architecture**
+
   - Combines Amazon S3 with local instance storage
   - Powered by UltraWarm Instances
   - Optimized for read-only warm tier workloads
@@ -51,6 +53,7 @@ For Ultrawarm storage architecture, see [Ultrawarm](ultrawarm.md "ultrawarm.md")
 
 - **Engine version:** OpenSearch **3.3 or later**
 - **Instance families:**
+
   - Hot nodes: OR1, OR2, OM2, or OI2
   - Warm Nodes: OI2
 

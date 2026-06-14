@@ -191,3 +191,19 @@ information.
     }
 ]
 ```
+
+## Supported AWS Regions
+
+Neural search for OpenSearch Serverless is available in the following AWS Regions:
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (Oregon)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (Stockholm)
+- Europe (Spain)

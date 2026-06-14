@@ -242,6 +242,7 @@ topic in [Permissions to create an application that uses IAM Identity Center aut
     application.
 5.  (Optional) To enable single sign-on for your organization or account,
     do the following:
+
     1. Select the **Authentication with IAM Identity Center**
        check box, as shown in the following image:
 
@@ -368,7 +369,6 @@ topic in [Permissions to create an application that uses IAM Identity Center aut
         	}`
 
         	```
-
     3. If an IAM Identity Center instance has been created in your organization or
        account already, the console reports that Amazon
        OpenSearch Dashboards is already connected to an organization
@@ -495,6 +495,7 @@ On an application detail page, you can search for the Amazon Resource Name
 4. Choose **Edit**
 5. To grant administrator permissions to other users, choose one of the
    following:
+
    - **Grant administrator's permission to specific
      user(s)** – In the **OpenSearch
      application admins** field, in the

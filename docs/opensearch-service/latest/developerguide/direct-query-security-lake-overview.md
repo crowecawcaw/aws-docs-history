@@ -55,6 +55,7 @@ We recommend the following when using direct queries in Security Lake:
   problems. For detailed troubleshooting steps, see [Troubleshooting data lake status](../../../security-lake/latest/userguide/securitylake-data-lake-troubleshoot.md "../../../security-lake/latest/userguide/securitylake-data-lake-troubleshoot.md") in the Amazon Security Lake User
   Guide.
 - Verify your query access:
+
   - If you're querying Security Lake from a different account than the Security Lake
     delegated administrator account, [set up a subscriber with query access in Security Lake](../../../security-lake/latest/userguide/subscriber-query-access.md "../../../security-lake/latest/userguide/subscriber-query-access.md").
   - If you're querying Security Lake from the same account, check for any
@@ -65,6 +66,7 @@ We recommend the following when using direct queries in Security Lake:
   analysis.
 - Familiarize yourself with Open Cybersecurity Schema Framework (OCSF) and
   Security Lake:
+
   - Review schema mapping examples for AWS sources in the [OCSF GitHub repository](https://github.com/ocsf/examples/tree/main/mappings/markdown/AWS/v1.1.0/CloudTrail "https://github.com/ocsf/examples/tree/main/mappings/markdown/AWS/v1.1.0/CloudTrail")
   - Learn how to query Security Lake effectively by visiting [Security Lake queries for AWS source version 2 (OCSF
     1.1.0)](../../../security-lake/latest/userguide/subscriber-query-examples2.md "../../../security-lake/latest/userguide/subscriber-query-examples2.md")

@@ -88,6 +88,7 @@ First, create a collection to ingest data into. We'll name the collection
 9. For **Definition method**, choose **JSON**
    and paste the following policy into the editor. This policy does two
    things:
+
    - Allows the pipeline role to write to the collection.
    - Allows you to _read_ from the collection. Later,
      after you ingest some sample data into the pipeline, you'll query the

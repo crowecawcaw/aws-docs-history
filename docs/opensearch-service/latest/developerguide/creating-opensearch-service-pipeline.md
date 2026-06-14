@@ -18,6 +18,7 @@ To migrate data, you must have the following resources:
   collection or domain. You include the Amazon Resource Name (ARN) of this role in
   your pipeline configuration. For more information, see the following
   resources:
+
   - [Granting Amazon OpenSearch Ingestion pipelines access to domains](pipeline-domain-access.md "pipeline-domain-access.md")
   - [Granting Amazon OpenSearch Ingestion pipelines access to collections](pipeline-collection-access.md "pipeline-collection-access.md")
 

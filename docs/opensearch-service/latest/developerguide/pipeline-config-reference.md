@@ -176,6 +176,7 @@ The path must start with a slash (/), and can contain the special characters
   placeholder.
 - The following HTTP source options are set by OpenSearch Ingestion and aren't
   supported in pipeline configurations:
+
   - `port`
   - `ssl`
   - `ssl_key_file`
@@ -200,6 +201,7 @@ limitations.
 
 - The `aws` option is _required_, and must
   contain the following options:
+
   - `sts_role_arn`
   - `region`
   - `hosts`
@@ -217,6 +219,7 @@ limitations.
   option, it must be set to `management_disabled`, otherwise
   validation fails.
 - The following options aren't supported:
+
   - `username`
   - `password`
   - `cert`
@@ -244,6 +247,7 @@ The path must start with a slash (/), and can contain the special characters
   placeholder.
 - The following options are set by OpenSearch Ingestion and aren't supported in
   pipeline configurations:
+
   - `port`
   - `ssl`
   - `sslKeyFile`
@@ -269,6 +273,7 @@ limitations:
 
 - The `aws` option is _required_, and must
   contain the following options:
+
   - `sts_role_arn`
   - `region`
   - `hosts`

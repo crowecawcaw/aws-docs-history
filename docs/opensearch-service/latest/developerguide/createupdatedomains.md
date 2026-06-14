@@ -29,6 +29,7 @@ Use the following procedure to create an OpenSearch Service domain by using the 
 3. Choose **Create domain**.
 4. For **Domain name**, enter a domain name. The name must
    meet the following criteria:
+
    - Unique to your account and AWS Region
    - Starts with a lowercase letter
    - Contains between 3 and 28 characters
@@ -39,6 +40,7 @@ Use the following procedure to create an OpenSearch Service domain by using the 
    create**.
 6. For **Templates**, choose the option that best matches
    the purpose of your domain:
+
    - **Production** domains for workloads that need
      high-availability and performance. These domains use Multi-AZ (with
      or without standby) and dedicated master nodes for higher

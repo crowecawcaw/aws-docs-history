@@ -8,6 +8,7 @@ functionality.
 
 1. In the **Source** section, verify the Amazon S3 vector index
    details:
+
    - **Amazon S3 vector index** - The name of your source
      index
    - **Amazon S3 vector index ARN** - The Amazon Resource
@@ -15,8 +16,10 @@ functionality.
 
 2. In the **Service access** section, configure
    OpenSearch Service authorization:
+
    1. For **Choose a method to authorize
       OpenSearch Service**, select one of the following:
+
       - **Create and use a new service
         role**
       - **Use an existing service
@@ -35,6 +38,7 @@ functionality.
    configure advanced options if needed.
 4. In the **Export details** section, configure the
    following options:
+
    - **Automate OpenSearch Service vector collection
      creation** - OpenSearch Service collections are used to store vector
      data. Serverless compute capacity is measured in OpenSearch Service Compute Units

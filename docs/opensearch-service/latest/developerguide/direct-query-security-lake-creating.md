@@ -70,8 +70,10 @@ AWS Management Console.
    and an optional description.
 7. Under **IAM permission access settings**, choose
    how to manage access to your data source.
+
    1. If you want to automatically create a role for this data
       source, follow these steps:
+
       1. Select **Create a new
          role**.
       2. Enter a name for the IAM role.
@@ -80,6 +82,7 @@ AWS Management Console.
 
    2. If you want to use an existing role that you manage
       yourself, follow these steps:
+
       1. Select **Use an existing
          role.**
       2. Select an existing role from the drop-down
@@ -105,6 +108,7 @@ OpenSearch.
      collaborators.
 
 11. Use customized settings:
+
     1.  Choose **Customize**.
     2.  Edit the collection name and the data retention settings
         as needed.

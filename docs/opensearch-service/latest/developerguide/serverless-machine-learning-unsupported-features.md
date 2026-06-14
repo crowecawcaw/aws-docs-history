@@ -8,8 +8,7 @@ The following Machine Learning (ML) APIs are not supported on Amazon OpenSearch 
 - Model Train API
 - Model Predict algorithm API
 - Model Batch Predict API
-- Agents API (except flow agents — see [Configure Agentic
-  Search](serverless-configure-agentic-search.md "serverless-configure-agentic-search.md"))
+- Agents API
 - MCP Server APIs
 - Memory APIs
 - Controller APIs
@@ -24,10 +23,10 @@ APIs](https://docs.opensearch.org/latest/ml-commons-plugin/api/index/ "https://d
 
 The following ML features are not supported on Amazon OpenSearch Serverless:
 
-- Agents and tools (except flow agents — see [Configure Agentic
-  Search](serverless-configure-agentic-search.md "serverless-configure-agentic-search.md"))
+- Agents and tools
 - Local models
 - The ML Inference processor within Search and Ingest Pipelines
+
   - ML Inference Ingest Processor
   - ML Inference Search Response Processor
   - ML Inference Search Request Processor

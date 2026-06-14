@@ -224,6 +224,7 @@ that OpenSearch Service provides. The following procedure works for domains that
 ###### To connect a local Dashboards server to OpenSearch Service
 
 1. On your OpenSearch Service domain, create a user with the appropriate permissions:
+
    1. In Dashboards, go to **Security**, **Internal
       users**, and choose **Create internal
       user**.

@@ -36,6 +36,7 @@ Auto-optimize operates through a job-based architecture that analyzes your vecto
 - **Specify correct dataset metadata** - The provided dataset must contain rows of float values. The name of each column and dimensionality of each vector must match the options provided in the console. For example, if the dataset contains vectors that are named `train_data` which are each `768` dimension, these values must match the auto-optimize console.
 - **(If using vector ingestion feature)** - If you plan to utilize the ingestion feature (taking auto-optimize recommendations to automatically create index and ingest data), you must configure your OpenSearch cluster to give auto-optimize permission to ingest your dataset into the OpenSearch cluster. For OpenSearch domains with a domain access policy, grant the newly created role access through that policy. For OpenSearch domains with fine-grained access control, add the pipeline role as a backend role. For OpenSearch Serverless collections, add the pipeline role to the data access policy.
 - **IAM permissions** - You need the following IAM permissions to use auto-optimize:
+
   - `opensearch:SubmitAutoOptimizeJob`
   - `opensearch:GetAutoOptimizeJob`
   - `opensearch:DeleteAutoOptimizeJob`
@@ -75,6 +76,7 @@ When experiencing slow query performance or high latency in vector search operat
 ## Limitations
 
 - **Regional availability** - Auto-optimize is available only in the following AWS Regions:
+
   - ap-south-1
   - eu-west-1
   - us-west-2
@@ -99,6 +101,7 @@ When experiencing slow query performance or high latency in vector search operat
 - **Job duration** - Optimization jobs can take from 15 minutes to several hours depending on dataset size, dimension, and required performance metrics.
 - **Recommendations** - Auto-optimize suggests only up to 3 recommendations.
 - **Dataset**
+
   - Supported formats: Parquet, JSONL
   - Data store: Amazon S3
 

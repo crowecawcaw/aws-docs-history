@@ -58,6 +58,7 @@ When using OpenSearch Service-managed VPC endpoints, consider the following:
   endpoint.
 - To create, update, and delete the OpenSearch Service VPC endpoint, you must have the
   following Amazon EC2 permissions in addition to your Amazon OpenSearch Service permissions:
+
   - `ec2:CreateVpcEndpoint`
   - `ec2:DescribeVpcEndpoints`
   - `ec2:ModifyVpcEndpoint`

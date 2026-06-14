@@ -334,8 +334,10 @@ OpenSearch and Elasticsearch let you change all available ISM settings using the
 following [ISM settings](https://opensearch.org/docs/latest/im-plugin/ism/settings/ "https://opensearch.org/docs/latest/im-plugin/ism/settings/"):
 
 - **Cluster-level settings:**
+
   - `plugins.index_state_management.enabled`
   - `plugins.index_state_management.history.enabled`
 
 - **Index-level settings:**
+
   - `plugins.index_state_management.rollover_alias`

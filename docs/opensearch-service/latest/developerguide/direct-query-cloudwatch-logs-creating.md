@@ -64,8 +64,10 @@ You can set up a collection-level query data source with the AWS Management Cons
    and an optional description.
 7. Under **IAM roles**, choose how to manage access
    to the log groups.
+
    1. If you want to automatically create a role for this data
       source, follow these steps:
+
       1. Select **Create a new
          role**.
       2. Enter a name for the IAM role.
@@ -74,6 +76,7 @@ You can set up a collection-level query data source with the AWS Management Cons
 
    2. If you want to use an existing role that you manage
       yourself, follow these steps:
+
       1. Select **Use an existing
          role.**
       2. Select an existing role from the drop-down

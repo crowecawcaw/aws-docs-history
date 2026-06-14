@@ -52,6 +52,7 @@ doesn't have a quorum and can't elect a new master.
 - Four dedicated master nodes are not better than three and can cause issues
   if you use [multiple Availability
   Zones](managedomains-multiaz.md "managedomains-multiaz.md").
+
   - If one master node fails, you have the quorum (3) to elect a new
     master. If two nodes fail, you lose that quorum, just as you do with
     three dedicated master nodes.

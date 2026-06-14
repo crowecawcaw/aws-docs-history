@@ -795,6 +795,7 @@ The command returns information in the following format.
 2. If the version number is not
    $`{MAJOR}`.$`{MINOR}`.0,
    rebuild the plugin by doing the following:
+
    1. Update the plugin's `descriptor.properties` to
       specify version
       $`{MAJOR}`.$`{MINOR}`.0.

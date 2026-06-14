@@ -192,12 +192,14 @@ After exporting the saved objects, you can import the NDJSON file to OpenSearch 
    OpenSearch Dashboards.
 5. For **Conflict management**, choose one of the
    following:
+
    - **Create new assets with unique IDs**
      (default) – Generates new IDs for all imported objects,
      avoiding conflicts with existing assets.
    - **Check for existing assets** – Checks
      for conflicts with existing objects. When selected, choose one
      of the following sub-options:
+
      - **Automatically overwrite
        conflicts** – Existing assets with
        the same ID are automatically replaced.

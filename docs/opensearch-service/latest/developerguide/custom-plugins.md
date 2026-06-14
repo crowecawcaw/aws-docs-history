@@ -90,6 +90,7 @@ following requirements:
   `2.15.0` or `2.*x*.0`. That is,
   the patch version must be zero.
 - The following features must be enabled on your domain:
+
   - [Node-to-node encryption](ntn.md "ntn.md")
   - [Encryption at rest](encryption-at-rest.md "encryption-at-rest.md")
   - [EnforceHTTPS is set to

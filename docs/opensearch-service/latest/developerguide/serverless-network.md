@@ -316,6 +316,7 @@ To specify private access, include one or both of the following elements:
 - `SourceServices` – Specify the identifier of one or more
   supported AWS services. Currently, the following service identifiers are
   supported:
+
   - `bedrock.amazonaws.com` – Amazon Bedrock
 
 The following sample network policy provides private access, to a VPC endpoint and

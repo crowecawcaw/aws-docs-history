@@ -450,6 +450,7 @@ Aurora MySQL:
   an updated configuration, or create a new pipeline.
 - Data Definition Language (DDL) statements are generally not supported.
   Data consistency will not be maintained if:
+
   - Primary keys are changed (add/delete/rename).
   - Tables are dropped/truncated.
   - Column names or data types are changed.

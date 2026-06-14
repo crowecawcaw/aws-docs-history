@@ -93,6 +93,7 @@ destination domain receives an "inbound" connection request from the source doma
 3. For **Connection alias**, enter a name for your connection.
 4. Choose between connecting to a domain in your AWS account and Region
    or in another account or Region.
+
    - To connect to a cluster in your AWS account and Region, select
      the domain from the dropdown menu and choose **Request**.
    - To connect to a cluster in another AWS account or Region, select
@@ -111,6 +112,7 @@ destination domain receives an "inbound" connection request from the source doma
    in a `Pending acceptance` state. When the connection request is accepted at the
    destination domain, the state changes to `Active` and the destination domain
    becomes available for queries.
+
    - The domain page shows you the overall domain health and instance health details of
      your destination domain. Only domain owners have the flexibility to create, view,
      remove, and monitor connections to or from their domains.

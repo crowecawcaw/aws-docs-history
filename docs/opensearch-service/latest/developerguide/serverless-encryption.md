@@ -46,6 +46,7 @@ Encryption policies contain the following elements:
 
 - `Rules` – one or more collection matching rules, each
   with the following sub-elements:
+
   - `ResourceType` – Currently the only option is
     "collection". Encryption policies apply to collection resources
     only.

@@ -443,3 +443,19 @@ You can monitor this consumption using the Amazon CloudWatch metric
 `SemanticSearchOCU`. For specific details about model token
 limits, volume throughput per OCU, and an example of a sample calculation,
 visit [OpenSearch Service Pricing](https://aws.amazon.com/opensearch-service/pricing/ "https://aws.amazon.com/opensearch-service/pricing/").
+
+## Supported AWS Regions
+
+Automatic semantic enrichment is available in the following AWS Regions:
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (Oregon)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (Stockholm)
+- Europe (Spain)

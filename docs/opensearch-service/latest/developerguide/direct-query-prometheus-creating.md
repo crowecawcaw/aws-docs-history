@@ -22,12 +22,15 @@ After your prerequisites are met, you can connect the data source using the Open
 5. Choose **Next**.
 6. Under **Data connection details**, enter a name and an optional description.
 7. Under **IAM roles**, choose how to manage access:
+
    - To automatically create a role for this data source:
+
      1. Select **Create a new role**.
      2. Enter a name for the IAM role.
      3. Select one or more workspaces to define which data can be queried.
 
    - To use an existing role that you manage yourself:
+
      1. Select **Use an existing role**.
      2. Select an existing role from the drop-down menu.###### Note
 

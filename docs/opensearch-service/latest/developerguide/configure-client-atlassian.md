@@ -62,9 +62,11 @@ Before you create your OpenSearch Ingestion pipeline, complete the following ste
 1. Prepare credentials for your Jira site by choosing one of the following
    options. OpenSearch Ingestion requires only `ReadOnly` authorization to
    the content.
+
    1. **Option 1: API key** – Log in to
       your Atlassian account and use the information in the following topic to
       generate your API key:
+
       - [Manage API tokens for your Atlassian account](https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/ "https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/")
 
    2. **Option 2: OAuth2** – Log in to
@@ -73,6 +75,7 @@ Before you create your OpenSearch Ingestion pipeline, complete the following ste
 2. [Create a secret in
    AWS Secrets Manager](../../../secretsmanager/latest/userguide/create_secret.md "../../../secretsmanager/latest/userguide/create_secret.md") to store the credentials created in the previous step.
    Make the following choices as you follow the procedure:
+
    - For **Secret type**, choose **Other type of
      secret**.
    - For **Key/value pairs**, create the following pairs,
@@ -265,6 +268,7 @@ Key to attributes in the Jira source:
    the keys in your AWS secret..
 4. **filter**: This section helps you select which
    portion of your Jira data to extract and synchronize.
+
    1. **project**: List the project keys that
       you want to sync in the `include` section. Otherwise, list
       the projects that you want to exclude under the `exclude`
@@ -385,6 +389,7 @@ Key attributes in the Confluence source:
    the keys in your AWS secret.
 4. **filter**: This section helps you select which
    portion of your Confluence data to extract and synchronize.
+
    1. **space**: List the space keys that you
       want to sync in the `include` section. Otherwise, list the
       spaces that you want to exclude under the `exclude` section.
@@ -412,11 +417,14 @@ exception is that the change monitoring syncs only `create` and
   if the ID mapping is specified in the sink settings.
 - On-premises instances using older versions of Atlassian software that don't
   support the following APIs are not compatible with this source:
+
   - Jira Search API version 3
+
     - `rest/api/3/search`
     - `rest/api/3/issue`
 
   - Confluence
+
     - `wiki/rest/api/content/search`
     - `wiki/rest/api/content`
     - `wiki/rest/api/settings/systemInfo`

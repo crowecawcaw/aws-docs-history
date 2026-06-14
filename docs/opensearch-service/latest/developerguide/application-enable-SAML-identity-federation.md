@@ -73,6 +73,7 @@ provider.
    **Next**.
 6. Enter following values in the app; you don't need to change other
    values:
+
    1. 1. For **Single Sign On URL**, enter
          `https://signin.aws.amazon.com/saml` for
          the commercial AWS Regions, or the URL specific to your Region.

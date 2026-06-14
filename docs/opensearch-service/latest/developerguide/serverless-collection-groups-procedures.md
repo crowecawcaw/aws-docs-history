@@ -42,6 +42,7 @@ criteria:
    description for your collection group.
 6. In the **Capacity management** section,
    configure the OCU limits:
+
    - **Minimum indexing capacity**
      (in OCUs) – Optional. Leave blank for no
      minimum.
@@ -100,6 +101,7 @@ Console
    description for your collection.
 6. Assign the collection to a collection group. The process
    differs depending on the collection type:
+
    - **NextGen – Express
      Create** – OpenSearch Serverless automatically
      assigns a collection group. For a first-time user,

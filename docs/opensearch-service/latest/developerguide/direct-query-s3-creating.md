@@ -69,8 +69,10 @@ the OpenSearch Service API.
 7. Choose **Amazon S3 with AWS Glue Data Catalog**.
 8. Under **IAM permission access settings**,
    choose how to manage access.
+
    1. If you want to automatically create a role for this
       data source, follow these steps:
+
       1. Select **Create a new
          role**.
       2. Enter a name for the IAM role.
@@ -85,6 +87,7 @@ the OpenSearch Service API.
 
    2. If you want to use an existing role that you manage
       yourself, follow these steps:
+
       1. Select **Use an existing
          role.**
       2. Select an existing role from the drop-down
@@ -148,6 +151,7 @@ with read access to the result index can read results for _all_ queries against 
    `indices:data/read/scroll/clear`.
 4. For **Index**, enter the following
    indexes you want to grant the user with the role access to:
+
    - `.query_execution_request_`<name of data
      source>``
    - `query_execution_result_`<name of data

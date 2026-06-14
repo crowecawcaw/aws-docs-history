@@ -27,6 +27,7 @@ The following describes how scale to zero works for your collections:
   remains at zero until it receives its own traffic.
 - When traffic resumes, OpenSearch Serverless provisions workers at the same tier as before
   scale-to-zero:
+
   - Search requests — two search workers
   - Indexing requests — one indexing worker
 

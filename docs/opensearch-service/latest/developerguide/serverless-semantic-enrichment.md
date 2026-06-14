@@ -369,6 +369,7 @@ the collection. For more information about network policies, see [Network access
 1. Sign in to the OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2. In the left navigation pane, choose **Network
    policies**. Then do one of the following:
+
    - Choose an existing policy name and choose
      **Edit**
    - Choose **Create network policy** and
@@ -389,6 +390,22 @@ the collection. For more information about network policies, see [Network access
 7. Choose **Create** for a new network policy or
    **Update** for an existing network
    policy.
+
+## Supported AWS Regions
+
+Automatic semantic enrichment for OpenSearch Serverless is available in the following AWS Regions:
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (Oregon)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Tokyo)
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (Stockholm)
+- Europe (Spain)
 
 ## Query rewrites
 

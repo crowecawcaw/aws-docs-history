@@ -7,6 +7,7 @@ tuning and accelerating large-scale index builds.
 
 1. In the **Vector ingestion jobs** section, view the
    summary information:
+
    - **Jobs** - Total number of ingestion
      jobs
    - Choose **Create vector database** to create a
@@ -14,6 +15,7 @@ tuning and accelerating large-scale index builds.
 
 2. In the **Amazon S3 vectors imports** section, view the
    import summary:
+
    - **Total imports** - Number of completed
      imports
    - Choose **Import Amazon S3 vectors** to start a new
@@ -21,6 +23,7 @@ tuning and accelerating large-scale index builds.
 
 3. In the **Vector ingestion jobs** table, monitor
    active jobs with the following information:
+
    - **Name** - The job name
    - **Status** - Current job status (e.g.,
      Active)
@@ -33,6 +36,7 @@ tuning and accelerating large-scale index builds.
 4. Use the search box to **Find vector ingestion job**
    to locate specific jobs.
 5. To manage jobs, choose from the following actions:
+
    - Choose **Delete** to remove selected
      jobs
    - Choose **Create vector database** to create
@@ -40,6 +44,7 @@ tuning and accelerating large-scale index builds.
 
 6. In the **Amazon S3 vectors import history** section, track
    import events:
+
    1. Use the **Date range** filter to specify a
       time period for import history.
    2. Use the **Status** dropdown to filter by
@@ -47,6 +52,7 @@ tuning and accelerating large-scale index builds.
    3. Use the search box to **Find imports by Amazon S3 vector
       index na...** to locate specific imports.
    4. View import details including:
+
       - **Import initiated on (UTC+5:30)** -
         When the import started
       - **Import status** - Current status

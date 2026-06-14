@@ -110,6 +110,7 @@ Console
 2. In the navigation pane, under **Domains**, choose the domain name to open the Cluster Configuration.
 3. Click on **Edit** button to right side in **Cluster Configuration** tab.
 4. From **Deployment strategy** options choose required configurations for domain update:
+
    1. **Full Swap Blue/Green** — The default deployment behavior. Requires full instance capacity upfront, ensuring the fastest deployment when capacity is available. Deployment will not proceed if sufficient capacity cannot be allocated.
    2. **Capacity Optimized** — Recommended for clusters with 30+ data nodes. Attempts a full blue/green swap first, and if capacity is insufficient, proceeds with deploying in batches. Ensures deployments can complete even when capacity is limited. Completion time may increase, as deployment will be done in batches.
 
@@ -122,6 +123,7 @@ Console
 3. Click on **Create Domain** button.
 4. Select all required configurations for domain.
 5. From **Deployment strategy** options choose required configurations for domain update:
+
    1. **Full Swap Blue/Green** — The default deployment behavior. Requires full instance capacity upfront, ensuring the fastest deployment when capacity is available. Deployment will not proceed if sufficient capacity cannot be allocated.
    2. **Capacity Optimized** — Recommended for clusters with 30+ data nodes. Attempts a full blue/green swap first, and if capacity is insufficient, proceeds with deploying in batches. Ensures deployments can complete even when capacity is limited. Completion time may increase, as deployment will be done in batches.
 

@@ -7,6 +7,7 @@ IAM permission setup.
 
 1. In the **Source** section, configure the Amazon S3 vector
    index:
+
    1. For **Amazon S3 vector index ARN**, enter the ARN of
       your Amazon S3 vector index.
 
@@ -17,8 +18,10 @@ IAM permission setup.
 
 2. In the **Service access** section, configure
    OpenSearch Service authorization:
+
    1. For **Choose a method to authorize
       OpenSearch Service**, select one of the following:
+
       - **Create and use a new service
         role**
       - **Use an existing service
@@ -37,6 +40,7 @@ IAM permission setup.
    configure advanced options if needed.
 4. In the **Import steps** section, configure the
    following automation options:
+
    - **Automate OpenSearch Service vector collection
      creation** - OpenSearch Service collections are used to store vector
      data. Serverless compute capacity is measured in OpenSearch Service Compute Units

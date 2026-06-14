@@ -30,8 +30,10 @@ Logs Insights QL, a purpose-built query language for analyzing CloudWatch Logs.
 ######
 
 - [Supported OpenSearch SQL commands and functions](supported-directquery-sql.md "supported-directquery-sql.md")
+
   - [Additional information for CloudWatch Logs Insights users using OpenSearch SQL](supported-directquery-sql.md#supported-sql-for-multi-log-queries "supported-directquery-sql.md#supported-sql-for-multi-log-queries")
   - [General SQL restrictions](supported-directquery-sql.md#general-sql-restrictions "supported-directquery-sql.md#general-sql-restrictions")
 
 - [Supported PPL commands](supported-ppl.md "supported-ppl.md")
+
   - [Additional information for CloudWatch Logs Insights users using OpenSearch PPL](supported-ppl.md#supported-ppl-for-cloudwatch-users "supported-ppl.md#supported-ppl-for-cloudwatch-users")

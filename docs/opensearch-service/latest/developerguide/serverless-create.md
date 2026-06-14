@@ -105,6 +105,7 @@ also be changed after creation.
    method.
 2. Review the default settings table that OpenSearch Serverless configures on your
    behalf:
+
    - **Collection group** – For a
      first-time user, a default collection group name is auto-generated
      based on the collection name. You can edit the name by
@@ -154,6 +155,7 @@ exist.
   (min/max OCU for indexing and search).
 - **Create new** – Create a new collection
   group with custom capacity limits:
+
   - **Collection group name** –
     Auto-generated as `nextgen-{collection-name}`. You
     can edit this name. The name is normalized to lowercase, hyphens
@@ -196,6 +198,7 @@ Choose how to configure data access:
 
 - **Create new policy** – Define a new data
   access policy:
+
   - Enter a **policy name** and optional
     **description**.
   - Use the **visual editor** to add statements
@@ -221,6 +224,7 @@ Configure the OpenSearch application and workspace for your collection:
 
 - For **OpenSearch application selection**, choose one
   of the following:
+
   - **Select existing OpenSearch application**
     – Choose an existing application from the
     **OpenSearch application name**
@@ -278,6 +282,7 @@ meet the following criteria:
     * Contains between 3 and 32 characters
 
 5. Choose a **collection type**:
+
    - **Time series** – Log analytics
      segment that focuses on analyzing large volumes of
      semi-structured, machine-generated data. At least 24 hours of
@@ -295,6 +300,7 @@ meet the following criteria:
      assistants, and fraud detection.
 
 6. (Optional) Configure **deployment options**:
+
    - **Standby replicas** – Choose whether
      to enable standby replicas for high availability.
    - **GPU acceleration** – For vector
@@ -320,6 +326,7 @@ meet the following criteria:
 
 2.  **Network access** – Configure how
     users and applications access your collection:
+
     - Enable or disable **access to OpenSearch
       endpoint**.
     - Enable or disable **access to OpenSearch Dashboards** .
@@ -328,6 +335,7 @@ meet the following criteria:
 
 3.  **Data access policy** – Define
     which principals can access your collection's data:
+
     - **Create new policy** – Define a new
       data access policy using the visual editor or JSON editor. Add
       principals (IAM users, IAM roles, or SAML users and groups)
@@ -343,6 +351,7 @@ Configure the OpenSearch application and workspace for your collection:
 
 - For **OpenSearch application selection**, choose one
   of the following:
+
   - **Select existing OpenSearch application**
     – Choose an existing application from the
     **OpenSearch application name**

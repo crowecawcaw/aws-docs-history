@@ -205,6 +205,7 @@ To create your API using the API Gateway console
 3. On the following page, locate the **Create new API**
    section and make sure **New API** is selected.
 4. Configure the following fields:
+
    - API name: **opensearch-api**
    - Description: **Public API for searching an
      Amazon OpenSearch Service domain**

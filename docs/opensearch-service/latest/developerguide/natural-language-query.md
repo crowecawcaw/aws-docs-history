@@ -47,6 +47,7 @@ steps:
    **Roles**.
 2. Choose **Create role** and configure the following cluster
    permissions:
+
    - `cluster:admin/opensearch/ml/config/get`
    - `cluster:admin/opensearch/ml/execute`
    - `cluster:admin/opensearch/ml/predict`

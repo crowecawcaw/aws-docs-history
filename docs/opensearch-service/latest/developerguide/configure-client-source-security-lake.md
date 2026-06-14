@@ -25,6 +25,7 @@ steps:
 
 - [Enable Security Lake](../../../security-lake/latest/userguide/getting-started.md#enable-service "../../../security-lake/latest/userguide/getting-started.md#enable-service").
 - [Create a subscriber](../../../security-lake/latest/userguide/subscriber-data-access.md#create-subscriber-data-access "../../../security-lake/latest/userguide/subscriber-data-access.md#create-subscriber-data-access") in Security Lake.
+
   - Choose the sources that you want to ingest into your
     pipeline.
   - For **Subscriber credentials**, add the ID of

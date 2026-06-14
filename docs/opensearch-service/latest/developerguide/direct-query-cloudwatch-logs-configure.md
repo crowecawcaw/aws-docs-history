@@ -47,6 +47,7 @@ templates, so you can start exploring and analyzing your data right away.
 9. Choose how often you want to refresh the data in your
    dashboard.
 10. Choose which OpenSearch workspace you want to use.
+
     1. To create a new workspace, select **Create new
        workspace** and enter a name.
     2. To use an existing workspace, select **Select existing

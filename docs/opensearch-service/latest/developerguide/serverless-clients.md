@@ -501,6 +501,7 @@ you must remove any pre-installed AWS plugins and install the
 2. In order for the OpenSearch output plugin to work with OpenSearch Serverless, you must make
    the following modifications to the `opensearch` output section of
    logstash.conf:
+
    - Specify `aoss` as the `service_name` under
      `auth_type`.
    - Specify your collection endpoint for `hosts`.

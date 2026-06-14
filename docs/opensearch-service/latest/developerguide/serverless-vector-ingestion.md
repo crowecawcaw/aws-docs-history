@@ -57,6 +57,7 @@ console experience.
    job.
 2. In the **Data source** section, configure the
    following:
+
    1. For **Amazon S3 URI**, enter the Amazon S3 bucket
       location containing your OpenSearch Service JSON documents.
    2. Choose **Browse Amazon S3** to select from
@@ -64,14 +65,17 @@ console experience.
       preview the bucket contents.
    3. For **Content type**, select
       following:
+
       - **Vectors** - Documents already
         contain vectors and doesn't require further vector embedding
         generation.
 
 3. In the **Data source permissions** section,
    configure access permissions:
+
    1. For **IAM role**, choose one of the
       following:
+
       - **Create a new role**
       - **Use an existing role**
 
@@ -80,6 +84,7 @@ console experience.
 
 4. In the **Destination** section, configure the
    OpenSearch Service endpoint:
+
    1. For **Endpoint**, choose **Choose an option** to select from your
       compatible domains or collections in the current region.
    2. Choose **Next** to proceed with the

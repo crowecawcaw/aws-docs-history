@@ -432,7 +432,9 @@ OpenSearch Serverless API.
    from.
 6. For **Subnets**, select one subnet that you'll access OpenSearch Serverless
    from.
+
    - Endpoint's IP address and DNS type is based on subnet type
+
      - Dualstack: If all subnets have both IPv4 and IPv6 address
        ranges
      - IPv6: If all subnets are IPv6 only subnets
@@ -497,6 +499,7 @@ Ensure the following requirements are met before setting up the shared VPC:
 1. Sign in to the Amazon OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home").
 2. Follow the steps in [Create an OpenSearch Serverless-managed interface endpoint (OpenSearch Serverless Classic)](#serverless-vpc-create "#serverless-vpc-create"). As you do, make
    the following selections:
+
    - Select a VPC and subnets that are shared with the consumer accounts in
      your organization.
 

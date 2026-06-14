@@ -220,6 +220,7 @@ create these pipelines. For more information, see [Working with blueprints](pipe
 4. Select **Build using blueprint** and choose the
    **OpenTelemetry metrics to Amazon Prometheus** blueprint.
 5. Configure the pipeline:
+
    - Enter your Amazon Managed Service for Prometheus workspace
      ID
    - Specify the pipeline role ARN

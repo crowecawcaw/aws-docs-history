@@ -31,6 +31,7 @@ domain by:
 
 1. Creating two new grants on the AWS KMS key configured with your
    domain:
+
    - A grant for the S3 Vectors background indexing jobs with
      decrypt privileges
    - A grant for OpenSearch to create S3 vectors buckets with

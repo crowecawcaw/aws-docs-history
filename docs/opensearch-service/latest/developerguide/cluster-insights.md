@@ -55,6 +55,7 @@ Accessing Cluster Insights requires an administrative role in the OpenSearch UI 
 1. Open the OpenSearch Service console at [https://console.aws.amazon.com/aos/home](https://console.aws.amazon.com/aos/home "https://console.aws.amazon.com/aos/home")
 2. Choose **OpenSearch UI (Dashboards)** from the left navigation
 3. Complete the following steps to create and configure an application:
+
    1. [Create an OpenSearch Service application](application-getting-started.md "application-getting-started.md")
    2. [Associate data sources](application-data-sources-and-vpc.md#application-data-source-association "application-data-sources-and-vpc.md#application-data-source-association")
 
