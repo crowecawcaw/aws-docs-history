@@ -9,6 +9,7 @@ If you have secrets in multiple AWS accounts and AWS Regions in your organizatio
 ###### To assess whether secrets are in compliance
 
 - Follow the instructions on [Evaluating your resources with AWS Config rules](../../../config/latest/developerguide/evaluating-your-resources.md "../../../config/latest/developerguide/evaluating-your-resources.md"), and choose one of the following rules:
+
   - `secretsmanager-secret-unused`— Checks whether secrets were accessed within the specified number of days.
   - `secretsmanager-using-cmk` — Checks whether secrets are encrypted using the AWS managed key `aws/secretsmanager` or a customer managed key you created in AWS KMS.
   - `secretsmanager-rotation-enabled-check` — Checks whether rotation is configured for secrets stored in Secrets Manager.

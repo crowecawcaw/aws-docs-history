@@ -37,8 +37,10 @@ For the lowest latency, store the secret in the same Region as the database.
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the following:
+
    1. For **Secret type**, choose the type of
       database credentials to store:
+
       - **Amazon RDS database**
       - **Amazon DocumentDB
         database**
@@ -58,6 +60,7 @@ For the lowest latency, store the secret in the same Region as the database.
 
 4. On the **Configure secret** page, do the
    following:
+
    1. Enter a descriptive **Secret name** and
       **Description**.
    2. In **Resource permissions**, choose
@@ -84,7 +87,6 @@ For the lowest latency, store the secret in the same Region as the database.
    }`
 
    ```
-
    3. At the bottom of the page, choose **Next**.
 
 5. On the **Configure rotation** page, keep rotation
@@ -139,6 +141,7 @@ leave AWS infrastructure. For instructions, see [Using an AWS Secrets Manager VP
    rotation**.
 4. In the **Edit rotation configuration** dialog box, do the
    following:
+
    1. Turn on **Automatic rotation**.
    2. Under **Rotation schedule**, enter your schedule in
       UTC time zone.

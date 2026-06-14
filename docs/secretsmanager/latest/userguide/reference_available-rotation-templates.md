@@ -24,6 +24,7 @@ To use the templates, see:
 ###### Templates
 
 - [Amazon RDS and Amazon Aurora](reference_available-rotation-templates.md#RDS_rotation_templates "reference_available-rotation-templates.md#RDS_rotation_templates")
+
   - [Amazon RDS Db2 single user](reference_available-rotation-templates.md#sar-template-db2-singleuser "reference_available-rotation-templates.md#sar-template-db2-singleuser")
   - [Amazon RDS Db2 alternating users](reference_available-rotation-templates.md#sar-template-db2-multiuser "reference_available-rotation-templates.md#sar-template-db2-multiuser")
   - [Amazon RDS MariaDB single user](reference_available-rotation-templates.md#sar-template-mariadb-singleuser "reference_available-rotation-templates.md#sar-template-mariadb-singleuser")
@@ -38,19 +39,23 @@ To use the templates, see:
   - [Amazon RDS Microsoft SQLServer alternating users](reference_available-rotation-templates.md#sar-template-sqlserver-multiuser "reference_available-rotation-templates.md#sar-template-sqlserver-multiuser")
 
 - [Amazon DocumentDB (with MongoDB compatibility)](reference_available-rotation-templates.md#NON-RDS_rotation_templates "reference_available-rotation-templates.md#NON-RDS_rotation_templates")
+
   - [Amazon DocumentDB single user](reference_available-rotation-templates.md#sar-template-mongodb-singleuser "reference_available-rotation-templates.md#sar-template-mongodb-singleuser")
   - [Amazon DocumentDB alternating users](reference_available-rotation-templates.md#sar-template-mongodb-multiuser "reference_available-rotation-templates.md#sar-template-mongodb-multiuser")
 
 - [Amazon Redshift](reference_available-rotation-templates.md#template-redshift "reference_available-rotation-templates.md#template-redshift")
+
   - [Amazon Redshift single user](reference_available-rotation-templates.md#sar-template-redshift-singleuser "reference_available-rotation-templates.md#sar-template-redshift-singleuser")
   - [Amazon Redshift alternating users](reference_available-rotation-templates.md#sar-template-redshift-multiuser "reference_available-rotation-templates.md#sar-template-redshift-multiuser")
 
 - [Amazon Timestream for InfluxDB](reference_available-rotation-templates.md#template-TimeStream "reference_available-rotation-templates.md#template-TimeStream")
+
   - [Amazon Timestream for InfluxDB single user](reference_available-rotation-templates.md#template-TimeStream-singleuser "reference_available-rotation-templates.md#template-TimeStream-singleuser")
   - [Amazon Timestream for InfluxDB alternating users](reference_available-rotation-templates.md#template-TimeStream-multiuser "reference_available-rotation-templates.md#template-TimeStream-multiuser")
 
 - [Amazon ElastiCache](reference_available-rotation-templates.md#template-ELC "reference_available-rotation-templates.md#template-ELC")
 - [Active Directory](reference_available-rotation-templates.md#template-AD "reference_available-rotation-templates.md#template-AD")
+
   - [Active Directory credentials](reference_available-rotation-templates.md#template-AD-password "reference_available-rotation-templates.md#template-AD-password")
   - [Active Directory keytab](reference_available-rotation-templates.md#template-AD-keytab "reference_available-rotation-templates.md#template-AD-keytab")
 

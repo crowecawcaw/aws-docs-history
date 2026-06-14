@@ -40,7 +40,9 @@ create the function from scratch and copy the template code into the function.
    endpoints and quotas](../../../general/latest/gr/serverlessrepo.md "../../../general/latest/gr/serverlessrepo.md") in the _AWS General
    Reference_.
 2. Do one of the following:
+
    - If AWS Serverless Application Repository is supported in your Region:
+
      1. In the Lambda console, choose **Applications**
         and then choose **Create application**.
      2. On the **Create application** page, choose
@@ -55,6 +57,7 @@ create the function from scratch and copy the template code into the function.
      6. On the **Review, configure and deploy** page,
         in the **Application settings** tile, fill in
         the required fields.
+
         - For **endpoint**, enter the endpoint
           for your Region, including
           `https://`. For a list of
@@ -66,8 +69,10 @@ create the function from scratch and copy the template code into the function.
      7. Choose **Deploy**.
 
    - If AWS Serverless Application Repository isn't supported in your Region:
+
      1. In the Lambda console, choose **Functions** and then choose **Create function**.
      2. On the **Create function** page, do the following:
+
         1. Choose **Author from scratch**.
         2. For **Function name**, enter a name for your rotation function.
         3. For **Runtime**, choose **Python 3.12**.
@@ -93,6 +98,7 @@ function to the secret.
    configuration** section, choose **Edit rotation**. In
    the **Edit rotation configuration** dialog box, do the
    following:
+
    1. Turn on **Automatic rotation**.
    2. Under **Rotation schedule**, enter your schedule in UTC
       time zone in either the **Schedule expression builder**

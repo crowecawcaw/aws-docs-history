@@ -199,6 +199,7 @@ instance to allow your local computer to connect to it as well.
 3. In the **Templates** section, choose `Free
 tier`.
 4. In the **Settings** section, do the following:
+
    1. For **DB instance identifier**, enter
       `SecretsManagerTutorial`.
    2. Under **Credential settings**, select
@@ -229,6 +230,7 @@ address) to connect to the bastion host by using SSH over the internet.
    rules**.
 4. Choose **Add rule**, and then for the rule, do the
    following:
+
    1. For **Type**, choose
       `SSH`.
    2. For **Source type**, choose `My
@@ -254,11 +256,13 @@ configuration, you need some information from both Amazon EC2 and Amazon RDS.
    button.
 2. In the **Setup New Connection** dialog box, do the
    following:
+
    1. For **Connection Name**, enter
       `SecretsManagerTutorial`.
    2. For **Connection Method**, choose `Standard
 TCP/IP over SSH`.
    3. On the **Parameters** tab, do the following:
+
       1. For **SSH Hostname**, enter the public IP
          address of the Amazon EC2 instance.
 
@@ -318,6 +322,7 @@ to change the first user's password.
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the following:
+
    1. For **Secret type**, choose **Credentials for
       Amazon RDS database**.
    2. For **Credentials**, enter the username
@@ -331,6 +336,7 @@ to change the first user's password.
    name**, enter `SecretsManagerTutorialAppuser` and
    then choose **Next**.
 5. On the **Configure rotation** page, do the following:
+
    1. Turn on **Automatic rotation**.
    2. For **Rotation schedule**, set a schedule of
       **Days**: `2` Days with

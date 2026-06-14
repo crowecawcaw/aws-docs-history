@@ -7,6 +7,7 @@ If you have secrets in multiple AWS accounts and AWS Regions in your organizatio
 ###### To assess whether secrets are rotating
 
 1. Follow the instructions on [Evaluating your resources with AWS Config rules](../../../config/latest/developerguide/evaluating-your-resources.md "../../../config/latest/developerguide/evaluating-your-resources.md"), and choose from of the following rules:
+
    - `secretsmanager-rotation-enabled-check` — Checks whether rotation is configured for secrets stored in Secrets Manager.
    - `secretsmanager-scheduled-rotation-success-check`— Checks whether the last successful rotation is within the configured rotation frequency. The minimum frequency for the check is daily.
    - `secretsmanager-secret-periodic-rotation`— Checks whether secrets were rotated within the specified number of days.

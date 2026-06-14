@@ -39,6 +39,7 @@ store it in the Region that has the lowest latency for your use case.
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the
    following:
+
    1. For **Secret type**, choose **Other type
       of secret**.
    2. Enter your secret as **Key/value pairs** or in
@@ -75,7 +76,6 @@ store it in the Region that has the lowest latency for your use case.
    *EXAMPLE*
    ––-- END PRIVATE KEY –---
    ```
-
    3. For **Encryption key**, choose
       **aws/secretsmanager** to use the AWS managed key
       for Secrets Manager. There is no cost for using this key. You can also use your
@@ -85,6 +85,7 @@ store it in the Region that has the lowest latency for your use case.
 
 4. On the **Choose secret type** page, do the
    following:
+
    1. Enter a descriptive **Secret name** and
       **Description**.
    2. In **Resource permissions**, choose
@@ -112,7 +113,6 @@ store it in the Region that has the lowest latency for your use case.
    }`
 
    ```
-
    3. At the bottom of the page, choose
       **Next**.
 

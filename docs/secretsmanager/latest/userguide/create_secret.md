@@ -25,7 +25,9 @@ Secrets Manager generates a CloudTrail log entry when you create a secret. For m
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the following:
+
    1. For **Secret type**, do one of the following:
+
       - To store database credentials, choose the type of database
         credentials to store. Then choose the **Database**
         and then enter the **Credentials**.
@@ -69,7 +71,6 @@ Secrets Manager generates a CloudTrail log entry when you create a secret. For m
       *EXAMPLE*
       ––-- END PRIVATE KEY –---
       ```
-
       - To store a managed external secrets from an Secrets Manager partner, choose **Partner
         secret**. Then choose the partner and provide the
         details that identify the secret for the partner. For details, see
@@ -77,6 +78,7 @@ Secrets Manager generates a CloudTrail log entry when you create a secret. For m
 
    2. For **Encryption key**, choose the AWS KMS key that
       Secrets Manager uses to encrypt the secret value. For more information, see [Secret encryption and decryption](security-encryption.md "security-encryption.md").
+
       - For most cases, choose **aws/secretsmanager**
         to use the AWS managed key for Secrets Manager. There is no cost for using
         this key.
@@ -93,6 +95,7 @@ Secrets Manager generates a CloudTrail log entry when you create a secret. For m
    3. Choose **Next**.
 
 4. On the **Configure secret** page, do the following:
+
    1. Enter a descriptive **Secret name** and
       **Description**. Secret names can contain 1-512
       alphanumeric and /\_+=.@- characters.

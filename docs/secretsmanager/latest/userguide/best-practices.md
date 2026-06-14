@@ -48,6 +48,7 @@ the encryption key, use a customer managed key to encrypt the secret.
 - To further limit use of the key to only requests from Secrets Manager with the
   correct context, use keys or values in the [Secrets Manager encryption context](security-encryption.md#security-encryption-encryption-context "security-encryption.md#security-encryption-encryption-context") as a condition for using the
   KMS key by creating:
+
   - A [string condition operator](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md#Conditions_String") in an IAM policy or key
     policy
   - A [grant constraint](../../../kms/latest/APIReference/API_GrantConstraints.md "../../../kms/latest/APIReference/API_GrantConstraints.md") in a grant
@@ -66,7 +67,7 @@ caching components to cache your secrets and update them only when required:
 - [Rust with client-side caching](retrieving-secrets_cache-rust.md "retrieving-secrets_cache-rust.md")
 - [AWS Parameters and Secrets Lambda Extension](retrieving-secrets_lambda.md "retrieving-secrets_lambda.md")
 - [Use AWS Secrets Manager secrets in Amazon Elastic Kubernetes Service](integrate_eks.md "integrate_eks.md")
-- Use [Using the AWS Secrets Manager Agent](secrets-manager-agent.md "secrets-manager-agent.md") to standardize consumption of secrets from Secrets Manager across environments such as AWS Lambda, Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, and Amazon Elastic Compute Cloud.
+- Use [Using the AWS Workload Credentials Provider](workload-credentials-provider.md "workload-credentials-provider.md") to standardize consumption of secrets from Secrets Manager across environments such as AWS Lambda, Amazon Elastic Container Service, Amazon Elastic Kubernetes Service, and Amazon Elastic Compute Cloud.
 
 ## Rotate your secrets
 

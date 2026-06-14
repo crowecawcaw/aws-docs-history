@@ -46,12 +46,14 @@ Secrets Manager generates a CloudTrail log entry when you replicate a secret. Fo
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. From the list of secrets, choose your secret.
 3. On the secret details page, on the **Replication** tab, do one of the following:
+
    - If your secret is not replicated, choose **Replicate
      secret**.
    - If your secret is replicated, in the **Replicate secret** section,
      choose **Add Region**.
 
 4. In the **Add replica regions** dialog box, do the following:
+
    1. For **AWS Region**, choose the Region you want to replicate the
       secret to.
    2. (Optional) For **Encryption key**, choose a KMS key to encrypt

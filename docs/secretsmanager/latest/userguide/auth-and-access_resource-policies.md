@@ -29,6 +29,7 @@ Resource policy validation and the `BlockPublicPolicy` parameter help protect yo
    permissions**.
 4. In the code field, do one of the following, and then choose
    **Save**:
+
    - To attach or modify a resource policy, enter the policy.
    - To delete the policy, clear the code field.
 

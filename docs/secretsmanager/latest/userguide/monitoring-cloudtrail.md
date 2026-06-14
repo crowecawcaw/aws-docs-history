@@ -27,6 +27,7 @@ for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_to
 4. Choose **Filter** criteria and/or a **Time
    range** to help you find the event that you're looking for. For
    example:
+
    1. To see all Secrets Manager events, for **Lookup attributes**,
       choose **Event source**. Then, for **Enter event
       source**, choose

@@ -9,10 +9,12 @@ performing. For AWS Secrets Manager, you can monitor the number of secrets in yo
 1. On the CloudWatch console, under **Metrics**, choose **All metrics**.
 2. In the **Metrics** search, box, enter `secret`.
 3. Do the following:
+
    - To monitor the number of secrets in your account, choose **AWS/SecretsManager**, and then select **SecretCount**. This metric is published hourly.
    - To monitor API calls to Secrets Manager, including calls made through the console, choose **Usage > By AWS Resource**, and then select the API calls to monitor. For a list of Secrets Manager APIs, see [Secrets Manager operations](../apireference/API_Operations.md "../apireference/API_Operations.md").
 
 4. Do the following:
+
    - To create a graph of the metric, see [Graphing metrics](../../../AmazonCloudWatch/latest/monitoring/graph_metrics.md "../../../AmazonCloudWatch/latest/monitoring/graph_metrics.md") in the _Amazon CloudWatch User Guide_.
    - To detect anomalies, see [Using CloudWatch anomaly detection](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.md") in the _Amazon CloudWatch User Guide_.
    - To get statistics for a metric, see [Get statistics for a metric](../../../AmazonCloudWatch/latest/monitoring/getting-metric-statistics.md "../../../AmazonCloudWatch/latest/monitoring/getting-metric-statistics.md") in the _Amazon CloudWatch User Guide_.

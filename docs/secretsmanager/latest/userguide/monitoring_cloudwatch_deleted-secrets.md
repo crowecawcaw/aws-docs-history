@@ -78,12 +78,14 @@ following:
 
 7. In the filter box, choose **Create Alarm**.
 8. In the **Create Alarm** window, do the following:
+
    1. For **Name**, type
       `AttemptsToAccessDeletedSecretsAlarm`.
    2. **Whenever:**, for **is:**, choose
       **>=**, and then type `1`.
    3. Next to **Send notification to:**, do one of the
       following:
+
       - To create and use a new Amazon SNS topic, choose **New list**,
         and then type a new topic name. For **Email list:**, type at
         least one email address. You can type more than one email address by

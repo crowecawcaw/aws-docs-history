@@ -50,6 +50,7 @@ templates](reference_available-rotation-templates.md "reference_available-rotati
 ###### To write the rotation function code
 
 1. Do one of the following:
+
    - Check the list of [rotation function templates](reference_available-rotation-templates.md "reference_available-rotation-templates.md"). If there is one that matches your service and rotation strategy, copy the code.
    - For other types of secrets, you write your own rotation function. For instructions, see [Lambda rotation functions](rotate-secrets_lambda-functions.md "rotate-secrets_lambda-functions.md").
 
@@ -62,6 +63,7 @@ In this step, you create the Lambda function using the ZIP file you created in S
 ###### To create a Lambda rotation function and execution role
 
 1. Create a trust policy for the Lambda execution role and save it as a JSON file. For examples and more information, see [Lambda rotation function execution role permissions for AWS Secrets Manager](rotating-secrets-required-permissions-function.md "rotating-secrets-required-permissions-function.md"). The policy must:
+
    - Allow the role to call Secrets Manager operations on the secret.
    - Allow the role to call the service that the secret is for, for example, to create a new password.
 

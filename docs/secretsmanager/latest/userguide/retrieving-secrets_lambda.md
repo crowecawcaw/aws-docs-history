@@ -14,6 +14,7 @@ Lambda functions. To get started:
 
 1. Follow the step-by-step tutorial in [Use Secrets Manager secrets in Lambda
    functions](../../../lambda/latest/dg/with-secrets-manager.md "../../../lambda/latest/dg/with-secrets-manager.md"), which includes:
+
    - Creating a Lambda function with your preferred runtime (Python, Node.js,
      Java)
    - Adding the AWS Parameters and Secrets Lambda Extension as a layer

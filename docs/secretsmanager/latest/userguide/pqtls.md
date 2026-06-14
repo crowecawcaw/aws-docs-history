@@ -7,7 +7,7 @@ standardized so you can begin testing the effect of these key exchange protocols
 calls. These optional hybrid post-quantum key exchange features are at least as secure as
 the TLS encryption we use today and are likely to provide additional security benefits.
 However, they affect latency and throughput compared to the classic key exchange protocols
-in use today. The Secrets Manager Agent uses the post-quantum ML-KEM key exchange as the highest-priority key exchange by default.
+in use today. The AWS Workload Credentials Provider uses the post-quantum ML-KEM key exchange as the highest-priority key exchange by default.
 
 To protect data encrypted today against potential future attacks, AWS is participating
 with the cryptographic community in the development of quantum-resistant or _post-quantum_ algorithms. We've implemented hybrid post-quantum

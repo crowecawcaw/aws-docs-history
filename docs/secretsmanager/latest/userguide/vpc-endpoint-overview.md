@@ -31,6 +31,7 @@ You can use AWS CloudTrail logs to audit your use of secrets through the VPC end
 ###### To create a VPC endpoint for Secrets Manager
 
 1. See [Creating an interface endpoint](../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws "../../../vpc/latest/privatelink/create-interface-endpoint.md#create-interface-endpoint-aws") in the _Amazon VPC User Guide_. Use one of the following service names:
+
    - `com.amazonaws.`region`.secretsmanager`
    - `com.amazonaws.`region`.secretsmanager-fips`
 

@@ -38,6 +38,7 @@ following steps to troubleshoot and resolve the issue.
 ### General troubleshooting steps
 
 1. Analyze CloudWatch logs:
+
    - Look for specific error messages or unexpected behavior in the Lambda function
      logs
    - Verify that all rotation steps (**CreateSecret**,
@@ -45,28 +46,34 @@ following steps to troubleshoot and resolve the issue.
      **FinishSecret**) are being attempted
 
 2. Review API calls during rotation:
+
    - Avoid making mutating API calls on the secret during Lambda rotation
    - Ensure there's no race condition between **RotateSecret** and
      **PutSecretValue** calls
 
 3. Verify Lambda function logic:
+
    - Confirm you're using the latest AWS sample code for secret rotation
    - If using custom code, review it for proper handling of all rotation steps
 
 4. Check network configuration:
+
    - Verify security group rules allow the Lambda function to access the
      database
    - Ensure proper VPC endpoint or public endpoint access for Secrets Manager
 
 5. Test secret versions:
+
    - Verify that the AWSCURRENT version of the secret allows database access
    - Check if AWSPREVIOUS or AWSPENDING versions are valid
 
 6. Clear pending rotations:
+
    - If rotation consistently fails, clear the AWSPENDING staging label and retry
      rotation
 
 7. Check Lambda concurrency settings:
+
    - Verify that concurrency settings are appropriate for your workload
    - If you suspect concurrency issues, see the "Troubleshooting concurrency-related
      rotation failures" section
@@ -381,9 +388,9 @@ then under **Edit template in Application Composer**, choose the button
 
 #### Option 3: For AWS CDK users, upgrade the CDK library
 
-If you used the AWS CDK prior to version v2.94.0 to set up rotation for your secret, you
-can update the Lambda function by upgrading to v2.94.0 or later. For more information, see
-the [AWS Cloud Development Kit (AWS CDK) v2 Developer
+If you used the AWS CDK prior to version v2.258.0 to set up rotation for your secret, you
+can update the Lambda function to Python 3.12 by upgrading AWS CDK to v2.258.0 or later.
+For more information, see the [AWS Cloud Development Kit (AWS CDK) v2 Developer
 Guide](../../../cdk/v2/guide/home.md "../../../cdk/v2/guide/home.md").
 
 ### Upgrade an existing rotation function from Python 3.9 or later to Python 3.12
@@ -421,6 +428,7 @@ functions.
 4. Under **Rotation functions**, choose **Create a new
    function**, and enter a new name for the Lambda rotation
    function.
+
    1. (Optional) Once the update is complete, you can test the updated Lambda
       function to confirm it works as expected. Under the
       **Rotation** tab, select **Rotate Secret
@@ -448,10 +456,13 @@ Use the following procedure to update AWS Serverless Application Repository depl
    [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
 2. Navigate to the **Configurations** tab of the Lambda function
    that needs to be updated.
+
    1. You'll need the following information about your function when updating
       the deployed AWS Serverless Application Repository application. You can find this information in the Lambda
       console.
+
       - **Lambda application's name**
+
         - The Lambda application name can be found by using the link in the
           banner. For example, the banner states the following
           `serverlessrepo-`SecretsManagerRedshiftRotationSingleUser``.
@@ -460,6 +471,7 @@ The name in this example is
 
       - **Lambda rotation function name**
       - **Secrets Manager endpoint**
+
         - The endpoint can be found under the
           **Configurations** and the **Environment
           variables** tabs assigned to the
@@ -526,6 +538,7 @@ update your Lambda function to use the `RotationToken` parameter.
 ## Update Lambda rotation function to include `RotationToken`
 
 1. Download the Lambda function code
+
    - Open the Lambda console
    - In the navigation pane, choose **Functions**
    - Select your Lambda secret rotation function for **Function
@@ -674,18 +687,21 @@ reserved concurrency and provisioned concurrency](../../../lambda/latest/dg/lamb
 AWS Lambda Developer Guide.
 
 1. Check and adjust Lambda concurrency settings:
+
    - Verify that `reserved_concurrent_executions` is not set too low (for
      example, 1)
    - If using reserved concurrency, set it to at least 10
    - Consider using unreserved concurrency for more flexibility
 
 2. For provisioned concurrency:
+
    - Don't set the provisioned concurrency parameter explicitly (for example, in
      Terraform).
    - If you must set it, use a value of at least 10.
    - Test thoroughly to make sure the chosen value works for your use case.
 
 3. Monitor and adjust concurrency:
+
    - Calculate concurrency using this formula: Concurrency = (average requests per
      second) \* (average request duration in seconds). For more information, see [Estimating reserved concurrency](../../../lambda/latest/dg/configuration-concurrency.md#estimating-reserved-concurrency "../../../lambda/latest/dg/configuration-concurrency.md#estimating-reserved-concurrency").
    - Observe and record values during rotations to determine the appropriate

@@ -80,6 +80,7 @@ match the new secret value in the `AWSPENDING` version of the secret.
   prevent a potential [confused deputy attack](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md"), you need
   to make sure that an attacker cannot use the function to access other resources. Before
   you update the credential:
+
   - Check that the credential in the `AWSCURRENT` version of the secret is valid. If
     the `AWSCURRENT` credential isn't valid, abandon the rotation attempt.
   - Check that the `AWSCURRENT` and `AWSPENDING` secret values are for the same

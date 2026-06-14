@@ -40,6 +40,7 @@ If you choose the _alternating users strategy_, you must [Create secrets](create
     configuration** section, choose **Edit rotation**.
 4.  In the **Edit rotation configuration** dialog box, do the
     following:
+
     1. Turn on **Automatic rotation**.
     2. Under **Rotation schedule**, enter your schedule in UTC
        time zone in either the **Schedule expression builder**
@@ -73,7 +74,6 @@ If you choose the _alternating users strategy_, you must [Create secrets](create
          reuse a rotation function you used for another secret. The rotation
          functions listed under **Recommended VPC configurations** have the
          same VPC and security group as the database, which helps the function access the database.
-
     6. For **Rotation strategy**,
        choose the **Single user** or **Alternating users** strategy. For more information, see [Step 1: Choose a rotation strategy and (optionally) create a superuser secret](#rotate-secrets_turn-on-for-db_step1 "#rotate-secrets_turn-on-for-db_step1").
 

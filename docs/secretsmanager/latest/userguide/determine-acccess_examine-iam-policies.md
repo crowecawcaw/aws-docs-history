@@ -30,6 +30,7 @@ _implicit_ deny.
 ###### To view the resource-based policy for a secret
 
 - Do one of the following:
+
   - Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/"). In the secret details page
     for your secret, in the **Resource permissions** section,
     choose **Edit permissions**.

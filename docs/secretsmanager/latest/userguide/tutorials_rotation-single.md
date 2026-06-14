@@ -78,6 +78,7 @@ Next, you create a secret to store the credentials of the user you just created,
 1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
 2. Choose **Store a new secret**.
 3. On the **Choose secret type** page, do the following:
+
    1. For **Secret type**, choose **Credentials for
       Amazon RDS database**.
    2. For **Credentials**, enter the username
@@ -91,6 +92,7 @@ Next, you create a secret to store the credentials of the user you just created,
    name**, enter `SecretsManagerTutorialDbuser`
    and then choose **Next**.
 5. On the **Configure rotation** page, do the following:
+
    1. Turn on **Automatic rotation**.
    2. For **Rotation schedule**, set a schedule of
       **Days**: `2` Days with
