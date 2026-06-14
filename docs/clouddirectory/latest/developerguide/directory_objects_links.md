@@ -147,23 +147,28 @@ are supported on [`ListIncomingTypedLinks`](../APIReference/API_ListIncomingType
 
 - Facet = `EmployeeCapability`, Status = `Active`, Role =
   `Driver`
+
   - Selects active employees who are drivers. This filter includes two exact
     matches.
 
 - Facet = `EmployeeCapability`, Status = `Active`, Role =
   `Driver`, Created = `05/31/18`
+
   - Selects active employees who are drivers and who's facets were created on or
     after May 31st, 2018.
 
 - Facet = `EmployeeCapability`, Status = `Active`
+
   - Selects all active employees.
 
 - Facet = `EmployeeCapability`, Status = `Active`, Role =
   `A` to `M`
+
   - Selects active employees with roles starting with `A` through
     `M`.
 
 - Facet = `EmployeeCapability`
+
   - This selects all typed links of the `EmployeeCapability`
     type.
 
@@ -172,14 +177,17 @@ supported:
 
 - Facet = `EmployeeCapability`, Status between `A` to
   `C`, Role = `Driver`
+
   - This filter is not allowed because any ranges must appear at the end of the
     filter.
 
 - Facet = `EmployeeCapability`, Role = `Driver`
+
   - This filter is not allowed because the implicit status range is not an exact
     match and does not appear at the end of the list of ranges.
 
 - Status = `Active`
+
   - This filter is not allowed because the typed link facet is not
     specified.
 

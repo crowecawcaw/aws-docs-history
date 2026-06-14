@@ -11,6 +11,7 @@ Use the following procedure to publish a schema in Cloud Directory.
 3. Choose **Actions**.
 4. Choose **Publish**
 5. In the **Publish schema** dialog, provide the following information:
+
    1. **Schema name**
    2. **Major version**
    3. **Minor version**
