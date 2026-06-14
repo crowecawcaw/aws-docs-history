@@ -45,6 +45,7 @@ run the following command:
 ### To change the default branch
 
 1. Run the **update-default-branch** command, specifying:
+
    - The name of the CodeCommit repository where the default branch is updated (with the
      **--repository-name** option).
 

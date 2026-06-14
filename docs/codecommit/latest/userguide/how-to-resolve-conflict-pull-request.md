@@ -93,6 +93,7 @@ resolve them, and test whether a pull request is mergeable. You can use:
 1. To discover what merge options are available for a merge between two commit
    specifiers, run the **get-merge-options** command,
    specifying:
+
    - A commit specifier for the source of the merge (with the
      **--source-commit-specifier** option).
    - A commit specifier for the destination for the merge (with the
@@ -203,6 +204,7 @@ If successful, this command produces output similar to the following:
    a merge between two commit specifiers, run the
    **batch-describe-merge-conflicts** command,
    specifying:
+
    - A commit specifier for the source of the merge (with the
      **--source-commit-specifier** option).
    - A commit specifier for the destination for the merge (with the
@@ -385,6 +387,7 @@ If successful, this command produces output similar to the following:
 5. To create an unreferenced commit that represents the result of merging two
    commit specifiers, run the **create-unreferenced-merge-commit**
    command, specifying:
+
    - A commit specifier for the source of the merge (with the
      **--source-commit-specifier** option).
    - A commit specifier for the destination for the merge (with the

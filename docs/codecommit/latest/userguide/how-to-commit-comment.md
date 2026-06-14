@@ -377,6 +377,7 @@ aws codecommit update-comment --comment-id `442b498bEXAMPLE5756813` --content "F
 
 1. To post a reply to a comment in a pull request, run the
    **post-comment-reply** command, specifying:
+
    - The system-generated ID of the comment to which you want to reply (with the
      **--in-reply-to** option).
    - A unique, client-generated idempotency token (with the
@@ -414,6 +415,7 @@ aws codecommit post-comment-reply --in-reply-to `abcd1234EXAMPLEb5678efgh` --con
 1. To reply to a comment in a pull request with an emoji, or to change the value of
    your emoji reaction, run the **put-comment-reaction** command,
    specifying:
+
    - The system-generated ID of the comment to which you want to reply with an
      emoji.
    - The value of the reaction you want to add or update. Acceptable values include

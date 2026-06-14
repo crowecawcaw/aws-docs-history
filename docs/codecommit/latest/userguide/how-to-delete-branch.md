@@ -42,6 +42,7 @@ see [Command line reference](cmd-ref.md "cmd-ref.md").
 
 1. At the terminal or command line, run the **delete-branch** command,
    specifying:
+
    - The name of the CodeCommit repository where the branch is to deleted (with the
      **--repository-name** option).
 

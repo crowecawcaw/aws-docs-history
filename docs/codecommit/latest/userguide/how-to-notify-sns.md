@@ -28,6 +28,7 @@ with other services, such as Amazon Simple Queue Service (Amazon SQS) and AWS La
    **Settings**, and then choose
    **Triggers**.
 4. Choose **Create trigger**, and then do the following:.
+
    - In **Trigger name**, enter a name for the trigger
      (for example, `MyFirstTrigger`).
    - In **Events**, choose the repository events that
@@ -76,6 +77,7 @@ as when someone pushes a commit to your repository.
 ###### To create a trigger for an Amazon SNS topic
 
 1. Open a plain-text editor and create a JSON file that specifies:
+
    - The Amazon SNS topic name.
 
    ###### Note

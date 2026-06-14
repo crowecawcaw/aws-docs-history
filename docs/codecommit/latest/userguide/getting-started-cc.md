@@ -127,6 +127,7 @@ the first commit for a repository using the AWS CLI](how-to-create-commit.md#cre
    or upload a file from your computer. This tutorial shows you how to do
    both.
 3. To add a file, do the following:
+
    1. In the drop-down list of branches, choose the branch where you want to
       add the file. The default branch is selected automatically for you. In
       the example shown here, the default branch is named

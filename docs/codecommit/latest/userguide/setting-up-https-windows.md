@@ -265,6 +265,7 @@ skip this step and clone the repository directly.
    Repositories are specific to an AWS Region. For more information, see [Regions and Git connection endpoints](regions.md "regions.md").
 3. Find the repository you want to connect to from the list and choose it. Choose **Clone URL**, and then choose the protocol you want to use when
    cloning or connecting to the repository. This copies the clone URL.
+
    - Copy the HTTPS URL if you are using either Git credentials with your IAM user or the credential helper included with the AWS CLI.
    - Copy the HTTPS (GRC) URL if you are using the **git-remote-codecommit** command on your local computer.
    - Copy the SSH URL if you are using an SSH public/private key pair with your IAM user.

@@ -20,6 +20,7 @@ Use the AWS CodeCommit console to quickly view all repositories created with you
    AWS Region where you are signed in. Use the Region selector to choose a different
    AWS Regiont to view repositories in that Region.
 3. Choose the name of the repoistory for which you want to view more details, and then do one of the following:
+
    - To view the URL for cloning the repository, choose **Clone URL**,
      and then choose the protocol you want to use when cloning the repository. This copies
      the clone URL. To review it, paste it into a plain-text editor.

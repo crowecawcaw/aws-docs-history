@@ -40,6 +40,7 @@ US East (Ohio).
   permissions if the Amazon SNS topic is created using the same account as the CodeCommit repository.
   You can create the CodeCommit trigger as soon as you have created and subscribed to the Amazon SNS
   topic.
+
   - For more information about creating topics in Amazon SNS, see the [Amazon SNS documentation](../../../sns/latest/dg/GettingStarted.md "../../../sns/latest/dg/GettingStarted.md").
   - For information about using Amazon SNS to send messages to Amazon SQS queues, see [Sending Messages to Amazon SQS
     Queues](../../../sns/latest/dg/SendMessageToSQS.md "../../../sns/latest/dg/SendMessageToSQS.md") in the _Amazon SNS Developer Guide_.

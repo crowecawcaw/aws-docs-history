@@ -56,6 +56,7 @@ instead, see the [AWS Cloud9 User Guide](../../../cloud9/latest/user-guide.md ".
    step**.
 4. In **Step 2: Configure Settings**, configure your environment
    as follows:
+
    - In **Environment type**, choose **Create a new
      instance for environment (EC2)**.
    - In **Instance type**, choose the appropriate instance type

@@ -71,6 +71,7 @@ To use AWS CLI commands with CodeCommit, install the AWS CLI. For more informati
 
 1. To merge two branches using the fast-forward merge strategy, run the
    **merge-branches-by-fast-forward** command, specifying:
+
    - The name of the source branch that contains the changes you want to
      merge (with the **--source-commit-specifier** option).
    - The name of the destination branch where you want to merge your

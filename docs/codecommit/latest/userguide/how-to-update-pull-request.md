@@ -65,6 +65,7 @@ aws codecommit update-pull-request-title --pull-request-id `47` --title "`Consol
 
 2. To update the description of a pull request,
    run the **update-pull-request-description** command, specifying:
+
    - The ID of the pull request (with the **--pull-request-id**
      option).
    - The description (with the **--description** option).

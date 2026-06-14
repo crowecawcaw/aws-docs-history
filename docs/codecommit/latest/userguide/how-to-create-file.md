@@ -40,6 +40,7 @@ branch, and then choose it from the list. 4. Choose **Add file**, and then choos
 
 5. Provide information to other users about who added this file to the repository and
    why.
+
    - In **Author name**, enter your name. This name is used as both
      the author name and the committer name in the commit information. CodeCommit defaults to
      using your IAM user name or a derivation of your console login as the author
@@ -50,6 +51,7 @@ branch, and then choose it from the list. 4. Choose **Add file**, and then choos
      optional, but highly recommended. Otherwise, a default commit message is used.
 
 6. Do one of the following:
+
    - If you are uploading a file, choose the file from your local computer.
    - If you are creating a file, enter the content you want to add in the code editor,
      and provide a name for the file.

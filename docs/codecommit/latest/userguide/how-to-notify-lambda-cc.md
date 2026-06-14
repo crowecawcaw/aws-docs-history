@@ -128,6 +128,7 @@ function to get information about the repository. For more information, see [To 
    **Triggers**.
 4. Choose **Create trigger**.
 5. In **Create trigger**, do the following:
+
    - In **Trigger name**, enter a name for the trigger
      (for example,
      `MyLambdaFunctionTrigger`).
@@ -177,6 +178,7 @@ to CodeCommit repository events, such as when someone pushes a commit to your re
 ###### To create a trigger for an Lambda function
 
 1. Open a plain-text editor and create a JSON file that specifies:
+
    - The Lambda function name.
    - The repository and branches you want to monitor with this trigger.
      (If you do not specify any branches, the trigger applies to all branches
