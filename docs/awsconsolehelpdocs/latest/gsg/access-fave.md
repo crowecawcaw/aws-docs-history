@@ -11,6 +11,7 @@ Services menu
 3. Choose **Favorites**.
 4. View the services and applications you added to your favorites.
 5. (Optional) View application resources:
+
    1. Select an application.
    2. (Optional) Select a [view](../../../resource-explorer/latest/userguide/configure-views.md "../../../resource-explorer/latest/userguide/configure-views.md").
    3. View your resources.
@@ -37,6 +38,7 @@ Favorites widget
 
 1. Open the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. (Optional) Add the **Favorites** widget if you don't have it:
+
    1. Choose the **+ Add widgets** button on the Console Home page.
    2. In the **Add widgets** menu, drag the
       **Favorites** widget by using the **⋮⋮** icon and place it on your Console Home page.

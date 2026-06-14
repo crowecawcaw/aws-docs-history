@@ -30,6 +30,7 @@ With tag-sync enabled, any resources that are tagged with the specified tag key-
 3. Choose **Manage resources**.
 4. Choose **Create tag-sync**.
 5. Select an existing tag key and value:
+
    1. Select the **Role** used to tag resources. For more information, see
       [Tag-sync task required permissions](../../../servicecatalog/latest/arguide/app-tag-sync.md#tag-sync-role "../../../servicecatalog/latest/arguide/app-tag-sync.md#tag-sync-role") in the
       _AWS Service Catalog AppRegistry Administrator Guide_.

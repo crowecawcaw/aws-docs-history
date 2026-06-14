@@ -13,6 +13,7 @@ myApplications###### To view applications in myApplications
 3. In **Regions**, select **Current Region** or **Supported Regions**.
 4. To find a specific application, enter its name, keywords, or description in the search bar.
 5. (Optional) Your default view is the card view. To customize your application page:
+
    1. Select the gear icon.
    2. (Optional) Select your page size.
    3. (Optional) Choose card or table view.

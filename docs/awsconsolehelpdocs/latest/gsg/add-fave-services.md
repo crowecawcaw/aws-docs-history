@@ -9,6 +9,7 @@ Services menu
 1. Open the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/").
 2. In the navigation bar, choose **Services (⋮⋮⋮)**.
 3. (Optional) Add a recently visited service to your favorites:
+
    1. In **Recently visited**, hover your cursor over a service.
    2. Select the star next to the service's name.
 

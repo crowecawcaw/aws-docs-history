@@ -13,6 +13,7 @@ for `signin.aws.amazon.com` and one for `console.aws.amazon.com` with
 the following CNAME records:
 
 - Sign-In
+
   - `region`.signin.aws.amazon.com pointing to the AWS Sign-In VPC endpoint in the signin
     DNS zone where `region` is the desired Region
   - signin.aws.amazon.com pointing to AWS Sign-In VPC endpoint in US East (N. Virginia) (us-east-1)

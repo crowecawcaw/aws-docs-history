@@ -59,6 +59,7 @@ The following procedure details how to change your default language from the Uni
    next to **Localization and default Region**.
 5. To select the language that you want for the console, choose one of the
    following options:
+
    - Choose the **Browser default** from the dropdown
      list, and then choose **Save settings**.
 

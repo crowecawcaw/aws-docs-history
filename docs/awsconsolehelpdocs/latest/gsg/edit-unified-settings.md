@@ -10,7 +10,9 @@ The following procedure describes how to edit your preferred settings.
 3. Open the **Unified Settings** page by choosing
    **See all user settings**.
 4. Choose **Edit** next to your preferred settings:
+
    - **Localization and default Region:**
+
      - **Language** lets you select the default
        language for console text.
      - **Default Region** lets you select a default
@@ -21,6 +23,7 @@ The following procedure describes how to edit your preferred settings.
      To learn more about Region routing in the [AWS Management Console](https://console.aws.amazon.com/ "https://console.aws.amazon.com/"), see [Choosing a Region](select-region.md "select-region.md").
 
    - **Display:**
+
      - **Visual mode** lets you set your console to
        light mode, dark mode, or the default display mode of your
        browser.
@@ -36,6 +39,7 @@ The following procedure describes how to edit your preferred settings.
        pixels).
 
    - **Settings management:**
+
      - **Remember recently visited services** lets
        you choose if the AWS Management Console remembers your recently visited
        services. Turning this off also deletes your recently visited

@@ -24,6 +24,7 @@ see [Diagnose common errors in the console with Amazon Q Developer](../../../ama
   **Console** tab. The AWS Management Console uses domains' suffixes
   including the
   following list. This list is not exhaustive and can change with time. These domains' suffixes aren't used exclusively by AWS.
+
   - .a2z.com
   - .amazon.com
   - .amazonaws.com
