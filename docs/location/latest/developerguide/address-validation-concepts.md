@@ -334,6 +334,7 @@ For each address component, two fields indicate validation results:
 
 - `Status` fields indicate the validation status: `Validated` or `Unconfirmed`
 - `StatusDetail` fields provide additional detail about the validation status:
+
   - `NotFound` – Component was not found or empty.
   - `StandardizedNoMatch` – Component was parsed and standardized, but not identified in reference data.
   - `OutOfRange` – Component was not identified, reference data suggests the component is out of range or unknown.

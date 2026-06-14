@@ -97,6 +97,7 @@ Guide_.
 10. Specify the alarm **Conditions**.
 11. Choose **Next**.
 12. If you want to send a notification when the alarm conditions are met:
+
     - Under **Alarm state trigger**, select the alarm state to
       prompt a notification to be sent.
     - Under **Select an SNS topic**, choose **Create

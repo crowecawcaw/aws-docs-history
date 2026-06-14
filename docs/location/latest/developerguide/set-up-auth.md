@@ -22,6 +22,7 @@ Follow the procedures below to create your first API key.
    key**.
 3. On the **Create API key** page, fill in the
    following information:
+
    - **Name** – A name for your API key, such as
      `MyHelloWorldApp`.
    - **Description** – An optional description for

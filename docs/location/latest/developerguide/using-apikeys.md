@@ -54,6 +54,7 @@ Amazon Location console
    **Create API key**.
 3. On the **Create API key** page,
    fill in the following information:
+
    - **Name** – A name for your API
      key, such as `ExampleKey`.
    - **Description** – An optional

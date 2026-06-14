@@ -103,6 +103,7 @@ diagnose and resolve the issue.
 - `Error`: A `JobError` object containing
   details about the failure. This object includes the following
   fields:
+
   - `Code`: An error code that identifies the
     type of failure.
   - `Messages`: A list of human-readable

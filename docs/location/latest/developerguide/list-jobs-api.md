@@ -39,6 +39,7 @@ The request includes the following optional parameters:
 Optional parameters to narrow the list of returned jobs.
 
 - `Filter`: Object containing filter criteria.
+
   - `JobStatus`: Filter jobs by their current
     status. Valid values: `Pending`,
     `Running`, `Completed`,
@@ -69,6 +70,7 @@ The response includes the following fields:
 Array of job summaries matching the filter criteria.
 
 - `Entries`: Array of job summaries, including:
+
   - `Action`: Action performed by the
     job.
   - `CreatedAt`: Job creation timestamp in ISO

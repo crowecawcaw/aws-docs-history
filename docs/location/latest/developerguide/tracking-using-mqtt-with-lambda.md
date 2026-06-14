@@ -26,6 +26,7 @@ resource:
 2. In the left navigation pane, choose **Trackers**.
 3. Choose **Create tracker**.
 4. Fill out the following boxes:
+
    - **Name** – Enter a unique name that has a maximum
      of 100 characters. Valid entries include alphanumeric characters,
      hyphens, and underscores. For example,
@@ -55,6 +56,7 @@ console:
 3. Choose **Create Function**, and make sure that
    **Author from scratch** is selected.
 4. Fill out the following boxes:
+
    - **Function name** – Enter a unique name for your
      function. Valid entries include alphanumeric characters, hyphens,
      and underscores with no spaces. For example,

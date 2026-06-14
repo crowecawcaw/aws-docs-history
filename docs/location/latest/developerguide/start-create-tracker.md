@@ -109,6 +109,7 @@ console**
 2. In the left navigation pane, choose **Trackers**.
 3. Choose **Create tracker**.
 4. Fill the following fields:
+
    - **Name** – Enter a unique name.
      For example, `ExampleTracker`.
      Maximum 100 characters. Valid entries include

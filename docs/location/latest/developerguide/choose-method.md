@@ -5,10 +5,12 @@ choose one instead of the other? The following list highlights some of the diffe
 between the two.
 
 - **Performance:**
+
   - **API key:** Relatively faster
   - **Amazon Cognito:** Relatively slower
 
 - **Availability:**
+
   - **API key:** Amazon Location APIs for Maps,
     Places, and Routes
   - **Amazon Cognito:** All APIs

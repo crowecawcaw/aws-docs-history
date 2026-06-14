@@ -51,16 +51,19 @@ The following operations using GrabMaps data are supported in the latest version
 Amazon Location Service APIs:
 
 - Maps:
+
   - GetTile
   - GetStyleDescriptor
 
 - Places:
+
   - ReverseGeocode
   - Suggest
   - SearchText
   - GetPlace
 
 - Routes:
+
   - CalculateRoutes
   - CalculateRouteMatrix
 

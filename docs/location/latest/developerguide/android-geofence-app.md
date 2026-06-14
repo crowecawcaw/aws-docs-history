@@ -165,6 +165,7 @@ to Amazon Location using the console:
 3. Choose Create Function, and make sure that Author from scratch is
    selected.
 4. Fill out the following boxes:
+
    - a Function name
    - for the **Runtime** option, choose
      Node.js 16.x.

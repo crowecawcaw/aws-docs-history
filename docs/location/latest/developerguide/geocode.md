@@ -126,6 +126,7 @@ Information on the type and category of place returned.
 Scores indicating how closely results match the input query.
 
 - `MatchScores`: Scores for matching precision.
+
   - `Overall`: Measures how well an address search
     matches your input, on a scale from 0.0 to 1.0 (0% to 100%).
     A perfect score of 1.0 means every part of your search was

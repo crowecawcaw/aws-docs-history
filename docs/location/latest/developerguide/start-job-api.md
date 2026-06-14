@@ -61,6 +61,7 @@ format.
 
 - `InputOptions`: Object containing input data
   configuration.
+
   - `Location`: Amazon S3 ARN or URI where input
     files are stored.
   - `Format`: Input data format. Currently
@@ -73,6 +74,7 @@ format.
 
 - `OutputOptions`: Object containing output data
   configuration.
+
   - `Location`: Amazon S3 ARN or URI where output
     files are written.
   - `Format`: Output data format. Currently
@@ -91,11 +93,14 @@ features.
   characters matching pattern `^[!-~]+$`.
 - `ActionOptions`: Object containing additional
   features for the specified action.
+
   - `ValidateAddress`: Object containing
     options specific to address validation.
+
     - `AdditionalFeatures`: Array of
       feature names to include in results. Valid
       values:
+
       - `Position`: Includes
         latitude and longitude in [WGS 84](https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84 "https://earth-info.nga.mil/index.php?dir=wgs84&action=wgs84")
         format for each validated
