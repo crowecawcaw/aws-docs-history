@@ -85,6 +85,7 @@ Amazon Q Developer in chat applications.
 2. In the left navigation pane, choose **Topics**.
 3. Choose **Create Topic**.
 4. Create a topic with the following settings:
+
    1. **Type** – Standard
    2. **Name** –
       `myHelloWorldNotifications`
@@ -94,6 +95,7 @@ Amazon Q Developer in chat applications.
 5. Choose **Create topic**.
 6. Choose **Create subscription**.
 7. Create a subscription with the following settings:
+
    1. **Protocol** –
       `Email`
    2. **Endpoint** – Your email address
@@ -116,6 +118,7 @@ occurs.
 6. Choose **By Function Name**.
 7. Choose **myHelloWorld errors**.
 8. Change the following settings:
+
    1. **Period** – **1
       minute**
    2. **Whenever Errors is**
@@ -171,6 +174,7 @@ Amazon Q Developer in chat applications, but you must set up each workspace one 
 
 8. Define the **Permissions** that the chatbot uses for
    messaging your Slack chat room as shown following:
+
    1. For **Role settings**, choose **Channel role**.
    2. For **Channel role**, choose **Create an IAM role using a template**.
    3. For **Role name**, enter
@@ -198,6 +202,7 @@ _Amazon Q Developer in chat applications Administrator Guide._
 ###### To invoke a Lambda function
 
 1. Invite Amazon Q Developer in chat applications to your channel by doing the following in Slack:
+
    1. Enter `@Amazon Q`.
    2. Choose **Invite to Channel.**
 

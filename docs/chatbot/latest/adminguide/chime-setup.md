@@ -62,6 +62,7 @@ There is an extra charge for using CloudWatch Logs. 10. For **Configure Amazon C
 
 11. For **IAM permissions**, set the IAM permissions for
     Amazon Q Developer in chat applications.
+
     1.  For **Role**, choose **Create a new role from
         template**. If you want to use an existing role instead, choose it from
         the **IAM Role** list. To use an existing IAM role, you might
@@ -75,6 +76,7 @@ There is an extra charge for using CloudWatch Logs. 10. For **Configure Amazon C
         0-9.
 
 12. Set up the SNS topics that will send notifications to the Amazon Chime webhook.
+
     1.  For **SNS Region**, choose the AWS Region that hosts the SNS
         topics for this Amazon Q Developer in chat applications subscription.
     2.  For **SNS topic**, choose the SNS topic for the client

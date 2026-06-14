@@ -30,6 +30,7 @@ If your Amazon SNS topic is encrypted, you must add a section to your AWS KMS ke
    appears. Note that the **Region** Notifications is already
    configured.
 5. In the **Notifications** panel:
+
    1. If you need to apply an Amazon SNS topic from another region, choose **Add
       another Region**.
 

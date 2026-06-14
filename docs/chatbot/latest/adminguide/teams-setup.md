@@ -36,6 +36,7 @@ Amazon Q Developer in chat applications with Microsoft Teams.
 ###### To configure a Microsoft Teams client
 
 1. Add Amazon Q Developer in chat applications to your team:
+
    1. In Microsoft Teams, find your team name and choose **...**, then choose **Manage team**.
    2. Choose **Apps**, then choose **More apps**.
    3. Enter `Amazon Q Developer` in the search bar to find Amazon Q Developer in chat applications.
@@ -74,6 +75,7 @@ For more information, see [Private channel limitations](https://learn.microsoft.
 ###### To configure a Microsoft Teams channel
 
 1.  Associate a channel with your configuration:
+
     1. On the **Team details** page in the Amazon Q Developer in chat applications console, choose **Configure new channel**.
     2. Under **Configuration details**, enter a name for your configuration. The name must be unique across your account and can't be edited later.
     3. If you want to enable logging for this configuration, choose **Publish logs to Amazon CloudWatch Logs**. For more information, see [Amazon CloudWatch Logs for Amazon Q Developer in chat applications](cloudwatch-logs.md "cloudwatch-logs.md").
@@ -83,6 +85,7 @@ For more information, see [Private channel limitations](https://learn.microsoft.
     There is an extra charge for using CloudWatch Logs. 4. For **Team channel**, paste your Microsoft Teams channel URL.
 
 2.  Define user permissions:
+
     1. Choose your **Role Setting**.
 
     ###### Tip
@@ -113,7 +116,6 @@ For more information, see [Private channel limitations](https://learn.microsoft.
     User roles
 
         1. For **Role setting**, choose **User roles**.
-
     2. Select the policies that will make up your [channel guardrails](understanding-permissions.md#channel-guardrails "understanding-permissions.md#channel-guardrails"). Your channel guardrails control what actions are available to your channel members.
     3. (Optional) Add [AmazonQDeveloperAccess](../../../amazonq/latest/qdeveloper-ug/managed-policy.md#amazonq-policy-developeraccess "../../../amazonq/latest/qdeveloper-ug/managed-policy.md#amazonq-policy-developeraccess") as a channel guardrail to allow your users to chat with Amazon Q Developer in natural language from your Microsoft Teams channel.
 

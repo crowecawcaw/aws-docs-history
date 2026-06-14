@@ -101,6 +101,7 @@ try deleting it again.
 
 1. [Open the Amazon Q Developer in chat applications console](https://us-east-2.console.aws.amazon.com/chatbot/home?region=us-east-2#/chat-clients "https://us-east-2.console.aws.amazon.com/chatbot/home?region=us-east-2#/chat-clients").
 2. To remove Amazon Chime webhook configurations, do the following:
+
    1. Choose **Amazon Chime**.
    2. Choose each webhook that you need to delete and choose **Delete
       webhook**. You can delete one at a time.
@@ -108,6 +109,7 @@ try deleting it again.
    4. Repeat these steps to delete all webhook configurations.
 
 3. To remove Slack channel configurations, do the following:
+
    1. Choose **Slack**.
    2. Choose the channel that you need to delete and choose **Delete
       channel**.

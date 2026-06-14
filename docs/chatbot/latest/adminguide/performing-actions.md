@@ -9,6 +9,7 @@ Actions you can perform include:
 - Finding your AWS resources
 - Responding to interactive messages
 - Running CLI commands
+
   - This includes running CLI commands to use different services from
     chat channels. For example, you can retrieve diagnostic information, invoke Lambda functions, and create support cases for your AWS resources
 

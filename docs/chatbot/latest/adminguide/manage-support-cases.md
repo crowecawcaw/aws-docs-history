@@ -20,6 +20,7 @@ To manage your support cases in your chat channels, you must:
 
 - Create an Amazon EventBridge rule for AWS Support case events and choose an Amazon SNS topic as your target.
   For more information, see [Creating an EventBridge rule for AWS Support cases](../../../awssupport/latest/user/event-bridge-support.md#creating-event-bridge-events-rule-for-aws-support "../../../awssupport/latest/user/event-bridge-support.md#creating-event-bridge-events-rule-for-aws-support") in the _AWS Support User Guide_.
+
   - Subscribe that Amazon SNS topic to your Amazon Q Developer in chat applications configuration. For more information, see [Tutorial: Subscribing an Amazon SNS topic to Amazon Q Developer in chat applications](subscribe-sns-topic.md "subscribe-sns-topic.md").
 
 - Add the managed role [`AWSSupportAccess`](../../../aws-managed-policy/latest/reference/AWSSupportAccess.md "../../../aws-managed-policy/latest/reference/AWSSupportAccess.md") to your Amazon Q Developer in chat applications role. For more information, see [Editing an IAM role for Amazon Q Developer in chat applications](editing-iam-roles-for-chatbot.md "editing-iam-roles-for-chatbot.md").

@@ -57,7 +57,6 @@ in the _AWS Organizations User Guide_.
         You can find your workspace ID in the Amazon Q Developer in chat applications console by choosing the configured client in the left sidebar and looking under **Workspace details**.
         2. (Optional) Choose **Add new workspace ID** to add another Slack workspace.
         3. Choose **Add**.
-
     4. Select **Enable usage to only private Slack channels**.
 
 9.  1. ###### Set IAM permission types:

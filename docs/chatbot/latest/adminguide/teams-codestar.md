@@ -74,6 +74,7 @@ in your Microsoft Teams configuration.
     This topic will be used in your Microsoft Teams configuration.
 
 2. Edit your Microsoft Teams configuration:
+
    1. Open the Amazon Q Developer in chat applications console at [https://console.aws.amazon.com/chatbot/](https://console.aws.amazon.com/chatbot/ "https://console.aws.amazon.com/chatbot/").
    2. Select your configured Microsoft Teams chat client.
    3. Select the channel in which you want to receive notifications.

@@ -47,6 +47,7 @@ If you require administrator access, you can use the [AmazonQFullAccess managed 
     7. Choose **Add permissions**.
 
 2. Add the `AmazonQDeveloperAccess` managed policy to your channel guardrails:
+
    1. Open the [Amazon Q Developer in chat applications console](https://console.aws.amazon.com/chatbot "https://console.aws.amazon.com/chatbot").
    2. Choose a configured client.
    3. Select a configured channel.

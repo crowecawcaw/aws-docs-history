@@ -32,6 +32,7 @@ Amazon SNS topic sends the CloudWatch alarm notifications to the chat channels. 
 4. Choose **Select metric**, and choose the **SNS**
    service namespace. (All CloudWatch alarms use service _metrics_ to generate
    their notifications, and you need to select one for this example.)
+
    1. Choose **Topic metrics**.
    2. Choose the check box for the SNS topic next to its **Topic Name**
       and **Metric Name**. Any SNS topics that you configured with
@@ -44,6 +45,7 @@ Amazon SNS topic sends the CloudWatch alarm notifications to the chat channels. 
 
 5. For **Conditions** (the circumstances under which the CloudWatch alarm
    fires and an action takes place), choose the following options:
+
    1. For **Threshold type**, choose
       **Static**.
    2. For **Whenever _metric_ is**, choose
@@ -52,6 +54,7 @@ Amazon SNS topic sends the CloudWatch alarm notifications to the chat channels. 
       `1`. This setting ensures you will trigger the test
       notification within one minute.
    4. Under **Additional configuration**, do the following:
+
       1. For **Datapoints to alarm**, select **1 out of 1**.
       2. For **Missing data treatment**, select **Treat missing data as bad**.
 
