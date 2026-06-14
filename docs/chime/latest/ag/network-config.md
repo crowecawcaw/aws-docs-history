@@ -62,10 +62,12 @@ The following destinations and ports are recommended when running Amazon Chime f
 Amazon Chime has the following bandwidth requirements for audio, video, and screen sharing:
 
 - Audio
+
   - 1:1 call: 54 kbps up and down
   - Large call: no more than 32 kbps extra down for 50 callers
 
 - Video
+
   - 1:1 call: 650 kbps up and down
   - HD mode: 1400 kbps up and down
   - 3–4 people: 450 kbps up and (N-1)\*400 kbps down
@@ -73,6 +75,7 @@ Amazon Chime has the following bandwidth requirements for audio, video, and scre
   - Up and down bandwidth adapts lower based on network conditions
 
 - Screen sharing
+
   - 1.2 mbps up (when presenting) and down (when viewing) for high quality.
     This adapts as low as 320 kbps based on network conditions.
   - Remote control: 800 kbps fixed

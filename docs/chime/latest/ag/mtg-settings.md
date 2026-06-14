@@ -58,6 +58,7 @@ Region.
    **Meetings**.
 4. For **Regions**, choose one of the following
    options:
+
    - Use all available Regions to ensure meeting
      quality – Allows Amazon Chime to optimize meeting
      processing for you.

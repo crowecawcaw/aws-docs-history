@@ -78,6 +78,7 @@ might fail. If that happens, wait for a few minutes and try the operation again.
 ###### To delete Amazon Chime resources used by the AWSServiceRoleForAmazonChime (console)
 
 - Turn off Alexa for Business for all shared devices in your Amazon Chime account.
+
   1.  Open the Amazon Chime console at [https://chime.aws.amazon.com/](https://chime.aws.amazon.com "https://chime.aws.amazon.com").
   2.  Choose **Users**, **Shared devices**.
   3.  Select a device.

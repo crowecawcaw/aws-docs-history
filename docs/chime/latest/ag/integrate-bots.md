@@ -53,6 +53,7 @@ aws chime create-bot --account-id `12a3456b-7c89-012d-3456-78901e23fg45` --displ
 
 1. To integrate your chatbot with Amazon Chime, use the [CreateBot](../APIReference/API_CreateBot.md "../APIReference/API_CreateBot.md")
    API operation in the _Amazon Chime API Reference_.
+
    1. Enter a chatbot display name of up to 55 alphanumeric or special characters (such as +, -, %).
    2. Enter the registered domain name for your Amazon Chime Enterprise account.
 

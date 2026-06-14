@@ -116,6 +116,7 @@ see [Prerequisites for Amazon Chime system administrators](prereqs.md "prereqs.m
    account credentials.
 3. Follow the prompts to create a new Team account in Amazon Chime or choose an
    existing one.
+
    - Create a new account –
      Create a new Amazon Chime account to which to invite your Slack users.
      Enter an account name, choose whether to invite your Slack users,
@@ -139,6 +140,7 @@ steps.
 3. Go to [https://signin.id.ue1.app.chime.aws/auth/slack?purpose=app_authz](https://signin.id.ue1.app.chime.aws/auth/slack?purpose=app_authz "https://signin.id.ue1.app.chime.aws/auth/slack?purpose=app_authz").
 4. Follow the prompts to create a new Team account in Amazon Chime or choose an
    existing account.
+
    - Create a new account –
      Create a new Amazon Chime account to which to invite your Slack users.
      Enter an account name, choose whether to invite your Slack users,

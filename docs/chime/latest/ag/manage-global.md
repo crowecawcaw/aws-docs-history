@@ -112,6 +112,7 @@ _Amazon S3 User Guide_.
 ###### To configure usage report settings
 
 1. Create or select an Amazon S3 bucket.
+
    1. Sign in to your AWS account and open the [Amazon Chime console](https://chime.aws.amazon.com/ "https://chime.aws.amazon.com/").
    2. Under **Global Settings**, choose **Usage
       reporting**.

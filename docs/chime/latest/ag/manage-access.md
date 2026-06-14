@@ -39,6 +39,7 @@ Basic permissions in the Amazon Chime console.
    **Actions**, **Assign
    permissions**.
 5. Choose one of the following permissions:
+
    - **Pro**
    - **Basic**
 
@@ -124,6 +125,7 @@ If you have Active Directory or Okta configured for your Enterprise account, use
 ###### To suspend users from an Enterprise Active Directory or OpenID Connect (Okta) account
 
 - Do one of the following:
+
   - From your Active Directory or Okta Administrator Dashboard, suspend the user or mark them inactive.
   - Remove the user from any Active Directory group
     that has Basic or Pro permissions assigned to it.

@@ -61,6 +61,7 @@ Amazon S3](../../../AmazonS3/latest/userguide/GetStartedWithS3.md "../../../Amaz
    settings**.
 3. To turn on the Amazon Chime usage reporting for your Amazon Chime account, first create
    or select an Amazon S3 bucket.
+
    1. Under **Report destination**, choose
       **New S3 bucket** to create a new bucket and
       enter a name following the guidance listed. You can also select
@@ -109,6 +110,7 @@ Amazon-Chime-User-Activity-Reports/csv/123456789012/2024/11/03/ExampleSales_12ab
 ```
 
 4. The following fields are included in each report:
+
    - Team or Enterprise account name
    - Week starting date
    - User’s display name associated with their Amazon Chime account
@@ -202,6 +204,7 @@ existing meeting on your calendar.
 2. Open a recurring series or a meeting.
 3. Take the following steps to remove Amazon Chime (and auto-calling) and add the
    new solution’s meeting instructions:
+
    1. Remove the `meet@chime.aws` and
       `pin+`<meetingid>`@chime.aws`
       from the **To:** field.

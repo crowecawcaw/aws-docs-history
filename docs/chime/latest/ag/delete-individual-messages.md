@@ -22,6 +22,7 @@ following APIs.
 ###### To remove a message
 
 - Do one of the following:
+
   - For conversation messages – Use
     the [RedactConversationMessage](../APIReference/API_RedactConversationMessage.md "../APIReference/API_RedactConversationMessage.md") API.
 

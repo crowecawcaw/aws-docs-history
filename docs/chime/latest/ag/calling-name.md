@@ -24,6 +24,7 @@ The following steps explain how to set default and individual outbound calling n
    management**.
 3. On the **Inventory** tab, do either of the following:select the checkboxes next to the phone numbers
    that you want to update.
+
    - To set a default calling name for multiple numbers, select the check boxes next to those numbers.
    - To set an individual calling name, select the desired number.
 

@@ -25,11 +25,13 @@ It is configured to push updates to Amazon Chime about changes to users and grou
 
 1.  Create the Amazon Chime application (OpenID Connect) in the **Okta
     Administration Console**:
+
     1. Sign in to the **Okta Administration Dashboard**,
        then choose **Add Application**. In the
        **Create New Application** dialog box, choose
        **Web**, **Next**.
     2. Configure the **Application Settings**:
+
        1. Name the application `Amazon
 Chime`.
        2. For **Login Redirect URI**, enter the
@@ -48,11 +50,13 @@ Chime`.
           URI** information for Step 2.
 
 2.  In the Amazon Chime console, follow these steps:
+
     1. On the **Okta single-sign on configuration** page, at
        the top of the page, choose **Set up incoming
        keys**.
     2. In the **Setup incoming Okta keys** dialog
        box:
+
        1. Paste the **Client ID** and **Client
           secret** information from the **Okta
           Application Settings** page.
@@ -64,6 +68,7 @@ Chime`.
 3.  Set up the **Amazon Chime SCIM Provisioning** application in the
     **Okta Administration Console** to exchange select identity
     and group membership information with Amazon Chime:
+
     1. In the **Okta Administration Console**, choose
        **Applications**, **Add
        Application**, search for **Amazon Chime SCIM

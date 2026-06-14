@@ -57,6 +57,7 @@ You can also go directly to the [AWS Support Center](https://console.aws.amazon.
     4. Choose **Next step: Additional information**.
 
 4.  Under **Additional information**, do the following
+
     1. Under **Subject**, enter `Porting phone numbers
 in`.
     2. Under **Description**, enter the following information:
@@ -101,7 +102,6 @@ in`.
         * Existing phone numbers to port in.
         * Estimate usage volume
         * Country
-
     3. From the **Phone number type** list, select **Business Calling**,
        **SIP Media Application Dial-In**, or **Voice Connector**.
     4. Under **Phone number**, enter at least one phone number, even if you're porting multiple
@@ -218,6 +218,7 @@ You can also go directly to the [AWS Support Center](https://console.aws.amazon.
     4. Choose **Next step: Additional information**.
 
 4. Under **Additional information**, do the following
+
    1. Under **Subject**, enter `Porting phone numbers
 out`.
    2. Under **Description**, enter the following.
