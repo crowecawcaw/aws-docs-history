@@ -27,6 +27,7 @@ _If you disable private DNS for the endpoint_, you must do the
 following to access AWS IoT SiteWise through the endpoint:
 
 1. Specify the VPC endpoint url in API requests.
+
    - For the **data plane** API operations, use the
      following endpoint url. Replace `vpc-endpoint-id` and `region` with your VPC
      endpoint ID and Region.
@@ -34,7 +35,6 @@ following to access AWS IoT SiteWise through the endpoint:
    ```
    `vpc-endpoint-id`.data.iotsitewise.`region`.vpce.amazonaws.com
    ```
-
    - For the **control plane** API operations, use the
      following endpoint url. Replace `vpc-endpoint-id` and `region` with your VPC
      endpoint ID and Region.

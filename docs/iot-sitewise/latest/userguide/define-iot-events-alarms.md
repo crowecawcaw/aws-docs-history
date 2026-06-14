@@ -64,16 +64,19 @@ value of `50`.
 6.  In the **Alarm type options** section, choose **AWS IoT Events
     alarm**.
 7.  In the **Alarm details** section, do the following:
+
     1. Enter a name for your alarm.
     2. (Optional) Enter a description for your alarm.
 
 8.  In the **Threshold definitions** section, you define when the alarm
     detects and the severity of the alarm. Do the following:
+
     1. Select the **Property** on which the alarm detects. Each time
        this property receives a new value, AWS IoT SiteWise sends the value to AWS IoT Events to evaluate
        the state of the alarm.
     2. Select the **Operator** to use to compare the property with
        the threshold value. Choose from the following options:
+
        - **< less than**
        - **<= less than or equal**
        - **== equal**
@@ -88,6 +91,7 @@ value of `50`.
        team understands to reflect the severity of this alarm.
 
 9.  (Optional) In the **Notification settings - _optional_** section, do the following:
+
     1. Choose **Active**.
 
     ###### Note
@@ -108,7 +112,6 @@ value of `50`.
          email message.
         * **Text** – The alarm notifies IAM Identity Center users with an
          SMS message.
-
     4. For **Sender**, choose the sender.
 
     ###### Important
@@ -146,6 +149,7 @@ In the **Permissions** section, do the following:
      and a trust relationship that allows `iotevents.amazonaws.com` to assume the role.
 
 12. (Optional) In the **Additional notification settings** section, do the following:
+
     1.  For **Recipient attribute**, you define an attribute whose
         value specifies the recipient of the notification. You can choose IAM Identity Center users as
         recipients.
@@ -186,6 +190,7 @@ In the **Permissions** section, do the following:
     in the _AWS IoT Events Developer Guide_.
 
 13. (Optional) In the **Set state action** section, do the following:
+
     1.  Choose **Edit action**.
     2.  Under **Add alarm state actions**, add actions. and the choose **Save**.
 
@@ -232,16 +237,19 @@ value of `50`.
 4. Enter a name for your alarm.
 5. (Optional) Enter a description for your alarm.
 6. In the **Alarm target** section, do the following:
+
    1. For **Target options**, choose **AWS IoT SiteWise asset property**.
    2. Choose the asset model for which you want to add the alarm.
 
 7. In the **Threshold definitions** section, you define when the alarm
    detects and the severity of the alarm. Do the following:
+
    1. Select the **Property** on which the alarm detects. Each time
       this property receives a new value, AWS IoT SiteWise sends the value to AWS IoT Events to evaluate
       the state of the alarm.
    2. Select the **Operator** to use to compare the property with
       the threshold value. Choose from the following options:
+
       - **< less than**
       - **<= less than or equal**
       - **== equal**
@@ -256,7 +264,9 @@ value of `50`.
       team understands to reflect the severity of this alarm.
 
 8. (Optional) In the **Notification settings - _optional_** section, do the following:
+
    1. For **Protocol**, choose from the following options:
+
       - **Email & text** – The alarm notifies IAM Identity Center
         users with an SMS message and an email message.
       - **Email** – The alarm notifies IAM Identity Center users with an
@@ -358,6 +368,7 @@ model.
    don't submit the request to create or update the asset model. In this section, you
    add an alarm definition to the asset model details in the
    `asset-model-payload.json` file.
+
    - For more information about how to create an asset model, see [Create an asset model (AWS CLI)](create-asset-models.md#create-asset-model-cli "create-asset-models.md#create-asset-model-cli").
    - For more information about how to update an existing asset model, see [Update an asset model, component model, or interface (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli").###### Note
 
@@ -616,12 +627,12 @@ Do the following:
 
 5. Create the asset model or update the existing asset model. Do one of the
    following:
+
    - To create the asset model, run the following command.
 
    ```
    aws iotsitewise create-asset-model --cli-input-json file://asset-model-payload.json
    ```
-
    - To update the existing asset model, run the following command. Replace
      `asset-model-id` with the ID of the asset
      model.
@@ -1329,6 +1340,7 @@ in the asset model to use the alarm model that you created in the previous step.
 
 - Set the alarm model as the alarm's source in the asset model. Do the
   following:
+
   1.  Run the following command to retrieve the existing asset model definition.
       Replace `asset-model-id` with the ID of the asset
       model.
@@ -1347,7 +1359,6 @@ in the asset model to use the alarm model that you created in the previous step.
       + `assetModelCreationDate`
       + `assetModelLastUpdateDate`
       + `assetModelStatus`
-
   4.  Add the alarm source property (`AWS/ALARM_SOURCE`) to the alarm
       composite model that you defined earlier. Replace
       `alarmModelArn` with the ARN of the alarm
@@ -1395,7 +1406,6 @@ in the asset model to use the alarm model that you created in the previous step.
     ]
   }
   ```
-
   5.  Run the following command to update the asset model with the definition
       stored in the `update-asset-model-payload.json` file. Replace
       `asset-model-id` with the ID of the asset

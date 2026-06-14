@@ -20,6 +20,7 @@ contact email, and permissions.
     image. If you upload a non-square image, the portal scales the image down to a
     square.
 4.  Choose one of the following options:
+
     - Choose **IAM Identity Center** if your portal users sign in to this portal
       with their corporate user names and passwords.
 
@@ -57,6 +58,7 @@ contact email, and permissions.
     the portal and need help to resolve it.
 6.  (Optional) Add tags for your portal. For more information, see [Tag your AWS IoT SiteWise resources](tag-resources.md "tag-resources.md").
 7.  Choose one of the following options:
+
     - Choose **Create and use a new service role**. By default,
       SiteWise Monitor automatically creates a service role for each portal. This role allows your
       portal users to access your AWS IoT SiteWise resources. For more information, see [Use service roles for AWS IoT SiteWise Monitor](monitor-service-role.md "monitor-service-role.md").

@@ -13,9 +13,11 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Hello AWS IoT SiteWise](example_iotsitewise_Hello_section.md "example_iotsitewise_Hello_section.md")
   - [Learn the basics](example_iotsitewise_Scenario_section.md "example_iotsitewise_Scenario_section.md")
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [BatchPutAssetPropertyValue](example_iotsitewise_BatchPutAssetPropertyValue_section.md "example_iotsitewise_BatchPutAssetPropertyValue_section.md")
     - [CreateAsset](example_iotsitewise_CreateAsset_section.md "example_iotsitewise_CreateAsset_section.md")
     - [CreateAssetModel](example_iotsitewise_CreateAssetModel_section.md "example_iotsitewise_CreateAssetModel_section.md")

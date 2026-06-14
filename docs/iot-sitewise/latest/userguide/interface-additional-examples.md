@@ -128,17 +128,20 @@ levels of your operation:
 
 1. **Equipment-level interface** (for example,
    `PUMP-INTERFACE`)
+
    - Properties: Flow rate, pressure, power consumption, vibration
    - Metrics: Efficiency, health score
 
 2. **Process-level interface** (for example,
    `PUMPING-STATION-INTERFACE`)
+
    - Properties: Total flow, average pressure, total power
    - Metrics: Station efficiency, operational cost per volume
    - Hierarchy: Contains `PUMP-INTERFACE` equipment
 
 3. **Facility-level interface** (for example,
    `WATER-FACILITY-INTERFACE`)
+
    - Properties: Facility throughput, energy usage, chemical usage
    - Metrics: Facility efficiency, cost per unit volume, carbon footprint
    - Hierarchy: Contains `PUMPING-STATION-INTERFACE` processes

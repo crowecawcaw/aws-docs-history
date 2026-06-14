@@ -29,6 +29,7 @@ on your component usage and functionality requirements.
 - The URL of your proxy server. The URL should include the user info, the
   port number for the host. For example,
   `scheme://[userinfo@]host[:port]`.
+
   - `scheme` – Must be HTTP or HTTPS
   - (Optional) `userinfo` – User name and password
     information

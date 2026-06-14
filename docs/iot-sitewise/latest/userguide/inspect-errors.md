@@ -15,6 +15,7 @@
 6. The **Job failures** table displays the content from the job report. The
    `Resource type` field indicates the location of the error or failures, such as the
    following:
+
    - For example, a validation error in the `Bulk operations template` in the `Resource
 type` field indicates that the import template and metadata schema file format don't match.
      See [AWS IoT SiteWise metadata transfer job schema](bulk-operations-schema.md "bulk-operations-schema.md") for more

@@ -146,6 +146,7 @@ applications.
    writing of data to your InfluxDB database.
 3. Configure the server properties to establish a secure connection to your
    InfluxDB instance:
+
    1. Set Version to 2.0 - This specifies that you're connecting to InfluxDB
       v2.x, which uses a different API than earlier versions
    2. Set URL to `http://127.0.0.1:8086` - This points to your local
@@ -156,6 +157,7 @@ applications.
 
 4. Specify the storage location parameters to define where and how your data will
    be stored:
+
    1. Enter your InfluxDB Organization name – The organization is a
       workspace for a group of users, where your buckets and dashboards belong. For
       more information, see [Manage

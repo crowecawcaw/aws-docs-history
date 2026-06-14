@@ -31,9 +31,11 @@ The following are examples of configuration settings:
 
 - Replace `adaptive-ingestion-flag` with `true` or
   `false`.
+
   - If set to `false`, the bulk import job ingests historical data into
     AWS IoT SiteWise.
   - If set to `true`, the bulk import job does the following:
+
     - Ingests new data into AWS IoT SiteWise.
     - Calculates metrics and transforms, and supports notifications for data with
       a time stamp that's within seven days.

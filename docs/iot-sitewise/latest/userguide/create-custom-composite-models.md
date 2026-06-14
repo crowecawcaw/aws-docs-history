@@ -39,6 +39,7 @@ multiple instances within one asset model), you should create a component based 
 4. On the **Properties** tab, choose **Components**.
 5. Choose **Create component**.
 6. On the **Create component** page, do the following:
+
    1. Enter a **Name** for the component, such as `ServoMotor` or `ServoMotor Model`. This name must
       be unique across all components in your account in this Region.
    2. (Optional) Add **Attribute definitions** for the model.
@@ -110,6 +111,7 @@ You can use the AWS IoT SiteWise console to create a component based on a compon
 4. On the **Properties** tab, choose **Components**.
 5. Choose **Create component**.
 6. On the **Create component** page, do the following:
+
    1. Select the component model you want to based the component on.
    2. Enter a **Name** for the component, such as `ServoMotor` or `ServoMotor Model`. This name must
       be unique across all components in your account in this Region.

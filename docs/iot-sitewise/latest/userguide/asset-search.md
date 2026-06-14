@@ -18,9 +18,11 @@ If you have not granted permissions to AWS IoT SiteWise, and need assistance get
 2. In the navigation pane, choose **Advanced search** under **Assets**.
 3. Under **Advanced search** choose the **Metadata search** option.
 4. Fill in the parameters. Fill in as many fields as possible for an efficient search.
+
    1. **Asset name** — Enter a full asset name, or a partial name for a wide search.
    2. **Property name** — Enter a full property name, or a partial name for a wide search.
    3. **Operator** — Choose an operator from:
+
       - **=**
       - **<**
       - **>**
@@ -29,6 +31,7 @@ If you have not granted permissions to AWS IoT SiteWise, and need assistance get
 
    4. **Property value** — This value is compared with the property's latest value.
    5. **Property value type** — The data type of the property. Choose from the following:
+
       - **Double**
       - **Integer**
       - **String**
@@ -46,14 +49,17 @@ All parameters do not need to be provided for an asset search. Here are some exa
 using the Metadata search option:
 
 - Find assets by their name:
+
   - Enter a value in the **Asset name** field alone.
   - The **Property name** and **Property value** fields are empty.
 
 - Find assets containing properties with a specific name:
+
   - Enter a value in the **Property name** field alone.
   - The **Asset name** and **Property value** fields are empty.
 
 - Find assets based on the latest values of their properties:
+
   - Enter values in the **Property name** and **Property value** fields.
   - Select an **Operator** and **Property value type**.
 

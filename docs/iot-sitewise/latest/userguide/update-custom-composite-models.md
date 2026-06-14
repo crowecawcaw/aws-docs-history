@@ -20,6 +20,7 @@ You can use the AWS IoT SiteWise console to update a component.
 5. Choose the component that you want to update.
 6. Choose **Edit**.
 7. On the **Edit component** page, do any of the following:
+
    - In **Model details**, change the **Name** of
      the model.
    - Change any of the **Attribute definitions**. You can't change
@@ -62,6 +63,7 @@ To replace an existing composite model property with a new one with the same `na
     `composite-model-id` with the ID or the external ID of the custom composite model to update, and
     `asset-model-id` with the asset model that the custom composite model is
     associated with. For more information, see the _AWS IoT SiteWise User Guide_.
+
     1. Run the command below:
 
     ```
@@ -69,7 +71,6 @@ To replace an existing composite model property with a new one with the same `na
     --asset-model-composite-model-id `composite-model-id` \
     --asset-model-id `asset-model-id`
     ```
-
     2. The above command returns the composite model definition corresponding to associated model’s latest version.
        For an use case where an asset model is in a `FAILED` state, retrieve
        the valid model definition corresponding to its active version to build your update request. See
@@ -82,13 +83,13 @@ To replace an existing composite model property with a new one with the same `na
     --asset-model-id `asset-model-id` \
     --asset-model-version ACTIVE
     ```
-
     4. For more information, see the [DescribeAssetModelCompositeModel](../APIReference/API_DescribeAssetModelCompositeModel.md "../APIReference/API_DescribeAssetModelCompositeModel.md") operation.
 
 2.  Create a file called `update-custom-composite-model.json`, and then copy the
     previous command's response into the file.
 3.  Remove every key-value pair from the JSON object in `update-custom-composite-model.json`
     except for the following fields:
+
     - `assetModelCompositeModelName`
     - `assetModelCompositeModelDescription` (if present)
     - `assetModelCompositeModelProperties` (if present)

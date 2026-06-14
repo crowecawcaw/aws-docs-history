@@ -51,6 +51,7 @@ IAM
 1. On the portal details page, in the **Portal users** section,
    choose **Assign users**.
 2. On the **Assign users** page, do the following:
+
    - Choose **IAM users** to add an IAM user as your portal
      user.
    - Choose **IAM roles** to add an IAM role as your portal

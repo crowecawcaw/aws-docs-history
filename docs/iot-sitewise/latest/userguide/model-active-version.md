@@ -46,6 +46,7 @@ model or component model indicates which type it is.
 1. Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
 2. In the navigation pane, choose **Models**.
 3. Choose the model to retrieve its active version.
+
    1. If the model is in an `ACTIVE` state, you are viewing its active version.
    2. If the model is in a transitory `UPDATING`, `PROPAGATING`, or `FAILED` state,
       find the **See active version** under **Status** in the

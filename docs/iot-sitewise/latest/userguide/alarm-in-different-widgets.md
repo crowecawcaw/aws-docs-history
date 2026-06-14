@@ -14,6 +14,7 @@ For all widgets:
   The below examples state how some widgets use alarms.
 
 - **Line Chart**
+
   - The alarm and its input property data stream are added to the chart.
   - You can see alarm state in the chart legend, and as icons hovering over the data stream when the alarm changes state.
   - You can toggle off alarm icons from the chart settings.
@@ -21,6 +22,7 @@ For all widgets:
 ![The alarms in a linechart widget.](images/ai-dashboard-chart-settings.png)
 
 - **KPI** and **Gauge**
+
   - The alarm and its input property data stream are added to the chosen widget.
   - The alarm threshold is added to the widget, which changes color based on its configuration.
   - You can select the alarm state on the widget, see the alarm details, and click **Generate summary** to call the AWS IoT SiteWise to get an alarm summary.
@@ -28,9 +30,11 @@ For all widgets:
 ![The alarms in a KPI and Gauge widget.](images/ai-dashboard-gauge-settings.png)
 
 - **Table**
+
   - The alarm and its input property are added as a row on the table.
 
 - **Bar chart**
+
   - The alarm is added as a threshold to the chart, which changes the color of any data stream breaching the threshold.
   - You can add any associated data streams separately.
   - You cannot interact with the AWS IoT SiteWise Assistant from the widget.
@@ -38,6 +42,7 @@ For all widgets:
 ![The alarms in a Bar chart widget.](images/ai-dashboard-bar-settings.png)
 
 - **Status timeline**
+
   - The alarm is added as a threshold to the timeline.
   - Adding the alarm state and its input property data to the timeline is work in progress.
   - You cannot interact with the AWS IoT SiteWise Assistant from the widget.

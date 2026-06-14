@@ -543,6 +543,7 @@ configs:
    Deployment**.
 7. In **Step 2 - Select components**, select the following
    components and then choose **Next**.
+
    - `aws.greengrass.clientdevices.mqtt.EMQX`
    - `aws.iot.SiteWiseEdgePublisher`
 
@@ -626,6 +627,7 @@ You can access each service from your host or the gateway machine.
 To ensure your deployment is successful, perform the following checks:
 
 1. For Node-RED, verify the presence of two preloaded flows:
+
    - Data publish flow
    - Data retention flow
 

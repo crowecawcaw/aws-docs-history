@@ -23,6 +23,7 @@ Console
 4. The dataset name is populated by the Kendra index selected in Step 3. Edit the name if needed.
 5. (Optional) The dataset description is populated by the Kendra index selected in Step 3. Edit the description if needed.
 6. In the **Permissions** section, choose from below:
+
    1. Choose **Create and use a new service role**. By default, AWS IoT SiteWise automatically
       creates a service role. This role allows the AWS IoT SiteWise Assistant to access your Kendra
       indexes.

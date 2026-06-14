@@ -30,6 +30,7 @@ You can use the AWS IoT SiteWise console to delete an asset model, component mod
    see [Delete an asset (console)](delete-assets.md#delete-asset-console "delete-assets.md#delete-asset-console").
 5. On the model's page, choose **Delete**.
 6. In the **Delete model** dialog box, do the following:
+
    1. Enter `Delete` to confirm deletion.
    2. Choose **Delete**.
 

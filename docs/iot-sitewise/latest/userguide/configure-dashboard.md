@@ -18,6 +18,7 @@ Steps to configure your dashboard:
 - Fine tune the layout and style by changing the **Configurations** on widgets.
   Configure components including title, thresholds and other configuration specifics.
 - Configure the time range over which data is displayed.
+
   - Choose the time range over which data is displayed. Choose a **Time range** and
     **Refresh rate** from the top right hand corner, and personalize the range.
     Choose a rate at which the data is to be refreshed from the menu.

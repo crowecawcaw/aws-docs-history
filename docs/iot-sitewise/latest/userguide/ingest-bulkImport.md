@@ -21,6 +21,7 @@ To identify an asset property, specify one of the following.
 - `PROPERTY_ID` – The ID of the asset property.
 - `DATA_TYPE` – The property's data type can be one of the
   following.
+
   - `STRING` – A string with up to 1024 bytes.
   - `INTEGER` – A signed 32-bit integer with range [-2,147,483,648,
     2,147,483,647].

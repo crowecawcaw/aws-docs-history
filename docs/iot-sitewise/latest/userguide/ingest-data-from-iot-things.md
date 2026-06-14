@@ -380,6 +380,7 @@ information, see [Model industrial assets](industrial-asset-models.md "industria
 4. Under **Model details**, enter a name for your model. For example,
    `SiteWise Tutorial Device Model`.
 5. Under **Measurement definitions**, do the following:
+
    1. In **Name**, enter `CPU Usage`.
    2. In **Unit**, enter `%`.
    3. Leave the **Data type** as **Double**.Measurement properties represent a device's raw data streams. For more information, see
@@ -389,11 +390,13 @@ information, see [Model industrial assets](industrial-asset-models.md "industria
    property.
 7. In the second row under **Measurement definitions**, do the
    following:
+
    1. In **Name**, enter `Memory Usage`.
    2. In **Unit**, enter `%`.
    3. Leave the **Data type** as **Double**.
 
 8. Under **Metric definitions**, do the following:
+
    1. In **Name**, enter `Average CPU Usage`.
    2. In **Formula**, enter `avg(CPU Usage)`. Choose
       **CPU Usage** from the autocomplete list when it
@@ -406,6 +409,7 @@ information, see [Model industrial assets](industrial-asset-models.md "industria
 9. Choose **Add new metric** to add a second metric property.
 10. In the second row under **Metric definitions**, do the
     following:
+
     1. In **Name**, enter `Average Memory
 Usage`.
     2. In **Formula**, enter `avg(Memory Usage)`.
@@ -438,6 +442,7 @@ with comprehensive insights into the collective performance of your entire fleet
 4. Under **Model details**, enter a name for your model. For example,
    `SiteWise Tutorial Device Fleet Model`.
 5. Under **Hierarchy definitions**, do the following:
+
    1. In **Hierarchy name**, enter
       `Device`.
    2. In **Hierarchy model**, choose your device asset model
@@ -447,6 +452,7 @@ with comprehensive insights into the collective performance of your entire fleet
       hierarchy definition in the parent asset model. For more information, see [Asset hierarchies represent equipment relationships](industrial-asset-models.md#asset-hierarchies "industrial-asset-models.md#asset-hierarchies").
 
 6. Under **Metric definitions**, do the following:
+
    1. In **Name**, enter `Average CPU
 Usage`.
    2. In **Formula**, enter `avg(Device | Average CPU
@@ -461,6 +467,7 @@ Usage)`. When the autocomplete list appears, choose
 7. Choose **Add new metric** to add a second metric property.
 8. In the second row under **Metric definitions**, do the
    following:
+
    1. In **Name**, enter `Average Memory
 Usage`.
    2. In **Formula**, enter `avg(Device | Average Memory
@@ -495,6 +502,7 @@ property ID. For more information, see [Manage data streams for AWS IoT SiteWise
 6. Choose **Create asset**.
 7. For your new device asset, choose **Edit**.
 8. Under **Measurements**:
+
    1. Under **CPU Usage**, enter `/tutorial/device/SiteWiseTutorialDevice1/cpu` as the property alias. You include the AWS IoT thing's name in the property alias, so that you can ingest data from all of your devices using a single AWS IoT rule.
    2. Under **Memory Usage**, enter `/tutorial/device/SiteWiseTutorialDevice1/memory` as the property alias.
 
@@ -527,6 +535,7 @@ entire fleet.
 7. For your new device fleet asset, choose **Edit**.
 8. Under **Assets associated to this asset**, choose **Add
    associated asset** and do the following:
+
    1. Under **Hierarchy**, choose
       **Device**. This hierarchy identifies the
       hierarchical relationship between device and device fleet assets. You defined this
@@ -943,6 +952,7 @@ Update request e6686e44-fca0-44db-aa48-3ca81726f3e3 accepted
 ```
 
 10. Follow these steps to verify that the script is updating the device shadow:
+
     1.  Navigate to the [AWS IoT console](https://console.aws.amazon.com/iot/ "https://console.aws.amazon.com/iot/").
     2.  In the left navigation pane, choose **All devices** and then
         choose **Things**.
@@ -967,6 +977,7 @@ Update request e6686e44-fca0-44db-aa48-3ca81726f3e3 accepted
     according to this tutorial.
 
 11. Follow these steps to verify that the rule action is sending data to AWS IoT SiteWise:
+
     1.  Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
     2.  In the left navigation pane, choose **Assets**.
     3.  Choose the arrow next to your device fleet asset (**SiteWise Tutorial Device Fleet 1**) to expand its asset hierarchy, and then choose your device asset

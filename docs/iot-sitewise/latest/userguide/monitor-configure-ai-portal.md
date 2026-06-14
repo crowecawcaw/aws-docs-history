@@ -19,6 +19,7 @@ contact email, and permissions.
     square.
 4.  Enter an email address in the **Support contact email** box for support issues.
 5.  In the **User authentication** box, choose the following option:
+
     - Choose **IAM Identity Center** if your portal users sign in to this portal
       with their corporate user names and passwords.
 
@@ -32,6 +33,7 @@ contact email, and permissions.
     Support for IAM credentials is coming soon.
 
 6.  Choose from one of the following options in the **Service access** section:
+
     - Choose **Create and use a new service role**. By default,
       SiteWise Monitor automatically creates a service role for each portal. This role allows your
       portal users to access your AWS IoT SiteWise resources. For more information, see [Use service roles for AWS IoT SiteWise Monitor](monitor-service-role.md "monitor-service-role.md").

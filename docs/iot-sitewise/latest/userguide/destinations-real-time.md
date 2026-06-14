@@ -25,6 +25,7 @@ Console
     destination**.
 5.  On the **Add destination** page, enter **Destination
     details**:
+
     1. A name for your destination in the **Destination name**
        field.
     2. Select the **AWS IoT SiteWise real-time** for the
@@ -55,6 +56,7 @@ Console
     is counted in terms of minutes or days. The minimum cutoff period is five minutes.
     The maximum cutoff period is seven days.
 11. Optionally configure the **Local storage settings**:
+
     1. Set the **Retention period** frequency – The amount
        of time the gateway locally stores data that is older than the cutoff period.
        The minimum retention period is one minute.

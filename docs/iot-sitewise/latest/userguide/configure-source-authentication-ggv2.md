@@ -25,6 +25,7 @@ details for your data source.
 3. Under **Secret type**, choose **Other type of
    secrets**.
 4. Under **Key/value pairs**, do the following:
+
    1. In the first input box, enter `username` and in the second input box enter the username.
    2. Choose **Add row**.
    3. In the first input box, enter `password` and in the second input box enter the password.

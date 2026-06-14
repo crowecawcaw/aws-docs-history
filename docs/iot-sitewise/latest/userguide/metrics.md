@@ -62,6 +62,7 @@ For more information, see [Undefined, infinite, and overflow values](expression-
   AWS IoT SiteWise supports the
   following tumbling window time intervals, where each interval starts when the previous one
   ends:
+
   - **1 minute** – 1 minute, computed at the end
     of each minute (12:00:00 AM, 12:01:00 AM, 12:02:00 AM, and so on).
   - **5 minutes** – 5 minutes, computed at the
@@ -127,6 +128,7 @@ offset on February 20, 2021, at 6:30:30 PM (PST).
 1. For **Time interval**, choose **Custom
    interval**.
 2. For **Time interval**, do one of the following:
+
    - Enter `12`, and then choose
      **hours**.
    - Enter `720`, and then choose
@@ -194,6 +196,7 @@ aggregation result is on July 2, 2021, at 06:30:30 AM (PST), and so on.
   structure contains a simple name for use in the expression and a `value`
   structure that identifies which property to link to that variable. The
   `value` structure contains the following information:
+
   - `propertyId` – The ID of the property from which to pull
     values. You can use the property's name instead of its ID if the property is
     defined in the current model (rather than defined in a model from a

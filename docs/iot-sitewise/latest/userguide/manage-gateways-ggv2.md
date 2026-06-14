@@ -61,6 +61,7 @@ SiteWise Edge gateways. This application provides the following monitoring and m
 options:
 
 - Under **Overview**, you can do the following:
+
   - View SiteWise Edge gateway details that help you get insights into your
     SiteWise Edge gateway device data, identify issues, and improve the SiteWise Edge
     gateway's performance.
@@ -75,6 +76,7 @@ options:
 - Under **Assets**, view assets deployed to the local device
   and the last value collected or computed for asset properties.
 - Under **Settings**, you can do the following:
+
   - If the Data Processing Pack is installed, view the SiteWise Edge gateway
     configuration information and sync resources with the AWS
     Cloud.
@@ -191,6 +193,7 @@ all other ports.
 ###### To create a Windows Server user pool
 
 1. Run PowerShell as the administrator.
+
    1. On the Windows server where you want to install SiteWise Edge
       Gateway, log in as administrator.
    2. Enter **PowerShell** in the Windows search

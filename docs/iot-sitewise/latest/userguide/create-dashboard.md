@@ -8,6 +8,7 @@ The SiteWise Monitor feature is no longer available to new customers. Existing c
 ###### Create a dashboard
 
 1.  Create a dashboard in two ways:
+
     1.  Create a dashboard from **Build a dashboard** in the **Home** page.
 
             1. To create the dashboard in an existing project, choose a project name from the drop down menu in the **Choose a project to host the dashboard**.

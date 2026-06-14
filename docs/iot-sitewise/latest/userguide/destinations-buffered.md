@@ -25,6 +25,7 @@ Use the AWS Management Console to add an AWS IoT SiteWise destination buffered u
    destination**.
 5. On the **Add destination** page, enter **Destination
    details**:
+
    1. A name for your destination in the **Destination name**
       field.
    2. Select **AWS IoT SiteWise buffered using Amazon S3** for
@@ -43,6 +44,7 @@ Use the AWS Management Console to add an AWS IoT SiteWise destination buffered u
 8. In **Data storage settings**, determine what to do with your
    gateway data after importing it to AWS IoT SiteWise. There are two decisions to make regarding
    data storage:
+
    - If you want to copy imported data into AWS IoT SiteWise storage, select the **Copy data to storage** check box. This option duplicates
      the imported data from your configured Amazon S3 bucket into AWS IoT SiteWise storage.
    - If you choose to import your data from your Amazon S3 bucket into AWS IoT SiteWise storage,

@@ -22,6 +22,7 @@ timestamp, quality, value (TQV) structures:
   with nanosecond offset.
 - The `quality` contains one of the following strings that indicate the quality
   of the data point:
+
   - `GOOD` – The data isn't affected by any issues.
   - `BAD` – The data is affected by an issue such as sensor
     failure.
@@ -29,6 +30,7 @@ timestamp, quality, value (TQV) structures:
     inaccuracy.
 
 - The `value` contains one of the following fields, depending on the type of the property:
+
   - `booleanValue`
   - `doubleValue`
   - `integerValue`

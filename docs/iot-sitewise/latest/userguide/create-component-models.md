@@ -68,6 +68,7 @@ This operation expects a payload with the following structure:
 
 2. Use your preferred JSON text editor to edit the
    `component-model-payload.json` file for the following:
+
    1. Enter a name (`assetModelName`) for the component model, such as
       `Servo Motor` or `Servo Motor Model`.
       This name must be unique across all asset models and component models in your

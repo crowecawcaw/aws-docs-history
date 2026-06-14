@@ -38,6 +38,7 @@ models.
 2. In the navigation pane, choose **Models**.
 3. Choose **Create asset model**.
 4. On the **Create model** page, do the following:
+
    1. Enter a **Name** for the asset model, such as `Wind
 Turbine` or `Wind Turbine Model`. This name must
       be unique across all models in your account in this Region.
@@ -132,6 +133,7 @@ hierarchies. This operation expects a payload with the following structure.
 
 2. Use your preferred JSON text editor to edit the
    `asset-model-payload.json` file for the following:
+
    1. Enter a name (`assetModelName`) for the asset model, such as
       `Wind Turbine` or `Wind Turbine
 Model`. This name must be unique across all asset models and component

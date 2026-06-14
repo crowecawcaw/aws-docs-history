@@ -120,6 +120,7 @@ For details about best practices for sampling, see [Best practices](ano-best-pra
 - Upload the file to your labeling bucket.
 - Add the following to
   `anomaly-detection-training-payload.json`.
+
   - Provide the locations in the `labelInputConfiguration` section of
     the file. Replace `labels-bucket` with bucket name and
     `files-prefix` with file(s) path or any part of prefix. All files at
@@ -165,6 +166,7 @@ To configure model evaluation,
 - Configure your Amazon S3 bucket according to the labelling prerequisites at [Labeling data prerequisites](anomaly-prerequisites.md#label-data "anomaly-prerequisites.md#label-data").
 - Add the following to
   `anomaly-detection-training-payload.json`.
+
   - Provide the `evaluationStartTime` and `evaluationEndTime`
     (both in epoch seconds) for the data in the window used to evaluate the performance
     of the model.
@@ -404,6 +406,7 @@ promotion decisions:
 - Models are promoted based on improved performance indicators
 - Promotion decisions include specific reason codes stored alongside the
   metrics:
+
   - `AUTO_PROMOTION_SUCCESSFUL`: New model metrics are better than
     current version
   - `MODEL_METRICS_DIDNT_IMPROVE`: New model performance did not

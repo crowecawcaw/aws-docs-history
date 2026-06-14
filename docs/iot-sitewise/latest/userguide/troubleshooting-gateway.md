@@ -85,6 +85,7 @@ gateway:
 - **ResourceNotFoundException** – Your OPC UA
   servers are sending data that doesn't match a property alias for any asset. This
   exception can occur in two cases:
+
   - Your property aliases don't exactly match your OPC UA variables, including any
     source prefix you defined. Check that your property aliases and source prefixes are
     correct.
@@ -172,6 +173,7 @@ configuration file.
 There are multiple solutions:
 
 - If you want to reuse the configuration file, do the following:
+
   1.  Navigate to the [AWS IoT SiteWise console](https://console.aws.amazon.com/iotsitewise/ "https://console.aws.amazon.com/iotsitewise/").
   2.  In the navigation pane, choose **Edge gateways**.
   3.  Choose the SiteWise Edge gateway you want to reuse.

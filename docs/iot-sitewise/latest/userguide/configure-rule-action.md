@@ -120,6 +120,7 @@ how to create the following resources:
 ###### To create an AWS IoT SiteWise rule action that parses timestamp strings
 
 1.  Create a Lambda function with the following properties:
+
     - **Function name** – Use a descriptive
       function name (for example,
       `ConvertNanosecondTimestampFromString`).

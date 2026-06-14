@@ -44,6 +44,7 @@ roles](../../../IAM/latest/UserGuide/id_roles_create.md "../../../IAM/latest/Use
 ###### To invite administrators
 
 1. Do the following:
+
    - Choose **IAM users** to add an IAM user as your
      portal administrator.
    - Choose **IAM roles** to add an IAM role as your

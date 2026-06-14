@@ -31,12 +31,14 @@ AWS Management Console or the AWS Command Line Interface.
 - [Service role permissions for SiteWise Monitor (Classic)](monitor-service-role.md#monitor-service-role-permissions "monitor-service-role.md#monitor-service-role-permissions")
 - [Service role permissions for SiteWise Monitor (AI-aware)](monitor-service-role.md#monitor-ai-service-role-permissions "monitor-service-role.md#monitor-ai-service-role-permissions")
 - [Manage the SiteWise Monitor service role (console)](monitor-service-role.md#manage-portal-role-console "monitor-service-role.md#manage-portal-role-console")
+
   - [Find a portal's service role (console)](monitor-service-role.md#find-portal-role-console "monitor-service-role.md#find-portal-role-console")
   - [Create a SiteWise Monitor service role (AWS IoT SiteWise console)](monitor-service-role.md#create-portal-role-sitewise-console "monitor-service-role.md#create-portal-role-sitewise-console")
   - [Create a SiteWise Monitor service role (IAM console)](monitor-service-role.md#create-portal-role-iam-console "monitor-service-role.md#create-portal-role-iam-console")
   - [Change a portal's service role (console)](monitor-service-role.md#change-portal-role-console "monitor-service-role.md#change-portal-role-console")
 
 - [Manage the SiteWise Monitor service role (CLI)](monitor-service-role.md#manage-portal-role-cli "monitor-service-role.md#manage-portal-role-cli")
+
   - [Find a portal's service role (CLI)](monitor-service-role.md#find-portal-role-cli "monitor-service-role.md#find-portal-role-cli")
   - [Create the SiteWise Monitor service role (CLI)](monitor-service-role.md#create-portal-role-cli "monitor-service-role.md#create-portal-role-cli")
 
@@ -456,7 +458,6 @@ aws iam create-role --role-name MySiteWiseMonitorPortalRole --assume-role-policy
    ```
    aws iam attach-role-policy --role-name MySiteWiseMonitorPortalRole --policy-arn arn:aws:iam::aws:policy/service-role/AWSIoTSiteWiseMonitorPortalAccess
    ```
-
    2. For the SiteWise Monitor (AI-aware) – Attach the `IoTSiteWiseAIPortalAccessPolicy` policy to the role, or attach
       a policy that defines equivalent permissions. For example, create a policy with portal access permissions.
       The following example creates a policy named `MySiteWiseMonitorPortalAccess`.

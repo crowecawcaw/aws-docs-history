@@ -99,6 +99,7 @@ structure that contains a `value`, a `timestamp`, and optionally a
 `quality`.
 
 - `value` – A structure that contains one of the following fields, depending on the type of the property being set:
+
   - `booleanValue`
   - `doubleValue`
   - `integerValue`
@@ -107,6 +108,7 @@ structure that contains a `value`, a `timestamp`, and optionally a
 
 - `nullValue` – A structure with the following field denoting the
   type of the property value with value Null and quality of `BAD` or `UNCERTAIN`.
+
   - `valueType` – Enum of {"B", "D", "S", "I"}
 
 - `timestamp` – A structure that contains the current Unix epoch time

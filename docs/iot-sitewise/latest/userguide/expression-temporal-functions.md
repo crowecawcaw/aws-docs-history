@@ -114,27 +114,32 @@ AWS IoT SiteWise performs the following calculations for `Idle Time` at the end 
 minute.
 
 - At 2:00 PM (for 1:59 PM to 2:00 PM)
+
   - There is no data for `Idle` before 2:00 PM, so no data point is calculated.
 
 - At 2:01 PM (for 2:00 PM to 2:01 PM)
+
   - At 2:00:00 PM, the machine is active (`Idle` is `0`).
   - At 2:00:30 PM, the machine is idle (`Idle` is `1`).
   - `Idle` doesn't change again before the end of the interval at 2:01:00 PM, so
     `Idle Time` is 30 seconds.
 
 - At 2:02 PM (for 2:01 PM to 2:02 PM)
+
   - At 2:01:00 PM, the machine is idle (per the last data point at 2:00:30 PM).
   - At 2:01:15 PM, the machine is still idle.
   - `Idle` doesn't change again before the end of the interval at 2:02:00 PM, so
     `Idle Time` is 60 seconds.
 
 - At 2:03 PM (for 2:02 PM to 2:03 PM)
+
   - At 2:02:00 PM, the machine is idle (per the last data point at 2:01:15 PM).
   - At 2:02:45 PM, the machine is active.
   - `Idle` doesn't change again before the end of the interval at 2:03:00 PM, so
     `Idle Time` is 45 seconds.
 
 - At 2:04 PM (for 2:03 PM to 2:04 PM)
+
   - At 2:03:00 PM, the machine is active (per the last data point at 2:02:45 PM).
   - `Idle` doesn't change again before the end of the interval at 2:04:00 PM, so
     `Idle Time` is 0 seconds.
@@ -190,6 +195,7 @@ machine. The manufacturer uses the following measurements and transforms to
 represent the process:
 
 - A measurement, `current_state`, that can be 0 or 1.
+
   - If the machine is in the cleaning state, `current_state`
     equals 1.
   - If the machine is in the manufacturing state, `current_state`

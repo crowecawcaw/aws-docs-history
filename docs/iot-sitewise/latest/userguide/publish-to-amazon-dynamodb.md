@@ -130,6 +130,7 @@ WHERE
 10. Under **Table name** in the [DynamoDB console](https://console.aws.amazon.com/dynamodb/ "https://console.aws.amazon.com/dynamodb/") enter a name for your
     table.
 11. For **Partition key**, do the following:
+
     1. Enter `timestamp` as the partition key.
     2. Choose the **Number** type.
     3. Select the **Add sort key** check box.

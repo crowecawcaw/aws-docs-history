@@ -49,6 +49,7 @@ To begin sending data collected by AWS IoT SiteWise to Lookout for Equipment, yo
 3. Choose **Predictions**.
 4. Choose **Add prediction definition**.
 5. Define details about the prediction definition.
+
    1. Enter a unique **Name** and a
       **Description** for your prediction definition.
       Choose the name thoughtfully because after you create the prediction
@@ -163,11 +164,11 @@ To begin sending data collected by AWS IoT SiteWise to Lookout for Equipment, yo
    }`
 
    ```
-
    3. Choose **Next**.
 
 6. Select data attributes (measurements, transforms, and metrics) that you want
    to send to Lookout for Equipment.
+
    1. (Optional) Select measurements.
    2. (Optional) Select transforms.
    3. (Optional) Select metrics.
@@ -191,6 +192,7 @@ After you've added a prediction definition to an asset model, you can train the 
 3. Choose **Predictions**.
 4. Select the predictions that you want to train.
 5. Under **Actions**, choose **Start training**, and do the following:
+
    1. Under **Prediction details**, select an IAM permissions role that allows AWS IoT SiteWise to share your asset data with Lookout for Equipment. If you need
       to create a new role, choose **Create a new role**.
    2. For **Training data settings**, enter a **Training data time range** to select which data to use to train the prediction.
@@ -203,6 +205,7 @@ After you've added a prediction definition to an asset model, you can train the 
 6. (Optional) If you want the prediction to be active as soon as it has completed training, under
    **Advanced settings**, select **Automatically activate the prediction after
    training**, and then do the following:
+
    1. Under **Input data**, for **Data upload frequency**, define how often data is uploaded, and
       for **Offset delay time**, define how much of a buffer to use.
    2. Choose **Next**.
@@ -225,6 +228,7 @@ start monitoring your assets.
 3. Choose **Predictions**.
 4. Select the predictions that you want to activate.
 5. Under **Actions**, choose **Start inference**, and do the following:
+
    1. Under **Input data**, for **Data upload frequency**, define how often data is uploaded, and
       for **Offset delay time**, define how much of a buffer to use.
    2. Choose **Save and start**.
@@ -255,11 +259,13 @@ property values into AWS IoT SiteWise, which will be used to train the model. Fo
 
 1. Create a file called `asset-model-payload.json`. Follow the steps in these other sections to add your asset model's details to the file,
    but don't submit the request to create or update the asset model.
+
    - For more information about how to create an asset model, see [Create an asset model (AWS CLI)](create-asset-models.md#create-asset-model-cli "create-asset-models.md#create-asset-model-cli")
    - For more information about how to update an existing asset model, see [Update an asset model, component model, or interface (AWS CLI)](update-asset-models.md#update-asset-model-cli "update-asset-models.md#update-asset-model-cli")
 
 2. Add a Lookout for Equipment composite model (`assetModelCompositeModels`) to the asset model by adding the following
    code.
+
    - Replace `Property` with the ID of the properties that you want to include.
      To get those IDs, call [`DescribeAssetModel`](../APIReference/API_DescribeAssetModel.md "../APIReference/API_DescribeAssetModel.md").
    - Replace `RoleARN` with the ARN of an IAM role that allows Lookout for Equipment to access
@@ -351,12 +357,12 @@ property values into AWS IoT SiteWise, which will be used to train the model. Fo
 ```
 
 3. Create the asset model or update the existing asset model. Do one of the following:
+
    - To create the asset model, run the following command:
 
    ```
    aws iotsitewise create-asset-model --cli-input-json file://asset-model-payload.json
    ```
-
    - To update the existing asset model, run the following command. Replace
      `asset-model-id` with the ID of the asset model that you want to
      update.
@@ -394,6 +400,7 @@ aws iotsitewise describe-asset-model-composite-model \
 ```
 
 3. Create a file called `train-start-inference-prediction.json` and add the following code, replacing the following:
+
    - `asset-id` with the ID of the target asset
    - `action-definition-id` with the ID of the TrainingWithInference action
    - `StartTime` with the start of the training data, provided in epoch seconds
@@ -444,6 +451,7 @@ aws iotsitewise describe-asset-model-composite-model \
 ```
 
 3. Create a file called `train-prediction.json` and add the following code, replacing the following:
+
    - `asset-id` with the ID of the target asset
    - `action-definition-id` with the ID of the training action
    - `StartTime` with the start of the training data, provided in epoch seconds
@@ -506,6 +514,7 @@ aws iotsitewise describe-asset-model-composite-model \
 ```
 
 3. Create a file called `start-inference.json` and add the following code, replacing the following:
+
    - `asset-id` with the ID of the target asset
    - `action-definition-id` with the ID of the start inference action
    - `Offset` with the amount of buffer to use
@@ -548,6 +557,7 @@ aws iotsitewise describe-asset-model-composite-model \
 ```
 
 3. Create a file called `stop-inference.json` and add the following code, replacing the following:
+
    - `asset-id` with the ID of the target asset
    - `action-definition-id` with the ID of the start inference action
 

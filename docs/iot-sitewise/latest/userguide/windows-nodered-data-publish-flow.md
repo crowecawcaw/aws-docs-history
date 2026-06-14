@@ -178,6 +178,7 @@ see the "Data stream alias" concept in [AWS IoT SiteWise concepts](concept-overv
 
 2. Verify that the JavaScript code translates wind speed data correctly. The
    function performs several important tasks:
+
    - Extracts the property name from the input and sets it as the
      propertyAlias
    - Converts the timestamp from milliseconds to the required seconds and

@@ -121,6 +121,7 @@ These are additional path filter requirements.
   topic level. However, note that `#` can also be used as a regular character
   within a topic level name, such as `factory/machine#1/topic`. For more
   information see [Special characters in path filter names](gw-destinations.md#path-filters-special-characters "gw-destinations.md#path-filters-special-characters")
+
   - You can also use the `+` character. For example, use
     `factory/+/temp` to get all temperatures for factories instead of
     `factory/machine2/temp` and `factory/machine3/temp`

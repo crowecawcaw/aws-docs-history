@@ -49,6 +49,7 @@ AWS IoT SiteWise rule action. For more information, see [Troubleshoot an AWS IoT
 ###### Contents
 
 - [Manage logging in AWS IoT SiteWise](monitor-cloudwatch-logs.md#manage-cloudwatch-logs "monitor-cloudwatch-logs.md#manage-cloudwatch-logs")
+
   - [Find your logging level](monitor-cloudwatch-logs.md#find-logging-level "monitor-cloudwatch-logs.md#find-logging-level")
   - [Change your logging level](monitor-cloudwatch-logs.md#change-logging-level "monitor-cloudwatch-logs.md#change-logging-level")
 

@@ -48,10 +48,12 @@ In this procedure, create and configure an Amazon Managed Grafana workspace to v
 4. Under **Grafana version**, choose the latest version. Choose this version for the most up-to-date features and capabilities. For more information about different version sets, see [Differences between Grafana versions](../../../grafana/latest/userguide/version-differences.md "../../../grafana/latest/userguide/version-differences.md") in the _Amazon Managed Grafana User Guide_.
 5. Choose **Next**.
 6. Under **Authentication access**, choose **AWS IAM Identity Center**.
+
    - If AWS IAM Identity Center in your account isn't enabled, you will be prompted to set it up first. For detailed instruction about how to set up user access, see [Identity-based policy examples for Amazon Managed Grafana](../../../grafana/latest/userguide/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone "../../../grafana/latest/userguide/security_iam_id-based-policy-examples.md#security_iam_id-based-policy-examples-create-workspace-standalone") in the _Amazon Managed Grafana User Guide_.
 
 7. Under **Permission type**, choose **Service managed**. Amazon Managed Grafana automatically creates and configures the necessary IAM roles and permissions for any AWS data sources you choose to use in this workspace. For organizational member accounts, the Service managed option is only available if the account is designated as a delegated administrator. For information about setting up delegated administrator accounts, see [Register a delegated administrator member account](../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md "../../../AWSCloudFormation/latest/UserGuide/stacksets-orgs-delegated-admin.md") in the _CloudFormation User Guide_.
 8. Under **Workspace configuration options**, take the following actions:
+
    1. Select **Turn Grafana alerting on**. With this setting, you can create and manage alerts through a centralized interface in your workspace. For more information, see [Working with Grafana alerting](../../../grafana/latest/userguide/alerts-overview.md "../../../grafana/latest/userguide/alerts-overview.md") in the _Amazon Managed Grafana User Guide_.
    2. Select **Turn plugin management on**. This allows you to install, update, and uninstall plugins in your workspace. For more information, see [Extend your workspace with plugins](../../../grafana/latest/userguide/grafana-plugins.md "../../../grafana/latest/userguide/grafana-plugins.md") in the _Amazon Managed Grafana User Guide_.###### Important
 
@@ -66,6 +68,7 @@ Be sure to enable plugin management. If you don't select this option, you cannot
 13. (Optional) Under **Notification channels**, select **Amazon SNS** to enable Grafana alerts to be sent through Amazon SNS, This creates an IAM policy that allows publishing to Amazon SNS topics with names starting with Grafana. You need to complete the notification channel setup later in your Grafana console within the workspace.
 14. Confirm the workspace details, and choose **Create workspace**. This process takes a couple of minutes.
 15. On the **Authentication** tab, under **AWS IAM Identity Center**. assign users or groups to your workspace by doing the following:
+
     1.  To assign the user who will manage AWS IoT SiteWise data, choose **Assign new user or group**. Then choose **Make admin** from the **Actions** dropdown list to grant them administrative privileges.
 
     ###### Important

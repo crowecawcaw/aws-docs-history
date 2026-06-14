@@ -47,6 +47,7 @@ IAM
 1. On the portal details page, in the **Portal administrators**
    section, choose **Assign administrators**.
 2. On the **Assign administrators** page, do the following:
+
    - Choose **IAM users**, if you want to add an IAM user as
      your portal administrator.
    - Choose **IAM roles**, if you want to add an IAM role as

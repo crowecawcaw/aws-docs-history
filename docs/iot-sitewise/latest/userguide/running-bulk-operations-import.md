@@ -22,6 +22,7 @@ You can use the AWS IoT SiteWise console to bulk import metadata. Follow [Step 1
 2. Choose **Bulk operations New** from the navigation pane.
 3. Choose **New import** to start the import process.
 4. On the **Import metadata** page:
+
    - Choose **Browse Amazon S3** to view the Amazon S3 bucket and files.
    - Navigate to the Amazon S3 bucket that contains the prepared import file.
    - Select the file to import.

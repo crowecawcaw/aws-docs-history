@@ -107,6 +107,7 @@ aws iotsitewise create-gateway \
   platform configuration. For self-hosted gateways, enter
   `greengrassV2`. For more information, see [Options](../../../cli/latest/reference/iotsitewise/create-gateway.md#options "../../../cli/latest/reference/iotsitewise/create-gateway.md#options") in the create-gateway section of
   _AWS CLI Command Reference_ for AWS IoT SiteWise.
+
   - `coreDeviceThingName` – The name of
     the AWS IoT thing for your AWS IoT Greengrass V2 core device.
   - `coreDeviceOperatingSystem` – The
@@ -120,6 +121,7 @@ aws iotsitewise create-gateway \
 
 - `gateway-version` – The version of the
   gateway.
+
   - To create an MQTT-enabled, V3 gateway, use `3` for the
     gateway version.
   - To create a Classic streams, V2 gateway, use `2` for the

@@ -11,6 +11,7 @@ widgets and properties. If more than three are selected, the Assistant returns a
 ###### Generate a situation summary with AWS IoT SiteWise Assistant
 
 1. Click on **AI Assistant**. It displays a menu with three options.
+
    1. **Items selected** – Select only three. You cannot select more than three.
    2. **Clear all** – Clear your selection.
    3. **Generate summary** – Generate a summary about items selected.

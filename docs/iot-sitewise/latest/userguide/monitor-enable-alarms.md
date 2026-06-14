@@ -29,11 +29,13 @@ IAM Identity Center
 ###### To enable alarms for a portal
 
 1. (Optional) Choose **Enable alarms**.
+
    1. For **AWS IoT SiteWise access role**, use an existing role or create a role with the required permissions.
       This role requires the `iotevents:BatchPutMessage` permission and a trust relationship that allows
       `iot.amazonaws.com` and `iotevents.amazonaws.com` to assume the role.
 
 2. (Optional) Choose **Enable alarm notifications**.
+
    1. For **Sender**, choose the sender.
 
    ###### Important
@@ -54,6 +56,7 @@ IAM
 ###### To enable alarms for a portal
 
 - (Optional) Choose **Enable alarms**.
+
   1.  For **AWS IoT SiteWise access role**, use an existing role or create a role with the required permissions.
       This role requires the `iotevents:BatchPutMessage` permission and a trust relationship that allows
       `iot.amazonaws.com` and `iotevents.amazonaws.com` to assume the role.

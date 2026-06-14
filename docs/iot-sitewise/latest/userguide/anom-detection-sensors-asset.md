@@ -160,6 +160,7 @@ The payload must conform to [Option 1: Use a clean payload file](#clean-payload-
 
 3. Run the following command to start training. Replace the following parameters in the
    command:
+
    1. `computation-model-id` with the ID of the target computation
       model.
    2. `asset-id` with the ID of the asset against which you'll train the
@@ -269,6 +270,7 @@ The payload must conform to [Option 1: Use a clean payload file](#clean-payload-
 
 3. Run the following command to start the retraining scheduler. Replace the following
    parameters in the command:
+
    1. `computation-model-id` with the ID of the target computation
       model.
    2. `asset-id` with the ID of the asset against which you'll train the
@@ -317,6 +319,7 @@ The payload must conform to [Option 1: Use a clean payload file](#clean-payload-
 
 3. Run the following command to stop the retraining scheduler. Replace the following
    parameters in the command:
+
    1. `computation-model-id` with the ID of the target computation
       model.
    2. `asset-id` with the ID of the asset against which you'll train the
@@ -379,6 +382,7 @@ The payload must conform to [Option 1: Use a clean payload file](#clean-payload-
 
 3. Run the following command to start inference. Replace the following parameters in
    the payload file.
+
    1. `computation-model-id` with the ID of the target computation
       model.
    2. `asset-id` with the ID of the asset against which the model was

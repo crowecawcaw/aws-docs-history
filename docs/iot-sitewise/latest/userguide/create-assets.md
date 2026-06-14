@@ -25,6 +25,7 @@ You can use the AWS IoT SiteWise console to create an asset.
 2. In the navigation pane, choose **Assets**.
 3. Choose **Create asset**.
 4. On the **Create asset** page, do the following:
+
    1. For **Model**, choose the asset model from which to create an
       asset.
 

@@ -40,6 +40,7 @@ Warning: Duplicate TQVs may result in double charging.
    wildcard characters. For more information, see [Use OPC UA node filters in SiteWise Edge](opc-ua-node-filters.md "opc-ua-node-filters.md").
 8. **Destinations** vary between MQTT-enabled, V3
    gateways and Classic streams, V2 gateways.
+
    - **Classic steams, V2 gateway
      destinations** have a 1:1 relationship with the
      source. Each source sends data to a particular
@@ -117,6 +118,7 @@ MQTT-enabled, V3 gateway destinations
 
 9.  In the **Advanced configuration** pane, you can
     do the following:
+
     1. Choose a **Message security mode** for
        connections and data in transit between your source server
        and your SiteWise Edge gateway. This field is the combination of
@@ -147,7 +149,6 @@ MQTT-enabled, V3 gateway destinations
          same name from different sources. Each data stream
          should have a unique name within your
          account.
-
     4. (Optional) Choose a **Data type
        conversion** option to convert unsupported OPC
        UA data types into strings before ingesting them into
@@ -159,6 +160,7 @@ MQTT-enabled, V3 gateway destinations
        group. The default data change trigger determines when the
        OPC UA server sends updated values to the gateway. You can
        choose one of the following options:
+
        - **Status** –
          to receive data only when a status changes.
        - **StatusValue**
@@ -230,12 +232,13 @@ MQTT-enabled, V3 gateway destinations
         	 interval. This helps control the load on both the
         	 gateway and the OPC UA server during discovery
         	 operations.
-
     7.  (Optional) For **Property groups**,
         choose **Add new group**.
+
         1.  Enter a **Name** for the property
             group.
         2.  For **Properties**:
+
             1. For **Node paths**, add OPC
                UA node filters to limit which OPC UA paths are
                uploaded to AWS IoT SiteWise. The format is similar to
@@ -243,6 +246,7 @@ MQTT-enabled, V3 gateway destinations
 
         3.  For **Group settings**, do the
             following:
+
             1. For **Data quality
                setting**, choose the type of data
                quality that you want AWS IoT SiteWise Collector to

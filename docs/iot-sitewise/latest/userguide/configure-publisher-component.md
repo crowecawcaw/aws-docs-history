@@ -24,6 +24,7 @@ Console
    choose **Edit**
 5. For **Publishing order**, choose one of the
    following:
+
    - **Publish oldest data first**
      – The SiteWise Edge gateway publishes the oldest data
      to the cloud first by default.
@@ -37,6 +38,7 @@ Console
 7. (Optional) If you don't want to publish old data, choose
    **Exclude expired data** and do the
    following:
+
    1. For **Cutoff period**, enter a value
       and choose a unit. The cutoff period must be between
       five minutes and seven days. For example, if the cutoff
@@ -46,6 +48,7 @@ Console
 8. (Optional) To set custom settings about how data is handled on
    your local device, choose **Local storage
    settings** and do the following:
+
    1. For **Retention period**, enter a
       number and choose a unit. The retention period must be
       between one minute and 30 days, and greater than or

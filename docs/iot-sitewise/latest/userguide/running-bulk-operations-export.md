@@ -67,20 +67,25 @@ The following procedure explains the console export action:
 2. Choose **Bulk operations New** from the navigation pane.
 3. Choose **New export** to start the export process.
 4. On the **Export metadata** page:
+
    - Enter a name for the export job. This is the name used for the exported file in your Amazon S3 bucket.
    - Choose your resources to export, which sets the filters for the job:
+
      - Export all assets and asset models. Use filters on assets and asset models.
      - Export assets. Filter on your assets.
+
        - Select the asset to use for the export filter.
        - (Optional) Add the offspring or the associated asset model.
 
      - Export asset models. Filter on your asset models.
+
        - Select the asset model to use for the export filter.
        - (Optional) Add the offspring, or the associated asset or both.
 
      - Choose **Next**.
 
    - Navigate to the Amazon S3 bucket:
+
      - Choose **Browse Amazon S3** to view the Amazon S3 bucket and files.
      - Navigate to the Amazon S3 bucket where the file must be placed.
      - Choose **Next**.

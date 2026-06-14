@@ -13,6 +13,7 @@ aws iottwinmaker get-metadata-transfer-job \
 ```
 
 2. The state of the job changes to one of the below states:
+
    - COMPLETED
    - CANCELLED
    - ERROR
@@ -20,6 +21,7 @@ aws iottwinmaker get-metadata-transfer-job \
 3. The **GetMetadataTransferJob** API returns a
    [MetadataTransferJobProgress](../../../iot-twinmaker/latest/apireference/API_MetadataTransferJobProgress.md "../../../iot-twinmaker/latest/apireference/API_MetadataTransferJobProgress.md") object.
 4. The **MetadataTransferJobProgress** object contains the following parameters:
+
    - **failedCount** : Indicates the count of assets that failed during
      the transfer process.
    - **skippedCount** : Indicates the count of assets that were skipped during

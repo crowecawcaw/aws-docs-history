@@ -85,6 +85,7 @@ To configure low frequency inferencing:
 
 - Configure `AWS/ANOMALY_DETECTION_INFERENCE` action payload value with
   `DataUploadFrequency` with values: `PT2H..PT12H`.
+
   - In the case of 1 day, `DataUploadFrequency` is
     `P1D`.
 
@@ -139,6 +140,7 @@ To configure flexible scheduling:
 - (Optional) `DataDelayOffsetInMinutes` with the delay offset in minutes.
   Set this value between 0 and 60 minutes.
 - Configure `weeklyOperatingWindow` with a shift configuration:
+
   - Keys for the `weeklyOperatingWindow` are days of the week:
     `monday|tuesday|wednesday|thursday|friday|saturday|sunday`.
   - Each time range must be in **24-hour format** as

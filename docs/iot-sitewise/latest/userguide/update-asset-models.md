@@ -45,6 +45,7 @@ You can use the AWS IoT SiteWise console to update an asset model, component mod
 3. Choose the asset model, component model, or interface to update.
 4. Choose **Edit**.
 5. On the **Edit model** page, do any of the following:
+
    - In **Model details**, change the **Name** of
      the model.
    - Change any of the **Attribute definitions**. You can't change
@@ -177,6 +178,7 @@ structure:
 ```
 
 4. In `update-asset-model.json`, do any of the following:
+
    - Change the asset model's name (`assetModelName`).
    - Change, add, or remove the asset model's description
      (`assetModelDescription`).

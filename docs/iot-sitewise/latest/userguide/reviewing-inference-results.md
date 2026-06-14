@@ -49,6 +49,7 @@ aws iotsitewise get-asset-property-value-history \
 
 - **value.stringValue** – A JSON string containing the
   inference result with the following fields:
+
   - **timestamp** – The timestamp of the TQV against
     which inference is performed.
   - **prediction** – The prediction result (0 for no

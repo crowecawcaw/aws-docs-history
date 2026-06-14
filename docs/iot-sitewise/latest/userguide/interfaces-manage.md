@@ -72,6 +72,7 @@ Console
 2. In the **Models** section, choose the appropriate asset model
    or interface. You can view a list of either applied interfaces or linked asset
    models on the model's corresponding details page.
+
    - When viewing a particular interface, see the **Linked asset
      models** section.
    - When viewing a particular asset model, see the **Applied

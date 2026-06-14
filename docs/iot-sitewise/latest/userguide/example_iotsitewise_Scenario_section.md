@@ -786,6 +786,7 @@ public class SitewiseActions {
 ```
 
 - For API details, see the following topics in _AWS SDK for Java 2.x API Reference_.
+
   - [BatchPutAssetPropertyValue](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md")
   - [CreateAsset](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAsset.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAsset.md")
   - [CreateAssetModel](../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel.md "../../../goto/SdkForJavaV2/iotsitewise-2019-12-02/CreateAssetModel.md")
@@ -1505,6 +1506,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
 ```
 
 - For API details, see the following topics in _AWS SDK for JavaScript API Reference_.
+
   - [BatchPutAssetPropertyValue](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/BatchPutAssetPropertyValueCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/BatchPutAssetPropertyValueCommand.md")
   - [CreateAsset](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetCommand.md")
   - [CreateAssetModel](../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand.md "../../../AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateAssetModelCommand.md")
@@ -2358,6 +2360,7 @@ class IoTSitewiseWrapper:
 ```
 
 - For API details, see the following topics in _AWS SDK for Python (Boto3) API Reference_.
+
   - [BatchPutAssetPropertyValue](../../../goto/boto3/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md "../../../goto/boto3/iotsitewise-2019-12-02/BatchPutAssetPropertyValue.md")
   - [CreateAsset](../../../goto/boto3/iotsitewise-2019-12-02/CreateAsset.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateAsset.md")
   - [CreateAssetModel](../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md "../../../goto/boto3/iotsitewise-2019-12-02/CreateAssetModel.md")

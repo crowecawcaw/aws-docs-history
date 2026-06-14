@@ -9,13 +9,16 @@ Once the widget is added to the dashboard, you can configure the widget by choos
 
 - **Style** – Add a title in the **Widget title**. Different widgets have different configurations. A few examples
   are listed below.
+
   - **Bar** widget :
+
     - **Resolution and Aggregation** – Set values for resolution and aggregation here.
     - **Format data** – Set **Decimal places** to the number of decimals to display.
     - **Display style** – Select values to display.
     - **Axis** – Choose to display the axis.
 
   - **Line** widget :
+
     - **Resolution and Aggregation** – Set values for resolution and aggregation here.
     - **Format data** – Set **Decimal places** to the number of decimals to display.
     - **Y-axis** – Add a **Label**, and **Min** and **Max**values.
@@ -23,6 +26,7 @@ Once the widget is added to the dashboard, you can configure the widget by choos
     - **Legend** – Choose **Alignment**, and **Display**.
 
   - **Gauge** widget :
+
     - **Resolution and Aggregation** – Set values for resolution and aggregation here.
     - **Format data** – Set **Decimal places** to the number of decimals to display.
     - **Display style** – Select values to display.
@@ -33,32 +37,40 @@ Once the widget is added to the dashboard, you can configure the widget by choos
 
 - **Properties** – All the properties of widgets are listed in this section. Different widgets have different properties. A few examples
   are listed below.
+
   - **Line** widget :
+
     - **Label** – Choose to use the default datastream name or give a new name.
     - **Style** – Set **Line type**, **Line style** to the number of decimals to display.
     - **Y-axis** – Select values to default style, show Y-axis controls and set the **Min** and **Max** values.
 
   - **Table** widget :
+
     - **Label** – Choose to use the default datastream name or give a new name.
 
   - **Table** widget :
+
     - **Label** – Choose to use the default datastream name or give a new name.
 
 ![The IoT dashboard widget configuration page with properties shown.](images/ai-dashboard-widget-properties.png)
 
 - **Thresholds** – Add a **Threshold** for a widget. Different widgets have different configurations. A few examples
   are listed below.
+
   - **Bar chart** widget :
+
     - Choose **Add a threshold** to add to the widget.
     - Choose **Operator** and give a **Value** for the threshold. Customize the threshold with a color from the color palette.
     - You can choose to apply the threshold across all data.
 
   - **Line** widget :
+
     - Choose **Add a threshold** to add to the widget.
     - Choose **Operator** and give a **Value** for the threshold. Customize the threshold with a color from the color palette.
     - Choose how to **Show thresholds** from the drop down menu.
 
   - **Gauge** widget :
+
     - Choose **Add a threshold** to add to the widget.
     - Choose **Operator** and give a **Value** for the threshold. Customize the threshold with a color from the color palette.
 

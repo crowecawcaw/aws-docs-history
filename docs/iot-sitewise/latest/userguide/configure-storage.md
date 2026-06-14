@@ -250,6 +250,7 @@ to the cold tier in the AWS IoT SiteWise console.
     **Storage**.
 3.  In the upper-right corner, choose **Edit**.
 4.  On the **Edit storage** page, do the following:
+
     1. For **Storage settings**, choose
        **Enable cold tier storage**. The cold tier storage is
        disabled by default.
@@ -264,8 +265,8 @@ to the cold tier in the AWS IoT SiteWise console.
         * If you don't have an Amazon S3 bucket, choose **View**, and
          then create one in the Amazon S3 console. For more information, see [Create your first S3 bucket](../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating-bucket "../../../AmazonS3/latest/userguide/GetStartedWithS3.md#creating-bucket")
          in the *Amazon S3 User Guide*.
-
     3.  For **S3 access role**, do one of the following:
+
         - Choose **Create a role from an AWS managed template**,
           AWS automatically creates an IAM role that allows AWS IoT SiteWise to send data to
           Amazon S3.

@@ -38,6 +38,7 @@ raw data streams from the packaging machine.
 
 - `Equipment_State` – A data stream (or measurement) that provides
   the current state of the packaging machine in numerical codes:
+
   - `1024` – The machine is idle.
   - `1020` – A fault, such as an error or delay.
   - `1000` – A planned stop.

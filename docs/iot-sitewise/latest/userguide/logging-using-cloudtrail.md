@@ -63,6 +63,7 @@ shows the resource types available for AWS IoT SiteWise.
 
 - To log data events using the CloudTrail console, create a [trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console "../../../awscloudtrail/latest/userguide/cloudtrail-create-a-trail-using-the-console-first-time.md#creating-a-trail-in-the-console") or [event data
   store](../../../awscloudtrail/latest/userguide/query-event-data-store-cloudtrail.md "../../../awscloudtrail/latest/userguide/query-event-data-store-cloudtrail.md") to log data events, or [update an existing trail or event data store](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") to log data events.
+
   1.  Choose **Data events** to log data events.
   2.  From the **Data event type** list, choose the resource type for
       which you want to log data events.
@@ -78,6 +79,7 @@ shows the resource types available for AWS IoT SiteWise.
   resource type value (see [table](#data-events-table "#data-events-table")). You can add
   conditions to filter on the values of the `readOnly`, `eventName`,
   and `resources.ARN` fields.
+
   - To configure a trail to log data events, run the [AWS CloudTrail
     put-event-selectors](../../../cli/latest/reference/cloudtrail/put-event-selectors.md "../../../cli/latest/reference/cloudtrail/put-event-selectors.md") command. For more information, see [Logging data events for trails with the AWS CLI](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-CLI-trail-examples "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-CLI-trail-examples").
   - To configure an event data store to log data events, run the [AWS CloudTrail

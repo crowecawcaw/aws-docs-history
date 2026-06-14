@@ -76,6 +76,7 @@ AWS accounts.
 4. Choose **Create portal**.
 5. If you already enabled IAM Identity Center, skip to step 6. Otherwise, complete the following steps
    to enable IAM Identity Center:
+
    1. On the **Enable AWS IAM Identity Center (SSO)** page, enter your
       **Email address**, **First name**, and
       **Last name** to create an IAM Identity Center user for yourself to be the portal
@@ -89,6 +90,7 @@ AWS accounts.
 
 6. On the **Portal configuration** page, complete the following
    steps:
+
    1. Enter a name for your portal, such as
       `WindFarmPortal`.
    2. (Optional) Enter a description for your portal. If you have multiple portals, use
@@ -101,6 +103,7 @@ AWS accounts.
 7. On the **Invite administrators** page, you can assign IAM Identity Center users to
    the portal as administrators. Portal administrators manage permissions and projects within
    a portal. On this page, do the following:
+
    1. Select a user to be the portal administrator. If you enabled IAM Identity Center earlier in this
       tutorial, select the user that you created.
 

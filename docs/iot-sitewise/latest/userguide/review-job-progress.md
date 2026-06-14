@@ -34,7 +34,9 @@ jobs.
 5. The `Queued position` represents the position of the job in the process queue. The jobs are
    processed one at a time. A queued position of 1, indicates that the job will be processed next.
 6. The jobs details page also displays the job progress counts.
+
    1. The job progress count types are:
+
       1. `Total resources` – Indicates the total count of assets in the transfer
          process.
       2. `Succeeded` – Indicates the count of assets successfully transferred during

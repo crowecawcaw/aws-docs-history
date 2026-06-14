@@ -18,6 +18,7 @@ following parameters:
 - **Unit** – (Optional) The scientific unit for the property, such as mm or Celsius.
 - **Data type** – The property's data type, which is one of the
   following:
+
   - **String** – A string with up to 1024 bytes.
   - **Integer** – A signed 32-bit integer with range [-2,147,483,648, 2,147,483,647].
   - **Double** – A floating point number with range [-10^100, 10^100] and IEEE 754 double precision.
@@ -36,6 +37,7 @@ the following parameters:
 - `name` – The property's name.
 - `dataType` – The property's data type, which is one of the
   following:
+
   - `STRING` – A string with up to 1024 bytes.
   - `INTEGER` – A signed 32-bit integer with range [-2,147,483,648, 2,147,483,647].
   - `DOUBLE` – A floating point number with range [-10^100, 10^100] and IEEE 754 double precision.

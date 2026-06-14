@@ -18,6 +18,7 @@ host.
 
 - Install an MQTT-enabled, V3 gateway. For more information, see [MQTT-enabled, V3 gateways for AWS IoT SiteWise Edge](mqtt-enabled-v3-gateway.md "mqtt-enabled-v3-gateway.md").
 - Install and run these services locally:
+
   - InfluxDB OSS v2. For installation steps, see [Install
     InfluxDB](https://docs.influxdata.com/influxdb/v2/install/ "https://docs.influxdata.com/influxdb/v2/install/").
   - Node-RED. For installation steps, see [Install Node-RED

@@ -16,6 +16,7 @@ gateway software.
   newer. For more information, see [Requirements](../../../greengrass/v2/developerguide/setting-up.md#greengrass-v2-requirements "../../../greengrass/v2/developerguide/setting-up.md#greengrass-v2-requirements") in the
   _AWS IoT Greengrass Version 2 Developer Guide_.
 - One of the following supported platforms:
+
   - OS: Ubuntu 20.04 or later
 
   Architecture: x86_64 (AMD64) or ARMv8 (Aarch64)
@@ -78,6 +79,7 @@ The data processing pack (DPP) feature is no longer availabke to new customers. 
 
 - If you plan to use the data processing pack at the edge with AWS IoT SiteWise, your
   local device must also meet the following requirements:
+
   - Has an x86 64 bit quad-core processor.
   - Has at least 16 GB of RAM.
   - Has at least 32 GB for RAM if using Microsoft
@@ -99,8 +101,10 @@ The data processing pack (DPP) feature is no longer availabke to new customers. 
 - The minimum disk space and compute capacity requirements depend on a
   variety of factors that are unique to your implementation and use
   case.
+
   - The disk space required for caching data for intermittent internet
     connectivity depends on the following factors:
+
     - Number of data streams uploaded
     - Data points per data stream per second
     - Size of each data point
@@ -109,6 +113,7 @@ The data processing pack (DPP) feature is no longer availabke to new customers. 
 
   - The compute capacity required to poll and upload data depends on
     the following factors:
+
     - Number of data streams uploaded
     - Data points per data stream per second
 

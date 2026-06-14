@@ -10,6 +10,7 @@ The following steps explain this process:
 
 1. To set up anomaly detection, use the [UpdateAssetModel
    (AWS CLI)](../../../cli/latest/reference/iotsitewise/update-asset-model.md "../../../cli/latest/reference/iotsitewise/update-asset-model.md"), and meet the following requirements:
+
    1. At least one input property that is of either `DOUBLE` or
       `INTEGER` data type. It is either a measurement or transform property,
       and is used to train the model.
@@ -204,6 +205,7 @@ periodic model updates with configurable promotion modes.
 1. Prepare the same payload as mentioned in [Start retraining scheduler](anom-detection-sensors-asset.md#start-retraining-scheduler "anom-detection-sensors-asset.md#start-retraining-scheduler").
 2. Execute training action (without providing asset as target resource). Replace the
    following parameters in the command:
+
    1. `computation-model-id` with the ID of the target computation
       model.
    2. `training-action-definition-id` with the ID of the
@@ -231,6 +233,7 @@ aws iotsitewise list-executions \
 1. Prepare the same payload as mentioned in [Stop retraining scheduler](anom-detection-sensors-asset.md#stop-retraining-scheduler "anom-detection-sensors-asset.md#stop-retraining-scheduler").
 2. Execute training action (without providing asset as target resource). Replace the
    following parameters in the command:
+
    1. `computation-model-id` with the ID of the target computation
       model.
    2. `training-action-definition-id` with the ID of the
@@ -302,6 +305,7 @@ The payload must conform to [Option 1: Use a clean payload file](#clean-payload-
 
 3. Run the following command to start inference. Replace the following parameters in
    the payload file.
+
    1. `computation-model-id` with the ID of the target computation
       model.
    2. `inference-action-definition-id` with the ID of the

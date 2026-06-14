@@ -104,6 +104,7 @@ following parameters:
   a simple name to use in the expression and a `value` structure that
   identifies which property to link to that variable. The `value` structure
   contains the following information:
+
   - `propertyId` – The ID of the property from which to input
     values. You can use the property's name instead of its ID.
 
