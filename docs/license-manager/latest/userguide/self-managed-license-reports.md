@@ -15,6 +15,7 @@ Provides details about tracked resources and their license consumption, listing 
 1. Open the License Manager console at [https://console.aws.amazon.com/license-manager/](https://console.aws.amazon.com/license-manager/ "https://console.aws.amazon.com/license-manager/").
 2. From the navigation panel choose **Usage reports** (under License analytics).
 3. Choose **Create usage report**, then define the parameters:
+
    1. Enter a **Name** and optional **Description** for your usage report.
    2. Select a self-managed license type from the drop-down list.
    3. Choose the report types to generate.

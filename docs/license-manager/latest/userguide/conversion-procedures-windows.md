@@ -49,6 +49,7 @@ AWS Systems Manager Inventory are displayed.
    conversion**.
 3. For **Source operating system**, choose the platform of the
    instance you want to convert:
+
    - **RHEL**
    - **RHEL for SAP**
    - **Ubuntu LTS**

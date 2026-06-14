@@ -83,13 +83,13 @@ Ubuntu
 - Instances must be running Ubuntu LTS.
 - The Ubuntu Pro Client must be installed in your Ubuntu operating
   system.
+
   - Run the following command to confirm if the Ubuntu Pro Client is
     installed:
 
   ```
   pro --version
   ```
-
   - If the command is not found, or the version needs to be updated,
     run the following command to install the Ubuntu Pro Client:
 

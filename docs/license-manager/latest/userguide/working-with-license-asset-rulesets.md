@@ -79,11 +79,13 @@ You can create your own ruleset for defining license and instance tracking rules
 5. For **Ruleset description**, provide a description of what the ruleset is meant to be.
 6. (Optional) Add tags for the ruleset and choose **Next**.
 7. In step 2 (Configure discovery of licenses), you can add rules related to your licenses. This ensures the system can use the license to calculate license usage for instances the product is installed on. While configuring discovery of licenses is optional, we recommend adding it if you want license usage calculations.
+
    - You can add self-managed licenses and provide ARN or account ID
    - You can also add granted licenses (licenses procured from AWS Marketplace) ARN, ProductSKU, etc.
    - You can add multiple rules by choosing **Add rule**
 
 8. In step 3 (Configure discovery of instances), you can add rules on how to discover various instances. This ensures instances can be found based on selection criteria and that those instances are accounted for the product you are configuring your license asset group. You can add one or more rules by selecting the following fields:
+
    - Platform (Windows or Linux)
    - EC2 billing product code
    - Marketplace product code
@@ -128,16 +130,19 @@ You can update custom rulesets to modify their configuration, add or remove rule
 3. In the **License asset ruleset** section, navigate to **My rulesets**.
 4. To select a ruleset, select the associated check box and choose **Actions**, **Edit**. Alternatively, choose the ruleset name, then choose the **Edit** button on the ruleset page.
 5. From here, you can make the following updates:
+
    - Edit the ruleset name
    - Edit the ruleset description
    - Add or remove tags associated with the resource
 
 6. Choose **Next** when your changes are complete. From the next screen, you can:
+
    - Add or remove rules
    - Update license types for existing rules
    - Update conditions for existing rules
 
 7. Choose **Next** when your changes are complete. From the next screen, you can:
+
    - Add or remove inclusion rules to specify conditions to identify instances you want to include
 
 8. Review and edit changes made on the previous screens. Choose **Submit** to finalize changes.

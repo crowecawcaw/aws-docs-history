@@ -41,14 +41,18 @@ workflows to use `DescribeInstances`.
 ###### Contents
 
 - [Convert a license type for Windows and SQL Server in License Manager](conversion-procedures-windows.md "conversion-procedures-windows.md")
+
   - [License type conversion limits](conversion-procedures-windows.md#conversion-limits "conversion-procedures-windows.md#conversion-limits")
   - [Convert a license type using the License Manager console](conversion-procedures-windows.md#conversion-console "conversion-procedures-windows.md#conversion-console")
   - [Convert a license type using the AWS CLI](conversion-procedures-windows.md#conversion-cli "conversion-procedures-windows.md#conversion-cli")
 
 - [Convert a license type for Linux in License Manager](conversion-procedures-linux.md "conversion-procedures-linux.md")
+
   - [Convert a license type using the License Manager console](conversion-procedures-linux.md#convert-license-type-console-linux "conversion-procedures-linux.md#convert-license-type-console-linux")
   - [Convert a license type using the AWS CLI](conversion-procedures-linux.md#convert-license-type-cli-linux "conversion-procedures-linux.md#convert-license-type-cli-linux")
+
     - [Supported conversions for Red Hat](conversion-procedures-linux.md#rhel-li-conversions "conversion-procedures-linux.md#rhel-li-conversions")
+
       - [Convert from RHEL for SAP with HA and Update Services (Sold by AWS in AWS Marketplace) to RHEL for SAP with HA and Update Services (Sold by Red Hat in AWS Marketplace)](conversion-procedures-linux.md#rhel-sap-aws-to-redhat "conversion-procedures-linux.md#rhel-sap-aws-to-redhat")
       - [Convert from RHEL for SAP with HA and Update Services (Sold by AWS in AWS Marketplace) to Red Hat Subscriptions (Sold by Red Hat in AWS Marketplace)](conversion-procedures-linux.md#rhel-sap-aws-to-saas "conversion-procedures-linux.md#rhel-sap-aws-to-saas")
       - [Convert from Red Hat License-Included (LI) to RHEL (Sold by Red Hat in AWS Marketplace)](conversion-procedures-linux.md#rhel-li-to-marketplace "conversion-procedures-linux.md#rhel-li-to-marketplace")

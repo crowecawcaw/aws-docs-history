@@ -14,6 +14,7 @@ can allow all core- or socket-based self-managed licenses with your host resourc
    for the host resource group.
 5. For **EC2 Dedicated Host management settings**, enable or disable the
    following settings as needed:
+
    - **Allocate hosts automatically**
    - **Release hosts automatically**
    - **Recover hosts automatically**

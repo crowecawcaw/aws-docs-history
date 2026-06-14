@@ -59,6 +59,7 @@ dimensions and conditions for each subscription.
 3. Under the **Subscription name** column, choose the subscription to
    create an alarm for, then choose **Create alarm**.
 4. Specify the following for the alarm:
+
    - **Alarm name** – specify a name which resembles
      `AWS-LM-LS-`AlarmName``.
    - Instance type – choose an instance type that will be using the subscription

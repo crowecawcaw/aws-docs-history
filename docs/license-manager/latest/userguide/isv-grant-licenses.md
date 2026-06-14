@@ -14,11 +14,13 @@ to enable customers to [consume licenses](license-consumption.md "license-consum
 3. Choose the ID of the license to open its details page.
 4. For **Grants**, choose **Create grant**.
 5. For **Grant details**, provide the following information:
+
    - **Grant name** – The grant name. This is used to
      enable search capabilities.
    - **AWS account ID** – The AWS account number of
      the license recipient.
    - **License rights**
+
      - Select **Consumption** if the recipient can consume
        granted entitlements.
      - Select **Distribution** if the recipient can

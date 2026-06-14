@@ -47,6 +47,7 @@ You can view and manage granted licenses for a single AWS account.
    selection.
 4. (Optional) Use the filter options, such as the following, to scope the
    list of licenses that are displayed.
+
    - Product SKU – The product identifier for this license, as
      defined by the license issuer when creating the license. The same
      product SKU might exist across multiple ISVs.
@@ -59,6 +60,7 @@ You can view and manage granted licenses for a single AWS account.
 6. If the license issuer is an entity other than AWS Marketplace, the initial grant
    status is **Pending acceptance**. Do one of the
    following:
+
    - Choose **Accept & activate license**. The
      resulting grant status is **Active**.
    - Choose **Accept license**. The resulting grant
@@ -93,6 +95,7 @@ information, see [Settings in License Manager](settings.md "settings.md").
    the current selection.
 4. (Optional) Use the filter options, such as the following, to scope the
    list of licenses that are displayed.
+
    - Product SKU – The product identifier for this license, as
      defined by the license issuer when creating the license. The same
      product SKU might exist across multiple ISVs.
@@ -103,6 +106,7 @@ information, see [Settings in License Manager](settings.md "settings.md").
    ID to open the license detail page.
 6. If the license issuer is an entity other than AWS Marketplace, do one of the
    following:
+
    - Choose **Activate license**. The resulting grant
      status is **Active**.
    - Choose **Deactivate license**. The resulting grant

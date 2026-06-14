@@ -35,6 +35,7 @@ take one of the following actions:
 2. Activate the new grant and specify that you want to disable and replace the
    existing active grant with the new grant. You can use the License Manager console or the
    AWS CLI:
+
    1. Using the License Manager console, activate the new grant while selecting
       **Yes** that you want to replace active grants.
    2. Using the `CreateGrantVersion` API, activate the new grant by
@@ -70,12 +71,14 @@ active grants:
    page.
 5. If presented, select an activation option for whether you want to replace
    active grants:
+
    1. **No** – This option will activate the
       grant without replacing any existing active grants for the recipient
       (grantee).
    2. **Yes** – This option will disable grants
       for the same product and activate a new grant for the defined
       recipient (grantee):
+
       1. A specified AWS account.
       2. Member accounts of the specified organization OU.
       3. All member accounts of the organization.

@@ -26,6 +26,7 @@ month.
 - [Subscription charges in License Manager](#usubs-subscription-charges "#usubs-subscription-charges")
 - [Prerequisites to create user-based subscriptions in License Manager](#usubs-prerequisites "#usubs-prerequisites")
 - [Supported software products for user-based subscriptions in License Manager](#usubs-software "#usubs-software")
+- [Combine Microsoft Office with other software](#usubs-combine-products "#usubs-combine-products")
 - [Active Directory](#ad-support "#ad-support")
 - [Additional software](#usubs-software-additional "#usubs-software-additional")
 - [Get started with user-based subscriptions in License Manager](user-based-subscriptions-getting-started.md "user-based-subscriptions-getting-started.md")
@@ -217,6 +218,7 @@ create user-based subscriptions.
 ###### Contents
 
 - [IAM roles and permissions](user-based-subscriptions.md#usubs-prereq-iam "user-based-subscriptions.md#usubs-prereq-iam")
+
   - [AWS KMS Key policy for License Server credentials](user-based-subscriptions.md#usubs-prereq-iam-rdslic "user-based-subscriptions.md#usubs-prereq-iam-rdslic")
 
 - [Active Directory](user-based-subscriptions.md#usubs-prereq-ad "user-based-subscriptions.md#usubs-prereq-ad")
@@ -224,6 +226,7 @@ create user-based subscriptions.
 - [Network configuration](user-based-subscriptions.md#usubs-prereq-network "user-based-subscriptions.md#usubs-prereq-network")
 - [Instances that provide user-based subscription products](user-based-subscriptions.md#usubs-prereq-instance "user-based-subscriptions.md#usubs-prereq-instance")
 - [Microsoft Remote Desktop Services](user-based-subscriptions.md#usubs-prereq-rds "user-based-subscriptions.md#usubs-prereq-rds")
+
   - [Administrative credentials secret](user-based-subscriptions.md#usubs-prereq-rds-secret "user-based-subscriptions.md#usubs-prereq-rds-secret")
 
 ### IAM roles and permissions
@@ -240,6 +243,7 @@ permissions:
 
 - **Amazon EC2** – Work with network
   interfaces and subnets.
+
   - `ec2:CreateNetworkInterface`
   - `ec2:DeleteNetworkInterface`
   - `ec2:DescribeNetworkInterfaces`
@@ -248,6 +252,7 @@ permissions:
 
 - **Directory Service** – Administer Active
   Directories.
+
   - `ds:DescribeDirectories`
   - `ds:AuthorizeApplication`
   - `ds:UnauthorizeApplication`
@@ -256,6 +261,7 @@ permissions:
 
 - **Route 53** – Configure
   routing.
+
   - `route53:DeleteHealthCheck`
   - `route53:ChangeResourceRecordSets`
   - `route53:GetHostedZone`
@@ -578,6 +584,8 @@ license for the following Windows OS platforms:
 - [Microsoft Visual Studio](user-based-subscriptions.md#user-subs-visual-studio "user-based-subscriptions.md#user-subs-visual-studio")
 - [Microsoft Office](user-based-subscriptions.md#user-subs-ms-office "user-based-subscriptions.md#user-subs-ms-office")
 
+  - [Microsoft Office EC2 Image Builder component](user-based-subscriptions.md#user-subs-ms-office-builder-component "user-based-subscriptions.md#user-subs-ms-office-builder-component")
+
 #### Microsoft Visual Studio
 
 Microsoft Visual Studio is an integrated development environment (IDE) that enables developers
@@ -623,6 +631,52 @@ product value used for License Manager user-based subscription API operations.
 | Office LTSC Professional Plus 2024 | `OFFICE_PROFESSIONAL_PLUS` |
 | Office LTSC Standard 2021          | `OFFICE_STANDARD`          |
 | Office LTSC Standard 2024          | `OFFICE_STANDARD`          |
+
+##### Microsoft Office EC2 Image Builder component
+
+In addition to the pre-configured AMIs, Microsoft Office is also available as
+EC2 Image Builder components.
+
+Image Builder components are available for both Microsoft Office LTSC
+Professional Plus and Microsoft Office LTSC Standard. You can configure the
+version year and architecture to match your requirements.
+
+###### Supported version year
+
+- 2021
+- 2024
+
+###### Supported architecture
+
+- 32-bit
+- 64-bit
+
+## Combine Microsoft Office with other software
+
+You can use the Microsoft Office builder components with EC2 Image Builder
+to create customized AMIs that include Microsoft Office along with other
+software.
+
+Office Image Builder components can be used with any of the following base
+AMIs:
+
+- Your own custom AMI
+- A Visual Studio user-based subscription AMI
+- A base Windows Server AMI
+
+You can also include additional EC2 Image Builder components in your image
+recipe alongside the Office component. For example, you can add components that
+install your organization's tools, agents, or configurations to produce a fully
+customized AMI that includes Office and any other software your users need.
+
+###### Combine Microsoft Office and Microsoft Visual Studio into a single instance
+
+You can bundle multiple licensed products into a single Amazon Machine Image
+(AMI) using EC2 Image Builder pipelines created through License Manager. For
+example, you can create an AMI that includes both Visual Studio Professional 2022
+and Office LTSC Professional Plus 2024, then launch instances with all products pre-installed
+and pre-licensed.
+For step-by-step instructions, see [Launch an instance with both Microsoft Office and Microsoft Visual Studio products](usubs-launch-instance.md#launch-multi-product-instance "usubs-launch-instance.md#launch-multi-product-instance")
 
 ## Active Directory
 

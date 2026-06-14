@@ -40,20 +40,24 @@ from the AWS CLI or AWS Management Console. For more information, see [Delegated
 
 - [Edit License Manager settings](settings.md#settings-edit "settings.md#settings-edit")
 - [Managed license settings in License Manager](settings-managed-licenses.md "settings-managed-licenses.md")
+
   - [License asset discovery and ruleset settings](settings-managed-licenses.md#settings-license-asset-groups "settings-managed-licenses.md#settings-license-asset-groups")
   - [Account details](settings-managed-licenses.md#settings-account-details "settings-managed-licenses.md#settings-account-details")
   - [Cross-account resource discovery](settings-managed-licenses.md#settings-resource-discovery "settings-managed-licenses.md#settings-resource-discovery")
   - [Simple Notification Service (SNS)](settings-managed-licenses.md#settings-sns "settings-managed-licenses.md#settings-sns")
 
 - [Linux subscription settings in License Manager](settings-linux-subscriptions.md "settings-linux-subscriptions.md")
+
   - [Linux subscriptions settings](settings-linux-subscriptions.md#linux-subscriptions-general-settings "settings-linux-subscriptions.md#linux-subscriptions-general-settings")
   - [Red Hat Subscription Manager discovery](settings-linux-subscriptions.md#linux-subscriptions-rhsm-settings "settings-linux-subscriptions.md#linux-subscriptions-rhsm-settings")
 
 - [User-based subscription settings in License Manager](settings-user-based-subscriptions.md "settings-user-based-subscriptions.md")
+
   - [AWS Managed Microsoft AD](settings-user-based-subscriptions.md#settings-managed-ad "settings-user-based-subscriptions.md#settings-managed-ad")
   - [Virtual private cloud](settings-user-based-subscriptions.md#settings-vpc "settings-user-based-subscriptions.md#settings-vpc")
 
 - [Delegated administrator settings in License Manager](delegated-administrator.md "delegated-administrator.md")
+
   - [Regions supported for delegated License Manager administrators](delegated-administrator.md#delegated-administrator-supported-regions "delegated-administrator.md#delegated-administrator-supported-regions")
   - [Register a delegated License Manager administrator](delegated-administrator.md#register-delegated-admin "delegated-administrator.md#register-delegated-admin")
   - [Deregister a delegated License Manager administrator](delegated-administrator.md#deregister-delegated-admin "delegated-administrator.md#deregister-delegated-admin")

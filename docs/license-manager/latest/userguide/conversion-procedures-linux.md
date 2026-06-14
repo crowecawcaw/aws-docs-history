@@ -26,6 +26,7 @@ AWS Systems Manager Inventory are displayed.
    conversion**.
 3. For **Source operating system**, choose the platform of the
    instance you want to convert:
+
    - **RHEL**
    - **RHEL for SAP**
    - **Ubuntu LTS**
@@ -136,6 +137,7 @@ Notes:
 
 - RHEL for SAP with HA and Update Services (Sold by AWS in AWS Marketplace) has many different product code IDs (a.k.a. Marketplace code) depending your AWS Marketplace product subscription. Please check EC2 describe-instances response for the correct product code ID on your instances.
 - Red Hat Subscriptions (Sold by Red Hat in AWS Marketplace) do not have a product code to add to the instances.
+
   - Explanations: SaaS product product codes are not attached to EC2 instances, so customers are expected to not include a destination product code when invoking the create-license-conversion-task-for-resource CLI command.
 
 Once converted, you cannot convert the instance back to RHEL for SAP with HA and Update
@@ -195,6 +197,7 @@ aws license-manager create-license-conversion-task-for-resource \
 Notes:
 
 - Red Hat Subscriptions (Sold by Red Hat in AWS Marketplace) do not have a product code to add to the instances.
+
   - Explanations: SaaS product product codes are not attached to EC2 instances, so customers are expected to not include a destination product code when invoking the create-license-conversion-task-for-resource CLI command.
 
 - Red Hat Subscriptions (Sold by Red Hat in AWS Marketplace) must be subscribed to by the caller of the CLI command. Subscriptions in other accounts in the same organization are not supported yet.

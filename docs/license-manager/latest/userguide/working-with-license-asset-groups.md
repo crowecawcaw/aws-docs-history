@@ -54,6 +54,7 @@ You can update license asset groups to modify their configuration, add or remove
 3. In the **License asset group** section, ensure one or more license asset groups are available.
 4. To select a license asset group for editing, select the check box and choose **Actions**, **Edit**. Alternatively, choose the item itself.
 5. Choose the **Edit** button on the license asset group's page. From here, you can:
+
    - Edit the license asset group name
    - Edit the license asset group description
    - Add or remove license asset rulesets

@@ -7,6 +7,7 @@ License asset group reports provide on-demand, comprehensive reporting for softw
 1. Open the License Manager console at [https://console.aws.amazon.com/license-manager/](https://console.aws.amazon.com/license-manager/ "https://console.aws.amazon.com/license-manager/").
 2. From the navigation panel choose **Usage reports** (under License analytics).
 3. Choose **Create license asset group report**, then define the parameters:
+
    1. Enter a **Name** and optional **Description** for your report.
    2. Select a **License asset group** from the drop-down list.
    3. Choose the date range to list all resources within that range.

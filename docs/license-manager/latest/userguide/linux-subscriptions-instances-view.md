@@ -44,6 +44,7 @@ in your account or AWS Organizations, as follows.
    **Instances**. This displays a list of instances with
    Linux subscription data.
 3. (Optional) You can use the following filters to streamline your results:
+
    - Account
    - AMI ID
    - Duplicate subscription
@@ -69,6 +70,7 @@ organization within the chosen Regions.
    would like to view data for.
 4. Choose the **Instances** tab and review the data as needed in the
    console. You can filter the data by:
+
    - Instance ID
    - Account
    - Region

@@ -10,6 +10,7 @@ the AWS Management Console. Alternatively, you can create the license using the 
 3. Choose **Create license**.
 4. For **License metadata**, provide the following
    information:
+
    - **License name** – The name, up to 150 characters, to
      display to buyers.
    - **License description** – An optional description, up to
@@ -27,6 +28,7 @@ the AWS Management Console. Alternatively, you can create the license using the 
 
 5. For **Consumption configuration**, provide the following
    information:
+
    - **Renewal frequency** – Whether to renew weekly, monthly,
      or not at all.
    - **Consumption configuration** – Choose
@@ -37,6 +39,7 @@ the AWS Management Console. Alternatively, you can create the license using the 
      availability of the license.
 
 6. For **Issuer**, provide the following information:
+
    - **Enter an AWS KMS key** – License Manager uses this key to sign and
      verify the issuer. For more information, see [Cryptographic signing of licenses in License Manager](license-signing.md "license-signing.md").
    - **Issuer name** – The business name for the seller.
@@ -45,6 +48,7 @@ the AWS Management Console. Alternatively, you can create the license using the 
 
 7. For **Entitlement**, provide the following information about the
    capabilities that the license grants to recipients:
+
    - **Name** – The name of the recipient.
    - **Unit type** – Select the unit type, then provide the
      maximum count.

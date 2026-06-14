@@ -14,8 +14,10 @@ occurred. For more information, see [Logging AWS License Manager API calls using
 ###### Contents
 
 - [Monitoring License Manager with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md")
+
   - [Creating alarms to monitor License Manager metrics](monitoring-cloudwatch.md#monitoring-cloudwatch-alarms "monitoring-cloudwatch.md#monitoring-cloudwatch-alarms")
 
 - [Logging AWS License Manager API calls using AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
+
   - [License Manager information in CloudTrail](license-manager-info-in-cloudtrail.md "license-manager-info-in-cloudtrail.md")
   - [Understanding License Manager log file entries](understanding-license-manager-entries.md "understanding-license-manager-entries.md")

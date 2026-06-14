@@ -43,6 +43,7 @@ Console
 4. From the **Grants** section, choose **Create
    grant**.
 5. On the **Grant details** panel, do the following:
+
    1. Enter a name for the grant to help you identify the purpose or
       recipient of the grant.
    2. Enter the AWS account ID, AWS Organizations OU ID or ARN, or AWS Organizations ID

@@ -46,11 +46,12 @@ included (for example, a license that is not for "SQL Server Web").
 
 | Amazon RDS resources       | Filter name                                                           | Description | Logical operators                                                                                                                                              | Supported values |
 | -------------------------- | --------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| Engine Edition             | The database engine edition.                                          | `Equals`    | • `oracle-ee`<br>• `oracle-se`<br>• `oracle-se1`<br>• `oracle-se2`<br>• `db2-se`<br>• `db2-ae`                                                                 |
+| Engine Edition             | The database engine edition.                                          | `Equals`    | • `oracle-ee`<br>• `oracle-se`<br>• `oracle-se1`<br>• `oracle-se2`<br>• `db2-se`<br>• `db2-ae`<br>• `sqlserver-ee`<br>• `sqlserver-se`                         |
 | License Pack (Oracle only) | The management pack associated with an Amazon RDS for Oracle license. | `Equals`    | • `Spatial and Graph`<br>• `Active Data Guard`<br>• `Label Security`<br>• `Oracle On-Line Analytical Processing (OLAP)`<br>• `Diagnostic Pack and Tuning Pack` |
 
-For more information about Amazon RDS database product licenses, see [RDS for Oracle licensing options](../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md "../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md"), or
-[RDS for Db2 licensing options](../../../AmazonRDS/latest/UserGuide/db2-licensing.md "../../../AmazonRDS/latest/UserGuide/db2-licensing.md")
+For more information about Amazon RDS database product licenses, see [RDS for Oracle licensing options](../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md "../../../AmazonRDS/latest/UserGuide/Oracle.Concepts.Licensing.md"),
+[RDS for Db2 licensing options](../../../AmazonRDS/latest/UserGuide/db2-licensing.md "../../../AmazonRDS/latest/UserGuide/db2-licensing.md"), or
+[RDS for SQL Server licensing options](../../../AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.Licensing.md "../../../AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.Licensing.md")
 in the _Amazon RDS User Guide_.
 
 ## Add automated discovery rules to a self-managed license
@@ -72,7 +73,7 @@ usage for the instances that have those products installed. For more information
 
 ###### Note
 
-Exclusion rules do not apply to Amazon RDS products (such as RDS for Oracle and RDS for Db2).
+Exclusion rules do not apply to Amazon RDS products (such as RDS for Oracle, RDS for Db2, and RDS for SQL Server).
 
     1. Choose a **Property** to filter on, currently **Account ID**, and **Tag** are supported.
     2. Enter the information to identify that property. For an **Account ID** specify the 12 digit AWS Account ID as the value. For **Tags** enter a key/value pair.

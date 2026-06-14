@@ -58,12 +58,14 @@ scenario. For more information, see the [Prerequisites to create user-based subs
 Your product configuration may be failing due to issues with outbound network access. To address this, ensure that the default security group permits outbound traffic to the IP addresses of each domain controller's network interface as well as SSM.
 
 - Verify that default security group settings facilitate outbound traffic to the IP addresses of domain controller network interfaces.
+
   - License Manager creates two network interfaces which use the default security group of the VPC where your AWS Managed Microsoft AD is provisioned.
     These interfaces are used for required service functionality with your directory. Ensure that your default security group allows outbound traffic to each
     domain controller's network interface IP address, or the security group used by the domain controllers.
     For more information, see [Prerequisites to create user-based subscriptions](user-based-subscriptions.md#usubs-prerequisites "user-based-subscriptions.md#usubs-prerequisites") and [What gets created](../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md "../../../directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.md") in the Directory Service Administration Guide.
 
 - Configure outbound internet access from instances providing user-based subscriptions or VPC endpoints.
+
   - Outbound internet access from the instances providing user-based subscriptions, or VPC endpoints, must be configured for your instances to communicate with SSM.
     For more information, see [Setting up Systems Manager for EC2 instances](../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md "../../../systems-manager/latest/userguide/systems-manager-setting-up-ec2.md") in the AWS Systems Manager User Guide.
 
@@ -195,6 +197,7 @@ These errors are typically caused by credential or permission issues. To resolve
 
 1. **Verify user credentials:** Ensure you are using the same user account that was provided to License Manager during onboarding
 2. **Check session credentials:** If you see **"Credentials not available"** against the server in the summary section:
+
    1. Click on the license server in the summary section that shows **"Credentials not available"**
    2. In the right-hand side menu that opens, add the credentials of the user that was onboarded to License Manager
    3. Click **"Refresh"**
@@ -211,6 +214,7 @@ troubleshooting steps to help you resolve common issues:
 
 - Check whether you allowed outbound networking traffic on the AWS Managed Microsoft AD.
 - If the DNS server or the network for your on-premises domain uses a public (non-RFC 1918) IP address space, follow these steps:
+
   - In the Directory Service console, go to the IP routing section for your directory, choose **Actions**, and then choose **Add route**.
   - Enter the IP address block of your DNS server or on-premises network using CIDR format, for example 203.0.113.0/24.
   - This step isn't necessary if both your DNS server and your on-premises network are using RFC 1918 private IP address spaces.
@@ -218,6 +222,7 @@ troubleshooting steps to help you resolve common issues:
 - After you verify the security group and check whether any applicable routes are required,
   launch a Windows Server instance and join it to the AWS Managed Microsoft AD directory. Once the instance
   is launched:
+
   - Run this PowerShell command to test DNS connectivity:
 
   ```

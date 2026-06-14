@@ -11,5 +11,6 @@ The license asset groups dashboard displays your top 5 license asset groups base
 
 - Hover over graphs to view detailed instance counts
 - View usage trends across license types:
+
   - Self-managed licenses - BYOL from software vendors
   - Granted licenses - AWS Marketplace or third-party procurement and AWS-provided licenses

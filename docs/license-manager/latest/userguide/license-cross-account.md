@@ -22,6 +22,7 @@ Before you begin, ensure you have:
 - Required IAM permissions - see [User-based subscription IAM roles](user-based-subscription-role.md "user-based-subscription-role.md").
 - Subscriptions to the required License Manager products in AWS Marketplace in the directory
   owner account:
+
   - [Visual Studio Professional 2022](https://aws.amazon.com/Marketplace/pp/prodview-zo3zltrbpgr5i "https://aws.amazon.com/Marketplace/pp/prodview-zo3zltrbpgr5i")
   - [Visual Studio Enterprise 2022](https://aws.amazon.com/Marketplace/pp/prodview-dzstlnjdl3izg "https://aws.amazon.com/Marketplace/pp/prodview-dzstlnjdl3izg")
   - [Office LTSC Professional Plus](https://aws.amazon.com/Marketplace/pp/prodview-bh46d5p2hapns "https://aws.amazon.com/Marketplace/pp/prodview-bh46d5p2hapns")
@@ -140,6 +141,7 @@ rules table, to allow traffic from directory consumer accounts.
 
 - Configure inbound traffic from consumer VPCs
 - Add necessary AWS Managed Microsoft AD protocols and ports including:
+
   - TCP 53 (DNS)
   - UDP 53 (DNS)
   - TCP 88 (Kerberos)

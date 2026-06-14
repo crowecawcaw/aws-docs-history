@@ -32,6 +32,7 @@ Amazon RDS for Db2 databases, the following requirements apply:
 3. Choose **Create self-managed license**.
 4. In the **Configuration details** panel, provide the following
    information:
+
    - **Self-managed license name** – A name for the self-managed
      license.
    - **Description** – An optional description of the self-managed
@@ -52,6 +53,7 @@ Amazon RDS for Db2 databases, the following requirements apply:
      do not specify a tenancy type, all are accepted.
 
 5. (Optional) In the **Automated discovery rules** panel, do the following:
+
    1. Choose the product name, product type, and resource type for each product to discover
       and track using [automated discovery](automated-discovery.md "automated-discovery.md").
    2. Select **Stop tracking instances when software is uninstalled** to make
@@ -64,6 +66,7 @@ Amazon RDS for Db2 databases, the following requirements apply:
 6. (Optional) Expand the **Tags** panel to add one or more tags to your
    self-managed license. Tags are key/value pairs. Provide the following information for each
    tag:
+
    - **Key** – The searchable name of the key.
    - **Value** – The value for the key.
 

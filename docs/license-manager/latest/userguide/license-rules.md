@@ -78,6 +78,7 @@ all instance launches from the new AMI.
 4. Choose **Associate AMI**.
 5. For **Available AMIs**, select one or more AMIs and choose
    **Associate**.
+
    - If your account owns at least one of the AMIs, you are prompted to choose an AMI association
      scope for the AMIs that you own. Any AMIs that were shared with from another account are associated
      with only your account. Choose **Confirm**.

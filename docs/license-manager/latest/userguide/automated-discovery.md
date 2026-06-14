@@ -55,8 +55,8 @@ rules**.
 
 ###### Note
 
-The following limitations apply to Amazon RDS database products (such as Amazon RDS for Oracle and
-Amazon RDS for Db2):
+The following limitations apply to Amazon RDS database products (such as Amazon RDS for Oracle,
+Amazon RDS for Db2, and Amazon RDS for SQL Server):
 
     * A maximum of one rule specifying an Amazon RDS database product is supported.
     * Only one license configuration is allowed for each Amazon RDS database product.
@@ -69,7 +69,7 @@ Amazon RDS for Db2):
 ###### Note
 
     * Exclusion rules do not apply to RDS database products (such as Amazon RDS
-     for Oracle and Amazon RDS for Db2).
+     for Oracle, Amazon RDS for Db2, and Amazon RDS for SQL Server).
     * Exclusion rules are only available if [Cross-account resource discovery](settings-managed-licenses.md#settings-resource-discovery "settings-managed-licenses.md#settings-resource-discovery") has been enabled.
     1. Choose a **Property** to filter on, currently **Account ID**, and **Tag** are supported.
     2. Enter the information to identify that property. For an **Account ID** specify the 12 digit AWS account ID as the value. For **Tags** enter a key/value pair.
