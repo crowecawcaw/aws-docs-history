@@ -230,21 +230,25 @@ The following considerations are important for enterprise deployments:
 ## Best practices
 
 - **Plugin configuration**
+
   - Use trigger arguments for configurable values instead of hardcoding.
   - Implement proper error handling within plugins.
   - Use the `influxdb3_local` API for database operations.
 
 - **Performance optimization**
+
   - Use asynchronous execution for heavy processing tasks.
   - Implement early returns for filtered data.
   - Minimize database queries within plugins.
 
 - **Error management**
+
   - Choose appropriate error behavior (log, retry, or disable).
   - Monitor plugin execution through system tables.
   - Test plugins thoroughly before production deployment.
 
 - **Security considerations**
+
   - Validate all input data in HTTP request plugins.
   - Use secure methods for storing sensitive configuration.
   - Limit plugin permissions to required operations only.

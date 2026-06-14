@@ -14,6 +14,7 @@ downtime during the update process.
 3. Select the cluster you want to modify.
 4. Choose  **Modify**.
 5. Update available settings:
+
    - **Instance class**: Scale compute resources up or down (applies
      to all nodes in the cluster and requires cluster restart).
    - **Parameter group**: Associate a different parameter group to
@@ -24,6 +25,7 @@ downtime during the update process.
 
 6. Choose **Continue** and review your changes.
 7. Select when to apply changes:
+
    - **Apply immediately**: Changes are applied right away (may
      cause brief downtime).
 

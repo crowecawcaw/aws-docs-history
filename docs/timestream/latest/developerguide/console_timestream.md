@@ -39,6 +39,7 @@ run sample queries using the AWS Console.
 2. In the navigation pane, choose **Databases**
 3. Click on **Create database**.
 4. On the create database page, enter the following:
+
    - **Choose configuration**—Select
      **Sample database**.
    - **Name**—Enter a database name of your
@@ -65,6 +66,7 @@ Follow these steps to create a database using the AWS Console.
 2. In the navigation pane, choose **Databases**
 3. Click on **Create database**.
 4. On the create database page, enter the following.
+
    - **Choose configuration**—Select
      **Standard database**.
    - **Name**—Enter a database name of your
@@ -85,6 +87,7 @@ Follow these steps to create a table using the AWS Console.
 2. In the navigation pane, choose **Tables**
 3. Click on **Create table**.
 4. On the create table page, enter the following.
+
    - **Database name**—Select the name of the
      database created in [Create a database](#console_timestream.db.using-console "#console_timestream.db.using-console").
    - **Table name**—Enter a table name of your
@@ -130,6 +133,7 @@ Follow these steps to create a scheduled query using the AWS Console.
 3. Click on **Create scheduled query**.
 4. In the **Query Name** and **Destination
    Table** sections, enter the following.
+
    - **Name**—Enter a query name.
    - **Database name**—Select the name of the
      database created in [Create a database](#console_timestream.db.using-console "#console_timestream.db.using-console").
@@ -205,6 +209,7 @@ Follow these steps to edit a table using the AWS Console.
 3. Select the table that you created in [Create a table](#console_timestream.table.using-console "#console_timestream.table.using-console").
 4. Click **Edit**
 5. Edit the table details and save.
+
    - **Memory store retention**—Specify how
      long you want to retain data in the memory store. The memory store
      processes incoming data, including late arriving data (data with a

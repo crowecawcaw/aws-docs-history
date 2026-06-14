@@ -158,6 +158,7 @@ Each write request contains 5000 lines.
 
 - The queries executed on the system are categorized as “moderate complexity”
   queries, exhibiting the following characteristics:
+
   - They have multiple functions and one or two regular expressions
   - They may include group by clauses or sample a time range of multiple weeks.
   - They typically takes a few hundred milliseconds to a couple of thousand milliseconds to
@@ -392,6 +393,7 @@ The following list describes the rules for each VPC option:
 
 - **User-defined VPC** — If you want to specify a
   user-defined VPC when you create a DB instance, be aware of the following:
+
   - Make sure to create a _VPC security group_ that authorizes
     connections from the application or service to the Amazon Timestream for InfluxDB DB
     instance. Use the **Security Group** option on the VPC console
@@ -514,6 +516,7 @@ measurement,tagA=i,tagB=think,tagC=therefore,tagD=i,tagE=am fieldKey=fieldValue 
 - **Use the coarsest time precision possible:** – InfluxDB writes data in nanosecond precision, however if your data isn’t collected in nanoseconds, there is no need to write at that precision.
   For better performance, use the coarsest precision possible for timestamps.
   You can specify the write precision when:
+
   - When using the SDK you can specify the WritePrecision when setting the time attribute of your point.
     For more information on InfluxDB client libraries, see the
     [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2/api-guide/client-libraries/ "https://docs.influxdata.com/influxdb/v2/api-guide/client-libraries/").
@@ -527,6 +530,7 @@ measurement,tagA=i,tagB=think,tagC=therefore,tagD=i,tagE=am fieldKey=fieldValue 
   ```
 
 - **Use gzip compression:** – Use gzip compression to speed up writes to InfluxDB and reduce network bandwidth. Benchmarks have shown up to a 5x speed improvement when data is compressed.
+
   - When using Telegraf, in the Influxdb_v2 output plugin configuration in your telegraf.conf, set the content_encoding option to gzip:
 
   ```
@@ -535,7 +539,6 @@ measurement,tagA=i,tagB=think,tagC=therefore,tagD=i,tagE=am fieldKey=fieldValue 
     # ...
     content_encoding = "gzip"
   ```
-
   - When using client libraries, each [InfluxDB client library](https://docs.influxdata.com/influxdb/v2/api-guide/client-libraries/ "https://docs.influxdata.com/influxdb/v2/api-guide/client-libraries/") provides options for compressing write
     requests or enforces compression by default. The method for enabling compression is different for each library.
     For specific instructions, see the [InfluxDB Documentation](https://docs.influxdata.com/influxdb/v2/api-guide/client-libraries/ "https://docs.influxdata.com/influxdb/v2/api-guide/client-libraries/")
@@ -550,6 +553,7 @@ Design your schema for simpler and more performance queries. The following guide
   [tag keys](https://docs.influxdata.com/influxdb/v2/reference/glossary/#tag-key "https://docs.influxdata.com/influxdb/v2/reference/glossary/#tag-key"),
   and [field keys](https://docs.influxdata.com/influxdb/v2/reference/glossary/#field-key "https://docs.influxdata.com/influxdb/v2/reference/glossary/#field-key")
   that are easy to query. To achieve this goal, follow these principles:
+
   - Use measurements that have a simple name and accurately describe the schema.
   - Avoid using the same name for a [tag key](https://docs.influxdata.com/influxdb/v2/reference/glossary/#tag-key "https://docs.influxdata.com/influxdb/v2/reference/glossary/#tag-key")
     and [field key](https://docs.influxdata.com/influxdb/v2/reference/glossary/#field-key "https://docs.influxdata.com/influxdb/v2/reference/glossary/#field-key") within the same schema.
@@ -593,6 +597,7 @@ In both cases the engine will return the number of unique series keys in your da
 
 - **Causes of high series cardinality**
   If you encounter that any of your buckets have high cardinality there are a few correcting steps you can take to fix it:
+
   - **Review your tags:** Ensure that your workloads don’t generate cases were tags have unique values for most entries.
     This could happen in cases where the number of unique tag values always grows over time, or if log type
     messages are being written to the database where every message would have an unique combination of timestamp, tags etc.

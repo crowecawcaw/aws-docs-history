@@ -14,24 +14,30 @@ deployment model, and configuration settings to meet your workload requirements.
 4. For **Engine Version**, choose **InfluxDB 3** as your
    engine version
 5. For **Edition**:
+
    - Choose **Core** for development, testing, or near real-time
      monitoring of recent data.
    - Choose **Enterprise** for production workloads requiring high
      availability, long-term storage, and compaction.
 
 6. Configure Deployment (based on **Edition** selected).
+
    - For Core Edition:
+
      - Automatically configured as single-node deployment
      - No additional node configuration required
 
    - For Enterprise Edition:
+
      - Choose deployment configuration:
+
        - **Single-node**: One node handling writer, reader, and
          compactor roles
        - **3-node cluster**: 2 writer/reader nodes + 1 dedicated
          compactor node
        - **Multi-node cluster (up to 15 nodes)**: Configure via
          custom parameter group with:
+
          - 1-4 writer/reader nodes (ingestQueryInstances)
          - 0-13 reader-only nodes (queryOnlyInstances)
          - 1 dedicated compactor (required for clusters with 3+ nodes)
@@ -43,12 +49,15 @@ deployment model, and configuration settings to meet your workload requirements.
      using that parameter group.
 
 7. Configure cluster settings
+
    - **DB cluster identifier**: Enter a unique name for your
      cluster.
    - **DB instance class**: Select from
      `db.influx` instance classes (applies to all nodes).
    - **Parameter group**:
+
      - Select a service-defined parameter group:
+
        - InfluxDBv3Core (for Core single-node)
        - InfluxDBv3Enterprise (for Enterprise 3-node)
        - InfluxDBv3Enterprise1Node (for Enterprise single-node)
@@ -56,11 +65,13 @@ deployment model, and configuration settings to meet your workload requirements.
      - Or create/select a custom parameter group for multi-node configurations
 
 8. Configure network settings
+
    - **Virtual Private Cloud (VPC)**: Select your VPC.
    - **DB subnet group**: Choose subnets across availability zones.
    - **VPC security groups**: Select security groups for network
      access control.
    - Public accessibility:
+
      - **Yes**: Cluster accessible from internet (with proper
        security group rules).
      - **No**: Cluster only accessible within VPC.
@@ -77,6 +88,7 @@ Availability Zones for high availability. 9. (Optional) Configure additional set
     * **Tags**: Add metadata tags for organization and billing.
 
 10. Review and create
+
     - Review all configuration settings.
     - Choose **Create InfluxDB database**.
 
@@ -218,10 +230,12 @@ For multi-node clusters, you will receive:
      workload isolation
 
 2. **Obtain your operator token:**
+
    - Your operator token is stored in a secret in your AWS Secrets Manager account. The secret has the
      same name as your newly created cluster identifier.
 
 3. (Optional) **Access InfluxDB explorer:**
+
    - Download the InfluxDB Explorer from [https://docs.influxdata.com/influxdb3/explorer/](https://docs.influxdata.com/influxdb3/explorer/ "https://docs.influxdata.com/influxdb3/explorer/").
    - For public clusters: Run the Explorer from any location with internet access.
    - For private clusters: Run the Explorer from within the same VPC (using an EC2

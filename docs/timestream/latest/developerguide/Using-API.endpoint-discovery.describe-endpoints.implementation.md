@@ -17,6 +17,7 @@ notes](#Using-API.endpoint-discovery.describe-endpoints.usage-notes "#Using-API.
 
 1. Acquire the endpoint for the API you would like to make calls against
    ([Write](API_Operations_Amazon_Timestream_Write.md "API_Operations_Amazon_Timestream_Write.md") or [Query](API_Operations_Amazon_Timestream_Query.md "API_Operations_Amazon_Timestream_Query.md")). using the [`DescribeEndpoints`](API_DescribeEndpoints.md "API_DescribeEndpoints.md") request.
+
    1. Create a request for [`DescribeEndpoints`](API_DescribeEndpoints.md "API_DescribeEndpoints.md") that corresponds
       to the API of interest ([Write](API_Operations_Amazon_Timestream_Write.md "API_Operations_Amazon_Timestream_Write.md") or [Query](API_Operations_Amazon_Timestream_Query.md "API_Operations_Amazon_Timestream_Query.md")) using one of the two endpoints described
       below. There are no input parameters for the request. Ensure

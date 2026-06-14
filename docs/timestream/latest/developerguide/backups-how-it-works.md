@@ -79,6 +79,7 @@ _Oldest timestamp_—`August 1, 2021 0:00:00`
 
 1. Enter **Memory store retention** and **Magnetic store
    retention**. For example, assume these values.
+
    - _Memory store retention_—12 hours
    - _Magnetic store retention_—500 days
 

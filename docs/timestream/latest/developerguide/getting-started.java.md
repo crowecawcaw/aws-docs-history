@@ -16,12 +16,14 @@ following:
 1. Follow the AWS setup instructions in [Accessing Timestream for LiveAnalytics](accessing.md "accessing.md").
 2. Set up a Java development environment by downloading and installing the
    following:
+
    - Java SE Development Kit 8 (such as [Amazon Corretto 8](../../../corretto/latest/corretto-8-ug/downloads-list.md "../../../corretto/latest/corretto-8-ug/downloads-list.md")).
    - Java IDE (such as [Eclipse](http://www.eclipse.org "http://www.eclipse.org") or [IntelliJ](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")).
 
    For more information, see [Getting Started with the AWS SDK for Java](../../../sdk-for-java/latest/developer-guide/get-started.md "../../../sdk-for-java/latest/developer-guide/get-started.md")
 
 3. Configure your AWS credentials and Region for development:
+
    - Set up your AWS
      security credentials for use with the AWS SDK for Java.
    - Set your AWS

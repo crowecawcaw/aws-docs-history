@@ -55,9 +55,11 @@ Follow these steps to create a batch load task using the AWS Management Console.
     parse input data. For information about these parameters, see [CSV format parameters](batch-load-preparing-data-file.md#batch-load-data-file-options "batch-load-preparing-data-file.md#batch-load-data-file-options").
 7.  From **Configure data model mapping**, configure the data
     model. For additional data model guidance, see [Data model mappings for batch load](batch-load-data-model-mappings.md "batch-load-data-model-mappings.md")
+
     - From **Data model mapping**, choose
       **Mapping configuration input**, and choose one
       of the following.
+
       - **Visual builder** – To map data
         visually, choose **TargetMultiMeasureName**
         or **MeasureNameColumn**. Then from
@@ -84,6 +86,7 @@ Follow these steps to create a batch load task using the AWS Management Console.
     errors. For information about how to use this report, see [Using batch load error reports](batch-load-using-error-reports.md "batch-load-using-error-reports.md").
 9.  For **Encryption key type**, choose one of the
     following.
+
     - **Amazon S3-managed key (SSE-S3)** – An
       encryption key that Amazon S3 creates, manages, and uses for you.
     - **AWS KMS key (SSE-KMS)** – An
@@ -157,6 +160,7 @@ There is also a button to reset mappings.
 - **Timestream attribute type** – The attribute
   type of the data in the specified source column such as
   `DIMENSION`.
+
   - **TIMESTAMP** – Specifies when a
     measure was collected.
   - **MULTI** – Multiple measures are
@@ -168,6 +172,7 @@ There is also a button to reset mappings.
 
 - **Data type** – The type of Timestream column,
   such as `BOOLEAN`.
+
   - **BIGINT** – A 64-bit integer.
   - **BOOLEAN** – The two truth values of
     logic—true and false.

@@ -25,12 +25,12 @@ complete the steps below:
    to list the cell endpoints available in your Timestream account.
    See the [example](#VPCEndpoints.vpc-endpoint-create.vpc-endpoint-name.example "#VPCEndpoints.vpc-endpoint-create.vpc-endpoint-name.example") for further details.
 2. Once you've selected a cell endpoint to use, create a VPC interface endpoint string for either the Timestream Write or Query API:
+
    - _For the Write API:_
 
    ```
    com.amazonaws.`<region>`.timestream.ingest-`<cell>`
    ```
-
    - _For the Query API:_
 
    ```

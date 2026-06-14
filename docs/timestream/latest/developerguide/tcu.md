@@ -57,6 +57,7 @@ Compute units can process queries concurrently. To determine the number of compu
 ###### Note
 
 - These are general guidelines and the actual number of compute units required depends on several factors, such as:
+
   - The effective concurrency of queries.
   - Query patterns.
   - The number of partitions scanned.

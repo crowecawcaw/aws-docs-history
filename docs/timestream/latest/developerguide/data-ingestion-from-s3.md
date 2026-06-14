@@ -115,6 +115,7 @@ We have run some tests for Ingestion rates. Ingestion tests using a C5N.9XL EC2 
 
 - Use an EC2 instance with sufficient CPU cores to handle parallel processing.
 - Ensure the instance has enough storage to hold the entire transformed dataset with additional room for extraction.
+
   - The number of files extracted at one time is equal to the number of workers configured during script execution.
 
 - Position the EC2 instance in the same region and AZ (if possible) as your InfluxDB instance to minimize latency.

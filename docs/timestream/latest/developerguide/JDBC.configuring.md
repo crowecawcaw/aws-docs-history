@@ -18,6 +18,7 @@ a Maven dependency.
 
 - _As a direct download:_. To directly download the Timestream for LiveAnalytics
   JDBC driver, complete the following steps:
+
   1.  Navigate to [https://github.com/awslabs/amazon-timestream-driver-jdbc/releases](https://github.com/awslabs/amazon-timestream-driver-jdbc/releases "https://github.com/awslabs/amazon-timestream-driver-jdbc/releases")
   2.  You can use
       `amazon-timestream-jdbc-1.0.1-shaded.jar`
@@ -36,6 +37,7 @@ a Maven dependency.
 
 - _As a Maven dependency:_ To add the Timestream for LiveAnalytics JDBC driver as a
   Maven dependency, complete the following steps:
+
   1.  Navigate to and open your application's
       `pom.xml` file in an editor of your
       choice.

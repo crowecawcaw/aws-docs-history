@@ -77,6 +77,7 @@ Create an Amazon EC2 instance that you will use to connect to your database.
 3. Choose **EC2 Dashboard**, and then choose **Launch instance**.
 4. When the **Launch an instance** page opens, choose the following
    settings:
+
    1. Under **Name and tags**, enter `ec2-database-connect` for
       **Name**.
    2. Under **Application and OS Images (Amazon Machine Image)**, choose

@@ -87,7 +87,7 @@ channels.
 
 Exported data partitioned by Channel column
 
-![S3 bucket showing five folders organized by channel: Direct, Organic search, Other, Referral, and Social media.](images/unload-results.png)
+![S3 bucket showing five folders organized by channel: Direct, Organic search, Other, Referral, and Social media.](/images/timestream/latest/developerguide/images/unload-results.png)
 
 FORMAT
 

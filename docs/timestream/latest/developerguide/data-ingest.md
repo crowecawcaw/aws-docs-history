@@ -27,6 +27,7 @@ data ingestion and single-digit millisecond query response times for real-time a
   ingestion.
 - While sending data to Timestream for LiveAnalytics, batch multiple records in a single request to
   optimize data ingestion performance.
+
   - It is beneficial to batch together records from the same time series
     and records with the same measure name.
   - Batch as many records as possible in a single request as long as the

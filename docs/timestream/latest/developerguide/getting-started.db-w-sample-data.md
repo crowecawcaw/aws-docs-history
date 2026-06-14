@@ -25,6 +25,7 @@ run sample queries using the AWS Console:
 2. In the navigation pane, choose **Databases**.
 3. Click on **Create database**.
 4. On the create database page, enter the following:
+
    - **Choose configuration**—Select
      **Sample database**.
    - **Name**—Enter a database name of your
@@ -70,6 +71,7 @@ and run sample queries. The sample application is available in [GitHub](https://
    instructions described in [Using the AWS SDKs](getting-started-sdks.md "getting-started-sdks.md").
 3. Compile and run the sample application using the instructions
    below:
+
    - Instructions for the [Java sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/java/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/java/README.md").
    - Instructions for the [Java v2 sample application](https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/javaV2/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/master/sample_apps/javaV2/README.md").
    - Instructions for the [Go sample application](https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps/goV2/README.md "https://github.com/awslabs/amazon-timestream-tools/blob/mainline/sample_apps/goV2/README.md").

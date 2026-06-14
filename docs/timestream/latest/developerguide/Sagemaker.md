@@ -18,12 +18,14 @@ sample Python application are available in GitHub.
    [here](../../../sagemaker/latest/dg/gs-config-permissions.md "../../../sagemaker/latest/dg/gs-config-permissions.md").
 6. Create an Amazon SageMaker instance with latest boto3 installed: In addition to the
    instructions described [here](../../../sagemaker/latest/dg/gs-setup-working-env.md "../../../sagemaker/latest/dg/gs-setup-working-env.md"), follow the steps below:
+
    1. On the **Create notebook** instance page, click on **Additional
       Configuration**
    2. Click on **Lifecycle configuration - _optional_** and
       select **Create a new lifecycle configuration**
    3. On the _Create lifecycle configuration_ wizard box, do the
       following:
+
       1. Fill in a desired name to the configuration, e.g. `on-start`
       2. In Start Notebook script, copy-paste the script content from [Github](https://github.com/aws-samples/amazon-sagemaker-notebook-instance-lifecycle-config-samples/blob/master/scripts/install-pip-package-single-environment/on-start.sh "https://github.com/aws-samples/amazon-sagemaker-notebook-instance-lifecycle-config-samples/blob/master/scripts/install-pip-package-single-environment/on-start.sh")
       3. Replace `PACKAGE=scipy` with `PACKAGE=boto3` in the pasted

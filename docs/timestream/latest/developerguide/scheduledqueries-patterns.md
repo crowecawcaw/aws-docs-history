@@ -25,6 +25,7 @@ The following are the key points that are covered in this section.
 - What are your trade-offs when configuring the refresh period of the scheduled
   queries.
 - Using scheduled queries for some common scenarios.
+
   - Tracking the last data point from every instance before a specific
     date.
   - Distinct values for a dimension to use for populating variables in a

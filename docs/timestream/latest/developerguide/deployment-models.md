@@ -9,6 +9,7 @@ In a single-node deployment (available for both Core and Enterprise versions), a
 instance handles all database operations. This configuration features:
 
 - One node performing multiple critical roles:
+
   - Writer role: Handles all write operations to the database.
   - Reader role: Processes read queries and data retrieval operations.
   - Compactor role: Optimizes storage by compacting data files (Enterprise version only).
@@ -30,6 +31,7 @@ multiple instances for improved performance, scalability, and availability. Ente
 support up to 15 nodes with the following configuration:
 
 - Flexible node allocation based on workload requirements:
+
   - 1-4 writer/reader nodes (ingestQueryInstances) that handle both write and read operations.
   - 0-13 reader-only nodes (queryOnlyInstances) dedicated to processing read queries.
   - 1 dedicated compactor node for optimizing storage (required for clusters with 3+ nodes).

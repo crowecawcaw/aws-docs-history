@@ -26,6 +26,7 @@ below.
 2. Edit the trust relationship of the IAM role to add Lambda service. You can use
    the commands below to update an existing role so that AWS Lambda can assume
    it:
+
    1. Create the trust policy document:
 
    ```
@@ -46,7 +47,6 @@ below.
    }
    EOF
    ```
-
    2. Update the role from previous step with the trust document
 
    ```

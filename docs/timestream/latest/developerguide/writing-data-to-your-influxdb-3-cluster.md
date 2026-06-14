@@ -291,26 +291,31 @@ const client = new Influx.InfluxDB({
 When writing data, we recommend the following:
 
 - Batch optimization
+
   - Optimal batch size: 5,000-10,000 lines or 10MB per request.
   - Use compression (gzip) for large payloads.
   - Sort tags by key in lexicographic order for better performance.
 
 - Timestamp precision
+
   - Use the coarsest precision that meets your needs.
   - Explicitly specify precision to avoid ambiguity.
   - Maintain consistent precision across your application.
 
 - Error handling
+
   - Implement retry logic for transient failures.
   - Use accept_partial=true for resilient batch operations.
   - Monitor write errors through CloudWatch metrics.
 
 - Performance tuning
+
   - Use no_sync=true for high-throughput scenarios.
   - Distribute writes across multiple connections.
   - Use the writer/reader endpoint for all write operations.
 
 - Schema considerations
+
   - Tags are immutable once created.
   - Fields and tags cannot share the same nam.e
   - Design schemas with query patterns in mind.

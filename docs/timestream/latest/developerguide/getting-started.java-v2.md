@@ -19,6 +19,7 @@ following:
    [Using the SDK with Apache Maven](../../../sdk-for-java/v2/developer-guide/welcome.md "../../../sdk-for-java/v2/developer-guide/welcome.md").
 3. Set up a Java development environment by downloading and installing the
    following:
+
    - Java SE Development Kit 8 (such as [Amazon Corretto 8](../../../corretto/latest/corretto-8-ug/downloads-list.md "../../../corretto/latest/corretto-8-ug/downloads-list.md")).
    - Java IDE (such as [Eclipse](http://www.eclipse.org "http://www.eclipse.org") or [IntelliJ](https://www.jetbrains.com/idea/ "https://www.jetbrains.com/idea/")).
 

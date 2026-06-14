@@ -13,6 +13,7 @@ Using the AWS Management Console:
 4.  Select **InfluxDB 3** as your engine version.
 5.  Choose **Enterprise** edition for production workloads.
 6.  Configure cluster deployment:
+
     1. Select either **1-node** (single node handling writer,
        reader, and compactor roles), **3-node** configuration, or
        a **multi-node cluster (up to 15 nodes)** using a custom
@@ -29,6 +30,7 @@ Using the AWS Management Console:
         3. One dedicated compactor node for storage optimization (required for clusters with 3+ nodes).
 
 7.  Configure cluster-level settings:
+
     1. **Instance class**: Select the appropriate `db.influx`
        instance size (applies to all nodes). Worth noting your bill will show
        `db.influxIOIncluded` on your records.

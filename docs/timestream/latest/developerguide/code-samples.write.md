@@ -2184,6 +2184,7 @@ Writes in Amazon Timestream can fail for one or more of the following reasons:
 - Amazon Timestream has detected duplicate records. Records are marked as
   duplicate, when there are multiple records with the same dimensions, timestamps,
   and measure names but:
+
   - Measure values are different.
   - Version is not present in the request or the value of version in the
     new record is equal to or lower than the existing value. If Amazon

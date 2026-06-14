@@ -44,6 +44,7 @@ https://`your-timestream-for-influxdb-endpoint`:8086
 
 2. In the **InfluxDB Details** section, enter the
    following:
+
    - In **Organization**: Your InfluxDB [organization
      name or ID](https://docs.influxdata.com/influxdb/v2/admin/organizations/view-orgs/ "https://docs.influxdata.com/influxdb/v2/admin/organizations/view-orgs/").
    - In **Token**: Your [InfluxDB
@@ -96,8 +97,10 @@ https://`your-timestream-for-influxdb-endpoint`:8086
 
 2. In the **Custom HTTP Headers** section, enter the
    following:
+
    - Select **Add header**. Provide your
      InfluxDB API token:
+
      - In **Header**, enter
        **Authorization**.
      - In **Value**, use the
@@ -107,6 +110,7 @@ y0uR5uP3rSecr3tT0k3n`.
 
 3. In the **InfluxDB Details** section, enter the
    following:
+
    - In **Database**: The database name
      [mapped
      to your InfluxDB 2.7 bucket](https://docs.influxdata.com/influxdb/v2/tools/grafana/?t=InfluxQL#view-and-create-influxdb-dbrp-mappings "https://docs.influxdata.com/influxdb/v2/tools/grafana/?t=InfluxQL#view-and-create-influxdb-dbrp-mappings").

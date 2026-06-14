@@ -115,27 +115,32 @@ InfluxDB 3:
 ## Best practices for Telegraf with InfluxDB 3
 
 - **Security**
+
   - Store tokens in environment variables or secret stores.
   - Never hardcode tokens in configuration files.
   - Use HTTPS endpoints for production deployments.
 
 - **Performance optimization**
+
   - Enable gzip compression with content_encoding = "gzip".
   - Configure appropriate batch sizes (5000-10000 metrics).
   - Set buffer limits based on available memory.
   - Use precision appropriate for your use case (seconds often sufficient).
 
 - **Network configuration**
+
   - For private clusters, run Telegraf within the same VPC.
   - Configure appropriate timeouts for your network latency.
   - Use the writer/reader endpoint for write operations.
 
 - **Monitoring**
+
   - Enable Telegraf's internal metrics plugin to monitor agent performance.
   - Monitor write errors and retries.
   - Set up alerts for buffer overflow conditions.
 
 - **Data organization**
+
   - Use consistent tag naming across input plugins.
   - Leverage Telegraf's processor plugins to normalize data.
   - Apply tag filtering to control cardinality.

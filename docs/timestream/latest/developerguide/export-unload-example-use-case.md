@@ -195,6 +195,7 @@ queries.
    `s3://my_timestream_unloads/results`.
 3. Run the crawler following the guidelines [here](../../../glue/latest/ug/tutorial-add-crawler.md#tutorial-add-crawler-step2 "../../../glue/latest/ug/tutorial-add-crawler.md#tutorial-add-crawler-step2").
 4. View the Glue table.
+
    - Go to **AWS Glue** →
      **Tables**.
    - You will see a new table created with table prefix provided while

@@ -247,13 +247,16 @@ fixing it.
 We recommend you to set up alarms on the following to detect any issues with data flow:
 
 - Maximum Age of the Record in Source
+
   - `GetRecords.IteratorAgeMilliseconds`
 
 - Failure metrics in Pipes
+
   - `ExecutionFailed`
   - `TargetStageFailed`
 
 - Timestream Write API errors
+
   - `UserErrors`
 
 For additional monitoring metrics, see [Monitoring EventBridge](../../../eventbridge/latest/userguide/eb-monitoring.md#eb-metrics "../../../eventbridge/latest/userguide/eb-monitoring.md#eb-metrics") in the _EventBridge User Guide_.

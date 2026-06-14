@@ -95,6 +95,7 @@ Data`.
    existing datasets will still have access to this data source.
 7. To add permissions, choose `Invite users`, then follow these steps
    to add a user:
+
    1. Add people to allow them to use the same data source.
    2. For each, choose the `Permission` that you want to
       apply.
@@ -117,6 +118,7 @@ Data`.
 6. Choose **Edit/Preview**.
 7. (Optional) To add more data, choose **Add data** at top
    right.
+
    1. Choose **Switch data source**, and choose a different
       data source.
    2. Follow the UI prompts to finish adding data.
@@ -139,6 +141,7 @@ Data`.
    to access Amazon Timestream, as described in [Accessing Amazon Timestream from QuickSight](#Quicksight.accessing "#Quicksight.accessing").
 2. Choose **Analyses** at left.
 3. Choose one of the following:
+
    - To create a new analysis, choose **New analysis** at
      right.
    - To add the Timestream dataset to an existing analysis, open the

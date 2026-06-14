@@ -53,6 +53,7 @@ When using cluster-level endpoints (writer/reader and reader endpoints), the tra
 distribution system automatically:
 
 - Distributes traffic to active nodes based on:
+
   - Node health and availability.
   - Current workload on each node.
   - Node role (writer/reader).

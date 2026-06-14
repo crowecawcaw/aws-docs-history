@@ -220,6 +220,7 @@ following characteristics:
 - Each write request contains 5000 lines.
 - The queries executed on the system are categorized as "moderate
   complexity" queries, exhibiting the following characteristics:
+
   - They have multiple functions and one or two regular expressions.
   - They may include group by clauses or sample a time range of multiple weeks.
   - They typically take a few hundred milliseconds to a couple of thousand

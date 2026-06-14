@@ -39,6 +39,7 @@ When you upgrade a Core cluster to Enterprise:
    Enterprise engine configuration.
 2. **Node configuration**: Depending on your cluster node
    count, the cluster will be configured as either:
+
    - A single-node Enterprise cluster (all-in-one: writer, reader, and compactor on one
      node)
    - A multi-node Enterprise cluster with a dedicated compactor (for clusters with 3 or

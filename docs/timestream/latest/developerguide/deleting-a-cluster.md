@@ -108,6 +108,7 @@ aws timestream-influxdb describe-db-parameter-group \
 ```
 
 4. **Check for active connections**
+
    - Review CloudWatch metrics for active connections.
    - Verify no critical applications are using the cluster.
 

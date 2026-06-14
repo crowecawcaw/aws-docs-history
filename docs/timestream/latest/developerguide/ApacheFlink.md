@@ -37,6 +37,7 @@ To get started, follow the procedure below:
    the Application Code](../../../managed-flink/latest/java/get-started-exercise.md#get-started-exercise-5.5 "../../../managed-flink/latest/java/get-started-exercise.md#get-started-exercise-5.5").
 7. Upload the Managed Service for Apache Flink application binary following the instructions to [Upload the
    Apache Flink Streaming Code](../../../managed-flink/latest/java/get-started-exercise.md#get-started-exercise-6 "../../../managed-flink/latest/java/get-started-exercise.md#get-started-exercise-6").
+
    1. After clicking on Create Application, click on the link of the IAM Role for the
       application.
    2. Attach the IAM policies for **AmazonKinesisReadOnlyAccess** and

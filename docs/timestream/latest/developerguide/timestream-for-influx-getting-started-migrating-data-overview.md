@@ -8,6 +8,7 @@ After meeting the prerequisites:
 1. Run Migration Script: Using a terminal app of your choice, run the Python script to transfer data from the source InfluxDB instance to the destination InfluxDB instance.
 2. Provide Credentials: Provide host addresses and ports as CLI options.
 3. Verify Data: Ensure the data is correctly transferred by:
+
    1. Using the InfluxDB UI and inspecting buckets.
    2. Listing buckets with `influx bucket list -t <destination token> --host <destination host address> --skip-verify`.
    3. Using `influx v1 shell -t <destination token> --host <destination host address> --skip-verify` and running `SELECT * FROM <migrated bucket>.<retention period>.<measurement name> LIMIT 100 to view contents of a bucket or SELECT COUNT(*) FROM <migrated bucket>.<retention period>.<measurment name>`

@@ -261,6 +261,7 @@ SELECT * FROM system.distinct_caches
 - **Leverage Indexes**: Design queries to use tag filters
   effectively.
 - **Choose Appropriate Output Format**:
+
   - Use jsonl for streaming large results.
   - Use parquet for data export and analytics.
   - Use csv for spreadsheet compatibility.

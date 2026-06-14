@@ -36,6 +36,7 @@ When configuring your cluster, you can specify:
 Timestream for InfluxDB 3 provides two types of endpoints:
 
 - **Cluster Endpoints**: Distribute traffic among available nodes
+
   - **Read/Write Endpoint**: Routes traffic to all Writer/Reader nodes
   - **Read-only Endpoint**: Routes traffic to all nodes capable of read operations
 

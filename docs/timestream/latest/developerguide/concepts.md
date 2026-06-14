@@ -32,6 +32,7 @@ Following are the key concepts of Timestream for LiveAnalytics.
 - **Dimension** - _An attribute that describes
   the meta-data of a time series._ A dimension consists of a dimension
   name and a dimension value. Consider the following examples:
+
   - When considering a stock exchange as a dimension, the dimension name is
     "stock exchange" and the dimension value is "NYSE"
   - When considering an AWS Region as a dimension, the dimension name is

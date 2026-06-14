@@ -414,6 +414,7 @@ When **SeriesCardinality** exceeds 5M, you're approaching the architectural limi
 **Best Practice:** Configuration changes are temporary band-aids. You must address the root cause:
 
 1. **Analyze Your Data Model:**
+
    - Review **SeriesCardinality** per bucket to identify problem areas
    - Identify which tags have high unique value counts
    - Look for unbounded tag values (UUIDs, timestamps, user IDs, session IDs)
@@ -489,6 +490,7 @@ Increasing `http-read-timeout` prevents premature query cancellation, but:
 **Best Practice:** Query performance problems are usually caused by inefficient queries, not insufficient resources. Before increasing resource allocation:
 
 1. **Analyze Query Patterns:**
+
    - Review **QueryResponseVolume** to identify queries returning excessive data (> 1MB)
    - Check **QueryRequestsTotal** runtime_error patterns - what's causing failures?
    - Look for **APIRequestRate** with Status=499 (client timeouts) - queries are too slow
@@ -505,6 +507,7 @@ Common Query Anti-patterns:
     * No LIMIT clauses → Add reasonable limits
 
 3. **Application-Level Solutions:**
+
    - Implement query result caching (Redis, Memcached)
    - Use tasks to pre-aggregate common patterns
    - Add pagination for large result sets
@@ -512,6 +515,7 @@ Common Query Anti-patterns:
    - Use downsampled data for historical queries
 
 4. **Verify Resource Availability:**
+
    - Check **CPUUtilization** - if already > 70%, increasing concurrency will make things worse
    - Check **MemoryUtilization** - if already > 70%, allocating more query memory will cause OOM
    - Verify **TotalIOpsPerSec** has 30% headroom before increasing query load
@@ -620,6 +624,7 @@ Setting `storage-no-validate-field-size: TRUE` disables field size validation:
 **Best Practice:** Write performance problems usually indicate capacity limits or inefficient write patterns. Before tuning configuration:
 
 1. **Analyze Write Patterns:**
+
    - Review **WriteThroughput** and **WriteOpsPerSec** trends
    - Check **WriteTimeouts** correlation with write load
    - Monitor **APIRequestRate** for write endpoints by status code
@@ -636,12 +641,14 @@ Common Write Anti-patterns:
     * Writing unnecessary precision → Round timestamps appropriately
 
 3. **Verify I/O Capacity:**
+
    - Check **TotalIOpsPerSec** - if already > 70%, increasing WAL concurrency will make things worse
    - Review **WriteOpsPerSec** during peak periods
    - Ensure 30% IOPS headroom exists before tuning write settings
    - Consider whether 3K IOPS is sufficient or if 12K IOPS tier is needed
 
 4. **Application-Level Improvements:**
+
    - Implement write buffering with configurable batch sizes
    - Add write retry logic with exponential backoff
    - Use asynchronous write operations
@@ -937,11 +944,13 @@ Immediate Configuration Changes:
 **Analyze Queue and Concurrency Metrics:**
 
 - Review **QueryRequestsTotal** breakdown by result type:
+
   - High queue_error count indicates queries are being rejected
   - Compare success rate to baseline - is it dropping?
   - Check for runtime_error increases (queries failing after starting)
 
 - Monitor **APIRequestRate** patterns:
+
   - Look for Status=429 (too many requests) or Status=503 (service unavailable)
   - Identify which endpoints are experiencing rejections
   - Check request rate trends over time
@@ -949,41 +958,49 @@ Immediate Configuration Changes:
 **Review Resource Utilization:**
 
 - **CPUUtilization** during high queue periods:
+
   - If > 70%, queries are CPU-bound and can't execute faster
   - If < 50%, queue limits may be too restrictive
 
 - **MemoryUtilization** correlation:
+
   - High memory may be limiting query concurrency
   - Check **HeapMemoryUsage** and **ActiveMemoryAllocation** for memory pressure
 
 - **TotalIOpsPerSec** patterns:
+
   - High I/O may be slowing query execution
   - Check if queries are I/O bound
 
 **Identify Query Patterns:**
 
 - Review **QueryResponseVolume**:
+
   - Are queries returning excessive data (> 1MB)?
   - Identify endpoints with largest response volumes
   - Look for patterns in expensive queries
 
 - Analyze **QueryRequestsTotal** rate:
+
   - What's the queries per second rate?
   - Are there burst patterns or sustained high load?
   - Compare to instance capacity from sizing table
 
 - Check **APIRequestRate** by endpoint:
+
   - Which query endpoints have highest traffic?
   - Are there duplicate or redundant queries?
 
 **Check Resource Availability:**
 
 - Compare current metrics to sizing table recommendations:
+
   - **SeriesCardinality** vs. instance class capacity
   - Query rate vs. recommended queries per second
   - **CPUUtilization** and **MemoryUtilization** headroom
 
 - Verify IOPS capacity:
+
   - **TotalIOpsPerSec** should have 30% headroom
   - Check if queries are waiting on disk I/O
 
@@ -1016,23 +1033,28 @@ Configuration Changes:
 **Application-Level Solutions:**
 
 - **Implement query result caching** (Redis, Memcached)
+
   - Cache results for frequently executed queries
   - Set appropriate TTLs based on data freshness requirements
   - Monitor cache hit rates
 
 - **Use continuous queries** to pre-aggregate common patterns
+
   - Pre-calculate common aggregations
   - Query pre-aggregated data instead of raw data
 
 - **Add pagination** for large result sets
+
   - Limit initial query size
   - Load additional data on demand
 
 - **Implement query rate limiting** per user/dashboard
+
   - Prevent single users from overwhelming the system
   - Set fair-use quotas
 
 - **Use downsampled data** for historical queries
+
   - Query lower-resolution data for older time ranges
   - Reserve full-resolution queries for recent data
 

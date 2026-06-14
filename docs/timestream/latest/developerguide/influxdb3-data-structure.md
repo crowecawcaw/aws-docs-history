@@ -21,10 +21,12 @@ primary key does not include tags with null values.
 ## Tags and fields
 
 - Tags: Store metadata or identifying information about the data source.
+
   - Can only be string values.
   - Used for filtering and grouping data.
 
 - Fields: Store measured values.
+
   - Support multiple data types: Integer, Unsigned integer, Float, String, Boolean.
 
 ## Schema restrictions

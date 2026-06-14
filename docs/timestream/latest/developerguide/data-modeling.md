@@ -65,6 +65,7 @@ databases.
 - Consider your query workload and access patterns when deciding how you
   organize your data, as the query latency and ease of writing your queries
   will be dependent on that.
+
   - If you store data that you frequently query in the same table,
     that will generally ease the way you write your queries so that you
     can often avoid having to write joins, unions, or common table
@@ -458,6 +459,7 @@ Our recommendation is as follows:
 - When modeling your data for use cases like the one we mentioned, use a
   `measure_name` that is a direct derivative of your main query
   access pattern. For example:
+
   - Your use case requires tracking application performance and QoE
     from the end user point of view. This could also be tracking
     measurements for a single server or IoT device.
@@ -488,6 +490,7 @@ int getMeasureName(value) {
 - When querying the data, make sure that you include a filtering condition
   in the predicate that uses the newly derived value of the `measure_name`. For
   example:
+
   - ```
     SELECT * FROM `your_database.your_table`
     WHERE host_name = 'Host-1235' time BETWEEN '2022-09-01'

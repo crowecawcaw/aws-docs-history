@@ -31,6 +31,7 @@ Note that the Amazon Timestream for InfluxDB Service Level Agreement requires th
   Keep in mind that at this time, you will need to create a new instance and migrate your data to achieve this.
 - If your database workload requires more I/O than you have provisioned, recovery after a failover or database failure will be slow.
   To increase the I/O capacity of a DB instance, do any or all of the following:
+
   - Migrate to a different DB instance with higher I/O capacity.
   - If you are already using Influx IOPS Included storage
     storage, provision a storage type with higher IOPS Included.
