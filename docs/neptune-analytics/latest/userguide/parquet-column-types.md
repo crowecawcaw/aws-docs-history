@@ -19,6 +19,7 @@
 ""1.0"", ""type"": ""Float""}"` , which has a `value` field and a `type` field in each
   individual json string. The column header of an `Any` type is `propertyname:Any`. The cardinality
   value of an `Any` column is `set`, meaning that the column can accept multiple values.
+
   - Neptune Analytics supports the following types in an `Any` type: `Bool` (or `Boolean`),
     `Byte`, `Short`, `Int`, `Long`, `UnsignedByte`,
     `UnsignedShort`, `UnsignedInt`, `UnsignedLong`, `Float`, `Double`,

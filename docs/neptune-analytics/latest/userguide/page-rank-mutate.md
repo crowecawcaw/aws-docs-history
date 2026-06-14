@@ -64,6 +64,7 @@ of many algorithms concurrently.
   a floating point number between 0.0 and 1.0 (inclusive). When the average difference in the pageRank values of
   two iterations drops below `tolerance`, the algorithm stops, regardless of whether the
   `numOfIterations` is reached. Default value is `0.000001 (1e-6)`.
+
   - Note that this tolerance computation is equivalent to L1 error or sum of Mean Absolute Difference (MAE)s.
   - The stopping condition is `l1_error_sum < tolerance * numNodes`, equivalent to
     `l1_error_sum/numNodes < tolerance`.

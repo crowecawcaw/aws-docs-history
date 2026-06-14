@@ -12,6 +12,7 @@ vertex labels and properties are included in the export.
 - The "properties" field allows you to specify which properties of that vertex label should be included in
   the export. Each property is defined by a key-value pair, where the key is the desired output property name (e.g.
   `"name"`), and the value is an object with the following fields:
+
   - `outputType`: Specifies the data type to use for the property in the exported data (e.g.
     "String", "Int", "Float"). For a full-list of supported types and the corresponding type names that can be
     used in filtering, see [Using CSV data](using-CSV-data.md "using-CSV-data.md"). If a type is not provided,
@@ -37,6 +38,7 @@ properties are included in the export.
 - The "properties" field allows you to specify which properties of that edge label should be included in
   the export. Each property is defined by a key-value pair, where the key is the desired output property name (e.g.
   `"weight"`), and the value is an object with the following fields:
+
   - `outputType`: Specifies the data type to use for the property in the exported data (e.g.
     "String", "Int", "Float"). For a full-list of supported types and the corresponding type names that can be
     used in filtering, see `here`. If a type is not provided, the export process

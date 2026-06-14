@@ -49,6 +49,7 @@ use with your Neptune Analytics graph:
 5. On the **Options** page, choose **Next**.
 6. If you're using a private endpoint for your Neptune Analytics graph, enter the following under
    **Network Options**:
+
    1. Under **GraphVPC** enter the ID of a VPC associated
       with the private graph endpoint.
    2. Under **GraphSubnetId** enter the ID of any subnet

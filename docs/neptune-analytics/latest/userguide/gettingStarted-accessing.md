@@ -223,6 +223,7 @@ and values can be found below:
    Maven-generated code in the DependencyFactor and Handler classes will be using a
    different client than the code samples provided there. Refer to the Neptune
    graph-specific equivalents of the auto-generated classes below:
+
    1. Maven-generated `App.java` - this file is the same regardless of the
       service used.
 
@@ -244,7 +245,6 @@ and values can be found below:
        }
    }
    ```
-
    2. Maven-generated `DependencyFactory.java` - This file uses the client
       class `NeptuneGraphClient` because `neptunegraph` was
       chosen as the service during the project setup.
@@ -272,7 +272,6 @@ and values can be found below:
        }
    }
    ```
-
    3. Maven-generated `Handler.java` - This file uses the client
       class `NeptuneGraphClient` because `neptunegraph` was
       chosen as the service during the project setup.

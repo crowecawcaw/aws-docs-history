@@ -24,6 +24,7 @@ The response contains the following fields:
 - `lastStatisticsComputationTime` - The timestamp, in ISO 8601 format, of the time at which
   Neptune Analytics last computed statistics.
 - `graphSummary`
+
   - `numNodes` - The number of nodes in the graph.
   - `numEdges` - The number of edges in the graph.
   - `numNodeLabels` - The number of distinct node labels in the graph.
@@ -40,6 +41,7 @@ The response contains the following fields:
   - `totalEdgePropertyValues` - Total number of usages of all edge properties.
   - `nodeStructures` (only present for mode=detailed) - Contains a list of node
     structures, each containing the following fields:
+
     - `count` - Number of nodes that have this specific structure.
     - `nodeProperties` - List of node properties present in this specific structure.
     - `distinctOutgoingEdgeLabels` - List of distinct outgoing edge labels present in
@@ -47,6 +49,7 @@ The response contains the following fields:
 
   - `edgeStructures` (only present for mode=detailed) - Contains a list of edge structures
     each containing the following fields:
+
     - `count` - Number of edges that have this specific structure.
     - `edgeProperties` - List of edge properties present in this specific structure.
 

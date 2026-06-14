@@ -105,6 +105,7 @@ For every pair of source and target nodes, the algorithm returns:
   An openCypher path object representing the shortest path between the source and the target. (A list of vertices from the
   source vertex to the target vertex, interleaved with the corresponding edges, representing the shortest path. Sequence
   of vertex id (source), edge id, vertex id, edge id, ..., vertex id (target)).
+
   - Starts and ends with a vertex, and has edges in between each vertex.
   - Includes the source and the target vertices.
 

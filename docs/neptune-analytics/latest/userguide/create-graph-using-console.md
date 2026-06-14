@@ -18,6 +18,7 @@ permissions to load the dataset from the location where it resides.
 4. Enter a name for the new graph.
 5. The next steps depend on whether you are creating an empty graph or
    one preloaded with data.
+
    - If you choose **Create empty graph**,
      choose the number of memory-optimized Neptune Capacity Units (m-NCUs) to
      allocate to the new Neptune Analytics graph. Each m-NCU has
@@ -27,6 +28,7 @@ permissions to load the dataset from the location where it resides.
      Neptune Analytics will bulk-load data for you when the graph is created. Choose this
      option if you want to import a large dataset, on the order of 50 GiB or
      larger. See [Bulk import](bulk-import.md "bulk-import.md") for details.
+
      1. Set values for the minimum and maximum m-NCUs,
         or just leave them at their default values (128 m-NCUs).
         The units are memory-optimized Neptune Capacity Units (m-NCUs), each of which
@@ -38,6 +40,7 @@ permissions to load the dataset from the location where it resides.
         that you have created to provide the necessary permissions for the data import.
         See [Create an IAM role with permissions to export from Neptune to Neptune Analytics](bulk-import-create-from-neptune.md#iam-create-role-export-neptune-analytics "bulk-import-create-from-neptune.md#iam-create-role-export-neptune-analytics") for instructions about how to create the role.
      3. The next steps depend on what source you're loading data from:
+
         - If you choose **Create empty graph**, choose the number of memory-optimized Neptune Capacity
           Units (m-NCUs) to allocate to the new Neptune Analytics graph. Each m-NCU has
           around one GiB of memory capacity and corresponding compute and

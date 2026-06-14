@@ -40,8 +40,10 @@ graphs.
 ###### Contents
 
 - [Vector indexing in Neptune Analytics](vector-index.md "vector-index.md")
+
   - [Vector index transaction support](vector-index.md#vector-index-transaction-support "vector-index.md#vector-index-transaction-support")
   - [Loading vectors into a Neptune Analytics graph vector index](vector-index.md#loading-vectors "vector-index.md#loading-vectors")
+
     - [Load the vectors from graph data files in Amazon S3](vector-index.md#load-vectors-from-s3 "vector-index.md#load-vectors-from-s3")
     - [Using the vectors.upsert algorithm to load vectors for your graph](vector-index.md#load-vectors-using-upsert "vector-index.md#load-vectors-using-upsert")
 
@@ -49,7 +51,9 @@ graphs.
   - [Vector-search algorithms in Neptune Analytics](vector-index.md#vector-algorithms "vector-index.md#vector-algorithms")
 
 - [Vector-similarity search (VSS) algorithms in Neptune Analytics](vss-algorithms.md "vss-algorithms.md")
+
   - [The  .vectors.distance  algorithm (deprecated)](vectors-distance.md "vectors-distance.md")
+
     - [.vectors.distance  syntax](vectors-distance.md#vectors-distance-syntax "vectors-distance.md#vectors-distance-syntax")
     - [.vectors.distance  inputs](vectors-distance.md#vectors-distance-inputs "vectors-distance.md#vectors-distance-inputs")
     - [.vectors.distance  outputs](vectors-distance.md#vectors-distance-outputs "vectors-distance.md#vectors-distance-outputs")
@@ -57,6 +61,7 @@ graphs.
     - [Sample  .vectors.distance  output](vectors-distance.md#vectors-distance-sample-output "vectors-distance.md#vectors-distance-sample-output")
 
   - [The  .vectors.distance.byNode  algorithm](vectors.distance.byNode.md "vectors.distance.byNode.md")
+
     - [.vectors.distance.byNode  syntax](vectors.distance.byNode.md#vectors.distance.byNode-syntax "vectors.distance.byNode.md#vectors.distance.byNode-syntax")
     - [.vectors.distance.byNode  inputs](vectors.distance.byNode.md#vectors.distance.byNode-inputs "vectors.distance.byNode.md#vectors.distance.byNode-inputs")
     - [.vectors.distance.byNode  outputs](vectors.distance.byNode.md#vectors.distance.byNode-outputs "vectors.distance.byNode.md#vectors.distance.byNode-outputs")
@@ -64,6 +69,7 @@ graphs.
     - [Sample  .vectors.distance.byNode  output](vectors.distance.byNode.md#vectors.distance.byNode-sample-output "vectors.distance.byNode.md#vectors.distance.byNode-sample-output")
 
   - [The  .vectors.distanceByEmbedding  algorithm (deprecated)](vectors-distance-embedding.md "vectors-distance-embedding.md")
+
     - [.vectors.distanceByEmbedding  syntax](vectors-distance-embedding.md#vectors-distance-embedding-syntax "vectors-distance-embedding.md#vectors-distance-embedding-syntax")
     - [.vectors.distanceByEmbedding  inputs](vectors-distance-embedding.md#vectors-distance-embedding-inputs "vectors-distance-embedding.md#vectors-distance-embedding-inputs")
     - [.vectors.distanceByEmbedding  outputs](vectors-distance-embedding.md#vectors-distance-embedding-outputs "vectors-distance-embedding.md#vectors-distance-embedding-outputs")
@@ -71,6 +77,7 @@ graphs.
     - [Sample  .vectors.distanceByEmbedding  output](vectors-distance-embedding.md#vectors-distance-embedding-sample-output "vectors-distance-embedding.md#vectors-distance-embedding-sample-output")
 
   - [The  .vectors.distance.byEmbedding  algorithm](vectors.distance.byEmbedding.md "vectors.distance.byEmbedding.md")
+
     - [.vectors.distance.byEmbedding  syntax](vectors.distance.byEmbedding.md#vectors.distance.byEmbedding-syntax "vectors.distance.byEmbedding.md#vectors.distance.byEmbedding-syntax")
     - [.vectors.distance.byEmbedding  inputs](vectors.distance.byEmbedding.md#vectors.distance.byEmbedding-inputs "vectors.distance.byEmbedding.md#vectors.distance.byEmbedding-inputs")
     - [.vectors.distance.byEmbedding  outputs](vectors.distance.byEmbedding.md#vectors.distance.byEmbedding-outputs "vectors.distance.byEmbedding.md#vectors.distance.byEmbedding-outputs")
@@ -78,6 +85,7 @@ graphs.
     - [Sample  .vectors.distance.byEmbedding  output](vectors.distance.byEmbedding.md#vectors.distance.byEmbedding-sample-output "vectors.distance.byEmbedding.md#vectors.distance.byEmbedding-sample-output")
 
   - [The  .vectors.get  algorithm](vectors-get.md "vectors-get.md")
+
     - [.vectors.get  syntax](vectors-get.md#vectors-get-syntax "vectors-get.md#vectors-get-syntax")
     - [.vectors.get  input](vectors-get.md#vectors-get-inputs "vectors-get.md#vectors-get-inputs")
     - [.vectors.get  outputs](vectors-get.md#vectors-get-outputs "vectors-get.md#vectors-get-outputs")
@@ -85,6 +93,7 @@ graphs.
     - [Sample  .vectors.get  output](vectors-get.md#vectors-get-sample-output "vectors-get.md#vectors-get-sample-output")
 
   - [.vectors.topKByEmbedding algorithm (deprecated)](vectors-topKByEmbedding.md "vectors-topKByEmbedding.md")
+
     - [.vectors.topKByEmbedding  syntax](vectors-topKByEmbedding.md#vectors-topKByEmbedding-syntax "vectors-topKByEmbedding.md#vectors-topKByEmbedding-syntax")
     - [.vectors.topKByEmbedding  input](vectors-topKByEmbedding.md#vectors-topKByEmbedding-inputs "vectors-topKByEmbedding.md#vectors-topKByEmbedding-inputs")
     - [.vectors.topKByEmbedding  outputs](vectors-topKByEmbedding.md#vectors-topKByEmbedding-outputs "vectors-topKByEmbedding.md#vectors-topKByEmbedding-outputs")
@@ -92,6 +101,7 @@ graphs.
     - [Sample  .vectors.topKByEmbedding  output](vectors-topKByEmbedding.md#vectors-topKByEmbedding-sample-output "vectors-topKByEmbedding.md#vectors-topKByEmbedding-sample-output")
 
   - [.vectors.topK.byEmbedding algorithm](vectors.topK.byEmbedding.md "vectors.topK.byEmbedding.md")
+
     - [.vectors.topK.byEmbedding  syntax](vectors.topK.byEmbedding.md#vectors.topK.byEmbedding-syntax "vectors.topK.byEmbedding.md#vectors.topK.byEmbedding-syntax")
     - [.vectors.topK.byEmbedding  input](vectors.topK.byEmbedding.md#vectors.topK.byEmbedding-inputs "vectors.topK.byEmbedding.md#vectors.topK.byEmbedding-inputs")
     - [.vectors.topK.byEmbedding  outputs](vectors.topK.byEmbedding.md#vectors.topK.byEmbedding-outputs "vectors.topK.byEmbedding.md#vectors.topK.byEmbedding-outputs")
@@ -99,6 +109,7 @@ graphs.
     - [Sample  .vectors.topKByEmbedding  output](vectors.topK.byEmbedding.md#vectors-topKByEmbedding-sample-output "vectors.topK.byEmbedding.md#vectors-topKByEmbedding-sample-output")
 
   - [.vectors.topKByNode algorithm (deprecated)](vectors-topKByNode.md "vectors-topKByNode.md")
+
     - [.vectors.topKByNode  syntax](vectors-topKByNode.md#vectors-topKByNode-syntax "vectors-topKByNode.md#vectors-topKByNode-syntax")
     - [.vectors.topKByNode  input](vectors-topKByNode.md#vectors-topKByNode-inputs "vectors-topKByNode.md#vectors-topKByNode-inputs")
     - [.vectors.topKByNode  outputs](vectors-topKByNode.md#vectors-topKByNode-outputs "vectors-topKByNode.md#vectors-topKByNode-outputs")
@@ -106,6 +117,7 @@ graphs.
     - [Sample  .vectors.topKByNode  output](vectors-topKByNode.md#vectors-topKByNode-sample-output "vectors-topKByNode.md#vectors-topKByNode-sample-output")
 
   - [.vectors.topK.byNode algorithm](vectors.topK.byNode.md "vectors.topK.byNode.md")
+
     - [.vectors.topK.byNode  syntax](vectors.topK.byNode.md#vectors.topK.byNode-syntax "vectors.topK.byNode.md#vectors.topK.byNode-syntax")
     - [.vectors.topK.byNode  input](vectors.topK.byNode.md#vectors.topK.byNode-inputs "vectors.topK.byNode.md#vectors.topK.byNode-inputs")
     - [.vectors.topK.byNode  outputs](vectors.topK.byNode.md#vectors.topK.byNode-outputs "vectors.topK.byNode.md#vectors.topK.byNode-outputs")
@@ -113,6 +125,7 @@ graphs.
     - [Sample  .vectors.topK.byNode  output](vectors.topK.byNode.md#vectors.topK.byNode-sample-output "vectors.topK.byNode.md#vectors.topK.byNode-sample-output")
 
   - [.vectors.upsert algorithm](vectors-upsert.md "vectors-upsert.md")
+
     - [.vectors.upsert  syntax](vectors-upsert.md#vectors-upsert-syntax "vectors-upsert.md#vectors-upsert-syntax")
     - [.vectors.upsert  input](vectors-upsert.md#vectors-upsert-inputs "vectors-upsert.md#vectors-upsert-inputs")
     - [.vectors.upsert  outputs](vectors-upsert.md#vectors-upsert-outputs "vectors-upsert.md#vectors-upsert-outputs")
@@ -120,6 +133,7 @@ graphs.
     - [Sample  .vectors.upsert  output](vectors-upsert.md#vectors-upsert-sample-output "vectors-upsert.md#vectors-upsert-sample-output")
 
   - [.vectors.remove algorithm](vectors-remove.md "vectors-remove.md")
+
     - [.vectors.remove  syntax](vectors-remove.md#vectors-remove-syntax "vectors-remove.md#vectors-remove-syntax")
     - [.vectors.remove  input](vectors-remove.md#vectors-remove-inputs "vectors-remove.md#vectors-remove-inputs")
     - [.vectors.remove  outputs](vectors-remove.md#vectors-remove-outputs "vectors-remove.md#vectors-remove-outputs")

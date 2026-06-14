@@ -5,6 +5,7 @@
 - FLOAT - Range: 32-bit IEEE 754 floating point including Infinity, INF, -Infinity, -INF and NaN (not-a-number).
 - DOUBLE - Range: 64-bit IEEE 754 floating point including Infinity, INF, -Infinity, -INF and NaN (not-a-number).
 - STRING -
+
   - Quotation marks are optional. Commas, newline, and carriage return characters are automatically escaped
     if they are included in a string surrounded by double quotation marks (`"`).
     Example: `"Hello, World"`.
@@ -16,6 +17,7 @@
     with one set of quotation marks. Example: `"String one; String 2; String 3"`.
 
 - Datetime - The datetime values can be provided in either the XSD format, or one of the following formats:
+
   - yyyy-MM-dd
   - yyyy-MM-ddTHH:mm
   - yyyy-MM-ddTHH:mm:ss
@@ -25,6 +27,7 @@
   - yyyy-MM-ddTHH:mm:ss.SSS[+|-]hhmm
 
 - SIGNED INTEGER -
+
   - Byte: -128 to 127
   - Short: -32768 to 32767
   - Int: -2^31 to 2^31-1
@@ -38,6 +41,7 @@
 ""1.0"", ""type"": ""Float""}"` , which has a `value` field and a `type` field in each
   individual json string. The column header of an `Any` type is `propertyname:Any`. The cardinality
   value of an `Any` column is `set`, meaning that the column can accept multiple values.
+
   - Neptune Analytics supports the following types in an `Any` type: `Bool` (or `Boolean`),
     `Byte`, `Short`, `Int`, `Long`, `UnsignedByte`,
     `UnsignedShort`, `UnsignedInt`, `UnsignedLong`, `Float`, `Double`,

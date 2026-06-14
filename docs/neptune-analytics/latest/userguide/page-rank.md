@@ -40,6 +40,7 @@ are edges.
 
 - Objective: Rank products based on their relevance to a specific customer's shopping behavior.
 - Inputs:
+
   - Source Nodes: A list of products that the customer has previously purchased or shown interest in.
   - Source Weights: Optional weights indicating the relative importance of each source product
     (e.g., higher weight for recently purchased items).
@@ -65,6 +66,7 @@ paths (like data transfers or network connections) between computers are edges.
 - Objective: Rank computers based on their relevance to a specific security concern or department within the
   organization.
 - Inputs:
+
   - Source Nodes: A list of computers that are known to handle sensitive data or are critical to a specific
     department (e.g., HR, Finance).
   - Source Weights: Optional weights indicating the relative importance of each source computer (e.g., higher
@@ -90,6 +92,7 @@ claims, referrals, or common risk factors) between policyholders are edges.
 
 - Objective: Rank policyholders based on their relevance to a specific risk profile or insurance product.
 - Inputs:
+
   - Source Nodes: A list of policyholders that fit a specific risk profile or are relevant to a particular
     insurance product (e.g., high-risk drivers for auto insurance).
   - Source Weights: Optional weights indicating the relative importance of each source policyholder (e.g.,
@@ -178,6 +181,7 @@ integration), the result returned by the `MATCH` clause is taken as the node lis
     a floating point number between 0.0 and 1.0 (inclusive). When the average difference in the pageRank values of
     two iterations drops below `tolerance`, the algorithm stops, regardless of whether the
     `numOfIterations` is reached. Default value is `0.000001 (1e-6)`.
+
     - Note that this tolerance computation is equivalent to L1 error or sum of Mean Absolute Difference (MAE)s.
     - The stopping condition is `l1_error_sum < tolerance * numNodes`, equivalent to
       `l1_error_sum/numNodes < tolerance`.
@@ -197,7 +201,6 @@ integration), the result returned by the `MATCH` clause is taken as the node lis
        is given or not.
       - Note that if multiple properties exist on the edge with the name specified by edgeWeightProperty, one
        of those property values will be sampled at random.
-
   - **sourceNodes** _(optional) - required if
     running personalized PageRank_   –  
     _type:_ `list`;   _default: none_.
@@ -207,7 +210,6 @@ integration), the result returned by the `MATCH` clause is taken as the node lis
       - Can include 1 to 8192 vertices.
       - If a `vertexLabel` is provided, nodes that do not have the given `vertexLabel`
        are ignored.
-
   - **sourceWeights** _(optional)_   –  
     _type:_ `list`;   _default: none_.
 

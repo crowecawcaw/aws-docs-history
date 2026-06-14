@@ -83,11 +83,13 @@ the TTL is refreshed. The defaults are:
 The following list demonstrates conditions for when a query plan would not be cached.
 
 - If submitted with query-specific parameter `--plan-cache "disabled"`.
+
   - If a cache is wanted, you can rerun the query without `--plan-cache "disabled"`.
 
 - If the query evaluation time is larger than latency threshold, it’s not cached since it’s a long-running
   query and is considered to not benefit from query plan cache.
 - If the query contains pattern that does not return any results.
+
   - i.e. `MATCH (n:nonexistentLabel) return n` when there are zero nodes with specified label.
   - i.e. `MATCH (n {name: $param}) return n with parameters={"param": "abcde"}` when there are zero
     nodes with name=abcde.
@@ -113,6 +115,7 @@ aws neptune-graph execute-query \
 ```
 
 - If the query parameter is a string that has not been part of data load or data insertion.
+
   - If `CREATE (n {name: "X"})`, is done to insert “X”.
   - `RETURN “X”` is cached, while `RETURN “Y”` isn’t, as “Y” has not been
     inserted and does not exist in the database.

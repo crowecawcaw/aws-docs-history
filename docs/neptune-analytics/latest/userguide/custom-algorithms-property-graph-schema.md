@@ -35,10 +35,13 @@ There is a single column in the output containing a map schema containing the fo
 - `edgeLabels`: A list of all unique labels assigned to relationships/edges in the graph.
 - `nodeLabelDetails`: For each node label, all properties associated with that node containing an enumeration
   of each property and the various data types it can manifest as across different nodes with the same label.
+
   - `label` - The node label or labels.
   - `properties` - An array of the superset of properties for the node:
+
     - `<key:> name` - The property name.
     - `<value:> A key-value dictionary (map)` - Stores data types that are available for the property.
+
       - `<key:> "datatypes"` ,
       - `<value:> array[string]`
 
@@ -56,16 +59,20 @@ There is a single column in the output containing a map schema containing the fo
 
 - `edgeLabelDetails`: For each edge label, all properties associated with edges that have that label containing
   an enumeration of each property and the various data types it can manifest as across different edges with the same label.
+
   - `label` - The edge label.
   - `properties` - A key-value dictionary (map) of properties for the edge label:
+
     - `<key:>` name - The property name
     - `<value:>` A key-value dictionary (map) - Stores data types that are available for the property.
+
       - `<key:> "datatypes"` ,
       - `<value:> array[string]`
 
 - `labelTriples`: A set of `nodeLabel-edgeLabel->nodeLabel` combinations that represent the connections between
   different types of nodes in the graph. These triples summarize the graph's topology by showing how different node types are related
   through various edge types. Each entry is a key-value dictionary, holding the following:
+
   - `~type` - The edge label.
   - `~from` - The node label of the head node of the node-edge->node.
   - `~to` - The node label of the tail node of the node-edge->node.

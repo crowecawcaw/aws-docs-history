@@ -6,6 +6,7 @@ recommendations for maximizing performance while using Neptune Analytics.
 ###### Contents
 
 - [openCypher query best practices](best-practices-content.md "best-practices-content.md")
+
   - [Use the SET clause to remove multiple properties at once](best-practices-content.md#best-practices-content-1 "best-practices-content.md#best-practices-content-1")
   - [Use parameterized queries](best-practices-content.md#best-practices-content-2 "best-practices-content.md#best-practices-content-2")
   - [Use flattened maps instead of nested maps in UNWIND clause](best-practices-content.md#best-practices-content-3 "best-practices-content.md#best-practices-content-3")
@@ -24,6 +25,7 @@ recommendations for maximizing performance while using Neptune Analytics.
   - [Avoid doing ~id computations in the query](best-practices-content.md#best-practices-content-16 "best-practices-content.md#best-practices-content-16")
 
 - [Best practices for metadata filtering in GraphRAG](best-practices-graphrag-filters.md "best-practices-graphrag-filters.md")
+
   - [Design metadata attributes for efficient filtering](best-practices-graphrag-filters.md#best-practices-graphrag-filters-metadata "best-practices-graphrag-filters.md#best-practices-graphrag-filters-metadata")
   - [Choose the right filter type](best-practices-graphrag-filters.md#best-practices-graphrag-filters-choose "best-practices-graphrag-filters.md#best-practices-graphrag-filters-choose")
   - [Combine filters efficiently with andAll and orAll](best-practices-graphrag-filters.md#best-practices-graphrag-filters-combine "best-practices-graphrag-filters.md#best-practices-graphrag-filters-combine")

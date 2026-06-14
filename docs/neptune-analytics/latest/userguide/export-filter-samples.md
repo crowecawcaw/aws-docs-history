@@ -32,6 +32,7 @@
 
 - Only vertices with the "Professor" label will be exported.
 - For each "Professor" vertex, the exported data will have the following columns:
+
   - `~id` - The unique identifier of the vertex.
   - `~label` - The label of the vertex, which will be "Professor".
   - `name` - The "name" property of the vertex, exported as a String type.
@@ -47,6 +48,7 @@
 
 - Only edges with the "knows" label will be exported.
 - For each "knows" edge, the exported data will have the following columns:
+
   - `~from` - The unique identifier of the source vertex of the edge.
   - `~to` - The unique identifier of the target vertex of the edge.
   - `~label` - The label of the edge, which will be "knows".

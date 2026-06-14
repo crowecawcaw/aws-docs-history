@@ -25,6 +25,7 @@ filters accept a list of candidate values to match against. Consider the followi
 - **Use numeric properties for time-based filtering.** Store timestamps
   as numeric epoch values so you can use efficient range filters (`greaterThan`,
   `lessThan`) instead of string-based date comparisons.
+
   - Neptune Analytics stores all numeric metadata values as Double internally. Integer values
     such as `2024` are automatically converted to Double (for example,
     `2024.0`) during ingestion. This conversion is handled transparently

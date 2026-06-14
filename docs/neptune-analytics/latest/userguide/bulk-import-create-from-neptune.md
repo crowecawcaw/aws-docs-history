@@ -79,11 +79,13 @@ programmatically or through the AWS management console.
 2. Provide a role name.
 3. Choose **Amazon S3** as the AWS service.
 4. In the **permissions** section, choose:
+
    - `AmazonS3FullAccess`
    - `NeptuneFullAccess`
    - `AmazonRDSFullAccess`
 
 5. Also create a custom policy with at least the following permissions for the AWS KMS key used:
+
    - `kms:ListGrants`
    - `kms:CreateGrant`
    - `kms:RevokeGrant`

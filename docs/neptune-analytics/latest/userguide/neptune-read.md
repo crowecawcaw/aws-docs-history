@@ -24,6 +24,7 @@ YIELD row
 - **source** (required) - Amazon S3 URI to a **single** object.
   Amazon S3 prefix to multiple objects is not supported.
 - **format** (required) - `parquet` and `csv` are supported.
+
   - More details on the supported Parquet format can be found in
     [Supported Parquet column types](parquet-column-types.md "parquet-column-types.md").
   - For more information on the supported csv format, see [Gremlin load data format](../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md "../../../neptune/latest/userguide/bulk-load-tutorial-format-gremlin.md").
@@ -37,5 +38,6 @@ YIELD row
 The neptune.read returns:
 
 - **row** - type:Map
+
   - Each row in the file, where the keys are the columns and the values are the data found in each column.
   - You can access each column's data like a property access (`row.col`).

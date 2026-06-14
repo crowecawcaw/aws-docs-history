@@ -83,7 +83,6 @@ algo integration), the source query list is the result returned by the
   ```
   (|V| - 1) / sum(distance from u to all other vertices in the graph)
   ```
-
   - **vertexLabel** _(optional)_   –  
     _type:_ `string`;   _default: none_.
 

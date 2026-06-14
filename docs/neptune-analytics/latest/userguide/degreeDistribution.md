@@ -70,11 +70,13 @@ There is a single column in the output containing a map with the following key c
 
 - **distribution**   –  
   A list of lists where each list item is as follows:
+
   - [`degree`, `count`]   –  
     Degree and corresponding count. The list is sorted in the increasing order of `degree`.
 
 - **statistics**   –  
   A map with the following components:
+
   - `maxDeg`   –   the maximum degree in the graph.
   - `mean`   –   the average degree in the graph.
   - `minDeg`   –   the minimum degree in the graph.
