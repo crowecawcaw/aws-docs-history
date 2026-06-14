@@ -44,6 +44,7 @@ snapshot quota for Amazon EBS. 
 
 - You will need the following resources or permissions to
   proceed with this tutorial:
+
   - An [AWS account](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/") will be needed for this
     tutorial. For more information on using AWS Backup for the
     first time, view the
@@ -57,6 +58,7 @@ snapshot quota for Amazon EBS. 
     [AWS Backup pricing page](https://aws.amazon.com/backup/pricing/ "https://aws.amazon.com/backup/pricing/").
   - IAM roles used by AWS Backup to create a backup of the
     Amazon EBS volume. 
+
     - If a subsequent role is not created, then the default
       IAM role can be used - AWSBackupDefaultRole.
 
