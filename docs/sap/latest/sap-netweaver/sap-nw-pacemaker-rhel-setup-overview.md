@@ -63,6 +63,7 @@ You must have SAP portal access for reading all SAP Notes.
 The following access is required for setting up the cluster.
 
 - An IAM user with the following privileges.
+
   - modify Amazon VPC route tables
   - modify Amazon EC2 instance properties
   - create IAM policies and roles

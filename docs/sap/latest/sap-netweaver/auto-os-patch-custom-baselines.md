@@ -45,6 +45,7 @@ Complete the following steps to identify the patch source for the repository tha
 ```
 
 2. Save the name and configuration for each repository file. For example, you might save the following:
+
    - Name – `SUSE_Linux_Enterprise_Server_for_SAP_Applications_x86_64:SLE-Product-SLES_SAPXX-SPX-Updates`
    - Configuration –
 
@@ -115,6 +116,7 @@ sslclientkeyexample=/etc/pki/rhui/rhui-client-config-server-8-sap-bundle.key
 ```
 
 2. Save the name and configuration for each repository file. In this example, you would save the following:
+
    - Name – `rhui-client-config-server-8-sap-bundle`
    - Configuration
 
@@ -162,6 +164,7 @@ gpgcheck=1
 ```
 
 2. Save the name and configuration for each repository file. In this example, you would save the following:
+
    - Name – `o18-appsteream`
    - Configuration
 

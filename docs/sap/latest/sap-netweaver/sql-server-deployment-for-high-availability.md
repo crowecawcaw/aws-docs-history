@@ -3,6 +3,7 @@
 1. Deploy the SAP NetWeaver ASCS instance. For instructions, see the [SAP NetWeaver on AWS Deployment and Operations Guide for Windows](sap-netweaver-windows-guide.md "sap-netweaver-windows-guide.md") .
 2. Create two EC2 instances for Microsoft SQL server, one in each Availability Zone. See the [Windows EC2 instances deployment](windows-ec2-instance-deployment.md "windows-ec2-instance-deployment.md") section for steps.
 3. Assign two secondary IP addresses to each instance from the same subnet CIDR in which they are installed:
+
    1. Use one address for Windows Server Failover Cluster (WSFC).
    2. Use the second address for the Availability Group listener.
 

@@ -8,5 +8,6 @@ Two key AWS features that support the cluster software are:
 
 - Amazon FSx for shared storage: See the storage section for maintenance considerations for Amazon FSx. For Multi-AZ deployments, DFS replication is required across multiple filesystems so ensure that you monitor the replication.
 - Overlay IP for IP failover
+
   - Ensure that IAM authorizations are in place to minimize update access to the route table so that only the cluster agent can edit it.
   - Ensure that the route table configuration is coupled with your change management process so that any wider environment updates that might affect this feature are captured and can therefore be tested.

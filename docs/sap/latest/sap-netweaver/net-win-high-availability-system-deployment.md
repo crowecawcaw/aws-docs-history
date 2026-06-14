@@ -25,16 +25,19 @@ If using such a solution in the context of a high availability installation, the
 You can use a high availability (HA) clustering solution for autonomous failover of the central services across Availability Zones. There are multiple SAP-certified options for this clustering software on Windows [listed on the SAP website](https://wiki.scn.sap.com/wiki/display/SI/Certified+HA-Interface+Partners "https://wiki.scn.sap.com/wiki/display/SI/Certified+HA-Interface+Partners"), and it’s also possible to build and automate your own solution. HA solutions that have been tested and are known to work on AWS include:
 
 - Veritas InfoScale:
+
   - [Veritas InfoScale for SAP on AWS](https://www.veritas.com/content/support/en_US/doc/infoscale_hadr_sap_netweaver_aws "https://www.veritas.com/content/support/en_US/doc/infoscale_hadr_sap_netweaver_aws")
   - [Veritas InfoScale for Windows compatibility list](https://www.veritas.com/content/support/en_US/doc/infoscale_scl_741_win "https://www.veritas.com/content/support/en_US/doc/infoscale_scl_741_win")
 
 - SIOS:
+
   - [SIOS DataKeeper](https://us.sios.com/solutions/sap-high-availability/ "https://us.sios.com/solutions/sap-high-availability/") with Windows Server Failover Cluster (WSFC)
   - [SIOS DataKeeper Cluster Edition on AWS Quick Start](https://aws.amazon.com/quickstart/architecture/sios-datakeeper/ "https://aws.amazon.com/quickstart/architecture/sios-datakeeper/")
   - SAP on AWS Blog: [Implementing HA and DR for Microsoft SQL Server](https://aws.amazon.com/blogs/architecture/field-notes-implementing-ha-and-dr-for-microsoft-sql-server-using-always-on-failover-cluster-instance-and-sios-datakeeper/ "https://aws.amazon.com/blogs/architecture/field-notes-implementing-ha-and-dr-for-microsoft-sql-server-using-always-on-failover-cluster-instance-and-sios-datakeeper/")
 
 - NEC ExpressCluster
 - Windows Server Failover Cluster (WSFC) with native Windows and AWS services
+
   - SAP on AWS Blog: [How to setup SAP NetWeaver on Windows MSCS for SAP ASCS/ERS on AWS](https://aws.amazon.com/blogs/awsforsap/how-to-setup-sap-netweaver-on-windows-mscs-for-sap-ascs-ers-on-aws-using-amazon-fsx/ "https://aws.amazon.com/blogs/awsforsap/how-to-setup-sap-netweaver-on-windows-mscs-for-sap-ascs-ers-on-aws-using-amazon-fsx/")
 
 ###### Support and certification

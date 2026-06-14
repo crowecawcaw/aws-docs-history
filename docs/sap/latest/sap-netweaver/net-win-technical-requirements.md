@@ -1,6 +1,7 @@
 # Technical Requirements
 
 1. Ensure that any [service limits](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md") are high enough and the current usage low enough to be able to launch the resources that you need. If necessary, request a service limit increase for the AWS resource that you’re planning to use. In particular:
+
    1. Ensure that your [EC2 service limits](../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md "../../../AWSEC2/latest/UserGuide/ec2-resource-limits.md") are sufficient to launch the instances that you need for your SAP NetWeaver system.
    2. Ensure that your [VPC service limits](../../../general/latest/gr/aws_service_limits.md#limits_vpc "../../../general/latest/gr/aws_service_limits.md#limits_vpc") are sufficient to launch a new VPC (if necessary) or individual network resources within your VPC, such as Elastic IP addresses.
 

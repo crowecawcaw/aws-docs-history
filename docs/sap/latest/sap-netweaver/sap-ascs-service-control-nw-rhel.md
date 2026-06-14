@@ -36,6 +36,7 @@ The profile directory /usr/sap/<SID>/SYS/profile/ is typically a symbolic link t
 means profile modifications made on one node are immediately visible on all cluster nodes. You can modify the profiles from either node.
 
 - _Example using values from [Parameter Reference](sap-nw-pacemaker-rhel-parameters.md "sap-nw-pacemaker-rhel-parameters.md")_:
+
   - ASCS profile example – `/usr/sap/RHX/SYS/profile/RHX_ASCS00_rhxascs`
   - ERS profile example – `/usr/sap/RHX/SYS/profile/RHX_ERS10_rhxers`
 

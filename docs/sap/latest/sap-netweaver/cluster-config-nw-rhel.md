@@ -141,6 +141,7 @@ Details:
 - **pcmk_reboot_timeout** - Maximum time in seconds allowed for a reboot operation
 - **pcmk_reboot_retries** - Number of times to retry a failed reboot operation
 - **skip_os_shutdown** (NEW) - Leverages a new ec2 stop-instance API flag to forcefully stop an EC2 Instance by skipping the shutdown of the Operating System.
+
   - [Red Hat Solution 4963741 - fence_aws fence action fails with "Timed out waiting to power OFF"](https://access.redhat.com/solutions/4963741 "https://access.redhat.com/solutions/4963741") (requires Red Hat Customer Portal access)
 
 ENSA1
@@ -261,6 +262,7 @@ op monitor interval="20" timeout="40"
 - Review the mount options to ensure that they match with your operating system, NFS file system type, and the latest recommendations from SAP.
 - <nfs.fqdn> can either be an alias or the default file system resource name of the NFS or FSx for ONTAP resource. For example, `fs-xxxxxx.efs.xxxxxx.amazonaws.com`.
 - `force_unmount` and `fast_stop` are recommendations for ensuring the filesystem can be quickly unmounted. See Red Hat solutions:
+
   - [Red Hat Solution 3357961 - During failover of a pacemaker resources, a Filesystem resource kills processes not using the filesystem](https://access.redhat.com/solutions/3357961 "https://access.redhat.com/solutions/3357961") (requires Red Hat customer portal login)
   - [Red Hat Solution 4801371 - What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371 "https://access.redhat.com/solutions/4801371") (requires Red Hat customer portal login)
 

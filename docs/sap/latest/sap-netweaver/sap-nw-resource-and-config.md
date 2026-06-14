@@ -134,6 +134,7 @@ Amazon EFS provides serverless, fully elastic NFS storage that scales automatica
 - **File System Type**: Regional (recommended) - stores data redundantly across multiple Availability Zones for high availability
 - **Performance Mode**: General Purpose (default) - provides the lowest latency per operation, suitable for SAP workloads
 - **Throughput Mode**: Choose based on workload patterns:
+
   - `Elastic`: Automatically scales 1 MiB/s to 3 GiB/s based on activity. Recommended if sharing one EFS system across multiple instances.
   - `Bursting`: 100 MiB/s minimum with burst capability. More cost-effective for periodic access patterns like SAP media storage or low usage systems.
 
