@@ -6,5 +6,6 @@ SDKs.
 ###### Examples
 
 - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
   - [GetRoutingControlState](example_route53-recovery-cluster_GetRoutingControlState_section.md "example_route53-recovery-cluster_GetRoutingControlState_section.md")
   - [UpdateRoutingControlState](example_route53-recovery-cluster_UpdateRoutingControlState_section.md "example_route53-recovery-cluster_UpdateRoutingControlState_section.md")

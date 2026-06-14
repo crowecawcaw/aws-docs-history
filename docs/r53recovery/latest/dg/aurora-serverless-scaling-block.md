@@ -51,15 +51,18 @@ there is one source cluster and one destination cluster in the specified global 
 capacity is determined based on the source cluster type:
 
 - **Source is Serverless:**
+
   - Min ACU = source cluster's peak observed ACU utilization (the
     `ServerlessDatabaseCapacity` CloudWatch metric) over the last 24 hours
   - Max ACU = peak of the source cluster's max ACU over the last 24 hours
 
 - **Source is Provisioned:**
+
   - Maps the source cluster's EC2 instance memory to equivalent ACUs (instance memory in GiB ÷ 2)
   - Sets max ACU to 256
 
 - **Source is Hybrid (Provisioned + Serverless):**
+
   - Min ACU = maximum of the provisioned instance ACU equivalent and the observed serverless ACU utilization over 24 hours
   - Max ACU = 256
 

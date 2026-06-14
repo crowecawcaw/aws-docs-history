@@ -23,6 +23,7 @@ Before you begin this tutorial, verify that you have the following:
 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Choose **Create bucket**.
 3. Provide the following details:
+
    - **Bucket name**: Enter a unique name, such as `my-region-switch-reports`
    - **Block Public Access settings**: Keep all public access blocked (recommended)
    - **Bucket Versioning**: Enable versioning (optional but recommended)
@@ -38,6 +39,7 @@ Before you begin this tutorial, verify that you have the following:
 2. Select the plan you want to configure reports for.
 3. Choose **In the navigation bar, go to Actions and select Edit plan details**.
 4. In the **Report settings** section, provide the following:
+
    - Select **Enable report autogeneration**
    - **Amazon S3 URI:** Select or enter the bucket S3 URI you created in Step 1
    - **Account ID that owns bucket:** Enter the bucket owner account ID

@@ -29,6 +29,7 @@ Before you begin this tutorial, verify that you have the following prerequisites
 
 1. From the Region switch console, choose **Create Region switch plan**.
 2. Provide the following details:
+
    - **Primary Region**: Choose us-east-1
    - **Standby Region**: Choose us-west-2
    - **Desired recovery time objective (RTO)** (optional)
@@ -39,13 +40,16 @@ Before you begin this tutorial, verify that you have the following prerequisites
 (Optional) Add resources from different AWS accounts to your Region switch plan:
 
 1. Create the cross-account role:
+
    - In the account hosting the resource, create an IAM role.
    - Add permissions for the specific resources that the plan will access.
    - Add a trust policy that allows the execution role to assume the new role.
    - Enter and take note of an external ID that you will use as a shared secret.
 
 2. Configure the resource in your plan:
+
    - When you add the resource to your plan, specify two additional fields:
+
      - **crossAccountRole**: The ARN of the role that you created in step 1
      - **externalId**: The external ID that you entered in step 1
 
@@ -68,6 +72,7 @@ Required permissions:
 - The execution role must have sts:AssumeRole permission for the cross-account role.
 - The cross-account role must have permissions only for the specific resources being accessed.
 - The cross-account role's trust policy must include:
+
   - The execution role's account as a trusted entity.
   - The external ID condition.
 
@@ -183,6 +188,7 @@ For more information about this execution block, see [ARC routing control execut
 2. Select **ARC routing control execution block**, and then choose **Add and edit**. This block
    performs a DNS failover to shift traffic to the passive Region.
 3. In the right panel, configure the block:
+
    - **Step name**: Enter **Toggle DNS**
    - **Step description** (optional)
    - **Routing controls used in activating us-east-1**: Choose
@@ -190,20 +196,24 @@ For more information about this execution block, see [ARC routing control execut
    - **Timeout**: Enter a timeout value.
 
 4. Choose **Add routing control**:
+
    - **Routing control ARN**: The ARN of the routing control that controls us-east-1
    - **Routing control state**: Choose **On**
 
 5. Choose **Add routing control** again:
+
    - **Routing control ARN**: The ARN of the routing control that controls us-west-2
    - **Routing control state**: Choose **Off**
 
 6. Choose **Save**.
 7. **Routing controls used in activating us-west-2**: Choose **Add routing controls**
 8. Choose **Add routing control**:
+
    - **Routing control ARN**: The ARN of the routing control that controls us-west-2
    - **Routing control state**: Choose **On**
 
 9. Choose **Add routing control** again:
+
    - **Routing control ARN**: The ARN of the routing control that controls us-east-1
    - **Routing control state**: Choose **Off**
 
@@ -217,6 +227,7 @@ For information about the required IAM permissions for this execution block, see
 
 1. On the Region switch plan details page, in the top right, choose **Execute**.
 2. Enter the execution details:
+
    - Select the Region to activate.
    - Select the plan execution mode.
    - (Optional) View the execution steps.

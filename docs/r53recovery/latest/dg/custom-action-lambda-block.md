@@ -44,6 +44,7 @@ and permissions. Region switch verifies that the following is correct:
 - The Lambda functions specified in the configuration exist.
 - The concurrency settings of Lambda functions are not throttled, including verifying the
   following:
+
   - Concurrency is not set to 0.
   - At least one concurrent execution is available, or that unreserved concurrency exists.
 

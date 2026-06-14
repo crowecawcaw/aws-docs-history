@@ -21,6 +21,7 @@ For more information, see [Amazon ECS service scaling execution block sample pol
    Enter the desired percentage of running tasks in the source Region to match in the activated Region.
 5. **Capacity monitoring approach:** Select one of the following approaches for
    monitoring capacity for Amazon ECS:
+
    - **Max running capacity sampled over 24 hours**: Choose this option to use
      the **running tasks count** value in your Amazon ECS service. This option does
      not create additional costs, but is potentially less accurate than using the other option, CloudWatch metrics.

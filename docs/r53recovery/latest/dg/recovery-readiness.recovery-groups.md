@@ -63,6 +63,7 @@ Amazon Application Recovery Controller (ARC), see [Readiness check API operation
 4. To work with a recovery group, choose **Action**, and then choose **Edit recovery group** or
    **Delete recovery group**.
 5. When you edit a recovery group, you can add or remove cells or nested cells.
+
    - To add a cell, choose **Add cell**.
    - To remove a cell, under the **Action** label next to the cell, choose
      **Delete cell**.

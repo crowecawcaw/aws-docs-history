@@ -25,6 +25,7 @@ To configure a EC2 Auto Scaling group execution block, enter the following value
    Enter the desired percentage of the number of running instances in the Auto Scaling group
    to match for the activated Region.
 5. **Capacity monitoring approach:** Select one of the following approaches for monitoring capacity for your EC2 Auto Scaling groups:
+
    - **Max running capacity sampled over 24 hours**: Choose this option to use
      the **Desired capacity** value specified in your EC2 Auto Scaling group configuration. This option does not create additional
      costs, but is potentially less accurate than using the other option, CloudWatch metrics.

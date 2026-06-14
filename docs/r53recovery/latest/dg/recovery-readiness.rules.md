@@ -36,6 +36,7 @@ determine readiness. Specifically, the rules work as follows:
   `ACTIVE` state.
 
 - The rule inspects _all resources_ in the resource set to ensure a condition.
+
   - If the condition is ensured, all resources are set as `READY`.
   - If any fails to meet the condition, all resources are set as `NOT READY`.For example: **VpcSubnetCount:** Inspects all VPC subnets to ensure that they have the same
     number of subnets.

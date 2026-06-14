@@ -13,17 +13,21 @@ Zone. Both internet-facing and internal Network Load Balancers are supported.
 To enable zonal shift for your cross-zone enabled Network Load Balancer, all target groups attached to the load balancer must meet the following requirements.
 
 - Cross-zone load balancing must be enabled, or set to `use_load_balancer_configuration`.
+
   - For more information on target group cross-zone load balancing, see [Cross-zone load balancing for target groups](../../../elasticloadbalancing/latest/network/edit-target-group-attributes.md#target-group-cross-zone "../../../elasticloadbalancing/latest/network/edit-target-group-attributes.md#target-group-cross-zone").
 
 - Target group protocol must be TCP or TLS.
+
   - For more information on Network Load Balancer target group protocols, see
     [Routing configuration](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md#target-group-routing-configuration "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md#target-group-routing-configuration").
 
 - Connection termination for unhealthy targets must be disabled.
+
   - For more information on target group connection termination, see
     [Connection termination for unhealthy targets](../../../elasticloadbalancing/latest/network/edit-target-group-attributes.md#unhealthy-target-connection-termination "../../../elasticloadbalancing/latest/network/edit-target-group-attributes.md#unhealthy-target-connection-termination").
 
 - Target group must not have any Application Load Balancers as targets.
+
   - For more information on Application Load Balancers as targets, see
     [Use Application Load Balancers as targets of a Network Load Balancer](../../../elasticloadbalancing/latest/network/application-load-balancer-target.md "../../../elasticloadbalancing/latest/network/application-load-balancer-target.md").
 

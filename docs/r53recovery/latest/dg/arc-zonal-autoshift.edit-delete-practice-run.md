@@ -17,6 +17,7 @@ configured for the resource.
 4. Choose to disable zonal autoshift if you don't want AWS to start an autoshift for a resource when there's an AWS event.
    You can continue with the wizard to configure a practice run configuration without enabling autoshifts, if you choose.
 5. Choose options for practice runs for the resource. For alarms, you can do the following:
+
    - (Required) Specify at least one outcome alarm to monitor practice runs for this resource.
    - (Optional) Specify one or more blocking alarms for practice runs for this resource.For more information, see the **Alarms that you specify for practice runs** section in
      [Best practices when you configure zonal autoshift](arc-zonal-autoshift.considerations.md "arc-zonal-autoshift.considerations.md").
@@ -32,7 +33,9 @@ configured for the resource.
 2. Under **Resource zonal autoshift configurations**, choose a resource.
 3. In the **Actions** menu, choose **Edit practice run configuration**.
 4. Make changes to the practice run configuration, to do one or more of the following:
+
    - For alarms, you can do the following:
+
      - For blocking alarms, you can add one or more alarms or delete alarms.
      - For outcome alarms, you can add one or more alarms or delete alarms.
        At least one outcome alarm is required, so you can't delete all of the outcome alarms in a configuration.

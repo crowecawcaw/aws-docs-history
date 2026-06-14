@@ -33,6 +33,7 @@ For more information, see [Route 53 health check execution block sample policy]
    record sets to Regions from the record name provided in step 4 after you have created the plan.
    If plan evaluation returns a warning that indicates that more information is required, update
    your plan with record set identifiers by including the following for each Region:
+
    - **Record set identifier:** Enter
      the **Set identifier** or the **Value/Route traffic to**
      for the record set.

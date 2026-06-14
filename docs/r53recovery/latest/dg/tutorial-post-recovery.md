@@ -43,6 +43,7 @@ Before you begin this tutorial, verify that you have the following:
 
 1. On the Region switch plan details page, in the top right, choose **Execute post-recovery**.
 2. Enter the execution details:
+
    - **Recovery execution ID**: Enter the execution ID of the most recent recovery execution. This field is used to identify the Region that is active currently.
    - **Region to execute in**: Select the inactive Region which is not receiving any application traffic. This is the Region where a read replica will be created.
 

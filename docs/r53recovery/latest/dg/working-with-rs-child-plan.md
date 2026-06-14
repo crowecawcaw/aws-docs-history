@@ -27,6 +27,7 @@ a parent plan and to parent plan scenarios.
   the parent plan's requirements, Region switch treats the child plan as if it were initiated by the parent plan.
 - The parent plan step will fail if the child plan is running with incompatible configuration parameters,
   such as the following:
+
   - The child plan is operating in a different Region
   - The child plan is executing a deactivating operation when Region switch expects it to execute an
     activating operation

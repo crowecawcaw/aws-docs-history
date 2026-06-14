@@ -12,11 +12,13 @@ you create a plan, specify the type that applies to how you want to manage failo
 
 1. From the Region switch console, choose **Create Region switch plan** with active/passive approach.
 2. Provide the following details:
+
    - **Plan name** - Enter a descriptive name for your plan.
    - **Multi-Region approach** - Select **Active/passive** or
      **Active/active**. This
      approach means two application replicas are deployed into two Regions, with traffic routed into the active
      Region only. You can activate the replica in the passive Region by executing the Region switch plan.
+
      - Choose **active/passive** if you have deployed two application replicas
        into two Regions, with traffic routed to the active Region only. Then, you can activate the replica
        in the passive Region by executing the Region switch plan that specifies _Active/passive_.

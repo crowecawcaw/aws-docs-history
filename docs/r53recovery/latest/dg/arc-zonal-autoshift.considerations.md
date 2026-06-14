@@ -130,6 +130,7 @@ The following are the possible practice run outcomes:
 - **INTERRUPTED:** The practice run ended for a reason that was not
   the outcome alarm entering an `ALARM` state. A practice run can be interrupted for a variety of
   reasons, including the following:
+
   - Practice run was ended because AWS started an autoshift in the AWS Region or there
     was an alarm condition in the Region.
   - Practice run was ended because the practice run configuration was deleted for the

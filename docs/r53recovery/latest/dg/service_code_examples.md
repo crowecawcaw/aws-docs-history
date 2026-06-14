@@ -11,6 +11,8 @@ This topic also includes information about getting started and details about pre
 ###### Code examples
 
 - [Basics](service_code_examples_basics.md "service_code_examples_basics.md")
+
   - [Actions](service_code_examples_actions.md "service_code_examples_actions.md")
+
     - [GetRoutingControlState](example_route53-recovery-cluster_GetRoutingControlState_section.md "example_route53-recovery-cluster_GetRoutingControlState_section.md")
     - [UpdateRoutingControlState](example_route53-recovery-cluster_UpdateRoutingControlState_section.md "example_route53-recovery-cluster_UpdateRoutingControlState_section.md")

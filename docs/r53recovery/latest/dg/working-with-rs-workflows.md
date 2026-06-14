@@ -20,6 +20,7 @@ for managing recovery. For example:
 
 1.  In the Region switch plan that you created, choose **Build workflows**.
 2.  Select one of the following workflow options:
+
     - **Build the same activation workflow for all Regions** - Enables you to use
       the same activation workflow across Regions.
     - **Build workflows separately for each Region** - Builds an individual activation

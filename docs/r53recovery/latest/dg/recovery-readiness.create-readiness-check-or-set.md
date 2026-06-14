@@ -81,6 +81,7 @@ recovery readiness API operations with Amazon Application Recovery Controller (A
 3. Under **Resource sets**, choose **Action**, and then choose
    **Edit**.
 4. Do one of the following:
+
    - To remove a resource from the set, choose **Remove**.
    - To add a resource to the set, choose **Add**, and then enter the Amazon Resource
      Name (ARN) for the resource.
