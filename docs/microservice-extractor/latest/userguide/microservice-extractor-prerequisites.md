@@ -19,6 +19,7 @@ smaller services, you must have the following:
   configure an AWS CLI profile, see [Configuring the
   AWS CLI](../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-using-profiles "../../../cli/latest/userguide/cli-configure-files.md#cli-configure-files-using-profiles").
 - A monolithic application that must be one of the following:
+
   - A .NET Framework ASP.NET web service application hosted on IIS
     with the .NET Framework developer pack installed.
 
@@ -28,10 +29,12 @@ smaller services, you must have the following:
 - The ability to build the application solution with [MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild "https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild").
 - One of the following operating systems for analyzing the application and
   creating the visualization:
+
   - Windows 10 or later
   - Windows Server 2016 or later
 
 - For the application analysis, you must have:
+
   - .NET Framework version 4 or later, or .NET Core version 3.1 or
     later compatibility with source code solution.
   - 10 GB minimum of free disk space, in addition to the size of your
@@ -41,6 +44,7 @@ smaller services, you must have the following:
     i3 3-GHz processor.
 
 - For the extraction, you must have:
+
   - .NET Framework version 4.5 or later, or .NET Core version 3.1 or
     later compatibility with source code solution.
   - 20 GB minimum of free disk space, in addition to twice the size of
@@ -71,6 +75,7 @@ Create a role for identity federation. Follow the instructions in [Create a role
 in the _IAM User Guide_.
 
 - IAM users:
+
   - Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_.
   - (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
 

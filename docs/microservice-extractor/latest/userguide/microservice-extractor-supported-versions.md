@@ -10,6 +10,7 @@ AWS Microservice Extractor for .NET supports .NET Framework and .NET Core ASP.NE
 Specifically, Microservice Extractor supports the following versions:
 
 - **Application visualization**:
+
   - .NET Framework version 4.0 and later
   - .NET Core version 3.1
   - .NET version 5.0

@@ -14,6 +14,7 @@ To onboard your application, perform the following steps.
    **Set up Microservice Extractor** page.
 2. On the **Onboard application** page, enter the following
    information for the application you want to onboard.
+
    - **Application details**. Enter a
      **Name** and optional
      **Description** for your application.
