@@ -28,8 +28,10 @@ practice is not established:** High
   [Cloud
   Custodian](https://cloudcustodian.io/ "https://cloudcustodian.io/") rules, and configure them to detect and
   notify when resources are found in unapproved locations.
+
   1.  For EC2 instances, subnets, EBS volumes, and snapshots
       (like EBS, Amazon RDS, and Amazon ElastiCache):
+
       - **Outposts**:
         Implement rules that detect resources where value of
         OutpostArn attribute is null, which means that the
@@ -54,6 +56,7 @@ practice is not established:** High
   subnet when data residency requirements prohibit data
   storage in that Region. Another example would be to turn on
   default encryption for S3 buckets and EBS volumes.
+
   1.  Automated remediation is an example of a control.
       Automated remediation can be implement using
       [AWS Security Hub CSPM custom actions](../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md "../../../securityhub/latest/userguide/securityhub-cloudwatch-events.md"), AWS Config

@@ -29,6 +29,7 @@ practice is not established:** Medium
   be a lower cost option. Otherwise, configure Amazon EBS
   local snapshots on Outposts, or implement a third-party
   backup solution.
+
   1.  For implementations details, see
       [Amazon Elastic Block Store Local Snapshots on AWS Outposts](https://aws.amazon.com/blogs/aws/new-amazon-elastic-block-store-local-snapshots-on-aws-outposts/ "https://aws.amazon.com/blogs/aws/new-amazon-elastic-block-store-local-snapshots-on-aws-outposts/") and
       [Amazon EBS local snapshots on Outposts](../../../ebs/latest/userguide/snapshots-outposts.md "../../../ebs/latest/userguide/snapshots-outposts.md").

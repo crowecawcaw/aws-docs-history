@@ -42,6 +42,7 @@ account for potential trade-offs, consider the following key points:
 - Identify the acceptable use policies (AUP) for the data managed
   by the application. If these policies are not yet established,
   consider creating them. This should involve:
+
   - Conducting data classification exercises.
   - Aligning the data with relevant data privacy laws and
     industry-specific regulations.

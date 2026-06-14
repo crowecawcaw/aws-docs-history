@@ -34,6 +34,7 @@ practice is not established:** High
   One of the most commonly deployed controls is the
   [OU
   Region deny control](../../../controltower/latest/controlreference/ou-region-deny.md "../../../controltower/latest/controlreference/ou-region-deny.md").  
+
   - While the same set of preventative and detective
     controls can be reproduced without deployment through
     Control Tower, it is highly recommended to use Control

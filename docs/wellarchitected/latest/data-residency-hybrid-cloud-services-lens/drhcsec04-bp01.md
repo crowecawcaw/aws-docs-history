@@ -34,6 +34,7 @@ practice is not established:** High
   specific subnets by using policy resources to create a
   dynamically-composed list of authorized subnets for the
   following IAM actions: 
+
   - `ec2:RunInstances`
   - `ec2:CreateNetworkInterface`
   - `ec2:RequestSpotFleet`
@@ -66,6 +67,7 @@ practice is not established:** High
   is a known requirement for the principal, and use the
   policy's resource section to only allow the storage in the
   required Region:
+
   - `rds:CreateDBSnapshot`
   - `rds:CreateDBClusterSnapshot`
   - `elasticache:CreateSnapshot`
