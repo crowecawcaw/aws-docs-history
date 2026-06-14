@@ -19,6 +19,7 @@ defined in the column filters. To create a column filter, follow the steps below
 5. On the asset detail page, go to **Asset filters** tab and
    then choose **Add asset filter**.
 6. Configure the following fields:
+
    - **Name** – the name of the filter
    - **Description** – the description of the
      filters

@@ -27,6 +27,7 @@ request subscriptions to these assets.
 4.  Choose **Data sources** from the left navigation pane, then
     choose **Create data source.**
 5.  Configure the following fields:
+
     - **Name** – The data source name.
     - **Description** – The data source
       description.
@@ -38,6 +39,7 @@ request subscriptions to these assets.
 8.  Depending on the environment you select, Amazon DataZone will automatically apply
     the Amazon Redshift credentials and other parameters directly from the
     environment or give you the option to choose your own.
+
     - If you have selected an environment that only allows publishing from
       environment’s default Amazon Redshift schema, then Amazon DataZone will
       automatically apply the Amazon Redshift credentials and other parameters
@@ -53,6 +55,7 @@ request subscriptions to these assets.
 
 9.  If you choose to use your own credentials to create the data source, provide
     the following details:
+
     - Under **Provide Amazon Redshift credentials**, choose
       whether to use a provisioned Amazon Redshift cluster or an Amazon
       Redshift Serverless workspace as your data source.

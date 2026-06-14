@@ -30,6 +30,7 @@ Complete the following procedure to create an Amazon DataZone domain.
    in the top navigation bar to choose the appropriate AWS Region.
 2. Choose **Create domain** and provide values for the following
    fields:
+
    - **Name** - specify a friendly name for the domain.
      Once the domain is created this name cannot be changed.
    - **Description** - (optional) specify a domain
@@ -66,7 +67,6 @@ Complete the following procedure to create an Amazon DataZone domain.
    }`
 
    ```
-
    - **Service access** - choose whether to have
      Amazon DataZone create and use a new **DomainExecutionRole**
      for you, or choose an existing IAM role.

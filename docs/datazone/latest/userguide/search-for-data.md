@@ -67,6 +67,7 @@ efficiently find the assets they need, enhancing productivity.
    asset belongs.
 5. To view details about a specific asset, choose the asset to open its details
    page. The details page includes the following information:
+
    - The asset name, data source (AWS Glue, Amazon Redshift, or Amazon S3), type (table,
      view, or S3 object), number of columns, and size.
    - A description of the asset.

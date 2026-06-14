@@ -18,6 +18,7 @@ necessary Lake Formation permissions to the [AmazonDataZoneGlueAccess-<region>-<
   Formation tables for which Amazon DataZone handles permissions. For more information,
   see [https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation-background.html](../../../lake-formation/latest/dg/upgrade-glue-lake-formation-background.md "../../../lake-formation/latest/dg/upgrade-glue-lake-formation-background.md").
 - Attach the following AWS Lake Formation permissions to the [AmazonDataZoneGlueAccess-<region>-<domainId>](glue-manage-access-role.md "glue-manage-access-role.md"):
+
   - `Describe` and `Describe grantable` permissions
     on the database where the tables exist
   - `Describe`, `Select`, `Describe

@@ -67,6 +67,7 @@ minimum permissions.
 5.  On the chosen blueprint's details page, choose **Enable in this
     account**.
 6.  On the Permissions and resources page, specify the following:
+
     - If you're enabling the **DefaultDataLake** blueprint,
       for **Glue Manage Access role**, specify a new or
       existing service role that grants Amazon DataZone authorization to ingest and
@@ -92,7 +93,6 @@ minimum permissions.
 
         + AmazonDataZoneGlueAccess-<region>-<domainId>
         + AmazonDataZoneRedshiftAccess-<region>-<domainId>
-
     - For **Provisioning role**, specify a new or existing
       service role that grants Amazon DataZone authorization to create and
       configure environment resources using AWS CloudFormation in the
@@ -102,6 +102,7 @@ minimum permissions.
       source**, specify an Amazon S3 bucket that is to be used by
       all SageMaker environments in the AWS account. The bucket prefix that
       you specify must be one of the following:
+
       - amazon-datazone\*
       - datazone-sagemaker\*
       - sagemaker-datazone\*
@@ -156,6 +157,7 @@ credentials to the cluster.
    DefaultDataWareshouse blueprint to open the blueprint details page.
 4. Under the **Parameter sets** tab on the blueprint details
    page, choose **Create parameter set**.
+
    - Provide a Name for the parameter set.
    - Optionally, provide a description for the parameter set.
    - Select a region
@@ -166,6 +168,7 @@ credentials to the cluster.
      AWS secret must be tagged with the `AmazonDataZoneDomain :
 [Domain_ID]` tag in order to be eligible for use within a
      parameter set.
+
      - If you do not have an existing AWS secret, you can also
        create a new secret by choosing **Create New AWS
        Secret**. This opens a dialog box where you can
@@ -203,6 +206,7 @@ is used to create sagemaker environments.
 4. Under the **Parameter sets** tab on the blueprint details
    page, choose **Create parameter set**, and then specify the
    following:
+
    - Provide a **Name** for the parameter set.
    - Optionally, provide a **Description** for the
      parameter set.
@@ -213,6 +217,7 @@ is used to create sagemaker environments.
      existing key or create a new key.
    - Under **Environment parameters**, specify the
      following:
+
      - VPC ID - the ID that you're using for the VPC of the Amazon
        SageMaker environment. You can specify an existing or create a
        new VPC.
@@ -224,9 +229,11 @@ is used to create sagemaker environments.
        VPC and subnets.
 
    - Under Data source parameters, choose one of the following:
+
      - AWS Glue only
      - AWS Glue + Amazon Redshift Serverless. If you choose this
        option, specify the following:
+
        - Specify the AWS secret ARN that holds the
          credentials to the selected Amazon Redshift cluster. The
          AWS secret must be tagged with the
@@ -249,6 +256,7 @@ is used to create sagemaker environments.
          environments.
 
      - AWS Glue only + Amazon Redshift Cluster
+
        - Specify the AWS secret ARN that holds the
          credentials to the selected Amazon Redshift cluster. The
          AWS secret must be tagged with the

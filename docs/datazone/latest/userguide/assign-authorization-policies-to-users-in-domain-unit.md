@@ -26,6 +26,7 @@ unit:
    to assign to users/groups and then choose **Add users**.
 4. In the **Add users** pop up window, do one of the
    following:
+
    - Choose **Selected users and groups**, specify users
      and groups to which you want to assign the selected authorization
      policy, and then choose **Add users**.

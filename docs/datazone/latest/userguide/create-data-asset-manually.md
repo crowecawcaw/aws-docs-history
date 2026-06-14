@@ -23,6 +23,7 @@ contributor of that project.
    choose **Create data asset**.
 5. For **Asset details**, configure the following
    settings:
+
    - **Asset type** – The type of asset.
    - **Name** – The name of the asset.
    - **Description** – A description of the

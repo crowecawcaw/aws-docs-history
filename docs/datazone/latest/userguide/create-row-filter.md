@@ -19,6 +19,7 @@ in the row filters. To create a row filter, follow the steps below:
 5. On the asset detail page, go to the **Asset filters** tab and
    then choose **Add asset filter**.
 6. Configure the following fields:
+
    - **Name** - the name of the filter
    - **Description** – the description of the
      filters
@@ -26,6 +27,7 @@ in the row filters. To create a row filter, follow the steps below:
 7. Under filter type, choose **Row filter**.
 8. Under row filter expression, provide one or more expressions for row
    filter.
+
    - Choose **column** from the column from the
      dropdown.
    - Choose **operator** from the operator

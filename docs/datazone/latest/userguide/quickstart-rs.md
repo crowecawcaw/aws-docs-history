@@ -123,6 +123,7 @@ workflow.
     environment**.
 2.  On the **Create environment** page, specify the following and then
     choose **Create environment**.
+
     - **Name** - specify the name for the environment. For this
       walkthrough, you can call it `Default data warehouse environment`.
     - **Description** - specify a description for the
@@ -240,6 +241,7 @@ in this workflow.
     **Add environment**.
 2.  On the **Create environment** page, specify the following and then
     choose **Create environment**.
+
     - **Name** - specify the name for the environment. For this
       walkthrough, you can call it `Default data warehouse environment`.
     - **Description** - specify a description for the

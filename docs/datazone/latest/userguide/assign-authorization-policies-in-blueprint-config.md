@@ -41,6 +41,7 @@ policies to projects and domain unit owners:
    choose **Add projects**.
 5. In the **Add projects** pop up window, you can do one of the
    following:
+
    - Choose the **All projects in a domain unit** option,
      then search for and specify the domain units that contain the projects
      that you want to authorize to create environment profiles with this

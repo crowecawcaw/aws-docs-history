@@ -75,6 +75,7 @@ Amazon DataZone:
 
 - **Dataset node** - this node type includes
   data lineage information about a specific data asset.
+
   - Dataset nodes that include information about AWS Glue or Amazon
     Redshift assets published in the Amazon DataZone catalog are
     auto-generated and include a corresponding AWS Glue or Amazon
@@ -100,6 +101,7 @@ same `sourceIdentifier`. The following are examples of
 `sourceIdentifier` values for different types of nodes:
 
 - For dataset node with respective dataset type:
+
   - Asset: amazon.datazone.asset/<assetId>
   - Listing (published asset):
     amazon.datazone.listing/<listingId>
@@ -113,11 +115,13 @@ same `sourceIdentifier`. The following are examples of
     dataset is used as `sourceIdentifier` of the node.
 
 - For jobs:
+
   - For job nodes imported using open-lineage run events,
     <jobs_namespace>.<job_name> is used as
     sourceIdentifier.
 
 - For job runs:
+
   - For job run nodes imported using open-lineage run events,
     <jobs_namespace>.<job_name>/<run_id> is used as
     sourceIdentifier.
@@ -150,6 +154,7 @@ graph:
   cannot be expanded upstream or downstream.
 - Details pane: Each lineage node has details captured and displayed when
   selected.
+
   - Dataset node has a detail pane to display all the details captured
     for that node for a given timestamp. Every dataset node has 3 tabs,
     namely: Lineage info, Schema, and History tab. The history tab lists
@@ -251,6 +256,7 @@ following procedure.
    set**.
 6. On the **Create parameter set** page, specify the
    following and then choose **Create parameter set**.
+
    - Name for the parameter set.
    - Description for the parameter set.
    - AWS Region where you want to create environments.
@@ -289,6 +295,7 @@ are few ways lineage is automated for this source:
 - Data source configuration - data producers, as they configure data source
   runs for AWS Glue databases, are presented with a view along with Data
   Quality to inform about automated data lineage for that data source.
+
   - The lineage setting can be viewed in the **Data Source
     Definition** tab. This value is not editable by data
     producers.
@@ -306,6 +313,7 @@ are few ways lineage is automated for this source:
 - AWS Glue (v5.0) configuration - while running AWS Glue jobs in AWS
   Glue Studio, data lineage can be configured for the jobs to send lineage
   events directly to Amazon DataZone domain.
+
   1.  Navigate to the AWS Glue console at
       https://console.aws.amazon.com/gluestudio and sign in with your
       account credentials.

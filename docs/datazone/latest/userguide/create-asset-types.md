@@ -41,6 +41,7 @@ steps:
 4. Choose **Asset types** from the left navigation pane, then
    choose **Create asset type**.
 5. Specify the following and then choose **Create**.
+
    - **Name** - the name of the custom asset type
    - **Description** - the description of the custom asset
      type.

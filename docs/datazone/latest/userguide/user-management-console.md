@@ -39,10 +39,12 @@ Amazon DataZone) or activate or deactivate any existing user.
 6. To view an existing IAM user's status, on the **User
    management** page, choose **IAM Users** in the
    user type drop-down menu.
+
    - The **Name** column shows the ARN of the IAM user
      or role.
    - The **Status** column shows the current status of
      the IAM user or role in the domain.
+
      - Assigned means that the IAM user has been assigned to use
        Amazon DataZone.
      - Unassigned means that the IAM user has been unassigned to
@@ -82,10 +84,12 @@ users assigned to the domain, add SSO users, and remove SSO users.
    list of SSO users who have previously authenticated to the data portal. When
    using implicit user assignment, SSO users who have not previously
    authenticated to the data portal will not be listed.
+
    - The **Name** column shows the SSO user’s
      name.
    - The **Status** column shows the current status of
      the SSO user in the domain.
+
      - Assigned means that the SSO user has been explicitly
        assigned to the domain. As a result, the user has access to
        Amazon DataZone. This status is only used when your domain’s
@@ -102,6 +106,7 @@ users assigned to the domain, add SSO users, and remove SSO users.
    users**. This option is unavailable if the domain is set to
    implicit user assignment, which means that all users in the identity pool
    have access to the Amazon DataZone domain.
+
    - On the **Add users** page, search for the aliases
      of the users you want to add. A list will appear below the search
      box with potential matches.
@@ -145,10 +150,12 @@ groups assigned to the domain, add SSO groups, and remove SSO groups.
    management**.
 4. For user type, select **SSO Groups** to view the current
    list of SSO groups.
+
    - The **Name** column shows the SSO group’s
      name.
    - The **Status** column shows the current status of
      the SSO group in the domain.
+
      - **Assigned** means that the SSO group has
        been explicitly assigned to the domain. As a result, all
        users in the group have access to the domain’s data portal
@@ -162,6 +169,7 @@ groups assigned to the domain, add SSO groups, and remove SSO groups.
    groups**. This option is unavailable if the domain is set to
    implicit user assignment, which means that all users in the identity pool
    have access to the Amazon DataZone domain regardless of group membership.
+
    - On the **Add groups** page, search for the
      aliases of the groups you want to add. A list will appear below the
      search box with potential matches.

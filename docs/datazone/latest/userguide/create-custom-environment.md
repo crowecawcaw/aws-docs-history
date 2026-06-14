@@ -12,6 +12,7 @@ blueprint.
    **Create environment**.
 4. On the **Create environment** page, specify the following and
    then choose **Create environment**:
+
    - **Name** - specify the name for the
      environment.
    - **Description** - specify the description for the
@@ -72,6 +73,5 @@ blueprint.
    }`
 
    ```
-
    - **AWS region** - specify an AWS region in which
      you want to create this environment.

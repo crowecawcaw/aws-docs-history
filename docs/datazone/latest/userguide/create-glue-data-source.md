@@ -25,6 +25,7 @@ for and discover your published assets, and request subscriptions to these asset
 4. Choose **Data sources** from the left navigation pane, then
    choose **Create data source**.
 5. Configure the following fields:
+
    - **Name** – The data source name.
    - **Description** – The data source
      description.

@@ -142,6 +142,7 @@ workflow.
 2. On the **Create environment** page, specify the following and then
    choose **Create environment**.
 3. Specify values for the following:
+
    - **Name** - specify the name for the environment. For this
      walkthrough, you can call it `Default data lake environment`.
    - **Description** - specify a description for the
@@ -248,6 +249,7 @@ This section describes the steps of creating an environment for data analysis.
    environment**.
 2. On the **Create environment** page, specify the following and then
    choose **Create environment**.
+
    - **Name** - specify the name for the environment. For this
      walkthrough, you can call it `Default data lake environment`.
    - **Description** - specify a description for the

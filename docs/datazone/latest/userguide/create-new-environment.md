@@ -21,6 +21,7 @@ To create a new environment, complete the following steps.
 3. Choose **Create environment**, specify values for the
    following fields, and then choose **Create
    environment**:
+
    - **Name** – the environment name
    - **Description** – a description of the
      environment

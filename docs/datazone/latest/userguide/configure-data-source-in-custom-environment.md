@@ -12,9 +12,11 @@ environment.
 4. Choose the **Data sources** tab, choose
    **Add**, specify the following, and then choose
    **Add**.
+
    - **Name** - data source name.
    - **Resource** - choose either AWS Glue or Amazon
      Redshift.
+
      - For AWS Glue, specify the resource database.
      - For Amazon Redshift, choose either
        **Cluster** or

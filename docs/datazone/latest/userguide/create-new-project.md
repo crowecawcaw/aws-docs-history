@@ -17,6 +17,7 @@ To create a new project complete the following steps.
 2. In the Amazon DataZone data portal, choose **Create Project**.
 3. Specify values for the following fields, and then choose **Create
    project**:
+
    - **Name** – The project name.
    - **Description** – A description of the
      project.

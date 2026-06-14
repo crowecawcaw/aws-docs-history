@@ -24,6 +24,7 @@ To republish a data product complete the following steps.
 4. Choose the data product that you want to republish, and then choose the
    **Assets** tab.
 5. On the **Assets** tab, do one of the following:
+
    - remove one of the existing assets in the data product by choosing that
      asset, then expanding the action icon and choosing **Remove
      asset**. Confirm the asset removal by choosing

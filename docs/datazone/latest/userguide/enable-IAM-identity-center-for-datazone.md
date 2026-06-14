@@ -21,6 +21,7 @@ Amazon DataZone.
 2. Select **View domains** and choose the domain’s name from the
    list. The name is a hyperlink.
 3. On the detail page for the domain, choose **Edit**.
+
    - Select the checkbox for **Enable users in IAM Identity
      Center**.
    - Choose whether to connect to an organization instance of the IAM
@@ -28,6 +29,7 @@ Amazon DataZone.
      center.
    - Choose between the two user assignment modes. Once your domain is
      updated with your selection, it cannot be changed later.
+
      - With **Implicit user assignment**, any user
        added to your IAM Identity Center directory can access your
        Amazon DataZone domain.

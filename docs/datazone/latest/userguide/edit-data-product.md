@@ -21,6 +21,7 @@ To edit a data product complete the following steps.
    **Data products** filter.
 4. Choose the data product that you want to edit. As part of editing a data
    product, you can do the following:
+
    - Choose **Create readme** to add a readme will help
      users understand this page better.
    - Choose **Add terms** to add glossary terms. Make your

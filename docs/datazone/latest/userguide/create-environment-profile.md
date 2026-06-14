@@ -19,6 +19,7 @@ environments.
 3.  Navigate to the **Environments** tab within the project, then
     choose **Create environment profile**.
 4.  Configure the following fields:
+
     - **Name** – The name for your environment
       profile.
     - **Description** – (Optional) A description for

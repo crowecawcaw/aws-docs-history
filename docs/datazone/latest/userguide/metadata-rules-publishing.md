@@ -22,6 +22,7 @@ enforcement in Amazon DataZone:
    **Add**.
 4. On the **Create required metadata form rule** page, do the
    following and then choose **Add rule**:
+
    - Specify a name for your rule.
    - Under **Action**, choose **Data asset and
      product publishing**.

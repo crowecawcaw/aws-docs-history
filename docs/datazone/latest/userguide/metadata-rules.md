@@ -57,6 +57,7 @@ enforcement in Amazon DataZone:
     subscribe, and then choose **Subscribe**.
 7.  In the **Subscribe** pop up window, provide the following
     information:
+
     - The project that you want to subscribe to the asset.
     - A short justification for your subscription request.
     - Complete Required Metadata - specify the required metadata fields as

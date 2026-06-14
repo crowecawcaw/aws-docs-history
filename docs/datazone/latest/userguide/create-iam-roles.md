@@ -26,6 +26,7 @@ to a user, group, or a role. For more information, see [AWS managed policies for
 1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
 2. In the navigation pane, choose **Policies**.
 3. Choose the following policies to attach to your user, group, or a role.
+
    - In the list of policies, select the check box next to the
      **AmazonDataZoneFullAccess**. You can use the
      **Filter** menu and the search box to filter the list of

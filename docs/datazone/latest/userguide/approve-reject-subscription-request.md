@@ -25,12 +25,14 @@ approve or reject a subscription request.
 5. Review the subscription request and reason for access, and decide whether to
    approve or reject it.
 6. To approve, select between the two options:
+
    - **Full access**: If you choose to approve the
      subscription with full access option, the subscriber will get access to
      all the rows and columns in your data asset.
    - **Approve with row and column filters**: To limit
      access to specific rows and columns of data, you can choose the option
      to approve with row and column filters. For more information, see [Fine-grained access control to data in Amazon DataZone](fine-grained-access-control.md "fine-grained-access-control.md").
+
      - Select **Choose filters**, and then from the
        drop down select one or more available filters you want to apply
        to the subscription.

@@ -34,6 +34,7 @@ Amazon DataZone includes the following four main components:
   between producers and consumers in a self-service manner and to ensure that everyone in your
   organization has access to the right data for the right purpose.
 - Projects and environments
+
   - In Amazon DataZone projects are business use case–based groupings of people, assets (data),
     and tools used to simplify access to the AWS analytics. Projects provide areas where
     project members can collaborate, exchange data, and share assets. By default, projects are
@@ -73,6 +74,7 @@ based grouping of teams, tools, and data.
   Amazon DataZone catalog. Project members consume assets from the Amazon DataZone catalog and produce new
   assets using one or more analytical workflows. Projects support the following activities within
   the data portal:
+
   - Project owners can add members with owner, contributor, consumer, steward, and viewer
     permissions
   - Project members can be SSO users, SSO groups, and IAM users
@@ -127,6 +129,7 @@ you can add assets to the project inventory in the following ways:
   database tables or data warehouses as inventory into Amazon DataZone.
 - Using APIs, you can create assets from the available system asset types (AWS Glue,
   Amazon Redshift, Amazon S3 objects) or from your custom asset types.
+
   - Create custom asset types in a project inventory by using the Amazon DataZone APIs. The
     custom asset types can include ML models, dashboards, on-premises tables, etc.
   - Create assets from these custom asset types using Amazon DataZone APIs.

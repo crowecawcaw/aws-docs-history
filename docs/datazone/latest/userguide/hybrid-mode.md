@@ -35,6 +35,7 @@ management console.
 9. Optionally, you can choose to exclude certain Amazon S3 locations if you
    do not want Amazon DataZone to automatically register them in hybrid mode. For
    this, complete the following steps:
+
    - Choose the toggle button to exclude specified Amazon S3
      locations.
    - Provide the URI of the Amazon S3 bucket you want to exclude.
@@ -102,6 +103,7 @@ following:
    policy** tab, and then do one of the following to add your
    custom role or the Lake Formation service-linked role as a KMS key
    user:
+
    - If the default view is showing (with Key administrators, Key
      deletion, Key users, and Other AWS accounts sections) – under
      the **Key users** section, add the

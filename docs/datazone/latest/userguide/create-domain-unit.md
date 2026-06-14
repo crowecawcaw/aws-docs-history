@@ -16,6 +16,7 @@ entities under specific business units and teams. For more information, see [Ama
 4. Choose **Create domain unit**.
 5. Specify the following and then choose **Create domain
    unit**:
+
    - Under **Domain unit details**, for
      **Name**, specify the domain unit name.
    - Under **Domain unit details**, for

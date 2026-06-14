@@ -89,6 +89,7 @@ Complete the following to accept association with an Amazon DataZone domain.
    **Review request**.
 3. Choose whether to enable the default data lake and/or data warehouse environment
    blueprints by selecting neither, both, or one of the boxes. You can do this later.
+
    - The data lake environment blueprint enables domain users to create and manage
      AWS Glue, Amazon S3, and Amazon Athena resources to publish and consume from a data
      lake.
@@ -97,6 +98,7 @@ Complete the following to accept association with an Amazon DataZone domain.
 
 4. If you choose to select one or both of the default environment blueprints, then
    configure the following permissions and resources.
+
    - The **Manage access IAM role** provides permissions to Amazon DataZone
      to enable domain users to ingest and manage access to tables, like AWS Glue and
      Amazon Redshift. You can choose to have Amazon DataZone create and use a new IAM role, or
@@ -228,6 +230,7 @@ blueprints to ensure stronger governance.
    DefaultDataWareshouse blueprint to open the blueprint details page.
 4. Under the **Parameter sets** tab on the blueprint details page,
    choose **Create parameter set**.
+
    - Provide a Name for the parameter set.
    - Optionally, provide a description for the parameter set.
    - Select a region
@@ -236,6 +239,7 @@ blueprints to ensure stronger governance.
      Redshift cluster or the Amazon Redshift Serverless workgroup. The AWS secret must be
      tagged with the `AmazonDataZoneDomain : [Domain_ID]` tag in order to be
      eligible for use within a parameter set.
+
      - If you do not have an existing AWS secret, you can also create a new secret
        by choosing **Create New AWS Secret**. This opens a dialog box
        where you can provide the name of the secret, username, and password. Once you
@@ -268,6 +272,7 @@ create sagemaker environments.
    blueprint to open the blueprint's details page.
 4. Under the **Parameter sets** tab on the blueprint details page,
    choose **Create parameter set**, and then specify the following:
+
    - Provide a **Name** for the parameter set.
    - Optionally, provide a **Description** for the parameter
      set.
@@ -277,6 +282,7 @@ create sagemaker environments.
    - Specify an AWS KMS key for data encryption. You can choose an existing key or
      create a new key.
    - Under **Environment parameters**, specify the following:
+
      - VPC ID - the ID that you're using for the VPC of the Amazon SageMaker
        environment. You can specify an existing or create a new VPC.
      - Subnets - one or more IDs for a range of IP addresses for specific resources
@@ -286,9 +292,11 @@ create sagemaker environments.
      - Security group - the security group to use when configuring VPC and subnets.
 
    - Under Data source parameters, choose one of the following:
+
      - AWS Glue only
      - AWS Glue + Amazon Redshift Serverless. If you choose this option, specify
        the following:
+
        - Specify the AWS secret ARN that holds the credentials to the selected
          Amazon Redshift cluster. The AWS secret must be tagged with the
          `AmazonDataZoneDomain : [Domain_ID]` tag in order to be eligible
@@ -307,6 +315,7 @@ create sagemaker environments.
          you want to use when creating environments.
 
      - AWS Glue only + Amazon Redshift Cluster
+
        - Specify the AWS secret ARN that holds the credentials to the selected
          Amazon Redshift cluster. The AWS secret must be tagged with the
          `AmazonDataZoneDomain : [Domain_ID]` tag in order to be eligible

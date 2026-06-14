@@ -74,6 +74,7 @@ For more information, see [AWS Key Management Service](../../../kms/latest/devel
 - If you create a new domain in Amazon DataZone with AWS IAM Identity Center users login
   activated, or if you activate it for an existing domain in Amazon DataZone,
   you must have permissions to the following:
+
   - organizations:DescribeOrganization
   - organizations:ListDelegatedAdministrators
   - sso:CreateInstance
@@ -97,5 +98,6 @@ For more information, see [AWS Key Management Service](../../../kms/latest/devel
 - If you want to create required resource for SageMaker Unified Studio
   network setup, you must have permissions to the following and attach
   AmazonVpcFullAccess policy:
+
   - iam:PassRole
   - cloudformation:CreateStack

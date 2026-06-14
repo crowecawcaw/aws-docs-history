@@ -14,6 +14,7 @@ To edit a row or a column filter, follow the steps below:
 4. On the asset detail page, go to **Asset filters** tab and
    then open the filter you want to edit.
 5. You can edit the following field:
+
    - **Description** – the description of the
      filters
 

@@ -19,6 +19,7 @@ that project.
    subscribe, and then choose **Subscribe**.
 3. In the **Subscribe** pop up window, provide the following
    information:
+
    - The project that you want to subscribe to the asset.
    - A short justification for your subscription request.
 
