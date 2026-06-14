@@ -65,8 +65,8 @@ jobs](#glossary-member-who-can-run-queries-jobs "#glossary-member-who-can-run-qu
 A collaboration can have only one [member who can receive
 results](#glossary-member-who-can-receive-results "#glossary-member-who-can-receive-results").
 
-A collaboration can have only one [member paying for query compute
-costs](#glossary-member-paying-for-query-compute "#glossary-member-paying-for-query-compute") or one [member paying for query and job
+A collaboration can have one or more [members paying for query compute
+costs](#glossary-member-paying-for-query-compute "#glossary-member-paying-for-query-compute") or [members paying for query and job
 compute costs](#glossary-member-paying-for-query-job-compute "#glossary-member-paying-for-query-job-compute").
 
 All members can see the list of invited participants in the collaboration before they join
@@ -253,28 +253,28 @@ There can be more than one member who can receive results in a collaboration.
 
 ## Member paying for query compute costs
 
-The member who is responsible for paying for query compute costs.
+A member who is responsible for paying for query compute costs.
 
-There is only one member who is responsible for paying for query compute costs per
-collaboration, and that member is immutable.
+One or more members can be designated as payer candidates for query compute costs in a
+collaboration. When running a query, the member who initiates the query selects which payer
+candidate pays for the compute costs.
 
-If the collaboration creator hasn't specified anyone as the member paying for query
-compute costs, then the [member who can query](#glossary-member-who-can-query "#glossary-member-who-can-query") is the default
-payer.
+The collaboration creator can update payer configurations after the collaboration is
+created by submitting a change request.
 
 The member paying for query compute costs receives a bill for the queries that have been
 run in the collaboration.
 
 ## Member paying for query and job compute costs
 
-The member who is responsible for paying for query and job compute costs.
+A member who is responsible for paying for query and job compute costs.
 
-There is only one member who is responsible for paying for query and job compute costs per
-collaboration, and that member is immutable.
+One or more members can be designated as payer candidates for query and job compute costs
+in a collaboration. When running a query or job, the member who initiates selects which payer
+candidate pays for the compute costs.
 
-If the collaboration creator hasn't specified anyone as the member paying for query and
-job compute costs, then the [member who can query](#glossary-member-who-can-query "#glossary-member-who-can-query") is the default
-payer.
+The collaboration creator can update payer configurations after the collaboration is
+created by submitting a change request.
 
 The member paying for query and job compute costs receives a bill for the queries that
 have been run in the collaboration.

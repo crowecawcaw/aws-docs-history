@@ -14,6 +14,7 @@
 5. Choose **Edit members**.
 6. Choose **Add another member** and enter the following
    information:
+
    - **Member display name**
    - **Member AWS account ID**
    - Specify whether they **can receive results**
@@ -21,6 +22,7 @@
 7. Choose **Save changes**.
 8. In the confirmation modal, verify that the information is correct, and choose
    **Submit change request**.
+
    - If the change request requires other members' approval, all existing members
      must approve the change request before the new member is added. For more
      information on change requests, see [Change requests in AWS Clean Rooms](change-requests.md "change-requests.md").

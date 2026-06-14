@@ -16,6 +16,7 @@ lookalike model.
    **Configured lookalike model details**, enter a
    **Name** and optional
    **Description**.
+
    1. Choose the **Lookalike model** that you want to
       configure from the dropdown list.
 

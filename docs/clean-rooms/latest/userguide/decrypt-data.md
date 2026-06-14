@@ -20,6 +20,7 @@ collaboration ID that was used to encrypt the data.
    C3R encryption client](view-commands.md "view-commands.md").
 2. (Optional) Navigate to the desired directory and run `ls`
    (macOS) or `dir` (Windows).
+
    1. Verify that the c3r-cli.jar file and encrypted query results data file
       are in the desired directory.
 

@@ -18,6 +18,7 @@ settings in the AWS Clean Rooms console.
     defaults**, choose **Edit**.
 5.  On the **Edit results settings defaults** page, modify any of the
     following, as needed:
+
     1. Under **Query results**, modify the **Results destination
        in Amazon S3**, the **Result format**, or the **Result
        files**.

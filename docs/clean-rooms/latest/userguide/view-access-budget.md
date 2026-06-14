@@ -10,6 +10,7 @@ table details page.
 3. Choose the collaboration.
 4. Choose the **Tables** tab.
 5. Do one of the following:
+
    - Under the **Remaining data access budget** column, select the
      budget to view the details.
    - Choose a table, and on the table details page, scroll down to view the

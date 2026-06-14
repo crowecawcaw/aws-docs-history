@@ -15,6 +15,7 @@ created.
 7. Choose **Edit**.
 8. On the **Edit ID namespace associations** page, edit any of the
    following:
+
    1. For **Association details**, update the **Name** or
       the **Description**.
    2. (Optional) For **Advanced ID mapping table configurations**, modify the

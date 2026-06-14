@@ -14,6 +14,7 @@ information such as the name, metrics to share, or output Amazon S3 location.
    lookalike model and select **Edit**.
 4. On the **Edit** page, for **Configured lookalike
    model association details**:
+
    1. Update the **Name** and optional
       **Description**.
    2. Choose the **Lookalike model** that you want

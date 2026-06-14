@@ -199,6 +199,7 @@ based on your goal.
 | Allow one or more columns from the \*_Specify allowed<br>columns_<br>• dropdown list | **Custom list**    |
 
 8. For **Configured table details**,
+
    1. Enter a **Name** for the configured table.
 
    You can use the default name or rename this table. 2. Enter a **Description** of the table.

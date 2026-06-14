@@ -22,6 +22,7 @@ Console
    collaboration](create-collaboration.md "create-collaboration.md")
 2. Assign the following **Member abilities** for
    **Analysis using queries and jobs**:
+
    - Assign **Run queries** to the member
      who will start model training.
    - Assign **Receive results from
@@ -31,6 +32,7 @@ Console
 3. Assign the following **Member abilities** for
    **ML modeling using purpose-built
    workflows**:
+
    - Assign **Receive output from trained
      models** to the member who will receive
      trained model results, including model artifacts and

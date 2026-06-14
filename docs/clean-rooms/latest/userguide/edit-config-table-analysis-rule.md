@@ -11,13 +11,16 @@
    of analysis rule you chose for the configured table.)
 5. Choose **Edit**.
 6. On the **Edit analysis rule** page, you can:
+
    - Modify the **Analysis rule definition** by:
+
      - Modifying the JSON editor.
      - Choosing **Import from file** to upload a new analysis rule
        definition.
 
    - Preview what members will see in a collaboration by selecting from the following
      options:
+
      - **Table view**
      - **JSON**
      - **Example query**

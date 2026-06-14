@@ -17,6 +17,7 @@ docker pull $ecr_registry_endpoint/$base_image`
 - When authoring the model locally, ensure the following so that you can
   test your model locally, on a development instance, on SageMaker AI Training in your
   AWS account, and on Clean Rooms ML.
+
   - We recommend writing a training script that accesses useful
     properties about the training environment through various
     environment variables. Clean Rooms ML uses the following arguments to
@@ -37,7 +38,6 @@ based on its corresponding`channel_name`provided in the`CreateTrainedModel` requ
   parser.add_argument('--train_dir', type=str, default=os.environ.get('SM_CHANNEL_TRAIN', "/opt/ml/input/data/train"))
   parser.add_argument('--train_file_format', type=str, default=os.environ.get('FILE_FORMAT', "csv"))`
   ```
-
   - Ensure that you are able to generate a synthetic or test dataset
     based on the schema of the collaborators that will be used in your
     model code.

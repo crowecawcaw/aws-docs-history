@@ -46,6 +46,7 @@ Console
    input channel**.
 6. On the **Create ML input channel** page, for
    **ML input channel details**, do the following:
+
    1. For **Name**, enter a unique name for
       your channel.
    2. (Optional) For **Description**, enter a
@@ -58,6 +59,7 @@ Console
 
 7. For **Dataset**, choose a method to generate the
    training dataset:
+
    - Choose **SQL query** to use the results
      of a SQL query as the training dataset.
 
@@ -97,6 +99,7 @@ Console
       Specify the **Number of workers** to use.
       The default worker number is **16**. To specify **Spark
       properties**:
+
       1. Expand **Spark properties**.
       2. Choose **Add Spark properties**.
       3. On the **Spark properties** dialog box, choose a

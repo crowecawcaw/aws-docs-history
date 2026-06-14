@@ -14,6 +14,7 @@ Before you create a PySpark analysis template, you must have:
 - Access to at least one configured table in the active collaboration
 - Permissions to create analysis templates
 - A Python user script and a virtual environment created and stored in S3
+
   - S3 bucket has versioning enabled. For more information, see [Using
     versioning in S3 buckets](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md")
   - S3 bucket can calculate SHA-256 checksums for uploaded artifacts. For more
@@ -46,12 +47,14 @@ see the [AWS Clean Rooms API Reference](../apireference/Welcome.md "../apirefere
 5. Choose **Create analysis template**.
 6. On the **Create analysis template** page, for
    **Details**,
+
    1. Enter a **Name** for the analysis template.
    2. (Optional) Enter a **Description**.
    3. For **Format**, choose the **PySpark**
       option.
 
 7. For **Definition**,
+
    1. Review the **Prerequisites** and ensure each prerequisite is
       met before continuing.
    2. For **Entry point file**, enter the S3 bucket or choose
@@ -60,6 +63,7 @@ see the [AWS Clean Rooms API Reference](../apireference/Welcome.md "../apirefere
       choose **Browse S3**.
 
 8. For **Parameters – optional**, if you want to add parameters to make your analysis template reusable:
+
    1. Choose **Add parameter**.
    2. Enter a **Parameter name**.
 
@@ -95,6 +99,7 @@ You can define up to 50 parameters per PySpark analysis template. Each parameter
 
 10. For **Error message configuration**, choose one of the
     following:
+
     - **Basic error messages** – returns basic error messages
       without exposing underlying data. Recommended for production workloads.
     - **Detailed error messages** – returns detailed error

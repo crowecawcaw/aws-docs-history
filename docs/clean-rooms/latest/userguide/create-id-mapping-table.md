@@ -40,6 +40,7 @@ updated, or deleted records in the workflow by turning on incremental processing
 4. Choose **Create ID mapping table**.
 5. Under **ID mapping settings**, do one of the
    following:
+
    - To create a new workflow, keep **Create a new ID mapping
      workflow** selected.
    - To use an existing workflow, clear the checkbox and select a workflow
@@ -47,6 +48,7 @@ updated, or deleted records in the workflow by turning on incremental processing
 
 6. Under **Identity data**, view or configure the source and
    target.
+
    - For a single ID namespace pair: Review the pre-selected
      **Source** and **Target**.
    - For multiple ID namespaces: Select the **Source** and
@@ -96,6 +98,7 @@ mapping workflow on the ID mapping table. 8. Under **Rule parameters**, configur
     	 namespaces must be compatible.
 
 9. For **ID mapping details**, configure the following:
+
    1. Enter an **ID mapping table name** or keep the
       default name.
    2. (Optional) Enter a **Description** of the ID mapping
@@ -104,6 +107,7 @@ mapping workflow on the ID mapping table. 8. Under **Rule parameters**, configur
    The description helps with writing queries.
 
 10. For **AWS Clean Rooms access**, choose one:
+
     - **Allow AWS Clean Rooms to add and manage permission policy**
       – Creates a service role automatically.
     - **Add and manage permissions manually** –
@@ -163,7 +167,9 @@ This section is only visible if you're creating a new ID mapping table.
     	 policies.
 
 12. (Optional) Under **Additional settings**, configure:
+
     1.  **ID mapping table settings**
+
         - To enable custom encryption, choose **Customize
           encryption settings** and enter an AWS KMS
           key.
@@ -182,6 +188,7 @@ This section is only visible if you're creating a new ID mapping table.
 
     2.  **ID mapping workflow settings** (new workflows
         only):
+
         - To use different names, clear **Keep the same ID
           mapping table name and description** and enter new
           values.
@@ -218,6 +225,7 @@ another using either maintained or derived RampIDs.
 4. Choose **Create ID mapping table**.
 5. Under **ID mapping settings**, do one of the
    following:
+
    - To create a new workflow, keep **Create a new ID mapping
      workflow** selected.
    - To use an existing workflow, clear the checkbox and select a workflow
@@ -225,6 +233,7 @@ another using either maintained or derived RampIDs.
 
 6. Under **Identity data**, view or configure the source and
    target.
+
    - For a single ID namespace pair: Review the pre-selected
      **Source** and **Target**.
    - For multiple ID namespaces: Select the **Source** and
@@ -234,11 +243,13 @@ another using either maintained or derived RampIDs.
    workflow method is **LiveRamp transcoding**.
 8. For **LiveRamp conﬁgurations**, do one of the
    following:
+
    - Enter the **LiveRamp ID manager ARN** and
      **LiveRamp secret manager ARN**.
    - Choose **Import from existing workflow**.
 
 9. For **ID mapping details**, configure the following:
+
    1. Enter an **ID mapping table name** or keep the
       default name.
    2. (Optional) Enter a **Description** of the ID mapping
@@ -247,6 +258,7 @@ another using either maintained or derived RampIDs.
    The description helps with writing queries.
 
 10. For **AWS Clean Rooms access**, choose one:
+
     - **Allow AWS Clean Rooms to add and manage permission policy**
       – Creates a service role automatically.
     - **Add and manage permissions manually** –
@@ -306,7 +318,9 @@ This section is only visible if you're creating a new ID mapping table.
     	 policies.
 
 12. (Optional) Under **Additional settings** configure:
+
     1.  **ID mapping table settings**
+
         - To enable custom encryption, choose **Customize
           encryption settings** and enter an AWS KMS
           key.
@@ -325,6 +339,7 @@ This section is only visible if you're creating a new ID mapping table.
 
     2.  **ID mapping workflow settings** (new workflows
         only):
+
         - To use different names, clear **Keep the same ID
           mapping table name and description** and enter new
           values.

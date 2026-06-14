@@ -18,6 +18,7 @@ You must create a default database in your AWS Glue Data Catalog or include the
    **Lookalike model details**, enter a
    **Name** and optional
    **Description**.
+
    1. Choose the **Training dataset** that you want to
       model from the dropdown list.
 

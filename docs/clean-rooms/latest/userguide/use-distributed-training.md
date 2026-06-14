@@ -34,12 +34,14 @@ Console
     algorithm
 7.  For **Trained model details**, enter the
     following:
+
     1. For **Name**, enter a unique name for
        the model in the collaboration.
     2. (Optional) For **Description**, enter
        a description of the trained model.
     3. For **Training data input mode**,
        choose one of the following:
+
        - Select **File** if you have a
          smaller dataset that can fit on the ML storage
          volume and you prefer traditional file system
@@ -57,6 +59,7 @@ Console
 
 8.  For **ML input channel details**, do the
     following:
+
     1. For **ML input channel**, specify the
        ML input channel that provides data to the model
        algorithm.
@@ -103,6 +106,7 @@ Console
 13. For **EC2 Resource configuration**, specify
     information about the compute resources that are used for model
     training.
+
     1. For **Instance type**, choose the
        type of instance you want to run.
 
@@ -113,7 +117,6 @@ Console
         * ml.m5.2xlarge
         * ml.g5.12xlarge
         * ml.g5.24xlarge
-
     2. For **Instance count**, enter the
        number of instances.
     3. For **Volume size in GB**, enter the

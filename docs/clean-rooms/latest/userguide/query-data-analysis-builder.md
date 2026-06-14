@@ -97,6 +97,7 @@ If you want to see all of the aggregation metrics, skip to step 9.
      description to help identify the query in the list of queries.
 
 6. Expand **Preview SQL code**.
+
    1. View the SQL code that's generated from the analysis builder.
    2. To copy the SQL code, choose **Copy**.
    3. To edit the SQL code, choose **Edit in SQL code
@@ -168,6 +169,7 @@ analysis rule.
 | 1. For **Choose metrics**, review the aggregate<br>metrics that have been preselected by default and remove any metric if<br>needed.<br>2. For **Match records**, choose one or more<br>records.<br>NoteWhen using the analysis builder, you can match only on a single<br>pair of columns.<br>3. (Optional) For **Add segments – optional**, choose<br>one or more parameters.<br>Note**Add segments – optional\*<br>• is only displayed if<br>dimensions are specified for the table.<br>4. (Optional) For **Add filters – optional**, choose<br>**Add filter**, and then choose a parameter,<br>operator, and value.<br>To add more filters, choose **Add another filter**.<br>To remove a filter, choose **Remove**.<br>NoteORDER BY is not supported for aggregation<br>queries.Only the AND operator is supported in<br>filters.<br>5. (Optional) For **Add description – optional\*\*,<br>enter a description to help identify the query in the list of recent<br>queries. | 1. For **Choose attributes**, review the list<br>attributes that have been preselected by default and remove any metric<br>if needed.<br>2. For **Match records**, choose one or more<br>records.<br>NoteWhen using the analysis builder, you can match only on a single<br>pair of columns.<br>3. (Optional) For **Add filters – optional**, choose<br>**Add filter**, and then choose a parameter,<br>operator, and value.<br>To add more filters, choose **Add another filter**.<br>To remove a filter, choose **Remove**.<br>NoteLIMIT is not supported for list queries.Only the AND operator is supported in<br>filters.<br>4. (Optional) For **Add description – optional**,<br>enter a description to help identify the query in the list of recent<br>queries. |
 
 6. Expand **Preview SQL code**.
+
    1. View the SQL code that's generated from the analysis builder.
    2. To copy the SQL code, choose **Copy**.
    3. To edit the SQL code, choose **Edit in SQL code

@@ -50,6 +50,7 @@ Consider the following limitations before you use PySpark in AWS Clean Rooms.
 **Unsupported features**
 
 - **Data management**
+
   - Iceberg table formats
   - LakeFormation managed tables
   - Resilient distributed datasets (RDD)
@@ -57,16 +58,19 @@ Consider the following limitations before you use PySpark in AWS Clean Rooms.
   - Access control for nested columns
 
 - **Custom functions and extensions**
+
   - User-defined table functions (UDTFs)
   - HiveUDFs
   - Custom classes in user-defined functions
   - Custom data sources
   - Additional JAR files for:
+
     - Spark extensions
     - Connectors
     - Metastore configurations
 
 - **Monitoring and analysis**
+
   - Spark logging
   - Spark UI
   - `ANALYZE TABLE` commands

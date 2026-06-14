@@ -13,6 +13,7 @@ prerequisites:
   Version 2_.
 - You have Java Runtime Environment (JRE) 11 or later
   installed on your machine.
+
   - The recommended Java Runtime Environment, Amazon Corretto 11 or higher,
     can be downloaded from [https://aws.amazon.com/corretto](https://aws.amazon.com/corretto "https://aws.amazon.com/corretto").
   - The Java Development Kit (JDK) includes a

@@ -17,6 +17,7 @@ docker pull $ecr_registry_endpoint/$base_image`
 - When authoring the model locally, ensure the following so that you can
   test your model locally, on a development instance, on SageMaker AI Batch Transform
   in your AWS account, and on Clean Rooms ML.
+
   - Clean Rooms ML makes your model artifacts from inference available for
     use by your inference code via the `/opt/ml/model`
     directory in the docker container.

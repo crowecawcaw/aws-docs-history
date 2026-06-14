@@ -29,6 +29,7 @@ API Reference](../apireference/Welcome.md "../apireference/Welcome.md").
 5. Choose **Create analysis template**.
 6. On the **Create analysis template** page, for
    **Details**,
+
    1. Enter a **Name** for the analysis template.
    2. (Optional) Enter a **Description**.
    3. For **Format**, leave the **SQL** option
@@ -37,6 +38,7 @@ API Reference](../apireference/Welcome.md "../apireference/Welcome.md").
 7. For **Tables**, view the configured tables associated with the
    collaboration.
 8. For **Definition**,
+
    1. Enter the definition for the analysis template.
    2. Choose **Import from** to import a definition.
    3. (_Optional_) Specify a parameter in the SQL

@@ -52,6 +52,7 @@ There are two ways to create this service role.
   `iam:CreatePolicy` and `iam:AttachRolePolicy`
   permissions or want to create the IAM roles manually, do one of the
   following:
+
   - Use the following procedure to create a service role using custom
     trust policies.
   - Ask your administrator to create the service role using the
@@ -351,6 +352,7 @@ There are two ways to create this service role:
   `iam:CreatePolicy` and `iam:AttachRolePolicy`
   permissions or want to create the IAM roles manually, do one of the
   following:
+
   - Use the following procedure to create a service role using custom
     trust policies.
   - Ask your administrator to create the service role using the
@@ -593,6 +595,7 @@ JSON
 
 4. Replace each `placeholder` with your own
    information:
+
    - `s3Path` – The S3 bucket location
      of your code.
    - `s3BucketOwnerAccountId` – The
@@ -728,6 +731,7 @@ JSON
 
 4. Replace each `placeholder` with your own
    information:
+
    - `region` – The name of the
      AWS Region. For example, `us-east-1`.
    - `jobRunnerAccountId` – The
@@ -782,6 +786,7 @@ There are two ways to create this service role:
   `iam:CreatePolicy` and `iam:AttachRolePolicy`
   permissions or want to create the IAM roles manually, do one of the
   following:
+
   - Use the following procedure to create a service role using custom
     trust policies.
   - Ask your administrator to create the service role using the
@@ -898,6 +903,7 @@ JSON
 
 4. Replace each `placeholder` with your own
    information:
+
    - `region` – The name of the
      AWS Region. For example, `us-east-1`.
    - `a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa`

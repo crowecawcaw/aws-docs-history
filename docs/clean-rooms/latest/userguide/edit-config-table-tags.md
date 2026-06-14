@@ -13,6 +13,7 @@ tab.
    section.
 5. Choose **Manage tags**.
 6. On the **Manage tags** page, you can do the following:
+
    - To remove a tag, choose **Remove**.
    - To add a tag, choose **Add new tag**.
    - To save your changes, choose **Save changes**.

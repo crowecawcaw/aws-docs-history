@@ -27,6 +27,7 @@ Consider the following when using AWS Clean Rooms with Iceberg tables:
   update partitions in the table definition. Iceberg partitions appear as regular columns in the
   AWS Clean Rooms table schema and not separately as a partition key in the configured table schema.
 - **Limitations**
+
   - **New Iceberg tables only**
 
   Apache Iceberg tables converted from Apache Parquet tables

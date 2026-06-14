@@ -198,6 +198,7 @@ The following scalar functions are supported:
   TRIM,
   RTRIM,
   SUBSTRING
+
   - For RTRIM, custom character sets to trim aren't allowed.
 
 - Conditional expressions – COALESCE

@@ -38,6 +38,7 @@ new one.
    **Configured model algorithm**.
 8. For **Trained model export privacy
    configurations**,
+
    1. To export model files, select the **Model
       files** checkbox.
    2. To export output files, select the **Output
@@ -48,6 +49,7 @@ new one.
 9. (Optional) If you want to send either full error logs or shorter
    error summaries to members, under **Trained model inference
    job privacy configuration**,
+
    1. Under **Full logs**, select one or more
       **Account IDs** from the dropdown
       list.
@@ -62,6 +64,7 @@ new one.
    5. (Optional) Select one or more **Entities to
       redact** to specify which entities will be
       redacted from the error log or error summaries.
+
       - **PII** – redact
         Personally Identifiable Information
       - **Numbers** – redact

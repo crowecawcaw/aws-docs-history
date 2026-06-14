@@ -15,6 +15,7 @@ After the analysis template and approved, it can be used in a job in AWS Clean R
 When you bring your analysis code into a collaboration, be aware of the following:
 
 - AWS Clean Rooms doesn't validate or guarantee the behavior of the analysis code.
+
   - If you need to ensure certain behavior, review the code of your collaboration
     partner directly or work with a trusted third-party auditor to review it.
 
@@ -50,6 +51,7 @@ the job logs.
 
 - Linux/Unix operating system or Windows Subsystem for Linux (WSL)
 - User script file you want to hash
+
   - Request that the analysis template creator share the file through a secure
     channel.
 

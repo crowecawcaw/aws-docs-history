@@ -16,6 +16,7 @@ collaboration.
    model**.
 5. On the **Associate configured lookalike model** page, for
    **Configured lookalike model association details**:
+
    1. Enter a **Name** for the associated configured
       audience model.
    2. Enter a **Description** of the table.

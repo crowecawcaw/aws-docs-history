@@ -13,6 +13,7 @@ When creating a template with synthetic data, you must:
 - Classify output schema columns as numerical or categorical
 - Customize synthetic data based on organizational needs
 - Adjust privacy settings:
+
   - Set privacy level (epsilon)
   - Configure privacy threshold
 

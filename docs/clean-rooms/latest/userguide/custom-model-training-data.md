@@ -31,6 +31,7 @@ Console
    table. A custom analysis rule limits access to your data. You can
    either allow a specific set of pre-authorized queries on your data
    or allow a specific set of accounts to query your data.
+
    1. For **Analysis rule type**, choose
       **Custom** and for **Creation
       method**, choose **Guided

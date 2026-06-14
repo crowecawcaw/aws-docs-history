@@ -8,6 +8,7 @@ synthetic data generation. Here are the high-level steps to generate a synthetic
 dataset and train a custom machine learning model:
 
 1. A collaboration member creates an analysis template that includes:
+
    - The SQL needed to define the dataset to be synthesized.
    - Privacy-related configurations used to ensure the synthetic data
      meets data providers’ compliance requirements.

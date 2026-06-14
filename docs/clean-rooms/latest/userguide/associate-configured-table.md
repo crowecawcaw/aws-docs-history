@@ -47,6 +47,7 @@ To associate a configured table, you must complete the following prerequisites:
 
 - An AWS Glue table that points to an Amazon S3 folder location (not a single file)
 - For encrypted AWS Glue tables:
+
   - A service role with permissions to use AWS KMS keys for decrypting AWS Glue
     tables
   - For AWS KMS-encrypted Amazon S3 datasets: The service role must also have permissions
@@ -66,7 +67,9 @@ To verify your AWS Glue table location:
 
 1. Sign in to the AWS Management Console and open the AWS Clean Rooms console at [https://console.aws.amazon.com/cleanrooms](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home").
 2. Choose the method to associate your table:
+
    1. From the configured table detail page:
+
       1. In the left navigation pane, choose **Tables**.
       2. Choose the configured table.
       3. On the configured table detail page, choose **Associate to
@@ -75,6 +78,7 @@ To verify your AWS Glue table location:
          choose the **Collaboration** from the dropdown list.
 
    2. From the collaboration detail page:
+
       1. In the left navigation pane, choose
          **Collaborations**.
       2. Choose the collaboration.
@@ -82,6 +86,7 @@ To verify your AWS Glue table location:
          table**.
 
 3. On the **Associate table** page, do one of the following:
+
    - Choose an existing configured table – Choose the **Configured
      table name** that you want to associate with the collaboration from the
      dropdown list.
@@ -91,6 +96,7 @@ To verify your AWS Glue table location:
      **View schema and analysis rule**.
 
 4. For **Table association details**,
+
    1. Enter a **Name** for the associated table.
 
    You can use the default name or rename this table. 2. (Optional) Enter a **Description** of the table.
@@ -128,6 +134,7 @@ service role has IAM and, if needed, Lake Formation permissions to the dataset.
 7. Choose **Next**.
 8. On the **Configure collaboration analysis rule** page, choose one
    of the following:
+
    - **Yes, create a collaboration analysis rule now** –
      Associates your table with this collaboration and creates a collaboration analysis
      rule
@@ -141,6 +148,7 @@ service role has IAM and, if needed, Lake Formation permissions to the dataset.
 10. Choose **Next**.
 11. On the **Add data access budget** page, for **Data access
     budget configuration**, choose one of the following:
+
     - **Yes, add a data access budget now** – Associates your
       table with this collaboration and adds a data access budget. You can select either a
       period budget, a lifetime budget, or both.

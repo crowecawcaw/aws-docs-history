@@ -9,13 +9,16 @@ AWS Clean Rooms.
 When you bring your analysis code into a collaboration, be aware of the following:
 
 - AWS Clean Rooms does not validate or guarantee the behavior of the analysis code.
+
   - If you need to ensure certain behavior, review the code of your collaboration
     partner directly or work with a trusted third-party auditor to review it.
 
 - In the shared security model:
+
   - You (the customer) are responsible for the security of the code running in the
     environment.
   - AWS Clean Rooms is responsible for the security of the environment, ensuring that
+
     - only the approved code runs
     - only specified configured tables are accessible
     - the only output destination is the result receiver's S3 bucket.

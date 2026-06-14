@@ -31,6 +31,7 @@ In this procedure, the [member](glossary.md#glossary-member "glossary.md#glossar
 4.  For **Data source**, under **AWS data
     sources**, choose **Amazon Athena**.
 5.  Under **Amazon Athena table**:
+
     1. Select the **Region** where the Amazon Athena table is
        hosted.
 
@@ -52,7 +53,6 @@ In this procedure, the [member](glossary.md#glossary-member "glossary.md#glossar
 
         * **AWS Glue Data Catalog** – The default catalog for tables in AWS Glue.
         * **Federated catalog** – Available if you've configured AWS Glue Catalog Federation to connect to remote Apache Iceberg REST catalogs. For more information, see [Catalog federation](../../../lake-formation/latest/dg/catalog-federation.md "../../../lake-formation/latest/dg/catalog-federation.md") in the *AWS Lake Formation Developer Guide*.
-
     3. Choose the **Database** from the dropdown
        list.
     4. Choose the **Table** that you want to configure from
@@ -66,6 +66,7 @@ following:
      schema.
 
 6. For **Amazon Athena configurations**,
+
    1. Choose a **Workgroup** from the dropdown list.
    2. For **S3 output location**, choose a recommended
       action, based on one of the following scenarios.
@@ -85,6 +86,7 @@ following:
 | Allow one or more columns from the \*_Specify allowed<br>columns_<br>• dropdown list | **Custom list**    |
 
 8. For **Configured table details**,
+
    1. Enter a **Name** for the configured table.
 
    You can use the default name or rename this table. 2. Enter a **Description** of the table.

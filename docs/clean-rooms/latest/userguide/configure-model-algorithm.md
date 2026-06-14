@@ -25,6 +25,7 @@ Console
    **Description**.
 5. If you want to perform model training, for **Training
    image ECR container details**,
+
    1. Select the **Specify training image URI**
       checkbox.
    2. Select the **Repository** that has the
@@ -44,6 +45,7 @@ Console
    logs to find the metric.
 7. If you want to perform model inference, for **Inference
    image ECR container details**,
+
    1. Select the **Specify inference image
       URI** checkbox.
    2. Select the **Repository** from the

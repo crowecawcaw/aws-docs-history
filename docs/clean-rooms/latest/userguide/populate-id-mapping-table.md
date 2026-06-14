@@ -17,6 +17,7 @@ or Target ID namespace, rather than recreating the entire ID mapping table.
    an ID mapping table and then choose **Populate**.
 7. If you have turned on incremental processing for this ID mapping table, choose
    **Populate with** and then choose one of the following:
+
    - **Incremental processing** – Processes only new,
      updated, or deleted records in either the Source or Target ID
      namespace.

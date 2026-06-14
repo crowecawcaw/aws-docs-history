@@ -35,6 +35,7 @@ console.
    resolution data**, choose the **AWS Entity Resolution ID namespace** source or
    target that you want to associate with the collaboration from the dropdown list.
 9. For **Association details**, take the following steps.
+
    1. Enter a **Name** for the associated ID namespace.
 
    You can use the default name or rename this ID namespace. 2. (Optional) Enter a **Description** of the ID namespace.

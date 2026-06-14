@@ -55,7 +55,9 @@ Configured tables using non-S3 data sources only support [custom analysis rules]
    and then choose **Next**.
 7. Under **Step 2: Specify query controls**, for **Aggregate
    functions**:
+
    1. Choose an **Aggregate function** from the dropdown:
+
       - **COUNT**
       - **COUNT DISTINCT**
       - **SUM**
@@ -73,6 +75,7 @@ Configured tables using non-S3 data sources only support [custom analysis rules]
    function.
 
 8. For **Join controls**,
+
    1. Choose one option for **Allow table to be queried by
       itself**:
 
@@ -168,6 +171,7 @@ Configured tables using non-S3 data sources only support [custom analysis rules]
    and then choose **Next**.
 7. Under **Step 2: Specify query controls**, for **Join
    controls**:
+
    1. Under **Specify join columns**, choose the columns that you want
       to allow to be used in the INNER
       JOIN statement.
@@ -237,6 +241,7 @@ table using the **Guided flow** option in the AWS Clean Rooms console.
 | Allow specific collaborators to run any analyses of a chosen type without<br>review on this table | 1. Under **Analysis type**,<br>1. Choose **Any query\*<br>• to allow any query created by<br>the AWS account you specify.<br>2. Choose **Any query*<br>• to allow any job created by<br>the AWS account you specify.<br>2. Under **AWS accounts allowed to create any<br>analysis**, choose **Add AWS account**.<br>3. Enter an AWS account or choose the an **AWS account<br>ID**. from the dropdown list.<br>4. (Optional) Choose \*\*Add another AWS account*<br>• to add<br>another AWS account.<br>5. Choose **Next**. |
 
 8. Under **Step 3: Specify analysis results controls**,
+
    1. For **Job results controls**, note that no additional results
       controls are supported.
    2. Under **Query results controls**, for **Columns not

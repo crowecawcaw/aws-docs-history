@@ -37,6 +37,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
 2.  In the left navigation pane, choose **Collaborations**.
 3.  In the upper right corner, choose **Create collaboration**.
 4.  For **Step 1: Define collaboration**, do the following:
+
     1. For **Details**, enter the **Name** and
        **Description** of the collaboration.
 
@@ -73,10 +74,10 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
          member**. Then enter the **Member display name** and
          **Member AWS account ID** for each member who can contribute
          data that you want to invite to the collaboration.
-
     3. If you want to enable **Analysis logging**, select the
        **Enable analysis logging** checkbox, and then choose the
        **Supported log types**.
+
        - If you want to receive logs generated from SQL queries, choose the
          **Logs from queries** checkbox.
        - If you want to receive logs generated from jobs using PySpark, choose the
@@ -216,6 +217,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     and **Value** pair. 9. Choose **Next**.
 
 5.  For **Step 2: Specify member abilities**, do the following:
+
     1. For **Analysis using queries and jobs**, under
        **Supported analysis types**, choose the **Jobs**
        checkbox.
@@ -232,9 +234,9 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
 
         The member who creates the PySpark analysis template must also be the member
          who receives results.
-
     2. If you are using Clean Rooms ML, for **ML modeling using purpose-built
        workflows**,
+
        1. (Optional) Select the member who can **Receive output from trained
           models** from the dropdown list.
        2. (Optional) Select the member who can **Receive output from model
@@ -245,6 +247,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     4. Choose **Next**.
 
 6.  For **Step 3: Configure payment**,
+
     1. For **Analysis using queries and jobs**, choose the member who
        will **Pay for queries and jobs**.
 

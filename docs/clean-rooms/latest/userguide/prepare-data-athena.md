@@ -49,6 +49,7 @@ Hive Catalog Types.
   results.
 - You have set up a service role to read the data from Amazon Athena. For more
   information, see [Create a service role to read data from Amazon Athena](setting-up-roles.md#create-service-role-athena "setting-up-roles.md#create-service-role-athena").
+
   - The service role has Lake Formation Select and Describe access permissions
     on the GDC View or table.
 

@@ -25,6 +25,7 @@ allow additional analysis.
 3. Choose the collaboration.
 4. On the **Tables** tab, under **Tables associated by
    you**, view the configured table you've associated to the collaboration.
+
    - If **Direct analysis status** or **Additional analysis
      status** has a status of **Ready**, then the table is ready
      to be queried.

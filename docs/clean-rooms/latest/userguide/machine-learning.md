@@ -147,6 +147,7 @@ provider_:
    Amazon ECR. Follow the directions in [Amazon Elastic Container Registry User Guide](../../../AmazonECR/latest/userguide.md "../../../AmazonECR/latest/userguide.md") to create a container training
    image.
 3. Configure the model algorithm for use in Clean Rooms ML.
+
    1. Provide the Amazon ECR repository link and any arguments necessary to
       configure the model algorithm.
    2. Provide a service access role that allows Clean Rooms ML to access the Amazon ECR

@@ -143,6 +143,7 @@ statement to the previous template:
 
 5. Replace each `placeholder` with your own
    information:
+
    - `region` – The name of the
      AWS Region. For example,
      `us-east-1`.
@@ -334,6 +335,7 @@ statement to the template:
 
 5. Replace each `placeholder` with your own
    information:
+
    - `buckets` – The
      **Amazon Resource Name (ARN)** of the S3
      bucket. The **Amazon Resource Name (ARN)** can
@@ -556,6 +558,7 @@ statement to the template:
 
 5. Replace each `placeholder` with your own
    information:
+
    - `buckets` – The
      **Amazon Resource Name (ARN)** of the S3
      bucket. The **Amazon Resource Name (ARN)** can
@@ -759,6 +762,7 @@ JSON
 
 5. Replace each `placeholder` with your own
    information:
+
    - `bucket` – The
      **Amazon Resource Name (ARN)** of the S3
      bucket. The **Amazon Resource Name (ARN)** can
@@ -893,6 +897,7 @@ JSON
 
 5. Replace each `placeholder` with your own
    information:
+
    - `region` – The name of the
      AWS Region. For example,
      `us-east-1`.
@@ -1030,6 +1035,7 @@ JSON
 
 5. Replace each `placeholder` with your own
    information:
+
    - `region` – The name of the
      AWS Region. For example,
      `us-east-1`.

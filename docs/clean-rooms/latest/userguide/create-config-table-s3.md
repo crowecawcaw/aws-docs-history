@@ -43,6 +43,7 @@ data source.
 4. For **Data source**, under **AWS data
    sources**, choose **Amazon S3**.
 5. Under **Amazon S3 table**:
+
    1. Select the **Region** where the S3 table is
       hosted.
 

@@ -7,6 +7,7 @@ following:
   is going to be performed in the collaboration.
 - Determine the role that each collaboration member will perform and assign
   them the appropriate abilities.
+
   - Assign the `CAN_QUERY` ability to the member who will
     train the model and run inference on the trained model.
   - Assign the `CAN_RECEIVE_RESULTS` to at least one member
@@ -25,6 +26,7 @@ following:
   Using custom ML models requires using both the AWS Clean Rooms and AWS Clean Rooms ML
   SDKs.
 - Consider the following information about IAM roles.
+
   - All data providers must have a service access role that allows
     AWS Clean Rooms to read data from their AWS Glue catalogs and tables, and the
     underlying Amazon S3 locations. These roles are similar to those required

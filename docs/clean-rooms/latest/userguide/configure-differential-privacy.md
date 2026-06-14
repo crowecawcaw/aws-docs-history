@@ -68,6 +68,7 @@ reflect your privacy needs.
    **Tables associated by you**, choose **Edit**.
 5. On the **Edit differential privacy** page, choose new values for the
    following properties:
+
    - **Privacy budget** – Move the slider bar to either
      increase or decrease the budget at any point during a collaboration. You can't
      decrease the budget after the member who can query has started querying your data. If

@@ -56,6 +56,7 @@ service role for your membership.
     settings** tab.
 5.  Choose **Edit result settings**.
 6.  Update the result settings as needed:
+
     1. For **Results destination in Amazon S3**, enter the S3
        destination or choose **Browse S3** to select from a
        list of available S3 buckets.
@@ -109,6 +110,7 @@ You can update your payment responsibilities for the membership.
    configuration** tab.
 5. Choose **Edit payment configuration**.
 6. Update your payment responsibilities as needed:
+
    1. If you are the [member
       paying for query compute costs](glossary.md#glossary-member-paying-for-query-compute "glossary.md#glossary-member-paying-for-query-compute"), select or clear the
       **I agree to pay for the query compute costs in this

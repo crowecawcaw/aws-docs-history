@@ -117,6 +117,7 @@ columns.
 The following Parquet data types are supported:
 
 - `Binary` primitive type with the following logical annotations:
+
   - None if the `--parquetBinaryAsString` is set (`STRING` data
     type)
   - `Decimal(scale, precision)` (`DECIMAL` data type)
@@ -131,6 +132,7 @@ precision)` logical annotation (`DECIMAL` data type)
 - `Float` primitive data type with no logical annotation (`FLOAT`
   data type)
 - `Int32` primitive type with the following logical annotations:
+
   - None (`INT` data type)
   - `Date` (`DATE` data type)
   - `Decimal(scale, precision)` (`DECIMAL` data type)
@@ -138,6 +140,7 @@ precision)` logical annotation (`DECIMAL` data type)
   - `Int(32, true)` (`INT` data type)
 
 - `Int64` primitive data type with the following logical annotations:
+
   - None (`BIGINT` data type)
   - `Decimal(scale, precision)` (`DECIMAL` data type)
   - `Int(64, true)` (`BIGINT` data type)

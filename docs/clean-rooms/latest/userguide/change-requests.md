@@ -31,6 +31,7 @@ You can add new members to a collaboration by following these steps:
 5. In the Members table, select **Edit members**.
 6. Choose **Add another member**.
 7. Input the new member information:
+
    - Member display name
    - Member AWS account ID
    - Specify whether the member can receive results. Check the box to grant this member ability.
@@ -137,6 +138,7 @@ You can edit the auto-approval settings for a collaboration by following these s
 3. Select your collaboration to navigate to your collaboration details.
 4. On the collaboration page, choose the **Actions** button and select **Edit auto approvals**.
 5. **To grant member abilities to existing members without manually approving a change request:**
+
    1. Navigate to the **Grant member abilities** section.
    2. Specify which member abilities can be automatically granted.
 
@@ -145,6 +147,7 @@ You can edit the auto-approval settings for a collaboration by following these s
    By default, all collaboration members can "Contribute data". 3. (Optional) To allow new members to instantly join a collaboration with the specified abilities without manually approving change requests, select **Auto-approve new members with these abilities**.
 
 6. **To allow removal of abilities from existing members without a change request:**
+
    1. Navigate to the **Abilities that can be automatically revoked** section.
    2. Specify which member abilities can be automatically removed.
 

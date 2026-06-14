@@ -102,6 +102,7 @@ logs are stored in your Amazon CloudWatch Logs account.
     **Collaborations**.
 3.  Choose the collaboration that you created.
 4.  On the collaboration detail page, do one of the following:
+
     - Choose **Actions**, and then choose **Edit
       logs settings**.
     - On the **Logs** tab, choose **Edit logs
@@ -109,6 +110,7 @@ logs are stored in your Amazon CloudWatch Logs account.
 
 5.  On the **Edit logs settings modal**, for **Log
     storage in Amazon CloudWatch Logs**:
+
     - If you don't want logs relevant to you to be stored in your Amazon CloudWatch Logs
       account, choose **Turn oﬀ**.
     - If you do want logs relevant to you to be stored in your Amazon CloudWatch Logs
@@ -165,6 +167,7 @@ tags on the collaboration resource.
 5. For **Collaboration details**, choose **Manage
    tags**.
 6. On the **Manage tags** page, you can do the following:
+
    - To remove a tag, choose **Remove**.
    - To add a tag, choose **Add new tag**.
    - To save your changes, choose **Save changes**
@@ -186,6 +189,7 @@ tags on the membership resource.
    tags**.
 6. On the **Manage membership tags** page, you can do the
    following:
+
    - To remove a tag, choose **Remove**.
    - To add a tag, choose **Add new tag**.
    - To save your changes, choose **Save changes**.
@@ -244,6 +248,7 @@ tags on the analysis template resource.
    **Tags** section.
 7. Choose **Manage tags**.
 8. On the **Manage tags** page, you can do the following:
+
    - To remove a tag, choose **Remove**.
    - To add a tag, choose **Add new tag**.
    - To save your changes, choose **Save changes**.
@@ -265,6 +270,7 @@ tags on the analysis template resource.
 5. On the **Tables** tab, choose the **Manage
    tags**.
 6. On the **Manage tags** page, you can do the following:
+
    - To remove a tag, choose **Remove**.
    - To add a tag, choose **Add new tag**.
    - To save your changes, choose **Save changes**.

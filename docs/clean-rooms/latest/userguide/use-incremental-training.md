@@ -37,6 +37,7 @@ Console
    train.
 6. On the **Overview** page, under
    **Versions**,
+
    1. Choose the radio button next to the trained model you
       want to incrementally train.
    2. Choose **Train from version**.
@@ -86,6 +87,7 @@ following:
 
 9.  For **ML input channel details**, do the
     following:
+
     1. For **ML input channel**, specify the
        ML input channel that provides data to the model
        algorithm.
@@ -132,6 +134,7 @@ following:
 14. For **EC2 Resource configuration**, specify
     information about the compute resources that are used for model
     training.
+
     1. For **Instance type**, choose the
        type of instance you want to run.
     2. For **Instance count**, enter the

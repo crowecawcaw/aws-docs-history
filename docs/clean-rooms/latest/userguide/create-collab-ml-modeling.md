@@ -42,6 +42,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
 2.  In the left navigation pane, choose **Collaborations**.
 3.  In the upper right corner, choose **Create collaboration**.
 4.  For **Step 1: Define collaboration**, do the following:
+
     1. For **Details**, enter the **Name** and
        **Description** of the collaboration.
 
@@ -78,7 +79,6 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
          member**. Then enter the **Member display name** and
          **Member AWS account ID** for each member who can contribute
          data that you want to invite to the collaboration.
-
     3. If you want to enable **Analysis logging**, select the
        **Enable analysis logging** checkbox, and then under
        **Supported log types**, choose **Logs from
@@ -217,6 +217,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     and **Value** pair. 9. Choose **Next**.
 
 5.  For **Step 2: Specify member abilities**,
+
     1. For **Analysis using queries and jobs**, under the
        **Supported analysis types**, leave the
        **Queries** checkbox selected.
@@ -225,6 +226,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     3. For **Receive results from analyses**, choose one or more members
        who will receive the query results.
     4. For **ML modeling using purpose-built workflows**,
+
        1. For **Receive output from trained models**, choose the member
           who will receive trained model results, including model artifacts and
           metrics.
@@ -235,14 +237,17 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
        AWS Entity Resolution**.
 
 6.  For **Step 3: Configure payment**,
+
     1. Under **Analysis using queries**, for **Pay for
        queries**, do one of the following actions:
+
        - To have the same member pay for and run queries, select the same member you
          chose for **Run queries**.
        - To have a different member pay for query costs, select your member
          account.
 
     2. For **ML modeling using purpose-built workflows**,
+
        1. Choose the member who will **Pay for model training**.
 
     3. Choose the member who will **Pay for inference job**.
@@ -391,6 +396,7 @@ No, I will create a membership later
     Your status in the collaboration is inactive.
 
 9. For **Step 5: Review and create**, do the following:
+
    1. Review the selections that you made for the previous steps and edit if necessary.
    2. Choose one of the options.
 

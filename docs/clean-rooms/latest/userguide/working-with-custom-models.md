@@ -7,6 +7,7 @@ in AWS Clean Rooms ML.
 Here's how custom ML modeling works in Clean Rooms ML:
 
 1.  Data Source Configuration
+
     - Source data can be stored in Amazon S3 catalog, in the AWS Glue Data Catalog, or
       Snowflake
     - AWS Glue Data Catalog is used to organize and catalog
@@ -14,21 +15,25 @@ Here's how custom ML modeling works in Clean Rooms ML:
       collaboration
 
 2.  SQL Query and Data Processing
+
     - SQL queries are used to access and process the source data
     - The queries run within the AWS Clean Rooms collaboration boundaries
     - Processed data feeds into ML Input Channels for model training
 
 3.  ML Model Development
+
     - Source code for the model can be developed using AWS Deep Learning
       Container Images
     - Custom container images must be created and stored in Amazon Elastic Container Registry
 
 4.  Infrastructure Components
+
     - Amazon Elastic Container Registry stores and manages the ML model containers
     - ML processing occurs within the secure AWS Clean Rooms collaboration
       environment
 
 5.  Monitoring and Logging
+
     - Amazon CloudWatch provides metrics and logs for both collaborating parties
     - Monitoring is available across AWS accounts involved in the
       collaboration

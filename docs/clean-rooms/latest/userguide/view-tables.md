@@ -7,6 +7,7 @@
 3. Choose the collaboration.
 4. Choose the **Tables** tab.
 5. Choose one of the following:
+
    1. To view your tables associated in the collaboration, for **Tables
       associated by you**, choose a table (blue text).
    2. To view other tables associated in the collaboration, for **Tables

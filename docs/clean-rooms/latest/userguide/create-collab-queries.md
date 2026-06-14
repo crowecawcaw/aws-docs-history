@@ -36,6 +36,7 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
 2.  In the left navigation pane, choose **Collaborations**.
 3.  In the upper right corner, choose **Create collaboration**.
 4.  For **Step 1: Define collaboration**, do the following:
+
     1. For **Details**, enter the **Name** and
        **Description** of the collaboration.
 
@@ -72,9 +73,9 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
          member**. Then enter the **Member display name** and
          **Member AWS account ID** for each member who can contribute
          data that you want to invite to the collaboration.
-
     3. If you want to enable **Analysis logging**, select the
        **Enable analysis logging** checkbox.
+
        1. Choose the **Logs from queries** checkbox under the
           **Supported log types**.
 

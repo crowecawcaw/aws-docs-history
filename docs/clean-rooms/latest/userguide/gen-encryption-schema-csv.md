@@ -77,6 +77,7 @@ following:
 
 1. (_Optional_) To ensure the c3r-cli.jar
    file and file to be encrypted are present:
+
    1. Navigate to the desired directory and run `ls` (if using a
       Mac or Unix/Linux) or
       `dir` if using Windows).
@@ -157,6 +158,7 @@ columns, we want the following:
 
 1. (_Optional_) To ensure the c3r-cli.jar
    file and file to be encrypted are present:
+
    1. Navigate to the desired directory and run `ls` (if using a
       Mac or Unix/Linux) or
       `dir` if using Windows).

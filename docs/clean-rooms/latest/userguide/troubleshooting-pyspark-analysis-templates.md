@@ -31,6 +31,7 @@ be run.
 3. Create an Amazon EMR Studio instance if you don’t already have one (Amazon EMR Studio is needed to
    use Amazon EMR Serverless).
 4. Create an EMR Serverless app
+
    - Select release version emr-7.7.0.
    - Select ARM64 architecture.
    - Opt for **Use custom settings**.
@@ -59,6 +60,7 @@ issues:
 ###### To resolve:
 
 1. Verify your user script:
+
    1. Check that your user script has a valid Python filename.
 
    Valid Python filenames use lowercase letters, underscores to separate words, and the
@@ -66,6 +68,7 @@ issues:
 
 2. Verify the entrypoint function. If your user script doesn't have an entrypoint function,
    add one.
+
    1. Open your user script.
    2. Add this entrypoint function:
 
@@ -74,11 +77,11 @@ issues:
        # Your analysis code here
 
    ```
-
    3. Ensure the function name is spelled exactly as `entrypoint`.
    4. Verify the function accepts the `context` parameter.
 
 3. Check Python version compatibility:
+
    1. Verify your virtual environment uses Python 3.9 or 3.11.
    2. To check your version, run: `python --version`
    3. If needed, update your virtual environment:
@@ -115,11 +118,13 @@ Analysis jobs can fail during execution for these security and formatting reason
 ###### To resolve
 
 1. Remove direct AWS service access:
+
    1. Search your code for direct AWS service imports and calls.
    2. Replace direct S3 access with provided Spark session methods.
    3. Use only pre-configured tables through the collaboration interface.
 
 2. Format outputs correctly:
+
    1. Verify all outputs are Spark DataFrames.
    2. Update your return statement to match this format:
 
@@ -131,10 +136,10 @@ Analysis jobs can fail during execution for these security and formatting reason
    }
 
    ```
-
    3. Remove any non-DataFrame return objects.
 
 3. Remove network calls:
+
    1. Identify and remove any external API calls.
    2. Remove any urllib, requests, or similar network libraries.
    3. Remove any socket connections or HTTP client code.
@@ -161,6 +166,7 @@ Virtual environment configuration failures commonly occur due to:
 ###### To resolve
 
 1. Configure the correct architecture:
+
    1. Check your current architecture with `uname -m.`
    2. Update your Dockerfile to specify ARM64:
 
@@ -168,10 +174,10 @@ Virtual environment configuration failures commonly occur due to:
    FROM --platform=linux/arm64 public.ecr.aws/amazonlinux/amazonlinux:2023-minimal
 
    ```
-
    3. Rebuild your container with `docker build --platform=linux/arm64.`
 
 2. Fix Python indentation:
+
    1. Run a Python code formatter like `black` on your code files.
    2. Verify consistent use of spaces or tabs (not both).
    3. Check indentation of all code blocks:
@@ -183,10 +189,10 @@ Virtual environment configuration failures commonly occur due to:
        return result
 
    ```
-
    4. Use an IDE with Python indentation highlighting.
 
 3. Validate environment configuration:
+
    1. Run `python -m py_compile your_script.py` to check for syntax errors.
    2. Test the environment locally before deployment.
    3. Verify all dependencies are listed in `requirements.txt`.

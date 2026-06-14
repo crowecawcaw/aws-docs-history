@@ -38,6 +38,7 @@ seed data.
 8. Choose the **Worker type** to use when creating this data source. The default worker type is **CR.1X**.
    Specify the **Number of workers** to use. The default is worker number **16**. To specify **Spark
    properties**:
+
    1. Expand **Spark properties**.
    2. Choose **Add Spark properties**.
    3. On the **Spark properties** dialog box, choose a

@@ -28,6 +28,7 @@ Console
    [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
 2. Create a new S3 bucket or use an existing one.
 3. Enable versioning for the bucket.
+
    1. Select your bucket.
    2. Choose **Properties**.
    3. In the **Bucket Versioning** section, choose
@@ -35,6 +36,7 @@ Console
    4. Select **Enable** and save changes.
 
 4. Upload your artifacts and enable SHA-256 hash.
+
    1. Navigate to your bucket.
    2. Choose **Upload**.
    3. Choose **Add files** and add your user script

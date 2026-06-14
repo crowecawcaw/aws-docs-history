@@ -21,6 +21,7 @@ functions:
 
 - JOIN (INNER, OUTER, LEFT, RIGHT, or FULL) against other
   fingerprint columns:
+
   - If the value of the `allowJoinsOnColumnsWithDifferentNames` parameter is set
     to `false`, both fingerprint columns of the JOIN
     must also have the same name.
